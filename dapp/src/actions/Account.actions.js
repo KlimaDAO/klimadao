@@ -115,7 +115,7 @@ export const loadAccountDetails =
 
       distributorContract = new ethers.Contract(addresses[networkID].DISTRIBUTOR_ADDRESS, DistributorContract, provider);
       rebaseBlock = await distributorContract.nextEpochBlock();
-      console.log("next rebase block: ", rebaseBlock);
+      console.log(`Next rebase block: ${rebaseBlock}`);
     }
 
 
