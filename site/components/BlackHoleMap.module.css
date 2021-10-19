@@ -1,0 +1,15 @@
+@value bp-medium from "styles/breakpoints.css";
+
+.mapContainer {
+  height: 100%;
+  width: 100%;
+  background-color: var(--surface);
+  max-width: 68rem;
+}
+
+@media bp-medium {
+  .mapContainer {
+    border-radius: 2.4rem;
+    filter: drop-shadow(0px 4px 6px rgba(20, 196, 185, 0.3));
+  }
+}

@@ -1,0 +1,36 @@
+.stakeCard {
+  composes: stakeCard from "../Stake/Stake.module.css";
+}
+
+.stakeCard_header {
+  composes: stakeCard_header from "../Stake/Stake.module.css";
+}
+
+.chooseBond_header {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.data_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.data_column :global(.price-data) {
+  color: var(--secondary);
+}
+
+.bondList {
+  display: grid;
+  gap: 0.8rem;
+}
+.bondLink {
+  display: grid;
+  background-color: var(--surface-16);
+  padding: 1.6rem;
+  border: 1px solid transparent;
+  color: white;
+}
+.bondLink:hover {
+  border: 1px solid var(--secondary);
+}

@@ -1,0 +1,4 @@
+@value bp-small: (min-width: 32.5rem);
+@value bp-medium: (min-width: 57.6rem);
+@value bp-large: (min-width: 76.8rem);
+@value bp-desktop: (min-width: 99.2rem);

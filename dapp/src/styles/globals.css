@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%; /* Now 1 rem = 10px in most browsers */
+}
+
+body {
+  font-size: 1.6rem;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  background-color: #121212;
+}
+
+svg {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+figure {
+  margin: 0px; /* DESTROY ALL MARGINS */
+  margin-block-end: 0rem;
+  color: white;
+}
+
+ul {
+  padding-inline-start: 1.6rem;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: inherit;
+}
+
+button {
+  display: flex;
+  height: fit-content;
+  border: none;
+  background-color: unset;
+  cursor: pointer;
+  padding: 0;
+  color: white;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid red;
+  outline-offset: -2px;
+}
+
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) a:focus {
+  outline: none;
+}
+
+body.user-is-tabbing button:focus {
+  outline: auto;
+}
+
+span {
+  font-family: inherit;
+}

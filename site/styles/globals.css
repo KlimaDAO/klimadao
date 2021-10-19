@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family), -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%; /* Now 1 rem = 10px in most browsers */
+}
+
+body {
+  font-size: 1.6rem;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+:root {
+  background-color: black;
+}
+
+svg {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+figure {
+  margin: 0px; /* DESTROY ALL MARGINS */
+  margin-block-end: 0rem;
+}
+
+ul {
+  padding-inline-start: 1.6rem;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  display: flex;
+  height: fit-content;
+  border: none;
+  background-color: unset;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  color: white;
+}
+
+body.user-is-tabbing button:focus {
+  outline: auto;
+}
+
+span {
+  font-family: inherit;
+}

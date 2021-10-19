@@ -1,0 +1,32 @@
+.blackHoleSection {
+  display: grid;
+  grid-template-columns: inherit;
+  gap: 20vh 0rem;
+  align-content: start;
+  width: 100vw;
+  position: relative;
+}
+
+.bgImgContainer {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+}
+
+.stickyMapContainer {
+  margin-top: 4.8rem;
+  position: sticky;
+  max-height: 40rem;
+  grid-column: full;
+  top: -4px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.gap {
+  width: 0px;
+  grid-column: main;
+}

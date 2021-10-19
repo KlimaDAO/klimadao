@@ -1,0 +1,36 @@
+.card {
+  background-color: var(--surface-01dp);
+  padding: 1.6rem;
+}
+
+.tourItem {
+  composes: card;
+  text-align: center;
+  grid-column: main;
+  padding: 2.4rem;
+  display: grid;
+  gap: 0.8rem;
+  max-width: 62rem;
+  justify-self: center;
+  border-radius: 0.8rem;
+}
+.tourItem_title {
+  composes: h5_decorative from "styles/typography.module.css";
+}
+.tourItem_description {
+  composes: body1 from "styles/typography.module.css";
+}
+
+.tourStartObserver {
+  height: 1px;
+  position: absolute;
+  top: 100vh;
+}
+
+.divider {
+  height: 0.2rem;
+  width: 2.4rem;
+  grid-column: main;
+  background-color: var(--primary);
+  justify-self: center;
+}

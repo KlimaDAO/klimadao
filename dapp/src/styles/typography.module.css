@@ -1,0 +1,132 @@
+@value bp-medium from "./breakpoints.css";
+
+.h1 {
+  --font-size: 9.6rem;
+  font-weight: 300;
+  line-height: 117%;
+  letter-spacing: -0.15rem;
+}
+.h2 {
+  --font-size: 6rem;
+  font-weight: 300;
+  font-size: 6rem;
+  line-height: 120%;
+  letter-spacing: -0.05rem;
+}
+.h3 {
+  --font-size: 4.8rem;
+  font-weight: normal;
+  font-size: 4.8rem;
+  line-height: 117%;
+}
+.h4 {
+  --font-size: 3.4rem;
+  font-weight: normal;
+  line-height: 106%;
+}
+.h4_decorative {
+  composes: h4;
+  font-family: var(--font-family-decorative);
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+.h5 {
+  --font-size: 2.4rem;
+  font-weight: normal;
+  line-height: 100%;
+  letter-spacing: 0.018rem;
+}
+.h5_decorative {
+  composes: h5;
+  font-family: var(--font-family-decorative);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+.h6 {
+  --font-size: 2rem;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.015rem;
+}
+.body1 {
+  --font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 150%;
+  letter-spacing: 0.05rem;
+}
+.body2 {
+  --font-size: 1.4rem;
+  font-weight: normal;
+  line-height: 143%;
+  letter-spacing: 0.025rem;
+}
+.subtitle1 {
+  --font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 150%;
+  letter-spacing: 0.015rem;
+}
+.subtitle2 {
+  --font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 171%;
+  letter-spacing: 0.01rem;
+}
+.button {
+  --font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 114%;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+}
+.overline {
+  --font-size: 1rem;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+.caption {
+  --font-size: 1.2rem;
+  font-weight: normal;
+  line-height: 133%;
+  letter-spacing: 0.04rem;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h4_decorative,
+.h5,
+.h5_decorative,
+.h6,
+.body1,
+.body2,
+.subtitle1,
+.subtitle2,
+.button,
+.overline,
+.caption {
+  font-size: var(--font-size);
+}
+
+@media bp-medium {
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h4_decorative,
+  .h5,
+  .h5_decorative,
+  .h6,
+  .body1,
+  .body2,
+  .subtitle1,
+  .subtitle2,
+  .button,
+  .overline,
+  .caption {
+    font-size: calc(var(--font-size) * 1.25);
+  }
+}
