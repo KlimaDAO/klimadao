@@ -169,7 +169,7 @@ function Stake(props) {
           <p className="price-label">Balance</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{trim(ohmBalance)}</span> KLIMA
+              <span>{(ohmBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> KLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -178,42 +178,42 @@ function Stake(props) {
           <p className="price-label">Staked</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{trim(sohmBalance, 4)}</span> sKLIMA
+              <span>{(sohmBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> sKLIMA
             </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Time until rebase</p>
           <p className="price-data">
-            <span>{timeUntilRebase()}</span>
+            <span>{timeUntilRebase() || "loading..."}</span>
           </p>
         </div>
 
         <div className="stake-price-data-row">
           <p className="price-label">Next Rebase</p>
           <p className="price-data">
-            <span>{trim(stakingRebase * 100, 4)}</span>%
+            <span>{(stakingRebase * 100).toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
           <p className="price-label">ROI (5-day rate)</p>
           <p className="price-data">
-            <span>{trim(fiveDayRate * 100, 4)}</span>%
+            <span>{(fiveDayRate * 100).toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
           <p className="price-label">APY</p>
           <p className="price-data">
-            <span>{trim(stakingAPY * 100, 4)}</span>%
+            <span>{(stakingAPY * 100).toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
           <p className="price-label">Current index</p>
           <p className="price-data">
-            <span>{trim(currentIndex, 4)}</span> KLIMA
+            <span>{(currentIndex || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> KLIMA
           </p>
         </div>
       </div>
