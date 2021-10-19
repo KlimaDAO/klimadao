@@ -53,11 +53,7 @@ function PKlima(props) {
   const isLoading = typeof pAllowance === "undefined";
 
   const setMax = () => {
-    if (view === "stake") {
-      setQuantity(ohmBalance);
-    } else {
-      setQuantity(sohmBalance);
-    }
+    setQuantity(pKlimaVestable);
   };
 
   const onSeekApproval = async token => {
