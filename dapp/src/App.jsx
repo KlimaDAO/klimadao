@@ -275,7 +275,7 @@ function App() {
             <Route exact path="/bonds">
               <ChooseBond address={address} provider={injectedProvider} isConnected={isConnected} />
             </Route>
-            {Object.values(BONDS).map(bond => {
+            {/* {Object.values(BONDS).map(bond => {
               if (bond === "bct") {
                 return null; // REMOVE ME when naked bonds launch
               }
@@ -296,7 +296,7 @@ function App() {
                   />
                 </Route>
               );
-            })}
+            })} */}
             <Redirect to="/" />
           </Switch>
           <div className={styles.invisibleColumn}>{nav}</div>
