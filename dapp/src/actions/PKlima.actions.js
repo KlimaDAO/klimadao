@@ -25,8 +25,6 @@ export const changeApproval =
 
     let stakeAllowance = await ohmContract.allowance(address, addresses[networkID].PEXERCISE_ADDRESS);
     let unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].PEXERCISE_ADDRESS);
-    console.log("old aKlima PKlima  Allowance: ", stakeAllowance);
-    console.log("old alKlima PKlima Allowance: ", unstakeAllowance);
 
     let approveTx;
     try {
@@ -50,8 +48,6 @@ export const changeApproval =
 
     stakeAllowance = await ohmContract.allowance(address, addresses[networkID].PEXERCISE_ADDRESS);
     unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].PEXERCISE_ADDRESS);
-    console.log("new aKlima PKlima Allowance: ", stakeAllowance);
-    console.log("new alKlima PKlima Allowance: ", unstakeAllowance);
     return dispatch(
       fetchExerciseSuccess({
         exercise: {
@@ -104,12 +100,16 @@ export const runExercise =
     const ohmBalance = await ohmContract.balanceOf(address);
     const sohmContract = new ethers.Contract(addresses[networkID].DAI_ADDRESS, ierc20Abi, provider);
     const sohmBalance = await sohmContract.balanceOf(address);
-
+    const pExerciseContract = new ethers.Contract(addresses[networkID].PEXERCISE_ADDRESS, ExercisePKlima, provider);
+    const pklimaVestable = ethers.utils.formatEther(await pExerciseContract.redeemableFor(address));
     return dispatch(
       fetchExerciseSuccess({
         balances: {
-          pKLIMA: ethers.utils.formatUnits(ohmBalance, "wei"),
-          bctBalance: ethers.utils.formatUnits(sohmBalance, "wei"),
+          pKLIMA: ethers.utils.formatEther(ohmBalance),
+          bctBalance: ethers.utils.formatEther(sohmBalance),
+        },
+        exercise: {
+          pklimaVestable,
         },
       }),
     );
