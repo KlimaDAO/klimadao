@@ -88,7 +88,7 @@ const web3Modal = new Web3Modal({
       package: WalletConnectProvider, // required
       options: {
         // infuraId: INFURA_ID,
-        rpc: { 1: MAINNET_RPC_URL },
+        rpc: { 137: MAINNET_RPC_URL },
       },
     },
   },
