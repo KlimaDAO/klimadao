@@ -158,7 +158,7 @@ function Migrate(props) {
           <p className="price-label">Redeemable aKLIMA</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{trim(ohmBalance)}</span> aKLIMA
+              <span>{(ohmBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> aKLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -166,7 +166,7 @@ function Migrate(props) {
           <p className="price-label">Redeemable alKLIMA</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{trim(sohmBalance)}</span> alKLIMA
+              <span>{(sohmBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> alKLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -174,7 +174,7 @@ function Migrate(props) {
           <p className="price-label">Balance</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{trim(klimaBalance)}</span> KLIMA
+              <span>{(klimaBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> KLIMA
             </WithPlaceholder>
           </p>
         </div>
