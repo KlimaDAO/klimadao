@@ -94,7 +94,7 @@ export const changeStake =
         await stakeTx.wait();
       } else {
         const staking = await new ethers.Contract(addresses[networkID].STAKING_ADDRESS, KlimaStaking, signer);
-        stakeTx = await staking.unstake(ethers.utils.parseUnits(value, "gwei"));
+        stakeTx = await staking.unstake(ethers.utils.parseUnits(value, "gwei"), false);
         await stakeTx.wait();
       }
     } catch (error) {
