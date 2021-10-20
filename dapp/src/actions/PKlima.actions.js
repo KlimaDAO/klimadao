@@ -1,7 +1,4 @@
 import { ethers } from "ethers";
-import { Biconomy } from "@biconomy/mexa";
-import Web3 from "web3";
-import { RelayProvider } from "@opengsn/provider";
 import { addresses, Actions } from "../constants";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
 import { abi as ExercisePKlima } from "../abi/klimadao/contracts/ExercisepKLIMA.json";

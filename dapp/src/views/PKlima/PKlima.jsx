@@ -1,10 +1,9 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { trim, trimWithPlaceholder } from "../../helpers";
+import { trimWithPlaceholder } from "../../helpers";
 import { runExercise, changeApproval } from "../../actions/PKlima.actions";
 import styles from "./PKlima.module.css";
 import t from "../../styles/typography.module.css";
-import { ethers } from "ethers";
 
 /**
  * @typedef {Object} Props

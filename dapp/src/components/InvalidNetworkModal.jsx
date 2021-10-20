@@ -22,6 +22,7 @@ export const InvalidNetworkModal = ({ provider }) => {
 
   useEffect(() => {
     if (provider) onLoadProvider();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [provider]);
 
   if (!show) {
