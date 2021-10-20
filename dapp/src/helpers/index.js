@@ -52,11 +52,12 @@ export function contractForReserve({ bond, networkID, provider }) {
 }
 
 export async function getMarketPrice({ networkID, provider }) {
-  const pairContract = new ethers.Contract(addresses[networkID].LP_ADDRESS, PairContract, provider);
+  
+  const pairContract = new ethers.Contract("0x9803c7ae526049210a1725f7487af26fe2c24614", PairContract, provider);
   let reserves;
   try {
     reserves = await pairContract.getReserves();
-    const marketPrice = reserves[1] / reserves[0];
+    const marketPrice = reserves[0] / reserves[1];
 
     // commit('set', { marketPrice: marketPrice / Math.pow(10, 9) });
     return marketPrice;
