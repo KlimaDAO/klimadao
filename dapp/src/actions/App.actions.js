@@ -27,7 +27,11 @@ export const loadAppDetails =
 
     const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS, ierc20Abi, provider);
     const stakingContract = new ethers.Contract(addresses[networkID].STAKING_ADDRESS, KlimaStaking, provider);
-    const distributorContract = new ethers.Contract(addresses[networkID].DISTRIBUTOR_ADDRESS, DistributorContract, provider);
+    const distributorContract = new ethers.Contract(
+      addresses[networkID].DISTRIBUTOR_ADDRESS,
+      DistributorContract,
+      provider,
+    );
     const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, provider);
     const sohmMainContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, sKLIMA, provider);
 
@@ -93,9 +97,8 @@ export const getTokenSupply =
   ({ networkID, provider }) =>
   async dispatch => {
     const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS, ierc20Abi, provider);
-    const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, provider);
+    const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, sKLIMA, provider);
 
-    // FIX
     let ohmCircSupply = 0;
     try {
       ohmCircSupply = await sohmContract.circulatingSupply();
