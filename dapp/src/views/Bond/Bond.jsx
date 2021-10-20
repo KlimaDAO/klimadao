@@ -166,6 +166,9 @@ function Bond({ provider, address, bond, isConnected }) {
     return allowance && allowance.gt(0);
   }, [allowance]);
 
+  const bondDiscountPercent = bondDiscount * 100;
+  const isBondDiscountNegative = bondDiscountPercent < 0;
+
   return (
     <div className={styles.stakeCard}>
       <div className={styles.bondHeader}>
@@ -289,7 +292,7 @@ function Bond({ provider, address, bond, isConnected }) {
           <div className="stake-price-data-row">
             <p className="price-label">ROI (bond discount)</p>
             <p className="price-data">
-              <span>{trimWithPlaceholder(bondDiscount * 100, 2)}</span>%
+              <span data-warning={isBondDiscountNegative}>{trimWithPlaceholder(bondDiscount * 100, 2)}</span>%
             </p>
           </div>
         </div>

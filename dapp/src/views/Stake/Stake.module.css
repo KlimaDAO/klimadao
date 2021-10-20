@@ -134,6 +134,9 @@
   font-size: 2rem;
   color: white;
 }
+.dataContainer :global(.price-data span[data-warning="true"]) {
+  color: red;
+}
 
 .submitButton {
   composes: textButton;
