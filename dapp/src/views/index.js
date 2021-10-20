@@ -9,3 +9,4 @@ export { default as Stake } from "./Stake/Stake";
 export { default as Dashboard } from "./Dashboard/Dashboard";
 export { default as Redeem } from "./Redeem/Redeem";
 export { default as PKlima } from "./PKlima/PKlima";
+export { default as Info } from "./Info/Info";

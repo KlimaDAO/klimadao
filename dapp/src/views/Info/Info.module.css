@@ -1,0 +1,30 @@
+@value button, body2 from "../../styles/typography.module.css";
+@value bp-medium from "../../styles/breakpoints.css";
+@value textButton from "../../App.module.css";
+
+.stakeCard {
+  align-self: center;
+  max-width: 54rem;
+  background-color: var(--surface-01);
+  border-radius: 3.2rem;
+  padding: 2.4rem;
+  display: grid;
+  gap: 3.2rem;
+}
+
+.stakeCard_header {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.infoSection {
+  display: grid;
+  gap: 0.8rem;
+}
+
+@media bp-medium {
+  .stakeCard {
+    padding: 3.2rem;
+    min-width: 54rem;
+  }
+}

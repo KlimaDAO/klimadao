@@ -11,7 +11,7 @@ import { calcBondDetails } from "./actions/Bond.actions";
 import { loadAppDetails, getMarketPrice, getTokenSupply } from "./actions/App.actions";
 import { loadAccountDetails } from "./actions/Account.actions";
 
-import { Stake, ChooseBond, Bond, Redeem, PKlima } from "./views";
+import { Stake, ChooseBond, Bond, Redeem, PKlima, Info } from "./views";
 import { InvalidNetworkModal } from "./components/InvalidNetworkModal";
 
 import { NETWORKS, BONDS, addresses, polygonNetworks, MAINNET_RPC_URL } from "./constants";
@@ -217,6 +217,9 @@ function App() {
       <Link className={styles.textButton} to="/stake" data-active={pathname === "/stake"}>
         STAKE KLIMA
       </Link>
+      <Link className={styles.textButton} to="/info" data-active={pathname === "/info"}>
+        INFO & FAQ
+      </Link>
     </nav>
   );
 
@@ -256,6 +259,9 @@ function App() {
             </Route>
             <Route exact path="/bonds">
               <ChooseBond address={address} provider={userProvider} isConnected={isConnected} />
+            </Route>
+            <Route exact path="/info">
+              <Info />
             </Route>
             {Object.values(BONDS).map(bond => {
               if (bond === "bct") {

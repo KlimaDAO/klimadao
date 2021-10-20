@@ -157,9 +157,6 @@ function Stake(props) {
       </div>
 
       <div className={styles.dataContainer}>
-        <h3 style={{ textAlign: 'center' }}><em>Why don't I see my sKLIMA?</em> </h3>
-        <p style={{ textAlign: 'center', fontSize: "1.6rem" }}>There is a small bug affecting users who staked in the first 18 hours after launch. We have posted <a target="_blank" href="https://klimadao.notion.site/sKLIMA-Bugfix-Instructions-079caaa21f6742daac201781ef5759da">step-by-step instructions</a> to fix the issue.</p>
-
         {address && (
           <p className={styles.dataContainer_address}>
             {address.slice(0, 5)}..{address.slice(address.length - 3)}
