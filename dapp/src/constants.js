@@ -85,7 +85,8 @@ export const addresses = {
     // This is V1.1. Some are copied from above.
     RESERVES: {
       DAI: "0x2f800db0fdb5223b3c3f354886d907a671414a7f", // VCU20  (BCT)
-      OHM_DAI: "0xb7225519550ED89C9B36c88d57d6059F698AaE97", // KLIMA-VCU20 LP
+      OHM_DAI: "0x9803c7ae526049210a1725f7487af26fe2c24614",
+      BCT_USDC: "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64" // KLIMA-VCU20 LP
     },
 
     BONDS: {
@@ -169,7 +170,7 @@ export const BLOCKNATIVE_DAPPID = "0b58206a-f3c0-4701-a62f-73c7243e8c77";
 
 // EXTERNAL CONTRACTS
 
-export const DAI_ADDRESS = "0x8f8b7D5d12c1fC37f20a89Bf4Dfe1E787Da529B5";
+export const DAI_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
 
 export const DAI_ABI = [
   {

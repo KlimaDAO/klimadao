@@ -113,7 +113,6 @@ export const calculateUserBondDetails =
     // Calculate bond details.
     const bondContract = contractForBond({ bond, provider, networkID });
     const reserveContract = contractForReserve({ bond, networkID, provider });
-
     let interestDue;
     let pendingPayout;
     let bondMaturationBlock;
@@ -137,13 +136,18 @@ export const calculateUserBondDetails =
 
     let allowance;
     let balance;
-    if (bond === BONDS.ohm_dai) {
+    if (bond === "klima_bct_lp") {
       allowance = await reserveContract.allowance(address, addresses[networkID].BONDS.OHM_DAI);
 
       balance = await reserveContract.balanceOf(address);
       balance = ethers.utils.formatUnits(balance, "ether");
     } else if (bond === BONDS.dai) {
       allowance = await reserveContract.allowance(address, addresses[networkID].BONDS.DAI);
+
+      balance = await reserveContract.balanceOf(address);
+      balance = ethers.utils.formatEther(balance);
+    } else if (bond === "bct_usdc_lp") {
+      allowance = await reserveContract.allowance(address, addresses[networkID].BONDS.BCT_USDC);
 
       balance = await reserveContract.balanceOf(address);
       balance = ethers.utils.formatEther(balance);
