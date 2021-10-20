@@ -10,7 +10,7 @@ export const fetchBondSuccess = payload => ({
 
 export const changeApproval =
   ({ bond, provider, address, networkID }) =>
-  
+
   async dispatch => {
     if (!provider) {
       alert("Please connect your wallet!");
@@ -219,7 +219,7 @@ export const bondAsset =
       }
     }
   };
-
+//
 export const redeemBond =
   ({ address, bond, networkID, provider, autostake }) =>
   async dispatch => {
