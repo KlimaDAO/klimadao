@@ -298,7 +298,7 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Pending Rewards</p>
             <p id="bond-market-price-id" className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                {trimWithPlaceholder(interestDue, 4)} KLIMA
+                <span>{trimWithPlaceholder(interestDue, 4)}</span> KLIMA
               </WithPlaceholder>
             </p>
           </div>
@@ -306,7 +306,7 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Claimable Rewards</p>
             <p id="bond-market-price-id" className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                {trimWithPlaceholder(pendingPayout, 4)} KLIMA
+                <span>{trimWithPlaceholder(pendingPayout, 4)}</span> KLIMA
               </WithPlaceholder>
             </p>
           </div>

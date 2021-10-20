@@ -31,17 +31,21 @@ function ChooseBond() {
         </div>
       </div>
       <div className={styles.bondList}>
-        {/* <h2 className={t.overline}>Choose a bond:</h2> */}
+        <h2 className={t.overline}>Choose a bond:</h2>
+        <Link to={bct_lp.href}>
+          <div className={styles.bondLink} key={bct_lp.name}>
+            <h3 className={t.subtitle2}>{bct_lp.name}</h3>
+            <p className={classNames(styles.bondLink_description, t.caption)}>{bct_lp.description}</p>
+          </div>
+        </Link>
+        <Link to={bct_usdc_lp.href}>
+          <div to={bct_usdc_lp.href} className={styles.bondLink} key={bct_usdc_lp.name}>
+            <h3 className={t.subtitle2}>{bct_usdc_lp.name}</h3>
+            <p className={classNames(styles.bondLink_description, t.caption)}>{bct_usdc_lp.description}</p>
+          </div>
+        </Link>
         <h2 className={t.overline}>COMING SOON:</h2>
-        <div to={bct_lp.href} className={styles.bondLink} style={{opacity: 0.5, border: "none"}} key={bct_lp.name}>
-          <h3 className={t.subtitle2}>{bct_lp.name}</h3>
-          <p className={classNames(styles.bondLink_description, t.caption)}>{bct_lp.description}</p>
-        </div>
-        <div to={bct_usdc_lp.href} className={styles.bondLink} style={{opacity: 0.5, border: "none"}} key={bct_usdc_lp.name}>
-          <h3 className={t.subtitle2}>{bct_usdc_lp.name}</h3>
-          <p className={classNames(styles.bondLink_description, t.caption)}>{bct_usdc_lp.description}</p>
-        </div>
-        <div to={bct.href} className={styles.bondLink} style={{opacity: 0.5, border: "none"}} key={bct.name}>
+        <div to={bct.href} className={styles.bondLink} style={{ opacity: 0.5, border: "none" }} key={bct.name}>
           <h3 className={t.subtitle2}>{bct.name}</h3>
           <p className={classNames(styles.bondLink_description, t.caption)}>{bct.description}</p>
         </div>
