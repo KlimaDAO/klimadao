@@ -23,7 +23,7 @@ function Bond({ provider, address, bond, isConnected }) {
   const [showAdvanced, setShowAdvanced] = useState();
   const dispatch = useDispatch();
 
-  const NETWORK_ID = 80001;
+  const NETWORK_ID = 137;
 
   const [slippage, setSlippage] = useState(2);
   const [recipientAddress, setRecipientAddress] = useState(address);
@@ -143,9 +143,12 @@ function Bond({ provider, address, bond, isConnected }) {
   };
 
   async function loadBondDetails() {
+    console.log("start load", provider, address)
     if (provider) await dispatch(calcBondDetails({ bond, value: quantity, provider, networkID: NETWORK_ID }));
 
     if (provider && address) {
+      console.log("calc load")
+
       await dispatch(calculateUserBondDetails({ address, bond, provider, networkID: NETWORK_ID }));
     }
   }
