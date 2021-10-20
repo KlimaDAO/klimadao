@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { trim } from "../../helpers";
+import { trim, trimWithPlaceholder } from "../../helpers";
 import { runExercise, changeApproval } from "../../actions/PKlima.actions";
 import styles from "./PKlima.module.css";
 import t from "../../styles/typography.module.css";
@@ -129,7 +129,7 @@ function PKlima(props) {
             <p className="price-label">pKLIMA Balance</p>
             <p className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                <span>{(ohmBalance ? Number(ohmBalance) : NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> pKLIMA
+                <span>{trimWithPlaceholder(ohmBalance, 4)}</span> pKLIMA
               </WithPlaceholder>
             </p>
           </div>
@@ -137,31 +137,31 @@ function PKlima(props) {
         <div className="stake-price-data-row">
           <p className="price-label">BCT Balance</p>
           <p className="price-data">
-            <span>{(sohmBalance ? Number(sohmBalance) : NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> BCT
+            <span>{trimWithPlaceholder(sohmBalance, 4)}</span> BCT
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Vesting Share</p>
           <p className="price-data">
-            <span>{(termsPercent ? termsPercent / 10000 : NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span>%
+            <span>{trimWithPlaceholder(termsPercent / 10000, 2)}</span>%
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Vestable Amount</p>
           <p className="price-data">
-            <span>{(pKlimaVestable ? Number(pKlimaVestable) : NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> pKLIMA
+            <span>{trimWithPlaceholder(pKlimaVestable, 4)}</span> pKLIMA
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Claimed Amount</p>
           <p className="price-data">
-            <span>{(termsClaimed ? Number(termsClaimed) : NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> pKLIMA
+            <span>{trimWithPlaceholder(termsClaimed, 4)}</span> pKLIMA
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Max Amount</p>
           <p className="price-data">
-            <span>{(termsMax ? Number(termsMax) : NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> pKLIMA
+            <span>{trimWithPlaceholder(termsMax, 4)}</span> pKLIMA
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { trim, getRebaseBlock, secondsUntilBlock, prettifySeconds } from "../../helpers";
+import { secondsUntilBlock, prettifySeconds, trimWithPlaceholder } from "../../helpers";
 import { changeStake, changeApproval, changeApprovalGasLess } from "../../actions/Stake.actions";
 import styles from "./Stake.module.css";
 import t from "../../styles/typography.module.css";
@@ -169,7 +169,7 @@ function Stake(props) {
           <p className="price-label">Balance</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{(ohmBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> KLIMA
+              <span>{trimWithPlaceholder(ohmBalance, 4)}</span> KLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -178,42 +178,42 @@ function Stake(props) {
           <p className="price-label">Staked</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{(sohmBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> sKLIMA
+              <span>{trimWithPlaceholder(sohmBalance, 4)}</span> sKLIMA
             </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Time until rebase</p>
           <p className="price-data">
-            <span>{timeUntilRebase() || "loading..."}</span>
+            <span>{timeUntilRebase()}</span>
           </p>
         </div>
 
         <div className="stake-price-data-row">
           <p className="price-label">Next Rebase</p>
           <p className="price-data">
-            <span>{(stakingRebase * 100).toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>%
+            <span>{trimWithPlaceholder(stakingRebase * 100, 2)}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
           <p className="price-label">ROI (5-day rate)</p>
           <p className="price-data">
-            <span>{(fiveDayRate * 100).toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>%
+            <span>{trimWithPlaceholder(fiveDayRate * 100, 2)}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
           <p className="price-label">APY</p>
           <p className="price-data">
-            <span>{(stakingAPY * 100).toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>%
+            <span>{trimWithPlaceholder(stakingAPY * 100, 2)}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
           <p className="price-label">Current index</p>
           <p className="price-data">
-            <span>{(currentIndex || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> KLIMA
+            <span>{trimWithPlaceholder(currentIndex, 4)}</span> KLIMA
           </p>
         </div>
       </div>

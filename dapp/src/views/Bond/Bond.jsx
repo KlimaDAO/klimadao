@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import classNames from "classnames";
 import { WarningOutlined, DownOutlined, UpOutlined, LeftOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { shorten, trim, secondsUntilBlock, prettifySeconds, prettyVestingPeriod } from "../../helpers";
+import { shorten, trimWithPlaceholder, secondsUntilBlock, prettifySeconds, prettyVestingPeriod } from "../../helpers";
 import {
   changeApproval,
   calcBondDetails,
@@ -238,41 +238,41 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Balance</p>
             <p className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                <span>{trim(balance, 4)}</span> {balanceUnits()}
+                <span>{trimWithPlaceholder(balance, 4)}</span> {balanceUnits()}
               </WithPlaceholder>
             </p>
           </div>
           <div className="stake-price-data-row">
             <p className="price-label">Bond Price</p>
             <p className="price-data">
-              <span>{trim(bondPrice, 2)}</span> BCT
+              <span>{trimWithPlaceholder(bondPrice, 2)}</span> BCT
             </p>
           </div>
           <div className="stake-price-data-row">
             <p className="price-label">Market Price</p>
             <p className="price-data">
-              <span>{trim(marketPrice, 2)}</span> BCT
+              <span>{trimWithPlaceholder(marketPrice, 2)}</span> BCT
             </p>
           </div>
 
           <div className="stake-price-data-row">
             <p className="price-label">You Will Get</p>
             <p className="price-data">
-              <span>{trim(bondQuote, 4)}</span> KLIMA
+              <span>{trimWithPlaceholder(bondQuote, 4)}</span> KLIMA
             </p>
           </div>
 
           <div className="stake-price-data-row">
             <p className="price-label">Max You Can Buy</p>
             <p className="price-data">
-              <span>{trim(maxBondPrice, 4)}</span> KLIMA
+              <span>{trimWithPlaceholder(maxBondPrice, 4)}</span> KLIMA
             </p>
           </div>
 
           <div className="stake-price-data-row">
             <p className="price-label">Debt Ratio</p>
             <p className="price-data">
-              <span>{trim(debtRatio / 10000000, 2)}</span>%
+              <span>{trimWithPlaceholder(debtRatio / 10000000, 2)}</span>%
             </p>
           </div>
 
@@ -286,7 +286,7 @@ function Bond({ provider, address, bond, isConnected }) {
           <div className="stake-price-data-row">
             <p className="price-label">ROI (bond discount)</p>
             <p className="price-data">
-              <span>{trim(bondDiscount * 100, 2)}</span>%
+              <span>{trimWithPlaceholder(bondDiscount * 100, 2)}</span>%
             </p>
           </div>
         </div>
@@ -298,7 +298,7 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Pending Rewards</p>
             <p id="bond-market-price-id" className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                {trim(interestDue, 4)} KLIMA
+                {trimWithPlaceholder(interestDue, 4)} KLIMA
               </WithPlaceholder>
             </p>
           </div>
@@ -306,7 +306,7 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Claimable Rewards</p>
             <p id="bond-market-price-id" className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                {trim(pendingPayout, 4)} KLIMA
+                {trimWithPlaceholder(pendingPayout, 4)} KLIMA
               </WithPlaceholder>
             </p>
           </div>
@@ -327,7 +327,6 @@ function Bond({ provider, address, bond, isConnected }) {
         </p>
       )}
 
-      {view === "redeem_v1" && <BondRedeemV1 provider={provider} address={address} bond={bond + "_v1"} />}
       {isConnected && isLoading && (
         <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
           Loading...

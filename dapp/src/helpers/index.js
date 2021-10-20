@@ -53,18 +53,16 @@ export function contractForReserve({ bond, networkID, provider }) {
 
 export async function getMarketPrice({ networkID, provider }) {
   const pairContract = new ethers.Contract(addresses[networkID].LP_ADDRESS, PairContract, provider);
-  let reserves
+  let reserves;
   try {
-    reserves = await pairContract.getReserves()
+    reserves = await pairContract.getReserves();
     const marketPrice = reserves[1] / reserves[0];
 
     // commit('set', { marketPrice: marketPrice / Math.pow(10, 9) });
     return marketPrice;
+  } catch (e) {
+    console.log("Error caught in getMarketPrice:", e.message);
   }
-  catch (e) {
-      console.log("Error caught in getMarketPrice:", e.message)
-  }
-
 }
 
 export function shorten(str) {
@@ -83,6 +81,14 @@ export function trim(number, precision) {
   const trimmedNumber = array.join(".");
   return trimmedNumber;
 }
+
+/** Returns localized string */
+export const trimWithPlaceholder = (number, precision) => {
+  if (typeof number === "undefined" || Number.isNaN(number)) {
+    return "Loading... ";
+  }
+  return Number(number).toLocaleString(undefined, { maximumFractionDigits: precision });
+};
 
 export function getRebaseBlock(currentBlock) {
   return currentBlock + EPOCH_INTERVAL - (currentBlock % EPOCH_INTERVAL);

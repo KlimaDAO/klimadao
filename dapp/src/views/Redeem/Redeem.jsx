@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { trim } from "../../helpers";
+import { trim, trimWithPlaceholder } from "../../helpers";
 import { runMigrate, changeApproval, changeApprovalGasLess } from "../../actions/Redeem.actions";
 import styles from "./Redeem.module.css";
 import t from "../../styles/typography.module.css";
@@ -158,7 +158,7 @@ function Migrate(props) {
           <p className="price-label">Redeemable aKLIMA</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{(ohmBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> aKLIMA
+              <span>{trimWithPlaceholder(ohmBalance, 4)}</span> aKLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -166,7 +166,7 @@ function Migrate(props) {
           <p className="price-label">Redeemable alKLIMA</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{(sohmBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> alKLIMA
+              <span>{trimWithPlaceholder(sohmBalance, 4)}</span> alKLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -174,7 +174,7 @@ function Migrate(props) {
           <p className="price-label">Balance</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{(klimaBalance || NaN).toLocaleString(undefined, { maximumFractionDigits: 4 })}</span> KLIMA
+              <span>{trimWithPlaceholder(klimaBalance, 4)}</span> KLIMA
             </WithPlaceholder>
           </p>
         </div>
