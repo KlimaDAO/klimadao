@@ -111,9 +111,12 @@ export const loadAccountDetails =
       bctAllowance = await bctContract.allowance(address, addresses[networkID].PEXERCISE_ADDRESS);
       console.log("pklima BCT Allowance: ", bctAllowance);
     }
-    if(addresses[networkID].DISTRIBUTOR_ADDRESS) {
-
-      distributorContract = new ethers.Contract(addresses[networkID].DISTRIBUTOR_ADDRESS, DistributorContract, provider);
+    if (addresses[networkID].DISTRIBUTOR_ADDRESS) {
+      distributorContract = new ethers.Contract(
+        addresses[networkID].DISTRIBUTOR_ADDRESS,
+        DistributorContract,
+        provider,
+      );
       rebaseBlock = await distributorContract.nextEpochBlock();
       console.log(`Next rebase block: ${rebaseBlock}`);
     }
@@ -133,7 +136,7 @@ export const loadAccountDetails =
         staking: {
           ohmStake: stakeAllowance,
           ohmUnstake: unstakeAllowance,
-          rebaseBlock: rebaseBlock
+          rebaseBlock: rebaseBlock,
         },
         bonding: {
           daiAllowance: daiBondAllowance,

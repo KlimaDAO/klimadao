@@ -112,25 +112,6 @@ function App() {
   const userProvider = useUserProvider(injectedProvider, null);
   const address = useUserAddress(userProvider);
   const { pathname } = useLocation();
-  // You can warn the user if you would like them to be on a specific network
-  // const selectedChainId = userProvider && userProvider._network && userProvider._network.chainId;
-
-  // For more hooks, check out 🔗eth-hooks at: https://www.npmjs.com/package/eth-hooks
-
-  // Just plug in different 🛰 providers to get your balance on different chains:
-  // const yourMainnetBalance = useBalance(mainnetProvider, address);
-
-  // If you want to make 🔐 write transactions to your contracts, use the userProvider:
-  // const writeContracts = useContractLoader(userProvider);
-
-  // EXTERNAL CONTRACT EXAMPLE:
-  // If you want to bring in the mainnet DAI contract it would look like:
-  // const mainnetDAIContract = useExternalContractLoader(mainnetProvider, DAI_ADDRESS, DAI_ABI);
-
-  // If you want to call a function on a new block
-  /* useOnBlock(mainnetProvider, () => {
-    console.log(`⛓ A new mainnet block is here: ${mainnetProvider._lastBlockNumber}`);
-  }); */
 
   async function init() {
     try {
@@ -138,7 +119,7 @@ function App() {
       let addressToLoad;
       if (web3Modal.cachedProvider) {
         provider = await loadWeb3Modal();
-        addressToLoad = provider.provider.selectedAddress;
+        addressToLoad = provider.provider.selectedAddress || provider.provider.accounts[0];
       } else {
         provider = fallbackProvider;
       }
@@ -151,8 +132,9 @@ function App() {
       await dispatch(getMarketPrice({ networkID: networkInfo.chainId, provider }));
       await dispatch(getTokenSupply({ networkID: networkInfo.chainId, provider }));
 
-      if (addressToLoad)
+      if (addressToLoad) {
         await dispatch(loadAccountDetails({ networkID: networkInfo.chainId, address: addressToLoad, provider }));
+      }
       ["klima_bct_lp", "bct_usdc_lp"].map(async bond => {
         // CHECK FOR DEPLOYED ADDRESSES
         if (addresses[networkInfo.chainId].BONDS.OHM_DAI !== "") {
@@ -204,7 +186,7 @@ function App() {
     };
   }, []);
 
-  const isConnected = !!web3Modal && !!web3Modal.cachedProvider && !!injectedProvider;
+  const isConnected = !!web3Modal && !!web3Modal.cachedProvider && !!userProvider;
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
   // A hack to keep the card centered in the viewport.
   const nav = (
@@ -264,16 +246,16 @@ function App() {
               <Redirect to="/stake" />
             </Route>
             <Route exact path="/stake">
-              <Stake address={address} provider={injectedProvider} isConnected={isConnected} />
+              <Stake address={address} provider={userProvider} isConnected={isConnected} />
             </Route>
             <Route exact path="/redeem">
-              <Redeem address={address} provider={injectedProvider} isConnected={isConnected} />
+              <Redeem address={address} provider={userProvider} isConnected={isConnected} />
             </Route>
             <Route exact path="/pklima">
-              <PKlima address={address} provider={injectedProvider} isConnected={isConnected} />
+              <PKlima address={address} provider={userProvider} isConnected={isConnected} />
             </Route>
             <Route exact path="/bonds">
-              <ChooseBond address={address} provider={injectedProvider} isConnected={isConnected} />
+              <ChooseBond address={address} provider={userProvider} isConnected={isConnected} />
             </Route>
             {Object.values(BONDS).map(bond => {
               if (bond === "bct") {
@@ -285,11 +267,11 @@ function App() {
                     bond={bond}
                     isConnected={isConnected}
                     address={address}
-                    provider={injectedProvider}
+                    provider={userProvider}
                     web3Modal={web3Modal}
                     loadWeb3Modal={loadWeb3Modal}
                     logoutOfWeb3Modal={logoutOfWeb3Modal}
-                    mainnetProvider={injectedProvider}
+                    mainnetProvider={userProvider}
                     blockExplorer={blockExplorer}
                     route={route}
                     setRoute={setRoute}
@@ -314,7 +296,7 @@ function App() {
           </div>
         </footer>
       </div>
-      <InvalidNetworkModal provider={injectedProvider} />
+      <InvalidNetworkModal provider={userProvider} />
     </>
   );
 }
@@ -338,4 +320,4 @@ window.ethereum &&
 /* eslint-enable */
 
 export default App;
-// 
+//
