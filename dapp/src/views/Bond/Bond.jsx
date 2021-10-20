@@ -143,7 +143,6 @@ function Bond({ provider, address, bond, isConnected }) {
   };
 
   async function loadBondDetails() {
-    console.log("start load", provider, address)
     if (provider) await dispatch(calcBondDetails({ bond, value: quantity, provider, networkID: NETWORK_ID }));
 
     if (provider && address) {
