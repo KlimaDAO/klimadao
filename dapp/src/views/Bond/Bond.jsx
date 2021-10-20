@@ -11,12 +11,12 @@ import {
   bondAsset,
   redeemBond,
 } from "../../actions/Bond.actions";
-import BondRedeemV1 from "./BondRedeemV1";
 import { BONDS } from "../../constants";
 import styles from "./Bond.module.css";
 import t from "../../styles/typography.module.css";
 import AdvancedSettings from "./AdvancedSettings";
 import { useBond } from "../../hooks/useBond";
+import { useDebounce } from "../../hooks/useDebounce";
 
 function Bond({ provider, address, bond, isConnected }) {
   const bondInfo = useBond(bond);
@@ -30,6 +30,7 @@ function Bond({ provider, address, bond, isConnected }) {
 
   const [view, setView] = useState("bond");
   const [quantity, setQuantity] = useState();
+  const debouncedQuantity = useDebounce(quantity, 500);
 
   const currentBlock = useSelector(state => {
     return state.app.currentBlock;
@@ -142,20 +143,17 @@ function Bond({ provider, address, bond, isConnected }) {
     if (bond === BONDS.dai) return "BCT";
   };
 
-  async function loadBondDetails() {
-    if (provider) await dispatch(calcBondDetails({ bond, value: quantity, provider, networkID: NETWORK_ID }));
-
-    if (provider && address) {
-      console.log("calc load")
-
-      await dispatch(calculateUserBondDetails({ address, bond, provider, networkID: NETWORK_ID }));
-    }
-  }
 
   useEffect(() => {
+    async function loadBondDetails() {
+      if (provider) await dispatch(calcBondDetails({ bond, value: debouncedQuantity, provider, networkID: NETWORK_ID }));
+      if (provider && address) {
+        await dispatch(calculateUserBondDetails({ address, bond, provider, networkID: NETWORK_ID }));
+        setRecipientAddress(address);
+      }
+    }
     loadBondDetails();
-    if (address) setRecipientAddress(address);
-  }, [provider, quantity, address]);
+  }, [provider, debouncedQuantity, address, bond, dispatch]);
 
   const onSeekApproval = async () => {
     await dispatch(changeApproval({ address, bond, provider, networkID: NETWORK_ID }));
@@ -326,13 +324,13 @@ function Bond({ provider, address, bond, isConnected }) {
         </div>
       )}
 
-      {view === "bond" && recipientAddress !== address && (
+      {view === "bond" && recipientAddress && recipientAddress !== address && (
         <p className={classNames(t.body2, styles.recipientNote)}>
           <WarningOutlined style={{ color: "yellow" }} /> External recipient: {shorten(recipientAddress)}
         </p>
       )}
 
-      {isConnected && isLoading && (
+      {isConnected && (isLoading || (quantity !== debouncedQuantity)) && (
         <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
           Loading...
         </button>
@@ -361,13 +359,13 @@ function Bond({ provider, address, bond, isConnected }) {
         </button>
       )}
 
-      {!isLoading && hasAllowance() && view === "bond" && (
+      {!isLoading && hasAllowance() && view === "bond" && (quantity === debouncedQuantity) && (
         <button disabled={!quantity} type="button" className={styles.submitButton} onClick={onBond}>
           Bond
         </button>
       )}
 
-      {!isLoading && isConnected && !hasAllowance() && view === "bond" && (
+      {!isLoading && isConnected && !hasAllowance() && view === "bond" && (quantity === debouncedQuantity) && (
         <button
           disabled={!quantity}
           type="button"
