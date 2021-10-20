@@ -63,7 +63,7 @@ export const calcBondDetails =
     const debtRatio = await bondContract.debtRatio();
     const bondPrice = await bondContract.bondPriceInUSD();
 
-    if (bond === BONDS.ohm_dai || bond === BONDS.bct_usdc) {
+    if (bond === BONDS.ohm_dai) {
       const bondCalcContract = new ethers.Contract(
         addresses[networkID].BONDS.OHM_DAI_CALC,
         BondOhmDaiCalcContract,
@@ -81,6 +81,20 @@ export const calcBondDetails =
       // RFV = DAI
       bondQuote = await bondContract.payoutFor(amountInWei);
       bondQuote /= Math.pow(10, 18);
+    } else if (bond === BONDS.bct_usdc) {
+
+      const bondCalcContract = new ethers.Contract(
+        addresses[networkID].BONDS.OHM_DAI_CALC,
+        BondOhmDaiCalcContract,
+        provider,
+      );
+      bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice; // 1 - bondPrice / (marketPrice * Math.pow(10, 9));
+
+      // RFV = assume 1:1 backing
+      valuation = await bondCalcContract.valuation(addresses[networkID].RESERVES.BCT_USDC, amountInWei);
+      bondQuote = await bondContract.payoutFor(valuation);
+      bondQuote /= Math.pow(10, 9);
+
     }
 
     // Display error if user tries to exceed maximum.
