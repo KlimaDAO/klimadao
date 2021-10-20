@@ -10,7 +10,7 @@ export const fetchBondSuccess = payload => ({
 
 export const changeApproval =
   ({ bond, provider, address, networkID }) =>
-
+  
   async dispatch => {
     if (!provider) {
       alert("Please connect your wallet!");
@@ -122,12 +122,11 @@ export const calculateUserBondDetails =
       bondMaturationBlock = +bondDetails[3] + +bondDetails[2];
       pendingPayout = await bondContract.calculatePendingPayout(address);
     } else {
-      let bondDetails = [0,0,0,0];
-      try{
+      let bondDetails = [0, 0, 0, 0];
+      try {
         bondDetails = await bondContract.bondInfo(address);
-      }
-      catch (e) {
-        console.log(e)
+      } catch (e) {
+        console.log(e);
       }
       interestDue = bondDetails[0];
       bondMaturationBlock = +bondDetails[1] + +bondDetails[2];
@@ -199,7 +198,11 @@ export const bondAsset =
     } catch (error) {
       if (error.code === -32603 && error.message.indexOf("ds-math-sub-underflow") >= 0) {
         alert("You may be trying to bond more than your balance! Error code: 32603. Message: ds-math-sub-underflow");
-      } else alert(error.message);
+      } else if (error && error.data && error.data.message) {
+        alert(error.data.message);
+      } else {
+        alert(error.message);
+      }
     }
   };
 
