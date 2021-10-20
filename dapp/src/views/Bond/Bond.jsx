@@ -330,6 +330,8 @@ function Bond({ provider, address, bond, isConnected }) {
         </p>
       )}
 
+      {isBondDiscountNegative && <p style={{ textAlign: "center" }}>⚠️ Warning: this bond price is inflated because the current discount rate is negative.</p>}
+
       {isConnected && (isLoading || (quantity !== debouncedQuantity)) && (
         <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
           Loading...
