@@ -29,7 +29,7 @@ function Bond({ provider, address, bond, isConnected }) {
   const [recipientAddress, setRecipientAddress] = useState(address);
 
   const [view, setView] = useState("bond");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState("");
   const debouncedQuantity = useDebounce(quantity, 500);
 
   const currentBlock = useSelector(state => {
@@ -72,8 +72,7 @@ function Bond({ provider, address, bond, isConnected }) {
   const allowance = useSelector(state => {
     return state.bonding[bond] && state.bonding[bond].allowance;
   });
-  const isLoading = typeof allowance === 'undefined';
-
+  const isLoading = typeof allowance === 'undefined' || quantity !== debouncedQuantity;
   const onRecipientAddressChange = e => {
     return setRecipientAddress(e.target.value);
   };
@@ -135,7 +134,11 @@ function Bond({ provider, address, bond, isConnected }) {
   }
 
   const setMax = () => {
-    setQuantity(balance ? balance.toString() : "0");
+    if (view === "bond") {
+      setQuantity(balance)
+    } else {
+      setQuantity(pendingPayout)
+    }
   };
 
   const balanceUnits = () => {
@@ -332,7 +335,7 @@ function Bond({ provider, address, bond, isConnected }) {
 
       {isBondDiscountNegative && <p style={{ textAlign: "center" }}>⚠️ Warning: this bond price is inflated because the current discount rate is negative.</p>}
 
-      {isConnected && (isLoading || (quantity !== debouncedQuantity)) && (
+      {isConnected && isLoading && (
         <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
           Loading...
         </button>
@@ -361,13 +364,13 @@ function Bond({ provider, address, bond, isConnected }) {
         </button>
       )}
 
-      {!isLoading && hasAllowance() && view === "bond" && (quantity === debouncedQuantity) && (
+      {!isLoading && hasAllowance() && view === "bond" && (
         <button disabled={!quantity} type="button" className={styles.submitButton} onClick={onBond}>
           Bond
         </button>
       )}
 
-      {!isLoading && isConnected && !hasAllowance() && view === "bond" && (quantity === debouncedQuantity) && (
+      {!isLoading && isConnected && !hasAllowance() && view === "bond" && (
         <button
           disabled={!quantity}
           type="button"
