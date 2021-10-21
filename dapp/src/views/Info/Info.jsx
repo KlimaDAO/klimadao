@@ -28,11 +28,36 @@ const links = {
  * @param {Props} props
  * @returns {JSX.Element}
  */
-function Info(props) {
+function Info() {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Info & FAQ</h2>
+        <h2 className={t.h4}>{"Info & FAQ"}</h2>
+        <p className={t.body2}>Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <a target="_blank" href={links.officialDocs}>official docs</a>.</p>
+      </div>
+      <div className={styles.infoSection}>
+        <h3 className={t.overline}>FAQ</h3>
+        <div style={{ display: 'grid', gap: "2.4rem" }}>
+          <div style={{ display: 'grid', gap: "0.4rem" }}>
+            <h4 className={t.h5}>Where can I get KLIMA?</h4>
+            <p className={t.body2}>See our <a target="_blank" href={links.communityHub}>tutorial for newcomers</a>.</p>
+          </div>
+          <div style={{ display: 'grid', gap: "0.8rem" }}>
+            <h4 className={t.h5}>Why won't the dApp load for me?</h4>
+            <p className={t.body2}>If the app says 'loading...' this is likely a problem with your network configuration in Metamask. To fix this: <br />
+              1. Open Metamask and switch to Ethereum Mainnet <br />
+              2. Go to Settings/Networks/Polygon and click 'delete' <br />
+              3. Return to dapp.klimadao.finance and click 'switch to mainnet'. <br />
+              Metamask should prompt you to add Polygon, with the correct RPC configuration.
+            </p>
+          </div>
+          <div style={{ display: 'grid', gap: "0.8rem" }}>
+            <h4 className={t.h5}>Why don't I see my sKLIMA balance?</h4>
+            <p className={t.body2}>
+              There is a small bug affecting users who staked in the first 18 hours after launch. We have posted <a target="_blank" href="https://klimadao.notion.site/sKLIMA-Bugfix-Instructions-079caaa21f6742daac201781ef5759da">step-by-step instructions</a> to fix the issue.
+            </p>
+          </div>
+        </div>
       </div>
       <div className={styles.infoSection}>
         <h3 className={t.overline}>OFFICIAL POLYGON ADDRESSES</h3>
@@ -63,48 +88,6 @@ function Info(props) {
           <a target="_blank" href={links.officialDocs}>📚 Official Docs</a>
         </div>
       </div>
-      <div className={styles.infoSection}>
-        <div>
-          <h3 className={t.overline}>FAQ</h3>
-          <p style={{ marginBottom: "1.6rem" }}>Some common app-related questions. For comprehensive information on KlimaDAO, see our <a target="_blank" href={links.officialDocs}>official docs</a>.</p>
-        </div>
-        <div style={{ display: 'grid', gap: "2.4rem" }}>
-          <div style={{ display: 'grid', gap: "0.4rem" }}>
-            <h4 className={t.h5}>Where can I get KLIMA?</h4>
-            <p className={t.body2}>See our <a target="_blank" href={links.communityHub}>tutorial for newcomers</a>.</p>
-          </div>
-          <div style={{ display: 'grid', gap: "0.8rem" }}>
-            <h4 className={t.h5}>Why won't the dApp load for me?</h4>
-            <p className={t.body2}>If the app says 'loading...' this is likely a problem with your network configuration in Metamask. To fix this: <br />
-              1. Open Metamask and switch to Ethereum Mainnet <br />
-              2. Go to Settings/Networks/Polygon and click 'delete' <br />
-              3. Return to dapp.klimadao.finance and click 'switch to mainnet'. <br />
-              Metamask should prompt you to add Polygon, with the correct RPC configuration.
-            </p>
-          </div>
-          <div style={{ display: 'grid', gap: "0.8rem" }}>
-            <h4 className={t.h5}>Why don't I see my sKLIMA balance?</h4>
-            <p className={t.body2}>
-              There is a small bug affecting users who staked in the first 18 hours after launch. We have posted <a target="_blank" href="https://klimadao.notion.site/sKLIMA-Bugfix-Instructions-079caaa21f6742daac201781ef5759da">step-by-step instructions</a> to fix the issue.
-            </p>
-          </div>
-        </div>
-      </div>
-      {/*
-          KLIMA token addr
-          sKLIMA token addr
-          BCT token addr
-          sushi pool address
-          link to docs
-          link to community hub
-          link to sushiswap (bct & klima)
-
-          FAQ:
-          Where can I get KLIMA?
-           -> how to participate guide
-          Why do I see "loading..."
-          Why don't I see my sKLIMA?
-        */}
     </div>
   );
 }
