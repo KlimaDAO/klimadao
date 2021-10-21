@@ -60,7 +60,7 @@ export const loadAppDetails =
     // INDEX ACCOUNT IS SET ON MUMBAI / MATIC
     let currentIndex = 0;
     try {
-      currentIndex = await sohmContract.balanceOf("0x80803B782C9553D6a4E1216E58927A42B7a0452E");
+      currentIndex = await sohmContract.balanceOf("0x693aD12DbA5F6E07dE86FaA21098B691F60A1BEa");
     } catch (error) {
       console.warn("Error caught: ", error.message);
     }
