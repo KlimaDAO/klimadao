@@ -14,6 +14,7 @@ const links = {
   sushiUSDCBCT: `https://app.sushi.com/swap?inputCurrency=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&outputCurrency=${addresses.bct}`,
   sushiKLIMABCT: `https://app.sushi.com/swap?inputCurrency=${addresses.klima}&outputCurrency=${addresses.bct}`,
   communityHub: "https://klimadao.notion.site/",
+  tutorial: "https://klimadao.notion.site/I-m-new-to-Klima-How-do-I-participate-c28426c5100244788f791f62e375ffcc",
   officialDocs: "https://docs.klimadao.finance/"
 }
 
@@ -40,7 +41,7 @@ function Info() {
         <div style={{ display: 'grid', gap: "2.4rem" }}>
           <div style={{ display: 'grid', gap: "0.4rem" }}>
             <h4 className={t.h5}>Where can I get KLIMA?</h4>
-            <p className={t.body2}>See our <a target="_blank" href={links.communityHub}>tutorial for newcomers</a>.</p>
+            <p className={t.body2}>See our <a target="_blank" href={links.tutorial}>tutorial for newcomers</a>.</p>
           </div>
           <div style={{ display: 'grid', gap: "0.8rem" }}>
             <h4 className={t.h5}>Why won't the dApp load for me?</h4>
