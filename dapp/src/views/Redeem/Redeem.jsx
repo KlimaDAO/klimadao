@@ -21,7 +21,7 @@ function Migrate(props) {
   const dispatch = useDispatch();
 
   const [view, setView] = useState("stake");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState("");
   const [pending, setPending] = useState();
 
   const ohmBalance = useSelector(state => {

@@ -21,7 +21,7 @@ function PKlima(props) {
   const dispatch = useDispatch();
 
   const [view, setView] = useState("stake");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState("");
 
   const ohmBalance = useSelector(state => {
     return state.app.balances && state.app.balances.pKLIMA;

@@ -21,7 +21,7 @@ function Stake(props) {
   const dispatch = useDispatch();
 
   const [view, setView] = useState("stake");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState("");
   const [pending, setPending] = useState(false);
 
   const fiveDayRate = useSelector(state => {
