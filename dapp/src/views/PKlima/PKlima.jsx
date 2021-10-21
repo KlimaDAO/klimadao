@@ -136,31 +136,41 @@ function PKlima(props) {
         <div className="stake-price-data-row">
           <p className="price-label">BCT Balance</p>
           <p className="price-data">
-            <span>{trimWithPlaceholder(sohmBalance, 4)}</span> BCT
+            <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
+              <span>{trimWithPlaceholder(sohmBalance, 4)}</span> BCT
+            </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Vesting Share</p>
           <p className="price-data">
-            <span>{trimWithPlaceholder(termsPercent / 10000, 2)}</span>%
+            <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
+              <span>{trimWithPlaceholder(termsPercent / 10000, 2)}</span>%
+            </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Vestable Amount</p>
           <p className="price-data">
-            <span>{trimWithPlaceholder(pKlimaVestable, 4)}</span> pKLIMA
+            <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
+              <span>{trimWithPlaceholder(pKlimaVestable, 4)}</span> pKLIMA
+            </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Claimed Amount</p>
           <p className="price-data">
-            <span>{trimWithPlaceholder(termsClaimed, 4)}</span> pKLIMA
+            <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
+              <span>{trimWithPlaceholder(termsClaimed, 4)}</span> pKLIMA
+            </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
           <p className="price-label">Max Amount</p>
           <p className="price-data">
-            <span>{trimWithPlaceholder(termsMax, 4)}</span> pKLIMA
+            <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
+              <span>{trimWithPlaceholder(termsMax, 4)}</span> pKLIMA
+            </WithPlaceholder>
           </p>
         </div>
       </div>
