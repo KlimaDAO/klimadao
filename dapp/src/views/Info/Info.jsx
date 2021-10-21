@@ -18,17 +18,6 @@ const links = {
   officialDocs: "https://docs.klimadao.finance/"
 }
 
-/**
- * @typedef {Object} Props
- * @property {any} provider
- * @property {string} address
- * @property {boolean} isConnected
- */
-
-/**
- * @param {Props} props
- * @returns {JSX.Element}
- */
 function Info() {
   return (
     <div className={styles.stakeCard}>
