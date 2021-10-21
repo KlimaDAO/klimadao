@@ -69,11 +69,8 @@ function Stake(props) {
   };
 
   const onSeekApproval = async token => {
-    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(window.ethereum.chainId) }));
+    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(provider.network.chainId) }));
     setPending(true);
-  };
-  const onSeekApprovalGasless = async token => {
-    await dispatch(changeApprovalGasLess({ address, token, provider, networkID: parseInt(window.ethereum.chainId) }));
   };
 
   const onChangeStake = async action => {
@@ -87,7 +84,7 @@ function Stake(props) {
           action,
           value: quantity.toString(),
           provider,
-          networkID: parseInt(window.ethereum.chainId),
+          networkID: parseInt(provider.network.chainId),
         }),
       );
     }
@@ -103,7 +100,6 @@ function Stake(props) {
 
   const timeUntilRebase = () => {
     if (currentBlock) {
-      //const rebaseBlock = getRebaseBlock(currentBlock,parseInt(window.ethereum.chainId),provider);
       const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
       return prettifySeconds(seconds);
     }

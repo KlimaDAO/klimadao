@@ -51,10 +51,7 @@ function Migrate(props) {
 
   const onSeekApproval = async token => {
     setPending(true);
-    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(window.ethereum.chainId) }));
-  };
-  const onSeekApprovalGasless = async token => {
-    await dispatch(changeApprovalGasLess({ address, token, provider, networkID: parseInt(window.ethereum.chainId) }));
+    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(provider.network.chainId) }));
   };
 
   const onMigrate = async action => {
@@ -68,7 +65,7 @@ function Migrate(props) {
           action,
           value: quantity.toString(),
           provider,
-          networkID: parseInt(window.ethereum.chainId),
+          networkID: parseInt(provider.network.chainId),
         }),
       );
     }

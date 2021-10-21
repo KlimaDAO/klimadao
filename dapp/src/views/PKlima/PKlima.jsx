@@ -56,7 +56,7 @@ function PKlima(props) {
   };
 
   const onSeekApproval = async token => {
-    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(window.ethereum.chainId) }));
+    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(provider.network.chainId) }));
   };
 
   const onExercise = async action => {
@@ -69,7 +69,7 @@ function PKlima(props) {
           action,
           value: quantity.toString(),
           provider,
-          networkID: parseInt(window.ethereum.chainId),
+          networkID: parseInt(provider.network.chainId),
         }),
       );
     }

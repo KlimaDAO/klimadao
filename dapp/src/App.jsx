@@ -94,13 +94,6 @@ const web3Modal = new Web3Modal({
   },
 });
 
-const logoutOfWeb3Modal = async () => {
-  await web3Modal.clearCachedProvider();
-  setTimeout(() => {
-    window.location.reload();
-  }, 1);
-};
-
 function App() {
   const dispatch = useDispatch();
 
@@ -163,6 +156,37 @@ function App() {
   }, [setRoute]);
 
   /**
+   * SESSION MANAGER
+   */
+  useEffect(() => {
+    const handleChainChanged = () => {
+      window.location.reload();
+    }
+    const handleAccountsChanged = () => {
+      window.location.reload();
+    }
+    const handleDisconnect = () => {
+      if (web3Modal && web3Modal.cachedProvider) {
+        web3Modal.clearCachedProvider();
+        setTimeout(() => {
+          window.location.reload();
+        }, 100)
+      }
+    }
+    if (userProvider) {
+      userProvider.provider.on("chainChanged", handleChainChanged);
+      userProvider.provider.on("accountsChanged", handleAccountsChanged);
+      userProvider.provider.on("disconnect", handleDisconnect);
+    }
+    return () => {
+      userProvider && userProvider.provider.remove("accountsChanged", handleAccountsChanged);
+      userProvider && userProvider.provider.remove("chainChanged", handleChainChanged);
+      userProvider && userProvider.provider.remove("disconnect", handleDisconnect);
+
+    }
+  }, [userProvider])
+
+  /**
    * Outline manager for a11y
    * So we can hide outlines when clicking, only show them when tabbing
    */
@@ -186,6 +210,12 @@ function App() {
     };
   }, []);
 
+  const disconnect = async () => {
+    if (userProvider) {
+      await userProvider.provider.disconnect();
+    }
+  }
+
   const isConnected = !!web3Modal && !!web3Modal.cachedProvider && !!userProvider;
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
   // A hack to keep the card centered in the viewport.
@@ -204,7 +234,7 @@ function App() {
         </button>
       )}
       {isConnected && (
-        <button type="button" className={styles.disconnectWalletButton} onClick={logoutOfWeb3Modal}>
+        <button type="button" className={styles.disconnectWalletButton} onClick={disconnect}>
           DISCONNECT WALLET
         </button>
       )}
@@ -270,17 +300,10 @@ function App() {
               return (
                 <Route exact key={bond} path={`/bonds/${bond}`}>
                   <Bond
+                    provider={userProvider}
+                    address={address}
                     bond={bond}
                     isConnected={isConnected}
-                    address={address}
-                    provider={userProvider}
-                    web3Modal={web3Modal}
-                    loadWeb3Modal={loadWeb3Modal}
-                    logoutOfWeb3Modal={logoutOfWeb3Modal}
-                    mainnetProvider={userProvider}
-                    blockExplorer={blockExplorer}
-                    route={route}
-                    setRoute={setRoute}
                   />
                 </Route>
               );
@@ -307,23 +330,4 @@ function App() {
   );
 }
 
-/* eslint-disable */
-window.ethereum &&
-  window.ethereum.on("chainChanged", chainId => {
-    web3Modal.cachedProvider &&
-      setTimeout(() => {
-        window.location.reload();
-      }, 1);
-  });
-
-window.ethereum &&
-  window.ethereum.on("accountsChanged", accounts => {
-    web3Modal.cachedProvider &&
-      setTimeout(() => {
-        window.location.reload();
-      }, 1);
-  });
-/* eslint-enable */
-
 export default App;
-//
