@@ -3,6 +3,8 @@ import { getMarketPrice, contractForBond, contractForReserve } from "../helpers"
 import { addresses, Actions, BONDS, VESTING_TERM } from "../constants";
 import { abi as BondOhmDaiCalcContract } from "../abi/bonds/OhmDaiCalcContract.json";
 
+export const DEFAULT_QUOTE_SLP = "0.0001";  // Use a realistic SLP ownership so we have a quote before the user inputs any value
+
 export const fetchBondSuccess = payload => ({
   type: Actions.FETCH_BOND_SUCCESS,
   payload,
@@ -10,7 +12,6 @@ export const fetchBondSuccess = payload => ({
 
 export const changeApproval =
   ({ bond, provider, address, networkID }) =>
-
   async dispatch => {
     if (!provider) {
       alert("Please connect your wallet!");
@@ -47,7 +48,7 @@ export const calcBondDetails =
   async dispatch => {
     let amountInWei;
     if (!value || value === "") {
-      amountInWei = ethers.utils.parseEther("0.0001"); // Use a realistic SLP ownership
+      amountInWei = ethers.utils.parseEther(DEFAULT_QUOTE_SLP);
     } else {
       amountInWei = ethers.utils.parseEther(value);
     }
@@ -62,7 +63,6 @@ export const calcBondDetails =
     const maxBondPrice = await bondContract.maxPayout();
     const debtRatio = await bondContract.debtRatio();
     const bondPrice = await bondContract.bondPriceInUSD();
-
     if (bond === BONDS.ohm_dai) {
       const bondCalcContract = new ethers.Contract(
         addresses[networkID].BONDS.OHM_DAI_CALC,
@@ -82,7 +82,6 @@ export const calcBondDetails =
       bondQuote = await bondContract.payoutFor(amountInWei);
       bondQuote /= Math.pow(10, 18);
     } else if (bond === BONDS.bct_usdc) {
-
       const bondCalcContract = new ethers.Contract(
         addresses[networkID].BONDS.OHM_DAI_CALC,
         BondOhmDaiCalcContract,
@@ -94,17 +93,8 @@ export const calcBondDetails =
       valuation = await bondCalcContract.valuation(addresses[networkID].RESERVES.BCT_USDC, amountInWei);
       bondQuote = await bondContract.payoutFor(valuation);
       bondQuote /= Math.pow(10, 9);
-
     }
 
-    // Display error if user tries to exceed maximum.
-    if (!!value && parseFloat(bondQuote) > maxBondPrice / Math.pow(10, 9)) {
-      alert(
-        "You're trying to bond more than the maximum payout available! The maximum bond payout is " +
-          (maxBondPrice / Math.pow(10, 9)).toFixed(2).toString() +
-          " KLIMA.",
-      );
-    }
     return dispatch(
       fetchBondSuccess({
         bond,

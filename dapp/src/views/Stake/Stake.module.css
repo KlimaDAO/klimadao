@@ -83,6 +83,9 @@
 .stakeInput input:focus {
   border-color: var(--secondary);
 }
+.stakeInput_input:disabled {
+  opacity: 0.7;
+}
 .stakeInput_button {
   composes: button;
   background-color: var(--surface-02);
@@ -97,12 +100,17 @@
   border-left-color: transparent;
   border-top-color: transparent;
   border-radius: 0 0 1.6rem 0rem;
+  cursor: default;
 }
-.stakeInput_button:hover {
+.stakeInput_button:hover:not(:disabled) {
   background-color: var(--surface-24);
+  cursor: pointer;
 }
 .stakeInput_button:focus {
   background-color: var(--primary-variant);
+}
+.stakeInput_button:disabled {
+  opacity: 0.6;
 }
 
 .dataContainer {
@@ -135,7 +143,7 @@
   color: white;
 }
 .dataContainer :global(.price-data span[data-warning="true"]) {
-  color: red;
+  color: rgb(248, 152, 27);
 }
 
 .submitButton {
@@ -143,12 +151,8 @@
   border: 2px solid var(--secondary);
   justify-self: end;
 }
-.submitButton:hover:not(:disabled) {
+.submitButton:not(:disabled):hover {
   background-color: var(--secondary-variant);
-}
-.submitButton:disabled {
-  opacity: 0.4;
-  cursor: default;
 }
 
 @media bp-medium {

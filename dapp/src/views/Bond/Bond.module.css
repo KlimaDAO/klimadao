@@ -21,10 +21,10 @@
 .stakeInput_input {
   composes: stakeInput_input from "../Stake/Stake.module.css";
 }
-
 .stakeInput_button {
   composes: stakeInput_button from "../Stake/Stake.module.css";
 }
+
 
 .bondHeader {
   display: grid;

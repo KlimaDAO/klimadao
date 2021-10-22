@@ -10,6 +10,7 @@ import {
   calculateUserBondDetails,
   bondAsset,
   redeemBond,
+  DEFAULT_QUOTE_SLP,
 } from "../../actions/Bond.actions";
 import { BONDS } from "../../constants";
 import styles from "./Bond.module.css";
@@ -51,7 +52,7 @@ function Bond({ provider, address, bond, isConnected }) {
   const bondDiscount = useSelector(state => {
     return state.bonding[bond] && state.bonding[bond].bondDiscount;
   });
-  const maxBondPrice = useSelector(state => {
+  const maxKLIMA = useSelector(state => {
     return state.bonding[bond] && state.bonding[bond].maxBondPrice;
   });
   const interestDue = useSelector(state => {
@@ -72,7 +73,8 @@ function Bond({ provider, address, bond, isConnected }) {
   const allowance = useSelector(state => {
     return state.bonding[bond] && state.bonding[bond].allowance;
   });
-  const isLoading = typeof allowance === 'undefined' || quantity !== debouncedQuantity;
+  const isLoading = typeof allowance === "undefined" || quantity !== debouncedQuantity;
+
   const onRecipientAddressChange = e => {
     return setRecipientAddress(e.target.value);
   };
@@ -131,13 +133,20 @@ function Bond({ provider, address, bond, isConnected }) {
         }),
       );
     }
+    setQuantity("");
   }
 
   const setMax = () => {
     if (view === "bond") {
-      setQuantity(balance)
+      if (!bondQuote || !maxKLIMA || !balance) {
+        return;
+      }
+      const quotedQuantity = quantity || DEFAULT_QUOTE_SLP;
+      const price = quotedQuantity / bondQuote;
+      const maxPayable = maxKLIMA * price;
+      setQuantity(balance < maxPayable ? balance : maxPayable);
     } else {
-      setQuantity(pendingPayout)
+      setQuantity(pendingPayout);
     }
   };
 
@@ -146,10 +155,10 @@ function Bond({ provider, address, bond, isConnected }) {
     if (bond === BONDS.dai) return "BCT";
   };
 
-
   useEffect(() => {
     async function loadBondDetails() {
-      if (provider) await dispatch(calcBondDetails({ bond, value: debouncedQuantity, provider, networkID: NETWORK_ID }));
+      if (provider)
+        await dispatch(calcBondDetails({ bond, value: debouncedQuantity, provider, networkID: NETWORK_ID }));
       if (provider && address) {
         await dispatch(calculateUserBondDetails({ address, bond, provider, networkID: NETWORK_ID }));
         setRecipientAddress(address);
@@ -168,6 +177,8 @@ function Bond({ provider, address, bond, isConnected }) {
 
   const bondDiscountPercent = bondDiscount * 100;
   const isBondDiscountNegative = bondDiscountPercent < 0;
+
+  const disableBondButton = !quantity || !Number(quantity) || bondQuote > maxKLIMA || quantity > balance;
 
   return (
     <div className={styles.stakeCard}>
@@ -205,13 +216,15 @@ function Bond({ provider, address, bond, isConnected }) {
         <div className={styles.stakeInput}>
           <input
             className={styles.stakeInput_input}
-            value={quantity}
+            value={view === "bond" ? quantity || "" : pendingPayout || ""}
             onChange={e => setQuantity(e.target.value)}
             type="number"
             placeholder={`Amount to ${{ bond: "bond", redeem: "redeem" }[view]}`}
             min="0"
+            step={view === "bond" && balanceUnits() !== "BCT" ? "0.0001" : "1"}
+            disabled={view === "redeem"}
           />
-          <button className={styles.stakeInput_button} type="button" onClick={setMax}>
+          <button className={styles.stakeInput_button} type="button" onClick={setMax} disabled={view === "redeem"}>
             Max
           </button>
         </div>
@@ -244,7 +257,7 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Balance</p>
             <p className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                <span>{trimWithPlaceholder(balance, 4)}</span> {balanceUnits()}
+                <span data-warning={quantity > balance}>{trimWithPlaceholder(balance, 6)}</span> {balanceUnits()}
               </WithPlaceholder>
             </p>
           </div>
@@ -264,14 +277,14 @@ function Bond({ provider, address, bond, isConnected }) {
           <div className="stake-price-data-row">
             <p className="price-label">You Will Get</p>
             <p className="price-data">
-              <span>{trimWithPlaceholder(bondQuote, 4)}</span> KLIMA
+              <span>{trimWithPlaceholder(isLoading ? NaN : bondQuote, 4)}</span> KLIMA
             </p>
           </div>
 
           <div className="stake-price-data-row">
             <p className="price-label">Max You Can Buy</p>
             <p className="price-data">
-              <span>{trimWithPlaceholder(maxBondPrice, 4)}</span> KLIMA
+              <span data-warning={bondQuote && maxKLIMA && bondQuote > maxKLIMA}>{trimWithPlaceholder(maxKLIMA, 4)}</span> KLIMA
             </p>
           </div>
 
@@ -301,7 +314,7 @@ function Bond({ provider, address, bond, isConnected }) {
       {view === "redeem" && (
         <div className={styles.data_container}>
           <div className="stake-price-data-row">
-            <p className="price-label">Pending Rewards</p>
+            <p className="price-label">Pending</p>
             <p id="bond-market-price-id" className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
                 <span>{trimWithPlaceholder(interestDue, 4)}</span> KLIMA
@@ -309,7 +322,7 @@ function Bond({ provider, address, bond, isConnected }) {
             </p>
           </div>
           <div className="stake-price-data-row">
-            <p className="price-label">Claimable Rewards</p>
+            <p className="price-label">Redeemable</p>
             <p id="bond-market-price-id" className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
                 <span>{trimWithPlaceholder(pendingPayout, 4)}</span> KLIMA
@@ -320,7 +333,7 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Time until fully vested</p>
             <p id="bond-market-price-id" className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                {vestingTime()}
+                <span>{vestingTime()}</span>
               </WithPlaceholder>
             </p>
           </div>
@@ -333,7 +346,11 @@ function Bond({ provider, address, bond, isConnected }) {
         </p>
       )}
 
-      {isBondDiscountNegative && <p style={{ textAlign: "center" }}>⚠️ Warning: this bond price is inflated because the current discount rate is negative.</p>}
+      {isBondDiscountNegative && view === "bond" && (
+        <p style={{ textAlign: "center" }}>
+          ⚠️ Warning: this bond price is inflated because the current discount rate is negative.
+        </p>
+      )}
 
       {isConnected && isLoading && (
         <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
@@ -347,25 +364,14 @@ function Bond({ provider, address, bond, isConnected }) {
           onClick={() => {
             onRedeem({ autostake: false });
           }}
+          disabled={!pendingPayout || pendingPayout == "0"}
         >
-          Claim
-        </button>
-      )}
-
-      {false && !isLoading && view === "redeem" && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onRedeem({ autostake: false });
-          }}
-        >
-          Claim and Autostake
+          REDEEM ALL
         </button>
       )}
 
       {!isLoading && hasAllowance() && view === "bond" && (
-        <button disabled={!quantity} type="button" className={styles.submitButton} onClick={onBond}>
+        <button disabled={disableBondButton} type="button" className={styles.submitButton} onClick={onBond}>
           Bond
         </button>
       )}
