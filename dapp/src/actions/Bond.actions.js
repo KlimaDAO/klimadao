@@ -153,7 +153,7 @@ export const calculateUserBondDetails =
       allowance = await reserveContract.allowance(address, addresses[networkID].BONDS.OHM_DAI);
 
       balance = await reserveContract.balanceOf(address);
-      balance = ethers.utils.formatEther(balance);
+      balance = ethers.utils.formatUnits(balance, "ether");
     } else if (bond === BONDS.dai) {
       allowance = await reserveContract.allowance(address, addresses[networkID].BONDS.DAI);
 
@@ -171,9 +171,9 @@ export const calculateUserBondDetails =
         bond,
         allowance,
         balance,
-        interestDue: ethers.utils.formatEther(interestDue),
+        interestDue: ethers.utils.formatUnits(interestDue, "gwei"),
         bondMaturationBlock,
-        pendingPayout: ethers.utils.formatEther(pendingPayout),
+        pendingPayout: ethers.utils.formatUnits(pendingPayout, "gwei"),
       }),
     );
   };

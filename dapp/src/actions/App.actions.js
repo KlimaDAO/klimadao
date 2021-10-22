@@ -25,8 +25,6 @@ export const loadAppDetails =
   async dispatch => {
     const currentBlock = await provider.getBlockNumber();
 
-    const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS, ierc20Abi, provider);
-    const stakingContract = new ethers.Contract(addresses[networkID].STAKING_ADDRESS, KlimaStaking, provider);
     const distributorContract = new ethers.Contract(
       addresses[networkID].DISTRIBUTOR_ADDRESS,
       DistributorContract,
