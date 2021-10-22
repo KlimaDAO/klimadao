@@ -51,7 +51,7 @@ export const loadAccountDetails =
       ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS, ierc20Abi, provider);
       ohmBalance = await ohmContract.balanceOf(address);
       stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
-      console.log("KLIMA Allowance: ", stakeAllowance);
+      console.log("KLIMA Allowance (stake allowance): ", stakeAllowance);
     }
 
     if (addresses[networkID].DAI_BOND_ADDRESS) {
@@ -62,7 +62,7 @@ export const loadAccountDetails =
       sohmContract = await new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, provider);
       sohmBalance = await sohmContract.balanceOf(address);
       unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-      console.log("sKLIMA allowance: ", unstakeAllowance);
+      console.log("sKLIMA allowance (unstake allowance): ", unstakeAllowance);
     }
 
     if (addresses[networkID].AKLIMA_ADDRESS) {

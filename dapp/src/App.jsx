@@ -1,8 +1,8 @@
 /* eslint-disable no-use-before-define */
-import { StaticJsonRpcProvider, Web3Provider } from "@ethersproject/providers";
+import { StaticJsonRpcProvider } from "@ethersproject/providers";
+import { ethers } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { useUserAddress } from "eth-hooks";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, Redirect, Route, Switch, useLocation } from "react-router-dom";
 import Web3Modal from "web3modal";
 import { useDispatch } from "react-redux";
@@ -15,7 +15,6 @@ import { Stake, ChooseBond, Bond, Redeem, PKlima, Info } from "./views";
 import { InvalidNetworkModal } from "./components/InvalidNetworkModal";
 
 import { NETWORKS, BONDS, addresses, polygonNetworks, MAINNET_RPC_URL } from "./constants";
-import { useUserProvider } from "./hooks";
 
 import styles from "./App.module.css";
 import Logo from "./assets/KlimaDAO/klima-logo.png";
@@ -81,7 +80,6 @@ const blockExplorer = targetNetwork.blockExplorer;
   Web3 modal helps us "connect" external wallets:
 */
 const web3Modal = new Web3Modal({
-  // network: "mainnet", // optional
   cacheProvider: true, // optional
   providerOptions: {
     walletconnect: {
@@ -94,70 +92,25 @@ const web3Modal = new Web3Modal({
   },
 });
 
-function App() {
-  const dispatch = useDispatch();
-
-  const [route, setRoute] = useState();
-  const [injectedProvider, setInjectedProvider] = useState();
-  const [chainId, setChainId] = useState();
-
-  // Use your injected provider from 🦊 Metamask or if you don't have it then instantly generate a 🔥 burner wallet.
-  const userProvider = useUserProvider(injectedProvider, null);
-  const address = useUserAddress(userProvider);
-  const { pathname } = useLocation();
-
-  async function init() {
-    try {
-      let provider;
-      let addressToLoad;
-      if (web3Modal.cachedProvider) {
-        provider = await loadWeb3Modal();
-        addressToLoad = provider.provider.selectedAddress || provider.provider.accounts[0];
-      } else {
-        provider = fallbackProvider;
-      }
-      const networkInfo = await provider.getNetwork();
-      setChainId(networkInfo.chainId);
-      if (networkInfo.chainId !== 137 && networkInfo.chainId !== 80001) {
-        return; // modal will ask for network change -> page will reload
-      }
-      await dispatch(loadAppDetails({ networkID: networkInfo.chainId, provider }));
-      await dispatch(getMarketPrice({ networkID: networkInfo.chainId, provider }));
-      await dispatch(getTokenSupply({ networkID: networkInfo.chainId, provider }));
-
-      if (addressToLoad) {
-        await dispatch(loadAccountDetails({ networkID: networkInfo.chainId, address: addressToLoad, provider }));
-      }
-      ["klima_bct_lp", "bct_usdc_lp"].map(async bond => {
-        // CHECK FOR DEPLOYED ADDRESSES
-        if (addresses[networkInfo.chainId].BONDS.OHM_DAI !== "") {
-          await dispatch(calcBondDetails({ bond, value: null, provider, networkID: networkInfo.chainId }));
-        }
-      });
-    } catch (e) {
-      console.error("failed to init()", e);
-      return;
+const useProvider = () => {
+  const fallbackProvider = useRef();
+  const [provider, setProvider] = useState();
+  const [address, setAddress] = useState();
+  const loadWeb3Modal = async () => {
+    const modalProvider = await web3Modal.connect();
+    if (modalProvider) {
+      const provider = new ethers.providers.Web3Provider(modalProvider);
+      const address = await provider.getSigner().getAddress();
+      setProvider(provider);
+      setAddress(address);
     }
   }
-
   useEffect(() => {
-    init();
+    if (web3Modal.cachedProvider) {
+      loadWeb3Modal();
+    }
   }, []);
 
-  const loadWeb3Modal = async () => {
-    const provider = await web3Modal.connect();
-    const newProvider = new Web3Provider(provider);
-    setInjectedProvider(newProvider); // metamask
-    return newProvider;
-  };
-
-  useEffect(() => {
-    setRoute(window.location.pathname);
-  }, [setRoute]);
-
-  /**
-   * SESSION MANAGER
-   */
   useEffect(() => {
     const handleChainChanged = () => {
       window.location.reload();
@@ -165,26 +118,61 @@ function App() {
     const handleAccountsChanged = () => {
       window.location.reload();
     }
-    const handleDisconnect = () => {
-      if (web3Modal && web3Modal.cachedProvider) {
-        web3Modal.clearCachedProvider();
-        setTimeout(() => {
-          window.location.reload();
-        }, 100)
-      }
-    }
-    if (userProvider) {
-      userProvider.provider.on("chainChanged", handleChainChanged);
-      userProvider.provider.on("accountsChanged", handleAccountsChanged);
-      userProvider.provider.on("disconnect", handleDisconnect);
+    if (provider) {
+      provider.provider.on("chainChanged", handleChainChanged);
+      provider.provider.on("accountsChanged", handleAccountsChanged);
     }
     return () => {
-      userProvider && userProvider.provider.remove("accountsChanged", handleAccountsChanged);
-      userProvider && userProvider.provider.remove("chainChanged", handleChainChanged);
-      userProvider && userProvider.provider.remove("disconnect", handleDisconnect);
-
+      provider && provider.provider.remove("accountsChanged", handleAccountsChanged);
+      provider && provider.provider.remove("chainChanged", handleChainChanged);
     }
-  }, [userProvider])
+  }, [provider])
+
+  if (!provider && !fallbackProvider.current) {
+    fallbackProvider.current = new ethers.providers.JsonRpcProvider(MAINNET_RPC_URL);
+    fallbackProvider.current.isFallback = true;
+    return [fallbackProvider.current, '', loadWeb3Modal]
+  }
+  return [provider || fallbackProvider.current, address, loadWeb3Modal];
+}
+
+function App() {
+  const dispatch = useDispatch();
+  const [chainId, setChainId] = useState();
+  const [provider, address, loadWeb3Modal] = useProvider();
+  const { pathname } = useLocation();
+
+  const loadNetworkInfo = async () => {
+    const networkInfo = await provider.getNetwork();
+    setChainId(networkInfo.chainId);
+    if (networkInfo.chainId !== 137 && networkInfo.chainId !== 80001) {
+      return; // modal will ask for network change -> page will reload
+    }
+    dispatch(loadAppDetails({ networkID: networkInfo.chainId, provider }));
+    dispatch(getMarketPrice({ networkID: networkInfo.chainId, provider }));
+    dispatch(getTokenSupply({ networkID: networkInfo.chainId, provider }));
+    ["klima_bct_lp", "bct_usdc_lp"].map(async bond => {
+      // CHECK FOR DEPLOYED ADDRESSES
+      if (addresses[networkInfo.chainId].BONDS.OHM_DAI !== "") {
+        dispatch(calcBondDetails({ bond, value: null, provider, networkID: networkInfo.chainId }));
+      }
+    });
+  }
+
+  const loadUserInfo = async () => {
+    const networkInfo = await provider.getNetwork();
+    dispatch(loadAccountDetails({ networkID: networkInfo.chainId, address, provider }));
+  }
+
+  useEffect(() => {
+    if (provider) {
+      loadNetworkInfo();
+    }
+    if (address) {
+      loadUserInfo();
+    }
+  }, [provider, address]);
+
 
   /**
    * Outline manager for a11y
@@ -211,12 +199,21 @@ function App() {
   }, []);
 
   const disconnect = async () => {
-    if (userProvider) {
-      await userProvider.provider.disconnect();
+    if (provider && typeof provider.provider.disconnect === 'function') {
+      await provider.provider.disconnect();
     }
+    if (provider && typeof provider.disconnect === 'function') {
+      provider.disconnect();
+    }
+    if (web3Modal) {
+      web3Modal.clearCachedProvider();
+    }
+    setTimeout(() => {
+      window.location.reload();
+    }, 10)
   }
 
-  const isConnected = !!web3Modal && !!web3Modal.cachedProvider && !!userProvider;
+  const isConnected = !!address;
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
   // A hack to keep the card centered in the viewport.
   const nav = (
@@ -279,16 +276,16 @@ function App() {
               <Redirect to="/stake" />
             </Route>
             <Route exact path="/stake">
-              <Stake address={address} provider={userProvider} isConnected={isConnected} />
+              <Stake address={address} provider={provider} isConnected={isConnected} />
             </Route>
             <Route exact path="/redeem">
-              <Redeem address={address} provider={userProvider} isConnected={isConnected} />
+              <Redeem address={address} provider={provider} isConnected={isConnected} />
             </Route>
             <Route exact path="/pklima">
-              <PKlima address={address} provider={userProvider} isConnected={isConnected} />
+              <PKlima address={address} provider={provider} isConnected={isConnected} />
             </Route>
             <Route exact path="/bonds">
-              <ChooseBond address={address} provider={userProvider} isConnected={isConnected} />
+              <ChooseBond address={address} provider={provider} isConnected={isConnected} />
             </Route>
             <Route exact path="/info">
               <Info />
@@ -300,7 +297,7 @@ function App() {
               return (
                 <Route exact key={bond} path={`/bonds/${bond}`}>
                   <Bond
-                    provider={userProvider}
+                    provider={provider}
                     address={address}
                     bond={bond}
                     isConnected={isConnected}
@@ -325,7 +322,7 @@ function App() {
           </div>
         </footer>
       </div>
-      <InvalidNetworkModal provider={userProvider} />
+      <InvalidNetworkModal provider={provider} />
     </>
   );
 }

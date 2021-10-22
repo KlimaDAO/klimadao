@@ -37,7 +37,7 @@ export const changeApproval =
         );
       }
 
-      await approveTx.wait();
+      await approveTx.wait(1);
     } catch (error) {
       alert(error.message);
       return;
@@ -76,10 +76,10 @@ export const runExercise =
     try {
       if (action === "stake") {
         redeemTx = await redeem.exercise(ethers.utils.parseUnits(value, "ether"));
-        await redeemTx.wait();
+        await redeemTx.wait(1);
       } else {
         redeemTx = await redeem.exercise(ethers.utils.parseUnits(value, "ether"));
-        await redeemTx.wait();
+        await redeemTx.wait(1);
       }
     } catch (error) {
       if (error.code === -32603 && error.message.indexOf("ds-math-sub-underflow") >= 0) {

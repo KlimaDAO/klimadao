@@ -78,7 +78,8 @@ function Stake(props) {
       alert("Please enter a value!");
     } else {
       setPending(true);
-      await dispatch(
+      setQuantity("");
+      dispatch(
         changeStake({
           address,
           action,

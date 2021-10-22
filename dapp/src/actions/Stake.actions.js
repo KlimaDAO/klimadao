@@ -1,14 +1,11 @@
 import { ethers } from "ethers";
 import { Biconomy } from "@biconomy/mexa";
-import Web3 from "web3";
-import { RelayProvider } from "@opengsn/provider";
+import { toBuffer } from "ethereumjs-util";
 import { addresses, Actions } from "../constants";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
 import { abi as KlimaStaking } from "../abi/klimadao/contracts/KlimaStakingv2.json";
 import { abi as KlimaStakingHelper } from "../abi/klimadao/contracts/KlimaStakingHelper.json";
 import abi from "ethereumjs-abi";
-import {toBuffer} from "ethereumjs-util";
-
 
 const paymasterAddress = "0xca94abedcc18a10521ab7273b3f3d5ed28cf7b8a";
 
@@ -56,7 +53,7 @@ export const changeApproval =
         );
       }
 
-      await approveTx.wait();
+      await approveTx.wait(1);
     } catch (error) {
       alert(error.message);
       return;
@@ -64,6 +61,8 @@ export const changeApproval =
 
     const newStakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
     const newUnstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+    console.log("new stake allowance", newStakeAllowance);
+    console.log("new unstake allowance", newUnstakeAllowance);
     return dispatch(
       fetchStakeSuccess({
         staking: {
@@ -84,18 +83,21 @@ export const changeStake =
 
     const signer = provider.getSigner();
 
-
     let stakeTx;
 
     try {
       if (action === "stake") {
-        const staking = await new ethers.Contract(addresses[networkID].STAKING_HELPER_ADDRESS, KlimaStakingHelper, signer);
+        const staking = await new ethers.Contract(
+          addresses[networkID].STAKING_HELPER_ADDRESS,
+          KlimaStakingHelper,
+          signer,
+        );
         stakeTx = await staking.stake(ethers.utils.parseUnits(value, "gwei"));
-        await stakeTx.wait();
+        await stakeTx.wait(1);
       } else {
         const staking = await new ethers.Contract(addresses[networkID].STAKING_ADDRESS, KlimaStaking, signer);
         stakeTx = await staking.unstake(ethers.utils.parseUnits(value, "gwei"), false);
-        await stakeTx.wait();
+        await stakeTx.wait(1);
       }
     } catch (error) {
       if (error.code === -32603 && error.message.indexOf("ds-math-sub-underflow") >= 0) {
@@ -126,9 +128,7 @@ export const changeStake =
 
 const getSignatureParameters = signature => {
   if (!ethers.utils.isHexString(signature)) {
-    throw new Error(
-      'Given value "'.concat(signature, '" is not a valid hex string.')
-    );
+    throw new Error('Given value "'.concat(signature, '" is not a valid hex string.'));
   }
   var r = signature.slice(0, 66);
   var s = "0x".concat(signature.slice(66, 130));
@@ -138,17 +138,16 @@ const getSignatureParameters = signature => {
   return {
     r: r,
     s: s,
-    v: v
+    v: v,
   };
 };
 
 const constructMetaTransactionMessage = (nonce, salt, functionSignature, contractAddress) => {
   return abi.soliditySHA3(
-    ["uint256","address","uint256","bytes"],
-    [nonce, contractAddress, salt, toBuffer(functionSignature)]
+    ["uint256", "address", "uint256", "bytes"],
+    [nonce, contractAddress, salt, toBuffer(functionSignature)],
   );
-}
-
+};
 
 export const changeApprovalGasLess =
   ({ token, provider, address, networkID }) =>
@@ -158,62 +157,62 @@ export const changeApprovalGasLess =
       return;
     }
 
-    const biconomy = new Biconomy(provider,{apiKey: "dn4WMmxh8.ba205b72-87e4-4245-aa55-374f76b17e73", debug: true});
-    biconomy.onEvent(biconomy.READY, async () =>{
-      const ethersBiconomy = new ethers.providers.Web3Provider(biconomy);
-      let walletProvider, walletSigner;
+    const biconomy = new Biconomy(provider, { apiKey: "dn4WMmxh8.ba205b72-87e4-4245-aa55-374f76b17e73", debug: true });
+    biconomy
+      .onEvent(biconomy.READY, async () => {
+        const ethersBiconomy = new ethers.providers.Web3Provider(biconomy);
+        let walletProvider, walletSigner;
 
-      // Initialize Constants
-      const ohmContract = await new ethers.Contract(addresses[networkID].OHM_ADDRESS, ierc20Abi, biconomy.getSignerByAddress(address));
-      const sohmContract = await new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, biconomy.getSignerByAddress(address));
-      let contractInterface = new ethers.utils.Interface(ierc20Abi);
+        // Initialize Constants
+        const ohmContract = await new ethers.Contract(
+          addresses[networkID].OHM_ADDRESS,
+          ierc20Abi,
+          biconomy.getSignerByAddress(address),
+        );
+        const sohmContract = await new ethers.Contract(
+          addresses[networkID].SOHM_ADDRESS,
+          ierc20Abi,
+          biconomy.getSignerByAddress(address),
+        );
+        let contractInterface = new ethers.utils.Interface(ierc20Abi);
 
-      /*
+        /*
       This provider is linked to your wallet.
       If needed, substitute your wallet solution in place of window.ethereum
       */
-      walletProvider = new ethers.providers.Web3Provider(window.ethereum);
-      walletSigner = walletProvider.getSigner();
+        walletProvider = new ethers.providers.Web3Provider(window.ethereum);
+        walletSigner = walletProvider.getSigner();
 
-      let nonce = await provider.getTransactionCount(address); //BigNumber
-      let functionSignature = contractInterface.encodeFunctionData("approve", [ addresses[networkID].STAKING_ADDRESS, ethers.utils.parseUnits("1000000000", "gwei").toString()]);
+        let nonce = await provider.getTransactionCount(address); //BigNumber
+        let functionSignature = contractInterface.encodeFunctionData("approve", [
+          addresses[networkID].STAKING_ADDRESS,
+          ethers.utils.parseUnits("1000000000", "gwei").toString(),
+        ]);
 
-      let messageToSign = constructMetaTransactionMessage(nonce,networkID ,functionSignature, addresses[networkID].OHM_ADDRESS);
-      const signature = await walletSigner.signMessage(messageToSign);
-      let { r, s, v } = getSignatureParameters(signature);
-      let tx = ohmContract.executeMetaTransaction(address,
-        functionSignature, r, s, v);
+        let messageToSign = constructMetaTransactionMessage(
+          nonce,
+          networkID,
+          functionSignature,
+          addresses[networkID].OHM_ADDRESS,
+        );
+        const signature = await walletSigner.signMessage(messageToSign);
+        let { r, s, v } = getSignatureParameters(signature);
+        let tx = ohmContract.executeMetaTransaction(address, functionSignature, r, s, v);
 
-      await tx.wait(1);
-      console.log("Transaction hash : ", tx.hash);
-      // const signer = provider.getSigner();
+        await tx.wait(1);
 
-      //const userAddr = gsnProvider.origProvider.selectedAddress;
-      //const ohmContract = await new gsnWeb3.eth.Contract(ierc20Abi, addresses[networkID].OHM_ADDRESS);
-      //const sohmContract = await new gsnWeb3.eth.Contract(ierc20Abi, addresses[networkID].SOHM_ADDRESS);
-
-
-      let stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-      let unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-      //let stakeAllowance = await ohmContract.methods.allowance(address, addresses[networkID].STAKING_ADDRESS).call();
-      //let unstakeAllowance = await sohmContract.methods.allowance(address, addresses[networkID].STAKING_ADDRESS).call();
-      console.log("old stake Allowance: ", stakeAllowance);
-      console.log("old unstake Allowance: ", unstakeAllowance);
-
-      stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-      unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-      console.log("new stake Allowance: ", stakeAllowance);
-      console.log("new unstake Allowance: ", unstakeAllowance);
-      return dispatch(
-        fetchStakeSuccess({
-          staking: {
-            ohmStake: stakeAllowance,
-            ohmUnstake: unstakeAllowance,
-          },
-        }),
-      );
-    }).onEvent(biconomy.ERROR, (error,message) => {
-      console.log("BICONOMY FAILED")
-    });
-
+        const stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+        const unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+        return dispatch(
+          fetchStakeSuccess({
+            staking: {
+              ohmStake: stakeAllowance,
+              ohmUnstake: unstakeAllowance,
+            },
+          }),
+        );
+      })
+      .onEvent(biconomy.ERROR, (error, message) => {
+        console.log("BICONOMY FAILED");
+      });
   };

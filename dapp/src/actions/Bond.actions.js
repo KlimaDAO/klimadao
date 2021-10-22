@@ -36,7 +36,7 @@ export const changeApproval =
           addresses[networkID].BONDS.BCT_USDC,
           ethers.utils.parseUnits("1000000000", "ether").toString(),
         );
-      await approveTx.wait();
+      await approveTx.wait(1);
     } catch (error) {
       alert(error.message);
     }
@@ -197,7 +197,7 @@ export const bondAsset =
     // Deposit the bond
     try {
       const bondTx = await bondContract.deposit(valueInWei, maxPremium, depositorAddress);
-      await bondTx.wait();
+      await bondTx.wait(1);
 
       const reserveContract = contractForReserve({ bond, provider, networkID });
 
@@ -239,7 +239,7 @@ export const redeemBond =
         redeemTx = await bondContract.redeem(address, autostake);
       }
 
-      await redeemTx.wait();
+      await redeemTx.wait(1);
     } catch (error) {
       alert(error.message);
     }
