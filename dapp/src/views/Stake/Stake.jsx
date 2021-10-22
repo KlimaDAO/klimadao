@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { secondsUntilBlock, prettifySeconds, trimWithPlaceholder } from "../../helpers";
-import { changeStake, changeApproval, changeApprovalGasLess } from "../../actions/Stake.actions";
+import { changeStake, changeApproval } from "../../actions/Stake.actions";
 import styles from "./Stake.module.css";
 import t from "../../styles/typography.module.css";
 
@@ -69,8 +69,8 @@ function Stake(props) {
   };
 
   const onSeekApproval = async token => {
-    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(provider.network.chainId) }));
     setPending(true);
+    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(provider.network.chainId) }));
   };
 
   const onChangeStake = async action => {
@@ -121,6 +121,7 @@ function Stake(props) {
             className={styles.switchButton}
             type="button"
             onClick={() => {
+              setQuantity("");
               setView("stake");
             }}
             data-active={view === "stake"}
@@ -131,6 +132,7 @@ function Stake(props) {
             className={styles.switchButton}
             type="button"
             onClick={() => {
+              setQuantity("");
               setView("unstake");
             }}
             data-active={view === "unstake"}
