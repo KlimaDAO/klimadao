@@ -18,6 +18,10 @@
 
 .data_column :global(.price-data) {
   color: var(--secondary);
+  display: flex;
+  gap: 0.4rem;
+  justify-content: start;
+  align-items: end;
 }
 
 .bondList {
