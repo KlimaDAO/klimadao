@@ -32,6 +32,12 @@ function ChooseBond() {
       </div>
       <div className={styles.bondList}>
         <h2 className={t.overline}>Choose a bond:</h2>
+        <Link to={bct.href}>
+          <div to={bct.href} className={styles.bondLink} key={bct.name}>
+            <h3 className={t.subtitle2}>{bct.name}</h3>
+            <p className={classNames(styles.bondLink_description, t.caption)}>{bct.description}</p>
+          </div>
+        </Link>
         <Link to={bct_lp.href}>
           <div className={styles.bondLink} key={bct_lp.name}>
             <h3 className={t.subtitle2}>{bct_lp.name}</h3>
@@ -42,12 +48,6 @@ function ChooseBond() {
           <div to={bct_usdc_lp.href} className={styles.bondLink} key={bct_usdc_lp.name}>
             <h3 className={t.subtitle2}>{bct_usdc_lp.name}</h3>
             <p className={classNames(styles.bondLink_description, t.caption)}>{bct_usdc_lp.description}</p>
-          </div>
-        </Link>
-        <Link to={bct.href}>
-          <div to={bct.href} className={styles.bondLink} key={bct.name}>
-            <h3 className={t.subtitle2}>{bct.name}</h3>
-            <p className={classNames(styles.bondLink_description, t.caption)}>{bct.description}</p>
           </div>
         </Link>
       </div>
