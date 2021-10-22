@@ -291,9 +291,6 @@ function App() {
               <Info />
             </Route>
             {Object.values(BONDS).map(bond => {
-              if (bond === "bct") {
-                return null; // REMOVE ME when naked bonds launch
-              }
               return (
                 <Route exact key={bond} path={`/bonds/${bond}`}>
                   <Bond

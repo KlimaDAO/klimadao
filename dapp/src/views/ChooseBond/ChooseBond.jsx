@@ -44,11 +44,12 @@ function ChooseBond() {
             <p className={classNames(styles.bondLink_description, t.caption)}>{bct_usdc_lp.description}</p>
           </div>
         </Link>
-        <h2 className={t.overline}>COMING SOON:</h2>
-        <div to={bct.href} className={styles.bondLink} style={{ opacity: 0.5, border: "none" }} key={bct.name}>
-          <h3 className={t.subtitle2}>{bct.name}</h3>
-          <p className={classNames(styles.bondLink_description, t.caption)}>{bct.description}</p>
-        </div>
+        <Link to={bct.href}>
+          <div to={bct.href} className={styles.bondLink} key={bct.name}>
+            <h3 className={t.subtitle2}>{bct.name}</h3>
+            <p className={classNames(styles.bondLink_description, t.caption)}>{bct.description}</p>
+          </div>
+        </Link>
       </div>
     </div>
   );
