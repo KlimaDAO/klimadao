@@ -97,14 +97,19 @@ const useProvider = () => {
   const [provider, setProvider] = useState();
   const [address, setAddress] = useState();
   const loadWeb3Modal = async () => {
-    const modalProvider = await web3Modal.connect();
-    if (modalProvider) {
-      const provider = new ethers.providers.Web3Provider(modalProvider);
-      const address = await provider.getSigner().getAddress();
-      setProvider(provider);
-      setAddress(address);
+    try {
+      const modalProvider = await web3Modal.connect();
+      if (modalProvider) {
+        const provider = new ethers.providers.Web3Provider(modalProvider);
+        const address = await provider.getSigner().getAddress();
+        setProvider(provider);
+        setAddress(address);
+      }
+    } catch (e) {
+      // handle bug where old cached providers cause the modal to keep reappearing
+      web3Modal.clearCachedProvider();
     }
-  }
+  };
   useEffect(() => {
     if (web3Modal.cachedProvider) {
       loadWeb3Modal();
@@ -114,10 +119,10 @@ const useProvider = () => {
   useEffect(() => {
     const handleChainChanged = () => {
       window.location.reload();
-    }
+    };
     const handleAccountsChanged = () => {
       window.location.reload();
-    }
+    };
     if (provider) {
       provider.provider.on("chainChanged", handleChainChanged);
       provider.provider.on("accountsChanged", handleAccountsChanged);
@@ -125,16 +130,16 @@ const useProvider = () => {
     return () => {
       provider && provider.provider.remove("accountsChanged", handleAccountsChanged);
       provider && provider.provider.remove("chainChanged", handleChainChanged);
-    }
-  }, [provider])
+    };
+  }, [provider]);
 
   if (!provider && !fallbackProvider.current) {
     fallbackProvider.current = new ethers.providers.JsonRpcProvider(MAINNET_RPC_URL);
     fallbackProvider.current.isFallback = true;
-    return [fallbackProvider.current, '', loadWeb3Modal]
+    return [fallbackProvider.current, "", loadWeb3Modal];
   }
   return [provider || fallbackProvider.current, address, loadWeb3Modal];
-}
+};
 
 function App() {
   const dispatch = useDispatch();
@@ -157,12 +162,12 @@ function App() {
         dispatch(calcBondDetails({ bond, value: null, provider, networkID: networkInfo.chainId }));
       }
     });
-  }
+  };
 
   const loadUserInfo = async () => {
     const networkInfo = await provider.getNetwork();
     dispatch(loadAccountDetails({ networkID: networkInfo.chainId, address, provider }));
-  }
+  };
 
   useEffect(() => {
     if (provider) {
@@ -172,7 +177,6 @@ function App() {
       loadUserInfo();
     }
   }, [provider, address]);
-
 
   /**
    * Outline manager for a11y
@@ -199,10 +203,10 @@ function App() {
   }, []);
 
   const disconnect = async () => {
-    if (provider && typeof provider.provider.disconnect === 'function') {
+    if (provider && typeof provider.provider.disconnect === "function") {
       await provider.provider.disconnect();
     }
-    if (provider && typeof provider.disconnect === 'function') {
+    if (provider && typeof provider.disconnect === "function") {
       provider.disconnect();
     }
     if (web3Modal) {
@@ -210,8 +214,8 @@ function App() {
     }
     setTimeout(() => {
       window.location.reload();
-    }, 10)
-  }
+    }, 10);
+  };
 
   const isConnected = !!address;
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
@@ -293,12 +297,7 @@ function App() {
             {Object.values(BONDS).map(bond => {
               return (
                 <Route exact key={bond} path={`/bonds/${bond}`}>
-                  <Bond
-                    provider={provider}
-                    address={address}
-                    bond={bond}
-                    isConnected={isConnected}
-                  />
+                  <Bond provider={provider} address={address} bond={bond} isConnected={isConnected} />
                 </Route>
               );
             })}
