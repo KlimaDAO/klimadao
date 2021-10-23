@@ -102,7 +102,7 @@ export const changeStake =
     } catch (error) {
       if (error.code === -32603 && error.message.indexOf("ds-math-sub-underflow") >= 0) {
         alert("You may be trying to stake more than your balance! Error code: 32603. Message: ds-math-sub-underflow");
-      } else if (error && error.data && error.data.message) {
+      } else if (error.data && error.data.message) {
         alert(error.data.message);
       } else {
         alert(error.message);

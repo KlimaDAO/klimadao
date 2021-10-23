@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { trim, trimWithPlaceholder } from "../../helpers";
-import { runMigrate, changeApproval, changeApprovalGasLess } from "../../actions/Redeem.actions";
+import { trimWithPlaceholder } from "../../helpers";
+import { runMigrate, changeApproval } from "../../actions/Redeem.actions";
 import styles from "./Redeem.module.css";
 import t from "../../styles/typography.module.css";
 
@@ -113,6 +113,7 @@ function Migrate(props) {
             className={styles.switchButton}
             type="button"
             onClick={() => {
+              setQuantity("");
               setView("stake");
             }}
             data-active={view === "stake"}
@@ -123,6 +124,7 @@ function Migrate(props) {
             className={styles.switchButton}
             type="button"
             onClick={() => {
+              setQuantity("");
               setView("unstake");
             }}
             data-active={view === "unstake"}
