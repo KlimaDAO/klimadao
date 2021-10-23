@@ -172,7 +172,7 @@ TEMP
       [main-start] minmax(0, 140rem)
       [main-end] minmax(6.4rem, 1fr)
       [full-end];
-    row-gap: 7.2rem;
+    row-gap: 5.4rem;
   }
   .header {
     padding-top: 6.4rem;
@@ -188,5 +188,11 @@ TEMP
   }
   .footer_content {
     grid-template-columns: auto auto;
+  }
+}
+
+@media bp-large {
+  .app {
+    row-gap: 7.2rem;
   }
 }

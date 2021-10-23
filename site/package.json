@@ -11,6 +11,9 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@sushiswap/sushi-data": "^1.0.26",
+    "classnames": "^2.3.1",
+    "ethers": "^5.5.1",
     "leaflet": "^1.7.1",
     "next": "11.0.1",
     "react": "17.0.2",

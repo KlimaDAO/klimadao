@@ -1,4 +1,4 @@
-@value bp-small, bp-medium from "styles/breakpoints.css";
+@value bp-small, bp-medium, bp-large from "styles/breakpoints.css";
 
 /* COMPONENTS */
 .card {
@@ -62,7 +62,7 @@
   grid-template-rows: repeat(3, auto) 1fr;
 }
 .heroSection p {
-  max-width: 42rem;
+  max-width: 46rem;
 }
 
 .logoContainer {
@@ -131,7 +131,6 @@
   composes: card;
   display: grid;
   grid-template-rows: auto 1fr;
-  gap: 0.8rem;
   justify-content: start;
 }
 .dataCardColumn {
@@ -143,22 +142,21 @@
 .chartCard {
   composes: dataCard;
   justify-self: start;
-  grid-template-rows: auto auto 1fr;
+  gap: 1.6rem;
 }
-.chartContainer {
-  display: grid;
-  column-gap: 0.6rem;
-  min-height: 8.4rem;
-  grid-template-columns: repeat(5, 1fr);
+.treasuryBalance {
+  display: flex;
+  gap: 0.8rem;
+  display: flex;
   align-items: flex-end;
 }
-.chartColumn {
-  height: 100%;
-  background-color: var(--secondary);
-  border-radius: 0.4rem;
-  width: 2rem;
+.treasuryBalance_value {
+  composes: h5 from "styles/typography.module.css";
+  color: var(--secondary);
 }
-
+.emissionsValue {
+  color: var(--secondary-variant);
+}
 .dividerSection {
   border-top: 0.2rem solid var(--surface-04dp);
   border-bottom: 0.2rem solid var(--surface-04dp);
@@ -174,6 +172,16 @@
   grid-column: main;
   text-align: center;
   justify-self: center;
+}
+
+.poweredBySection {
+  composes: dividerSection;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.poweredBySection :global(a) {
+  max-width: 24rem;
 }
 
 .graphicSection {
@@ -240,13 +248,19 @@
       [full-end];
   }
   .logoContainer {
-    width: 32rem;
-    padding-top: 7.2rem;
+    padding-top: 5.4rem;
   }
   .footer_logo {
     align-self: center;
   }
   .footer_content {
     grid-template-columns: auto auto;
+  }
+}
+
+@media bp-large {
+  .logoContainer {
+    width: 32rem;
+    padding-top: 7.2rem;
   }
 }
