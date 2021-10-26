@@ -45,7 +45,7 @@ function ChooseBond({ provider }) {
         </div>
 
         {bonds.map(bond => (
-          <Link to={bond.href}>
+          <Link to={bond.href} key={bond.href}>
             <div to={bond.href} className={styles.bondLink} key={bond.name}>
               <div>
                 <h3 className={t.subtitle2}>{bond.name}</h3>
