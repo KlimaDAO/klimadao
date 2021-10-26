@@ -28,8 +28,13 @@
   display: grid;
   gap: 0.8rem;
 }
+.bondList_columnTitle {
+  display: flex;
+  justify-content: space-between;
+}
 .bondLink {
   display: grid;
+  grid-template-columns: 1fr auto;
   background-color: var(--surface-16);
   padding: 1.6rem;
   border: 1px solid transparent;
@@ -37,4 +42,12 @@
 }
 .bondLink:hover {
   border: 1px solid var(--secondary);
+}
+.bondROI {
+  composes: subtitle2 from "../../styles/typography.module.css";
+  justify-self: center;
+  align-self: center;
+}
+.bondROI[data-hide="true"] {
+  opacity: 0.4;
 }

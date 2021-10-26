@@ -3,7 +3,7 @@ import { getMarketPrice, contractForBond, contractForReserve } from "../helpers"
 import { addresses, Actions, BONDS, VESTING_TERM } from "../constants";
 import { abi as BondOhmDaiCalcContract } from "../abi/bonds/OhmDaiCalcContract.json";
 
-export const DEFAULT_QUOTE_SLP = "0.0001";  // Use a realistic SLP ownership so we have a quote before the user inputs any value
+export const DEFAULT_QUOTE_SLP = "0.001";  // Use a realistic SLP ownership so we have a quote before the user inputs any value
 
 export const fetchBondSuccess = payload => ({
   type: Actions.FETCH_BOND_SUCCESS,

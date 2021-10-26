@@ -284,7 +284,10 @@ function Bond({ provider, address, bond, isConnected }) {
           <div className="stake-price-data-row">
             <p className="price-label">Max You Can Buy</p>
             <p className="price-data">
-              <span data-warning={bondQuote && maxKLIMA && bondQuote > maxKLIMA}>{trimWithPlaceholder(maxKLIMA, 4)}</span> KLIMA
+              <span data-warning={bondQuote && maxKLIMA && bondQuote > maxKLIMA}>
+                {trimWithPlaceholder(maxKLIMA, 4)}
+              </span>{" "}
+              KLIMA
             </p>
           </div>
 

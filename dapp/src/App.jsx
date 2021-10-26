@@ -156,7 +156,7 @@ function App() {
     dispatch(loadAppDetails({ networkID: networkInfo.chainId, provider }));
     dispatch(getMarketPrice({ networkID: networkInfo.chainId, provider }));
     dispatch(getTokenSupply({ networkID: networkInfo.chainId, provider }));
-    ["klima_bct_lp", "bct_usdc_lp"].map(async bond => {
+    ["klima_bct_lp", "bct_usdc_lp", "bct"].map(async bond => {
       // CHECK FOR DEPLOYED ADDRESSES
       if (addresses[networkInfo.chainId].BONDS.OHM_DAI !== "") {
         dispatch(calcBondDetails({ bond, value: null, provider, networkID: networkInfo.chainId }));
