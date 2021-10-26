@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import { ethers } from "ethers";
+import { ethers, BigNumber } from "ethers";
 import Image from "next/image";
 import s from "styles/pages/Home.module.css";
 import t from "styles/typography.module.css";
@@ -18,18 +18,27 @@ import { DiscordIcon } from "components/Icons/DiscordIcon";
 import IERC20ABI from "../../dapp/src/abi/IERC20.json";
 import SKLIMAABI from "../../dapp/src/abi/klimadao/contracts/sKlima.json";
 import DistributorABI from "../../dapp/src/abi/DistributorContractv4.json";
+import PairContractABI from "../../dapp/src/abi/PairContract.json";
 
+// const KLIMA_ADDRESS = "0x4e78011ce80ee02d2c3e649fb657e45898257815";
 const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
 const TREASURY_ADDRESS = "0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7";
 const DISTRIBUTOR_ADDRESS = "0x4cC7584C3f8FAABf734374ef129dF17c3517e9cB";
 const SKLIMA_ADDRESS = "0xb0C22d8D350C67420f06F48936654f567C73E8C8";
-// const KLIMA_BCT_POOL = "0x9803c7ae526049210a1725f7487af26fe2c24614";
+const BCT_USDC_POOL_ADDRESS = "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64";
+const KLIMA_BCT_POOL_ADDRESS = "0x9803c7ae526049210a1725f7487af26fe2c24614";
 
 const epaSource =
   "https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references";
 const hectaresForestPerTonne = 1 / 200;
 const passengerVehiclesPerTonne = 1 / 4.6;
 const litersGasPerTonne = 1 / 0.00195748898;
+
+// ether e.g. Math.pow(10, 18);
+const getInteger = (num: BigNumber, unit: string | number = "ether") => {
+  const str = ethers.utils.formatUnits(num, unit);
+  return Math.floor(Number(str));
+};
 
 /** Returns localized string */
 export const trimWithPlaceholder = (
@@ -48,19 +57,74 @@ const getProvider = () => {
   return new ethers.providers.JsonRpcProvider("https://polygon-rpc.com");
 };
 
+const getOwnedBCTFromSLP = async (
+  slpAddress: typeof BCT_USDC_POOL_ADDRESS | typeof KLIMA_BCT_POOL_ADDRESS
+) => {
+  const contract = new ethers.Contract(
+    slpAddress,
+    PairContractABI.abi,
+    getProvider()
+  );
+  const [token0, token1, [reserve0, reserve1], treasurySLP, totalSLP] =
+    await Promise.all([
+      contract.token0() as string,
+      contract.token1() as string,
+      contract.getReserves(),
+      contract.balanceOf(TREASURY_ADDRESS),
+      contract.totalSupply(),
+    ]);
+  let reserve;
+  if (token0.toLowerCase() === BCT_ADDRESS.toLowerCase()) {
+    reserve = reserve0;
+  } else if (token1.toLowerCase() === BCT_ADDRESS.toLowerCase()) {
+    reserve = reserve1;
+  } else {
+    throw new Error("No BCT reserve found");
+  }
+  const bctSupply = getInteger(reserve);
+  const ownership = treasurySLP / totalSLP; // decimal (percent) e.g. 0.95999
+  const bctOwned = Math.floor(bctSupply * ownership);
+  return bctOwned;
+};
+
+// klimaBctPrice = bct / klima
+// bctUsdcPrice = usdc / bct
+const getUsdcPrice = async (): Promise<number> => {
+  const klimaBctContract = new ethers.Contract(
+    KLIMA_BCT_POOL_ADDRESS,
+    PairContractABI.abi,
+    getProvider()
+  );
+  const bctUsdcContract = new ethers.Contract(
+    BCT_USDC_POOL_ADDRESS,
+    PairContractABI.abi,
+    getProvider()
+  );
+  const [bctReserve, klimaReserve] = await klimaBctContract.getReserves();
+  const klimaBctPrice =
+    getInteger(bctReserve) / getInteger(klimaReserve, "gwei");
+  const [usdcReserve, bctReserve2] = await bctUsdcContract.getReserves();
+  const bctUsdcPrice = getInteger(usdcReserve, 6) / getInteger(bctReserve2);
+  const price = Math.floor(klimaBctPrice * bctUsdcPrice);
+  return price;
+};
+
+/**
+ * NakedBCT + (klimaBctReserve * klimaBctTreasuryPercent) + (bctUsdcReserve * bctUsdcTreasuryPercent)
+ */
 const getTreasuryBalance = async (): Promise<number> => {
   try {
-    const provider = getProvider();
     const bctContract = new ethers.Contract(
       BCT_ADDRESS,
       IERC20ABI.abi,
-      provider
+      getProvider()
     );
-    const treasuryBalance = await bctContract.balanceOf(TREASURY_ADDRESS);
-    const formatted = Math.floor(
-      Number(ethers.utils.formatEther(treasuryBalance))
-    );
-    return formatted;
+
+    const nakedBCT = getInteger(await bctContract.balanceOf(TREASURY_ADDRESS));
+    const bctUSDC = await getOwnedBCTFromSLP(BCT_USDC_POOL_ADDRESS);
+    const bctKLIMA = await getOwnedBCTFromSLP(KLIMA_BCT_POOL_ADDRESS);
+    const sum = nakedBCT + bctUSDC + bctKLIMA;
+    return sum;
   } catch (e) {
     console.error(e);
     return 0;
@@ -90,17 +154,20 @@ const getStakingAPY = async (): Promise<number> => {
 interface Props {
   treasuryBalance: number;
   stakingAPY: number;
+  price: number;
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const [treasuryBalance, stakingAPY] = await Promise.all([
+  const [treasuryBalance, stakingAPY, price] = await Promise.all([
     getTreasuryBalance(),
     getStakingAPY(),
+    getUsdcPrice(),
   ]);
   return {
     props: {
       treasuryBalance,
       stakingAPY,
+      price,
     },
     revalidate: 240,
   };
@@ -171,10 +238,10 @@ const Home: NextPage<Props> = (props) => {
           <div className={s.dataCardsContainer}>
             <div className={s.chartCard}>
               <div>
-                <h2 className={t.overline}>CARBON IN TREASURY</h2>
+                <h2 className={t.overline}>🌳 CARBON IN TREASURY</h2>
                 <p className={s.treasuryBalance}>
                   <span className={s.treasuryBalance_value}>
-                    {formattedTreasuryBalance}
+                  {formattedTreasuryBalance}
                   </span>
                   <span className={t.caption}>TONNES CO2</span>
                 </p>
@@ -193,19 +260,33 @@ const Home: NextPage<Props> = (props) => {
                   <span className={s.emissionsValue}>{litersGas}</span> liters
                   of gasoline
                 </p>
+                <div style={{ width: "100%", paddingBottom: "0.4rem" }} />
+                <a
+                  className={t.caption}
+                  href={epaSource}
+                  style={{ color: "gray" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  source
+                </a>
               </div>
             </div>
             <div className={s.dataCardColumn}>
               <div className={s.dataCard}>
-                <h2 className={t.overline}>APY</h2>
-                <p className={t.subtitle2} style={{ textAlign: "center" }}>
+                <h2 className={t.overline}>CURRENT APY</h2>
+                <p
+                  className={s.dataCard_priceTag}
+                >
                   {formattedAPY}
                 </p>
               </div>
               <div className={s.dataCard}>
-                <h2 className={t.overline}>Price (USD)</h2>
-                <p className={t.caption} style={{ textAlign: "center" }}>
-                  {"<COMING SOON>"}
+                <h2 className={t.overline}>Price (USDC)</h2>
+                <p
+                  className={s.dataCard_priceTag}
+                >
+                  ${props.price.toLocaleString()}
                 </p>
               </div>
             </div>
@@ -252,7 +333,7 @@ const Home: NextPage<Props> = (props) => {
           rel="noopener noreferrer"
           href="https://polygon.technology"
         >
-          <Image className={s.polygonImage} src={polygonBadge} />
+          <Image className={s.polygonImage} src={polygonBadge} alt="Powered by Polygon" />
         </a>
       </div>
 

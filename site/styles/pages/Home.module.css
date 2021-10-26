@@ -133,6 +133,10 @@
   grid-template-rows: auto 1fr;
   justify-content: start;
 }
+.dataCard_priceTag {
+  composes: h5 from "styles/typography.module.css";
+  color: var(--secondary);
+}
 .dataCardColumn {
   display: flex;
   flex-wrap: wrap;
@@ -151,7 +155,7 @@
   align-items: flex-end;
 }
 .treasuryBalance_value {
-  composes: h5 from "styles/typography.module.css";
+  composes: h4 from "styles/typography.module.css";
   color: var(--secondary);
 }
 .emissionsValue {
