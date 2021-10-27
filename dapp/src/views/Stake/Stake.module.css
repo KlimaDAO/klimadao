@@ -1,4 +1,3 @@
-@value button, body2 from "../../styles/typography.module.css";
 @value bp-medium from "../../styles/breakpoints.css";
 @value textButton from "../../App.module.css";
 
@@ -31,7 +30,7 @@
   border: 1px solid var(--primary-variant);
 }
 .switchButton {
-  composes: button;
+  composes: button from "../../styles/typography.module.css";
   display: flex;
   align-items: center;
   padding: 1.6rem;
@@ -87,7 +86,7 @@
   opacity: 0.7;
 }
 .stakeInput_button {
-  composes: button;
+  composes: button from "../../styles/typography.module.css";
   background-color: var(--surface-02);
   flex-grow: 0;
   flex-shrink: 0;
@@ -114,7 +113,7 @@
 }
 
 .dataContainer {
-  composes: body2;
+  composes: body2 from "../../styles/typography.module.css";
   display: grid;
   gap: 0.8rem;
 }
@@ -146,6 +145,15 @@
   color: rgb(248, 152, 27);
 }
 
+.buttonRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+.buttonRow_spinner {
+  padding: 0 0.8rem;
+  display: flex;
+  align-items: center;
+}
 .submitButton {
   composes: textButton;
   border: 2px solid var(--secondary);
@@ -153,6 +161,12 @@
 }
 .submitButton:not(:disabled):hover {
   background-color: var(--secondary-variant);
+}
+
+.statusMessage {
+  composes: body1 from "../../styles/typography.module.css";
+  text-align: center;
+  color: var(--gray);
 }
 
 @media bp-medium {

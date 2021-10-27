@@ -22,111 +22,81 @@ export const fetchStakeSuccess = payload => ({
   payload,
 });
 
-export const changeApproval =
-  ({ token, provider, address, networkID }) =>
-  async dispatch => {
-    if (!provider) {
-      alert("Please connect your wallet!");
-      return;
+export const incrementStake = payload => ({
+  type: Actions.INCREMENT_STAKE,
+  payload,
+});
+export const decrementStake = payload => ({
+  type: Actions.DECREMENT_STAKE,
+  payload,
+});
+export const incrementStakeApproval = payload => ({
+  type: Actions.INCREMENT_STAKE_APPROVAL,
+  payload,
+});
+export const incrementUnstakeApproval = payload => ({
+  type: Actions.INCREMENT_UNSTAKE_APPROVAL,
+  payload,
+});
+
+export const changeApprovalTransaction = async ({ provider, networkID, onStatus, action }) => {
+  try {
+    const contract = {
+      stake: new ethers.Contract(addresses[networkID].OHM_ADDRESS, ierc20Abi, provider.getSigner()),
+      unstake: new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, provider.getSigner()),
+    }[action];
+    const address = {
+      stake: addresses[networkID].STAKING_HELPER_ADDRESS,
+      unstake: addresses[networkID].STAKING_ADDRESS,
+    }[action];
+    const value = ethers.utils.parseUnits("1000000000", "gwei"); //bignumber
+    onStatus("userConfirmation");
+    const txn = await contract.approve(address, value.toString());
+    onStatus("networkConfirmation");
+    await txn.wait(1);
+    onStatus("done");
+    return value;
+  } catch (error) {
+    if (error.code === 4001) {
+      onStatus("userRejected");
+      throw error;
     }
-
-    const signer = provider.getSigner();
-    const ohmContract = await new ethers.Contract(addresses[networkID].OHM_ADDRESS, ierc20Abi, signer);
-    const sohmContract = await new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, signer);
-
-    let stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
-    let unstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-    console.log("old stake Allowance: ", stakeAllowance);
-    console.log("old unstake Allowance: ", unstakeAllowance);
-
-    let approveTx;
-    try {
-      if (token === "ohm") {
-        approveTx = await ohmContract.approve(
-          addresses[networkID].STAKING_HELPER_ADDRESS,
-          ethers.utils.parseUnits("1000000000", "gwei").toString(),
-        );
-      } else if (token === "sohm") {
-        approveTx = await sohmContract.approve(
-          addresses[networkID].STAKING_ADDRESS,
-          ethers.utils.parseUnits("1000000000", "gwei").toString(),
-        );
-      }
-
-      await approveTx.wait(1);
-    } catch (error) {
+    if (error.data && error.data.message) {
+      alert(error.data.message);
+    } else {
       alert(error.message);
-      return;
     }
+    onStatus("error");
+    throw error;
+  }
+};
 
-    const newStakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
-    const newUnstakeAllowance = await sohmContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-    console.log("new stake allowance", newStakeAllowance);
-    console.log("new unstake allowance", newUnstakeAllowance);
-    return dispatch(
-      fetchStakeSuccess({
-        staking: {
-          ohmStake: newStakeAllowance,
-          ohmUnstake: newUnstakeAllowance,
-        },
-      }),
-    );
-  };
-
-export const changeStake =
-  ({ action, value, provider, address, networkID }) =>
-  async dispatch => {
-    if (!provider) {
-      alert("Please connect your wallet!");
-      return;
+export const changeStakeTransaction = async ({ value, provider, networkID, onStatus, action }) => {
+  try {
+    const parsedValue = ethers.utils.parseUnits(value, "gwei");
+    const contract = {
+      stake: new ethers.Contract(addresses[networkID].STAKING_HELPER_ADDRESS, KlimaStakingHelper, provider.getSigner()),
+      unstake: new ethers.Contract(addresses[networkID].STAKING_ADDRESS, KlimaStaking, provider.getSigner()),
+    }[action];
+    onStatus("userConfirmation");
+    const txn = action === "stake" ? await contract.stake(parsedValue) : await contract.unstake(parsedValue, true); // always trigger rebase because gas is cheap
+    onStatus("networkConfirmation");
+    await txn.wait(1);
+    onStatus("done");
+  } catch (error) {
+    if (error.code === 4001) {
+      onStatus("userRejected");
+      throw error;
     }
-
-    const signer = provider.getSigner();
-
-    let stakeTx;
-
-    try {
-      if (action === "stake") {
-        const staking = await new ethers.Contract(
-          addresses[networkID].STAKING_HELPER_ADDRESS,
-          KlimaStakingHelper,
-          signer,
-        );
-        stakeTx = await staking.stake(ethers.utils.parseUnits(value, "gwei"));
-        await stakeTx.wait(1);
-      } else {
-        const staking = await new ethers.Contract(addresses[networkID].STAKING_ADDRESS, KlimaStaking, signer);
-        stakeTx = await staking.unstake(ethers.utils.parseUnits(value, "gwei"), false);
-        await stakeTx.wait(1);
-      }
-    } catch (error) {
-      if (error.code === -32603 && error.message.indexOf("ds-math-sub-underflow") >= 0) {
-        alert("You may be trying to stake more than your balance! Error code: 32603. Message: ds-math-sub-underflow");
-      } else if (error.data && error.data.message) {
-        alert(error.data.message);
-      } else {
-        alert(error.message);
-      }
-      return;
+    if (error.data && error.data.message) {
+      alert(error.data.message);
+    } else {
+      alert(error.message);
     }
-
-    const ohmContract = new ethers.Contract(addresses[networkID].OHM_ADDRESS, ierc20Abi, provider);
-    const ohmBalance = await ohmContract.balanceOf(address);
-    const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, provider);
-    const sohmBalance = await sohmContract.balanceOf(address);
-
-    return dispatch(
-      fetchStakeSuccess({
-        balances: {
-          ohm: ethers.utils.formatUnits(ohmBalance, "gwei"),
-          sohm: ethers.utils.formatUnits(sohmBalance, "gwei"),
-        },
-      }),
-    );
-  };
-
-//////////
-/**helpers**/
+    onStatus("error");
+    throw error;
+  }
+};
 
 const getSignatureParameters = signature => {
   if (!ethers.utils.isHexString(signature)) {
