@@ -1,17 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { secondsUntilBlock, prettifySeconds, trimWithPlaceholder } from "../../helpers";
-import {
-  changeApprovalTransaction,
-  changeStakeTransaction,
-  incrementStake,
-  decrementStake,
-  incrementStakeApproval,
-  incrementUnstakeApproval,
-} from "../../actions/Stake.actions";
+import { changeStake, changeApproval } from "../../actions/Stake.actions";
 import styles from "./Stake.module.css";
 import t from "../../styles/typography.module.css";
-import { Spinner } from "../../components/Spinner";
 
 /**
  * @typedef {Object} Props
@@ -29,8 +21,8 @@ function Stake(props) {
   const dispatch = useDispatch();
 
   const [view, setView] = useState("stake");
-  const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
   const [quantity, setQuantity] = useState("");
+  const [pending, setPending] = useState(false);
 
   const fiveDayRate = useSelector(state => {
     return state.app.fiveDayRate;
@@ -63,12 +55,12 @@ function Stake(props) {
 
   const rebaseBlock = useSelector(state => {
     return state.app.staking && state.app.staking.rebaseBlock;
-  });
+  })
+
 
   const isLoading = typeof stakeAllowance === "undefined";
 
   const setMax = () => {
-    setStatus("");
     if (view === "stake") {
       setQuantity(ohmBalance);
     } else {
@@ -76,40 +68,35 @@ function Stake(props) {
     }
   };
 
-  const handleApproval = action => async () => {
-    try {
-      const value = await changeApprovalTransaction({
-        provider,
-        networkID: 137,
-        action,
-        onStatus: setStatus,
-      });
-      dispatch(action === "stake" ? incrementStakeApproval(value) : incrementUnstakeApproval(value));
-    } catch (e) {
-      return;
-    }
+  const onSeekApproval = async token => {
+    setPending(true);
+    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(provider.network.chainId) }));
   };
 
-  const handleStake = action => async () => {
-    try {
-      const value = quantity.toString();
+  const onChangeStake = async action => {
+    if (isNaN(quantity) || quantity === 0 || quantity === "") {
+      alert("Please enter a value!");
+    } else {
+      setPending(true);
       setQuantity("");
-      await changeStakeTransaction({
-        value,
-        provider,
-        networkID: 137,
-        action,
-        onStatus: setStatus,
-      });
-      dispatch(action === "stake" ? incrementStake(value) : decrementStake(value));
-    } catch (e) {
-      return;
+      dispatch(
+        changeStake({
+          address,
+          action,
+          value: quantity.toString(),
+          provider,
+          networkID: parseInt(provider.network.chainId),
+        }),
+      );
     }
   };
+  useEffect(() => {
+    setPending(false);
+  }, [stakeAllowance, unstakeAllowance, ohmBalance, sohmBalance]);
 
-  const hasAllowance = action => {
-    if (action === "stake") return stakeAllowance && stakeAllowance.gt(0);
-    if (action === "unstake") return unstakeAllowance && unstakeAllowance.gt(0);
+  const hasAllowance = token => {
+    if (token === "ohm") return stakeAllowance && stakeAllowance.gt(0);
+    if (token === "sohm") return unstakeAllowance && unstakeAllowance.gt(0);
   };
 
   const timeUntilRebase = () => {
@@ -118,48 +105,6 @@ function Stake(props) {
       return prettifySeconds(seconds);
     }
   };
-
-  const getButtonProps = () => {
-    const value = Number(quantity || "0");
-    if (!isConnected || !address) {
-      return { children: "Please Connect", onClick: undefined, disabled: true };
-    } else if (isLoading) {
-      return {
-        children: "Loading",
-        onClick: undefined,
-        disabled: true,
-      };
-    } else if (status === "userConfirmation" || status === "networkConfirmation") {
-      return { children: "Confirming", onClick: undefined, disabled: true };
-    } else if (view === "stake" && !hasAllowance("stake")) {
-      return { children: "Approve", onClick: handleApproval("stake"), disabled: !!value };
-    } else if (view === "unstake" && !hasAllowance("unstake")) {
-      return { children: "Approve", onClick: handleApproval("unstake") };
-    } else if (view === "stake" && hasAllowance("stake")) {
-      return { children: "Stake", onClick: handleStake("stake"), disabled: !value || value > ohmBalance };
-    } else if (view === "unstake" && hasAllowance("unstake")) {
-      return { children: "Unstake", onClick: handleStake("unstake"), disabled: !value || value > sohmBalance };
-    } else {
-      return { children: "ERROR", onClick: undefined, disabled: true };
-    }
-  };
-
-  const getStatusMessage = () => {
-    if (status === "userConfirmation") {
-      return "Please click 'confirm' in your wallet to continue.";
-    } else if (status === "networkConfirmation") {
-      return "Transaction initiated. Waiting for network confirmation.";
-    } else if (status === "error") {
-      return "❌ Error: something went wrong...";
-    } else if (status === "done") {
-      return "✔️ Success!";
-    } else if (status === "userRejected") {
-      return "✖️ You chose to reject the transaction.";
-    }
-    return null;
-  };
-
-  const showSpinner = status === "userConfirmation" || status === "networkConfirmation" || isLoading;
 
   return (
     <div className={styles.stakeCard}>
@@ -177,7 +122,6 @@ function Stake(props) {
             type="button"
             onClick={() => {
               setQuantity("");
-              setStatus("");
               setView("stake");
             }}
             data-active={view === "stake"}
@@ -189,7 +133,6 @@ function Stake(props) {
             type="button"
             onClick={() => {
               setQuantity("");
-              setStatus("");
               setView("unstake");
             }}
             data-active={view === "unstake"}
@@ -201,10 +144,7 @@ function Stake(props) {
           <input
             className={styles.stakeInput_input}
             value={quantity}
-            onChange={e => {
-              setQuantity(e.target.value);
-              setStatus("");
-            }}
+            onChange={e => setQuantity(e.target.value)}
             type="number"
             placeholder={`Amount to ${{ stake: "stake", unstake: "unstake" }[view]}`}
             min="0"
@@ -273,18 +213,76 @@ function Stake(props) {
           </p>
         </div>
       </div>
-      <div className={styles.buttonRow}>
-        <div />
-        {showSpinner ? (
-          <div className={styles.buttonRow_spinner}>
-            <Spinner />
-          </div>
-        ) : (
-          <div />
-        )}
-        <button type="button" className={styles.submitButton} {...getButtonProps()} />
-      </div>
-      {getStatusMessage() && <p className={styles.statusMessage}>{getStatusMessage()}</p>}
+
+      {isConnected && isLoading && (
+        <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
+          Loading...
+        </button>
+      )}
+
+      {!isLoading && address && hasAllowance("ohm") && view === "stake" && (
+        <button
+          type="button"
+          className={styles.submitButton}
+          onClick={() => {
+            onChangeStake("stake");
+          }}
+        >
+          Stake KLIMA
+        </button>
+      )}
+
+      {!isLoading && address && hasAllowance("sohm") && view === "unstake" && (
+        <button
+          type="button"
+          className={styles.submitButton}
+          onClick={() => {
+            onChangeStake("unstake");
+          }}
+        >
+          Unstake KLIMA
+        </button>
+      )}
+
+      {!isLoading && address && !hasAllowance("ohm") && view === "stake" && (
+        <button
+          type="button"
+          className={styles.submitButton}
+          onClick={() => {
+            onSeekApproval("ohm");
+          }}
+        >
+          Approve KLIMA
+        </button>
+      )}
+      {/* {address && !hasAllowance("ohm") && view === "stake" && (
+        <button
+          type="button"
+          className={styles.submitButton}
+          onClick={() => {
+            onSeekApprovalGasless("ohm");
+          }}
+        >
+          Approve KLIMA Gasless (aka for FREE)
+        </button>
+      )} */}
+
+      {!isLoading && address && !hasAllowance("sohm") && view === "unstake" && (
+        <button
+          type="button"
+          className={styles.submitButton}
+          onClick={() => {
+            onSeekApproval("sohm");
+          }}
+        >
+          Approve sKLIMA
+        </button>
+      )}
+      {pending && (
+        <p style={{ textAlign: "center" }}>
+          Please click 'confirm' in your wallet, and wait a few seconds for the network to confirm the transaction.
+        </p>
+      )}
     </div>
   );
 }

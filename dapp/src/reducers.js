@@ -23,40 +23,6 @@ export function app(state = {}, action) {
       return deepMergeState(action.payload, state);
     case Actions.FETCH_EXERCISE_SUCCESS:
       return deepMergeState(action.payload, state);
-    case Actions.INCREMENT_STAKE:
-      return {
-        ...state,
-        balances: {
-          ...state.balances,
-          ohm: Number(state.balances.ohm) - Number(action.payload),
-          sohm: Number(state.balances.sohm) + Number(action.payload),
-        },
-      };
-    case Actions.DECREMENT_STAKE:
-      return {
-        ...state,
-        balances: {
-          ...state.balances,
-          ohm: Number(state.balances.ohm) + Number(action.payload),
-          sohm: Number(state.balances.sohm) - Number(action.payload),
-        },
-      };
-    case Actions.INCREMENT_STAKE_APPROVAL:
-      return {
-        ...state,
-        staking: {
-          ...state.staking,
-          ohmStake: action.payload,
-        },
-      };
-    case Actions.INCREMENT_UNSTAKE_APPROVAL:
-      return {
-        ...state,
-        staking: {
-          ...state.staking,
-          ohmUnstake: action.payload,
-        },
-      };
     default:
       return state;
   }
