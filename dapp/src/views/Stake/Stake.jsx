@@ -132,7 +132,7 @@ function Stake(props) {
     } else if (status === "userConfirmation" || status === "networkConfirmation") {
       return { children: "Confirming", onClick: undefined, disabled: true };
     } else if (view === "stake" && !hasAllowance("stake")) {
-      return { children: "Approve", onClick: handleApproval("stake"), disabled: !!value };
+      return { children: "Approve", onClick: handleApproval("stake") };
     } else if (view === "unstake" && !hasAllowance("unstake")) {
       return { children: "Approve", onClick: handleApproval("unstake") };
     } else if (view === "stake" && hasAllowance("stake")) {
