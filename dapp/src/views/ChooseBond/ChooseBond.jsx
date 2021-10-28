@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { ethers } from "ethers";
 import React from "react";
 import classNames from "classnames";
 import styles from "./ChooseBond.module.css";
 import t from "../../styles/typography.module.css";
 import { useBond } from "../../hooks/useBond";
-import { abi as ierc20Abi } from "../../abi/IERC20.json";
 import { trimWithPlaceholder } from "../../helpers";
 
-function ChooseBond({ provider }) {
+function ChooseBond() {
   const bct = useBond("bct");
   const bct_lp = useBond("klima_bct_lp");
   const bct_usdc_lp = useBond("bct_usdc_lp");
