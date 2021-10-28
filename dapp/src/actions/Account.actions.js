@@ -26,7 +26,6 @@ export const loadAccountDetails =
     let sohmBalance = 0;
     let stakeAllowance = 0;
     let unstakeAllowance = 0;
-    let daiBondAllowance = 0;
     let aKLIMABalance = 0;
     let alKLIMABalance = 0;
     let aKlimaAllowance = 0;
@@ -51,10 +50,6 @@ export const loadAccountDetails =
       ohmBalance = await ohmContract.balanceOf(address);
       stakeAllowance = await ohmContract.allowance(address, addresses[networkID].STAKING_HELPER_ADDRESS);
       console.log("KLIMA Allowance (stake allowance): ", stakeAllowance);
-    }
-
-    if (addresses[networkID].DAI_BOND_ADDRESS) {
-      daiBondAllowance = await daiContract.allowance(address, addresses[networkID].DAI_BOND_ADDRESS);
     }
 
     if (addresses[networkID].SOHM_ADDRESS) {
@@ -135,9 +130,6 @@ export const loadAccountDetails =
           ohmStake: stakeAllowance,
           ohmUnstake: unstakeAllowance,
           rebaseBlock: rebaseBlock,
-        },
-        bonding: {
-          daiAllowance: daiBondAllowance,
         },
         migrate: {
           aKlimaAllowance,
