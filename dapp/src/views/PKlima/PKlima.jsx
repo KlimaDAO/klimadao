@@ -23,10 +23,10 @@ function PKlima(props) {
   const [view, setView] = useState("stake");
   const [quantity, setQuantity] = useState("");
 
-  const ohmBalance = useSelector(state => {
+  const pKlimaBalance = useSelector(state => {
     return state.app.balances && state.app.balances.pKLIMA;
   });
-  const sohmBalance = useSelector(state => {
+  const bctBalance = useSelector(state => {
     return state.app.balances && state.app.balances.bctBalance;
   });
   const pAllowance = useSelector(state => {
@@ -84,10 +84,7 @@ function PKlima(props) {
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
         <h2 className={t.h4}>Exercise pKLIMA</h2>
-        <p className={t.body2}>
-          Exercise your pKLIMA for KLIMA using a BCT
-          <br />1 pKLIMA + 1 BCT = 1 KLIMA
-        </p>
+        <p className={t.body2}>Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.</p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>
@@ -128,7 +125,7 @@ function PKlima(props) {
             <p className="price-label">pKLIMA Balance</p>
             <p className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                <span>{trimWithPlaceholder(ohmBalance, 4)}</span> pKLIMA
+                <span>{trimWithPlaceholder(pKlimaBalance, 4)}</span> pKLIMA
               </WithPlaceholder>
             </p>
           </div>
@@ -137,7 +134,7 @@ function PKlima(props) {
           <p className="price-label">BCT Balance</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{trimWithPlaceholder(sohmBalance, 4)}</span> BCT
+              <span>{trimWithPlaceholder(bctBalance, 4)}</span> BCT
             </WithPlaceholder>
           </p>
         </div>
