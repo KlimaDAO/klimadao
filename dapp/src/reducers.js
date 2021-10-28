@@ -28,8 +28,8 @@ export function app(state = {}, action) {
         ...state,
         balances: {
           ...state.balances,
-          ohm: Number(state.balances.ohm) - Number(action.payload),
-          sohm: Number(state.balances.sohm) + Number(action.payload),
+          ohm: (Number(state.balances.ohm) - Number(action.payload)).toString(),
+          sohm: (Number(state.balances.sohm) + Number(action.payload)).toString(),
         },
       };
     case Actions.DECREMENT_STAKE:
@@ -37,8 +37,8 @@ export function app(state = {}, action) {
         ...state,
         balances: {
           ...state.balances,
-          ohm: Number(state.balances.ohm) + Number(action.payload),
-          sohm: Number(state.balances.sohm) - Number(action.payload),
+          ohm: (Number(state.balances.ohm) + Number(action.payload)).toString(),
+          sohm: (Number(state.balances.sohm) - Number(action.payload)).toString(),
         },
       };
     case Actions.INCREMENT_STAKE_APPROVAL:
@@ -55,6 +55,35 @@ export function app(state = {}, action) {
         staking: {
           ...state.staking,
           ohmUnstake: action.payload,
+        },
+      };
+    case Actions.INCREMENT_PKLIMA_APPROVAL:
+      return {
+        ...state,
+        exercise: {
+          ...state.exercise,
+          pExercise: action.payload,
+        },
+      };
+    case Actions.INCREMENT_BCT_APPROVAL:
+      return {
+        ...state,
+        exercise: {
+          ...state.exercise,
+          bctExercise: action.payload,
+        },
+      };
+    case Actions.DECREMENT_PKLIMA:
+      return {
+        ...state,
+        balances: {
+          ...state.balances,
+          pKLIMA: (Number(state.balances.pKLIMA) - Number(action.payload)).toString(),
+          ohm: (Number(state.balances.ohm) + Number(action.payload)).toString(),
+        },
+        exercise: {
+          ...state.exercise,
+          pklimaVestable: (Number(state.exercise.pklimaVestable) - Number(action.payload)).toString(),
         },
       };
     default:

@@ -1,26 +1,23 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { trimWithPlaceholder } from "../../helpers";
-import { runExercise, changeApproval } from "../../actions/PKlima.actions";
-import styles from "./PKlima.module.css";
+import {
+  exerciseTransaction,
+  changeApprovalTransaction,
+  decrementPklima,
+  incrementBctApproval,
+  incrementPklimaApproval,
+} from "../../actions/PKlima.actions";
+import styles from "../Stake/Stake.module.css";
 import t from "../../styles/typography.module.css";
+import { Spinner } from "../../components/Spinner";
 
-/**
- * @typedef {Object} Props
- * @property {any} provider
- * @property {string} address
- * @property {boolean} isConnected
- */
-
-/**
- * @param {Props} props
- * @returns {JSX.Element}
- */
 function PKlima(props) {
   const { provider, address, isConnected } = props;
   const dispatch = useDispatch();
 
   const [view, setView] = useState("stake");
+  const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
   const [quantity, setQuantity] = useState("");
 
   const pKlimaBalance = useSelector(state => {
@@ -35,7 +32,6 @@ function PKlima(props) {
   const bctAllowance = useSelector(state => {
     return state.app.exercise && state.app.exercise.bctExercise;
   });
-
   const termsPercent = useSelector(state => {
     return state.app.exercise && state.app.exercise.terms && state.app.exercise.terms.percent;
   });
@@ -50,34 +46,82 @@ function PKlima(props) {
     return state.app.exercise && state.app.exercise.pklimaVestable;
   });
   const isLoading = typeof pAllowance === "undefined";
+  const showSpinner = isConnected && (status === "userConfirmation" || status === "networkConfirmation" || isLoading);
 
   const setMax = () => {
+    setStatus("");
     setQuantity(pKlimaVestable);
   };
 
-  const onSeekApproval = async token => {
-    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(provider.network.chainId) }));
+  const handleApproval = action => async () => {
+    try {
+      const value = await changeApprovalTransaction({
+        provider,
+        networkID: 137,
+        action,
+        onStatus: setStatus,
+      });
+      dispatch(action === "pklima" ? incrementPklimaApproval(value) : incrementBctApproval(value));
+    } catch (e) {
+      return;
+    }
   };
 
-  const onExercise = async action => {
-    if (isNaN(quantity) || quantity === 0 || quantity === "") {
-      alert("Please enter a value!");
-    } else {
-      await dispatch(
-        runExercise({
-          address,
-          action,
-          value: quantity.toString(),
-          provider,
-          networkID: parseInt(provider.network.chainId),
-        }),
-      );
+  const handleExercise = async () => {
+    try {
+      const value = quantity.toString();
+      setQuantity("");
+      await exerciseTransaction({
+        value,
+        provider,
+        networkID: 137,
+        onStatus: setStatus,
+      });
+      dispatch(decrementPklima(value));
+    } catch (e) {
+      return;
     }
   };
 
   const hasAllowance = token => {
     if (token === "pklima") return pAllowance && pAllowance.gt(0);
     if (token === "bct") return bctAllowance && bctAllowance.gt(0);
+  };
+
+  const getButtonProps = () => {
+    const value = Number(quantity || "0");
+    if (!isConnected || !address) {
+      return { children: "Please Connect", onClick: undefined, disabled: true };
+    } else if (isLoading) {
+      return {
+        children: "Loading",
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (status === "userConfirmation" || status === "networkConfirmation") {
+      return { children: "Confirming", onClick: undefined, disabled: true };
+    } else if (!hasAllowance("pklima")) {
+      return { children: "1. Approve pKLIMA", onClick: handleApproval("pklima") };
+    } else if (!hasAllowance("bct")) {
+      return { children: "2. Approve BCT", onClick: handleApproval("bct") };
+    } else {
+      return { children: "EXERCISE", onClick: handleExercise, disabled: !value || value > pKlimaVestable };
+    }
+  };
+
+  const getStatusMessage = () => {
+    if (status === "userConfirmation") {
+      return "Please click 'confirm' in your wallet to continue.";
+    } else if (status === "networkConfirmation") {
+      return "Transaction initiated. Waiting for network confirmation.";
+    } else if (status === "error") {
+      return "❌ Error: something went wrong...";
+    } else if (status === "done") {
+      return "✔️ Success!";
+    } else if (status === "userRejected") {
+      return "✖️ You chose to reject the transaction.";
+    }
+    return null;
   };
 
   return (
@@ -103,7 +147,10 @@ function PKlima(props) {
           <input
             className={styles.stakeInput_input}
             value={quantity}
-            onChange={e => setQuantity(e.target.value)}
+            onChange={e => {
+              setQuantity(e.target.value);
+              setStatus("");
+            }}
             type="number"
             placeholder={`${{ stake: "PKLIMA", unstake: "ALKLIMA" }[view]} to Exercise`}
             min="0"
@@ -171,46 +218,18 @@ function PKlima(props) {
           </p>
         </div>
       </div>
-
-      {isConnected && isLoading && (
-        <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
-          Loading...
-        </button>
-      )}
-
-      {!isLoading && !hasAllowance("pklima") && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onSeekApproval("pklima");
-          }}
-        >
-          Step 1: Approve pKLIMA
-        </button>
-      )}
-      {!isLoading && hasAllowance("pklima") && !hasAllowance("bct") && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onSeekApproval("bct");
-          }}
-        >
-          Step 2: Approve BCT
-        </button>
-      )}
-      {!isLoading && hasAllowance("pklima") && hasAllowance("bct") && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onExercise("stake");
-          }}
-        >
-          Step 3: Exercise pKLIMA
-        </button>
-      )}
+      <div className={styles.buttonRow}>
+        <div />
+        {showSpinner ? (
+          <div className={styles.buttonRow_spinner}>
+            <Spinner />
+          </div>
+        ) : (
+          <div />
+        )}
+        <button type="button" className={styles.submitButton} {...getButtonProps()} />
+      </div>
+      {getStatusMessage() && <p className={styles.statusMessage}>{getStatusMessage()}</p>}
     </div>
   );
 }
