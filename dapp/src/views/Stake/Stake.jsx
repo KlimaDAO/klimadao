@@ -159,7 +159,7 @@ function Stake(props) {
     return null;
   };
 
-  const showSpinner = status === "userConfirmation" || status === "networkConfirmation" || isLoading;
+  const showSpinner = isConnected && (status === "userConfirmation" || status === "networkConfirmation" || isLoading);
 
   return (
     <div className={styles.stakeCard}>
