@@ -1,84 +1,127 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { trimWithPlaceholder } from "../../helpers";
-import { runMigrate, changeApproval } from "../../actions/Redeem.actions";
-import styles from "./Redeem.module.css";
+import {
+  decrementAklima,
+  decrementAlklima,
+  changeApprovalTransaction,
+  redeemTransaction,
+  incrementAklimaApproval,
+  incrementAlklimaApproval,
+} from "../../actions/Redeem.actions";
+import styles from "../Stake/Stake.module.css";
 import t from "../../styles/typography.module.css";
+import { Spinner } from "../../components/Spinner";
 
-/**
- * @typedef {Object} Props
- * @property {any} provider
- * @property {string} address
- * @property {boolean} isConnected
- */
-
-/**
- * @param {Props} props
- * @returns {JSX.Element}
- */
 function Migrate(props) {
   const { provider, address, isConnected } = props;
   const dispatch = useDispatch();
-
-  const [view, setView] = useState("stake");
+  const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
+  const [view, setView] = useState("aKLIMA"); // aKLIMA alKLIMA
   const [quantity, setQuantity] = useState("");
-  const [pending, setPending] = useState();
 
-  const ohmBalance = useSelector(state => {
-    return state.app.balances && state.app.balances.aKLIMA;
-  });
   const klimaBalance = useSelector(state => {
     return state.app.balances && state.app.balances.ohm;
   });
-  const sohmBalance = useSelector(state => {
+  const aKLIMABalance = useSelector(state => {
+    return state.app.balances && state.app.balances.aKLIMA;
+  });
+  const alKLIMABalance = useSelector(state => {
     return state.app.balances && state.app.balances.alKLIMA;
   });
-  const stakeAllowance = useSelector(state => {
-    return state.app.migrate && state.app.migrate.aMigrate;
+  const aKlimaAllowance = useSelector(state => {
+    return state.app.migrate && state.app.migrate.aKlimaAllowance;
   });
-  const unstakeAllowance = useSelector(state => {
-    return state.app.migrate && state.app.migrate.alMigrate;
+  const alKlimaAllowance = useSelector(state => {
+    return state.app.migrate && state.app.migrate.alKlimaAllowance;
   });
-  const isLoading = typeof stakeAllowance === 'undefined';
+  const isLoading = typeof klimaBalance === "undefined";
+  const showSpinner = isConnected && (status === "userConfirmation" || status === "networkConfirmation" || isLoading);
 
   const setMax = () => {
-    if (view === "stake") {
-      setQuantity(ohmBalance);
+    setStatus("");
+    if (view === "aKLIMA") {
+      setQuantity(aKLIMABalance);
     } else {
-      setQuantity(sohmBalance);
+      setQuantity(alKLIMABalance);
     }
   };
 
-  const onSeekApproval = async token => {
-    setPending(true);
-    await dispatch(changeApproval({ address, token, provider, networkID: parseInt(provider.network.chainId) }));
+  const handleApproval = action => async () => {
+    try {
+      const value = await changeApprovalTransaction({
+        provider,
+        networkID: 137,
+        action,
+        onStatus: setStatus,
+      });
+      dispatch(action === "aKLIMA" ? incrementAklimaApproval(value) : incrementAlklimaApproval(value));
+    } catch (e) {
+      return;
+    }
   };
 
-  const onMigrate = async action => {
-    if (isNaN(quantity) || quantity === 0 || quantity === "") {
-      alert("Please enter a value!");
-    } else {
-      setPending(true);
-      await dispatch(
-        runMigrate({
-          address,
-          action,
-          value: quantity.toString(),
-          provider,
-          networkID: parseInt(provider.network.chainId),
-        }),
-      );
+  const handleRedeem = action => async () => {
+    try {
+      const value = quantity.toString();
+      setQuantity("");
+      await redeemTransaction({
+        action,
+        provider,
+        networkID: 137,
+        value,
+        onStatus: setStatus,
+      });
+      dispatch(action === "aKLIMA" ? decrementAklima(value) : decrementAlklima(value));
+    } catch (e) {
+      return;
     }
   };
 
   const hasAllowance = token => {
-    if (token === "ohm") return stakeAllowance && stakeAllowance.gt(0);
-    if (token === "sohm") return unstakeAllowance && unstakeAllowance.gt(0);
+    if (token === "aKLIMA") return aKlimaAllowance && aKlimaAllowance > 0;
+    return alKlimaAllowance && alKlimaAllowance > 0;
   };
 
-  useEffect(() => {
-    setPending(false);
-  }, [stakeAllowance, unstakeAllowance, ohmBalance, klimaBalance, sohmBalance]);
+  const getButtonProps = () => {
+    const value = Number(quantity || "0");
+    if (!isConnected || !address) {
+      return { children: "Please Connect", onClick: undefined, disabled: true };
+    } else if (isLoading) {
+      return {
+        children: "Loading",
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (status === "userConfirmation" || status === "networkConfirmation") {
+      return { children: "Confirming", onClick: undefined, disabled: true };
+    } else if (view === "aKLIMA" && !hasAllowance("aKLIMA")) {
+      return { children: "Approve", onClick: handleApproval("aKLIMA") };
+    } else if (view === "alKLIMA" && !hasAllowance("alKLIMA")) {
+      return { children: "Approve", onClick: handleApproval("alKLIMA") };
+    } else if (view === "aKLIMA") {
+      return { children: "Redeem", onClick: handleRedeem("aKLIMA"), disabled: !value || value > aKLIMABalance };
+    } else if (view === "alKLIMA") {
+      return { children: "Redeem", onClick: handleRedeem("alKLIMA"), disabled: !value || value > alKLIMABalance };
+    } else {
+      return { children: "ERROR", onClick: undefined, disabled: true };
+    }
+  };
+
+  const getStatusMessage = () => {
+    if (status === "userConfirmation") {
+      return "Please click 'confirm' in your wallet to continue.";
+    } else if (status === "networkConfirmation") {
+      return "Transaction initiated. Waiting for network confirmation.";
+    } else if (status === "error") {
+      return "❌ Error: something went wrong...";
+    } else if (status === "done") {
+      return "✔️ Success!";
+    } else if (status === "userRejected") {
+      return "✖️ You chose to reject the transaction.";
+    }
+    return null;
+  };
 
   return (
     <div className={styles.stakeCard}>
@@ -114,9 +157,9 @@ function Migrate(props) {
             type="button"
             onClick={() => {
               setQuantity("");
-              setView("stake");
+              setView("aKLIMA");
             }}
-            data-active={view === "stake"}
+            data-active={view === "aKLIMA"}
           >
             aKLIMA
           </button>
@@ -125,9 +168,9 @@ function Migrate(props) {
             type="button"
             onClick={() => {
               setQuantity("");
-              setView("unstake");
+              setView("alKLIMA");
             }}
-            data-active={view === "unstake"}
+            data-active={view === "alKLIMA"}
           >
             alKLIMA
           </button>
@@ -138,7 +181,7 @@ function Migrate(props) {
             value={quantity}
             onChange={e => setQuantity(e.target.value)}
             type="number"
-            placeholder={`${{ stake: "aKLIMA", unstake: "alKLIMA" }[view]} to redeem`}
+            placeholder={`${{ aKLIMA: "aKLIMA", alKLIMA: "alKLIMA" }[view]} to redeem`}
             min="0"
           />
           <button className={styles.stakeInput_button} type="button" onClick={setMax}>
@@ -157,7 +200,7 @@ function Migrate(props) {
           <p className="price-label">Redeemable aKLIMA</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{trimWithPlaceholder(ohmBalance, 4)}</span> aKLIMA
+              <span>{trimWithPlaceholder(aKLIMABalance, 4)}</span> aKLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -165,7 +208,7 @@ function Migrate(props) {
           <p className="price-label">Redeemable alKLIMA</p>
           <p className="price-data">
             <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-              <span>{trimWithPlaceholder(sohmBalance, 4)}</span> alKLIMA
+              <span>{trimWithPlaceholder(alKLIMABalance, 4)}</span> alKLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -178,63 +221,18 @@ function Migrate(props) {
           </p>
         </div>
       </div>
-      {isConnected && isLoading && (
-        <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
-          Loading...
-        </button>
-      )}
-      {!isLoading && address && hasAllowance("ohm") && view === "stake" && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onMigrate("stake");
-          }}
-        >
-          Step 2: Migrate AKLIMA
-        </button>
-      )}
-
-      {!isLoading && address && hasAllowance("sohm") && view === "unstake" && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onMigrate("unstake");
-          }}
-        >
-          Step 2: Migrate ALKLIMA
-        </button>
-      )}
-
-      {!isLoading && address && !hasAllowance("ohm") && view === "stake" && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onSeekApproval("ohm");
-          }}
-        >
-          Step 1: Approve AKLIMA
-        </button>
-      )}
-
-      {!isLoading && address && !hasAllowance("sohm") && view === "unstake" && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onSeekApproval("sohm");
-          }}
-        >
-          Step 1: Approve ALKLIMA
-        </button>
-      )}
-      {pending && (
-        <p style={{ textAlign: "center" }}>
-          Please click 'confirm' in your wallet, and wait a few seconds for the network to confirm the transaction.
-        </p>
-      )}
+      <div className={styles.buttonRow}>
+        <div />
+        {showSpinner ? (
+          <div className={styles.buttonRow_spinner}>
+            <Spinner />
+          </div>
+        ) : (
+          <div />
+        )}
+        <button type="button" className={styles.submitButton} {...getButtonProps()} />
+      </div>
+      {getStatusMessage() && <p className={styles.statusMessage}>{getStatusMessage()}</p>}
     </div>
   );
 }

@@ -86,6 +86,40 @@ export function app(state = {}, action) {
           pklimaVestable: (Number(state.exercise.pklimaVestable) - Number(action.payload)).toString(),
         },
       };
+    case Actions.INCREMENT_AKLIMA_APPROVAL:
+      return {
+        ...state,
+        migrate: {
+          ...state.migrate,
+          aKlimaAllowance: action.payload,
+        },
+      };
+    case Actions.INCREMENT_ALKLIMA_APPROVAL:
+      return {
+        ...state,
+        migrate: {
+          ...state.migrate,
+          alKlimaAllowance: action.payload,
+        },
+      };
+    case Actions.DECREMENT_AKLIMA:
+      return {
+        ...state,
+        balances: {
+          ...state.balances,
+          aKLIMA: (Number(state.balances.aKLIMA) - Number(action.payload)).toString(),
+          ohm: (Number(state.balances.ohm) + Number(action.payload)).toString(),
+        },
+      };
+    case Actions.DECREMENT_ALKLIMA:
+      return {
+        ...state,
+        balances: {
+          ...state.balances,
+          alKLIMA: (Number(state.balances.alKLIMA) - Number(action.payload)).toString(),
+          ohm: (Number(state.balances.ohm) + Number(action.payload)).toString(),
+        },
+      };
     default:
       return state;
   }

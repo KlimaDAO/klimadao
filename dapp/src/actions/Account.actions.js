@@ -4,7 +4,6 @@ import { abi as ierc20Abi } from "../abi/IERC20.json";
 import { abi as ExercisePKlima } from "../abi/klimadao/contracts/ExercisepKLIMA.json";
 import { abi as DistributorContract } from "../abi/DistributorContractv4.json";
 
-
 export const fetchAccountSuccess = payload => ({
   type: Actions.FETCH_ACCOUNT_SUCCESS,
   payload,
@@ -30,8 +29,8 @@ export const loadAccountDetails =
     let daiBondAllowance = 0;
     let aKLIMABalance = 0;
     let alKLIMABalance = 0;
-    let aKLIMAAllowance = 0;
-    let alKLIMAAllowance = 0;
+    let aKlimaAllowance = 0;
+    let alKlimaAllowance = 0;
     let pKlimaAllowance = 0;
     let bctAllowance = 0;
     let rebaseBlock = 0;
@@ -68,15 +67,15 @@ export const loadAccountDetails =
     if (addresses[networkID].AKLIMA_ADDRESS) {
       aklimaContract = new ethers.Contract(addresses[networkID].AKLIMA_ADDRESS, ierc20Abi, provider);
       aKLIMABalance = await aklimaContract.balanceOf(address);
-      aKLIMAAllowance = await aklimaContract.allowance(address, addresses[networkID].AMIGRATE_ADDRESS);
-      console.log("aKLIMA Allowance: ", aKLIMAAllowance);
+      aKlimaAllowance = await aklimaContract.allowance(address, addresses[networkID].AMIGRATE_ADDRESS);
+      console.log("aKLIMA Allowance: ", aKlimaAllowance);
     }
 
     if (addresses[networkID].ALKLIMA_ADDRESS) {
       alklimaContract = new ethers.Contract(addresses[networkID].ALKLIMA_ADDRESS, ierc20Abi, provider);
       alKLIMABalance = await alklimaContract.balanceOf(address);
-      alKLIMAAllowance = await alklimaContract.allowance(address, addresses[networkID].ALMIGRATE_ADDRESS);
-      console.log("alKLIMA Allowance: ", alKLIMAAllowance);
+      alKlimaAllowance = await alklimaContract.allowance(address, addresses[networkID].ALMIGRATE_ADDRESS);
+      console.log("alKLIMA Allowance: ", alKlimaAllowance);
     }
 
     if (addresses[networkID].PKLIMA_ADDRESS) {
@@ -121,7 +120,6 @@ export const loadAccountDetails =
       console.log(`Next rebase block: ${rebaseBlock}`);
     }
 
-
     return dispatch(
       fetchAccountSuccess({
         balances: {
@@ -142,8 +140,8 @@ export const loadAccountDetails =
           daiAllowance: daiBondAllowance,
         },
         migrate: {
-          aMigrate: aKLIMAAllowance,
-          alMigrate: alKLIMAAllowance,
+          aKlimaAllowance,
+          alKlimaAllowance,
         },
         exercise: {
           pExercise: pKlimaAllowance,
