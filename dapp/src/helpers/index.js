@@ -1,7 +1,6 @@
 import { ethers } from "ethers";
 import { addresses, EPOCH_INTERVAL, BLOCK_RATE_SECONDS, BONDS } from "../constants";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
-import { abi as CirculatingSupplyContract } from "../abi/CirculatingSupplyContract.json";
 import { abi as PairContract } from "../abi/PairContract.json";
 import { abi as BondOhmDaiContract } from "../abi/klimadao/contracts/KlimaBondDepository_Regular.json";
 import { abi as BondDaiContract } from "../abi/klimadao/contracts/KlimaBondDepository_Regular.json";
@@ -51,8 +50,7 @@ export function contractForReserve({ bond, networkID, provider }) {
   }
 }
 
-export async function getMarketPrice({ networkID, provider }) {
-  
+export async function getMarketPrice({ provider }) {
   const pairContract = new ethers.Contract("0x9803c7ae526049210a1725f7487af26fe2c24614", PairContract, provider);
   let reserves;
   try {
