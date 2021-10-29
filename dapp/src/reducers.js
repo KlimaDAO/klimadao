@@ -1,9 +1,8 @@
 import { Actions } from "./constants";
 
-const deepMergeState = (payload, oldState) => {
+const deepMergeAppState = (payload, oldState) => {
   return {
     ...oldState,
-    bonding: { ...oldState.bonding, ...payload.bonding },
     balances: { ...oldState.balances, ...payload.balances },
     staking: { ...oldState.staking, ...payload.staking },
     migrate: { ...oldState.migrate, ...payload.migrate },
@@ -16,13 +15,13 @@ export function app(state = {}, action) {
     case Actions.FETCH_APP_SUCCESS:
       return { ...state, ...action.payload };
     case Actions.FETCH_ACCOUNT_SUCCESS:
-      return deepMergeState(action.payload, state);
+      return deepMergeAppState(action.payload, state);
     case Actions.FETCH_STAKE_SUCCESS:
-      return deepMergeState(action.payload, state);
+      return deepMergeAppState(action.payload, state);
     case Actions.FETCH_MIGRATE_SUCCESS:
-      return deepMergeState(action.payload, state);
+      return deepMergeAppState(action.payload, state);
     case Actions.FETCH_EXERCISE_SUCCESS:
-      return deepMergeState(action.payload, state);
+      return deepMergeAppState(action.payload, state);
     case Actions.INCREMENT_STAKE:
       return {
         ...state,
@@ -120,6 +119,14 @@ export function app(state = {}, action) {
           ohm: (Number(state.balances.ohm) + Number(action.payload)).toString(),
         },
       };
+    case Actions.DECREMENT_BOND_REDEEM:
+      return {
+        ...state,
+        balances: {
+          ...state.balances,
+          ohm: (Number(state.balances.ohm) + Number(action.payload.value)).toString(),
+        },
+      };
     default:
       return state;
   }
@@ -137,6 +144,32 @@ export function bonding(state = {}, action) {
           },
         };
       }
+      break;
+    case Actions.INCREMENT_BOND_APPROVAL:
+      return {
+        ...state,
+        [action.payload.bond]: {
+          ...state[action.payload.bond],
+          allowance: action.payload.allowance,
+        },
+      };
+    case Actions.UPDATE_BOND:
+      return {
+        ...state,
+        [action.payload.bond]: {
+          ...state[action.payload.bond],
+          ...action.payload.data,
+        },
+      };
+    case Actions.DECREMENT_BOND_REDEEM:
+      return {
+        ...state,
+        [action.payload.bond]: {
+          ...state[action.payload.bond],
+          pendingPayout: (Number(state[action.payload.bond].pendingPayout) - Number(action.payload.value)).toString(),
+          interestDue: (Number(state[action.payload.bond].interestDue) - Number(action.payload.value)).toString(),
+        },
+      };
     default:
       return state;
   }

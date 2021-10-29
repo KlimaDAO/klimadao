@@ -1,47 +1,77 @@
 import { ethers } from "ethers";
 import { getMarketPrice, contractForBond, contractForReserve } from "../helpers";
-import { addresses, Actions, BONDS, VESTING_TERM } from "../constants";
+import { addresses, Actions, BONDS } from "../constants";
+import { abi as ierc20Abi } from "../abi/IERC20.json";
+import { abi as BondOhmDaiContract } from "../abi/klimadao/contracts/KlimaBondDepository_Regular.json";
+import { abi as BondDaiContract } from "../abi/klimadao/contracts/KlimaBondDepository_Regular.json";
+import { abi as ReserveOhmDaiContract } from "../abi/reserves/OhmDai.json";
 import { abi as BondOhmDaiCalcContract } from "../abi/bonds/OhmDaiCalcContract.json";
 
-export const DEFAULT_QUOTE_SLP = "0.001";  // Use a realistic SLP ownership so we have a quote before the user inputs any value
+export const DEFAULT_QUOTE_SLP = "0.001"; // Use a realistic SLP ownership so we have a quote before the user inputs any value
 
 export const fetchBondSuccess = payload => ({
   type: Actions.FETCH_BOND_SUCCESS,
   payload,
 });
 
-export const changeApproval =
-  ({ bond, provider, address, networkID }) =>
-  async dispatch => {
-    if (!provider) {
-      alert("Please connect your wallet!");
-      return;
-    }
-    const signer = provider.getSigner();
-    const reserveContract = contractForReserve({ bond, networkID, provider: signer });
+export const incrementBondApproval = ({ bond, allowance }) => ({
+  type: Actions.INCREMENT_BOND_APPROVAL,
+  payload: {
+    bond,
+    allowance,
+  },
+});
 
-    try {
-      let approveTx;
-      if (bond == BONDS.ohm_dai)
-        approveTx = await reserveContract.approve(
-          addresses[networkID].BONDS.OHM_DAI,
-          ethers.utils.parseUnits("1000000000", "ether").toString(),
-        );
-      else if (bond === BONDS.dai)
-        approveTx = await reserveContract.approve(
-          addresses[networkID].BONDS.DAI,
-          ethers.utils.parseUnits("1000000000", "ether").toString(),
-        );
-      else if (bond === BONDS.bct_usdc)
-        approveTx = await reserveContract.approve(
-          addresses[networkID].BONDS.BCT_USDC,
-          ethers.utils.parseUnits("1000000000", "ether").toString(),
-        );
-      await approveTx.wait(1);
-    } catch (error) {
+export const decrementBondRedeem = ({ bond, value }) => ({
+  type: Actions.DECREMENT_BOND_REDEEM,
+  payload: {
+    bond,
+    value,
+  },
+});
+
+export const updateBond = ({ bond, data }) => ({
+  type: Actions.UPDATE_BOND,
+  payload: {
+    bond,
+    data,
+  },
+});
+
+export const changeApprovalTransaction = async ({ provider, networkID, bond, onStatus }) => {
+  try {
+    const signer = provider.getSigner();
+    const contract = {
+      klima_bct_lp: new ethers.Contract(addresses[networkID].RESERVES.OHM_DAI, ReserveOhmDaiContract, signer),
+      bct: new ethers.Contract(addresses[networkID].RESERVES.DAI, ierc20Abi, signer),
+      bct_usdc_lp: new ethers.Contract(addresses[networkID].BONDS.BCT_USDC, BondOhmDaiContract, signer),
+    }[bond];
+    const approvalAddress = {
+      klima_bct_lp: addresses[networkID].BONDS.OHM_DAI,
+      bct: addresses[networkID].BONDS.DAI,
+      bct_usdc_lp: addresses[networkID].BONDS.BCT_USDC,
+    }[bond];
+    const value = ethers.utils.parseUnits("1000000000", "ether");
+    onStatus("userConfirmation");
+    const txn = await contract.approve(approvalAddress, value.toString());
+    onStatus("networkConfirmation");
+    await txn.wait(1);
+    onStatus("done");
+    return value;
+  } catch (error) {
+    if (error.code === 4001) {
+      onStatus("userRejected");
+      throw error;
+    }
+    if (error.data && error.data.message) {
+      alert(error.data.message);
+    } else {
       alert(error.message);
     }
-  };
+    onStatus("error");
+    throw error;
+  }
+};
 
 export const calcBondDetails =
   ({ bond, value, provider, networkID }) =>
@@ -168,69 +198,63 @@ export const calculateUserBondDetails =
     );
   };
 
-export const bondAsset =
-  ({ value, address, bond, networkID, provider, slippage }) =>
-  async dispatch => {
-    const depositorAddress = address;
+export const bondTransaction = async ({ value, address, bond, networkID, provider, slippage, onStatus }) => {
+  try {
+    const signer = provider.getSigner();
+    const contract = {
+      klima_bct_lp: new ethers.Contract(addresses[networkID].BONDS.OHM_DAI, BondOhmDaiContract, signer),
+      bct: new ethers.Contract(addresses[networkID].BONDS.DAI, BondDaiContract, signer),
+      bct_usdc_lp: new ethers.Contract(addresses[networkID].BONDS.BCT_USDC, BondOhmDaiContract, signer),
+    }[bond];
+    const calculatePremium = await contract.bondPrice();
     const acceptedSlippage = slippage / 100 || 0.02; // 2%
-    const valueInWei = ethers.utils.parseUnits(value.toString(), "ether");
-
-    let balance;
-
-    // Calculate maxPremium based on premium and slippage.
-    // const calculatePremium = await bonding.calculatePremium();
-    const signer = provider.getSigner();
-    const bondContract = contractForBond({ bond, provider: signer, networkID });
-    const calculatePremium = await bondContract.bondPrice();
     const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
-
-    // Deposit the bond
-    try {
-      const bondTx = await bondContract.deposit(valueInWei, maxPremium, depositorAddress);
-      await bondTx.wait(1);
-
-      const reserveContract = contractForReserve({ bond, provider, networkID });
-
-      if (bond === BONDS.ohm_dai) {
-        balance = await reserveContract.balanceOf(address);
-      } else if (bond === BONDS.dai) {
-        balance = await reserveContract.balanceOf(address);
-        balance = ethers.utils.formatEther(balance);
-      }
-
-      return dispatch(fetchBondSuccess({ bond, balance }));
-    } catch (error) {
-      if (error.code === -32603 && error.message.indexOf("ds-math-sub-underflow") >= 0) {
-        alert("You may be trying to bond more than your balance! Error code: 32603. Message: ds-math-sub-underflow");
-      } else if (error.data && error.data.message) {
-        alert(error.data.message);
-      } else {
-        alert(error.message);
-      }
+    const valueInWei = ethers.utils.parseUnits(value.toString(), "ether");
+    onStatus("userConfirmation");
+    const txn = await contract.deposit(valueInWei, maxPremium, address);
+    onStatus("networkConfirmation");
+    await txn.wait(1);
+    onStatus("done");
+  } catch (error) {
+    if (error.code === 4001) {
+      onStatus("userRejected");
+      throw error;
     }
-  };
-//
-export const redeemBond =
-  ({ address, bond, networkID, provider, autostake }) =>
-  async dispatch => {
-    if (!provider) {
-      alert("Please connect your wallet!");
-      return;
-    }
-
-    const signer = provider.getSigner();
-    const bondContract = contractForBond({ bond, networkID, provider: signer });
-
-    try {
-      let redeemTx;
-      if (bond === BONDS.dai_v1) {
-        redeemTx = await bondContract.redeem();
-      } else {
-        redeemTx = await bondContract.redeem(address, autostake);
-      }
-
-      await redeemTx.wait(1);
-    } catch (error) {
+    if (error.data && error.data.message) {
+      alert(error.data.message);
+    } else {
       alert(error.message);
     }
-  };
+    onStatus("error");
+    throw error;
+  }
+};
+
+export const redeemTransaction = async ({ address, bond, networkID, provider, onStatus }) => {
+  try {
+    const autostake = false;
+    const signer = provider.getSigner();
+    const contract = {
+      klima_bct_lp: new ethers.Contract(addresses[networkID].BONDS.OHM_DAI, BondOhmDaiContract, signer),
+      bct: new ethers.Contract(addresses[networkID].BONDS.DAI, BondDaiContract, signer),
+      bct_usdc_lp: new ethers.Contract(addresses[networkID].BONDS.BCT_USDC, BondOhmDaiContract, signer),
+    }[bond];
+    onStatus("userConfirmation");
+    const txn = await contract.redeem(address, autostake);
+    onStatus("networkConfirmation");
+    await txn.wait(1);
+    onStatus("done");
+  } catch (error) {
+    if (error.code === 4001) {
+      onStatus("userRejected");
+      throw error;
+    }
+    if (error.data && error.data.message) {
+      alert(error.data.message);
+    } else {
+      alert(error.message);
+    }
+    onStatus("error");
+    throw error;
+  }
+};

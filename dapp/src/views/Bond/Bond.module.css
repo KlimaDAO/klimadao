@@ -1,30 +1,4 @@
-.stakeCard {
-  composes: stakeCard from "../Stake/Stake.module.css";
-}
-
-.inputsContainer {
-  composes: inputsContainer from "../Stake/Stake.module.css";
-}
-
-.stakeSwitch {
-  composes: stakeSwitch from "../Stake/Stake.module.css";
-}
-
-.switchButton {
-  composes: switchButton from "../Stake/Stake.module.css";
-}
-
-.stakeInput {
-  composes: stakeInput from "../Stake/Stake.module.css";
-}
-
-.stakeInput_input {
-  composes: stakeInput_input from "../Stake/Stake.module.css";
-}
-.stakeInput_button {
-  composes: stakeInput_button from "../Stake/Stake.module.css";
-}
-
+@value stakeCard, inputsContainer, stakeSwitch, switchButton, stakeInput, stakeInput_input, stakeInput_button, dataContainer, dataContainer_address, submitButton, buttonRow, buttonRow_spinner, statusMessage from "../Stake/Stake.module.css";
 
 .bondHeader {
   display: grid;
@@ -38,13 +12,6 @@
   color: var(--secondary-variant);
 }
 
-.data_container {
-  composes: dataContainer from "../Stake/Stake.module.css";
-}
-.data_container_address {
-  composes: dataContainer_address from "../Stake/Stake.module.css";
-}
-
 .showAdvancedButton {
   display: flex;
   gap: 0.8rem;
@@ -55,10 +22,6 @@
 }
 .showAdvancedButton:hover {
   color: var(--secondary-variant);
-}
-
-.submitButton {
-  composes: submitButton from "../Stake/Stake.module.css";
 }
 
 .recipientNote {

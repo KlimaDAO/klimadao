@@ -1,15 +1,18 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classNames from "classnames";
 import { WarningOutlined, DownOutlined, UpOutlined, LeftOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { shorten, trimWithPlaceholder, secondsUntilBlock, prettifySeconds, prettyVestingPeriod } from "../../helpers";
 import {
-  changeApproval,
+  changeApprovalTransaction,
+  incrementBondApproval,
+  bondTransaction,
+  redeemTransaction,
+  updateBond,
+  decrementBondRedeem,
   calcBondDetails,
   calculateUserBondDetails,
-  bondAsset,
-  redeemBond,
   DEFAULT_QUOTE_SLP,
 } from "../../actions/Bond.actions";
 import { BONDS } from "../../constants";
@@ -18,10 +21,13 @@ import t from "../../styles/typography.module.css";
 import AdvancedSettings from "./AdvancedSettings";
 import { useBond } from "../../hooks/useBond";
 import { useDebounce } from "../../hooks/useDebounce";
+import { Spinner } from "../../components/Spinner";
 
 function Bond({ provider, address, bond, isConnected }) {
   const bondInfo = useBond(bond);
   const [showAdvanced, setShowAdvanced] = useState();
+  const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
+
   const dispatch = useDispatch();
 
   const NETWORK_ID = 137;
@@ -39,7 +45,6 @@ function Bond({ provider, address, bond, isConnected }) {
   const bondMaturationBlock = useSelector(state => {
     return state.bonding[bond] && state.bonding[bond].bondMaturationBlock;
   });
-
   const vestingTerm = useSelector(state => {
     return state.bonding[bond] && state.bonding[bond].vestingTerm;
   });
@@ -74,6 +79,7 @@ function Bond({ provider, address, bond, isConnected }) {
     return state.bonding[bond] && state.bonding[bond].allowance;
   });
   const isLoading = typeof allowance === "undefined" || quantity !== debouncedQuantity;
+  const showSpinner = isConnected && (status === "userConfirmation" || status === "networkConfirmation" || isLoading);
 
   const onRecipientAddressChange = e => {
     return setRecipientAddress(e.target.value);
@@ -93,58 +99,21 @@ function Bond({ provider, address, bond, isConnected }) {
     return prettyVestingPeriod(currentBlock, bondMaturationBlock);
   };
 
-  async function onRedeem({ autostake }) {
-    await dispatch(redeemBond({ address, bond, networkID: NETWORK_ID, provider, autostake }));
-  }
-
-  async function onBond() {
-    console.log("slippage = ", slippage);
-    console.log("recipientAddress = ", recipientAddress);
-
-    if (quantity === "") {
-      alert("Please enter a value!");
-    } else if (isNaN(quantity)) {
-      alert("Please enter a valid value!");
-    } else if (interestDue > 0 || pendingPayout > 0) {
-      const shouldProceed = window.confirm(
-        "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?",
-      );
-      if (shouldProceed) {
-        await dispatch(
-          bondAsset({
-            value: quantity,
-            slippage,
-            bond,
-            networkID: NETWORK_ID,
-            provider,
-            address: recipientAddress || address,
-          }),
-        );
-      }
-    } else {
-      await dispatch(
-        bondAsset({
-          value: quantity,
-          slippage,
-          bond,
-          networkID: NETWORK_ID,
-          provider,
-          address: recipientAddress || address,
-        }),
-      );
-    }
-    setQuantity("");
-  }
+  const getBondMax = () => {
+    const quotedQuantity = quantity || DEFAULT_QUOTE_SLP;
+    const price = quotedQuantity / bondQuote;
+    const maxPayable = maxKLIMA * price;
+    return Number(balance) < Number(maxPayable) ? balance : maxPayable;
+  };
 
   const setMax = () => {
+    setStatus("");
     if (view === "bond") {
       if (!bondQuote || !maxKLIMA || !balance) {
         return;
       }
-      const quotedQuantity = quantity || DEFAULT_QUOTE_SLP;
-      const price = quotedQuantity / bondQuote;
-      const maxPayable = maxKLIMA * price;
-      setQuantity(balance < maxPayable ? balance : maxPayable);
+      const bondMax = getBondMax();
+      setQuantity(bondMax);
     } else {
       setQuantity(pendingPayout);
     }
@@ -157,28 +126,119 @@ function Bond({ provider, address, bond, isConnected }) {
 
   useEffect(() => {
     async function loadBondDetails() {
-      if (provider)
-        await dispatch(calcBondDetails({ bond, value: debouncedQuantity, provider, networkID: NETWORK_ID }));
+      if (provider) dispatch(calcBondDetails({ bond, value: debouncedQuantity, provider, networkID: NETWORK_ID }));
       if (provider && address) {
-        await dispatch(calculateUserBondDetails({ address, bond, provider, networkID: NETWORK_ID }));
+        dispatch(calculateUserBondDetails({ address, bond, provider, networkID: NETWORK_ID }));
         setRecipientAddress(address);
       }
     }
     loadBondDetails();
   }, [provider, debouncedQuantity, address, bond, dispatch]);
 
-  const onSeekApproval = async () => {
-    await dispatch(changeApproval({ address, bond, provider, networkID: NETWORK_ID }));
+  const handleAllowance = async () => {
+    try {
+      setStatus("");
+      const value = await changeApprovalTransaction({
+        provider,
+        networkID: 137,
+        bond,
+        onStatus: setStatus,
+      });
+      dispatch(incrementBondApproval({ bond, allowance: value }));
+    } catch (e) {
+      return;
+    }
   };
 
-  const hasAllowance = useCallback(() => {
-    return allowance && allowance.gt(0);
-  }, [allowance]);
+  const handleBond = async () => {
+    try {
+      setQuantity("");
+      if (interestDue > 0 || pendingPayout > 0) {
+        const didConfirm = window.confirm(
+          "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?",
+        );
+        if (!didConfirm) {
+          return; // early exit
+        }
+      }
+      await bondTransaction({
+        value: quantity,
+        slippage,
+        bond,
+        networkID: NETWORK_ID,
+        provider,
+        address: recipientAddress || address,
+        onStatus: setStatus,
+      });
+      const newBalance = (Number(balance) - Number(quantity)).toString();
+      const newInterestDue = (Number(interestDue) + Number(bondQuote)).toString();
+      console.log("calculating", maxKLIMA, bondQuote, Number(maxKLIMA) - Number(bondQuote));
+      const newMaxBondPrice = Number(maxKLIMA) - Number(bondQuote);
+      dispatch(
+        updateBond({ bond, data: { balance: newBalance, interestDue: newInterestDue, maxBondPrice: newMaxBondPrice } }),
+      );
+    } catch (error) {
+      return;
+    }
+  };
+
+  const handleRedeem = async () => {
+    try {
+      setQuantity("");
+      await redeemTransaction({ address, bond, networkID: NETWORK_ID, provider, onStatus: setStatus });
+      dispatch(
+        decrementBondRedeem({
+          bond,
+          value: pendingPayout,
+        }),
+      );
+    } catch (e) {
+      return;
+    }
+  };
+
+  const hasAllowance = () => !!allowance && allowance > 0;
+
+  const getButtonProps = () => {
+    const value = Number(quantity || "0");
+    if (!isConnected || !address) {
+      return { children: "Please Connect", onClick: undefined, disabled: true };
+    } else if (isLoading) {
+      return {
+        children: "Loading",
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (status === "userConfirmation" || status === "networkConfirmation") {
+      return { children: "Confirming", onClick: undefined, disabled: true };
+    } else if (!hasAllowance()) {
+      return { children: "Approve", onClick: handleAllowance };
+    } else if (view === "bond") {
+      return { children: "Bond", onClick: handleBond, disabled: !value || value > getBondMax() };
+    } else if (view === "redeem") {
+      return { children: "Redeem", onClick: handleRedeem, disabled: !pendingPayout || !Number(pendingPayout) };
+    } else {
+      return { children: "ERROR", onClick: undefined, disabled: true };
+    }
+  };
+
+  const getStatusMessage = () => {
+    if (status === "userConfirmation") {
+      return "Please click 'confirm' in your wallet to continue.";
+    } else if (status === "networkConfirmation") {
+      return "Transaction initiated. Waiting for network confirmation.";
+    } else if (status === "error") {
+      return "❌ Error: something went wrong...";
+    } else if (status === "done") {
+      return "✔️ Success!";
+    } else if (status === "userRejected") {
+      return "✖️ You chose to reject the transaction.";
+    }
+    return null;
+  };
 
   const bondDiscountPercent = bondDiscount * 100;
   const isBondDiscountNegative = bondDiscountPercent < 0;
-
-  const disableBondButton = !quantity || !Number(quantity) || bondQuote > maxKLIMA || quantity > balance;
 
   return (
     <div className={styles.stakeCard}>
@@ -247,9 +307,9 @@ function Bond({ provider, address, bond, isConnected }) {
       </div>
 
       {view === "bond" && (
-        <div className={styles.data_container}>
+        <div className={styles.dataContainer}>
           {address && (
-            <p className={styles.data_container_address}>
+            <p className={styles.dataContainer_address}>
               {address.slice(0, 5)}..{address.slice(address.length - 3)}
             </p>
           )}
@@ -257,7 +317,10 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Balance</p>
             <p className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                <span data-warning={quantity > balance}>{trimWithPlaceholder(balance, 6)}</span> {balanceUnits()}
+                <span data-warning={Number(quantity) > Number(balance)}>
+                  {trimWithPlaceholder(balance, balance < 1 ? 5 : 2)}
+                </span>{" "}
+                {balanceUnits()}
               </WithPlaceholder>
             </p>
           </div>
@@ -277,15 +340,15 @@ function Bond({ provider, address, bond, isConnected }) {
           <div className="stake-price-data-row">
             <p className="price-label">You Will Get</p>
             <p className="price-data">
-              <span>{trimWithPlaceholder(isLoading ? NaN : bondQuote, 4)}</span> KLIMA
+              <span>{trimWithPlaceholder(isLoading ? NaN : bondQuote, bondQuote < 1 ? 5 : 2)}</span> KLIMA
             </p>
           </div>
 
           <div className="stake-price-data-row">
             <p className="price-label">Max You Can Buy</p>
             <p className="price-data">
-              <span data-warning={bondQuote && maxKLIMA && bondQuote > maxKLIMA}>
-                {trimWithPlaceholder(maxKLIMA, 4)}
+              <span data-warning={bondQuote && maxKLIMA && Number(bondQuote) > Number(maxKLIMA)}>
+                {trimWithPlaceholder(maxKLIMA, 2)}
               </span>{" "}
               KLIMA
             </p>
@@ -315,7 +378,7 @@ function Bond({ provider, address, bond, isConnected }) {
       )}
 
       {view === "redeem" && (
-        <div className={styles.data_container}>
+        <div className={styles.dataContainer}>
           <div className="stake-price-data-row">
             <p className="price-label">Pending</p>
             <p id="bond-market-price-id" className="price-data">
@@ -328,7 +391,7 @@ function Bond({ provider, address, bond, isConnected }) {
             <p className="price-label">Redeemable</p>
             <p id="bond-market-price-id" className="price-data">
               <WithPlaceholder condition={!isConnected} placeholder="NOT CONNECTED">
-                <span>{trimWithPlaceholder(pendingPayout, 4)}</span> KLIMA
+                <span>{trimWithPlaceholder(pendingPayout, pendingPayout < 1 ? 5 : 2)}</span> KLIMA
               </WithPlaceholder>
             </p>
           </div>
@@ -354,43 +417,18 @@ function Bond({ provider, address, bond, isConnected }) {
           ⚠️ Warning: this bond price is inflated because the current discount rate is negative.
         </p>
       )}
-
-      {isConnected && isLoading && (
-        <button type="button" style={{ opacity: 0.5 }} className={styles.submitButton}>
-          Loading...
-        </button>
-      )}
-      {!isLoading && view === "redeem" && (
-        <button
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onRedeem({ autostake: false });
-          }}
-          disabled={!pendingPayout || pendingPayout == "0"}
-        >
-          REDEEM ALL
-        </button>
-      )}
-
-      {!isLoading && hasAllowance() && view === "bond" && (
-        <button disabled={disableBondButton} type="button" className={styles.submitButton} onClick={onBond}>
-          Bond
-        </button>
-      )}
-
-      {!isLoading && isConnected && !hasAllowance() && view === "bond" && (
-        <button
-          disabled={!quantity}
-          type="button"
-          className={styles.submitButton}
-          onClick={() => {
-            onSeekApproval();
-          }}
-        >
-          Approve
-        </button>
-      )}
+      <div className={styles.buttonRow}>
+        <div />
+        {showSpinner ? (
+          <div className={styles.buttonRow_spinner}>
+            <Spinner />
+          </div>
+        ) : (
+          <div />
+        )}
+        <button type="button" className={styles.submitButton} {...getButtonProps()} />
+      </div>
+      {getStatusMessage() && <p className={styles.statusMessage}>{getStatusMessage()}</p>}
     </div>
   );
 }
