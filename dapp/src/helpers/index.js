@@ -81,6 +81,23 @@ export function trim(number, precision) {
   return trimmedNumber;
 }
 
+/**
+ * @param {string} str
+ * @param {number} precision
+ * @returns {string} trimmed string
+ * @example trimStringDecimals("0.12345", 2); // "0.12"
+ */
+export const trimStringDecimals = (str, precision) => {
+  if (!str || !str.includes(".")) {
+    return str;
+  }
+  const [integer, decimals] = str.split(".");
+  if (decimals.length <= precision) {
+    return str;
+  }
+  return `${integer}.${decimals.slice(0, precision)}`;
+};
+
 /** Returns localized string */
 export const trimWithPlaceholder = (number, precision) => {
   if (typeof number === "undefined" || Number.isNaN(number)) {

@@ -3,6 +3,7 @@ import { addresses, Actions } from "../constants";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
 import { abi as ExercisePKlima } from "../abi/klimadao/contracts/ExercisepKLIMA.json";
 import { abi as DistributorContract } from "../abi/DistributorContractv4.json";
+import { trimStringDecimals } from "../helpers";
 
 export const fetchAccountSuccess = payload => ({
   type: Actions.FETCH_ACCOUNT_SUCCESS,
@@ -95,8 +96,8 @@ export const loadAccountDetails =
       } catch (error) {
         console.warn("redeemable amount not found: ", error.message);
       }
-
-      pklimaVestable = ethers.utils.formatEther(pklimaVestable);
+      // redeemableFor() returns 18 decimals, but KLIMA token only supports 9
+      pklimaVestable = trimStringDecimals(ethers.utils.formatEther(pklimaVestable), 9);
     }
 
     if (addresses[networkID].DAI_ADDRESS) {
