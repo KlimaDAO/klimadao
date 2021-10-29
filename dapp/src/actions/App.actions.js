@@ -123,8 +123,6 @@ export const loadAppDetails =
 
     const treasuryBalance = await getTreasuryBalance();
 
-    console.log("got tb", treasuryBalance);
-
     return dispatch(
       fetchAppSuccess({
         currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
