@@ -44,7 +44,7 @@ export const changeApprovalTransaction = async ({ provider, networkID, bond, onS
     const contract = {
       klima_bct_lp: new ethers.Contract(addresses[networkID].RESERVES.OHM_DAI, ReserveOhmDaiContract, signer),
       bct: new ethers.Contract(addresses[networkID].RESERVES.DAI, ierc20Abi, signer),
-      bct_usdc_lp: new ethers.Contract(addresses[networkID].BONDS.BCT_USDC, BondOhmDaiContract, signer),
+      bct_usdc_lp: new ethers.Contract(addresses[networkID].RESERVES.BCT_USDC, ReserveOhmDaiContract, signer),
     }[bond];
     const approvalAddress = {
       klima_bct_lp: addresses[networkID].BONDS.OHM_DAI,
