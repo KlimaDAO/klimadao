@@ -9,10 +9,10 @@ import klimaLogo from "public/klima-logo.png";
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutlined";
 import BlackHoleTour from "components/BlackHoleTour";
 import { externalHrefs } from "lib/constants";
 import { PageHead } from "components/PageHead";
-import { BookmarkBorderOutlined } from "@material-ui/icons";
 import { DiscordIcon } from "components/Icons/DiscordIcon";
 // DAPP IMPORTS
 import IERC20ABI from "../../dapp/src/abi/IERC20.json";
@@ -227,7 +227,7 @@ const Home: NextPage<Props> = (props) => {
               docs
             </a>
             <a className={s.iconButton} href={externalHrefs.blog}>
-              <BookmarkBorderOutlined />
+              <BookmarkBorderOutlinedIcon />
               blog
             </a>
             <a className={s.iconButton} href={externalHrefs.app}>

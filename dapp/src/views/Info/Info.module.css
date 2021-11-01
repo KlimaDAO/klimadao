@@ -22,6 +22,22 @@
   gap: 0.8rem;
 }
 
+.copyAddressButton {
+  padding: 0.8rem;
+}
+.copyAddressButtonIcon:global(.MuiSvgIcon-root) {
+  height: 1.6rem;
+  width: 1.6rem;
+  cursor: pointer;
+}
+
+.addressRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.4rem;
+  align-items: center;
+}
+
 @media bp-medium {
   .stakeCard {
     padding: 3.2rem;
