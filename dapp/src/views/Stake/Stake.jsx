@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { secondsUntilBlock, prettifySeconds, trimWithPlaceholder } from "../../helpers";
+import { secondsUntilBlock, prettifySeconds, trimWithPlaceholder, concatAddress } from "../../helpers";
 import {
   changeApprovalTransaction,
   changeStakeTransaction,
@@ -216,11 +216,7 @@ function Stake(props) {
       </div>
 
       <div className={styles.dataContainer}>
-        {address && (
-          <p className={styles.dataContainer_address}>
-            {address.slice(0, 5)}..{address.slice(address.length - 3)}
-          </p>
-        )}
+        {address && <p className={styles.dataContainer_address}>{concatAddress(address)}</p>}
         <div className="stake-price-data-row">
           <p className="price-label">Balance</p>
           <p className="price-data">

@@ -98,6 +98,14 @@ export const trimStringDecimals = (str, precision) => {
   return `${integer}.${decimals.slice(0, precision)}`;
 };
 
+/**
+ * @param {string} address
+ * @returns "abcd..efg"
+ */
+export const concatAddress = address => {
+  return address.slice(0, 5) + ".." + address.slice(address.length - 3);
+};
+
 /** Returns localized string */
 export const trimWithPlaceholder = (number, precision) => {
   if (typeof number === "undefined" || Number.isNaN(number)) {
