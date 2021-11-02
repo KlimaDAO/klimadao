@@ -3,7 +3,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import React, { useEffect, useState, useRef } from "react";
 import { Link, Redirect, Route, Switch, useLocation } from "react-router-dom";
 import Web3Modal from "web3modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { calcBondDetails } from "./actions/Bond.actions";
 
 import { loadAppDetails, getMarketPrice, getTokenSupply } from "./actions/App.actions";
@@ -52,6 +52,7 @@ const useProvider = () => {
   const fallbackProvider = useRef();
   const [provider, setProvider] = useState();
   const [address, setAddress] = useState();
+
   const loadWeb3Modal = async () => {
     try {
       const modalProvider = await web3Modal.connect();
@@ -103,6 +104,10 @@ function App() {
   const [showRPCModal, setShowRPCModal] = useState(false);
   const [provider, address, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
+
+  const pKlimaBalance = useSelector(state => {
+    return state.app.balances && state.app.balances.pKLIMA;
+  });
 
   const handleRPCError = () => {
     setShowRPCModal(true);
@@ -217,6 +222,11 @@ function App() {
       <Link className={styles.textButton} to="/info" data-active={pathname === "/info"}>
         INFO & FAQ
       </Link>
+      {pKlimaBalance && pKlimaBalance > 0 && (
+        <Link className={styles.textButton} to="/pklima" data-active={pathname === "/pklima"}>
+          pKLIMA
+        </Link>
+      )}
     </nav>
   );
 
