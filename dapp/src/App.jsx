@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-import { StaticJsonRpcProvider } from "@ethersproject/providers";
 import { ethers } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import React, { useEffect, useState, useRef } from "react";
@@ -14,10 +12,11 @@ import { loadAccountDetails } from "./actions/Account.actions";
 import { Stake, ChooseBond, Bond, Redeem, PKlima, Info } from "./views";
 import { InvalidNetworkModal } from "./components/InvalidNetworkModal";
 
-import { NETWORKS, BONDS, addresses, polygonNetworks, MAINNET_RPC_URL } from "./constants";
+import { BONDS, addresses, MAINNET_RPC_URL } from "./constants";
 
 import styles from "./App.module.css";
 import Logo from "./assets/KlimaDAO/klima-logo.png";
+import { InvalidRPCModal } from "./components/InvalidRPCModal";
 
 const LAUNCH_TIMESTAMP = 1634587200000; // milliseconds - October 18th, 1pm pst - 8pm gmt
 
@@ -29,33 +28,6 @@ export const externalHrefs = {
   app: "https://dapp.klimadao.finance",
 };
 
-// import Hints from "./Hints";
-// import { ExampleUI, Hints, Subgraph } from "./views";
-/*
-    Welcome to 🏗 scaffold-eth !
-
-    Code:
-    https://github.com/austintgriffith/scaffold-eth
-
-    Support:
-    https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA
-    or DM @austingriffith on twitter or telegram
-
-    You should get your own Infura.io ID and put it in `constants.js`
-    (this is your connection to the main Ethereum network for ENS etc.)
-
-
-    🌏 EXTERNAL CONTRACTS:
-    You can also bring in contract artifacts in `constants.js`
-    (and then use the `useExternalContractLoader()` hook!)
-*/
-
-/// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS.mumbai; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
-
-// 😬 Sorry for all the console logging
-const DEBUG = true;
-
 const KLIMA_TESTNET = false;
 let networkIDtoUse;
 if (KLIMA_TESTNET) {
@@ -63,22 +35,6 @@ if (KLIMA_TESTNET) {
 } else {
   networkIDtoUse = 137;
 }
-// 🛰 providers
-if (DEBUG) console.log("📡 Connecting to Mainnet Ethereum");
-// attempt to connect to our own scaffold eth rpc and if that fails fall back to infura...
-// Using StaticJsonRpcProvider as the chainId won't change see https://github.com/ethers-io/ethers.js/issues/901
-// const scaffoldEthProvider = new StaticJsonRpcProvider("https://rpc.scaffoldeth.io:48544");
-
-// static fallback
-const fallbackProvider = new StaticJsonRpcProvider(polygonNetworks.mainnet.rpcUrls[0]);
-// ( ⚠️ Getting "failed to meet quorum" errors? Check your INFURA_I
-
-// 🔭 block explorer URL
-const blockExplorer = targetNetwork.blockExplorer;
-
-/*
-  Web3 modal helps us "connect" external wallets:
-*/
 const web3Modal = new Web3Modal({
   cacheProvider: true, // optional
   providerOptions: {
@@ -144,8 +100,13 @@ const useProvider = () => {
 function App() {
   const dispatch = useDispatch();
   const [chainId, setChainId] = useState();
+  const [showRPCModal, setShowRPCModal] = useState(false);
   const [provider, address, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
+
+  const handleRPCError = () => {
+    setShowRPCModal(true);
+  };
 
   const loadNetworkInfo = async () => {
     const networkInfo = await provider.getNetwork();
@@ -153,7 +114,8 @@ function App() {
     if (networkInfo.chainId !== 137 && networkInfo.chainId !== 80001) {
       return; // modal will ask for network change -> page will reload
     }
-    dispatch(loadAppDetails({ networkID: networkInfo.chainId, provider }));
+
+    dispatch(loadAppDetails({ networkID: networkInfo.chainId, provider, onRPCError: handleRPCError }));
     dispatch(getMarketPrice({ networkID: networkInfo.chainId, provider }));
     dispatch(getTokenSupply({ networkID: networkInfo.chainId, provider }));
     ["klima_bct_lp", "bct_usdc_lp", "bct"].map(async bond => {
@@ -165,8 +127,12 @@ function App() {
   };
 
   const loadUserInfo = async () => {
-    const networkInfo = await provider.getNetwork();
-    dispatch(loadAccountDetails({ networkID: networkInfo.chainId, address, provider }));
+    try {
+      const networkInfo = await provider.getNetwork();
+      dispatch(loadAccountDetails({ networkID: networkInfo.chainId, address, provider, onRPCError: handleRPCError }));
+    } catch (e) {
+      console.log("LOAD NETWORK CAUGHT", e);
+    }
   };
 
   useEffect(() => {
@@ -319,6 +285,13 @@ function App() {
         </footer>
       </div>
       <InvalidNetworkModal provider={provider} />
+      {showRPCModal && (
+        <InvalidRPCModal
+          onHide={() => {
+            setShowRPCModal(false);
+          }}
+        />
+      )}
     </>
   );
 }

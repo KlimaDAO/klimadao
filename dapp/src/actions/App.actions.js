@@ -1,23 +1,15 @@
 import { ethers } from "ethers";
 import { addresses, Actions } from "../constants";
 import { abi as ierc20Abi } from "../abi/IERC20.json";
-import { abi as OHMPreSale } from "../abi/OHMPreSale.json";
-import { abi as OlympusStaking } from "../abi/OlympusStaking.json";
-import { abi as MigrateToOHM } from "../abi/MigrateToOHM.json";
-import { abi as sOHM } from "../abi/sOHM.json";
 import { abi as sKLIMA } from "../abi/klimadao/contracts/sKlima.json";
 import { abi as DistributorContract } from "../abi/DistributorContractv4.json";
-import { abi as BondContract } from "../abi/BondContract.json";
-import { abi as DaiBondContract } from "../abi/DaiBondContract.json";
 import { abi as PairContract } from "../abi/PairContract.json";
-import { abi as CirculatingSupplyContract } from "../abi/klimadao/contracts/KlimaCirculatingSupplyContract.json";
-import { abi as KlimaStaking } from "../abi/klimadao/contracts/KlimaStakingv2.json";
 
 // const KLIMA_ADDRESS = "0x4e78011ce80ee02d2c3e649fb657e45898257815";
 const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
 const TREASURY_ADDRESS = "0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7";
-const DISTRIBUTOR_ADDRESS = "0x4cC7584C3f8FAABf734374ef129dF17c3517e9cB";
-const SKLIMA_ADDRESS = "0xb0C22d8D350C67420f06F48936654f567C73E8C8";
+// const DISTRIBUTOR_ADDRESS = "0x4cC7584C3f8FAABf734374ef129dF17c3517e9cB";
+// const SKLIMA_ADDRESS = "0xb0C22d8D350C67420f06F48936654f567C73E8C8";
 const BCT_USDC_POOL_ADDRESS = "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64";
 const KLIMA_BCT_POOL_ADDRESS = "0x9803c7ae526049210a1725f7487af26fe2c24614";
 
@@ -79,61 +71,42 @@ export const fetchAppSuccess = payload => ({
 });
 
 export const loadAppDetails =
-  ({ networkID, provider }) =>
+  ({ networkID, provider, onRPCError }) =>
   async dispatch => {
-    const currentBlock = await provider.getBlockNumber();
-
-    const distributorContract = new ethers.Contract(
-      addresses[networkID].DISTRIBUTOR_ADDRESS,
-      DistributorContract,
-      provider,
-    );
-    const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, provider);
-    const sohmMainContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, sKLIMA, provider);
-
-    // Calculating staking
-    let stakingReward = 0;
     try {
-      stakingReward = await distributorContract.nextRewardAt(5000);
+      const currentBlock = await provider.getBlockNumber();
+
+      const distributorContract = new ethers.Contract(
+        addresses[networkID].DISTRIBUTOR_ADDRESS,
+        DistributorContract,
+        provider,
+      );
+      const sohmContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, ierc20Abi, provider);
+      const sohmMainContract = new ethers.Contract(addresses[networkID].SOHM_ADDRESS, sKLIMA, provider);
+
+      const stakingReward = await distributorContract.nextRewardAt(5000);
+      const circSupply = await sohmMainContract.circulatingSupply();
+      const stakingRebase = stakingReward / circSupply;
+      const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
+      const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3);
+      const currentIndex = await sohmContract.balanceOf("0x693aD12DbA5F6E07dE86FaA21098B691F60A1BEa");
+      const treasuryBalance = await getTreasuryBalance();
+      return dispatch(
+        fetchAppSuccess({
+          currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
+          currentBlock,
+          fiveDayRate,
+          stakingAPY,
+          stakingRebase,
+          currentBlock,
+          treasuryBalance,
+        }),
+      );
     } catch (error) {
-      console.warn("Error caught:", error.message);
+      if (error.message && error.message.includes("Non-200 status code")) {
+        onRPCError();
+      }
     }
-
-    let circSupply = 0;
-    try {
-      circSupply = await sohmMainContract.circulatingSupply();
-    } catch (error) {
-      console.warn("Error caught: ", error.message);
-    }
-
-    const stakingRebase = stakingReward / circSupply;
-    // console.log("Rebase: ", stakingRebase)
-    const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
-    const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3);
-    // console.log("APY : " , stakingAPY)
-
-    // Calculate index
-    // INDEX ACCOUNT IS SET ON MUMBAI / MATIC
-    let currentIndex = 0;
-    try {
-      currentIndex = await sohmContract.balanceOf("0x693aD12DbA5F6E07dE86FaA21098B691F60A1BEa");
-    } catch (error) {
-      console.warn("Error caught: ", error.message);
-    }
-
-    const treasuryBalance = await getTreasuryBalance();
-
-    return dispatch(
-      fetchAppSuccess({
-        currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
-        currentBlock,
-        fiveDayRate,
-        stakingAPY,
-        stakingRebase,
-        currentBlock,
-        treasuryBalance,
-      }),
-    );
   };
 
 export const getMarketPrice =
