@@ -7,7 +7,7 @@
     "./lib"
   ],
   "engines": {
-    "npm": ">=8.1.2",
+    "npm": ">=8.1.3",
     "node": "14.x"
   },
   "scripts": {
