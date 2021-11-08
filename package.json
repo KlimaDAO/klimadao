@@ -13,6 +13,7 @@
   "scripts": {
     "build-lib": "npm run build --workspace=lib",
     "build-site": "npm run build-lib && npm run build --workspace=site",
+    "build-site-vercel": "cd ./lib && npm run build && cd ../site && npm run build",
     "build-app": "npm run build-lib && npm run build --workspace=app",
     "build-app-vercel": "cd ./lib && npm run build && cd ../app && npm run build",
     "dev-lib": "npm run dev --workspace=lib",
