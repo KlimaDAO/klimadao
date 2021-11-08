@@ -11,8 +11,11 @@
     "node": ">=16.13.0"
   },
   "scripts": {
-    "dev-app": "npm run dev -w app",
-    "dev-site": "npm run dev -w site",
-    "dev-lib": "npm run dev -w lib"
+    "build-lib": "npm run build -w lib",
+    "build-site": "npm run build-lib && npm run build -w site",
+    "build-app": "npm run build-lib && npm run build -w app",
+    "dev-lib": "npm run dev -w lib",
+    "dev-site": "npm run build-lib && npm run dev -w site",
+    "dev-app": "npm run build-lib && npm run dev -w app"
   }
 }

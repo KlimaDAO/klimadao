@@ -21,6 +21,7 @@
     "./utils": "./out/utils/index.js"
   },
   "scripts": {
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "build": "tsc"
   }
 }
