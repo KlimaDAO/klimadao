@@ -14,11 +14,12 @@ import BlackHoleTour from "components/BlackHoleTour";
 import { externalHrefs } from "lib/constants";
 import { PageHead } from "components/PageHead";
 import { DiscordIcon } from "components/Icons/DiscordIcon";
+
 // DAPP IMPORTS
-import IERC20ABI from "../../dapp/src/abi/IERC20.json";
-import SKLIMAABI from "../../dapp/src/abi/klimadao/contracts/sKlima.json";
-import DistributorABI from "../../dapp/src/abi/DistributorContractv4.json";
-import PairContractABI from "../../dapp/src/abi/PairContract.json";
+import IERC20ABI from "../lib/abi/IERC20.json";
+import SKLIMAABI from "../lib/abi/sKlima.json";
+import DistributorABI from "../lib/abi/DistributorContractv4.json";
+import PairContractABI from "../lib/abi/PairContract.json";
 
 // const KLIMA_ADDRESS = "0x4e78011ce80ee02d2c3e649fb657e45898257815";
 const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";
@@ -241,7 +242,7 @@ const Home: NextPage<Props> = (props) => {
                 <h2 className={t.overline}>🌳 CARBON IN TREASURY</h2>
                 <p className={s.treasuryBalance}>
                   <span className={s.treasuryBalance_value}>
-                  {formattedTreasuryBalance}
+                    {formattedTreasuryBalance}
                   </span>
                   <span className={t.caption}>TONNES CO2</span>
                 </p>
@@ -275,17 +276,11 @@ const Home: NextPage<Props> = (props) => {
             <div className={s.dataCardColumn}>
               <div className={s.dataCard}>
                 <h2 className={t.overline}>CURRENT APY</h2>
-                <p
-                  className={s.dataCard_priceTag}
-                >
-                  {formattedAPY}
-                </p>
+                <p className={s.dataCard_priceTag}>{formattedAPY}</p>
               </div>
               <div className={s.dataCard}>
                 <h2 className={t.overline}>Price (USDC)</h2>
-                <p
-                  className={s.dataCard_priceTag}
-                >
+                <p className={s.dataCard_priceTag}>
                   ${props.price.toLocaleString()}
                 </p>
               </div>
@@ -333,7 +328,11 @@ const Home: NextPage<Props> = (props) => {
           rel="noopener noreferrer"
           href="https://polygon.technology"
         >
-          <Image className={s.polygonImage} src={polygonBadge} alt="Powered by Polygon" />
+          <Image
+            className={s.polygonImage}
+            src={polygonBadge}
+            alt="Powered by Polygon"
+          />
         </a>
       </div>
 
