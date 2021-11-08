@@ -16,10 +16,10 @@ import { PageHead } from "components/PageHead";
 import { DiscordIcon } from "components/Icons/DiscordIcon";
 
 // DAPP IMPORTS
-import IERC20ABI from "../lib/abi/IERC20.json";
-import SKLIMAABI from "../lib/abi/sKlima.json";
-import DistributorABI from "../lib/abi/DistributorContractv4.json";
-import PairContractABI from "../lib/abi/PairContract.json";
+import IERC20ABI from "@klimadao/lib/abi/IERC20.json";
+import SKLIMAABI from "@klimadao/lib/abi/sKlima.json";
+import DistributorABI from "@klimadao/lib/abi/DistributorContractv4.json";
+import PairContractABI from "@klimadao/lib/abi/PairContract.json";
 
 // const KLIMA_ADDRESS = "0x4e78011ce80ee02d2c3e649fb657e45898257815";
 const BCT_ADDRESS = "0x2f800db0fdb5223b3c3f354886d907a671414a7f";

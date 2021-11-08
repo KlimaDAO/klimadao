@@ -18,7 +18,8 @@
   },
   "exports": {
     "./components": "./out/components/index.js",
-    "./utils": "./out/utils/index.js"
+    "./utils": "./out/utils/index.js",
+    "./abi/*": "./abi/*"
   },
   "scripts": {
     "dev": "tsc --watch",
