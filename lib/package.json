@@ -17,7 +17,8 @@
     "node": ">=16.13.0"
   },
   "exports": {
-    "./components": "./out/components/index.js"
+    "./components": "./out/components/index.js",
+    "./utils": "./out/utils/index.js"
   },
   "scripts": {
     "dev": "tsc --watch"
