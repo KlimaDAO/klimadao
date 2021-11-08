@@ -11,11 +11,11 @@
     "node": "14.x"
   },
   "scripts": {
-    "build-lib": "npm run build -w lib",
-    "build-site": "npm run build-lib && npm run build -w site",
-    "build-app": "npm run build-lib && npm run build -w app",
-    "dev-lib": "npm run dev -w lib",
-    "dev-site": "npm run build-lib && npm run dev -w site",
-    "dev-app": "npm run build-lib && npm run dev -w app"
+    "build-lib": "npm run build --workspace=lib",
+    "build-site": "npm run build-lib && npm run build --workspace=site",
+    "build-app": "npm run build-lib && npm run build --workspace=app",
+    "dev-lib": "npm run dev --workspace=lib",
+    "dev-site": "npm run build-lib && npm run dev --workspace=site",
+    "dev-app": "npm run build-lib && npm run dev --workspace=app"
   }
 }
