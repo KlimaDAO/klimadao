@@ -1,9 +1,10 @@
+import { FC } from "react";
 import Head from "next/head";
 import Script from "next/script";
 import { MapContainer, ImageOverlay, Polyline } from "react-leaflet";
 import { CRS, LatLngBoundsLiteral, Map } from "leaflet";
-import { FC } from "react";
-import s from "components/BlackHoleMap.module.css";
+
+import styles from "./index.module.css";
 
 interface Props {
   onCreate: (m: Map) => void;
@@ -39,7 +40,7 @@ const BlackHoleMap: FC<Props> = (props) => {
         zoom={props.initialView[1]}
         minZoom={-1}
         scrollWheelZoom={false}
-        className={s.mapContainer}
+        className={styles.mapContainer}
         maxBounds={bounds}
         maxBoundsViscosity={0.1}
         whenCreated={(m) => {

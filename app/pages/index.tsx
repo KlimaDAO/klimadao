@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Test } from "@klimadao/lib/components";
-import { testUtil } from "@klimadao/lib/utils";
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +15,6 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Test />
-        <button onClick={() => testUtil()}>click me</button>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>

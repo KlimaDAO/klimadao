@@ -1,17 +1,19 @@
 import { useState } from "react";
-import Head from "next/head";
 import dynamic from "next/dynamic";
-import Script from "next/script";
-import s from "components/BlackHoleTour.module.css";
-import { IntersectDetector, TourItem, TourStartObserver } from "./TourItem";
 import { useRef } from "react";
 import type { Map } from "leaflet";
 import Image from "next/image";
 import spaceForest from "public/space-forest.jpg";
 
-export const MAP_HEIGHT_VH = 35;
+import {
+  IntersectDetector,
+  TourItem,
+  TourStartObserver,
+  MAP_HEIGHT_VH,
+} from "../TourItem";
+import styles from "./index.module.css";
 
-const LazyBlackHoleMap = dynamic(() => import("components/BlackHoleMap"), {
+const LazyBlackHoleMap = dynamic(() => import("../BlackHoleMap"), {
   ssr: false,
 });
 
@@ -44,8 +46,8 @@ const BlackHoleTour = () => {
     };
 
   return (
-    <div className={s.blackHoleSection}>
-      <div className={s.bgImgContainer}>
+    <div className={styles.blackHoleSection}>
+      <div className={styles.bgImgContainer}>
         <Image
           src={spaceForest}
           alt=""
@@ -56,7 +58,7 @@ const BlackHoleTour = () => {
       </div>
       <TourStartObserver onIntersect={handleIntersect(initialView)} />
       <div
-        className={s.stickyMapContainer}
+        className={styles.stickyMapContainer}
         style={{ height: `${MAP_HEIGHT_VH}vh` }}
       >
         <LazyBlackHoleMap
@@ -143,7 +145,7 @@ const BlackHoleTour = () => {
         allocated to everyone who has staked KLIMA."
       />
       <IntersectDetector onIntersect={handleIntersect(initialView)} />
-      <div className={s.gap} />
+      <div className={styles.gap} />
     </div>
   );
 };

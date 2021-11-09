@@ -1,6 +1,5 @@
 import { IS_PRODUCTION } from "lib/constants";
 import Head from "next/head";
-import Script from "next/script";
 
 export interface PageHeadProps {
   mediaImageSrc?: string;

@@ -1,18 +1,18 @@
-import { FC } from "react";
-import s from "components/TourItem.module.css";
-import { useEffect } from "react";
-import { useRef } from "react";
-import { MAP_HEIGHT_VH } from "./BlackHoleTour";
+import { FC, useEffect, useRef } from "react";
+import styles from "./index.module.css";
+
+export const MAP_HEIGHT_VH = 35;
 
 interface Props {
   title: string;
   text: string;
 }
+
 export const TourItem: FC<Props> = (props) => {
   return (
-    <div className={s.tourItem}>
-      <h2 className={s.tourItem_title}>{props.title}</h2>
-      <p className={s.tourItem_description}>{props.text}</p>
+    <div className={styles.tourItem}>
+      <h2 className={styles.tourItem_title}>{props.title}</h2>
+      <p className={styles.tourItem_description}>{props.text}</p>
     </div>
   );
 };
@@ -20,6 +20,7 @@ export const TourItem: FC<Props> = (props) => {
 interface TourStartObserverProps {
   onIntersect: () => void;
 }
+
 export const TourStartObserver: FC<TourStartObserverProps> = (props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -31,12 +32,13 @@ export const TourStartObserver: FC<TourStartObserverProps> = (props) => {
       observer.disconnect();
     };
   }, []);
-  return <div className={s.tourStartObserver} ref={containerRef}></div>;
+  return <div className={styles.tourStartObserver} ref={containerRef}></div>;
 };
 
 interface IntersectDetectorProps {
   onIntersect: () => void;
 }
+
 export const IntersectDetector = (props: IntersectDetectorProps) => {
   const ref = useRef<null | HTMLDivElement>(null);
 
@@ -76,5 +78,5 @@ export const IntersectDetector = (props: IntersectDetectorProps) => {
     };
   }, []);
 
-  return <div className={s.divider} ref={ref} />;
+  return <div className={styles.divider} ref={ref} />;
 };
