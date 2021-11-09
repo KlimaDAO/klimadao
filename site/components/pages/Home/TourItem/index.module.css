@@ -15,10 +15,10 @@
   border-radius: 0.8rem;
 }
 .tourItem_title {
-  composes: h5_decorative from "styles/typography.module.css";
+  composes: h5_decorative from "@klimadao/lib/theme/typography.module.css";
 }
 .tourItem_description {
-  composes: body1 from "styles/typography.module.css";
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
 }
 
 .tourStartObserver {

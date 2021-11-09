@@ -1,4 +1,4 @@
-@value bp-small, bp-medium, bp-large from "styles/breakpoints.css";
+@value bp-small, bp-medium, bp-large from "@klimadao/lib/theme/breakpoints.css";
 
 /* COMPONENTS */
 .card {
@@ -76,7 +76,7 @@
 }
 /* anchor tag OR button */
 .iconButton {
-  composes: button from "styles/typography.module.css";
+  composes: button from "@klimadao/lib/theme/typography.module.css";
   color: white;
   border: 2px solid var(--primary);
   justify-self: start;
@@ -112,13 +112,13 @@
   padding: 2.4rem;
 }
 .centeredCard_title {
-  composes: h5_decorative from "styles/typography.module.css";
+  composes: h5_decorative from "@klimadao/lib/theme/typography.module.css";
 }
 .secondaryAccent {
   color: var(--secondary);
 }
 .centeredCard_text {
-  composes: body1 from "styles/typography.module.css";
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
 }
 
 .dataCardsContainer {
@@ -134,7 +134,7 @@
   justify-content: start;
 }
 .dataCard_priceTag {
-  composes: h5 from "styles/typography.module.css";
+  composes: h5 from "@klimadao/lib/theme/typography.module.css";
   color: var(--secondary);
 }
 .dataCardColumn {
@@ -155,7 +155,7 @@
   align-items: flex-end;
 }
 .treasuryBalance_value {
-  composes: h4 from "styles/typography.module.css";
+  composes: h4 from "@klimadao/lib/theme/typography.module.css";
   color: var(--secondary);
 }
 .emissionsValue {
@@ -172,7 +172,7 @@
 }
 
 .dividerSectionText {
-  composes: h5_decorative from "styles/typography.module.css";
+  composes: h5_decorative from "@klimadao/lib/theme/typography.module.css";
   grid-column: main;
   text-align: center;
   justify-self: center;
@@ -232,7 +232,7 @@
   width: 20rem;
 }
 .footer_content_nav {
-  composes: body1 from "styles/typography.module.css";
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
   display: grid;
   gap: 0.8rem;
 }

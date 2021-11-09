@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import Image from "next/image";
 import BlackHoleTour from "components/pages/Home/BlackHoleTour";
 import styles from "components/pages/Home/index.module.css";
-import t from "styles/typography.module.css";
 import greenWormhole from "public/green-wormhole.png";
 import polygonBadge from "public/polygon-badge.png";
 import klimaLogo from "public/klima-logo.png";
@@ -14,6 +13,7 @@ import { PageHead } from "components/PageHead";
 import { DiscordIcon } from "components/Icons/DiscordIcon";
 
 import { urls } from "@klimadao/lib/constants";
+import t from "@klimadao/lib/theme/typography.module.css";
 
 export interface Props {
   treasuryBalance: number;

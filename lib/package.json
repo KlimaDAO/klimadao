@@ -21,6 +21,7 @@
     "./components": "./out/components/index.js",
     "./constants": "./out/constants/index.js",
     "./utils": "./out/utils/index.js",
+    "./theme/*": "./theme/*",
     "./abi/*": "./abi/*"
   },
   "scripts": {

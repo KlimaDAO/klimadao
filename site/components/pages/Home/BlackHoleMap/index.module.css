@@ -1,4 +1,4 @@
-@value bp-medium from "styles/breakpoints.css";
+@value bp-medium from "@klimadao/lib/theme/breakpoints.css";
 
 .mapContainer {
   height: 100%;
