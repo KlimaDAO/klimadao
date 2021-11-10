@@ -1,3 +1,203 @@
-.test {
-  border: 2px solid red;
+@value bp-medium, bp-small from "./styles/breakpoints.css";
+@value body1, button from "./styles/typography.module.css";
+
+/*
+TEMP
+*/
+
+.prelaunch {
+  max-width: 64rem;
+  padding: 1.6rem;
+  background-color: var(--surface-01);
+  border: 1px dashed var(--secondary);
+}
+
+.testnet_warning {
+  text-align: start;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  background-position: 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("./assets/KlimaDAO/green-wormhole.png");
+  display: grid;
+  /* |--|----|--| */
+  grid-template-columns:
+    [full-start] minmax(1.6rem, 1fr)
+    [main-start] minmax(0, 140rem)
+    [main-end] minmax(1.6rem, 1fr)
+    [full-end];
+  row-gap: 3.2rem;
+  z-index: 0;
+  align-items: start;
+}
+.app_bgGradient {
+  position: absolute;
+  z-index: -1;
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  background: linear-gradient(
+    115deg,
+    #121212 21.2%,
+    rgba(18, 18, 18, 0.750345) 44.88%,
+    rgba(18, 18, 18, 0.7) 89.75%
+  );
+}
+.header {
+  grid-column: main;
+  display: grid;
+  gap: 0.8rem;
+  position: relative;
+  color: white;
+  padding-top: 2.4rem;
+}
+.header_subtitle {
+  composes: body1;
+  max-width: 64rem;
+}
+.logo {
+  width: 20rem;
+}
+
+.nav {
+  grid-column: main;
+  display: grid;
+  gap: 0.8rem;
+  padding-top: 3.2rem;
+  align-self: start;
+  justify-items: start;
+}
+/* anchor tag OR button */
+.textButton {
+  composes: button;
+  display: flex;
+  min-height: 4rem;
+  align-items: center;
+  color: white;
+  border: 2px solid var(--surface-06);
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.4rem;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(0, 0, 0, 0.3);
+}
+.textButton:not(:disabled):hover {
+  border-color: var(--primary-variant);
+}
+.textButton[data-active="true"] {
+  background-color: var(--primary-variant);
+  border-color: var(--primary);
+}
+.textButton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.connectWalletButton {
+  composes: textButton;
+  border: 2px dashed var(--surface-06);
+}
+.disconnectWalletButton {
+  composes: textButton;
+  border: 2px dashed var(--surface-06);
+  opacity: 0.5;
+}
+
+.main {
+  grid-column: main;
+  justify-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.2rem;
+  position: relative;
+  color: white;
+  height: 100%;
+  min-height: 75vh; /* mitigate background moving on expand */
+  align-content: start;
+}
+
+.footer {
+  align-self: end;
+  padding: 4.8rem 0rem;
+  position: relative;
+  grid-template-columns: inherit;
+  display: grid;
+  grid-column: full;
+  gap: 0.8rem;
+  background: rgba(18, 18, 18, 0.7);
+}
+.footer_content {
+  grid-column: main;
+  display: grid;
+  gap: 2.4rem;
+  justify-content: center;
+  text-align: center;
+}
+.footer_logo {
+  width: 20rem;
+}
+.footer_content_nav {
+  composes: body1;
+  display: grid;
+  gap: 0.8rem;
+}
+.footer_content_nav a {
+  color: white;
+  opacity: 0.7;
+  text-decoration: underline;
+}
+.invisibleColumn {
+  height: 1px;
+  visibility: hidden;
+}
+
+@media bp-small {
+  .app {
+    /* |--|----|--| */
+    grid-template-columns:
+      [full-start] minmax(3.2rem, 1fr)
+      [main-start] minmax(0, 140rem)
+      [main-end] minmax(3.2rem, 1fr)
+      [full-end];
+  }
+}
+
+@media bp-medium {
+  .testnet_warning {
+    text-align: end;
+    max-width: 25rem;
+  }
+  .app {
+    /* |--|----|--| */
+    grid-template-columns:
+      [full-start] minmax(6.4rem, 1fr)
+      [main-start] minmax(0, 140rem)
+      [main-end] minmax(6.4rem, 1fr)
+      [full-end];
+    row-gap: 5.4rem;
+  }
+  .header {
+    padding-top: 6.4rem;
+  }
+  .logo {
+    width: 28rem;
+  }
+  .nav {
+    justify-items: end;
+  }
+  .footer_logo {
+    align-self: center;
+  }
+  .footer_content {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media bp-large {
+  .app {
+    row-gap: 7.2rem;
+  }
 }

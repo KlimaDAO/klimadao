@@ -9,9 +9,12 @@ export interface UserState {
     alklima: string;
     bct: string;
     pklima: string;
-    pklimaClaimed: string;
-    pklimaMax: string;
-    pklimaVestable: string;
+  };
+  pklimaTerms?: {
+    claimed: string;
+    max: string;
+    redeemable: string;
+    supplyShare: number;
   };
   migrateAllowance?: {
     aklima: string;
@@ -52,6 +55,12 @@ export const userSlice = createSlice({
     setBalance: (s, a: Setter<"balance">) => {
       s.balance = { ...s.balance, ...a.payload };
     },
+    setPklimaTerms: (s, a: Setter<"pklimaTerms">) => {
+      s.pklimaTerms = {
+        ...s.pklimaTerms,
+        ...a.payload,
+      };
+    },
     setMigrateAllowance: (s, a: Setter<"migrateAllowance">) => {
       s.migrateAllowance = { ...s.migrateAllowance, ...a.payload };
     },
@@ -69,6 +78,7 @@ export const userSlice = createSlice({
 
 export const {
   setBalance,
+  setPklimaTerms,
   setMigrateAllowance,
   setExerciseAllowance,
   setStakeAllowance,

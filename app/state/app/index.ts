@@ -1,10 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AppState {
-  marketPrice: number | undefined;
-  circulatingSupply: number | undefined;
-  totalSupply: number | undefined;
-  currentIndex: number | undefined;
+  currentIndex: string | undefined;
   currentBlock: number | undefined;
   fiveDayRate: number | undefined;
   stakingAPY: number | undefined;
@@ -14,9 +11,6 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  marketPrice: undefined,
-  circulatingSupply: undefined,
-  totalSupply: undefined,
   currentIndex: undefined,
   currentBlock: undefined,
   fiveDayRate: undefined,
@@ -30,7 +24,7 @@ export const appSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setAppState: (s, a: PayloadAction<AppState>) => {
+    setAppState: (s, a: PayloadAction<Partial<AppState>>) => {
       s = { ...s, ...a.payload };
     },
   },

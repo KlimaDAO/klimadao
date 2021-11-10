@@ -1,4 +1,4 @@
-import ethers from "ethers";
+import { ethers } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getInteger } from "../getInteger";
 import PairContractABI from "../../abi/PairContract.json";

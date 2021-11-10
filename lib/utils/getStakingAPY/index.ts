@@ -11,12 +11,12 @@ export const getStakingAPY = async (): Promise<number> => {
     DistributorContractv4.abi,
     provider
   );
-  const sohmMainContract = new ethers.Contract(
+  const sklimaContract = new ethers.Contract(
     addresses.mainnet.sklima,
     SKlima.abi,
     provider
   );
-  const circSupply = await sohmMainContract.circulatingSupply();
+  const circSupply = await sklimaContract.circulatingSupply();
   const stakingReward = await distributorContract.nextRewardAt(5000);
 
   const stakingRebase = stakingReward / circSupply;
