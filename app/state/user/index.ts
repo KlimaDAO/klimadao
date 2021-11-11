@@ -45,7 +45,7 @@ const initialState: UserState = {
 
 /** Helper type to reduce boilerplate */
 type Setter<P extends keyof UserState> = PayloadAction<
-  NonNullable<UserState[P]>
+  Partial<NonNullable<UserState[P]>>
 >;
 
 export const userSlice = createSlice({
@@ -53,25 +53,51 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setBalance: (s, a: Setter<"balance">) => {
-      s.balance = { ...s.balance, ...a.payload };
+      s.balance = { ...s.balance, ...a.payload } as UserState["balance"];
     },
     setPklimaTerms: (s, a: Setter<"pklimaTerms">) => {
       s.pklimaTerms = {
         ...s.pklimaTerms,
         ...a.payload,
-      };
+      } as UserState["pklimaTerms"];
     },
     setMigrateAllowance: (s, a: Setter<"migrateAllowance">) => {
-      s.migrateAllowance = { ...s.migrateAllowance, ...a.payload };
+      s.migrateAllowance = {
+        ...s.migrateAllowance,
+        ...a.payload,
+      } as UserState["migrateAllowance"];
     },
     setExerciseAllowance: (s, a: Setter<"exerciseAllowance">) => {
-      s.exerciseAllowance = { ...s.exerciseAllowance, ...a.payload };
+      s.exerciseAllowance = {
+        ...s.exerciseAllowance,
+        ...a.payload,
+      } as UserState["exerciseAllowance"];
     },
     setStakeAllowance: (s, a: Setter<"stakeAllowance">) => {
-      s.stakeAllowance = { ...s.stakeAllowance, ...a.payload };
+      s.stakeAllowance = {
+        ...s.stakeAllowance,
+        ...a.payload,
+      } as UserState["stakeAllowance"];
     },
     setBondAllowance: (s, a: Setter<"bondAllowance">) => {
-      s.bondAllowance = { ...s.bondAllowance, ...a.payload };
+      s.bondAllowance = {
+        ...s.bondAllowance,
+        ...a.payload,
+      } as UserState["bondAllowance"];
+    },
+    incrementStake: (s, a: PayloadAction<string>) => {
+      if (!s.balance) return s; // type-guard, should never happen
+      const klima = Number(s.balance.klima) - Number(a.payload);
+      const sklima = Number(s.balance.sklima) + Number(a.payload);
+      s.balance.klima = klima.toString();
+      s.balance.sklima = sklima.toString();
+    },
+    decrementStake: (s, a: PayloadAction<string>) => {
+      if (!s.balance) return s; // type-guard, should never happen
+      const klima = Number(s.balance.klima) + Number(a.payload);
+      const sklima = Number(s.balance.sklima) - Number(a.payload);
+      s.balance.klima = klima.toString();
+      s.balance.sklima = sklima.toString();
     },
   },
 });
@@ -83,6 +109,8 @@ export const {
   setExerciseAllowance,
   setStakeAllowance,
   setBondAllowance,
+  incrementStake,
+  decrementStake,
 } = userSlice.actions;
 
 export default userSlice.reducer;

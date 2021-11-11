@@ -1,4 +1,23 @@
-// import { createSelector } from "@reduxjs/toolkit";
+import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "state";
 
-export const selectPklima = (state: RootState) => state.user.balance?.pklima;
+export const selectBalances = (state: RootState) => state.user.balance;
+export const selectAppState = (state: RootState) => state.app;
+export const selectUserState = (state: RootState) => state.user;
+
+export const selectStakeAllowance = createSelector(
+  selectUserState,
+  (user) => user.stakeAllowance
+);
+export const selectMigrateAllowance = createSelector(
+  selectUserState,
+  (user) => user.migrateAllowance
+);
+export const selectExerciseAllowance = createSelector(
+  selectUserState,
+  (user) => user.exerciseAllowance
+);
+export const selectBondAllowance = createSelector(
+  selectUserState,
+  (user) => user.bondAllowance
+);

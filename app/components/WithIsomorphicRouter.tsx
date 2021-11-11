@@ -1,0 +1,16 @@
+import { FC } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { StaticRouter } from "react-router-dom/server";
+
+interface Props {
+  /** A path provided to static router for server-side pre-rendering */
+  location: string;
+}
+export const WithIsomorphicRouter: FC<Props> = (props) => {
+  if (typeof document !== "undefined") {
+    return <BrowserRouter>{props.children}</BrowserRouter>;
+  }
+  return (
+    <StaticRouter location={props.location}>{props.children}</StaticRouter>
+  );
+};

@@ -1,11 +1,11 @@
-import { ethers, BigNumber } from "ethers";
+import { ethers } from "ethers";
 import { Thunk } from "state";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
 
 import { addresses } from "@klimadao/lib/constants";
-import { trimStringDecimals } from "@klimadao/lib/utils";
+import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
 import {
   setBalance,
   setExerciseAllowance,
@@ -13,11 +13,6 @@ import {
   setPklimaTerms,
   setStakeAllowance,
 } from "state/user";
-
-/** Klima and sklima are 9 decimals, all others are 18 */
-const formatUnits = (value: BigNumber, decimals: 9 | 18 = 18) => {
-  return ethers.utils.formatUnits(value, decimals);
-};
 
 export const loadAccountDetails = (params: {
   provider: ethers.providers.Provider;

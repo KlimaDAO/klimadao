@@ -14,44 +14,55 @@ import { WithRedux } from "components/WithRedux";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import { useSelector } from "react-redux";
-import { selectPklima } from "state/selectors";
+import { selectBalances } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 
 import styles from "./index.module.css";
+import Stake from "components/views/Stake";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
   remove: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
 };
 
-const web3Modal = new Web3Modal({
-  cacheProvider: true, // optional
-  providerOptions: {
-    walletconnect: {
-      package: WalletConnectProvider, // required
-      options: {
-        // infuraId: INFURA_ID,
-        rpc: { 137: urls.polygonMainnetRpc },
+/** wrap in useEffect to skip on server-side render */
+const useWeb3Modal = () => {
+  const ref = useRef<Web3Modal>();
+  useEffect(() => {
+    const modal = new Web3Modal({
+      cacheProvider: true, // optional
+      providerOptions: {
+        walletconnect: {
+          package: WalletConnectProvider, // required
+          options: {
+            // infuraId: INFURA_ID,
+            rpc: { 137: urls.polygonMainnetRpc },
+          },
+        },
       },
-    },
-  },
-});
+    });
+    ref.current = modal;
+  }, []);
+  return ref.current;
+};
 
 type LoadWeb3Modal = () => Promise<void>;
 const useProvider = (): [
   ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider,
   string | undefined,
+  Web3Modal | undefined,
   LoadWeb3Modal
 ] => {
   const fallbackProvider = useRef<ethers.providers.JsonRpcProvider>();
+  const web3Modal = useWeb3Modal();
   const [provider, setProvider] = useState<ethers.providers.Web3Provider>();
   const [address, setAddress] = useState<string>();
 
   const loadWeb3Modal = async () => {
     try {
-      const modalProvider = await web3Modal.connect();
+      const modalProvider = await web3Modal?.connect();
       if (modalProvider) {
         const provider = new ethers.providers.Web3Provider(modalProvider);
         const address = await provider.getSigner().getAddress();
@@ -60,11 +71,11 @@ const useProvider = (): [
       }
     } catch (e) {
       // handle bug where old cached providers cause the modal to keep reappearing
-      web3Modal.clearCachedProvider();
+      web3Modal?.clearCachedProvider();
     }
   };
   useEffect(() => {
-    if (web3Modal.cachedProvider) {
+    if (web3Modal?.cachedProvider) {
       loadWeb3Modal();
     }
   }, []);
@@ -95,19 +106,25 @@ const useProvider = (): [
     fallbackProvider.current = new ethers.providers.JsonRpcProvider(
       urls.polygonMainnetRpc
     );
-    return [fallbackProvider.current, "", loadWeb3Modal];
+    return [fallbackProvider.current, "", web3Modal, loadWeb3Modal];
   }
-  return [provider || fallbackProvider.current!, address, loadWeb3Modal];
+  return [
+    provider || fallbackProvider.current!,
+    address,
+    web3Modal,
+    loadWeb3Modal,
+  ];
 };
 
 export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
-  const [provider, address, loadWeb3Modal] = useProvider();
+
+  const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
 
-  const pKlimaBalance = useSelector(selectPklima);
+  const balances = useSelector(selectBalances);
 
   const handleRPCError = () => {
     setShowRPCModal(true);
@@ -274,7 +291,7 @@ export const Home: FC = () => {
       >
         INFO & FAQ
       </Link>
-      {pKlimaBalance && Number(pKlimaBalance) > 0 && (
+      {balances && balances.pklima && Number(balances.pklima) > 0 && (
         <Link
           className={styles.textButton}
           to="/pklima"
@@ -287,7 +304,7 @@ export const Home: FC = () => {
   );
 
   return (
-    <WithRedux>
+    <>
       <div className={styles.app}>
         <div className={styles.app_bgGradient} />
         <header className={styles.header}>
@@ -307,17 +324,18 @@ export const Home: FC = () => {
         <main className={styles.main}>
           {nav}
           <Routes>
-            <Route path="/">
-              <Navigate to="/stake" />
-            </Route>
-            <Route path="/stake">
-              <Stake
-                address={address}
-                provider={provider}
-                isConnected={isConnected}
-              />
-            </Route>
-            <Route path="/redeem">
+            <Route path="/" element={<Navigate to="/stake" />} />
+            <Route
+              path="/stake"
+              element={
+                <Stake
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
+            {/* <Route path="/redeem">
               <Redeem
                 address={address}
                 provider={provider}
@@ -352,8 +370,7 @@ export const Home: FC = () => {
                   />
                 </Route>
               );
-            })}
-            <Navigate to="/" />
+            })} */}
           </Routes>
           <div className={styles.invisibleColumn}>{nav}</div>
         </main>
@@ -370,14 +387,14 @@ export const Home: FC = () => {
           </div>
         </footer>
       </div>
-      <InvalidNetworkModal provider={provider} />
+      {/* <InvalidNetworkModal provider={provider} />
       {showRPCModal && (
         <InvalidRPCModal
           onHide={() => {
             setShowRPCModal(false);
           }}
         />
-      )}
-    </WithRedux>
+      )} */}
+    </>
   );
 };
