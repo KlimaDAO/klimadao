@@ -2,7 +2,7 @@
 
 /* COMPONENTS */
 .card {
-  background-color: var(--surface-01dp);
+  background-color: var(--surface-01);
   padding: 1.6rem;
 }
 
@@ -162,8 +162,8 @@
   color: var(--secondary-variant);
 }
 .dividerSection {
-  border-top: 0.2rem solid var(--surface-04dp);
-  border-bottom: 0.2rem solid var(--surface-04dp);
+  border-top: 0.2rem solid var(--surface-04);
+  border-bottom: 0.2rem solid var(--surface-04);
   background-color: var(--surface);
   grid-template-columns: inherit;
   display: grid;

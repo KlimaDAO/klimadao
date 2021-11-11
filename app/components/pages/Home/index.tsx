@@ -1,16 +1,8 @@
 import { ethers } from "ethers";
 import { FC, useRef, useState, useEffect } from "react";
-import {
-  Navigate,
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { Navigate, Routes, Route, Link, useLocation } from "react-router-dom";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
-import { WithRedux } from "components/WithRedux";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import { useSelector } from "react-redux";

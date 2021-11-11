@@ -1,26 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import React from "react";
-
+import { WebFonts } from "@klimadao/lib/components";
 class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin=""
-          />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
-          />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap"
-          />
+          <WebFonts />
         </Head>
         <body>
           <Main />

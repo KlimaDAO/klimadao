@@ -1,15 +1,15 @@
 :root {
   /* Material Design naming convention for theme colors */
   --surface: #121212;
-  --surface-01dp: #1e1e1e;
-  --surface-02dp: #232323;
-  --surface-03dp: #252525;
-  --surface-04dp: #272727;
-  --surface-06dp: #2c2c2c;
-  --surface-08dp: #2e2e2e;
-  --surface-12dp: #333333;
-  --surface-16dp: #363636;
-  --surface-24dp: #383838;
+  --surface-01: #1e1e1e;
+  --surface-02: #232323;
+  --surface-03: #252525;
+  --surface-04: #272727;
+  --surface-06: #2c2c2c;
+  --surface-08: #2e2e2e;
+  --surface-12: #333333;
+  --surface-16: #363636;
+  --surface-24: #383838;
   --primary: #33972d;
   --primary-variant: #33732f;
   --secondary: #14c3b9;
