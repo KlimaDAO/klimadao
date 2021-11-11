@@ -12,7 +12,7 @@ type BondState = {
     bondMaturationBlock?: number;
     pendingPayout?: string;
     bondDiscount?: number;
-    debtRatio?: string;
+    debtRatio?: number;
     bondQuote?: string;
     vestingTerm?: number;
     maxBondPrice?: number;

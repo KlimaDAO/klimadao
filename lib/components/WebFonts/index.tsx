@@ -8,11 +8,11 @@ export const WebFonts = () => {
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Righteous&display=optional" // display=optional to mitigate FOUT
+        href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
       />
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=optional"
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap"
       />
     </>
   );

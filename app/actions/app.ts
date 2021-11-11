@@ -60,10 +60,11 @@ export const loadAppDetails = (params: {
           stakingAPY,
           stakingRebase,
           treasuryBalance,
-          rebaseBlock,
+          rebaseBlock: rebaseBlock.toNumber(),
         })
       );
     } catch (error: any) {
+      console.log(error);
       if (error.message && error.message.includes("Non-200 status code")) {
         params.onRPCError();
       }

@@ -21,11 +21,11 @@ const initialState: AppState = {
 };
 
 export const appSlice = createSlice({
-  name: "user",
+  name: "app",
   initialState,
   reducers: {
     setAppState: (s, a: PayloadAction<Partial<AppState>>) => {
-      s = { ...s, ...a.payload };
+      return { ...s, ...a.payload };
     },
   },
 });

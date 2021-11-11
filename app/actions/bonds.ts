@@ -102,7 +102,7 @@ export const calcBondDetails = (params: {
       setBond({
         bond: params.bond,
         bondDiscount,
-        debtRatio,
+        debtRatio: debtRatio / 10000000,
         bondQuote,
         vestingTerm: parseInt(terms.vestingTerm),
         maxBondPrice: maxBondPrice / Math.pow(10, 9),

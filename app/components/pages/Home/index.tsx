@@ -70,7 +70,7 @@ const useProvider = (): [
     if (web3Modal?.cachedProvider) {
       loadWeb3Modal();
     }
-  }, []);
+  }, [web3Modal]);
 
   useEffect(() => {
     const handleChainChanged = () => {
@@ -86,8 +86,8 @@ const useProvider = (): [
       typedProvider.on("accountsChanged", handleAccountsChanged);
     }
     return () => {
-      if (provider && provider.provider) {
-        const typedProvider = provider.provider as EIP1139Provider;
+      const typedProvider = provider?.provider as EIP1139Provider;
+      if (typedProvider && typedProvider.remove) {
         typedProvider.remove("accountsChanged", handleAccountsChanged);
         typedProvider.remove("chainChanged", handleChainChanged);
       }
@@ -124,11 +124,27 @@ export const Home: FC = () => {
 
   const loadNetworkInfo = async () => {
     const networkInfo = await provider.getNetwork();
-    setChainId(networkInfo.chainId);
-    if (networkInfo.chainId !== 137 && networkInfo.chainId !== 80001) {
-      return; // modal will ask for network change -> page will reload
+    if (chainId !== networkInfo.chainId) {
+      setChainId(networkInfo.chainId);
+      // if network is invalid, modal will ask for network change -> page will reload
     }
+  };
 
+  const loadUserInfo = async (addr: string) => {
+    try {
+      dispatch(
+        loadAccountDetails({
+          address: addr,
+          provider,
+          onRPCError: handleRPCError,
+        })
+      );
+    } catch (e) {
+      console.log("LOAD USER INFO CAUGHT", e);
+    }
+  };
+
+  const initApp = async () => {
     dispatch(
       loadAppDetails({
         provider,
@@ -158,28 +174,23 @@ export const Home: FC = () => {
     );
   };
 
-  const loadUserInfo = async (addr: string) => {
-    try {
-      dispatch(
-        loadAccountDetails({
-          address: addr,
-          provider,
-          onRPCError: handleRPCError,
-        })
-      );
-    } catch (e) {
-      console.log("LOAD NETWORK CAUGHT", e);
-    }
-  };
+  useEffect(() => {
+    initApp();
+  }, []);
 
   useEffect(() => {
     if (provider) {
+      console.log("Fetching network info");
       loadNetworkInfo();
     }
+  }, [provider]);
+
+  useEffect(() => {
     if (address) {
+      console.log("Fetching data for address", address);
       loadUserInfo(address);
     }
-  }, [provider, address]);
+  }, [address]);
 
   /**
    * Outline manager for a11y
@@ -336,6 +347,7 @@ export const Home: FC = () => {
                 />
               }
             />
+            <Route path="/redeem" element={<p>redeem</p>} />
             {/* <Route path="/redeem">
               <Redeem
                 address={address}
