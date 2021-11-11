@@ -1,33 +1,39 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
-import { changeApprovalTransaction, redeemTransaction } from "actions/redeem";
+import { exerciseTransaction, changeApprovalTransaction } from "actions/pklima";
 import styles from "components/views/Stake/index.module.css";
 
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import t from "@klimadao/lib/theme/typography.module.css";
-import { ethers } from "ethers";
-import { selectBalances, selectMigrateAllowance } from "state/selectors";
-import { redeemAlpha, setMigrateAllowance } from "state/user";
+import { providers } from "ethers";
+import {
+  selectBalances,
+  selectExerciseAllowance,
+  selectPklimaTerms,
+} from "state/selectors";
+import { redeemPklima, setExerciseAllowance } from "state/user";
 import { useAppDispatch } from "state";
 
 interface Props {
-  provider: ethers.providers.JsonRpcProvider;
+  provider: providers.JsonRpcProvider;
   address?: string;
   isConnected?: boolean;
 }
 
-export const Redeem: FC<Props> = (props) => {
+export const PKlima: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
+
+  const [view, setView] = useState("stake");
   const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
-  const [view, setView] = useState("aklima"); // aKLIMA alKLIMA
   const [quantity, setQuantity] = useState("");
 
   const balances = useSelector(selectBalances);
-  const allowances = useSelector(selectMigrateAllowance);
+  const allowances = useSelector(selectExerciseAllowance);
+  const terms = useSelector(selectPklimaTerms);
 
-  const isLoading = !balances || typeof balances.klima === "undefined";
+  const isLoading = !allowances || typeof allowances.pklima === "undefined";
   const showSpinner =
     isConnected &&
     (status === "userConfirmation" ||
@@ -36,49 +42,40 @@ export const Redeem: FC<Props> = (props) => {
 
   const setMax = () => {
     setStatus("");
-    if (view === "aklima") {
-      setQuantity(balances?.aklima ?? "0");
-    } else {
-      setQuantity(balances?.alklima ?? "0");
-    }
+    setQuantity(terms?.redeemable ?? "0");
   };
 
-  const handleApproval = (action: "aklima" | "alklima") => async () => {
+  const handleApproval = (action: "pklima" | "bct") => async () => {
     try {
       const value = await changeApprovalTransaction({
         provider,
         action,
         onStatus: setStatus,
       });
-      dispatch(
-        setMigrateAllowance({
-          [action]: value,
-        })
-      );
+      dispatch(setExerciseAllowance({ [action]: value }));
     } catch (e) {
       return;
     }
   };
 
-  const handleRedeem = (token: "aklima" | "alklima") => async () => {
+  const handleExercise = async () => {
     try {
       const value = quantity.toString();
       setQuantity("");
-      await redeemTransaction({
-        action: token,
-        provider,
+      await exerciseTransaction({
         value,
+        provider,
         onStatus: setStatus,
       });
-      dispatch(redeemAlpha({ token, value }));
+      dispatch(redeemPklima(value));
     } catch (e) {
       return;
     }
   };
 
-  const hasApproval = (token: "aklima" | "alklima") => {
-    if (token === "aklima") return allowances && !!Number(allowances.aklima);
-    return allowances && !!Number(allowances.alklima);
+  const hasApproval = (token: "pklima" | "bct") => {
+    if (token === "pklima") return allowances && !!Number(allowances.pklima);
+    return allowances && !!Number(allowances.bct);
   };
 
   const getButtonProps = () => {
@@ -96,24 +93,20 @@ export const Redeem: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return { children: "Confirming", onClick: undefined, disabled: true };
-    } else if (view === "aklima" && !hasApproval("aklima")) {
-      return { children: "Approve", onClick: handleApproval("aklima") };
-    } else if (view === "alklima" && !hasApproval("alklima")) {
-      return { children: "Approve", onClick: handleApproval("alklima") };
-    } else if (view === "aklima") {
+    } else if (!hasApproval("pklima")) {
       return {
-        children: "Redeem",
-        onClick: handleRedeem("aklima"),
-        disabled: !value || !balances || value > Number(balances.aklima),
+        children: "1. Approve pKLIMA",
+        onClick: handleApproval("pklima"),
       };
-    } else if (view === "alklima") {
-      return {
-        children: "Redeem",
-        onClick: handleRedeem("alklima"),
-        disabled: !value || !balances || value > Number(balances.alklima),
-      };
+    } else if (!hasApproval("bct")) {
+      return { children: "2. Approve BCT", onClick: handleApproval("bct") };
     } else {
-      return { children: "ERROR", onClick: undefined, disabled: true };
+      return {
+        children: "EXERCISE",
+        onClick: handleExercise,
+        disabled:
+          !value || !terms?.redeemable || value > Number(terms.redeemable),
+      };
     }
   };
 
@@ -135,32 +128,9 @@ export const Redeem: FC<Props> = (props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Redeem aKLIMA</h2>
+        <h2 className={t.h4}>Exercise pKLIMA</h2>
         <p className={t.body2}>
-          If you received AlphaKLIMA from the Fair Launch Auction, or
-          AlchemistKLIMA from the Crucible rewards event, use this tool to
-          redeem them for KLIMA.
-        </p>
-        <p className={t.body2}>
-          👉{" "}
-          <strong>
-            Before proceeding: you must bridge your aKLIMA and alKLIMA tokens
-            from Ethereum to Polygon.
-          </strong>
-        </p>
-        <p className={t.body2}>
-          Complete the migration at{" "}
-          <a target="_blank" href="https://wallet.polygon.technology/bridge">
-            wallet.polygon.technology
-          </a>{" "}
-          or, if you are new to this, read our{" "}
-          <a
-            target="_blank"
-            href="https://klimadao.notion.site/How-to-bridge-AlphaKLIMA-and-AlchemistKLIMA-tokens-to-the-Polygon-network-93a59c8e639c45c3a2d296bdef5fc1d5"
-          >
-            tutorial for beginners
-          </a>
-          .
+          Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.
         </p>
       </div>
       <div className={styles.inputsContainer}>
@@ -169,34 +139,25 @@ export const Redeem: FC<Props> = (props) => {
             className={styles.switchButton}
             type="button"
             onClick={() => {
-              setQuantity("");
-              setView("aklima");
+              setView("stake");
             }}
-            data-active={view === "aklima"}
+            data-active={view === "stake"}
           >
-            aKLIMA
-          </button>
-          <button
-            className={styles.switchButton}
-            type="button"
-            onClick={() => {
-              setQuantity("");
-              setView("alklima");
-            }}
-            data-active={view === "alklima"}
-          >
-            alKLIMA
+            pKLIMA
           </button>
         </div>
         <div className={styles.stakeInput}>
           <input
             className={styles.stakeInput_input}
             value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={(e) => {
+              setQuantity(e.target.value);
+              setStatus("");
+            }}
             type="number"
             placeholder={`${
-              { aKLIMA: "aklima", alKLIMA: "alklima" }[view]
-            } to redeem`}
+              { stake: "PKLIMA", unstake: "ALKLIMA" }[view]
+            } to Exercise`}
             min="0"
           />
           <button
@@ -215,36 +176,71 @@ export const Redeem: FC<Props> = (props) => {
             {address.slice(0, 5)}..{address.slice(address.length - 3)}
           </p>
         )}
+        {view === "stake" && (
+          <div className="stake-price-data-row">
+            <p className="price-label">pKLIMA Balance</p>
+            <p className="price-data">
+              <WithPlaceholder
+                condition={!isConnected}
+                placeholder="NOT CONNECTED"
+              >
+                <span>{trimWithPlaceholder(balances?.pklima, 4)}</span> pKLIMA
+              </WithPlaceholder>
+            </p>
+          </div>
+        )}
         <div className="stake-price-data-row">
-          <p className="price-label">Redeemable aKLIMA</p>
+          <p className="price-label">BCT Balance</p>
           <p className="price-data">
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
-              <span>{trimWithPlaceholder(balances?.aklima, 4)}</span> aKLIMA
+              <span>{trimWithPlaceholder(balances?.bct, 4)}</span> BCT
             </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
-          <p className="price-label">Redeemable alKLIMA</p>
+          <p className="price-label">Vesting Share</p>
           <p className="price-data">
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
-              <span>{trimWithPlaceholder(balances?.alklima, 4)}</span> alKLIMA
+              <span>{trimWithPlaceholder(terms?.supplyShare, 2)}</span>%
             </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
-          <p className="price-label">Balance</p>
+          <p className="price-label">Vestable Amount</p>
           <p className="price-data">
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
-              <span>{trimWithPlaceholder(balances?.klima, 4)}</span> KLIMA
+              <span>{trimWithPlaceholder(terms?.redeemable, 4)}</span> pKLIMA
+            </WithPlaceholder>
+          </p>
+        </div>
+        <div className="stake-price-data-row">
+          <p className="price-label">Claimed Amount</p>
+          <p className="price-data">
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder="NOT CONNECTED"
+            >
+              <span>{trimWithPlaceholder(terms?.claimed, 4)}</span> pKLIMA
+            </WithPlaceholder>
+          </p>
+        </div>
+        <div className="stake-price-data-row">
+          <p className="price-label">Max Amount</p>
+          <p className="price-data">
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder="NOT CONNECTED"
+            >
+              <span>{trimWithPlaceholder(terms?.max, 4)}</span> pKLIMA
             </WithPlaceholder>
           </p>
         </div>
@@ -271,10 +267,9 @@ export const Redeem: FC<Props> = (props) => {
   );
 };
 
-const WithPlaceholder: FC<{
-  condition: boolean;
-  placeholder: string;
-}> = (props) => {
+const WithPlaceholder: FC<{ condition: boolean; placeholder: string }> = (
+  props
+) => {
   if (props.condition) {
     return <>{props.placeholder}</>;
   }

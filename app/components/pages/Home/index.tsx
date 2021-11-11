@@ -14,6 +14,7 @@ import { loadAccountDetails } from "actions/user";
 import styles from "./index.module.css";
 import { Stake } from "components/views/Stake";
 import { Redeem } from "components/views/Redeem";
+import { PKlima } from "components/views/PKlima";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -352,6 +353,16 @@ export const Home: FC = () => {
               path="/redeem"
               element={
                 <Redeem
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
+            <Route
+              path="/pklima"
+              element={
+                <PKlima
                   address={address}
                   provider={provider}
                   isConnected={isConnected}

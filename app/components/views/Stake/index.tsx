@@ -113,8 +113,10 @@ export const Stake = (props: Props) => {
   };
 
   const hasApproval = (action: "stake" | "unstake") => {
-    if (action === "stake") return stakeAllowance && !!stakeAllowance.klima;
-    if (action === "unstake") return stakeAllowance && !!stakeAllowance.sklima;
+    if (action === "stake")
+      return stakeAllowance && !!Number(stakeAllowance.klima);
+    if (action === "unstake")
+      return stakeAllowance && !!Number(stakeAllowance.sklima);
   };
 
   const timeUntilRebase = () => {
