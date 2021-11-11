@@ -93,7 +93,7 @@ TEMP
   color: white;
   height: 100%;
   min-height: 75vh; /* mitigate background moving on expand */
-  align-content: start;
+  align-content: flex-start;
 }
 
 .footer {
