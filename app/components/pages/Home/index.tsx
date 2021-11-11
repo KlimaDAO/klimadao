@@ -272,7 +272,7 @@ export const Home: FC = () => {
       <Link
         className={styles.textButton}
         to="/stake"
-        data-active={pathname === "/stake"}
+        data-active={pathname === "/stake" || pathname === "/"}
       >
         STAKE KLIMA
       </Link>
@@ -303,7 +303,7 @@ export const Home: FC = () => {
           <a href="https://klimadao.finance" style={{ justifySelf: "start" }}>
             <img
               className={styles.logo}
-              src="/klima-logo.jpg"
+              src="/klima-logo.png"
               alt=""
               role="presentation"
             />
@@ -316,7 +316,16 @@ export const Home: FC = () => {
         <main className={styles.main}>
           {nav}
           <Routes>
-            <Route path="/" element={<Navigate to="/stake" />} />
+            <Route
+              path="/"
+              element={
+                <Stake
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
             <Route
               path="/stake"
               element={

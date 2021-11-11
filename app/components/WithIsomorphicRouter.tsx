@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 export const WithIsomorphicRouter: FC<Props> = (props) => {
   if (typeof document !== "undefined") {
-    return <BrowserRouter>{props.children}</BrowserRouter>;
+    return <HashRouter>{props.children}</HashRouter>;
   }
   return (
     <StaticRouter location={props.location}>{props.children}</StaticRouter>
