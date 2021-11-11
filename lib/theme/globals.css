@@ -47,6 +47,11 @@ p {
 
 a {
   text-decoration: none;
+  color: var(--secondary);
+}
+a:hover,
+a:visited {
+  color: var(--secondary-variant);
 }
 
 button {

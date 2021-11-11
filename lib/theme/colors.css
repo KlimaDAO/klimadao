@@ -1,4 +1,5 @@
 :root {
+  --gray: rgb(160, 160, 160);
   /* Material Design naming convention for theme colors */
   --surface: #121212;
   --surface-01: #1e1e1e;

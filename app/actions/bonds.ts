@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 import { addresses } from "@klimadao/lib/constants";
 
@@ -11,7 +11,7 @@ export const DEFAULT_QUOTE_SLP = "0.001"; // Use a realistic SLP ownership so we
 
 export const contractForBond = (params: {
   bond: "bct" | "klima_bct_lp" | "bct_usdc_lp";
-  provider: ethers.providers.Provider;
+  provider: providers.JsonRpcProvider;
 }) => {
   const address = {
     klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
@@ -23,7 +23,7 @@ export const contractForBond = (params: {
 };
 
 const getMarketPrice = async (params: {
-  provider: ethers.providers.Provider;
+  provider: providers.JsonRpcProvider;
 }) => {
   const pairContract = new ethers.Contract(
     addresses["mainnet"].klimaBctLp,
@@ -37,7 +37,7 @@ const getMarketPrice = async (params: {
 export const calcBondDetails = (params: {
   bond: "bct" | "klima_bct_lp" | "bct_usdc_lp";
   value: string;
-  provider: ethers.providers.Provider;
+  provider: providers.JsonRpcProvider;
 }): Thunk => {
   return async (dispatch) => {
     let amountInWei;

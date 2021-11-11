@@ -10,7 +10,7 @@ import SKlima from "@klimadao/lib/abi/sKlima.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
 export const loadAppDetails = (params: {
-  provider: providers.Provider;
+  provider: providers.JsonRpcProvider;
   onRPCError: () => void;
 }): Thunk => {
   return async (dispatch) => {

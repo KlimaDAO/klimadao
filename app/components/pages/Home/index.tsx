@@ -12,7 +12,8 @@ import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 
 import styles from "./index.module.css";
-import Stake from "components/views/Stake";
+import { Stake } from "components/views/Stake";
+import { Redeem } from "components/views/Redeem";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -347,14 +348,17 @@ export const Home: FC = () => {
                 />
               }
             />
-            <Route path="/redeem" element={<p>redeem</p>} />
-            {/* <Route path="/redeem">
-              <Redeem
-                address={address}
-                provider={provider}
-                isConnected={isConnected}
-              />
-            </Route>
+            <Route
+              path="/redeem"
+              element={
+                <Redeem
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
+            {/* 
             <Route path="/pklima">
               <PKlima
                 address={address}

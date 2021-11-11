@@ -2,41 +2,38 @@ import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
 
 import { addresses } from "@klimadao/lib/constants";
-
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import KlimaStakingHelper from "@klimadao/lib/abi/KlimaStakingHelper.json";
-import KlimaStakingv2 from "@klimadao/lib/abi/KlimaStakingv2.json";
-import { formatUnits } from "@klimadao/lib/utils";
+import AlphaKlimaRedeemUpgradeable from "@klimadao/lib/abi/AlphaKlimaRedeemUpgradeable.json";
 
 export const changeApprovalTransaction = async (params: {
-  provider: providers.JsonRpcProvider;
+  provider: ethers.providers.JsonRpcProvider;
+  action: "aklima" | "alklima";
   onStatus: OnStatusHandler;
-  action: "stake" | "unstake";
-}): Promise<string> => {
+}) => {
   try {
     const contract = {
-      stake: new ethers.Contract(
-        addresses["mainnet"].klima,
+      aklima: new ethers.Contract(
+        addresses["mainnet"].aklima,
         IERC20.abi,
         params.provider.getSigner()
       ),
-      unstake: new ethers.Contract(
-        addresses["mainnet"].sklima,
+      alklima: new ethers.Contract(
+        addresses["mainnet"].alklima,
         IERC20.abi,
         params.provider.getSigner()
       ),
     }[params.action];
-    const address = {
-      stake: addresses["mainnet"].staking_helper,
-      unstake: addresses["mainnet"].staking,
+    const approvalAddress = {
+      aklima: addresses["mainnet"].aklima_migrate,
+      alklima: addresses["mainnet"].alklima_migrate,
     }[params.action];
-    const value = ethers.utils.parseUnits("1000000000", "gwei"); //bignumber
+    const value = ethers.utils.parseUnits("120000000000000000000000", "wei");
     params.onStatus("userConfirmation");
-    const txn = await contract.approve(address, value.toString());
+    const txn = await contract.approve(approvalAddress, value.toString());
     params.onStatus("networkConfirmation");
     await txn.wait(1);
     params.onStatus("done");
-    return formatUnits(value, 9);
+    return value;
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("userRejected");
@@ -52,31 +49,29 @@ export const changeApprovalTransaction = async (params: {
   }
 };
 
-export const changeStakeTransaction = async (params: {
-  value: string;
+export const redeemTransaction = async (params: {
+  action: "aklima" | "alklima";
   provider: providers.JsonRpcProvider;
+  value: string;
   onStatus: OnStatusHandler;
-  action: "stake" | "unstake";
 }) => {
   try {
-    const parsedValue = ethers.utils.parseUnits(params.value, "gwei");
     const contract = {
-      stake: new ethers.Contract(
-        addresses["mainnet"].staking_helper,
-        KlimaStakingHelper.abi,
+      aklima: new ethers.Contract(
+        addresses["mainnet"].aklima_migrate,
+        AlphaKlimaRedeemUpgradeable.abi,
         params.provider.getSigner()
       ),
-      unstake: new ethers.Contract(
-        addresses["mainnet"].staking,
-        KlimaStakingv2.abi,
+      alklima: new ethers.Contract(
+        addresses["mainnet"].alklima_migrate,
+        AlphaKlimaRedeemUpgradeable.abi,
         params.provider.getSigner()
       ),
     }[params.action];
     params.onStatus("userConfirmation");
-    const txn =
-      params.action === "stake"
-        ? await contract.stake(parsedValue)
-        : await contract.unstake(parsedValue, true); // always trigger rebase because gas is cheap
+    const txn = await contract.migrate(
+      ethers.utils.parseUnits(params.value, "ether")
+    );
     params.onStatus("networkConfirmation");
     await txn.wait(1);
     params.onStatus("done");

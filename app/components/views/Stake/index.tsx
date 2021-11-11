@@ -1,20 +1,11 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  secondsUntilBlock,
-  prettifySeconds,
-  trimWithPlaceholder,
-  concatAddress,
-} from "@klimadao/lib/utils";
+import { ethers, providers } from "ethers";
 
 import {
   changeApprovalTransaction,
   changeStakeTransaction,
 } from "actions/stake";
-import styles from "./index.module.css";
-import t from "@klimadao/lib/theme/typography.module.css";
-import { Spinner } from "@klimadao/lib/components";
-import { ethers } from "ethers";
 import { useAppDispatch } from "state";
 import { incrementStake, decrementStake, setStakeAllowance } from "state/user";
 import {
@@ -23,6 +14,16 @@ import {
   selectStakeAllowance,
 } from "state/selectors";
 import { TxnStatus } from "actions/utils";
+
+import { Spinner } from "@klimadao/lib/components";
+import {
+  secondsUntilBlock,
+  prettifySeconds,
+  trimWithPlaceholder,
+  concatAddress,
+} from "@klimadao/lib/utils";
+import t from "@klimadao/lib/theme/typography.module.css";
+import styles from "./index.module.css";
 
 const WithPlaceholder: FC<{
   condition: boolean;
@@ -35,7 +36,7 @@ const WithPlaceholder: FC<{
 };
 
 interface Props {
-  provider: ethers.providers.Provider;
+  provider: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
 }
@@ -111,7 +112,7 @@ export const Stake = (props: Props) => {
     }
   };
 
-  const hasAllowance = (action: "stake" | "unstake") => {
+  const hasApproval = (action: "stake" | "unstake") => {
     if (action === "stake") return stakeAllowance && !!stakeAllowance.klima;
     if (action === "unstake") return stakeAllowance && !!stakeAllowance.sklima;
   };
@@ -138,17 +139,17 @@ export const Stake = (props: Props) => {
       status === "networkConfirmation"
     ) {
       return { children: "Confirming", onClick: undefined, disabled: true };
-    } else if (view === "stake" && !hasAllowance("stake")) {
+    } else if (view === "stake" && !hasApproval("stake")) {
       return { children: "Approve", onClick: handleApproval("stake") };
-    } else if (view === "unstake" && !hasAllowance("unstake")) {
+    } else if (view === "unstake" && !hasApproval("unstake")) {
       return { children: "Approve", onClick: handleApproval("unstake") };
-    } else if (view === "stake" && hasAllowance("stake")) {
+    } else if (view === "stake" && hasApproval("stake")) {
       return {
         children: "Stake",
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
-    } else if (view === "unstake" && hasAllowance("unstake")) {
+    } else if (view === "unstake" && hasApproval("unstake")) {
       return {
         children: "Unstake",
         onClick: handleStake("unstake"),
@@ -327,5 +328,3 @@ export const Stake = (props: Props) => {
     </div>
   );
 };
-
-export default Stake;

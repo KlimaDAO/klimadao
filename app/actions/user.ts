@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
@@ -15,7 +15,7 @@ import {
 } from "state/user";
 
 export const loadAccountDetails = (params: {
-  provider: ethers.providers.Provider;
+  provider: providers.JsonRpcProvider;
   address: string;
   onRPCError: () => void;
 }): Thunk => {

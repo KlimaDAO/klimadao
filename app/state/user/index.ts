@@ -99,6 +99,17 @@ export const userSlice = createSlice({
       s.balance.klima = klima.toString();
       s.balance.sklima = sklima.toString();
     },
+    redeem: (
+      s,
+      a: PayloadAction<{ token: "aklima" | "alklima"; value: string }>
+    ) => {
+      if (!s.balance) return s; // type-guard, should never happen
+      const newBalance =
+        Number(s.balance[a.payload.token]) - Number(a.payload.value);
+      const klima = Number(s.balance.klima) + Number(a.payload.value);
+      s.balance[a.payload.token] = newBalance.toString();
+      s.balance.klima = klima.toString();
+    },
   },
 });
 
@@ -111,6 +122,7 @@ export const {
   setBondAllowance,
   incrementStake,
   decrementStake,
+  redeem,
 } = userSlice.actions;
 
 export default userSlice.reducer;
