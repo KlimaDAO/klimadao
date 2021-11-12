@@ -150,12 +150,17 @@ export const Redeem: FC<Props> = (props) => {
         </p>
         <p className={t.body2}>
           Complete the migration at{" "}
-          <a target="_blank" href="https://wallet.polygon.technology/bridge">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://wallet.polygon.technology/bridge"
+          >
             wallet.polygon.technology
           </a>{" "}
           or, if you are new to this, read our{" "}
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://klimadao.notion.site/How-to-bridge-AlphaKLIMA-and-AlchemistKLIMA-tokens-to-the-Polygon-network-93a59c8e639c45c3a2d296bdef5fc1d5"
           >
             tutorial for beginners

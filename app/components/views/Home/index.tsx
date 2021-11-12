@@ -265,7 +265,7 @@ export const Home: FC = () => {
         <p className={styles.testnet_warning}>
           ⚠️You are connected to <strong>testnet</strong>
           <br />
-          <em>"where everything is made up and the points don't matter."</em>
+          <em>{`"where everything is made up and the points don't matter."`}</em>
         </p>
       )}
       {!isConnected && (

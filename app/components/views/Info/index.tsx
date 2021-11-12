@@ -75,7 +75,7 @@ export const Info: FC = () => {
         <p className={t.body2}>
           Common app-related questions and useful links. For comprehensive
           reading on KlimaDAO, see our{" "}
-          <a target="_blank" href={urls.officialDocs}>
+          <a target="_blank" rel="noreferrer noopener" href={urls.officialDocs}>
             official docs
           </a>
         </p>
@@ -87,7 +87,7 @@ export const Info: FC = () => {
             <h4 className={t.h5}>Where can I get KLIMA?</h4>
             <p className={t.body2}>
               See our{" "}
-              <a target="_blank" href={urls.tutorial}>
+              <a target="_blank" rel="noreferrer noopener" href={urls.tutorial}>
                 tutorial for newcomers
               </a>
               .
@@ -113,6 +113,7 @@ export const Info: FC = () => {
               hours after launch. We have posted{" "}
               <a
                 target="_blank"
+                rel="noreferrer noopener"
                 href="https://klimadao.notion.site/sKLIMA-Bugfix-Instructions-079caaa21f6742daac201781ef5759da"
               >
                 step-by-step instructions
@@ -131,6 +132,7 @@ export const Info: FC = () => {
               <div className={styles.addressRow}>
                 <a
                   target="_blank"
+                  rel="noopener noreferrer"
                   href={`https://polygonscan.com/address/${info.address}`}
                 >
                   {concatAddress(info.address)}
@@ -147,16 +149,20 @@ export const Info: FC = () => {
       <div className={styles.infoSection}>
         <h3 className={t.overline}>LINKS</h3>
         <div style={{ display: "grid", gap: "0.4rem" }}>
-          <a target="_blank" href={urls.sushiUSDCBCT}>
+          <a target="_blank" rel="noopener noreferrer" href={urls.sushiUSDCBCT}>
             🍣 SushiSwap BCT/USDC
           </a>
-          <a target="_blank" href={urls.sushiKLIMABCT}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={urls.sushiKLIMABCT}
+          >
             🍣 SushiSwap KLIMA/BCT
           </a>
-          <a target="_blank" href={urls.communityHub}>
+          <a target="_blank" rel="noopener noreferrer" href={urls.communityHub}>
             👨‍👩‍👧‍👧 Community Hub (tutorials & more)
           </a>
-          <a target="_blank" href={urls.officialDocs}>
+          <a target="_blank" rel="noopener noreferrer" href={urls.officialDocs}>
             📚 Official Docs
           </a>
         </div>

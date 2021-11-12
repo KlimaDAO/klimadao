@@ -1,20 +1,20 @@
 import { NextPage } from "next";
-import Image from "next/image";
-import BlackHoleTour from "components/views/Home/BlackHoleTour";
-import styles from "components/views/Home/index.module.css";
-import greenWormhole from "public/green-wormhole.png";
-import polygonBadge from "public/polygon-badge.png";
-import klimaLogo from "public/klima-logo.png";
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutlined";
+
+import Image from "next/image";
+import BlackHoleTour from "components/pages/Home/BlackHoleTour";
+import greenWormhole from "public/green-wormhole.png";
+import polygonBadge from "public/polygon-badge.png";
+import klimaLogo from "public/klima-logo.png";
 import { PageHead } from "components/PageHead";
 import { DiscordIcon } from "components/Icons/DiscordIcon";
 
 import { urls } from "@klimadao/lib/constants";
 import t from "@klimadao/lib/theme/typography.module.css";
-
+import styles from "./index.module.css";
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
