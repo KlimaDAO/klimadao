@@ -1,4 +1,6 @@
 import { NextPage } from "next";
+import Head from "next/head";
+
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -9,12 +11,13 @@ import BlackHoleTour from "components/pages/Home/BlackHoleTour";
 import greenWormhole from "public/green-wormhole.png";
 import polygonBadge from "public/polygon-badge.png";
 import klimaLogo from "public/klima-logo.png";
-import { PageHead } from "components/PageHead";
 import { DiscordIcon } from "components/Icons/DiscordIcon";
 
 import { urls } from "@klimadao/lib/constants";
 import t from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
+import { MetaTags } from "@klimadao/lib/components";
+import { IS_PRODUCTION } from "lib/constants";
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
@@ -39,11 +42,15 @@ export const Home: NextPage<Props> = (props) => {
   const formattedAPY = props.stakingAPY.toLocaleString() + "%";
   return (
     <div id="HomeContainer" className={styles.container}>
-      <PageHead
-        title="Klima DAO"
-        mediaTitle="KlimaDAO | Algorithmic climate protocol"
-        metaDescription="Stake and earn interest with the world's first carbon-backed digital asset."
-      />
+      <Head>
+        <MetaTags
+          production={IS_PRODUCTION}
+          title="KlimaDAO"
+          mediaTitle="KlimaDAO"
+          metaDescription="A carbon-backed digital currency for climate, and Decentralized Autonomous Organization for change."
+          mediaImageSrc="./og-media.jpg"
+        />
+      </Head>
       <div className={styles.heroBackgroundContainer}>
         <div className={styles.heroBgImgContainer}>
           <Image
