@@ -12,6 +12,9 @@
   align-content: center;
   background-color: rgb(0, 0, 0, 0.3);
 }
+.textButton:visited {
+  color: white !important;
+}
 .textButton:not(:disabled):hover {
   border-color: var(--primary-variant);
 }

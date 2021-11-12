@@ -77,7 +77,7 @@
 /* anchor tag OR button */
 .iconButton {
   composes: button from "@klimadao/lib/theme/typography.module.css";
-  color: white;
+  color: white !important;
   border: 2px solid var(--primary);
   justify-self: start;
   display: grid;
@@ -87,6 +87,9 @@
   border-radius: 0.4rem;
   align-items: center;
   align-content: center;
+}
+.iconButton:hover {
+  background-color: var(--primary-variant);
 }
 .iconButton svg {
   font-size: 2rem;
