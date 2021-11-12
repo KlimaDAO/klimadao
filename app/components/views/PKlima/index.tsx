@@ -134,7 +134,11 @@ export const PKlima: FC<Props> = (props) => {
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>
-          <button className={styles.switchButton} type="button">
+          <button
+            className={styles.switchButton}
+            type="button"
+            data-active="true"
+          >
             pKLIMA
           </button>
         </div>

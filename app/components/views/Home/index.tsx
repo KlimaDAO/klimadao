@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { ethers } from "ethers";
 import { FC, useRef, useState, useEffect } from "react";
 import { Navigate, Routes, Route, Link, useLocation } from "react-router-dom";
@@ -23,11 +22,6 @@ import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 
 import styles from "./index.module.css";
-import { MetaTags } from "@klimadao/lib/components";
-
-// TODO: add an env var to indicate IPFS production deploys
-export const IS_PRODUCTION =
-  process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -163,7 +157,7 @@ export const Home: FC = () => {
         })
       );
     } catch (e) {
-      console.log("LOAD USER INFO CAUGHT", e);
+      console.error("LOAD USER INFO CAUGHT", e);
     }
   };
 
@@ -203,14 +197,12 @@ export const Home: FC = () => {
 
   useEffect(() => {
     if (provider) {
-      console.log("Fetching network info");
       loadNetworkInfo();
     }
   }, [provider]);
 
   useEffect(() => {
     if (address) {
-      console.log("Fetching data for address", address);
       loadUserInfo(address);
     }
   }, [address]);
@@ -335,15 +327,6 @@ export const Home: FC = () => {
   return (
     <>
       <div className={styles.app}>
-        <Head>
-          <MetaTags
-            production={IS_PRODUCTION}
-            title="KlimaDAO | Official dApp"
-            mediaTitle="KlimaDAO | Official dApp"
-            metaDescription="Use the KLIMA dApp to bond, stake and earn interest."
-            mediaImageSrc="/og-media.jpg"
-          />
-        </Head>
         <div className={styles.app_bgGradient} />
         <header className={styles.header}>
           <a href="https://klimadao.finance" style={{ justifySelf: "start" }}>

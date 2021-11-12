@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Bond } from "@klimadao/lib/constants";
+import { safeSub } from "@klimadao/lib/utils";
 
 type BondState = {
   [bond in Bond]?: {
@@ -12,9 +13,9 @@ type BondState = {
     debtRatio?: number;
     bondQuote?: string;
     vestingTerm?: number;
-    maxBondPrice?: number;
-    bondPrice?: number;
-    marketPrice?: number;
+    maxBondPrice?: string;
+    bondPrice?: string;
+    marketPrice?: string;
   };
 };
 
@@ -35,12 +36,14 @@ export const bondsSlice = createSlice({
       s[a.payload.bond] = { ...s[a.payload.bond], ...a.payload };
     },
     redeemBond: (s, a: PayloadAction<{ bond: Bond; value: string }>) => {
-      const pendingPayout =
-        Number(s[a.payload.bond]!.pendingPayout) - Number(a.payload.value);
-      const interestDue =
-        Number(s[a.payload.bond]!.interestDue) - Number(a.payload.value);
-      s[a.payload.bond]!.pendingPayout = pendingPayout.toString();
-      s[a.payload.bond]!.interestDue = interestDue.toString();
+      s[a.payload.bond]!.pendingPayout = safeSub(
+        s[a.payload.bond]!.pendingPayout!,
+        a.payload.value
+      );
+      s[a.payload.bond]!.interestDue = safeSub(
+        s[a.payload.bond]!.interestDue!,
+        a.payload.value
+      );
     },
   },
 });

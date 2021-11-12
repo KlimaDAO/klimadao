@@ -136,9 +136,9 @@ export const calcBondDetails = (params: {
         debtRatio: debtRatio / 10000000,
         bondQuote,
         vestingTerm: parseInt(terms.vestingTerm),
-        maxBondPrice: maxBondPrice / Math.pow(10, 9),
-        bondPrice: bondPrice / Math.pow(10, 18),
-        marketPrice: marketPrice / Math.pow(10, 9),
+        maxBondPrice: formatUnits(maxBondPrice, 9),
+        bondPrice: formatUnits(bondPrice),
+        marketPrice: (marketPrice / Math.pow(10, 9)).toString(),
       })
     );
   };

@@ -28,6 +28,8 @@ import {
   secondsUntilBlock,
   prettifySeconds,
   concatAddress,
+  safeSub,
+  safeAdd,
 } from "@klimadao/lib/utils";
 import { providers } from "ethers";
 import { selectAppState, selectBondAllowance } from "state/selectors";
@@ -106,7 +108,7 @@ export const Bond: FC<Props> = (props) => {
     if (!bondState?.bondQuote || !bondState?.maxBondPrice) return;
     const quotedQuantity = quantity || DEFAULT_QUOTE_SLP;
     const price = Number(quotedQuantity) / Number(bondState.bondQuote);
-    const maxPayable = bondState.maxBondPrice * price;
+    const maxPayable = Number(bondState.maxBondPrice) * price;
     return Number(bondState?.balance) < Number(maxPayable)
       ? bondState?.balance
       : maxPayable.toString();
@@ -168,7 +170,16 @@ export const Bond: FC<Props> = (props) => {
 
   const handleBond = async () => {
     try {
-      if (!props.address) return;
+      if (
+        !props.address ||
+        !bondState ||
+        !bondState.balance ||
+        !bondState.bondQuote ||
+        !bondState.interestDue ||
+        !bondState.maxBondPrice
+      ) {
+        return;
+      }
       setQuantity("");
       if (
         Number(bondState?.interestDue) > 0 ||
@@ -189,20 +200,12 @@ export const Bond: FC<Props> = (props) => {
         address: recipientAddress || props.address,
         onStatus: setStatus,
       });
-      const newBalance = (
-        Number(bondState?.balance) - Number(quantity)
-      ).toString();
-      const newInterestDue = (
-        Number(bondState?.interestDue) + Number(bondState?.bondQuote)
-      ).toString();
-      const newMaxBondPrice =
-        Number(bondState?.maxBondPrice) - Number(bondState?.bondQuote);
       dispatch(
         setBond({
           bond: props.bond,
-          balance: newBalance,
-          interestDue: newInterestDue,
-          maxBondPrice: newMaxBondPrice,
+          balance: safeSub(bondState.balance, bondState.bondQuote),
+          interestDue: safeAdd(bondState.interestDue, bondState.bondQuote),
+          maxBondPrice: safeSub(bondState.maxBondPrice, bondState.bondQuote),
         })
       );
     } catch (error) {

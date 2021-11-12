@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
+import { safeAdd, safeSub } from "@klimadao/lib/utils";
 export interface UserState {
-  // keep it raw, bignumber, so we can do math safely
   balance?: {
     klima: string;
     sklima: string;
@@ -87,48 +87,38 @@ export const userSlice = createSlice({
     },
     incrementStake: (s, a: PayloadAction<string>) => {
       if (!s.balance) return s; // type-guard, should never happen
-      const klima = Number(s.balance.klima) - Number(a.payload);
-      const sklima = Number(s.balance.sklima) + Number(a.payload);
-      s.balance.klima = klima.toString();
-      s.balance.sklima = sklima.toString();
+      s.balance.klima = safeSub(s.balance.klima, a.payload);
+      s.balance.sklima = safeAdd(s.balance.sklima, a.payload);
     },
     decrementStake: (s, a: PayloadAction<string>) => {
       if (!s.balance) return s; // type-guard, should never happen
-      const klima = Number(s.balance.klima) + Number(a.payload);
-      const sklima = Number(s.balance.sklima) - Number(a.payload);
-      s.balance.klima = klima.toString();
-      s.balance.sklima = sklima.toString();
+      s.balance.klima = safeAdd(s.balance.klima, a.payload);
+      s.balance.sklima = safeSub(s.balance.sklima, a.payload);
     },
     redeemAlpha: (
       s,
       a: PayloadAction<{ token: "aklima" | "alklima"; value: string }>
     ) => {
       if (!s.balance) return s; // type-guard, should never happen
-      const newBalance =
-        Number(s.balance[a.payload.token]) - Number(a.payload.value);
-      const klima = Number(s.balance.klima) + Number(a.payload.value);
-      s.balance[a.payload.token] = newBalance.toString();
-      s.balance.klima = klima.toString();
+      s.balance[a.payload.token] = safeSub(
+        s.balance[a.payload.token],
+        a.payload.value
+      );
+      s.balance.klima = safeAdd(s.balance.klima, a.payload.value);
     },
     redeemPklima: (s, a: PayloadAction<string>) => {
       if (!s.balance || !s.pklimaTerms) return s; // type-guard, should never happen
-      const pklima = Number(s.balance.pklima) - Number(a.payload);
-      const bct = Number(s.balance.bct) - Number(a.payload);
-      const redeemable = Number(s.pklimaTerms.redeemable) - Number(a.payload);
-      const claimed = Number(s.pklimaTerms.claimed) + Number(a.payload);
-      const klima = Number(s.balance.klima) + Number(a.payload);
-      s.balance.pklima = pklima.toString();
-      s.balance.bct = bct.toString();
-      s.balance.klima = klima.toString();
-      s.pklimaTerms.redeemable = redeemable.toString();
-      s.pklimaTerms.claimed = claimed.toString();
+      s.balance.pklima = safeSub(s.balance.pklima, a.payload);
+      s.balance.bct = safeSub(s.balance.bct, a.payload);
+      s.balance.klima = safeAdd(s.balance.klima, a.payload);
+      s.pklimaTerms.redeemable = safeSub(s.pklimaTerms.redeemable, a.payload);
+      s.pklimaTerms.claimed = safeAdd(s.pklimaTerms.claimed, a.payload);
     },
   },
   extraReducers: (builder) => {
     builder.addCase(redeemBond, (s, a) => {
       if (!s.balance) return;
-      const klima = Number(s.balance.klima) + Number(a.payload.value);
-      s.balance.klima = klima.toString();
+      s.balance.klima = safeAdd(s.balance.klima, a.payload.value);
     });
   },
 });
