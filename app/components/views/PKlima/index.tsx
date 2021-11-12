@@ -25,7 +25,6 @@ export const PKlima: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
 
-  const [view, setView] = useState("stake");
   const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
   const [quantity, setQuantity] = useState("");
 
@@ -135,14 +134,7 @@ export const PKlima: FC<Props> = (props) => {
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>
-          <button
-            className={styles.switchButton}
-            type="button"
-            onClick={() => {
-              setView("stake");
-            }}
-            data-active={view === "stake"}
-          >
+          <button className={styles.switchButton} type="button">
             pKLIMA
           </button>
         </div>
@@ -155,9 +147,7 @@ export const PKlima: FC<Props> = (props) => {
               setStatus("");
             }}
             type="number"
-            placeholder={`${
-              { stake: "PKLIMA", unstake: "ALKLIMA" }[view]
-            } to Exercise`}
+            placeholder="PKLIMA to Exercise"
             min="0"
           />
           <button
@@ -176,19 +166,17 @@ export const PKlima: FC<Props> = (props) => {
             {address.slice(0, 5)}..{address.slice(address.length - 3)}
           </p>
         )}
-        {view === "stake" && (
-          <div className="stake-price-data-row">
-            <p className="price-label">pKLIMA Balance</p>
-            <p className="price-data">
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span>{trimWithPlaceholder(balances?.pklima, 4)}</span> pKLIMA
-              </WithPlaceholder>
-            </p>
-          </div>
-        )}
+        <div className="stake-price-data-row">
+          <p className="price-label">pKLIMA Balance</p>
+          <p className="price-data">
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder="NOT CONNECTED"
+            >
+              <span>{trimWithPlaceholder(balances?.pklima, 4)}</span> pKLIMA
+            </WithPlaceholder>
+          </p>
+        </div>
         <div className="stake-price-data-row">
           <p className="price-label">BCT Balance</p>
           <p className="price-data">

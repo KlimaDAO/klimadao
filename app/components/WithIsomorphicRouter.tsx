@@ -2,7 +2,9 @@ import { FC } from "react";
 import { HashRouter } from "react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
 
-/** NOTE: server doesn't receive hash urls */
+/**
+ * NOTE: server doesn't receive hash urls
+ */
 interface Props {
   /** A path provided to static router for server-side pre-rendering */
   location: string;

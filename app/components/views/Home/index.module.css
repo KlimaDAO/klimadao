@@ -72,7 +72,6 @@ TEMP
   align-self: start;
   justify-items: start;
 }
-
 .connectWalletButton {
   composes: textButton;
   border: 2px dashed var(--surface-06);

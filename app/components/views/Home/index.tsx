@@ -16,6 +16,7 @@ import { Stake } from "components/views/Stake";
 import { Redeem } from "components/views/Redeem";
 import { PKlima } from "components/views/PKlima";
 import { Info } from "components/views/Info";
+import { Loading } from "components/views/Loading";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -118,8 +119,16 @@ export const Home: FC = () => {
 
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
-
+  const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
+
+  /**
+   * This is a hack to force re-render of nav component
+   * because SSR hydration doesn't show active path
+   */
+  useEffect(() => {
+    setPath(pathname);
+  }, [pathname]);
 
   const handleRPCError = () => {
     setShowRPCModal(true);
@@ -240,6 +249,7 @@ export const Home: FC = () => {
   };
 
   const isConnected = !!address;
+
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
   // A hack to keep the card centered in the viewport.
   const nav = (
@@ -272,28 +282,28 @@ export const Home: FC = () => {
       <Link
         className={styles.textButton}
         to="/redeem"
-        data-active={pathname === "/redeem"}
+        data-active={path === "/redeem"}
       >
         REDEEM aKLIMA
       </Link>
       <Link
         className={styles.textButton}
         to="/bonds"
-        data-active={pathname.includes("/bonds")}
+        data-active={path.includes("/bonds")}
       >
         BOND CARBON
       </Link>
       <Link
         className={styles.textButton}
         to="/stake"
-        data-active={pathname === "/stake" || pathname === "/"}
+        data-active={path === "/stake"}
       >
         STAKE KLIMA
       </Link>
       <Link
         className={styles.textButton}
         to="/info"
-        data-active={pathname === "/info"}
+        data-active={path === "/info"}
       >
         INFO & FAQ
       </Link>
@@ -301,7 +311,7 @@ export const Home: FC = () => {
         <Link
           className={styles.textButton}
           to="/pklima"
-          data-active={pathname === "/pklima"}
+          data-active={path === "/pklima"}
         >
           pKLIMA
         </Link>
@@ -333,11 +343,10 @@ export const Home: FC = () => {
             <Route
               path="/"
               element={
-                <Stake
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                />
+                <>
+                  <Loading />
+                  {path === "/" && <Navigate to="/stake" />}
+                </>
               }
             />
             <Route
