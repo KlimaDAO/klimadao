@@ -4,7 +4,7 @@ import {
   getStakingAPY,
   getTreasuryBalance,
 } from "@klimadao/lib/utils";
-import { Home, Props } from "components/views/Home";
+import { Home, Props } from "components/pages/Home";
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const [treasuryBalance, stakingAPY, price] = await Promise.all([
