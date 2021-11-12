@@ -15,6 +15,7 @@ import styles from "./index.module.css";
 import { Stake } from "components/views/Stake";
 import { Redeem } from "components/views/Redeem";
 import { PKlima } from "components/views/PKlima";
+import { Info } from "components/views/Info";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -369,6 +370,7 @@ export const Home: FC = () => {
                 />
               }
             />
+            <Route path="/info" element={<Info />} />
             {/* 
             <Route path="/pklima">
               <PKlima

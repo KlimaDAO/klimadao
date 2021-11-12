@@ -1,4 +1,4 @@
-import { Home } from "components/pages/Home";
+import { Home } from "components/views/Home";
 import { WithIsomorphicRouter } from "components/WithIsomorphicRouter";
 import { WithRedux } from "components/WithRedux";
 import { NextPage } from "next";

@@ -57,6 +57,12 @@ export const urls = {
   gitbook: "https://klima-dao.gitbook.io/klima-dao/",
   app: "https://dapp.klimadao.finance",
   polygonMainnetRpc: "https://polygon-rpc.com/",
+  sushiUSDCBCT: `https://app.sushi.com/swap?inputCurrency=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&outputCurrency=${addresses["mainnet"].bct}`,
+  sushiKLIMABCT: `https://app.sushi.com/swap?inputCurrency=${addresses["mainnet"].klima}&outputCurrency=${addresses["mainnet"].bct}`,
+  communityHub: "https://klimadao.notion.site/",
+  tutorial:
+    "https://klimadao.notion.site/I-m-new-to-Klima-How-do-I-participate-c28426c5100244788f791f62e375ffcc",
+  officialDocs: "https://docs.klimadao.finance/",
 };
 
 export const bonds = ["klima_bct_lp", "bct_usdc_lp", "bct"] as const;
