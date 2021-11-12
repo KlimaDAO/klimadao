@@ -1,0 +1,53 @@
+.stakeCard {
+  composes: stakeCard from "components/views/Stake/index.module.css";
+}
+
+.stakeCard_header {
+  composes: stakeCard_header from "components/views/Stake/index.module.css";
+}
+
+.chooseBond_header {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.data_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.data_column :global(.price-data) {
+  color: var(--secondary);
+  display: flex;
+  gap: 0.4rem;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.bondList {
+  display: grid;
+  gap: 0.8rem;
+}
+.bondList_columnTitle {
+  display: flex;
+  justify-content: space-between;
+}
+.bondLink {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background-color: var(--surface-16);
+  padding: 1.6rem;
+  border: 1px solid transparent;
+  color: white;
+}
+.bondLink:hover {
+  border: 1px solid var(--secondary);
+}
+.bondROI {
+  composes: subtitle2 from "@klimadao/lib/theme/typography.module.css";
+  justify-self: center;
+  align-self: center;
+}
+.bondROI[data-hide="true"] {
+  opacity: 0.4;
+}

@@ -17,6 +17,7 @@ import { Redeem } from "components/views/Redeem";
 import { PKlima } from "components/views/PKlima";
 import { Info } from "components/views/Info";
 import { Loading } from "components/views/Loading";
+import { ChooseBond } from "components/views/ChooseBond";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -382,24 +383,17 @@ export const Home: FC = () => {
               }
             />
             <Route path="/info" element={<Info />} />
+            <Route
+              path="/bonds"
+              element={
+                <ChooseBond
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
             {/* 
-            <Route path="/pklima">
-              <PKlima
-                address={address}
-                provider={provider}
-                isConnected={isConnected}
-              />
-            </Route>
-            <Route path="/bonds">
-              <ChooseBond
-                address={address}
-                provider={provider}
-                isConnected={isConnected}
-              />
-            </Route>
-            <Route path="/info">
-              <Info />
-            </Route>
             {bonds.map((bond) => {
               return (
                 <Route key={bond} path={`/bonds/${bond}`}>

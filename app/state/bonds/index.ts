@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { bonds } from "@klimadao/lib/constants";
-
-type Bond = typeof bonds[number];
+import { Bond } from "@klimadao/lib/constants";
 
 type BondState = {
   [bond in Bond]?: {

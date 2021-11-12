@@ -101,7 +101,7 @@ export const calcBondDetails = (params: {
     dispatch(
       setBond({
         bond: params.bond,
-        bondDiscount,
+        bondDiscount: bondDiscount * 100,
         debtRatio: debtRatio / 10000000,
         bondQuote,
         vestingTerm: parseInt(terms.vestingTerm),
