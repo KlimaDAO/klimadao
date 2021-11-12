@@ -35,9 +35,17 @@ export const bondsSlice = createSlice({
     setBond: (s, a: PayloadAction<BondPayload>) => {
       s[a.payload.bond] = { ...s[a.payload.bond], ...a.payload };
     },
+    redeemBond: (s, a: PayloadAction<{ bond: Bond; value: string }>) => {
+      const pendingPayout =
+        Number(s[a.payload.bond]!.pendingPayout) - Number(a.payload.value);
+      const interestDue =
+        Number(s[a.payload.bond]!.interestDue) - Number(a.payload.value);
+      s[a.payload.bond]!.pendingPayout = pendingPayout.toString();
+      s[a.payload.bond]!.interestDue = interestDue.toString();
+    },
   },
 });
 
-export const { setBond } = bondsSlice.actions;
+export const { setBond, redeemBond } = bondsSlice.actions;
 
 export default bondsSlice.reducer;

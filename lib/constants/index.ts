@@ -65,6 +65,25 @@ export const urls = {
   officialDocs: "https://docs.klimadao.finance/",
 };
 
+export const INFURA_ID = "0f83eb63faea409abc1f440c9f077646";
+
+export const polygonNetworks = {
+  testnet: {
+    chainName: "Polygon Testnet Mumbai",
+    hexChainId: "0x13881",
+    chainId: 80001,
+    rpcUrls: [`https://polygon-mumbai.infura.io/v3/${INFURA_ID}`],
+    blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+  },
+  mainnet: {
+    chainName: "Polygon Mainnet",
+    hexChainId: "0x89",
+    chainId: 137,
+    rpcUrls: [urls.polygonMainnetRpc],
+    blockExplorerUrls: ["https://polygonscan.com/"],
+  },
+};
+
 export const bonds = ["klima_bct_lp", "bct_usdc_lp", "bct"] as const;
 export type Bond = typeof bonds[number];
 

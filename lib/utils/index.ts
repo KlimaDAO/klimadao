@@ -9,3 +9,4 @@ export { prettifySeconds } from "./prettifySeconds";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
 export { concatAddress } from "./concatAddress";
 export { formatUnits } from "./formatUnits";
+export { useDebounce } from "./useDebounce";

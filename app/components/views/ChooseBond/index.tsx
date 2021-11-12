@@ -10,7 +10,7 @@ import t from "@klimadao/lib/theme/typography.module.css";
 import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 
-const useBond = (bond: Bond) => {
+export const useBond = (bond: Bond) => {
   const bondState = useSelector((state: RootState) => {
     return state.bonds[bond];
   });

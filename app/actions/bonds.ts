@@ -1,11 +1,14 @@
 import { ethers, providers } from "ethers";
 import { Thunk } from "state";
-import { addresses } from "@klimadao/lib/constants";
+import { addresses, Bond } from "@klimadao/lib/constants";
 
 import Depository from "@klimadao/lib/abi/KlimaBondDepository_Regular.json";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
+import OhmDai from "@klimadao/lib/abi/OhmDai.json";
+import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { setBond } from "state/bonds";
+import { OnStatusHandler } from "./utils";
 
 export const DEFAULT_QUOTE_SLP = "0.001"; // Use a realistic SLP ownership so we have a quote before the user inputs any value
 
@@ -21,6 +24,32 @@ export const contractForBond = (params: {
 
   return new ethers.Contract(address, Depository.abi, params.provider);
 };
+
+export function contractForReserve(params: {
+  bond: Bond;
+  provider: providers.JsonRpcProvider;
+}) {
+  if (params.bond === "klima_bct_lp") {
+    return new ethers.Contract(
+      addresses["mainnet"].klimaBctLp,
+      OhmDai.abi,
+      params.provider
+    );
+  }
+  if (params.bond === "bct") {
+    return new ethers.Contract(
+      addresses["mainnet"].bct,
+      IERC20.abi,
+      params.provider
+    );
+  }
+  // bct_usdc_lp
+  return new ethers.Contract(
+    addresses["mainnet"].bctUsdcLp,
+    OhmDai.abi,
+    params.provider
+  );
+}
 
 const getMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
@@ -111,4 +140,194 @@ export const calcBondDetails = (params: {
       })
     );
   };
+};
+
+export const changeApprovalTransaction = async (params: {
+  provider: providers.JsonRpcProvider;
+  bond: Bond;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const signer = params.provider.getSigner();
+    const contract = {
+      klima_bct_lp: new ethers.Contract(
+        addresses["mainnet"].klimaBctLp,
+        OhmDai.abi,
+        signer
+      ),
+      bct: new ethers.Contract(addresses["mainnet"].bct, IERC20.abi, signer),
+      bct_usdc_lp: new ethers.Contract(
+        addresses["mainnet"].bctUsdcLp,
+        OhmDai.abi,
+        signer
+      ),
+    }[params.bond];
+    const approvalAddress = {
+      klima_bct_lp: addresses["mainnet"].klimaBctLp,
+      bct: addresses["mainnet"].bct,
+      bct_usdc_lp: addresses["mainnet"].bctUsdcLp,
+    }[params.bond];
+    const value = ethers.utils.parseUnits("1000000000", "ether");
+    params.onStatus("userConfirmation");
+    const txn = await contract.approve(approvalAddress, value.toString());
+    params.onStatus("networkConfirmation");
+    await txn.wait(1);
+    params.onStatus("done");
+    return value;
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("userRejected");
+      throw error;
+    }
+    if (error.data && error.data.message) {
+      alert(error.data.message);
+    } else {
+      alert(error.message);
+    }
+    params.onStatus("error");
+    throw error;
+  }
+};
+
+export const calculateUserBondDetails = (params: {
+  address: string;
+  bond: Bond;
+  provider: providers.JsonRpcProvider;
+}): Thunk => {
+  return async (dispatch) => {
+    if (!params.address) return;
+
+    // Calculate bond details.
+    const bondContract = contractForBond({
+      bond: params.bond,
+      provider: params.provider,
+    });
+    const reserveContract = contractForReserve({
+      bond: params.bond,
+      provider: params.provider,
+    });
+    const bondDetails = await bondContract.bondInfo(params.address);
+    const interestDue = bondDetails[0];
+    const bondMaturationBlock = +bondDetails[1] + +bondDetails[2];
+    const pendingPayout = await bondContract.pendingPayoutFor(params.address);
+
+    let allowance;
+    let balance;
+    if (params.bond === "klima_bct_lp") {
+      allowance = await reserveContract.allowance(
+        params.address,
+        addresses["mainnet"].klimaBctLp
+      );
+      balance = await reserveContract.balanceOf(params.address);
+      balance = ethers.utils.formatUnits(balance, "ether");
+    } else if (params.bond === "bct") {
+      allowance = await reserveContract.allowance(
+        params.address,
+        addresses["mainnet"].bct
+      );
+      balance = await reserveContract.balanceOf(params.address);
+      balance = ethers.utils.formatEther(balance);
+    } else if (params.bond === "bct_usdc_lp") {
+      allowance = await reserveContract.allowance(
+        params.address,
+        addresses["mainnet"].bctUsdcLp
+      );
+      balance = await reserveContract.balanceOf(params.address);
+      balance = ethers.utils.formatEther(balance);
+    }
+
+    dispatch(
+      setBond({
+        bond: params.bond,
+        allowance: allowance.toString(),
+        balance,
+        interestDue: ethers.utils.formatUnits(interestDue, "gwei"),
+        bondMaturationBlock,
+        pendingPayout: ethers.utils.formatUnits(pendingPayout, "gwei"),
+      })
+    );
+  };
+};
+
+export const bondTransaction = async (params: {
+  value: string;
+  address: string;
+  bond: Bond;
+  provider: providers.JsonRpcProvider;
+  slippage: number;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const signer = params.provider.getSigner();
+    const contractAddress = {
+      klima_bct_lp: addresses["mainnet"].klimaBctLp,
+      bct: addresses["mainnet"].bct,
+      bct_usdc_lp: addresses["mainnet"].bctUsdcLp,
+    }[params.bond];
+    const contract = new ethers.Contract(
+      contractAddress,
+      Depository.abi,
+      signer
+    );
+    const calculatePremium = await contract.bondPrice();
+    const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
+    const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
+    const valueInWei = ethers.utils.parseUnits(params.value, "ether");
+    params.onStatus("userConfirmation");
+    const txn = await contract.deposit(valueInWei, maxPremium, params.address);
+    params.onStatus("networkConfirmation");
+    await txn.wait(1);
+    params.onStatus("done");
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("userRejected");
+      throw error;
+    }
+    if (error.data && error.data.message) {
+      alert(error.data.message);
+    } else {
+      alert(error.message);
+    }
+    params.onStatus("error");
+    throw error;
+  }
+};
+
+export const redeemTransaction = async (params: {
+  address: string;
+  bond: Bond;
+  provider: providers.JsonRpcProvider;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const autostake = false;
+    const signer = params.provider.getSigner();
+    const contractAddress = {
+      klima_bct_lp: addresses["mainnet"].klimaBctLp,
+      bct: addresses["mainnet"].bct,
+      bct_usdc_lp: addresses["mainnet"].bctUsdcLp,
+    }[params.bond];
+    const contract = new ethers.Contract(
+      contractAddress,
+      Depository.abi,
+      signer
+    );
+    params.onStatus("userConfirmation");
+    const txn = await contract.redeem(params.address, autostake);
+    params.onStatus("networkConfirmation");
+    await txn.wait(1);
+    params.onStatus("done");
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("userRejected");
+      throw error;
+    }
+    if (error.data && error.data.message) {
+      alert(error.data.message);
+    } else {
+      alert(error.message);
+    }
+    params.onStatus("error");
+    throw error;
+  }
 };

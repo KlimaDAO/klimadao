@@ -11,13 +11,17 @@ import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 
-import styles from "./index.module.css";
 import { Stake } from "components/views/Stake";
 import { Redeem } from "components/views/Redeem";
 import { PKlima } from "components/views/PKlima";
 import { Info } from "components/views/Info";
 import { Loading } from "components/views/Loading";
 import { ChooseBond } from "components/views/ChooseBond";
+import { Bond } from "components/views/Bond";
+import { InvalidNetworkModal } from "components/InvalidNetworkModal";
+import { InvalidRPCModal } from "components/InvalidRPCModal";
+
+import styles from "./index.module.css";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -383,29 +387,23 @@ export const Home: FC = () => {
               }
             />
             <Route path="/info" element={<Info />} />
-            <Route
-              path="/bonds"
-              element={
-                <ChooseBond
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                />
-              }
-            />
-            {/* 
+            <Route path="/bonds" element={<ChooseBond />} />
             {bonds.map((bond) => {
               return (
-                <Route key={bond} path={`/bonds/${bond}`}>
-                  <Bond
-                    provider={provider}
-                    address={address}
-                    bond={bond}
-                    isConnected={isConnected}
-                  />
-                </Route>
+                <Route
+                  key={bond}
+                  path={`/bonds/${bond}`}
+                  element={
+                    <Bond
+                      provider={provider}
+                      address={address}
+                      bond={bond}
+                      isConnected={isConnected}
+                    />
+                  }
+                />
               );
-            })} */}
+            })}
           </Routes>
           <div className={styles.invisibleColumn}>{nav}</div>
         </main>
@@ -422,14 +420,14 @@ export const Home: FC = () => {
           </div>
         </footer>
       </div>
-      {/* <InvalidNetworkModal provider={provider} />
+      <InvalidNetworkModal provider={provider} />
       {showRPCModal && (
         <InvalidRPCModal
           onHide={() => {
             setShowRPCModal(false);
           }}
         />
-      )} */}
+      )}
     </>
   );
 };

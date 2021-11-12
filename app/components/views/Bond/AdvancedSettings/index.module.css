@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+  gap: 1.6rem;
+  border: 1px solid var(--primary-variant);
+  border-radius: 1.6rem;
+  padding: 6.4rem 1.6rem 1.6rem 1.6rem;
+  position: relative;
+  z-index: 0;
+  top: -6rem;
+  margin-bottom: -6rem;
+  justify-self: center;
+}
+
+.container :global(form) {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.input {
+  composes: stakeInput_input from "components/views/Stake/index.module.css";
+  border-radius: 0.8rem;
+}
+
+.slippageInput {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.slippageInput .input {
+  flex-grow: 0;
+}
+.slippageInput :global(div) {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding: 0rem 0.8rem;
+}

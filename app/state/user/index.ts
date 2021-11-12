@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import { redeemBond } from "state/bonds";
 export interface UserState {
   // keep it raw, bignumber, so we can do math safely
   balance?: {
@@ -123,6 +123,13 @@ export const userSlice = createSlice({
       s.pklimaTerms.redeemable = redeemable.toString();
       s.pklimaTerms.claimed = claimed.toString();
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(redeemBond, (s, a) => {
+      if (!s.balance) return;
+      const klima = Number(s.balance.klima) + Number(a.payload.value);
+      s.balance.klima = klima.toString();
+    });
   },
 });
 
