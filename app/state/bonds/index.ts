@@ -4,7 +4,6 @@ import { Bond } from "@klimadao/lib/constants";
 type BondState = {
   [bond in Bond]?: {
     bond: Bond;
-    allowance?: string;
     balance?: string;
     interestDue?: string;
     bondMaturationBlock?: number;

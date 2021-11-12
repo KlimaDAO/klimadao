@@ -9,6 +9,8 @@ import OhmDai from "@klimadao/lib/abi/OhmDai.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { setBond } from "state/bonds";
 import { OnStatusHandler } from "./utils";
+import { setBondAllowance } from "state/user";
+import { formatUnits } from "@klimadao/lib/utils";
 
 export const DEFAULT_QUOTE_SLP = "0.001"; // Use a realistic SLP ownership so we have a quote before the user inputs any value
 
@@ -237,9 +239,13 @@ export const calculateUserBondDetails = (params: {
     }
 
     dispatch(
+      setBondAllowance({
+        [params.bond]: formatUnits(allowance),
+      })
+    );
+    dispatch(
       setBond({
         bond: params.bond,
-        allowance: allowance.toString(),
         balance,
         interestDue: ethers.utils.formatUnits(interestDue, "gwei"),
         bondMaturationBlock,

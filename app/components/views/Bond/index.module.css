@@ -5,23 +5,35 @@
   gap: 0.8rem;
 }
 .bondHeader_backButton {
+  display: flex;
+  align-items: center;
   justify-self: start;
+  color: var(--secondary);
+}
+.bondHeader_backButton:visited {
   color: var(--secondary);
 }
 .bondHeader_backButton:hover {
   color: var(--secondary-variant);
+}
+.bondHeader_backButton :global(svg) {
+  font-size: 2.4rem;
 }
 
 .showAdvancedButton {
   display: flex;
   gap: 0.8rem;
   justify-self: center;
+  align-items: center;
   padding: 0.8rem;
   z-index: 1; /* pointer events */
   color: var(--secondary);
 }
 .showAdvancedButton:hover {
   color: var(--secondary-variant);
+}
+.showAdvancedButton :global(svg) {
+  font-size: 2.4rem;
 }
 
 .recipientNote {

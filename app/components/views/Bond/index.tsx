@@ -63,9 +63,6 @@ export const Bond: FC<Props> = (props) => {
   const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
 
   const dispatch = useAppDispatch();
-
-  const NETWORK_ID = 137;
-
   const [slippage, setSlippage] = useState(2);
   const [recipientAddress, setRecipientAddress] = useState(props.address);
 
@@ -153,7 +150,7 @@ export const Bond: FC<Props> = (props) => {
       }
     }
     loadBondDetails();
-  }, [props.provider, debouncedQuantity, props.address, props.bond]);
+  }, [debouncedQuantity, props.address]);
 
   const handleAllowance = async () => {
     try {
@@ -286,10 +283,8 @@ export const Bond: FC<Props> = (props) => {
     return null;
   };
 
-  const bondDiscountPercent = bondState?.bondDiscount
-    ? bondState.bondDiscount * 100
-    : 0;
-  const isBondDiscountNegative = bondDiscountPercent < 0;
+  const isBondDiscountNegative =
+    bondState?.bondDiscount && bondState?.bondDiscount < 0;
 
   return (
     <div className={styles.stakeCard}>
@@ -461,7 +456,7 @@ export const Bond: FC<Props> = (props) => {
             <p className="price-label">ROI (bond discount)</p>
             <p className="price-data">
               <span data-warning={isBondDiscountNegative}>
-                {trimWithPlaceholder(bondDiscountPercent, 2)}
+                {trimWithPlaceholder(bondState?.bondDiscount, 2)}
               </span>
               %
             </p>
@@ -524,7 +519,7 @@ export const Bond: FC<Props> = (props) => {
         )}
 
       {isBondDiscountNegative && view === "bond" && (
-        <p style={{ textAlign: "center" }}>
+        <p className={t.body2} style={{ textAlign: "center" }}>
           ⚠️ Warning: this bond price is inflated because the current discount
           rate is negative.
         </p>
