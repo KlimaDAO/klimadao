@@ -250,6 +250,8 @@ export const Home: FC = () => {
 
   const isConnected = !!address;
 
+  const showPklimaButton = path === "/pklima" || !!Number(balances?.pklima);
+
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
   // A hack to keep the card centered in the viewport.
   const nav = (
@@ -307,7 +309,7 @@ export const Home: FC = () => {
       >
         INFO & FAQ
       </Link>
-      {balances && balances.pklima && Number(balances.pklima) > 0 && (
+      {showPklimaButton && (
         <Link
           className={styles.textButton}
           to="/pklima"
