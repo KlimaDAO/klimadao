@@ -28,7 +28,7 @@ A set of NPM Workspace commands are provided, and can be run from the root folde
 
 `npm run dev-app`: run the app on localhost:3001
 
-`npm run dev-lib`: Watches for changes in `@klimadao/lib` and re-compiles to typescript on save. Alternatively, run `npm run build-lib` to compile once (this is already done automatically for the above two commands).
+`npm run dev-lib`: Watch for changes in `@klimadao/lib` and recompile on save. Alternatively, run `npm run build-lib` to compile once (this is already done automatically for the above two commands).
 
 # Contribution Guide
 Coming Soon.
