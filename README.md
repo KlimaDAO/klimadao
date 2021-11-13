@@ -11,17 +11,15 @@ This repo contains 3 packages: `@klimadao/site`, `@klimadao/app` and `@klimadao/
 ## Requirements
 Take note, this repo utilizes newer features from Node, NPM and the upcoming release of Typescript.
 
-- node >= v16.x
-- npm >= v8.x (necessary for NPM Workspaces)
-- typescript >= 4.5.0-beta (better ESModules support)
-- vscode-prettier extension
+- Node >= v16.x
+- NPM >= v8.x (necessary for NPM Workspaces)
+- Typescript >= 4.5.0-beta (better ESModules support) `npm install -g typescript@4.5.0-beta`
+- VSCode [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- VSCode [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
 ## Install dependencies
-Be sure you have the above dependencies, and are using typescript 4.5 or later (currently in beta):
-
-`npm install -g typescript@4.5.0-beta`
-
-Then, `npm install` from the `klimadao/` root folder, *not* from individual packages.
+From the `klimadao/` root folder, *not* from individual packages:
+`npm install`
 
 ## Develop
 A set of NPM Workspace commands are provided, and can be run from the root folder.
