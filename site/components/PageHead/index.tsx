@@ -18,6 +18,13 @@ export const PageHead = (props: PageHeadProps) => {
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
+      {!noRobots && (
+        <script
+          defer
+          data-domain="klimadao.finance"
+          src="https://plausible.io/js/plausible.js"
+        ></script>
+      )}
       <title>{props.title}</title>
       <meta name="description" content={props.metaDescription} />
       <meta property="og:description" content={props.metaDescription} />
