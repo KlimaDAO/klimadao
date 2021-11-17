@@ -309,7 +309,7 @@ export const redeemTransaction = async (params: {
     const autostake = false;
     const signer = params.provider.getSigner();
     const contractAddress = {
-      klima_bct_lp: addresses["mainnet"].bond_bctUsdcLp,
+      klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
       bct: addresses["mainnet"].bond_bct,
       bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
     }[params.bond];
