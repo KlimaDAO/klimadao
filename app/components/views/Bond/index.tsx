@@ -239,7 +239,7 @@ export const Bond: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return { children: "Please Connect", onClick: undefined, disabled: true };
+      return { children: "Not Connected", onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
         children: "Loading",

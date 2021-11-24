@@ -1,15 +1,20 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
-import { changeApprovalTransaction, redeemTransaction } from "actions/redeem";
+import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
 import styles from "components/views/Stake/index.module.css";
 
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import t from "@klimadao/lib/theme/typography.module.css";
 import { ethers } from "ethers";
-import { selectBalances, selectMigrateAllowance } from "state/selectors";
-import { redeemAlpha, setMigrateAllowance } from "state/user";
+import {
+  selectAppState,
+  selectBalances,
+  selectWrapAllowance,
+} from "state/selectors";
+import { decrementWrap, incrementWrap, setWrapAllowance } from "state/user";
 import { useAppDispatch } from "state";
+import { TxnStatus } from "actions/utils";
 
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
@@ -17,15 +22,16 @@ interface Props {
   isConnected?: boolean;
 }
 
-export const Redeem: FC<Props> = (props) => {
+export const Wrap: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
-  const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
-  const [view, setView] = useState("aklima"); // aKLIMA alKLIMA
+  const [status, setStatus] = useState<TxnStatus | "">("");
+  const [view, setView] = useState<"wrap" | "unwrap">("wrap");
   const [quantity, setQuantity] = useState("");
 
+  const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
-  const allowances = useSelector(selectMigrateAllowance);
+  const allowances = useSelector(selectWrapAllowance);
 
   const isLoading = !balances || typeof balances.klima === "undefined";
   const showSpinner =
@@ -36,23 +42,22 @@ export const Redeem: FC<Props> = (props) => {
 
   const setMax = () => {
     setStatus("");
-    if (view === "aklima") {
-      setQuantity(balances?.aklima ?? "0");
+    if (view === "wrap") {
+      setQuantity(balances?.sklima ?? "0");
     } else {
-      setQuantity(balances?.alklima ?? "0");
+      setQuantity(balances?.wsklima ?? "0");
     }
   };
 
-  const handleApproval = (action: "aklima" | "alklima") => async () => {
+  const handleApproval = () => async () => {
     try {
       const value = await changeApprovalTransaction({
         provider,
-        action,
         onStatus: setStatus,
       });
       dispatch(
-        setMigrateAllowance({
-          [action]: value,
+        setWrapAllowance({
+          sklima: value,
         })
       );
     } catch (e) {
@@ -60,25 +65,28 @@ export const Redeem: FC<Props> = (props) => {
     }
   };
 
-  const handleRedeem = (token: "aklima" | "alklima") => async () => {
+  const handleAction = (action: "wrap" | "unwrap") => async () => {
     try {
-      const value = quantity.toString();
+      if (!quantity || !currentIndex) return;
       setQuantity("");
-      await redeemTransaction({
-        action: token,
+      await wrapTransaction({
+        action,
         provider,
-        value,
+        value: quantity,
         onStatus: setStatus,
       });
-      dispatch(redeemAlpha({ token, value }));
+      if (action === "wrap") {
+        dispatch(incrementWrap({ sklima: quantity, currentIndex }));
+      } else {
+        dispatch(decrementWrap({ wsklima: quantity, currentIndex }));
+      }
     } catch (e) {
       return;
     }
   };
 
-  const hasApproval = (token: "aklima" | "alklima") => {
-    if (token === "aklima") return allowances && !!Number(allowances.aklima);
-    return allowances && !!Number(allowances.alklima);
+  const hasApproval = () => {
+    return !!allowances && !!Number(allowances.sklima);
   };
 
   const getButtonProps = () => {
@@ -96,21 +104,19 @@ export const Redeem: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return { children: "Confirming", onClick: undefined, disabled: true };
-    } else if (view === "aklima" && !hasApproval("aklima")) {
-      return { children: "Approve", onClick: handleApproval("aklima") };
-    } else if (view === "alklima" && !hasApproval("alklima")) {
-      return { children: "Approve", onClick: handleApproval("alklima") };
-    } else if (view === "aklima") {
+    } else if (view === "wrap" && !hasApproval()) {
+      return { children: "Approve", onClick: handleApproval() };
+    } else if (view === "wrap") {
       return {
-        children: "Redeem",
-        onClick: handleRedeem("aklima"),
-        disabled: !value || !balances || value > Number(balances.aklima),
+        children: "Wrap",
+        onClick: handleAction("wrap"),
+        disabled: !value || !balances || value > Number(balances.sklima),
       };
-    } else if (view === "alklima") {
+    } else if (view === "unwrap") {
       return {
-        children: "Redeem",
-        onClick: handleRedeem("alklima"),
-        disabled: !value || !balances || value > Number(balances.alklima),
+        children: "Unwrap",
+        onClick: handleAction("unwrap"),
+        disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
       return { children: "ERROR", onClick: undefined, disabled: true };
@@ -132,41 +138,38 @@ export const Redeem: FC<Props> = (props) => {
     return null;
   };
 
+  const youWillGet = () => {
+    if (!quantity || !currentIndex) return "0";
+    if (view === "wrap") {
+      // BigNumber doesn't support decimals so I'm not sure the safest way to divide and multiply...
+      return Number(quantity) / Number(currentIndex);
+    }
+    return Number(quantity) * Number(currentIndex);
+  };
+
+  const inputPlaceholder =
+    view === "wrap" ? "sKLIMA to wrap" : "wsKLIMA to unwrap";
+
+  const indexAdjustedBalance =
+    !!currentIndex && typeof balances?.wsklima !== "undefined"
+      ? Number(balances.wsklima) * Number(currentIndex)
+      : undefined;
+
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Redeem aKLIMA</h2>
+        <h2 className={t.h4}>Wrap sKLIMA</h2>
         <p className={t.body2}>
-          If you received AlphaKLIMA from the Fair Launch Auction, or
-          AlchemistKLIMA from the Crucible rewards event, use this tool to
-          redeem them for KLIMA.
+          wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may find
+          this useful for accounting purposes. Unlike your sKLIMA balance, your
+          wsKLIMA balance will not increase over time.
         </p>
         <p className={t.body2}>
-          👉{" "}
-          <strong>
-            Before proceeding: you must bridge your aKLIMA and alKLIMA tokens
-            from Ethereum to Polygon.
-          </strong>
+          When wsKLIMA is unwrapped, you recieve sKLIMA based on the latest
+          (ever-increasing) index, so the total yield is the same.
         </p>
-        <p className={t.body2}>
-          Complete the migration at{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://wallet.polygon.technology/bridge"
-          >
-            wallet.polygon.technology
-          </a>{" "}
-          or, if you are new to this, read our{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://klimadao.notion.site/How-to-bridge-AlphaKLIMA-and-AlchemistKLIMA-tokens-to-the-Polygon-network-93a59c8e639c45c3a2d296bdef5fc1d5"
-          >
-            tutorial for beginners
-          </a>
-          .
-        </p>
+
+        <p className={t.body2}></p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>
@@ -175,22 +178,22 @@ export const Redeem: FC<Props> = (props) => {
             type="button"
             onClick={() => {
               setQuantity("");
-              setView("aklima");
+              setView("wrap");
             }}
-            data-active={view === "aklima"}
+            data-active={view === "wrap"}
           >
-            aKLIMA
+            wrap
           </button>
           <button
             className={styles.switchButton}
             type="button"
             onClick={() => {
               setQuantity("");
-              setView("alklima");
+              setView("unwrap");
             }}
-            data-active={view === "alklima"}
+            data-active={view === "unwrap"}
           >
-            alKLIMA
+            unwrap
           </button>
         </div>
         <div className={styles.stakeInput}>
@@ -199,9 +202,7 @@ export const Redeem: FC<Props> = (props) => {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             type="number"
-            placeholder={`${
-              { aKLIMA: "aklima", alKLIMA: "alklima" }[view]
-            } to redeem`}
+            placeholder={inputPlaceholder}
             min="0"
           />
           <button
@@ -221,35 +222,58 @@ export const Redeem: FC<Props> = (props) => {
           </p>
         )}
         <div className="stake-price-data-row">
-          <p className="price-label">Redeemable aKLIMA</p>
+          <p className="price-label">Balance (staked)</p>
           <p className="price-data">
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
-              <span>{trimWithPlaceholder(balances?.aklima, 4)}</span> aKLIMA
+              <span>{trimWithPlaceholder(balances?.sklima, 4)}</span> sKLIMA
             </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
-          <p className="price-label">Redeemable alKLIMA</p>
+          <p className="price-label">Balance (wrapped)</p>
           <p className="price-data">
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
-              <span>{trimWithPlaceholder(balances?.alklima, 4)}</span> alKLIMA
+              <span>{trimWithPlaceholder(balances?.wsklima, 4)}</span> wsKLIMA
             </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
-          <p className="price-label">Balance</p>
+          <p className="price-label">Current Index</p>
           <p className="price-data">
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
-              <span>{trimWithPlaceholder(balances?.klima, 4)}</span> KLIMA
+              <span>{trimWithPlaceholder(currentIndex, 4)}</span>
+            </WithPlaceholder>
+          </p>
+        </div>
+        <div className="stake-price-data-row">
+          <p className="price-label">Index-adjusted Balance</p>
+          <p className="price-data">
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder="NOT CONNECTED"
+            >
+              <span>{trimWithPlaceholder(indexAdjustedBalance, 4)}</span> sKLIMA
+            </WithPlaceholder>
+          </p>
+        </div>
+        <div className="stake-price-data-row">
+          <p className="price-label">You Will Get</p>
+          <p className="price-data">
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder="NOT CONNECTED"
+            >
+              <span>{trimWithPlaceholder(youWillGet(), 4)}</span>{" "}
+              {view === "wrap" ? "wsKLIMA" : "sKLIMA"}
             </WithPlaceholder>
           </p>
         </div>

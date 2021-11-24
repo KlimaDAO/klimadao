@@ -80,7 +80,7 @@ export const PKlima: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Please Connect", onClick: undefined, disabled: true };
+      return { children: "Not Connected", onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
         children: "Loading",

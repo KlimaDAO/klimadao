@@ -1,3 +1,4 @@
+@value bp-small from "@klimadao/lib/theme/breakpoints.css";
 /* anchor tag OR button */
 .textButton {
   composes: button from "./typography.module.css";
@@ -6,7 +7,7 @@
   align-items: center;
   color: white !important;
   border: 2px solid var(--surface-06);
-  padding: 0.8rem 1.6rem;
+  padding: 0.8rem 1.2rem;
   border-radius: 0.4rem;
   align-items: center;
   align-content: center;
@@ -25,4 +26,10 @@
 .textButton:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+@media bp-small {
+  .textButton {
+    padding: 0.8rem 1.6rem;
+  }
 }

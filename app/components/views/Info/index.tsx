@@ -52,6 +52,11 @@ export const Info: FC = () => {
       ariaLabel: "Copy sKLIMA token address.",
     },
     {
+      name: "wsKLIMA Token",
+      address: addresses["mainnet"].wsklima,
+      ariaLabel: "Copy wsKLIMA token address.",
+    },
+    {
       name: "BCT Token",
       address: addresses["mainnet"].bct,
       ariaLabel: "Copy BCT token address.",
