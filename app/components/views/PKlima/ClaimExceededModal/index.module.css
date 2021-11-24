@@ -1,0 +1,44 @@
+@value textButton from "@klimadao/lib/theme/common.module.css";
+
+.bg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  cursor: not-allowed;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  cursor: default;
+  align-self: center;
+  max-width: 64rem;
+  background-color: var(--surface-01);
+  padding: 2.4rem;
+  display: grid;
+  gap: 3.2rem;
+}
+
+.card_header {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.backButton {
+  composes: textButton;
+  border: 2px solid var(--secondary);
+  justify-self: end;
+}
+.backButton:hover:not(:disabled) {
+  background-color: var(--secondary-variant);
+}
+.backButton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
