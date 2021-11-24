@@ -2,6 +2,7 @@ import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
+import wsKlima from "@klimadao/lib/abi/wsKlima.json";
 import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
 
 import { addresses } from "@klimadao/lib/constants";
@@ -12,6 +13,7 @@ import {
   setMigrateAllowance,
   setPklimaTerms,
   setStakeAllowance,
+  setWrapAllowance,
 } from "state/user";
 
 export const loadAccountDetails = (params: {
@@ -34,6 +36,11 @@ export const loadAccountDetails = (params: {
       const sklimaContract = new ethers.Contract(
         addresses["mainnet"].sklima,
         IERC20.abi,
+        params.provider
+      );
+      const wsklimaContract = new ethers.Contract(
+        addresses["mainnet"].wsklima,
+        wsKlima.abi,
         params.provider
       );
       const aklimaContract = new ethers.Contract(
@@ -61,6 +68,7 @@ export const loadAccountDetails = (params: {
       const bctBalance = await bctContract.balanceOf(params.address);
       const klimaBalance = await klimaContract.balanceOf(params.address);
       const sklimaBalance = await sklimaContract.balanceOf(params.address);
+      const wsklimaBalance = await wsklimaContract.balanceOf(params.address);
       const aklimaBalance = await aklimaContract.balanceOf(params.address);
       const alklimaBalance = await alklimaContract.balanceOf(params.address);
       const pklimaBalance = await pKlimaContract.balanceOf(params.address);
@@ -69,7 +77,7 @@ export const loadAccountDetails = (params: {
       );
       const rawPklimaTerms = await pExerciseContract.terms(params.address);
 
-      // allowances
+      // allowances token.allowance(owner, spender)
       const stakeAllowance = await klimaContract.allowance(
         params.address,
         addresses["mainnet"].staking_helper
@@ -77,6 +85,10 @@ export const loadAccountDetails = (params: {
       const unstakeAllowance = await sklimaContract.allowance(
         params.address,
         addresses["mainnet"].staking
+      );
+      const wrapAllowance = await sklimaContract.allowance(
+        params.address,
+        addresses["mainnet"].wsklima
       );
       const aKlimaAllowance = await aklimaContract.allowance(
         params.address,
@@ -99,6 +111,7 @@ export const loadAccountDetails = (params: {
         setBalance({
           klima: formatUnits(klimaBalance, 9),
           sklima: formatUnits(sklimaBalance, 9),
+          wsklima: trimStringDecimals(formatUnits(wsklimaBalance), 9), // trim to 9 for compat with sKLIMA contract
           aklima: formatUnits(aklimaBalance),
           pklima: formatUnits(pklimaBalance),
           alklima: formatUnits(alklimaBalance),
@@ -132,6 +145,12 @@ export const loadAccountDetails = (params: {
         setExerciseAllowance({
           bct: formatUnits(bctAllowance),
           pklima: formatUnits(pKlimaAllowance),
+        })
+      );
+      dispatch(
+        setWrapAllowance({
+          sklima: formatUnits(wrapAllowance),
+          // wsklima: formatUnits(wsklimaWrapAllowance),
         })
       );
     } catch (error: any) {

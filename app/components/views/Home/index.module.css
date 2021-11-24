@@ -51,7 +51,7 @@ TEMP
 .header {
   grid-column: main;
   display: grid;
-  gap: 0.8rem;
+  gap: 2.4rem;
   position: relative;
   color: white;
   padding-top: 2.4rem;
@@ -66,20 +66,30 @@ TEMP
 
 .nav {
   grid-column: main;
-  display: grid;
-  gap: 0.8rem;
-  padding-top: 3.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
   align-self: start;
   justify-items: start;
 }
 .connectWalletButton {
   composes: textButton;
-  border: 2px dashed var(--surface-06);
+  border: 2px dashed var(--secondary);
+  justify-self: start;
+}
+.connectWalletButton:hover {
+  opacity: 1;
+  border: 2px dashed var(--secondary-variant) !important;
 }
 .disconnectWalletButton {
   composes: textButton;
   border: 2px dashed var(--surface-06);
-  opacity: 0.5;
+  opacity: 0.7;
+  justify-self: start;
+}
+.disconnectWalletButton:hover {
+  opacity: 1;
+  border: 2px dashed var(--secondary) !important;
 }
 
 .main {
@@ -169,6 +179,23 @@ TEMP
   }
   .footer_content {
     grid-template-columns: auto auto;
+  }
+}
+
+@media bp-medium {
+  .header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .connectWalletButton {
+    justify-self: end;
+  }
+  .disconnectWalletButton {
+    justify-self: end;
+  }
+  .nav {
+    display: grid;
+    gap: 0.8rem;
+    padding-top: 3.2rem;
   }
 }
 

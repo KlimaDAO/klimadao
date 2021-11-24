@@ -129,7 +129,7 @@ export const Stake = (props: Props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Please Connect", onClick: undefined, disabled: true };
+      return { children: "Not Connected", onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
         children: "Loading",
@@ -190,8 +190,8 @@ export const Stake = (props: Props) => {
         <h2 className={t.h4}>Stake KLIMA.</h2>
         <p className={t.body2}>
           Hold, stake, and compound. If the protocol earns a profit selling
-          carbon bonds, these rewards are shared among all holders of sKLIMA
-          (staked KLIMA).
+          carbon bonds, these rewards are shared among all holders of staked
+          KLIMA (sKLIMA).
         </p>
       </div>
       <div className={styles.inputsContainer}>

@@ -18,6 +18,8 @@ import { Info } from "components/views/Info";
 import { Loading } from "components/views/Loading";
 import { ChooseBond } from "components/views/ChooseBond";
 import { Bond } from "components/views/Bond";
+import { Wrap } from "components/views/Wrap";
+
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 
@@ -266,51 +268,33 @@ export const Home: FC = () => {
           <em>{`"where everything is made up and the points don't matter."`}</em>
         </p>
       )}
-      {!isConnected && (
-        <button
-          type="button"
-          className={styles.connectWalletButton}
-          onClick={loadWeb3Modal}
-        >
-          CONNECT WALLET
-        </button>
-      )}
-      {isConnected && (
-        <button
-          type="button"
-          className={styles.disconnectWalletButton}
-          onClick={disconnect}
-        >
-          DISCONNECT WALLET
-        </button>
-      )}
       <Link
         className={styles.textButton}
-        to="/redeem"
-        data-active={path === "/redeem"}
+        to="/stake"
+        data-active={path === "/stake"}
       >
-        REDEEM aKLIMA
+        STAKE
+      </Link>
+      <Link
+        className={styles.textButton}
+        to="/wrap"
+        data-active={path === "/wrap"}
+      >
+        WRAP
       </Link>
       <Link
         className={styles.textButton}
         to="/bonds"
         data-active={path.includes("/bonds")}
       >
-        BOND CARBON
-      </Link>
-      <Link
-        className={styles.textButton}
-        to="/stake"
-        data-active={path === "/stake"}
-      >
-        STAKE KLIMA
+        BOND
       </Link>
       <Link
         className={styles.textButton}
         to="/info"
         data-active={path === "/info"}
       >
-        INFO & FAQ
+        INFO
       </Link>
       {showPklimaButton && (
         <Link
@@ -329,18 +313,38 @@ export const Home: FC = () => {
       <div className={styles.app}>
         <div className={styles.app_bgGradient} />
         <header className={styles.header}>
-          <a href="https://klimadao.finance" style={{ justifySelf: "start" }}>
-            <img
-              className={styles.logo}
-              src="/klima-logo.png"
-              alt=""
-              role="presentation"
-            />
-          </a>
-          <p className={styles.header_subtitle}>
-            Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to
-            earn interest.
-          </p>
+          <div>
+            <a href="https://klimadao.finance" style={{ justifySelf: "start" }}>
+              <img
+                className={styles.logo}
+                src="/klima-logo.png"
+                alt=""
+                role="presentation"
+              />
+            </a>
+            <p className={styles.header_subtitle}>
+              Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
+              to earn interest.
+            </p>
+          </div>{" "}
+          {!isConnected && (
+            <button
+              type="button"
+              className={styles.connectWalletButton}
+              onClick={loadWeb3Modal}
+            >
+              CONNECT WALLET
+            </button>
+          )}
+          {isConnected && (
+            <button
+              type="button"
+              className={styles.disconnectWalletButton}
+              onClick={disconnect}
+            >
+              DISCONNECT WALLET
+            </button>
+          )}
         </header>
         <main className={styles.main}>
           {nav}
@@ -378,6 +382,16 @@ export const Home: FC = () => {
               path="/pklima"
               element={
                 <PKlima
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
+            <Route
+              path="/wrap"
+              element={
+                <Wrap
                   address={address}
                   provider={provider}
                   isConnected={isConnected}
