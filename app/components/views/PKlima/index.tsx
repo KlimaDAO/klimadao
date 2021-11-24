@@ -1,16 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  exerciseTransaction,
-  changeApprovalTransaction,
-  loadTerms,
-} from "actions/pklima";
-import styles from "components/views/Stake/index.module.css";
+import { providers } from "ethers";
 
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import t from "@klimadao/lib/theme/typography.module.css";
-import { providers } from "ethers";
+
 import {
   selectAppState,
   selectBalances,
@@ -19,8 +14,15 @@ import {
 } from "state/selectors";
 import { redeemPklima, setExerciseAllowance } from "state/user";
 import { useAppDispatch } from "state";
-import { ClaimExceededModal } from "./ClaimExceededModal";
+
 import { TxnStatus } from "actions/utils";
+import {
+  exerciseTransaction,
+  changeApprovalTransaction,
+  loadTerms,
+} from "actions/pklima";
+import styles from "components/views/Stake/index.module.css";
+import { ClaimExceededModal } from "./ClaimExceededModal";
 
 interface Props {
   provider: providers.JsonRpcProvider;
