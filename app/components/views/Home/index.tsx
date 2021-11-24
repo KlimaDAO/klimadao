@@ -256,6 +256,10 @@ export const Home: FC = () => {
   const isConnected = !!address;
 
   const showPklimaButton = path === "/pklima" || !!Number(balances?.pklima);
+  const showRedeemButton =
+    path === "/redeem" ||
+    !!Number(balances?.aklima) ||
+    !!Number(balances?.alklima);
 
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
   // A hack to keep the card centered in the viewport.
@@ -267,6 +271,15 @@ export const Home: FC = () => {
           <br />
           <em>{`"where everything is made up and the points don't matter."`}</em>
         </p>
+      )}
+      {showRedeemButton && (
+        <Link
+          className={styles.textButton}
+          to="/redeem"
+          data-active={path === "/redeem"}
+        >
+          REDEEM
+        </Link>
       )}
       <Link
         className={styles.textButton}
