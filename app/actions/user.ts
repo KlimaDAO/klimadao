@@ -3,7 +3,6 @@ import { Thunk } from "state";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import wsKlima from "@klimadao/lib/abi/wsKlima.json";
-import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
 
 import { addresses } from "@klimadao/lib/constants";
 import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
@@ -11,7 +10,6 @@ import {
   setBalance,
   setExerciseAllowance,
   setMigrateAllowance,
-  setPklimaTerms,
   setStakeAllowance,
   setWrapAllowance,
 } from "state/user";
@@ -58,11 +56,6 @@ export const loadAccountDetails = (params: {
         IERC20.abi,
         params.provider
       );
-      const pExerciseContract = new ethers.Contract(
-        addresses["mainnet"].pklima_exercise,
-        ExercisePKlima.abi,
-        params.provider
-      );
 
       // balances
       const bctBalance = await bctContract.balanceOf(params.address);
@@ -72,10 +65,6 @@ export const loadAccountDetails = (params: {
       const aklimaBalance = await aklimaContract.balanceOf(params.address);
       const alklimaBalance = await alklimaContract.balanceOf(params.address);
       const pklimaBalance = await pKlimaContract.balanceOf(params.address);
-      const pklimaRedeemBalance = await pExerciseContract.redeemableFor(
-        params.address
-      );
-      const rawPklimaTerms = await pExerciseContract.terms(params.address);
 
       // allowances token.allowance(owner, spender)
       const stakeAllowance = await klimaContract.allowance(
@@ -116,17 +105,6 @@ export const loadAccountDetails = (params: {
           pklima: formatUnits(pklimaBalance),
           alklima: formatUnits(alklimaBalance),
           bct: formatUnits(bctBalance),
-        })
-      );
-      dispatch(
-        setPklimaTerms({
-          claimed: formatUnits(rawPklimaTerms.claimed),
-          max: formatUnits(rawPklimaTerms.max),
-          supplyShare: rawPklimaTerms.percent / 10000,
-          redeemable: trimStringDecimals(
-            formatUnits(pklimaRedeemBalance),
-            9 // redeemableFor() returns 18 decimals, but KLIMA token only supports 9
-          ),
         })
       );
       dispatch(

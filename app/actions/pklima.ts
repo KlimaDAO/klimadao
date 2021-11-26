@@ -3,7 +3,57 @@ import { ethers, providers } from "ethers";
 import { addresses } from "@klimadao/lib/constants";
 import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import { OnStatusHandler } from "./utils";
+import { OnStatusHandler, TxnStatus } from "./utils";
+import { Thunk } from "state";
+import { setPklimaTerms } from "state/user";
+import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
+
+export const loadTerms = (params: {
+  address: string;
+  provider: providers.JsonRpcProvider;
+  onStatus: (s: TxnStatus | "claimExceeded") => void;
+}): Thunk => {
+  return async (dispatch) => {
+    try {
+      const pExerciseContract = new ethers.Contract(
+        addresses["mainnet"].pklima_exercise,
+        ExercisePKlima.abi,
+        params.provider
+      );
+      const pklimaRedeemBalance = await pExerciseContract.redeemableFor(
+        params.address
+      );
+      const rawPklimaTerms = await pExerciseContract.terms(params.address);
+      dispatch(
+        setPklimaTerms({
+          claimed: formatUnits(rawPklimaTerms.claimed),
+          max: formatUnits(rawPklimaTerms.max),
+          supplyShare: rawPklimaTerms.percent / 10000,
+          redeemable: trimStringDecimals(
+            formatUnits(pklimaRedeemBalance),
+            9 // redeemableFor() returns 18 decimals, but KLIMA token only supports 9
+          ),
+        })
+      );
+    } catch (error: any) {
+      if (error.code === 4001) {
+        params.onStatus("userRejected");
+        throw error;
+      }
+      if (error && JSON.stringify(error).includes("subtraction")) {
+        params.onStatus("claimExceeded");
+        throw error;
+      }
+      if (error.data && error.data.message) {
+        alert(error.data.message);
+      } else {
+        alert(error.message);
+      }
+      params.onStatus("error");
+      throw error;
+    }
+  };
+};
 
 export const changeApprovalTransaction = async (params: {
   provider: providers.JsonRpcProvider;
@@ -54,7 +104,7 @@ export const changeApprovalTransaction = async (params: {
 export const exerciseTransaction = async (params: {
   value: string;
   provider: providers.JsonRpcProvider;
-  onStatus: OnStatusHandler;
+  onStatus: (s: TxnStatus | "claimExceeded") => void;
 }) => {
   try {
     const contract = new ethers.Contract(
@@ -73,6 +123,10 @@ export const exerciseTransaction = async (params: {
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("userRejected");
+      throw error;
+    }
+    if (error && JSON.stringify(error).includes("subtraction")) {
+      params.onStatus("claimExceeded");
       throw error;
     }
     if (error.data && error.data.message) {
