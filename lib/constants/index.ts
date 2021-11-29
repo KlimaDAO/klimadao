@@ -92,3 +92,5 @@ export type Bond = typeof bonds[number];
 export const EPOCH_INTERVAL = 11520;
 // NOTE could get this from an outside source since it changes slightly over time
 export const BLOCK_RATE_SECONDS = 2.5;
+
+export const ESTIMATED_DAILY_REBASES = 3.38;

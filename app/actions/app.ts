@@ -4,7 +4,7 @@ import { Thunk } from "state";
 import { setAppState } from "state/app";
 
 import { getTreasuryBalance } from "@klimadao/lib/utils";
-import { addresses } from "@klimadao/lib/constants";
+import { addresses, ESTIMATED_DAILY_REBASES } from "@klimadao/lib/constants";
 import DistributorContractv4 from "@klimadao/lib/abi/DistributorContractv4.json";
 import SKlima from "@klimadao/lib/abi/sKlima.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
@@ -49,8 +49,12 @@ export const loadAppDetails = (params: {
       ] = await Promise.all(promises);
 
       const stakingRebase = stakingReward / circSupply;
-      const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
-      const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3);
+      const fiveDayRate =
+        Math.pow(1 + stakingRebase, 5 * ESTIMATED_DAILY_REBASES) - 1;
+      const stakingAPY = Math.pow(
+        1 + stakingRebase,
+        365 * ESTIMATED_DAILY_REBASES
+      );
 
       dispatch(
         setAppState({
