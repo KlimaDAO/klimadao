@@ -165,7 +165,7 @@ export const Wrap: FC<Props> = (props) => {
           wsKLIMA balance will not increase over time.
         </p>
         <p className={t.body2}>
-          When wsKLIMA is unwrapped, you recieve sKLIMA based on the latest
+          When wsKLIMA is unwrapped, you receive sKLIMA based on the latest
           (ever-increasing) index, so the total yield is the same.
         </p>
 
