@@ -17,7 +17,8 @@ export const getStakingAPY = async (): Promise<number> => {
     provider
   );
   const circSupply = await sklimaContract.circulatingSupply();
-  const stakingReward = await distributorContract.nextRewardAt(5000);
+  const info = await distributorContract.info(0);
+  const stakingReward = await distributorContract.nextRewardAt(info.rate);
 
   const stakingRebase = stakingReward / circSupply;
   const stakingAPY = Math.pow(1 + stakingRebase, 365 * ESTIMATED_DAILY_REBASES);
