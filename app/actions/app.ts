@@ -34,19 +34,27 @@ export const loadAppDetails = (params: {
       );
 
       const promises = [
-        distributorContract.nextRewardAt(5000),
+        distributorContract.info(0),
         sKlimaMainContract.circulatingSupply(),
         sKlimaContract.balanceOf("0x693aD12DbA5F6E07dE86FaA21098B691F60A1BEa"),
         getTreasuryBalance(),
         distributorContract.nextEpochBlock(),
       ];
       const [
-        stakingReward,
+        info,
         circSupply,
         currentIndex,
         treasuryBalance,
         rebaseBlock,
       ] = await Promise.all(promises);
+
+      const promises2 = [
+        distributorContract.nextRewardAt(info.rate)
+      ];
+
+      const [
+          stakingReward
+      ] = await Promise.all(promises2);
 
       const stakingRebase = stakingReward / circSupply;
       const fiveDayRate =
