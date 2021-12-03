@@ -8,7 +8,7 @@ import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutline
 
 import BlackHoleTour from "components/pages/Home/BlackHoleTour";
 import { DiscordIcon } from "components/Icons/DiscordIcon";
-import greenWormhole from "public/green-wormhole.png";
+import greenWormhole from "public/green-wormhole.jpg";
 import polygonBadge from "public/polygon-badge.png";
 import klimaLogo from "public/klima-logo.png";
 
@@ -60,19 +60,21 @@ export const Home: NextPage<Props> = (props) => {
         </div>
         <div className={styles.heroGradient} />
         <div className={styles.heroSection}>
-          <div className={styles.logoContainer}>
-            <Image
-              src={klimaLogo}
-              alt=""
-              layout="responsive"
-              objectFit="contain"
-              priority
-            />
-          </div>
-          <p className={t.h6}>
-            Drive climate action and earn rewards with a carbon-backed,
-            algorithmic digital currency.
-          </p>
+          <header>
+            <div className={styles.logoContainer}>
+              <Image
+                src={klimaLogo}
+                alt=""
+                layout="responsive"
+                objectFit="contain"
+                priority
+              />
+            </div>
+            <p className={t.h6}>
+              Drive climate action and earn rewards with a carbon-backed,
+              algorithmic digital currency.
+            </p>
+          </header>
           <nav className={styles.stack}>
             <a className={styles.iconButton} href={urls.discordInvite}>
               <DiscordIcon className={styles.discordIcon} />
@@ -220,7 +222,6 @@ export const Home: NextPage<Props> = (props) => {
             <a href={urls.app}>app</a>
             <a href={urls.gitbook}>docs</a>
             <a href={urls.blog}>blog</a>
-            <a href={urls.emailSignUp}>newsletter</a>
             <a href={urls.discordInvite}>community</a>
           </nav>
         </div>

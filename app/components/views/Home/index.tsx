@@ -5,6 +5,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
+import t from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
 import { selectBalances } from "state/selectors";
 import { loadAppDetails } from "actions/app";
@@ -323,123 +324,126 @@ export const Home: FC = () => {
 
   return (
     <>
-      <div className={styles.app}>
-        <div className={styles.app_bgGradient} />
-        <header className={styles.header}>
-          <div>
-            <a href="https://klimadao.finance" style={{ justifySelf: "start" }}>
-              <img
-                className={styles.logo}
-                src="/klima-logo.png"
-                alt=""
-                role="presentation"
+      <div className={styles.container}>
+        <div className={styles.heroBackgroundContainer}>
+          <img src="/green-wormhole.jpg" alt="" />
+          <div className={styles.heroGradient} />
+        </div>
+        <div className={styles.heroSection}>
+          <header className={styles.header}>
+            <div className={styles.header_leftCol}>
+              <div className={styles.logoContainer}>
+                <a href={urls.home} style={{ justifySelf: "start" }}>
+                  <img src="/klima-logo.png" alt="Logo. Go home." />
+                </a>
+              </div>
+              <p className={t.h6}>
+                Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
+                to earn interest.
+              </p>
+            </div>
+            {!isConnected && (
+              <button
+                type="button"
+                className={styles.connectWalletButton}
+                onClick={loadWeb3Modal}
+              >
+                CONNECT WALLET
+              </button>
+            )}
+            {isConnected && (
+              <button
+                type="button"
+                className={styles.disconnectWalletButton}
+                onClick={disconnect}
+              >
+                DISCONNECT WALLET
+              </button>
+            )}
+          </header>
+          <main className={styles.main}>
+            {nav}
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Loading />
+                    {path === "/" && <Navigate to="/stake" />}
+                  </>
+                }
               />
-            </a>
-            <p className={styles.header_subtitle}>
-              Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
-              to earn interest.
-            </p>
-          </div>{" "}
-          {!isConnected && (
-            <button
-              type="button"
-              className={styles.connectWalletButton}
-              onClick={loadWeb3Modal}
-            >
-              CONNECT WALLET
-            </button>
-          )}
-          {isConnected && (
-            <button
-              type="button"
-              className={styles.disconnectWalletButton}
-              onClick={disconnect}
-            >
-              DISCONNECT WALLET
-            </button>
-          )}
-        </header>
-        <main className={styles.main}>
-          {nav}
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Loading />
-                  {path === "/" && <Navigate to="/stake" />}
-                </>
-              }
-            />
-            <Route
-              path="/stake"
-              element={
-                <Stake
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                />
-              }
-            />
-            <Route
-              path="/redeem"
-              element={
-                <Redeem
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                />
-              }
-            />
-            <Route
-              path="/pklima"
-              element={
-                <PKlima
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                />
-              }
-            />
-            <Route
-              path="/wrap"
-              element={
-                <Wrap
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                />
-              }
-            />
-            <Route path="/info" element={<Info />} />
-            <Route path="/bonds" element={<ChooseBond />} />
-            {bonds.map((bond) => {
-              return (
-                <Route
-                  key={bond}
-                  path={`/bonds/${bond}`}
-                  element={
-                    <Bond
-                      provider={provider}
-                      address={address}
-                      bond={bond}
-                      isConnected={isConnected}
-                    />
-                  }
-                />
-              );
-            })}
-          </Routes>
-          <div className={styles.invisibleColumn}>{nav}</div>
-        </main>
+              <Route
+                path="/stake"
+                element={
+                  <Stake
+                    address={address}
+                    provider={provider}
+                    isConnected={isConnected}
+                  />
+                }
+              />
+              <Route
+                path="/redeem"
+                element={
+                  <Redeem
+                    address={address}
+                    provider={provider}
+                    isConnected={isConnected}
+                  />
+                }
+              />
+              <Route
+                path="/pklima"
+                element={
+                  <PKlima
+                    address={address}
+                    provider={provider}
+                    isConnected={isConnected}
+                  />
+                }
+              />
+              <Route
+                path="/wrap"
+                element={
+                  <Wrap
+                    address={address}
+                    provider={provider}
+                    isConnected={isConnected}
+                  />
+                }
+              />
+              <Route path="/info" element={<Info />} />
+              <Route path="/bonds" element={<ChooseBond />} />
+              {bonds.map((bond) => {
+                return (
+                  <Route
+                    key={bond}
+                    path={`/bonds/${bond}`}
+                    element={
+                      <Bond
+                        provider={provider}
+                        address={address}
+                        bond={bond}
+                        isConnected={isConnected}
+                      />
+                    }
+                  />
+                );
+              })}
+            </Routes>
+            <div className={styles.invisibleColumn}>{nav}</div>
+          </main>
+        </div>
         <footer className={styles.footer}>
           <div className={styles.footer_content}>
-            <img className={styles.footer_logo} src="/klima-logo.png" alt="" />
+            <a href={urls.home} className={styles.footer_logo}>
+              <img src="klima-logo.png" alt="" />
+            </a>
             <nav className={styles.footer_content_nav}>
-              <a href="https://klimadao.finance/">home</a>
+              <a href={urls.home}>home</a>
               <a href={urls.gitbook}>docs</a>
               <a href={urls.blog}>blog</a>
-              <a href={urls.emailSignUp}>newsletter</a>
               <a href={urls.discordInvite}>community</a>
             </nav>
           </div>
