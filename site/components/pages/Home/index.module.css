@@ -30,8 +30,7 @@
   opacity: 0.75;
 }
 .heroBgImgContainer img {
-  transform: rotate(180deg);
-  object-position: 69% 50%;
+  object-position: 42% 50%;
 }
 .heroGradient {
   min-height: 100vh;
@@ -59,7 +58,11 @@
   gap: 3.2rem;
   min-height: 100vh;
   align-content: baseline;
-  grid-template-rows: repeat(3, auto) 1fr;
+  grid-template-rows: repeat(2, auto) 1fr;
+}
+.heroSection header {
+  display: grid;
+  gap: 1.6rem;
 }
 .heroSection p {
   max-width: 46rem;
@@ -67,7 +70,7 @@
 
 .logoContainer {
   width: 20rem;
-  padding-top: 4.8rem;
+  padding-top: 2.4rem;
 }
 
 .buttonsContainer {
@@ -223,6 +226,9 @@
   z-index: -1; /* below content*/
   opacity: 0.15;
 }
+.footer_bgImageContainer img {
+  transform: rotate(180deg);
+}
 
 .footer_content {
   grid-column: main;
@@ -268,6 +274,6 @@
 @media bp-large {
   .logoContainer {
     width: 32rem;
-    padding-top: 7.2rem;
+    padding-top: 6.4rem;
   }
 }

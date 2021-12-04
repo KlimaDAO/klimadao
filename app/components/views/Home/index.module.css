@@ -1,6 +1,4 @@
-@value bp-medium, bp-small from "@klimadao/lib/theme/breakpoints.css";
-@value body1, button from "@klimadao/lib/theme/typography.module.css";
-@value textButton from "@klimadao/lib/theme/common.module.css";
+@value bp-medium, bp-small, bp-large from "@klimadao/lib/theme/breakpoints.css";
 
 /*
 TEMP
@@ -17,13 +15,13 @@ TEMP
   text-align: start;
 }
 
-.app {
-  position: relative;
+.container {
+  position: relative; /* new stacking context */
+  z-index: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--surface);
   min-height: 100vh;
-  background-position: 30%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url("/green-wormhole.png");
   display: grid;
   /* |--|----|--| */
   grid-template-columns:
@@ -31,25 +29,10 @@ TEMP
     [main-start] minmax(0, 140rem)
     [main-end] minmax(1.6rem, 1fr)
     [full-end];
-  row-gap: 3.2rem;
-  z-index: 0;
-  align-items: start;
+  grid-template-rows: 1fr auto;
 }
-.app_bgGradient {
-  position: absolute;
-  z-index: -1;
-  min-height: 100vh;
-  height: 100%;
-  width: 100vw;
-  background: linear-gradient(
-    115deg,
-    #121212 21.2%,
-    rgba(18, 18, 18, 0.750345) 44.88%,
-    rgba(18, 18, 18, 0.7) 89.75%
-  );
-}
+
 .header {
-  grid-column: main;
   display: grid;
   gap: 2.4rem;
   position: relative;
@@ -57,23 +40,72 @@ TEMP
   padding-top: 2.4rem;
 }
 .header_subtitle {
-  composes: body1;
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
   max-width: 64rem;
 }
-.logo {
+.header_leftCol {
+  display: grid;
+  gap: 1.6rem;
+}
+.logoContainer {
   width: 20rem;
 }
+.logoContainer img {
+  max-width: 100%;
+}
 
-.nav {
+.heroBackgroundContainer {
+  pointer-events: none;
+  grid-column: full;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.heroGradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    115deg,
+    #121212 21.2%,
+    rgba(18, 18, 18, 0.750345) 44.88%,
+    rgba(18, 18, 18, 0) 89.75%
+  );
+}
+.heroBackgroundContainer img {
+  object-position: 42% 50%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.heroSection {
   grid-column: main;
+  display: grid;
+  gap: 3.2rem;
+  align-content: baseline;
+  grid-template-rows: repeat(2, auto);
+}
+.nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   align-self: start;
   justify-items: start;
 }
+.textButton {
+  composes: textButton from "@klimadao/lib/theme/common.module.css";
+}
 .connectWalletButton {
-  composes: textButton;
+  composes: textButton from "@klimadao/lib/theme/common.module.css";
   border: 2px dashed var(--secondary);
   justify-self: start;
 }
@@ -82,7 +114,7 @@ TEMP
   border: 2px dashed var(--secondary-variant) !important;
 }
 .disconnectWalletButton {
-  composes: textButton;
+  composes: textButton from "@klimadao/lib/theme/common.module.css";
   border: 2px dashed var(--surface-06);
   opacity: 0.7;
   justify-self: start;
@@ -93,28 +125,41 @@ TEMP
 }
 
 .main {
-  grid-column: main;
   justify-self: center;
   display: flex;
   flex-wrap: wrap;
   gap: 3.2rem;
   position: relative;
   color: white;
-  height: 100%;
-  min-height: 75vh; /* mitigate background moving on expand */
   align-content: flex-start;
 }
 
+.invisibleColumn {
+  height: 1px;
+  visibility: hidden;
+}
+
 .footer {
-  align-self: end;
   padding: 4.8rem 0rem;
   position: relative;
   grid-template-columns: inherit;
   display: grid;
   grid-column: full;
   gap: 0.8rem;
-  background: rgba(18, 18, 18, 0.7);
+  background-color: rgb(22 22 22 / 75%);
 }
+.footer_bgImageContainer {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1; /* below content*/
+  opacity: 0.15;
+}
+.footer_bgImageContainer img {
+  transform: rotate(180deg);
+}
+
 .footer_content {
   grid-column: main;
   display: grid;
@@ -125,8 +170,11 @@ TEMP
 .footer_logo {
   width: 20rem;
 }
+.footer_logo img {
+  width: 100%;
+}
 .footer_content_nav {
-  composes: body1;
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
   display: grid;
   gap: 0.8rem;
 }
@@ -135,41 +183,22 @@ TEMP
   opacity: 0.7;
   text-decoration: underline;
 }
-.invisibleColumn {
-  height: 1px;
-  visibility: hidden;
-}
-
-@media bp-small {
-  .app {
-    /* |--|----|--| */
-    grid-template-columns:
-      [full-start] minmax(3.2rem, 1fr)
-      [main-start] minmax(0, 140rem)
-      [main-end] minmax(3.2rem, 1fr)
-      [full-end];
-  }
-}
 
 @media bp-medium {
   .testnet_warning {
     text-align: end;
     max-width: 25rem;
   }
-  .app {
+  .container {
     /* |--|----|--| */
     grid-template-columns:
       [full-start] minmax(6.4rem, 1fr)
       [main-start] minmax(0, 140rem)
       [main-end] minmax(6.4rem, 1fr)
       [full-end];
-    row-gap: 5.4rem;
   }
   .header {
-    padding-top: 6.4rem;
-  }
-  .logo {
-    width: 28rem;
+    padding-top: 5.4rem;
   }
   .nav {
     justify-items: end;
@@ -197,10 +226,16 @@ TEMP
     gap: 0.8rem;
     padding-top: 3.2rem;
   }
+  .footer {
+    margin-top: 6.4rem;
+  }
 }
 
 @media bp-large {
-  .app {
-    row-gap: 7.2rem;
+  .header {
+    padding-top: 6.4rem;
+  }
+  .logoContainer {
+    width: 32rem;
   }
 }
