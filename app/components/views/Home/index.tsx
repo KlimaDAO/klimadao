@@ -337,7 +337,7 @@ export const Home: FC = () => {
                   <img src="/klima-logo.png" alt="Logo. Go home." />
                 </a>
               </div>
-              <p className={t.h6}>
+              <p className={t.h6} style={{ maxWidth: "46rem" }}>
                 Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
                 to earn interest.
               </p>

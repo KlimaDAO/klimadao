@@ -94,9 +94,6 @@ TEMP
   align-content: baseline;
   grid-template-rows: repeat(2, auto);
 }
-.heroSection p {
-  max-width: 46rem;
-}
 .nav {
   display: flex;
   flex-wrap: wrap;
