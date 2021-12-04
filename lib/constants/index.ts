@@ -50,6 +50,7 @@ export const addresses = {
 };
 
 export const urls = {
+  home: "https://www.klimadao.finance/",
   epaSource:
     "https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references",
   blog: "https://klimadao.medium.com/",
