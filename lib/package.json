@@ -6,7 +6,8 @@
   "dependencies": {
     "@emotion/css": "^11.5.0",
     "ethers": "^5.5.1",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "react-tooltip": "^4.2.21"
   },
   "devDependencies": {
     "@types/node": "^16.11.6",
