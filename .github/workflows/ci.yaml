@@ -1,0 +1,14 @@
+name: Continuous Integration
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: npm install -g typescript@4.5.0-beta eslint && npm install
+    # Separate task for lib since it's missing .eslintrc
+    # - name: Run ESLint (lib)
+    #   run: eslint lib/ --no-eslintrc --ext .js,.jsx,.ts,.tsx
+    - name: Run ESLint (app & site)
+      run: eslint site/ app/ --ext .js,.jsx,.ts,.tsx
