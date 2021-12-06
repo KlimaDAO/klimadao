@@ -1,0 +1,148 @@
+type DailyBond @entity {
+  id: ID!
+  timestamp: BigInt!
+  token: Token!
+  amount: BigDecimal!
+  value: BigDecimal!
+}
+
+type Klimate @entity {
+  id: ID!
+  bondDeposits: [Deposit!]! @derivedFrom(field: "klimate")
+  bondRedemptions: [Redemption!]! @derivedFrom(field: "klimate")
+  stakeTransactions: [Stake!]! @derivedFrom(field: "klimate")
+  unstakeTransactions: [Unstake!]! @derivedFrom(field: "klimate")
+  historicBalance: [KlimateBalance!]! @derivedFrom(field: "klimate")
+  lastBalance: KlimateBalance
+  active: Boolean!
+}
+
+type KlimateBalance @entity {
+  id: ID!
+  klimate: Klimate!
+  sklimaBalance: BigDecimal!
+  klimaBalance: BigDecimal!
+  bondBalance: BigDecimal!
+  dollarBalance: BigDecimal!
+  stakes: [ContractInfo!]
+  bonds: [ContractInfo!]
+  timestamp: BigInt!
+}
+
+type Deposit @entity {
+  id: ID!
+  transaction: Transaction!
+  klimate: Klimate!
+  amount: BigDecimal!
+  maxPremium: BigDecimal!
+  token: Token!
+  value: BigDecimal!
+  timestamp: BigInt!
+}
+
+type Redemption @entity {
+  id: ID!
+  transaction: Transaction
+  klimate: Klimate
+  token: Token
+  timestamp: BigInt
+}
+
+type Stake @entity {
+  id: ID!
+  transaction: Transaction!
+  klimate: Klimate!
+  amount: BigDecimal!
+  timestamp: BigInt!
+}
+
+type Unstake @entity {
+  id: ID!
+  transaction: Transaction!
+  klimate: Klimate!
+  amount: BigDecimal!
+  timestamp: BigInt!
+}
+
+type Rebase @entity {
+  id: ID!
+  transaction: String!
+  amount: BigDecimal!
+  stakedKlimas: BigDecimal!
+  percentage: BigDecimal!
+  contract: String!
+  timestamp: BigInt!
+  value: BigDecimal!
+}
+
+type DailyStakingReward @entity {
+  id: ID!
+  timestamp: BigInt!
+  amount: BigDecimal!
+  value: BigDecimal!
+}
+
+type Transaction @entity {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  blockHash: Bytes!
+  from: Bytes!
+  to: Bytes
+  value: BigInt!
+  gasUsed: BigInt!
+  gasPrice: BigInt!
+}
+
+type Token @entity {
+  id: ID!
+}
+
+type ProtocolMetric @entity {
+  id: ID!
+  timestamp: BigInt!
+  klimaCirculatingSupply: BigDecimal!
+  sKlimaCirculatingSupply: BigDecimal!
+  totalSupply: BigDecimal!
+  klimaPrice: BigDecimal!
+  marketCap: BigDecimal!
+  totalValueLocked: BigDecimal!
+  treasuryRiskFreeValue: BigDecimal!
+  treasuryMarketValue: BigDecimal!
+  nextEpochRebase: BigDecimal!
+  nextDistributedKlima: BigDecimal!
+  treasuryBCTRiskFreeValue: BigDecimal!
+  currentAPY: BigDecimal!
+  runway2dot5k: BigDecimal
+  runway5k: BigDecimal
+  runway7dot5k: BigDecimal
+  runway10k: BigDecimal
+  runway20k: BigDecimal
+  runway50k: BigDecimal
+  runway70k: BigDecimal
+  runway100k: BigDecimal
+  runwayCurrent: BigDecimal
+  treasuryKlimaBCTPOL: BigDecimal!
+  treasuryBCTUSDCPOL: BigDecimal!
+  holders: BigInt!
+}
+
+type ContractInfo @entity {
+  id: ID!
+  name: String
+  contract: String
+  amount: BigDecimal
+}
+
+type Aux @entity {
+  id: ID!
+  value: BigInt!
+}
+
+type BondDiscount @entity {
+  id: ID!
+  timestamp: BigInt!
+  bct_discount: BigDecimal!
+  klimabct_discount: BigDecimal!
+  bctusdc_discount: BigDecimal!
+}
