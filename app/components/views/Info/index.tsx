@@ -1,9 +1,9 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC, useRef } from "react";
 import styles from "./index.module.css";
 import t from "@klimadao/lib/theme/typography.module.css";
 import { concatAddress } from "@klimadao/lib/utils";
 import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
-import { addresses, urls } from "@klimadao/lib/constants";
+import { addresses, TOKEN_DECIMALS, urls } from "@klimadao/lib/constants";
 
 const CopyAddressButton = (params: { address: string; ariaLabel: string }) => {
   const [copied, setCopied] = useState(false);
@@ -39,37 +39,86 @@ const CopyAddressButton = (params: { address: string; ariaLabel: string }) => {
   );
 };
 
+const AddTokenButton = (params: {
+  address: string;
+  symbol: string;
+  ariaLabel: string;
+}) => {
+  let tokenDecimals = TOKEN_DECIMALS;
+  const addTokenToWallet = async () => {
+    try {
+      await window.ethereum.request({
+        method: "wallet_watchAsset",
+        params: {
+          type: "ERC20",
+          options: {
+            address: params.address,
+            symbol: params.symbol,
+            decimals: tokenDecimals,
+          },
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div>
+      <button
+        onClick={addTokenToWallet}
+        aria-label={params.ariaLabel}
+        className={styles.addTokenButton}
+      >
+        Add to wallet
+      </button>
+    </div>
+  );
+};
+
 export const Info: FC = () => {
   const addressInfo = [
     {
       name: "KLIMA Token",
+      symbol: "KLIMA",
       address: addresses["mainnet"].klima,
-      ariaLabel: "Copy KLIMA token address.",
+      ariaLabelCopyAddress: "Copy KLIMA token address.",
+      ariaLabelAddToken: "Add KLIMA token to the wallet.",
     },
     {
       name: "sKLIMA Token",
+      symbol: "sKLIMA",
       address: addresses["mainnet"].sklima,
-      ariaLabel: "Copy sKLIMA token address.",
+      ariaLabelCopyAddress: "Copy sKLIMA token address.",
+      ariaLabelAddToken: "Add sKLIMA token to the wallet.",
     },
     {
       name: "wsKLIMA Token",
+      symbol: "wsKLIMA",
       address: addresses["mainnet"].wsklima,
-      ariaLabel: "Copy wsKLIMA token address.",
+      ariaLabelCopyAddress: "Copy wsKLIMA token address.",
+      ariaLabelAddToken: "Add wsKLIMA token to the wallet.",
     },
     {
       name: "BCT Token",
+      symbol: "BCT",
       address: addresses["mainnet"].bct,
-      ariaLabel: "Copy BCT token address.",
+      ariaLabelCopyAddress: "Copy BCT token address.",
+      ariaLabelAddToken: "Add BCT token to the wallet.",
     },
     {
       name: "BCT/USDC Pool",
+      symbol: "BCT/USDC",
       address: addresses["mainnet"].bctUsdcLp,
-      ariaLabel: "Copy BCT USDC pool address.",
+      ariaLabelCopyAddress: "Copy BCT USDC pool address.",
+      ariaLabelAddToken: "Add BCT USDC pool token to the wallet.",
     },
     {
       name: "BCT/KLIMA Pool",
+      symbol: "BCT/KLIMA",
       address: addresses["mainnet"].klimaBctLp,
-      ariaLabel: "Copy KLIMA BCT pool address.",
+      ariaLabelCopyAddress: "Copy KLIMA BCT pool address.",
+      ariaLabelAddToken: "Add KLIMA BCT pool token to the wallet.",
     },
   ];
 
@@ -130,22 +179,29 @@ export const Info: FC = () => {
       </div>
       <div className={styles.infoSection}>
         <h3 className={t.overline}>OFFICIAL POLYGON ADDRESSES</h3>
-        <div style={{ display: "grid", gap: "0.4rem" }}>
+        <div style={{ display: "grid", gap: "1rem" }}>
           {addressInfo.map((info) => (
             <div key={info.address}>
               <p>{info.name}</p>
-              <div className={styles.addressRow}>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={`https://polygonscan.com/address/${info.address}`}
-                >
-                  {concatAddress(info.address)}
-                </a>
-                <CopyAddressButton
-                  ariaLabel={info.ariaLabel}
+              <div style={{ display: "flex", gap: "0.4rem" }}>
+                <AddTokenButton
+                  ariaLabel={info.ariaLabelAddToken}
                   address={info.address}
+                  symbol={info.symbol}
                 />
+                <div className={styles.addressRow}>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://polygonscan.com/address/${info.address}`}
+                  >
+                    {concatAddress(info.address)}
+                  </a>
+                  <CopyAddressButton
+                    ariaLabel={info.ariaLabelCopyAddress}
+                    address={info.address}
+                  />
+                </div>
               </div>
             </div>
           ))}
