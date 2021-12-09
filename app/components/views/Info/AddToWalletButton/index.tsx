@@ -10,41 +10,36 @@ interface Props {
   provider: providers.JsonRpcProvider;
 }
 
-const AddToWalletButton: FC<Props> = ({
-  address,
-  ariaLabel,
-  ticker,
-  image,
-  provider,
-}) => {
+const AddToWalletButton: FC<Props> = (props) => {
   const handleAddToWallet = async () => {
     try {
-      const typedProvider = (provider as any)?.provider;
-      if (typedProvider && typeof typedProvider.request === "function") {
-        await typedProvider.request({
-          method: "wallet_watchAsset",
-          params: {
-            type: "ERC20",
-            options: {
-              address,
-              symbol: ticker,
-              decimals: 9,
-              image,
-            },
-          },
-        });
+      const typedProvider = (props.provider as any)?.provider;
+      if (typeof typedProvider?.request !== "function") {
+        throw new Error("wallet not connected");
       }
+      await typedProvider.request({
+        method: "wallet_watchAsset",
+        params: {
+          type: "ERC20",
+          options: {
+            address: props.address,
+            symbol: props.ticker,
+            image: props.image,
+            decimals: 9,
+          },
+        },
+      });
     } catch (err) {
       console.log(err);
     }
   };
   return (
     <button
-      aria-label={ariaLabel}
+      aria-label={props.ariaLabel}
       onClick={handleAddToWallet}
       className={styles.addToWalletButton}
     >
-      <img alt={ariaLabel} src="/metamask-fox.svg" />
+      <img alt={props.ariaLabel} src="/metamask-fox.svg" />
     </button>
   );
 };

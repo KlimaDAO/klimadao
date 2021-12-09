@@ -36,7 +36,7 @@ export const Info: FC<Props> = (props) => {
       address: addresses["mainnet"].wsklima,
       ariaLabel: "Copy wsKLIMA token address.",
       metamaskAriaLabel: "Add wsKLIMA token to wallet.",
-      ticker: "wsKlima",
+      ticker: "wsKLIMA",
       image: `${BASE_URL}/icons/klima-logo.jpeg`,
     },
     {
