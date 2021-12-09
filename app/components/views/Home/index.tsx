@@ -413,7 +413,7 @@ export const Home: FC = () => {
                   />
                 }
               />
-              <Route path="/info" element={<Info />} />
+              <Route path="/info" element={<Info provider={provider} />} />
               <Route path="/bonds" element={<ChooseBond />} />
               {bonds.map((bond) => {
                 return (

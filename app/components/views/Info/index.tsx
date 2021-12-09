@@ -1,65 +1,51 @@
-import React, { useState, useEffect, FC } from "react";
-import styles from "./index.module.css";
+import React, { FC } from "react";
+import { providers } from "ethers";
+
 import t from "@klimadao/lib/theme/typography.module.css";
 import { concatAddress } from "@klimadao/lib/utils";
-import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import { addresses, urls } from "@klimadao/lib/constants";
+import { BASE_URL } from "lib/constants";
+import CopyAddressButton from "./CopyAddressButton";
+import AddToWalletButton from "./AddToWalletButton";
+import styles from "./index.module.css";
 
-const CopyAddressButton = (params: { address: string; ariaLabel: string }) => {
-  const [copied, setCopied] = useState(false);
+interface Props {
+  provider: providers.JsonRpcProvider;
+}
 
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(params.address);
-    setCopied(true);
-  };
-
-  useEffect(() => {
-    if (copied) {
-      const timer = setTimeout(() => {
-        setCopied(false);
-      }, 3000);
-      return () => {
-        !!timer && clearTimeout(timer);
-      };
-    }
-  }, [copied]);
-
-  return !copied ? (
-    <div>
-      <button
-        aria-label={params.ariaLabel}
-        onClick={handleCopy}
-        className={styles.copyAddressButton}
-      >
-        <FileCopyOutlinedIcon className={styles.copyAddressButtonIcon} />
-      </button>
-    </div>
-  ) : (
-    <p>✔️ Copied!</p>
-  );
-};
-
-export const Info: FC = () => {
+export const Info: FC<Props> = (props) => {
   const addressInfo = [
     {
       name: "KLIMA Token",
       address: addresses["mainnet"].klima,
       ariaLabel: "Copy KLIMA token address.",
+      metamaskAriaLabel: "Add KLIMA token to wallet.",
+      ticker: "KLIMA",
+      image: `${BASE_URL}/icons/klima-logo.jpeg`,
     },
     {
       name: "sKLIMA Token",
       address: addresses["mainnet"].sklima,
       ariaLabel: "Copy sKLIMA token address.",
+      metamaskAriaLabel: "Add sKLIMA token to wallet.",
+      ticker: "sKLIMA",
+      image: `${BASE_URL}/icons/klima-logo.jpeg`,
     },
     {
       name: "wsKLIMA Token",
       address: addresses["mainnet"].wsklima,
       ariaLabel: "Copy wsKLIMA token address.",
+      metamaskAriaLabel: "Add wsKLIMA token to wallet.",
+      ticker: "wsKlima",
+      image: `${BASE_URL}/icons/klima-logo.jpeg`,
     },
     {
       name: "BCT Token",
       address: addresses["mainnet"].bct,
       ariaLabel: "Copy BCT token address.",
+      metamaskAriaLabel: "Add BCT token to wallet.",
+      ticker: "BCT",
+      image: `${BASE_URL}/icons/bct-logo.jpeg`,
     },
     {
       name: "BCT/USDC Pool",
@@ -146,6 +132,15 @@ export const Info: FC = () => {
                   ariaLabel={info.ariaLabel}
                   address={info.address}
                 />
+                {info.metamaskAriaLabel && (
+                  <AddToWalletButton
+                    ariaLabel={info.metamaskAriaLabel}
+                    address={info.address}
+                    ticker={info.ticker}
+                    image={info.image}
+                    provider={props.provider}
+                  />
+                )}
               </div>
             </div>
           ))}
