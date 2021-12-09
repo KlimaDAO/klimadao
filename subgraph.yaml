@@ -1,0 +1,179 @@
+specVersion: 0.0.2
+description: Klima DAO Subgraph
+repository: https://github.com/KlimaDAO/klima-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  # Staking Contract
+  - kind: ethereum/contract
+    name: KlimaStaking
+    network: matic
+    source:
+      address: '0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d'
+      abi: KlimaStaking
+      startBlock:
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - KlimaStaking
+      abis:
+        - name: KlimaStaking
+          file: ./abis/KlimaStaking.json
+        - name: sKlimaERC20
+          file: ./abis/sKlimaERC20.json
+        - name: KlimaERC20
+          file: ./abis/KlimaERC20.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+        - name: BCTBondV1
+          file: ./abis/BCTBondV1.json
+        - name: KLIMABCTBondV1
+          file: ./abis/KLIMABCTBondV1.json
+        - name: BCTUSDCBondV1
+          file: ./abis/BCTUSDCBondV1.json
+        - name: CirculatingSupply
+          file: ./abis/CirculatingSupply.json
+        - name: BondingCalculator
+          file: ./abis/BondingCalculator.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      callHandlers:
+        - function: stake(uint256,address)
+          handler: handleStake
+        - function: unstake(uint256,bool)
+          handler: handleUnstake
+      file: ./src/KlimaStaking.ts
+  # Staking Contract Helper
+  - kind: ethereum/contract
+    name: KlimaStakingHelper
+    network: matic
+    source:
+      address: '0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227'
+      abi: KlimaStakingHelper
+      startBlock:
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - KlimaStakingHelper
+      abis:
+        - name: KlimaStaking
+          file: ./abis/KlimaStaking.json
+        - name: KlimaStakingHelper
+          file: ./abis/KlimaStakingHelper.json
+        - name: sKlimaERC20
+          file: ./abis/sKlimaERC20.json
+        - name: sKlimaERC20V2
+          file: ./abis/sKlimaERC20V2.json
+        - name: KlimaERC20
+          file: ./abis/KlimaERC20.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+        - name: BCTBondV1
+          file: ./abis/BCTBondV1.json
+        - name: KLIMABCTBondV1
+          file: ./abis/KLIMABCTBondV1.json
+        - name: BCTUSDCBondV1
+          file: ./abis/BCTUSDCBondV1.json
+      callHandlers:
+        - function: stake(uint256)
+          handler: handleStake
+      file: ./src/KlimaStakingHelper.ts
+  # BCT Bond Contract V1
+  - kind: ethereum/contract
+    name: BCTBondV1
+    network: matic
+    source:
+      address: '0x7De627C56D26529145a5f9D85948ecBeAF9a4b34'
+      abi: BCTBondV1
+      startBlock:
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - BCTBondDeposit
+      abis:
+        - name: KlimaStaking
+          file: ./abis/KlimaStaking.json
+        - name: sKlimaERC20
+          file: ./abis/sKlimaERC20.json
+        - name: KlimaERC20
+          file: ./abis/KlimaERC20.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+        - name: BCTBondV1
+          file: ./abis/BCTBondV1.json
+        - name: KLIMABCTBondV1
+          file: ./abis/KLIMABCTBondV1.json
+        - name: BCTUSDCBondV1
+          file: ./abis/BCTUSDCBondV1.json
+      callHandlers:
+        - function: deposit(uint256,uint256,address)
+          handler: handleDeposit
+        - function: redeem()
+          handler: handleRedeem
+      file: ./src/BCTBondV1.ts
+  # KLIMA BCT LP Bond Contract V1
+  - kind: ethereum/contract
+    name: KLIMABCTBondV1
+    network: matic
+    source:
+      address: '0x1E0Dd93C81aC7Af2974cdB326c85B87Dd879389B'
+      abi: KLIMABCTBondV1
+      startBlock:
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - KLIMABCTBondV1
+      abis:
+        - name: KlimaStaking
+          file: ./abis/KlimaStaking.json
+        - name: sKlimaERC20
+          file: ./abis/sKlimaERC20.json
+        - name: KlimaERC20
+          file: ./abis/KlimaERC20.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+        - name: BCTBondV1
+          file: ./abis/BCTBondV1.json
+        - name: KLIMABCTBondV1
+          file: ./abis/KLIMABCTBondV1.json
+        - name: BCTUSDCBondV1
+          file: ./abis/BCTUSDCBondV1.json
+      callHandlers:
+        - function: depositBondPrinciple(uint256)
+          handler: handleDeposit
+        - function: redeemBond()
+          handler: handleRedeem
+      file: ./src/KLIMABCTBondV1.ts
+  # sKLIMA
+  - kind: ethereum/contract
+    name: sKlimaERC20V1
+    network: matic
+    source:
+      address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
+      abi: sKlimaERC20
+      startBlock:
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - sKlimaERC20V1
+      abis:
+        - name: sKlimaERC20
+          file: ./abis/sKlimaERC20.json
+        - name: KlimaERC20
+          file: ./abis/KlimaERC20.json
+        - name: UniswapV2Pair
+          file: ./abis/UniswapV2Pair.json
+      callHandlers:
+        - function: rebase(uint256)
+          handler: rebaseFunction
+      file: ./src/sKlimaERC20V1.ts
