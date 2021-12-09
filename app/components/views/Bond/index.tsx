@@ -180,7 +180,6 @@ export const Bond: FC<Props> = (props) => {
       ) {
         return;
       }
-      setQuantity("");
       if (
         Number(bondState?.interestDue) > 0 ||
         Number(bondState?.pendingPayout) > 0
@@ -200,6 +199,7 @@ export const Bond: FC<Props> = (props) => {
         address: recipientAddress || props.address,
         onStatus: setStatus,
       });
+      setQuantity("");
       dispatch(
         setBond({
           bond: props.bond,
