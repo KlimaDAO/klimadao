@@ -277,3 +277,11 @@
     padding-top: 6.4rem;
   }
 }
+
+.socialMediaIcons {
+  fill: var(--secondary);
+}
+
+.socialMediaIcons:hover {
+  fill: var(--secondary-variant);
+}
