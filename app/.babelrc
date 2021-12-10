@@ -1,14 +1,16 @@
 {
-  "presets": [
-    [
-      "next/babel",
-      {
-        "preset-env": {},
-        "transform-runtime": {},
-        "styled-jsx": {},
-        "class-properties": {}
-      }
+    "presets": [
+        [
+            "next/babel",
+            {
+                "preset-env": {},
+                "transform-runtime": {},
+                "styled-jsx": {},
+                "class-properties": {}
+            }
+        ]
+    ],
+    "plugins": [
+        "macros"
     ]
-  ],
-  "plugins": ["macros"]
 }

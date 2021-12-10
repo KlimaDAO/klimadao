@@ -2,8 +2,8 @@
   "name": "@klimadao/app",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
-    "build": "prettier --check . && next build",
+    "dev": "npm run lingui:compile && next dev -p 3001",
+    "build": "next build",
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
@@ -12,6 +12,7 @@
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
+    "typescript": "4.0.5",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@lingui/core": "^3.13.0",
