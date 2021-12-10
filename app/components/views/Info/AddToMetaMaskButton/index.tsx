@@ -7,19 +7,17 @@ interface Props {
   ariaLabel: string;
   ticker: string;
   image: string;
-  provider: providers.JsonRpcProvider;
+  provider: providers.Web3Provider;
 }
 
-const AddToWalletButton: FC<Props> = (props) => {
-  const handleAddToWallet = async () => {
+const AddToMetaMaskButton: FC<Props> = (props) => {
+  const { provider } = props.provider;
+  const handleAddToMetaMask = async () => {
     try {
-      const typedProvider = (props.provider as any)?.provider;
-      if (typeof typedProvider?.request !== "function") {
-        throw new Error("wallet not connected");
-      }
-      await typedProvider.request({
+      await provider.request?.({
         method: "wallet_watchAsset",
         params: {
+          // @ts-ignore complaining that it wants type Any[] for options but heres the interface https://docs.metamask.io/guide/rpc-api.html#wallet-watchasset
           type: "ERC20",
           options: {
             address: props.address,
@@ -36,12 +34,12 @@ const AddToWalletButton: FC<Props> = (props) => {
   return (
     <button
       aria-label={props.ariaLabel}
-      onClick={handleAddToWallet}
-      className={styles.addToWalletButton}
+      onClick={handleAddToMetaMask}
+      className={styles.addToMetaMaskButton}
     >
       <img alt={props.ariaLabel} src="/metamask-fox.svg" />
     </button>
   );
 };
 
-export default AddToWalletButton;
+export default AddToMetaMaskButton;

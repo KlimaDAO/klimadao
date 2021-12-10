@@ -6,11 +6,11 @@ import { concatAddress } from "@klimadao/lib/utils";
 import { addresses, urls } from "@klimadao/lib/constants";
 import { BASE_URL } from "lib/constants";
 import CopyAddressButton from "./CopyAddressButton";
-import AddToWalletButton from "./AddToWalletButton";
+import AddToMetaMaskButton from "./AddToMetaMaskButton";
 import styles from "./index.module.css";
 
 interface Props {
-  provider: providers.JsonRpcProvider;
+  provider?: providers.Web3Provider;
 }
 
 export const Info: FC<Props> = (props) => {
@@ -132,15 +132,17 @@ export const Info: FC<Props> = (props) => {
                   ariaLabel={info.ariaLabel}
                   address={info.address}
                 />
-                {info.metamaskAriaLabel && (
-                  <AddToWalletButton
-                    ariaLabel={info.metamaskAriaLabel}
-                    address={info.address}
-                    ticker={info.ticker}
-                    image={info.image}
-                    provider={props.provider}
-                  />
-                )}
+                {info.metamaskAriaLabel &&
+                  typeof props.provider?.provider?.request === "function" &&
+                  props.provider.provider.isMetaMask && (
+                    <AddToMetaMaskButton
+                      ariaLabel={info.metamaskAriaLabel}
+                      address={info.address}
+                      ticker={info.ticker}
+                      image={info.image}
+                      provider={props.provider}
+                    />
+                  )}
               </div>
             </div>
           ))}
