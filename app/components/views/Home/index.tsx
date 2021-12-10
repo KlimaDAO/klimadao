@@ -24,6 +24,9 @@ import { Wrap } from "components/views/Wrap";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 
+import { Trans } from "@lingui/macro";
+import { activate } from "lib/i18n";
+
 import styles from "./index.module.css";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
@@ -337,9 +340,11 @@ export const Home: FC = () => {
                   <img src="/klima-logo.png" alt="Logo. Go home." />
                 </a>
               </div>
+              <button onClick={() => activate("en")}>English</button>
+              <button onClick={() => activate("fr")}>French</button>
               <p className={t.h6} style={{ maxWidth: "46rem" }}>
-                Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
-                to earn interest.
+                <Trans id="header.welcome">Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
+                to earn interest.</Trans>
               </p>
             </div>
             {!isConnected && (
