@@ -9,7 +9,11 @@
     "lint": "next lint",
     "lingui:extract": "NODE_ENV=test lingui extract",
     "lingui:compile": "NODE_ENV=test lingui compile",
+<<<<<<< HEAD
     "postinstall": "npm run lingui:compile"
+=======
+    "postinstall" : "npm run lingui:compile"
+>>>>>>> 19594f2... Trying to add a postinstall script to compile translations so the application deploys properly on Vercel
   },
   "dependencies": {
     "typescript": "4.0.5",
