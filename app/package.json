@@ -8,7 +8,8 @@
     "export": "next export",
     "lint": "next lint",
     "lingui:extract": "NODE_ENV=test lingui extract",
-    "lingui:compile": "NODE_ENV=test lingui compile"
+    "lingui:compile": "NODE_ENV=test lingui compile",
+    "postinstall" : "npm run lingui:compile"
   },
   "dependencies": {
     "@babel/core": "^7.16.0",
