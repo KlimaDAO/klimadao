@@ -117,9 +117,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.5;
+  opacity: 0.6;
   min-width: 2.4rem;
   min-height: 2.4rem;
+}
+.infoIconWrapper :global(svg) {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .dataContainer {
