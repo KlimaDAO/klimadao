@@ -3,7 +3,11 @@ import { useSelector } from "react-redux";
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
 import styles from "components/views/Stake/index.module.css";
 
-import { Spinner, TextInfoTooltip } from "@klimadao/lib/components";
+import {
+  Spinner,
+  TextInfoTooltip,
+  useTooltipSingleton,
+} from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import t from "@klimadao/lib/theme/typography.module.css";
 import { ethers } from "ethers";
@@ -29,6 +33,7 @@ export const Wrap: FC<Props> = (props) => {
   const [status, setStatus] = useState<TxnStatus | "">("");
   const [view, setView] = useState<"wrap" | "unwrap">("wrap");
   const [quantity, setQuantity] = useState("");
+  const [singletonSource, singleton] = useTooltipSingleton();
 
   const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
@@ -222,10 +227,14 @@ export const Wrap: FC<Props> = (props) => {
             {address.slice(0, 5)}..{address.slice(address.length - 3)}
           </p>
         )}
+        {singletonSource}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Balance (staked)
-            <TextInfoTooltip content="Balance of unwrapped, staked KLIMA">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Balance of unwrapped, staked KLIMA"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -243,7 +252,10 @@ export const Wrap: FC<Props> = (props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Balance (wrapped)
-            <TextInfoTooltip content="Balance of wrapped sKLIMA">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Balance of wrapped sKLIMA"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -261,7 +273,10 @@ export const Wrap: FC<Props> = (props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Current index
-            <TextInfoTooltip content="Amount you would have today, if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value.">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Amount you would have today, if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -274,7 +289,10 @@ export const Wrap: FC<Props> = (props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Index-adjusted balance
-            <TextInfoTooltip content="Unwrapped value of your entire wsKLIMA balance (wsKLIMA * currentIndex)">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Unwrapped value of your entire wsKLIMA balance (wsKLIMA * currentIndex)"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -293,6 +311,7 @@ export const Wrap: FC<Props> = (props) => {
           <div className={styles.dataContainer_label}>
             You will get
             <TextInfoTooltip
+              singleton={singleton}
               content={`Amount you will get after ${
                 view === "wrap" ? "wrapping" : "unwrapping"
               }`}

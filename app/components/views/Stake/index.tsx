@@ -17,7 +17,11 @@ import {
 } from "state/selectors";
 import { TxnStatus } from "actions/utils";
 
-import { Spinner, TextInfoTooltip } from "@klimadao/lib/components";
+import {
+  Spinner,
+  TextInfoTooltip,
+  useTooltipSingleton,
+} from "@klimadao/lib/components";
 import {
   secondsUntilBlock,
   prettifySeconds,
@@ -50,6 +54,7 @@ export const Stake = (props: Props) => {
   const [view, setView] = useState("stake");
   const [status, setStatus] = useState<TxnStatus | "">("");
   const [quantity, setQuantity] = useState("");
+  const [singletonSource, singleton] = useTooltipSingleton();
 
   const {
     fiveDayRate,
@@ -257,10 +262,14 @@ export const Stake = (props: Props) => {
             {concatAddress(address)}
           </li>
         )}
+        {singletonSource}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Balance
-            <TextInfoTooltip content="Unstaked KLIMA, not generating interest">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Unstaked KLIMA, not generating interest"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -279,7 +288,10 @@ export const Stake = (props: Props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Staked
-            <TextInfoTooltip content="Staked KLIMA generating interest">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Staked KLIMA generating interest"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -297,7 +309,10 @@ export const Stake = (props: Props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Rebase rate
-            <TextInfoTooltip content="Percent interest to be rewarded at next rebase">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Percent interest to be rewarded at next rebase"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -310,7 +325,10 @@ export const Stake = (props: Props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Rebase value
-            <TextInfoTooltip content="Approximate amount of sKLIMA you will receive at next rebase">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Approximate amount of sKLIMA you will receive at next rebase"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -323,7 +341,10 @@ export const Stake = (props: Props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Time until rebase
-            <TextInfoTooltip content="Approximate time remaining until next rewards distribution">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Approximate time remaining until next rewards distribution"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -336,7 +357,10 @@ export const Stake = (props: Props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             ROI (5-day rate)
-            <TextInfoTooltip content="Approximate return on investment, including compounding interest, should you remain staked for 5 days.">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -350,7 +374,10 @@ export const Stake = (props: Props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             APY
-            <TextInfoTooltip content="Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
@@ -364,7 +391,10 @@ export const Stake = (props: Props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Current index
-            <TextInfoTooltip content="Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes.">
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+            >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
