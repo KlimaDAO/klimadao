@@ -22,7 +22,8 @@
 }
 
 .stakeSwitch {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: stretch;
   align-items: center;
   border-radius: 1.6rem 1.6rem 0 0;
