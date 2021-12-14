@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Tippy from "@tippyjs/react";
+import Tippy, { TippyProps, useSingleton } from "@tippyjs/react";
 import styles from "./styles";
 
 interface Props {
@@ -9,7 +9,8 @@ interface Props {
   children: JSX.Element;
 }
 
-export const TextInfoTooltip: FC<Props> = (props) => {
+export const TextInfoTooltip: FC<Props & TippyProps> = (props) => {
+  const { children, content, ...tippyProps } = props;
   /** Tippy needs to inject a ref, so the child must be a jsx element */
   const isJSXElement =
     !!props.children &&
@@ -17,7 +18,7 @@ export const TextInfoTooltip: FC<Props> = (props) => {
     typeof props.children.type === "string";
 
   return (
-    <Tippy content={props.content} className={styles.tooltip}>
+    <Tippy content={props.content} className={styles.tooltip} {...tippyProps}>
       {isJSXElement ? (
         props.children
       ) : (
@@ -27,4 +28,21 @@ export const TextInfoTooltip: FC<Props> = (props) => {
       )}
     </Tippy>
   );
+};
+
+export const useTooltipSingleton = (): [
+  JSX.Element,
+  NonNullable<TippyProps["singleton"]>
+] => {
+  const [source, target] = useSingleton();
+  return [
+    <TextInfoTooltip
+      singleton={source}
+      content=""
+      moveTransition="transform 0.1s ease-out"
+    >
+      <div hidden />
+    </TextInfoTooltip>,
+    target,
+  ];
 };
