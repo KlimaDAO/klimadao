@@ -1,17 +1,16 @@
 import React, { FC } from "react";
 import { providers } from "ethers";
 import styles from "./index.module.css";
+import { AdressInfo } from "..";
 
 interface Props {
-  address: string;
-  ariaLabel: string;
-  ticker: string;
-  image: string;
+  info: AdressInfo;
   provider: providers.Web3Provider;
 }
 
 const AddToMetaMaskButton: FC<Props> = (props) => {
   const { provider } = props.provider;
+  const { info } = props;
   const handleAddToMetaMask = async () => {
     try {
       await provider.request?.({
@@ -20,10 +19,10 @@ const AddToMetaMaskButton: FC<Props> = (props) => {
           // @ts-ignore complaining that it wants type Any[] for options but heres the interface https://docs.metamask.io/guide/rpc-api.html#wallet-watchasset
           type: "ERC20",
           options: {
-            address: props.address,
-            symbol: props.ticker,
-            image: props.image,
-            decimals: 9,
+            address: info.address,
+            symbol: info.ticker,
+            image: info.image,
+            decimals: info.decimals,
           },
         },
       });
@@ -33,11 +32,11 @@ const AddToMetaMaskButton: FC<Props> = (props) => {
   };
   return (
     <button
-      aria-label={props.ariaLabel}
+      aria-label={info.ariaLabel}
       onClick={handleAddToMetaMask}
       className={styles.addToMetaMaskButton}
     >
-      <img alt={props.ariaLabel} src="/metamask-fox.svg" />
+      <img alt={info.ariaLabel} src="/metamask-fox.svg" />
     </button>
   );
 };

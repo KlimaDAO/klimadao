@@ -9,12 +9,22 @@ import CopyAddressButton from "./CopyAddressButton";
 import AddToMetaMaskButton from "./AddToMetaMaskButton";
 import styles from "./index.module.css";
 
+export interface AdressInfo {
+  name: string;
+  address: string;
+  ariaLabel: string;
+  metamaskAriaLabel: string;
+  ticker: string;
+  image: string;
+  decimals: number;
+}
+
 interface Props {
   provider?: providers.Web3Provider;
 }
 
 export const Info: FC<Props> = (props) => {
-  const addressInfo = [
+  const addressInfo: AdressInfo[] = [
     {
       name: "KLIMA Token",
       address: addresses["mainnet"].klima,
@@ -22,6 +32,7 @@ export const Info: FC<Props> = (props) => {
       metamaskAriaLabel: "Add KLIMA token to wallet.",
       ticker: "KLIMA",
       image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      decimals: 9,
     },
     {
       name: "sKLIMA Token",
@@ -30,6 +41,7 @@ export const Info: FC<Props> = (props) => {
       metamaskAriaLabel: "Add sKLIMA token to wallet.",
       ticker: "sKLIMA",
       image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      decimals: 9,
     },
     {
       name: "wsKLIMA Token",
@@ -38,6 +50,7 @@ export const Info: FC<Props> = (props) => {
       metamaskAriaLabel: "Add wsKLIMA token to wallet.",
       ticker: "wsKLIMA",
       image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      decimals: 18,
     },
     {
       name: "BCT Token",
@@ -46,16 +59,25 @@ export const Info: FC<Props> = (props) => {
       metamaskAriaLabel: "Add BCT token to wallet.",
       ticker: "BCT",
       image: `${BASE_URL}/icons/bct-logo.jpeg`,
+      decimals: 18,
     },
     {
-      name: "BCT/USDC Pool",
+      name: "BCT/USDC LP",
       address: addresses["mainnet"].bctUsdcLp,
-      ariaLabel: "Copy BCT USDC pool address.",
+      ariaLabel: "Copy BCT USDC LP address.",
+      metamaskAriaLabel: "Add BCT USDC LP to wallet.",
+      ticker: "BCT/USDC",
+      image: `${BASE_URL}/icons/lp-logo.png`,
+      decimals: 18,
     },
     {
-      name: "BCT/KLIMA Pool",
+      name: "BCT/KLIMA LP",
       address: addresses["mainnet"].klimaBctLp,
-      ariaLabel: "Copy KLIMA BCT pool address.",
+      ariaLabel: "Copy KLIMA BCT LP address.",
+      metamaskAriaLabel: "Add KLIMA BCT LP to wallet.",
+      ticker: "BCT/KLIMA",
+      image: `${BASE_URL}/icons/lp-logo.png`,
+      decimals: 18,
     },
   ];
 
@@ -132,14 +154,10 @@ export const Info: FC<Props> = (props) => {
                   ariaLabel={info.ariaLabel}
                   address={info.address}
                 />
-                {info.metamaskAriaLabel &&
-                  typeof props.provider?.provider?.request === "function" &&
+                {typeof props.provider?.provider?.request === "function" &&
                   props.provider.provider.isMetaMask && (
                     <AddToMetaMaskButton
-                      ariaLabel={info.metamaskAriaLabel}
-                      address={info.address}
-                      ticker={info.ticker}
-                      image={info.image}
+                      info={info}
                       provider={props.provider}
                     />
                   )}
