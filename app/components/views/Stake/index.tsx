@@ -364,7 +364,7 @@ export const Stake = (props: Props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Current index
-            <TextInfoTooltip content="Amount of staked KLIMA you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes.">
+            <TextInfoTooltip content="Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes.">
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
               </div>
