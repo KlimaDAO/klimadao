@@ -21,7 +21,7 @@ export const Redeem: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
   const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
-  const [view, setView] = useState("aklima"); // aKLIMA alKLIMA
+  const [view, setView] = useState<"aklima" | "alklima">("aklima"); // aKLIMA alKLIMA
   const [quantity, setQuantity] = useState("");
 
   const balances = useSelector(selectBalances);
@@ -199,9 +199,7 @@ export const Redeem: FC<Props> = (props) => {
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             type="number"
-            placeholder={`${
-              { aKLIMA: "aklima", alKLIMA: "alklima" }[view]
-            } to redeem`}
+            placeholder={`${view} to redeem`}
             min="0"
           />
           <button
@@ -214,46 +212,46 @@ export const Redeem: FC<Props> = (props) => {
         </div>
       </div>
 
-      <div className={styles.dataContainer}>
+      <ul className={styles.dataContainer}>
         {address && (
           <p className={styles.dataContainer_address}>
             {address.slice(0, 5)}..{address.slice(address.length - 3)}
           </p>
         )}
-        <div className="stake-price-data-row">
-          <p className="price-label">Redeemable aKLIMA</p>
-          <p className="price-data">
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>Redeemable aKLIMA</div>
+          <div className={styles.dataContainer_value}>
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
               <span>{trimWithPlaceholder(balances?.aklima, 4)}</span> aKLIMA
             </WithPlaceholder>
-          </p>
-        </div>
-        <div className="stake-price-data-row">
-          <p className="price-label">Redeemable alKLIMA</p>
-          <p className="price-data">
+          </div>
+        </li>
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>Redeemable alKLIMA</div>
+          <div className={styles.dataContainer_value}>
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
               <span>{trimWithPlaceholder(balances?.alklima, 4)}</span> alKLIMA
             </WithPlaceholder>
-          </p>
-        </div>
-        <div className="stake-price-data-row">
-          <p className="price-label">Balance</p>
-          <p className="price-data">
+          </div>
+        </li>
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>Balance</div>
+          <div className={styles.dataContainer_value}>
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
               <span>{trimWithPlaceholder(balances?.klima, 4)}</span> KLIMA
             </WithPlaceholder>
-          </p>
-        </div>
-      </div>
+          </div>
+        </li>
+      </ul>
       <div className={styles.buttonRow}>
         <div />
         {showSpinner ? (
