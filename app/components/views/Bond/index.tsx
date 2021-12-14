@@ -429,6 +429,22 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
+              Market Price
+              <TextInfoTooltip
+                content="Current trading price of KLIMA, without bond discount"
+                singleton={singleton}
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
+              <span>{trimWithPlaceholder(bondState?.marketPrice, 2)}</span> BCT
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
               ROI (bond discount)
               <TextInfoTooltip
                 content="Return on investment, expressed as a percentage discount on the market value of KLIMA"
@@ -444,22 +460,6 @@ export const Bond: FC<Props> = (props) => {
                 {trimWithPlaceholder(bondState?.bondDiscount, 2)}
               </span>
               %
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              Market Price
-              <TextInfoTooltip
-                content="Current trading price of KLIMA, without bond discount"
-                singleton={singleton}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(bondState?.marketPrice, 2)}</span> BCT
             </div>
           </li>
           <li className={styles.dataContainer_row}>
