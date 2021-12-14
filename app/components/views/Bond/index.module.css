@@ -1,4 +1,4 @@
-@value stakeCard, inputsContainer, stakeSwitch, switchButton, stakeInput, stakeInput_input, stakeInput_button, dataContainer, dataContainer_address, submitButton, buttonRow, buttonRow_spinner, statusMessage from "components/views/Stake/index.module.css";
+@value stakeCard, inputsContainer, stakeSwitch, switchButton, stakeInput, stakeInput_input, stakeInput_button, infoIconWrapper, dataContainer, dataContainer_address, dataContainer_row, dataContainer_label , dataContainer_value, submitButton, buttonRow, buttonRow_spinner, statusMessage from "components/views/Stake/index.module.css";
 
 .bondHeader {
   display: grid;
