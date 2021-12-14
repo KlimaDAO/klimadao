@@ -191,7 +191,7 @@ export const PKlima: FC<Props> = (props) => {
           </div>
         </div>
 
-        <div className={styles.dataContainer}>
+        <ul className={styles.dataContainer}>
           {address && (
             <p className={styles.dataContainer_address}>
               {address.slice(0, 5)}..{address.slice(address.length - 3)}
@@ -267,7 +267,7 @@ export const PKlima: FC<Props> = (props) => {
               </WithPlaceholder>
             </div>
           </li>
-        </div>
+        </ul>
         <div className={styles.buttonRow}>
           <div />
           {showSpinner ? (
