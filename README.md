@@ -97,7 +97,7 @@ Making many small commits are great and appreciated by PR reviewers and are gene
 
 ### Margin Considered Harmful
 
-Most layouts can be accomplished with less code using `grid`. Use `<Stack />` components for vertical spacing, columns for horizontal spacing. \*\*\*\*This also maps very nicely to Figma auto-layouts, works in RTL, and doesn't require overrides for start/end elements.
+Most layouts can be accomplished with less code using `grid`. Use `<Stack />` components for vertical spacing, columns for horizontal spacing. This also maps very nicely to Figma auto-layouts, works in RTL, and doesn't require overrides for start/end elements.
 
 [https://mxstbr.com/thoughts/margin/](https://mxstbr.com/thoughts/margin/)
 
