@@ -1,75 +1,83 @@
-import React, { useState, useEffect, FC } from "react";
-import styles from "./index.module.css";
+import React, { FC } from "react";
+import { providers } from "ethers";
+
 import t from "@klimadao/lib/theme/typography.module.css";
 import { concatAddress } from "@klimadao/lib/utils";
-import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
 import { addresses, urls } from "@klimadao/lib/constants";
+import { BASE_URL } from "lib/constants";
+import CopyAddressButton from "./CopyAddressButton";
+import AddToMetaMaskButton from "./AddToMetaMaskButton";
+import styles from "./index.module.css";
 
-const CopyAddressButton = (params: { address: string; ariaLabel: string }) => {
-  const [copied, setCopied] = useState(false);
+export interface AdressInfo {
+  name: string;
+  address: string;
+  ariaLabel: string;
+  metamaskAriaLabel: string;
+  ticker: string;
+  image: string;
+  decimals: number;
+}
 
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(params.address);
-    setCopied(true);
-  };
+interface Props {
+  provider?: providers.Web3Provider;
+}
 
-  useEffect(() => {
-    if (copied) {
-      const timer = setTimeout(() => {
-        setCopied(false);
-      }, 3000);
-      return () => {
-        !!timer && clearTimeout(timer);
-      };
-    }
-  }, [copied]);
-
-  return !copied ? (
-    <div>
-      <button
-        aria-label={params.ariaLabel}
-        onClick={handleCopy}
-        className={styles.copyAddressButton}
-      >
-        <FileCopyOutlinedIcon className={styles.copyAddressButtonIcon} />
-      </button>
-    </div>
-  ) : (
-    <p>✔️ Copied!</p>
-  );
-};
-
-export const Info: FC = () => {
-  const addressInfo = [
+export const Info: FC<Props> = (props) => {
+  const addressInfo: AdressInfo[] = [
     {
       name: "KLIMA Token",
       address: addresses["mainnet"].klima,
       ariaLabel: "Copy KLIMA token address.",
+      metamaskAriaLabel: "Add KLIMA token to wallet.",
+      ticker: "KLIMA",
+      image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      decimals: 9,
     },
     {
       name: "sKLIMA Token",
       address: addresses["mainnet"].sklima,
       ariaLabel: "Copy sKLIMA token address.",
+      metamaskAriaLabel: "Add sKLIMA token to wallet.",
+      ticker: "sKLIMA",
+      image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      decimals: 9,
     },
     {
       name: "wsKLIMA Token",
       address: addresses["mainnet"].wsklima,
       ariaLabel: "Copy wsKLIMA token address.",
+      metamaskAriaLabel: "Add wsKLIMA token to wallet.",
+      ticker: "wsKLIMA",
+      image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      decimals: 18,
     },
     {
       name: "BCT Token",
       address: addresses["mainnet"].bct,
       ariaLabel: "Copy BCT token address.",
+      metamaskAriaLabel: "Add BCT token to wallet.",
+      ticker: "BCT",
+      image: `${BASE_URL}/icons/bct-logo.jpeg`,
+      decimals: 18,
     },
     {
-      name: "BCT/USDC Pool",
+      name: "BCT/USDC LP",
       address: addresses["mainnet"].bctUsdcLp,
-      ariaLabel: "Copy BCT USDC pool address.",
+      ariaLabel: "Copy BCT USDC LP address.",
+      metamaskAriaLabel: "Add BCT USDC LP to wallet.",
+      ticker: "BCT/USDC",
+      image: `${BASE_URL}/icons/lp-logo.png`,
+      decimals: 18,
     },
     {
-      name: "BCT/KLIMA Pool",
+      name: "BCT/KLIMA LP",
       address: addresses["mainnet"].klimaBctLp,
-      ariaLabel: "Copy KLIMA BCT pool address.",
+      ariaLabel: "Copy KLIMA BCT LP address.",
+      metamaskAriaLabel: "Add KLIMA BCT LP to wallet.",
+      ticker: "BCT/KLIMA",
+      image: `${BASE_URL}/icons/lp-logo.png`,
+      decimals: 18,
     },
   ];
 
@@ -146,6 +154,13 @@ export const Info: FC = () => {
                   ariaLabel={info.ariaLabel}
                   address={info.address}
                 />
+                {typeof props.provider?.provider?.request === "function" &&
+                  props.provider.provider.isMetaMask && (
+                    <AddToMetaMaskButton
+                      info={info}
+                      provider={props.provider}
+                    />
+                  )}
               </div>
             </div>
           ))}
