@@ -552,8 +552,24 @@ export const Bond: FC<Props> = (props) => {
 
       {view === "redeem" && (
         <ul className={styles.dataContainer}>
+          {props.address && (
+            <p className={styles.dataContainer_address}>
+              {concatAddress(props.address)}
+            </p>
+          )}
+          {sourceSingleton}
           <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>Pending</div>
+            <div className={styles.dataContainer_label}>
+              Pending
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Remaining unredeemed value (vested and un-vested)"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!props.isConnected}
@@ -565,7 +581,17 @@ export const Bond: FC<Props> = (props) => {
             </div>
           </li>
           <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>Redeemable</div>
+            <div className={styles.dataContainer_label}>
+              Redeemable
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Amount of KLIMA that has already vested and can be redeemed"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!props.isConnected}
@@ -584,6 +610,14 @@ export const Bond: FC<Props> = (props) => {
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
               Time until fully vested
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Time remaining until the entire bond value can be redeemed"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
             </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder
