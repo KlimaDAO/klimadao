@@ -45,6 +45,11 @@ const tooltip = css`
   &[data-placement^="right"] > .tippy-arrow {
     left: -0.4rem;
   }
+  @media (max-width: 32.5rem) {
+    &.tippy-box {
+      max-width: 24rem !important; // fix x-overflow bug on small mobile
+    }
+  }
 `;
 
 const targetWrapper = css`
