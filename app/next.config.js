@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const config = {
   reactStrictMode: true,
   async redirects() {
     return [
@@ -36,3 +36,14 @@ module.exports = {
     ];
   },
 };
+
+let withBundleAnalyzer;
+if (process.env.ANALYZE === "true") {
+  withBundleAnalyzer = require("@next/bundle-analyzer")({
+    enabled: process.env.ANALYZE === "true",
+  });
+} else {
+  withBundleAnalyzer = (config) => config;
+}
+
+module.exports = withBundleAnalyzer(config);
