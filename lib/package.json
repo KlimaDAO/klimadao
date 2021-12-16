@@ -33,7 +33,7 @@
   },
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc",
-    "lint": "eslint ."
+    "build": "npm run lint && tsc",
+    "lint": "prettier --check . && eslint ."
   }
 }
