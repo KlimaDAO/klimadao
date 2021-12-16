@@ -25,7 +25,8 @@ import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 
 import { Trans } from "@lingui/macro";
-import { activate } from "lib/i18n";
+import { locales, activate } from "lib/i18n";
+import { i18n } from "@lingui/core";
 
 import styles from "./index.module.css";
 
@@ -132,6 +133,8 @@ export const Home: FC = () => {
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
+  const [ localesMenuVisible, setLocalesMenuVisible ] = useState(false);
+
 
   /**
    * This is a hack to force re-render of nav component
@@ -340,31 +343,51 @@ export const Home: FC = () => {
                   <img src="/klima-logo.png" alt="Logo. Go home." />
                 </a>
               </div>
-              <button onClick={() => activate("en")}>English</button>
-              <button onClick={() => activate("fr")}>French</button>
               <p className={t.h6} style={{ maxWidth: "46rem" }}>
                 <Trans id="header.welcome">Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
                 to earn interest.</Trans>
               </p>
             </div>
-            {!isConnected && (
-              <button
-                type="button"
-                className={styles.connectWalletButton}
-                onClick={loadWeb3Modal}
-              >
-                CONNECT WALLET
-              </button>
-            )}
-            {isConnected && (
-              <button
-                type="button"
-                className={styles.disconnectWalletButton}
-                onClick={disconnect}
-              >
-                DISCONNECT WALLET
-              </button>
-            )}
+            <div>
+              <div className={styles.userMenu}>
+                {!isConnected && (
+                  <button
+                    type="button"
+                    className={styles.connectWalletButton}
+                    onClick={loadWeb3Modal}
+                  >
+                    CONNECT WALLET
+                  </button>
+                )}
+                {isConnected && (
+                  <button
+                    type="button"
+                    className={styles.disconnectWalletButton}
+                    onClick={loadWeb3Modal}
+                  >
+                    DISCONNECT WALLET
+                  </button>
+                )}
+                <button
+                    type="button"
+                    className={styles.localeSelectionButton}
+                    onClick={() => { setLocalesMenuVisible(!localesMenuVisible) }}
+                  >
+                    <Trans id="usermenu.changelanguage">Language</Trans>
+                </button>
+                      
+                {Object.keys(locales).map((locale, key) => (
+                  <div key={key} style={{ display: localesMenuVisible ? "block" : "none" }}>
+                    <button 
+                      data-active={i18n.locale == locale ? "true" : "false"}
+                      className={styles.localeSelectionItem} 
+                      onClick={() => activate(locale)}>
+                      { locale }
+                    </button>
+                  </div>
+                  ))}
+              </div>
+            </div>
           </header>
           <main className={styles.main}>
             {nav}
