@@ -86,6 +86,7 @@ msgstr "Déposer"
 msgid "menu.wrap"
 msgstr "Encapsuler"
 
+<<<<<<< HEAD
 #: components/views/Stake/index.tsx:334
 msgid "stake.apy"
 msgstr "APY"
@@ -174,6 +175,8 @@ msgstr "Transaction démarée. En attente des confirmations réseau."
 msgid "status.transaction_success"
 msgstr "\"✔️ Succès!"
 
+=======
+>>>>>>> d51f2dc... Translated Home
 #: components/views/Home/index.tsx:286
 msgid "usermenu.changelanguage"
 msgstr "Langue"

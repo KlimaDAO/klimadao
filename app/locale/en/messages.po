@@ -86,6 +86,7 @@ msgstr "STAKE"
 msgid "menu.wrap"
 msgstr "WRAP"
 
+<<<<<<< HEAD
 #: components/views/Stake/index.tsx:334
 msgid "stake.apy"
 msgstr "APY"
@@ -174,6 +175,8 @@ msgstr "Transaction initiated. Waiting for network confirmation."
 msgid "status.transaction_success"
 msgstr "✔️ Success!."
 
+=======
+>>>>>>> d51f2dc... Translated Home
 #: components/views/Home/index.tsx:286
 msgid "usermenu.changelanguage"
 msgstr "Language"
