@@ -107,6 +107,17 @@
   gap: 1.6rem;
 }
 
+.lowerStack {
+  display: flex;
+  gap: 1rem;
+}
+
+.lowerIconButton {
+  composes: iconButton;
+  gap: 0;
+  padding: 1rem;
+}
+
 .centeredCard {
   composes: card;
   text-align: center;
