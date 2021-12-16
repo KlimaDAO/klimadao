@@ -1,0 +1,7 @@
+# next.js
+.next/
+
+# production
+node_modules/
+out/
+build/
