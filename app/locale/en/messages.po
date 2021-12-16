@@ -13,6 +13,58 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Home/index.tsx:270
+#: components/views/Home/index.tsx:325
+msgid "footer.blog"
+msgstr "blog"
+
+#: components/views/Home/index.tsx:326
+msgid "footer.community"
+msgstr "community"
+
+#: components/views/Home/index.tsx:324
+msgid "footer.docs"
+msgstr "docs"
+
+#: components/views/Home/index.tsx:323
+msgid "footer.home"
+msgstr "home"
+
+#: components/views/Home/index.tsx:235
+msgid "header.connectedto"
+msgstr "You are connected to"
+
+#: components/views/Home/index.tsx:273
 msgid "header.welcome"
 msgstr "Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to earn interest."
+
+#: components/views/Home/index.tsx:249
+msgid "menu.bond"
+msgstr "BOND"
+
+#: components/views/Home/index.tsx:252
+msgid "menu.info"
+msgstr "INFO"
+
+#: components/views/Home/index.tsx:240
+msgid "menu.redeem"
+msgstr "REDEEM"
+
+#: components/views/Home/index.tsx:243
+msgid "menu.stake"
+msgstr "STAKE"
+
+#: components/views/Home/index.tsx:246
+msgid "menu.wrap"
+msgstr "WRAP"
+
+#: components/views/Home/index.tsx:286
+msgid "usermenu.changelanguage"
+msgstr "Language"
+
+#: components/views/Home/index.tsx:280
+msgid "usermenu.connect_wallet"
+msgstr "CONNECT WALLET"
+
+#: components/views/Home/index.tsx:283
+msgid "usermenu.disconnect_wallet"
+msgstr "DISCONNECT WALLET"

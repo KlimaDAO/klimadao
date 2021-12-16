@@ -274,7 +274,7 @@ export const Home: FC = () => {
     <nav className={styles.nav}>
       {chainId === 80001 && (
         <p className={styles.testnet_warning}>
-          ⚠️You are connected to <strong>testnet</strong>
+          ⚠️<Trans id="header.connectedto">You are connected to </Trans><strong>testnet</strong>
           <br />
           <em>{`"where everything is made up and the points don't matter."`}</em>
         </p>
@@ -285,7 +285,7 @@ export const Home: FC = () => {
           to="/redeem"
           data-active={path === "/redeem"}
         >
-          REDEEM
+          <Trans id="menu.redeem">REDEEM</Trans>
         </Link>
       )}
       <Link
@@ -293,28 +293,28 @@ export const Home: FC = () => {
         to="/stake"
         data-active={path === "/stake"}
       >
-        STAKE
+        <Trans id="menu.stake">STAKE</Trans>
       </Link>
       <Link
         className={styles.textButton}
         to="/wrap"
         data-active={path === "/wrap"}
       >
-        WRAP
+        <Trans id="menu.wrap">WRAP</Trans>
       </Link>
       <Link
         className={styles.textButton}
         to="/bonds"
         data-active={path.includes("/bonds")}
       >
-        BOND
+        <Trans id="menu.bond">BOND</Trans>
       </Link>
       <Link
         className={styles.textButton}
         to="/info"
         data-active={path === "/info"}
       >
-        INFO
+        <Trans id="menu.info">INFO</Trans>
       </Link>
       {showPklimaButton && (
         <Link
@@ -356,7 +356,7 @@ export const Home: FC = () => {
                     className={styles.connectWalletButton}
                     onClick={loadWeb3Modal}
                   >
-                    CONNECT WALLET
+                    <Trans id="usermenu.connect_wallet">CONNECT WALLET</Trans>
                   </button>
                 )}
                 {isConnected && (
@@ -365,7 +365,7 @@ export const Home: FC = () => {
                     className={styles.disconnectWalletButton}
                     onClick={loadWeb3Modal}
                   >
-                    DISCONNECT WALLET
+                    <Trans id="usermenu.disconnect_wallet">DISCONNECT WALLET</Trans>
                   </button>
                 )}
                 <button
@@ -469,10 +469,10 @@ export const Home: FC = () => {
               <img src="klima-logo.png" alt="" />
             </a>
             <nav className={styles.footer_content_nav}>
-              <a href={urls.home}>home</a>
-              <a href={urls.gitbook}>docs</a>
-              <a href={urls.blog}>blog</a>
-              <a href={urls.discordInvite}>community</a>
+              <a href={urls.home}><Trans id="footer.home">home</Trans></a>
+              <a href={urls.gitbook}><Trans id="footer.docs">docs</Trans></a>
+              <a href={urls.blog}><Trans id="footer.blog">blog</Trans></a>
+              <a href={urls.discordInvite}><Trans id="footer.community">community</Trans></a>
             </nav>
           </div>
         </footer>

@@ -13,6 +13,58 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Home/index.tsx:270
+#: components/views/Home/index.tsx:325
+msgid "footer.blog"
+msgstr "Blog"
+
+#: components/views/Home/index.tsx:326
+msgid "footer.community"
+msgstr "Communauté"
+
+#: components/views/Home/index.tsx:324
+msgid "footer.docs"
+msgstr "Documentation"
+
+#: components/views/Home/index.tsx:323
+msgid "footer.home"
+msgstr "Acceuil"
+
+#: components/views/Home/index.tsx:235
+msgid "header.connectedto"
+msgstr "Vous êtes connecté"
+
+#: components/views/Home/index.tsx:273
 msgid "header.welcome"
 msgstr "Bienvenue sur l'application Klima. Déposez du carbon pour acheter KLIMA. Déposez KLIMA pour générer des intérêts."
+
+#: components/views/Home/index.tsx:249
+msgid "menu.bond"
+msgstr "Obligations"
+
+#: components/views/Home/index.tsx:252
+msgid "menu.info"
+msgstr "Informations"
+
+#: components/views/Home/index.tsx:240
+msgid "menu.redeem"
+msgstr "Retirer"
+
+#: components/views/Home/index.tsx:243
+msgid "menu.stake"
+msgstr "Déposer"
+
+#: components/views/Home/index.tsx:246
+msgid "menu.wrap"
+msgstr "Encapsuler"
+
+#: components/views/Home/index.tsx:286
+msgid "usermenu.changelanguage"
+msgstr "Langue"
+
+#: components/views/Home/index.tsx:280
+msgid "usermenu.connect_wallet"
+msgstr "Connectez votre portefeuille"
+
+#: components/views/Home/index.tsx:283
+msgid "usermenu.disconnect_wallet"
+msgstr "Déconnectez votre portefeuille"
