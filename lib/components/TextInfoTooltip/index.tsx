@@ -18,12 +18,12 @@ export const TextInfoTooltip: FC<Props & TippyProps> = (props) => {
     typeof props.children.type === "string";
 
   return (
-    <Tippy content={props.content} className={styles.tooltip} {...tippyProps}>
+    <Tippy content={content} className={styles.tooltip} {...tippyProps}>
       {isJSXElement ? (
-        props.children
+        children
       ) : (
         <div tabIndex={0} className={styles.targetWrapper}>
-          {props.children}
+          {children}
         </div>
       )}
     </Tippy>
@@ -37,6 +37,7 @@ export const useTooltipSingleton = (): [
   const [source, target] = useSingleton();
   return [
     <TextInfoTooltip
+      key=""
       singleton={source}
       content=""
       moveTransition="transform 0.1s ease-out"
