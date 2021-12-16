@@ -7,12 +7,12 @@ import { useEffect } from "react";
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 
-import { activate } from "../lib/i18n";
+import { init } from "../lib/i18n";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     // Activate the default locale on page load
-    activate("en");
+    init();
   }, []);
 
   return (
