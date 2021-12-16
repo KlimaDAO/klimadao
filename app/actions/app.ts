@@ -40,21 +40,12 @@ export const loadAppDetails = (params: {
         getTreasuryBalance(),
         distributorContract.nextEpochBlock(),
       ];
-      const [
-        info,
-        circSupply,
-        currentIndex,
-        treasuryBalance,
-        rebaseBlock,
-      ] = await Promise.all(promises);
+      const [info, circSupply, currentIndex, treasuryBalance, rebaseBlock] =
+        await Promise.all(promises);
 
-      const promises2 = [
-        distributorContract.nextRewardAt(info.rate)
-      ];
+      const promises2 = [distributorContract.nextRewardAt(info.rate)];
 
-      const [
-          stakingReward
-      ] = await Promise.all(promises2);
+      const [stakingReward] = await Promise.all(promises2);
 
       const stakingRebase = stakingReward / circSupply;
       const fiveDayRate =
