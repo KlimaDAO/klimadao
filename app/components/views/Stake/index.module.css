@@ -22,7 +22,8 @@
 }
 
 .stakeSwitch {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: stretch;
   align-items: center;
   border-radius: 1.6rem 1.6rem 0 0;
@@ -112,36 +113,52 @@
   opacity: 0.6;
 }
 
+.infoIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+}
+.infoIconWrapper :global(svg) {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
 .dataContainer {
   composes: body2 from "@klimadao/lib/theme/typography.module.css";
   display: grid;
   gap: 0.8rem;
+  list-style: none;
+  padding-left: unset;
 }
 .dataContainer_address {
   font-family: monospace;
   text-align: center;
   color: var(--gray);
 }
-.dataContainer :global(.stake-price-data-row) {
+.dataContainer_row {
   display: grid;
+  gap: 1.6rem;
   grid-template-columns: 1fr 1fr;
-  column-gap: 3.2rem;
-  justify-content: space-between;
-  max-width: 80rem;
 }
-.dataContainer :global(.price-label) {
-  text-align: end;
+.dataContainer_label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* because the info icon has whitespace, it makes the center column gap look off center */
+  margin-right: -0.5rem;
 }
-.dataContainer :global(.price-data) {
+.dataContainer_value {
   color: var(--gray);
   font-size: 1.4rem;
 }
-
-.dataContainer :global(.price-data span) {
+.dataContainer_value span {
   font-size: 2rem;
   color: white;
 }
-.dataContainer :global(.price-data span[data-warning="true"]) {
+.dataContainer_value span[data-warning="true"] {
   color: rgb(248, 152, 27);
 }
 

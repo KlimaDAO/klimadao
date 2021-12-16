@@ -157,7 +157,10 @@ export const PKlima: FC<Props> = (props) => {
           </p>
         </div>
         <div className={styles.inputsContainer}>
-          <div className={styles.stakeSwitch}>
+          <div
+            className={styles.stakeSwitch}
+            style={{ gridTemplateColumns: "1fr" }}
+          >
             <button
               className={styles.switchButton}
               type="button"
@@ -188,90 +191,83 @@ export const PKlima: FC<Props> = (props) => {
           </div>
         </div>
 
-        <div className={styles.dataContainer}>
+        <ul className={styles.dataContainer}>
           {address && (
             <p className={styles.dataContainer_address}>
               {address.slice(0, 5)}..{address.slice(address.length - 3)}
             </p>
           )}
-          <div className="stake-price-data-row">
-            <p className="price-label">pKLIMA Balance</p>
-            <p className="price-data">
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>pKLIMA Balance</div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
                 placeholder="NOT CONNECTED"
               >
                 <span>{trimWithPlaceholder(balances?.pklima, 4)}</span> pKLIMA
               </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">Redeemable Amount</p>
-            <p className="price-data">
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span>{trimWithPlaceholder(terms?.redeemable, 4)}</span> pKLIMA
-              </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">BCT Balance</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>BCT Balance</div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
                 placeholder="NOT CONNECTED"
               >
                 <span>{trimWithPlaceholder(balances?.bct, 4)}</span> BCT
               </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">Supply Share Limit</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>Supply Share Limit</div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
                 placeholder="NOT CONNECTED"
               >
                 <span>{trimWithPlaceholder(terms?.supplyShare, 2)}</span>%
               </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">pKLIMA Redeemed</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>pKLIMA Redeemed</div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
                 placeholder="NOT CONNECTED"
               >
                 <span>{trimWithPlaceholder(terms?.claimed, 4)}</span> pKLIMA
               </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">Claimed Amount (index-adjusted)</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Claimed Amount (index-adjusted)
+            </div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
                 placeholder="NOT CONNECTED"
               >
                 <span>{trimWithPlaceholder(indexAdjustedClaim, 4)}</span> KLIMA
               </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">Max (index-adjusted)</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Max (index-adjusted)
+            </div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
                 placeholder="NOT CONNECTED"
               >
                 <span>{trimWithPlaceholder(terms?.max, 4)}</span> KLIMA
               </WithPlaceholder>
-            </p>
-          </div>
-        </div>
+            </div>
+          </li>
+        </ul>
         <div className={styles.buttonRow}>
           <div />
           {showSpinner ? (

@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
-import { ethers, providers } from "ethers";
+import { providers } from "ethers";
+
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 import {
   changeApprovalTransaction,
@@ -15,7 +17,11 @@ import {
 } from "state/selectors";
 import { TxnStatus } from "actions/utils";
 
-import { Spinner } from "@klimadao/lib/components";
+import {
+  Spinner,
+  TextInfoTooltip,
+  useTooltipSingleton,
+} from "@klimadao/lib/components";
 import {
   secondsUntilBlock,
   prettifySeconds,
@@ -48,6 +54,7 @@ export const Stake = (props: Props) => {
   const [view, setView] = useState("stake");
   const [status, setStatus] = useState<TxnStatus | "">("");
   const [quantity, setQuantity] = useState("");
+  const [singletonSource, singleton] = useTooltipSingleton();
 
   const {
     fiveDayRate,
@@ -67,6 +74,10 @@ export const Stake = (props: Props) => {
   const nextRebasePercent = stakingRebase && stakingRebase * 100;
   const fiveDayRatePercent = fiveDayRate && fiveDayRate * 100;
   const stakingAPYPercent = stakingAPY && stakingAPY * 100;
+  const nextRebaseValue =
+    stakingRebase &&
+    balances?.sklima &&
+    stakingRebase * Number(balances.sklima);
 
   const setMax = () => {
     setStatus("");
@@ -245,70 +256,155 @@ export const Stake = (props: Props) => {
         </div>
       </div>
 
-      <div className={styles.dataContainer}>
+      <ul className={styles.dataContainer}>
         {address && (
-          <p className={styles.dataContainer_address}>
+          <li className={styles.dataContainer_address}>
             {concatAddress(address)}
-          </p>
+          </li>
         )}
-        <div className="stake-price-data-row">
-          <p className="price-label">Balance</p>
-          <p className="price-data">
+        {singletonSource}
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            Balance
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Unstaked KLIMA, not generating interest"
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
               <span>{trimWithPlaceholder(balances?.klima, 4)}</span> KLIMA
             </WithPlaceholder>
-          </p>
-        </div>
+          </div>
+        </li>
 
-        <div className="stake-price-data-row">
-          <p className="price-label">Staked</p>
-          <p className="price-data">
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            Staked
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Staked KLIMA generating interest"
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
             <WithPlaceholder
               condition={!isConnected}
               placeholder="NOT CONNECTED"
             >
               <span>{trimWithPlaceholder(balances?.sklima, 4)}</span> sKLIMA
             </WithPlaceholder>
-          </p>
-        </div>
-        <div className="stake-price-data-row">
-          <p className="price-label">Time until rebase</p>
-          <p className="price-data">
-            <span>{timeUntilRebase()}</span>
-          </p>
-        </div>
-
-        <div className="stake-price-data-row">
-          <p className="price-label">Next Rebase</p>
-          <p className="price-data">
+          </div>
+        </li>
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            Rebase rate
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Percent interest to be rewarded at next rebase"
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
             <span>{trimWithPlaceholder(nextRebasePercent, 2)}</span>%
-          </p>
-        </div>
-
-        <div className="stake-price-data-row">
-          <p className="price-label">ROI (5-day rate)</p>
-          <p className="price-data">
+          </div>
+        </li>
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            Rebase value
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Approximate amount of sKLIMA you will receive at next rebase"
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
+            <span>{trimWithPlaceholder(nextRebaseValue, 2)}</span> sKLIMA
+          </div>
+        </li>
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            Time until rebase
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Approximate time remaining until next rewards distribution"
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
+            <span>{timeUntilRebase()}</span>
+          </div>
+        </li>
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            ROI (5-day rate)
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
             <span>{trimWithPlaceholder(fiveDayRatePercent, 2)}</span>%
-          </p>
-        </div>
+          </div>
+        </li>
 
-        <div className="stake-price-data-row">
-          <p className="price-label">APY</p>
-          <p className="price-data">
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            APY
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
             <span>{trimWithPlaceholder(stakingAPYPercent, 2)}</span>%
-          </p>
-        </div>
+          </div>
+        </li>
 
-        <div className="stake-price-data-row">
-          <p className="price-label">Current index</p>
-          <p className="price-data">
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            Current index
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
             <span>{trimWithPlaceholder(currentIndex, 4)}</span> KLIMA
-          </p>
-        </div>
-      </div>
+          </div>
+        </li>
+      </ul>
       <div className={styles.buttonRow}>
         <div />
         {showSpinner ? (
