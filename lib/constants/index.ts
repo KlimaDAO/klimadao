@@ -66,6 +66,8 @@ export const urls = {
   tutorial:
     "https://klimadao.notion.site/I-m-new-to-Klima-How-do-I-participate-c28426c5100244788f791f62e375ffcc",
   officialDocs: "https://docs.klimadao.finance/",
+  twitter: "https://twitter.com/KlimaDAO",
+  github: "https://github.com/KlimaDAO",
 };
 
 export const INFURA_ID = "0f83eb63faea409abc1f440c9f077646";

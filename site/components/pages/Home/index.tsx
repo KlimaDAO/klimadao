@@ -8,6 +8,8 @@ import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutline
 
 import BlackHoleTour from "components/pages/Home/BlackHoleTour";
 import { DiscordIcon } from "components/Icons/DiscordIcon";
+import { GithubIcon } from "@klimadao/lib/components";
+import { TwitterIcon } from "@klimadao/lib/components";
 import greenWormhole from "public/green-wormhole.jpg";
 import polygonBadge from "public/polygon-badge.png";
 import klimaLogo from "public/klima-logo.png";
@@ -17,6 +19,7 @@ import t from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
+
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
@@ -92,6 +95,14 @@ export const Home: NextPage<Props> = (props) => {
               <ExitToAppOutlinedIcon />
               app
             </a>
+            <div className={styles.lowerStack}>
+              <a className={styles.lowerIconButton} href={urls.twitter}>
+                <TwitterIcon />
+              </a>
+              <a className={styles.lowerIconButton} href={urls.github}>
+                <GithubIcon />
+              </a>
+            </div>
           </nav>
           <div className={styles.dataCardsContainer}>
             <div className={styles.chartCard}>
