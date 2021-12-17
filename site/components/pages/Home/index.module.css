@@ -109,13 +109,13 @@
 
 .lowerStack {
   display: flex;
-  gap: 1rem;
+  gap: 1.6rem;
 }
 
 .lowerIconButton {
   composes: iconButton;
   gap: 0;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 
 .centeredCard {
