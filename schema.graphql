@@ -111,16 +111,9 @@ type ProtocolMetric @entity {
   treasuryMarketValue: BigDecimal!
   nextEpochRebase: BigDecimal!
   nextDistributedKlima: BigDecimal!
-  treasuryBCTRiskFreeValue: BigDecimal!
+  treasuryCarbonRFV: BigDecimal!
+  treasuryKlimaBCTRFV: BigDecimal!
   currentAPY: BigDecimal!
-  runway2dot5k: BigDecimal
-  runway5k: BigDecimal
-  runway7dot5k: BigDecimal
-  runway10k: BigDecimal
-  runway20k: BigDecimal
-  runway50k: BigDecimal
-  runway70k: BigDecimal
-  runway100k: BigDecimal
   runwayCurrent: BigDecimal
   treasuryKlimaBCTPOL: BigDecimal!
   treasuryBCTUSDCPOL: BigDecimal!
