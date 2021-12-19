@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ethers, providers } from "ethers";
 import { FC, useRef, useState, useEffect } from "react";
 import { Navigate, Routes, Route, Link, useLocation } from "react-router-dom";
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -441,7 +441,10 @@ export const Home: FC = () => {
                   />
                 }
               />
-              <Route path="/info" element={<Info />} />
+              <Route
+                path="/info"
+                element={<Info provider={provider as providers.Web3Provider} />}
+              />
               <Route path="/bonds" element={<ChooseBond />} />
               {bonds.map((bond) => {
                 return (

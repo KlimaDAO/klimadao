@@ -21,7 +21,11 @@ import t from "@klimadao/lib/theme/typography.module.css";
 import { AdvancedSettings } from "./AdvancedSettings";
 import { useBond } from "../ChooseBond";
 import { Bond as BondType } from "@klimadao/lib/constants";
-import { Spinner } from "@klimadao/lib/components";
+import {
+  Spinner,
+  TextInfoTooltip,
+  useTooltipSingleton,
+} from "@klimadao/lib/components";
 import {
   useDebounce,
   trimWithPlaceholder,
@@ -36,6 +40,7 @@ import { selectAppState, selectBondAllowance } from "state/selectors";
 import { RootState, useAppDispatch } from "state";
 import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 export function prettyVestingPeriod(
   currentBlock: number,
@@ -75,6 +80,8 @@ export const Bond: FC<Props> = (props) => {
   const { currentBlock } = useSelector(selectAppState);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
   const allowance = useSelector(selectBondAllowance);
+
+  const [sourceSingleton, singleton] = useTooltipSingleton();
 
   const isLoading = !allowance || quantity !== debouncedQuantity;
 
@@ -368,15 +375,26 @@ export const Bond: FC<Props> = (props) => {
       </div>
 
       {view === "bond" && (
-        <div className={styles.dataContainer}>
+        <ul className={styles.dataContainer}>
           {props.address && (
             <p className={styles.dataContainer_address}>
               {concatAddress(props.address)}
             </p>
           )}
-          <div className="stake-price-data-row">
-            <p className="price-label">Balance</p>
-            <p className="price-data">
+          {sourceSingleton}
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Balance
+              <TextInfoTooltip
+                content="Balance available for bonding"
+                singleton={singleton}
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!props.isConnected}
                 placeholder="NOT CONNECTED"
@@ -391,24 +409,72 @@ export const Bond: FC<Props> = (props) => {
                 </span>{" "}
                 {balanceUnits()}
               </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">Bond Price</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Bond price
+              <TextInfoTooltip
+                content="Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)"
+                singleton={singleton}
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <span>{trimWithPlaceholder(bondState?.bondPrice, 2)}</span> BCT
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">Market Price</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Market Price
+              <TextInfoTooltip
+                content="Current trading price of KLIMA, without bond discount"
+                singleton={singleton}
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <span>{trimWithPlaceholder(bondState?.marketPrice, 2)}</span> BCT
-            </p>
-          </div>
-
-          <div className="stake-price-data-row">
-            <p className="price-label">You Will Get</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              ROI (bond discount)
+              <TextInfoTooltip
+                content="Return on investment, expressed as a percentage discount on the market value of KLIMA"
+                singleton={singleton}
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
+              <span data-warning={isBondDiscountNegative}>
+                {trimWithPlaceholder(bondState?.bondDiscount, 2)}
+              </span>
+              %
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              You will get
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Amount of bonded KLIMA you will get, at the provided input quantity"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <span>
                 {trimWithPlaceholder(
                   isLoading ? NaN : bondState?.bondQuote,
@@ -416,12 +482,21 @@ export const Bond: FC<Props> = (props) => {
                 )}
               </span>{" "}
               KLIMA
-            </p>
-          </div>
-
-          <div className="stake-price-data-row">
-            <p className="price-label">Max You Can Buy</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Maximum
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Maximum amount of KLIMA you can acquire by bonding"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <span
                 data-warning={
                   bondState?.bondQuote &&
@@ -432,46 +507,70 @@ export const Bond: FC<Props> = (props) => {
                 {trimWithPlaceholder(bondState?.maxBondPrice, 2)}
               </span>{" "}
               KLIMA
-            </p>
-          </div>
-
-          <div className="stake-price-data-row">
-            <p className="price-label">Debt Ratio</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Debt ratio
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Protocol's current ratio of supply to outstanding bonds"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <span>
                 {trimWithPlaceholder(
                   Number(bondState?.debtRatio) / 10000000,
-                  2
+                  7
                 )}
               </span>
               %
-            </p>
-          </div>
-
-          <div className="stake-price-data-row">
-            <p className="price-label">Vesting Term</p>
-            <p className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Vesting term
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Time period over which bonded KLIMA is made available for redemption"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <span>{vestingPeriod()}</span>
-            </p>
-          </div>
-
-          <div className="stake-price-data-row">
-            <p className="price-label">ROI (bond discount)</p>
-            <p className="price-data">
-              <span data-warning={isBondDiscountNegative}>
-                {trimWithPlaceholder(bondState?.bondDiscount, 2)}
-              </span>
-              %
-            </p>
-          </div>
-        </div>
+            </div>
+          </li>
+        </ul>
       )}
 
       {view === "redeem" && (
-        <div className={styles.dataContainer}>
-          <div className="stake-price-data-row">
-            <p className="price-label">Pending</p>
-            <p id="bond-market-price-id" className="price-data">
+        <ul className={styles.dataContainer}>
+          {props.address && (
+            <p className={styles.dataContainer_address}>
+              {concatAddress(props.address)}
+            </p>
+          )}
+          {sourceSingleton}
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Pending
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Remaining unredeemed value (vested and un-vested)"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!props.isConnected}
                 placeholder="NOT CONNECTED"
@@ -479,11 +578,21 @@ export const Bond: FC<Props> = (props) => {
                 <span>{trimWithPlaceholder(bondState?.interestDue, 4)}</span>{" "}
                 KLIMA
               </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">Redeemable</p>
-            <p id="bond-market-price-id" className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Redeemable
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Amount of KLIMA that has already vested and can be redeemed"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!props.isConnected}
                 placeholder="NOT CONNECTED"
@@ -496,20 +605,30 @@ export const Bond: FC<Props> = (props) => {
                 </span>{" "}
                 KLIMA
               </WithPlaceholder>
-            </p>
-          </div>
-          <div className="stake-price-data-row">
-            <p className="price-label">Time until fully vested</p>
-            <p id="bond-market-price-id" className="price-data">
+            </div>
+          </li>
+          <li className={styles.dataContainer_row}>
+            <div className={styles.dataContainer_label}>
+              Time until fully vested
+              <TextInfoTooltip
+                singleton={singleton}
+                content="Time remaining until the entire bond value can be redeemed"
+              >
+                <div tabIndex={0} className={styles.infoIconWrapper}>
+                  <InfoOutlined />
+                </div>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!props.isConnected}
                 placeholder="NOT CONNECTED"
               >
                 <span>{vestingTime()}</span>
               </WithPlaceholder>
-            </p>
-          </div>
-        </div>
+            </div>
+          </li>
+        </ul>
       )}
 
       {view === "bond" &&

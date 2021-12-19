@@ -1,0 +1,13 @@
+.copyAddressButton {
+  padding: 0.8rem;
+}
+.copyAddressButtonIcon:global(.MuiSvgIcon-root) {
+  height: 1.6rem;
+  width: 1.6rem;
+  cursor: pointer;
+}
+
+.checkmark {
+  padding: 0.8rem;
+  max-height: 3.2rem;
+}
