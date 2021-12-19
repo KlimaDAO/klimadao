@@ -133,8 +133,7 @@ export const Home: FC = () => {
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
-  const [ localesMenuVisible, setLocalesMenuVisible ] = useState(false);
-
+  const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
 
   /**
    * This is a hack to force re-render of nav component
@@ -274,7 +273,8 @@ export const Home: FC = () => {
     <nav className={styles.nav}>
       {chainId === 80001 && (
         <p className={styles.testnet_warning}>
-          ⚠️<Trans id="header.connectedto">You are connected to </Trans><strong>testnet</strong>
+          ⚠️<Trans id="header.connectedto">You are connected to </Trans>
+          <strong>testnet</strong>
           <br />
           <em>{`"where everything is made up and the points don't matter."`}</em>
         </p>
@@ -344,8 +344,10 @@ export const Home: FC = () => {
                 </a>
               </div>
               <p className={t.h6} style={{ maxWidth: "46rem" }}>
-                <Trans id="header.welcome">Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
-                to earn interest.</Trans>
+                <Trans id="header.welcome">
+                  Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake
+                  KLIMA to earn interest.
+                </Trans>
               </p>
             </div>
             <div>
@@ -365,27 +367,35 @@ export const Home: FC = () => {
                     className={styles.disconnectWalletButton}
                     onClick={loadWeb3Modal}
                   >
-                    <Trans id="usermenu.disconnect_wallet">DISCONNECT WALLET</Trans>
+                    <Trans id="usermenu.disconnect_wallet">
+                      DISCONNECT WALLET
+                    </Trans>
                   </button>
                 )}
                 <button
-                    type="button"
-                    className={styles.localeSelectionButton}
-                    onClick={() => { setLocalesMenuVisible(!localesMenuVisible) }}
-                  >
-                    <Trans id="usermenu.changelanguage">Language</Trans>
+                  type="button"
+                  className={styles.localeSelectionButton}
+                  onClick={() => {
+                    setLocalesMenuVisible(!localesMenuVisible);
+                  }}
+                >
+                  <Trans id="usermenu.changelanguage">Language</Trans>
                 </button>
-                      
+
                 {Object.keys(locales).map((locale, key) => (
-                  <div key={key} style={{ display: localesMenuVisible ? "block" : "none" }}>
-                    <button 
+                  <div
+                    key={key}
+                    style={{ display: localesMenuVisible ? "block" : "none" }}
+                  >
+                    <button
                       data-active={i18n.locale == locale ? "true" : "false"}
-                      className={styles.localeSelectionItem} 
-                      onClick={() => activate(locale)}>
-                      { locale }
+                      className={styles.localeSelectionItem}
+                      onClick={() => activate(locale)}
+                    >
+                      {locale}
                     </button>
                   </div>
-                  ))}
+                ))}
               </div>
             </div>
           </header>
@@ -472,10 +482,18 @@ export const Home: FC = () => {
               <img src="klima-logo.png" alt="" />
             </a>
             <nav className={styles.footer_content_nav}>
-              <a href={urls.home}><Trans id="footer.home">home</Trans></a>
-              <a href={urls.gitbook}><Trans id="footer.docs">docs</Trans></a>
-              <a href={urls.blog}><Trans id="footer.blog">blog</Trans></a>
-              <a href={urls.discordInvite}><Trans id="footer.community">community</Trans></a>
+              <a href={urls.home}>
+                <Trans id="footer.home">home</Trans>
+              </a>
+              <a href={urls.gitbook}>
+                <Trans id="footer.docs">docs</Trans>
+              </a>
+              <a href={urls.blog}>
+                <Trans id="footer.blog">blog</Trans>
+              </a>
+              <a href={urls.discordInvite}>
+                <Trans id="footer.community">community</Trans>
+              </a>
             </nav>
           </div>
         </footer>

@@ -141,8 +141,8 @@ TEMP
   display: grid;
   grid-gap: 0.8rem;
   gap: 0.8rem;
-  height:0;
-  overflow:visible;
+  height: 0;
+  overflow: visible;
 }
 
 .main {

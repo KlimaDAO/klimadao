@@ -33,7 +33,6 @@ import styles from "./index.module.css";
 import { Trans, t, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 
-
 const WithPlaceholder: FC<{
   condition: boolean;
   placeholder: string;
@@ -142,7 +141,11 @@ export const Stake = (props: Props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: <Trans id="button.not_connected">Not connected</Trans>, onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.not_connected">Not connected</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (isLoading) {
       return {
         children: <Trans id="button.loading">Loading</Trans>,
@@ -153,11 +156,21 @@ export const Stake = (props: Props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: <Trans id="button.confirming">Confirming</Trans>, onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.confirming">Confirming</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (view === "stake" && !hasApproval("stake")) {
-      return { children: <Trans id="button.approve">Approve</Trans>, onClick: handleApproval("stake") };
+      return {
+        children: <Trans id="button.approve">Approve</Trans>,
+        onClick: handleApproval("stake"),
+      };
     } else if (view === "unstake" && !hasApproval("unstake")) {
-      return { children: <Trans id="button.approve">Approve</Trans>, onClick: handleApproval("unstake") };
+      return {
+        children: <Trans id="button.approve">Approve</Trans>,
+        onClick: handleApproval("unstake"),
+      };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
         children: <Trans id="button.stake">Stake</Trans>,
@@ -178,23 +191,38 @@ export const Stake = (props: Props) => {
   const getAction = () => {
     if (view === "unstake") {
       return `Amount to stake`;
-    }
-    else {
+    } else {
       return `Amount to unstake`;
     }
-  }
+  };
 
   const getStatusMessage = () => {
     if (status === "userConfirmation") {
-      return <Trans id="status.pending_confirmation">Please click 'confirm' in your wallet to continue.</Trans>;
+      return (
+        <Trans id="status.pending_confirmation">
+          Please click 'confirm' in your wallet to continue.
+        </Trans>
+      );
     } else if (status === "networkConfirmation") {
-      return <Trans id="status.transaction_started">Transaction initiated. Waiting for network confirmation.</Trans>;
+      return (
+        <Trans id="status.transaction_started">
+          Transaction initiated. Waiting for network confirmation.
+        </Trans>
+      );
     } else if (status === "error") {
-      return <Trans id="status.transaction_error">❌ Error: something went wrong...</Trans>;
+      return (
+        <Trans id="status.transaction_error">
+          ❌ Error: something went wrong...
+        </Trans>
+      );
     } else if (status === "done") {
       return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
     } else if (status === "userRejected") {
-      return <Trans id="status.transaction_rejected">✖️ You chose to reject the transaction.</Trans>;
+      return (
+        <Trans id="status.transaction_rejected">
+          ✖️ You chose to reject the transaction.
+        </Trans>
+      );
     }
     return null;
   };
@@ -207,35 +235,38 @@ export const Stake = (props: Props) => {
 
   defineMessage({
     id: "stake.balance.tooltip",
-    message: "Unstaked KLIMA, not generating interest"
+    message: "Unstaked KLIMA, not generating interest",
   });
   defineMessage({
     id: "stake.staked.tooltip",
-    message: "Staked KLIMA generating interest"
+    message: "Staked KLIMA generating interest",
   });
   defineMessage({
     id: "stake.rebase_rate.tooltip",
-    message: "Percent interest to be rewarded at next rebase"
+    message: "Percent interest to be rewarded at next rebase",
   });
   defineMessage({
     id: "stake.rebase_value.tooltip",
-    message: "Approximate amount of sKLIMA you will receive at next rebase"
+    message: "Approximate amount of sKLIMA you will receive at next rebase",
   });
   defineMessage({
     id: "stake.time_until_rebase.tooltip",
-    message: "Approximate time remaining until next rewards distribution"
+    message: "Approximate time remaining until next rewards distribution",
   });
   defineMessage({
     id: "stake.roi.tooltip",
-    message: "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+    message:
+      "Approximate return on investment, including compounding interest, should you remain staked for 5 days.",
   });
   defineMessage({
     id: "stake.apy.tooltip",
-    message: "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
+    message:
+      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)",
   });
   defineMessage({
     id: "stake.current_index.tooltip",
-    message: "Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+    message:
+      "Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes.",
   });
 
   return (
@@ -308,7 +339,7 @@ export const Stake = (props: Props) => {
         {singletonSource}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-          <Trans id="stake.balance">Balance</Trans>
+            <Trans id="stake.balance">Balance</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.balance.tooltip")}
@@ -330,7 +361,7 @@ export const Stake = (props: Props) => {
 
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-          <Trans id="stake.staked">Staked</Trans>
+            <Trans id="stake.staked">Staked</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.staked.tooltip")}
@@ -351,7 +382,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-          <Trans id="stake.rebase_rate">Rebase rate</Trans>
+            <Trans id="stake.rebase_rate">Rebase rate</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.rebase_rate.tooltip")}
@@ -367,7 +398,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-          <Trans id="stake.rebase_value">Rebase value</Trans>
+            <Trans id="stake.rebase_value">Rebase value</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.rebase_value.tooltip")}
@@ -383,7 +414,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-          <Trans id="stake.time_until_rebase">Time until rebase</Trans>
+            <Trans id="stake.time_until_rebase">Time until rebase</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.time_until_rebase.tooltip")}
@@ -399,7 +430,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-          <Trans id="stake.roi">ROI (5-day rate)</Trans>
+            <Trans id="stake.roi">ROI (5-day rate)</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.roi.tooltip")}
@@ -416,7 +447,7 @@ export const Stake = (props: Props) => {
 
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-          <Trans id="stake.apy">APY</Trans>
+            <Trans id="stake.apy">APY</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.apy.tooltip")}
@@ -432,7 +463,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-          <Trans id="stake.current_index">Current index</Trans>
+            <Trans id="stake.current_index">Current index</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.current_index.tooltip")}
