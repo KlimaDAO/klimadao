@@ -40,4 +40,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 # compiled locales
-**/locale/*/*.js
+# **/locale/*/*.js
