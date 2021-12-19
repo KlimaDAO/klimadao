@@ -4,7 +4,11 @@
 # production
 node_modules/
 out/
+<<<<<<< HEAD
 build/
 
 # translation files
 **/locale/*/messages.js
+=======
+build/
+>>>>>>> c267873f99448bfc1d81c96165ab8a520092ae69
