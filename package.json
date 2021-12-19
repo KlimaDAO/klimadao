@@ -20,5 +20,8 @@
     "dev-lib": "npm run dev --workspace=lib",
     "dev-site": "npm run build-lib && npm run dev --workspace=site",
     "dev-app": "npm run build-lib && npm run dev --workspace=app"
+  },
+  "dependencies": {
+    "prettier": "^2.5.1"
   }
 }
