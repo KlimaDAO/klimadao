@@ -12,7 +12,6 @@
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
-    "typescript": "4.0.5",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@lingui/core": "^3.13.0",
