@@ -22,8 +22,10 @@ import {
   trimWithPlaceholder,
   concatAddress,
 } from "@klimadao/lib/utils";
-import t from "@klimadao/lib/theme/typography.module.css";
+import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
+import { Trans, t } from "@lingui/macro";
+
 
 const WithPlaceholder: FC<{
   condition: boolean;
@@ -125,14 +127,13 @@ export const Stake = (props: Props) => {
       return prettifySeconds(seconds);
     }
   };
-
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Not Connected", onClick: undefined, disabled: true };
+      return { children: <Trans id="button.not_connected">Not connected</Trans>, onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
-        children: "Loading",
+        children: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -140,20 +141,20 @@ export const Stake = (props: Props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: "Confirming", onClick: undefined, disabled: true };
+      return { children: <Trans id="button.confirming">Confirming</Trans>, onClick: undefined, disabled: true };
     } else if (view === "stake" && !hasApproval("stake")) {
-      return { children: "Approve", onClick: handleApproval("stake") };
+      return { children: <Trans id="button.approve">Approve</Trans>, onClick: handleApproval("stake") };
     } else if (view === "unstake" && !hasApproval("unstake")) {
-      return { children: "Approve", onClick: handleApproval("unstake") };
+      return { children: <Trans id="button.approve">Approve</Trans>, onClick: handleApproval("unstake") };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
-        children: "Stake",
+        children: <Trans id="button.stake">Stake</Trans>,
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
-        children: "Unstake",
+        children: <Trans id="button.unstake">Unstake</Trans>,
         onClick: handleStake("unstake"),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),
@@ -162,18 +163,26 @@ export const Stake = (props: Props) => {
       return { children: "ERROR", onClick: undefined, disabled: true };
     }
   };
+  const getAction = () => {
+    if (view === "unstake") {
+      return t`Amount to stake`;
+    }
+    else {
+      return t`Amount to unstake`;
+    }
+  }
 
   const getStatusMessage = () => {
     if (status === "userConfirmation") {
-      return "Please click 'confirm' in your wallet to continue.";
+      return <Trans id="status.pending_confirmation">Please click 'confirm' in your wallet to continue.</Trans>;
     } else if (status === "networkConfirmation") {
-      return "Transaction initiated. Waiting for network confirmation.";
+      return <Trans id="status.transaction_started">Transaction initiated. Waiting for network confirmation.</Trans>;
     } else if (status === "error") {
-      return "❌ Error: something went wrong...";
+      return <Trans id="status.transaction_error">❌ Error: something went wrong...</Trans>;
     } else if (status === "done") {
-      return "✔️ Success!";
+      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
     } else if (status === "userRejected") {
-      return "✖️ You chose to reject the transaction.";
+      return <Trans id="status.transaction_rejected">✖️ You chose to reject the transaction.</Trans>;
     }
     return null;
   };
@@ -187,11 +196,13 @@ export const Stake = (props: Props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Stake KLIMA.</h2>
-        <p className={t.body2}>
-          Hold, stake, and compound. If the protocol earns a profit selling
-          carbon bonds, these rewards are shared among all holders of staked
-          KLIMA (sKLIMA).
+        <h2 className={T.h4}>Stake KLIMA.</h2>
+        <p className={T.body2}>
+          <Trans id="stake.caption">
+            Hold, stake, and compound. If the protocol earns a profit selling
+            carbon bonds, these rewards are shared among all holders of staked
+            KLIMA (sKLIMA).
+          </Trans>
         </p>
       </div>
       <div className={styles.inputsContainer}>
@@ -230,9 +241,7 @@ export const Stake = (props: Props) => {
               setStatus("");
             }}
             type="number"
-            placeholder={`Amount to ${
-              { stake: "stake", unstake: "unstake" }[view]
-            }`}
+            placeholder={getAction()}
             min="0"
           />
           <button
@@ -240,7 +249,7 @@ export const Stake = (props: Props) => {
             type="button"
             onClick={setMax}
           >
-            Max
+            <Trans id="button.max">Max</Trans>
           </button>
         </div>
       </div>
@@ -252,11 +261,11 @@ export const Stake = (props: Props) => {
           </p>
         )}
         <div className="stake-price-data-row">
-          <p className="price-label">Balance</p>
+          <p className="price-label"><Trans id="stake.balance">Balance</Trans></p>
           <p className="price-data">
             <WithPlaceholder
               condition={!isConnected}
-              placeholder="NOT CONNECTED"
+              placeholder={t`NOT CONNECTED`}
             >
               <span>{trimWithPlaceholder(balances?.klima, 4)}</span> KLIMA
             </WithPlaceholder>
@@ -264,46 +273,46 @@ export const Stake = (props: Props) => {
         </div>
 
         <div className="stake-price-data-row">
-          <p className="price-label">Staked</p>
+          <p className="price-label"><Trans id="stake.staked">Staked</Trans></p>
           <p className="price-data">
             <WithPlaceholder
               condition={!isConnected}
-              placeholder="NOT CONNECTED"
+              placeholder={t`NOT CONNECTED`}
             >
               <span>{trimWithPlaceholder(balances?.sklima, 4)}</span> sKLIMA
             </WithPlaceholder>
           </p>
         </div>
         <div className="stake-price-data-row">
-          <p className="price-label">Time until rebase</p>
+          <p className="price-label"><Trans id="stake.time_until_rebase">Time until rebase</Trans></p>
           <p className="price-data">
             <span>{timeUntilRebase()}</span>
           </p>
         </div>
 
         <div className="stake-price-data-row">
-          <p className="price-label">Next Rebase</p>
+          <p className="price-label"><Trans id="stake.next_rebase">Next Rebase</Trans></p>
           <p className="price-data">
             <span>{trimWithPlaceholder(nextRebasePercent, 2)}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
-          <p className="price-label">ROI (5-day rate)</p>
+          <p className="price-label"><Trans id="stake.roi">ROI (5-day rate)</Trans></p>
           <p className="price-data">
             <span>{trimWithPlaceholder(fiveDayRatePercent, 2)}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
-          <p className="price-label">APY</p>
+          <p className="price-label"><Trans id="stake.apy">APY</Trans></p>
           <p className="price-data">
             <span>{trimWithPlaceholder(stakingAPYPercent, 2)}</span>%
           </p>
         </div>
 
         <div className="stake-price-data-row">
-          <p className="price-label">Current index</p>
+          <p className="price-label"><Trans id="stake.current_index">Current index</Trans></p>
           <p className="price-data">
             <span>{trimWithPlaceholder(currentIndex, 4)}</span> KLIMA
           </p>

@@ -13,6 +13,48 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/views/Stake/index.tsx:138
+msgid "Amount to stake"
+msgstr "Quantité à déposer"
+
+#: components/views/Stake/index.tsx:141
+msgid "Amount to unstake"
+msgstr "Quantité à retirer"
+
+#: components/views/Stake/index.tsx:212
+#: components/views/Stake/index.tsx:221
+msgid "NOT CONNECTED"
+msgstr "NON CONNECTÉ"
+
+#: components/views/Stake/index.tsx:113
+#: components/views/Stake/index.tsx:116
+msgid "button.approve"
+msgstr "Approuver"
+
+#: components/views/Stake/index.tsx:110
+msgid "button.confirming"
+msgstr "En attente de confirmation"
+
+#: components/views/Stake/index.tsx:103
+msgid "button.loading"
+msgstr "Chargement"
+
+#: components/views/Stake/index.tsx:200
+msgid "button.max"
+msgstr "Max"
+
+#: components/views/Stake/index.tsx:99
+msgid "button.not_connected"
+msgstr "Non connecté"
+
+#: components/views/Stake/index.tsx:120
+msgid "button.stake"
+msgstr "Déposer"
+
+#: components/views/Stake/index.tsx:127
+msgid "button.unstake"
+msgstr "Retirer"
+
 #: components/views/Home/index.tsx:325
 msgid "footer.blog"
 msgstr "Blog"
@@ -56,6 +98,58 @@ msgstr "Déposer"
 #: components/views/Home/index.tsx:246
 msgid "menu.wrap"
 msgstr "Encapsuler"
+
+#: components/views/Stake/index.tsx:248
+msgid "stake.apy"
+msgstr "APY"
+
+#: components/views/Stake/index.tsx:210
+msgid "stake.balance"
+msgstr "Solde"
+
+#: components/views/Stake/index.tsx:170
+msgid "stake.caption"
+msgstr "µConservez, déposez et composez. Le protocol récolte de produit de la vente d'obligations carbone. Ces gains sont redistribués aux détenteurs de KLIMA déposé (sKLIMA)."
+
+#: components/views/Stake/index.tsx:255
+msgid "stake.current_index"
+msgstr "Index courant"
+
+#: components/views/Stake/index.tsx:234
+msgid "stake.next_rebase"
+msgstr "Prochain rebasement"
+
+#: components/views/Stake/index.tsx:241
+msgid "stake.roi"
+msgstr "ROI"
+
+#: components/views/Stake/index.tsx:219
+msgid "stake.staked"
+msgstr "Déposé"
+
+#: components/views/Stake/index.tsx:227
+msgid "stake.time_until_rebase"
+msgstr "Durée avant le prochain rebasement"
+
+#: components/views/Stake/index.tsx:146
+msgid "status.pending_confirmation"
+msgstr "Veuillez cliquer sur 'confirmer' dans votre portefeuille pour continuer."
+
+#: components/views/Stake/index.tsx:152
+msgid "status.transaction_error"
+msgstr "❌ Erreur: quelque chose s'est mal passé..."
+
+#: components/views/Stake/index.tsx:158
+msgid "status.transaction_rejected"
+msgstr "✖️ Vous avez choisi de rejeter la transaction."
+
+#: components/views/Stake/index.tsx:149
+msgid "status.transaction_started"
+msgstr "Transaction démarée. En attente des confirmations réseau."
+
+#: components/views/Stake/index.tsx:155
+msgid "status.transaction_success"
+msgstr "\"✔️ Succès!"
 
 #: components/views/Home/index.tsx:286
 msgid "usermenu.changelanguage"
