@@ -43,48 +43,48 @@ msgid "button.unstake"
 msgstr "Retirer"
 
 #: components/views/Home/index.tsx:325
-msgid "footer.blog"
-msgstr "Blog"
+#~ msgid "footer.blog"
+#~ msgstr "Blog"
 
 #: components/views/Home/index.tsx:326
-msgid "footer.community"
-msgstr "Communauté"
+#~ msgid "footer.community"
+#~ msgstr "Communauté"
 
 #: components/views/Home/index.tsx:324
-msgid "footer.docs"
-msgstr "Documentation"
+#~ msgid "footer.docs"
+#~ msgstr "Documentation"
 
 #: components/views/Home/index.tsx:323
-msgid "footer.home"
-msgstr "Acceuil"
+#~ msgid "footer.home"
+#~ msgstr "Acceuil"
 
 #: components/views/Home/index.tsx:235
-msgid "header.connectedto"
-msgstr "Vous êtes connecté"
+#~ msgid "header.connectedto"
+#~ msgstr "Vous êtes connecté"
 
 #: components/views/Home/index.tsx:273
-msgid "header.welcome"
-msgstr "Bienvenue sur l'application Klima. Déposez du carbon pour acheter KLIMA. Déposez KLIMA pour générer des intérêts."
+#~ msgid "header.welcome"
+#~ msgstr "Bienvenue sur l'application Klima. Déposez du carbon pour acheter KLIMA. Déposez KLIMA pour générer des intérêts."
 
 #: components/views/Home/index.tsx:249
-msgid "menu.bond"
-msgstr "Obligations"
+#~ msgid "menu.bond"
+#~ msgstr "Obligations"
 
 #: components/views/Home/index.tsx:252
-msgid "menu.info"
-msgstr "Informations"
+#~ msgid "menu.info"
+#~ msgstr "Informations"
 
 #: components/views/Home/index.tsx:240
-msgid "menu.redeem"
-msgstr "Retirer"
+#~ msgid "menu.redeem"
+#~ msgstr "Retirer"
 
 #: components/views/Home/index.tsx:243
-msgid "menu.stake"
-msgstr "Déposer"
+#~ msgid "menu.stake"
+#~ msgstr "Déposer"
 
 #: components/views/Home/index.tsx:246
-msgid "menu.wrap"
-msgstr "Encapsuler"
+#~ msgid "menu.wrap"
+#~ msgstr "Encapsuler"
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -180,66 +180,66 @@ msgstr "\"✔️ Succès!"
 >>>>>>> d51f2dc... Translated Home
 =======
 #: components/views/Stake/index.tsx:248
-msgid "stake.apy"
-msgstr "APY"
+#~ msgid "stake.apy"
+#~ msgstr "APY"
 
 #: components/views/Stake/index.tsx:210
-msgid "stake.balance"
-msgstr "Solde"
+#~ msgid "stake.balance"
+#~ msgstr "Solde"
 
 #: components/views/Stake/index.tsx:170
-msgid "stake.caption"
-msgstr "µConservez, déposez et composez. Le protocol récolte de produit de la vente d'obligations carbone. Ces gains sont redistribués aux détenteurs de KLIMA déposé (sKLIMA)."
+#~ msgid "stake.caption"
+#~ msgstr "µConservez, déposez et composez. Le protocol récolte de produit de la vente d'obligations carbone. Ces gains sont redistribués aux détenteurs de KLIMA déposé (sKLIMA)."
 
 #: components/views/Stake/index.tsx:255
-msgid "stake.current_index"
-msgstr "Index courant"
+#~ msgid "stake.current_index"
+#~ msgstr "Index courant"
 
 #: components/views/Stake/index.tsx:234
-msgid "stake.next_rebase"
-msgstr "Prochain rebasement"
+#~ msgid "stake.next_rebase"
+#~ msgstr "Prochain rebasement"
 
 #: components/views/Stake/index.tsx:241
-msgid "stake.roi"
-msgstr "ROI"
+#~ msgid "stake.roi"
+#~ msgstr "ROI"
 
 #: components/views/Stake/index.tsx:219
-msgid "stake.staked"
-msgstr "Déposé"
+#~ msgid "stake.staked"
+#~ msgstr "Déposé"
 
 #: components/views/Stake/index.tsx:227
-msgid "stake.time_until_rebase"
-msgstr "Durée avant le prochain rebasement"
+#~ msgid "stake.time_until_rebase"
+#~ msgstr "Durée avant le prochain rebasement"
 
 #: components/views/Stake/index.tsx:146
-msgid "status.pending_confirmation"
-msgstr "Veuillez cliquer sur 'confirmer' dans votre portefeuille pour continuer."
+#~ msgid "status.pending_confirmation"
+#~ msgstr "Veuillez cliquer sur 'confirmer' dans votre portefeuille pour continuer."
 
 #: components/views/Stake/index.tsx:152
-msgid "status.transaction_error"
-msgstr "❌ Erreur: quelque chose s'est mal passé..."
+#~ msgid "status.transaction_error"
+#~ msgstr "❌ Erreur: quelque chose s'est mal passé..."
 
 #: components/views/Stake/index.tsx:158
-msgid "status.transaction_rejected"
-msgstr "✖️ Vous avez choisi de rejeter la transaction."
+#~ msgid "status.transaction_rejected"
+#~ msgstr "✖️ Vous avez choisi de rejeter la transaction."
 
 #: components/views/Stake/index.tsx:149
-msgid "status.transaction_started"
-msgstr "Transaction démarée. En attente des confirmations réseau."
+#~ msgid "status.transaction_started"
+#~ msgstr "Transaction démarée. En attente des confirmations réseau."
 
 #: components/views/Stake/index.tsx:155
-msgid "status.transaction_success"
-msgstr "\"✔️ Succès!"
+#~ msgid "status.transaction_success"
+#~ msgstr "\"✔️ Succès!"
 
 >>>>>>> fd08669... Translation: Stake page
 #: components/views/Home/index.tsx:286
-msgid "usermenu.changelanguage"
-msgstr "Langue"
+#~ msgid "usermenu.changelanguage"
+#~ msgstr "Langue"
 
 #: components/views/Home/index.tsx:280
-msgid "usermenu.connect_wallet"
-msgstr "Connectez votre portefeuille"
+#~ msgid "usermenu.connect_wallet"
+#~ msgstr "Connectez votre portefeuille"
 
 #: components/views/Home/index.tsx:283
-msgid "usermenu.disconnect_wallet"
-msgstr "Déconnectez votre portefeuille"
+#~ msgid "usermenu.disconnect_wallet"
+#~ msgstr "Déconnectez votre portefeuille"
