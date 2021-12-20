@@ -23,8 +23,8 @@ If you'd like to become a regular contributor to the DAO, [join the contributor 
 Take note, this repo utilizes newer features from Node, NPM and the upcoming release of Typescript.
 
 - Node >= v16.x
-- NPM >= v8.x (necessary for NPM Workspaces)
-- Typescript >= 4.5.0-beta (better ESModules support) `npm install -g typescript@4.5.0-beta`
+- NPM >= v8.x (for NPM Workspaces)
+- Typescript >= 4.5 (for ESModules support) `npm install -g typescript`
 - VSCode [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - VSCode [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
