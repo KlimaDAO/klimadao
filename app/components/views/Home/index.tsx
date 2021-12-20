@@ -23,6 +23,7 @@ import { Wrap } from "components/views/Wrap";
 
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
+import { CheckURLBanner } from "components/CheckURLBanner";
 
 import { Trans } from "@lingui/macro";
 import { locales, activate } from "lib/i18n";
@@ -128,6 +129,7 @@ export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
+  const [showCheckURLBanner, setShowCheckURLBanner] = useState(true);
 
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
@@ -503,6 +505,13 @@ export const Home: FC = () => {
         <InvalidRPCModal
           onHide={() => {
             setShowRPCModal(false);
+          }}
+        />
+      )}
+      {showCheckURLBanner && (
+        <CheckURLBanner
+          onHide={() => {
+            setShowCheckURLBanner(false);
           }}
         />
       )}

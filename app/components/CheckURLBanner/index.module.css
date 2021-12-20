@@ -1,0 +1,39 @@
+@value textButton from "@klimadao/lib/theme/common.module.css";
+
+.bg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  cursor: not-allowed;
+  z-index: 99;
+}
+
+.banner {
+  cursor: default;
+  align-self: center;
+  padding: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  background-color: var(--primary-variant);
+  justify-items: center;
+  align-items: center;
+}
+
+.banner_text {
+  text-align: center;
+}
+
+.okButtonWrap {
+  display: flex;
+  justify-content: end;
+  gap: 0.8rem;
+}
+
+.okButton {
+  composes: textButton;
+  border: 2px solid var(--secondary);
+  justify-self: end;
+}
