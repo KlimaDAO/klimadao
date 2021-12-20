@@ -409,7 +409,7 @@ export const Stake = (props: Props) => {
             </TextInfoTooltip>
           </div>
           <div className={styles.dataContainer_value}>
-            <span>{trimWithPlaceholder(nextRebaseValue, 2)}</span> sKLIMA
+            <span>{trimWithPlaceholder(nextRebaseValue, 5)}</span> sKLIMA
           </div>
         </li>
         <li className={styles.dataContainer_row}>
