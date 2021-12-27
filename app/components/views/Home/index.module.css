@@ -115,6 +115,7 @@ TEMP
 }
 .disconnectWalletButton {
   composes: textButton from "@klimadao/lib/theme/common.module.css";
+  text-transform: none;
   border: 2px dashed var(--surface-06);
   opacity: 0.7;
   justify-self: start;

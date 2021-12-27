@@ -6,6 +6,7 @@ import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import t from "@klimadao/lib/theme/typography.module.css";
+import { concatAddress } from "@klimadao/lib/utils";
 import { useSelector } from "react-redux";
 import { selectBalances } from "state/selectors";
 import { loadAppDetails } from "actions/app";
@@ -359,7 +360,7 @@ export const Home: FC = () => {
                 className={styles.disconnectWalletButton}
                 onClick={disconnect}
               >
-                DISCONNECT WALLET
+                {concatAddress(address)}
               </button>
             )}
           </header>
