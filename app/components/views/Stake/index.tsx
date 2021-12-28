@@ -31,7 +31,10 @@ import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
 import { Trans, t, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
+<<<<<<< HEAD
 import { prettifySeconds } from "lib/i18n";
+=======
+>>>>>>> 80779ba... Translation framework (#43)
 
 const WithPlaceholder: FC<{
   condition: boolean;
