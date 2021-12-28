@@ -29,6 +29,11 @@ const config = {
         permanent: true,
       },
       {
+        source: "/wrap",
+        destination: "/#/wrap",
+        permanent: true,
+      },
+      {
         source: "/pklima",
         destination: "/#/pklima",
         permanent: true,
