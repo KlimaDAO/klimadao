@@ -1,0 +1,187 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2021-12-10 22:51+0100\n"
+"Mime-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: components/views/Stake/index.tsx:119
+#: components/views/Stake/index.tsx:122
+msgid "button.approve"
+msgstr "Approve"
+
+#: components/views/Stake/index.tsx:116
+msgid "button.confirming"
+msgstr "Confirming"
+
+#: components/views/Stake/index.tsx:109
+msgid "button.loading"
+msgstr "Loading"
+
+#: components/views/Stake/index.tsx:238
+msgid "button.max"
+msgstr "Max"
+
+#: components/views/Stake/index.tsx:105
+msgid "button.not_connected"
+msgstr "Not connected"
+
+#: components/views/Stake/index.tsx:126
+msgid "button.stake"
+msgstr "Stake"
+
+#: components/views/Stake/index.tsx:133
+msgid "button.unstake"
+msgstr "Unstake"
+
+#: components/views/Home/index.tsx:325
+msgid "footer.blog"
+msgstr "blog"
+
+#: components/views/Home/index.tsx:326
+msgid "footer.community"
+msgstr "community"
+
+#: components/views/Home/index.tsx:324
+msgid "footer.docs"
+msgstr "docs"
+
+#: components/views/Home/index.tsx:323
+msgid "footer.home"
+msgstr "home"
+
+#: components/views/Home/index.tsx:235
+msgid "header.connectedto"
+msgstr "You are connected to"
+
+#: components/views/Home/index.tsx:273
+msgid "header.welcome"
+msgstr "Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to earn interest."
+
+#: components/views/Home/index.tsx:249
+msgid "menu.bond"
+msgstr "BOND"
+
+#: components/views/Home/index.tsx:252
+msgid "menu.info"
+msgstr "INFO"
+
+#: components/views/Home/index.tsx:240
+msgid "menu.redeem"
+msgstr "REDEEM"
+
+#: components/views/Home/index.tsx:243
+msgid "menu.stake"
+msgstr "STAKE"
+
+#: components/views/Home/index.tsx:246
+msgid "menu.wrap"
+msgstr "WRAP"
+
+#: components/views/Stake/index.tsx:334
+msgid "stake.apy"
+msgstr "APY"
+
+#: components/views/Stake/index.tsx:196
+msgid "stake.apy.tooltip"
+msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
+
+#: components/views/Stake/index.tsx:250
+msgid "stake.balance"
+msgstr "Balance"
+
+#: components/views/Stake/index.tsx:172
+msgid "stake.balance.tooltip"
+msgstr "Unstaked KLIMA, not generating interest"
+
+#: components/views/Stake/index.tsx:208
+msgid "stake.caption"
+msgstr "Hold, stake, and compound. If the protocol earns a profit selling carbon bonds, these rewards are shared among all holders of staked KLIMA (sKLIMA)."
+
+#: components/views/Stake/index.tsx:347
+msgid "stake.current_index"
+msgstr "Current index"
+
+#: components/views/Stake/index.tsx:200
+msgid "stake.current_index.tooltip"
+msgstr "Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+
+#: components/views/Stake/index.tsx:281
+msgid "stake.rebase_rate"
+msgstr "Rebase rate"
+
+#: components/views/Stake/index.tsx:180
+msgid "stake.rebase_rate.tooltip"
+msgstr "Percent interest to be rewarded at next rebase"
+
+#: components/views/Stake/index.tsx:294
+msgid "stake.rebase_value"
+msgstr "Rebase value"
+
+#: components/views/Stake/index.tsx:184
+msgid "stake.rebase_value.tooltip"
+msgstr "Approximate amount of sKLIMA you will receive at next rebase"
+
+#: components/views/Stake/index.tsx:320
+msgid "stake.roi"
+msgstr "ROI (5-day rate)"
+
+#: components/views/Stake/index.tsx:192
+msgid "stake.roi.tooltip"
+msgstr "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+
+#: components/views/Stake/index.tsx:266
+msgid "stake.staked"
+msgstr "Staked"
+
+#: components/views/Stake/index.tsx:176
+msgid "stake.staked.tooltip"
+msgstr "Staked KLIMA generating interest"
+
+#: components/views/Stake/index.tsx:307
+msgid "stake.time_until_rebase"
+msgstr "Time until rebase"
+
+#: components/views/Stake/index.tsx:188
+msgid "stake.time_until_rebase.tooltip"
+msgstr "Approximate time remaining until next rewards distribution"
+
+#: components/views/Stake/index.tsx:152
+msgid "status.pending_confirmation"
+msgstr "Please click 'confirm' in your wallet to continue."
+
+#: components/views/Stake/index.tsx:158
+msgid "status.transaction_error"
+msgstr "❌ Error: something went wrong..."
+
+#: components/views/Stake/index.tsx:164
+msgid "status.transaction_rejected"
+msgstr "✖️ You chose to reject the transaction."
+
+#: components/views/Stake/index.tsx:155
+msgid "status.transaction_started"
+msgstr "Transaction initiated. Waiting for network confirmation."
+
+#: components/views/Stake/index.tsx:161
+msgid "status.transaction_success"
+msgstr "✔️ Success!."
+
+#: components/views/Home/index.tsx:286
+msgid "usermenu.changelanguage"
+msgstr "Language"
+
+#: components/views/Home/index.tsx:280
+msgid "usermenu.connect_wallet"
+msgstr "CONNECT WALLET"
+
+#: components/views/Home/index.tsx:283
+msgid "usermenu.disconnect_wallet"
+msgstr "DISCONNECT WALLET"

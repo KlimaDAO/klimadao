@@ -28,8 +28,10 @@ import {
   trimWithPlaceholder,
   concatAddress,
 } from "@klimadao/lib/utils";
-import t from "@klimadao/lib/theme/typography.module.css";
+import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
+import { Trans, t, defineMessage } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 
 const WithPlaceholder: FC<{
   condition: boolean;
@@ -136,14 +138,17 @@ export const Stake = (props: Props) => {
       return prettifySeconds(seconds);
     }
   };
-
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Not Connected", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.not_connected">Not connected</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (isLoading) {
       return {
-        children: "Loading",
+        children: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -151,20 +156,30 @@ export const Stake = (props: Props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: "Confirming", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.confirming">Confirming</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (view === "stake" && !hasApproval("stake")) {
-      return { children: "Approve", onClick: handleApproval("stake") };
+      return {
+        children: <Trans id="button.approve">Approve</Trans>,
+        onClick: handleApproval("stake"),
+      };
     } else if (view === "unstake" && !hasApproval("unstake")) {
-      return { children: "Approve", onClick: handleApproval("unstake") };
+      return {
+        children: <Trans id="button.approve">Approve</Trans>,
+        onClick: handleApproval("unstake"),
+      };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
-        children: "Stake",
+        children: <Trans id="button.stake">Stake</Trans>,
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
-        children: "Unstake",
+        children: <Trans id="button.unstake">Unstake</Trans>,
         onClick: handleStake("unstake"),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),
@@ -173,18 +188,41 @@ export const Stake = (props: Props) => {
       return { children: "ERROR", onClick: undefined, disabled: true };
     }
   };
+  const getAction = () => {
+    if (view === "unstake") {
+      return `Amount to stake`;
+    } else {
+      return `Amount to unstake`;
+    }
+  };
 
   const getStatusMessage = () => {
     if (status === "userConfirmation") {
-      return "Please click 'confirm' in your wallet to continue.";
+      return (
+        <Trans id="status.pending_confirmation">
+          Please click 'confirm' in your wallet to continue.
+        </Trans>
+      );
     } else if (status === "networkConfirmation") {
-      return "Transaction initiated. Waiting for network confirmation.";
+      return (
+        <Trans id="status.transaction_started">
+          Transaction initiated. Waiting for network confirmation.
+        </Trans>
+      );
     } else if (status === "error") {
-      return "❌ Error: something went wrong...";
+      return (
+        <Trans id="status.transaction_error">
+          ❌ Error: something went wrong...
+        </Trans>
+      );
     } else if (status === "done") {
-      return "✔️ Success!";
+      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
     } else if (status === "userRejected") {
-      return "✖️ You chose to reject the transaction.";
+      return (
+        <Trans id="status.transaction_rejected">
+          ✖️ You chose to reject the transaction.
+        </Trans>
+      );
     }
     return null;
   };
@@ -195,14 +233,52 @@ export const Stake = (props: Props) => {
       status === "networkConfirmation" ||
       isLoading);
 
+  defineMessage({
+    id: "stake.balance.tooltip",
+    message: "Unstaked KLIMA, not generating interest",
+  });
+  defineMessage({
+    id: "stake.staked.tooltip",
+    message: "Staked KLIMA generating interest",
+  });
+  defineMessage({
+    id: "stake.rebase_rate.tooltip",
+    message: "Percent interest to be rewarded at next rebase",
+  });
+  defineMessage({
+    id: "stake.rebase_value.tooltip",
+    message: "Approximate amount of sKLIMA you will receive at next rebase",
+  });
+  defineMessage({
+    id: "stake.time_until_rebase.tooltip",
+    message: "Approximate time remaining until next rewards distribution",
+  });
+  defineMessage({
+    id: "stake.roi.tooltip",
+    message:
+      "Approximate return on investment, including compounding interest, should you remain staked for 5 days.",
+  });
+  defineMessage({
+    id: "stake.apy.tooltip",
+    message:
+      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)",
+  });
+  defineMessage({
+    id: "stake.current_index.tooltip",
+    message:
+      "Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes.",
+  });
+
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Stake KLIMA.</h2>
-        <p className={t.body2}>
-          Hold, stake, and compound. If the protocol earns a profit selling
-          carbon bonds, these rewards are shared among all holders of staked
-          KLIMA (sKLIMA).
+        <h2 className={T.h4}>Stake KLIMA.</h2>
+        <p className={T.body2}>
+          <Trans id="stake.caption">
+            Hold, stake, and compound. If the protocol earns a profit selling
+            carbon bonds, these rewards are shared among all holders of staked
+            KLIMA (sKLIMA).
+          </Trans>
         </p>
       </div>
       <div className={styles.inputsContainer}>
@@ -241,9 +317,7 @@ export const Stake = (props: Props) => {
               setStatus("");
             }}
             type="number"
-            placeholder={`Amount to ${
-              { stake: "stake", unstake: "unstake" }[view]
-            }`}
+            placeholder={getAction()}
             min="0"
           />
           <button
@@ -251,7 +325,7 @@ export const Stake = (props: Props) => {
             type="button"
             onClick={setMax}
           >
-            Max
+            <Trans id="button.max">Max</Trans>
           </button>
         </div>
       </div>
@@ -265,10 +339,10 @@ export const Stake = (props: Props) => {
         {singletonSource}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Balance
+            <Trans id="stake.balance">Balance</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content="Unstaked KLIMA, not generating interest"
+              content={i18n._("stake.balance.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -278,7 +352,7 @@ export const Stake = (props: Props) => {
           <div className={styles.dataContainer_value}>
             <WithPlaceholder
               condition={!isConnected}
-              placeholder="NOT CONNECTED"
+              placeholder={`NOT CONNECTED`}
             >
               <span>{trimWithPlaceholder(balances?.klima, 4)}</span> KLIMA
             </WithPlaceholder>
@@ -287,10 +361,10 @@ export const Stake = (props: Props) => {
 
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Staked
+            <Trans id="stake.staked">Staked</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content="Staked KLIMA generating interest"
+              content={i18n._("stake.staked.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -300,7 +374,7 @@ export const Stake = (props: Props) => {
           <div className={styles.dataContainer_value}>
             <WithPlaceholder
               condition={!isConnected}
-              placeholder="NOT CONNECTED"
+              placeholder={`NOT CONNECTED`}
             >
               <span>{trimWithPlaceholder(balances?.sklima, 4)}</span> sKLIMA
             </WithPlaceholder>
@@ -308,10 +382,10 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Rebase rate
+            <Trans id="stake.rebase_rate">Rebase rate</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content="Percent interest to be rewarded at next rebase"
+              content={i18n._("stake.rebase_rate.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -324,10 +398,10 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Rebase value
+            <Trans id="stake.rebase_value">Rebase value</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content="Approximate amount of sKLIMA you will receive at next rebase"
+              content={i18n._("stake.rebase_value.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -340,10 +414,10 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Time until rebase
+            <Trans id="stake.time_until_rebase">Time until rebase</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content="Approximate time remaining until next rewards distribution"
+              content={i18n._("stake.time_until_rebase.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -356,10 +430,10 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            ROI (5-day rate)
+            <Trans id="stake.roi">ROI (5-day rate)</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content="Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+              content={i18n._("stake.roi.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -373,10 +447,10 @@ export const Stake = (props: Props) => {
 
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            APY
+            <Trans id="stake.apy">APY</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content="Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
+              content={i18n._("stake.apy.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -387,13 +461,12 @@ export const Stake = (props: Props) => {
             <span>{trimWithPlaceholder(stakingAPYPercent, 2)}</span>%
           </div>
         </li>
-
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Current index
+            <Trans id="stake.current_index">Current index</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content="Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+              content={i18n._("stake.current_index.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
