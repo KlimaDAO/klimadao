@@ -27,6 +27,10 @@ import Nav from "./Nav";
 import WalletAction from "./WalletAction";
 import MobileMenu from "./MobileMenu";
 
+import { Trans } from "@lingui/macro";
+import { locales, activate } from "lib/i18n";
+import { i18n } from "@lingui/core";
+
 import styles from "./index.module.css";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
@@ -135,6 +139,8 @@ export const Home: FC = () => {
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
+  const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
+
   /**
    * This is a hack to force re-render of nav component
    * because SSR hydration doesn't show active path
@@ -295,8 +301,10 @@ export const Home: FC = () => {
                 </a>
               </div>
               <p className={t.h6} style={{ maxWidth: "46rem" }}>
-                Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
-                to earn interest.
+                <Trans id="header.welcome">
+                  Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake
+                  KLIMA to earn interest.
+                </Trans>
               </p>
             </div>
 
@@ -312,6 +320,54 @@ export const Home: FC = () => {
               loadWeb3Modal={loadWeb3Modal}
               disconnect={disconnect}
             />
+            <div>
+              <div className={styles.userMenu}>
+                {!isConnected && (
+                  <button
+                    type="button"
+                    className={styles.connectWalletButton}
+                    onClick={loadWeb3Modal}
+                  >
+                    <Trans id="usermenu.connect_wallet">CONNECT WALLET</Trans>
+                  </button>
+                )}
+                {isConnected && (
+                  <button
+                    type="button"
+                    className={styles.disconnectWalletButton}
+                    onClick={loadWeb3Modal}
+                  >
+                    <Trans id="usermenu.disconnect_wallet">
+                      DISCONNECT WALLET
+                    </Trans>
+                  </button>
+                )}
+                <button
+                  type="button"
+                  className={styles.localeSelectionButton}
+                  onClick={() => {
+                    setLocalesMenuVisible(!localesMenuVisible);
+                  }}
+                >
+                  <Trans id="usermenu.changelanguage">Language</Trans>
+                </button>
+
+                {Object.keys(locales).map((locale, key) => (
+                  <div
+                    key={key}
+                    style={{ display: localesMenuVisible ? "block" : "none" }}
+                  >
+                    <button
+                      data-active={i18n.locale == locale ? "true" : "false"}
+                      className={styles.localeSelectionItem}
+                      onClick={() => activate(locale)}
+                    >
+                      {locale}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
           </header>
           <main className={styles.main}>
             <Nav links={links} chainId={chainId} />
@@ -398,10 +454,18 @@ export const Home: FC = () => {
               <img src="klima-logo.png" alt="" />
             </a>
             <nav className={styles.footer_content_nav}>
-              <a href={urls.home}>home</a>
-              <a href={urls.gitbook}>docs</a>
-              <a href={urls.blog}>blog</a>
-              <a href={urls.discordInvite}>community</a>
+              <a href={urls.home}>
+                <Trans id="footer.home">home</Trans>
+              </a>
+              <a href={urls.gitbook}>
+                <Trans id="footer.docs">docs</Trans>
+              </a>
+              <a href={urls.blog}>
+                <Trans id="footer.blog">blog</Trans>
+              </a>
+              <a href={urls.discordInvite}>
+                <Trans id="footer.community">community</Trans>
+              </a>
             </nav>
           </div>
         </footer>
