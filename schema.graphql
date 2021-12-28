@@ -107,17 +107,26 @@ type ProtocolMetric @entity {
   klimaPrice: BigDecimal!
   marketCap: BigDecimal!
   totalValueLocked: BigDecimal!
+  assets: [TreasuryAsset!]
   treasuryRiskFreeValue: BigDecimal!
   treasuryMarketValue: BigDecimal!
   nextEpochRebase: BigDecimal!
   nextDistributedKlima: BigDecimal!
-  treasuryCarbonRFV: BigDecimal!
-  treasuryKlimaBCTRFV: BigDecimal!
+  treasuryCarbon: BigDecimal!
   currentAPY: BigDecimal!
   runwayCurrent: BigDecimal
-  treasuryKlimaBCTPOL: BigDecimal!
-  treasuryBCTUSDCPOL: BigDecimal!
   holders: BigInt!
+}
+
+type TreasuryAsset @entity {
+  id: ID!
+  timestamp: BigInt!
+  token: String!
+  tokenBalance: BigDecimal!
+  carbonBalance: BigDecimal!
+  riskFreeValue: BigDecimal!
+  marketValue: BigDecimal!
+  POL: BigDecimal!
 }
 
 type ContractInfo @entity {
