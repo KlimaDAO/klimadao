@@ -19,6 +19,7 @@
     "export-app": "cd ./lib && npm run build && cd ../app && npm run build && npm run export",
     "dev-lib": "npm run dev --workspace=lib",
     "dev-site": "npm run build-lib && npm run dev --workspace=site",
-    "dev-app": "npm run build-lib && npm run dev --workspace=app"
+    "dev-app": "npm run build-lib && npm run dev --workspace=app",
+    "format-all": "prettier --write ./"
   }
 }
