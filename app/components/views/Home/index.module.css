@@ -123,6 +123,27 @@ TEMP
   opacity: 1;
   border: 2px dashed var(--secondary) !important;
 }
+.localeSelectionButton {
+  composes: textButton from "@klimadao/lib/theme/common.module.css";
+  justify-self: start;
+}
+.localeSelectionDropdown {
+  display: inline-block;
+}
+.localeSelectionItem {
+  composes: textButton from "@klimadao/lib/theme/common.module.css";
+  display: inline-block;
+}
+
+.userMenu {
+  justify-self: end;
+  text-align: right;
+  display: grid;
+  grid-gap: 0.8rem;
+  gap: 0.8rem;
+  height: 0;
+  overflow: visible;
+}
 
 .main {
   justify-self: center;
@@ -219,6 +240,9 @@ TEMP
     justify-self: end;
   }
   .disconnectWalletButton {
+    justify-self: end;
+  }
+  .localeSelectionButton {
     justify-self: end;
   }
   .nav {

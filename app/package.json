@@ -6,11 +6,16 @@
     "build": "prettier --check . && next build",
     "start": "next start",
     "export": "next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lingui:extract": "NODE_ENV=test lingui extract",
+    "lingui:compile": "NODE_ENV=test lingui compile",
+    "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
+    "@lingui/core": "^3.13.0",
+    "@lingui/react": "^3.13.0",
     "@mui/core": "^5.0.0-alpha.54",
     "@mui/icons-material": "^5.2.1",
     "@mui/material": "^5.2.3",
@@ -28,6 +33,8 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.0.7",
+    "@lingui/cli": "^3.13.0",
+    "@lingui/macro": "^3.13.0",
     "@types/node": "16.11.12",
     "@types/react": "17.0.37",
     "eslint": "8.4.1",
