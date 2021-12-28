@@ -29,6 +29,10 @@ import { Trans } from "@lingui/macro";
 import { locales, activate } from "lib/i18n";
 import { i18n } from "@lingui/core";
 
+import { Trans } from "@lingui/macro";
+import { locales, activate } from "lib/i18n";
+import { i18n } from "@lingui/core";
+
 import styles from "./index.module.css";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
