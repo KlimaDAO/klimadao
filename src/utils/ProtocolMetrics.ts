@@ -1,14 +1,9 @@
 import { Address, BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
 import { KlimaERC20V1 } from '../../generated/KlimaStakingV1/KlimaERC20V1';
 import { sKlimaERC20V1 } from '../../generated/KlimaStakingV1/sKlimaERC20V1';
-//import { sOlympusERC20V2 } from '../../generated/OlympusStakingV1/sOlympusERC20V2';
-import { CirculatingSupply } from '../../generated/KlimaStakingV1/CirculatingSupply';
 import { ERC20 } from '../../generated/KlimaStakingV1/ERC20';
 import { UniswapV2Pair } from '../../generated/KlimaStakingV1/UniswapV2Pair';
-//import { MasterChef } from '../../generated/OlympusStakingV1/MasterChef';
-//import { OlympusStakingV2 } from '../../generated/OlympusStakingV2/OlympusStakingV2';
-//import { OlympusStakingV1 } from '../../generated/OlympusStakingV1/OlympusStakingV1';
-//import { ConvexAllocator } from '../../generated/OlympusStakingV1/ConvexAllocator';
+import { KlimaStakingV1 } from '../../generated/KlimaStakingV1/KlimaStakingV1';
 
 import { ProtocolMetric, Transaction, TreasuryAsset } from '../../generated/schema'
 import * as constants from './Constants';
@@ -74,14 +69,20 @@ function getTotalSupply(): BigDecimal {
 }
 
 function getCriculatingSupply(transaction: Transaction, total_supply: BigDecimal): BigDecimal {
-    let circ_supply = BigDecimal.fromString("0")
-    if (transaction.blockNumber.gt(BigInt.fromString(constants.CIRCULATING_SUPPLY_CONTRACT_BLOCK))) {
-        let circulatingsupply_contract = CirculatingSupply.bind(Address.fromString(constants.CIRCULATING_SUPPLY_CONTRACT))
-        circ_supply = toDecimal(circulatingsupply_contract.KLIMACirculatingSupply(), 9)
-    }
-    else {
-        circ_supply = total_supply;
-    }
+
+    let klima_contract = KlimaERC20V1.bind(Address.fromString(constants.KLIMA_ERC20_V1_CONTRACT))
+
+    // Start with total supply
+    let circ_supply = total_supply
+
+    // Subtract DAO Balance
+    circ_supply = circ_supply.minus(toDecimal(klima_contract.balanceOf(Address.fromString(constants.DAO_MULTISIG)), 9))
+
+    // Subtract Bond Rewards
+    circ_supply = circ_supply.minus(toDecimal(klima_contract.balanceOf(Address.fromString(constants.BCTBOND_V1)), 9))
+    circ_supply = circ_supply.minus(toDecimal(klima_contract.balanceOf(Address.fromString(constants.BCT_USDC_BOND_V1)), 9))
+    circ_supply = circ_supply.minus(toDecimal(klima_contract.balanceOf(Address.fromString(constants.KLIMA_BCT_BOND_V1)), 9))
+
     log.debug("Circulating Supply {}", [total_supply.toString()])
     return circ_supply
 }
@@ -186,7 +187,6 @@ function getMV_RFV(transaction: Transaction, assets: string[]): BigDecimal[] {
         totalMarketValue = totalMarketValue.plus(assetDetail.marketValue)
     }
 
-    //log.debug("Treasury Market Value {}", [mv.toString()])
     log.debug("Treasury Carbon {}", [totalCarbon.toString()])
     log.debug("Treasury RFV {}", [totalRFV.toString()])
     log.debug("Treasury Market Value {}", [totalMarketValue.toString()])
@@ -197,37 +197,29 @@ function getMV_RFV(transaction: Transaction, assets: string[]): BigDecimal[] {
         totalMarketValue
     ]
 }
-/*
-function getNextOHMRebase(transaction: Transaction): BigDecimal {
+
+function getNextKLIMARebase(transaction: Transaction): BigDecimal {
     let next_distribution = BigDecimal.fromString("0")
 
-    let staking_contract_v1 = OlympusStakingV1.bind(Address.fromString(STAKING_CONTRACT_V1))
-    let response = staking_contract_v1.try_ohmToDistributeNextEpoch()
-    if (response.reverted == false) {
-        next_distribution = toDecimal(response.value, 9)
-        log.debug("next_distribution v1 {}", [next_distribution.toString()])
-    }
-    else {
-        log.debug("reverted staking_contract_v1", [])
-    }
+    let staking_contract_v1 = KlimaStakingV1.bind(Address.fromString(constants.STAKING_CONTRACT_V1))
+    let distribution_v1 = toDecimal(staking_contract_v1.epoch().value3, 9)
+    log.debug("next_distribution v1 {}", [distribution_v1.toString()])
+    next_distribution = next_distribution.plus(distribution_v1)
 
-    if (transaction.blockNumber.gt(BigInt.fromString(STAKING_CONTRACT_V2_BLOCK))) {
-        let staking_contract_v2 = OlympusStakingV2.bind(Address.fromString(STAKING_CONTRACT_V2))
-        let distribution_v2 = toDecimal(staking_contract_v2.epoch().value3, 9)
-        log.debug("next_distribution v2 {}", [distribution_v2.toString()])
-        next_distribution = next_distribution.plus(distribution_v2)
-    }
 
     log.debug("next_distribution total {}", [next_distribution.toString()])
 
     return next_distribution
 }
 
-function getAPY_Rebase(sOHM: BigDecimal, distributedOHM: BigDecimal): BigDecimal[] {
-    let nextEpochRebase = distributedOHM.div(sOHM).times(BigDecimal.fromString("100"));
+function getAPY_Rebase(sKLIMA: BigDecimal, distributedKLIMA: BigDecimal): BigDecimal[] {
+    // Check for 0 sKLIMA supply
+    if (sKLIMA == BigDecimal.fromString("0")) { return [BigDecimal.fromString("0"), BigDecimal.fromString("0")] }
+
+    let nextEpochRebase = distributedKLIMA.div(sKLIMA).times(BigDecimal.fromString("100"));
 
     let nextEpochRebase_number = Number.parseFloat(nextEpochRebase.toString())
-    let currentAPY = Math.pow(((nextEpochRebase_number / 100) + 1), (365 * 3) - 1) * 100
+    let currentAPY = Math.pow(((nextEpochRebase_number / 100) + 1), (365 * 3.28) - 1) * 100
 
     let currentAPYdecimal = BigDecimal.fromString(currentAPY.toString())
 
@@ -237,45 +229,40 @@ function getAPY_Rebase(sOHM: BigDecimal, distributedOHM: BigDecimal): BigDecimal
     return [currentAPYdecimal, nextEpochRebase]
 }
 
-function getRunway(sOHM: BigDecimal, rfv: BigDecimal, rebase: BigDecimal): BigDecimal[] {
-    let runway2dot5k = BigDecimal.fromString("0")
-    let runway5k = BigDecimal.fromString("0")
-    let runway7dot5k = BigDecimal.fromString("0")
-    let runway10k = BigDecimal.fromString("0")
-    let runway20k = BigDecimal.fromString("0")
-    let runway50k = BigDecimal.fromString("0")
-    let runway70k = BigDecimal.fromString("0")
-    let runway100k = BigDecimal.fromString("0")
+function getRunway(sKLIMA: BigDecimal, rfv: BigDecimal, rebase: BigDecimal): BigDecimal {
+    //let runway100 = BigDecimal.fromString("0")
+    //let runway250 = BigDecimal.fromString("0")
+    //let runway500 = BigDecimal.fromString("0")
+    //let runway1k = BigDecimal.fromString("0")
+    //let runway2dot5k = BigDecimal.fromString("0")
+    //let runway5k = BigDecimal.fromString("0")
     let runwayCurrent = BigDecimal.fromString("0")
 
-    if (sOHM.gt(BigDecimal.fromString("0")) && rfv.gt(BigDecimal.fromString("0")) && rebase.gt(BigDecimal.fromString("0"))) {
-        let treasury_runway = Number.parseFloat(rfv.div(sOHM).toString())
+    // Keeping placeholder math entered, just commented in case we want in the future.
+    if (sKLIMA.gt(BigDecimal.fromString("0")) && rfv.gt(BigDecimal.fromString("0")) && rebase.gt(BigDecimal.fromString("0"))) {
+        let treasury_runway = Number.parseFloat(rfv.div(sKLIMA).toString())
 
-        let runway2dot5k_num = (Math.log(treasury_runway) / Math.log(1 + 0.0029438)) / 3;
-        let runway5k_num = (Math.log(treasury_runway) / Math.log(1 + 0.003579)) / 3;
-        let runway7dot5k_num = (Math.log(treasury_runway) / Math.log(1 + 0.0039507)) / 3;
-        let runway10k_num = (Math.log(treasury_runway) / Math.log(1 + 0.00421449)) / 3;
-        let runway20k_num = (Math.log(treasury_runway) / Math.log(1 + 0.00485037)) / 3;
-        let runway50k_num = (Math.log(treasury_runway) / Math.log(1 + 0.00569158)) / 3;
-        let runway70k_num = (Math.log(treasury_runway) / Math.log(1 + 0.00600065)) / 3;
-        let runway100k_num = (Math.log(treasury_runway) / Math.log(1 + 0.00632839)) / 3;
+        //let runway100_num = (Math.log(treasury_runway) / Math.log(1)) / 3.28;
+        //let runway250_num = (Math.log(treasury_runway) / Math.log(1 + 0.000763867)) / 3.28;
+        //let runway500_num = (Math.log(treasury_runway) / Math.log(1 + 0.001342098)) / 3.28;
+        //let runway1k_num = (Math.log(treasury_runway) / Math.log(1 + 0.001920663)) / 3.28;
+        //let runway2dot5k_num = (Math.log(treasury_runway) / Math.log(1 + 0.002685997)) / 3.28;
+        //let runway5k_num = (Math.log(treasury_runway) / Math.log(1 + 0.003265339)) / 3.28;
         let nextEpochRebase_number = Number.parseFloat(rebase.toString()) / 100
-        let runwayCurrent_num = (Math.log(treasury_runway) / Math.log(1 + nextEpochRebase_number)) / 3;
+        let runwayCurrent_num = (Math.log(treasury_runway) / Math.log(1 + nextEpochRebase_number)) / 3.28;
 
-        runway2dot5k = BigDecimal.fromString(runway2dot5k_num.toString())
-        runway5k = BigDecimal.fromString(runway5k_num.toString())
-        runway7dot5k = BigDecimal.fromString(runway7dot5k_num.toString())
-        runway10k = BigDecimal.fromString(runway10k_num.toString())
-        runway20k = BigDecimal.fromString(runway20k_num.toString())
-        runway50k = BigDecimal.fromString(runway50k_num.toString())
-        runway70k = BigDecimal.fromString(runway70k_num.toString())
-        runway100k = BigDecimal.fromString(runway100k_num.toString())
+        //runway100 = BigDecimal.fromString(runway100_num.toString())
+        //runway250 = BigDecimal.fromString(runway250_num.toString())
+        //runway500 = BigDecimal.fromString(runway500_num.toString())
+        //runway1k = BigDecimal.fromString(runway1k_num.toString())
+        //runway2dot5k = BigDecimal.fromString(runway2dot5k_num.toString())
+        //runway5k = BigDecimal.fromString(runway5k_num.toString())
         runwayCurrent = BigDecimal.fromString(runwayCurrent_num.toString())
     }
 
-    return [runway2dot5k, runway5k, runway7dot5k, runway10k, runway20k, runway50k, runway70k, runway100k, runwayCurrent]
+    return runwayCurrent
 }
-*/
+
 
 export function updateProtocolMetrics(transaction: Transaction): void {
     let pm = loadOrCreateProtocolMetric(transaction.timestamp);
@@ -290,7 +277,9 @@ export function updateProtocolMetrics(transaction: Transaction): void {
     pm.sKlimaCirculatingSupply = getSklimaSupply(transaction)
 
     //KLIMA Price
-    //pm.klimaPrice = getKLIMAUSDRate()
+    if (transaction.blockNumber.gt(BigInt.fromString(constants.KLIMA_BCT_PAIR_BLOCK))) {
+        pm.klimaPrice = getKLIMAUSDRate()
+    }
 
     //KLIMA Market Cap
     pm.marketCap = pm.klimaCirculatingSupply.times(pm.klimaPrice)
@@ -308,26 +297,14 @@ export function updateProtocolMetrics(transaction: Transaction): void {
     pm.treasuryRiskFreeValue = valueUpdates[1]
     pm.treasuryMarketValue = valueUpdates[2]
 
-
-    /*
     // Rebase rewards, APY, rebase
-    pm.nextDistributedOhm = getNextOHMRebase(transaction)
-    let apy_rebase = getAPY_Rebase(pm.sOhmCirculatingSupply, pm.nextDistributedOhm)
+    pm.nextDistributedKlima = getNextKLIMARebase(transaction)
+    let apy_rebase = getAPY_Rebase(pm.sKlimaCirculatingSupply, pm.nextDistributedKlima)
     pm.currentAPY = apy_rebase[0]
     pm.nextEpochRebase = apy_rebase[1]
 
     //Runway
-    let runways = getRunway(pm.sOhmCirculatingSupply, pm.treasuryRiskFreeValue, pm.nextEpochRebase)
-    pm.runway2dot5k = runways[0]
-    pm.runway5k = runways[1]
-    pm.runway7dot5k = runways[2]
-    pm.runway10k = runways[3]
-    pm.runway20k = runways[4]
-    pm.runway50k = runways[5]
-    pm.runway70k = runways[6]
-    pm.runway100k = runways[7]
-    pm.runwayCurrent = runways[8]
-    */
+    pm.runwayCurrent = getRunway(pm.sKlimaCirculatingSupply, pm.treasuryRiskFreeValue, pm.nextEpochRebase)
 
     //Holders
     pm.holders = getHolderAux().value
@@ -336,4 +313,3 @@ export function updateProtocolMetrics(transaction: Transaction): void {
 
     //updateBondDiscounts(transaction)
 }
-
