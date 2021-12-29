@@ -10,6 +10,7 @@ let BIG_DECIMAL_1E9 = BigDecimal.fromString('1e9')
 let BIG_DECIMAL_1E12 = BigDecimal.fromString('1e12')
 
 export function getBCTUSDRate(): BigDecimal {
+
     let pair = UniswapV2Pair.bind(Address.fromString(BCT_USDC_PAIR))
 
     let reserves = pair.getReserves()
