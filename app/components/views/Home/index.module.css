@@ -101,13 +101,27 @@ TEMP
   align-self: start;
   justify-items: start;
 }
+
 .textButton {
   composes: textButton from "@klimadao/lib/theme/common.module.css";
 }
+.textButtonMobile {
+  color: white !important;
+}
+.textButtonMobile:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
 .connectWalletButton {
   composes: textButton from "@klimadao/lib/theme/common.module.css";
   border: 2px dashed var(--secondary);
   justify-self: start;
+}
+.connectWalletButtonMobile {
+  margin-top: 8px;
+  padding: 10px;
+  border: 2px dashed var(--secondary);
 }
 .connectWalletButton:hover {
   opacity: 1;
@@ -115,6 +129,13 @@ TEMP
 }
 .disconnectWalletButton {
   composes: textButton from "@klimadao/lib/theme/common.module.css";
+  border: 2px dashed var(--surface-06);
+  opacity: 0.7;
+  justify-self: start;
+}
+.disconnectWalletButtonMobile {
+  margin-top: 8px;
+  padding: 10px;
   border: 2px dashed var(--surface-06);
   opacity: 0.7;
   justify-self: start;
@@ -182,6 +203,24 @@ TEMP
   color: white;
   opacity: 0.7;
   text-decoration: underline;
+}
+
+.mobileMenu {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
+.menuDropdown {
+  background-color: #1e1e1e !important;
+}
+
+.backgroundOpacity {
+  background-color: rgba(30, 30, 30, 0.7);
+}
+.mobileMenu svg {
+  color: white;
+  font-size: 30px;
 }
 
 @media bp-medium {
