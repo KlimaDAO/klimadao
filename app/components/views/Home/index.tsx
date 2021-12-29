@@ -21,7 +21,7 @@ import { Bond } from "components/views/Bond";
 import { Wrap } from "components/views/Wrap";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
-
+import classNames from "classnames";
 import Nav from "./Nav";
 import WalletAction from "./WalletAction";
 import MobileMenu from "./MobileMenu";
@@ -292,6 +292,7 @@ export const Home: FC = () => {
 
   return (
     <>
+      {/* <div className={classNames(styles.container, isMobile? "mobile": "app")}> */}
       <div className={styles.container}>
         <div className={styles.heroBackgroundContainer}>
           <img src="/green-wormhole.jpg" alt="" />
