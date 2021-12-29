@@ -293,7 +293,8 @@ export const Home: FC = () => {
 
   return (
     <>
-      <div className={classNames(styles.container, isMobile ? "mobile" : "app")}>
+      {/* <div className={classNames(styles.container, isMobile ? "mobile" : "app")}> */}
+      <div className={styles.container}>
         <div className={styles.heroBackgroundContainer}>
           <img src="/green-wormhole.jpg" alt="" />
           <div className={styles.heroGradient} />
