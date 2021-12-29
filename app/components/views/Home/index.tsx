@@ -11,7 +11,6 @@ import { selectBalances } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
-import classNames from "classnames";
 import { Stake } from "components/views/Stake";
 import { Redeem } from "components/views/Redeem";
 import { PKlima } from "components/views/PKlima";
@@ -293,7 +292,6 @@ export const Home: FC = () => {
 
   return (
     <>
-      {/* <div className={classNames(styles.container, isMobile ? "mobile" : "app")}> */}
       <div className={styles.container}>
         <div className={styles.heroBackgroundContainer}>
           <img src="/green-wormhole.jpg" alt="" />
