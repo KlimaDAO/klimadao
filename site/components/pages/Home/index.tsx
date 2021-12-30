@@ -96,10 +96,10 @@ export const Home: NextPage<Props> = (props) => {
               app
             </a>
             <div className={styles.lowerStack}>
-              <a className={styles.lowerIconButton} href={urls.twitter}>
+              <a className={styles.lowerIconButton} href={urls.twitter} target="_blank" rel="noreferrer noopener">
                 <TwitterIcon />
               </a>
-              <a className={styles.lowerIconButton} href={urls.github}>
+              <a className={styles.lowerIconButton} href={urls.github} target="_blank" rel="noreferrer noopener">
                 <GithubIcon />
               </a>
             </div>
