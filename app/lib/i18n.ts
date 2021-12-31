@@ -1,5 +1,9 @@
 import { i18n } from "@lingui/core";
 import { en, fr } from "make-plural/plurals";
+import enTime from "time-delta/locales/en";
+import frTime from "time-delta/locales/fr";
+import * as timeDelta from "time-delta";
+import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
 
 interface ILocales {
   [locale: string]: {
@@ -7,17 +11,18 @@ interface ILocales {
       n: number | string,
       ord?: boolean
     ) => "zero" | "one" | "two" | "few" | "many" | "other";
+    time: any;
   };
 }
 const locales: ILocales = {
-  en: { plurals: en },
-  fr: { plurals: fr },
+  en: { plurals: en, time: enTime },
+  fr: { plurals: fr, time: frTime },
 };
 
 for (const key in locales) {
   const locale = locales[key];
   i18n.loadLocaleData(key, { plurals: locale.plurals });
-  //i18n.loadLocaleData("fr", { plurals: fr });
+  timeDelta.addLocale(locale.time);
 }
 async function load(locale: string) {
   const { messages } = await import(`../locale/${locale}/messages.js`);
@@ -27,18 +32,27 @@ async function load(locale: string) {
 
 /**
  * Load messages for requested locale and activate it.
- * This function isn't part of the LinguiJS library because there're
- * many ways how to load messages  from REST API, from file, from cache, etc.
+ * Stores the choice in localestorage
  */
 async function activate(locale: string) {
   load(locale);
   window.localStorage.setItem("locale", locale);
 }
 
+/**
+ * Initializes locale (retrieve current locale fron localstorage if possible)
+ */
 function init() {
   var locale = window.localStorage.getItem("locale") as string;
   if (!Object.keys(locales).includes(locale)) locale = "en";
   load(locale);
 }
 
-export { locales, activate, init };
+/**
+ * Localizes an amount of seconds
+ */
+function prettifySeconds(seconds: number) {
+  return prettifySecondsLib(i18n.locale, seconds);
+}
+
+export { locales, activate, init, prettifySeconds };
