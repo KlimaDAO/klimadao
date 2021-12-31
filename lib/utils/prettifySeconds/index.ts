@@ -1,18 +1,26 @@
-export function prettifySeconds(seconds: number, resolution?: string) {
-  if (seconds !== 0 && !seconds) {
-    return "";
-  }
+import * as timeDelta from "time-delta";
 
-  const d = Math.floor(seconds / (3600 * 24));
-  const h = Math.floor((seconds % (3600 * 24)) / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-
+/*
+ * Transforms seconds into a localized and readable format.
+ * The calling app must initialize the time locale definitions
+ */
+export function prettifySeconds(
+  locale: string,
+  seconds: number,
+  resolution?: string
+) {
+  const instance = timeDelta.create({
+    locale,
+    unitType: "short",
+  });
+  const now = new Date();
+  const then = new Date();
+  then.setSeconds(then.getSeconds() + seconds);
   if (resolution === "day") {
-    return d + (d == 1 ? " day" : " days");
+    then.setSeconds(now.getSeconds());
+    then.setMinutes(now.getMinutes());
+    then.setHours(now.getHours());
   }
-  const dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
-  const hDisplay = h > 0 ? h + (h == 1 ? " hr, " : " hrs, ") : "";
-  const mDisplay = m > 0 ? m + (m == 1 ? " min" : " mins") : "";
 
-  return dDisplay + hDisplay + mDisplay;
+  return instance.format(now, then);
 }
