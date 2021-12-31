@@ -139,7 +139,6 @@ export const Home: NextPage<Props> = (props) => {
               app
             </a>
             <div className={styles.lowerStack}>
-<<<<<<< HEAD
               <a
                 className={styles.lowerIconButton}
                 href={urls.twitter}
@@ -154,12 +153,6 @@ export const Home: NextPage<Props> = (props) => {
                 target="_blank"
                 rel="noreferrer noopener"
               >
-=======
-              <a className={styles.lowerIconButton} href={urls.twitter}>
-                <TwitterIcon />
-              </a>
-              <a className={styles.lowerIconButton} href={urls.github}>
->>>>>>> 4555419... Rebased with klima/staging
                 <GithubIcon />
               </a>
             </div>

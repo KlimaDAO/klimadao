@@ -98,9 +98,6 @@ msgstr "Taux d'intérêt annuel, incluant les intérêts composés, si votre cap
 msgid "stake.balance"
 msgstr "Solde"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 #: components/views/Stake/index.tsx:334
 msgid "stake.apy"
 msgstr "APY"

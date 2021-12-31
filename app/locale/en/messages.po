@@ -86,9 +86,6 @@ msgstr "STAKE"
 msgid "menu.wrap"
 msgstr "WRAP"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 #: components/views/Stake/index.tsx:334
 msgid "stake.apy"
 msgstr "APY"
@@ -177,17 +174,13 @@ msgstr "Transaction initiated. Waiting for network confirmation."
 msgid "status.transaction_success"
 msgstr "✔️ Success!."
 
-=======
->>>>>>> d51f2dc... Translated Home
-=======
 #: components/views/Stake/index.tsx:248
 #~ msgid "stake.apy"
 #~ msgstr "APY"
-=======
+
 #: components/views/Stake/index.tsx:334
 msgid "stake.apy"
 msgstr "APY"
->>>>>>> 4555419... Rebased with klima/staging
 
 #: components/views/Stake/index.tsx:196
 msgid "stake.apy.tooltip"
@@ -273,7 +266,6 @@ msgstr "Transaction initiated. Waiting for network confirmation."
 msgid "status.transaction_success"
 msgstr "✔️ Success!."
 
->>>>>>> fd08669... Translation: Stake page
 #: components/views/Home/index.tsx:286
 msgid "usermenu.changelanguage"
 msgstr "Language"
