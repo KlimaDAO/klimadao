@@ -7,8 +7,8 @@ import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import t from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
-import { selectBalances } from "state/selectors";
-import { loadAppDetails } from "actions/app";
+import { selectBalances, selectShowCheckURLBanner } from "state/selectors";
+import { loadAppDetails, hideCheckURLBanner } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 
@@ -129,7 +129,7 @@ export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
-  const [showCheckURLBanner, setShowCheckURLBanner] = useState(true);
+  const showCheckURLBanner = useSelector(selectShowCheckURLBanner);
 
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
@@ -511,7 +511,7 @@ export const Home: FC = () => {
       {showCheckURLBanner && (
         <CheckURLBanner
           onHide={() => {
-            setShowCheckURLBanner(false);
+            dispatch(hideCheckURLBanner());
           }}
         />
       )}
