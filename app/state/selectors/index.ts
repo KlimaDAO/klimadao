@@ -29,3 +29,7 @@ export const selectPklimaTerms = createSelector(
   selectUserState,
   (user) => user.pklimaTerms
 );
+export const selectShowCheckURLBanner = createSelector(
+  selectAppState,
+  (app) => app.showCheckURLBanner
+);
