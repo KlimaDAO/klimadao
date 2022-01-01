@@ -12,3 +12,4 @@ export { formatUnits } from "./formatUnits";
 export { useDebounce } from "./useDebounce";
 export { safeAdd } from "./safeAdd";
 export { safeSub } from "./safeSub";
+export { getBlockRate } from "./getBlockRate";

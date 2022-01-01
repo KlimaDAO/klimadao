@@ -3,7 +3,7 @@ import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 import { setAppState } from "state/app";
 
-import { getTreasuryBalance } from "@klimadao/lib/utils";
+import { getBlockRate, getTreasuryBalance } from "@klimadao/lib/utils";
 import { addresses, ESTIMATED_DAILY_REBASES } from "@klimadao/lib/constants";
 import DistributorContractv4 from "@klimadao/lib/abi/DistributorContractv4.json";
 import SKlima from "@klimadao/lib/abi/sKlima.json";
@@ -39,9 +39,16 @@ export const loadAppDetails = (params: {
         sKlimaContract.balanceOf("0x693aD12DbA5F6E07dE86FaA21098B691F60A1BEa"),
         getTreasuryBalance(),
         distributorContract.nextEpochBlock(),
+        getBlockRate(),
       ];
-      const [info, circSupply, currentIndex, treasuryBalance, rebaseBlock] =
-        await Promise.all(promises);
+      const [
+        info,
+        circSupply,
+        currentIndex,
+        treasuryBalance,
+        rebaseBlock,
+        blockRate,
+      ] = await Promise.all(promises);
 
       const promises2 = [distributorContract.nextRewardAt(info.rate)];
 
@@ -64,6 +71,7 @@ export const loadAppDetails = (params: {
           stakingRebase,
           treasuryBalance,
           rebaseBlock: rebaseBlock.toNumber(),
+          blockRate,
         })
       );
     } catch (error: any) {
