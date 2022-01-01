@@ -51,11 +51,7 @@ export function prettyVestingPeriod(
     return "";
   }
 
-  const seconds = secondsUntilBlock(
-    currentBlock,
-    vestingBlock,
-    blockRate
-  );
+  const seconds = secondsUntilBlock(currentBlock, vestingBlock, blockRate);
   if (seconds < 0) {
     return "Fully Vested";
   }
