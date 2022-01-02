@@ -23,7 +23,7 @@ import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 
 import { Trans } from "@lingui/macro";
-import { locales, activate } from "lib/i18n";
+import { locales } from "lib/i18n";
 import { i18n } from "@lingui/core";
 
 export interface Props {

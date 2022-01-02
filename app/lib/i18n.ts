@@ -51,7 +51,7 @@ function init() {
 /**
  * Localizes an amount of seconds
  */
-function prettifySeconds(seconds: number) {
+function prettifySeconds(seconds: number, resolution?: string) {
   return prettifySecondsLib(i18n.locale, seconds);
 }
 
