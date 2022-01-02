@@ -1,6 +1,7 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
@@ -48,6 +49,11 @@ export const Home: NextPage<Props> = (props) => {
   const formattedTreasuryBalance = props.treasuryBalance.toLocaleString();
   const formattedAPY = props.stakingAPY.toLocaleString() + "%";
   const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
+  const router = useRouter();
+  const [locale, setLocale] = useState<string>(router.locale!.split("-")[0]);
+  useEffect(() => {
+    router.push(router.pathname, router.pathname, { locale });
+  }, [locale]);
   return (
     <div id="HomeContainer" className={styles.container}>
       <PageHead
@@ -106,7 +112,7 @@ export const Home: NextPage<Props> = (props) => {
                     <button
                       data-active={i18n.locale == locale ? "true" : "false"}
                       className={styles.localeSelectionItem}
-                      onClick={() => activate(locale)}
+                      onClick={() => setLocale(locale)}
                     >
                       {locale}
                     </button>
