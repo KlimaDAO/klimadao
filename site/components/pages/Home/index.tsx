@@ -20,6 +20,10 @@ import styles from "./index.module.css";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 
+import { Trans } from "@lingui/macro";
+import { locales, activate } from "lib/i18n";
+import { i18n } from "@lingui/core";
+
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
@@ -74,8 +78,10 @@ export const Home: NextPage<Props> = (props) => {
               />
             </div>
             <p className={t.h6}>
-              Drive climate action and earn rewards with a carbon-backed,
-              algorithmic digital currency.
+              <Trans>
+                Drive climate action and earn rewards with a carbon-backed,
+                algorithmic digital currency.
+              </Trans>
             </p>
           </header>
           <nav className={styles.stack}>

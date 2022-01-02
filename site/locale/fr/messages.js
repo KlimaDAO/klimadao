@@ -1,0 +1,1 @@
+/*eslint-disable*/module.exports={messages:{"Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency.":"Pesez sur les actions pour le climat et gagnez des récompenses avec un crypto-actif algorithmique collatéralisé par des obligations carbone."}};
