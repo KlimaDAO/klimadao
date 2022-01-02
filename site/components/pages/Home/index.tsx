@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
+import { useState } from "react";
 
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
@@ -46,6 +47,7 @@ export const Home: NextPage<Props> = (props) => {
   ).toLocaleString();
   const formattedTreasuryBalance = props.treasuryBalance.toLocaleString();
   const formattedAPY = props.stakingAPY.toLocaleString() + "%";
+  const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
   return (
     <div id="HomeContainer" className={styles.container}>
       <PageHead
@@ -67,22 +69,51 @@ export const Home: NextPage<Props> = (props) => {
         </div>
         <div className={styles.heroGradient} />
         <div className={styles.heroSection}>
-          <header>
-            <div className={styles.logoContainer}>
-              <Image
-                src={klimaLogo}
-                alt=""
-                layout="responsive"
-                objectFit="contain"
-                priority
-              />
+          <header className={styles.header}>
+            <div className={styles.header_leftCol}>
+              <div className={styles.logoContainer}>
+                <Image
+                  src={klimaLogo}
+                  alt=""
+                  layout="responsive"
+                  objectFit="contain"
+                  priority
+                />
+              </div>
+              <p className={t.h6}>
+                <Trans>
+                  Drive climate action and earn rewards with a carbon-backed,
+                  algorithmic digital currency.
+                </Trans>
+              </p>
             </div>
-            <p className={t.h6}>
-              <Trans>
-                Drive climate action and earn rewards with a carbon-backed,
-                algorithmic digital currency.
-              </Trans>
-            </p>
+            <div>
+              <div className={styles.userMenu}>
+                <button
+                  type="button"
+                  className={styles.localeSelectionButton}
+                  onClick={() => {
+                    setLocalesMenuVisible(!localesMenuVisible);
+                  }}
+                >
+                  <Trans id="usermenu.changelanguage">Language</Trans>
+                </button>
+                {Object.keys(locales).map((locale, key) => (
+                  <div
+                    key={key}
+                    style={{ display: localesMenuVisible ? "block" : "none" }}
+                  >
+                    <button
+                      data-active={i18n.locale == locale ? "true" : "false"}
+                      className={styles.localeSelectionItem}
+                      onClick={() => activate(locale)}
+                    >
+                      {locale}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
           </header>
           <nav className={styles.stack}>
             <a className={styles.iconButton} href={urls.discordInvite}>
