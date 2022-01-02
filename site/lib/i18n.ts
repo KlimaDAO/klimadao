@@ -24,36 +24,17 @@ for (const key in locales) {
   i18n.loadLocaleData(key, { plurals: locale.plurals });
   timeDelta.addLocale(locale.time);
 }
-async function load(locale: string) {
-  const { messages } = await import(`../locale/${locale}/messages.js`);
-  i18n.load(locale, messages);
-  i18n.activate(locale);
-}
-
 /**
- * Load messages for requested locale and activate it.
- * Stores the choice in localestorage
+ * Loads a translation file
  */
-async function activate(locale: string) {
-  load(locale);
-  window.localStorage.setItem("locale", locale);
+async function loadTranslation(locale: string, isProduction = true) {
+  let data;
+  if (isProduction) {
+    data = await import(`../locale/${locale}/messages`);
+  } else {
+    data = await import(`@lingui/loader!../locale/${locale}/messages.po`);
+  }
+  return data.messages;
 }
 
-/**
- * Initializes locale (retrieve current locale fron localstorage if possible)
- */
-function init() {
-  var locale = window.localStorage.getItem("locale") as string;
-  if (!Object.keys(locales).includes(locale)) locale = "en";
-  locale = "en";
-  load(locale);
-}
-
-/**
- * Localizes an amount of seconds
- */
-function prettifySeconds(seconds: number) {
-  return prettifySecondsLib(i18n.locale, seconds);
-}
-
-export { locales, activate, init, prettifySeconds };
+export { locales, loadTranslation };
