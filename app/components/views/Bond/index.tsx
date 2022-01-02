@@ -30,7 +30,6 @@ import {
   useDebounce,
   trimWithPlaceholder,
   secondsUntilBlock,
-  prettifySeconds,
   concatAddress,
   safeSub,
   safeAdd,
@@ -41,6 +40,7 @@ import { RootState, useAppDispatch } from "state";
 import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { prettifySeconds } from "lib/i18n";
 
 export function prettyVestingPeriod(
   currentBlock: number,
