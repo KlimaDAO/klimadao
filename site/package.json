@@ -5,7 +5,10 @@
     "dev": "next dev",
     "build": "prettier --check . && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lingui:extract": "NODE_ENV=test lingui extract",
+    "lingui:compile": "NODE_ENV=test lingui compile",
+    "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
     "@lingui/core": "^3.13.0",
@@ -18,7 +21,8 @@
     "next": "^12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-leaflet": "^3.2.2"
+    "react-leaflet": "^3.2.2",
+    "time-delta": "^1.0.0"
   },
   "devDependencies": {
     "@lingui/cli": "^3.13.0",
