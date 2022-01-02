@@ -1,12 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Image from "next/image";
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
-=======
-import { useState } from "react";
->>>>>>> fe24b12... site module: Added locales menu
-
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -116,11 +111,7 @@ export const Home: NextPage<Props> = (props) => {
                     <button
                       data-active={i18n.locale == locale ? "true" : "false"}
                       className={styles.localeSelectionItem}
-<<<<<<< HEAD
                       onClick={() => setLocale(locale)}
-=======
-                      onClick={() => activate(locale)}
->>>>>>> fe24b12... site module: Added locales menu
                     >
                       {locale}
                     </button>
