@@ -18,7 +18,7 @@ export class DailyBond extends Entity {
 
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
     this.set("token", Value.fromString(""));
-    this.set("amount", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("payout", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("value", Value.fromBigDecimal(BigDecimal.zero()));
   }
 
@@ -66,13 +66,13 @@ export class DailyBond extends Entity {
     this.set("token", Value.fromString(value));
   }
 
-  get amount(): BigDecimal {
-    let value = this.get("amount");
+  get payout(): BigDecimal {
+    let value = this.get("payout");
     return value!.toBigDecimal();
   }
 
-  set amount(value: BigDecimal) {
-    this.set("amount", Value.fromBigDecimal(value));
+  set payout(value: BigDecimal) {
+    this.set("payout", Value.fromBigDecimal(value));
   }
 
   get value(): BigDecimal {
@@ -324,8 +324,9 @@ export class Deposit extends Entity {
 
     this.set("transaction", Value.fromString(""));
     this.set("klimate", Value.fromString(""));
-    this.set("amount", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("maxPremium", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("payout", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("discount", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("bondPrice", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("token", Value.fromString(""));
     this.set("value", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("timestamp", Value.fromBigInt(BigInt.zero()));
@@ -375,22 +376,31 @@ export class Deposit extends Entity {
     this.set("klimate", Value.fromString(value));
   }
 
-  get amount(): BigDecimal {
-    let value = this.get("amount");
+  get payout(): BigDecimal {
+    let value = this.get("payout");
     return value!.toBigDecimal();
   }
 
-  set amount(value: BigDecimal) {
-    this.set("amount", Value.fromBigDecimal(value));
+  set payout(value: BigDecimal) {
+    this.set("payout", Value.fromBigDecimal(value));
   }
 
-  get maxPremium(): BigDecimal {
-    let value = this.get("maxPremium");
+  get discount(): BigDecimal {
+    let value = this.get("discount");
     return value!.toBigDecimal();
   }
 
-  set maxPremium(value: BigDecimal) {
-    this.set("maxPremium", Value.fromBigDecimal(value));
+  set discount(value: BigDecimal) {
+    this.set("discount", Value.fromBigDecimal(value));
+  }
+
+  get bondPrice(): BigDecimal {
+    let value = this.get("bondPrice");
+    return value!.toBigDecimal();
+  }
+
+  set bondPrice(value: BigDecimal) {
+    this.set("bondPrice", Value.fromBigDecimal(value));
   }
 
   get token(): string {
@@ -425,6 +435,8 @@ export class Redemption extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
+
+    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
   }
 
   save(): void {
@@ -504,21 +516,13 @@ export class Redemption extends Entity {
     }
   }
 
-  get timestamp(): BigInt | null {
+  get timestamp(): BigInt {
     let value = this.get("timestamp");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBigInt();
-    }
+    return value!.toBigInt();
   }
 
-  set timestamp(value: BigInt | null) {
-    if (!value) {
-      this.unset("timestamp");
-    } else {
-      this.set("timestamp", Value.fromBigInt(<BigInt>value));
-    }
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
   }
 }
 
@@ -1015,6 +1019,7 @@ export class ProtocolMetric extends Entity {
     this.set("nextDistributedKlima", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("treasuryCarbon", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("currentAPY", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("runwayCurrent", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("holders", Value.fromBigInt(BigInt.zero()));
   }
 
@@ -1178,21 +1183,13 @@ export class ProtocolMetric extends Entity {
     this.set("currentAPY", Value.fromBigDecimal(value));
   }
 
-  get runwayCurrent(): BigDecimal | null {
+  get runwayCurrent(): BigDecimal {
     let value = this.get("runwayCurrent");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBigDecimal();
-    }
+    return value!.toBigDecimal();
   }
 
-  set runwayCurrent(value: BigDecimal | null) {
-    if (!value) {
-      this.unset("runwayCurrent");
-    } else {
-      this.set("runwayCurrent", Value.fromBigDecimal(<BigDecimal>value));
-    }
+  set runwayCurrent(value: BigDecimal) {
+    this.set("runwayCurrent", Value.fromBigDecimal(value));
   }
 
   get holders(): BigInt {
@@ -1313,6 +1310,8 @@ export class ContractInfo extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
+
+    this.set("amount", Value.fromBigDecimal(BigDecimal.zero()));
   }
 
   save(): void {
@@ -1375,21 +1374,13 @@ export class ContractInfo extends Entity {
     }
   }
 
-  get amount(): BigDecimal | null {
+  get amount(): BigDecimal {
     let value = this.get("amount");
-    if (!value || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBigDecimal();
-    }
+    return value!.toBigDecimal();
   }
 
-  set amount(value: BigDecimal | null) {
-    if (!value) {
-      this.unset("amount");
-    } else {
-      this.set("amount", Value.fromBigDecimal(<BigDecimal>value));
-    }
+  set amount(value: BigDecimal) {
+    this.set("amount", Value.fromBigDecimal(value));
   }
 }
 

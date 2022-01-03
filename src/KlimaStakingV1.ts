@@ -53,20 +53,3 @@ export function handleTransfer(event: Transfer): void {
         updateProtocolMetrics(transaction)
     }
 }
-/*
-export function handleUnstake(call: UnstakeCall): void {
-    let klimate = loadOrCreateKlimate(call.from as Address)
-    let transaction = loadOrCreateTransaction(call.transaction, call.block)
-    let value = toDecimal(call.inputs._amount, 9)
-
-    let unstake = new Unstake(transaction.id)
-    unstake.transaction = transaction.id
-    unstake.klimate = klimate.id
-    unstake.amount = value
-    unstake.timestamp = transaction.timestamp;
-    unstake.save()
-
-    updateKlimateBalance(klimate, transaction)
-    //updateProtocolMetrics(transaction)
-}
-*/

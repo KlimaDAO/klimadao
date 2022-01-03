@@ -38,6 +38,19 @@ export function getKLIMAUSDRate(): BigDecimal {
     return klimaRate
 }
 
+export function getKLIMABCTRate(): BigDecimal {
+    let pair = UniswapV2Pair.bind(Address.fromString(KLIMA_BCT_PAIR))
+
+    let reserves = pair.getReserves()
+    let reserve0 = reserves.value0.toBigDecimal()
+    let reserve1 = reserves.value1.toBigDecimal()
+
+    let klimaRate = reserve0.div(reserve1).div(BIG_DECIMAL_1E9)
+    log.debug("KLIMA BCT rate {}", [klimaRate.toString()])
+
+    return klimaRate
+}
+
 //(slp_treasury/slp_supply)*(2*sqrt(lp_dai * lp_ohm))
 export function getDiscountedPairCO2(lp_amount: BigInt, pair_adress: string): BigDecimal {
     let pair = UniswapV2Pair.bind(Address.fromString(pair_adress))
@@ -68,10 +81,10 @@ export function getKlimaPairUSD(lp_amount: BigInt, pair_adress: string): BigDeci
 
     if (token_0 = KLIMA_ERC20_V1_CONTRACT) {
         let klima_value = toDecimal(lp_token_0, 9).times(getKLIMAUSDRate())
-        let total_lp_usd = klima_value.plus(toDecimal(lp_token_1, 18).times(getBCTUSDRate()))
+        total_lp_usd = klima_value.plus(toDecimal(lp_token_1, 18).times(getBCTUSDRate()))
     } else {
         let klima_value = toDecimal(lp_token_1, 9).times(getKLIMAUSDRate())
-        let total_lp_usd = klima_value.plus(toDecimal(lp_token_0, 18).times(getBCTUSDRate()))
+        total_lp_usd = klima_value.plus(toDecimal(lp_token_0, 18).times(getBCTUSDRate()))
     }
 
     return ownedLP.times(total_lp_usd)

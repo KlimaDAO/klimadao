@@ -1,10 +1,10 @@
-import { Address } from '@graphprotocol/graph-ts';
+import { ethereum } from '@graphprotocol/graph-ts'
 import { Redemption } from '../../generated/schema'
 
-export function loadOrCreateRedemption(addres: Address): Redemption{
-    let redemption = Redemption.load(addres.toHex())
+export function loadOrCreateRedemption(eth_transaction: ethereum.Transaction): Redemption {
+    let redemption = Redemption.load(eth_transaction.hash.toHex())
     if (redemption == null) {
-        redemption = new Redemption(addres.toHex())
+        redemption = new Redemption((eth_transaction.hash.toHex()))
         redemption.save()
     }
     return redemption as Redemption

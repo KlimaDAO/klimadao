@@ -2,7 +2,7 @@ type DailyBond @entity {
   id: ID!
   timestamp: BigInt!
   token: Token!
-  amount: BigDecimal!
+  payout: BigDecimal!
   value: BigDecimal!
 }
 
@@ -33,8 +33,9 @@ type Deposit @entity {
   id: ID!
   transaction: Transaction!
   klimate: Klimate!
-  amount: BigDecimal!
-  maxPremium: BigDecimal!
+  payout: BigDecimal!
+  discount: BigDecimal!
+  bondPrice: BigDecimal!
   token: Token!
   value: BigDecimal!
   timestamp: BigInt!
@@ -45,7 +46,7 @@ type Redemption @entity {
   transaction: Transaction
   klimate: Klimate
   token: Token
-  timestamp: BigInt
+  timestamp: BigInt!
 }
 
 type Stake @entity {
@@ -114,7 +115,7 @@ type ProtocolMetric @entity {
   nextDistributedKlima: BigDecimal!
   treasuryCarbon: BigDecimal!
   currentAPY: BigDecimal!
-  runwayCurrent: BigDecimal
+  runwayCurrent: BigDecimal!
   holders: BigInt!
 }
 
@@ -133,7 +134,7 @@ type ContractInfo @entity {
   id: ID!
   name: String
   contract: String
-  amount: BigDecimal
+  amount: BigDecimal!
 }
 
 type Aux @entity {
