@@ -1,6 +1,10 @@
 import React, { ChangeEventHandler, FC } from "react";
-import t from "@klimadao/lib/theme/typography.module.css";
-import styles from "./index.module.css";
+
+// Copied from Stake view despite T/t
+import T from "@klimadao/lib/theme/typography.module.css";
+import styles from "components/views/Stake/index.module.css";
+import { Trans, t, defineMessage } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 
 interface Props {
   slippage: number;
@@ -15,9 +19,11 @@ export const AdvancedSettings: FC<Props> = (props) => {
       <form>
         <h5 className={t.subtitle1}>Einstein–Rosen Bridge</h5>
         <p className={t.caption}>
-          Use this bridge through space-time to direct the transaction to a
-          different recipient address. (default: your currently connected
-          address).
+          <Trans id="msg.esbridge">
+            Use this bridge through space-time to direct the transaction to a
+            different recipient address. (default: your currently connected
+            address).
+          </Trans>
         </p>
         <input
           value={props.recipientAddress}
@@ -30,8 +36,10 @@ export const AdvancedSettings: FC<Props> = (props) => {
       <form>
         <h5 className={t.subtitle1}>Slippage Tolerance</h5>
         <p>
-          Transaction may revert if price changes by more than desired slippage
-          percentage.
+          <Trans id="msg.revert">
+            Transaction may revert if price changes by more than desired slippage
+            percentage.
+          </Trans>
         </p>
         <div className={styles.slippageInput}>
           <input
