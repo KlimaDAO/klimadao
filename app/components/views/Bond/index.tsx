@@ -250,7 +250,11 @@ export const Bond: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return { children: <Trans id="button.not_connected">Not connected</Trans>, onClick: undefined, disabled: true };
+      return { 
+        children: <Trans id="button.not_connected">Not connected</Trans>, 
+        onClick: undefined, 
+        disabled: true 
+      };
     } else if (isLoading) {
       return {
         children: <Trans id="button.loading">Loading</Trans>,
