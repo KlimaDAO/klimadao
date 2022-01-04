@@ -74,12 +74,3 @@ export const loadAppDetails = (params: {
     }
   };
 };
-export const hideCheckURLBanner = (): Thunk => {
-  return (dispatch) => {
-    dispatch(
-      setAppState({
-        showCheckURLBanner: false,
-      })
-    );
-  };
-};

@@ -8,7 +8,6 @@ interface AppState {
   stakingRebase: number | undefined;
   treasuryBalance: number | undefined;
   rebaseBlock: number | undefined;
-  showCheckURLBanner: boolean;
 }
 
 const initialState: AppState = {
@@ -19,7 +18,6 @@ const initialState: AppState = {
   stakingRebase: undefined,
   treasuryBalance: undefined,
   rebaseBlock: undefined,
-  showCheckURLBanner: true,
 };
 
 export const appSlice = createSlice({

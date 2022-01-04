@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <I18nProvider i18n={i18n}>
+    <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
       <Component {...pageProps} />
     </I18nProvider>
   );

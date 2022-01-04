@@ -7,8 +7,8 @@ import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import t from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
-import { selectBalances, selectShowCheckURLBanner } from "state/selectors";
-import { loadAppDetails, hideCheckURLBanner } from "actions/app";
+import { selectBalances } from "state/selectors";
+import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 
@@ -129,14 +129,18 @@ export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
-  const showCheckURLBanner = useSelector(selectShowCheckURLBanner);
+  const [showCheckURLBanner, setShowCheckURLBanner] = useState(true);
 
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
   const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
-
+  const [locale, setLocale] = useState<string>(i18n.locale || "en");
+  useEffect(() => {
+    console.log(locale);
+    activate(locale);
+  }, [locale]);
   /**
    * This is a hack to force re-render of nav component
    * because SSR hydration doesn't show active path
@@ -384,17 +388,17 @@ export const Home: FC = () => {
                   <Trans id="usermenu.changelanguage">Language</Trans>
                 </button>
 
-                {Object.keys(locales).map((locale, key) => (
+                {Object.keys(locales).map((locale_k, key) => (
                   <div
                     key={key}
                     style={{ display: localesMenuVisible ? "block" : "none" }}
                   >
                     <button
-                      data-active={i18n.locale == locale ? "true" : "false"}
+                      data-active={locale == locale_k ? "true" : "false"}
                       className={styles.localeSelectionItem}
-                      onClick={() => activate(locale)}
+                      onClick={() => setLocale(locale_k)}
                     >
-                      {locale}
+                      {locale_k}
                     </button>
                   </div>
                 ))}
@@ -511,7 +515,7 @@ export const Home: FC = () => {
       {showCheckURLBanner && (
         <CheckURLBanner
           onHide={() => {
-            dispatch(hideCheckURLBanner());
+            setShowCheckURLBanner(false);
           }}
         />
       )}
