@@ -4,7 +4,9 @@ import enTime from "time-delta/locales/en";
 import frTime from "time-delta/locales/fr";
 import * as timeDelta from "time-delta";
 import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
+import { IS_PRODUCTION } from "lib/constants";
 
+// Define locales
 interface ILocales {
   [locale: string]: {
     plurals: (
@@ -18,6 +20,10 @@ const locales: ILocales = {
   en: { plurals: en, time: enTime },
   fr: { plurals: fr, time: frTime },
 };
+// Add pseudo locale only in development
+if (!IS_PRODUCTION) {
+  locales["pseudo"] = { plurals: en, time: enTime };
+}
 
 for (const key in locales) {
   const locale = locales[key];

@@ -13,175 +13,287 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Stake/index.tsx:119
-#: components/views/Stake/index.tsx:122
+#: components/views/Bond/index.tsx:274
+#: components/views/Redeem/index.tsx:114
+#: components/views/Redeem/index.tsx:119
+#: components/views/Stake/index.tsx:166
+#: components/views/Stake/index.tsx:171
+#: components/views/Wrap/index.tsx:127
 msgid "button.approve"
 msgstr "Approve"
 
-#: components/views/Stake/index.tsx:116
+#: components/views/PKlima/index.tsx:136
+msgid "button.bct"
+msgstr "2. Approve BCT"
+
+#: components/views/Bond/index.tsx:280
+msgid "button.bond"
+msgstr "Bond"
+
+#: components/views/Bond/index.tsx:268
+#: components/views/PKlima/index.tsx:125
+#: components/views/Redeem/index.tsx:108
+#: components/views/Stake/index.tsx:160
+#: components/views/Wrap/index.tsx:121
 msgid "button.confirming"
 msgstr "Confirming"
 
-#: components/views/Stake/index.tsx:109
+#: components/views/Bond/index.tsx:293
+#: components/views/Redeem/index.tsx:136
+#: components/views/Wrap/index.tsx:144
+msgid "button.error"
+msgstr "Error"
+
+#: components/views/PKlima/index.tsx:141
+msgid "button.exercise"
+msgstr "EXERCISE"
+
+#: components/views/Bond/index.tsx:259
+#: components/views/PKlima/index.tsx:116
+#: components/views/Redeem/index.tsx:99
+#: components/views/Stake/index.tsx:151
+#: components/views/Wrap/index.tsx:112
 msgid "button.loading"
 msgstr "Loading"
 
-#: components/views/Stake/index.tsx:238
+#: components/views/Stake/index.tsx:328
 msgid "button.max"
 msgstr "Max"
 
-#: components/views/Stake/index.tsx:105
+#: components/views/Bond/index.tsx:253
+#: components/views/PKlima/index.tsx:110
+#: components/views/Redeem/index.tsx:93
+#: components/views/Stake/index.tsx:145
+#: components/views/Wrap/index.tsx:106
 msgid "button.not_connected"
 msgstr "Not connected"
 
-#: components/views/Stake/index.tsx:126
+#: components/views/PKlima/index.tsx:131
+msgid "button.pklima"
+msgstr "1. Approve pKLIMA"
+
+#: components/views/Bond/index.tsx:286
+#: components/views/Redeem/index.tsx:124
+#: components/views/Redeem/index.tsx:130
+msgid "button.redeem"
+msgstr "Redeem"
+
+#: components/views/Stake/index.tsx:176
 msgid "button.stake"
 msgstr "Stake"
 
-#: components/views/Stake/index.tsx:133
+#: components/views/Stake/index.tsx:182
 msgid "button.unstake"
 msgstr "Unstake"
 
-#: components/views/Home/index.tsx:325
+#: components/views/Wrap/index.tsx:138
+msgid "button.unwrap"
+msgstr "Unwrap"
+
+#: components/views/Wrap/index.tsx:132
+msgid "button.wrap"
+msgstr "Wrap"
+
+#: components/views/Home/index.tsx:498
 msgid "footer.blog"
 msgstr "blog"
 
-#: components/views/Home/index.tsx:326
+#: components/views/Home/index.tsx:501
 msgid "footer.community"
 msgstr "community"
 
-#: components/views/Home/index.tsx:324
+#: components/views/Home/index.tsx:495
 msgid "footer.docs"
 msgstr "docs"
 
-#: components/views/Home/index.tsx:323
+#: components/views/Home/index.tsx:492
 msgid "footer.home"
 msgstr "home"
 
-#: components/views/Home/index.tsx:235
+#: components/views/Home/index.tsx:282
 msgid "header.connectedto"
 msgstr "You are connected to"
 
-#: components/views/Home/index.tsx:273
+#: components/views/Home/index.tsx:353
 msgid "header.welcome"
 msgstr "Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to earn interest."
 
-#: components/views/Home/index.tsx:249
+#: components/views/Home/index.tsx:316
 msgid "menu.bond"
 msgstr "BOND"
 
-#: components/views/Home/index.tsx:252
+#: components/views/Home/index.tsx:323
 msgid "menu.info"
 msgstr "INFO"
 
-#: components/views/Home/index.tsx:240
+#: components/views/Home/index.tsx:294
 msgid "menu.redeem"
 msgstr "REDEEM"
 
-#: components/views/Home/index.tsx:243
+#: components/views/Home/index.tsx:302
 msgid "menu.stake"
 msgstr "STAKE"
 
-#: components/views/Home/index.tsx:246
+#: components/views/Home/index.tsx:309
 msgid "menu.wrap"
 msgstr "WRAP"
 
-#: components/views/Stake/index.tsx:334
+#: components/views/Redeem/index.tsx:182
+msgid "msg.aklima"
+msgstr "If you received AlphaKLIMA from the Fair Launch Auction, or AlchemistKLIMA from the Crucible rewards event, use this tool to redeem them for KLIMA."
+
+#: components/views/Redeem/index.tsx:191
+msgid "msg.bridge"
+msgstr "Before proceeding: you must bridge your aKLIMA and alKLIMA tokens from Ethereum to Polygon."
+
+#: components/views/Bond/AdvancedSettings/index.tsx:22
+msgid "msg.esbridge"
+msgstr "Use this bridge through space-time to direct the transaction to a different recipient address. (default: your currently connected address)."
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:34
+msgid "msg.growth"
+msgstr "It may be a few days, depending on the KLIMA growth rate, before you can access this page and continue redeeming pKLIMA."
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:18
+msgid "msg.overclaim"
+msgstr "You've claimed more KLIMA than your supply-share limit. This is likely due to a fix implemented on November 24th, 2021 to the pKLIMA redemption contract."
+
+#: components/views/Bond/AdvancedSettings/index.tsx:39
+msgid "msg.revert"
+msgstr "Transaction may revert if price changes by more than desired slippage percentage."
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:25
+msgid "msg.update"
+msgstr "The updated contract now assumes pKLIMA holders have staked and earned interest on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
+
+#: components/views/Wrap/index.tsx:204
+msgid "msg.wsklima"
+msgstr "wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may find this useful for accounting purposes. Unlike your sKLIMA balance, your wsKLIMA balance will not increase over time."
+
+#: components/views/Wrap/index.tsx:211
+msgid "msg.yield"
+msgstr "When wsKLIMA is unwrapped, you receive sKLIMA based on the latest (ever-increasing) index, so the total yield is the same."
+
+#: components/views/Stake/index.tsx:450
 msgid "stake.apy"
 msgstr "APY"
 
-#: components/views/Stake/index.tsx:196
+#: components/views/Stake/index.tsx:261
 msgid "stake.apy.tooltip"
 msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
 
-#: components/views/Stake/index.tsx:250
+#: components/views/Stake/index.tsx:342
 msgid "stake.balance"
 msgstr "Balance"
 
-#: components/views/Stake/index.tsx:172
+#: components/views/Stake/index.tsx:236
 msgid "stake.balance.tooltip"
 msgstr "Unstaked KLIMA, not generating interest"
 
-#: components/views/Stake/index.tsx:208
+#: components/views/Stake/index.tsx:277
 msgid "stake.caption"
 msgstr "Hold, stake, and compound. If the protocol earns a profit selling carbon bonds, these rewards are shared among all holders of staked KLIMA (sKLIMA)."
 
-#: components/views/Stake/index.tsx:347
+#: components/views/Stake/index.tsx:466
 msgid "stake.current_index"
 msgstr "Current index"
 
-#: components/views/Stake/index.tsx:200
+#: components/views/Stake/index.tsx:266
 msgid "stake.current_index.tooltip"
 msgstr "Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes."
 
-#: components/views/Stake/index.tsx:281
+#: components/views/Stake/index.tsx:385
 msgid "stake.rebase_rate"
 msgstr "Rebase rate"
 
-#: components/views/Stake/index.tsx:180
+#: components/views/Stake/index.tsx:244
 msgid "stake.rebase_rate.tooltip"
 msgstr "Percent interest to be rewarded at next rebase"
 
-#: components/views/Stake/index.tsx:294
+#: components/views/Stake/index.tsx:401
 msgid "stake.rebase_value"
 msgstr "Rebase value"
 
-#: components/views/Stake/index.tsx:184
+#: components/views/Stake/index.tsx:248
 msgid "stake.rebase_value.tooltip"
 msgstr "Approximate amount of sKLIMA you will receive at next rebase"
 
-#: components/views/Stake/index.tsx:320
+#: components/views/Stake/index.tsx:433
 msgid "stake.roi"
 msgstr "ROI (5-day rate)"
 
-#: components/views/Stake/index.tsx:192
+#: components/views/Stake/index.tsx:256
 msgid "stake.roi.tooltip"
 msgstr "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
 
-#: components/views/Stake/index.tsx:266
+#: components/views/Stake/index.tsx:364
 msgid "stake.staked"
 msgstr "Staked"
 
-#: components/views/Stake/index.tsx:176
+#: components/views/Stake/index.tsx:240
 msgid "stake.staked.tooltip"
 msgstr "Staked KLIMA generating interest"
 
-#: components/views/Stake/index.tsx:307
+#: components/views/Stake/index.tsx:417
 msgid "stake.time_until_rebase"
 msgstr "Time until rebase"
 
-#: components/views/Stake/index.tsx:188
+#: components/views/Stake/index.tsx:252
 msgid "stake.time_until_rebase.tooltip"
 msgstr "Approximate time remaining until next rewards distribution"
 
-#: components/views/Stake/index.tsx:152
+#: components/views/Bond/index.tsx:680
+msgid "status.bond_negative"
+msgstr "⚠️ Warning: this bond price is inflated because the current discount rate is negative."
+
+#: components/views/Bond/index.tsx:303
+#: components/views/PKlima/index.tsx:152
+#: components/views/Redeem/index.tsx:147
+#: components/views/Stake/index.tsx:202
+#: components/views/Wrap/index.tsx:154
 msgid "status.pending_confirmation"
 msgstr "Please click 'confirm' in your wallet to continue."
 
-#: components/views/Stake/index.tsx:158
+#: components/views/Bond/index.tsx:315
+#: components/views/PKlima/index.tsx:164
+#: components/views/Redeem/index.tsx:159
+#: components/views/Stake/index.tsx:214
+#: components/views/Wrap/index.tsx:166
 msgid "status.transaction_error"
 msgstr "❌ Error: something went wrong..."
 
-#: components/views/Stake/index.tsx:164
+#: components/views/Bond/index.tsx:323
+#: components/views/PKlima/index.tsx:172
+#: components/views/Redeem/index.tsx:167
+#: components/views/Stake/index.tsx:222
+#: components/views/Wrap/index.tsx:174
 msgid "status.transaction_rejected"
 msgstr "✖️ You chose to reject the transaction."
 
-#: components/views/Stake/index.tsx:155
+#: components/views/Bond/index.tsx:309
+#: components/views/PKlima/index.tsx:158
+#: components/views/Redeem/index.tsx:153
+#: components/views/Stake/index.tsx:208
+#: components/views/Wrap/index.tsx:160
 msgid "status.transaction_started"
 msgstr "Transaction initiated. Waiting for network confirmation."
 
-#: components/views/Stake/index.tsx:161
+#: components/views/Bond/index.tsx:320
+#: components/views/PKlima/index.tsx:169
+#: components/views/Redeem/index.tsx:164
+#: components/views/Stake/index.tsx:219
+#: components/views/Wrap/index.tsx:171
 msgid "status.transaction_success"
 msgstr "✔️ Success!."
 
-#: components/views/Home/index.tsx:286
+#: components/views/Home/index.tsx:388
 msgid "usermenu.changelanguage"
 msgstr "Language"
 
-#: components/views/Home/index.tsx:280
+#: components/views/Home/index.tsx:367
 msgid "usermenu.connect_wallet"
 msgstr "CONNECT WALLET"
 
-#: components/views/Home/index.tsx:283
+#: components/views/Home/index.tsx:376
 msgid "usermenu.disconnect_wallet"
 msgstr "DISCONNECT WALLET"

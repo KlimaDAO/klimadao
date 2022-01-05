@@ -1,0 +1,1 @@
+/*eslint-disable*/module.exports={messages:{"msg.action":"mśĝ.àćţĩōń","msg.blackhole":"mśĝ.ƀĺàćķĥōĺē","msg.goal":"mśĝ.ĝōàĺ","msg.value":"mśĝ.vàĺũē","usermenu.changelanguage":"ũśēŕmēńũ.ćĥàńĝēĺàńĝũàĝē"}};

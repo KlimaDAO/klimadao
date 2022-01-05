@@ -1,21 +1,17 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-01-02 11:29+0100\n"
+"POT-Creation-Date: 2022-01-05 09:52+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
-"Language: fr\n"
+"Language: pseudo\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Plural-Forms: \n"
-
-#: components/pages/Home/index.tsx:84
-#~ msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
-#~ msgstr "Pesez sur les actions pour le climat et gagnez des récompenses avec un crypto-actif algorithmique collatéralisé par des obligations carbone."
 
 #: components/pages/Home/index.tsx:91
 msgid "msg.action"
@@ -35,4 +31,4 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:106
 msgid "usermenu.changelanguage"
-msgstr "Langue"
+msgstr ""

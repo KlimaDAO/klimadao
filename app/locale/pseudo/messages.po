@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2021-12-10 22:51+0100\n"
-"Mime-Version: 1.0\n"
+"POT-Creation-Date: 2022-01-05 09:24+0100\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
-"Language: fr\n"
+"Language: pseudo\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: \n"
@@ -20,7 +20,7 @@ msgstr ""
 #: components/views/Stake/index.tsx:171
 #: components/views/Wrap/index.tsx:127
 msgid "button.approve"
-msgstr "Approuver"
+msgstr ""
 
 #: components/views/PKlima/index.tsx:136
 msgid "button.bct"
@@ -36,7 +36,7 @@ msgstr ""
 #: components/views/Stake/index.tsx:160
 #: components/views/Wrap/index.tsx:121
 msgid "button.confirming"
-msgstr "En attente de confirmation"
+msgstr ""
 
 #: components/views/Bond/index.tsx:293
 #: components/views/Redeem/index.tsx:136
@@ -54,11 +54,11 @@ msgstr ""
 #: components/views/Stake/index.tsx:151
 #: components/views/Wrap/index.tsx:112
 msgid "button.loading"
-msgstr "Chargement"
+msgstr ""
 
 #: components/views/Stake/index.tsx:328
 msgid "button.max"
-msgstr "Max"
+msgstr ""
 
 #: components/views/Bond/index.tsx:253
 #: components/views/PKlima/index.tsx:110
@@ -66,7 +66,7 @@ msgstr "Max"
 #: components/views/Stake/index.tsx:145
 #: components/views/Wrap/index.tsx:106
 msgid "button.not_connected"
-msgstr "Non connecté"
+msgstr ""
 
 #: components/views/PKlima/index.tsx:131
 msgid "button.pklima"
@@ -80,11 +80,11 @@ msgstr ""
 
 #: components/views/Stake/index.tsx:176
 msgid "button.stake"
-msgstr "Déposer"
+msgstr ""
 
 #: components/views/Stake/index.tsx:182
 msgid "button.unstake"
-msgstr "Retirer"
+msgstr ""
 
 #: components/views/Wrap/index.tsx:138
 msgid "button.unwrap"
@@ -96,47 +96,47 @@ msgstr ""
 
 #: components/views/Home/index.tsx:498
 msgid "footer.blog"
-msgstr "Blog"
+msgstr ""
 
 #: components/views/Home/index.tsx:501
 msgid "footer.community"
-msgstr "Communauté"
+msgstr ""
 
 #: components/views/Home/index.tsx:495
 msgid "footer.docs"
-msgstr "Documentation"
+msgstr ""
 
 #: components/views/Home/index.tsx:492
 msgid "footer.home"
-msgstr "Acceuil"
+msgstr ""
 
 #: components/views/Home/index.tsx:282
 msgid "header.connectedto"
-msgstr "Vous êtes connecté"
+msgstr ""
 
 #: components/views/Home/index.tsx:353
 msgid "header.welcome"
-msgstr "Bienvenue sur l'application Klima. Déposez du carbon pour acheter KLIMA. Déposez KLIMA pour générer des intérêts."
+msgstr ""
 
 #: components/views/Home/index.tsx:316
 msgid "menu.bond"
-msgstr "Obligations"
+msgstr ""
 
 #: components/views/Home/index.tsx:323
 msgid "menu.info"
-msgstr "Informations"
+msgstr ""
 
 #: components/views/Home/index.tsx:294
 msgid "menu.redeem"
-msgstr "Retirer"
+msgstr ""
 
 #: components/views/Home/index.tsx:302
 msgid "menu.stake"
-msgstr "Déposer"
+msgstr ""
 
 #: components/views/Home/index.tsx:309
 msgid "menu.wrap"
-msgstr "Encapsuler"
+msgstr ""
 
 #: components/views/Redeem/index.tsx:182
 msgid "msg.aklima"
@@ -176,71 +176,71 @@ msgstr ""
 
 #: components/views/Stake/index.tsx:450
 msgid "stake.apy"
-msgstr "APY"
+msgstr ""
 
 #: components/views/Stake/index.tsx:261
 msgid "stake.apy.tooltip"
-msgstr "Taux d'intérêt annuel, incluant les intérêts composés, si votre capital reste en dépôt pendant 5 jours."
+msgstr ""
 
 #: components/views/Stake/index.tsx:342
 msgid "stake.balance"
-msgstr "Solde"
+msgstr ""
 
 #: components/views/Stake/index.tsx:236
 msgid "stake.balance.tooltip"
-msgstr "Klima non déposé et ne générant pas d'intérêts"
+msgstr ""
 
 #: components/views/Stake/index.tsx:277
 msgid "stake.caption"
-msgstr "Conservez, déposez et composez. Le protocol récolte de produit de la vente d'obligations carbone. Ces gains sont redistribués aux détenteurs de KLIMA déposé (sKLIMA)."
+msgstr ""
 
 #: components/views/Stake/index.tsx:466
 msgid "stake.current_index"
-msgstr "Index courant"
+msgstr ""
 
 #: components/views/Stake/index.tsx:266
 msgid "stake.current_index.tooltip"
-msgstr "Quantité que vous auriez aujourd'hui. Auriez vous déposé 1 Klima le jour du lancement. Intéressant pour certaines activités de comptabilité"
+msgstr ""
 
 #: components/views/Stake/index.tsx:385
 msgid "stake.rebase_rate"
-msgstr "Prochains taux d'intérêt"
+msgstr ""
 
 #: components/views/Stake/index.tsx:244
 msgid "stake.rebase_rate.tooltip"
-msgstr "Taux d'intérêt accordé pour le prochain rebasement"
+msgstr ""
 
 #: components/views/Stake/index.tsx:401
 msgid "stake.rebase_value"
-msgstr "Valeur du prochain rebasement"
+msgstr ""
 
 #: components/views/Stake/index.tsx:248
 msgid "stake.rebase_value.tooltip"
-msgstr "Quantité approximative de sKlima que vous receverez au prochain rebasement"
+msgstr ""
 
 #: components/views/Stake/index.tsx:433
 msgid "stake.roi"
-msgstr "ROI (Taux à 5 jours)"
+msgstr ""
 
 #: components/views/Stake/index.tsx:256
 msgid "stake.roi.tooltip"
-msgstr "Retour sur investissement estimé, incluant les intérêts composés. Si votre capital reste en dépôt pendant 5 jours"
+msgstr ""
 
 #: components/views/Stake/index.tsx:364
 msgid "stake.staked"
-msgstr "Déposé"
+msgstr ""
 
 #: components/views/Stake/index.tsx:240
 msgid "stake.staked.tooltip"
-msgstr "Klima en dépôt et générant des intérêts"
+msgstr ""
 
 #: components/views/Stake/index.tsx:417
 msgid "stake.time_until_rebase"
-msgstr "Durée avant le prochain rebasement"
+msgstr ""
 
 #: components/views/Stake/index.tsx:252
 msgid "stake.time_until_rebase.tooltip"
-msgstr "Durée approximative avant la prochaine distribution d'intérêts."
+msgstr ""
 
 #: components/views/Bond/index.tsx:680
 msgid "status.bond_negative"
@@ -252,7 +252,7 @@ msgstr ""
 #: components/views/Stake/index.tsx:202
 #: components/views/Wrap/index.tsx:154
 msgid "status.pending_confirmation"
-msgstr "Veuillez cliquer sur 'confirmer' dans votre portefeuille pour continuer."
+msgstr ""
 
 #: components/views/Bond/index.tsx:315
 #: components/views/PKlima/index.tsx:164
@@ -260,7 +260,7 @@ msgstr "Veuillez cliquer sur 'confirmer' dans votre portefeuille pour continuer.
 #: components/views/Stake/index.tsx:214
 #: components/views/Wrap/index.tsx:166
 msgid "status.transaction_error"
-msgstr "❌ Erreur: quelque chose s'est mal passé..."
+msgstr ""
 
 #: components/views/Bond/index.tsx:323
 #: components/views/PKlima/index.tsx:172
@@ -268,7 +268,7 @@ msgstr "❌ Erreur: quelque chose s'est mal passé..."
 #: components/views/Stake/index.tsx:222
 #: components/views/Wrap/index.tsx:174
 msgid "status.transaction_rejected"
-msgstr "✖️ Vous avez choisi de rejeter la transaction."
+msgstr ""
 
 #: components/views/Bond/index.tsx:309
 #: components/views/PKlima/index.tsx:158
@@ -276,7 +276,7 @@ msgstr "✖️ Vous avez choisi de rejeter la transaction."
 #: components/views/Stake/index.tsx:208
 #: components/views/Wrap/index.tsx:160
 msgid "status.transaction_started"
-msgstr "Transaction démarée. En attente des confirmations réseau."
+msgstr ""
 
 #: components/views/Bond/index.tsx:320
 #: components/views/PKlima/index.tsx:169
@@ -284,16 +284,16 @@ msgstr "Transaction démarée. En attente des confirmations réseau."
 #: components/views/Stake/index.tsx:219
 #: components/views/Wrap/index.tsx:171
 msgid "status.transaction_success"
-msgstr "\"✔️ Succès!"
+msgstr ""
 
 #: components/views/Home/index.tsx:388
 msgid "usermenu.changelanguage"
-msgstr "Langue"
+msgstr ""
 
 #: components/views/Home/index.tsx:367
 msgid "usermenu.connect_wallet"
-msgstr "Connectez votre portefeuille"
+msgstr ""
 
 #: components/views/Home/index.tsx:376
 msgid "usermenu.disconnect_wallet"
-msgstr "Déconnectez votre portefeuille"
+msgstr ""

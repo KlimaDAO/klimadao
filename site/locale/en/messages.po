@@ -14,9 +14,25 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: components/pages/Home/index.tsx:84
-msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+#~ msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+#~ msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+
+#: components/pages/Home/index.tsx:91
+msgid "msg.action"
 msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 
-#: components/pages/Home/index.tsx:99
+#: components/pages/Home/index.tsx:250
+msgid "msg.blackhole"
+msgstr "A blackhole for"
+
+#: components/pages/Home/index.tsx:228
+msgid "msg.goal"
+msgstr "KlimaDAO’s goal is to accelerate the price appreciation of carbon assets. A high price for carbon forces companies and economies to adapt more quickly to the realities of climate change, and makes low-carbon technologies and carbon-removal projects more profitable."
+
+#: components/pages/Home/index.tsx:237
+msgid "msg.value"
+msgstr "Through the KLIMA token, we will maximize value creation for our community and create a virtuous cycle of growth. Eventually, the KLIMA token (each backed by real, verified carbon assets) will function as a truly sustainable asset and medium-of-exchange, with real planetary value."
+
+#: components/pages/Home/index.tsx:106
 msgid "usermenu.changelanguage"
 msgstr "Language"

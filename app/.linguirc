@@ -1,18 +1,20 @@
 {
-    "locales": [
-        "en",
-        "fr"
-    ],
-    "sourceLocale": "en",
-    "catalogs": [
-        {
-            "path": "<rootDir>/locale/{locale}/messages",
-            "include": [
-                "<rootDir>/"
-            ],
-            "exclude": [
-                "**/node_modules/**"
-            ]
-        }
-    ]
+  "locales": [
+    "en",
+    "fr",
+    "pseudo"
+  ],
+  "sourceLocale": "en",
+  "pseudoLocale": "pseudo",
+  "catalogs": [
+    {
+      "path": "<rootDir>/locale/{locale}/messages",
+      "include": [
+        "<rootDir>/"
+      ],
+      "exclude": [
+        "**/node_modules/**"
+      ]
+    }
+  ]
 }
