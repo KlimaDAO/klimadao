@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       stakingAPY,
       price,
     },
-    revalidate: 240,
+    revalidate: 60,
   };
 };
 
