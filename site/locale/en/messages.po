@@ -17,21 +17,145 @@ msgstr ""
 #~ msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 #~ msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 
-#: components/pages/Home/index.tsx:91
-msgid "msg.action"
-msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+#: components/pages/Home/index.tsx:269
+msgid "card.blackhole.carbon"
+msgstr "carbon"
 
-#: components/pages/Home/index.tsx:250
-msgid "msg.blackhole"
+#: components/pages/Home/index.tsx:267
+msgid "card.blackhole.title"
 msgstr "A blackhole for"
 
-#: components/pages/Home/index.tsx:228
-msgid "msg.goal"
+#: components/pages/Home/index.tsx:245
+msgid "card.dao.goal"
 msgstr "KlimaDAO’s goal is to accelerate the price appreciation of carbon assets. A high price for carbon forces companies and economies to adapt more quickly to the realities of climate change, and makes low-carbon technologies and carbon-removal projects more profitable."
 
-#: components/pages/Home/index.tsx:237
-msgid "msg.value"
+#: components/pages/Home/index.tsx:241
+msgid "card.dao.title"
+msgstr "A DAO, a protocol,"
+
+#: components/pages/Home/index.tsx:254
+msgid "card.dao.value"
 msgstr "Through the KLIMA token, we will maximize value creation for our community and create a virtuous cycle of growth. Eventually, the KLIMA token (each backed by real, verified carbon assets) will function as a truly sustainable asset and medium-of-exchange, with real planetary value."
+
+#: components/pages/Home/index.tsx:312
+msgid "footer.app"
+msgstr "app"
+
+#: components/pages/Home/index.tsx:318
+msgid "footer.blog"
+msgstr "blog"
+
+#: components/pages/Home/index.tsx:321
+msgid "footer.community"
+msgstr "community"
+
+#: components/pages/Home/index.tsx:315
+msgid "footer.docs"
+msgstr "docs"
+
+#: components/pages/Home/index.tsx:91
+msgid "header.caption"
+msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+
+#: components/pages/Home/index.tsx:173
+msgid "info.CO2_tons"
+msgstr "TONNES CO2"
+
+#: components/pages/Home/index.tsx:166
+msgid "info.carbon_in_treasury"
+msgstr "CARBON IN TREASURY"
+
+#: components/pages/Home/index.tsx:218
+msgid "info.current_apy"
+msgstr "CURRENT APY"
+
+#: components/pages/Home/index.tsx:179
+msgid "info.equivalent_to"
+msgstr "Equivalent to"
+
+#: components/pages/Home/index.tsx:185
+msgid "info.equivalent_to.hectars_of_forest"
+msgstr "hectares of forest"
+
+#: components/pages/Home/index.tsx:199
+msgid "info.equivalent_to.liters_of_gasoline"
+msgstr "liters of gasoline"
+
+#: components/pages/Home/index.tsx:193
+msgid "info.equivalent_to.passenger_vehicles"
+msgstr "passenger vehicles (annual)"
+
+#: components/pages/Home/index.tsx:211
+msgid "info.equivalent_to.source"
+msgstr "source"
+
+#: components/pages/Home/index.tsx:224
+msgid "info.price"
+msgstr "Price (USDC)"
+
+#: components/pages/Home/index.tsx:140
+msgid "menu.app"
+msgstr "app"
+
+#: components/pages/Home/index.tsx:136
+msgid "menu.blog"
+msgstr "blog"
+
+#: components/pages/Home/index.tsx:128
+msgid "menu.community"
+msgstr "community"
+
+#: components/pages/Home/index.tsx:132
+msgid "menu.docs"
+msgstr "docs"
+
+#: components/pages/Home/index.tsx:91
+#~ msgid "msg.action"
+#~ msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+
+#: components/pages/Home/index.tsx:250
+#~ msgid "msg.blackhole"
+#~ msgstr "A blackhole for"
+
+#: components/pages/Home/index.tsx:228
+#~ msgid "msg.goal"
+#~ msgstr "KlimaDAO’s goal is to accelerate the price appreciation of carbon assets. A high price for carbon forces companies and economies to adapt more quickly to the realities of climate change, and makes low-carbon technologies and carbon-removal projects more profitable."
+
+#: components/pages/Home/index.tsx:237
+#~ msgid "msg.value"
+#~ msgstr "Through the KLIMA token, we will maximize value creation for our community and create a virtuous cycle of growth. Eventually, the KLIMA token (each backed by real, verified carbon assets) will function as a truly sustainable asset and medium-of-exchange, with real planetary value."
+
+#: components/pages/Home/BlackHoleTour/index.tsx:71
+msgid "tour.bonding.text"
+msgstr "Bonding is how carbon enters the treasury, and new KLIMA is created. Anyone can buy KLIMA at a discount by bonding carbon units and LP shares over a set vesting period."
+
+#: components/pages/Home/BlackHoleTour/index.tsx:67
+msgid "tour.bonding.title"
+msgstr "Bonding"
+
+#: components/pages/Home/BlackHoleTour/index.tsx:62
+msgid "tour.carbon.text"
+msgstr "KLIMA is a vacuum for carbon. The treasury only accepts certified, third-party verified emissions reductions from reputable carbon markets (sometimes called 'carbon offsets' or 'carbon credits'). Each is tokenized in a transparent and traceable way to prevent double-spending or double-offsetting. These credits are sucked off the market and absorbed into the system through a Bonding mechanism."
+
+#: components/pages/Home/BlackHoleTour/index.tsx:58
+msgid "tour.carbon.title"
+msgstr "Carbon Credits"
+
+#: components/pages/Home/BlackHoleTour/index.tsx:80
+msgid "tour.staking.text"
+msgstr "Carbon comes in, value comes out. Holders of KLIMA can earn compounding interest on their KLIMA by staking. Staking encourages long-term holding of KLIMA, and allows participants to benefit from the rising price of carbon. As the protocol generates a profit through Bond sales, this profit is allocated to everyone who has staked KLIMA."
+
+#: components/pages/Home/BlackHoleTour/index.tsx:76
+msgid "tour.staking.title"
+msgstr "Klima Treasury"
+
+#: components/pages/Home/BlackHoleTour/index.tsx:53
+msgid "tour.treasury.text"
+msgstr "The treasury is the center of the black hole. Every KLIMA token is backed by 1 tonne of verified, tokenized carbon reduction or removal. These    can remain locked in the treasury indefinitely, or sold to balance the price of KLIMA."
+
+#: components/pages/Home/BlackHoleTour/index.tsx:49
+msgid "tour.treasury.title"
+msgstr "Klima Treasury"
 
 #: components/pages/Home/index.tsx:106
 msgid "usermenu.changelanguage"

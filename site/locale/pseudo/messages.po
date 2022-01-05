@@ -13,20 +13,144 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Home/index.tsx:91
-msgid "msg.action"
+#: components/pages/Home/index.tsx:269
+msgid "card.blackhole.carbon"
 msgstr ""
+
+#: components/pages/Home/index.tsx:267
+msgid "card.blackhole.title"
+msgstr ""
+
+#: components/pages/Home/index.tsx:245
+msgid "card.dao.goal"
+msgstr ""
+
+#: components/pages/Home/index.tsx:241
+msgid "card.dao.title"
+msgstr ""
+
+#: components/pages/Home/index.tsx:254
+msgid "card.dao.value"
+msgstr ""
+
+#: components/pages/Home/index.tsx:312
+msgid "footer.app"
+msgstr ""
+
+#: components/pages/Home/index.tsx:318
+msgid "footer.blog"
+msgstr ""
+
+#: components/pages/Home/index.tsx:321
+msgid "footer.community"
+msgstr ""
+
+#: components/pages/Home/index.tsx:315
+msgid "footer.docs"
+msgstr ""
+
+#: components/pages/Home/index.tsx:91
+msgid "header.caption"
+msgstr ""
+
+#: components/pages/Home/index.tsx:173
+msgid "info.CO2_tons"
+msgstr ""
+
+#: components/pages/Home/index.tsx:166
+msgid "info.carbon_in_treasury"
+msgstr ""
+
+#: components/pages/Home/index.tsx:218
+msgid "info.current_apy"
+msgstr ""
+
+#: components/pages/Home/index.tsx:179
+msgid "info.equivalent_to"
+msgstr ""
+
+#: components/pages/Home/index.tsx:185
+msgid "info.equivalent_to.hectars_of_forest"
+msgstr ""
+
+#: components/pages/Home/index.tsx:199
+msgid "info.equivalent_to.liters_of_gasoline"
+msgstr ""
+
+#: components/pages/Home/index.tsx:193
+msgid "info.equivalent_to.passenger_vehicles"
+msgstr ""
+
+#: components/pages/Home/index.tsx:211
+msgid "info.equivalent_to.source"
+msgstr ""
+
+#: components/pages/Home/index.tsx:224
+msgid "info.price"
+msgstr ""
+
+#: components/pages/Home/index.tsx:140
+msgid "menu.app"
+msgstr ""
+
+#: components/pages/Home/index.tsx:136
+msgid "menu.blog"
+msgstr ""
+
+#: components/pages/Home/index.tsx:128
+msgid "menu.community"
+msgstr ""
+
+#: components/pages/Home/index.tsx:132
+msgid "menu.docs"
+msgstr ""
+
+#: components/pages/Home/index.tsx:91
+#~ msgid "msg.action"
+#~ msgstr ""
 
 #: components/pages/Home/index.tsx:250
-msgid "msg.blackhole"
-msgstr ""
+#~ msgid "msg.blackhole"
+#~ msgstr ""
 
 #: components/pages/Home/index.tsx:228
-msgid "msg.goal"
-msgstr ""
+#~ msgid "msg.goal"
+#~ msgstr ""
 
 #: components/pages/Home/index.tsx:237
-msgid "msg.value"
+#~ msgid "msg.value"
+#~ msgstr ""
+
+#: components/pages/Home/BlackHoleTour/index.tsx:71
+msgid "tour.bonding.text"
+msgstr ""
+
+#: components/pages/Home/BlackHoleTour/index.tsx:67
+msgid "tour.bonding.title"
+msgstr ""
+
+#: components/pages/Home/BlackHoleTour/index.tsx:62
+msgid "tour.carbon.text"
+msgstr ""
+
+#: components/pages/Home/BlackHoleTour/index.tsx:58
+msgid "tour.carbon.title"
+msgstr ""
+
+#: components/pages/Home/BlackHoleTour/index.tsx:80
+msgid "tour.staking.text"
+msgstr ""
+
+#: components/pages/Home/BlackHoleTour/index.tsx:76
+msgid "tour.staking.title"
+msgstr ""
+
+#: components/pages/Home/BlackHoleTour/index.tsx:53
+msgid "tour.treasury.text"
+msgstr ""
+
+#: components/pages/Home/BlackHoleTour/index.tsx:49
+msgid "tour.treasury.title"
 msgstr ""
 
 #: components/pages/Home/index.tsx:106
