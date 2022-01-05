@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
+import { Bond } from "@klimadao/lib/constants";
 export interface UserState {
   balance?: {
     klima: string;
@@ -30,9 +31,7 @@ export interface UserState {
     sklima: string;
   };
   bondAllowance?: {
-    bct: string;
-    klima_bct_lp: string;
-    bct_usdc_lp: string;
+    [key in Bond]: string;
   };
   wrapAllowance?: {
     sklima: string;

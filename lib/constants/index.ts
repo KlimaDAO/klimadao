@@ -1,5 +1,6 @@
 const mainnet = {
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+  mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   treasury: "0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7",
   distributor: "0x4cC7584C3f8FAABf734374ef129dF17c3517e9cB",
   klima: "0x4e78011ce80ee02d2c3e649fb657e45898257815",
@@ -16,6 +17,7 @@ const mainnet = {
   bond_klimaBctLp: "0x1E0Dd93C81aC7Af2974cdB326c85B87Dd879389B",
   bond_bct: "0x7De627C56D26529145a5f9D85948ecBeAF9a4b34",
   bond_bctUsdcLp: "0xBF2A35efcd85e790f02458Db4A3e2f29818521c5",
+  bond_mco2: "0x27217c3F5bEc4c12Fa506A101bC4bd15417AEAa8",
   bond_calc: "0x0b8d6D6611Ed7cCe01BbcC57826548C6107B0478",
   staking: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
@@ -23,6 +25,7 @@ const mainnet = {
 
 const testnet: typeof mainnet = {
   bct: "0x8f8b7D5d12c1fC37f20a89Bf4Dfe1E787Da529B5",
+  mco2: "",
   treasury: "",
   distributor: "0xd49869652B3F194F73eC29a6954bC5DE6baeA8b8",
   klima: "0x6b4499909fD8947A3bdEa5d524Fb3697018fC750",
@@ -39,6 +42,7 @@ const testnet: typeof mainnet = {
   bond_klimaBctLp: "0x285A6054DdC2980C62E716086B065E1e770fffb3",
   bond_bct: "0x3204AF4b290b8f4f0fdf91284818ebB53b90459c",
   bond_bctUsdcLp: "0x9d9bC94A340B8B1cE8219c09E4CfadB9582BfAe1",
+  bond_mco2: "",
   bond_calc: "0x7087D55D9Cd826dE4F0EAb4625698FF641Bd342a",
   staking: "0x2960DCE5aE04eF503b36f8581EA5Ac5238632092",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
@@ -89,7 +93,7 @@ export const polygonNetworks = {
   },
 };
 
-export const bonds = ["klima_bct_lp", "bct_usdc_lp", "bct"] as const;
+export const bonds = ["klima_bct_lp", "bct_usdc_lp", "bct", "mco2"] as const;
 export type Bond = typeof bonds[number];
 
 export const EPOCH_INTERVAL = 11520;

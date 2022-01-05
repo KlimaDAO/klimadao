@@ -197,6 +197,13 @@ export const Home: FC = () => {
         provider,
       })
     );
+    dispatch(
+      calcBondDetails({
+        bond: "mco2",
+        value: "",
+        provider,
+      })
+    );
   };
 
   useEffect(() => {
