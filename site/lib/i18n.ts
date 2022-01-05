@@ -1,9 +1,5 @@
 import { i18n } from "@lingui/core";
 import { en, fr } from "make-plural/plurals";
-import enTime from "time-delta/locales/en";
-import frTime from "time-delta/locales/fr";
-import * as timeDelta from "time-delta";
-import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
 import { IS_PRODUCTION } from "lib/constants";
 
 // Define locales
@@ -13,22 +9,21 @@ interface ILocales {
       n: number | string,
       ord?: boolean
     ) => "zero" | "one" | "two" | "few" | "many" | "other";
-    time: any;
+    time: string;
   };
 }
 const locales: ILocales = {
-  en: { plurals: en, time: enTime },
-  fr: { plurals: fr, time: frTime },
+  en: { plurals: en, time: "en-US" },
+  fr: { plurals: fr, time: "fr-FR" },
 };
 // Add pseudo locale only in development
 if (!IS_PRODUCTION) {
-  locales["pseudo"] = { plurals: en, time: enTime };
+  locales["pseudo"] = { plurals: en, time: "en-US" };
 }
 
 for (const key in locales) {
   const locale = locales[key];
   i18n.loadLocaleData(key, { plurals: locale.plurals });
-  timeDelta.addLocale(locale.time);
 }
 /**
  * Loads a translation file

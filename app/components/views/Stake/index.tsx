@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 
@@ -65,6 +65,7 @@ export const Stake = (props: Props) => {
     stakingAPY,
     currentBlock,
     rebaseBlock,
+    locale,
   } = useSelector(selectAppState);
 
   const stakeAllowance = useSelector(selectStakeAllowance);
@@ -133,9 +134,9 @@ export const Stake = (props: Props) => {
   };
 
   const timeUntilRebase = () => {
-    if (currentBlock && rebaseBlock) {
+    if (currentBlock && rebaseBlock && locale) {
       const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
-      return prettifySeconds(seconds);
+      return prettifySeconds(locale, seconds);
     }
   };
   const getButtonProps = () => {

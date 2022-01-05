@@ -7,8 +7,8 @@ import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import t from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
-import { selectBalances } from "state/selectors";
-import { loadAppDetails } from "actions/app";
+import { selectBalances, selectAppState } from "state/selectors";
+import { loadAppDetails, setLocale } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 
@@ -26,7 +26,7 @@ import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner } from "components/CheckURLBanner";
 
 import { Trans } from "@lingui/macro";
-import { locales, activate } from "lib/i18n";
+import { locales, activate, init } from "lib/i18n";
 import { i18n } from "@lingui/core";
 
 import styles from "./index.module.css";
@@ -137,11 +137,20 @@ export const Home: FC = () => {
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
   const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
-  const [locale, setLocale] = useState<string>(i18n.locale || "en");
+  const { locale } = useSelector(selectAppState);
+
   useEffect(() => {
-    console.log(locale);
+    if (locale === undefined) {
+      init().then((init_locale: string) => {
+        dispatch(setLocale(init_locale));
+      });
+    }
+  }, []);
+  async function selectLocale(locale: string) {
     activate(locale);
-  }, [locale]);
+    dispatch(setLocale(locale));
+  }
+
   /**
    * This is a hack to force re-render of nav component
    * because SSR hydration doesn't show active path
@@ -379,7 +388,7 @@ export const Home: FC = () => {
                     </Trans>
                   </button>
                 )}
-                {IS_PRODUCTION && (
+                {!IS_PRODUCTION && (
                   <button
                     type="button"
                     className={styles.localeSelectionButton}
@@ -398,7 +407,7 @@ export const Home: FC = () => {
                     <button
                       data-active={locale == locale_k ? "true" : "false"}
                       className={styles.localeSelectionItem}
-                      onClick={() => setLocale(locale_k)}
+                      onClick={() => selectLocale(locale_k)}
                     >
                       {locale_k}
                     </button>

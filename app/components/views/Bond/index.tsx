@@ -46,6 +46,7 @@ import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 export function prettyVestingPeriod(
+  locale: string,
   currentBlock: number,
   vestingBlock: number
 ) {
@@ -80,7 +81,7 @@ export const Bond: FC<Props> = (props) => {
   const [quantity, setQuantity] = useState("");
   const debouncedQuantity = useDebounce(quantity, 500);
 
-  const { currentBlock } = useSelector(selectAppState);
+  const { currentBlock, locale } = useSelector(selectAppState);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
   const allowance = useSelector(selectBondAllowance);
 
@@ -106,12 +107,16 @@ export const Bond: FC<Props> = (props) => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
     const vestingBlock = currentBlock + bondState.vestingTerm;
     const seconds = secondsUntilBlock(currentBlock, vestingBlock);
-    return prettifySeconds(seconds, "day");
+    return prettifySeconds(locale, seconds);
   };
 
   const vestingTime = () => {
     if (!currentBlock || !bondState?.bondMaturationBlock) return;
-    return prettyVestingPeriod(currentBlock, bondState.bondMaturationBlock);
+    return prettyVestingPeriod(
+      locale,
+      currentBlock,
+      bondState.bondMaturationBlock
+    );
   };
 
   const getBondMax = () => {

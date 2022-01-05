@@ -5,6 +5,9 @@
     "pseudo"
   ],
   "sourceLocale": "en",
+  "fallbackLocales": {
+    "default": "en"
+  },
   "pseudoLocale": "pseudo",
   "catalogs": [
     {
