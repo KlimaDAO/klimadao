@@ -16,11 +16,11 @@ import {
   DEFAULT_QUOTE_SLP,
 } from "actions/bonds";
 
-// Copied from Stake view despite T/t
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "components/views/Stake/index.module.css";
 import { Trans, t, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
+import { prettifySeconds } from "lib/i18n";
 
 import { AdvancedSettings } from "./AdvancedSettings";
 import { useBond } from "../ChooseBond";
@@ -34,7 +34,6 @@ import {
   useDebounce,
   trimWithPlaceholder,
   secondsUntilBlock,
-  prettifySeconds,
   concatAddress,
   safeSub,
   safeAdd,
@@ -250,10 +249,10 @@ export const Bond: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return { 
-        children: <Trans id="button.not_connected">Not connected</Trans>, 
-        onClick: undefined, 
-        disabled: true 
+      return {
+        children: <Trans id="button.not_connected">Not connected</Trans>,
+        onClick: undefined,
+        disabled: true,
       };
     } else if (isLoading) {
       return {
@@ -265,15 +264,15 @@ export const Bond: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { 
+      return {
         children: <Trans id="button.confirming">Confirming</Trans>,
         onClick: undefined,
-        disabled: true 
+        disabled: true,
       };
     } else if (!hasAllowance()) {
-      return { 
+      return {
         children: <Trans id="button.approve">Approve</Trans>,
-        onClick: handleAllowance
+        onClick: handleAllowance,
       };
     } else if (view === "bond") {
       const bondMax = getBondMax();
@@ -290,10 +289,11 @@ export const Bond: FC<Props> = (props) => {
       };
     } else {
       // No trans_id tag for Error in stake
-      return { 
+      return {
         children: <Trans id="button.error">Error</Trans>,
-        onClick: undefined, 
-        disabled: true };
+        onClick: undefined,
+        disabled: true,
+      };
     }
   };
 
@@ -336,13 +336,13 @@ export const Bond: FC<Props> = (props) => {
       <div className={styles.bondHeader}>
         <Link
           to="/bonds"
-          className={classNames(t.button, styles.bondHeader_backButton)}
+          className={classNames(T.button, styles.bondHeader_backButton)}
         >
           <LeftOutlined />
           BACK
         </Link>
-        <h3 className={t.h5}>Bond {bondInfo.name}</h3>
-        <p className={t.caption}>{bondInfo.description}</p>
+        <h3 className={T.h5}>Bond {bondInfo.name}</h3>
+        <p className={T.caption}>{bondInfo.description}</p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>
@@ -392,7 +392,7 @@ export const Bond: FC<Props> = (props) => {
           </button>
         </div>
         <button
-          className={classNames(t.button, styles.showAdvancedButton)}
+          className={classNames(T.button, styles.showAdvancedButton)}
           type="button"
           onClick={() => setShowAdvanced((s) => !s)}
         >
@@ -455,7 +455,7 @@ export const Bond: FC<Props> = (props) => {
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
-                </div><Trans id="stake.balance">Balance</Trans>
+                </div>
               </TextInfoTooltip>
             </div>
             <div className={styles.dataContainer_value}>
@@ -669,14 +669,14 @@ export const Bond: FC<Props> = (props) => {
       {view === "bond" &&
         recipientAddress &&
         recipientAddress !== props.address && (
-          <p className={classNames(t.body2, styles.recipientNote)}>
+          <p className={classNames(T.body2, styles.recipientNote)}>
             <WarningOutlined style={{ color: "yellow" }} /> External recipient:{" "}
             {concatAddress(recipientAddress)}
           </p>
         )}
 
       {isBondDiscountNegative && view === "bond" && (
-        <p className={t.body2} style={{ textAlign: "center" }}>
+        <p className={T.body2} style={{ textAlign: "center" }}>
           <Trans id="status.bond_negative">
             ⚠️ Warning: this bond price is inflated because the current discount
             rate is negative.

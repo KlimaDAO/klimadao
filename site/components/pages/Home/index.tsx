@@ -17,11 +17,8 @@ import klimaLogo from "public/klima-logo.png";
 
 import { urls } from "@klimadao/lib/constants";
 
-// Copied from Stake view despite T/t
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
-import { Trans, t, defineMessage } from "@lingui/macro";
-import { i18n } from "@lingui/core";
 
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
@@ -90,7 +87,7 @@ export const Home: NextPage<Props> = (props) => {
                   priority
                 />
               </div>
-              <p className={t.h6}>
+              <p className={T.h6}>
                 <Trans id="msg.action">
                   Drive climate action and earn rewards with a carbon-backed,
                   algorithmic digital currency.
@@ -164,35 +161,35 @@ export const Home: NextPage<Props> = (props) => {
           <div className={styles.dataCardsContainer}>
             <div className={styles.chartCard}>
               <div>
-                <h2 className={t.overline}>🌳 CARBON IN TREASURY</h2>
+                <h2 className={T.overline}>🌳 CARBON IN TREASURY</h2>
                 <p className={styles.treasuryBalance}>
                   <span className={styles.treasuryBalance_value}>
                     {formattedTreasuryBalance}
                   </span>
-                  <span className={t.caption}>TONNES CO2</span>
+                  <span className={T.caption}>TONNES CO2</span>
                 </p>
               </div>
               <div>
-                <p className={t.overline}>Equivalent to</p>
-                <p className={t.body2}>
+                <p className={T.overline}>Equivalent to</p>
+                <p className={T.body2}>
                   <span className={styles.emissionsValue}>
                     {hectaresForest}
                   </span>{" "}
                   hectares of forest
                 </p>
-                <p className={t.body2}>
+                <p className={T.body2}>
                   <span className={styles.emissionsValue}>
                     {passengerVehicles}
                   </span>{" "}
                   passenger vehicles (annual)
                 </p>
-                <p className={t.body2}>
+                <p className={T.body2}>
                   <span className={styles.emissionsValue}>{litersGas}</span>{" "}
                   liters of gasoline
                 </p>
                 <div style={{ width: "100%", paddingBottom: "0.4rem" }} />
                 <a
-                  className={t.caption}
+                  className={T.caption}
                   href={urls.epaSource}
                   style={{ color: "gray" }}
                   target="_blank"
@@ -204,11 +201,11 @@ export const Home: NextPage<Props> = (props) => {
             </div>
             <div className={styles.dataCardColumn}>
               <div className={styles.dataCard}>
-                <h2 className={t.overline}>CURRENT APY</h2>
+                <h2 className={T.overline}>CURRENT APY</h2>
                 <p className={styles.dataCard_priceTag}>{formattedAPY}</p>
               </div>
               <div className={styles.dataCard}>
-                <h2 className={t.overline}>Price (USDC)</h2>
+                <h2 className={T.overline}>Price (USDC)</h2>
                 <p className={styles.dataCard_priceTag}>
                   ${props.price.toLocaleString()}
                 </p>
@@ -232,7 +229,8 @@ export const Home: NextPage<Props> = (props) => {
               KlimaDAO’s goal is to accelerate the price appreciation of carbon
               assets. A high price for carbon forces companies and economies to
               adapt more quickly to the realities of climate change, and makes
-              low-carbon technologies and carbon-removal projects more profitable.
+              low-carbon technologies and carbon-removal projects more
+              profitable.
             </Trans>
           </p>
           <p className={styles.centeredCard_text}>
@@ -242,16 +240,14 @@ export const Home: NextPage<Props> = (props) => {
               KLIMA token (each backed by real, verified carbon assets) will
               function as a truly sustainable asset and medium-of-exchange, with
               real planetary value.
-              </Trans>
+            </Trans>
           </p>
         </div>
       </div>
 
       <div className={styles.dividerSection}>
         <h2 className={styles.dividerSectionText}>
-          <Trans id="msg.blackhole">
-            A blackhole for{" "}
-          </Trans>
+          <Trans id="msg.blackhole">A blackhole for </Trans>
           <span className={styles.secondaryAccent}>carbon</span>
         </h2>
       </div>

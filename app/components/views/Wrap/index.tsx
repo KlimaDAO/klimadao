@@ -14,7 +14,6 @@ import {
   useTooltipSingleton,
 } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
-import t from "@klimadao/lib/theme/typography.module.css";
 import { ethers } from "ethers";
 import {
   selectAppState,
@@ -103,10 +102,11 @@ export const Wrap: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { 
+      return {
         children: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined, 
-        disabled: true };
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (isLoading) {
       return {
         children: <Trans id="button.loading">Loading</Trans>,
@@ -117,15 +117,15 @@ export const Wrap: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { 
-        children: <Trans id="button.confirming">Confirming</Trans>, 
-        onClick: undefined, disabled: 
-        true 
+      return {
+        children: <Trans id="button.confirming">Confirming</Trans>,
+        onClick: undefined,
+        disabled: true,
       };
     } else if (view === "wrap" && !hasApproval()) {
-      return { 
+      return {
         children: <Trans id="button.approve">Approve</Trans>,
-        onClick: handleApproval() 
+        onClick: handleApproval(),
       };
     } else if (view === "wrap") {
       return {
@@ -140,10 +140,10 @@ export const Wrap: FC<Props> = (props) => {
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
-      return { 
+      return {
         children: <Trans id="button.error">Error</Trans>,
-        onClick: undefined, 
-        disabled: true
+        onClick: undefined,
+        disabled: true,
       };
     }
   };
@@ -199,22 +199,22 @@ export const Wrap: FC<Props> = (props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Wrap sKLIMA</h2>
-        <p className={t.body2}>
+        <h2 className={T.h4}>Wrap sKLIMA</h2>
+        <p className={T.body2}>
           <Trans id="msg.wsklima">
-            wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may find
-            this useful for accounting purposes. Unlike your sKLIMA balance, your
-            wsKLIMA balance will not increase over time.
+            wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may
+            find this useful for accounting purposes. Unlike your sKLIMA
+            balance, your wsKLIMA balance will not increase over time.
           </Trans>
         </p>
-        <p className={t.body2}>
+        <p className={T.body2}>
           <Trans id="msg.yield">
             When wsKLIMA is unwrapped, you receive sKLIMA based on the latest
             (ever-increasing) index, so the total yield is the same.
           </Trans>
         </p>
 
-        <p className={t.body2}></p>
+        <p className={T.body2}></p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>

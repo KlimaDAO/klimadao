@@ -2,7 +2,6 @@ import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { changeApprovalTransaction, redeemTransaction } from "actions/redeem";
 
-
 // Copied from Stake view despite T/t (changed styles to match original)
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "components/views/Stake/index.module.css";
@@ -90,10 +89,11 @@ export const Redeem: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { 
-        children: <Trans id="button.not_connected">Not connected</Trans>, 
-        onClick: undefined, 
-        disabled: true };
+      return {
+        children: <Trans id="button.not_connected">Not connected</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (isLoading) {
       return {
         children: <Trans id="button.loading">Loading</Trans>,
@@ -104,20 +104,20 @@ export const Redeem: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { 
+      return {
         children: <Trans id="button.confirming">Confirming</Trans>,
-        onClick: undefined, 
-        disabled: true 
+        onClick: undefined,
+        disabled: true,
       };
     } else if (view === "aklima" && !hasApproval("aklima")) {
-      return { 
+      return {
         children: <Trans id="button.approve">Approve</Trans>,
-        onClick: handleApproval("aklima") 
+        onClick: handleApproval("aklima"),
       };
     } else if (view === "alklima" && !hasApproval("alklima")) {
-      return { 
+      return {
         children: <Trans id="button.approve">Approve</Trans>,
-        onClick: handleApproval("alklima") 
+        onClick: handleApproval("alklima"),
       };
     } else if (view === "aklima") {
       return {
@@ -132,10 +132,11 @@ export const Redeem: FC<Props> = (props) => {
         disabled: !value || !balances || value > Number(balances.alklima),
       };
     } else {
-      return { 
+      return {
         children: <Trans id="button.error">ERROR</Trans>,
-        onClick: undefined, 
-        disabled: true };
+        onClick: undefined,
+        disabled: true,
+      };
     }
   };
 
@@ -176,24 +177,24 @@ export const Redeem: FC<Props> = (props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Redeem aKLIMA</h2>
-        <p className={t.body2}>
+        <h2 className={T.h4}>Redeem aKLIMA</h2>
+        <p className={T.body2}>
           <Trans id="msg.aklima">
             If you received AlphaKLIMA from the Fair Launch Auction, or
             AlchemistKLIMA from the Crucible rewards event, use this tool to
             redeem them for KLIMA.
           </Trans>
         </p>
-        <p className={t.body2}>
+        <p className={T.body2}>
           👉{" "}
           <strong>
             <Trans id="msg.bridge">
-             Before proceeding: you must bridge your aKLIMA and alKLIMA tokens
+              Before proceeding: you must bridge your aKLIMA and alKLIMA tokens
               from Ethereum to Polygon.
             </Trans>
           </strong>
         </p>
-        <p className={t.body2}>
+        <p className={T.body2}>
           Complete the migration at{" "}
           <a
             target="_blank"

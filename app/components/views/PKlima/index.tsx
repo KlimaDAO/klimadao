@@ -4,11 +4,8 @@ import { providers } from "ethers";
 
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
-import t from "@klimadao/lib/theme/typography.module.css";
 
-// Copied from Stake view despite T/t
 import T from "@klimadao/lib/theme/typography.module.css";
-import styles from "components/views/Stake/index.module.css";
 import { Trans, t, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 
@@ -109,10 +106,10 @@ export const PKlima: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { 
+      return {
         children: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined, 
-        disabled: true 
+        onClick: undefined,
+        disabled: true,
       };
     } else if (isLoading) {
       return {
@@ -124,10 +121,10 @@ export const PKlima: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { 
+      return {
         children: <Trans id="button.confirming">Confirming</Trans>,
-        onClick: undefined, 
-        disabled: true 
+        onClick: undefined,
+        disabled: true,
       };
     } else if (!hasApproval("pklima")) {
       return {
@@ -135,9 +132,10 @@ export const PKlima: FC<Props> = (props) => {
         onClick: handleApproval("pklima"),
       };
     } else if (!hasApproval("bct")) {
-      return { 
+      return {
         children: <Trans id="button.bct">2. Approve BCT</Trans>,
-        onClick: handleApproval("bct") };
+        onClick: handleApproval("bct"),
+      };
     } else {
       return {
         children: <Trans id="button.exercise">EXERCISE</Trans>,
@@ -183,8 +181,8 @@ export const PKlima: FC<Props> = (props) => {
     <>
       <div className={styles.stakeCard}>
         <div className={styles.stakeCard_header}>
-          <h2 className={t.h4}>Exercise pKLIMA</h2>
-          <p className={t.body2}>
+          <h2 className={T.h4}>Exercise pKLIMA</h2>
+          <p className={T.body2}>
             Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.
           </p>
         </div>
