@@ -96,15 +96,17 @@ export const Home: NextPage<Props> = (props) => {
             </div>
             <div>
               <div className={styles.userMenu}>
-                <button
-                  type="button"
-                  className={styles.localeSelectionButton}
-                  onClick={() => {
-                    setLocalesMenuVisible(!localesMenuVisible);
-                  }}
-                >
-                  <Trans id="usermenu.changelanguage">Language</Trans>
-                </button>
+                {!IS_PRODUCTION && (
+                  <button
+                    type="button"
+                    className={styles.localeSelectionButton}
+                    onClick={() => {
+                      setLocalesMenuVisible(!localesMenuVisible);
+                    }}
+                  >
+                    <Trans id="usermenu.changelanguage">Language</Trans>
+                  </button>
+                )}
                 {Object.keys(locales).map((locale, key) => (
                   <div
                     key={key}

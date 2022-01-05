@@ -30,6 +30,7 @@ import { locales, activate } from "lib/i18n";
 import { i18n } from "@lingui/core";
 
 import styles from "./index.module.css";
+import { IS_PRODUCTION } from "lib/constants";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -378,16 +379,17 @@ export const Home: FC = () => {
                     </Trans>
                   </button>
                 )}
-                <button
-                  type="button"
-                  className={styles.localeSelectionButton}
-                  onClick={() => {
-                    setLocalesMenuVisible(!localesMenuVisible);
-                  }}
-                >
-                  <Trans id="usermenu.changelanguage">Language</Trans>
-                </button>
-
+                {IS_PRODUCTION && (
+                  <button
+                    type="button"
+                    className={styles.localeSelectionButton}
+                    onClick={() => {
+                      setLocalesMenuVisible(!localesMenuVisible);
+                    }}
+                  >
+                    <Trans id="usermenu.changelanguage">Language</Trans>
+                  </button>
+                )}
                 {Object.keys(locales).map((locale_k, key) => (
                   <div
                     key={key}
