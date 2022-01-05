@@ -19,7 +19,7 @@ export const AdvancedSettings: FC<Props> = (props) => {
       <form>
         <h5 className={T.subtitle1}>Einstein–Rosen Bridge</h5>
         <p className={T.caption}>
-          <Trans id="msg.esbridge">
+          <Trans id="bond.esbridge">
             Use this bridge through space-time to direct the transaction to a
             different recipient address. (default: your currently connected
             address).
@@ -34,9 +34,11 @@ export const AdvancedSettings: FC<Props> = (props) => {
         />
       </form>
       <form>
-        <h5 className={T.subtitle1}>Slippage Tolerance</h5>
+        <h5 className={T.subtitle1}>
+          <Trans id="bond.slippage_tolerance">Slippage Tolerance</Trans>
+        </h5>
         <p>
-          <Trans id="msg.revert">
+          <Trans id="bond.revert">
             Transaction may revert if price changes by more than desired
             slippage percentage.
           </Trans>

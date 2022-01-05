@@ -331,6 +331,43 @@ export const Bond: FC<Props> = (props) => {
   const isBondDiscountNegative =
     bondState?.bondDiscount && bondState?.bondDiscount < 0;
 
+  defineMessage({
+    id: "bond.balance.tooltip",
+    message: "Balance available for bonding",
+  });
+  defineMessage({
+    id: "bond.bond_price.tooltip",
+    message:
+      "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)",
+  });
+  defineMessage({
+    id: "bond.market_price.tooltip",
+    message: "Current trading price of KLIMA, without bond discount",
+  });
+  defineMessage({
+    id: "bond.roi.tooltip",
+    message:
+      "Return on investment, expressed as a percentage discount on the market value of KLIMA",
+  });
+  defineMessage({
+    id: "bond.you_will_get.tooltip",
+    message:
+      "Amount of bonded KLIMA you will get, at the provided input quantity",
+  });
+  defineMessage({
+    id: "bond.maximum.tooltip",
+    message: "Maximum amount of KLIMA you can acquire by bonding",
+  });
+  defineMessage({
+    id: "bond.debt_ratio.tooltip",
+    message: "Protocol's current ratio of supply to outstanding bonds",
+  });
+  defineMessage({
+    id: "bond.vesting_term.tooltip",
+    message:
+      "Time period over which bonded KLIMA is made available for redemption",
+  });
+
   return (
     <div className={styles.stakeCard}>
       <div className={styles.bondHeader}>
@@ -339,9 +376,11 @@ export const Bond: FC<Props> = (props) => {
           className={classNames(T.button, styles.bondHeader_backButton)}
         >
           <LeftOutlined />
-          BACK
+          <Trans id="nav.back">BACK</Trans>
         </Link>
-        <h3 className={T.h5}>Bond {bondInfo.name}</h3>
+        <h3 className={T.h5}>
+          <Trans id="bond.caption">Bond {bondInfo.name}</Trans>
+        </h3>
         <p className={T.caption}>{bondInfo.description}</p>
       </div>
       <div className={styles.inputsContainer}>
@@ -354,7 +393,7 @@ export const Bond: FC<Props> = (props) => {
             }}
             data-active={view === "bond"}
           >
-            Bond
+            <Trans id="button.bond">Bond</Trans>
           </button>
           <button
             className={styles.switchButton}
@@ -364,7 +403,7 @@ export const Bond: FC<Props> = (props) => {
             }}
             data-active={view === "redeem"}
           >
-            Redeem
+            <Trans id="button.redeem">Redeem</Trans>
           </button>
         </div>
         <div className={styles.stakeInput}>
@@ -388,7 +427,7 @@ export const Bond: FC<Props> = (props) => {
             onClick={setMax}
             disabled={view === "redeem"}
           >
-            Max
+            <Trans id="button.max">Max</Trans>
           </button>
         </div>
         <button
@@ -419,9 +458,9 @@ export const Bond: FC<Props> = (props) => {
           {sourceSingleton}
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Balance
+              <Trans id="bond.balance">Balance</Trans>
               <TextInfoTooltip
-                content="Balance available for bonding"
+                content={i18n._("bond.balance.tooltip")}
                 singleton={singleton}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -448,9 +487,9 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Bond price
+              <Trans id="bond.bond_price">Bond price</Trans>
               <TextInfoTooltip
-                content="Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)"
+                content={i18n._("bond.bond_price.tooltip")}
                 singleton={singleton}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -464,9 +503,9 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Market Price
+              <Trans id="bond.market_price">Market Price</Trans>
               <TextInfoTooltip
-                content="Current trading price of KLIMA, without bond discount"
+                content={i18n._("bond.market_price.tooltip")}
                 singleton={singleton}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -480,9 +519,9 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              ROI (bond discount)
+              <Trans id="bond.roi">ROI (bond discount)</Trans>
               <TextInfoTooltip
-                content="Return on investment, expressed as a percentage discount on the market value of KLIMA"
+                content={i18n._("bond.roi.tooltip")}
                 singleton={singleton}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -499,10 +538,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              You will get
+              <Trans id="bond.you_will_get">You will get</Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content="Amount of bonded KLIMA you will get, at the provided input quantity"
+                content={i18n._("bond.you_will_get.tooltip")}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -521,10 +560,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Maximum
+              <Trans id="bond.maximum">Maximum</Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content="Maximum amount of KLIMA you can acquire by bonding"
+                content={i18n._("bond.maximum.tooltip")}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -546,10 +585,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Debt ratio
+              <Trans id="bond.debt_ratio">Debt ratio</Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content="Protocol's current ratio of supply to outstanding bonds"
+                content={i18n._("bond.debt_ratio.tooltip")}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -568,10 +607,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Vesting term
+              <Trans id="bond.vesting_term">Vesting term</Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content="Time period over which bonded KLIMA is made available for redemption"
+                content={i18n._("bond.vesting_term.tooltip")}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -595,10 +634,10 @@ export const Bond: FC<Props> = (props) => {
           {sourceSingleton}
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Pending
+              <Trans id="bond.pending">Pending</Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content="Remaining unredeemed value (vested and un-vested)"
+                content={i18n._("bond.pending.tooltip")}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -617,10 +656,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Redeemable
+              <Trans id="bond.redeemable">Redeemable</Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content="Amount of KLIMA that has already vested and can be redeemed"
+                content={i18n._("bond.redeemable.tooltip")}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -644,10 +683,12 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Time until fully vested
+              <Trans id="bond.time_until_fully_vested">
+                Time until fully vested
+              </Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content="Time remaining until the entire bond value can be redeemed"
+                content={i18n._("bond.time_until_fully_vested.tooltip")}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
