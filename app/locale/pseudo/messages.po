@@ -13,6 +13,114 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/views/Bond/index.tsx:473
+msgid "bond.balance"
+msgstr ""
+
+#: components/views/Bond/index.tsx:334
+msgid "bond.balance.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:502
+msgid "bond.bond_price"
+msgstr ""
+
+#: components/views/Bond/index.tsx:338
+msgid "bond.bond_price.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:394
+msgid "bond.caption"
+msgstr ""
+
+#: components/views/Bond/index.tsx:600
+msgid "bond.debt_ratio"
+msgstr ""
+
+#: components/views/Bond/index.tsx:361
+msgid "bond.debt_ratio.tooltip"
+msgstr ""
+
+#: components/views/Bond/AdvancedSettings/index.tsx:22
+msgid "bond.esbridge"
+msgstr ""
+
+#: components/views/Bond/index.tsx:518
+msgid "bond.market_price"
+msgstr ""
+
+#: components/views/Bond/index.tsx:343
+msgid "bond.market_price.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:575
+msgid "bond.maximum"
+msgstr ""
+
+#: components/views/Bond/index.tsx:357
+msgid "bond.maximum.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:649
+msgid "bond.pending"
+msgstr ""
+
+#: components/views/Bond/index.tsx:370
+msgid "bond.pending.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:671
+msgid "bond.redeemable"
+msgstr ""
+
+#: components/views/Bond/index.tsx:374
+msgid "bond.redeemable.tooltip"
+msgstr ""
+
+#: components/views/Bond/AdvancedSettings/index.tsx:41
+msgid "bond.revert"
+msgstr ""
+
+#: components/views/Bond/index.tsx:534
+msgid "bond.roi"
+msgstr ""
+
+#: components/views/Bond/index.tsx:347
+msgid "bond.roi.tooltip"
+msgstr ""
+
+#: components/views/Bond/AdvancedSettings/index.tsx:38
+msgid "bond.slippage_tolerance"
+msgstr ""
+
+#: components/views/Bond/index.tsx:698
+msgid "bond.time_until_fully_vested"
+msgstr ""
+
+#: components/views/Bond/index.tsx:378
+msgid "bond.time_until_fully_vested.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:378
+#~ msgid "bond.time_untill_fully_vested.tooltip"
+#~ msgstr ""
+
+#: components/views/Bond/index.tsx:622
+msgid "bond.vesting_term"
+msgstr ""
+
+#: components/views/Bond/index.tsx:365
+msgid "bond.vesting_term.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:553
+msgid "bond.you_will_get"
+msgstr ""
+
+#: components/views/Bond/index.tsx:352
+msgid "bond.you_will_get.tooltip"
+msgstr ""
+
 #: components/views/Bond/index.tsx:274
 #: components/views/Redeem/index.tsx:114
 #: components/views/Redeem/index.tsx:119
@@ -27,6 +135,7 @@ msgid "button.bct"
 msgstr ""
 
 #: components/views/Bond/index.tsx:280
+#: components/views/Bond/index.tsx:408
 msgid "button.bond"
 msgstr ""
 
@@ -56,6 +165,8 @@ msgstr ""
 msgid "button.loading"
 msgstr ""
 
+#: components/views/Bond/index.tsx:442
+#: components/views/PKlima/index.tsx:227
 #: components/views/Stake/index.tsx:328
 msgid "button.max"
 msgstr ""
@@ -73,6 +184,7 @@ msgid "button.pklima"
 msgstr ""
 
 #: components/views/Bond/index.tsx:286
+#: components/views/Bond/index.tsx:418
 #: components/views/Redeem/index.tsx:124
 #: components/views/Redeem/index.tsx:130
 msgid "button.redeem"
@@ -92,6 +204,26 @@ msgstr ""
 
 #: components/views/Wrap/index.tsx:132
 msgid "button.wrap"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:60
+msgid "choose_bond.caption"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:85
+msgid "choose_bond.choose_bond"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:88
+msgid "choose_bond.discount"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:57
+msgid "choose_bond.title"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:71
+msgid "choose_bond.treasury_balance"
 msgstr ""
 
 #: components/views/Home/index.tsx:498
@@ -147,24 +279,24 @@ msgid "msg.bridge"
 msgstr ""
 
 #: components/views/Bond/AdvancedSettings/index.tsx:22
-msgid "msg.esbridge"
-msgstr ""
+#~ msgid "msg.esbridge"
+#~ msgstr ""
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:34
-msgid "msg.growth"
-msgstr ""
+#~ msgid "msg.growth"
+#~ msgstr ""
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:18
-msgid "msg.overclaim"
-msgstr ""
+#~ msgid "msg.overclaim"
+#~ msgstr ""
 
 #: components/views/Bond/AdvancedSettings/index.tsx:39
-msgid "msg.revert"
-msgstr ""
+#~ msgid "msg.revert"
+#~ msgstr ""
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:25
-msgid "msg.update"
-msgstr ""
+#~ msgid "msg.update"
+#~ msgstr ""
 
 #: components/views/Wrap/index.tsx:204
 msgid "msg.wsklima"
@@ -172,6 +304,58 @@ msgstr ""
 
 #: components/views/Wrap/index.tsx:211
 msgid "msg.yield"
+msgstr ""
+
+#: components/views/Bond/index.tsx:391
+msgid "nav.back"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:253
+msgid "pklima.bct_balance"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:192
+msgid "pklima.caption"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:292
+msgid "pklima.claimed_amount"
+msgstr ""
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:34
+msgid "pklima.growth"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:179
+msgid "pklima.klima_to_exercise"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:307
+msgid "pklima.max"
+msgstr ""
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:18
+msgid "pklima.overclaim"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:240
+msgid "pklima.pklima_balance"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:279
+msgid "pklima.pklima_redeemed"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:266
+msgid "pklima.supply_share_limit"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:189
+msgid "pklima.title"
+msgstr ""
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:25
+msgid "pklima.update"
 msgstr ""
 
 #: components/views/Stake/index.tsx:450
@@ -242,7 +426,7 @@ msgstr ""
 msgid "stake.time_until_rebase.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:680
+#: components/views/Bond/index.tsx:733
 msgid "status.bond_negative"
 msgstr ""
 
