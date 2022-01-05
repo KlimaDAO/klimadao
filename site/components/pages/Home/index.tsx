@@ -88,7 +88,7 @@ export const Home: NextPage<Props> = (props) => {
                 />
               </div>
               <p className={T.h6}>
-                <Trans id="msg.action">
+                <Trans id="header.caption">
                   Drive climate action and earn rewards with a carbon-backed,
                   algorithmic digital currency.
                 </Trans>
@@ -125,19 +125,19 @@ export const Home: NextPage<Props> = (props) => {
           <nav className={styles.stack}>
             <a className={styles.iconButton} href={urls.discordInvite}>
               <DiscordIcon className={styles.discordIcon} />
-              community
+              <Trans id="menu.community">community</Trans>
             </a>
             <a className={styles.iconButton} href={urls.gitbook}>
               <DescriptionOutlinedIcon />
-              docs
+              <Trans id="menu.docs">docs</Trans>
             </a>
             <a className={styles.iconButton} href={urls.blog}>
               <BookmarkBorderOutlinedIcon />
-              blog
+              <Trans id="menu.blog">blog</Trans>
             </a>
             <a className={styles.iconButton} href={urls.app}>
               <ExitToAppOutlinedIcon />
-              app
+              <Trans id="menu.app">app</Trans>
             </a>
             <div className={styles.lowerStack}>
               <a
@@ -161,31 +161,44 @@ export const Home: NextPage<Props> = (props) => {
           <div className={styles.dataCardsContainer}>
             <div className={styles.chartCard}>
               <div>
-                <h2 className={T.overline}>🌳 CARBON IN TREASURY</h2>
+                <h2 className={T.overline}>
+                  🌳{" "}
+                  <Trans id="info.carbon_in_treasury">CARBON IN TREASURY</Trans>
+                </h2>
                 <p className={styles.treasuryBalance}>
                   <span className={styles.treasuryBalance_value}>
                     {formattedTreasuryBalance}
                   </span>
-                  <span className={T.caption}>TONNES CO2</span>
+                  <span className={T.caption}>
+                    <Trans id="info.CO2_tons">TONNES CO2</Trans>
+                  </span>
                 </p>
               </div>
               <div>
-                <p className={T.overline}>Equivalent to</p>
+                <p className={T.overline}>
+                  <Trans id="info.equivalent_to">Equivalent to</Trans>
+                </p>
                 <p className={T.body2}>
                   <span className={styles.emissionsValue}>
                     {hectaresForest}
                   </span>{" "}
-                  hectares of forest
+                  <Trans id="info.equivalent_to.hectars_of_forest">
+                    hectares of forest
+                  </Trans>
                 </p>
                 <p className={T.body2}>
                   <span className={styles.emissionsValue}>
                     {passengerVehicles}
                   </span>{" "}
-                  passenger vehicles (annual)
+                  <Trans id="info.equivalent_to.passenger_vehicles">
+                    passenger vehicles (annual)
+                  </Trans>
                 </p>
                 <p className={T.body2}>
                   <span className={styles.emissionsValue}>{litersGas}</span>{" "}
-                  liters of gasoline
+                  <Trans id="info.equivalent_to.liters_of_gasoline">
+                    liters of gasoline
+                  </Trans>
                 </p>
                 <div style={{ width: "100%", paddingBottom: "0.4rem" }} />
                 <a
@@ -195,17 +208,21 @@ export const Home: NextPage<Props> = (props) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  source
+                  <Trans id="info.equivalent_to.source">source</Trans>
                 </a>
               </div>
             </div>
             <div className={styles.dataCardColumn}>
               <div className={styles.dataCard}>
-                <h2 className={T.overline}>CURRENT APY</h2>
+                <h2 className={T.overline}>
+                  <Trans id="info.current_apy">CURRENT APY</Trans>
+                </h2>
                 <p className={styles.dataCard_priceTag}>{formattedAPY}</p>
               </div>
               <div className={styles.dataCard}>
-                <h2 className={T.overline}>Price (USDC)</h2>
+                <h2 className={T.overline}>
+                  <Trans id="info.price">Price (USDC)</Trans>
+                </h2>
                 <p className={styles.dataCard_priceTag}>
                   ${props.price.toLocaleString()}
                 </p>
@@ -221,11 +238,11 @@ export const Home: NextPage<Props> = (props) => {
       <div className={styles.dividerSection}>
         <div className={styles.centeredCard}>
           <h2 className={styles.centeredCard_title}>
-            A DAO, a protocol,{" "}
+            <Trans id="card.dao.title">A DAO, a protocol,</Trans>{" "}
             <span className={styles.secondaryAccent}>an ecosystem</span>
           </h2>
           <p className={styles.centeredCard_text}>
-            <Trans id="msg.goal">
+            <Trans id="card.dao.goal">
               KlimaDAO’s goal is to accelerate the price appreciation of carbon
               assets. A high price for carbon forces companies and economies to
               adapt more quickly to the realities of climate change, and makes
@@ -234,7 +251,7 @@ export const Home: NextPage<Props> = (props) => {
             </Trans>
           </p>
           <p className={styles.centeredCard_text}>
-            <Trans id="msg.value">
+            <Trans id="card.dao.value">
               Through the KLIMA token, we will maximize value creation for our
               community and create a virtuous cycle of growth. Eventually, the
               KLIMA token (each backed by real, verified carbon assets) will
@@ -247,8 +264,10 @@ export const Home: NextPage<Props> = (props) => {
 
       <div className={styles.dividerSection}>
         <h2 className={styles.dividerSectionText}>
-          <Trans id="msg.blackhole">A blackhole for </Trans>
-          <span className={styles.secondaryAccent}>carbon</span>
+          <Trans id="card.blackhole.title">A blackhole for </Trans>
+          <span className={styles.secondaryAccent}>
+            <Trans id="card.blackhole.carbon">carbon</Trans>
+          </span>
         </h2>
       </div>
 
@@ -289,10 +308,18 @@ export const Home: NextPage<Props> = (props) => {
             />
           </div>
           <nav className={styles.footer_content_nav}>
-            <a href={urls.app}>app</a>
-            <a href={urls.gitbook}>docs</a>
-            <a href={urls.blog}>blog</a>
-            <a href={urls.discordInvite}>community</a>
+            <a href={urls.app}>
+              <Trans id="footer.app">app</Trans>
+            </a>
+            <a href={urls.gitbook}>
+              <Trans id="footer.docs">docs</Trans>
+            </a>
+            <a href={urls.blog}>
+              <Trans id="footer.blog">blog</Trans>
+            </a>
+            <a href={urls.discordInvite}>
+              <Trans id="footer.community">community</Trans>
+            </a>
           </nav>
         </div>
       </footer>
