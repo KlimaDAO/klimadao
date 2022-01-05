@@ -6,6 +6,12 @@ import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import t from "@klimadao/lib/theme/typography.module.css";
 
+// Copied from Stake view despite T/t
+import T from "@klimadao/lib/theme/typography.module.css";
+import styles from "components/views/Stake/index.module.css";
+import { Trans, t, defineMessage } from "@lingui/macro";
+import { i18n } from "@lingui/core";
+
 import {
   selectAppState,
   selectBalances,
@@ -103,10 +109,14 @@ export const PKlima: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Not Connected", onClick: undefined, disabled: true };
+      return { 
+        children: <Trans id="button.not_connected">Not connected</Trans>,
+        onClick: undefined, 
+        disabled: true 
+      };
     } else if (isLoading) {
       return {
-        children: "Loading",
+        children: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -114,17 +124,23 @@ export const PKlima: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: "Confirming", onClick: undefined, disabled: true };
+      return { 
+        children: <Trans id="button.confirming">Confirming</Trans>,
+        onClick: undefined, 
+        disabled: true 
+      };
     } else if (!hasApproval("pklima")) {
       return {
-        children: "1. Approve pKLIMA",
+        children: <Trans id="button.pklima">1. Approve pKLIMA</Trans>,
         onClick: handleApproval("pklima"),
       };
     } else if (!hasApproval("bct")) {
-      return { children: "2. Approve BCT", onClick: handleApproval("bct") };
+      return { 
+        children: <Trans id="button.bct">2. Approve BCT</Trans>,
+        onClick: handleApproval("bct") };
     } else {
       return {
-        children: "EXERCISE",
+        children: <Trans id="button.exercise">EXERCISE</Trans>,
         onClick: handleExercise,
         disabled:
           !value || !terms?.redeemable || value > Number(terms.redeemable),
@@ -134,15 +150,31 @@ export const PKlima: FC<Props> = (props) => {
 
   const getStatusMessage = () => {
     if (status === "userConfirmation") {
-      return "Please click 'confirm' in your wallet to continue.";
+      return (
+        <Trans id="status.pending_confirmation">
+          Please click 'confirm' in your wallet to continue.
+        </Trans>
+      );
     } else if (status === "networkConfirmation") {
-      return "Transaction initiated. Waiting for network confirmation.";
+      return (
+        <Trans id="status.transaction_started">
+          Transaction initiated. Waiting for network confirmation.
+        </Trans>
+      );
     } else if (status === "error") {
-      return "❌ Error: something went wrong...";
+      return (
+        <Trans id="status.transaction_error">
+          ❌ Error: something went wrong...
+        </Trans>
+      );
     } else if (status === "done") {
-      return "✔️ Success!";
+      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
     } else if (status === "userRejected") {
-      return "✖️ You chose to reject the transaction.";
+      return (
+        <Trans id="status.transaction_rejected">
+          ✖️ You chose to reject the transaction.
+        </Trans>
+      );
     }
     return null;
   };

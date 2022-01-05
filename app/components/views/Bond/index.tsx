@@ -16,8 +16,12 @@ import {
   DEFAULT_QUOTE_SLP,
 } from "actions/bonds";
 
-import styles from "./index.module.css";
-import t from "@klimadao/lib/theme/typography.module.css";
+// Copied from Stake view despite T/t
+import T from "@klimadao/lib/theme/typography.module.css";
+import styles from "components/views/Stake/index.module.css";
+import { Trans, t, defineMessage } from "@lingui/macro";
+import { i18n } from "@lingui/core";
+
 import { AdvancedSettings } from "./AdvancedSettings";
 import { useBond } from "../ChooseBond";
 import { Bond as BondType } from "@klimadao/lib/constants";
@@ -30,6 +34,7 @@ import {
   useDebounce,
   trimWithPlaceholder,
   secondsUntilBlock,
+  prettifySeconds,
   concatAddress,
   safeSub,
   safeAdd,
@@ -40,7 +45,6 @@ import { RootState, useAppDispatch } from "state";
 import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { prettifySeconds } from "lib/i18n";
 
 export function prettyVestingPeriod(
   currentBlock: number,
@@ -246,10 +250,14 @@ export const Bond: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return { children: "Not Connected", onClick: undefined, disabled: true };
+      return { 
+        children: <Trans id="button.not_connected">Not connected</Trans>, 
+        onClick: undefined, 
+        disabled: true 
+      };
     } else if (isLoading) {
       return {
-        children: "Loading",
+        children: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -257,38 +265,65 @@ export const Bond: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: "Confirming", onClick: undefined, disabled: true };
+      return { 
+        children: <Trans id="button.confirming">Confirming</Trans>,
+        onClick: undefined,
+        disabled: true 
+      };
     } else if (!hasAllowance()) {
-      return { children: "Approve", onClick: handleAllowance };
+      return { 
+        children: <Trans id="button.approve">Approve</Trans>,
+        onClick: handleAllowance
+      };
     } else if (view === "bond") {
       const bondMax = getBondMax();
       return {
-        children: "Bond",
+        children: <Trans id="button.bond">Bond</Trans>,
         onClick: handleBond,
         disabled: !value || !bondMax || Number(value) > Number(bondMax),
       };
     } else if (view === "redeem") {
       return {
-        children: "Redeem",
+        children: <Trans id="button.redeem">Redeem</Trans>,
         onClick: handleRedeem,
         disabled: !Number(bondState?.pendingPayout),
       };
     } else {
-      return { children: "ERROR", onClick: undefined, disabled: true };
+      // No trans_id tag for Error in stake
+      return { 
+        children: <Trans id="button.error">Error</Trans>,
+        onClick: undefined, 
+        disabled: true };
     }
   };
 
   const getStatusMessage = () => {
     if (status === "userConfirmation") {
-      return "Please click 'confirm' in your wallet to continue.";
+      return (
+        <Trans id="status.pending_confirmation">
+          Please click 'confirm' in your wallet to continue.
+        </Trans>
+      );
     } else if (status === "networkConfirmation") {
-      return "Transaction initiated. Waiting for network confirmation.";
+      return (
+        <Trans id="status.transaction_started">
+          Transaction initiated. Waiting for network confirmation.
+        </Trans>
+      );
     } else if (status === "error") {
-      return "❌ Error: something went wrong...";
+      return (
+        <Trans id="status.transaction_error">
+          ❌ Error: something went wrong...
+        </Trans>
+      );
     } else if (status === "done") {
-      return "✔️ Success!";
+      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
     } else if (status === "userRejected") {
-      return "✖️ You chose to reject the transaction.";
+      return (
+        <Trans id="status.transaction_rejected">
+          ✖️ You chose to reject the transaction.
+        </Trans>
+      );
     }
     return null;
   };
@@ -420,7 +455,7 @@ export const Bond: FC<Props> = (props) => {
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
-                </div>
+                </div><Trans id="stake.balance">Balance</Trans>
               </TextInfoTooltip>
             </div>
             <div className={styles.dataContainer_value}>
@@ -642,8 +677,10 @@ export const Bond: FC<Props> = (props) => {
 
       {isBondDiscountNegative && view === "bond" && (
         <p className={t.body2} style={{ textAlign: "center" }}>
-          ⚠️ Warning: this bond price is inflated because the current discount
-          rate is negative.
+          <Trans id="status.bond_negative">
+            ⚠️ Warning: this bond price is inflated because the current discount
+            rate is negative.
+          </Trans>
         </p>
       )}
       <div className={styles.buttonRow}>

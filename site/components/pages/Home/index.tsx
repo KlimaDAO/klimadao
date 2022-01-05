@@ -16,8 +16,13 @@ import polygonBadge from "public/polygon-badge.png";
 import klimaLogo from "public/klima-logo.png";
 
 import { urls } from "@klimadao/lib/constants";
-import t from "@klimadao/lib/theme/typography.module.css";
+
+// Copied from Stake view despite T/t
+import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
+import { Trans, t, defineMessage } from "@lingui/macro";
+import { i18n } from "@lingui/core";
+
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 
@@ -86,7 +91,7 @@ export const Home: NextPage<Props> = (props) => {
                 />
               </div>
               <p className={t.h6}>
-                <Trans>
+                <Trans id="msg.action">
                   Drive climate action and earn rewards with a carbon-backed,
                   algorithmic digital currency.
                 </Trans>
@@ -223,24 +228,30 @@ export const Home: NextPage<Props> = (props) => {
             <span className={styles.secondaryAccent}>an ecosystem</span>
           </h2>
           <p className={styles.centeredCard_text}>
-            KlimaDAO’s goal is to accelerate the price appreciation of carbon
-            assets. A high price for carbon forces companies and economies to
-            adapt more quickly to the realities of climate change, and makes
-            low-carbon technologies and carbon-removal projects more profitable.
+            <Trans id="msg.goal">
+              KlimaDAO’s goal is to accelerate the price appreciation of carbon
+              assets. A high price for carbon forces companies and economies to
+              adapt more quickly to the realities of climate change, and makes
+              low-carbon technologies and carbon-removal projects more profitable.
+            </Trans>
           </p>
           <p className={styles.centeredCard_text}>
-            Through the KLIMA token, we will maximize value creation for our
-            community and create a virtuous cycle of growth. Eventually, the
-            KLIMA token (each backed by real, verified carbon assets) will
-            function as a truly sustainable asset and medium-of-exchange, with
-            real planetary value.
+            <Trans id="msg.value">
+              Through the KLIMA token, we will maximize value creation for our
+              community and create a virtuous cycle of growth. Eventually, the
+              KLIMA token (each backed by real, verified carbon assets) will
+              function as a truly sustainable asset and medium-of-exchange, with
+              real planetary value.
+              </Trans>
           </p>
         </div>
       </div>
 
       <div className={styles.dividerSection}>
         <h2 className={styles.dividerSectionText}>
-          A black hole for{" "}
+          <Trans id="msg.blackhole">
+            A blackhole for{" "}
+          </Trans>
           <span className={styles.secondaryAccent}>carbon</span>
         </h2>
       </div>
