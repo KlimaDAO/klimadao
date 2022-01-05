@@ -39,6 +39,18 @@ export const useBond = (bond: Bond) => {
       bct_usdc_lp: "/bonds/bct_usdc_lp",
       // future bond hrefs go here
     }[bond],
+    balanceUnit: {
+      mco2: "MCO2",
+      bct: "BCT",
+      klima_bct_lp: "SLP",
+      bct_usdc_lp: "SLP",
+    }[bond],
+    priceUnit: {
+      mco2: "MCO2",
+      bct: "BCT",
+      klima_bct_lp: "BCT",
+      bct_usdc_lp: "BCT",
+    }[bond],
   };
 };
 
