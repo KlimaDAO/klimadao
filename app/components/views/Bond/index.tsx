@@ -367,6 +367,18 @@ export const Bond: FC<Props> = (props) => {
     message:
       "Time period over which bonded KLIMA is made available for redemption",
   });
+  defineMessage({
+    id: "bond.pending.tooltip",
+    message: "Remaining unredeemed value (vested and un-vested)",
+  });
+  defineMessage({
+    id: "bond.redeemable.tooltip",
+    message: "Amount of KLIMA that has already vested and can be redeemed",
+  });
+  defineMessage({
+    id: "bond.time_until_fully_vested.tooltip",
+    message: "Time remaining until the entire bond value can be redeemed",
+  });
 
   return (
     <div className={styles.stakeCard}>
