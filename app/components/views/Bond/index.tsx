@@ -46,7 +46,7 @@ import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 export function prettyVestingPeriod(
-  locale: string,
+  locale: string | undefined,
   currentBlock: number,
   vestingBlock: number
 ) {
@@ -58,7 +58,7 @@ export function prettyVestingPeriod(
   if (seconds < 0) {
     return "Fully Vested";
   }
-  return prettifySeconds(seconds);
+  return prettifySeconds(locale, seconds);
 }
 
 interface Props {

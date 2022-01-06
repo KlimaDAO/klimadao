@@ -10,7 +10,7 @@ interface ILocales {
       n: number | string,
       ord?: boolean
     ) => "zero" | "one" | "two" | "few" | "many" | "other";
-    time: String;
+    time: string;
   };
 }
 const locales: ILocales = {
