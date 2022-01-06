@@ -8,6 +8,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import WalletAction from "../WalletAction";
 import { MobileMenuProps } from "../constants";
+import t from "@klimadao/lib/theme/typography.module.css";
+
 
 import styles from "../index.module.css";
 
@@ -54,7 +56,7 @@ const MobileMenu: FC<MobileMenuProps> = ({
         {visibleLinks.map(({ dataActive, to, text }) => {
           return (
             <MenuItem selected={dataActive} key={text} onClick={handleClose}>
-              <Link className={styles.textButtonMobile} to={to}>
+              <Link className={t.button} to={to}>
                 {text}
               </Link>
             </MenuItem>
