@@ -21,15 +21,7 @@ import { Bond } from "components/views/Bond";
 import { Wrap } from "components/views/Wrap";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
-<<<<<<< HEAD
-import classNames from "classnames";
-import Nav from "./Nav";
-import WalletAction from "./WalletAction";
-import MobileMenu from "./MobileMenu";
-import { generateLinks, LoadWeb3Modal } from "./constants";
-=======
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
->>>>>>> d159e4628282c6975be991c2186993dc40fd21da
 
 import styles from "./index.module.css";
 

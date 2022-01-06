@@ -24,11 +24,7 @@ Take note, this repo utilizes newer features from Node, NPM and TypeScript 4.5.
 
 - Node >= v16.x
 - NPM >= v8.x (for NPM Workspaces)
-<<<<<<< HEAD
-- Typescript >= 4.5 (for ESModules support) `npm install -g typescript`
-=======
 - TypeScript >= 4.5 (for ESModules support) `npm install -g typescript`
->>>>>>> d159e4628282c6975be991c2186993dc40fd21da
 - VSCode [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - VSCode [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 

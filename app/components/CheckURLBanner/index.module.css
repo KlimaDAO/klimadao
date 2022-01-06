@@ -1,8 +1,5 @@
 @value textButton from "@klimadao/lib/theme/common.module.css";
-<<<<<<< HEAD
-=======
 @value button from "@klimadao/lib/theme/typography.module.css";
->>>>>>> d159e4628282c6975be991c2186993dc40fd21da
 
 .bg {
   position: fixed;
@@ -32,21 +29,13 @@
 
 .okButtonWrap {
   display: flex;
-<<<<<<< HEAD
-  justify-content: end;
-  gap: 0.8rem;
-=======
   align-items: center;
   gap: 1.6rem;
->>>>>>> d159e4628282c6975be991c2186993dc40fd21da
 }
 
 .okButton {
   composes: textButton;
   border: 2px solid var(--secondary);
-<<<<<<< HEAD
-  justify-self: end;
-=======
   justify-self: flex-end;
 }
 
@@ -58,5 +47,4 @@
 .dontButton:hover,
 .dontButton:focus {
   opacity: 1;
->>>>>>> d159e4628282c6975be991c2186993dc40fd21da
 }
