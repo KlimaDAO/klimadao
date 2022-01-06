@@ -21,11 +21,15 @@ import { Bond } from "components/views/Bond";
 import { Wrap } from "components/views/Wrap";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
+<<<<<<< HEAD
 import classNames from "classnames";
 import Nav from "./Nav";
 import WalletAction from "./WalletAction";
 import MobileMenu from "./MobileMenu";
 import { generateLinks, LoadWeb3Modal } from "./constants";
+=======
+import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
+>>>>>>> d159e4628282c6975be991c2186993dc40fd21da
 
 import styles from "./index.module.css";
 
@@ -80,6 +84,7 @@ const useProvider = (): [
       web3Modal?.clearCachedProvider();
     }
   };
+
   useEffect(() => {
     if (web3Modal?.cachedProvider) {
       loadWeb3Modal();
@@ -126,6 +131,9 @@ export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
+  const [showCheckURLBanner, setShowCheckURLBanner] = useState(
+    !skipCheckURLBanner()
+  );
 
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
@@ -403,6 +411,13 @@ export const Home: FC = () => {
         <InvalidRPCModal
           onHide={() => {
             setShowRPCModal(false);
+          }}
+        />
+      )}
+      {showCheckURLBanner && (
+        <CheckURLBanner
+          onHide={() => {
+            setShowCheckURLBanner(false);
           }}
         />
       )}
