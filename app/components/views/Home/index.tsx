@@ -22,6 +22,10 @@ import { Wrap } from "components/views/Wrap";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
+import { generateLinks, LoadWeb3Modal } from "./constants";
+import Nav from "./Nav";
+import WalletAction from "./WalletAction";
+import MobileMenu from "./MobileMenu";
 
 import styles from "./index.module.css";
 
@@ -270,7 +274,6 @@ export const Home: FC = () => {
 
   return (
     <>
-      {/* <div className={classNames(styles.container, isMobile? "mobile": "app")}> */}
       <div className={styles.container}>
         <div className={styles.heroBackgroundContainer}>
           <img src="/green-wormhole.jpg" alt="" />
@@ -297,13 +300,11 @@ export const Home: FC = () => {
               disconnect={disconnect}
             />
 
-
             <WalletAction
               isConnected={isConnected}
               loadWeb3Modal={loadWeb3Modal}
               disconnect={disconnect}
             />
-
           </header>
           <main className={styles.main}>
             <Nav links={links} chainId={chainId} />

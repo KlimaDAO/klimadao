@@ -95,7 +95,7 @@ TEMP
   grid-template-rows: repeat(2, auto);
 }
 .nav {
-  display: none
+  display: none;
 }
 
 .textButton {
