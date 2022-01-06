@@ -700,9 +700,7 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.date_of_full_vesting">
-                Date of full vesting
-              </Trans>
+              <Trans id="bond.date_of_full_vesting">Date of full vesting</Trans>
               <TextInfoTooltip
                 singleton={singleton}
                 content={i18n._("bond.date_of_full_vesting.tooltip")}
