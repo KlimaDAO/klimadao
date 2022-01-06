@@ -10,7 +10,6 @@ import WalletAction from "../WalletAction";
 import { MobileMenuProps } from "../constants";
 import t from "@klimadao/lib/theme/typography.module.css";
 
-
 import styles from "../index.module.css";
 
 const MobileMenu: FC<MobileMenuProps> = ({
