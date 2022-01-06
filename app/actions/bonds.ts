@@ -61,7 +61,7 @@ export function contractForReserve(params: {
   );
 }
 
-const getMarketPrice = async (params: {
+const getBCTMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
   const pairContract = new ethers.Contract(
@@ -70,7 +70,21 @@ const getMarketPrice = async (params: {
     params.provider
   );
   const reserves = await pairContract.getReserves();
-  return reserves[0] / reserves[1];
+  // [BCT, KLIMA] - KLIMA has 9 decimals, BCT has 18 decimals
+  return reserves[0] / (reserves[1] * Math.pow(10, 9));
+};
+
+const getMCO2MarketPrice = async (params: {
+  provider: providers.JsonRpcProvider;
+}) => {
+  const pairContract = new ethers.Contract(
+    addresses["mainnet"].mco2UsdcLp,
+    PairContract.abi,
+    params.provider
+  );
+  const reserves = await pairContract.getReserves();
+  // [USDC, MCO2] - USDC has 6 decimals, MCO2 has 18 decimals
+  return (reserves[0] * Math.pow(10, 12)) / reserves[1];
 };
 
 export const calcBondDetails = (params: {
@@ -86,60 +100,49 @@ export const calcBondDetails = (params: {
       amountInWei = ethers.utils.parseEther(params.value);
     }
 
-    // const vestingTerm = VESTING_TERM; // hardcoded for now
-    let bondDiscount = 0;
-    let valuation;
-    let bondQuote;
     const bondContract = contractForBond({
       bond: params.bond,
       provider: params.provider,
     });
-    const marketPrice = await getMarketPrice({ provider: params.provider });
+    // for SLP bonds
+    const bondCalcContract = new ethers.Contract(
+      addresses["mainnet"].bond_calc,
+      BondCalcContract.abi,
+      params.provider
+    );
+
+    const getMarketPrice =
+      params.bond === "mco2" ? getMCO2MarketPrice : getBCTMarketPrice;
+    const marketPrice = await getMarketPrice({
+      provider: params.provider,
+    });
+
     const terms = await bondContract.terms();
     const maxBondPrice = await bondContract.maxPayout();
     const debtRatio = await bondContract.debtRatio();
     const bondPrice = await bondContract.bondPriceInUSD();
-    if (params.bond === "klima_bct_lp") {
-      const bondCalcContract = new ethers.Contract(
-        addresses["mainnet"].bond_calc,
-        BondCalcContract.abi,
-        params.provider
-      );
-      bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice; // 1 - bondPrice / (marketPrice * Math.pow(10, 9));
 
-      // RFV = assume 1:1 backing
-      valuation = await bondCalcContract.valuation(
+    let bondQuote;
+    if (params.bond === "klima_bct_lp") {
+      const valuation = await bondCalcContract.valuation(
         addresses["mainnet"].klimaBctLp,
         amountInWei
       );
-      bondQuote = await bondContract.payoutFor(valuation);
-      bondQuote /= Math.pow(10, 9);
-    } else if (params.bond === "bct") {
-      bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice; // 1 - bondPrice / (marketPrice * Math.pow(10, 9));
-
-      // RFV = DAI
-      bondQuote = await bondContract.payoutFor(amountInWei);
-      bondQuote /= Math.pow(10, 18);
+      bondQuote = formatUnits(await bondContract.payoutFor(valuation), 9);
+    } else if (params.bond === "bct" || params.bond === "mco2") {
+      bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
     } else if (params.bond === "bct_usdc_lp") {
-      const bondCalcContract = new ethers.Contract(
-        addresses["mainnet"].bond_calc,
-        BondCalcContract.abi,
-        params.provider
-      );
-      bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice; // 1 - bondPrice / (marketPrice * Math.pow(10, 9));
-
-      // RFV = assume 1:1 backing
-      valuation = await bondCalcContract.valuation(
+      const valuation = await bondCalcContract.valuation(
         addresses["mainnet"].bctUsdcLp,
         amountInWei
       );
-      bondQuote = await bondContract.payoutFor(valuation);
-      bondQuote /= Math.pow(10, 9);
+      bondQuote = formatUnits(await bondContract.payoutFor(valuation), 9);
     } else if (params.bond === "mco2") {
-      bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice;
-      bondQuote = await bondContract.payoutFor(amountInWei);
-      bondQuote /= Math.pow(10, 18);
+      bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
     }
+
+    const bondDiscount =
+      (marketPrice * Math.pow(10, 18) - bondPrice) / bondPrice;
 
     dispatch(
       setBond({
@@ -150,7 +153,7 @@ export const calcBondDetails = (params: {
         vestingTerm: parseInt(terms.vestingTerm),
         maxBondPrice: formatUnits(maxBondPrice, 9),
         bondPrice: formatUnits(bondPrice),
-        marketPrice: (marketPrice / Math.pow(10, 9)).toString(),
+        marketPrice: marketPrice.toString(),
       })
     );
   };
