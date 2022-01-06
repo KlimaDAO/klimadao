@@ -381,8 +381,8 @@ export const Bond: FC<Props> = (props) => {
     message: "Amount of KLIMA that has already vested and can be redeemed",
   });
   defineMessage({
-    id: "bond.time_until_fully_vested.tooltip",
-    message: "Time remaining until the entire bond value can be redeemed",
+    id: "bond.date_of_full_vesting.tooltip",
+    message: "Date when the entire bond value can be redeemed",
   });
 
   return (
@@ -700,12 +700,12 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.time_until_fully_vested">
-                Time until fully vested
+              <Trans id="bond.date_of_full_vesting">
+                Date of full vesting
               </Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.time_until_fully_vested.tooltip")}
+                content={i18n._("bond.date_of_full_vesting.tooltip")}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />

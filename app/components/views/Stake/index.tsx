@@ -251,8 +251,8 @@ export const Stake = (props: Props) => {
     message: "Approximate amount of sKLIMA you will receive at next rebase",
   });
   defineMessage({
-    id: "stake.time_until_rebase.tooltip",
-    message: "Approximate time remaining until next rewards distribution",
+    id: "stake.date_of_next_rebase.tooltip",
+    message: "Approximate date of next rewards distribution",
   });
   defineMessage({
     id: "stake.roi.tooltip",
@@ -415,10 +415,10 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.time_until_rebase">Time until rebase</Trans>
+            <Trans id="stake.date_of_next_rebase">Time until rebase</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content={i18n._("stake.time_until_rebase.tooltip")}
+              content={i18n._("stake.date_of_next_rebase.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
