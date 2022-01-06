@@ -79,6 +79,7 @@ const useProvider = (): [
       web3Modal?.clearCachedProvider();
     }
   };
+
   useEffect(() => {
     if (web3Modal?.cachedProvider) {
       loadWeb3Modal();
