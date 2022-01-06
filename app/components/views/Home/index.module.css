@@ -95,11 +95,7 @@ TEMP
   grid-template-rows: repeat(2, auto);
 }
 .nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  align-self: start;
-  justify-items: start;
+  display: none
 }
 
 .textButton {
@@ -114,9 +110,7 @@ TEMP
 }
 
 .connectWalletButton {
-  composes: textButton from "@klimadao/lib/theme/common.module.css";
-  border: 2px dashed var(--secondary);
-  justify-self: start;
+  display: none;
 }
 .connectWalletButtonMobile {
   margin-top: 8px;
@@ -207,8 +201,8 @@ TEMP
 
 .mobileMenu {
   position: absolute;
-  right: 0;
-  top: 20px;
+  right: -7.5px;
+  top: 27.5px;
 }
 
 .menuDropdown {
@@ -221,6 +215,27 @@ TEMP
 .mobileMenu svg {
   color: white;
   font-size: 30px;
+}
+
+@media bp-small {
+  .mobileMenu {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-self: start;
+    justify-items: start;
+  }
+
+  .connectWalletButton {
+    composes: textButton from "@klimadao/lib/theme/common.module.css";
+    display: unset;
+    border: 2px dashed var(--secondary);
+    justify-self: start;
+  }
 }
 
 @media bp-medium {

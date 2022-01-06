@@ -122,27 +122,6 @@ const useProvider = (): [
   ];
 };
 
-const useIsMobile = (): { isMobile: boolean } => {
-  const [width, setWidth] = useState<number>(0);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-
-    const handleWindowSizeChange = () => {
-      setWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
-
-  const isMobile = width <= 425;
-
-  return { isMobile };
-};
-
 export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
@@ -152,7 +131,6 @@ export const Home: FC = () => {
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
-  const { isMobile } = useIsMobile();
   /**
    * This is a hack to force re-render of nav component
    * because SSR hydration doesn't show active path
@@ -311,24 +289,24 @@ export const Home: FC = () => {
                 to earn interest.
               </p>
             </div>
-            {isMobile && (
-              <MobileMenu
-                links={links}
-                isConnected={isConnected}
-                loadWeb3Modal={loadWeb3Modal}
-                disconnect={disconnect}
-              />
-            )}
-            {!isMobile && (
-              <WalletAction
-                isConnected={isConnected}
-                loadWeb3Modal={loadWeb3Modal}
-                disconnect={disconnect}
-              />
-            )}
+
+            <MobileMenu
+              links={links}
+              isConnected={isConnected}
+              loadWeb3Modal={loadWeb3Modal}
+              disconnect={disconnect}
+            />
+
+
+            <WalletAction
+              isConnected={isConnected}
+              loadWeb3Modal={loadWeb3Modal}
+              disconnect={disconnect}
+            />
+
           </header>
           <main className={styles.main}>
-            {!isMobile && <Nav links={links} chainId={chainId} />}
+            <Nav links={links} chainId={chainId} />
             <Routes>
               <Route
                 path="/"

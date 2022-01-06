@@ -1,6 +1,9 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
-import { IconButton, Menu, MenuItem, Zoom } from "@mui/material";
+import IconButton from "@mui/material/IconButton"
+import Menu from "@mui/material/Menu"
+import MenuItem from "@mui/material/MenuItem"
+import Zoom from "@mui/material/Zoom"
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import WalletAction from "../WalletAction";
