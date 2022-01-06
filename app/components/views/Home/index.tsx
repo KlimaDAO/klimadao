@@ -23,7 +23,7 @@ import { Wrap } from "components/views/Wrap";
 
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
-import { CheckURLBanner } from "components/CheckURLBanner";
+import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 
 import styles from "./index.module.css";
 
@@ -126,7 +126,9 @@ export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
-  const [showCheckURLBanner, setShowCheckURLBanner] = useState(true);
+  const [showCheckURLBanner, setShowCheckURLBanner] = useState(
+    !skipCheckURLBanner()
+  );
 
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
