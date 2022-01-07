@@ -3,7 +3,7 @@ import { Thunk } from "state";
 import { setBond } from "state/bonds";
 import { OnStatusHandler } from "./utils";
 import { setBondAllowance } from "state/user";
-
+import { getKlimaUsdcPrice } from "@klimadao/lib/utils";
 import { formatUnits } from "@klimadao/lib/utils";
 import { addresses, Bond } from "@klimadao/lib/constants";
 import Depository from "@klimadao/lib/abi/KlimaBondDepository_Regular.json";
@@ -15,13 +15,14 @@ import IERC20 from "@klimadao/lib/abi/IERC20.json";
 export const DEFAULT_QUOTE_SLP = "0.001"; // Use a realistic SLP ownership so we have a quote before the user inputs any value
 
 export const contractForBond = (params: {
-  bond: "bct" | "klima_bct_lp" | "bct_usdc_lp";
+  bond: Bond;
   provider: providers.JsonRpcProvider;
 }) => {
   const address = {
     klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
     bct: addresses["mainnet"].bond_bct,
     bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
+    mco2: addresses["mainnet"].bond_mco2,
   }[params.bond];
 
   return new ethers.Contract(address, Depository.abi, params.provider);
@@ -45,6 +46,13 @@ export function contractForReserve(params: {
       params.provider
     );
   }
+  if (params.bond === "mco2") {
+    return new ethers.Contract(
+      addresses["mainnet"].mco2,
+      IERC20.abi,
+      params.provider
+    );
+  }
   // bct_usdc_lp
   return new ethers.Contract(
     addresses["mainnet"].bctUsdcLp,
@@ -53,7 +61,7 @@ export function contractForReserve(params: {
   );
 }
 
-const getMarketPrice = async (params: {
+const getBCTMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
   const pairContract = new ethers.Contract(
@@ -62,11 +70,27 @@ const getMarketPrice = async (params: {
     params.provider
   );
   const reserves = await pairContract.getReserves();
-  return reserves[0] / reserves[1];
+  // [BCT, KLIMA] - KLIMA has 9 decimals, BCT has 18 decimals
+  return reserves[0] / (reserves[1] * Math.pow(10, 9));
+};
+
+const getMCO2MarketPrice = async (params: {
+  provider: providers.JsonRpcProvider;
+}) => {
+  const pairContract = new ethers.Contract(
+    addresses["mainnet"].mco2UsdcLp,
+    PairContract.abi,
+    params.provider
+  );
+  const reserves = await pairContract.getReserves();
+  // [USDC, MCO2] - USDC has 6 decimals, MCO2 has 18 decimals
+  const MCO2USDCPrice = (reserves[0] * Math.pow(10, 12)) / reserves[1];
+  const KLIMAUSDCPrice = await getKlimaUsdcPrice();
+  return KLIMAUSDCPrice / MCO2USDCPrice;
 };
 
 export const calcBondDetails = (params: {
-  bond: "bct" | "klima_bct_lp" | "bct_usdc_lp";
+  bond: Bond;
   value: string;
   provider: providers.JsonRpcProvider;
 }): Thunk => {
@@ -78,56 +102,49 @@ export const calcBondDetails = (params: {
       amountInWei = ethers.utils.parseEther(params.value);
     }
 
-    // const vestingTerm = VESTING_TERM; // hardcoded for now
-    let bondDiscount = 0;
-    let valuation;
-    let bondQuote;
     const bondContract = contractForBond({
       bond: params.bond,
       provider: params.provider,
     });
-    const marketPrice = await getMarketPrice({ provider: params.provider });
+    // for SLP bonds
+    const bondCalcContract = new ethers.Contract(
+      addresses["mainnet"].bond_calc,
+      BondCalcContract.abi,
+      params.provider
+    );
+
+    const getMarketPrice =
+      params.bond === "mco2" ? getMCO2MarketPrice : getBCTMarketPrice;
+    const marketPrice = await getMarketPrice({
+      provider: params.provider,
+    });
+
     const terms = await bondContract.terms();
     const maxBondPrice = await bondContract.maxPayout();
     const debtRatio = await bondContract.debtRatio();
     const bondPrice = await bondContract.bondPriceInUSD();
-    if (params.bond === "klima_bct_lp") {
-      const bondCalcContract = new ethers.Contract(
-        addresses["mainnet"].bond_calc,
-        BondCalcContract.abi,
-        params.provider
-      );
-      bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice; // 1 - bondPrice / (marketPrice * Math.pow(10, 9));
 
-      // RFV = assume 1:1 backing
-      valuation = await bondCalcContract.valuation(
+    let bondQuote;
+    if (params.bond === "klima_bct_lp") {
+      const valuation = await bondCalcContract.valuation(
         addresses["mainnet"].klimaBctLp,
         amountInWei
       );
-      bondQuote = await bondContract.payoutFor(valuation);
-      bondQuote /= Math.pow(10, 9);
-    } else if (params.bond === "bct") {
-      bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice; // 1 - bondPrice / (marketPrice * Math.pow(10, 9));
-
-      // RFV = DAI
-      bondQuote = await bondContract.payoutFor(amountInWei);
-      bondQuote /= Math.pow(10, 18);
+      bondQuote = formatUnits(await bondContract.payoutFor(valuation), 9);
+    } else if (params.bond === "bct" || params.bond === "mco2") {
+      bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
     } else if (params.bond === "bct_usdc_lp") {
-      const bondCalcContract = new ethers.Contract(
-        addresses["mainnet"].bond_calc,
-        BondCalcContract.abi,
-        params.provider
-      );
-      bondDiscount = (marketPrice * Math.pow(10, 9) - bondPrice) / bondPrice; // 1 - bondPrice / (marketPrice * Math.pow(10, 9));
-
-      // RFV = assume 1:1 backing
-      valuation = await bondCalcContract.valuation(
+      const valuation = await bondCalcContract.valuation(
         addresses["mainnet"].bctUsdcLp,
         amountInWei
       );
-      bondQuote = await bondContract.payoutFor(valuation);
-      bondQuote /= Math.pow(10, 9);
+      bondQuote = formatUnits(await bondContract.payoutFor(valuation), 9);
+    } else if (params.bond === "mco2") {
+      bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
     }
+
+    const bondDiscount =
+      (marketPrice * Math.pow(10, 18) - bondPrice) / bondPrice;
 
     dispatch(
       setBond({
@@ -138,7 +155,7 @@ export const calcBondDetails = (params: {
         vestingTerm: parseInt(terms.vestingTerm),
         maxBondPrice: formatUnits(maxBondPrice, 9),
         bondPrice: formatUnits(bondPrice),
-        marketPrice: (marketPrice / Math.pow(10, 9)).toString(),
+        marketPrice: marketPrice.toString(),
       })
     );
   };
@@ -163,11 +180,13 @@ export const changeApprovalTransaction = async (params: {
         OhmDai.abi,
         signer
       ),
+      mco2: new ethers.Contract(addresses["mainnet"].mco2, IERC20.abi, signer),
     }[params.bond];
     const approvalAddress = {
       klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
       bct: addresses["mainnet"].bond_bct,
       bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
+      mco2: addresses["mainnet"].bond_mco2,
     }[params.bond];
     const value = ethers.utils.parseUnits("1000000000", "ether");
     params.onStatus("userConfirmation");
@@ -236,6 +255,13 @@ export const calculateUserBondDetails = (params: {
       );
       balance = await reserveContract.balanceOf(params.address);
       balance = ethers.utils.formatEther(balance);
+    } else if (params.bond === "mco2") {
+      allowance = await reserveContract.allowance(
+        params.address,
+        addresses["mainnet"].bond_mco2
+      );
+      balance = await reserveContract.balanceOf(params.address);
+      balance = ethers.utils.formatEther(balance);
     }
 
     dispatch(
@@ -269,6 +295,7 @@ export const bondTransaction = async (params: {
       klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
       bct: addresses["mainnet"].bond_bct,
       bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
+      mco2: addresses["mainnet"].bond_mco2,
     }[params.bond];
     const contract = new ethers.Contract(
       contractAddress,
@@ -312,6 +339,7 @@ export const redeemTransaction = async (params: {
       klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
       bct: addresses["mainnet"].bond_bct,
       bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
+      mco2: addresses["mainnet"].bond_mco2,
     }[params.bond];
     const contract = new ethers.Contract(
       contractAddress,
