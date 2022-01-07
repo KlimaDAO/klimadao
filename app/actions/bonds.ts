@@ -3,9 +3,7 @@ import { Thunk } from "state";
 import { setBond } from "state/bonds";
 import { OnStatusHandler } from "./utils";
 import { setBondAllowance } from "state/user";
-import {
-  getKlimaUsdcPrice
-} from "@klimadao/lib/utils";
+import { getKlimaUsdcPrice } from "@klimadao/lib/utils";
 import { formatUnits } from "@klimadao/lib/utils";
 import { addresses, Bond } from "@klimadao/lib/constants";
 import Depository from "@klimadao/lib/abi/KlimaBondDepository_Regular.json";
@@ -86,7 +84,7 @@ const getMCO2MarketPrice = async (params: {
   );
   const reserves = await pairContract.getReserves();
   // [USDC, MCO2] - USDC has 6 decimals, MCO2 has 18 decimals
-  const MCO2USDCPrice = reserves[0] * Math.pow(10, 12) / reserves[1];
+  const MCO2USDCPrice = (reserves[0] * Math.pow(10, 12)) / reserves[1];
   const KLIMAUSDCPrice = await getKlimaUsdcPrice();
   return KLIMAUSDCPrice / MCO2USDCPrice;
 };
