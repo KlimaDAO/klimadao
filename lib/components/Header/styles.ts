@@ -24,6 +24,9 @@ export const headerMobileWrap_toggled = css`
   background-color: rgba(255, 255, 255, 0.5);
   transition: background-color 0.5s ease 0s;
   z-index: 100;
+  ${breakpoints.medium} {
+    display: none;
+  }
 `;
 
 export const headerMobileWrap = css`
@@ -36,6 +39,9 @@ export const headerMobileWrap = css`
   background-color: rgba(255, 255, 255, 0);
   transition: background-color 0.5s ease 0s;
   z-index: 100;
+  ${breakpoints.medium} {
+    display: none;
+  }
 `;
 
 export const headerMobile = css`
