@@ -100,23 +100,3 @@ export const navMain_Buttons = css`
   justify-content: flex-end;
   align-items: center;
 `;
-
-export const navMain_Button = css`
-  box-sizing: border-box;
-  margin: 0px;
-  min-width: 0px;
-  appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
-  text-decoration: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  box-shadow: transparent -8px 4px 20px;
-  border-radius: 4px;
-  transition: box-shadow 0.3s ease 0s, background-color 0.3s ease 0s;
-  background-color: var(--primary);
-  color: var(--white);
-  border: 2px solid rgb(0, 0, 0);
-  font-size: 12px;
-`;
