@@ -6,6 +6,7 @@ export { TwitterIcon } from "./Icons/TwitterIcon";
 export { PageWrap } from "./Layout/PageWrap";
 export { HeaderDesktop } from "./Header/HeaderDesktop";
 export { HeaderMobile } from "./Header/HeaderMobile";
+export { Footer } from "./Footer/Footer";
 export { NavItemDesktop } from "./Navigation/NavItemDesktop";
 export { NavMobile } from "./Navigation/NavMobile";
 export { NavItemMobile } from "./Navigation/NavItemMobile";

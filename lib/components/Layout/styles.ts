@@ -36,4 +36,9 @@ export const theme = css`
   min-height: 100vh;
   font-family: var(--font-family);
   font-size: var(--font-size);
+
+  /* Push footer to bottom -- */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;

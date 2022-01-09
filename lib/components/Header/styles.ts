@@ -7,7 +7,7 @@ export const headerDesktop = css`
   justify-content: center;
   align-items: center;
   height: 64px;
-  padding: 0px 32px;
+  padding: 0rem 3.4rem;
   background: var(--background);
   ${breakpoints.medium} {
     display: flex;
@@ -51,7 +51,7 @@ export const headerMobile = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 24px;
+  padding: 0rem 2.4rem;
   height: 64px;
   z-index: 1;
   ${breakpoints.medium} {
@@ -72,7 +72,8 @@ export const logo_Desktop = css`
   box-sizing: border-box;
   margin: 0px;
   min-width: 0px;
-  padding: 2em;
+  padding: 2rem;
+  padding-left: 0;
 `;
 
 export const navMain_Desktop = css`

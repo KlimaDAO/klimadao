@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import {
   PageWrap,
   HeaderDesktop,
+  Footer,
   NavItemDesktop,
   HeaderMobile,
   NavItemMobile,
@@ -53,6 +54,7 @@ export const Home: NextPage<Props> = (props) => {
           <NavItemMobile url={urls.stake} name="Wrap" />
           <NavItemMobile url={urls.bond} name="Bond" />
         </HeaderMobile>
+        <Footer />
       </PageWrap>
     </>
   );
