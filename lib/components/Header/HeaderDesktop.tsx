@@ -5,7 +5,6 @@ import { LogoWithClaim } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 
 interface Props {
-  children: JSX.Element[];
   buttons?: JSX.Element[];
 }
 

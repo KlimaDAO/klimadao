@@ -9,7 +9,6 @@ import {
 import { urls } from "@klimadao/lib/constants";
 
 interface Props {
-  children: JSX.Element[];
   buttons?: JSX.Element[];
 }
 
