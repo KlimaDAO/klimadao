@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.6rem; /* ~16px */
   color: #ffffff;
   overflow-x: hidden;
 }
