@@ -95,19 +95,27 @@ TEMP
   grid-template-rows: repeat(2, auto);
 }
 .nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  align-self: start;
-  justify-items: start;
+  display: none;
 }
+
 .textButton {
   composes: textButton from "@klimadao/lib/theme/common.module.css";
 }
+.textButtonMobile {
+  color: white !important;
+}
+.textButtonMobile:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
 .connectWalletButton {
-  composes: textButton from "@klimadao/lib/theme/common.module.css";
+  display: none;
+}
+.connectWalletButtonMobile {
+  margin-top: 8px;
+  padding: 10px;
   border: 2px dashed var(--secondary);
-  justify-self: start;
 }
 .connectWalletButton:hover {
   opacity: 1;
@@ -115,6 +123,13 @@ TEMP
 }
 .disconnectWalletButton {
   composes: textButton from "@klimadao/lib/theme/common.module.css";
+  border: 2px dashed var(--surface-06);
+  opacity: 0.7;
+  justify-self: start;
+}
+.disconnectWalletButtonMobile {
+  margin-top: 8px;
+  padding: 10px;
   border: 2px dashed var(--surface-06);
   opacity: 0.7;
   justify-self: start;
@@ -182,6 +197,45 @@ TEMP
   color: white;
   opacity: 0.7;
   text-decoration: underline;
+}
+
+.mobileMenu {
+  position: absolute;
+  right: -7.5px;
+  top: 27.5px;
+}
+
+.menuDropdown {
+  background-color: #1e1e1e !important;
+}
+
+.backgroundOpacity {
+  background-color: rgba(30, 30, 30, 0.7);
+}
+.mobileMenu svg {
+  color: white;
+  font-size: 30px;
+}
+
+@media bp-small {
+  .mobileMenu {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-self: start;
+    justify-items: start;
+  }
+
+  .connectWalletButton {
+    composes: textButton from "@klimadao/lib/theme/common.module.css";
+    display: unset;
+    border: 2px dashed var(--secondary);
+    justify-self: start;
+  }
 }
 
 @media bp-medium {

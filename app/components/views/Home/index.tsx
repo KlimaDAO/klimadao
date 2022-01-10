@@ -11,7 +11,6 @@ import { selectBalances } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
-
 import { Stake } from "components/views/Stake";
 import { Redeem } from "components/views/Redeem";
 import { PKlima } from "components/views/PKlima";
@@ -20,10 +19,13 @@ import { Loading } from "components/views/Loading";
 import { ChooseBond } from "components/views/ChooseBond";
 import { Bond } from "components/views/Bond";
 import { Wrap } from "components/views/Wrap";
-
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
+import { generateLinks, LoadWeb3Modal } from "./constants";
+import Nav from "./Nav";
+import WalletAction from "./WalletAction";
+import MobileMenu from "./MobileMenu";
 
 import styles from "./index.module.css";
 
@@ -53,7 +55,6 @@ const useWeb3Modal = () => {
   return ref.current;
 };
 
-type LoadWeb3Modal = () => Promise<void>;
 const useProvider = (): [
   ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider,
   string | undefined,
@@ -134,7 +135,6 @@ export const Home: FC = () => {
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
-
   /**
    * This is a hack to force re-render of nav component
    * because SSR hydration doesn't show active path
@@ -276,63 +276,8 @@ export const Home: FC = () => {
 
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
   // A hack to keep the card centered in the viewport.
-  const nav = (
-    <nav className={styles.nav}>
-      {chainId === 80001 && (
-        <p className={styles.testnet_warning}>
-          ⚠️You are connected to <strong>testnet</strong>
-          <br />
-          <em>{`"where everything is made up and the points don't matter."`}</em>
-        </p>
-      )}
-      {showRedeemButton && (
-        <Link
-          className={styles.textButton}
-          to="/redeem"
-          data-active={path === "/redeem"}
-        >
-          REDEEM
-        </Link>
-      )}
-      <Link
-        className={styles.textButton}
-        to="/stake"
-        data-active={path === "/stake"}
-      >
-        STAKE
-      </Link>
-      <Link
-        className={styles.textButton}
-        to="/wrap"
-        data-active={path === "/wrap"}
-      >
-        WRAP
-      </Link>
-      <Link
-        className={styles.textButton}
-        to="/bonds"
-        data-active={path.includes("/bonds")}
-      >
-        BOND
-      </Link>
-      <Link
-        className={styles.textButton}
-        to="/info"
-        data-active={path === "/info"}
-      >
-        INFO
-      </Link>
-      {showPklimaButton && (
-        <Link
-          className={styles.textButton}
-          to="/pklima"
-          data-active={path === "/pklima"}
-        >
-          pKLIMA
-        </Link>
-      )}
-    </nav>
-  );
+
+  const links = generateLinks({ path, showPklimaButton, showRedeemButton });
 
   return (
     <>
@@ -354,27 +299,22 @@ export const Home: FC = () => {
                 to earn interest.
               </p>
             </div>
-            {!isConnected && (
-              <button
-                type="button"
-                className={styles.connectWalletButton}
-                onClick={loadWeb3Modal}
-              >
-                CONNECT WALLET
-              </button>
-            )}
-            {isConnected && (
-              <button
-                type="button"
-                className={styles.disconnectWalletButton}
-                onClick={disconnect}
-              >
-                DISCONNECT WALLET
-              </button>
-            )}
+
+            <MobileMenu
+              links={links}
+              isConnected={isConnected}
+              loadWeb3Modal={loadWeb3Modal}
+              disconnect={disconnect}
+            />
+
+            <WalletAction
+              isConnected={isConnected}
+              loadWeb3Modal={loadWeb3Modal}
+              disconnect={disconnect}
+            />
           </header>
           <main className={styles.main}>
-            {nav}
+            <Nav links={links} chainId={chainId} />
             <Routes>
               <Route
                 path="/"
@@ -447,7 +387,9 @@ export const Home: FC = () => {
                 );
               })}
             </Routes>
-            <div className={styles.invisibleColumn}>{nav}</div>
+            <div className={styles.invisibleColumn}>
+              {<Nav links={links} chainId={chainId} />}
+            </div>
           </main>
         </div>
         <footer className={styles.footer}>
