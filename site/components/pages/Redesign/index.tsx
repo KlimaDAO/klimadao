@@ -42,14 +42,24 @@ export const Home: NextPage<Props> = (props) => {
           ]}
         >
           <NavItemDesktop url={urls.home} name="Home" active={true} />
-          <NavItemDesktop url={urls.tutorial} name="Buy Klima" />
+          <NavItemDesktop
+            url={urls.tutorial}
+            name="Buy Klima"
+            target="_blank"
+            rel="noreferrer noopener"
+          />
           <NavItemDesktop url={urls.stake} name="Stake" />
           <NavItemDesktop url={urls.wrap} name="Wrap" />
           <NavItemDesktop url={urls.bond} name="Bond" />
         </HeaderDesktop>
         <HeaderMobile>
           <NavItemMobile url={urls.home} name="Home" />
-          <NavItemMobile url={urls.tutorial} name="Buy Klima" />
+          <NavItemMobile
+            url={urls.tutorial}
+            name="Buy Klima"
+            target="_blank"
+            rel="noreferrer noopener"
+          />
           <NavItemMobile url={urls.stake} name="Stake" />
           <NavItemMobile url={urls.stake} name="Wrap" />
           <NavItemMobile url={urls.bond} name="Bond" />

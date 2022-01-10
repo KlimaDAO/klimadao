@@ -11,11 +11,21 @@ export const Footer: FC = () => {
       <div className={styles.footer_content}>
         <nav className={styles.footer_nav}>
           <a href={urls.home}>Klima Dao</a>
-          <a href={urls.tutorial}>Buy Klima</a>
+          <a href={urls.tutorial} target="_blank" rel="noreferrer noopener">
+            Buy Klima
+          </a>
           <a href={urls.stake}>Stake</a>
           <a href={urls.bond}>Bond</a>
-          <a href={urls.officialDocs}>Docs</a>
-          <a href={urls.discordInvite}>Join Klima</a>
+          <a href={urls.officialDocs} target="_blank" rel="noreferrer noopener">
+            Docs
+          </a>
+          <a
+            href={urls.discordInvite}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Join Klima
+          </a>
         </nav>
         <nav className={styles.footer_icons}>
           <a href={urls.twitter} target="_blank" rel="noreferrer noopener">
