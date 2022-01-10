@@ -14,7 +14,7 @@ export const button_primary = css`
   border-radius: 4px;
   transition: background-color 0.3s ease 0s;
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--white) !important;
   border: 0px;
   font-size: var(--font-size);
 

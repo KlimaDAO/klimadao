@@ -34,11 +34,7 @@ export const Home: NextPage<Props> = (props) => {
       <PageWrap>
         <HeaderDesktop
           buttons={[
-            <ButtonPrimary
-              key="Connect Wallet"
-              label="Connect Wallet"
-              onClick={() => console.log("Do we want this here?")}
-            />,
+            <ButtonPrimary key="Enter App" label="Enter App" href={urls.app} />,
           ]}
         >
           <NavItemDesktop url={urls.home} name="Home" active={true} />
