@@ -32,6 +32,7 @@ export const theme = css`
 
   --background: var(--surface-08);
   --site-max-width: 180rem;
+  --border-radius: 0.4rem;
 
   background-color: var(--background);
   min-height: 100vh;

@@ -9,13 +9,13 @@ export const button_primary = css`
   text-align: center;
   line-height: inherit;
   text-decoration: none;
-  padding: 10px 18px;
+  padding: 1rem 1.8rem;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   transition: background-color 0.3s ease 0s;
   background-color: var(--primary);
   color: var(--white) !important;
-  border: 0px;
+  border: 0;
   font-size: var(--font-size);
 
   &:hover {
