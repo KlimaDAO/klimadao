@@ -4,7 +4,6 @@ import { WalletProps } from "../constants";
 import styles from "../index.module.css";
 
 const WalletAction: FC<WalletProps> = ({
-  isMobile,
   isConnected,
   loadWeb3Modal,
   disconnect,
@@ -12,7 +11,7 @@ const WalletAction: FC<WalletProps> = ({
   return !isConnected ? (
     <button
       type="button"
-      className={styles[`connectWalletButton${isMobile ? "Mobile" : ""}`]}
+      className={styles.connectWalletButton}
       onClick={loadWeb3Modal}
     >
       CONNECT WALLET
@@ -20,7 +19,7 @@ const WalletAction: FC<WalletProps> = ({
   ) : (
     <button
       type="button"
-      className={styles[`disconnectWalletButton${isMobile ? "Mobile" : ""}`]}
+      className={styles.disconnectWalletButton}
       onClick={disconnect}
     >
       DISCONNECT WALLET
