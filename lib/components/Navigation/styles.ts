@@ -3,7 +3,7 @@ import breakpoints from "../../theme/breakpoints";
 
 export const navMain_DesktopLink = css`
   text-decoration: none;
-  padding: 0px 30px;
+  padding: 0 3rem;
   font-weight: 500;
   color: var(--surface-05) !important;
   display: flex;
@@ -27,10 +27,10 @@ export const navMain_Mobile = css`
   height: 100%;
   overflow-y: scroll;
   background-color: var(--white);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.4rem 0.4rem;
   transform: translate3d(0px, 0px, 0px);
   transition: transform 0.5s ease 0s;
-  padding-top: 64px;
+  padding-top: 6.4rem;
   display: flex;
   ${breakpoints.medium} {
     display: none;
@@ -47,7 +47,7 @@ export const navMain_MobileClosed = css`
   background-color: var(--white);
   transform: translate3d(100%, 0px, 0px);
   transition: transform 0.5s ease 0s;
-  padding-top: 64px;
+  padding-top: 6.4rem;
   display: flex;
   ${breakpoints.medium} {
     display: none;
@@ -55,14 +55,14 @@ export const navMain_MobileClosed = css`
 `;
 
 export const navMain_MobileList = css`
-  padding: 0px;
-  padding-top: 20px;
+  padding: 0;
+  padding-top: 2rem;
   list-style: none;
-  margin: 0px auto;
+  margin: 0 auto;
 `;
 
 export const navMain_MobileItem = css`
-  padding: 12px 24px;
+  padding: 1.2rem 2.4rem;
 `;
 
 export const navMain_MobileLink = css`
@@ -74,7 +74,7 @@ export const navMain_MobileItemInner = css`
   font-size: 3.75rem;
   font-weight: 500;
   color: var(--surface-02);
-  padding: 4px 0px 0px;
+  padding: 0.4rem 0 0;
   display: flex;
   align-items: center;
 
@@ -87,11 +87,11 @@ export const navMain_MobileItemInnerNumber = css`
   font-size: 2rem;
   font-weight: 600;
   color: var(--surface-05);
-  margin-right: 20px;
+  margin-right: 2rem;
 `;
 
 export const buttonToggleNav = css`
-  padding: 10px;
+  padding: 1rem;
   display: inline-block;
   cursor: pointer;
   transition-property: opacity, filter;
@@ -100,9 +100,9 @@ export const buttonToggleNav = css`
   color: inherit;
   text-transform: none;
   background-color: var(--white);
-  border: 0px;
-  border-radius: 4px;
-  margin: 0px;
+  border: 0;
+  border-radius: var(--border-radius);
+  margin: 0;
   overflow: visible;
   line-height: 0;
 
@@ -115,57 +115,57 @@ export const hamburgerOuter = css`
   text-transform: none;
   line-height: 0;
   box-sizing: border-box;
-  width: 24px;
-  height: 20px;
+  width: 2.4rem;
+  height: 2rem;
   display: inline-block;
   position: relative;
 `;
 
 export const hamburgerInnerToggled = css`
-  width: 24px;
-  height: 4px;
+  width: 2.4rem;
+  height: 0.4rem;
   background-color: var(--surface);
-  border-radius: 0px;
+  border-radius: 0;
   position: absolute;
   transition-property: transform;
   transition-duration: 0.15s;
   transition-timing-function: ease;
   display: block;
   top: 50%;
-  margin-top: -2px;
+  margin-top: -0.2rem;
   transition-duration: 0.075s;
   transform: rotate(45deg);
   transition-delay: 0.12s;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 
   &::before {
-    width: 24px;
-    height: 4px;
+    width: 2.4rem;
+    height: 0.4rem;
     background-color: var(--surface);
-    border-radius: 0px;
+    border-radius: 0;
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
     transition-timing-function: ease;
     content: "";
     display: block;
-    bottom: 0px;
+    bottom: 0;
     transform: rotate(-90deg);
     transition: bottom 0.075s ease 0s,
       transform 0.075s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
   }
   &::after {
-    width: 24px;
-    height: 4px;
+    width: 2.4rem;
+    height: 0.4rem;
     background-color: var(--surface);
-    border-radius: 0px;
+    border-radius: 0;
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
     transition-timing-function: ease;
     content: "";
     display: block;
-    bottom: 0px;
+    bottom: 0;
     transform: rotate(-90deg);
     transition: bottom 0.075s ease 0s,
       transform 0.075s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
@@ -179,11 +179,11 @@ export const hamburgerInner = css`
   box-sizing: border-box;
   display: block;
   top: 50%;
-  margin-top: -2px;
-  width: 24px;
-  height: 4px;
+  margin-top: -0.2rem;
+  width: 2.4rem;
+  height: 0.4rem;
   background-color: var(--surface);
-  border-radius: 0px;
+  border-radius: 0;
   position: absolute;
   transition-property: transform;
   transition-duration: 0.15s;
@@ -191,13 +191,13 @@ export const hamburgerInner = css`
 
   &::before {
     transition: top 0.075s ease 0.12s, opacity 0.075s ease 0s;
-    top: -8px;
+    top: -0.8rem;
     content: "";
     display: block;
-    width: 24px;
-    height: 4px;
+    width: 2.4rem;
+    height: 0.4rem;
     background-color: var(--surface);
-    border-radius: 0px;
+    border-radius: 0;
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
@@ -207,13 +207,13 @@ export const hamburgerInner = css`
   &::after {
     transition: bottom 0.075s ease 0.12s,
       transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
-    bottom: -8px;
+    bottom: -0.8rem;
     content: "";
     display: block;
-    width: 24px;
-    height: 4px;
+    width: 2.4rem;
+    height: 0.4rem;
     background-color: var(--surface);
-    border-radius: 0px;
+    border-radius: 0;
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
