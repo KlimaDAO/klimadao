@@ -109,32 +109,30 @@ TEMP
   cursor: default;
 }
 
-.connectWalletButton {
+.connectWalletButton,
+.disconnectWalletButton {
   display: none;
 }
 .connectWalletButtonMobile {
-  margin-top: 8px;
-  padding: 10px;
+  composes: textButton from "@klimadao/lib/theme/common.module.css";
+  display: unset;
   border: 2px dashed var(--secondary);
+  justify-self: start;
 }
-.connectWalletButton:hover {
+.connectWalletButton:hover,
+.connectWalletButtonMobile:hover {
   opacity: 1;
   border: 2px dashed var(--secondary-variant) !important;
 }
-.disconnectWalletButton {
+.disconnectWalletButton,
+.disconnectWalletButtonMobile {
   composes: textButton from "@klimadao/lib/theme/common.module.css";
   border: 2px dashed var(--surface-06);
   opacity: 0.7;
   justify-self: start;
 }
-.disconnectWalletButtonMobile {
-  margin-top: 8px;
-  padding: 10px;
-  border: 2px dashed var(--surface-06);
-  opacity: 0.7;
-  justify-self: start;
-}
-.disconnectWalletButton:hover {
+.disconnectWalletButton:hover,
+.disconnectWalletButtonMobile:hover {
   opacity: 1;
   border: 2px dashed var(--secondary) !important;
 }
@@ -205,6 +203,11 @@ TEMP
   top: 27.5px;
 }
 
+.mobileMenuLink {
+  composes: button from "@klimadao/lib/theme/typography.module.css";
+  color: white !important;
+}
+
 .menuDropdown {
   background-color: #1e1e1e !important;
 }
@@ -235,6 +238,9 @@ TEMP
     display: unset;
     border: 2px dashed var(--secondary);
     justify-self: start;
+  }
+  .disconnectWalletButton {
+    display: unset;
   }
 }
 

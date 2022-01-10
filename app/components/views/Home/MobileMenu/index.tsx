@@ -6,9 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Zoom from "@mui/material/Zoom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import WalletAction from "../WalletAction";
 import { MobileMenuProps } from "../constants";
-import t from "@klimadao/lib/theme/typography.module.css";
 
 import styles from "../index.module.css";
 
@@ -55,19 +53,36 @@ const MobileMenu: FC<MobileMenuProps> = ({
         {visibleLinks.map(({ dataActive, to, text }) => {
           return (
             <MenuItem selected={dataActive} key={text} onClick={handleClose}>
-              <Link className={t.button} to={to}>
+              <Link className={styles.mobileMenuLink} to={to}>
                 {text}
               </Link>
             </MenuItem>
           );
         })}
-        <MenuItem key="wallet-action" onClick={handleClose}>
-          <WalletAction
-            isConnected={isConnected}
-            loadWeb3Modal={loadWeb3Modal}
-            disconnect={disconnect}
-            isMobile
-          />
+        <MenuItem>
+          {!isConnected ? (
+            <button
+              type="button"
+              className={styles.connectWalletButtonMobile}
+              onClick={() => {
+                handleClose();
+                loadWeb3Modal();
+              }}
+            >
+              CONNECT WALLET
+            </button>
+          ) : (
+            <button
+              type="button"
+              className={styles.disconnectWalletButtonMobile}
+              onClick={() => {
+                handleClose();
+                disconnect();
+              }}
+            >
+              DISCONNECT WALLET
+            </button>
+          )}
         </MenuItem>
       </Menu>
     </div>
