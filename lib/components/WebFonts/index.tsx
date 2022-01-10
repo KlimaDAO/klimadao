@@ -14,6 +14,10 @@ export const WebFonts = () => {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap"
       />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+        rel="stylesheet"
+      ></link>
     </>
   );
 };
