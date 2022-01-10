@@ -31,6 +31,7 @@ export const theme = css`
   --font-size: 1.4rem;
 
   --background: var(--surface-08);
+  --site-max-width: 180rem;
 
   background-color: var(--background);
   min-height: 100vh;

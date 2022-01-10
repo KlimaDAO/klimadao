@@ -6,26 +6,11 @@ export const headerDesktop = css`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 64px;
+  height: 6.4rem;
   padding: 0rem 3.4rem;
   background: var(--background);
   ${breakpoints.medium} {
     display: flex;
-  }
-`;
-
-export const headerMobileWrap_toggled = css`
-  position: fixed;
-  pointer-events: all;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  transition: background-color 0.5s ease 0s;
-  z-index: 100;
-  ${breakpoints.medium} {
-    display: none;
   }
 `;
 
@@ -44,6 +29,11 @@ export const headerMobileWrap = css`
   }
 `;
 
+export const headerMobileWrap_toggled = css`
+  ${headerMobileWrap};
+  pointer-events: all;
+`;
+
 export const headerMobile = css`
   position: relative;
   background-color: var(--white);
@@ -52,7 +42,7 @@ export const headerMobile = css`
   align-items: center;
   justify-content: space-between;
   padding: 0rem 2.4rem;
-  height: 64px;
+  height: 6.4rem;
   z-index: 1;
   ${breakpoints.medium} {
     display: none;
@@ -64,7 +54,7 @@ export const menuDesktop = css`
   flex-direction: row;
   width: 100%;
   align-items: center;
-  max-width: 1800px;
+  max-width: var(--site-max-width);
 `;
 
 export const logo_Desktop = css`
@@ -80,14 +70,14 @@ export const navMain_Desktop = css`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 2px;
-  font-size: 12px;
+  padding-top: 0.2rem;
+  font-size: 1.2rem;
   flex: 0 0 auto;
 `;
 
 export const navMain_DesktopLink = css`
   text-decoration: none;
-  padding: 0px 20px;
+  padding: 0 2rem;
   font-weight: bold;
   color: var(--surface);
   display: flex;
