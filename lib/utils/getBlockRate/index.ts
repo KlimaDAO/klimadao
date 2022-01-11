@@ -2,7 +2,7 @@ import { API_KEY } from "../../constants";
 
 // Calculated based on Remaining Blocks (to reach block no. 999999999)
 // divided by Estimated Time In Seconds to reach that block
-// If api call is not fetching required data, default block rate is returned
+
 export async function getBlockRate() {
   let blockRateSeconds = 2.5;
   const data = await (
