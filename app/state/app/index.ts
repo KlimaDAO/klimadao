@@ -8,6 +8,7 @@ interface AppState {
   stakingRebase: number | undefined;
   treasuryBalance: number | undefined;
   rebaseBlock: number | undefined;
+  blockRate: number;
 }
 
 const initialState: AppState = {
@@ -18,6 +19,7 @@ const initialState: AppState = {
   stakingRebase: undefined,
   treasuryBalance: undefined,
   rebaseBlock: undefined,
+  blockRate: 2.5, // Default block rate
 };
 
 export const appSlice = createSlice({
