@@ -1,20 +1,27 @@
 import { NextPage } from "next";
+import Image from "next/image";
 
 import {
   PageWrap,
+  ContentWrap,
+  Section,
+  ContentBox,
+  ContentBoxImage,
   HeaderDesktop,
   Footer,
   NavItemDesktop,
   HeaderMobile,
   NavItemMobile,
   ButtonPrimary,
+  Heading,
+  Copy,
 } from "@klimadao/lib/components";
 
-import styles from "./index.module.css";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 
+import introPic from "public/intro.png";
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
@@ -22,6 +29,7 @@ export interface Props {
 }
 
 export const Home: NextPage<Props> = (props) => {
+  console.log("introPic", introPic);
   return (
     <>
       <PageHead
@@ -60,6 +68,23 @@ export const Home: NextPage<Props> = (props) => {
           <NavItemMobile url={urls.stake} name="Wrap" />
           <NavItemMobile url={urls.bond} name="Bond" />
         </HeaderMobile>
+        <ContentWrap>
+          <Section>
+            <ContentBox>
+              <Copy text="👋 WELCOME TO" />
+              <Heading text="KlimaDao" />
+              <Copy text="KlimaDAO harnesses the power of cryptocurrency, blockchain and smart contracts to create incentives for environmental protection." />
+              <ButtonPrimary
+                key="Enter App"
+                label="Enter App"
+                href={urls.app}
+              />
+            </ContentBox>
+            <ContentBoxImage variant="belowTextBox">
+              <Image alt="Intro" src={introPic} layout="fill" />
+            </ContentBoxImage>
+          </Section>
+        </ContentWrap>
         <Footer />
       </PageWrap>
     </>
