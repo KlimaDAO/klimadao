@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
       price,
       translation,
     },
-    revalidate: 240,
+    revalidate: 60,
   };
 };
 

@@ -139,11 +139,6 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
-  const balanceUnits = () => {
-    if (props.bond === "bct") return "BCT";
-    return "SLP";
-  };
-
   useEffect(() => {
     async function loadBondDetails() {
       if (props.provider) {
@@ -435,7 +430,9 @@ export const Bond: FC<Props> = (props) => {
               { bond: "bond", redeem: "redeem" }[view]
             }`}
             min="0"
-            step={view === "bond" && balanceUnits() !== "BCT" ? "0.0001" : "1"}
+            step={
+              view === "bond" && bondInfo.balanceUnit === "SLP" ? "1" : "0.0001"
+            }
             disabled={view === "redeem"}
           />
           <button
@@ -498,7 +495,7 @@ export const Bond: FC<Props> = (props) => {
                     Number(bondState?.balance) < 1 ? 5 : 2
                   )}
                 </span>{" "}
-                {balanceUnits()}
+                {bondInfo.balanceUnit}
               </WithPlaceholder>
             </div>
           </li>
@@ -515,7 +512,8 @@ export const Bond: FC<Props> = (props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(bondState?.bondPrice, 2)}</span> BCT
+              <span>{trimWithPlaceholder(bondState?.bondPrice, 2)}</span>{" "}
+              {bondInfo.priceUnit}
             </div>
           </li>
           <li className={styles.dataContainer_row}>
@@ -531,7 +529,8 @@ export const Bond: FC<Props> = (props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(bondState?.marketPrice, 2)}</span> BCT
+              <span>{trimWithPlaceholder(bondState?.marketPrice, 2)}</span>{" "}
+              {bondInfo.priceUnit}
             </div>
           </li>
           <li className={styles.dataContainer_row}>

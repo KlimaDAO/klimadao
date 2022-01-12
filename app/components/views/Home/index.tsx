@@ -23,7 +23,7 @@ import { Wrap } from "components/views/Wrap";
 
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
-import { CheckURLBanner } from "components/CheckURLBanner";
+import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 
 import { Trans } from "@lingui/macro";
 import { locales, activate, init } from "lib/i18n";
@@ -84,6 +84,7 @@ const useProvider = (): [
       web3Modal?.clearCachedProvider();
     }
   };
+
   useEffect(() => {
     if (web3Modal?.cachedProvider) {
       loadWeb3Modal();
@@ -130,7 +131,9 @@ export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
-  const [showCheckURLBanner, setShowCheckURLBanner] = useState(true);
+  const [showCheckURLBanner, setShowCheckURLBanner] = useState(
+    !skipCheckURLBanner()
+  );
 
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
@@ -209,6 +212,13 @@ export const Home: FC = () => {
     dispatch(
       calcBondDetails({
         bond: "bct",
+        value: "",
+        provider,
+      })
+    );
+    dispatch(
+      calcBondDetails({
+        bond: "mco2",
         value: "",
         provider,
       })
@@ -388,34 +398,38 @@ export const Home: FC = () => {
                     </Trans>
                   </button>
                 )}
-                {!IS_PRODUCTION && (
-                  <button
-                    type="button"
-                    className={styles.localeSelectionButton}
-                    onClick={() => {
-                      setLocalesMenuVisible(!localesMenuVisible);
-                    }}
-                  >
-                    <Trans id="usermenu.changelanguage">Language</Trans>
-                  </button>
-                )}
-                {Object.keys(locales).map((locale_k, key) => (
-                  <div
-                    key={key}
-                    style={{ display: localesMenuVisible ? "block" : "none" }}
-                  >
+                {
+                  !IS_PRODUCTION && (
                     <button
-                      data-active={locale == locale_k ? "true" : "false"}
-                      className={styles.localeSelectionItem}
-                      onClick={() => selectLocale(locale_k)}
+                      type="button"
+                      className={styles.localeSelectionButton}
+                      onClick={() => {
+                        setLocalesMenuVisible(!localesMenuVisible);
+                      }}
                     >
-                      {locale_k}
+                      <Trans id="usermenu.changelanguage">Language</Trans>
                     </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </header>
+                  )
+                }
+                {
+                  Object.keys(locales).map((locale_k, key) => (
+                    <div
+                      key={key}
+                      style={{ display: localesMenuVisible ? "block" : "none" }}
+                    >
+                      <button
+                        data-active={locale == locale_k ? "true" : "false"}
+                        className={styles.localeSelectionItem}
+                        onClick={() => selectLocale(locale_k)}
+                      >
+                        {locale_k}
+                      </button>
+                    </div>
+                  ))
+                }
+              </div >
+            </div >
+          </header >
           <main className={styles.main}>
             {nav}
             <Routes>
@@ -492,7 +506,7 @@ export const Home: FC = () => {
             </Routes>
             <div className={styles.invisibleColumn}>{nav}</div>
           </main>
-        </div>
+        </div >
         <footer className={styles.footer}>
           <div className={styles.footer_content}>
             <a href={urls.home} className={styles.footer_logo}>
@@ -514,22 +528,26 @@ export const Home: FC = () => {
             </nav>
           </div>
         </footer>
-      </div>
+      </div >
       <InvalidNetworkModal provider={provider} />
-      {showRPCModal && (
-        <InvalidRPCModal
-          onHide={() => {
-            setShowRPCModal(false);
-          }}
-        />
-      )}
-      {showCheckURLBanner && (
-        <CheckURLBanner
-          onHide={() => {
-            setShowCheckURLBanner(false);
-          }}
-        />
-      )}
+      {
+        showRPCModal && (
+          <InvalidRPCModal
+            onHide={() => {
+              setShowRPCModal(false);
+            }}
+          />
+        )
+      }
+      {
+        showCheckURLBanner && (
+          <CheckURLBanner
+            onHide={() => {
+              setShowCheckURLBanner(false);
+            }}
+          />
+        )
+      }
     </>
   );
 };
