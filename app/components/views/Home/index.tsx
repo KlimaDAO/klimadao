@@ -398,38 +398,34 @@ export const Home: FC = () => {
                     </Trans>
                   </button>
                 )}
-                {
-                  !IS_PRODUCTION && (
+                {!IS_PRODUCTION && (
+                  <button
+                    type="button"
+                    className={styles.localeSelectionButton}
+                    onClick={() => {
+                      setLocalesMenuVisible(!localesMenuVisible);
+                    }}
+                  >
+                    <Trans id="usermenu.changelanguage">Language</Trans>
+                  </button>
+                )}
+                {Object.keys(locales).map((locale_k, key) => (
+                  <div
+                    key={key}
+                    style={{ display: localesMenuVisible ? "block" : "none" }}
+                  >
                     <button
-                      type="button"
-                      className={styles.localeSelectionButton}
-                      onClick={() => {
-                        setLocalesMenuVisible(!localesMenuVisible);
-                      }}
+                      data-active={locale == locale_k ? "true" : "false"}
+                      className={styles.localeSelectionItem}
+                      onClick={() => selectLocale(locale_k)}
                     >
-                      <Trans id="usermenu.changelanguage">Language</Trans>
+                      {locale_k}
                     </button>
-                  )
-                }
-                {
-                  Object.keys(locales).map((locale_k, key) => (
-                    <div
-                      key={key}
-                      style={{ display: localesMenuVisible ? "block" : "none" }}
-                    >
-                      <button
-                        data-active={locale == locale_k ? "true" : "false"}
-                        className={styles.localeSelectionItem}
-                        onClick={() => selectLocale(locale_k)}
-                      >
-                        {locale_k}
-                      </button>
-                    </div>
-                  ))
-                }
-              </div >
-            </div >
-          </header >
+                  </div>
+                ))}
+              </div>
+            </div>
+          </header>
           <main className={styles.main}>
             {nav}
             <Routes>
@@ -506,7 +502,7 @@ export const Home: FC = () => {
             </Routes>
             <div className={styles.invisibleColumn}>{nav}</div>
           </main>
-        </div >
+        </div>
         <footer className={styles.footer}>
           <div className={styles.footer_content}>
             <a href={urls.home} className={styles.footer_logo}>
@@ -528,26 +524,22 @@ export const Home: FC = () => {
             </nav>
           </div>
         </footer>
-      </div >
+      </div>
       <InvalidNetworkModal provider={provider} />
-      {
-        showRPCModal && (
-          <InvalidRPCModal
-            onHide={() => {
-              setShowRPCModal(false);
-            }}
-          />
-        )
-      }
-      {
-        showCheckURLBanner && (
-          <CheckURLBanner
-            onHide={() => {
-              setShowCheckURLBanner(false);
-            }}
-          />
-        )
-      }
+      {showRPCModal && (
+        <InvalidRPCModal
+          onHide={() => {
+            setShowRPCModal(false);
+          }}
+        />
+      )}
+      {showCheckURLBanner && (
+        <CheckURLBanner
+          onHide={() => {
+            setShowCheckURLBanner(false);
+          }}
+        />
+      )}
     </>
   );
 };
