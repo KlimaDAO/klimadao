@@ -1,0 +1,58 @@
+@value bp-medium from "@klimadao/lib/theme/breakpoints.css";
+
+.container {
+  background-color: white;
+  color: black;
+}
+.banner {
+  position: relative;
+}
+.bannerImage {
+  height: 20rem;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  background-color: #fff;
+  top: 7rem;
+  left: 1.6rem;
+  padding: 2rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+@media bp-medium {
+  .backButton {
+    left: 10%;
+  }
+}
+
+.blogContainer {
+  padding: 3rem 0;
+  color: #313131;
+  line-height: 166%;
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(0.8rem, 1fr)
+    [main-start] minmax(0, 70rem)
+    [main-end] minmax(0.8rem, 1fr)
+    [full-end];
+}
+.content {
+  grid-column: main;
+}
+.title {
+  line-height: 4.8rem;
+  font-weight: 800;
+}
+.date {
+  margin: 2rem 0;
+  color: #a1a1a1 !important;
+}
+
+.inlineImage {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
