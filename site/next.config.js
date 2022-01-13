@@ -5,7 +5,12 @@ module.exports = {
     return [
       {
         source: "/blog",
-        destination: "https://klimadao.medium.com/",
+        destination: "/resources/blog",
+        permanent: true,
+      },
+      {
+        source: "/resources",
+        destination: "/resources/blog",
         permanent: true,
       },
     ];
@@ -13,5 +18,8 @@ module.exports = {
   i18n: {
     locales: ["en", "fr", "pseudo"],
     defaultLocale: "en",
+  },
+  images: {
+    domains: ["cdn.sanity.io"],
   },
 };
