@@ -4,6 +4,8 @@ import { useRef } from "react";
 import type { Map } from "leaflet";
 import Image from "next/image";
 import spaceForest from "public/space-forest.jpg";
+import { Trans, t, defineMessage } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 
 import {
   IntersectDetector,
@@ -44,7 +46,42 @@ const BlackHoleTour = () => {
         prevCenterRef.current = center;
       }
     };
-
+  defineMessage({
+    id: "tour.treasury.title",
+    message: "Klima Treasury",
+  });
+  defineMessage({
+    id: "tour.treasury.text",
+    message:
+      "The treasury is the center of the black hole. Every KLIMA token is backed by 1 tonne of verified, tokenized carbon reduction or removal. These    can remain locked in the treasury indefinitely, or sold to balance the price of KLIMA.",
+  });
+  defineMessage({
+    id: "tour.carbon.title",
+    message: "Carbon Credits",
+  });
+  defineMessage({
+    id: "tour.carbon.text",
+    message:
+      "KLIMA is a vacuum for carbon. The treasury only accepts certified, third-party verified emissions reductions from reputable carbon markets (sometimes called 'carbon offsets' or 'carbon credits'). Each is tokenized in a transparent and traceable way to prevent double-spending or double-offsetting. These credits are sucked off the market and absorbed into the system through a Bonding mechanism.",
+  });
+  defineMessage({
+    id: "tour.bonding.title",
+    message: "Bonding",
+  });
+  defineMessage({
+    id: "tour.bonding.text",
+    message:
+      "Bonding is how carbon enters the treasury, and new KLIMA is created. Anyone can buy KLIMA at a discount by bonding carbon units and LP shares over a set vesting period.",
+  });
+  defineMessage({
+    id: "tour.staking.title",
+    message: "Klima Treasury",
+  });
+  defineMessage({
+    id: "tour.staking.text",
+    message:
+      "Carbon comes in, value comes out. Holders of KLIMA can earn compounding interest on their KLIMA by staking. Staking encourages long-term holding of KLIMA, and allows participants to benefit from the rising price of carbon. As the protocol generates a profit through Bond sales, this profit is allocated to everyone who has staked KLIMA.",
+  });
   return (
     <div className={styles.blackHoleSection}>
       <div className={styles.bgImgContainer}>
@@ -81,10 +118,8 @@ const BlackHoleTour = () => {
         )}
       />
       <TourItem
-        title="Klima Treasury"
-        text="The treasury is the center of the black hole. Every KLIMA token is
-          backed by 1 tonne of verified, tokenized carbon reduction or removal. These
-          can remain locked in the treasury indefinitely, or sold to balance the price of KLIMA."
+        title={i18n._("tour.treasury.title")}
+        text={i18n._("tour.treasury.text")}
       />
       <IntersectDetector
         onIntersect={handleIntersect(
@@ -99,13 +134,8 @@ const BlackHoleTour = () => {
         )}
       />
       <TourItem
-        title="Carbon Credits"
-        text="KLIMA is a vacuum for carbon. The treasury only accepts certified, third-party verified emissions
-        reductions from reputable carbon markets (sometimes called 'carbon
-        offsets' or 'carbon credits'). Each is tokenized in a
-        transparent and traceable way to prevent double-spending or
-        double-offsetting. These credits are sucked off the market and
-        absorbed into the system through a Bonding mechanism."
+        title={i18n._("tour.carbon.title")}
+        text={i18n._("tour.carbon.text")}
       />
       <IntersectDetector
         onIntersect={handleIntersect(
@@ -120,8 +150,8 @@ const BlackHoleTour = () => {
         )}
       />
       <TourItem
-        title="Bonding"
-        text="Bonding is how carbon enters the treasury, and new KLIMA is created. Anyone can buy KLIMA at a discount by bonding carbon units and LP shares over a set vesting period."
+        title={i18n._("tour.bonding.title")}
+        text={i18n._("tour.bonding.text")}
       />
       <IntersectDetector
         onIntersect={handleIntersect(
@@ -136,13 +166,8 @@ const BlackHoleTour = () => {
         )}
       />
       <TourItem
-        title="Staking"
-        text="Carbon comes in, value comes out.
-        Holders of KLIMA can earn compounding interest on their KLIMA by
-        staking. Staking encourages long-term holding of KLIMA, and
-        allows participants to benefit from the rising price of carbon. As the
-        protocol generates a profit through Bond sales, this profit is
-        allocated to everyone who has staked KLIMA."
+        title={i18n._("tour.staking.title")}
+        text={i18n._("tour.staking.text")}
       />
       <IntersectDetector onIntersect={handleIntersect(initialView)} />
       <div className={styles.gap} />

@@ -7,8 +7,8 @@ import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import t from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
-import { selectBalances } from "state/selectors";
-import { loadAppDetails } from "actions/app";
+import { selectBalances, selectAppState } from "state/selectors";
+import { loadAppDetails, setLocale } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 import { Stake } from "components/views/Stake";
@@ -28,10 +28,11 @@ import WalletAction from "./WalletAction";
 import MobileMenu from "./MobileMenu";
 
 import { Trans } from "@lingui/macro";
-import { locales, activate } from "lib/i18n";
+import { locales, activate, init } from "lib/i18n";
 import { i18n } from "@lingui/core";
 
 import styles from "./index.module.css";
+import { IS_PRODUCTION } from "lib/constants";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -140,6 +141,19 @@ export const Home: FC = () => {
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
   const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
+  const { locale } = useSelector(selectAppState);
+
+  useEffect(() => {
+    if (locale === undefined) {
+      init().then((init_locale: string) => {
+        dispatch(setLocale(init_locale));
+      });
+    }
+  }, []);
+  async function selectLocale(locale: string) {
+    activate(locale);
+    dispatch(setLocale(locale));
+  }
 
   /**
    * This is a hack to force re-render of nav component
@@ -342,27 +356,28 @@ export const Home: FC = () => {
                     </Trans>
                   </button>
                 )}
-                <button
-                  type="button"
-                  className={styles.localeSelectionButton}
-                  onClick={() => {
-                    setLocalesMenuVisible(!localesMenuVisible);
-                  }}
-                >
-                  <Trans id="usermenu.changelanguage">Language</Trans>
-                </button>
-
-                {Object.keys(locales).map((locale, key) => (
+                {!IS_PRODUCTION && (
+                  <button
+                    type="button"
+                    className={styles.localeSelectionButton}
+                    onClick={() => {
+                      setLocalesMenuVisible(!localesMenuVisible);
+                    }}
+                  >
+                    <Trans id="usermenu.changelanguage">Language</Trans>
+                  </button>
+                )}
+                {Object.keys(locales).map((locale_k, key) => (
                   <div
                     key={key}
                     style={{ display: localesMenuVisible ? "block" : "none" }}
                   >
                     <button
-                      data-active={i18n.locale == locale ? "true" : "false"}
+                      data-active={locale == locale_k ? "true" : "false"}
                       className={styles.localeSelectionItem}
-                      onClick={() => activate(locale)}
+                      onClick={() => selectLocale(locale_k)}
                     >
-                      {locale}
+                      {locale_k}
                     </button>
                   </div>
                 ))}

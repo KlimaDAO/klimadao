@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 
@@ -24,7 +24,6 @@ import {
 } from "@klimadao/lib/components";
 import {
   secondsUntilBlock,
-  prettifySeconds,
   trimWithPlaceholder,
   concatAddress,
 } from "@klimadao/lib/utils";
@@ -32,6 +31,7 @@ import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
 import { Trans, t, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
+import { prettifySeconds } from "lib/i18n";
 
 const WithPlaceholder: FC<{
   condition: boolean;
@@ -65,6 +65,7 @@ export const Stake = (props: Props) => {
     stakingAPY,
     currentBlock,
     rebaseBlock,
+    locale,
   } = useSelector(selectAppState);
 
   const stakeAllowance = useSelector(selectStakeAllowance);
@@ -133,9 +134,9 @@ export const Stake = (props: Props) => {
   };
 
   const timeUntilRebase = () => {
-    if (currentBlock && rebaseBlock) {
+    if (currentBlock && rebaseBlock && locale) {
       const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
-      return prettifySeconds(seconds);
+      return prettifySeconds(locale, seconds);
     }
   };
   const getButtonProps = () => {
@@ -250,8 +251,8 @@ export const Stake = (props: Props) => {
     message: "Approximate amount of sKLIMA you will receive at next rebase",
   });
   defineMessage({
-    id: "stake.time_until_rebase.tooltip",
-    message: "Approximate time remaining until next rewards distribution",
+    id: "stake.date_of_next_rebase.tooltip",
+    message: "Approximate date of next rewards distribution",
   });
   defineMessage({
     id: "stake.roi.tooltip",
@@ -414,10 +415,10 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.time_until_rebase">Time until rebase</Trans>
+            <Trans id="stake.date_of_next_rebase">Time until rebase</Trans>
             <TextInfoTooltip
               singleton={singleton}
-              content={i18n._("stake.time_until_rebase.tooltip")}
+              content={i18n._("stake.date_of_next_rebase.tooltip")}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />

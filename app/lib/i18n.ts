@@ -1,23 +1,31 @@
 import { i18n } from "@lingui/core";
 import { en, fr } from "make-plural/plurals";
+import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
+import { IS_PRODUCTION } from "lib/constants";
 
+// Define locales
 interface ILocales {
   [locale: string]: {
     plurals: (
       n: number | string,
       ord?: boolean
     ) => "zero" | "one" | "two" | "few" | "many" | "other";
+    time: string;
   };
 }
 const locales: ILocales = {
-  en: { plurals: en },
-  fr: { plurals: fr },
+  en: { plurals: en, time: "en-US" },
+  fr: { plurals: fr, time: "fr-FR" },
 };
+// Add pseudo locale only in development
+if (!IS_PRODUCTION) {
+  locales["pseudo"] = { plurals: en, time: "en-US" };
+}
 
+// Load localedata
 for (const key in locales) {
   const locale = locales[key];
   i18n.loadLocaleData(key, { plurals: locale.plurals });
-  //i18n.loadLocaleData("fr", { plurals: fr });
 }
 async function load(locale: string) {
   const { messages } = await import(`../locale/${locale}/messages.js`);
@@ -27,18 +35,29 @@ async function load(locale: string) {
 
 /**
  * Load messages for requested locale and activate it.
- * This function isn't part of the LinguiJS library because there're
- * many ways how to load messages  from REST API, from file, from cache, etc.
+ * Stores the choice in localestorage
  */
 async function activate(locale: string) {
   load(locale);
   window.localStorage.setItem("locale", locale);
 }
 
-function init() {
+/**
+ * Initializes locale (retrieve current locale fron localstorage if possible)
+ */
+async function init() {
   var locale = window.localStorage.getItem("locale") as string;
   if (!Object.keys(locales).includes(locale)) locale = "en";
-  load(locale);
+  await load(locale);
+  return locale;
 }
 
-export { locales, activate, init };
+/**
+ * Localizes an amount of seconds
+ */
+function prettifySeconds(locale: string | undefined, seconds: number) {
+  if (locale === undefined) locale = "en";
+  return prettifySecondsLib(locales[locale].time, seconds);
+}
+
+export { locales, activate, init, prettifySeconds };
