@@ -55,53 +55,83 @@ export const theme = css`
   flex-direction: column;
 `;
 
-export const content = css`
-  margin-top: calc(var(--header-height) + 2.4rem);
-  margin-bottom: 2.4rem;
-  position: relative;
+export const section = css`
+  padding: 6.4rem 0;
 `;
 
-export const section = css`
-  display: grid;
-  grid-template-columns: 2.4rem 1fr 1fr 2.4rem;
-  grid-auto-rows: minmax(100px, auto);
-  max-width: 120rem;
-  margin: 0 auto;
+export const sectionVariant = css`
+  ${section};
+  background-color: var(--white);
+`;
 
+export const sectionInner = css`
+  margin: 0 auto;
+  max-width: var(--site-max-width);
+`;
+
+export const sectionInnerContained = css`
+  ${sectionInner};
+  max-width: calc(var(--site-max-width) - 2.4rem * 2);
+  padding: 2.4rem;
+`;
+
+export const columns = css`
+  ${breakpoints.medium} {
+    display: flex;
+
+    & * {
+      flex: 1;
+    }
+  }
+`;
+
+export const columnsHero = css`
   ${breakpoints.small} {
-    grid-gap: 2rem;
+    display: flex;
+
+    & * {
+      flex: 1;
+    }
+  }
+`;
+
+export const columnsContained = css`
+  ${columns};
+
+  ${breakpoints.medium} {
+    display: flex;
+    max-width: 90rem;
+    margin: 2.4rem auto;
+    justify-content: space-evenly;
+
+    & * {
+      flex: 1;
+      max-width: 45%;
+    }
   }
 `;
 
 export const contentBox = css`
-  grid-column: 2/4;
-  grid-row: 1;
   background-color: var(--white);
   border-radius: var(--border-radius);
   padding: 3.4rem;
 
   display: flex;
+
   z-index: 1;
+  position: relative;
+  margin: 1rem;
 
   ${breakpoints.small} {
     padding: 7.4rem;
-  }
-
-  ${breakpoints.medium} {
-    grid-column: 2;
-    padding: 7.4rem;
-
     z-index: 0;
   }
 `;
 
 export const contentBoxImage = css`
-  border-radius: var(--border-radius);
+  ${contentBox};
 
-  grid-column: 2/4;
-  grid-row: 2;
-
-  position: relative;
+  margin: 1rem 0;
   min-height: 40rem;
 
   & img {
@@ -109,20 +139,19 @@ export const contentBoxImage = css`
     width: 100%;
     border-radius: var(--border-radius);
   }
-
-  ${breakpoints.medium} {
-    grid-column: 3;
-    grid-row: 1;
-    min-height: auto;
-  }
 `;
 
 export const contentBoxImageBelowText = css`
   ${contentBoxImage};
-  margin-top: -20rem;
-  grid-column: 1/5;
 
-  ${breakpoints.medium} {
-    margin-top: 0;
+  margin: 0;
+  margin-top: -20rem;
+
+  z-index: 0;
+  position: relative;
+
+  ${breakpoints.small} {
+    margin: 1rem;
+    min-height: auto;
   }
 `;

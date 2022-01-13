@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import {
   PageWrap,
-  ContentWrap,
+  Columns,
   Section,
   ContentBox,
   ContentBoxImage,
@@ -22,6 +22,8 @@ import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 
 import introPic from "public/intro.png";
+import blackHole from "public/black_hole.png";
+
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
@@ -29,7 +31,6 @@ export interface Props {
 }
 
 export const Home: NextPage<Props> = (props) => {
-  console.log("introPic", introPic);
   return (
     <>
       <PageHead
@@ -68,8 +69,8 @@ export const Home: NextPage<Props> = (props) => {
           <NavItemMobile url={urls.stake} name="Wrap" />
           <NavItemMobile url={urls.bond} name="Bond" />
         </HeaderMobile>
-        <ContentWrap>
-          <Section>
+        <Section>
+          <Columns variant="hero">
             <ContentBox>
               <Copy text="👋 WELCOME TO" />
               <Heading text="KlimaDao" />
@@ -83,8 +84,21 @@ export const Home: NextPage<Props> = (props) => {
             <ContentBoxImage variant="belowTextBox">
               <Image alt="Intro" src={introPic} layout="fill" />
             </ContentBoxImage>
-          </Section>
-        </ContentWrap>
+          </Columns>
+        </Section>
+        <Section variant="white" contentVariant="contained">
+          <Heading
+            align="center"
+            text="KlimaDAO’s vision is a future where the cost of carbon to the climate is embedded into our economic system."
+          />
+          <Columns variant="contained">
+            <Copy text="KlimaDAO is creating and governing a carbon-backed currency, which acts as the base unit of the on-chain carbon economy." />
+            <Copy text="Through the KLIMA token, we can help to align incentives between investors, civil society, and organizations, towards a more sustainable future." />
+          </Columns>
+          <ContentBoxImage>
+            <Image alt="GreenWormHole" src={blackHole} layout="fill" />
+          </ContentBoxImage>
+        </Section>
         <Footer />
       </PageWrap>
     </>

@@ -4,7 +4,7 @@ export { TextInfoTooltip, useTooltipSingleton } from "./TextInfoTooltip";
 export { GithubIcon } from "./Icons/GithubIcon";
 export { TwitterIcon } from "./Icons/TwitterIcon";
 export { PageWrap } from "./Layout/PageWrap";
-export { ContentWrap } from "./Layout/ContentWrap";
+export { Columns } from "./Layout/Columns";
 export { Section } from "./Layout/Section";
 export { ContentBox } from "./Layout/ContentBox";
 export { ContentBoxImage } from "./Layout/ContentBoxImage";

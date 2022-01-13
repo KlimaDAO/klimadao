@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "../../theme/breakpoints";
 
 export const heading1 = css`
   font-size: 4.4rem;
@@ -7,6 +8,12 @@ export const heading1 = css`
   color: var(--headings-color);
   line-height: 5.5rem;
   padding-bottom: 2rem;
+`;
+
+export const headingCentered = css`
+  ${breakpoints.medium} {
+    text-align: center;
+  }
 `;
 
 export const copy = css`
