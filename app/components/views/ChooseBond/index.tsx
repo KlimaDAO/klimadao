@@ -10,8 +10,7 @@ import T from "@klimadao/lib/theme/typography.module.css";
 import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 
-import { Trans, t, defineMessage } from "@lingui/macro";
-import { i18n } from "@lingui/core";
+import { Trans } from "@lingui/macro";
 
 export const useBond = (bond: Bond) => {
   const bondState = useSelector((state: RootState) => {

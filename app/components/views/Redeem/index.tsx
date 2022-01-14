@@ -5,8 +5,7 @@ import { changeApprovalTransaction, redeemTransaction } from "actions/redeem";
 // Copied from Stake view despite T/t (changed styles to match original)
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "components/views/Stake/index.module.css";
-import { Trans, t, defineMessage } from "@lingui/macro";
-import { i18n } from "@lingui/core";
+import { Trans } from "@lingui/macro";
 
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";

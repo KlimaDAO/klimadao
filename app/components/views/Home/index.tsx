@@ -1,11 +1,11 @@
 import { ethers, providers } from "ethers";
 import { FC, useRef, useState, useEffect } from "react";
-import { Navigate, Routes, Route, Link, useLocation } from "react-router-dom";
+import { Navigate, Routes, Route, useLocation } from "react-router-dom";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
-import t from "@klimadao/lib/theme/typography.module.css";
+import typography from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
 import { selectBalances, selectAppState } from "state/selectors";
 import { loadAppDetails, setLocale } from "actions/app";
@@ -28,11 +28,12 @@ import WalletAction from "./WalletAction";
 import MobileMenu from "./MobileMenu";
 
 import { Trans } from "@lingui/macro";
-import { locales, activate, init } from "lib/i18n";
-import { i18n } from "@lingui/core";
+import { init } from "lib/i18n";
 
 import styles from "./index.module.css";
 import { IS_PRODUCTION } from "lib/constants";
+import { setAppState } from "state/app";
+import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -140,21 +141,15 @@ export const Home: FC = () => {
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
-  const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
   const { locale } = useSelector(selectAppState);
 
   useEffect(() => {
     if (locale === undefined) {
       init().then((init_locale: string) => {
-        dispatch(setLocale(init_locale));
+        dispatch(setAppState({ locale: init_locale }));
       });
     }
   }, []);
-  async function selectLocale(locale: string) {
-    activate(locale);
-    dispatch(setLocale(locale));
-  }
-
   /**
    * This is a hack to force re-render of nav component
    * because SSR hydration doesn't show active path
@@ -314,75 +309,25 @@ export const Home: FC = () => {
                   <img src="/klima-logo.png" alt="Logo. Go home." />
                 </a>
               </div>
-              <p className={t.h6} style={{ maxWidth: "46rem" }}>
+              <p className={typography.h6} style={{ maxWidth: "46rem" }}>
                 <Trans id="header.welcome">
                   Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake
                   KLIMA to earn interest.
                 </Trans>
               </p>
             </div>
-
             <MobileMenu
               links={links}
               isConnected={isConnected}
               loadWeb3Modal={loadWeb3Modal}
               disconnect={disconnect}
             />
-
             <WalletAction
               isConnected={isConnected}
               loadWeb3Modal={loadWeb3Modal}
               disconnect={disconnect}
             />
-            <div>
-              <div className={styles.userMenu}>
-                {!isConnected && (
-                  <button
-                    type="button"
-                    className={styles.connectWalletButton}
-                    onClick={loadWeb3Modal}
-                  >
-                    <Trans id="usermenu.connect_wallet">CONNECT WALLET</Trans>
-                  </button>
-                )}
-                {isConnected && (
-                  <button
-                    type="button"
-                    className={styles.disconnectWalletButton}
-                    onClick={loadWeb3Modal}
-                  >
-                    <Trans id="usermenu.disconnect_wallet">
-                      DISCONNECT WALLET
-                    </Trans>
-                  </button>
-                )}
-                {!IS_PRODUCTION && (
-                  <button
-                    type="button"
-                    className={styles.localeSelectionButton}
-                    onClick={() => {
-                      setLocalesMenuVisible(!localesMenuVisible);
-                    }}
-                  >
-                    <Trans id="usermenu.changelanguage">Language</Trans>
-                  </button>
-                )}
-                {Object.keys(locales).map((locale_k, key) => (
-                  <div
-                    key={key}
-                    style={{ display: localesMenuVisible ? "block" : "none" }}
-                  >
-                    <button
-                      data-active={locale == locale_k ? "true" : "false"}
-                      className={styles.localeSelectionItem}
-                      onClick={() => selectLocale(locale_k)}
-                    >
-                      {locale_k}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {!IS_PRODUCTION && <ChangeLanguageButton />}
           </header>
           <main className={styles.main}>
             <Nav links={links} chainId={chainId} />

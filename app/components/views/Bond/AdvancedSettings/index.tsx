@@ -3,8 +3,7 @@ import React, { ChangeEventHandler, FC } from "react";
 // Copied from Stake view despite T/t
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "components/views/Stake/index.module.css";
-import { Trans, t, defineMessage } from "@lingui/macro";
-import { i18n } from "@lingui/core";
+import { Trans } from "@lingui/macro";
 
 interface Props {
   slippage: number;

@@ -29,7 +29,7 @@ import {
 } from "@klimadao/lib/utils";
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
-import { Trans, t, defineMessage } from "@lingui/macro";
+import { Trans, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { prettifySeconds } from "lib/i18n";
 

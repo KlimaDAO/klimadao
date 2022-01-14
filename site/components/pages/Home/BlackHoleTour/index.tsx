@@ -4,7 +4,7 @@ import { useRef } from "react";
 import type { Map } from "leaflet";
 import Image from "next/image";
 import spaceForest from "public/space-forest.jpg";
-import { Trans, t, defineMessage } from "@lingui/macro";
+import { defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 
 import {
