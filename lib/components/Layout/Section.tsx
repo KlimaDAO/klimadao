@@ -1,20 +1,22 @@
 import React, { FC } from "react";
+import { cx } from "@emotion/css";
 import * as styles from "./styles";
 
 interface Props {
   variant?: "white";
-  contentVariant?: "contained";
+  contentVariant?: "contained" | "hero";
 }
 
 export const Section: FC<Props> = (props) => {
-  const style =
-    props.variant === "white" ? styles.sectionVariant : styles.section;
-  const inner =
-    props.contentVariant === "contained"
-      ? styles.sectionInnerContained
-      : styles.sectionInner;
+  const variant = (props.variant && styles.sectionVariant) || styles.section;
+  const contained =
+    props.contentVariant === "contained" && styles.sectionInnerContained;
+  const hero = props.contentVariant === "hero" && styles.sectionInnerHero;
+
+  const inner = cx(styles.sectionInner, contained, hero);
+
   return (
-    <div className={style}>
+    <div className={variant}>
       <div className={inner}>{props.children}</div>
     </div>
   );

@@ -69,6 +69,13 @@ export const sectionInner = css`
   max-width: var(--site-max-width);
 `;
 
+export const sectionInnerHero = css`
+  ${sectionInner};
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+  position: relative;
+`;
+
 export const sectionInnerContained = css`
   ${sectionInner};
   max-width: calc(var(--site-max-width) - 2.4rem * 2);
@@ -86,7 +93,7 @@ export const columns = css`
 `;
 
 export const columnsHero = css`
-  ${breakpoints.small} {
+  ${breakpoints.medium} {
     display: flex;
 
     & * {
@@ -122,7 +129,7 @@ export const contentBox = css`
   position: relative;
   margin: 1rem;
 
-  ${breakpoints.small} {
+  ${breakpoints.medium} {
     padding: 7.4rem;
     z-index: 0;
   }
@@ -150,7 +157,7 @@ export const contentBoxImageBelowText = css`
   z-index: 0;
   position: relative;
 
-  ${breakpoints.small} {
+  ${breakpoints.medium} {
     margin: 1rem;
     min-height: auto;
   }

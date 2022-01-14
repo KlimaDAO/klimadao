@@ -69,7 +69,7 @@ export const Home: NextPage<Props> = (props) => {
           <NavItemMobile url={urls.stake} name="Wrap" />
           <NavItemMobile url={urls.bond} name="Bond" />
         </HeaderMobile>
-        <Section>
+        <Section contentVariant="hero">
           <Columns variant="hero">
             <ContentBox>
               <Copy text="👋 WELCOME TO" />
