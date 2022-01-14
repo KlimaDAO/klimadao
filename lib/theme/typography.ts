@@ -24,6 +24,7 @@ const h2 = css`
 `;
 const h3 = css`
   --font-size: 4.8rem;
+  font-size: var(--font-size);
   font-weight: normal;
   font-size: 4.8rem;
   line-height: 117%;
@@ -33,6 +34,7 @@ const h3 = css`
 `;
 const h4 = css`
   --font-size: 3.4rem;
+  font-size: var(--font-size);
   font-weight: normal;
   line-height: 106%;
   ${breakpoints.medium} {
@@ -50,6 +52,7 @@ const h4_decorative = css`
 `;
 const h5 = css`
   --font-size: 2.4rem;
+  font-size: var(--font-size);
   font-weight: normal;
   line-height: 100%;
   letter-spacing: 0.018rem;
@@ -68,6 +71,7 @@ const h5_decorative = css`
 `;
 const h6 = css`
   --font-size: 2rem;
+  font-size: var(--font-size);
   font-weight: 500;
   line-height: 120%;
   letter-spacing: 0.015rem;
@@ -77,6 +81,7 @@ const h6 = css`
 `;
 const body1 = css`
   --font-size: 1.6rem;
+  font-size: var(--font-size);
   font-weight: normal;
   line-height: 150%;
   letter-spacing: 0.05rem;
@@ -86,6 +91,7 @@ const body1 = css`
 `;
 const body2 = css`
   --font-size: 1.4rem;
+  font-size: var(--font-size);
   font-weight: normal;
   line-height: 143%;
   letter-spacing: 0.025rem;
@@ -95,6 +101,7 @@ const body2 = css`
 `;
 const subtitle1 = css`
   --font-size: 1.6rem;
+  font-size: var(--font-size);
   font-weight: normal;
   line-height: 150%;
   letter-spacing: 0.015rem;
@@ -104,6 +111,7 @@ const subtitle1 = css`
 `;
 const subtitle2 = css`
   --font-size: 1.4rem;
+  font-size: var(--font-size);
   font-weight: 500;
   line-height: 171%;
   letter-spacing: 0.01rem;
@@ -113,6 +121,7 @@ const subtitle2 = css`
 `;
 const button = css`
   --font-size: 1.4rem;
+  font-size: var(--font-size);
   font-weight: 500;
   line-height: 114%;
   letter-spacing: 0.125rem;
@@ -123,6 +132,7 @@ const button = css`
 `;
 const overline = css`
   --font-size: 1rem;
+  font-size: var(--font-size);
   font-weight: 500;
   line-height: 160%;
   letter-spacing: 0.15rem;
