@@ -5,7 +5,6 @@
 .container {
   position: relative; /* new stacking context */
   z-index: 0;
-  background-color: var(--surface);
   min-height: 100vh;
   display: grid;
   /* |--|----|--| */
@@ -21,18 +20,38 @@
   display: flex;
   flex-direction: column;
   max-width: 660px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10rem 0;
 }
 
-.page_header {
-  margin-bottom: 3rem;
+.page_h1 {
+  text-align: center;
+  padding-bottom: 2rem;
+  text-transform: uppercase;
+  color: var(--headings-color);
+}
+
+.page_h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: var(--headings-color);
 }
 
 .page_subHeader {
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 140%;
+}
+
+.page_section {
+  display: flex;
+}
+
+.page_section * {
+  flex: 2;
+}
+
+.page_sectionContent {
+  flex: 4;
 }
 
 .footer {

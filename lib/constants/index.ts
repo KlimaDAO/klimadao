@@ -56,7 +56,7 @@ export const addresses = {
 };
 
 export const urls = {
-  home: "https://www.klimadao.finance/",
+  home: "/",
   epaSource:
     "https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references",
   blog: "https://klimadao.medium.com/",
@@ -68,6 +68,7 @@ export const urls = {
   stake: "https://dapp.klimadao.finance/#/stake",
   wrap: "https://dapp.klimadao.finance/#/wrap",
   bond: "https://dapp.klimadao.finance/#/bonds",
+  contact: "/resources/contact",
   polygonMainnetRpc: "https://polygon-rpc.com/",
   sushiUSDCBCT: `https://app.sushi.com/swap?inputCurrency=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&outputCurrency=${addresses["mainnet"].bct}`,
   sushiKLIMABCT: `https://app.sushi.com/swap?inputCurrency=${addresses["mainnet"].klima}&outputCurrency=${addresses["mainnet"].bct}`,
