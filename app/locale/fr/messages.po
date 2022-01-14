@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/ChangeLanguageButton/index.tsx:60
+msgid "Change language"
+msgstr ""
+
 #: components/views/Bond/index.tsx:475
 msgid "bond.balance"
 msgstr ""
@@ -130,8 +134,8 @@ msgid "bond.you_will_get.tooltip"
 msgstr ""
 
 #: components/views/Bond/index.tsx:274
-#: components/views/Redeem/index.tsx:114
-#: components/views/Redeem/index.tsx:119
+#: components/views/Redeem/index.tsx:113
+#: components/views/Redeem/index.tsx:118
 #: components/views/Stake/index.tsx:167
 #: components/views/Stake/index.tsx:172
 #: components/views/Wrap/index.tsx:127
@@ -149,14 +153,14 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:268
 #: components/views/PKlima/index.tsx:125
-#: components/views/Redeem/index.tsx:108
+#: components/views/Redeem/index.tsx:107
 #: components/views/Stake/index.tsx:161
 #: components/views/Wrap/index.tsx:121
 msgid "button.confirming"
 msgstr "En attente de confirmation"
 
 #: components/views/Bond/index.tsx:293
-#: components/views/Redeem/index.tsx:136
+#: components/views/Redeem/index.tsx:135
 #: components/views/Wrap/index.tsx:144
 msgid "button.error"
 msgstr ""
@@ -167,7 +171,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:259
 #: components/views/PKlima/index.tsx:116
-#: components/views/Redeem/index.tsx:99
+#: components/views/Redeem/index.tsx:98
 #: components/views/Stake/index.tsx:152
 #: components/views/Wrap/index.tsx:112
 msgid "button.loading"
@@ -181,7 +185,7 @@ msgstr "Max"
 
 #: components/views/Bond/index.tsx:253
 #: components/views/PKlima/index.tsx:110
-#: components/views/Redeem/index.tsx:93
+#: components/views/Redeem/index.tsx:92
 #: components/views/Stake/index.tsx:146
 #: components/views/Wrap/index.tsx:106
 msgid "button.not_connected"
@@ -193,8 +197,8 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:286
 #: components/views/Bond/index.tsx:418
-#: components/views/Redeem/index.tsx:124
-#: components/views/Redeem/index.tsx:130
+#: components/views/Redeem/index.tsx:123
+#: components/views/Redeem/index.tsx:129
 msgid "button.redeem"
 msgstr ""
 
@@ -234,19 +238,19 @@ msgstr ""
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
-#: components/views/Home/index.tsx:479
+#: components/views/Home/index.tsx:426
 msgid "footer.blog"
 msgstr "Blog"
 
-#: components/views/Home/index.tsx:482
+#: components/views/Home/index.tsx:429
 msgid "footer.community"
 msgstr "Communauté"
 
-#: components/views/Home/index.tsx:476
+#: components/views/Home/index.tsx:423
 msgid "footer.docs"
 msgstr "Documentation"
 
-#: components/views/Home/index.tsx:473
+#: components/views/Home/index.tsx:420
 msgid "footer.home"
 msgstr "Acceuil"
 
@@ -254,7 +258,7 @@ msgstr "Acceuil"
 #~ msgid "header.connectedto"
 #~ msgstr "Vous êtes connecté"
 
-#: components/views/Home/index.tsx:318
+#: components/views/Home/index.tsx:315
 msgid "header.welcome"
 msgstr "Bienvenue sur l'application Klima. Déposez du carbon pour acheter KLIMA. Déposez KLIMA pour générer des intérêts."
 
@@ -278,11 +282,11 @@ msgstr "Bienvenue sur l'application Klima. Déposez du carbon pour acheter KLIMA
 #~ msgid "menu.wrap"
 #~ msgstr "Encapsuler"
 
-#: components/views/Redeem/index.tsx:182
+#: components/views/Redeem/index.tsx:181
 msgid "msg.aklima"
 msgstr ""
 
-#: components/views/Redeem/index.tsx:191
+#: components/views/Redeem/index.tsx:190
 msgid "msg.bridge"
 msgstr ""
 
@@ -330,7 +334,7 @@ msgstr ""
 msgid "pklima.claimed_amount"
 msgstr ""
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:34
+#: components/views/PKlima/ClaimExceededModal/index.tsx:33
 msgid "pklima.growth"
 msgstr ""
 
@@ -342,7 +346,7 @@ msgstr ""
 msgid "pklima.max"
 msgstr ""
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:18
+#: components/views/PKlima/ClaimExceededModal/index.tsx:17
 msgid "pklima.overclaim"
 msgstr ""
 
@@ -362,7 +366,7 @@ msgstr ""
 msgid "pklima.title"
 msgstr ""
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:25
+#: components/views/PKlima/ClaimExceededModal/index.tsx:24
 msgid "pklima.update"
 msgstr ""
 
@@ -448,7 +452,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:303
 #: components/views/PKlima/index.tsx:152
-#: components/views/Redeem/index.tsx:147
+#: components/views/Redeem/index.tsx:146
 #: components/views/Stake/index.tsx:203
 #: components/views/Wrap/index.tsx:154
 msgid "status.pending_confirmation"
@@ -456,7 +460,7 @@ msgstr "Veuillez cliquer sur 'confirmer' dans votre portefeuille pour continuer.
 
 #: components/views/Bond/index.tsx:315
 #: components/views/PKlima/index.tsx:164
-#: components/views/Redeem/index.tsx:159
+#: components/views/Redeem/index.tsx:158
 #: components/views/Stake/index.tsx:215
 #: components/views/Wrap/index.tsx:166
 msgid "status.transaction_error"
@@ -464,7 +468,7 @@ msgstr "❌ Erreur: quelque chose s'est mal passé..."
 
 #: components/views/Bond/index.tsx:323
 #: components/views/PKlima/index.tsx:172
-#: components/views/Redeem/index.tsx:167
+#: components/views/Redeem/index.tsx:166
 #: components/views/Stake/index.tsx:223
 #: components/views/Wrap/index.tsx:174
 msgid "status.transaction_rejected"
@@ -472,7 +476,7 @@ msgstr "✖️ Vous avez choisi de rejeter la transaction."
 
 #: components/views/Bond/index.tsx:309
 #: components/views/PKlima/index.tsx:158
-#: components/views/Redeem/index.tsx:153
+#: components/views/Redeem/index.tsx:152
 #: components/views/Stake/index.tsx:209
 #: components/views/Wrap/index.tsx:160
 msgid "status.transaction_started"
@@ -480,20 +484,20 @@ msgstr "Transaction démarée. En attente des confirmations réseau."
 
 #: components/views/Bond/index.tsx:320
 #: components/views/PKlima/index.tsx:169
-#: components/views/Redeem/index.tsx:164
+#: components/views/Redeem/index.tsx:163
 #: components/views/Stake/index.tsx:220
 #: components/views/Wrap/index.tsx:171
 msgid "status.transaction_success"
 msgstr "\"✔️ Succès!"
 
 #: components/views/Home/index.tsx:367
-msgid "usermenu.changelanguage"
-msgstr "Langue"
+#~ msgid "usermenu.changelanguage"
+#~ msgstr "Langue"
 
 #: components/views/Home/index.tsx:345
-msgid "usermenu.connect_wallet"
-msgstr "Connectez votre portefeuille"
+#~ msgid "usermenu.connect_wallet"
+#~ msgstr "Connectez votre portefeuille"
 
 #: components/views/Home/index.tsx:354
-msgid "usermenu.disconnect_wallet"
-msgstr "Déconnectez votre portefeuille"
+#~ msgid "usermenu.disconnect_wallet"
+#~ msgstr "Déconnectez votre portefeuille"

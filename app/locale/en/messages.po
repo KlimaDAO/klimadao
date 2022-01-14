@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/ChangeLanguageButton/index.tsx:60
+msgid "Change language"
+msgstr "Change language"
+
 #: components/views/Bond/index.tsx:475
 msgid "bond.balance"
 msgstr "Balance"
@@ -130,8 +134,8 @@ msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
 #: components/views/Bond/index.tsx:274
-#: components/views/Redeem/index.tsx:114
-#: components/views/Redeem/index.tsx:119
+#: components/views/Redeem/index.tsx:113
+#: components/views/Redeem/index.tsx:118
 #: components/views/Stake/index.tsx:167
 #: components/views/Stake/index.tsx:172
 #: components/views/Wrap/index.tsx:127
@@ -149,14 +153,14 @@ msgstr "Bond"
 
 #: components/views/Bond/index.tsx:268
 #: components/views/PKlima/index.tsx:125
-#: components/views/Redeem/index.tsx:108
+#: components/views/Redeem/index.tsx:107
 #: components/views/Stake/index.tsx:161
 #: components/views/Wrap/index.tsx:121
 msgid "button.confirming"
 msgstr "Confirming"
 
 #: components/views/Bond/index.tsx:293
-#: components/views/Redeem/index.tsx:136
+#: components/views/Redeem/index.tsx:135
 #: components/views/Wrap/index.tsx:144
 msgid "button.error"
 msgstr "Error"
@@ -167,7 +171,7 @@ msgstr "EXERCISE"
 
 #: components/views/Bond/index.tsx:259
 #: components/views/PKlima/index.tsx:116
-#: components/views/Redeem/index.tsx:99
+#: components/views/Redeem/index.tsx:98
 #: components/views/Stake/index.tsx:152
 #: components/views/Wrap/index.tsx:112
 msgid "button.loading"
@@ -181,7 +185,7 @@ msgstr "Max"
 
 #: components/views/Bond/index.tsx:253
 #: components/views/PKlima/index.tsx:110
-#: components/views/Redeem/index.tsx:93
+#: components/views/Redeem/index.tsx:92
 #: components/views/Stake/index.tsx:146
 #: components/views/Wrap/index.tsx:106
 msgid "button.not_connected"
@@ -193,8 +197,8 @@ msgstr "1. Approve pKLIMA"
 
 #: components/views/Bond/index.tsx:286
 #: components/views/Bond/index.tsx:418
-#: components/views/Redeem/index.tsx:124
-#: components/views/Redeem/index.tsx:130
+#: components/views/Redeem/index.tsx:123
+#: components/views/Redeem/index.tsx:129
 msgid "button.redeem"
 msgstr "Redeem"
 
@@ -234,19 +238,19 @@ msgstr "Bond Carbon."
 msgid "choose_bond.treasury_balance"
 msgstr "Treasury Balance"
 
-#: components/views/Home/index.tsx:479
+#: components/views/Home/index.tsx:426
 msgid "footer.blog"
 msgstr "blog"
 
-#: components/views/Home/index.tsx:482
+#: components/views/Home/index.tsx:429
 msgid "footer.community"
 msgstr "community"
 
-#: components/views/Home/index.tsx:476
+#: components/views/Home/index.tsx:423
 msgid "footer.docs"
 msgstr "docs"
 
-#: components/views/Home/index.tsx:473
+#: components/views/Home/index.tsx:420
 msgid "footer.home"
 msgstr "home"
 
@@ -254,7 +258,7 @@ msgstr "home"
 #~ msgid "header.connectedto"
 #~ msgstr "You are connected to"
 
-#: components/views/Home/index.tsx:318
+#: components/views/Home/index.tsx:315
 msgid "header.welcome"
 msgstr "Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to earn interest."
 
@@ -278,11 +282,11 @@ msgstr "Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to earn
 #~ msgid "menu.wrap"
 #~ msgstr "WRAP"
 
-#: components/views/Redeem/index.tsx:182
+#: components/views/Redeem/index.tsx:181
 msgid "msg.aklima"
 msgstr "If you received AlphaKLIMA from the Fair Launch Auction, or AlchemistKLIMA from the Crucible rewards event, use this tool to redeem them for KLIMA."
 
-#: components/views/Redeem/index.tsx:191
+#: components/views/Redeem/index.tsx:190
 msgid "msg.bridge"
 msgstr "Before proceeding: you must bridge your aKLIMA and alKLIMA tokens from Ethereum to Polygon."
 
@@ -330,7 +334,7 @@ msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
 msgid "pklima.claimed_amount"
 msgstr "Claimed Amount (index-adjusted)"
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:34
+#: components/views/PKlima/ClaimExceededModal/index.tsx:33
 msgid "pklima.growth"
 msgstr "It may be a few days, depending on the KLIMA growth rate, before you can access this page and continue redeeming pKLIMA."
 
@@ -342,7 +346,7 @@ msgstr "PKLIMA TO EXERCISE"
 msgid "pklima.max"
 msgstr "Max (index-adjusted)"
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:18
+#: components/views/PKlima/ClaimExceededModal/index.tsx:17
 msgid "pklima.overclaim"
 msgstr "You've claimed more KLIMA than your supply-share limit. This is likely due to a fix implemented on November 24th, 2021 to the pKLIMA redemption contract."
 
@@ -362,7 +366,7 @@ msgstr "Supply Share Limit"
 msgid "pklima.title"
 msgstr "Exercise pKLIMA"
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:25
+#: components/views/PKlima/ClaimExceededModal/index.tsx:24
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned interest on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
@@ -448,7 +452,7 @@ msgstr "⚠️ Warning: this bond price is inflated because the current discount
 
 #: components/views/Bond/index.tsx:303
 #: components/views/PKlima/index.tsx:152
-#: components/views/Redeem/index.tsx:147
+#: components/views/Redeem/index.tsx:146
 #: components/views/Stake/index.tsx:203
 #: components/views/Wrap/index.tsx:154
 msgid "status.pending_confirmation"
@@ -456,7 +460,7 @@ msgstr "Please click 'confirm' in your wallet to continue."
 
 #: components/views/Bond/index.tsx:315
 #: components/views/PKlima/index.tsx:164
-#: components/views/Redeem/index.tsx:159
+#: components/views/Redeem/index.tsx:158
 #: components/views/Stake/index.tsx:215
 #: components/views/Wrap/index.tsx:166
 msgid "status.transaction_error"
@@ -464,7 +468,7 @@ msgstr "❌ Error: something went wrong..."
 
 #: components/views/Bond/index.tsx:323
 #: components/views/PKlima/index.tsx:172
-#: components/views/Redeem/index.tsx:167
+#: components/views/Redeem/index.tsx:166
 #: components/views/Stake/index.tsx:223
 #: components/views/Wrap/index.tsx:174
 msgid "status.transaction_rejected"
@@ -472,7 +476,7 @@ msgstr "✖️ You chose to reject the transaction."
 
 #: components/views/Bond/index.tsx:309
 #: components/views/PKlima/index.tsx:158
-#: components/views/Redeem/index.tsx:153
+#: components/views/Redeem/index.tsx:152
 #: components/views/Stake/index.tsx:209
 #: components/views/Wrap/index.tsx:160
 msgid "status.transaction_started"
@@ -480,20 +484,8 @@ msgstr "Transaction initiated. Waiting for network confirmation."
 
 #: components/views/Bond/index.tsx:320
 #: components/views/PKlima/index.tsx:169
-#: components/views/Redeem/index.tsx:164
+#: components/views/Redeem/index.tsx:163
 #: components/views/Stake/index.tsx:220
 #: components/views/Wrap/index.tsx:171
 msgid "status.transaction_success"
 msgstr "✔️ Success!."
-
-#: components/views/Home/index.tsx:367
-msgid "usermenu.changelanguage"
-msgstr "Language"
-
-#: components/views/Home/index.tsx:345
-msgid "usermenu.connect_wallet"
-msgstr "CONNECT WALLET"
-
-#: components/views/Home/index.tsx:354
-msgid "usermenu.disconnect_wallet"
-msgstr "DISCONNECT WALLET"
