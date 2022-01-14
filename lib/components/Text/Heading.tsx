@@ -3,16 +3,23 @@ import { cx } from "@emotion/css";
 
 import * as styles from "./styles";
 
+const mappedStyles = {
+  large: styles.headingLarge,
+  medium: styles.headingMedium,
+  small: styles.headingSmall,
+};
+
 interface Props {
   text: string;
   align?: "center";
+  variant?: "large" | "medium" | "small";
 }
 
 export const Heading: FC<Props> = (props) => {
-  const combinedStyles =
-    props.align === "center"
-      ? cx(styles.heading1, styles.headingCentered)
-      : styles.heading1;
+  const align = props.align === "center" && styles.headingCentered;
+  const variant =
+    (props.variant && mappedStyles[props.variant]) || styles.headingLarge;
+  const combinedStyles = cx(variant, align);
 
   return <h2 className={combinedStyles}>{props.text}</h2>;
 };

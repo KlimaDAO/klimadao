@@ -1,13 +1,31 @@
 import { css } from "@emotion/css";
 import breakpoints from "../../theme/breakpoints";
 
-export const heading1 = css`
+export const headingLarge = css`
   font-size: 4.4rem;
   font-weight: 700;
   font-family: var(--font-family);
   color: var(--headings-color);
   line-height: 5.5rem;
   padding-bottom: 2rem;
+`;
+
+export const headingMedium = css`
+  font-size: 3.2rem;
+  font-weight: 600;
+  font-family: var(--font-family);
+  color: var(--headings-color);
+  line-height: 3.9rem;
+  padding-bottom: 2rem;
+`;
+
+export const headingSmall = css`
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: var(--font-family);
+  color: var(--headings-color);
+  line-height: 2.4rem;
+  padding-bottom: 1rem;
 `;
 
 export const headingCentered = css`
