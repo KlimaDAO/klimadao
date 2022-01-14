@@ -53,7 +53,7 @@ export const ChangeLanguageButton: FC = () => {
   return (
     <Tippy
       content={content}
-      placement="bottom-start"
+      placement="bottom-end"
       visible={showMenu}
       interactive
       className={styles.tooltip}
