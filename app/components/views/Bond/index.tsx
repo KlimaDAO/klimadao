@@ -16,9 +16,8 @@ import {
   DEFAULT_QUOTE_SLP,
 } from "actions/bonds";
 
-import T from "@klimadao/lib/theme/typography.module.css";
-import styles from "components/views/Stake/index.module.css";
-import { Trans, t, defineMessage } from "@lingui/macro";
+import typography from "@klimadao/lib/theme/typography";
+import { Trans, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { prettifySeconds } from "lib/i18n";
 
@@ -44,6 +43,8 @@ import { RootState, useAppDispatch } from "state";
 import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+
+import styles from "./index.module.css";
 
 export function prettyVestingPeriod(
   locale: string | undefined,
@@ -385,15 +386,18 @@ export const Bond: FC<Props> = (props) => {
       <div className={styles.bondHeader}>
         <Link
           to="/bonds"
-          className={classNames(T.button, styles.bondHeader_backButton)}
+          className={classNames(
+            typography.button,
+            styles.bondHeader_backButton
+          )}
         >
           <LeftOutlined />
           <Trans id="nav.back">BACK</Trans>
         </Link>
-        <h3 className={T.h5}>
+        <h3 className={typography.h5}>
           <Trans id="bond.caption">Bond {bondInfo.name}</Trans>
         </h3>
-        <p className={T.caption}>{bondInfo.description}</p>
+        <p className={typography.caption}>{bondInfo.description}</p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>
@@ -445,7 +449,7 @@ export const Bond: FC<Props> = (props) => {
           </button>
         </div>
         <button
-          className={classNames(T.button, styles.showAdvancedButton)}
+          className={classNames(typography.button, styles.showAdvancedButton)}
           type="button"
           onClick={() => setShowAdvanced((s) => !s)}
         >
@@ -724,14 +728,14 @@ export const Bond: FC<Props> = (props) => {
       {view === "bond" &&
         recipientAddress &&
         recipientAddress !== props.address && (
-          <p className={classNames(T.body2, styles.recipientNote)}>
+          <p className={classNames(typography.body2, styles.recipientNote)}>
             <WarningOutlined style={{ color: "yellow" }} /> External recipient:{" "}
             {concatAddress(recipientAddress)}
           </p>
         )}
 
       {isBondDiscountNegative && view === "bond" && (
-        <p className={T.body2} style={{ textAlign: "center" }}>
+        <p className={typography.body2} style={{ textAlign: "center" }}>
           <Trans id="status.bond_negative">
             ⚠️ Warning: this bond price is inflated because the current discount
             rate is negative.
