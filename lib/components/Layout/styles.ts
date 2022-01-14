@@ -6,6 +6,7 @@ import breakpoints from "../../theme/breakpoints";
 export const theme = css`
   --gray: rgb(160, 160, 160);
   --white: #ffffff;
+  --background: #f5f5f7;
 
   /* Material Design naming convention for theme colors */
   --surface-01: #0e0e0e;
@@ -40,7 +41,6 @@ export const theme = css`
   --headings-color: var(--surface-02);
 
   /* ELEMENTS */
-  --background: var(--surface-08);
   --border-radius: 0.4rem;
 
   background-color: var(--background);
@@ -56,7 +56,11 @@ export const theme = css`
 `;
 
 export const section = css`
-  padding: 6.4rem 0;
+  padding: 2.4rem 0;
+
+  ${breakpoints.medium} {
+    padding: 4.4rem 0;
+  }
 `;
 
 export const sectionVariant = css`
@@ -71,7 +75,7 @@ export const sectionInner = css`
 
 export const sectionInnerHero = css`
   ${sectionInner};
-  margin-top: 2.4rem;
+  margin-top: 6.4rem;
   margin-bottom: 2.4rem;
   position: relative;
 `;
@@ -85,10 +89,6 @@ export const sectionInnerContained = css`
 export const columns = css`
   ${breakpoints.medium} {
     display: flex;
-
-    & * {
-      flex: 1;
-    }
   }
 `;
 
@@ -96,8 +96,8 @@ export const columnsHero = css`
   ${breakpoints.medium} {
     display: flex;
 
-    & * {
-      flex: 1;
+    & div {
+      flex-basis: 100%;
     }
   }
 `;
@@ -112,34 +112,50 @@ export const columnsContained = css`
     justify-content: space-evenly;
 
     & * {
-      flex: 1;
-      max-width: 45%;
+      flex-basis: 100%;
     }
   }
 `;
 
 export const contentBox = css`
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  position: relative;
+
+  & img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
+
+  ${breakpoints.medium} {
+    margin: 1rem;
+    flex-basis: 100%;
+  }
+`;
+
+export const contentBoxHero = css`
   background-color: var(--white);
   border-radius: var(--border-radius);
   padding: 3.4rem;
-
-  display: flex;
-
   z-index: 1;
   position: relative;
   margin: 1rem;
 
+  display: flex;
+
   ${breakpoints.medium} {
     padding: 7.4rem;
     z-index: 0;
+    flex-basis: 100%;
   }
 `;
 
 export const contentBoxImage = css`
-  ${contentBox};
+  background-color: var(--background);
+  border-radius: var(--border-radius);
 
   margin: 1rem 0;
-  min-height: 40rem;
 
   & img {
     object-fit: cover;
@@ -149,16 +165,16 @@ export const contentBoxImage = css`
 `;
 
 export const contentBoxImageBelowText = css`
-  ${contentBoxImage};
-
-  margin: 0;
-  margin-top: -20rem;
-
+  ${contentBoxHero};
+  min-height: 40rem;
+  margin: -20rem 0px 0px;
   z-index: 0;
   position: relative;
 
   ${breakpoints.medium} {
+    border-radius: var(--border-radius);
     margin: 1rem;
     min-height: auto;
+    flex-basis: 100%;
   }
 `;
