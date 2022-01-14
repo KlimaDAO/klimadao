@@ -11,12 +11,10 @@ import { setAppState } from "state/app";
 
 import * as styles from "./styles";
 
-interface Props {}
-
 /**
  * Temporary demo component until we have one from design
  */
-export const ChangeLanguageButton: FC<Props> = () => {
+export const ChangeLanguageButton: FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { locale } = useSelector(selectAppState);
   const dispatch = useAppDispatch();
