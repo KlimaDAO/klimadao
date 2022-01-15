@@ -6,7 +6,7 @@
   "scripts": {
     "start": "sanity start",
     "build": "sanity build",
-    "vercel-build": "sanity build -y"
+    "vercel-build": "sanity build public -y"
   },
   "keywords": [
     "sanity"
