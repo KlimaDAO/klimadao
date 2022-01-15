@@ -3,6 +3,8 @@ import { en, fr } from "make-plural/plurals";
 import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
 import { IS_PRODUCTION } from "lib/constants";
 
+// TODO: remove NODE_ENV=test hack from package.json https://github.com/lingui/js-lingui/issues/433
+
 // Define locales
 interface ILocales {
   [locale: string]: {
