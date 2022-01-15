@@ -1,7 +1,5 @@
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -24,8 +22,7 @@ import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 
 import { Trans } from "@lingui/macro";
-import { locales } from "lib/i18n";
-import { i18n } from "@lingui/core";
+import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 
 export interface Props {
   treasuryBalance: number;
@@ -49,12 +46,7 @@ export const Home: NextPage<Props> = (props) => {
   ).toLocaleString();
   const formattedTreasuryBalance = props.treasuryBalance.toLocaleString();
   const formattedAPY = props.stakingAPY.toLocaleString() + "%";
-  const [localesMenuVisible, setLocalesMenuVisible] = useState(false);
-  const router = useRouter();
-  const [locale, setLocale] = useState<string>(router.locale!.split("-")[0]);
-  useEffect(() => {
-    router.push(router.pathname, router.pathname, { locale });
-  }, [locale]);
+
   return (
     <div id="HomeContainer" className={styles.container}>
       <PageHead
@@ -88,41 +80,13 @@ export const Home: NextPage<Props> = (props) => {
                 />
               </div>
               <p className={T.h6}>
-                <Trans id="header.caption">
+                <Trans>
                   Drive climate action and earn rewards with a carbon-backed,
                   algorithmic digital currency.
                 </Trans>
               </p>
             </div>
-            <div>
-              <div className={styles.userMenu}>
-                {!IS_PRODUCTION && (
-                  <button
-                    type="button"
-                    className={styles.localeSelectionButton}
-                    onClick={() => {
-                      setLocalesMenuVisible(!localesMenuVisible);
-                    }}
-                  >
-                    <Trans id="usermenu.changelanguage">Language</Trans>
-                  </button>
-                )}
-                {Object.keys(locales).map((locale, key) => (
-                  <div
-                    key={key}
-                    style={{ display: localesMenuVisible ? "block" : "none" }}
-                  >
-                    <button
-                      data-active={i18n.locale == locale ? "true" : "false"}
-                      className={styles.localeSelectionItem}
-                      onClick={() => setLocale(locale)}
-                    >
-                      {locale}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {!IS_PRODUCTION && <ChangeLanguageButton />}
           </header>
           <nav className={styles.stack}>
             <a className={styles.iconButton} href={urls.discordInvite}>
