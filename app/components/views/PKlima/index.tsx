@@ -4,7 +4,10 @@ import { providers } from "ethers";
 
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
-import t from "@klimadao/lib/theme/typography.module.css";
+
+import T from "@klimadao/lib/theme/typography.module.css";
+import { Trans, defineMessage } from "@lingui/macro";
+import { i18n } from "@lingui/core";
 
 import {
   selectAppState,
@@ -103,10 +106,14 @@ export const PKlima: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Not Connected", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.not_connected">Not connected</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (isLoading) {
       return {
-        children: "Loading",
+        children: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -114,17 +121,24 @@ export const PKlima: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: "Confirming", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.confirming">Confirming</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (!hasApproval("pklima")) {
       return {
-        children: "1. Approve pKLIMA",
+        children: <Trans id="button.pklima">1. Approve pKLIMA</Trans>,
         onClick: handleApproval("pklima"),
       };
     } else if (!hasApproval("bct")) {
-      return { children: "2. Approve BCT", onClick: handleApproval("bct") };
+      return {
+        children: <Trans id="button.bct">2. Approve BCT</Trans>,
+        onClick: handleApproval("bct"),
+      };
     } else {
       return {
-        children: "EXERCISE",
+        children: <Trans id="button.exercise">EXERCISE</Trans>,
         onClick: handleExercise,
         disabled:
           !value || !terms?.redeemable || value > Number(terms.redeemable),
@@ -134,26 +148,50 @@ export const PKlima: FC<Props> = (props) => {
 
   const getStatusMessage = () => {
     if (status === "userConfirmation") {
-      return "Please click 'confirm' in your wallet to continue.";
+      return (
+        <Trans id="status.pending_confirmation">
+          Please click 'confirm' in your wallet to continue.
+        </Trans>
+      );
     } else if (status === "networkConfirmation") {
-      return "Transaction initiated. Waiting for network confirmation.";
+      return (
+        <Trans id="status.transaction_started">
+          Transaction initiated. Waiting for network confirmation.
+        </Trans>
+      );
     } else if (status === "error") {
-      return "❌ Error: something went wrong...";
+      return (
+        <Trans id="status.transaction_error">
+          ❌ Error: something went wrong...
+        </Trans>
+      );
     } else if (status === "done") {
-      return "✔️ Success!";
+      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
     } else if (status === "userRejected") {
-      return "✖️ You chose to reject the transaction.";
+      return (
+        <Trans id="status.transaction_rejected">
+          ✖️ You chose to reject the transaction.
+        </Trans>
+      );
     }
     return null;
   };
+  defineMessage({
+    id: "pklima.klima_to_exercise",
+    message: "PKLIMA TO EXERCISE",
+  });
 
   return (
     <>
       <div className={styles.stakeCard}>
         <div className={styles.stakeCard_header}>
-          <h2 className={t.h4}>Exercise pKLIMA</h2>
-          <p className={t.body2}>
-            Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.
+          <h2 className={T.h4}>
+            <Trans id="pklima.title">Exercise pKLIMA</Trans>
+          </h2>
+          <p className={T.body2}>
+            <Trans id="pklima.caption">
+              Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.
+            </Trans>
           </p>
         </div>
         <div className={styles.inputsContainer}>
@@ -178,7 +216,7 @@ export const PKlima: FC<Props> = (props) => {
                 setStatus("");
               }}
               type="number"
-              placeholder="PKLIMA to Exercise"
+              placeholder={i18n._("pklima.klima_to_exercise")}
               min="0"
             />
             <button
@@ -186,7 +224,7 @@ export const PKlima: FC<Props> = (props) => {
               type="button"
               onClick={setMax}
             >
-              Max
+              <Trans id="button.max">Max</Trans>
             </button>
           </div>
         </div>
@@ -198,7 +236,9 @@ export const PKlima: FC<Props> = (props) => {
             </p>
           )}
           <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>pKLIMA Balance</div>
+            <div className={styles.dataContainer_label}>
+              <Trans id="pklima.pklima_balance">pKLIMA Balance</Trans>
+            </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
@@ -209,7 +249,9 @@ export const PKlima: FC<Props> = (props) => {
             </div>
           </li>
           <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>BCT Balance</div>
+            <div className={styles.dataContainer_label}>
+              <Trans id="pklima.bct_balance">BCT Balance</Trans>
+            </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
@@ -220,7 +262,9 @@ export const PKlima: FC<Props> = (props) => {
             </div>
           </li>
           <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>Supply Share Limit</div>
+            <div className={styles.dataContainer_label}>
+              <Trans id="pklima.supply_share_limit">Supply Share Limit</Trans>
+            </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
@@ -231,7 +275,9 @@ export const PKlima: FC<Props> = (props) => {
             </div>
           </li>
           <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>pKLIMA Redeemed</div>
+            <div className={styles.dataContainer_label}>
+              <Trans id="pklima.pklima_redeemed">pKLIMA Redeemed</Trans>
+            </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder
                 condition={!isConnected}
@@ -243,7 +289,9 @@ export const PKlima: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Claimed Amount (index-adjusted)
+              <Trans id="pklima.claimed_amount">
+                Claimed Amount (index-adjusted)
+              </Trans>
             </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder
@@ -256,7 +304,7 @@ export const PKlima: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              Max (index-adjusted)
+              <Trans id="pklima.max">Max (index-adjusted)</Trans>
             </div>
             <div className={styles.dataContainer_value}>
               <WithPlaceholder

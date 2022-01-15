@@ -149,10 +149,12 @@
   align-items: center;
   /* because the info icon has whitespace, it makes the center column gap look off center */
   margin-right: -0.5rem;
+  text-align: end;
 }
 .dataContainer_value {
   color: var(--gray);
   font-size: 1.4rem;
+  align-self: center;
 }
 .dataContainer_value span {
   font-size: 2rem;

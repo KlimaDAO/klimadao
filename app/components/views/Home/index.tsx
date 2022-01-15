@@ -1,14 +1,14 @@
 import { ethers, providers } from "ethers";
 import { FC, useRef, useState, useEffect } from "react";
-import { Navigate, Routes, Route, Link, useLocation } from "react-router-dom";
+import { Navigate, Routes, Route, useLocation } from "react-router-dom";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
-import t from "@klimadao/lib/theme/typography.module.css";
+import typography from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
-import { selectBalances } from "state/selectors";
-import { loadAppDetails } from "actions/app";
+import { selectBalances, selectAppState } from "state/selectors";
+import { loadAppDetails, setLocale } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 import { Stake } from "components/views/Stake";
@@ -27,7 +27,13 @@ import Nav from "./Nav";
 import WalletAction from "./WalletAction";
 import MobileMenu from "./MobileMenu";
 
+import { Trans } from "@lingui/macro";
+import { init } from "lib/i18n";
+
 import styles from "./index.module.css";
+import { IS_PRODUCTION } from "lib/constants";
+import { setAppState } from "state/app";
+import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -135,6 +141,15 @@ export const Home: FC = () => {
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
   const balances = useSelector(selectBalances);
+  const { locale } = useSelector(selectAppState);
+
+  useEffect(() => {
+    if (locale === undefined) {
+      init().then((init_locale: string) => {
+        dispatch(setAppState({ locale: init_locale }));
+      });
+    }
+  }, []);
   /**
    * This is a hack to force re-render of nav component
    * because SSR hydration doesn't show active path
@@ -294,24 +309,25 @@ export const Home: FC = () => {
                   <img src="/klima-logo.png" alt="Logo. Go home." />
                 </a>
               </div>
-              <p className={t.h6} style={{ maxWidth: "46rem" }}>
-                Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA
-                to earn interest.
+              <p className={typography.h6} style={{ maxWidth: "46rem" }}>
+                <Trans id="header.welcome">
+                  Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake
+                  KLIMA to earn interest.
+                </Trans>
               </p>
             </div>
-
             <MobileMenu
               links={links}
               isConnected={isConnected}
               loadWeb3Modal={loadWeb3Modal}
               disconnect={disconnect}
             />
-
             <WalletAction
               isConnected={isConnected}
               loadWeb3Modal={loadWeb3Modal}
               disconnect={disconnect}
             />
+            {!IS_PRODUCTION && <ChangeLanguageButton />}
           </header>
           <main className={styles.main}>
             <Nav links={links} chainId={chainId} />
@@ -398,10 +414,18 @@ export const Home: FC = () => {
               <img src="klima-logo.png" alt="" />
             </a>
             <nav className={styles.footer_content_nav}>
-              <a href={urls.home}>home</a>
-              <a href={urls.gitbook}>docs</a>
-              <a href={urls.blog}>blog</a>
-              <a href={urls.discordInvite}>community</a>
+              <a href={urls.home}>
+                <Trans id="footer.home">home</Trans>
+              </a>
+              <a href={urls.gitbook}>
+                <Trans id="footer.docs">docs</Trans>
+              </a>
+              <a href={urls.blog}>
+                <Trans id="footer.blog">blog</Trans>
+              </a>
+              <a href={urls.discordInvite}>
+                <Trans id="footer.community">community</Trans>
+              </a>
             </nav>
           </div>
         </footer>

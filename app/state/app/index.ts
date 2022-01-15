@@ -8,6 +8,7 @@ interface AppState {
   stakingRebase: number | undefined;
   treasuryBalance: number | undefined;
   rebaseBlock: number | undefined;
+  locale: string | undefined;
 }
 
 const initialState: AppState = {
@@ -18,6 +19,7 @@ const initialState: AppState = {
   stakingRebase: undefined,
   treasuryBalance: undefined,
   rebaseBlock: undefined,
+  locale: undefined,
 };
 
 export const appSlice = createSlice({
