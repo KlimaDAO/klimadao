@@ -13,99 +13,99 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/ChangeLanguageButton/index.tsx:51
+#: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
 msgstr ""
 
-#: components/pages/Home/index.tsx:85
+#: components/pages/Home/index.tsx:83
 msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 msgstr ""
 
-#: components/pages/Home/index.tsx:237
+#: components/pages/Home/index.tsx:235
 msgid "card.blackhole.carbon"
 msgstr ""
 
-#: components/pages/Home/index.tsx:235
+#: components/pages/Home/index.tsx:233
 msgid "card.blackhole.title"
 msgstr ""
 
-#: components/pages/Home/index.tsx:213
+#: components/pages/Home/index.tsx:211
 msgid "card.dao.goal"
 msgstr ""
 
-#: components/pages/Home/index.tsx:209
+#: components/pages/Home/index.tsx:207
 msgid "card.dao.title"
 msgstr ""
 
-#: components/pages/Home/index.tsx:222
+#: components/pages/Home/index.tsx:220
 msgid "card.dao.value"
 msgstr ""
 
-#: components/pages/Home/index.tsx:280
+#: components/pages/Home/index.tsx:278
 msgid "footer.app"
 msgstr ""
 
-#: components/pages/Home/index.tsx:286
+#: components/pages/Home/index.tsx:284
 msgid "footer.blog"
 msgstr ""
 
-#: components/pages/Home/index.tsx:289
+#: components/pages/Home/index.tsx:287
 msgid "footer.community"
 msgstr ""
 
-#: components/pages/Home/index.tsx:283
+#: components/pages/Home/index.tsx:281
 msgid "footer.docs"
 msgstr ""
 
-#: components/pages/Home/index.tsx:141
+#: components/pages/Home/index.tsx:139
 msgid "info.CO2_tons"
 msgstr ""
 
-#: components/pages/Home/index.tsx:134
+#: components/pages/Home/index.tsx:132
 msgid "info.carbon_in_treasury"
 msgstr ""
 
-#: components/pages/Home/index.tsx:186
+#: components/pages/Home/index.tsx:184
 msgid "info.current_apy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:147
+#: components/pages/Home/index.tsx:145
 msgid "info.equivalent_to"
 msgstr ""
 
-#: components/pages/Home/index.tsx:153
+#: components/pages/Home/index.tsx:151
 msgid "info.equivalent_to.hectars_of_forest"
 msgstr ""
 
-#: components/pages/Home/index.tsx:167
+#: components/pages/Home/index.tsx:165
 msgid "info.equivalent_to.liters_of_gasoline"
 msgstr ""
 
-#: components/pages/Home/index.tsx:161
+#: components/pages/Home/index.tsx:159
 msgid "info.equivalent_to.passenger_vehicles"
 msgstr ""
 
-#: components/pages/Home/index.tsx:179
+#: components/pages/Home/index.tsx:177
 msgid "info.equivalent_to.source"
 msgstr ""
 
-#: components/pages/Home/index.tsx:192
+#: components/pages/Home/index.tsx:190
 msgid "info.price"
 msgstr ""
 
-#: components/pages/Home/index.tsx:108
+#: components/pages/Home/index.tsx:106
 msgid "menu.app"
 msgstr ""
 
-#: components/pages/Home/index.tsx:104
+#: components/pages/Home/index.tsx:102
 msgid "menu.blog"
 msgstr ""
 
-#: components/pages/Home/index.tsx:96
+#: components/pages/Home/index.tsx:94
 msgid "menu.community"
 msgstr ""
 
-#: components/pages/Home/index.tsx:100
+#: components/pages/Home/index.tsx:98
 msgid "menu.docs"
 msgstr ""
 
