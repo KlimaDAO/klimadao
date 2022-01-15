@@ -23,5 +23,7 @@
     "react-dom": "^17.0",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@sanity/cli": "^2.24.1"
+  }
 }
