@@ -24,7 +24,7 @@
 
 .page_h1 {
   text-align: center;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
   text-transform: uppercase;
   color: var(--headings-color);
 }
@@ -37,7 +37,8 @@
   color: var(--headings-color);
 }
 
-.page_subHeader {
+.page_section .page_subHeader {
+  flex: 4;
   text-align: center;
   line-height: 140%;
 }
@@ -47,11 +48,11 @@
 }
 
 .page_section * {
-  flex: 2;
+  flex: 1;
 }
 
 .page_sectionContent {
-  flex: 4;
+  flex: 10;
 }
 
 .footer {
@@ -113,11 +114,27 @@
   .footer_content {
     grid-template-columns: auto auto;
   }
+
+  .page_sectionContent {
+    flex: 3;
+  }
+
+  .page_section .page_subHeader {
+    flex: 1;
+  }
 }
 
 @media bp-large {
   .logoContainer {
     width: 32rem;
     padding-top: 6.4rem;
+  }
+
+  .page_sectionContent {
+    flex: 2;
+  }
+
+  .page_section .page_subHeader {
+    flex: 1;
   }
 }

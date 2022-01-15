@@ -73,15 +73,16 @@ export const Contact: NextPage<Props> = ({}) => {
         </HeaderMobile>
         <Section>
           <h1 className={styles.page_h1}>Contact</h1>
-          <Columns>
+          <div className={styles.page_section}>
             <div />
-            <Copy
-              className={styles.page_subHeader}
-              text="Questions, concerns, ideas? Here are a few ways you can get in
-                      touch. We love meeting institutions and individuals alike."
-            />
+            <div className={styles.page_subHeader}>
+              <Paragraph style={{ textAlign: "center" }}>
+                Questions, concerns, ideas? Here are a few ways you can get in
+                touch. We love meeting institutions and individuals alike.
+              </Paragraph>
+            </div>
             <div />
-          </Columns>
+          </div>
         </Section>
 
         <div className={styles.page_section}>
