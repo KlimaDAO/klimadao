@@ -1,5 +1,9 @@
 {
   "root": true,
+  "api": {
+    "projectId": "dk34t4vc",
+    "dataset": "production"
+  },
   "project": {
     "name": "blog"
   },

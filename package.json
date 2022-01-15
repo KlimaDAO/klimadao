@@ -4,7 +4,8 @@
   "workspaces": [
     "./site",
     "./app",
-    "./lib"
+    "./lib",
+    "./cms"
   ],
   "engines": {
     "npm": ">=8.0.0",
@@ -20,6 +21,7 @@
     "dev-lib": "npm run dev --workspace=lib",
     "dev-site": "npm run build-lib && npm run dev --workspace=site",
     "dev-app": "npm run build-lib && npm run dev --workspace=app",
+    "dev-cms": "npm run start --workspace=cms",
     "format-all": "prettier --write ./",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract"
   }
