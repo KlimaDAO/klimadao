@@ -8,7 +8,7 @@ export const navMain_DesktopLink = css`
   color: var(--surface-05) !important;
   display: flex;
   align-items: center;
-  font-size: var(--font-size);
+  font-size: 1.4rem;
 
   &:hover {
     color: var(--surface) !important;
@@ -30,7 +30,7 @@ export const navMain_Mobile = css`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.4rem 0.4rem;
   transform: translate3d(0px, 0px, 0px);
   transition: transform 0.5s ease 0s;
-  padding-top: 6.4rem;
+  padding-top: var(--header-height);
   display: flex;
   ${breakpoints.medium} {
     display: none;
@@ -47,7 +47,7 @@ export const navMain_MobileClosed = css`
   background-color: var(--white);
   transform: translate3d(100%, 0px, 0px);
   transition: transform 0.5s ease 0s;
-  padding-top: 6.4rem;
+  padding-top: var(--header-height);
   display: flex;
   ${breakpoints.medium} {
     display: none;
