@@ -28,7 +28,7 @@ export const footer_content = css`
 `;
 
 export const footer_nav = css`
-  --font-size: var(--font-size);
+  font-size: 1.4rem;
   padding: 1rem 0rem;
   display: flex;
   flex-direction: column;
