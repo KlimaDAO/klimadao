@@ -1,14 +1,12 @@
 {
-  "name": "blog",
-  "private": true,
+  "name": "@klimadao/cms",
   "version": "1.0.0",
-  "description": "",
-  "main": "package.json",
-  "author": "rstycedar <rstycedar@protonmail.com>",
-  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
   "scripts": {
     "start": "sanity start",
-    "build": "sanity build"
+    "build": "sanity build",
+    "vercel-build": "sanity build -y"
   },
   "keywords": [
     "sanity"
