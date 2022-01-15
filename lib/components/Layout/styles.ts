@@ -1,10 +1,12 @@
 import { css } from "@emotion/css";
+import breakpoints from "../../theme/breakpoints";
 
 // temporarly put theme values to this class
 
 export const theme = css`
   --gray: rgb(160, 160, 160);
   --white: #ffffff;
+  --background: #f5f5f7;
 
   /* Material Design naming convention for theme colors */
   --surface-01: #0e0e0e;
@@ -26,21 +28,153 @@ export const theme = css`
   --secondary-variant: #1ea39b;
   /* Material Design naming convention for theme colors */
 
+  /* LAYOUT */
+  --site-max-width: 120rem;
+  --header-height: 6.4rem;
+
+  /* FONTS */
   --font-family-decorative: Righteous;
   --font-family: "Inter", sans-serif;
-  --font-size: 1.4rem;
+  --font-size: 1.6rem;
+  --font-color: var(--surface-04);
 
-  --background: var(--surface-08);
-  --site-max-width: 180rem;
+  --headings-color: var(--surface-02);
+
+  /* ELEMENTS */
   --border-radius: 0.4rem;
 
   background-color: var(--background);
-  min-height: 100vh;
+
   font-family: var(--font-family);
   font-size: var(--font-size);
+  color: var(--surface-03);
 
   /* Push footer to bottom -- */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+`;
+
+export const section = css`
+  padding: 2.4rem 0;
+
+  ${breakpoints.medium} {
+    padding: 4.4rem 0;
+  }
+`;
+
+export const sectionVariant = css`
+  ${section};
+  background-color: var(--white);
+`;
+
+export const sectionInner = css`
+  margin: 0 auto;
+  max-width: var(--site-max-width);
+`;
+
+export const sectionInnerHero = css`
+  ${sectionInner};
+  margin-top: 6.4rem;
+  margin-bottom: 2.4rem;
+  position: relative;
+`;
+
+export const sectionInnerContained = css`
+  ${sectionInner};
+  max-width: calc(var(--site-max-width) - 2.4rem * 2);
+  padding: 2.4rem;
+`;
+
+export const columns = css`
+  ${breakpoints.medium} {
+    display: flex;
+  }
+`;
+
+export const columnsHero = css`
+  ${breakpoints.medium} {
+    display: flex;
+
+    & div {
+      flex-basis: 100%;
+    }
+  }
+`;
+
+export const columnsContained = css`
+  ${columns};
+
+  ${breakpoints.medium} {
+    display: flex;
+    max-width: 90rem;
+    margin: 2.4rem auto;
+    justify-content: space-evenly;
+
+    & * {
+      flex-basis: 100%;
+    }
+  }
+`;
+
+export const contentBox = css`
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  position: relative;
+
+  & img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
+
+  ${breakpoints.medium} {
+    margin: 1rem;
+    flex-basis: 100%;
+  }
+`;
+
+export const contentBoxHero = css`
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 3.4rem;
+  z-index: 1;
+  position: relative;
+  margin: 1rem;
+
+  display: flex;
+
+  ${breakpoints.medium} {
+    padding: 7.4rem;
+    z-index: 0;
+    flex-basis: 100%;
+  }
+`;
+
+export const contentBoxImage = css`
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+
+  margin: 1rem 0;
+
+  & img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
+`;
+
+export const contentBoxImageBelowText = css`
+  ${contentBoxHero};
+  min-height: 40rem;
+  margin: -20rem 0px 0px;
+  z-index: 0;
+  position: relative;
+
+  ${breakpoints.medium} {
+    border-radius: var(--border-radius);
+    margin: 1rem;
+    min-height: auto;
+    flex-basis: 100%;
+  }
 `;
