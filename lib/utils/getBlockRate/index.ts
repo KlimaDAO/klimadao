@@ -18,5 +18,6 @@ export async function getBlockRate() {
   } catch (err) {
     console.log(err);
   }
+
   return blockRateSeconds;
 }

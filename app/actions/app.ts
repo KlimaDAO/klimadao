@@ -3,8 +3,12 @@ import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 import { setAppState } from "state/app";
 
-import { getBlockRate, getTreasuryBalance } from "@klimadao/lib/utils";
-import { addresses, ESTIMATED_DAILY_REBASES } from "@klimadao/lib/constants";
+import {
+  getBlockRate,
+  getEstimatedDailyRebases,
+  getTreasuryBalance,
+} from "@klimadao/lib/utils";
+import { addresses } from "@klimadao/lib/constants";
 import DistributorContractv4 from "@klimadao/lib/abi/DistributorContractv4.json";
 import SKlima from "@klimadao/lib/abi/sKlima.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
@@ -50,16 +54,21 @@ export const loadAppDetails = (params: {
         blockRate,
       ] = await Promise.all(promises);
 
-      const promises2 = [distributorContract.nextRewardAt(info.rate)];
+      const promises2 = [
+        distributorContract.nextRewardAt(info.rate),
+        getEstimatedDailyRebases(blockRate),
+      ];
 
-      const [stakingReward] = await Promise.all(promises2);
+      const [stakingReward, estimatedDailyRebases] = await Promise.all(
+        promises2
+      );
 
       const stakingRebase = stakingReward / circSupply;
       const fiveDayRate =
-        Math.pow(1 + stakingRebase, 5 * ESTIMATED_DAILY_REBASES) - 1;
+        Math.pow(1 + stakingRebase, 5 * estimatedDailyRebases) - 1;
       const stakingAPY = Math.pow(
         1 + stakingRebase,
-        365 * ESTIMATED_DAILY_REBASES
+        365 * estimatedDailyRebases
       );
 
       dispatch(

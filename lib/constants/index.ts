@@ -100,7 +100,5 @@ export type Bond = typeof bonds[number];
 
 export const EPOCH_INTERVAL = 11520;
 
-export const ESTIMATED_DAILY_REBASES = 3.28;
-
 // API key for Polygonscan
 export const API_KEY = "XN1YXFZ5GZDH3JWUGFD1AA8ASF371ZA8EA";
