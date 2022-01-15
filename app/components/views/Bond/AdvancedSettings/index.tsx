@@ -2,7 +2,7 @@ import React, { ChangeEventHandler, FC } from "react";
 
 // Copied from Stake view despite T/t
 import T from "@klimadao/lib/theme/typography.module.css";
-import styles from "components/views/Stake/index.module.css";
+import styles from "./index.module.css";
 import { Trans } from "@lingui/macro";
 
 interface Props {
