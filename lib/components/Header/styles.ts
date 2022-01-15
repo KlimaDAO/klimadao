@@ -6,7 +6,7 @@ export const headerDesktop = css`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 6.4rem;
+  height: var(--header-height);
   padding: 0rem 3.4rem;
   background: var(--background);
   ${breakpoints.medium} {
@@ -42,7 +42,7 @@ export const headerMobile = css`
   align-items: center;
   justify-content: space-between;
   padding: 0rem 2.4rem;
-  height: 6.4rem;
+  height: var(--header-height);
   z-index: 1;
   ${breakpoints.medium} {
     display: none;

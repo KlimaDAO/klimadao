@@ -16,7 +16,7 @@ export const button_primary = css`
   background-color: var(--primary);
   color: var(--white) !important;
   border: 0;
-  font-size: var(--font-size);
+  font-size: 1.4rem;
 
   &:hover {
     background-color: var(--primary-variant);
