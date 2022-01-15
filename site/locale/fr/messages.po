@@ -13,117 +13,101 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Home/index.tsx:84
-#~ msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
-#~ msgstr "Pesez sur les actions pour le climat et gagnez des récompenses avec un crypto-actif algorithmique collatéralisé par des obligations carbone."
+#: components/ChangeLanguageButton/index.tsx:51
+msgid "Change language"
+msgstr ""
 
-#: components/pages/Home/index.tsx:269
+#: components/pages/Home/index.tsx:85
+msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+msgstr "Pesez sur les actions pour le climat et gagnez des récompenses avec un crypto-actif algorithmique collatéralisé par des obligations carbone."
+
+#: components/pages/Home/index.tsx:237
 msgid "card.blackhole.carbon"
 msgstr ""
 
-#: components/pages/Home/index.tsx:267
+#: components/pages/Home/index.tsx:235
 msgid "card.blackhole.title"
 msgstr ""
 
-#: components/pages/Home/index.tsx:245
+#: components/pages/Home/index.tsx:213
 msgid "card.dao.goal"
 msgstr ""
 
-#: components/pages/Home/index.tsx:241
+#: components/pages/Home/index.tsx:209
 msgid "card.dao.title"
 msgstr ""
 
-#: components/pages/Home/index.tsx:254
+#: components/pages/Home/index.tsx:222
 msgid "card.dao.value"
 msgstr ""
 
-#: components/pages/Home/index.tsx:312
+#: components/pages/Home/index.tsx:280
 msgid "footer.app"
 msgstr ""
 
-#: components/pages/Home/index.tsx:318
+#: components/pages/Home/index.tsx:286
 msgid "footer.blog"
 msgstr ""
 
-#: components/pages/Home/index.tsx:321
+#: components/pages/Home/index.tsx:289
 msgid "footer.community"
 msgstr ""
 
-#: components/pages/Home/index.tsx:315
+#: components/pages/Home/index.tsx:283
 msgid "footer.docs"
 msgstr ""
 
-#: components/pages/Home/index.tsx:91
-msgid "header.caption"
-msgstr ""
-
-#: components/pages/Home/index.tsx:173
+#: components/pages/Home/index.tsx:141
 msgid "info.CO2_tons"
 msgstr ""
 
-#: components/pages/Home/index.tsx:166
+#: components/pages/Home/index.tsx:134
 msgid "info.carbon_in_treasury"
 msgstr ""
 
-#: components/pages/Home/index.tsx:218
+#: components/pages/Home/index.tsx:186
 msgid "info.current_apy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:179
+#: components/pages/Home/index.tsx:147
 msgid "info.equivalent_to"
 msgstr ""
 
-#: components/pages/Home/index.tsx:185
+#: components/pages/Home/index.tsx:153
 msgid "info.equivalent_to.hectars_of_forest"
 msgstr ""
 
-#: components/pages/Home/index.tsx:199
+#: components/pages/Home/index.tsx:167
 msgid "info.equivalent_to.liters_of_gasoline"
 msgstr ""
 
-#: components/pages/Home/index.tsx:193
+#: components/pages/Home/index.tsx:161
 msgid "info.equivalent_to.passenger_vehicles"
 msgstr ""
 
-#: components/pages/Home/index.tsx:211
+#: components/pages/Home/index.tsx:179
 msgid "info.equivalent_to.source"
 msgstr ""
 
-#: components/pages/Home/index.tsx:224
+#: components/pages/Home/index.tsx:192
 msgid "info.price"
 msgstr ""
 
-#: components/pages/Home/index.tsx:140
+#: components/pages/Home/index.tsx:108
 msgid "menu.app"
 msgstr ""
 
-#: components/pages/Home/index.tsx:136
+#: components/pages/Home/index.tsx:104
 msgid "menu.blog"
 msgstr ""
 
-#: components/pages/Home/index.tsx:128
+#: components/pages/Home/index.tsx:96
 msgid "menu.community"
 msgstr ""
 
-#: components/pages/Home/index.tsx:132
+#: components/pages/Home/index.tsx:100
 msgid "menu.docs"
 msgstr ""
-
-#: components/pages/Home/index.tsx:91
-#~ msgid "msg.action"
-#~ msgstr ""
-
-#: components/pages/Home/index.tsx:250
-#~ msgid "msg.blackhole"
-#~ msgstr ""
-
-#: components/pages/Home/index.tsx:228
-#~ msgid "msg.goal"
-#~ msgstr ""
-
-#: components/pages/Home/index.tsx:237
-#~ msgid "msg.value"
-#~ msgstr ""
 
 #: components/pages/Home/BlackHoleTour/index.tsx:71
 msgid "tour.bonding.text"
@@ -156,7 +140,3 @@ msgstr ""
 #: components/pages/Home/BlackHoleTour/index.tsx:49
 msgid "tour.treasury.title"
 msgstr ""
-
-#: components/pages/Home/index.tsx:106
-msgid "usermenu.changelanguage"
-msgstr "Langue"

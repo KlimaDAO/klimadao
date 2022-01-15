@@ -13,117 +13,101 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Home/index.tsx:84
-#~ msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
-#~ msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+#: components/ChangeLanguageButton/index.tsx:51
+msgid "Change language"
+msgstr "Change language"
 
-#: components/pages/Home/index.tsx:269
+#: components/pages/Home/index.tsx:85
+msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
+
+#: components/pages/Home/index.tsx:237
 msgid "card.blackhole.carbon"
 msgstr "carbon"
 
-#: components/pages/Home/index.tsx:267
+#: components/pages/Home/index.tsx:235
 msgid "card.blackhole.title"
 msgstr "A blackhole for"
 
-#: components/pages/Home/index.tsx:245
+#: components/pages/Home/index.tsx:213
 msgid "card.dao.goal"
 msgstr "KlimaDAO’s goal is to accelerate the price appreciation of carbon assets. A high price for carbon forces companies and economies to adapt more quickly to the realities of climate change, and makes low-carbon technologies and carbon-removal projects more profitable."
 
-#: components/pages/Home/index.tsx:241
+#: components/pages/Home/index.tsx:209
 msgid "card.dao.title"
 msgstr "A DAO, a protocol,"
 
-#: components/pages/Home/index.tsx:254
+#: components/pages/Home/index.tsx:222
 msgid "card.dao.value"
 msgstr "Through the KLIMA token, we will maximize value creation for our community and create a virtuous cycle of growth. Eventually, the KLIMA token (each backed by real, verified carbon assets) will function as a truly sustainable asset and medium-of-exchange, with real planetary value."
 
-#: components/pages/Home/index.tsx:312
+#: components/pages/Home/index.tsx:280
 msgid "footer.app"
 msgstr "app"
 
-#: components/pages/Home/index.tsx:318
+#: components/pages/Home/index.tsx:286
 msgid "footer.blog"
 msgstr "blog"
 
-#: components/pages/Home/index.tsx:321
+#: components/pages/Home/index.tsx:289
 msgid "footer.community"
 msgstr "community"
 
-#: components/pages/Home/index.tsx:315
+#: components/pages/Home/index.tsx:283
 msgid "footer.docs"
 msgstr "docs"
 
-#: components/pages/Home/index.tsx:91
-msgid "header.caption"
-msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
-
-#: components/pages/Home/index.tsx:173
+#: components/pages/Home/index.tsx:141
 msgid "info.CO2_tons"
 msgstr "TONNES CO2"
 
-#: components/pages/Home/index.tsx:166
+#: components/pages/Home/index.tsx:134
 msgid "info.carbon_in_treasury"
 msgstr "CARBON IN TREASURY"
 
-#: components/pages/Home/index.tsx:218
+#: components/pages/Home/index.tsx:186
 msgid "info.current_apy"
 msgstr "CURRENT APY"
 
-#: components/pages/Home/index.tsx:179
+#: components/pages/Home/index.tsx:147
 msgid "info.equivalent_to"
 msgstr "Equivalent to"
 
-#: components/pages/Home/index.tsx:185
+#: components/pages/Home/index.tsx:153
 msgid "info.equivalent_to.hectars_of_forest"
 msgstr "hectares of forest"
 
-#: components/pages/Home/index.tsx:199
+#: components/pages/Home/index.tsx:167
 msgid "info.equivalent_to.liters_of_gasoline"
 msgstr "liters of gasoline"
 
-#: components/pages/Home/index.tsx:193
+#: components/pages/Home/index.tsx:161
 msgid "info.equivalent_to.passenger_vehicles"
 msgstr "passenger vehicles (annual)"
 
-#: components/pages/Home/index.tsx:211
+#: components/pages/Home/index.tsx:179
 msgid "info.equivalent_to.source"
 msgstr "source"
 
-#: components/pages/Home/index.tsx:224
+#: components/pages/Home/index.tsx:192
 msgid "info.price"
 msgstr "Price (USDC)"
 
-#: components/pages/Home/index.tsx:140
+#: components/pages/Home/index.tsx:108
 msgid "menu.app"
 msgstr "app"
 
-#: components/pages/Home/index.tsx:136
+#: components/pages/Home/index.tsx:104
 msgid "menu.blog"
 msgstr "blog"
 
-#: components/pages/Home/index.tsx:128
+#: components/pages/Home/index.tsx:96
 msgid "menu.community"
 msgstr "community"
 
-#: components/pages/Home/index.tsx:132
+#: components/pages/Home/index.tsx:100
 msgid "menu.docs"
 msgstr "docs"
-
-#: components/pages/Home/index.tsx:91
-#~ msgid "msg.action"
-#~ msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
-
-#: components/pages/Home/index.tsx:250
-#~ msgid "msg.blackhole"
-#~ msgstr "A blackhole for"
-
-#: components/pages/Home/index.tsx:228
-#~ msgid "msg.goal"
-#~ msgstr "KlimaDAO’s goal is to accelerate the price appreciation of carbon assets. A high price for carbon forces companies and economies to adapt more quickly to the realities of climate change, and makes low-carbon technologies and carbon-removal projects more profitable."
-
-#: components/pages/Home/index.tsx:237
-#~ msgid "msg.value"
-#~ msgstr "Through the KLIMA token, we will maximize value creation for our community and create a virtuous cycle of growth. Eventually, the KLIMA token (each backed by real, verified carbon assets) will function as a truly sustainable asset and medium-of-exchange, with real planetary value."
 
 #: components/pages/Home/BlackHoleTour/index.tsx:71
 msgid "tour.bonding.text"
@@ -156,7 +140,3 @@ msgstr "The treasury is the center of the black hole. Every KLIMA token is backe
 #: components/pages/Home/BlackHoleTour/index.tsx:49
 msgid "tour.treasury.title"
 msgstr "Klima Treasury"
-
-#: components/pages/Home/index.tsx:106
-msgid "usermenu.changelanguage"
-msgstr "Language"

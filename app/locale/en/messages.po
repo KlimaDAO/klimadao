@@ -13,132 +13,120 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/ChangeLanguageButton/index.tsx:60
+#: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr "Change language"
 
-#: components/views/Bond/index.tsx:475
+#: components/views/Bond/index.tsx:479
 msgid "bond.balance"
 msgstr "Balance"
 
-#: components/views/Bond/index.tsx:334
+#: components/views/Bond/index.tsx:335
 msgid "bond.balance.tooltip"
 msgstr "Balance available for bonding"
 
-#: components/views/Bond/index.tsx:504
+#: components/views/Bond/index.tsx:508
 msgid "bond.bond_price"
 msgstr "Bond price"
 
-#: components/views/Bond/index.tsx:338
+#: components/views/Bond/index.tsx:339
 msgid "bond.bond_price.tooltip"
 msgstr "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)"
 
-#: components/views/Bond/index.tsx:394
+#: components/views/Bond/index.tsx:398
 msgid "bond.caption"
 msgstr "Bond {0}"
 
-#: components/views/Bond/index.tsx:702
+#: components/views/Bond/index.tsx:706
 msgid "bond.date_of_full_vesting"
 msgstr "Date of full vesting"
 
-#: components/views/Bond/index.tsx:378
+#: components/views/Bond/index.tsx:379
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr "Date when the entire bond value can be redeemed"
 
-#: components/views/Bond/index.tsx:604
+#: components/views/Bond/index.tsx:608
 msgid "bond.debt_ratio"
 msgstr "Debt ratio"
 
-#: components/views/Bond/index.tsx:361
+#: components/views/Bond/index.tsx:362
 msgid "bond.debt_ratio.tooltip"
 msgstr "Protocol's current ratio of supply to outstanding bonds"
 
-#: components/views/Bond/AdvancedSettings/index.tsx:22
+#: components/views/Bond/AdvancedSettings/index.tsx:21
 msgid "bond.esbridge"
 msgstr "Use this bridge through space-time to direct the transaction to a different recipient address. (default: your currently connected address)."
 
-#: components/views/Bond/index.tsx:521
+#: components/views/Bond/index.tsx:525
 msgid "bond.market_price"
 msgstr "Market Price"
 
-#: components/views/Bond/index.tsx:343
+#: components/views/Bond/index.tsx:344
 msgid "bond.market_price.tooltip"
 msgstr "Current trading price of KLIMA, without bond discount"
 
-#: components/views/Bond/index.tsx:579
+#: components/views/Bond/index.tsx:583
 msgid "bond.maximum"
 msgstr "Maximum"
 
-#: components/views/Bond/index.tsx:357
+#: components/views/Bond/index.tsx:358
 msgid "bond.maximum.tooltip"
 msgstr "Maximum amount of KLIMA you can acquire by bonding"
 
-#: components/views/Bond/index.tsx:653
+#: components/views/Bond/index.tsx:657
 msgid "bond.pending"
 msgstr "Pending"
 
-#: components/views/Bond/index.tsx:370
+#: components/views/Bond/index.tsx:371
 msgid "bond.pending.tooltip"
 msgstr "Remaining unredeemed value (vested and un-vested)"
 
-#: components/views/Bond/index.tsx:675
+#: components/views/Bond/index.tsx:679
 msgid "bond.redeemable"
 msgstr "Redeemable"
 
-#: components/views/Bond/index.tsx:374
+#: components/views/Bond/index.tsx:375
 msgid "bond.redeemable.tooltip"
 msgstr "Amount of KLIMA that has already vested and can be redeemed"
 
-#: components/views/Bond/AdvancedSettings/index.tsx:41
+#: components/views/Bond/AdvancedSettings/index.tsx:40
 msgid "bond.revert"
 msgstr "Transaction may revert if price changes by more than desired slippage percentage."
 
-#: components/views/Bond/index.tsx:538
+#: components/views/Bond/index.tsx:542
 msgid "bond.roi"
 msgstr "ROI (bond discount)"
 
-#: components/views/Bond/index.tsx:347
+#: components/views/Bond/index.tsx:348
 msgid "bond.roi.tooltip"
 msgstr "Return on investment, expressed as a percentage discount on the market value of KLIMA"
 
-#: components/views/Bond/AdvancedSettings/index.tsx:38
+#: components/views/Bond/AdvancedSettings/index.tsx:37
 msgid "bond.slippage_tolerance"
 msgstr "Slippage Tolerance"
 
-#: components/views/Bond/index.tsx:698
-#~ msgid "bond.time_until_fully_vested"
-#~ msgstr "Time until fully vested"
-
-#: components/views/Bond/index.tsx:378
-#~ msgid "bond.time_until_fully_vested.tooltip"
-#~ msgstr "Time remaining until the entire bond value can be redeemed"
-
-#: components/views/Bond/index.tsx:378
-#~ msgid "bond.time_untill_fully_vested.tooltip"
-#~ msgstr "Time remaining until the entire bond value can be redeemed"
-
-#: components/views/Bond/index.tsx:626
+#: components/views/Bond/index.tsx:630
 msgid "bond.vesting_term"
 msgstr "Vesting term"
 
-#: components/views/Bond/index.tsx:365
+#: components/views/Bond/index.tsx:366
 msgid "bond.vesting_term.tooltip"
 msgstr "Time period over which bonded KLIMA is made available for redemption"
 
-#: components/views/Bond/index.tsx:557
+#: components/views/Bond/index.tsx:561
 msgid "bond.you_will_get"
 msgstr "You will get"
 
-#: components/views/Bond/index.tsx:352
+#: components/views/Bond/index.tsx:353
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
-#: components/views/Bond/index.tsx:274
+#: components/views/Bond/index.tsx:275
 #: components/views/Redeem/index.tsx:113
 #: components/views/Redeem/index.tsx:118
 #: components/views/Stake/index.tsx:167
 #: components/views/Stake/index.tsx:172
-#: components/views/Wrap/index.tsx:127
+#: components/views/Wrap/index.tsx:126
 msgid "button.approve"
 msgstr "Approve"
 
@@ -146,22 +134,22 @@ msgstr "Approve"
 msgid "button.bct"
 msgstr "2. Approve BCT"
 
-#: components/views/Bond/index.tsx:280
-#: components/views/Bond/index.tsx:408
+#: components/views/Bond/index.tsx:281
+#: components/views/Bond/index.tsx:412
 msgid "button.bond"
 msgstr "Bond"
 
-#: components/views/Bond/index.tsx:268
+#: components/views/Bond/index.tsx:269
 #: components/views/PKlima/index.tsx:125
 #: components/views/Redeem/index.tsx:107
 #: components/views/Stake/index.tsx:161
-#: components/views/Wrap/index.tsx:121
+#: components/views/Wrap/index.tsx:120
 msgid "button.confirming"
 msgstr "Confirming"
 
-#: components/views/Bond/index.tsx:293
+#: components/views/Bond/index.tsx:294
 #: components/views/Redeem/index.tsx:135
-#: components/views/Wrap/index.tsx:144
+#: components/views/Wrap/index.tsx:143
 msgid "button.error"
 msgstr "Error"
 
@@ -169,25 +157,25 @@ msgstr "Error"
 msgid "button.exercise"
 msgstr "EXERCISE"
 
-#: components/views/Bond/index.tsx:259
+#: components/views/Bond/index.tsx:260
 #: components/views/PKlima/index.tsx:116
 #: components/views/Redeem/index.tsx:98
 #: components/views/Stake/index.tsx:152
-#: components/views/Wrap/index.tsx:112
+#: components/views/Wrap/index.tsx:111
 msgid "button.loading"
 msgstr "Loading"
 
-#: components/views/Bond/index.tsx:444
+#: components/views/Bond/index.tsx:448
 #: components/views/PKlima/index.tsx:227
 #: components/views/Stake/index.tsx:329
 msgid "button.max"
 msgstr "Max"
 
-#: components/views/Bond/index.tsx:253
+#: components/views/Bond/index.tsx:254
 #: components/views/PKlima/index.tsx:110
 #: components/views/Redeem/index.tsx:92
 #: components/views/Stake/index.tsx:146
-#: components/views/Wrap/index.tsx:106
+#: components/views/Wrap/index.tsx:105
 msgid "button.not_connected"
 msgstr "Not connected"
 
@@ -195,8 +183,8 @@ msgstr "Not connected"
 msgid "button.pklima"
 msgstr "1. Approve pKLIMA"
 
-#: components/views/Bond/index.tsx:286
-#: components/views/Bond/index.tsx:418
+#: components/views/Bond/index.tsx:287
+#: components/views/Bond/index.tsx:422
 #: components/views/Redeem/index.tsx:123
 #: components/views/Redeem/index.tsx:129
 msgid "button.redeem"
@@ -210,77 +198,53 @@ msgstr "Stake"
 msgid "button.unstake"
 msgstr "Unstake"
 
-#: components/views/Wrap/index.tsx:138
+#: components/views/Wrap/index.tsx:137
 msgid "button.unwrap"
 msgstr "Unwrap"
 
-#: components/views/Wrap/index.tsx:132
+#: components/views/Wrap/index.tsx:131
 msgid "button.wrap"
 msgstr "Wrap"
 
-#: components/views/ChooseBond/index.tsx:76
+#: components/views/ChooseBond/index.tsx:75
 msgid "choose_bond.caption"
 msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds have a mandatory 5-day vesting period."
 
-#: components/views/ChooseBond/index.tsx:101
+#: components/views/ChooseBond/index.tsx:100
 msgid "choose_bond.choose_bond"
 msgstr "Choose a bond"
 
-#: components/views/ChooseBond/index.tsx:104
+#: components/views/ChooseBond/index.tsx:103
 msgid "choose_bond.discount"
 msgstr "% Discount"
 
-#: components/views/ChooseBond/index.tsx:73
+#: components/views/ChooseBond/index.tsx:72
 msgid "choose_bond.title"
 msgstr "Bond Carbon."
 
-#: components/views/ChooseBond/index.tsx:87
+#: components/views/ChooseBond/index.tsx:86
 msgid "choose_bond.treasury_balance"
 msgstr "Treasury Balance"
 
-#: components/views/Home/index.tsx:426
+#: components/views/Home/index.tsx:424
 msgid "footer.blog"
 msgstr "blog"
 
-#: components/views/Home/index.tsx:429
+#: components/views/Home/index.tsx:427
 msgid "footer.community"
 msgstr "community"
 
-#: components/views/Home/index.tsx:423
+#: components/views/Home/index.tsx:421
 msgid "footer.docs"
 msgstr "docs"
 
-#: components/views/Home/index.tsx:420
+#: components/views/Home/index.tsx:418
 msgid "footer.home"
 msgstr "home"
 
-#: components/views/Home/index.tsx:235
-#~ msgid "header.connectedto"
-#~ msgstr "You are connected to"
-
-#: components/views/Home/index.tsx:315
+#: components/views/Home/index.tsx:313
 msgid "header.welcome"
 msgstr "Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to earn interest."
-
-#: components/views/Home/index.tsx:249
-#~ msgid "menu.bond"
-#~ msgstr "BOND"
-
-#: components/views/Home/index.tsx:252
-#~ msgid "menu.info"
-#~ msgstr "INFO"
-
-#: components/views/Home/index.tsx:240
-#~ msgid "menu.redeem"
-#~ msgstr "REDEEM"
-
-#: components/views/Home/index.tsx:243
-#~ msgid "menu.stake"
-#~ msgstr "STAKE"
-
-#: components/views/Home/index.tsx:246
-#~ msgid "menu.wrap"
-#~ msgstr "WRAP"
 
 #: components/views/Redeem/index.tsx:181
 msgid "msg.aklima"
@@ -290,35 +254,15 @@ msgstr "If you received AlphaKLIMA from the Fair Launch Auction, or AlchemistKLI
 msgid "msg.bridge"
 msgstr "Before proceeding: you must bridge your aKLIMA and alKLIMA tokens from Ethereum to Polygon."
 
-#: components/views/Bond/AdvancedSettings/index.tsx:22
-#~ msgid "msg.esbridge"
-#~ msgstr "Use this bridge through space-time to direct the transaction to a different recipient address. (default: your currently connected address)."
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:34
-#~ msgid "msg.growth"
-#~ msgstr "It may be a few days, depending on the KLIMA growth rate, before you can access this page and continue redeeming pKLIMA."
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:18
-#~ msgid "msg.overclaim"
-#~ msgstr "You've claimed more KLIMA than your supply-share limit. This is likely due to a fix implemented on November 24th, 2021 to the pKLIMA redemption contract."
-
-#: components/views/Bond/AdvancedSettings/index.tsx:39
-#~ msgid "msg.revert"
-#~ msgstr "Transaction may revert if price changes by more than desired slippage percentage."
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:25
-#~ msgid "msg.update"
-#~ msgstr "The updated contract now assumes pKLIMA holders have staked and earned interest on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
-
-#: components/views/Wrap/index.tsx:204
+#: components/views/Wrap/index.tsx:203
 msgid "msg.wsklima"
 msgstr "wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may find this useful for accounting purposes. Unlike your sKLIMA balance, your wsKLIMA balance will not increase over time."
 
-#: components/views/Wrap/index.tsx:211
+#: components/views/Wrap/index.tsx:210
 msgid "msg.yield"
 msgstr "When wsKLIMA is unwrapped, you receive sKLIMA based on the latest (ever-increasing) index, so the total yield is the same."
 
-#: components/views/Bond/index.tsx:391
+#: components/views/Bond/index.tsx:395
 msgid "nav.back"
 msgstr "BACK"
 
@@ -438,54 +382,46 @@ msgstr "Staked"
 msgid "stake.staked.tooltip"
 msgstr "Staked KLIMA generating interest"
 
-#: components/views/Stake/index.tsx:307
-#~ msgid "stake.time_until_rebase"
-#~ msgstr "Time until rebase"
-
-#: components/views/Stake/index.tsx:188
-#~ msgid "stake.time_until_rebase.tooltip"
-#~ msgstr "Approximate time remaining until next rewards distribution"
-
-#: components/views/Bond/index.tsx:735
+#: components/views/Bond/index.tsx:739
 msgid "status.bond_negative"
 msgstr "⚠️ Warning: this bond price is inflated because the current discount rate is negative."
 
-#: components/views/Bond/index.tsx:303
+#: components/views/Bond/index.tsx:304
 #: components/views/PKlima/index.tsx:152
 #: components/views/Redeem/index.tsx:146
 #: components/views/Stake/index.tsx:203
-#: components/views/Wrap/index.tsx:154
+#: components/views/Wrap/index.tsx:153
 msgid "status.pending_confirmation"
 msgstr "Please click 'confirm' in your wallet to continue."
 
-#: components/views/Bond/index.tsx:315
+#: components/views/Bond/index.tsx:316
 #: components/views/PKlima/index.tsx:164
 #: components/views/Redeem/index.tsx:158
 #: components/views/Stake/index.tsx:215
-#: components/views/Wrap/index.tsx:166
+#: components/views/Wrap/index.tsx:165
 msgid "status.transaction_error"
 msgstr "❌ Error: something went wrong..."
 
-#: components/views/Bond/index.tsx:323
+#: components/views/Bond/index.tsx:324
 #: components/views/PKlima/index.tsx:172
 #: components/views/Redeem/index.tsx:166
 #: components/views/Stake/index.tsx:223
-#: components/views/Wrap/index.tsx:174
+#: components/views/Wrap/index.tsx:173
 msgid "status.transaction_rejected"
 msgstr "✖️ You chose to reject the transaction."
 
-#: components/views/Bond/index.tsx:309
+#: components/views/Bond/index.tsx:310
 #: components/views/PKlima/index.tsx:158
 #: components/views/Redeem/index.tsx:152
 #: components/views/Stake/index.tsx:209
-#: components/views/Wrap/index.tsx:160
+#: components/views/Wrap/index.tsx:159
 msgid "status.transaction_started"
 msgstr "Transaction initiated. Waiting for network confirmation."
 
-#: components/views/Bond/index.tsx:320
+#: components/views/Bond/index.tsx:321
 #: components/views/PKlima/index.tsx:169
 #: components/views/Redeem/index.tsx:163
 #: components/views/Stake/index.tsx:220
-#: components/views/Wrap/index.tsx:171
+#: components/views/Wrap/index.tsx:170
 msgid "status.transaction_success"
 msgstr "✔️ Success!."
