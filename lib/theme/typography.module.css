@@ -1,5 +1,6 @@
 @value bp-medium from "@klimadao/lib/theme/breakpoints.css";
 
+/* These are from https://material.io/design/typography/the-type-system.html#type-scale */
 .h1 {
   --font-size: 9.6rem;
   font-weight: 300;

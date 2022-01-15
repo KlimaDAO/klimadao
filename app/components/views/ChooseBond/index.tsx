@@ -6,9 +6,11 @@ import { RootState } from "state";
 import { selectAppState } from "state/selectors";
 
 import styles from "./index.module.css";
-import t from "@klimadao/lib/theme/typography.module.css";
+import T from "@klimadao/lib/theme/typography.module.css";
 import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
+
+import { Trans } from "@lingui/macro";
 
 export const useBond = (bond: Bond) => {
   const bondState = useSelector((state: RootState) => {
@@ -66,20 +68,25 @@ export function ChooseBond() {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Bond Carbon.</h2>
-        <p className={t.body2}>
-          The best way to buy KLIMA. Commit carbon to our treasury, and receive
-          KLIMA at a discount. All bonds have a mandatory 5-day vesting period.
+        <h2 className={T.h4}>
+          <Trans id="choose_bond.title">Bond Carbon.</Trans>
+        </h2>
+        <p className={T.body2}>
+          <Trans id="choose_bond.caption">
+            The best way to buy KLIMA. Commit carbon to our treasury, and
+            receive KLIMA at a discount. All bonds have a mandatory 5-day
+            vesting period.
+          </Trans>
         </p>
       </div>
 
       <div className={styles.data_container}>
         <div className={styles.data_column}>
-          <p className={classNames(styles.data_column_label, t.overline)}>
-            Treasury Balance
+          <p className={classNames(styles.data_column_label, T.overline)}>
+            <Trans id="choose_bond.treasury_balance">Treasury Balance</Trans>
           </p>
           <p className={classNames("price-data")}>
-            <span className={t.h6}>
+            <span className={T.h6}>
               {trimWithPlaceholder(treasuryBalance, 0)}
             </span>
             {treasuryBalance ? " T CO2" : ""}
@@ -88,9 +95,12 @@ export function ChooseBond() {
       </div>
       <div className={styles.bondList}>
         <div className={styles.bondList_columnTitle}>
-          <h2 className={t.overline}>Choose a bond:</h2>
-          <p className={t.overline} style={{ opacity: 0.7 }}>
-            % Discount
+          <h2 className={T.overline}>
+            {" "}
+            <Trans id="choose_bond.choose_bond">Choose a bond</Trans>:
+          </h2>
+          <p className={T.overline} style={{ opacity: 0.7 }}>
+            <Trans id="choose_bond.discount">% Discount</Trans>
           </p>
         </div>
 
@@ -98,9 +108,9 @@ export function ChooseBond() {
           <Link to={bond.href} key={bond.href}>
             <div className={styles.bondLink} key={bond.name}>
               <div>
-                <h3 className={t.subtitle2}>{bond.name}</h3>
+                <h3 className={T.subtitle2}>{bond.name}</h3>
                 <p
-                  className={classNames(styles.bondLink_description, t.caption)}
+                  className={classNames(styles.bondLink_description, T.caption)}
                 >
                   {bond.description}
                 </p>

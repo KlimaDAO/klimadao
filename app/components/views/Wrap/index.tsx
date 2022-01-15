@@ -1,7 +1,11 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
+
+// Copied from Stake view despite T/t
+import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "components/views/Stake/index.module.css";
+import { Trans } from "@lingui/macro";
 
 import {
   Spinner,
@@ -9,7 +13,6 @@ import {
   useTooltipSingleton,
 } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
-import t from "@klimadao/lib/theme/typography.module.css";
 import { ethers } from "ethers";
 import {
   selectAppState,
@@ -98,10 +101,14 @@ export const Wrap: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Not Connected", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.not_connected">Not connected</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (isLoading) {
       return {
-        children: "Loading",
+        children: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -109,37 +116,64 @@ export const Wrap: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: "Confirming", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.confirming">Confirming</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (view === "wrap" && !hasApproval()) {
-      return { children: "Approve", onClick: handleApproval() };
+      return {
+        children: <Trans id="button.approve">Approve</Trans>,
+        onClick: handleApproval(),
+      };
     } else if (view === "wrap") {
       return {
-        children: "Wrap",
+        children: <Trans id="button.wrap">Wrap</Trans>,
         onClick: handleAction("wrap"),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
     } else if (view === "unwrap") {
       return {
-        children: "Unwrap",
+        children: <Trans id="button.unwrap">Unwrap</Trans>,
         onClick: handleAction("unwrap"),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
-      return { children: "ERROR", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.error">Error</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     }
   };
 
   const getStatusMessage = () => {
     if (status === "userConfirmation") {
-      return "Please click 'confirm' in your wallet to continue.";
+      return (
+        <Trans id="status.pending_confirmation">
+          Please click 'confirm' in your wallet to continue.
+        </Trans>
+      );
     } else if (status === "networkConfirmation") {
-      return "Transaction initiated. Waiting for network confirmation.";
+      return (
+        <Trans id="status.transaction_started">
+          Transaction initiated. Waiting for network confirmation.
+        </Trans>
+      );
     } else if (status === "error") {
-      return "❌ Error: something went wrong...";
+      return (
+        <Trans id="status.transaction_error">
+          ❌ Error: something went wrong...
+        </Trans>
+      );
     } else if (status === "done") {
-      return "✔️ Success!";
+      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
     } else if (status === "userRejected") {
-      return "✖️ You chose to reject the transaction.";
+      return (
+        <Trans id="status.transaction_rejected">
+          ✖️ You chose to reject the transaction.
+        </Trans>
+      );
     }
     return null;
   };
@@ -164,18 +198,22 @@ export const Wrap: FC<Props> = (props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Wrap sKLIMA</h2>
-        <p className={t.body2}>
-          wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may find
-          this useful for accounting purposes. Unlike your sKLIMA balance, your
-          wsKLIMA balance will not increase over time.
+        <h2 className={T.h4}>Wrap sKLIMA</h2>
+        <p className={T.body2}>
+          <Trans id="msg.wsklima">
+            wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may
+            find this useful for accounting purposes. Unlike your sKLIMA
+            balance, your wsKLIMA balance will not increase over time.
+          </Trans>
         </p>
-        <p className={t.body2}>
-          When wsKLIMA is unwrapped, you receive sKLIMA based on the latest
-          (ever-increasing) index, so the total yield is the same.
+        <p className={T.body2}>
+          <Trans id="msg.yield">
+            When wsKLIMA is unwrapped, you receive sKLIMA based on the latest
+            (ever-increasing) index, so the total yield is the same.
+          </Trans>
         </p>
 
-        <p className={t.body2}></p>
+        <p className={T.body2}></p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>

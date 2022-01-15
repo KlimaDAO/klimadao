@@ -91,3 +91,12 @@ export const loadAppDetails = (params: {
     }
   };
 };
+export const setLocale = (locale: string): Thunk => {
+  return (dispatch) => {
+    dispatch(
+      setAppState({
+        locale,
+      })
+    );
+  };
+};
