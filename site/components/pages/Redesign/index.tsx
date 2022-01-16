@@ -105,7 +105,7 @@ export const Home: NextPage<Props> = (props) => {
           />
         </HeaderMobile>
         <Section contentVariant="hero">
-          <Columns variant="hero">
+          <Columns>
             <ContentBox variant="hero">
               <Copy text={t({ message: "👋 WELCOME TO" })} />
               <Heading text={t({ message: "KlimaDao" })} />
@@ -122,7 +122,13 @@ export const Home: NextPage<Props> = (props) => {
               />
             </ContentBox>
             <ContentBoxImage variant="belowTextBox">
-              <Image alt="Intro" src={introPic} layout="fill" />
+              <Image
+                alt="Intro"
+                src={introPic}
+                layout="fill"
+                objectFit="cover"
+                placeholder="blur"
+              />
             </ContentBoxImage>
           </Columns>
         </Section>

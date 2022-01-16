@@ -63,7 +63,7 @@ export const section = css`
   }
 `;
 
-export const sectionVariant = css`
+export const sectionWhite = css`
   ${section};
   background-color: var(--white);
 `;
@@ -93,12 +93,9 @@ export const columns = css`
 `;
 
 export const columnsHero = css`
+  ${columns};
   ${breakpoints.medium} {
     display: flex;
-
-    & div {
-      flex-basis: 100%;
-    }
   }
 `;
 
@@ -142,8 +139,6 @@ export const contentBoxHero = css`
   position: relative;
   margin: 1rem;
 
-  display: flex;
-
   ${breakpoints.medium} {
     padding: 7.4rem;
     z-index: 0;
@@ -176,5 +171,11 @@ export const contentBoxImageBelowText = css`
     margin: 1rem;
     min-height: auto;
     flex-basis: 100%;
+
+    & img {
+      object-fit: cover;
+      width: 100%;
+      border-radius: var(--border-radius);
+    }
   }
 `;

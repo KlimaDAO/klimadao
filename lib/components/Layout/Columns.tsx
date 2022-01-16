@@ -1,17 +1,17 @@
 import React, { FC } from "react";
-import { cx } from "@emotion/css";
 
 import * as styles from "./styles";
 
+const mappedStyles = {
+  contained: styles.columnsContained,
+};
 interface Props {
-  variant?: "contained" | "hero";
+  variant?: "contained";
 }
 
 export const Columns: FC<Props> = (props) => {
-  const contained = props.variant === "contained" && styles.columnsContained;
-  const hero = props.variant === "hero" && styles.columnsHero;
+  const style =
+    (props.variant && mappedStyles[props.variant]) || styles.columns;
 
-  return (
-    <div className={cx(styles.columns, contained, hero)}>{props.children}</div>
-  );
+  return <div className={style}>{props.children}</div>;
 };
