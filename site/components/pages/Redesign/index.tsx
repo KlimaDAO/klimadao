@@ -139,7 +139,7 @@ export const Home: NextPage<Props> = (props) => {
                 "KlimaDAO’s vision is a future where the cost of carbon to the climate is embedded into our economic system.",
             })}
           />
-          <Columns variant="contained">
+          <Columns variant="contained" size="small">
             <Copy
               text={t({
                 message:
@@ -175,7 +175,7 @@ export const Home: NextPage<Props> = (props) => {
             variant="small"
             text={t({ message: "EQUIVALENT TO" })}
           />
-          <Columns>
+          <Columns size="small" wrapItems>
             <ContentBox>
               <Image
                 alt="Forest"
