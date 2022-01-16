@@ -118,6 +118,7 @@ export const contentBox = css`
   background-color: var(--background);
   border-radius: var(--border-radius);
   position: relative;
+  margin-bottom: 2rem;
 
   & img {
     object-fit: cover;

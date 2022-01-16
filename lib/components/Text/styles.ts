@@ -28,7 +28,7 @@ export const headingSmall = css`
   padding-bottom: 1rem;
 `;
 
-export const headingCentered = css`
+export const alignCenter = css`
   ${breakpoints.medium} {
     text-align: center;
   }

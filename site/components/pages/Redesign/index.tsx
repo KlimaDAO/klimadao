@@ -184,13 +184,12 @@ export const Home: NextPage<Props> = (props) => {
                 objectFit="cover"
                 placeholder="blur"
               />
+              <ContentBox customStyles={{ padding: "1.5rem" }}>
+                <Copy text={t({ message: "HECTARES OF FOREST" })} />
+                <Heading variant="small" text={t({ message: "55,766" })} />
+              </ContentBox>
             </ContentBox>
             <ContentBox>
-              <Copy text={t({ message: "PASSENGER VEHICLES" })} />
-              <Heading
-                align="center"
-                variant="small"
-                text={t({ message: "2,424,621" })}
               <Image
                 alt="Cars"
                 src={cars}
@@ -198,6 +197,10 @@ export const Home: NextPage<Props> = (props) => {
                 objectFit="contain"
                 placeholder="blur"
               />
+              <ContentBox customStyles={{ padding: "1.5rem" }}>
+                <Copy text={t({ message: "PASSENGER VEHICLES" })} />
+                <Heading variant="small" text={t({ message: "2,424,621" })} />
+              </ContentBox>
             </ContentBox>
             <ContentBox>
               <Image
@@ -207,6 +210,13 @@ export const Home: NextPage<Props> = (props) => {
                 objectFit="contain"
                 placeholder="blur"
               />
+              <ContentBox customStyles={{ padding: "1.5rem" }}>
+                <Copy text={t({ message: "LITERS OF GASOLINE" })} />
+                <Heading
+                  variant="small"
+                  text={t({ message: "5,697,736,801" })}
+                />
+              </ContentBox>
             </ContentBox>
           </Columns>
         </Section>
