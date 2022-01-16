@@ -1,6 +1,5 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import NextImageFix from "components/pages/Redesign/NextImage";
 import { t } from "@lingui/macro";
 
 import {
@@ -155,7 +154,13 @@ export const Home: NextPage<Props> = (props) => {
             />
           </Columns>
           <ContentBoxImage>
-            <NextImageFix alt="BlackHole" src={blackHole} />
+            <Image
+              alt="BlackHole"
+              src={blackHole}
+              layout="responsive"
+              objectFit="cover"
+              placeholder="blur"
+            />
           </ContentBoxImage>
         </Section>
         <Section variant="white" contentVariant="contained">
@@ -172,30 +177,35 @@ export const Home: NextPage<Props> = (props) => {
           />
           <Columns>
             <ContentBox>
-              <NextImageFix alt="Forest" src={forest} />
-              <Copy text={t({ message: "HECTARES OF FOREST" })} />
-              <Heading
-                align="center"
-                variant="small"
-                text={t({ message: "55,766" })}
+              <Image
+                alt="Forest"
+                src={forest}
+                layout="responsive"
+                objectFit="cover"
+                placeholder="blur"
               />
             </ContentBox>
             <ContentBox>
-              <NextImageFix alt="Cars" src={cars} />
               <Copy text={t({ message: "PASSENGER VEHICLES" })} />
               <Heading
                 align="center"
                 variant="small"
                 text={t({ message: "2,424,621" })}
+              <Image
+                alt="Cars"
+                src={cars}
+                layout="responsive"
+                objectFit="contain"
+                placeholder="blur"
               />
             </ContentBox>
             <ContentBox>
-              <NextImageFix alt="Gasolina" src={gasolina} />
-              <Copy text={t({ message: "LITERS OF GASOLINE" })} />
-              <Heading
-                align="center"
-                variant="small"
-                text={t({ message: "5,697,736,801" })}
+              <Image
+                alt="Gasolina"
+                src={gasolina}
+                layout="responsive"
+                objectFit="contain"
+                placeholder="blur"
               />
             </ContentBox>
           </Columns>
