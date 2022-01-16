@@ -13,6 +13,7 @@ export interface NavProps {
 }
 
 export interface WalletProps {
+  address?: string;
   isMobile?: boolean;
   isConnected: boolean;
   loadWeb3Modal: LoadWeb3Modal;
