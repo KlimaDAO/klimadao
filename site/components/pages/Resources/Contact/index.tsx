@@ -9,20 +9,28 @@ import {
   HeaderMobile,
   NavItemMobile,
   ButtonPrimary,
-  Columns,
-  Copy,
-  Heading,
   Paragraph,
   Section,
-  ContentBox,
 } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
 
 import { urls } from "@klimadao/lib/constants";
 import styles from "./index.module.css";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
+import { FC, HTMLAttributes } from "react";
 
-export interface Props {}
+export type Props = HTMLHtmlElement & {};
+
+type H2Props = HTMLAttributes<HTMLHeadingElement> & {};
+
+const H2: FC<H2Props> = (props) => {
+  return (
+    <h2 {...props} className={styles.page_h2}>
+      <Trans>{props.children}</Trans>
+    </h2>
+  );
+};
 
 export const Contact: NextPage<Props> = ({}) => {
   return (
@@ -41,7 +49,7 @@ export const Contact: NextPage<Props> = ({}) => {
             <ButtonPrimary key="Enter App" label="Enter App" href={urls.app} />,
           ]}
         >
-          <NavItemDesktop url={urls.home} name="Home" internal={true} />
+          <NavItemDesktop url={urls.home} name="Home" link={Link} />
           <NavItemDesktop
             url={urls.tutorial}
             name="Buy Klima"
@@ -54,7 +62,7 @@ export const Contact: NextPage<Props> = ({}) => {
           <NavItemDesktop
             url={urls.contact}
             name="Contact"
-            internal={true}
+            link={Link}
             active={true}
           />
         </HeaderDesktop>
@@ -88,9 +96,7 @@ export const Contact: NextPage<Props> = ({}) => {
         <div className={styles.page_section}>
           <div />
           <div className={styles.page_sectionContent}>
-            <h2 style={{ marginTop: 0 }} className={styles.page_h2}>
-              Questions & Support
-            </h2>
+            <H2 style={{ marginTop: 0 }}>Questions & Support</H2>
             <Paragraph>
               Join our <Link href={"/resources/community"}>community</Link>{" "}
               Discord server and ask in the #questions channel. We have
@@ -104,7 +110,7 @@ export const Contact: NextPage<Props> = ({}) => {
         <div className={styles.page_section}>
           <div />
           <div className={styles.page_sectionContent}>
-            <h2 className={styles.page_h2}>Careers</h2>
+            <H2>Careers</H2>
             <Paragraph>
               We're hiring! Until we finish building out our careers page, you
               can submit a resume by joining our{" "}
@@ -121,7 +127,7 @@ export const Contact: NextPage<Props> = ({}) => {
         <div className={styles.page_section}>
           <div />
           <div className={styles.page_sectionContent}>
-            <h2 className={styles.page_h2}>Partnerships</h2>
+            <H2>Partnerships</H2>
             <Paragraph>
               Until we finish building out our partnerships page, we are
               directing potential partnership and collaboration inquiries to{" "}
@@ -141,7 +147,7 @@ export const Contact: NextPage<Props> = ({}) => {
         <div className={styles.page_section}>
           <div />
           <div className={styles.page_sectionContent}>
-            <h2 className={styles.page_h2}>Media</h2>
+            <H2>Media</H2>
             <Paragraph>
               If you are a journalist or content creator, our marketing team
               would love to meet you. [TODO: NEED A LINK OR EMAIL FROM MARKETING
@@ -154,7 +160,7 @@ export const Contact: NextPage<Props> = ({}) => {
         <div className={styles.page_section}>
           <div />
           <div className={styles.page_sectionContent}>
-            <h2 className={styles.page_h2}>Bug Reports</h2>
+            <H2>Bug Reports</H2>
             <Paragraph>
               To file a bug report, join our community Discord server and ask
               your question in the #bug-reports channel. Someone in our{" "}

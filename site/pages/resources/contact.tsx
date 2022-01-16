@@ -1,7 +1,9 @@
 import { GetStaticProps } from "next";
-import { Contact, Props } from "components/pages/Resources/Contact";
+import { Contact } from "components/pages/Resources/Contact";
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+type Props = {};
+
+export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   return {
     props: {},
     revalidate: 60,

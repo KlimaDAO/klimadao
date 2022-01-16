@@ -1,14 +1,13 @@
 import React, { FC, HTMLAttributes } from "react";
 import * as styles from "./styles";
+import { Trans } from "@lingui/macro";
 
-type Props = HTMLAttributes<HTMLParagraphElement> & {
-  variant?: string;
-};
+type Props = HTMLAttributes<HTMLParagraphElement>;
 
 export const Paragraph: FC<Props> = (props) => {
   return (
     <p className={styles.copy} {...props}>
-      {props.children}
+      <Trans>{props.children}</Trans>
     </p>
   );
 };

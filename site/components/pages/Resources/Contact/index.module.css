@@ -1,6 +1,5 @@
 @value bp-small, bp-medium, bp-large from "@klimadao/lib/theme/breakpoints.css";
 
-
 /* PAGE */
 .container {
   position: relative; /* new stacking context */
@@ -14,7 +13,6 @@
     [main-end] minmax(1.6rem, 1fr)
     [full-end];
 }
-
 
 .page_contentContainer {
   display: flex;
