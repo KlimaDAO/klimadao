@@ -6,7 +6,6 @@ import { loadTranslation, locales } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
-    console.log("getting static props for", ctx.params?.pid, ctx.locale);
     const post = await fetchCMSContent("post", {
       slug: ctx.params?.pid,
     });
@@ -18,11 +17,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     if (!translation) {
       throw new Error("No translation found");
     }
-    console.log(
-      `static props for ${ctx.params?.pid} ${ctx.locale} got:`,
-      !!post,
-      !!translation
-    );
     return {
       props: {
         post,
@@ -41,7 +35,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 export const getStaticPaths = async () => {
   const slugs = await fetchCMSContent("allPostSlugs");
-  console.log("rendering static paths for slugs", slugs);
   if (!slugs) {
     throw new Error("No content found");
   }

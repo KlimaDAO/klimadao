@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const locale = router.locale || (router.defaultLocale as string);
   const firstRender = useRef(true);
-  console.log(`rendering MyApp ${locale}`, !!pageProps.translation);
   // run only once on the first render (for server side)
   if (pageProps.translation && firstRender.current) {
     i18n.load(locale, pageProps.translation);
