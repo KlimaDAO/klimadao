@@ -19,9 +19,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       throw new Error("No translation found");
     }
     console.log(
-      `static props for ${ctx.params?.pid} got:`,
-      JSON.stringify(post, undefined, " "),
-      translation
+      `static props for ${ctx.params?.pid} ${ctx.locale} got:`,
+      !!post,
+      !!translation
     );
     return {
       props: {
