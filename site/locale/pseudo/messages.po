@@ -459,3 +459,7 @@ msgstr ""
 #: components/pages/Redesign/index.tsx:66
 msgid "👋 WELCOME TO"
 msgstr ""
+
+#: components/pages/Redesign/index.tsx:110
+msgid "👋 WELCOME TO"
+msgstr ""
