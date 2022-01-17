@@ -6,7 +6,7 @@
   "scripts": {
     "start": "sanity start",
     "build": "sanity build",
-    "vercel-build": "sanity build public -y"
+    "deploy": "sanity deploy"
   },
   "keywords": [
     "sanity"
@@ -19,8 +19,8 @@
     "@sanity/desk-tool": "^2.24.1",
     "@sanity/vision": "^2.24.1",
     "prop-types": "^15.7",
-    "react": "^17.0",
-    "react-dom": "^17.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
