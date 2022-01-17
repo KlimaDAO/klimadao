@@ -13,6 +13,11 @@ module.exports = {
         destination: "/resources/blog",
         permanent: true,
       },
+      {
+        source: "/cms",
+        destination: "https://klimadao.sanity.studio/desk",
+        permanent: true,
+      },
     ];
   },
   i18n: {
