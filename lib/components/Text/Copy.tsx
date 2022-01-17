@@ -1,11 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, HTMLAttributes } from "react";
+import { cx } from "@emotion/css";
 import * as styles from "./styles";
 
-interface Props {
+type Props = HTMLAttributes<HTMLParagraphElement> & {
   text: string;
-  variant?: string;
-}
+  align?: string;
+};
 
 export const Copy: FC<Props> = (props) => {
-  return <p className={styles.copy}>{props.text}</p>;
+  const align = props.align === "center" && styles.alignCenter;
+  const combinedStyles = cx(styles.copy, align);
+
+  return (
+    <p className={combinedStyles} {...props}>
+      {props.text}
+    </p>
+  );
 };
