@@ -9,29 +9,20 @@
     [main-end] minmax(0.8rem, 1fr)
     [full-end];
   grid-gap: 3.2rem;
+  margin-top: 6rem;
 }
 
 .headerSection {
   display: grid;
-  grid-template-columns: inherit;
-  grid-column: full;
-  grid-gap: 1.6rem;
+  grid-column: main;
+  grid-gap: 0.8rem;
   text-align: center;
+  max-width: 42rem;
+  justify-self: center;
 }
 
 .headerSection h1 {
-  grid-column: main;
   text-transform: uppercase;
-}
-
-.headerSection p {
-  color: #767676;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2rem;
-  line-height: 140%;
-  grid-column: main;
-  max-width: 47rem;
-  justify-self: center;
 }
 
 .cardsSection {

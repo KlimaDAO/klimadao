@@ -1,3 +1,19 @@
+const post = /* groq */ `
+  *[slug.current == $slug][0] {
+    body[] {
+      ...,
+      _type == "image" => {
+        ...,
+        asset->{url}
+      }
+    },
+    title,
+    author->,
+    "imageUrl": mainImage.asset->url,
+    publishedAt
+  }
+`;
+
 export const queries = {
   /** fetch all blog posts, sorted by publishedAt */
   allPosts:
@@ -5,7 +21,7 @@ export const queries = {
   /** fetch all the blog post slugs, for getStaticPaths */
   allPostSlugs: '*[_type == "post"] {"slug": slug.current}',
   /** fetch a blog post based on slug */
-  post: '*[slug.current == $slug] {body[]{..., _type == "image" => {...,asset->{url}}}, title, author->, "imageUrl": mainImage.asset->url, publishedAt}',
+  post,
 };
 
 /** Just details needed to render cards */

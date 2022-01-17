@@ -2,31 +2,28 @@ import { GetStaticProps } from "next";
 
 import { PostPage } from "components/pages/Blog/Post";
 import { fetchCMSContent } from "lib/fetchCMSContent";
+import { loadTranslation } from "lib/i18n";
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
-    const content = await fetchCMSContent("post", {
-      slug: context.params?.pid,
+    const post = await fetchCMSContent("post", {
+      slug: ctx.params?.pid,
     });
-    if (!content) {
+    const translation = await loadTranslation(ctx.locale);
+    if (!post) {
       throw new Error("No content found");
     }
     return {
       props: {
-        blog: {
-          title: content.title,
-          body: content.body,
-          author: content.author.name,
-          imageUrl: content.imageUrl,
-          publishedAt: content.publishedAt,
-        },
+        post,
+        translation,
       },
-      // revalidate: 120,
+      revalidate: 120,
     };
   } catch (e) {
     return {
       notFound: true,
-      // revalidate: 120
+      revalidate: 120,
     };
   }
 };
