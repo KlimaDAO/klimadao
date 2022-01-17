@@ -1,15 +1,15 @@
 import React from "react";
 
-import Card from "components/Card";
-import { Blog } from "./types";
+import { Card } from "components/Card";
 
 import styles from "./index.module.css";
+import { AllPosts } from "lib/queries";
 
 interface BlogProps {
-  blogs: Blog[];
+  posts: AllPosts;
 }
 
-function Blog(props: BlogProps) {
+export function Blog(props: BlogProps) {
   return (
     <div className={styles.container}>
       <section className={styles.headerSection}>
@@ -22,13 +22,11 @@ function Blog(props: BlogProps) {
       <section className={styles.cardsSection}>
         <h3>Articles</h3>
         <div className={styles.cards}>
-          {props.blogs.map((blog) => (
-            <Card key={blog.slug} blog={blog} />
+          {props.posts.map((post) => (
+            <Card key={post.slug} post={post} />
           ))}
         </div>
       </section>
     </div>
   );
 }
-
-export default Blog;

@@ -5,19 +5,14 @@ import Image from "next/image";
 import BlockContent from "@sanity/block-content-to-react";
 
 import styles from "./index.module.css";
+import { Post } from "lib/queries";
 
 interface PostProps {
-  blog: {
-    title: string;
-    body: string;
-    author: string;
-    publishedAt: string;
-    imageUrl: string;
-  };
+  post: Post;
 }
 
-function Post(props: PostProps) {
-  const date = new Date(props.blog.publishedAt).toDateString();
+export function PostPage(props: PostProps) {
+  const date = new Date(props.post.publishedAt).toDateString();
 
   const serializers = {
     types: {
@@ -41,8 +36,8 @@ function Post(props: PostProps) {
       <div className={styles.banner}>
         <div className={styles.bannerImage}>
           <Image
-            src={props.blog.imageUrl}
-            alt={props.blog.title}
+            src={props.post.imageUrl}
+            alt={props.post.title}
             objectFit="cover"
             layout="fill"
           />
@@ -53,13 +48,11 @@ function Post(props: PostProps) {
       </div>
       <section className={styles.blogContainer}>
         <div className={styles.content}>
-          <h1 className={styles.title}>{props.blog.title}</h1>
+          <h1 className={styles.title}>{props.post.title}</h1>
           <p className={styles.date}>Published {date}</p>
-          <BlockContent blocks={props.blog.body} serializers={serializers} />
+          <BlockContent blocks={props.post.body} serializers={serializers} />
         </div>
       </section>
     </div>
   );
 }
-
-export default Post;

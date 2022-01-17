@@ -1,11 +1,11 @@
 import { GetStaticProps } from "next";
 
-import Post from "components/pages/Blog/Post";
+import { PostPage } from "components/pages/Blog/Post";
 import { fetchCMSContent } from "lib/fetchCMSContent";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
-    const [content] = await fetchCMSContent("blog", {
+    const content = await fetchCMSContent("post", {
       slug: context.params?.pid,
     });
     if (!content) {
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = await fetchCMSContent("blogSlugs");
+  const paths = await fetchCMSContent("allPostSlugs");
   if (!paths) {
     throw new Error("No content found");
   }
@@ -42,4 +42,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default Post;
+export default PostPage;
