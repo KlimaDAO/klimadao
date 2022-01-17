@@ -21,7 +21,7 @@ export const getStakingAPY = async (): Promise<number> => {
   const info = await distributorContract.info(0);
   const stakingReward = await distributorContract.nextRewardAt(info.rate);
   const blockRate = await getBlockRate();
-  const estimatedDailyRebases = await getEstimatedDailyRebases(blockRate);
+  const estimatedDailyRebases = getEstimatedDailyRebases(blockRate);
 
   const stakingRebase = stakingReward / circSupply;
   const stakingAPY = Math.pow(1 + stakingRebase, 365 * estimatedDailyRebases);

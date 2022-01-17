@@ -54,15 +54,11 @@ export const loadAppDetails = (params: {
         blockRate,
       ] = await Promise.all(promises);
 
-      const promises2 = [
-        distributorContract.nextRewardAt(info.rate),
-        getEstimatedDailyRebases(blockRate),
-      ];
+      const promises2 = [distributorContract.nextRewardAt(info.rate)];
 
-      const [stakingReward, estimatedDailyRebases] = await Promise.all(
-        promises2
-      );
+      const [stakingReward] = await Promise.all(promises2);
 
+      const estimatedDailyRebases = getEstimatedDailyRebases(blockRate);
       const stakingRebase = stakingReward / circSupply;
       const fiveDayRate =
         Math.pow(1 + stakingRebase, 5 * estimatedDailyRebases) - 1;
