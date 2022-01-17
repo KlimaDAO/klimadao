@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 
 import { PostPage } from "components/pages/Blog/Post";
 import { fetchCMSContent } from "lib/fetchCMSContent";
-import { loadTranslation } from "lib/i18n";
+import { loadTranslation, locales } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
@@ -40,12 +40,22 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = await fetchCMSContent("allPostSlugs");
-  if (!paths) {
+  const slugs = await fetchCMSContent("allPostSlugs");
+  if (!slugs) {
     throw new Error("No content found");
   }
+  const paths = slugs.reduce((acc, { slug }) => {
+    for (const locale in locales) {
+      acc.push({
+        params: {
+          pid: slug,
+        },
+        locale: locale,
+      });
+    }
+  }, [] as any);
   return {
-    paths: paths.map((path) => `/blog/${path.slug}`),
+    paths,
     fallback: true,
   };
 };
