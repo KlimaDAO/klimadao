@@ -5,7 +5,7 @@
     "dataset": "production"
   },
   "project": {
-    "name": "blog"
+    "name": "KlimaDAO"
   },
   "plugins": [
     "@sanity/base",
