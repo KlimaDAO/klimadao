@@ -41,6 +41,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 export const getStaticPaths = async () => {
   const slugs = await fetchCMSContent("allPostSlugs");
+  console.log("rendering static paths for slugs", slugs);
   if (!slugs) {
     throw new Error("No content found");
   }
