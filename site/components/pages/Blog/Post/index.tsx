@@ -22,6 +22,9 @@ interface PostProps {
 }
 
 export function PostPage(props: PostProps) {
+  if (!props.post) {
+    return <div>fallback page...</div>;
+  }
   const date = new Date(props.post.publishedAt).toDateString();
 
   const serializers = {
