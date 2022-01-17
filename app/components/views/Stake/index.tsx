@@ -262,7 +262,7 @@ export const Stake = (props: Props) => {
   defineMessage({
     id: "stake.apy.tooltip",
     message:
-      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)",
+      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)",
   });
   defineMessage({
     id: "stake.current_index.tooltip",

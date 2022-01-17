@@ -62,6 +62,15 @@ export const Info: FC<Props> = (props) => {
       decimals: 18,
     },
     {
+      name: "MCO2 Token",
+      address: addresses["mainnet"].mco2,
+      ariaLabel: "Copy MCO2 token address.",
+      metamaskAriaLabel: "Add MCO2 token to wallet.",
+      ticker: "MCO2",
+      image: `${BASE_URL}/icons/mco2-logo.jpeg`,
+      decimals: 18,
+    },
+    {
       name: "BCT/USDC LP",
       address: addresses["mainnet"].bctUsdcLp,
       ariaLabel: "Copy BCT USDC LP address.",
