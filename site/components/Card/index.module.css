@@ -1,0 +1,54 @@
+@value bp-medium from "@klimadao/lib/theme/breakpoints.css";
+
+.card {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "image"
+    "content";
+  border-radius: 1rem;
+  background-color: white;
+  color: #a1a1a1 !important;
+  overflow: hidden;
+  transition: 200ms transform ease-in-out;
+  grid-column: main;
+}
+.card:hover {
+  transform: scale(1.025);
+}
+
+.content {
+  margin: 2.4rem;
+  grid-area: content;
+}
+.content .date {
+  line-height: 3rem;
+  margin-bottom: 1.6rem;
+}
+.content h2 {
+  margin-bottom: 0.4rem;
+  color: black;
+}
+.content .body {
+  display: none;
+}
+
+.image {
+  position: relative;
+  grid-area: image;
+  min-height: 20rem;
+}
+
+@media bp-medium {
+  .card {
+    grid-template-areas: "content image";
+    grid-template-columns: 1fr 1fr;
+    height: 25rem;
+  }
+  .content .body {
+    display: flex;
+  }
+  .image {
+    min-height: unset;
+  }
+}

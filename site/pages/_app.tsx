@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const locale = router.locale || (router.defaultLocale as string);
   const firstRender = useRef(true);
-
   // run only once on the first render (for server side)
   if (pageProps.translation && firstRender.current) {
     i18n.load(locale, pageProps.translation);
@@ -27,6 +26,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       i18n.activate(locale);
     }
   }, [locale]);
+
+  if (!pageProps.translation) {
+    // fallback e.g. bad blog url
+    return <Component {...pageProps} />;
+  }
 
   return (
     <I18nProvider i18n={i18n}>
