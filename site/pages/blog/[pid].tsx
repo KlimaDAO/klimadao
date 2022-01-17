@@ -53,6 +53,7 @@ export const getStaticPaths = async () => {
         locale: locale,
       });
     }
+    return acc;
   }, [] as any);
   return {
     paths,
