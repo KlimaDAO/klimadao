@@ -10,12 +10,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       slug: ctx.params?.pid,
     });
     const translation = await loadTranslation(ctx.locale);
-    console.log(
-      `getStaticProps for: ${ctx.params?.pid}, locale: ${
-        ctx.locale
-      }, found translation? ${!!translation}, found post? ${!!post}`
-    );
-
     if (!post) {
       throw new Error("No content found");
     }

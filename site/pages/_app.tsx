@@ -27,6 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [locale]);
 
+  if (!pageProps.translation) {
+    // fallback e.g. bad blog url
+    return <Component {...pageProps} />;
+  }
+
   return (
     <I18nProvider i18n={i18n}>
       <Component {...pageProps} />
