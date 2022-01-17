@@ -63,7 +63,7 @@ export const section = css`
   }
 `;
 
-export const sectionVariant = css`
+export const sectionWhite = css`
   ${section};
   background-color: var(--white);
 `;
@@ -89,16 +89,26 @@ export const sectionInnerContained = css`
 export const columns = css`
   ${breakpoints.medium} {
     display: flex;
+    gap: 2rem;
+  }
+`;
+
+export const columnsWrapped = css`
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+export const columnsSmall = css`
+  ${breakpoints.small} {
+    display: flex;
+    gap: 4rem;
   }
 `;
 
 export const columnsHero = css`
   ${breakpoints.medium} {
     display: flex;
-
-    & div {
-      flex-basis: 100%;
-    }
+    gap: 2rem;
   }
 `;
 
@@ -110,6 +120,7 @@ export const columnsContained = css`
     max-width: 90rem;
     margin: 2.4rem auto;
     justify-content: space-evenly;
+    gap: 2rem;
 
     & * {
       flex-basis: 100%;
@@ -121,16 +132,14 @@ export const contentBox = css`
   background-color: var(--background);
   border-radius: var(--border-radius);
   position: relative;
+  margin-bottom: 2rem;
+
+  min-width: 28.5rem;
 
   & img {
     object-fit: cover;
     width: 100%;
     border-radius: var(--border-radius);
-  }
-
-  ${breakpoints.medium} {
-    margin: 1rem;
-    flex-basis: 100%;
   }
 `;
 
@@ -141,8 +150,6 @@ export const contentBoxHero = css`
   z-index: 1;
   position: relative;
   margin: 1rem;
-
-  display: flex;
 
   ${breakpoints.medium} {
     padding: 7.4rem;
@@ -176,5 +183,11 @@ export const contentBoxImageBelowText = css`
     margin: 1rem;
     min-height: auto;
     flex-basis: 100%;
+
+    & img {
+      object-fit: cover;
+      width: 100%;
+      border-radius: var(--border-radius);
+    }
   }
 `;

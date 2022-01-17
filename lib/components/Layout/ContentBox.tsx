@@ -1,17 +1,22 @@
 import React, { FC } from "react";
 import * as styles from "./styles";
 
+const mappedStyles = {
+  hero: styles.contentBoxHero,
+};
+
 interface Props {
   variant?: "hero";
+  customStyles?: React.CSSProperties;
 }
 
 export const ContentBox: FC<Props> = (props) => {
-  const style =
-    props.variant === "hero" ? styles.contentBoxHero : styles.contentBox;
+  const className =
+    (props.variant && mappedStyles[props.variant]) || styles.contentBox;
 
   return (
-    <div className={style}>
-      <div>{props.children}</div>
+    <div className={className} style={props.customStyles}>
+      {props.children}
     </div>
   );
 };

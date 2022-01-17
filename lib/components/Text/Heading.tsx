@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const Heading: FC<Props> = (props) => {
-  const align = props.align === "center" && styles.headingCentered;
+  const align = props.align === "center" && styles.alignCenter;
   const variant =
     (props.variant && mappedStyles[props.variant]) || styles.headingLarge;
   const combinedStyles = cx(variant, align);

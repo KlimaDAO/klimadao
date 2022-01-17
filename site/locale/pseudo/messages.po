@@ -13,6 +13,18 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/pages/Redesign/index.tsx:183
+msgid "2,424,621"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:192
+msgid "5,697,736,801"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:174
+msgid "55,766"
+msgstr ""
+
 #: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
 msgstr ""
@@ -85,6 +97,31 @@ msgstr ""
 msgid "info.price"
 msgstr ""
 
+#: components/pages/Redesign/index.tsx:80
+#: components/pages/Redesign/index.tsx:104
+msgid "mainNav.bond"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:66
+#: components/pages/Redesign/index.tsx:90
+msgid "mainNav.buyKlima"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:61
+#: components/pages/Redesign/index.tsx:86
+msgid "mainNav.home"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:72
+#: components/pages/Redesign/index.tsx:96
+msgid "mainNav.stake"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:76
+#: components/pages/Redesign/index.tsx:100
+msgid "mainNav.wrap"
+msgstr ""
+
 #: components/pages/Home/index.tsx:106
 msgid "menu.app"
 msgstr ""
@@ -131,4 +168,8 @@ msgstr ""
 
 #: components/pages/Home/BlackHoleTour/index.tsx:47
 msgid "tour.treasury.title"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:110
+msgid "👋 WELCOME TO"
 msgstr ""
