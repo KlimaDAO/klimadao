@@ -123,3 +123,7 @@ export const EPOCH_INTERVAL = 11520;
 export const BLOCK_RATE_SECONDS = 2.5;
 
 export const ESTIMATED_DAILY_REBASES = 3.28;
+
+/** CMS stuff  */
+export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
+export const SANITY_STUDIO_API_DATASET = "production";
