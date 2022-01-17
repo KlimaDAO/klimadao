@@ -22,6 +22,10 @@ interface PostProps {
 }
 
 export function PostPage(props: PostProps) {
+  console.log(
+    `rendering postPage ${props.post?.slug}`,
+    JSON.stringify(props.post, undefined, " ")
+  );
   const date = new Date(props.post.publishedAt).toDateString();
 
   const serializers = {
