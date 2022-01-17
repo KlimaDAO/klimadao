@@ -13,6 +13,18 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/pages/Redesign/index.tsx:183
+msgid "2,424,621"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:192
+msgid "5,697,736,801"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:174
+msgid "55,766"
+msgstr ""
+
 #: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
 msgstr ""
@@ -20,6 +32,51 @@ msgstr ""
 #: components/pages/Home/index.tsx:83
 msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 msgstr "Pesez sur les actions pour le climat et gagnez des récompenses avec un crypto-actif algorithmique collatéralisé par des obligations carbone."
+
+#: components/pages/Redesign/index.tsx:165
+msgid "EQUIVALENT TO"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:54
+#: components/pages/Redesign/index.tsx:120
+msgid "Enter App"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:170
+msgid "HECTARES OF FOREST"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:113
+msgid "KlimaDAO harnesses the power of cryptocurrency, blockchain and smart contracts to create incentives for environmental protection."
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:139
+msgid "KlimaDAO is creating and governing a carbon-backed currency, which acts as the base unit of the on-chain carbon economy."
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:132
+msgid "KlimaDAO’s vision is a future where the cost of carbon to the climate is embedded into our economic system."
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:111
+msgid "KlimaDao"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:188
+msgid "LITERS OF GASOLINE"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:179
+msgid "PASSENGER VEHICLES"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:159
+msgid "TONS OF CARBON LOCKED BY KLIMA"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:145
+msgid "Through the KLIMA token, we can help to align incentives between investors, civil society, and organizations, towards a more sustainable future."
+msgstr ""
 
 #: components/pages/Home/index.tsx:235
 msgid "card.blackhole.carbon"
@@ -93,6 +150,31 @@ msgstr ""
 msgid "info.price"
 msgstr ""
 
+#: components/pages/Redesign/index.tsx:80
+#: components/pages/Redesign/index.tsx:104
+msgid "mainNav.bond"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:66
+#: components/pages/Redesign/index.tsx:90
+msgid "mainNav.buyKlima"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:61
+#: components/pages/Redesign/index.tsx:86
+msgid "mainNav.home"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:72
+#: components/pages/Redesign/index.tsx:96
+msgid "mainNav.stake"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:76
+#: components/pages/Redesign/index.tsx:100
+msgid "mainNav.wrap"
+msgstr ""
+
 #: components/pages/Home/index.tsx:106
 msgid "menu.app"
 msgstr ""
@@ -139,4 +221,8 @@ msgstr ""
 
 #: components/pages/Home/BlackHoleTour/index.tsx:49
 msgid "tour.treasury.title"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:110
+msgid "👋 WELCOME TO"
 msgstr ""
