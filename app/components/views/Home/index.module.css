@@ -136,6 +136,12 @@ TEMP
   opacity: 1;
   border: 2px dashed var(--secondary) !important;
 }
+.disconnectWalletButton > img {
+  height: 20px;
+  width: 20px;
+  border-radius: 100px;
+  margin-right: 8px;
+}
 
 .main {
   justify-self: center;
@@ -240,7 +246,8 @@ TEMP
     justify-self: start;
   }
   .disconnectWalletButton {
-    display: unset;
+    display: flex;
+    align-items: center;
   }
 }
 

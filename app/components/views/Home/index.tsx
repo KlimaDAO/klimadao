@@ -323,6 +323,7 @@ export const Home: FC = () => {
               disconnect={disconnect}
             />
             <WalletAction
+              address={address}
               isConnected={isConnected}
               loadWeb3Modal={loadWeb3Modal}
               disconnect={disconnect}
