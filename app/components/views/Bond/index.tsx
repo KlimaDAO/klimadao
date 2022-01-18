@@ -6,6 +6,8 @@ import DownOutlined from "@mui/icons-material/KeyboardArrowDownRounded";
 import UpOutlined from "@mui/icons-material/KeyboardArrowUpRounded";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import { Link } from "react-router-dom";
+import { setAppState, AppNotificationStatus } from "state/app";
+import { notificationStatus } from "state/selectors";
 
 import {
   changeApprovalTransaction,
@@ -16,11 +18,8 @@ import {
   DEFAULT_QUOTE_SLP,
 } from "actions/bonds";
 
-import typography from "@klimadao/lib/theme/typography";
-import { Trans, defineMessage } from "@lingui/macro";
-import { i18n } from "@lingui/core";
-import { prettifySeconds } from "lib/i18n";
-
+import styles from "./index.module.css";
+import t from "@klimadao/lib/theme/typography.module.css";
 import { AdvancedSettings } from "./AdvancedSettings";
 import { useBond } from "../ChooseBond";
 import { Bond as BondType } from "@klimadao/lib/constants";
@@ -33,6 +32,7 @@ import {
   useDebounce,
   trimWithPlaceholder,
   secondsUntilBlock,
+  prettifySeconds,
   concatAddress,
   safeSub,
   safeAdd,
@@ -44,10 +44,7 @@ import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
-import styles from "./index.module.css";
-
 export function prettyVestingPeriod(
-  locale: string | undefined,
   currentBlock: number,
   vestingBlock: number
 ) {
@@ -59,7 +56,7 @@ export function prettyVestingPeriod(
   if (seconds < 0) {
     return "Fully Vested";
   }
-  return prettifySeconds(locale, seconds);
+  return prettifySeconds(seconds);
 }
 
 interface Props {
@@ -72,7 +69,11 @@ interface Props {
 export const Bond: FC<Props> = (props) => {
   const bondInfo = useBond(props.bond);
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
+  // const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
+
+  const fullStatus: AppNotificationStatus | null =
+    useSelector(notificationStatus);
+  const status = fullStatus && fullStatus.statusType;
 
   const dispatch = useAppDispatch();
   const [slippage, setSlippage] = useState(2);
@@ -82,13 +83,21 @@ export const Bond: FC<Props> = (props) => {
   const [quantity, setQuantity] = useState("");
   const debouncedQuantity = useDebounce(quantity, 500);
 
-  const { currentBlock, locale } = useSelector(selectAppState);
+  const { currentBlock } = useSelector(selectAppState);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
   const allowance = useSelector(selectBondAllowance);
 
   const [sourceSingleton, singleton] = useTooltipSingleton();
 
   const isLoading = !allowance || quantity !== debouncedQuantity;
+
+  const setStatus = (status: string, message: string) => {
+    if (!status) dispatch(setAppState({ notificationStatus: null }));
+    else
+      dispatch(
+        setAppState({ notificationStatus: { statusType: status, message } })
+      );
+  };
 
   const showSpinner =
     props.isConnected &&
@@ -108,16 +117,12 @@ export const Bond: FC<Props> = (props) => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
     const vestingBlock = currentBlock + bondState.vestingTerm;
     const seconds = secondsUntilBlock(currentBlock, vestingBlock);
-    return prettifySeconds(locale, seconds);
+    return prettifySeconds(seconds, "day");
   };
 
   const vestingTime = () => {
     if (!currentBlock || !bondState?.bondMaturationBlock) return;
-    return prettyVestingPeriod(
-      locale,
-      currentBlock,
-      bondState.bondMaturationBlock
-    );
+    return prettyVestingPeriod(currentBlock, bondState.bondMaturationBlock);
   };
 
   const getBondMax = () => {
@@ -131,13 +136,18 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const setMax = () => {
-    setStatus("");
+    setStatus("", "");
     if (view === "bond") {
       const bondMax = getBondMax();
       setQuantity(bondMax ?? "0");
     } else {
       setQuantity(bondState?.pendingPayout ?? "0");
     }
+  };
+
+  const balanceUnits = () => {
+    if (props.bond === "bct") return "BCT";
+    return "SLP";
   };
 
   useEffect(() => {
@@ -167,7 +177,7 @@ export const Bond: FC<Props> = (props) => {
 
   const handleAllowance = async () => {
     try {
-      setStatus("");
+      setStatus("", "");
       const value = await changeApprovalTransaction({
         provider: props.provider,
         bond: props.bond,
@@ -250,14 +260,10 @@ export const Bond: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return {
-        children: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "Not Connected", onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
-        children: <Trans id="button.loading">Loading</Trans>,
+        children: "Loading",
         onClick: undefined,
         disabled: true,
       };
@@ -265,139 +271,42 @@ export const Bond: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return {
-        children: <Trans id="button.confirming">Confirming</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "Confirming", onClick: undefined, disabled: true };
     } else if (!hasAllowance()) {
-      return {
-        children: <Trans id="button.approve">Approve</Trans>,
-        onClick: handleAllowance,
-      };
+      return { children: "Approve", onClick: handleAllowance };
     } else if (view === "bond") {
       const bondMax = getBondMax();
       return {
-        children: <Trans id="button.bond">Bond</Trans>,
+        children: "Bond",
         onClick: handleBond,
         disabled: !value || !bondMax || Number(value) > Number(bondMax),
       };
     } else if (view === "redeem") {
       return {
-        children: <Trans id="button.redeem">Redeem</Trans>,
+        children: "Redeem",
         onClick: handleRedeem,
         disabled: !Number(bondState?.pendingPayout),
       };
     } else {
-      // No trans_id tag for Error in stake
-      return {
-        children: <Trans id="button.error">Error</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "ERROR", onClick: undefined, disabled: true };
     }
-  };
-
-  const getStatusMessage = () => {
-    if (status === "userConfirmation") {
-      return (
-        <Trans id="status.pending_confirmation">
-          Please click 'confirm' in your wallet to continue.
-        </Trans>
-      );
-    } else if (status === "networkConfirmation") {
-      return (
-        <Trans id="status.transaction_started">
-          Transaction initiated. Waiting for network confirmation.
-        </Trans>
-      );
-    } else if (status === "error") {
-      return (
-        <Trans id="status.transaction_error">
-          ❌ Error: something went wrong...
-        </Trans>
-      );
-    } else if (status === "done") {
-      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
-    } else if (status === "userRejected") {
-      return (
-        <Trans id="status.transaction_rejected">
-          ✖️ You chose to reject the transaction.
-        </Trans>
-      );
-    }
-    return null;
   };
 
   const isBondDiscountNegative =
     bondState?.bondDiscount && bondState?.bondDiscount < 0;
-
-  defineMessage({
-    id: "bond.balance.tooltip",
-    message: "Balance available for bonding",
-  });
-  defineMessage({
-    id: "bond.bond_price.tooltip",
-    message:
-      "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)",
-  });
-  defineMessage({
-    id: "bond.market_price.tooltip",
-    message: "Current trading price of KLIMA, without bond discount",
-  });
-  defineMessage({
-    id: "bond.roi.tooltip",
-    message:
-      "Return on investment, expressed as a percentage discount on the market value of KLIMA",
-  });
-  defineMessage({
-    id: "bond.you_will_get.tooltip",
-    message:
-      "Amount of bonded KLIMA you will get, at the provided input quantity",
-  });
-  defineMessage({
-    id: "bond.maximum.tooltip",
-    message: "Maximum amount of KLIMA you can acquire by bonding",
-  });
-  defineMessage({
-    id: "bond.debt_ratio.tooltip",
-    message: "Protocol's current ratio of supply to outstanding bonds",
-  });
-  defineMessage({
-    id: "bond.vesting_term.tooltip",
-    message:
-      "Time period over which bonded KLIMA is made available for redemption",
-  });
-  defineMessage({
-    id: "bond.pending.tooltip",
-    message: "Remaining unredeemed value (vested and un-vested)",
-  });
-  defineMessage({
-    id: "bond.redeemable.tooltip",
-    message: "Amount of KLIMA that has already vested and can be redeemed",
-  });
-  defineMessage({
-    id: "bond.date_of_full_vesting.tooltip",
-    message: "Date when the entire bond value can be redeemed",
-  });
 
   return (
     <div className={styles.stakeCard}>
       <div className={styles.bondHeader}>
         <Link
           to="/bonds"
-          className={classNames(
-            typography.button,
-            styles.bondHeader_backButton
-          )}
+          className={classNames(t.button, styles.bondHeader_backButton)}
         >
           <LeftOutlined />
-          <Trans id="nav.back">BACK</Trans>
+          BACK
         </Link>
-        <h3 className={typography.h5}>
-          <Trans id="bond.caption">Bond {bondInfo.name}</Trans>
-        </h3>
-        <p className={typography.caption}>{bondInfo.description}</p>
+        <h3 className={t.h5}>Bond {bondInfo.name}</h3>
+        <p className={t.caption}>{bondInfo.description}</p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>
@@ -409,7 +318,7 @@ export const Bond: FC<Props> = (props) => {
             }}
             data-active={view === "bond"}
           >
-            <Trans id="button.bond">Bond</Trans>
+            Bond
           </button>
           <button
             className={styles.switchButton}
@@ -419,7 +328,7 @@ export const Bond: FC<Props> = (props) => {
             }}
             data-active={view === "redeem"}
           >
-            <Trans id="button.redeem">Redeem</Trans>
+            Redeem
           </button>
         </div>
         <div className={styles.stakeInput}>
@@ -430,13 +339,10 @@ export const Bond: FC<Props> = (props) => {
             }
             onChange={(e) => setQuantity(e.target.value)}
             type="number"
-            placeholder={`Amount to ${
-              { bond: "bond", redeem: "redeem" }[view]
-            }`}
+            placeholder={`Amount to ${{ bond: "bond", redeem: "redeem" }[view]
+              }`}
             min="0"
-            step={
-              view === "bond" && bondInfo.balanceUnit === "SLP" ? "1" : "0.0001"
-            }
+            step={view === "bond" && balanceUnits() !== "BCT" ? "0.0001" : "1"}
             disabled={view === "redeem"}
           />
           <button
@@ -445,11 +351,11 @@ export const Bond: FC<Props> = (props) => {
             onClick={setMax}
             disabled={view === "redeem"}
           >
-            <Trans id="button.max">Max</Trans>
+            Max
           </button>
         </div>
         <button
-          className={classNames(typography.button, styles.showAdvancedButton)}
+          className={classNames(t.button, styles.showAdvancedButton)}
           type="button"
           onClick={() => setShowAdvanced((s) => !s)}
         >
@@ -476,9 +382,9 @@ export const Bond: FC<Props> = (props) => {
           {sourceSingleton}
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.balance">Balance</Trans>
+              Balance
               <TextInfoTooltip
-                content={i18n._("bond.balance.tooltip")}
+                content="Balance available for bonding"
                 singleton={singleton}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -499,15 +405,15 @@ export const Bond: FC<Props> = (props) => {
                     Number(bondState?.balance) < 1 ? 5 : 2
                   )}
                 </span>{" "}
-                {bondInfo.balanceUnit}
+                {balanceUnits()}
               </WithPlaceholder>
             </div>
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.bond_price">Bond price</Trans>
+              Bond price
               <TextInfoTooltip
-                content={i18n._("bond.bond_price.tooltip")}
+                content="Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)"
                 singleton={singleton}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -516,15 +422,14 @@ export const Bond: FC<Props> = (props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(bondState?.bondPrice, 2)}</span>{" "}
-              {bondInfo.priceUnit}
+              <span>{trimWithPlaceholder(bondState?.bondPrice, 2)}</span> BCT
             </div>
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.market_price">Market Price</Trans>
+              Market Price
               <TextInfoTooltip
-                content={i18n._("bond.market_price.tooltip")}
+                content="Current trading price of KLIMA, without bond discount"
                 singleton={singleton}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -533,15 +438,14 @@ export const Bond: FC<Props> = (props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(bondState?.marketPrice, 2)}</span>{" "}
-              {bondInfo.priceUnit}
+              <span>{trimWithPlaceholder(bondState?.marketPrice, 2)}</span> BCT
             </div>
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.roi">ROI (bond discount)</Trans>
+              ROI (bond discount)
               <TextInfoTooltip
-                content={i18n._("bond.roi.tooltip")}
+                content="Return on investment, expressed as a percentage discount on the market value of KLIMA"
                 singleton={singleton}
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -558,10 +462,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.you_will_get">You will get</Trans>
+              You will get
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.you_will_get.tooltip")}
+                content="Amount of bonded KLIMA you will get, at the provided input quantity"
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -580,10 +484,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.maximum">Maximum</Trans>
+              Maximum
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.maximum.tooltip")}
+                content="Maximum amount of KLIMA you can acquire by bonding"
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -605,10 +509,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.debt_ratio">Debt ratio</Trans>
+              Debt ratio
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.debt_ratio.tooltip")}
+                content="Protocol's current ratio of supply to outstanding bonds"
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -627,10 +531,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.vesting_term">Vesting term</Trans>
+              Vesting term
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.vesting_term.tooltip")}
+                content="Time period over which bonded KLIMA is made available for redemption"
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -654,10 +558,10 @@ export const Bond: FC<Props> = (props) => {
           {sourceSingleton}
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.pending">Pending</Trans>
+              Pending
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.pending.tooltip")}
+                content="Remaining unredeemed value (vested and un-vested)"
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -676,10 +580,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.redeemable">Redeemable</Trans>
+              Redeemable
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.redeemable.tooltip")}
+                content="Amount of KLIMA that has already vested and can be redeemed"
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -703,10 +607,10 @@ export const Bond: FC<Props> = (props) => {
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.date_of_full_vesting">Date of full vesting</Trans>
+              Time until fully vested
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.date_of_full_vesting.tooltip")}
+                content="Time remaining until the entire bond value can be redeemed"
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />
@@ -728,18 +632,16 @@ export const Bond: FC<Props> = (props) => {
       {view === "bond" &&
         recipientAddress &&
         recipientAddress !== props.address && (
-          <p className={classNames(typography.body2, styles.recipientNote)}>
+          <p className={classNames(t.body2, styles.recipientNote)}>
             <WarningOutlined style={{ color: "yellow" }} /> External recipient:{" "}
             {concatAddress(recipientAddress)}
           </p>
         )}
 
       {isBondDiscountNegative && view === "bond" && (
-        <p className={typography.body2} style={{ textAlign: "center" }}>
-          <Trans id="status.bond_negative">
-            ⚠️ Warning: this bond price is inflated because the current discount
-            rate is negative.
-          </Trans>
+        <p className={t.body2} style={{ textAlign: "center" }}>
+          ⚠️ Warning: this bond price is inflated because the current discount
+          rate is negative.
         </p>
       )}
       <div className={styles.buttonRow}>
@@ -757,9 +659,6 @@ export const Bond: FC<Props> = (props) => {
           {...getButtonProps()}
         />
       </div>
-      {getStatusMessage() && (
-        <p className={styles.statusMessage}>{getStatusMessage()}</p>
-      )}
     </div>
   );
 };

@@ -1,11 +1,9 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
-
-// Copied from Stake view despite T/t
-import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "components/views/Stake/index.module.css";
-import { Trans } from "@lingui/macro";
+import { notificationStatus } from "state/selectors";
+import { setAppState, AppNotificationStatus } from "state/app";
 
 import {
   Spinner,
@@ -13,6 +11,7 @@ import {
   useTooltipSingleton,
 } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
+import t from "@klimadao/lib/theme/typography.module.css";
 import { ethers } from "ethers";
 import {
   selectAppState,
@@ -33,7 +32,17 @@ interface Props {
 export const Wrap: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
-  const [status, setStatus] = useState<TxnStatus | "">("");
+  const fullStatus: AppNotificationStatus | null =
+    useSelector(notificationStatus);
+  const status = fullStatus && fullStatus.statusType;
+  const setStatus = (status: string, message: string) => {
+    if (!status) dispatch(setAppState({ notificationStatus: null }));
+    else
+      dispatch(
+        setAppState({ notificationStatus: { statusType: status, message } })
+      );
+  };
+
   const [view, setView] = useState<"wrap" | "unwrap">("wrap");
   const [quantity, setQuantity] = useState("");
   const [singletonSource, singleton] = useTooltipSingleton();
@@ -50,7 +59,7 @@ export const Wrap: FC<Props> = (props) => {
       isLoading);
 
   const setMax = () => {
-    setStatus("");
+    setStatus("", "");
     if (view === "wrap") {
       setQuantity(balances?.sklima ?? "0");
     } else {
@@ -101,14 +110,10 @@ export const Wrap: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return {
-        children: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "Not Connected", onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
-        children: <Trans id="button.loading">Loading</Trans>,
+        children: "Loading",
         onClick: undefined,
         disabled: true,
       };
@@ -116,66 +121,24 @@ export const Wrap: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return {
-        children: <Trans id="button.confirming">Confirming</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "Confirming", onClick: undefined, disabled: true };
     } else if (view === "wrap" && !hasApproval()) {
-      return {
-        children: <Trans id="button.approve">Approve</Trans>,
-        onClick: handleApproval(),
-      };
+      return { children: "Approve", onClick: handleApproval() };
     } else if (view === "wrap") {
       return {
-        children: <Trans id="button.wrap">Wrap</Trans>,
+        children: "Wrap",
         onClick: handleAction("wrap"),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
     } else if (view === "unwrap") {
       return {
-        children: <Trans id="button.unwrap">Unwrap</Trans>,
+        children: "Unwrap",
         onClick: handleAction("unwrap"),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
-      return {
-        children: <Trans id="button.error">Error</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "ERROR", onClick: undefined, disabled: true };
     }
-  };
-
-  const getStatusMessage = () => {
-    if (status === "userConfirmation") {
-      return (
-        <Trans id="status.pending_confirmation">
-          Please click 'confirm' in your wallet to continue.
-        </Trans>
-      );
-    } else if (status === "networkConfirmation") {
-      return (
-        <Trans id="status.transaction_started">
-          Transaction initiated. Waiting for network confirmation.
-        </Trans>
-      );
-    } else if (status === "error") {
-      return (
-        <Trans id="status.transaction_error">
-          ❌ Error: something went wrong...
-        </Trans>
-      );
-    } else if (status === "done") {
-      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
-    } else if (status === "userRejected") {
-      return (
-        <Trans id="status.transaction_rejected">
-          ✖️ You chose to reject the transaction.
-        </Trans>
-      );
-    }
-    return null;
   };
 
   const youWillGet = () => {
@@ -198,22 +161,18 @@ export const Wrap: FC<Props> = (props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={T.h4}>Wrap sKLIMA</h2>
-        <p className={T.body2}>
-          <Trans id="msg.wsklima">
-            wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may
-            find this useful for accounting purposes. Unlike your sKLIMA
-            balance, your wsKLIMA balance will not increase over time.
-          </Trans>
+        <h2 className={t.h4}>Wrap sKLIMA</h2>
+        <p className={t.body2}>
+          wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may find
+          this useful for accounting purposes. Unlike your sKLIMA balance, your
+          wsKLIMA balance will not increase over time.
         </p>
-        <p className={T.body2}>
-          <Trans id="msg.yield">
-            When wsKLIMA is unwrapped, you receive sKLIMA based on the latest
-            (ever-increasing) index, so the total yield is the same.
-          </Trans>
+        <p className={t.body2}>
+          When wsKLIMA is unwrapped, you receive sKLIMA based on the latest
+          (ever-increasing) index, so the total yield is the same.
         </p>
 
-        <p className={T.body2}></p>
+        <p className={t.body2}></p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>
@@ -350,9 +309,8 @@ export const Wrap: FC<Props> = (props) => {
             You will get
             <TextInfoTooltip
               singleton={singleton}
-              content={`Amount you will get after ${
-                view === "wrap" ? "wrapping" : "unwrapping"
-              }`}
+              content={`Amount you will get after ${view === "wrap" ? "wrapping" : "unwrapping"
+                }`}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -385,9 +343,6 @@ export const Wrap: FC<Props> = (props) => {
           {...getButtonProps()}
         />
       </div>
-      {getStatusMessage() && (
-        <p className={styles.statusMessage}>{getStatusMessage()}</p>
-      )}
     </div>
   );
 };

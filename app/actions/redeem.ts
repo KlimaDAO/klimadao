@@ -28,23 +28,22 @@ export const changeApprovalTransaction = async (params: {
       alklima: addresses["mainnet"].alklima_migrate,
     }[params.action];
     const value = ethers.utils.parseUnits("120000000000000000000000", "wei");
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.approve(approvalAddress, value.toString());
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Approval Successful");
     return value;
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };
@@ -68,24 +67,23 @@ export const redeemTransaction = async (params: {
         params.provider.getSigner()
       ),
     }[params.action];
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.migrate(
       ethers.utils.parseUnits(params.value, "ether")
     );
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Bond Redeemed Successfully");
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };

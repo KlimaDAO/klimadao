@@ -16,26 +16,25 @@ export const changeApprovalTransaction = async (params: {
       params.provider.getSigner()
     );
     const value = ethers.utils.parseUnits("1000000000", "gwei"); //bignumber
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].wsklima,
       value.toString()
     );
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Approval successfull");
     return formatUnits(value);
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.data.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };
@@ -52,25 +51,24 @@ export const wrapTransaction = async (params: {
       wsKlima.abi,
       params.provider.getSigner()
     );
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const decimal = params.action === "wrap" ? 9 : 18;
     const txn = await contract[params.action](
       ethers.utils.parseUnits(params.value, decimal)
     );
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Transaction Successful");
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };

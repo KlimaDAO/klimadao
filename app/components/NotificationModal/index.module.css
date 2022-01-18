@@ -1,0 +1,114 @@
+@value textButton from "@klimadao/lib/theme/common.module.css";
+@value bp-small from "@klimadao/lib/theme/breakpoints.css";
+
+.bg {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  cursor: not-allowed;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  cursor: default;
+  align-self: center;
+  max-width: 30rem;
+  min-height: 24rem;
+  background-color: var(--surface-04);
+  border-radius: 10px;
+  padding: 2rem 1.8rem 3rem;
+  margin: 2.5rem;
+  display: grid;
+  gap: 3.2rem;
+  flex: 1;
+}
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.card_header p {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.closeButton {
+  composes: textButton;
+  min-height: 0;
+  padding: 0.6rem;
+  border: none;
+}
+
+.icon_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+}
+.icon_container svg {
+  font-size: 3.5rem;
+}
+.icon_success {
+  background: #32972d46;
+  border: 1px solid var(--primary);
+}
+.icon_failure {
+  background: rgba(182, 56, 56, 0.164);
+  border: 1px solid rgba(255, 0, 0, 0.39);
+}
+.icon_confirmation {
+  border: 1px solid var(--primary);
+  border-top-color: var(--surface-01);
+  transform: rotate(315deg);
+}
+.icon_confirmation svg {
+  transform: rotate(45deg);
+}
+
+.card_message {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+@media bp-small {
+  .card {
+    min-width: 40rem;
+    height: 34rem;
+    padding: 2rem 1.8rem 4rem;
+  }
+  .card_header p {
+    font-size: 2rem;
+  }
+  .card_message {
+    font-size: 1.8rem;
+  }
+
+  .closeButton {
+    padding: 0.8rem;
+  }
+
+  .icon_container {
+    width: 120px;
+    height: 120px;
+  }
+  .icon_container svg {
+    font-size: 5rem;
+  }
+}
