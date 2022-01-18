@@ -78,6 +78,10 @@ export const Home: NextPage<Props> = (props) => {
             url={urls.bond}
             name={t({ message: "Bond", id: "mainNav.bond" })}
           />
+          <NavItemDesktop
+            url={urls.resources}
+            name={t({ message: "Resources", id: "mainNav.resources" })}
+          />
         </HeaderDesktop>
         <HeaderMobile>
           <NavItemMobile
