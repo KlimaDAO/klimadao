@@ -2,7 +2,7 @@ import { concatAddress } from "@klimadao/lib/utils";
 import useENS from "components/hooks/useENS";
 import { FC } from "react";
 import { WalletProps } from "../constants";
-import { TextInfoTooltip, useTooltipSingleton } from "@klimadao/lib/components";
+import { TextInfoTooltip } from "@klimadao/lib/components";
 
 import styles from "../index.module.css";
 
@@ -12,7 +12,6 @@ const WalletAction: FC<WalletProps> = ({
   loadWeb3Modal,
   disconnect,
 }) => {
-  const [singletonSource, singleton] = useTooltipSingleton();
   const { ensName, ensAvatar } = useENS(address);
   return !isConnected ? (
     <button
@@ -23,13 +22,12 @@ const WalletAction: FC<WalletProps> = ({
       CONNECT WALLET
     </button>
   ) : (
-    <TextInfoTooltip content="DISCONNECT WALLET" singleton={singleton}>
+    <TextInfoTooltip content="DISCONNECT WALLET">
       <button
         type="button"
         className={styles.disconnectWalletButton}
         onClick={disconnect}
       >
-        {singletonSource}
         {ensAvatar && <img src={ensAvatar} alt={address} />}
         {ensName || concatAddress(address ?? "")}
       </button>
