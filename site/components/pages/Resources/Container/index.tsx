@@ -33,12 +33,12 @@ export const Container: FC<Props> = (props) => {
     return styles.listItem;
   };
 
-  const _listItem = (name: PageName) => {
+  const _listItem = (name: PageName, textEl: ReactNode) => {
     return (
       <li className={getListItemClasses(name)}>
         <Link href={`/resources/${name}`}>
           <a>
-            <Trans>{name}</Trans>
+            {textEl}
             {name === props.activePage && <ArrowBack />}
           </a>
         </Link>
@@ -125,9 +125,9 @@ export const Container: FC<Props> = (props) => {
           <div className={styles.spacing}>
             <div className={styles.resourcesNavigation}>
               <ul className={styles.list}>
-                {_listItem("blog")}
-                {_listItem("community")}
-                {_listItem("contact")}
+                {_listItem("blog", <Trans>Blog</Trans>)}
+                {_listItem("community", <Trans>Community</Trans>)}
+                {_listItem("contact", <Trans>Contact Us</Trans>)}
               </ul>
             </div>
           </div>
