@@ -25,12 +25,14 @@ import {
 } from "@klimadao/lib/components";
 import {
   secondsUntilBlock,
-  prettifySeconds,
   trimWithPlaceholder,
   concatAddress,
 } from "@klimadao/lib/utils";
 import t from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
+import { Trans, defineMessage } from "@lingui/macro";
+import { i18n } from "@lingui/core";
+import { prettifySeconds } from "lib/i18n";
 
 const WithPlaceholder: FC<{
   condition: boolean;
@@ -74,6 +76,7 @@ export const Stake = (props: Props) => {
     stakingAPY,
     currentBlock,
     rebaseBlock,
+    locale,
   } = useSelector(selectAppState);
 
   const stakeAllowance = useSelector(selectStakeAllowance);
@@ -142,19 +145,23 @@ export const Stake = (props: Props) => {
   };
 
   const timeUntilRebase = () => {
-    if (currentBlock && rebaseBlock) {
+    if (currentBlock && rebaseBlock && locale) {
       const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
-      return prettifySeconds(seconds);
+      return prettifySeconds(locale, seconds);
     }
   };
 
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Not Connected", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.not_connected">Not connected</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (isLoading) {
       return {
-        children: "Loading",
+        children: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -162,26 +169,43 @@ export const Stake = (props: Props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: "Confirming", onClick: undefined, disabled: true };
+      return {
+        children: <Trans id="button.confirming">Confirming</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (view === "stake" && !hasApproval("stake")) {
-      return { children: "Approve", onClick: handleApproval("stake") };
+      return {
+        children: <Trans id="button.approve">Approve</Trans>,
+        onClick: handleApproval("stake"),
+      };
     } else if (view === "unstake" && !hasApproval("unstake")) {
-      return { children: "Approve", onClick: handleApproval("unstake") };
+      return {
+        children: <Trans id="button.approve">Approve</Trans>,
+        onClick: handleApproval("unstake"),
+      };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
-        children: "Stake",
+        children: <Trans id="button.stake">Stake</Trans>,
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
-        children: "Unstake",
+        children: <Trans id="button.unstake">Unstake</Trans>,
         onClick: handleStake("unstake"),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),
       };
     } else {
       return { children: "ERROR", onClick: undefined, disabled: true };
+    }
+  };
+  const getAction = () => {
+    if (view === "unstake") {
+      return `Amount to stake`;
+    } else {
+      return `Amount to unstake`;
     }
   };
 
@@ -237,8 +261,9 @@ export const Stake = (props: Props) => {
               setStatus("", "");
             }}
             type="number"
-            placeholder={`Amount to ${{ stake: "stake", unstake: "unstake" }[view]
-              }`}
+            placeholder={`Amount to ${
+              { stake: "stake", unstake: "unstake" }[view]
+            }`}
             min="0"
           />
           <button

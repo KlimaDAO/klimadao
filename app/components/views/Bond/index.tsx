@@ -75,7 +75,8 @@ export const Bond: FC<Props> = (props) => {
   const bondInfo = useBond(props.bond);
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  const fullStatus: AppNotificationStatus | null = useSelector(notificationStatus);
+  const fullStatus: AppNotificationStatus | null =
+    useSelector(notificationStatus);
   const status = fullStatus && fullStatus.statusType;
 
   const setStatus = (status: string, message: string) => {
@@ -85,7 +86,6 @@ export const Bond: FC<Props> = (props) => {
         setAppState({ notificationStatus: { statusType: status, message } })
       );
   };
-
 
   const dispatch = useAppDispatch();
   const [slippage, setSlippage] = useState(2);
@@ -412,8 +412,9 @@ export const Bond: FC<Props> = (props) => {
             }
             onChange={(e) => setQuantity(e.target.value)}
             type="number"
-            placeholder={`Amount to ${{ bond: "bond", redeem: "redeem" }[view]
-              }`}
+            placeholder={`Amount to ${
+              { bond: "bond", redeem: "redeem" }[view]
+            }`}
             min="0"
             step={
               view === "bond" && bondInfo.balanceUnit === "SLP" ? "1" : "0.0001"

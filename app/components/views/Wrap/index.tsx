@@ -309,8 +309,9 @@ export const Wrap: FC<Props> = (props) => {
             You will get
             <TextInfoTooltip
               singleton={singleton}
-              content={`Amount you will get after ${view === "wrap" ? "wrapping" : "unwrapping"
-                }`}
+              content={`Amount you will get after ${
+                view === "wrap" ? "wrapping" : "unwrapping"
+              }`}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
