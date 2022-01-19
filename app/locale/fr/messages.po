@@ -17,6 +17,10 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
+#: components/views/Stake/index.tsx:418
+msgid "Next rebase (est.)"
+msgstr ""
+
 #: components/views/Bond/index.tsx:479
 msgid "bond.balance"
 msgstr ""
@@ -226,19 +230,19 @@ msgstr ""
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
-#: components/views/Home/index.tsx:424
+#: components/views/Home/index.tsx:425
 msgid "footer.blog"
 msgstr "Blog"
 
-#: components/views/Home/index.tsx:427
+#: components/views/Home/index.tsx:428
 msgid "footer.community"
 msgstr "Communauté"
 
-#: components/views/Home/index.tsx:421
+#: components/views/Home/index.tsx:422
 msgid "footer.docs"
 msgstr "Documentation"
 
-#: components/views/Home/index.tsx:418
+#: components/views/Home/index.tsx:419
 msgid "footer.home"
 msgstr "Acceuil"
 
@@ -341,10 +345,6 @@ msgstr "Index courant"
 #: components/views/Stake/index.tsx:267
 msgid "stake.current_index.tooltip"
 msgstr "Quantité que vous auriez aujourd'hui. Auriez vous déposé 1 Klima le jour du lancement. Intéressant pour certaines activités de comptabilité"
-
-#: components/views/Stake/index.tsx:418
-msgid "stake.date_of_next_rebase"
-msgstr ""
 
 #: components/views/Stake/index.tsx:253
 msgid "stake.date_of_next_rebase.tooltip"
