@@ -4,5 +4,8 @@
 export function prettifySeconds(locale: string, seconds: number) {
   const then = new Date();
   then.setSeconds(then.getSeconds() + seconds);
-  return then.toLocaleString(locale);
+  return then.toLocaleString(locale, {
+    timeStyle: "short",
+    dateStyle: "short",
+  });
 }
