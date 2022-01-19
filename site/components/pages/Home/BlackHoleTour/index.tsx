@@ -31,8 +31,6 @@ const BlackHoleTour = () => {
     mapRef.current = m;
   };
 
-  const handleMapReady = () => {};
-
   const handleIntersect =
     (viewArgs: [[number, number], number], newPolyline?: [number, number][]) =>
     () => {
@@ -100,7 +98,6 @@ const BlackHoleTour = () => {
       >
         <LazyBlackHoleMap
           onCreate={handleCreateMap}
-          onReady={handleMapReady}
           initialView={initialView}
           polyline={polyline}
         />
