@@ -8,7 +8,7 @@ import { bonds, urls } from "@klimadao/lib/constants";
 import typography from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
 import { selectBalances, selectAppState } from "state/selectors";
-import { loadAppDetails, setLocale } from "actions/app";
+import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 import { Stake } from "components/views/Stake";
