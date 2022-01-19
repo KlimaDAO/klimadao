@@ -31,9 +31,6 @@ const BlackHoleTour = () => {
     mapRef.current = m;
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const handleMapReady = () => {};
-
   const handleIntersect =
     (viewArgs: [[number, number], number], newPolyline?: [number, number][]) =>
     () => {
@@ -101,7 +98,6 @@ const BlackHoleTour = () => {
       >
         <LazyBlackHoleMap
           onCreate={handleCreateMap}
-          onReady={handleMapReady}
           initialView={initialView}
           polyline={polyline}
         />
