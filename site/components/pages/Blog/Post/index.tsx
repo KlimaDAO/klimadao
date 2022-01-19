@@ -18,22 +18,17 @@ import { urls } from "@klimadao/lib/constants";
 import { IS_PRODUCTION } from "lib/constants";
 
 interface PostProps {
-  post: Post;
+  post?: Post;
 }
 
 export function PostPage(props: PostProps) {
-  if (!props.post) {
-    return <div>fallback page...</div>;
-  }
-  const date = new Date(props.post.publishedAt).toDateString();
-
   const serializers = {
     types: {
-      image: (props: any) => {
+      image: (params: any) => {
         return (
           <div className={styles.inlineImage}>
             <Image
-              src={props.node.asset.url}
+              src={params.node.asset.url}
               alt="inline image"
               objectFit="contain"
               width={320}
@@ -44,15 +39,45 @@ export function PostPage(props: PostProps) {
       },
     },
   };
+  const body = props.post ? (
+    <div className={styles.container}>
+      <div className={styles.banner}>
+        <div className={styles.bannerImage}>
+          <Image
+            src={props.post.imageUrl}
+            alt={props.post.title}
+            objectFit="cover"
+            layout="fill"
+          />
+        </div>
+      </div>
+      <section className={styles.blogContainer}>
+        <div className={styles.content}>
+          <h1 className={styles.title}>{props.post.title}</h1>
+          <p className={styles.date}>
+            Published {new Date(props.post.publishedAt).toDateString()}
+          </p>
+          <BlockContent blocks={props.post.body} serializers={serializers} />
+        </div>
+      </section>
+    </div>
+  ) : (
+    <div className={styles.fallbackContainer}>
+      <p className={styles.loadingArticle}>Loading article...</p>
+    </div>
+  );
+
   return (
     <>
-      <PageHead
-        production={IS_PRODUCTION}
-        title={props.post.title}
-        mediaTitle={props.post.title}
-        metaDescription={props.post.summary}
-        mediaImageSrc={props.post.imageUrl}
-      />
+      {props.post && (
+        <PageHead
+          production={IS_PRODUCTION}
+          title={props.post.title}
+          mediaTitle={props.post.title}
+          metaDescription={props.post.summary}
+          mediaImageSrc={props.post.imageUrl}
+        />
+      )}
       <PageWrap>
         <HeaderDesktop
           buttons={[
@@ -82,28 +107,7 @@ export function PostPage(props: PostProps) {
           <NavItemMobile url={urls.stake} name="Wrap" />
           <NavItemMobile url={urls.bond} name="Bond" />
         </HeaderMobile>
-        <div className={styles.container}>
-          <div className={styles.banner}>
-            <div className={styles.bannerImage}>
-              <Image
-                src={props.post.imageUrl}
-                alt={props.post.title}
-                objectFit="cover"
-                layout="fill"
-              />
-            </div>
-          </div>
-          <section className={styles.blogContainer}>
-            <div className={styles.content}>
-              <h1 className={styles.title}>{props.post.title}</h1>
-              <p className={styles.date}>Published {date}</p>
-              <BlockContent
-                blocks={props.post.body}
-                serializers={serializers}
-              />
-            </div>
-          </section>
-        </div>
+        {body}
         <Footer />
       </PageWrap>
     </>

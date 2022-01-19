@@ -48,3 +48,13 @@
   justify-content: center;
   margin: 2rem 0;
 }
+
+.fallbackContainer {
+  display: grid;
+  flex: auto;
+}
+
+.loadingArticle {
+  justify-self: center;
+  align-self: center;
+}
