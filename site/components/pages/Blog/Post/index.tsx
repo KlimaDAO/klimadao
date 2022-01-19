@@ -22,18 +22,13 @@ interface PostProps {
 }
 
 export function PostPage(props: PostProps) {
-  if (!props.post) {
-    return <div>fallback page...</div>;
-  }
-  const date = new Date(props.post.publishedAt).toDateString();
-
   const serializers = {
     types: {
-      image: (props: any) => {
+      image: (params: any) => {
         return (
           <div className={styles.inlineImage}>
             <Image
-              src={props.node.asset.url}
+              src={params.node.asset.url}
               alt="inline image"
               objectFit="contain"
               width={320}
@@ -44,6 +39,34 @@ export function PostPage(props: PostProps) {
       },
     },
   };
+  const body = props.post ? (
+    <div className={styles.container}>
+      <div className={styles.banner}>
+        <div className={styles.bannerImage}>
+          <Image
+            src={props.post.imageUrl}
+            alt={props.post.title}
+            objectFit="cover"
+            layout="fill"
+          />
+        </div>
+      </div>
+      <section className={styles.blogContainer}>
+        <div className={styles.content}>
+          <h1 className={styles.title}>{props.post.title}</h1>
+          <p className={styles.date}>
+            Published {new Date(props.post.publishedAt).toDateString()}
+          </p>
+          <BlockContent blocks={props.post.body} serializers={serializers} />
+        </div>
+      </section>
+    </div>
+  ) : (
+    <div className={styles.fallbackContainer}>
+      <p className={styles.loadingArticle}>Loading article...</p>
+    </div>
+  );
+
   return (
     <>
       <PageHead
@@ -82,28 +105,7 @@ export function PostPage(props: PostProps) {
           <NavItemMobile url={urls.stake} name="Wrap" />
           <NavItemMobile url={urls.bond} name="Bond" />
         </HeaderMobile>
-        <div className={styles.container}>
-          <div className={styles.banner}>
-            <div className={styles.bannerImage}>
-              <Image
-                src={props.post.imageUrl}
-                alt={props.post.title}
-                objectFit="cover"
-                layout="fill"
-              />
-            </div>
-          </div>
-          <section className={styles.blogContainer}>
-            <div className={styles.content}>
-              <h1 className={styles.title}>{props.post.title}</h1>
-              <p className={styles.date}>Published {date}</p>
-              <BlockContent
-                blocks={props.post.body}
-                serializers={serializers}
-              />
-            </div>
-          </section>
-        </div>
+        {body}
         <Footer />
       </PageWrap>
     </>
