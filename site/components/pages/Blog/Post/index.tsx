@@ -18,7 +18,7 @@ import { urls } from "@klimadao/lib/constants";
 import { IS_PRODUCTION } from "lib/constants";
 
 interface PostProps {
-  post: Post;
+  post?: Post;
 }
 
 export function PostPage(props: PostProps) {
@@ -69,13 +69,15 @@ export function PostPage(props: PostProps) {
 
   return (
     <>
-      <PageHead
-        production={IS_PRODUCTION}
-        title={props.post.title}
-        mediaTitle={props.post.title}
-        metaDescription={props.post.summary}
-        mediaImageSrc={props.post.imageUrl}
-      />
+      {props.post && (
+        <PageHead
+          production={IS_PRODUCTION}
+          title={props.post.title}
+          mediaTitle={props.post.title}
+          metaDescription={props.post.summary}
+          mediaImageSrc={props.post.imageUrl}
+        />
+      )}
       <PageWrap>
         <HeaderDesktop
           buttons={[
