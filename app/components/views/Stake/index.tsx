@@ -415,7 +415,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.date_of_next_rebase">Time until rebase</Trans>
+            <Trans>Next rebase (est.)</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.date_of_next_rebase.tooltip")}
