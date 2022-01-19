@@ -31,6 +31,7 @@ const BlackHoleTour = () => {
     mapRef.current = m;
   };
 
+  // eslint-disable-next-line
   const handleMapReady = () => {};
 
   const handleIntersect =
