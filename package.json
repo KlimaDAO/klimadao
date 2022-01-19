@@ -20,7 +20,7 @@
     "dev-lib": "npm run dev --workspace=lib",
     "dev-site": "npm run build-lib && npm run dev --workspace=site",
     "dev-app": "npm run build-lib && npm run dev --workspace=app",
-    "format-all": "prettier --write ./ && npm run lint --workspaces",
+    "format-all": "prettier --write ./",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract"
   }
 }
