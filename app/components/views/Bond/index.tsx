@@ -612,10 +612,7 @@ export const Bond: FC<Props> = (props) => {
             </div>
             <div className={styles.dataContainer_value}>
               <span>
-                {trimWithPlaceholder(
-                  Number(bondState?.debtRatio) / 10000000,
-                  7
-                )}
+                {trimWithPlaceholder(Number(bondState?.debtRatio), 2)}
               </span>
               %
             </div>
