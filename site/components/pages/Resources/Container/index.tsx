@@ -1,6 +1,5 @@
 import Link from "next/link";
 import * as styles from "./styles";
-import { cx } from "@emotion/css";
 
 import {
   PageWrap,
@@ -23,41 +22,26 @@ type PageName = "blog" | "community" | "contact";
 
 export type Props = PropsWithChildren<ReactNode> & {
   activePage: PageName;
+  title: string;
+  mediaTitle: string;
+  metaDescription: string;
+  mediaImageSrc: string;
 };
 
 export const Container: FC<Props> = (props) => {
-  const getListItemClasses = (name: PageName) => {
-    if (name === props.activePage) {
-      return cx(styles.listItem, styles.listItemActive);
-    }
-    return styles.listItem;
-  };
-
-  const _listItem = (name: PageName, textEl: ReactNode) => {
-    return (
-      <li className={getListItemClasses(name)}>
-        <Link href={`/resources/${name}`}>
-          <a>
-            {textEl}
-            {name === props.activePage && <ArrowBack />}
-          </a>
-        </Link>
-      </li>
-    );
-  };
-
   return (
     <>
       <PageHead
         production={IS_PRODUCTION}
-        title={t`Contact KlimaDAO`}
-        mediaTitle={t`Contact KlimaDAO`}
-        metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
-        mediaImageSrc="/og-media.jpg"
+        title={props.title}
+        mediaTitle={props.mediaTitle}
+        metaDescription={props.metaDescription}
+        mediaImageSrc={props.mediaImageSrc}
       />
 
       <PageWrap>
         <HeaderDesktop
+          link={Link}
           buttons={[
             <ButtonPrimary
               key="Enter App"
@@ -67,7 +51,7 @@ export const Container: FC<Props> = (props) => {
           ]}
         >
           <NavItemDesktop
-            url={urls.home}
+            url={"/"}
             name={t({ message: "Home", id: "mainNav.home" })}
             link={Link}
           />
@@ -90,7 +74,7 @@ export const Container: FC<Props> = (props) => {
             name={t({ message: "Bond", id: "mainNav.bond" })}
           />
           <NavItemDesktop
-            url={urls.resources}
+            url={"/resources"}
             name={t({ message: "Resources", id: "mainNav.resources" })}
             active={true}
             link={Link}
@@ -125,9 +109,39 @@ export const Container: FC<Props> = (props) => {
           <div className={styles.spacing}>
             <div className={styles.resourcesNavigation}>
               <ul className={styles.list}>
-                {_listItem("blog", <Trans>Blog</Trans>)}
-                {_listItem("community", <Trans>Community</Trans>)}
-                {_listItem("contact", <Trans>Contact Us</Trans>)}
+                <li
+                  className={styles.listItem}
+                  data-active={props.activePage === "blog"}
+                >
+                  <Link href="/resources/blog">
+                    <a>
+                      <Trans>Blog</Trans>
+                      <ArrowBack className="arrow" />
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className={styles.listItem}
+                  data-active={props.activePage === "community"}
+                >
+                  <Link href="/resources/community">
+                    <a>
+                      <Trans>Community</Trans>
+                      <ArrowBack className="arrow" />
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  className={styles.listItem}
+                  data-active={props.activePage === "contact"}
+                >
+                  <Link href="/resources/contact">
+                    <a>
+                      <Trans>Contact Us</Trans>
+                      <ArrowBack className="arrow" />
+                    </a>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

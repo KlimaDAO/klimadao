@@ -20,21 +20,6 @@
   max-width: 660px;
 }
 
-.page_h1 {
-  text-align: center;
-  padding: 2rem 0;
-  text-transform: uppercase;
-  color: var(--headings-color);
-}
-
-.page_h2 {
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  font-size: 16px;
-  color: var(--headings-color);
-}
-
 .page_section .page_subHeader {
   flex: 4;
   text-align: center;
@@ -49,9 +34,25 @@
   flex: 1;
 }
 
+.page_h1 {
+  text-align: center;
+  padding: 2rem 0;
+  text-transform: uppercase;
+  color: var(--headings-color);
+}
+
 .page_sectionContent {
   flex: 10;
 }
+
+.page_sectionContent h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: var(--headings-color);
+}
+
 
 .footer {
   padding: 4.8rem 0rem;

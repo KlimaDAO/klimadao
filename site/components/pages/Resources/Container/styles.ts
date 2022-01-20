@@ -18,7 +18,7 @@ export const spacing = css`
 
 export const resourcesNavigation = css`
   position: absolute;
-  margin-top: 80px;
+  margin-top: 8rem;
 `;
 
 export const list = css`
@@ -29,14 +29,30 @@ export const list = css`
   width: 160px;
   height: 140px;
   box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.06);
+
+  li[data-active="true"] {
+    background-color: #fafafa;
+    border-radius: 4px;
+
+    a {
+      color: var(--headings-color);
+      font-weight: 600;
+      justify-content: space-between;
+      width: 100%;
+
+      .arrow {
+        display: block;
+      }
+    }
+  }
 `;
 
 export const listItem = css`
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 44px;
-  padding: 12px;
+  height: 4.4rem;
+  padding: 1.2rem;
   font-size: 16px;
 
   a {
@@ -45,17 +61,11 @@ export const listItem = css`
     align-items: center;
     color: #6e6e6e;
     text-transform: capitalize;
+
+    .arrow {
+      display: none;
+    }
   }
 `;
 
-export const listItemActive = css`
-  background-color: #fafafa;
-  border-radius: 4px;
-
-  a {
-    color: var(--headings-color);
-    font-weight: 600;
-    justify-content: space-between;
-    width: 100%;
-  }
-`;
+export const listItemActive = css``;

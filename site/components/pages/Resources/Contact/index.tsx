@@ -1,41 +1,24 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-import {
-  PageWrap,
-  HeaderDesktop,
-  Footer,
-  NavItemDesktop,
-  HeaderMobile,
-  NavItemMobile,
-  ButtonPrimary,
-  Paragraph,
-  Section,
-} from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
+import { Paragraph, Section } from "@klimadao/lib/components";
+import { Trans, t } from "@lingui/macro";
 
 import { urls } from "@klimadao/lib/constants";
 import styles from "./index.module.css";
-import { PageHead } from "components/PageHead";
-import { IS_PRODUCTION } from "lib/constants";
-import { FC, HTMLAttributes } from "react";
 import { Container } from "../Container";
 
-export type Props = HTMLHtmlElement & {};
+export type Props = HTMLHtmlElement;
 
-type H2Props = HTMLAttributes<HTMLHeadingElement> & {};
-
-const H2: FC<H2Props> = (props) => {
+export const Contact: NextPage<Props> = () => {
   return (
-    <h2 {...props} className={styles.page_h2}>
-      {props.children}
-    </h2>
-  );
-};
-
-export const Contact: NextPage<Props> = ({}) => {
-  return (
-    <Container activePage={"contact"}>
+    <Container
+      activePage={"contact"}
+      title={t`Contact KlimaDAO`}
+      mediaTitle={t`Contact KlimaDAO`}
+      metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
+      mediaImageSrc="/og-media.jpg"
+    >
       <Section>
         <h1 className={styles.page_h1}>
           <Trans>Contact</Trans>
@@ -57,9 +40,9 @@ export const Contact: NextPage<Props> = ({}) => {
       <div className={styles.page_section}>
         <div />
         <div className={styles.page_sectionContent}>
-          <H2 style={{ marginTop: 0 }}>
+          <h2 style={{ marginTop: 0 }}>
             <Trans>Questions & Support</Trans>
-          </H2>
+          </h2>
           <Paragraph>
             <Trans>
               Join our <Link href={"/resources/community"}>community</Link>{" "}
@@ -75,14 +58,14 @@ export const Contact: NextPage<Props> = ({}) => {
       <div className={styles.page_section}>
         <div />
         <div className={styles.page_sectionContent}>
-          <H2>
+          <h2>
             <Trans>Careers</Trans>
-          </H2>
+          </h2>
           <Paragraph>
             <Trans>
               We're hiring! Until we finish building out our careers page, you
               can submit a resume by joining our{" "}
-              <a href={"https://discord.gg/uWvjTuZ65v"}>
+              <a href={urls.discordContributorsInvite}>
                 contributor's Discord server
               </a>{" "}
               and following the application instructions for whichever
@@ -96,21 +79,14 @@ export const Contact: NextPage<Props> = ({}) => {
       <div className={styles.page_section}>
         <div />
         <div className={styles.page_sectionContent}>
-          <H2>
+          <h2>
             <Trans>Partnerships</Trans>
-          </H2>
+          </h2>
           <Paragraph>
             <Trans>
               Until we finish building out our partnerships page, we are
               directing potential partnership and collaboration inquiries to{" "}
-              <a
-                href={
-                  "https://docs.google.com/forms/d/10ETkwPZyiiEz7BQSCEAxtXRSgQ9uTCO9LtaRqOVhoXk/viewform?chromeless=1&edit_requested=true"
-                }
-              >
-                this contact form
-              </a>
-              .
+              <a href={urls.partnerShipsContactForm}>this contact form</a>.
             </Trans>
           </Paragraph>
         </div>
@@ -120,14 +96,14 @@ export const Contact: NextPage<Props> = ({}) => {
       <div className={styles.page_section}>
         <div />
         <div className={styles.page_sectionContent}>
-          <H2>
+          <h2>
             <Trans>Media</Trans>
-          </H2>
+          </h2>
           <Paragraph>
             <Trans>
               If you are a journalist or content creator, our marketing team
-              would love to meet you. [TODO: NEED A LINK OR EMAIL FROM MARKETING
-              TEAM]
+              would love to meet you. Use this{" "}
+              <a href={urls.mediaRequestForm}>Media Request Form</a>.
             </Trans>
           </Paragraph>
         </div>
@@ -137,9 +113,9 @@ export const Contact: NextPage<Props> = ({}) => {
       <div className={styles.page_section}>
         <div />
         <div className={styles.page_sectionContent}>
-          <H2>
+          <h2>
             <Trans>Bug Reports</Trans>
-          </H2>
+          </h2>
           <Paragraph>
             <Trans>
               To file a bug report, join our community Discord server and ask

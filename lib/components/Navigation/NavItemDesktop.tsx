@@ -1,28 +1,6 @@
 import React, { FC } from "react";
 import * as styles from "./styles";
-
-export declare type LinkProps = {
-  href: string;
-  as?: string;
-  replace?: boolean;
-  scroll?: boolean;
-  shallow?: boolean;
-  passHref?: boolean;
-  prefetch?: boolean;
-  locale?: string | false;
-};
-
-type Link = (
-  props: React.PropsWithChildren<LinkProps>
-) => React.DetailedReactHTMLElement<
-  {
-    onMouseEnter?: React.MouseEventHandler<Element> | undefined;
-    onClick: React.MouseEventHandler;
-    href?: string | undefined;
-    ref?: any;
-  },
-  HTMLElement
->;
+import { Link } from "../types";
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
@@ -33,7 +11,17 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export const NavItemDesktop: FC<Props> = (props) => {
   if (props.link) {
-    return <props.link href={props.url}>{props.name}</props.link>;
+    return (
+      <props.link href={props.url}>
+        <a
+          {...props}
+          className={styles.navMain_DesktopLink}
+          data-active={props.active}
+        >
+          {props.name}
+        </a>
+      </props.link>
+    );
   }
 
   return (
