@@ -101,7 +101,13 @@ export const polygonNetworks = {
   },
 };
 
-export const bonds = ["klima_bct_lp", "bct_usdc_lp", "bct", "mco2"] as const;
+export const bonds = [
+  "klima_bct_lp",
+  "bct_usdc_lp",
+  "klima_usdc_lp",
+  "bct",
+  "mco2",
+] as const;
 export type Bond = typeof bonds[number];
 
 export const EPOCH_INTERVAL = 11520;
