@@ -23,6 +23,7 @@ export const useBond = (bond: Bond) => {
     name: {
       mco2: "MCO2",
       bct: "BCT",
+      klima_usdc_lp: "KLIMA/USDC LP",
       klima_bct_lp: "BCT/KLIMA LP",
       bct_usdc_lp: "BCT/USDC LP",
       // future bond names go here
@@ -30,6 +31,7 @@ export const useBond = (bond: Bond) => {
     description: {
       mco2: "MOSS Carbon Credit Token",
       bct: "Base Carbon Tons (Verra Carbon Standard)",
+      klima_usdc_lp: "KLIMA/USDC Sushiswap LP Bonds",
       klima_bct_lp: "BCT/KLIMA Sushiswap LP Bonds",
       bct_usdc_lp: "BCT/USDC Sushiswap LP Bonds",
       // future bond descriptions go here
@@ -37,6 +39,7 @@ export const useBond = (bond: Bond) => {
     href: {
       mco2: "/bonds/mco2",
       bct: "/bonds/bct",
+      klima_usdc_lp: "/bonds/klima_usdc_lp",
       klima_bct_lp: "/bonds/klima_bct_lp",
       bct_usdc_lp: "/bonds/bct_usdc_lp",
       // future bond hrefs go here
@@ -44,12 +47,14 @@ export const useBond = (bond: Bond) => {
     balanceUnit: {
       mco2: "MCO2",
       bct: "BCT",
+      klima_usdc_lp: "SLP",
       klima_bct_lp: "SLP",
       bct_usdc_lp: "SLP",
     }[bond],
     priceUnit: {
       mco2: "MCO2",
       bct: "BCT",
+      klima_usdc_lp: "USDC",
       klima_bct_lp: "BCT",
       bct_usdc_lp: "BCT",
     }[bond],
@@ -61,9 +66,10 @@ export function ChooseBond() {
   const klimaBctLp = useBond("klima_bct_lp");
   const bctUsdcLp = useBond("bct_usdc_lp");
   const mco2 = useBond("mco2");
+  const klimaUsdcLp = useBond("klima_usdc_lp");
   const { treasuryBalance } = useSelector(selectAppState);
 
-  const bonds = [mco2, bct, klimaBctLp, bctUsdcLp];
+  const bonds = [mco2, bct, klimaUsdcLp, klimaBctLp, bctUsdcLp];
 
   return (
     <div className={styles.stakeCard}>

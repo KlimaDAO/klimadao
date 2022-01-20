@@ -21,7 +21,11 @@ msgstr ""
 msgid "Next rebase (est.)"
 msgstr ""
 
-#: components/views/Bond/index.tsx:479
+#: components/views/Bond/index.tsx:625
+msgid "Vesting term end"
+msgstr ""
+
+#: components/views/Bond/index.tsx:474
 msgid "bond.balance"
 msgstr ""
 
@@ -29,7 +33,7 @@ msgstr ""
 msgid "bond.balance.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:508
+#: components/views/Bond/index.tsx:503
 msgid "bond.bond_price"
 msgstr ""
 
@@ -37,19 +41,19 @@ msgstr ""
 msgid "bond.bond_price.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:398
+#: components/views/Bond/index.tsx:393
 msgid "bond.caption"
 msgstr ""
 
-#: components/views/Bond/index.tsx:706
+#: components/views/Bond/index.tsx:703
 msgid "bond.date_of_full_vesting"
 msgstr ""
 
-#: components/views/Bond/index.tsx:379
+#: components/views/Bond/index.tsx:374
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:608
+#: components/views/Bond/index.tsx:603
 msgid "bond.debt_ratio"
 msgstr ""
 
@@ -61,7 +65,7 @@ msgstr ""
 msgid "bond.esbridge"
 msgstr ""
 
-#: components/views/Bond/index.tsx:525
+#: components/views/Bond/index.tsx:520
 msgid "bond.market_price"
 msgstr ""
 
@@ -69,7 +73,7 @@ msgstr ""
 msgid "bond.market_price.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:583
+#: components/views/Bond/index.tsx:578
 msgid "bond.maximum"
 msgstr ""
 
@@ -77,19 +81,19 @@ msgstr ""
 msgid "bond.maximum.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:657
+#: components/views/Bond/index.tsx:654
 msgid "bond.pending"
 msgstr ""
 
-#: components/views/Bond/index.tsx:371
+#: components/views/Bond/index.tsx:366
 msgid "bond.pending.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:679
+#: components/views/Bond/index.tsx:676
 msgid "bond.redeemable"
 msgstr ""
 
-#: components/views/Bond/index.tsx:375
+#: components/views/Bond/index.tsx:370
 msgid "bond.redeemable.tooltip"
 msgstr ""
 
@@ -97,7 +101,7 @@ msgstr ""
 msgid "bond.revert"
 msgstr ""
 
-#: components/views/Bond/index.tsx:542
+#: components/views/Bond/index.tsx:537
 msgid "bond.roi"
 msgstr ""
 
@@ -109,15 +113,7 @@ msgstr ""
 msgid "bond.slippage_tolerance"
 msgstr ""
 
-#: components/views/Bond/index.tsx:630
-msgid "bond.vesting_term"
-msgstr ""
-
-#: components/views/Bond/index.tsx:366
-msgid "bond.vesting_term.tooltip"
-msgstr ""
-
-#: components/views/Bond/index.tsx:561
+#: components/views/Bond/index.tsx:556
 msgid "bond.you_will_get"
 msgstr ""
 
@@ -139,7 +135,7 @@ msgid "button.bct"
 msgstr ""
 
 #: components/views/Bond/index.tsx:281
-#: components/views/Bond/index.tsx:412
+#: components/views/Bond/index.tsx:407
 msgid "button.bond"
 msgstr ""
 
@@ -169,7 +165,7 @@ msgstr ""
 msgid "button.loading"
 msgstr ""
 
-#: components/views/Bond/index.tsx:448
+#: components/views/Bond/index.tsx:443
 #: components/views/PKlima/index.tsx:227
 #: components/views/Stake/index.tsx:329
 msgid "button.max"
@@ -188,7 +184,7 @@ msgid "button.pklima"
 msgstr ""
 
 #: components/views/Bond/index.tsx:287
-#: components/views/Bond/index.tsx:422
+#: components/views/Bond/index.tsx:417
 #: components/views/Redeem/index.tsx:123
 #: components/views/Redeem/index.tsx:129
 msgid "button.redeem"
@@ -210,43 +206,43 @@ msgstr ""
 msgid "button.wrap"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:75
+#: components/views/ChooseBond/index.tsx:81
 msgid "choose_bond.caption"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:100
+#: components/views/ChooseBond/index.tsx:106
 msgid "choose_bond.choose_bond"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:103
+#: components/views/ChooseBond/index.tsx:109
 msgid "choose_bond.discount"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:72
+#: components/views/ChooseBond/index.tsx:78
 msgid "choose_bond.title"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:86
+#: components/views/ChooseBond/index.tsx:92
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
-#: components/views/Home/index.tsx:425
+#: components/views/Home/index.tsx:432
 msgid "footer.blog"
 msgstr ""
 
-#: components/views/Home/index.tsx:428
+#: components/views/Home/index.tsx:435
 msgid "footer.community"
 msgstr ""
 
-#: components/views/Home/index.tsx:422
+#: components/views/Home/index.tsx:429
 msgid "footer.docs"
 msgstr ""
 
-#: components/views/Home/index.tsx:419
+#: components/views/Home/index.tsx:426
 msgid "footer.home"
 msgstr ""
 
-#: components/views/Home/index.tsx:313
+#: components/views/Home/index.tsx:320
 msgid "header.welcome"
 msgstr ""
 
@@ -266,7 +262,7 @@ msgstr ""
 msgid "msg.yield"
 msgstr ""
 
-#: components/views/Bond/index.tsx:395
+#: components/views/Bond/index.tsx:390
 msgid "nav.back"
 msgstr ""
 
@@ -382,7 +378,7 @@ msgstr ""
 msgid "stake.staked.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:739
+#: components/views/Bond/index.tsx:736
 msgid "status.bond_negative"
 msgstr ""
 

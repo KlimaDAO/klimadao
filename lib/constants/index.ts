@@ -13,13 +13,16 @@ const mainnet = {
   sklima: "0xb0C22d8D350C67420f06F48936654f567C73E8C8",
   wsklima: "0x6f370dba99E32A3cAD959b341120DB3C9E280bA6",
   bctUsdcLp: "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64",
+  klimaUsdcLp: "0x5786b267d35F9D011c4750e0B0bA584E1fDbeAD1",
   klimaBctLp: "0x9803c7ae526049210a1725f7487af26fe2c24614",
   mco2UsdcLp: "0x68ab4656736d48bb1de8661b9a323713104e24cf",
   bond_klimaBctLp: "0x1E0Dd93C81aC7Af2974cdB326c85B87Dd879389B",
+  bond_klimaUsdcLp: "0xb5aF101742EcAe095944F60C384d09453006bFde",
   bond_bct: "0x7De627C56D26529145a5f9D85948ecBeAF9a4b34",
   bond_bctUsdcLp: "0xBF2A35efcd85e790f02458Db4A3e2f29818521c5",
   bond_mco2: "0x27217c3F5bEc4c12Fa506A101bC4bd15417AEAa8",
   bond_calc: "0x0b8d6D6611Ed7cCe01BbcC57826548C6107B0478",
+  bond_calc_klimaUsdc: "0x8a92CC36cCC275374380460026ef365A4E01778C",
   staking: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
 };
@@ -39,13 +42,16 @@ const testnet: typeof mainnet = {
   sklima: "0xDe0cD0D51b9981BaB50DB974a1877c1C01b86e91",
   wsklima: "",
   bctUsdcLp: "0x1c08a37dfFc0f482B61E802781f2c29eD9316ba6",
+  klimaUsdcLp: "",
   klimaBctLp: "0xb7225519550ED89C9B36c88d57d6059F698AaE97",
   mco2UsdcLp: "",
   bond_klimaBctLp: "0x285A6054DdC2980C62E716086B065E1e770fffb3",
+  bond_klimaUsdcLp: "",
   bond_bct: "0x3204AF4b290b8f4f0fdf91284818ebB53b90459c",
   bond_bctUsdcLp: "0x9d9bC94A340B8B1cE8219c09E4CfadB9582BfAe1",
   bond_mco2: "",
   bond_calc: "0x7087D55D9Cd826dE4F0EAb4625698FF641Bd342a",
+  bond_calc_klimaUsdc: "",
   staking: "0x2960DCE5aE04eF503b36f8581EA5Ac5238632092",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
 };
@@ -95,7 +101,13 @@ export const polygonNetworks = {
   },
 };
 
-export const bonds = ["klima_bct_lp", "bct_usdc_lp", "bct", "mco2"] as const;
+export const bonds = [
+  "klima_bct_lp",
+  "bct_usdc_lp",
+  "klima_usdc_lp",
+  "bct",
+  "mco2",
+] as const;
 export type Bond = typeof bonds[number];
 
 export const EPOCH_INTERVAL = 11520;
