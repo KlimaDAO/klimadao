@@ -20,7 +20,6 @@ import {
 } from "state/selectors";
 import { decrementWrap, incrementWrap, setWrapAllowance } from "state/user";
 import { useAppDispatch } from "state";
-import { TxnStatus } from "actions/utils";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 interface Props {

@@ -16,7 +16,6 @@ import {
   selectBalances,
   selectStakeAllowance,
 } from "state/selectors";
-import { TxnStatus } from "actions/utils";
 
 import {
   Spinner,
@@ -30,8 +29,7 @@ import {
 } from "@klimadao/lib/utils";
 import t from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
-import { Trans, defineMessage } from "@lingui/macro";
-import { i18n } from "@lingui/core";
+import { Trans } from "@lingui/macro";
 import { prettifySeconds } from "lib/i18n";
 
 const WithPlaceholder: FC<{
@@ -197,13 +195,6 @@ export const Stake = (props: Props) => {
       };
     } else {
       return { children: "ERROR", onClick: undefined, disabled: true };
-    }
-  };
-  const getAction = () => {
-    if (view === "unstake") {
-      return `Amount to stake`;
-    } else {
-      return `Amount to unstake`;
     }
   };
 

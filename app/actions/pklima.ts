@@ -3,7 +3,7 @@ import { ethers, providers } from "ethers";
 import { addresses } from "@klimadao/lib/constants";
 import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import { OnStatusHandler, TxnStatus } from "./utils";
+import { OnStatusHandler } from "./utils";
 import { Thunk } from "state";
 import { setPklimaTerms } from "state/user";
 import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";

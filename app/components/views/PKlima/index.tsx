@@ -21,14 +21,12 @@ import {
 import { redeemPklima, setExerciseAllowance } from "state/user";
 import { useAppDispatch } from "state";
 
-import { TxnStatus } from "actions/utils";
 import {
   exerciseTransaction,
   changeApprovalTransaction,
   loadTerms,
 } from "actions/pklima";
 import styles from "components/views/Stake/index.module.css";
-import { ClaimExceededModal } from "./ClaimExceededModal";
 
 interface Props {
   provider: providers.JsonRpcProvider;

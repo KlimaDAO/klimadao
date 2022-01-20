@@ -9,17 +9,8 @@ import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import { AppNotificationStatus } from "../../state/app";
 import { setAppState } from "state/app";
 import { useDispatch } from "react-redux";
-import { getStatusMessage, TxnStatus } from "actions/utils";
+import { getStatusMessage } from "actions/utils";
 import { ClaimExceededModal } from "components/views/PKlima/ClaimExceededModal";
-
-type StatusTypes =
-  | "done"
-  | "error"
-  | "userConfirmation"
-  | "networkConfirmation"
-  | "claimExceeded";
-
-interface Props {}
 
 interface ModalAssetTypes {
   [key: string]: {
@@ -48,13 +39,13 @@ const modalAssets: ModalAssetTypes = {
   },
 };
 
-export const NotificationModal: FC<Props> = () => {
+export const NotificationModal: FC = () => {
   const dispatch = useDispatch();
   const status: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
   );
   if (!status) return null;
-  const { statusType, message } = status;
+  const { statusType } = status;
   if (status && statusType === "claimExceeded") return <ClaimExceededModal />;
 
   const getAsset = (
