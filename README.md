@@ -12,7 +12,7 @@ This repo contains 3 packages: `@klimadao/site`, `@klimadao/app` and `@klimadao/
 
 **The DAO is looking for react/typescript devs as well as experienced Solidity devs!** Enjoy a flexible work schedule and work on something truly ambitious and meaningful. Monthly compensation available based on your level of experience and degree of contribution.
 
-If you'd like to just take a ticket or fix a big, go for it (always better to ask first, though).
+If you'd like to just take a ticket or fix a bug, go for it (always better to ask first, though).
 
 If you'd like to become a regular contributor to the DAO, [join the contributor discord](https://discord.gg/wuzAzUdcqW) and follow the application instructions.
 
