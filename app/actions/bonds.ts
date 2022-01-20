@@ -179,7 +179,7 @@ export const calcBondDetails = (params: {
         addresses["mainnet"].klimaUsdcLp,
         amountInWei
       );
-      bondQuote = formatUnits(await bondContract.payoutFor(valuation), 18);
+      bondQuote = formatUnits(await bondContract.payoutFor(valuation), 9);
     }
     const decimalAdjustedBondPrice =
       params.bond === "klima_usdc_lp"
