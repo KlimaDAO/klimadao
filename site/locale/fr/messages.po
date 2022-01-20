@@ -109,34 +109,34 @@ msgstr ""
 msgid "menu.docs"
 msgstr ""
 
-#: components/pages/Home/BlackHoleTour/index.tsx:71
+#: components/pages/Home/BlackHoleTour/index.tsx:69
 msgid "tour.bonding.text"
 msgstr ""
 
-#: components/pages/Home/BlackHoleTour/index.tsx:67
+#: components/pages/Home/BlackHoleTour/index.tsx:65
 msgid "tour.bonding.title"
 msgstr ""
 
-#: components/pages/Home/BlackHoleTour/index.tsx:62
+#: components/pages/Home/BlackHoleTour/index.tsx:60
 msgid "tour.carbon.text"
 msgstr ""
 
-#: components/pages/Home/BlackHoleTour/index.tsx:58
+#: components/pages/Home/BlackHoleTour/index.tsx:56
 msgid "tour.carbon.title"
 msgstr ""
 
-#: components/pages/Home/BlackHoleTour/index.tsx:80
+#: components/pages/Home/BlackHoleTour/index.tsx:78
 msgid "tour.staking.text"
 msgstr ""
 
-#: components/pages/Home/BlackHoleTour/index.tsx:76
+#: components/pages/Home/BlackHoleTour/index.tsx:74
 msgid "tour.staking.title"
 msgstr ""
 
-#: components/pages/Home/BlackHoleTour/index.tsx:53
+#: components/pages/Home/BlackHoleTour/index.tsx:51
 msgid "tour.treasury.text"
 msgstr ""
 
-#: components/pages/Home/BlackHoleTour/index.tsx:49
+#: components/pages/Home/BlackHoleTour/index.tsx:47
 msgid "tour.treasury.title"
 msgstr ""

@@ -109,34 +109,34 @@ msgstr "community"
 msgid "menu.docs"
 msgstr "docs"
 
-#: components/pages/Home/BlackHoleTour/index.tsx:71
+#: components/pages/Home/BlackHoleTour/index.tsx:69
 msgid "tour.bonding.text"
 msgstr "Bonding is how carbon enters the treasury, and new KLIMA is created. Anyone can buy KLIMA at a discount by bonding carbon units and LP shares over a set vesting period."
 
-#: components/pages/Home/BlackHoleTour/index.tsx:67
+#: components/pages/Home/BlackHoleTour/index.tsx:65
 msgid "tour.bonding.title"
 msgstr "Bonding"
 
-#: components/pages/Home/BlackHoleTour/index.tsx:62
+#: components/pages/Home/BlackHoleTour/index.tsx:60
 msgid "tour.carbon.text"
 msgstr "KLIMA is a vacuum for carbon. The treasury only accepts certified, third-party verified emissions reductions from reputable carbon markets (sometimes called 'carbon offsets' or 'carbon credits'). Each is tokenized in a transparent and traceable way to prevent double-spending or double-offsetting. These credits are sucked off the market and absorbed into the system through a Bonding mechanism."
 
-#: components/pages/Home/BlackHoleTour/index.tsx:58
+#: components/pages/Home/BlackHoleTour/index.tsx:56
 msgid "tour.carbon.title"
 msgstr "Carbon Credits"
 
-#: components/pages/Home/BlackHoleTour/index.tsx:80
+#: components/pages/Home/BlackHoleTour/index.tsx:78
 msgid "tour.staking.text"
 msgstr "Carbon comes in, value comes out. Holders of KLIMA can earn compounding interest on their KLIMA by staking. Staking encourages long-term holding of KLIMA, and allows participants to benefit from the rising price of carbon. As the protocol generates a profit through Bond sales, this profit is allocated to everyone who has staked KLIMA."
 
-#: components/pages/Home/BlackHoleTour/index.tsx:76
+#: components/pages/Home/BlackHoleTour/index.tsx:74
 msgid "tour.staking.title"
 msgstr "Klima Treasury"
 
-#: components/pages/Home/BlackHoleTour/index.tsx:53
+#: components/pages/Home/BlackHoleTour/index.tsx:51
 msgid "tour.treasury.text"
 msgstr "The treasury is the center of the black hole. Every KLIMA token is backed by 1 tonne of verified, tokenized carbon reduction or removal. These    can remain locked in the treasury indefinitely, or sold to balance the price of KLIMA."
 
-#: components/pages/Home/BlackHoleTour/index.tsx:49
+#: components/pages/Home/BlackHoleTour/index.tsx:47
 msgid "tour.treasury.title"
 msgstr "Klima Treasury"
