@@ -8,7 +8,6 @@ import styles from "./index.module.css";
 
 interface Props {
   onCreate: (m: Map) => void;
-  onReady: () => void;
   initialView: [[number, number], number];
   polyline?: [number, number][];
 }
@@ -43,10 +42,7 @@ const BlackHoleMap: FC<Props> = (props) => {
         className={styles.mapContainer}
         maxBounds={bounds}
         maxBoundsViscosity={0.1}
-        whenCreated={(m) => {
-          props.onCreate(m);
-        }}
-        whenReady={props.onReady}
+        whenCreated={(m) => props.onCreate(m)}
         zoomControl={false}
         attributionControl={false}
         zoomSnap={0.1}

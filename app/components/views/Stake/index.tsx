@@ -358,7 +358,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Time until rebase
+            <Trans>Next rebase (est.)</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content="Approximate time remaining until next rewards distribution"

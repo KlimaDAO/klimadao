@@ -16,7 +16,8 @@ const AddToMetaMaskButton: FC<Props> = (props) => {
       await provider.request?.({
         method: "wallet_watchAsset",
         params: {
-          // @ts-ignore complaining that it wants type Any[] for options but heres the interface https://docs.metamask.io/guide/rpc-api.html#wallet-watchasset
+          // @ts-expect-error: complaining that it wants type Any[] for options
+          // but heres the interface https://docs.metamask.io/guide/rpc-api.html#wallet-watchasset
           type: "ERC20",
           options: {
             address: info.address,
