@@ -19,7 +19,7 @@ type StatusTypes =
   | "networkConfirmation"
   | "claimExceeded";
 
-interface Props { }
+interface Props {}
 
 interface ModalAssetTypes {
   [key: string]: {
@@ -74,7 +74,9 @@ export const NotificationModal: FC<Props> = () => {
         <div className={styles.card_header}>
           <p>{getAsset("header", status)}</p>
           <button onClick={closeModal} className={styles.closeButton}>
-            {status && (statusType === "done" || statusType === "error") && <CloseIcon />}
+            {status && (statusType === "done" || statusType === "error") && (
+              <CloseIcon />
+            )}
           </button>
         </div>
         <div

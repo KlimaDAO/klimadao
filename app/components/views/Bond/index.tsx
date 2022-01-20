@@ -82,10 +82,7 @@ export const Bond: FC<Props> = (props) => {
 
   const setStatus = (statusType: string, message: string) => {
     if (!statusType) dispatch(setAppState({ notificationStatus: null }));
-    else
-      dispatch(
-        setAppState({ notificationStatus: { statusType, message } })
-      );
+    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
   const dispatch = useAppDispatch();
@@ -413,8 +410,9 @@ export const Bond: FC<Props> = (props) => {
             }
             onChange={(e) => setQuantity(e.target.value)}
             type="number"
-            placeholder={`Amount to ${{ bond: "bond", redeem: "redeem" }[view]
-              }`}
+            placeholder={`Amount to ${
+              { bond: "bond", redeem: "redeem" }[view]
+            }`}
             min="0"
             step={
               view === "bond" && bondInfo.balanceUnit === "SLP" ? "1" : "0.0001"

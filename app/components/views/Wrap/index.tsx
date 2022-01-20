@@ -38,10 +38,7 @@ export const Wrap: FC<Props> = (props) => {
   const status = fullStatus && fullStatus.statusType;
   const setStatus = (statusType: string, message: string) => {
     if (!statusType) dispatch(setAppState({ notificationStatus: null }));
-    else
-      dispatch(
-        setAppState({ notificationStatus: { statusType, message } })
-      );
+    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
   const [view, setView] = useState<"wrap" | "unwrap">("wrap");
@@ -310,8 +307,9 @@ export const Wrap: FC<Props> = (props) => {
             You will get
             <TextInfoTooltip
               singleton={singleton}
-              content={`Amount you will get after ${view === "wrap" ? "wrapping" : "unwrapping"
-                }`}
+              content={`Amount you will get after ${
+                view === "wrap" ? "wrapping" : "unwrapping"
+              }`}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />

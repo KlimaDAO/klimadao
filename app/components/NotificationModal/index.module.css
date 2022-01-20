@@ -74,13 +74,14 @@
   border-top-color: var(--surface-01);
   border-left-color: var(--surface-01);
   transform: rotate(315deg);
-} 
+}
 .icon_network_confirmation {
   border: 1px solid var(--primary);
   border-top-color: var(--surface-01);
   transform: rotate(315deg);
 }
-.icon_confirmation svg, .icon_network_confirmation svg {
+.icon_confirmation svg,
+.icon_network_confirmation svg {
   transform: rotate(45deg);
 }
 

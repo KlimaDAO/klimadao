@@ -61,10 +61,7 @@ export const Stake = (props: Props) => {
 
   const setStatus = (statusType: string, message: string) => {
     if (!statusType) dispatch(setAppState({ notificationStatus: null }));
-    else
-      dispatch(
-        setAppState({ notificationStatus: { statusType, message } })
-      );
+    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
   const [quantity, setQuantity] = useState("");
@@ -262,8 +259,9 @@ export const Stake = (props: Props) => {
               setStatus("", "");
             }}
             type="number"
-            placeholder={`Amount to ${{ stake: "stake", unstake: "unstake" }[view]
-              }`}
+            placeholder={`Amount to ${
+              { stake: "stake", unstake: "unstake" }[view]
+            }`}
             min="0"
           />
           <button
