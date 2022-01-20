@@ -364,11 +364,6 @@ export const Bond: FC<Props> = (props) => {
     message: "Protocol's current ratio of supply to outstanding bonds",
   });
   defineMessage({
-    id: "bond.vesting_term.tooltip",
-    message:
-      "Time period over which bonded KLIMA is made available for redemption",
-  });
-  defineMessage({
     id: "bond.pending.tooltip",
     message: "Remaining unredeemed value (vested and un-vested)",
   });
@@ -617,20 +612,19 @@ export const Bond: FC<Props> = (props) => {
             </div>
             <div className={styles.dataContainer_value}>
               <span>
-                {trimWithPlaceholder(
-                  Number(bondState?.debtRatio) / 10000000,
-                  7
-                )}
+                {trimWithPlaceholder(Number(bondState?.debtRatio), 2)}
               </span>
               %
             </div>
           </li>
           <li className={styles.dataContainer_row}>
             <div className={styles.dataContainer_label}>
-              <Trans id="bond.vesting_term">Vesting term</Trans>
+              <Trans>Vesting term end</Trans>
               <TextInfoTooltip
                 singleton={singleton}
-                content={i18n._("bond.vesting_term.tooltip")}
+                content={
+                  "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term."
+                }
               >
                 <div tabIndex={0} className={styles.infoIconWrapper}>
                   <InfoOutlined />

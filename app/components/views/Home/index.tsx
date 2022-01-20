@@ -200,6 +200,13 @@ export const Home: FC = () => {
     );
     dispatch(
       calcBondDetails({
+        bond: "klima_usdc_lp",
+        value: "",
+        provider,
+      })
+    );
+    dispatch(
+      calcBondDetails({
         bond: "bct_usdc_lp",
         value: "",
         provider,

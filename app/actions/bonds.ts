@@ -14,50 +14,61 @@ import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
 export const DEFAULT_QUOTE_SLP = "0.001"; // Use a realistic SLP ownership so we have a quote before the user inputs any value
 
-export const contractForBond = (params: {
-  bond: Bond;
-  provider: providers.JsonRpcProvider;
-}) => {
-  const address = {
+const getBondAddress = (params: { bond: Bond }): string => {
+  return {
     klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
+    klima_usdc_lp: addresses["mainnet"].bond_klimaUsdcLp,
     bct: addresses["mainnet"].bond_bct,
     bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
     mco2: addresses["mainnet"].bond_mco2,
   }[params.bond];
+};
 
+export const contractForBond = (params: {
+  bond: Bond;
+  provider: providers.JsonRpcProvider;
+}) => {
+  const address = getBondAddress({ bond: params.bond });
   return new ethers.Contract(address, Depository.abi, params.provider);
 };
 
 export function contractForReserve(params: {
   bond: Bond;
-  provider: providers.JsonRpcProvider;
+  providerOrSigner: providers.JsonRpcProvider | providers.JsonRpcSigner;
 }) {
   if (params.bond === "klima_bct_lp") {
     return new ethers.Contract(
       addresses["mainnet"].klimaBctLp,
       OhmDai.abi,
-      params.provider
+      params.providerOrSigner
+    );
+  }
+  if (params.bond === "klima_usdc_lp") {
+    return new ethers.Contract(
+      addresses["mainnet"].klimaUsdcLp,
+      OhmDai.abi,
+      params.providerOrSigner
     );
   }
   if (params.bond === "bct") {
     return new ethers.Contract(
       addresses["mainnet"].bct,
       IERC20.abi,
-      params.provider
+      params.providerOrSigner
     );
   }
   if (params.bond === "mco2") {
     return new ethers.Contract(
       addresses["mainnet"].mco2,
       IERC20.abi,
-      params.provider
+      params.providerOrSigner
     );
   }
   // bct_usdc_lp
   return new ethers.Contract(
     addresses["mainnet"].bctUsdcLp,
     OhmDai.abi,
-    params.provider
+    params.providerOrSigner
   );
 }
 
@@ -74,6 +85,22 @@ const getBCTMarketPrice = async (params: {
   return reserves[0] / (reserves[1] * Math.pow(10, 9));
 };
 
+// for Klima/USDC LP
+const getUSDCMarketPrice = async (params: {
+  provider: providers.JsonRpcProvider;
+}) => {
+  const pairContract = new ethers.Contract(
+    addresses["mainnet"].klimaUsdcLp,
+    PairContract.abi,
+    params.provider
+  );
+  const reserves = await pairContract.getReserves();
+  // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
+  // divide usdc/klima to get klima usdc price
+  return (reserves[0] * Math.pow(10, 12)) / (reserves[1] * Math.pow(10, 9));
+};
+
+// [usdc, klima] 200/2 = 100
 const getMCO2MarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
@@ -108,13 +135,21 @@ export const calcBondDetails = (params: {
     });
     // for SLP bonds
     const bondCalcContract = new ethers.Contract(
-      addresses["mainnet"].bond_calc,
+      params.bond === "klima_usdc_lp"
+        ? addresses["mainnet"].bond_calc_klimaUsdc
+        : addresses["mainnet"].bond_calc,
       BondCalcContract.abi,
       params.provider
     );
 
-    const getMarketPrice =
-      params.bond === "mco2" ? getMCO2MarketPrice : getBCTMarketPrice;
+    const getMarketPrice = {
+      mco2: getMCO2MarketPrice,
+      klima_usdc_lp: getUSDCMarketPrice,
+      klima_bct_lp: getBCTMarketPrice,
+      bct_usdc_lp: getBCTMarketPrice,
+      bct: getBCTMarketPrice,
+    }[params.bond];
+
     const marketPrice = await getMarketPrice({
       provider: params.provider,
     });
@@ -139,12 +174,21 @@ export const calcBondDetails = (params: {
         amountInWei
       );
       bondQuote = formatUnits(await bondContract.payoutFor(valuation), 9);
-    } else if (params.bond === "mco2") {
-      bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
+    } else if (params.bond === "klima_usdc_lp") {
+      const valuation = await bondCalcContract.valuation(
+        addresses["mainnet"].klimaUsdcLp,
+        amountInWei
+      );
+      bondQuote = formatUnits(await bondContract.payoutFor(valuation), 9);
     }
+    const decimalAdjustedBondPrice =
+      params.bond === "klima_usdc_lp"
+        ? bondPrice * Math.pow(10, 12) // need to add decimals because this bond returns USDC (6 dec).
+        : bondPrice;
 
     const bondDiscount =
-      (marketPrice * Math.pow(10, 18) - bondPrice) / bondPrice;
+      (marketPrice * Math.pow(10, 18) - decimalAdjustedBondPrice) /
+      decimalAdjustedBondPrice;
 
     dispatch(
       setBond({
@@ -154,7 +198,10 @@ export const calcBondDetails = (params: {
         bondQuote,
         vestingTerm: parseInt(terms.vestingTerm),
         maxBondPrice: formatUnits(maxBondPrice, 9),
-        bondPrice: formatUnits(bondPrice),
+        bondPrice: formatUnits(
+          bondPrice,
+          params.bond === "klima_usdc_lp" ? 6 : 18
+        ),
         marketPrice: marketPrice.toString(),
       })
     );
@@ -167,27 +214,11 @@ export const changeApprovalTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const signer = params.provider.getSigner();
-    const contract = {
-      klima_bct_lp: new ethers.Contract(
-        addresses["mainnet"].klimaBctLp,
-        OhmDai.abi,
-        signer
-      ),
-      bct: new ethers.Contract(addresses["mainnet"].bct, IERC20.abi, signer),
-      bct_usdc_lp: new ethers.Contract(
-        addresses["mainnet"].bctUsdcLp,
-        OhmDai.abi,
-        signer
-      ),
-      mco2: new ethers.Contract(addresses["mainnet"].mco2, IERC20.abi, signer),
-    }[params.bond];
-    const approvalAddress = {
-      klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
-      bct: addresses["mainnet"].bond_bct,
-      bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
-      mco2: addresses["mainnet"].bond_mco2,
-    }[params.bond];
+    const contract = contractForReserve({
+      bond: params.bond,
+      providerOrSigner: params.provider.getSigner(),
+    });
+    const approvalAddress = getBondAddress({ bond: params.bond });
     const value = ethers.utils.parseUnits("1000000000", "ether");
     params.onStatus("userConfirmation");
     const txn = await contract.approve(approvalAddress, value.toString());
@@ -225,7 +256,7 @@ export const calculateUserBondDetails = (params: {
     });
     const reserveContract = contractForReserve({
       bond: params.bond,
-      provider: params.provider,
+      providerOrSigner: params.provider,
     });
     const bondDetails = await bondContract.bondInfo(params.address);
     const interestDue = bondDetails[0];
@@ -252,6 +283,13 @@ export const calculateUserBondDetails = (params: {
       allowance = await reserveContract.allowance(
         params.address,
         addresses["mainnet"].bond_bctUsdcLp
+      );
+      balance = await reserveContract.balanceOf(params.address);
+      balance = ethers.utils.formatEther(balance);
+    } else if (params.bond === "klima_usdc_lp") {
+      allowance = await reserveContract.allowance(
+        params.address,
+        addresses["mainnet"].bond_klimaUsdcLp
       );
       balance = await reserveContract.balanceOf(params.address);
       balance = ethers.utils.formatEther(balance);
@@ -291,12 +329,7 @@ export const bondTransaction = async (params: {
 }) => {
   try {
     const signer = params.provider.getSigner();
-    const contractAddress = {
-      klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
-      bct: addresses["mainnet"].bond_bct,
-      bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
-      mco2: addresses["mainnet"].bond_mco2,
-    }[params.bond];
+    const contractAddress = getBondAddress({ bond: params.bond });
     const contract = new ethers.Contract(
       contractAddress,
       Depository.abi,
@@ -335,12 +368,7 @@ export const redeemTransaction = async (params: {
   try {
     const autostake = false;
     const signer = params.provider.getSigner();
-    const contractAddress = {
-      klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
-      bct: addresses["mainnet"].bond_bct,
-      bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
-      mco2: addresses["mainnet"].bond_mco2,
-    }[params.bond];
+    const contractAddress = getBondAddress({ bond: params.bond });
     const contract = new ethers.Contract(
       contractAddress,
       Depository.abi,
