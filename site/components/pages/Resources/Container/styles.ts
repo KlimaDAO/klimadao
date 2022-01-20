@@ -1,7 +1,10 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const layout = css`
+export const layoutDesktop = css`
+  display: none;
+  position: sticky;
+  top: 0;
   flex-direction: row;
   justify-content: center;
   padding: 0rem 3.4rem;
@@ -9,6 +12,38 @@ export const layout = css`
   ${breakpoints.medium} {
     display: flex;
   }
+`;
+
+export const layoutMobile = css`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+  ${breakpoints.medium} {
+    display: none;
+  }
+`;
+
+export const mobileNav = css`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  & > * {
+    flex: 1;
+  }
+`;
+
+export const mobileNavButton = css`
+  font-size: 1.4rem;
+  font-weight: 400;
+`;
+
+export const mobileNavContent = css`
+  display: flex;
+  flex: 10;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const spacing = css`
@@ -25,10 +60,10 @@ export const list = css`
   list-style: none;
   background-color: #ffffff;
   border-radius: 8px;
-  padding: 5px;
-  width: 160px;
-  height: 140px;
-  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.06);
+  padding: 0.5rem;
+  width: 16rem;
+  height: 14rem;
+  box-shadow: 0 0.4rem 2.8rem rgba(0, 0, 0, 0.06);
 
   li[data-active="true"] {
     background-color: #fafafa;
@@ -53,7 +88,7 @@ export const listItem = css`
   align-items: center;
   height: 4.4rem;
   padding: 1.2rem;
-  font-size: 16px;
+  font-size: 1.6rem;
 
   a {
     display: flex;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, PropsWithChildren, ReactNode } from "react";
 
 import { AllPosts } from "lib/queries";
 
@@ -9,9 +9,25 @@ import { t } from "@lingui/macro";
 import styles from "./index.module.css";
 import { Container } from "../Resources/Container";
 
-interface BlogProps {
+// interface BlogProps extends PropsWithChildren<ReactNode> {
+//   posts: AllPosts;
+// }
+
+type BlogProps = PropsWithChildren<ReactNode> & {
   posts: AllPosts;
-}
+};
+
+const TopElement: FC<PropsWithChildren<ReactNode>> = () => (
+  <div className={styles.container}>
+    <section className={styles.headerSection}>
+      <h1>Blog</h1>
+      <p>
+        Updates and thought leadership from the founders, DAO contributors,
+        advisors and community.
+      </p>
+    </section>
+  </div>
+);
 
 export function Blog(props: BlogProps) {
   return (
@@ -22,15 +38,9 @@ export function Blog(props: BlogProps) {
       metaDescription={t`Updates and thought leadership from the founders, DAO contributors,
         advisors and community.`}
       mediaImageSrc="/og-media.jpg"
+      topMobileElement={TopElement}
     >
       <div className={styles.container}>
-        <section className={styles.headerSection}>
-          <h1>Blog</h1>
-          <p>
-            Updates and thought leadership from the founders, DAO contributors,
-            advisors and community.
-          </p>
-        </section>
         <section className={styles.cardsSection}>
           <h3>Articles</h3>
           <div className={styles.cards}>

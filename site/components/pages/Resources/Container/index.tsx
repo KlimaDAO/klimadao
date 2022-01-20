@@ -26,6 +26,7 @@ export type Props = PropsWithChildren<ReactNode> & {
   mediaTitle: string;
   metaDescription: string;
   mediaImageSrc: string;
+  topMobileElement: FC<PropsWithChildren<ReactNode>>;
 };
 
 export const Container: FC<Props> = (props) => {
@@ -105,7 +106,38 @@ export const Container: FC<Props> = (props) => {
           />
         </HeaderMobile>
 
-        <div className={styles.layout}>
+        <div className={styles.layoutMobile}>
+          <props.topMobileElement />
+          <div className={styles.mobileNav}>
+            <div />
+            <div className={styles.mobileNavContent}>
+              <ButtonPrimary
+                className={styles.mobileNavButton}
+                label={t`Blog`}
+                href={"/resources/blog"}
+                variant={props.activePage !== "blog" ? "gray" : null}
+                link={Link}
+              />
+              <ButtonPrimary
+                className={styles.mobileNavButton}
+                label={t`Community`}
+                href={"/resources/community"}
+                variant={props.activePage !== "community" ? "gray" : null}
+                link={Link}
+              />
+              <ButtonPrimary
+                className={styles.mobileNavButton}
+                label={t`Contact`}
+                href={"/resources/contact"}
+                variant={props.activePage !== "contact" ? "gray" : null}
+                link={Link}
+              />
+            </div>
+            <div />
+          </div>
+        </div>
+
+        <div className={styles.layoutDesktop}>
           <div className={styles.spacing}>
             <div className={styles.resourcesNavigation}>
               <ul className={styles.list}>

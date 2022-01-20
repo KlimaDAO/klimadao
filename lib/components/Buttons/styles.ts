@@ -22,3 +22,8 @@ export const button_primary = css`
     background-color: var(--primary-variant);
   }
 `;
+
+export const button_gray = css`
+  background-color: var(--white);
+  color: var(--surface-02) !important;
+`;
