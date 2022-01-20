@@ -30,7 +30,7 @@ export const selectPklimaTerms = createSelector(
   (user) => user.pklimaTerms
 );
 
-export const notificationStatus = createSelector(
+export const selectNotificationStatus = createSelector(
   selectAppState,
   (rootState) => rootState.notificationStatus
 );

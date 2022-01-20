@@ -32,7 +32,7 @@ export const changeApprovalTransaction = async (params: {
     const txn = await contract.approve(approvalAddress, value.toString());
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done", "Approval Successful");
+    params.onStatus("done", "Approval was successful");
     return value;
   } catch (error: any) {
     if (error.code === 4001) {
@@ -73,7 +73,7 @@ export const redeemTransaction = async (params: {
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done", "Bond Redeemed Successfully");
+    params.onStatus("done", "Bond redeemed successfully");
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");

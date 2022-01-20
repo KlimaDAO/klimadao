@@ -23,7 +23,7 @@ export const changeApprovalTransaction = async (params: {
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done", "Approval successfull");
+    params.onStatus("done", "Approval was successful");
     return formatUnits(value);
   } catch (error: any) {
     if (error.code === 4001) {
@@ -58,7 +58,7 @@ export const wrapTransaction = async (params: {
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done", "Transaction Successful");
+    params.onStatus("done", "Transaction was successful");
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");

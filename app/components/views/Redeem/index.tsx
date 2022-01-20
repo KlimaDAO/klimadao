@@ -10,7 +10,7 @@ import { ethers } from "ethers";
 import { selectBalances, selectMigrateAllowance } from "state/selectors";
 import { redeemAlpha, setMigrateAllowance } from "state/user";
 import { useAppDispatch } from "state";
-import { notificationStatus } from "state/selectors";
+import { selectNotificationStatus } from "state/selectors";
 import { setAppState, AppNotificationStatus } from "state/app";
 
 interface Props {
@@ -23,15 +23,16 @@ export const Redeem: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
 
-  const fullStatus: AppNotificationStatus | null =
-    useSelector(notificationStatus);
+  const fullStatus: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
   const status = fullStatus && fullStatus.statusType;
 
-  const setStatus = (status: string, message: string) => {
-    if (!status) dispatch(setAppState({ notificationStatus: null }));
+  const setStatus = (statusType: string, message: string) => {
+    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
     else
       dispatch(
-        setAppState({ notificationStatus: { statusType: status, message } })
+        setAppState({ notificationStatus: { statusType, message } })
       );
   };
 

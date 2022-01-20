@@ -7,7 +7,7 @@ import UpOutlined from "@mui/icons-material/KeyboardArrowUpRounded";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import { Link } from "react-router-dom";
 import { setAppState, AppNotificationStatus } from "state/app";
-import { notificationStatus } from "state/selectors";
+import { selectNotificationStatus } from "state/selectors";
 
 import {
   changeApprovalTransaction,
@@ -75,15 +75,16 @@ export const Bond: FC<Props> = (props) => {
   const bondInfo = useBond(props.bond);
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  const fullStatus: AppNotificationStatus | null =
-    useSelector(notificationStatus);
+  const fullStatus: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
   const status = fullStatus && fullStatus.statusType;
 
-  const setStatus = (status: string, message: string) => {
-    if (!status) dispatch(setAppState({ notificationStatus: null }));
+  const setStatus = (statusType: string, message: string) => {
+    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
     else
       dispatch(
-        setAppState({ notificationStatus: { statusType: status, message } })
+        setAppState({ notificationStatus: { statusType, message } })
       );
   };
 
@@ -412,9 +413,8 @@ export const Bond: FC<Props> = (props) => {
             }
             onChange={(e) => setQuantity(e.target.value)}
             type="number"
-            placeholder={`Amount to ${
-              { bond: "bond", redeem: "redeem" }[view]
-            }`}
+            placeholder={`Amount to ${{ bond: "bond", redeem: "redeem" }[view]
+              }`}
             min="0"
             step={
               view === "bond" && bondInfo.balanceUnit === "SLP" ? "1" : "0.0001"

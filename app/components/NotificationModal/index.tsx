@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { useSelector } from "react-redux";
-import { notificationStatus } from "state/selectors";
+import { selectNotificationStatus } from "state/selectors";
 import styles from "./index.module.css";
 import AlarmIcon from "@mui/icons-material/Alarm";
 import CloseIcon from "@mui/icons-material/Close";
@@ -19,7 +19,7 @@ type StatusTypes =
   | "networkConfirmation"
   | "claimExceeded";
 
-interface Props {}
+interface Props { }
 
 interface ModalAssetTypes {
   [key: string]: {
@@ -38,7 +38,7 @@ const modalAssets: ModalAssetTypes = {
     done: styles.icon_success,
     error: styles.icon_failure,
     userConfirmation: styles.icon_confirmation,
-    networkConfirmation: styles.icon_confirmation,
+    networkConfirmation: styles.icon_network_confirmation,
   },
   iconComponent: {
     done: <CheckIcon />,
@@ -50,7 +50,9 @@ const modalAssets: ModalAssetTypes = {
 
 export const NotificationModal: FC<Props> = () => {
   const dispatch = useDispatch();
-  const status: AppNotificationStatus | null = useSelector(notificationStatus);
+  const status: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
   if (!status) return null;
   const { statusType, message } = status;
   if (status && statusType === "claimExceeded") return <ClaimExceededModal />;
@@ -67,24 +69,22 @@ export const NotificationModal: FC<Props> = () => {
   };
 
   return (
-    <>
-      <div className={styles.bg}>
-        <div className={styles.card}>
-          <div className={styles.card_header}>
-            <p>{getAsset("header", status)}</p>
-            <button onClick={closeModal} className={styles.closeButton}>
-              <CloseIcon />
-            </button>
-          </div>
-          <div
-            className={`${styles.icon_container}  
-            ${getAsset("iconStyle", status)}`}
-          >
-            {getAsset("iconComponent", status)}
-          </div>
-          <p className={styles.card_message}>{getStatusMessage(status)}</p>
+    <div className={styles.bg}>
+      <div className={styles.card}>
+        <div className={styles.card_header}>
+          <p>{getAsset("header", status)}</p>
+          <button onClick={closeModal} className={styles.closeButton}>
+            {status && (statusType === "done" || statusType === "error") && <CloseIcon />}
+          </button>
         </div>
+        <div
+          className={`${styles.icon_container}  
+            ${getAsset("iconStyle", status)}`}
+        >
+          {getAsset("iconComponent", status)}
+        </div>
+        <p className={styles.card_message}>{getStatusMessage(status)}</p>
       </div>
-    </>
+    </div>
   );
 };

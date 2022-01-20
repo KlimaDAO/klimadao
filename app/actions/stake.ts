@@ -77,7 +77,7 @@ export const changeStakeTransaction = async (params: {
         : await contract.unstake(parsedValue, true); // always trigger rebase because gas is cheap
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done", "Transaction Confirmed");
+    params.onStatus("done", "Transaction confirmed");
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");

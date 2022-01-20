@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
-import { notificationStatus } from "state/selectors";
+import { selectNotificationStatus } from "state/selectors";
 import { setAppState, AppNotificationStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
@@ -54,15 +54,16 @@ export const Stake = (props: Props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
   const [view, setView] = useState("stake");
-  const fullStatus: AppNotificationStatus | null =
-    useSelector(notificationStatus);
+  const fullStatus: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
   const status = fullStatus && fullStatus.statusType;
 
-  const setStatus = (status: string, message: string) => {
-    if (!status) dispatch(setAppState({ notificationStatus: null }));
+  const setStatus = (statusType: string, message: string) => {
+    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
     else
       dispatch(
-        setAppState({ notificationStatus: { statusType: status, message } })
+        setAppState({ notificationStatus: { statusType, message } })
       );
   };
 
@@ -261,9 +262,8 @@ export const Stake = (props: Props) => {
               setStatus("", "");
             }}
             type="number"
-            placeholder={`Amount to ${
-              { stake: "stake", unstake: "unstake" }[view]
-            }`}
+            placeholder={`Amount to ${{ stake: "stake", unstake: "unstake" }[view]
+              }`}
             min="0"
           />
           <button

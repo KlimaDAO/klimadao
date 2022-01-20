@@ -193,7 +193,7 @@ export const changeApprovalTransaction = async (params: {
     const txn = await contract.approve(approvalAddress, value.toString());
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done", "Transaction successfully approved");
+    params.onStatus("done", "Approval was successfull");
     return value;
   } catch (error: any) {
     if (error.code === 4001) {

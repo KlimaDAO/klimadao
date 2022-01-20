@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
 import styles from "components/views/Stake/index.module.css";
-import { notificationStatus } from "state/selectors";
+import { selectNotificationStatus } from "state/selectors";
 import { setAppState, AppNotificationStatus } from "state/app";
 
 import {
@@ -32,14 +32,15 @@ interface Props {
 export const Wrap: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
-  const fullStatus: AppNotificationStatus | null =
-    useSelector(notificationStatus);
+  const fullStatus: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
   const status = fullStatus && fullStatus.statusType;
-  const setStatus = (status: string, message: string) => {
-    if (!status) dispatch(setAppState({ notificationStatus: null }));
+  const setStatus = (statusType: string, message: string) => {
+    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
     else
       dispatch(
-        setAppState({ notificationStatus: { statusType: status, message } })
+        setAppState({ notificationStatus: { statusType, message } })
       );
   };
 
@@ -309,9 +310,8 @@ export const Wrap: FC<Props> = (props) => {
             You will get
             <TextInfoTooltip
               singleton={singleton}
-              content={`Amount you will get after ${
-                view === "wrap" ? "wrapping" : "unwrapping"
-              }`}
+              content={`Amount you will get after ${view === "wrap" ? "wrapping" : "unwrapping"
+                }`}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
