@@ -8,6 +8,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react", "@typescript-eslint"],
+  "ignorePatterns": ["next.config.js"],
   "rules": {
     "react-hooks/exhaustive-deps": "off",
     "react/no-unescaped-entities": "off",
