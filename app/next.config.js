@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const config = {
+  eslint: {
+    dirs: ["actions", "components", "lib", "pages", "state"],
+  },
   reactStrictMode: true,
   async redirects() {
     return [
