@@ -29,7 +29,7 @@ for (const key in locales) {
 /**
  * Loads a translation file
  */
-async function loadTranslation(locale: string = "en") {
+async function loadTranslation(locale = "en") {
   let data;
   if (IS_LOCAL_DEVELOPMENT) {
     // dynamic loading in dev https://lingui.js.org/ref/loader.html

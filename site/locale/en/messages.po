@@ -13,70 +13,118 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Redesign/index.tsx:183
+#: components/pages/Redesign/index.tsx:202
 msgid "2,424,621"
 msgstr "2,424,621"
 
-#: components/pages/Redesign/index.tsx:192
+#: components/pages/Redesign/index.tsx:217
 msgid "5,697,736,801"
 msgstr "5,697,736,801"
 
-#: components/pages/Redesign/index.tsx:174
+#: components/pages/Redesign/index.tsx:189
 msgid "55,766"
 msgstr "55,766"
+
+#: components/pages/Resources/Contact/index.tsx:184
+msgid "Bug Reports"
+msgstr "Bug Reports"
+
+#: components/pages/Resources/Contact/index.tsx:122
+msgid "Careers"
+msgstr "Careers"
 
 #: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
 msgstr "Change language"
 
+#: components/pages/Resources/Contact/index.tsx:84
+msgid "Contact"
+msgstr "Contact"
+
 #: components/pages/Home/index.tsx:83
 msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 
-#: components/pages/Redesign/index.tsx:165
+#: components/pages/Redesign/index.tsx:176
 msgid "EQUIVALENT TO"
 msgstr "EQUIVALENT TO"
 
-#: components/pages/Redesign/index.tsx:54
-#: components/pages/Redesign/index.tsx:120
+#: components/pages/Redesign/index.tsx:53
+#: components/pages/Redesign/index.tsx:119
 msgid "Enter App"
 msgstr "Enter App"
 
-#: components/pages/Redesign/index.tsx:170
+#: components/pages/Redesign/index.tsx:188
 msgid "HECTARES OF FOREST"
 msgstr "HECTARES OF FOREST"
 
-#: components/pages/Redesign/index.tsx:113
+#: components/pages/Resources/Contact/index.tsx:170
+msgid "If you are a journalist or content creator, our marketing team would love to meet you. [TODO: NEED A LINK OR EMAIL FROM MARKETING TEAM]"
+msgstr "If you are a journalist or content creator, our marketing team would love to meet you. [TODO: NEED A LINK OR EMAIL FROM MARKETING TEAM]"
+
+#: components/pages/Resources/Contact/index.tsx:107
+msgid "Join our <0>community</0> Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
+msgstr "Join our <0>community</0> Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
+
+#: components/pages/Redesign/index.tsx:112
 msgid "KlimaDAO harnesses the power of cryptocurrency, blockchain and smart contracts to create incentives for environmental protection."
 msgstr "KlimaDAO harnesses the power of cryptocurrency, blockchain and smart contracts to create incentives for environmental protection."
 
-#: components/pages/Redesign/index.tsx:139
+#: components/pages/Redesign/index.tsx:144
 msgid "KlimaDAO is creating and governing a carbon-backed currency, which acts as the base unit of the on-chain carbon economy."
 msgstr "KlimaDAO is creating and governing a carbon-backed currency, which acts as the base unit of the on-chain carbon economy."
 
-#: components/pages/Redesign/index.tsx:132
+#: components/pages/Redesign/index.tsx:137
 msgid "KlimaDAO’s vision is a future where the cost of carbon to the climate is embedded into our economic system."
 msgstr "KlimaDAO’s vision is a future where the cost of carbon to the climate is embedded into our economic system."
 
-#: components/pages/Redesign/index.tsx:111
+#: components/pages/Redesign/index.tsx:110
 msgid "KlimaDao"
 msgstr "KlimaDao"
 
-#: components/pages/Redesign/index.tsx:188
+#: components/pages/Redesign/index.tsx:214
 msgid "LITERS OF GASOLINE"
 msgstr "LITERS OF GASOLINE"
 
-#: components/pages/Redesign/index.tsx:179
+#: components/pages/Resources/Contact/index.tsx:167
+msgid "Media"
+msgstr "Media"
+
+#: components/pages/Redesign/index.tsx:201
 msgid "PASSENGER VEHICLES"
 msgstr "PASSENGER VEHICLES"
 
-#: components/pages/Redesign/index.tsx:159
+#: components/pages/Resources/Contact/index.tsx:143
+msgid "Partnerships"
+msgstr "Partnerships"
+
+#: components/pages/Resources/Contact/index.tsx:104
+msgid "Questions & Support"
+msgstr "Questions & Support"
+
+#: components/pages/Resources/Contact/index.tsx:90
+msgid "Questions, concerns, ideas? Here are a few ways you can get in touch. We love meeting institutions and individuals alike."
+msgstr "Questions, concerns, ideas? Here are a few ways you can get in touch. We love meeting institutions and individuals alike."
+
+#: components/pages/Redesign/index.tsx:170
 msgid "TONS OF CARBON LOCKED BY KLIMA"
 msgstr "TONS OF CARBON LOCKED BY KLIMA"
 
-#: components/pages/Redesign/index.tsx:145
+#: components/pages/Redesign/index.tsx:150
 msgid "Through the KLIMA token, we can help to align incentives between investors, civil society, and organizations, towards a more sustainable future."
 msgstr "Through the KLIMA token, we can help to align incentives between investors, civil society, and organizations, towards a more sustainable future."
+
+#: components/pages/Resources/Contact/index.tsx:187
+msgid "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
+msgstr "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
+
+#: components/pages/Resources/Contact/index.tsx:146
+msgid "Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>."
+msgstr "Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>."
+
+#: components/pages/Resources/Contact/index.tsx:125
+msgid "We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
+msgstr "We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
 
 #: components/pages/Home/index.tsx:235
 msgid "card.blackhole.carbon"
@@ -150,28 +198,28 @@ msgstr "source"
 msgid "info.price"
 msgstr "Price (USDC)"
 
-#: components/pages/Redesign/index.tsx:80
-#: components/pages/Redesign/index.tsx:104
+#: components/pages/Redesign/index.tsx:79
+#: components/pages/Redesign/index.tsx:103
 msgid "mainNav.bond"
 msgstr "Bond"
 
-#: components/pages/Redesign/index.tsx:66
-#: components/pages/Redesign/index.tsx:90
+#: components/pages/Redesign/index.tsx:65
+#: components/pages/Redesign/index.tsx:89
 msgid "mainNav.buyKlima"
 msgstr "Buy Klima"
 
-#: components/pages/Redesign/index.tsx:61
-#: components/pages/Redesign/index.tsx:86
+#: components/pages/Redesign/index.tsx:60
+#: components/pages/Redesign/index.tsx:85
 msgid "mainNav.home"
 msgstr "Home"
 
-#: components/pages/Redesign/index.tsx:72
-#: components/pages/Redesign/index.tsx:96
+#: components/pages/Redesign/index.tsx:71
+#: components/pages/Redesign/index.tsx:95
 msgid "mainNav.stake"
 msgstr "Stake"
 
-#: components/pages/Redesign/index.tsx:76
-#: components/pages/Redesign/index.tsx:100
+#: components/pages/Redesign/index.tsx:75
+#: components/pages/Redesign/index.tsx:99
 msgid "mainNav.wrap"
 msgstr "Wrap"
 
@@ -223,6 +271,6 @@ msgstr "The treasury is the center of the black hole. Every KLIMA token is backe
 msgid "tour.treasury.title"
 msgstr "Klima Treasury"
 
-#: components/pages/Redesign/index.tsx:110
+#: components/pages/Redesign/index.tsx:109
 msgid "👋 WELCOME TO"
 msgstr "👋 WELCOME TO"
