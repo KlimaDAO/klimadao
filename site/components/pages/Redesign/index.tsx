@@ -1,5 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";

@@ -38,3 +38,8 @@ export const button_gray = css`
     color: var(--font-02); /* same in darkmode */
   }
 `;
+
+export const button_gray = css`
+  background-color: var(--white);
+  color: var(--surface-02) !important;
+`;

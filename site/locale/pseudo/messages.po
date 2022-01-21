@@ -72,6 +72,14 @@ msgstr ""
 msgid "Cars (annual)"
 msgstr ""
 
+#: components/pages/Resources/Contact/index.tsx:184
+msgid "Bug Reports"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:122
+msgid "Careers"
+msgstr ""
+
 #: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
 msgstr ""
@@ -460,6 +468,6 @@ msgstr ""
 msgid "👋 WELCOME TO"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:110
+#: components/pages/Redesign/index.tsx:109
 msgid "👋 WELCOME TO"
 msgstr ""

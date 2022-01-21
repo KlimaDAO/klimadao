@@ -72,6 +72,14 @@ msgstr "Careers"
 msgid "Cars (annual)"
 msgstr "Cars (annual)"
 
+#: components/pages/Resources/Contact/index.tsx:184
+msgid "Bug Reports"
+msgstr "Bug Reports"
+
+#: components/pages/Resources/Contact/index.tsx:122
+msgid "Careers"
+msgstr "Careers"
+
 #: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
 msgstr "Change language"
