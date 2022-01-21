@@ -2,6 +2,9 @@ import React, { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 
+import { selectNotificationStatus } from "state/selectors";
+import { setAppState, AppNotificationStatus } from "state/app";
+
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 
@@ -18,14 +21,12 @@ import {
 import { redeemPklima, setExerciseAllowance } from "state/user";
 import { useAppDispatch } from "state";
 
-import { TxnStatus } from "actions/utils";
 import {
   exerciseTransaction,
   changeApprovalTransaction,
   loadTerms,
 } from "actions/pklima";
 import styles from "components/views/Stake/index.module.css";
-import { ClaimExceededModal } from "./ClaimExceededModal";
 
 interface Props {
   provider: providers.JsonRpcProvider;
@@ -37,7 +38,16 @@ export const PKlima: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
 
-  const [status, setStatus] = useState<TxnStatus | "" | "claimExceeded">("");
+  const fullStatus: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
+  const status = fullStatus && fullStatus.statusType;
+
+  const setStatus = (statusType: string, message: string) => {
+    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
+    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  };
+
   const [quantity, setQuantity] = useState("");
 
   const balances = useSelector(selectBalances);
@@ -66,7 +76,7 @@ export const PKlima: FC<Props> = (props) => {
   }, [address]);
 
   const setMax = () => {
-    setStatus("");
+    setStatus("", "");
     setQuantity(terms?.redeemable ?? "0");
   };
 
@@ -146,36 +156,6 @@ export const PKlima: FC<Props> = (props) => {
     }
   };
 
-  const getStatusMessage = () => {
-    if (status === "userConfirmation") {
-      return (
-        <Trans id="status.pending_confirmation">
-          Please click 'confirm' in your wallet to continue.
-        </Trans>
-      );
-    } else if (status === "networkConfirmation") {
-      return (
-        <Trans id="status.transaction_started">
-          Transaction initiated. Waiting for network confirmation.
-        </Trans>
-      );
-    } else if (status === "error") {
-      return (
-        <Trans id="status.transaction_error">
-          ❌ Error: something went wrong...
-        </Trans>
-      );
-    } else if (status === "done") {
-      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
-    } else if (status === "userRejected") {
-      return (
-        <Trans id="status.transaction_rejected">
-          ✖️ You chose to reject the transaction.
-        </Trans>
-      );
-    }
-    return null;
-  };
   defineMessage({
     id: "pklima.klima_to_exercise",
     message: "PKLIMA TO EXERCISE",
@@ -213,7 +193,7 @@ export const PKlima: FC<Props> = (props) => {
               value={quantity}
               onChange={(e) => {
                 setQuantity(e.target.value);
-                setStatus("");
+                setStatus("", "");
               }}
               type="number"
               placeholder={i18n._("pklima.klima_to_exercise")}
@@ -331,11 +311,7 @@ export const PKlima: FC<Props> = (props) => {
             {...getButtonProps()}
           />
         </div>
-        {getStatusMessage() && (
-          <p className={styles.statusMessage}>{getStatusMessage()}</p>
-        )}
       </div>
-      {status === "claimExceeded" && <ClaimExceededModal />}
     </>
   );
 };

@@ -1,18 +1,17 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { changeApprovalTransaction, redeemTransaction } from "actions/redeem";
-
-// Copied from Stake view despite T/t (changed styles to match original)
-import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "components/views/Stake/index.module.css";
-import { Trans } from "@lingui/macro";
 
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
+import t from "@klimadao/lib/theme/typography.module.css";
 import { ethers } from "ethers";
 import { selectBalances, selectMigrateAllowance } from "state/selectors";
 import { redeemAlpha, setMigrateAllowance } from "state/user";
 import { useAppDispatch } from "state";
+import { selectNotificationStatus } from "state/selectors";
+import { setAppState, AppNotificationStatus } from "state/app";
 
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
@@ -23,7 +22,17 @@ interface Props {
 export const Redeem: FC<Props> = (props) => {
   const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
-  const [status, setStatus] = useState(""); // "userConfirmation", "networkConfirmation", "done", "userRejected, "error"
+
+  const fullStatus: AppNotificationStatus | null = useSelector(
+    selectNotificationStatus
+  );
+  const status = fullStatus && fullStatus.statusType;
+
+  const setStatus = (statusType: string, message: string) => {
+    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
+    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  };
+
   const [view, setView] = useState<"aklima" | "alklima">("aklima"); // aKLIMA alKLIMA
   const [quantity, setQuantity] = useState("");
 
@@ -38,7 +47,7 @@ export const Redeem: FC<Props> = (props) => {
       isLoading);
 
   const setMax = () => {
-    setStatus("");
+    setStatus("", "");
     if (view === "aklima") {
       setQuantity(balances?.aklima ?? "0");
     } else {
@@ -84,18 +93,13 @@ export const Redeem: FC<Props> = (props) => {
     return allowances && !!Number(allowances.alklima);
   };
 
-  // added trans tags below - sirthus
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return {
-        children: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "Not Connected", onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
-        children: <Trans id="button.loading">Loading</Trans>,
+        children: "Loading",
         onClick: undefined,
         disabled: true,
       };
@@ -103,97 +107,45 @@ export const Redeem: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return {
-        children: <Trans id="button.confirming">Confirming</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "Confirming", onClick: undefined, disabled: true };
     } else if (view === "aklima" && !hasApproval("aklima")) {
-      return {
-        children: <Trans id="button.approve">Approve</Trans>,
-        onClick: handleApproval("aklima"),
-      };
+      return { children: "Approve", onClick: handleApproval("aklima") };
     } else if (view === "alklima" && !hasApproval("alklima")) {
-      return {
-        children: <Trans id="button.approve">Approve</Trans>,
-        onClick: handleApproval("alklima"),
-      };
+      return { children: "Approve", onClick: handleApproval("alklima") };
     } else if (view === "aklima") {
       return {
-        children: <Trans id="button.redeem">Redeem</Trans>,
+        children: "Redeem",
         onClick: handleRedeem("aklima"),
         disabled: !value || !balances || value > Number(balances.aklima),
       };
     } else if (view === "alklima") {
       return {
-        children: <Trans id="button.redeem">Redeem</Trans>,
+        children: "Redeem",
         onClick: handleRedeem("alklima"),
         disabled: !value || !balances || value > Number(balances.alklima),
       };
     } else {
-      return {
-        children: <Trans id="button.error">ERROR</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return { children: "ERROR", onClick: undefined, disabled: true };
     }
   };
 
-  // added trans tags below - sirthus
-  const getStatusMessage = () => {
-    if (status === "userConfirmation") {
-      return (
-        <Trans id="status.pending_confirmation">
-          Please click 'confirm' in your wallet to continue.
-        </Trans>
-      );
-    } else if (status === "networkConfirmation") {
-      return (
-        <Trans id="status.transaction_started">
-          Transaction initiated. Waiting for network confirmation.
-        </Trans>
-      );
-    } else if (status === "error") {
-      return (
-        <Trans id="status.transaction_error">
-          ❌ Error: something went wrong...
-        </Trans>
-      );
-    } else if (status === "done") {
-      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
-    } else if (status === "userRejected") {
-      return (
-        <Trans id="status.transaction_rejected">
-          ✖️ You chose to reject the transaction.
-        </Trans>
-      );
-    }
-    return null;
-  };
-
-  // Added trans ids as msg. unsure? - sirthus
-  // how to use trans id and links?
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={T.h4}>Redeem aKLIMA</h2>
-        <p className={T.body2}>
-          <Trans id="msg.aklima">
-            If you received AlphaKLIMA from the Fair Launch Auction, or
-            AlchemistKLIMA from the Crucible rewards event, use this tool to
-            redeem them for KLIMA.
-          </Trans>
+        <h2 className={t.h4}>Redeem aKLIMA</h2>
+        <p className={t.body2}>
+          If you received AlphaKLIMA from the Fair Launch Auction, or
+          AlchemistKLIMA from the Crucible rewards event, use this tool to
+          redeem them for KLIMA.
         </p>
-        <p className={T.body2}>
+        <p className={t.body2}>
           👉{" "}
           <strong>
-            <Trans id="msg.bridge">
-              Before proceeding: you must bridge your aKLIMA and alKLIMA tokens
-              from Ethereum to Polygon.
-            </Trans>
+            Before proceeding: you must bridge your aKLIMA and alKLIMA tokens
+            from Ethereum to Polygon.
           </strong>
         </p>
-        <p className={T.body2}>
+        <p className={t.body2}>
           Complete the migration at{" "}
           <a
             target="_blank"
@@ -312,9 +264,6 @@ export const Redeem: FC<Props> = (props) => {
           {...getButtonProps()}
         />
       </div>
-      {getStatusMessage() && (
-        <p className={styles.statusMessage}>{getStatusMessage()}</p>
-      )}
     </div>
   );
 };

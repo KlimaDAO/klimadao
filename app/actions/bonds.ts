@@ -218,23 +218,22 @@ export const changeApprovalTransaction = async (params: {
     });
     const approvalAddress = getBondAddress({ bond: params.bond });
     const value = ethers.utils.parseUnits("1000000000", "ether");
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.approve(approvalAddress, value.toString());
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Approval was successfull");
     return value;
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };
@@ -337,22 +336,21 @@ export const bondTransaction = async (params: {
     const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
     const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
     const valueInWei = ethers.utils.parseUnits(params.value, "ether");
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.deposit(valueInWei, maxPremium, params.address);
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Bond acquired successfully");
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };
@@ -372,22 +370,21 @@ export const redeemTransaction = async (params: {
       Depository.abi,
       signer
     );
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.redeem(params.address, autostake);
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Bond redeemed successfully");
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };

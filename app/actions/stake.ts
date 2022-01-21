@@ -1,6 +1,5 @@
 import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
-
 import { addresses } from "@klimadao/lib/constants";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
@@ -31,23 +30,22 @@ export const changeApprovalTransaction = async (params: {
       unstake: addresses["mainnet"].staking,
     }[params.action];
     const value = ethers.utils.parseUnits("1000000000", "gwei"); //bignumber
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.approve(address, value.toString());
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Transaction approved successfully");
     return formatUnits(value, 9);
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
     }
-    params.onStatus("error");
+    params.onStatus("error", error.message);
     throw error;
   }
 };
@@ -72,25 +70,24 @@ export const changeStakeTransaction = async (params: {
         params.provider.getSigner()
       ),
     }[params.action];
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn =
       params.action === "stake"
         ? await contract.stake(parsedValue)
         : await contract.unstake(parsedValue, true); // always trigger rebase because gas is cheap
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Transaction confirmed");
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };

@@ -1,5 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export interface AppNotificationStatus {
+  statusType: string | undefined;
+  message: string | undefined;
+}
+
 interface AppState {
   currentIndex: string | undefined;
   currentBlock: number | undefined;
@@ -9,6 +14,7 @@ interface AppState {
   treasuryBalance: number | undefined;
   rebaseBlock: number | undefined;
   locale: string | undefined;
+  notificationStatus: AppNotificationStatus | null;
 }
 
 const initialState: AppState = {
@@ -20,6 +26,7 @@ const initialState: AppState = {
   treasuryBalance: undefined,
   rebaseBlock: undefined,
   locale: undefined,
+  notificationStatus: null,
 };
 
 export const appSlice = createSlice({

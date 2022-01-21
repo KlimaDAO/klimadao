@@ -26,6 +26,7 @@ import { generateLinks, LoadWeb3Modal } from "./constants";
 import Nav from "./Nav";
 import WalletAction from "./WalletAction";
 import MobileMenu from "./MobileMenu";
+import { NotificationModal } from "components/NotificationModal";
 
 import { Trans } from "@lingui/macro";
 import { init } from "lib/i18n";
@@ -453,6 +454,7 @@ export const Home: FC = () => {
           }}
         />
       )}
+      <NotificationModal />
     </>
   );
 };
