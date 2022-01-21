@@ -8,6 +8,7 @@ export const headingLarge = css`
   color: var(--headings-color);
   line-height: 5.5rem;
   padding-bottom: 2rem;
+  text-transform: uppercase;
 `;
 
 export const headingMedium = css`
