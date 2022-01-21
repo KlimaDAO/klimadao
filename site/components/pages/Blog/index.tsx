@@ -1,85 +1,55 @@
-import React from "react";
+import React, { FC, PropsWithChildren, ReactNode } from "react";
 
-import {
-  HeaderDesktop,
-  Footer,
-  NavItemDesktop,
-  HeaderMobile,
-  NavItemMobile,
-  ButtonPrimary,
-  PageWrap,
-} from "@klimadao/lib/components";
 import { AllPosts } from "lib/queries";
-import { PageHead } from "components/PageHead";
 
 import { Card } from "components/Card";
 
-import styles from "./index.module.css";
-import { urls } from "@klimadao/lib/constants";
-import { IS_PRODUCTION } from "lib/constants";
+import { t } from "@lingui/macro";
 
-interface BlogProps {
+import styles from "./index.module.css";
+import { Container } from "../Resources/Container";
+
+// interface BlogProps extends PropsWithChildren<ReactNode> {
+//   posts: AllPosts;
+// }
+
+type BlogProps = PropsWithChildren<ReactNode> & {
   posts: AllPosts;
-}
+};
+
+const TopElement: FC<PropsWithChildren<ReactNode>> = () => (
+  <div className={styles.container}>
+    <section className={styles.headerSection}>
+      <h1>Blog</h1>
+      <p>
+        Updates and thought leadership from the founders, DAO contributors,
+        advisors and community.
+      </p>
+    </section>
+  </div>
+);
 
 export function Blog(props: BlogProps) {
   return (
-    <>
-      <PageHead
-        production={IS_PRODUCTION}
-        title="KlimaDAO | Blog"
-        mediaTitle="KlimaDAO | Blog"
-        metaDescription="Updates and thought leadership from the founders, DAO contributors, advisors and community."
-        mediaImageSrc="/og-media.jpg"
-      />
-      <PageWrap>
-        <HeaderDesktop
-          buttons={[
-            <ButtonPrimary key="Enter App" label="Enter App" href={urls.app} />,
-          ]}
-        >
-          <NavItemDesktop url={urls.home} name="Home" active={true} />
-          <NavItemDesktop
-            url={urls.tutorial}
-            name="Buy Klima"
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <NavItemDesktop url={urls.stake} name="Stake" />
-          <NavItemDesktop url={urls.wrap} name="Wrap" />
-          <NavItemDesktop url={urls.bond} name="Bond" />
-        </HeaderDesktop>
-        <HeaderMobile>
-          <NavItemMobile url={urls.home} name="Home" />
-          <NavItemMobile
-            url={urls.tutorial}
-            name="Buy Klima"
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <NavItemMobile url={urls.stake} name="Stake" />
-          <NavItemMobile url={urls.stake} name="Wrap" />
-          <NavItemMobile url={urls.bond} name="Bond" />
-        </HeaderMobile>
-        <div className={styles.container}>
-          <section className={styles.headerSection}>
-            <h1>Blog</h1>
-            <p>
-              Updates and thought leadership from the founders, DAO
-              contributors, advisors and community.
-            </p>
-          </section>
-          <section className={styles.cardsSection}>
-            <h3>Articles</h3>
-            <div className={styles.cards}>
-              {props.posts.map((post) => (
-                <Card key={post.slug} post={post} />
-              ))}
-            </div>
-          </section>
-        </div>
-        <Footer />
-      </PageWrap>
-    </>
+    <Container
+      activePage={"blog"}
+      title={t`KlimaDAO Blog`}
+      mediaTitle={t`KlimaDAO Blog`}
+      metaDescription={t`Updates and thought leadership from the founders, DAO contributors,
+        advisors and community.`}
+      mediaImageSrc="/og-media.jpg"
+      topMobileElement={TopElement}
+    >
+      <div className={styles.container}>
+        <section className={styles.cardsSection}>
+          <h3>Articles</h3>
+          <div className={styles.cards}>
+            {props.posts.map((post) => (
+              <Card key={post.slug} post={post} />
+            ))}
+          </div>
+        </section>
+      </div>
+    </Container>
   );
 }

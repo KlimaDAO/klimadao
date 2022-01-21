@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { t } from "@lingui/macro";
 
@@ -47,6 +48,7 @@ export const Home: NextPage<Props> = (props) => {
       />
       <PageWrap>
         <HeaderDesktop
+          link={Link}
           buttons={[
             <ButtonPrimary
               key="Enter App"
@@ -56,8 +58,9 @@ export const Home: NextPage<Props> = (props) => {
           ]}
         >
           <NavItemDesktop
-            url={urls.home}
+            url={"/"}
             name={t({ message: "Home", id: "mainNav.home" })}
+            link={Link}
             active={true}
           />
           <NavItemDesktop
@@ -77,6 +80,11 @@ export const Home: NextPage<Props> = (props) => {
           <NavItemDesktop
             url={urls.bond}
             name={t({ message: "Bond", id: "mainNav.bond" })}
+          />
+          <NavItemDesktop
+            url={"/resources"}
+            name={t({ message: "Resources", id: "mainNav.resources" })}
+            link={Link}
           />
         </HeaderDesktop>
         <HeaderMobile>
