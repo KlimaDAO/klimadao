@@ -20,6 +20,7 @@ interface AppState {
   stakingRebase: number | undefined;
   treasuryBalance: number | undefined;
   rebaseBlock: number | undefined;
+  blockRate: number;
   locale: string | undefined;
   notificationStatus: AppNotificationStatus | null;
 }
@@ -32,6 +33,7 @@ const initialState: AppState = {
   stakingRebase: undefined,
   treasuryBalance: undefined,
   rebaseBlock: undefined,
+  blockRate: 2.5,
   locale: undefined,
   notificationStatus: null,
 };

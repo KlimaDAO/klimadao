@@ -49,13 +49,14 @@ import { BondBalancesCard } from "components/BondBalancesCard";
 export function prettyVestingPeriod(
   locale: string | undefined,
   currentBlock: number,
-  vestingBlock: number
+  vestingBlock: number,
+  blockRate: number
 ) {
   if (vestingBlock === 0) {
     return "";
   }
 
-  const seconds = secondsUntilBlock(currentBlock, vestingBlock);
+  const seconds = secondsUntilBlock(currentBlock, vestingBlock, blockRate);
   if (seconds < 0) {
     return "Fully Vested";
   }
@@ -126,7 +127,7 @@ export const Bond: FC<Props> = (props) => {
   const [quantity, setQuantity] = useState("");
   const debouncedQuantity = useDebounce(quantity, 500);
 
-  const { currentBlock, locale } = useSelector(selectAppState);
+  const { currentBlock, locale, blockRate } = useSelector(selectAppState);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
   const allowance = useSelector(selectBondAllowance);
 
@@ -143,7 +144,7 @@ export const Bond: FC<Props> = (props) => {
   const vestingPeriod = () => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
     const vestingBlock = currentBlock + bondState.vestingTerm;
-    const seconds = secondsUntilBlock(currentBlock, vestingBlock);
+    const seconds = secondsUntilBlock(currentBlock, vestingBlock, blockRate);
     return prettifySeconds(seconds);
   };
 
@@ -152,7 +153,8 @@ export const Bond: FC<Props> = (props) => {
     return prettyVestingPeriod(
       locale,
       currentBlock,
-      bondState.bondMaturationBlock
+      bondState.bondMaturationBlock,
+      blockRate
     );
   };
 
