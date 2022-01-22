@@ -13,7 +13,6 @@ import {
   redeemTransaction,
   calcBondDetails,
   calculateUserBondDetails,
-  DEFAULT_QUOTE_SLP,
 } from "actions/bonds";
 
 import typography from "@klimadao/lib/theme/typography";
@@ -122,7 +121,7 @@ export const Bond: FC<Props> = (props) => {
 
   const getBondMax = () => {
     if (!bondState?.bondQuote || !bondState?.maxBondPrice) return;
-    const quotedQuantity = quantity || DEFAULT_QUOTE_SLP;
+    const quotedQuantity = quantity || "0";
     const price = Number(quotedQuantity) / Number(bondState.bondQuote);
     const maxPayable = Number(bondState.maxBondPrice) * price;
     return Number(bondState?.balance) < Number(maxPayable)
@@ -430,7 +429,7 @@ export const Bond: FC<Props> = (props) => {
             }`}
             min="0"
             step={
-              view === "bond" && bondInfo.balanceUnit === "SLP" ? "1" : "0.0001"
+              view === "bond" && bondInfo.balanceUnit === "SLP" ? "0.0001" : "1"
             }
             disabled={view === "redeem"}
           />

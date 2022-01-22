@@ -12,8 +12,6 @@ import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
 import OhmDai from "@klimadao/lib/abi/OhmDai.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
-export const DEFAULT_QUOTE_SLP = "0.001"; // Use a realistic SLP ownership so we have a quote before the user inputs any value
-
 const getBondAddress = (params: { bond: Bond }): string => {
   return {
     klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
@@ -124,7 +122,7 @@ export const calcBondDetails = (params: {
   return async (dispatch) => {
     let amountInWei;
     if (!params.value || params.value === "") {
-      amountInWei = ethers.utils.parseEther(DEFAULT_QUOTE_SLP);
+      amountInWei = ethers.utils.parseEther("0");
     } else {
       amountInWei = ethers.utils.parseEther(params.value);
     }
