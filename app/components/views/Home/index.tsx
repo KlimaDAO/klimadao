@@ -304,8 +304,8 @@ export const Home: FC = () => {
         <div className={styles.heroSection}>
           <header className={styles.header}>
             <div className={styles.header_leftCol}>
-              <div className={styles.logoContainer}>
-                <a href={urls.home} style={{ justifySelf: "start" }}>
+              {/* <div className={styles.logoContainer}> */}
+              {/* <a href={urls.home} style={{ justifySelf: "start" }}>
                   <img src="/klima-logo.png" alt="Logo. Go home." />
                 </a>
               </div>
@@ -314,7 +314,7 @@ export const Home: FC = () => {
                   Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake
                   KLIMA to earn interest.
                 </Trans>
-              </p>
+              </p> */}
             </div>
             <MobileMenu
               links={links}

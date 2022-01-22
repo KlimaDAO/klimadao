@@ -1,12 +1,14 @@
 :root {
   --gray: rgb(160, 160, 160);
   /* Material Design naming convention for theme colors */
+  --main-bg: #202020;
   --surface: #121212;
   --surface-01: #1e1e1e;
   --surface-02: #232323;
   --surface-03: #252525;
   --surface-04: #272727;
   --surface-06: #2c2c2c;
+  --surface-07: #9C9C9C;
   --surface-08: #2e2e2e;
   --surface-12: #333333;
   --surface-16: #363636;
