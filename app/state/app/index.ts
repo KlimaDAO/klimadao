@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { FALLBACK_BLOCK_RATE } from "@klimadao/lib/constants";
+
 export type TxnStatus =
   | "userConfirmation"
   | "networkConfirmation"
@@ -20,6 +22,7 @@ interface AppState {
   stakingRebase: number | undefined;
   treasuryBalance: number | undefined;
   rebaseBlock: number | undefined;
+  blockRate: number;
   locale: string | undefined;
   notificationStatus: AppNotificationStatus | null;
 }
@@ -32,6 +35,7 @@ const initialState: AppState = {
   stakingRebase: undefined,
   treasuryBalance: undefined,
   rebaseBlock: undefined,
+  blockRate: FALLBACK_BLOCK_RATE,
   locale: undefined,
   notificationStatus: null,
 };

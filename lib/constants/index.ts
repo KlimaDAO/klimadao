@@ -135,10 +135,9 @@ export const bonds = [
 export type Bond = typeof bonds[number];
 
 export const EPOCH_INTERVAL = 11520;
-// NOTE could get this from an outside source since it changes slightly over time
-export const BLOCK_RATE_SECONDS = 2.5;
+export const FALLBACK_BLOCK_RATE = 2.3;
 
-export const ESTIMATED_DAILY_REBASES = 3.28;
+export const API_BASE_URL = "https://www.klimadao.finance/api";
 
 /** CMS stuff  */
 export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
