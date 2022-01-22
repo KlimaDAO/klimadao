@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
-import { addresses, ESTIMATED_DAILY_REBASES } from "../../constants";
+import { addresses } from "../../constants";
+import { getBlockRate, getEstimatedDailyRebases } from "..";
 import DistributorContractv4 from "../../abi/DistributorContractv4.json";
 import SKlima from "../../abi/sKlima.json";
 
@@ -19,8 +20,10 @@ export const getStakingAPY = async (): Promise<number> => {
   const circSupply = await sklimaContract.circulatingSupply();
   const info = await distributorContract.info(0);
   const stakingReward = await distributorContract.nextRewardAt(info.rate);
+  const blockRate = await getBlockRate();
+  const estimatedDailyRebases = getEstimatedDailyRebases(blockRate);
 
   const stakingRebase = stakingReward / circSupply;
-  const stakingAPY = Math.pow(1 + stakingRebase, 365 * ESTIMATED_DAILY_REBASES);
+  const stakingAPY = Math.pow(1 + stakingRebase, 365 * estimatedDailyRebases);
   return Math.floor(stakingAPY * 100);
 };

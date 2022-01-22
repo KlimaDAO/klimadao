@@ -65,6 +65,7 @@ export const Stake = (props: Props) => {
     stakingAPY,
     currentBlock,
     rebaseBlock,
+    blockRate,
     locale,
   } = useSelector(selectAppState);
 
@@ -135,7 +136,7 @@ export const Stake = (props: Props) => {
 
   const timeUntilRebase = () => {
     if (currentBlock && rebaseBlock && locale) {
-      const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
+      const seconds = secondsUntilBlock(currentBlock, rebaseBlock, blockRate);
       return prettifySeconds(locale, seconds);
     }
   };
