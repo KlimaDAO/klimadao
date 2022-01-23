@@ -4,7 +4,7 @@
 
 .stakeCard {
   align-self: center;
-  max-width: 64rem;
+  max-width: 40rem;
   background-color: var(--dapp-bg);
   border-radius: 3.2rem;
   padding: 2.4rem;
@@ -41,6 +41,6 @@
 @media bp-medium {
   .stakeCard {
     padding: 3.2rem;
-    min-width: 64rem;
+    min-width: 32rem;
   }
 }
