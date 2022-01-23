@@ -191,9 +191,9 @@ export const Stake = (props: Props) => {
   };
   const getAction = () => {
     if (view === "stake") {
-      return `Amount to stake`;
+      return `Amount to Stake`;
     } else {
-      return `Amount to unstake`;
+      return `Amount to Unstake`;
     }
   };
 
@@ -310,7 +310,6 @@ export const Stake = (props: Props) => {
           </button>
         </div>
 
-
         <div className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             <Trans id="stake.balance">Balance</Trans>
@@ -332,8 +331,6 @@ export const Stake = (props: Props) => {
             </WithPlaceholder>
           </div>
         </div>
-
-
 
         <div className={styles.stakeInput}>
           <input
@@ -357,12 +354,12 @@ export const Stake = (props: Props) => {
         </div>
       </div>
 
+      {address && (
+        <div className={styles.dataContainer_address}>
+          {concatAddress(address)}
+        </div>
+      )}
       <ul className={styles.dataContainer}>
-        {address && (
-          <li className={styles.dataContainer_address}>
-            {concatAddress(address)}
-          </li>
-        )}
         {singletonSource}
         {/* <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
@@ -435,7 +432,8 @@ export const Stake = (props: Props) => {
         </li> */}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.roi">ROI (5-day rate)</Trans>
+            {/* <Trans id="stake.roi">ROI</Trans> */}
+            <Trans>ROI</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.roi.tooltip")}
