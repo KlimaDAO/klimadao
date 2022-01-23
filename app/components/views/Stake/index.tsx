@@ -191,9 +191,9 @@ export const Stake = (props: Props) => {
   };
   const getAction = () => {
     if (view === "unstake") {
-      return `Amount to stake`;
-    } else {
       return `Amount to unstake`;
+    } else {
+      return `Amount to stake`;
     }
   };
 
