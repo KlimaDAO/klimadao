@@ -174,13 +174,13 @@ export const Stake = (props: Props) => {
       };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
-        children: value ? <Trans id="button.stake">Stake</Trans> : <Trans>Enter Amount</Trans>,
+        children: value ? <Trans id="button.stake">Stake Klima</Trans> : <Trans>Enter Amount</Trans>,
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
-        children: value ? <Trans id="button.unstake">Unstake</Trans> : <Trans>Enter Amount</Trans>,
+        children: value ? <Trans id="button.unstake">Unstake Klima</Trans> : <Trans>Enter Amount</Trans>,
         onClick: handleStake("unstake"),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),

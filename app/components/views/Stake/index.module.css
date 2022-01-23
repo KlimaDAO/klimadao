@@ -190,6 +190,10 @@
   background-color: var(--surface-05);
   height: 5.2rem;
 }
+.submitButton:not(:disabled) {
+  background-color: var(--primary);
+}
+
 .submitButton:not(:disabled):hover {
   background-color: var(--secondary-variant);
 }
