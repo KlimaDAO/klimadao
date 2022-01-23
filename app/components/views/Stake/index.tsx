@@ -174,13 +174,13 @@ export const Stake = (props: Props) => {
       };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
-        children: <Trans id="button.stake">Stake</Trans>,
+        children: value ? <Trans id="button.stake">Stake</Trans> : <Trans>Enter Amount</Trans>,
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
-        children: <Trans id="button.unstake">Unstake</Trans>,
+        children: value ? <Trans id="button.unstake">Unstake</Trans> : <Trans>Enter Amount</Trans>,
         onClick: handleStake("unstake"),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),
@@ -482,19 +482,16 @@ export const Stake = (props: Props) => {
         </li>
       </ul>
       <div className={styles.buttonRow}>
-        <div />
         {showSpinner ? (
           <div className={styles.buttonRow_spinner}>
             <Spinner />
           </div>
-        ) : (
-          <div />
-        )}
-        <button
-          type="button"
-          className={styles.submitButton}
-          {...getButtonProps()}
-        />
+        ) :
+          <button
+            type="button"
+            className={styles.submitButton}
+            {...getButtonProps()}
+          />}
       </div>
       {getStatusMessage() && (
         <p className={styles.statusMessage}>{getStatusMessage()}</p>

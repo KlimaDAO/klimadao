@@ -172,8 +172,8 @@
 }
 
 .buttonRow {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: center;
 }
 .buttonRow_spinner {
   padding: 0 0.8rem;
@@ -182,8 +182,13 @@
 }
 .submitButton {
   composes: textButton;
-  border: 2px solid var(--secondary);
-  justify-self: end;
+  /* border: 2px solid var(--secondary); */
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--surface-05);
+  height: 5.2rem;
 }
 .submitButton:not(:disabled):hover {
   background-color: var(--secondary-variant);
