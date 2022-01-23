@@ -73,7 +73,7 @@ TEMP
   right: 0;
   height: 100vh;
   width: 100vw;
-  background: var(--main-bg);
+  background: var(--dapp-bg);
 }
 .heroBackgroundContainer img {
   object-position: 42% 50%;

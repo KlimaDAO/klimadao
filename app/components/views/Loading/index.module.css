@@ -5,7 +5,7 @@
 .stakeCard {
   align-self: center;
   max-width: 64rem;
-  background-color: var(--surface-01);
+  background-color: var(--dapp-bg);
   border-radius: 3.2rem;
   padding: 2.4rem;
   display: grid;

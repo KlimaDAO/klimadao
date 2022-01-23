@@ -4,7 +4,7 @@
 .stakeCard {
   align-self: center;
   max-width: 64rem;
-  background-color: var(--surface-01);
+  background-color: var(--dapp-bg);
   border-radius: 3.2rem;
   padding: 2.4rem;
   display: grid;
@@ -26,9 +26,8 @@
   grid-template-columns: 1fr 1fr;
   justify-content: stretch;
   align-items: center;
-  border-radius: 1.6rem 1.6rem 0 0;
+  border-radius: 0.8rem;
   overflow: hidden;
-  border: 1px solid var(--primary-variant);
 }
 .switchButton {
   composes: button from "@klimadao/lib/theme/typography.module.css";
@@ -46,9 +45,10 @@
 }
 .switchButton[data-active="false"] {
   color: rgb(203, 203, 203); /* off white */
+  background-color: var(--alt-bg);
 }
 .switchButton[data-active="true"] {
-  background-color: var(--primary-variant);
+  background-color: var(--primary);
   font-weight: bold;
 }
 
