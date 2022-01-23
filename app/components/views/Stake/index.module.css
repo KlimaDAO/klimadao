@@ -142,24 +142,29 @@
 }
 .dataContainer_row {
   display: grid;
-  gap: 1.6rem;
+  gap: 0;
   /* grid-template-columns: 1fr 1fr; */
 }
 .dataContainer_label {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   /* because the info icon has whitespace, it makes the center column gap look off center */
   margin-right: -0.5rem;
   text-align: end;
+  font-size: 1.2rem;
 }
 .dataContainer_value {
   color: var(--gray);
   font-size: 1.4rem;
-  align-self: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: var(--font-family-heading);
+  font-size: 1rem;
 }
 .dataContainer_value span {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: white;
 }
 .dataContainer_value span[data-warning="true"] {
@@ -193,6 +198,6 @@
 @media bp-medium {
   .stakeCard {
     padding: 3.2rem;
-    min-width: 64rem;
+    min-width: 40rem;
   }
 }
