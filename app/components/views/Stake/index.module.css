@@ -18,7 +18,7 @@
 
 .inputsContainer {
   display: grid;
-  gap: 0;
+  gap: 4rem;
 }
 
 .stakeSwitch {
