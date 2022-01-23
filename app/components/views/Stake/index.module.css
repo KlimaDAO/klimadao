@@ -71,16 +71,15 @@
   background-color: var(--surface-04);
   padding: 0.8rem 1.6rem;
   color: white;
-  border: 1px solid white;
-  border-radius: 0 0 0 1.6rem;
+  border: 1px solid var(--alt-bg);
+  border-radius: 0.4rem;
   outline: none;
   font-family: monospace;
   text-transform: uppercase;
   font-size: 2rem;
 }
 .stakeInput_input::placeholder {
-  color: var(--secondary-variant);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 .stakeInput input:focus {
   border-color: var(--secondary);
@@ -90,7 +89,7 @@
 }
 .stakeInput_button {
   composes: button from "@klimadao/lib/theme/typography.module.css";
-  background-color: var(--surface-02);
+  background-color: var(--primary);
   flex-grow: 0;
   flex-shrink: 0;
   height: 100%;
@@ -101,7 +100,7 @@
   border: 1px solid var(--primary-variant);
   border-left-color: transparent;
   border-top-color: transparent;
-  border-radius: 0 0 1.6rem 0rem;
+  border-radius: 0.4rem;
   cursor: default;
 }
 .stakeInput_button:hover:not(:disabled) {
