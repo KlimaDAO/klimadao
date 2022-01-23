@@ -21,9 +21,10 @@
   line-height: 117%;
 }
 .h4 {
-  --font-size: 3.4rem;
-  font-weight: normal;
+  --font-size: 2.4rem;
+  font-weight: 600;
   line-height: 106%;
+  font-family: var(--font-family-heading);
 }
 .h4_decorative {
   composes: h4;
@@ -59,7 +60,7 @@
   --font-size: 1.4rem;
   font-weight: normal;
   line-height: 143%;
-  letter-spacing: 0.025rem; 
+  letter-spacing: 0.025rem;
   color: var(--surface-07);
 }
 
