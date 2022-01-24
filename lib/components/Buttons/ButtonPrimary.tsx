@@ -29,7 +29,7 @@ type Props = PropsButton | PropsLink;
 export const ButtonPrimary: FC<Props> = (props) => {
   const buttonStyle = props.variant
     ? cx(styles.button_primary, styles.button_gray, props.className)
-    : styles.button_primary;
+    : cx(styles.button_primary, props.className);
 
   if (props.href) {
     if (props.link) {

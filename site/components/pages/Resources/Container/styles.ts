@@ -29,15 +29,18 @@ export const mobileNav = css`
   display: flex;
   flex-direction: row;
   width: 100%;
-
-  & > * {
-    flex: 1;
-  }
+  padding: 0 2.4rem;
 `;
 
 export const mobileNavButton = css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   font-size: 1.4rem;
+  height: 4.4rem;
   font-weight: 400;
+  width: 10rem;
 `;
 
 export const mobileNavContent = css`
