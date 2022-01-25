@@ -45,7 +45,7 @@ export const PKlima: FC<Props> = (props) => {
 
   const setStatus = (statusType: string, message: string) => {
     if (!statusType) dispatch(setAppState({ notificationStatus: null }));
-    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
+    dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
   const [quantity, setQuantity] = useState("");

@@ -1,5 +1,6 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router";
 import { selectNotificationStatus } from "state/selectors";
 import styles from "./index.module.css";
 import AlarmIcon from "@mui/icons-material/Alarm";
@@ -8,7 +9,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import { AppNotificationStatus } from "../../state/app";
 import { setAppState } from "state/app";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "state";
 import { getStatusMessage } from "actions/utils";
 import { ClaimExceededModal } from "components/views/PKlima/ClaimExceededModal";
 
@@ -39,11 +40,24 @@ const modalAssets: ModalAssetTypes = {
   },
 };
 
+/** helper hook trigger when pathname changes */
+const usePathnameChange = (cb: () => void) => {
+  const location = useLocation();
+  useEffect(() => {
+    cb();
+  }, [location.pathname]);
+};
+
 export const NotificationModal: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const status: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
   );
+
+  usePathnameChange(() => {
+    dispatch(setAppState({ notificationStatus: null }));
+  });
+
   if (!status) return null;
   const { statusType } = status;
   if (status && statusType === "claimExceeded") return <ClaimExceededModal />;
