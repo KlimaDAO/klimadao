@@ -44,11 +44,7 @@ export const loadTerms = (params: {
         params.onStatus("claimExceeded", "");
         throw error;
       }
-      if (error.data && error.data.message) {
-        params.onStatus("error", error.data.message);
-      } else {
-        params.onStatus("error", error.data.message);
-      }
+      params.onStatus("error");
       throw error;
     }
   };
@@ -90,11 +86,7 @@ export const changeApprovalTransaction = async (params: {
       params.onStatus("error", "userRejected");
       throw error;
     }
-    if (error.data && error.data.message) {
-      params.onStatus("error", error.data.message);
-    } else {
-      params.onStatus("error", error.data.message);
-    }
+    params.onStatus("error");
     throw error;
   }
 };
@@ -127,11 +119,7 @@ export const exerciseTransaction = async (params: {
       params.onStatus("claimExceeded", "");
       throw error;
     }
-    if (error.data && error.data.message) {
-      params.onStatus("error", error.data.message);
-    } else {
-      params.onStatus("error", error.data.message);
-    }
+    params.onStatus("error");
     throw error;
   }
 };

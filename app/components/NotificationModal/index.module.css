@@ -92,6 +92,7 @@
   align-items: center;
   font-size: 1.6rem;
   text-align: center;
+  word-break: break-word;
 }
 
 @media bp-small {

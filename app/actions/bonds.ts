@@ -222,18 +222,14 @@ export const changeApprovalTransaction = async (params: {
     const txn = await contract.approve(approvalAddress, value.toString());
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done", "Approval was successfull");
+    params.onStatus("done", "Approval was successful");
     return value;
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");
       throw error;
     }
-    if (error.data && error.data.message) {
-      params.onStatus("error", error.data.message);
-    } else {
-      params.onStatus("error", error.message);
-    }
+    params.onStatus("error");
     throw error;
   }
 };
@@ -346,11 +342,7 @@ export const bondTransaction = async (params: {
       params.onStatus("error", "userRejected");
       throw error;
     }
-    if (error.data && error.data.message) {
-      params.onStatus("error", error.data.message);
-    } else {
-      params.onStatus("error", error.message);
-    }
+    params.onStatus("error");
     throw error;
   }
 };
@@ -380,11 +372,7 @@ export const redeemTransaction = async (params: {
       params.onStatus("error", "userRejected");
       throw error;
     }
-    if (error.data && error.data.message) {
-      params.onStatus("error", error.data.message);
-    } else {
-      params.onStatus("error", error.message);
-    }
+    params.onStatus("error");
     throw error;
   }
 };

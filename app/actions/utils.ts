@@ -1,6 +1,6 @@
 import { AppNotificationStatus, TxnStatus } from "state/app";
 
-export type OnStatusHandler = (status: TxnStatus, message: string) => void;
+export type OnStatusHandler = (status: TxnStatus, message?: string) => void;
 
 export const getStatusMessage = (status: AppNotificationStatus) => {
   const { statusType, message } = status;
@@ -11,7 +11,7 @@ export const getStatusMessage = (status: AppNotificationStatus) => {
   } else if (statusType === "error") {
     return "❌ Error: something went wrong...";
   } else if (statusType === "done") {
-    return "✔️ Transaction complete.";
+    return "Transaction complete.";
   } else if (statusType === "userConfirmation") {
     return "Please click 'confirm' in your wallet to continue.";
   } else if (statusType === "networkConfirmation") {
