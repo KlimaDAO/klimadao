@@ -130,21 +130,27 @@ export const Bond: FC<Props> = (props) => {
     );
   };
 
-  const getBondMax = () => {
-    if (!bondState?.bondQuote || !bondState?.maxBondPrice) return;
-    const quotedQuantity = quantity || "0";
-    const price = Number(quotedQuantity) / Number(bondState.bondQuote);
-    const maxPayable = Number(bondState.maxBondPrice) * price;
-    return Number(bondState?.balance) < Number(maxPayable)
-      ? bondState?.balance
-      : maxPayable.toString();
+  const getBondMax = (): string => {
+    if (
+      !bondState?.maxBondPrice ||
+      !bondState?.bondPrice ||
+      !bondState?.balance
+    ) {
+      return "0";
+    }
+    const price = bondState?.bondPrice;
+    const maxPayable = Number(bondState.maxBondPrice) * Number(price);
+    const bondMax =
+      Number(bondState?.balance) < Number(maxPayable)
+        ? bondState?.balance
+        : maxPayable.toString();
+    return bondMax;
   };
 
   const setMax = () => {
     setStatus(null);
     if (view === "bond") {
-      const bondMax = getBondMax();
-      setQuantity(bondMax ?? "0");
+      setQuantity(getBondMax());
     } else {
       setQuantity(bondState?.pendingPayout ?? "0");
     }
@@ -470,7 +476,7 @@ export const Bond: FC<Props> = (props) => {
                 >
                   {trimWithPlaceholder(
                     bondState?.balance,
-                    Number(bondState?.balance) < 1 ? 5 : 2
+                    Number(bondState?.balance) < 1 ? 18 : 2
                   )}
                 </span>{" "}
                 {bondInfo.balanceUnit}

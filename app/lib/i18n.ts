@@ -46,7 +46,7 @@ async function activate(locale: string) {
 }
 
 /**
- * Initializes locale (retrieve current locale fron localstorage if possible)
+ * Initializes locale (retrieve current locale from localstorage if possible)
  */
 async function init() {
   let locale = window.localStorage.getItem("locale") as string;
