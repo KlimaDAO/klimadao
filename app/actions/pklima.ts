@@ -3,7 +3,7 @@ import { ethers, providers } from "ethers";
 import { addresses } from "@klimadao/lib/constants";
 import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import { OnStatusHandler, TxnStatus } from "./utils";
+import { OnStatusHandler } from "./utils";
 import { Thunk } from "state";
 import { setPklimaTerms } from "state/user";
 import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
@@ -11,7 +11,7 @@ import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
 export const loadTerms = (params: {
   address: string;
   provider: providers.JsonRpcProvider;
-  onStatus: (s: TxnStatus | "claimExceeded") => void;
+  onStatus: OnStatusHandler;
 }): Thunk => {
   return async (dispatch) => {
     try {
@@ -37,19 +37,18 @@ export const loadTerms = (params: {
       );
     } catch (error: any) {
       if (error.code === 4001) {
-        params.onStatus("userRejected");
+        params.onStatus("error", "userRejected");
         throw error;
       }
       if (error && JSON.stringify(error).includes("subtraction")) {
-        params.onStatus("claimExceeded");
+        params.onStatus("claimExceeded", "");
         throw error;
       }
       if (error.data && error.data.message) {
-        alert(error.data.message);
+        params.onStatus("error", error.data.message);
       } else {
-        alert(error.message);
+        params.onStatus("error", error.data.message);
       }
-      params.onStatus("error");
       throw error;
     }
   };
@@ -77,26 +76,25 @@ export const changeApprovalTransaction = async (params: {
       "1000000000000000000000000000",
       "wei"
     ); // BigNumber
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].pklima_exercise,
       value.toString()
     );
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Approval was successful");
     return value;
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.data.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };
@@ -104,7 +102,7 @@ export const changeApprovalTransaction = async (params: {
 export const exerciseTransaction = async (params: {
   value: string;
   provider: providers.JsonRpcProvider;
-  onStatus: (s: TxnStatus | "claimExceeded") => void;
+  onStatus: OnStatusHandler;
 }) => {
   try {
     const contract = new ethers.Contract(
@@ -112,29 +110,28 @@ export const exerciseTransaction = async (params: {
       ExercisePKlima.abi,
       params.provider.getSigner()
     );
-    params.onStatus("userConfirmation");
+    params.onStatus("userConfirmation", "");
     const txn = await contract.exercise(
       ethers.utils.parseUnits(params.value, "ether")
     );
-    params.onStatus("networkConfirmation");
+    params.onStatus("networkConfirmation", "");
     await txn.wait(1);
-    params.onStatus("done");
+    params.onStatus("done", "Transaction was successful");
     return params.value;
   } catch (error: any) {
     if (error.code === 4001) {
-      params.onStatus("userRejected");
+      params.onStatus("error", "userRejected");
       throw error;
     }
     if (error && JSON.stringify(error).includes("subtraction")) {
-      params.onStatus("claimExceeded");
+      params.onStatus("claimExceeded", "");
       throw error;
     }
     if (error.data && error.data.message) {
-      alert(error.data.message);
+      params.onStatus("error", error.data.message);
     } else {
-      alert(error.message);
+      params.onStatus("error", error.data.message);
     }
-    params.onStatus("error");
     throw error;
   }
 };
