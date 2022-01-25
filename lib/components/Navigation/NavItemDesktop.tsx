@@ -9,18 +9,24 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   link?: Link;
 }
 
-export const NavItemDesktop: FC<Props> = (props) => {
-  if (props.link) {
+export const NavItemDesktop: FC<Props> = ({
+  link: LinkElement,
+  active,
+  name,
+  url,
+  ...props
+}) => {
+  if (LinkElement) {
     return (
-      <props.link href={props.url}>
+      <LinkElement href={url}>
         <a
           {...props}
           className={styles.navMain_DesktopLink}
-          data-active={props.active}
+          data-active={active?.toString()}
         >
-          {props.name}
+          {name}
         </a>
-      </props.link>
+      </LinkElement>
     );
   }
 
@@ -28,10 +34,10 @@ export const NavItemDesktop: FC<Props> = (props) => {
     <a
       {...props}
       className={styles.navMain_DesktopLink}
-      href={props.url}
-      data-active={props.active}
+      href={url}
+      data-active={active?.toString()}
     >
-      {props.name}
+      {name}
     </a>
   );
 };
