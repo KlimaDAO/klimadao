@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 import { selectNotificationStatus } from "state/selectors";
-import { setAppState, AppNotificationStatus } from "state/app";
+import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 import {
@@ -57,9 +57,9 @@ export const Stake = (props: Props) => {
   );
   const status = fullStatus && fullStatus.statusType;
 
-  const setStatus = (statusType: string, message: string) => {
-    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
-    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  const setStatus = (statusType: TxnStatus | null, message?: string) => {
+    if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
+    dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
   const [quantity, setQuantity] = useState("");
@@ -90,7 +90,7 @@ export const Stake = (props: Props) => {
     stakingRebase * Number(balances.sklima);
 
   const setMax = () => {
-    setStatus("", "");
+    setStatus(null);
     if (view === "stake") {
       setQuantity(balances?.klima ?? "0");
     } else {
@@ -221,7 +221,7 @@ export const Stake = (props: Props) => {
             type="button"
             onClick={() => {
               setQuantity("");
-              setStatus("", "");
+              setStatus(null);
               setView("stake");
             }}
             data-active={view === "stake"}
@@ -233,7 +233,7 @@ export const Stake = (props: Props) => {
             type="button"
             onClick={() => {
               setQuantity("");
-              setStatus("", "");
+              setStatus(null);
               setView("unstake");
             }}
             data-active={view === "unstake"}
@@ -247,7 +247,7 @@ export const Stake = (props: Props) => {
             value={quantity}
             onChange={(e) => {
               setQuantity(e.target.value);
-              setStatus("", "");
+              setStatus(null);
             }}
             type="number"
             placeholder={`Amount to ${

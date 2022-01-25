@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { providers } from "ethers";
 
 import { selectNotificationStatus } from "state/selectors";
-import { setAppState, AppNotificationStatus } from "state/app";
+import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
 import { Spinner } from "@klimadao/lib/components";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
@@ -43,8 +43,8 @@ export const PKlima: FC<Props> = (props) => {
   );
   const status = fullStatus && fullStatus.statusType;
 
-  const setStatus = (statusType: string, message: string) => {
-    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
+  const setStatus = (statusType: TxnStatus | null, message?: string) => {
+    if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
@@ -76,7 +76,7 @@ export const PKlima: FC<Props> = (props) => {
   }, [address]);
 
   const setMax = () => {
-    setStatus("", "");
+    setStatus(null);
     setQuantity(terms?.redeemable ?? "0");
   };
 
@@ -193,7 +193,7 @@ export const PKlima: FC<Props> = (props) => {
               value={quantity}
               onChange={(e) => {
                 setQuantity(e.target.value);
-                setStatus("", "");
+                setStatus(null);
               }}
               type="number"
               placeholder={i18n._("pklima.klima_to_exercise")}

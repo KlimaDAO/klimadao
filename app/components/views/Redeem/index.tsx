@@ -11,7 +11,7 @@ import { selectBalances, selectMigrateAllowance } from "state/selectors";
 import { redeemAlpha, setMigrateAllowance } from "state/user";
 import { useAppDispatch } from "state";
 import { selectNotificationStatus } from "state/selectors";
-import { setAppState, AppNotificationStatus } from "state/app";
+import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
@@ -28,9 +28,9 @@ export const Redeem: FC<Props> = (props) => {
   );
   const status = fullStatus && fullStatus.statusType;
 
-  const setStatus = (statusType: string, message: string) => {
-    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
-    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  const setStatus = (statusType: TxnStatus | null, message?: string) => {
+    if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
+    dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
   const [view, setView] = useState<"aklima" | "alklima">("aklima"); // aKLIMA alKLIMA
@@ -47,7 +47,7 @@ export const Redeem: FC<Props> = (props) => {
       isLoading);
 
   const setMax = () => {
-    setStatus("", "");
+    setStatus(null);
     if (view === "aklima") {
       setQuantity(balances?.aklima ?? "0");
     } else {

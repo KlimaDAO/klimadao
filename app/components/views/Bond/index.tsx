@@ -6,7 +6,7 @@ import DownOutlined from "@mui/icons-material/KeyboardArrowDownRounded";
 import UpOutlined from "@mui/icons-material/KeyboardArrowUpRounded";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import { Link } from "react-router-dom";
-import { setAppState, AppNotificationStatus } from "state/app";
+import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import { selectNotificationStatus } from "state/selectors";
 
 import {
@@ -79,9 +79,9 @@ export const Bond: FC<Props> = (props) => {
   );
   const status = fullStatus && fullStatus.statusType;
 
-  const setStatus = (statusType: string, message: string) => {
-    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
-    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  const setStatus = (statusType: TxnStatus | null, message?: string) => {
+    if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
+    dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
   const dispatch = useAppDispatch();
@@ -141,7 +141,7 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const setMax = () => {
-    setStatus("", "");
+    setStatus(null);
     if (view === "bond") {
       const bondMax = getBondMax();
       setQuantity(bondMax ?? "0");
@@ -177,7 +177,7 @@ export const Bond: FC<Props> = (props) => {
 
   const handleAllowance = async () => {
     try {
-      setStatus("", "");
+      setStatus(null);
       const value = await changeApprovalTransaction({
         provider: props.provider,
         bond: props.bond,

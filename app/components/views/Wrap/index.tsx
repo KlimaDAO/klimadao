@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
 import styles from "components/views/Stake/index.module.css";
 import { selectNotificationStatus } from "state/selectors";
-import { setAppState, AppNotificationStatus } from "state/app";
+import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
 import {
   Spinner,
@@ -35,9 +35,9 @@ export const Wrap: FC<Props> = (props) => {
     selectNotificationStatus
   );
   const status = fullStatus && fullStatus.statusType;
-  const setStatus = (statusType: string, message: string) => {
-    if (!statusType) dispatch(setAppState({ notificationStatus: null }));
-    else dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  const setStatus = (statusType: TxnStatus | null, message?: string) => {
+    if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
+    dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
   const [view, setView] = useState<"wrap" | "unwrap">("wrap");
@@ -56,7 +56,7 @@ export const Wrap: FC<Props> = (props) => {
       isLoading);
 
   const setMax = () => {
-    setStatus("", "");
+    setStatus(null);
     if (view === "wrap") {
       setQuantity(balances?.sklima ?? "0");
     } else {

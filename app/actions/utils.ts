@@ -1,11 +1,4 @@
-import { AppNotificationStatus } from "state/app";
-
-export type TxnStatus =
-  | "userConfirmation"
-  | "networkConfirmation"
-  | "done"
-  | "error"
-  | "claimExceeded";
+import { AppNotificationStatus, TxnStatus } from "state/app";
 
 export type OnStatusHandler = (status: TxnStatus, message: string) => void;
 
@@ -18,12 +11,11 @@ export const getStatusMessage = (status: AppNotificationStatus) => {
   } else if (statusType === "error") {
     return "❌ Error: something went wrong...";
   } else if (statusType === "done") {
+    return "✔️ Transaction complete.";
   } else if (statusType === "userConfirmation") {
     return "Please click 'confirm' in your wallet to continue.";
   } else if (statusType === "networkConfirmation") {
     return "Transaction initiated. Waiting for network confirmation.";
-    if (message) return message;
-    return "✔️ Success!";
   }
   return null;
 };

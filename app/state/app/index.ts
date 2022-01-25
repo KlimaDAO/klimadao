@@ -1,7 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export type TxnStatus =
+  | "userConfirmation"
+  | "networkConfirmation"
+  | "done"
+  | "error"
+  | "claimExceeded";
+
 export interface AppNotificationStatus {
-  statusType: string | undefined;
+  statusType: TxnStatus | undefined;
   message: string | undefined;
 }
 
