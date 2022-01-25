@@ -385,7 +385,7 @@ export const Stake = (props: Props) => {
             APY
             <TextInfoTooltip
               singleton={singleton}
-              content="Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
+              content="Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
@@ -402,7 +402,7 @@ export const Stake = (props: Props) => {
             Current index
             <TextInfoTooltip
               singleton={singleton}
-              content="Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+              content="Amount you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
