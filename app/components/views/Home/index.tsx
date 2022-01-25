@@ -25,7 +25,7 @@ import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 import { generateLinks, LoadWeb3Modal } from "./constants";
 import Nav from "./Nav";
 import WalletAction from "./WalletAction";
-import MobileMenu from "./MobileMenu";
+import Sidebar from "./Sidebar";
 
 import { Trans } from "@lingui/macro";
 import { init } from "lib/i18n";
@@ -296,6 +296,7 @@ export const Home: FC = () => {
 
   return (
     <>
+      <Sidebar />
       <div className={styles.container}>
         <div className={styles.heroBackgroundContainer}>
           <img src="/green-wormhole.jpg" alt="" />
@@ -316,12 +317,6 @@ export const Home: FC = () => {
                 </Trans>
               </p> */}
             </div>
-            <MobileMenu
-              links={links}
-              isConnected={isConnected}
-              loadWeb3Modal={loadWeb3Modal}
-              disconnect={disconnect}
-            />
             <WalletAction
               isConnected={isConnected}
               loadWeb3Modal={loadWeb3Modal}
@@ -330,7 +325,6 @@ export const Home: FC = () => {
             {!IS_PRODUCTION && <ChangeLanguageButton />}
           </header>
           <main className={styles.main}>
-            <Nav links={links} chainId={chainId} />
             <Routes>
               <Route
                 path="/"
@@ -403,32 +397,11 @@ export const Home: FC = () => {
                 );
               })}
             </Routes>
-            <div className={styles.invisibleColumn}>
+            {/* <div className={styles.invisibleColumn}>
               {<Nav links={links} chainId={chainId} />}
-            </div>
+            </div> */}
           </main>
         </div>
-        <footer className={styles.footer}>
-          <div className={styles.footer_content}>
-            <a href={urls.home} className={styles.footer_logo}>
-              <img src="klima-logo.png" alt="" />
-            </a>
-            <nav className={styles.footer_content_nav}>
-              <a href={urls.home}>
-                <Trans id="footer.home">home</Trans>
-              </a>
-              <a href={urls.gitbook}>
-                <Trans id="footer.docs">docs</Trans>
-              </a>
-              <a href={urls.blog}>
-                <Trans id="footer.blog">blog</Trans>
-              </a>
-              <a href={urls.discordInvite}>
-                <Trans id="footer.community">community</Trans>
-              </a>
-            </nav>
-          </div>
-        </footer>
       </div>
       <InvalidNetworkModal provider={provider} />
       {showRPCModal && (

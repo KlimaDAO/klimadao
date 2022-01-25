@@ -1,0 +1,86 @@
+.sidebarLg {
+  width: 244px;
+}
+
+.sidebarSm {
+  width: 104px;
+}
+
+.drawerMobile {
+  width: 244px !important;
+  color: #9c9c9c;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: #202020 !important;
+  overflow: hidden;
+}
+
+.drawerTablet {
+  background-color: #202020 !important;
+  color: #9c9c9c;
+  width: 104px !important;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+}
+
+.drawerPermanent {
+  background-color: #202020 !important;
+  color: #9c9c9c !important;
+  width: 244px !important;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+}
+
+.walletInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline !important;
+}
+
+.drawerContainer {
+  padding: 32px;
+}
+
+.divider {
+  background-color: #2b2b2b !important;
+}
+
+.logoText {
+  font-size: 12px !important;
+  color: #fff !important;
+}
+
+.primaryText {
+  font-size: 12px !important;
+  font-weight: 600;
+  color: #fff;
+}
+
+.textItem {
+  font-size: 12px !important;
+}
+
+.listLink {
+  border: 0.5px solid #4a4a4a !important;
+  border-radius: 8px !important;
+  align-items: baseline;
+  color: #fff !important;
+  margin: 5px 0px !important;
+}
+
+.listIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background-color: #00cc33;
+  min-width: 0 !important;
+  width: 28px;
+  height: 28px;
+}
+
+.listText {
+  margin-left: 12px;
+}
