@@ -60,7 +60,7 @@ export function prettyVestingPeriod(
   if (seconds < 0) {
     return "Fully Vested";
   }
-  return prettifySeconds(locale, seconds);
+  return prettifySeconds(seconds);
 }
 
 interface Props {
@@ -118,7 +118,7 @@ export const Bond: FC<Props> = (props) => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
     const vestingBlock = currentBlock + bondState.vestingTerm;
     const seconds = secondsUntilBlock(currentBlock, vestingBlock);
-    return prettifySeconds(locale, seconds);
+    return prettifySeconds(seconds);
   };
 
   const vestingTime = () => {

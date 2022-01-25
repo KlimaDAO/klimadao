@@ -143,7 +143,7 @@ export const Stake = (props: Props) => {
   const timeUntilRebase = () => {
     if (currentBlock && rebaseBlock && locale) {
       const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
-      return prettifySeconds(locale, seconds);
+      return prettifySeconds(seconds);
     }
   };
 

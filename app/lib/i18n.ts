@@ -57,10 +57,10 @@ async function init() {
 
 /**
  * Localizes an amount of seconds
+ * TODO: revert temp fix and pass locale back down to prettify
  */
-function prettifySeconds(locale: string | undefined, seconds: number) {
-  if (locale === undefined) locale = "en";
-  return prettifySecondsLib(locales[locale].time, seconds);
+function prettifySeconds(seconds: number) {
+  return prettifySecondsLib(seconds);
 }
 
 export { locales, activate, init, prettifySeconds };
