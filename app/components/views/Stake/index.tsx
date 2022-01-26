@@ -282,8 +282,13 @@ export const Stake = (props: Props) => {
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
         <h2 className={T.h5}>
-          <img src="/icons/stake-icon.png" alt="Stake Klima Icon" className={styles.stakeIcon} />
-          Stake Klima</h2>
+          <img
+            src="/icons/stake-icon.png"
+            alt="Stake Klima Icon"
+            className={styles.stakeIcon}
+          />
+          Stake Klima
+        </h2>
         <p className={T.body2}>
           <Trans id="stake.caption">
             Hold, stake, and compound. If the protocol earns a profit selling
@@ -322,7 +327,7 @@ export const Stake = (props: Props) => {
 
         <div className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.balance">Balance</Trans>
+            <Trans>BALANCE</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.balance.tooltip")}
@@ -337,12 +342,13 @@ export const Stake = (props: Props) => {
               condition={!isConnected}
               placeholder={`NOT CONNECTED`}
             >
-              <span>{trimWithPlaceholder(balances?.klima, 4)}</span> <span>KLIMA</span>
+              <span>{trimWithPlaceholder(balances?.klima, 4)}</span>{" "}
+              <span>KLIMA</span>
             </WithPlaceholder>
           </div>
         </div>
 
-        <div>STAKE KLIMA</div>
+        <div className={styles.dataContainer_label}>STAKE KLIMA</div>
 
         <div className={styles.stakeInput}>
           <input

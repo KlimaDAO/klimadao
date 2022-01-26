@@ -13,15 +13,15 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Redesign/index.tsx:183
+#: components/pages/Redesign/index.tsx:202
 msgid "2,424,621"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:192
+#: components/pages/Redesign/index.tsx:217
 msgid "5,697,736,801"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:174
+#: components/pages/Redesign/index.tsx:189
 msgid "55,766"
 msgstr ""
 
@@ -33,48 +33,48 @@ msgstr ""
 msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:165
+#: components/pages/Redesign/index.tsx:176
 msgid "EQUIVALENT TO"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:54
-#: components/pages/Redesign/index.tsx:120
+#: components/pages/Redesign/index.tsx:53
+#: components/pages/Redesign/index.tsx:119
 msgid "Enter App"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:170
+#: components/pages/Redesign/index.tsx:188
 msgid "HECTARES OF FOREST"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:113
+#: components/pages/Redesign/index.tsx:112
 msgid "KlimaDAO harnesses the power of cryptocurrency, blockchain and smart contracts to create incentives for environmental protection."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:139
+#: components/pages/Redesign/index.tsx:144
 msgid "KlimaDAO is creating and governing a carbon-backed currency, which acts as the base unit of the on-chain carbon economy."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:132
+#: components/pages/Redesign/index.tsx:137
 msgid "KlimaDAO’s vision is a future where the cost of carbon to the climate is embedded into our economic system."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:111
+#: components/pages/Redesign/index.tsx:110
 msgid "KlimaDao"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:188
+#: components/pages/Redesign/index.tsx:214
 msgid "LITERS OF GASOLINE"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:179
+#: components/pages/Redesign/index.tsx:201
 msgid "PASSENGER VEHICLES"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:159
+#: components/pages/Redesign/index.tsx:170
 msgid "TONS OF CARBON LOCKED BY KLIMA"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:145
+#: components/pages/Redesign/index.tsx:150
 msgid "Through the KLIMA token, we can help to align incentives between investors, civil society, and organizations, towards a more sustainable future."
 msgstr ""
 
@@ -150,28 +150,28 @@ msgstr ""
 msgid "info.price"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:80
-#: components/pages/Redesign/index.tsx:104
+#: components/pages/Redesign/index.tsx:79
+#: components/pages/Redesign/index.tsx:103
 msgid "mainNav.bond"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:66
-#: components/pages/Redesign/index.tsx:90
+#: components/pages/Redesign/index.tsx:65
+#: components/pages/Redesign/index.tsx:89
 msgid "mainNav.buyKlima"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:61
-#: components/pages/Redesign/index.tsx:86
+#: components/pages/Redesign/index.tsx:60
+#: components/pages/Redesign/index.tsx:85
 msgid "mainNav.home"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:72
-#: components/pages/Redesign/index.tsx:96
+#: components/pages/Redesign/index.tsx:71
+#: components/pages/Redesign/index.tsx:95
 msgid "mainNav.stake"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:76
-#: components/pages/Redesign/index.tsx:100
+#: components/pages/Redesign/index.tsx:75
+#: components/pages/Redesign/index.tsx:99
 msgid "mainNav.wrap"
 msgstr ""
 
@@ -223,6 +223,6 @@ msgstr ""
 msgid "tour.treasury.title"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:110
+#: components/pages/Redesign/index.tsx:109
 msgid "👋 WELCOME TO"
 msgstr ""
