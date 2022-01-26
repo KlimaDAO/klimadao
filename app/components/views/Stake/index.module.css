@@ -11,6 +11,10 @@
   gap: 3.2rem;
 }
 
+.stakeIcon{
+  margin-right: 10px;
+}
+
 .stakeCard_header {
   display: grid;
   gap: 0.8rem;

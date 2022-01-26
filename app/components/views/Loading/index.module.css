@@ -7,7 +7,7 @@
   max-width: 40rem;
   background-color: var(--dapp-bg);
   border-radius: 3.2rem;
-  padding: 2.4rem;
+  /* padding: 2.4rem; */
   display: grid;
   gap: 3.2rem;
 }
@@ -40,7 +40,7 @@
 
 @media bp-medium {
   .stakeCard {
-    padding: 3.2rem;
+    /* padding: 3.2rem; */
     min-width: 32rem;
   }
 }

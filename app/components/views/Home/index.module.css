@@ -85,7 +85,7 @@ TEMP
 .heroSection {
   grid-column: main;
   display: grid;
-  gap: 3.2rem;
+  /* gap: 3.2rem; */
   align-content: baseline;
   grid-template-rows: repeat(2, auto);
 }

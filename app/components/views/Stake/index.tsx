@@ -281,7 +281,9 @@ export const Stake = (props: Props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={T.h5}>Stake Klima</h2>
+        <h2 className={T.h5}>
+          <img src="/icons/stake-icon.png" alt="Stake Klima Icon" className={styles.stakeIcon} />
+          Stake Klima</h2>
         <p className={T.body2}>
           <Trans id="stake.caption">
             Hold, stake, and compound. If the protocol earns a profit selling
