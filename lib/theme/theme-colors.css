@@ -1,0 +1,21 @@
+:root.theme-global {
+  --klima-green: #00cc33;
+  --klima-blue: #0ba1ff;
+  --font-family: Inter, sans-serif;
+}
+
+:root.theme-light {
+  --surface-01: #ffffff;
+  --surface-02: #fafafa;
+  --font-01: #313131;
+  --font-02: #767676;
+  --font-03: #a1a1a1;
+}
+
+:root.theme-dark {
+  --surface-01: #2a2a2a;
+  --surface-02: #202020;
+  --font-01: #313131;
+  --font-02: #767676;
+  --font-03: #9c9c9c;
+}

@@ -1,4 +1,4 @@
-import "@klimadao/lib/theme/colors.css";
+import "@klimadao/lib/theme/theme-colors.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/globals.css";
 import type { AppProps } from "next/app";
