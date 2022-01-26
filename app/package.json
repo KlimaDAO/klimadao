@@ -12,6 +12,7 @@
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
+    "@emotion/css": "^11.7.1",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
     "@lingui/core": "^3.13.0",
