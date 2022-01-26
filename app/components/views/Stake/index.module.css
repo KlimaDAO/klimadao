@@ -57,6 +57,23 @@
   background-color: var(--primary);
   font-weight: bold;
 }
+ 
+.klimaBalanceBar{
+  background-color: var(--surface-05);
+  min-width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 1.2rem 1.6rem;
+  color: white;
+  border: 1px solid var(--alt-bg);
+  border-radius: 0.4rem;
+  outline: none;
+  font-family: monospace;
+  font-size: 2rem;
+}
 
 .stakeInput {
   min-width: 12rem;

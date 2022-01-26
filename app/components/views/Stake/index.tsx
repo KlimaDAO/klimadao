@@ -332,15 +332,17 @@ export const Stake = (props: Props) => {
               </div>
             </TextInfoTooltip>
           </div>
-          <div className={styles.dataContainer_value}>
+          <div className={styles.klimaBalanceBar}>
             <WithPlaceholder
               condition={!isConnected}
               placeholder={`NOT CONNECTED`}
             >
-              <span>{trimWithPlaceholder(balances?.klima, 4)}</span> KLIMA
+              <span>{trimWithPlaceholder(balances?.klima, 4)}</span> <span>KLIMA</span>
             </WithPlaceholder>
           </div>
         </div>
+
+        <div>STAKE KLIMA</div>
 
         <div className={styles.stakeInput}>
           <input
