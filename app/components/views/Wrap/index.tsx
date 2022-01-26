@@ -260,12 +260,28 @@ export const Wrap: FC<Props> = (props) => {
       </div>
 
       <ul className={styles.dataContainer}>
-        {address && (
+        {/* {address && (
           <p className={styles.dataContainer_address}>
             {address.slice(0, 5)}..{address.slice(address.length - 3)}
           </p>
-        )}
+        )} */}
         {singletonSource}
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            Current index
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Amount you would have today, if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
+            <span>{trimWithPlaceholder(currentIndex, 4)}</span> sKLIMA
+          </div>
+        </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Balance (staked)
@@ -287,7 +303,7 @@ export const Wrap: FC<Props> = (props) => {
             </WithPlaceholder>
           </div>
         </li>
-        <li className={styles.dataContainer_row}>
+        {/* <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Balance (wrapped)
             <TextInfoTooltip
@@ -307,24 +323,8 @@ export const Wrap: FC<Props> = (props) => {
               <span>{trimWithPlaceholder(balances?.wsklima, 4)}</span> wsKLIMA
             </WithPlaceholder>
           </div>
-        </li>
-        <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            Current index
-            <TextInfoTooltip
-              singleton={singleton}
-              content="Amount you would have today, if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <span>{trimWithPlaceholder(currentIndex, 4)}</span> sKLIMA
-          </div>
-        </li>
-        <li className={styles.dataContainer_row}>
+        </li> */}
+        {/* <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             Index-adjusted balance
             <TextInfoTooltip
@@ -344,15 +344,14 @@ export const Wrap: FC<Props> = (props) => {
               <span>{trimWithPlaceholder(indexAdjustedBalance, 4)}</span> sKLIMA
             </WithPlaceholder>
           </div>
-        </li>
+        </li> */}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             You will get
             <TextInfoTooltip
               singleton={singleton}
-              content={`Amount you will get after ${
-                view === "wrap" ? "wrapping" : "unwrapping"
-              }`}
+              content={`Amount you will get after ${view === "wrap" ? "wrapping" : "unwrapping"
+                }`}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />
