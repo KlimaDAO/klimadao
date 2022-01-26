@@ -1,4 +1,4 @@
-import "@klimadao/lib/theme/theme-colors.css";
+import "@klimadao/lib/theme/variables.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/globals.css";
 import type { AppProps } from "next/app";
@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
+import { GridContainer } from "@klimadao/lib/components";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -29,12 +30,18 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   if (!pageProps.translation) {
     // fallback e.g. bad blog url
-    return <Component {...pageProps} />;
+    return (
+      <GridContainer>
+        <Component {...pageProps} />
+      </GridContainer>
+    );
   }
 
   return (
     <I18nProvider i18n={i18n}>
-      <Component {...pageProps} />
+      <GridContainer>
+        <Component {...pageProps} />
+      </GridContainer>
     </I18nProvider>
   );
 }

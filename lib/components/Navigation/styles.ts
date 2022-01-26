@@ -5,17 +5,17 @@ export const navMain_DesktopLink = css`
   text-decoration: none;
   padding: 0 3rem;
   font-weight: 500;
-  color: var(--surface-05) !important;
+  color: var(--font-01) !important;
   display: flex;
   align-items: center;
   font-size: 1.4rem;
 
   &:hover {
-    color: var(--surface) !important;
+    color: var(--font-01) !important;
   }
 
   &[data-active="true"] {
-    color: var(--surface) !important;
+    color: var(--font-01) !important;
   }
 `;
 
@@ -73,7 +73,7 @@ export const navMain_MobileLink = css`
 export const navMain_MobileItemInner = css`
   font-size: 3.75rem;
   font-weight: 500;
-  color: var(--surface-02);
+  color: var(--font-01);
   padding: 0.4rem 0 0;
   display: flex;
   align-items: center;
@@ -86,7 +86,7 @@ export const navMain_MobileItemInner = css`
 export const navMain_MobileItemInnerNumber = css`
   font-size: 2rem;
   font-weight: 600;
-  color: var(--surface-05);
+  color: var(--font-01);
   margin-right: 2rem;
 `;
 
@@ -101,7 +101,7 @@ export const buttonToggleNav = css`
   text-transform: none;
   background-color: var(--white);
   border: 0;
-  border-radius: var(--border-radius);
+  border-radius: 1.6rem;
   margin: 0;
   overflow: visible;
   line-height: 0;
@@ -124,7 +124,7 @@ export const hamburgerOuter = css`
 export const hamburgerInnerToggled = css`
   width: 2.4rem;
   height: 0.4rem;
-  background-color: var(--surface);
+  background-color: var(--font-01);
   border-radius: 0;
   position: absolute;
   transition-property: transform;

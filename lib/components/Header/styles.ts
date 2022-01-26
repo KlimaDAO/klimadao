@@ -3,14 +3,14 @@ import breakpoints from "../../theme/breakpoints";
 
 export const headerDesktop = css`
   display: none;
+  grid-column: full;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   height: var(--header-height);
-  padding: 0rem 3.4rem;
-  background: var(--background);
+  background: var(--surface-01);
   ${breakpoints.medium} {
-    display: flex;
+    display: grid;
   }
 `;
 

@@ -1,27 +1,18 @@
-import React, { FC } from "react";
+import { cx } from "@emotion/css";
+import React, { FC, HTMLProps } from "react";
 import * as styles from "./styles";
 
-const mappedStyles = {
-  white: styles.sectionWhite,
-  contained: styles.sectionInnerContained,
-  hero: styles.sectionInnerHero,
+type Props = HTMLProps<HTMLDivElement> & {
+  variant?: "white" | "gray";
 };
 
-interface Props {
-  variant?: "white";
-  contentVariant?: "contained" | "hero";
-}
-
 export const Section: FC<Props> = (props) => {
-  const outer =
-    (props.variant && mappedStyles[props.variant]) || styles.section;
-  const inner =
-    (props.contentVariant && mappedStyles[props.contentVariant]) ||
-    styles.sectionInner;
-
   return (
-    <div className={outer}>
-      <div className={inner}>{props.children}</div>
-    </div>
+    <section
+      {...props}
+      className={cx(styles.section, props.variant, props.className)}
+    >
+      {props.children}
+    </section>
   );
 };

@@ -1,7 +1,12 @@
-:root.theme-global {
+:root {
   --klima-green: #00cc33;
   --klima-blue: #0ba1ff;
+  --gray: rgb(160, 160, 160);
+  --white: #ffffff;
   --font-family: Inter, sans-serif;
+  --font-size: 1.6rem;
+  --border-radius: 0.4rem;
+  --header-height: 6.4rem;
 }
 
 :root.theme-light {

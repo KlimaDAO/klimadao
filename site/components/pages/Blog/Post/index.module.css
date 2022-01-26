@@ -1,7 +1,7 @@
 @value bp-medium from "@klimadao/lib/theme/breakpoints.css";
 
 .container {
-  background-color: var(--background);
+  background-color: var(--surface-01);
   color: black;
 }
 .banner {

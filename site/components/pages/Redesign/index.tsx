@@ -2,9 +2,8 @@ import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { t } from "@lingui/macro";
-
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import {
-  PageWrap,
   Columns,
   Section,
   ContentBox,
@@ -28,6 +27,7 @@ import blackHole from "public/black_hole.png";
 import forest from "public/forest.png";
 import cars from "public/cars.png";
 import gasolina from "public/gasolina.png";
+import * as styles from "./styles";
 
 export interface Props {
   treasuryBalance: number;
@@ -46,72 +46,72 @@ export const Home: NextPage<Props> = (props) => {
         metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency."
         mediaImageSrc="/og-media.jpg"
       />
-      <PageWrap>
-        <HeaderDesktop
+      <HeaderDesktop
+        link={Link}
+        buttons={[
+          <ButtonPrimary
+            key="Enter App"
+            label={t({ message: "Enter App" })}
+            href={urls.app}
+          />,
+        ]}
+      >
+        <NavItemDesktop
+          url={"/"}
+          name={t({ message: "Home", id: "mainNav.home" })}
           link={Link}
-          buttons={[
-            <ButtonPrimary
-              key="Enter App"
-              label={t({ message: "Enter App" })}
-              href={urls.app}
-            />,
-          ]}
-        >
-          <NavItemDesktop
-            url={"/"}
-            name={t({ message: "Home", id: "mainNav.home" })}
-            link={Link}
-            active={true}
-          />
-          <NavItemDesktop
-            url={urls.tutorial}
-            name={t({ message: "Buy Klima", id: "mainNav.buyKlima" })}
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <NavItemDesktop
-            url={urls.stake}
-            name={t({ message: "Stake", id: "mainNav.stake" })}
-          />
-          <NavItemDesktop
-            url={urls.wrap}
-            name={t({ message: "Wrap", id: "mainNav.wrap" })}
-          />
-          <NavItemDesktop
-            url={urls.bond}
-            name={t({ message: "Bond", id: "mainNav.bond" })}
-          />
-          <NavItemDesktop
-            url={"/resources"}
-            name={t({ message: "Resources", id: "mainNav.resources" })}
-            link={Link}
-          />
-        </HeaderDesktop>
-        <HeaderMobile>
-          <NavItemMobile
-            url={urls.home}
-            name={t({ message: "Home", id: "mainNav.home" })}
-          />
-          <NavItemMobile
-            url={urls.tutorial}
-            name={t({ message: "Buy Klima", id: "mainNav.buyKlima" })}
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <NavItemMobile
-            url={urls.stake}
-            name={t({ message: "Stake", id: "mainNav.stake" })}
-          />
-          <NavItemMobile
-            url={urls.stake}
-            name={t({ message: "Wrap", id: "mainNav.wrap" })}
-          />
-          <NavItemMobile
-            url={urls.bond}
-            name={t({ message: "Bond", id: "mainNav.bond" })}
-          />
-        </HeaderMobile>
-        <Section contentVariant="hero">
+          active={true}
+        />
+        <NavItemDesktop
+          url={urls.tutorial}
+          name={t({ message: "Buy Klima", id: "mainNav.buyKlima" })}
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <NavItemDesktop
+          url={urls.stake}
+          name={t({ message: "Stake", id: "mainNav.stake" })}
+        />
+        <NavItemDesktop
+          url={urls.wrap}
+          name={t({ message: "Wrap", id: "mainNav.wrap" })}
+        />
+        <NavItemDesktop
+          url={urls.bond}
+          name={t({ message: "Bond", id: "mainNav.bond" })}
+        />
+        <NavItemDesktop
+          url={"/resources"}
+          name={t({ message: "Resources", id: "mainNav.resources" })}
+          link={Link}
+        />
+      </HeaderDesktop>
+      <HeaderMobile>
+        <NavItemMobile
+          url={urls.home}
+          name={t({ message: "Home", id: "mainNav.home" })}
+        />
+        <NavItemMobile
+          url={urls.tutorial}
+          name={t({ message: "Buy Klima", id: "mainNav.buyKlima" })}
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <NavItemMobile
+          url={urls.stake}
+          name={t({ message: "Stake", id: "mainNav.stake" })}
+        />
+        <NavItemMobile
+          url={urls.stake}
+          name={t({ message: "Wrap", id: "mainNav.wrap" })}
+        />
+        <NavItemMobile
+          url={urls.bond}
+          name={t({ message: "Bond", id: "mainNav.bond" })}
+        />
+      </HeaderMobile>
+      <Section variant="white">
+        <div className={styles.heroContainer}>
           <Columns>
             <ContentBox variant="hero">
               <Copy text={t({ message: "👋 WELCOME TO" })} />
@@ -138,8 +138,14 @@ export const Home: NextPage<Props> = (props) => {
               />
             </ContentBoxImage>
           </Columns>
-        </Section>
-        <Section variant="white" contentVariant="contained">
+          <div className="learnMore">
+            <p>LEARN MORE</p>
+            <ArrowDownwardIcon className="downArrow" />
+          </div>
+        </div>
+      </Section>
+      <Section>
+        <div>
           <Heading
             align="center"
             text={t({
@@ -170,66 +176,63 @@ export const Home: NextPage<Props> = (props) => {
               placeholder="blur"
             />
           </ContentBoxImage>
-        </Section>
-        <Section variant="white" contentVariant="contained">
-          <Heading
-            align="center"
-            variant="medium"
-            text={t({ message: "TONS OF CARBON LOCKED BY KLIMA" })}
-          />
-          <Heading align="center" text={formattedTreasuryBalance} />
-          <Heading
-            align="center"
-            variant="small"
-            text={t({ message: "EQUIVALENT TO" })}
-          />
-          <Columns size="small" wrapItems>
-            <ContentBox>
-              <Image
-                alt="Forest"
-                src={forest}
-                layout="responsive"
-                objectFit="cover"
-                placeholder="blur"
-              />
-              <ContentBox customStyles={{ padding: "1.5rem" }}>
-                <Copy text={t({ message: "HECTARES OF FOREST" })} />
-                <Heading variant="small" text={t({ message: "55,766" })} />
-              </ContentBox>
+        </div>
+      </Section>
+      <Section>
+        <Heading
+          align="center"
+          variant="medium"
+          text={t({ message: "TONS OF CARBON LOCKED BY KLIMA" })}
+        />
+        <Heading align="center" text={formattedTreasuryBalance} />
+        <Heading
+          align="center"
+          variant="small"
+          text={t({ message: "EQUIVALENT TO" })}
+        />
+        <Columns size="small" wrapItems>
+          <ContentBox>
+            <Image
+              alt="Forest"
+              src={forest}
+              layout="responsive"
+              objectFit="cover"
+              placeholder="blur"
+            />
+            <ContentBox customStyles={{ padding: "1.5rem" }}>
+              <Copy text={t({ message: "HECTARES OF FOREST" })} />
+              <Heading variant="small" text={t({ message: "55,766" })} />
             </ContentBox>
-            <ContentBox>
-              <Image
-                alt="Cars"
-                src={cars}
-                layout="responsive"
-                objectFit="contain"
-                placeholder="blur"
-              />
-              <ContentBox customStyles={{ padding: "1.5rem" }}>
-                <Copy text={t({ message: "PASSENGER VEHICLES" })} />
-                <Heading variant="small" text={t({ message: "2,424,621" })} />
-              </ContentBox>
+          </ContentBox>
+          <ContentBox>
+            <Image
+              alt="Cars"
+              src={cars}
+              layout="responsive"
+              objectFit="contain"
+              placeholder="blur"
+            />
+            <ContentBox customStyles={{ padding: "1.5rem" }}>
+              <Copy text={t({ message: "PASSENGER VEHICLES" })} />
+              <Heading variant="small" text={t({ message: "2,424,621" })} />
             </ContentBox>
-            <ContentBox>
-              <Image
-                alt="Gasolina"
-                src={gasolina}
-                layout="responsive"
-                objectFit="contain"
-                placeholder="blur"
-              />
-              <ContentBox customStyles={{ padding: "1.5rem" }}>
-                <Copy text={t({ message: "LITERS OF GASOLINE" })} />
-                <Heading
-                  variant="small"
-                  text={t({ message: "5,697,736,801" })}
-                />
-              </ContentBox>
+          </ContentBox>
+          <ContentBox>
+            <Image
+              alt="Gasolina"
+              src={gasolina}
+              layout="responsive"
+              objectFit="contain"
+              placeholder="blur"
+            />
+            <ContentBox customStyles={{ padding: "1.5rem" }}>
+              <Copy text={t({ message: "LITERS OF GASOLINE" })} />
+              <Heading variant="small" text={t({ message: "5,697,736,801" })} />
             </ContentBox>
-          </Columns>
-        </Section>
-        <Footer />
-      </PageWrap>
+          </ContentBox>
+        </Columns>
+      </Section>
+      <Footer />
     </>
   );
 };

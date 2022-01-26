@@ -11,7 +11,7 @@ export const button_primary = css`
   text-decoration: none;
   padding: 1rem 1.8rem;
   cursor: pointer;
-  border-radius: var(--border-radius);
+  border-radius: 1.6rem;
   transition: background-color 0.3s ease 0s;
   background-color: var(--primary);
   color: var(--white) !important;

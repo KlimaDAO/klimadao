@@ -1,65 +1,22 @@
 import { css } from "@emotion/css";
 import breakpoints from "../../theme/breakpoints";
 
-// temporarly put theme values to this class
-
-export const theme = css`
-  --gray: rgb(160, 160, 160);
-  --white: #ffffff;
-  --background: #f5f5f7;
-
-  /* Material Design naming convention for theme colors */
-  --surface-01: #0e0e0e;
-  --surface-02: #313131;
-  --surface-03: #6e6e6e;
-  --surface-04: #767676;
-  --surface-05: #a1a1a1;
-  --surface-06: #cccccc;
-  --surface-07: #e7e7e7;
-  --surface-08: #f2f2f2;
-  --surface-09: #fafafa;
-  --surface-10: #cccccc;
-
-  --surface: var(--surface-01);
-
-  --primary: #00cc33;
-  --primary-variant: #33732f;
-  --secondary: #0ba1ff;
-  --secondary-variant: #1ea39b;
-  /* Material Design naming convention for theme colors */
-
-  /* LAYOUT */
-  --site-max-width: 120rem;
-  --header-height: 6.4rem;
-
-  /* FONTS */
-  --font-family-decorative: Righteous;
-  --font-family: "Inter", sans-serif;
-  --font-size: 1.6rem;
-  --font-color: var(--surface-04);
-
-  --headings-color: var(--surface-02);
-
-  /* ELEMENTS */
-  --border-radius: 0.4rem;
-
-  background-color: var(--background);
-
-  font-family: var(--font-family);
-  font-size: var(--font-size);
-  color: var(--surface-03);
-
-  /* Push footer to bottom -- */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+export const gridContainer = css`
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(1.6rem, 1fr)
+    [main-start] minmax(0, 107.2rem)
+    [main-end] minmax(1.6rem, 1fr)
+    [full-end];
 `;
 
 export const section = css`
-  padding: 2.4rem 0;
-
-  ${breakpoints.medium} {
-    padding: 4.4rem 0;
+  grid-column: full;
+  display: grid;
+  grid-template-columns: inherit;
+  background-color: var(--surface-01);
+  &.gray {
+    background-color: var(--surface-02);
   }
 `;
 
@@ -129,8 +86,8 @@ export const columnsContained = css`
 `;
 
 export const contentBox = css`
-  background-color: var(--background);
-  border-radius: var(--border-radius);
+  background-color: var(--surface-01);
+  border-radius: 1.6rem;
   position: relative;
   margin-bottom: 2rem;
 
@@ -139,17 +96,16 @@ export const contentBox = css`
   & img {
     object-fit: cover;
     width: 100%;
-    border-radius: var(--border-radius);
+    border-radius: 1.6rem;
   }
 `;
 
 export const contentBoxHero = css`
-  background-color: var(--white);
-  border-radius: var(--border-radius);
+  background-color: var(--surface-02);
+  border-radius: 1.6rem;
   padding: 3.4rem;
   z-index: 1;
   position: relative;
-  margin: 1rem;
 
   ${breakpoints.medium} {
     padding: 7.4rem;
@@ -159,15 +115,15 @@ export const contentBoxHero = css`
 `;
 
 export const contentBoxImage = css`
-  background-color: var(--background);
-  border-radius: var(--border-radius);
+  background-color: var(--surface-01);
+  border-radius: 1.6rem;
+  overflow: hidden;
 
   margin: 1rem 0;
 
   & img {
     object-fit: cover;
     width: 100%;
-    border-radius: var(--border-radius);
   }
 `;
 
@@ -179,7 +135,7 @@ export const contentBoxImageBelowText = css`
   position: relative;
 
   ${breakpoints.medium} {
-    border-radius: var(--border-radius);
+    border-radius: 1.6rem;
     margin: 1rem;
     min-height: auto;
     flex-basis: 100%;
@@ -187,7 +143,7 @@ export const contentBoxImageBelowText = css`
     & img {
       object-fit: cover;
       width: 100%;
-      border-radius: var(--border-radius);
+      border-radius: 1.6rem;
     }
   }
 `;

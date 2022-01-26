@@ -70,7 +70,7 @@ export const list = css`
     border-radius: 4px;
 
     a {
-      color: var(--headings-color);
+      color: var(--font-01);
       font-weight: 600;
       justify-content: space-between;
       width: 100%;
