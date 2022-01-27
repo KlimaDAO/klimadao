@@ -17,6 +17,4 @@ export { NavItemMobile } from "./Navigation/NavItemMobile";
 export { ToggleNavButton } from "./Navigation/ToggleNavButton";
 export { ButtonPrimary } from "./Buttons/ButtonPrimary";
 export { LogoWithClaim } from "./Logos/LogoWithClaim";
-export { Heading } from "./Text/Heading";
-export { Copy } from "./Text/Copy";
-export { Paragraph } from "./Text/Paragraph";
+export { Text } from "./Text";

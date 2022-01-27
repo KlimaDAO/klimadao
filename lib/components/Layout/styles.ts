@@ -20,29 +20,6 @@ export const section = css`
   }
 `;
 
-export const sectionWhite = css`
-  ${section};
-  background-color: var(--white);
-`;
-
-export const sectionInner = css`
-  margin: 0 auto;
-  max-width: var(--site-max-width);
-`;
-
-export const sectionInnerHero = css`
-  ${sectionInner};
-  margin-top: 6.4rem;
-  margin-bottom: 2.4rem;
-  position: relative;
-`;
-
-export const sectionInnerContained = css`
-  ${sectionInner};
-  max-width: calc(var(--site-max-width) - 2.4rem * 2);
-  padding: 2.4rem;
-`;
-
 export const columns = css`
   ${breakpoints.medium} {
     display: flex;
@@ -89,8 +66,6 @@ export const contentBox = css`
   background-color: var(--surface-01);
   border-radius: 1.6rem;
   position: relative;
-  margin-bottom: 2rem;
-
   min-width: 28.5rem;
 
   & img {
@@ -101,20 +76,25 @@ export const contentBox = css`
 `;
 
 export const contentBoxHero = css`
-  background-color: var(--surface-02);
+  display: grid;
+  box-shadow: var(--shadow-06);
+  background-color: var(--surface-01);
   border-radius: 1.6rem;
-  padding: 3.4rem;
+  padding: 3.2rem;
   z-index: 1;
   position: relative;
+  gap: 1.6rem;
 
   ${breakpoints.medium} {
-    padding: 7.4rem;
+    gap: 2.4rem;
+    padding: 6.4rem;
     z-index: 0;
     flex-basis: 100%;
   }
 `;
 
 export const contentBoxImage = css`
+  position: relative;
   background-color: var(--surface-01);
   border-radius: 1.6rem;
   overflow: hidden;
@@ -136,7 +116,7 @@ export const contentBoxImageBelowText = css`
 
   ${breakpoints.medium} {
     border-radius: 1.6rem;
-    margin: 1rem;
+    margin: 0;
     min-height: auto;
     flex-basis: 100%;
 

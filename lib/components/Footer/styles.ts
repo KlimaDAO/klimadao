@@ -34,12 +34,12 @@ export const footer_nav = css`
   flex-direction: column;
 
   & a {
-    color: var(--surface-04);
+    color: var(--font-02) !important;
     padding: 0.5rem 0rem;
   }
 
   & a:hover {
-    color: var(--surface-02);
+    color: var(--font-01) !important;
   }
 
   ${breakpoints.medium} {

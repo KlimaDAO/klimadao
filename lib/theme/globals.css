@@ -13,7 +13,7 @@ html {
 
 body {
   font-size: 1.6rem; /* ~16px */
-  color: #ffffff;
+  background-color: darkgray;
   overflow-x: hidden;
 }
 
@@ -47,11 +47,11 @@ p {
 
 a {
   text-decoration: none;
-  color: var(--secondary);
+  color: var(--font-01);
 }
 a:hover,
 a:visited {
-  color: var(--secondary-variant);
+  color: var(--font-01);
 }
 
 button {

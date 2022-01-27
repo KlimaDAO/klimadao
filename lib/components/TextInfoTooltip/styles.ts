@@ -4,7 +4,7 @@ import typography from "../../theme/old-typography";
 const tooltip = css`
   ${typography.caption};
   text-align: center;
-  border: 1px solid var(--primary-variant);
+  border: 1px solid var(--klima-green);
   background: var(--surface-08);
   border-radius: 0.4rem;
   padding: 0.8rem 1rem;
@@ -28,7 +28,7 @@ const tooltip = css`
       bottom: -0.8rem;
       left: -0.4rem;
       border-width: 0.8rem 0.8rem 0;
-      border-top-color: var(--primary-variant);
+      border-top-color: var(--klima-green);
       transform-origin: center top;
     }
     &::after {

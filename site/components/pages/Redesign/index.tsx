@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { t } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import {
   Columns,
@@ -14,21 +14,23 @@ import {
   HeaderMobile,
   NavItemMobile,
   ButtonPrimary,
-  Heading,
-  Copy,
+  Text,
 } from "@klimadao/lib/components";
 
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 
-import introPic from "public/intro.png";
-import blackHole from "public/black_hole.png";
-import forest from "public/forest.png";
-import cars from "public/cars.png";
-import gasolina from "public/gasolina.png";
-import * as styles from "./styles";
+import blackHole from "public/green-wormhole-vertical.jpg";
+import forest from "public/forest.jpg";
+import cars from "public/cars.jpg";
+import gasolina from "public/gasolina.jpg";
+import windmills from "public/windmills.jpg";
+import oceans from "public/oceans.jpg";
+import steams from "public/steams.jpg";
+import burningForest from "public/burning-forest.jpg";
 
+import * as styles from "./styles";
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
@@ -51,7 +53,7 @@ export const Home: NextPage<Props> = (props) => {
         buttons={[
           <ButtonPrimary
             key="Enter App"
-            label={t({ message: "Enter App" })}
+            label={t`Enter App`}
             href={urls.app}
           />,
         ]}
@@ -110,127 +112,254 @@ export const Home: NextPage<Props> = (props) => {
           name={t({ message: "Bond", id: "mainNav.bond" })}
         />
       </HeaderMobile>
-      <Section variant="white">
-        <div className={styles.heroContainer}>
+      <Section variant="gray">
+        <div className={styles.heroSection}>
           <Columns>
             <ContentBox variant="hero">
-              <Copy text={t({ message: "👋 WELCOME TO" })} />
-              <Heading text={t({ message: "KlimaDao" })} />
-              <Copy
-                text={t({
-                  message:
-                    "KlimaDAO harnesses the power of cryptocurrency, blockchain and smart contracts to create incentives for environmental protection.",
-                })}
-              />
-              <ButtonPrimary
-                key="Enter App"
-                label={t({ message: "Enter App" })}
-                href={urls.app}
-              />
+              <div className="hero_title">
+                <Text t="h5" color="lighter">
+                  <Trans>👋 WELCOME TO</Trans>
+                </Text>
+                <Text t="h1">KlimaDAO</Text>
+              </div>
+              <Text t="body2">
+                <Trans>
+                  Fight climate change and earn rewards with KLIMA, a digital
+                  currency backed by real carbon assets.
+                </Trans>
+              </Text>
+              <div className="hero_button">
+                <ButtonPrimary
+                  key="Enter App"
+                  label={t({ message: "Enter App" })}
+                  href={urls.app}
+                />
+              </div>
             </ContentBox>
             <ContentBoxImage variant="belowTextBox">
               <Image
                 alt="Intro"
-                src={introPic}
+                src={forest}
                 layout="fill"
                 objectFit="cover"
                 placeholder="blur"
               />
             </ContentBoxImage>
           </Columns>
-          <div className="learnMore">
+          <div className="hero_learnMore">
             <p>LEARN MORE</p>
             <ArrowDownwardIcon className="downArrow" />
           </div>
         </div>
       </Section>
-      <Section>
-        <div>
-          <Heading
-            align="center"
-            text={t({
-              message:
-                "KlimaDAO’s vision is a future where the cost of carbon to the climate is embedded into our economic system.",
-            })}
-          />
+      <Section variant="white">
+        <div className={styles.blackHoleSection}>
+          <Text t="h2_alt" align="center" color="lightest">
+            <Trans>
+              KlimaDAO is a <span>black hole for carbon</span> at the center of
+              a <span>new green economy</span>.
+            </Trans>
+          </Text>
           <Columns variant="contained" size="small">
-            <Copy
-              text={t({
-                message:
-                  "KlimaDAO is creating and governing a carbon-backed currency, which acts as the base unit of the on-chain carbon economy.",
-              })}
-            />
-            <Copy
-              text={t({
-                message:
-                  "Through the KLIMA token, we can help to align incentives between investors, civil society, and organizations, towards a more sustainable future.",
-              })}
-            />
+            <Text t="body2" color="lighter">
+              <Trans>
+                We’ve kickstarted a{" "}
+                <span>decentralized and open market for carbon</span>. Our token
+                incentivizes investors, citizens, and organizations to own and
+                govern this new economy.
+              </Trans>
+            </Text>
+            <Text t="body2" color="lighter">
+              <Trans>
+                By increasing access and demand for carbon offsets, we make
+                pro-climate projects more profitable, while forcing companies to
+                adapt more quickly to the realities of climate change.
+              </Trans>
+            </Text>
           </Columns>
-          <ContentBoxImage>
+          <div className="blackhole_img_container">
             <Image
               alt="BlackHole"
               src={blackHole}
-              layout="responsive"
+              layout="fill"
               objectFit="cover"
+              objectPosition="50% 77%"
               placeholder="blur"
             />
-          </ContentBoxImage>
+          </div>
         </div>
       </Section>
-      <Section>
-        <Heading
-          align="center"
-          variant="medium"
-          text={t({ message: "TONS OF CARBON LOCKED BY KLIMA" })}
-        />
-        <Heading align="center" text={formattedTreasuryBalance} />
-        <Heading
-          align="center"
-          variant="small"
-          text={t({ message: "EQUIVALENT TO" })}
-        />
-        <Columns size="small" wrapItems>
-          <ContentBox>
+      <Section variant="gray">
+        <div className={styles.mechanicsSection}>
+          <Text t="h2" as="h2">
+            <Trans>MECHANICS</Trans>
+          </Text>
+          <Text t="body2">
+            <Trans>
+              We sell bonds and distribute rewards to KLIMA holders. Every bond
+              we sell adds to an ever-growing green treasury, or improves
+              liquidity for environmental assets. A win-win for people and
+              planet.
+            </Trans>
+          </Text>
+          <div className="mechanics_item">
             <Image
-              alt="Forest"
-              src={forest}
-              layout="responsive"
-              objectFit="cover"
+              className="mechanics_img"
+              src={windmills}
+              alt="Windmills"
+              width={240}
+              height={360}
               placeholder="blur"
             />
-            <ContentBox customStyles={{ padding: "1.5rem" }}>
-              <Copy text={t({ message: "HECTARES OF FOREST" })} />
-              <Heading variant="small" text={t({ message: "55,766" })} />
-            </ContentBox>
-          </ContentBox>
-          <ContentBox>
+            <div className="mechanics_label">
+              <Text t="h4" color="lighter">
+                /01
+              </Text>
+              <Text t="h1">
+                <Trans>Backed by Carbon.</Trans>
+              </Text>
+            </div>
+          </div>
+          <div className="mechanics_item">
             <Image
-              alt="Cars"
-              src={cars}
-              layout="responsive"
-              objectFit="contain"
+              className="mechanics_img"
+              src={steams}
+              alt="Windmills"
+              width={240}
+              height={360}
               placeholder="blur"
             />
-            <ContentBox customStyles={{ padding: "1.5rem" }}>
-              <Copy text={t({ message: "PASSENGER VEHICLES" })} />
-              <Heading variant="small" text={t({ message: "2,424,621" })} />
-            </ContentBox>
-          </ContentBox>
-          <ContentBox>
+            <div className="mechanics_label">
+              <Text t="h4" color="lighter">
+                /02
+              </Text>
+              <Text t="h1">
+                <Trans>Strong incentives.</Trans>
+              </Text>
+            </div>
+          </div>
+          <div className="mechanics_item">
             <Image
-              alt="Gasolina"
-              src={gasolina}
-              layout="responsive"
-              objectFit="contain"
+              className="mechanics_img"
+              src={oceans}
+              alt="an ocean"
+              width={240}
+              height={360}
               placeholder="blur"
             />
-            <ContentBox customStyles={{ padding: "1.5rem" }}>
-              <Copy text={t({ message: "LITERS OF GASOLINE" })} />
-              <Heading variant="small" text={t({ message: "5,697,736,801" })} />
-            </ContentBox>
-          </ContentBox>
-        </Columns>
+            <div className="mechanics_label">
+              <Text t="h4" color="lighter">
+                /03
+              </Text>
+              <Text t="h1">
+                <Trans>Massive impact.</Trans>
+              </Text>
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section variant="white">
+        <div className={styles.carbonSection}>
+          <Text t="h3" as="h2" color="lightest" align="center">
+            <Trans>
+              TONS OF <span>CARBON ABSORBED</span> BY KLIMA
+            </Trans>
+          </Text>
+          <Text className="carbon_counter" align="center">
+            <Trans>{formattedTreasuryBalance}</Trans>
+          </Text>
+          <Text t="h5" align="center">
+            <Trans>EQUIVALENT TO</Trans>
+          </Text>
+          <Columns size="small" wrapItems>
+            <div className="carbon_card">
+              <Image
+                alt="Forest"
+                src={forest}
+                width={284}
+                height={200}
+                placeholder="blur"
+              />
+              <div className="carbon_card_label">
+                <Text
+                  color="lighter"
+                  t="caption"
+                  style={{ textTransform: "uppercase" }}
+                >
+                  <Trans>Hectares of forest</Trans>
+                </Text>
+                <Text t="h3">1234</Text>
+              </div>
+            </div>
+            <div className="carbon_card">
+              <Image
+                alt="Cars"
+                src={cars}
+                width={284}
+                height={200}
+                placeholder="blur"
+              />
+              <div className="carbon_card_label">
+                <Text
+                  color="lighter"
+                  t="caption"
+                  style={{ textTransform: "uppercase" }}
+                >
+                  <Trans>Passenger vehicles</Trans>
+                </Text>
+                <Text t="h3">1234</Text>
+              </div>
+            </div>
+            <div className="carbon_card">
+              <Image
+                alt="Gasolina"
+                src={gasolina}
+                width={284}
+                height={200}
+                placeholder="blur"
+              />
+              <div className="carbon_card_label">
+                <Text
+                  color="lighter"
+                  t="caption"
+                  style={{ textTransform: "uppercase" }}
+                >
+                  <Trans>Liters of gasoline</Trans>
+                </Text>
+                <Text t="h3">1234</Text>
+              </div>
+            </div>
+          </Columns>
+          <Link href={urls.epaSource} passHref>
+            <a>
+              <Text
+                align="center"
+                t="caption"
+                color="lightest"
+                style={{ textDecoration: "underline" }}
+              >
+                <Trans>Source</Trans>
+              </Text>
+            </a>
+          </Link>
+        </div>
+      </Section>
+      <Section className={styles.forestSection}>
+        <div className="forest_img_container">
+          <Image
+            src={burningForest}
+            layout="fill"
+            alt="A burning forest"
+            objectFit="cover"
+          />
+        </div>
+        <Text
+          className="forest_label"
+          t="h1"
+          style={{ color: "white", textTransform: "uppercase" }}
+        >
+          <Trans>IT’S TIME TO ACT.</Trans>
+        </Text>
       </Section>
       <Footer />
     </>
