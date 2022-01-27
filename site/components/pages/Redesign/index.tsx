@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React from "react";
 import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,7 +22,6 @@ import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 
-import blackHole from "public/green-wormhole-vertical.jpg";
 import forest from "public/forest.jpg";
 import cars from "public/cars.jpg";
 import gasolina from "public/gasolina.jpg";
@@ -34,6 +33,7 @@ import sprouts from "public/sprouts.jpg";
 import dummyswap from "public/dummyswap.jpg";
 
 import * as styles from "./styles";
+import { ParralaxWormhole } from "./ParralaxWormhole";
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
@@ -41,41 +41,7 @@ export interface Props {
 }
 
 export const Home: NextPage<Props> = (props) => {
-  const blackHoleRef = useRef<HTMLDivElement | null>(null);
   const formattedTreasuryBalance = props.treasuryBalance.toLocaleString();
-  const [percent, setPercent] = useState("50%");
-
-  useEffect(() => {
-    if (!blackHoleRef.current) return;
-    const interpolateObjectPosition = (): string => {
-      const top = blackHoleRef.current?.getBoundingClientRect()?.top ?? 0;
-      const innerHeight = window.innerHeight;
-      // how far is the element from the top of viewport. <= 0 is intersecting top.
-      const rawDistance = 100 - Math.floor((top / innerHeight) * 100);
-      const distance =
-        rawDistance < 0 ? 0 : rawDistance > 100 ? 100 : rawDistance;
-      // distance >=100, blackhole should be at object-position 50%
-      const startPercent = 35;
-      // distance <= 0 object-position 80%
-      const endPercent = 90;
-      const range = endPercent - startPercent;
-      // 25 - 80
-      const currentPercent = startPercent + (distance / 100) * range;
-      console.log("distan", distance, currentPercent);
-      return `${currentPercent}%`;
-    };
-    setPercent(interpolateObjectPosition());
-    const handleScroll = () => {
-      window.requestAnimationFrame(() => {
-        setPercent(interpolateObjectPosition());
-      });
-    };
-    const observer = new IntersectionObserver(() => {
-      // TODO add/remove cleanup
-      document.addEventListener("scroll", handleScroll);
-    });
-    observer.observe(blackHoleRef.current);
-  }, []);
 
   return (
     <>
@@ -215,16 +181,7 @@ export const Home: NextPage<Props> = (props) => {
               </Trans>
             </Text>
           </Columns>
-          <div className="blackhole_img_container" ref={blackHoleRef}>
-            <Image
-              alt="BlackHole"
-              src={blackHole}
-              layout="fill"
-              objectFit="cover"
-              objectPosition={`50% ${percent}`}
-              placeholder="blur"
-            />
-          </div>
+          <ParralaxWormhole />
         </div>
       </Section>
       <Section variant="gray">
@@ -405,7 +362,12 @@ export const Home: NextPage<Props> = (props) => {
             <Text>
               <Trans>Invest in the future.</Trans>
             </Text>
-            <Image src={sprouts} width={420} height={340} />
+            <Image
+              src={sprouts}
+              width={420}
+              height={340}
+              alt="A small cute green sprout in a log"
+            />
           </div>
           <div className="sprouts_col2">
             <div>
