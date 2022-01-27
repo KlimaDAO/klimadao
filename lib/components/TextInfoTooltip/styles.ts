@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import typography from "../../theme/typography";
+import typography from "../../theme/old-typography";
 
 const tooltip = css`
   ${typography.caption};
