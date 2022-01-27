@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -29,6 +30,8 @@ import windmills from "public/windmills.jpg";
 import oceans from "public/oceans.jpg";
 import steams from "public/steams.jpg";
 import burningForest from "public/burning-forest.jpg";
+import sprouts from "public/sprouts.jpg";
+import dummyswap from "public/dummyswap.jpg";
 
 import * as styles from "./styles";
 export interface Props {
@@ -38,7 +41,42 @@ export interface Props {
 }
 
 export const Home: NextPage<Props> = (props) => {
+  const blackHoleRef = useRef<HTMLDivElement | null>(null);
   const formattedTreasuryBalance = props.treasuryBalance.toLocaleString();
+  const [percent, setPercent] = useState("50%");
+
+  useEffect(() => {
+    if (!blackHoleRef.current) return;
+    const interpolateObjectPosition = (): string => {
+      const top = blackHoleRef.current?.getBoundingClientRect()?.top ?? 0;
+      const innerHeight = window.innerHeight;
+      // how far is the element from the top of viewport. <= 0 is intersecting top.
+      const rawDistance = 100 - Math.floor((top / innerHeight) * 100);
+      const distance =
+        rawDistance < 0 ? 0 : rawDistance > 100 ? 100 : rawDistance;
+      // distance >=100, blackhole should be at object-position 50%
+      const startPercent = 35;
+      // distance <= 0 object-position 80%
+      const endPercent = 90;
+      const range = endPercent - startPercent;
+      // 25 - 80
+      const currentPercent = startPercent + (distance / 100) * range;
+      console.log("distan", distance, currentPercent);
+      return `${currentPercent}%`;
+    };
+    setPercent(interpolateObjectPosition());
+    const handleScroll = () => {
+      window.requestAnimationFrame(() => {
+        setPercent(interpolateObjectPosition());
+      });
+    };
+    const observer = new IntersectionObserver(() => {
+      // TODO add/remove cleanup
+      document.addEventListener("scroll", handleScroll);
+    });
+    observer.observe(blackHoleRef.current);
+  }, []);
+
   return (
     <>
       <PageHead
@@ -177,13 +215,13 @@ export const Home: NextPage<Props> = (props) => {
               </Trans>
             </Text>
           </Columns>
-          <div className="blackhole_img_container">
+          <div className="blackhole_img_container" ref={blackHoleRef}>
             <Image
               alt="BlackHole"
               src={blackHole}
               layout="fill"
               objectFit="cover"
-              objectPosition="50% 77%"
+              objectPosition={`50% ${percent}`}
               placeholder="blur"
             />
           </div>
@@ -345,14 +383,14 @@ export const Home: NextPage<Props> = (props) => {
         </div>
       </Section>
       <Section className={styles.forestSection}>
-        <div className="forest_img_container">
-          <Image
-            src={burningForest}
-            layout="fill"
-            alt="A burning forest"
-            objectFit="cover"
-          />
-        </div>
+        <Image
+          src={burningForest}
+          layout="fill"
+          width={1600}
+          height={640}
+          alt="A burning forest"
+          objectFit="cover"
+        />
         <Text
           className="forest_label"
           t="h1"
@@ -360,6 +398,66 @@ export const Home: NextPage<Props> = (props) => {
         >
           <Trans>IT’S TIME TO ACT.</Trans>
         </Text>
+      </Section>
+      <Section variant="white">
+        <div className={styles.sproutsSection}>
+          <div className="sprouts_col1">
+            <Text>
+              <Trans>Invest in the future.</Trans>
+            </Text>
+            <Image src={sprouts} width={420} height={340} />
+          </div>
+          <div className="sprouts_col2">
+            <div>
+              <Text>
+                <Trans>001</Trans>
+              </Text>
+              <Text>Reserve Currency</Text>
+              <Text>Of the carbon economy</Text>
+              <Text>
+                KLIMA tokens are backed by real-world carbon assets, and are
+                used to interact with applications, offset carbon emissions,
+                borrow, and more.
+              </Text>
+            </div>
+            <div>
+              <Text>
+                <Trans>002</Trans>
+              </Text>
+              <Text>6% WEEKLY YIELD</Text>
+              <Text>FOR TOKEN HOLDERS</Text>
+              <Text>
+                KLIMA tokens are minted and distributed automatically every ~7
+                hours to staked KLIMA holders. Grow your KLIMA holdings as we
+                usher in a more sustainable future together.
+              </Text>
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section variant="gray">
+        <div className={styles.buySection}>
+          <div className="buy_col1">
+            <Text>
+              <Trans>BUY KLIMA</Trans>
+            </Text>
+            <Text>
+              <Trans>
+                Invest in Klima and be rewarded for participating in financial
+                activism for the climate. Get exposure to the on-chain carbon
+                economy today.
+              </Trans>
+            </Text>
+            <ButtonPrimary
+              key="See Tutorial"
+              label={t`See Tutorial`}
+              href={urls.tutorial}
+            />
+          </div>
+          <div className="buy_col2">
+            <Image src={dummyswap} width={765} height={500} />
+          </div>
+        </div>
       </Section>
       <Footer />
     </>

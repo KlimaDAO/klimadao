@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import { css, keyframes } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const heroSection = css`
@@ -28,20 +28,34 @@ export const heroSection = css`
   }
 `;
 
+const pulse = keyframes`
+  0% {
+    filter: brightness(50%);
+
+  }
+  50% {
+    filter: brightness(100%);
+  }
+  100% {
+    filter: brightness(50%);
+  }
+`;
+
 export const blackHoleSection = css`
   grid-column: main;
   span {
     color: var(--font-01);
   }
   .blackhole_img_container {
+    position: relative;
     margin: 0rem 3.2rem;
     border-radius: 1.6rem 1.6rem 0 0;
     overflow: hidden;
-    filter: brightness(70%);
     border-radius:
     position: relative;
     min-height: 32rem;
     opacity: 05;
+    animation: ${pulse} 6s ease-out infinite;
   }
 `;
 
@@ -97,13 +111,6 @@ export const forestSection = css`
   height: 64rem;
   position: relative;
   padding: 3.2rem;
-  .forest_img_container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-  }
   .forest_label {
     grid-column: main;
     z-index: 1;
@@ -113,4 +120,33 @@ export const forestSection = css`
   }
 `;
 
-export const heroContainer_learnMore = css``;
+export const sproutsSection = css`
+  display: grid;
+  grid-column: main;
+  grid-template-columns: 1fr 1fr;
+  .sprouts_col1 {
+    display: grid;
+  }
+
+  .sprouts_col2 {
+    display: grid;
+  }
+`;
+
+export const buySection = css`
+  display: grid;
+  grid-column: main;
+  grid-template-columns: 1fr 1fr;
+  padding: 3.2rem;
+  background-color: var(--surface-01);
+  box-shadow: var(--shadow-06);
+  border-radius: 1.6rem;
+
+  .buy_col1 {
+    display: grid;
+  }
+
+  .buy_col2 {
+    display: grid;
+  }
+`;

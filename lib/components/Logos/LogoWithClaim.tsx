@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { css } from "@emotion/css";
 
 export const LogoWithClaim: FC = () => {
   return (
