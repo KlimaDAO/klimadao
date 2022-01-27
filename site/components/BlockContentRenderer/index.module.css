@@ -1,0 +1,37 @@
+.spacing {
+  margin: 2rem 0;
+}
+
+.h1 {
+  composes: spacing;
+}
+
+.h2 {
+  composes: spacing;
+}
+
+.h3 {
+  composes: spacing;
+}
+
+.h4 {
+  composes: spacing;
+}
+
+.ul {
+  composes: spacing;
+}
+
+.ol {
+  composes: spacing;
+  list-style-position: inside;
+}
+
+.li {
+}
+
+.inlineImage {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
