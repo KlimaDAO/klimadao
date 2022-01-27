@@ -26,6 +26,7 @@ export const useBond = (bond: Bond) => {
       klima_usdc_lp: "KLIMA/USDC LP",
       klima_bct_lp: "BCT/KLIMA LP",
       bct_usdc_lp: "BCT/USDC LP",
+      klima_mco2_lp: "KLIMA/MCO2 LP",
       // future bond names go here
     }[bond],
     description: {
@@ -34,6 +35,7 @@ export const useBond = (bond: Bond) => {
       klima_usdc_lp: "KLIMA/USDC Sushiswap LP Bonds",
       klima_bct_lp: "BCT/KLIMA Sushiswap LP Bonds",
       bct_usdc_lp: "BCT/USDC Sushiswap LP Bonds",
+      klima_mco2_lp: "KLIMA/MCO2 Quickswap LP Bonds",
       // future bond descriptions go here
     }[bond],
     href: {
@@ -42,6 +44,7 @@ export const useBond = (bond: Bond) => {
       klima_usdc_lp: "/bonds/klima_usdc_lp",
       klima_bct_lp: "/bonds/klima_bct_lp",
       bct_usdc_lp: "/bonds/bct_usdc_lp",
+      klima_mco2_lp: "/bonds/klima_mco2_lp",
       // future bond hrefs go here
     }[bond],
     balanceUnit: {
@@ -50,6 +53,7 @@ export const useBond = (bond: Bond) => {
       klima_usdc_lp: "SLP",
       klima_bct_lp: "SLP",
       bct_usdc_lp: "SLP",
+      klima_mco2_lp: "LP",
     }[bond],
     priceUnit: {
       mco2: "MCO2",
@@ -57,6 +61,7 @@ export const useBond = (bond: Bond) => {
       klima_usdc_lp: "USDC",
       klima_bct_lp: "BCT",
       bct_usdc_lp: "BCT",
+      klima_mco2_lp: "MCO2",
     }[bond],
   };
 };
@@ -67,9 +72,11 @@ export function ChooseBond() {
   const bctUsdcLp = useBond("bct_usdc_lp");
   const mco2 = useBond("mco2");
   const klimaUsdcLp = useBond("klima_usdc_lp");
+  const klimaMco2Lp = useBond("klima_mco2_lp");
+
   const { treasuryBalance } = useSelector(selectAppState);
 
-  const bonds = [mco2, bct, klimaUsdcLp, klimaBctLp, bctUsdcLp];
+  const bonds = [mco2, bct, klimaMco2Lp, klimaUsdcLp, klimaBctLp, bctUsdcLp];
 
   return (
     <div className={styles.stakeCard}>
