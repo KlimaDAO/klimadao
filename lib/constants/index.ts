@@ -15,9 +15,11 @@ const mainnet = {
   bctUsdcLp: "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64",
   klimaUsdcLp: "0x5786b267d35F9D011c4750e0B0bA584E1fDbeAD1",
   klimaBctLp: "0x9803c7ae526049210a1725f7487af26fe2c24614",
+  klimaMco2Lp: "0x64a3b8cA5A7e406A78e660AE10c7563D9153a739",
   mco2UsdcLp: "0x68ab4656736d48bb1de8661b9a323713104e24cf",
   bond_klimaBctLp: "0x1E0Dd93C81aC7Af2974cdB326c85B87Dd879389B",
   bond_klimaUsdcLp: "0xb5aF101742EcAe095944F60C384d09453006bFde",
+  bond_klimaMco2Lp: "0xf9c3FC299dE5f86d9CD6a724e6B44933720f5e6D",
   bond_bct: "0x7De627C56D26529145a5f9D85948ecBeAF9a4b34",
   bond_bctUsdcLp: "0xBF2A35efcd85e790f02458Db4A3e2f29818521c5",
   bond_mco2: "0x27217c3F5bEc4c12Fa506A101bC4bd15417AEAa8",
@@ -44,9 +46,11 @@ const testnet: typeof mainnet = {
   bctUsdcLp: "0x1c08a37dfFc0f482B61E802781f2c29eD9316ba6",
   klimaUsdcLp: "",
   klimaBctLp: "0xb7225519550ED89C9B36c88d57d6059F698AaE97",
+  klimaMco2Lp: "0x64a3b8cA5A7e406A78e660AE10c7563D9153a739",
   mco2UsdcLp: "",
   bond_klimaBctLp: "0x285A6054DdC2980C62E716086B065E1e770fffb3",
   bond_klimaUsdcLp: "",
+  bond_klimaMco2Lp: "0xf9c3FC299dE5f86d9CD6a724e6B44933720f5e6D",
   bond_bct: "0x3204AF4b290b8f4f0fdf91284818ebB53b90459c",
   bond_bctUsdcLp: "0x9d9bC94A340B8B1cE8219c09E4CfadB9582BfAe1",
   bond_mco2: "",
@@ -102,9 +106,10 @@ export const polygonNetworks = {
 };
 
 export const bonds = [
-  "klima_bct_lp",
   "bct_usdc_lp",
+  "klima_bct_lp",
   "klima_usdc_lp",
+  "klima_mco2_lp",
   "bct",
   "mco2",
 ] as const;
