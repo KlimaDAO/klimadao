@@ -343,8 +343,6 @@ export const Home: NextPage<Props> = (props) => {
         <Image
           src={burningForest}
           layout="fill"
-          width={1600}
-          height={640}
           alt="A burning forest"
           objectFit="cover"
         />

@@ -6,7 +6,7 @@ const pulse = keyframes`
 
   }
   50% {
-    filter: brightness(100%);
+    filter: brightness(150%);
   }
   100% {
     filter: brightness(50%);
@@ -16,7 +16,7 @@ const pulse = keyframes`
 export const container = css`
     position: relative;
     margin: 0rem 3.2rem;
-    border-radius: 1.6rem 1.6rem 0 0;
+    border-radius: 2.4rem 2.4rem 0 0;
     overflow: hidden;
     border-radius:
     position: relative;
