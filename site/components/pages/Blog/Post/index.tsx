@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+
 import {
   HeaderDesktop,
   NavItemDesktop,
@@ -7,6 +8,7 @@ import {
   NavItemMobile,
   ButtonPrimary,
 } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 
 import { Post } from "lib/queries";
@@ -38,17 +40,19 @@ export function PostPage(props: PostProps) {
       </div>
       <section className={styles.blogContainer}>
         <div className={styles.content}>
-          <h1 className={styles.title}>{props.post.title}</h1>
-          <p className={styles.date}>
+          <Text t="h1" as="h1">
+            {props.post.title}
+          </Text>
+          <Text className={styles.date}>
             Published {new Date(props.post.publishedAt).toDateString()}
-          </p>
+          </Text>
           <BlockContentRenderer blocks={props.post.body} />
         </div>
       </section>
     </div>
   ) : (
     <div className={styles.fallbackContainer}>
-      <p className={styles.loadingArticle}>Loading article...</p>
+      <Text className={styles.loadingArticle}>Loading article...</Text>
     </div>
   );
 

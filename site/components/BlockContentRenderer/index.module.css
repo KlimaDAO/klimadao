@@ -1,37 +1,45 @@
-.spacing {
+.heading {
+  margin: 4.8rem 0 3.2rem;
+}
+
+.paragraph {
   margin: 2rem 0;
-}
-
-.h1 {
-  composes: spacing;
-}
-
-.h2 {
-  composes: spacing;
-}
-
-.h3 {
-  composes: spacing;
-}
-
-.h4 {
-  composes: spacing;
-}
-
-.ul {
-  composes: spacing;
-}
-
-.ol {
-  composes: spacing;
-  list-style-position: inside;
-}
-
-.li {
 }
 
 .inlineImage {
   display: flex;
   justify-content: center;
   margin: 2rem 0;
+}
+
+.li {
+}
+
+.li_content {
+  display: inline;
+}
+
+.ul {
+  margin: 2rem 0;
+}
+
+.ol {
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
+  margin: 2rem 0;
+  margin-inline-start: 2.5rem;
+}
+
+.nestedUl {
+  list-style-type: "- ";
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nestedOl {
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
+  list-style-type: lower-alpha;
+  margin-inline-start: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  list-style-position: outside;
 }

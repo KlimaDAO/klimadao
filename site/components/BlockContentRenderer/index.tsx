@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import Image from "next/image";
 
+import { Text } from "@klimadao/lib/components";
+
 import BlockContent, {
   BlockContentProps,
 } from "@sanity/block-content-to-react";
@@ -20,32 +22,56 @@ const BlockRenderer = (params: {
   children: JSX.Element;
 }) => {
   const { style } = params.node;
+  if (style === "normal") {
+    return (
+      <Text t="body1" className={styles.paragraph}>
+        {params.children}
+      </Text>
+    );
+  }
+  if (style === "quote") {
+    // Fall back to default handling https://www.sanity.io/docs/portable-text-to-react#customizing-the-default-serializer-for
+    return BlockContent.defaultSerializers.types.block(params);
+  }
   if (style === "h1") {
-    return <h1 className={styles.h1}>{params.children}</h1>;
+    return (
+      <Text t="h2" as="h2" className={styles.heading}>
+        {params.children}
+      </Text>
+    );
   }
-  if (style === "h2") {
-    return <h2 className={styles.h2}>{params.children}</h2>;
-  }
-  if (style === "h3") {
-    return <h3 className={styles.h3}>{params.children}</h3>;
-  }
-  if (style === "h4") {
-    return <h4 className={styles.h4}>{params.children}</h4>;
-  }
-  // Fall back to default handling https://www.sanity.io/docs/portable-text-to-react#customizing-the-default-serializer-for
-  return BlockContent.defaultSerializers.types.block(params);
+  return (
+    <Text t={style} as={style} className={styles.heading}>
+      {params.children}
+    </Text>
+  );
 };
 
 const serializers: BlockContentProps["serializers"] = {
   list: (params) => {
-    const { type } = params;
-    const bullet = type === "bullet";
-    if (bullet) {
-      return <ul className={styles.ul}>{params.children}</ul>;
+    const { type, level } = params;
+    if (type === "bullet") {
+      return (
+        <ul className={level === 2 ? styles.nestedUl : styles.ul}>
+          {params.children}
+        </ul>
+      );
     }
-    return <ol className={styles.ol}>{params.children}</ol>;
+    return (
+      <ol className={level === 2 ? styles.nestedOl : styles.ol}>
+        {params.children}
+      </ol>
+    );
   },
-  listItem: (params) => <li className={styles.li}>{params.children}</li>,
+  listItem: (params) => {
+    return (
+      <li className={styles.li}>
+        <Text t="body1" className={styles.li_content}>
+          {params.children}
+        </Text>
+      </li>
+    );
+  },
   types: {
     block: BlockRenderer,
     image: (params: { node: { asset: { url: string } } }) => {
@@ -55,8 +81,8 @@ const serializers: BlockContentProps["serializers"] = {
             src={params.node.asset.url}
             alt="inline image"
             objectFit="contain"
-            width={320}
-            height={240}
+            width={640}
+            height={480}
           />
         </div>
       );

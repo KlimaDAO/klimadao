@@ -26,9 +26,16 @@ declare module "@sanity/block-content-to-react" {
       types?: Record<string, (props: any) => JSX.Element | null>;
       marks?: Record<string, (props: any) => JSX.Element | null>;
       /** React component to use when rendering a list node */
-      list?: (params: { type: string; children: JSX.Element }) => JSX.Element;
+      list?: (params: {
+        type: string;
+        children: JSX.Element;
+        level: 1 | 2;
+      }) => JSX.Element;
       /** React component to use when rendering a list item node */
-      listItem?: (params: { children: JSX.Element }) => JSX.Element;
+      listItem?: (params: {
+        children: JSX.Element;
+        node: { level: 1 | 2 };
+      }) => JSX.Element;
       /**
        * React component to use when transforming newline characters
        * to a hard break (<br/> by default, pass false to render newline character)
