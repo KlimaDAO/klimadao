@@ -206,14 +206,6 @@ export const Wrap: FC<Props> = (props) => {
             balance, your wsKLIMA balance will not increase over time.
           </Trans>
         </p>
-        <p className={T.body2}>
-          <Trans id="msg.yield">
-            When wsKLIMA is unwrapped, you receive sKLIMA based on the latest
-            (ever-increasing) index, so the total yield is the same.
-          </Trans>
-        </p>
-
-        <p className={T.body2}></p>
       </div>
       <div className={styles.inputsContainer}>
         <div className={styles.stakeSwitch}>

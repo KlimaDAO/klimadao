@@ -3,18 +3,22 @@
 
 .stakeCard {
   align-self: center;
-  max-width: 8.5rem;
+  max-width: 90rem;
   background-color: var(--dapp-bg);
   border-radius: 1.2rem;
-  /* padding: 10rem; */
+  padding: 2.4rem;
+  display: grid;
   gap: 3.2rem;
+  padding-bottom: 12rem;
 }
 
-.buttonRow, .stakeSwitch,  .inputsContainer, .dataContainer {
+.buttonRow,
+.stakeSwitch,
+.inputsContainer,
+.dataContainer {
   max-width: 32rem;
   margin: auto;
 }
-
 
 .stakeIcon {
   margin-right: 10px;
@@ -23,6 +27,11 @@
 .stakeCard_header {
   display: grid;
   gap: 0.8rem;
+  margin-bottom: 8rem;
+}
+
+.stakeCard_header p {
+  max-width: 20rem;
 }
 
 .inputsContainer {

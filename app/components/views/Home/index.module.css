@@ -77,7 +77,6 @@ TEMP
   /* background: var(--dapp-bg); */
 }
 
-
 .heroSection {
   grid-column: main;
   display: grid;
@@ -249,7 +248,7 @@ TEMP
       [full-end];
   }
   .header {
-    padding-top: 5.4rem;
+    padding-top: 3.2rem;
   }
   .nav {
     justify-items: end;
@@ -284,7 +283,7 @@ TEMP
 
 @media bp-large {
   .header {
-    padding-top: 6.4rem;
+    padding-top: 3.2rem;
   }
   .logoContainer {
     width: 32rem;

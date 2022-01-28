@@ -4,17 +4,24 @@
 
 .stakeCard {
   align-self: center;
-  max-width: 85rem;
+  width: 90rem;
   background-color: var(--dapp-bg);
   border-radius: 1.2rem;
   padding: 2.4rem;
   display: grid;
   gap: 3.2rem;
+  padding-bottom: 12rem;
 }
 
 .stakeCard_header {
   display: grid;
   gap: 0.8rem;
+  margin-bottom: 8rem;
+}
+
+.stakeCard_header p {
+  max-width: 32rem;
+  font-size: 1.2rem;
 }
 
 .infoSection {
