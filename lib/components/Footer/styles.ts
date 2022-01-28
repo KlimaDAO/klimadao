@@ -2,9 +2,10 @@ import { css } from "@emotion/css";
 import breakpoints from "../../theme/breakpoints";
 
 export const footer = css`
-  background-color: var(--surface-07);
+  background-color: var(--surface-02);
   padding: 2rem 2.4rem;
   position: relative;
+  grid-column: full;
 
   ${breakpoints.medium} {
     display: flex;

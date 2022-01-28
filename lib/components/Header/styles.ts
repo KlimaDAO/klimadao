@@ -8,8 +8,9 @@ export const headerDesktop = css`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: var(--header-height);
   background: var(--surface-02);
+  padding-top: 4.8rem;
+  height: calc(var(--header-height) * 2);
   ${breakpoints.medium} {
     display: grid;
   }
@@ -56,15 +57,6 @@ export const menuDesktop = css`
   grid-template-columns: auto 1fr auto;
   width: 100%;
   align-items: center;
-`;
-
-export const logo_Desktop = css`
-  flex: 1 1 0%;
-  box-sizing: border-box;
-  margin: 0px;
-  min-width: 0px;
-  padding: 2rem;
-  padding-left: 0;
 `;
 
 export const navMain_Desktop = css`

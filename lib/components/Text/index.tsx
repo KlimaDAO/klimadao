@@ -13,6 +13,8 @@ type Props = HTMLAttributes<HTMLParagraphElement> & {
   color?: "default" | "lighter" | "lightest";
   /** Text align */
   align?: "start" | "center" | "end";
+  /** Apply text-transform: uppercase if true */
+  uppercase?: boolean;
 };
 
 /** Render any element w/ typography styles. Element and styles are independent.
@@ -24,6 +26,7 @@ export const Text: FC<Props> = ({
   t = "body1",
   color = "default",
   align = "start",
+  uppercase = false,
   children,
   ...props
 }) => {
@@ -33,7 +36,7 @@ export const Text: FC<Props> = ({
       ...props,
       "data-color": color,
       "data-align": align,
-      className: cx(typography[t], styles.text, props.className),
+      className: cx(typography[t], styles.text, { uppercase }, props.className),
     },
     children
   );

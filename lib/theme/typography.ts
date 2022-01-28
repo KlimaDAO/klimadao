@@ -99,6 +99,7 @@ export const button = css`
   font-size: 1.2rem;
   line-height: 1.6rem;
   font-weight: 600;
+  letter-spacing: 0.06rem;
   ${breakpoints.medium} {
     font-size: 1.4rem;
     line-height: 1.6rem;

@@ -15,8 +15,13 @@ export const section = css`
   display: grid;
   grid-template-columns: inherit;
   background-color: var(--surface-01);
+  padding: 15.2rem 0rem;
   &.gray {
     background-color: var(--surface-02);
+  }
+  &.fillViewport {
+    min-height: 100vh;
+    align-items: center;
   }
 `;
 

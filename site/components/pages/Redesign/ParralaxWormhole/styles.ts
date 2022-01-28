@@ -14,13 +14,11 @@ const pulse = keyframes`
 `;
 
 export const container = css`
-    position: relative;
-    margin: 0rem 3.2rem;
-    border-radius: 2.4rem 2.4rem 0 0;
-    overflow: hidden;
-    border-radius:
-    position: relative;
-    min-height: 32rem;
-    opacity: 05;
-    animation: ${pulse} 6s ease-out infinite;
+  position: relative;
+  border-radius: 2.4rem 2.4rem 0 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 32rem;
+  opacity: 05;
+  animation: ${pulse} 6s ease-out infinite;
 `;

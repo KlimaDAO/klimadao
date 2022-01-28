@@ -116,7 +116,11 @@ export const Home: NextPage<Props> = (props) => {
           name={t({ message: "Bond", id: "mainNav.bond" })}
         />
       </HeaderMobile>
-      <Section variant="gray">
+      <Section
+        variant="gray"
+        fillViewport
+        style={{ minHeight: "calc(100vh - var(--header-height) * 2);" }}
+      >
         <div className={styles.heroSection}>
           <Columns>
             <ContentBox variant="hero">
@@ -156,177 +160,174 @@ export const Home: NextPage<Props> = (props) => {
           </div>
         </div>
       </Section>
-      <Section variant="white">
+      <Section variant="white" style={{ paddingBottom: "unset" }}>
         <div className={styles.blackHoleSection}>
-          <Text t="h2_alt" align="center" color="lightest">
-            <Trans>
-              KlimaDAO is a <span>black hole for carbon</span> at the center of
-              a <span>new green economy</span>.
-            </Trans>
-          </Text>
-          <Columns variant="contained" size="small">
-            <Text t="body2" color="lighter">
+          <div className="blackHole_textGroup">
+            <Text t="h2_alt" align="center" color="lightest">
               <Trans>
-                We’ve kickstarted a{" "}
-                <span>decentralized and open market for carbon</span>. Our token
-                incentivizes investors, citizens, and organizations to own and
-                govern this new economy.
+                KlimaDAO is a <span>black hole for carbon</span> at the center
+                of a <span>new green economy</span>.
               </Trans>
             </Text>
-            <Text t="body2" color="lighter">
-              <Trans>
-                By increasing access and demand for carbon offsets, we make
-                pro-climate projects more profitable, while forcing companies to
-                adapt more quickly to the realities of climate change.
-              </Trans>
-            </Text>
-          </Columns>
+            <div className="blackHole_columns">
+              <Text t="body2" color="lighter">
+                <Trans>
+                  We’ve kickstarted a{" "}
+                  <span>decentralized and open market for carbon</span>. Our
+                  token incentivizes investors, citizens, and organizations to
+                  participate in and govern this new economy.
+                </Trans>
+              </Text>
+              <Text t="body2" color="lighter">
+                <Trans>
+                  By increasing access and demand for carbon offsets, we make
+                  pro-climate projects more profitable, while forcing companies
+                  to adapt more quickly to the realities of climate change.
+                </Trans>
+              </Text>
+            </div>
+          </div>
+
           <ParralaxWormhole />
         </div>
       </Section>
-      <Section variant="gray">
+      <Section variant="gray" fillViewport>
         <div className={styles.mechanicsSection}>
-          <Text t="h2" as="h2">
-            <Trans>MECHANICS</Trans>
-          </Text>
-          <Text t="body2">
-            <Trans>
-              We sell bonds and distribute rewards to KLIMA holders. Every bond
-              we sell adds to an ever-growing green treasury, or improves
-              liquidity for environmental assets. A win-win for people and
-              planet.
-            </Trans>
-          </Text>
-          <div className="mechanics_item">
-            <Image
-              className="mechanics_img"
-              src={windmills}
-              alt="Windmills"
-              width={240}
-              height={360}
-              placeholder="blur"
-            />
-            <div className="mechanics_label">
-              <Text t="h4" color="lighter">
-                /01
-              </Text>
-              <Text t="h1">
-                <Trans>Backed by Carbon.</Trans>
-              </Text>
-            </div>
+          <div className="mechanics_textGroup">
+            <Text t="h2" as="h2">
+              <Trans>MECHANICS</Trans>
+            </Text>
+            <Text t="body2">
+              <Trans>
+                The DAO sells bonds and distributes profits to KLIMA holders.
+                Every bond we sell adds to an ever-growing green treasury, or
+                improves liquidity for key environmental assets. A win-win for
+                people and planet.
+              </Trans>
+            </Text>
           </div>
-          <div className="mechanics_item">
-            <Image
-              className="mechanics_img"
-              src={steams}
-              alt="Windmills"
-              width={240}
-              height={360}
-              placeholder="blur"
-            />
-            <div className="mechanics_label">
-              <Text t="h4" color="lighter">
-                /02
-              </Text>
-              <Text t="h1">
-                <Trans>Strong incentives.</Trans>
-              </Text>
+          <div className="mechanics_itemGroup">
+            <div className="mechanics_item">
+              <Image
+                className="mechanics_img shadow-03"
+                src={windmills}
+                alt="Windmills"
+                width={240}
+                height={360}
+                placeholder="blur"
+              />
+              <div className="mechanics_label">
+                <Text t="h4" color="lighter" className="align-end">
+                  /01
+                </Text>
+                <Text t="h1" className="align-end">
+                  <Trans>Backed by Carbon.</Trans>
+                </Text>
+              </div>
             </div>
-          </div>
-          <div className="mechanics_item">
-            <Image
-              className="mechanics_img"
-              src={oceans}
-              alt="an ocean"
-              width={240}
-              height={360}
-              placeholder="blur"
-            />
-            <div className="mechanics_label">
-              <Text t="h4" color="lighter">
-                /03
-              </Text>
-              <Text t="h1">
-                <Trans>Massive impact.</Trans>
-              </Text>
+            <div className="mechanics_item">
+              <Image
+                className="mechanics_img shadow-04"
+                src={steams}
+                alt="Windmills"
+                width={240}
+                height={360}
+                placeholder="blur"
+              />
+              <div className="mechanics_label">
+                <Text t="h4" color="lighter" className="align-start">
+                  /02
+                </Text>
+                <Text t="h1" className="align-start">
+                  <Trans>Strong incentives.</Trans>
+                </Text>
+              </div>
+            </div>
+            <div className="mechanics_item">
+              <Image
+                className="mechanics_img shadow-05"
+                src={oceans}
+                alt="an ocean"
+                width={240}
+                height={360}
+                placeholder="blur"
+              />
+              <div className="mechanics_label">
+                <Text t="h4" color="lighter" className="align-end">
+                  /03
+                </Text>
+                <Text t="h1" className="align-end">
+                  <Trans>Massive impact.</Trans>
+                </Text>
+              </div>
             </div>
           </div>
         </div>
       </Section>
-      <Section variant="white">
+      <Section variant="white" fillViewport>
         <div className={styles.carbonSection}>
-          <Text t="h3" as="h2" color="lightest" align="center">
-            <Trans>
-              TONS OF <span>CARBON ABSORBED</span> BY KLIMA
-            </Trans>
-          </Text>
-          <Text className="carbon_counter" align="center">
-            <Trans>{formattedTreasuryBalance}</Trans>
-          </Text>
-          <Text t="h5" align="center">
-            <Trans>EQUIVALENT TO</Trans>
-          </Text>
-          <Columns size="small" wrapItems>
-            <div className="carbon_card">
-              <Image
-                alt="Forest"
-                src={forest}
-                width={284}
-                height={200}
-                placeholder="blur"
-              />
-              <div className="carbon_card_label">
-                <Text
-                  color="lighter"
-                  t="caption"
-                  style={{ textTransform: "uppercase" }}
-                >
-                  <Trans>Hectares of forest</Trans>
-                </Text>
-                <Text t="h3">1234</Text>
+          <div className="carbon_counterGroup">
+            <Text t="h3" as="h2" color="lightest" align="center">
+              <Trans>
+                TONS OF <span>CARBON ABSORBED</span> BY KLIMA
+              </Trans>
+            </Text>
+            <Text className="carbon_counter" align="center">
+              <Trans>{formattedTreasuryBalance}</Trans>
+            </Text>
+          </div>
+          <div className="carbon_cardGroup">
+            <Text t="h5" align="center">
+              <Trans>EQUIVALENT TO</Trans>
+            </Text>
+            <Columns size="small" wrapItems>
+              <div className="carbon_card">
+                <Image
+                  alt="Forest"
+                  src={forest}
+                  width={284}
+                  height={200}
+                  placeholder="blur"
+                />
+                <div className="carbon_card_label">
+                  <Text color="lighter" t="caption" uppercase>
+                    <Trans>Hectares of forest</Trans>
+                  </Text>
+                  <Text t="h3">1234</Text>
+                </div>
               </div>
-            </div>
-            <div className="carbon_card">
-              <Image
-                alt="Cars"
-                src={cars}
-                width={284}
-                height={200}
-                placeholder="blur"
-              />
-              <div className="carbon_card_label">
-                <Text
-                  color="lighter"
-                  t="caption"
-                  style={{ textTransform: "uppercase" }}
-                >
-                  <Trans>Passenger vehicles</Trans>
-                </Text>
-                <Text t="h3">1234</Text>
+              <div className="carbon_card">
+                <Image
+                  alt="Cars"
+                  src={cars}
+                  width={284}
+                  height={200}
+                  placeholder="blur"
+                />
+                <div className="carbon_card_label">
+                  <Text color="lighter" t="caption" uppercase>
+                    <Trans>Passenger vehicles</Trans>
+                  </Text>
+                  <Text t="h3">1234</Text>
+                </div>
               </div>
-            </div>
-            <div className="carbon_card">
-              <Image
-                alt="Gasolina"
-                src={gasolina}
-                width={284}
-                height={200}
-                placeholder="blur"
-              />
-              <div className="carbon_card_label">
-                <Text
-                  color="lighter"
-                  t="caption"
-                  style={{ textTransform: "uppercase" }}
-                >
-                  <Trans>Liters of gasoline</Trans>
-                </Text>
-                <Text t="h3">1234</Text>
+              <div className="carbon_card">
+                <Image
+                  alt="Gasolina"
+                  src={gasolina}
+                  width={284}
+                  height={200}
+                  placeholder="blur"
+                />
+                <div className="carbon_card_label">
+                  <Text color="lighter" t="caption" uppercase>
+                    <Trans>Liters of gasoline</Trans>
+                  </Text>
+                  <Text t="h3">1234</Text>
+                </div>
               </div>
-            </div>
-          </Columns>
-          <Link href={urls.epaSource} passHref>
-            <a>
+            </Columns>
+            <a href={urls.epaSource} rel="noopener noreferrer" target="_blank">
               <Text
                 align="center"
                 t="caption"
@@ -336,7 +337,7 @@ export const Home: NextPage<Props> = (props) => {
                 <Trans>Source</Trans>
               </Text>
             </a>
-          </Link>
+          </div>
         </div>
       </Section>
       <Section className={styles.forestSection}>
@@ -354,10 +355,10 @@ export const Home: NextPage<Props> = (props) => {
           <Trans>IT’S TIME TO ACT.</Trans>
         </Text>
       </Section>
-      <Section variant="white">
+      <Section variant="white" style={{ paddingBottom: "unset" }}>
         <div className={styles.sproutsSection}>
           <div className="sprouts_col1">
-            <Text>
+            <Text t="h1" as="h2" uppercase>
               <Trans>Invest in the future.</Trans>
             </Text>
             <Image
@@ -369,39 +370,53 @@ export const Home: NextPage<Props> = (props) => {
           </div>
           <div className="sprouts_col2">
             <div>
-              <Text>
+              <Text t="h4" color="lighter">
                 <Trans>001</Trans>
               </Text>
-              <Text>Reserve Currency</Text>
-              <Text>Of the carbon economy</Text>
-              <Text>
-                KLIMA tokens are backed by real-world carbon assets, and are
-                used to interact with applications, offset carbon emissions,
-                borrow, and more.
-              </Text>
+              <div className="sprouts_col2_textGroup">
+                <Text t="h2" uppercase>
+                  Reserve Asset
+                </Text>
+                <Text t="h4" color="lightest" uppercase>
+                  Of the carbon economy
+                </Text>
+                <Text t="body2" color="lighter">
+                  Every KLIMA token is backed by a real-world carbon asset.
+                  Tokens are used to offset carbon emissions, interact with DeFi
+                  applications, and get exposure to the rapidly growing global
+                  carbon market.
+                </Text>
+              </div>
             </div>
             <div>
-              <Text>
+              <Text t="h4" color="lighter">
                 <Trans>002</Trans>
               </Text>
-              <Text>6% WEEKLY YIELD</Text>
-              <Text>FOR TOKEN HOLDERS</Text>
-              <Text>
-                KLIMA tokens are minted and distributed automatically every ~7
-                hours to staked KLIMA holders. Grow your KLIMA holdings as we
-                usher in a more sustainable future together.
-              </Text>
+              <div className="sprouts_col2_textGroup">
+                <Text t="h2" uppercase>
+                  6% WEEKLY YIELD
+                </Text>
+                <Text t="h4" color="lightest" uppercase>
+                  FOR TOKEN HOLDERS
+                </Text>
+                <Text t="body2" color="lighter">
+                  KLIMA tokens are minted and distributed automatically every ~7
+                  hours to staked KLIMA holders. Grow your KLIMA holdings as we
+                  usher in a more sustainable future together.
+                </Text>
+              </div>
             </div>
           </div>
         </div>
       </Section>
+
       <Section variant="gray">
         <div className={styles.buySection}>
           <div className="buy_col1">
-            <Text>
+            <Text t="h2" as="h2">
               <Trans>BUY KLIMA</Trans>
             </Text>
-            <Text>
+            <Text t="body2" color="lighter">
               <Trans>
                 Invest in Klima and be rewarded for participating in financial
                 activism for the climate. Get exposure to the on-chain carbon
@@ -415,7 +430,33 @@ export const Home: NextPage<Props> = (props) => {
             />
           </div>
           <div className="buy_col2">
-            <Image src={dummyswap} width={765} height={500} />
+            <div className="buy_dummy">
+              <Image src={dummyswap} width={764} height={500} alt="" />
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section variant="white">
+        <div className={styles.newsletterSection}>
+          <div className="newsletter_titleGroup">
+            <Text t="caption" color="lighter" uppercase>
+              <Trans>All the Alpha, straight to your inbox</Trans>
+            </Text>
+            <Text t="h2" as="h2" uppercase>
+              <Trans>Newsletter</Trans>
+            </Text>
+            <Text t="body2" color="lighter">
+              <Trans>
+                Get the latest updates on Klima, as we build the future of the
+                carbon economy.
+              </Trans>
+            </Text>
+          </div>
+          <div className="newsletter_buttonGroup">
+            <ButtonPrimary label={t`Sign up`} href={urls.emailSignUp} />
+            <Text t="caption" color="lighter">
+              <Trans>Never shared. Never spammed.</Trans>
+            </Text>
           </div>
         </div>
       </Section>
