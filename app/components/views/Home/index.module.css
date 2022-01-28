@@ -37,7 +37,7 @@ TEMP
   gap: 2.4rem;
   position: relative;
   color: white;
-  padding-top: 2.4rem;
+  padding-top: 2rem;
 }
 .header_subtitle {
   composes: body1 from "@klimadao/lib/theme/typography.module.css";
@@ -128,13 +128,14 @@ TEMP
 }
 
 .main {
-  justify-self: center;
+  justify-self: start;
   display: flex;
   flex-wrap: wrap;
   gap: 3.2rem;
   position: relative;
   color: white;
   align-content: flex-start;
+  margin-left: -5.2rem;
 }
 
 .invisibleColumn {
@@ -248,7 +249,7 @@ TEMP
       [full-end];
   }
   .header {
-    padding-top: 3.2rem;
+    padding-top: 2rem;
   }
   .nav {
     justify-items: end;
@@ -283,7 +284,7 @@ TEMP
 
 @media bp-large {
   .header {
-    padding-top: 3.2rem;
+    padding-top: 2rem;
   }
   .logoContainer {
     width: 32rem;

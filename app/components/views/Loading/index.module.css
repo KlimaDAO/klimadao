@@ -3,13 +3,12 @@
 @value textButton from "@klimadao/lib/theme/common.module.css";
 
 .stakeCard {
-  align-self: center;
-  width: 90rem;
+  width: 74rem;
   background-color: var(--dapp-bg);
   border-radius: 1.2rem;
   padding: 2.4rem;
   display: grid;
-  gap: 3.2rem;
+  gap: 1.6rem;
   padding-bottom: 12rem;
 }
 
@@ -22,6 +21,10 @@
 .stakeCard_header p {
   max-width: 32rem;
   font-size: 1.2rem;
+}
+
+.stakeCard_header h2{
+  font-size: 2.4rem;
 }
 
 .infoSection {

@@ -296,7 +296,6 @@ export const Home: FC = () => {
 
   return (
     <>
-      <Sidebar />
       <div className={styles.container}>
         <div className={styles.heroBackgroundContainer}>
           <div className={styles.heroGradient} />
@@ -304,17 +303,6 @@ export const Home: FC = () => {
         <div className={styles.heroSection}>
           <header className={styles.header}>
             <div className={styles.header_leftCol}>
-              {/* <div className={styles.logoContainer}> */}
-              {/* <a href={urls.home} style={{ justifySelf: "start" }}>
-                  <img src="/klima-logo.png" alt="Logo. Go home." />
-                </a>
-              </div>
-              <p className={typography.h6} style={{ maxWidth: "46rem" }}>
-                <Trans id="header.welcome">
-                  Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake
-                  KLIMA to earn interest.
-                </Trans>
-              </p> */}
             </div>
             <WalletAction
               isConnected={isConnected}
@@ -324,6 +312,7 @@ export const Home: FC = () => {
             {!IS_PRODUCTION && <ChangeLanguageButton />}
           </header>
           <main className={styles.main}>
+            <Sidebar />
             <Routes>
               <Route
                 path="/"
