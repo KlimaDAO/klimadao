@@ -72,7 +72,7 @@ const SideBar: FC = () => {
       </div>
       {/* add spacing to bottom here */}
       <Divider />
-      <div className="external-links">
+      <div className={styles.externalLinks}>
         <List>
           <ListItem button>
             {secondaryLinks.map(({ text, icon: Icon }) => (

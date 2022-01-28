@@ -131,11 +131,10 @@ TEMP
   justify-self: start;
   display: flex;
   flex-wrap: wrap;
-  gap: 3.2rem;
   position: relative;
   color: white;
   align-content: flex-start;
-  margin-left: -5.2rem;
+  margin-left: -3.2rem;
 }
 
 .invisibleColumn {

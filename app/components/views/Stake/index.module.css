@@ -30,7 +30,8 @@
 }
 
 .stakeCard_header p {
-  max-width: 20rem;
+  max-width: 32rem;
+  font-size: 1.2rem;
 }
 
 .stakeCard_header h2{
@@ -168,10 +169,10 @@
 }
 
 .dataContainer {
-  composes: body2 from "@klimadao/lib/theme/typography.module.css";
+  /* composes: body2 from "@klimadao/lib/theme/typography.module.css"; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
+  gap: 1rem;
   list-style: none;
   padding-left: unset;
 }
@@ -182,19 +183,23 @@
 }
 .dataContainer_row {
   display: grid;
-  gap: 0.5em;
-  /* grid-template-columns: 1fr 1fr; */
+  /* gap: 0.5em; */
 }
 .dataContainer_label {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   /* because the info icon has whitespace, it makes the center column gap look off center */
-  margin-right: -0.5rem;
+  margin-right: -1rem;
   text-align: end;
-  font-size: 1.2rem;
   color: var(--surface-07);
 }
+
+.dataContainer .dataContainer_label{
+  font-size: 1rem;
+  font-family: var(--font-family-heading);
+}
+
 .dataContainer_value {
   color: var(--gray);
   font-size: 1.4rem;

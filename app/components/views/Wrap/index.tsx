@@ -198,7 +198,13 @@ export const Wrap: FC<Props> = (props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={T.h4}>Wrap sKLIMA</h2>
+        <h2 className={T.h4}>
+          <img
+            src="/icons/stake-icon.png"
+            alt="Stake Klima Icon"
+            className={styles.stakeIcon}
+          />
+          Wrap sKLIMA</h2>
         <p className={T.body2}>
           <Trans id="msg.wsklima">
             wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may
@@ -255,7 +261,7 @@ export const Wrap: FC<Props> = (props) => {
         {singletonSource}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Current index
+            CURRENT INDEX
             <TextInfoTooltip
               singleton={singleton}
               content="Amount you would have today, if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
@@ -271,7 +277,7 @@ export const Wrap: FC<Props> = (props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Balance (staked)
+            BALANCE
             <TextInfoTooltip
               singleton={singleton}
               content="Balance of unwrapped, staked KLIMA"
@@ -334,16 +340,7 @@ export const Wrap: FC<Props> = (props) => {
         </li> */}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            You will get
-            <TextInfoTooltip
-              singleton={singleton}
-              content={`Amount you will get after ${view === "wrap" ? "wrapping" : "unwrapping"
-                }`}
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
+            YOU WILL GET
           </div>
           <div className={styles.dataContainer_value}>
             <WithPlaceholder
