@@ -6,7 +6,6 @@ import {
   HeaderMobile,
   NavItemMobile,
   ButtonPrimary,
-  PageWrap,
   Footer,
 } from "@klimadao/lib/components";
 import BlockContent from "@sanity/block-content-to-react";
@@ -78,38 +77,36 @@ export function PostPage(props: PostProps) {
           mediaImageSrc={props.post.imageUrl}
         />
       )}
-      <PageWrap>
-        <HeaderDesktop
-          buttons={[
-            <ButtonPrimary key="Enter App" label="Enter App" href={urls.app} />,
-          ]}
-        >
-          <NavItemDesktop url={urls.home} name="Home" active={true} />
-          <NavItemDesktop
-            url={urls.tutorial}
-            name="Buy Klima"
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <NavItemDesktop url={urls.stake} name="Stake" />
-          <NavItemDesktop url={urls.wrap} name="Wrap" />
-          <NavItemDesktop url={urls.bond} name="Bond" />
-        </HeaderDesktop>
-        <HeaderMobile>
-          <NavItemMobile url={urls.home} name="Home" />
-          <NavItemMobile
-            url={urls.tutorial}
-            name="Buy Klima"
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <NavItemMobile url={urls.stake} name="Stake" />
-          <NavItemMobile url={urls.stake} name="Wrap" />
-          <NavItemMobile url={urls.bond} name="Bond" />
-        </HeaderMobile>
-        {body}
-        <Footer />
-      </PageWrap>
+      <HeaderDesktop
+        buttons={[
+          <ButtonPrimary key="Enter App" label="Enter App" href={urls.app} />,
+        ]}
+      >
+        <NavItemDesktop url={urls.home} name="Home" active={true} />
+        <NavItemDesktop
+          url={urls.tutorial}
+          name="Buy Klima"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <NavItemDesktop url={urls.stake} name="Stake" />
+        <NavItemDesktop url={urls.wrap} name="Wrap" />
+        <NavItemDesktop url={urls.bond} name="Bond" />
+      </HeaderDesktop>
+      <HeaderMobile>
+        <NavItemMobile url={urls.home} name="Home" />
+        <NavItemMobile
+          url={urls.tutorial}
+          name="Buy Klima"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <NavItemMobile url={urls.stake} name="Stake" />
+        <NavItemMobile url={urls.stake} name="Wrap" />
+        <NavItemMobile url={urls.bond} name="Bond" />
+      </HeaderMobile>
+      {body}
+      <Footer />
     </>
   );
 }
