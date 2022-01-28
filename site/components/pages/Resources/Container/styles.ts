@@ -10,6 +10,7 @@ export const layoutDesktop = css`
   justify-content: center;
   padding: 0rem 3.4rem;
   width: 100%;
+  z-index: 10;
   ${breakpoints.medium} {
     display: flex;
   }

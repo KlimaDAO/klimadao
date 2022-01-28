@@ -11,17 +11,35 @@ import * as styles from "./styles";
 import { Container } from "../Container";
 import { FC, PropsWithChildren, ReactNode } from "react";
 import trees from "../../../../public/omar-ram-OicnHt5EahE-unsplash.jpg";
+import treesDesktop from "../../../../public/omar-ram-OicnHt5EahE-unsplash-desktop.jpg";
 import mossLogo from "../../../../public/moss.png";
 import beach from "../../../../public/usgs-JiuVoQd-ZLk-unsplash-mobile.jpg";
-import screenShot from "../../../../public/screen_shot.jpg";
+import beachDesktop from "../../../../public/usgs-JiuVoQd-ZLk-unsplash-desktop.jpg";
+import screenShotDesktop from "../../../../public/screen_shot_desktop.jpg";
+import bcfcLogo from "../../../../public/bcfc_sm.png";
+import bicoWgLogo from "../../../../public/bicowg_simple.png";
+import gitcoinLogo from "../../../../public/gitcoin_logo.png";
+import oceandropLogo from "../../../../public/oceandrop.svg";
+import toucanLogo from "../../../../public/toucan_logo.png";
+import polygonLogo from "../../../../public/polygon-logo.svg";
+import openearthLogo from "../../../../public/open_earth_black_horizontal.png";
+import olympusLogo from "../../../../public/olympus_logo.png";
 
 export type Props = HTMLHtmlElement;
 
-const TopElement: FC<PropsWithChildren<ReactNode>> = () => (
+const DiscordButton: FC<PropsWithChildren<ReactNode>> = () => (
+  <button className={styles.page_discordButton}>
+    <DiscordIcon className={styles.page_discordIcon} />
+    <span>|</span>
+    <span>Discord</span>
+  </button>
+);
+
+const TopElementMobile: FC<PropsWithChildren<ReactNode>> = () => (
   <div
     className={cx(
       styles.page_section,
-      styles.page_topElement,
+      styles.page_topElementMobile,
       styles.page_bgGray
     )}
   >
@@ -37,6 +55,27 @@ const TopElement: FC<PropsWithChildren<ReactNode>> = () => (
   </div>
 );
 
+const TopElementDesktop: FC<PropsWithChildren<ReactNode>> = () => (
+  <div
+    className={cx(
+      styles.page_section,
+      styles.page_topElementDesktop,
+      styles.page_bgGray
+    )}
+  >
+    <h1 className={styles.page_h1}>
+      <Trans>Community</Trans>
+    </h1>
+    <p className={styles.page_paragraph}>
+      <Trans>
+        KlimaDAO harnesses the power of cryptocurrency, blockchain and smart
+        contracts to create.
+      </Trans>
+    </p>
+    <DiscordButton />
+  </div>
+);
+
 export const Community: NextPage<Props> = ({}) => {
   return (
     <Container
@@ -45,15 +84,22 @@ export const Community: NextPage<Props> = ({}) => {
       mediaTitle={t`KlimaDAO Community`}
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
       mediaImageSrc="/og-media.jpg"
-      topMobileElement={TopElement}
+      topMobileElement={TopElementMobile}
     >
-      <div className={styles.page_section}>
+      <TopElementDesktop />
+      <div
+        className={cx(
+          styles.page_section,
+          styles.page_pb_0,
+          styles.page_section_pt_Lg
+        )}
+      >
         <span className={styles.page_eyebrow}>
           <Trans>Let's Work Together</Trans>
         </span>
         <h2 className={styles.page_h2}>
           <Trans>
-            Become
+            Become<span>&nbsp;</span>
             <br />a Partner
           </Trans>
         </h2>
@@ -67,120 +113,167 @@ export const Community: NextPage<Props> = ({}) => {
           label={"Contact Us"}
         />
         <div className={styles.page_imageContainer}>
-          <Image
-            className={styles.page_image}
-            alt={t`Tree grove`}
-            src={trees}
-            layout="responsive"
-            objectFit="cover"
-            placeholder="blur"
-          />
+          <div className={styles.page_image}>
+            <Image
+              alt={t`Tree grove`}
+              src={trees}
+              objectFit="cover"
+              placeholder="blur"
+            />
+          </div>
+          <div className={cx(styles.page_image, styles.page_imageDesktop)}>
+            <Image
+              alt={t`Tree grove`}
+              src={treesDesktop}
+              layout="responsive"
+              objectFit="cover"
+              placeholder="blur"
+            />
+          </div>
         </div>
       </div>
-      <div className={cx(styles.page_section, styles.page_bgGray)}>
+      <div className={cx(styles.page_section, styles.section_partnerLogos)}>
         <span className={styles.page_eyebrow}>
           <Trans>Let's Work Together</Trans>
         </span>
-        <h2 className={styles.page_h2}>
+        <h2 className={cx(styles.page_h2, styles.page_h2_mb_Lg)}>
           <Trans>Our Partners</Trans>
         </h2>
-        <div className={styles.section_partnerLogos}>
-          <Image
-            className={styles.page_image}
-            alt={t`MOSS logo`}
-            src={mossLogo}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-          />
-          <Image
-            className={styles.page_image}
-            alt={t`MOSS logo`}
-            src={mossLogo}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-          />
-          <Image
-            className={styles.page_image}
-            alt={t`MOSS logo`}
-            src={mossLogo}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-          />
-          <Image
-            className={styles.page_image}
-            alt={t`MOSS logo`}
-            src={mossLogo}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-          />
-          <Image
-            className={styles.page_image}
-            alt={t`MOSS logo`}
-            src={mossLogo}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-          />
-          <Image
-            className={styles.page_image}
-            alt={t`MOSS logo`}
-            src={mossLogo}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-          />
-          <Image
-            className={styles.page_image}
-            alt={t`MOSS logo`}
-            src={mossLogo}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-          />
-          <Image
-            className={styles.page_image}
-            alt={t`MOSS logo`}
-            src={mossLogo}
-            layout="fill"
-            objectFit="cover"
-            placeholder="blur"
-          />
+        <div className={styles.section_partnerLogos_imageContainer}>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`MOSS logo`}
+              src={mossLogo}
+              objectFit="contain"
+            />
+          </div>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`Toucan logo`}
+              src={toucanLogo}
+              objectFit="contain"
+            />
+          </div>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`Blockchain for Climate Foundation logo`}
+              src={bcfcLogo}
+              objectFit="contain"
+            />
+          </div>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`BICOWG logo`}
+              src={bicoWgLogo}
+              objectFit="contain"
+            />
+          </div>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`Polygon logo`}
+              src={polygonLogo}
+              objectFit="contain"
+            />
+          </div>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`Oceandrop logo`}
+              src={oceandropLogo}
+              objectFit="contain"
+            />
+          </div>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`Gitcoin logo`}
+              src={gitcoinLogo}
+              objectFit="contain"
+            />
+          </div>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`OlympusDAO logo`}
+              src={olympusLogo}
+              objectFit="contain"
+            />
+          </div>
+          <div>
+            <Image
+              className={styles.page_image}
+              alt={t`Open Earth logo`}
+              src={openearthLogo}
+              objectFit="contain"
+            />
+          </div>
         </div>
       </div>
       <div className={styles.page_imageSection}>
-        <Image className={styles.page_backingImage} src={beach} />
-        <div className={styles.page_overlayTextContainer}>
-          <p className={styles.page_overlayText}>
-            Join the
-            <br />
-            Klima
-            <br />
-            Community
-          </p>
+        <div className={styles.page_backingImage}>
+          <Image src={beach} alt="Overhead view of a beach." />
+        </div>
+        <div className={styles.page_backingImage_desktop}>
+          <Image
+            src={beachDesktop}
+            alt="Overhead view of a beach."
+            layout="responsive"
+          />
+        </div>
+        <div className={styles.page_overlayTextWrapper}>
+          <div className={styles.page_overlayTextContainer}>
+            <p className={styles.page_overlayText}>
+              Join the
+              <br />
+              Klima
+              <br />
+              Community
+            </p>
+          </div>
         </div>
       </div>
-      <div className={cx(styles.page_section, styles.page_bgGray)}>
+      <div
+        className={cx(
+          styles.page_section,
+          styles.page_bgGray,
+          styles.page_section_pt_Lg
+        )}
+      >
         <span className={styles.page_eyebrow}>
           <Trans>Let's Work Together</Trans>
         </span>
+        <h2
+          className={cx(
+            styles.page_h2,
+            styles.page_h2_mb_Lg,
+            styles.page_desktopOnly
+          )}
+        >
+          <Trans>Join Our Discord</Trans>
+        </h2>
         <div className={styles.page_roundedBox}>
-          <h2 className={styles.page_h2}>Discord</h2>
-          <p>
-            <Trans>
-              KlimaDAO harnesses the power of cryptocurrency, blockchain and
-              smart contracts to create
-            </Trans>
-          </p>
-          <button className={styles.page_discordButton}>
-            <DiscordIcon className={styles.page_discordIcon} />
-            <span>|</span>
-            <span>Discord</span>
-          </button>
-          <Image className={styles.page_screenShot} src={screenShot} />
+          <div className={styles.page_roundedBoxTextContainer}>
+            <h2 className={styles.page_h2}>Discord</h2>
+            <p>
+              <Trans>
+                KlimaDAO harnesses the power of cryptocurrency, blockchain and
+                smart contracts to create
+              </Trans>
+            </p>
+            <DiscordButton />
+          </div>
+          <div className={styles.page_screenShot}>
+            <Image
+              alt="Screen shot of Discord"
+              src={screenShotDesktop}
+              objectFit="cover"
+            />
+          </div>
         </div>
       </div>
       <div className={styles.page_section}>

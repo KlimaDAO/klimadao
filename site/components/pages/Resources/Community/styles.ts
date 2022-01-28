@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const page_topElement = css`
+export const page_topElementMobile = css`
   padding-bottom: 1.6rem;
 
   h1 {
@@ -9,6 +10,28 @@ export const page_topElement = css`
 
   p {
     margin-bottom: 1.6rem;
+  }
+`;
+
+export const page_topElementDesktop = css`
+  display: none;
+  ${breakpoints.medium} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 4.5rem;
+
+    h1 {
+      font-size: 6rem;
+    }
+
+    p {
+      margin-bottom: 3.6rem;
+    }
+
+    button {
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -25,20 +48,63 @@ export const page_h2 = css`
   color: var(--headings-color);
   font-size: 3.2rem;
   margin-bottom: 2.4rem;
+
+  br {
+    display: block;
+  }
+
+  span {
+    display: none;
+  }
+
+  ${breakpoints.medium} {
+    font-size: 4.8rem;
+    margin-bottom: 2.2rem;
+
+    br {
+      display: none;
+    }
+    span {
+      display: inline-block;
+    }
+  }
+`;
+
+export const page_h2_mb_Lg = css`
+  ${breakpoints.medium} {
+    margin-bottom: 4rem;
+  }
 `;
 
 export const page_section = css`
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: var(--white);
   padding: 5.7rem 0;
+`;
+
+export const page_section_pt_Lg = css`
+  padding-top: 9.1rem;
+`;
+
+export const page_section_pt_Xl = css`
+  ${breakpoints.medium} {
+    padding-top: 13.1rem;
+  }
+`;
+
+export const page_pb_0 = css`
+  padding-bottom: 0;
 `;
 
 export const page_eyebrow = css`
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 1.2rem;
+  font-weight: bold;
+  font-size: 1.6rem;
 `;
 
 export const page_paragraph = css`
@@ -48,12 +114,21 @@ export const page_paragraph = css`
   margin-right: auto;
   margin-bottom: 2.4rem;
   line-height: 140%;
+  ${breakpoints.medium} {
+    font-size: 2rem;
+    max-width: 40rem;
+    margin-bottom: 3.6rem;
+  }
 `;
 
 export const page_imageContainer = css`
   width: calc(100% - 6.4rem);
   margin-right: 3.2rem;
   margin-left: 3.2rem;
+
+  ${breakpoints.medium} {
+    width: 70.8rem;
+  }
 `;
 
 export const page_ctaButton = css`
@@ -68,36 +143,82 @@ export const page_ctaButton = css`
   height: 4rem;
   text-transform: uppercase;
   font-size: 1.2rem;
+  ${breakpoints.medium} {
+    font-size: 1.6rem;
+    width: 20rem;
+    height: 5.2rem;
+    margin-bottom: 3.6rem;
+  }
 `;
 
 export const page_image = css`
-  width: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-left: 2.4rem;
   margin-right: 2.4rem;
   margin-bottom: 4.4rem;
   border-radius: 1.2rem;
+
+  ${breakpoints.small} {
+    display: none !important;
+  }
+`;
+
+export const page_imageDesktop = css`
+  display: none;
+
+  ${breakpoints.small} {
+    display: inline-block !important;
+    height: 30.1rem;
+  }
 `;
 
 export const page_bgGray = css`
   background-color: #f5f5f7;
 `;
 
-export const section_partnerLogos = css`
-  position: relative;
-  display: grid;
-  grid-template-layout: 14.5rem 14.25rem;
-
-  & > * {
-    width: 14.5rem !important;
-    height: 3rem !important;
-  }
-`;
+// export const section_partnerLogos = css`
+//   position: relative;
+//   display: grid;
+//   grid-template-layout: 14.5rem 14.25rem;
+//
+//   & > * {
+//     width: 14.5rem !important;
+//     height: 3rem !important;
+//   }
+// `;
 
 export const page_imageSection = css`
   position: relative;
+
+  ${breakpoints.medium} {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
-export const page_backingImage = css``;
+export const page_backingImage = css`
+  span,
+  img {
+    width: 100% !important;
+  }
+
+  ${breakpoints.small} {
+    display: none !important;
+    height: 0;
+  }
+`;
+
+export const page_backingImage_desktop = css`
+  display: none !important;
+
+  ${breakpoints.small} {
+    display: inline-block !important;
+    width: 100%;
+  }
+`;
 
 export const page_overlayText = css`
   text-transform: uppercase;
@@ -106,6 +227,18 @@ export const page_overlayText = css`
   font-size: 3.2rem;
   font-weight: bold;
   line-height: 95.5%;
+
+  ${breakpoints.medium} {
+    font-size: 70px;
+  }
+`;
+
+export const page_desktopOnly = css`
+  display: none;
+
+  ${breakpoints.medium} {
+    display: inline-block !important;
+  }
 `;
 
 export const page_overlayTextContainer = css`
@@ -114,6 +247,28 @@ export const page_overlayTextContainer = css`
   bottom: 3.4rem;
   margin-right: 3.4rem;
   margin-left: 3.4rem;
+
+  ${breakpoints.medium} {
+    width: calc(100% - 36.6rem);
+    position: relative;
+    margin-right: 18.3rem;
+    margin-left: 18.3rem;
+    margin-bottom: 6.5rem;
+    max-width: 70rem;
+  }
+`;
+
+export const page_overlayTextWrapper = css`
+  ${breakpoints.small} {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+  }
 `;
 
 export const page_roundedBox = css`
@@ -141,6 +296,44 @@ export const page_roundedBox = css`
     margin-bottom: 2.8rem;
     padding-right: 2.8rem;
   }
+
+  ${breakpoints.small} {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    height: 32rem;
+    padding: 0;
+
+    h2 {
+      font-size: 2.8rem;
+    }
+  }
+
+  ${breakpoints.medium} {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    width: 70.8rem;
+    height: 32rem;
+    padding: 0;
+
+    h2 {
+      font-size: 2.8rem;
+    }
+  }
+`;
+
+export const page_roundedBoxTextContainer = css`
+  ${breakpoints.small} {
+    width: 50%;
+    padding-top: 4rem;
+    padding-left: 3.6rem;
+  }
+
+  ${breakpoints.medium} {
+    padding-right: 3.6rem;
+  }
 `;
 
 export const page_discordButton = css`
@@ -161,9 +354,36 @@ export const page_discordIcon = css`
   width: 2rem;
 `;
 
-export const page_screenShot = css``;
+export const page_screenShot = css`
+  ${breakpoints.small} {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: end;
+    width: 50%;
+    height: 100%;
 
-// export const section_partnerLogos = css`
+    & > span {
+      height: 27rem !important;
+
+      img {
+        object-position: left;
+      }
+    }
+  }
+
+  ${breakpoints.medium} {
+  }
+`;
+
+export const section_partnerLogos = css`
+  background-color: #f5f5f7;
+
+  h2 {
+    margin-bottom: 4.3rem;
+  }
+`;
+
+// export const section_partnerLogos_imageContainer = css`
 //   position: relative;
 //   display: flex;
 //   flex-direction: row;
@@ -173,7 +393,35 @@ export const page_screenShot = css``;
 //   & > * {
 //     display: flex;
 //     flex: 1 1 14.5rem;
+//     flex-direction: row;
+//     justify-content: center;
 //     width: 14.5rem !important;
 //     height: 3rem !important;
+//     margin-bottom: 3rem;
+//   }
+//
+//   img {
+//     border-radius: 0;
 //   }
 // `;
+
+export const section_partnerLogos_imageContainer = css`
+  position: relative;
+  display: grid;
+  grid-template-columns: 14.5rem 14.5rem;
+  grid-template-rows: 3rem;
+  grid-column-gap: 3.2rem;
+  grid-row-gap: 3.2rem;
+  padding: 0 2.4rem;
+
+  & > * {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 3rem;
+  }
+
+  img {
+    border-radius: 0;
+  }
+`;
