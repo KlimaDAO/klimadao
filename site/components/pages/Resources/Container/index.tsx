@@ -3,7 +3,6 @@ import * as styles from "./styles";
 
 import {
   HeaderDesktop,
-  Footer,
   NavItemDesktop,
   HeaderMobile,
   NavItemMobile,
@@ -14,6 +13,7 @@ import ArrowBack from "@mui/icons-material/ArrowBack";
 
 import { urls } from "@klimadao/lib/constants";
 import { PageHead } from "components/PageHead";
+import { Footer } from "components/Footer";
 import { IS_PRODUCTION } from "lib/constants";
 import { FC, PropsWithChildren, ReactNode } from "react";
 

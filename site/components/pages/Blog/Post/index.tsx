@@ -6,13 +6,13 @@ import {
   HeaderMobile,
   NavItemMobile,
   ButtonPrimary,
-  Footer,
 } from "@klimadao/lib/components";
 import BlockContent from "@sanity/block-content-to-react";
 
 import styles from "./index.module.css";
 import { Post } from "lib/queries";
 import { PageHead } from "components/PageHead";
+import { Footer } from "components/Footer";
 import { urls } from "@klimadao/lib/constants";
 import { IS_PRODUCTION } from "lib/constants";
 

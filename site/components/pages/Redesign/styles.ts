@@ -2,14 +2,48 @@ import { css, keyframes } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const heroSection = css`
-  display: grid;
-  grid-column: main;
-  row-gap: 6.4rem;
+  min-height: 100vh;
+  padding: 0;
+  .hero_container {
+    display: grid;
+    grid-template-columns: inherit;
+    grid-column: full;
+    row-gap: 6.4rem;
+  }
+
+  .hero_cardsGroup {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: inherit;
+    grid-column: full;
+    z-index: 1;
+  }
+
+  .hero_whiteCard {
+    display: grid;
+    align-self: end;
+    gap: 1.6rem;
+    grid-column: main;
+    padding: 3.2rem;
+    background-color: var(--surface-01);
+    border-radius: 1.6rem;
+    box-shadow: var(--shadow-06);
+    margin-bottom: -6.4rem;
+    margin-top: 9.6rem;
+  }
+
+  .hero_imageCard {
+    grid-column: full;
+    position: relative;
+    z-index: -1;
+  }
 
   .hero_learnMore {
-    display: grid;
+    display: none;
+    grid-column: main;
     justify-items: center;
     row-gap: 0.8rem;
+    align-content: center;
   }
 
   .hero_learnMore svg {
@@ -17,6 +51,7 @@ export const heroSection = css`
   }
 
   .hero_button {
+    display: flex;
     ${breakpoints.medium} {
       display: none;
     }
@@ -26,23 +61,84 @@ export const heroSection = css`
     display: grid;
     gap: 0.4rem;
   }
+
+  ${breakpoints.medium} {
+    min-height: calc(100vh - var(--header-height) * 2);
+    .hero_container {
+      align-content: center;
+    }
+    .hero_cardsGroup {
+      display: grid;
+      grid-template-rows: unset;
+      grid-template-columns: 1fr 1fr;
+      grid-column: main;
+      z-index: 1;
+      gap: 2.4rem;
+    }
+    .hero_whiteCard,
+    .hero_imageCard {
+      margin: 0;
+      grid-column: unset;
+      align-self: unset;
+      align-content: center;
+    }
+    .hero_whiteCard {
+      padding: 6.4rem;
+    }
+    .hero_imageCard {
+      border-radius: 1.6rem;
+      overflow: hidden;
+    }
+
+    .hero_learnMore {
+      display: grid;
+    }
+  }
+
+  @media (min-height: 900px) {
+    .hero_cardsGroup {
+      min-height: 40rem;
+    }
+  }
 `;
 
 export const blackHoleSection = css`
   display: grid;
-  gap: 4.8rem;
-  grid-column: main;
+  row-gap: 4.8rem;
+  grid-column: full;
+  grid-template-columns: inherit;
   span {
     color: var(--font-01);
   }
   .blackHole_textGroup {
-    display: grid;
-    gap: 7.2rem;
-    padding: 0 4.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: main;
+    gap: 3.2rem;
+    padding: 0 2.4rem;
   }
+
   .blackHole_columns {
     display: flex;
-    gap: 12rem;
+    flex-wrap: wrap;
+    gap: 3.2rem;
+  }
+
+  ${breakpoints.medium} {
+    grid-column: main;
+    .blackHole_textGroup {
+      display: grid;
+      gap: 7.2rem;
+      padding: 0 4.8rem;
+    }
+    .blackHole_textGroup h2 {
+      text-align: center;
+    }
+    .blackHole_columns {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12rem;
+    }
   }
 `;
 
@@ -83,46 +179,54 @@ const floatRight = keyframes`
 `;
 
 export const mechanicsSection = css`
+  display: grid;
   grid-column: main;
+  row-gap: 6.4rem;
   .mechanics_textGroup {
-    position: absolute;
-    max-width: 48rem;
     display: grid;
     gap: 1.6rem;
+    padding: 0rem 2.4rem;
+    max-width: 48rem;
   }
+
   .mechanics_itemGroup {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    gap: 3.2rem;
+    max-width: 56rem;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
   }
+
   .mechanics_item {
     position: relative;
-    width: 42rem;
     display: grid;
     justify-content: center;
   }
   p.align-end {
     text-align: end;
-    margin-inline-end: -3.2rem;
-    animation: ${floatRight} 16s ease-in-out 2s infinite;
+    margin-inline-end: -4.8rem;
+    animation: ${floatRight} 14s ease-in-out 1s infinite;
   }
   p.align-start {
-    margin-inline-start: -3.2rem;
-    animation: ${floatLeft} 16s ease-in-out 2s infinite;
+    margin-inline-start: -4.8rem;
+    animation: ${floatLeft} 14s ease-in-out 2s infinite;
   }
   .mechanics_item:nth-child(1) {
-    margin-inline-end: -42rem;
+    margin-inline-end: 2.4rem;
     animation: ${floatUp} 14s ease-in-out 1s infinite;
   }
   .mechanics_item:nth-child(2) {
-    top: -4.8rem;
+    align-self: flex-end;
     animation: ${floatUp} 14s ease-in-out 3s infinite;
   }
   .mechanics_item:nth-child(3) {
-    margin-inline-end: -64rem;
-    top: -3.2rem;
+    margin-inline-end: 2.4rem;
     animation: ${floatUp} 14s ease-in-out 5s infinite;
   }
+
   .mechanics_label {
     position: absolute;
     display: grid;
@@ -146,6 +250,50 @@ export const mechanicsSection = css`
     border-radius: 1.6rem;
     overflow: visible;
   }
+  ${breakpoints.small} {
+    p.align-end {
+      text-align: end;
+      margin-inline-end: -8.4rem;
+      animation: ${floatRight} 16s ease-in-out 2s infinite;
+    }
+    p.align-start {
+      margin-inline-start: -8.4rem;
+      animation: ${floatLeft} 16s ease-in-out 2s infinite;
+    }
+  }
+  ${breakpoints.medium} {
+    row-gap: unset;
+    .mechanics_itemGroup {
+      max-width: 100%;
+      margin-top: 12rem;
+      padding: 0rem 9.6rem;
+    }
+    .mechanics_textGroup {
+      position: absolute;
+      max-width: 40rem;
+      padding: 0;
+    }
+    p.align-end {
+      margin-inline-end: -9.6rem;
+    }
+    p.align-start {
+      margin-inline-start: -9.6rem;
+    }
+    .mechanics_item:nth-child(1) {
+      align-self: center;
+      margin-inline-end: -16rem;
+    }
+    .mechanics_item:nth-child(2) {
+      margin-top: -4.8rem;
+      margin-inline-end: 28rem;
+
+      align-self: center;
+    }
+    .mechanics_item:nth-child(3) {
+      margin-top: -8.6rem;
+      align-self: flex-end;
+    }
+  }
 `;
 
 export const carbonSection = css`
@@ -164,17 +312,23 @@ export const carbonSection = css`
     font-size: 6rem;
     line-height: 6rem;
     font-weight: 700;
+    word-break: break-all;
   }
   .carbon_cardGroup {
     display: grid;
     gap: 1.6rem;
+  }
+  .carbon_cardGroup_stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    justify-content: center;
   }
   .carbon_card {
     display: grid;
     background-color: var(--surface-02);
     border-radius: 0.8rem;
     overflow: hidden;
-    box-shadow: var(--shadow-01);
   }
   .carbon_card_label {
     display: grid;
@@ -194,21 +348,26 @@ export const forestSection = css`
   display: grid;
   height: 72rem;
   position: relative;
-  padding: 6.4rem;
+  padding: 3.2rem 0rem;
   .forest_label {
     font-size: 7.2rem;
+    line-height: 7.2rem;
     grid-column: main;
     z-index: 1;
     text-align: end;
     justify-self: end;
     align-self: end;
+    max-width: 32rem;
+  }
+  ${breakpoints.medium} {
+    padding: 6.4rem 0rem;
   }
 `;
 
 export const sproutsSection = css`
   display: grid;
   grid-column: main;
-  grid-template-columns: 1fr 1fr;
+  gap: 4.8rem;
   .sprouts_col1 {
     display: grid;
     gap: 7.4rem;
@@ -229,18 +388,28 @@ export const sproutsSection = css`
   }
   .sprouts_col2 > div {
     display: flex;
-    gap: 2.4rem;
+    flex-direction: column;
+    gap: 1.6rem;
   }
   .sprouts_col2_textGroup {
     display: grid;
     gap: 0.8rem;
+  }
+
+  ${breakpoints.medium} {
+    grid-template-columns: 1fr 1fr;
+    .sprouts_col2 > div {
+      display: flex;
+      flex-direction: row;
+      gap: 2.4rem;
+    }
   }
 `;
 
 export const buySection = css`
   display: grid;
   grid-column: main;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   column-gap: 6.4rem;
   padding: 6.4rem;
   background-color: var(--surface-01);
@@ -261,14 +430,27 @@ export const buySection = css`
   }
 
   .buy_dummy {
-    opacity: 0.7;
+    opacity: 0.8;
     position: absolute;
-    top: -2.4rem;
-    right: -70%;
+    top: 2.4rem;
+    left: 10%;
     width: 74rem;
     height: 48rem;
+    box-shadow: var(--shadow-06);
+    overflow: hidden;
+    border-radius: 2.4rem;
+  }
+
+  ${breakpoints.medium} {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: unset;
+
+    .buy_dummy {
+      top: 2.4rem;
+    }
   }
 `;
+
 export const newsletterSection = css`
   display: grid;
   gap: 3.8rem;

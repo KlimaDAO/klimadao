@@ -5,12 +5,8 @@ import Image from "next/image";
 import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import {
-  Columns,
   Section,
-  ContentBox,
-  ContentBoxImage,
   HeaderDesktop,
-  Footer,
   NavItemDesktop,
   HeaderMobile,
   NavItemMobile,
@@ -18,6 +14,7 @@ import {
   Text,
 } from "@klimadao/lib/components";
 
+import { Footer } from "components/Footer";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
@@ -40,8 +37,23 @@ export interface Props {
   price: number;
 }
 
+const hectaresForestPerTonne = 1 / 200;
+const passengerVehiclesPerTonne = 1 / 4.6;
+// const tonnesPerGallon = 0.008887;
+// const tonnesPerLiter = 0.03368173;
+const litersGasPerTonne = 1 / 0.03368173;
+
 export const Home: NextPage<Props> = (props) => {
   const formattedTreasuryBalance = props.treasuryBalance.toLocaleString();
+  const hectaresForest = Math.floor(
+    props.treasuryBalance * hectaresForestPerTonne
+  ).toLocaleString();
+  const passengerVehicles = Math.floor(
+    props.treasuryBalance * passengerVehiclesPerTonne
+  ).toLocaleString();
+  const litersGas = Math.floor(
+    props.treasuryBalance * litersGasPerTonne
+  ).toLocaleString();
 
   return (
     <>
@@ -70,27 +82,19 @@ export const Home: NextPage<Props> = (props) => {
         />
         <NavItemDesktop
           url={urls.tutorial}
-          name={t({ message: "Buy Klima", id: "mainNav.buyKlima" })}
+          name={t`Get Klima`}
+          rel="noopener noreferrer"
           target="_blank"
-          rel="noreferrer noopener"
         />
         <NavItemDesktop
           url={urls.stake}
           name={t({ message: "Stake", id: "mainNav.stake" })}
         />
         <NavItemDesktop
-          url={urls.wrap}
-          name={t({ message: "Wrap", id: "mainNav.wrap" })}
-        />
-        <NavItemDesktop
           url={urls.bond}
           name={t({ message: "Bond", id: "mainNav.bond" })}
         />
-        <NavItemDesktop
-          url={"/resources"}
-          name={t({ message: "Resources", id: "mainNav.resources" })}
-          link={Link}
-        />
+        <NavItemDesktop url="/resources" name={t`Resources`} link={Link} />
       </HeaderDesktop>
       <HeaderMobile>
         <NavItemMobile
@@ -99,7 +103,7 @@ export const Home: NextPage<Props> = (props) => {
         />
         <NavItemMobile
           url={urls.tutorial}
-          name={t({ message: "Buy Klima", id: "mainNav.buyKlima" })}
+          name={t`Get Klima`}
           target="_blank"
           rel="noreferrer noopener"
         />
@@ -108,27 +112,22 @@ export const Home: NextPage<Props> = (props) => {
           name={t({ message: "Stake", id: "mainNav.stake" })}
         />
         <NavItemMobile
-          url={urls.stake}
-          name={t({ message: "Wrap", id: "mainNav.wrap" })}
-        />
-        <NavItemMobile
           url={urls.bond}
           name={t({ message: "Bond", id: "mainNav.bond" })}
         />
+        <NavItemMobile url="/resources" name={t`Resources`} />
       </HeaderMobile>
-      <Section
-        variant="gray"
-        fillViewport
-        style={{ minHeight: "calc(100vh - var(--header-height) * 2);" }}
-      >
-        <div className={styles.heroSection}>
-          <Columns>
-            <ContentBox variant="hero">
+      <Section variant="gray" className={styles.heroSection}>
+        <div className="hero_container">
+          <div className="hero_cardsGroup">
+            <div className="hero_whiteCard">
               <div className="hero_title">
                 <Text t="h5" color="lighter">
                   <Trans>👋 WELCOME TO</Trans>
                 </Text>
-                <Text t="h1">KlimaDAO</Text>
+                <Text t="h1" as="h1">
+                  KlimaDAO
+                </Text>
               </div>
               <Text t="body2">
                 <Trans>
@@ -143,8 +142,8 @@ export const Home: NextPage<Props> = (props) => {
                   href={urls.app}
                 />
               </div>
-            </ContentBox>
-            <ContentBoxImage variant="belowTextBox">
+            </div>
+            <div className="hero_imageCard">
               <Image
                 alt="Intro"
                 src={forest}
@@ -152,8 +151,8 @@ export const Home: NextPage<Props> = (props) => {
                 objectFit="cover"
                 placeholder="blur"
               />
-            </ContentBoxImage>
-          </Columns>
+            </div>
+          </div>
           <div className="hero_learnMore">
             <p>LEARN MORE</p>
             <ArrowDownwardIcon className="downArrow" />
@@ -163,7 +162,7 @@ export const Home: NextPage<Props> = (props) => {
       <Section variant="white" style={{ paddingBottom: "unset" }}>
         <div className={styles.blackHoleSection}>
           <div className="blackHole_textGroup">
-            <Text t="h2_alt" align="center" color="lightest">
+            <Text t="h2_alt" as="h2" color="lightest">
               <Trans>
                 KlimaDAO is a <span>black hole for carbon</span> at the center
                 of a <span>new green economy</span>.
@@ -269,31 +268,32 @@ export const Home: NextPage<Props> = (props) => {
           <div className="carbon_counterGroup">
             <Text t="h3" as="h2" color="lightest" align="center">
               <Trans>
-                TONS OF <span>CARBON ABSORBED</span> BY KLIMA
+                TONS OF <span>CARBON ABSORBED</span> BY KLIMADAO
               </Trans>
             </Text>
             <Text className="carbon_counter" align="center">
-              <Trans>{formattedTreasuryBalance}</Trans>
+              {formattedTreasuryBalance}
             </Text>
           </div>
           <div className="carbon_cardGroup">
             <Text t="h5" align="center">
               <Trans>EQUIVALENT TO</Trans>
             </Text>
-            <Columns size="small" wrapItems>
+            <div className="carbon_cardGroup_stack">
               <div className="carbon_card">
                 <Image
                   alt="Forest"
                   src={forest}
                   width={284}
                   height={200}
+                  objectFit="cover"
                   placeholder="blur"
                 />
                 <div className="carbon_card_label">
                   <Text color="lighter" t="caption" uppercase>
                     <Trans>Hectares of forest</Trans>
                   </Text>
-                  <Text t="h3">1234</Text>
+                  <Text t="h3">{hectaresForest}</Text>
                 </div>
               </div>
               <div className="carbon_card">
@@ -306,9 +306,9 @@ export const Home: NextPage<Props> = (props) => {
                 />
                 <div className="carbon_card_label">
                   <Text color="lighter" t="caption" uppercase>
-                    <Trans>Passenger vehicles</Trans>
+                    <Trans>Cars (annual)</Trans>
                   </Text>
-                  <Text t="h3">1234</Text>
+                  <Text t="h3">{passengerVehicles}</Text>
                 </div>
               </div>
               <div className="carbon_card">
@@ -323,10 +323,10 @@ export const Home: NextPage<Props> = (props) => {
                   <Text color="lighter" t="caption" uppercase>
                     <Trans>Liters of gasoline</Trans>
                   </Text>
-                  <Text t="h3">1234</Text>
+                  <Text t="h3">{litersGas}</Text>
                 </div>
               </div>
-            </Columns>
+            </div>
             <a href={urls.epaSource} rel="noopener noreferrer" target="_blank">
               <Text
                 align="center"
@@ -414,19 +414,20 @@ export const Home: NextPage<Props> = (props) => {
         <div className={styles.buySection}>
           <div className="buy_col1">
             <Text t="h2" as="h2">
-              <Trans>BUY KLIMA</Trans>
+              <Trans>GET KLIMA</Trans>
             </Text>
             <Text t="body2" color="lighter">
               <Trans>
-                Invest in Klima and be rewarded for participating in financial
-                activism for the climate. Get exposure to the on-chain carbon
-                economy today.
+                Get exposure to the growing carbon economy today. Acquire,
+                stake, and get rewarded. Financial activism for the climate.
               </Trans>
             </Text>
             <ButtonPrimary
               key="See Tutorial"
               label={t`See Tutorial`}
               href={urls.tutorial}
+              rel="noopener noreferrer"
+              target="_blank"
             />
           </div>
           <div className="buy_col2">
@@ -453,7 +454,12 @@ export const Home: NextPage<Props> = (props) => {
             </Text>
           </div>
           <div className="newsletter_buttonGroup">
-            <ButtonPrimary label={t`Sign up`} href={urls.emailSignUp} />
+            <ButtonPrimary
+              label={t`Sign up`}
+              href={urls.emailSignUp}
+              rel="noopener noreferrer"
+              target="_blank"
+            />
             <Text t="caption" color="lighter">
               <Trans>Never shared. Never spammed.</Trans>
             </Text>

@@ -1,11 +1,13 @@
 import { css } from "@emotion/css";
-import breakpoints from "../../theme/breakpoints";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footer = css`
   background-color: var(--surface-02);
   padding: 2rem 2.4rem;
   position: relative;
   grid-column: full;
+  display: grid;
+  grid-template-columns: inherit;
 
   ${breakpoints.medium} {
     display: flex;
@@ -18,6 +20,7 @@ export const footer = css`
 `;
 
 export const footer_content = css`
+  grid-column: main;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,13 +33,11 @@ export const footer_content = css`
 
 export const footer_nav = css`
   font-size: 1.4rem;
-  padding: 1rem 0rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  row-gap: 1.6rem;
 
   & a {
     color: var(--font-02) !important;
-    padding: 0.5rem 0rem;
   }
 
   & a:hover {
