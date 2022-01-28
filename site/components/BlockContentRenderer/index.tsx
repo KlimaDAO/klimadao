@@ -67,10 +67,23 @@ const serializers: BlockContentProps["serializers"] = {
     return (
       <li className={styles.li}>
         <Text t="body1" className={styles.li_content}>
-          {params.children}
+          {/* content of current list item */}
+          {params.children[0]}
         </Text>
+        {/* nested list items if any */}
+        {params.children?.[1]}
       </li>
     );
+  },
+  marks: {
+    link: ({ children, mark }) => {
+      const { href } = mark;
+      return (
+        <a className={styles.link} href={href}>
+          {children}
+        </a>
+      );
+    },
   },
   types: {
     block: BlockRenderer,

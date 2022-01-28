@@ -12,7 +12,13 @@
   margin: 2rem 0;
 }
 
-.li {
+.link {
+  text-decoration: underline;
+  color: var(--klima-green);
+}
+
+.link:visited {
+  color: var(--klima-blue);
 }
 
 .li_content {

@@ -32,6 +32,7 @@ export function PostPage(props: PostProps) {
       <div className={styles.banner}>
         <div className={styles.bannerImage}>
           <Image
+            priority={true}
             src={props.post.imageUrl || defaultImage}
             alt={props.post.title}
             objectFit="cover"

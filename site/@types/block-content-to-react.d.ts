@@ -28,12 +28,12 @@ declare module "@sanity/block-content-to-react" {
       /** React component to use when rendering a list node */
       list?: (params: {
         type: string;
-        children: JSX.Element;
+        children: JSX.Element[];
         level: 1 | 2;
       }) => JSX.Element;
       /** React component to use when rendering a list item node */
       listItem?: (params: {
-        children: JSX.Element;
+        children: JSX.Element[];
         node: { level: 1 | 2 };
       }) => JSX.Element;
       /**
