@@ -4,10 +4,10 @@
 
 .stakeCard {
   align-self: center;
-  max-width: 40rem;
+  max-width: 85rem;
   background-color: var(--dapp-bg);
-  border-radius: 3.2rem;
-  /* padding: 2.4rem; */
+  border-radius: 1.2rem;
+  padding: 2.4rem;
   display: grid;
   gap: 3.2rem;
 }

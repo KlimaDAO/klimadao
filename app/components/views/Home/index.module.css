@@ -73,14 +73,10 @@ TEMP
   right: 0;
   height: 100vh;
   width: 100vw;
-  background: var(--dapp-bg);
+  background-color: var(--alt-bg);
+  /* background: var(--dapp-bg); */
 }
-.heroBackgroundContainer img {
-  object-position: 42% 50%;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
+
 
 .heroSection {
   grid-column: main;

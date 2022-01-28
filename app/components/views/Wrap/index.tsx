@@ -260,11 +260,6 @@ export const Wrap: FC<Props> = (props) => {
       </div>
 
       <ul className={styles.dataContainer}>
-        {/* {address && (
-          <p className={styles.dataContainer_address}>
-            {address.slice(0, 5)}..{address.slice(address.length - 3)}
-          </p>
-        )} */}
         {singletonSource}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
@@ -350,9 +345,8 @@ export const Wrap: FC<Props> = (props) => {
             You will get
             <TextInfoTooltip
               singleton={singleton}
-              content={`Amount you will get after ${
-                view === "wrap" ? "wrapping" : "unwrapping"
-              }`}
+              content={`Amount you will get after ${view === "wrap" ? "wrapping" : "unwrapping"
+                }`}
             >
               <div tabIndex={0} className={styles.infoIconWrapper}>
                 <InfoOutlined />

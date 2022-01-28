@@ -299,7 +299,6 @@ export const Home: FC = () => {
       <Sidebar />
       <div className={styles.container}>
         <div className={styles.heroBackgroundContainer}>
-          <img src="/green-wormhole.jpg" alt="" />
           <div className={styles.heroGradient} />
         </div>
         <div className={styles.heroSection}>

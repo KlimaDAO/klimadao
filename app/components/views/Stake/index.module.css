@@ -3,13 +3,18 @@
 
 .stakeCard {
   align-self: center;
-  max-width: 32rem;
+  max-width: 8.5rem;
   background-color: var(--dapp-bg);
-  border-radius: 3.2rem;
-  padding: 2.4rem;
-  display: grid;
+  border-radius: 1.2rem;
+  /* padding: 10rem; */
   gap: 3.2rem;
 }
+
+.buttonRow, .stakeSwitch,  .inputsContainer, .dataContainer {
+  max-width: 32rem;
+  margin: auto;
+}
+
 
 .stakeIcon {
   margin-right: 10px;
@@ -32,19 +37,20 @@
   align-items: center;
   border-radius: 8px;
   overflow: hidden;
-  padding: 5px;
+  padding: 0.5rem;
 }
 .switchButton {
   composes: button from "@klimadao/lib/theme/typography.module.css";
   display: flex;
   align-items: center;
-  padding: 1.6rem;
-  min-height: 6rem;
+  padding: 1rem 4rem;
+  min-height: 5.2rem;
   display: flex;
   flex-grow: 1;
   justify-content: center;
   background-color: var(--surface04);
   border-radius: 4px;
+  font-size: 1.4rem;
 }
 .switchButton:hover {
   background-color: var(--surface-24);
@@ -67,12 +73,12 @@
   height: 100%;
   flex-grow: 1;
   flex-shrink: 1;
-  padding: 1.2rem 1.6rem;
+  padding: 1.6rem;
   color: white;
   border: 1px solid var(--alt-bg);
   border-radius: 0.4rem;
   outline: none;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .stakeInput {
@@ -89,7 +95,7 @@
   height: 100%;
   flex-grow: 1;
   flex-shrink: 1;
-  background-color: var(--surface-04);
+  background-color: var(--dapp-bg);
   padding: 0.8rem 1.6rem;
   color: white;
   border: 1px solid var(--alt-bg);
@@ -123,6 +129,7 @@
   border-top-color: transparent;
   border-radius: 0.4rem;
   cursor: default;
+  font-size: 1.2rem;
 }
 .stakeInput_button:hover:not(:disabled) {
   background-color: var(--surface-24);
@@ -197,6 +204,7 @@
   display: flex;
   justify-content: center;
 }
+
 .buttonRow_spinner {
   padding: 0 0.8rem;
   display: flex;
@@ -209,8 +217,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--surface-05);
+  background-color: var(--alt-bg);
+  color: var(--surface-07) !important;
+  opacity: 1 !important;
   height: 5.2rem;
+  width: 32rem;
+  font-size: 1.4rem;
+  font-family: var(--font-family-heading);
 }
 .submitButton:not(:disabled) {
   background-color: var(--primary);
