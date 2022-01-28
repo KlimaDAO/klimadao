@@ -192,41 +192,14 @@ export const Home: FC = () => {
         onRPCError: handleRPCError,
       })
     );
-    dispatch(
-      calcBondDetails({
-        bond: "klima_bct_lp",
-        value: "",
-        provider,
-      })
-    );
-    dispatch(
-      calcBondDetails({
-        bond: "klima_usdc_lp",
-        value: "",
-        provider,
-      })
-    );
-    dispatch(
-      calcBondDetails({
-        bond: "bct_usdc_lp",
-        value: "",
-        provider,
-      })
-    );
-    dispatch(
-      calcBondDetails({
-        bond: "bct",
-        value: "",
-        provider,
-      })
-    );
-    dispatch(
-      calcBondDetails({
-        bond: "mco2",
-        value: "",
-        provider,
-      })
-    );
+    bonds.forEach((bond) => {
+      dispatch(
+        calcBondDetails({
+          bond,
+          provider,
+        })
+      );
+    });
   };
 
   useEffect(() => {
