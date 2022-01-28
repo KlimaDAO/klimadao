@@ -31,7 +31,7 @@ export type PostDetails = {
   title: string;
   author: { name: string };
   summary: string;
-  imageUrl: string;
+  imageUrl?: string;
 };
 export type AllPosts = PostDetails[];
 export type AllPostSlugs = { slug: string }[];
@@ -41,7 +41,7 @@ export type Post = {
   title: string;
   author: { name: string };
   body: { children: { text: string }[] }[];
-  imageUrl: string;
+  imageUrl?: string;
   publishedAt: string;
   summary: string;
 };

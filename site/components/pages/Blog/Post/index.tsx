@@ -18,6 +18,7 @@ import { Footer } from "components/Footer";
 import { t } from "@lingui/macro";
 import Link from "next/link";
 import BlockContentRenderer from "components/BlockContentRenderer";
+import defaultImage from "public/og-media.jpg";
 
 import styles from "./index.module.css";
 
@@ -31,7 +32,7 @@ export function PostPage(props: PostProps) {
       <div className={styles.banner}>
         <div className={styles.bannerImage}>
           <Image
-            src={props.post.imageUrl}
+            src={props.post.imageUrl || defaultImage}
             alt={props.post.title}
             objectFit="cover"
             layout="fill"
