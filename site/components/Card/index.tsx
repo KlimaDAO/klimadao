@@ -2,8 +2,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import styles from "./index.module.css";
+import defaultImage from "public/og-media.jpg";
 import { PostDetails } from "lib/queries";
+
+import styles from "./index.module.css";
 
 interface CardProps {
   post: PostDetails;
@@ -21,7 +23,7 @@ export function Card(props: CardProps) {
         </div>
         <div className={styles.image}>
           <Image
-            src={props.post.imageUrl}
+            src={props.post.imageUrl || defaultImage}
             alt={props.post.title}
             objectFit="cover"
             layout="fill"

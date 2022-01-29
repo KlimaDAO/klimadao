@@ -21,6 +21,7 @@ interface PropsLink
   href: string;
   variant?: "gray" | null;
   link?: Link;
+  isExternalHref?: boolean;
 }
 
 type Props = PropsButton | PropsLink;

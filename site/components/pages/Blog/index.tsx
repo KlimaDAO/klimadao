@@ -9,10 +9,6 @@ import { t } from "@lingui/macro";
 import styles from "./index.module.css";
 import { Container } from "../Resources/Container";
 
-// interface BlogProps extends PropsWithChildren<ReactNode> {
-//   posts: AllPosts;
-// }
-
 type BlogProps = PropsWithChildren<ReactNode> & {
   posts: AllPosts;
 };

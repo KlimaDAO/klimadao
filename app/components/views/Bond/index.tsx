@@ -17,7 +17,7 @@ import {
   calculateUserBondDetails,
 } from "actions/bonds";
 
-import typography from "@klimadao/lib/theme/typography";
+import * as typography from "@klimadao/lib/theme/typography";
 import { Trans, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { prettifySeconds } from "lib/i18n";

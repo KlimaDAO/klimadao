@@ -23,78 +23,19 @@ declare module "@sanity/block-content-to-react" {
      *
      */
     serializers?: {
-      /**
-       * Serializers for block types
-       * @example
-       * ```jsx
-       * const input = [{
-       *   _type: 'block',
-       *   children: [{
-       *     _key: 'a1ph4',
-       *     _type: 'span',
-       *     marks: ['s0m3k3y'],
-       *     text: 'Sanity'
-       *   }],
-       *   markDefs: [{
-       *     _key: 's0m3k3y',
-       *     _type: 'highlight',
-       *     color: '#E4FC5B'
-       *   }]
-       * }]
-       *
-       * const highlight = props => {
-       *   return (
-       *     <span style={{backgroundColor: props.mark.color}}>
-       *       {props.children}
-       *     </span>
-       *   )
-       * }
-       *
-       * <BlockContent
-       *   blocks={input}
-       *   serializers={{marks: {highlight}}}
-       * />
-       * ```
-       */
       types?: Record<string, (props: any) => JSX.Element | null>;
-      /**
-       * Serializers for marks - data that annotates a text child of a block.
-       * @example
-       * ```jsx
-       * const input = [{
-       *   _type: 'block',
-       *   children: [{
-       *     _key: 'a1ph4',
-       *     _type: 'span',
-       *     marks: ['s0m3k3y'],
-       *     text: 'Sanity'
-       *   }],
-       *   markDefs: [{
-       *     _key: 's0m3k3y',
-       *     _type: 'highlight',
-       *     color: '#E4FC5B'
-       *   }]
-       * }]
-       *
-       * const highlight = props => {
-       *   return (
-       *     <span style={{backgroundColor: props.mark.color}}>
-       *       {props.children}
-       *     </span>
-       *   )
-       * }
-       *
-       * <BlockContent
-       *   blocks={input}
-       *   serializers={{marks: {highlight}}}
-       * />
-       * ```
-       */
       marks?: Record<string, (props: any) => JSX.Element | null>;
       /** React component to use when rendering a list node */
-      list?: React.Component;
+      list?: (params: {
+        type: string;
+        children: JSX.Element[];
+        level: 1 | 2;
+      }) => JSX.Element;
       /** React component to use when rendering a list item node */
-      listItem?: React.Component;
+      listItem?: (params: {
+        children: JSX.Element[];
+        node: { level: 1 | 2 };
+      }) => JSX.Element;
       /**
        * React component to use when transforming newline characters
        * to a hard break (<br/> by default, pass false to render newline character)
@@ -113,7 +54,8 @@ declare module "@sanity/block-content-to-react" {
     /** Name of the Sanity dataset containing the document that is being rendered. */
     dataset?: string;
   }
-
+  function BlockContent(props: BlockContentProps): JSX.Element;
+  BlockContent.defaultSerializers = { types: block };
   /** React component for transforming Sanity block content to React components */
-  export default function BlockContent(props: BlockContentProps): JSX.Element;
+  export default BlockContent;
 }
