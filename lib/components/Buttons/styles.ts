@@ -40,6 +40,6 @@ export const button_gray = css`
 `;
 
 export const button_gray = css`
-  background-color: var(--white);
-  color: var(--surface-02) !important;
+  background-color: var(--surface-01);
+  color: var(--surface-02);
 `;

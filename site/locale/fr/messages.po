@@ -72,12 +72,38 @@ msgstr ""
 msgid "Cars (annual)"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:184
+#: components/pages/Redesign/index.tsx:223
+msgid "Backed by Carbon."
+msgstr ""
+
+#: components/Footer/index.tsx:34
+#: components/pages/Resources/Container/index.tsx:110
+#: components/pages/Resources/Container/index.tsx:144
+msgid "Blog"
+msgstr ""
+
+#: components/Footer/index.tsx:27
+msgid "Bond"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:121
+#: components/pages/Resources/Contact/index.tsx:212
+#: components/pages/Resources/Contact/index.tsx:302
 msgid "Bug Reports"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:122
+#: components/pages/Redesign/index.tsx:181
+msgid "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:66
+#: components/pages/Resources/Contact/index.tsx:157
+#: components/pages/Resources/Contact/index.tsx:247
 msgid "Careers"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:309
+msgid "Cars (annual)"
 msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:58
@@ -468,6 +494,6 @@ msgstr ""
 msgid "👋 WELCOME TO"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:109
+#: components/pages/Redesign/index.tsx:126
 msgid "👋 WELCOME TO"
 msgstr ""

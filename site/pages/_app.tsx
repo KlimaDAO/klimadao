@@ -44,11 +44,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     }
   }, [locale]);
 
-  if (!pageProps.translation) {
-    // fallback e.g. bad blog url
-    return <Component {...pageProps} />;
-  }
-
   return (
     <I18nProvider i18n={i18n}>
       <GridContainer>
