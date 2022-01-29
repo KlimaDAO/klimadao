@@ -1,18 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "./breakpoints";
 
-export type TypographyStyle =
-  | "h1"
-  | "h2"
-  | "h2_alt"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "body1"
-  | "body2"
-  | "caption"
-  | "button";
-
 export const h1 = css`
   font-size: 4.8rem;
   line-height: 4.8rem;
