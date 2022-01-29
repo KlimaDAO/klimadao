@@ -102,3 +102,5 @@ export const EPOCH_INTERVAL = 11520;
 
 // API key for Polygonscan
 export const API_KEY = "XN1YXFZ5GZDH3JWUGFD1AA8ASF371ZA8EA";
+
+export const MONTH_IN_SECONDS = 2592000;

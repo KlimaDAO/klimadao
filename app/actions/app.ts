@@ -4,7 +4,6 @@ import { Thunk } from "state";
 import { setAppState } from "state/app";
 
 import {
-  getBlockRate,
   getEstimatedDailyRebases,
   getTreasuryBalance,
 } from "@klimadao/lib/utils";
@@ -36,6 +35,12 @@ export const loadAppDetails = (params: {
         SKlima.abi,
         params.provider
       );
+      // Set up for testing, needs to be cached first
+      const getBlockRate = async () => {
+        const response = await fetch("/api/block-rate");
+        const data = await response.json();
+        return data.blockRate30Day;
+      };
 
       const promises = [
         distributorContract.info(0),
