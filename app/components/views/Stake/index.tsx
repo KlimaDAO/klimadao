@@ -484,7 +484,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.current_index">Current index</Trans>
+            <Trans>CURRENT INDEX</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.current_index.tooltip")}

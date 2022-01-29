@@ -6,6 +6,7 @@ import FlipIcon from "@material-ui/icons/Flip";
 import TwitterIcon from "@material-ui/icons/Twitter";
 
 interface Link {
+  // do we need this?
   to: string;
   show: boolean;
   text: string;
@@ -14,6 +15,7 @@ interface Link {
 
 export const primaryLinks = ({ path }: { path: string }) => [
   {
+    // need correct path
     icon: CreditCardIcon,
     to: "/",
     text: "Buy Klima",
@@ -38,6 +40,7 @@ export const primaryLinks = ({ path }: { path: string }) => [
     dataActive: path === "/wrap",
   },
   {
+    // need correct path
     icon: SpeedIcon,
     to: "/",
     text: "Carbon Offset",
@@ -46,24 +49,22 @@ export const primaryLinks = ({ path }: { path: string }) => [
 ];
 
 export const secondaryLinks = () => [
+  // need correct links for all
+  // need all icons except twitter
   {
     icon: TwitterIcon,
-    text: "Circles",
-    link: "www.google.com",
+    to: "https://www.google.com",
   },
   {
     icon: TwitterIcon,
-    text: "Discord",
-    link: "www.discord.com",
+    to: "https://www.discord.com",
   },
   {
     icon: TwitterIcon,
-    text: "Twitter",
-    link: "www.twitter.com",
+    to: "https://www.twitter.com",
   },
   {
     icon: TwitterIcon,
-    text: "Lifesaver",
-    link: "www.google.com",
+    to: "https://www.google.com",
   },
 ];

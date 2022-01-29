@@ -11,11 +11,12 @@ import LinkOffIcon from "@material-ui/icons/LinkOff";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import Hidden from "@material-ui/core/Hidden";
 import { primaryLinks, secondaryLinks } from "./constants";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const primaryLinksList = primaryLinks({
-  path: "/stake", // this needs to use actual path once we have all the correct links
-});
+const primaryLinksList = (path: string) =>
+  primaryLinks({
+    path,
+  });
 
 // make some of this more typescript-y
 // double check styles (sizing & spacing) compared to wireframe
@@ -24,6 +25,8 @@ const SideBar: FC = () => {
   // pass in the toggle function, once a button is created in the parent
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(true);
   const handleDrawerToggle = () => setMobileDrawerOpen(!mobileDrawerOpen);
+
+  const { pathname } = useLocation();
 
   const drawer = (
     <div className={styles.drawerContainer}>
@@ -47,7 +50,7 @@ const SideBar: FC = () => {
       </List>
       <Divider classes={{ root: styles.divider }} />
       <List classes={{ root: styles.primaryLinks }}>
-        {primaryLinksList.map(
+        {primaryLinksList(pathname).map(
           ({ text, icon: LinkIcon, to = "/", dataActive }) => (
             <ListItem
               key={text}
@@ -83,6 +86,7 @@ const SideBar: FC = () => {
             key={to}
             button
             href={to}
+            component="a"
             classes={{
               root: styles.listLinkSecondary,
               gutters: styles.listItemIcon,
@@ -147,13 +151,13 @@ const SideBar: FC = () => {
       </List>
       <Divider classes={{ root: styles.divider }} />
       <List classes={{ root: styles.primaryLinks }}>
-        {primaryLinksList.map(
+        {primaryLinksList(pathname).map(
           ({ text, icon: LinkIcon, to = "/", dataActive }) => (
             <ListItem
               key={text}
               button
-              href={to}
-              component="a"
+              to={to}
+              component={Link}
               selected={dataActive}
               classes={{
                 root: styles.listLinkThin,
@@ -179,6 +183,7 @@ const SideBar: FC = () => {
             key={to}
             button
             href={to}
+            component="a"
             classes={{
               root: styles.listLinkSecondary,
               gutters: styles.listItemIcon,

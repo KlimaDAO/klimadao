@@ -341,6 +341,14 @@ export const Wrap: FC<Props> = (props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             YOU WILL GET
+            <TextInfoTooltip
+              singleton={singleton}
+              content=""
+            >
+              <div tabIndex={0} style={{ visibility: "hidden" }} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
           </div>
           <div className={styles.dataContainer_value}>
             <WithPlaceholder

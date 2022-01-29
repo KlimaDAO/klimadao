@@ -17,6 +17,10 @@ msgstr ""
 msgid "BALANCE"
 msgstr ""
 
+#: components/views/Stake/index.tsx:487
+msgid "CURRENT INDEX"
+msgstr ""
+
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr ""
@@ -247,12 +251,8 @@ msgstr ""
 msgid "msg.bridge"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:203
+#: components/views/Wrap/index.tsx:209
 msgid "msg.wsklima"
-msgstr ""
-
-#: components/views/Wrap/index.tsx:210
-msgid "msg.yield"
 msgstr ""
 
 #: components/views/Bond/index.tsx:395
@@ -322,10 +322,6 @@ msgstr "Klima non déposé et ne générant pas d'intérêts"
 #: components/views/Stake/index.tsx:293
 msgid "stake.caption"
 msgstr "Conservez, déposez et composez. Le protocol récolte de produit de la vente d'obligations carbone. Ces gains sont redistribués aux détenteurs de KLIMA déposé (sKLIMA)."
-
-#: components/views/Stake/index.tsx:487
-msgid "stake.current_index"
-msgstr "Index courant"
 
 #: components/views/Stake/index.tsx:275
 msgid "stake.current_index.tooltip"

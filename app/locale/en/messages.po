@@ -17,6 +17,10 @@ msgstr ""
 msgid "BALANCE"
 msgstr "BALANCE"
 
+#: components/views/Stake/index.tsx:487
+msgid "CURRENT INDEX"
+msgstr "CURRENT INDEX"
+
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr "Change language"
@@ -247,13 +251,9 @@ msgstr "If you received AlphaKLIMA from the Fair Launch Auction, or AlchemistKLI
 msgid "msg.bridge"
 msgstr "Before proceeding: you must bridge your aKLIMA and alKLIMA tokens from Ethereum to Polygon."
 
-#: components/views/Wrap/index.tsx:203
+#: components/views/Wrap/index.tsx:209
 msgid "msg.wsklima"
 msgstr "wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may find this useful for accounting purposes. Unlike your sKLIMA balance, your wsKLIMA balance will not increase over time."
-
-#: components/views/Wrap/index.tsx:210
-msgid "msg.yield"
-msgstr "When wsKLIMA is unwrapped, you receive sKLIMA based on the latest (ever-increasing) index, so the total yield is the same."
 
 #: components/views/Bond/index.tsx:395
 msgid "nav.back"
@@ -322,10 +322,6 @@ msgstr "Unstaked KLIMA, not generating interest"
 #: components/views/Stake/index.tsx:293
 msgid "stake.caption"
 msgstr "Hold, stake, and compound. If the protocol earns a profit selling carbon bonds, these rewards are shared among all holders of staked KLIMA (sKLIMA)."
-
-#: components/views/Stake/index.tsx:487
-msgid "stake.current_index"
-msgstr "Current index"
 
 #: components/views/Stake/index.tsx:275
 msgid "stake.current_index.tooltip"

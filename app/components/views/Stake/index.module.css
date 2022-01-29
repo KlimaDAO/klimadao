@@ -164,8 +164,8 @@
   min-height: 2.4rem;
 }
 .infoIconWrapper :global(svg) {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .dataContainer {
@@ -174,7 +174,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   list-style: none;
-  padding-left: unset;
 }
 .dataContainer_address {
   font-family: monospace;
@@ -193,12 +192,14 @@
   margin-right: -1rem;
   text-align: end;
   color: var(--surface-07);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: var(--font-family-heading);
 }
 
 
-
+.dataContainer_label > div {
+  margin-left: -.3rem;
+}
 
 .dataContainer_value {
   color: var(--gray);
