@@ -320,7 +320,7 @@ msgstr "APY"
 
 #: components/views/Stake/index.tsx:262
 msgid "stake.apy.tooltip"
-msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
+msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
 
 #: components/views/Stake/index.tsx:343
 msgid "stake.balance"
