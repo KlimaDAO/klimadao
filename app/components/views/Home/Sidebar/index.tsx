@@ -7,96 +7,200 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
+import LinkOffIcon from "@material-ui/icons/LinkOff";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import Hidden from "@material-ui/core/Hidden";
-import { getPrimaryLinks, getSecondaryLinks } from "./constants";
+import { primaryLinks, secondaryLinks } from "./constants";
+import { Link } from "react-router-dom";
 
-const primaryLinks = getPrimaryLinks({
-  path: "/stake",
+const primaryLinksList = primaryLinks({
+  path: "/stake", // this needs to use actual path once we have all the correct links
 });
 
-const secondaryLinks = getSecondaryLinks();
-
+// make some of this more typescript-y
+// double check styles (sizing & spacing) compared to wireframe
 const SideBar: FC = () => {
+  // this state and setter needs to live in the parent component and just
+  // pass in the toggle function, once a button is created in the parent
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(true);
-
   const handleDrawerToggle = () => setMobileDrawerOpen(!mobileDrawerOpen);
 
   const drawer = (
     <div className={styles.drawerContainer}>
-      <div className="logo">
-        <ListItem
-          button
-          classes={{ root: styles.logoText }}
-          component="a"
-          href="/"
-        >
-          <ListItemIcon>
+      <List>
+        <ListItem button component="a" href="/">
+          <ListItemIcon classes={{ root: styles.listItemIcon }}>
             <InboxIcon />
           </ListItemIcon>
           <ListItemText
-            classes={{ primary: styles.itemText }}
+            classes={{ primary: styles.logoText }}
             primary="KlimaDAO"
           />
         </ListItem>
-      </div>
+      </List>
       <Divider classes={{ root: styles.divider }} />
       <List>
         <ListItem classes={{ root: styles.walletInfo }}>
           <span className={styles.primaryText}>Your Wallet Address:</span>
-          <span className={styles.itemText}>0x09&_0xxxxx</span>
+          <span className={styles.secondaryText}>0x09&_0xxxxx</span>
         </ListItem>
       </List>
       <Divider classes={{ root: styles.divider }} />
-      <div className="internal-links">
-        <List>
-          {primaryLinks.map(({ text, icon: Icon, to = "/", dataActive }) => (
+      <List classes={{ root: styles.primaryLinks }}>
+        {primaryLinksList.map(
+          ({ text, icon: LinkIcon, to = "/", dataActive }) => (
             <ListItem
-              button
-              classes={{ root: styles.listLink }}
-              component="a"
-              href={to}
               key={text}
+              button
+              to={to}
+              component={Link}
               selected={dataActive}
+              classes={{
+                root: styles.listLink,
+                selected: styles.listLinkSelected,
+              }}
             >
-              <ListItemIcon classes={{ root: styles.listIcon }}>
-                <Icon htmlColor="white" />
+              <ListItemIcon
+                classes={{
+                  root: `${styles.listItemIcon} ${dataActive && styles.listItemIconSelected
+                    }`,
+                }}
+              >
+                <LinkIcon />
               </ListItemIcon>
               <ListItemText
-                classes={{ root: styles.listText }}
+                classes={{ primary: styles.linkText }}
                 primary={text}
               />
             </ListItem>
-          ))}
-        </List>
-      </div>
-      {/* add spacing to bottom here */}
-      <Divider />
-      <div className={styles.externalLinks}>
-        <List>
-          <ListItem button>
-            {secondaryLinks.map(({ text, icon: Icon }) => (
-              <ListItemIcon key={text}>
-                <Icon />
-              </ListItemIcon>
-            ))}
-          </ListItem>
-        </List>
-      </div>
-      <Divider />
-      <div className="logout">
-        <List>
-          <ListItem>
-            <ListItemIcon>
-              <KeyboardReturnIcon />
+          )
+        )}
+      </List>
+      <Divider classes={{ root: styles.divider }} />
+      <List classes={{ root: styles.secondaryLinks }}>
+        {secondaryLinks().map(({ to, icon: LinkIcon }) => (
+          <ListItem
+            key={to}
+            button
+            href={to}
+            classes={{
+              root: styles.listLinkSecondary,
+              gutters: styles.listItemIcon,
+            }}
+          >
+            <ListItemIcon
+              classes={{
+                root: styles.listItemIcon,
+              }}
+            >
+              <LinkIcon />
             </ListItemIcon>
-            <ListItemText
-              classes={{ primary: styles.textItem }}
-              primary="Log Out"
-            />
           </ListItem>
-        </List>
-      </div>
+        ))}
+      </List>
+      <List>
+        <ListItem
+          classes={{
+            root: styles.logoutBtn,
+          }}
+          button
+        >
+          <ListItemIcon classes={{ root: styles.listItemIcon }}>
+            <KeyboardReturnIcon />
+          </ListItemIcon>
+          <ListItemText
+            classes={{ primary: styles.linkText }}
+            primary="Log Out"
+          />
+        </ListItem>
+      </List>
+    </div>
+  );
+
+  // clean up/abstract this "small" drawer
+  const drawerThin = (
+    <div className={styles.drawerContainer}>
+      <List>
+        <ListItem
+          classes={{ root: styles.listItemThin }}
+          button
+          component="a"
+          href="/"
+        >
+          <ListItemIcon classes={{ root: styles.listItemIcon }}>
+            <InboxIcon />
+          </ListItemIcon>
+        </ListItem>
+      </List>
+      <Divider classes={{ root: styles.divider }} />
+      <List>
+        <ListItem
+          classes={{ root: styles.listItemThin }}
+          button
+          component="a"
+          href="/"
+        >
+          <ListItemIcon classes={{ root: styles.listItemIcon }}>
+            <LinkOffIcon />
+          </ListItemIcon>
+        </ListItem>
+      </List>
+      <Divider classes={{ root: styles.divider }} />
+      <List classes={{ root: styles.primaryLinks }}>
+        {primaryLinksList.map(
+          ({ text, icon: LinkIcon, to = "/", dataActive }) => (
+            <ListItem
+              key={text}
+              button
+              href={to}
+              component="a"
+              selected={dataActive}
+              classes={{
+                root: styles.listLinkThin,
+                selected: styles.listLinkSelected,
+              }}
+            >
+              <ListItemIcon
+                classes={{
+                  root: `${styles.listItemIcon} ${dataActive && styles.listItemIconSelected
+                    }`,
+                }}
+              >
+                <LinkIcon />
+              </ListItemIcon>
+            </ListItem>
+          )
+        )}
+      </List>
+      <Divider classes={{ root: styles.divider }} />
+      <List classes={{ root: styles.secondaryLinksThin }}>
+        {secondaryLinks().map(({ to, icon: LinkIcon }) => (
+          <ListItem
+            key={to}
+            button
+            href={to}
+            classes={{
+              root: styles.listLinkSecondary,
+              gutters: styles.listItemIcon,
+            }}
+          >
+            <ListItemIcon
+              classes={{
+                root: styles.listItemIcon,
+              }}
+            >
+              <LinkIcon />
+            </ListItemIcon>
+          </ListItem>
+        ))}
+      </List>
+      <List>
+        <ListItem classes={{ root: styles.listItemThin }} button>
+          <ListItemIcon classes={{ root: styles.listItemIcon }}>
+            <KeyboardReturnIcon />
+          </ListItemIcon>
+        </ListItem>
+      </List>
     </div>
   );
 
@@ -108,7 +212,7 @@ const SideBar: FC = () => {
           onClose={handleDrawerToggle}
           classes={{
             root: styles.sidebarLg,
-            paper: styles.drawerMobile,
+            paper: styles.drawerLg,
           }}
           ModalProps={{
             keepMounted: true,
@@ -122,10 +226,10 @@ const SideBar: FC = () => {
           variant="permanent"
           classes={{
             root: styles.sidebarSm,
-            paper: styles.drawerTablet,
+            paper: styles.drawerSm,
           }}
         >
-          {drawer}
+          {drawerThin}
         </Drawer>
       </Hidden>
       <Hidden only={["xs", "sm"]}>
@@ -133,7 +237,7 @@ const SideBar: FC = () => {
           variant="permanent"
           classes={{
             root: styles.sidebarLg,
-            paper: styles.drawerPermanent,
+            paper: styles.drawerLg,
           }}
         >
           {drawer}

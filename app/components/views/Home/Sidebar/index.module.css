@@ -1,86 +1,130 @@
 .sidebarLg {
   width: 244px;
 }
-
 .sidebarSm {
   width: 104px;
 }
 
-.drawerMobile {
-  width: 244px !important;
-  color: #9c9c9c;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  background-color: #202020 !important;
+.drawer {
   overflow: hidden;
-}
-
-.drawerTablet {
-  background-color: #202020 !important;
-  color: #9c9c9c;
-  width: 104px !important;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  overflow: hidden;
-}
-
-.drawerPermanent {
-  background-color: #202020 !important;
   color: #9c9c9c !important;
-  width: 244px !important;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  overflow: hidden;
+  background-color: #202020 !important;
 }
-
-.walletInfo {
+.drawerLg {
+  composes: drawer;
+  width: 244px !important;
+}
+.drawerSm {
+  composes: drawer;
+  width: 104px !important;
+}
+.drawerContainer {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: baseline !important;
+  padding: 14px 32px 24px 32px;
 }
 
-.drawerContainer {
-  padding: 32px;
+/* probably call this listLinkPrimary? */
+.listLink {
+  color: #9c9c9c !important;
+  margin: 14px 0px !important;
+  border-radius: 8px !important;
+}
+.listLinkSelected {
+  color: white !important;
+  border-radius: 8px !important;
+  background-color: #303030 !important;
+  border: 0.5px solid #4a4a4a !important;
+}
+.listItemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 0 !important;
+  color: #f2f2f2 !important;
+  background-color: #2b2b2b;
+  border-radius: 6px;
+}
+.listItemIconSelected {
+  composes: listItemIcon;
+  color: white !important;
+  background-color: #00cc33;
+}
+.listLinkSecondary {
+  width: 24px !important;
+  padding: 0 !important;
+  justify-content: center !important;
+}
+
+.logoText {
+  font-weight: 600;
+  line-height: 24px;
+  color: #fff !important;
+  font-size: 16px !important;
+  margin-left: 8px !important;
 }
 
 .divider {
   background-color: #2b2b2b !important;
 }
 
-.logoText {
-  font-size: 12px !important;
-  color: #fff !important;
+.walletInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+}
+
+.primaryLinks {
+  margin-bottom: auto !important;
+}
+.secondaryLinks {
+  display: flex;
+  padding-top: 30px !important;
+  justify-content: space-around;
 }
 
 .primaryText {
-  font-size: 12px !important;
-  font-weight: 600;
   color: #fff;
-}
-
-.textItem {
+  font-weight: 600;
+  line-height: 16px;
   font-size: 12px !important;
 }
-
-.listLink {
-  border: 0.5px solid #4a4a4a !important;
-  border-radius: 8px !important;
-  align-items: baseline;
-  color: #fff !important;
-  margin: 5px 0px !important;
+.secondaryText {
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 12px !important;
+}
+.linkText {
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 12px !important;
+  margin-left: 12px !important;
 }
 
-.listIcon {
+.logoutBtn {
+  padding-left: 8px !important;
+}
+
+/* rename this to something else, dont use "THIN" */
+
+.listItemThin {
+  justify-content: center !important;
+}
+.listLinkThin {
+  composes: listLink;
+  padding: 6px !important;
+  justify-content: center !important;
+}
+.secondaryLinksThin {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  height: 215px;
+  padding: 24px 0px !important;
   align-items: center;
-  border-radius: 6px;
-  background-color: #00cc33;
-  min-width: 0 !important;
-  width: 28px;
-  height: 28px;
-}
-
-.listText {
-  margin-left: 12px;
+  justify-content: space-between !important;
 }

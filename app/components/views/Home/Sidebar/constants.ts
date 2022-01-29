@@ -12,7 +12,7 @@ interface Link {
   dataActive: boolean;
 }
 
-export const getPrimaryLinks = ({ path }: { path: string }) => [
+export const primaryLinks = ({ path }: { path: string }) => [
   {
     icon: CreditCardIcon,
     to: "/",
@@ -45,7 +45,7 @@ export const getPrimaryLinks = ({ path }: { path: string }) => [
   },
 ];
 
-export const getSecondaryLinks = () => [
+export const secondaryLinks = () => [
   {
     icon: TwitterIcon,
     text: "Circles",
