@@ -34,8 +34,11 @@ export const footer_content = css`
 export const footer_nav = css`
   font-size: 1.4rem;
   display: grid;
-  row-gap: 1.6rem;
-
+  gap: 1.6rem 3.2rem;
+  max-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   & a {
     color: var(--font-02) !important;
   }
@@ -49,10 +52,6 @@ export const footer_nav = css`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    & a {
-      padding: 0rem 1rem;
-    }
   }
 `;
 

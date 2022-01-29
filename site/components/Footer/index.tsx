@@ -13,27 +13,34 @@ export const Footer: FC = () => {
       <div className={styles.footer_content}>
         <nav className={styles.footer_nav}>
           <Link href="/">
-            <a>Home</a>
+            <a>
+              <Trans>Home</Trans>
+            </a>
           </Link>
           <a href={urls.tutorial} target="_blank" rel="noreferrer noopener">
-            Get Klima
+            <Trans>Get Klima</Trans>
           </a>
-          <a href={urls.stake}>Stake</a>
-          <a href={urls.bond}>Bond</a>
+          <a href={urls.stake}>
+            <Trans>Stake</Trans>
+          </a>
+          <a href={urls.bond}>
+            <Trans>Bond</Trans>
+          </a>
           <a href={urls.officialDocs} target="_blank" rel="noreferrer noopener">
-            Docs
+            <Trans>Docs</Trans>
           </a>
           <Link href="/blog">
             <a>
               <Trans>Blog</Trans>
             </a>
           </Link>
-          <Link href="/home">
+          <Link href="/contact">
             <a>
-              <Trans>Home</Trans>
+              <Trans>Contact</Trans>
             </a>
           </Link>
         </nav>
+
         <nav className={styles.footer_icons}>
           <a href={urls.twitter} target="_blank" rel="noreferrer noopener">
             <TwitterIcon />

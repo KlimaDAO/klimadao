@@ -56,7 +56,7 @@ export const Container: FC<Props> = (props) => {
         />
         <NavItemDesktop
           url={urls.tutorial}
-          name={t({ message: "Buy Klima", id: "mainNav.buyKlima" })}
+          name={t`Get Klima`}
           target="_blank"
           rel="noreferrer noopener"
         />
@@ -65,15 +65,11 @@ export const Container: FC<Props> = (props) => {
           name={t({ message: "Stake", id: "mainNav.stake" })}
         />
         <NavItemDesktop
-          url={urls.wrap}
-          name={t({ message: "Wrap", id: "mainNav.wrap" })}
-        />
-        <NavItemDesktop
           url={urls.bond}
           name={t({ message: "Bond", id: "mainNav.bond" })}
         />
         <NavItemDesktop
-          url={"/resources"}
+          url="/resources"
           name={t({ message: "Resources", id: "mainNav.resources" })}
           active={true}
           link={Link}

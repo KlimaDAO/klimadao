@@ -15,6 +15,8 @@ import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { urls } from "@klimadao/lib/constants";
 import { IS_PRODUCTION } from "lib/constants";
+import { t } from "@lingui/macro";
+import Link from "next/link";
 
 interface PostProps {
   post?: Post;
@@ -78,20 +80,40 @@ export function PostPage(props: PostProps) {
         />
       )}
       <HeaderDesktop
+        link={Link}
         buttons={[
-          <ButtonPrimary key="Enter App" label="Enter App" href={urls.app} />,
+          <ButtonPrimary
+            key="Enter App"
+            label={t`Enter App`}
+            href={urls.app}
+          />,
         ]}
       >
-        <NavItemDesktop url={urls.home} name="Home" active={true} />
+        <NavItemDesktop
+          url={"/"}
+          name={t({ message: "Home", id: "mainNav.home" })}
+          link={Link}
+        />
         <NavItemDesktop
           url={urls.tutorial}
-          name="Buy Klima"
+          name={t`Get Klima`}
+          rel="noopener noreferrer"
           target="_blank"
-          rel="noreferrer noopener"
         />
-        <NavItemDesktop url={urls.stake} name="Stake" />
-        <NavItemDesktop url={urls.wrap} name="Wrap" />
-        <NavItemDesktop url={urls.bond} name="Bond" />
+        <NavItemDesktop
+          url={urls.stake}
+          name={t({ message: "Stake", id: "mainNav.stake" })}
+        />
+        <NavItemDesktop
+          url={urls.bond}
+          name={t({ message: "Bond", id: "mainNav.bond" })}
+        />
+        <NavItemDesktop
+          url="/resources"
+          name={t`Resources`}
+          link={Link}
+          active={true}
+        />
       </HeaderDesktop>
       <HeaderMobile>
         <NavItemMobile url={urls.home} name="Home" />

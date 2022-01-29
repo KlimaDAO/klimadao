@@ -30,6 +30,8 @@ export const heroSection = css`
     box-shadow: var(--shadow-06);
     margin-bottom: -6.4rem;
     margin-top: 9.6rem;
+    max-width: 48rem;
+    justify-self: center;
   }
 
   .hero_imageCard {
@@ -84,6 +86,8 @@ export const heroSection = css`
     }
     .hero_whiteCard {
       padding: 6.4rem;
+      max-width: unset;
+      justify-self: unset;
     }
     .hero_imageCard {
       border-radius: 1.6rem;
@@ -411,7 +415,7 @@ export const buySection = css`
   grid-column: main;
   grid-template-rows: 1fr 1fr;
   column-gap: 6.4rem;
-  padding: 6.4rem;
+  padding: 3.2rem;
   background-color: var(--surface-01);
   box-shadow: var(--shadow-06);
   border-radius: 1.6rem;
@@ -444,6 +448,7 @@ export const buySection = css`
   ${breakpoints.medium} {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: unset;
+    padding: 6.4rem;
 
     .buy_dummy {
       top: 2.4rem;
