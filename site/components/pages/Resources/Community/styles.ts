@@ -1,6 +1,10 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const communityContainer = css`
+  grid-column: full;
+`;
+
 export const page_topElementMobile = css`
   padding-bottom: 1.6rem;
 
