@@ -204,15 +204,14 @@
 
 .dataContainer_value {
   color: var(--gray);
-  font-size: 1.4rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-family: var(--font-family-heading);
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .dataContainer_value span {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: white;
 }
 .dataContainer_value span[data-warning="true"] {
