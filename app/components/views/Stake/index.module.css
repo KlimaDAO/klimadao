@@ -179,6 +179,7 @@
   font-family: monospace;
   text-align: center;
   color: var(--gray);
+  margin: 2rem auto;
 }
 .dataContainer_row {
   display: grid;
@@ -221,6 +222,7 @@
 .buttonRow {
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
 }
 
 .buttonRow_spinner {

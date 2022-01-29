@@ -12,7 +12,7 @@ import {
   TextInfoTooltip,
   useTooltipSingleton,
 } from "@klimadao/lib/components";
-import { trimWithPlaceholder } from "@klimadao/lib/utils";
+import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
 import { ethers } from "ethers";
 import {
   selectAppState,
@@ -23,7 +23,7 @@ import { decrementWrap, incrementWrap, setWrapAllowance } from "state/user";
 import { useAppDispatch } from "state";
 import { TxnStatus } from "actions/utils";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-
+import { i18n } from "@lingui/core";
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
   address?: string;
@@ -238,6 +238,33 @@ export const Wrap: FC<Props> = (props) => {
             unwrap
           </button>
         </div>
+
+
+        <div className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            <Trans>BALANCE</Trans>
+            <TextInfoTooltip
+              singleton={singleton}
+              content={i18n._("stake.balance.tooltip")}
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.klimaBalanceBar}>
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder={`NOT CONNECTED`}
+            >
+              <span>{trimWithPlaceholder(balances?.klima, 4)}</span>{" "}
+              <span>KLIMA</span>
+            </WithPlaceholder>
+          </div>
+        </div>
+
+        <div className={styles.dataContainer_label}>WRAP SKLIMA</div>
+
         <div className={styles.stakeInput}>
           <input
             className={styles.stakeInput_input}
@@ -256,6 +283,13 @@ export const Wrap: FC<Props> = (props) => {
           </button>
         </div>
       </div>
+
+
+      {address && (
+        <div className={styles.dataContainer_address}>
+          {concatAddress(address)}
+        </div>
+      )}
 
       <ul className={styles.dataContainer}>
         {singletonSource}
