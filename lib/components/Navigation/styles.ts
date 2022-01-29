@@ -14,6 +14,11 @@ export const navMain_DesktopLink = css`
     font-weight: 500;
   }
 
+  &:hover,
+  &:focus {
+    color: var(--font-02);
+  }
+
   &[data-active="true"] {
     color: var(--font-01);
     font-weight: 700;

@@ -17,8 +17,11 @@ export const button_primary = css`
   transition: opacity 0.3s ease 0s;
   background-color: var(--klima-green);
 
-  &:hover {
+  &:hover, &:focus {
     opacity: 0.7;
+  }
+  &:focus {
+    transform: scale(0.9);
   }
   &, &:hover, &:visited {
     color: white; /* same in darkmode */

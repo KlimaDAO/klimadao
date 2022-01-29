@@ -7,15 +7,15 @@ type Props = HTMLProps<HTMLDivElement> & {
   fillViewport?: boolean;
 };
 
-export const Section: FC<Props> = (props) => {
+export const Section: FC<Props> = ({ variant, fillViewport, ...props }) => {
   return (
     <section
       {...props}
       className={cx(
         styles.section,
-        props.variant,
+        variant,
         {
-          fillViewport: props.fillViewport,
+          fillViewport,
         },
         props.className
       )}

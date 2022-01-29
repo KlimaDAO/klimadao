@@ -4,6 +4,9 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const heroSection = css`
   min-height: 100vh;
   padding: 0;
+  .tooltip_underline {
+    text-decoration: dotted;
+  }
   .hero_container {
     display: grid;
     grid-template-columns: inherit;
@@ -317,6 +320,7 @@ export const carbonSection = css`
     word-break: break-all;
   }
   .carbon_cardGroup {
+    justify-items: center;
     display: grid;
     gap: 1.6rem;
   }
