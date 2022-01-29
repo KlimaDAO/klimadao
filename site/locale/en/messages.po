@@ -13,33 +13,83 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Redesign/index.tsx:202
-msgid "2,424,621"
-msgstr "2,424,621"
+#: components/pages/Redesign/index.tsx:374
+msgid "001"
+msgstr "001"
 
-#: components/pages/Redesign/index.tsx:217
-msgid "5,697,736,801"
-msgstr "5,697,736,801"
+#: components/pages/Redesign/index.tsx:393
+msgid "002"
+msgstr "002"
 
-#: components/pages/Redesign/index.tsx:189
-msgid "55,766"
-msgstr "55,766"
+#: components/pages/Redesign/index.tsx:444
+msgid "All the Alpha, straight to your inbox"
+msgstr "All the Alpha, straight to your inbox"
 
-#: components/pages/Resources/Contact/index.tsx:184
+#: components/pages/Redesign/index.tsx:223
+msgid "Backed by Carbon."
+msgstr "Backed by Carbon."
+
+#: components/Footer/index.tsx:34
+#: components/pages/Resources/Container/index.tsx:110
+#: components/pages/Resources/Container/index.tsx:144
+msgid "Blog"
+msgstr "Blog"
+
+#: components/Footer/index.tsx:27
+msgid "Bond"
+msgstr "Bond"
+
+#: components/pages/Resources/Contact/index.tsx:121
+#: components/pages/Resources/Contact/index.tsx:212
+#: components/pages/Resources/Contact/index.tsx:302
 msgid "Bug Reports"
 msgstr "Bug Reports"
 
-#: components/pages/Resources/Contact/index.tsx:122
+#: components/pages/Redesign/index.tsx:181
+msgid "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
+msgstr "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
+
+#: components/pages/Resources/Contact/index.tsx:66
+#: components/pages/Resources/Contact/index.tsx:157
+#: components/pages/Resources/Contact/index.tsx:247
 msgid "Careers"
 msgstr "Careers"
+
+#: components/pages/Redesign/index.tsx:309
+msgid "Cars (annual)"
+msgstr "Cars (annual)"
 
 #: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
 msgstr "Change language"
 
-#: components/pages/Resources/Contact/index.tsx:84
+#: components/pages/Resources/Container/index.tsx:117
+#: components/pages/Resources/Container/index.tsx:155
+msgid "Community"
+msgstr "Community"
+
+#: components/Footer/index.tsx:39
+#: components/pages/Resources/Contact/index.tsx:17
+#: components/pages/Resources/Container/index.tsx:124
 msgid "Contact"
 msgstr "Contact"
+
+#: components/pages/Resources/Contact/index.tsx:38
+#: components/pages/Resources/Contact/index.tsx:39
+msgid "Contact KlimaDAO"
+msgstr "Contact KlimaDAO"
+
+#: components/pages/Resources/Container/index.tsx:166
+msgid "Contact Us"
+msgstr "Contact Us"
+
+#: components/Footer/index.tsx:30
+msgid "Docs"
+msgstr "Docs"
+
+#: components/pages/Resources/Contact/index.tsx:40
+msgid "Drive climate action and earn rewards with a carbon-backed digital currency."
+msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
 #: components/pages/Home/index.tsx:83
 msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
@@ -109,28 +159,39 @@ msgstr "source"
 msgid "info.price"
 msgstr "Price (USDC)"
 
-#: components/pages/Redesign/index.tsx:79
-#: components/pages/Redesign/index.tsx:103
+#: components/pages/Blog/Post/index.tsx:109
+#: components/pages/Redesign/index.tsx:95
+#: components/pages/Redesign/index.tsx:116
+#: components/pages/Resources/Container/index.tsx:69
+#: components/pages/Resources/Container/index.tsx:99
 msgid "mainNav.bond"
 msgstr "Bond"
 
-#: components/pages/Redesign/index.tsx:65
-#: components/pages/Redesign/index.tsx:89
+#: components/pages/Resources/Container/index.tsx:85
 msgid "mainNav.buyKlima"
 msgstr "Buy Klima"
 
-#: components/pages/Redesign/index.tsx:60
-#: components/pages/Redesign/index.tsx:85
+#: components/pages/Blog/Post/index.tsx:94
+#: components/pages/Redesign/index.tsx:79
+#: components/pages/Redesign/index.tsx:102
+#: components/pages/Resources/Container/index.tsx:54
+#: components/pages/Resources/Container/index.tsx:81
 msgid "mainNav.home"
 msgstr "Home"
 
-#: components/pages/Redesign/index.tsx:71
-#: components/pages/Redesign/index.tsx:95
+#: components/pages/Resources/Container/index.tsx:73
+msgid "mainNav.resources"
+msgstr "Resources"
+
+#: components/pages/Blog/Post/index.tsx:105
+#: components/pages/Redesign/index.tsx:91
+#: components/pages/Redesign/index.tsx:112
+#: components/pages/Resources/Container/index.tsx:65
+#: components/pages/Resources/Container/index.tsx:91
 msgid "mainNav.stake"
 msgstr "Stake"
 
-#: components/pages/Redesign/index.tsx:75
-#: components/pages/Redesign/index.tsx:99
+#: components/pages/Resources/Container/index.tsx:95
 msgid "mainNav.wrap"
 msgstr "Wrap"
 
@@ -182,6 +243,6 @@ msgstr "The treasury is the center of the black hole. Every KLIMA token is backe
 msgid "tour.treasury.title"
 msgstr "Klima Treasury"
 
-#: components/pages/Redesign/index.tsx:109
+#: components/pages/Redesign/index.tsx:126
 msgid "👋 WELCOME TO"
 msgstr "👋 WELCOME TO"

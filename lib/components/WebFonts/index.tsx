@@ -7,17 +7,9 @@ export const WebFonts = () => {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
       />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
-        rel="stylesheet"
-      ></link>
     </>
   );
 };

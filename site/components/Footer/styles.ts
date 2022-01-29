@@ -1,10 +1,14 @@
 import { css } from "@emotion/css";
-import breakpoints from "../../theme/breakpoints";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footer = css`
-  background-color: var(--surface-07);
+  background-color: var(--surface-02);
+  grid-column: full;
   padding: 2rem 2.4rem;
   position: relative;
+  grid-column: full;
+  display: grid;
+  grid-template-columns: inherit;
 
   ${breakpoints.medium} {
     display: flex;
@@ -17,6 +21,7 @@ export const footer = css`
 `;
 
 export const footer_content = css`
+  grid-column: main;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,17 +34,18 @@ export const footer_content = css`
 
 export const footer_nav = css`
   font-size: 1.4rem;
-  padding: 1rem 0rem;
+  display: grid;
+  gap: 1.6rem 3.2rem;
+  max-height: 12rem;
   display: flex;
   flex-direction: column;
-
+  flex-wrap: wrap;
   & a {
-    color: var(--surface-04);
-    padding: 0.5rem 0rem;
+    color: var(--font-02) !important;
   }
 
   & a:hover {
-    color: var(--surface-02);
+    color: var(--font-01) !important;
   }
 
   ${breakpoints.medium} {
@@ -47,10 +53,6 @@ export const footer_nav = css`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    & a {
-      padding: 0rem 1rem;
-    }
   }
 `;
 

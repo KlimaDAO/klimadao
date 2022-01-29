@@ -1,29 +1,34 @@
 import { css } from "@emotion/css";
+import { button } from "../../theme/typography";
 
 export const button_primary = css`
-  box-sizing: border-box;
-  margin: 0px;
-  min-width: 0px;
+  ${button};
+  display: flex;
+  padding: 0rem 2.4rem;
+  align-items: center;
+  justify-content: center;
   appearance: none;
-  display: inline-block;
-  text-align: center;
-  line-height: inherit;
   text-decoration: none;
-  padding: 1rem 1.8rem;
+  /* min-height to conform with Lighthouse min tap-target */
+  min-height: 4.8rem;
+  padding: 0rem
   cursor: pointer;
-  border-radius: var(--border-radius);
-  transition: background-color 0.3s ease 0s;
-  background-color: var(--primary);
-  color: var(--white) !important;
-  border: 0;
-  font-size: 1.4rem;
+  border-radius: 0.4rem;
+  transition: opacity 0.3s ease 0s;
+  background-color: var(--klima-green);
 
-  &:hover {
-    background-color: var(--primary-variant);
+  &:hover, &:focus {
+    opacity: 0.7;
+  }
+  &:focus {
+    transform: scale(0.9);
+  }
+  &, &:hover, &:visited {
+    color: white; /* same in darkmode */
   }
 `;
 
 export const button_gray = css`
-  background-color: var(--white);
-  color: var(--surface-02) !important;
+  background-color: var(--surface-01);
+  color: var(--surface-02);
 `;

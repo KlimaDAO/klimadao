@@ -1,32 +1,46 @@
 import React, { FC } from "react";
+import Link from "next/link";
 import * as styles from "./styles";
 
 import { TwitterIcon, GithubIcon } from "@klimadao/lib/components";
 
 import { urls } from "@klimadao/lib/constants";
+import { Trans } from "@lingui/macro";
 
 export const Footer: FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_content}>
         <nav className={styles.footer_nav}>
-          <a href={urls.home}>Klima Dao</a>
+          <Link href="/">
+            <a>
+              <Trans>Home</Trans>
+            </a>
+          </Link>
           <a href={urls.tutorial} target="_blank" rel="noreferrer noopener">
-            Buy Klima
+            <Trans>Get Klima</Trans>
           </a>
-          <a href={urls.stake}>Stake</a>
-          <a href={urls.bond}>Bond</a>
+          <a href={urls.stake}>
+            <Trans>Stake</Trans>
+          </a>
+          <a href={urls.bond}>
+            <Trans>Bond</Trans>
+          </a>
           <a href={urls.officialDocs} target="_blank" rel="noreferrer noopener">
-            Docs
+            <Trans>Docs</Trans>
           </a>
-          <a
-            href={urls.discordInvite}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Join Klima
-          </a>
+          <Link href="/blog">
+            <a>
+              <Trans>Blog</Trans>
+            </a>
+          </Link>
+          <Link href="/contact">
+            <a>
+              <Trans>Contact</Trans>
+            </a>
+          </Link>
         </nav>
+
         <nav className={styles.footer_icons}>
           <a href={urls.twitter} target="_blank" rel="noreferrer noopener">
             <TwitterIcon />
