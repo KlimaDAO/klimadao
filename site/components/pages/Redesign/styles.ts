@@ -258,11 +258,9 @@ export const mechanicsSection = css`
     p.align-end {
       text-align: end;
       margin-inline-end: -8.4rem;
-      animation: ${floatRight} 16s ease-in-out 2s infinite;
     }
     p.align-start {
       margin-inline-start: -8.4rem;
-      animation: ${floatLeft} 16s ease-in-out 2s infinite;
     }
   }
   ${breakpoints.medium} {
