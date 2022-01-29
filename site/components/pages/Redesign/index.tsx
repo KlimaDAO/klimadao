@@ -39,8 +39,6 @@ export interface Props {
 
 const hectaresForestPerTonne = 1 / 200;
 const passengerVehiclesPerTonne = 1 / 4.6;
-// const tonnesPerGallon = 0.008887;
-// const tonnesPerLiter = 0.03368173;
 const litersGasPerTonne = 1 / 0.03368173;
 
 export const Home: NextPage<Props> = (props) => {
