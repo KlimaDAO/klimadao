@@ -20,6 +20,7 @@ export const getStakingAPY = async (): Promise<number> => {
   const circSupply = await sklimaContract.circulatingSupply();
   const info = await distributorContract.info(0);
   const stakingReward = await distributorContract.nextRewardAt(info.rate);
+  // Parse it from redux(?) to avoid double api call
   const blockRate = await getBlockRate();
   const estimatedDailyRebases = getEstimatedDailyRebases(blockRate);
 
