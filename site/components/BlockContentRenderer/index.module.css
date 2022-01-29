@@ -1,0 +1,51 @@
+.heading {
+  margin: 4.8rem 0 3.2rem;
+}
+
+.paragraph {
+  margin: 2rem 0;
+}
+
+.inlineImage {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.link {
+  text-decoration: underline;
+  color: var(--klima-green);
+}
+
+.link:visited {
+  color: var(--klima-blue);
+}
+
+.li_content {
+  display: inline;
+}
+
+.ul {
+  margin: 2rem 0;
+}
+
+.ol {
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
+  margin: 2rem 0;
+  margin-inline-start: 2.5rem;
+}
+
+.nestedUl {
+  list-style-type: "- ";
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nestedOl {
+  composes: body1 from "@klimadao/lib/theme/typography.module.css";
+  list-style-type: lower-alpha;
+  margin-inline-start: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  list-style-position: outside;
+}

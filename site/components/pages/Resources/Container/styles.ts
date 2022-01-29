@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const layoutDesktop = css`
+  grid-column: full;
   display: none;
   position: sticky;
   top: 0;
@@ -15,6 +16,7 @@ export const layoutDesktop = css`
 `;
 
 export const layoutMobile = css`
+  grid-column: full;
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;

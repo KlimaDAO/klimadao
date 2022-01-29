@@ -3,6 +3,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footer = css`
   background-color: var(--surface-02);
+  grid-column: full;
   padding: 2rem 2.4rem;
   position: relative;
   grid-column: full;
