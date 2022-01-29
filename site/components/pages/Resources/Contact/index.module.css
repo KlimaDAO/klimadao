@@ -38,7 +38,7 @@
   text-align: center;
   padding: 2rem 0;
   text-transform: uppercase;
-  color: var(--headings-color);
+  color: var(--font-01);
 }
 
 .page_sectionContent {
@@ -51,7 +51,7 @@
   margin-bottom: 1rem;
   text-transform: uppercase;
   font-size: 1.6rem;
-  color: var(--headings-color);
+  color: var(--font-01);
 }
 
 .footer {

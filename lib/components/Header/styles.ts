@@ -3,14 +3,16 @@ import breakpoints from "../../theme/breakpoints";
 
 export const headerDesktop = css`
   display: none;
+  grid-template-columns: inherit;
+  grid-column: full;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: var(--header-height);
-  padding: 0rem 3.4rem;
-  background: var(--background);
+  background: var(--surface-02);
+  padding-top: 4.8rem;
+  height: calc(var(--header-height) * 2);
   ${breakpoints.medium} {
-    display: flex;
+    display: grid;
   }
 `;
 
@@ -36,7 +38,7 @@ export const headerMobileWrap_toggled = css`
 
 export const headerMobile = css`
   position: relative;
-  background-color: var(--white);
+  background-color: var(--surface-01);
   pointer-events: all;
   display: flex;
   align-items: center;
@@ -50,36 +52,28 @@ export const headerMobile = css`
 `;
 
 export const menuDesktop = css`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-column: main;
+  grid-template-columns: auto 1fr auto;
   width: 100%;
   align-items: center;
-  max-width: var(--site-max-width);
-`;
-
-export const logo_Desktop = css`
-  flex: 1 1 0%;
-  box-sizing: border-box;
-  margin: 0px;
-  min-width: 0px;
-  padding: 2rem;
-  padding-left: 0;
 `;
 
 export const navMain_Desktop = css`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 0.2rem;
-  font-size: 1.2rem;
-  flex: 0 0 auto;
+  gap: 3.2rem;
+  ${breakpoints.large} {
+    gap: 6rem;
+  }
 `;
 
 export const navMain_DesktopLink = css`
   text-decoration: none;
   padding: 0 2rem;
   font-weight: bold;
-  color: var(--surface);
+  color: var(--font-01);
   display: flex;
   align-items: center;
 `;

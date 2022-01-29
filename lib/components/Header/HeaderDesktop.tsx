@@ -15,7 +15,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
   return (
     <header className={styles.headerDesktop}>
       <nav className={styles.menuDesktop}>
-        <div className={styles.logo_Desktop}>
+        <div>
           {props.link && (
             <props.link href={"/"}>
               <a>

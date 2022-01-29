@@ -1,13 +1,16 @@
 @value bp-medium from "@klimadao/lib/theme/breakpoints.css";
 
 .container {
-  background-color: var(--background);
+  grid-column: full;
+  background-color: var(--surface-01);
   color: black;
 }
+
 .banner {
   position: relative;
   padding: 1.6rem 1.6rem 0rem;
 }
+
 .bannerImage {
   height: 20rem;
   position: relative;
@@ -27,26 +30,18 @@
   display: grid;
   grid-template-columns:
     [full-start] minmax(0.8rem, 1fr)
-    [main-start] minmax(0, 70rem)
+    [main-start] minmax(0, 80rem)
     [main-end] minmax(0.8rem, 1fr)
     [full-end];
 }
+
 .content {
   grid-column: main;
 }
-.title {
-  line-height: 4.8rem;
-  font-weight: 800;
-}
+
 .date {
   margin: 2rem 0;
   color: #a1a1a1 !important;
-}
-
-.inlineImage {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
 }
 
 .fallbackContainer {
