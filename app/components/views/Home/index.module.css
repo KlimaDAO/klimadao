@@ -134,7 +134,6 @@ TEMP
   position: relative;
   color: white;
   align-content: flex-start;
-  margin-left: -3.2rem;
 }
 
 .invisibleColumn {
@@ -232,6 +231,9 @@ TEMP
   .disconnectWalletButton {
     display: unset;
   }
+  .main{
+    margin-left: 10rem;
+  }
 }
 
 @media bp-medium {
@@ -279,6 +281,9 @@ TEMP
   .footer {
     margin-top: 6.4rem;
   }
+  .main{
+    margin-left: 21rem;
+  }
 }
 
 @media bp-large {
@@ -287,5 +292,8 @@ TEMP
   }
   .logoContainer {
     width: 32rem;
+  }
+  .main{
+    margin-left: 21rem;
   }
 }

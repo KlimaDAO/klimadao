@@ -297,6 +297,7 @@ export const Home: FC = () => {
   return (
     <>
       <div className={styles.container}>
+        <Sidebar />
         <div className={styles.heroBackgroundContainer}>
           <div className={styles.heroGradient} />
         </div>
@@ -312,7 +313,6 @@ export const Home: FC = () => {
             {!IS_PRODUCTION && <ChangeLanguageButton />}
           </header>
           <main className={styles.main}>
-            <Sidebar />
             <Routes>
               <Route
                 path="/"
