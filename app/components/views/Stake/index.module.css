@@ -2,7 +2,7 @@
 @value textButton from "@klimadao/lib/theme/common.module.css";
 
 .stakeCard {
-  width: 74rem;
+  width: 100%;
   background-color: var(--dapp-bg);
   border-radius: 1.2rem;
   padding: 2.4rem;
