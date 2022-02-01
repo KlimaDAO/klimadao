@@ -20,15 +20,21 @@ import toucanLogo from "public/toucan_logo.png";
 import polygonLogo from "public/polygon-logo.svg";
 import openearthLogo from "public/open_earth_black_horizontal.png";
 import olympusLogo from "public/olympus_logo.png";
+import { urls } from "@klimadao/lib/constants";
 
 export type Props = HTMLHtmlElement;
 
 const DiscordButton: FC<PropsWithChildren<ReactNode>> = () => (
-  <button className={styles.page_discordButton}>
+  <a
+    className={styles.page_discordButton}
+    href={urls.discordInvite}
+    target="_blank"
+    rel="noreferrer noopener"
+  >
     <DiscordIcon className={styles.page_discordIcon} />
     <span>|</span>
     <span>Discord</span>
-  </button>
+  </a>
 );
 
 export const Community: NextPage<Props> = ({}) => {
@@ -50,8 +56,8 @@ export const Community: NextPage<Props> = ({}) => {
             <Text t="h5" align="center">
               <Trans>Let's Work Together</Trans>
             </Text>
-            <Text t="h2" as="h2">
-              <Trans>BECOME</Trans>
+            <Text t="h2" as="h2" align="center">
+              <Trans>BECOME A PARTNER</Trans>
             </Text>
             <Text t="body2" align="center">
               <Trans>
