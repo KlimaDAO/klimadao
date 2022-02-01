@@ -65,7 +65,7 @@ export const Community: NextPage<Props> = ({}) => {
                 smart contracts to create
               </Trans>
             </Text>
-            <ButtonPrimary href={"/resources/contact"} label={"Contact Us"} />
+            <ButtonPrimary href={"/contact"} label={"Contact Us"} />
             <Image
               alt={t`Tree grove`}
               src={treesDesktop}
@@ -191,7 +191,7 @@ export const Community: NextPage<Props> = ({}) => {
                 smart contracts to create
               </Trans>
             </Text>
-            <ButtonPrimary href={"/resources/contact"} label={"Contact Us"} />
+            <ButtonPrimary href={"/contact"} label={"Contact Us"} />
           </div>
         </div>
       </Section>

@@ -26,7 +26,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
               className={styles.listItem}
               data-active={props.activePage === "blog"}
             >
-              <Link href="/resources/blog">
+              <Link href="/blog">
                 <a>
                   <Trans>Blog</Trans>
                   <ArrowBack className="arrow" />
@@ -37,7 +37,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
               className={styles.listItem}
               data-active={props.activePage === "community"}
             >
-              <Link href="/resources/community">
+              <Link href="/community">
                 <a>
                   <Trans>Community</Trans>
                   <ArrowBack className="arrow" />
@@ -48,7 +48,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
               className={styles.listItem}
               data-active={props.activePage === "contact"}
             >
-              <Link href="/resources/contact">
+              <Link href="/contact">
                 <a>
                   <Trans>Contact Us</Trans>
                   <ArrowBack className="arrow" />
@@ -75,21 +75,21 @@ export const ResourcesHeader: FC<Props> = (props) => {
             <ButtonPrimary
               className="navigationMobile_navItem"
               label={t`Blog`}
-              href={"/resources/blog"}
+              href={"/blog"}
               variant={props.activePage !== "blog" ? "gray" : null}
               link={Link}
             />
             <ButtonPrimary
               className="navigationMobile_navItem"
               label={t`Community`}
-              href={"/resources/community"}
+              href={"/community"}
               variant={props.activePage !== "community" ? "gray" : null}
               link={Link}
             />
             <ButtonPrimary
               className="navigationMobile_navItem"
               label={t`Contact`}
-              href={"/resources/contact"}
+              href={"/contact"}
               variant={props.activePage !== "contact" ? "gray" : null}
               link={Link}
             />
