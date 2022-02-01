@@ -29,6 +29,12 @@ export const button_primary = css`
 `;
 
 export const button_gray = css`
-  background-color: var(--surface-01);
-  color: var(--surface-02);
+  background-color: var(--white);
+  color: var(--font-02);
+
+  &,
+  &:hover,
+  &:visited {
+    color: var(--font-02); /* same in darkmode */
+  }
 `;
