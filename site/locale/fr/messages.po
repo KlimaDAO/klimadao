@@ -76,9 +76,14 @@ msgstr ""
 msgid "Backed by Carbon."
 msgstr ""
 
+#: components/pages/Resources/Community/index.tsx:93
+msgid "Blockchain for Climate Foundation logo"
+msgstr ""
+
 #: components/Footer/index.tsx:34
-#: components/pages/Resources/Container/index.tsx:110
-#: components/pages/Resources/Container/index.tsx:144
+#: components/pages/Blog/index.tsx:21
+#: components/pages/Resources/ResourcesHeader/index.tsx:31
+#: components/pages/Resources/ResourcesHeader/index.tsx:77
 msgid "Blog"
 msgstr ""
 
@@ -86,23 +91,19 @@ msgstr ""
 msgid "Bond"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:121
-#: components/pages/Resources/Contact/index.tsx:212
-#: components/pages/Resources/Contact/index.tsx:302
+#: components/pages/Resources/Contact/index.tsx:101
 msgid "Bug Reports"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:181
+#: components/pages/Redesign/index.tsx:121
 msgid "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:66
-#: components/pages/Resources/Contact/index.tsx:157
-#: components/pages/Resources/Contact/index.tsx:247
+#: components/pages/Resources/Contact/index.tsx:48
 msgid "Careers"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:309
+#: components/pages/Redesign/index.tsx:249
 msgid "Cars (annual)"
 msgstr ""
 
@@ -494,6 +495,11 @@ msgstr ""
 msgid "👋 WELCOME TO"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:126
+#: components/pages/Resources/ResourcesHeader/index.tsx:66
+#: components/pages/Resources/ResourcesHeader/index.tsx:69
+msgid "{0}"
+msgstr ""
+
+#: components/pages/Redesign/index.tsx:66
 msgid "👋 WELCOME TO"
 msgstr ""

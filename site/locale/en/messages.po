@@ -78,17 +78,15 @@ msgstr "Cars (annual)"
 msgid "Bug Reports"
 msgstr "Bug Reports"
 
-#: components/pages/Redesign/index.tsx:181
+#: components/pages/Redesign/index.tsx:121
 msgid "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
 msgstr "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
 
-#: components/pages/Resources/Contact/index.tsx:66
-#: components/pages/Resources/Contact/index.tsx:157
-#: components/pages/Resources/Contact/index.tsx:247
+#: components/pages/Resources/Contact/index.tsx:48
 msgid "Careers"
 msgstr "Careers"
 
-#: components/pages/Redesign/index.tsx:309
+#: components/pages/Redesign/index.tsx:249
 msgid "Cars (annual)"
 msgstr "Cars (annual)"
 

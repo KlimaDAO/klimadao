@@ -72,7 +72,6 @@ export const beachSection = css`
     font-size: 7.2rem;
     line-height: 7.2rem;
   }
-`;
 
 export const joinDiscord = css`
   margin-top: 3rem;
