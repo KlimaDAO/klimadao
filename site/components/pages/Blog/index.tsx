@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, ReactNode } from "react";
+import React, { PropsWithChildren, ReactNode } from "react";
 
 import { AllPosts } from "lib/queries";
 
@@ -13,28 +13,18 @@ type BlogProps = PropsWithChildren<ReactNode> & {
   posts: AllPosts;
 };
 
-const TopElement: FC<PropsWithChildren<ReactNode>> = () => (
-  <div className={styles.container}>
-    <section className={styles.headerSection}>
-      <h1>Blog</h1>
-      <p>
-        Updates and thought leadership from the founders, DAO contributors,
-        advisors and community.
-      </p>
-    </section>
-  </div>
-);
-
 export function Blog(props: BlogProps) {
   return (
     <Container
       activePage={"blog"}
       title={t`KlimaDAO Blog`}
+      headline={t`Blog`}
+      subline={t`Updates and thought leadership from the founders, DAO contributors,
+      advisors and community.`}
       mediaTitle={t`KlimaDAO Blog`}
       metaDescription={t`Updates and thought leadership from the founders, DAO contributors,
         advisors and community.`}
       mediaImageSrc="/og-media.jpg"
-      topMobileElement={TopElement}
     >
       <div className={styles.container}>
         <section className={styles.cardsSection}>
