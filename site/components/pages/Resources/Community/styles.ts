@@ -130,6 +130,10 @@ export const page_discordButton = css`
   padding: 1.6rem;
   font-size: 1.4rem;
   margin-bottom: 4.8rem;
+
+  span {
+    color: white;
+  }
 `;
 
 export const page_discordIcon = css`
