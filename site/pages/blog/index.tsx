@@ -15,12 +15,12 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
         posts,
         translation,
       },
-      // revalidate: 120,
+      revalidate: 120,
     };
   } catch (e) {
     return {
       notFound: true,
-      // revalidate: 120
+      revalidate: 120,
     };
   }
 }
