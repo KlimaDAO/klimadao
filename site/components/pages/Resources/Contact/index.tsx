@@ -30,7 +30,7 @@ export const Contact: NextPage<Props> = () => {
             </Text>
             <Text t="body2" align="center">
               <Trans>
-                Join our <Link href={"/resources/community"}>community</Link>.
+                Join our <Link href={"/community"}>community</Link>.
               </Trans>
             </Text>
             <Text t="body2" align="center" color="lighter">
@@ -113,8 +113,8 @@ export const Contact: NextPage<Props> = () => {
               <Trans>
                 To file a bug report, join our community Discord server and ask
                 your question in the #bug-reports channel. Someone in our{" "}
-                <Link href={"/resources/community"}>community</Link> will be
-                happy to investigate and find a solution for you.
+                <Link href={"/community"}>community</Link> will be happy to
+                investigate and find a solution for you.
               </Trans>
             </Text>
           </div>
