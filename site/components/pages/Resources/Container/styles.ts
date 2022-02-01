@@ -40,12 +40,30 @@ export const resourcesHeader = css`
   }
 `;
 
-export const navigationDesktop = css`
+export const navigationDesktopWrapper = css`
+  grid-column: main;
+  display: none;
+  position: sticky;
+  top: 0px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+  z-index: 10;
+
   display: none;
 
   ${breakpoints.medium} {
+    display: flex;
+  }
+`;
+
+export const navigationDesktop = css`
+  display: none;
+  width: 100%;
+
+  ${breakpoints.medium} {
     display: block;
-    grid-column: header_full-start;
   }
 `;
 
@@ -67,6 +85,11 @@ export const navigationMobile = css`
 `;
 
 export const list = css`
+  position: absolute;
+  margin-top: 8rem;
+
+  min-width: 16rem;
+
   list-style: none;
   background-color: #ffffff;
   border-radius: 8px;

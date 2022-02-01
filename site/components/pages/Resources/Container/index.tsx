@@ -35,46 +35,47 @@ export const Container: FC<Props> = (props) => {
 
       <Navigation activePage="Resources" />
 
+      <div className={styles.navigationDesktopWrapper}>
+        <div className={styles.navigationDesktop}>
+          <ul className={styles.list}>
+            <li
+              className={styles.listItem}
+              data-active={props.activePage === "blog"}
+            >
+              <Link href="/resources/blog">
+                <a>
+                  <Trans>Blog</Trans>
+                  <ArrowBack className="arrow" />
+                </a>
+              </Link>
+            </li>
+            <li
+              className={styles.listItem}
+              data-active={props.activePage === "community"}
+            >
+              <Link href="/resources/community">
+                <a>
+                  <Trans>Community</Trans>
+                  <ArrowBack className="arrow" />
+                </a>
+              </Link>
+            </li>
+            <li
+              className={styles.listItem}
+              data-active={props.activePage === "contact"}
+            >
+              <Link href="/resources/contact">
+                <a>
+                  <Trans>Contact Us</Trans>
+                  <ArrowBack className="arrow" />
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       <Section variant="gray" style={{ padding: "unset" }}>
         <div className={styles.resourcesHeader}>
-          <div className={styles.navigationDesktop}>
-            <ul className={styles.list}>
-              <li
-                className={styles.listItem}
-                data-active={props.activePage === "blog"}
-              >
-                <Link href="/resources/blog">
-                  <a>
-                    <Trans>Blog</Trans>
-                    <ArrowBack className="arrow" />
-                  </a>
-                </Link>
-              </li>
-              <li
-                className={styles.listItem}
-                data-active={props.activePage === "community"}
-              >
-                <Link href="/resources/community">
-                  <a>
-                    <Trans>Community</Trans>
-                    <ArrowBack className="arrow" />
-                  </a>
-                </Link>
-              </li>
-              <li
-                className={styles.listItem}
-                data-active={props.activePage === "contact"}
-              >
-                <Link href="/resources/contact">
-                  <a>
-                    <Trans>Contact Us</Trans>
-                    <ArrowBack className="arrow" />
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           <div className="resourcesHeader_textGroup">
             <Text t="h2" as="h2">
               <Trans>BLOG</Trans>
