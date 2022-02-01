@@ -35,47 +35,6 @@ const DiscordButton: FC<PropsWithChildren<ReactNode>> = () => (
   </button>
 );
 
-const TopElementMobile: FC<PropsWithChildren<ReactNode>> = () => (
-  <div
-    className={cx(
-      styles.page_section,
-      styles.page_topElementMobile,
-      styles.page_bgGray
-    )}
-  >
-    <h1 className={styles.page_h1}>
-      <Trans>Community</Trans>
-    </h1>
-    <p className={styles.page_paragraph}>
-      <Trans>
-        KlimaDAO harnesses the power of cryptocurrency, blockchain and smart
-        contracts to create.
-      </Trans>
-    </p>
-  </div>
-);
-
-const TopElementDesktop: FC<PropsWithChildren<ReactNode>> = () => (
-  <div
-    className={cx(
-      styles.page_section,
-      styles.page_topElementDesktop,
-      styles.page_bgGray
-    )}
-  >
-    <h1 className={styles.page_h1}>
-      <Trans>Community</Trans>
-    </h1>
-    <p className={styles.page_paragraph}>
-      <Trans>
-        KlimaDAO harnesses the power of cryptocurrency, blockchain and smart
-        contracts to create.
-      </Trans>
-    </p>
-    <DiscordButton />
-  </div>
-);
-
 export const Community: NextPage<Props> = ({}) => {
   return (
     <Container
@@ -87,10 +46,9 @@ export const Community: NextPage<Props> = ({}) => {
       mediaTitle={t`KlimaDAO Community`}
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
       mediaImageSrc="/og-media.jpg"
-      topMobileElement={TopElementMobile}
+      headerElements={DiscordButton}
     >
       <div className={styles.communityContainer}>
-        <TopElementDesktop />
         <div
           className={cx(
             styles.page_section,

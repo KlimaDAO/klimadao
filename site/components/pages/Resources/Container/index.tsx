@@ -15,7 +15,7 @@ export type Props = PropsWithChildren<ReactNode> & {
   mediaTitle: string;
   metaDescription: string;
   mediaImageSrc: string;
-  topMobileElement: FC<PropsWithChildren<ReactNode>>;
+  headerElements?: FC<PropsWithChildren<ReactNode>>;
 };
 
 export const Container: FC<Props> = (props) => {
@@ -35,6 +35,7 @@ export const Container: FC<Props> = (props) => {
         activePage={props.activePage}
         title={props.headline}
         subline={props.subline}
+        headerElements={props.headerElements}
       />
 
       {props.children}

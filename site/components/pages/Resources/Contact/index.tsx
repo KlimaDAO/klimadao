@@ -1,35 +1,14 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-import { Section, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { Trans, t } from "@lingui/macro";
 
 import { urls } from "@klimadao/lib/constants";
 import styles from "./index.module.css";
 import { Container } from "../Container";
-import { FC, PropsWithChildren, ReactNode } from "react";
 
 export type Props = HTMLHtmlElement;
-
-const TopElement: FC<PropsWithChildren<ReactNode>> = () => (
-  <Section>
-    <h1 className={styles.page_h1}>
-      <Trans>Contact</Trans>
-    </h1>
-    <div className={styles.page_section}>
-      <div />
-      <div className={styles.page_subHeader}>
-        <Text align="center">
-          <Trans>
-            Questions, concerns, ideas? Here are a few ways you can get in
-            touch. We love meeting institutions and individuals alike.
-          </Trans>
-        </Text>
-      </div>
-      <div />
-    </div>
-  </Section>
-);
 
 export const Contact: NextPage<Props> = () => {
   return (
@@ -42,7 +21,6 @@ export const Contact: NextPage<Props> = () => {
       mediaTitle={t`Contact KlimaDAO`}
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
       mediaImageSrc="/og-media.jpg"
-      topMobileElement={TopElement}
     >
       <div className={styles.page_section}>
         <div />

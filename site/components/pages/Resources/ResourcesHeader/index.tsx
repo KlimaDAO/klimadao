@@ -5,7 +5,7 @@ import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
-import { FC } from "react";
+import { FC, PropsWithChildren, ReactNode } from "react";
 
 type PageName = "blog" | "community" | "contact";
 
@@ -13,6 +13,7 @@ export type Props = {
   activePage: PageName;
   title: string;
   subline: string;
+  headerElements?: FC<PropsWithChildren<ReactNode>>;
 };
 
 export const ResourcesHeader: FC<Props> = (props) => {
@@ -67,6 +68,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
             <Text align="center" t="body2" color="lighter">
               <Trans>{props.subline}</Trans>
             </Text>
+            {props.headerElements && <props.headerElements />}
           </div>
 
           <div className={styles.navigationMobile}>

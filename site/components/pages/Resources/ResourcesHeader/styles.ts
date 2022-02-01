@@ -11,9 +11,11 @@ export const resourcesHeader = css`
   grid-template-columns: inherit;
 
   .resourcesHeader_textGroup {
-    display: grid;
-    flex-wrap: wrap;
     grid-column: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     gap: 3.2rem;
     padding: 0 2.4rem;
   }
