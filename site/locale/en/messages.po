@@ -13,25 +13,38 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Redesign/index.tsx:374
+#: components/pages/Redesign/index.tsx:314
 msgid "001"
 msgstr "001"
 
-#: components/pages/Redesign/index.tsx:393
+#: components/pages/Redesign/index.tsx:333
 msgid "002"
 msgstr "002"
 
-#: components/pages/Redesign/index.tsx:444
+#: components/pages/Redesign/index.tsx:384
 msgid "All the Alpha, straight to your inbox"
 msgstr "All the Alpha, straight to your inbox"
 
-#: components/pages/Redesign/index.tsx:223
+#: components/pages/Resources/Community/index.tsx:54
+msgid "BECOME"
+msgstr "BECOME"
+
+#: components/pages/Resources/Community/index.tsx:98
+msgid "BICOWG logo"
+msgstr "BICOWG logo"
+
+#: components/pages/Redesign/index.tsx:163
 msgid "Backed by Carbon."
 msgstr "Backed by Carbon."
 
+#: components/pages/Resources/Community/index.tsx:93
+msgid "Blockchain for Climate Foundation logo"
+msgstr "Blockchain for Climate Foundation logo"
+
 #: components/Footer/index.tsx:34
-#: components/pages/Resources/Container/index.tsx:110
-#: components/pages/Resources/Container/index.tsx:144
+#: components/pages/Blog/index.tsx:21
+#: components/pages/Resources/ResourcesHeader/index.tsx:31
+#: components/pages/Resources/ResourcesHeader/index.tsx:77
 msgid "Blog"
 msgstr "Blog"
 
@@ -39,23 +52,19 @@ msgstr "Blog"
 msgid "Bond"
 msgstr "Bond"
 
-#: components/pages/Resources/Contact/index.tsx:121
-#: components/pages/Resources/Contact/index.tsx:212
-#: components/pages/Resources/Contact/index.tsx:302
+#: components/pages/Resources/Contact/index.tsx:101
 msgid "Bug Reports"
 msgstr "Bug Reports"
 
-#: components/pages/Redesign/index.tsx:181
+#: components/pages/Redesign/index.tsx:121
 msgid "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
 msgstr "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
 
-#: components/pages/Resources/Contact/index.tsx:66
-#: components/pages/Resources/Contact/index.tsx:157
-#: components/pages/Resources/Contact/index.tsx:247
+#: components/pages/Resources/Contact/index.tsx:48
 msgid "Careers"
 msgstr "Careers"
 
-#: components/pages/Redesign/index.tsx:309
+#: components/pages/Redesign/index.tsx:249
 msgid "Cars (annual)"
 msgstr "Cars (annual)"
 
@@ -63,31 +72,41 @@ msgstr "Cars (annual)"
 msgid "Change language"
 msgstr "Change language"
 
-#: components/pages/Resources/Container/index.tsx:117
-#: components/pages/Resources/Container/index.tsx:155
+#: components/pages/Resources/Community/index.tsx:39
+#: components/pages/Resources/ResourcesHeader/index.tsx:42
+#: components/pages/Resources/ResourcesHeader/index.tsx:84
 msgid "Community"
 msgstr "Community"
 
 #: components/Footer/index.tsx:39
-#: components/pages/Resources/Contact/index.tsx:17
-#: components/pages/Resources/Container/index.tsx:124
+#: components/pages/Resources/Contact/index.tsx:18
+#: components/pages/Resources/ResourcesHeader/index.tsx:91
 msgid "Contact"
 msgstr "Contact"
 
-#: components/pages/Resources/Contact/index.tsx:38
-#: components/pages/Resources/Contact/index.tsx:39
+#: components/pages/Resources/Contact/index.tsx:17
+#: components/pages/Resources/Contact/index.tsx:21
 msgid "Contact KlimaDAO"
 msgstr "Contact KlimaDAO"
 
-#: components/pages/Resources/Container/index.tsx:166
+#: components/pages/Resources/ResourcesHeader/index.tsx:53
 msgid "Contact Us"
 msgstr "Contact Us"
+
+#: components/pages/Resources/Community/index.tsx:149
+msgid "Discord"
+msgstr "Discord"
+
+#: components/pages/Resources/Contact/index.tsx:36
+msgid "Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
+msgstr "Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
 
 #: components/Footer/index.tsx:30
 msgid "Docs"
 msgstr "Docs"
 
-#: components/pages/Resources/Contact/index.tsx:40
+#: components/pages/Resources/Community/index.tsx:43
+#: components/pages/Resources/Contact/index.tsx:22
 msgid "Drive climate action and earn rewards with a carbon-backed digital currency."
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
@@ -159,41 +178,23 @@ msgstr "source"
 msgid "info.price"
 msgstr "Price (USDC)"
 
-#: components/pages/Blog/Post/index.tsx:109
-#: components/pages/Redesign/index.tsx:95
-#: components/pages/Redesign/index.tsx:116
-#: components/pages/Resources/Container/index.tsx:69
-#: components/pages/Resources/Container/index.tsx:99
+#: components/Navigation/index.tsx:51
+#: components/Navigation/index.tsx:77
+#: components/pages/Blog/Post/index.tsx:99
 msgid "mainNav.bond"
 msgstr "Bond"
 
-#: components/pages/Resources/Container/index.tsx:85
-msgid "mainNav.buyKlima"
-msgstr "Buy Klima"
-
-#: components/pages/Blog/Post/index.tsx:94
-#: components/pages/Redesign/index.tsx:79
-#: components/pages/Redesign/index.tsx:102
-#: components/pages/Resources/Container/index.tsx:54
-#: components/pages/Resources/Container/index.tsx:81
+#: components/Navigation/index.tsx:35
+#: components/Navigation/index.tsx:63
+#: components/pages/Blog/Post/index.tsx:84
 msgid "mainNav.home"
 msgstr "Home"
 
-#: components/pages/Resources/Container/index.tsx:73
-msgid "mainNav.resources"
-msgstr "Resources"
-
-#: components/pages/Blog/Post/index.tsx:105
-#: components/pages/Redesign/index.tsx:91
-#: components/pages/Redesign/index.tsx:112
-#: components/pages/Resources/Container/index.tsx:65
-#: components/pages/Resources/Container/index.tsx:91
+#: components/Navigation/index.tsx:47
+#: components/Navigation/index.tsx:73
+#: components/pages/Blog/Post/index.tsx:95
 msgid "mainNav.stake"
 msgstr "Stake"
-
-#: components/pages/Resources/Container/index.tsx:95
-msgid "mainNav.wrap"
-msgstr "Wrap"
 
 #: components/pages/Home/index.tsx:106
 msgid "menu.app"
@@ -243,6 +244,11 @@ msgstr "The treasury is the center of the black hole. Every KLIMA token is backe
 msgid "tour.treasury.title"
 msgstr "Klima Treasury"
 
-#: components/pages/Redesign/index.tsx:126
+#: components/pages/Resources/ResourcesHeader/index.tsx:66
+#: components/pages/Resources/ResourcesHeader/index.tsx:69
+msgid "{0}"
+msgstr "{0}"
+
+#: components/pages/Redesign/index.tsx:66
 msgid "👋 WELCOME TO"
 msgstr "👋 WELCOME TO"
