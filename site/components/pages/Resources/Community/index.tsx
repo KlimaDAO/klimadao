@@ -51,7 +51,7 @@ export const Community: NextPage<Props> = ({}) => {
               <Trans>Let's Work Together</Trans>
             </Text>
             <Text t="h2" as="h2">
-              <Trans>BECOME A PARTNER</Trans>
+              <Trans>BECOME</Trans>
             </Text>
             <Text t="body2" align="center">
               <Trans>
@@ -59,11 +59,7 @@ export const Community: NextPage<Props> = ({}) => {
                 smart contracts to create
               </Trans>
             </Text>
-            <ButtonPrimary
-              className={styles.page_ctaButton}
-              href={"/resources/contact"}
-              label={"Contact Us"}
-            />
+            <ButtonPrimary href={"/resources/contact"} label={"Contact Us"} />
             <Image
               alt={t`Tree grove`}
               src={treesDesktop}
@@ -167,6 +163,7 @@ export const Community: NextPage<Props> = ({}) => {
                 width={764}
                 height={600}
                 alt="Screen shot of Discord"
+                layout="responsive"
               />
             </div>
           </div>

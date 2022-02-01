@@ -4,22 +4,23 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const communityContainer = css`
   grid-column: main;
 
-  display: grid;
-  grid-template-columns:
-    [community_full-start] minmax(20rem, 1fr)
-    [community_inner-start] minmax(0, 107.2rem)
-    [community_inner-end] minmax(20rem, 1fr)
-    [community_full-end];
+  ${breakpoints.medium} {
+    display: grid;
+    grid-template-columns:
+      [community_full-start] minmax(20rem, 1fr)
+      [community_inner-start] minmax(0, 107.2rem)
+      [community_inner-end] minmax(20rem, 1fr)
+      [community_full-end];
 
-  gap: 2.5rem;
+    gap: 2.5rem;
+  }
 `;
 
 export const community_textGroup = css`
-  grid-column: community_full;
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 
   ${breakpoints.medium} {
     grid-column: community_inner;
@@ -31,7 +32,6 @@ export const community_textGroup = css`
 `;
 
 export const partner_logos = css`
-  grid-column: community_full;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
