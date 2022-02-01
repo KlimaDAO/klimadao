@@ -1,20 +1,12 @@
 import React from "react";
 import { NextPage } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import {
-  Section,
-  HeaderDesktop,
-  NavItemDesktop,
-  HeaderMobile,
-  NavItemMobile,
-  ButtonPrimary,
-  Text,
-} from "@klimadao/lib/components";
+import { Section, ButtonPrimary, Text } from "@klimadao/lib/components";
 
 import { Footer } from "components/Footer";
+import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
@@ -62,59 +54,9 @@ export const Home: NextPage<Props> = (props) => {
         metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency."
         mediaImageSrc="/og-media.jpg"
       />
-      <HeaderDesktop
-        link={Link}
-        buttons={[
-          <ButtonPrimary
-            key="Enter App"
-            label={t`Enter App`}
-            href={urls.app}
-          />,
-        ]}
-      >
-        <NavItemDesktop
-          url={"/"}
-          name={t({ message: "Home", id: "mainNav.home" })}
-          link={Link}
-          active={true}
-        />
-        <NavItemDesktop
-          url={urls.tutorial}
-          name={t`Get Klima`}
-          rel="noopener noreferrer"
-          target="_blank"
-        />
-        <NavItemDesktop
-          url={urls.stake}
-          name={t({ message: "Stake", id: "mainNav.stake" })}
-        />
-        <NavItemDesktop
-          url={urls.bond}
-          name={t({ message: "Bond", id: "mainNav.bond" })}
-        />
-        <NavItemDesktop url="/resources" name={t`Resources`} link={Link} />
-      </HeaderDesktop>
-      <HeaderMobile>
-        <NavItemMobile
-          url={urls.home}
-          name={t({ message: "Home", id: "mainNav.home" })}
-        />
-        <NavItemMobile
-          url={urls.tutorial}
-          name={t`Get Klima`}
-          target="_blank"
-          rel="noreferrer noopener"
-        />
-        <NavItemMobile
-          url={urls.stake}
-          name={t({ message: "Stake", id: "mainNav.stake" })}
-        />
-        <NavItemMobile
-          url={urls.bond}
-          name={t({ message: "Bond", id: "mainNav.bond" })}
-        />
-        <NavItemMobile url="/resources" name={t`Resources`} />
-      </HeaderMobile>
+
+      <Navigation activePage="Home" />
+
       <Section variant="gray" className={styles.heroSection}>
         <div className="hero_container">
           <div className="hero_cardsGroup">
