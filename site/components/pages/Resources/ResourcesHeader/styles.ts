@@ -20,6 +20,7 @@ export const resourcesHeader = css`
 
   .resourcesHeader_textGroup h2 {
     text-align: center;
+    text-transform: uppercase;
   }
 
   ${breakpoints.medium} {

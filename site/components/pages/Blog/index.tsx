@@ -30,6 +30,9 @@ export function Blog(props: BlogProps) {
     <Container
       activePage={"blog"}
       title={t`KlimaDAO Blog`}
+      headline={t`Blog`}
+      subline={t`Updates and thought leadership from the founders, DAO contributors,
+      advisors and community.`}
       mediaTitle={t`KlimaDAO Blog`}
       metaDescription={t`Updates and thought leadership from the founders, DAO contributors,
         advisors and community.`}

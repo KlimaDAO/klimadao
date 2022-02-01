@@ -81,6 +81,9 @@ export const Community: NextPage<Props> = ({}) => {
     <Container
       activePage={"community"}
       title={t`KlimaDAO Community`}
+      headline={t`Community`}
+      subline={t`KlimaDAO harnesses the power of cryptocurrency, blockchain and smart
+      contracts to create.`}
       mediaTitle={t`KlimaDAO Community`}
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
       mediaImageSrc="/og-media.jpg"

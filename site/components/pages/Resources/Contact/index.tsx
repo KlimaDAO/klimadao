@@ -36,6 +36,9 @@ export const Contact: NextPage<Props> = () => {
     <Container
       activePage={"contact"}
       title={t`Contact KlimaDAO`}
+      headline={t`Contact`}
+      subline={t`Questions, concerns, ideas? Here are a few ways you can get in
+      touch. We love meeting institutions and individuals alike.`}
       mediaTitle={t`Contact KlimaDAO`}
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
       mediaImageSrc="/og-media.jpg"
