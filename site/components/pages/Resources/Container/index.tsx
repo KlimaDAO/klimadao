@@ -1,18 +1,12 @@
 import Link from "next/link";
 import * as styles from "./styles";
 
-import {
-  HeaderDesktop,
-  NavItemDesktop,
-  HeaderMobile,
-  NavItemMobile,
-  ButtonPrimary,
-} from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
-import { urls } from "@klimadao/lib/constants";
 import { PageHead } from "components/PageHead";
+import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
 import { IS_PRODUCTION } from "lib/constants";
 import { FC, PropsWithChildren, ReactNode } from "react";
@@ -39,66 +33,7 @@ export const Container: FC<Props> = (props) => {
         mediaImageSrc={props.mediaImageSrc}
       />
 
-      <HeaderDesktop
-        link={Link}
-        buttons={[
-          <ButtonPrimary
-            key="Enter App"
-            label={t({ message: "Enter App" })}
-            href={urls.app}
-          />,
-        ]}
-      >
-        <NavItemDesktop
-          url={"/"}
-          name={t({ message: "Home", id: "mainNav.home" })}
-          link={Link}
-        />
-        <NavItemDesktop
-          url={urls.tutorial}
-          name={t`Get Klima`}
-          target="_blank"
-          rel="noreferrer noopener"
-        />
-        <NavItemDesktop
-          url={urls.stake}
-          name={t({ message: "Stake", id: "mainNav.stake" })}
-        />
-        <NavItemDesktop
-          url={urls.bond}
-          name={t({ message: "Bond", id: "mainNav.bond" })}
-        />
-        <NavItemDesktop
-          url="/resources"
-          name={t({ message: "Resources", id: "mainNav.resources" })}
-          active={true}
-          link={Link}
-        />
-      </HeaderDesktop>
-      <HeaderMobile>
-        <NavItemMobile
-          url={urls.home}
-          name={t({ message: "Home", id: "mainNav.home" })}
-        />
-        <NavItemMobile
-          url={urls.tutorial}
-          name={t({ message: "Buy Klima", id: "mainNav.buyKlima" })}
-          target="_blank"
-          rel="noreferrer noopener"
-        />
-        <NavItemMobile
-          url={urls.stake}
-          name={t({ message: "Stake", id: "mainNav.stake" })}
-        />
-        <NavItemMobile
-          url={urls.stake}
-          name={t({ message: "Wrap", id: "mainNav.wrap" })}
-        />
-        <NavItemMobile
-          url={urls.bond}
-          name={t({ message: "Bond", id: "mainNav.bond" })}
-        />
-      </HeaderMobile>
+      <Navigation activePage="Resources" />
 
       <div className={styles.layoutMobile}>
         <props.topMobileElement />
