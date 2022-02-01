@@ -66,67 +66,6 @@ export const navigationMobile = css`
   }
 `;
 
-export const layoutDesktop = css`
-  grid-column: full;
-  display: none;
-  position: sticky;
-  top: 0;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0rem 3.4rem;
-  width: 100%;
-  z-index: 10;
-  ${breakpoints.medium} {
-    display: flex;
-  }
-`;
-
-export const layoutMobile = css`
-  grid-column: full;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 4rem;
-  ${breakpoints.medium} {
-    display: none;
-  }
-`;
-
-export const mobileNav = css`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 0 2.4rem;
-`;
-
-export const mobileNavButton = css`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  height: 4.4rem;
-  font-weight: 400;
-  width: 10rem;
-`;
-
-export const mobileNavContent = css`
-  display: flex;
-  flex: 10;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const spacing = css`
-  width: 100%;
-  max-width: var(--site-max-width);
-`;
-
-export const resourcesNavigation = css`
-  position: absolute;
-  margin-top: 8rem;
-`;
-
 export const list = css`
   list-style: none;
   background-color: #ffffff;
@@ -171,5 +110,3 @@ export const listItem = css`
     }
   }
 `;
-
-export const listItemActive = css``;
