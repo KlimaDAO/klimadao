@@ -1,7 +1,7 @@
 import Link from "next/link";
 import * as styles from "./styles";
 
-import { ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
@@ -35,40 +35,9 @@ export const Container: FC<Props> = (props) => {
 
       <Navigation activePage="Resources" />
 
-      <div className={styles.layoutMobile}>
-        <props.topMobileElement />
-        <div className={styles.mobileNav}>
-          <div />
-          <div className={styles.mobileNavContent}>
-            <ButtonPrimary
-              className={styles.mobileNavButton}
-              label={t`Blog`}
-              href={"/resources/blog"}
-              variant={props.activePage !== "blog" ? "gray" : null}
-              link={Link}
-            />
-            <ButtonPrimary
-              className={styles.mobileNavButton}
-              label={t`Community`}
-              href={"/resources/community"}
-              variant={props.activePage !== "community" ? "gray" : null}
-              link={Link}
-            />
-            <ButtonPrimary
-              className={styles.mobileNavButton}
-              label={t`Contact`}
-              href={"/resources/contact"}
-              variant={props.activePage !== "contact" ? "gray" : null}
-              link={Link}
-            />
-          </div>
-          <div />
-        </div>
-      </div>
-
-      <div className={styles.layoutDesktop}>
-        <div className={styles.spacing}>
-          <div className={styles.resourcesNavigation}>
+      <Section variant="gray" style={{ padding: "unset" }}>
+        <div className={styles.resourcesHeader}>
+          <div className={styles.navigationDesktop}>
             <ul className={styles.list}>
               <li
                 className={styles.listItem}
@@ -105,8 +74,44 @@ export const Container: FC<Props> = (props) => {
               </li>
             </ul>
           </div>
+
+          <div className="resourcesHeader_textGroup">
+            <Text t="h2" as="h2">
+              <Trans>BLOG</Trans>
+            </Text>
+            <Text align="center" t="body2" color="lighter">
+              <Trans>
+                Updates and thought leadership from the founders, DAO
+                contributors, advisors and community.
+              </Trans>
+            </Text>
+          </div>
+
+          <div className={styles.navigationMobile}>
+            <ButtonPrimary
+              className="navigationMobile_navItem"
+              label={t`Blog`}
+              href={"/resources/blog"}
+              variant={props.activePage !== "blog" ? "gray" : null}
+              link={Link}
+            />
+            <ButtonPrimary
+              className="navigationMobile_navItem"
+              label={t`Community`}
+              href={"/resources/community"}
+              variant={props.activePage !== "community" ? "gray" : null}
+              link={Link}
+            />
+            <ButtonPrimary
+              className="navigationMobile_navItem"
+              label={t`Contact`}
+              href={"/resources/contact"}
+              variant={props.activePage !== "contact" ? "gray" : null}
+              link={Link}
+            />
+          </div>
         </div>
-      </div>
+      </Section>
 
       {props.children}
 
