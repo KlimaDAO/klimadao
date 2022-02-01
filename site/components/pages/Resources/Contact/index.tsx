@@ -1,11 +1,11 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-import { Text } from "@klimadao/lib/components";
+import { Text, Section } from "@klimadao/lib/components";
 import { Trans, t } from "@lingui/macro";
 
 import { urls } from "@klimadao/lib/constants";
-import styles from "./index.module.css";
+import * as css from "./styles";
 import { Container } from "../Container";
 
 export type Props = HTMLHtmlElement;
@@ -22,31 +22,32 @@ export const Contact: NextPage<Props> = () => {
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
       mediaImageSrc="/og-media.jpg"
     >
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2 style={{ marginTop: 0 }}>
+      <Section>
+        <div className={css.section_textGroup}>
+          <Text t="h2" as="h2">
             <Trans>Questions & Support</Trans>
-          </h2>
-          <Text>
+          </Text>
+          <Text t="body2" align="center">
             <Trans>
-              Join our <Link href={"/resources/community"}>community</Link>{" "}
+              Join our <Link href={"/resources/community"}>community</Link>.
+            </Trans>
+          </Text>
+          <Text t="body2" align="center" color="lighter">
+            <Trans>
               Discord server and ask in the #questions channel. We have
               thousands of friendly, knowledgeable community members ready and
               willing to help you out.
             </Trans>
           </Text>
         </div>
-        <div />
-      </div>
+      </Section>
 
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
+      <Section variant="gray">
+        <div className={css.section_textGroup}>
+          <Text t="h2" as="h2" color="lighter">
             <Trans>Careers</Trans>
-          </h2>
-          <Text>
+          </Text>
+          <Text t="body2" align="center">
             <Trans>
               We're hiring! Until we finish building out our careers page, you
               can submit a resume by joining our{" "}
@@ -58,16 +59,14 @@ export const Contact: NextPage<Props> = () => {
             </Trans>
           </Text>
         </div>
-        <div />
-      </div>
+      </Section>
 
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
+      <Section variant="white">
+        <div className={css.section_textGroup}>
+          <Text t="h2" as="h2">
             <Trans>Partnerships</Trans>
-          </h2>
-          <Text>
+          </Text>
+          <Text t="body2" align="center">
             <Trans>
               Until we finish building out our partnerships page, we are
               directing potential partnership and collaboration inquiries to{" "}
@@ -75,33 +74,33 @@ export const Contact: NextPage<Props> = () => {
             </Trans>
           </Text>
         </div>
-        <div />
-      </div>
+      </Section>
 
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
+      <Section variant="gray">
+        <div className={css.section_textGroup}>
+          <Text t="h2" as="h2" color="lighter">
             <Trans>Media</Trans>
-          </h2>
-          <Text>
+          </Text>
+          <Text t="body2" align="center">
             <Trans>
               If you are a journalist or content creator, our marketing team
-              would love to meet you. Use this{" "}
-              <a href={urls.mediaRequestForm}>Media Request Form</a>.
+              would love to meet you.
+            </Trans>
+          </Text>
+          <Text t="body2" align="center">
+            <Trans>
+              Use this <a href={urls.mediaRequestForm}>Media Request Form</a>.
             </Trans>
           </Text>
         </div>
-        <div />
-      </div>
+      </Section>
 
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
+      <Section>
+        <div className={css.section_textGroup}>
+          <Text t="h2" as="h2">
             <Trans>Bug Reports</Trans>
-          </h2>
-          <Text>
+          </Text>
+          <Text t="body2" align="center">
             <Trans>
               To file a bug report, join our community Discord server and ask
               your question in the #bug-reports channel. Someone in our{" "}
@@ -110,189 +109,7 @@ export const Contact: NextPage<Props> = () => {
             </Trans>
           </Text>
         </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2 style={{ marginTop: 0 }}>
-            <Trans>Questions & Support</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              Join our <Link href={"/resources/community"}>community</Link>{" "}
-              Discord server and ask in the #questions channel. We have
-              thousands of friendly, knowledgeable community members ready and
-              willing to help you out.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
-            <Trans>Careers</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              We're hiring! Until we finish building out our careers page, you
-              can submit a resume by joining our{" "}
-              <a href={urls.discordContributorsInvite}>
-                contributor's Discord server
-              </a>{" "}
-              and following the application instructions for whichever
-              department(s) interest you.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
-            <Trans>Partnerships</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              Until we finish building out our partnerships page, we are
-              directing potential partnership and collaboration inquiries to{" "}
-              <a href={urls.partnerShipsContactForm}>this contact form</a>.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
-            <Trans>Media</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              If you are a journalist or content creator, our marketing team
-              would love to meet you. Use this{" "}
-              <a href={urls.mediaRequestForm}>Media Request Form</a>.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
-            <Trans>Bug Reports</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              To file a bug report, join our community Discord server and ask
-              your question in the #bug-reports channel. Someone in our{" "}
-              <Link href={"/resources/community"}>community</Link> will be happy
-              to investigate and find a solution for you.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2 style={{ marginTop: 0 }}>
-            <Trans>Questions & Support</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              Join our <Link href={"/resources/community"}>community</Link>{" "}
-              Discord server and ask in the #questions channel. We have
-              thousands of friendly, knowledgeable community members ready and
-              willing to help you out.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
-            <Trans>Careers</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              We're hiring! Until we finish building out our careers page, you
-              can submit a resume by joining our{" "}
-              <a href={urls.discordContributorsInvite}>
-                contributor's Discord server
-              </a>{" "}
-              and following the application instructions for whichever
-              department(s) interest you.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
-            <Trans>Partnerships</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              Until we finish building out our partnerships page, we are
-              directing potential partnership and collaboration inquiries to{" "}
-              <a href={urls.partnerShipsContactForm}>this contact form</a>.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
-            <Trans>Media</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              If you are a journalist or content creator, our marketing team
-              would love to meet you. Use this{" "}
-              <a href={urls.mediaRequestForm}>Media Request Form</a>.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
-
-      <div className={styles.page_section}>
-        <div />
-        <div className={styles.page_sectionContent}>
-          <h2>
-            <Trans>Bug Reports</Trans>
-          </h2>
-          <Text>
-            <Trans>
-              To file a bug report, join our community Discord server and ask
-              your question in the #bug-reports channel. Someone in our{" "}
-              <Link href={"/resources/community"}>community</Link> will be happy
-              to investigate and find a solution for you.
-            </Trans>
-          </Text>
-        </div>
-        <div />
-      </div>
+      </Section>
     </Container>
   );
 };
