@@ -185,11 +185,7 @@ export const Community: NextPage<Props> = ({}) => {
                 smart contracts to create
               </Trans>
             </Text>
-            <ButtonPrimary
-              className={styles.page_ctaButton}
-              href={"/resources/contact"}
-              label={"Contact Us"}
-            />
+            <ButtonPrimary href={"/resources/contact"} label={"Contact Us"} />
           </div>
         </div>
       </Section>
