@@ -244,18 +244,10 @@ export const mechanicsSection = css`
   .mechanics_item > span {
     overflow: visible !important;
   }
-  .shadow-03 {
-    box-shadow: var(--shadow-03);
-  }
-  .shadow-04 {
-    box-shadow: var(--shadow-04);
-  }
-  .shadow-05 {
-    box-shadow: var(--shadow-05);
-  }
   .mechanics_img {
     border-radius: 1.6rem;
     overflow: visible;
+    box-shadow: var(--shadow-07);
   }
   ${breakpoints.small} {
     p.align-end {

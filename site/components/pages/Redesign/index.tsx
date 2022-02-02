@@ -148,7 +148,7 @@ export const Home: NextPage<Props> = (props) => {
           <div className="mechanics_itemGroup">
             <div className="mechanics_item">
               <Image
-                className="mechanics_img shadow-03"
+                className="mechanics_img"
                 src={windmills}
                 alt="Windmills"
                 width={240}
@@ -166,7 +166,7 @@ export const Home: NextPage<Props> = (props) => {
             </div>
             <div className="mechanics_item">
               <Image
-                className="mechanics_img shadow-04"
+                className="mechanics_img"
                 src={steams}
                 alt="Windmills"
                 width={240}
@@ -184,7 +184,7 @@ export const Home: NextPage<Props> = (props) => {
             </div>
             <div className="mechanics_item">
               <Image
-                className="mechanics_img shadow-05"
+                className="mechanics_img"
                 src={oceans}
                 alt="an ocean"
                 width={240}
