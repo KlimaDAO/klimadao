@@ -12,6 +12,7 @@ export type TypographyStyle =
   | "h5"
   | "body1"
   | "body2"
+  | "body3"
   | "caption"
   | "button";
 
