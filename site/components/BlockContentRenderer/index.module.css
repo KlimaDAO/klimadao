@@ -6,6 +6,21 @@
   margin: 2rem 0;
 }
 
+.blockQuote {
+  border-left: 1rem solid var(--klima-green);
+  margin: 1.5em 1rem;
+  padding: 0.5em 1rem;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+.blockQuote:before {
+  color: var(--klima-green);
+  content: open-quote;
+  font-size: 4rem;
+  line-height: 1rem;
+  margin-right: 0.25rem;
+  vertical-align: -0.4rem;
+}
+
 .inlineImage {
   display: flex;
   justify-content: center;

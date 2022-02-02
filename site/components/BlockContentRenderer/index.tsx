@@ -18,33 +18,40 @@ interface BlockContentRendererProps {
 }
 
 const BlockRenderer = (params: {
-  node: { style: "h1" | "h2" | "h3" | "h4" | "normal" | "quote" };
+  node: { style: "h1" | "h2" | "h3" | "h4" | "normal" | "blockquote" };
   children: JSX.Element;
 }) => {
   const { style } = params.node;
-  if (style === "normal") {
-    return (
-      <Text t="body1" className={styles.paragraph}>
-        {params.children}
-      </Text>
-    );
-  }
-  if (style === "quote") {
-    // Fall back to default handling https://www.sanity.io/docs/portable-text-to-react#customizing-the-default-serializer-for
-    return BlockContent.defaultSerializers.types.block(params);
-  }
   if (style === "h1") {
     return (
-      <Text t="h2" as="h2" className={styles.heading}>
+      <Text t="h3" as="h2" className={styles.heading}>
         {params.children}
       </Text>
     );
   }
-  return (
-    <Text t={style} as={style} className={styles.heading}>
-      {params.children}
-    </Text>
-  );
+  if (style === "h2" || style === "h3" || style === "h4") {
+    return (
+      <Text t="h4" as="h3" className={styles.heading}>
+        {params.children}
+      </Text>
+    );
+  }
+  if (style === "normal") {
+    return (
+      <Text t="body2" className={styles.paragraph}>
+        {params.children}
+      </Text>
+    );
+  }
+  if (style === "blockquote") {
+    return (
+      <Text t="body2" className={styles.blockQuote}>
+        {params.children}
+      </Text>
+    );
+  }
+  // Fall back to default handling https://www.sanity.io/docs/portable-text-to-react#customizing-the-default-serializer-for
+  return BlockContent.defaultSerializers.types.block(params);
 };
 
 const serializers: BlockContentProps["serializers"] = {
@@ -66,7 +73,7 @@ const serializers: BlockContentProps["serializers"] = {
   listItem: (params) => {
     return (
       <li className={styles.li}>
-        <Text t="body1" className={styles.li_content}>
+        <Text t="body2" className={styles.li_content}>
           {/* content of current list item */}
           {params.children[0]}
         </Text>
@@ -79,7 +86,12 @@ const serializers: BlockContentProps["serializers"] = {
     link: ({ children, mark }) => {
       const { href } = mark;
       return (
-        <a className={styles.link} href={href}>
+        <a
+          className={styles.link}
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           {children}
         </a>
       );
