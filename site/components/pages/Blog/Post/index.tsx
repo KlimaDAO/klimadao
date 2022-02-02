@@ -42,10 +42,10 @@ export function PostPage(props: PostProps) {
       </div>
       <section className={styles.blogContainer}>
         <div className={styles.content}>
-          <Text t="h1" as="h1">
+          <Text t="h2" as="h1" className={styles.title}>
             {props.post.title}
           </Text>
-          <Text className={styles.date}>
+          <Text t="h5" as="p" className={styles.date}>
             Published {new Date(props.post.publishedAt).toDateString()}
           </Text>
           <BlockContentRenderer blocks={props.post.body} />
