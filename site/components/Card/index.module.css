@@ -6,47 +6,52 @@
   grid-template-areas:
     "image"
     "content";
-  border-radius: 1rem;
   background-color: white;
-  color: #a1a1a1 !important;
   overflow: hidden;
-  transition: 200ms transform ease-in-out;
   grid-column: main;
-}
-.card:hover {
-  transform: scale(1.025);
+  border-radius: 1.2rem;
+  box-shadow: var(--shadow-07);
 }
 
 .content {
   margin: 2.4rem;
   grid-area: content;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
-.content .date {
-  line-height: 3rem;
-  margin-bottom: 1.6rem;
-}
-.content h2 {
-  margin-bottom: 0.4rem;
-  color: black;
-}
-.content .body {
+.content .summary {
   display: none;
 }
-
+.content .read_more,
+.content .date {
+  color: var(--surface-05);
+}
 .image {
   position: relative;
   grid-area: image;
-  min-height: 20rem;
+  min-height: 24rem;
 }
 
 @media bp-medium {
   .card {
     grid-template-areas: "content image";
     grid-template-columns: 1fr 1fr;
-    height: 25rem;
+    height: 28rem;
   }
-  .content .body {
+  .content .summary {
     display: flex;
+    color: var(--surface-04);
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    max-height: 7rem;
+    /* CSS magic to limit lines shown to 3 https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
   .image {
     min-height: unset;
