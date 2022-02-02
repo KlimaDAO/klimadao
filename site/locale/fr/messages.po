@@ -21,14 +21,6 @@ msgstr ""
 msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 msgstr "Pesez sur les actions pour le climat et gagnez des récompenses avec un crypto-actif algorithmique collatéralisé par des obligations carbone."
 
-#: components/pages/Home/index.tsx:235
-msgid "card.blackhole.carbon"
-msgstr ""
-
-#: components/pages/Home/index.tsx:233
-msgid "card.blackhole.title"
-msgstr ""
-
 #: components/pages/Home/index.tsx:211
 msgid "card.dao.goal"
 msgstr ""
@@ -41,19 +33,19 @@ msgstr ""
 msgid "card.dao.value"
 msgstr ""
 
-#: components/pages/Home/index.tsx:278
+#: components/pages/Home/index.tsx:275
 msgid "footer.app"
 msgstr ""
 
-#: components/pages/Home/index.tsx:284
+#: components/pages/Home/index.tsx:281
 msgid "footer.blog"
 msgstr ""
 
-#: components/pages/Home/index.tsx:287
+#: components/pages/Home/index.tsx:284
 msgid "footer.community"
 msgstr ""
 
-#: components/pages/Home/index.tsx:281
+#: components/pages/Home/index.tsx:278
 msgid "footer.docs"
 msgstr ""
 

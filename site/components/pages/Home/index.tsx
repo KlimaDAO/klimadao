@@ -230,10 +230,7 @@ export const Home: NextPage<Props> = (props) => {
 
       <div className={styles.dividerSection}>
         <h2 className={styles.dividerSectionText}>
-          <Trans id="card.blackhole.title">A blackhole for </Trans>
-          <span className={styles.secondaryAccent}>
-            <Trans id="card.blackhole.carbon">carbon</Trans>
-          </span>
+          A blackhole for <span className={styles.secondaryAccent}>carbon</span>
         </h2>
       </div>
 
