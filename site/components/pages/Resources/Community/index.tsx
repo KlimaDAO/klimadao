@@ -150,11 +150,16 @@ export const Community: NextPage<Props> = ({}) => {
           </div>
         </div>
         <div className={styles.joinDiscord}>
-          <div className="joinDiscord_col1">
-            <Text t="h2" as="h2">
+          <div className="joinDiscord_row1">
+            <Text t="h2" as="h2" align="center">
               <Trans>Discord</Trans>
             </Text>
-            <Text t="body2" color="lighter">
+            <Text
+              t="body2"
+              color="lighter"
+              align="center"
+              className="padding20"
+            >
               <Trans>
                 KlimaDAO harnesses the power of cryptocurrency, blockchain and
                 smart contracts to create
@@ -162,7 +167,7 @@ export const Community: NextPage<Props> = ({}) => {
             </Text>
             <DiscordButton />
           </div>
-          <div className="joinDiscord_col2">
+          <div className="joinDiscord_row2">
             <div className="joinDiscord_dummy">
               <Image
                 src={screenShotDesktop}
