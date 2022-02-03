@@ -51,7 +51,7 @@ export const Navigation: FC<Props> = (props) => {
           name={t({ message: "Bond", id: "mainNav.bond" })}
         />
         <NavItemDesktop
-          url="/resources"
+          url="/blog"
           name={t`Resources`}
           link={Link}
           active={props.activePage === "Resources"}
@@ -59,8 +59,9 @@ export const Navigation: FC<Props> = (props) => {
       </HeaderDesktop>
       <HeaderMobile>
         <NavItemMobile
-          url={urls.home}
+          url={"/"}
           name={t({ message: "Home", id: "mainNav.home" })}
+          link={Link}
         />
         <NavItemMobile
           url={urls.tutorial}
@@ -76,7 +77,7 @@ export const Navigation: FC<Props> = (props) => {
           url={urls.bond}
           name={t({ message: "Bond", id: "mainNav.bond" })}
         />
-        <NavItemMobile url="/resources" name={t`Resources`} />
+        <NavItemMobile url="/blog" name={t`Resources`} link={Link} />
       </HeaderMobile>
     </>
   );
