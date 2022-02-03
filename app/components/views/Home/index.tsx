@@ -6,7 +6,7 @@ import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import { useSelector } from "react-redux";
-import { selectBalances, selectAppState } from "state/selectors";
+import { selectAppState } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
@@ -21,7 +21,7 @@ import { Wrap } from "components/views/Wrap";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
-import { generateLinks, LoadWeb3Modal } from "./constants";
+import { LoadWeb3Modal } from "./constants";
 import WalletAction from "./WalletAction";
 import Sidebar from "./Sidebar";
 
@@ -137,7 +137,6 @@ export const Home: FC = () => {
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
-  const balances = useSelector(selectBalances);
   const { locale } = useSelector(selectAppState);
 
   useEffect(() => {
@@ -279,15 +278,6 @@ export const Home: FC = () => {
   };
 
   const isConnected = !!address;
-
-  const showPklimaButton = path === "/pklima" || !!Number(balances?.pklima);
-  const showRedeemButton =
-    path === "/redeem" ||
-    !!Number(balances?.aklima) ||
-    !!Number(balances?.alklima);
-
-  // render the nav twice-- on both sides of screen-- but the second one is hidden.
-  // A hack to keep the card centered in the viewport.
 
   return (
     <>

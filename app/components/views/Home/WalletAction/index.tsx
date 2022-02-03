@@ -1,4 +1,3 @@
-import useENS from "components/hooks/useENS";
 import { FC } from "react";
 import { WalletProps } from "../constants";
 import { TextInfoTooltip } from "@klimadao/lib/components";

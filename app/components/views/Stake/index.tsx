@@ -23,16 +23,11 @@ import {
   TextInfoTooltip,
   useTooltipSingleton,
 } from "@klimadao/lib/components";
-import {
-  secondsUntilBlock,
-  trimWithPlaceholder,
-  concatAddress,
-} from "@klimadao/lib/utils";
+import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
 import { Trans } from "@lingui/macro";
 import { i18n } from "@lingui/core";
-import { prettifySeconds } from "lib/i18n";
 
 const WithPlaceholder: FC<{
   condition: boolean;
@@ -59,15 +54,7 @@ export const Stake = (props: Props) => {
   const [quantity, setQuantity] = useState("");
   const [singletonSource, singleton] = useTooltipSingleton();
 
-  const {
-    fiveDayRate,
-    currentIndex,
-    stakingRebase,
-    stakingAPY,
-    currentBlock,
-    rebaseBlock,
-    locale,
-  } = useSelector(selectAppState);
+  const { fiveDayRate, currentIndex, stakingAPY } = useSelector(selectAppState);
 
   const stakeAllowance = useSelector(selectStakeAllowance);
   const balances = useSelector(selectBalances);
