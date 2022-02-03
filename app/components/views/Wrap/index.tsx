@@ -1,6 +1,9 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
+import FlipIcon from "@material-ui/icons/Flip";
+import { SvgIcon } from "@mui/material";
+
 
 // Copied from Stake view despite T/t
 import T from "@klimadao/lib/theme/typography.module.css";
@@ -207,12 +210,8 @@ export const Wrap: FC<Props> = (props) => {
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
         <h2 className={T.h4}>
-          <img
-            src="/icons/stake-icon.png"
-            alt="Stake Klima Icon"
-            className={styles.stakeIcon}
-          />
-          Wrap sKLIMA</h2>
+          <SvgIcon component={FlipIcon} fontSize="inherit" />
+          {" "}Wrap sKLIMA</h2>
         <p className={T.body2}>
           <Trans id="msg.wsklima">
             wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may
