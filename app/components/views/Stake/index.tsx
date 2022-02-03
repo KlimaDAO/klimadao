@@ -141,12 +141,11 @@ export const Stake = (props: Props) => {
   };
 
   const showRelevantBalance = () => {
-    if (view === "stake") {
+    if (view === "stake")
       return trimWithPlaceholder(balances?.klima, 4);
-    }
-    if (view === "unstake") {
+
+    if (view === "unstake")
       return trimWithPlaceholder(balances?.sklima, 4);
-    }
   }
 
   const getButtonProps = () => {

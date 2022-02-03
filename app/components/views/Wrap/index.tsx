@@ -98,6 +98,14 @@ export const Wrap: FC<Props> = (props) => {
     return !!allowances && !!Number(allowances.sklima);
   };
 
+  const showRelevantBalance = () => {
+    if (view === "wrap")
+      return trimWithPlaceholder(balances?.sklima, 4);
+
+    if (view === "unwrap")
+      return trimWithPlaceholder(balances?.wsklima, 4);
+  }
+
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
@@ -257,8 +265,8 @@ export const Wrap: FC<Props> = (props) => {
               condition={!isConnected}
               placeholder={`NOT CONNECTED`}
             >
-              <span>{trimWithPlaceholder(balances?.klima, 4)}</span>{" "}
-              <span>KLIMA</span>
+              <span>{showRelevantBalance()}</span>
+              <span>{view === "unwrap" && "w"}sKLIMA</span>
             </WithPlaceholder>
           </div>
         </div>
