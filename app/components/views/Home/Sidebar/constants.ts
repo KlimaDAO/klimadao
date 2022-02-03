@@ -5,14 +5,6 @@ import EcoOutlinedIcon from "@material-ui/icons/EcoOutlined";
 import FlipIcon from "@material-ui/icons/Flip";
 import TwitterIcon from "@material-ui/icons/Twitter";
 
-interface Link {
-  // do we need this?
-  to: string;
-  show: boolean;
-  text: string;
-  dataActive: boolean;
-}
-
 export const primaryLinks = ({ path }: { path: string }) => [
   {
     // need correct path

@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 import AddToPhotosOutlinedIcon from "@material-ui/icons/AddToPhotosOutlined";
@@ -75,13 +75,8 @@ export const Stake = (props: Props) => {
   const isLoading =
     !stakeAllowance || typeof stakeAllowance.klima === "undefined";
 
-  const nextRebasePercent = stakingRebase && stakingRebase * 100;
   const fiveDayRatePercent = fiveDayRate && fiveDayRate * 100;
   const stakingAPYPercent = stakingAPY && stakingAPY * 100;
-  const nextRebaseValue =
-    stakingRebase &&
-    balances?.sklima &&
-    stakingRebase * Number(balances.sklima);
 
   const setMax = () => {
     setStatus("");
@@ -132,13 +127,6 @@ export const Stake = (props: Props) => {
       return stakeAllowance && !!Number(stakeAllowance.klima);
     if (action === "unstake")
       return stakeAllowance && !!Number(stakeAllowance.sklima);
-  };
-
-  const timeUntilRebase = () => {
-    if (currentBlock && rebaseBlock && locale) {
-      const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
-      return prettifySeconds(locale, seconds);
-    }
   };
 
   const showRelevantBalance = () => {

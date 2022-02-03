@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import styles from "./index.module.css";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";

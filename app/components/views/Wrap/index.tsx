@@ -175,11 +175,6 @@ export const Wrap: FC<Props> = (props) => {
   const inputPlaceholder =
     view === "wrap" ? "sKLIMA to wrap" : "wsKLIMA to unwrap";
 
-  const indexAdjustedBalance =
-    !!currentIndex && typeof balances?.wsklima !== "undefined"
-      ? Number(balances.wsklima) * Number(currentIndex)
-      : undefined;
-
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>

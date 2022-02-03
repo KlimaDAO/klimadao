@@ -5,10 +5,9 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
-import typography from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
 import { selectBalances, selectAppState } from "state/selectors";
-import { loadAppDetails, setLocale } from "actions/app";
+import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 import { Stake } from "components/views/Stake";
@@ -23,11 +22,9 @@ import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 import { generateLinks, LoadWeb3Modal } from "./constants";
-import Nav from "./Nav";
 import WalletAction from "./WalletAction";
 import Sidebar from "./Sidebar";
 
-import { Trans } from "@lingui/macro";
 import { init } from "lib/i18n";
 
 import styles from "./index.module.css";
@@ -291,8 +288,6 @@ export const Home: FC = () => {
 
   // render the nav twice-- on both sides of screen-- but the second one is hidden.
   // A hack to keep the card centered in the viewport.
-
-  const links = generateLinks({ path, showPklimaButton, showRedeemButton });
 
   return (
     <>
