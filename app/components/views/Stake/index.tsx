@@ -30,7 +30,7 @@ import {
 } from "@klimadao/lib/utils";
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "./index.module.css";
-import { Trans, defineMessage } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { prettifySeconds } from "lib/i18n";
 
@@ -213,36 +213,6 @@ export const Stake = (props: Props) => {
     }
   };
 
-  const getStatusMessage = () => {
-    if (status === "userConfirmation") {
-      return (
-        <Trans id="status.pending_confirmation">
-          Please click 'confirm' in your wallet to continue.
-        </Trans>
-      );
-    } else if (status === "networkConfirmation") {
-      return (
-        <Trans id="status.transaction_started">
-          Transaction initiated. Waiting for network confirmation.
-        </Trans>
-      );
-    } else if (status === "error") {
-      return (
-        <Trans id="status.transaction_error">
-          ❌ Error: something went wrong...
-        </Trans>
-      );
-    } else if (status === "done") {
-      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
-    } else if (status === "userRejected") {
-      return (
-        <Trans id="status.transaction_rejected">
-          ✖️ You chose to reject the transaction.
-        </Trans>
-      );
-    }
-    return null;
-  };
 
   const showSpinner =
     isConnected &&
@@ -250,41 +220,6 @@ export const Stake = (props: Props) => {
       status === "networkConfirmation" ||
       isLoading);
 
-  defineMessage({
-    id: "stake.balance.tooltip",
-    message: "Unstaked KLIMA, not generating interest",
-  });
-  defineMessage({
-    id: "stake.staked.tooltip",
-    message: "Staked KLIMA generating interest",
-  });
-  defineMessage({
-    id: "stake.rebase_rate.tooltip",
-    message: "Percent interest to be rewarded at next rebase",
-  });
-  defineMessage({
-    id: "stake.rebase_value.tooltip",
-    message: "Approximate amount of sKLIMA you will receive at next rebase",
-  });
-  defineMessage({
-    id: "stake.date_of_next_rebase.tooltip",
-    message: "Approximate date of next rewards distribution",
-  });
-  defineMessage({
-    id: "stake.roi.tooltip",
-    message:
-      "Approximate return on investment, including compounding interest, should you remain staked for 5 days.",
-  });
-  defineMessage({
-    id: "stake.apy.tooltip",
-    message:
-      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)",
-  });
-  defineMessage({
-    id: "stake.current_index.tooltip",
-    message:
-      "Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes.",
-  });
 
   return (
     <div className={styles.stakeCard}>
@@ -383,75 +318,6 @@ export const Stake = (props: Props) => {
       )}
       <ul className={styles.dataContainer}>
         {singletonSource}
-        {/* <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            <Trans id="stake.staked">Staked</Trans>
-            <TextInfoTooltip
-              singleton={singleton}
-              content={i18n._("stake.staked.tooltip")}
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder={`NOT CONNECTED`}
-            >
-              <span>{trimWithPlaceholder(balances?.sklima, 4)}</span> sKLIMA
-            </WithPlaceholder>
-          </div>
-        </li> */}
-        {/* <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            <Trans id="stake.rebase_rate">Rebase rate</Trans>
-            <TextInfoTooltip
-              singleton={singleton}
-              content={i18n._("stake.rebase_rate.tooltip")}
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <span>{trimWithPlaceholder(nextRebasePercent, 2)}</span>%
-          </div>
-        </li> */}
-        {/* <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            <Trans id="stake.rebase_value">Rebase value</Trans>
-            <TextInfoTooltip
-              singleton={singleton}
-              content={i18n._("stake.rebase_value.tooltip")}
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <span>{trimWithPlaceholder(nextRebaseValue, 5)}</span> sKLIMA
-          </div>
-        </li> */}
-        {/* <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            <Trans id="stake.date_of_next_rebase">Time until rebase</Trans>
-            <TextInfoTooltip
-              singleton={singleton}
-              content={i18n._("stake.date_of_next_rebase.tooltip")}
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <span>{timeUntilRebase()}</span>
-          </div>
-        </li> */}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             {/* <Trans id="stake.roi">ROI</Trans> */}
@@ -516,9 +382,6 @@ export const Stake = (props: Props) => {
           />
         )}
       </div>
-      {getStatusMessage() && (
-        <p className={styles.statusMessage}>{getStatusMessage()}</p>
-      )}
     </div>
   );
 };

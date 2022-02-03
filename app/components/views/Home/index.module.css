@@ -223,6 +223,7 @@ TEMP
 
 .secondaryContainer {
   background-color: var(--dapp-bg);
+  color: var(--text-color-contrast);
   border-radius: 1.2rem;
   margin-bottom: 2.4rem;
   min-height: 25rem;

@@ -163,36 +163,6 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
-  const getStatusMessage = () => {
-    if (status === "userConfirmation") {
-      return (
-        <Trans id="status.pending_confirmation">
-          Please click 'confirm' in your wallet to continue.
-        </Trans>
-      );
-    } else if (status === "networkConfirmation") {
-      return (
-        <Trans id="status.transaction_started">
-          Transaction initiated. Waiting for network confirmation.
-        </Trans>
-      );
-    } else if (status === "error") {
-      return (
-        <Trans id="status.transaction_error">
-          ❌ Error: something went wrong...
-        </Trans>
-      );
-    } else if (status === "done") {
-      return <Trans id="status.transaction_success">✔️ Success!.</Trans>;
-    } else if (status === "userRejected") {
-      return (
-        <Trans id="status.transaction_rejected">
-          ✖️ You chose to reject the transaction.
-        </Trans>
-      );
-    }
-    return null;
-  };
 
   const youWillGet = () => {
     if (!quantity || !currentIndex) return "0";
@@ -340,48 +310,6 @@ export const Wrap: FC<Props> = (props) => {
             </WithPlaceholder>
           </div>
         </li>
-        {/* <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            Balance (wrapped)
-            <TextInfoTooltip
-              singleton={singleton}
-              content="Balance of wrapped sKLIMA"
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder="NOT CONNECTED"
-            >
-              <span>{trimWithPlaceholder(balances?.wsklima, 4)}</span> wsKLIMA
-            </WithPlaceholder>
-          </div>
-        </li> */}
-        {/* <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            Index-adjusted balance
-            <TextInfoTooltip
-              singleton={singleton}
-              content="Unwrapped value of your entire wsKLIMA balance (wsKLIMA * currentIndex)"
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder="NOT CONNECTED"
-            >
-              <span>{trimWithPlaceholder(indexAdjustedBalance, 4)}</span> sKLIMA
-            </WithPlaceholder>
-          </div>
-        </li> */}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             YOU WILL GET
@@ -421,9 +349,6 @@ export const Wrap: FC<Props> = (props) => {
           {...getButtonProps()}
         />
       </div>
-      {getStatusMessage() && (
-        <p className={styles.statusMessage}>{getStatusMessage()}</p>
-      )}
     </div>
   );
 };

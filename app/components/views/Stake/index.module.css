@@ -230,7 +230,6 @@
 }
 .submitButton {
   composes: textButton;
-  /* border: 2px solid var(--secondary); */
   flex-grow: 2;
   display: flex;
   justify-content: center;
@@ -245,6 +244,7 @@
 }
 .submitButton:not(:disabled) {
   background-color: var(--primary);
+  color: var(--text-color-contrast) !important;
 }
 
 .submitButton:not(:disabled):hover {

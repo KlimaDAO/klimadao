@@ -1,5 +1,6 @@
 :root {
   --gray: rgb(160, 160, 160);
+  --text-color-contrast: white;
   /* Material Design naming convention for theme colors */
   --dapp-bg: #202020;
   --alt-bg: #303030;
