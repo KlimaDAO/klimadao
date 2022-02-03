@@ -25,7 +25,7 @@
 }
 .content .read_more,
 .content .date {
-  color: var(--surface-05);
+  color: var(--font-03);
 }
 .image {
   position: relative;
@@ -41,7 +41,7 @@
   }
   .content .summary {
     display: flex;
-    color: var(--surface-04);
+    color: var(--font-02);
     font-size: 1.6rem;
     line-height: 1.8rem;
     max-height: 7rem;
