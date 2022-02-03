@@ -71,14 +71,12 @@ const serializers: BlockContentProps["serializers"] = {
     );
   },
   listItem: (params) => {
+    // TODO: fix DOM nested list warning in console
     return (
       <li className={styles.li}>
-        <Text t="body2" className={styles.li_content}>
-          {/* content of current list item */}
-          {params.children[0]}
+        <Text t="body2" className={styles.liContent}>
+          {params.children}
         </Text>
-        {/* nested list items if any */}
-        {params.children?.[1]}
       </li>
     );
   },
