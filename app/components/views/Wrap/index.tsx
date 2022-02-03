@@ -139,13 +139,13 @@ export const Wrap: FC<Props> = (props) => {
       };
     } else if (view === "wrap") {
       return {
-        children: <Trans id="button.wrap">Wrap</Trans>,
+        children: value ? (<Trans id="button.wrap">Wrap</Trans>) : <Trans>Enter Amount</Trans>,
         onClick: handleAction("wrap"),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
     } else if (view === "unwrap") {
       return {
-        children: <Trans id="button.unwrap">Unwrap</Trans>,
+        children: value ? (<Trans id="button.unwrap">Unwrap</Trans>) : <Trans>Enter Amount</Trans>,
         onClick: handleAction("unwrap"),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
