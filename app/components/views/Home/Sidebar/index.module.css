@@ -1,0 +1,130 @@
+.sidebarLg {
+  width: 244px;
+}
+.sidebarSm {
+  width: 104px;
+}
+
+.drawer {
+  overflow: hidden;
+  color: #9c9c9c !important;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: #202020 !important;
+}
+.drawerLg {
+  composes: drawer;
+  width: 244px !important;
+}
+.drawerSm {
+  composes: drawer;
+  width: 104px !important;
+}
+.drawerContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 32px 24px 32px;
+}
+
+/* probably call this listLinkPrimary? */
+.listLink {
+  color: #9c9c9c !important;
+  margin: 14px 0px !important;
+  border-radius: 8px !important;
+}
+.listLinkSelected {
+  color: white !important;
+  border-radius: 8px !important;
+  background-color: #303030 !important;
+  border: 0.5px solid #4a4a4a !important;
+}
+.listItemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 0 !important;
+  color: #f2f2f2 !important;
+  background-color: #2b2b2b;
+  border-radius: 6px;
+}
+.listItemIconSelected {
+  composes: listItemIcon;
+  color: white !important;
+  background-color: #00cc33;
+}
+.listLinkSecondary {
+  width: 24px !important;
+  padding: 0 !important;
+  justify-content: center !important;
+}
+
+.logoText {
+  font-weight: 600;
+  line-height: 24px;
+  color: #fff !important;
+  font-size: 16px !important;
+  margin-left: 8px !important;
+}
+
+.divider {
+  background-color: #2b2b2b !important;
+}
+
+.walletInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+}
+
+.primaryLinks {
+  margin-bottom: auto !important;
+}
+.secondaryLinks {
+  display: flex;
+  padding-top: 30px !important;
+  justify-content: space-around;
+}
+
+.primaryText {
+  color: #fff;
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 12px !important;
+}
+.secondaryText {
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 12px !important;
+}
+.linkText {
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 12px !important;
+  margin-left: 12px !important;
+}
+
+.logoutBtn {
+  padding-left: 8px !important;
+}
+
+/* rename this to something else, dont use "THIN" */
+
+.listItemThin {
+  justify-content: center !important;
+}
+.listLinkThin {
+  composes: listLink;
+  padding: 6px !important;
+  justify-content: center !important;
+}
+.secondaryLinksThin {
+  display: flex;
+  flex-direction: column;
+  height: 215px;
+  padding: 24px 0px !important;
+  align-items: center;
+  justify-content: space-between !important;
+}

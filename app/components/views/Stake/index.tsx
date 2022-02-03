@@ -1,8 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
-
+import AddToPhotosOutlinedIcon from "@material-ui/icons/AddToPhotosOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { SvgIcon } from "@mui/material";
 
 import {
   changeApprovalTransaction,
@@ -139,6 +140,13 @@ export const Stake = (props: Props) => {
       return prettifySeconds(locale, seconds);
     }
   };
+
+  const showRelevantBalance = () => {
+    if (view === "stake") return trimWithPlaceholder(balances?.klima, 4);
+
+    if (view === "unstake") return trimWithPlaceholder(balances?.sklima, 4);
+  };
+
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
@@ -174,13 +182,21 @@ export const Stake = (props: Props) => {
       };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
-        children: <Trans id="button.stake">Stake</Trans>,
+        children: value ? (
+          <Trans id="button.stake">Stake Klima</Trans>
+        ) : (
+          <Trans>Enter Amount</Trans>
+        ),
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
-        children: <Trans id="button.unstake">Unstake</Trans>,
+        children: value ? (
+          <Trans id="button.unstake">Unstake Klima</Trans>
+        ) : (
+          <Trans>Enter Amount</Trans>
+        ),
         onClick: handleStake("unstake"),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),
@@ -190,10 +206,10 @@ export const Stake = (props: Props) => {
     }
   };
   const getAction = () => {
-    if (view === "unstake") {
-      return `Amount to stake`;
+    if (view === "stake") {
+      return `Amount to Stake`;
     } else {
-      return `Amount to unstake`;
+      return `Amount to Unstake`;
     }
   };
 
@@ -262,7 +278,7 @@ export const Stake = (props: Props) => {
   defineMessage({
     id: "stake.apy.tooltip",
     message:
-      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)",
+      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)",
   });
   defineMessage({
     id: "stake.current_index.tooltip",
@@ -273,7 +289,10 @@ export const Stake = (props: Props) => {
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
-        <h2 className={T.h4}>Stake KLIMA.</h2>
+        <h2 className={T.h5}>
+          <SvgIcon component={AddToPhotosOutlinedIcon} fontSize="inherit" />{" "}
+          Stake Klima
+        </h2>
         <p className={T.body2}>
           <Trans id="stake.caption">
             Hold, stake, and compound. If the protocol earns a profit selling
@@ -309,6 +328,32 @@ export const Stake = (props: Props) => {
             Unstake
           </button>
         </div>
+
+        <div className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            <Trans>BALANCE</Trans>
+            <TextInfoTooltip
+              singleton={singleton}
+              content={i18n._("stake.balance.tooltip")}
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.klimaBalanceBar}>
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder={`NOT CONNECTED`}
+            >
+              <span>{showRelevantBalance()}</span>
+              <span>{view === "unstake" && "s"}KLIMA</span>
+            </WithPlaceholder>
+          </div>
+        </div>
+
+        <div className={styles.dataContainer_label}>STAKE KLIMA</div>
+
         <div className={styles.stakeInput}>
           <input
             className={styles.stakeInput_input}
@@ -331,36 +376,14 @@ export const Stake = (props: Props) => {
         </div>
       </div>
 
+      {address && (
+        <div className={styles.dataContainer_address}>
+          {concatAddress(address)}
+        </div>
+      )}
       <ul className={styles.dataContainer}>
-        {address && (
-          <li className={styles.dataContainer_address}>
-            {concatAddress(address)}
-          </li>
-        )}
         {singletonSource}
-        <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            <Trans id="stake.balance">Balance</Trans>
-            <TextInfoTooltip
-              singleton={singleton}
-              content={i18n._("stake.balance.tooltip")}
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder={`NOT CONNECTED`}
-            >
-              <span>{trimWithPlaceholder(balances?.klima, 4)}</span> KLIMA
-            </WithPlaceholder>
-          </div>
-        </li>
-
-        <li className={styles.dataContainer_row}>
+        {/* <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             <Trans id="stake.staked">Staked</Trans>
             <TextInfoTooltip
@@ -380,8 +403,8 @@ export const Stake = (props: Props) => {
               <span>{trimWithPlaceholder(balances?.sklima, 4)}</span> sKLIMA
             </WithPlaceholder>
           </div>
-        </li>
-        <li className={styles.dataContainer_row}>
+        </li> */}
+        {/* <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             <Trans id="stake.rebase_rate">Rebase rate</Trans>
             <TextInfoTooltip
@@ -396,8 +419,8 @@ export const Stake = (props: Props) => {
           <div className={styles.dataContainer_value}>
             <span>{trimWithPlaceholder(nextRebasePercent, 2)}</span>%
           </div>
-        </li>
-        <li className={styles.dataContainer_row}>
+        </li> */}
+        {/* <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             <Trans id="stake.rebase_value">Rebase value</Trans>
             <TextInfoTooltip
@@ -412,10 +435,10 @@ export const Stake = (props: Props) => {
           <div className={styles.dataContainer_value}>
             <span>{trimWithPlaceholder(nextRebaseValue, 5)}</span> sKLIMA
           </div>
-        </li>
-        <li className={styles.dataContainer_row}>
+        </li> */}
+        {/* <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans>Next rebase (est.)</Trans>
+            <Trans id="stake.date_of_next_rebase">Time until rebase</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.date_of_next_rebase.tooltip")}
@@ -428,10 +451,11 @@ export const Stake = (props: Props) => {
           <div className={styles.dataContainer_value}>
             <span>{timeUntilRebase()}</span>
           </div>
-        </li>
+        </li> */}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.roi">ROI (5-day rate)</Trans>
+            {/* <Trans id="stake.roi">ROI</Trans> */}
+            <Trans>ROI</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.roi.tooltip")}
@@ -464,7 +488,7 @@ export const Stake = (props: Props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.current_index">Current index</Trans>
+            <Trans>CURRENT INDEX</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.current_index.tooltip")}
@@ -480,19 +504,17 @@ export const Stake = (props: Props) => {
         </li>
       </ul>
       <div className={styles.buttonRow}>
-        <div />
         {showSpinner ? (
           <div className={styles.buttonRow_spinner}>
             <Spinner />
           </div>
         ) : (
-          <div />
+          <button
+            type="button"
+            className={styles.submitButton}
+            {...getButtonProps()}
+          />
         )}
-        <button
-          type="button"
-          className={styles.submitButton}
-          {...getButtonProps()}
-        />
       </div>
       {getStatusMessage() && (
         <p className={styles.statusMessage}>{getStatusMessage()}</p>

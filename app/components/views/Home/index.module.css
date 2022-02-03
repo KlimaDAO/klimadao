@@ -33,25 +33,10 @@ TEMP
 }
 
 .header {
-  display: grid;
-  gap: 2.4rem;
-  position: relative;
+  display: flex;
+  justify-content: flex-end;
   color: white;
-  padding-top: 2.4rem;
-}
-.header_subtitle {
-  composes: body1 from "@klimadao/lib/theme/typography.module.css";
-  max-width: 64rem;
-}
-.header_leftCol {
-  display: grid;
-  gap: 1.6rem;
-}
-.logoContainer {
-  width: 20rem;
-}
-.logoContainer img {
-  max-width: 100%;
+  padding: 2rem 0;
 }
 
 .heroBackgroundContainer {
@@ -67,33 +52,44 @@ TEMP
   overflow: hidden;
   z-index: -1;
 }
+
 .heroGradient {
   position: absolute;
   top: 0;
   right: 0;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(
-    115deg,
-    #121212 21.2%,
-    rgba(18, 18, 18, 0.750345) 44.88%,
-    rgba(18, 18, 18, 0) 89.75%
-  );
-}
-.heroBackgroundContainer img {
-  object-position: 42% 50%;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  background-color: var(--alt-bg);
+  /* background: var(--dapp-bg); */
 }
 
 .heroSection {
   grid-column: main;
   display: grid;
-  gap: 3.2rem;
+  grid-template-columns: 1fr;
+  /* gap: 3.2rem; */
   align-content: baseline;
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "balances"
+    "main"
+    "rebase"
+    "newKlima";
 }
+
+#balances {
+  grid-area: balances;
+}
+.main {
+  grid-area: main;
+}
+#rebase {
+  grid-area: rebase;
+}
+#newKlima {
+  grid-area: newKlima;
+}
+
 .nav {
   display: none;
 }
@@ -112,6 +108,8 @@ TEMP
 .connectWalletButton,
 .disconnectWalletButton {
   display: none;
+  font-size: 1.2rem !important;
+  margin: 0 1.2rem;
 }
 .connectWalletButtonMobile {
   composes: textButton from "@klimadao/lib/theme/common.module.css";
@@ -136,18 +134,11 @@ TEMP
   opacity: 1;
   border: 2px dashed var(--secondary) !important;
 }
-.disconnectWalletButton > img {
-  height: 20px;
-  width: 20px;
-  border-radius: 100px;
-  margin-right: 8px;
-}
 
 .main {
-  justify-self: center;
+  justify-self: start;
   display: flex;
   flex-wrap: wrap;
-  gap: 3.2rem;
   position: relative;
   color: white;
   align-content: flex-start;
@@ -226,7 +217,33 @@ TEMP
   font-size: 30px;
 }
 
+.rightContainer {
+  width: 100%;
+}
+
+.secondaryContainer {
+  background-color: var(--dapp-bg);
+  border-radius: 1.2rem;
+  margin-bottom: 2.4rem;
+  min-height: 25rem;
+  padding: 2.8rem;
+  display: grid;
+  grid-gap: 1.6rem;
+  gap: 1.6rem;
+  width: 100%;
+}
+
 @media bp-small {
+  .heroSection {
+    grid-template-columns: 2fr;
+    /* gap: 3.2rem; */
+    align-content: baseline;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "main balances"
+      "main rebase"
+      "main newKlima";
+  }
   .mobileMenu {
     display: none;
   }
@@ -246,8 +263,28 @@ TEMP
     justify-self: start;
   }
   .disconnectWalletButton {
+    display: unset;
+  }
+  .main {
+    margin-left: 10.5rem;
+  }
+
+  .rightContainer {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-left: 1.8rem;
+  }
+
+  .secondaryContainer {
+    background-color: var(--dapp-bg);
+    border-radius: 1.2rem;
+    margin-bottom: 2.4rem;
+    /* min-height: 25rem; */
+    padding: 2.8rem;
+    display: grid;
+    grid-gap: 1.6rem;
+    gap: 1.6rem;
+    width: 100%;
   }
 }
 
@@ -265,7 +302,7 @@ TEMP
       [full-end];
   }
   .header {
-    padding-top: 5.4rem;
+    padding: 2rem 0;
   }
   .nav {
     justify-items: end;
@@ -279,9 +316,6 @@ TEMP
 }
 
 @media bp-medium {
-  .header {
-    grid-template-columns: 1fr 1fr;
-  }
   .connectWalletButton {
     justify-self: end;
   }
@@ -296,13 +330,21 @@ TEMP
   .footer {
     margin-top: 6.4rem;
   }
+  .main {
+    margin-left: 21rem;
+    width: 74rem;
+  }
 }
 
 @media bp-large {
   .header {
-    padding-top: 6.4rem;
+    padding: 2rem 0;
   }
   .logoContainer {
     width: 32rem;
+  }
+  .main {
+    margin-left: 21rem;
+    width: 74rem;
   }
 }

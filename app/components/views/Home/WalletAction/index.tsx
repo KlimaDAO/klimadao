@@ -19,7 +19,7 @@ const WalletAction: FC<WalletProps> = ({
       className={styles.connectWalletButton}
       onClick={loadWeb3Modal}
     >
-      CONNECT WALLET
+      Connect Wallet
     </button>
   ) : (
     <TextInfoTooltip content="DISCONNECT WALLET">
@@ -28,8 +28,8 @@ const WalletAction: FC<WalletProps> = ({
         className={styles.disconnectWalletButton}
         onClick={disconnect}
       >
-        {ensAvatar && <img src={ensAvatar} alt={address} />}
-        {ensName || concatAddress(address ?? "")}
+        Disconnect
+
       </button>
     </TextInfoTooltip>
   );
