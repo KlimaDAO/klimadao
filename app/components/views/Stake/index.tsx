@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 import AddToPhotosOutlinedIcon from "@material-ui/icons/AddToPhotosOutlined";
@@ -280,7 +280,7 @@ export const Stake = (props: Props) => {
   defineMessage({
     id: "stake.apy.tooltip",
     message:
-      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)",
+      "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)",
   });
   defineMessage({
     id: "stake.current_index.tooltip",
@@ -440,7 +440,7 @@ export const Stake = (props: Props) => {
         </li> */}
         {/* <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans id="stake.date_of_next_rebase">Time until rebase</Trans>
+            <Trans>Next rebase (est.)</Trans>
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.date_of_next_rebase.tooltip")}

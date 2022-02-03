@@ -1,21 +1,43 @@
 import React, { FC } from "react";
 import * as styles from "./styles";
+import { Link } from "../types";
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
   url: string;
   active?: boolean;
+  link?: Link;
 }
 
-export const NavItemDesktop: FC<Props> = (props) => {
+export const NavItemDesktop: FC<Props> = ({
+  link: LinkElement,
+  active,
+  name,
+  url,
+  ...props
+}) => {
+  if (LinkElement) {
+    return (
+      <LinkElement href={url}>
+        <a
+          {...props}
+          className={styles.navMain_DesktopLink}
+          data-active={active?.toString()}
+        >
+          {name}
+        </a>
+      </LinkElement>
+    );
+  }
+
   return (
     <a
       {...props}
       className={styles.navMain_DesktopLink}
-      href={props.url}
-      data-active={props.active}
+      href={url}
+      data-active={active?.toString()}
     >
-      {props.name}
+      {name}
     </a>
   );
 };

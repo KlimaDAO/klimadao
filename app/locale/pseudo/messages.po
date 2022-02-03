@@ -25,13 +25,8 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: components/views/Stake/index.tsx:180
-#: components/views/Stake/index.tsx:190
-msgid "Enter Amount"
-msgstr ""
-
-#: components/views/Stake/index.tsx:454
-msgid "ROI"
+#: components/views/Stake/index.tsx:418
+msgid "Next rebase (est.)"
 msgstr ""
 
 #: components/views/Bond/index.tsx:479
@@ -243,6 +238,26 @@ msgstr ""
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
+#: components/views/Home/index.tsx:425
+msgid "footer.blog"
+msgstr ""
+
+#: components/views/Home/index.tsx:428
+msgid "footer.community"
+msgstr ""
+
+#: components/views/Home/index.tsx:422
+msgid "footer.docs"
+msgstr ""
+
+#: components/views/Home/index.tsx:419
+msgid "footer.home"
+msgstr ""
+
+#: components/views/Home/index.tsx:313
+msgid "header.welcome"
+msgstr ""
+
 #: components/views/Redeem/index.tsx:181
 msgid "msg.aklima"
 msgstr ""
@@ -327,7 +342,7 @@ msgstr ""
 msgid "stake.current_index.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:261
+#: components/views/Stake/index.tsx:253
 msgid "stake.date_of_next_rebase.tooltip"
 msgstr ""
 

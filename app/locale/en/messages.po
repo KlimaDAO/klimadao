@@ -25,14 +25,9 @@ msgstr "CURRENT INDEX"
 msgid "Change language"
 msgstr "Change language"
 
-#: components/views/Stake/index.tsx:180
-#: components/views/Stake/index.tsx:190
-msgid "Enter Amount"
-msgstr "Enter Amount"
-
-#: components/views/Stake/index.tsx:454
-msgid "ROI"
-msgstr "ROI"
+#: components/views/Stake/index.tsx:418
+msgid "Next rebase (est.)"
+msgstr "Next rebase (est.)"
 
 #: components/views/Bond/index.tsx:479
 msgid "bond.balance"
@@ -243,6 +238,26 @@ msgstr "Bond Carbon."
 msgid "choose_bond.treasury_balance"
 msgstr "Treasury Balance"
 
+#: components/views/Home/index.tsx:425
+msgid "footer.blog"
+msgstr "blog"
+
+#: components/views/Home/index.tsx:428
+msgid "footer.community"
+msgstr "community"
+
+#: components/views/Home/index.tsx:422
+msgid "footer.docs"
+msgstr "docs"
+
+#: components/views/Home/index.tsx:419
+msgid "footer.home"
+msgstr "home"
+
+#: components/views/Home/index.tsx:313
+msgid "header.welcome"
+msgstr "Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to earn interest."
+
 #: components/views/Redeem/index.tsx:181
 msgid "msg.aklima"
 msgstr "If you received AlphaKLIMA from the Fair Launch Auction, or AlchemistKLIMA from the Crucible rewards event, use this tool to redeem them for KLIMA."
@@ -313,7 +328,7 @@ msgstr "APY"
 
 #: components/views/Stake/index.tsx:270
 msgid "stake.apy.tooltip"
-msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchained for 12 months (rates may be subject to change)"
+msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
 
 #: components/views/Stake/index.tsx:245
 msgid "stake.balance.tooltip"
@@ -327,7 +342,7 @@ msgstr "Hold, stake, and compound. If the protocol earns a profit selling carbon
 msgid "stake.current_index.tooltip"
 msgstr "Amount you would have today, if you staked 1 KLIMA on launch day. Useful for accounting purposes."
 
-#: components/views/Stake/index.tsx:261
+#: components/views/Stake/index.tsx:253
 msgid "stake.date_of_next_rebase.tooltip"
 msgstr "Approximate date of next rewards distribution"
 

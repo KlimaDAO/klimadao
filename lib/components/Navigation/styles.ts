@@ -1,21 +1,27 @@
 import { css } from "@emotion/css";
 import breakpoints from "../../theme/breakpoints";
+import { button } from "../../theme/typography";
 
 export const navMain_DesktopLink = css`
+  ${button};
   text-decoration: none;
-  padding: 0 3rem;
-  font-weight: 500;
-  color: var(--surface-05) !important;
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  &,
+  &:hover,
+  &:visited {
+    color: var(--font-03);
+    font-weight: 500;
+  }
 
-  &:hover {
-    color: var(--surface) !important;
+  &:hover,
+  &:focus {
+    color: var(--font-02);
   }
 
   &[data-active="true"] {
-    color: var(--surface) !important;
+    color: var(--font-01);
+    font-weight: 700;
   }
 `;
 
@@ -26,7 +32,7 @@ export const navMain_Mobile = css`
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  background-color: var(--white);
+  background-color: var(--surface-01);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.4rem 0.4rem;
   transform: translate3d(0px, 0px, 0px);
   transition: transform 0.5s ease 0s;
@@ -44,7 +50,7 @@ export const navMain_MobileClosed = css`
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  background-color: var(--white);
+  background-color: var(--surface-01);
   transform: translate3d(100%, 0px, 0px);
   transition: transform 0.5s ease 0s;
   padding-top: var(--header-height);
@@ -73,8 +79,7 @@ export const navMain_MobileLink = css`
 export const navMain_MobileItemInner = css`
   font-size: 3.75rem;
   font-weight: 500;
-  color: var(--surface-02);
-  padding: 0.4rem 0 0;
+  color: var(--font-01);
   display: flex;
   align-items: center;
 
@@ -86,7 +91,7 @@ export const navMain_MobileItemInner = css`
 export const navMain_MobileItemInnerNumber = css`
   font-size: 2rem;
   font-weight: 600;
-  color: var(--surface-05);
+  color: var(--font-01);
   margin-right: 2rem;
 `;
 
@@ -97,11 +102,11 @@ export const buttonToggleNav = css`
   transition-property: opacity, filter;
   transition-duration: 0.15s;
   transition-timing-function: linear;
-  color: inherit;
+  color: var(--font-01);
   text-transform: none;
-  background-color: var(--white);
+  background-color: var(--surface-01);
   border: 0;
-  border-radius: var(--border-radius);
+  border-radius: 1.6rem;
   margin: 0;
   overflow: visible;
   line-height: 0;
@@ -124,7 +129,7 @@ export const hamburgerOuter = css`
 export const hamburgerInnerToggled = css`
   width: 2.4rem;
   height: 0.4rem;
-  background-color: var(--surface);
+  background-color: var(--font-01);
   border-radius: 0;
   position: absolute;
   transition-property: transform;
@@ -141,7 +146,7 @@ export const hamburgerInnerToggled = css`
   &::before {
     width: 2.4rem;
     height: 0.4rem;
-    background-color: var(--surface);
+    background-color: var(--font-01);
     border-radius: 0;
     position: absolute;
     transition-property: transform;
@@ -157,7 +162,7 @@ export const hamburgerInnerToggled = css`
   &::after {
     width: 2.4rem;
     height: 0.4rem;
-    background-color: var(--surface);
+    background-color: var(--font-01);
     border-radius: 0;
     position: absolute;
     transition-property: transform;
@@ -182,7 +187,7 @@ export const hamburgerInner = css`
   margin-top: -0.2rem;
   width: 2.4rem;
   height: 0.4rem;
-  background-color: var(--surface);
+  background-color: var(--font-01);
   border-radius: 0;
   position: absolute;
   transition-property: transform;
@@ -196,7 +201,7 @@ export const hamburgerInner = css`
     display: block;
     width: 2.4rem;
     height: 0.4rem;
-    background-color: var(--surface);
+    background-color: var(--font-01);
     border-radius: 0;
     position: absolute;
     transition-property: transform;
@@ -212,7 +217,7 @@ export const hamburgerInner = css`
     display: block;
     width: 2.4rem;
     height: 0.4rem;
-    background-color: var(--surface);
+    background-color: var(--font-01);
     border-radius: 0;
     position: absolute;
     transition-property: transform;

@@ -1,4 +1,5 @@
 .container {
+  grid-column: full;
   background-color: #f5f5f7;
   color: #313131;
   font-family: Arial, Helvetica, sans-serif;
@@ -9,7 +10,6 @@
     [main-end] minmax(0.8rem, 1fr)
     [full-end];
   grid-gap: 3.2rem;
-  margin-top: 6rem;
 }
 
 .headerSection {
@@ -19,6 +19,7 @@
   text-align: center;
   max-width: 42rem;
   justify-self: center;
+  margin-bottom: 4rem;
 }
 
 .headerSection h1 {
