@@ -32,14 +32,12 @@ TEMP
   grid-template-rows: 1fr auto;
 }
 
-
 .header {
   display: flex;
   justify-content: flex-end;
   color: white;
   padding: 2rem 0;
 }
-
 
 .heroBackgroundContainer {
   pointer-events: none;
@@ -295,7 +293,6 @@ TEMP
     gap: 1.6rem;
     width: 100%;
   }
-
 }
 
 @media bp-medium {

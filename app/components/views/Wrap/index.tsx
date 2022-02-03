@@ -4,7 +4,6 @@ import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
 import FlipIcon from "@material-ui/icons/Flip";
 import { SvgIcon } from "@mui/material";
 
-
 // Copied from Stake view despite T/t
 import T from "@klimadao/lib/theme/typography.module.css";
 import styles from "components/views/Stake/index.module.css";
@@ -102,12 +101,10 @@ export const Wrap: FC<Props> = (props) => {
   };
 
   const showRelevantBalance = () => {
-    if (view === "wrap")
-      return trimWithPlaceholder(balances?.sklima, 4);
+    if (view === "wrap") return trimWithPlaceholder(balances?.sklima, 4);
 
-    if (view === "unwrap")
-      return trimWithPlaceholder(balances?.wsklima, 4);
-  }
+    if (view === "unwrap") return trimWithPlaceholder(balances?.wsklima, 4);
+  };
 
   const getButtonProps = () => {
     const value = Number(quantity || "0");
@@ -139,13 +136,21 @@ export const Wrap: FC<Props> = (props) => {
       };
     } else if (view === "wrap") {
       return {
-        children: value ? (<Trans id="button.wrap">Wrap</Trans>) : <Trans>Enter Amount</Trans>,
+        children: value ? (
+          <Trans id="button.wrap">Wrap</Trans>
+        ) : (
+          <Trans>Enter Amount</Trans>
+        ),
         onClick: handleAction("wrap"),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
     } else if (view === "unwrap") {
       return {
-        children: value ? (<Trans id="button.unwrap">Unwrap</Trans>) : <Trans>Enter Amount</Trans>,
+        children: value ? (
+          <Trans id="button.unwrap">Unwrap</Trans>
+        ) : (
+          <Trans>Enter Amount</Trans>
+        ),
         onClick: handleAction("unwrap"),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
@@ -210,8 +215,8 @@ export const Wrap: FC<Props> = (props) => {
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
         <h2 className={T.h4}>
-          <SvgIcon component={FlipIcon} fontSize="inherit" />
-          {" "}Wrap sKLIMA</h2>
+          <SvgIcon component={FlipIcon} fontSize="inherit" /> Wrap sKLIMA
+        </h2>
         <p className={T.body2}>
           <Trans id="msg.wsklima">
             wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may
@@ -245,7 +250,6 @@ export const Wrap: FC<Props> = (props) => {
             unwrap
           </button>
         </div>
-
 
         <div className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
@@ -290,7 +294,6 @@ export const Wrap: FC<Props> = (props) => {
           </button>
         </div>
       </div>
-
 
       {address && (
         <div className={styles.dataContainer_address}>
@@ -382,11 +385,12 @@ export const Wrap: FC<Props> = (props) => {
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
             YOU WILL GET
-            <TextInfoTooltip
-              singleton={singleton}
-              content=""
-            >
-              <div tabIndex={0} style={{ visibility: "hidden" }} className={styles.infoIconWrapper}>
+            <TextInfoTooltip singleton={singleton} content="">
+              <div
+                tabIndex={0}
+                style={{ visibility: "hidden" }}
+                className={styles.infoIconWrapper}
+              >
                 <InfoOutlined />
               </div>
             </TextInfoTooltip>

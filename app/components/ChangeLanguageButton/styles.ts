@@ -3,7 +3,6 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
 
 export const changeLanguageButton = css`
-
   ${breakpoints.small} {
     right: -0.2rem;
     display: flex;
@@ -17,7 +16,8 @@ export const changeLanguageButton = css`
     align-content: center;
   }
 
-// `;
+  //
+`;
 
 export const tooltip = css`
   ${typography.caption};
@@ -39,4 +39,3 @@ export const menuItem = css`
     color: var(--klima-green);
   }
 `;
-

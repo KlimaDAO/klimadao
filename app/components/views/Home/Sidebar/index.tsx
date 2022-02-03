@@ -13,8 +13,6 @@ import Hidden from "@material-ui/core/Hidden";
 import { primaryLinks, secondaryLinks } from "./constants";
 import { Link, useLocation } from "react-router-dom";
 
-
-
 const primaryLinksList = (path: string) =>
   primaryLinks({
     path,
@@ -34,7 +32,8 @@ const SideBar = (props: Props) => {
 
   const { pathname } = useLocation();
 
-  const prettyAddress = address?.substring(0, 4) + "..." + address?.substring(address.length - 4);
+  const prettyAddress =
+    address?.substring(0, 4) + "..." + address?.substring(address.length - 4);
 
   const drawer = (
     <div className={styles.drawerContainer}>
@@ -53,7 +52,9 @@ const SideBar = (props: Props) => {
       <List>
         <ListItem classes={{ root: styles.walletInfo }}>
           <span className={styles.primaryText}>Your Wallet Address:</span>
-          <span className={styles.secondaryText}>{address ? prettyAddress : "not connected"}</span>
+          <span className={styles.secondaryText}>
+            {address ? prettyAddress : "not connected"}
+          </span>
         </ListItem>
       </List>
       <Divider classes={{ root: styles.divider }} />
@@ -73,8 +74,9 @@ const SideBar = (props: Props) => {
             >
               <ListItemIcon
                 classes={{
-                  root: `${styles.listItemIcon} ${dataActive && styles.listItemIconSelected
-                    }`,
+                  root: `${styles.listItemIcon} ${
+                    dataActive && styles.listItemIconSelected
+                  }`,
                 }}
               >
                 <LinkIcon />
@@ -174,8 +176,9 @@ const SideBar = (props: Props) => {
             >
               <ListItemIcon
                 classes={{
-                  root: `${styles.listItemIcon} ${dataActive && styles.listItemIconSelected
-                    }`,
+                  root: `${styles.listItemIcon} ${
+                    dataActive && styles.listItemIconSelected
+                  }`,
                 }}
               >
                 <LinkIcon />

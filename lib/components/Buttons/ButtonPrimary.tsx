@@ -8,7 +8,7 @@ interface PropsBase {
 }
 interface PropsButton
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  PropsBase {
+    PropsBase {
   onClick: () => void;
   href?: never;
   variant?: "gray";
@@ -16,7 +16,7 @@ interface PropsButton
 }
 interface PropsLink
   extends PropsBase,
-  React.AnchorHTMLAttributes<HTMLAnchorElement> {
+    React.AnchorHTMLAttributes<HTMLAnchorElement> {
   onClick?: never;
   href: string;
   variant?: "gray" | null;

@@ -34,7 +34,7 @@
   font-size: 1.2rem;
 }
 
-.stakeCard_header h2{
+.stakeCard_header h2 {
   font-size: 2.4rem;
 }
 
@@ -197,9 +197,8 @@
   font-family: var(--font-family-heading);
 }
 
-
 .dataContainer_label > div {
-  margin-left: -.3rem;
+  margin-left: -0.3rem;
 }
 
 .dataContainer_value {
