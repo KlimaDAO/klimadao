@@ -13,20 +13,28 @@ import Hidden from "@material-ui/core/Hidden";
 import { primaryLinks, secondaryLinks } from "./constants";
 import { Link, useLocation } from "react-router-dom";
 
+
+
 const primaryLinksList = (path: string) =>
   primaryLinks({
     path,
   });
 
+interface Props {
+  address?: string;
+}
 // make some of this more typescript-y
 // double check styles (sizing & spacing) compared to wireframe
-const SideBar: FC = () => {
+const SideBar = (props: Props) => {
+  const { address } = props;
   // this state and setter needs to live in the parent component and just
   // pass in the toggle function, once a button is created in the parent
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(true);
   const handleDrawerToggle = () => setMobileDrawerOpen(!mobileDrawerOpen);
 
   const { pathname } = useLocation();
+
+  const prettyAddress = address?.substring(0, 4) + "..." + address?.substring(address.length - 4);
 
   const drawer = (
     <div className={styles.drawerContainer}>
@@ -45,7 +53,7 @@ const SideBar: FC = () => {
       <List>
         <ListItem classes={{ root: styles.walletInfo }}>
           <span className={styles.primaryText}>Your Wallet Address:</span>
-          <span className={styles.secondaryText}>0x09&_0xxxxx</span>
+          <span className={styles.secondaryText}>{address ? prettyAddress : "not connected"}</span>
         </ListItem>
       </List>
       <Divider classes={{ root: styles.divider }} />

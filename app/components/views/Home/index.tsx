@@ -297,7 +297,7 @@ export const Home: FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <Sidebar />
+        <Sidebar address={address} />
         <div className={styles.heroBackgroundContainer}>
           <div className={styles.heroGradient} />
         </div>
