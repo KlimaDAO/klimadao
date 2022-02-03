@@ -61,7 +61,6 @@ export const Navigation: FC<Props> = (props) => {
         <NavItemMobile
           url={"/"}
           name={t({ message: "Home", id: "mainNav.home" })}
-          link={Link}
         />
         <NavItemMobile
           url={urls.tutorial}
@@ -77,7 +76,7 @@ export const Navigation: FC<Props> = (props) => {
           url={urls.bond}
           name={t({ message: "Bond", id: "mainNav.bond" })}
         />
-        <NavItemMobile url="/blog" name={t`Resources`} link={Link} />
+        <NavItemMobile url="/blog" name={t`Resources`} />
       </HeaderMobile>
     </>
   );
