@@ -6,106 +6,118 @@ import {
   HeaderMobile,
   NavItemMobile,
   ButtonPrimary,
-  PageWrap,
-  Footer,
 } from "@klimadao/lib/components";
-import BlockContent from "@sanity/block-content-to-react";
+import { Text } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
+
+import { Post } from "lib/queries";
+import { IS_PRODUCTION } from "lib/constants";
+import { PageHead } from "components/PageHead";
+import { Footer } from "components/Footer";
+import { t } from "@lingui/macro";
+import Link from "next/link";
+import BlockContentRenderer from "components/BlockContentRenderer";
+import defaultImage from "public/og-media.jpg";
 
 import styles from "./index.module.css";
-import { Post } from "lib/queries";
-import { PageHead } from "components/PageHead";
-import { urls } from "@klimadao/lib/constants";
-import { IS_PRODUCTION } from "lib/constants";
 
 interface PostProps {
-  post: Post;
+  post?: Post;
 }
 
 export function PostPage(props: PostProps) {
-  if (!props.post) {
-    return <div>fallback page...</div>;
-  }
-  const date = new Date(props.post.publishedAt).toDateString();
+  const body = props.post ? (
+    <div className={styles.container}>
+      <div className={styles.banner}>
+        <div className={styles.bannerImage}>
+          <Image
+            priority={true}
+            src={props.post.imageUrl || defaultImage}
+            alt={props.post.title}
+            objectFit="cover"
+            layout="fill"
+          />
+        </div>
+      </div>
+      <section className={styles.blogContainer}>
+        <div className={styles.content}>
+          <Text t="h1" as="h1">
+            {props.post.title}
+          </Text>
+          <Text className={styles.date}>
+            Published {new Date(props.post.publishedAt).toDateString()}
+          </Text>
+          <BlockContentRenderer blocks={props.post.body} />
+        </div>
+      </section>
+    </div>
+  ) : (
+    <div className={styles.fallbackContainer}>
+      <Text className={styles.loadingArticle}>Loading article...</Text>
+    </div>
+  );
 
-  const serializers = {
-    types: {
-      image: (props: any) => {
-        return (
-          <div className={styles.inlineImage}>
-            <Image
-              src={props.node.asset.url}
-              alt="inline image"
-              objectFit="contain"
-              width={320}
-              height={240}
-            />
-          </div>
-        );
-      },
-    },
-  };
   return (
     <>
-      <PageHead
-        production={IS_PRODUCTION}
-        title={props.post.title}
-        mediaTitle={props.post.title}
-        metaDescription={props.post.summary}
-        mediaImageSrc={props.post.imageUrl}
-      />
-      <PageWrap>
-        <HeaderDesktop
-          buttons={[
-            <ButtonPrimary key="Enter App" label="Enter App" href={urls.app} />,
-          ]}
-        >
-          <NavItemDesktop url={urls.home} name="Home" active={true} />
-          <NavItemDesktop
-            url={urls.tutorial}
-            name="Buy Klima"
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <NavItemDesktop url={urls.stake} name="Stake" />
-          <NavItemDesktop url={urls.wrap} name="Wrap" />
-          <NavItemDesktop url={urls.bond} name="Bond" />
-        </HeaderDesktop>
-        <HeaderMobile>
-          <NavItemMobile url={urls.home} name="Home" />
-          <NavItemMobile
-            url={urls.tutorial}
-            name="Buy Klima"
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <NavItemMobile url={urls.stake} name="Stake" />
-          <NavItemMobile url={urls.stake} name="Wrap" />
-          <NavItemMobile url={urls.bond} name="Bond" />
-        </HeaderMobile>
-        <div className={styles.container}>
-          <div className={styles.banner}>
-            <div className={styles.bannerImage}>
-              <Image
-                src={props.post.imageUrl}
-                alt={props.post.title}
-                objectFit="cover"
-                layout="fill"
-              />
-            </div>
-          </div>
-          <section className={styles.blogContainer}>
-            <div className={styles.content}>
-              <h1 className={styles.title}>{props.post.title}</h1>
-              <p className={styles.date}>Published {date}</p>
-              <BlockContent
-                blocks={props.post.body}
-                serializers={serializers}
-              />
-            </div>
-          </section>
-        </div>
-        <Footer />
-      </PageWrap>
+      {props.post && (
+        <PageHead
+          production={IS_PRODUCTION}
+          title={props.post.title}
+          mediaTitle={props.post.title}
+          metaDescription={props.post.summary}
+          mediaImageSrc={props.post.imageUrl}
+        />
+      )}
+      <HeaderDesktop
+        link={Link}
+        buttons={[
+          <ButtonPrimary
+            key="Enter App"
+            label={t`Enter App`}
+            href={urls.app}
+          />,
+        ]}
+      >
+        <NavItemDesktop
+          url={"/"}
+          name={t({ message: "Home", id: "mainNav.home" })}
+          link={Link}
+        />
+        <NavItemDesktop
+          url={urls.tutorial}
+          name={t`Get Klima`}
+          rel="noopener noreferrer"
+          target="_blank"
+        />
+        <NavItemDesktop
+          url={urls.stake}
+          name={t({ message: "Stake", id: "mainNav.stake" })}
+        />
+        <NavItemDesktop
+          url={urls.bond}
+          name={t({ message: "Bond", id: "mainNav.bond" })}
+        />
+        <NavItemDesktop
+          url="/resources"
+          name={t`Resources`}
+          link={Link}
+          active={true}
+        />
+      </HeaderDesktop>
+      <HeaderMobile>
+        <NavItemMobile url={urls.home} name="Home" />
+        <NavItemMobile
+          url={urls.tutorial}
+          name="Buy Klima"
+          target="_blank"
+          rel="noreferrer noopener"
+        />
+        <NavItemMobile url={urls.stake} name="Stake" />
+        <NavItemMobile url={urls.stake} name="Wrap" />
+        <NavItemMobile url={urls.bond} name="Bond" />
+      </HeaderMobile>
+      {body}
+      <Footer />
     </>
   );
 }

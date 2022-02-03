@@ -5,7 +5,7 @@ import { WebFonts } from "@klimadao/lib/components";
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className="theme-light">
         <Head>
           <WebFonts />
         </Head>
