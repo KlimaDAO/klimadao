@@ -1,6 +1,9 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
+import FlipIcon from "@material-ui/icons/Flip";
+import { SvgIcon } from "@mui/material";
+
 
 // Copied from Stake view despite T/t
 import T from "@klimadao/lib/theme/typography.module.css";
@@ -98,6 +101,14 @@ export const Wrap: FC<Props> = (props) => {
     return !!allowances && !!Number(allowances.sklima);
   };
 
+  const showRelevantBalance = () => {
+    if (view === "wrap")
+      return trimWithPlaceholder(balances?.sklima, 4);
+
+    if (view === "unwrap")
+      return trimWithPlaceholder(balances?.wsklima, 4);
+  }
+
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
@@ -128,13 +139,13 @@ export const Wrap: FC<Props> = (props) => {
       };
     } else if (view === "wrap") {
       return {
-        children: <Trans id="button.wrap">Wrap</Trans>,
+        children: value ? (<Trans id="button.wrap">Wrap</Trans>) : <Trans>Enter Amount</Trans>,
         onClick: handleAction("wrap"),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
     } else if (view === "unwrap") {
       return {
-        children: <Trans id="button.unwrap">Unwrap</Trans>,
+        children: value ? (<Trans id="button.unwrap">Unwrap</Trans>) : <Trans>Enter Amount</Trans>,
         onClick: handleAction("unwrap"),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
@@ -199,12 +210,8 @@ export const Wrap: FC<Props> = (props) => {
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
         <h2 className={T.h4}>
-          <img
-            src="/icons/stake-icon.png"
-            alt="Stake Klima Icon"
-            className={styles.stakeIcon}
-          />
-          Wrap sKLIMA</h2>
+          <SvgIcon component={FlipIcon} fontSize="inherit" />
+          {" "}Wrap sKLIMA</h2>
         <p className={T.body2}>
           <Trans id="msg.wsklima">
             wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may
@@ -257,8 +264,8 @@ export const Wrap: FC<Props> = (props) => {
               condition={!isConnected}
               placeholder={`NOT CONNECTED`}
             >
-              <span>{trimWithPlaceholder(balances?.klima, 4)}</span>{" "}
-              <span>KLIMA</span>
+              <span>{showRelevantBalance()}</span>
+              <span>{view === "unwrap" && "w"}sKLIMA</span>
             </WithPlaceholder>
           </div>
         </div>

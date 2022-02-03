@@ -297,21 +297,19 @@ export const Home: FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <Sidebar />
+        <Sidebar address={address} />
         <div className={styles.heroBackgroundContainer}>
           <div className={styles.heroGradient} />
         </div>
+        <header className={styles.header}>
+          {!IS_PRODUCTION && <ChangeLanguageButton />}
+          <WalletAction
+            isConnected={isConnected}
+            loadWeb3Modal={loadWeb3Modal}
+            disconnect={disconnect}
+          />
+        </header>
         <div className={styles.heroSection}>
-          <header className={styles.header}>
-            <div className={styles.header_leftCol}>
-            </div>
-            <WalletAction
-              isConnected={isConnected}
-              loadWeb3Modal={loadWeb3Modal}
-              disconnect={disconnect}
-            />
-            {!IS_PRODUCTION && <ChangeLanguageButton />}
-          </header>
           <main className={styles.main}>
             <Routes>
               <Route
@@ -388,7 +386,27 @@ export const Home: FC = () => {
             {/* <div className={styles.invisibleColumn}>
               {<Nav links={links} chainId={chainId} />}
             </div> */}
+            {/* <div className={styles.rightContainer}> */}
+            {/* </div> */}
           </main>
+          <div id={styles.balances} className={styles.secondaryContainer}>
+            <h3>Balances</h3>
+            <h1>0</h1>
+            <h2>Klima</h2>
+            <h1>122.5367</h1>
+            <h2>sKLIMA</h2>
+          </div>
+          <div id={styles.rebase} className={styles.secondaryContainer}>
+            <h2>Rebase</h2>
+            <h1>0.54%</h1>
+            <h3>Next rebase</h3>
+            <h1>5hrs 30m</h1>
+            <h3>Time until rebase</h3>
+          </div>
+          <div id={styles.newKlima} className={styles.secondaryContainer}>
+            <h3>New to KLIMA?</h3>
+            <h2>How to get started</h2>
+          </div>
         </div>
       </div>
       <InvalidNetworkModal provider={provider} />
