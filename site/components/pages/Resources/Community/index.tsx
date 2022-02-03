@@ -59,7 +59,7 @@ export const Community: NextPage<Props> = ({}) => {
             <Text t="h2" as="h2" align="center">
               <Trans>BECOME A PARTNER</Trans>
             </Text>
-            <Text t="body2" align="center">
+            <Text t="body3" align="center">
               <Trans>
                 KlimaDAO harnesses the power of cryptocurrency, blockchain and
                 smart contracts to create
@@ -155,7 +155,7 @@ export const Community: NextPage<Props> = ({}) => {
               <Trans>Discord</Trans>
             </Text>
             <Text
-              t="body2"
+              t="body3"
               color="lighter"
               align="center"
               className="padding20"
@@ -190,7 +190,7 @@ export const Community: NextPage<Props> = ({}) => {
             <Text t="h2" as="h2">
               <Trans>Get in touch?</Trans>
             </Text>
-            <Text t="body2" color="lighter" align="center">
+            <Text t="body3" color="lighter" align="center">
               <Trans>
                 KlimaDAO harnesses the power of cryptocurrency, blockchain and
                 smart contracts to create

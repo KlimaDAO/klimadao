@@ -69,7 +69,7 @@ export const Home: NextPage<Props> = (props) => {
                   KlimaDAO
                 </Text>
               </div>
-              <Text t="body2">
+              <Text t="body3">
                 <Trans>
                   Fight climate change and earn rewards with KLIMA, a digital
                   currency backed by real carbon assets.
@@ -109,7 +109,7 @@ export const Home: NextPage<Props> = (props) => {
               </Trans>
             </Text>
             <div className="blackHole_columns">
-              <Text t="body2" color="lighter">
+              <Text t="body3" color="lighter">
                 <Trans>
                   We’ve kickstarted a{" "}
                   <span>decentralized and open market for carbon</span>. Our
@@ -117,7 +117,7 @@ export const Home: NextPage<Props> = (props) => {
                   participate in and govern this new economy.
                 </Trans>
               </Text>
-              <Text t="body2" color="lighter">
+              <Text t="body3" color="lighter">
                 <Trans>
                   By increasing access and demand for carbon offsets, we make
                   pro-climate projects more profitable, while forcing companies
@@ -136,7 +136,7 @@ export const Home: NextPage<Props> = (props) => {
             <Text t="h2" as="h2">
               <Trans>MECHANICS</Trans>
             </Text>
-            <Text t="body2">
+            <Text t="body3">
               <Trans>
                 The DAO sells bonds and distributes profits to KLIMA holders.
                 Every bond we sell adds to an ever-growing green treasury, or
@@ -320,7 +320,7 @@ export const Home: NextPage<Props> = (props) => {
                 <Text t="h4" color="lightest" uppercase>
                   Of the carbon economy
                 </Text>
-                <Text t="body2" color="lighter">
+                <Text t="body3" color="lighter">
                   Every KLIMA token is backed by a real-world carbon asset.
                   Tokens are used to offset carbon emissions, interact with DeFi
                   applications, and get exposure to the rapidly growing global
@@ -339,7 +339,7 @@ export const Home: NextPage<Props> = (props) => {
                 <Text t="h4" color="lightest" uppercase>
                   FOR TOKEN HOLDERS
                 </Text>
-                <Text t="body2" color="lighter">
+                <Text t="body3" color="lighter">
                   KLIMA tokens are minted and distributed automatically every ~7
                   hours to staked KLIMA holders. Grow your KLIMA holdings as we
                   usher in a more sustainable future together.
@@ -356,7 +356,7 @@ export const Home: NextPage<Props> = (props) => {
             <Text t="h2" as="h2">
               <Trans>GET KLIMA</Trans>
             </Text>
-            <Text t="body2" color="lighter">
+            <Text t="body3" color="lighter">
               <Trans>
                 Get exposure to the growing carbon economy today. Acquire,
                 stake, and get rewarded. Financial activism for the climate.
@@ -386,7 +386,7 @@ export const Home: NextPage<Props> = (props) => {
             <Text t="h2" as="h2" uppercase>
               <Trans>Newsletter</Trans>
             </Text>
-            <Text t="body2" color="lighter">
+            <Text t="body3" color="lighter">
               <Trans>
                 Get the latest updates on Klima, as we build the future of the
                 carbon economy.
