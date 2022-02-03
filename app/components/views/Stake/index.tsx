@@ -213,13 +213,11 @@ export const Stake = (props: Props) => {
     }
   };
 
-
   const showSpinner =
     isConnected &&
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
-
 
   return (
     <div className={styles.stakeCard}>

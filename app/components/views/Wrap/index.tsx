@@ -163,7 +163,6 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
-
   const youWillGet = () => {
     if (!quantity || !currentIndex) return "0";
     if (view === "wrap") {

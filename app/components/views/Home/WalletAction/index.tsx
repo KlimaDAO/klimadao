@@ -29,7 +29,6 @@ const WalletAction: FC<WalletProps> = ({
         onClick={disconnect}
       >
         Disconnect
-
       </button>
     </TextInfoTooltip>
   );
