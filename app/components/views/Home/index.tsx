@@ -303,13 +303,12 @@ export const Home: FC = () => {
         </div>
         <div className={styles.heroSection}>
           <header className={styles.header}>
-            {/* <div className={styles.header_leftCol}></div> */}
-            {/* <WalletAction
+            {!IS_PRODUCTION && <ChangeLanguageButton />}
+            <WalletAction
               isConnected={isConnected}
               loadWeb3Modal={loadWeb3Modal}
               disconnect={disconnect}
-            /> */}
-            {/* {!IS_PRODUCTION && <ChangeLanguageButton />} */}
+            />
           </header>
           <main className={styles.main}>
             <Routes>
