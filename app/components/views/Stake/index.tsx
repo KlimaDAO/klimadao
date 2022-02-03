@@ -139,6 +139,16 @@ export const Stake = (props: Props) => {
       return prettifySeconds(locale, seconds);
     }
   };
+
+  const showRelevantBalance = () => {
+    if (view === "stake") {
+      return trimWithPlaceholder(balances?.klima, 4);
+    }
+    if (view === "unstake") {
+      return trimWithPlaceholder(balances?.sklima, 4);
+    }
+  }
+
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
@@ -342,8 +352,8 @@ export const Stake = (props: Props) => {
               condition={!isConnected}
               placeholder={`NOT CONNECTED`}
             >
-              <span>{trimWithPlaceholder(balances?.klima, 4)}</span>{" "}
-              <span>KLIMA</span>
+              <span>{showRelevantBalance()}</span>
+              <span>{view === "unstake" && "s"}KLIMA</span>
             </WithPlaceholder>
           </div>
         </div>

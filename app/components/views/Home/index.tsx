@@ -301,15 +301,15 @@ export const Home: FC = () => {
         <div className={styles.heroBackgroundContainer}>
           <div className={styles.heroGradient} />
         </div>
+        <header className={styles.header}>
+          {!IS_PRODUCTION && <ChangeLanguageButton />}
+          <WalletAction
+            isConnected={isConnected}
+            loadWeb3Modal={loadWeb3Modal}
+            disconnect={disconnect}
+          />
+        </header>
         <div className={styles.heroSection}>
-          <header className={styles.header}>
-            {!IS_PRODUCTION && <ChangeLanguageButton />}
-            <WalletAction
-              isConnected={isConnected}
-              loadWeb3Modal={loadWeb3Modal}
-              disconnect={disconnect}
-            />
-          </header>
           <main className={styles.main}>
             <Routes>
               <Route
