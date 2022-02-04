@@ -12,6 +12,9 @@ import {
 
 import { urls } from "@klimadao/lib/constants";
 
+// dynamic import for ThemeToggle as its reads the document and localStorage of Browser
+// see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
+
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
 type PageName = "Home" | "Resources";
