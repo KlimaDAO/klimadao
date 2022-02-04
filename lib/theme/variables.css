@@ -26,7 +26,7 @@ body[data-theme="theme-light"] {
 body[data-theme="theme-dark"] {
   --surface-01: #2a2a2a;
   --surface-02: #202020;
-  --font-01: #FFFFFF;
-  --font-02: #DDDDDD;
-  --font-03: #9C9C9C;
+  --font-01: #ffffff;
+  --font-02: #dddddd;
+  --font-03: #9c9c9c;
 }
