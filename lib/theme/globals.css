@@ -5,6 +5,7 @@
     sans-serif;
   padding: 0;
   margin: 0;
+  transition: background 0.25s ease-in-out; /* Transition for theme toggle */
 }
 
 html {
@@ -13,7 +14,6 @@ html {
 
 body {
   font-size: 1.6rem; /* ~16px */
-  background-color: darkgray;
   overflow-x: hidden;
 }
 
