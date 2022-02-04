@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { t } from "@lingui/macro";
 import {
   HeaderDesktop,
@@ -10,6 +11,8 @@ import {
 } from "@klimadao/lib/components";
 
 import { urls } from "@klimadao/lib/constants";
+
+const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
 type PageName = "Home" | "Resources";
 
@@ -23,6 +26,7 @@ export const Navigation: FC<Props> = (props) => {
       <HeaderDesktop
         link={Link}
         buttons={[
+          <ThemeToggle key="ThemeToggle" />,
           <ButtonPrimary
             key="Enter App"
             label={t`Enter App`}
