@@ -14,7 +14,8 @@
   --shadow-06: 0px 4.2px 37px rgba(0, 0, 0, 0.08);
 }
 
-:root.theme-light {
+body,
+body[data-theme="theme-light"] {
   --surface-01: #ffffff;
   --surface-02: #f5f5f7;
   --font-01: #313131;
@@ -22,10 +23,10 @@
   --font-03: #a1a1a1;
 }
 
-:root.theme-dark {
+body[data-theme="theme-dark"] {
   --surface-01: #2a2a2a;
   --surface-02: #202020;
-  --font-01: #313131;
-  --font-02: #767676;
-  --font-03: #9c9c9c;
+  --font-01: #FFFFFF;
+  --font-02: #DDDDDD;
+  --font-03: #9C9C9C;
 }
