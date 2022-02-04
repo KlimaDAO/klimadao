@@ -61,7 +61,7 @@ export const Navigation: FC<Props> = (props) => {
           active={props.activePage === "Resources"}
         />
       </HeaderDesktop>
-      <HeaderMobile>
+      <HeaderMobile buttons={[<ThemeToggle key="ThemeToggle" />]}>
         <NavItemMobile
           url={urls.home}
           name={t({ message: "Home", id: "mainNav.home" })}

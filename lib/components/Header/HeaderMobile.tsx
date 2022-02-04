@@ -25,6 +25,9 @@ export const HeaderMobile: FC<Props> = (props) => {
         <a href={urls.home}>
           <LogoWithClaim />
         </a>
+        {props.buttons && (
+          <div className={styles.navMain_Buttons}>{props.buttons}</div>
+        )}
         <ToggleNavButton
           isToggled={isToggled}
           onClick={() => setIsToggled((isToggled) => !isToggled)}
