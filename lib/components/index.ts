@@ -14,3 +14,4 @@ export { ToggleNavButton } from "./Navigation/ToggleNavButton";
 export { ButtonPrimary } from "./Buttons/ButtonPrimary";
 export { LogoWithClaim } from "./Logos/LogoWithClaim";
 export { Text } from "./Text";
+export { ThemeToggle } from "./ThemeToggle";
