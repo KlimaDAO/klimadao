@@ -49,10 +49,15 @@ export const heroSection = css`
     justify-items: center;
     row-gap: 0.8rem;
     align-content: center;
+
+    p {
+      font-size: 1.5rem;
+    }
   }
 
   .hero_learnMore svg {
     font-size: 2rem;
+    fill: var(--font-01);
   }
 
   .hero_button {
