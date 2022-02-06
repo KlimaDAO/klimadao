@@ -89,34 +89,68 @@ export const Community: NextPage<Props> = ({}) => {
           </div>
           <div className={styles.partner_logos}>
             <div className="partner_logo">
-              <Image alt={t`MOSS logo`} src={mossLogo} />
+              <a href="https://moss.earth/" target="_blank" rel="noreferrer">
+                <Image alt={t`MOSS logo`} src={mossLogo} />
+              </a>
             </div>
             <div className="partner_logo">
-              <Image alt={t`Toucan logo`} src={toucanLogo} />
+              <a href="https://toucan.earth/" target="_blank" rel="noreferrer">
+                <Image alt={t`Toucan logo`} src={toucanLogo} />
+              </a>
             </div>
             <div className="partner_logo">
-              <Image
-                alt={t`Blockchain for Climate Foundation logo`}
-                src={bcfcLogo}
-              />
+              <a
+                href="https://www.blockchainforclimate.org/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  alt={t`Blockchain for Climate Foundation logo`}
+                  src={bcfcLogo}
+                />
+              </a>
             </div>
             <div className="partner_logo">
-              <Image alt={t`BICOWG logo`} src={bicoWgLogo} />
+              <a
+                href="https://twitter.com/BICOWG"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image alt={t`BICOWG logo`} src={bicoWgLogo} />
+              </a>
             </div>
             <div className="partner_logo">
-              <Image alt={t`Polygon logo`} src={polygonLogo} />
+              <a
+                href="https://polygon.technology/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image alt={t`Polygon logo`} src={polygonLogo} />
+              </a>
             </div>
             <div className="partner_logo">
-              <Image alt={t`Oceandrop logo`} src={oceandropLogo} />
+              <a href="https://oceandrop.art/" target="_blank" rel="noreferrer">
+                <Image alt={t`Oceandrop logo`} src={oceandropLogo} />
+              </a>
             </div>
             <div className="partner_logo">
-              <Image alt={t`Gitcoin logo`} src={gitcoinLogo} />
+              <a href="https://gitcoin.co/" target="_blank" rel="noreferrer">
+                <Image alt={t`Gitcoin logo`} src={gitcoinLogo} />
+              </a>
             </div>
             <div className="partner_logo">
-              <Image alt={t`OlympusDAO logo`} src={olympusLogo} />
+              <a
+                href="https://www.olympusdao.finance/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image alt={t`OlympusDAO logo`} src={olympusLogo} />
+              </a>
             </div>
             <div className="partner_logo">
-              <Image alt={t`Open Earth logo`} src={openearthLogo} />
+              <a href="https://openearth.org/" target="_blank" rel="noreferrer">
+                <Image alt={t`Open Earth logo`} src={openearthLogo} />
+              </a>
             </div>
           </div>
         </div>
