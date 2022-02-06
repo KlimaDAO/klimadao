@@ -36,7 +36,7 @@ export const ChangeLanguageButton: FC = () => {
   };
 
   const content = (
-    <div className={styles.menuItemContainer}>
+    <div>
       {Object.keys(locales).map((localeKey) => (
         <button
           key={localeKey}

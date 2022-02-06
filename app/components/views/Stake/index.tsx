@@ -4,6 +4,7 @@ import { providers } from "ethers";
 import { selectNotificationStatus } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { SvgIcon } from "@mui/material";
 
 import {
   changeApprovalTransaction,
@@ -65,15 +66,7 @@ export const Stake = (props: Props) => {
   const [quantity, setQuantity] = useState("");
   const [singletonSource, singleton] = useTooltipSingleton();
 
-  const {
-    fiveDayRate,
-    currentIndex,
-    stakingRebase,
-    stakingAPY,
-    currentBlock,
-    rebaseBlock,
-    locale,
-  } = useSelector(selectAppState);
+  const { fiveDayRate, currentIndex, stakingAPY } = useSelector(selectAppState);
 
   const stakeAllowance = useSelector(selectStakeAllowance);
   const balances = useSelector(selectBalances);
@@ -81,13 +74,8 @@ export const Stake = (props: Props) => {
   const isLoading =
     !stakeAllowance || typeof stakeAllowance.klima === "undefined";
 
-  const nextRebasePercent = stakingRebase && stakingRebase * 100;
   const fiveDayRatePercent = fiveDayRate && fiveDayRate * 100;
   const stakingAPYPercent = stakingAPY && stakingAPY * 100;
-  const nextRebaseValue =
-    stakingRebase &&
-    balances?.sklima &&
-    stakingRebase * Number(balances.sklima);
 
   const setMax = () => {
     setStatus(null);
@@ -182,13 +170,21 @@ export const Stake = (props: Props) => {
       };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
-        children: <Trans id="button.stake">Stake</Trans>,
+        children: value ? (
+          <Trans id="button.stake">Stake Klima</Trans>
+        ) : (
+          <Trans>Enter Amount</Trans>
+        ),
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
-        children: <Trans id="button.unstake">Unstake</Trans>,
+        children: value ? (
+          <Trans id="button.unstake">Unstake Klima</Trans>
+        ) : (
+          <Trans>Enter Amount</Trans>
+        ),
         onClick: handleStake("unstake"),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),
@@ -241,6 +237,32 @@ export const Stake = (props: Props) => {
             Unstake
           </button>
         </div>
+
+        <div className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            <Trans>BALANCE</Trans>
+            <TextInfoTooltip
+              singleton={singleton}
+              content={i18n._("stake.balance.tooltip")}
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.klimaBalanceBar}>
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder={`NOT CONNECTED`}
+            >
+              <span>{showRelevantBalance()}</span>
+              <span>{view === "unstake" && "s"}KLIMA</span>
+            </WithPlaceholder>
+          </div>
+        </div>
+
+        <div className={styles.dataContainer_label}>STAKE KLIMA</div>
+
         <div className={styles.stakeInput}>
           <input
             className={styles.stakeInput_input}
@@ -265,12 +287,12 @@ export const Stake = (props: Props) => {
         </div>
       </div>
 
+      {address && (
+        <div className={styles.dataContainer_address}>
+          {concatAddress(address)}
+        </div>
+      )}
       <ul className={styles.dataContainer}>
-        {address && (
-          <li className={styles.dataContainer_address}>
-            {concatAddress(address)}
-          </li>
-        )}
         {singletonSource}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
@@ -415,19 +437,17 @@ export const Stake = (props: Props) => {
         </li>
       </ul>
       <div className={styles.buttonRow}>
-        <div />
         {showSpinner ? (
           <div className={styles.buttonRow_spinner}>
             <Spinner />
           </div>
         ) : (
-          <div />
+          <button
+            type="button"
+            className={styles.submitButton}
+            {...getButtonProps()}
+          />
         )}
-        <button
-          type="button"
-          className={styles.submitButton}
-          {...getButtonProps()}
-        />
       </div>
     </div>
   );

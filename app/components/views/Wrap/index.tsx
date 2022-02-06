@@ -21,7 +21,7 @@ import {
 import { decrementWrap, incrementWrap, setWrapAllowance } from "state/user";
 import { useAppDispatch } from "state";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-
+import { i18n } from "@lingui/core";
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
   address?: string;
@@ -104,6 +104,12 @@ export const Wrap: FC<Props> = (props) => {
     return !!allowances && !!Number(allowances.sklima);
   };
 
+  const showRelevantBalance = () => {
+    if (view === "wrap") return trimWithPlaceholder(balances?.sklima, 4);
+
+    if (view === "unwrap") return trimWithPlaceholder(balances?.wsklima, 4);
+  };
+
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
@@ -150,11 +156,6 @@ export const Wrap: FC<Props> = (props) => {
   const inputPlaceholder =
     view === "wrap" ? "sKLIMA to wrap" : "wsKLIMA to unwrap";
 
-  const indexAdjustedBalance =
-    !!currentIndex && typeof balances?.wsklima !== "undefined"
-      ? Number(balances.wsklima) * Number(currentIndex)
-      : undefined;
-
   return (
     <div className={styles.stakeCard}>
       <div className={styles.stakeCard_header}>
@@ -196,6 +197,32 @@ export const Wrap: FC<Props> = (props) => {
             unwrap
           </button>
         </div>
+
+        <div className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            <Trans>BALANCE</Trans>
+            <TextInfoTooltip
+              singleton={singleton}
+              content={i18n._("stake.balance.tooltip")}
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.klimaBalanceBar}>
+            <WithPlaceholder
+              condition={!isConnected}
+              placeholder={`NOT CONNECTED`}
+            >
+              <span>{showRelevantBalance()}</span>
+              <span>{view === "unwrap" && "w"}sKLIMA</span>
+            </WithPlaceholder>
+          </div>
+        </div>
+
+        <div className={styles.dataContainer_label}>WRAP SKLIMA</div>
+
         <div className={styles.stakeInput}>
           <input
             className={styles.stakeInput_input}
@@ -215,16 +242,33 @@ export const Wrap: FC<Props> = (props) => {
         </div>
       </div>
 
+      {address && (
+        <div className={styles.dataContainer_address}>
+          {concatAddress(address)}
+        </div>
+      )}
+
       <ul className={styles.dataContainer}>
-        {address && (
-          <p className={styles.dataContainer_address}>
-            {address.slice(0, 5)}..{address.slice(address.length - 3)}
-          </p>
-        )}
         {singletonSource}
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Balance (staked)
+            CURRENT INDEX
+            <TextInfoTooltip
+              singleton={singleton}
+              content="Amount you would have today, if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
+            >
+              <div tabIndex={0} className={styles.infoIconWrapper}>
+                <InfoOutlined />
+              </div>
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.dataContainer_value}>
+            <span>{trimWithPlaceholder(currentIndex, 4)}</span> sKLIMA
+          </div>
+        </li>
+        <li className={styles.dataContainer_row}>
+          <div className={styles.dataContainer_label}>
+            BALANCE
             <TextInfoTooltip
               singleton={singleton}
               content="Balance of unwrapped, staked KLIMA"
@@ -245,72 +289,13 @@ export const Wrap: FC<Props> = (props) => {
         </li>
         <li className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            Balance (wrapped)
-            <TextInfoTooltip
-              singleton={singleton}
-              content="Balance of wrapped sKLIMA"
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder="NOT CONNECTED"
-            >
-              <span>{trimWithPlaceholder(balances?.wsklima, 4)}</span> wsKLIMA
-            </WithPlaceholder>
-          </div>
-        </li>
-        <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            Current index
-            <TextInfoTooltip
-              singleton={singleton}
-              content="Amount you would have today, if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <span>{trimWithPlaceholder(currentIndex, 4)}</span> sKLIMA
-          </div>
-        </li>
-        <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            Index-adjusted balance
-            <TextInfoTooltip
-              singleton={singleton}
-              content="Unwrapped value of your entire wsKLIMA balance (wsKLIMA * currentIndex)"
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder="NOT CONNECTED"
-            >
-              <span>{trimWithPlaceholder(indexAdjustedBalance, 4)}</span> sKLIMA
-            </WithPlaceholder>
-          </div>
-        </li>
-        <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            You will get
-            <TextInfoTooltip
-              singleton={singleton}
-              content={`Amount you will get after ${
-                view === "wrap" ? "wrapping" : "unwrapping"
-              }`}
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
+            YOU WILL GET
+            <TextInfoTooltip singleton={singleton} content="">
+              <div
+                tabIndex={0}
+                style={{ visibility: "hidden" }}
+                className={styles.infoIconWrapper}
+              >
                 <InfoOutlined />
               </div>
             </TextInfoTooltip>

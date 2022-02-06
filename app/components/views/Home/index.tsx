@@ -5,9 +5,8 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
-import typography from "@klimadao/lib/theme/typography.module.css";
 import { useSelector } from "react-redux";
-import { selectBalances, selectAppState } from "state/selectors";
+import { selectAppState } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
@@ -22,13 +21,11 @@ import { Wrap } from "components/views/Wrap";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
-import { generateLinks, LoadWeb3Modal } from "./constants";
-import Nav from "./Nav";
+import { LoadWeb3Modal } from "./constants";
 import WalletAction from "./WalletAction";
 import MobileMenu from "./MobileMenu";
 import { NotificationModal } from "components/NotificationModal";
 
-import { Trans } from "@lingui/macro";
 import { init } from "lib/i18n";
 
 import styles from "./index.module.css";
@@ -141,7 +138,6 @@ export const Home: FC = () => {
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
   const { pathname } = useLocation();
   const [path, setPath] = useState("");
-  const balances = useSelector(selectBalances);
   const { locale } = useSelector(selectAppState);
 
   useEffect(() => {
@@ -264,55 +260,23 @@ export const Home: FC = () => {
 
   const isConnected = !!address;
 
-  const showPklimaButton = path === "/pklima" || !!Number(balances?.pklima);
-  const showRedeemButton =
-    path === "/redeem" ||
-    !!Number(balances?.aklima) ||
-    !!Number(balances?.alklima);
-
-  // render the nav twice-- on both sides of screen-- but the second one is hidden.
-  // A hack to keep the card centered in the viewport.
-
-  const links = generateLinks({ path, showPklimaButton, showRedeemButton });
-
   return (
     <>
       <div className={styles.container}>
+        <Sidebar address={address} />
         <div className={styles.heroBackgroundContainer}>
-          <img src="/green-wormhole.jpg" alt="" />
           <div className={styles.heroGradient} />
         </div>
+        <header className={styles.header}>
+          {!IS_PRODUCTION && <ChangeLanguageButton />}
+          <WalletAction
+            isConnected={isConnected}
+            loadWeb3Modal={loadWeb3Modal}
+            disconnect={disconnect}
+          />
+        </header>
         <div className={styles.heroSection}>
-          <header className={styles.header}>
-            <div className={styles.header_leftCol}>
-              <div className={styles.logoContainer}>
-                <a href={urls.home} style={{ justifySelf: "start" }}>
-                  <img src="/klima-logo.png" alt="Logo. Go home." />
-                </a>
-              </div>
-              <p className={typography.h6} style={{ maxWidth: "46rem" }}>
-                <Trans id="header.welcome">
-                  Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake
-                  KLIMA to earn interest.
-                </Trans>
-              </p>
-            </div>
-            <MobileMenu
-              links={links}
-              isConnected={isConnected}
-              loadWeb3Modal={loadWeb3Modal}
-              disconnect={disconnect}
-            />
-            <WalletAction
-              address={address}
-              isConnected={isConnected}
-              loadWeb3Modal={loadWeb3Modal}
-              disconnect={disconnect}
-            />
-            {!IS_PRODUCTION && <ChangeLanguageButton />}
-          </header>
           <main className={styles.main}>
-            <Nav links={links} chainId={chainId} />
             <Routes>
               <Route
                 path="/"
@@ -385,32 +349,31 @@ export const Home: FC = () => {
                 );
               })}
             </Routes>
-            <div className={styles.invisibleColumn}>
+            {/* <div className={styles.invisibleColumn}>
               {<Nav links={links} chainId={chainId} />}
-            </div>
+            </div> */}
+            {/* <div className={styles.rightContainer}> */}
+            {/* </div> */}
           </main>
-        </div>
-        <footer className={styles.footer}>
-          <div className={styles.footer_content}>
-            <a href={urls.home} className={styles.footer_logo}>
-              <img src="klima-logo.png" alt="" />
-            </a>
-            <nav className={styles.footer_content_nav}>
-              <a href={urls.home}>
-                <Trans id="footer.home">home</Trans>
-              </a>
-              <a href={urls.gitbook}>
-                <Trans id="footer.docs">docs</Trans>
-              </a>
-              <a href={urls.blog}>
-                <Trans id="footer.blog">blog</Trans>
-              </a>
-              <a href={urls.discordInvite}>
-                <Trans id="footer.community">community</Trans>
-              </a>
-            </nav>
+          <div id={styles.balances} className={styles.secondaryContainer}>
+            <h3>Balances</h3>
+            <h1>0</h1>
+            <h2>Klima</h2>
+            <h1>122.5367</h1>
+            <h2>sKLIMA</h2>
           </div>
-        </footer>
+          <div id={styles.rebase} className={styles.secondaryContainer}>
+            <h2>Rebase</h2>
+            <h1>0.54%</h1>
+            <h3>Next rebase</h3>
+            <h1>5hrs 30m</h1>
+            <h3>Time until rebase</h3>
+          </div>
+          <div id={styles.newKlima} className={styles.secondaryContainer}>
+            <h3>New to KLIMA?</h3>
+            <h2>How to get started</h2>
+          </div>
+        </div>
       </div>
       <InvalidNetworkModal provider={provider} />
       {showRPCModal && (
