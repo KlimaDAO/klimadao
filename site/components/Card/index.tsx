@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { Text } from "@klimadao/lib/components";
 import defaultImage from "public/og-media.jpg";
 import { PostDetails } from "lib/queries";
 
@@ -17,9 +18,16 @@ export function Card(props: CardProps) {
     <Link href={`/blog/${props.post.slug}`}>
       <a className={styles.card}>
         <div className={styles.content}>
-          <span className={styles.date}>{date}</span>
-          <h2>{props.post.title}</h2>
-          <p className={styles.body}>{props.post.summary}</p>
+          <Text t="body3" className={styles.date}>
+            {date}
+          </Text>
+          <Text t="body1">{props.post.title}</Text>
+          <Text t="body2" className={styles.summary}>
+            {props.post.summary}
+          </Text>
+          <Text t="caption" className={styles.read_more}>
+            Read more
+          </Text>
         </div>
         <div className={styles.image}>
           <Image
@@ -27,6 +35,7 @@ export function Card(props: CardProps) {
             alt={props.post.title}
             objectFit="cover"
             layout="fill"
+            sizes="50vw"
           />
         </div>
       </a>

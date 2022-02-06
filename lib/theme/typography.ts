@@ -65,6 +65,15 @@ export const body1 = css`
   }
 `;
 export const body2 = css`
+  font-size: 2rem;
+  line-height: 2.8rem;
+  font-weight: 400;
+  ${breakpoints.medium} {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+  }
+`;
+export const body3 = css`
   font-size: 1.6rem;
   line-height: 2.4rem;
   font-weight: 600;
