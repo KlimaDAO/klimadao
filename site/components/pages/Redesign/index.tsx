@@ -94,7 +94,9 @@ export const Home: NextPage<Props> = (props) => {
             </div>
           </div>
           <div className="hero_learnMore">
-            <p>LEARN MORE</p>
+            <Text>
+              <Trans>LEARN MORE</Trans>
+            </Text>
             <ArrowDownwardIcon className="downArrow" />
           </div>
         </div>

@@ -65,10 +65,10 @@ export const footer_icons = css`
   }
 
   & svg path {
-    fill: var(--surface-04);
+    fill: var(--font-02);
   }
 
-  & svg path:hover {
-    fill: var(--surface-02);
+  & svg:hover path {
+    fill: var(--font-01);
   }
 `;

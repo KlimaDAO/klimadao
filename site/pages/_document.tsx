@@ -1,15 +1,17 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import React from "react";
-import { WebFonts } from "@klimadao/lib/components";
+import { WebFonts, InitializeTheme } from "@klimadao/lib/components";
+
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" className="theme-light">
+      <Html lang="en">
         <Head>
           <WebFonts />
         </Head>
         <body>
+          <InitializeTheme />
           <Main />
           <NextScript />
         </body>
