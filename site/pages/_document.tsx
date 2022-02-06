@@ -1,28 +1,17 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import React from "react";
-import { WebFonts } from "@klimadao/lib/components";
+import { WebFonts, InitializeTheme } from "@klimadao/lib/components";
+
 class MyDocument extends Document {
   render() {
-    const setInitialTheme = `
-      function getUserPreference() {
-        if(window.localStorage.getItem('theme')) {
-          return window.localStorage.getItem('theme')
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches 
-          ? 'theme-dark' 
-          : 'theme-light'
-      }
-      document.body.dataset.theme = getUserPreference();
-    `;
-
     return (
       <Html lang="en">
         <Head>
           <WebFonts />
         </Head>
         <body>
-          <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
+          <InitializeTheme />
           <Main />
           <NextScript />
         </body>
