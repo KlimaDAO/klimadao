@@ -28,12 +28,12 @@ export const Contact: NextPage<Props> = () => {
             <Text t="h2" as="h2" align="center">
               <Trans>Questions & Support</Trans>
             </Text>
-            <Text t="body2" align="center">
+            <Text t="body3" align="center">
               <Trans>
                 Join our <Link href={"/community"}>community</Link>.
               </Trans>
             </Text>
-            <Text t="body2" align="center" color="lighter">
+            <Text t="body3" align="center" color="lighter">
               <Trans>
                 Discord server and ask in the #questions channel. We have
                 thousands of friendly, knowledgeable community members ready and
@@ -50,7 +50,7 @@ export const Contact: NextPage<Props> = () => {
             <Text t="h2" as="h2" color="lighter">
               <Trans>Careers</Trans>
             </Text>
-            <Text t="body2" align="center">
+            <Text t="body3" align="center">
               <Trans>
                 We're hiring! Until we finish building out our careers page, you
                 can submit a resume by joining our{" "}
@@ -71,7 +71,7 @@ export const Contact: NextPage<Props> = () => {
             <Text t="h2" as="h2">
               <Trans>Partnerships</Trans>
             </Text>
-            <Text t="body2" align="center">
+            <Text t="body3" align="center">
               <Trans>
                 Until we finish building out our partnerships page, we are
                 directing potential partnership and collaboration inquiries to{" "}
@@ -88,13 +88,13 @@ export const Contact: NextPage<Props> = () => {
             <Text t="h2" as="h2" color="lighter">
               <Trans>Media</Trans>
             </Text>
-            <Text t="body2" align="center">
+            <Text t="body3" align="center">
               <Trans>
                 If you are a journalist or content creator, our marketing team
                 would love to meet you.
               </Trans>
             </Text>
-            <Text t="body2" align="center">
+            <Text t="body3" align="center">
               <Trans>
                 Use this <a href={urls.mediaRequestForm}>Media Request Form</a>.
               </Trans>
@@ -109,7 +109,7 @@ export const Contact: NextPage<Props> = () => {
             <Text t="h2" as="h2">
               <Trans>Bug Reports</Trans>
             </Text>
-            <Text t="body2" align="center">
+            <Text t="body3" align="center">
               <Trans>
                 To file a bug report, join our community Discord server and ask
                 your question in the #bug-reports channel. Someone in our{" "}
