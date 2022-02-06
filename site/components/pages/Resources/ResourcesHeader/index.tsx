@@ -65,7 +65,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
             <Text t="h2" as="h2">
               <Trans>{props.title}</Trans>
             </Text>
-            <Text align="center" t="body2" color="lighter">
+            <Text align="center" t="body3" color="lighter">
               <Trans>{props.subline}</Trans>
             </Text>
             {props.headerElements && <props.headerElements />}

@@ -76,22 +76,26 @@ export const joinDiscord = css`
   display: grid;
   grid-column: main;
   grid-template-rows: 1fr 1fr;
-  column-gap: 6.4rem;
   padding: 3.2rem;
   background-color: var(--surface-01);
   box-shadow: var(--shadow-06);
   border-radius: 1.6rem;
   overflow: hidden;
 
-  .joinDiscord_col1 {
-    display: grid;
-    align-self: flex-start;
-    gap: 1.6rem;
-    justify-items: start;
+  ${breakpoints.medium} {
+    .padding20 {
+      padding: 0 20rem;
+    }
   }
 
-  .joinDiscord_col2 {
+  .joinDiscord_row1 {
     display: grid;
+    align-self: center;
+    justify-items: center;
+    gap: 1.6rem;
+  }
+
+  .joinDiscord_row2 {
     position: relative;
   }
 
@@ -106,21 +110,12 @@ export const joinDiscord = css`
     overflow: hidden;
     border-radius: 2.4rem;
   }
-
-  ${breakpoints.medium} {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: unset;
-    padding: 6.4rem;
-
-    .joinDiscord_dummy {
-      top: 2.4rem;
-    }
-  }
 `;
 
 export const page_discordButton = css`
   display: flex;
   flex-direction: row;
+  justify-self: center;
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(180deg, #7780f0 0%, #5c65ed 100%);

@@ -3,6 +3,7 @@ import React, { PropsWithChildren, ReactNode } from "react";
 import { AllPosts } from "lib/queries";
 
 import { Card } from "components/Card";
+import { Text } from "@klimadao/lib/components";
 
 import { t } from "@lingui/macro";
 
@@ -28,7 +29,10 @@ export function Blog(props: BlogProps) {
     >
       <div className={styles.container}>
         <section className={styles.cardsSection}>
-          <h3>Articles</h3>
+          <Text t="h4" className={styles.articles}>
+            {/* TODO: translate */}
+            Articles
+          </Text>
           <div className={styles.cards}>
             {props.posts.map((post) => (
               <Card key={post.slug} post={post} />

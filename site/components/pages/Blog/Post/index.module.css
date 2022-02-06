@@ -2,7 +2,7 @@
 
 .container {
   grid-column: full;
-  background-color: var(--surface-01);
+  background-color: var(--surface-02);
   color: black;
 }
 
