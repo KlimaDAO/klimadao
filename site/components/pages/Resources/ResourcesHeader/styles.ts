@@ -25,6 +25,10 @@ export const resourcesHeader = css`
     text-transform: uppercase;
   }
 
+  .resourcesHeader_textGroup a {
+    display: none;
+  }
+
   ${breakpoints.medium} {
     grid-column: main;
 
@@ -39,6 +43,10 @@ export const resourcesHeader = css`
     .resourcesHeader_textGroup {
       padding: 0 2rem;
       grid-column: header_inner;
+    }
+
+    .resourcesHeader_textGroup a {
+      display: flex;
     }
   }
 `;
@@ -80,6 +88,13 @@ export const navigationMobile = css`
 
   .navigationMobile_navItem {
     flex: 1;
+  }
+
+  a {
+    width: 10rem;
+    max-width: 10rem;
+    height: 4.4rem;
+    text-transform: none;
   }
 
   ${breakpoints.medium} {
