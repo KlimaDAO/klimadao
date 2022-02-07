@@ -7,11 +7,11 @@ export const footer = css`
   padding: 2rem 2.4rem;
   position: relative;
   grid-column: full;
-  display: grid;
-  grid-template-columns: inherit;
 
   ${breakpoints.medium} {
     padding: 4.8rem 2.4rem;
+    display: grid;
+    grid-template-columns: inherit;
   }
 `;
 
