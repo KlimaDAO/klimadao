@@ -8,10 +8,12 @@ import t from "@klimadao/lib/theme/typography.module.css";
  */
 export const Loading: FC = () => {
   return (
-    <div className={styles.stakeCard}>
-      <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>{"Loading..."}</h2>
-        <p className={t.body2}>Preparing the dApp for you...</p>
+    <div>
+      <div className={styles.stakeCard}>
+        <div className={styles.stakeCard_header}>
+          <h2 className={t.h4}>{"Loading..."}</h2>
+          <p className={t.body2}>Preparing the dApp for you...</p>
+        </div>
       </div>
     </div>
   );

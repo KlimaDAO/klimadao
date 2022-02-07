@@ -1,16 +1,5 @@
 @value bp-medium, bp-small, bp-large from "@klimadao/lib/theme/breakpoints.css";
 
-/*
-TEMP
-*/
-
-.prelaunch {
-  max-width: 64rem;
-  padding: 1.6rem;
-  background-color: var(--surface-01);
-  border: 1px dashed var(--secondary);
-}
-
 .testnet_warning {
   text-align: start;
 }
@@ -20,16 +9,39 @@ TEMP
   z-index: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: var(--surface);
-  min-height: 100vh;
+  background-color: var(--surface-01);
   display: grid;
-  /* |--|----|--| */
-  grid-template-columns:
-    [full-start] minmax(1.6rem, 1fr)
-    [main-start] minmax(0, 140rem)
-    [main-end] minmax(1.6rem, 1fr)
-    [full-end];
-  grid-template-rows: 1fr auto;
+  align-content: flex-start;
+  min-height: 100vh;
+  grid-template-rows: 1fr;
+}
+
+.cardGrid {
+  display: grid;
+  gap: 1.6rem;
+  padding: 2.4rem;
+  align-content: start;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.6rem;
+}
+
+.menuButton {
+  background-color: var(--surface-02);
+  min-height: 4.8rem;
+  min-width: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  margin-right: auto;
+}
+.menuButton:hover,
+.menuButton:focus {
+  opacity: 0.7;
 }
 
 .header {
@@ -77,6 +89,26 @@ TEMP
     "newKlima";
 }
 
+.mobileNavMenu {
+  position: absolute;
+  visibility: hidden;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition: transform 0.4s ease-out;
+  transform: translateX(-100%);
+}
+.mobileNavMenu[data-visible="true"] {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.desktopNavMenu {
+  display: none;
+}
+
 #balances {
   grid-area: balances;
 }
@@ -103,36 +135,6 @@ TEMP
 .textButtonMobile:disabled {
   opacity: 0.4;
   cursor: default;
-}
-
-.connectWalletButton,
-.disconnectWalletButton {
-  display: none;
-  font-size: 1.2rem !important;
-  margin: 0 1.2rem;
-}
-.connectWalletButtonMobile {
-  composes: textButton from "@klimadao/lib/theme/common.module.css";
-  display: unset;
-  border: 2px dashed var(--secondary);
-  justify-self: start;
-}
-.connectWalletButton:hover,
-.connectWalletButtonMobile:hover {
-  opacity: 1;
-  border: 2px dashed var(--secondary-variant) !important;
-}
-.disconnectWalletButton,
-.disconnectWalletButtonMobile {
-  composes: textButton from "@klimadao/lib/theme/common.module.css";
-  border: 2px dashed var(--surface-06);
-  opacity: 0.7;
-  justify-self: start;
-}
-.disconnectWalletButton:hover,
-.disconnectWalletButtonMobile:hover {
-  opacity: 1;
-  border: 2px dashed var(--secondary) !important;
 }
 
 .main {
@@ -257,15 +259,6 @@ TEMP
     justify-items: start;
   }
 
-  .connectWalletButton {
-    composes: textButton from "@klimadao/lib/theme/common.module.css";
-    display: unset;
-    border: 2px dashed var(--secondary);
-    justify-self: start;
-  }
-  .disconnectWalletButton {
-    display: unset;
-  }
   .main {
     margin-left: 10.5rem;
   }
@@ -280,7 +273,6 @@ TEMP
     background-color: var(--dapp-bg);
     border-radius: 1.2rem;
     margin-bottom: 2.4rem;
-    /* min-height: 25rem; */
     padding: 2.8rem;
     display: grid;
     grid-gap: 1.6rem;
@@ -290,17 +282,27 @@ TEMP
 }
 
 @media bp-medium {
+  .container {
+    display: grid;
+    grid-template-columns:
+      [sidebar] 10.4rem
+      [full-start] minmax(0px, 1fr)
+      [cardgrid-start] minmax(0px, 107.2rem)
+      [cardgrid-end] minmax(0px, 1fr)
+      [full-end];
+  }
+  .cardGrid {
+    display: grid;
+    grid-column: cardgrid;
+    grid-template-columns:
+      [cardsleft] minmax(38rem, auto)
+      [cardsright] minmax(auto, 38rem);
+    grid-template-rows: auto auto auto auto auto 1fr;
+    align-content: start;
+  }
   .testnet_warning {
     text-align: end;
     max-width: 25rem;
-  }
-  .container {
-    /* |--|----|--| */
-    grid-template-columns:
-      [full-start] minmax(6.4rem, 1fr)
-      [main-start] minmax(0, 140rem)
-      [main-end] minmax(6.4rem, 1fr)
-      [full-end];
   }
   .header {
     padding: 2rem 0;
@@ -314,15 +316,7 @@ TEMP
   .footer_content {
     grid-template-columns: auto auto;
   }
-}
 
-@media bp-medium {
-  .connectWalletButton {
-    justify-self: end;
-  }
-  .disconnectWalletButton {
-    justify-self: end;
-  }
   .nav {
     display: grid;
     gap: 0.8rem;
@@ -338,6 +332,15 @@ TEMP
 }
 
 @media bp-large {
+  .container {
+    display: grid;
+    grid-template-columns:
+      [sidebar] 24.4rem
+      [full-start] minmax(0px, 1fr)
+      [cardgrid-start] minmax(0px, 107.2rem)
+      [cardgrid-end] minmax(0px, 1fr)
+      [full-end];
+  }
   .header {
     padding: 2rem 0;
   }

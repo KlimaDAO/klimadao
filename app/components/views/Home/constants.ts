@@ -12,14 +12,6 @@ export interface NavProps {
   chainId: number | undefined;
 }
 
-export interface WalletProps {
-  address?: string;
-  isMobile?: boolean;
-  isConnected: boolean;
-  loadWeb3Modal: LoadWeb3Modal;
-  disconnect: () => Promise<void>;
-}
-
 export interface MobileMenuProps {
   links: Link[];
   isConnected: boolean;

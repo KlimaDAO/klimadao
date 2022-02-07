@@ -22,8 +22,6 @@ import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 import { LoadWeb3Modal } from "./constants";
-import WalletAction from "./WalletAction";
-import MobileMenu from "./MobileMenu";
 import { NotificationModal } from "components/NotificationModal";
 
 import { init } from "lib/i18n";
@@ -32,6 +30,9 @@ import styles from "./index.module.css";
 import { IS_PRODUCTION } from "lib/constants";
 import { setAppState } from "state/app";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
+import { ConnectButton } from "../../ConnectButton";
+import { NavMenu } from "components/NavMenu";
+import Menu from "@mui/icons-material/Menu";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -131,6 +132,7 @@ export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showCheckURLBanner, setShowCheckURLBanner] = useState(
     !skipCheckURLBanner()
   );
@@ -147,6 +149,7 @@ export const Home: FC = () => {
       });
     }
   }, []);
+
   /**
    * This is a hack to force re-render of nav component
    * because SSR hydration doesn't show active path
@@ -263,116 +266,103 @@ export const Home: FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <Sidebar address={address} />
-        <div className={styles.heroBackgroundContainer}>
-          <div className={styles.heroGradient} />
+        <div className={styles.desktopNavMenu}>
+          <NavMenu address={address} />
         </div>
-        <header className={styles.header}>
-          {!IS_PRODUCTION && <ChangeLanguageButton />}
-          <WalletAction
-            isConnected={isConnected}
-            loadWeb3Modal={loadWeb3Modal}
-            disconnect={disconnect}
-          />
-        </header>
-        <div className={styles.heroSection}>
-          <main className={styles.main}>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <>
-                    <Loading />
-                    {path === "/" && <Navigate to="/stake" />}
-                  </>
-                }
+        <div className={styles.cardGrid}>
+          <div className={styles.controls}>
+            <button
+              onClick={() => setShowMobileMenu((s) => !s)}
+              className={styles.menuButton}
+            >
+              <Menu fontSize="large" />
+            </button>
+            {/* keep mobile nav menu here in markup hierarchy for tab nav */}
+            <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
+              <NavMenu
+                address={address}
+                onHide={() => setShowMobileMenu(false)}
               />
-              <Route
-                path="/stake"
-                element={
-                  <Stake
-                    address={address}
-                    provider={provider}
-                    isConnected={isConnected}
-                  />
-                }
-              />
-              <Route
-                path="/redeem"
-                element={
-                  <Redeem
-                    address={address}
-                    provider={provider}
-                    isConnected={isConnected}
-                  />
-                }
-              />
-              <Route
-                path="/pklima"
-                element={
-                  <PKlima
-                    address={address}
-                    provider={provider}
-                    isConnected={isConnected}
-                  />
-                }
-              />
-              <Route
-                path="/wrap"
-                element={
-                  <Wrap
-                    address={address}
-                    provider={provider}
-                    isConnected={isConnected}
-                  />
-                }
-              />
-              <Route
-                path="/info"
-                element={<Info provider={provider as providers.Web3Provider} />}
-              />
-              <Route path="/bonds" element={<ChooseBond />} />
-              {bonds.map((bond) => {
-                return (
-                  <Route
-                    key={bond}
-                    path={`/bonds/${bond}`}
-                    element={
-                      <Bond
-                        provider={provider}
-                        address={address}
-                        bond={bond}
-                        isConnected={isConnected}
-                      />
-                    }
-                  />
-                );
-              })}
-            </Routes>
-            {/* <div className={styles.invisibleColumn}>
-              {<Nav links={links} chainId={chainId} />}
-            </div> */}
-            {/* <div className={styles.rightContainer}> */}
-            {/* </div> */}
-          </main>
-          <div id={styles.balances} className={styles.secondaryContainer}>
-            <h3>Balances</h3>
-            <h1>0</h1>
-            <h2>Klima</h2>
-            <h1>122.5367</h1>
-            <h2>sKLIMA</h2>
+            </div>
+            {!IS_PRODUCTION && <ChangeLanguageButton />}
+            <ConnectButton
+              isConnected={isConnected}
+              loadWeb3Modal={loadWeb3Modal}
+              disconnect={disconnect}
+            />
           </div>
-          <div id={styles.rebase} className={styles.secondaryContainer}>
-            <h2>Rebase</h2>
-            <h1>0.54%</h1>
-            <h3>Next rebase</h3>
-            <h1>5hrs 30m</h1>
-            <h3>Time until rebase</h3>
-          </div>
-          <div id={styles.newKlima} className={styles.secondaryContainer}>
-            <h3>New to KLIMA?</h3>
-            <h2>How to get started</h2>
-          </div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Loading />
+                  {path === "/" && <Navigate to="/stake" />}
+                </>
+              }
+            />
+            <Route
+              path="/stake"
+              element={
+                <Stake
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
+            <Route
+              path="/redeem"
+              element={
+                <Redeem
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
+            <Route
+              path="/pklima"
+              element={
+                <PKlima
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
+            <Route
+              path="/wrap"
+              element={
+                <Wrap
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                />
+              }
+            />
+            <Route
+              path="/info"
+              element={<Info provider={provider as providers.Web3Provider} />}
+            />
+            <Route path="/bonds" element={<ChooseBond />} />
+            {bonds.map((bond) => {
+              return (
+                <Route
+                  key={bond}
+                  path={`/bonds/${bond}`}
+                  element={
+                    <Bond
+                      provider={provider}
+                      address={address}
+                      bond={bond}
+                      isConnected={isConnected}
+                    />
+                  }
+                />
+              );
+            })}
+          </Routes>
         </div>
       </div>
       <InvalidNetworkModal provider={provider} />
