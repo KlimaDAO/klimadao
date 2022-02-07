@@ -9,10 +9,10 @@ export const InitializeTheme = () => {
   const __html = `
       function getUserPreference() {
         const prevTheme = window.localStorage.getItem("theme");
-        if (prevTheme === "theme-dark" || window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "theme-dark";
+        if (prevTheme === "theme-dark" || prevTheme === "theme-light") {
+          return prevTheme;
         }
-        return "theme-light";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "theme-dark" : "theme-light";
       }
       document.body.dataset.theme = getUserPreference();
     `;

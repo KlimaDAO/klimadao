@@ -7,7 +7,7 @@ import BlockContent, {
   BlockContentProps,
 } from "@sanity/block-content-to-react";
 
-import styles from "./index.module.css";
+import * as styles from "./styles";
 
 interface BlockContentRendererProps {
   blocks: {
@@ -71,14 +71,7 @@ const serializers: BlockContentProps["serializers"] = {
     );
   },
   listItem: (params) => {
-    // TODO: fix DOM nested list warning in console
-    return (
-      <li className={styles.li}>
-        <Text t="body2" className={styles.liContent}>
-          {params.children}
-        </Text>
-      </li>
-    );
+    return <li className={styles.li}>{params.children}</li>;
   },
   marks: {
     link: ({ children, mark }) => {
