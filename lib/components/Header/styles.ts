@@ -85,4 +85,9 @@ export const navMain_Buttons = css`
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
+
+  button,
+  a {
+    box-shadow: var(--shadow-light);
+  }
 `;
