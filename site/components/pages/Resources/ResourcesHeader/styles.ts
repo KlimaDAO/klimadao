@@ -109,13 +109,13 @@ export const list = css`
   min-width: 16rem;
 
   list-style: none;
-  background-color: #ffffff;
+  background-color: var(--surface-01);
   border-radius: 8px;
   padding: 0.5rem;
-  box-shadow: 0 0.4rem 2.8rem rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-light);
 
   li[data-active="true"] {
-    background-color: #fafafa;
+    background-color: var(--surface-02);
     border-radius: 4px;
 
     a {

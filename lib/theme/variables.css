@@ -22,6 +22,7 @@ body[data-theme="theme-light"] {
   --font-01: #313131;
   --font-02: #767676;
   --font-03: #a1a1a1;
+  --shadow-light: var(--shadow-07);
 }
 
 body[data-theme="theme-dark"] {
@@ -30,4 +31,5 @@ body[data-theme="theme-dark"] {
   --font-01: #ffffff;
   --font-02: #dddddd;
   --font-03: #9c9c9c;
+  --shadow-light: var(--shadow-04);
 }
