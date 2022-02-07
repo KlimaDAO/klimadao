@@ -29,7 +29,7 @@ export const button_primary = css`
 `;
 
 export const button_gray = css`
-  background-color: var(--white);
+  background-color: var(--surface-01);
   color: var(--font-02);
 
   &,
