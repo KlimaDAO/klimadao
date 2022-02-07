@@ -5,7 +5,7 @@ import { AllPosts } from "lib/queries";
 import { Card } from "components/Card";
 import { Text } from "@klimadao/lib/components";
 
-import { t } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 
 import styles from "./index.module.css";
 import { Container } from "../Resources/Container";
@@ -30,8 +30,7 @@ export function Blog(props: BlogProps) {
       <div className={styles.container}>
         <section className={styles.cardsSection}>
           <Text t="h4" className={styles.articles}>
-            {/* TODO: translate */}
-            Articles
+            <Trans>Articles</Trans>
           </Text>
           <div className={styles.cards}>
             {props.posts.map((post) => (
