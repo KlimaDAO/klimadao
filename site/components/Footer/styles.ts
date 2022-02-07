@@ -11,13 +11,8 @@ export const footer = css`
   grid-template-columns: inherit;
 
   ${breakpoints.medium} {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
     padding: 4.8rem 2.4rem;
   }
-
-  margin-top: auto;
 `;
 
 export const footer_content = css`
