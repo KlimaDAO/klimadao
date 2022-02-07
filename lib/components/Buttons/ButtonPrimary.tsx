@@ -35,9 +35,7 @@ export const ButtonPrimary: FC<Props> = (props) => {
     if (props.link) {
       return (
         <props.link href={props.href}>
-          <a {...props} className={buttonStyle}>
-            {props.label}
-          </a>
+          <a className={buttonStyle}>{props.label}</a>
         </props.link>
       );
     }
