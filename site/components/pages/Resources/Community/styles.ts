@@ -36,6 +36,9 @@ export const partner_logos = css`
   flex-wrap: wrap;
   justify-content: center;
   gap: 3rem;
+  background-color: #ffffff;
+  border-radius: 1.6rem;
+  align-items: center;
 
   padding: 3rem 0;
 
