@@ -6,7 +6,7 @@
   grid-template-areas:
     "image"
     "content";
-  background-color: white;
+  background-color: var(--surface-01);
   overflow: hidden;
   grid-column: main;
   border-radius: 1.2rem;
