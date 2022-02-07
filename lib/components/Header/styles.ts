@@ -86,8 +86,10 @@ export const navMain_Buttons = css`
   align-items: center;
   gap: 1rem;
 
-  button,
-  a {
-    box-shadow: var(--shadow-light);
+  ${breakpoints.medium} {
+    button,
+    a {
+      box-shadow: var(--shadow-light);
+    }
   }
 `;
