@@ -6,7 +6,7 @@ import {
   ToggleNavButton,
   NavMobile,
 } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
+import Link from "next/link";
 
 interface Props {
   buttons?: JSX.Element[];
@@ -22,9 +22,11 @@ export const HeaderMobile: FC<Props> = (props) => {
       }
     >
       <header className={styles.headerMobile}>
-        <a href={urls.home}>
-          <LogoWithClaim />
-        </a>
+        <Link href={"/"}>
+          <a>
+            <LogoWithClaim />
+          </a>
+        </Link>
         {props.buttons && (
           <div className={styles.navMain_Buttons}>{props.buttons}</div>
         )}

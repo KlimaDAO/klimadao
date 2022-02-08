@@ -1,13 +1,11 @@
 import React, { FC } from "react";
 import * as styles from "./styles";
-import { Link } from "../types";
+import Link from "next/link";
 
 import { LogoWithClaim } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
 
 interface Props {
   buttons?: JSX.Element[];
-  link?: Link;
   href?: string;
 }
 
@@ -16,18 +14,11 @@ export const HeaderDesktop: FC<Props> = (props) => {
     <header className={styles.headerDesktop}>
       <nav className={styles.menuDesktop}>
         <div>
-          {props.link && (
-            <props.link href={"/"}>
-              <a>
-                <LogoWithClaim />
-              </a>
-            </props.link>
-          )}
-          {!props.link && (
-            <a href={urls.home}>
+          <Link href={"/"}>
+            <a>
               <LogoWithClaim />
             </a>
-          )}
+          </Link>
         </div>
         <div className={styles.navMain_Desktop}>{props.children}</div>
         {props.buttons && (
