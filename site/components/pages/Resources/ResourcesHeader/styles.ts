@@ -79,12 +79,12 @@ export const navigationDesktop = css`
 `;
 
 export const navigationMobile = css`
-  grid-column: full;
+  grid-column: main;
   padding: 0 1rem;
 
   display: flex;
-  gap: 2rem;
-  justify-content: space-between;
+  gap: 1rem;
+  justify-content: center;
 
   .navigationMobile_navItem {
     flex: 1;
@@ -95,6 +95,10 @@ export const navigationMobile = css`
     max-width: 10rem;
     height: 4.4rem;
     text-transform: none;
+  }
+
+  ${breakpoints.small} {
+    gap: 2rem;
   }
 
   ${breakpoints.medium} {
