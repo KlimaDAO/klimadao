@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
+import * as common from "@klimadao/lib/theme/common";
 
 export const container = css`
   position: relative;
@@ -9,9 +9,14 @@ export const container = css`
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 24.4rem;
+  width: 100%;
   z-index: 3;
   gap: 2.4rem;
+  max-height: 100vh;
+  #klima-logo {
+    height: 2.8rem;
+    width: auto;
+  }
 
   .stack-04 {
     display: grid;
@@ -29,11 +34,25 @@ export const container = css`
     background-color: var(--surface-01);
   }
 
-  ${breakpoints.medium} {
-    max-width: unset;
-    .closeButton {
-      display: none;
-    }
+  .comingSoonStack {
+    display: grid;
+    gap: 0.4rem;
+  }
+  .navFooter {
+    margin-top: auto;
+    display: grid;
+    gap: 3.2rem;
+  }
+  .navFooter .hr {
+    grid-row: 1 / 1;
+    grid-column: 1 /4;
+  }
+  .navFooter_buttons {
+    display: flex;
+    gap: 1.6rem;
+  }
+  .navFooter_button {
+    ${common.iconButton};
   }
 `;
 
@@ -75,17 +94,5 @@ export const sidebarButton = css`
 
   &[data-disabled="true"] {
     opacity: 0.5;
-  }
-
-  ${breakpoints.small} {
-    span {
-      display: none;
-    }
-  }
-
-  ${breakpoints.medium} {
-    span {
-      display: initial;
-    }
   }
 `;

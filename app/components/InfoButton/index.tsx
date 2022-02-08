@@ -11,7 +11,7 @@ export const InfoButton: FC<Props> = (props) => {
   return (
     <TextInfoTooltip content={props.content} placement="top-start">
       <button className={styles.infoButton}>
-        <HelpOutlineRounded fontSize="large" />
+        <HelpOutlineRounded />
       </button>
     </TextInfoTooltip>
   );

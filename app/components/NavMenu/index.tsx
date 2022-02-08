@@ -1,7 +1,12 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { LogoWithClaim, Text } from "@klimadao/lib/components";
+import {
+  LogoWithClaim,
+  Text,
+  TwitterIcon,
+  DiscordIcon,
+} from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -98,7 +103,7 @@ export const NavMenu: FC<Props> = (props) => {
       <MenuButton
         isActive={pathname === "/buy"}
         href={urls.tutorial}
-        icon={<Payment fontSize="medium" />}
+        icon={<Payment />}
         onClick={handleHide}
       >
         Buy KLIMA
@@ -106,7 +111,7 @@ export const NavMenu: FC<Props> = (props) => {
       <MenuButton
         isActive={pathname === "/stake"}
         href="/stake"
-        icon={<LibraryAddOutlined fontSize="medium" />}
+        icon={<LibraryAddOutlined />}
         onClick={handleHide}
       >
         Stake KLIMA
@@ -114,7 +119,7 @@ export const NavMenu: FC<Props> = (props) => {
       <MenuButton
         isActive={pathname === "/bonds"}
         href="/bonds"
-        icon={<SpaOutlined fontSize="medium" />}
+        icon={<SpaOutlined />}
         onClick={handleHide}
       >
         Bond Carbon
@@ -122,20 +127,44 @@ export const NavMenu: FC<Props> = (props) => {
       <MenuButton
         isActive={pathname === "/wrap"}
         href="/wrap"
-        icon={<FlipOutlined fontSize="medium" />}
+        icon={<FlipOutlined />}
         onClick={handleHide}
       >
         Wrap sKLIMA
       </MenuButton>
-      <div title="Coming soon!">
+      <div className="comingSoonStack" title="Coming soon!">
+        <Text t="badge" color="lightest">
+          COMING SOON
+        </Text>
         <MenuButton
           isActive={pathname === "/offset"}
-          icon={<FlipOutlined fontSize="medium" />}
+          icon={<FlipOutlined />}
           href="/offset"
           disabled={true}
         >
-          Offset
+          Offset <br />
         </MenuButton>
+      </div>
+      <div className="navFooter">
+        <div className="hr" />
+        <div className="navFooter_buttons">
+          <a
+            className="navFooter_button"
+            href={urls.twitter}
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <TwitterIcon />
+          </a>
+          <a
+            className="navFooter_button"
+            href={urls.discordInvite}
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <DiscordIcon />
+          </a>
+        </div>
       </div>
     </nav>
   );

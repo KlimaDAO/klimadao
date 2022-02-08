@@ -275,7 +275,7 @@ export const Home: FC = () => {
               onClick={() => setShowMobileMenu((s) => !s)}
               className={styles.menuButton}
             >
-              <Menu fontSize="large" />
+              <Menu />
             </button>
             {/* keep mobile nav menu here in markup hierarchy for tab nav */}
             <div

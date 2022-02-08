@@ -31,6 +31,7 @@ import { RebaseCard } from "components/RebaseCard";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 
 import * as styles from "./styles";
+import { ImageCard } from "components/ImageCard";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -196,7 +197,7 @@ export const Stake = (props: Props) => {
       <div className={styles.stakeCard}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
-            <LibraryAddOutlined fontSize="large" />
+            <LibraryAddOutlined />
             <Trans>Stake KLIMA</Trans>
           </Text>
           <Text t="caption" color="lightest">
@@ -207,109 +208,111 @@ export const Stake = (props: Props) => {
             </Trans>
           </Text>
         </div>
-        <div className={styles.inputsContainer}>
-          <div className={styles.stakeSwitch}>
-            <button
-              className={styles.switchButton}
-              type="button"
-              onClick={() => {
-                setQuantity("");
-                setStatus("");
-                setView("stake");
-              }}
-              data-active={view === "stake"}
-            >
-              Stake
-            </button>
-            <button
-              className={styles.switchButton}
-              type="button"
-              onClick={() => {
-                setQuantity("");
-                setStatus("");
-                setView("unstake");
-              }}
-              data-active={view === "unstake"}
-            >
-              Unstake
-            </button>
-          </div>
-          <div className={styles.stakeInput}>
-            <input
-              className={styles.stakeInput_input}
-              value={quantity}
-              onChange={(e) => {
-                setQuantity(e.target.value);
-                setStatus("");
-              }}
-              type="number"
-              placeholder={getAction()}
-              min="0"
-            />
-            <button
-              className={styles.stakeInput_max}
-              type="button"
-              onClick={setMax}
-            >
-              <Trans id="button.max">Max</Trans>
-            </button>
-          </div>
-        </div>
-
-        {address && (
-          <div className={styles.address}>{concatAddress(address)}</div>
-        )}
-        <div className="hr" />
-        <div className={styles.infoTable}>
-          <div className={styles.infoTable_label}>
-            <Trans>ROI</Trans>
-            <TextInfoTooltip content={i18n._("stake.roi.tooltip")}>
-              <InfoOutlined fontSize="medium" />
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.infoTable_label}>
-            <Trans>APY</Trans>
-            <TextInfoTooltip content={i18n._("stake.apy.tooltip")}>
-              <InfoOutlined fontSize="medium" />
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.infoTable_label}>
-            <Trans>INDEX</Trans>
-            <TextInfoTooltip content={i18n._("stake.current_index.tooltip")}>
-              <InfoOutlined fontSize="medium" />
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.infoTable_value}>
-            {fiveDayRatePercent
-              ? trimWithPlaceholder(fiveDayRatePercent, 2) + "%"
-              : "loading..."}
-          </div>
-          <div className={styles.infoTable_value}>
-            {stakingAPYPercent
-              ? trimWithPlaceholder(stakingAPYPercent, 0) + "%"
-              : "loading..."}
-          </div>
-          <div className={styles.infoTable_value}>
-            {stakingAPYPercent
-              ? trimWithPlaceholder(currentIndex, 2) + " sKLIMA"
-              : "loading..."}
-          </div>
-        </div>
-
-        <div className={styles.buttonRow}>
-          {showSpinner ? (
-            <div className={styles.buttonRow_spinner}>
-              <Spinner />
+        <div className={styles.stakeCard_ui}>
+          <div className={styles.inputsContainer}>
+            <div className={styles.stakeSwitch}>
+              <button
+                className={styles.switchButton}
+                type="button"
+                onClick={() => {
+                  setQuantity("");
+                  setStatus("");
+                  setView("stake");
+                }}
+                data-active={view === "stake"}
+              >
+                Stake
+              </button>
+              <button
+                className={styles.switchButton}
+                type="button"
+                onClick={() => {
+                  setQuantity("");
+                  setStatus("");
+                  setView("unstake");
+                }}
+                data-active={view === "unstake"}
+              >
+                Unstake
+              </button>
             </div>
-          ) : (
-            <ButtonPrimary
-              {...getButtonProps()}
-              className={styles.submitButton}
-            />
+            <div className={styles.stakeInput}>
+              <input
+                className={styles.stakeInput_input}
+                value={quantity}
+                onChange={(e) => {
+                  setQuantity(e.target.value);
+                  setStatus("");
+                }}
+                type="number"
+                placeholder={getAction()}
+                min="0"
+              />
+              <button
+                className={styles.stakeInput_max}
+                type="button"
+                onClick={setMax}
+              >
+                <Trans id="button.max">Max</Trans>
+              </button>
+            </div>
+          </div>
+          {address && (
+            <div className={styles.address}>{concatAddress(address)}</div>
           )}
+          <div className="hr" />
+          <div className={styles.infoTable}>
+            <div className={styles.infoTable_label}>
+              <Trans>ROI</Trans>
+              <TextInfoTooltip content={i18n._("stake.roi.tooltip")}>
+                <InfoOutlined />
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.infoTable_label}>
+              <Trans>APY</Trans>
+              <TextInfoTooltip content={i18n._("stake.apy.tooltip")}>
+                <InfoOutlined />
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.infoTable_label}>
+              <Trans>INDEX</Trans>
+              <TextInfoTooltip content={i18n._("stake.current_index.tooltip")}>
+                <InfoOutlined />
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.infoTable_value}>
+              {fiveDayRatePercent
+                ? trimWithPlaceholder(fiveDayRatePercent, 2) + "%"
+                : "loading..."}
+            </div>
+            <div className={styles.infoTable_value}>
+              {stakingAPYPercent
+                ? trimWithPlaceholder(stakingAPYPercent, 0) + "%"
+                : "loading..."}
+            </div>
+            <div className={styles.infoTable_value}>
+              {stakingAPYPercent
+                ? trimWithPlaceholder(currentIndex, 2) + " sKLIMA"
+                : "loading..."}
+            </div>
+          </div>
+
+          <div className={styles.buttonRow}>
+            {showSpinner ? (
+              <div className={styles.buttonRow_spinner}>
+                <Spinner />
+              </div>
+            ) : (
+              <ButtonPrimary
+                {...getButtonProps()}
+                className={styles.submitButton}
+              />
+            )}
+          </div>
         </div>
       </div>
       <RebaseCard />
+      <ImageCard />
     </>
   );
 };

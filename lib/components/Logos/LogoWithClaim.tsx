@@ -3,6 +3,7 @@ import React, { FC } from "react";
 export const LogoWithClaim: FC = () => {
   return (
     <svg
+      id="klima-logo"
       width="140"
       height="23"
       viewBox="0 0 140 23"

@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "./breakpoints";
 
 export const cardSurface = css`
   position: relative;
@@ -6,7 +7,11 @@ export const cardSurface = css`
   background-color: var(--surface-02);
   border-radius: 1.2rem;
   padding: 2.4rem;
-  gap: 2rem;
+  gap: 2.4rem;
+
+  ${breakpoints.desktopLarge} {
+    padding: 3.2rem;
+  }
 `;
 
 /** Container for a button with a centered icon */
@@ -18,6 +23,9 @@ export const iconButton = css`
   align-items: center;
   justify-content: center;
   border-radius: 0.8rem;
+  svg {
+    font-size: 2.4rem;
+  }
   &:hover {
     opacity: 0.7rem;
   }

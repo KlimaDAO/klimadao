@@ -102,3 +102,10 @@ export const button = css`
     line-height: 1.6rem;
   }
 `;
+export const badge = css`
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+`;

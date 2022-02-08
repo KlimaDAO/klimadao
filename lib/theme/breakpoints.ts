@@ -1,6 +1,7 @@
 export default {
-  small: "@media (min-width: 32.5rem)",
-  medium: "@media (min-width: 57.6rem)",
-  large: "@media (min-width: 76.8rem)",
-  desktop: "@media (min-width: 99.2rem)",
+  small: "@media (min-width: 325px)",
+  medium: "@media (min-width: 576px)",
+  large: "@media (min-width: 768px)",
+  desktop: "@media (min-width: 992px)",
+  desktopLarge: "@media (min-width: 1200px)",
 };

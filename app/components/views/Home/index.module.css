@@ -1,8 +1,4 @@
-@value bp-medium, bp-small, bp-large from "@klimadao/lib/theme/breakpoints.css";
-
-.testnet_warning {
-  text-align: start;
-}
+@value bp-medium, bp-small, bp-large, bp-desktop, bp-desktop-large from "@klimadao/lib/theme/breakpoints.css";
 
 .container {
   position: relative; /* new stacking context */
@@ -16,19 +12,29 @@
   grid-template-rows: 1fr;
 }
 
+.container :global(svg) {
+  font-size: 2.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.desktopNavMenu {
+  display: none;
+}
 .cardGrid {
   display: grid;
   gap: 1.6rem;
   padding: 2.4rem;
   align-content: start;
+  max-width: 64rem;
+  justify-self: center;
+  width: 100%;
 }
-
 .controls {
   display: flex;
   justify-content: flex-end;
   gap: 1.6rem;
 }
-
 .menuButton {
   background-color: var(--surface-02);
   min-height: 4.8rem;
@@ -42,68 +48,6 @@
 .menuButton:hover,
 .menuButton:focus {
   opacity: 0.7;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-end;
-  color: white;
-  padding: 2rem 0;
-}
-
-.heroBackgroundContainer {
-  pointer-events: none;
-  grid-column: full;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.heroGradient {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--alt-bg);
-  /* background: var(--dapp-bg); */
-}
-
-.heroSection {
-  grid-column: main;
-  display: grid;
-  grid-template-columns: 1fr;
-  /* gap: 3.2rem; */
-  align-content: baseline;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "balances"
-    "main"
-    "rebase"
-    "newKlima";
-}
-
-.mobileNavMenu {
-  position: absolute;
-  visibility: hidden;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  transition: all 0.4s ease-out;
-  transform: translateX(-100%);
-  max-width: 24.4rem;
-}
-.mobileNavMenu[data-visible="true"] {
-  visibility: visible;
-  transform: translateX(0%);
 }
 .mobileNavMenu_overlay {
   z-index: 2;
@@ -121,267 +65,72 @@
   visibility: visible;
   opacity: 0.4;
 }
-
-.desktopNavMenu {
-  display: none;
-}
-
-#balances {
-  grid-area: balances;
-}
-.main {
-  grid-area: main;
-}
-#rebase {
-  grid-area: rebase;
-}
-#newKlima {
-  grid-area: newKlima;
-}
-
-.nav {
-  display: none;
-}
-
-.textButton {
-  composes: textButton from "@klimadao/lib/theme/common.module.css";
-}
-.textButtonMobile {
-  color: white !important;
-}
-.textButtonMobile:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
-.main {
-  justify-self: start;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  color: white;
-  align-content: flex-start;
-}
-
-.invisibleColumn {
-  height: 1px;
+.mobileNavMenu {
+  position: absolute;
   visibility: hidden;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition: all 0.4s ease-out;
+  transform: translateX(-100%);
+  max-width: 24.4rem;
 }
-
-.footer {
-  padding: 4.8rem 0rem;
-  position: relative;
-  grid-template-columns: inherit;
-  display: grid;
-  grid-column: full;
-  gap: 0.8rem;
-  background-color: rgb(22 22 22 / 75%);
+.mobileNavMenu[data-visible="true"] {
+  visibility: visible;
+  transform: translateX(0%);
 }
-.footer_bgImageContainer {
-  min-height: 100%;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: -1; /* below content*/
-  opacity: 0.15;
-}
-.footer_bgImageContainer img {
-  transform: rotate(180deg);
-}
-
-.footer_content {
-  grid-column: main;
-  display: grid;
-  gap: 2.4rem;
-  justify-content: center;
-  text-align: center;
-}
-.footer_logo {
-  width: 20rem;
-}
-.footer_logo img {
-  width: 100%;
-}
-.footer_content_nav {
-  composes: body1 from "@klimadao/lib/theme/typography.module.css";
-  display: grid;
-  gap: 0.8rem;
-}
-.footer_content_nav a {
-  color: white;
-  opacity: 0.7;
-  text-decoration: underline;
-}
-
-.mobileMenu {
-  position: absolute;
-  right: -7.5px;
-  top: 27.5px;
-}
-
-.mobileMenuLink {
-  composes: button from "@klimadao/lib/theme/typography.module.css";
-  color: white !important;
-}
-
-.menuDropdown {
-  background-color: #1e1e1e !important;
-}
-
-.backgroundOpacity {
-  background-color: rgba(30, 30, 30, 0.7);
-}
-.mobileMenu svg {
-  color: white;
-  font-size: 30px;
-}
-
-.rightContainer {
-  width: 100%;
-}
-
-.secondaryContainer {
-  background-color: var(--dapp-bg);
-  color: var(--text-color-contrast);
-  border-radius: 1.2rem;
-  margin-bottom: 2.4rem;
-  min-height: 25rem;
-  padding: 2.8rem;
-  display: grid;
-  grid-gap: 1.6rem;
-  gap: 1.6rem;
-  width: 100%;
-}
-
-@media bp-small {
-  .heroSection {
-    grid-template-columns: 2fr;
-    /* gap: 3.2rem; */
-    align-content: baseline;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-      "main balances"
-      "main rebase"
-      "main newKlima";
-  }
-  .mobileMenu {
-    display: none;
-  }
-
-  .nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    align-self: start;
-    justify-items: start;
-  }
-
-  .main {
-    margin-left: 10.5rem;
-  }
-
-  .rightContainer {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1.8rem;
-  }
-
-  .secondaryContainer {
-    background-color: var(--dapp-bg);
-    border-radius: 1.2rem;
-    margin-bottom: 2.4rem;
-    padding: 2.8rem;
-    display: grid;
-    grid-gap: 1.6rem;
-    gap: 1.6rem;
-    width: 100%;
-  }
-}
-
-@media bp-small {
+@media bp-medium {
   .cardGrid {
     gap: 2.4rem;
     padding: 3.2rem;
   }
 }
 
-@media bp-medium {
+@media bp-desktop {
   .container {
+    max-height: 100vh;
+    overflow-y: hidden;
     display: grid;
     grid-template-columns:
-      [sidebar] 10.4rem
+      [sidebar] 24.4rem
       [full-start] minmax(0px, 1fr)
-      [cardgrid-start] minmax(0px, 107.2rem)
-      [cardgrid-end] minmax(0px, 1fr)
       [full-end];
   }
   .cardGrid {
+    overflow-y: scroll;
     display: grid;
-    grid-column: cardgrid;
+    grid-column: full;
     grid-template-columns:
       [cardsleft] minmax(38rem, auto)
       [cardsright] minmax(auto, 38rem);
-    grid-template-rows: auto auto auto auto auto 1fr;
-    align-content: start;
+    grid-template-rows: min-content 1fr 1fr 1fr;
+    max-width: unset;
   }
-  .mobileMenu {
-    display: none;
+  .controls {
+    grid-column: cardsright;
   }
-  .mobileNavMenu_overlay {
+  .menuButton,
+  .mobileMenu,
+  .mobileNavMenu[data-visible="true"],
+  .mobileNavMenu_overlay,
+  .mobileNavMenu_overlay[data-visible="true"] {
     display: none;
   }
   .desktopNavMenu {
     display: flex;
   }
-  .testnet_warning {
-    text-align: end;
-    max-width: 25rem;
-  }
-  .header {
-    padding: 2rem 0;
-  }
-  .nav {
-    justify-items: end;
-  }
-  .footer_logo {
-    align-self: center;
-  }
-  .footer_content {
-    grid-template-columns: auto auto;
-  }
-
-  .nav {
-    display: grid;
-    gap: 0.8rem;
-    padding-top: 3.2rem;
-  }
-  .footer {
-    margin-top: 6.4rem;
-  }
-  .main {
-    margin-left: 21rem;
-    width: 74rem;
-  }
 }
 
-@media bp-large {
+@media bp-desktop-large {
   .container {
+    max-height: 100vh;
+    overflow-y: hidden;
     display: grid;
     grid-template-columns:
-      [sidebar] 24.4rem
+      [sidebar] 28.4rem
       [full-start] minmax(0px, 1fr)
-      [cardgrid-start] minmax(0px, 107.2rem)
-      [cardgrid-end] minmax(0px, 1fr)
       [full-end];
-  }
-  .header {
-    padding: 2rem 0;
-  }
-  .logoContainer {
-    width: 32rem;
-  }
-  .main {
-    margin-left: 21rem;
-    width: 74rem;
   }
 }

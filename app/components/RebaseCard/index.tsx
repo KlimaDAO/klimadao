@@ -5,8 +5,13 @@ import { InfoButton } from "components/InfoButton";
 import { selectAppState, selectBalances } from "state/selectors";
 import * as styles from "./styles";
 import { secondsUntilBlock, trimWithPlaceholder } from "@klimadao/lib/utils";
+import { FC } from "react";
 
-export const RebaseCard = () => {
+interface Props {
+  isConnected?: boolean;
+}
+
+export const RebaseCard: FC<Props> = (props) => {
   const balances = useSelector(selectBalances);
   const { stakingRebase, currentBlock, rebaseBlock } =
     useSelector(selectAppState);
@@ -24,7 +29,7 @@ export const RebaseCard = () => {
       if (seconds < 3600) {
         return rtf.format(Math.floor(seconds / 60), "minutes");
       } else {
-        return rtf.format(seconds / 3600, "hours");
+        return rtf.format(Number((seconds / 3600).toPrecision(2)), "hours");
       }
     }
   };
@@ -32,29 +37,39 @@ export const RebaseCard = () => {
   return (
     <div className={styles.card}>
       <div className="header">
-        <Text t="h5" className="title">
-          <Sync fontSize="large" />
+        <Text t="h4" className="title">
+          <Sync />
           Rebase
         </Text>
-        <InfoButton content="The protocol automatically mints and distributes rewards at regular intervals. This is called 'rebasing'. Your payout is a percentage of your sKLIMA balance." />
+        <InfoButton content="The protocol automatically mints and distributes rewards. Your payout is a percentage of your sKLIMA balance." />
       </div>
-      <div className="stack">
-        <Text t="h2_alt">{timeUntilRebase() ?? "Loading..."}</Text>
-        <Text t="h4" color="lightest">
-          Approx. next rebase
-        </Text>
-      </div>
-      <div className="stack">
-        <Text t="h2_alt">{trimWithPlaceholder(nextRebasePercent, 2)}%</Text>
-        <Text t="h4" color="lightest">
-          Percent payout
-        </Text>
-      </div>
-      <div className="stack">
-        <Text t="h2_alt">{trimWithPlaceholder(nextRebaseValue, 6)}</Text>
-        <Text t="h4" color="lightest">
-          Est. payout (sKLIMA)
-        </Text>
+      <div className="cardContent">
+        <div className="stack">
+          <Text className="value">{timeUntilRebase() ?? "Loading..."}</Text>
+          <Text className="label" color="lightest">
+            Approx. next rebase
+          </Text>
+        </div>
+        <div className="stack">
+          <Text className="value">
+            {stakingRebase
+              ? `${trimWithPlaceholder(nextRebasePercent, 2)}%`
+              : "Loading..."}
+          </Text>
+          <Text className="label" color="lightest">
+            Percent payout
+          </Text>
+        </div>
+        {props.isConnected && (
+          <div className="stack">
+            <Text className="value">
+              {trimWithPlaceholder(nextRebaseValue, 6)}
+            </Text>
+            <Text className="label" color="lightest">
+              Est. payout (sKLIMA)
+            </Text>
+          </div>
+        )}
       </div>
     </div>
   );

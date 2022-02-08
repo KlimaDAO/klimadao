@@ -3,18 +3,7 @@ import { cx } from "@emotion/css";
 import * as typography from "../../theme/typography";
 import * as styles from "./styles";
 
-export type TypographyStyle =
-  | "h1"
-  | "h2"
-  | "h2_alt"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "body1"
-  | "body2"
-  | "body3"
-  | "caption"
-  | "button";
+export type TypographyStyle = keyof typeof typography;
 
 type Props = HTMLAttributes<HTMLParagraphElement> & {
   /** Which typography styles to apply. Default: body1 */

@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 import * as typography from "@klimadao/lib/theme/typography";
 import * as common from "@klimadao/lib/theme/common";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const stakeCard = css`
   position: relative;
@@ -8,17 +9,52 @@ export const stakeCard = css`
   background-color: var(--surface-02);
   border-radius: 1.2rem;
   padding: 2.4rem;
-  gap: 2rem;
+  gap: 2.4rem;
+  align-content: start;
 
   .hr {
     height: 2px;
     background-color: var(--surface-01);
+  }
+
+  ${breakpoints.medium} {
+    gap: 3.2rem;
+  }
+
+  ${breakpoints.desktop} {
+    grid-column: cardsleft;
+    grid-row: 2 / span 3;
+    gap: 4.8rem;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: start;
+  }
+
+  ${breakpoints.desktopLarge} {
+    padding: 3.2rem;
   }
 `;
 
 export const stakeCard_header = css`
   display: grid;
   gap: 0.8rem;
+  max-width: 38rem;
+`;
+
+export const stakeCard_ui = css`
+  display: grid;
+  gap: 2.4rem;
+  ${breakpoints.medium} {
+    border: 2px solid var(--surface-03);
+    padding: 2.4rem;
+    border-radius: 1.2rem;
+  }
+  ${breakpoints.desktop} {
+    gap: 4.8rem;
+    padding: 3.2rem;
+    max-width: 48rem;
+    justify-self: center;
+    width: 100%;
+  }
 `;
 
 export const stakeCard_header_title = css`
@@ -110,19 +146,6 @@ export const stakeInput_max = css`
   }
 `;
 
-export const infoIconWrapper = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.6;
-  min-height: 2.4rem;
-
-  svg {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-`;
-
 export const infoTable = css`
   display: grid;
   grid-template-areas:
@@ -153,6 +176,9 @@ export const infoTable_label = css`
 
   svg {
     color: var(--font-03);
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
   }
 `;
 
