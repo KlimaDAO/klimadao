@@ -7,4 +7,8 @@ export const logoWithClaim = css`
   ${breakpoints.medium} {
     max-width: 20rem;
   }
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
