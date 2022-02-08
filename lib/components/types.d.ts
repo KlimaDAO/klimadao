@@ -18,7 +18,6 @@ export type Link = (
     onMouseEnter?: React.MouseEventHandler<Element> | undefined;
     onClick: React.MouseEventHandler;
     href?: string | undefined;
-    ref?: any;
   },
   HTMLElement
 >;

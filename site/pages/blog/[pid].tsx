@@ -32,12 +32,17 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   }
 };
 
+interface SlugObject {
+  params: { pid: string };
+  locale: string;
+}
+
 export const getStaticPaths = async () => {
   const slugs = await fetchCMSContent("allPostSlugs");
   if (!slugs) {
     throw new Error("No content found");
   }
-  const paths = slugs.reduce((acc, { slug }) => {
+  const paths = slugs.reduce<SlugObject[]>((acc, { slug }) => {
     for (const locale in locales) {
       acc.push({
         params: {
@@ -47,7 +52,7 @@ export const getStaticPaths = async () => {
       });
     }
     return acc;
-  }, [] as any);
+  }, []);
   return {
     paths,
     fallback: true,
