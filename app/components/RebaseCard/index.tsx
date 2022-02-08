@@ -32,7 +32,7 @@ export const RebaseCard = () => {
   return (
     <div className={styles.card}>
       <div className="header">
-        <Text t="h4" className="title">
+        <Text t="h5" className="title">
           <Sync fontSize="large" />
           Rebase
         </Text>

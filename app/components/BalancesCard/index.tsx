@@ -1,5 +1,5 @@
 import { Text } from "@klimadao/lib/components";
-import AccountBalance from "@mui/icons-material/AccountBalance";
+import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import { useSelector } from "react-redux";
 import { InfoButton } from "components/InfoButton";
@@ -9,10 +9,10 @@ import * as styles from "./styles";
 export const BalancesCard = () => {
   const balances = useSelector(selectBalances);
   return (
-    <div className={styles.card}>
+    <div className={styles.card + " " + status}>
       <div className="header">
         <Text t="h4" className="title">
-          <AccountBalance fontSize="large" />
+          <AccountBalanceOutlined fontSize="large" />
           Balances
         </Text>
         <InfoButton content="Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage." />

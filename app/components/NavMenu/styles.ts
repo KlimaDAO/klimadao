@@ -5,7 +5,7 @@ import * as typography from "@klimadao/lib/theme/typography";
 export const container = css`
   position: relative;
   padding: 2.4rem;
-  background-color: var(--surface-01);
+  background-color: var(--surface-02);
   display: flex;
   flex-direction: column;
   height: 100%;

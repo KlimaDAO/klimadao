@@ -1,10 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 import { selectNotificationStatus } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { SvgIcon } from "@mui/material";
 
 import {
   changeApprovalTransaction,
@@ -19,36 +18,31 @@ import {
 } from "state/selectors";
 
 import {
+  ButtonPrimary,
   Spinner,
+  Text,
   TextInfoTooltip,
-  useTooltipSingleton,
 } from "@klimadao/lib/components";
-import {
-  secondsUntilBlock,
-  trimWithPlaceholder,
-  concatAddress,
-} from "@klimadao/lib/utils";
-import t from "@klimadao/lib/theme/typography.module.css";
-import styles from "./index.module.css";
+import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { BalancesCard } from "components/BalancesCard";
 import { RebaseCard } from "components/RebaseCard";
+import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 
-const WithPlaceholder: FC<{
-  condition: boolean;
-  placeholder: string;
-}> = (props) => {
-  if (props.condition) {
-    return <>{props.placeholder}</>;
-  }
-  return <>{props.children}</>;
-};
+import * as styles from "./styles";
+
+interface ButtonProps {
+  label: React.ReactElement | string;
+  onClick: undefined | (() => void);
+  disabled: boolean;
+}
 
 interface Props {
   provider: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
+  loadWeb3Modal: () => void;
 }
 
 export const Stake = (props: Props) => {
@@ -66,7 +60,6 @@ export const Stake = (props: Props) => {
   };
 
   const [quantity, setQuantity] = useState("");
-  const [singletonSource, singleton] = useTooltipSingleton();
 
   const { fiveDayRate, currentIndex, stakingAPY } = useSelector(selectAppState);
 
@@ -130,24 +123,17 @@ export const Stake = (props: Props) => {
       return stakeAllowance && !!Number(stakeAllowance.sklima);
   };
 
-  const timeUntilRebase = () => {
-    if (currentBlock && rebaseBlock && locale) {
-      const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
-      return prettifySeconds(seconds);
-    }
-  };
-
-  const getButtonProps = () => {
+  const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
       return {
-        children: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined,
+        label: <Trans>Connect wallet</Trans>,
+        onClick: props.loadWeb3Modal,
         disabled: true,
       };
     } else if (isLoading) {
       return {
-        children: <Trans id="button.loading">Loading</Trans>,
+        label: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -156,23 +142,25 @@ export const Stake = (props: Props) => {
       status === "networkConfirmation"
     ) {
       return {
-        children: <Trans id="button.confirming">Confirming</Trans>,
+        label: <Trans id="button.confirming">Confirming</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (view === "stake" && !hasApproval("stake")) {
       return {
-        children: <Trans id="button.approve">Approve</Trans>,
+        label: <Trans id="button.approve">Approve</Trans>,
         onClick: handleApproval("stake"),
+        disabled: false,
       };
     } else if (view === "unstake" && !hasApproval("unstake")) {
       return {
-        children: <Trans id="button.approve">Approve</Trans>,
+        label: <Trans id="button.approve">Approve</Trans>,
         onClick: handleApproval("unstake"),
+        disabled: false,
       };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
-        children: value ? (
+        label: value ? (
           <Trans id="button.stake">Stake Klima</Trans>
         ) : (
           <Trans>Enter Amount</Trans>
@@ -182,7 +170,7 @@ export const Stake = (props: Props) => {
       };
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
-        children: value ? (
+        label: value ? (
           <Trans id="button.unstake">Unstake Klima</Trans>
         ) : (
           <Trans>Enter Amount</Trans>
@@ -192,7 +180,7 @@ export const Stake = (props: Props) => {
           !balances?.sklima || !value || value > Number(balances.sklima),
       };
     } else {
-      return { children: "ERROR", onClick: undefined, disabled: true };
+      return { label: "ERROR", onClick: undefined, disabled: true };
     }
   };
 
@@ -207,17 +195,17 @@ export const Stake = (props: Props) => {
       <BalancesCard />
       <div className={styles.stakeCard}>
         <div className={styles.stakeCard_header}>
-          <h2 className={T.h5}>
-            <SvgIcon component={AddToPhotosOutlinedIcon} fontSize="inherit" />{" "}
-            Stake Klima
-          </h2>
-          <p className={T.body2}>
+          <Text t="h4" className={styles.stakeCard_header_title}>
+            <LibraryAddOutlined fontSize="large" />
+            <Trans>Stake KLIMA</Trans>
+          </Text>
+          <Text t="caption" color="lightest">
             <Trans id="stake.caption">
               Hold, stake, and compound. If the protocol earns a profit selling
               carbon bonds, these rewards are shared among all holders of staked
               KLIMA (sKLIMA).
             </Trans>
-          </p>
+          </Text>
         </div>
         <div className={styles.inputsContainer}>
           <div className={styles.stakeSwitch}>
@@ -246,32 +234,6 @@ export const Stake = (props: Props) => {
               Unstake
             </button>
           </div>
-
-          <div className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans>BALANCE</Trans>
-              <TextInfoTooltip
-                singleton={singleton}
-                content={i18n._("stake.balance.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.klimaBalanceBar}>
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder={`NOT CONNECTED`}
-              >
-                <span>{showRelevantBalance()}</span>
-                <span>{view === "unstake" && "s"}KLIMA</span>
-              </WithPlaceholder>
-            </div>
-          </div>
-
-          <div className={styles.dataContainer_label}>STAKE KLIMA</div>
-
           <div className={styles.stakeInput}>
             <input
               className={styles.stakeInput_input}
@@ -285,7 +247,7 @@ export const Stake = (props: Props) => {
               min="0"
             />
             <button
-              className={styles.stakeInput_button}
+              className={styles.stakeInput_max}
               type="button"
               onClick={setMax}
             >
@@ -295,73 +257,54 @@ export const Stake = (props: Props) => {
         </div>
 
         {address && (
-          <div className={styles.dataContainer_address}>
-            {concatAddress(address)}
-          </div>
+          <div className={styles.address}>{concatAddress(address)}</div>
         )}
-        <ul className={styles.dataContainer}>
-          {singletonSource}
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              {/* <Trans id="stake.roi">ROI</Trans> */}
-              <Trans>ROI</Trans>
-              <TextInfoTooltip
-                singleton={singleton}
-                content={i18n._("stake.roi.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(fiveDayRatePercent, 2)}</span>%
-            </div>
-          </li>
+        <div className="hr" />
+        <div className={styles.infoTable}>
+          <div className={styles.infoTable_label}>
+            <Trans>ROI</Trans>
+            <TextInfoTooltip content={i18n._("stake.roi.tooltip")}>
+              <InfoOutlined fontSize="medium" />
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.infoTable_label}>
+            <Trans>APY</Trans>
+            <TextInfoTooltip content={i18n._("stake.apy.tooltip")}>
+              <InfoOutlined fontSize="medium" />
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.infoTable_label}>
+            <Trans>INDEX</Trans>
+            <TextInfoTooltip content={i18n._("stake.current_index.tooltip")}>
+              <InfoOutlined fontSize="medium" />
+            </TextInfoTooltip>
+          </div>
+          <div className={styles.infoTable_value}>
+            {fiveDayRatePercent
+              ? trimWithPlaceholder(fiveDayRatePercent, 2) + "%"
+              : "loading..."}
+          </div>
+          <div className={styles.infoTable_value}>
+            {stakingAPYPercent
+              ? trimWithPlaceholder(stakingAPYPercent, 0) + "%"
+              : "loading..."}
+          </div>
+          <div className={styles.infoTable_value}>
+            {stakingAPYPercent
+              ? trimWithPlaceholder(currentIndex, 2) + " sKLIMA"
+              : "loading..."}
+          </div>
+        </div>
 
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="stake.apy">APY</Trans>
-              <TextInfoTooltip
-                singleton={singleton}
-                content={i18n._("stake.apy.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(stakingAPYPercent, 2)}</span>%
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans>CURRENT INDEX</Trans>
-              <TextInfoTooltip
-                singleton={singleton}
-                content={i18n._("stake.current_index.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(currentIndex, 4)}</span> KLIMA
-            </div>
-          </li>
-        </ul>
         <div className={styles.buttonRow}>
           {showSpinner ? (
             <div className={styles.buttonRow_spinner}>
               <Spinner />
             </div>
           ) : (
-            <button
-              type="button"
-              className={styles.submitButton}
+            <ButtonPrimary
               {...getButtonProps()}
+              className={styles.submitButton}
             />
           )}
         </div>

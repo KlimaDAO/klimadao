@@ -1,6 +1,6 @@
 import { ethers, providers } from "ethers";
 import { FC, useRef, useState, useEffect } from "react";
-import { Navigate, Routes, Route, useLocation } from "react-router-dom";
+import { useNavigate, Route, useLocation } from "react-router-dom";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
@@ -14,7 +14,6 @@ import { Stake } from "components/views/Stake";
 import { Redeem } from "components/views/Redeem";
 import { PKlima } from "components/views/PKlima";
 import { Info } from "components/views/Info";
-import { Loading } from "components/views/Loading";
 import { ChooseBond } from "components/views/ChooseBond";
 import { Bond } from "components/views/Bond";
 import { Wrap } from "components/views/Wrap";
@@ -33,6 +32,7 @@ import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { ConnectButton } from "../../ConnectButton";
 import { NavMenu } from "components/NavMenu";
 import Menu from "@mui/icons-material/Menu";
+import { IsomorphicRoutes } from "components/IsomorphicRoute";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -121,6 +121,7 @@ const useProvider = (): [
     return [fallbackProvider.current, "", web3Modal, loadWeb3Modal];
   }
   return [
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     provider || fallbackProvider.current!,
     address,
     web3Modal,
@@ -133,13 +134,13 @@ export const Home: FC = () => {
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
   const [showCheckURLBanner, setShowCheckURLBanner] = useState(
     !skipCheckURLBanner()
   );
-
   const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
-  const { pathname } = useLocation();
-  const [path, setPath] = useState("");
   const { locale } = useSelector(selectAppState);
 
   useEffect(() => {
@@ -150,12 +151,10 @@ export const Home: FC = () => {
     }
   }, []);
 
-  /**
-   * This is a hack to force re-render of nav component
-   * because SSR hydration doesn't show active path
-   */
   useEffect(() => {
-    setPath(pathname);
+    if (pathname === "/") {
+      navigate("/stake");
+    }
   }, [pathname]);
 
   const handleRPCError = () => {
@@ -242,6 +241,7 @@ export const Home: FC = () => {
   }, []);
 
   const disconnect = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const untypedProvider = provider as any;
     if (
       untypedProvider &&
@@ -291,16 +291,7 @@ export const Home: FC = () => {
               disconnect={disconnect}
             />
           </div>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Loading />
-                  {path === "/" && <Navigate to="/stake" />}
-                </>
-              }
-            />
+          <IsomorphicRoutes>
             <Route
               path="/stake"
               element={
@@ -338,6 +329,7 @@ export const Home: FC = () => {
                   address={address}
                   provider={provider}
                   isConnected={isConnected}
+                  loadWeb3Modal={loadWeb3Modal}
                 />
               }
             />
@@ -362,7 +354,7 @@ export const Home: FC = () => {
                 />
               );
             })}
-          </Routes>
+          </IsomorphicRoutes>
         </div>
       </div>
       <InvalidNetworkModal provider={provider} />

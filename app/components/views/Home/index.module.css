@@ -102,7 +102,7 @@
 }
 .mobileNavMenu[data-visible="true"] {
   visibility: visible;
-  transform: translateX(0);
+  transform: translateX(0%);
 }
 
 .desktopNavMenu {
@@ -281,6 +281,13 @@
   }
 }
 
+@media bp-small {
+  .cardGrid {
+    gap: 2.4rem;
+    padding: 3.2rem;
+  }
+}
+
 @media bp-medium {
   .container {
     display: grid;
@@ -299,6 +306,9 @@
       [cardsright] minmax(auto, 38rem);
     grid-template-rows: auto auto auto auto auto 1fr;
     align-content: start;
+  }
+  .desktopNavMenu {
+    display: flex;
   }
   .testnet_warning {
     text-align: end;
