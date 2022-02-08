@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import breakpoints from "../../theme/breakpoints";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const headerDesktop = css`
   display: none;
