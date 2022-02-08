@@ -97,12 +97,29 @@
   right: 0;
   left: 0;
   bottom: 0;
-  transition: transform 0.4s ease-out;
+  transition: all 0.4s ease-out;
   transform: translateX(-100%);
+  max-width: 24.4rem;
 }
 .mobileNavMenu[data-visible="true"] {
   visibility: visible;
   transform: translateX(0%);
+}
+.mobileNavMenu_overlay {
+  z-index: 2;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #0e0e0e;
+  opacity: 0;
+  transition: all 0.4s ease-out;
+}
+.mobileNavMenu_overlay[data-visible="true"] {
+  visibility: visible;
+  opacity: 0.4;
 }
 
 .desktopNavMenu {
@@ -306,6 +323,12 @@
       [cardsright] minmax(auto, 38rem);
     grid-template-rows: auto auto auto auto auto 1fr;
     align-content: start;
+  }
+  .mobileMenu {
+    display: none;
+  }
+  .mobileNavMenu_overlay {
+    display: none;
   }
   .desktopNavMenu {
     display: flex;

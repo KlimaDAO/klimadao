@@ -32,7 +32,7 @@ import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { ConnectButton } from "../../ConnectButton";
 import { NavMenu } from "components/NavMenu";
 import Menu from "@mui/icons-material/Menu";
-import { IsomorphicRoutes } from "components/IsomorphicRoute";
+import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -278,6 +278,13 @@ export const Home: FC = () => {
               <Menu fontSize="large" />
             </button>
             {/* keep mobile nav menu here in markup hierarchy for tab nav */}
+            <div
+              className={styles.mobileNavMenu_overlay}
+              data-visible={showMobileMenu}
+              onClick={() => {
+                setShowMobileMenu(false);
+              }}
+            />
             <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
               <NavMenu
                 address={address}

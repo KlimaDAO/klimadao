@@ -38,7 +38,20 @@ const tooltip = css`
     }
   }
   &[data-placement^="bottom"] > .tippy-arrow {
-    top: -0.4rem;
+    bottom: 0;
+
+    &::before,
+    &::after {
+      bottom: -0.8rem;
+      left: -0.4rem;
+      border-width: 0.8rem 0.8rem 0;
+      border-top-color: var(--surface-01);
+      transform-origin: center top;
+    }
+    &::after {
+      bottom: -0.6rem;
+      border-top-color: var(--surface-03);
+    }
   }
   &[data-placement^="left"] > .tippy-arrow {
     right: -0.4rem;
