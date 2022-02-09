@@ -3,7 +3,6 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const communityContainer = css`
   grid-column: main;
-
   ${breakpoints.medium} {
     display: grid;
     grid-template-columns:
@@ -11,7 +10,6 @@ export const communityContainer = css`
       [community_inner-start] minmax(0, 107.2rem)
       [community_inner-end] minmax(20rem, 1fr)
       [community_full-end];
-
     gap: 2.5rem;
   }
 `;
@@ -21,11 +19,9 @@ export const community_textGroup = css`
   align-items: center;
   flex-direction: column;
   gap: 2.5rem;
-
   ${breakpoints.medium} {
     grid-column: community_inner;
   }
-
   img {
     border-radius: 1.6rem 1.6rem 0 0;
   }
@@ -39,13 +35,10 @@ export const partner_logos = css`
   background-color: #ffffff;
   border-radius: 1.6rem;
   align-items: center;
-
   padding: 3rem 0;
-
   ${breakpoints.medium} {
     grid-column: community_inner;
   }
-
   .partner_logo {
     max-width: 15rem;
   }
@@ -72,43 +65,33 @@ export const beachSection = css`
     font-size: 7.2rem;
     line-height: 7.2rem;
   }
+`;
 
-  .joinDiscord_dummy {
-    opacity: 0.8;
-    position: absolute;
-    top: 2.4rem;
-    left: 5%;
-    width: 74rem;
-    height: 48rem;
-    box-shadow: var(--shadow-06);
-    overflow: hidden;
-    border-radius: 2.4rem;
+export const joinDiscord = css`
+  margin-top: 3rem;
+  display: grid;
+  grid-column: community_inner;
+  background-color: var(--surface-01);
+  box-shadow: var(--shadow-06);
+  border-radius: 1.6rem;
+  overflow: hidden;
+  .joinDiscord_row1 {
+    display: grid;
+    align-self: center;
+    justify-items: center;
+    gap: 1.6rem;
+    padding: 3.2rem;
   }
-
-  ${breakpoints.medium} {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: unset;
-    padding: 6.4rem;
-
-    .joinDiscord_dummy {
-      top: 2.4rem;
-    }
-  }
-
   .joinDiscord_row2 {
     position: relative;
   }
-
   .joinDiscord_dummy {
-    opacity: 0.8;
-    position: absolute;
-    top: 2.4rem;
-    left: 5%;
-    width: 74rem;
-    height: 48rem;
-    box-shadow: var(--shadow-06);
-    overflow: hidden;
     border-radius: 2.4rem;
+    margin-bottom: -10%;
+    margin-left: 10%;
+    ${breakpoints.medium} {
+      margin-bottom: -20%;
+    }
   }
 `;
 
@@ -125,7 +108,6 @@ export const page_discordButton = css`
   padding: 1.6rem;
   font-size: 1.4rem;
   margin-bottom: 4.8rem;
-
   span {
     color: white;
   }
