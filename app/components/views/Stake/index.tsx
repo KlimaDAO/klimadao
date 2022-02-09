@@ -25,7 +25,6 @@ import {
 } from "@klimadao/lib/components";
 import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
-import { i18n } from "@lingui/core";
 import { BalancesCard } from "components/BalancesCard";
 import { RebaseCard } from "components/RebaseCard";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -262,26 +261,47 @@ export const Stake = (props: Props) => {
                 {concatAddress(props.address)}
               </div>
             )}
-
             <div className="hr" />
           </div>
 
           <div className={styles.infoTable}>
             <div className={styles.infoTable_label}>
               <Trans>ROI</Trans>
-              <TextInfoTooltip content={i18n._("stake.roi.tooltip")}>
+              <TextInfoTooltip
+                content={
+                  <Trans>
+                    Approximate return on investment, including compounding
+                    interest, should you remain staked for 5 days.
+                  </Trans>
+                }
+              >
                 <InfoOutlined />
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_label}>
               <Trans>APY</Trans>
-              <TextInfoTooltip content={i18n._("stake.apy.tooltip")}>
+              <TextInfoTooltip
+                content={
+                  <Trans>
+                    Annual Percentage Yield, including compounding interest,
+                    should the current reward rate remain unchanged for 12
+                    months (rates may be subject to change)
+                  </Trans>
+                }
+              >
                 <InfoOutlined />
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_label}>
-              <Trans>INDEX</Trans>
-              <TextInfoTooltip content={i18n._("stake.current_index.tooltip")}>
+              <Trans>Index</Trans>
+              <TextInfoTooltip
+                content={
+                  <Trans>
+                    Amount of KLIMA you would have today if you staked 1 KLIMA
+                    on launch day. Useful for accounting purposes.
+                  </Trans>
+                }
+              >
                 <InfoOutlined />
               </TextInfoTooltip>
             </div>
@@ -296,7 +316,7 @@ export const Stake = (props: Props) => {
                 : "loading..."}
             </div>
             <div className={styles.infoTable_value}>
-              {stakingAPYPercent
+              {currentIndex
                 ? trimWithPlaceholder(currentIndex, 2) + " sKLIMA"
                 : "loading..."}
             </div>

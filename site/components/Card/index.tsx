@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Text } from "@klimadao/lib/components";
-import defaultImage from "public/og-media.jpg";
+import defaultImage from "public/og-media.png";
 import { PostDetails } from "lib/queries";
 
 import styles from "./index.module.css";

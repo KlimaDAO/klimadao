@@ -13,8 +13,9 @@ export const container = css`
   z-index: 3;
   gap: 2.4rem;
   max-height: 100vh;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+
   #klima-logo {
     height: 2.8rem;
     width: auto;

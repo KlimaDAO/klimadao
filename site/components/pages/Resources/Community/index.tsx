@@ -51,7 +51,7 @@ export const Community: NextPage<Props> = ({}) => {
       contracts to create.`}
       mediaTitle={t`KlimaDAO Community`}
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
-      mediaImageSrc="/og-media.jpg"
+      mediaImageSrc="/og-media.png"
       headerElements={DiscordButton}
     >
       <Section style={{ paddingBottom: "unset" }}>

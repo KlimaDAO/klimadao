@@ -107,7 +107,7 @@
       [full-end];
   }
   .cardGrid {
-    overflow-y: scroll;
+    overflow-y: auto;
     display: grid;
     grid-column: full;
     grid-template-columns:

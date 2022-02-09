@@ -1,27 +1,33 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
+import { ethers } from "ethers";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import FlipOutlined from "@mui/icons-material/FlipOutlined";
+
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
-import styles from "components/views/Stake/index.module.css";
 import { selectNotificationStatus } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
 import {
+  ButtonPrimary,
   Spinner,
+  Text,
   TextInfoTooltip,
-  useTooltipSingleton,
 } from "@klimadao/lib/components";
 import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
-import t from "@klimadao/lib/theme/typography.module.css";
-import { ethers } from "ethers";
 import {
   selectAppState,
   selectBalances,
   selectWrapAllowance,
 } from "state/selectors";
 import { decrementWrap, incrementWrap, setWrapAllowance } from "state/user";
+import { ImageCard } from "components/ImageCard";
+import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { i18n } from "@lingui/core";
+
+import * as styles from "components/views/Stake/styles";
+import { Trans } from "@lingui/macro";
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
   address?: string;
@@ -42,7 +48,6 @@ export const Wrap: FC<Props> = (props) => {
 
   const [view, setView] = useState<"wrap" | "unwrap">("wrap");
   const [quantity, setQuantity] = useState("");
-  const [singletonSource, singleton] = useTooltipSingleton();
 
   const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
@@ -104,19 +109,13 @@ export const Wrap: FC<Props> = (props) => {
     return !!allowances && !!Number(allowances.sklima);
   };
 
-  const showRelevantBalance = () => {
-    if (view === "wrap") return trimWithPlaceholder(balances?.sklima, 4);
-
-    if (view === "unwrap") return trimWithPlaceholder(balances?.wsklima, 4);
-  };
-
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return { children: "Not Connected", onClick: undefined, disabled: true };
+      return { label: "Not Connected", onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
-        children: "Loading",
+        label: "Loading",
         onClick: undefined,
         disabled: true,
       };
@@ -124,218 +123,161 @@ export const Wrap: FC<Props> = (props) => {
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return { children: "Confirming", onClick: undefined, disabled: true };
+      return { label: "Confirming", onClick: undefined, disabled: true };
     } else if (view === "wrap" && !hasApproval()) {
-      return { children: "Approve", onClick: handleApproval() };
+      return { label: "Approve", onClick: handleApproval() };
     } else if (view === "wrap") {
       return {
-        children: "Wrap",
+        label: "Wrap",
         onClick: handleAction("wrap"),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
     } else if (view === "unwrap") {
       return {
-        children: "Unwrap",
+        label: "Unwrap",
         onClick: handleAction("unwrap"),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
-      return { children: "ERROR", onClick: undefined, disabled: true };
+      return { label: "ERROR", onClick: undefined, disabled: true };
     }
   };
 
   const youWillGet = () => {
-    if (!quantity || !currentIndex) return "0";
+    const suffix = view === "wrap" ? "wsKLIMA" : "sKLIMA";
+    if (!quantity || !currentIndex) return `0 ${suffix}`;
     if (view === "wrap") {
       // BigNumber doesn't support decimals so I'm not sure the safest way to divide and multiply...
-      return Number(quantity) / Number(currentIndex);
+      return `${Number(quantity) / Number(currentIndex)} ${suffix}`;
     }
-    return Number(quantity) * Number(currentIndex);
+    return `${Number(quantity) * Number(currentIndex)} ${suffix}`;
   };
 
   const inputPlaceholder =
     view === "wrap" ? "sKLIMA to wrap" : "wsKLIMA to unwrap";
 
   return (
-    <div className={styles.stakeCard}>
-      <div className={styles.stakeCard_header}>
-        <h2 className={t.h4}>Wrap sKLIMA</h2>
-        <p className={t.body2}>
-          wsKLIMA is an index-adjusted wrapper for sKLIMA. Some people may find
-          this useful for accounting purposes. Unlike your sKLIMA balance, your
-          wsKLIMA balance will not increase over time.
-        </p>
-        <p className={t.body2}>
-          When wsKLIMA is unwrapped, you receive sKLIMA based on the latest
-          (ever-increasing) index, so the total yield is the same.
-        </p>
-
-        <p className={t.body2}></p>
-      </div>
-      <div className={styles.inputsContainer}>
-        <div className={styles.stakeSwitch}>
-          <button
-            className={styles.switchButton}
-            type="button"
-            onClick={() => {
-              setQuantity("");
-              setView("wrap");
-            }}
-            data-active={view === "wrap"}
-          >
-            wrap
-          </button>
-          <button
-            className={styles.switchButton}
-            type="button"
-            onClick={() => {
-              setQuantity("");
-              setView("unwrap");
-            }}
-            data-active={view === "unwrap"}
-          >
-            unwrap
-          </button>
+    <>
+      <BalancesCard />
+      <div className={styles.stakeCard}>
+        <div className={styles.stakeCard_header}>
+          <Text t="h4" className={styles.stakeCard_header_title}>
+            <FlipOutlined />
+            Wrap sKLIMA
+          </Text>
+          <Text t="caption" color="lightest">
+            <Trans>
+              Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA
+              balance will not increase over time.
+            </Trans>
+          </Text>
+          <Text t="caption" color="lightest">
+            <Trans>
+              Some find this useful for accounting purposes, but the yield is
+              exactly the same. Wrap and unwrap values are calculated based on
+              the current index.
+            </Trans>
+          </Text>
         </div>
-
-        <div className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            BALANCE
-            <TextInfoTooltip
-              singleton={singleton}
-              content={i18n._("stake.balance.tooltip")}
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
+        <div className={styles.stakeCard_ui}>
+          <div className={styles.inputsContainer}>
+            <div className={styles.stakeSwitch}>
+              <button
+                className={styles.switchButton}
+                type="button"
+                onClick={() => {
+                  setQuantity("");
+                  setView("wrap");
+                }}
+                data-active={view === "wrap"}
+              >
+                Wrap
+              </button>
+              <button
+                className={styles.switchButton}
+                type="button"
+                onClick={() => {
+                  setQuantity("");
+                  setView("unwrap");
+                }}
+                data-active={view === "unwrap"}
+              >
+                Unwrap
+              </button>
+            </div>
+            <div className={styles.stakeInput}>
+              <input
+                className={styles.stakeInput_input}
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                type="number"
+                placeholder={inputPlaceholder}
+                min="0"
+              />
+              <button
+                className={styles.stakeInput_max}
+                type="button"
+                onClick={setMax}
+              >
+                <Trans id="button.max">Max</Trans>
+              </button>
+            </div>
+            {address && (
+              <div className={styles.stakeInput_max}>
+                {concatAddress(address)}
               </div>
-            </TextInfoTooltip>
+            )}
+            <div className="hr" />
           </div>
-          <div className={styles.klimaBalanceBar}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder={`NOT CONNECTED`}
-            >
-              <span>{showRelevantBalance()}</span>
-              <span>{view === "unwrap" && "w"}sKLIMA</span>
-            </WithPlaceholder>
-          </div>
-        </div>
 
-        <div className={styles.dataContainer_label}>WRAP SKLIMA</div>
-
-        <div className={styles.stakeInput}>
-          <input
-            className={styles.stakeInput_input}
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            type="number"
-            placeholder={inputPlaceholder}
-            min="0"
-          />
-          <button
-            className={styles.stakeInput_button}
-            type="button"
-            onClick={setMax}
-          >
-            Max
-          </button>
-        </div>
-      </div>
-
-      {address && (
-        <div className={styles.dataContainer_address}>
-          {concatAddress(address)}
-        </div>
-      )}
-
-      <ul className={styles.dataContainer}>
-        {singletonSource}
-        <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            CURRENT INDEX
-            <TextInfoTooltip
-              singleton={singleton}
-              content="Amount you would have today, if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <span>{trimWithPlaceholder(currentIndex, 4)}</span> sKLIMA
-          </div>
-        </li>
-        <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            BALANCE
-            <TextInfoTooltip
-              singleton={singleton}
-              content="Balance of unwrapped, staked KLIMA"
-            >
-              <div tabIndex={0} className={styles.infoIconWrapper}>
-                <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
-          </div>
-          <div className={styles.dataContainer_value}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder="NOT CONNECTED"
-            >
-              <span>{trimWithPlaceholder(balances?.sklima, 4)}</span> sKLIMA
-            </WithPlaceholder>
-          </div>
-        </li>
-        <li className={styles.dataContainer_row}>
-          <div className={styles.dataContainer_label}>
-            YOU WILL GET
-            <TextInfoTooltip singleton={singleton} content="">
-              <div
-                tabIndex={0}
-                style={{ visibility: "hidden" }}
-                className={styles.infoIconWrapper}
+          <div className={styles.infoTable}>
+            <div className={styles.infoTable_label}>
+              <Trans>Index</Trans>
+              <TextInfoTooltip
+                content={
+                  <Trans>
+                    Amount of KLIMA you would have today if you staked 1 KLIMA
+                    on launch day. Used to calculate wsKLIMA value.
+                  </Trans>
+                }
               >
                 <InfoOutlined />
-              </div>
-            </TextInfoTooltip>
+              </TextInfoTooltip>
+            </div>
+            <div className={styles.infoTable_label}>
+              <Trans>Balance</Trans>
+            </div>
+            <div className={styles.infoTable_label}>
+              <Trans>You Will Get</Trans>
+            </div>
+            <div className={styles.infoTable_value}>
+              {currentIndex
+                ? trimWithPlaceholder(currentIndex, 2)
+                : "loading..."}
+            </div>
+            <div className={styles.infoTable_value}>
+              {view === "wrap"
+                ? trimWithPlaceholder(balances?.sklima ?? 0, 6) + " sKLIMA"
+                : trimWithPlaceholder(balances?.wsklima ?? 0, 6) + " wsKLIMA"}
+            </div>
+            <div className={styles.infoTable_value}>{youWillGet()}</div>
           </div>
-          <div className={styles.dataContainer_value}>
-            <WithPlaceholder
-              condition={!isConnected}
-              placeholder="NOT CONNECTED"
-            >
-              <span>{trimWithPlaceholder(youWillGet(), 4)}</span>{" "}
-              {view === "wrap" ? "wsKLIMA" : "sKLIMA"}
-            </WithPlaceholder>
-          </div>
-        </li>
-      </ul>
-      <div className={styles.buttonRow}>
-        <div />
-        {showSpinner ? (
-          <div className={styles.buttonRow_spinner}>
-            <Spinner />
-          </div>
-        ) : (
-          <div />
-        )}
-        <button
-          type="button"
-          className={styles.submitButton}
-          {...getButtonProps()}
-        />
-      </div>
-    </div>
-  );
-};
 
-const WithPlaceholder: FC<{
-  condition: boolean;
-  placeholder: string;
-}> = (props) => {
-  if (props.condition) {
-    return <>{props.placeholder}</>;
-  }
-  return <>{props.children}</>;
+          <div className={styles.buttonRow}>
+            {showSpinner ? (
+              <div className={styles.buttonRow_spinner}>
+                <Spinner />
+              </div>
+            ) : (
+              <ButtonPrimary
+                {...getButtonProps()}
+                className={styles.submitButton}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+      <ImageCard />
+    </>
+  );
 };

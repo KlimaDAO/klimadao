@@ -7,7 +7,7 @@ export const navMain_Mobile = css`
   right: 0px;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: var(--surface-01);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.4rem 0.4rem;
   transform: translate3d(0px, 0px, 0px);
@@ -25,7 +25,7 @@ export const navMain_MobileClosed = css`
   right: 0px;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: var(--surface-01);
   transform: translate3d(100%, 0px, 0px);
   transition: transform 0.5s ease 0s;
