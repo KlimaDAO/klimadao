@@ -1,5 +1,11 @@
+/** em units inside media queries take browser default (16px) */
+/** 23.5em, 376px */
 @value bp-small: (min-width: 376px);
+/** 36em, 576px */
 @value bp-medium: (min-width: 576px);
+/**  48em, 768px */
 @value bp-large: (min-width: 768px);
+/** 62em, 992px */
 @value bp-desktop: (min-width: 992px);
+/** 75em, 1200px */
 @value bp-desktop-large: (min-width: 1200px);
