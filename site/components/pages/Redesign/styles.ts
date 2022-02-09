@@ -47,15 +47,29 @@ export const heroSection = css`
     display: none;
     grid-column: main;
     justify-items: center;
-    row-gap: 0.8rem;
-    align-content: center;
 
-    p {
-      font-size: 1.5rem;
+    ${breakpoints.medium} {
+      display: grid;
     }
   }
 
-  .hero_learnMore svg {
+  .hero_scrollToButton {
+    display: grid;
+    flex-direction: column;
+    justify-items: center;
+    row-gap: 0.8rem;
+    align-content: center;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .hero_scrollToButton p {
+    font-size: 1.5rem;
+  }
+
+  .hero_scrollToButton svg {
     font-size: 2rem;
     fill: var(--font-01);
   }
@@ -100,10 +114,6 @@ export const heroSection = css`
     .hero_imageCard {
       border-radius: 1.6rem;
       overflow: hidden;
-    }
-
-    .hero_learnMore {
-      display: grid;
     }
   }
 
