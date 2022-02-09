@@ -1,11 +1,13 @@
 import React, { FC } from "react";
+import * as styles from "./styles";
 
 export const LogoWithClaim: FC = () => {
   return (
     <svg
       id="klima-logo"
-      width="140"
-      height="23"
+      className={styles.logoWithClaim}
+      width="100%"
+      height="100%"
       viewBox="0 0 140 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
