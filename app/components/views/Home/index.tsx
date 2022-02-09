@@ -11,7 +11,6 @@ import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 import { Stake } from "components/views/Stake";
-import { Redeem } from "components/views/Redeem";
 import { PKlima } from "components/views/PKlima";
 import { Info } from "components/views/Info";
 import { ChooseBond } from "components/views/ChooseBond";
@@ -20,7 +19,6 @@ import { Wrap } from "components/views/Wrap";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
-import { LoadWeb3Modal } from "./constants";
 import { NotificationModal } from "components/NotificationModal";
 
 import { init } from "lib/i18n";
@@ -63,8 +61,7 @@ const useWeb3Modal = () => {
 const useProvider = (): [
   ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider,
   string | undefined,
-  Web3Modal | undefined,
-  LoadWeb3Modal
+  Web3Modal | undefined
 ] => {
   const fallbackProvider = useRef<ethers.providers.JsonRpcProvider>();
   const web3Modal = useWeb3Modal();
@@ -307,16 +304,6 @@ export const Home: FC = () => {
                   provider={provider}
                   isConnected={isConnected}
                   loadWeb3Modal={loadWeb3Modal}
-                />
-              }
-            />
-            <Route
-              path="/redeem"
-              element={
-                <Redeem
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
                 />
               }
             />
