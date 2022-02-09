@@ -117,7 +117,7 @@ export const NavMenu: FC<Props> = (props) => {
         Stake KLIMA
       </MenuButton>
       <MenuButton
-        isActive={pathname === "/bonds"}
+        isActive={pathname.includes("/bond")}
         href="/bonds"
         icon={<SpaOutlined />}
         onClick={handleHide}

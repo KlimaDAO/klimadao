@@ -13,6 +13,7 @@ interface Props {
   rel?: string;
   target?: string;
   isExternalHref?: boolean;
+  disabled?: boolean;
 }
 
 export const ButtonPrimary: FC<Props> = (props) => {
@@ -36,7 +37,12 @@ export const ButtonPrimary: FC<Props> = (props) => {
     );
   }
   return (
-    <button type="button" className={buttonStyle} onClick={props.onClick}>
+    <button
+      type="button"
+      className={buttonStyle}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
       {props.label}
     </button>
   );

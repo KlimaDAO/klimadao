@@ -17,17 +17,22 @@ export const button_primary = css`
   transition: opacity 0.3s ease 0s;
   background-color: var(--klima-green);
 
-  &:hover,
-  &:focus {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     opacity: 0.7;
   }
-  &:focus {
+  &:focus:not(:disabled) {
     transform: scale(0.9);
   }
   &,
-  &:hover,
+  &:hover:not(:disabled),
   &:visited {
     color: white; /* same in darkmode */
+  }
+
+  &:disabled {
+    background-color: var(--surface-03);
+    cursor: not-allowed;
   }
 `;
 

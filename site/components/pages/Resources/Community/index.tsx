@@ -1,9 +1,13 @@
 import { NextPage } from "next";
 import Image from "next/image";
 
-import { ButtonPrimary, Text, Section } from "@klimadao/lib/components";
+import {
+  ButtonPrimary,
+  Text,
+  Section,
+  DiscordIcon,
+} from "@klimadao/lib/components";
 import { Trans, t } from "@lingui/macro";
-import { DiscordIcon } from "components/Icons/DiscordIcon";
 
 import * as styles from "./styles";
 import { Container } from "../Container";

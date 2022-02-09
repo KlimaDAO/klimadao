@@ -7,8 +7,6 @@ import { Text } from "@klimadao/lib/components";
 
 import { Trans, t } from "@lingui/macro";
 
-import { t } from "@lingui/macro";
-
 import styles from "./index.module.css";
 import { Container } from "../Resources/Container";
 

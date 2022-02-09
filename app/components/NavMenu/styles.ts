@@ -14,6 +14,7 @@ export const container = css`
   gap: 2.4rem;
   max-height: 100vh;
   overflow-x: scroll;
+  overflow-y: hidden;
   #klima-logo {
     height: 2.8rem;
     width: auto;

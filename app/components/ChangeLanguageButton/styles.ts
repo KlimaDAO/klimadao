@@ -17,7 +17,7 @@ export const changeLanguageButton = css`
 export const tooltip = css`
   ${typography.caption};
   text-align: center;
-  background: var(--surface-08);
+  background: var(--surface-03);
   border-radius: 0.4rem;
   padding: 1.6rem;
   @media (max-width: 32.5rem) {
@@ -30,6 +30,6 @@ export const tooltip = css`
 export const menuItem = css`
   ${typography.button};
   &:hover {
-    color: var(--primary-variant);
+    color: var(--klima-green);
   }
 `;

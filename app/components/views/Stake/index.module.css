@@ -73,12 +73,12 @@
   background-color: var(--alt-bg);
 }
 .switchButton[data-active="true"] {
-  background-color: var(--primary);
+  background-color: var(--klima-green);
   font-weight: bold;
 }
 
 .klimaBalanceBar {
-  background-color: var(--surface-05);
+  background-color: var(--surface-02);
   font-family: var(--font-family-heading);
   min-width: 10rem;
   display: flex;
@@ -122,14 +122,14 @@
   font-family: var(--font-family-heading);
 }
 .stakeInput input:focus {
-  border-color: var(--secondary);
+  border-color: var(--klima-blue);
 }
 .stakeInput_input:disabled {
   opacity: 0.7;
 }
 .stakeInput_button {
   composes: button from "@klimadao/lib/theme/typography.module.css";
-  background-color: var(--primary);
+  background-color: var(--klima-green);
   flex-grow: 0;
   flex-shrink: 0;
   height: 100%;
@@ -137,7 +137,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--primary-variant);
+  border: 1px solid var(--klima-green);
   border-left-color: transparent;
   border-top-color: transparent;
   border-radius: 0.4rem;
@@ -149,7 +149,7 @@
   cursor: pointer;
 }
 .stakeInput_button:focus {
-  background-color: var(--primary-variant);
+  background-color: var(--klima-green);
 }
 .stakeInput_button:disabled {
   opacity: 0.6;
@@ -192,7 +192,7 @@
   /* because the info icon has whitespace, it makes the center column gap look off center */
   margin-right: -1rem;
   text-align: end;
-  color: var(--surface-07);
+  color: var(--surface-03);
   font-size: 1rem;
   font-family: var(--font-family-heading);
 }
@@ -235,7 +235,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--alt-bg);
-  color: var(--surface-07) !important;
+  color: var(--surface-03) !important;
   opacity: 1 !important;
   height: 5.2rem;
   width: 32rem;
@@ -243,12 +243,12 @@
   font-family: var(--font-family-heading);
 }
 .submitButton:not(:disabled) {
-  background-color: var(--primary);
+  background-color: var(--klima-green);
   color: var(--text-color-contrast) !important;
 }
 
 .submitButton:not(:disabled):hover {
-  background-color: var(--secondary-variant);
+  background-color: var(--klima-blue);
 }
 
 .statusMessage {

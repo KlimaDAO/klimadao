@@ -1,4 +1,3 @@
-import "@klimadao/lib/theme/colors.css";
 import "@klimadao/lib/theme/variables.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/globals.css";

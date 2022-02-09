@@ -101,7 +101,7 @@ export const switchButton = css`
   }
 
   &[data-active="true"] {
-    background-color: var(--primary);
+    background-color: var(--klima-green);
     font-weight: bold;
   }
 `;
@@ -128,7 +128,7 @@ export const stakeInput_input = css`
     color: var(--font-02);
   }
   &:focus,
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: var(--klima-green);
   }
   &:disabled {
@@ -141,8 +141,12 @@ export const stakeInput_max = css`
   ${typography.button};
   padding: 0 1.6rem;
   border-radius: 0 0.8rem 0.8rem 0;
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--surface-03);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
   }
 `;
 
@@ -199,6 +203,7 @@ export const buttonRow_spinner = css`
   padding: 0 0.8rem;
   display: flex;
   align-items: center;
+  min-height: 4.8rem;
 `;
 
 export const submitButton = css`

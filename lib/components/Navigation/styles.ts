@@ -84,7 +84,7 @@ export const navMain_MobileItemInner = css`
   align-items: center;
 
   &:hover {
-    color: var(--surface-04);
+    color: var(--surface-02);
   }
 `;
 

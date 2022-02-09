@@ -352,6 +352,7 @@ export const Home: FC = () => {
                   path={`/bonds/${bond}`}
                   element={
                     <Bond
+                      loadWeb3Modal={loadWeb3Modal}
                       provider={provider}
                       address={address}
                       bond={bond}

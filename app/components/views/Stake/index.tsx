@@ -47,7 +47,6 @@ interface Props {
 }
 
 export const Stake = (props: Props) => {
-  const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
   const [view, setView] = useState("stake");
   const fullStatus: AppNotificationStatus | null = useSelector(
@@ -85,7 +84,7 @@ export const Stake = (props: Props) => {
   const handleApproval = (action: "stake" | "unstake") => async () => {
     try {
       const value = await changeApprovalTransaction({
-        provider,
+        provider: props.provider,
         action,
         onStatus: setStatus,
       });
@@ -105,7 +104,7 @@ export const Stake = (props: Props) => {
       setQuantity("");
       await changeStakeTransaction({
         value,
-        provider,
+        provider: props.provider,
         action,
         onStatus: setStatus,
       });
@@ -126,7 +125,7 @@ export const Stake = (props: Props) => {
 
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
-    if (!isConnected || !address) {
+    if (!props.isConnected || !props.address) {
       return {
         label: <Trans>Connect wallet</Trans>,
         onClick: props.loadWeb3Modal,
@@ -186,7 +185,7 @@ export const Stake = (props: Props) => {
   };
 
   const showSpinner =
-    isConnected &&
+    props.isConnected &&
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
@@ -258,11 +257,15 @@ export const Stake = (props: Props) => {
                 <Trans id="button.max">Max</Trans>
               </button>
             </div>
+            {props.address && (
+              <div className={styles.address}>
+                {concatAddress(props.address)}
+              </div>
+            )}
+
+            <div className="hr" />
           </div>
-          {address && (
-            <div className={styles.address}>{concatAddress(address)}</div>
-          )}
-          <div className="hr" />
+
           <div className={styles.infoTable}>
             <div className={styles.infoTable_label}>
               <Trans>ROI</Trans>
