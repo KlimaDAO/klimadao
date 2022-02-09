@@ -31,7 +31,7 @@ export const Info: FC<Props> = (props) => {
       ariaLabel: "Copy KLIMA token address.",
       metamaskAriaLabel: "Add KLIMA token to wallet.",
       ticker: "KLIMA",
-      image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      image: `${BASE_URL}/icons/KLIMA.png`,
       decimals: 9,
     },
     {
@@ -40,7 +40,7 @@ export const Info: FC<Props> = (props) => {
       ariaLabel: "Copy sKLIMA token address.",
       metamaskAriaLabel: "Add sKLIMA token to wallet.",
       ticker: "sKLIMA",
-      image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      image: `${BASE_URL}/icons/KLIMA.png`,
       decimals: 9,
     },
     {
@@ -49,7 +49,7 @@ export const Info: FC<Props> = (props) => {
       ariaLabel: "Copy wsKLIMA token address.",
       metamaskAriaLabel: "Add wsKLIMA token to wallet.",
       ticker: "wsKLIMA",
-      image: `${BASE_URL}/icons/klima-logo.jpeg`,
+      image: `${BASE_URL}/icons/KLIMA.png`,
       decimals: 18,
     },
     {
@@ -58,7 +58,7 @@ export const Info: FC<Props> = (props) => {
       ariaLabel: "Copy BCT token address.",
       metamaskAriaLabel: "Add BCT token to wallet.",
       ticker: "BCT",
-      image: `${BASE_URL}/icons/bct-logo.jpeg`,
+      image: `${BASE_URL}/icons/BCT.png`,
       decimals: 18,
     },
     {
@@ -67,7 +67,7 @@ export const Info: FC<Props> = (props) => {
       ariaLabel: "Copy MCO2 token address.",
       metamaskAriaLabel: "Add MCO2 token to wallet.",
       ticker: "MCO2",
-      image: `${BASE_URL}/icons/mco2-logo.jpeg`,
+      image: `${BASE_URL}/icons/MCO2.png`,
       decimals: 18,
     },
     {
@@ -76,7 +76,7 @@ export const Info: FC<Props> = (props) => {
       ariaLabel: "Copy BCT USDC LP address.",
       metamaskAriaLabel: "Add BCT USDC LP to wallet.",
       ticker: "BCT/USDC",
-      image: `${BASE_URL}/icons/lp-logo.png`,
+      image: `${BASE_URL}/icons/BCT-USDC-LP.png`,
       decimals: 18,
     },
     {
@@ -85,7 +85,7 @@ export const Info: FC<Props> = (props) => {
       ariaLabel: "Copy KLIMA BCT LP address.",
       metamaskAriaLabel: "Add KLIMA BCT LP to wallet.",
       ticker: "BCT/KLIMA",
-      image: `${BASE_URL}/icons/lp-logo.png`,
+      image: `${BASE_URL}/icons/BCT-KLIMA-LP.png`,
       decimals: 18,
     },
   ];

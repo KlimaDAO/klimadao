@@ -13,6 +13,7 @@ export const container = css`
   z-index: 3;
   gap: 2.4rem;
   max-height: 100vh;
+  overflow-x: scroll;
   #klima-logo {
     height: 2.8rem;
     width: auto;
@@ -36,7 +37,7 @@ export const container = css`
 
   .comingSoonStack {
     display: grid;
-    gap: 0.4rem;
+    gap: 0.8rem;
   }
   .navFooter {
     margin-top: auto;
@@ -80,6 +81,16 @@ export const sidebarButton = css`
     border-radius: 0.6rem;
   }
 
+  &:hover,
+  &:focus {
+    background-color: var(--surface-01);
+  }
+
+  &:hover span,
+  &:focus span {
+    color: var(--font-02);
+  }
+
   &[data-active="true"] {
     background-color: var(--surface-01);
     border: 1px solid var(--surface-03);
@@ -87,11 +98,9 @@ export const sidebarButton = css`
   &[data-active="true"] span {
     color: var(--font-01);
   }
-
   &[data-active="true"] .iconContainer {
     background-color: var(--klima-green);
   }
-
   &[data-disabled="true"] {
     opacity: 0.5;
   }
