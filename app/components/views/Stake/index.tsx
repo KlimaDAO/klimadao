@@ -216,7 +216,7 @@ export const Stake = (props: Props) => {
                 type="button"
                 onClick={() => {
                   setQuantity("");
-                  setStatus("");
+                  setStatus(null);
                   setView("stake");
                 }}
                 data-active={view === "stake"}
@@ -228,7 +228,7 @@ export const Stake = (props: Props) => {
                 type="button"
                 onClick={() => {
                   setQuantity("");
-                  setStatus("");
+                  setStatus(null);
                   setView("unstake");
                 }}
                 data-active={view === "unstake"}
@@ -242,10 +242,12 @@ export const Stake = (props: Props) => {
                 value={quantity}
                 onChange={(e) => {
                   setQuantity(e.target.value);
-                  setStatus("");
+                  setStatus(null);
                 }}
                 type="number"
-                placeholder={getAction()}
+                placeholder={`Amount to ${
+                  { stake: "stake", unstake: "unstake" }[view]
+                }`}
                 min="0"
               />
               <button

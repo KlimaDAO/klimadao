@@ -10,7 +10,7 @@ import {
   TextInfoTooltip,
   useTooltipSingleton,
 } from "@klimadao/lib/components";
-import { trimWithPlaceholder } from "@klimadao/lib/utils";
+import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 import t from "@klimadao/lib/theme/typography.module.css";
 import { ethers } from "ethers";
 import {
@@ -200,7 +200,7 @@ export const Wrap: FC<Props> = (props) => {
 
         <div className={styles.dataContainer_row}>
           <div className={styles.dataContainer_label}>
-            <Trans>BALANCE</Trans>
+            BALANCE
             <TextInfoTooltip
               singleton={singleton}
               content={i18n._("stake.balance.tooltip")}
