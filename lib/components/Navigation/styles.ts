@@ -1,29 +1,5 @@
 import { css } from "@emotion/css";
 import breakpoints from "../../theme/breakpoints";
-import { button } from "../../theme/typography";
-
-export const navMain_DesktopLink = css`
-  ${button};
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  &,
-  &:hover,
-  &:visited {
-    color: var(--font-03);
-    font-weight: 500;
-  }
-
-  &:hover,
-  &:focus {
-    color: var(--font-02);
-  }
-
-  &[data-active="true"] {
-    color: var(--font-01);
-    font-weight: 700;
-  }
-`;
 
 export const navMain_Mobile = css`
   position: absolute;
@@ -67,34 +43,6 @@ export const navMain_MobileList = css`
   margin: 0 auto;
 `;
 
-export const navMain_MobileItem = css`
-  padding: 1.2rem 2.4rem;
-`;
-
-export const navMain_MobileLink = css`
-  display: block;
-  width: 100%;
-`;
-
-export const navMain_MobileItemInner = css`
-  font-size: 3.75rem;
-  font-weight: 500;
-  color: var(--font-01);
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    color: var(--surface-02);
-  }
-`;
-
-export const navMain_MobileItemInnerNumber = css`
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--font-01);
-  margin-right: 2rem;
-`;
-
 export const buttonToggleNav = css`
   padding: 1rem;
   display: inline-block;
@@ -110,7 +58,6 @@ export const buttonToggleNav = css`
   margin: 0;
   overflow: visible;
   line-height: 0;
-
   &:hover {
     opacity: 0.7;
   }
@@ -142,7 +89,6 @@ export const hamburgerInnerToggled = css`
   transform: rotate(45deg);
   transition-delay: 0.12s;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-
   &::before {
     width: 2.4rem;
     height: 0.4rem;
@@ -193,7 +139,6 @@ export const hamburgerInner = css`
   transition-property: transform;
   transition-duration: 0.15s;
   transition-timing-function: ease;
-
   &::before {
     transition: top 0.075s ease 0.12s, opacity 0.075s ease 0s;
     top: -0.8rem;
@@ -208,7 +153,6 @@ export const hamburgerInner = css`
     transition-duration: 0.15s;
     transition-timing-function: ease;
   }
-
   &::after {
     transition: bottom 0.075s ease 0.12s,
       transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;

@@ -16,17 +16,17 @@ interface Props {
   disabled?: boolean;
 }
 
-export const ButtonPrimary: FC<Props> = (props) => {
+export const ButtonPrimary: FC<Props> = ({ link: LinkElement, ...props }) => {
   const buttonStyle = props.variant
     ? cx(styles.button_primary, styles.button_gray, props.className)
     : cx(styles.button_primary, props.className);
 
   if (props.href) {
-    if (props.link) {
+    if (LinkElement) {
       return (
-        <props.link href={props.href}>
+        <LinkElement href={props.href}>
           <a className={buttonStyle}>{props.label}</a>
-        </props.link>
+        </LinkElement>
       );
     }
 
