@@ -436,7 +436,6 @@ export const buySection = css`
 
   .buy_dummy {
     border-radius: 2.4rem;
-    margin-left: 5%;
     margin-bottom: -1rem;
     margin-left: 5%;
   }

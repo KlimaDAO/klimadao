@@ -96,14 +96,6 @@ export const joinDiscord = css`
   }
 
   .joinDiscord_dummy {
-    // position: absolute;
-    // top: 2.4rem;
-    // left: 5%;
-    // width: 74rem;
-    // height: 48rem;
-    // box-shadow: var(--shadow-06);
-    // overflow: hidden;
-    // border-radius: 2.4rem;
     border-radius: 2.4rem;
     margin-bottom: -10%;
     margin-left: 10%;
