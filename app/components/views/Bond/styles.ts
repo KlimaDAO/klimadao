@@ -47,6 +47,25 @@ export const bondCard = css`
 export const bondCard_header = css`
   display: grid;
   gap: 0.8rem;
+  grid-auto-columns: min-content 1fr;
+  grid-template-areas:
+    "back back"
+    "icon title";
+  align-items: center;
+
+  img {
+    width: 3.2rem;
+    height: 3.2rem;
+    grid-area: icon;
+  }
+
+  ${breakpoints.large} {
+    gap: 1.6rem;
+    img {
+      width: 4.8rem;
+      height: 4.8rem;
+    }
+  }
 `;
 
 export const bondCard_ui = css`
@@ -71,6 +90,7 @@ export const backButton = css`
   align-items: center;
   justify-self: start;
   color: var(--font-03);
+  grid-area: back;
 `;
 
 export const dataContainer = css`

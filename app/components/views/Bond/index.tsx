@@ -404,14 +404,19 @@ export const Bond: FC<Props> = (props) => {
         <div className={styles.bondCard_header}>
           <Link to="/bonds" className={styles.backButton}>
             <LeftOutlined />
-            <Trans id="nav.back">BACK</Trans>
+            <Text t="button" color="lighter">
+              <Trans id="nav.back">BACK</Trans>
+            </Text>
           </Link>
-          <Text t="h5">
-            <Trans id="bond.caption">Bond {bondInfo.name}</Trans>
-          </Text>
-          <Text t="caption" color="lightest">
-            {bondInfo.description}
-          </Text>
+          <img src={bondInfo.icon} alt="" />
+          <div>
+            <Text t="h5">
+              <Trans id="bond.caption">Bond {bondInfo.name}</Trans>
+            </Text>
+            <Text t="caption" color="lightest">
+              {bondInfo.description}
+            </Text>
+          </div>
         </div>
         <div className={styles.bondCard_ui}>
           <div className={styles.inputsContainer}>

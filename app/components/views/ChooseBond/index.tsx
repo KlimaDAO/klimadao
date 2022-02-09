@@ -127,7 +127,7 @@ export function ChooseBond() {
               <Link to={bond.href} key={bond.href}>
                 <div className={styles.bondLink} key={bond.name}>
                   <div className="bondLink_imgContainer">
-                    <img src={bond.icon} />
+                    <img src={bond.icon} alt="" />
                   </div>
                   <div>
                     <Text t="body1">{bond.name}</Text>
