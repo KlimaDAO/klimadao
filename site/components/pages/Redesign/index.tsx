@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 import { Trans, t } from "@lingui/macro";
@@ -44,6 +44,11 @@ export const Home: NextPage<Props> = (props) => {
   const litersGas = Math.floor(
     props.treasuryBalance * litersGasPerTonne
   ).toLocaleString();
+
+  const scrollToRef = useRef<null | HTMLDivElement>(null);
+  const scrollToNextSection = () =>
+    scrollToRef.current &&
+    scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
     <>
@@ -94,13 +99,22 @@ export const Home: NextPage<Props> = (props) => {
             </div>
           </div>
           <div className="hero_learnMore">
-            <Text>
-              <Trans>LEARN MORE</Trans>
-            </Text>
-            <ArrowDownwardIcon className="downArrow" />
+            <button
+              type="button"
+              onClick={scrollToNextSection}
+              className="hero_scrollToButton"
+            >
+              <Text>
+                <Trans>LEARN MORE</Trans>
+              </Text>
+              <ArrowDownwardIcon className="downArrow" />
+            </button>
           </div>
         </div>
       </Section>
+
+      <div ref={scrollToRef}></div>
+
       <Section variant="white" style={{ paddingBottom: "unset" }}>
         <div className={styles.blackHoleSection}>
           <div className="blackHole_textGroup">
