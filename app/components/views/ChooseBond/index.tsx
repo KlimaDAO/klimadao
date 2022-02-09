@@ -24,7 +24,9 @@ export const useBond = (bond: Bond) => {
       mco2: "/icons/MCO2.png",
       bct: "/icons/BCT.png",
       klima_bct_lp: "/icons/BCT-KLIMA-LP.png",
+      klima_usdc_lp: "/icons/KLIMA-USDC-LP.png",
       bct_usdc_lp: "/icons/BCT-USDC-LP.png",
+      klima_mco2_lp: "/icons/KLIMA-MCO2-LP.png",
       // future bond names go here
     }[bond],
     name: {
