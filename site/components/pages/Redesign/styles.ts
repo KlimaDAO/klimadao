@@ -422,9 +422,6 @@ export const sproutsSection = css`
 export const buySection = css`
   display: grid;
   grid-column: main;
-  grid-template-rows: 1fr 1fr;
-  column-gap: 6.4rem;
-  padding: 3.2rem;
   background-color: var(--surface-01);
   box-shadow: var(--shadow-06);
   border-radius: 1.6rem;
@@ -435,6 +432,11 @@ export const buySection = css`
     align-self: flex-start;
     gap: 1.6rem;
     justify-items: start;
+    padding: 3.2rem;
+
+    ${breakpoints.medium} {
+      padding: 6.4rem;
+    }
   }
 
   .buy_col2 {
@@ -443,25 +445,14 @@ export const buySection = css`
   }
 
   .buy_dummy {
-    opacity: 0.8;
-    position: absolute;
-    top: 2.4rem;
-    left: 10%;
-    width: 74rem;
-    height: 48rem;
-    box-shadow: var(--shadow-06);
-    overflow: hidden;
     border-radius: 2.4rem;
+    margin-bottom: -1rem;
+    margin-left: 5%;
   }
 
   ${breakpoints.medium} {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: unset;
-    padding: 6.4rem;
-
-    .buy_dummy {
-      top: 2.4rem;
-    }
   }
 `;
 

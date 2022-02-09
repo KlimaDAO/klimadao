@@ -11,7 +11,7 @@ import { FC, PropsWithChildren, ReactNode } from "react";
 import treesDesktop from "public/omar-ram-OicnHt5EahE-unsplash-desktop.jpg";
 import mossLogo from "public/moss.png";
 import beachDesktop from "public/usgs-JiuVoQd-ZLk-unsplash-desktop.jpg";
-import screenShotDesktop from "public/screen_shot_desktop.jpg";
+import screenShotDesktop from "public/screenshot_discord.png";
 import bcfcLogo from "public/bcfc_sm.png";
 import bicoWgLogo from "public/bicowg_simple.png";
 import gitcoinLogo from "public/gitcoin_logo.png";
@@ -182,34 +182,34 @@ export const Community: NextPage<Props> = ({}) => {
               <Trans>Join Our Discord</Trans>
             </Text>
           </div>
-        </div>
-        <div className={styles.joinDiscord}>
-          <div className="joinDiscord_row1">
-            <Text t="h2" as="h2" align="center">
-              <Trans>Discord</Trans>
-            </Text>
-            <Text
-              t="body3"
-              color="lighter"
-              align="center"
-              className="padding20"
-            >
-              <Trans>
-                KlimaDAO harnesses the power of cryptocurrency, blockchain and
-                smart contracts to create
-              </Trans>
-            </Text>
-            <DiscordButton />
-          </div>
-          <div className="joinDiscord_row2">
-            <div className="joinDiscord_dummy">
-              <Image
-                src={screenShotDesktop}
-                width={764}
-                height={600}
-                alt="Screen shot of Discord"
-                layout="responsive"
-              />
+          <div className={styles.joinDiscord}>
+            <div className="joinDiscord_row1">
+              <Text t="h2" as="h2" align="center">
+                <Trans>Discord</Trans>
+              </Text>
+              <Text
+                t="body3"
+                color="lighter"
+                align="center"
+                className="padding20"
+              >
+                <Trans>
+                  KlimaDAO harnesses the power of cryptocurrency, blockchain and
+                  smart contracts to create
+                </Trans>
+              </Text>
+              <DiscordButton />
+            </div>
+            <div className="joinDiscord_row2">
+              <div className="joinDiscord_dummy">
+                <Image
+                  src={screenShotDesktop}
+                  width={804}
+                  height={597}
+                  alt="Screen shot of Discord"
+                  placeholder="blur"
+                />
+              </div>
             </div>
           </div>
         </div>
