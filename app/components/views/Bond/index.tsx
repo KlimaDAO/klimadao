@@ -1,9 +1,7 @@
-import React, { useState, useEffect, FC, ChangeEvent } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
 import WarningOutlined from "@mui/icons-material/WarningAmberRounded";
-import DownOutlined from "@mui/icons-material/KeyboardArrowDownRounded";
-import UpOutlined from "@mui/icons-material/KeyboardArrowUpRounded";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import { Link } from "react-router-dom";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
@@ -22,7 +20,6 @@ import { Trans, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { prettifySeconds } from "lib/i18n";
 
-import { AdvancedSettings } from "./AdvancedSettings";
 import { useBond } from "../ChooseBond";
 import { Bond as BondType } from "@klimadao/lib/constants";
 import {
@@ -45,7 +42,7 @@ import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
-import styles from "./index.module.css";
+import * as styles from "./styles";
 
 export function prettyVestingPeriod(
   locale: string | undefined,
@@ -72,7 +69,6 @@ interface Props {
 
 export const Bond: FC<Props> = (props) => {
   const bondInfo = useBond(props.bond);
-  const [showAdvanced, setShowAdvanced] = useState(false);
 
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
@@ -85,7 +81,6 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const dispatch = useAppDispatch();
-  const [slippage, setSlippage] = useState(2);
   const [recipientAddress, setRecipientAddress] = useState(props.address);
 
   const [view, setView] = useState("bond");
@@ -105,14 +100,6 @@ export const Bond: FC<Props> = (props) => {
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
-
-  const onRecipientAddressChange = (e: ChangeEvent<HTMLInputElement>) => {
-    return setRecipientAddress(e.target.value);
-  };
-
-  const onSlippageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    return setSlippage(Number(e.target.value));
-  };
 
   const vestingPeriod = () => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
@@ -220,7 +207,7 @@ export const Bond: FC<Props> = (props) => {
       }
       await bondTransaction({
         value: quantity,
-        slippage,
+        slippage: 2,
         bond: props.bond,
         provider: props.provider,
         address: recipientAddress || props.address,
@@ -362,14 +349,11 @@ export const Bond: FC<Props> = (props) => {
   });
 
   return (
-    <div className={styles.stakeCard}>
-      <div className={styles.bondHeader}>
+    <div className={styles.bondCard}>
+      <div>
         <Link
           to="/bonds"
-          className={classNames(
-            typography.button,
-            styles.bondHeader_backButton
-          )}
+          className={classNames(typography.button, styles.backButton)}
         >
           <LeftOutlined />
           <Trans id="nav.back">BACK</Trans>
@@ -428,22 +412,6 @@ export const Bond: FC<Props> = (props) => {
             <Trans id="button.max">Max</Trans>
           </button>
         </div>
-        <button
-          className={classNames(typography.button, styles.showAdvancedButton)}
-          type="button"
-          onClick={() => setShowAdvanced((s) => !s)}
-        >
-          {showAdvanced ? <UpOutlined /> : <DownOutlined />}
-          {showAdvanced ? "HIDE ADVANCED" : "SHOW ADVANCED"}
-        </button>
-        {showAdvanced && (
-          <AdvancedSettings
-            slippage={slippage}
-            recipientAddress={recipientAddress}
-            onRecipientAddressChange={onRecipientAddressChange}
-            onSlippageChange={onSlippageChange}
-          />
-        )}
       </div>
 
       {view === "bond" && (
