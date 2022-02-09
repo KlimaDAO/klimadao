@@ -19,7 +19,7 @@ import oceans from "public/oceans.jpg";
 import steams from "public/steams.jpg";
 import burningForest from "public/burning-forest.jpg";
 import sprouts from "public/sprouts.jpg";
-import dummyswap from "public/dummyswap.jpg";
+import dummyswap from "public/dummyswap.png";
 
 import * as styles from "./styles";
 import { ParralaxWormhole } from "./ParralaxWormhole";
@@ -388,7 +388,13 @@ export const Home: NextPage<Props> = (props) => {
           </div>
           <div className="buy_col2">
             <div className="buy_dummy">
-              <Image src={dummyswap} width={764} height={500} alt="" />
+              <Image
+                src={dummyswap}
+                width={710}
+                height={597}
+                alt="Buy Klima"
+                placeholder="blur"
+              />
             </div>
           </div>
         </div>
