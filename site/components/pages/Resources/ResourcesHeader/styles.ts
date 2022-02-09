@@ -28,7 +28,6 @@ export const resourcesHeader = css`
   .resourcesHeader_textGroup a {
     display: none;
   }
-
   ${breakpoints.medium} {
     grid-column: main;
 
@@ -44,7 +43,6 @@ export const resourcesHeader = css`
       padding: 0 2rem;
       grid-column: header_inner;
     }
-
     .resourcesHeader_textGroup a {
       display: flex;
     }
@@ -60,19 +58,9 @@ export const navigationDesktopWrapper = css`
   justify-content: center;
   padding: 0;
   width: 100%;
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:site/components/pages/Resources/ResourcesHeader/styles.ts
->>>>>>> Align site pages (#118)
   z-index: 10;
 
   display: none;
-
-<<<<<<< HEAD
-=======
-========
->>>>>>>> Align site pages (#118):site/components/pages/Resources/Container/styles.ts
->>>>>>> Align site pages (#118)
   ${breakpoints.medium} {
     display: flex;
   }
@@ -87,16 +75,11 @@ export const navigationDesktop = css`
   }
 `;
 
-<<<<<<< HEAD
 export const navigationMobile = css`
   grid-column: full;
   padding: 0 1rem;
-=======
-<<<<<<<< HEAD:site/components/pages/Resources/ResourcesHeader/styles.ts
-export const navigationMobile = css`
-  grid-column: full;
-  padding: 0 1rem;
-========
+`;
+
 export const mobileNav = css`
   display: flex;
   flex-direction: row;
@@ -110,10 +93,6 @@ export const mobileNav = css`
 export const mobileNavButton = css`
   font-size: 1.4rem;
   font-weight: 400;
-`;
->>>>>>>> Align site pages (#118):site/components/pages/Resources/Container/styles.ts
->>>>>>> Align site pages (#118)
-
   display: flex;
   gap: 2rem;
   justify-content: space-between;
@@ -122,7 +101,6 @@ export const mobileNavButton = css`
     flex: 1;
   }
 
-<<<<<<< HEAD
   a {
     width: 10rem;
     max-width: 10rem;
@@ -130,8 +108,6 @@ export const mobileNavButton = css`
     text-transform: none;
   }
 
-=======
->>>>>>> Align site pages (#118)
   ${breakpoints.medium} {
     display: none;
   }
@@ -144,15 +120,6 @@ export const list = css`
   min-width: 16rem;
 
   list-style: none;
-<<<<<<< HEAD
-  background-color: var(--surface-01);
-  border-radius: 8px;
-  padding: 0.5rem;
-  box-shadow: var(--shadow-light);
-
-  li[data-active="true"] {
-    background-color: var(--surface-02);
-=======
   background-color: #ffffff;
   border-radius: 8px;
   padding: 0.5rem;
@@ -160,7 +127,6 @@ export const list = css`
 
   li[data-active="true"] {
     background-color: #fafafa;
->>>>>>> Align site pages (#118)
     border-radius: 4px;
 
     a {

@@ -73,28 +73,26 @@ export const beachSection = css`
     line-height: 7.2rem;
   }
 
-export const joinDiscord = css`
-  margin-top: 3rem;
-  display: grid;
-  grid-column: main;
-  grid-template-rows: 1fr 1fr;
-  padding: 3.2rem;
-  background-color: var(--surface-01);
-  box-shadow: var(--shadow-06);
-  border-radius: 1.6rem;
-  overflow: hidden;
-
-  ${breakpoints.medium} {
-    .padding20 {
-      padding: 0 20rem;
-    }
+  .joinDiscord_dummy {
+    opacity: 0.8;
+    position: absolute;
+    top: 2.4rem;
+    left: 5%;
+    width: 74rem;
+    height: 48rem;
+    box-shadow: var(--shadow-06);
+    overflow: hidden;
+    border-radius: 2.4rem;
   }
 
-  .joinDiscord_row1 {
-    display: grid;
-    align-self: center;
-    justify-items: center;
-    gap: 1.6rem;
+  ${breakpoints.medium} {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: unset;
+    padding: 6.4rem;
+
+    .joinDiscord_dummy {
+      top: 2.4rem;
+    }
   }
 
   .joinDiscord_row2 {
