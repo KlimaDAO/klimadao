@@ -1,16 +1,13 @@
 import { FC } from "react";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { t } from "@lingui/macro";
-import {
-  HeaderDesktop,
-  NavItemDesktop,
-  HeaderMobile,
-  NavItemMobile,
-  ButtonPrimary,
-} from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
 
 import { urls } from "@klimadao/lib/constants";
+import { HeaderDesktop } from "components/Header/HeaderDesktop";
+import { NavItemDesktop } from "./NavItemDesktop";
+import { NavItemMobile } from "./NavItemMobile";
+import { HeaderMobile } from "../Header/HeaderMobile";
 
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
@@ -27,7 +24,6 @@ export const Navigation: FC<Props> = (props) => {
   return (
     <>
       <HeaderDesktop
-        link={Link}
         buttons={[
           <ThemeToggle key="ThemeToggle" />,
           <ButtonPrimary
@@ -40,7 +36,6 @@ export const Navigation: FC<Props> = (props) => {
         <NavItemDesktop
           url={"/"}
           name={t({ message: "Home", id: "mainNav.home" })}
-          link={Link}
           active={props.activePage === "Home"}
         />
         <NavItemDesktop
@@ -60,7 +55,6 @@ export const Navigation: FC<Props> = (props) => {
         <NavItemDesktop
           url="/blog"
           name={t`Resources`}
-          link={Link}
           active={props.activePage === "Resources"}
         />
       </HeaderDesktop>
