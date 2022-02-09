@@ -1,4 +1,4 @@
-@value bp-small: (min-width: 325px);
+@value bp-small: (min-width: 376px);
 @value bp-medium: (min-width: 576px);
 @value bp-large: (min-width: 768px);
 @value bp-desktop: (min-width: 992px);

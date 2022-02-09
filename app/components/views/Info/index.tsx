@@ -80,11 +80,11 @@ export const Info: FC<Props> = (props) => {
       decimals: 18,
     },
     {
-      name: "BCT/KLIMA LP",
+      name: "KLIMA/BCT LP",
       address: addresses["mainnet"].klimaBctLp,
       ariaLabel: "Copy KLIMA BCT LP address.",
       metamaskAriaLabel: "Add KLIMA BCT LP to wallet.",
-      ticker: "BCT/KLIMA",
+      ticker: "KLIMA/BCT",
       image: `${BASE_URL}/icons/BCT-KLIMA-LP.png`,
       decimals: 18,
     },

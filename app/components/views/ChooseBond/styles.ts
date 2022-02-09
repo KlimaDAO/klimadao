@@ -8,7 +8,7 @@ export const chooseBondCard = css`
   display: grid;
   background-color: var(--surface-02);
   border-radius: 1.2rem;
-  padding: 2.4rem;
+  padding: 1.6rem;
   gap: 2.4rem;
   align-content: start;
 
@@ -17,17 +17,26 @@ export const chooseBondCard = css`
     background-color: var(--surface-01);
   }
 
+  ${breakpoints.small} {
+    padding: 2.4rem;
+  }
+
   ${breakpoints.desktop} {
     grid-column: cardsleft;
     grid-row: 2 / span 3;
     grid-template-rows: 1fr 1fr 1fr;
     align-items: start;
     /* hacky fix to keep grid-rows from collapsing on short screens */
-    min-height: 94rem;
+    /* if you add a new bond or refactor this view, make sure you test for overflow at the narrowest part of the breakpoint */
+    min-height: 117rem;
+    min-width: 45rem;
   }
 
   ${breakpoints.desktopLarge} {
     padding: 3.2rem;
+    /* hacky fix to keep grid-rows from collapsing on short screens */
+    /* if you add a new bond or refactor this view, make sure you test for overflow at the narrowest part of the breakpoint */
+    min-height: 99rem;
   }
 `;
 
@@ -60,24 +69,9 @@ export const chooseBondCard_header_title = css`
   gap: 0.8rem;
 `;
 
-export const data_container = css`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
-
-export const data_column = css`
-  .price-data {
-    color: var(--secondary);
-    display: flex;
-    gap: 0.4rem;
-    justify-content: flex-start;
-    align-items: flex-end;
-  }
-`;
-
 export const bondList = css`
   display: grid;
-  gap: 0.8rem;
+  gap: 1.2rem;
 `;
 export const bondList_columnTitle = css`
   display: flex;
@@ -85,10 +79,11 @@ export const bondList_columnTitle = css`
 `;
 export const bondLink = css`
   display: grid;
+  gap: 1.6rem;
   border-radius: 0.6rem;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: min-content 1fr auto;
   background-color: var(--surface-01);
-  padding: 1.6rem;
+  padding: 0.8rem 1.2rem;
   border: 1px solid transparent;
   color: white;
   &:hover {
@@ -98,6 +93,24 @@ export const bondLink = css`
   > div {
     display: grid;
     gap: 0.4rem;
+  }
+  .bondLink_imgContainer {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .bondLink_imgContainer img {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  ${breakpoints.medium} {
+    padding: 1.2rem 1.6rem;
+    .bondLink_imgContainer img {
+      width: 4.8rem;
+      height: 4.8rem;
+    }
   }
 `;
 

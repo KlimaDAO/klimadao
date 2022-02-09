@@ -1,5 +1,5 @@
 export default {
-  small: "@media (min-width: 325px)",
+  small: "@media (min-width: 376px)",
   medium: "@media (min-width: 576px)",
   large: "@media (min-width: 768px)",
   desktop: "@media (min-width: 992px)",

@@ -24,7 +24,7 @@
 .cardGrid {
   display: grid;
   gap: 1.6rem;
-  padding: 2.4rem;
+  padding: 1.6rem;
   align-content: start;
   max-width: 64rem;
   justify-self: center;
@@ -81,6 +81,14 @@
   visibility: visible;
   transform: translateX(0%);
 }
+
+@media bp-small {
+  .cardGrid {
+    gap: 2.4rem;
+    padding: 2.4rem;
+  }
+}
+
 @media bp-medium {
   .cardGrid {
     gap: 2.4rem;

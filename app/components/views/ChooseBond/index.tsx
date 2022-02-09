@@ -33,18 +33,18 @@ export const useBond = (bond: Bond) => {
       mco2: "MCO2",
       bct: "BCT",
       klima_usdc_lp: "KLIMA/USDC LP",
-      klima_bct_lp: "BCT/KLIMA LP",
+      klima_bct_lp: "KLIMA/BCT LP",
       bct_usdc_lp: "BCT/USDC LP",
       klima_mco2_lp: "KLIMA/MCO2 LP",
       // future bond names go here
     }[bond],
     description: {
       mco2: "MOSS Carbon Credit Token",
-      bct: "Base Carbon Tons (Verra Carbon Standard)",
-      klima_usdc_lp: "KLIMA/USDC Sushiswap LP Bonds",
-      klima_bct_lp: "BCT/KLIMA Sushiswap LP Bonds",
-      bct_usdc_lp: "BCT/USDC Sushiswap LP Bonds",
-      klima_mco2_lp: "KLIMA/MCO2 Quickswap LP Bonds",
+      bct: "Toucan Base Carbon Tonne",
+      klima_usdc_lp: "KLIMA/USDC Sushiswap Liquidity",
+      klima_bct_lp: "KLIMA/BCT Sushiswap Liquidity",
+      bct_usdc_lp: "BCT/USDC Sushiswap Liquidity",
+      klima_mco2_lp: "KLIMA/MCO2 Quickswap Liquidity",
       // future bond descriptions go here
     }[bond],
     href: {
@@ -104,18 +104,14 @@ export function ChooseBond() {
           </Text>
         </div>
         <div className={styles.chooseBondCard_ui}>
-          <div className={styles.data_container}>
-            <div className={styles.data_column}>
-              <Text t="badge" color="lightest">
-                <Trans id="choose_bond.treasury_balance">
-                  Treasury Balance
-                </Trans>
-              </Text>
-              <Text>
-                {trimWithPlaceholder(treasuryBalance, 0)}
-                {treasuryBalance ? " T CO2" : ""}
-              </Text>
-            </div>
+          <div>
+            <Text t="badge" color="lightest">
+              <Trans id="choose_bond.treasury_balance">Treasury Balance</Trans>
+            </Text>
+            <Text>
+              {trimWithPlaceholder(treasuryBalance, 0)}
+              {treasuryBalance ? " T CO2" : ""}
+            </Text>
           </div>
           <div className={styles.bondList}>
             <div className={styles.bondList_columnTitle}>
@@ -130,6 +126,9 @@ export function ChooseBond() {
             {bonds.map((bond) => (
               <Link to={bond.href} key={bond.href}>
                 <div className={styles.bondLink} key={bond.name}>
+                  <div className="bondLink_imgContainer">
+                    <img src={bond.icon} />
+                  </div>
                   <div>
                     <Text t="body1">{bond.name}</Text>
                     <Text t="caption" color="lightest">
