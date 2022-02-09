@@ -1,7 +1,7 @@
 .container {
   grid-column: full;
   background-color: var(--surface-02);
-  color: #313131;
+  color: var(--font-01);
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
   grid-template-columns:

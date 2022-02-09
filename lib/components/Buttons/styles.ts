@@ -11,7 +11,6 @@ export const button_primary = css`
   text-decoration: none;
   /* min-height to conform with Lighthouse min tap-target */
   min-height: 4.8rem;
-  padding: 0rem;
   cursor: pointer;
   border-radius: 0.4rem;
   transition: opacity 0.3s ease 0s;

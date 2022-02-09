@@ -3,7 +3,7 @@
 .container {
   grid-column: full;
   background-color: var(--surface-02);
-  color: black;
+  color: var(--font-01);
 }
 
 .banner {
@@ -25,7 +25,6 @@
 
 .blogContainer {
   padding: 6.4rem 0;
-  color: #313131;
   line-height: 166%;
   display: grid;
   grid-template-columns:
@@ -41,7 +40,7 @@
 
 .date {
   margin: 2rem 0;
-  color: #a1a1a1 !important;
+  color: var(--font-03) !important;
 }
 
 .fallbackContainer {

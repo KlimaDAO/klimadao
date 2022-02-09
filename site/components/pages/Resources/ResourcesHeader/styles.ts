@@ -3,42 +3,33 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const resourcesHeader = css`
   padding: 10rem 0 5rem;
-
   display: grid;
   row-gap: 4.8rem;
   grid-column: full;
-
   grid-template-columns: inherit;
-
   .resourcesHeader_textGroup {
     grid-column: main;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     gap: 3.2rem;
     padding: 0 2.4rem;
   }
-
   .resourcesHeader_textGroup h2 {
     text-align: center;
     text-transform: uppercase;
   }
-
   .resourcesHeader_textGroup a {
     display: none;
   }
   ${breakpoints.medium} {
     grid-column: main;
-
     grid-template-columns:
       [header_full-start] minmax(20rem, 1fr)
       [header_inner-start] minmax(0, 107.2rem)
       [header_inner-end] minmax(20rem, 1fr)
       [header_full-end];
-
     gap: 2.5rem;
-
     .resourcesHeader_textGroup {
       padding: 0 2rem;
       grid-column: header_inner;
@@ -59,7 +50,6 @@ export const navigationDesktopWrapper = css`
   padding: 0;
   width: 100%;
   z-index: 10;
-
   display: none;
   ${breakpoints.medium} {
     display: flex;
@@ -69,7 +59,6 @@ export const navigationDesktopWrapper = css`
 export const navigationDesktop = css`
   display: none;
   width: 100%;
-
   ${breakpoints.medium} {
     display: block;
   }
@@ -78,40 +67,21 @@ export const navigationDesktop = css`
 export const navigationMobile = css`
   grid-column: main;
   padding: 0 1rem;
-`;
-
-export const mobileNav = css`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-
-  & > * {
-    flex: 1;
-  }
-`;
-
-export const mobileNavButton = css`
-  font-size: 1.4rem;
-  font-weight: 400;
   display: flex;
   gap: 1rem;
   justify-content: center;
-
   .navigationMobile_navItem {
     flex: 1;
   }
-
   a {
     width: 10rem;
     max-width: 10rem;
     height: 4.4rem;
     text-transform: none;
   }
-
   ${breakpoints.small} {
     gap: 2rem;
   }
-
   ${breakpoints.medium} {
     display: none;
   }
@@ -120,25 +90,20 @@ export const mobileNavButton = css`
 export const list = css`
   position: absolute;
   margin-top: 8rem;
-
   min-width: 16rem;
-
   list-style: none;
-  background-color: #ffffff;
+  background-color: var(--surface-01);
   border-radius: 8px;
   padding: 0.5rem;
-  box-shadow: 0 0.4rem 2.8rem rgba(0, 0, 0, 0.06);
-
+  box-shadow: var(--shadow-light);
   li[data-active="true"] {
-    background-color: #fafafa;
+    background-color: var(--surface-02);
     border-radius: 4px;
-
     a {
       color: var(--font-01);
       font-weight: 600;
       justify-content: space-between;
       width: 100%;
-
       .arrow {
         display: block;
       }
@@ -153,14 +118,12 @@ export const listItem = css`
   height: 4.4rem;
   padding: 1.2rem;
   font-size: 1.6rem;
-
   a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #6e6e6e;
+    color: var(--font-03);
     text-transform: capitalize;
-
     .arrow {
       display: none;
     }

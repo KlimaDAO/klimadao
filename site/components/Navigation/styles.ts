@@ -12,12 +12,10 @@ export const navMain_DesktopLink = css`
     color: var(--font-03);
     font-weight: 500;
   }
-
   &:hover,
   &:focus {
     color: var(--font-02);
   }
-
   &[data-active="true"] {
     color: var(--font-01);
     font-weight: 700;
@@ -39,7 +37,6 @@ export const navMain_MobileItemInner = css`
   color: var(--font-01);
   display: flex;
   align-items: center;
-
   &:hover {
     color: var(--surface-04);
   }
