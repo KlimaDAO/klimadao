@@ -8,7 +8,6 @@ import BlockContent, {
 } from "@sanity/block-content-to-react";
 
 import * as styles from "./styles";
-import { sanityImageLoader } from "lib/sanityImageLoader";
 
 interface BlockContentRendererProps {
   blocks: {
