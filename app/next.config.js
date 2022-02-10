@@ -27,11 +27,6 @@ const config = {
         permanent: true,
       },
       {
-        source: "/redeem",
-        destination: "/#/redeem",
-        permanent: true,
-      },
-      {
         source: "/wrap",
         destination: "/#/wrap",
         permanent: true,

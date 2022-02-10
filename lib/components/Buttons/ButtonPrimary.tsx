@@ -1,30 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import * as styles from "./styles";
 import { Link } from "../types";
 import { cx } from "@emotion/css";
 
-interface PropsBase {
-  label: string;
-}
-interface PropsButton
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    PropsBase {
-  onClick: () => void;
-  href?: never;
-  variant?: "gray";
-  link?: Link;
-}
-interface PropsLink
-  extends PropsBase,
-    React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  onClick?: never;
-  href: string;
+interface Props {
+  label: ReactNode;
+  className?: string;
+  onClick?: () => void;
+  href?: string;
   variant?: "gray" | null;
   link?: Link;
+  rel?: string;
+  target?: string;
   isExternalHref?: boolean;
+  disabled?: boolean;
 }
-
-type Props = PropsButton | PropsLink;
 
 export const ButtonPrimary: FC<Props> = ({ link: LinkElement, ...props }) => {
   const buttonStyle = props.variant
@@ -47,7 +37,12 @@ export const ButtonPrimary: FC<Props> = ({ link: LinkElement, ...props }) => {
     );
   }
   return (
-    <button type="button" className={buttonStyle} onClick={props.onClick}>
+    <button
+      type="button"
+      className={buttonStyle}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
       {props.label}
     </button>
   );

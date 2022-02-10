@@ -13,7 +13,7 @@ const HomePage: NextPage = () => {
         title="KlimaDAO | Official dApp"
         mediaTitle="KlimaDAO | Official dApp"
         metaDescription="Use the KLIMA dApp to bond, stake and earn interest."
-        mediaImageSrc="/og-media.jpg"
+        mediaImageSrc="/og-media.png"
       />
       <WithRedux>
         <WithIsomorphicRouter location="/#">

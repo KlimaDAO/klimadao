@@ -8,7 +8,7 @@ export const footer = css`
   position: relative;
   grid-column: full;
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     padding: 4.8rem 2.4rem;
     display: grid;
     grid-template-columns: inherit;
@@ -22,7 +22,7 @@ export const footer_content = css`
   align-items: center;
   flex: 1;
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     text-align: center;
   }
 `;
@@ -43,7 +43,7 @@ export const footer_nav = css`
     color: var(--font-01) !important;
   }
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: flex;
     flex-direction: row;
     justify-content: center;

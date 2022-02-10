@@ -20,7 +20,7 @@
   align-self: center;
   max-width: 30rem;
   min-height: 24rem;
-  background-color: var(--surface-04);
+  background-color: var(--surface-02);
   border-radius: 1rem;
   padding: 2rem 1.8rem 3rem;
   margin: 2.5rem;
@@ -63,20 +63,20 @@
 }
 .icon_success {
   background: #32972d46;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--klima-green);
 }
 .icon_failure {
   background: rgba(182, 56, 56, 0.164);
   border: 1px solid rgba(255, 0, 0, 0.39);
 }
 .icon_confirmation {
-  border: 1px solid var(--primary);
+  border: 1px solid var(--klima-green);
   border-top-color: var(--surface-01);
   border-left-color: var(--surface-01);
   transform: rotate(315deg);
 }
 .icon_network_confirmation {
-  border: 1px solid var(--primary);
+  border: 1px solid var(--klima-green);
   border-top-color: var(--surface-01);
   transform: rotate(315deg);
 }
@@ -117,6 +117,7 @@
     height: 12rem;
   }
   .icon_container svg {
+    color: var(--font-01);
     font-size: 5rem;
   }
 }

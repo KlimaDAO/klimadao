@@ -3,48 +3,27 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const resourcesHeader = css`
   padding: 10rem 0 5rem;
-
   display: grid;
   row-gap: 4.8rem;
-  grid-column: full;
-
-  grid-template-columns: inherit;
-
+  grid-column: main;
   .resourcesHeader_textGroup {
-    grid-column: main;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     gap: 3.2rem;
-    padding: 0 2.4rem;
+    max-width: 62rem;
+    justify-self: center;
   }
-
   .resourcesHeader_textGroup h2 {
     text-align: center;
     text-transform: uppercase;
   }
-
   .resourcesHeader_textGroup a {
     display: none;
   }
-
-  ${breakpoints.medium} {
-    grid-column: main;
-
-    grid-template-columns:
-      [header_full-start] minmax(20rem, 1fr)
-      [header_inner-start] minmax(0, 107.2rem)
-      [header_inner-end] minmax(20rem, 1fr)
-      [header_full-end];
-
+  ${breakpoints.large} {
     gap: 2.5rem;
-
-    .resourcesHeader_textGroup {
-      padding: 0 2rem;
-      grid-column: header_inner;
-    }
-
+    padding: 10rem 16.2rem;
     .resourcesHeader_textGroup a {
       display: flex;
     }
@@ -58,13 +37,10 @@ export const navigationDesktopWrapper = css`
   top: 0px;
   flex-direction: row;
   justify-content: center;
-  padding: 0;
   width: 100%;
   z-index: 10;
-
   display: none;
-
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: flex;
   }
 `;
@@ -72,36 +48,28 @@ export const navigationDesktopWrapper = css`
 export const navigationDesktop = css`
   display: none;
   width: 100%;
-
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: block;
   }
 `;
 
 export const navigationMobile = css`
-  grid-column: main;
-  padding: 0 1rem;
-
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
   justify-content: center;
-
   .navigationMobile_navItem {
     flex: 1;
   }
-
   a {
     width: 10rem;
     max-width: 10rem;
     height: 4.4rem;
     text-transform: none;
   }
-
   ${breakpoints.small} {
-    gap: 2rem;
+    gap: 1.6rem;
   }
-
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: none;
   }
 `;
@@ -109,25 +77,20 @@ export const navigationMobile = css`
 export const list = css`
   position: absolute;
   margin-top: 8rem;
-
   min-width: 16rem;
-
   list-style: none;
   background-color: var(--surface-01);
   border-radius: 8px;
   padding: 0.5rem;
   box-shadow: var(--shadow-light);
-
   li[data-active="true"] {
     background-color: var(--surface-02);
     border-radius: 4px;
-
     a {
       color: var(--font-01);
       font-weight: 600;
       justify-content: space-between;
       width: 100%;
-
       .arrow {
         display: block;
       }
@@ -142,14 +105,12 @@ export const listItem = css`
   height: 4.4rem;
   padding: 1.2rem;
   font-size: 1.6rem;
-
   a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #6e6e6e;
+    color: var(--font-03);
     text-transform: capitalize;
-
     .arrow {
       display: none;
     }

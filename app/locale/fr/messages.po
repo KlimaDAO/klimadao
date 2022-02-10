@@ -13,117 +13,135 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/views/Stake/index.tsx:282
+msgid "APY"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:238
+msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
+msgstr ""
+
+#: components/views/Stake/index.tsx:299
+msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+msgstr ""
+
+#: components/views/Stake/index.tsx:285
+msgid "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
+msgstr ""
+
+#: components/views/Stake/index.tsx:272
+msgid "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+msgstr ""
+
+#: components/views/Wrap/index.tsx:248
+msgid "Balance"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:96
+msgid "Bond Carbon."
+msgstr ""
+
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr ""
 
-#: components/views/Stake/index.tsx:352
-msgid "Next rebase (est.)"
+#: components/views/Stake/index.tsx:129
+msgid "Connect wallet"
 msgstr ""
 
-#: components/views/Bond/index.tsx:607
-msgid "Vesting term end"
+#: components/views/Stake/index.tsx:165
+#: components/views/Stake/index.tsx:175
+msgid "Enter Amount"
 msgstr ""
 
-#: components/views/Bond/index.tsx:459
-msgid "bond.balance"
+#: components/views/Stake/index.tsx:296
+#: components/views/Wrap/index.tsx:235
+msgid "Index"
 msgstr ""
 
-#: components/views/Bond/index.tsx:320
+#: components/views/Bond/index.tsx:312
+msgid "Not Redeemable"
+msgstr ""
+
+#: components/views/Stake/index.tsx:269
+msgid "ROI"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:175
+msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
+msgstr ""
+
+#: components/views/Stake/index.tsx:199
+msgid "Stake KLIMA"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:169
+msgid "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
+msgstr ""
+
+#: components/views/Wrap/index.tsx:251
+msgid "You Will Get"
+msgstr ""
+
+#: components/views/Bond/index.tsx:357
 msgid "bond.balance.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:488
-msgid "bond.bond_price"
-msgstr ""
-
-#: components/views/Bond/index.tsx:324
+#: components/views/Bond/index.tsx:361
 msgid "bond.bond_price.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:378
+#: components/views/Bond/index.tsx:414
 msgid "bond.caption"
 msgstr ""
 
-#: components/views/Bond/index.tsx:685
+#: components/views/Bond/index.tsx:625
 msgid "bond.date_of_full_vesting"
 msgstr ""
 
-#: components/views/Bond/index.tsx:359
+#: components/views/Bond/index.tsx:396
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:588
-msgid "bond.debt_ratio"
-msgstr ""
-
-#: components/views/Bond/index.tsx:347
+#: components/views/Bond/index.tsx:384
 msgid "bond.debt_ratio.tooltip"
 msgstr ""
 
-#: components/views/Bond/AdvancedSettings/index.tsx:21
-msgid "bond.esbridge"
-msgstr ""
-
-#: components/views/Bond/index.tsx:505
-msgid "bond.market_price"
-msgstr ""
-
-#: components/views/Bond/index.tsx:329
+#: components/views/Bond/index.tsx:366
 msgid "bond.market_price.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:563
-msgid "bond.maximum"
-msgstr ""
-
-#: components/views/Bond/index.tsx:343
+#: components/views/Bond/index.tsx:380
 msgid "bond.maximum.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:636
+#: components/views/Bond/index.tsx:574
 msgid "bond.pending"
 msgstr ""
 
-#: components/views/Bond/index.tsx:351
+#: components/views/Bond/index.tsx:388
 msgid "bond.pending.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:658
+#: components/views/Bond/index.tsx:598
 msgid "bond.redeemable"
 msgstr ""
 
-#: components/views/Bond/index.tsx:355
+#: components/views/Bond/index.tsx:392
 msgid "bond.redeemable.tooltip"
 msgstr ""
 
-#: components/views/Bond/AdvancedSettings/index.tsx:40
-msgid "bond.revert"
-msgstr ""
-
-#: components/views/Bond/index.tsx:522
-msgid "bond.roi"
-msgstr ""
-
-#: components/views/Bond/index.tsx:333
+#: components/views/Bond/index.tsx:370
 msgid "bond.roi.tooltip"
 msgstr ""
 
-#: components/views/Bond/AdvancedSettings/index.tsx:37
-msgid "bond.slippage_tolerance"
-msgstr ""
-
-#: components/views/Bond/index.tsx:541
-msgid "bond.you_will_get"
-msgstr ""
-
-#: components/views/Bond/index.tsx:338
+#: components/views/Bond/index.tsx:375
 msgid "bond.you_will_get.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:291
-#: components/views/Stake/index.tsx:175
-#: components/views/Stake/index.tsx:180
+#: components/views/Bond/index.tsx:327
+#: components/views/Stake/index.tsx:150
+#: components/views/Stake/index.tsx:156
 msgid "button.approve"
 msgstr "Approuver"
 
@@ -131,18 +149,22 @@ msgstr "Approuver"
 msgid "button.bct"
 msgstr ""
 
-#: components/views/Bond/index.tsx:297
-#: components/views/Bond/index.tsx:392
+#: components/views/Bond/index.tsx:334
+#: components/views/Bond/index.tsx:432
 msgid "button.bond"
 msgstr ""
 
-#: components/views/Bond/index.tsx:285
+#: components/views/Bond/index.tsx:321
 #: components/views/PKlima/index.tsx:135
-#: components/views/Stake/index.tsx:169
+#: components/views/Stake/index.tsx:144
 msgid "button.confirming"
 msgstr "En attente de confirmation"
 
-#: components/views/Bond/index.tsx:310
+#: components/views/Bond/index.tsx:306
+msgid "button.enterQuantity"
+msgstr ""
+
+#: components/views/Bond/index.tsx:347
 msgid "button.error"
 msgstr ""
 
@@ -150,20 +172,21 @@ msgstr ""
 msgid "button.exercise"
 msgstr ""
 
-#: components/views/Bond/index.tsx:276
+#: components/views/Bond/index.tsx:300
 #: components/views/PKlima/index.tsx:126
-#: components/views/Stake/index.tsx:160
+#: components/views/Stake/index.tsx:135
 msgid "button.loading"
 msgstr "Chargement"
 
-#: components/views/Bond/index.tsx:428
+#: components/views/Bond/index.tsx:472
 #: components/views/PKlima/index.tsx:207
+#: components/views/Stake/index.tsx:256
+#: components/views/Wrap/index.tsx:222
 msgid "button.max"
 msgstr "Max"
 
-#: components/views/Bond/index.tsx:270
+#: components/views/Bond/index.tsx:294
 #: components/views/PKlima/index.tsx:120
-#: components/views/Stake/index.tsx:154
 msgid "button.not_connected"
 msgstr "Non connecté"
 
@@ -171,60 +194,36 @@ msgstr "Non connecté"
 msgid "button.pklima"
 msgstr ""
 
-#: components/views/Bond/index.tsx:303
-#: components/views/Bond/index.tsx:402
+#: components/views/Bond/index.tsx:340
+#: components/views/Bond/index.tsx:442
 msgid "button.redeem"
 msgstr ""
 
-#: components/views/Stake/index.tsx:185
+#: components/views/Stake/index.tsx:163
 msgid "button.stake"
 msgstr "Déposer"
 
-#: components/views/Stake/index.tsx:191
+#: components/views/Stake/index.tsx:173
 msgid "button.unstake"
 msgstr "Retirer"
 
-#: components/views/ChooseBond/index.tsx:81
+#: components/views/ChooseBond/index.tsx:99
 msgid "choose_bond.caption"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:106
+#: components/views/ChooseBond/index.tsx:119
 msgid "choose_bond.choose_bond"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:109
+#: components/views/ChooseBond/index.tsx:122
 msgid "choose_bond.discount"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:78
-msgid "choose_bond.title"
-msgstr ""
-
-#: components/views/ChooseBond/index.tsx:92
+#: components/views/ChooseBond/index.tsx:109
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
-#: components/views/Home/index.tsx:433
-msgid "footer.blog"
-msgstr "Blog"
-
-#: components/views/Home/index.tsx:436
-msgid "footer.community"
-msgstr "Communauté"
-
-#: components/views/Home/index.tsx:430
-msgid "footer.docs"
-msgstr "Documentation"
-
-#: components/views/Home/index.tsx:427
-msgid "footer.home"
-msgstr "Acceuil"
-
-#: components/views/Home/index.tsx:321
-msgid "header.welcome"
-msgstr "Bienvenue sur l'application Klima. Déposez du carbon pour acheter KLIMA. Déposez KLIMA pour générer des intérêts."
-
-#: components/views/Bond/index.tsx:375
+#: components/views/Bond/index.tsx:408
 msgid "nav.back"
 msgstr ""
 
@@ -276,6 +275,10 @@ msgstr ""
 msgid "pklima.update"
 msgstr ""
 
-#: components/views/Bond/index.tsx:718
+#: components/views/Stake/index.tsx:202
+msgid "stake.caption"
+msgstr ""
+
+#: components/views/Bond/index.tsx:650
 msgid "status.bond_negative"
 msgstr ""
