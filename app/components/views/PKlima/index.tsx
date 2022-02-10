@@ -37,6 +37,7 @@ interface Props {
   provider: providers.JsonRpcProvider;
   address?: string;
   isConnected?: boolean;
+  loadWeb3Modal: () => Promise<void>;
 }
 
 export const PKlima: FC<Props> = (props) => {
@@ -120,9 +121,9 @@ export const PKlima: FC<Props> = (props) => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
       return {
-        label: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined,
-        disabled: true,
+        label: <Trans>Connect wallet</Trans>,
+        onClick: props.loadWeb3Modal,
+        disabled: false,
       };
     } else if (isLoading) {
       return {
