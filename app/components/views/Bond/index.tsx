@@ -44,6 +44,7 @@ import { ImageCard } from "components/ImageCard";
 
 import * as styles from "./styles";
 import { TippyProps } from "@tippyjs/react";
+import { BondBalancesCard } from "components/BondBalancesCard";
 
 export function prettyVestingPeriod(
   locale: string | undefined,
@@ -400,6 +401,7 @@ export const Bond: FC<Props> = (props) => {
 
   return (
     <>
+      <BondBalancesCard bond={props.bond} />
       <div className={styles.bondCard}>
         <div className={styles.bondCard_header}>
           <Link to="/bonds" className={styles.backButton}>

@@ -37,7 +37,7 @@ export const container = css`
     background-color: var(--surface-01);
   }
 
-  .comingSoonStack {
+  .labelStack {
     display: grid;
     gap: 0.8rem;
   }

@@ -15,6 +15,9 @@ import Payment from "@mui/icons-material/Payment";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 
 import * as styles from "./styles";
+import { useSelector } from "react-redux";
+import { selectBalances } from "state/selectors";
+import { MenuBookOutlined } from "@mui/icons-material";
 
 interface MenuButtonProps {
   icon: ReactElement;
@@ -79,6 +82,7 @@ interface Props {
 }
 
 export const NavMenu: FC<Props> = (props) => {
+  const balances = useSelector(selectBalances);
   const { pathname } = useLocation();
 
   const handleHide = () => {
@@ -87,9 +91,9 @@ export const NavMenu: FC<Props> = (props) => {
 
   return (
     <nav className={styles.container}>
-      <div>
+      <a href={urls.home}>
         <LogoWithClaim />
-      </div>
+      </a>
       <div className="stack-12">
         <div className="hr" />
         <div className="stack-04">
@@ -132,7 +136,7 @@ export const NavMenu: FC<Props> = (props) => {
       >
         Wrap sKLIMA
       </MenuButton>
-      <div className="comingSoonStack" title="Coming soon!">
+      <div className="labelStack" title="Coming soon!">
         <Text t="badge" color="lightest">
           COMING SOON
         </Text>
@@ -142,9 +146,23 @@ export const NavMenu: FC<Props> = (props) => {
           href="/offset"
           disabled={true}
         >
-          Offset <br />
+          Offset
         </MenuButton>
       </div>
+      {!!Number(balances?.pklima) && (
+        <div className="labelStack">
+          <Text t="badge" color="lightest">
+            ⭐ JUST FOR YOU
+          </Text>
+          <MenuButton
+            isActive={pathname === "/pklima"}
+            icon={<FlipOutlined />}
+            href="/pklima"
+          >
+            pKLIMA
+          </MenuButton>
+        </div>
+      )}
       <div className="navFooter">
         <div className="hr" />
         <div className="navFooter_buttons">
@@ -163,6 +181,14 @@ export const NavMenu: FC<Props> = (props) => {
             target="_blank"
           >
             <DiscordIcon />
+          </a>
+          <a
+            className="navFooter_button"
+            href={urls.officialDocs}
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <MenuBookOutlined />
           </a>
         </div>
       </div>

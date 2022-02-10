@@ -6,13 +6,27 @@ import { InfoButton } from "components/InfoButton";
 import { selectBalances } from "state/selectors";
 import * as styles from "./styles";
 import { FC } from "react";
+import { RootState } from "state";
+
+type Asset = keyof NonNullable<RootState["user"]["balance"]>;
+type AssetLabels = { [key in Asset]: string };
 
 interface Props {
-  isConnected?: boolean;
+  assets: Asset[];
+  tooltip: string;
 }
 
 export const BalancesCard: FC<Props> = (props) => {
   const balances = useSelector(selectBalances);
+  const labels: AssetLabels = {
+    bct: "BCT",
+    aklima: "aKLIMA",
+    alklima: "alKLIMA",
+    klima: "KLIMA",
+    pklima: "pKLIMA",
+    sklima: "sKLIMA",
+    wsklima: "wsKLIMA",
+  };
   return (
     <div className={styles.card + " " + status}>
       <div className="header">
@@ -20,27 +34,19 @@ export const BalancesCard: FC<Props> = (props) => {
           <AccountBalanceOutlined />
           Balances
         </Text>
-        <InfoButton content="Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage." />
+        <InfoButton content={props.tooltip} />
       </div>
       <div className="cardContent">
-        <div className="stack">
-          <Text className="value">
-            {props.isConnected ? trimWithPlaceholder(balances?.klima, 9) : 0}
-          </Text>
-          <Text className="label" color="lightest">
-            KLIMA
-          </Text>
-        </div>
-        <div className="stack">
-          <Text className="value">
-            {props.isConnected
-              ? trimWithPlaceholder(balances?.sklima ?? 0, 9)
-              : 0}
-          </Text>
-          <Text className="label" color="lightest">
-            sKLIMA
-          </Text>
-        </div>
+        {props.assets.map((asset) => (
+          <div className="stack" key={asset}>
+            <Text className="value">
+              {trimWithPlaceholder(balances?.[asset] ?? 0, 9)}
+            </Text>
+            <Text className="label" color="lightest">
+              {labels[asset]}
+            </Text>
+          </div>
+        ))}
       </div>
     </div>
   );

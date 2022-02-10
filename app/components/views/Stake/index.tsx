@@ -191,7 +191,10 @@ export const Stake = (props: Props) => {
 
   return (
     <>
-      <BalancesCard />
+      <BalancesCard
+        assets={["klima", "sklima"]}
+        tooltip="Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."
+      />
       <div className={styles.stakeCard}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>

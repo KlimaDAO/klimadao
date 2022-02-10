@@ -24,7 +24,6 @@ import { decrementWrap, incrementWrap, setWrapAllowance } from "state/user";
 import { ImageCard } from "components/ImageCard";
 import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
-import { i18n } from "@lingui/core";
 
 import * as styles from "components/views/Stake/styles";
 import { Trans } from "@lingui/macro";
@@ -35,7 +34,6 @@ interface Props {
 }
 
 export const Wrap: FC<Props> = (props) => {
-  const { provider, address, isConnected } = props;
   const dispatch = useAppDispatch();
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
@@ -55,7 +53,7 @@ export const Wrap: FC<Props> = (props) => {
 
   const isLoading = !balances || typeof balances.klima === "undefined";
   const showSpinner =
-    isConnected &&
+    props.isConnected &&
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
@@ -72,7 +70,7 @@ export const Wrap: FC<Props> = (props) => {
   const handleApproval = () => async () => {
     try {
       const value = await changeApprovalTransaction({
-        provider,
+        provider: props.provider,
         onStatus: setStatus,
       });
       dispatch(
@@ -91,7 +89,7 @@ export const Wrap: FC<Props> = (props) => {
       setQuantity("");
       await wrapTransaction({
         action,
-        provider,
+        provider: props.provider,
         value: quantity,
         onStatus: setStatus,
       });
@@ -111,7 +109,7 @@ export const Wrap: FC<Props> = (props) => {
 
   const getButtonProps = () => {
     const value = Number(quantity || "0");
-    if (!isConnected || !address) {
+    if (!props.isConnected || !props.address) {
       return { label: "Not Connected", onClick: undefined, disabled: true };
     } else if (isLoading) {
       return {
@@ -158,8 +156,11 @@ export const Wrap: FC<Props> = (props) => {
 
   return (
     <>
-      <BalancesCard />
-      <div className={styles.stakeCard}>
+      <BalancesCard
+        assets={["sklima", "wsklima"]}
+        tooltip="Wrap sKLIMA to recieve index-adjusted wrapped-staked-KLIMA"
+      />
+      <div className={styles.stakeCard} style={{ minHeight: "74rem" }}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <FlipOutlined />
@@ -222,11 +223,13 @@ export const Wrap: FC<Props> = (props) => {
                 <Trans id="button.max">Max</Trans>
               </button>
             </div>
-            {address && (
-              <div className={styles.stakeInput_max}>
-                {concatAddress(address)}
+
+            {props.address && (
+              <div className={styles.address}>
+                {concatAddress(props.address)}
               </div>
             )}
+
             <div className="hr" />
           </div>
 

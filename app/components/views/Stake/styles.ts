@@ -160,6 +160,7 @@ export const infoTable = css`
   justify-content: space-around;
   align-content: center;
   justify-items: center;
+  text-align: center;
 `;
 
 export const address = css`
@@ -173,7 +174,7 @@ export const infoTable_label = css`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  text-align: end;
+  text-align: center;
   color: var(--font-03);
   display: flex;
   gap: 0.4rem;

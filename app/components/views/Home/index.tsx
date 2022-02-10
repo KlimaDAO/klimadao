@@ -61,7 +61,8 @@ const useWeb3Modal = () => {
 const useProvider = (): [
   ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider,
   string | undefined,
-  Web3Modal | undefined
+  Web3Modal | undefined,
+  () => Promise<void>
 ] => {
   const fallbackProvider = useRef<ethers.providers.JsonRpcProvider>();
   const web3Modal = useWeb3Modal();
