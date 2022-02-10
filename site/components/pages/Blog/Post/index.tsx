@@ -9,7 +9,7 @@ import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import BlockContentRenderer from "components/BlockContentRenderer";
-import defaultImage from "public/og-media.jpg";
+import defaultImage from "public/og-media.png";
 
 import styles from "./index.module.css";
 

@@ -36,7 +36,7 @@ export const ChangeLanguageButton: FC = () => {
   };
 
   const content = (
-    <div className={styles.menuItemContainer}>
+    <div>
       {Object.keys(locales).map((localeKey) => (
         <button
           key={localeKey}
@@ -63,7 +63,7 @@ export const ChangeLanguageButton: FC = () => {
         className={styles.changeLanguageButton}
         aria-label={t`Change language`}
       >
-        <Language fontSize="large" />
+        <Language />
       </button>
     </Tippy>
   );

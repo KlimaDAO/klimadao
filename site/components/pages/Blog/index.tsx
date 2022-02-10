@@ -25,7 +25,7 @@ export function Blog(props: BlogProps) {
       mediaTitle={t`KlimaDAO Blog`}
       metaDescription={t`Updates and thought leadership from the founders, DAO contributors,
         advisors and community.`}
-      mediaImageSrc="/og-media.jpg"
+      mediaImageSrc="/og-media.png"
     >
       <div className={styles.container}>
         <section className={styles.cardsSection}>

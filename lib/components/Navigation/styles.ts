@@ -7,14 +7,14 @@ export const navMain_Mobile = css`
   right: 0px;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: var(--surface-01);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0.4rem 0.4rem;
   transform: translate3d(0px, 0px, 0px);
   transition: transform 0.5s ease 0s;
   padding-top: var(--header-height);
   display: flex;
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: none;
   }
 `;
@@ -31,7 +31,7 @@ export const navMain_MobileClosed = css`
   transition: transform 0.5s ease 0s;
   padding-top: var(--header-height);
   display: flex;
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: none;
   }
 `;
@@ -58,7 +58,6 @@ export const buttonToggleNav = css`
   margin: 0;
   overflow: visible;
   line-height: 0;
-
   &:hover {
     opacity: 0.7;
   }
@@ -90,7 +89,6 @@ export const hamburgerInnerToggled = css`
   transform: rotate(45deg);
   transition-delay: 0.12s;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-
   &::before {
     width: 2.4rem;
     height: 0.4rem;
@@ -141,7 +139,6 @@ export const hamburgerInner = css`
   transition-property: transform;
   transition-duration: 0.15s;
   transition-timing-function: ease;
-
   &::before {
     transition: top 0.075s ease 0.12s, opacity 0.075s ease 0s;
     top: -0.8rem;
@@ -156,7 +153,6 @@ export const hamburgerInner = css`
     transition-duration: 0.15s;
     transition-timing-function: ease;
   }
-
   &::after {
     transition: bottom 0.075s ease 0.12s,
       transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;

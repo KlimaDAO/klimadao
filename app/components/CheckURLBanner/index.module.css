@@ -18,7 +18,7 @@
   padding: 2rem;
   display: grid;
   gap: 1.5rem;
-  background-color: var(--primary-variant);
+  background-color: var(--klima-green);
   justify-items: center;
   align-items: center;
 }
@@ -35,7 +35,7 @@
 
 .okButton {
   composes: textButton;
-  border: 2px solid var(--secondary);
+  border: 2px solid var(--klima-blue);
   justify-self: flex-end;
 }
 

@@ -13,12 +13,12 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/ChangeLanguageButton/index.tsx:64
-msgid "Change language"
+#: components/views/Stake/index.tsx:282
+msgid "APY"
 msgstr ""
 
-#: components/views/Stake/index.tsx:352
-msgid "Next rebase (est.)"
+#: components/views/Wrap/index.tsx:238
+msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 msgstr ""
 
 #: components/views/Bond/index.tsx:270
@@ -65,8 +65,8 @@ msgstr ""
 msgid "bond.debt_ratio.tooltip"
 msgstr ""
 
-#: components/views/Bond/AdvancedSettings/index.tsx:21
-msgid "bond.esbridge"
+#: components/views/Stake/index.tsx:269
+msgid "ROI"
 msgstr ""
 
 #: components/views/Bond/index.tsx:515
@@ -101,8 +101,8 @@ msgstr ""
 msgid "bond.redeemable.tooltip"
 msgstr ""
 
-#: components/views/Bond/AdvancedSettings/index.tsx:40
-msgid "bond.revert"
+#: components/views/Bond/index.tsx:396
+msgid "bond.date_of_full_vesting.tooltip"
 msgstr ""
 
 #: components/views/Bond/index.tsx:532
@@ -113,8 +113,8 @@ msgstr ""
 msgid "bond.roi.tooltip"
 msgstr ""
 
-#: components/views/Bond/AdvancedSettings/index.tsx:37
-msgid "bond.slippage_tolerance"
+#: components/views/Bond/index.tsx:380
+msgid "bond.maximum.tooltip"
 msgstr ""
 
 #: components/views/Bond/index.tsx:551
@@ -142,7 +142,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:291
 #: components/views/PKlima/index.tsx:135
-#: components/views/Stake/index.tsx:169
+#: components/views/Stake/index.tsx:144
 msgid "button.confirming"
 msgstr "En attente de confirmation"
 
@@ -156,18 +156,19 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:282
 #: components/views/PKlima/index.tsx:126
-#: components/views/Stake/index.tsx:160
+#: components/views/Stake/index.tsx:135
 msgid "button.loading"
 msgstr "Chargement"
 
 #: components/views/Bond/index.tsx:438
 #: components/views/PKlima/index.tsx:207
+#: components/views/Stake/index.tsx:256
+#: components/views/Wrap/index.tsx:222
 msgid "button.max"
 msgstr "Max"
 
 #: components/views/Bond/index.tsx:276
 #: components/views/PKlima/index.tsx:120
-#: components/views/Stake/index.tsx:154
 msgid "button.not_connected"
 msgstr "Non connecté"
 
@@ -180,11 +181,11 @@ msgstr ""
 msgid "button.redeem"
 msgstr ""
 
-#: components/views/Stake/index.tsx:185
+#: components/views/Stake/index.tsx:163
 msgid "button.stake"
 msgstr "Déposer"
 
-#: components/views/Stake/index.tsx:191
+#: components/views/Stake/index.tsx:173
 msgid "button.unstake"
 msgstr "Retirer"
 

@@ -8,7 +8,7 @@ class MyDocument extends Document {
         <Head>
           <WebFonts />
         </Head>
-        <body>
+        <body data-theme="theme-dark">
           <Main />
           <NextScript />
         </body>

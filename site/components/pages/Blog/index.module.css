@@ -1,7 +1,7 @@
 .container {
   grid-column: full;
   background-color: var(--surface-02);
-  color: #313131;
+  color: var(--font-01);
   font-family: Arial, Helvetica, sans-serif;
   display: grid;
   grid-template-columns:
@@ -9,13 +9,12 @@
     [main-start] minmax(0, 70rem)
     [main-end] minmax(0.8rem, 1fr)
     [full-end];
-  grid-gap: 3.2rem;
+  grid-gap: 1.6rem;
 }
 
 .cardsSection {
   display: grid;
-  grid-template-columns: inherit;
-  grid-column: full;
+  grid-column: main;
   padding-bottom: 5rem;
   row-gap: 2.4rem;
 }
@@ -27,7 +26,6 @@
 
 .cards {
   display: grid;
-  grid-template-columns: inherit;
   row-gap: 4.8rem;
-  grid-column: full;
+  grid-column: main;
 }

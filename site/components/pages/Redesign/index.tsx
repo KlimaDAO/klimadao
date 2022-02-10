@@ -57,7 +57,7 @@ export const Home: NextPage<Props> = (props) => {
         title="KlimaDAO"
         mediaTitle="KlimaDAO"
         metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency."
-        mediaImageSrc="/og-media.jpg"
+        mediaImageSrc="/og-media.png"
       />
 
       <Navigation activePage="Home" />

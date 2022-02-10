@@ -13,13 +13,41 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/views/Stake/index.tsx:282
+msgid "APY"
+msgstr "APY"
+
+#: components/views/Wrap/index.tsx:238
+msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
+msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
+
+#: components/views/Stake/index.tsx:299
+msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
+
+#: components/views/Stake/index.tsx:285
+msgid "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
+msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
+
+#: components/views/Stake/index.tsx:272
+msgid "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+msgstr "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+
+#: components/views/Wrap/index.tsx:248
+msgid "Balance"
+msgstr "Balance"
+
+#: components/views/ChooseBond/index.tsx:96
+msgid "Bond Carbon."
+msgstr "Bond Carbon."
+
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr "Change language"
 
-#: components/views/Stake/index.tsx:352
-msgid "Next rebase (est.)"
-msgstr "Next rebase (est.)"
+#: components/views/Stake/index.tsx:129
+msgid "Connect wallet"
+msgstr "Connect wallet"
 
 #: components/views/Bond/index.tsx:270
 msgid "SOLD OUT"
@@ -142,7 +170,7 @@ msgstr "Bond"
 
 #: components/views/Bond/index.tsx:291
 #: components/views/PKlima/index.tsx:135
-#: components/views/Stake/index.tsx:169
+#: components/views/Stake/index.tsx:144
 msgid "button.confirming"
 msgstr "Confirming"
 
@@ -156,18 +184,19 @@ msgstr "EXERCISE"
 
 #: components/views/Bond/index.tsx:282
 #: components/views/PKlima/index.tsx:126
-#: components/views/Stake/index.tsx:160
+#: components/views/Stake/index.tsx:135
 msgid "button.loading"
 msgstr "Loading"
 
 #: components/views/Bond/index.tsx:438
 #: components/views/PKlima/index.tsx:207
+#: components/views/Stake/index.tsx:256
+#: components/views/Wrap/index.tsx:222
 msgid "button.max"
 msgstr "Max"
 
 #: components/views/Bond/index.tsx:276
 #: components/views/PKlima/index.tsx:120
-#: components/views/Stake/index.tsx:154
 msgid "button.not_connected"
 msgstr "Not connected"
 
@@ -180,11 +209,11 @@ msgstr "1. Approve pKLIMA"
 msgid "button.redeem"
 msgstr "Redeem"
 
-#: components/views/Stake/index.tsx:185
+#: components/views/Stake/index.tsx:163
 msgid "button.stake"
 msgstr "Stake"
 
-#: components/views/Stake/index.tsx:191
+#: components/views/Stake/index.tsx:173
 msgid "button.unstake"
 msgstr "Unstake"
 

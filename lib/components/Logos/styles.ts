@@ -4,7 +4,7 @@ import breakpoints from "../../theme/breakpoints";
 export const logoWithClaim = css`
   max-width: 15rem;
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     max-width: 20rem;
   }
 

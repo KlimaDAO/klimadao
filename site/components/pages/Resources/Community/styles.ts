@@ -3,17 +3,8 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const communityContainer = css`
   grid-column: main;
-
-  ${breakpoints.medium} {
-    display: grid;
-    grid-template-columns:
-      [community_full-start] minmax(20rem, 1fr)
-      [community_inner-start] minmax(0, 107.2rem)
-      [community_inner-end] minmax(20rem, 1fr)
-      [community_full-end];
-
-    gap: 2.5rem;
-  }
+  display: flex;
+  flex-direction: column;
 `;
 
 export const community_textGroup = css`
@@ -21,13 +12,11 @@ export const community_textGroup = css`
   align-items: center;
   flex-direction: column;
   gap: 2.5rem;
-
-  ${breakpoints.medium} {
-    grid-column: community_inner;
-  }
-
   img {
     border-radius: 1.6rem 1.6rem 0 0;
+  }
+  p {
+    max-width: 64rem;
   }
 `;
 
@@ -35,19 +24,20 @@ export const partner_logos = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3rem;
+  gap: 2.4rem;
   background-color: #ffffff;
   border-radius: 1.6rem;
   align-items: center;
-
-  padding: 3rem 0;
-
-  ${breakpoints.medium} {
-    grid-column: community_inner;
-  }
-
+  padding: 2.4rem;
+  margin-top: 2.4rem;
+  max-width: 64rem;
+  justify-self: center;
+  align-self: center;
   .partner_logo {
     max-width: 15rem;
+  }
+  ${breakpoints.desktop} {
+    margin-top: 4.8rem;
   }
 `;
 
@@ -67,7 +57,7 @@ export const beachSection = css`
     align-self: end;
     max-width: 50rem;
   }
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     padding: 6.4rem 0rem;
     font-size: 7.2rem;
     line-height: 7.2rem;
@@ -77,12 +67,10 @@ export const beachSection = css`
 export const joinDiscord = css`
   margin-top: 3rem;
   display: grid;
-  grid-column: community_inner;
   background-color: var(--surface-01);
   box-shadow: var(--shadow-06);
   border-radius: 1.6rem;
   overflow: hidden;
-
   .joinDiscord_row1 {
     display: grid;
     align-self: center;
@@ -90,16 +78,14 @@ export const joinDiscord = css`
     gap: 1.6rem;
     padding: 3.2rem;
   }
-
   .joinDiscord_row2 {
     position: relative;
   }
-
   .joinDiscord_dummy {
     border-radius: 2.4rem;
     margin-bottom: -10%;
     margin-left: 10%;
-    ${breakpoints.medium} {
+    ${breakpoints.large} {
       margin-bottom: -20%;
     }
   }
@@ -118,7 +104,6 @@ export const page_discordButton = css`
   padding: 1.6rem;
   font-size: 1.4rem;
   margin-bottom: 4.8rem;
-
   span {
     color: white;
   }

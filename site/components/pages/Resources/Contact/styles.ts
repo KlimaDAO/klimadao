@@ -4,7 +4,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const contactContainer = css`
   grid-column: main;
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: grid;
     grid-template-columns:
       [contact_full-start] minmax(20rem, 1fr)
@@ -32,7 +32,7 @@ export const contact_textGroup = css`
     text-decoration: none;
   }
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     grid-column: contact_inner;
   }
 `;

@@ -58,7 +58,7 @@ button {
   outline: none;
   cursor: pointer;
   padding: 0;
-  color: white;
+  color: var(--font-01);
 }
 
 body.user-is-tabbing button:focus {

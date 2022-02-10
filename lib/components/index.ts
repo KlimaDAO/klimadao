@@ -3,6 +3,8 @@ export { WebFonts } from "./WebFonts";
 export { TextInfoTooltip, useTooltipSingleton } from "./TextInfoTooltip";
 export { GithubIcon } from "./Icons/GithubIcon";
 export { TwitterIcon } from "./Icons/TwitterIcon";
+export { DiscordIcon } from "./Icons/DiscordIcon";
+export { MetaMaskFox } from "./Icons/MetamaskFox";
 export { GridContainer } from "./Layout/GridContainer";
 export { Section } from "./Layout/Section";
 export { NavMobile } from "./Navigation/NavMobile";

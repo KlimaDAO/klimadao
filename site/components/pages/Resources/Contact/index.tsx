@@ -20,7 +20,7 @@ export const Contact: NextPage<Props> = () => {
       touch. We love meeting institutions and individuals alike.`}
       mediaTitle={t`Contact KlimaDAO`}
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
-      mediaImageSrc="/og-media.jpg"
+      mediaImageSrc="/og-media.png"
     >
       <Section>
         <div className={styles.contactContainer}>

@@ -35,7 +35,7 @@ export const tooltip = css`
   ${typography.caption};
   text-align: center;
   border: 1px solid var(--klima-green);
-  background: var(--surface-08);
+  background: var(--surface-03);
   border-radius: 0.4rem;
   padding: 1.6rem;
   @media (max-width: 32.5rem) {

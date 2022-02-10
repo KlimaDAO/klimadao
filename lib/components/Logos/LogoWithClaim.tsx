@@ -4,6 +4,7 @@ import * as styles from "./styles";
 export const LogoWithClaim: FC = () => {
   return (
     <svg
+      id="klima-logo"
       className={styles.logoWithClaim}
       width="100%"
       height="100%"

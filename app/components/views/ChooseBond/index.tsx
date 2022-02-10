@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import React from "react";
-import classNames from "classnames";
 import { RootState } from "state";
 import { selectAppState } from "state/selectors";
-
-import styles from "./index.module.css";
-import T from "@klimadao/lib/theme/typography.module.css";
 import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
-
+import { ImageCard } from "components/ImageCard";
 import { Trans } from "@lingui/macro";
+import { Text } from "@klimadao/lib/components";
+
+import * as styles from "./styles";
+import SpaOutlined from "@mui/icons-material/SpaOutlined";
 
 export const useBond = (bond: Bond) => {
   const bondState = useSelector((state: RootState) => {
@@ -27,24 +27,32 @@ export const useBond = (bond: Bond) => {
       klima_bct_lp: false,
       bct_usdc_lp: true,
       klima_mco2_lp: false,
+    }[bond],
+    icon: {
+      mco2: "/icons/MCO2.png",
+      bct: "/icons/BCT.png",
+      klima_bct_lp: "/icons/BCT-KLIMA-LP.png",
+      klima_usdc_lp: "/icons/KLIMA-USDC-LP.png",
+      bct_usdc_lp: "/icons/BCT-USDC-LP.png",
+      klima_mco2_lp: "/icons/KLIMA-MCO2-LP.png",
       // future bond names go here
     }[bond],
     name: {
       mco2: "MCO2",
       bct: "BCT",
       klima_usdc_lp: "KLIMA/USDC LP",
-      klima_bct_lp: "BCT/KLIMA LP",
+      klima_bct_lp: "KLIMA/BCT LP",
       bct_usdc_lp: "BCT/USDC LP",
       klima_mco2_lp: "KLIMA/MCO2 LP",
       // future bond names go here
     }[bond],
     description: {
       mco2: "MOSS Carbon Credit Token",
-      bct: "Base Carbon Tons (Verra Carbon Standard)",
-      klima_usdc_lp: "KLIMA/USDC Sushiswap LP Bonds",
-      klima_bct_lp: "BCT/KLIMA Sushiswap LP Bonds",
-      bct_usdc_lp: "BCT/USDC Sushiswap LP Bonds",
-      klima_mco2_lp: "KLIMA/MCO2 Quickswap LP Bonds",
+      bct: "Toucan Base Carbon Tonne",
+      klima_usdc_lp: "KLIMA/USDC Sushiswap Liquidity",
+      klima_bct_lp: "KLIMA/BCT Sushiswap Liquidity",
+      bct_usdc_lp: "BCT/USDC Sushiswap Liquidity",
+      klima_mco2_lp: "KLIMA/MCO2 Quickswap Liquidity",
       // future bond descriptions go here
     }[bond],
     href: {
@@ -88,73 +96,69 @@ export function ChooseBond() {
   const bonds = [mco2, bct, klimaMco2Lp, klimaUsdcLp, klimaBctLp, bctUsdcLp];
 
   return (
-    <div className={styles.stakeCard}>
-      <div className={styles.stakeCard_header}>
-        <h2 className={T.h4}>
-          <Trans id="choose_bond.title">Bond Carbon.</Trans>
-        </h2>
-        <p className={T.body2}>
-          <Trans id="choose_bond.caption">
-            The best way to buy KLIMA. Commit carbon to our treasury, and
-            receive KLIMA at a discount. All bonds have a mandatory 5-day
-            vesting period.
-          </Trans>
-        </p>
-      </div>
-
-      <div className={styles.data_container}>
-        <div className={styles.data_column}>
-          <p className={classNames(styles.data_column_label, T.overline)}>
-            <Trans id="choose_bond.treasury_balance">Treasury Balance</Trans>
-          </p>
-          <p className={classNames("price-data")}>
-            <span className={T.h6}>
+    <>
+      <div className={styles.chooseBondCard}>
+        <div className={styles.chooseBondCard_header}>
+          <Text t="h4" className={styles.chooseBondCard_header_title}>
+            <SpaOutlined />
+            <Trans>Bond Carbon.</Trans>
+          </Text>
+          <Text t="caption" color="lightest">
+            <Trans id="choose_bond.caption">
+              The best way to buy KLIMA. Commit carbon to our treasury, and
+              receive KLIMA at a discount. All bonds have a mandatory 5-day
+              vesting period.
+            </Trans>
+          </Text>
+        </div>
+        <div className={styles.chooseBondCard_ui}>
+          <div>
+            <Text t="badge" color="lightest">
+              <Trans id="choose_bond.treasury_balance">Treasury Balance</Trans>
+            </Text>
+            <Text>
               {trimWithPlaceholder(treasuryBalance, 0)}
-            </span>
-            {treasuryBalance ? " T CO2" : ""}
-          </p>
-        </div>
-      </div>
-      <div className={styles.bondList}>
-        <div className={styles.bondList_columnTitle}>
-          <h2 className={T.overline}>
-            {" "}
-            <Trans id="choose_bond.choose_bond">Choose a bond</Trans>:
-          </h2>
-          <p className={T.overline} style={{ opacity: 0.7 }}>
-            <Trans id="choose_bond.discount">% Discount</Trans>
-          </p>
-        </div>
-
-        {bonds.map((bond) => (
-          <Link to={bond.href} key={bond.href}>
-            <div className={styles.bondLink} key={bond.name}>
-              <div>
-                <h3 className={T.subtitle2}>{bond.name}</h3>
-                <p
-                  className={classNames(styles.bondLink_description, T.caption)}
-                >
-                  {bond.description}
-                </p>
-              </div>
-              {bond.disabled ? (
-                <p className={styles.bondROI} data-hide={true}>
-                  SOLD OUT
-                </p>
-              ) : (
-                <p
-                  className={styles.bondROI}
-                  data-hide={!bond?.discount || bond.discount < 0}
-                >
-                  {trimWithPlaceholder(bond?.discount, 2)}
-                  {bond.discount ? "%" : ""}
-                </p>
-              )}
+              {treasuryBalance ? " T CO2" : ""}
+            </Text>
+          </div>
+          <div className={styles.bondList}>
+            <div className={styles.bondList_columnTitle}>
+              <Text t="caption" color="lighter">
+                <Trans id="choose_bond.choose_bond">Choose a bond</Trans>
+              </Text>
+              <Text t="caption" color="lighter">
+                <Trans id="choose_bond.discount">% Discount</Trans>
+              </Text>
             </div>
-          </Link>
-        ))}
+
+            {bonds.map((bond) => (
+              <Link to={bond.href} key={bond.href}>
+                <div className={styles.bondLink} key={bond.name}>
+                  <div className="bondLink_imgContainer">
+                    <img src={bond.icon} alt="" />
+                  </div>
+                  <div>
+                    <Text t="body1">{bond.name}</Text>
+                    <Text t="caption" color="lightest">
+                      {bond.description}
+                    </Text>
+                  </div>
+                  <Text
+                    t="h5"
+                    className={styles.bondROI}
+                    data-hide={!bond?.discount || bond.discount < 0}
+                  >
+                    {trimWithPlaceholder(bond?.discount, 2)}
+                    {bond.discount ? "%" : ""}
+                  </Text>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+      <ImageCard />
+    </>
   );
 }
 

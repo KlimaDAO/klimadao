@@ -48,7 +48,7 @@ export const heroSection = css`
     grid-column: main;
     justify-items: center;
 
-    ${breakpoints.medium} {
+    ${breakpoints.large} {
       display: grid;
     }
   }
@@ -76,7 +76,7 @@ export const heroSection = css`
 
   .hero_button {
     display: flex;
-    ${breakpoints.medium} {
+    ${breakpoints.large} {
       display: none;
     }
   }
@@ -86,7 +86,7 @@ export const heroSection = css`
     gap: 0.4rem;
   }
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     min-height: calc(100vh - var(--header-height) * 2);
     .hero_container {
       align-content: center;
@@ -146,7 +146,7 @@ export const blackHoleSection = css`
     gap: 3.2rem;
   }
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     grid-column: main;
     .blackHole_textGroup {
       display: grid;
@@ -273,7 +273,7 @@ export const mechanicsSection = css`
       margin-inline-start: -8.4rem;
     }
   }
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     row-gap: unset;
     .mechanics_itemGroup {
       max-width: 100%;
@@ -348,7 +348,7 @@ export const carbonSection = css`
     gap: 0.4rem;
     padding: 2rem 2.8rem;
   }
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     .carbon_counter {
       font-size: 8.8rem;
       line-height: 8.8rem;
@@ -372,7 +372,7 @@ export const forestSection = css`
     align-self: end;
     max-width: 32rem;
   }
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     padding: 6.4rem 0rem;
   }
 `;
@@ -409,7 +409,7 @@ export const sproutsSection = css`
     gap: 0.8rem;
   }
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     grid-template-columns: 1fr 1fr;
     .sprouts_col2 > div {
       display: flex;
@@ -434,7 +434,7 @@ export const buySection = css`
     justify-items: start;
     padding: 3.2rem;
 
-    ${breakpoints.medium} {
+    ${breakpoints.large} {
       padding: 6.4rem;
     }
   }
@@ -450,7 +450,7 @@ export const buySection = css`
     margin-left: 5%;
   }
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: unset;
   }

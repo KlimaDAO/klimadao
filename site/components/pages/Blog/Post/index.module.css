@@ -1,14 +1,20 @@
-@value bp-medium from "@klimadao/lib/theme/breakpoints.css";
+@value bp-medium, bp-large from "@klimadao/lib/theme/breakpoints.css";
 
 .container {
   grid-column: full;
+  grid-template-columns: inherit;
   background-color: var(--surface-02);
-  color: black;
+  color: var(--font-01);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner {
   position: relative;
-  padding: 1.6rem 1.6rem 0rem;
+  max-width: 120rem;
+  width: 100%;
 }
 
 .bannerImage {
@@ -16,32 +22,22 @@
   position: relative;
 }
 
-@media bp-medium {
-  .banner {
-    position: relative;
-    padding: 3.2rem 3.2rem 0rem;
-  }
-}
-
 .blogContainer {
   padding: 6.4rem 0;
-  color: #313131;
   line-height: 166%;
   display: grid;
-  grid-template-columns:
-    [full-start] minmax(0.8rem, 1fr)
-    [main-start] minmax(0, 80rem)
-    [main-end] minmax(0.8rem, 1fr)
-    [full-end];
+  grid-template-columns: inherit;
 }
 
 .content {
   grid-column: main;
+  max-width: 76rem;
+  justify-self: center;
 }
 
 .date {
   margin: 2rem 0;
-  color: #a1a1a1 !important;
+  color: var(--font-03) !important;
 }
 
 .fallbackContainer {
@@ -52,4 +48,16 @@
 .loadingArticle {
   justify-self: center;
   align-self: center;
+}
+
+@media bp-large {
+  .banner {
+    position: relative;
+  }
+  .banner {
+    padding: 3.2rem 3.2rem 0rem;
+  }
+  .bannerImage {
+    height: 28rem;
+  }
 }
