@@ -263,7 +263,7 @@ export const Home: FC = () => {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} data-scrolllock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
           <NavMenu address={address} />
         </div>
