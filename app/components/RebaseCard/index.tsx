@@ -25,7 +25,7 @@ export const RebaseCard: FC<Props> = (props) => {
     if (currentBlock && rebaseBlock) {
       const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
       // if less than 1 hour remaining, return minutes
-      const rtf = new Intl.RelativeTimeFormat();
+      const rtf = new Intl.RelativeTimeFormat("en");
       if (seconds < 3600) {
         return rtf.format(Math.floor(seconds / 60), "minutes");
       } else {
