@@ -69,25 +69,16 @@ export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
           <div className={styles.card_header}>
             <Text t="h3">⚠ Wrong Network</Text>
             <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
-              This dApp only works on Polygon Mainnet and Polygon Mumbai
-              Testnet.
+              This dApp only works on Polygon Mainnet.
             </Text>
           </div>
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "flex-end",
               gap: "0.8rem",
             }}
           >
-            <button
-              onClick={handleChangeNetwork("testnet")}
-              className={styles.switchNetworkButton_dismiss}
-              disabled={true}
-              style={{ opacity: 0.5 }}
-            >
-              Switch to Testnet
-            </button>
             <button
               onClick={handleChangeNetwork("mainnet")}
               className={styles.switchNetworkButton}
