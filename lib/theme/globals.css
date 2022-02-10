@@ -60,7 +60,9 @@ button {
   padding: 0;
   color: var(--font-01);
 }
-
+button:disabled {
+  cursor: default;
+}
 body.user-is-tabbing button:focus {
   outline: auto;
 }
