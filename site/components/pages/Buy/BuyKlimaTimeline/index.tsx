@@ -218,7 +218,7 @@ const Card: FC<CardProps> = (props) => {
         </Text>
       </div>
       <div className="content">
-        <Text t="h3" className={styles.title}>
+        <Text t="h3" as="h3" className={styles.title}>
           {props.content.title}
         </Text>
         {props.content.description}

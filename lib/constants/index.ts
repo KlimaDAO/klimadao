@@ -78,7 +78,7 @@ export const urls = {
   app: "https://dapp.klimadao.finance",
   stake: "https://dapp.klimadao.finance/#/stake",
   wrap: "https://dapp.klimadao.finance/#/wrap",
-  bond: "https://dapp.klimadao.finance/#/bonds",
+  bonds: "https://dapp.klimadao.finance/#/bonds",
   resources: "https://www.klimadao.finance/resources",
   contact: "https://www.klimadao.finance/contact",
   community: "https://www.klimadao.finance/community",

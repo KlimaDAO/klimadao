@@ -79,13 +79,20 @@ export const br = css`
   border-top: 0.1rem solid var(--font-03);
   width: 100%;
   height: 6rem;
+  grid-column: main;
 `;
 
 export const cryptoSafteyTips = css`
   grid-column: main;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: grid;
+  row-gap: 1.6rem;
+  max-width: 72rem;
+  justify-self: center;
+
+  ul {
+    display: grid;
+    gap: 0.8rem;
+  }
 `;
 
 export const hero = css`

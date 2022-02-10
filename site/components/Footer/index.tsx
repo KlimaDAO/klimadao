@@ -25,7 +25,7 @@ export const Footer: FC = () => {
           <a href={urls.stake}>
             <Trans>Stake</Trans>
           </a>
-          <a href={urls.bond}>
+          <a href={urls.bonds}>
             <Trans>Bond</Trans>
           </a>
           <a href={urls.officialDocs} target="_blank" rel="noreferrer noopener">
