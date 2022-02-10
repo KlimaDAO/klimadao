@@ -96,7 +96,6 @@ const serializers: BlockContentProps["serializers"] = {
         <div className={styles.inlineImage}>
           <Image
             src={params.node.asset.url}
-            loader={sanityImageLoader}
             alt="inline image"
             objectFit="contain"
             width={640}
