@@ -1,5 +1,6 @@
 import { css, keyframes } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
+import * as typography from "@klimadao/lib/theme/typography";
 
 export const heroSection = css`
   min-height: 100vh;
@@ -11,7 +12,31 @@ export const heroSection = css`
     display: grid;
     grid-template-columns: inherit;
     grid-column: full;
-    row-gap: 6.4rem;
+    row-gap: 2.4rem;
+    grid-template-rows: auto 1fr;
+    margin-top: 6.4rem;
+  }
+
+  .hero_newsBanner {
+    ${typography.button};
+    background-color: var(--surface-01);
+    padding: 1.2rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 0.8rem;
+    justify-content: center;
+    grid-column: main;
+    border-radius: 0.8rem;
+    box-shadow: var(--shadow-06);
+    align-self: end;
+    max-width: 48rem;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
+  }
+
+  .hero_newsBanner a {
+    text-decoration: underline;
   }
 
   .hero_cardsGroup {
@@ -32,7 +57,6 @@ export const heroSection = css`
     border-radius: 1.6rem;
     box-shadow: var(--shadow-06);
     margin-bottom: -6.4rem;
-    margin-top: 9.6rem;
     max-width: 48rem;
     justify-self: center;
   }
@@ -47,6 +71,7 @@ export const heroSection = css`
     display: none;
     grid-column: main;
     justify-items: center;
+    margin-top: 4.8rem;
 
     ${breakpoints.large} {
       display: grid;
@@ -90,6 +115,10 @@ export const heroSection = css`
     min-height: calc(100vh - var(--header-height) * 2);
     .hero_container {
       align-content: center;
+      margin-top: unset;
+    }
+    .hero_newsBanner {
+      max-width: unset;
     }
     .hero_cardsGroup {
       display: grid;

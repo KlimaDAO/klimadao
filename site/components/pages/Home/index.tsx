@@ -23,6 +23,7 @@ import dummyswap from "public/dummyswap.png";
 
 import * as styles from "./styles";
 import { ParralaxWormhole } from "./ParralaxWormhole";
+import Link from "next/link";
 export interface Props {
   treasuryBalance: number;
   stakingAPY: number;
@@ -64,6 +65,16 @@ export const Home: NextPage<Props> = (props) => {
 
       <Section variant="gray" className={styles.heroSection}>
         <div className="hero_container">
+          <div className="hero_newsBanner">
+            <Text t="button" align="end">
+              <Trans>📰 Recent Post: </Trans>
+            </Text>
+            <Link href="/blog/a-new-face-for-klimadao">
+              <a>
+                <Trans>A New Face For KlimaDAO</Trans>
+              </a>
+            </Link>
+          </div>
           <div className="hero_cardsGroup">
             <div className="hero_whiteCard">
               <div className="hero_title">
@@ -98,6 +109,7 @@ export const Home: NextPage<Props> = (props) => {
               />
             </div>
           </div>
+
           <div className="hero_learnMore">
             <button
               type="button"
