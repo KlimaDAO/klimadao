@@ -71,6 +71,10 @@ export const joinDiscord = css`
   box-shadow: var(--shadow-06);
   border-radius: 1.6rem;
   overflow: hidden;
+  max-width: 64rem;
+  justify-self: center;
+  align-self: center;
+
   .joinDiscord_row1 {
     display: grid;
     align-self: center;
