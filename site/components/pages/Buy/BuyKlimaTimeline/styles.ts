@@ -39,6 +39,10 @@ export const card = css`
   .index {
     justify-self: center;
   }
+  .content {
+    display: grid;
+    gap: 1.6rem;
+  }
   ${breakpoints.medium} {
     .index::after {
       content: "";
