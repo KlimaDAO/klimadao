@@ -107,13 +107,19 @@ export const heroSection = css`
       align-content: center;
     }
     .hero_whiteCard {
-      padding: 6.4rem;
+      padding: 3.2rem;
       max-width: unset;
       justify-self: unset;
     }
     .hero_imageCard {
       border-radius: 1.6rem;
       overflow: hidden;
+    }
+  }
+
+  ${breakpoints.desktopLarge} {
+    .hero_whiteCard {
+      padding: 6.4rem;
     }
   }
 
