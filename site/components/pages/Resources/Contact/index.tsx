@@ -35,9 +35,9 @@ export const Contact: NextPage<Props> = () => {
             </Text>
             <Text t="body3" align="center" color="lighter">
               <Trans>
-                Discord server and ask in the #questions channel. We have
-                thousands of friendly, knowledgeable community members ready and
-                willing to help you out.
+                Join our Discord server and ask in the #questions channel. We
+                have thousands of friendly, knowledgeable community members
+                ready and willing to help you out.
               </Trans>
             </Text>
           </div>
