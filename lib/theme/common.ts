@@ -25,6 +25,10 @@ export const iconButton = css`
   border-radius: 0.8rem;
   svg {
     font-size: 2.4rem;
+
+    path {
+      fill: var(--font-01);
+    }
   }
   &:hover {
     opacity: 0.7rem;
