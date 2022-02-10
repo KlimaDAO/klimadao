@@ -68,7 +68,7 @@ export const Home: NextPage<Props> = (props) => {
             <div className="hero_whiteCard">
               <div className="hero_title">
                 <Text t="h5" color="lighter">
-                  <Trans>👋 WELCOME TO</Trans>
+                  <Trans>WELCOME TO</Trans>
                 </Text>
                 <Text t="h1" as="h1">
                   KlimaDAO

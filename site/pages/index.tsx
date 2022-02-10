@@ -4,7 +4,7 @@ import {
   getStakingAPY,
   getTreasuryBalance,
 } from "@klimadao/lib/utils";
-import { Home, Props } from "components/pages/Redesign";
+import { Home, Props } from "components/pages/Home";
 import { loadTranslation } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
