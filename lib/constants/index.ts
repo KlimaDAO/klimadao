@@ -72,7 +72,7 @@ export const urls = {
   blog: "https://klimadao.medium.com/",
   emailSignUp:
     "https://docs.google.com/forms/d/e/1FAIpQLSeJ4-dPoSBS50kT1hSBzQGiA8lMnL5DYKjptQoMBKmgFokJmg/viewform",
-  discordInvite: "https://discord.gg/kx4pahaFw8",
+  discordInvite: "https://discord.com/invite/klimadao",
   discordContributorsInvite: "https://discord.gg/uWvjTuZ65v",
   gitbook: "https://klima-dao.gitbook.io/klima-dao/",
   app: "https://dapp.klimadao.finance",
