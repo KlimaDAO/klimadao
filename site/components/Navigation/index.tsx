@@ -14,7 +14,7 @@ import { HeaderMobile } from "../Header/HeaderMobile";
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-type PageName = "Home" | "Resources";
+type PageName = "Home" | "Get Klima" | "Resources";
 
 export type Props = {
   activePage: PageName;
@@ -34,10 +34,14 @@ export const Navigation: FC<Props> = (props) => {
         ]}
       >
         <NavItemDesktop
-          url={urls.tutorial}
+          url={"/"}
+          name={t({ message: "Home", id: "mainNav.home" })}
+          active={props.activePage === "Home"}
+        />
+        <NavItemDesktop
+          url={"/buy"}
           name={t`Get Klima`}
-          rel="noopener noreferrer"
-          target="_blank"
+          active={props.activePage === "Get Klima"}
         />
         <NavItemDesktop
           url={urls.stake}
@@ -58,12 +62,7 @@ export const Navigation: FC<Props> = (props) => {
           url={"/"}
           name={t({ message: "Home", id: "mainNav.home" })}
         />
-        <NavItemMobile
-          url={urls.tutorial}
-          name={t`Get Klima`}
-          target="_blank"
-          rel="noreferrer noopener"
-        />
+        <NavItemMobile url="/buy" name={t`Get Klima`} />
         <NavItemMobile
           url={urls.stake}
           name={t({ message: "Stake", id: "mainNav.stake" })}
