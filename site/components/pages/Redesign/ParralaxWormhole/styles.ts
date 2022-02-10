@@ -25,7 +25,7 @@ export const container = css`
   opacity: 05;
   animation: ${pulse} 6s ease-in-out infinite;
   grid-column: full;
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     grid-column: main;
     border-radius: 2.4rem 2.4rem 0 0;
   }

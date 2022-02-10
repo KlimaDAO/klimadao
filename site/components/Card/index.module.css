@@ -1,4 +1,4 @@
-@value bp-medium from "@klimadao/lib/theme/breakpoints.css";
+@value bp-large from "@klimadao/lib/theme/breakpoints.css";
 
 .card {
   display: grid;
@@ -33,7 +33,7 @@
   min-height: 24rem;
 }
 
-@media bp-medium {
+@media bp-large {
   .card {
     grid-template-areas: "content image";
     grid-template-columns: 1fr 1fr;

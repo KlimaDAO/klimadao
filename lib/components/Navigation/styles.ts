@@ -14,7 +14,7 @@ export const navMain_Mobile = css`
   transition: transform 0.5s ease 0s;
   padding-top: var(--header-height);
   display: flex;
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: none;
   }
 `;
@@ -25,13 +25,13 @@ export const navMain_MobileClosed = css`
   right: 0px;
   width: 100%;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
   background-color: var(--surface-01);
   transform: translate3d(100%, 0px, 0px);
   transition: transform 0.5s ease 0s;
   padding-top: var(--header-height);
   display: flex;
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: none;
   }
 `;

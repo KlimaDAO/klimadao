@@ -47,8 +47,7 @@ export const Community: NextPage<Props> = ({}) => {
       activePage={"community"}
       title={t`KlimaDAO Community`}
       headline={t`Community`}
-      subline={t`KlimaDAO harnesses the power of cryptocurrency, blockchain and smart
-      contracts to create.`}
+      subline={t`KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates.`}
       mediaTitle={t`KlimaDAO Community`}
       metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
       mediaImageSrc="/og-media.png"
@@ -65,8 +64,8 @@ export const Community: NextPage<Props> = ({}) => {
             </Text>
             <Text t="body3" align="center">
               <Trans>
-                KlimaDAO harnesses the power of cryptocurrency, blockchain and
-                smart contracts to create
+                We work with traditional carbon market players, crypto
+                platforms, corporations and everyone in-between.
               </Trans>
             </Text>
             <ButtonPrimary href={"/contact"} label={"Contact Us"} />
@@ -84,9 +83,6 @@ export const Community: NextPage<Props> = ({}) => {
       <Section variant="gray">
         <div className={styles.communityContainer}>
           <div className={styles.community_textGroup}>
-            <Text t="h5" align="center">
-              <Trans>Let's Work Together</Trans>
-            </Text>
             <Text t="h2" as="h2">
               <Trans>OUR PARTNERS</Trans>
             </Text>
@@ -180,7 +176,7 @@ export const Community: NextPage<Props> = ({}) => {
         <div className={styles.communityContainer}>
           <div className={styles.community_textGroup}>
             <Text t="h5" align="center">
-              <Trans>Let's Work Together</Trans>
+              <Trans>Come On In</Trans>
             </Text>
             <Text t="h2" as="h2">
               <Trans>Join Our Discord</Trans>
@@ -188,18 +184,19 @@ export const Community: NextPage<Props> = ({}) => {
           </div>
           <div className={styles.joinDiscord}>
             <div className="joinDiscord_row1">
-              <Text t="h2" as="h2" align="center">
-                <Trans>Discord</Trans>
-              </Text>
               <Text
                 t="body3"
                 color="lighter"
                 align="center"
                 className="padding20"
+                style={{ maxWidth: "64rem" }}
               >
                 <Trans>
-                  KlimaDAO harnesses the power of cryptocurrency, blockchain and
-                  smart contracts to create
+                  Discord is where we share important announcements, hold
+                  office-hours, answer questions, and trade memes. Our Discord
+                  server is extremely active and moderated around-the-clock.
+                  We've got channels for everything from trading to
+                  sustainability and carbon markets.
                 </Trans>
               </Text>
               <DiscordButton />
@@ -230,8 +227,8 @@ export const Community: NextPage<Props> = ({}) => {
             </Text>
             <Text t="body3" color="lighter" align="center">
               <Trans>
-                KlimaDAO harnesses the power of cryptocurrency, blockchain and
-                smart contracts to create
+                IF you've got questions, ideas, advice or anything else: we can
+                help you find the right person to talk to.
               </Trans>
             </Text>
             <ButtonPrimary href={"/contact"} label={"Contact Us"} />

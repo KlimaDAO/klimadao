@@ -6,6 +6,7 @@ export const navMain_DesktopLink = css`
   text-decoration: none;
   display: flex;
   align-items: center;
+  text-align: center;
   &,
   &:hover,
   &:visited {

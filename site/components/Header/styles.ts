@@ -11,7 +11,7 @@ export const headerDesktop = css`
   background: var(--surface-02);
   padding-top: 4.8rem;
   height: calc(var(--header-height) * 2);
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: grid;
   }
 `;
@@ -26,7 +26,7 @@ export const headerMobileWrap = css`
   background-color: rgba(255, 255, 255, 0);
   transition: background-color 0.5s ease 0s;
   z-index: 100;
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: none;
   }
 `;
@@ -46,7 +46,7 @@ export const headerMobile = css`
   padding: 0rem 2.4rem;
   height: var(--header-height);
   z-index: 1;
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     display: none;
   }
 `;
@@ -63,9 +63,10 @@ export const navMain_Desktop = css`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 3.2rem;
-  ${breakpoints.large} {
-    gap: 6rem;
+  gap: 2.4rem;
+  ${breakpoints.desktopLarge} {
+    justify-content: center;
+    gap: 5.4rem;
   }
 `;
 
@@ -86,7 +87,7 @@ export const navMain_Buttons = css`
   align-items: center;
   gap: 1rem;
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     button,
     a {
       box-shadow: var(--shadow-light);

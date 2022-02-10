@@ -32,7 +32,7 @@ export const section = css`
     min-height: 100vh;
     align-items: center;
   }
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     padding: 15.2rem 0rem;
   }
 `;
