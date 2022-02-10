@@ -440,13 +440,13 @@ export const buySection = css`
   }
 
   .buy_col2 {
-    display: grid;
-    position: relative;
+    display: flex;
+    align-items: end;
   }
 
   .buy_dummy {
     border-radius: 2.4rem;
-    margin-bottom: -1rem;
+    margin-bottom: -0.5rem;
     margin-left: 5%;
   }
 
