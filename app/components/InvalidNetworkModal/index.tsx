@@ -1,6 +1,5 @@
 import React, { useState, useEffect, FC } from "react";
 import styles from "./index.module.css";
-import t from "@klimadao/lib/theme/typography.module.css";
 import { Text } from "@klimadao/lib/components";
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { providers } from "ethers";
