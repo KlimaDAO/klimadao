@@ -116,6 +116,7 @@ export const heroSection = css`
     .hero_container {
       align-content: center;
       margin-top: unset;
+      grid-template-rows: unset;
     }
     .hero_newsBanner {
       max-width: unset;
@@ -298,7 +299,7 @@ export const mechanicsSection = css`
   .mechanics_img {
     border-radius: 1.6rem;
     overflow: visible;
-    box-shadow: var(--shadow-07);
+    box-shadow: var(--shadow-06);
   }
   ${breakpoints.small} {
     p.align-end {
