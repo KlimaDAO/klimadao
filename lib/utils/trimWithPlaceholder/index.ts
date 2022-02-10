@@ -6,7 +6,7 @@ export const trimWithPlaceholder = (
   if (typeof number === "undefined" || Number.isNaN(number)) {
     return "Loading... ";
   }
-  return Number(number).toLocaleString(undefined, {
+  return Number(number).toLocaleString("en", {
     maximumFractionDigits: precision,
   });
 };
