@@ -17,9 +17,11 @@ export const Footer: FC = () => {
               <Trans>Home</Trans>
             </a>
           </Link>
-          <a href={urls.tutorial} target="_blank" rel="noreferrer noopener">
-            <Trans>Get Klima</Trans>
-          </a>
+          <Link href="/buy">
+            <a>
+              <Trans>Get Klima</Trans>
+            </a>
+          </Link>
           <a href={urls.stake}>
             <Trans>Stake</Trans>
           </a>
