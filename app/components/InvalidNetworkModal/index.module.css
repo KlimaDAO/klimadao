@@ -36,11 +36,11 @@
 }
 .switchNetworkButton {
   composes: textButton;
-  border: 2px solid var(--klima-blue);
+  border: 2px solid var(--klima-green);
   justify-self: end;
 }
 .switchNetworkButton:hover:not(:disabled) {
-  background-color: var(--klima-blue);
+  background-color: var(--klima-green);
 }
 .switchNetworkButton:disabled {
   opacity: 0.4;
