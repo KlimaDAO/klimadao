@@ -227,7 +227,7 @@ export const Community: NextPage<Props> = ({}) => {
             </Text>
             <Text t="body3" color="lighter" align="center">
               <Trans>
-                IF you've got questions, ideas, advice or anything else: we can
+                If you've got questions, ideas, advice or anything else: we can
                 help you find the right person to talk to.
               </Trans>
             </Text>
