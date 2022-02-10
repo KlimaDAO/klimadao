@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Image from "next/image";
+import Image, { ImageLoaderProps } from "next/image";
 
 import { Text } from "@klimadao/lib/components";
 
@@ -8,6 +8,13 @@ import BlockContent, {
 } from "@sanity/block-content-to-react";
 
 import * as styles from "./styles";
+
+const sanityLoader = ({ src, width, quality }: ImageLoaderProps) => {
+  return `https://cdn.sanity.io/${src}?w=${width}&q=${
+    quality ?? 60
+  }&auto=format&fit=max`;
+  // fit max - do not scale up images
+};
 
 interface BlockContentRendererProps {
   blocks: {
@@ -95,6 +102,7 @@ const serializers: BlockContentProps["serializers"] = {
         <div className={styles.inlineImage}>
           <Image
             src={params.node.asset.url}
+            loader={sanityLoader}
             alt="inline image"
             objectFit="contain"
             width={640}
