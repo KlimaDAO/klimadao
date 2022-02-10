@@ -315,6 +315,7 @@ export const Home: FC = () => {
                   address={address}
                   provider={provider}
                   isConnected={isConnected}
+                  loadWeb3Modal={loadWeb3Modal}
                 />
               }
             />
@@ -325,6 +326,7 @@ export const Home: FC = () => {
                   address={address}
                   provider={provider}
                   isConnected={isConnected}
+                  loadWeb3Modal={loadWeb3Modal}
                 />
               }
             />

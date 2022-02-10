@@ -128,7 +128,7 @@ export const Stake = (props: Props) => {
       return {
         label: <Trans>Connect wallet</Trans>,
         onClick: props.loadWeb3Modal,
-        disabled: true,
+        disabled: false,
       };
     } else if (isLoading) {
       return {
@@ -269,7 +269,7 @@ export const Stake = (props: Props) => {
 
           <div className={styles.infoTable}>
             <div className={styles.infoTable_label}>
-              <Trans>ROI</Trans>
+              <Trans>5-day ROI</Trans>
               <TextInfoTooltip
                 content={
                   <Trans>

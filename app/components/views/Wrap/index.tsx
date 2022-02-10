@@ -31,6 +31,7 @@ interface Props {
   provider: ethers.providers.JsonRpcProvider;
   address?: string;
   isConnected?: boolean;
+  loadWeb3Modal: () => Promise<void>;
 }
 
 export const Wrap: FC<Props> = (props) => {
@@ -110,7 +111,11 @@ export const Wrap: FC<Props> = (props) => {
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return { label: "Not Connected", onClick: undefined, disabled: true };
+      return {
+        label: <Trans>Connect wallet</Trans>,
+        onClick: props.loadWeb3Modal,
+        disabled: false,
+      };
     } else if (isLoading) {
       return {
         label: "Loading",

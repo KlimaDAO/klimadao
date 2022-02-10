@@ -300,9 +300,9 @@ export const Bond: FC<Props> = (props) => {
       };
     } else if (!props.isConnected || !props.address) {
       return {
-        label: <Trans id="button.not_connected">Not connected</Trans>,
+        label: <Trans>Connect wallet</Trans>,
         onClick: props.loadWeb3Modal,
-        disabled: true,
+        disabled: false,
       };
     } else if (isLoading) {
       return {
