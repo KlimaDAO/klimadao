@@ -1,6 +1,7 @@
 import React, { useState, useEffect, FC } from "react";
 import styles from "./index.module.css";
 import t from "@klimadao/lib/theme/typography.module.css";
+import { Text } from "@klimadao/lib/components";
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { providers } from "ethers";
 
@@ -67,11 +68,11 @@ export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
       <div className={styles.bg}>
         <div className={styles.card}>
           <div className={styles.card_header}>
-            <h2 className={t.h4}>⚠ Wrong Network</h2>
-            <p className={t.body2}>
+            <Text t="h3">⚠ Wrong Network</Text>
+            <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
               This dApp only works on Polygon Mainnet and Polygon Mumbai
               Testnet.
-            </p>
+            </Text>
           </div>
           <div
             style={{
