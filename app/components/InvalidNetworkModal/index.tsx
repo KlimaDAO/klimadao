@@ -83,6 +83,8 @@ export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
             <button
               onClick={handleChangeNetwork("testnet")}
               className={styles.switchNetworkButton_dismiss}
+              disabled={true}
+              style={{ opacity: 0.5 }}
             >
               Switch to Testnet
             </button>
