@@ -240,6 +240,7 @@ export const mechanicsSection = css`
   grid-column: main;
   row-gap: 6.4rem;
   .mechanics_textGroup {
+    z-index: 1;
     display: grid;
     gap: 1.6rem;
     padding: 0rem 2.4rem;
@@ -328,7 +329,7 @@ export const mechanicsSection = css`
     }
     .mechanics_item:nth-child(1) {
       align-self: center;
-      margin-inline-end: -16rem;
+      margin-inline-end: -24rem;
     }
     .mechanics_item:nth-child(2) {
       margin-top: -4.8rem;
@@ -338,6 +339,16 @@ export const mechanicsSection = css`
     }
     .mechanics_item:nth-child(3) {
       margin-top: -8.6rem;
+      align-self: flex-end;
+    }
+  }
+
+  ${breakpoints.desktopLarge} {
+    .mechanics_item:nth-child(1) {
+      margin-inline-end: -16rem;
+    }
+    .mechanics_item:nth-child(3) {
+      margin-right: 12rem;
       align-self: flex-end;
     }
   }

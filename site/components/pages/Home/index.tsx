@@ -139,7 +139,7 @@ export const Home: NextPage<Props> = (props) => {
             <div className="blackHole_columns">
               <Text t="body3" color="lighter">
                 <Trans>
-                  We’ve kickstarted a{" "}
+                  We’ve kick-started a{" "}
                   <span>decentralized and open market for carbon</span>. Our
                   token incentivizes investors, citizens, and organizations to
                   participate in and govern this new economy.
