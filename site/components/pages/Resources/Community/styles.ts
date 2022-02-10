@@ -83,7 +83,8 @@ export const joinDiscord = css`
     padding: 3.2rem;
   }
   .joinDiscord_row2 {
-    position: relative;
+    display: flex;
+    align-items: end;
   }
   .joinDiscord_dummy {
     border-radius: 2.4rem;
