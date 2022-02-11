@@ -202,7 +202,7 @@ export const NavMenu: FC<Props> = (props) => {
           </a>
           <a
             className="navFooter_button"
-            href={urls.officialDocs}
+            href={urls.github}
             rel="noreferrer noopener"
             target="_blank"
           >
