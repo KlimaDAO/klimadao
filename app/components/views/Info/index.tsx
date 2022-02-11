@@ -10,6 +10,7 @@ import * as styles from "./styles";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
+import { ImageCard } from "components/ImageCard";
 
 export interface AdressInfo {
   name: string;
@@ -93,77 +94,80 @@ export const Info: FC<Props> = (props) => {
   ];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.stakeCard_header}>
-        <Text t="h4" as="h1" className={styles.stakeCard_header_title}>
-          <InfoOutlined />
-          <Trans>Info & FAQ</Trans>
-        </Text>
-        <Text t="caption" color="lightest">
-          <Trans>
-            Common app-related questions and useful links. For comprehensive
-            reading on KlimaDAO, see our{" "}
-            <a
-              target="_blank"
-              rel="noreferrer noopener"
-              href={urls.officialDocs}
-            >
-              official docs
-            </a>
-          </Trans>
-        </Text>
-      </div>
-      <div className="infoSection">
-        <div style={{ display: "grid", gap: "2.4rem" }}>
-          <div style={{ display: "grid", gap: "0.8rem" }}>
-            <Text t="h5" as="h2">
-              Why won't the dApp load for me?
-            </Text>
-            <Text t="caption" color="lightest">
-              If the app says 'loading...' this is likely a problem with your
-              network configuration in Metamask. To fix this: <br />
-              1. Open Metamask and switch to Ethereum Mainnet <br />
-              2. Go to Settings/Networks/Polygon and click 'delete' <br />
-              3. Return to dapp.klimadao.finance and click 'switch to mainnet'.{" "}
-              <br />
-              Metamask should prompt you to add Polygon, with the correct RPC
-              configuration.
-            </Text>
+    <>
+      <ImageCard />
+      <div className={styles.container}>
+        <div className={styles.stakeCard_header}>
+          <Text t="h4" as="h1" className={styles.stakeCard_header_title}>
+            <InfoOutlined />
+            <Trans>Info & FAQ</Trans>
+          </Text>
+          <Text t="caption" color="lightest">
+            <Trans>
+              Common app-related questions and useful links. For comprehensive
+              reading on KlimaDAO, see our{" "}
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                href={urls.officialDocs}
+              >
+                official docs
+              </a>
+            </Trans>
+          </Text>
+        </div>
+        <div className="infoSection">
+          <div style={{ display: "grid", gap: "2.4rem" }}>
+            <div style={{ display: "grid", gap: "0.8rem" }}>
+              <Text t="h5" as="h2">
+                Why won't the dApp load for me?
+              </Text>
+              <Text t="caption" color="lightest">
+                If the app says 'loading...' this is likely a problem with your
+                network configuration in Metamask. To fix this: <br />
+                1. Open Metamask and switch to Ethereum Mainnet <br />
+                2. Go to Settings/Networks/Polygon and click 'delete' <br />
+                3. Return to dapp.klimadao.finance and click 'switch to
+                mainnet'. <br />
+                Metamask should prompt you to add Polygon, with the correct RPC
+                configuration.
+              </Text>
+            </div>
+          </div>
+        </div>
+        <div className="infoSection">
+          <Text t="h5" as="h2">
+            Official Contract Addresses
+          </Text>
+          <div style={{ display: "grid", gap: "0.4rem" }}>
+            {addressInfo.map((info) => (
+              <div key={info.address}>
+                <p>{info.name}</p>
+                <div className="addressRow">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://polygonscan.com/address/${info.address}`}
+                  >
+                    {concatAddress(info.address)}
+                  </a>
+                  <CopyAddressButton
+                    ariaLabel={info.ariaLabel}
+                    address={info.address}
+                  />
+                  {typeof props.provider?.provider?.request === "function" &&
+                    props.provider.provider.isMetaMask && (
+                      <AddToMetaMaskButton
+                        info={info}
+                        provider={props.provider}
+                      />
+                    )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className="infoSection">
-        <Text t="h5" as="h2">
-          Official Contract Addresses
-        </Text>
-        <div style={{ display: "grid", gap: "0.4rem" }}>
-          {addressInfo.map((info) => (
-            <div key={info.address}>
-              <p>{info.name}</p>
-              <div className="addressRow">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={`https://polygonscan.com/address/${info.address}`}
-                >
-                  {concatAddress(info.address)}
-                </a>
-                <CopyAddressButton
-                  ariaLabel={info.ariaLabel}
-                  address={info.address}
-                />
-                {typeof props.provider?.provider?.request === "function" &&
-                  props.provider.provider.isMetaMask && (
-                    <AddToMetaMaskButton
-                      info={info}
-                      provider={props.provider}
-                    />
-                  )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    </>
   );
 };

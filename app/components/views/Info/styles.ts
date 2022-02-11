@@ -7,6 +7,7 @@ export const container = css`
   display: flex;
   flex-direction: column;
   color: var(--font-01);
+  min-height: 88rem;
   .infoSection {
     display: grid;
     gap: 0.8rem;
