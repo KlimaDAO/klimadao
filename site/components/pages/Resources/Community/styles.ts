@@ -111,7 +111,7 @@ export const headerElements = css`
       margin-right: 0rem;
     }
   }
-`
+`;
 
 export const page_baseHeaderButtons = css`
   display: flex;
@@ -127,7 +127,8 @@ export const page_baseHeaderButtons = css`
   font-size: 1.4rem;
   margin-bottom: 2.4rem;
   box-shadow: var(--shadow-light);
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     opacity: 0.6;
     transition: opacity 0.25s ease-in-out;
   }
@@ -145,7 +146,7 @@ export const page_discordButton = css`
   span {
     color: var(--white);
   }
-`
+`;
 
 export const page_discordIcon = css`
   width: 2rem;
