@@ -43,7 +43,8 @@ export const container = css`
   }
   .navFooter {
     margin-top: auto;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 3.2rem;
   }
   .navFooter .hr {
@@ -52,7 +53,10 @@ export const container = css`
   }
   .navFooter_buttons {
     display: flex;
-    gap: 1.6rem;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 0.8rem;
   }
   .navFooter_button {
     ${common.iconButton};

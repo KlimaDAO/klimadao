@@ -6,6 +6,7 @@ import {
   Text,
   TwitterIcon,
   DiscordIcon,
+  GithubIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
@@ -18,6 +19,7 @@ import * as styles from "./styles";
 import { useSelector } from "react-redux";
 import { selectBalances } from "state/selectors";
 import { MenuBookOutlined } from "@mui/icons-material";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 interface MenuButtonProps {
   icon: ReactElement;
@@ -105,7 +107,7 @@ export const NavMenu: FC<Props> = (props) => {
         <div className="hr" />
       </div>
       <MenuButton
-        isActive={pathname === "/buy"}
+        isActive={false}
         href={urls.buy}
         icon={<Payment />}
         onClick={handleHide}
@@ -135,6 +137,14 @@ export const NavMenu: FC<Props> = (props) => {
         onClick={handleHide}
       >
         Wrap sKLIMA
+      </MenuButton>
+      <MenuButton
+        isActive={pathname === "/info"}
+        href="/info"
+        icon={<InfoOutlined />}
+        onClick={handleHide}
+      >
+        Info
       </MenuButton>
       <div className="labelStack" title="Coming soon!">
         <Text t="badge" color="lightest">
@@ -189,6 +199,14 @@ export const NavMenu: FC<Props> = (props) => {
             target="_blank"
           >
             <MenuBookOutlined />
+          </a>
+          <a
+            className="navFooter_button"
+            href={urls.officialDocs}
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <GithubIcon />
           </a>
         </div>
       </div>
