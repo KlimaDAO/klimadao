@@ -96,24 +96,65 @@ export const joinDiscord = css`
   }
 `;
 
-export const page_discordButton = css`
+export const headerElements = css`
+  display: none;
+  a:last-child {
+    margin-bottom: 0rem;
+  }
+  ${breakpoints.large} {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1rem;
+    a:last-child {
+      margin-bottom: 2.4rem;
+      margin-right: 0rem;
+    }
+  }
+`
+
+export const page_baseHeaderButtons = css`
   display: flex;
   flex-direction: row;
   justify-self: center;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(180deg, #7780f0 0%, #5c65ed 100%);
+  background: var(--surface-01);
   border-radius: 4px;
   width: 12.8rem;
   height: 4rem;
   padding: 1.6rem;
   font-size: 1.4rem;
-  margin-bottom: 4.8rem;
+  margin-bottom: 2.4rem;
+  box-shadow: var(--shadow-light);
+  &:hover, &:focus {
+    opacity: 0.6;
+    transition: opacity 0.25s ease-in-out;
+  }
   span {
-    color: white;
+    color: var(--font-01);
+  }
+  ${breakpoints.medium} {
+    margin-right: 2.4rem;
   }
 `;
 
+export const page_discordButton = css`
+  ${page_baseHeaderButtons};
+  background: linear-gradient(180deg, #7780f0 0%, #5c65ed 100%);
+  span {
+    color: var(--white);
+  }
+`
+
 export const page_discordIcon = css`
   width: 2rem;
+`;
+
+export const page_snapshotIcon = css`
+  width: 1.6rem;
+`;
+
+export const page_forumIcon = css`
+  color: var(--klima-green);
 `;

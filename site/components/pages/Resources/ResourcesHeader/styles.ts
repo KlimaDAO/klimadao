@@ -18,15 +18,9 @@ export const resourcesHeader = css`
     text-align: center;
     text-transform: uppercase;
   }
-  .resourcesHeader_textGroup a {
-    display: none;
-  }
   ${breakpoints.large} {
     gap: 2.5rem;
     padding: 10rem 16.2rem;
-    .resourcesHeader_textGroup a {
-      display: flex;
-    }
   }
 `;
 
