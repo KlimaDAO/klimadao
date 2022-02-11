@@ -21,14 +21,6 @@ msgstr "Change language"
 msgid "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 msgstr "Drive climate action and earn rewards with a carbon-backed, algorithmic digital currency."
 
-#: components/pages/Home/index.tsx:235
-msgid "card.blackhole.carbon"
-msgstr "carbon"
-
-#: components/pages/Home/index.tsx:233
-msgid "card.blackhole.title"
-msgstr "A blackhole for"
-
 #: components/pages/Home/index.tsx:211
 msgid "card.dao.goal"
 msgstr "KlimaDAO’s goal is to accelerate the price appreciation of carbon assets. A high price for carbon forces companies and economies to adapt more quickly to the realities of climate change, and makes low-carbon technologies and carbon-removal projects more profitable."
@@ -41,19 +33,19 @@ msgstr "A DAO, a protocol,"
 msgid "card.dao.value"
 msgstr "Through the KLIMA token, we will maximize value creation for our community and create a virtuous cycle of growth. Eventually, the KLIMA token (each backed by real, verified carbon assets) will function as a truly sustainable asset and medium-of-exchange, with real planetary value."
 
-#: components/pages/Home/index.tsx:278
+#: components/pages/Home/index.tsx:275
 msgid "footer.app"
 msgstr "app"
 
-#: components/pages/Home/index.tsx:284
+#: components/pages/Home/index.tsx:281
 msgid "footer.blog"
 msgstr "blog"
 
-#: components/pages/Home/index.tsx:287
+#: components/pages/Home/index.tsx:284
 msgid "footer.community"
 msgstr "community"
 
-#: components/pages/Home/index.tsx:281
+#: components/pages/Home/index.tsx:278
 msgid "footer.docs"
 msgstr "docs"
 

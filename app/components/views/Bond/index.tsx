@@ -263,9 +263,17 @@ export const Bond: FC<Props> = (props) => {
 
   const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
 
+  const isDisabled = view === "bond" && bondInfo.disabled;
+
   const getButtonProps = () => {
     const value = Number(quantity || "0");
-    if (!props.isConnected || !props.address) {
+    if (isDisabled) {
+      return {
+        children: <Trans>SOLD OUT</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!props.isConnected || !props.address) {
       return {
         children: <Trans id="button.not_connected">Not connected</Trans>,
         onClick: undefined,
@@ -410,20 +418,22 @@ export const Bond: FC<Props> = (props) => {
             }
             onChange={(e) => setQuantity(e.target.value)}
             type="number"
-            placeholder={`Amount to ${
-              { bond: "bond", redeem: "redeem" }[view]
-            }`}
+            placeholder={
+              isDisabled
+                ? "SOLD OUT"
+                : `Amount to ${{ bond: "bond", redeem: "redeem" }[view]}`
+            }
             min="0"
             step={
               view === "bond" && bondInfo.balanceUnit === "SLP" ? "0.0001" : "1"
             }
-            disabled={view === "redeem"}
+            disabled={isDisabled}
           />
           <button
             className={styles.stakeInput_button}
             type="button"
             onClick={setMax}
-            disabled={view === "redeem"}
+            disabled={isDisabled}
           >
             <Trans id="button.max">Max</Trans>
           </button>
@@ -721,6 +731,14 @@ export const Bond: FC<Props> = (props) => {
           </Trans>
         </p>
       )}
+
+      {isDisabled && (
+        <p className={typography.body2} style={{ textAlign: "center" }}>
+          ⚠️ SOLD OUT. All demand has been filled for BCT/USDC for now.
+          Klimates, you rock!
+        </p>
+      )}
+
       <div className={styles.buttonRow}>
         <div />
         {showSpinner ? (
