@@ -13,15 +13,19 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Redesign/index.tsx:330
+#: components/pages/Home/index.tsx:342
 msgid "001"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:349
+#: components/pages/Home/index.tsx:361
 msgid "002"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:406
+#: components/pages/Home/index.tsx:74
+msgid "A New Face For KlimaDAO"
+msgstr ""
+
+#: components/pages/Home/index.tsx:418
 msgid "All the Alpha, straight to your inbox"
 msgstr ""
 
@@ -29,30 +33,30 @@ msgstr ""
 msgid "Articles"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:64
+#: components/pages/Resources/Community/index.tsx:63
 msgid "BECOME A PARTNER"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:123
+#: components/pages/Resources/Community/index.tsx:119
 msgid "BICOWG logo"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:179
+#: components/pages/Home/index.tsx:191
 msgid "Backed by Carbon."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:112
+#: components/pages/Resources/Community/index.tsx:108
 msgid "Blockchain for Climate Foundation logo"
 msgstr ""
 
-#: components/Footer/index.tsx:34
+#: components/Footer/index.tsx:36
 #: components/pages/Blog/index.tsx:22
 #: components/pages/Resources/ResourcesHeader/index.tsx:31
 #: components/pages/Resources/ResourcesHeader/index.tsx:77
 msgid "Blog"
 msgstr ""
 
-#: components/Footer/index.tsx:27
+#: components/Footer/index.tsx:29
 msgid "Bond"
 msgstr ""
 
@@ -60,7 +64,7 @@ msgstr ""
 msgid "Bug Reports"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:137
+#: components/pages/Home/index.tsx:149
 msgid "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
 msgstr ""
 
@@ -68,12 +72,16 @@ msgstr ""
 msgid "Careers"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:265
+#: components/pages/Home/index.tsx:277
 msgid "Cars (annual)"
 msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:179
+msgid "Come On In"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:49
@@ -82,7 +90,7 @@ msgstr ""
 msgid "Community"
 msgstr ""
 
-#: components/Footer/index.tsx:39
+#: components/Footer/index.tsx:41
 #: components/pages/Resources/Contact/index.tsx:18
 #: components/pages/Resources/ResourcesHeader/index.tsx:91
 msgid "Contact"
@@ -97,63 +105,59 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:192
-msgid "Discord"
+#: components/pages/Resources/Community/index.tsx:194
+msgid "Discord is where we share important announcements, hold office-hours, answer questions, and trade memes. Our Discord server is extremely active and moderated around-the-clock. We've got channels for everything from trading to sustainability and carbon markets."
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:37
-msgid "Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
-msgstr ""
-
-#: components/Footer/index.tsx:30
+#: components/Footer/index.tsx:32
 msgid "Docs"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:53
+#: components/pages/Resources/Community/index.tsx:52
 #: components/pages/Resources/Contact/index.tsx:22
 msgid "Drive climate action and earn rewards with a carbon-backed digital currency."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:236
+#: components/pages/Home/index.tsx:248
 msgid "EQUIVALENT TO"
 msgstr ""
 
 #: components/Navigation/index.tsx:31
-#: components/pages/Redesign/index.tsx:86
+#: components/pages/Home/index.tsx:97
 msgid "Enter App"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:78
+#: components/pages/Home/index.tsx:89
 msgid "Fight climate change and earn rewards with KLIMA, a digital currency backed by real carbon assets."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:373
+#: components/pages/Home/index.tsx:385
 msgid "GET KLIMA"
 msgstr ""
 
-#: components/Footer/index.tsx:21
+#: components/Footer/index.tsx:22
 #: components/Navigation/index.tsx:43
-#: components/Navigation/index.tsx:68
+#: components/Navigation/index.tsx:65
 msgid "Get Klima"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:376
+#: components/pages/Home/index.tsx:388
 msgid "Get exposure to the growing carbon economy today. Acquire, stake, and get rewarded. Financial activism for the climate."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:229
+#: components/pages/Resources/Community/index.tsx:226
 msgid "Get in touch?"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:412
+#: components/pages/Home/index.tsx:424
 msgid "Get the latest updates on Klima, as we build the future of the carbon economy."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:142
+#: components/pages/Resources/Community/index.tsx:138
 msgid "Gitcoin logo"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:250
+#: components/pages/Home/index.tsx:262
 msgid "Hectares of forest"
 msgstr ""
 
@@ -161,7 +165,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:311
+#: components/pages/Home/index.tsx:323
 msgid "IT’S TIME TO ACT."
 msgstr ""
 
@@ -169,11 +173,15 @@ msgstr ""
 msgid "If you are a journalist or content creator, our marketing team would love to meet you."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:318
+#: components/pages/Resources/Community/index.tsx:229
+msgid "If you've got questions, ideas, advice or anything else: we can help you find the right person to talk to."
+msgstr ""
+
+#: components/pages/Home/index.tsx:330
 msgid "Invest in the future."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:186
+#: components/pages/Resources/Community/index.tsx:182
 msgid "Join Our Discord"
 msgstr ""
 
@@ -181,7 +189,11 @@ msgstr ""
 msgid "Join our <0>community</0>."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:175
+#: components/pages/Resources/Contact/index.tsx:37
+msgid "Join our Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:171
 msgid "Join the Klima Community"
 msgstr ""
 
@@ -191,50 +203,40 @@ msgid "KlimaDAO Blog"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:48
-#: components/pages/Resources/Community/index.tsx:52
+#: components/pages/Resources/Community/index.tsx:51
 msgid "KlimaDAO Community"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:50
-msgid ""
-"KlimaDAO harnesses the power of cryptocurrency, blockchain and smart\n"
-"contracts to create."
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:67
-#: components/pages/Resources/Community/index.tsx:200
-#: components/pages/Resources/Community/index.tsx:232
-msgid "KlimaDAO harnesses the power of cryptocurrency, blockchain and smart contracts to create"
-msgstr ""
-
-#: components/pages/Redesign/index.tsx:122
+#: components/pages/Home/index.tsx:134
 msgid "KlimaDAO is a <0>black hole for carbon</0> at the center of a <1>new green economy</1>."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:108
+#: components/pages/Resources/Community/index.tsx:50
+msgid "KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates."
+msgstr ""
+
+#: components/pages/Home/index.tsx:120
 msgid "LEARN MORE"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:61
-#: components/pages/Resources/Community/index.tsx:88
-#: components/pages/Resources/Community/index.tsx:183
-#: components/pages/Resources/Community/index.tsx:226
+#: components/pages/Resources/Community/index.tsx:60
+#: components/pages/Resources/Community/index.tsx:223
 msgid "Let's Work Together"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:280
+#: components/pages/Home/index.tsx:292
 msgid "Liters of gasoline"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:153
+#: components/pages/Home/index.tsx:165
 msgid "MECHANICS"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:97
+#: components/pages/Resources/Community/index.tsx:93
 msgid "MOSS logo"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:215
+#: components/pages/Home/index.tsx:227
 msgid "Massive impact."
 msgstr ""
 
@@ -242,27 +244,27 @@ msgstr ""
 msgid "Media"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:426
+#: components/pages/Home/index.tsx:438
 msgid "Never shared. Never spammed."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:409
+#: components/pages/Home/index.tsx:421
 msgid "Newsletter"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:91
+#: components/pages/Resources/Community/index.tsx:87
 msgid "OUR PARTNERS"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:137
+#: components/pages/Resources/Community/index.tsx:133
 msgid "Oceandrop logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:151
+#: components/pages/Resources/Community/index.tsx:147
 msgid "OlympusDAO logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:156
+#: components/pages/Resources/Community/index.tsx:152
 msgid "Open Earth logo"
 msgstr ""
 
@@ -270,7 +272,7 @@ msgstr ""
 msgid "Partnerships"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:132
+#: components/pages/Resources/Community/index.tsx:128
 msgid "Polygon logo"
 msgstr ""
 
@@ -284,36 +286,36 @@ msgid ""
 "touch. We love meeting institutions and individuals alike."
 msgstr ""
 
-#: components/Navigation/index.tsx:57
-#: components/Navigation/index.tsx:80
+#: components/Navigation/index.tsx:56
+#: components/Navigation/index.tsx:74
 msgid "Resources"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:383
+#: components/pages/Home/index.tsx:395
 msgid "See Tutorial"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:420
+#: components/pages/Home/index.tsx:432
 msgid "Sign up"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:293
+#: components/pages/Home/index.tsx:305
 msgid "Source"
 msgstr ""
 
-#: components/Footer/index.tsx:24
+#: components/Footer/index.tsx:26
 msgid "Stake"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:197
+#: components/pages/Home/index.tsx:209
 msgid "Strong incentives."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:226
+#: components/pages/Home/index.tsx:238
 msgid "TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:156
+#: components/pages/Home/index.tsx:168
 msgid "The DAO sells bonds and distributes profits to KLIMA holders. Every bond we sell adds to an ever-growing green treasury, or improves liquidity for key environmental assets. A win-win for people and planet."
 msgstr ""
 
@@ -321,11 +323,11 @@ msgstr ""
 msgid "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:102
+#: components/pages/Resources/Community/index.tsx:98
 msgid "Toucan logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:74
+#: components/pages/Resources/Community/index.tsx:73
 msgid "Tree grove"
 msgstr ""
 
@@ -344,26 +346,34 @@ msgstr ""
 msgid "Use this <0>Media Request Form</0>."
 msgstr ""
 
+#: components/pages/Home/index.tsx:82
+msgid "WELCOME TO"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:66
+msgid "We work with traditional carbon market players, crypto platforms, corporations and everyone in-between."
+msgstr ""
+
 #: components/pages/Resources/Contact/index.tsx:54
 msgid "We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:129
-msgid "We’ve kickstarted a <0>decentralized and open market for carbon</0>. Our token incentivizes investors, citizens, and organizations to participate in and govern this new economy."
+#: components/pages/Home/index.tsx:141
+msgid "We’ve kick-started a <0>decentralized and open market for carbon</0>. Our token incentivizes investors, citizens, and organizations to participate in and govern this new economy."
 msgstr ""
 
-#: components/Navigation/index.tsx:53
-#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:52
+#: components/Navigation/index.tsx:72
 msgid "mainNav.bond"
 msgstr ""
 
 #: components/Navigation/index.tsx:38
-#: components/Navigation/index.tsx:64
+#: components/Navigation/index.tsx:63
 msgid "mainNav.home"
 msgstr ""
 
-#: components/Navigation/index.tsx:49
-#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:48
+#: components/Navigation/index.tsx:68
 msgid "mainNav.stake"
 msgstr ""
 
@@ -372,6 +382,6 @@ msgstr ""
 msgid "{0}"
 msgstr ""
 
-#: components/pages/Redesign/index.tsx:71
-msgid "👋 WELCOME TO"
+#: components/pages/Home/index.tsx:70
+msgid "📰 Recent Post:"
 msgstr ""
