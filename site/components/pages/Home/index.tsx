@@ -319,8 +319,10 @@ export const Home: NextPage<Props> = (props) => {
           className="forest_label"
           t="h1"
           style={{ color: "white", textTransform: "uppercase" }}
+          // don't translate this
         >
-          <Trans>IT’S TIME TO ACT.</Trans>
+          IT’S <br />
+          TIME <br /> TO ACT.
         </Text>
       </Section>
       <Section variant="white" style={{ paddingBottom: "unset" }}>

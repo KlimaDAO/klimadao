@@ -415,9 +415,7 @@ export const forestSection = css`
     grid-column: main;
     z-index: 1;
     text-align: end;
-    justify-self: end;
     align-self: end;
-    max-width: 32rem;
   }
   ${breakpoints.large} {
     padding: 6.4rem 0rem;
@@ -519,7 +517,7 @@ export const newsletterSection = css`
   }
   .newsletter_buttonGroup {
     display: flex;
-    gap: 0.8rem;
+    gap: 2.4rem;
     align-items: center;
     flex-direction: column;
   }
