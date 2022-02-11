@@ -119,6 +119,59 @@ export const Buy: NextPage<Props> = ({}) => {
           </div>
         </div>
       </Section>
+      <Section className={styles.section}>
+        <div className={styles.cryptoSafteyTips}>
+          <Text t="h4" as="h4" align="center">
+            Quick Disclaimer & Safety Tips
+          </Text>
+          <Text t="body3" color="lighter">
+            👉 Please be aware that KLIMA exists only on the blockchain. You are
+            the only person in control of your assets. If you are scammed, lose
+            your password, make a bad trade, or send to the wrong address, there
+            is nothing that can be done to help you. There are no data backups,
+            no support hotlines. KlimaDAO cannot assume any responsibility nor
+            offer any guarantees.
+          </Text>
+          <Text t="body3" color="lighter">
+            👉 The DAO has no direct control over the market value. Even while
+            we actively guide policy, development, liquidity and governance of
+            the ecosystem, markets can move independently and with high
+            volatility.
+          </Text>
+          <Text t="body3" color="lighter">
+            Here are some measures you can take to keep yourself safe:
+          </Text>
+          <ul>
+            <li>
+              <Text t="body3" color="lighter">
+                NEVER share your private key or seed phrase with ANYONE, EVER!
+              </Text>
+            </li>
+            <li>
+              <Text t="body3" color="lighter">
+                Always keep your operating systems, browser, and hardware
+                wallets up to date.
+              </Text>
+            </li>
+            <li>
+              <Text t="body3" color="lighter">
+                Only use bookmarked links - klimadao.finance is the ONLY trusted
+                domain. Don't use Google to navigate here. Scammers can steal
+                your information by creating websites that look very similar to
+                ours, with similar URLs, and by buying ads. We work very hard to
+                find these and get them shut down, but you should always be on
+                alert!
+              </Text>
+            </li>
+            <li>
+              <Text t="body3" color="lighter">
+                Use a different browser for crypto investments than you use for
+                everyday browsing.
+              </Text>
+            </li>
+          </ul>
+        </div>
+      </Section>
       <div ref={begginerSectionRef}></div>
       <Section className={styles.section}>
         <div className={styles.buyContainer}>
@@ -210,8 +263,8 @@ export const Buy: NextPage<Props> = ({}) => {
               KLIMA at a discounted rate. The Treasury accepts carbon in the
               form of carbon tokens (BCT, MCO2) or Liquidity Pool (LP) tokens
               (KLIMA/BCT, KLIMA/MCO2, KLIMA/USD, BCT/USDC). This is one of the
-              ways the Klima Treasury absorbs carbon credits. Head to our
-              Bonding dApp in order to purchase KLIMA bonds.
+              ways the Klima Treasury absorbs carbon credits. Head to our app in
+              order to purchase KLIMA bonds.
             </Text>
             <ButtonPrimary label="ENTER APP" href={urls.bonds} />
             <div className={styles.hero}>
@@ -225,52 +278,6 @@ export const Buy: NextPage<Props> = ({}) => {
               />
             </div>
           </div>
-        </div>
-      </Section>
-      <div className={styles.br} />
-      <Section className={styles.section}>
-        <div className={styles.cryptoSafteyTips}>
-          <Text t="h4" as="h4" align="center">
-            Crypto Safety Tips
-          </Text>
-          <Text t="body3" color="lighter">
-            Please be aware that KLIMA exists only on the blockchain. You and
-            only you are in control of your funds. If you are scammed, lose your
-            password, make a bad trade, or send to the wrong address, there is
-            nothing that can be done to help you. There are no backups, no
-            hotlines, no central entity to help you. KlimaDAO cannot assume any
-            responsibility or offer any guarantees.
-          </Text>
-          <Text t="body3" color="lighter">
-            Here are some measures you can take to keep yourself safe:
-          </Text>
-          <ul>
-            <li>
-              <Text t="body3" color="lighter">
-                Always keep your operating systems, browser, and hardware
-                wallets up to date.
-              </Text>
-            </li>
-            <li>
-              <Text t="body3" color="lighter">
-                Only use bookmarked links - klimadao.finance is the ONLY trusted
-                domain. Don't use Google to navigate here. Scammers can steal
-                your information by creating websites that look very similar to
-                ours, with similar URLs, and by buying ads. We work very hard to
-                find these and get them shut down, but you should always be on
-                alert!
-              </Text>
-            </li>
-            <li>
-              <Text t="body3" color="lighter">
-                Use a different browser for crypto investments than you use for
-                everyday browsing. Make sure to keep only one tab open in this
-                browser at a time. For example, if you use Safari for your
-                regular browsing, use Chrome or Brave for your crypto
-                investments.
-              </Text>
-            </li>
-          </ul>
         </div>
       </Section>
       <Footer />
