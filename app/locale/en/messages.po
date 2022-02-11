@@ -13,27 +13,35 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Stake/index.tsx:282
+#: components/views/Stake/index.tsx:272
+msgid "5-day ROI"
+msgstr "5-day ROI"
+
+#: components/views/PKlima/index.tsx:219
+msgid "A percent of total token supply. Your index-adjusted claim may not exceed this value."
+msgstr "A percent of total token supply. Your index-adjusted claim may not exceed this value."
+
+#: components/views/Stake/index.tsx:285
 msgid "APY"
 msgstr "APY"
 
-#: components/views/Wrap/index.tsx:238
+#: components/views/Wrap/index.tsx:246
 msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 
-#: components/views/Stake/index.tsx:299
+#: components/views/Stake/index.tsx:302
 msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
 
-#: components/views/Stake/index.tsx:285
+#: components/views/Stake/index.tsx:288
 msgid "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
 msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
 
-#: components/views/Stake/index.tsx:272
+#: components/views/Stake/index.tsx:275
 msgid "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
 msgstr "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
 
-#: components/views/Wrap/index.tsx:248
+#: components/views/Wrap/index.tsx:256
 msgid "Balance"
 msgstr "Balance"
 
@@ -45,7 +53,10 @@ msgstr "Bond Carbon."
 msgid "Change language"
 msgstr "Change language"
 
+#: components/views/Bond/index.tsx:295
+#: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
+#: components/views/Wrap/index.tsx:115
 msgid "Connect wallet"
 msgstr "Connect wallet"
 
@@ -159,7 +170,7 @@ msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 msgid "button.approve"
 msgstr "Approve"
 
-#: components/views/PKlima/index.tsx:146
+#: components/views/PKlima/index.tsx:150
 msgid "button.bct"
 msgstr "2. Approve BCT"
 
@@ -178,7 +189,7 @@ msgstr "Confirming"
 msgid "button.error"
 msgstr "Error"
 
-#: components/views/PKlima/index.tsx:151
+#: components/views/PKlima/index.tsx:155
 msgid "button.exercise"
 msgstr "EXERCISE"
 
@@ -261,51 +272,19 @@ msgstr "Welcome to the Klima dApp. Bond carbon to buy KLIMA. Stake KLIMA to earn
 msgid "nav.back"
 msgstr "BACK"
 
-#: components/views/PKlima/index.tsx:233
-msgid "pklima.bct_balance"
-msgstr "BCT Balance"
-
-#: components/views/PKlima/index.tsx:172
-msgid "pklima.caption"
-msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
-
-#: components/views/PKlima/index.tsx:272
-msgid "pklima.claimed_amount"
-msgstr "Claimed Amount (index-adjusted)"
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:32
+#: components/views/PKlima/ClaimExceededModal/index.tsx:31
 msgid "pklima.growth"
 msgstr "It may be a few days, depending on the KLIMA growth rate, before you can access this page and continue redeeming pKLIMA."
 
-#: components/views/PKlima/index.tsx:159
+#: components/views/PKlima/index.tsx:163
 msgid "pklima.klima_to_exercise"
 msgstr "PKLIMA TO EXERCISE"
 
-#: components/views/PKlima/index.tsx:287
-msgid "pklima.max"
-msgstr "Max (index-adjusted)"
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:16
+#: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
 msgstr "You've claimed more KLIMA than your supply-share limit. This is likely due to a fix implemented on November 24th, 2021 to the pKLIMA redemption contract."
 
-#: components/views/PKlima/index.tsx:220
-msgid "pklima.pklima_balance"
-msgstr "pKLIMA Balance"
-
-#: components/views/PKlima/index.tsx:259
-msgid "pklima.pklima_redeemed"
-msgstr "pKLIMA Redeemed"
-
-#: components/views/PKlima/index.tsx:246
-msgid "pklima.supply_share_limit"
-msgstr "Supply Share Limit"
-
-#: components/views/PKlima/index.tsx:169
-msgid "pklima.title"
-msgstr "Exercise pKLIMA"
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:23
+#: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned interest on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 

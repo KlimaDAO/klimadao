@@ -165,8 +165,8 @@ export const Buy: NextPage<Props> = ({}) => {
             </li>
             <li>
               <Text t="body3" color="lighter">
-                Use a different browser for crypto investments than you use for
-                everyday browsing.
+                Use a different browser for crypto than you use for everyday
+                browsing.
               </Text>
             </li>
           </ul>

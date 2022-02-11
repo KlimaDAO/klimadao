@@ -13,11 +13,19 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Stake/index.tsx:282
+#: components/views/Stake/index.tsx:272
+msgid "5-day ROI"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:219
+msgid "A percent of total token supply. Your index-adjusted claim may not exceed this value."
+msgstr ""
+
+#: components/views/Stake/index.tsx:285
 msgid "APY"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:238
+#: components/views/Wrap/index.tsx:246
 msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 msgstr ""
 
@@ -65,8 +73,8 @@ msgstr ""
 msgid "bond.debt_ratio.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:269
-msgid "ROI"
+#: components/views/PKlima/index.tsx:178
+msgid "Redeem pKLIMA"
 msgstr ""
 
 #: components/views/Bond/index.tsx:515
@@ -101,7 +109,7 @@ msgstr ""
 msgid "bond.redeemable.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:396
+#: components/views/Bond/index.tsx:397
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr ""
 
@@ -113,7 +121,7 @@ msgstr ""
 msgid "bond.roi.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:380
+#: components/views/Bond/index.tsx:381
 msgid "bond.maximum.tooltip"
 msgstr ""
 
@@ -131,7 +139,7 @@ msgstr ""
 msgid "button.approve"
 msgstr "Approuver"
 
-#: components/views/PKlima/index.tsx:146
+#: components/views/PKlima/index.tsx:150
 msgid "button.bct"
 msgstr ""
 
@@ -150,7 +158,7 @@ msgstr "En attente de confirmation"
 msgid "button.error"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:151
+#: components/views/PKlima/index.tsx:155
 msgid "button.exercise"
 msgstr ""
 
@@ -233,51 +241,19 @@ msgstr "Bienvenue sur l'application Klima. Déposez du carbon pour acheter KLIMA
 msgid "nav.back"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:233
-msgid "pklima.bct_balance"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:172
-msgid "pklima.caption"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:272
-msgid "pklima.claimed_amount"
-msgstr ""
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:32
+#: components/views/PKlima/ClaimExceededModal/index.tsx:31
 msgid "pklima.growth"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:159
+#: components/views/PKlima/index.tsx:163
 msgid "pklima.klima_to_exercise"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:287
-msgid "pklima.max"
-msgstr ""
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:16
+#: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:220
-msgid "pklima.pklima_balance"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:259
-msgid "pklima.pklima_redeemed"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:246
-msgid "pklima.supply_share_limit"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:169
-msgid "pklima.title"
-msgstr ""
-
-#: components/views/PKlima/ClaimExceededModal/index.tsx:23
+#: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
 msgstr ""
 
