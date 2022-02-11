@@ -10,6 +10,7 @@
   bottom: 0;
   cursor: not-allowed;
   z-index: 99;
+  color: var(--font-01);
 }
 
 .banner {
@@ -18,13 +19,15 @@
   padding: 2rem;
   display: grid;
   gap: 1.5rem;
-  background-color: var(--klima-green);
+  background-color: var(--surface-01);
   justify-items: center;
   align-items: center;
 }
 
 .banner_text {
   text-align: center;
+  display: grid;
+  gap: 0.8rem;
 }
 
 .okButtonWrap {
@@ -35,13 +38,14 @@
 
 .okButton {
   composes: textButton;
-  border: 2px solid var(--klima-blue);
+  border: 2px solid var(--klima-green);
   justify-self: flex-end;
 }
 
 .dontButton {
   composes: button;
   opacity: 0.5;
+  color: var(--font-03);
 }
 
 .dontButton:hover,
