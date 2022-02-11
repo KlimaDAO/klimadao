@@ -106,7 +106,7 @@ export const NavMenu: FC<Props> = (props) => {
       </div>
       <MenuButton
         isActive={pathname === "/buy"}
-        href={urls.tutorial}
+        href={urls.buy}
         icon={<Payment />}
         onClick={handleHide}
       >

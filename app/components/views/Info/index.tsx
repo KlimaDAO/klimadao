@@ -109,7 +109,7 @@ export const Info: FC<Props> = (props) => {
             <h4 className={t.h5}>Where can I get KLIMA?</h4>
             <p className={t.body2}>
               See our{" "}
-              <a target="_blank" rel="noreferrer noopener" href={urls.tutorial}>
+              <a target="_blank" rel="noreferrer noopener" href={urls.buy}>
                 tutorial for newcomers
               </a>
               .
