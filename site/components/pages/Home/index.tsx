@@ -393,9 +393,8 @@ export const Home: NextPage<Props> = (props) => {
             <ButtonPrimary
               key="See Tutorial"
               label={t`See Tutorial`}
-              href={urls.tutorial}
-              rel="noopener noreferrer"
-              target="_blank"
+              href="/buy"
+              link={Link}
             />
           </div>
           <div className="buy_col2">
