@@ -20,6 +20,15 @@ export const useBond = (bond: Bond) => {
   return {
     price: bondState?.bondPrice,
     discount: bondState?.bondDiscount,
+    disabled: {
+      mco2: false,
+      bct: false,
+      klima_usdc_lp: false,
+      klima_bct_lp: false,
+      bct_usdc_lp: true,
+      klima_mco2_lp: false,
+      // future bond names go here
+    }[bond],
     icon: {
       mco2: "/icons/MCO2.png",
       bct: "/icons/BCT.png",
@@ -135,14 +144,20 @@ export function ChooseBond() {
                       {bond.description}
                     </Text>
                   </div>
-                  <Text
-                    t="h5"
-                    className={styles.bondROI}
-                    data-hide={!bond?.discount || bond.discount < 0}
-                  >
-                    {trimWithPlaceholder(bond?.discount, 2)}
-                    {bond.discount ? "%" : ""}
-                  </Text>
+                  {bond.disabled ? (
+                    <Text t="h5" color="lightest" className={styles.bondROI}>
+                      <Trans>SOLD OUT</Trans>
+                    </Text>
+                  ) : (
+                    <Text
+                      t="h5"
+                      className={styles.bondROI}
+                      data-hide={!bond?.discount || bond.discount < 0}
+                    >
+                      {trimWithPlaceholder(bond?.discount, 2)}
+                      {bond.discount ? "%" : ""}
+                    </Text>
+                  )}
                 </div>
               </Link>
             ))}
