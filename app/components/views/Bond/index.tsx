@@ -294,7 +294,7 @@ export const Bond: FC<Props> = (props) => {
     const value = Number(quantity || "0");
     if (isDisabled) {
       return {
-        label: <Trans>SOLD OUT</Trans>,
+        label: <Trans>Sold Out</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -660,6 +660,14 @@ export const Bond: FC<Props> = (props) => {
               <Trans id="status.bond_negative">
                 ⚠️ Warning: this bond price is inflated because the current
                 discount rate is negative.
+              </Trans>
+            </Text>
+          )}
+          {isDisabled && (
+            <Text t="caption" align="center">
+              <Trans>
+                🪧 SOLD OUT. All demand has been filled for this bond. Thank you,
+                Klimates!
               </Trans>
             </Text>
           )}
