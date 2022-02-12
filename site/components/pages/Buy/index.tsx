@@ -10,7 +10,7 @@ import { Footer } from "components/Footer";
 
 import mastercard from "public/mastercard.jpg";
 import zapper from "public/zapper.jpg";
-import bondCarbon from "public/bond-carbon.jpg";
+import bondCarbon from "public/bond-carbon.png";
 
 import { IS_PRODUCTION } from "lib/constants";
 import BuyKlimaTimeline from "components/pages/Buy/BuyKlimaTimeline";
