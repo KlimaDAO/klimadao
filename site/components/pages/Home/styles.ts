@@ -4,7 +4,7 @@ import * as typography from "@klimadao/lib/theme/typography";
 
 export const heroSection = css`
   min-height: 100vh;
-  padding: 0;
+  padding: 0 !important;
   .tooltip_underline {
     text-decoration: dotted;
   }

@@ -33,6 +33,6 @@ export const section = css`
     align-items: center;
   }
   ${breakpoints.large} {
-    padding: 4.8rem 0rem;
+    padding: 15.2rem 0rem;
   }
 `;
