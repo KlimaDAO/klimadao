@@ -7,6 +7,7 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 
+// StyledEngineProvider allows us to pass "injectFirst", which makes it easier to override mui styles in our css
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <StyledEngineProvider injectFirst>
