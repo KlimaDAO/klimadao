@@ -221,7 +221,7 @@ export const Community: NextPage = () => (
               color="lighter"
               align="center"
               className="padding20"
-              style={{ maxWidth: "64rem", marginBottom: "2rem" }}
+              style={{ maxWidth: "64rem" }}
             >
               <Trans>
                 Discord is where we share important announcements, hold
@@ -233,16 +233,14 @@ export const Community: NextPage = () => (
             </Text>
             <DiscordButton />
           </div>
-          <div className="joinDiscord_row2">
-            <div className="joinDiscord_dummy">
-              <Image
-                src={screenShotDesktop}
-                width={804}
-                height={597}
-                alt="Screen shot of Discord"
-                placeholder="blur"
-              />
-            </div>
+          <div className="joinDiscord_dummy">
+            <Image
+              src={screenShotDesktop}
+              width={804}
+              height={597}
+              alt="Screenshot of Discord"
+              placeholder="blur"
+            />
           </div>
         </div>
       </div>
