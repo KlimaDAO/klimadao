@@ -27,9 +27,17 @@ const cardContent: CardContent[] = [
             https://metamask.io/
           </a>
         </Text>
-        <Text color="lighter">
-          Video tutorial on How to Install the MetaMask Extension for Chrome.
-        </Text>
+        <div className={styles.iframeContainer}>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/GNPz-Dv5BjM"
+            title="YouTube video player"
+            frameBorder="0"
+            allowFullScreen={true}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
+        </div>
       </div>
     ),
   },
@@ -114,7 +122,7 @@ const cardContent: CardContent[] = [
           USDC. You can: Bridge some of the tokens you already have on Ethereum.
           Buy on a centralized token exchange website (CEX) Use an on-ramp
           service to buy directly with your credit card. Read below for more
-          information on each option
+          information on each option.
         </Text>
         <Text t="h4">A: Bridge tokens from Ethereum to Polygon</Text>
         <Text color="lighter">
