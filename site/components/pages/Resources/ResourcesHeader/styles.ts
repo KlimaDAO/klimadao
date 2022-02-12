@@ -18,15 +18,9 @@ export const resourcesHeader = css`
     text-align: center;
     text-transform: uppercase;
   }
-  .resourcesHeader_textGroup a {
-    display: none;
-  }
   ${breakpoints.large} {
     gap: 2.5rem;
     padding: 10rem 16.2rem;
-    .resourcesHeader_textGroup a {
-      display: flex;
-    }
   }
 `;
 
@@ -57,13 +51,9 @@ export const navigationMobile = css`
   display: flex;
   gap: 0.8rem;
   justify-content: center;
-  .navigationMobile_navItem {
-    flex: 1;
-  }
   a {
     width: 10rem;
     max-width: 10rem;
-    height: 4.4rem;
     text-transform: none;
   }
   ${breakpoints.small} {

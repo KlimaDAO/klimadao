@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Link from "next/link";
 import * as styles from "./styles";
 
@@ -5,27 +6,24 @@ import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
-import { FC, PropsWithChildren, ReactNode } from "react";
-
 type PageName = "blog" | "community" | "contact";
 
 export type Props = {
   activePage: PageName;
   title: string;
   subline: string;
-  headerElements?: FC<PropsWithChildren<ReactNode>>;
+  headerElements?: FC;
 };
 
 export const ResourcesHeader: FC<Props> = (props) => {
+  const isPageActive = (pageName: PageName) => props.activePage === pageName;
+
   return (
     <>
       <div className={styles.navigationDesktopWrapper}>
         <div className={styles.navigationDesktop}>
           <ul className={styles.list}>
-            <li
-              className={styles.listItem}
-              data-active={props.activePage === "blog"}
-            >
+            <li className={styles.listItem} data-active={isPageActive("blog")}>
               <Link href="/blog">
                 <a>
                   <Trans>Blog</Trans>
@@ -35,7 +33,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
             </li>
             <li
               className={styles.listItem}
-              data-active={props.activePage === "community"}
+              data-active={isPageActive("community")}
             >
               <Link href="/community">
                 <a>
@@ -46,7 +44,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
             </li>
             <li
               className={styles.listItem}
-              data-active={props.activePage === "contact"}
+              data-active={isPageActive("contact")}
             >
               <Link href="/contact">
                 <a>
@@ -61,6 +59,27 @@ export const ResourcesHeader: FC<Props> = (props) => {
 
       <Section variant="gray" style={{ padding: "unset" }}>
         <div className={styles.resourcesHeader}>
+          <div className={styles.navigationMobile}>
+            <ButtonPrimary
+              label={t`Blog`}
+              href={"/blog"}
+              variant={isPageActive("blog") ? null : "gray"}
+              link={Link}
+            />
+            <ButtonPrimary
+              label={t`Community`}
+              href={"/community"}
+              variant={isPageActive("community") ? null : "gray"}
+              link={Link}
+            />
+            <ButtonPrimary
+              label={t`Contact`}
+              href={"/contact"}
+              variant={isPageActive("contact") ? null : "gray"}
+              link={Link}
+            />
+          </div>
+
           <div className="resourcesHeader_textGroup">
             <Text t="h2" as="h2">
               <Trans>{props.title}</Trans>
@@ -69,30 +88,6 @@ export const ResourcesHeader: FC<Props> = (props) => {
               <Trans>{props.subline}</Trans>
             </Text>
             {props.headerElements && <props.headerElements />}
-          </div>
-
-          <div className={styles.navigationMobile}>
-            <ButtonPrimary
-              className="navigationMobile_navItem"
-              label={t`Blog`}
-              href={"/blog"}
-              variant={props.activePage !== "blog" ? "gray" : null}
-              link={Link}
-            />
-            <ButtonPrimary
-              className="navigationMobile_navItem"
-              label={t`Community`}
-              href={"/community"}
-              variant={props.activePage !== "community" ? "gray" : null}
-              link={Link}
-            />
-            <ButtonPrimary
-              className="navigationMobile_navItem"
-              label={t`Contact`}
-              href={"/contact"}
-              variant={props.activePage !== "contact" ? "gray" : null}
-              link={Link}
-            />
           </div>
         </div>
       </Section>

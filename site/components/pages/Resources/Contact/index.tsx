@@ -30,7 +30,7 @@ export const Contact: NextPage<Props> = () => {
             </Text>
             <Text t="body3" align="center">
               <Trans>
-                Join our <Link href={"/community"}>community</Link>.
+                Join our <Link href={"/community"}>community</Link>
               </Trans>
             </Text>
             <Text t="body3" align="center" color="lighter">
