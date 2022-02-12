@@ -11,7 +11,7 @@ export const community_textGroup = css`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3.2rem;
   img {
     border-radius: 1.6rem 1.6rem 0 0;
   }
@@ -66,25 +66,17 @@ export const beachSection = css`
 
 export const joinDiscord = css`
   margin-top: 3rem;
-  display: grid;
   background-color: var(--surface-01);
   box-shadow: var(--shadow-06);
   border-radius: 1.6rem;
   overflow: hidden;
   max-width: 64rem;
-  justify-self: center;
   align-self: center;
 
   .joinDiscord_row1 {
     display: grid;
-    align-self: center;
-    justify-items: center;
-    gap: 1.6rem;
+    gap: 3.2rem;
     padding: 3.2rem;
-  }
-  .joinDiscord_row2 {
-    display: flex;
-    align-items: end;
   }
   .joinDiscord_dummy {
     border-radius: 2.4rem;
@@ -96,24 +88,55 @@ export const joinDiscord = css`
   }
 `;
 
-export const page_discordButton = css`
+export const headerElements = css`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  ${breakpoints.medium} {
+    flex-direction: row;
+  }
+`;
+
+export const page_baseHeaderButtons = css`
   display: flex;
   flex-direction: row;
   justify-self: center;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(180deg, #7780f0 0%, #5c65ed 100%);
+  background: var(--surface-01);
   border-radius: 4px;
   width: 12.8rem;
   height: 4rem;
   padding: 1.6rem;
   font-size: 1.4rem;
-  margin-bottom: 4.8rem;
+  box-shadow: var(--shadow-light);
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+    transition: opacity 0.25s ease-in-out;
+  }
   span {
-    color: white;
+    color: var(--font-01);
+  }
+`;
+
+export const page_discordButton = css`
+  ${page_baseHeaderButtons};
+  background: linear-gradient(180deg, #7780f0 0%, #5c65ed 100%);
+  span {
+    color: var(--white);
   }
 `;
 
 export const page_discordIcon = css`
   width: 2rem;
+`;
+
+export const page_snapshotIcon = css`
+  width: 1.6rem;
+`;
+
+export const page_forumIcon = css`
+  color: var(--klima-green);
 `;

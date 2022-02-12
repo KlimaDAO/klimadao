@@ -18,7 +18,7 @@ export const button_primary = css`
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    opacity: 0.7;
+    opacity: 0.6;
   }
   &:focus:not(:disabled) {
     transform: scale(0.9);
@@ -41,6 +41,7 @@ export const button_gray = css`
 
   &,
   &:hover,
+  &:hover:not(:disabled),
   &:visited {
     color: var(--font-02); /* same in darkmode */
   }
