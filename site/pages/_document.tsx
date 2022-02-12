@@ -21,6 +21,7 @@ class MyDocument extends Document {
   }
 }
 
+// From emotion docs and nextjs repo example. Injects classnames in server-rendered html tags.
 const renderStatic = async (html?: string) => {
   if (html === undefined) {
     throw new Error("did you forget to return html from renderToString?");
