@@ -51,13 +51,9 @@ export const navigationMobile = css`
   display: flex;
   gap: 0.8rem;
   justify-content: center;
-  .navigationMobile_navItem {
-    flex: 1;
-  }
   a {
     width: 10rem;
     max-width: 10rem;
-    height: 4.4rem;
     text-transform: none;
   }
   ${breakpoints.small} {
