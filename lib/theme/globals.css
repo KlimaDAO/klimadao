@@ -35,6 +35,7 @@ figure {
 
 ul {
   padding-inline-start: 1.6rem;
+  color: var(--font-01);
 }
 
 p {

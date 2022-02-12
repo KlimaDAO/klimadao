@@ -1,5 +1,6 @@
 import { css } from "@emotion/css";
 import * as typography from "@klimadao/lib/theme/typography";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const heading = css`
   margin: 4.8rem 0 3.2rem;
@@ -33,13 +34,19 @@ export const inlineImage = css`
 export const link = css`
   text-decoration: underline;
   color: var(--klima-green);
+  word-break: break-word;
   &:visited {
     color: var(--klima-green);
   }
 `;
 
 export const li = css`
+  margin-bottom: 1.5rem;
+  line-height: 3.4rem;
   ${typography.body2}
+  ${breakpoints.large} {
+    line-height: 3.8rem;
+  }
 `;
 
 export const ul = css`
