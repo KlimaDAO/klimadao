@@ -9,8 +9,11 @@ import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 
 import mastercard from "public/mastercard.jpg";
+import mastercardSmall from "public/mastercard-small.jpg";
 import zapper from "public/zapper.jpg";
-import bondCarbon from "public/bond-carbon.png";
+import zapperSmall from "public/zapper-small.jpg";
+
+import bondCarbon from "public/bond-carbon.jpg";
 
 import { IS_PRODUCTION } from "lib/constants";
 import BuyKlimaTimeline from "components/pages/Buy/BuyKlimaTimeline";
@@ -57,7 +60,7 @@ export const Buy: NextPage<Props> = ({}) => {
               >
                 <Image
                   alt="Visa / mastercard"
-                  src={mastercard}
+                  src={mastercardSmall}
                   width={284}
                   height={200}
                   objectFit="cover"
@@ -78,7 +81,7 @@ export const Buy: NextPage<Props> = ({}) => {
               >
                 <Image
                   alt="Zapper decentralized exchange"
-                  src={zapper}
+                  src={zapperSmall}
                   width={284}
                   height={200}
                   objectFit="cover"
