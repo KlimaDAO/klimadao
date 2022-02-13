@@ -38,7 +38,7 @@ export const Buy: NextPage<Props> = ({}) => {
         mediaTitle="How to buy KLIMA"
         metaDescription="How to buy KLIMA"
       />
-      <Navigation activePage="Get Klima" />
+      <Navigation activePage="Get KLIMA" />
 
       <Section variant="gray" className={styles.section}>
         <div className={styles.buyContainer}>

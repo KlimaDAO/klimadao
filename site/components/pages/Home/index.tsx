@@ -423,8 +423,8 @@ export const Home: NextPage<Props> = (props) => {
             </Text>
             <Text t="body3" color="lighter">
               <Trans>
-                Get the latest updates on Klima, as we build the future of the
-                carbon economy.
+                Get the latest updates on KlimaDAO, as we build the future of
+                the carbon economy.
               </Trans>
             </Text>
           </div>

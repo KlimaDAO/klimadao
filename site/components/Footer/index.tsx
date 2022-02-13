@@ -19,7 +19,7 @@ export const Footer: FC = () => {
           </Link>
           <Link href="/buy">
             <a>
-              <Trans>Get Klima</Trans>
+              <Trans>Get KLIMA</Trans>
             </a>
           </Link>
           <a href={urls.stake}>

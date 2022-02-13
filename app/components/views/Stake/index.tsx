@@ -160,7 +160,7 @@ export const Stake = (props: Props) => {
     } else if (view === "stake" && hasApproval("stake")) {
       return {
         label: value ? (
-          <Trans id="button.stake">Stake Klima</Trans>
+          <Trans id="button.stake">Stake KLIMA</Trans>
         ) : (
           <Trans>Enter Amount</Trans>
         ),
@@ -170,7 +170,7 @@ export const Stake = (props: Props) => {
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
         label: value ? (
-          <Trans id="button.unstake">Unstake Klima</Trans>
+          <Trans id="button.unstake">Unstake KLIMA</Trans>
         ) : (
           <Trans>Enter Amount</Trans>
         ),
