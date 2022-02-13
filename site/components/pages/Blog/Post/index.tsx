@@ -9,7 +9,7 @@ import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import BlockContentRenderer from "components/BlockContentRenderer";
-import defaultImage from "public/og-media.png";
+import defaultImage from "public/cover-default.png";
 
 import styles from "./index.module.css";
 
@@ -57,7 +57,7 @@ export function PostPage(props: PostProps) {
           title={props.post.title}
           mediaTitle={props.post.title}
           metaDescription={props.post.summary}
-          mediaImageSrc={props.post.imageUrl}
+          mediaImageSrc={props.post.imageUrl || "/og-media.png"}
         />
       )}
       <Navigation activePage="Resources" />
