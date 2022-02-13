@@ -71,7 +71,7 @@ export const urls = {
     "https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references",
   blog: "https://klimadao.medium.com/",
   emailSignUp:
-    "https://docs.google.com/forms/d/e/1FAIpQLSeJ4-dPoSBS50kT1hSBzQGiA8lMnL5DYKjptQoMBKmgFokJmg/viewform",
+    "https://docs.google.com/forms/d/e/1FAIpQLScw_YKuWZJePkM8lh6VVOwtpYToi1FpfgYgxLeBuIMa2ewyuA/viewform",
   discordInvite: "https://discord.com/invite/klimadao",
   discordContributorsInvite: "https://discord.gg/uWvjTuZ65v",
   gitbook: "https://klima-dao.gitbook.io/klima-dao/",
