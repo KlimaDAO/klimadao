@@ -19,7 +19,7 @@
   cursor: default;
   align-self: center;
   max-width: 64rem;
-  background-color: var(--surface-01);
+  background-color: var(--surface-02);
   padding: 2.4rem;
   display: grid;
   gap: 3.2rem;
@@ -32,11 +32,11 @@
 
 .backButton {
   composes: textButton;
-  border: 2px solid var(--secondary);
+  border: 2px solid var(--klima-blue);
   justify-self: end;
 }
 .backButton:hover:not(:disabled) {
-  background-color: var(--secondary-variant);
+  background-color: var(--klima-blue);
 }
 .backButton:disabled {
   opacity: 0.4;

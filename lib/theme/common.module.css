@@ -5,8 +5,8 @@
   display: flex;
   min-height: 4rem;
   align-items: center;
-  color: white !important;
-  border: 2px solid var(--surface-06);
+  color: var(--font-01);
+  border: 2px solid var(--surface-03);
   padding: 0.8rem 1.2rem;
   border-radius: 0.4rem;
   align-items: center;
@@ -14,14 +14,14 @@
   background-color: rgb(0, 0, 0, 0.3);
 }
 .textButton:visited {
-  color: white !important;
+  color: var(--font-01);
 }
 .textButton:not(:disabled):hover {
-  border-color: var(--primary-variant);
+  border-color: var(--klima-green);
 }
 .textButton[data-active="true"] {
-  background-color: var(--primary-variant);
-  border-color: var(--primary);
+  background-color: var(--klima-green);
+  border-color: var(--klima-green);
 }
 .textButton:disabled {
   opacity: 0.4;

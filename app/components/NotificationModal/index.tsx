@@ -12,6 +12,7 @@ import { setAppState } from "state/app";
 import { useAppDispatch } from "state";
 import { getStatusMessage } from "actions/utils";
 import { ClaimExceededModal } from "components/views/PKlima/ClaimExceededModal";
+import { Text } from "@klimadao/lib/components";
 
 interface ModalAssetTypes {
   [key: string]: {
@@ -77,7 +78,7 @@ export const NotificationModal: FC = () => {
     <div className={styles.bg}>
       <div className={styles.card}>
         <div className={styles.card_header}>
-          <p>{getAsset("header", status)}</p>
+          <Text t="h5">{getAsset("header", status)}</Text>
           {status && (statusType === "done" || statusType === "error") && (
             <button onClick={closeModal} className={styles.closeButton}>
               <CloseIcon />
@@ -90,7 +91,14 @@ export const NotificationModal: FC = () => {
         >
           {getAsset("iconComponent", status)}
         </div>
-        <p className={styles.card_message}>{getStatusMessage(status)}</p>
+        <Text
+          t="body3"
+          className={styles.card_message}
+          align="center"
+          style={{ fontWeight: 400 }}
+        >
+          {getStatusMessage(status)}
+        </Text>
       </div>
     </div>
   );

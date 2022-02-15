@@ -1,11 +1,12 @@
 import { css } from "@emotion/css";
-import typography from "../../theme/typography";
+import * as typography from "../../theme/typography";
 
 const tooltip = css`
   ${typography.caption};
   text-align: center;
-  border: 1px solid var(--primary-variant);
-  background: var(--surface-08);
+  color: var(--font-01);
+  border: 2px solid var(--surface-01);
+  background-color: var(--surface-03);
   border-radius: 0.4rem;
   padding: 0.8rem 1rem;
   .tippy-arrow {
@@ -28,16 +29,29 @@ const tooltip = css`
       bottom: -0.8rem;
       left: -0.4rem;
       border-width: 0.8rem 0.8rem 0;
-      border-top-color: var(--primary-variant);
+      border-top-color: var(--surface-01);
       transform-origin: center top;
     }
     &::after {
       bottom: -0.6rem;
-      border-top-color: var(--surface-08);
+      border-top-color: var(--surface-03);
     }
   }
   &[data-placement^="bottom"] > .tippy-arrow {
-    top: -0.4rem;
+    bottom: 0;
+
+    &::before,
+    &::after {
+      bottom: -0.8rem;
+      left: -0.4rem;
+      border-width: 0.8rem 0.8rem 0;
+      border-top-color: var(--surface-01);
+      transform-origin: center top;
+    }
+    &::after {
+      bottom: -0.6rem;
+      border-top-color: var(--surface-03);
+    }
   }
   &[data-placement^="left"] > .tippy-arrow {
     right: -0.4rem;

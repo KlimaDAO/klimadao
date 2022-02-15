@@ -1,6 +1,6 @@
 import { i18n } from "@lingui/core";
 import { en, fr } from "make-plural/plurals";
-import { IS_PRODUCTION } from "lib/constants";
+import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
 
 // TODO: remove NODE_ENV=test hack from package.json https://github.com/lingui/js-lingui/issues/433
 // Define locales
@@ -29,12 +29,13 @@ for (const key in locales) {
 /**
  * Loads a translation file
  */
-async function loadTranslation(locale: string, isProduction = true) {
+async function loadTranslation(locale = "en") {
   let data;
-  if (isProduction) {
-    data = await import(`../locale/${locale}/messages`);
-  } else {
+  if (IS_LOCAL_DEVELOPMENT) {
+    // dynamic loading in dev https://lingui.js.org/ref/loader.html
     data = await import(`@lingui/loader!../locale/${locale}/messages.po`);
+  } else {
+    data = await import(`../locale/${locale}/messages`);
   }
   return data.messages;
 }

@@ -5,16 +5,18 @@ import { providers } from "ethers";
 import { selectNotificationStatus } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
-import { Spinner } from "@klimadao/lib/components";
-import { trimWithPlaceholder } from "@klimadao/lib/utils";
+import {
+  ButtonPrimary,
+  Spinner,
+  Text,
+  TextInfoTooltip,
+} from "@klimadao/lib/components";
+import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 
-import T from "@klimadao/lib/theme/typography.module.css";
 import { Trans, defineMessage } from "@lingui/macro";
-import { i18n } from "@lingui/core";
 
 import {
   selectAppState,
-  selectBalances,
   selectExerciseAllowance,
   selectPklimaTerms,
 } from "state/selectors";
@@ -26,12 +28,16 @@ import {
   changeApprovalTransaction,
   loadTerms,
 } from "actions/pklima";
-import styles from "components/views/Stake/index.module.css";
+import * as styles from "components/views/Stake/styles";
+import { BalancesCard } from "components/BalancesCard";
+import { RedeemOutlined } from "@mui/icons-material";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 interface Props {
   provider: providers.JsonRpcProvider;
   address?: string;
   isConnected?: boolean;
+  loadWeb3Modal: () => Promise<void>;
 }
 
 export const PKlima: FC<Props> = (props) => {
@@ -50,13 +56,11 @@ export const PKlima: FC<Props> = (props) => {
 
   const [quantity, setQuantity] = useState("");
 
-  const balances = useSelector(selectBalances);
   const { currentIndex } = useSelector(selectAppState);
   const allowances = useSelector(selectExerciseAllowance);
   const terms = useSelector(selectPklimaTerms);
 
   const indexAdjustedClaim = Number(terms?.claimed) * Number(currentIndex);
-
   const isLoading = !allowances || typeof allowances.pklima === "undefined";
   const showSpinner =
     isConnected &&
@@ -117,13 +121,13 @@ export const PKlima: FC<Props> = (props) => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
       return {
-        children: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined,
-        disabled: true,
+        label: <Trans>Connect wallet</Trans>,
+        onClick: props.loadWeb3Modal,
+        disabled: false,
       };
     } else if (isLoading) {
       return {
-        children: <Trans id="button.loading">Loading</Trans>,
+        label: <Trans id="button.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -132,23 +136,23 @@ export const PKlima: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return {
-        children: <Trans id="button.confirming">Confirming</Trans>,
+        label: <Trans id="button.confirming">Confirming</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (!hasApproval("pklima")) {
       return {
-        children: <Trans id="button.pklima">1. Approve pKLIMA</Trans>,
+        label: <Trans id="button.pklima">1. Approve pKLIMA</Trans>,
         onClick: handleApproval("pklima"),
       };
     } else if (!hasApproval("bct")) {
       return {
-        children: <Trans id="button.bct">2. Approve BCT</Trans>,
+        label: <Trans id="button.bct">2. Approve BCT</Trans>,
         onClick: handleApproval("bct"),
       };
     } else {
       return {
-        children: <Trans id="button.exercise">EXERCISE</Trans>,
+        label: <Trans id="button.exercise">EXERCISE</Trans>,
         onClick: handleExercise,
         disabled:
           !value || !terms?.redeemable || value > Number(terms.redeemable),
@@ -163,164 +167,115 @@ export const PKlima: FC<Props> = (props) => {
 
   return (
     <>
-      <div className={styles.stakeCard}>
+      <BalancesCard
+        assets={["pklima", "bct"]}
+        tooltip="Make sure to stake your redeemed pKLIMA, and stay staked, until global GHG emissions have plateaued."
+      />
+      <div className={styles.stakeCard} style={{ minHeight: "48rem" }}>
         <div className={styles.stakeCard_header}>
-          <h2 className={T.h4}>
-            <Trans id="pklima.title">Exercise pKLIMA</Trans>
-          </h2>
-          <p className={T.body2}>
-            <Trans id="pklima.caption">
-              Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.
-            </Trans>
-          </p>
+          <Text t="h4" className={styles.stakeCard_header_title}>
+            <RedeemOutlined />
+            <Trans>Redeem pKLIMA</Trans>
+          </Text>
+          <Text t="caption" color="lightest">
+            <Trans>Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.</Trans>
+          </Text>
         </div>
-        <div className={styles.inputsContainer}>
-          <div
-            className={styles.stakeSwitch}
-            style={{ gridTemplateColumns: "1fr" }}
-          >
-            <button
-              className={styles.switchButton}
-              type="button"
-              data-active="true"
-            >
-              pKLIMA
-            </button>
+        <div className={styles.stakeCard_ui}>
+          <div className={styles.inputsContainer}>
+            <div className={styles.stakeInput}>
+              <input
+                className={styles.stakeInput_input}
+                value={quantity}
+                onChange={(e) => {
+                  setQuantity(e.target.value);
+                  setStatus(null);
+                }}
+                type="number"
+                placeholder="pKLIMA to exercise"
+                min="0"
+              />
+              <button
+                className={styles.stakeInput_max}
+                type="button"
+                onClick={setMax}
+              >
+                <Trans id="button.max">Max</Trans>
+              </button>
+            </div>
+            {props.address && (
+              <div className={styles.address}>
+                {concatAddress(props.address)}
+              </div>
+            )}
+            <div className="hr" />
           </div>
-          <div className={styles.stakeInput}>
-            <input
-              className={styles.stakeInput_input}
-              value={quantity}
-              onChange={(e) => {
-                setQuantity(e.target.value);
-                setStatus(null);
-              }}
-              type="number"
-              placeholder={i18n._("pklima.klima_to_exercise")}
-              min="0"
-            />
-            <button
-              className={styles.stakeInput_button}
-              type="button"
-              onClick={setMax}
-            >
-              <Trans id="button.max">Max</Trans>
-            </button>
-          </div>
-        </div>
 
-        <ul className={styles.dataContainer}>
-          {address && (
-            <p className={styles.dataContainer_address}>
-              {address.slice(0, 5)}..{address.slice(address.length - 3)}
-            </p>
-          )}
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="pklima.pklima_balance">pKLIMA Balance</Trans>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder="NOT CONNECTED"
+          <div className={styles.infoTable}>
+            <div className={styles.infoTable_label}>
+              <Trans>Supply limit</Trans>
+              <TextInfoTooltip
+                content={
+                  <Trans>
+                    A percent of total token supply. Your index-adjusted claim
+                    may not exceed this value.
+                  </Trans>
+                }
               >
-                <span>{trimWithPlaceholder(balances?.pklima, 4)}</span> pKLIMA
-              </WithPlaceholder>
+                <InfoOutlined />
+              </TextInfoTooltip>
             </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="pklima.bct_balance">BCT Balance</Trans>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder="NOT CONNECTED"
+            <div className={styles.infoTable_label}>
+              <Trans>Redeemed</Trans>
+              <TextInfoTooltip
+                content={<Trans>Total KLIMA you have redeemed so far.</Trans>}
               >
-                <span>{trimWithPlaceholder(balances?.bct, 4)}</span> BCT
-              </WithPlaceholder>
+                <InfoOutlined />
+              </TextInfoTooltip>
             </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="pklima.supply_share_limit">Supply Share Limit</Trans>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder="NOT CONNECTED"
+            <div className={styles.infoTable_label}>
+              <Trans>Index adjusted</Trans>
+              <TextInfoTooltip
+                content={
+                  <Trans>
+                    Equivalent sKLIMA claimed, assuming you staked all of your
+                    redeemed KLIMA until today.
+                  </Trans>
+                }
               >
-                <span>{trimWithPlaceholder(terms?.supplyShare, 2)}</span>%
-              </WithPlaceholder>
+                <InfoOutlined />
+              </TextInfoTooltip>
             </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="pklima.pklima_redeemed">pKLIMA Redeemed</Trans>
+            <div className={styles.infoTable_value}>
+              {terms?.supplyShare
+                ? trimWithPlaceholder(terms?.supplyShare, 2) + "%"
+                : "loading..."}
             </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span>{trimWithPlaceholder(terms?.claimed, 4)}</span> pKLIMA
-              </WithPlaceholder>
+            <div className={styles.infoTable_value}>
+              {terms?.claimed
+                ? trimWithPlaceholder(terms?.claimed, 4) + " KLIMA"
+                : "loading..."}
             </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="pklima.claimed_amount">
-                Claimed Amount (index-adjusted)
-              </Trans>
+            <div className={styles.infoTable_value}>
+              {indexAdjustedClaim
+                ? trimWithPlaceholder(indexAdjustedClaim, 4) + " KLIMA"
+                : "loading..."}
             </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span>{trimWithPlaceholder(indexAdjustedClaim, 4)}</span> KLIMA
-              </WithPlaceholder>
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="pklima.max">Max (index-adjusted)</Trans>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span>{trimWithPlaceholder(terms?.max, 4)}</span> KLIMA
-              </WithPlaceholder>
-            </div>
-          </li>
-        </ul>
-        <div className={styles.buttonRow}>
-          <div />
-          {showSpinner ? (
-            <div className={styles.buttonRow_spinner}>
-              <Spinner />
-            </div>
-          ) : (
-            <div />
-          )}
-          <button
-            type="button"
-            className={styles.submitButton}
-            {...getButtonProps()}
-          />
+          </div>
+          <div className={styles.buttonRow}>
+            {showSpinner ? (
+              <div className={styles.buttonRow_spinner}>
+                <Spinner />
+              </div>
+            ) : (
+              <ButtonPrimary
+                {...getButtonProps()}
+                className={styles.submitButton}
+              />
+            )}
+          </div>
         </div>
       </div>
     </>
   );
-};
-
-const WithPlaceholder: FC<{ condition: boolean; placeholder: string }> = (
-  props
-) => {
-  if (props.condition) {
-    return <>{props.placeholder}</>;
-  }
-  return <>{props.children}</>;
 };

@@ -1,41 +1,23 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
-import typography from "@klimadao/lib/theme/typography";
+import * as typography from "@klimadao/lib/theme/typography";
 
 export const changeLanguageButton = css`
-  padding: 0.8rem;
-  position: absolute;
-  right: -0.4rem;
-  top: 6.4rem;
-
-  ${breakpoints.small} {
-    top: 3.2rem;
-    right: -0.2rem;
-    display: flex;
-    min-height: 4rem;
-    align-items: center;
-    border: 2px solid var(--primary);
-    background-color: var(--surface-02);
-    padding: 0.8rem;
-    border-radius: 0.4rem;
-    align-items: center;
-    align-content: center;
-  }
-
-  ${breakpoints.medium} {
-    top: 9.8rem;
-  }
-
-  ${breakpoints.medium} {
-    top: 10.8rem;
+  background-color: var(--surface-02);
+  min-height: 4.8rem;
+  min-width: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  &:hover {
+    opacity: 0.7;
   }
 `;
 
 export const tooltip = css`
   ${typography.caption};
   text-align: center;
-  border: 1px solid var(--primary-variant);
-  background: var(--surface-08);
+  background: var(--surface-03);
   border-radius: 0.4rem;
   padding: 1.6rem;
   @media (max-width: 32.5rem) {
@@ -48,11 +30,6 @@ export const tooltip = css`
 export const menuItem = css`
   ${typography.button};
   &:hover {
-    color: var(--primary-variant);
+    color: var(--klima-green);
   }
-`;
-
-export const menuItemContainer = css`
-  display: grid;
-  gap: 1.6rem;
 `;

@@ -13,10 +13,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
     getStakingAPY(),
     getKlimaUsdcPrice(),
   ]);
-  const translation = await loadTranslation(
-    ctx.locale!,
-    process.env.NODE_ENV === "production"
-  );
+  const translation = await loadTranslation(ctx.locale);
   return {
     props: {
       treasuryBalance,
