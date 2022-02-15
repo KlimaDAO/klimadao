@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Link from "next/link";
 import * as styles from "./styles";
 
-import { TwitterIcon, GithubIcon } from "@klimadao/lib/components";
+import { TwitterIcon, GithubIcon, DiscordIcon } from "@klimadao/lib/components";
 
 import { urls } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
@@ -49,6 +49,13 @@ export const Footer: FC = () => {
           </a>
           <a href={urls.github} target="_blank" rel="noreferrer noopener">
             <GithubIcon />
+          </a>
+          <a
+            href={urls.discordInvite}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <DiscordIcon className="discordIcon" />
           </a>
         </nav>
       </div>

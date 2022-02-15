@@ -54,6 +54,8 @@ export const footer_nav = css`
 export const footer_icons = css`
   display: flex;
   align-items: center;
+  flex-direction: column;
+  gap: 2rem;
 
   & a {
     margin: 0 1rem;
@@ -65,5 +67,15 @@ export const footer_icons = css`
 
   & svg:hover path {
     fill: var(--font-01);
+  }
+
+  & .discordIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  ${breakpoints.medium} {
+    flex-direction: row;
+    gap: 1rem;
   }
 `;
