@@ -36,11 +36,6 @@ export const Navigation: FC<Props> = (props) => {
         ]}
       >
         <NavItemDesktop
-          url={"/"}
-          name={t({ message: "Home", id: "mainNav.home" })}
-          active={props.activePage === "Home"}
-        />
-        <NavItemDesktop
           url={"/buy"}
           name={t`Get KLIMA`}
           active={props.activePage === "Get KLIMA"}
