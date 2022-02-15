@@ -368,8 +368,8 @@ export const carbonSection = css`
     gap: 1.6rem;
   }
   .carbon_counter {
-    font-size: 6rem;
-    line-height: 6rem;
+    font-size: 5rem;
+    line-height: 5rem;
     font-weight: 700;
     word-break: break-all;
   }
