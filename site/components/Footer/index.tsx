@@ -22,10 +22,10 @@ export const Footer: FC = () => {
               <Trans>Get KLIMA</Trans>
             </a>
           </Link>
-          <a href={urls.stake}>
+          <a href={urls.stake} target="_blank" rel="noopener noreferrer">
             <Trans>Stake</Trans>
           </a>
-          <a href={urls.bonds}>
+          <a href={urls.bonds} target="_blank" rel="noopener noreferrer">
             <Trans>Bond</Trans>
           </a>
           <a href={urls.officialDocs} target="_blank" rel="noreferrer noopener">
