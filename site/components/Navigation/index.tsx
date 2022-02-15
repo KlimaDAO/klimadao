@@ -14,7 +14,7 @@ import { HeaderMobile } from "../Header/HeaderMobile";
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-type PageName = "Home" | "Get KLIMA" | "Resources";
+type PageName = "Home" | "Get KLIMA" | "Resources" | "Disclaimer";
 
 export type Props = {
   activePage: PageName;
