@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Home/index.tsx:346
+#: components/pages/Home/index.tsx:352
 msgid "001"
 msgstr "001"
 
-#: components/pages/Home/index.tsx:365
+#: components/pages/Home/index.tsx:371
 msgid "002"
 msgstr "002"
 
@@ -45,7 +45,7 @@ msgstr "3. Be reliable, complete, legal or safe."
 msgid "A New Face For KlimaDAO"
 msgstr "A New Face For KlimaDAO"
 
-#: components/pages/Home/index.tsx:421
+#: components/pages/Home/index.tsx:427
 msgid "All the Alpha, straight to your inbox"
 msgstr "All the Alpha, straight to your inbox"
 
@@ -100,7 +100,7 @@ msgstr "By increasing access and demand for carbon offsets, we make pro-climate 
 msgid "Careers"
 msgstr "Careers"
 
-#: components/pages/Home/index.tsx:279
+#: components/pages/Home/index.tsx:285
 msgid "Cars (annual)"
 msgstr "Cars (annual)"
 
@@ -151,7 +151,7 @@ msgstr "Docs"
 msgid "Drive climate action and earn rewards with a carbon-backed digital currency."
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/pages/Home/index.tsx:250
+#: components/pages/Home/index.tsx:256
 msgid "EQUIVALENT TO"
 msgstr "EQUIVALENT TO"
 
@@ -164,17 +164,17 @@ msgstr "Enter App"
 msgid "Fight climate change and earn rewards with KLIMA, a digital currency backed by real carbon assets."
 msgstr "Fight climate change and earn rewards with KLIMA, a digital currency backed by real carbon assets."
 
-#: components/pages/Home/index.tsx:389
+#: components/pages/Home/index.tsx:395
 msgid "GET KLIMA"
 msgstr "GET KLIMA"
 
 #: components/Footer/index.tsx:22
-#: components/Navigation/index.tsx:45
-#: components/Navigation/index.tsx:71
+#: components/Navigation/index.tsx:40
+#: components/Navigation/index.tsx:62
 msgid "Get KLIMA"
 msgstr "Get KLIMA"
 
-#: components/pages/Home/index.tsx:392
+#: components/pages/Home/index.tsx:398
 msgid "Get exposure to the growing carbon economy today. Acquire, stake, and get rewarded. Financial activism for the climate."
 msgstr "Get exposure to the growing carbon economy today. Acquire, stake, and get rewarded. Financial activism for the climate."
 
@@ -182,7 +182,7 @@ msgstr "Get exposure to the growing carbon economy today. Acquire, stake, and ge
 msgid "Get in touch?"
 msgstr "Get in touch?"
 
-#: components/pages/Home/index.tsx:427
+#: components/pages/Home/index.tsx:433
 msgid "Get the latest updates on KlimaDAO, as we build the future of the carbon economy."
 msgstr "Get the latest updates on KlimaDAO, as we build the future of the carbon economy."
 
@@ -190,7 +190,7 @@ msgstr "Get the latest updates on KlimaDAO, as we build the future of the carbon
 msgid "Gitcoin logo"
 msgstr "Gitcoin logo"
 
-#: components/pages/Home/index.tsx:264
+#: components/pages/Home/index.tsx:270
 msgid "Hectares of forest"
 msgstr "Hectares of forest"
 
@@ -206,7 +206,7 @@ msgstr "If you are a journalist or content creator, our marketing team would lov
 msgid "If you've got questions, ideas, advice or anything else: we can help you find the right person to talk to."
 msgstr "If you've got questions, ideas, advice or anything else: we can help you find the right person to talk to."
 
-#: components/pages/Home/index.tsx:334
+#: components/pages/Home/index.tsx:340
 msgid "Invest in the future."
 msgstr "Invest in the future."
 
@@ -267,7 +267,7 @@ msgstr "LEARN MORE"
 msgid "Let's Work Together"
 msgstr "Let's Work Together"
 
-#: components/pages/Home/index.tsx:294
+#: components/pages/Home/index.tsx:300
 msgid "Liters of gasoline"
 msgstr "Liters of gasoline"
 
@@ -279,7 +279,7 @@ msgstr "MECHANICS"
 msgid "MOSS logo"
 msgstr "MOSS logo"
 
-#: components/pages/Home/index.tsx:229
+#: components/pages/Home/index.tsx:235
 msgid "Massive impact."
 msgstr "Massive impact."
 
@@ -291,11 +291,11 @@ msgstr "Media"
 msgid "Neither KlimaDAO nor any of its representatives will not liable for any loss of any kind from any action taken or taken in reliance on material or information, contained on the service. KlimaDAO is making the use of the service and content safe, nevertheless it does not represent or warrant that the service and content on our platform are free of viruses or other harmful components."
 msgstr "Neither KlimaDAO nor any of its representatives will not liable for any loss of any kind from any action taken or taken in reliance on material or information, contained on the service. KlimaDAO is making the use of the service and content safe, nevertheless it does not represent or warrant that the service and content on our platform are free of viruses or other harmful components."
 
-#: components/pages/Home/index.tsx:441
+#: components/pages/Home/index.tsx:447
 msgid "Never shared. Never spammed."
 msgstr "Never shared. Never spammed."
 
-#: components/pages/Home/index.tsx:424
+#: components/pages/Home/index.tsx:430
 msgid "Newsletter"
 msgstr "Newsletter"
 
@@ -343,20 +343,20 @@ msgstr ""
 "Questions, concerns, ideas? Here are a few ways you can get in\n"
 "touch. We love meeting institutions and individuals alike."
 
-#: components/Navigation/index.tsx:62
-#: components/Navigation/index.tsx:84
+#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:75
 msgid "Resources"
 msgstr "Resources"
 
-#: components/pages/Home/index.tsx:399
+#: components/pages/Home/index.tsx:405
 msgid "See Tutorial"
 msgstr "See Tutorial"
 
-#: components/pages/Home/index.tsx:435
+#: components/pages/Home/index.tsx:441
 msgid "Sign up"
 msgstr "Sign up"
 
-#: components/pages/Home/index.tsx:307
+#: components/pages/Home/index.tsx:313
 msgid "Source"
 msgstr "Source"
 
@@ -368,7 +368,7 @@ msgstr "Stake"
 msgid "Strong incentives."
 msgstr "Strong incentives."
 
-#: components/pages/Home/index.tsx:240
+#: components/pages/Home/index.tsx:246
 msgid "TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO"
 msgstr "TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO"
 
@@ -433,18 +433,13 @@ msgstr "We’ve kick-started a <0>decentralized and open market for carbon</0>. 
 msgid "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 msgstr "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 
-#: components/Navigation/index.tsx:56
-#: components/Navigation/index.tsx:80
+#: components/Navigation/index.tsx:51
+#: components/Navigation/index.tsx:71
 msgid "mainNav.bond"
 msgstr "Bond"
 
-#: components/Navigation/index.tsx:40
-#: components/Navigation/index.tsx:69
-msgid "mainNav.home"
-msgstr "Home"
-
-#: components/Navigation/index.tsx:50
-#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:45
+#: components/Navigation/index.tsx:65
 msgid "mainNav.stake"
 msgstr "Stake"
 
