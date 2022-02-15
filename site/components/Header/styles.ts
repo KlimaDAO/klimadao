@@ -11,6 +11,7 @@ export const headerDesktop = css`
   background: var(--surface-02);
   padding-top: 4.8rem;
   height: calc(var(--header-height) * 2);
+  z-index: 1; /* so the drop-shadow is visible over next section */
   ${breakpoints.large} {
     display: grid;
   }

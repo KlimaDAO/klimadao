@@ -5,7 +5,6 @@ import * as typography from "@klimadao/lib/theme/typography";
 export const heroSection = css`
   min-height: 100vh;
   padding: 0 !important;
-  z-index: -1; /* don't clip header drop-shadow */
   .tooltip_underline {
     text-decoration: dotted;
   }
