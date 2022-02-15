@@ -9,6 +9,15 @@
 
 Resolves #<issue-number>
 
+<!-- If there are UI changes, please include a before and after screenshot in the following template:
+
+## Changes
+
+| Before  | After  |
+|---------|--------|
+|img here |img here|
+-->
+
 ## Checklist
 
 <!-- Check completed item: [X] -->
