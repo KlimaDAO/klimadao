@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 import { Text, Section } from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -16,9 +16,10 @@ export const Disclaimer: NextPage<Props> = ({}) => {
     <>
       <PageHead
         production={IS_PRODUCTION}
-        title="Disclaimer"
-        mediaTitle="Disclaimer"
-        metaDescription="KLIMA DAO, Disclaimer"
+        title={t`KlimaDAO Disclaimer`}
+        metaDescription={t`KlimaDAO Disclaimer`}
+        mediaTitle={t`KlimaDAO Disclaimer`}
+        mediaImageSrc="/og-media.png"
       />
       <Navigation activePage="Home" />
 
