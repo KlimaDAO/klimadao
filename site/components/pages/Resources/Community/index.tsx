@@ -236,8 +236,8 @@ export const Community: NextPage = () => (
           <div className="joinDiscord_dummy">
             <Image
               src={screenShotDesktop}
-              width={804}
-              height={597}
+              width={600}
+              height={307}
               alt="Screenshot of Discord"
               placeholder="blur"
             />
