@@ -10,7 +10,6 @@ export const card = css`
   border-radius: 1.2rem;
   display: grid;
   align-content: space-between;
-
   .header {
     display: grid;
     gap: 0.8rem;
@@ -26,6 +25,7 @@ export const card = css`
     width: 4rem;
     height: 4rem;
     transform: scaleX(-1);
+    color: var(--font-01);
   }
   ${breakpoints.desktopLarge} {
     padding: 3.2rem;
