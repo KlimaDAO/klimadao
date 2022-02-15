@@ -80,11 +80,8 @@ export const joinDiscord = css`
   }
   .joinDiscord_dummy {
     border-radius: 2.4rem;
-    margin-bottom: -10%;
+    margin-bottom: -1%;
     margin-left: 10%;
-    ${breakpoints.large} {
-      margin-bottom: -20%;
-    }
   }
 `;
 
