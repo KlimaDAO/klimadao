@@ -45,7 +45,7 @@ msgstr ""
 msgid "Balance"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:96
+#: components/views/ChooseBond/index.tsx:105
 msgid "Bond Carbon."
 msgstr ""
 
@@ -53,7 +53,11 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: components/views/Bond/index.tsx:295
+#: components/views/Info/index.tsx:106
+msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official docs</0>"
+msgstr ""
+
+#: components/views/Bond/index.tsx:303
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
 #: components/views/Wrap/index.tsx:115
@@ -82,7 +86,11 @@ msgstr ""
 msgid "Index adjusted"
 msgstr ""
 
-#: components/views/Bond/index.tsx:313
+#: components/views/Info/index.tsx:103
+msgid "Info & FAQ"
+msgstr ""
+
+#: components/views/Bond/index.tsx:321
 msgid "Not Redeemable"
 msgstr ""
 
@@ -92,6 +100,14 @@ msgstr ""
 
 #: components/views/PKlima/index.tsx:229
 msgid "Redeemed"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:149
+msgid "SOLD OUT"
+msgstr ""
+
+#: components/views/Bond/index.tsx:297
+msgid "Sold Out"
 msgstr ""
 
 #: components/views/Wrap/index.tsx:181
@@ -118,63 +134,63 @@ msgstr ""
 msgid "You Will Get"
 msgstr ""
 
-#: components/views/Bond/index.tsx:358
+#: components/views/Bond/index.tsx:366
 msgid "bond.balance.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:362
+#: components/views/Bond/index.tsx:370
 msgid "bond.bond_price.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:416
+#: components/views/Bond/index.tsx:424
 msgid "bond.caption"
 msgstr ""
 
-#: components/views/Bond/index.tsx:627
+#: components/views/Bond/index.tsx:635
 msgid "bond.date_of_full_vesting"
 msgstr ""
 
-#: components/views/Bond/index.tsx:397
+#: components/views/Bond/index.tsx:405
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:385
+#: components/views/Bond/index.tsx:393
 msgid "bond.debt_ratio.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:367
+#: components/views/Bond/index.tsx:375
 msgid "bond.market_price.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:381
+#: components/views/Bond/index.tsx:389
 msgid "bond.maximum.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:576
+#: components/views/Bond/index.tsx:584
 msgid "bond.pending"
 msgstr ""
 
-#: components/views/Bond/index.tsx:389
+#: components/views/Bond/index.tsx:397
 msgid "bond.pending.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:600
+#: components/views/Bond/index.tsx:608
 msgid "bond.redeemable"
 msgstr ""
 
-#: components/views/Bond/index.tsx:393
+#: components/views/Bond/index.tsx:401
 msgid "bond.redeemable.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:371
+#: components/views/Bond/index.tsx:379
 msgid "bond.roi.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:376
+#: components/views/Bond/index.tsx:384
 msgid "bond.you_will_get.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:328
+#: components/views/Bond/index.tsx:336
 #: components/views/Stake/index.tsx:150
 #: components/views/Stake/index.tsx:156
 msgid "button.approve"
@@ -184,22 +200,22 @@ msgstr ""
 msgid "button.bct"
 msgstr ""
 
-#: components/views/Bond/index.tsx:335
-#: components/views/Bond/index.tsx:434
+#: components/views/Bond/index.tsx:343
+#: components/views/Bond/index.tsx:442
 msgid "button.bond"
 msgstr ""
 
-#: components/views/Bond/index.tsx:322
+#: components/views/Bond/index.tsx:330
 #: components/views/PKlima/index.tsx:139
 #: components/views/Stake/index.tsx:144
 msgid "button.confirming"
 msgstr ""
 
-#: components/views/Bond/index.tsx:307
+#: components/views/Bond/index.tsx:315
 msgid "button.enterQuantity"
 msgstr ""
 
-#: components/views/Bond/index.tsx:348
+#: components/views/Bond/index.tsx:356
 msgid "button.error"
 msgstr ""
 
@@ -207,13 +223,13 @@ msgstr ""
 msgid "button.exercise"
 msgstr ""
 
-#: components/views/Bond/index.tsx:301
+#: components/views/Bond/index.tsx:309
 #: components/views/PKlima/index.tsx:130
 #: components/views/Stake/index.tsx:135
 msgid "button.loading"
 msgstr ""
 
-#: components/views/Bond/index.tsx:474
+#: components/views/Bond/index.tsx:482
 #: components/views/PKlima/index.tsx:203
 #: components/views/Stake/index.tsx:259
 #: components/views/Wrap/index.tsx:228
@@ -224,8 +240,8 @@ msgstr ""
 msgid "button.pklima"
 msgstr ""
 
-#: components/views/Bond/index.tsx:341
-#: components/views/Bond/index.tsx:444
+#: components/views/Bond/index.tsx:349
+#: components/views/Bond/index.tsx:452
 msgid "button.redeem"
 msgstr ""
 
@@ -237,23 +253,23 @@ msgstr ""
 msgid "button.unstake"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:99
+#: components/views/ChooseBond/index.tsx:108
 msgid "choose_bond.caption"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:119
+#: components/views/ChooseBond/index.tsx:128
 msgid "choose_bond.choose_bond"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:122
+#: components/views/ChooseBond/index.tsx:131
 msgid "choose_bond.discount"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:109
+#: components/views/ChooseBond/index.tsx:118
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
-#: components/views/Bond/index.tsx:410
+#: components/views/Bond/index.tsx:418
 msgid "nav.back"
 msgstr ""
 
@@ -277,6 +293,10 @@ msgstr ""
 msgid "stake.caption"
 msgstr ""
 
-#: components/views/Bond/index.tsx:652
+#: components/views/Bond/index.tsx:660
 msgid "status.bond_negative"
+msgstr ""
+
+#: components/views/Bond/index.tsx:668
+msgid "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"
 msgstr ""
