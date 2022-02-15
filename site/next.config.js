@@ -4,8 +4,13 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: "/blog",
-        destination: "https://klimadao.medium.com/",
+        source: "/resources",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/cms",
+        destination: "https://klimadao.sanity.studio/desk",
         permanent: true,
       },
     ];
@@ -13,5 +18,8 @@ module.exports = {
   i18n: {
     locales: ["en", "fr", "pseudo"],
     defaultLocale: "en",
+  },
+  images: {
+    domains: ["cdn.sanity.io"],
   },
 };

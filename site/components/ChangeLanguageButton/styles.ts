@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
-import typography from "@klimadao/lib/theme/typography";
+import * as typography from "@klimadao/lib/theme/typography";
 
 export const changeLanguageButton = css`
   padding: 0.8rem;
@@ -14,7 +14,7 @@ export const changeLanguageButton = css`
     display: flex;
     min-height: 4rem;
     align-items: center;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--klima-green);
     background-color: var(--surface-02);
     padding: 0.8rem;
     border-radius: 0.4rem;
@@ -34,8 +34,8 @@ export const changeLanguageButton = css`
 export const tooltip = css`
   ${typography.caption};
   text-align: center;
-  border: 1px solid var(--primary-variant);
-  background: var(--surface-08);
+  border: 1px solid var(--klima-green);
+  background: var(--surface-03);
   border-radius: 0.4rem;
   padding: 1.6rem;
   @media (max-width: 32.5rem) {
@@ -49,7 +49,7 @@ export const menuItem = css`
   ${typography.button};
   color: white !important;
   &:hover {
-    color: var(--primary-variant) !important;
+    color: var(--klima-green) !important;
   }
 `;
 

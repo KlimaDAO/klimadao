@@ -17,6 +17,7 @@
 node_modules/
 out/
 build/
+dist/
 
 # misc
 .DS_Store
@@ -41,3 +42,7 @@ yarn-error.log*
 
 # compiled locales
 **/locale/*/*.js
+
+# jetbrains
+.idea
+

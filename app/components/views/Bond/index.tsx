@@ -1,9 +1,5 @@
-import React, { useState, useEffect, FC, ChangeEvent } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { useSelector } from "react-redux";
-import classNames from "classnames";
-import WarningOutlined from "@mui/icons-material/WarningAmberRounded";
-import DownOutlined from "@mui/icons-material/KeyboardArrowDownRounded";
-import UpOutlined from "@mui/icons-material/KeyboardArrowUpRounded";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import { Link } from "react-router-dom";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
@@ -17,16 +13,16 @@ import {
   calculateUserBondDetails,
 } from "actions/bonds";
 
-import typography from "@klimadao/lib/theme/typography";
 import { Trans, defineMessage } from "@lingui/macro";
 import { i18n } from "@lingui/core";
 import { prettifySeconds } from "lib/i18n";
 
-import { AdvancedSettings } from "./AdvancedSettings";
 import { useBond } from "../ChooseBond";
 import { Bond as BondType } from "@klimadao/lib/constants";
 import {
+  ButtonPrimary,
   Spinner,
+  Text,
   TextInfoTooltip,
   useTooltipSingleton,
 } from "@klimadao/lib/components";
@@ -44,8 +40,11 @@ import { RootState, useAppDispatch } from "state";
 import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { ImageCard } from "components/ImageCard";
 
-import styles from "./index.module.css";
+import * as styles from "./styles";
+import { TippyProps } from "@tippyjs/react";
+import { BondBalancesCard } from "components/BondBalancesCard";
 
 export function prettyVestingPeriod(
   locale: string | undefined,
@@ -63,16 +62,53 @@ export function prettyVestingPeriod(
   return prettifySeconds(seconds);
 }
 
+interface DataRowProps {
+  unit: string;
+  label: string;
+  tooltip: string;
+  warning: boolean;
+  value: number | string;
+  singleton: TippyProps["singleton"];
+}
+
+export const DataRow: FC<DataRowProps> = (props) => {
+  return (
+    <li className={styles.dataContainer_row}>
+      <div className={styles.dataContainer_label}>
+        <Text t="caption" style={{ textAlign: "end" }}>
+          {props.label}
+        </Text>
+        <TextInfoTooltip content={props.tooltip} singleton={props.singleton}>
+          <div tabIndex={0} className={styles.infoIconWrapper}>
+            <InfoOutlined />
+          </div>
+        </TextInfoTooltip>
+      </div>
+      <div className={styles.dataContainer_value}>
+        <span data-warning={props.warning}>{props.value}</span>
+        {/* hackyfix. TODO: get rid of trimWithPlaceholder pattern and use a prop instead */}
+        {props.value === "Loading... " ? "" : props.unit}
+      </div>
+    </li>
+  );
+};
+
+interface ButtonProps {
+  label: React.ReactElement | string;
+  onClick: undefined | (() => void);
+  disabled: boolean;
+}
+
 interface Props {
   provider: providers.JsonRpcProvider;
   address?: string;
   bond: BondType;
   isConnected?: boolean;
+  loadWeb3Modal: () => void;
 }
 
 export const Bond: FC<Props> = (props) => {
   const bondInfo = useBond(props.bond);
-  const [showAdvanced, setShowAdvanced] = useState(false);
 
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
@@ -85,8 +121,6 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const dispatch = useAppDispatch();
-  const [slippage, setSlippage] = useState(2);
-  const [recipientAddress, setRecipientAddress] = useState(props.address);
 
   const [view, setView] = useState("bond");
   const [quantity, setQuantity] = useState("");
@@ -105,14 +139,6 @@ export const Bond: FC<Props> = (props) => {
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
-
-  const onRecipientAddressChange = (e: ChangeEvent<HTMLInputElement>) => {
-    return setRecipientAddress(e.target.value);
-  };
-
-  const onSlippageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    return setSlippage(Number(e.target.value));
-  };
 
   const vestingPeriod = () => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
@@ -175,7 +201,6 @@ export const Bond: FC<Props> = (props) => {
             provider: props.provider,
           })
         );
-        setRecipientAddress(props.address);
       }
     }
     loadBondDetails();
@@ -220,10 +245,10 @@ export const Bond: FC<Props> = (props) => {
       }
       await bondTransaction({
         value: quantity,
-        slippage,
+        slippage: 2,
         bond: props.bond,
         provider: props.provider,
-        address: recipientAddress || props.address,
+        address: props.address,
         onStatus: setStatus,
       });
       setQuantity("");
@@ -265,23 +290,35 @@ export const Bond: FC<Props> = (props) => {
 
   const isDisabled = view === "bond" && bondInfo.disabled;
 
-  const getButtonProps = () => {
+  const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     if (isDisabled) {
       return {
-        children: <Trans>SOLD OUT</Trans>,
+        label: <Trans>Sold Out</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (!props.isConnected || !props.address) {
       return {
-        children: <Trans id="button.not_connected">Not connected</Trans>,
-        onClick: undefined,
-        disabled: true,
+        label: <Trans>Connect wallet</Trans>,
+        onClick: props.loadWeb3Modal,
+        disabled: false,
       };
     } else if (isLoading) {
       return {
-        children: <Trans id="button.loading">Loading</Trans>,
+        label: <Trans id="button.loading">Loading</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (view === "bond" && !value) {
+      return {
+        label: <Trans id="button.enterQuantity">Enter Quantity</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (view === "redeem" && !Number(bondState?.pendingPayout)) {
+      return {
+        label: <Trans>Not Redeemable</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -290,32 +327,33 @@ export const Bond: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return {
-        children: <Trans id="button.confirming">Confirming</Trans>,
+        label: <Trans id="button.confirming">Confirming</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (!hasAllowance()) {
       return {
-        children: <Trans id="button.approve">Approve</Trans>,
+        label: <Trans id="button.approve">Approve</Trans>,
+        disabled: false,
         onClick: handleAllowance,
       };
     } else if (view === "bond") {
       const bondMax = getBondMax();
       return {
-        children: <Trans id="button.bond">Bond</Trans>,
+        label: <Trans id="button.bond">Bond</Trans>,
         onClick: handleBond,
         disabled: !value || !bondMax || Number(value) > Number(bondMax),
       };
     } else if (view === "redeem") {
       return {
-        children: <Trans id="button.redeem">Redeem</Trans>,
+        label: <Trans id="button.redeem">Redeem</Trans>,
         onClick: handleRedeem,
         disabled: !Number(bondState?.pendingPayout),
       };
     } else {
       // No trans_id tag for Error in stake
       return {
-        children: <Trans id="button.error">Error</Trans>,
+        label: <Trans id="button.error">Error</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -323,7 +361,7 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const isBondDiscountNegative =
-    bondState?.bondDiscount && bondState?.bondDiscount < 0;
+    !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
 
   defineMessage({
     id: "bond.balance.tooltip",
@@ -370,391 +408,285 @@ export const Bond: FC<Props> = (props) => {
   });
 
   return (
-    <div className={styles.stakeCard}>
-      <div className={styles.bondHeader}>
-        <Link
-          to="/bonds"
-          className={classNames(
-            typography.button,
-            styles.bondHeader_backButton
-          )}
-        >
-          <LeftOutlined />
-          <Trans id="nav.back">BACK</Trans>
-        </Link>
-        <h3 className={typography.h5}>
-          <Trans id="bond.caption">Bond {bondInfo.name}</Trans>
-        </h3>
-        <p className={typography.caption}>{bondInfo.description}</p>
-      </div>
-      <div className={styles.inputsContainer}>
-        <div className={styles.stakeSwitch}>
-          <button
-            className={styles.switchButton}
-            type="button"
-            onClick={() => {
-              setView("bond");
-            }}
-            data-active={view === "bond"}
-          >
-            <Trans id="button.bond">Bond</Trans>
-          </button>
-          <button
-            className={styles.switchButton}
-            type="button"
-            onClick={() => {
-              setView("redeem");
-            }}
-            data-active={view === "redeem"}
-          >
-            <Trans id="button.redeem">Redeem</Trans>
-          </button>
+    <>
+      <BondBalancesCard bond={props.bond} />
+      <div className={styles.bondCard}>
+        <div className={styles.bondCard_header}>
+          <Link to="/bonds" className={styles.backButton}>
+            <LeftOutlined />
+            <Text t="button" color="lighter">
+              <Trans id="nav.back">BACK</Trans>
+            </Text>
+          </Link>
+          <img src={bondInfo.icon} alt="" />
+          <div>
+            <Text t="h5">
+              <Trans id="bond.caption">Bond {bondInfo.name}</Trans>
+            </Text>
+            <Text t="caption" color="lightest">
+              {bondInfo.description}
+            </Text>
+          </div>
         </div>
-        <div className={styles.stakeInput}>
-          <input
-            className={styles.stakeInput_input}
-            value={
-              view === "bond" ? quantity || "" : bondState?.pendingPayout || ""
-            }
-            onChange={(e) => setQuantity(e.target.value)}
-            type="number"
-            placeholder={
-              isDisabled
-                ? "SOLD OUT"
-                : `Amount to ${{ bond: "bond", redeem: "redeem" }[view]}`
-            }
-            min="0"
-            step={
-              view === "bond" && bondInfo.balanceUnit === "SLP" ? "0.0001" : "1"
-            }
-            disabled={isDisabled}
-          />
-          <button
-            className={styles.stakeInput_button}
-            type="button"
-            onClick={setMax}
-            disabled={isDisabled}
-          >
-            <Trans id="button.max">Max</Trans>
-          </button>
-        </div>
-        <button
-          className={classNames(typography.button, styles.showAdvancedButton)}
-          type="button"
-          onClick={() => setShowAdvanced((s) => !s)}
-        >
-          {showAdvanced ? <UpOutlined /> : <DownOutlined />}
-          {showAdvanced ? "HIDE ADVANCED" : "SHOW ADVANCED"}
-        </button>
-        {showAdvanced && (
-          <AdvancedSettings
-            slippage={slippage}
-            recipientAddress={recipientAddress}
-            onRecipientAddressChange={onRecipientAddressChange}
-            onSlippageChange={onSlippageChange}
-          />
-        )}
-      </div>
-
-      {view === "bond" && (
-        <ul className={styles.dataContainer}>
-          {props.address && (
-            <p className={styles.dataContainer_address}>
-              {concatAddress(props.address)}
-            </p>
-          )}
-          {sourceSingleton}
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.balance">Balance</Trans>
-              <TextInfoTooltip
-                content={i18n._("bond.balance.tooltip")}
+        <div className={styles.bondCard_ui}>
+          <div className={styles.inputsContainer}>
+            <div className={styles.stakeSwitch}>
+              <button
+                className={styles.switchButton}
+                type="button"
+                onClick={() => {
+                  setView("bond");
+                }}
+                data-active={view === "bond"}
+              >
+                <Trans id="button.bond">Bond</Trans>
+              </button>
+              <button
+                className={styles.switchButton}
+                type="button"
+                onClick={() => {
+                  setView("redeem");
+                }}
+                data-active={view === "redeem"}
+              >
+                <Trans id="button.redeem">Redeem</Trans>
+              </button>
+            </div>
+            <div className={styles.stakeInput}>
+              <input
+                className={styles.stakeInput_input}
+                value={
+                  view === "bond"
+                    ? quantity || ""
+                    : bondState?.pendingPayout || ""
+                }
+                onChange={(e) => setQuantity(e.target.value)}
+                type="number"
+                placeholder={`Amount to ${
+                  { bond: "bond", redeem: "redeem" }[view]
+                }`}
+                min="0"
+                step={
+                  view === "bond" && bondInfo.balanceUnit === "SLP"
+                    ? "0.0001"
+                    : "1"
+                }
+                disabled={view === "redeem"}
+              />
+              <button
+                className={styles.stakeInput_max}
+                type="button"
+                onClick={setMax}
+                disabled={view === "redeem"}
+              >
+                <Trans id="button.max">Max</Trans>
+              </button>
+            </div>
+            {props.address && (
+              <div className={styles.address}>
+                {concatAddress(props.address)}
+              </div>
+            )}
+            <div className="hr" />
+          </div>
+          {view === "bond" && (
+            <ul className={styles.dataContainer}>
+              {sourceSingleton}
+              <DataRow
                 singleton={singleton}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!props.isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span
-                  data-warning={Number(quantity) > Number(bondState?.balance)}
-                >
-                  {trimWithPlaceholder(
-                    bondState?.balance,
-                    Number(bondState?.balance) < 1 ? 18 : 2
-                  )}
-                </span>{" "}
-                {bondInfo.balanceUnit}
-              </WithPlaceholder>
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.bond_price">Bond price</Trans>
-              <TextInfoTooltip
-                content={i18n._("bond.bond_price.tooltip")}
+                label="Balance"
+                tooltip={i18n._("bond.balance.tooltip")}
+                unit={bondInfo.balanceUnit}
+                value={
+                  !props.isConnected
+                    ? 0
+                    : trimWithPlaceholder(
+                        bondState?.balance,
+                        Number(bondState?.balance) < 1 ? 18 : 2
+                      )
+                }
+                warning={Number(quantity) > Number(bondState?.balance)}
+              />
+              <DataRow
                 singleton={singleton}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(bondState?.bondPrice, 2)}</span>{" "}
-              {bondInfo.priceUnit}
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.market_price">Market Price</Trans>
-              <TextInfoTooltip
-                content={i18n._("bond.market_price.tooltip")}
+                label="Bond price"
+                tooltip={i18n._("bond.bond_price.tooltip")}
+                unit={bondInfo.priceUnit}
+                value={trimWithPlaceholder(bondState?.bondPrice, 2)}
+                warning={false}
+              />
+              <DataRow
                 singleton={singleton}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>{trimWithPlaceholder(bondState?.marketPrice, 2)}</span>{" "}
-              {bondInfo.priceUnit}
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.roi">ROI (bond discount)</Trans>
-              <TextInfoTooltip
-                content={i18n._("bond.roi.tooltip")}
+                label="Market Price"
+                tooltip={i18n._("bond.market_price.tooltip")}
+                unit={bondInfo.priceUnit}
+                value={trimWithPlaceholder(bondState?.marketPrice, 2)}
+                warning={false}
+              />
+              <DataRow
                 singleton={singleton}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span data-warning={isBondDiscountNegative}>
-                {trimWithPlaceholder(bondState?.bondDiscount, 2)}
-              </span>
-              %
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.you_will_get">You will get</Trans>
-              <TextInfoTooltip
+                label="ROI (bond discount)"
+                tooltip={i18n._("bond.roi.tooltip")}
+                unit={"%"}
+                value={trimWithPlaceholder(bondState?.bondDiscount, 2)}
+                warning={isBondDiscountNegative}
+              />
+              <DataRow
                 singleton={singleton}
-                content={i18n._("bond.you_will_get.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>
-                {trimWithPlaceholder(
-                  isLoading ? NaN : bondState?.bondQuote,
-                  Number(bondState?.bondQuote) < 1 ? 5 : 2
-                )}
-              </span>{" "}
-              KLIMA
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.maximum">Maximum</Trans>
-              <TextInfoTooltip
+                label="You will get"
+                tooltip={i18n._("bond.you_will_get.tooltip")}
+                unit="KLIMA"
+                value={
+                  !props.isConnected
+                    ? 0
+                    : trimWithPlaceholder(
+                        isLoading ? NaN : bondState?.bondQuote,
+                        Number(bondState?.bondQuote) < 1 ? 5 : 2
+                      )
+                }
+                warning={false}
+              />
+              <DataRow
                 singleton={singleton}
-                content={i18n._("bond.maximum.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span
-                data-warning={
-                  bondState?.bondQuote &&
-                  bondState?.maxBondPrice &&
+                label="Maximum"
+                tooltip={i18n._("bond.maximum.tooltip")}
+                warning={
+                  !!bondState?.bondQuote &&
+                  !!bondState?.maxBondPrice &&
                   Number(bondState?.bondQuote) > Number(bondState?.maxBondPrice)
                 }
-              >
-                {trimWithPlaceholder(bondState?.maxBondPrice, 2)}
-              </span>{" "}
-              KLIMA
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.debt_ratio">Debt ratio</Trans>
-              <TextInfoTooltip
+                value={trimWithPlaceholder(bondState?.maxBondPrice, 2)}
+                unit="KLIMA"
+              />
+              <DataRow
                 singleton={singleton}
-                content={i18n._("bond.debt_ratio.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>
-                {trimWithPlaceholder(Number(bondState?.debtRatio), 2)}
-              </span>
-              %
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans>Vesting term end</Trans>
-              <TextInfoTooltip
+                label="Debt ratio"
+                tooltip={i18n._("bond.debt_ratio.tooltip")}
+                warning={false}
+                value={trimWithPlaceholder(Number(bondState?.debtRatio), 2)}
+                unit="%"
+              />
+              <DataRow
                 singleton={singleton}
-                content={
-                  "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term."
-                }
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
-                </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <span>{vestingPeriod()}</span>
-            </div>
-          </li>
-        </ul>
-      )}
-
-      {view === "redeem" && (
-        <ul className={styles.dataContainer}>
-          {props.address && (
-            <p className={styles.dataContainer_address}>
-              {concatAddress(props.address)}
-            </p>
+                label="Vesting term end"
+                tooltip="If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term."
+                warning={false}
+                value={vestingPeriod() ?? ""}
+                unit=""
+              />
+            </ul>
           )}
-          {sourceSingleton}
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.pending">Pending</Trans>
-              <TextInfoTooltip
-                singleton={singleton}
-                content={i18n._("bond.pending.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
+          {view === "redeem" && (
+            <ul className={styles.dataContainer}>
+              {sourceSingleton}
+              <li className={styles.dataContainer_row}>
+                <div className={styles.dataContainer_label}>
+                  <Trans id="bond.pending">Pending</Trans>
+                  <TextInfoTooltip
+                    singleton={singleton}
+                    content={i18n._("bond.pending.tooltip")}
+                  >
+                    <div tabIndex={0} className={styles.infoIconWrapper}>
+                      <InfoOutlined />
+                    </div>
+                  </TextInfoTooltip>
                 </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!props.isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span>{trimWithPlaceholder(bondState?.interestDue, 4)}</span>{" "}
-                KLIMA
-              </WithPlaceholder>
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.redeemable">Redeemable</Trans>
-              <TextInfoTooltip
-                singleton={singleton}
-                content={i18n._("bond.redeemable.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
+                <div className={styles.dataContainer_value}>
+                  <WithPlaceholder
+                    condition={!props.isConnected}
+                    placeholder="NOT CONNECTED"
+                  >
+                    <span>
+                      {trimWithPlaceholder(bondState?.interestDue, 4)}
+                    </span>{" "}
+                    KLIMA
+                  </WithPlaceholder>
                 </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!props.isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span>
-                  {trimWithPlaceholder(
-                    bondState?.pendingPayout,
-                    Number(bondState?.pendingPayout) < 1 ? 5 : 2
-                  )}
-                </span>{" "}
-                KLIMA
-              </WithPlaceholder>
-            </div>
-          </li>
-          <li className={styles.dataContainer_row}>
-            <div className={styles.dataContainer_label}>
-              <Trans id="bond.date_of_full_vesting">Date of full vesting</Trans>
-              <TextInfoTooltip
-                singleton={singleton}
-                content={i18n._("bond.date_of_full_vesting.tooltip")}
-              >
-                <div tabIndex={0} className={styles.infoIconWrapper}>
-                  <InfoOutlined />
+              </li>
+              <li className={styles.dataContainer_row}>
+                <div className={styles.dataContainer_label}>
+                  <Trans id="bond.redeemable">Redeemable</Trans>
+                  <TextInfoTooltip
+                    singleton={singleton}
+                    content={i18n._("bond.redeemable.tooltip")}
+                  >
+                    <div tabIndex={0} className={styles.infoIconWrapper}>
+                      <InfoOutlined />
+                    </div>
+                  </TextInfoTooltip>
                 </div>
-              </TextInfoTooltip>
-            </div>
-            <div className={styles.dataContainer_value}>
-              <WithPlaceholder
-                condition={!props.isConnected}
-                placeholder="NOT CONNECTED"
-              >
-                <span>{vestingTime()}</span>
-              </WithPlaceholder>
-            </div>
-          </li>
-        </ul>
-      )}
-
-      {view === "bond" &&
-        recipientAddress &&
-        recipientAddress !== props.address && (
-          <p className={classNames(typography.body2, styles.recipientNote)}>
-            <WarningOutlined style={{ color: "yellow" }} /> External recipient:{" "}
-            {concatAddress(recipientAddress)}
-          </p>
-        )}
-
-      {isBondDiscountNegative && view === "bond" && (
-        <p className={typography.body2} style={{ textAlign: "center" }}>
-          <Trans id="status.bond_negative">
-            ⚠️ Warning: this bond price is inflated because the current discount
-            rate is negative.
-          </Trans>
-        </p>
-      )}
-
-      {isDisabled && (
-        <p className={typography.body2} style={{ textAlign: "center" }}>
-          ⚠️ SOLD OUT. All demand has been filled for BCT/USDC for now.
-          Klimates, you rock!
-        </p>
-      )}
-
-      <div className={styles.buttonRow}>
-        <div />
-        {showSpinner ? (
-          <div className={styles.buttonRow_spinner}>
-            <Spinner />
+                <div className={styles.dataContainer_value}>
+                  <WithPlaceholder
+                    condition={!props.isConnected}
+                    placeholder="NOT CONNECTED"
+                  >
+                    <span>
+                      {trimWithPlaceholder(
+                        bondState?.pendingPayout,
+                        Number(bondState?.pendingPayout) < 1 ? 5 : 2
+                      )}
+                    </span>{" "}
+                    KLIMA
+                  </WithPlaceholder>
+                </div>
+              </li>
+              <li className={styles.dataContainer_row}>
+                <div className={styles.dataContainer_label}>
+                  <Trans id="bond.date_of_full_vesting">
+                    Date of full vesting
+                  </Trans>
+                  <TextInfoTooltip
+                    singleton={singleton}
+                    content={i18n._("bond.date_of_full_vesting.tooltip")}
+                  >
+                    <div tabIndex={0} className={styles.infoIconWrapper}>
+                      <InfoOutlined />
+                    </div>
+                  </TextInfoTooltip>
+                </div>
+                <div className={styles.dataContainer_value}>
+                  <WithPlaceholder
+                    condition={!props.isConnected}
+                    placeholder="NOT CONNECTED"
+                  >
+                    <span>{vestingTime()}</span>
+                  </WithPlaceholder>
+                </div>
+              </li>
+            </ul>
+          )}
+          {isBondDiscountNegative && view === "bond" && (
+            <Text t="caption" align="center">
+              <Trans id="status.bond_negative">
+                ⚠️ Warning: this bond price is inflated because the current
+                discount rate is negative.
+              </Trans>
+            </Text>
+          )}
+          {isDisabled && (
+            <Text t="caption" align="center">
+              <Trans>
+                🪧 SOLD OUT. All demand has been filled for this bond. Thank you,
+                Klimates!
+              </Trans>
+            </Text>
+          )}
+          <div className={styles.buttonRow}>
+            {showSpinner ? (
+              <div className={styles.buttonRow_spinner}>
+                <Spinner />
+              </div>
+            ) : (
+              <ButtonPrimary
+                {...getButtonProps()}
+                className={styles.submitButton}
+              />
+            )}
           </div>
-        ) : (
-          <div />
-        )}
-        <button
-          type="button"
-          className={styles.submitButton}
-          {...getButtonProps()}
-        />
+        </div>
       </div>
-    </div>
+      <ImageCard />
+    </>
   );
 };
 

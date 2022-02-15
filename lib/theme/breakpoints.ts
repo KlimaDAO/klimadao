@@ -1,6 +1,13 @@
+/* em units inside media queries take browser default (16px) */
 export default {
-  small: "@media (min-width: 32.5rem)",
-  medium: "@media (min-width: 57.6rem)",
-  large: "@media (min-width: 76.8rem)",
-  desktop: "@media (min-width: 99.2rem)",
+  /** 23.5em, 376px */
+  small: "@media (min-width: 23.5em)",
+  /** 36em, 576px */
+  medium: "@media (min-width: 36em)",
+  /**  48em, 768px */
+  large: "@media (min-width: 48em)",
+  /** 62em, 992px */
+  desktop: "@media (min-width: 62em)",
+  /** 75em, 1200px */
+  desktopLarge: "@media (min-width: 75em)",
 };

@@ -2,14 +2,14 @@ import React, { FC } from "react";
 import Tippy, { TippyProps, useSingleton } from "@tippyjs/react";
 import styles from "./styles";
 
-interface Props {
+interface Props extends TippyProps {
   /** String to be displayed in the tooltip. */
-  content: string;
+  content: string | React.ReactNode;
   /** Must be a focusable plain JSX element. Wrap with <span tabindex="0"> if needed. */
   children: JSX.Element;
 }
 
-export const TextInfoTooltip: FC<Props & TippyProps> = (props) => {
+export const TextInfoTooltip: FC<Props> = (props) => {
   const { children, content, ...tippyProps } = props;
   /** Tippy needs to inject a ref, so the child must be a jsx element */
   const isJSXElement =

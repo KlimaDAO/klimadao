@@ -21,7 +21,7 @@ export default {
   spinner: css`
     display: block;
     font-size: 0;
-    color: var(--primary);
+    color: var(--klima-green);
 
     &,
     & > div {

@@ -5,6 +5,7 @@
     sans-serif;
   padding: 0;
   margin: 0;
+  transition: background 0.25s ease-in-out; /* Transition for theme toggle */
 }
 
 html {
@@ -12,13 +13,8 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
-  color: #ffffff;
+  font-size: 1.6rem; /* ~16px */
   overflow-x: hidden;
-}
-
-:root {
-  background-color: black;
 }
 
 svg {
@@ -39,6 +35,7 @@ figure {
 
 ul {
   padding-inline-start: 1.6rem;
+  color: var(--font-01);
 }
 
 p {
@@ -47,11 +44,11 @@ p {
 
 a {
   text-decoration: none;
-  color: var(--secondary);
+  color: var(--klima-green);
 }
 a:hover,
 a:visited {
-  color: var(--secondary-variant);
+  color: var(--font-01);
 }
 
 button {
@@ -62,9 +59,11 @@ button {
   outline: none;
   cursor: pointer;
   padding: 0;
-  color: white;
+  color: var(--font-01);
 }
-
+button:disabled {
+  cursor: default;
+}
 body.user-is-tabbing button:focus {
   outline: auto;
 }
