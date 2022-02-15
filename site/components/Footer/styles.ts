@@ -22,7 +22,7 @@ export const footer_content = css`
   align-items: center;
   flex: 1;
 
-  ${breakpoints.large} {
+  ${breakpoints.desktop} {
     text-align: center;
   }
 `;
@@ -44,10 +44,15 @@ export const footer_nav = css`
   }
 
   ${breakpoints.large} {
+    gap: 1.6rem 7rem;
+  }
+
+  ${breakpoints.desktop} {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 1.6rem 3.2rem;
   }
 `;
 
