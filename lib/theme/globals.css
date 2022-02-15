@@ -48,7 +48,7 @@ a {
 }
 a:hover,
 a:visited {
-  color: var(--font-01);
+  color: var(--klima-green);
 }
 
 button {
