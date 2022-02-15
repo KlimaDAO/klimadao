@@ -96,6 +96,8 @@ export const Home: NextPage<Props> = (props) => {
                   key="Enter App"
                   label={t({ message: "Enter App" })}
                   href={urls.app}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 />
               </div>
             </div>

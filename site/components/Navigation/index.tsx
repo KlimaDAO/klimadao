@@ -30,6 +30,8 @@ export const Navigation: FC<Props> = (props) => {
             key="Enter App"
             label={t`Enter App`}
             href={urls.app}
+            target="_blank"
+            rel="noopener noreferrer"
           />,
         ]}
       >
@@ -46,10 +48,14 @@ export const Navigation: FC<Props> = (props) => {
         <NavItemDesktop
           url={urls.stake}
           name={t({ message: "Stake", id: "mainNav.stake" })}
+          target="_blank"
+          rel="noopener noreferrer"
         />
         <NavItemDesktop
           url={urls.bonds}
           name={t({ message: "Bond", id: "mainNav.bond" })}
+          target="_blank"
+          rel="noopener noreferrer"
         />
         <NavItemDesktop
           url="/blog"
@@ -66,10 +72,14 @@ export const Navigation: FC<Props> = (props) => {
         <NavItemMobile
           url={urls.stake}
           name={t({ message: "Stake", id: "mainNav.stake" })}
+          target="_blank"
+          rel="noopener noreferrer"
         />
         <NavItemMobile
           url={urls.bonds}
           name={t({ message: "Bond", id: "mainNav.bond" })}
+          target="_blank"
+          rel="noopener noreferrer"
         />
         <NavItemMobile url="/blog" name={t`Resources`} />
       </HeaderMobile>

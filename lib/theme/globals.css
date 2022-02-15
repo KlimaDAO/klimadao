@@ -44,7 +44,7 @@ p {
 
 a {
   text-decoration: none;
-  color: var(--font-01);
+  color: var(--klima-green);
 }
 a:hover,
 a:visited {
