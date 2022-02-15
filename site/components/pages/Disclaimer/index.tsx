@@ -21,7 +21,7 @@ export const Disclaimer: NextPage<Props> = ({}) => {
         mediaTitle={t`KlimaDAO Disclaimer`}
         mediaImageSrc="/og-media.png"
       />
-      <Navigation activePage="Home" />
+      <Navigation activePage="Disclaimer" />
 
       <Section variant="gray">
         <div className={styles.text}>
