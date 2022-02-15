@@ -36,11 +36,6 @@ export const Navigation: FC<Props> = (props) => {
         ]}
       >
         <NavItemDesktop
-          url={"/"}
-          name={t({ message: "Home", id: "mainNav.home" })}
-          active={props.activePage === "Home"}
-        />
-        <NavItemDesktop
           url={"/buy"}
           name={t`Get KLIMA`}
           active={props.activePage === "Get KLIMA"}
@@ -64,10 +59,6 @@ export const Navigation: FC<Props> = (props) => {
         />
       </HeaderDesktop>
       <HeaderMobile buttons={[<ThemeToggle key="ThemeToggle" />]}>
-        <NavItemMobile
-          url={"/"}
-          name={t({ message: "Home", id: "mainNav.home" })}
-        />
         <NavItemMobile url="/buy" name={t`Get KLIMA`} />
         <NavItemMobile
           url={urls.stake}
