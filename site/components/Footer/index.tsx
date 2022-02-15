@@ -41,6 +41,11 @@ export const Footer: FC = () => {
               <Trans>Contact</Trans>
             </a>
           </Link>
+          <Link href="/disclaimer">
+            <a>
+              <Trans>Disclaimer</Trans>
+            </a>
+          </Link>
         </nav>
 
         <nav className={styles.footer_icons}>
