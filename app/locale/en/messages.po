@@ -45,7 +45,7 @@ msgstr "Approximate return on investment, including compounding interest, should
 msgid "Balance"
 msgstr "Balance"
 
-#: components/views/ChooseBond/index.tsx:96
+#: components/views/ChooseBond/index.tsx:105
 msgid "Bond Carbon."
 msgstr "Bond Carbon."
 
@@ -53,7 +53,11 @@ msgstr "Bond Carbon."
 msgid "Change language"
 msgstr "Change language"
 
-#: components/views/Bond/index.tsx:295
+#: components/views/Info/index.tsx:106
+msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official docs</0>"
+msgstr "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official docs</0>"
+
+#: components/views/Bond/index.tsx:303
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
 #: components/views/Wrap/index.tsx:115
@@ -291,3 +295,7 @@ msgstr "The updated contract now assumes pKLIMA holders have staked and earned i
 #: components/views/Bond/index.tsx:728
 msgid "status.bond_negative"
 msgstr "⚠️ Warning: this bond price is inflated because the current discount rate is negative."
+
+#: components/views/Bond/index.tsx:668
+msgid "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"
+msgstr "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"

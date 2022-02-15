@@ -109,7 +109,7 @@ msgstr ""
 msgid "bond.redeemable.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:397
+#: components/views/Bond/index.tsx:405
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "bond.roi.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:381
+#: components/views/Bond/index.tsx:389
 msgid "bond.maximum.tooltip"
 msgstr ""
 
@@ -259,4 +259,8 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:728
 msgid "status.bond_negative"
+msgstr ""
+
+#: components/views/Bond/index.tsx:668
+msgid "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"
 msgstr ""
