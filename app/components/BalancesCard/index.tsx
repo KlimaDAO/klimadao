@@ -1,14 +1,14 @@
-import { Text } from '@klimadao/lib/components';
-import AccountBalanceOutlined from '@mui/icons-material/AccountBalanceOutlined';
-import { trimWithPlaceholder } from '@klimadao/lib/utils';
-import { useSelector } from 'react-redux';
-import { InfoButton } from 'components/InfoButton';
-import { selectBalances } from 'state/selectors';
-import * as styles from './styles';
-import { FC } from 'react';
-import { RootState } from 'state';
+import { Text } from "@klimadao/lib/components";
+import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
+import { trimWithPlaceholder } from "@klimadao/lib/utils";
+import { useSelector } from "react-redux";
+import { InfoButton } from "components/InfoButton";
+import { selectBalances } from "state/selectors";
+import * as styles from "./styles";
+import { FC } from "react";
+import { RootState } from "state";
 
-type Asset = keyof NonNullable<RootState['user']['balance']>;
+type Asset = keyof NonNullable<RootState["user"]["balance"]>;
 type AssetLabels = { [key in Asset]: string };
 
 interface Props {
@@ -19,16 +19,16 @@ interface Props {
 export const BalancesCard: FC<Props> = (props) => {
   const balances = useSelector(selectBalances);
   const labels: AssetLabels = {
-    bct: 'BCT',
-    aklima: 'aKLIMA',
-    alklima: 'alKLIMA',
-    klima: 'KLIMA',
-    pklima: 'pKLIMA',
-    sklima: 'sKLIMA',
-    wsklima: 'wsKLIMA',
+    bct: "BCT",
+    aklima: "aKLIMA",
+    alklima: "alKLIMA",
+    klima: "KLIMA",
+    pklima: "pKLIMA",
+    sklima: "sKLIMA",
+    wsklima: "wsKLIMA",
   };
   return (
-    <div className={styles.card + ' ' + status}>
+    <div className={styles.card + " " + status}>
       <div className="header">
         <Text t="h4" className="title">
           <AccountBalanceOutlined />
