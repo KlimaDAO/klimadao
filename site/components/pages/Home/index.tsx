@@ -219,20 +219,14 @@ export const Home: NextPage<Props> = (props) => {
                 height={360}
                 placeholder="blur"
               />
-              <a
-                className="mechanics_label"
-                href="https://www.kryptosign.io/sign/Mm8BMLqV"
-                rel="noreferrer noopener"
-                target="_blank"
-                style={{ cursor: "default", outline: "none" }}
-              >
+              <div className="mechanics_label">
                 <Text t="h4" color="lighter" className="align-end">
                   /03
                 </Text>
                 <Text t="h1" className="align-end">
                   <Trans>Massive impact.</Trans>
                 </Text>
-              </a>
+              </div>
             </div>
           </div>
         </div>
