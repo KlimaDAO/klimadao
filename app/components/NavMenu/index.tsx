@@ -2,11 +2,16 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import {
-  LogoWithClaim,
-  Text,
-  TwitterIcon,
   DiscordIcon,
   GithubIcon,
+  LogoWithClaim,
+  RedditIcon,
+  RSSIcon,
+  TelegramIcon,
+  Text,
+  TwitchIcon,
+  TwitterIcon,
+  YoutubeIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
@@ -186,6 +191,14 @@ export const NavMenu: FC<Props> = (props) => {
           </a>
           <a
             className="navFooter_button"
+            href={urls.youtube}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <YoutubeIcon />
+          </a>
+          <a
+            className="navFooter_button"
             href={urls.discordInvite}
             rel="noreferrer noopener"
             target="_blank"
@@ -194,11 +207,19 @@ export const NavMenu: FC<Props> = (props) => {
           </a>
           <a
             className="navFooter_button"
-            href={urls.officialDocs}
-            rel="noreferrer noopener"
+            href={urls.reddit}
             target="_blank"
+            rel="noreferrer noopener"
           >
-            <MenuBookOutlined />
+            <RedditIcon />
+          </a>
+          <a
+            className="navFooter_button"
+            href={urls.twitch}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <TwitchIcon />
           </a>
           <a
             className="navFooter_button"
@@ -207,6 +228,30 @@ export const NavMenu: FC<Props> = (props) => {
             target="_blank"
           >
             <GithubIcon />
+          </a>
+          <a
+            className="navFooter_button"
+            href={urls.telegram}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <TelegramIcon />
+          </a>
+          <a
+            className="navFooter_button"
+            href={urls.podcast}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <RSSIcon />
+          </a>
+          <a
+            className="navFooter_button"
+            href={urls.officialDocs}
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            <MenuBookOutlined />
           </a>
         </div>
       </div>

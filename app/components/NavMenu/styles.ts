@@ -56,7 +56,7 @@ export const container = css`
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
-    row-gap: 0.8rem;
+    gap: 0.8rem;
   }
   .navFooter_button {
     ${common.iconButton};
