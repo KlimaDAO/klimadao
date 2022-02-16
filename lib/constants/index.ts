@@ -137,3 +137,5 @@ export const SANITY_STUDIO_API_DATASET = "production";
 // Temporary API key for Polygonscan
 // TODO: add to vercel
 export const API_KEY = "XN1YXFZ5GZDH3JWUGFD1AA8ASF371ZA8EA";
+
+export const MONTH_IN_SECONDS = 2592000;
