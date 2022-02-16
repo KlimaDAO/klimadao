@@ -25,7 +25,7 @@ export const CheckURLBanner: FC<Props> = ({ onHide }) => {
             ⚠️ Verify the URL and bookmark this page!
           </Text>
           <Text t="caption" color="lighter" align="center">
-            <strong>klimadao.finance</strong> is the only official domain.
+            <strong>dapp.klimadao.finance</strong> is the only official domain.
           </Text>
         </div>
         <div className={styles.okButtonWrap}>
