@@ -97,7 +97,7 @@ export const urls = {
   mediaRequestForm:
     "https://docs.google.com/forms/d/e/1FAIpQLSdIVolbOvbuw1LHGwT8ec9HHZTWxSluErInZ_TaiqKzAvG30w/viewform",
   partnerShipsContactForm:
-    "https://docs.google.com/forms/d/10ETkwPZyiiEz7BQSCEAxtXRSgQ9uTCO9LtaRqOVhoXk/viewform?chromeless=1&edit_requested=true",
+    "https://notionforms.io/forms/klimadao-request-for-collaboration",
 };
 
 export const INFURA_ID = "0f83eb63faea409abc1f440c9f077646";
