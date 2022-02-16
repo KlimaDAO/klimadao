@@ -1,25 +1,25 @@
-import React, { FC, ReactElement, useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import React, { FC, ReactElement, useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 import {
   LogoWithClaim,
   Text,
   TwitterIcon,
   DiscordIcon,
   GithubIcon,
-} from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
-import { concatAddress } from "@klimadao/lib/utils";
-import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
-import FlipOutlined from "@mui/icons-material/FlipOutlined";
-import Payment from "@mui/icons-material/Payment";
-import SpaOutlined from "@mui/icons-material/SpaOutlined";
+} from '@klimadao/lib/components';
+import { urls } from '@klimadao/lib/constants';
+import { concatAddress } from '@klimadao/lib/utils';
+import LibraryAddOutlined from '@mui/icons-material/LibraryAddOutlined';
+import FlipOutlined from '@mui/icons-material/FlipOutlined';
+import Payment from '@mui/icons-material/Payment';
+import SpaOutlined from '@mui/icons-material/SpaOutlined';
 
-import * as styles from "./styles";
-import { useSelector } from "react-redux";
-import { selectBalances } from "state/selectors";
-import { MenuBookOutlined } from "@mui/icons-material";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import * as styles from './styles';
+import { useSelector } from 'react-redux';
+import { selectBalances } from 'state/selectors';
+import { MenuBookOutlined } from '@mui/icons-material';
+import InfoOutlined from '@mui/icons-material/InfoOutlined';
 
 interface MenuButtonProps {
   icon: ReactElement;
@@ -48,14 +48,13 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
     );
   }
   // to ensure server render match, return plain anchor until hydration is complete
-  if (props.href.startsWith("http") || loading) {
+  if (props.href.startsWith('http') || loading) {
     return (
       <a
         className={styles.sidebarButton}
         data-active={loading ? false : props.isActive}
         href={props.href}
         rel="noopener noreferrer"
-        target="_blank"
       >
         <div className="iconContainer">{props.icon}</div>
         <span>{props.children}</span>
@@ -101,7 +100,7 @@ export const NavMenu: FC<Props> = (props) => {
         <div className="stack-04">
           <Text t="caption">Your Wallet Address:</Text>
           <Text t="caption" color="lightest">
-            {props.address ? concatAddress(props.address) : "NOT CONNECTED"}
+            {props.address ? concatAddress(props.address) : 'NOT CONNECTED'}
           </Text>
         </div>
         <div className="hr" />
@@ -115,7 +114,7 @@ export const NavMenu: FC<Props> = (props) => {
         Buy KLIMA
       </MenuButton>
       <MenuButton
-        isActive={pathname === "/stake"}
+        isActive={pathname === '/stake'}
         href="/stake"
         icon={<LibraryAddOutlined />}
         onClick={handleHide}
@@ -123,7 +122,7 @@ export const NavMenu: FC<Props> = (props) => {
         Stake KLIMA
       </MenuButton>
       <MenuButton
-        isActive={pathname.includes("/bond")}
+        isActive={pathname.includes('/bond')}
         href="/bonds"
         icon={<SpaOutlined />}
         onClick={handleHide}
@@ -131,7 +130,7 @@ export const NavMenu: FC<Props> = (props) => {
         Bond Carbon
       </MenuButton>
       <MenuButton
-        isActive={pathname === "/wrap"}
+        isActive={pathname === '/wrap'}
         href="/wrap"
         icon={<FlipOutlined />}
         onClick={handleHide}
@@ -139,7 +138,7 @@ export const NavMenu: FC<Props> = (props) => {
         Wrap sKLIMA
       </MenuButton>
       <MenuButton
-        isActive={pathname === "/info"}
+        isActive={pathname === '/info'}
         href="/info"
         icon={<InfoOutlined />}
         onClick={handleHide}
@@ -151,7 +150,7 @@ export const NavMenu: FC<Props> = (props) => {
           COMING SOON
         </Text>
         <MenuButton
-          isActive={pathname === "/offset"}
+          isActive={pathname === '/offset'}
           icon={<FlipOutlined />}
           href="/offset"
           disabled={true}
@@ -165,7 +164,7 @@ export const NavMenu: FC<Props> = (props) => {
             ⭐ JUST FOR YOU
           </Text>
           <MenuButton
-            isActive={pathname === "/pklima"}
+            isActive={pathname === '/pklima'}
             icon={<FlipOutlined />}
             href="/pklima"
           >
