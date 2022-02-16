@@ -339,7 +339,7 @@ export const Stake = (props: Props) => {
           </div>
         </div>
       </div>
-      <RebaseCard />
+      <RebaseCard isConnected={props.isConnected} />
       <ImageCard />
     </>
   );
