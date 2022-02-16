@@ -3,14 +3,14 @@ import Link from "next/link";
 import * as styles from "./styles";
 
 import {
-  TwitterIcon,
-  GithubIcon,
   DiscordIcon,
-  YoutubeIcon,
+  GithubIcon,
   RedditIcon,
-  TwitchIcon,
   RSSIcon,
   TelegramIcon,
+  TwitchIcon,
+  TwitterIcon,
+  YoutubeIcon,
 } from "@klimadao/lib/components";
 
 import { urls } from "@klimadao/lib/constants";
@@ -47,6 +47,11 @@ export const Footer: FC = () => (
         <Link href="/contact">
           <a>
             <Trans>Contact</Trans>
+          </a>
+        </Link>
+        <Link href="/disclaimer">
+          <a>
+            <Trans>Disclaimer</Trans>
           </a>
         </Link>
       </nav>
