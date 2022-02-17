@@ -21,7 +21,7 @@ export const footer_content = css`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  row-gap: 2rem;
+  row-gap: 2.4rem;
 
   ${breakpoints.medium} {
     justify-content: center;
