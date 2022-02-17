@@ -8,9 +8,9 @@ export const TwitchIcon = (props: Props) => (
   <svg
     className={props.className}
     role="img"
-    width="18"
+    width="20"
     height="20"
-    viewBox="0 0 22 22"
+    viewBox="1.71 0 20.57 24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <title>Twitch</title>
