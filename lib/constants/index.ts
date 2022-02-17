@@ -102,11 +102,7 @@ export const urls = {
   mediaRequestForm:
     "https://docs.google.com/forms/d/e/1FAIpQLSdIVolbOvbuw1LHGwT8ec9HHZTWxSluErInZ_TaiqKzAvG30w/viewform",
   partnerShipsContactForm:
-<<<<<<< HEAD
     "https://notionforms.io/forms/klimadao-request-for-collaboration",
-=======
-    "https://docs.google.com/forms/d/e/1FAIpQLSds2F7ZEcTkbkUMmYv2SXR4XH7JLBHtRa1Ym1oUGHxdye-t7Q/viewform",
->>>>>>> af3d341 (feat: add social links to site)
 };
 
 export const INFURA_ID = "0f83eb63faea409abc1f440c9f077646";

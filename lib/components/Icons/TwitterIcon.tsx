@@ -4,9 +4,9 @@ interface Props {
   className?: string;
 }
 
-export const TwitterIcon = ({ className }: Props) => (
+export const TwitterIcon = (props: Props) => (
   <svg
-    className={className}
+    className={props.className}
     width="20"
     height="20"
     viewBox="0 0 17 16"

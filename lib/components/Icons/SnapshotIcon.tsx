@@ -4,9 +4,9 @@ interface Props {
   className?: string;
 }
 
-export const SnapshotIcon = ({ className }: Props) => (
+export const SnapshotIcon = (props: Props) => (
   <svg
-    className={className}
+    className={props.className}
     width="20"
     height="20"
     viewBox="0 0 105 126"

@@ -4,13 +4,13 @@ interface Props {
   className?: string;
 }
 
-export const TwitchIcon = ({ className }: Props) => (
+export const TwitchIcon = (props: Props) => (
   <svg
-    className={className}
+    className={props.className}
     role="img"
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
+    width="18"
+    height="20"
+    viewBox="0 0 22 22"
     xmlns="http://www.w3.org/2000/svg"
   >
     <title>Twitch</title>

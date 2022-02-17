@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import { cx } from "@emotion/css";
-import { ThemeMoon } from "../Icons/ThemeMoon";
+import { ThemeMoonIcon } from "../Icons/ThemeMoonIcon";
 import * as styles from "./styles";
 
 export const ThemeToggle: FC = () => {
@@ -23,7 +23,7 @@ export const ThemeToggle: FC = () => {
       type="button"
       onClick={() => setActiveTheme(inactiveTheme)}
     >
-      <ThemeMoon />
+      <ThemeMoonIcon />
     </button>
   );
 };

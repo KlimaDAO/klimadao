@@ -4,9 +4,9 @@ interface Props {
   className?: string;
 }
 
-export const YoutubeIcon = ({ className }: Props) => (
+export const YoutubeIcon = (props: Props) => (
   <svg
-    className={className}
+    className={props.className}
     role="img"
     width="20"
     height="20"

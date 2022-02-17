@@ -4,9 +4,9 @@ interface Props {
   className?: string;
 }
 
-export const RSSIcon = ({ className }: Props) => (
+export const RSSIcon = (props: Props) => (
   <svg
-    className={className}
+    className={props.className}
     role="img"
     width="18"
     height="18"

@@ -4,9 +4,9 @@ interface Props {
   className?: string;
 }
 
-export const GithubIcon = ({ className }: Props) => (
+export const GithubIcon = (props: Props) => (
   <svg
-    className={className}
+    className={props.className}
     width="20"
     height="20"
     viewBox="0 0 16 16"

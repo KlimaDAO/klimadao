@@ -1,7 +1,12 @@
 import React from "react";
 
-export const MetaMaskFox = () => (
+interface Props {
+  className?: string;
+}
+
+export const MetaMaskFoxIcon = (props: Props) => (
   <svg
+    className={props.className}
     xmlns="http://www.w3.org/2000/svg"
     x="0"
     y="0"
@@ -10,7 +15,7 @@ export const MetaMaskFox = () => (
     viewBox="0 0 318.6 318.6"
     xmlSpace="preserve"
   >
-    <title>Metamask</title>
+    <title>MetaMask</title>
     <path d="M274.1 35.5L174.6 109.4 193 65.8z" className="st0"></path>
     <path d="M44.4 35.5L143.1 110.1 125.6 65.8z" className="st1"></path>
     <path

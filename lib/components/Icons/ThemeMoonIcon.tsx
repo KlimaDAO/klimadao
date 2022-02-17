@@ -4,9 +4,9 @@ interface Props {
   className?: string;
 }
 
-export const ThemeMoon = ({ className }: Props) => (
+export const ThemeMoonIcon = (props: Props) => (
   <svg
-    className={className}
+    className={props.className}
     width="13"
     height="18"
     viewBox="0 0 13 18"
