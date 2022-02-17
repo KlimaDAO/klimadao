@@ -56,14 +56,14 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
   // to ensure server render match, return plain anchor until hydration is complete
   if (props.href.startsWith("http") || loading) {
     return (
-      <A
+      <a
         className={styles.sidebarButton}
         data-active={loading ? false : props.isActive}
         href={props.href}
       >
         <div className="iconContainer">{props.icon}</div>
         <span>{props.children}</span>
-      </A>
+      </a>
     );
   }
   const handleClick = () => {
