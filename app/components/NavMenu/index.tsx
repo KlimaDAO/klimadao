@@ -2,6 +2,7 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import {
+  Anchor as A,
   DiscordIcon,
   GithubIcon,
   LogoWithClaim,
@@ -55,16 +56,14 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
   // to ensure server render match, return plain anchor until hydration is complete
   if (props.href.startsWith("http") || loading) {
     return (
-      <a
+      <A
         className={styles.sidebarButton}
         data-active={loading ? false : props.isActive}
         href={props.href}
-        rel="noopener noreferrer"
-        target="_blank"
       >
         <div className="iconContainer">{props.icon}</div>
         <span>{props.children}</span>
-      </a>
+      </A>
     );
   }
   const handleClick = () => {
@@ -181,78 +180,33 @@ export const NavMenu: FC<Props> = (props) => {
       <div className="navFooter">
         <div className="hr" />
         <div className="navFooter_buttons">
-          <a
-            className="navFooter_button"
-            href={urls.twitter}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
+          <A className="navFooter_button" href={urls.twitter}>
             <TwitterIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.youtube}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.youtube}>
             <YoutubeIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.discordInvite}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.discordInvite}>
             <DiscordIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.reddit}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.reddit}>
             <RedditIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.twitch}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.twitch}>
             <TwitchIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.github}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.github}>
             <GithubIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.telegram}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.telegram}>
             <TelegramIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.podcast}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.podcast}>
             <RSSIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.officialDocs}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.officialDocs}>
             <MenuBookOutlined />
-          </a>
+          </A>
         </div>
       </div>
     </nav>

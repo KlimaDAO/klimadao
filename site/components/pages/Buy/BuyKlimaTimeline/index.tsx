@@ -1,6 +1,5 @@
 import React, { FC, ReactNode } from "react";
-
-import { Text } from "@klimadao/lib/components";
+import { Anchor as A, Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 
@@ -18,14 +17,9 @@ const cardContent: CardContent[] = [
         </Text>
         <Text color="lighter">
           Use this link:{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://metamask.io/"
-            className={styles.link}
-          >
+          <A href="https://metamask.io/" className={styles.link}>
             https://metamask.io/
-          </a>
+          </A>
         </Text>
         <div className={styles.iframeContainer}>
           <iframe
@@ -48,14 +42,9 @@ const cardContent: CardContent[] = [
         <Text color="lighter">
           Using the browser you've designated for cryptocurrency trades, go to
           the Zapper website:{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://zapper.fi/"
-            className={styles.link}
-          >
+          <A href="https://zapper.fi/" className={styles.link}>
             https://zapper.fi/
-          </a>
+          </A>
         </Text>
         <Text color="lighter">
           Click Connect Wallet on the homepage, and log in to your MetaMask
@@ -138,14 +127,12 @@ const cardContent: CardContent[] = [
         <Text t="h5">EXAMPLE 01 - Crypto.com</Text>
         <Text color="lighter">
           Here is a video tutorial on how to withdraw MATIC from crypto.com:{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
+          <A
             href="https://www.youtube.com/watch?v=6rvuH5h61Gc"
             className={styles.link}
           >
             https://www.youtube.com/watch?v=6rvuH5h61Gc
-          </a>
+          </A>
         </Text>
         <Text t="h5">EXAMPLE 02 - Binance</Text>
         <Text color="lighter">

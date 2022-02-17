@@ -1,8 +1,10 @@
 import React, { FC } from "react";
+import { Trans } from "@lingui/macro";
 import Link from "next/link";
 import * as styles from "./styles";
 
 import {
+  Anchor as A,
   DiscordIcon,
   GithubIcon,
   RedditIcon,
@@ -12,9 +14,7 @@ import {
   TwitterIcon,
   YoutubeIcon,
 } from "@klimadao/lib/components";
-
 import { urls } from "@klimadao/lib/constants";
-import { Trans } from "@lingui/macro";
 
 export const Footer: FC = () => (
   <footer className={styles.footer}>
@@ -57,30 +57,30 @@ export const Footer: FC = () => (
       </nav>
 
       <nav className={styles.footer_icons}>
-        <a href={urls.twitter} target="_blank" rel="noreferrer noopener">
+        <A href={urls.twitter}>
           <TwitterIcon />
-        </a>
-        <a href={urls.youtube} target="_blank" rel="noreferrer noopener">
+        </A>
+        <A href={urls.youtube}>
           <YoutubeIcon />
-        </a>
-        <a href={urls.discordInvite} target="_blank" rel="noreferrer noopener">
+        </A>
+        <A href={urls.discordInvite}>
           <DiscordIcon />
-        </a>
-        <a href={urls.reddit} target="_blank" rel="noreferrer noopener">
+        </A>
+        <A href={urls.reddit}>
           <RedditIcon />
-        </a>
-        <a href={urls.twitch} target="_blank" rel="noreferrer noopener">
+        </A>
+        <A href={urls.twitch}>
           <TwitchIcon />
-        </a>
-        <a href={urls.github} target="_blank" rel="noreferrer noopener">
+        </A>
+        <A href={urls.github}>
           <GithubIcon />
-        </a>
-        <a href={urls.telegram} target="_blank" rel="noreferrer noopener">
+        </A>
+        <A href={urls.telegram}>
           <TelegramIcon />
-        </a>
-        <a href={urls.podcast} target="_blank" rel="noreferrer noopener">
+        </A>
+        <A href={urls.podcast}>
           <RSSIcon />
-        </a>
+        </A>
       </nav>
     </div>
   </footer>

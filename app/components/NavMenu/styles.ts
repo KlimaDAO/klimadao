@@ -41,16 +41,19 @@ export const container = css`
     display: grid;
     gap: 0.8rem;
   }
+
   .navFooter {
     margin-top: auto;
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
   }
+
   .navFooter .hr {
     grid-row: 1 / 1;
     grid-column: 1 /4;
   }
+
   .navFooter_buttons {
     display: flex;
     justify-content: space-between;
@@ -58,6 +61,7 @@ export const container = css`
     flex-wrap: wrap;
     gap: 0.8rem;
   }
+
   .navFooter_button {
     ${common.iconButton};
   }
@@ -101,12 +105,15 @@ export const sidebarButton = css`
     background-color: var(--surface-01);
     border: 1px solid var(--surface-03);
   }
+
   &[data-active="true"] span {
     color: var(--font-01);
   }
+
   &[data-active="true"] .iconContainer {
     background-color: var(--klima-green);
   }
+  
   &[data-disabled="true"] {
     opacity: 0.5;
   }

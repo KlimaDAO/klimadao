@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 
-import { Text } from "@klimadao/lib/components";
+import { Anchor as A, Text } from "@klimadao/lib/components";
 
 import BlockContent, {
   BlockContentProps,
@@ -77,14 +77,9 @@ const serializers: BlockContentProps["serializers"] = {
     link: ({ children, mark }) => {
       const { href } = mark;
       return (
-        <a
-          className={styles.link}
-          href={href}
-          target="_blank"
-          rel="noreferrer noopener"
-        >
+        <A className={styles.link} href={href}>
           {children}
-        </a>
+        </A>
       );
     },
   },
