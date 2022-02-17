@@ -113,7 +113,7 @@ export const sidebarButton = css`
   &[data-active="true"] .iconContainer {
     background-color: var(--klima-green);
   }
-  
+
   &[data-disabled="true"] {
     opacity: 0.5;
   }
