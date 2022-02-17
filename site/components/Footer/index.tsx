@@ -1,69 +1,87 @@
 import React, { FC } from "react";
+import { Trans } from "@lingui/macro";
 import Link from "next/link";
 import * as styles from "./styles";
 
-import { TwitterIcon, GithubIcon, DiscordIcon } from "@klimadao/lib/components";
-
+import {
+  Anchor as A,
+  DiscordIcon,
+  GithubIcon,
+  RedditIcon,
+  RSSIcon,
+  TelegramIcon,
+  TwitchIcon,
+  TwitterIcon,
+  YoutubeIcon,
+} from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { Trans } from "@lingui/macro";
 
-export const Footer: FC = () => {
-  return (
-    <footer className={styles.footer}>
-      <div className={styles.footer_content}>
-        <nav className={styles.footer_nav}>
-          <Link href="/">
-            <a>
-              <Trans>Home</Trans>
-            </a>
-          </Link>
-          <Link href="/buy">
-            <a>
-              <Trans>Get KLIMA</Trans>
-            </a>
-          </Link>
-          <a href={urls.stake} target="_blank" rel="noopener noreferrer">
-            <Trans>Stake</Trans>
+export const Footer: FC = () => (
+  <footer className={styles.footer}>
+    <div className={styles.footer_content}>
+      <nav className={styles.footer_nav}>
+        <Link href="/">
+          <a>
+            <Trans>Home</Trans>
           </a>
-          <a href={urls.bonds} target="_blank" rel="noopener noreferrer">
-            <Trans>Bond</Trans>
+        </Link>
+        <Link href="/buy">
+          <a>
+            <Trans>Get KLIMA</Trans>
           </a>
-          <a href={urls.officialDocs} target="_blank" rel="noreferrer noopener">
-            <Trans>Docs</Trans>
+        </Link>
+        <a href={urls.stake}>
+          <Trans>Stake</Trans>
+        </a>
+        <a href={urls.bonds}>
+          <Trans>Bond</Trans>
+        </a>
+        <a href={urls.officialDocs} target="_blank" rel="noreferrer noopener">
+          <Trans>Docs</Trans>
+        </a>
+        <Link href="/blog">
+          <a>
+            <Trans>Blog</Trans>
           </a>
-          <Link href="/blog">
-            <a>
-              <Trans>Blog</Trans>
-            </a>
-          </Link>
-          <Link href="/contact">
-            <a>
-              <Trans>Contact</Trans>
-            </a>
-          </Link>
-          <Link href="/disclaimer">
-            <a>
-              <Trans>Disclaimer</Trans>
-            </a>
-          </Link>
-        </nav>
+        </Link>
+        <Link href="/contact">
+          <a>
+            <Trans>Contact</Trans>
+          </a>
+        </Link>
+        <Link href="/disclaimer">
+          <a>
+            <Trans>Disclaimer</Trans>
+          </a>
+        </Link>
+      </nav>
 
-        <nav className={styles.footer_icons}>
-          <a href={urls.twitter} target="_blank" rel="noreferrer noopener">
-            <TwitterIcon />
-          </a>
-          <a href={urls.github} target="_blank" rel="noreferrer noopener">
-            <GithubIcon />
-          </a>
-          <a
-            href={urls.discordInvite}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <DiscordIcon className="discordIcon" />
-          </a>
-        </nav>
-      </div>
-    </footer>
-  );
-};
+      <nav className={styles.footer_icons}>
+        <A href={urls.twitter}>
+          <TwitterIcon />
+        </A>
+        <A href={urls.youtube}>
+          <YoutubeIcon />
+        </A>
+        <A href={urls.discordInvite}>
+          <DiscordIcon />
+        </A>
+        <A href={urls.reddit}>
+          <RedditIcon />
+        </A>
+        <A href={urls.twitch}>
+          <TwitchIcon />
+        </A>
+        <A href={urls.github}>
+          <GithubIcon />
+        </A>
+        <A href={urls.telegram}>
+          <TelegramIcon />
+        </A>
+        <A href={urls.podcast}>
+          <RSSIcon />
+        </A>
+      </nav>
+    </div>
+  </footer>
+);

@@ -4,14 +4,15 @@ interface Props {
   className?: string;
 }
 
-export const SnapshotIcon = ({ className }: Props) => (
+export const SnapshotIcon = (props: Props) => (
   <svg
-    className={className}
-    width="105px"
-    height="126px"
+    className={props.className}
+    width="20"
+    height="20"
     viewBox="0 0 105 126"
     xmlns="http://www.w3.org/2000/svg"
   >
+    <title>Snapshot</title>
     <g id="icon" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="Group" fill="#FFAC33" fillRule="nonzero">
         <path

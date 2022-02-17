@@ -18,23 +18,29 @@ export const footer = css`
 export const footer_content = css`
   grid-column: main;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex: 1;
+  row-gap: 2.4rem;
 
-  ${breakpoints.desktop} {
-    text-align: center;
+  ${breakpoints.medium} {
+    justify-content: center;
+  }
+
+  ${breakpoints.large} {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 
 export const footer_nav = css`
   font-size: 1.4rem;
-  display: grid;
-  gap: 1.6rem 3.2rem;
   max-height: 12rem;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
+  gap: 1.6rem 3.2rem;
+  justify-content: center;
+
   & a {
     color: var(--font-02) !important;
   }
@@ -45,6 +51,7 @@ export const footer_nav = css`
 
   ${breakpoints.large} {
     gap: 1.6rem 7rem;
+    flex-direction: column;
   }
 
   ${breakpoints.desktop} {
@@ -58,13 +65,10 @@ export const footer_nav = css`
 
 export const footer_icons = css`
   display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-direction: column;
-  gap: 2rem;
-
-  & a {
-    margin: 0 1rem;
-  }
+  justify-content: center;
+  gap: 1.6rem;
 
   & svg path {
     fill: var(--font-02);
@@ -74,13 +78,7 @@ export const footer_icons = css`
     fill: var(--font-01);
   }
 
-  & .discordIcon {
-    width: 2rem;
-    height: 2rem;
-  }
-
   ${breakpoints.medium} {
     flex-direction: row;
-    gap: 1rem;
   }
 `;

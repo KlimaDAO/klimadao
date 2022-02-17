@@ -14,6 +14,7 @@ interface CardProps {
 
 export function Card(props: CardProps) {
   const date = new Date(props.post.publishedAt).toLocaleDateString("en");
+
   return (
     <Link href={`/blog/${props.post.slug}`}>
       <a className={styles.card}>

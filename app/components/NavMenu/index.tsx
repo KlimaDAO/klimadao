@@ -2,11 +2,17 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import {
-  LogoWithClaim,
-  Text,
-  TwitterIcon,
+  Anchor as A,
   DiscordIcon,
   GithubIcon,
+  LogoWithClaim,
+  RedditIcon,
+  RSSIcon,
+  TelegramIcon,
+  Text,
+  TwitchIcon,
+  TwitterIcon,
+  YoutubeIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
@@ -54,8 +60,6 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
         className={styles.sidebarButton}
         data-active={loading ? false : props.isActive}
         href={props.href}
-        rel="noopener noreferrer"
-        target="_blank"
       >
         <div className="iconContainer">{props.icon}</div>
         <span>{props.children}</span>
@@ -176,38 +180,33 @@ export const NavMenu: FC<Props> = (props) => {
       <div className="navFooter">
         <div className="hr" />
         <div className="navFooter_buttons">
-          <a
-            className="navFooter_button"
-            href={urls.twitter}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
+          <A className="navFooter_button" href={urls.twitter}>
             <TwitterIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.discordInvite}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.youtube}>
+            <YoutubeIcon />
+          </A>
+          <A className="navFooter_button" href={urls.discordInvite}>
             <DiscordIcon />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.officialDocs}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <MenuBookOutlined />
-          </a>
-          <a
-            className="navFooter_button"
-            href={urls.github}
-            rel="noreferrer noopener"
-            target="_blank"
-          >
+          </A>
+          <A className="navFooter_button" href={urls.reddit}>
+            <RedditIcon />
+          </A>
+          <A className="navFooter_button" href={urls.twitch}>
+            <TwitchIcon />
+          </A>
+          <A className="navFooter_button" href={urls.github}>
             <GithubIcon />
-          </a>
+          </A>
+          <A className="navFooter_button" href={urls.telegram}>
+            <TelegramIcon />
+          </A>
+          <A className="navFooter_button" href={urls.podcast}>
+            <RSSIcon />
+          </A>
+          <A className="navFooter_button" href={urls.officialDocs}>
+            <MenuBookOutlined />
+          </A>
         </div>
       </div>
     </nav>

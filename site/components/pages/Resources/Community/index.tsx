@@ -3,6 +3,7 @@ import Image from "next/image";
 import ForumIcon from "@mui/icons-material/Forum";
 
 import {
+  Anchor as A,
   ButtonPrimary,
   Text,
   Section,
@@ -28,42 +29,27 @@ import olympusLogo from "public/olympus_logo.png";
 import { urls } from "@klimadao/lib/constants";
 
 const DiscordButton: FC = () => (
-  <a
-    className={styles.page_discordButton}
-    href={urls.discordInvite}
-    target="_blank"
-    rel="noreferrer noopener"
-  >
+  <A className={styles.page_discordButton} href={urls.discordInvite}>
     <DiscordIcon className={styles.page_discordIcon} />
     <span>|</span>
     <span>Discord</span>
-  </a>
+  </A>
 );
 
 const SnapshotButton: FC = () => (
-  <a
-    className={styles.page_baseHeaderButtons}
-    href={urls.snapshot}
-    target="_blank"
-    rel="noreferrer noopener"
-  >
+  <A className={styles.page_baseHeaderButtons} href={urls.snapshot}>
     <SnapshotIcon className={styles.page_snapshotIcon} />
     <span>|</span>
     <span>Snapshot</span>
-  </a>
+  </A>
 );
 
 const ForumButton: FC = () => (
-  <a
-    className={styles.page_baseHeaderButtons}
-    href={urls.forum}
-    target="_blank"
-    rel="noreferrer noopener"
-  >
+  <A className={styles.page_baseHeaderButtons} href={urls.forum}>
     <ForumIcon fontSize="large" className={styles.page_forumIcon} />
     <span>|</span>
     <span>Forums</span>
-  </a>
+  </A>
 );
 
 const HeaderElements: FC = () => (
@@ -121,68 +107,52 @@ export const Community: NextPage = () => (
         </div>
         <div className={styles.partner_logos}>
           <div className="partner_logo">
-            <a href="https://moss.earth/" target="_blank" rel="noreferrer">
+            <A href="https://moss.earth/">
               <Image alt={t`MOSS logo`} src={mossLogo} />
-            </a>
+            </A>
           </div>
           <div className="partner_logo">
-            <a href="https://toucan.earth/" target="_blank" rel="noreferrer">
+            <A href="https://toucan.earth/">
               <Image alt={t`Toucan logo`} src={toucanLogo} />
-            </a>
+            </A>
           </div>
           <div className="partner_logo">
-            <a
-              href="https://www.blockchainforclimate.org/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <A href="https://www.blockchainforclimate.org/">
               <Image
                 alt={t`Blockchain for Climate Foundation logo`}
                 src={bcfcLogo}
               />
-            </a>
+            </A>
           </div>
           <div className="partner_logo">
-            <a
-              href="https://twitter.com/BICOWG"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <A href="https://twitter.com/BICOWG">
               <Image alt={t`BICOWG logo`} src={bicoWgLogo} />
-            </a>
+            </A>
           </div>
           <div className="partner_logo">
-            <a
-              href="https://polygon.technology/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <A href="https://polygon.technology/">
               <Image alt={t`Polygon logo`} src={polygonLogo} />
-            </a>
+            </A>
           </div>
           <div className="partner_logo">
-            <a href="https://oceandrop.art/" target="_blank" rel="noreferrer">
+            <A href="https://oceandrop.art/">
               <Image alt={t`Oceandrop logo`} src={oceandropLogo} />
-            </a>
+            </A>
           </div>
           <div className="partner_logo">
-            <a href="https://gitcoin.co/" target="_blank" rel="noreferrer">
+            <A href="https://gitcoin.co/">
               <Image alt={t`Gitcoin logo`} src={gitcoinLogo} />
-            </a>
+            </A>
           </div>
           <div className="partner_logo">
-            <a
-              href="https://www.olympusdao.finance/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <A href="https://www.olympusdao.finance/">
               <Image alt={t`OlympusDAO logo`} src={olympusLogo} />
-            </a>
+            </A>
           </div>
           <div className="partner_logo">
-            <a href="https://openearth.org/" target="_blank" rel="noreferrer">
+            <A href="https://openearth.org/">
               <Image alt={t`Open Earth logo`} src={openearthLogo} />
-            </a>
+            </A>
           </div>
         </div>
       </div>

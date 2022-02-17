@@ -1,7 +1,12 @@
 import { NextPage } from "next";
 import Image from "next/image";
 
-import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
+import {
+  Anchor as A,
+  Text,
+  Section,
+  ButtonPrimary,
+} from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 import { Navigation } from "components/Navigation";
@@ -142,13 +147,9 @@ export const Buy: NextPage<Props> = ({}) => {
           </Text>
           <Text t="body3" color="lighter">
             We recommend that you visit our{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.notion.so/klima-dao/Crypto-Security-101-Advanced-Guide-to-Staying-Safe-in-Crypto-3f577a5b2857428a99caf9470490ad39"
-            >
+            <A href="https://www.notion.so/klima-dao/Crypto-Security-101-Advanced-Guide-to-Staying-Safe-in-Crypto-3f577a5b2857428a99caf9470490ad39">
               Crypto Security 101
-            </a>{" "}
+            </A>{" "}
             page for safety tips before you get started. REMEMBER: never share
             your private key or seed phrase with anyone - neither our members
             nor our dApp will ever ask for or request this from you. While our

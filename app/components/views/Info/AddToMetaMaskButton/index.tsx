@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { providers } from "ethers";
 import styles from "./index.module.css";
-import { AdressInfo } from "..";
+import { AddressInfo } from "..";
 
 interface Props {
-  info: AdressInfo;
+  info: AddressInfo;
   provider: providers.Web3Provider;
 }
 
