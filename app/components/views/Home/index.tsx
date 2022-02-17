@@ -2,6 +2,7 @@ import { ethers, providers } from "ethers";
 import { FC, useRef, useState, useEffect } from "react";
 import { useNavigate, Route, useLocation } from "react-router-dom";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import WalletLink from "walletlink";
 import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
@@ -49,6 +50,16 @@ const useWeb3Modal = () => {
           options: {
             // infuraId: INFURA_ID,
             rpc: { 137: urls.polygonMainnetRpc },
+          },
+        },
+        walletlink: {
+          package: WalletLink,
+          options: {
+            appName: "Official KlimaDAO Dapp",
+            rpc: urls.polygonMainnetRpc,
+            chainId: 137, // Optional. It defaults to 1 if not provided
+            appLogoUrl: null, // Optional. Application logo image URL. favicon is used if unspecified
+            darkMode: false, // Optional. Use dark theme, defaults to false
           },
         },
       },
