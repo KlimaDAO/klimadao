@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React from "react";
 
 export interface PageHeadProps {
@@ -15,6 +16,9 @@ export interface PageHeadProps {
 
 export const PageHead = (props: PageHeadProps) => {
   const noRobots = props.doNotIndex || !props.production;
+  const router = useRouter();
+  const relativePath = router.asPath.split(/[#,?]/)[0];
+  const canonicalUrl = `https://www.klimadao.finance${relativePath}`;
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
@@ -33,6 +37,7 @@ export const PageHead = (props: PageHeadProps) => {
         <meta property="og:image" content={props.mediaImageSrc} />
       )}
       <meta property="og:type" content="website" />
+      <link rel="canonical" href={canonicalUrl} />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
