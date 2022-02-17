@@ -12,7 +12,7 @@ import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 import { ImageCard } from "components/ImageCard";
 
-export interface AdressInfo {
+export interface AddressInfo {
   name: string;
   address: string;
   ariaLabel: string;
@@ -27,7 +27,7 @@ interface Props {
 }
 
 export const Info: FC<Props> = (props) => {
-  const addressInfo: AdressInfo[] = [
+  const addressInfo: AddressInfo[] = [
     {
       name: "KLIMA Token",
       address: addresses["mainnet"].klima,
