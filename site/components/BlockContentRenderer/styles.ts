@@ -26,6 +26,9 @@ export const blockQuote = css`
 `;
 
 export const inlineImage = css`
+  position: relative;
+  width: 100%;
+  padding-bottom: 62.5%;
   display: flex;
   justify-content: center;
   margin: 2rem 0;

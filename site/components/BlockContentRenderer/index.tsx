@@ -92,8 +92,7 @@ const serializers: BlockContentProps["serializers"] = {
             src={params.node.asset.url}
             alt="inline image"
             objectFit="contain"
-            width={640}
-            height={480}
+            layout="fill"
           />
         </div>
       );
