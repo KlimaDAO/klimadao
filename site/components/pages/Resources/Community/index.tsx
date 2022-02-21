@@ -15,7 +15,7 @@ import * as styles from "./styles";
 import { Container } from "../Container";
 import { FC } from "react";
 import treesDesktop from "public/omar-ram-OicnHt5EahE-unsplash-desktop.jpg";
-import mossLogo from "public/moss.png";
+import mossLogo from "public/moss_logo.png";
 import beachDesktop from "public/usgs-JiuVoQd-ZLk-unsplash-desktop.jpg";
 import screenShotDesktop from "public/screenshot_discord.png";
 import bcfcLogo from "public/bcfc_sm.png";
