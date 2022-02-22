@@ -24,11 +24,11 @@ export const partner_logos = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2.4rem;
+  gap: 3.2rem;
   background-color: #ffffff;
   border-radius: 1.6rem;
   align-items: center;
-  padding: 2.4rem;
+  padding: 3.2rem;
   margin-top: 2.4rem;
   max-width: 64rem;
   justify-self: center;

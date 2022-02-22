@@ -1,7 +1,9 @@
+import { FC } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 import ForumIcon from "@mui/icons-material/Forum";
-
+import { Trans, t } from "@lingui/macro";
+import { urls } from "@klimadao/lib/constants";
 import {
   Anchor as A,
   ButtonPrimary,
@@ -10,23 +12,21 @@ import {
   DiscordIcon,
   SnapshotIcon,
 } from "@klimadao/lib/components";
-import { Trans, t } from "@lingui/macro";
+import bcfcLogo from "public/logo-bcfc.png";
+import beachImage from "public/bg-beach.jpg";
+import bicoWgLogo from "public/logo-bicowg.png";
+import discordImage from "public/bg-discord.png";
+import gitcoinLogo from "public/logo-gitcoin.png";
+import mossLogo from "public/logo-moss.png";
+import oceandropLogo from "public/logo-oceandrop.svg";
+import olympusLogo from "public/logo-olympus.png";
+import openEarthLogo from "public/logo-open-earth.png";
+import polygonLogo from "public/logo-polygon.svg";
+import toucanLogo from "public/logo-toucan.png";
+import treeGroveImage from "public/bg-tree-grove.jpg";
+
 import * as styles from "./styles";
 import { Container } from "../Container";
-import { FC } from "react";
-import treesDesktop from "public/omar-ram-OicnHt5EahE-unsplash-desktop.jpg";
-import mossLogo from "public/moss.png";
-import beachDesktop from "public/usgs-JiuVoQd-ZLk-unsplash-desktop.jpg";
-import screenShotDesktop from "public/screenshot_discord.png";
-import bcfcLogo from "public/bcfc_sm.png";
-import bicoWgLogo from "public/bicowg_simple.png";
-import gitcoinLogo from "public/gitcoin_logo.png";
-import oceandropLogo from "public/oceandrop.svg";
-import toucanLogo from "public/toucan_logo.png";
-import polygonLogo from "public/polygon-logo.svg";
-import openearthLogo from "public/open_earth_black_horizontal.png";
-import olympusLogo from "public/olympus_logo.png";
-import { urls } from "@klimadao/lib/constants";
 
 const DiscordButton: FC = () => (
   <A className={styles.page_discordButton} href={urls.discordInvite}>
@@ -89,7 +89,7 @@ export const Community: NextPage = () => (
           <ButtonPrimary href={"/contact"} label={"Contact Us"} />
           <Image
             alt={t`Tree grove`}
-            src={treesDesktop}
+            src={treeGroveImage}
             width={700}
             height={300}
             objectFit="cover"
@@ -151,7 +151,7 @@ export const Community: NextPage = () => (
           </div>
           <div className="partner_logo">
             <A href="https://openearth.org/">
-              <Image alt={t`Open Earth logo`} src={openearthLogo} />
+              <Image alt={t`Open Earth logo`} src={openEarthLogo} />
             </A>
           </div>
         </div>
@@ -160,7 +160,7 @@ export const Community: NextPage = () => (
 
     <Section className={styles.beachSection}>
       <Image
-        src={beachDesktop}
+        src={beachImage}
         layout="fill"
         alt="Overhead view of a beach."
         objectFit="cover"
@@ -205,7 +205,7 @@ export const Community: NextPage = () => (
           </div>
           <div className="joinDiscord_dummy">
             <Image
-              src={screenShotDesktop}
+              src={discordImage}
               width={600}
               height={307}
               alt="Screenshot of Discord"
