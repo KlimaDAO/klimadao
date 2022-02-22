@@ -1,15 +1,17 @@
 import React, { useRef } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { urls } from "@klimadao/lib/constants";
 import { Section, ButtonPrimary, Text } from "@klimadao/lib/components";
 
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
-import { urls } from "@klimadao/lib/constants";
+import { LatestPost } from "lib/queries";
 
 import forest from "public/forest.jpg";
 import cars from "public/cars.jpg";
@@ -23,11 +25,12 @@ import dummyswap from "public/dummyswap.png";
 
 import * as styles from "./styles";
 import { ParralaxWormhole } from "./ParralaxWormhole";
-import Link from "next/link";
+
 export interface Props {
-  treasuryBalance: number;
-  stakingAPY: number;
+  latestPost: LatestPost;
   price: number;
+  stakingAPY: number;
+  treasuryBalance: number;
 }
 
 const hectaresForestPerTonne = 1 / 200;
@@ -65,16 +68,19 @@ export const Home: NextPage<Props> = (props) => {
 
       <Section variant="gray" className={styles.heroSection}>
         <div className="hero_container">
-          <div className="hero_newsBanner">
-            <Text t="button" align="end">
-              <Trans>📰 Recent Post: </Trans>
-            </Text>
-            <Link href="/blog/a-new-face-for-klimadao">
-              <a>
-                <Trans>A New Face For KlimaDAO</Trans>
-              </a>
-            </Link>
-          </div>
+          {props.latestPost && (
+            <div className="hero_newsBanner">
+              <Text t="button" align="end">
+                <Trans>📰 Latest News: </Trans>
+              </Text>
+              <Link href={`/blog/${props.latestPost.slug}`}>
+                <a>
+                  <Trans>{props.latestPost.title}</Trans>
+                </a>
+              </Link>
+            </div>
+          )}
+
           <div className="hero_cardsGroup">
             <div className="hero_whiteCard">
               <div className="hero_title">
