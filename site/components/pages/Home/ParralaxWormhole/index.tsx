@@ -1,6 +1,6 @@
 import Image from "next/image";
 import * as styles from "./styles";
-import wormhole from "public/green-wormhole-vertical.jpg";
+import wormhole from "public/bg-green-wormhole.jpg";
 import { useEffect, useRef, useState } from "react";
 
 /** Given distance from top of viewport, interpolate value between 35%-90% */
