@@ -21,7 +21,7 @@ export const queries = {
   /** fetch all the blog post slugs, for getStaticPaths */
   allPostSlugs: '*[_type == "post"] {"slug": slug.current}',
   latestPost:
-    '*[_type == "post"] | order(_createdAt desc){"slug": slug.current, title}[0]',
+    '*[_type == "post"] | order(publishedAt desc){"slug": slug.current, title}[0]',
   /** fetch a blog post based on slug */
   post,
 };

@@ -74,9 +74,7 @@ export const Home: NextPage<Props> = (props) => {
                 <Trans>📰 Latest News: </Trans>
               </Text>
               <Link href={`/blog/${props.latestPost.slug}`}>
-                <a>
-                  <Trans>{props.latestPost.title}</Trans>
-                </a>
+                <a>{props.latestPost.title}</a>
               </Link>
             </div>
           )}
