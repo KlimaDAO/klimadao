@@ -19,7 +19,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.23.2",
     "ethers": "^5.5.2",
-    "next": "^12.0.7",
+    "next": "^12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
