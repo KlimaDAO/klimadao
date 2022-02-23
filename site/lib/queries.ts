@@ -18,8 +18,6 @@ export const queries = {
   /** fetch all blog posts, sorted by publishedAt */
   allPosts:
     '*[_type == "post"] | order(publishedAt desc) {summary, "slug": slug.current, title, publishedAt, author->, "imageUrl": mainImage.asset->url}',
-  /** fetch all the blog post slugs, for getStaticPaths */
-  allPostSlugs: '*[_type == "post"] {"slug": slug.current}',
   latestPost:
     '*[_type == "post"] | order(publishedAt desc){"slug": slug.current, title}[0]',
   /** fetch a blog post based on slug */
@@ -36,7 +34,6 @@ export type PostDetails = {
   imageUrl?: string;
 };
 export type AllPosts = PostDetails[];
-export type AllPostSlugs = { slug: string }[];
 export type LatestPost = { slug: string; title: string };
 
 export type Post = {
@@ -51,7 +48,6 @@ export type Post = {
 
 export interface QueryContent {
   allPosts: AllPosts;
-  allPostSlugs: AllPostSlugs;
   latestPost: LatestPost;
   post: Post;
 }
