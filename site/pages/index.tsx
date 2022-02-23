@@ -5,6 +5,7 @@ import {
   getTreasuryBalance,
 } from "@klimadao/lib/utils";
 import { Home, Props } from "components/pages/Home";
+import { fetchCMSContent } from "lib/fetchCMSContent";
 import { loadTranslation } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
@@ -13,12 +14,15 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
     getStakingAPY(),
     getKlimaUsdcPrice(),
   ]);
+  const latestPost = await fetchCMSContent("latestPost");
   const translation = await loadTranslation(ctx.locale);
+
   return {
     props: {
-      treasuryBalance,
-      stakingAPY,
+      latestPost,
       price,
+      stakingAPY,
+      treasuryBalance,
       translation,
     },
     revalidate: 60,
