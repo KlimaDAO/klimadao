@@ -28,8 +28,6 @@ import { ParralaxWormhole } from "./ParralaxWormhole";
 
 export interface Props {
   latestPost: LatestPost;
-  price: number;
-  stakingAPY: number;
   treasuryBalance: number;
 }
 
