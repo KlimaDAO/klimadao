@@ -85,15 +85,18 @@ const serializers: BlockContentProps["serializers"] = {
   },
   types: {
     block: BlockRenderer,
-    image: (params: { node: { asset: { url: string } } }) => {
+    image: (params: {
+      node: { asset: { url: string; width: number; height: number } };
+    }) => {
       return (
         <div className={styles.inlineImage}>
           <Image
             src={params.node.asset.url}
             alt="inline image"
             objectFit="contain"
-            width={640}
-            height={480}
+            layout="responsive"
+            width={params.node.asset.width}
+            height={params.node.asset.height}
           />
         </div>
       );

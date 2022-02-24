@@ -26,9 +26,7 @@ export const blockQuote = css`
 `;
 
 export const inlineImage = css`
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
+  margin: auto;
 `;
 
 export const link = css`

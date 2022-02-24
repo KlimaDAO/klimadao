@@ -4,7 +4,11 @@ const post = /* groq */ `
       ...,
       _type == "image" => {
         ...,
-        asset->{url}
+        asset -> {
+          url,
+          "width": metadata.dimensions.width,
+          "height": metadata.dimensions.height,
+        }
       }
     },
     title,
