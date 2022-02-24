@@ -16,6 +16,7 @@ import bcfcLogo from "public/logo-bcfc.png";
 import beachImage from "public/bg-beach.jpg";
 import bicoWgLogo from "public/logo-bicowg.png";
 import discordImage from "public/bg-discord.png";
+import ecoLogo from "public/logo-eco.png";
 import gitcoinLogo from "public/logo-gitcoin.png";
 import mossLogo from "public/logo-moss.png";
 import oceandropLogo from "public/logo-oceandrop.svg";
@@ -152,6 +153,11 @@ export const Community: NextPage = () => (
           <div className="partner_logo">
             <A href="https://openearth.org/">
               <Image alt={t`Open Earth logo`} src={openEarthLogo} />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://eco.com/">
+              <Image alt={t`Eco logo`} src={ecoLogo} />
             </A>
           </div>
         </div>
