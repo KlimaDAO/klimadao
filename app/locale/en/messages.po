@@ -45,17 +45,29 @@ msgstr "Approximate return on investment, including compounding interest, should
 msgid "Balance"
 msgstr "Balance"
 
+#: components/NavMenu/index.tsx:136
+msgid "Bond Carbon"
+msgstr "Bond Carbon"
+
 #: components/views/ChooseBond/index.tsx:105
 msgid "Bond Carbon."
 msgstr "Bond Carbon."
+
+#: components/NavMenu/index.tsx:120
+msgid "Buy KLIMA"
+msgstr "Buy KLIMA"
+
+#: components/NavMenu/index.tsx:156
+msgid "COMING SOON"
+msgstr "COMING SOON"
 
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr "Change language"
 
-#: components/views/Info/index.tsx:106
-msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official docs</0>"
-msgstr "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official docs</0>"
+#: components/views/Info/index.tsx:105
+msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
+msgstr "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
 
 #: components/views/Bond/index.tsx:303
 #: components/views/PKlima/index.tsx:124
@@ -86,13 +98,25 @@ msgstr "Index"
 msgid "Index adjusted"
 msgstr "Index adjusted"
 
-#: components/views/Info/index.tsx:103
+#: components/NavMenu/index.tsx:152
+msgid "Info"
+msgstr "Info"
+
+#: components/views/Info/index.tsx:102
 msgid "Info & FAQ"
 msgstr "Info & FAQ"
+
+#: components/NavMenu/index.tsx:170
+msgid "JUST FOR YOU"
+msgstr "JUST FOR YOU"
 
 #: components/views/Bond/index.tsx:321
 msgid "Not Redeemable"
 msgstr "Not Redeemable"
+
+#: components/NavMenu/index.tsx:164
+msgid "Offset"
+msgstr "Offset"
 
 #: components/views/PKlima/index.tsx:178
 msgid "Redeem pKLIMA"
@@ -114,6 +138,7 @@ msgstr "Sold Out"
 msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
 msgstr "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
 
+#: components/NavMenu/index.tsx:128
 #: components/views/Stake/index.tsx:202
 msgid "Stake KLIMA"
 msgstr "Stake KLIMA"
@@ -126,6 +151,10 @@ msgstr "Supply limit"
 msgid "Total KLIMA you have redeemed so far."
 msgstr "Total KLIMA you have redeemed so far."
 
+#: components/NavMenu/index.tsx:144
+msgid "Wrap sKLIMA"
+msgstr "Wrap sKLIMA"
+
 #: components/views/Wrap/index.tsx:175
 msgid "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
 msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
@@ -133,6 +162,10 @@ msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will
 #: components/views/Wrap/index.tsx:259
 msgid "You Will Get"
 msgstr "You Will Get"
+
+#: components/NavMenu/index.tsx:107
+msgid "Your Wallet Address"
+msgstr "Your Wallet Address"
 
 #: components/views/Bond/index.tsx:366
 msgid "bond.balance.tooltip"
@@ -272,6 +305,10 @@ msgstr "Treasury Balance"
 #: components/views/Bond/index.tsx:418
 msgid "nav.back"
 msgstr "BACK"
+
+#: components/NavMenu/index.tsx:177
+msgid "pKLIMA"
+msgstr "pKLIMA"
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:31
 msgid "pklima.growth"
