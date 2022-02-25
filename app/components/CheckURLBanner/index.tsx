@@ -2,6 +2,7 @@ import React, { FC } from "react";
 
 import styles from "./index.module.css";
 import { Text } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
 
 interface Props {
   onHide: () => void;
@@ -22,18 +23,23 @@ export const CheckURLBanner: FC<Props> = ({ onHide }) => {
       <div className={styles.banner}>
         <div className={styles.banner_text}>
           <Text t="h4" align="center">
-            ⚠️ Verify the URL and bookmark this page!
+            <Trans id="checkurlbanner.verify_url_and_bookmark">
+              ⚠️ Verify the URL and bookmark this page!
+            </Trans>
           </Text>
           <Text t="caption" color="lighter" align="center">
-            <strong>dapp.klimadao.finance</strong> is the only official domain.
+            <strong>dapp.klimadao.finance</strong>{" "}
+            <Trans id="checkurlbanner.is_the_only_official_domain">
+              is the only official domain.
+            </Trans>
           </Text>
         </div>
         <div className={styles.okButtonWrap}>
           <button onClick={onDontRemind} className={styles.dontButton}>
-            Don't Remind Me
+            <Trans id="checkurlbanner.dont_remind_me">Don't Remind Me</Trans>
           </button>
           <button onClick={onHide} className={styles.okButton}>
-            Got it
+            <Trans id="checkurlbanner.got_it">Got it</Trans>
           </button>
         </div>
       </div>
