@@ -45,16 +45,28 @@ msgstr ""
 msgid "Balance"
 msgstr ""
 
+#: components/NavMenu/index.tsx:136
+msgid "Bond Carbon"
+msgstr ""
+
 #: components/views/ChooseBond/index.tsx:105
 msgid "Bond Carbon."
+msgstr ""
+
+#: components/NavMenu/index.tsx:120
+msgid "Buy KLIMA"
+msgstr ""
+
+#: components/NavMenu/index.tsx:156
+msgid "COMING SOON"
 msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr ""
 
-#: components/views/Info/index.tsx:106
-msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official docs</0>"
+#: components/views/Info/index.tsx:105
+msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
 msgstr ""
 
 #: components/views/Bond/index.tsx:303
@@ -86,12 +98,24 @@ msgstr ""
 msgid "Index adjusted"
 msgstr ""
 
-#: components/views/Info/index.tsx:103
+#: components/NavMenu/index.tsx:152
+msgid "Info"
+msgstr ""
+
+#: components/views/Info/index.tsx:102
 msgid "Info & FAQ"
+msgstr ""
+
+#: components/NavMenu/index.tsx:170
+msgid "JUST FOR YOU"
 msgstr ""
 
 #: components/views/Bond/index.tsx:321
 msgid "Not Redeemable"
+msgstr ""
+
+#: components/NavMenu/index.tsx:164
+msgid "Offset"
 msgstr ""
 
 #: components/views/PKlima/index.tsx:178
@@ -114,6 +138,7 @@ msgstr ""
 msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
 msgstr ""
 
+#: components/NavMenu/index.tsx:128
 #: components/views/Stake/index.tsx:202
 msgid "Stake KLIMA"
 msgstr ""
@@ -126,12 +151,20 @@ msgstr ""
 msgid "Total KLIMA you have redeemed so far."
 msgstr ""
 
+#: components/NavMenu/index.tsx:144
+msgid "Wrap sKLIMA"
+msgstr ""
+
 #: components/views/Wrap/index.tsx:175
 msgid "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
 msgstr ""
 
 #: components/views/Wrap/index.tsx:259
 msgid "You Will Get"
+msgstr ""
+
+#: components/NavMenu/index.tsx:107
+msgid "Your Wallet Address"
 msgstr ""
 
 #: components/views/Bond/index.tsx:366
@@ -271,6 +304,10 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:418
 msgid "nav.back"
+msgstr ""
+
+#: components/NavMenu/index.tsx:177
+msgid "pKLIMA"
 msgstr ""
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:31
