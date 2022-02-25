@@ -17,7 +17,7 @@ export default async function handler(
       "public, s-maxage=60, stale-while-revalidate=60"
     );
 
-    res.status(200).send(supply.toString());
+    res.status(200).send(supply);
   } catch (err) {
     res.status(500).send("failed to fetch data");
   }
