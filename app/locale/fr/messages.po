@@ -307,6 +307,23 @@ msgid "choose_bond.bct.description"
 msgstr ""
 
 #: components/views/ChooseBond/index.tsx:126
+#: components/CheckURLBanner/index.tsx:34
+msgid "checkurlbanner.dont_remind_me"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:37
+msgid "checkurlbanner.got_it"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:29
+msgid "checkurlbanner.is_the_only_official_domain"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:26
+msgid "checkurlbanner.verify_url_and_bookmark"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:108
 msgid "choose_bond.caption"
 msgstr ""
 
@@ -345,6 +362,24 @@ msgstr ""
 
 #: components/views/ChooseBond/index.tsx:67
 msgid "choose_bond.usdc_lp.description"
+#: components/views/Loading/index.tsx:9
+msgid "home.loading"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:26
+msgid "modal.done"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:27
+msgid "modal.error"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:29
+msgid "modal.pending"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:28
+msgid "modal.user_confirmation"
 msgstr ""
 
 #: components/views/Loading/index.tsx:11
@@ -629,6 +664,12 @@ msgstr ""
 
 #: actions/utils.ts:10
 msgid "status.user_rejected"
+#: components/ConnectButton/index.tsx:20
+msgid "wallet.connect"
+msgstr ""
+
+#: components/ConnectButton/index.tsx:24
+msgid "wallet.disconnect"
 msgstr ""
 
 #: components/NavMenu/index.tsx:183
