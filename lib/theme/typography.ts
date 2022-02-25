@@ -60,7 +60,7 @@ export const body1 = css`
   line-height: 2.8rem;
   font-weight: 500;
   ${breakpoints.large} {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     line-height: 3.2rem;
   }
 `;
@@ -69,7 +69,7 @@ export const body2 = css`
   line-height: 2.8rem;
   font-weight: 400;
   ${breakpoints.large} {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     line-height: 3.2rem;
   }
 `;
