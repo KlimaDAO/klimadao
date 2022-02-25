@@ -105,10 +105,14 @@ export const NavMenu: FC<Props> = (props) => {
         <div className="hr" />
         <div className="stack-04">
           <Text t="caption">
-            <Trans>Your Wallet Address</Trans>:
+            <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
           </Text>
           <Text t="caption" color="lightest">
-            {props.address ? concatAddress(props.address) : "NOT CONNECTED"}
+            {props.address ? (
+              concatAddress(props.address)
+            ) : (
+              <Trans id="menu.not_connected">NOT CONNECTED</Trans>
+            )}
           </Text>
         </div>
         <div className="hr" />
@@ -119,7 +123,7 @@ export const NavMenu: FC<Props> = (props) => {
         icon={<Payment />}
         onClick={handleHide}
       >
-        <Trans>Buy KLIMA</Trans>
+        <Trans id="menu.buy_klima">Buy KLIMA</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname === "/stake"}
@@ -127,7 +131,7 @@ export const NavMenu: FC<Props> = (props) => {
         icon={<LibraryAddOutlined />}
         onClick={handleHide}
       >
-        <Trans>Stake KLIMA</Trans>
+        <Trans id="menu.stake_klima">Stake KLIMA</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname.includes("/bond")}
@@ -135,7 +139,7 @@ export const NavMenu: FC<Props> = (props) => {
         icon={<SpaOutlined />}
         onClick={handleHide}
       >
-        <Trans>Bond Carbon</Trans>
+        <Trans id="menu.bond_carbon">Bond Carbon</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname === "/wrap"}
@@ -143,7 +147,7 @@ export const NavMenu: FC<Props> = (props) => {
         icon={<FlipOutlined />}
         onClick={handleHide}
       >
-        <Trans>Wrap sKLIMA</Trans>
+        <Trans id="menu.wrap_klima">Wrap sKLIMA</Trans>
       </MenuButton>
       <MenuButton
         isActive={pathname === "/info"}
@@ -151,11 +155,11 @@ export const NavMenu: FC<Props> = (props) => {
         icon={<InfoOutlined />}
         onClick={handleHide}
       >
-        <Trans>Info</Trans>
+        <Trans id="menu.info">Info</Trans>
       </MenuButton>
       <div className="labelStack" title="Coming soon!">
         <Text t="badge" color="lightest">
-          <Trans>COMING SOON</Trans>
+          <Trans id="menu.coming_soon">COMING SOON</Trans>
         </Text>
         <MenuButton
           isActive={pathname === "/offset"}
@@ -163,20 +167,20 @@ export const NavMenu: FC<Props> = (props) => {
           href="/offset"
           disabled={true}
         >
-          <Trans>Offset</Trans>
+          <Trans id="menu.offset">Offset</Trans>
         </MenuButton>
       </div>
       {!!Number(balances?.pklima) && (
         <div className="labelStack">
           <Text t="badge" color="lightest">
-            ⭐ <Trans>JUST FOR YOU</Trans>
+            ⭐ <Trans id="menu.just_for_you">JUST FOR YOU</Trans>
           </Text>
           <MenuButton
             isActive={pathname === "/pklima"}
             icon={<FlipOutlined />}
             href="/pklima"
           >
-            <Trans>pKLIMA</Trans>
+            <Trans id="token.pKLIMA">pKLIMA</Trans>
           </MenuButton>
         </div>
       )}
