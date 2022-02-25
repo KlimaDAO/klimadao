@@ -164,7 +164,7 @@ export const Buy: NextPage<Props> = ({}) => {
         <div className={styles.buyContainer}>
           <div className={styles.buy_textGroup}>
             <Text t="h4" align="center" color="lighter">
-              001
+              BEGINNER
             </Text>
             <Text t="h2" as="h2" align="center">
               Visa / Mastercard
@@ -195,7 +195,7 @@ export const Buy: NextPage<Props> = ({}) => {
         <div className={styles.buyContainer}>
           <div className={styles.buy_textGroup}>
             <Text t="h4" align="center" color="lighter">
-              002
+              INTERMEDIATE
             </Text>
             <Text t="h2" as="h2" align="center">
               Decentralized exchanges (DEXs)
@@ -240,7 +240,7 @@ export const Buy: NextPage<Props> = ({}) => {
         <div className={styles.buyContainer}>
           <div className={styles.buy_textGroup}>
             <Text t="h4" align="center" color="lighter">
-              003
+              ADVANCED
             </Text>
             <Text t="h2" as="h2" align="center">
               Bonding
