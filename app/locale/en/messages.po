@@ -248,7 +248,7 @@ msgstr "⚠️ Verify the URL and bookmark this page!"
 msgid "checkurlbanner.dont_remind_me"
 msgstr "Don't Remind Me"
 
-#: components/CheckURLBanner/index.tsx:42
+#: components/CheckURLBanner/index.tsx:45
 msgid "checkurlbanner.got_it"
 msgstr "Got it"
 
@@ -309,21 +309,13 @@ msgstr "BCT/USDC Sushiswap Liquidity"
 msgid "home.loading"
 msgstr "Loading..."
 
-#: components/NotificationModal/index.tsx:26
-msgid "modal.done"
-msgstr "SUCCESS!"
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
+msgstr "How to get started"
 
-#: components/NotificationModal/index.tsx:27
-msgid "modal.error"
-msgstr "FAILURE!"
-
-#: components/NotificationModal/index.tsx:29
-msgid "modal.pending"
-msgstr "PENDING"
-
-#: components/NotificationModal/index.tsx:28
-msgid "modal.user_confirmation"
-msgstr "CONFIRMATION"
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
+msgstr "New to KLIMA?"
 
 #: components/views/Loading/index.tsx:11
 msgid "home.loading"
@@ -573,6 +565,10 @@ msgstr "Please click 'confirm' in your wallet to continue."
 #: actions/utils.ts:10
 msgid "status.user_rejected"
 msgstr "You chose to reject the transaction"
+
+#: components/NavMenu/index.tsx:183
+msgid "token.pKLIMA"
+msgstr "pKLIMA"
 
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"
