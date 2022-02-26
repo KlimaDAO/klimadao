@@ -289,7 +289,7 @@ msgstr ""
 msgid "checkurlbanner.dont_remind_me"
 msgstr ""
 
-#: components/CheckURLBanner/index.tsx:42
+#: components/CheckURLBanner/index.tsx:45
 msgid "checkurlbanner.got_it"
 msgstr ""
 
@@ -368,20 +368,12 @@ msgstr ""
 msgid "home.loading"
 msgstr ""
 
-#: components/NotificationModal/index.tsx:26
-msgid "modal.done"
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
 msgstr ""
 
-#: components/NotificationModal/index.tsx:27
-msgid "modal.error"
-msgstr ""
-
-#: components/NotificationModal/index.tsx:29
-msgid "modal.pending"
-msgstr ""
-
-#: components/NotificationModal/index.tsx:28
-msgid "modal.user_confirmation"
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
 msgstr ""
 
 #: components/views/Loading/index.tsx:11
@@ -666,6 +658,10 @@ msgstr ""
 
 #: actions/utils.ts:10
 msgid "status.user_rejected"
+msgstr ""
+
+#: components/NavMenu/index.tsx:183
+msgid "token.pKLIMA"
 msgstr ""
 
 #: components/ConnectButton/index.tsx:20
