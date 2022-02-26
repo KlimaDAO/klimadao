@@ -6,7 +6,7 @@ import { selectAppState } from "state/selectors";
 import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import { ImageCard } from "components/ImageCard";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
@@ -48,12 +48,30 @@ export const useBond = (bond: Bond) => {
       // future bond names go here
     }[bond],
     description: {
-      mco2: "MOSS Carbon Credit Token",
-      bct: "Toucan Base Carbon Tonne",
-      klima_usdc_lp: "KLIMA/USDC Sushiswap Liquidity",
-      klima_bct_lp: "KLIMA/BCT Sushiswap Liquidity",
-      bct_usdc_lp: "BCT/USDC Sushiswap Liquidity",
-      klima_mco2_lp: "KLIMA/MCO2 Quickswap Liquidity",
+      mco2: t({
+        id: "choose_bond.mco2.description",
+        message: "MOSS Carbon Credit Token",
+      }),
+      bct: t({
+        id: "choose_bond.bct.description",
+        message: "Toucan Base Carbon Tonne",
+      }),
+      klima_usdc_lp: t({
+        id: "choose_bond.klima_usdc_lp.description",
+        message: "KLIMA/USDC Sushiswap Liquidity",
+      }),
+      klima_bct_lp: t({
+        id: "choose_bond.klima_bct_lp.description",
+        message: "KLIMA/BCT Sushiswap Liquidity",
+      }),
+      bct_usdc_lp: t({
+        id: "choose_bond.usdc_lp.description",
+        message: "BCT/USDC Sushiswap Liquidity",
+      }),
+      klima_mco2_lp: t({
+        id: "choose_bond.mco2_lp.description",
+        message: "KLIMA/MCO2 Quickswap Liquidity",
+      }),
       // future bond descriptions go here
     }[bond],
     href: {
@@ -146,7 +164,7 @@ export function ChooseBond() {
                   </div>
                   {bond.disabled ? (
                     <Text t="h5" color="lightest" className={styles.bondROI}>
-                      <Trans>SOLD OUT</Trans>
+                      <Trans id="choose_bond.sold_out">SOLD OUT</Trans>
                     </Text>
                   ) : (
                     <Text
