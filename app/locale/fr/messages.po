@@ -45,7 +45,7 @@ msgstr ""
 msgid "Balance"
 msgstr ""
 
-#: components/NavMenu/index.tsx:136
+#: components/NavMenu/index.tsx:138
 msgid "Bond Carbon"
 msgstr ""
 
@@ -53,11 +53,11 @@ msgstr ""
 msgid "Bond Carbon."
 msgstr ""
 
-#: components/NavMenu/index.tsx:120
+#: components/NavMenu/index.tsx:122
 msgid "Buy KLIMA"
 msgstr ""
 
-#: components/NavMenu/index.tsx:156
+#: components/NavMenu/index.tsx:158
 msgid "COMING SOON"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Index adjusted"
 msgstr ""
 
-#: components/NavMenu/index.tsx:152
+#: components/NavMenu/index.tsx:154
 msgid "Info"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Info & FAQ"
 msgstr ""
 
-#: components/NavMenu/index.tsx:170
+#: components/NavMenu/index.tsx:172
 msgid "JUST FOR YOU"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Not Redeemable"
 msgstr ""
 
-#: components/NavMenu/index.tsx:164
+#: components/NavMenu/index.tsx:166
 msgid "Offset"
 msgstr ""
 
@@ -138,7 +138,7 @@ msgstr ""
 msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
 msgstr ""
 
-#: components/NavMenu/index.tsx:128
+#: components/NavMenu/index.tsx:130
 #: components/views/Stake/index.tsx:202
 msgid "Stake KLIMA"
 msgstr ""
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Total KLIMA you have redeemed so far."
 msgstr ""
 
-#: components/NavMenu/index.tsx:144
+#: components/NavMenu/index.tsx:146
 msgid "Wrap sKLIMA"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 msgid "You Will Get"
 msgstr ""
 
-#: components/NavMenu/index.tsx:107
+#: components/NavMenu/index.tsx:108
 msgid "Your Wallet Address"
 msgstr ""
 
@@ -306,7 +306,7 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
-#: components/NavMenu/index.tsx:177
+#: components/NavMenu/index.tsx:179
 msgid "pKLIMA"
 msgstr ""
 
@@ -332,6 +332,26 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:660
 msgid "status.bond_negative"
+msgstr ""
+
+#: actions/utils.ts:15
+msgid "status.done"
+msgstr ""
+
+#: actions/utils.ts:13
+msgid "status.error"
+msgstr ""
+
+#: actions/utils.ts:19
+msgid "status.network_confirmation"
+msgstr ""
+
+#: actions/utils.ts:17
+msgid "status.user_confirmation"
+msgstr ""
+
+#: actions/utils.ts:10
+msgid "status.user_rejected"
 msgstr ""
 
 #: components/views/Bond/index.tsx:668
