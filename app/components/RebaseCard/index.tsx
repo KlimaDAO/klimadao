@@ -6,6 +6,7 @@ import { selectAppState, selectBalances } from "state/selectors";
 import * as styles from "./styles";
 import { secondsUntilBlock, trimWithPlaceholder } from "@klimadao/lib/utils";
 import { FC } from "react";
+import { Trans, t } from "@lingui/macro";
 
 interface Props {
   isConnected?: boolean;
@@ -39,25 +40,35 @@ export const RebaseCard: FC<Props> = (props) => {
       <div className="header">
         <Text t="h4" className="title">
           <Sync />
-          Rebase
+          <Trans id="stake.rebase">Rebase</Trans>
         </Text>
-        <InfoButton content="The protocol automatically mints and distributes rewards. Your payout is a percentage of your sKLIMA balance." />
+        <InfoButton
+          content={t({
+            id: "stake.rebase.info",
+            message:
+              "The protocol automatically mints and distributes rewards. Your payout is a percentage of your sKLIMA balance.",
+          })}
+        />
       </div>
       <div className="cardContent">
         <div className="stack">
-          <Text className="value">{timeUntilRebase() ?? "Loading..."}</Text>
+          <Text className="value">
+            {timeUntilRebase() ?? <Trans id="shared.loading">Loading...</Trans>}
+          </Text>
           <Text className="label" color="lightest">
-            Approx. next rebase
+            <Trans id="stake.next_rebase">Approx. next rebase</Trans>
           </Text>
         </div>
         <div className="stack">
           <Text className="value">
-            {stakingRebase
-              ? `${trimWithPlaceholder(nextRebasePercent, 2)}%`
-              : "Loading..."}
+            {stakingRebase ? (
+              `${trimWithPlaceholder(nextRebasePercent, 2)}%`
+            ) : (
+              <Trans id="shared.loading">Loading...</Trans>
+            )}
           </Text>
           <Text className="label" color="lightest">
-            Percent payout
+            <Trans id="stake.percent_payout">Percent payout</Trans>
           </Text>
         </div>
         {props.isConnected && (
@@ -66,7 +77,7 @@ export const RebaseCard: FC<Props> = (props) => {
               {trimWithPlaceholder(nextRebaseValue, 6)}
             </Text>
             <Text className="label" color="lightest">
-              Est. payout (sKLIMA)
+              <Trans id="stake.estimated_payout">Est. payout (sKLIMA)</Trans>
             </Text>
           </div>
         )}

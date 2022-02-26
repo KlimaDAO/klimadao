@@ -7,6 +7,7 @@ import { selectBalances } from "state/selectors";
 import * as styles from "./styles";
 import { FC } from "react";
 import { RootState } from "state";
+import { Trans } from "@lingui/macro";
 
 type Asset = keyof NonNullable<RootState["user"]["balance"]>;
 type AssetLabels = { [key in Asset]: string };
@@ -32,7 +33,7 @@ export const BalancesCard: FC<Props> = (props) => {
       <div className="header">
         <Text t="h4" className="title">
           <AccountBalanceOutlined />
-          Balances
+          <Trans id="shared.balances">Balances</Trans>
         </Text>
         <InfoButton content={props.tooltip} />
       </div>
