@@ -13,10 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/PKlima/index.tsx:219
-msgid "A percent of total token supply. Your index-adjusted claim may not exceed this value."
-msgstr ""
-
 #: components/views/Wrap/index.tsx:246
 msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 msgstr ""
@@ -37,49 +33,20 @@ msgstr ""
 msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
 msgstr ""
 
-#: components/views/PKlima/index.tsx:124
 #: components/views/Wrap/index.tsx:115
 msgid "Connect wallet"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:240
-msgid "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIMA until today."
-msgstr ""
-
-#: components/views/PKlima/index.tsx:181
-msgid "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
 msgstr ""
 
 #: components/views/Wrap/index.tsx:243
 msgid "Index"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:237
-msgid "Index adjusted"
-msgstr ""
-
 #: components/views/Info/index.tsx:102
 msgid "Info & FAQ"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:178
-msgid "Redeem pKLIMA"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:229
-msgid "Redeemed"
-msgstr ""
-
 #: components/views/Wrap/index.tsx:181
 msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
-msgstr ""
-
-#: components/views/PKlima/index.tsx:216
-msgid "Supply limit"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:231
-msgid "Total KLIMA you have redeemed so far."
 msgstr ""
 
 #: components/views/Wrap/index.tsx:175
@@ -204,29 +171,8 @@ msgstr ""
 msgid "bond.you_will_get.tooltip"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:150
-msgid "button.bct"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:139
-msgid "button.confirming"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:155
-msgid "button.exercise"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:130
-msgid "button.loading"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:203
 #: components/views/Wrap/index.tsx:228
 msgid "button.max"
-msgstr ""
-
-#: components/views/PKlima/index.tsx:145
-msgid "button.pklima"
 msgstr ""
 
 #: components/CheckURLBanner/index.tsx:42
@@ -492,16 +438,64 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
+#: components/views/PKlima/index.tsx:150
+msgid "pklima.approve_bct"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:145
+msgid "pklima.approve_pklima"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:167
+msgid "pklima.balances_card.tooltip"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:180
+msgid "pklima.caption"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:155
+msgid "pklima.exercise"
+msgstr ""
+
 #: components/views/PKlima/ClaimExceededModal/index.tsx:31
 msgid "pklima.growth"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:163
+#: components/views/PKlima/index.tsx:245
+msgid "pklima.index_adjusted"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:248
+msgid "pklima.index_adjusted.tooltip"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:196
 msgid "pklima.klima_to_exercise"
 msgstr ""
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:177
+msgid "pklima.redeem_pklima"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:233
+msgid "pklima.redeemed"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:236
+msgid "pklima.redeemed.tooltip"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:220
+msgid "pklima.supply_limit"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:223
+msgid "pklima.supply_limit.tooltip"
 msgstr ""
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
@@ -519,11 +513,13 @@ msgid "shared.balances"
 msgstr ""
 
 #: components/views/Bond/index.tsx:329
+#: components/views/PKlima/index.tsx:139
 #: components/views/Stake/index.tsx:144
 msgid "shared.confirming"
 msgstr ""
 
 #: components/views/Bond/index.tsx:302
+#: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
 msgid "shared.connect_wallet"
 msgstr ""
@@ -547,6 +543,7 @@ msgstr ""
 #: components/RebaseCard/index.tsx:56
 #: components/RebaseCard/index.tsx:67
 #: components/views/Bond/index.tsx:308
+#: components/views/PKlima/index.tsx:130
 #: components/views/Stake/index.tsx:135
 #: components/views/Stake/index.tsx:337
 #: components/views/Stake/index.tsx:344
@@ -555,6 +552,7 @@ msgid "shared.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:451
+#: components/views/PKlima/index.tsx:207
 #: components/views/Stake/index.tsx:281
 msgid "shared.max"
 msgstr ""

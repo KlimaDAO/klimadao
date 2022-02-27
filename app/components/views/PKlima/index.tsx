@@ -13,7 +13,7 @@ import {
 } from "@klimadao/lib/components";
 import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 
-import { Trans, defineMessage } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 
 import {
   selectAppState,
@@ -121,13 +121,13 @@ export const PKlima: FC<Props> = (props) => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
       return {
-        label: <Trans>Connect wallet</Trans>,
+        label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
         onClick: props.loadWeb3Modal,
         disabled: false,
       };
     } else if (isLoading) {
       return {
-        label: <Trans id="button.loading">Loading</Trans>,
+        label: <Trans id="shared.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -136,23 +136,23 @@ export const PKlima: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return {
-        label: <Trans id="button.confirming">Confirming</Trans>,
+        label: <Trans id="shared.confirming">Confirming</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (!hasApproval("pklima")) {
       return {
-        label: <Trans id="button.pklima">1. Approve pKLIMA</Trans>,
+        label: <Trans id="pklima.approve_pklima">1. Approve pKLIMA</Trans>,
         onClick: handleApproval("pklima"),
       };
     } else if (!hasApproval("bct")) {
       return {
-        label: <Trans id="button.bct">2. Approve BCT</Trans>,
+        label: <Trans id="pklima.approve_bct">2. Approve BCT</Trans>,
         onClick: handleApproval("bct"),
       };
     } else {
       return {
-        label: <Trans id="button.exercise">EXERCISE</Trans>,
+        label: <Trans id="pklima.exercise">EXERCISE</Trans>,
         onClick: handleExercise,
         disabled:
           !value || !terms?.redeemable || value > Number(terms.redeemable),
@@ -160,25 +160,26 @@ export const PKlima: FC<Props> = (props) => {
     }
   };
 
-  defineMessage({
-    id: "pklima.klima_to_exercise",
-    message: "PKLIMA TO EXERCISE",
-  });
-
   return (
     <>
       <BalancesCard
         assets={["pklima", "bct"]}
-        tooltip="Make sure to stake your redeemed pKLIMA, and stay staked, until global GHG emissions have plateaued."
+        tooltip={t({
+          id: "pklima.balances_card.tooltip",
+          message:
+            "Make sure to stake your redeemed pKLIMA, and stay staked, until global GHG emissions have plateaued.",
+        })}
       />
       <div className={styles.stakeCard} style={{ minHeight: "48rem" }}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <RedeemOutlined />
-            <Trans>Redeem pKLIMA</Trans>
+            <Trans id="pklima.redeem_pklima">Redeem pKLIMA</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans>Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.</Trans>
+            <Trans id="pklima.caption">
+              Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.
+            </Trans>
           </Text>
         </div>
         <div className={styles.stakeCard_ui}>
@@ -192,7 +193,10 @@ export const PKlima: FC<Props> = (props) => {
                   setStatus(null);
                 }}
                 type="number"
-                placeholder="pKLIMA to exercise"
+                placeholder={t({
+                  id: "pklima.klima_to_exercise",
+                  message: "pKLIMA to exercise",
+                })}
                 min="0"
               />
               <button
@@ -200,7 +204,7 @@ export const PKlima: FC<Props> = (props) => {
                 type="button"
                 onClick={setMax}
               >
-                <Trans id="button.max">Max</Trans>
+                <Trans id="shared.max">Max</Trans>
               </button>
             </div>
             {props.address && (
@@ -213,10 +217,10 @@ export const PKlima: FC<Props> = (props) => {
 
           <div className={styles.infoTable}>
             <div className={styles.infoTable_label}>
-              <Trans>Supply limit</Trans>
+              <Trans id="pklima.supply_limit">Supply limit</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans>
+                  <Trans id="pklima.supply_limit.tooltip">
                     A percent of total token supply. Your index-adjusted claim
                     may not exceed this value.
                   </Trans>
@@ -226,18 +230,22 @@ export const PKlima: FC<Props> = (props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_label}>
-              <Trans>Redeemed</Trans>
+              <Trans id="pklima.redeemed">Redeemed</Trans>
               <TextInfoTooltip
-                content={<Trans>Total KLIMA you have redeemed so far.</Trans>}
+                content={
+                  <Trans id="pklima.redeemed.tooltip">
+                    Total KLIMA you have redeemed so far.
+                  </Trans>
+                }
               >
                 <InfoOutlined />
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_label}>
-              <Trans>Index adjusted</Trans>
+              <Trans id="pklima.index_adjusted">Index adjusted</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans>
+                  <Trans id="pklima.index_adjusted.tooltip">
                     Equivalent sKLIMA claimed, assuming you staked all of your
                     redeemed KLIMA until today.
                   </Trans>
