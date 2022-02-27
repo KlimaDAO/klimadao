@@ -29,20 +29,12 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: components/views/Info/index.tsx:105
-msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
-msgstr ""
-
 #: components/views/Wrap/index.tsx:115
 msgid "Connect wallet"
 msgstr ""
 
 #: components/views/Wrap/index.tsx:243
 msgid "Index"
-msgstr ""
-
-#: components/views/Info/index.tsx:102
-msgid "Info & FAQ"
 msgstr ""
 
 #: components/views/Wrap/index.tsx:181
@@ -405,6 +397,42 @@ msgstr ""
 
 #: components/ImageCard/index.tsx:13
 msgid "imagecard.new_to_klima"
+msgstr ""
+
+#: components/views/Info/index.tsx:127
+msgid "info.app_not_loading.1_open_metamaks"
+msgstr ""
+
+#: components/views/Info/index.tsx:131
+msgid "info.app_not_loading.2_go_to_settings"
+msgstr ""
+
+#: components/views/Info/index.tsx:135
+msgid "info.app_not_loading.3_return_to_dapp"
+msgstr ""
+
+#: components/views/Info/index.tsx:122
+msgid "info.app_not_loading.if_app_says_loading"
+msgstr ""
+
+#: components/views/Info/index.tsx:140
+msgid "info.app_not_loading.metamask_should_prompt"
+msgstr ""
+
+#: components/views/Info/index.tsx:117
+msgid "info.app_not_loading.title"
+msgstr ""
+
+#: components/views/Info/index.tsx:105
+msgid "info.caption"
+msgstr ""
+
+#: components/views/Info/index.tsx:151
+msgid "info.official_contract_addresses.title"
+msgstr ""
+
+#: components/views/Info/index.tsx:102
+msgid "info.title"
 msgstr ""
 
 #: components/NavMenu/index.tsx:142
