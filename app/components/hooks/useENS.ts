@@ -1,10 +1,9 @@
 import { getDefaultProvider } from "@ethersproject/providers";
 import { useEffect, useState } from "react";
 import { providers } from 'ethers';
-import { NOM_REGISTRY_ADDRESS } from "lib/constants";
 //@ts-ignore
 import ENS from '@ensdomains/ensjs';
-
+const NOM_REGISTRY_ADDRESS = '0x3DE51c3960400A0F752d3492652Ae4A0b2A36FB3';
 
 const useENS = (address: string | null | undefined) => {
   const [ensName, setENSName] = useState<string | null | undefined>(null);
