@@ -31,6 +31,7 @@ import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 
 import * as styles from "./styles";
 import { ImageCard } from "components/ImageCard";
+import useENS from "@klimadao/app/components/hooks/useENS"
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -52,7 +53,7 @@ export const Stake = (props: Props) => {
     selectNotificationStatus
   );
   const status = fullStatus && fullStatus.statusType;
-
+  const { nom } = useENS(props.address);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
@@ -259,11 +260,17 @@ export const Stake = (props: Props) => {
                 <Trans id="button.max">Max</Trans>
               </button>
             </div>
-            {props.address && (
+            {props.address && nom ? (
+              <div className={styles.address}>
+                {nom}
+              </div>
+            ): props.address ? (
               <div className={styles.address}>
                 {concatAddress(props.address)}
               </div>
-            )}
+            ):
+            (null)
+            }
             <div className="hr" />
           </div>
 

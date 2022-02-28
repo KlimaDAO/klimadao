@@ -26,5 +26,10 @@
     "format-all": "prettier --write ./",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract",
     "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile"
+  },
+  "dependencies": {
+    "@ensdomains/ensjs": "^2.1.0",
+    "ethers": "^5.5.4",
+    "hardhat": "^2.8.4"
   }
 }
