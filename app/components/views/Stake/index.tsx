@@ -268,8 +268,7 @@ export const Stake = (props: Props) => {
               <div className={styles.address}>
                 {concatAddress(props.address)}
               </div>
-            ):
-            (null)
+            ):(null)
             }
             <div className="hr" />
           </div>

@@ -1,30 +1,30 @@
 {
-    "name": "klimadao",
-    "private": true,
-    "workspaces": [
-        "./site",
-        "./app",
-        "./lib",
-        "./cms"
-    ],
-    "engines": {
-        "npm": ">=8.0.0",
-        "node": ">=14.18.1"
-    },
-    "scripts": {
-        "build-lib": "npm run build --workspace=lib",
-        "build-site": "npm run build-lib && npm run build --workspace=site",
-        "build-site-vercel": "cd ./lib && npm run build && cd ../site && npm run build",
-        "build-app": "npm run build-lib && npm run build --workspace=app",
-        "build-app-vercel": "cd ./lib && npm run build && cd ../app && npm run build",
-        "export-app": "cd ./lib && npm run build && cd ../app && npm run build && npm run export",
-        "dev-lib": "npm run dev --workspace=lib",
-        "dev-site": "npm run build-lib && npm run dev --workspace=site",
-        "dev-app": "npm run build-lib && npm run dev --workspace=app",
-        "dev-cms": "npm run start --workspace=cms",
-        "deploy-cms": "npm run deploy --workspace=cms",
-        "format-all": "prettier --write ./",
-        "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract",
-        "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile"
-    }
+  "name": "klimadao",
+  "private": true,
+  "workspaces": [
+    "./site",
+    "./app",
+    "./lib",
+    "./cms"
+  ],
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=14.18.1"
+  },
+  "scripts": {
+    "build-lib": "npm run build --workspace=lib",
+    "build-site": "npm run build-lib && npm run build --workspace=site",
+    "build-site-vercel": "cd ./lib && npm run build && cd ../site && npm run build",
+    "build-app": "npm run build-lib && npm run build --workspace=app",
+    "build-app-vercel": "cd ./lib && npm run build && cd ../app && npm run build",
+    "export-app": "cd ./lib && npm run build && cd ../app && npm run build && npm run export",
+    "dev-lib": "npm run dev --workspace=lib",
+    "dev-site": "npm run build-lib && npm run dev --workspace=site",
+    "dev-app": "npm run build-lib && npm run dev --workspace=app",
+    "dev-cms": "npm run start --workspace=cms",
+    "deploy-cms": "npm run deploy --workspace=cms",
+    "format-all": "prettier --write ./",
+    "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract",
+    "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile"
+  }
 }
