@@ -27,7 +27,7 @@ import { selectBalances } from "state/selectors";
 import { MenuBookOutlined } from "@mui/icons-material";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { Trans } from "@lingui/macro";
-import useENS from "@klimadao/app/components/hooks/useENS"
+import useENS from "@klimadao/app/components/hooks/useENS";
 interface MenuButtonProps {
   icon: ReactElement;
   href: string;
@@ -108,7 +108,11 @@ export const NavMenu: FC<Props> = (props) => {
             <Trans>Your Wallet Address</Trans>:
           </Text>
           <Text t="caption" color="lightest">
-            {nom ? nom : props.address ? concatAddress(props.address) : "NOT CONNECTED"}
+            {nom
+              ? nom
+              : props.address
+              ? concatAddress(props.address)
+              : "NOT CONNECTED"}
           </Text>
         </div>
         <div className="hr" />
