@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Home/index.tsx:352
+#: components/pages/Home/index.tsx:346
 msgid "001"
 msgstr ""
 
-#: components/pages/Home/index.tsx:371
+#: components/pages/Home/index.tsx:365
 msgid "002"
 msgstr ""
 
@@ -41,11 +41,7 @@ msgstr ""
 msgid "3. Be reliable, complete, legal or safe."
 msgstr ""
 
-#: components/pages/Home/index.tsx:74
-msgid "A New Face For KlimaDAO"
-msgstr ""
-
-#: components/pages/Home/index.tsx:427
+#: components/pages/Home/index.tsx:421
 msgid "All the Alpha, straight to your inbox"
 msgstr ""
 
@@ -57,15 +53,15 @@ msgstr ""
 msgid "Any action you take upon the information you find on this website is strictly at your own risk. Decisions based on information contained on this website are the sole responsibility of the visitor. KlimaDAO will not be liable for any losses and/or damages in connection with the use of the website, the loss of your password/seed phrase, a bad trade, sending an asset to the wrong address, losing your asset and events related to damage caused by scammers. KlimaDAO cannot assume any responsibility or liability connected with market changing and its volatility. You must conduct your own research and satisfy yourself of your own situation, familiarity and knowledge of information or service provided by this platform."
 msgstr ""
 
-#: components/pages/Blog/index.tsx:33
+#: components/pages/Blog/index.tsx:29
 msgid "Articles"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:95
+#: components/pages/Resources/Community/index.tsx:82
 msgid "BECOME A PARTNER"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:151
+#: components/pages/Resources/Community/index.tsx:130
 msgid "BICOWG logo"
 msgstr ""
 
@@ -73,18 +69,18 @@ msgstr ""
 msgid "Backed by Carbon."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:140
+#: components/pages/Resources/Community/index.tsx:123
 msgid "Blockchain for Climate Foundation logo"
 msgstr ""
 
-#: components/Footer/index.tsx:36
-#: components/pages/Blog/index.tsx:22
+#: components/Footer/index.tsx:44
+#: components/pages/Blog/index.tsx:18
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "Blog"
 msgstr ""
 
-#: components/Footer/index.tsx:29
+#: components/Footer/index.tsx:37
 msgid "Bond"
 msgstr ""
 
@@ -100,7 +96,7 @@ msgstr ""
 msgid "Careers"
 msgstr ""
 
-#: components/pages/Home/index.tsx:285
+#: components/pages/Home/index.tsx:279
 msgid "Cars (annual)"
 msgstr ""
 
@@ -108,17 +104,17 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:211
+#: components/pages/Resources/Community/index.tsx:187
 msgid "Come On In"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:81
+#: components/pages/Resources/Community/index.tsx:68
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
 msgid "Community"
 msgstr ""
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:49
 #: components/pages/Resources/Contact/index.tsx:18
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "Contact"
@@ -133,68 +129,72 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: components/Footer/index.tsx:46
+#: components/Footer/index.tsx:54
 #: components/pages/Disclaimer/index.tsx:29
 msgid "Disclaimer"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:226
+#: components/pages/Resources/Community/index.tsx:202
 msgid "Discord is where we share important announcements, hold office-hours, answer questions, and trade memes. Our Discord server is extremely active and moderated around-the-clock. We've got channels for everything from trading to sustainability and carbon markets."
 msgstr ""
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:40
 msgid "Docs"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:84
+#: components/pages/Resources/Community/index.tsx:71
 #: components/pages/Resources/Contact/index.tsx:22
 msgid "Drive climate action and earn rewards with a carbon-backed digital currency."
 msgstr ""
 
-#: components/pages/Home/index.tsx:256
+#: components/pages/Home/index.tsx:250
 msgid "EQUIVALENT TO"
 msgstr ""
 
+#: components/pages/Resources/Community/index.tsx:160
+msgid "Eco logo"
+msgstr ""
+
 #: components/Navigation/index.tsx:31
-#: components/pages/Home/index.tsx:97
+#: components/pages/Home/index.tsx:99
 msgid "Enter App"
 msgstr ""
 
-#: components/pages/Home/index.tsx:89
+#: components/pages/Home/index.tsx:91
 msgid "Fight climate change and earn rewards with KLIMA, a digital currency backed by real carbon assets."
 msgstr ""
 
-#: components/pages/Home/index.tsx:395
+#: components/pages/Home/index.tsx:389
 msgid "GET KLIMA"
 msgstr ""
 
-#: components/Footer/index.tsx:22
-#: components/Navigation/index.tsx:40
-#: components/Navigation/index.tsx:62
+#: components/Footer/index.tsx:30
+#: components/Navigation/index.tsx:38
+#: components/Navigation/index.tsx:56
 msgid "Get KLIMA"
 msgstr ""
 
-#: components/pages/Home/index.tsx:398
+#: components/pages/Home/index.tsx:392
 msgid "Get exposure to the growing carbon economy today. Acquire, stake, and get rewarded. Financial activism for the climate."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:256
+#: components/pages/Resources/Community/index.tsx:232
 msgid "Get in touch?"
 msgstr ""
 
-#: components/pages/Home/index.tsx:433
+#: components/pages/Home/index.tsx:427
 msgid "Get the latest updates on KlimaDAO, as we build the future of the carbon economy."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:170
+#: components/pages/Resources/Community/index.tsx:145
 msgid "Gitcoin logo"
 msgstr ""
 
-#: components/pages/Home/index.tsx:270
+#: components/pages/Home/index.tsx:264
 msgid "Hectares of forest"
 msgstr ""
 
-#: components/Footer/index.tsx:17
+#: components/Footer/index.tsx:25
 msgid "Home"
 msgstr ""
 
@@ -202,15 +202,15 @@ msgstr ""
 msgid "If you are a journalist or content creator, our marketing team would love to meet you."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:259
+#: components/pages/Resources/Community/index.tsx:235
 msgid "If you've got questions, ideas, advice or anything else: we can help you find the right person to talk to."
 msgstr ""
 
-#: components/pages/Home/index.tsx:340
+#: components/pages/Home/index.tsx:334
 msgid "Invest in the future."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:214
+#: components/pages/Resources/Community/index.tsx:190
 msgid "Join Our Discord"
 msgstr ""
 
@@ -222,17 +222,17 @@ msgstr ""
 msgid "Join our Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:203
+#: components/pages/Resources/Community/index.tsx:179
 msgid "Join the Klima Community"
 msgstr ""
 
+#: components/pages/Blog/index.tsx:17
 #: components/pages/Blog/index.tsx:21
-#: components/pages/Blog/index.tsx:25
 msgid "KlimaDAO Blog"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:80
-#: components/pages/Resources/Community/index.tsx:83
+#: components/pages/Resources/Community/index.tsx:67
+#: components/pages/Resources/Community/index.tsx:70
 msgid "KlimaDAO Community"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "KlimaDAO is a <0>black hole for carbon</0> at the center of a <1>new green economy</1>."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:82
+#: components/pages/Resources/Community/index.tsx:69
 msgid "KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates."
 msgstr ""
 
@@ -262,12 +262,12 @@ msgstr ""
 msgid "LEARN MORE"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:92
-#: components/pages/Resources/Community/index.tsx:253
+#: components/pages/Resources/Community/index.tsx:79
+#: components/pages/Resources/Community/index.tsx:229
 msgid "Let's Work Together"
 msgstr ""
 
-#: components/pages/Home/index.tsx:300
+#: components/pages/Home/index.tsx:294
 msgid "Liters of gasoline"
 msgstr ""
 
@@ -275,11 +275,11 @@ msgstr ""
 msgid "MECHANICS"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:125
+#: components/pages/Resources/Community/index.tsx:112
 msgid "MOSS logo"
 msgstr ""
 
-#: components/pages/Home/index.tsx:235
+#: components/pages/Home/index.tsx:229
 msgid "Massive impact."
 msgstr ""
 
@@ -291,11 +291,11 @@ msgstr ""
 msgid "Neither KlimaDAO nor any of its representatives will not liable for any loss of any kind from any action taken or taken in reliance on material or information, contained on the service. KlimaDAO is making the use of the service and content safe, nevertheless it does not represent or warrant that the service and content on our platform are free of viruses or other harmful components."
 msgstr ""
 
-#: components/pages/Home/index.tsx:447
+#: components/pages/Home/index.tsx:441
 msgid "Never shared. Never spammed."
 msgstr ""
 
-#: components/pages/Home/index.tsx:430
+#: components/pages/Home/index.tsx:424
 msgid "Newsletter"
 msgstr ""
 
@@ -307,19 +307,19 @@ msgstr ""
 msgid "Nothing in this platform constitutes or be construed as:"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:119
+#: components/pages/Resources/Community/index.tsx:106
 msgid "OUR PARTNERS"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:165
+#: components/pages/Resources/Community/index.tsx:140
 msgid "Oceandrop logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:179
+#: components/pages/Resources/Community/index.tsx:150
 msgid "OlympusDAO logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:184
+#: components/pages/Resources/Community/index.tsx:155
 msgid "Open Earth logo"
 msgstr ""
 
@@ -327,7 +327,7 @@ msgstr ""
 msgid "Partnerships"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:160
+#: components/pages/Resources/Community/index.tsx:135
 msgid "Polygon logo"
 msgstr ""
 
@@ -341,24 +341,24 @@ msgid ""
 "touch. We love meeting institutions and individuals alike."
 msgstr ""
 
-#: components/Navigation/index.tsx:57
-#: components/Navigation/index.tsx:75
+#: components/Navigation/index.tsx:51
+#: components/Navigation/index.tsx:65
 msgid "Resources"
 msgstr ""
 
-#: components/pages/Home/index.tsx:405
+#: components/pages/Home/index.tsx:399
 msgid "See Tutorial"
 msgstr ""
 
-#: components/pages/Home/index.tsx:441
+#: components/pages/Home/index.tsx:435
 msgid "Sign up"
 msgstr ""
 
-#: components/pages/Home/index.tsx:313
+#: components/pages/Home/index.tsx:307
 msgid "Source"
 msgstr ""
 
-#: components/Footer/index.tsx:26
+#: components/Footer/index.tsx:34
 msgid "Stake"
 msgstr ""
 
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Strong incentives."
 msgstr ""
 
-#: components/pages/Home/index.tsx:246
+#: components/pages/Home/index.tsx:240
 msgid "TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO"
 msgstr ""
 
@@ -382,11 +382,11 @@ msgstr ""
 msgid "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:130
+#: components/pages/Resources/Community/index.tsx:117
 msgid "Toucan logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:105
+#: components/pages/Resources/Community/index.tsx:92
 msgid "Tree grove"
 msgstr ""
 
@@ -394,8 +394,8 @@ msgstr ""
 msgid "Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>."
 msgstr ""
 
-#: components/pages/Blog/index.tsx:23
-#: components/pages/Blog/index.tsx:26
+#: components/pages/Blog/index.tsx:19
+#: components/pages/Blog/index.tsx:22
 msgid ""
 "Updates and thought leadership from the founders, DAO contributors,\n"
 "advisors and community."
@@ -405,7 +405,7 @@ msgstr ""
 msgid "Use this <0>Media Request Form</0>."
 msgstr ""
 
-#: components/pages/Home/index.tsx:82
+#: components/pages/Home/index.tsx:84
 msgid "WELCOME TO"
 msgstr ""
 
@@ -413,7 +413,7 @@ msgstr ""
 msgid "We recommend that you visit our Crypto Security 101 page for safety instructions before the use of the website. Please, take into consideration: never share your private key or seed phrase with anyone – neither our members nor our dApp will ever ask for or request this from you."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:98
+#: components/pages/Resources/Community/index.tsx:85
 msgid "We work with traditional carbon market players, crypto platforms, corporations and everyone in-between."
 msgstr ""
 
@@ -429,13 +429,13 @@ msgstr ""
 msgid "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 msgstr ""
 
-#: components/Navigation/index.tsx:51
-#: components/Navigation/index.tsx:71
+#: components/Navigation/index.tsx:47
+#: components/Navigation/index.tsx:63
 msgid "mainNav.bond"
 msgstr ""
 
-#: components/Navigation/index.tsx:45
-#: components/Navigation/index.tsx:65
+#: components/Navigation/index.tsx:43
+#: components/Navigation/index.tsx:59
 msgid "mainNav.stake"
 msgstr ""
 
@@ -444,6 +444,6 @@ msgstr ""
 msgid "{0}"
 msgstr ""
 
-#: components/pages/Home/index.tsx:70
-msgid "📰 Recent Post:"
+#: components/pages/Home/index.tsx:72
+msgid "📰 Latest News:"
 msgstr ""
