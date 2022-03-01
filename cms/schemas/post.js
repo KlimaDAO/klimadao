@@ -54,6 +54,13 @@ export default {
       type: "text",
       validation: (Rule) => Rule.required().min(50).max(150),
     },
+    {
+      name: "hideFromProduction",
+      title: "Hide From Production (preview mode):",
+      description:
+        "When set to TRUE and clicking 'publish', this post will not appear on the production environment, and will only be visible on `staging-site.klimadao.finance`",
+      type: "boolean",
+    },
   ],
 
   preview: {
