@@ -15,6 +15,7 @@ html {
 body {
   font-size: 1.6rem; /* ~16px */
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 svg {
