@@ -29,6 +29,7 @@ import { ParralaxWormhole } from "./ParralaxWormhole";
 export interface Props {
   latestPost: LatestPost;
   treasuryBalance: number;
+  weeklyStakingRewards: number;
 }
 
 const hectaresForestPerTonne = 1 / 200;
@@ -366,7 +367,7 @@ export const Home: NextPage<Props> = (props) => {
               </Text>
               <div className="sprouts_col2_textGroup">
                 <Text t="h2" uppercase>
-                  6% WEEKLY YIELD
+                  {props.weeklyStakingRewards}% WEEKLY REWARDS
                 </Text>
                 <Text t="h4" color="lightest" uppercase>
                   FOR TOKEN HOLDERS
