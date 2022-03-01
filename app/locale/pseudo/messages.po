@@ -334,6 +334,26 @@ msgstr ""
 msgid "status.bond_negative"
 msgstr ""
 
+#: actions/utils.ts:15
+msgid "status.done"
+msgstr ""
+
+#: actions/utils.ts:13
+msgid "status.error"
+msgstr ""
+
+#: actions/utils.ts:19
+msgid "status.network_confirmation"
+msgstr ""
+
+#: actions/utils.ts:17
+msgid "status.user_confirmation"
+msgstr ""
+
+#: actions/utils.ts:10
+msgid "status.user_rejected"
+msgstr ""
+
 #: components/views/Bond/index.tsx:668
 msgid "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"
 msgstr ""

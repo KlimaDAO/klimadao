@@ -334,6 +334,26 @@ msgstr "Hold, stake, and compound. If the protocol earns a profit selling carbon
 msgid "status.bond_negative"
 msgstr "⚠️ Warning: this bond price is inflated because the current discount rate is negative."
 
+#: actions/utils.ts:15
+msgid "status.done"
+msgstr "Transaction complete."
+
+#: actions/utils.ts:13
+msgid "status.error"
+msgstr "❌ Error: something went wrong..."
+
+#: actions/utils.ts:19
+msgid "status.network_confirmation"
+msgstr "Transaction initiated. Waiting for network confirmation."
+
+#: actions/utils.ts:17
+msgid "status.user_confirmation"
+msgstr "Please click 'confirm' in your wallet to continue."
+
+#: actions/utils.ts:10
+msgid "status.user_rejected"
+msgstr "You chose to reject the transaction"
+
 #: components/views/Bond/index.tsx:668
 msgid "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"
 msgstr "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"
