@@ -200,11 +200,11 @@ msgid "bond.maximum.tooltip"
 msgstr "Maximum amount of KLIMA you can acquire by bonding"
 
 #: components/views/Bond/index.tsx:584
-msgid "bond.pending"
-msgstr "Pending"
+msgid "bond.unredeemed"
+msgstr "Unredeemed"
 
 #: components/views/Bond/index.tsx:397
-msgid "bond.pending.tooltip"
+msgid "bond.unredeemed.tooltip"
 msgstr "Remaining unredeemed value (vested and un-vested)"
 
 #: components/views/Bond/index.tsx:608

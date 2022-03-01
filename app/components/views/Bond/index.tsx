@@ -395,7 +395,7 @@ export const Bond: FC<Props> = (props) => {
     message: "Protocol's current ratio of supply to outstanding bonds",
   });
   defineMessage({
-    id: "bond.pending.tooltip",
+    id: "bond.unredeemed.tooltip",
     message: "Remaining unredeemed value (vested and un-vested)",
   });
   defineMessage({
@@ -581,10 +581,10 @@ export const Bond: FC<Props> = (props) => {
               {sourceSingleton}
               <li className={styles.dataContainer_row}>
                 <div className={styles.dataContainer_label}>
-                  <Trans id="bond.pending">Pending</Trans>
+                  <Trans id="bond.unredeemed">Unredeemed</Trans>
                   <TextInfoTooltip
                     singleton={singleton}
-                    content={i18n._("bond.pending.tooltip")}
+                    content={i18n._("bond.unredeemed.tooltip")}
                   >
                     <div tabIndex={0} className={styles.infoIconWrapper}>
                       <InfoOutlined />
