@@ -126,10 +126,6 @@ msgstr ""
 msgid "Redeemed"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:149
-msgid "SOLD OUT"
-msgstr ""
-
 #: components/views/Bond/index.tsx:297
 msgid "Sold Out"
 msgstr ""
@@ -286,6 +282,10 @@ msgstr "Déposer"
 msgid "button.unstake"
 msgstr "Retirer"
 
+#: components/views/ChooseBond/index.tsx:52
+msgid "choose_bond.bct.description"
+msgstr ""
+
 #: components/views/ChooseBond/index.tsx:108
 msgid "choose_bond.caption"
 msgstr ""
@@ -298,8 +298,32 @@ msgstr ""
 msgid "choose_bond.discount"
 msgstr ""
 
+#: components/views/ChooseBond/index.tsx:54
+msgid "choose_bond.klima_bct_lp.description"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:53
+msgid "choose_bond.klima_usdc_lp.description"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:51
+msgid "choose_bond.mco2.description"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:56
+msgid "choose_bond.mco2_lp.description"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:149
+msgid "choose_bond.sold_out"
+msgstr ""
+
 #: components/views/ChooseBond/index.tsx:118
 msgid "choose_bond.treasury_balance"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:55
+msgid "choose_bond.usdc_lp.description"
 msgstr ""
 
 #: components/views/Bond/index.tsx:418
