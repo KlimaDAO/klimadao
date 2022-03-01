@@ -49,7 +49,7 @@ msgstr "Balance"
 msgid "Bond Carbon"
 msgstr "Bond Carbon"
 
-#: components/views/ChooseBond/index.tsx:105
+#: components/views/ChooseBond/index.tsx:123
 msgid "Bond Carbon."
 msgstr "Bond Carbon."
 
@@ -282,27 +282,27 @@ msgstr "Stake"
 msgid "button.unstake"
 msgstr "Unstake"
 
-#: components/views/ChooseBond/index.tsx:52
+#: components/views/ChooseBond/index.tsx:55
 msgid "choose_bond.bct.description"
 msgstr "Toucan Base Carbon Tonne"
 
-#: components/views/ChooseBond/index.tsx:108
+#: components/views/ChooseBond/index.tsx:126
 msgid "choose_bond.caption"
 msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds have a mandatory 5-day vesting period."
 
-#: components/views/ChooseBond/index.tsx:128
+#: components/views/ChooseBond/index.tsx:146
 msgid "choose_bond.choose_bond"
 msgstr "Choose a bond"
 
-#: components/views/ChooseBond/index.tsx:131
+#: components/views/ChooseBond/index.tsx:149
 msgid "choose_bond.discount"
 msgstr "% Discount"
 
-#: components/views/ChooseBond/index.tsx:54
+#: components/views/ChooseBond/index.tsx:63
 msgid "choose_bond.klima_bct_lp.description"
 msgstr "KLIMA/BCT Sushiswap Liquidity"
 
-#: components/views/ChooseBond/index.tsx:53
+#: components/views/ChooseBond/index.tsx:59
 msgid "choose_bond.klima_usdc_lp.description"
 msgstr "KLIMA/USDC Sushiswap Liquidity"
 
@@ -310,19 +310,19 @@ msgstr "KLIMA/USDC Sushiswap Liquidity"
 msgid "choose_bond.mco2.description"
 msgstr "MOSS Carbon Credit Token"
 
-#: components/views/ChooseBond/index.tsx:56
+#: components/views/ChooseBond/index.tsx:71
 msgid "choose_bond.mco2_lp.description"
 msgstr "KLIMA/MCO2 Quickswap Liquidity"
 
-#: components/views/ChooseBond/index.tsx:149
+#: components/views/ChooseBond/index.tsx:167
 msgid "choose_bond.sold_out"
 msgstr "SOLD OUT"
 
-#: components/views/ChooseBond/index.tsx:118
+#: components/views/ChooseBond/index.tsx:136
 msgid "choose_bond.treasury_balance"
 msgstr "Treasury Balance"
 
-#: components/views/ChooseBond/index.tsx:55
+#: components/views/ChooseBond/index.tsx:67
 msgid "choose_bond.usdc_lp.description"
 msgstr "BCT/USDC Sushiswap Liquidity"
 
@@ -358,19 +358,19 @@ msgstr "Hold, stake, and compound. If the protocol earns a profit selling carbon
 msgid "status.bond_negative"
 msgstr "⚠️ Warning: this bond price is inflated because the current discount rate is negative."
 
-#: actions/utils.ts:15
+#: actions/utils.ts:21
 msgid "status.done"
 msgstr "Transaction complete."
 
-#: actions/utils.ts:13
+#: actions/utils.ts:16
 msgid "status.error"
 msgstr "❌ Error: something went wrong..."
 
-#: actions/utils.ts:19
+#: actions/utils.ts:28
 msgid "status.network_confirmation"
 msgstr "Transaction initiated. Waiting for network confirmation."
 
-#: actions/utils.ts:17
+#: actions/utils.ts:23
 msgid "status.user_confirmation"
 msgstr "Please click 'confirm' in your wallet to continue."
 

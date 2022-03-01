@@ -49,7 +49,7 @@ msgstr ""
 msgid "Bond Carbon"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:105
+#: components/views/ChooseBond/index.tsx:123
 msgid "Bond Carbon."
 msgstr ""
 
@@ -282,27 +282,27 @@ msgstr ""
 msgid "button.unstake"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:52
+#: components/views/ChooseBond/index.tsx:55
 msgid "choose_bond.bct.description"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:108
+#: components/views/ChooseBond/index.tsx:126
 msgid "choose_bond.caption"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:128
+#: components/views/ChooseBond/index.tsx:146
 msgid "choose_bond.choose_bond"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:131
+#: components/views/ChooseBond/index.tsx:149
 msgid "choose_bond.discount"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:54
+#: components/views/ChooseBond/index.tsx:63
 msgid "choose_bond.klima_bct_lp.description"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:53
+#: components/views/ChooseBond/index.tsx:59
 msgid "choose_bond.klima_usdc_lp.description"
 msgstr ""
 
@@ -310,19 +310,19 @@ msgstr ""
 msgid "choose_bond.mco2.description"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:56
+#: components/views/ChooseBond/index.tsx:71
 msgid "choose_bond.mco2_lp.description"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:149
+#: components/views/ChooseBond/index.tsx:167
 msgid "choose_bond.sold_out"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:118
+#: components/views/ChooseBond/index.tsx:136
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:55
+#: components/views/ChooseBond/index.tsx:67
 msgid "choose_bond.usdc_lp.description"
 msgstr ""
 
@@ -358,19 +358,19 @@ msgstr ""
 msgid "status.bond_negative"
 msgstr ""
 
-#: actions/utils.ts:15
+#: actions/utils.ts:21
 msgid "status.done"
 msgstr ""
 
-#: actions/utils.ts:13
+#: actions/utils.ts:16
 msgid "status.error"
 msgstr ""
 
-#: actions/utils.ts:19
+#: actions/utils.ts:28
 msgid "status.network_confirmation"
 msgstr ""
 
-#: actions/utils.ts:17
+#: actions/utils.ts:23
 msgid "status.user_confirmation"
 msgstr ""
 
