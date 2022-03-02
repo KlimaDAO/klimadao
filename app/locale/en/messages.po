@@ -265,28 +265,28 @@ msgstr "<0>dapp.klimadao.finance</0> is the only official domain."
 msgid "checkurlbanner.verify_url_and_bookmark"
 msgstr "⚠️ Verify the URL and bookmark this page!"
 
-#: components/views/ChooseBond/index.tsx:55
-msgid "choose_bond.bct.description"
-msgstr "Toucan Base Carbon Tonne"
-
-#: components/views/ChooseBond/index.tsx:126
-#: components/CheckURLBanner/index.tsx:34
+#: components/CheckURLBanner/index.tsx:39
 msgid "checkurlbanner.dont_remind_me"
 msgstr "Don't Remind Me"
 
-#: components/CheckURLBanner/index.tsx:37
+#: components/CheckURLBanner/index.tsx:42
 msgid "checkurlbanner.got_it"
 msgstr "Got it"
 
-#: components/CheckURLBanner/index.tsx:29
+#. Write '<0>dapp.klimadao.finance</0>' so it displays in bold
+#: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
-msgstr "is the only official domain."
+msgstr "<0>dapp.klimadao.finance</0> is the only official domain."
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark"
 msgstr "⚠️ Verify the URL and bookmark this page!"
 
-#: components/views/ChooseBond/index.tsx:108
+#: components/views/ChooseBond/index.tsx:55
+msgid "choose_bond.bct.description"
+msgstr "Toucan Base Carbon Tonne"
+
+#: components/views/ChooseBond/index.tsx:126
 msgid "choose_bond.caption"
 msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds have a mandatory 5-day vesting period."
 
@@ -326,7 +326,8 @@ msgstr "Treasury Balance"
 #: components/views/ChooseBond/index.tsx:67
 msgid "choose_bond.usdc_lp.description"
 msgstr "BCT/USDC Sushiswap Liquidity"
-#: components/views/Loading/index.tsx:9
+
+#: components/views/Loading/index.tsx:11
 msgid "home.loading"
 msgstr "Loading..."
 
@@ -693,6 +694,7 @@ msgstr "Please click 'confirm' in your wallet to continue."
 #: actions/utils.ts:10
 msgid "status.user_rejected"
 msgstr "You chose to reject the transaction"
+
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"
 msgstr "Connect"
