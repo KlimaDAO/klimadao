@@ -15,7 +15,6 @@
     "@emotion/server": "^11.4.0",
     "@lingui/core": "^3.13.0",
     "@lingui/react": "^3.13.0",
-    "@material-ui/icons": "^4.11.2",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.23.2",
     "ethers": "^5.5.2",
