@@ -101,6 +101,13 @@ const serializers: BlockContentProps["serializers"] = {
         </div>
       );
     },
+    pdf: (params: { node: { name: string; url: string } }) => {
+      return (
+        <Text t="body2" className={styles.paragraph}>
+          Download PDF <A href={`${params.node.url}?dl=`}>{params.node.name}</A>
+        </Text>
+      );
+    },
   },
 };
 

@@ -59,5 +59,11 @@ export default {
       type: "image",
       options: { hotspot: true },
     },
+    {
+      name: "pdf",
+      title: "PDF",
+      type: "reference",
+      to: { type: "pdf" },
+    },
   ],
 };

@@ -37,6 +37,10 @@ const prodQueries = {
             "width": metadata.dimensions.width,
             "height": metadata.dimensions.height,
           }
+        },
+        _type == 'pdf' => {
+          "name":@->.name,
+           "url":@->.file.asset->url
         }
       },
       title,
@@ -78,6 +82,10 @@ const stagingQueries: typeof prodQueries = {
             "width": metadata.dimensions.width,
             "height": metadata.dimensions.height,
           }
+        },
+        _type == 'pdf' => {
+          "name":@->.name,
+           "url":@->.file.asset->url
         }
       },
       title,
