@@ -28,9 +28,12 @@ export const CheckURLBanner: FC<Props> = ({ onHide }) => {
             </Trans>
           </Text>
           <Text t="caption" color="lighter" align="center">
-            <strong>dapp.klimadao.finance</strong>{" "}
-            <Trans id="checkurlbanner.is_the_only_official_domain">
-              is the only official domain.
+            <Trans
+              id="checkurlbanner.is_the_only_official_domain"
+              comment="Write '<0>dapp.klimadao.finance</0>' so it displays in bold"
+            >
+              <strong>dapp.klimadao.finance</strong> is the only official
+              domain.
             </Trans>
           </Text>
         </div>
