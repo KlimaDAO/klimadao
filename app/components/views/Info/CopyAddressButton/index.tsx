@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FileCopyOutlinedIcon from "@material-ui/icons/FileCopyOutlined";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import styles from "./index.module.css";
 
 const CopyAddressButton = (params: { address: string; ariaLabel: string }) => {
@@ -28,7 +28,7 @@ const CopyAddressButton = (params: { address: string; ariaLabel: string }) => {
         onClick={handleCopy}
         className={styles.copyAddressButton}
       >
-        <FileCopyOutlinedIcon className={styles.copyAddressButtonIcon} />
+        <ContentCopyIcon className={styles.copyAddressButtonIcon} />
       </button>
     </div>
   ) : (
