@@ -12,17 +12,23 @@ import {
   DiscordIcon,
   SnapshotIcon,
 } from "@klimadao/lib/components";
+
 import bcfcLogo from "public/logo-bcfc.png";
 import beachImage from "public/bg-beach.jpg";
 import bicoWgLogo from "public/logo-bicowg.png";
 import discordImage from "public/bg-discord.png";
+import dovuLogo from "public/logo-dovu.png";
+import digitalCharityArtLogo from "public/logo-digital-charity-art.png";
 import ecoLogo from "public/logo-eco.png";
+import etcGroupLogo from "public/logo-etc-group.png";
 import gitcoinLogo from "public/logo-gitcoin.png";
 import mossLogo from "public/logo-moss.png";
 import oceandropLogo from "public/logo-oceandrop.svg";
+import offsetraLogo from "public/logo-offsetra.png";
 import olympusLogo from "public/logo-olympus.png";
 import openEarthLogo from "public/logo-open-earth.png";
 import polygonLogo from "public/logo-polygon.svg";
+import thoughtForFoodLogo from "public/logo-thought-for-food.png";
 import toucanLogo from "public/logo-toucan.png";
 import treeGroveImage from "public/bg-tree-grove.jpg";
 
@@ -109,7 +115,7 @@ export const Community: NextPage = () => (
         <div className={styles.partner_logos}>
           <div className="partner_logo">
             <A href="https://moss.earth/">
-              <Image alt={t`MOSS logo`} src={mossLogo} />
+              <Image alt={t`Moss logo`} src={mossLogo} />
             </A>
           </div>
           <div className="partner_logo">
@@ -158,6 +164,34 @@ export const Community: NextPage = () => (
           <div className="partner_logo">
             <A href="https://eco.com/">
               <Image alt={t`Eco logo`} src={ecoLogo} />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://etc-group.com/">
+              <Image alt={t`Etc Group logo`} src={etcGroupLogo} />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://dovu.earth/">
+              <Image alt={t`Dovu logo`} src={dovuLogo} />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://offsetra.com/">
+              <Image alt={t`Offsetra logo`} src={offsetraLogo} />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://thoughtforfood.org/">
+              <Image alt={t`Thought for Food logo`} src={thoughtForFoodLogo} />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://www.digitalcharityart.co.nz/">
+              <Image
+                alt={t`Digital Charity Art logo`}
+                src={digitalCharityArtLogo}
+              />
             </A>
           </div>
         </div>
