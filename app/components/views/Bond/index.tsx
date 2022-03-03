@@ -13,8 +13,7 @@ import {
   calculateUserBondDetails,
 } from "actions/bonds";
 
-import { Trans, defineMessage } from "@lingui/macro";
-import { i18n } from "@lingui/core";
+import { Trans, t } from "@lingui/macro";
 import { prettifySeconds } from "lib/i18n";
 
 import { useBond } from "../ChooseBond";
@@ -294,31 +293,31 @@ export const Bond: FC<Props> = (props) => {
     const value = Number(quantity || "0");
     if (isDisabled) {
       return {
-        label: <Trans>Sold Out</Trans>,
+        label: <Trans id="choose_bond.sold_out">Sold Out</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (!props.isConnected || !props.address) {
       return {
-        label: <Trans>Connect wallet</Trans>,
+        label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
         onClick: props.loadWeb3Modal,
         disabled: false,
       };
     } else if (isLoading) {
       return {
-        label: <Trans id="button.loading">Loading</Trans>,
+        label: <Trans id="shared.loading">Loading</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (view === "bond" && !value) {
       return {
-        label: <Trans id="button.enterQuantity">Enter Quantity</Trans>,
+        label: <Trans id="shared.enter_quantity">Enter Quantity</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (view === "redeem" && !Number(bondState?.pendingPayout)) {
       return {
-        label: <Trans>Not Redeemable</Trans>,
+        label: <Trans id="bond.not_redeemable">Not Redeemable</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -327,85 +326,57 @@ export const Bond: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return {
-        label: <Trans id="button.confirming">Confirming</Trans>,
+        label: <Trans id="shared.confirming">Confirming</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (!hasAllowance()) {
       return {
-        label: <Trans id="button.approve">Approve</Trans>,
+        label: <Trans id="shared.approve">Approve</Trans>,
         disabled: false,
         onClick: handleAllowance,
       };
     } else if (view === "bond") {
       const bondMax = getBondMax();
       return {
-        label: <Trans id="button.bond">Bond</Trans>,
+        label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
         disabled: !value || !bondMax || Number(value) > Number(bondMax),
       };
     } else if (view === "redeem") {
       return {
-        label: <Trans id="button.redeem">Redeem</Trans>,
+        label: <Trans id="bond.redeem">Redeem</Trans>,
         onClick: handleRedeem,
         disabled: !Number(bondState?.pendingPayout),
       };
     } else {
       // No trans_id tag for Error in stake
       return {
-        label: <Trans id="button.error">Error</Trans>,
+        label: <Trans id="shared.error">ERROR</Trans>,
         onClick: undefined,
         disabled: true,
       };
     }
   };
 
+  const getInputPlaceholder = (): string => {
+    if (view === "bond") {
+      return t({
+        id: "bond.inputplaceholder.bond",
+        message: "Amount to bond",
+      });
+    } else if (view === "redeem") {
+      return t({
+        id: "bond.inputplaceholder.redeem",
+        message: "Amount to redeem",
+      });
+    } else {
+      return t({ id: "shared.error", message: "ERROR" });
+    }
+  };
+
   const isBondDiscountNegative =
     !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
-
-  defineMessage({
-    id: "bond.balance.tooltip",
-    message: "Balance available for bonding",
-  });
-  defineMessage({
-    id: "bond.bond_price.tooltip",
-    message:
-      "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)",
-  });
-  defineMessage({
-    id: "bond.market_price.tooltip",
-    message: "Current trading price of KLIMA, without bond discount",
-  });
-  defineMessage({
-    id: "bond.roi.tooltip",
-    message:
-      "Return on investment, expressed as a percentage discount on the market value of KLIMA",
-  });
-  defineMessage({
-    id: "bond.you_will_get.tooltip",
-    message:
-      "Amount of bonded KLIMA you will get, at the provided input quantity",
-  });
-  defineMessage({
-    id: "bond.maximum.tooltip",
-    message: "Maximum amount of KLIMA you can acquire by bonding",
-  });
-  defineMessage({
-    id: "bond.debt_ratio.tooltip",
-    message: "Protocol's current ratio of supply to outstanding bonds",
-  });
-  defineMessage({
-    id: "bond.unredeemed.tooltip",
-    message: "Remaining unredeemed value (vested and un-vested)",
-  });
-  defineMessage({
-    id: "bond.redeemable.tooltip",
-    message: "Amount of KLIMA that has already vested and can be redeemed",
-  });
-  defineMessage({
-    id: "bond.date_of_full_vesting.tooltip",
-    message: "Date when the entire bond value can be redeemed",
-  });
 
   return (
     <>
@@ -439,7 +410,7 @@ export const Bond: FC<Props> = (props) => {
                 }}
                 data-active={view === "bond"}
               >
-                <Trans id="button.bond">Bond</Trans>
+                <Trans id="bond.bond">Bond</Trans>
               </button>
               <button
                 className={styles.switchButton}
@@ -449,7 +420,7 @@ export const Bond: FC<Props> = (props) => {
                 }}
                 data-active={view === "redeem"}
               >
-                <Trans id="button.redeem">Redeem</Trans>
+                <Trans id="bond.redeem">Redeem</Trans>
               </button>
             </div>
             <div className={styles.stakeInput}>
@@ -462,9 +433,7 @@ export const Bond: FC<Props> = (props) => {
                 }
                 onChange={(e) => setQuantity(e.target.value)}
                 type="number"
-                placeholder={`Amount to ${
-                  { bond: "bond", redeem: "redeem" }[view]
-                }`}
+                placeholder={getInputPlaceholder()}
                 min="0"
                 step={
                   view === "bond" && bondInfo.balanceUnit === "SLP"
@@ -479,7 +448,7 @@ export const Bond: FC<Props> = (props) => {
                 onClick={setMax}
                 disabled={view === "redeem"}
               >
-                <Trans id="button.max">Max</Trans>
+                <Trans id="shared.max">Max</Trans>
               </button>
             </div>
             {props.address && (
@@ -494,8 +463,14 @@ export const Bond: FC<Props> = (props) => {
               {sourceSingleton}
               <DataRow
                 singleton={singleton}
-                label="Balance"
-                tooltip={i18n._("bond.balance.tooltip")}
+                label={t({
+                  id: "bond.balance",
+                  message: "Balance",
+                })}
+                tooltip={t({
+                  id: "bond.balance.tooltip",
+                  message: "Balance available for bonding",
+                })}
                 unit={bondInfo.balanceUnit}
                 value={
                   !props.isConnected
@@ -509,32 +484,60 @@ export const Bond: FC<Props> = (props) => {
               />
               <DataRow
                 singleton={singleton}
-                label="Bond price"
-                tooltip={i18n._("bond.bond_price.tooltip")}
+                label={t({
+                  id: "bond.bond_price",
+                  message: "Bond price",
+                })}
+                tooltip={t({
+                  id: "bond.bond_price.tooltip",
+                  message:
+                    "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)",
+                })}
                 unit={bondInfo.priceUnit}
                 value={trimWithPlaceholder(bondState?.bondPrice, 2)}
                 warning={false}
               />
               <DataRow
                 singleton={singleton}
-                label="Market Price"
-                tooltip={i18n._("bond.market_price.tooltip")}
+                label={t({
+                  id: "bond.market_price",
+                  message: "Market price",
+                })}
+                tooltip={t({
+                  id: "bond.market_price.tooltip",
+                  message:
+                    "Current trading price of KLIMA, without bond discount",
+                })}
                 unit={bondInfo.priceUnit}
                 value={trimWithPlaceholder(bondState?.marketPrice, 2)}
                 warning={false}
               />
               <DataRow
                 singleton={singleton}
-                label="ROI (bond discount)"
-                tooltip={i18n._("bond.roi.tooltip")}
+                label={t({
+                  id: "bond.roi",
+                  message: "ROI (bond discount)",
+                })}
+                tooltip={t({
+                  id: "bond.roi.tooltip",
+                  message:
+                    "Return on investment, expressed as a percentage discount on the market value of KLIMA",
+                })}
                 unit={"%"}
                 value={trimWithPlaceholder(bondState?.bondDiscount, 2)}
                 warning={isBondDiscountNegative}
               />
               <DataRow
                 singleton={singleton}
-                label="You will get"
-                tooltip={i18n._("bond.you_will_get.tooltip")}
+                label={t({
+                  id: "bond.you_will_get",
+                  message: "You will get",
+                })}
+                tooltip={t({
+                  id: "bond.you_will_get.tooltip",
+                  message:
+                    "Amount of bonded KLIMA you will get, at the provided input quantity",
+                })}
                 unit="KLIMA"
                 value={
                   !props.isConnected
@@ -548,8 +551,14 @@ export const Bond: FC<Props> = (props) => {
               />
               <DataRow
                 singleton={singleton}
-                label="Maximum"
-                tooltip={i18n._("bond.maximum.tooltip")}
+                label={t({
+                  id: "bond.maximum",
+                  message: "Maximum",
+                })}
+                tooltip={t({
+                  id: "bond.maximum.tooltip",
+                  message: "Maximum amount of KLIMA you can acquire by bonding",
+                })}
                 warning={
                   !!bondState?.bondQuote &&
                   !!bondState?.maxBondPrice &&
@@ -560,16 +569,30 @@ export const Bond: FC<Props> = (props) => {
               />
               <DataRow
                 singleton={singleton}
-                label="Debt ratio"
-                tooltip={i18n._("bond.debt_ratio.tooltip")}
+                label={t({
+                  id: "bond.debt_ratio",
+                  message: "Dept ratio",
+                })}
+                tooltip={t({
+                  id: "bond.debt_ratio.tooltip",
+                  message:
+                    "Protocol's current ratio of supply to outstanding bonds",
+                })}
                 warning={false}
                 value={trimWithPlaceholder(Number(bondState?.debtRatio), 2)}
                 unit="%"
               />
               <DataRow
                 singleton={singleton}
-                label="Vesting term end"
-                tooltip="If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term."
+                label={t({
+                  id: "bond.vesting_term_end",
+                  message: "Vesting term end",
+                })}
+                tooltip={t({
+                  id: "bond.vesting_term_end.tooltip",
+                  message:
+                    "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term.",
+                })}
                 warning={false}
                 value={vestingPeriod() ?? ""}
                 unit=""
@@ -584,7 +607,11 @@ export const Bond: FC<Props> = (props) => {
                   <Trans id="bond.unredeemed">Unredeemed</Trans>
                   <TextInfoTooltip
                     singleton={singleton}
-                    content={i18n._("bond.unredeemed.tooltip")}
+                    content={t({
+                      id: "bond.unredeemed.tooltip",
+                      message:
+                        "Remaining unredeemed value (vested and un-vested)",
+                    })}
                   >
                     <div tabIndex={0} className={styles.infoIconWrapper}>
                       <InfoOutlined />
@@ -608,7 +635,11 @@ export const Bond: FC<Props> = (props) => {
                   <Trans id="bond.redeemable">Redeemable</Trans>
                   <TextInfoTooltip
                     singleton={singleton}
-                    content={i18n._("bond.redeemable.tooltip")}
+                    content={t({
+                      id: "bond.redeemable.tooltip",
+                      message:
+                        "Amount of KLIMA that has already vested and can be redeemed",
+                    })}
                   >
                     <div tabIndex={0} className={styles.infoIconWrapper}>
                       <InfoOutlined />
@@ -637,7 +668,11 @@ export const Bond: FC<Props> = (props) => {
                   </Trans>
                   <TextInfoTooltip
                     singleton={singleton}
-                    content={i18n._("bond.date_of_full_vesting.tooltip")}
+                    content={t({
+                      id: "bond.date_of_full_vesting.tooltip",
+                      message:
+                        "Date when the entire bond value can be redeemed",
+                    })}
                   >
                     <div tabIndex={0} className={styles.infoIconWrapper}>
                       <InfoOutlined />
