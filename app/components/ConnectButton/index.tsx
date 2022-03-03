@@ -1,5 +1,6 @@
 import { FC } from "react";
 import * as styles from "./styles";
+import { Trans } from "@lingui/macro";
 
 export interface Props {
   address?: string;
@@ -16,11 +17,11 @@ export const ConnectButton: FC<Props> = ({
 }) => {
   return !isConnected ? (
     <button type="button" className={styles.connect} onClick={loadWeb3Modal}>
-      Connect
+      <Trans id="wallet.connect">Connect</Trans>
     </button>
   ) : (
     <button type="button" className={styles.disconnect} onClick={disconnect}>
-      Disconnect
+      <Trans id="wallet.disconnect">Disconnect</Trans>
     </button>
   );
 };

@@ -13,6 +13,7 @@ import { useAppDispatch } from "state";
 import { getStatusMessage } from "actions/utils";
 import { ClaimExceededModal } from "components/views/PKlima/ClaimExceededModal";
 import { Text } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
 
 interface ModalAssetTypes {
   [key: string]: {
@@ -22,10 +23,10 @@ interface ModalAssetTypes {
 
 const modalAssets: ModalAssetTypes = {
   header: {
-    done: "SUCCESS!",
-    error: "FAILURE!",
-    userConfirmation: "CONFIRMATION",
-    networkConfirmation: "PENDING",
+    done: <Trans id="modal.done">SUCCESS!</Trans>,
+    error: <Trans id="modal.error">FAILURE!</Trans>,
+    userConfirmation: <Trans id="modal.user_confirmation">CONFIRMATION</Trans>,
+    networkConfirmation: <Trans id="modal.pending">PENDING</Trans>,
   },
   iconStyle: {
     done: styles.icon_success,
