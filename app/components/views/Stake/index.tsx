@@ -24,7 +24,7 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { BalancesCard } from "components/BalancesCard";
 import { RebaseCard } from "components/RebaseCard";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -126,13 +126,13 @@ export const Stake = (props: Props) => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
       return {
-        label: <Trans>Connect wallet</Trans>,
+        label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
         onClick: props.loadWeb3Modal,
         disabled: false,
       };
     } else if (isLoading) {
       return {
-        label: <Trans id="button.loading">Loading</Trans>,
+        label: <Trans id="shared.loading">Loading...</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -141,28 +141,28 @@ export const Stake = (props: Props) => {
       status === "networkConfirmation"
     ) {
       return {
-        label: <Trans id="button.confirming">Confirming</Trans>,
+        label: <Trans id="shared.confirming">Confirming</Trans>,
         onClick: undefined,
         disabled: true,
       };
     } else if (view === "stake" && !hasApproval("stake")) {
       return {
-        label: <Trans id="button.approve">Approve</Trans>,
+        label: <Trans id="shared.approve">Approve</Trans>,
         onClick: handleApproval("stake"),
         disabled: false,
       };
     } else if (view === "unstake" && !hasApproval("unstake")) {
       return {
-        label: <Trans id="button.approve">Approve</Trans>,
+        label: <Trans id="shared.approve">Approve</Trans>,
         onClick: handleApproval("unstake"),
         disabled: false,
       };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
         label: value ? (
-          <Trans id="button.stake">Stake KLIMA</Trans>
+          <Trans id="stake.stake_klima">Stake KLIMA</Trans>
         ) : (
-          <Trans>Enter Amount</Trans>
+          <Trans id="shared.enter_amount">Enter Amount</Trans>
         ),
         onClick: handleStake("stake"),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
@@ -170,16 +170,36 @@ export const Stake = (props: Props) => {
     } else if (view === "unstake" && hasApproval("unstake")) {
       return {
         label: value ? (
-          <Trans id="button.unstake">Unstake KLIMA</Trans>
+          <Trans id="stake.unstake_klima">Unstake KLIMA</Trans>
         ) : (
-          <Trans>Enter Amount</Trans>
+          <Trans id="shared.enter_amount">Enter Amount</Trans>
         ),
         onClick: handleStake("unstake"),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),
       };
     } else {
-      return { label: "ERROR", onClick: undefined, disabled: true };
+      return {
+        label: <Trans id="shared.error">ERROR</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    }
+  };
+
+  const getInputPlaceholder = (): string => {
+    if (view === "stake") {
+      return t({
+        id: "stake.inputplaceholder.stake",
+        message: "Amount to stake",
+      });
+    } else if (view === "unstake") {
+      return t({
+        id: "stake.inputplaceholder.unstake",
+        message: "Amount to unstake",
+      });
+    } else {
+      return t({ id: "shared.error", message: "ERROR" });
     }
   };
 
@@ -193,13 +213,17 @@ export const Stake = (props: Props) => {
     <>
       <BalancesCard
         assets={["klima", "sklima"]}
-        tooltip="Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."
+        tooltip={t({
+          id: "stake.balancescard.tooltip",
+          message:
+            "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage.",
+        })}
       />
       <div className={styles.stakeCard}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <LibraryAddOutlined />
-            <Trans>Stake KLIMA</Trans>
+            <Trans id="stake.stake_klima">Stake KLIMA</Trans>
           </Text>
           <Text t="caption" color="lightest">
             <Trans id="stake.caption">
@@ -222,7 +246,7 @@ export const Stake = (props: Props) => {
                 }}
                 data-active={view === "stake"}
               >
-                Stake
+                <Trans id="stake.stake">Stake</Trans>
               </button>
               <button
                 className={styles.switchButton}
@@ -234,7 +258,7 @@ export const Stake = (props: Props) => {
                 }}
                 data-active={view === "unstake"}
               >
-                Unstake
+                <Trans id="stake.unstake">Unstake</Trans>
               </button>
             </div>
             <div className={styles.stakeInput}>
@@ -246,9 +270,7 @@ export const Stake = (props: Props) => {
                   setStatus(null);
                 }}
                 type="number"
-                placeholder={`Amount to ${
-                  { stake: "stake", unstake: "unstake" }[view]
-                }`}
+                placeholder={getInputPlaceholder()}
                 min="0"
               />
               <button
@@ -256,7 +278,7 @@ export const Stake = (props: Props) => {
                 type="button"
                 onClick={setMax}
               >
-                <Trans id="button.max">Max</Trans>
+                <Trans id="shared.max">Max</Trans>
               </button>
             </div>
             {props.address && (
@@ -269,10 +291,10 @@ export const Stake = (props: Props) => {
 
           <div className={styles.infoTable}>
             <div className={styles.infoTable_label}>
-              <Trans>5-day ROI</Trans>
+              <Trans id="stake.5_day_roi">5-day ROI</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans>
+                  <Trans id="stake.5_day_roi.tooltip">
                     Approximate return on investment, including compounding
                     interest, should you remain staked for 5 days.
                   </Trans>
@@ -282,10 +304,10 @@ export const Stake = (props: Props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_label}>
-              <Trans>APY</Trans>
+              <Trans id="stake.apy">APY</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans>
+                  <Trans id="stake.apy.tooltip">
                     Annual Percentage Yield, including compounding interest,
                     should the current reward rate remain unchanged for 12
                     months (rates may be subject to change)
@@ -296,10 +318,10 @@ export const Stake = (props: Props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_label}>
-              <Trans>Index</Trans>
+              <Trans id="stake.index">Index</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans>
+                  <Trans id="stake.index.tooltip">
                     Amount of KLIMA you would have today if you staked 1 KLIMA
                     on launch day. Useful for accounting purposes.
                   </Trans>
@@ -309,19 +331,25 @@ export const Stake = (props: Props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_value}>
-              {fiveDayRatePercent
-                ? trimWithPlaceholder(fiveDayRatePercent, 2) + "%"
-                : "loading..."}
+              {fiveDayRatePercent ? (
+                trimWithPlaceholder(fiveDayRatePercent, 2) + "%"
+              ) : (
+                <Trans id="shared.loading">Loading...</Trans>
+              )}
             </div>
             <div className={styles.infoTable_value}>
-              {stakingAPYPercent
-                ? trimWithPlaceholder(stakingAPYPercent, 0) + "%"
-                : "loading..."}
+              {stakingAPYPercent ? (
+                trimWithPlaceholder(stakingAPYPercent, 0) + "%"
+              ) : (
+                <Trans id="shared.loading">Loading...</Trans>
+              )}
             </div>
             <div className={styles.infoTable_value}>
-              {currentIndex
-                ? trimWithPlaceholder(currentIndex, 2) + " sKLIMA"
-                : "loading..."}
+              {currentIndex ? (
+                trimWithPlaceholder(currentIndex, 2) + " sKLIMA"
+              ) : (
+                <Trans id="shared.loading">Loading...</Trans>
+              )}
             </div>
           </div>
 

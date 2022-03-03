@@ -13,32 +13,12 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Stake/index.tsx:272
-msgid "5-day ROI"
-msgstr ""
-
 #: components/views/PKlima/index.tsx:219
 msgid "A percent of total token supply. Your index-adjusted claim may not exceed this value."
 msgstr ""
 
-#: components/views/Stake/index.tsx:285
-msgid "APY"
-msgstr ""
-
 #: components/views/Wrap/index.tsx:246
 msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
-msgstr ""
-
-#: components/views/Stake/index.tsx:302
-msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
-msgstr ""
-
-#: components/views/Stake/index.tsx:288
-msgid "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
-msgstr ""
-
-#: components/views/Stake/index.tsx:275
-msgid "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
 msgstr ""
 
 #: components/views/Wrap/index.tsx:256
@@ -59,14 +39,8 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:303
 #: components/views/PKlima/index.tsx:124
-#: components/views/Stake/index.tsx:129
 #: components/views/Wrap/index.tsx:115
 msgid "Connect wallet"
-msgstr ""
-
-#: components/views/Stake/index.tsx:165
-#: components/views/Stake/index.tsx:175
-msgid "Enter Amount"
 msgstr ""
 
 #: components/views/PKlima/index.tsx:240
@@ -77,7 +51,6 @@ msgstr ""
 msgid "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
 msgstr ""
 
-#: components/views/Stake/index.tsx:299
 #: components/views/Wrap/index.tsx:243
 msgid "Index"
 msgstr ""
@@ -108,10 +81,6 @@ msgstr ""
 
 #: components/views/Wrap/index.tsx:181
 msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
-msgstr ""
-
-#: components/views/Stake/index.tsx:202
-msgid "Stake KLIMA"
 msgstr ""
 
 #: components/views/PKlima/index.tsx:216
@@ -187,8 +156,6 @@ msgid "bond.you_will_get.tooltip"
 msgstr ""
 
 #: components/views/Bond/index.tsx:336
-#: components/views/Stake/index.tsx:150
-#: components/views/Stake/index.tsx:156
 msgid "button.approve"
 msgstr ""
 
@@ -203,7 +170,6 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:330
 #: components/views/PKlima/index.tsx:139
-#: components/views/Stake/index.tsx:144
 msgid "button.confirming"
 msgstr ""
 
@@ -221,13 +187,11 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:309
 #: components/views/PKlima/index.tsx:130
-#: components/views/Stake/index.tsx:135
 msgid "button.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:482
 #: components/views/PKlima/index.tsx:203
-#: components/views/Stake/index.tsx:259
 #: components/views/Wrap/index.tsx:228
 msgid "button.max"
 msgstr ""
@@ -241,15 +205,29 @@ msgstr ""
 msgid "button.redeem"
 msgstr ""
 
-#: components/views/Stake/index.tsx:163
-msgid "button.stake"
+#: components/CheckURLBanner/index.tsx:42
+msgid "checkurlbanner.dont_remind_me"
 msgstr ""
 
-#: components/views/Stake/index.tsx:173
-msgid "button.unstake"
+#: components/CheckURLBanner/index.tsx:45
+msgid "checkurlbanner.got_it"
 msgstr ""
 
-#: components/CheckURLBanner/index.tsx:39
+#. Write '<0>dapp.klimadao.finance</0>' so it displays in bold
+#: components/CheckURLBanner/index.tsx:31
+msgid "checkurlbanner.is_the_only_official_domain"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:26
+msgid "checkurlbanner.verify_url_and_bookmark"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:55
+msgid "choose_bond.bct.description"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:126
+#: components/CheckURLBanner/index.tsx:34
 msgid "checkurlbanner.dont_remind_me"
 msgstr ""
 
@@ -330,6 +308,18 @@ msgstr ""
 msgid "modal.user_confirmation"
 msgstr ""
 
+#: components/views/Loading/index.tsx:11
+msgid "home.loading"
+msgstr ""
+
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
+msgstr ""
+
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
+msgstr ""
+
 #: components/NavMenu/index.tsx:142
 msgid "menu.bond_carbon"
 msgstr ""
@@ -370,6 +360,22 @@ msgstr ""
 msgid "menu.wrap_klima"
 msgstr ""
 
+#: components/NotificationModal/index.tsx:26
+msgid "modal.done"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:27
+msgid "modal.error"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:29
+msgid "modal.pending"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:28
+msgid "modal.user_confirmation"
+msgstr ""
+
 #: components/views/Bond/index.tsx:418
 msgid "nav.back"
 msgstr ""
@@ -390,8 +396,121 @@ msgstr ""
 msgid "pklima.update"
 msgstr ""
 
-#: components/views/Stake/index.tsx:205
+#: components/views/Stake/index.tsx:150
+#: components/views/Stake/index.tsx:156
+msgid "shared.approve"
+msgstr ""
+
+#: components/BalancesCard/index.tsx:36
+msgid "shared.balances"
+msgstr ""
+
+#: components/views/Stake/index.tsx:144
+msgid "shared.confirming"
+msgstr ""
+
+#: components/views/Stake/index.tsx:129
+msgid "shared.connect_wallet"
+msgstr ""
+
+#: components/views/Stake/index.tsx:165
+#: components/views/Stake/index.tsx:175
+msgid "shared.enter_amount"
+msgstr ""
+
+#: components/views/Stake/index.tsx:183
+#: components/views/Stake/index.tsx:202
+msgid "shared.error"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:56
+#: components/RebaseCard/index.tsx:67
+#: components/views/Stake/index.tsx:135
+#: components/views/Stake/index.tsx:337
+#: components/views/Stake/index.tsx:344
+#: components/views/Stake/index.tsx:351
+msgid "shared.loading"
+msgstr ""
+
+#: components/views/Stake/index.tsx:281
+msgid "shared.max"
+msgstr ""
+
+#: components/views/Stake/index.tsx:294
+msgid "stake.5_day_roi"
+msgstr ""
+
+#: components/views/Stake/index.tsx:297
+msgid "stake.5_day_roi.tooltip"
+msgstr ""
+
+#: components/views/Stake/index.tsx:307
+msgid "stake.apy"
+msgstr ""
+
+#: components/views/Stake/index.tsx:310
+msgid "stake.apy.tooltip"
+msgstr ""
+
+#: components/views/Stake/index.tsx:216
+msgid "stake.balancescard.tooltip"
+msgstr ""
+
+#: components/views/Stake/index.tsx:229
 msgid "stake.caption"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:80
+msgid "stake.estimated_payout"
+msgstr ""
+
+#: components/views/Stake/index.tsx:321
+msgid "stake.index"
+msgstr ""
+
+#: components/views/Stake/index.tsx:324
+msgid "stake.index.tooltip"
+msgstr ""
+
+#: components/views/Stake/index.tsx:192
+msgid "stake.inputplaceholder.stake"
+msgstr ""
+
+#: components/views/Stake/index.tsx:197
+msgid "stake.inputplaceholder.unstake"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:59
+msgid "stake.next_rebase"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:71
+msgid "stake.percent_payout"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:43
+msgid "stake.rebase"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:46
+msgid "stake.rebase.info"
+msgstr ""
+
+#: components/views/Stake/index.tsx:249
+msgid "stake.stake"
+msgstr ""
+
+#: components/views/Stake/index.tsx:163
+#: components/views/Stake/index.tsx:226
+msgid "stake.stake_klima"
+msgstr ""
+
+#: components/views/Stake/index.tsx:261
+msgid "stake.unstake"
+msgstr ""
+
+#: components/views/Stake/index.tsx:173
+msgid "stake.unstake_klima"
 msgstr ""
 
 #: components/views/Bond/index.tsx:660
@@ -418,6 +537,10 @@ msgstr ""
 msgid "status.user_rejected"
 msgstr ""
 
+#: components/NavMenu/index.tsx:183
+msgid "token.pKLIMA"
+msgstr ""
+
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"
 msgstr ""
@@ -426,8 +549,12 @@ msgstr ""
 msgid "wallet.disconnect"
 msgstr ""
 
-#: components/NavMenu/index.tsx:183
-msgid "token.pKLIMA"
+#: components/ConnectButton/index.tsx:20
+msgid "wallet.connect"
+msgstr ""
+
+#: components/ConnectButton/index.tsx:24
+msgid "wallet.disconnect"
 msgstr ""
 
 #: components/views/Bond/index.tsx:668
