@@ -26,11 +26,14 @@ export const Disclaimer: NextPage<Props> = ({}) => {
       <Section variant="gray">
         <div className={styles.text}>
           <Text t="h2" as="h2" align="center">
-            <Trans>Disclaimer</Trans>
+            <Trans id="disclaimer.disclaimer">Disclaimer</Trans>
           </Text>
           <div className={styles.textGroup}>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.all_information_on_this_website"
+                comment="Long sentence"
+              >
                 All the information on this website is published in good faith
                 and for general information purpose only. KlimaDAO is
                 distributed on a basis that it will be useful and serve only
@@ -38,7 +41,10 @@ export const Disclaimer: NextPage<Props> = ({}) => {
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.klimadao_is_a_platform"
+                comment="Long sentence"
+              >
                 KlimaDAO is a platform. We are not a broker, financial
                 institution, or creditor. Services provided on this website do
                 not include an offer to hold or control your securities,
@@ -48,25 +54,37 @@ export const Disclaimer: NextPage<Props> = ({}) => {
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.nothing_in_this_platform"
+                comment="Long sentence"
+              >
                 Nothing in this platform constitutes or be construed as:
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.1_an_offer_or_sollicitation"
+                comment="Long sentence"
+              >
                 1. An offer, or solicitation of an offer to hold or control any
                 security, other asset or service, which are connected with
                 intangible benefits;
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.2_financial_investment_or_trading_advice"
+                comment="Long sentence"
+              >
                 2. Financial, investment or trading advice or an offer to
                 provide such advice and/or service.
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.the_service_available"
+                comment="Long sentence"
+              >
                 The service available in or accessible through the service are
                 provided “As is” and, to the fullest extent permissible pursuant
                 to applicable law. KlimaDAO and its agents, advisors, directors,
@@ -82,25 +100,38 @@ export const Disclaimer: NextPage<Props> = ({}) => {
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.klimadao_and_its_suppliers"
+                comment="Long sentence"
+              >
                 KlimaDAO and its suppliers make no warranty that the platform
                 will:
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>1. Meet your requirements;</Trans>
+              <Trans id="disclaimer.1_meet_your_requirements">
+                1. Meet your requirements;
+              </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.2_be_available_on_an_uninterrupted"
+                comment="Long sentence"
+              >
                 2. Be available on an uninterrupted, timely, secure, or
                 error-free basis;
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>3. Be reliable, complete, legal or safe.</Trans>
+              <Trans id="disclaimer.3_be_reliable_complete_legal_or_safe">
+                3. Be reliable, complete, legal or safe.
+              </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.neither_klimadao_nor_any_of_its_representatives"
+                comment="Long sentence"
+              >
                 Neither KlimaDAO nor any of its representatives will not liable
                 for any loss of any kind from any action taken or taken in
                 reliance on material or information, contained on the service.
@@ -111,7 +142,10 @@ export const Disclaimer: NextPage<Props> = ({}) => {
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.you_bear_full_responsibility"
+                comment="Long sentence"
+              >
                 You bear full responsibility for providing of private
                 information, verifying the identity and legitimacy.
                 Notwithstanding indicators and messages that suggest providing
@@ -123,7 +157,10 @@ export const Disclaimer: NextPage<Props> = ({}) => {
               </Trans>
             </Text>
             <Text t="body3">
-              <Trans>
+              <Trans
+                id="disclaimer.any_action_you_take_upon_the_information"
+                comment="Long sentence"
+              >
                 Any action you take upon the information you find on this
                 website is strictly at your own risk. Decisions based on
                 information contained on this website are the sole
@@ -139,7 +176,10 @@ export const Disclaimer: NextPage<Props> = ({}) => {
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.nothing_in_this_disclaimer"
+                comment="Long sentence"
+              >
                 Nothing in this disclaimer, any information content or material
                 shall or shall be constructed to create any legal relations
                 between us and you nor grant any rights or obligations to either
@@ -147,7 +187,10 @@ export const Disclaimer: NextPage<Props> = ({}) => {
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
-              <Trans>
+              <Trans
+                id="disclaimer.we_recommend_that_you_visit"
+                comment="Long sentence"
+              >
                 We recommend that you visit our Crypto Security 101 page for
                 safety instructions before the use of the website. Please, take
                 into consideration: never share your private key or seed phrase
