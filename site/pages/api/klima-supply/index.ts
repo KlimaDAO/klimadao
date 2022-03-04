@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
 import { getKlimaSupply } from "@klimadao/lib/utils";
 
+/** CORS is set in next.config.js */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<string>
@@ -16,7 +17,6 @@ export default async function handler(
       "Cache-Control",
       "public, s-maxage=60, stale-while-revalidate=60"
     );
-
     res.status(200).send(supply);
   } catch (err) {
     res.status(500).send("failed to fetch data");

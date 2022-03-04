@@ -15,6 +15,14 @@ module.exports = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/api/block-rate",
+        headers: [{ key: "Access-Control-Allow-Origin", value: "*" }],
+      },
+    ];
+  },
   i18n: {
     locales: ["en", "fr", "pseudo"],
     defaultLocale: "en",
