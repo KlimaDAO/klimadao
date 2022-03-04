@@ -31,14 +31,6 @@ msgstr "Blockchain for Climate Foundation logo"
 msgid "Blog"
 msgstr "Blog"
 
-#: components/pages/Resources/Contact/index.tsx:110
-msgid "Bug Reports"
-msgstr "Bug Reports"
-
-#: components/pages/Resources/Contact/index.tsx:51
-msgid "Careers"
-msgstr "Careers"
-
 #: components/ChangeLanguageButton/index.tsx:58
 msgid "Change language"
 msgstr "Change language"
@@ -89,18 +81,6 @@ msgstr "Get KLIMA"
 msgid "Gitcoin logo"
 msgstr "Gitcoin logo"
 
-#: components/pages/Resources/Contact/index.tsx:92
-msgid "If you are a journalist or content creator, our marketing team would love to meet you."
-msgstr "If you are a journalist or content creator, our marketing team would love to meet you."
-
-#: components/pages/Resources/Contact/index.tsx:32
-msgid "Join our <0>community</0>"
-msgstr "Join our <0>community</0>"
-
-#: components/pages/Resources/Contact/index.tsx:37
-msgid "Join our Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
-msgstr "Join our Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
-
 #: components/pages/Blog/index.tsx:17
 #: components/pages/Blog/index.tsx:21
 msgid "KlimaDAO Blog"
@@ -125,10 +105,6 @@ msgstr "KlimaDAO is a Decentralized Autonomous Organization for Change. We are g
 msgid "MOSS logo"
 msgstr "MOSS logo"
 
-#: components/pages/Resources/Contact/index.tsx:89
-msgid "Media"
-msgstr "Media"
-
 #: components/pages/Home/index.tsx:459
 msgid "Newsletter"
 msgstr "Newsletter"
@@ -145,17 +121,9 @@ msgstr "OlympusDAO logo"
 msgid "Open Earth logo"
 msgstr "Open Earth logo"
 
-#: components/pages/Resources/Contact/index.tsx:72
-msgid "Partnerships"
-msgstr "Partnerships"
-
 #: components/pages/Resources/Community/index.tsx:141
 msgid "Polygon logo"
 msgstr "Polygon logo"
-
-#: components/pages/Resources/Contact/index.tsx:29
-msgid "Questions & Support"
-msgstr "Questions & Support"
 
 #: components/pages/Resources/Contact/index.tsx:19
 msgid ""
@@ -170,10 +138,6 @@ msgstr ""
 msgid "Resources"
 msgstr "Resources"
 
-#: components/pages/Resources/Contact/index.tsx:113
-msgid "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
-msgstr "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
-
 #: components/pages/Resources/Community/index.tsx:123
 msgid "Toucan logo"
 msgstr "Toucan logo"
@@ -181,10 +145,6 @@ msgstr "Toucan logo"
 #: components/pages/Resources/Community/index.tsx:98
 msgid "Tree grove"
 msgstr "Tree grove"
-
-#: components/pages/Resources/Contact/index.tsx:75
-msgid "Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>."
-msgstr "Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>."
 
 #: components/pages/Blog/index.tsx:19
 #: components/pages/Blog/index.tsx:22
@@ -194,14 +154,6 @@ msgid ""
 msgstr ""
 "Updates and thought leadership from the founders, DAO contributors,\n"
 "advisors and community."
-
-#: components/pages/Resources/Contact/index.tsx:98
-msgid "Use this <0>Media Request Form</0>."
-msgstr "Use this <0>Media Request Form</0>."
-
-#: components/pages/Resources/Contact/index.tsx:54
-msgid "We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
-msgstr "We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
 
 #: components/pages/Resources/Community/index.tsx:82
 msgid "community.become_a_partner"
@@ -251,6 +203,61 @@ msgstr "OUR PARTNERS"
 #: components/pages/Resources/Community/index.tsx:85
 msgid "community.we_work_with_traditionnal"
 msgstr "We work with traditional carbon market players, crypto platforms, corporations and everyone in-between."
+
+#: components/pages/Resources/Contact/index.tsx:57
+msgid "concat.careers"
+msgstr "Careers"
+
+#: components/pages/Resources/Contact/index.tsx:128
+msgid "contact.bug_reports"
+msgstr "Bug Reports"
+
+#. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
+#: components/pages/Resources/Contact/index.tsx:131
+msgid "contact.bug_reports.to_file_a_bug_report"
+msgstr "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
+
+#. Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you.
+#: components/pages/Resources/Contact/index.tsx:60
+msgid "contact.careers.we_re_hiring"
+msgstr "We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
+
+#: components/pages/Resources/Contact/index.tsx:101
+msgid "contact.media"
+msgstr "Media"
+
+#. Long sentence
+#: components/pages/Resources/Contact/index.tsx:104
+msgid "contact.media.if_you_are_a_journalist"
+msgstr "If you are a journalist or content creator, our marketing team would love to meet you."
+
+#. Use this <0>Media Request Form</0>.
+#: components/pages/Resources/Contact/index.tsx:113
+msgid "contact.media.use_this_media_request_form"
+msgstr "Use this <0>Media Request Form</0>."
+
+#: components/pages/Resources/Contact/index.tsx:81
+msgid "contact.partnerships"
+msgstr "Partnerships"
+
+#. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
+#: components/pages/Resources/Contact/index.tsx:84
+msgid "contact.partnerships.until_we_finish_building"
+msgstr "Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>."
+
+#: components/pages/Resources/Contact/index.tsx:29
+msgid "contact.quest_and_support"
+msgstr "Questions & Support"
+
+#. Join our <0>community</0>
+#: components/pages/Resources/Contact/index.tsx:32
+msgid "contact.quest_and_support.join_our_community"
+msgstr "Join our <0>community</0>"
+
+#. Long sentence
+#: components/pages/Resources/Contact/index.tsx:40
+msgid "contact.quest_and_support.join_our_discord_server"
+msgstr "Join our Discord server and ask in the #questions channel. We have thousands of friendly, knowledgeable community members ready and willing to help you out."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:65

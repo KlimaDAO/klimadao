@@ -26,15 +26,21 @@ export const Contact: NextPage<Props> = () => {
         <div className={styles.contactContainer}>
           <div className={styles.contact_textGroup}>
             <Text t="h2" as="h2" align="center">
-              <Trans>Questions & Support</Trans>
+              <Trans id="contact.quest_and_support">Questions & Support</Trans>
             </Text>
             <Text t="body3" align="center">
-              <Trans>
+              <Trans
+                id="contact.quest_and_support.join_our_community"
+                comment="Join our <0>community</0>"
+              >
                 Join our <Link href={"/community"}>community</Link>
               </Trans>
             </Text>
             <Text t="body3" align="center" color="lighter">
-              <Trans>
+              <Trans
+                id="contact.quest_and_support.join_our_discord_server"
+                comment="Long sentence"
+              >
                 Join our Discord server and ask in the #questions channel. We
                 have thousands of friendly, knowledgeable community members
                 ready and willing to help you out.
@@ -48,10 +54,13 @@ export const Contact: NextPage<Props> = () => {
         <div className={styles.contactContainer}>
           <div className={styles.contact_textGroup}>
             <Text t="h2" as="h2" color="lighter">
-              <Trans>Careers</Trans>
+              <Trans id="concat.careers">Careers</Trans>
             </Text>
             <Text t="body3" align="center">
-              <Trans>
+              <Trans
+                id="contact.careers.we_re_hiring"
+                comment="Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
+              >
                 We're hiring! Until we finish building out our careers page, you
                 can submit a resume by joining our{" "}
                 <a href={urls.discordContributorsInvite}>
@@ -69,10 +78,13 @@ export const Contact: NextPage<Props> = () => {
         <div className={styles.contactContainer}>
           <div className={styles.contact_textGroup}>
             <Text t="h2" as="h2">
-              <Trans>Partnerships</Trans>
+              <Trans id="contact.partnerships">Partnerships</Trans>
             </Text>
             <Text t="body3" align="center">
-              <Trans>
+              <Trans
+                id="contact.partnerships.until_we_finish_building"
+                comment="Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>."
+              >
                 Until we finish building out our partnerships page, we are
                 directing potential partnership and collaboration inquiries to{" "}
                 <a href={urls.partnerShipsContactForm}>this contact form</a>.
@@ -86,16 +98,22 @@ export const Contact: NextPage<Props> = () => {
         <div className={styles.contactContainer}>
           <div className={styles.contact_textGroup}>
             <Text t="h2" as="h2" color="lighter">
-              <Trans>Media</Trans>
+              <Trans id="contact.media">Media</Trans>
             </Text>
             <Text t="body3" align="center">
-              <Trans>
+              <Trans
+                id="contact.media.if_you_are_a_journalist"
+                comment="Long sentence"
+              >
                 If you are a journalist or content creator, our marketing team
                 would love to meet you.
               </Trans>
             </Text>
             <Text t="body3" align="center">
-              <Trans>
+              <Trans
+                id="contact.media.use_this_media_request_form"
+                comment="Use this <0>Media Request Form</0>."
+              >
                 Use this <a href={urls.mediaRequestForm}>Media Request Form</a>.
               </Trans>
             </Text>
@@ -107,10 +125,13 @@ export const Contact: NextPage<Props> = () => {
         <div className={styles.contactContainer}>
           <div className={styles.contact_textGroup}>
             <Text t="h2" as="h2">
-              <Trans>Bug Reports</Trans>
+              <Trans id="contact.bug_reports">Bug Reports</Trans>
             </Text>
             <Text t="body3" align="center">
-              <Trans>
+              <Trans
+                id="contact.bug_reports.to_file_a_bug_report"
+                comment="To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
+              >
                 To file a bug report, join our community Discord server and ask
                 your question in the #bug-reports channel. Someone in our{" "}
                 <Link href={"/community"}>community</Link> will be happy to
