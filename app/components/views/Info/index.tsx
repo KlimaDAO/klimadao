@@ -99,10 +99,10 @@ export const Info: FC<Props> = (props) => (
       <div className={styles.stakeCard_header}>
         <Text t="h4" as="h1" className={styles.stakeCard_header_title}>
           <InfoOutlined />
-          <Trans>Info & FAQ</Trans>
+          <Trans id="info.title">Info & FAQ</Trans>
         </Text>
         <Text t="caption" color="lightest">
-          <Trans>
+          <Trans id="info.caption">
             Common app-related questions and useful links. For comprehensive
             reading on KlimaDAO, see our{" "}
             <A href={urls.officialDocs}>official documentation</A>.
@@ -114,17 +114,33 @@ export const Info: FC<Props> = (props) => (
         <div style={{ display: "grid", gap: "2.4rem" }}>
           <div style={{ display: "grid", gap: "0.8rem" }}>
             <Text t="h5" as="h2">
-              Why won't the dApp load for me?
+              <Trans id="info.app_not_loading.title">
+                Why won't the dApp load for me?
+              </Trans>
             </Text>
             <Text t="caption" color="lightest">
-              If the app says 'loading...' this is likely a problem with your
-              network configuration in Metamask. To fix this: <br />
-              1. Open Metamask and switch to Ethereum Mainnet <br />
-              2. Go to Settings/Networks/Polygon and click 'delete' <br />
-              3. Return to dapp.klimadao.finance and click 'switch to mainnet'.{" "}
+              <Trans id="info.app_not_loading.if_app_says_loading">
+                If the app says 'loading...' this is likely a problem with your
+                network configuration in Metamask. To fix this:
+              </Trans>{" "}
               <br />
-              Metamask should prompt you to add Polygon, with the correct RPC
-              configuration.
+              <Trans id="info.app_not_loading.1_open_metamaks">
+                1. Open Metamask and switch to Ethereum Mainnet{" "}
+              </Trans>
+              <br />
+              <Trans id="info.app_not_loading.2_go_to_settings">
+                2. Go to Settings/Networks/Polygon and click 'delete'{" "}
+              </Trans>
+              <br />
+              <Trans id="info.app_not_loading.3_return_to_dapp">
+                3. Return to dapp.klimadao.finance and click 'switch to
+                mainnet'.{" "}
+              </Trans>
+              <br />
+              <Trans id="info.app_not_loading.metamask_should_prompt">
+                Metamask should prompt you to add Polygon, with the correct RPC
+                configuration.
+              </Trans>
             </Text>
           </div>
         </div>
@@ -132,7 +148,9 @@ export const Info: FC<Props> = (props) => (
 
       <div className="infoSection">
         <Text t="h5" as="h2">
-          Official Contract Addresses
+          <Trans id="info.official_contract_addresses.title">
+            Official Contract Addresses
+          </Trans>
         </Text>
         <div style={{ display: "grid", gap: "0.4rem" }}>
           {addressInfo.map((info) => (

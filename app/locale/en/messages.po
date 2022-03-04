@@ -29,10 +29,6 @@ msgstr "Bond Carbon."
 msgid "Change language"
 msgstr "Change language"
 
-#: components/views/Info/index.tsx:105
-msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
-msgstr "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
-
 #: components/views/Wrap/index.tsx:115
 msgid "Connect wallet"
 msgstr "Connect wallet"
@@ -40,10 +36,6 @@ msgstr "Connect wallet"
 #: components/views/Wrap/index.tsx:243
 msgid "Index"
 msgstr "Index"
-
-#: components/views/Info/index.tsx:102
-msgid "Info & FAQ"
-msgstr "Info & FAQ"
 
 #: components/views/Wrap/index.tsx:181
 msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
@@ -265,6 +257,23 @@ msgstr "<0>dapp.klimadao.finance</0> is the only official domain."
 msgid "checkurlbanner.verify_url_and_bookmark"
 msgstr "⚠️ Verify the URL and bookmark this page!"
 
+#: components/CheckURLBanner/index.tsx:39
+msgid "checkurlbanner.dont_remind_me"
+msgstr "Don't Remind Me"
+
+#: components/CheckURLBanner/index.tsx:45
+msgid "checkurlbanner.got_it"
+msgstr "Got it"
+
+#. Write '<0>dapp.klimadao.finance</0>' so it displays in bold
+#: components/CheckURLBanner/index.tsx:31
+msgid "checkurlbanner.is_the_only_official_domain"
+msgstr "<0>dapp.klimadao.finance</0> is the only official domain."
+
+#: components/CheckURLBanner/index.tsx:26
+msgid "checkurlbanner.verify_url_and_bookmark"
+msgstr "⚠️ Verify the URL and bookmark this page!"
+
 #: components/views/ChooseBond/index.tsx:55
 msgid "choose_bond.bct.description"
 msgstr "Toucan Base Carbon Tonne"
@@ -350,6 +359,18 @@ msgstr "New to KLIMA?"
 msgid "home.loading"
 msgstr "Loading..."
 
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
+msgstr "How to get started"
+
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
+msgstr "New to KLIMA?"
+
+#: components/views/Loading/index.tsx:11
+msgid "home.loading"
+msgstr "Loading..."
+
 #: components/NotificationModal/index.tsx:26
 msgid "modal.done"
 msgstr "SUCCESS!"
@@ -377,6 +398,42 @@ msgstr "How to get started"
 #: components/ImageCard/index.tsx:13
 msgid "imagecard.new_to_klima"
 msgstr "New to KLIMA?"
+
+#: components/views/Info/index.tsx:127
+msgid "info.app_not_loading.1_open_metamaks"
+msgstr "1. Open Metamask and switch to Ethereum Mainnet"
+
+#: components/views/Info/index.tsx:131
+msgid "info.app_not_loading.2_go_to_settings"
+msgstr "2. Go to Settings/Networks/Polygon and click 'delete'"
+
+#: components/views/Info/index.tsx:135
+msgid "info.app_not_loading.3_return_to_dapp"
+msgstr "3. Return to dapp.klimadao.finance and click 'switch to mainnet'."
+
+#: components/views/Info/index.tsx:122
+msgid "info.app_not_loading.if_app_says_loading"
+msgstr "If the app says 'loading...' this is likely a problem with your network configuration in Metamask. To fix this:"
+
+#: components/views/Info/index.tsx:140
+msgid "info.app_not_loading.metamask_should_prompt"
+msgstr "Metamask should prompt you to add Polygon, with the correct RPC configuration."
+
+#: components/views/Info/index.tsx:117
+msgid "info.app_not_loading.title"
+msgstr "Why won't the dApp load for me?"
+
+#: components/views/Info/index.tsx:105
+msgid "info.caption"
+msgstr "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
+
+#: components/views/Info/index.tsx:151
+msgid "info.official_contract_addresses.title"
+msgstr "Official Contract Addresses"
+
+#: components/views/Info/index.tsx:102
+msgid "info.title"
+msgstr "Info & FAQ"
 
 #: components/NavMenu/index.tsx:142
 msgid "menu.bond_carbon"
@@ -456,7 +513,7 @@ msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
 
 #: components/views/PKlima/index.tsx:155
 msgid "pklima.exercise"
-msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
+msgstr "EXERCISE"
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:31
 msgid "pklima.growth"
@@ -472,7 +529,7 @@ msgstr "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIM
 
 #: components/views/PKlima/index.tsx:196
 msgid "pklima.klima_to_exercise"
-msgstr "pKLIMA to exercise"
+msgstr "PKLIMA TO EXERCISE"
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
@@ -549,7 +606,7 @@ msgstr "ERROR"
 #: components/views/Stake/index.tsx:344
 #: components/views/Stake/index.tsx:351
 msgid "shared.loading"
-msgstr "Loading"
+msgstr "Loading..."
 
 #: components/views/Bond/index.tsx:451
 #: components/views/PKlima/index.tsx:207
@@ -657,6 +714,18 @@ msgstr "Please click 'confirm' in your wallet to continue."
 #: actions/utils.ts:10
 msgid "status.user_rejected"
 msgstr "You chose to reject the transaction"
+
+#: components/NavMenu/index.tsx:183
+msgid "token.pKLIMA"
+msgstr "pKLIMA"
+
+#: components/ConnectButton/index.tsx:20
+msgid "wallet.connect"
+msgstr "Connect"
+
+#: components/ConnectButton/index.tsx:24
+msgid "wallet.disconnect"
+msgstr "Disconnect"
 
 #: components/NavMenu/index.tsx:183
 msgid "token.pKLIMA"

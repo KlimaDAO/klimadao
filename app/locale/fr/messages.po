@@ -29,20 +29,12 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: components/views/Info/index.tsx:105
-msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
-msgstr ""
-
 #: components/views/Wrap/index.tsx:115
 msgid "Connect wallet"
 msgstr ""
 
 #: components/views/Wrap/index.tsx:243
 msgid "Index"
-msgstr ""
-
-#: components/views/Info/index.tsx:102
-msgid "Info & FAQ"
 msgstr ""
 
 #: components/views/Wrap/index.tsx:181
@@ -265,6 +257,23 @@ msgstr ""
 msgid "checkurlbanner.verify_url_and_bookmark"
 msgstr ""
 
+#: components/CheckURLBanner/index.tsx:39
+msgid "checkurlbanner.dont_remind_me"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:45
+msgid "checkurlbanner.got_it"
+msgstr ""
+
+#. Write '<0>dapp.klimadao.finance</0>' so it displays in bold
+#: components/CheckURLBanner/index.tsx:31
+msgid "checkurlbanner.is_the_only_official_domain"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:26
+msgid "checkurlbanner.verify_url_and_bookmark"
+msgstr ""
+
 #: components/views/ChooseBond/index.tsx:55
 msgid "choose_bond.bct.description"
 msgstr ""
@@ -350,6 +359,18 @@ msgstr ""
 msgid "home.loading"
 msgstr ""
 
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
+msgstr ""
+
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
+msgstr ""
+
+#: components/views/Loading/index.tsx:11
+msgid "home.loading"
+msgstr ""
+
 #: components/NotificationModal/index.tsx:26
 msgid "modal.done"
 msgstr ""
@@ -376,6 +397,42 @@ msgstr ""
 
 #: components/ImageCard/index.tsx:13
 msgid "imagecard.new_to_klima"
+msgstr ""
+
+#: components/views/Info/index.tsx:127
+msgid "info.app_not_loading.1_open_metamaks"
+msgstr ""
+
+#: components/views/Info/index.tsx:131
+msgid "info.app_not_loading.2_go_to_settings"
+msgstr ""
+
+#: components/views/Info/index.tsx:135
+msgid "info.app_not_loading.3_return_to_dapp"
+msgstr ""
+
+#: components/views/Info/index.tsx:122
+msgid "info.app_not_loading.if_app_says_loading"
+msgstr ""
+
+#: components/views/Info/index.tsx:140
+msgid "info.app_not_loading.metamask_should_prompt"
+msgstr ""
+
+#: components/views/Info/index.tsx:117
+msgid "info.app_not_loading.title"
+msgstr ""
+
+#: components/views/Info/index.tsx:105
+msgid "info.caption"
+msgstr ""
+
+#: components/views/Info/index.tsx:151
+msgid "info.official_contract_addresses.title"
+msgstr ""
+
+#: components/views/Info/index.tsx:102
+msgid "info.title"
 msgstr ""
 
 #: components/NavMenu/index.tsx:142
@@ -656,6 +713,18 @@ msgstr ""
 
 #: actions/utils.ts:10
 msgid "status.user_rejected"
+msgstr ""
+
+#: components/NavMenu/index.tsx:183
+msgid "token.pKLIMA"
+msgstr ""
+
+#: components/ConnectButton/index.tsx:20
+msgid "wallet.connect"
+msgstr ""
+
+#: components/ConnectButton/index.tsx:24
+msgid "wallet.disconnect"
 msgstr ""
 
 #: components/NavMenu/index.tsx:183
