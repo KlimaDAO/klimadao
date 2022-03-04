@@ -73,16 +73,11 @@ msgstr "Backed by Carbon."
 msgid "Blockchain for Climate Foundation logo"
 msgstr "Blockchain for Climate Foundation logo"
 
-#: components/Footer/index.tsx:44
 #: components/pages/Blog/index.tsx:18
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "Blog"
 msgstr "Blog"
-
-#: components/Footer/index.tsx:37
-msgid "Bond"
-msgstr "Bond"
 
 #: components/pages/Resources/Contact/index.tsx:110
 msgid "Bug Reports"
@@ -114,7 +109,6 @@ msgstr "Come On In"
 msgid "Community"
 msgstr "Community"
 
-#: components/Footer/index.tsx:49
 #: components/pages/Resources/Contact/index.tsx:18
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "Contact"
@@ -129,7 +123,6 @@ msgstr "Contact KlimaDAO"
 msgid "Contact Us"
 msgstr "Contact Us"
 
-#: components/Footer/index.tsx:54
 #: components/pages/Disclaimer/index.tsx:29
 msgid "Disclaimer"
 msgstr "Disclaimer"
@@ -137,10 +130,6 @@ msgstr "Disclaimer"
 #: components/pages/Resources/Community/index.tsx:202
 msgid "Discord is where we share important announcements, hold office-hours, answer questions, and trade memes. Our Discord server is extremely active and moderated around-the-clock. We've got channels for everything from trading to sustainability and carbon markets."
 msgstr "Discord is where we share important announcements, hold office-hours, answer questions, and trade memes. Our Discord server is extremely active and moderated around-the-clock. We've got channels for everything from trading to sustainability and carbon markets."
-
-#: components/Footer/index.tsx:40
-msgid "Docs"
-msgstr "Docs"
 
 #: components/pages/Resources/Community/index.tsx:71
 #: components/pages/Resources/Contact/index.tsx:22
@@ -155,7 +144,7 @@ msgstr "EQUIVALENT TO"
 msgid "Eco logo"
 msgstr "Eco logo"
 
-#: components/Navigation/index.tsx:31
+#: components/Navigation/index.tsx:33
 #: components/pages/Home/index.tsx:100
 msgid "Enter App"
 msgstr "Enter App"
@@ -168,9 +157,8 @@ msgstr "Fight climate change and earn rewards with KLIMA, a digital currency bac
 msgid "GET KLIMA"
 msgstr "GET KLIMA"
 
-#: components/Footer/index.tsx:30
-#: components/Navigation/index.tsx:38
-#: components/Navigation/index.tsx:56
+#: components/Navigation/index.tsx:40
+#: components/Navigation/index.tsx:58
 msgid "Get KLIMA"
 msgstr "Get KLIMA"
 
@@ -193,10 +181,6 @@ msgstr "Gitcoin logo"
 #: components/pages/Home/index.tsx:265
 msgid "Hectares of forest"
 msgstr "Hectares of forest"
-
-#: components/Footer/index.tsx:25
-msgid "Home"
-msgstr "Home"
 
 #: components/pages/Resources/Contact/index.tsx:92
 msgid "If you are a journalist or content creator, our marketing team would love to meet you."
@@ -343,8 +327,8 @@ msgstr ""
 "Questions, concerns, ideas? Here are a few ways you can get in\n"
 "touch. We love meeting institutions and individuals alike."
 
-#: components/Navigation/index.tsx:51
-#: components/Navigation/index.tsx:65
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:67
 msgid "Resources"
 msgstr "Resources"
 
@@ -359,10 +343,6 @@ msgstr "Sign up"
 #: components/pages/Home/index.tsx:308
 msgid "Source"
 msgstr "Source"
-
-#: components/Footer/index.tsx:34
-msgid "Stake"
-msgstr "Stake"
 
 #: components/pages/Home/index.tsx:212
 msgid "Strong incentives."
@@ -433,13 +413,45 @@ msgstr "We’ve kick-started a <0>decentralized and open market for carbon</0>. 
 msgid "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 msgstr "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 
-#: components/Navigation/index.tsx:47
-#: components/Navigation/index.tsx:63
+#: components/Footer/index.tsx:44
+msgid "footer.blog"
+msgstr ">Blog"
+
+#: components/Footer/index.tsx:37
+msgid "footer.bond"
+msgstr ">Bond"
+
+#: components/Footer/index.tsx:49
+msgid "footer.contact"
+msgstr ">Contact"
+
+#: components/Footer/index.tsx:54
+msgid "footer.disclaimer"
+msgstr ">Disclaimer"
+
+#: components/Footer/index.tsx:40
+msgid "footer.docs"
+msgstr ">Docs"
+
+#: components/Footer/index.tsx:30
+msgid "footer.get_klima"
+msgstr ">Get KLIMA"
+
+#: components/Footer/index.tsx:25
+msgid "footer.home"
+msgstr "Home"
+
+#: components/Footer/index.tsx:34
+msgid "footer.stake"
+msgstr ">Stake"
+
+#: components/Navigation/index.tsx:49
+#: components/Navigation/index.tsx:65
 msgid "mainNav.bond"
 msgstr "Bond"
 
-#: components/Navigation/index.tsx:43
-#: components/Navigation/index.tsx:59
+#: components/Navigation/index.tsx:45
+#: components/Navigation/index.tsx:61
 msgid "mainNav.stake"
 msgstr "Stake"
 

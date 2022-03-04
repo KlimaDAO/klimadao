@@ -73,15 +73,10 @@ msgstr ""
 msgid "Blockchain for Climate Foundation logo"
 msgstr ""
 
-#: components/Footer/index.tsx:44
 #: components/pages/Blog/index.tsx:18
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "Blog"
-msgstr ""
-
-#: components/Footer/index.tsx:37
-msgid "Bond"
 msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:110
@@ -114,7 +109,6 @@ msgstr ""
 msgid "Community"
 msgstr ""
 
-#: components/Footer/index.tsx:49
 #: components/pages/Resources/Contact/index.tsx:18
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "Contact"
@@ -129,17 +123,12 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: components/Footer/index.tsx:54
 #: components/pages/Disclaimer/index.tsx:29
 msgid "Disclaimer"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:202
 msgid "Discord is where we share important announcements, hold office-hours, answer questions, and trade memes. Our Discord server is extremely active and moderated around-the-clock. We've got channels for everything from trading to sustainability and carbon markets."
-msgstr ""
-
-#: components/Footer/index.tsx:40
-msgid "Docs"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:71
@@ -155,7 +144,7 @@ msgstr ""
 msgid "Eco logo"
 msgstr ""
 
-#: components/Navigation/index.tsx:31
+#: components/Navigation/index.tsx:33
 #: components/pages/Home/index.tsx:100
 msgid "Enter App"
 msgstr ""
@@ -168,9 +157,8 @@ msgstr ""
 msgid "GET KLIMA"
 msgstr ""
 
-#: components/Footer/index.tsx:30
-#: components/Navigation/index.tsx:38
-#: components/Navigation/index.tsx:56
+#: components/Navigation/index.tsx:40
+#: components/Navigation/index.tsx:58
 msgid "Get KLIMA"
 msgstr ""
 
@@ -192,10 +180,6 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:265
 msgid "Hectares of forest"
-msgstr ""
-
-#: components/Footer/index.tsx:25
-msgid "Home"
 msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:92
@@ -341,8 +325,8 @@ msgid ""
 "touch. We love meeting institutions and individuals alike."
 msgstr ""
 
-#: components/Navigation/index.tsx:51
-#: components/Navigation/index.tsx:65
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:67
 msgid "Resources"
 msgstr ""
 
@@ -356,10 +340,6 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:308
 msgid "Source"
-msgstr ""
-
-#: components/Footer/index.tsx:34
-msgid "Stake"
 msgstr ""
 
 #: components/pages/Home/index.tsx:212
@@ -429,13 +409,45 @@ msgstr ""
 msgid "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 msgstr ""
 
-#: components/Navigation/index.tsx:47
-#: components/Navigation/index.tsx:63
+#: components/Footer/index.tsx:44
+msgid "footer.blog"
+msgstr ""
+
+#: components/Footer/index.tsx:37
+msgid "footer.bond"
+msgstr ""
+
+#: components/Footer/index.tsx:49
+msgid "footer.contact"
+msgstr ""
+
+#: components/Footer/index.tsx:54
+msgid "footer.disclaimer"
+msgstr ""
+
+#: components/Footer/index.tsx:40
+msgid "footer.docs"
+msgstr ""
+
+#: components/Footer/index.tsx:30
+msgid "footer.get_klima"
+msgstr ""
+
+#: components/Footer/index.tsx:25
+msgid "footer.home"
+msgstr ""
+
+#: components/Footer/index.tsx:34
+msgid "footer.stake"
+msgstr ""
+
+#: components/Navigation/index.tsx:49
+#: components/Navigation/index.tsx:65
 msgid "mainNav.bond"
 msgstr ""
 
-#: components/Navigation/index.tsx:43
-#: components/Navigation/index.tsx:59
+#: components/Navigation/index.tsx:45
+#: components/Navigation/index.tsx:61
 msgid "mainNav.stake"
 msgstr ""
 
