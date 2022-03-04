@@ -26,8 +26,6 @@ msgid "Blockchain for Climate Foundation logo"
 msgstr "Blockchain for Climate Foundation logo"
 
 #: components/pages/Blog/index.tsx:18
-#: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "Blog"
 msgstr "Blog"
 
@@ -36,13 +34,10 @@ msgid "Change language"
 msgstr "Change language"
 
 #: components/pages/Resources/Community/index.tsx:68
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:70
 msgid "Community"
 msgstr "Community"
 
 #: components/pages/Resources/Contact/index.tsx:18
-#: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "Contact"
 msgstr "Contact"
 
@@ -50,10 +45,6 @@ msgstr "Contact"
 #: components/pages/Resources/Contact/index.tsx:21
 msgid "Contact KlimaDAO"
 msgstr "Contact KlimaDAO"
-
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
-msgid "Contact Us"
-msgstr "Contact Us"
 
 #: components/pages/Resources/Community/index.tsx:71
 #: components/pages/Resources/Contact/index.tsx:22
@@ -782,11 +773,24 @@ msgstr "/02"
 msgid "shared.03"
 msgstr "/03"
 
+#: components/pages/Resources/ResourcesHeader/index.tsx:29
+#: components/pages/Resources/ResourcesHeader/index.tsx:64
+msgid "shared.blog"
+msgstr "Blog"
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:70
+msgid "shared.community"
+msgstr "Community"
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:76
+msgid "shared.contact"
+msgstr "Contact"
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:51
+msgid "shared.contact_us"
+msgstr "Contact Us"
+
 #: components/pages/Home/index.tsx:105
 msgid "shared.enter_app"
 msgstr "Enter App"
-
-#: components/pages/Resources/ResourcesHeader/index.tsx:85
-#: components/pages/Resources/ResourcesHeader/index.tsx:88
-msgid "{0}"
-msgstr "{0}"

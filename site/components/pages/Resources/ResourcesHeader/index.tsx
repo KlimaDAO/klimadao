@@ -26,7 +26,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
             <li className={styles.listItem} data-active={isPageActive("blog")}>
               <Link href="/blog">
                 <a>
-                  <Trans>Blog</Trans>
+                  <Trans id="shared.blog">Blog</Trans>
                   <ArrowBack className="arrow" />
                 </a>
               </Link>
@@ -37,7 +37,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
             >
               <Link href="/community">
                 <a>
-                  <Trans>Community</Trans>
+                  <Trans id="shared.community">Community</Trans>
                   <ArrowBack className="arrow" />
                 </a>
               </Link>
@@ -48,7 +48,7 @@ export const ResourcesHeader: FC<Props> = (props) => {
             >
               <Link href="/contact">
                 <a>
-                  <Trans>Contact Us</Trans>
+                  <Trans id="shared.contact_us">Contact Us</Trans>
                   <ArrowBack className="arrow" />
                 </a>
               </Link>
@@ -61,19 +61,19 @@ export const ResourcesHeader: FC<Props> = (props) => {
         <div className={styles.resourcesHeader}>
           <div className={styles.navigationMobile}>
             <ButtonPrimary
-              label={t`Blog`}
+              label={t({ id: "shared.blog", message: "Blog" })}
               href={"/blog"}
               variant={isPageActive("blog") ? null : "gray"}
               link={Link}
             />
             <ButtonPrimary
-              label={t`Community`}
+              label={t({ id: "shared.community", message: "Community" })}
               href={"/community"}
               variant={isPageActive("community") ? null : "gray"}
               link={Link}
             />
             <ButtonPrimary
-              label={t`Contact`}
+              label={t({ id: "shared.contact", message: "Contact" })}
               href={"/contact"}
               variant={isPageActive("contact") ? null : "gray"}
               link={Link}
@@ -82,10 +82,10 @@ export const ResourcesHeader: FC<Props> = (props) => {
 
           <div className="resourcesHeader_textGroup">
             <Text t="h2" as="h2">
-              <Trans>{props.title}</Trans>
+              {props.title}
             </Text>
             <Text align="center" t="body3" color="lighter">
-              <Trans>{props.subline}</Trans>
+              {props.subline}
             </Text>
             {props.headerElements && <props.headerElements />}
           </div>
