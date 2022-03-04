@@ -415,27 +415,27 @@ msgstr "You bear full responsibility for providing of private information, verif
 
 #: components/Footer/index.tsx:44
 msgid "footer.blog"
-msgstr ">Blog"
+msgstr "Blog"
 
 #: components/Footer/index.tsx:37
 msgid "footer.bond"
-msgstr ">Bond"
+msgstr "Bond"
 
 #: components/Footer/index.tsx:49
 msgid "footer.contact"
-msgstr ">Contact"
+msgstr "Contact"
 
 #: components/Footer/index.tsx:54
 msgid "footer.disclaimer"
-msgstr ">Disclaimer"
+msgstr "Disclaimer"
 
 #: components/Footer/index.tsx:40
 msgid "footer.docs"
-msgstr ">Docs"
+msgstr "Docs"
 
 #: components/Footer/index.tsx:30
 msgid "footer.get_klima"
-msgstr ">Get KLIMA"
+msgstr "Get KLIMA"
 
 #: components/Footer/index.tsx:25
 msgid "footer.home"
@@ -443,7 +443,7 @@ msgstr "Home"
 
 #: components/Footer/index.tsx:34
 msgid "footer.stake"
-msgstr ">Stake"
+msgstr "Stake"
 
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:65
