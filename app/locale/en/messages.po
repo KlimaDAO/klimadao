@@ -13,10 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/PKlima/index.tsx:219
-msgid "A percent of total token supply. Your index-adjusted claim may not exceed this value."
-msgstr "A percent of total token supply. Your index-adjusted claim may not exceed this value."
-
 #: components/views/Wrap/index.tsx:246
 msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
@@ -37,50 +33,21 @@ msgstr "Change language"
 msgid "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
 msgstr "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
 
-#: components/views/PKlima/index.tsx:124
 #: components/views/Wrap/index.tsx:115
 msgid "Connect wallet"
 msgstr "Connect wallet"
-
-#: components/views/PKlima/index.tsx:240
-msgid "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIMA until today."
-msgstr "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIMA until today."
-
-#: components/views/PKlima/index.tsx:181
-msgid "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
-msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
 
 #: components/views/Wrap/index.tsx:243
 msgid "Index"
 msgstr "Index"
 
-#: components/views/PKlima/index.tsx:237
-msgid "Index adjusted"
-msgstr "Index adjusted"
-
 #: components/views/Info/index.tsx:102
 msgid "Info & FAQ"
 msgstr "Info & FAQ"
 
-#: components/views/PKlima/index.tsx:178
-msgid "Redeem pKLIMA"
-msgstr "Redeem pKLIMA"
-
-#: components/views/PKlima/index.tsx:229
-msgid "Redeemed"
-msgstr "Redeemed"
-
 #: components/views/Wrap/index.tsx:181
 msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
 msgstr "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
-
-#: components/views/PKlima/index.tsx:216
-msgid "Supply limit"
-msgstr "Supply limit"
-
-#: components/views/PKlima/index.tsx:231
-msgid "Total KLIMA you have redeemed so far."
-msgstr "Total KLIMA you have redeemed so far."
 
 #: components/views/Wrap/index.tsx:175
 msgid "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
@@ -204,30 +171,9 @@ msgstr "You will get"
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
-#: components/views/PKlima/index.tsx:150
-msgid "button.bct"
-msgstr "2. Approve BCT"
-
-#: components/views/PKlima/index.tsx:139
-msgid "button.confirming"
-msgstr "Confirming"
-
-#: components/views/PKlima/index.tsx:155
-msgid "button.exercise"
-msgstr "EXERCISE"
-
-#: components/views/PKlima/index.tsx:130
-msgid "button.loading"
-msgstr "Loading"
-
-#: components/views/PKlima/index.tsx:203
 #: components/views/Wrap/index.tsx:228
 msgid "button.max"
 msgstr "Max"
-
-#: components/views/PKlima/index.tsx:145
-msgid "button.pklima"
-msgstr "1. Approve pKLIMA"
 
 #: components/CheckURLBanner/index.tsx:42
 msgid "checkurlbanner.dont_remind_me"
@@ -255,7 +201,7 @@ msgstr "Toucan Base Carbon Tonne"
 msgid "checkurlbanner.dont_remind_me"
 msgstr "Don't Remind Me"
 
-#: components/CheckURLBanner/index.tsx:42
+#: components/CheckURLBanner/index.tsx:45
 msgid "checkurlbanner.got_it"
 msgstr "Got it"
 
@@ -273,6 +219,40 @@ msgid "checkurlbanner.dont_remind_me"
 msgstr "Don't Remind Me"
 
 #: components/CheckURLBanner/index.tsx:45
+msgid "checkurlbanner.got_it"
+msgstr "Got it"
+
+#. Write '<0>dapp.klimadao.finance</0>' so it displays in bold
+#: components/CheckURLBanner/index.tsx:31
+msgid "checkurlbanner.is_the_only_official_domain"
+msgstr "<0>dapp.klimadao.finance</0> is the only official domain."
+
+#: components/CheckURLBanner/index.tsx:26
+msgid "checkurlbanner.verify_url_and_bookmark"
+msgstr "⚠️ Verify the URL and bookmark this page!"
+
+#: components/CheckURLBanner/index.tsx:39
+msgid "checkurlbanner.dont_remind_me"
+msgstr "Don't Remind Me"
+
+#: components/CheckURLBanner/index.tsx:45
+msgid "checkurlbanner.got_it"
+msgstr "Got it"
+
+#. Write '<0>dapp.klimadao.finance</0>' so it displays in bold
+#: components/CheckURLBanner/index.tsx:31
+msgid "checkurlbanner.is_the_only_official_domain"
+msgstr "<0>dapp.klimadao.finance</0> is the only official domain."
+
+#: components/CheckURLBanner/index.tsx:26
+msgid "checkurlbanner.verify_url_and_bookmark"
+msgstr "⚠️ Verify the URL and bookmark this page!"
+
+#: components/CheckURLBanner/index.tsx:39
+msgid "checkurlbanner.dont_remind_me"
+msgstr "Don't Remind Me"
+
+#: components/CheckURLBanner/index.tsx:42
 msgid "checkurlbanner.got_it"
 msgstr "Got it"
 
@@ -320,7 +300,7 @@ msgstr "KLIMA/MCO2 Quickswap Liquidity"
 #: components/views/Bond/index.tsx:296
 #: components/views/ChooseBond/index.tsx:167
 msgid "choose_bond.sold_out"
-msgstr "Sold Out"
+msgstr "SOLD OUT"
 
 #: components/views/ChooseBond/index.tsx:136
 msgid "choose_bond.treasury_balance"
@@ -329,6 +309,30 @@ msgstr "Treasury Balance"
 #: components/views/ChooseBond/index.tsx:67
 msgid "choose_bond.usdc_lp.description"
 msgstr "BCT/USDC Sushiswap Liquidity"
+
+#: components/views/Loading/index.tsx:11
+msgid "home.loading"
+msgstr "Loading..."
+
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
+msgstr "How to get started"
+
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
+msgstr "New to KLIMA?"
+
+#: components/views/Loading/index.tsx:11
+msgid "home.loading"
+msgstr "Loading..."
+
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
+msgstr "How to get started"
+
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
+msgstr "New to KLIMA?"
 
 #: components/views/Loading/index.tsx:11
 msgid "home.loading"
@@ -434,17 +438,65 @@ msgstr "CONFIRMATION"
 msgid "nav.back"
 msgstr "BACK"
 
+#: components/views/PKlima/index.tsx:150
+msgid "pklima.approve_bct"
+msgstr "2. Approve BCT"
+
+#: components/views/PKlima/index.tsx:145
+msgid "pklima.approve_pklima"
+msgstr "1. Approve pKLIMA"
+
+#: components/views/PKlima/index.tsx:167
+msgid "pklima.balances_card.tooltip"
+msgstr "Make sure to stake your redeemed pKLIMA, and stay staked, until global GHG emissions have plateaued."
+
+#: components/views/PKlima/index.tsx:180
+msgid "pklima.caption"
+msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
+
+#: components/views/PKlima/index.tsx:155
+msgid "pklima.exercise"
+msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
+
 #: components/views/PKlima/ClaimExceededModal/index.tsx:31
 msgid "pklima.growth"
 msgstr "It may be a few days, depending on the KLIMA growth rate, before you can access this page and continue redeeming pKLIMA."
 
-#: components/views/PKlima/index.tsx:163
+#: components/views/PKlima/index.tsx:245
+msgid "pklima.index_adjusted"
+msgstr "Index adjusted"
+
+#: components/views/PKlima/index.tsx:248
+msgid "pklima.index_adjusted.tooltip"
+msgstr "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIMA until today."
+
+#: components/views/PKlima/index.tsx:196
 msgid "pklima.klima_to_exercise"
-msgstr "PKLIMA TO EXERCISE"
+msgstr "pKLIMA to exercise"
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
 msgstr "You've claimed more KLIMA than your supply-share limit. This is likely due to a fix implemented on November 24th, 2021 to the pKLIMA redemption contract."
+
+#: components/views/PKlima/index.tsx:177
+msgid "pklima.redeem_pklima"
+msgstr "Redeem pKLIMA"
+
+#: components/views/PKlima/index.tsx:233
+msgid "pklima.redeemed"
+msgstr "Redeemed"
+
+#: components/views/PKlima/index.tsx:236
+msgid "pklima.redeemed.tooltip"
+msgstr "Total KLIMA you have redeemed so far."
+
+#: components/views/PKlima/index.tsx:220
+msgid "pklima.supply_limit"
+msgstr "Supply limit"
+
+#: components/views/PKlima/index.tsx:223
+msgid "pklima.supply_limit.tooltip"
+msgstr "A percent of total token supply. Your index-adjusted claim may not exceed this value."
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
@@ -461,11 +513,13 @@ msgid "shared.balances"
 msgstr "Balances"
 
 #: components/views/Bond/index.tsx:329
+#: components/views/PKlima/index.tsx:139
 #: components/views/Stake/index.tsx:144
 msgid "shared.confirming"
 msgstr "Confirming"
 
 #: components/views/Bond/index.tsx:302
+#: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
 msgid "shared.connect_wallet"
 msgstr "Connect wallet"
@@ -489,6 +543,7 @@ msgstr "ERROR"
 #: components/RebaseCard/index.tsx:56
 #: components/RebaseCard/index.tsx:67
 #: components/views/Bond/index.tsx:308
+#: components/views/PKlima/index.tsx:130
 #: components/views/Stake/index.tsx:135
 #: components/views/Stake/index.tsx:337
 #: components/views/Stake/index.tsx:344
@@ -497,6 +552,7 @@ msgid "shared.loading"
 msgstr "Loading"
 
 #: components/views/Bond/index.tsx:451
+#: components/views/PKlima/index.tsx:207
 #: components/views/Stake/index.tsx:281
 msgid "shared.max"
 msgstr "Max"
@@ -601,6 +657,30 @@ msgstr "Please click 'confirm' in your wallet to continue."
 #: actions/utils.ts:10
 msgid "status.user_rejected"
 msgstr "You chose to reject the transaction"
+
+#: components/NavMenu/index.tsx:183
+msgid "token.pKLIMA"
+msgstr "pKLIMA"
+
+#: components/ConnectButton/index.tsx:20
+msgid "wallet.connect"
+msgstr "Connect"
+
+#: components/ConnectButton/index.tsx:24
+msgid "wallet.disconnect"
+msgstr "Disconnect"
+
+#: components/NavMenu/index.tsx:183
+msgid "token.pKLIMA"
+msgstr "pKLIMA"
+
+#: components/ConnectButton/index.tsx:20
+msgid "wallet.connect"
+msgstr "Connect"
+
+#: components/ConnectButton/index.tsx:24
+msgid "wallet.disconnect"
+msgstr "Disconnect"
 
 #: components/NavMenu/index.tsx:183
 msgid "token.pKLIMA"
