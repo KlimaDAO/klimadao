@@ -13,14 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Wrap/index.tsx:246
-msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
-msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
-
-#: components/views/Wrap/index.tsx:256
-msgid "Balance"
-msgstr "Balance"
-
 #: components/views/ChooseBond/index.tsx:123
 msgid "Bond Carbon."
 msgstr "Bond Carbon."
@@ -28,26 +20,6 @@ msgstr "Bond Carbon."
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr "Change language"
-
-#: components/views/Wrap/index.tsx:115
-msgid "Connect wallet"
-msgstr "Connect wallet"
-
-#: components/views/Wrap/index.tsx:243
-msgid "Index"
-msgstr "Index"
-
-#: components/views/Wrap/index.tsx:181
-msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
-msgstr "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
-
-#: components/views/Wrap/index.tsx:175
-msgid "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
-msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
-
-#: components/views/Wrap/index.tsx:259
-msgid "You Will Get"
-msgstr "You Will Get"
 
 #: components/views/Bond/index.tsx:466
 msgid "bond.balance"
@@ -162,10 +134,6 @@ msgstr "You will get"
 #: components/views/Bond/index.tsx:536
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
-
-#: components/views/Wrap/index.tsx:228
-msgid "button.max"
-msgstr "Max"
 
 #: components/CheckURLBanner/index.tsx:42
 msgid "checkurlbanner.dont_remind_me"
@@ -420,6 +388,7 @@ msgstr "Confirming"
 #: components/views/Bond/index.tsx:302
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
+#: components/views/Wrap/index.tsx:115
 msgid "shared.connect_wallet"
 msgstr "Connect wallet"
 
@@ -453,6 +422,7 @@ msgstr "Loading..."
 #: components/views/Bond/index.tsx:451
 #: components/views/PKlima/index.tsx:207
 #: components/views/Stake/index.tsx:281
+#: components/views/Wrap/index.tsx:236
 msgid "shared.max"
 msgstr "Max"
 
@@ -568,6 +538,52 @@ msgstr "Connect"
 #: components/ConnectButton/index.tsx:24
 msgid "wallet.disconnect"
 msgstr "Disconnect"
+
+#: components/views/Wrap/index.tsx:264
+msgid "wrap.balance"
+msgstr "Balance"
+
+#: components/views/Wrap/index.tsx:251
+msgid "wrap.index"
+msgstr "Index"
+
+#: components/views/Wrap/index.tsx:254
+msgid "wrap.index.tooltip"
+msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
+
+#: components/views/Wrap/index.tsx:161
+msgid "wrap.sklima_to_wrap"
+msgstr "sKLIMA to wrap"
+
+#: components/views/Wrap/index.tsx:219
+msgid "wrap.unwrap"
+msgstr "Unwrap"
+
+#: components/views/Wrap/index.tsx:208
+msgid "wrap.wrap"
+msgstr "Wrap"
+
+#: components/views/Wrap/index.tsx:174
+msgid "wrap.wrap_sklima"
+msgstr "Wrap sKLIMA"
+
+#. Long sentence
+#: components/views/Wrap/index.tsx:186
+msgid "wrap.wrap_sklima.some_find_this_useful"
+msgstr "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
+
+#. Long sentence
+#: components/views/Wrap/index.tsx:177
+msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
+msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
+
+#: components/views/Wrap/index.tsx:162
+msgid "wrap.wsklima_to_unwrap"
+msgstr "wsKLIMA to unwrap"
+
+#: components/views/Wrap/index.tsx:267
+msgid "wrap.you_will_get"
+msgstr "You Will Get"
 
 #: components/views/Bond/index.tsx:703
 msgid "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"

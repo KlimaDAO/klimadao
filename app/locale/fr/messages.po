@@ -13,40 +13,12 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Wrap/index.tsx:246
-msgid "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
-msgstr ""
-
-#: components/views/Wrap/index.tsx:256
-msgid "Balance"
-msgstr ""
-
 #: components/views/ChooseBond/index.tsx:123
 msgid "Bond Carbon."
 msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
-msgstr ""
-
-#: components/views/Wrap/index.tsx:115
-msgid "Connect wallet"
-msgstr ""
-
-#: components/views/Wrap/index.tsx:243
-msgid "Index"
-msgstr ""
-
-#: components/views/Wrap/index.tsx:181
-msgid "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
-msgstr ""
-
-#: components/views/Wrap/index.tsx:175
-msgid "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
-msgstr ""
-
-#: components/views/Wrap/index.tsx:259
-msgid "You Will Get"
 msgstr ""
 
 #: components/views/Bond/index.tsx:466
@@ -162,10 +134,6 @@ msgstr ""
 #: components/views/Bond/index.tsx:536
 msgid "bond.you_will_get.tooltip"
 msgstr ""
-
-#: components/views/Wrap/index.tsx:228
-msgid "button.max"
-msgstr "Max"
 
 #: components/CheckURLBanner/index.tsx:42
 msgid "checkurlbanner.dont_remind_me"
@@ -420,6 +388,7 @@ msgstr ""
 #: components/views/Bond/index.tsx:302
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
+#: components/views/Wrap/index.tsx:115
 msgid "shared.connect_wallet"
 msgstr ""
 
@@ -453,6 +422,7 @@ msgstr ""
 #: components/views/Bond/index.tsx:451
 #: components/views/PKlima/index.tsx:207
 #: components/views/Stake/index.tsx:281
+#: components/views/Wrap/index.tsx:236
 msgid "shared.max"
 msgstr ""
 
@@ -567,6 +537,52 @@ msgstr ""
 
 #: components/ConnectButton/index.tsx:24
 msgid "wallet.disconnect"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:264
+msgid "wrap.balance"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:251
+msgid "wrap.index"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:254
+msgid "wrap.index.tooltip"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:161
+msgid "wrap.sklima_to_wrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:219
+msgid "wrap.unwrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:208
+msgid "wrap.wrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:174
+msgid "wrap.wrap_sklima"
+msgstr ""
+
+#. Long sentence
+#: components/views/Wrap/index.tsx:186
+msgid "wrap.wrap_sklima.some_find_this_useful"
+msgstr ""
+
+#. Long sentence
+#: components/views/Wrap/index.tsx:177
+msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:162
+msgid "wrap.wsklima_to_unwrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:267
+msgid "wrap.you_will_get"
 msgstr ""
 
 #: components/views/Bond/index.tsx:703
