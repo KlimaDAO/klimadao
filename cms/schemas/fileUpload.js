@@ -1,13 +1,11 @@
 export default {
-  name: "pdf",
-  title: "PDF",
+  title: "File Upload",
+  name: "fileUpload",
   type: "document",
   fields: [
     {
       name: "name",
       title: "Name",
-      description:
-        "This is the title of the hyperlink that readers will see in the blog",
       type: "string",
       validation: (Rule) => Rule.required(),
     },
@@ -23,9 +21,6 @@ export default {
       title: "File",
       type: "file",
       validation: (Rule) => Rule.required(),
-      options: {
-        accept: ".pdf",
-      },
     },
   ],
   preview: {

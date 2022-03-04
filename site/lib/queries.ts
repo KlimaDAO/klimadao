@@ -30,6 +30,13 @@ const prodQueries = {
     *[_type == "post" && slug.current == $slug && hideFromProduction != true][0] {
       body[] {
         ...,
+        markDefs[]{
+          ...,
+          _type == "internalLink" => {
+            "name": item->.name,
+            "href": item->.file.asset->url
+          }
+        },
         _type == "image" => {
           ...,
           asset -> {
@@ -37,10 +44,6 @@ const prodQueries = {
             "width": metadata.dimensions.width,
             "height": metadata.dimensions.height,
           }
-        },
-        _type == 'pdf' => {
-          "name":@->.name,
-           "url":@->.file.asset->url
         }
       },
       title,
@@ -75,6 +78,13 @@ const stagingQueries: typeof prodQueries = {
     *[_type == "post" && slug.current == $slug][0] {
       body[] {
         ...,
+        markDefs[]{
+          ...,
+          _type == "internalLink" => {
+            "name": item->.name,
+            "href": item->.file.asset->url
+          }
+        },
         _type == "image" => {
           ...,
           asset -> {
@@ -82,10 +92,6 @@ const stagingQueries: typeof prodQueries = {
             "width": metadata.dimensions.width,
             "height": metadata.dimensions.height,
           }
-        },
-        _type == 'pdf' => {
-          "name":@->.name,
-           "url":@->.file.asset->url
         }
       },
       title,

@@ -82,6 +82,14 @@ const serializers: BlockContentProps["serializers"] = {
         </A>
       );
     },
+    internalLink: ({ children, mark }) => {
+      const { href } = mark;
+      return (
+        <A className={styles.link} href={`${href}?dl=`}>
+          {children}
+        </A>
+      );
+    },
   },
   types: {
     block: BlockRenderer,
@@ -99,13 +107,6 @@ const serializers: BlockContentProps["serializers"] = {
             height={params.node.asset.height}
           />
         </div>
-      );
-    },
-    pdf: (params: { node: { name: string; url: string } }) => {
-      return (
-        <Text t="body2" className={styles.paragraph}>
-          Download PDF <A href={`${params.node.url}?dl=`}>{params.node.name}</A>
-        </Text>
       );
     },
   },
