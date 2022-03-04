@@ -165,9 +165,10 @@ export const PKlima: FC<Props> = (props) => {
       <BalancesCard
         assets={["pklima", "bct"]}
         tooltip={t({
-          id: "pklima.balances_card.tooltip",
+          id: "pklima.balances_card.make_sure_to_stake",
           message:
             "Make sure to stake your redeemed pKLIMA, and stay staked, until global GHG emissions have plateaued.",
+          comment: "Long sentence",
         })}
       />
       <div className={styles.stakeCard} style={{ minHeight: "48rem" }}>
@@ -177,7 +178,7 @@ export const PKlima: FC<Props> = (props) => {
             <Trans id="pklima.redeem_pklima">Redeem pKLIMA</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans id="pklima.caption">
+            <Trans id="pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima">
               Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA.
             </Trans>
           </Text>
@@ -220,7 +221,10 @@ export const PKlima: FC<Props> = (props) => {
               <Trans id="pklima.supply_limit">Supply limit</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans id="pklima.supply_limit.tooltip">
+                  <Trans
+                    id="pklima.supply_limit.tooltip"
+                    comment="Long sentence"
+                  >
                     A percent of total token supply. Your index-adjusted claim
                     may not exceed this value.
                   </Trans>
@@ -233,7 +237,7 @@ export const PKlima: FC<Props> = (props) => {
               <Trans id="pklima.redeemed">Redeemed</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans id="pklima.redeemed.tooltip">
+                  <Trans id="pklima.redeemed.tooltip" comment="Long sentence">
                     Total KLIMA you have redeemed so far.
                   </Trans>
                 }
@@ -245,7 +249,10 @@ export const PKlima: FC<Props> = (props) => {
               <Trans id="pklima.index_adjusted">Index adjusted</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans id="pklima.index_adjusted.tooltip">
+                  <Trans
+                    id="pklima.index_adjusted.tooltip"
+                    comment="Long sentence"
+                  >
                     Equivalent sKLIMA claimed, assuming you staked all of your
                     redeemed KLIMA until today.
                   </Trans>

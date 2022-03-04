@@ -23,14 +23,14 @@ export const CheckURLBanner: FC<Props> = ({ onHide }) => {
       <div className={styles.banner}>
         <div className={styles.banner_text}>
           <Text t="h4" align="center">
-            <Trans id="checkurlbanner.verify_url_and_bookmark">
+            <Trans id="checkurlbanner.verify_url_and_bookmark_this_page">
               ⚠️ Verify the URL and bookmark this page!
             </Trans>
           </Text>
           <Text t="caption" color="lighter" align="center">
             <Trans
               id="checkurlbanner.is_the_only_official_domain"
-              comment="Write '<0>dapp.klimadao.finance</0>' so it displays in bold"
+              comment="<0>dapp.klimadao.finance</0> is the only official domain."
             >
               <strong>dapp.klimadao.finance</strong> is the only official
               domain.
