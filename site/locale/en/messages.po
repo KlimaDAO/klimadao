@@ -468,6 +468,134 @@ msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
+#: components/pages/Home/index.tsx:199
+msgid "home.backed_by_carbon"
+msgstr "Backed by Carbon."
+
+#. Long sentence
+#: components/pages/Home/index.tsx:157
+msgid "home.by_increasing_access"
+msgstr "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
+
+#: components/pages/Home/index.tsx:290
+msgid "home.cars_annual"
+msgstr "Cars (annual)"
+
+#: components/pages/Home/index.tsx:259
+msgid "home.equivalent_to"
+msgstr "EQUIVALENT TO"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:374
+msgid "home.every_klima_token_is_backed"
+msgstr "Every KLIMA token is backed by a real-world carbon asset. Tokens are used to offset carbon emissions, interact with DeFi applications, and get exposure to the rapidly growing global carbon market."
+
+#. Long sentence
+#: components/pages/Home/index.tsx:97
+msgid "home.fight_climate_change"
+msgstr "Fight climate change and earn rewards with KLIMA, a digital currency backed by real carbon assets."
+
+#: components/pages/Home/index.tsx:425
+msgid "home.get_exposure_to_the_growing_carob_economy"
+msgstr "Get exposure to the growing carbon economy today. Acquire, stake, and get rewarded. Financial activism for the climate."
+
+#: components/pages/Home/index.tsx:273
+msgid "home.hectares_of_forest"
+msgstr "Hectares of forest"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:142
+msgid "home.klima_is_a_black_hole"
+msgstr "KlimaDAO is a <0>black hole for carbon</0> at the center of a <1>new green economy</1>."
+
+#. Long sentence
+#: components/pages/Home/index.tsx:403
+msgid "home.klima_tokens_are_minted"
+msgstr "KLIMA tokens are minted and distributed automatically every ~7 hours to staked KLIMA holders. Grow your KLIMA holdings as we usher in a more sustainable future together."
+
+#: components/pages/Home/index.tsx:73
+msgid "home.latest_news"
+msgstr "📰 Latest News:"
+
+#: components/pages/Home/index.tsx:128
+msgid "home.learn_more"
+msgstr "LEARN MORE"
+
+#: components/pages/Home/index.tsx:305
+msgid "home.liters_if_gasoline"
+msgstr "Liters of gasoline"
+
+#: components/pages/Home/index.tsx:235
+msgid "home.massive impact"
+msgstr "Massive impact."
+
+#: components/pages/Home/index.tsx:173
+msgid "home.mechanics"
+msgstr "MECHANICS"
+
+#: components/pages/Home/index.tsx:454
+msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
+msgstr "All the Alpha, straight to your inbox"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:462
+msgid "home.newletter.get_the_latest_updates"
+msgstr "Get the latest updates on KlimaDAO, as we build the future of the carbon economy."
+
+#: components/pages/Home/index.tsx:479
+msgid "home.newletter.never_shared_never_spammed"
+msgstr "Never shared. Never spammed."
+
+#: components/pages/Home/index.tsx:473
+msgid "home.newletter.sign_up"
+msgstr "Sign up"
+
+#. <0>Reserve Asset</0><1>Of the carbon economy</1>
+#: components/pages/Home/index.tsx:362
+msgid "home.reserve_asset_of_the_carbon_economy"
+msgstr "<0>Reserve Asset</0><1>Of the carbon economy</1>"
+
+#: components/pages/Home/index.tsx:432
+msgid "home.see_tutorial"
+msgstr "See Tutorial"
+
+#: components/pages/Home/index.tsx:320
+msgid "home.source"
+msgstr "Source"
+
+#: components/pages/Home/index.tsx:217
+msgid "home.strong_incentives"
+msgstr "Strong incentives."
+
+#. Long sentence
+#: components/pages/Home/index.tsx:176
+msgid "home.the_dao_sell_bonds"
+msgstr "The DAO sells bonds and distributes profits to KLIMA holders. Every bond we sell adds to an ever-growing green treasury, or improves liquidity for key environmental assets. A win-win for people and planet."
+
+#. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
+#: components/pages/Home/index.tsx:246
+msgid "home.tons_of_carbon_absorbed_by_klimadao"
+msgstr "TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:149
+msgid "home.we_ve_kickstarted"
+msgstr "We’ve kick-started a <0>decentralized and open market for carbon</0>. Our token incentivizes investors, citizens, and organizations to participate in and govern this new economy."
+
+#. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
+#: components/pages/Home/index.tsx:391
+msgid "home.weekly_rewards_for_token_holders"
+msgstr "<0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
+
+#. <0>WELCOME TO</0><1>KlimaDAO</1>
+#: components/pages/Home/index.tsx:84
+msgid "home.welcome_to_klimadao"
+msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
+
+#: components/pages/Home/index.tsx:347
+msgid "invest_in_the_future"
+msgstr "Invest in the future."
+
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:65
 msgid "mainNav.bond"
