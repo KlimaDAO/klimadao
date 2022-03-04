@@ -82,18 +82,24 @@ export const Community: NextPage = () => (
       <div className={styles.communityContainer}>
         <div className={styles.community_textGroup}>
           <Text t="h5" align="center">
-            <Trans>Let's Work Together</Trans>
+            <Trans id="community.lets_work_together">Let's Work Together</Trans>
           </Text>
           <Text t="h2" as="h2" align="center">
-            <Trans>BECOME A PARTNER</Trans>
+            <Trans id="community.become_a_partner">BECOME A PARTNER</Trans>
           </Text>
           <Text t="body3" align="center">
-            <Trans>
+            <Trans
+              id="community.we_work_with_traditionnal"
+              comment="Long sentence"
+            >
               We work with traditional carbon market players, crypto platforms,
               corporations and everyone in-between.
             </Trans>
           </Text>
-          <ButtonPrimary href={"/contact"} label={"Contact Us"} />
+          <ButtonPrimary
+            href={"/contact"}
+            label={t({ id: "community.contact_us", message: "Contact Us" })}
+          />
           <Image
             alt={t`Tree grove`}
             src={treeGroveImage}
@@ -109,7 +115,7 @@ export const Community: NextPage = () => (
       <div className={styles.communityContainer}>
         <div className={styles.community_textGroup}>
           <Text t="h2" as="h2">
-            <Trans>OUR PARTNERS</Trans>
+            <Trans id="community.our_partners">OUR PARTNERS</Trans>
           </Text>
         </div>
         <div className={styles.partner_logos}>
@@ -210,7 +216,9 @@ export const Community: NextPage = () => (
         t="h1"
         style={{ color: "white", textTransform: "uppercase" }}
       >
-        <Trans>Join the Klima Community</Trans>
+        <Trans id="community.join_the_klima_community">
+          Join the Klima Community
+        </Trans>
       </Text>
     </Section>
 
@@ -218,10 +226,10 @@ export const Community: NextPage = () => (
       <div className={styles.communityContainer}>
         <div className={styles.community_textGroup}>
           <Text t="h5" align="center">
-            <Trans>Come On In</Trans>
+            <Trans id="community.come_on_in">Come On In</Trans>
           </Text>
           <Text t="h2" as="h2">
-            <Trans>Join Our Discord</Trans>
+            <Trans id="community.join_our_discord">Join Our Discord</Trans>
           </Text>
         </div>
         <div className={styles.joinDiscord}>
@@ -233,7 +241,10 @@ export const Community: NextPage = () => (
               className="padding20"
               style={{ maxWidth: "64rem" }}
             >
-              <Trans>
+              <Trans
+                id="community.discord_is_where_we_share"
+                comment="Long sentence"
+              >
                 Discord is where we share important announcements, hold
                 office-hours, answer questions, and trade memes. Our Discord
                 server is extremely active and moderated around-the-clock. We've
@@ -260,18 +271,24 @@ export const Community: NextPage = () => (
       <div className={styles.communityContainer}>
         <div className={styles.community_textGroup}>
           <Text t="h5" align="center">
-            <Trans>Let's Work Together</Trans>
+            <Trans id="community.lets_work_together">Let's Work Together</Trans>
           </Text>
           <Text t="h2" as="h2">
-            <Trans>Get in touch?</Trans>
+            <Trans id="community.get_in_touch">Get in touch?</Trans>
           </Text>
           <Text t="body3" color="lighter" align="center">
-            <Trans>
+            <Trans
+              id="community.if_you_ve_got_questions"
+              comment="Long sentence"
+            >
               If you've got questions, ideas, advice or anything else: we can
               help you find the right person to talk to.
             </Trans>
           </Text>
-          <ButtonPrimary href={"/contact"} label={"Contact Us"} />
+          <ButtonPrimary
+            href={"/contact"}
+            label={t({ id: "community.contact_us", message: "Contact Us" })}
+          />
         </div>
       </div>
     </Section>
