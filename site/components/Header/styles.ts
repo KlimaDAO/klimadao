@@ -53,7 +53,7 @@ export const headerMobile = css`
 
 export const mainLogoMobile = css`
   padding: 0 1rem;
-`
+`;
 
 export const menuDesktop = css`
   display: grid;

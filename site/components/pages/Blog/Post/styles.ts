@@ -10,7 +10,7 @@ export const container = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const backNavLink = css`
   display: flex;
@@ -27,8 +27,8 @@ export const backNavLink = css`
   ${breakpoints.large} {
     margin: 2.4rem 0rem;
     font-size: 1.6rem;
-  }  
-`
+  }
+`;
 
 export const banner = css`
   position: relative;
@@ -42,7 +42,7 @@ export const banner = css`
     padding: 3.2rem;
     padding-bottom: 0;
   }
-`
+`;
 
 export const bannerImage = css`
   height: 18rem;
@@ -51,7 +51,7 @@ export const bannerImage = css`
   ${breakpoints.large} {
     height: 28rem;
   }
-`
+`;
 
 export const blogContainer = css`
   display: grid;
@@ -62,25 +62,25 @@ export const blogContainer = css`
   ${breakpoints.large} {
     padding-bottom: 6.4rem;
   }
-`
+`;
 
 export const content = css`
   grid-column: main;
   max-width: 76rem;
   justify-self: center;
-`
+`;
 
 export const date = css`
   margin: 2.4rem 0;
   color: var(--font-03) !important;
-`
+`;
 
 export const fallbackContainer = css`
   display: grid;
   flex: auto;
-`
+`;
 
 export const loadingArticle = css`
   justify-self: center;
   align-self: center;
-`
+`;
