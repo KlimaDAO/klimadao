@@ -17,7 +17,7 @@ export const banner = css`
   max-width: 114rem;
   width: 100%;
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     position: relative;
     padding: 3.2rem 3.2rem 0rem;
   }
@@ -27,15 +27,19 @@ export const bannerImage = css`
   height: 20rem;
   position: relative;
 
-  ${breakpoints.medium} {
+  ${breakpoints.large} {
     height: 28rem;
   }
 `
 export const blogContainer = css`
-  padding: 6.4rem 0;
+  padding: 4.8rem 0;
   line-height: 166%;
   display: grid;
   grid-template-columns: inherit;
+
+  ${breakpoints.large} {
+    padding: 6.4rem 0;
+  }
 `
 
 export const content = css`
