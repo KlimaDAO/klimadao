@@ -114,17 +114,17 @@ export const Community: NextPage = () => (
         </div>
         <div className={styles.partner_logos}>
           <div className="partner_logo">
-            <A href="https://moss.earth/">
+            <A href="https://moss.earth">
               <Image alt={t`Moss logo`} src={mossLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://toucan.earth/">
+            <A href="https://toucan.earth">
               <Image alt={t`Toucan logo`} src={toucanLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://www.blockchainforclimate.org/">
+            <A href="https://www.blockchainforclimate.org">
               <Image
                 alt={t`Blockchain for Climate Foundation logo`}
                 src={bcfcLogo}
@@ -137,57 +137,57 @@ export const Community: NextPage = () => (
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://polygon.technology/">
+            <A href="https://polygon.technology">
               <Image alt={t`Polygon logo`} src={polygonLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://oceandrop.art/">
+            <A href="https://oceandrop.art">
               <Image alt={t`Oceandrop logo`} src={oceandropLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://gitcoin.co/">
+            <A href="https://gitcoin.co">
               <Image alt={t`Gitcoin logo`} src={gitcoinLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://www.olympusdao.finance/">
+            <A href="https://www.olympusdao.finance">
               <Image alt={t`OlympusDAO logo`} src={olympusLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://openearth.org/">
+            <A href="https://openearth.org">
               <Image alt={t`Open Earth logo`} src={openEarthLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://eco.com/">
+            <A href="https://eco.com">
               <Image alt={t`Eco logo`} src={ecoLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://etc-group.com/">
+            <A href="https://etc-group.com">
               <Image alt={t`Etc Group logo`} src={etcGroupLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://dovu.earth/">
+            <A href="https://dovu.earth">
               <Image alt={t`Dovu logo`} src={dovuLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://offsetra.com/">
+            <A href="https://offsetra.com">
               <Image alt={t`Offsetra logo`} src={offsetraLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://thoughtforfood.org/">
+            <A href="https://thoughtforfood.org">
               <Image alt={t`Thought for Food logo`} src={thoughtForFoodLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://www.digitalcharityart.co.nz/">
+            <A href="https://www.digitalcharityart.co.nz">
               <Image
                 alt={t`Digital Charity Art logo`}
                 src={digitalCharityArtLogo}
