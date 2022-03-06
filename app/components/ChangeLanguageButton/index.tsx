@@ -52,14 +52,16 @@ export const ChangeLanguageButton: FC = () => {
 
   return (
     <Tippy
+      animation="perspective"
+      className={styles.tooltip}
       content={content}
+      interactive={true}
+      onClickOutside={() => setShowMenu(false)}
       placement="bottom-end"
       visible={showMenu}
-      interactive
-      className={styles.tooltip}
     >
       <button
-        onClick={() => setShowMenu((s) => !s)}
+        onClick={() => setShowMenu(!showMenu)}
         className={styles.changeLanguageButton}
         aria-label={t({
           id: "shared.change_language",
