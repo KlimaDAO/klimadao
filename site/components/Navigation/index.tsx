@@ -21,51 +21,46 @@ export type Props = {
   activePage: PageName;
 };
 
-export const Navigation: FC<Props> = (props) => {
-  return (
-    <>
-      <HeaderDesktop
-        buttons={[
-          !IS_PRODUCTION ? <ChangeLanguageButton /> : <></>,
-          <ThemeToggle key="ThemeToggle" />,
-          <ButtonPrimary
-            key="Enter App"
-            label={t`Enter App`}
-            href={urls.app}
-          />,
-        ]}
-      >
-        <NavItemDesktop
-          url={"/buy"}
-          name={t`Get KLIMA`}
-          active={props.activePage === "Get KLIMA"}
-        />
-        <NavItemDesktop
-          url={urls.stake}
-          name={t({ message: "Stake", id: "mainNav.stake" })}
-        />
-        <NavItemDesktop
-          url={urls.bonds}
-          name={t({ message: "Bond", id: "mainNav.bond" })}
-        />
-        <NavItemDesktop
-          url="/blog"
-          name={t`Resources`}
-          active={props.activePage === "Resources"}
-        />
-      </HeaderDesktop>
-      <HeaderMobile buttons={[<ThemeToggle key="ThemeToggle" />]}>
-        <NavItemMobile url="/buy" name={t`Get KLIMA`} />
-        <NavItemMobile
-          url={urls.stake}
-          name={t({ message: "Stake", id: "mainNav.stake" })}
-        />
-        <NavItemMobile
-          url={urls.bonds}
-          name={t({ message: "Bond", id: "mainNav.bond" })}
-        />
-        <NavItemMobile url="/blog" name={t`Resources`} />
-      </HeaderMobile>
-    </>
-  );
-};
+export const Navigation: FC<Props> = (props) => (
+  <>
+    <HeaderDesktop
+      buttons={[
+        !IS_PRODUCTION ? <ChangeLanguageButton /> : <></>,
+        <ThemeToggle key="ThemeToggle" />,
+        <ButtonPrimary key="Enter App" label={t`Enter App`} href={urls.app} />,
+      ]}
+    >
+      <NavItemDesktop
+        url={"/buy"}
+        name={t`Get KLIMA`}
+        active={props.activePage === "Get KLIMA"}
+      />
+      <NavItemDesktop
+        url={urls.stake}
+        name={t({ message: "Stake", id: "mainNav.stake" })}
+      />
+      <NavItemDesktop
+        url={urls.bonds}
+        name={t({ message: "Bond", id: "mainNav.bond" })}
+      />
+      <NavItemDesktop
+        url="/blog"
+        name={t`Resources`}
+        active={props.activePage === "Resources"}
+      />
+    </HeaderDesktop>
+
+    <HeaderMobile buttons={[<ThemeToggle key="ThemeToggle" />]}>
+      <NavItemMobile url="/buy" name={t`Get KLIMA`} />
+      <NavItemMobile
+        url={urls.stake}
+        name={t({ message: "Stake", id: "mainNav.stake" })}
+      />
+      <NavItemMobile
+        url={urls.bonds}
+        name={t({ message: "Bond", id: "mainNav.bond" })}
+      />
+      <NavItemMobile url="/blog" name={t`Resources`} />
+    </HeaderMobile>
+  </>
+);

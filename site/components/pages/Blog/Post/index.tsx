@@ -33,6 +33,8 @@ export const PostPage = (props: PostProps) => {
     props.post.publishedAt
   ).toDateString()}`;
 
+  console.log(props.post);
+
   return (
     <>
       <PageHead

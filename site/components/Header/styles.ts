@@ -44,13 +44,16 @@ export const headerMobile = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0rem 2.4rem;
   height: var(--header-height);
   z-index: 1;
   ${breakpoints.large} {
     display: none;
   }
 `;
+
+export const mainLogoMobile = css`
+  padding: 0 1rem;
+`
 
 export const menuDesktop = css`
   display: grid;

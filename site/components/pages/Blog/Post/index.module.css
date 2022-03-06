@@ -13,7 +13,7 @@
 
 .banner {
   position: relative;
-  max-width: 120rem;
+  max-width: 114rem;
   width: 100%;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .date {
-  margin: 2rem 0;
+  margin: 2.4rem 0;
   color: var(--font-03) !important;
 }
 
@@ -53,8 +53,6 @@
 @media bp-large {
   .banner {
     position: relative;
-  }
-  .banner {
     padding: 3.2rem 3.2rem 0rem;
   }
   .bannerImage {
