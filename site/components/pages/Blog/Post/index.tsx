@@ -36,7 +36,6 @@ export const PostPage = (props: PostProps) => {
     props.post.publishedAt
   ).toDateString()}`;
 
-  console.log(props.post);
   return (
     <>
       <PageHead
@@ -63,18 +62,18 @@ export const PostPage = (props: PostProps) => {
         </div>
 
         <section className={styles.blogContainer}>
-          {/* <div className={styles.backContainer}> */}
-          <Link href="/blog" passHref={true}>
-            <a className={styles.backNav}>
-              <ChevronLeftIcon /> Blog
-            </a>
-          </Link>
-          {/* </div> */}
-
           <div className={styles.content}>
+            <Link href="/blog" passHref={true}>
+              <a className={styles.backNavLink}>
+                <ChevronLeftIcon fontSize="medium" />
+                Blog
+              </a>
+            </Link>
+
             <Text t="h2" as="h1">
               {props.post.title}
             </Text>
+
             <Text t="h5" as="p" className={styles.date}>
               {publishedDate}
             </Text>

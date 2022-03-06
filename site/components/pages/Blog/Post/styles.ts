@@ -12,22 +12,22 @@ export const container = css`
   align-items: center;
 `
 
-export const backContainer = css`
-  grid-column: main;
-  // max-width: 76rem;
-`
-
-export const backNav = css`
-  grid-column: main;
+export const backNavLink = css`
   display: flex;
   align-items: center;
   gap: 0.6rem;
-
-  color: var(--font-02);
+  color: var(--font-02) !important;
+  margin: 2.4rem 0rem;
+  font-size: 1.4rem;
 
   :hover {
     color: var(--font-01) !important;
   }
+
+  ${breakpoints.large} {
+    margin: 2.4rem 0rem;
+    font-size: 1.6rem;
+  }  
 `
 
 export const banner = css`
@@ -40,11 +40,12 @@ export const banner = css`
     margin-top: 0;
     position: relative;
     padding: 3.2rem;
+    padding-bottom: 0;
   }
 `
 
 export const bannerImage = css`
-  height: 16rem;
+  height: 18rem;
   position: relative;
 
   ${breakpoints.large} {
@@ -53,13 +54,13 @@ export const bannerImage = css`
 `
 
 export const blogContainer = css`
-  padding: 3.6rem 0;
-  line-height: 166%;
   display: grid;
   grid-template-columns: inherit;
+  line-height: 166%;
+  padding-bottom: 4.8rem;
 
   ${breakpoints.large} {
-    padding: 3.2rem 0;
+    padding-bottom: 6.4rem;
   }
 `
 
