@@ -15,16 +15,18 @@ export const container = css`
 export const banner = css`
   position: relative;
   max-width: 114rem;
+  margin-top: var(--header-height);
   width: 100%;
 
   ${breakpoints.large} {
+    margin-top: 0;
     position: relative;
-    padding: 3.2rem 3.2rem 0rem;
+    padding: 3.2rem;
   }
 `
 
 export const bannerImage = css`
-  height: 20rem;
+  height: 16rem;
   position: relative;
 
   ${breakpoints.large} {
@@ -32,13 +34,13 @@ export const bannerImage = css`
   }
 `
 export const blogContainer = css`
-  padding: 4.8rem 0;
+  padding: 3.6rem 0;
   line-height: 166%;
   display: grid;
   grid-template-columns: inherit;
 
   ${breakpoints.large} {
-    padding: 6.4rem 0;
+    padding: 3.2rem 0;
   }
 `
 
