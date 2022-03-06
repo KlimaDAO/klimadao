@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Text } from "@klimadao/lib/components";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
 import { Post } from "lib/queries";
 import { IS_PRODUCTION } from "lib/constants";
@@ -22,6 +24,7 @@ export const PostPage = (props: PostProps) => {
       <>
         <Navigation activePage="Resources" />
         <div className={styles.fallbackContainer}>
+          {/* TODO: worth restyling this */}
           <Text className={styles.loadingArticle}>Loading article...</Text>
         </div>
         <Footer />
@@ -60,6 +63,14 @@ export const PostPage = (props: PostProps) => {
         </div>
 
         <section className={styles.blogContainer}>
+          {/* <div className={styles.backContainer}> */}
+          <Link href="/blog" passHref={true}>
+            <a className={styles.backNav}>
+              <ChevronLeftIcon /> Blog
+            </a>
+          </Link>
+          {/* </div> */}
+
           <div className={styles.content}>
             <Text t="h2" as="h1">
               {props.post.title}

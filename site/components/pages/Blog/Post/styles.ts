@@ -12,6 +12,24 @@ export const container = css`
   align-items: center;
 `
 
+export const backContainer = css`
+  grid-column: main;
+  // max-width: 76rem;
+`
+
+export const backNav = css`
+  grid-column: main;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  color: var(--font-02);
+
+  :hover {
+    color: var(--font-01) !important;
+  }
+`
+
 export const banner = css`
   position: relative;
   max-width: 114rem;
@@ -33,6 +51,7 @@ export const bannerImage = css`
     height: 28rem;
   }
 `
+
 export const blogContainer = css`
   padding: 3.6rem 0;
   line-height: 166%;
@@ -59,6 +78,7 @@ export const fallbackContainer = css`
   display: grid;
   flex: auto;
 `
+
 export const loadingArticle = css`
   justify-self: center;
   align-self: center;
