@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { Trans } from "@lingui/macro";
 import Link from "next/link";
-import * as styles from "./styles";
 
 import {
   Anchor as A,
@@ -15,6 +14,7 @@ import {
   YoutubeIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import * as styles from "./styles";
 
 export const Footer: FC = () => (
   <footer className={styles.footer}>
@@ -36,9 +36,9 @@ export const Footer: FC = () => (
         <a href={urls.bonds}>
           <Trans id="footer.bond">Bond</Trans>
         </a>
-        <a href={urls.officialDocs} target="_blank" rel="noreferrer noopener">
+        <A href={urls.officialDocs}>
           <Trans id="footer.docs">Docs</Trans>
-        </a>
+        </A>
         <Link href="/blog">
           <a>
             <Trans id="footer.blog">Blog</Trans>

@@ -22,17 +22,19 @@ export const HeaderMobile: FC<Props> = (props) => {
       }
     >
       <header className={styles.headerMobile}>
-        <Link href={"/"}>
-          <a>
-            <LogoWithClaim />
-          </a>
-        </Link>
+        <div className={styles.mainLogoMobile}>
+          <Link href={"/"}>
+            <a>
+              <LogoWithClaim />
+            </a>
+          </Link>
+        </div>
         {props.buttons && (
           <div className={styles.navMain_Buttons}>{props.buttons}</div>
         )}
         <ToggleNavButton
           isToggled={isToggled}
-          onClick={() => setIsToggled((isToggled) => !isToggled)}
+          onClick={() => setIsToggled(!isToggled)}
         />
       </header>
       <NavMobile isToggled={isToggled}>{props.children}</NavMobile>
