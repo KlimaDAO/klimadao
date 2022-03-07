@@ -26,7 +26,7 @@ import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
 
 import * as styles from "components/views/Stake/styles";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
   address?: string;
@@ -112,7 +112,7 @@ export const Wrap: FC<Props> = (props) => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
       return {
-        label: <Trans>Connect wallet</Trans>,
+        label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
         onClick: props.loadWeb3Modal,
         disabled: false,
       };
@@ -157,7 +157,9 @@ export const Wrap: FC<Props> = (props) => {
   };
 
   const inputPlaceholder =
-    view === "wrap" ? "sKLIMA to wrap" : "wsKLIMA to unwrap";
+    view === "wrap"
+      ? t({ id: "wrap.sklima_to_wrap", message: "sKLIMA to wrap" })
+      : t({ id: "wrap.wsklima_to_unwrap", message: "wsKLIMA to unwrap" });
 
   return (
     <>
@@ -169,16 +171,22 @@ export const Wrap: FC<Props> = (props) => {
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <FlipOutlined />
-            Wrap sKLIMA
+            <Trans id="wrap.wrap_sklima">Wrap sKLIMA</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans>
+            <Trans
+              id="wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
+              comment="Long sentence"
+            >
               Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA
               balance will not increase over time.
             </Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans>
+            <Trans
+              id="wrap.wrap_sklima.some_find_this_useful"
+              comment="Long sentence"
+            >
               Some find this useful for accounting purposes, but the yield is
               exactly the same. Wrap and unwrap values are calculated based on
               the current index.
@@ -197,7 +205,7 @@ export const Wrap: FC<Props> = (props) => {
                 }}
                 data-active={view === "wrap"}
               >
-                Wrap
+                <Trans id="wrap.wrap">Wrap</Trans>
               </button>
               <button
                 className={styles.switchButton}
@@ -208,7 +216,7 @@ export const Wrap: FC<Props> = (props) => {
                 }}
                 data-active={view === "unwrap"}
               >
-                Unwrap
+                <Trans id="wrap.unwrap">Unwrap</Trans>
               </button>
             </div>
             <div className={styles.stakeInput}>
@@ -225,7 +233,7 @@ export const Wrap: FC<Props> = (props) => {
                 type="button"
                 onClick={setMax}
               >
-                <Trans id="button.max">Max</Trans>
+                <Trans id="shared.max">Max</Trans>
               </button>
             </div>
 
@@ -240,10 +248,10 @@ export const Wrap: FC<Props> = (props) => {
 
           <div className={styles.infoTable}>
             <div className={styles.infoTable_label}>
-              <Trans>Index</Trans>
+              <Trans id="wrap.index">Index</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans>
+                  <Trans id="wrap.index.tooltip">
                     Amount of KLIMA you would have today if you staked 1 KLIMA
                     on launch day. Used to calculate wsKLIMA value.
                   </Trans>
@@ -253,10 +261,10 @@ export const Wrap: FC<Props> = (props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_label}>
-              <Trans>Balance</Trans>
+              <Trans id="wrap.balance">Balance</Trans>
             </div>
             <div className={styles.infoTable_label}>
-              <Trans>You Will Get</Trans>
+              <Trans id="wrap.you_will_get">You Will Get</Trans>
             </div>
             <div className={styles.infoTable_value}>
               {currentIndex
