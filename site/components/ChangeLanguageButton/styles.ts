@@ -3,23 +3,21 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
 
 export const changeLanguageButton = css`
-  padding: 0.8rem;
-  position: absolute;
-  right: -0.4rem;
-  top: 6.4rem;
+  display: flex;
 
   ${breakpoints.small} {
     top: 3.2rem;
     right: -0.2rem;
     display: flex;
-    min-height: 4rem;
+    min-height: 4.8rem;
     align-items: center;
-    border: 2px solid var(--klima-green);
-    background-color: var(--surface-02);
-    padding: 0.8rem;
-    border-radius: 0.4rem;
+    background-color: var(--surface-01);
+    padding: 0rem 1.5rem;
+    border-radius: var(--border-radius);
     align-items: center;
     align-content: center;
+    justify-content: center;
+    transition: opacity 0.3s ease 0s;
   }
 
   ${breakpoints.medium} {

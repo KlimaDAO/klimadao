@@ -8,7 +8,8 @@ import { HeaderDesktop } from "components/Header/HeaderDesktop";
 import { NavItemDesktop } from "./NavItemDesktop";
 import { NavItemMobile } from "./NavItemMobile";
 import { HeaderMobile } from "../Header/HeaderMobile";
-
+import { ChangeLanguageButton } from "components/ChangeLanguageButton";
+import { IS_PRODUCTION } from "lib/constants";
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
@@ -25,6 +26,7 @@ export const Navigation: FC<Props> = (props) => {
     <>
       <HeaderDesktop
         buttons={[
+          !IS_PRODUCTION ? <ChangeLanguageButton /> : <></>,
           <ThemeToggle key="ThemeToggle" />,
           <ButtonPrimary
             key="Enter App"
