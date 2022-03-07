@@ -52,7 +52,6 @@ export const ChangeLanguageButton: FC = () => {
 
   return (
     <Tippy
-      animation="perspective"
       className={styles.tooltip}
       content={content}
       interactive={true}

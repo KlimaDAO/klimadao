@@ -54,7 +54,7 @@ export const ChangeLanguageButton: FC = () => {
       visible={showMenu}
     >
       <button
-        onClick={() => setShowMenu(true)}
+        onClick={() => setShowMenu(!showMenu)}
         className={styles.changeLanguageButton}
         aria-label={t`Change language`}
       >
