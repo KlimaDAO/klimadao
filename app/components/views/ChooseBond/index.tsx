@@ -17,18 +17,27 @@ export const useBond = (bond: Bond) => {
     return state.bonds[bond];
   });
 
+  const bondPrice = bondState?.bondPrice;
+  const bondFee = bondState?.fee;
+
+  const disabledBonds = {
+    mco2: false,
+    bct: false,
+    klima_usdc_lp: false,
+    klima_bct_lp: false,
+    bct_usdc_lp: true,
+    klima_mco2_lp: false,
+    // future bond names go here
+  };
+  let disabled = disabledBonds[bond];
+  if (bondPrice && bondFee && parseFloat(bondPrice) < 1 + bondFee) {
+    disabled = true;
+  }
+
   return {
-    price: bondState?.bondPrice,
+    price: bondPrice,
     discount: bondState?.bondDiscount,
-    disabled: {
-      mco2: false,
-      bct: false,
-      klima_usdc_lp: false,
-      klima_bct_lp: false,
-      bct_usdc_lp: true,
-      klima_mco2_lp: false,
-      // future bond names go here
-    }[bond],
+    disabled: disabled,
     icon: {
       mco2: "/icons/MCO2.png",
       bct: "/icons/BCT.png",
