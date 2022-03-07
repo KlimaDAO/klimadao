@@ -14,30 +14,30 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:713
+#: components/views/Bond/index.tsx:718
 msgid "bond.all_demand_has_been_filled"
 msgstr ""
 
-#: components/views/Bond/index.tsx:466
+#: components/views/Bond/index.tsx:468
 msgid "bond.balance"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:470
+#: components/views/Bond/index.tsx:472
 msgid "bond.balance.tooltip"
 msgstr ""
 
 #: components/views/Bond/index.tsx:342
-#: components/views/Bond/index.tsx:413
+#: components/views/Bond/index.tsx:415
 msgid "bond.bond"
 msgstr ""
 
-#: components/views/Bond/index.tsx:488
+#: components/views/Bond/index.tsx:490
 msgid "bond.bond_price"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:492
+#: components/views/Bond/index.tsx:494
 msgid "bond.bond_price.tooltip"
 msgstr ""
 
@@ -46,20 +46,20 @@ msgstr ""
 msgid "bond.bond_token"
 msgstr ""
 
-#: components/views/Bond/index.tsx:676
+#: components/views/Bond/index.tsx:678
 msgid "bond.date_of_full_vesting"
 msgstr ""
 
-#: components/views/Bond/index.tsx:681
+#: components/views/Bond/index.tsx:683
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:578
+#: components/views/Bond/index.tsx:580
 msgid "bond.debt_ratio"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:582
+#: components/views/Bond/index.tsx:584
 msgid "bond.debt_ratio.tooltip"
 msgstr ""
 
@@ -71,21 +71,21 @@ msgstr ""
 msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr ""
 
-#: components/views/Bond/index.tsx:504
+#: components/views/Bond/index.tsx:506
 msgid "bond.market_price"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:508
+#: components/views/Bond/index.tsx:510
 msgid "bond.market_price.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:559
+#: components/views/Bond/index.tsx:561
 msgid "bond.maximum"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:563
+#: components/views/Bond/index.tsx:565
 msgid "bond.maximum.tooltip"
 msgstr ""
 
@@ -94,57 +94,57 @@ msgid "bond.not_redeemable"
 msgstr ""
 
 #: components/views/Bond/index.tsx:348
-#: components/views/Bond/index.tsx:423
+#: components/views/Bond/index.tsx:425
 msgid "bond.redeem"
 msgstr ""
 
-#: components/views/Bond/index.tsx:644
+#: components/views/Bond/index.tsx:646
 msgid "bond.redeemable"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:647
+#: components/views/Bond/index.tsx:649
 msgid "bond.redeemable.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:520
+#: components/views/Bond/index.tsx:522
 msgid "bond.roi"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:524
+#: components/views/Bond/index.tsx:526
 msgid "bond.roi.tooltip"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:705
+#: components/views/Bond/index.tsx:707
 msgid "bond.this_bond_price_is_inflated"
 msgstr ""
 
-#: components/views/Bond/index.tsx:615
+#: components/views/Bond/index.tsx:617
 msgid "bond.unredeemed"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:618
+#: components/views/Bond/index.tsx:620
 msgid "bond.unredeemed.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:594
+#: components/views/Bond/index.tsx:596
 msgid "bond.vesting_term_end"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:598
+#: components/views/Bond/index.tsx:600
 msgid "bond.vesting_term_end.tooltip"
 msgstr ""
 
-#: components/views/Bond/index.tsx:536
+#: components/views/Bond/index.tsx:538
 msgid "bond.you_will_get"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:540
+#: components/views/Bond/index.tsx:542
 msgid "bond.you_will_get.tooltip"
 msgstr ""
 
@@ -227,17 +227,17 @@ msgid "imagecard.new_to_klima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:127
+#: components/views/Info/index.tsx:130
 msgid "info.app_not_loading.1_open_metamask"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:131
+#: components/views/Info/index.tsx:137
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:135
+#: components/views/Info/index.tsx:144
 msgid "info.app_not_loading.3_return_to_dapp"
 msgstr ""
 
@@ -247,7 +247,7 @@ msgid "info.app_not_loading.if_app_says_loading"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:140
+#: components/views/Info/index.tsx:152
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr ""
 
@@ -265,7 +265,7 @@ msgstr ""
 msgid "info.info_and_faq"
 msgstr ""
 
-#: components/views/Info/index.tsx:151
+#: components/views/Info/index.tsx:166
 msgid "info.official_contract_addresses"
 msgstr ""
 
@@ -354,12 +354,12 @@ msgstr ""
 msgid "pklima.growth"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:246
+#: components/views/PKlima/index.tsx:249
 msgid "pklima.index_adjusted"
 msgstr ""
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:249
+#: components/views/PKlima/index.tsx:252
 msgid "pklima.index_adjusted.tooltip"
 msgstr ""
 
@@ -375,12 +375,12 @@ msgstr ""
 msgid "pklima.redeem_pklima"
 msgstr ""
 
-#: components/views/PKlima/index.tsx:234
+#: components/views/PKlima/index.tsx:237
 msgid "pklima.redeemed"
 msgstr ""
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:237
+#: components/views/PKlima/index.tsx:240
 msgid "pklima.redeemed.tooltip"
 msgstr ""
 
@@ -407,7 +407,7 @@ msgstr ""
 msgid "shared.balances"
 msgstr ""
 
-#: components/ChangeLanguageButton/index.tsx:64
+#: components/ChangeLanguageButton/index.tsx:65
 msgid "shared.change_language"
 msgstr ""
 
@@ -451,7 +451,7 @@ msgstr ""
 msgid "shared.loading"
 msgstr ""
 
-#: components/views/Bond/index.tsx:451
+#: components/views/Bond/index.tsx:453
 #: components/views/PKlima/index.tsx:208
 #: components/views/Stake/index.tsx:282
 #: components/views/Wrap/index.tsx:236

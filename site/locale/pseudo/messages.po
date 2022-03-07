@@ -17,11 +17,11 @@ msgstr ""
 msgid "Articles"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:136
+#: components/pages/Resources/Community/index.tsx:142
 msgid "BICOWG logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:129
+#: components/pages/Resources/Community/index.tsx:135
 msgid "Blockchain for Climate Foundation logo"
 msgstr ""
 
@@ -29,11 +29,11 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: components/ChangeLanguageButton/index.tsx:58
+#: components/ChangeLanguageButton/index.tsx:59
 msgid "Change language"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:68
+#: components/pages/Resources/Community/index.tsx:74
 msgid "Community"
 msgstr ""
 
@@ -46,29 +46,41 @@ msgstr ""
 msgid "Contact KlimaDAO"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:71
+#: components/pages/Resources/Community/index.tsx:198
+msgid "Digital Charity Art logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:182
+msgid "Dovu logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:77
 #: components/pages/Resources/Contact/index.tsx:22
 msgid "Drive climate action and earn rewards with a carbon-backed digital currency."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:166
+#: components/pages/Resources/Community/index.tsx:172
 msgid "Eco logo"
 msgstr ""
 
-#: components/Navigation/index.tsx:33
+#: components/Navigation/index.tsx:30
 msgid "Enter App"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:177
+msgid "Etc Group logo"
 msgstr ""
 
 #: components/pages/Home/index.tsx:422
 msgid "GET KLIMA"
 msgstr ""
 
-#: components/Navigation/index.tsx:40
-#: components/Navigation/index.tsx:58
+#: components/Navigation/index.tsx:35
+#: components/Navigation/index.tsx:54
 msgid "Get KLIMA"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:151
+#: components/pages/Resources/Community/index.tsx:157
 msgid "Gitcoin logo"
 msgstr ""
 
@@ -77,8 +89,8 @@ msgstr ""
 msgid "KlimaDAO Blog"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:67
-#: components/pages/Resources/Community/index.tsx:70
+#: components/pages/Resources/Community/index.tsx:73
+#: components/pages/Resources/Community/index.tsx:76
 msgid "KlimaDAO Community"
 msgstr ""
 
@@ -88,31 +100,35 @@ msgstr ""
 msgid "KlimaDAO Disclaimer"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:69
+#: components/pages/Resources/Community/index.tsx:75
 msgid "KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:118
-msgid "MOSS logo"
+#: components/pages/Resources/Community/index.tsx:124
+msgid "Moss logo"
 msgstr ""
 
 #: components/pages/Home/index.tsx:459
 msgid "Newsletter"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:146
+#: components/pages/Resources/Community/index.tsx:152
 msgid "Oceandrop logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:156
+#: components/pages/Resources/Community/index.tsx:187
+msgid "Offsetra logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:162
 msgid "OlympusDAO logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:161
+#: components/pages/Resources/Community/index.tsx:167
 msgid "Open Earth logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:141
+#: components/pages/Resources/Community/index.tsx:147
 msgid "Polygon logo"
 msgstr ""
 
@@ -122,16 +138,20 @@ msgid ""
 "touch. We love meeting institutions and individuals alike."
 msgstr ""
 
-#: components/Navigation/index.tsx:53
-#: components/Navigation/index.tsx:67
+#: components/Navigation/index.tsx:48
+#: components/Navigation/index.tsx:63
 msgid "Resources"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:123
+#: components/pages/Resources/Community/index.tsx:192
+msgid "Thought for Food logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:129
 msgid "Toucan logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:98
+#: components/pages/Resources/Community/index.tsx:104
 msgid "Tree grove"
 msgstr ""
 
@@ -142,52 +162,52 @@ msgid ""
 "advisors and community."
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:82
+#: components/pages/Resources/Community/index.tsx:88
 msgid "community.become_a_partner"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:195
+#: components/pages/Resources/Community/index.tsx:229
 msgid "community.come_on_in"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:95
-#: components/pages/Resources/Community/index.tsx:256
+#: components/pages/Resources/Community/index.tsx:101
+#: components/pages/Resources/Community/index.tsx:290
 msgid "community.contact_us"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:210
+#: components/pages/Resources/Community/index.tsx:244
 msgid "community.discord_is_where_we_share"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:243
+#: components/pages/Resources/Community/index.tsx:277
 msgid "community.get_in_touch"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:246
+#: components/pages/Resources/Community/index.tsx:280
 msgid "community.if_you_ve_got_questions"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:198
+#: components/pages/Resources/Community/index.tsx:232
 msgid "community.join_our_discord"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:185
+#: components/pages/Resources/Community/index.tsx:219
 msgid "community.join_the_klima_community"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:79
-#: components/pages/Resources/Community/index.tsx:240
+#: components/pages/Resources/Community/index.tsx:85
+#: components/pages/Resources/Community/index.tsx:274
 msgid "community.lets_work_together"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:112
+#: components/pages/Resources/Community/index.tsx:118
 msgid "community.our_partners"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:85
+#: components/pages/Resources/Community/index.tsx:91
 msgid "community.we_work_with_traditionnal"
 msgstr ""
 
@@ -483,13 +503,13 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
-#: components/Navigation/index.tsx:49
-#: components/Navigation/index.tsx:65
+#: components/Navigation/index.tsx:44
+#: components/Navigation/index.tsx:61
 msgid "mainNav.bond"
 msgstr ""
 
-#: components/Navigation/index.tsx:45
-#: components/Navigation/index.tsx:61
+#: components/Navigation/index.tsx:40
+#: components/Navigation/index.tsx:57
 msgid "mainNav.stake"
 msgstr ""
 
