@@ -16,6 +16,7 @@ type BondState = {
     maxBondPrice?: string;
     bondPrice?: string;
     marketPrice?: string;
+    fee?: number;
   };
 };
 

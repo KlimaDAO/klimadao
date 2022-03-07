@@ -185,6 +185,8 @@ export const calcBondDetails = (params: {
           params.bond === "klima_usdc_lp" ? 6 : 18
         ),
         marketPrice: marketPrice.toString(),
+        // format fee as # of tonnes
+        fee: parseInt(terms.fee) / 10000,
       })
     );
   };
