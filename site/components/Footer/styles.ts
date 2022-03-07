@@ -9,7 +9,7 @@ export const footer = css`
   grid-column: full;
 
   ${breakpoints.large} {
-    padding: 4.8rem 2.4rem;
+    padding: 4.8rem 0;
     display: grid;
     grid-template-columns: inherit;
   }
