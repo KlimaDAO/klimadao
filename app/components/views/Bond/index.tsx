@@ -293,7 +293,7 @@ export const Bond: FC<Props> = (props) => {
     const value = Number(quantity || "0");
     if (isDisabled) {
       return {
-        label: <Trans id="choose_bond.sold_out">Sold Out</Trans>,
+        label: <Trans id="shared.sold_out">Sold Out</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -362,12 +362,12 @@ export const Bond: FC<Props> = (props) => {
   const getInputPlaceholder = (): string => {
     if (view === "bond") {
       return t({
-        id: "bond.inputplaceholder.bond",
+        id: "bond.inputplaceholder.amount_to_bond",
         message: "Amount to bond",
       });
     } else if (view === "redeem") {
       return t({
-        id: "bond.inputplaceholder.redeem",
+        id: "bond.inputplaceholder.amount_to_redeem",
         message: "Amount to redeem",
       });
     } else {
@@ -392,7 +392,9 @@ export const Bond: FC<Props> = (props) => {
           <img src={bondInfo.icon} alt="" />
           <div>
             <Text t="h5">
-              <Trans id="bond.caption">Bond {bondInfo.name}</Trans>
+              <Trans id="bond.bond_token" comment="Bond {0}">
+                Bond {bondInfo.name}
+              </Trans>
             </Text>
             <Text t="caption" color="lightest">
               {bondInfo.description}
@@ -470,6 +472,7 @@ export const Bond: FC<Props> = (props) => {
                 tooltip={t({
                   id: "bond.balance.tooltip",
                   message: "Balance available for bonding",
+                  comment: "Long sentence",
                 })}
                 unit={bondInfo.balanceUnit}
                 value={
@@ -492,6 +495,7 @@ export const Bond: FC<Props> = (props) => {
                   id: "bond.bond_price.tooltip",
                   message:
                     "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)",
+                  comment: "Long sentence",
                 })}
                 unit={bondInfo.priceUnit}
                 value={trimWithPlaceholder(bondState?.bondPrice, 2)}
@@ -507,6 +511,7 @@ export const Bond: FC<Props> = (props) => {
                   id: "bond.market_price.tooltip",
                   message:
                     "Current trading price of KLIMA, without bond discount",
+                  comment: "Long sentence",
                 })}
                 unit={bondInfo.priceUnit}
                 value={trimWithPlaceholder(bondState?.marketPrice, 2)}
@@ -522,6 +527,7 @@ export const Bond: FC<Props> = (props) => {
                   id: "bond.roi.tooltip",
                   message:
                     "Return on investment, expressed as a percentage discount on the market value of KLIMA",
+                  comment: "Long sentence",
                 })}
                 unit={"%"}
                 value={trimWithPlaceholder(bondState?.bondDiscount, 2)}
@@ -537,6 +543,7 @@ export const Bond: FC<Props> = (props) => {
                   id: "bond.you_will_get.tooltip",
                   message:
                     "Amount of bonded KLIMA you will get, at the provided input quantity",
+                  comment: "Long sentence",
                 })}
                 unit="KLIMA"
                 value={
@@ -558,6 +565,7 @@ export const Bond: FC<Props> = (props) => {
                 tooltip={t({
                   id: "bond.maximum.tooltip",
                   message: "Maximum amount of KLIMA you can acquire by bonding",
+                  comment: "Long sentence",
                 })}
                 warning={
                   !!bondState?.bondQuote &&
@@ -577,6 +585,7 @@ export const Bond: FC<Props> = (props) => {
                   id: "bond.debt_ratio.tooltip",
                   message:
                     "Protocol's current ratio of supply to outstanding bonds",
+                  comment: "Long sentence",
                 })}
                 warning={false}
                 value={trimWithPlaceholder(Number(bondState?.debtRatio), 2)}
@@ -592,6 +601,7 @@ export const Bond: FC<Props> = (props) => {
                   id: "bond.vesting_term_end.tooltip",
                   message:
                     "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term.",
+                  comment: "Long sentence",
                 })}
                 warning={false}
                 value={vestingPeriod() ?? ""}
@@ -611,6 +621,7 @@ export const Bond: FC<Props> = (props) => {
                       id: "bond.unredeemed.tooltip",
                       message:
                         "Remaining unredeemed value (vested and un-vested)",
+                      comment: "Long sentence",
                     })}
                   >
                     <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -639,6 +650,7 @@ export const Bond: FC<Props> = (props) => {
                       id: "bond.redeemable.tooltip",
                       message:
                         "Amount of KLIMA that has already vested and can be redeemed",
+                      comment: "Long sentence",
                     })}
                   >
                     <div tabIndex={0} className={styles.infoIconWrapper}>
@@ -692,7 +704,10 @@ export const Bond: FC<Props> = (props) => {
           )}
           {isBondDiscountNegative && view === "bond" && (
             <Text t="caption" align="center">
-              <Trans id="status.bond_negative">
+              <Trans
+                id="bond.this_bond_price_is_inflated"
+                comment="Long sentence"
+              >
                 ⚠️ Warning: this bond price is inflated because the current
                 discount rate is negative.
               </Trans>
@@ -700,7 +715,10 @@ export const Bond: FC<Props> = (props) => {
           )}
           {isDisabled && (
             <Text t="caption" align="center">
-              <Trans>
+              <Trans
+                id="bond.all_demand_has_been_filled"
+                comment="Long sentence"
+              >
                 🪧 SOLD OUT. All demand has been filled for this bond. Thank you,
                 Klimates!
               </Trans>

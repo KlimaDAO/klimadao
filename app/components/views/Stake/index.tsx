@@ -217,6 +217,7 @@ export const Stake = (props: Props) => {
           id: "stake.balancescard.tooltip",
           message:
             "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage.",
+          comment: "Long sentence",
         })}
       />
       <div className={styles.stakeCard}>
@@ -226,7 +227,7 @@ export const Stake = (props: Props) => {
             <Trans id="stake.stake_klima">Stake KLIMA</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans id="stake.caption">
+            <Trans id="stake.hold_stake_and_compound" comment="Long sentence">
               Hold, stake, and compound. If the protocol earns a profit selling
               carbon bonds, these rewards are shared among all holders of staked
               KLIMA (sKLIMA).
@@ -294,7 +295,7 @@ export const Stake = (props: Props) => {
               <Trans id="stake.5_day_roi">5-day ROI</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans id="stake.5_day_roi.tooltip">
+                  <Trans id="stake.5_day_roi.tooltip" comment="Long sentence">
                     Approximate return on investment, including compounding
                     interest, should you remain staked for 5 days.
                   </Trans>
@@ -307,7 +308,7 @@ export const Stake = (props: Props) => {
               <Trans id="stake.apy">APY</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans id="stake.apy.tooltip">
+                  <Trans id="stake.apy.tooltip" comment="Long sentence">
                     Annual Percentage Yield, including compounding interest,
                     should the current reward rate remain unchanged for 12
                     months (rates may be subject to change)
@@ -321,7 +322,7 @@ export const Stake = (props: Props) => {
               <Trans id="stake.index">Index</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans id="stake.index.tooltip">
+                  <Trans id="stake.index.tooltip" comment="Long sentence">
                     Amount of KLIMA you would have today if you staked 1 KLIMA
                     on launch day. Useful for accounting purposes.
                   </Trans>

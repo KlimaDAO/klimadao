@@ -49,27 +49,27 @@ export const useBond = (bond: Bond) => {
     }[bond],
     description: {
       mco2: t({
-        id: "choose_bond.mco2.description",
+        id: "choose_bond.mco2.moss_carbon_credit_token",
         message: "MOSS Carbon Credit Token",
       }),
       bct: t({
-        id: "choose_bond.bct.description",
+        id: "choose_bond.bct.toucan_base_carbon_tonne",
         message: "Toucan Base Carbon Tonne",
       }),
       klima_usdc_lp: t({
-        id: "choose_bond.klima_usdc_lp.description",
+        id: "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity",
         message: "KLIMA/USDC Sushiswap Liquidity",
       }),
       klima_bct_lp: t({
-        id: "choose_bond.klima_bct_lp.description",
+        id: "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity",
         message: "KLIMA/BCT Sushiswap Liquidity",
       }),
       bct_usdc_lp: t({
-        id: "choose_bond.usdc_lp.description",
+        id: "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity",
         message: "BCT/USDC Sushiswap Liquidity",
       }),
       klima_mco2_lp: t({
-        id: "choose_bond.mco2_lp.description",
+        id: "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity",
         message: "KLIMA/MCO2 Quickswap Liquidity",
       }),
       // future bond descriptions go here
@@ -120,10 +120,13 @@ export function ChooseBond() {
         <div className={styles.chooseBondCard_header}>
           <Text t="h4" className={styles.chooseBondCard_header_title}>
             <SpaOutlined />
-            <Trans>Bond Carbon.</Trans>
+            <Trans id="choose_bond.bond_carbon">Bond Carbon.</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans id="choose_bond.caption">
+            <Trans
+              id="choose_bond.bond_carbon.the_best_way_to_buy_klima"
+              comment="Long sentence"
+            >
               The best way to buy KLIMA. Commit carbon to our treasury, and
               receive KLIMA at a discount. All bonds have a mandatory 5-day
               vesting period.
@@ -146,7 +149,7 @@ export function ChooseBond() {
                 <Trans id="choose_bond.choose_bond">Choose a bond</Trans>
               </Text>
               <Text t="caption" color="lighter">
-                <Trans id="choose_bond.discount">% Discount</Trans>
+                <Trans id="choose_bond.percent_discount">% Discount</Trans>
               </Text>
             </div>
 

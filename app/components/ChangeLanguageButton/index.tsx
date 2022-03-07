@@ -61,7 +61,10 @@ export const ChangeLanguageButton: FC = () => {
       <button
         onClick={() => setShowMenu((s) => !s)}
         className={styles.changeLanguageButton}
-        aria-label={t`Change language`}
+        aria-label={t({
+          id: "shared.change_language",
+          message: "Change language",
+        })}
       >
         <Language />
       </button>
