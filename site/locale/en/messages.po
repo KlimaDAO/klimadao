@@ -13,34 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Disclaimer/index.tsx:56
-msgid "1. An offer, or solicitation of an offer to hold or control any security, other asset or service, which are connected with intangible benefits;"
-msgstr "1. An offer, or solicitation of an offer to hold or control any security, other asset or service, which are connected with intangible benefits;"
-
-#: components/pages/Disclaimer/index.tsx:91
-msgid "1. Meet your requirements;"
-msgstr "1. Meet your requirements;"
-
-#: components/pages/Disclaimer/index.tsx:94
-msgid "2. Be available on an uninterrupted, timely, secure, or error-free basis;"
-msgstr "2. Be available on an uninterrupted, timely, secure, or error-free basis;"
-
-#: components/pages/Disclaimer/index.tsx:63
-msgid "2. Financial, investment or trading advice or an offer to provide such advice and/or service."
-msgstr "2. Financial, investment or trading advice or an offer to provide such advice and/or service."
-
-#: components/pages/Disclaimer/index.tsx:100
-msgid "3. Be reliable, complete, legal or safe."
-msgstr "3. Be reliable, complete, legal or safe."
-
-#: components/pages/Disclaimer/index.tsx:33
-msgid "All the information on this website is published in good faith and for general information purpose only. KlimaDAO is distributed on a basis that it will be useful and serve only within grounds and limits described on above mentioned website."
-msgstr "All the information on this website is published in good faith and for general information purpose only. KlimaDAO is distributed on a basis that it will be useful and serve only within grounds and limits described on above mentioned website."
-
-#: components/pages/Disclaimer/index.tsx:126
-msgid "Any action you take upon the information you find on this website is strictly at your own risk. Decisions based on information contained on this website are the sole responsibility of the visitor. KlimaDAO will not be liable for any losses and/or damages in connection with the use of the website, the loss of your password/seed phrase, a bad trade, sending an asset to the wrong address, losing your asset and events related to damage caused by scammers. KlimaDAO cannot assume any responsibility or liability connected with market changing and its volatility. You must conduct your own research and satisfy yourself of your own situation, familiarity and knowledge of information or service provided by this platform."
-msgstr "Any action you take upon the information you find on this website is strictly at your own risk. Decisions based on information contained on this website are the sole responsibility of the visitor. KlimaDAO will not be liable for any losses and/or damages in connection with the use of the website, the loss of your password/seed phrase, a bad trade, sending an asset to the wrong address, losing your asset and events related to damage caused by scammers. KlimaDAO cannot assume any responsibility or liability connected with market changing and its volatility. You must conduct your own research and satisfy yourself of your own situation, familiarity and knowledge of information or service provided by this platform."
-
 #: components/pages/Blog/index.tsx:29
 msgid "Articles"
 msgstr "Articles"
@@ -98,10 +70,6 @@ msgstr "Contact KlimaDAO"
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 msgid "Contact Us"
 msgstr "Contact Us"
-
-#: components/pages/Disclaimer/index.tsx:29
-msgid "Disclaimer"
-msgstr "Disclaimer"
 
 #: components/pages/Resources/Community/index.tsx:202
 msgid "Discord is where we share important announcements, hold office-hours, answer questions, and trade memes. Our Discord server is extremely active and moderated around-the-clock. We've got channels for everything from trading to sustainability and carbon markets."
@@ -177,17 +145,9 @@ msgstr "KlimaDAO Community"
 msgid "KlimaDAO Disclaimer"
 msgstr "KlimaDAO Disclaimer"
 
-#: components/pages/Disclaimer/index.tsx:85
-msgid "KlimaDAO and its suppliers make no warranty that the platform will:"
-msgstr "KlimaDAO and its suppliers make no warranty that the platform will:"
-
 #: components/pages/Resources/Community/index.tsx:69
 msgid "KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates."
 msgstr "KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates."
-
-#: components/pages/Disclaimer/index.tsx:41
-msgid "KlimaDAO is a platform. We are not a broker, financial institution, or creditor. Services provided on this website do not include an offer to hold or control your securities, options, assets, futures or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws."
-msgstr "KlimaDAO is a platform. We are not a broker, financial institution, or creditor. Services provided on this website do not include an offer to hold or control your securities, options, assets, futures or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws."
 
 #: components/pages/Resources/Community/index.tsx:79
 #: components/pages/Resources/Community/index.tsx:229
@@ -202,21 +162,9 @@ msgstr "MOSS logo"
 msgid "Media"
 msgstr "Media"
 
-#: components/pages/Disclaimer/index.tsx:103
-msgid "Neither KlimaDAO nor any of its representatives will not liable for any loss of any kind from any action taken or taken in reliance on material or information, contained on the service. KlimaDAO is making the use of the service and content safe, nevertheless it does not represent or warrant that the service and content on our platform are free of viruses or other harmful components."
-msgstr "Neither KlimaDAO nor any of its representatives will not liable for any loss of any kind from any action taken or taken in reliance on material or information, contained on the service. KlimaDAO is making the use of the service and content safe, nevertheless it does not represent or warrant that the service and content on our platform are free of viruses or other harmful components."
-
 #: components/pages/Home/index.tsx:459
 msgid "Newsletter"
 msgstr "Newsletter"
-
-#: components/pages/Disclaimer/index.tsx:142
-msgid "Nothing in this disclaimer, any information content or material shall or shall be constructed to create any legal relations between us and you nor grant any rights or obligations to either of us."
-msgstr "Nothing in this disclaimer, any information content or material shall or shall be constructed to create any legal relations between us and you nor grant any rights or obligations to either of us."
-
-#: components/pages/Disclaimer/index.tsx:51
-msgid "Nothing in this platform constitutes or be construed as:"
-msgstr "Nothing in this platform constitutes or be construed as:"
 
 #: components/pages/Resources/Community/index.tsx:106
 msgid "OUR PARTNERS"
@@ -259,10 +207,6 @@ msgstr ""
 msgid "Resources"
 msgstr "Resources"
 
-#: components/pages/Disclaimer/index.tsx:69
-msgid "The service available in or accessible through the service are provided “As is” and, to the fullest extent permissible pursuant to applicable law. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders disclaim all warranties, express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose and non-infrigement, and warranties implied from a course of performance or course of dealing. KlimaDAO does not make any warranties about the completeness, reliability and accuracy of this information, warranty of merchantability or fitness for a particular purpose. This platform does not make any warranties about the completeness and accuracy of this information."
-msgstr "The service available in or accessible through the service are provided “As is” and, to the fullest extent permissible pursuant to applicable law. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders disclaim all warranties, express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose and non-infrigement, and warranties implied from a course of performance or course of dealing. KlimaDAO does not make any warranties about the completeness, reliability and accuracy of this information, warranty of merchantability or fitness for a particular purpose. This platform does not make any warranties about the completeness and accuracy of this information."
-
 #: components/pages/Resources/Contact/index.tsx:113
 msgid "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
 msgstr "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
@@ -292,10 +236,6 @@ msgstr ""
 msgid "Use this <0>Media Request Form</0>."
 msgstr "Use this <0>Media Request Form</0>."
 
-#: components/pages/Disclaimer/index.tsx:150
-msgid "We recommend that you visit our Crypto Security 101 page for safety instructions before the use of the website. Please, take into consideration: never share your private key or seed phrase with anyone – neither our members nor our dApp will ever ask for or request this from you."
-msgstr "We recommend that you visit our Crypto Security 101 page for safety instructions before the use of the website. Please, take into consideration: never share your private key or seed phrase with anyone – neither our members nor our dApp will ever ask for or request this from you."
-
 #: components/pages/Resources/Community/index.tsx:85
 msgid "We work with traditional carbon market players, crypto platforms, corporations and everyone in-between."
 msgstr "We work with traditional carbon market players, crypto platforms, corporations and everyone in-between."
@@ -304,8 +244,81 @@ msgstr "We work with traditional carbon market players, crypto platforms, corpor
 msgid "We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
 msgstr "We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
 
-#: components/pages/Disclaimer/index.tsx:114
-msgid "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:65
+msgid "disclaimer.1_an_offer_or_sollicitation"
+msgstr "1. An offer, or solicitation of an offer to hold or control any security, other asset or service, which are connected with intangible benefits;"
+
+#: components/pages/Disclaimer/index.tsx:112
+msgid "disclaimer.1_meet_your_requirements"
+msgstr "1. Meet your requirements;"
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:117
+msgid "disclaimer.2_be_available_on_an_uninterrupted"
+msgstr "2. Be available on an uninterrupted, timely, secure, or error-free basis;"
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:75
+msgid "disclaimer.2_financial_investment_or_trading_advice"
+msgstr "2. Financial, investment or trading advice or an offer to provide such advice and/or service."
+
+#: components/pages/Disclaimer/index.tsx:126
+msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
+msgstr "3. Be reliable, complete, legal or safe."
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:33
+msgid "disclaimer.all_information_on_this_website"
+msgstr "All the information on this website is published in good faith and for general information purpose only. KlimaDAO is distributed on a basis that it will be useful and serve only within grounds and limits described on above mentioned website."
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:160
+msgid "disclaimer.any_action_you_take_upon_the_information"
+msgstr "Any action you take upon the information you find on this website is strictly at your own risk. Decisions based on information contained on this website are the sole responsibility of the visitor. KlimaDAO will not be liable for any losses and/or damages in connection with the use of the website, the loss of your password/seed phrase, a bad trade, sending an asset to the wrong address, losing your asset and events related to damage caused by scammers. KlimaDAO cannot assume any responsibility or liability connected with market changing and its volatility. You must conduct your own research and satisfy yourself of your own situation, familiarity and knowledge of information or service provided by this platform."
+
+#: components/pages/Disclaimer/index.tsx:29
+msgid "disclaimer.disclaimer"
+msgstr "Disclaimer"
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:103
+msgid "disclaimer.klimadao_and_its_suppliers"
+msgstr "KlimaDAO and its suppliers make no warranty that the platform will:"
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:44
+msgid "disclaimer.klimadao_is_a_platform"
+msgstr "KlimaDAO is a platform. We are not a broker, financial institution, or creditor. Services provided on this website do not include an offer to hold or control your securities, options, assets, futures or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws."
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:131
+msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
+msgstr "Neither KlimaDAO nor any of its representatives will not liable for any loss of any kind from any action taken or taken in reliance on material or information, contained on the service. KlimaDAO is making the use of the service and content safe, nevertheless it does not represent or warrant that the service and content on our platform are free of viruses or other harmful components."
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:179
+msgid "disclaimer.nothing_in_this_disclaimer"
+msgstr "Nothing in this disclaimer, any information content or material shall or shall be constructed to create any legal relations between us and you nor grant any rights or obligations to either of us."
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:57
+msgid "disclaimer.nothing_in_this_platform"
+msgstr "Nothing in this platform constitutes or be construed as:"
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:84
+msgid "disclaimer.the_service_available"
+msgstr "The service available in or accessible through the service are provided “As is” and, to the fullest extent permissible pursuant to applicable law. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders disclaim all warranties, express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose and non-infrigement, and warranties implied from a course of performance or course of dealing. KlimaDAO does not make any warranties about the completeness, reliability and accuracy of this information, warranty of merchantability or fitness for a particular purpose. This platform does not make any warranties about the completeness and accuracy of this information."
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:190
+msgid "disclaimer.we_recommend_that_you_visit"
+msgstr "We recommend that you visit our Crypto Security 101 page for safety instructions before the use of the website. Please, take into consideration: never share your private key or seed phrase with anyone – neither our members nor our dApp will ever ask for or request this from you."
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:145
+msgid "disclaimer.you_bear_full_responsibility"
 msgstr "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 
 #: components/Footer/index.tsx:44
@@ -339,6 +352,134 @@ msgstr "Home"
 #: components/Footer/index.tsx:34
 msgid "footer.stake"
 msgstr "Stake"
+
+#: components/pages/Home/index.tsx:199
+msgid "home.backed_by_carbon"
+msgstr "Backed by Carbon."
+
+#. Long sentence
+#: components/pages/Home/index.tsx:157
+msgid "home.by_increasing_access"
+msgstr "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
+
+#: components/pages/Home/index.tsx:290
+msgid "home.cars_annual"
+msgstr "Cars (annual)"
+
+#: components/pages/Home/index.tsx:259
+msgid "home.equivalent_to"
+msgstr "EQUIVALENT TO"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:374
+msgid "home.every_klima_token_is_backed"
+msgstr "Every KLIMA token is backed by a real-world carbon asset. Tokens are used to offset carbon emissions, interact with DeFi applications, and get exposure to the rapidly growing global carbon market."
+
+#. Long sentence
+#: components/pages/Home/index.tsx:97
+msgid "home.fight_climate_change"
+msgstr "Fight climate change and earn rewards with KLIMA, a digital currency backed by real carbon assets."
+
+#: components/pages/Home/index.tsx:425
+msgid "home.get_exposure_to_the_growing_carbon_economy"
+msgstr "Get exposure to the growing carbon economy today. Acquire, stake, and get rewarded. Financial activism for the climate."
+
+#: components/pages/Home/index.tsx:273
+msgid "home.hectares_of_forest"
+msgstr "Hectares of forest"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:142
+msgid "home.klima_is_a_black_hole"
+msgstr "KlimaDAO is a <0>black hole for carbon</0> at the center of a <1>new green economy</1>."
+
+#. Long sentence
+#: components/pages/Home/index.tsx:403
+msgid "home.klima_tokens_are_minted"
+msgstr "KLIMA tokens are minted and distributed automatically every ~7 hours to staked KLIMA holders. Grow your KLIMA holdings as we usher in a more sustainable future together."
+
+#: components/pages/Home/index.tsx:73
+msgid "home.latest_news"
+msgstr "📰 Latest News:"
+
+#: components/pages/Home/index.tsx:128
+msgid "home.learn_more"
+msgstr "LEARN MORE"
+
+#: components/pages/Home/index.tsx:305
+msgid "home.liters_if_gasoline"
+msgstr "Liters of gasoline"
+
+#: components/pages/Home/index.tsx:235
+msgid "home.massive impact"
+msgstr "Massive impact."
+
+#: components/pages/Home/index.tsx:173
+msgid "home.mechanics"
+msgstr "MECHANICS"
+
+#: components/pages/Home/index.tsx:454
+msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
+msgstr "All the Alpha, straight to your inbox"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:462
+msgid "home.newletter.get_the_latest_updates"
+msgstr "Get the latest updates on KlimaDAO, as we build the future of the carbon economy."
+
+#: components/pages/Home/index.tsx:479
+msgid "home.newletter.never_shared_never_spammed"
+msgstr "Never shared. Never spammed."
+
+#: components/pages/Home/index.tsx:473
+msgid "home.newletter.sign_up"
+msgstr "Sign up"
+
+#. <0>Reserve Asset</0><1>Of the carbon economy</1>
+#: components/pages/Home/index.tsx:362
+msgid "home.reserve_asset_of_the_carbon_economy"
+msgstr "<0>Reserve Asset</0><1>Of the carbon economy</1>"
+
+#: components/pages/Home/index.tsx:432
+msgid "home.see_tutorial"
+msgstr "See Tutorial"
+
+#: components/pages/Home/index.tsx:320
+msgid "home.source"
+msgstr "Source"
+
+#: components/pages/Home/index.tsx:217
+msgid "home.strong_incentives"
+msgstr "Strong incentives."
+
+#. Long sentence
+#: components/pages/Home/index.tsx:176
+msgid "home.the_dao_sell_bonds"
+msgstr "The DAO sells bonds and distributes profits to KLIMA holders. Every bond we sell adds to an ever-growing green treasury, or improves liquidity for key environmental assets. A win-win for people and planet."
+
+#. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
+#: components/pages/Home/index.tsx:246
+msgid "home.tons_of_carbon_absorbed_by_klimadao"
+msgstr "TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO"
+
+#. Long sentence
+#: components/pages/Home/index.tsx:149
+msgid "home.we_ve_kickstarted"
+msgstr "We’ve kick-started a <0>decentralized and open market for carbon</0>. Our token incentivizes investors, citizens, and organizations to participate in and govern this new economy."
+
+#. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
+#: components/pages/Home/index.tsx:391
+msgid "home.weekly_rewards_for_token_holders"
+msgstr "<0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
+
+#. <0>WELCOME TO</0><1>KlimaDAO</1>
+#: components/pages/Home/index.tsx:84
+msgid "home.welcome_to_klimadao"
+msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
+
+#: components/pages/Home/index.tsx:347
+msgid "invest_in_the_future"
+msgstr "Invest in the future."
 
 #: components/pages/Home/index.tsx:199
 msgid "home.backed_by_carbon"
