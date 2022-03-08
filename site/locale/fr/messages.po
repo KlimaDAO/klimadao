@@ -41,10 +41,6 @@ msgstr ""
 msgid "Eco logo"
 msgstr ""
 
-#: components/Navigation/index.tsx:30
-msgid "Enter App"
-msgstr ""
-
 #: components/pages/Resources/Community/index.tsx:181
 msgid "Etc Group logo"
 msgstr ""
@@ -53,8 +49,7 @@ msgstr ""
 msgid "GET KLIMA"
 msgstr ""
 
-#: components/Navigation/index.tsx:35
-#: components/Navigation/index.tsx:54
+#: components/Navigation/index.tsx:41
 msgid "Get KLIMA"
 msgstr ""
 
@@ -88,11 +83,6 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:151
 msgid "Polygon logo"
-msgstr ""
-
-#: components/Navigation/index.tsx:48
-#: components/Navigation/index.tsx:63
-msgid "Resources"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:196
@@ -497,13 +487,26 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
-#: components/Navigation/index.tsx:44
-#: components/Navigation/index.tsx:61
+#: components/Navigation/index.tsx:50
+#: components/Navigation/index.tsx:75
 msgid "mainNav.bond"
 msgstr ""
 
-#: components/Navigation/index.tsx:40
-#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:34
+msgid "mainNav.enter_app"
+msgstr ""
+
+#: components/Navigation/index.tsx:67
+msgid "mainNav.get_klima"
+msgstr ""
+
+#: components/Navigation/index.tsx:54
+#: components/Navigation/index.tsx:77
+msgid "mainNav.resources"
+msgstr ""
+
+#: components/Navigation/index.tsx:46
+#: components/Navigation/index.tsx:71
 msgid "mainNav.stake"
 msgstr ""
 
