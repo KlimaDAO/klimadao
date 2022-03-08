@@ -24,6 +24,7 @@ import { IS_PRODUCTION } from "lib/constants";
 import BuyKlimaTimeline from "components/pages/Buy/BuyKlimaTimeline";
 import { MutableRefObject, useRef } from "react";
 import { urls } from "@klimadao/lib/constants";
+import { t } from "@lingui/macro";
 
 export type Props = HTMLHtmlElement;
 
@@ -39,9 +40,9 @@ export const Buy: NextPage<Props> = ({}) => {
     <>
       <PageHead
         production={IS_PRODUCTION}
-        title="How to buy KLIMA"
-        mediaTitle="How to buy KLIMA"
-        metaDescription="How to buy KLIMA"
+        title={t({ id: "buy.head.title", message: "How to buy KLIMA" })}
+        mediaTitle={t({ id: "buy.head.title", message: "How to buy KLIMA" })}
+        metaDescription={t({ id: "shared.head.description" })}
       />
       <Navigation activePage="Get KLIMA" />
 
