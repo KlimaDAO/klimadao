@@ -70,11 +70,15 @@ const HeaderElements: FC = () => (
 export const Community: NextPage = () => (
   <Container
     activePage={"community"}
-    title={t`KlimaDAO Community`}
-    headline={t`Community`}
-    subline={t`KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates.`}
-    mediaTitle={t`KlimaDAO Community`}
-    metaDescription={t`Drive climate action and earn rewards with a carbon-backed digital currency.`}
+    title={t({ id: "community.head.title", message: "KlimaDAO Community" })}
+    headline={t({ id: "community.head.headline", message: "Community" })}
+    subline={t({
+      id: "community.head.subline",
+      message:
+        "KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates.",
+    })}
+    mediaTitle={t({ id: "community.head.title" })}
+    metaDescription={t({ id: "shared.head.description" })}
     mediaImageSrc="/og-media.png"
     headerElements={HeaderElements}
   >

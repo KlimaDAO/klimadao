@@ -14,13 +14,15 @@ type Props = {
 export const Blog: FC<Props> = (props) => (
   <Container
     activePage={"blog"}
-    title={t`KlimaDAO Blog`}
-    headline={t`Blog`}
-    subline={t`Updates and thought leadership from the founders, DAO contributors,
-      advisors and community.`}
-    mediaTitle={t`KlimaDAO Blog`}
-    metaDescription={t`Updates and thought leadership from the founders, DAO contributors,
-        advisors and community.`}
+    title={t({ id: "blog.head.title", message: "KlimaDAO Blog" })}
+    headline={t({ id: "blog.head.headline", message: "Blog" })}
+    subline={t({
+      id: "blog.head.description",
+      message:
+        "Updates and thought leadership from the founders, DAO contributors, advisors and community.",
+    })}
+    mediaTitle={t({ id: "blog.head.title" })}
+    metaDescription={t({ id: "shared.head.description" })}
     mediaImageSrc="/og-media.png"
   >
     <div className={styles.container}>

@@ -16,9 +16,12 @@ export const Disclaimer: NextPage<Props> = ({}) => {
     <>
       <PageHead
         production={IS_PRODUCTION}
-        title={t`KlimaDAO Disclaimer`}
-        metaDescription={t`KlimaDAO Disclaimer`}
-        mediaTitle={t`KlimaDAO Disclaimer`}
+        title={t({
+          id: "disclaimer.head.title",
+          message: "KlimaDAO Disclaimer",
+        })}
+        metaDescription={t({ id: "shared.head.description" })}
+        mediaTitle={t({ id: "disclaimer.head.title" })}
         mediaImageSrc="/og-media.png"
       />
       <Navigation activePage="Disclaimer" />
