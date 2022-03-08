@@ -82,6 +82,14 @@ const serializers: BlockContentProps["serializers"] = {
         </A>
       );
     },
+    internalLink: ({ children, mark }) => {
+      const { href } = mark;
+      return (
+        <A className={styles.link} href={href}>
+          {children}
+        </A>
+      );
+    },
   },
   types: {
     block: BlockRenderer,

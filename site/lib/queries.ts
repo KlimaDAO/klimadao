@@ -30,6 +30,13 @@ const prodQueries = {
     *[_type == "post" && slug.current == $slug && hideFromProduction != true][0] {
       body[] {
         ...,
+        markDefs[]{
+          ...,
+          _type == "internalLink" => {
+            "name": uploadedFile->.name,
+            "href": uploadedFile->.file.asset->url
+          }
+        },
         _type == "image" => {
           ...,
           asset -> {
@@ -71,6 +78,13 @@ const stagingQueries: typeof prodQueries = {
     *[_type == "post" && slug.current == $slug][0] {
       body[] {
         ...,
+        markDefs[]{
+          ...,
+          _type == "internalLink" => {
+            "name": uploadedFile->.name,
+            "href": uploadedFile->.file.asset->url
+          }
+        },
         _type == "image" => {
           ...,
           asset -> {

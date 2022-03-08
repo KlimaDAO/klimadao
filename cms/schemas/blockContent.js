@@ -1,3 +1,5 @@
+import React from "react";
+
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -48,6 +50,26 @@ export default {
                 type: "url",
               },
             ],
+            blockEditor: {
+              icon: () => <div>🔗</div>,
+            },
+          },
+          {
+            title: "Link to file",
+            name: "internalLink",
+            type: "object",
+            fields: [
+              {
+                title: "Upload a file and link to it below",
+                name: "uploadedFile",
+                type: "reference",
+                to: [{ type: "fileUpload" }],
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+            blockEditor: {
+              icon: () => <div>📂</div>,
+            },
           },
         ],
       },
