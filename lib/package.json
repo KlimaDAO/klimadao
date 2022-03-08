@@ -26,6 +26,7 @@
   },
   "exports": {
     "./components": "./out/components/index.js",
+    "./config": "./out/config/index.js",
     "./constants": "./out/constants/index.js",
     "./utils": "./out/utils/index.js",
     "./theme/*": "./theme/*",

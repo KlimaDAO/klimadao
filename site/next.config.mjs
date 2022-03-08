@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+import { securityHeaders } from "@klimadao/lib/config";
+
+const nextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
@@ -18,11 +21,17 @@ module.exports = {
   async headers() {
     return [
       {
-        source: "/api/block-rate",
         // from vercel docs example
+        source: "/api/block-rate",
         headers: [
-          { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" },
+          {
+            key: "Access-Control-Allow-Credentials",
+            value: "true",
+          },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
           {
             key: "Access-Control-Allow-Methods",
             value: "GET",
@@ -34,6 +43,10 @@ module.exports = {
           },
         ],
       },
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
     ];
   },
   i18n: {
@@ -44,3 +57,5 @@ module.exports = {
     domains: ["cdn.sanity.io"],
   },
 };
+
+export default nextConfig;
