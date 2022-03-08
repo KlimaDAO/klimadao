@@ -158,16 +158,12 @@ export const NavMenu: FC<Props> = (props) => {
         <Trans id="menu.info">Info</Trans>
       </MenuButton>
       <div className="labelStack" title="Coming soon!">
-        <Text t="badge" color="lightest">
-          <Trans id="menu.coming_soon">COMING SOON</Trans>
-        </Text>
         <MenuButton
           isActive={pathname === "/offset"}
           icon={<FlipOutlined />}
-          href="/offset"
-          disabled={true}
+          href="https://offset.klimadao.finance/"
         >
-          <Trans id="menu.offset">Offset</Trans>
+          <Trans id="menu.offset_beta">Offset (Beta)</Trans>
         </MenuButton>
       </div>
       {!!Number(balances?.pklima) && (
