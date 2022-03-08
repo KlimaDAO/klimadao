@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
-const config = {
+
+import withBundleAnalyzer from "@next/bundle-analyzer";
+import { securityHeaders } from "@klimadao/lib/config";
+
+const nextConfig = {
   eslint: {
     dirs: ["actions", "components", "lib", "pages", "state"],
   },
@@ -38,15 +42,16 @@ const config = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
+    ];
+  },
 };
 
-let withBundleAnalyzer;
-if (process.env.ANALYZE === "true") {
-  withBundleAnalyzer = require("@next/bundle-analyzer")({
-    enabled: process.env.ANALYZE === "true",
-  });
-} else {
-  withBundleAnalyzer = (config) => config;
-}
-
-module.exports = withBundleAnalyzer(config);
+export default withBundleAnalyzer({ enabled: process.env.ANALYZE === "true" })(
+  nextConfig
+);
