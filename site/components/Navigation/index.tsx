@@ -24,11 +24,17 @@ export type Props = {
 export const Navigation: FC<Props> = (props) => (
   <>
     <HeaderDesktop
-      buttons={[
-        !IS_PRODUCTION ? <ChangeLanguageButton /> : <></>,
+      buttons={(!IS_PRODUCTION
+        ? [<ChangeLanguageButton key="ChangeLanguageButton" />]
+        : []
+      ).concat([
         <ThemeToggle key="ThemeToggle" />,
-        <ButtonPrimary key="Enter App" label={t`Enter App`} href={urls.app} />,
-      ]}
+        <ButtonPrimary
+          key="Enter App"
+          label={t({ message: "Enter App", id: "mainNav.enter_app" })}
+          href={urls.app}
+        />,
+      ])}
     >
       <NavItemDesktop
         url={"/buy"}
@@ -45,13 +51,21 @@ export const Navigation: FC<Props> = (props) => (
       />
       <NavItemDesktop
         url="/blog"
-        name={t`Resources`}
+        name={t({ message: "Resources", id: "mainNav.resources" })}
         active={props.activePage === "Resources"}
       />
     </HeaderDesktop>
 
-    <HeaderMobile buttons={[<ThemeToggle key="ThemeToggle" />]}>
-      <NavItemMobile url="/buy" name={t`Get KLIMA`} />
+    <HeaderMobile
+      buttons={(!IS_PRODUCTION
+        ? [<ChangeLanguageButton key="ChangeLanguageButton" />]
+        : []
+      ).concat([<ThemeToggle key="ThemeToggle" />])}
+    >
+      <NavItemMobile
+        url="/buy"
+        name={t({ message: "Get KLIMA", id: "mainNav.get_klima" })}
+      />
       <NavItemMobile
         url={urls.stake}
         name={t({ message: "Stake", id: "mainNav.stake" })}
@@ -60,7 +74,10 @@ export const Navigation: FC<Props> = (props) => (
         url={urls.bonds}
         name={t({ message: "Bond", id: "mainNav.bond" })}
       />
-      <NavItemMobile url="/blog" name={t`Resources`} />
+      <NavItemMobile
+        url="/blog"
+        name={t({ message: "Resources", id: "mainNav.resources" })}
+      />
     </HeaderMobile>
   </>
 );
