@@ -85,7 +85,7 @@ const serializers: BlockContentProps["serializers"] = {
     internalLink: ({ children, mark }) => {
       const { href } = mark;
       return (
-        <A className={styles.link} href={`${href}?dl=`}>
+        <A className={styles.link} href={href}>
           {children}
         </A>
       );

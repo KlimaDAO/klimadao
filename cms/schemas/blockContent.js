@@ -55,19 +55,20 @@ export default {
             },
           },
           {
-            title: "Internal link",
+            title: "Link to file",
             name: "internalLink",
             type: "object",
             fields: [
               {
-                name: "item",
+                title: "Upload a file and link to it below",
+                name: "uploadedFile",
                 type: "reference",
                 to: [{ type: "fileUpload" }],
                 validation: (Rule) => Rule.required(),
               },
             ],
             blockEditor: {
-              icon: () => <div>🗂</div>,
+              icon: () => <div>📂</div>,
             },
           },
         ],

@@ -33,8 +33,8 @@ const prodQueries = {
         markDefs[]{
           ...,
           _type == "internalLink" => {
-            "name": item->.name,
-            "href": item->.file.asset->url
+            "name": uploadedFile->.name,
+            "href": uploadedFile->.file.asset->url
           }
         },
         _type == "image" => {
@@ -81,8 +81,8 @@ const stagingQueries: typeof prodQueries = {
         markDefs[]{
           ...,
           _type == "internalLink" => {
-            "name": item->.name,
-            "href": item->.file.asset->url
+            "name": uploadedFile->.name,
+            "href": uploadedFile->.file.asset->url
           }
         },
         _type == "image" => {
