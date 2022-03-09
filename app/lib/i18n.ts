@@ -2,7 +2,6 @@ import { i18n } from "@lingui/core";
 import { en, fr } from "make-plural/plurals";
 import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
 import { IS_PRODUCTION } from "lib/constants";
-import { messages as default_messages } from "../locale/en/messages";
 
 // TODO: remove NODE_ENV=test hack from package.json https://github.com/lingui/js-lingui/issues/433
 
@@ -50,10 +49,6 @@ async function activate(locale: string) {
  * Initializes locale (retrieve current locale from localstorage if possible)
  */
 async function init() {
-  // Preload default locale
-  i18n.load("en", default_messages);
-  i18n.activate("en");
-
   // Load user locale
   let locale = window.localStorage.getItem("locale") as string;
   if (!Object.keys(locales).includes(locale)) locale = "en";
