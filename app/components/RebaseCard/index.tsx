@@ -14,7 +14,7 @@ interface Props {
 
 export const RebaseCard: FC<Props> = (props) => {
   const balances = useSelector(selectBalances);
-  const { stakingRebase, currentBlock, rebaseBlock } =
+  const { stakingRebase, currentBlock, rebaseBlock, blockRate } =
     useSelector(selectAppState);
   const nextRebasePercent = stakingRebase ? stakingRebase * 100 : 0;
   const nextRebaseValue =
@@ -24,7 +24,7 @@ export const RebaseCard: FC<Props> = (props) => {
 
   const timeUntilRebase = () => {
     if (currentBlock && rebaseBlock) {
-      const seconds = secondsUntilBlock(currentBlock, rebaseBlock);
+      const seconds = secondsUntilBlock(currentBlock, rebaseBlock, blockRate);
       // if less than 1 hour remaining, return minutes
       const rtf = new Intl.RelativeTimeFormat("en");
       if (seconds < 3600) {

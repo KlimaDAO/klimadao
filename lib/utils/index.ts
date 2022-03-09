@@ -13,3 +13,5 @@ export { formatUnits } from "./formatUnits";
 export { useDebounce } from "./useDebounce";
 export { safeAdd } from "./safeAdd";
 export { safeSub } from "./safeSub";
+export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
+export { fetchBlockRate } from "./fetchBlockRate";
