@@ -165,52 +165,52 @@ msgstr "<0>dapp.klimadao.finance</0> is the only official domain."
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ Verify the URL and bookmark this page!"
 
-#: components/views/ChooseBond/index.tsx:55
+#: components/views/ChooseBond/index.tsx:64
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan Base Carbon Tonne"
 
-#: components/views/ChooseBond/index.tsx:123
+#: components/views/ChooseBond/index.tsx:132
 msgid "choose_bond.bond_carbon"
 msgstr "Bond Carbon."
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:126
+#: components/views/ChooseBond/index.tsx:135
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds have a mandatory 5-day vesting period."
 
-#: components/views/ChooseBond/index.tsx:149
+#: components/views/ChooseBond/index.tsx:158
 msgid "choose_bond.choose_bond"
 msgstr "Choose a bond"
 
-#: components/views/ChooseBond/index.tsx:63
+#: components/views/ChooseBond/index.tsx:72
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "KLIMA/BCT Sushiswap Liquidity"
 
-#: components/views/ChooseBond/index.tsx:59
+#: components/views/ChooseBond/index.tsx:68
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/USDC Sushiswap Liquidity"
 
-#: components/views/ChooseBond/index.tsx:51
+#: components/views/ChooseBond/index.tsx:60
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "MOSS Carbon Credit Token"
 
-#: components/views/ChooseBond/index.tsx:71
+#: components/views/ChooseBond/index.tsx:80
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "KLIMA/MCO2 Quickswap Liquidity"
 
-#: components/views/ChooseBond/index.tsx:152
+#: components/views/ChooseBond/index.tsx:161
 msgid "choose_bond.percent_discount"
 msgstr "% Discount"
 
-#: components/views/ChooseBond/index.tsx:170
+#: components/views/ChooseBond/index.tsx:179
 msgid "choose_bond.sold_out"
 msgstr "SOLD OUT"
 
-#: components/views/ChooseBond/index.tsx:139
+#: components/views/ChooseBond/index.tsx:148
 msgid "choose_bond.treasury_balance"
 msgstr "Treasury Balance"
 
-#: components/views/ChooseBond/index.tsx:67
+#: components/views/ChooseBond/index.tsx:76
 msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
 msgstr "BCT/USDC Sushiswap Liquidity"
 

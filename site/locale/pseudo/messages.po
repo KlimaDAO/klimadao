@@ -501,7 +501,7 @@ msgid "mainNav.get_klima"
 msgstr ""
 
 #: components/Navigation/index.tsx:54
-#: components/Navigation/index.tsx:77
+#: components/Navigation/index.tsx:79
 msgid "mainNav.resources"
 msgstr ""
 
