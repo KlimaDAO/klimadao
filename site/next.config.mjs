@@ -2,8 +2,6 @@
 
 import { securityHeaders } from "@klimadao/lib/config";
 
-console.log(securityHeaders);
-
 const nextConfig = {
   reactStrictMode: true,
   async redirects() {
