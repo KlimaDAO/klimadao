@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
@@ -7,7 +7,7 @@ import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
 
 import { AppNotificationStatus } from "state/app";
 import { selectNotificationStatus } from "state/selectors";
-import { selectStakeAllowance } from "state/selectors";
+import { selectBalances } from "state/selectors";
 
 import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
 import { CarbonTonsRetiredCard } from "components/CarbonTonsRetiredCard";
@@ -16,16 +16,16 @@ import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
 
 import BCT from "public/icons/BCT.png";
+import NCT from "public/icons/NCT.png";
 import MCO2 from "public/icons/MCO2.png";
+import KLIMA from "public/icons/KLIMA.png";
+import USDC from "public/icons/USDC.png";
 
 import * as styles from "./styles";
 
-const inputTokens = [
-  { name: "BCT", icon: BCT },
-  { name: "MCO2", icon: MCO2 },
-];
 const retireTokens = [
   { name: "BCT", icon: BCT },
+  { name: "NCT", icon: NCT, disabled: true },
   { name: "MCO2", icon: MCO2 },
 ];
 
@@ -43,6 +43,17 @@ interface Props {
 }
 
 export const Offset = (props: Props) => {
+  const balances = useSelector(selectBalances);
+
+  const inputTokens = [
+    { name: "BCT", icon: BCT, balance: balances?.bct },
+    { name: "NCT", icon: NCT, balance: "0", disabled: true },
+    { name: "MCO2", icon: MCO2, balance: "0" },
+    { name: "USDC", icon: USDC, balance: "0" },
+    { name: "KLIMA", icon: KLIMA, balance: balances?.klima },
+    { name: "sKLIMA", icon: KLIMA, balance: balances?.sklima },
+    { name: "wsKLIMA", icon: KLIMA, balance: balances?.wsklima },
+  ];
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
@@ -52,27 +63,60 @@ export const Offset = (props: Props) => {
   );
   const [currentInputToken, setCurrentInputToken] = useState(inputTokens[0]);
 
+  // form state
+  const [numCarbonTonnesToRetire, setNumCarbonTonnesToRetire] = useState("");
+  const [costCarbonTonnesToRetire, setCostCarbonTonnesToRetire] = useState("");
+  const [beneficiary, setBeneficiary] = useState("");
+  const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
+  const [retirementAddress, setRetirementAddress] = useState("");
+
+  // effects
+  useEffect(() => {
+    setCostCarbonTonnesToRetire(numCarbonTonnesToRetire);
+  }, [numCarbonTonnesToRetire]);
+
   // methods
   const getButtonProps = (): ButtonProps => {
-    return {
-      label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
-      onClick: props.loadWeb3Modal,
-      disabled: false,
-    };
+    if (!props.isConnected) {
+      return {
+        label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
+        onClick: props.loadWeb3Modal,
+        disabled: false,
+      };
+    } else {
+      return {
+        label: <Trans id="shared.approve">Approve</Trans>,
+        onClick: () => {
+          console.log(
+            "currentTokenToRetire:",
+            currentTokenToRetire,
+            "currentInputToken:",
+            currentInputToken,
+            "costCarbonTonnesToRetire",
+            costCarbonTonnesToRetire,
+            "numCarbonTonnesToRetire:",
+            numCarbonTonnesToRetire,
+            "beneficiary:",
+            beneficiary,
+            "beneficiaryAddress:",
+            beneficiaryAddress,
+            "retirementAddress:",
+            retirementAddress
+          );
+        },
+        disabled: false,
+      };
+    }
   };
-  const stakeAllowance = useSelector(selectStakeAllowance);
+
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
   );
   const status = fullStatus && fullStatus.statusType;
 
-  const isLoading =
-    !stakeAllowance || typeof stakeAllowance.klima === "undefined";
   const showSpinner =
     props.isConnected &&
-    (status === "userConfirmation" ||
-      status === "networkConfirmation" ||
-      isLoading);
+    (status === "userConfirmation" || status === "networkConfirmation");
 
   return (
     <>
@@ -90,23 +134,6 @@ export const Offset = (props: Props) => {
           </Text>
         </div>
         <div className={styles.offsetCard_ui}>
-          {/* Input Token */}
-          <DropdownWithModal
-            label="Select input token"
-            modalTitle="Select Token"
-            currentItem={currentInputToken}
-            items={inputTokens}
-            isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => {
-              setInputTokenModalOpen((s) => !s);
-            }}
-            onItemSelect={(tokenName) => {
-              setCurrentInputToken(
-                inputTokens.find((token) => tokenName === token.name) ||
-                  inputTokens[0]
-              );
-            }}
-          />
           {/* Retire Token  */}
           <DropdownWithModal
             label="Select carbon offset token to retire"
@@ -124,7 +151,23 @@ export const Offset = (props: Props) => {
               );
             }}
           />
-
+          {/* Input Token */}
+          <DropdownWithModal
+            label="Select input token"
+            modalTitle="Select Token"
+            currentItem={currentInputToken}
+            items={inputTokens}
+            isModalOpen={isInputTokenModalOpen}
+            onToggleModal={() => {
+              setInputTokenModalOpen((s) => !s);
+            }}
+            onItemSelect={(tokenName) => {
+              setCurrentInputToken(
+                inputTokens.find((token) => tokenName === token.name) ||
+                  inputTokens[0]
+              );
+            }}
+          />
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lightest">
@@ -135,14 +178,29 @@ export const Offset = (props: Props) => {
             </label>
             <div className="number_input_container">
               <input
-                value=""
+                value={numCarbonTonnesToRetire}
+                min={0}
+                onKeyDown={(e) => {
+                  if (["e", "E", "+", "-"].includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                onChange={(e) => {
+                  setNumCarbonTonnesToRetire(e.target.value);
+                }}
                 placeholder={t({
                   id: "offset.how_many_retire",
                   message: "How many carbon tonnes would you like to retire?",
                 })}
                 type="number"
               />
-              <button className="button_max" type="button">
+              <button
+                className="button_max"
+                type="button"
+                onClick={() => {
+                  setNumCarbonTonnesToRetire("0");
+                }}
+              >
                 <Trans id="shared.max">Max</Trans>
               </button>
             </div>
@@ -150,7 +208,7 @@ export const Offset = (props: Props) => {
           <div className="mini_token_display_row">
             <MiniTokenDisplay
               label="cost"
-              amount={0}
+              amount={costCarbonTonnesToRetire}
               icon={currentInputToken.icon}
               name={currentInputToken.name}
             />
@@ -164,7 +222,7 @@ export const Offset = (props: Props) => {
             />
             <MiniTokenDisplay
               label="retiring"
-              amount={0}
+              amount={numCarbonTonnesToRetire}
               icon={currentTokenToRetire.icon}
               name={currentTokenToRetire.name}
               labelAlignment="end"
@@ -177,7 +235,10 @@ export const Offset = (props: Props) => {
               </Text>
             </label>
             <input
-              value=""
+              value={beneficiary}
+              onChange={(e) => {
+                setBeneficiary(e.target.value);
+              }}
               placeholder={t({
                 id: "offset.who_beneficiary",
                 message: "Who is the beneficiary?",
@@ -193,7 +254,10 @@ export const Offset = (props: Props) => {
               </Text>
             </label>
             <input
-              value=""
+              value={beneficiaryAddress}
+              onChange={(e) => {
+                setBeneficiaryAddress(e.target.value);
+              }}
               placeholder={t({
                 id: "offset.which_address_retiring",
                 message: "Which address are you retiring on behalf of?",
@@ -209,7 +273,10 @@ export const Offset = (props: Props) => {
               </Text>
             </label>
             <input
-              value=""
+              value={retirementAddress}
+              onChange={(e) => {
+                setRetirementAddress(e.target.value);
+              }}
               placeholder={t({
                 id: "offset.retirement_additional_info",
                 message: "Any additional info for your retirement?",

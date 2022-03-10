@@ -4,6 +4,7 @@ import { providers } from "ethers";
 import { selectNotificationStatus } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 
 import {
   changeApprovalTransaction,
@@ -27,10 +28,9 @@ import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
 import { Trans, t } from "@lingui/macro";
 import { BalancesCard } from "components/BalancesCard";
 import { RebaseCard } from "components/RebaseCard";
-import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
+import { ImageCard } from "components/ImageCard";
 
 import * as styles from "./styles";
-import { ImageCard } from "components/ImageCard";
 
 interface ButtonProps {
   label: React.ReactElement | string;

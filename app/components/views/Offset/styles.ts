@@ -86,6 +86,7 @@ export const input = css`
     border: 0.2rem solid var(--surface-03);
     padding-inline-start: 2rem;
     min-height: 4.8rem;
+    color: var(--font-01);
   }
   .number_input_container {
     min-height: 4.8rem;

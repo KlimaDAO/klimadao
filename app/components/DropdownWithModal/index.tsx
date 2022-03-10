@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Image from "next/image";
+import { Trans } from "@lingui/macro";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 import { Text } from "@klimadao/lib/components";
@@ -9,7 +10,8 @@ import * as styles from "./styles";
 interface Item {
   name: string;
   icon: StaticImageData;
-  balance?: number;
+  balance?: string;
+  disabled?: boolean;
 }
 
 interface Props {
@@ -39,7 +41,16 @@ export const DropdownWithModal: FC<Props> = (props) => {
           />
           <Text t="body2">{currentItem.name}</Text>
         </div>
-        <KeyboardArrowDown />
+        <div className="end_content">
+          {currentItem.balance && (
+            <Text t="caption" color="lightest">
+              <Trans id="shared.balance">Balance:</Trans>{" "}
+              {Number(props.currentItem.balance).toFixed(5)}{" "}
+              {props.currentItem.name}
+            </Text>
+          )}
+          <KeyboardArrowDown />
+        </div>
       </button>
       {props.isModalOpen && (
         <Modal
@@ -76,11 +87,22 @@ const Modal = (props: ModalProps) => {
             key={item.name}
             className="select_button"
             data-active={item.name === props.currentItem.name}
+            disabled={item.disabled}
           >
             <div className="start_content">
               <Image alt={item.name} src={item.icon} width={48} height={48} />
               <Text t="body2">{item.name}</Text>
             </div>
+            {item.disabled && (
+              <Text t="caption" color="lightest">
+                <Trans id="shared.coming_soon">Coming soon</Trans>
+              </Text>
+            )}
+            {item.balance && !item.disabled && (
+              <Text t="caption" color="lightest">
+                {Number(item.balance).toFixed(5)} {item.name}
+              </Text>
+            )}
           </button>
         ))}
       </div>

@@ -18,7 +18,8 @@ export const container = css`
     &:hover {
       background-color: var(--surface-03);
     }
-    .start_content {
+    .start_content,
+    .end_content {
       display: flex;
       align-items: center;
       gap: 1rem;
@@ -38,7 +39,7 @@ export const modalBackground = css`
   top: 0;
   left: 0;
   .modal_container {
-    width: 400px;
+    width: 50rem;
     height: fit-content;
     border-radius: 1.2rem;
     background-color: var(--surface-01);
@@ -67,6 +68,14 @@ export const modalBackground = css`
     }
     .select_button[data-active="true"] {
       background-color: var(--surface-03);
+    }
+    .select_button {
+      &:disabled {
+        opacity: 50%;
+      }
+      &:disabled:hover {
+        background-color: inherit;
+      }
     }
   }
   @keyframes enter {
