@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-import withBundleAnalyzer from "@next/bundle-analyzer";
-import { securityHeaders } from "@klimadao/lib/config";
+const withBundleAnalyzer = require("@next/bundle-analyzer");
 
 const nextConfig = {
   eslint: {
@@ -46,12 +45,37 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
-        headers: securityHeaders,
+        headers: [
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: "upgrade-insecure-requests",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "0",
+          },
+        ],
       },
     ];
   },
 };
 
-export default withBundleAnalyzer({ enabled: process.env.ANALYZE === "true" })(
-  nextConfig
-);
+module.exports = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+})(nextConfig);

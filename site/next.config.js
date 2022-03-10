@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-import { securityHeaders } from "@klimadao/lib/config";
-
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
   async redirects() {
     return [
@@ -45,7 +43,32 @@ const nextConfig = {
       },
       {
         source: "/:path*",
-        headers: securityHeaders,
+        headers: [
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: "upgrade-insecure-requests",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "0",
+          },
+        ],
       },
     ];
   },
@@ -57,5 +80,3 @@ const nextConfig = {
     domains: ["cdn.sanity.io"],
   },
 };
-
-export default nextConfig;
