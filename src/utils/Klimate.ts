@@ -3,7 +3,7 @@ import { Klimate, Transaction } from '../../generated/schema'
 
 import { KlimaERC20V1 } from '../../generated/KlimaStakingV1/KlimaERC20V1'
 import { sKlimaERC20V1 } from '../../generated/KlimaStakingV1/sKlimaERC20V1'
-import { BondV1 } from '../../generated/BondV1/BondV1'
+import { BondV1 } from '../../generated/BCTBondV1/BondV1'
 
 import * as constants from './Constants';
 import { loadOrCreateKlimateBalance } from './KlimateBalances'

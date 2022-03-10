@@ -1,6 +1,6 @@
 import { Address, BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
 
-import { BondV1 } from '../../generated/BondV1/BondV1';
+import { BondV1 } from '../../generated/BCTBondV1/BondV1';
 
 import { BondDiscount, Transaction } from '../../generated/schema'
 import * as constants from './Constants';
@@ -86,7 +86,7 @@ export function updateBondDiscounts(transaction: Transaction): void {
         if (price_call.reverted === false && price_call.value.gt(BigInt.fromI32(0))) {
             bd.klimamco2_discount = klimaRate.div(toDecimal(price_call.value, 18))
             bd.klimamco2_discount = bd.klimamco2_discount.minus(BigDecimal.fromString("1"))
-            bd.klimamc02_discount = bd.klimamco2_discount.times(BigDecimal.fromString("100"))
+            bd.klimamco2_discount = bd.klimamco2_discount.times(BigDecimal.fromString("100"))
             log.debug("KLIMA-MCO2 Discount KLIMA price {}  Bond Price {}  Discount {}", [klimaRate.toString(), price_call.value.toString(), bd.klimamco2_discount.toString()])
         }
     }

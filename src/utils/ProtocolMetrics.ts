@@ -29,7 +29,7 @@ export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
         protocolMetric.marketCap = BigDecimal.fromString("0")
         protocolMetric.totalValueLocked = BigDecimal.fromString("0")
         protocolMetric.assets = []
-        protocolMetric.treasuryRiskFreeValue = BigDecimal.fromString("0")
+        protocolMetric.treasuryCarbonCustodied = BigDecimal.fromString("0")
         protocolMetric.treasuryMarketValue = BigDecimal.fromString("0")
         protocolMetric.nextEpochRebase = BigDecimal.fromString("0")
         protocolMetric.nextDistributedKlima = BigDecimal.fromString("0")
@@ -52,7 +52,7 @@ export function loadOrCreateTreasuryAsset(timestamp: BigInt, token: String): Tre
         treasuryAsset.token = token.toString()
         treasuryAsset.tokenBalance = BigDecimal.fromString("0")
         treasuryAsset.carbonBalance = BigDecimal.fromString("0")
-        treasuryAsset.riskFreeValue = BigDecimal.fromString("0")
+        treasuryAsset.carbonCustodied = BigDecimal.fromString("0")
         treasuryAsset.marketValue = BigDecimal.fromString("0")
         treasuryAsset.POL = BigDecimal.fromString("0")
 
@@ -113,14 +113,17 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
 
     // Treasury token balance
     treasuryBCT.tokenBalance = toDecimal(bctERC20.balanceOf(treasuryAddress), 18)
-    treasuryMCO2.tokenBalance = toDecimal(mco2ERC20.balanceOf(treasuryAddress))
 
-    // Reserve asset so carbon and RFV = token balance
+    if (transaction.blockNumber.gt(BigInt.fromString(constants.MCO2BOND_V1_BLOCK))) {
+        treasuryMCO2.tokenBalance = toDecimal(mco2ERC20.balanceOf(treasuryAddress))
+    }
+
+    // Reserve asset so carbon and CC = token balance
     treasuryBCT.carbonBalance = treasuryBCT.tokenBalance
-    treasuryBCT.riskFreeValue = treasuryBCT.tokenBalance
+    treasuryBCT.carbonCustodied = treasuryBCT.tokenBalance
 
     treasuryMCO2.carbonBalance = treasuryMCO2.tokenBalance
-    treasuryMCO2.riskFreeValue = treasuryMCO2.tokenBalance
+    treasuryMCO2.carbonCustodied = treasuryMCO2.tokenBalance
 
     // Get market value if pools are deployed
     if (transaction.blockNumber.gt(BigInt.fromString(constants.BCT_USDC_PAIR_BLOCK))) {
@@ -235,26 +238,26 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     ]
 }
 
-function getMV_RFV(transaction: Transaction, assets: string[]): BigDecimal[] {
+function getMV_CC(transaction: Transaction, assets: string[]): BigDecimal[] {
 
     let totalCarbon = BigDecimal.fromString("0")
-    let totalRFV = BigDecimal.fromString("0")
+    let totalCC = BigDecimal.fromString("0")
     let totalMarketValue = BigDecimal.fromString("0")
 
     for (let i = 0; i < assets.length; i++) {
         let assetDetail = loadOrCreateTreasuryAsset(transaction.timestamp, assets[i].substring(10))
         totalCarbon = totalCarbon.plus(assetDetail.carbonBalance)
-        totalRFV = totalRFV.plus(assetDetail.riskFreeValue)
+        totalCC = totalCC.plus(assetDetail.carbonCustodied)
         totalMarketValue = totalMarketValue.plus(assetDetail.marketValue)
     }
 
     log.debug("Treasury Carbon {}", [totalCarbon.toString()])
-    log.debug("Treasury RFV {}", [totalRFV.toString()])
+    log.debug("Treasury CC {}", [totalCC.toString()])
     log.debug("Treasury Market Value {}", [totalMarketValue.toString()])
 
     return [
         totalCarbon,
-        totalRFV,
+        totalCC,
         totalMarketValue
     ]
 }
@@ -353,9 +356,9 @@ export function updateProtocolMetrics(transaction: Transaction): void {
 
     pm.assets = assetUpdates
 
-    let valueUpdates = getMV_RFV(transaction, assetUpdates)
+    let valueUpdates = getMV_CC(transaction, assetUpdates)
     pm.treasuryCarbon = valueUpdates[0]
-    pm.treasuryRiskFreeValue = valueUpdates[1]
+    pm.treasuryCarbonCustodied = valueUpdates[1]
     pm.treasuryMarketValue = valueUpdates[2]
 
     // Rebase rewards, APY, rebase
@@ -365,7 +368,7 @@ export function updateProtocolMetrics(transaction: Transaction): void {
     pm.nextEpochRebase = apy_rebase[1]
 
     //Runway
-    pm.runwayCurrent = getRunway(pm.sKlimaCirculatingSupply, pm.treasuryRiskFreeValue, pm.nextEpochRebase)
+    pm.runwayCurrent = getRunway(pm.sKlimaCirculatingSupply, pm.treasuryCarbonCustodied, pm.nextEpochRebase)
 
     //Holders
     pm.holders = getHolderAux().value

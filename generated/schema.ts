@@ -1015,7 +1015,10 @@ export class ProtocolMetric extends Entity {
     this.set("klimaPrice", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("marketCap", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalValueLocked", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("treasuryRiskFreeValue", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set(
+      "treasuryCarbonCustodied",
+      Value.fromBigDecimal(BigDecimal.zero())
+    );
     this.set("treasuryMarketValue", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("nextEpochRebase", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("nextDistributedKlima", Value.fromBigDecimal(BigDecimal.zero()));
@@ -1131,13 +1134,13 @@ export class ProtocolMetric extends Entity {
     }
   }
 
-  get treasuryRiskFreeValue(): BigDecimal {
-    let value = this.get("treasuryRiskFreeValue");
+  get treasuryCarbonCustodied(): BigDecimal {
+    let value = this.get("treasuryCarbonCustodied");
     return value!.toBigDecimal();
   }
 
-  set treasuryRiskFreeValue(value: BigDecimal) {
-    this.set("treasuryRiskFreeValue", Value.fromBigDecimal(value));
+  set treasuryCarbonCustodied(value: BigDecimal) {
+    this.set("treasuryCarbonCustodied", Value.fromBigDecimal(value));
   }
 
   get treasuryMarketValue(): BigDecimal {
@@ -1213,7 +1216,7 @@ export class TreasuryAsset extends Entity {
     this.set("token", Value.fromString(""));
     this.set("tokenBalance", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("carbonBalance", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("riskFreeValue", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("carbonCustodied", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("marketValue", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("POL", Value.fromBigDecimal(BigDecimal.zero()));
   }
@@ -1280,13 +1283,13 @@ export class TreasuryAsset extends Entity {
     this.set("carbonBalance", Value.fromBigDecimal(value));
   }
 
-  get riskFreeValue(): BigDecimal {
-    let value = this.get("riskFreeValue");
+  get carbonCustodied(): BigDecimal {
+    let value = this.get("carbonCustodied");
     return value!.toBigDecimal();
   }
 
-  set riskFreeValue(value: BigDecimal) {
-    this.set("riskFreeValue", Value.fromBigDecimal(value));
+  set carbonCustodied(value: BigDecimal) {
+    this.set("carbonCustodied", Value.fromBigDecimal(value));
   }
 
   get marketValue(): BigDecimal {
