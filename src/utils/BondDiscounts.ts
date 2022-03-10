@@ -1,11 +1,6 @@
 import { Address, BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
 
-import { BCTBondV1 } from '../../generated/BCTBondV1/BCTBondV1';
-import { KLIMABCTBondV1 } from '../../generated/KLIMABCTBondV1/KLIMABCTBondV1';
-import { BCTUSDCBondV1 } from '../../generated/BCTUSDCBondV1/BCTUSDCBondV1';
-import { MCO2BondV1 } from '../../generated/MCO2BondV1/MCO2BondV1';
-import { KLIMAMCO2BondV1 } from '../../generated/KLIMAMCO2BondV1/KLIMAMCO2BondV1';
-import { KLIMAUSDCBondV1 } from '../../generated/KLIMAUSDCBondV1/KLIMAUSDCBondV1';
+import { BondV1 } from '../../generated/BondV1/BondV1';
 
 import { BondDiscount, Transaction } from '../../generated/schema'
 import * as constants from './Constants';
@@ -38,7 +33,7 @@ export function updateBondDiscounts(transaction: Transaction): void {
 
     // BCT
     if (transaction.blockNumber.gt(BigInt.fromString(constants.BCTBOND_V1_BLOCK))) {
-        let bond = BCTBondV1.bind(Address.fromString(constants.BCTBOND_V1))
+        let bond = BondV1.bind(Address.fromString(constants.BCTBOND_V1))
         let price_call = bond.try_bondPriceInUSD()
         if (price_call.reverted === false && price_call.value.gt(BigInt.fromI32(0))) {
             bd.bct_discount = klimaRate.div(toDecimal(price_call.value, 18))
@@ -50,7 +45,7 @@ export function updateBondDiscounts(transaction: Transaction): void {
 
     // KLIMA-BCT
     if (transaction.blockNumber.gt(BigInt.fromString(constants.KLIMA_BCT_BOND_V1_BLOCK))) {
-        let bond = KLIMABCTBondV1.bind(Address.fromString(constants.KLIMA_BCT_BOND_V1))
+        let bond = BondV1.bind(Address.fromString(constants.KLIMA_BCT_BOND_V1))
         let price_call = bond.try_bondPriceInUSD()
         if (price_call.reverted === false && price_call.value.gt(BigInt.fromI32(0))) {
             bd.klimabct_discount = klimaRate.div(toDecimal(price_call.value, 18))
@@ -62,7 +57,7 @@ export function updateBondDiscounts(transaction: Transaction): void {
 
     // BCT-USDC
     if (transaction.blockNumber.gt(BigInt.fromString(constants.BCT_USDC_BOND_V1_BLOCK))) {
-        let bond = BCTUSDCBondV1.bind(Address.fromString(constants.BCT_USDC_BOND_V1))
+        let bond = BondV1.bind(Address.fromString(constants.BCT_USDC_BOND_V1))
         let price_call = bond.try_bondPriceInUSD()
         if (price_call.reverted === false && price_call.value.gt(BigInt.fromI32(0))) {
             bd.bctusdc_discount = klimaRate.div(toDecimal(price_call.value, 18))
@@ -74,7 +69,7 @@ export function updateBondDiscounts(transaction: Transaction): void {
 
     // MCO2
     if (transaction.blockNumber.gt(BigInt.fromString(constants.MCO2BOND_V1_BLOCK))) {
-        let bond = MCO2BondV1.bind(Address.fromString(constants.MCO2BOND_V1))
+        let bond = BondV1.bind(Address.fromString(constants.MCO2BOND_V1))
         let price_call = bond.try_bondPriceInUSD()
         if (price_call.reverted === false && price_call.value.gt(BigInt.fromI32(0))) {
             bd.mco2_discount = klimaRate.div(toDecimal(price_call.value, 18))
@@ -86,7 +81,7 @@ export function updateBondDiscounts(transaction: Transaction): void {
 
     // KLIMA-MCO2
     if (transaction.blockNumber.gt(BigInt.fromString(constants.KLIMA_MCO2_BOND_V1_BLOCK))) {
-        let bond = KLIMAMCO2BondV1.bind(Address.fromString(constants.KLIMA_MCO2_BOND_V1))
+        let bond = BondV1.bind(Address.fromString(constants.KLIMA_MCO2_BOND_V1))
         let price_call = bond.try_bondPriceInUSD()
         if (price_call.reverted === false && price_call.value.gt(BigInt.fromI32(0))) {
             bd.klimamco2_discount = klimaRate.div(toDecimal(price_call.value, 18))
@@ -98,7 +93,7 @@ export function updateBondDiscounts(transaction: Transaction): void {
 
     // KLIMA-USDC
     if (transaction.blockNumber.gt(BigInt.fromString(constants.KLIMA_USDC_BOND_V1_BLOCK))) {
-        let bond = KLIMAUSDCBondV1.bind(Address.fromString(constants.KLIMA_USDC_BOND_V1))
+        let bond = BondV1.bind(Address.fromString(constants.KLIMA_USDC_BOND_V1))
         let price_call = bond.try_bondPriceInUSD()
         if (price_call.reverted === false && price_call.value.gt(BigInt.fromI32(0))) {
             bd.klimausdc_discount = klimaRate.div(toDecimal(price_call.value, 18))

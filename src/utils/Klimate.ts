@@ -3,12 +3,7 @@ import { Klimate, Transaction } from '../../generated/schema'
 
 import { KlimaERC20V1 } from '../../generated/KlimaStakingV1/KlimaERC20V1'
 import { sKlimaERC20V1 } from '../../generated/KlimaStakingV1/sKlimaERC20V1'
-import { BCTBondV1 } from '../../generated/BCTBondV1/BCTBondV1'
-import { KLIMABCTBondV1 } from '../../generated/KLIMABCTBondV1/KLIMABCTBondV1'
-import { BCTUSDCBondV1 } from '../../generated/BCTUSDCBondV1/BCTUSDCBondV1'
-import { MCO2BondV1 } from '../../generated/MCO2BondV1/MCO2BondV1'
-import { KLIMAMCO2BondV1 } from '../../generated/KLIMAMCO2BondV1/KLIMAMCO2BondV1'
-import { KLIMAUSDCBondV1 } from '../../generated/KLIMAUSDCBondV1/KLIMAUSDCBondV1'
+import { BondV1 } from '../../generated/BondV1/BondV1'
 
 import * as constants from './Constants';
 import { loadOrCreateKlimateBalance } from './KlimateBalances'
@@ -79,7 +74,7 @@ export function updateKlimateBalance(klimate: Klimate, transaction: Transaction)
 
     // BCT Reserve
     if (transaction.blockNumber.gt(BigInt.fromString(constants.BCTBOND_V1_BLOCK))) {
-        let bond_contract = BCTBondV1.bind(Address.fromString(constants.BCTBOND_V1))
+        let bond_contract = BondV1.bind(Address.fromString(constants.BCTBOND_V1))
         let pending = bond_contract.bondInfo(Address.fromString(klimate.id))
         if (pending.value1.gt(BigInt.fromString("0"))) {
             let pending_bond = toDecimal(pending.value1, 9)
@@ -99,7 +94,7 @@ export function updateKlimateBalance(klimate: Klimate, transaction: Transaction)
 
     // KLIMA-BCT LP
     if (transaction.blockNumber.gt(BigInt.fromString(constants.KLIMA_BCT_BOND_V1_BLOCK))) {
-        let bond_contract = KLIMABCTBondV1.bind(Address.fromString(constants.KLIMA_BCT_BOND_V1))
+        let bond_contract = BondV1.bind(Address.fromString(constants.KLIMA_BCT_BOND_V1))
         let pending = bond_contract.bondInfo(Address.fromString(klimate.id))
         if (pending.value1.gt(BigInt.fromString("0"))) {
             let pending_bond = toDecimal(pending.value1, 9)
@@ -119,7 +114,7 @@ export function updateKlimateBalance(klimate: Klimate, transaction: Transaction)
 
     // BCT-USDC LP
     if (transaction.blockNumber.gt(BigInt.fromString(constants.BCT_USDC_BOND_V1_BLOCK))) {
-        let bond_contract = BCTUSDCBondV1.bind(Address.fromString(constants.BCT_USDC_BOND_V1))
+        let bond_contract = BondV1.bind(Address.fromString(constants.BCT_USDC_BOND_V1))
         let pending = bond_contract.bondInfo(Address.fromString(klimate.id))
         if (pending.value1.gt(BigInt.fromString("0"))) {
             let pending_bond = toDecimal(pending.value1, 9)
@@ -141,7 +136,7 @@ export function updateKlimateBalance(klimate: Klimate, transaction: Transaction)
 
    // MCO2 Reserve
     if (transaction.blockNumber.gt(BigInt.fromString(constants.MCO2BOND_V1_BLOCK))) {
-        let bond_contract = MCO2BondV1.bind(Address.fromString(constants.MCO2BOND_V1))
+        let bond_contract = BondV1.bind(Address.fromString(constants.MCO2BOND_V1))
         let pending = bond_contract.bondInfo(Address.fromString(klimate.id))
         if (pending.value1.gt(BigInt.fromString("0"))) {
             let pending_bond = toDecimal(pending.value1, 9)
@@ -161,7 +156,7 @@ export function updateKlimateBalance(klimate: Klimate, transaction: Transaction)
 
     // KLIMA-MCO2 LP
     if (transaction.blockNumber.gt(BigInt.fromString(constants.KLIMA_MCO2_BOND_V1_BLOCK))) {
-        let bond_contract = KLIMAMCO2BondV1.bind(Address.fromString(constants.KLIMA_MCO2_BOND_V1))
+        let bond_contract = BondV1.bind(Address.fromString(constants.KLIMA_MCO2_BOND_V1))
         let pending = bond_contract.bondInfo(Address.fromString(klimate.id))
         if (pending.value1.gt(BigInt.fromString("0"))) {
             let pending_bond = toDecimal(pending.value1, 9)
@@ -181,7 +176,7 @@ export function updateKlimateBalance(klimate: Klimate, transaction: Transaction)
 
     // KLIMA-USDC LP
     if (transaction.blockNumber.gt(BigInt.fromString(constants.BCT_USDC_BOND_V1_BLOCK))) {
-        let bond_contract = KLIMAUSDCBondV1.bind(Address.fromString(constants.BCT_USDC_BOND_V1))
+        let bond_contract = BondV1.bind(Address.fromString(constants.BCT_USDC_BOND_V1))
         let pending = bond_contract.bondInfo(Address.fromString(klimate.id))
         if (pending.value1.gt(BigInt.fromString("0"))) {
             let pending_bond = toDecimal(pending.value1, 9)

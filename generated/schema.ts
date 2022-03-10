@@ -89,6 +89,8 @@ export class Klimate extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
+
+    this.set("active", Value.fromBoolean(false));
   }
 
   save(): void {
@@ -1437,6 +1439,9 @@ export class BondDiscount extends Entity {
     this.set("bct_discount", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("klimabct_discount", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("bctusdc_discount", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("mco2_discount", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("klimamco2_discount", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("klimausdc_discount", Value.fromBigDecimal(BigDecimal.zero()));
   }
 
   save(): void {
@@ -1499,5 +1504,32 @@ export class BondDiscount extends Entity {
 
   set bctusdc_discount(value: BigDecimal) {
     this.set("bctusdc_discount", Value.fromBigDecimal(value));
+  }
+
+  get mco2_discount(): BigDecimal {
+    let value = this.get("mco2_discount");
+    return value!.toBigDecimal();
+  }
+
+  set mco2_discount(value: BigDecimal) {
+    this.set("mco2_discount", Value.fromBigDecimal(value));
+  }
+
+  get klimamco2_discount(): BigDecimal {
+    let value = this.get("klimamco2_discount");
+    return value!.toBigDecimal();
+  }
+
+  set klimamco2_discount(value: BigDecimal) {
+    this.set("klimamco2_discount", Value.fromBigDecimal(value));
+  }
+
+  get klimausdc_discount(): BigDecimal {
+    let value = this.get("klimausdc_discount");
+    return value!.toBigDecimal();
+  }
+
+  set klimausdc_discount(value: BigDecimal) {
+    this.set("klimausdc_discount", Value.fromBigDecimal(value));
   }
 }

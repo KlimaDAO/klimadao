@@ -27,18 +27,8 @@ dataSources:
           file: ./abis/KlimaERC20V1.json
         - name: UniswapV2Pair
           file: ./abis/UniswapV2Pair.json
-        - name: BCTBondV1
-          file: ./abis/BCTBondV1.json
-        - name: KLIMABCTBondV1
-          file: ./abis/KLIMABCTBondV1.json
-        - name: BCTUSDCBondV1
-          file: ./abis/BCTUSDCBondV1.json
-        - name: MCO2BondV1
-          file: ./abis/MCO2BondV1.json
-        - name: KLIMAMCO2BondV1
-          file: ./abis/KLIMAMCO2BondV1.json
-        - name: KLIMAUSDCBondV1
-          file: ./abis/KLIMAUSDCBondV1.json
+        - name: BondV1
+          file: ./abis/BondV1.json
         - name: CirculatingSupply
           file: ./abis/CirculatingSupply.json
         - name: BondingCalculatorV1
@@ -55,7 +45,7 @@ dataSources:
     network: matic
     source:
       address: '0x7De627C56D26529145a5f9D85948ecBeAF9a4b34'
-      abi: BCTBondV1
+      abi: BondV1
       startBlock: 20474600
     mapping:
       kind: ethereum/events
@@ -72,18 +62,8 @@ dataSources:
           file: ./abis/KlimaERC20V1.json
         - name: UniswapV2Pair
           file: ./abis/UniswapV2Pair.json
-        - name: BCTBondV1
-          file: ./abis/BCTBondV1.json
-        - name: KLIMABCTBondV1
-          file: ./abis/KLIMABCTBondV1.json
-        - name: BCTUSDCBondV1
-          file: ./abis/BCTUSDCBondV1.json
-        - name: MCO2BondV1
-          file: ./abis/MCO2BondV1.json
-        - name: KLIMAMCO2BondV1
-          file: ./abis/KLIMAMCO2BondV1.json
-        - name: KLIMAUSDCBondV1
-          file: ./abis/KLIMAUSDCBondV1.json
+        - name: BondV1
+          file: ./abis/BondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleDeposit
@@ -96,7 +76,7 @@ dataSources:
     network: matic
     source:
       address: '0x1E0Dd93C81aC7Af2974cdB326c85B87Dd879389B'
-      abi: BCTBondV1
+      abi: BondV1
       startBlock: 20400900
     mapping:
       kind: ethereum/events
@@ -113,18 +93,8 @@ dataSources:
           file: ./abis/KlimaERC20V1.json
         - name: UniswapV2Pair
           file: ./abis/UniswapV2Pair.json
-        - name: BCTBondV1
-          file: ./abis/BCTBondV1.json
-        - name: KLIMABCTBondV1
-          file: ./abis/KLIMABCTBondV1.json
-        - name: BCTUSDCBondV1
-          file: ./abis/BCTUSDCBondV1.json
-        - name: MCO2BondV1
-          file: ./abis/MCO2BondV1.json
-        - name: KLIMAMCO2BondV1
-          file: ./abis/KLIMAMCO2BondV1.json
-        - name: KLIMAUSDCBondV1
-          file: ./abis/KLIMAUSDCBondV1.json
+        - name: BondV1
+          file: ./abis/BondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleDeposit
@@ -137,7 +107,7 @@ dataSources:
     network: matic
     source:
       address: '0xBF2A35efcd85e790f02458Db4A3e2f29818521c5'
-      abi: BCTBondV1
+      abi: BondV1
       startBlock: 20400900
     mapping:
       kind: ethereum/events
@@ -154,18 +124,8 @@ dataSources:
           file: ./abis/KlimaERC20V1.json
         - name: UniswapV2Pair
           file: ./abis/UniswapV2Pair.json
-        - name: BCTBondV1
-          file: ./abis/BCTBondV1.json
-        - name: KLIMABCTBondV1
-          file: ./abis/KLIMABCTBondV1.json
-        - name: BCTUSDCBondV1
-          file: ./abis/BCTUSDCBondV1.json
-        - name: MCO2BondV1
-          file: ./abis/MCO2BondV1.json
-        - name: KLIMAMCO2BondV1
-          file: ./abis/KLIMAMCO2BondV1.json
-        - name: KLIMAUSDCBondV1
-          file: ./abis/KLIMAUSDCBondV1.json
+        - name: BondV1
+          file: ./abis/BondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleDeposit
@@ -178,7 +138,7 @@ dataSources:
     network: matic
     source:
       address: '0xb5aF101742EcAe095944F60C384d09453006bFde'
-      abi: KLIMAUSDCBondV1
+      abi: BondV1
       startBlock: 23920000
     mapping:
       kind: ethereum/events
@@ -195,18 +155,8 @@ dataSources:
           file: ./abis/KlimaERC20V1.json
         - name: UniswapV2Pair
           file: ./abis/UniswapV2Pair.json
-        - name: BCTBondV1
-          file: ./abis/BCTBondV1.json
-        - name: KLIMABCTBondV1
-          file: ./abis/KLIMABCTBondV1.json
-        - name: BCTUSDCBondV1
-          file: ./abis/BCTUSDCBondV1.json
-        - name: MCO2BondV1
-          file: ./abis/MCO2BondV1.json
-        - name: KLIMAMCO2BondV1
-          file: ./abis/KLIMAMCO2BondV1.json
-        - name: KLIMAUSDCBondV1
-          file: ./abis/KLIMAUSDCBondV1.json
+        - name: BondV1
+          file: ./abis/BondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleDeposit
@@ -219,7 +169,7 @@ dataSources:
     network: matic
     source:
       address: '0x27217c3F5bEc4c12Fa506A101bC4bd15417AEAa8'
-      abi: MCO2BondV1
+      abi: BondV1
       startBlock: 23300000
     mapping:
       kind: ethereum/events
@@ -236,18 +186,8 @@ dataSources:
           file: ./abis/KlimaERC20V1.json
         - name: UniswapV2Pair
           file: ./abis/UniswapV2Pair.json
-        - name: BCTBondV1
-          file: ./abis/BCTBondV1.json
-        - name: KLIMABCTBondV1
-          file: ./abis/KLIMABCTBondV1.json
-        - name: BCTUSDCBondV1
-          file: ./abis/BCTUSDCBondV1.json
-        - name: MCO2BondV1
-          file: ./abis/MCO2BondV1.json
-        - name: KLIMAMCO2BondV1
-          file: ./abis/KLIMAMCO2BondV1.json
-        - name: KLIMAUSDCBondV1
-          file: ./abis/KLIMAUSDCBondV1.json
+        - name: BondV1
+          file: ./abis/BondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleDeposit
@@ -260,7 +200,7 @@ dataSources:
     network: matic
     source:
       address: '0xf9c3FC299dE5f86d9CD6a724e6B44933720f5e6D'
-      abi: KLIMAMCO2BondV1
+      abi: BondV1
       startBlock: 24000000
     mapping:
       kind: ethereum/events
@@ -277,18 +217,8 @@ dataSources:
           file: ./abis/KlimaERC20V1.json
         - name: UniswapV2Pair
           file: ./abis/UniswapV2Pair.json
-        - name: BCTBondV1
-          file: ./abis/BCTBondV1.json
-        - name: KLIMABCTBondV1
-          file: ./abis/KLIMABCTBondV1.json
-        - name: BCTUSDCBondV1
-          file: ./abis/BCTUSDCBondV1.json
-        - name: MCO2BondV1
-          file: ./abis/MCO2BondV1.json
-        - name: KLIMAMCO2BondV1
-          file: ./abis/KLIMAMCO2BondV1.json
-        - name: KLIMAUSDCBondV1
-          file: ./abis/KLIMAUSDCBondV1.json
+        - name: BondV1
+          file: ./abis/BondV1.json
       eventHandlers:
         - event: BondCreated(uint256,indexed uint256,indexed uint256,indexed uint256)
           handler: handleDeposit
