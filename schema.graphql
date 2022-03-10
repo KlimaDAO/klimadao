@@ -148,4 +148,7 @@ type BondDiscount @entity {
   bct_discount: BigDecimal!
   klimabct_discount: BigDecimal!
   bctusdc_discount: BigDecimal!
+  mco2_discount: BigDecimal!
+  klimamco2_discount: BigDecimal!
+  klimausdc_discount: BigDecimal!
 }
