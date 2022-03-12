@@ -1,6 +1,6 @@
 import { BigDecimal } from '@graphprotocol/graph-ts'
 
-import { BondCreated, BondRedeemed } from '../generated/BCTBondV1/BCTBondV1'
+import { BondCreated, BondRedeemed } from '../generated/BCTUSDCBondV1/BondV1'
 import { Deposit } from '../generated/schema'
 import { loadOrCreateTransaction } from "./utils/Transactions"
 import { loadOrCreateKlimate, updateKlimateBalance } from "./utils/Klimate"

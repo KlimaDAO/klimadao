@@ -109,7 +109,7 @@ type ProtocolMetric @entity {
   marketCap: BigDecimal!
   totalValueLocked: BigDecimal!
   assets: [TreasuryAsset!]
-  treasuryRiskFreeValue: BigDecimal!
+  treasuryCarbonCustodied: BigDecimal!
   treasuryMarketValue: BigDecimal!
   nextEpochRebase: BigDecimal!
   nextDistributedKlima: BigDecimal!
@@ -125,7 +125,7 @@ type TreasuryAsset @entity {
   token: String!
   tokenBalance: BigDecimal!
   carbonBalance: BigDecimal!
-  riskFreeValue: BigDecimal!
+  carbonCustodied: BigDecimal!
   marketValue: BigDecimal!
   POL: BigDecimal!
 }
@@ -148,4 +148,7 @@ type BondDiscount @entity {
   bct_discount: BigDecimal!
   klimabct_discount: BigDecimal!
   bctusdc_discount: BigDecimal!
+  mco2_discount: BigDecimal!
+  klimamco2_discount: BigDecimal!
+  klimausdc_discount: BigDecimal!
 }

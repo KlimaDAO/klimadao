@@ -1,21 +1,21 @@
 import { BigDecimal } from '@graphprotocol/graph-ts'
 
-import { BondCreated, BondRedeemed } from '../generated/KLIMABCTBondV1/BondV1'
+import { BondCreated, BondRedeemed } from '../generated/KLIMAMCO2BondV1/BondV1'
 import { Deposit } from '../generated/schema'
 import { loadOrCreateTransaction } from "./utils/Transactions"
 import { loadOrCreateKlimate, updateKlimateBalance } from "./utils/Klimate"
 import { toDecimal } from "./utils/Decimals"
-import { KLIMABCT_LPBOND_TOKEN } from './utils/Constants'
+import { KLIMAMCO2_LPBOND_TOKEN } from './utils/Constants'
 import { loadOrCreateToken } from './utils/Tokens'
 import { loadOrCreateRedemption } from './utils/Redemption'
 import { createDailyBondRecord } from './utils/DailyBond'
-import { getKLIMABCTRate } from './utils/Price'
+import { getKLIMAMCO2Rate } from './utils/Price'
 
 
 export function handleDeposit(event: BondCreated): void {
     let klimate = loadOrCreateKlimate(event.transaction.from)
     let transaction = loadOrCreateTransaction(event.transaction, event.block)
-    let token = loadOrCreateToken(KLIMABCT_LPBOND_TOKEN)
+    let token = loadOrCreateToken(KLIMAMCO2_LPBOND_TOKEN)
 
     let value = toDecimal(event.params.deposit, 18)
     let payout = toDecimal(event.params.payout, 9)
@@ -25,7 +25,7 @@ export function handleDeposit(event: BondCreated): void {
     deposit.payout = payout
     deposit.value = value
     deposit.bondPrice = toDecimal(event.params.priceInUSD, 18)
-    deposit.discount = getKLIMABCTRate().div(deposit.bondPrice).minus(BigDecimal.fromString('1')).times(BigDecimal.fromString('100'))
+    deposit.discount = getKLIMAMCO2Rate().div(deposit.bondPrice).minus(BigDecimal.fromString('1')).times(BigDecimal.fromString('100'))
     deposit.token = token.id;
     deposit.timestamp = transaction.timestamp;
     deposit.save()
@@ -41,7 +41,7 @@ export function handleRedeem(event: BondRedeemed): void {
     let redemption = loadOrCreateRedemption(event.transaction)
     redemption.transaction = transaction.id
     redemption.klimate = klimate.id
-    redemption.token = loadOrCreateToken(KLIMABCT_LPBOND_TOKEN).id;
+    redemption.token = loadOrCreateToken(KLIMAMCO2_LPBOND_TOKEN).id;
     redemption.timestamp = transaction.timestamp;
     redemption.save()
     updateKlimateBalance(klimate, transaction)

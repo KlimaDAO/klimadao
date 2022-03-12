@@ -4,7 +4,7 @@
   "repository": "https://github.com/KlimaDAO/klima-subgraph",
   "license": "MIT",
   "scripts": {
-    "codegen": "graph codegen --output-dir src/types/",
+    "codegen": "graph codegen",
     "build": "graph build",
     "test": "graph test",
     "create-local": "graph create --node http://127.0.0.1:8020 klima",
