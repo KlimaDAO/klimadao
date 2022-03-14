@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const config = {
+
+const withBundleAnalyzer = require("@next/bundle-analyzer");
+
+const nextConfig = {
   eslint: {
     dirs: ["actions", "components", "lib", "pages", "state"],
   },
@@ -38,15 +41,41 @@ const config = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: "upgrade-insecure-requests",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "0",
+          },
+        ],
+      },
+    ];
+  },
 };
 
-let withBundleAnalyzer;
-if (process.env.ANALYZE === "true") {
-  withBundleAnalyzer = require("@next/bundle-analyzer")({
-    enabled: process.env.ANALYZE === "true",
-  });
-} else {
-  withBundleAnalyzer = (config) => config;
-}
-
-module.exports = withBundleAnalyzer(config);
+module.exports = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+})(nextConfig);
