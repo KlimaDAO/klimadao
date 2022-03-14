@@ -6,7 +6,7 @@
     "build": "prettier --check . && next build",
     "start": "next start",
     "lint": "next lint",
-    "lingui:extract": "NODE_ENV=test lingui extract --clean",
+    "lingui:extract": "NODE_ENV=test lingui extract --clean && node ../lib/out/utils/linguiHelper/index.js locale",
     "lingui:compile": "NODE_ENV=test lingui compile",
     "postinstall": "npm run lingui:compile"
   },
