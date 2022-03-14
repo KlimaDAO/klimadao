@@ -8,7 +8,7 @@ interface Props {
   isConnected?: boolean;
 }
 
-export const CarbonTonsRetiredCard: FC<Props> = () => {
+export const CarbonTonnesRetiredCard: FC<Props> = () => {
   return (
     <div className={styles.card}>
       <div className="header">

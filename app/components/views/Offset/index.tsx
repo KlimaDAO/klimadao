@@ -10,8 +10,8 @@ import { selectNotificationStatus } from "state/selectors";
 import { selectBalances } from "state/selectors";
 
 import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
-import { CarbonTonsRetiredCard } from "components/CarbonTonsRetiredCard";
-import { CarbonTonsBreakdownCard } from "components/CarbonTonsBreakdownCard";
+import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
+import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
 
@@ -112,7 +112,7 @@ export const Offset = (props: Props) => {
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
   );
-  const status = fullStatus && fullStatus.statusType;
+  const status = fullStatus?.statusType;
 
   const showSpinner =
     props.isConnected &&
@@ -181,6 +181,7 @@ export const Offset = (props: Props) => {
                 value={numCarbonTonnesToRetire}
                 min={0}
                 onKeyDown={(e) => {
+                  // dont let user enter these special characters into the number input
                   if (["e", "E", "+", "-"].includes(e.key)) {
                     e.preventDefault();
                   }
@@ -297,8 +298,8 @@ export const Offset = (props: Props) => {
           </div>
         </div>
       </div>
-      <CarbonTonsRetiredCard />
-      <CarbonTonsBreakdownCard />
+      <CarbonTonnesRetiredCard />
+      <CarbonTonnesBreakdownCard />
     </>
   );
 };
