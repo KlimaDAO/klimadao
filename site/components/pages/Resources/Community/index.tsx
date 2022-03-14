@@ -16,6 +16,7 @@ import {
 import bcfcLogo from "public/logo-bcfc.png";
 import beachImage from "public/bg-beach.jpg";
 import bicoWgLogo from "public/logo-bicowg.png";
+import deltaWaveLogo from "public/logo-delta-wave.svg";
 import discordImage from "public/bg-discord.png";
 import dovuLogo from "public/logo-dovu.png";
 import digitalCharityArtLogo from "public/logo-digital-charity-art.png";
@@ -172,8 +173,8 @@ export const Community: NextPage = () => (
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://eco.com">
-              <Image alt={t`Eco logo`} src={ecoLogo} />
+            <A href="https://www.deltawave.energy">
+              <Image alt={t`Delta Wave logo`} src={deltaWaveLogo} />
             </A>
           </div>
           <div className="partner_logo">
@@ -187,13 +188,13 @@ export const Community: NextPage = () => (
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://offsetra.com">
-              <Image alt={t`Offsetra logo`} src={offsetraLogo} />
+            <A href="https://eco.com">
+              <Image alt={t`Eco logo`} src={ecoLogo} />
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://thoughtforfood.org">
-              <Image alt={t`Thought for Food logo`} src={thoughtForFoodLogo} />
+            <A href="https://offsetra.com">
+              <Image alt={t`Offsetra logo`} src={offsetraLogo} />
             </A>
           </div>
           <div className="partner_logo">
@@ -202,6 +203,11 @@ export const Community: NextPage = () => (
                 alt={t`Digital Charity Art logo`}
                 src={digitalCharityArtLogo}
               />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://thoughtforfood.org">
+              <Image alt={t`Thought for Food logo`} src={thoughtForFoodLogo} />
             </A>
           </div>
         </div>
