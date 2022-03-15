@@ -5,17 +5,19 @@ import { Trans } from "@lingui/macro";
 import CloudOutlined from "@mui/icons-material/CloudOutlined";
 
 import { Text } from "@klimadao/lib/components";
+import { TotalCarbonRetired } from "components/views/Offset/types";
 
 import BCT from "public/icons/BCT.png";
 import MCO2 from "public/icons/MCO2.png";
+import NCT from "public/icons/NCT.png";
 
 import * as styles from "./styles";
 
 interface Props {
-  isConnected?: boolean;
+  totalCarbonRetired?: TotalCarbonRetired;
 }
 
-export const CarbonTonnesBreakdownCard: FC<Props> = () => {
+export const CarbonTonnesBreakdownCard: FC<Props> = (props) => {
   return (
     <div className={styles.card}>
       <div className="header">
@@ -34,7 +36,11 @@ export const CarbonTonnesBreakdownCard: FC<Props> = () => {
               <Image src={BCT} width={64} height={64} alt="BCT" />
             </div>
             <div className="content">
-              <Text className="value">{Number(0.0).toFixed(3)}</Text>
+              <Text className="value">
+                {props.totalCarbonRetired?.totalBCTRetired ?? (
+                  <Trans id="shared.loading">Loading...</Trans>
+                )}
+              </Text>
               <Text className="label" color="lightest">
                 <Trans id="offset.tons_of_carbon_retired">BCT</Trans>
               </Text>
@@ -45,10 +51,14 @@ export const CarbonTonnesBreakdownCard: FC<Props> = () => {
           </Text>
           <div className={styles.row}>
             <div className="image">
-              <Image src={BCT} width={64} height={64} alt="BCT" />
+              <Image src={NCT} width={64} height={64} alt="NCT" />
             </div>
             <div className="content">
-              <Text className="value">{Number(0.0).toFixed(3)}</Text>
+              <Text className="value">
+                {props.totalCarbonRetired?.totalNCTRetired ?? (
+                  <Trans id="shared.loading">Loading...</Trans>
+                )}
+              </Text>
               <Text className="label" color="lightest">
                 <Trans id="offset.tons_of_carbon_retired">NCT</Trans>
               </Text>
@@ -62,7 +72,11 @@ export const CarbonTonnesBreakdownCard: FC<Props> = () => {
               <Image src={MCO2} width={64} height={64} alt="MCO2" />
             </div>
             <div className="content">
-              <Text className="value">{Number(0.0).toFixed(3)}</Text>
+              <Text className="value">
+                {props.totalCarbonRetired?.totalMCO2Retired ?? (
+                  <Trans id="shared.loading">Loading...</Trans>
+                )}
+              </Text>
               <Text className="label" color="lightest">
                 <Trans id="offset.tons_of_carbon_retired">MCO2</Trans>
               </Text>

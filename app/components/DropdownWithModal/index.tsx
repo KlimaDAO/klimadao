@@ -45,8 +45,7 @@ export const DropdownWithModal: FC<Props> = (props) => {
           {currentItem.balance && (
             <Text t="caption" color="lightest">
               <Trans id="shared.balance">Balance:</Trans>{" "}
-              {Number(props.currentItem.balance).toFixed(5)}{" "}
-              {props.currentItem.name}
+              {props.currentItem.balance} {props.currentItem.name}
             </Text>
           )}
           <KeyboardArrowDown />
@@ -100,7 +99,7 @@ const Modal = (props: ModalProps) => {
             )}
             {item.balance && !item.disabled && (
               <Text t="caption" color="lightest">
-                {Number(item.balance).toFixed(5)} {item.name}
+                {item.balance} {item.name}
               </Text>
             )}
           </button>

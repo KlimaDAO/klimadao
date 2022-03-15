@@ -1,6 +1,7 @@
 const mainnet = {
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
+  nct: "0xD838290e877E0188a4A44700463419ED96c16107",
   treasury: "0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7",
   distributor: "0x4cC7584C3f8FAABf734374ef129dF17c3517e9cB",
   klima: "0x4e78011ce80ee02d2c3e649fb657e45898257815",
@@ -27,11 +28,13 @@ const mainnet = {
   bond_calc_klimaUsdc: "0x8a92CC36cCC275374380460026ef365A4E01778C",
   staking: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
+  retirementStorage: "0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd",
 };
 
 const testnet: typeof mainnet = {
   bct: "0x8f8b7D5d12c1fC37f20a89Bf4Dfe1E787Da529B5",
   mco2: "",
+  nct: "",
   treasury: "",
   distributor: "0xd49869652B3F194F73eC29a6954bC5DE6baeA8b8",
   klima: "0x6b4499909fD8947A3bdEa5d524Fb3697018fC750",
@@ -58,6 +61,7 @@ const testnet: typeof mainnet = {
   bond_calc_klimaUsdc: "",
   staking: "0x2960DCE5aE04eF503b36f8581EA5Ac5238632092",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
+  retirementStorage: "",
 };
 
 export const addresses = {

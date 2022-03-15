@@ -29,6 +29,10 @@ export const selectPklimaTerms = createSelector(
   selectUserState,
   (user) => user.pklimaTerms
 );
+export const selectCarbonRetired = createSelector(
+  selectUserState,
+  (user) => user.carbonRetired
+);
 
 export const selectNotificationStatus = createSelector(
   selectAppState,

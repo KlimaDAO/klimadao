@@ -11,6 +11,7 @@ import { selectAppState } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
+import { getRetiredOffsetBalances } from "actions/offset";
 import { Stake } from "components/views/Stake";
 import { PKlima } from "components/views/PKlima";
 import { Info } from "components/views/Info";
@@ -183,6 +184,13 @@ export const Home: FC = () => {
     try {
       dispatch(
         loadAccountDetails({
+          address: addr,
+          provider,
+          onRPCError: handleRPCError,
+        })
+      );
+      dispatch(
+        getRetiredOffsetBalances({
           address: addr,
           provider,
           onRPCError: handleRPCError,

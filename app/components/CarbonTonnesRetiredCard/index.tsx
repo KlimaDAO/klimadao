@@ -1,14 +1,18 @@
-import { Text } from "@klimadao/lib/components";
-import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
-import * as styles from "./styles";
 import { FC } from "react";
+
 import { Trans } from "@lingui/macro";
+import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
+
+import { Text } from "@klimadao/lib/components";
+import { TotalCarbonRetired } from "components/views/Offset/types";
+
+import * as styles from "./styles";
 
 interface Props {
-  isConnected?: boolean;
+  totalCarbonRetired?: TotalCarbonRetired;
 }
 
-export const CarbonTonnesRetiredCard: FC<Props> = () => {
+export const CarbonTonnesRetiredCard: FC<Props> = (props) => {
   return (
     <div className={styles.card}>
       <div className="header">
@@ -20,7 +24,7 @@ export const CarbonTonnesRetiredCard: FC<Props> = () => {
       <div className="cardContent">
         <div className="stack">
           <Text className="value">
-            {Number(0.0).toFixed(3) ?? (
+            {props.totalCarbonRetired?.totalTonnesRetired ?? (
               <Trans id="shared.loading">Loading...</Trans>
             )}
           </Text>

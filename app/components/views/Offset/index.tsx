@@ -6,8 +6,11 @@ import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
 
 import { AppNotificationStatus } from "state/app";
-import { selectNotificationStatus } from "state/selectors";
-import { selectBalances } from "state/selectors";
+import {
+  selectNotificationStatus,
+  selectCarbonRetired,
+  selectBalances,
+} from "state/selectors";
 
 import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
@@ -25,7 +28,7 @@ import * as styles from "./styles";
 
 const retireTokens = [
   { name: "BCT", icon: BCT },
-  { name: "NCT", icon: NCT, disabled: true },
+  { name: "NCT", icon: NCT },
   { name: "MCO2", icon: MCO2 },
 ];
 
@@ -44,10 +47,10 @@ interface Props {
 
 export const Offset = (props: Props) => {
   const balances = useSelector(selectBalances);
-
+  const totalCarbonRetired = useSelector(selectCarbonRetired);
   const inputTokens = [
     { name: "BCT", icon: BCT, balance: balances?.bct },
-    { name: "NCT", icon: NCT, balance: "0", disabled: true },
+    { name: "NCT", icon: NCT, balance: "0" },
     { name: "MCO2", icon: MCO2, balance: "0" },
     { name: "USDC", icon: USDC, balance: "0" },
     { name: "KLIMA", icon: KLIMA, balance: balances?.klima },
@@ -178,8 +181,9 @@ export const Offset = (props: Props) => {
             </label>
             <div className="number_input_container">
               <input
-                value={numCarbonTonnesToRetire}
+                type="number"
                 min={0}
+                value={numCarbonTonnesToRetire}
                 onKeyDown={(e) => {
                   // dont let user enter these special characters into the number input
                   if (["e", "E", "+", "-"].includes(e.key)) {
@@ -193,7 +197,6 @@ export const Offset = (props: Props) => {
                   id: "offset.how_many_retire",
                   message: "How many carbon tonnes would you like to retire?",
                 })}
-                type="number"
               />
               <button
                 className="button_max"
@@ -298,8 +301,8 @@ export const Offset = (props: Props) => {
           </div>
         </div>
       </div>
-      <CarbonTonnesRetiredCard />
-      <CarbonTonnesBreakdownCard />
+      <CarbonTonnesRetiredCard totalCarbonRetired={totalCarbonRetired} />
+      <CarbonTonnesBreakdownCard totalCarbonRetired={totalCarbonRetired} />
     </>
   );
 };
