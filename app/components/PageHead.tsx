@@ -33,6 +33,7 @@ export const PageHead = (props: PageHeadProps) => {
         <meta property="og:image" content={props.mediaImageSrc} />
       )}
       <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -51,9 +52,8 @@ export const PageHead = (props: PageHeadProps) => {
         href="/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00cc33" />
       <meta name="theme-color" content="#ffffff" />
-      <meta property="og:locale" content="en" />
     </Head>
   );
 };
