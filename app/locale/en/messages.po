@@ -14,137 +14,137 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:718
+#: components/views/Bond/index.tsx:720
 msgid "bond.all_demand_has_been_filled"
 msgstr "🪧 SOLD OUT. All demand has been filled for this bond. Thank you, Klimates!"
 
-#: components/views/Bond/index.tsx:468
+#: components/views/Bond/index.tsx:470
 msgid "bond.balance"
 msgstr "Balance"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:472
+#: components/views/Bond/index.tsx:474
 msgid "bond.balance.tooltip"
 msgstr "Balance available for bonding"
 
-#: components/views/Bond/index.tsx:342
-#: components/views/Bond/index.tsx:415
+#: components/views/Bond/index.tsx:344
+#: components/views/Bond/index.tsx:417
 msgid "bond.bond"
 msgstr "Bond"
 
-#: components/views/Bond/index.tsx:490
+#: components/views/Bond/index.tsx:492
 msgid "bond.bond_price"
 msgstr "Bond price"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:494
+#: components/views/Bond/index.tsx:496
 msgid "bond.bond_price.tooltip"
 msgstr "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)"
 
 #. Bond {0}
-#: components/views/Bond/index.tsx:395
+#: components/views/Bond/index.tsx:397
 msgid "bond.bond_token"
 msgstr "Bond {0}"
 
-#: components/views/Bond/index.tsx:678
+#: components/views/Bond/index.tsx:680
 msgid "bond.date_of_full_vesting"
 msgstr "Date of full vesting"
 
-#: components/views/Bond/index.tsx:683
+#: components/views/Bond/index.tsx:685
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr "Date when the entire bond value can be redeemed"
 
-#: components/views/Bond/index.tsx:580
+#: components/views/Bond/index.tsx:582
 msgid "bond.debt_ratio"
 msgstr "Dept ratio"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:584
+#: components/views/Bond/index.tsx:586
 msgid "bond.debt_ratio.tooltip"
 msgstr "Protocol's current ratio of supply to outstanding bonds"
 
-#: components/views/Bond/index.tsx:364
+#: components/views/Bond/index.tsx:366
 msgid "bond.inputplaceholder.amount_to_bond"
 msgstr "Amount to bond"
 
-#: components/views/Bond/index.tsx:369
+#: components/views/Bond/index.tsx:371
 msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr "Amount to redeem"
 
-#: components/views/Bond/index.tsx:506
+#: components/views/Bond/index.tsx:508
 msgid "bond.market_price"
 msgstr "Market price"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:510
+#: components/views/Bond/index.tsx:512
 msgid "bond.market_price.tooltip"
 msgstr "Current trading price of KLIMA, without bond discount"
 
-#: components/views/Bond/index.tsx:561
+#: components/views/Bond/index.tsx:563
 msgid "bond.maximum"
 msgstr "Maximum"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:565
+#: components/views/Bond/index.tsx:567
 msgid "bond.maximum.tooltip"
 msgstr "Maximum amount of KLIMA you can acquire by bonding"
 
-#: components/views/Bond/index.tsx:320
+#: components/views/Bond/index.tsx:322
 msgid "bond.not_redeemable"
 msgstr "Not Redeemable"
 
-#: components/views/Bond/index.tsx:348
-#: components/views/Bond/index.tsx:425
+#: components/views/Bond/index.tsx:350
+#: components/views/Bond/index.tsx:427
 msgid "bond.redeem"
 msgstr "Redeem"
 
-#: components/views/Bond/index.tsx:646
+#: components/views/Bond/index.tsx:648
 msgid "bond.redeemable"
 msgstr "Redeemable"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:649
+#: components/views/Bond/index.tsx:651
 msgid "bond.redeemable.tooltip"
 msgstr "Amount of KLIMA that has already vested and can be redeemed"
 
-#: components/views/Bond/index.tsx:522
+#: components/views/Bond/index.tsx:524
 msgid "bond.roi"
 msgstr "ROI (bond discount)"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:526
+#: components/views/Bond/index.tsx:528
 msgid "bond.roi.tooltip"
 msgstr "Return on investment, expressed as a percentage discount on the market value of KLIMA"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:707
+#: components/views/Bond/index.tsx:709
 msgid "bond.this_bond_price_is_inflated"
 msgstr "⚠️ Warning: this bond price is inflated because the current discount rate is negative."
 
-#: components/views/Bond/index.tsx:617
+#: components/views/Bond/index.tsx:619
 msgid "bond.unredeemed"
 msgstr "Unredeemed"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:620
+#: components/views/Bond/index.tsx:622
 msgid "bond.unredeemed.tooltip"
 msgstr "Remaining unredeemed value (vested and un-vested)"
 
-#: components/views/Bond/index.tsx:596
+#: components/views/Bond/index.tsx:598
 msgid "bond.vesting_term_end"
 msgstr "Vesting term end"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:600
+#: components/views/Bond/index.tsx:602
 msgid "bond.vesting_term_end.tooltip"
 msgstr "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term."
 
-#: components/views/Bond/index.tsx:538
+#: components/views/Bond/index.tsx:540
 msgid "bond.you_will_get"
 msgstr "You will get"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:542
+#: components/views/Bond/index.tsx:544
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
@@ -325,7 +325,7 @@ msgstr "PENDING"
 msgid "modal.user_confirmation"
 msgstr "CONFIRMATION"
 
-#: components/views/Bond/index.tsx:389
+#: components/views/Bond/index.tsx:391
 msgid "nav.back"
 msgstr "BACK"
 
@@ -397,7 +397,7 @@ msgstr "A percent of total token supply. Your index-adjusted claim may not excee
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned interest on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
-#: components/views/Bond/index.tsx:335
+#: components/views/Bond/index.tsx:337
 #: components/views/Stake/index.tsx:150
 #: components/views/Stake/index.tsx:156
 msgid "shared.approve"
@@ -411,13 +411,13 @@ msgstr "Balances"
 msgid "shared.change_language"
 msgstr "Change language"
 
-#: components/views/Bond/index.tsx:329
+#: components/views/Bond/index.tsx:331
 #: components/views/PKlima/index.tsx:139
 #: components/views/Stake/index.tsx:144
 msgid "shared.confirming"
 msgstr "Confirming"
 
-#: components/views/Bond/index.tsx:302
+#: components/views/Bond/index.tsx:304
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
 #: components/views/Wrap/index.tsx:115
@@ -429,12 +429,12 @@ msgstr "Connect wallet"
 msgid "shared.enter_amount"
 msgstr "Enter Amount"
 
-#: components/views/Bond/index.tsx:314
+#: components/views/Bond/index.tsx:316
 msgid "shared.enter_quantity"
 msgstr "Enter Quantity"
 
-#: components/views/Bond/index.tsx:355
-#: components/views/Bond/index.tsx:374
+#: components/views/Bond/index.tsx:357
+#: components/views/Bond/index.tsx:376
 #: components/views/Stake/index.tsx:183
 #: components/views/Stake/index.tsx:202
 msgid "shared.error"
@@ -442,7 +442,7 @@ msgstr "ERROR"
 
 #: components/RebaseCard/index.tsx:56
 #: components/RebaseCard/index.tsx:67
-#: components/views/Bond/index.tsx:308
+#: components/views/Bond/index.tsx:310
 #: components/views/PKlima/index.tsx:130
 #: components/views/Stake/index.tsx:135
 #: components/views/Stake/index.tsx:338
@@ -451,14 +451,14 @@ msgstr "ERROR"
 msgid "shared.loading"
 msgstr "Loading..."
 
-#: components/views/Bond/index.tsx:453
+#: components/views/Bond/index.tsx:455
 #: components/views/PKlima/index.tsx:208
 #: components/views/Stake/index.tsx:282
 #: components/views/Wrap/index.tsx:236
 msgid "shared.max"
 msgstr "Max"
 
-#: components/views/Bond/index.tsx:296
+#: components/views/Bond/index.tsx:298
 msgid "shared.sold_out"
 msgstr "Sold Out"
 

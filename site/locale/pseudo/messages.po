@@ -17,11 +17,11 @@ msgstr ""
 msgid "Articles"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:146
+#: components/pages/Resources/Community/index.tsx:147
 msgid "BICOWG logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:139
+#: components/pages/Resources/Community/index.tsx:140
 msgid "Blockchain for Climate Foundation logo"
 msgstr ""
 
@@ -29,19 +29,23 @@ msgstr ""
 msgid "Change language"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:202
+#: components/pages/Resources/Community/index.tsx:177
+msgid "Delta Wave logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:203
 msgid "Digital Charity Art logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:186
+#: components/pages/Resources/Community/index.tsx:187
 msgid "Dovu logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:176
+#: components/pages/Resources/Community/index.tsx:192
 msgid "Eco logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:181
+#: components/pages/Resources/Community/index.tsx:182
 msgid "Etc Group logo"
 msgstr ""
 
@@ -53,11 +57,11 @@ msgstr ""
 msgid "Get KLIMA"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:161
+#: components/pages/Resources/Community/index.tsx:162
 msgid "Gitcoin logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:128
+#: components/pages/Resources/Community/index.tsx:129
 msgid "Moss logo"
 msgstr ""
 
@@ -65,35 +69,35 @@ msgstr ""
 msgid "Newsletter"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:156
+#: components/pages/Resources/Community/index.tsx:157
 msgid "Oceandrop logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:191
+#: components/pages/Resources/Community/index.tsx:197
 msgid "Offsetra logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:166
+#: components/pages/Resources/Community/index.tsx:167
 msgid "OlympusDAO logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:171
+#: components/pages/Resources/Community/index.tsx:172
 msgid "Open Earth logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:151
+#: components/pages/Resources/Community/index.tsx:152
 msgid "Polygon logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:196
+#: components/pages/Resources/Community/index.tsx:210
 msgid "Thought for Food logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:133
+#: components/pages/Resources/Community/index.tsx:134
 msgid "Toucan logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:108
+#: components/pages/Resources/Community/index.tsx:109
 msgid "Tree grove"
 msgstr ""
 
@@ -115,65 +119,65 @@ msgstr ""
 msgid "buy.head.title"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:92
+#: components/pages/Resources/Community/index.tsx:93
 msgid "community.become_a_partner"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:233
+#: components/pages/Resources/Community/index.tsx:239
 msgid "community.come_on_in"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:105
-#: components/pages/Resources/Community/index.tsx:294
+#: components/pages/Resources/Community/index.tsx:106
+#: components/pages/Resources/Community/index.tsx:300
 msgid "community.contact_us"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:248
+#: components/pages/Resources/Community/index.tsx:254
 msgid "community.discord_is_where_we_share"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:281
+#: components/pages/Resources/Community/index.tsx:287
 msgid "community.get_in_touch"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:74
+#: components/pages/Resources/Community/index.tsx:75
 msgid "community.head.headline"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:75
+#: components/pages/Resources/Community/index.tsx:76
 msgid "community.head.subline"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:73
-#: components/pages/Resources/Community/index.tsx:80
+#: components/pages/Resources/Community/index.tsx:74
+#: components/pages/Resources/Community/index.tsx:81
 msgid "community.head.title"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:284
+#: components/pages/Resources/Community/index.tsx:290
 msgid "community.if_you_ve_got_questions"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:236
+#: components/pages/Resources/Community/index.tsx:242
 msgid "community.join_our_discord"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:223
+#: components/pages/Resources/Community/index.tsx:229
 msgid "community.join_the_klima_community"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:89
-#: components/pages/Resources/Community/index.tsx:278
+#: components/pages/Resources/Community/index.tsx:90
+#: components/pages/Resources/Community/index.tsx:284
 msgid "community.lets_work_together"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:122
+#: components/pages/Resources/Community/index.tsx:123
 msgid "community.our_partners"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:95
+#: components/pages/Resources/Community/index.tsx:96
 msgid "community.we_work_with_traditionnal"
 msgstr ""
 
@@ -559,7 +563,7 @@ msgstr ""
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
 #: components/pages/Disclaimer/index.tsx:23
-#: components/pages/Resources/Community/index.tsx:81
+#: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "shared.head.description"
 msgstr ""
