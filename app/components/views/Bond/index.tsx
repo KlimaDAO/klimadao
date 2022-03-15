@@ -581,7 +581,7 @@ export const Bond: FC<Props> = (props) => {
                 singleton={singleton}
                 label={t({
                   id: "bond.debt_ratio",
-                  message: "Dept ratio",
+                  message: "Debt ratio",
                 })}
                 tooltip={t({
                   id: "bond.debt_ratio.tooltip",

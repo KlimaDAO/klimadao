@@ -56,7 +56,7 @@ msgstr "Date when the entire bond value can be redeemed"
 
 #: components/views/Bond/index.tsx:582
 msgid "bond.debt_ratio"
-msgstr "Dept ratio"
+msgstr "Debt ratio"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:586
