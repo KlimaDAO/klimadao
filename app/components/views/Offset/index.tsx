@@ -50,9 +50,9 @@ export const Offset = (props: Props) => {
   const totalCarbonRetired = useSelector(selectCarbonRetired);
   const inputTokens = [
     { name: "BCT", icon: BCT, balance: balances?.bct },
-    { name: "NCT", icon: NCT, balance: "0" },
-    { name: "MCO2", icon: MCO2, balance: "0" },
-    { name: "USDC", icon: USDC, balance: "0" },
+    { name: "NCT", icon: NCT, balance: balances?.nct },
+    { name: "MCO2", icon: MCO2, balance: balances?.mc02 },
+    { name: "USDC", icon: USDC, balance: balances?.usdc },
     { name: "KLIMA", icon: KLIMA, balance: balances?.klima },
     { name: "sKLIMA", icon: KLIMA, balance: balances?.sklima },
     { name: "wsKLIMA", icon: KLIMA, balance: balances?.wsklima },

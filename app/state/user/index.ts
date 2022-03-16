@@ -9,8 +9,11 @@ export interface UserState {
     wsklima: string;
     aklima: string;
     alklima: string;
-    bct: string;
     pklima: string;
+    bct: string;
+    mc02: string;
+    nct: string;
+    usdc: string;
   };
   pklimaTerms?: {
     claimed: string;
