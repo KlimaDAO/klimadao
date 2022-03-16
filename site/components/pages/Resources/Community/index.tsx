@@ -106,7 +106,10 @@ export const Community: NextPage = () => (
             label={t({ id: "community.contact_us", message: "Contact Us" })}
           />
           <Image
-            alt={t`Tree grove`}
+            alt={t({
+              id: "community.tree_grove",
+              message: `Tree grove`,
+            })}
             src={treeGroveImage}
             width={700}
             height={300}
@@ -126,88 +129,175 @@ export const Community: NextPage = () => (
         <div className={styles.partner_logos}>
           <div className="partner_logo">
             <A href="https://moss.earth">
-              <Image alt={t`Moss logo`} src={mossLogo} />
+              <Image
+                alt={t({
+                  id: "community.moss_logo",
+                  message: `Moss logo`,
+                })}
+                src={mossLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://toucan.earth">
-              <Image alt={t`Toucan logo`} src={toucanLogo} />
+              <Image
+                alt={t({
+                  id: "community.toucan_logo",
+                  message: `Toucan logo`,
+                })}
+                src={toucanLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://www.blockchainforclimate.org">
               <Image
-                alt={t`Blockchain for Climate Foundation logo`}
+                alt={t({
+                  id: "community.blockchainforclimatefondation_logo",
+                  message: `Blockchain for Climate Foundation logo`,
+                })}
                 src={bcfcLogo}
               />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://twitter.com/BICOWG">
-              <Image alt={t`BICOWG logo`} src={bicoWgLogo} />
+              <Image
+                alt={t({
+                  id: "community.bigcowg_logo",
+                  message: `BICOWG logo`,
+                })}
+                src={bicoWgLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://polygon.technology">
-              <Image alt={t`Polygon logo`} src={polygonLogo} />
+              <Image
+                alt={t({
+                  id: "community.polygon_logo",
+                  message: `Polygon logo`,
+                })}
+                src={polygonLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://oceandrop.art">
-              <Image alt={t`Oceandrop logo`} src={oceandropLogo} />
+              <Image
+                alt={t({
+                  id: "community.oceandrop_logo",
+                  message: `Oceandrop logo`,
+                })}
+                src={oceandropLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://gitcoin.co">
-              <Image alt={t`Gitcoin logo`} src={gitcoinLogo} />
+              <Image
+                alt={t({
+                  id: "community.gitcoin_logo",
+                  message: `Gitcoin logo`,
+                })}
+                src={gitcoinLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://www.olympusdao.finance">
-              <Image alt={t`OlympusDAO logo`} src={olympusLogo} />
+              <Image
+                alt={t({
+                  id: "community.olympusdao_logo",
+                  message: `OlympusDAO logo`,
+                })}
+                src={olympusLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://openearth.org">
-              <Image alt={t`Open Earth logo`} src={openEarthLogo} />
+              <Image
+                alt={t({
+                  id: "community.openearth_logo",
+                  message: `Open Earth logo`,
+                })}
+                src={openEarthLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://www.deltawave.energy">
-              <Image alt={t`Delta Wave logo`} src={deltaWaveLogo} />
+              <Image
+                alt={t({
+                  id: "community.deltawave_logo",
+                  message: `Delta Wave logo`,
+                })}
+                src={deltaWaveLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://etc-group.com">
-              <Image alt={t`Etc Group logo`} src={etcGroupLogo} />
+              <Image
+                alt={t({
+                  id: "community.etcgroup_logo",
+                  message: `Etc Group logo`,
+                })}
+                src={etcGroupLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://dovu.earth">
-              <Image alt={t`Dovu logo`} src={dovuLogo} />
+              <Image
+                alt={t({ id: "community.dovu_logo", message: `Dovu logo` })}
+                src={dovuLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://eco.com">
-              <Image alt={t`Eco logo`} src={ecoLogo} />
+              <Image
+                alt={t({
+                  id: "community.eco_logo",
+                  message: `Eco logo`,
+                })}
+                src={ecoLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://offsetra.com">
-              <Image alt={t`Offsetra logo`} src={offsetraLogo} />
+              <Image
+                alt={t({
+                  id: "community.offsetra_logo",
+                  message: `Offsetra logo`,
+                })}
+                src={offsetraLogo}
+              />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://www.digitalcharityart.co.nz">
               <Image
-                alt={t`Digital Charity Art logo`}
+                alt={t({
+                  id: "community.digitalcharityart_logo",
+                  message: `Digital Charity Art logo`,
+                })}
                 src={digitalCharityArtLogo}
               />
             </A>
           </div>
           <div className="partner_logo">
             <A href="https://thoughtforfood.org">
-              <Image alt={t`Thought for Food logo`} src={thoughtForFoodLogo} />
+              <Image
+                alt={t({
+                  id: "community.toughtforfood_logo",
+                  message: `Thought for Food logo`,
+                })}
+                src={thoughtForFoodLogo}
+              />
             </A>
           </div>
         </div>
