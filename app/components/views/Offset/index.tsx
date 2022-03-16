@@ -12,7 +12,10 @@ import {
   selectBalances,
 } from "state/selectors";
 
+import { getOffsetConsumptionCost } from "@klimadao/lib/utils";
+import { addresses } from "@klimadao/lib/constants";
 import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
+
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
@@ -25,12 +28,6 @@ import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
 
 import * as styles from "./styles";
-
-const retireTokens = [
-  { name: "BCT", icon: BCT },
-  { name: "NCT", icon: NCT },
-  { name: "MCO2", icon: MCO2 },
-];
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -48,23 +45,97 @@ interface Props {
 export const Offset = (props: Props) => {
   const balances = useSelector(selectBalances);
   const totalCarbonRetired = useSelector(selectCarbonRetired);
-  const inputTokens = [
-    { name: "BCT", icon: BCT, balance: balances?.bct },
-    { name: "NCT", icon: NCT, balance: balances?.nct },
-    { name: "MCO2", icon: MCO2, balance: balances?.mc02 },
-    { name: "USDC", icon: USDC, balance: balances?.usdc },
-    { name: "KLIMA", icon: KLIMA, balance: balances?.klima },
-    { name: "sKLIMA", icon: KLIMA, balance: balances?.sklima },
-    { name: "wsKLIMA", icon: KLIMA, balance: balances?.wsklima },
-  ];
+
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
+  const [currentInputToken, setCurrentInputToken] = useState({
+    name: "BCT",
+    icon: BCT,
+    balance: balances?.bct,
+    disabled: false,
+    address: addresses["mainnet"].bct,
+  });
 
-  const [currentTokenToRetire, setCurrentTokenToRetire] = useState(
-    retireTokens[0]
-  );
-  const [currentInputToken, setCurrentInputToken] = useState(inputTokens[0]);
+  const [currentTokenToRetire, setCurrentTokenToRetire] = useState({
+    name: "BCT",
+    icon: BCT,
+    address: addresses["mainnet"].bct,
+    disabled:
+      currentInputToken.name === "NCT" || currentInputToken.name === "MCO2",
+  });
+  const inputTokens = [
+    {
+      name: "BCT",
+      icon: BCT,
+      balance: balances?.bct,
+      disabled: false,
+      address: addresses["mainnet"].bct,
+    },
+    {
+      name: "NCT",
+      icon: NCT,
+      balance: balances?.nct,
+      disabled: false,
+      address: addresses["mainnet"].nct,
+    },
+    {
+      name: "MCO2",
+      icon: MCO2,
+      balance: balances?.mco2,
+      disabled: false,
+      address: addresses["mainnet"].mco2,
+    },
+    {
+      name: "USDC",
+      icon: USDC,
+      balance: balances?.usdc,
+      disabled: false,
+      address: addresses["mainnet"].usdc,
+    },
+    {
+      name: "KLIMA",
+      icon: KLIMA,
+      balance: balances?.klima,
+      disabled: false,
+      address: addresses["mainnet"].klima,
+    },
+    {
+      name: "sKLIMA",
+      icon: KLIMA,
+      balance: balances?.sklima,
+      disabled: false,
+      address: addresses["mainnet"].sklima,
+    },
+    {
+      name: "wsKLIMA",
+      icon: KLIMA,
+      balance: balances?.wsklima,
+      address: addresses["mainnet"].wsklima,
+      disabled: false,
+    },
+  ];
+  const retireTokens = [
+    {
+      name: "BCT",
+      icon: BCT,
+      address: addresses["mainnet"].bct,
+      disabled: currentInputToken.name === "MCO2",
+    },
+    {
+      name: "NCT",
+      icon: NCT,
+      address: addresses["mainnet"].nct,
+      disabled: currentInputToken.name === "MCO2",
+    },
+    {
+      name: "MCO2",
+      icon: MCO2,
+      address: addresses["mainnet"].mco2,
+      disabled:
+        currentInputToken.name === "NCT" || currentInputToken.name === "BCT",
+    },
+  ];
 
   // form state
   const [numCarbonTonnesToRetire, setNumCarbonTonnesToRetire] = useState("");
@@ -75,10 +146,60 @@ export const Offset = (props: Props) => {
 
   // effects
   useEffect(() => {
-    setCostCarbonTonnesToRetire(numCarbonTonnesToRetire);
-  }, [numCarbonTonnesToRetire]);
+    if (
+      currentInputToken.name === "BCT" ||
+      currentInputToken.name === "MCO2" ||
+      currentInputToken.name === "NCT"
+    ) {
+      setCurrentTokenToRetire(currentInputToken);
+    }
+  }, [currentInputToken]);
+  useEffect(() => {
+    const awaitGetOffsetConsumptionCost = async () => {
+      const [cost] = await getOffsetConsumptionCost({
+        inputTokenAddress: currentInputToken.address,
+        poolTokenAddress: currentTokenToRetire.address,
+        curInputTokenAmount: numCarbonTonnesToRetire,
+        currentCoin: currentInputToken.name,
+        amountInCarbon: true,
+      });
+      setCostCarbonTonnesToRetire(cost);
+    };
+    if (numCarbonTonnesToRetire === "") {
+      return;
+    }
+    if (
+      (currentInputToken.name === "BCT" &&
+        currentTokenToRetire.name !== "BCT") ||
+      (currentInputToken.name === "MCO2" &&
+        currentTokenToRetire.name !== "MCO2") ||
+      (currentInputToken.name === "NCT" && currentTokenToRetire.name !== "NCT")
+    ) {
+      return;
+    }
+    if (numCarbonTonnesToRetire === "0") {
+      setCostCarbonTonnesToRetire("0");
+    }
+    awaitGetOffsetConsumptionCost();
+  }, [numCarbonTonnesToRetire, currentInputToken, currentTokenToRetire]);
 
   // methods
+  const handleClickMax = async () => {
+    if (!currentInputToken.balance) {
+      setNumCarbonTonnesToRetire("0");
+    } else {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const [_unused, tonnesToRetire] = await getOffsetConsumptionCost({
+        inputTokenAddress: currentInputToken.address,
+        poolTokenAddress: currentTokenToRetire.address,
+        curInputTokenAmount: currentInputToken.balance,
+        currentCoin: currentTokenToRetire.name,
+        amountInCarbon: currentInputToken.name === currentTokenToRetire.name,
+      });
+      console.log(tonnesToRetire);
+      setNumCarbonTonnesToRetire(tonnesToRetire);
+    }
+  };
   const getButtonProps = (): ButtonProps => {
     if (!props.isConnected) {
       return {
@@ -137,6 +258,23 @@ export const Offset = (props: Props) => {
           </Text>
         </div>
         <div className={styles.offsetCard_ui}>
+          {/* Input Token */}
+          <DropdownWithModal
+            label="Pay with"
+            modalTitle="Select Token"
+            currentItem={currentInputToken}
+            items={inputTokens}
+            isModalOpen={isInputTokenModalOpen}
+            onToggleModal={() => {
+              setInputTokenModalOpen((s) => !s);
+            }}
+            onItemSelect={(tokenName) => {
+              setCurrentInputToken(
+                inputTokens.find((token) => tokenName === token.name) ||
+                  inputTokens[0]
+              );
+            }}
+          />
           {/* Retire Token  */}
           <DropdownWithModal
             label="Select carbon offset token to retire"
@@ -151,23 +289,6 @@ export const Offset = (props: Props) => {
               setCurrentTokenToRetire(
                 retireTokens.find((token) => tokenName === token.name) ||
                   retireTokens[0]
-              );
-            }}
-          />
-          {/* Input Token */}
-          <DropdownWithModal
-            label="Select input token"
-            modalTitle="Select Token"
-            currentItem={currentInputToken}
-            items={inputTokens}
-            isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => {
-              setInputTokenModalOpen((s) => !s);
-            }}
-            onItemSelect={(tokenName) => {
-              setCurrentInputToken(
-                inputTokens.find((token) => tokenName === token.name) ||
-                  inputTokens[0]
               );
             }}
           />
@@ -201,9 +322,7 @@ export const Offset = (props: Props) => {
               <button
                 className="button_max"
                 type="button"
-                onClick={() => {
-                  setNumCarbonTonnesToRetire("0");
-                }}
+                onClick={handleClickMax}
               >
                 <Trans id="shared.max">Max</Trans>
               </button>
@@ -245,7 +364,7 @@ export const Offset = (props: Props) => {
               }}
               placeholder={t({
                 id: "offset.who_beneficiary",
-                message: "Who is the beneficiary?",
+                message: "To whom will this retirement be credited?",
               })}
             />
           </div>
@@ -271,9 +390,7 @@ export const Offset = (props: Props) => {
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lightest">
-                <Trans id="offset.retirement_message">
-                  RETIREMENT MESSAGE (optional)
-                </Trans>
+                <Trans id="offset.retirement_message">RETIREMENT MESSAGE</Trans>
               </Text>
             </label>
             <input
@@ -282,8 +399,8 @@ export const Offset = (props: Props) => {
                 setRetirementAddress(e.target.value);
               }}
               placeholder={t({
-                id: "offset.retirement_additional_info",
-                message: "Any additional info for your retirement?",
+                id: "offset.describe_the_purpose_of_retirement",
+                message: "Describe the purpose of this retirement",
               })}
             />
           </div>

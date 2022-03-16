@@ -27,7 +27,7 @@ export const BalancesCard: FC<Props> = (props) => {
     pklima: "pKLIMA",
     sklima: "sKLIMA",
     wsklima: "wsKLIMA",
-    mc02: "MC02",
+    mco2: "MCO2",
     usdc: "USDC",
     nct: "NCT",
   };

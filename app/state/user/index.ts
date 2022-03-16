@@ -11,7 +11,7 @@ export interface UserState {
     alklima: string;
     pklima: string;
     bct: string;
-    mc02: string;
+    mco2: string;
     nct: string;
     usdc: string;
   };

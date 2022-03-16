@@ -31,7 +31,7 @@ export const loadAccountDetails = (params: {
         IERC20.abi,
         params.provider
       );
-      const mc02Contract = new ethers.Contract(
+      const mco2Contract = new ethers.Contract(
         addresses["mainnet"].mco2,
         IERC20.abi,
         params.provider
@@ -75,7 +75,7 @@ export const loadAccountDetails = (params: {
       // balances
       // CARBON
       const bctBalance = await bctContract.balanceOf(params.address);
-      const mc02Balance = await mc02Contract.balanceOf(params.address);
+      const mco2Balance = await mco2Contract.balanceOf(params.address);
       const nctBalance = await nctContract.balanceOf(params.address);
       // KLIMA
       const klimaBalance = await klimaContract.balanceOf(params.address);
@@ -127,7 +127,7 @@ export const loadAccountDetails = (params: {
           alklima: formatUnits(alklimaBalance),
           bct: formatUnits(bctBalance),
           nct: formatUnits(nctBalance),
-          mc02: formatUnits(mc02Balance),
+          mco2: formatUnits(mco2Balance),
           usdc: formatUnits(usdcBalance, 6),
         })
       );
