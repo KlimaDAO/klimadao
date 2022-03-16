@@ -106,7 +106,10 @@ export const Community: NextPage = () => (
             label={t({ id: "community.contact_us", message: "Contact Us" })}
           />
           <Image
-            alt={t`Tree grove`}
+            alt={t({
+              id: "community.tree_grove",
+              message: `Tree grove`,
+            })}
             src={treeGroveImage}
             width={700}
             height={300}
@@ -276,17 +279,6 @@ export const Community: NextPage = () => (
             </A>
           </div>
           <div className="partner_logo">
-            <A href="https://thoughtforfood.org">
-              <Image
-                alt={t({
-                  id: "community.toughtforfood_logo",
-                  message: `Thought for Food logo`,
-                })}
-                src={thoughtForFoodLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
             <A href="https://www.digitalcharityart.co.nz">
               <Image
                 alt={t({
@@ -294,6 +286,17 @@ export const Community: NextPage = () => (
                   message: `Digital Charity Art logo`,
                 })}
                 src={digitalCharityArtLogo}
+              />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://thoughtforfood.org">
+              <Image
+                alt={t({
+                  id: "community.toughtforfood_logo",
+                  message: `Thought for Food logo`,
+                })}
+                src={thoughtForFoodLogo}
               />
             </A>
           </div>

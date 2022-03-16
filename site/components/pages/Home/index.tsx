@@ -423,7 +423,7 @@ export const Home: NextPage<Props> = (props) => {
         <div className={styles.buySection}>
           <div className="buy_col1">
             <Text t="h2" as="h2">
-              <Trans>GET KLIMA</Trans>
+              <Trans id="home.get_klima">GET KLIMA</Trans>
             </Text>
             <Text t="body3" color="lighter">
               <Trans id="home.get_exposure_to_the_growing_carbon_economy">
@@ -460,7 +460,7 @@ export const Home: NextPage<Props> = (props) => {
               </Trans>
             </Text>
             <Text t="h2" as="h2" uppercase>
-              <Trans>Newsletter</Trans>
+              <Trans id="home.newsletter">Newsletter</Trans>
             </Text>
             <Text t="body3" color="lighter">
               <Trans
