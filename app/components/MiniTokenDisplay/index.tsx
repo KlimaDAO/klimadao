@@ -8,7 +8,7 @@ interface Props {
   label: string;
   icon: StaticImageData;
   name: string;
-  amount?: string;
+  amount?: React.ReactNode;
   labelAlignment?: "start" | "end";
 }
 
@@ -28,7 +28,7 @@ export const MiniTokenDisplay: FC<Props> = (props) => {
       </label>
       <div className={styles.card}>
         <Image src={props.icon} width={48} height={48} alt={props.name} />
-        <Text t="body3">{Number(props.amount ?? 0).toFixed(2)}</Text>
+        <Text t="body3">{props.amount || "0"}</Text>
       </div>
     </div>
   );

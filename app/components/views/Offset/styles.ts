@@ -53,6 +53,13 @@ export const offsetCard_ui = css`
     justify-content: space-between;
     align-items: center;
   }
+  .mini_token_display_icon {
+    display: flex;
+    width: 4.8rem;
+    height: 4.8rem;
+    margin-top: 2.4rem;
+    color: var(--font-01);
+  }
 `;
 
 export const offsetCard_header_title = css`

@@ -17,7 +17,7 @@ export const getOffsetConsumptionCost = async (params: {
   curInputTokenAmount: string;
   currentCoin: string;
   amountInCarbon: boolean;
-}): Promise<string[]> => {
+}): Promise<[string, string]> => {
   const sourceAmount = await offsetConsumptionContract.getSourceAmount(
     params.inputTokenAddress,
     params.poolTokenAddress,

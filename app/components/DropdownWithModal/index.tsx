@@ -1,6 +1,5 @@
 import { FC } from "react";
 import Image from "next/image";
-import { Trans } from "@lingui/macro";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 
 import { Text } from "@klimadao/lib/components";
@@ -8,24 +7,26 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
 interface Item {
-  name: string;
+  key: string;
+  label: string;
+  description?: React.ReactNode;
   icon: StaticImageData;
-  balance?: string;
   disabled?: boolean;
 }
 
 interface Props {
   modalTitle: string;
   label: string;
-  currentItem: Item;
+  currentItem: string;
   items: Item[];
   isModalOpen: boolean;
-  onItemSelect: (itemName: string) => void;
+  onItemSelect: (key: string) => void;
   onToggleModal: () => void;
 }
 
 export const DropdownWithModal: FC<Props> = (props) => {
-  const { currentItem } = props;
+  const currentItem =
+    props.items.find(({ key }) => props.currentItem === key) ?? props.items[0];
   return (
     <div className={styles.container}>
       <Text t="caption" color="lightest" className="label">
@@ -34,18 +35,17 @@ export const DropdownWithModal: FC<Props> = (props) => {
       <button onClick={props.onToggleModal}>
         <div className="start_content">
           <Image
-            alt={currentItem.name}
+            alt={currentItem.label}
             src={currentItem.icon}
             width={48}
             height={48}
           />
-          <Text t="body2">{currentItem.name}</Text>
+          <Text t="body2">{currentItem.label}</Text>
         </div>
         <div className="end_content">
-          {currentItem.balance && (
+          {currentItem.description && (
             <Text t="caption" color="lightest">
-              <Trans id="shared.balance">Balance:</Trans>{" "}
-              {props.currentItem.balance} {props.currentItem.name}
+              {currentItem.description}
             </Text>
           )}
           <KeyboardArrowDown />
@@ -54,7 +54,7 @@ export const DropdownWithModal: FC<Props> = (props) => {
       {props.isModalOpen && (
         <Modal
           title={props.modalTitle}
-          currentItem={props.currentItem}
+          currentItem={currentItem}
           items={props.items}
           onToggleModal={props.onToggleModal}
           onItemSelect={props.onItemSelect}
@@ -68,7 +68,7 @@ interface ModalProps {
   title: string;
   currentItem: Item;
   items: Item[];
-  onItemSelect: (itemName: string) => void;
+  onItemSelect: (key: string) => void;
   onToggleModal: () => void;
 }
 
@@ -82,24 +82,19 @@ const Modal = (props: ModalProps) => {
         </div>
         {props.items.map((item) => (
           <button
-            onClick={() => props.onItemSelect(item.name)}
-            key={item.name}
+            onClick={() => props.onItemSelect(item.key)}
+            key={item.label}
             className="select_button"
-            data-active={item.name === props.currentItem.name}
+            data-active={item.label === props.currentItem.label}
             disabled={item.disabled}
           >
             <div className="start_content">
-              <Image alt={item.name} src={item.icon} width={48} height={48} />
-              <Text t="body2">{item.name}</Text>
+              <Image alt={item.label} src={item.icon} width={48} height={48} />
+              <Text t="body2">{item.label}</Text>
             </div>
-            {item.disabled && (
+            {item.description && (
               <Text t="caption" color="lightest">
-                <Trans id="shared.coming_soon">Coming soon</Trans>
-              </Text>
-            )}
-            {item.balance && !item.disabled && (
-              <Text t="caption" color="lightest">
-                {item.balance} {item.name}
+                {item.description}
               </Text>
             )}
           </button>
