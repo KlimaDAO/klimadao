@@ -218,6 +218,11 @@ export const Offset = (props: Props) => {
   //   }
   // };
 
+  const insufficientBalance =
+    props.isConnected &&
+    !isLoading &&
+    Number(cost) > Number(balances?.[selectedInputToken] ?? "0");
+
   const getButtonProps = (): ButtonProps => {
     if (!props.isConnected) {
       return {
@@ -234,6 +239,14 @@ export const Offset = (props: Props) => {
     } else if (!quantity || !Number(quantity)) {
       return {
         label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (insufficientBalance) {
+      return {
+        label: (
+          <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
+        ),
         onClick: undefined,
         disabled: true,
       };
@@ -285,7 +298,7 @@ export const Offset = (props: Props) => {
     const timerId = setTimeout(() => {
       setDebouncedQuantity(e.target.value);
       debounceTimerRef.current = undefined;
-    }, 1000);
+    }, 500);
     debounceTimerRef.current = timerId;
   };
 
@@ -372,6 +385,7 @@ export const Offset = (props: Props) => {
               <input
                 type="number"
                 min={0}
+                max={balances?.[selectedInputToken]}
                 value={quantity}
                 onKeyDown={(e) => {
                   // dont let user enter these special characters into the number input
@@ -401,6 +415,7 @@ export const Offset = (props: Props) => {
               icon={tokenInfo[selectedInputToken].icon}
               name={selectedInputToken}
               loading={cost === "loading"}
+              warn={insufficientBalance}
             />
             <ArrowRightAlt className="mini_token_display_icon" />
             <MiniTokenDisplay
@@ -432,7 +447,7 @@ export const Offset = (props: Props) => {
             <label>
               <Text t="caption" color="lightest">
                 <Trans id="offset.beneficiary_address">
-                  BENEFICIARY ADDRESS (optional; defaults to connected address)
+                  BENEFICIARY ADDRESS (optional: defaults to connected address)
                 </Trans>
               </Text>
             </label>

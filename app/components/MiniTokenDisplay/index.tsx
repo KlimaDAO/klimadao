@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { Spinner, Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
+import { cx } from "@emotion/css";
 
 interface Props {
   label: string;
@@ -11,28 +12,35 @@ interface Props {
   amount?: string;
   labelAlignment?: "start" | "end";
   loading?: boolean;
+  warn?: boolean;
 }
 
 export const MiniTokenDisplay: FC<Props> = (props) => {
   return (
     <div className={styles.container}>
-      <label
-        style={
-          props.labelAlignment === "end"
-            ? { justifySelf: "flex-end" }
-            : undefined
-        }
+      <Text
+        t="caption"
+        color="lightest"
+        className={cx("label", {
+          alignEnd: props.labelAlignment === "end",
+        })}
       >
-        <Text t="caption" color="lightest">
-          {props.label}
-        </Text>
-      </label>
+        {props.label}
+      </Text>
       <div className={styles.card}>
         <Image src={props.icon} width={48} height={48} alt={props.name} />
         {props.loading ? (
           <Spinner />
         ) : (
-          <Text t="body3">{props.amount || "0"}</Text>
+          <Text
+            t="body3"
+            className={cx("value", {
+              alignEnd: props.labelAlignment === "end",
+              warn: !!props.warn,
+            })}
+          >
+            {props.amount || "0"}
+          </Text>
         )}
       </div>
     </div>

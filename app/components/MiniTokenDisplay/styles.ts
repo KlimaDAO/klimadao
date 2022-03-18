@@ -4,8 +4,14 @@ export const container = css`
   display: grid;
   flex-direction: column;
   gap: 0.5rem;
-  label {
+  .label {
     text-transform: uppercase;
+  }
+  .label.alignEnd {
+    justify-self: flex-end;
+  }
+  .value.warn {
+    color: var(--warn);
   }
 `;
 
