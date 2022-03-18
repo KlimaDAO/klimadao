@@ -337,6 +337,10 @@ msgstr ""
 msgid "offset.beneficiary_address"
 msgstr ""
 
+#: components/CarbonTonnesBreakdownCard/index.tsx:26
+msgid "offset.breakdown"
+msgstr ""
+
 #: components/views/Offset/index.tsx:464
 msgid "offset.describe_the_purpose_of_retirement"
 msgstr ""
@@ -355,6 +359,12 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:330
 msgid "offset.retire_carbon_description"
+msgstr ""
+
+#: components/CarbonTonnesBreakdownCard/index.tsx:32
+#: components/CarbonTonnesBreakdownCard/index.tsx:48
+#: components/CarbonTonnesBreakdownCard/index.tsx:64
+msgid "offset.retired"
 msgstr ""
 
 #: components/views/Offset/index.tsx:453

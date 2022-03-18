@@ -337,6 +337,10 @@ msgstr "BENEFICIARY"
 msgid "offset.beneficiary_address"
 msgstr "BENEFICIARY ADDRESS (optional: defaults to connected address)"
 
+#: components/CarbonTonnesBreakdownCard/index.tsx:26
+msgid "offset.breakdown"
+msgstr "Breakdown"
+
 #: components/views/Offset/index.tsx:464
 msgid "offset.describe_the_purpose_of_retirement"
 msgstr "Describe the purpose of this retirement"
@@ -356,6 +360,12 @@ msgstr "Retire Carbon"
 #: components/views/Offset/index.tsx:330
 msgid "offset.retire_carbon_description"
 msgstr "Retire carbon and claim the underlying environmental benefit of the carbon offset."
+
+#: components/CarbonTonnesBreakdownCard/index.tsx:32
+#: components/CarbonTonnesBreakdownCard/index.tsx:48
+#: components/CarbonTonnesBreakdownCard/index.tsx:64
+msgid "offset.retired"
+msgstr "Retired"
 
 #: components/views/Offset/index.tsx:453
 msgid "offset.retirement_message"
