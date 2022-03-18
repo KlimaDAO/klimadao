@@ -269,43 +269,39 @@ msgstr "Info & FAQ"
 msgid "info.official_contract_addresses"
 msgstr "Official Contract Addresses"
 
-#: components/NavMenu/index.tsx:142
+#: components/NavMenu/index.tsx:143
 msgid "menu.bond_carbon"
 msgstr "Bond Carbon"
 
-#: components/NavMenu/index.tsx:126
+#: components/NavMenu/index.tsx:127
 msgid "menu.buy_klima"
 msgstr "Buy KLIMA"
 
-#: components/NavMenu/index.tsx:162
-msgid "menu.coming_soon"
-msgstr "COMING SOON"
-
-#: components/NavMenu/index.tsx:158
+#: components/NavMenu/index.tsx:159
 msgid "menu.info"
 msgstr "Info"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:172
 msgid "menu.just_for_you"
 msgstr "JUST FOR YOU"
 
-#: components/NavMenu/index.tsx:114
+#: components/NavMenu/index.tsx:115
 msgid "menu.not_connected"
 msgstr "NOT CONNECTED"
 
-#: components/NavMenu/index.tsx:170
+#: components/NavMenu/index.tsx:167
 msgid "menu.offset"
 msgstr "Offset"
 
-#: components/NavMenu/index.tsx:134
+#: components/NavMenu/index.tsx:135
 msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/NavMenu/index.tsx:108
+#: components/NavMenu/index.tsx:109
 msgid "menu.wallet_address"
 msgstr "Your Wallet Address"
 
-#: components/NavMenu/index.tsx:150
+#: components/NavMenu/index.tsx:151
 msgid "menu.wrap_klima"
 msgstr "Wrap sKLIMA"
 
@@ -328,6 +324,58 @@ msgstr "CONFIRMATION"
 #: components/views/Bond/index.tsx:391
 msgid "nav.back"
 msgstr "BACK"
+
+#: components/views/Offset/index.tsx:364
+msgid "offset.amount_in_tonnes"
+msgstr "AMOUNT IN CARBON TONNES"
+
+#: components/views/Offset/index.tsx:417
+msgid "offset.beneficiary"
+msgstr "BENEFICIARY"
+
+#: components/views/Offset/index.tsx:434
+msgid "offset.beneficiary_address"
+msgstr "BENEFICIARY ADDRESS (optional: defaults to connected address)"
+
+#: components/views/Offset/index.tsx:464
+msgid "offset.describe_the_purpose_of_retirement"
+msgstr "Describe the purpose of this retirement"
+
+#: components/views/Offset/index.tsx:382
+msgid "offset.how_many_retire"
+msgstr "How many carbon tonnes would you like to retire?"
+
+#: components/views/Offset/index.tsx:314
+msgid "offset.incompatible"
+msgstr "INPUT TOKEN INCOMPATIBLE"
+
+#: components/views/Offset/index.tsx:327
+msgid "offset.retire_carbon"
+msgstr "Retire Carbon"
+
+#: components/views/Offset/index.tsx:330
+msgid "offset.retire_carbon_description"
+msgstr "Retire carbon and claim the underlying environmental benefit of the carbon offset."
+
+#: components/views/Offset/index.tsx:453
+msgid "offset.retirement_message"
+msgstr "RETIREMENT MESSAGE"
+
+#: components/CarbonTonnesRetiredCard/index.tsx:30
+msgid "offset.tonnes_of_carbon_retired"
+msgstr "Tonnes of carbon retired"
+
+#: components/views/Offset/index.tsx:444
+msgid "offset.which_address_retiring"
+msgstr "Which address are you retiring on behalf of?"
+
+#: components/views/Offset/index.tsx:425
+msgid "offset.who_beneficiary"
+msgstr "To whom will this retirement be credited?"
+
+#: components/CarbonTonnesRetiredCard/index.tsx:21
+msgid "offset.you_have_retired"
+msgstr "You've Retired"
 
 #: components/views/PKlima/index.tsx:150
 msgid "pklima.approve_bct"
@@ -398,12 +446,13 @@ msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned interest on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
 #: components/views/Bond/index.tsx:337
+#: components/views/Offset/index.tsx:237
 #: components/views/Stake/index.tsx:150
 #: components/views/Stake/index.tsx:156
 msgid "shared.approve"
 msgstr "Approve"
 
-#: components/BalancesCard/index.tsx:36
+#: components/BalancesCard/index.tsx:39
 msgid "shared.balances"
 msgstr "Balances"
 
@@ -418,6 +467,7 @@ msgid "shared.confirming"
 msgstr "Confirming"
 
 #: components/views/Bond/index.tsx:304
+#: components/views/Offset/index.tsx:211
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
 #: components/views/Wrap/index.tsx:115
@@ -430,6 +480,7 @@ msgid "shared.enter_amount"
 msgstr "Enter Amount"
 
 #: components/views/Bond/index.tsx:316
+#: components/views/Offset/index.tsx:223
 msgid "shared.enter_quantity"
 msgstr "Enter Quantity"
 
@@ -440,9 +491,15 @@ msgstr "Enter Quantity"
 msgid "shared.error"
 msgstr "ERROR"
 
+#: components/views/Offset/index.tsx:230
+msgid "shared.insufficient_balance"
+msgstr "INSUFFICIENT BALANCE"
+
 #: components/RebaseCard/index.tsx:56
 #: components/RebaseCard/index.tsx:67
 #: components/views/Bond/index.tsx:310
+#: components/views/Offset/index.tsx:217
+#: components/views/Offset/index.tsx:300
 #: components/views/PKlima/index.tsx:130
 #: components/views/Stake/index.tsx:135
 #: components/views/Stake/index.tsx:338
@@ -457,6 +514,10 @@ msgstr "Loading..."
 #: components/views/Wrap/index.tsx:236
 msgid "shared.max"
 msgstr "Max"
+
+#: components/views/Offset/index.tsx:243
+msgid "shared.retire"
+msgstr "RETIRE CARBON"
 
 #: components/views/Bond/index.tsx:298
 msgid "shared.sold_out"
@@ -564,7 +625,7 @@ msgstr "Please click 'confirm' in your wallet to continue."
 msgid "status.user_rejected"
 msgstr "You chose to reject the transaction"
 
-#: components/NavMenu/index.tsx:183
+#: components/NavMenu/index.tsx:179
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
