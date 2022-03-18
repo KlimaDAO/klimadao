@@ -39,7 +39,7 @@ import {
   RetirementToken,
   retirementTokens,
 } from "actions/offset";
-import { setBalance, setCarbonRetiredAllowance } from "state/user";
+import { setCarbonRetiredAllowance } from "state/user";
 
 interface ButtonProps {
   label: React.ReactElement | string;
