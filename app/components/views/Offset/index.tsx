@@ -64,15 +64,15 @@ const tokenInfo: TokenInfoMap = {
   wsklima: { key: "wsklima", icon: KLIMA, label: "wsKLIMA" },
 };
 
-type CompatMap = { [token in InputToken]?: RetirementToken[] };
-const compatability: CompatMap = {
+type CompatMap = { [token in InputToken]: RetirementToken[] };
+const compatibility: CompatMap = {
   bct: ["bct", "nct"],
   nct: ["bct", "nct"],
   mco2: ["mco2"],
   usdc: ["bct", "nct", "mco2"],
-  klima: ["bct", "nct"],
-  sklima: ["bct", "nct"],
-  wsklima: ["bct", "nct"],
+  klima: ["bct", "mco2"],
+  sklima: ["bct", "mco2"],
+  wsklima: ["bct", "mco2"],
 };
 
 interface Props {
@@ -135,16 +135,18 @@ export const Offset = (props: Props) => {
 
   // effects
   useEffect(() => {
-    if (
-      selectedInputToken === "bct" ||
-      selectedInputToken === "mco2" ||
-      selectedInputToken === "nct"
-    ) {
-      setSelectedRetirementToken(selectedInputToken);
+    // if input token changes, force a compatible retirement token
+    if (!compatibility[selectedInputToken]?.includes(selectedRetirementToken)) {
+      // never undefined, because universal tokens
+      setSelectedRetirementToken(compatibility[selectedInputToken][0]);
     }
   }, [selectedInputToken]);
 
   useEffect(() => {
+    if (debouncedQuantity === "" || !Number(debouncedQuantity)) {
+      setCost("0");
+      return;
+    }
     const awaitGetOffsetConsumptionCost = async () => {
       const [consumptionCost] = await getOffsetConsumptionCost({
         inputTokenAddress: addresses["mainnet"][selectedInputToken],
@@ -155,22 +157,8 @@ export const Offset = (props: Props) => {
       });
       setCost(consumptionCost);
     };
-    if (debouncedQuantity === "") {
-      setCost("0");
-      return;
-    }
-    if (
-      (selectedInputToken === "bct" && selectedRetirementToken !== "bct") ||
-      (selectedInputToken === "mco2" && selectedRetirementToken !== "mco2") ||
-      (selectedInputToken === "nct" && selectedRetirementToken !== "nct")
-    ) {
-      return;
-    }
-    if (debouncedQuantity === "0") {
-      setCost("0");
-    }
     awaitGetOffsetConsumptionCost();
-  }, [debouncedQuantity, selectedInputToken, selectedRetirementToken]);
+  }, [debouncedQuantity]);
 
   // methods
   // const handleClickMax = async () => {
@@ -324,7 +312,7 @@ export const Offset = (props: Props) => {
     .sort((a, b) => Number(b.description ?? 0) - Number(a.description ?? 0));
 
   const retirementTokenItems = retirementTokens.map((tkn) => {
-    const disabled = !compatability[selectedInputToken]?.includes(tkn);
+    const disabled = !compatibility[selectedInputToken]?.includes(tkn);
     return {
       ...tokenInfo[tkn],
       disabled,
