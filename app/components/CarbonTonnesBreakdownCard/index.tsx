@@ -40,7 +40,7 @@ export const CarbonTonnesBreakdownCard: FC<Props> = (props) => {
                 {props.totalCarbonRetired?.totalBCTRetired ?? 0}
               </Text>
               <Text className="label" color="lightest">
-                <Trans id="offset.tons_of_carbon_retired">BCT</Trans>
+                BCT
               </Text>
             </div>
           </div>
@@ -56,7 +56,7 @@ export const CarbonTonnesBreakdownCard: FC<Props> = (props) => {
                 {props.totalCarbonRetired?.totalNCTRetired ?? 0}
               </Text>
               <Text className="label" color="lightest">
-                <Trans id="offset.tons_of_carbon_retired">NCT</Trans>
+                NCT
               </Text>
             </div>
           </div>
@@ -72,7 +72,7 @@ export const CarbonTonnesBreakdownCard: FC<Props> = (props) => {
                 {props.totalCarbonRetired?.totalMCO2Retired ?? 0}
               </Text>
               <Text className="label" color="lightest">
-                <Trans id="offset.tons_of_carbon_retired">MCO2</Trans>
+                MCO2
               </Text>
             </div>
           </div>
