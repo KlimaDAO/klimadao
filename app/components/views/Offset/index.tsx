@@ -314,8 +314,11 @@ export const Offset = (props: Props) => {
   const inputTokenItems = inputTokens
     .map((tkn) => ({
       ...tokenInfo[tkn],
-      description:
-        Number(balances?.[tkn]) > 0 ? Number(balances?.[tkn]).toFixed(2) : "0",
+      description: (function () {
+        if (isLoading) return <Trans id="shared.loading" />;
+        if (!props.isConnected || !Number(balances?.[tkn])) return "0";
+        return Number(balances?.[tkn]).toFixed(2);
+      })(),
       disabled: !balances?.[tkn] || !Number(balances[tkn]),
     }))
     .sort((a, b) => Number(b.description ?? 0) - Number(a.description ?? 0));
