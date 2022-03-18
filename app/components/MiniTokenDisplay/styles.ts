@@ -18,10 +18,10 @@ export const container = css`
 export const card = css`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   background-color: var(--surface-01);
   color: var(--font-01);
   min-height: 4.8rem;
   border-radius: 1rem;
-  padding: 0.5rem 0.8rem;
+  padding: 0.4rem 1.6rem 0.4rem 0.4rem;
 `;
