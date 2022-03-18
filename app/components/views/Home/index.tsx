@@ -11,7 +11,6 @@ import { selectAppState } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
-import { getRetiredOffsetBalances } from "actions/offset";
 import { Stake } from "components/views/Stake";
 import { PKlima } from "components/views/PKlima";
 import { Info } from "components/views/Info";
@@ -189,13 +188,6 @@ export const Home: FC = () => {
           onRPCError: handleRPCError,
         })
       );
-      dispatch(
-        getRetiredOffsetBalances({
-          address: addr,
-          provider,
-          onRPCError: handleRPCError,
-        })
-      );
     } catch (e) {
       console.error("LOAD USER INFO CAUGHT", e);
     }
@@ -354,9 +346,11 @@ export const Home: FC = () => {
               path="/offset"
               element={
                 <Offset
+                  address={address}
                   provider={provider}
                   isConnected={isConnected}
                   loadWeb3Modal={loadWeb3Modal}
+                  onRPCError={handleRPCError}
                 />
               }
             />

@@ -116,7 +116,6 @@ export const loadAccountDetails = (params: {
         params.address,
         addresses["mainnet"].pklima_exercise
       );
-
       dispatch(
         setBalance({
           klima: formatUnits(klimaBalance, 9),

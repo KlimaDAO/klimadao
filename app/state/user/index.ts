@@ -40,6 +40,15 @@ export interface UserState {
     sklima: string;
     // wsklima: string;
   };
+  carbonRetiredAllowance?: {
+    klima: string;
+    sklima: string;
+    wsklima: string;
+    bct: string;
+    mco2: string;
+    nct: string;
+    usdc: string;
+  };
   carbonRetired?: {
     totalTonnesRetired: string;
     totalRetirements: string;
@@ -104,6 +113,12 @@ export const userSlice = createSlice({
     setWrapAllowance: (s, a: Setter<"wrapAllowance">) => {
       s.wrapAllowance = {
         ...s.wrapAllowance!,
+        ...a.payload,
+      };
+    },
+    setCarbonRetiredAllowance: (s, a: Setter<"carbonRetiredAllowance">) => {
+      s.carbonRetiredAllowance = {
+        ...s.carbonRetiredAllowance!,
         ...a.payload,
       };
     },
@@ -184,6 +199,7 @@ export const {
   setBondAllowance,
   setWrapAllowance,
   setCarbonRetiredBalances,
+  setCarbonRetiredAllowance,
   incrementStake,
   decrementStake,
   incrementWrap,

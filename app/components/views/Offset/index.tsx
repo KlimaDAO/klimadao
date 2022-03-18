@@ -5,11 +5,12 @@ import { Trans, t } from "@lingui/macro";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
 
-import { AppNotificationStatus } from "state/app";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 import {
   selectNotificationStatus,
   selectCarbonRetired,
   selectBalances,
+  selectCarbonRetiredAllowance,
 } from "state/selectors";
 
 import { getOffsetConsumptionCost } from "@klimadao/lib/utils";
@@ -28,33 +29,23 @@ import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
 
 import * as styles from "./styles";
+import { useAppDispatch } from "state";
+import {
+  changeApprovalTransaction,
+  getRetiredOffsetBalances,
+  getRetirementAllowances,
+  InputToken,
+  inputTokens,
+  RetirementToken,
+  retirementTokens,
+} from "actions/offset";
+import { setCarbonRetiredAllowance } from "state/user";
 
 interface ButtonProps {
   label: React.ReactElement | string;
   onClick: undefined | (() => void);
   disabled: boolean;
 }
-
-interface Props {
-  provider: providers.JsonRpcProvider;
-  address?: string;
-  isConnected: boolean;
-  loadWeb3Modal: () => void;
-}
-
-const inputTokens = [
-  "bct",
-  "nct",
-  "mco2",
-  "usdc",
-  "klima",
-  "sklima",
-  "wsklima",
-] as const;
-type InputToken = typeof inputTokens[number];
-
-const retirementTokens = ["bct", "nct", "mco2"] as const;
-type RetirementToken = typeof retirementTokens[number];
 
 type TokenInfoMap = {
   [key in RetirementToken | InputToken]: {
@@ -84,9 +75,19 @@ const compatability: CompatMap = {
   wsklima: ["bct", "nct"],
 };
 
+interface Props {
+  provider: providers.JsonRpcProvider;
+  address?: string;
+  isConnected: boolean;
+  loadWeb3Modal: () => void;
+  onRPCError: () => void;
+}
+
 export const Offset = (props: Props) => {
+  const dispatch = useAppDispatch();
   const balances = useSelector(selectBalances);
   const totalCarbonRetired = useSelector(selectCarbonRetired);
+  const allowances = useSelector(selectCarbonRetiredAllowance);
 
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
@@ -104,6 +105,33 @@ export const Offset = (props: Props) => {
   const [beneficiary, setBeneficiary] = useState("");
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
   const [retirementAddress, setRetirementAddress] = useState("");
+
+  const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
+  console.log("rerender", allowances);
+
+  const setStatus = (statusType: TxnStatus | null, message?: string) => {
+    if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
+    dispatch(setAppState({ notificationStatus: { statusType, message } }));
+  };
+
+  useEffect(() => {
+    if (props.isConnected && props.address) {
+      dispatch(
+        getRetiredOffsetBalances({
+          address: props.address,
+          provider: props.provider,
+          onRPCError: props.onRPCError,
+        })
+      );
+      dispatch(
+        getRetirementAllowances({
+          address: props.address,
+          provider: props.provider,
+          onRPCError: props.onRPCError,
+        })
+      );
+    }
+  }, [props.isConnected, props.address]);
 
   // effects
   useEffect(() => {
@@ -164,6 +192,32 @@ export const Offset = (props: Props) => {
   //   }
   // };
 
+  const handleApprove = async () => {
+    try {
+      const value = await changeApprovalTransaction({
+        provider: props.provider,
+        token: selectedInputToken,
+        onStatus: setStatus,
+      });
+      dispatch(setCarbonRetiredAllowance({ [selectedInputToken]: value }));
+    } catch (e) {
+      return;
+    }
+  };
+
+  // const handleRetire = async () => {
+  //   try {
+  //     const value = await retireCarbonTransactions({
+  //       provider: props.provider,
+  //       token: selectedInputToken,
+  //       onStatus: setStatus,
+  //     });
+  //     dispatch(setCarbonRetiredAllowance({ [selectedInputToken]: value }));
+  //   } catch (e) {
+  //     return;
+  //   }
+  // };
+
   const getButtonProps = (): ButtonProps => {
     if (!props.isConnected) {
       return {
@@ -171,15 +225,50 @@ export const Offset = (props: Props) => {
         onClick: props.loadWeb3Modal,
         disabled: false,
       };
-    } else {
+    } else if (isLoading) {
       return {
-        label: <Trans id="shared.approve">Approve</Trans>,
-        onClick: () => {
-          console.log("appr");
-        },
+        label: <Trans id="shared.loading">Loading...</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!quantity || !Number(quantity)) {
+      return {
+        label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!Number(allowances?.[selectedInputToken])) {
+      return {
+        label: <Trans id="shared.approve">APPROVE</Trans>,
+        onClick: handleApprove,
         disabled: false,
       };
     }
+    return {
+      label: <Trans id="shared.retire">RETIRE CARBON</Trans>,
+      onClick: () => {
+        console.log("retire");
+      },
+      disabled: false,
+    };
+  };
+
+  const handleSelectInputToken = (tkn: string) => {
+    if (tkn !== selectedInputToken) {
+      setQuantity("");
+      setDebouncedQuantity("");
+      setCost("");
+    }
+    setSelectedInputToken(tkn as InputToken);
+  };
+
+  const handleSelectRetirementToken = (tkn: string) => {
+    if (tkn !== selectedRetirementToken) {
+      setQuantity("");
+      setDebouncedQuantity("");
+      setCost("");
+    }
+    setSelectedRetirementToken(tkn as RetirementToken);
   };
 
   const handleChangeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
@@ -257,7 +346,7 @@ export const Offset = (props: Props) => {
             onToggleModal={() => {
               setInputTokenModalOpen((s) => !s);
             }}
-            onItemSelect={(tkn) => setSelectedInputToken(tkn as InputToken)}
+            onItemSelect={handleSelectInputToken}
           />
           {/* Retire Token  */}
           <DropdownWithModal
@@ -269,9 +358,7 @@ export const Offset = (props: Props) => {
             onToggleModal={() => {
               setRetireTokenModalOpen((s) => !s);
             }}
-            onItemSelect={(tkn) =>
-              setSelectedRetirementToken(tkn as RetirementToken)
-            }
+            onItemSelect={handleSelectRetirementToken}
           />
           <div className={styles.input}>
             <label>
