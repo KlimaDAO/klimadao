@@ -1,0 +1,28 @@
+@value bp-medium from "@klimadao/lib/theme/breakpoints.css";
+@value textButton from "@klimadao/lib/theme/common.module.css";
+
+.buyCard {
+  display: grid;
+  gap: 0.6rem;
+  width: 100%;
+  background-color: var(--dapp-bg);
+  border-radius: 1.2rem;
+  padding: 2.4rem;
+  padding-bottom: 15rem;
+}
+
+.buyCard_header {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 8rem;
+}
+
+
+
+
+@media bp-medium {
+  .buyCard {
+    padding: 3.2rem;
+    min-width: 40rem;
+  }
+}
