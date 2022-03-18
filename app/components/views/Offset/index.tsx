@@ -8,7 +8,6 @@ import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 import {
   selectNotificationStatus,
-  selectCarbonRetired,
   selectBalances,
   selectCarbonRetiredAllowance,
 } from "state/selectors";
@@ -33,13 +32,16 @@ import {
   getOffsetConsumptionCost,
   getRetiredOffsetBalances,
   getRetirementAllowances,
+  retireCarbonTransaction,
+} from "actions/offset";
+import { setCarbonRetiredAllowance, updateRetirement } from "state/user";
+import {
   InputToken,
   inputTokens,
-  retireCarbonTransaction,
+  offsetCompatibility,
   RetirementToken,
   retirementTokens,
-} from "actions/offset";
-import { setCarbonRetiredAllowance } from "state/user";
+} from "@klimadao/lib/constants";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -64,17 +66,6 @@ const tokenInfo: TokenInfoMap = {
   wsklima: { key: "wsklima", icon: KLIMA, label: "wsKLIMA" },
 };
 
-type CompatMap = { [token in InputToken]: RetirementToken[] };
-const compatibility: CompatMap = {
-  bct: ["bct", "nct"],
-  nct: ["bct", "nct"],
-  mco2: ["mco2"],
-  usdc: ["bct", "nct", "mco2"],
-  klima: ["bct", "mco2"],
-  sklima: ["bct", "mco2"],
-  wsklima: ["bct", "mco2"],
-};
-
 interface Props {
   provider: providers.JsonRpcProvider;
   address?: string;
@@ -86,7 +77,6 @@ interface Props {
 export const Offset = (props: Props) => {
   const dispatch = useAppDispatch();
   const balances = useSelector(selectBalances);
-  const totalCarbonRetired = useSelector(selectCarbonRetired);
   const allowances = useSelector(selectCarbonRetiredAllowance);
 
   // local state
@@ -134,9 +124,13 @@ export const Offset = (props: Props) => {
   // effects
   useEffect(() => {
     // if input token changes, force a compatible retirement token
-    if (!compatibility[selectedInputToken]?.includes(selectedRetirementToken)) {
+    if (
+      !offsetCompatibility[selectedInputToken]?.includes(
+        selectedRetirementToken
+      )
+    ) {
       // never undefined, because universal tokens
-      setSelectedRetirementToken(compatibility[selectedInputToken][0]);
+      setSelectedRetirementToken(offsetCompatibility[selectedInputToken][0]);
     }
   }, [selectedInputToken]);
 
@@ -186,15 +180,20 @@ export const Offset = (props: Props) => {
         retirementMessage,
         onStatus: setStatus,
       });
-      // decrement inputtoken by COST amount
-      // increment retirement token by QUANTITY
-      // dispatch(handleRetirement({
-      //  inputToken,
-      //  retirementToken,
-      //  cost,
-      //  quantity,
-      // }))
-      console.log("Retire succ");
+      dispatch(
+        updateRetirement({
+          inputToken: selectedInputToken,
+          retirementToken: selectedRetirementToken,
+          cost,
+          quantity,
+        })
+      );
+      setQuantity("0");
+      setDebouncedQuantity("0");
+      setCost("0");
+      setBeneficiary("0");
+      setBeneficiaryAddress("0");
+      setRetirementMessage("0");
     } catch (e) {
       return;
     }
@@ -306,7 +305,7 @@ export const Offset = (props: Props) => {
     .sort((a, b) => Number(b.description ?? 0) - Number(a.description ?? 0));
 
   const retirementTokenItems = retirementTokens.map((tkn) => {
-    const disabled = !compatibility[selectedInputToken]?.includes(tkn);
+    const disabled = !offsetCompatibility[selectedInputToken]?.includes(tkn);
     return {
       ...tokenInfo[tkn],
       disabled,
@@ -481,8 +480,8 @@ export const Offset = (props: Props) => {
           </div>
         </div>
       </div>
-      <CarbonTonnesRetiredCard totalCarbonRetired={totalCarbonRetired} />
-      <CarbonTonnesBreakdownCard totalCarbonRetired={totalCarbonRetired} />
+      <CarbonTonnesRetiredCard />
+      <CarbonTonnesBreakdownCard />
     </>
   );
 };

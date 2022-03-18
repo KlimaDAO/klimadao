@@ -5,19 +5,17 @@ import { Trans } from "@lingui/macro";
 import CloudOutlined from "@mui/icons-material/CloudOutlined";
 
 import { Text } from "@klimadao/lib/components";
-import { TotalCarbonRetired } from "components/views/Offset/types";
 
 import BCT from "public/icons/BCT.png";
 import MCO2 from "public/icons/MCO2.png";
 import NCT from "public/icons/NCT.png";
 
 import * as styles from "./styles";
+import { useSelector } from "react-redux";
+import { selectCarbonRetired } from "state/selectors";
 
-interface Props {
-  totalCarbonRetired?: TotalCarbonRetired;
-}
-
-export const CarbonTonnesBreakdownCard: FC<Props> = (props) => {
+export const CarbonTonnesBreakdownCard: FC = () => {
+  const totalCarbonRetired = useSelector(selectCarbonRetired);
   return (
     <div className={styles.card}>
       <div className="header">
@@ -36,9 +34,7 @@ export const CarbonTonnesBreakdownCard: FC<Props> = (props) => {
               <Image src={BCT} width={64} height={64} alt="BCT" />
             </div>
             <div className="content">
-              <Text className="value">
-                {props.totalCarbonRetired?.totalBCTRetired ?? 0}
-              </Text>
+              <Text className="value">{totalCarbonRetired?.bct || 0}</Text>
               <Text className="label" color="lightest">
                 BCT
               </Text>
@@ -52,9 +48,7 @@ export const CarbonTonnesBreakdownCard: FC<Props> = (props) => {
               <Image src={NCT} width={64} height={64} alt="NCT" />
             </div>
             <div className="content">
-              <Text className="value">
-                {props.totalCarbonRetired?.totalNCTRetired ?? 0}
-              </Text>
+              <Text className="value">{totalCarbonRetired?.nct || 0}</Text>
               <Text className="label" color="lightest">
                 NCT
               </Text>
@@ -68,9 +62,7 @@ export const CarbonTonnesBreakdownCard: FC<Props> = (props) => {
               <Image src={MCO2} width={64} height={64} alt="MCO2" />
             </div>
             <div className="content">
-              <Text className="value">
-                {props.totalCarbonRetired?.totalMCO2Retired ?? 0}
-              </Text>
+              <Text className="value">{totalCarbonRetired?.mco2 || 0}</Text>
               <Text className="label" color="lightest">
                 MCO2
               </Text>

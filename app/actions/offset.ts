@@ -8,23 +8,14 @@ import {
 import OffsetConsumption from "@klimadao/lib/abi/OffsetConsumption.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import RetirementStorage from "@klimadao/lib/abi/RetirementStorage.json";
-import { addresses } from "@klimadao/lib/constants";
+import {
+  addresses,
+  InputToken,
+  inputTokens,
+  RetirementToken,
+} from "@klimadao/lib/constants";
 import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
-
-export const inputTokens = [
-  "bct",
-  "nct",
-  "mco2",
-  "usdc",
-  "klima",
-  "sklima",
-  "wsklima",
-] as const;
-export type InputToken = typeof inputTokens[number];
-
-export const retirementTokens = ["bct", "nct", "mco2"] as const;
-export type RetirementToken = typeof retirementTokens[number];
 
 export const getRetiredOffsetBalances = (params: {
   provider: providers.JsonRpcProvider;
@@ -41,33 +32,30 @@ export const getRetiredOffsetBalances = (params: {
       // @return Int tuple. Total retirements, total tons retired, total tons claimed for NFTs.
       const [totalRetirements, totalTonnesRetired, totalTonnesClaimedForNFTS] =
         await retirementStorageContract.getRetirementTotals(params.address);
-      const totalBCTRetired =
-        await retirementStorageContract.getRetirementPoolInfo(
-          params.address,
-          addresses["mainnet"].bct
-        );
-      const totalMCO2Retired =
-        await retirementStorageContract.getRetirementPoolInfo(
-          params.address,
-          addresses["mainnet"].mco2
-        );
-      const totalNCTRetired =
-        await retirementStorageContract.getRetirementPoolInfo(
-          params.address,
-          addresses["mainnet"].nct
-        );
+      const bct = await retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].bct
+      );
+      const mco2 = await retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].mco2
+      );
+      const nct = await retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].nct
+      );
       dispatch(
         setCarbonRetiredBalances({
           totalTonnesRetired: formatUnits(totalTonnesRetired, 18),
           totalRetirements: formatUnits(totalRetirements, 18),
           totalTonnesClaimedForNFTS: formatUnits(totalTonnesClaimedForNFTS, 18),
-          totalBCTRetired: formatUnits(totalBCTRetired, 18),
-          totalMCO2Retired: formatUnits(totalMCO2Retired, 18),
-          totalNCTRetired: formatUnits(totalNCTRetired, 18),
+          bct: formatUnits(bct, 18),
+          mco2: formatUnits(mco2, 18),
+          nct: formatUnits(nct, 18),
         })
       );
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
     }
   };
 };
@@ -109,7 +97,7 @@ export const getRetirementAllowances = (params: {
       }, {} as Allowances);
       dispatch(setCarbonRetiredAllowance(allowances));
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       throw error;
     }
   };
@@ -209,7 +197,6 @@ export const retireCarbonTransaction = async (params: {
     );
     params.onStatus("networkConfirmation");
     await txn.wait(1);
-    console.log("succ", txn);
     params.onStatus("done", "Transaction confirmed");
   } catch (e: any) {
     if (e.code === 4001) {

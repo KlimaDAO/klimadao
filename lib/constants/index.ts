@@ -150,3 +150,30 @@ export const API_BASE_URL = "https://www.klimadao.finance/api";
 /** CMS stuff  */
 export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
 export const SANITY_STUDIO_API_DATASET = "production";
+
+/** Tokens accepted as input for the offset aggregator /#/offset */
+export const inputTokens = [
+  "bct",
+  "nct",
+  "mco2",
+  "usdc",
+  "klima",
+  "sklima",
+  "wsklima",
+] as const;
+export type InputToken = typeof inputTokens[number];
+
+/** Retireable tokens for the offset aggregator /#/offset */
+export const retirementTokens = ["bct", "nct", "mco2"] as const;
+export type RetirementToken = typeof retirementTokens[number];
+
+type CompatMap = { [token in InputToken]: RetirementToken[] };
+export const offsetCompatibility: CompatMap = {
+  bct: ["bct", "nct"],
+  nct: ["bct", "nct"],
+  mco2: ["mco2"],
+  usdc: ["bct", "nct", "mco2"],
+  klima: ["bct", "mco2"],
+  sklima: ["bct", "mco2"],
+  wsklima: ["bct", "mco2"],
+};

@@ -28,7 +28,7 @@ export async function getBlockRate(): Promise<number> {
       return blockRateSeconds;
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 
   return fallbackBlockRate;

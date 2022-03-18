@@ -4,15 +4,13 @@ import { Trans } from "@lingui/macro";
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 
 import { Text } from "@klimadao/lib/components";
-import { TotalCarbonRetired } from "components/views/Offset/types";
 
 import * as styles from "./styles";
+import { useSelector } from "react-redux";
+import { selectCarbonRetired } from "state/selectors";
 
-interface Props {
-  totalCarbonRetired?: TotalCarbonRetired;
-}
-
-export const CarbonTonnesRetiredCard: FC<Props> = (props) => {
+export const CarbonTonnesRetiredCard: FC = () => {
+  const totalCarbonRetired = useSelector(selectCarbonRetired);
   return (
     <div className={styles.card}>
       <div className="header">
@@ -24,7 +22,7 @@ export const CarbonTonnesRetiredCard: FC<Props> = (props) => {
       <div className="cardContent">
         <div className="stack">
           <Text className="value">
-            {props.totalCarbonRetired?.totalTonnesRetired ?? 0}
+            {totalCarbonRetired?.totalTonnesRetired ?? "0"}
           </Text>
           <Text className="label" color="lightest">
             <Trans id="offset.tonnes_of_carbon_retired">

@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
-import { Bond } from "@klimadao/lib/constants";
+import { Bond, InputToken, RetirementToken } from "@klimadao/lib/constants";
+
 export interface UserState {
   balance?: {
     klima: string;
@@ -53,9 +54,9 @@ export interface UserState {
     totalTonnesRetired: string;
     totalRetirements: string;
     totalTonnesClaimedForNFTS: string;
-    totalBCTRetired: string;
-    totalMCO2Retired: string;
-    totalNCTRetired: string;
+    bct: string;
+    mco2: string;
+    nct: string;
   };
 }
 
@@ -127,6 +128,33 @@ export const userSlice = createSlice({
         ...s.carbonRetired!,
         ...a.payload,
       };
+    },
+    updateRetirement: (
+      s,
+      a: PayloadAction<{
+        inputToken: InputToken;
+        retirementToken: RetirementToken;
+        cost: string;
+        quantity: string;
+      }>
+    ) => {
+      if (!s.balance || !s.carbonRetired) return s;
+      s.balance[a.payload.inputToken] = safeSub(
+        s.balance[a.payload.inputToken],
+        a.payload.cost
+      );
+      s.carbonRetired[a.payload.retirementToken] = safeAdd(
+        s.carbonRetired[a.payload.retirementToken],
+        a.payload.quantity
+      );
+      s.carbonRetired.totalRetirements = safeAdd(
+        s.carbonRetired.totalRetirements,
+        "1"
+      );
+      s.carbonRetired.totalTonnesRetired = safeAdd(
+        s.carbonRetired.totalTonnesRetired,
+        a.payload.quantity
+      );
     },
     incrementStake: (s, a: PayloadAction<string>) => {
       if (!s.balance) return s; // type-guard, should never happen
@@ -200,6 +228,7 @@ export const {
   setWrapAllowance,
   setCarbonRetiredBalances,
   setCarbonRetiredAllowance,
+  updateRetirement,
   incrementStake,
   decrementStake,
   incrementWrap,
