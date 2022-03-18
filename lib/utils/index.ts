@@ -1,7 +1,6 @@
 export { getInteger } from "./getInteger";
 export { getKlimaSupply } from "./getKlimaSupply";
 export { getKlimaUsdcPrice } from "./getKlimaUsdcPrice";
-export { getOffsetConsumptionCost } from "./getOffsetConsumptionCost";
 export { getJsonRpcProvider } from "./getJsonRpcProvider";
 export { getTreasuryBalance } from "./getTreasuryBalance";
 export { getStakingRewards } from "./getStakingRewards";

@@ -5,6 +5,7 @@ import {
   setCarbonRetiredBalances,
 } from "state/user";
 
+import OffsetConsumption from "@klimadao/lib/abi/OffsetConsumption.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import RetirementStorage from "@klimadao/lib/abi/RetirementStorage.json";
 import { addresses } from "@klimadao/lib/constants";
@@ -102,8 +103,7 @@ export const getRetirementAllowances = (params: {
       // reduce and format each with appropriate decimals
       const allowances = inputTokens.reduce<Allowances>((obj, tkn, index) => {
         const val = res[index];
-        const decimals =
-          tkn === "klima" || tkn === "sklima" ? 9 : tkn === "usdc" ? 6 : 18;
+        const decimals = getTokenDecimals(tkn);
         obj[tkn] = formatUnits(val, decimals);
         return obj;
       }, {} as Allowances);
@@ -133,7 +133,6 @@ export const changeApprovalTransaction = async (params: {
       addresses["mainnet"].offsetConsumption,
       value.toString()
     );
-    console.log("got txn", txn, params.token);
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
@@ -144,6 +143,81 @@ export const changeApprovalTransaction = async (params: {
       throw error;
     }
     params.onStatus("error");
+    console.error(error);
     throw error;
+  }
+};
+
+export const getOffsetConsumptionCost = async (params: {
+  provider: providers.JsonRpcProvider;
+  inputToken: InputToken;
+  retirementToken: RetirementToken;
+  quantity: string;
+  amountInCarbon: boolean;
+}): Promise<[string, string]> => {
+  const offsetConsumptionContract = new ethers.Contract(
+    addresses["mainnet"].offsetConsumption,
+    OffsetConsumption.abi,
+    params.provider
+  );
+  const parsed = ethers.utils.parseUnits(
+    params.quantity,
+    getTokenDecimals(params.retirementToken)
+  );
+  const sourceAmount = await offsetConsumptionContract.getSourceAmount(
+    addresses["mainnet"][params.inputToken],
+    addresses["mainnet"][params.retirementToken],
+    parsed,
+    params.amountInCarbon // amountInCarbon: bool
+  );
+  return [
+    formatUnits(sourceAmount[0], getTokenDecimals(params.inputToken)),
+    formatUnits(sourceAmount[1], getTokenDecimals(params.retirementToken)),
+  ];
+};
+
+export const retireCarbonTransaction = async (params: {
+  address: string;
+  provider: providers.JsonRpcProvider;
+  inputToken: InputToken;
+  retirementToken: RetirementToken;
+  quantity: string;
+  amountInCarbon: boolean;
+  beneficiaryAddress: string;
+  beneficiaryName: string;
+  retirementMessage: string;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const retireContract = new ethers.Contract(
+      addresses["mainnet"].offsetConsumption,
+      OffsetConsumption.abi,
+      params.provider.getSigner()
+    );
+    params.onStatus("userConfirmation");
+    const txn = await retireContract.retireCarbon(
+      addresses["mainnet"][params.inputToken],
+      addresses["mainnet"][params.retirementToken],
+      ethers.utils.parseUnits(
+        params.quantity,
+        getTokenDecimals(params.retirementToken)
+      ),
+      params.amountInCarbon,
+      params.beneficiaryAddress || params.address,
+      params.beneficiaryName,
+      params.retirementMessage
+    );
+    params.onStatus("networkConfirmation");
+    await txn.wait(1);
+    console.log("succ", txn);
+    params.onStatus("done", "Transaction confirmed");
+  } catch (e: any) {
+    if (e.code === 4001) {
+      params.onStatus("error", "userRejected");
+      throw e;
+    }
+    params.onStatus("error");
+    console.error(e);
+    throw e;
   }
 };

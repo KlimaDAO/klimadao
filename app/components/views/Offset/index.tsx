@@ -13,8 +13,6 @@ import {
   selectCarbonRetiredAllowance,
 } from "state/selectors";
 
-import { getOffsetConsumptionCost } from "@klimadao/lib/utils";
-import { addresses } from "@klimadao/lib/constants";
 import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
 
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
@@ -32,14 +30,16 @@ import * as styles from "./styles";
 import { useAppDispatch } from "state";
 import {
   changeApprovalTransaction,
+  getOffsetConsumptionCost,
   getRetiredOffsetBalances,
   getRetirementAllowances,
   InputToken,
   inputTokens,
+  retireCarbonTransaction,
   RetirementToken,
   retirementTokens,
 } from "actions/offset";
-import { setCarbonRetiredAllowance } from "state/user";
+import { setBalance, setCarbonRetiredAllowance } from "state/user";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -104,11 +104,9 @@ export const Offset = (props: Props) => {
   const [cost, setCost] = useState("");
   const [beneficiary, setBeneficiary] = useState("");
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
-  const [retirementAddress, setRetirementAddress] = useState("");
+  const [retirementMessage, setRetirementMessage] = useState("");
 
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
-  console.log("rerender", allowances);
-
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
@@ -149,36 +147,16 @@ export const Offset = (props: Props) => {
     }
     const awaitGetOffsetConsumptionCost = async () => {
       const [consumptionCost] = await getOffsetConsumptionCost({
-        inputTokenAddress: addresses["mainnet"][selectedInputToken],
-        poolTokenAddress: addresses["mainnet"][selectedRetirementToken],
-        curInputTokenAmount: debouncedQuantity,
-        currentCoin: selectedInputToken,
+        inputToken: selectedInputToken,
+        retirementToken: selectedRetirementToken,
+        quantity: debouncedQuantity,
         amountInCarbon: true,
+        provider: props.provider,
       });
       setCost(consumptionCost);
     };
     awaitGetOffsetConsumptionCost();
   }, [debouncedQuantity]);
-
-  // methods
-  // const handleClickMax = async () => {
-  //   if (!balances?.[selectedInputToken]) {
-  //     setQuantity("0");
-  //   } else if (selectedInputToken === selectedRetirementToken) {
-  //     // TODO: consider fee
-  //     setQuantity(balances?.[selectedInputToken]);
-  //   } else {
-  //     const [_cost, tonnesToRetire] = await getOffsetConsumptionCost({
-  //       inputTokenAddress: addresses["mainnet"][selectedInputToken],
-  //       poolTokenAddress: addresses["mainnet"][selectedRetirementToken],
-  //       curInputTokenAmount: balances?.[selectedInputToken],
-  //       currentCoin: selectedRetirementToken,
-  //       amountInCarbon: selectedInputToken === selectedRetirementToken,
-  //     });
-  //     console.log(tonnesToRetire);
-  //     setQuantity(tonnesToRetire);
-  //   }
-  // };
 
   const handleApprove = async () => {
     try {
@@ -193,18 +171,34 @@ export const Offset = (props: Props) => {
     }
   };
 
-  // const handleRetire = async () => {
-  //   try {
-  //     const value = await retireCarbonTransactions({
-  //       provider: props.provider,
-  //       token: selectedInputToken,
-  //       onStatus: setStatus,
-  //     });
-  //     dispatch(setCarbonRetiredAllowance({ [selectedInputToken]: value }));
-  //   } catch (e) {
-  //     return;
-  //   }
-  // };
+  const handleRetire = async () => {
+    try {
+      if (!props.isConnected || !props.address) return;
+      await retireCarbonTransaction({
+        address: props.address,
+        provider: props.provider,
+        inputToken: selectedInputToken,
+        retirementToken: selectedRetirementToken,
+        quantity,
+        amountInCarbon: true,
+        beneficiaryAddress,
+        beneficiaryName: beneficiary,
+        retirementMessage,
+        onStatus: setStatus,
+      });
+      // decrement inputtoken by COST amount
+      // increment retirement token by QUANTITY
+      // dispatch(handleRetirement({
+      //  inputToken,
+      //  retirementToken,
+      //  cost,
+      //  quantity,
+      // }))
+      console.log("Retire succ");
+    } catch (e) {
+      return;
+    }
+  };
 
   const insufficientBalance =
     props.isConnected &&
@@ -248,7 +242,7 @@ export const Offset = (props: Props) => {
     return {
       label: <Trans id="shared.retire">RETIRE CARBON</Trans>,
       onClick: () => {
-        console.log("retire");
+        handleRetire();
       },
       disabled: false,
     };
@@ -460,12 +454,12 @@ export const Offset = (props: Props) => {
               </Text>
             </label>
             <textarea
-              value={retirementAddress}
+              value={retirementMessage}
               onChange={(e) => {
                 if (e.target.value.length >= 280) {
                   return;
                 }
-                setRetirementAddress(e.target.value);
+                setRetirementMessage(e.target.value);
               }}
               placeholder={t({
                 id: "offset.describe_the_purpose_of_retirement",
