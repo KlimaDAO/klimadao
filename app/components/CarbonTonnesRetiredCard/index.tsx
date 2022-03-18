@@ -24,9 +24,7 @@ export const CarbonTonnesRetiredCard: FC<Props> = (props) => {
       <div className="cardContent">
         <div className="stack">
           <Text className="value">
-            {props.totalCarbonRetired?.totalTonnesRetired ?? (
-              <Trans id="shared.loading">Loading...</Trans>
-            )}
+            {props.totalCarbonRetired?.totalTonnesRetired ?? 0}
           </Text>
           <Text className="label" color="lightest">
             <Trans id="offset.tonnes_of_carbon_retired">

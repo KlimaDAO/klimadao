@@ -22,7 +22,7 @@ export const offsetCard = css`
     gap: 4.8rem;
     grid-template-rows: 1fr 1fr 1fr;
     align-items: start;
-    min-height: 78rem;
+    min-height: 98rem;
   }
 
   ${breakpoints.desktopLarge} {
@@ -39,6 +39,7 @@ export const offsetCard_ui = css`
   display: grid;
   gap: 2.4rem;
   ${breakpoints.medium} {
+    border: 2px solid var(--surface-03);
     padding: 2.4rem;
     border-radius: 1.2rem;
   }
@@ -46,6 +47,7 @@ export const offsetCard_ui = css`
     gap: 2.4rem;
     padding: 2.4rem;
     justify-self: center;
+    max-width: 48rem;
     width: 100%;
   }
   .mini_token_display_row {
@@ -86,6 +88,19 @@ export const input = css`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  textarea {
+    width: 100%;
+    background-color: var(--surface-02);
+    border-radius: 1rem;
+    border: 0.2rem solid var(--surface-03);
+    padding-inline-start: 2rem;
+    min-height: 2.4rem;
+    color: var(--font-01);
+    resize: none;
+    padding-top: 1rem;
+    overflow-y: hidden;
+    min-height: 16rem;
+  }
   input {
     width: 100%;
     background-color: var(--surface-02);

@@ -310,9 +310,10 @@ export const Offset = (props: Props) => {
           <div className="mini_token_display_row">
             <MiniTokenDisplay
               label="cost"
-              amount={cost === "loading" ? <Spinner /> : cost}
+              amount={cost}
               icon={tokenInfo[selectedInputToken].icon}
               name={selectedInputToken}
+              loading={cost === "loading"}
             />
             <ArrowRightAlt className="mini_token_display_icon" />
             <MiniTokenDisplay
@@ -365,9 +366,12 @@ export const Offset = (props: Props) => {
                 <Trans id="offset.retirement_message">RETIREMENT MESSAGE</Trans>
               </Text>
             </label>
-            <input
+            <textarea
               value={retirementAddress}
               onChange={(e) => {
+                if (e.target.value.length >= 280) {
+                  return;
+                }
                 setRetirementAddress(e.target.value);
               }}
               placeholder={t({

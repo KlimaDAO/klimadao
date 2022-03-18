@@ -1,15 +1,16 @@
-import { Text } from "@klimadao/lib/components";
-import Image from "next/image";
 import React, { FC } from "react";
+import Image from "next/image";
 
+import { Spinner, Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
 interface Props {
   label: string;
   icon: StaticImageData;
   name: string;
-  amount?: React.ReactNode;
+  amount?: string;
   labelAlignment?: "start" | "end";
+  loading?: boolean;
 }
 
 export const MiniTokenDisplay: FC<Props> = (props) => {
@@ -28,7 +29,11 @@ export const MiniTokenDisplay: FC<Props> = (props) => {
       </label>
       <div className={styles.card}>
         <Image src={props.icon} width={48} height={48} alt={props.name} />
-        <Text t="body3">{props.amount || "0"}</Text>
+        {props.loading ? (
+          <Spinner />
+        ) : (
+          <Text t="body3">{props.amount || "0"}</Text>
+        )}
       </div>
     </div>
   );
