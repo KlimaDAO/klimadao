@@ -1,6 +1,4 @@
 import { css } from "@emotion/css";
-import * as typography from "@klimadao/lib/theme/typography";
-import * as common from "@klimadao/lib/theme/common";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const buyCard = css`
