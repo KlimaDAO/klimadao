@@ -54,10 +54,17 @@ export const offsetCard_ui = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    ${breakpoints.small} {
+      flex-direction: row;
+    }
   }
   .mini_token_display_icon_container {
     display: flex;
-    margin-top: 2.4rem;
+    margin-top: 0;
+    ${breakpoints.small} {
+      margin-top: 2.4rem;
+    }
   }
   .mini_token_display_icon {
     width: 4.8rem;

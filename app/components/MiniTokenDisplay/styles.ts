@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
   display: grid;
@@ -6,9 +7,16 @@ export const container = css`
   gap: 0.5rem;
   .label {
     text-transform: uppercase;
+    justify-self: center;
+    ${breakpoints.small} {
+      justify-self: flex-start;
+    }
   }
   .label.alignEnd {
-    justify-self: flex-end;
+    justify-self: center;
+    ${breakpoints.small} {
+      justify-self: flex-end;
+    }
   }
   .value.warn {
     color: var(--warn);
