@@ -55,11 +55,13 @@ export const offsetCard_ui = css`
     justify-content: space-between;
     align-items: center;
   }
-  .mini_token_display_icon {
+  .mini_token_display_icon_container {
     display: flex;
+    margin-top: 2.4rem;
+  }
+  .mini_token_display_icon {
     width: 4.8rem;
     height: 4.8rem;
-    margin-top: 2.4rem;
     color: var(--font-01);
   }
 `;

@@ -12,7 +12,12 @@ import {
   selectCarbonRetiredAllowance,
 } from "state/selectors";
 
-import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
+import {
+  Text,
+  Spinner,
+  ButtonPrimary,
+  TextInfoTooltip,
+} from "@klimadao/lib/components";
 
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
@@ -401,7 +406,17 @@ export const Offset = (props: Props) => {
               loading={cost === "loading"}
               warn={insufficientBalance}
             />
-            <ArrowRightAlt className="mini_token_display_icon" />
+            <div className="mini_token_display_icon_container">
+              <TextInfoTooltip
+                content={
+                  <Trans id="offset_aggregation_fee_tooltip">
+                    This cost includes slippage and the aggregation fee of 1%.
+                  </Trans>
+                }
+              >
+                <ArrowRightAlt className="mini_token_display_icon" />
+              </TextInfoTooltip>
+            </div>
             <MiniTokenDisplay
               label="retiring"
               amount={quantity}

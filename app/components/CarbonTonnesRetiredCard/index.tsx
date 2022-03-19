@@ -3,11 +3,12 @@ import { FC } from "react";
 import { Trans } from "@lingui/macro";
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 
+import { useSelector } from "react-redux";
+import { selectCarbonRetired } from "state/selectors";
+
 import { Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
-import { useSelector } from "react-redux";
-import { selectCarbonRetired } from "state/selectors";
 
 export const CarbonTonnesRetiredCard: FC = () => {
   const totalCarbonRetired = useSelector(selectCarbonRetired);

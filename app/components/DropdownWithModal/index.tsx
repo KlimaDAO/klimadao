@@ -1,6 +1,8 @@
 import { FC } from "react";
 import Image from "next/image";
+
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import Close from "@mui/icons-material/Close";
 
 import { Text } from "@klimadao/lib/components";
 
@@ -74,32 +76,47 @@ interface ModalProps {
 
 const Modal = (props: ModalProps) => {
   return (
-    <div className={styles.modalBackground} onClick={props.onToggleModal}>
-      <div className="modal_container">
-        <div className="title">
-          <Text>{props.title}</Text>
-          <button>x</button>
+    <>
+      <div className={styles.modalBackground} onClick={props.onToggleModal} />
+      <div className={styles.modalContainer}>
+        <div className={styles.modalContent}>
+          <div className="title">
+            <Text>{props.title}</Text>
+            <button onClick={props.onToggleModal}>
+              <Close />
+            </button>
+          </div>
+          {props.items.map((item) => (
+            <button
+              onClick={() => {
+                props.onItemSelect(item.key);
+                props.onToggleModal();
+              }}
+              key={item.label}
+              className="select_button"
+              data-active={
+                item.label === props.currentItem.label && !item.disabled
+              }
+              disabled={item.disabled}
+            >
+              <div className="start_content">
+                <Image
+                  alt={item.label}
+                  src={item.icon}
+                  width={48}
+                  height={48}
+                />
+                <Text t="body2">{item.label}</Text>
+              </div>
+              {item.description && (
+                <Text t="caption" color="lightest">
+                  {item.description}
+                </Text>
+              )}
+            </button>
+          ))}
         </div>
-        {props.items.map((item) => (
-          <button
-            onClick={() => props.onItemSelect(item.key)}
-            key={item.label}
-            className="select_button"
-            data-active={item.label === props.currentItem.label}
-            disabled={item.disabled}
-          >
-            <div className="start_content">
-              <Image alt={item.label} src={item.icon} width={48} height={48} />
-              <Text t="body2">{item.label}</Text>
-            </div>
-            {item.description && (
-              <Text t="caption" color="lightest">
-                {item.description}
-              </Text>
-            )}
-          </button>
-        ))}
       </div>
-    </div>
+    </>
   );
 };

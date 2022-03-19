@@ -31,7 +31,7 @@ export const CarbonTonnesBreakdownCard: FC = () => {
           </Text>
           <div className={styles.row}>
             <div className="image">
-              <Image src={BCT} width={64} height={64} alt="BCT" />
+              <Image src={BCT} width={48} height={48} alt="BCT" />
             </div>
             <div className="content">
               <Text className="value">{totalCarbonRetired?.bct || 0}</Text>
@@ -45,7 +45,7 @@ export const CarbonTonnesBreakdownCard: FC = () => {
           </Text>
           <div className={styles.row}>
             <div className="image">
-              <Image src={NCT} width={64} height={64} alt="NCT" />
+              <Image src={NCT} width={48} height={48} alt="NCT" />
             </div>
             <div className="content">
               <Text className="value">{totalCarbonRetired?.nct || 0}</Text>
@@ -59,7 +59,7 @@ export const CarbonTonnesBreakdownCard: FC = () => {
           </Text>
           <div className={styles.row}>
             <div className="image">
-              <Image src={MCO2} width={64} height={64} alt="MCO2" />
+              <Image src={MCO2} width={48} height={48} alt="MCO2" />
             </div>
             <div className="content">
               <Text className="value">{totalCarbonRetired?.mco2 || 0}</Text>

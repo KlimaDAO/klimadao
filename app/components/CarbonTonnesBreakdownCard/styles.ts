@@ -69,7 +69,7 @@ export const row = css`
     margin-bottom: 0;
   }
   .image {
-    max-height: 6.4rem;
-    max-width: 6.4rem;
+    min-height: 4.8rem;
+    min-width: 4.8rem;
   }
 `;

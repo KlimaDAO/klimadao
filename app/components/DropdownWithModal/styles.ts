@@ -1,5 +1,7 @@
 import { css } from "@emotion/css";
 
+import breakpoints from "@klimadao/lib/theme/breakpoints";
+
 export const container = css`
   display: flex;
   flex-direction: column;
@@ -28,54 +30,67 @@ export const container = css`
 `;
 
 export const modalBackground = css`
-  z-index: 9999 !important;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 3;
   top: 0;
   left: 0;
-  .modal_container {
+  background-color: rgba(0, 0, 0, 0.7);
+`;
+export const modalContainer = css`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const modalContent = css`
+  ${breakpoints.medium} {
     width: 50rem;
-    height: fit-content;
-    border-radius: 1.2rem;
-    background-color: var(--surface-01);
+  }
+  pointer-events: fill;
+  width: 80%;
+  position: fixed;
+  height: fit-content;
+  border-radius: 1.2rem;
+  background-color: var(--surface-01);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem;
+  animation: enter 200ms ease-in-out;
+  animation-fill-mode: forwards;
+  .title {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2.5rem;
-    animation: enter 200ms ease-in-out;
-    animation-fill-mode: forwards;
-
-    .title {
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    button {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      width: 100%;
-      button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 3.2rem;
-        height: 3.2rem;
-        padding: 1rem;
-        border-radius: 0.4rem;
-        background-color: var(--surface-02);
-      }
+      width: 4.8rem;
+      height: 4.8rem;
+      padding: 1rem;
+      border-radius: 0.4rem;
+      background-color: var(--surface-02);
     }
-    .select_button[data-active="true"] {
-      background-color: var(--surface-03);
+  }
+  .select_button[data-active="true"] {
+    background-color: var(--surface-03);
+  }
+  .select_button {
+    &:disabled {
+      opacity: 50%;
     }
-    .select_button {
-      &:disabled {
-        opacity: 50%;
-      }
-      &:disabled:hover {
-        background-color: inherit;
-      }
+    &:disabled:hover {
+      background-color: inherit;
     }
   }
   @keyframes enter {

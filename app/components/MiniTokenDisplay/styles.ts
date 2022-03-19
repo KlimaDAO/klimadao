@@ -24,4 +24,7 @@ export const card = css`
   min-height: 4.8rem;
   border-radius: 1rem;
   padding: 0.4rem 1.6rem 0.4rem 0.4rem;
+  .image {
+    min-width: 4.8rem;
+  }
 `;
