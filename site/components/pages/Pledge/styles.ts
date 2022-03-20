@@ -4,7 +4,9 @@ import * as common from "@klimadao/lib/theme/common";
 
 export const container = css`
   grid-column: full;
+  height: 100vh;
   display: grid;
+  align-content: start;
   grid-template-columns: inherit;
   padding: 4rem 0;
   background-color: var(--surface-01);
@@ -25,7 +27,7 @@ export const header = css`
 `
 
 export const logo = css`
-  max-width: 28rem;
+  max-width: 26rem;
 `
 
 export const cardHeader = css`
@@ -49,7 +51,7 @@ export const card = css`
   flex-direction: column;
   align-content: start;
 
-  height: 200px;
+  height: 200px; // temp
 `;
 
 export const icon = css`

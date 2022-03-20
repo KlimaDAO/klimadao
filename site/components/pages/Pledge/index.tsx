@@ -1,11 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
-import Image from "next/image";
-import { Text } from "@klimadao/lib/components";
-
-import klimaInfinityBlackLogo from "public/logo-klima-infinity-black.png";
-import klimaInfinityWhiteLogo from "public/logo-klima-infinity-white.png";
+import { KlimaInfinityLogo, Text } from "@klimadao/lib/components";
 
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
@@ -40,7 +36,7 @@ export const Pledge: NextPage = () => {
       <div className={styles.contentContainer}>
         <div className={styles.header}>
           <div className={styles.logo}>
-            <Image alt="Klima Infinity logo" src={klimaInfinityWhiteLogo} />
+            <KlimaInfinityLogo />
           </div>
           <ThemeToggle />
         </div>
@@ -57,15 +53,6 @@ export const Pledge: NextPage = () => {
         </div>
 
         <div className={styles.column}>
-          <Card title="Pledge" icon={<MailOutlineIcon fontSize="large" />} />
-          <Card
-            title="Footprint"
-            icon={<LocalGasStationOutlinedIcon fontSize="large" />}
-          />
-          <Card
-            title="Methodology"
-            icon={<HowToRegOutlinedIcon fontSize="large" />}
-          />
           <Card title="Pledge" icon={<MailOutlineIcon fontSize="large" />} />
           <Card
             title="Footprint"
