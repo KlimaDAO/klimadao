@@ -4,7 +4,7 @@ import * as common from "@klimadao/lib/theme/common";
 
 export const container = css`
   grid-column: full;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   align-content: start;
   grid-template-columns: inherit;
