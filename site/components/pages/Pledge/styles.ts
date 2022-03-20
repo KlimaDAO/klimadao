@@ -30,36 +30,29 @@ export const logo = css`
   max-width: 26rem;
 `
 
-export const cardHeader = css`
-  display: flex;
-  flex-direction: row;
-  gap: 0.8rem;
-  align-items: center;
-
-  p {
-    text-transform: uppercase;
-  }
-
-  svg {
-    fill: var(--font-01);
-  }
-`
-
-export const card = css`
-  ${common.cardSurface}
-  display: flex;
-  flex-direction: column;
-  align-content: start;
-
-  height: 200px; // temp
-`;
-
 export const icon = css`
   background-color: var(--font-02);
 `;
 
 export const profile = css`
   grid-column: span 2;
+  display: grid;
+  gap: 1.6rem;
+  justify-items: center;
+  padding: 2rem 0;
+  
+  .companyLogo {
+    display: grid;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--surface-02);
+  }
+
+  p {
+    text-transform: uppercase;
+  }
 `;
 
 export const pledgeChart = css`

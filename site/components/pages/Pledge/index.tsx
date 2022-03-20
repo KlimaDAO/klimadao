@@ -1,7 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
-import { KlimaInfinityLogo } from "@klimadao/lib/components";
+import { KlimaInfinityLogo, Text } from "@klimadao/lib/components";
 
 import {
   ActiveAssetsCard,
@@ -28,7 +28,12 @@ export const Pledge: NextPage = () => {
           <ThemeToggle />
         </div>
 
-        <div className={styles.profile}></div>
+        <div className={styles.profile}>
+          <Text t="h3" className="companyLogo" align="center">
+            -
+          </Text>
+          <Text t="h4">Company name</Text>
+        </div>
 
         <div className={styles.pledgeChart}>
           <AssetsOverTimeCard />
