@@ -1,6 +1,5 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
-import * as common from "@klimadao/lib/theme/common";
 
 export const container = css`
   grid-column: full;
@@ -48,6 +47,7 @@ export const profile = css`
     height: 80px;
     border-radius: 50%;
     background-color: var(--surface-02);
+    transition: background-color 0.25s ease-in-out;
   }
 
   p {
