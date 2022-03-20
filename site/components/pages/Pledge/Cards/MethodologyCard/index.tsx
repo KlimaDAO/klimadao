@@ -1,13 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
 import { Text } from "@klimadao/lib/components";
 
 import { BaseCard } from "../BaseCard";
 // import * as styles from "./styles";
 
-type Props = {};
+// type Props = {};
 
-export const MethodologyCard: React.FC<Props> = (props) => (
+export const MethodologyCard: FC = () => (
   <BaseCard
     title="Methodology"
     icon={<HowToRegOutlinedIcon fontSize="large" />}

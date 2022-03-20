@@ -1,13 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { Text } from "@klimadao/lib/components";
 
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 
-type Props = {};
+// type Props = {};
 
-export const RetiredAssetsCard: React.FC<Props> = (props) => (
+export const RetiredAssetsCard: FC = () => (
   <BaseCard
     title="Retired Assets"
     icon={<LocalFireDepartmentIcon fontSize="large" />}

@@ -14,7 +14,7 @@ export const cardHeader = css`
   svg {
     fill: var(--font-01);
   }
-`
+`;
 
 export const card = css`
   ${common.cardSurface}

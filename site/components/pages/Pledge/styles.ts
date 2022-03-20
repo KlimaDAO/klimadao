@@ -23,11 +23,11 @@ export const header = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 export const logo = css`
   max-width: 26rem;
-`
+`;
 
 export const icon = css`
   background-color: var(--font-02);
@@ -39,7 +39,7 @@ export const profile = css`
   gap: 1.6rem;
   justify-items: center;
   padding: 2rem 0;
-  
+
   .companyLogo {
     display: grid;
     align-items: center;
@@ -66,6 +66,6 @@ export const column = css`
   align-content: start;
 
   ${breakpoints.desktop} {
-    grid-column: span 1;  
+    grid-column: span 1;
   }
 `;

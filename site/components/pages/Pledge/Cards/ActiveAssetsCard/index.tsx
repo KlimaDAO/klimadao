@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import { Text } from "@klimadao/lib/components";
@@ -10,9 +10,9 @@ import MCO2Icon from "public/icon-mco2.png";
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 
-type Props = {};
+// type Props = {};
 
-export const ActiveAssetsCard: React.FC<Props> = (props) => (
+export const ActiveAssetsCard: FC = () => (
   <BaseCard title="Carbon Assets" icon={<CloudQueueIcon fontSize="large" />}>
     <div className={styles.tokenRow}>
       <Image height={48} width={48} src={KlimaIcon} alt="Klima" />
