@@ -12,3 +12,10 @@ export const tokenHoldings = css`
   flex-direction: column;
   gap: 0.3rem;
 `
+
+export const divider = css`
+  height: 0.15rem;
+  width: 100%;
+  opacity: 0.3;
+  background-color: var(--font-03);
+`

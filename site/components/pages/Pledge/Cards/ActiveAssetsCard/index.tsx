@@ -29,7 +29,7 @@ export const ActiveAssetsCard: React.FC<Props> = (props) => (
       </div>
     </div>
 
-    <hr />
+    <div className={styles.divider} />
 
     <div className={styles.tokenRow}>
       <Image height={48} width={48} src={MCO2Icon} alt="MCO2" />
@@ -46,7 +46,7 @@ export const ActiveAssetsCard: React.FC<Props> = (props) => (
       </div>
     </div>
 
-    <hr />
+    <div className={styles.divider} />
 
     <div className={styles.tokenRow}>
       <Image height={48} width={48} src={BCTIcon} alt="BCT" />
