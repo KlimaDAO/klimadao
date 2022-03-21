@@ -8,7 +8,7 @@ export const KlimaInfinityLogo = (props: Props) => (
   <svg
     className={props.className}
     width="100%"
-    height="auto"
+    height="100%"
     viewBox="0 0 881 126"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
