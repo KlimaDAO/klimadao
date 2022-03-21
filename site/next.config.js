@@ -73,7 +73,7 @@ module.exports = {
     ];
   },
   i18n: {
-    locales: ["en", "fr", "pseudo"],
+    locales: ["en", "fr", "en-pseudo"],
     defaultLocale: "en",
   },
   images: {

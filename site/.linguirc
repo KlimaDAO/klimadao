@@ -2,13 +2,13 @@
   "locales": [
     "en",
     "fr",
-    "pseudo"
+    "en-pseudo"
   ],
   "sourceLocale": "en",
   "fallbackLocales": {
     "default": "en"
   },
-  "pseudoLocale": "pseudo",
+  "pseudoLocale": "en-pseudo",
   "catalogs": [
     {
       "path": "<rootDir>/locale/{locale}/messages",
