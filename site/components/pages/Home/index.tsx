@@ -178,7 +178,7 @@ export const Home: NextPage<Props> = (props) => {
             </Text>
             <Text t="body3">
               <Trans id="home.the_dao_sell_bonds" comment="Long sentence">
-                The DAO sells bonds and distributes profits to KLIMA holders.
+                The DAO sells bonds and distributes rewards to KLIMA holders.
                 Every bond we sell adds to an ever-growing green treasury, or
                 improves liquidity for key environmental assets. A win-win for
                 people and planet.

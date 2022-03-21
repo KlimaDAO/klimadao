@@ -587,22 +587,22 @@ msgid "shared.sold_out"
 msgstr "Épuisé"
 
 #: components/views/Stake/index.tsx:297
-msgid "stake.5_day_roi"
-msgstr "Retour sur investissement sur 5 jours"
+msgid "stake.5_day_rewards"
+msgstr "Taux de récompense sur 5 jours"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:300
-msgid "stake.5_day_roi.tooltip"
-msgstr "Retour sur investissement approximatif, y compris les intérêts composés, si vous laissez votre dépôt pendant 5 jours."
+msgid "stake.5_day_rewards.tooltip"
+msgstr "Taux de récompense de KLIMA approximatif, y compris les intérêts composés, si vous laissez votre dépôt pendant 5 jours."
 
 #: components/views/Stake/index.tsx:310
-msgid "stake.apy"
-msgstr "APY"
+msgid "stake.akr"
+msgstr "AKR"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:313
-msgid "stake.apy.tooltip"
-msgstr "Rendement annuel en pourcentage, y compris les intérêts composés, si le taux d'intérêt actuel reste inchangé pendant 12 mois (les taux peuvent être sujets à changement)"
+msgid "stake.akr.tooltip"
+msgstr "Taux de récompense de KLIMA annualisé en pourcentage, y compris les intérêts composés, si le taux de récompense actuel reste inchangé pendant 12 mois (les taux peuvent être sujets à changement)"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:216

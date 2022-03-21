@@ -137,7 +137,7 @@ export function ChooseBond() {
               comment="Long sentence"
             >
               The best way to buy KLIMA. Commit carbon to our treasury, and
-              receive KLIMA at a discount. All bonds have a mandatory 5-day
+              receive KLIMA at a discount. All bonds have a mandatory 5 day
               vesting period.
             </Trans>
           </Text>

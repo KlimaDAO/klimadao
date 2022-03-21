@@ -18,7 +18,7 @@ interface AppState {
   currentIndex: string | undefined;
   currentBlock: number | undefined;
   fiveDayRate: number | undefined;
-  stakingAPY: number | undefined;
+  stakingAnnualPercent: number | undefined;
   stakingRebase: number | undefined;
   treasuryBalance: number | undefined;
   rebaseBlock: number | undefined;
@@ -31,7 +31,7 @@ const initialState: AppState = {
   currentIndex: undefined,
   currentBlock: undefined,
   fiveDayRate: undefined,
-  stakingAPY: undefined,
+  stakingAnnualPercent: undefined,
   stakingRebase: undefined,
   treasuryBalance: undefined,
   rebaseBlock: undefined,
