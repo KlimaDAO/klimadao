@@ -17,88 +17,8 @@ msgstr ""
 msgid "Articles"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:147
-msgid "BICOWG logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:140
-msgid "Blockchain for Climate Foundation logo"
-msgstr ""
-
 #: components/ChangeLanguageButton/index.tsx:59
 msgid "Change language"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:177
-msgid "Delta Wave logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:203
-msgid "Digital Charity Art logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:187
-msgid "Dovu logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:192
-msgid "Eco logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:182
-msgid "Etc Group logo"
-msgstr ""
-
-#: components/pages/Home/index.tsx:426
-msgid "GET KLIMA"
-msgstr ""
-
-#: components/Navigation/index.tsx:41
-msgid "Get KLIMA"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:162
-msgid "Gitcoin logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:129
-msgid "Moss logo"
-msgstr ""
-
-#: components/pages/Home/index.tsx:463
-msgid "Newsletter"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:157
-msgid "Oceandrop logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:197
-msgid "Offsetra logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:167
-msgid "OlympusDAO logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:172
-msgid "Open Earth logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:152
-msgid "Polygon logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:210
-msgid "Thought for Food logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:134
-msgid "Toucan logo"
-msgstr ""
-
-#: components/pages/Resources/Community/index.tsx:109
-msgid "Tree grove"
 msgstr ""
 
 #: components/pages/Blog/index.tsx:19
@@ -123,22 +43,54 @@ msgstr ""
 msgid "community.become_a_partner"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:239
+#: components/pages/Resources/Community/index.tsx:166
+msgid "community.bigcowg_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:155
+msgid "community.blockchainforclimatefondation_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:329
 msgid "community.come_on_in"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:106
-#: components/pages/Resources/Community/index.tsx:300
+#: components/pages/Resources/Community/index.tsx:390
 msgid "community.contact_us"
 msgstr ""
 
+#: components/pages/Resources/Community/index.tsx:232
+msgid "community.deltawave_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:284
+msgid "community.digitalcharityart_logo"
+msgstr ""
+
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:254
+#: components/pages/Resources/Community/index.tsx:344
 msgid "community.discord_is_where_we_share"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:287
+#: components/pages/Resources/Community/index.tsx:254
+msgid "community.dovu_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:262
+msgid "community.eco_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:243
+msgid "community.etcgroup_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:377
 msgid "community.get_in_touch"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:199
+msgid "community.gitcoin_logo"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:75
@@ -155,25 +107,61 @@ msgid "community.head.title"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:290
+#: components/pages/Resources/Community/index.tsx:380
 msgid "community.if_you_ve_got_questions"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:242
+#: components/pages/Resources/Community/index.tsx:332
 msgid "community.join_our_discord"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:229
+#: components/pages/Resources/Community/index.tsx:319
 msgid "community.join_the_klima_community"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:90
-#: components/pages/Resources/Community/index.tsx:284
+#: components/pages/Resources/Community/index.tsx:374
 msgid "community.lets_work_together"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:123
+#: components/pages/Resources/Community/index.tsx:133
+msgid "community.moss_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:188
+msgid "community.oceandrop_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:273
+msgid "community.offsetra_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:210
+msgid "community.olympusdao_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:221
+msgid "community.openearth_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:126
 msgid "community.our_partners"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:177
+msgid "community.polygon_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:144
+msgid "community.toucan_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:295
+msgid "community.toughtforfood_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:109
+msgid "community.tree_grove"
 msgstr ""
 
 #. Long sentence
@@ -394,6 +382,10 @@ msgstr ""
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr ""
 
+#: components/pages/Home/index.tsx:426
+msgid "home.get_klima"
+msgstr ""
+
 #: components/pages/Home/index.tsx:277
 msgid "home.hectares_of_forest"
 msgstr ""
@@ -443,6 +435,10 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:477
 msgid "home.newletter.sign_up"
+msgstr ""
+
+#: components/pages/Home/index.tsx:463
+msgid "home.newsletter"
 msgstr ""
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
@@ -500,6 +496,7 @@ msgstr ""
 msgid "mainNav.enter_app"
 msgstr ""
 
+#: components/Navigation/index.tsx:41
 #: components/Navigation/index.tsx:67
 msgid "mainNav.get_klima"
 msgstr ""

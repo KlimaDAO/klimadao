@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
-import { Bond } from "@klimadao/lib/constants";
+import { Bond, InputToken, RetirementToken } from "@klimadao/lib/constants";
+
 export interface UserState {
   balance?: {
     klima: string;
@@ -9,8 +10,11 @@ export interface UserState {
     wsklima: string;
     aklima: string;
     alklima: string;
-    bct: string;
     pklima: string;
+    bct: string;
+    mco2: string;
+    nct: string;
+    usdc: string;
   };
   pklimaTerms?: {
     claimed: string;
@@ -37,6 +41,23 @@ export interface UserState {
     sklima: string;
     // wsklima: string;
   };
+  carbonRetiredAllowance?: {
+    klima: string;
+    sklima: string;
+    wsklima: string;
+    bct: string;
+    mco2: string;
+    nct: string;
+    usdc: string;
+  };
+  carbonRetired?: {
+    totalTonnesRetired: string;
+    totalRetirements: string;
+    totalTonnesClaimedForNFTS: string;
+    bct: string;
+    mco2: string;
+    nct: string;
+  };
 }
 
 const initialState: UserState = {
@@ -45,6 +66,7 @@ const initialState: UserState = {
   exerciseAllowance: undefined,
   stakeAllowance: undefined,
   bondAllowance: undefined,
+  carbonRetired: undefined,
 };
 
 /** Helper type to reduce boilerplate */
@@ -94,6 +116,45 @@ export const userSlice = createSlice({
         ...s.wrapAllowance!,
         ...a.payload,
       };
+    },
+    setCarbonRetiredAllowance: (s, a: Setter<"carbonRetiredAllowance">) => {
+      s.carbonRetiredAllowance = {
+        ...s.carbonRetiredAllowance!,
+        ...a.payload,
+      };
+    },
+    setCarbonRetiredBalances: (s, a: Setter<"carbonRetired">) => {
+      s.carbonRetired = {
+        ...s.carbonRetired!,
+        ...a.payload,
+      };
+    },
+    updateRetirement: (
+      s,
+      a: PayloadAction<{
+        inputToken: InputToken;
+        retirementToken: RetirementToken;
+        cost: string;
+        quantity: string;
+      }>
+    ) => {
+      if (!s.balance || !s.carbonRetired) return s;
+      s.balance[a.payload.inputToken] = safeSub(
+        s.balance[a.payload.inputToken],
+        a.payload.cost
+      );
+      s.carbonRetired[a.payload.retirementToken] = safeAdd(
+        s.carbonRetired[a.payload.retirementToken],
+        a.payload.quantity
+      );
+      s.carbonRetired.totalRetirements = safeAdd(
+        s.carbonRetired.totalRetirements,
+        "1"
+      );
+      s.carbonRetired.totalTonnesRetired = safeAdd(
+        s.carbonRetired.totalTonnesRetired,
+        a.payload.quantity
+      );
     },
     incrementStake: (s, a: PayloadAction<string>) => {
       if (!s.balance) return s; // type-guard, should never happen
@@ -165,6 +226,9 @@ export const {
   setStakeAllowance,
   setBondAllowance,
   setWrapAllowance,
+  setCarbonRetiredBalances,
+  setCarbonRetiredAllowance,
+  updateRetirement,
   incrementStake,
   decrementStake,
   incrementWrap,

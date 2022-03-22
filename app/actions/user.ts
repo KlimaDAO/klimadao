@@ -26,6 +26,21 @@ export const loadAccountDetails = (params: {
         IERC20.abi,
         params.provider
       );
+      const nctContract = new ethers.Contract(
+        addresses["mainnet"].nct,
+        IERC20.abi,
+        params.provider
+      );
+      const mco2Contract = new ethers.Contract(
+        addresses["mainnet"].mco2,
+        IERC20.abi,
+        params.provider
+      );
+      const usdcContract = new ethers.Contract(
+        addresses["mainnet"].usdc,
+        IERC20.abi,
+        params.provider
+      );
       const klimaContract = new ethers.Contract(
         addresses["mainnet"].klima,
         IERC20.abi,
@@ -58,13 +73,19 @@ export const loadAccountDetails = (params: {
       );
 
       // balances
+      // CARBON
       const bctBalance = await bctContract.balanceOf(params.address);
+      const mco2Balance = await mco2Contract.balanceOf(params.address);
+      const nctBalance = await nctContract.balanceOf(params.address);
+      // KLIMA
       const klimaBalance = await klimaContract.balanceOf(params.address);
       const sklimaBalance = await sklimaContract.balanceOf(params.address);
       const wsklimaBalance = await wsklimaContract.balanceOf(params.address);
       const aklimaBalance = await aklimaContract.balanceOf(params.address);
       const alklimaBalance = await alklimaContract.balanceOf(params.address);
       const pklimaBalance = await pKlimaContract.balanceOf(params.address);
+      // USDC
+      const usdcBalance = await usdcContract.balanceOf(params.address);
 
       // allowances token.allowance(owner, spender)
       const stakeAllowance = await klimaContract.allowance(
@@ -95,7 +116,6 @@ export const loadAccountDetails = (params: {
         params.address,
         addresses["mainnet"].pklima_exercise
       );
-
       dispatch(
         setBalance({
           klima: formatUnits(klimaBalance, 9),
@@ -105,6 +125,9 @@ export const loadAccountDetails = (params: {
           pklima: formatUnits(pklimaBalance),
           alklima: formatUnits(alklimaBalance),
           bct: formatUnits(bctBalance),
+          nct: formatUnits(nctBalance),
+          mco2: formatUnits(mco2Balance),
+          usdc: formatUnits(usdcBalance, 6),
         })
       );
       dispatch(

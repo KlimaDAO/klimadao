@@ -18,6 +18,7 @@ import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
+import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import Payment from "@mui/icons-material/Payment";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 
@@ -157,19 +158,14 @@ export const NavMenu: FC<Props> = (props) => {
       >
         <Trans id="menu.info">Info</Trans>
       </MenuButton>
-      <div className="labelStack" title="Coming soon!">
-        <Text t="badge" color="lightest">
-          <Trans id="menu.coming_soon">COMING SOON</Trans>
-        </Text>
-        <MenuButton
-          isActive={pathname === "/offset"}
-          icon={<FlipOutlined />}
-          href="/offset"
-          disabled={true}
-        >
-          <Trans id="menu.offset">Offset</Trans>
-        </MenuButton>
-      </div>
+      <MenuButton
+        isActive={pathname === "/offset"}
+        icon={<ParkOutlined />}
+        href="/offset"
+        onClick={handleHide}
+      >
+        <Trans id="menu.offset">Offset</Trans>
+      </MenuButton>
       {!!Number(balances?.pklima) && (
         <div className="labelStack">
           <Text t="badge" color="lightest">

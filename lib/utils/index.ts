@@ -15,3 +15,4 @@ export { safeAdd } from "./safeAdd";
 export { safeSub } from "./safeSub";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { fetchBlockRate } from "./fetchBlockRate";
+export { getTokenDecimals } from "./getTokenDecimals";

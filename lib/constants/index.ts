@@ -1,6 +1,7 @@
 const mainnet = {
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
+  nct: "0xD838290e877E0188a4A44700463419ED96c16107",
   treasury: "0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7",
   distributor: "0x4cC7584C3f8FAABf734374ef129dF17c3517e9cB",
   klima: "0x4e78011ce80ee02d2c3e649fb657e45898257815",
@@ -12,6 +13,7 @@ const mainnet = {
   pklima_exercise: "0xE607d9604AA75D45A866831fc3E87eCAA8A654e7",
   sklima: "0xb0C22d8D350C67420f06F48936654f567C73E8C8",
   wsklima: "0x6f370dba99E32A3cAD959b341120DB3C9E280bA6",
+  usdc: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
   bctUsdcLp: "0x1e67124681b402064cd0abe8ed1b5c79d2e02f64",
   klimaUsdcLp: "0x5786b267d35F9D011c4750e0B0bA584E1fDbeAD1",
   klimaBctLp: "0x9803c7ae526049210a1725f7487af26fe2c24614",
@@ -27,11 +29,14 @@ const mainnet = {
   bond_calc_klimaUsdc: "0x8a92CC36cCC275374380460026ef365A4E01778C",
   staking: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
+  retirementStorage: "0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd",
+  offsetConsumption: "0xEde3bd57a04960E6469B70B4863cE1c9d9363Cb8",
 };
 
 const testnet: typeof mainnet = {
   bct: "0x8f8b7D5d12c1fC37f20a89Bf4Dfe1E787Da529B5",
   mco2: "",
+  nct: "",
   treasury: "",
   distributor: "0xd49869652B3F194F73eC29a6954bC5DE6baeA8b8",
   klima: "0x6b4499909fD8947A3bdEa5d524Fb3697018fC750",
@@ -43,6 +48,7 @@ const testnet: typeof mainnet = {
   pklima_exercise: "0xBCE4486256bb306BF49e43DfdaFBc0A6660e95F9",
   sklima: "0xDe0cD0D51b9981BaB50DB974a1877c1C01b86e91",
   wsklima: "",
+  usdc: "",
   bctUsdcLp: "0x1c08a37dfFc0f482B61E802781f2c29eD9316ba6",
   klimaUsdcLp: "",
   klimaBctLp: "0xb7225519550ED89C9B36c88d57d6059F698AaE97",
@@ -58,6 +64,8 @@ const testnet: typeof mainnet = {
   bond_calc_klimaUsdc: "",
   staking: "0x2960DCE5aE04eF503b36f8581EA5Ac5238632092",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
+  retirementStorage: "",
+  offsetConsumption: "",
 };
 
 export const addresses = {
@@ -142,3 +150,30 @@ export const API_BASE_URL = "https://www.klimadao.finance/api";
 /** CMS stuff  */
 export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
 export const SANITY_STUDIO_API_DATASET = "production";
+
+/** Tokens accepted as input for the offset aggregator /#/offset */
+export const inputTokens = [
+  "bct",
+  "nct",
+  "mco2",
+  "usdc",
+  "klima",
+  "sklima",
+  "wsklima",
+] as const;
+export type InputToken = typeof inputTokens[number];
+
+/** Retireable tokens for the offset aggregator /#/offset */
+export const retirementTokens = ["bct", "nct", "mco2"] as const;
+export type RetirementToken = typeof retirementTokens[number];
+
+type CompatMap = { [token in InputToken]: RetirementToken[] };
+export const offsetCompatibility: CompatMap = {
+  bct: ["bct", "nct"],
+  nct: ["bct", "nct"],
+  mco2: ["mco2"],
+  usdc: ["bct", "nct", "mco2"],
+  klima: ["bct", "mco2"],
+  sklima: ["bct", "mco2"],
+  wsklima: ["bct", "mco2"],
+};

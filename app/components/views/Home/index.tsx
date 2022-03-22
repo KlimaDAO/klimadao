@@ -17,6 +17,7 @@ import { Info } from "components/views/Info";
 import { ChooseBond } from "components/views/ChooseBond";
 import { Bond } from "components/views/Bond";
 import { Wrap } from "components/views/Wrap";
+import { Offset } from "components/views/Offset";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
@@ -338,6 +339,18 @@ export const Home: FC = () => {
                   provider={provider}
                   isConnected={isConnected}
                   loadWeb3Modal={loadWeb3Modal}
+                />
+              }
+            />
+            <Route
+              path="/offset"
+              element={
+                <Offset
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                  loadWeb3Modal={loadWeb3Modal}
+                  onRPCError={handleRPCError}
                 />
               }
             />
