@@ -291,7 +291,11 @@ export const Offset = (props: Props) => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
-    setQuantity(e.target.value);
+    if (Number(e.target.value) > 0 && Number(e.target.value) < 0.0001) {
+      setQuantity("0.0001");
+    } else {
+      setQuantity(e.target.value);
+    }
     if (e.target.value === "") {
       setDebouncedQuantity("");
       setCost("");
@@ -354,7 +358,7 @@ export const Offset = (props: Props) => {
               <A href="https://docs.klimadao.finance/references/glossary#mco2">
                 Moss Carbon Credits
               </A>
-              ,{" "}
+              (MCO2),{" "}
               <A href="https://docs.klimadao.finance/references/glossary#bct">
                 Base Carbon Tonnes
               </A>{" "}
@@ -402,7 +406,7 @@ export const Offset = (props: Props) => {
             <div className="number_input_container">
               <input
                 type="number"
-                min={0}
+                step={1}
                 max={balances?.[selectedInputToken]}
                 value={quantity}
                 onKeyDown={(e) => {

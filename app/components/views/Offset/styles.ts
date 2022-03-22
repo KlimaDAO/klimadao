@@ -72,11 +72,17 @@ export const offsetCard_ui = css`
     width: 4.8rem;
     height: 4.8rem;
     color: var(--font-01);
+    margin-top: 3.2rem;
   }
   .disclaimer {
     color: var(--font-01);
     display: flex;
     gap: 0.4rem;
+  }
+  .disclaimer svg {
+    color: yellow;
+    width: 3.2rem;
+    height: 3.2rem;
   }
 `;
 
