@@ -36,7 +36,7 @@ export const CarbonTonnesRetiredCard: FC = () => {
             {totalCarbonRetired?.totalRetirements ?? "0"}
           </Text>
           <Text className="label" color="lightest">
-            <Trans id="offset.tonnes_of_carbon_retired">
+            <Trans id="offset.number_of_retirements">
               Number of retirements
             </Trans>
           </Text>

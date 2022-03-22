@@ -196,8 +196,8 @@ export const retireCarbonTransaction = async (params: {
       params.retirementMessage
     );
     params.onStatus("networkConfirmation");
-    await txn.wait(1);
-    params.onStatus("done", "Transaction confirmed");
+    const receipt = await txn.wait(1);
+    return receipt;
   } catch (e: any) {
     if (e.code === 4001) {
       params.onStatus("error", "userRejected");

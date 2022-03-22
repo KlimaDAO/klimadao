@@ -7,6 +7,9 @@ import { Trans, t } from "@lingui/macro";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
+import CheckIcon from "@mui/icons-material/Check";
+import CloseIcon from "@mui/icons-material/Close";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
@@ -25,6 +28,7 @@ import {
 } from "actions/offset";
 
 import {
+  Anchor as A,
   Text,
   Spinner,
   ButtonPrimary,
@@ -104,6 +108,9 @@ export const Offset = (props: Props) => {
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
   const [retirementMessage, setRetirementMessage] = useState("");
 
+  const [retirementTransactionHash, setRetirementTransactionHash] =
+    useState("");
+
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
@@ -160,6 +167,16 @@ export const Offset = (props: Props) => {
     awaitGetOffsetConsumptionCost();
   }, [debouncedQuantity]);
 
+  const handleOnSuccessModalClose = () => {
+    setQuantity("0");
+    setDebouncedQuantity("0");
+    setCost("0");
+    setBeneficiary("");
+    setBeneficiaryAddress("");
+    setRetirementMessage("");
+    setRetirementTransactionHash("");
+  };
+
   const handleApprove = async () => {
     try {
       const value = await changeApprovalTransaction({
@@ -176,7 +193,7 @@ export const Offset = (props: Props) => {
   const handleRetire = async () => {
     try {
       if (!props.isConnected || !props.address) return;
-      await retireCarbonTransaction({
+      const receipt = await retireCarbonTransaction({
         address: props.address,
         provider: props.provider,
         inputToken: selectedInputToken,
@@ -196,12 +213,9 @@ export const Offset = (props: Props) => {
           quantity,
         })
       );
-      setQuantity("0");
-      setDebouncedQuantity("0");
-      setCost("0");
-      setBeneficiary("");
-      setBeneficiaryAddress("");
-      setRetirementMessage("");
+      setStatus(null);
+      // this opens RetirementSuccessModal
+      setRetirementTransactionHash(receipt.transactionHash);
     } catch (e) {
       return;
     }
@@ -334,9 +348,21 @@ export const Offset = (props: Props) => {
             <Trans id="offset.retire_carbon">Retire Carbon</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans id="offset.retire_carbon_description">
-              Retire carbon and claim the underlying environmental benefit of
-              the carbon offset.
+            <Trans id="offset.go_carbon_neutral">
+              Go carbon neutral by retiring carbon and claiming the underlying
+              environmental benefit of the carbon offset. Choose to retire{" "}
+              <A href="https://docs.klimadao.finance/references/glossary#mco2">
+                Moss Carbon Credits
+              </A>
+              ,{" "}
+              <A href="https://docs.klimadao.finance/references/glossary#bct">
+                Base Carbon Tonnes
+              </A>{" "}
+              (BCT), or{" "}
+              <A href="https://docs.klimadao.finance/references/glossary#nct">
+                Nature-based Carbon Tonnes
+              </A>{" "}
+              (NCT), with more coming soon.
             </Trans>
           </Text>
         </div>
@@ -494,6 +520,16 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
+          <div className="disclaimer">
+            <GppMaybeOutlined />
+            <Text t="caption">
+              <Trans id="offset_disclaimer">
+                Be careful not to expose any sensitive personal information. The
+                information you provide will be made a permanent, immutable
+                record on a public blockchain.
+              </Trans>
+            </Text>
+          </div>
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>
@@ -510,6 +546,89 @@ export const Offset = (props: Props) => {
       </div>
       <CarbonTonnesRetiredCard />
       <CarbonTonnesBreakdownCard />
+      {retirementTransactionHash && (
+        <RetirementSuccessModal
+          onSuccessModalClose={handleOnSuccessModalClose}
+          beneficiaryName={beneficiary}
+          beneficiaryAddress={beneficiaryAddress || props.address || ""}
+          message={retirementMessage}
+          quantityCarbonRetired={quantity}
+          retirementTransactionHash={retirementTransactionHash}
+        />
+      )}
     </>
+  );
+};
+
+interface RetirementSuccessModalProps {
+  onSuccessModalClose: () => void;
+  beneficiaryName: string;
+  beneficiaryAddress: string;
+  message: string;
+  quantityCarbonRetired: string;
+  retirementTransactionHash: string;
+}
+
+const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
+  return (
+    <div className={styles.retirementSuccessModal}>
+      <div className="card">
+        <button onClick={props.onSuccessModalClose} className="close-icon">
+          <CloseIcon />
+        </button>
+        <div className="content">
+          <div className="success">
+            <Text>
+              <Trans>Retirement Successful</Trans>
+            </Text>
+            <CheckIcon />
+          </div>
+          <div className="stack">
+            <Text t="badge">
+              <Trans>Name</Trans>
+            </Text>
+            <Text t="caption">{props.beneficiaryName}</Text>
+          </div>
+          <div className="stack">
+            <Text t="badge">
+              <Trans>Beneficiary Address</Trans>
+            </Text>
+            <Text t="caption" className="address">
+              {props.beneficiaryAddress}
+            </Text>
+          </div>
+          <div className="stack">
+            <Text t="badge">
+              <Trans>Message</Trans>
+            </Text>
+            <Text t="caption">{props.message}</Text>
+          </div>
+          <div className="stack">
+            <Text t="badge">
+              <Trans>Tonnes Retired</Trans>
+            </Text>
+            <Text t="caption">{props.quantityCarbonRetired}</Text>
+          </div>
+          <div className="stack">
+            <Text t="badge">
+              <Trans>Download certificate</Trans>
+            </Text>
+            <Text t="caption">
+              <Trans>[coming soon]</Trans>
+            </Text>
+          </div>
+          <Text t="caption">
+            <Trans>
+              View on{" "}
+              <A
+                href={`https://polygonscan.com/tx/${props.retirementTransactionHash}`}
+              >
+                polygonscan.com
+              </A>
+            </Trans>
+          </Text>
+        </div>
+      </div>
+    </div>
   );
 };
