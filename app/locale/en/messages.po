@@ -33,15 +33,20 @@ msgstr "Name"
 msgid "Retirement Successful"
 msgstr "Retirement Successful"
 
+#: components/views/Offset/index.tsx:622
+msgid "Share retirement"
+msgstr "Share retirement"
+
 #: components/views/Offset/index.tsx:608
 msgid "Tonnes Retired"
 msgstr "Tonnes Retired"
 
-#: components/views/Offset/index.tsx:621
+#: components/views/Offset/index.tsx:629
 msgid "View on <0>polygonscan.com</0>"
 msgstr "View on <0>polygonscan.com</0>"
 
 #: components/views/Offset/index.tsx:617
+#: components/views/Offset/index.tsx:625
 msgid "[coming soon]"
 msgstr "[coming soon]"
 

@@ -617,6 +617,14 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
               <Trans>[coming soon]</Trans>
             </Text>
           </div>
+          <div className="stack">
+            <Text t="badge">
+              <Trans>Share retirement</Trans>
+            </Text>
+            <Text t="caption">
+              <Trans>[coming soon]</Trans>
+            </Text>
+          </div>
           <Text t="caption">
             <Trans>
               View on{" "}
