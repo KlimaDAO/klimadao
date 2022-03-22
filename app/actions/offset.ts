@@ -47,7 +47,7 @@ export const getRetiredOffsetBalances = (params: {
       dispatch(
         setCarbonRetiredBalances({
           totalTonnesRetired: formatUnits(totalTonnesRetired, 18),
-          totalRetirements: formatUnits(totalRetirements, 18),
+          totalRetirements: totalRetirements.toString(),
           totalTonnesClaimedForNFTS: formatUnits(totalTonnesClaimedForNFTS, 18),
           bct: formatUnits(bct, 18),
           mco2: formatUnits(mco2, 18),
