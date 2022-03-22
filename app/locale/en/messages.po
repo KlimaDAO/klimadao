@@ -389,7 +389,7 @@ msgstr "How many carbon tonnes would you like to retire?"
 msgid "offset.incompatible"
 msgstr "INPUT TOKEN INCOMPATIBLE"
 
-#: components/CarbonTonnesRetiredCard/index.tsx:39
+#: components/CarbonTonnesRetiredCard/index.tsx:37
 msgid "offset.number_of_retirements"
 msgstr "Number of retirements"
 

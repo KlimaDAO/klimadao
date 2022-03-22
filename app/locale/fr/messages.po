@@ -389,7 +389,7 @@ msgstr ""
 msgid "offset.incompatible"
 msgstr ""
 
-#: components/CarbonTonnesRetiredCard/index.tsx:39
+#: components/CarbonTonnesRetiredCard/index.tsx:37
 msgid "offset.number_of_retirements"
 msgstr ""
 
