@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 
 import { Spinner, Text } from "@klimadao/lib/components";
@@ -6,7 +6,7 @@ import * as styles from "./styles";
 import { cx } from "@emotion/css";
 
 interface Props {
-  label: string;
+  label: ReactNode;
   icon: StaticImageData;
   name: string;
   amount?: string;
@@ -18,15 +18,13 @@ interface Props {
 export const MiniTokenDisplay: FC<Props> = (props) => {
   return (
     <div className={styles.container}>
-      <Text
-        t="caption"
-        color="lightest"
+      <div
         className={cx("label", {
           alignEnd: props.labelAlignment === "end",
         })}
       >
         {props.label}
-      </Text>
+      </div>
       <div className={styles.card}>
         <div className="image">
           <Image src={props.icon} width={48} height={48} alt={props.name} />

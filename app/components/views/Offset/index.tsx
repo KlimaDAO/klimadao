@@ -1,16 +1,28 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
+
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
+
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
+import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
+import { setCarbonRetiredAllowance, updateRetirement } from "state/user";
 import {
   selectNotificationStatus,
   selectBalances,
   selectCarbonRetiredAllowance,
 } from "state/selectors";
+import {
+  changeApprovalTransaction,
+  getOffsetConsumptionCost,
+  getRetiredOffsetBalances,
+  getRetirementAllowances,
+  retireCarbonTransaction,
+} from "actions/offset";
 
 import {
   Text,
@@ -18,6 +30,13 @@ import {
   ButtonPrimary,
   TextInfoTooltip,
 } from "@klimadao/lib/components";
+import {
+  InputToken,
+  inputTokens,
+  offsetCompatibility,
+  RetirementToken,
+  retirementTokens,
+} from "@klimadao/lib/constants";
 
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
@@ -31,22 +50,6 @@ import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
 
 import * as styles from "./styles";
-import { useAppDispatch } from "state";
-import {
-  changeApprovalTransaction,
-  getOffsetConsumptionCost,
-  getRetiredOffsetBalances,
-  getRetirementAllowances,
-  retireCarbonTransaction,
-} from "actions/offset";
-import { setCarbonRetiredAllowance, updateRetirement } from "state/user";
-import {
-  InputToken,
-  inputTokens,
-  offsetCompatibility,
-  RetirementToken,
-  retirementTokens,
-} from "@klimadao/lib/constants";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -399,26 +402,36 @@ export const Offset = (props: Props) => {
           </div>
           <div className="mini_token_display_row">
             <MiniTokenDisplay
-              label="cost"
+              label={
+                <div className="mini_token_label">
+                  <Text t="caption" color="lightest">
+                    <Trans id="offset_cost">Cost</Trans>
+                  </Text>
+                  <TextInfoTooltip
+                    content={
+                      <Trans id="offset_aggregation_fee_tooltip">
+                        This cost includes slippage and the aggregation fee of
+                        1%.
+                      </Trans>
+                    }
+                  >
+                    <InfoOutlined />
+                  </TextInfoTooltip>
+                </div>
+              }
               amount={cost}
               icon={tokenInfo[selectedInputToken].icon}
               name={selectedInputToken}
               loading={cost === "loading"}
               warn={insufficientBalance}
             />
-            <div className="mini_token_display_icon_container">
-              <TextInfoTooltip
-                content={
-                  <Trans id="offset_aggregation_fee_tooltip">
-                    This cost includes slippage and the aggregation fee of 1%.
-                  </Trans>
-                }
-              >
-                <ArrowRightAlt className="mini_token_display_icon" />
-              </TextInfoTooltip>
-            </div>
+            <ArrowRightAlt className="mini_token_display_icon" />
             <MiniTokenDisplay
-              label="retiring"
+              label={
+                <Text t="caption" color="lightest">
+                  <Trans id="offset_retiring">Retiring</Trans>
+                </Text>
+              }
               amount={quantity}
               icon={tokenInfo[selectedRetirementToken].icon}
               name={selectedRetirementToken}
