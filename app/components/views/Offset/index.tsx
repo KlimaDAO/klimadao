@@ -196,9 +196,9 @@ export const Offset = (props: Props) => {
       setQuantity("0");
       setDebouncedQuantity("0");
       setCost("0");
-      setBeneficiary("0");
-      setBeneficiaryAddress("0");
-      setRetirementMessage("0");
+      setBeneficiary("");
+      setBeneficiaryAddress("");
+      setRetirementMessage("");
     } catch (e) {
       return;
     }
