@@ -13,6 +13,38 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/views/Offset/index.tsx:594
+msgid "Beneficiary Address"
+msgstr ""
+
+#: components/views/Offset/index.tsx:614
+msgid "Download certificate"
+msgstr ""
+
+#: components/views/Offset/index.tsx:602
+msgid "Message"
+msgstr ""
+
+#: components/views/Offset/index.tsx:588
+msgid "Name"
+msgstr ""
+
+#: components/views/Offset/index.tsx:582
+msgid "Retirement Successful"
+msgstr ""
+
+#: components/views/Offset/index.tsx:608
+msgid "Tonnes Retired"
+msgstr ""
+
+#: components/views/Offset/index.tsx:621
+msgid "View on <0>polygonscan.com</0>"
+msgstr ""
+
+#: components/views/Offset/index.tsx:617
+msgid "[coming soon]"
+msgstr ""
+
 #. Long sentence
 #: components/views/Bond/index.tsx:720
 msgid "bond.all_demand_has_been_filled"
@@ -325,66 +357,86 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
-#: components/views/Offset/index.tsx:364
+#: components/views/Offset/index.tsx:397
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
-#: components/views/Offset/index.tsx:417
+#: components/views/Offset/index.tsx:470
 msgid "offset.beneficiary"
 msgstr ""
 
-#: components/views/Offset/index.tsx:434
+#: components/views/Offset/index.tsx:487
 msgid "offset.beneficiary_address"
 msgstr ""
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:26
+#: components/CarbonTonnesBreakdownCard/index.tsx:24
 msgid "offset.breakdown"
 msgstr ""
 
-#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:517
 msgid "offset.describe_the_purpose_of_retirement"
 msgstr ""
 
-#: components/views/Offset/index.tsx:382
+#: components/views/Offset/index.tsx:351
+msgid "offset.go_carbon_neutral"
+msgstr ""
+
+#: components/views/Offset/index.tsx:415
 msgid "offset.how_many_retire"
 msgstr ""
 
-#: components/views/Offset/index.tsx:314
+#: components/views/Offset/index.tsx:335
 msgid "offset.incompatible"
 msgstr ""
 
-#: components/views/Offset/index.tsx:327
+#: components/CarbonTonnesRetiredCard/index.tsx:39
+msgid "offset.number_of_retirements"
+msgstr ""
+
+#: components/views/Offset/index.tsx:348
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/views/Offset/index.tsx:330
-msgid "offset.retire_carbon_description"
-msgstr ""
-
-#: components/CarbonTonnesBreakdownCard/index.tsx:32
-#: components/CarbonTonnesBreakdownCard/index.tsx:48
-#: components/CarbonTonnesBreakdownCard/index.tsx:64
+#: components/CarbonTonnesBreakdownCard/index.tsx:30
+#: components/CarbonTonnesBreakdownCard/index.tsx:44
+#: components/CarbonTonnesBreakdownCard/index.tsx:58
 msgid "offset.retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:453
+#: components/views/Offset/index.tsx:506
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/CarbonTonnesRetiredCard/index.tsx:30
+#: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "offset.tonnes_of_carbon_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:444
+#: components/views/Offset/index.tsx:497
 msgid "offset.which_address_retiring"
 msgstr ""
 
-#: components/views/Offset/index.tsx:425
+#: components/views/Offset/index.tsx:478
 msgid "offset.who_beneficiary"
 msgstr ""
 
-#: components/CarbonTonnesRetiredCard/index.tsx:21
+#: components/CarbonTonnesRetiredCard/index.tsx:20
 msgid "offset.you_have_retired"
+msgstr ""
+
+#: components/views/Offset/index.tsx:438
+msgid "offset_aggregation_fee_tooltip"
+msgstr ""
+
+#: components/views/Offset/index.tsx:434
+msgid "offset_cost"
+msgstr ""
+
+#: components/views/Offset/index.tsx:526
+msgid "offset_disclaimer"
+msgstr ""
+
+#: components/views/Offset/index.tsx:458
+msgid "offset_retiring"
 msgstr ""
 
 #: components/views/PKlima/index.tsx:150
@@ -456,7 +508,7 @@ msgid "pklima.update"
 msgstr ""
 
 #: components/views/Bond/index.tsx:337
-#: components/views/Offset/index.tsx:237
+#: components/views/Offset/index.tsx:258
 #: components/views/Stake/index.tsx:150
 #: components/views/Stake/index.tsx:156
 msgid "shared.approve"
@@ -477,7 +529,7 @@ msgid "shared.confirming"
 msgstr ""
 
 #: components/views/Bond/index.tsx:304
-#: components/views/Offset/index.tsx:211
+#: components/views/Offset/index.tsx:232
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:129
 #: components/views/Wrap/index.tsx:115
@@ -490,7 +542,7 @@ msgid "shared.enter_amount"
 msgstr ""
 
 #: components/views/Bond/index.tsx:316
-#: components/views/Offset/index.tsx:223
+#: components/views/Offset/index.tsx:244
 msgid "shared.enter_quantity"
 msgstr ""
 
@@ -501,15 +553,15 @@ msgstr ""
 msgid "shared.error"
 msgstr ""
 
-#: components/views/Offset/index.tsx:230
+#: components/views/Offset/index.tsx:251
 msgid "shared.insufficient_balance"
 msgstr ""
 
 #: components/RebaseCard/index.tsx:56
 #: components/RebaseCard/index.tsx:67
 #: components/views/Bond/index.tsx:310
-#: components/views/Offset/index.tsx:217
-#: components/views/Offset/index.tsx:300
+#: components/views/Offset/index.tsx:238
+#: components/views/Offset/index.tsx:321
 #: components/views/PKlima/index.tsx:130
 #: components/views/Stake/index.tsx:135
 #: components/views/Stake/index.tsx:338
@@ -525,7 +577,7 @@ msgstr ""
 msgid "shared.max"
 msgstr ""
 
-#: components/views/Offset/index.tsx:243
+#: components/views/Offset/index.tsx:264
 msgid "shared.retire"
 msgstr ""
 
