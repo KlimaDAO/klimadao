@@ -26,7 +26,7 @@ export const useBond = (bond: Bond) => {
     klima_usdc_lp: false,
     klima_bct_lp: false,
     bct_usdc_lp: true,
-    klima_mco2_lp: true, // disabled temporarily until we figure out calculation for LP
+    klima_mco2_lp: false,
     // future bond names go here
   };
   let disabled = disabledBonds[bond];
