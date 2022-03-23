@@ -11,6 +11,10 @@ msgstr ""
 msgid "Articles"
 msgstr "Articles"
 
+#: components/pages/Buy/index.tsx:179
+msgid "Buy Now"
+msgstr ""
+
 #: components/ChangeLanguageButton/index.tsx:59
 msgid "Change language"
 msgstr "Changer de langue"

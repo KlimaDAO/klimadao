@@ -43,7 +43,7 @@ export const Buy = (props: Props) => {
               <Trans id="buy.not_connected">Not Connected</Trans>
             </Text>
             <Text t="caption" color="lightest">
-              <Trans id="buy.how_to_buy" comment="Long sentence">
+              <Trans id="buy.connect_wallet" comment="Long sentence">
                 You must connect a wallet in order to purchase KLIMA.
               </Trans>
             </Text>
