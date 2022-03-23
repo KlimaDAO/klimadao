@@ -179,7 +179,7 @@ export const Buy: NextPage<Props> = ({}) => {
               traditional currencies - powered by our partners at Mobilum.
               Coming Soon!
             </Text>
-            <a href={"https://dapp.klimadao.finance/#/buy"}>
+            <a href={urls.buy_dapp}>
               <ButtonPrimary label={t`Buy Now`} />
             </a>
             <div className={styles.hero}>
