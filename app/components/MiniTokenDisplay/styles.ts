@@ -25,13 +25,13 @@ export const card = css`
   align-items: center;
   background-color: var(--surface-01);
   color: var(--font-01);
-  min-height: 4.8rem;
+  height: 5.6rem;
   border-radius: 1rem;
   padding: 0.4rem 0.8rem;
   .image {
     min-width: 4.8rem;
   }
   p {
-    padding: 0 1rem;
+    padding: 0 0.6rem;
   }
 `;

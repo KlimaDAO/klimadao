@@ -16,7 +16,7 @@ export const container = css`
     align-items: center;
     background-color: var(--surface-01);
     border-radius: 1rem;
-    padding: 0.5rem;
+    padding: 0.4rem 0.8rem;
     &:hover {
       background-color: var(--surface-03);
     }

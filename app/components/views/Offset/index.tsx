@@ -5,7 +5,6 @@ import { providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
 
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
-import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import CheckIcon from "@mui/icons-material/Check";
@@ -454,6 +453,7 @@ export const Offset = (props: Props) => {
             loading={cost === "loading"}
             warn={insufficientBalance}
           />
+
           <MiniTokenDisplay
             label={
               <Text t="caption" color="lightest">
@@ -546,8 +546,10 @@ export const Offset = (props: Props) => {
           </div>
         </div>
       </div>
+
       <CarbonTonnesRetiredCard />
       <CarbonTonnesBreakdownCard />
+
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}

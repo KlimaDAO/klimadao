@@ -4,8 +4,8 @@ import * as typography from "@klimadao/lib/theme/typography";
 import * as common from "@klimadao/lib/theme/common";
 
 export const offsetCard = css`
-  position: relative;
   display: grid;
+  align-content: start; 
   background-color: var(--surface-02);
   border-radius: 1.2rem;
   padding: 2.4rem;
