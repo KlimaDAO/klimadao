@@ -357,7 +357,7 @@ export const Offset = (props: Props) => {
               environmental benefit of the carbon offset. Choose to retire{" "}
               <A href="https://docs.klimadao.finance/references/glossary#mco2">
                 Moss Carbon Credits
-              </A>
+              </A>{" "}
               (MCO2),{" "}
               <A href="https://docs.klimadao.finance/references/glossary#bct">
                 Base Carbon Tonnes
