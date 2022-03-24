@@ -151,20 +151,20 @@ export const NavMenu: FC<Props> = (props) => {
         <Trans id="menu.wrap_klima">Wrap sKLIMA</Trans>
       </MenuButton>
       <MenuButton
-        isActive={pathname === "/info"}
-        href="/info"
-        icon={<InfoOutlined />}
-        onClick={handleHide}
-      >
-        <Trans id="menu.info">Info</Trans>
-      </MenuButton>
-      <MenuButton
         isActive={pathname === "/offset"}
         icon={<ParkOutlined />}
         href="/offset"
         onClick={handleHide}
       >
         <Trans id="menu.offset">Offset</Trans>
+      </MenuButton>
+      <MenuButton
+        isActive={pathname === "/info"}
+        href="/info"
+        icon={<InfoOutlined />}
+        onClick={handleHide}
+      >
+        <Trans id="menu.info">Info</Trans>
       </MenuButton>
       {!!Number(balances?.pklima) && (
         <div className="labelStack">
