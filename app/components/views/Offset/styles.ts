@@ -24,14 +24,13 @@ export const offsetCard = css`
     align-items: start;
     min-height: 128rem;
   }
-  ${breakpoints.desktopLarge} {
-    min-height: 118rem;
-  }
 
   ${breakpoints.desktopLarge} {
+    min-height: 118rem;
     padding: 3.2rem;
   }
 `;
+
 export const offsetCard_header = css`
   display: grid;
   gap: 0.8rem;
