@@ -32,5 +32,6 @@ export const card = css`
 
   ${breakpoints.desktop} {
     grid-column: 2 / 3;
+    min-height: 20rem;
   }
 `;

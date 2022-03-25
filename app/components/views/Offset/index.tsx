@@ -344,6 +344,11 @@ export const Offset = (props: Props) => {
 
   return (
     <>
+      <div className={styles.columnRight}>
+        <CarbonTonnesRetiredCard />
+        <CarbonTonnesBreakdownCard />
+      </div>
+
       <div className={styles.offsetCard}>
         <div className={styles.offsetCard_header}>
           <Text t="h4" className={styles.offsetCard_header_title}>
@@ -545,11 +550,6 @@ export const Offset = (props: Props) => {
             )}
           </div>
         </div>
-      </div>
-
-      <div className={styles.columnRight}>
-        <CarbonTonnesRetiredCard />
-        <CarbonTonnesBreakdownCard />
       </div>
 
       {retirementTransactionHash && (

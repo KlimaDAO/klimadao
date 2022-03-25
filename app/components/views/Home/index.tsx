@@ -379,22 +379,16 @@ export const Home: FC = () => {
           </IsomorphicRoutes>
         </div>
       </div>
+
       <InvalidNetworkModal provider={provider} />
+      <NotificationModal />
+
       {showRPCModal && (
-        <InvalidRPCModal
-          onHide={() => {
-            setShowRPCModal(false);
-          }}
-        />
+        <InvalidRPCModal onHide={() => setShowRPCModal(false)} />
       )}
       {showCheckURLBanner && (
-        <CheckURLBanner
-          onHide={() => {
-            setShowCheckURLBanner(false);
-          }}
-        />
+        <CheckURLBanner onHide={() => setShowCheckURLBanner(false)} />
       )}
-      <NotificationModal />
     </>
   );
 };

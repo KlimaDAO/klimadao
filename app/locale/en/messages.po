@@ -208,7 +208,7 @@ msgstr "Toucan Base Carbon Tonne"
 
 #: components/views/ChooseBond/index.tsx:132
 msgid "choose_bond.bond_carbon"
-msgstr "Bond Carbon."
+msgstr "Bond Carbon"
 
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:135

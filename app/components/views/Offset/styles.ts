@@ -16,16 +16,16 @@ export const columnRight = css`
 
 export const offsetCard = css`
   display: grid;
-  align-content: start;
   background-color: var(--surface-02);
+  align-content: start;
   border-radius: 1.2rem;
   padding: 2.4rem;
   gap: 2.4rem;
-  align-content: start;
   grid-column: 1 / 3;
 
   ${breakpoints.desktop} {
     grid-column: cardsleft;
+    grid-row: 2 / auto;
     gap: 4.8rem;
     align-items: start;
   }
