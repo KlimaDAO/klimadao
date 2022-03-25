@@ -1,0 +1,69 @@
+name: Update Translations
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      branch:
+        required: true
+        type: string
+    secrets:
+      PUSH_ACTOR_TOKEN:
+        required: true
+      PUSH_ACTOR:
+        required: true
+
+jobs:
+  update_translations:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      ACTOR: ${{ secrets.PUSH_ACTOR }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PUSH_ACTOR_TOKEN }}
+          ref: ${{ inputs.branch }}
+
+      - name: Read .nvmrc
+        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+        id: nvm
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          path: |
+            node_modules
+
+      - name: Install latest npm
+        run: |
+          npm install -g npm &&
+          npm --version &&
+          npm list -g --depth 0
+
+      - name: Install packages
+        run: npm install
+
+      - name: Extract and Compile Translation strings
+        run: npm run compile-strings
+
+      - name: Check for modified files in all locale folders
+        id: git-check
+        run: echo ::set-output name=changed::$(if git diff-index --quiet HEAD -- **/locale/**; then echo "false"; else echo "true"; fi)
+
+      - name: If changed files are found in locale folders -> push changes with $ACTOR
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config user.name $ACTOR
+          git config user.email "$ACTOR@users.noreply.github.com"
+          git add **/locale/**
+          git commit -m "Extract translation strings"
+          git push
