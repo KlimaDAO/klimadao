@@ -1,6 +1,6 @@
 // Base lingui config
 const config = {
-  locales: ["en", "fr", "en-pseudo"],
+  locales: ["en", "en-pseudo", "fr", "de"],
   sourceLocale: "en",
   fallbackLocales: {
     default: "en",
