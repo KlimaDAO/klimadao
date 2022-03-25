@@ -221,4 +221,4 @@ export const columnRight = css`
   ${breakpoints.desktop} {
     grid-column: 2 / 3;
   }
-`
+`;

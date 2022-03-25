@@ -34,7 +34,7 @@ export const card = css`
   .image {
     min-width: 4.8rem;
   }
-  
+
   p {
     padding: 0 0.6rem;
   }
