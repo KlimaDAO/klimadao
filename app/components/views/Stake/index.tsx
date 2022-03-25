@@ -220,6 +220,7 @@ export const Stake = (props: Props) => {
           comment: "Long sentence",
         })}
       />
+      <RebaseCard isConnected={props.isConnected} />
 
       <div className={styles.stakeCard}>
         <div className={styles.stakeCard_header}>
@@ -370,7 +371,6 @@ export const Stake = (props: Props) => {
         </div>
       </div>
 
-      <RebaseCard isConnected={props.isConnected} />
       <ImageCard />
     </>
   );
