@@ -417,13 +417,6 @@ export const Offset = (props: Props) => {
                   message: "How many carbon tonnes would you like to retire?",
                 })}
               />
-              {/* <button
-                className="button_max"
-                type="button"
-                onClick={handleClickMax}
-              >
-                <Trans id="shared.max">Max</Trans>
-              </button> */}
             </div>
           </div>
           <div className="mini_token_display_row">

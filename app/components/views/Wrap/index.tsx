@@ -118,7 +118,7 @@ export const Wrap: FC<Props> = (props) => {
       };
     } else if (isLoading) {
       return {
-        label: "Loading",
+        label: <Trans id="shared.loading">Loading...</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -165,7 +165,10 @@ export const Wrap: FC<Props> = (props) => {
     <>
       <BalancesCard
         assets={["sklima", "wsklima"]}
-        tooltip="Wrap sKLIMA to recieve index-adjusted wrapped-staked-KLIMA"
+        tooltip={t({
+          id: "wrap.balances_tooltip",
+          message: "Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA",
+        })}
       />
       <div className={styles.stakeCard} style={{ minHeight: "74rem" }}>
         <div className={styles.stakeCard_header}>
