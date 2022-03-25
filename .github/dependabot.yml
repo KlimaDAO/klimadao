@@ -1,0 +1,22 @@
+# Set update schedule for GitHub Actions
+
+version: 2
+updates:
+  # GitHub Actions workflow files
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions every week
+      interval: "weekly"
+      day: "tuesday"
+    labels:
+      - "Actions dependencies"
+  # GitHub Actions written in TypeScript
+  - package-ecosystem: "npm"
+    directory: "/.github/actions/"
+    schedule:
+      # Check for updates to TypeScript GitHub Actions every week
+      interval: "weekly"
+      day: "tuesday"
+    labels:
+      - "Actions dependencies"
