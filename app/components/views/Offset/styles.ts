@@ -5,7 +5,7 @@ import * as common from "@klimadao/lib/theme/common";
 
 export const offsetCard = css`
   display: grid;
-  align-content: start; 
+  align-content: start;
   background-color: var(--surface-02);
   border-radius: 1.2rem;
   padding: 2.4rem;
@@ -69,10 +69,10 @@ export const offsetCard_ui = css`
     color: var(--font-01);
     transform: rotate(90deg);
     margin-top: 0.8rem;
-    
+
     ${breakpoints.medium} {
-      margin-top: 3.2rem;     
-      transform: rotate(0deg); 
+      margin-top: 3.2rem;
+      transform: rotate(0deg);
     }
   }
 

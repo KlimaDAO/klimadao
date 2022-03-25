@@ -11,7 +11,7 @@ export const container = css`
     height: 2rem;
     text-transform: uppercase;
     ${breakpoints.medium} {
-      justify-self: flex-start; 
+      justify-self: flex-start;
     }
   }
   .value.warn {
