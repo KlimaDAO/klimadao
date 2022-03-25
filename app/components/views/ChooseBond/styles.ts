@@ -33,7 +33,7 @@ export const chooseBondCard_header = css`
 export const chooseBondCard_ui = css`
   display: grid;
   gap: 2.4rem;
-  
+
   ${breakpoints.medium} {
     border: 2px solid var(--surface-01);
     padding: 2.4rem;
