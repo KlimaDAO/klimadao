@@ -547,8 +547,10 @@ export const Offset = (props: Props) => {
         </div>
       </div>
 
-      <CarbonTonnesRetiredCard />
-      <CarbonTonnesBreakdownCard />
+      <div className={styles.columnRight}>
+        <CarbonTonnesRetiredCard />
+        <CarbonTonnesBreakdownCard />
+      </div>
 
       {retirementTransactionHash && (
         <RetirementSuccessModal

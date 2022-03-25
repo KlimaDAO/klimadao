@@ -3,6 +3,18 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
 import * as common from "@klimadao/lib/theme/common";
 
+export const columnRight = css`
+  grid-column: cardsright;
+  display: grid;
+  gap: 2.4rem;
+  grid-column: 1 / 3;
+  align-content: start;
+
+  ${breakpoints.desktop} {
+    grid-column: 2 / 3;
+  }
+`
+
 export const offsetCard = css`
   display: grid;
   align-content: start;
@@ -11,22 +23,15 @@ export const offsetCard = css`
   padding: 2.4rem;
   gap: 2.4rem;
   align-content: start;
-
-  ${breakpoints.medium} {
-    gap: 3.2rem;
-  }
+  grid-column: 1 / 3;
 
   ${breakpoints.desktop} {
     grid-column: cardsleft;
-    grid-row: 2 / span 3;
     gap: 4.8rem;
-    grid-template-rows: 1fr 1fr 1fr;
     align-items: start;
-    min-height: 128rem;
   }
 
   ${breakpoints.desktopLarge} {
-    min-height: 118rem;
     padding: 3.2rem;
   }
 `;

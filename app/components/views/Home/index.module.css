@@ -39,6 +39,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 1.6rem;
+  grid-column: 1 / 3;
 }
 .menuButton {
   background-color: var(--surface-02);
@@ -111,6 +112,7 @@
       [full-start] minmax(0px, 1fr)
       [full-end];
   }
+
   .cardGrid {
     overflow-y: auto;
     display: grid;
@@ -118,7 +120,6 @@
     grid-template-columns:
       [cardsleft] minmax(38rem, auto)
       [cardsright] minmax(auto, 38rem);
-    grid-template-rows: min-content 1fr 1fr 1fr;
     max-width: unset;
   }
   .controls {
