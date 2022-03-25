@@ -6,10 +6,8 @@
     "build": "prettier --check . && next build",
     "start": "next start",
     "lint": "next lint",
-    "lingui:extract": "NODE_ENV=test lingui extract --clean",
+    "lingui:extract": "NODE_ENV=test lingui extract --clean --overwrite",
     "lingui:compile": "NODE_ENV=test lingui compile",
-    "sync": "NODE_ENV=test lingui extract --overwrite && lingui compile",
-    "sync_and_purge": "NODE_ENV=test lingui extract --overwrite --clean && lingui compile",
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
