@@ -10,10 +10,12 @@ export const container = css`
   .label {
     height: 2rem;
     text-transform: uppercase;
+
     ${breakpoints.medium} {
       justify-self: flex-start;
     }
   }
+
   .value.warn {
     color: var(--warn);
   }
@@ -28,9 +30,11 @@ export const card = css`
   height: 5.6rem;
   border-radius: 1rem;
   padding: 0.4rem 0.8rem;
+
   .image {
     min-width: 4.8rem;
   }
+  
   p {
     padding: 0 0.6rem;
   }

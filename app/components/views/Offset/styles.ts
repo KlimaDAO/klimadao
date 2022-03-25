@@ -63,19 +63,6 @@ export const offsetCard_ui = css`
     gap: 0.4rem;
   }
 
-  .mini_token_display_icon {
-    width: 4.8rem;
-    height: 4.8rem;
-    color: var(--font-01);
-    transform: rotate(90deg);
-    margin-top: 0.8rem;
-
-    ${breakpoints.medium} {
-      margin-top: 3.2rem;
-      transform: rotate(0deg);
-    }
-  }
-
   .disclaimer {
     color: var(--font-01);
     display: flex;
@@ -115,6 +102,7 @@ export const input = css`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
   textarea {
     width: 100%;
     background-color: var(--surface-02);
@@ -128,6 +116,7 @@ export const input = css`
     overflow-y: hidden;
     min-height: 16rem;
   }
+
   input {
     width: 100%;
     background-color: var(--surface-02);
@@ -137,12 +126,14 @@ export const input = css`
     min-height: 4.8rem;
     color: var(--font-01);
   }
+
   .number_input_container {
     min-height: 4.8rem;
     display: grid;
     grid-template-columns: 1fr min-content;
     z-index: 1; /* cover advanced-settings border */
   }
+
   .button_max {
     ${common.iconButton};
     ${typography.button};
