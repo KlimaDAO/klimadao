@@ -1,4 +1,8 @@
-// Base lingui config
+/**
+ * @typedef { import("./lingui").Config } Config
+ */
+
+/** @type {Config} */
 const config = {
   locales: ["en", "en-pseudo", "fr", "de"],
   sourceLocale: "en",
@@ -15,11 +19,4 @@ const config = {
   ],
 };
 
-// Adds translation io service if KLIMA_TRANSLATION_IO_KEY environnement variable is setup
-if (process.env.KLIMA_TRANSLATION_IO_KEY) {
-  config.service = {
-    name: "TranslationIO",
-    apiKey: process.env.KLIMA_TRANSLATION_IO_KEY,
-  };
-}
 module.exports = config;

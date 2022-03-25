@@ -251,10 +251,6 @@ msgstr "Treasury Balance"
 msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
 msgstr "BCT/USDC Sushiswap Liquidity"
 
-#: components/views/Loading/index.tsx:11
-msgid "home.loading"
-msgstr "Loading..."
-
 #: components/ImageCard/index.tsx:16
 msgid "imagecard.how_to_get_started"
 msgstr "How to get started"
@@ -565,6 +561,7 @@ msgstr "INSUFFICIENT BALANCE"
 #: components/RebaseCard/index.tsx:56
 #: components/RebaseCard/index.tsx:67
 #: components/views/Bond/index.tsx:310
+#: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:238
 #: components/views/Offset/index.tsx:321
 #: components/views/PKlima/index.tsx:130
