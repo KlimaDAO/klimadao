@@ -1,0 +1,51 @@
+name: Merge Staging
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      staging_branch:
+        required: true
+        type: string
+      production_branch:
+        required: true
+        type: string
+    secrets:
+      PUSH_ACTOR_TOKEN:
+        required: true
+      PUSH_ACTOR:
+        required: true
+
+jobs:
+  merge_staging:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      ACTOR: ${{ secrets.PUSH_ACTOR }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PUSH_ACTOR_TOKEN }}
+          fetch-depth: 0
+          ref: ${{ inputs.staging_branch }}
+
+      - name: Set up Git user
+        run: |
+          git config user.name $ACTOR
+          git config user.email "$ACTOR@users.noreply.github.com"
+
+      - name: Run script "Merge Staging"
+        run: ./.github/actions/scripts/merge_staging.sh
+        env:
+          STAGING_BRANCH: ${{ inputs.staging_branch }}
+          PRODUCTION_BRANCH: ${{ inputs.production_branch }}
+
+      - name: On Failure
+        if: ${{ failure() }}
+        run: echo "The Release process failed, let's send an email or trigger a discord bot"
+
+      - name: On Success
+        if: ${{ success() }}
+        run: echo "The Release process was successful, let's send an email or trigger a discord bot"
