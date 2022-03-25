@@ -167,6 +167,7 @@ export const Wrap: FC<Props> = (props) => {
         assets={["sklima", "wsklima"]}
         tooltip="Wrap sKLIMA to recieve index-adjusted wrapped-staked-KLIMA"
       />
+
       <div className={styles.stakeCard} style={{ minHeight: "74rem" }}>
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
@@ -293,6 +294,7 @@ export const Wrap: FC<Props> = (props) => {
           </div>
         </div>
       </div>
+
       <ImageCard />
     </>
   );

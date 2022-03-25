@@ -120,6 +120,7 @@
     grid-template-columns:
       [cardsleft] minmax(38rem, auto)
       [cardsright] minmax(auto, 38rem);
+    grid-template-rows: min-content 1fr 1fr 1fr;
     max-width: unset;
   }
   .controls {

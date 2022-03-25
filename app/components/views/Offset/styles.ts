@@ -4,7 +4,6 @@ import * as typography from "@klimadao/lib/theme/typography";
 import * as common from "@klimadao/lib/theme/common";
 
 export const columnRight = css`
-  grid-column: cardsright;
   display: grid;
   gap: 2.4rem;
   grid-column: 1 / 3;
