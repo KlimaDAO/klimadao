@@ -515,26 +515,6 @@ msgstr "Stake"
 msgid "share.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/pages/Home/index.tsx:363
-msgid "shared.001"
-msgstr "001"
-
-#: components/pages/Home/index.tsx:392
-msgid "shared.002"
-msgstr "002"
-
-#: components/pages/Home/index.tsx:200
-msgid "shared.01"
-msgstr "/01"
-
-#: components/pages/Home/index.tsx:218
-msgid "shared.02"
-msgstr "/02"
-
-#: components/pages/Home/index.tsx:236
-msgid "shared.03"
-msgstr "/03"
-
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"

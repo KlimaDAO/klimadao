@@ -13,40 +13,40 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Offset/index.tsx:594
+#: components/views/Offset/index.tsx:587
 msgid "Beneficiary Address"
 msgstr "Beneficiary Address"
 
-#: components/views/Offset/index.tsx:614
+#: components/views/Offset/index.tsx:607
 msgid "Download certificate"
 msgstr "Download certificate"
 
-#: components/views/Offset/index.tsx:602
+#: components/views/Offset/index.tsx:595
 msgid "Message"
 msgstr "Message"
 
-#: components/views/Offset/index.tsx:588
+#: components/views/Offset/index.tsx:581
 msgid "Name"
 msgstr "Name"
 
-#: components/views/Offset/index.tsx:582
+#: components/views/Offset/index.tsx:575
 msgid "Retirement Successful"
 msgstr "Retirement Successful"
 
-#: components/views/Offset/index.tsx:622
+#: components/views/Offset/index.tsx:615
 msgid "Share retirement"
 msgstr "Share retirement"
 
-#: components/views/Offset/index.tsx:608
+#: components/views/Offset/index.tsx:601
 msgid "Tonnes Retired"
 msgstr "Tonnes Retired"
 
-#: components/views/Offset/index.tsx:629
+#: components/views/Offset/index.tsx:622
 msgid "View on <0>polygonscan.com</0>"
 msgstr "View on <0>polygonscan.com</0>"
 
-#: components/views/Offset/index.tsx:617
-#: components/views/Offset/index.tsx:625
+#: components/views/Offset/index.tsx:610
+#: components/views/Offset/index.tsx:618
 msgid "[coming soon]"
 msgstr "[coming soon]"
 
@@ -366,11 +366,11 @@ msgstr "BACK"
 msgid "offset.amount_in_tonnes"
 msgstr "AMOUNT IN CARBON TONNES"
 
-#: components/views/Offset/index.tsx:470
+#: components/views/Offset/index.tsx:463
 msgid "offset.beneficiary"
 msgstr "BENEFICIARY"
 
-#: components/views/Offset/index.tsx:487
+#: components/views/Offset/index.tsx:480
 msgid "offset.beneficiary_address"
 msgstr "BENEFICIARY ADDRESS (optional: defaults to connected address)"
 
@@ -378,7 +378,7 @@ msgstr "BENEFICIARY ADDRESS (optional: defaults to connected address)"
 msgid "offset.breakdown"
 msgstr "Breakdown"
 
-#: components/views/Offset/index.tsx:517
+#: components/views/Offset/index.tsx:510
 msgid "offset.describe_the_purpose_of_retirement"
 msgstr "Describe the purpose of this retirement"
 
@@ -396,7 +396,7 @@ msgstr "INPUT TOKEN INCOMPATIBLE"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:37
 msgid "offset.number_of_retirements"
-msgstr "Number of retirements"
+msgstr "Total retirements"
 
 #: components/views/Offset/index.tsx:348
 msgid "offset.retire_carbon"
@@ -408,19 +408,19 @@ msgstr "Retire Carbon"
 msgid "offset.retired"
 msgstr "Retired"
 
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:499
 msgid "offset.retirement_message"
 msgstr "RETIREMENT MESSAGE"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "offset.tonnes_of_carbon_retired"
-msgstr "Tonnes of carbon retired"
+msgstr "Tonnes of carbon"
 
-#: components/views/Offset/index.tsx:497
+#: components/views/Offset/index.tsx:490
 msgid "offset.which_address_retiring"
 msgstr "Which address are you retiring on behalf of?"
 
-#: components/views/Offset/index.tsx:478
+#: components/views/Offset/index.tsx:471
 msgid "offset.who_beneficiary"
 msgstr "To whom will this retirement be credited?"
 
@@ -428,19 +428,19 @@ msgstr "To whom will this retirement be credited?"
 msgid "offset.you_have_retired"
 msgstr "You've Retired"
 
-#: components/views/Offset/index.tsx:438
+#: components/views/Offset/index.tsx:431
 msgid "offset_aggregation_fee_tooltip"
 msgstr "This cost includes slippage and the aggregation fee of 1%."
 
-#: components/views/Offset/index.tsx:434
+#: components/views/Offset/index.tsx:427
 msgid "offset_cost"
 msgstr "Cost"
 
-#: components/views/Offset/index.tsx:526
+#: components/views/Offset/index.tsx:519
 msgid "offset_disclaimer"
 msgstr "Be careful not to expose any sensitive personal information. The information you provide will be made a permanent, immutable record on a public blockchain."
 
-#: components/views/Offset/index.tsx:458
+#: components/views/Offset/index.tsx:451
 msgid "offset_retiring"
 msgstr "Retiring"
 
@@ -480,7 +480,7 @@ msgstr "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIM
 
 #: components/views/PKlima/index.tsx:197
 msgid "pklima.klima_to_exercise"
-msgstr "PKLIMA TO EXERCISE"
+msgstr "pKLIMA to exercise"
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
@@ -549,7 +549,7 @@ msgstr "Enter Amount"
 #: components/views/Bond/index.tsx:316
 #: components/views/Offset/index.tsx:244
 msgid "shared.enter_quantity"
-msgstr "Enter Quantity"
+msgstr "ENTER QUANTITY"
 
 #: components/views/Bond/index.tsx:357
 #: components/views/Bond/index.tsx:376
@@ -572,13 +572,14 @@ msgstr "INSUFFICIENT BALANCE"
 #: components/views/Stake/index.tsx:338
 #: components/views/Stake/index.tsx:345
 #: components/views/Stake/index.tsx:352
+#: components/views/Wrap/index.tsx:121
 msgid "shared.loading"
 msgstr "Loading..."
 
 #: components/views/Bond/index.tsx:455
 #: components/views/PKlima/index.tsx:208
 #: components/views/Stake/index.tsx:282
-#: components/views/Wrap/index.tsx:236
+#: components/views/Wrap/index.tsx:239
 msgid "shared.max"
 msgstr "Max"
 
@@ -704,15 +705,19 @@ msgstr "Connect"
 msgid "wallet.disconnect"
 msgstr "Disconnect"
 
-#: components/views/Wrap/index.tsx:264
+#: components/views/Wrap/index.tsx:267
 msgid "wrap.balance"
 msgstr "Balance"
 
-#: components/views/Wrap/index.tsx:251
+#: components/views/Wrap/index.tsx:168
+msgid "wrap.balances_tooltip"
+msgstr "Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA"
+
+#: components/views/Wrap/index.tsx:254
 msgid "wrap.index"
 msgstr "Index"
 
-#: components/views/Wrap/index.tsx:254
+#: components/views/Wrap/index.tsx:257
 msgid "wrap.index.tooltip"
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 
@@ -720,25 +725,25 @@ msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day
 msgid "wrap.sklima_to_wrap"
 msgstr "sKLIMA to wrap"
 
-#: components/views/Wrap/index.tsx:219
+#: components/views/Wrap/index.tsx:222
 msgid "wrap.unwrap"
 msgstr "Unwrap"
 
-#: components/views/Wrap/index.tsx:208
+#: components/views/Wrap/index.tsx:211
 msgid "wrap.wrap"
 msgstr "Wrap"
 
-#: components/views/Wrap/index.tsx:174
+#: components/views/Wrap/index.tsx:177
 msgid "wrap.wrap_sklima"
 msgstr "Wrap sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:186
+#: components/views/Wrap/index.tsx:189
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Some find this useful for accounting purposes, but the yield is exactly the same. Wrap and unwrap values are calculated based on the current index."
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:177
+#: components/views/Wrap/index.tsx:180
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
 
@@ -746,6 +751,6 @@ msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will
 msgid "wrap.wsklima_to_unwrap"
 msgstr "wsKLIMA to unwrap"
 
-#: components/views/Wrap/index.tsx:267
+#: components/views/Wrap/index.tsx:270
 msgid "wrap.you_will_get"
 msgstr "You Will Get"
