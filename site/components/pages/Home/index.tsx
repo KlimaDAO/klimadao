@@ -197,7 +197,7 @@ export const Home: NextPage<Props> = (props) => {
               />
               <div className="mechanics_label">
                 <Text t="h4" color="lighter" className="align-end">
-                  <Trans id="shared.01">/01</Trans>
+                  /01
                 </Text>
                 <Text t="h1" className="align-end">
                   <Trans id="home.backed_by_carbon">Backed by Carbon.</Trans>
@@ -215,7 +215,7 @@ export const Home: NextPage<Props> = (props) => {
               />
               <div className="mechanics_label">
                 <Text t="h4" color="lighter" className="align-start">
-                  <Trans id="shared.02">/02</Trans>
+                  /02
                 </Text>
                 <Text t="h1" className="align-start">
                   <Trans id="home.strong_incentives">Strong incentives.</Trans>
@@ -233,7 +233,7 @@ export const Home: NextPage<Props> = (props) => {
               />
               <div className="mechanics_label">
                 <Text t="h4" color="lighter" className="align-end">
-                  <Trans id="shared.03">/03</Trans>
+                  /03
                 </Text>
                 <Text t="h1" className="align-end">
                   <Trans id="home.massive impact">Massive impact.</Trans>
@@ -360,7 +360,7 @@ export const Home: NextPage<Props> = (props) => {
           <div className="sprouts_col2">
             <div>
               <Text t="h4" color="lighter">
-                <Trans id="shared.001">001</Trans>
+                001
               </Text>
               <div className="sprouts_col2_textGroup">
                 <Trans
@@ -389,7 +389,7 @@ export const Home: NextPage<Props> = (props) => {
             </div>
             <div>
               <Text t="h4" color="lighter">
-                <Trans id="shared.002">002</Trans>
+                002
               </Text>
               <div className="sprouts_col2_textGroup">
                 <Trans

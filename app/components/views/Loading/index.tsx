@@ -8,7 +8,7 @@ import { Trans } from "@lingui/macro";
 export const Loading: FC = () => {
   return (
     <div>
-      <Trans id="home.loading">Loading...</Trans>
+      <Trans id="shared.loading">Loading...</Trans>
     </div>
   );
 };

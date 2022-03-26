@@ -6,7 +6,7 @@
     "build": "prettier --check . && next build",
     "start": "next start",
     "lint": "next lint",
-    "lingui:extract": "NODE_ENV=test lingui extract --clean",
+    "lingui:extract": "NODE_ENV=test lingui extract --clean --overwrite",
     "lingui:compile": "NODE_ENV=test lingui compile",
     "postinstall": "npm run lingui:compile"
   },
@@ -17,6 +17,7 @@
     "@lingui/react": "^3.13.0",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.23.2",
+    "@translation/lingui": "^1.0.0",
     "ethers": "^5.5.2",
     "next": "^12.1.0",
     "react": "17.0.2",

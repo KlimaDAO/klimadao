@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-01-02 11:29+0100\n"
+"POT-Creation-Date: 2022-03-25 10:09-0700\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,7 +71,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:344
 msgid "community.discord_is_where_we_share"
-msgstr ""
+msgstr "Discord est l'endroit où nous partageons des annonces importantes, organisons des heures de bureau, répondons aux questions et échangeons des mèmes. Notre serveur Discord est extrêmement actif et modéré 24h/24. Nous avons des canaux pour tout, du commerce à la durabilité et aux marchés du carbone."
 
 #: components/pages/Resources/Community/index.tsx:254
 msgid "community.dovu_logo"
@@ -240,25 +240,25 @@ msgstr ""
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:68
 msgid "disclaimer.1_an_offer_or_sollicitation"
-msgstr ""
+msgstr "1.  ou contrôler tout titre, actif ou service, qui sont liés à des avantages;"
 
 #: components/pages/Disclaimer/index.tsx:115
 msgid "disclaimer.1_meet_your_requirements"
-msgstr ""
+msgstr "1. Répondre à vos exigences"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:120
 msgid "disclaimer.2_be_available_on_an_uninterrupted"
-msgstr ""
+msgstr "2. Être disponible de manière ininterrompue, opportune, sécurisée ou sans erreur ;"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:78
 msgid "disclaimer.2_financial_investment_or_trading_advice"
-msgstr ""
+msgstr "2. Des conseils financiers, d'investissement ou de trading ou une offre de fournir de tels conseils et/ou services."
 
 #: components/pages/Disclaimer/index.tsx:129
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
-msgstr ""
+msgstr "3. Soyez fiable, complet, légal ou sûr."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:36
@@ -444,7 +444,7 @@ msgstr ""
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
 #: components/pages/Home/index.tsx:366
 msgid "home.reserve_asset_of_the_carbon_economy"
-msgstr ""
+msgstr "<0>Actif de réserve</0> <1>De l'économie du carbone</1>"
 
 #: components/pages/Home/index.tsx:436
 msgid "home.see_tutorial"
@@ -513,26 +513,6 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:62
 msgid "share.head.description"
-msgstr ""
-
-#: components/pages/Home/index.tsx:363
-msgid "shared.001"
-msgstr ""
-
-#: components/pages/Home/index.tsx:392
-msgid "shared.002"
-msgstr ""
-
-#: components/pages/Home/index.tsx:200
-msgid "shared.01"
-msgstr ""
-
-#: components/pages/Home/index.tsx:218
-msgid "shared.02"
-msgstr ""
-
-#: components/pages/Home/index.tsx:236
-msgid "shared.03"
 msgstr ""
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:29

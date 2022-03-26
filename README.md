@@ -44,3 +44,22 @@ A set of NPM Workspace commands are provided, and can be run from the root folde
 `npm run dev-lib`: Watch for changes in `@klimadao/lib` and recompile on save. Alternatively, run `npm run build-lib` to compile once (this is already done automatically for the above two commands).
 
 `npm run format-all`: Format all files with `prettier`.
+
+## Translatiing
+
+### For translators
+
+#### Setup
+
+- Create an account on [translation.io](https://translation.io)
+- Request access to the project atmosfearful/klimadao in the #content-translation KlimaDaO discord server
+
+#### Translating
+
+- Log in [translation.io](https://translation.io)
+- Select the approprite project klimadao-site or klimadao-app
+- Make sure you select the appropriate language in the top menu
+- Start translating!
+- Select an item to translate in the left column
+- On the bottom right you will notice the source text (in English) and the place to translate the text beneath.
+- You can prefill this by selecting an entry in the Suggestion area above.

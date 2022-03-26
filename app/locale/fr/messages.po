@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2021-12-10 22:51+0100\n"
-"Mime-Version: 1.0\n"
+"POT-Creation-Date: 2022-03-25 10:09-0700\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
@@ -13,40 +13,40 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Offset/index.tsx:594
+#: components/views/Offset/index.tsx:587
 msgid "Beneficiary Address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:614
+#: components/views/Offset/index.tsx:607
 msgid "Download certificate"
 msgstr ""
 
-#: components/views/Offset/index.tsx:602
+#: components/views/Offset/index.tsx:595
 msgid "Message"
 msgstr ""
 
-#: components/views/Offset/index.tsx:588
+#: components/views/Offset/index.tsx:581
 msgid "Name"
 msgstr ""
 
-#: components/views/Offset/index.tsx:582
+#: components/views/Offset/index.tsx:575
 msgid "Retirement Successful"
 msgstr ""
 
-#: components/views/Offset/index.tsx:622
+#: components/views/Offset/index.tsx:615
 msgid "Share retirement"
 msgstr ""
 
-#: components/views/Offset/index.tsx:608
+#: components/views/Offset/index.tsx:601
 msgid "Tonnes Retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:629
+#: components/views/Offset/index.tsx:622
 msgid "View on <0>polygonscan.com</0>"
 msgstr ""
 
-#: components/views/Offset/index.tsx:617
-#: components/views/Offset/index.tsx:625
+#: components/views/Offset/index.tsx:610
+#: components/views/Offset/index.tsx:618
 msgid "[coming soon]"
 msgstr ""
 
@@ -251,10 +251,6 @@ msgstr ""
 msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
 msgstr ""
 
-#: components/views/Loading/index.tsx:11
-msgid "home.loading"
-msgstr ""
-
 #: components/ImageCard/index.tsx:16
 msgid "imagecard.how_to_get_started"
 msgstr ""
@@ -366,11 +362,11 @@ msgstr ""
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
-#: components/views/Offset/index.tsx:470
+#: components/views/Offset/index.tsx:463
 msgid "offset.beneficiary"
 msgstr ""
 
-#: components/views/Offset/index.tsx:487
+#: components/views/Offset/index.tsx:480
 msgid "offset.beneficiary_address"
 msgstr ""
 
@@ -378,7 +374,7 @@ msgstr ""
 msgid "offset.breakdown"
 msgstr ""
 
-#: components/views/Offset/index.tsx:517
+#: components/views/Offset/index.tsx:510
 msgid "offset.describe_the_purpose_of_retirement"
 msgstr ""
 
@@ -408,7 +404,7 @@ msgstr ""
 msgid "offset.retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:499
 msgid "offset.retirement_message"
 msgstr ""
 
@@ -416,11 +412,11 @@ msgstr ""
 msgid "offset.tonnes_of_carbon_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:497
+#: components/views/Offset/index.tsx:490
 msgid "offset.which_address_retiring"
 msgstr ""
 
-#: components/views/Offset/index.tsx:478
+#: components/views/Offset/index.tsx:471
 msgid "offset.who_beneficiary"
 msgstr ""
 
@@ -428,19 +424,19 @@ msgstr ""
 msgid "offset.you_have_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:438
+#: components/views/Offset/index.tsx:431
 msgid "offset_aggregation_fee_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:434
+#: components/views/Offset/index.tsx:427
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/Offset/index.tsx:526
+#: components/views/Offset/index.tsx:519
 msgid "offset_disclaimer"
 msgstr ""
 
-#: components/views/Offset/index.tsx:458
+#: components/views/Offset/index.tsx:451
 msgid "offset_retiring"
 msgstr ""
 
@@ -565,6 +561,7 @@ msgstr ""
 #: components/RebaseCard/index.tsx:56
 #: components/RebaseCard/index.tsx:67
 #: components/views/Bond/index.tsx:310
+#: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:238
 #: components/views/Offset/index.tsx:321
 #: components/views/PKlima/index.tsx:130
@@ -572,13 +569,14 @@ msgstr ""
 #: components/views/Stake/index.tsx:338
 #: components/views/Stake/index.tsx:345
 #: components/views/Stake/index.tsx:352
+#: components/views/Wrap/index.tsx:121
 msgid "shared.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:455
 #: components/views/PKlima/index.tsx:208
 #: components/views/Stake/index.tsx:282
-#: components/views/Wrap/index.tsx:236
+#: components/views/Wrap/index.tsx:239
 msgid "shared.max"
 msgstr ""
 
@@ -704,15 +702,19 @@ msgstr ""
 msgid "wallet.disconnect"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:264
+#: components/views/Wrap/index.tsx:267
 msgid "wrap.balance"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:251
-msgid "wrap.index"
+#: components/views/Wrap/index.tsx:168
+msgid "wrap.balances_tooltip"
 msgstr ""
 
 #: components/views/Wrap/index.tsx:254
+msgid "wrap.index"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:257
 msgid "wrap.index.tooltip"
 msgstr ""
 
@@ -720,25 +722,25 @@ msgstr ""
 msgid "wrap.sklima_to_wrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:219
+#: components/views/Wrap/index.tsx:222
 msgid "wrap.unwrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:208
+#: components/views/Wrap/index.tsx:211
 msgid "wrap.wrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:174
+#: components/views/Wrap/index.tsx:177
 msgid "wrap.wrap_sklima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:186
+#: components/views/Wrap/index.tsx:189
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr ""
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:177
+#: components/views/Wrap/index.tsx:180
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr ""
 
@@ -746,6 +748,6 @@ msgstr ""
 msgid "wrap.wsklima_to_unwrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:267
+#: components/views/Wrap/index.tsx:270
 msgid "wrap.you_will_get"
 msgstr ""

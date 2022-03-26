@@ -19,7 +19,7 @@ const locales: ILocales = {
 };
 // Add pseudo locale only in development
 if (!IS_PRODUCTION) {
-  locales["pseudo"] = { plurals: en, time: "en-US" };
+  locales["en-pseudo"] = { plurals: en, time: "en-US" };
 }
 
 for (const key in locales) {
