@@ -32,11 +32,17 @@ export const buyCard = css`
   }
 `;
 
+export const buyCard_iframeContainer = css`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const buyCard_iframe = css`
   border-radius: 1.2rem;
   border: none;
   width: 100%;
   height: 80rem;
+  margin-top: 1.5rem;
 `;
 
 export const buyCard_header = css`
