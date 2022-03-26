@@ -17,7 +17,7 @@ msgstr ""
 msgid "Articles"
 msgstr "Articles"
 
-#: components/pages/Buy/index.tsx:179
+#: components/pages/Buy/index.tsx:183
 msgid "Buy Now"
 msgstr "Buy Now"
 
