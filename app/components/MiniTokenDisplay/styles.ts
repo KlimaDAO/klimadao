@@ -5,11 +5,10 @@ export const container = css`
   display: grid;
   flex-direction: column;
   width: 100%;
-  gap: 0.5rem;
+  gap: 0.6rem;
 
   .label {
     height: 2rem;
-    text-transform: uppercase;
 
     ${breakpoints.medium} {
       justify-self: flex-start;

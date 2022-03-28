@@ -374,7 +374,37 @@ export const Offset = (props: Props) => {
             </Trans>
           </Text>
         </div>
+
         <div className={styles.offsetCard_ui}>
+          <div className={styles.input}>
+            <label>
+              <Text t="caption" color="lighter">
+                <Trans id="offset.amount_in_tonnes">
+                  How many carbon tonnes would you like to retire?
+                </Trans>
+              </Text>
+            </label>
+            <div className="number_input_container">
+              <input
+                type="number"
+                step={1}
+                max={balances?.[selectedInputToken]}
+                value={quantity}
+                onKeyDown={(e) => {
+                  // dont let user enter these special characters into the number input
+                  if (["e", "E", "+", "-"].includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
+                onChange={handleChangeQuantity}
+                placeholder={t({
+                  id: "offset.retirement_quantity",
+                  message: "Quantity",
+                })}
+              />
+            </div>
+          </div>
+
           {/* Input Token */}
           <DropdownWithModal
             label="Pay with"
@@ -394,44 +424,14 @@ export const Offset = (props: Props) => {
             currentItem={selectedRetirementToken}
             items={retirementTokenItems}
             isModalOpen={isRetireTokenModalOpen}
-            onToggleModal={() => {
-              setRetireTokenModalOpen((s) => !s);
-            }}
+            onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectRetirementToken}
           />
-          <div className={styles.input}>
-            <label>
-              <Text t="caption" color="lightest">
-                <Trans id="offset.amount_in_tonnes">
-                  AMOUNT IN CARBON TONNES
-                </Trans>
-              </Text>
-            </label>
-            <div className="number_input_container">
-              <input
-                type="number"
-                step={1}
-                max={balances?.[selectedInputToken]}
-                value={quantity}
-                onKeyDown={(e) => {
-                  // dont let user enter these special characters into the number input
-                  if (["e", "E", "+", "-"].includes(e.key)) {
-                    e.preventDefault();
-                  }
-                }}
-                onChange={handleChangeQuantity}
-                placeholder={t({
-                  id: "offset.how_many_retire",
-                  message: "How many carbon tonnes would you like to retire?",
-                })}
-              />
-            </div>
-          </div>
 
           <MiniTokenDisplay
             label={
               <div className="mini_token_label">
-                <Text t="caption" color="lightest">
+                <Text t="caption" color="lighter">
                   <Trans id="offset_cost">Cost</Trans>
                 </Text>
                 <TextInfoTooltip
@@ -454,7 +454,7 @@ export const Offset = (props: Props) => {
 
           <MiniTokenDisplay
             label={
-              <Text t="caption" color="lightest">
+              <Text t="caption" color="lighter">
                 <Trans id="offset_retiring">Retiring</Trans>
               </Text>
             }
@@ -464,54 +464,50 @@ export const Offset = (props: Props) => {
             labelAlignment="start"
           />
 
-          <div className={styles.input}>
-            <label>
-              <Text t="caption" color="lightest">
-                <Trans id="offset.beneficiary">BENEFICIARY</Trans>
-              </Text>
-            </label>
-            <input
-              value={beneficiary}
-              onChange={(e) => {
-                setBeneficiary(e.target.value);
-              }}
-              placeholder={t({
-                id: "offset.who_beneficiary",
-                message: "To whom will this retirement be credited?",
-              })}
-            />
-          </div>
-          <div className={styles.input}>
-            <label>
-              <Text t="caption" color="lightest">
-                <Trans id="offset.beneficiary_address">
-                  BENEFICIARY ADDRESS (optional: defaults to connected address)
+          <div className={styles.beneficiary}>
+            <Text t="caption" color="lighter">
+              <Trans id="offset.retirement_message">
+                Who will this retirement be credited to?
+              </Trans>
+            </Text>
+            <div className={styles.input}>
+              <input
+                value={beneficiary}
+                onChange={(e) => setBeneficiary(e.target.value)}
+                placeholder={t({
+                  id: "offset.beneficiary",
+                  message: "Name or organisation",
+                })}
+              />
+            </div>
+
+            <div className={styles.input}>
+              <input
+                value={beneficiaryAddress}
+                onChange={(e) => setBeneficiaryAddress(e.target.value)}
+                placeholder={t({
+                  id: "offset.ethereum_address",
+                  message: "Ethereum address",
+                })}
+              />
+              <Text t="caption" color="lightest" className="defaultAddress">
+                <Trans id="offset.default_retirement_address_message">
+                  Defaults to the connected wallet address
                 </Trans>
               </Text>
-            </label>
-            <input
-              value={beneficiaryAddress}
-              onChange={(e) => {
-                setBeneficiaryAddress(e.target.value);
-              }}
-              placeholder={t({
-                id: "offset.which_address_retiring",
-                message: "Which address are you retiring on behalf of?",
-              })}
-            />
+            </div>
           </div>
+
           <div className={styles.input}>
             <label>
-              <Text t="caption" color="lightest">
-                <Trans id="offset.retirement_message">RETIREMENT MESSAGE</Trans>
+              <Text t="caption" color="lighter">
+                <Trans id="offset.retirement_message">Retirement message</Trans>
               </Text>
             </label>
             <textarea
               value={retirementMessage}
               onChange={(e) => {
-                if (e.target.value.length >= 280) {
-                  return;
-                }
+                if (e.target.value.length >= 280) return;
                 setRetirementMessage(e.target.value);
               }}
               placeholder={t({
@@ -520,6 +516,7 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
+
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
