@@ -70,12 +70,12 @@ export const container = css`
 
   .navFooter_button {
     ${common.iconButton};
-      min-height: 4.2rem;
-      min-width: 4.2rem;
+    min-height: 4.2rem;
+    min-width: 4.2rem;
 
     ${breakpoints.desktop} {
       min-height: 4.6rem;
-      min-width: 4.6rem;  
+      min-width: 4.6rem;
     }
   }
 `;
