@@ -6,6 +6,7 @@ export { DiscordIcon } from "./Icons/DiscordIcon";
 export { GithubIcon } from "./Icons/GithubIcon";
 export { LinkedInIcon } from "./Icons/LinkedInIcon";
 export { MetaMaskFoxIcon } from "./Icons/MetaMaskFoxIcon";
+export { KlimaInfinityLogo } from "./Logos/KlimaInfinityLogo";
 export { RedditIcon } from "./Icons/RedditIcon";
 export { RSSIcon } from "./Icons/RSSIcon";
 export { SnapshotIcon } from "./Icons/SnapshotIcon";
