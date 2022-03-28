@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 import * as typography from "@klimadao/lib/theme/typography";
 import * as common from "@klimadao/lib/theme/common";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
   position: relative;
@@ -51,19 +52,31 @@ export const container = css`
 
   .navFooter .hr {
     grid-row: 1 / 1;
-    grid-column: 1 /4;
+    grid-column: 1 / 4;
   }
 
   .navFooter_buttons {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
     width: 100%;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    grid-template-columns: repeat(4, 4.2rem);
+    justify-content: center;
+    gap: 1rem;
+
+    ${breakpoints.desktop} {
+      gap: 1rem;
+      grid-template-columns: repeat(4, 4.6rem);
+    }
   }
 
   .navFooter_button {
     ${common.iconButton};
+      min-height: 4.2rem;
+      min-width: 4.2rem;
+
+    ${breakpoints.desktop} {
+      min-height: 4.6rem;
+      min-width: 4.6rem;  
+    }
   }
 `;
 

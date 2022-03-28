@@ -1,33 +1,35 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectBalances } from "state/selectors";
+import { Trans } from "@lingui/macro";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import {
   Anchor as A,
   DiscordIcon,
   GithubIcon,
+  LinkedInIcon,
   LogoWithClaim,
   RedditIcon,
   RSSIcon,
   TelegramIcon,
   Text,
+  TiktokIcon,
   TwitchIcon,
   TwitterIcon,
   YoutubeIcon,
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
-import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
+import { MenuBookOutlined } from "@mui/icons-material";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import Payment from "@mui/icons-material/Payment";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 
 import * as styles from "./styles";
-import { useSelector } from "react-redux";
-import { selectBalances } from "state/selectors";
-import { MenuBookOutlined } from "@mui/icons-material";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { Trans } from "@lingui/macro";
 
 interface MenuButtonProps {
   icon: ReactElement;
@@ -200,6 +202,12 @@ export const NavMenu: FC<Props> = (props) => {
           </A>
           <A className="navFooter_button" href={urls.github}>
             <GithubIcon />
+          </A>
+          <A className="navFooter_button" href={urls.tiktok}>
+            <TiktokIcon />
+          </A>
+          <A className="navFooter_button" href={urls.linkedIn}>
+            <LinkedInIcon />
           </A>
           <A className="navFooter_button" href={urls.telegram}>
             <TelegramIcon />

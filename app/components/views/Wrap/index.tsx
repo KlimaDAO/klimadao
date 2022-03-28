@@ -191,8 +191,8 @@ export const Wrap: FC<Props> = (props) => {
               comment="Long sentence"
             >
               Some find this useful for accounting purposes, but the yield is
-              exactly the same. Wrap and unwrap values are calculated based on
-              the current index.
+              exactly the same. Wrapped and unwrapped values are calculated
+              based on the current index.
             </Trans>
           </Text>
         </div>
