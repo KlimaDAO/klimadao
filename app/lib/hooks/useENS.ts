@@ -8,7 +8,7 @@ const useENS = (address: string | null | undefined) => {
   useEffect(() => {
     const resolveENS = async () => {
       if (address) {
-        const provider = await getDefaultProvider();
+        const provider = getDefaultProvider();
         const ensName = await provider.lookupAddress(address);
         const resolver = await provider.getResolver(ensName ?? "");
         const ensAvatar = await resolver?.getAvatar();
