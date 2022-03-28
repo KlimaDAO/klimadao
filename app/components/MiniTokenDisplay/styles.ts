@@ -31,8 +31,9 @@ export const card = css`
   border-radius: 1rem;
   padding: 0.4rem 0.8rem;
 
-  .image {
+  .icon {
     min-width: 4.8rem;
+    align-self: center;
   }
 
   p {
