@@ -5,7 +5,6 @@ import { providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
 
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
-import ArrowRightAlt from "@mui/icons-material/ArrowRightAlt";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import CheckIcon from "@mui/icons-material/Check";
@@ -345,6 +344,11 @@ export const Offset = (props: Props) => {
 
   return (
     <>
+      <div className={styles.columnRight}>
+        <CarbonTonnesRetiredCard />
+        <CarbonTonnesBreakdownCard />
+      </div>
+
       <div className={styles.offsetCard}>
         <div className={styles.offsetCard_header}>
           <Text t="h4" className={styles.offsetCard_header_title}>
@@ -357,7 +361,7 @@ export const Offset = (props: Props) => {
               environmental benefit of the carbon offset. Choose to retire{" "}
               <A href="https://docs.klimadao.finance/references/glossary#mco2">
                 Moss Carbon Credits
-              </A>
+              </A>{" "}
               (MCO2),{" "}
               <A href="https://docs.klimadao.finance/references/glossary#bct">
                 Base Carbon Tonnes
@@ -423,44 +427,43 @@ export const Offset = (props: Props) => {
               />
             </div>
           </div>
-          <div className="mini_token_display_row">
-            <MiniTokenDisplay
-              label={
-                <div className="mini_token_label">
-                  <Text t="caption" color="lightest">
-                    <Trans id="offset_cost">Cost</Trans>
-                  </Text>
-                  <TextInfoTooltip
-                    content={
-                      <Trans id="offset_aggregation_fee_tooltip">
-                        This cost includes slippage and the aggregation fee of
-                        1%.
-                      </Trans>
-                    }
-                  >
-                    <InfoOutlined />
-                  </TextInfoTooltip>
-                </div>
-              }
-              amount={cost}
-              icon={tokenInfo[selectedInputToken].icon}
-              name={selectedInputToken}
-              loading={cost === "loading"}
-              warn={insufficientBalance}
-            />
-            <ArrowRightAlt className="mini_token_display_icon" />
-            <MiniTokenDisplay
-              label={
+
+          <MiniTokenDisplay
+            label={
+              <div className="mini_token_label">
                 <Text t="caption" color="lightest">
-                  <Trans id="offset_retiring">Retiring</Trans>
+                  <Trans id="offset_cost">Cost</Trans>
                 </Text>
-              }
-              amount={quantity}
-              icon={tokenInfo[selectedRetirementToken].icon}
-              name={selectedRetirementToken}
-              labelAlignment="end"
-            />
-          </div>
+                <TextInfoTooltip
+                  content={
+                    <Trans id="offset_aggregation_fee_tooltip">
+                      This cost includes slippage and the aggregation fee of 1%.
+                    </Trans>
+                  }
+                >
+                  <InfoOutlined />
+                </TextInfoTooltip>
+              </div>
+            }
+            amount={cost}
+            icon={tokenInfo[selectedInputToken].icon}
+            name={selectedInputToken}
+            loading={cost === "loading"}
+            warn={insufficientBalance}
+          />
+
+          <MiniTokenDisplay
+            label={
+              <Text t="caption" color="lightest">
+                <Trans id="offset_retiring">Retiring</Trans>
+              </Text>
+            }
+            amount={quantity}
+            icon={tokenInfo[selectedRetirementToken].icon}
+            name={selectedRetirementToken}
+            labelAlignment="start"
+          />
+
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lightest">
@@ -541,8 +544,7 @@ export const Offset = (props: Props) => {
           </div>
         </div>
       </div>
-      <CarbonTonnesRetiredCard />
-      <CarbonTonnesBreakdownCard />
+
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}

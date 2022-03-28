@@ -3,35 +3,38 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
 import * as common from "@klimadao/lib/theme/common";
 
+export const columnRight = css`
+  display: grid;
+  gap: 2.4rem;
+  grid-column: 1 / 3;
+  align-content: start;
+
+  ${breakpoints.desktop} {
+    grid-column: 2 / 3;
+  }
+`;
+
 export const offsetCard = css`
-  position: relative;
   display: grid;
   background-color: var(--surface-02);
+  align-content: start;
   border-radius: 1.2rem;
   padding: 2.4rem;
   gap: 2.4rem;
-  align-content: start;
-
-  ${breakpoints.medium} {
-    gap: 3.2rem;
-  }
+  grid-column: 1 / 3;
 
   ${breakpoints.desktop} {
     grid-column: cardsleft;
-    grid-row: 2 / span 3;
+    grid-row: 2 / auto;
     gap: 4.8rem;
-    grid-template-rows: 1fr 1fr 1fr;
     align-items: start;
-    min-height: 128rem;
-  }
-  ${breakpoints.desktopLarge} {
-    min-height: 118rem;
   }
 
   ${breakpoints.desktopLarge} {
     padding: 3.2rem;
   }
 `;
+
 export const offsetCard_header = css`
   display: grid;
   gap: 0.8rem;
@@ -41,11 +44,14 @@ export const offsetCard_header = css`
 export const offsetCard_ui = css`
   display: grid;
   gap: 2.4rem;
+  overflow: none;
+
   ${breakpoints.medium} {
     border: 2px solid var(--surface-03);
     padding: 2.4rem;
     border-radius: 1.2rem;
   }
+
   ${breakpoints.desktop} {
     gap: 2.4rem;
     padding: 2.4rem;
@@ -53,32 +59,20 @@ export const offsetCard_ui = css`
     max-width: 48rem;
     width: 100%;
   }
-  .mini_token_display_row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    ${breakpoints.small} {
-      flex-direction: row;
-    }
-    .mini_token_label {
-      color: var(--font-01);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-  }
-  .mini_token_display_icon {
-    width: 4.8rem;
-    height: 4.8rem;
+
+  .mini_token_label {
     color: var(--font-01);
-    margin-top: 3.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
   }
+
   .disclaimer {
     color: var(--font-01);
     display: flex;
-    gap: 0.4rem;
+    gap: 1.2rem;
   }
+
   .disclaimer svg {
     color: yellow;
     width: 3.2rem;
@@ -103,19 +97,22 @@ export const buttonRow_spinner = css`
   align-items: center;
   min-height: 4.8rem;
 `;
+
 export const submitButton = css`
   width: 100%;
 `;
+
 export const input = css`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
   textarea {
     width: 100%;
     background-color: var(--surface-02);
     border-radius: 1rem;
     border: 0.2rem solid var(--surface-03);
-    padding-inline-start: 2rem;
+    padding-inline-start: 1rem;
     min-height: 2.4rem;
     color: var(--font-01);
     resize: none;
@@ -123,21 +120,24 @@ export const input = css`
     overflow-y: hidden;
     min-height: 16rem;
   }
+
   input {
     width: 100%;
     background-color: var(--surface-02);
     border-radius: 1rem;
     border: 0.2rem solid var(--surface-03);
-    padding-inline-start: 2rem;
+    padding-inline-start: 1rem;
     min-height: 4.8rem;
     color: var(--font-01);
   }
+
   .number_input_container {
     min-height: 4.8rem;
     display: grid;
     grid-template-columns: 1fr min-content;
     z-index: 1; /* cover advanced-settings border */
   }
+
   .button_max {
     ${common.iconButton};
     ${typography.button};

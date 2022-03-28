@@ -29,6 +29,7 @@ export const MiniTokenDisplay: FC<Props> = (props) => {
         <div className="image">
           <Image src={props.icon} width={48} height={48} alt={props.name} />
         </div>
+
         {props.loading ? (
           <Spinner />
         ) : (

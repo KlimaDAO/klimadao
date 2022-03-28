@@ -129,7 +129,7 @@ export function ChooseBond() {
         <div className={styles.chooseBondCard_header}>
           <Text t="h4" className={styles.chooseBondCard_header_title}>
             <SpaOutlined />
-            <Trans id="choose_bond.bond_carbon">Bond Carbon.</Trans>
+            <Trans id="choose_bond.bond_carbon">Bond Carbon</Trans>
           </Text>
           <Text t="caption" color="lightest">
             <Trans
@@ -142,6 +142,7 @@ export function ChooseBond() {
             </Trans>
           </Text>
         </div>
+
         <div className={styles.chooseBondCard_ui}>
           <div>
             <Text t="badge" color="lightest">
@@ -194,7 +195,10 @@ export function ChooseBond() {
           </div>
         </div>
       </div>
-      <ImageCard />
+
+      <div className={styles.columnRight}>
+        <ImageCard />
+      </div>
     </>
   );
 }

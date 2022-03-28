@@ -21,6 +21,7 @@ export const bondCard = css`
   padding: 2.4rem;
   gap: 2.4rem;
   align-content: start;
+  grid-column: 1 / 3;
   .hr {
     height: 2px;
     background-color: var(--surface-01);

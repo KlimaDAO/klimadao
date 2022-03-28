@@ -11,6 +11,7 @@ export const stakeCard = css`
   padding: 2.4rem;
   gap: 2.4rem;
   align-content: start;
+  grid-column: 1 / 3;
 
   .hr {
     height: 2px;
@@ -209,4 +210,15 @@ export const buttonRow_spinner = css`
 
 export const submitButton = css`
   width: 100%;
+`;
+
+export const columnRight = css`
+  display: grid;
+  gap: 2.4rem;
+  grid-column: 1 / 3;
+  align-content: start;
+
+  ${breakpoints.desktop} {
+    grid-column: 2 / 3;
+  }
 `;

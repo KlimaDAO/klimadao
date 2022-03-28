@@ -5,6 +5,7 @@ import * as typography from "@klimadao/lib/theme/typography";
 
 export const card = css`
   ${common.cardSurface};
+  grid-column: 1 / 3;
   align-content: start;
   grid-template-rows: min-content 1fr;
   gap: 0.8rem;
@@ -39,6 +40,7 @@ export const card = css`
   }
 
   ${breakpoints.desktop} {
+    grid-column: 2 / 3;
     .value {
       ${typography.h4}
     }
