@@ -45,14 +45,14 @@ A set of NPM Workspace commands are provided, and can be run from the root folde
 
 `npm run format-all`: Format all files with `prettier`.
 
-## Translatiing
+## Translations
 
 ### For translators
 
 #### Setup
 
 - Create an account on [translation.io](https://translation.io)
-- Request access to the project atmosfearful/klimadao in the #content-translation KlimaDaO discord server
+- Request access to the project atmosfearful/klimadao in the #content-translation KlimaDAO discord server
 
 #### Translating
 

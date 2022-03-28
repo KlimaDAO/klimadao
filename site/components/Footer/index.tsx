@@ -6,9 +6,11 @@ import {
   Anchor as A,
   DiscordIcon,
   GithubIcon,
+  LinkedInIcon,
   RedditIcon,
   RSSIcon,
   TelegramIcon,
+  TiktokIcon,
   TwitchIcon,
   TwitterIcon,
   YoutubeIcon,
@@ -74,6 +76,12 @@ export const Footer: FC = () => (
         </A>
         <A href={urls.github}>
           <GithubIcon />
+        </A>
+        <A href={urls.tiktok}>
+          <TiktokIcon />
+        </A>
+        <A href={urls.linkedIn}>
+          <LinkedInIcon />
         </A>
         <A href={urls.telegram}>
           <TelegramIcon />
