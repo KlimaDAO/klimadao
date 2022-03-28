@@ -39,13 +39,13 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     styles: (
-      <React.Fragment>
+      <>
         {initialProps.styles}
         <style
           data-emotion={`css ${ids.join(" ")}`}
           dangerouslySetInnerHTML={{ __html: css }}
         />
-      </React.Fragment>
+      </>
     ),
   };
 };
