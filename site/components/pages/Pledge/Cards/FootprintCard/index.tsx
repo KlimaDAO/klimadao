@@ -5,8 +5,6 @@ import { Text } from "@klimadao/lib/components";
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 
-// type Props = {};
-
 export const FootprintCard: FC = () => (
   <BaseCard
     title="Footprint"

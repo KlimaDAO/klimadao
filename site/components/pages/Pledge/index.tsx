@@ -1,7 +1,12 @@
 import React from "react";
 import { NextPage } from "next";
+import { useMoralis } from "react-moralis";
 import dynamic from "next/dynamic";
-import { KlimaInfinityLogo, Text } from "@klimadao/lib/components";
+import {
+  KlimaInfinityLogo,
+  Text,
+  ButtonPrimary,
+} from "@klimadao/lib/components";
 
 import {
   ActiveAssetsCard,
@@ -18,6 +23,8 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 });
 
 export const Pledge: NextPage = () => {
+  const { isAuthenticated, authenticate, logout } = useMoralis();
+
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>
@@ -25,11 +32,18 @@ export const Pledge: NextPage = () => {
           <div className={styles.logo}>
             <KlimaInfinityLogo />
           </div>
-          <ThemeToggle />
+          <div className={styles.group}>
+            <ThemeToggle />
+            {isAuthenticated ? (
+              <ButtonPrimary label="Sign out" onClick={() => logout()} />
+            ) : (
+              <ButtonPrimary label="Sign in" onClick={() => authenticate()} />
+            )}
+          </div>
         </div>
 
         <div className={styles.profile}>
-          <Text t="h3" className="companyLogo" align="center">
+          <Text t="h3" className="profileImage" align="center">
             -
           </Text>
           <Text t="h4">Company name</Text>
