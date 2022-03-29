@@ -2,6 +2,7 @@ import React, { FC, ReactNode } from "react";
 import Image from "next/image";
 
 import { Spinner, Text } from "@klimadao/lib/components";
+import { trimStringDecimals } from "@klimadao/lib/utils";
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
 
@@ -43,7 +44,7 @@ export const MiniTokenDisplay: FC<Props> = (props) => (
             warn: !!props.warn,
           })}
         >
-          {props.amount || "0"}
+          {props.amount ? trimStringDecimals(props.amount, 2) : "0"}
         </Text>
       )}
     </div>

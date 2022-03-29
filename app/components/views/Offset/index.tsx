@@ -521,9 +521,9 @@ export const Offset = (props: Props) => {
             <GppMaybeOutlined />
             <Text t="caption">
               <Trans id="offset_disclaimer">
-                Be careful not to expose any sensitive personal information. The
-                information you provide will be made a permanent, immutable
-                record on a public blockchain.
+                Be careful not to expose any sensitive personal information.
+                Your message can not be edited and will permanently exist on the
+                blockchain.
               </Trans>
             </Text>
           </div>
