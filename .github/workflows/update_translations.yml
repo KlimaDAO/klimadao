@@ -13,6 +13,10 @@ on:
         required: true
       PUSH_ACTOR:
         required: true
+      TRANSLATIONIO_KEY_APP:
+        required: true
+      TRANSLATIONIO_KEY_SITE:
+        required: true
 
 jobs:
   update_translations:
@@ -54,6 +58,9 @@ jobs:
 
       - name: Extract and Compile Translation strings
         run: npm run compile-strings
+        env:
+          TRANSLATIONIO_KEY_APP: ${{ secrets.TRANSLATIONIO_KEY_APP }}
+          TRANSLATIONIO_KEY_SITE: ${{ secrets.TRANSLATIONIO_KEY_SITE }}
 
       - name: Check for modified files in all locale folders
         id: git-check
