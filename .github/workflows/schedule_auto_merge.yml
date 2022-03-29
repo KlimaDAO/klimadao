@@ -4,7 +4,7 @@ name: Schedule Auto Merge
 on:
   push:
     branches:
-      - tmp-staging-test-branch
+      - disable-for-now
     # Ignore changes in locale to not re-trigger this workflow, remove on final PR
     paths-ignore:
       - "**/locale/**"
