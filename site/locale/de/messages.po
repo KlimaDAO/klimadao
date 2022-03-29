@@ -1,25 +1,19 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-03-25 13:14-0700\n"
+"POT-Creation-Date: 2022-03-29 18:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:31
 msgid "Articles"
-msgstr ""
+msgstr "Artikel"
 
 #: components/ChangeLanguageButton/index.tsx:59
 msgid "Change language"
-msgstr ""
+msgstr "Sprache wechseln"
 
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
@@ -27,12 +21,12 @@ msgstr ""
 
 #: components/pages/Blog/index.tsx:18
 msgid "blog.head.headline"
-msgstr ""
+msgstr "Blog"
 
 #: components/pages/Blog/index.tsx:17
 #: components/pages/Blog/index.tsx:24
 msgid "blog.head.title"
-msgstr ""
+msgstr "KlimaDAO-Blog"
 
 #: components/pages/Buy/index.tsx:43
 #: components/pages/Buy/index.tsx:44
@@ -41,7 +35,7 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:93
 msgid "community.become_a_partner"
-msgstr ""
+msgstr "PARTNER WERDEN"
 
 #: components/pages/Resources/Community/index.tsx:166
 msgid "community.bigcowg_logo"
@@ -49,7 +43,7 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:155
 msgid "community.blockchainforclimatefondation_logo"
-msgstr ""
+msgstr "Blockchain for Climate Foundation-Logo"
 
 #: components/pages/Resources/Community/index.tsx:329
 msgid "community.come_on_in"
@@ -58,24 +52,24 @@ msgstr ""
 #: components/pages/Resources/Community/index.tsx:106
 #: components/pages/Resources/Community/index.tsx:390
 msgid "community.contact_us"
-msgstr ""
+msgstr "Kontaktiere uns"
 
 #: components/pages/Resources/Community/index.tsx:232
 msgid "community.deltawave_logo"
-msgstr ""
+msgstr "Delta Wave-Logo"
 
 #: components/pages/Resources/Community/index.tsx:284
 msgid "community.digitalcharityart_logo"
-msgstr ""
+msgstr "Digital Charity Art-Logo"
 
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:344
 msgid "community.discord_is_where_we_share"
-msgstr ""
+msgstr "Wir nutzen Discord, um wichtige Ankündigungen mitzuteilen, Fragen zu beantworten, Office Hours abzuhalten - und Memes zu tauschen. Die Aktivität auf unserem permanent moderierten Discord-Server ist durchgehend hoch. Wir haben separate Kanäle für alles: von Tokenhandel über Nachhaltigkeit bis zu CO²-Märkten."
 
 #: components/pages/Resources/Community/index.tsx:254
 msgid "community.dovu_logo"
-msgstr ""
+msgstr "Dovu-Logo"
 
 #: components/pages/Resources/Community/index.tsx:262
 msgid "community.eco_logo"
@@ -91,11 +85,11 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:199
 msgid "community.gitcoin_logo"
-msgstr ""
+msgstr "Gitcoin-Logo"
 
 #: components/pages/Resources/Community/index.tsx:75
 msgid "community.head.headline"
-msgstr ""
+msgstr "Community"
 
 #: components/pages/Resources/Community/index.tsx:76
 msgid "community.head.subline"
@@ -104,7 +98,7 @@ msgstr ""
 #: components/pages/Resources/Community/index.tsx:74
 #: components/pages/Resources/Community/index.tsx:81
 msgid "community.head.title"
-msgstr ""
+msgstr "KlimaDAO-Community"
 
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:380
@@ -113,7 +107,7 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:332
 msgid "community.join_our_discord"
-msgstr ""
+msgstr "Unserem Discord beitreten"
 
 #: components/pages/Resources/Community/index.tsx:319
 msgid "community.join_the_klima_community"
@@ -130,35 +124,35 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:188
 msgid "community.oceandrop_logo"
-msgstr ""
+msgstr "Oceandrop-Logo"
 
 #: components/pages/Resources/Community/index.tsx:273
 msgid "community.offsetra_logo"
-msgstr ""
+msgstr "Offsetra-Logo"
 
 #: components/pages/Resources/Community/index.tsx:210
 msgid "community.olympusdao_logo"
-msgstr ""
+msgstr "OlympusDAO-Logo"
 
 #: components/pages/Resources/Community/index.tsx:221
 msgid "community.openearth_logo"
-msgstr ""
+msgstr "Open Earth-Logo"
 
 #: components/pages/Resources/Community/index.tsx:126
 msgid "community.our_partners"
-msgstr ""
+msgstr "UNSERE PARTNER"
 
 #: components/pages/Resources/Community/index.tsx:177
 msgid "community.polygon_logo"
-msgstr ""
+msgstr "Polygon-Logo"
 
 #: components/pages/Resources/Community/index.tsx:144
 msgid "community.toucan_logo"
-msgstr ""
+msgstr "Toucan-Logo"
 
 #: components/pages/Resources/Community/index.tsx:295
 msgid "community.toughtforfood_logo"
-msgstr ""
+msgstr "Thought for Food-Logo"
 
 #: components/pages/Resources/Community/index.tsx:109
 msgid "community.tree_grove"
@@ -189,16 +183,16 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
-msgstr ""
+msgstr "Kontakt"
 
 #: components/pages/Resources/Contact/index.tsx:19
 msgid "contact.head.subline"
-msgstr ""
+msgstr "Fragen, Sorgen, Ideen? Über diese Möglichkeiten kannst du mit uns in Kontakt treten. Wir freuen uns auf Organisationen ebenso wie auf Privatpersonen."
 
 #: components/pages/Resources/Contact/index.tsx:17
 #: components/pages/Resources/Contact/index.tsx:24
 msgid "contact.head.title"
-msgstr ""
+msgstr "KlimaDAO kontaktieren"
 
 #: components/pages/Resources/Contact/index.tsx:104
 msgid "contact.media"
@@ -216,7 +210,7 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:84
 msgid "contact.partnerships"
-msgstr ""
+msgstr "Partnerschaften"
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
 #: components/pages/Resources/Contact/index.tsx:87
@@ -225,12 +219,12 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:32
 msgid "contact.quest_and_support"
-msgstr ""
+msgstr "Fragen & Support"
 
 #. Join our <0>community</0>
 #: components/pages/Resources/Contact/index.tsx:35
 msgid "contact.quest_and_support.join_our_community"
-msgstr ""
+msgstr "Unserer <0>Community</0> beitreten"
 
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:43
@@ -272,12 +266,12 @@ msgstr ""
 
 #: components/pages/Disclaimer/index.tsx:32
 msgid "disclaimer.disclaimer"
-msgstr ""
+msgstr "Haftungsausschluss"
 
 #: components/pages/Disclaimer/index.tsx:19
 #: components/pages/Disclaimer/index.tsx:24
 msgid "disclaimer.head.title"
-msgstr ""
+msgstr "KlimaDAO-Haftungsausschluss"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:106
@@ -319,35 +313,35 @@ msgstr ""
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr ""
 
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:46
 msgid "footer.blog"
-msgstr ""
+msgstr "Blog"
 
-#: components/Footer/index.tsx:37
+#: components/Footer/index.tsx:39
 msgid "footer.bond"
 msgstr ""
 
-#: components/Footer/index.tsx:49
+#: components/Footer/index.tsx:51
 msgid "footer.contact"
-msgstr ""
+msgstr "Kontakt"
 
-#: components/Footer/index.tsx:54
+#: components/Footer/index.tsx:56
 msgid "footer.disclaimer"
-msgstr ""
+msgstr "Haftungsausschluss"
 
-#: components/Footer/index.tsx:40
+#: components/Footer/index.tsx:42
 msgid "footer.docs"
-msgstr ""
+msgstr "Dokumente"
 
-#: components/Footer/index.tsx:30
+#: components/Footer/index.tsx:32
 msgid "footer.get_klima"
-msgstr ""
+msgstr "KLIMA kaufen"
 
-#: components/Footer/index.tsx:25
+#: components/Footer/index.tsx:27
 msgid "footer.home"
-msgstr ""
+msgstr "Home"
 
-#: components/Footer/index.tsx:34
+#: components/Footer/index.tsx:36
 msgid "footer.stake"
 msgstr ""
 
@@ -366,17 +360,17 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:263
 msgid "home.equivalent_to"
-msgstr ""
+msgstr "ENTSPRICHT"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:378
 msgid "home.every_klima_token_is_backed"
-msgstr ""
+msgstr "Jedes KLIMA-Token ist von einem echten CO2-Zertifikate gedeckt. Diese Tokens werden genutzt, um CO2-Emissionen auszugleichen, mit DeFi-Applikationen zu interagieren, und Zugang zum rasant wachsenden weltweiten CO2-Markt zu erhalten."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:101
 msgid "home.fight_climate_change"
-msgstr ""
+msgstr "Bekämpfe den Klimawandel und erhalte Belohnungen durch KLIMA: eine digitale, durch reale CO2-Zertifikate gedeckte Währung."
 
 #: components/pages/Home/index.tsx:429
 msgid "home.get_exposure_to_the_growing_carbon_economy"
@@ -384,7 +378,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:426
 msgid "home.get_klima"
-msgstr ""
+msgstr "KLIMA KAUFEN"
 
 #: components/pages/Home/index.tsx:277
 msgid "home.hectares_of_forest"
@@ -402,7 +396,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:77
 msgid "home.latest_news"
-msgstr ""
+msgstr "📰 Neueste Nachrichten:"
 
 #: components/pages/Home/index.tsx:132
 msgid "home.learn_more"
@@ -435,11 +429,11 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:477
 msgid "home.newletter.sign_up"
-msgstr ""
+msgstr "Anmelden"
 
 #: components/pages/Home/index.tsx:463
 msgid "home.newsletter"
-msgstr ""
+msgstr "Newsletter"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
 #: components/pages/Home/index.tsx:366
@@ -452,7 +446,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:324
 msgid "home.source"
-msgstr ""
+msgstr "Quelle"
 
 #: components/pages/Home/index.tsx:221
 msgid "home.strong_incentives"
@@ -494,12 +488,12 @@ msgstr ""
 
 #: components/Navigation/index.tsx:34
 msgid "mainNav.enter_app"
-msgstr ""
+msgstr "App öffnen"
 
 #: components/Navigation/index.tsx:41
 #: components/Navigation/index.tsx:67
 msgid "mainNav.get_klima"
-msgstr ""
+msgstr "KLIMA kaufen"
 
 #: components/Navigation/index.tsx:54
 #: components/Navigation/index.tsx:79
@@ -518,24 +512,24 @@ msgstr ""
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
-msgstr ""
+msgstr "Blog"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
 msgid "shared.community"
-msgstr ""
+msgstr "Community"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 msgid "shared.contact_us"
-msgstr ""
+msgstr "Kontaktiere uns"
 
 #: components/pages/Home/index.tsx:109
 msgid "shared.enter_app"
-msgstr ""
+msgstr "App öffnen"
 
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
