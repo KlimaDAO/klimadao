@@ -1,20 +1,15 @@
 name: Schedule Auto Merge
-# Change later for schedules on default branch every Monday and Thursday at 15h (8am PCT)
-# - cron: '0 15 * * 1,4'
 on:
-  push:
-    branches:
-      - disable-for-now
-    # Ignore changes in locale to not re-trigger this workflow, remove on final PR
-    paths-ignore:
-      - "**/locale/**"
+  schedule:
+    # Runs on default branch every Monday and Wednesday at 15h (8am PCT)
+    - cron: "0 15 * * 1,3"
 
 jobs:
   call_update_translations:
     uses: ./.github/workflows/update_translations.yml
     with:
       environment: Release-staging
-      branch: tmp-staging-test-branch
+      branch: staging
     secrets:
       PUSH_ACTOR_TOKEN: ${{ secrets.PUSH_ACTOR_TOKEN }}
       PUSH_ACTOR: ${{ secrets.PUSH_ACTOR }}
@@ -25,7 +20,7 @@ jobs:
     needs: [call_update_translations]
     uses: ./.github/workflows/wait_for_status_check.yml
     with:
-      branch: tmp-staging-test-branch
+      branch: staging
     secrets:
       # take the default token here as no pushes are needed
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,8 +31,8 @@ jobs:
     uses: ./.github/workflows/merge_staging.yml
     with:
       environment: Release-staging
-      staging_branch: tmp-staging-test-branch
-      production_branch: tmp-main-test-branch
+      staging_branch: staging
+      production_branch: main
     secrets:
       PUSH_ACTOR_TOKEN: ${{ secrets.PUSH_ACTOR_TOKEN }}
       PUSH_ACTOR: ${{ secrets.PUSH_ACTOR }}
