@@ -380,7 +380,7 @@ export const Offset = (props: Props) => {
             <label>
               <Text t="caption" color="lighter">
                 <Trans id="offset.amount_in_tonnes">
-                  How many carbon tonnes would you like to retire?
+                  How many tonnes of carbon would you like to offset?
                 </Trans>
               </Text>
             </label>
@@ -398,8 +398,8 @@ export const Offset = (props: Props) => {
                 }}
                 onChange={handleChangeQuantity}
                 placeholder={t({
-                  id: "offset.retirement_quantity",
-                  message: "Quantity",
+                  id: "offset.offset_quantity",
+                  message: "Enter quantity to offset",
                 })}
               />
             </div>
@@ -412,9 +412,7 @@ export const Offset = (props: Props) => {
             currentItem={selectedInputToken}
             items={inputTokenItems}
             isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => {
-              setInputTokenModalOpen((s) => !s);
-            }}
+            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectInputToken}
           />
           {/* Retire Token  */}
@@ -436,7 +434,7 @@ export const Offset = (props: Props) => {
                 </Text>
                 <TextInfoTooltip
                   content={
-                    <Trans id="offset_aggregation_fee_tooltip">
+                    <Trans id="offset.aggregation_fee_tooltip">
                       This cost includes slippage and the aggregation fee of 1%.
                     </Trans>
                   }
@@ -455,7 +453,7 @@ export const Offset = (props: Props) => {
           <MiniTokenDisplay
             label={
               <Text t="caption" color="lighter">
-                <Trans id="offset_retiring">Retiring</Trans>
+                <Trans id="offset.retiring">Retiring</Trans>
               </Text>
             }
             amount={quantity}
@@ -466,7 +464,7 @@ export const Offset = (props: Props) => {
 
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
-              <Trans id="offset.retirement_message">
+              <Trans id="offset.retirement_credit">
                 Who will this retirement be credited to?
               </Trans>
             </Text>
@@ -475,7 +473,7 @@ export const Offset = (props: Props) => {
                 value={beneficiary}
                 onChange={(e) => setBeneficiary(e.target.value)}
                 placeholder={t({
-                  id: "offset.beneficiary",
+                  id: "offset.retirement_beneficiary",
                   message: "Name or organisation",
                 })}
               />
@@ -491,7 +489,7 @@ export const Offset = (props: Props) => {
                 })}
               />
               <Text t="caption" color="lightest" className="defaultAddress">
-                <Trans id="offset.default_retirement_address_message">
+                <Trans id="offset.default_retirement_address">
                   Defaults to the connected wallet address
                 </Trans>
               </Text>
@@ -511,7 +509,7 @@ export const Offset = (props: Props) => {
                 setRetirementMessage(e.target.value);
               }}
               placeholder={t({
-                id: "offset.describe_the_purpose_of_retirement",
+                id: "offset.retirement_purpose",
                 message: "Describe the purpose of this retirement",
               })}
             />
@@ -522,8 +520,8 @@ export const Offset = (props: Props) => {
             <Text t="caption">
               <Trans id="offset_disclaimer">
                 Be careful not to expose any sensitive personal information.
-                Your message can not be edited and will permanently exist on a public
-                blockchain.
+                Your message can not be edited and will permanently exist on a
+                public blockchain.
               </Trans>
             </Text>
           </div>
