@@ -522,7 +522,7 @@ export const Offset = (props: Props) => {
             <Text t="caption">
               <Trans id="offset_disclaimer">
                 Be careful not to expose any sensitive personal information.
-                Your message can not be edited and will permanently exist on the
+                Your message can not be edited and will permanently exist on a public
                 blockchain.
               </Trans>
             </Text>
