@@ -1,8 +1,8 @@
 name: Schedule Auto Merge
 on:
   schedule:
-    # Runs on default branch every Monday and Wednesday at 15h (8am PCT)
-    - cron: "0 15 * * 1,3"
+    # At 16:00 UTC (9am PDT) on every day-of-week from Monday through Thursday.
+    - cron: "0 16 * * 1-4"
 
 jobs:
   call_update_translations:
