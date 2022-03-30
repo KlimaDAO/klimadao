@@ -128,7 +128,7 @@ export type Post = {
   imageUrl?: string;
   publishedAt: string;
   summary: string;
-  showDisclaimer: boolean;
+  showDisclaimer?: boolean;
 };
 
 export interface QueryContent {
