@@ -5,11 +5,10 @@ export const container = css`
   display: grid;
   flex-direction: column;
   width: 100%;
-  gap: 0.5rem;
+  gap: 0.6rem;
 
   .label {
     height: 2rem;
-    text-transform: uppercase;
 
     ${breakpoints.medium} {
       justify-self: flex-start;
@@ -31,8 +30,9 @@ export const card = css`
   border-radius: 1rem;
   padding: 0.4rem 0.8rem;
 
-  .image {
+  .icon {
     min-width: 4.8rem;
+    align-self: center;
   }
 
   p {

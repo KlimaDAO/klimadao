@@ -14,6 +14,17 @@ export const columnRight = css`
   }
 `;
 
+export const beneficiary = css`
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+
+  .defaultAddress {
+    font-size: 1.3rem;
+    margin-top: -0.2rem;
+  }
+`;
+
 export const offsetCard = css`
   display: grid;
   background-color: var(--surface-02);
@@ -43,8 +54,7 @@ export const offsetCard_header = css`
 
 export const offsetCard_ui = css`
   display: grid;
-  gap: 2.4rem;
-  overflow: none;
+  gap: 2.5rem;
 
   ${breakpoints.medium} {
     border: 2px solid var(--surface-03);
@@ -53,8 +63,6 @@ export const offsetCard_ui = css`
   }
 
   ${breakpoints.desktop} {
-    gap: 2.4rem;
-    padding: 2.4rem;
     justify-self: center;
     max-width: 48rem;
     width: 100%;

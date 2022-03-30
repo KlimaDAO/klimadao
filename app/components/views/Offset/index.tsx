@@ -374,36 +374,13 @@ export const Offset = (props: Props) => {
             </Trans>
           </Text>
         </div>
+
         <div className={styles.offsetCard_ui}>
-          {/* Input Token */}
-          <DropdownWithModal
-            label="Pay with"
-            modalTitle="Select Token"
-            currentItem={selectedInputToken}
-            items={inputTokenItems}
-            isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => {
-              setInputTokenModalOpen((s) => !s);
-            }}
-            onItemSelect={handleSelectInputToken}
-          />
-          {/* Retire Token  */}
-          <DropdownWithModal
-            label="Select carbon offset token to retire"
-            modalTitle="Select Carbon Type"
-            currentItem={selectedRetirementToken}
-            items={retirementTokenItems}
-            isModalOpen={isRetireTokenModalOpen}
-            onToggleModal={() => {
-              setRetireTokenModalOpen((s) => !s);
-            }}
-            onItemSelect={handleSelectRetirementToken}
-          />
           <div className={styles.input}>
             <label>
-              <Text t="caption" color="lightest">
+              <Text t="caption" color="lighter">
                 <Trans id="offset.amount_in_tonnes">
-                  AMOUNT IN CARBON TONNES
+                  How many tonnes of carbon would you like to offset?
                 </Trans>
               </Text>
             </label>
@@ -421,22 +398,43 @@ export const Offset = (props: Props) => {
                 }}
                 onChange={handleChangeQuantity}
                 placeholder={t({
-                  id: "offset.how_many_retire",
-                  message: "How many carbon tonnes would you like to retire?",
+                  id: "offset.offset_quantity",
+                  message: "Enter quantity to offset",
                 })}
               />
             </div>
           </div>
 
+          {/* Input Token */}
+          <DropdownWithModal
+            label="Pay with"
+            modalTitle="Select Token"
+            currentItem={selectedInputToken}
+            items={inputTokenItems}
+            isModalOpen={isInputTokenModalOpen}
+            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
+            onItemSelect={handleSelectInputToken}
+          />
+          {/* Retire Token  */}
+          <DropdownWithModal
+            label="Select carbon offset token to retire"
+            modalTitle="Select Carbon Type"
+            currentItem={selectedRetirementToken}
+            items={retirementTokenItems}
+            isModalOpen={isRetireTokenModalOpen}
+            onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
+            onItemSelect={handleSelectRetirementToken}
+          />
+
           <MiniTokenDisplay
             label={
               <div className="mini_token_label">
-                <Text t="caption" color="lightest">
+                <Text t="caption" color="lighter">
                   <Trans id="offset_cost">Cost</Trans>
                 </Text>
                 <TextInfoTooltip
                   content={
-                    <Trans id="offset_aggregation_fee_tooltip">
+                    <Trans id="offset.aggregation_fee_tooltip">
                       This cost includes slippage and the aggregation fee of 1%.
                     </Trans>
                   }
@@ -454,8 +452,8 @@ export const Offset = (props: Props) => {
 
           <MiniTokenDisplay
             label={
-              <Text t="caption" color="lightest">
-                <Trans id="offset_retiring">Retiring</Trans>
+              <Text t="caption" color="lighter">
+                <Trans id="offset.retiring">Retiring</Trans>
               </Text>
             }
             amount={quantity}
@@ -464,69 +462,66 @@ export const Offset = (props: Props) => {
             labelAlignment="start"
           />
 
-          <div className={styles.input}>
-            <label>
-              <Text t="caption" color="lightest">
-                <Trans id="offset.beneficiary">BENEFICIARY</Trans>
-              </Text>
-            </label>
-            <input
-              value={beneficiary}
-              onChange={(e) => {
-                setBeneficiary(e.target.value);
-              }}
-              placeholder={t({
-                id: "offset.who_beneficiary",
-                message: "To whom will this retirement be credited?",
-              })}
-            />
-          </div>
-          <div className={styles.input}>
-            <label>
-              <Text t="caption" color="lightest">
-                <Trans id="offset.beneficiary_address">
-                  BENEFICIARY ADDRESS (optional: defaults to connected address)
+          <div className={styles.beneficiary}>
+            <Text t="caption" color="lighter">
+              <Trans id="offset.retirement_credit">
+                Who will this retirement be credited to?
+              </Trans>
+            </Text>
+            <div className={styles.input}>
+              <input
+                value={beneficiary}
+                onChange={(e) => setBeneficiary(e.target.value)}
+                placeholder={t({
+                  id: "offset.retirement_beneficiary",
+                  message: "Name or organisation",
+                })}
+              />
+            </div>
+
+            <div className={styles.input}>
+              <input
+                value={beneficiaryAddress}
+                onChange={(e) => setBeneficiaryAddress(e.target.value)}
+                placeholder={t({
+                  id: "offset.ethereum_address",
+                  message: "Ethereum address",
+                })}
+              />
+              <Text t="caption" color="lightest" className="defaultAddress">
+                <Trans id="offset.default_retirement_address">
+                  Defaults to the connected wallet address
                 </Trans>
               </Text>
-            </label>
-            <input
-              value={beneficiaryAddress}
-              onChange={(e) => {
-                setBeneficiaryAddress(e.target.value);
-              }}
-              placeholder={t({
-                id: "offset.which_address_retiring",
-                message: "Which address are you retiring on behalf of?",
-              })}
-            />
+            </div>
           </div>
+
           <div className={styles.input}>
             <label>
-              <Text t="caption" color="lightest">
-                <Trans id="offset.retirement_message">RETIREMENT MESSAGE</Trans>
+              <Text t="caption" color="lighter">
+                <Trans id="offset.retirement_message">Retirement message</Trans>
               </Text>
             </label>
             <textarea
               value={retirementMessage}
               onChange={(e) => {
-                if (e.target.value.length >= 280) {
-                  return;
-                }
+                if (e.target.value.length >= 280) return;
                 setRetirementMessage(e.target.value);
               }}
               placeholder={t({
-                id: "offset.describe_the_purpose_of_retirement",
+                id: "offset.retirement_purpose",
                 message: "Describe the purpose of this retirement",
               })}
             />
           </div>
+
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
               <Trans id="offset_disclaimer">
-                Be careful not to expose any sensitive personal information. The
-                information you provide will be made a permanent, immutable
-                record on a public blockchain.
+                Be careful not to expose any sensitive personal information.
+                Your message can not be edited and will permanently exist on a
+                public blockchain.
               </Trans>
             </Text>
           </div>

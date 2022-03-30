@@ -5,10 +5,8 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const container = css`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  .label {
-    text-transform: uppercase;
-  }
+  gap: 0.6rem;
+
   button {
     width: 100%;
     display: flex;
@@ -38,6 +36,7 @@ export const modalBackground = css`
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
 `;
+
 export const modalContainer = css`
   width: 100vw;
   height: 100vh;
@@ -50,6 +49,7 @@ export const modalContainer = css`
   align-items: center;
   justify-content: center;
 `;
+
 export const modalContent = css`
   ${breakpoints.medium} {
     width: 50rem;
