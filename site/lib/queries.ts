@@ -50,7 +50,8 @@ const prodQueries = {
       author->,
       "imageUrl": mainImage.asset->url,
       publishedAt,
-      summary
+      summary,
+      showDisclaimer,
     }
   `,
 };
@@ -99,7 +100,8 @@ const stagingQueries: typeof prodQueries = {
       author->,
       "imageUrl": mainImage.asset->url,
       publishedAt,
-      summary
+      summary,
+      showDisclaimer
     }
   `,
 };
@@ -126,6 +128,7 @@ export type Post = {
   imageUrl?: string;
   publishedAt: string;
   summary: string;
+  showDisclaimer: boolean;
 };
 
 export interface QueryContent {
