@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-03-29 18:11+0000\n"
+"POT-Creation-Date: 2022-03-30 15:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,7 +31,7 @@ msgstr "KlimaDAO-Blog"
 #: components/pages/Buy/index.tsx:43
 #: components/pages/Buy/index.tsx:44
 msgid "buy.head.title"
-msgstr ""
+msgstr "So kaufst du KLIMA"
 
 #: components/pages/Resources/Community/index.tsx:93
 msgid "community.become_a_partner"
@@ -39,7 +39,7 @@ msgstr "PARTNER WERDEN"
 
 #: components/pages/Resources/Community/index.tsx:166
 msgid "community.bigcowg_logo"
-msgstr ""
+msgstr "BICOWG-Logo"
 
 #: components/pages/Resources/Community/index.tsx:155
 msgid "community.blockchainforclimatefondation_logo"
@@ -47,7 +47,7 @@ msgstr "Blockchain for Climate Foundation-Logo"
 
 #: components/pages/Resources/Community/index.tsx:329
 msgid "community.come_on_in"
-msgstr ""
+msgstr "Komm herein"
 
 #: components/pages/Resources/Community/index.tsx:106
 #: components/pages/Resources/Community/index.tsx:390
@@ -73,15 +73,15 @@ msgstr "Dovu-Logo"
 
 #: components/pages/Resources/Community/index.tsx:262
 msgid "community.eco_logo"
-msgstr ""
+msgstr "Eco-Logo"
 
 #: components/pages/Resources/Community/index.tsx:243
 msgid "community.etcgroup_logo"
-msgstr ""
+msgstr "ETC Group-Logo"
 
 #: components/pages/Resources/Community/index.tsx:377
 msgid "community.get_in_touch"
-msgstr ""
+msgstr "Willst du es etwas mitteilen?"
 
 #: components/pages/Resources/Community/index.tsx:199
 msgid "community.gitcoin_logo"
@@ -93,7 +93,7 @@ msgstr "Community"
 
 #: components/pages/Resources/Community/index.tsx:76
 msgid "community.head.subline"
-msgstr ""
+msgstr "KlimaDAO ist eine dezentralisierte, autonome Organisation für positiven Wandel. Wir werden von einer leidenschaftlichen Community aus Klimates aufgebaut und verwaltet."
 
 #: components/pages/Resources/Community/index.tsx:74
 #: components/pages/Resources/Community/index.tsx:81
@@ -103,7 +103,7 @@ msgstr "KlimaDAO-Community"
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:380
 msgid "community.if_you_ve_got_questions"
-msgstr ""
+msgstr "Falls du Fragen, Ideen oder Anregungen hast: Wir helfen dir dabei, den richtigen Ansprechpartner zu finden."
 
 #: components/pages/Resources/Community/index.tsx:332
 msgid "community.join_our_discord"
@@ -111,16 +111,16 @@ msgstr "Unserem Discord beitreten"
 
 #: components/pages/Resources/Community/index.tsx:319
 msgid "community.join_the_klima_community"
-msgstr ""
+msgstr "Tritt der Klima-Community bei"
 
 #: components/pages/Resources/Community/index.tsx:90
 #: components/pages/Resources/Community/index.tsx:374
 msgid "community.lets_work_together"
-msgstr ""
+msgstr "Lass uns zusammenarbeiten"
 
 #: components/pages/Resources/Community/index.tsx:133
 msgid "community.moss_logo"
-msgstr ""
+msgstr "Moss-Logo"
 
 #: components/pages/Resources/Community/index.tsx:188
 msgid "community.oceandrop_logo"
@@ -165,11 +165,11 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:60
 msgid "concat.careers"
-msgstr ""
+msgstr "Karriere"
 
 #: components/pages/Resources/Contact/index.tsx:131
 msgid "contact.bug_reports"
-msgstr ""
+msgstr "Fehlermitteilungen"
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
 #: components/pages/Resources/Contact/index.tsx:134
@@ -201,7 +201,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:107
 msgid "contact.media.if_you_are_a_journalist"
-msgstr ""
+msgstr "Journalist/in oder Contentcreator? Unser Marketingteam würde dich gerne kennenlernen!"
 
 #. Use this <0>Media Request Form</0>.
 #: components/pages/Resources/Contact/index.tsx:116
@@ -229,7 +229,7 @@ msgstr "Unserer <0>Community</0> beitreten"
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:43
 msgid "contact.quest_and_support.join_our_discord_server"
-msgstr ""
+msgstr "Trete unserem Discord-Server bei und stelle Fragen im #questions-Kanal. Bei uns findest du tausende freundliche, sachkundige Communitymitglieder, die dir gerne helfen werden."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:68
@@ -276,12 +276,12 @@ msgstr "KlimaDAO-Haftungsausschluss"
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:106
 msgid "disclaimer.klimadao_and_its_suppliers"
-msgstr ""
+msgstr "KlimaDAO und seine Lieferanten geben keine Garantie ab, dass die Plattform:"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:47
 msgid "disclaimer.klimadao_is_a_platform"
-msgstr ""
+msgstr "KlimaDAO ist eine Plattform. Wir sind kein Makler, Finanzinstitut oder Kreditgeber. Die Dienstleistungen auf dieser Webseite beinhalten keine Angebote, die Ihre Wertpapiere, Optionen, Vermögenswerte, Terminkontrakte oder andere Derivate im Zusammenhang mit Wertpapieren in jeglichem rechtlichem Zuständigkeitsbereich halten oder kontrollieren. Der Webseiteninhalt ist nicht durch Wertpapiergesetze vorgeschrieben."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:134
@@ -347,16 +347,16 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:203
 msgid "home.backed_by_carbon"
-msgstr ""
+msgstr "Gedeckt durch CO2."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:161
 msgid "home.by_increasing_access"
-msgstr ""
+msgstr "Indem wir den Zugang und die Nachfrage nach CO2-Kompensationen erhöhen, machen wir klimapositive Projekte wirtschaftlich tragbar. Gleichzeitig zwingt dies Unternehmen, schneller Antworten auf den Klimawandel zu finden."
 
 #: components/pages/Home/index.tsx:294
 msgid "home.cars_annual"
-msgstr ""
+msgstr "Autos (jährlich)"
 
 #: components/pages/Home/index.tsx:263
 msgid "home.equivalent_to"
@@ -374,7 +374,7 @@ msgstr "Bekämpfe den Klimawandel und erhalte Belohnungen durch KLIMA: eine digi
 
 #: components/pages/Home/index.tsx:429
 msgid "home.get_exposure_to_the_growing_carbon_economy"
-msgstr ""
+msgstr "Steigen Sie jetzt in die wachsende CO2-Wirtschaft ein. Erwerbe, stake, und werde belohnt. Finanzieller Aktivismus für unser Klima."
 
 #: components/pages/Home/index.tsx:426
 msgid "home.get_klima"
@@ -382,29 +382,29 @@ msgstr "KLIMA KAUFEN"
 
 #: components/pages/Home/index.tsx:277
 msgid "home.hectares_of_forest"
-msgstr ""
+msgstr "Hektar Wald"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:146
 msgid "home.klima_is_a_black_hole"
-msgstr ""
+msgstr "KlimaDAO ist ein <0>Schwarzes Loch für CO2</0> im Zentrum einer <1>neuen, grünen Wirtschaft</1>."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:407
 msgid "home.klima_tokens_are_minted"
-msgstr ""
+msgstr "KLIMA-Tokens werden ungefähr alle sieben Stunden neu generiert und an aktuelle KLIMA-Besitzer verteilt. Gemeinsam errichten wir eine neue, nachhaltige Zukunft, während dein KLIMA-Vorrat wächst."
 
 #: components/pages/Home/index.tsx:77
 msgid "home.latest_news"
-msgstr "📰 Neueste Nachrichten:"
+msgstr "📰 Aktuelle Nachrichten:"
 
 #: components/pages/Home/index.tsx:132
 msgid "home.learn_more"
-msgstr ""
+msgstr "MEHR ERFAHREN"
 
 #: components/pages/Home/index.tsx:309
 msgid "home.liters_if_gasoline"
-msgstr ""
+msgstr "Liter Benzin"
 
 #: components/pages/Home/index.tsx:239
 msgid "home.massive impact"
@@ -421,11 +421,11 @@ msgstr ""
 #. Long sentence
 #: components/pages/Home/index.tsx:466
 msgid "home.newletter.get_the_latest_updates"
-msgstr ""
+msgstr "Hole dir die neuesten Updates über KlimaDAO, während wir gemeinsam die Zukunft der CO2-Wirtschaft aufbauen."
 
 #: components/pages/Home/index.tsx:483
 msgid "home.newletter.never_shared_never_spammed"
-msgstr ""
+msgstr "Garantiert spamfrei."
 
 #: components/pages/Home/index.tsx:477
 msgid "home.newletter.sign_up"
@@ -471,15 +471,19 @@ msgstr ""
 #: components/pages/Home/index.tsx:395
 msgid "home.weekly_rewards_for_token_holders"
 msgstr ""
+"<0>{0}% WÖCHENTLICHE BELOHNUNGEN</0><1>FÜR TOKENBESITZER</1>\n"
+""
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
 #: components/pages/Home/index.tsx:88
 msgid "home.welcome_to_klimadao"
 msgstr ""
+"<0>WILLKOMMEN BEI</0><1>KlimaDAO</1>\n"
+""
 
 #: components/pages/Home/index.tsx:351
 msgid "invest_in_the_future"
-msgstr ""
+msgstr "Investiere in die Zukunft."
 
 #: components/Navigation/index.tsx:50
 #: components/Navigation/index.tsx:75
@@ -507,7 +511,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:62
 msgid "share.head.description"
-msgstr ""
+msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64

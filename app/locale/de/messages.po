@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-03-29 18:11+0000\n"
+"POT-Creation-Date: 2022-03-30 15:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,11 +33,11 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:607
 msgid "Tonnes Retired"
-msgstr ""
+msgstr "Tonnen ausgeglichen"
 
 #: components/views/Offset/index.tsx:628
 msgid "View on <0>polygonscan.com</0>"
-msgstr ""
+msgstr "Auf <0>polygonscan.com</0> ansehen"
 
 #: components/views/Offset/index.tsx:616
 #: components/views/Offset/index.tsx:624
@@ -283,7 +283,7 @@ msgstr ""
 #. Long sentence
 #: components/views/Info/index.tsx:117
 msgid "info.app_not_loading.title"
-msgstr ""
+msgstr "Warum lädt die dApp nicht?"
 
 #. Long sentence
 #: components/views/Info/index.tsx:105
@@ -645,7 +645,7 @@ msgstr ""
 
 #: components/RebaseCard/index.tsx:43
 msgid "stake.rebase"
-msgstr ""
+msgstr "Rebase"
 
 #: components/RebaseCard/index.tsx:46
 msgid "stake.rebase.info"
@@ -678,7 +678,7 @@ msgstr "❌ Fehler: etwas ist schiefgelaufen..."
 
 #: actions/utils.ts:28
 msgid "status.network_confirmation"
-msgstr ""
+msgstr "Transaktion eingeleitet. Warte auf Netzwerkbestätigung."
 
 #: actions/utils.ts:23
 msgid "status.user_confirmation"
@@ -690,7 +690,7 @@ msgstr "Du hast die Transaktion abgebrochen"
 
 #: components/NavMenu/index.tsx:181
 msgid "token.pKLIMA"
-msgstr ""
+msgstr "pKLIMA"
 
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"
