@@ -44,6 +44,7 @@ export const PostPage = (props: PostProps) => {
         mediaTitle={props.post.title}
         metaDescription={props.post.summary}
         mediaImageSrc={props.post.imageUrl || "/og-media.png"}
+        isArticle={true}
       />
 
       <Navigation activePage="Resources" />

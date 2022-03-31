@@ -12,6 +12,8 @@ export interface PageHeadProps {
   metaDescription: string;
   doNotIndex?: boolean;
   mediaImageSrc?: string;
+  /** displays some useful meta tags if current page is an article */
+  isArticle?: boolean;
 }
 
 export const PageHead = (props: PageHeadProps) => {
@@ -30,15 +32,29 @@ export const PageHead = (props: PageHeadProps) => {
         />
       )}
       <title>{props.title}</title>
+      <meta property="og:title" content={props.mediaTitle} />
+
       <meta name="description" content={props.metaDescription} />
       <meta property="og:description" content={props.metaDescription} />
-      <meta property="og:title" content={props.mediaTitle} />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content="en" />
+      <meta property="og:site_name" content="KlimaDAO" />
+
       {props.mediaImageSrc && (
         <meta property="og:image" content={props.mediaImageSrc} />
       )}
-      <meta property="og:type" content="website" />
-      <meta property="og:locale" content="en" />
+
+      {props.isArticle && (
+        <>
+          <meta property="og:type" content="article" />
+          <meta name="twitter:card" content="summary_large_image" />
+        </>
+      )}
+
+      <meta property="og:url" content={canonicalUrl} />
       <link rel="canonical" href={canonicalUrl} />
+
       <link
         rel="apple-touch-icon"
         sizes="180x180"

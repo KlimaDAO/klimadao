@@ -49,7 +49,8 @@ const prodQueries = {
       title,
       author->,
       "imageUrl": mainImage.asset->url,
-      publishedAt
+      publishedAt,
+      summary
     }
   `,
 };
@@ -97,7 +98,8 @@ const stagingQueries: typeof prodQueries = {
       title,
       author->,
       "imageUrl": mainImage.asset->url,
-      publishedAt
+      publishedAt,
+      summary
     }
   `,
 };
