@@ -8,6 +8,7 @@ export const heading = css`
 
 export const paragraph = css`
   margin: 2rem 0;
+  word-break: break-word;
 `;
 
 export const blockQuote = css`
