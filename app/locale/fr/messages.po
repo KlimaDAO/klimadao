@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-03-30 15:12+0000\n"
+"POT-Creation-Date: 2022-03-31 16:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:588
 msgid "Beneficiary Address"
@@ -19,23 +13,23 @@ msgstr "Adresse du bénéficiaire"
 
 #: components/views/Offset/index.tsx:608
 msgid "Download certificate"
-msgstr ""
+msgstr "Télécharger le certificat"
 
 #: components/views/Offset/index.tsx:596
 msgid "Message"
-msgstr ""
+msgstr "message"
 
 #: components/views/Offset/index.tsx:582
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: components/views/Offset/index.tsx:576
 msgid "Retirement Successful"
-msgstr ""
+msgstr "Destruction réussie"
 
 #: components/views/Offset/index.tsx:616
 msgid "Share retirement"
-msgstr ""
+msgstr "Partager la destruction"
 
 #: components/views/Offset/index.tsx:602
 msgid "Tonnes Retired"
@@ -362,11 +356,11 @@ msgstr "RETOUR"
 
 #: components/views/Offset/index.tsx:437
 msgid "offset.aggregation_fee_tooltip"
-msgstr ""
+msgstr "Ce coût comprend le glissement et les frais d'agrégation de 1 %."
 
 #: components/views/Offset/index.tsx:382
 msgid "offset.amount_in_tonnes"
-msgstr "QUANTITÉ EN TONNES DE CARBONE"
+msgstr ""
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:24
 msgid "offset.breakdown"
@@ -416,15 +410,15 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:502
 msgid "offset.retirement_message"
-msgstr "MESSAGE LIÉ A LA DESTRUCTION"
+msgstr ""
 
 #: components/views/Offset/index.tsx:511
 msgid "offset.retirement_purpose"
-msgstr ""
+msgstr "Décrivez le but de cette retraite"
 
 #: components/views/Offset/index.tsx:456
 msgid "offset.retiring"
-msgstr ""
+msgstr "Destruction en cours"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "offset.tonnes_of_carbon_retired"
@@ -440,7 +434,7 @@ msgstr "Coût"
 
 #: components/views/Offset/index.tsx:521
 msgid "offset_disclaimer"
-msgstr "Veillez à ne pas divulguer d'informations personnelles sensibles. Les informations que vous fournissez seront enregistrées de façon permanente et immuable sur une blockchain publique."
+msgstr ""
 
 #: components/views/PKlima/index.tsx:150
 msgid "pklima.approve_bct"

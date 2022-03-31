@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-03-30 15:12+0000\n"
+"POT-Creation-Date: 2022-03-31 16:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:31
 msgid "Articles"
@@ -23,7 +17,7 @@ msgstr "Sprache wechseln"
 
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
-msgstr ""
+msgstr "Updates und Thought Leadership von den Gründern, DAO-Mitarbeitern, Beratern und der Community."
 
 #: components/pages/Blog/index.tsx:18
 msgid "blog.head.headline"
@@ -167,7 +161,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:96
 msgid "community.we_work_with_traditionnal"
-msgstr ""
+msgstr "Wir arbeiten zusammen mit traditionellen Akteuren auf dem CO2-Markt, Kryptoplattformen, Unternehmen - und allem dazwischen."
 
 #: components/pages/Resources/Contact/index.tsx:60
 msgid "concat.careers"
@@ -180,7 +174,7 @@ msgstr "Fehlermitteilungen"
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
 #: components/pages/Resources/Contact/index.tsx:134
 msgid "contact.bug_reports.to_file_a_bug_report"
-msgstr ""
+msgstr "Trete unserem Discord-Communityserver bei, um im #bug-reports-Kanal Fehler zu melden oder Fragen zu stellen. Jemand aus unserer <0>Community</0> wird dir gerne helfen und eine Lösung für dich finden."
 
 #. Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you.
 #: components/pages/Resources/Contact/index.tsx:63
@@ -202,7 +196,7 @@ msgstr "KlimaDAO kontaktieren"
 
 #: components/pages/Resources/Contact/index.tsx:104
 msgid "contact.media"
-msgstr ""
+msgstr "Medien"
 
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:107
@@ -263,12 +257,12 @@ msgstr ""
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:36
 msgid "disclaimer.all_information_on_this_website"
-msgstr ""
+msgstr "Alle Informationen auf dieser Website werden nach bestem Wissen und Gewissen und nur zu allgemeinen Informationszwecken veröffentlicht."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:163
 msgid "disclaimer.any_action_you_take_upon_the_information"
-msgstr ""
+msgstr "Alle Maßnahmen, die Sie aufgrund der Informationen auf dieser Website ergreifen, erfolgen ausschließlich auf Ihr eigenes Risiko. Entscheidungen auf der Grundlage der auf dieser Website enthaltenen Informationen liegen in der alleinigen Verantwortung des Besuchers. KlimaDAO haftet nicht für Verluste und/oder Schäden im Zusammenhang mit der Nutzung der Website, dem Verlust Ihres Passworts/Ihrer Seed-Phrase, einem schlechten Handelsgeschäft, dem Senden eines Vermögenswertes an die falsche Adresse, dem Verlust Ihres Vermögens und durch Betrüger verursachte Schäden. KlimaDAO kann keine Verantwortung oder Haftung im Zusammenhang mit Marktveränderungen und deren Volatilität übernehmen. Sie müssen Ihre eigene Recherche durchführen und sich Ihrer eigenen Situation, Vertrautheit und Kenntnis der von dieser Plattform bereitgestellten Informationen oder Dienstleistungen gewiss sein."
 
 #: components/pages/Disclaimer/index.tsx:32
 msgid "disclaimer.disclaimer"
@@ -292,7 +286,7 @@ msgstr "KlimaDAO ist eine Plattform. Wir sind kein Makler, Finanzinstitut oder K
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:134
 msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
-msgstr ""
+msgstr "Weder KlimaDAO noch jegliche ihrer Vertreter "
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:182
@@ -312,12 +306,12 @@ msgstr ""
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:193
 msgid "disclaimer.we_recommend_that_you_visit"
-msgstr ""
+msgstr "Wir empfehlen, dass du dir unsere Seite über den Umgang mit Kryptosicherheit anschaust, bevor du unsere Webseite nutzt. Bitte denke immer daran: Teile niemals deine privaten Schlüssel oder deine Seed-Phrase mit jemandem. Unsere Mitglieder und unsere dApp werden dich niemals(!) dazu auffordern."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:148
 msgid "disclaimer.you_bear_full_responsibility"
-msgstr ""
+msgstr "Du trägst die volle Verantwortung für die Bereitstellung privater Daten, die Verifizierung der Identität und die Legimität."
 
 #: components/Footer/index.tsx:46
 msgid "footer.blog"
@@ -325,7 +319,7 @@ msgstr "Blog"
 
 #: components/Footer/index.tsx:39
 msgid "footer.bond"
-msgstr ""
+msgstr "Bond"
 
 #: components/Footer/index.tsx:51
 msgid "footer.contact"
@@ -349,7 +343,7 @@ msgstr "Home"
 
 #: components/Footer/index.tsx:36
 msgid "footer.stake"
-msgstr ""
+msgstr "Staken"
 
 #: components/pages/Home/index.tsx:203
 msgid "home.backed_by_carbon"
@@ -414,15 +408,15 @@ msgstr "Liter Benzin"
 
 #: components/pages/Home/index.tsx:239
 msgid "home.massive impact"
-msgstr ""
+msgstr "Massive Auswirkung."
 
 #: components/pages/Home/index.tsx:177
 msgid "home.mechanics"
-msgstr ""
+msgstr "MECHANIKEN"
 
 #: components/pages/Home/index.tsx:458
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
-msgstr ""
+msgstr "Alle Neuigkeiten, direkt in deinen Posteingang"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:466
@@ -444,11 +438,11 @@ msgstr "Newsletter"
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
 #: components/pages/Home/index.tsx:366
 msgid "home.reserve_asset_of_the_carbon_economy"
-msgstr ""
+msgstr "<0>Die Reservewährung</0><1>der CO2-Wirtschaft</1>"
 
 #: components/pages/Home/index.tsx:436
 msgid "home.see_tutorial"
-msgstr ""
+msgstr "Tutorial anschauen"
 
 #: components/pages/Home/index.tsx:324
 msgid "home.source"
@@ -456,22 +450,22 @@ msgstr "Quelle"
 
 #: components/pages/Home/index.tsx:221
 msgid "home.strong_incentives"
-msgstr ""
+msgstr "Starke Anreize."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:180
 msgid "home.the_dao_sell_bonds"
-msgstr ""
+msgstr "Die DAO verkauft Anleihen und verteilt den Profit an bestehende KLIMA-Besitzer. Jede verkaufte Anleihe wird einer ständig wachsenden, grünen Schatzkammer hinzugefügt oder verbessert die Liquidität von grünen Schlüssel-Assets. Eine Win-Win-Situation für Mensch und Planet."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:250
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
-msgstr ""
+msgstr "<0>CO2-TONNEN EINGEFANGEN</0> DURCH KLIMADAO"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:153
 msgid "home.we_ve_kickstarted"
-msgstr ""
+msgstr "Wir haben einen <0>dezentralisierten und offenen Marktplatz für CO</0> ins Leben gerufen. Unser Token liefert Anreize für Investoren, Bürger und Organisationen, um sich an dieser neuen Wirtschaft zu beteiligen und sie zu verwalten."
 
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
 #: components/pages/Home/index.tsx:395
@@ -494,7 +488,7 @@ msgstr "Investiere in die Zukunft."
 #: components/Navigation/index.tsx:50
 #: components/Navigation/index.tsx:75
 msgid "mainNav.bond"
-msgstr ""
+msgstr "Bond"
 
 #: components/Navigation/index.tsx:34
 msgid "mainNav.enter_app"
@@ -508,12 +502,12 @@ msgstr "KLIMA kaufen"
 #: components/Navigation/index.tsx:54
 #: components/Navigation/index.tsx:79
 msgid "mainNav.resources"
-msgstr ""
+msgstr "Ressourcen"
 
 #: components/Navigation/index.tsx:46
 #: components/Navigation/index.tsx:71
 msgid "mainNav.stake"
-msgstr ""
+msgstr "Staken"
 
 #: components/pages/Home/index.tsx:62
 msgid "share.head.description"
