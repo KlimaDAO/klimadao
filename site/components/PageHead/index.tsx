@@ -48,12 +48,11 @@ export const PageHead = (props: PageHeadProps) => {
       {props.isArticle && (
         <>
           <meta property="og:type" content="article" />
-          <meta name="twitter:card" content="summary_large_image" />
         </>
       )}
-
       <meta property="og:url" content={canonicalUrl} />
       <link rel="canonical" href={canonicalUrl} />
+      <meta name="twitter:card" content="summary_large_image" />
 
       <link
         rel="apple-touch-icon"
