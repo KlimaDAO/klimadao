@@ -97,7 +97,7 @@ export const PostPage = (props: PostProps) => {
                     comment="Long sentence"
                   >
                     The information provided in this blog post pertaining to
-                    Klima DAO (“Klima DAO”), its crypto-assets, business assets,
+                    KlimaDAO (“KlimaDAO”), its crypto-assets, business assets,
                     strategy, and operations, is for general informational
                     purposes only and is not a formal offer to sell or a
                     solicitation of an offer to buy any securities, options,
@@ -109,12 +109,12 @@ export const PostPage = (props: PostProps) => {
                     not take into account nor does it provide any tax, legal or
                     investment advice or opinion regarding the specific
                     investment objectives or financial situation of any person.
-                    Klima DAO and its agents, advisors, directors, officers,
+                    KlimaDAO and its agents, advisors, directors, officers,
                     employees and shareholders make no representation or
                     warranties, expressed or implied, as to the accuracy of such
-                    information and Klima DAO expressly disclaims any and all
+                    information and KlimaDAO expressly disclaims any and all
                     liability that may be based on such information or errors or
-                    omissions thereof. Klima DAO reserves the right to amend or
+                    omissions thereof. KlimaDAO reserves the right to amend or
                     replace the information contained herein, in part or
                     entirely, at any time, and undertakes no obligation to
                     provide the recipient with access to the amended information
@@ -123,7 +123,7 @@ export const PostPage = (props: PostProps) => {
                     or conversation concerning the same, similar or related
                     information. Any information, representations or statements
                     not contained herein shall not be relied upon for any
-                    purpose. Neither Klima DAO nor any of its representatives
+                    purpose. Neither KlimaDAO nor any of its representatives
                     shall have any liability whatsoever, under contract, tort,
                     trust or otherwise, to you or any person resulting from the
                     use of the information in this blog post by you or any of

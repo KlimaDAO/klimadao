@@ -89,4 +89,5 @@ export const disclaimer = css`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  font-style: italic;
 `;
