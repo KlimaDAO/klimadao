@@ -60,7 +60,7 @@ export const Home: NextPage<Props> = (props) => {
         title="KlimaDAO"
         mediaTitle="KlimaDAO"
         metaDescription={t({
-          id: "share.head.description",
+          id: "shared.head.description",
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}

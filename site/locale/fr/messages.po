@@ -7,7 +7,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
 
-#: components/pages/Blog/index.tsx:31
+#: components/pages/Blog/index.tsx:35
 msgid "Articles"
 msgstr ""
 
@@ -33,57 +33,57 @@ msgstr ""
 msgid "buy.head.title"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:93
+#: components/pages/Resources/Community/index.tsx:97
 msgid "community.become_a_partner"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:166
+#: components/pages/Resources/Community/index.tsx:170
 msgid "community.bigcowg_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:155
+#: components/pages/Resources/Community/index.tsx:159
 msgid "community.blockchainforclimatefondation_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:329
+#: components/pages/Resources/Community/index.tsx:333
 msgid "community.come_on_in"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:106
-#: components/pages/Resources/Community/index.tsx:390
+#: components/pages/Resources/Community/index.tsx:110
+#: components/pages/Resources/Community/index.tsx:394
 msgid "community.contact_us"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:232
+#: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:284
+#: components/pages/Resources/Community/index.tsx:288
 msgid "community.digitalcharityart_logo"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:344
+#: components/pages/Resources/Community/index.tsx:348
 msgid "community.discord_is_where_we_share"
 msgstr "Discord est l'endroit où nous partageons des annonces importantes, organisons des heures de bureau, répondons aux questions et échangeons des mèmes. Notre serveur Discord est extrêmement actif et modéré 24h/24. Nous avons des canaux pour tout, du commerce à la durabilité et aux marchés du carbone."
 
-#: components/pages/Resources/Community/index.tsx:254
+#: components/pages/Resources/Community/index.tsx:258
 msgid "community.dovu_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:262
+#: components/pages/Resources/Community/index.tsx:266
 msgid "community.eco_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:243
+#: components/pages/Resources/Community/index.tsx:247
 msgid "community.etcgroup_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:377
+#: components/pages/Resources/Community/index.tsx:381
 msgid "community.get_in_touch"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:199
+#: components/pages/Resources/Community/index.tsx:203
 msgid "community.gitcoin_logo"
 msgstr ""
 
@@ -101,83 +101,83 @@ msgid "community.head.title"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:380
+#: components/pages/Resources/Community/index.tsx:384
 msgid "community.if_you_ve_got_questions"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:332
+#: components/pages/Resources/Community/index.tsx:336
 msgid "community.join_our_discord"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:319
+#: components/pages/Resources/Community/index.tsx:323
 msgid "community.join_the_klima_community"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:90
-#: components/pages/Resources/Community/index.tsx:374
+#: components/pages/Resources/Community/index.tsx:94
+#: components/pages/Resources/Community/index.tsx:378
 msgid "community.lets_work_together"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:133
+#: components/pages/Resources/Community/index.tsx:137
 msgid "community.moss_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:188
+#: components/pages/Resources/Community/index.tsx:192
 msgid "community.oceandrop_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:273
+#: components/pages/Resources/Community/index.tsx:277
 msgid "community.offsetra_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:210
+#: components/pages/Resources/Community/index.tsx:214
 msgid "community.olympusdao_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:221
+#: components/pages/Resources/Community/index.tsx:225
 msgid "community.openearth_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:126
+#: components/pages/Resources/Community/index.tsx:130
 msgid "community.our_partners"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:177
+#: components/pages/Resources/Community/index.tsx:181
 msgid "community.polygon_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:144
+#: components/pages/Resources/Community/index.tsx:148
 msgid "community.toucan_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:295
+#: components/pages/Resources/Community/index.tsx:299
 msgid "community.toughtforfood_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:109
+#: components/pages/Resources/Community/index.tsx:113
 msgid "community.tree_grove"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:96
+#: components/pages/Resources/Community/index.tsx:100
 msgid "community.we_work_with_traditionnal"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:60
+#: components/pages/Resources/Contact/index.tsx:64
 msgid "concat.careers"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:131
+#: components/pages/Resources/Contact/index.tsx:135
 msgid "contact.bug_reports"
 msgstr ""
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
-#: components/pages/Resources/Contact/index.tsx:134
+#: components/pages/Resources/Contact/index.tsx:138
 msgid "contact.bug_reports.to_file_a_bug_report"
 msgstr ""
 
 #. Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you.
-#: components/pages/Resources/Contact/index.tsx:63
+#: components/pages/Resources/Contact/index.tsx:67
 msgid "contact.careers.we_re_hiring"
 msgstr ""
 
@@ -194,122 +194,122 @@ msgstr ""
 msgid "contact.head.title"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:104
+#: components/pages/Resources/Contact/index.tsx:108
 msgid "contact.media"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:107
+#: components/pages/Resources/Contact/index.tsx:111
 msgid "contact.media.if_you_are_a_journalist"
 msgstr ""
 
 #. Use this <0>Media Request Form</0>.
-#: components/pages/Resources/Contact/index.tsx:116
+#: components/pages/Resources/Contact/index.tsx:120
 msgid "contact.media.use_this_media_request_form"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:84
+#: components/pages/Resources/Contact/index.tsx:88
 msgid "contact.partnerships"
 msgstr ""
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
-#: components/pages/Resources/Contact/index.tsx:87
+#: components/pages/Resources/Contact/index.tsx:91
 msgid "contact.partnerships.until_we_finish_building"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:32
+#: components/pages/Resources/Contact/index.tsx:36
 msgid "contact.quest_and_support"
 msgstr ""
 
 #. Join our <0>community</0>
-#: components/pages/Resources/Contact/index.tsx:35
+#: components/pages/Resources/Contact/index.tsx:39
 msgid "contact.quest_and_support.join_our_community"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:43
+#: components/pages/Resources/Contact/index.tsx:47
 msgid "contact.quest_and_support.join_our_discord_server"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:68
+#: components/pages/Disclaimer/index.tsx:72
 msgid "disclaimer.1_an_offer_or_sollicitation"
 msgstr "1.  ou contrôler tout titre, actif ou service, qui sont liés à des avantages;"
 
-#: components/pages/Disclaimer/index.tsx:115
+#: components/pages/Disclaimer/index.tsx:119
 msgid "disclaimer.1_meet_your_requirements"
 msgstr "1. Répondre à vos exigences"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:120
+#: components/pages/Disclaimer/index.tsx:124
 msgid "disclaimer.2_be_available_on_an_uninterrupted"
 msgstr "2. Être disponible de manière ininterrompue, opportune, sécurisée ou sans erreur ;"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:78
+#: components/pages/Disclaimer/index.tsx:82
 msgid "disclaimer.2_financial_investment_or_trading_advice"
 msgstr "2. Des conseils financiers, d'investissement ou de trading ou une offre de fournir de tels conseils et/ou services."
 
-#: components/pages/Disclaimer/index.tsx:129
+#: components/pages/Disclaimer/index.tsx:133
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
 msgstr "3. Soyez fiable, complet, légal ou sûr."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:36
+#: components/pages/Disclaimer/index.tsx:40
 msgid "disclaimer.all_information_on_this_website"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:163
+#: components/pages/Disclaimer/index.tsx:167
 msgid "disclaimer.any_action_you_take_upon_the_information"
 msgstr ""
 
-#: components/pages/Disclaimer/index.tsx:32
+#: components/pages/Disclaimer/index.tsx:36
 msgid "disclaimer.disclaimer"
 msgstr ""
 
 #: components/pages/Disclaimer/index.tsx:19
-#: components/pages/Disclaimer/index.tsx:24
+#: components/pages/Disclaimer/index.tsx:28
 msgid "disclaimer.head.title"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:106
+#: components/pages/Disclaimer/index.tsx:110
 msgid "disclaimer.klimadao_and_its_suppliers"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:47
+#: components/pages/Disclaimer/index.tsx:51
 msgid "disclaimer.klimadao_is_a_platform"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:134
+#: components/pages/Disclaimer/index.tsx:138
 msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:182
+#: components/pages/Disclaimer/index.tsx:186
 msgid "disclaimer.nothing_in_this_disclaimer"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:60
+#: components/pages/Disclaimer/index.tsx:64
 msgid "disclaimer.nothing_in_this_platform"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:87
+#: components/pages/Disclaimer/index.tsx:91
 msgid "disclaimer.the_service_available"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:193
+#: components/pages/Disclaimer/index.tsx:197
 msgid "disclaimer.we_recommend_that_you_visit"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:148
+#: components/pages/Disclaimer/index.tsx:152
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr ""
 
@@ -505,10 +505,6 @@ msgstr ""
 msgid "mainNav.stake"
 msgstr ""
 
-#: components/pages/Home/index.tsx:62
-msgid "share.head.description"
-msgstr ""
-
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
@@ -534,6 +530,7 @@ msgstr ""
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
 #: components/pages/Disclaimer/index.tsx:23
+#: components/pages/Home/index.tsx:62
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "shared.head.description"

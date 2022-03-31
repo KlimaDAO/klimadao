@@ -20,7 +20,11 @@ export const Disclaimer: NextPage<Props> = ({}) => {
           id: "disclaimer.head.title",
           message: "KlimaDAO Disclaimer",
         })}
-        metaDescription={t({ id: "shared.head.description" })}
+        metaDescription={t({
+          id: "shared.head.description",
+          message:
+            "Drive climate action and earn rewards with a carbon-backed digital currency.",
+        })}
         mediaTitle={t({ id: "disclaimer.head.title" })}
         mediaImageSrc="/og-media.png"
       />

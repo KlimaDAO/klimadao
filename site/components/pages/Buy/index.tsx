@@ -42,7 +42,11 @@ export const Buy: NextPage<Props> = ({}) => {
         production={IS_PRODUCTION}
         title={t({ id: "buy.head.title", message: "How to buy KLIMA" })}
         mediaTitle={t({ id: "buy.head.title", message: "How to buy KLIMA" })}
-        metaDescription={t({ id: "shared.head.description" })}
+        metaDescription={t({
+          id: "shared.head.description",
+          message:
+            "Drive climate action and earn rewards with a carbon-backed digital currency.",
+        })}
       />
       <Navigation activePage="Get KLIMA" />
 

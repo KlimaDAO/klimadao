@@ -22,7 +22,11 @@ export const Contact: NextPage<Props> = () => {
           "Questions, concerns, ideas? Here are a few ways you can get in touch. We love meeting institutions and individuals alike.",
       })}
       mediaTitle={t({ id: "contact.head.title" })}
-      metaDescription={t({ id: "shared.head.description" })}
+      metaDescription={t({
+        id: "shared.head.description",
+        message:
+          "Drive climate action and earn rewards with a carbon-backed digital currency.",
+      })}
       mediaImageSrc="/og-media.png"
     >
       <Section>

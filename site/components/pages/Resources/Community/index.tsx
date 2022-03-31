@@ -79,7 +79,11 @@ export const Community: NextPage = () => (
         "KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates.",
     })}
     mediaTitle={t({ id: "community.head.title" })}
-    metaDescription={t({ id: "shared.head.description" })}
+    metaDescription={t({
+      id: "shared.head.description",
+      message:
+        "Drive climate action and earn rewards with a carbon-backed digital currency.",
+    })}
     mediaImageSrc="/og-media.png"
     headerElements={HeaderElements}
   >
