@@ -34,6 +34,8 @@ build/Release
 
 # Dependency directories
 node_modules/
+bonds/node_modules/
+protocol-metrics/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -62,3 +64,5 @@ typings/
 
 # thegraph build
 build
+bonds/build
+protocol-metrics/build

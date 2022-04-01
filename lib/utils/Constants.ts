@@ -8,13 +8,13 @@ export const KLIMAUSDC_LPBOND_TOKEN: string = 'KLIMA-USDC';
 
 // LP Pair Addresses and Blocks
 export const KLIMA_BCT_PAIR = '0x9803c7aE526049210a1725F7487AF26fE2c24614';
-export const KLIMA_BCT_PAIR_BLOCK = '20360000';
+export const KLIMA_BCT_PAIR_BLOCK = '20294501';
 export const BCT_USDC_PAIR = '0x1E67124681b402064CD0ABE8ed1B5c79D2e02f64';
-export const BCT_USDC_PAIR_BLOCK = '20360000';
+export const BCT_USDC_PAIR_BLOCK = '20294523';
 export const KLIMA_MCO2_PAIR = '0x64a3b8ca5a7e406a78e660ae10c7563d9153a739';
-export const KLIMA_MCO2_PAIR_BLOCK = '23680000';
+export const KLIMA_MCO2_PAIR_BLOCK = '23688190';
 export const KLIMA_USDC_PAIR = '0x5786b267d35f9d011c4750e0b0ba584e1fdbead1';
-export const KLIMA_USDC_PAIR_BLOCK = '20350000';
+export const KLIMA_USDC_PAIR_BLOCK = '20358666';
 export const TREASURY_ADDRESS = '0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7';
 
 // Bond Contract Addresses and Blocks

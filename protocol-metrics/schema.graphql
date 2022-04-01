@@ -1,0 +1,43 @@
+type ProtocolMetric @entity {
+  id: ID!
+  timestamp: BigInt!
+  klimaCirculatingSupply: BigDecimal!
+  sKlimaCirculatingSupply: BigDecimal!
+  totalSupply: BigDecimal!
+  klimaPrice: BigDecimal!
+  marketCap: BigDecimal!
+  totalValueLocked: BigDecimal!
+  assets: [TreasuryAsset!]
+  treasuryCarbonCustodied: BigDecimal!
+  treasuryMarketValue: BigDecimal!
+  nextEpochRebase: BigDecimal!
+  nextDistributedKlima: BigDecimal!
+  treasuryCarbon: BigDecimal!
+  currentAKR: BigDecimal!
+  runwayCurrent: BigDecimal!
+  holders: BigInt!
+}
+
+type TreasuryAsset @entity {
+  id: ID!
+  timestamp: BigInt!
+  token: String!
+  tokenBalance: BigDecimal!
+  carbonBalance: BigDecimal!
+  carbonCustodied: BigDecimal!
+  marketValue: BigDecimal!
+  POL: BigDecimal!
+}
+
+type Aux @entity {
+  id: ID!
+  value: BigInt!
+}
+
+type Transaction @entity {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  from: Bytes!
+  to: Bytes
+}
