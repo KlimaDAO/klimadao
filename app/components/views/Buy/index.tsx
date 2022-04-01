@@ -3,10 +3,11 @@ import { providers } from "ethers";
 import { ImageCard } from "../../ImageCard";
 import * as styles from "./styles";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
 import { concatAddress } from "@klimadao/lib/utils";
 import Link from "next/link";
+import { BalancesCard } from "../../BalancesCard";
 
 interface Props {
   provider: providers.JsonRpcProvider;
@@ -90,6 +91,15 @@ export const Buy = (props: Props) => {
           </div>
         )}
       </div>
+      <BalancesCard
+        assets={["klima", "sklima"]}
+        tooltip={t({
+          id: "stake.balancescard.tooltip",
+          message:
+            "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage.",
+          comment: "Long sentence",
+        })}
+      />
       <ImageCard />
     </>
   );

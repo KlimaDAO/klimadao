@@ -199,21 +199,21 @@ msgstr "Vous obtiendrez"
 msgid "bond.you_will_get.tooltip"
 msgstr "Montant d'obligations KLIMA liée que vous obtiendrez, d'après la quantité soumise en entrée."
 
-#: components/views/Buy/index.tsx:40
+#: components/views/Buy/index.tsx:41
 msgid "buy.buy_klima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:81
 msgid "buy.connect_wallet"
 msgstr ""
 
 #. Long sentence
-#: components/views/Buy/index.tsx:43
+#: components/views/Buy/index.tsx:44
 msgid "buy.how_to_buy"
 msgstr ""
 
-#: components/views/Buy/index.tsx:77
+#: components/views/Buy/index.tsx:78
 msgid "buy.not_connected"
 msgstr ""
 
@@ -564,7 +564,7 @@ msgid "shared.confirming"
 msgstr "Confirmation en cours"
 
 #: components/views/Bond/index.tsx:304
-#: components/views/Buy/index.tsx:85
+#: components/views/Buy/index.tsx:86
 #: components/views/Offset/index.tsx:231
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:130
@@ -572,7 +572,7 @@ msgstr "Confirmation en cours"
 msgid "shared.connect_wallet"
 msgstr "Connectez votre portefeuille"
 
-#: components/views/Buy/index.tsx:57
+#: components/views/Buy/index.tsx:58
 msgid "shared.copy_wallet_address"
 msgstr ""
 
@@ -627,7 +627,7 @@ msgstr "RETIRER DU CARBONE"
 msgid "shared.sold_out"
 msgstr "Épuisé"
 
-#: components/views/Buy/index.tsx:61
+#: components/views/Buy/index.tsx:62
 msgid "shared.wallet_address_copied"
 msgstr ""
 
@@ -650,7 +650,13 @@ msgid "stake.akr.tooltip"
 msgstr ""
 
 #. Long sentence
+<<<<<<< HEAD
 #: components/views/Stake/index.tsx:217
+=======
+#. Long sentence
+#: components/views/Buy/index.tsx:96
+#: components/views/Stake/index.tsx:216
+>>>>>>> Fixing mobile styling of buy card. Adding balances card to buy page.
 msgid "stake.balancescard.tooltip"
 msgstr "Mettez vos jetons KLIMA en dépôt pour recevoir sKLIMA. Après chaque rebasement, votre solde sKLIMA augmentera du pourcentage indiqué."
 

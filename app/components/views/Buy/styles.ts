@@ -4,11 +4,13 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const buyCard = css`
   position: relative;
   display: grid;
+  align-content: start;
+  grid-column: 1 / 3;
+  grid-template-rows: min-content 1fr;
   background-color: var(--surface-02);
   border-radius: 1.2rem;
-  padding: 2.4rem 0;
+  padding-top: 2.4rem;
   gap: 2.4rem;
-  align-content: start;
 
   .hr {
     height: 2px;
@@ -41,7 +43,7 @@ export const buyCard_iframe = css`
   border-radius: 1.2rem;
   border: none;
   width: 100%;
-  height: 80rem;
+  height: 82rem;
   margin-top: 1.5rem;
 `;
 
@@ -51,6 +53,11 @@ export const buyCard_header = css`
   max-width: 38rem;
   padding-left: 2.4rem;
   padding-right: 2.4rem;
+
+  ${breakpoints.medium} {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 export const buyCard_header_title = css`
