@@ -6,7 +6,7 @@
     "build": "prettier --check . && next build",
     "start": "next start",
     "lint": "next lint",
-    "lingui:extract": "cmd=\"NODE_ENV=test npx lingui extract --clean --overwrite 2>&1 | grep 'Cannot process file'\"; if [[ $(eval $cmd) ]]; then exit 1; else exit 0; fi",
+    "lingui:extract": "cmd=\"NODE_ENV=test npx lingui extract --clean 2>&1 | grep 'Cannot process file'\"; if [ -z \"$(eval $cmd)\" ]; then exit 0; else exit 1; fi",
     "lingui:compile": "NODE_ENV=test lingui compile",
     "postinstall": "npm run lingui:compile"
   },
