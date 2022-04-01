@@ -54,7 +54,7 @@ export const buyCard_header = css`
   padding-left: 2.4rem;
   padding-right: 2.4rem;
 
-  ${breakpoints.medium} {
+  ${breakpoints.desktopLarge} {
     padding-left: 0;
     padding-right: 0;
   }
