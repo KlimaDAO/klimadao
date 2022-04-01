@@ -96,15 +96,14 @@ const getMCO2MarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
   const pairContract = new ethers.Contract(
-    addresses["mainnet"].mco2UsdcLp,
+    addresses["mainnet"].klimaMco2Lp,
     PairContract.abi,
     params.provider
   );
   const reserves = await pairContract.getReserves();
-  // [USDC, MCO2] - USDC has 6 decimals, MCO2 has 18 decimals
-  const MCO2USDCPrice = (reserves[0] * Math.pow(10, 12)) / reserves[1];
-  const KLIMAUSDCPrice = await getKlimaUSDCMarketPrice(params);
-  return KLIMAUSDCPrice / MCO2USDCPrice;
+  // [MCO2, KLIMA] - KLIMA has 9 decimals, MCO2 has 18 decimals
+  const MCO2KLIMAPrice = reserves[1] / (reserves[0] * Math.pow(10, 9));
+  return MCO2KLIMAPrice;
 };
 
 export const calcBondDetails = (params: {
