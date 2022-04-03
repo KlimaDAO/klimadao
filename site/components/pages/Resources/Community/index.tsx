@@ -107,7 +107,7 @@ export const Community: NextPage = () => (
           </Text>
           <ButtonPrimary
             href={"/contact"}
-            label={t({ id: "community.contact_us", message: "Contact Us" })}
+            label={t({ id: "shared.contact_us", message: "Contact Us" })}
           />
           <Image
             alt={t({
@@ -391,7 +391,7 @@ export const Community: NextPage = () => (
           </Text>
           <ButtonPrimary
             href={"/contact"}
-            label={t({ id: "community.contact_us", message: "Contact Us" })}
+            label={t({ id: "shared.contact_us", message: "Contact Us" })}
           />
         </div>
       </div>

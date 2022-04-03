@@ -31,27 +31,27 @@ export const Navigation: FC<Props> = (props) => (
         <ThemeToggle key="ThemeToggle" />,
         <ButtonPrimary
           key="Enter App"
-          label={t({ message: "Enter App", id: "mainNav.enter_app" })}
+          label={t({ message: "Enter App", id: "shared.enter_app" })}
           href={urls.app}
         />,
       ])}
     >
       <NavItemDesktop
         url={"/buy"}
-        name={t({ message: "Get KLIMA", id: "mainNav.get_klima" })}
+        name={t({ message: "Get KLIMA", id: "shared.get_klima" })}
         active={props.activePage === "Get KLIMA"}
       />
       <NavItemDesktop
         url={urls.stake}
-        name={t({ message: "Stake", id: "mainNav.stake" })}
+        name={t({ message: "Stake", id: "shared.stake" })}
       />
       <NavItemDesktop
         url={urls.bonds}
-        name={t({ message: "Bond", id: "mainNav.bond" })}
+        name={t({ message: "Bond", id: "shared.bond" })}
       />
       <NavItemDesktop
         url="/blog"
-        name={t({ message: "Resources", id: "mainNav.resources" })}
+        name={t({ message: "Resources", id: "shared.resources" })}
         active={props.activePage === "Resources"}
       />
     </HeaderDesktop>
@@ -64,19 +64,19 @@ export const Navigation: FC<Props> = (props) => (
     >
       <NavItemMobile
         url="/buy"
-        name={t({ message: "Get KLIMA", id: "mainNav.get_klima" })}
+        name={t({ message: "Get KLIMA", id: "shared.get_klima" })}
       />
       <NavItemMobile
         url={urls.stake}
-        name={t({ message: "Stake", id: "mainNav.stake" })}
+        name={t({ message: "Stake", id: "shared.stake" })}
       />
       <NavItemMobile
         url={urls.bonds}
-        name={t({ message: "Bond", id: "mainNav.bond" })}
+        name={t({ message: "Bond", id: "shared.bond" })}
       />
       <NavItemMobile
         url="/blog"
-        name={t({ message: "Resources", id: "mainNav.resources" })}
+        name={t({ message: "Resources", id: "shared.resources" })}
       />
     </HeaderMobile>
   </>
