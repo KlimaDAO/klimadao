@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
@@ -14,6 +20,15 @@ msgstr "Articles"
 #: components/ChangeLanguageButton/index.tsx:59
 msgid "Change language"
 msgstr "Changer de langue"
+
+#. Long sentence
+#: components/pages/Blog/Post/index.tsx:95
+msgid "blog.disclaimer.description"
+msgstr ""
+
+#: components/pages/Blog/Post/index.tsx:92
+msgid "blog.disclaimer.title"
+msgstr ""
 
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
@@ -48,11 +63,6 @@ msgstr "Logo de Blockchain for Climate Foundation"
 #: components/pages/Resources/Community/index.tsx:333
 msgid "community.come_on_in"
 msgstr "Rejoignez-nous"
-
-#: components/pages/Resources/Community/index.tsx:110
-#: components/pages/Resources/Community/index.tsx:394
-msgid "community.contact_us"
-msgstr "Nous contacter"
 
 #: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
@@ -315,38 +325,6 @@ msgstr "Nous vous recommandons de visiter notre page Crypto Security 101 pour le
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "Vous assumez l'entière responsabilité de fournir des informations privées, de vérifier l'identité et la légitimité de ce site. Nonobstant les indicateurs et les messages pouvant suggérer que l'identité et la légitimité du site sont conformes, KlimaDAO ne fait aucune déclaration sur l'identité sur la plate-forme. Nous ne garantissons ni la sécurité des données divulguées en ligne, ni la prévention de pertes subies en raison d'une vulnérabilité, de défaillance quel quelle soit ou d'un comportement inattendu du logiciel."
 
-#: components/Footer/index.tsx:46
-msgid "footer.blog"
-msgstr "Blog"
-
-#: components/Footer/index.tsx:39
-msgid "footer.bond"
-msgstr "Contrats à terme"
-
-#: components/Footer/index.tsx:51
-msgid "footer.contact"
-msgstr "Nous contacter"
-
-#: components/Footer/index.tsx:56
-msgid "footer.disclaimer"
-msgstr "Clause de non-responsabilité"
-
-#: components/Footer/index.tsx:42
-msgid "footer.docs"
-msgstr "Documentation"
-
-#: components/Footer/index.tsx:32
-msgid "footer.get_klima"
-msgstr "Obtenez des jetons KLIMA"
-
-#: components/Footer/index.tsx:27
-msgid "footer.home"
-msgstr "Acceuil"
-
-#: components/Footer/index.tsx:36
-msgid "footer.stake"
-msgstr "Dépôt"
-
 #: components/pages/Home/index.tsx:203
 msgid "home.backed_by_carbon"
 msgstr "Collatéralisé par du carbone."
@@ -483,51 +461,52 @@ msgstr "<0>BIENVENUE À</0> <1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Investissez dans l'avenir."
 
-#: components/Navigation/index.tsx:50
-#: components/Navigation/index.tsx:75
-msgid "mainNav.bond"
-msgstr "Contrats à terme"
-
-#: components/Navigation/index.tsx:34
-msgid "mainNav.enter_app"
-msgstr "Visitez l'application"
-
-#: components/Navigation/index.tsx:41
-#: components/Navigation/index.tsx:67
-msgid "mainNav.get_klima"
-msgstr "Obtenez des jetons KLIMA"
-
-#: components/Navigation/index.tsx:54
-#: components/Navigation/index.tsx:79
-msgid "mainNav.resources"
-msgstr "Ressources"
-
-#: components/Navigation/index.tsx:46
-#: components/Navigation/index.tsx:71
-msgid "mainNav.stake"
-msgstr "Dépôt"
-
+#: components/Footer/index.tsx:46
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "Blog"
+
+#: components/Footer/index.tsx:39
+#: components/Navigation/index.tsx:50
+#: components/Navigation/index.tsx:75
+msgid "shared.bond"
+msgstr ""
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
 msgid "shared.community"
 msgstr "Communauté"
 
+#: components/Footer/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "Nous contacter"
 
+#: components/pages/Resources/Community/index.tsx:110
+#: components/pages/Resources/Community/index.tsx:394
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 msgid "shared.contact_us"
 msgstr "Nous contacter"
 
+#: components/Footer/index.tsx:56
+msgid "shared.disclaimer"
+msgstr ""
+
+#: components/Footer/index.tsx:42
+msgid "shared.docs"
+msgstr ""
+
+#: components/Navigation/index.tsx:34
 #: components/pages/Home/index.tsx:109
 msgid "shared.enter_app"
 msgstr "Visitez l'application"
+
+#: components/Footer/index.tsx:32
+#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:67
+msgid "shared.get_klima"
+msgstr ""
 
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
@@ -537,3 +516,18 @@ msgstr "Visitez l'application"
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "shared.head.description"
 msgstr "Influez sur l'action climatique et soyez récompensés avec une monnaie numérique garantie par du carbone."
+
+#: components/Footer/index.tsx:27
+msgid "shared.home"
+msgstr ""
+
+#: components/Navigation/index.tsx:54
+#: components/Navigation/index.tsx:79
+msgid "shared.resources"
+msgstr ""
+
+#: components/Footer/index.tsx:36
+#: components/Navigation/index.tsx:46
+#: components/Navigation/index.tsx:71
+msgid "shared.stake"
+msgstr ""

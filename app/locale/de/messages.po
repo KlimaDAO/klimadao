@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:588
 msgid "Beneficiary Address"
@@ -94,6 +100,15 @@ msgstr "Schuldenquote"
 msgid "bond.debt_ratio.tooltip"
 msgstr "Aktuelles Verhältnis zwischen Angebot und ausstehenden Bonds"
 
+#: components/views/Bond/index.tsx:524
+msgid "bond.discount"
+msgstr "Bondrabatt"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:528
+msgid "bond.discount.tooltip"
+msgstr "Rabatt (oder Prämie, falls negativ) auf KLIMA für diese Bond erhalt, auf den Marktwerkt von KLIMA."
+
 #: components/views/Bond/index.tsx:366
 msgid "bond.inputplaceholder.amount_to_bond"
 msgstr "Zu bondende Menge"
@@ -137,15 +152,6 @@ msgstr "Einlösbar"
 #: components/views/Bond/index.tsx:651
 msgid "bond.redeemable.tooltip"
 msgstr "Menge an KLIMA, die bereits garantiert ist und eingelöst werden kann."
-
-#: components/views/Bond/index.tsx:524
-msgid "bond.discount"
-msgstr "Bondrabatt"
-
-#. Long sentence
-#: components/views/Bond/index.tsx:528
-msgid "bond.discount.tooltip"
-msgstr "Rabatt (oder Prämie, falls negativ) auf KLIMA für diese Bond erhalt, auf den Marktwerkt von KLIMA."
 
 #. Long sentence
 #: components/views/Bond/index.tsx:709
@@ -235,7 +241,7 @@ msgstr "KLIMA/MCO2 Quickswap-Liquidität"
 msgid "choose_bond.percent_discount"
 msgstr "% Rabatt"
 
-#: components/views/ChooseBond/index.tsx:180
+#: components/views/ChooseBond/index.tsx:184
 msgid "choose_bond.sold_out"
 msgstr "AUSVERKAUFT"
 
@@ -508,8 +514,8 @@ msgstr "Der neue Smart Contract geht davon aus, dass pKLIMA-Besitzer die vorheri
 
 #: components/views/Bond/index.tsx:337
 #: components/views/Offset/index.tsx:257
-#: components/views/Stake/index.tsx:150
-#: components/views/Stake/index.tsx:156
+#: components/views/Stake/index.tsx:151
+#: components/views/Stake/index.tsx:157
 msgid "shared.approve"
 msgstr "Bestätigen"
 
@@ -523,20 +529,20 @@ msgstr "Sprache wechseln"
 
 #: components/views/Bond/index.tsx:331
 #: components/views/PKlima/index.tsx:139
-#: components/views/Stake/index.tsx:144
+#: components/views/Stake/index.tsx:145
 msgid "shared.confirming"
 msgstr "Bestätigen..."
 
 #: components/views/Bond/index.tsx:304
 #: components/views/Offset/index.tsx:231
 #: components/views/PKlima/index.tsx:124
-#: components/views/Stake/index.tsx:129
+#: components/views/Stake/index.tsx:130
 #: components/views/Wrap/index.tsx:115
 msgid "shared.connect_wallet"
 msgstr "Wallet verbinden"
 
-#: components/views/Stake/index.tsx:165
-#: components/views/Stake/index.tsx:175
+#: components/views/Stake/index.tsx:166
+#: components/views/Stake/index.tsx:176
 msgid "shared.enter_amount"
 msgstr "Menge eingeben"
 
@@ -547,8 +553,8 @@ msgstr "MENGE EINGEBEN"
 
 #: components/views/Bond/index.tsx:357
 #: components/views/Bond/index.tsx:376
-#: components/views/Stake/index.tsx:183
-#: components/views/Stake/index.tsx:202
+#: components/views/Stake/index.tsx:184
+#: components/views/Stake/index.tsx:203
 msgid "shared.error"
 msgstr "FEHLER"
 
@@ -563,17 +569,17 @@ msgstr "UNZUREICHENDES GUTHABEN"
 #: components/views/Offset/index.tsx:237
 #: components/views/Offset/index.tsx:324
 #: components/views/PKlima/index.tsx:130
-#: components/views/Stake/index.tsx:135
-#: components/views/Stake/index.tsx:340
-#: components/views/Stake/index.tsx:347
-#: components/views/Stake/index.tsx:354
+#: components/views/Stake/index.tsx:136
+#: components/views/Stake/index.tsx:344
+#: components/views/Stake/index.tsx:351
+#: components/views/Stake/index.tsx:358
 #: components/views/Wrap/index.tsx:121
 msgid "shared.loading"
 msgstr "Lade..."
 
 #: components/views/Bond/index.tsx:455
 #: components/views/PKlima/index.tsx:208
-#: components/views/Stake/index.tsx:284
+#: components/views/Stake/index.tsx:285
 #: components/views/Wrap/index.tsx:240
 msgid "shared.max"
 msgstr "Max"
@@ -586,26 +592,26 @@ msgstr "CO2 AUSGLEICHEN"
 msgid "shared.sold_out"
 msgstr "Ausverkauft"
 
-#: components/views/Stake/index.tsx:297
+#: components/views/Stake/index.tsx:298
 msgid "stake.5_day_rewards"
 msgstr "Belohnungen über 5 Tage"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:300
+#: components/views/Stake/index.tsx:301
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Ungefähre Belohnungsrate inklusive Zinseszinseffekt, falls du über die nächsten fünf Tage stakest."
 
-#: components/views/Stake/index.tsx:310
+#: components/views/Stake/index.tsx:314
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:313
+#: components/views/Stake/index.tsx:317
 msgid "stake.akr.tooltip"
 msgstr "Effektiver jährlicher Belohnungsrate unter Einbezug von Zinseszinseffekten, falls die aktuelle Belohnungsrate die nächsten zwölf Monate konstant bleibt (Rate kann sich verändern)."
 
 #. Long sentence
-#: components/views/Stake/index.tsx:216
+#: components/views/Stake/index.tsx:217
 msgid "stake.balancescard.tooltip"
 msgstr "Stake deine KLIMA-Tokens, um sKLIMA zu erhalten. Nach jedem Rebase wird dein sKLIMA um die angegebene Prozentwahl wachsen."
 
@@ -614,24 +620,24 @@ msgid "stake.estimated_payout"
 msgstr "Geschätzte Auszahlung (sKLIMA)"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:232
+#: components/views/Stake/index.tsx:233
 msgid "stake.hold_stake_and_compound"
 msgstr "Besitzen, staken und von Zinseszinsen profitieren. Falls das Protokoll Gewinn durch den Verkauf von CO2-Bonds macht, werden diese mit den Besitzern von sKLIMA geteilt."
 
-#: components/views/Stake/index.tsx:324
+#: components/views/Stake/index.tsx:328
 msgid "stake.index"
 msgstr "Index"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:327
+#: components/views/Stake/index.tsx:331
 msgid "stake.index.tooltip"
 msgstr "Menge an KLIMA, die du heute hättest, wenn du 1 KLIMA am Starttag gestaket hättest. Nützlich für Buchführungszwecke."
 
-#: components/views/Stake/index.tsx:192
+#: components/views/Stake/index.tsx:193
 msgid "stake.inputplaceholder.stake"
 msgstr "Zu stakende Menge"
 
-#: components/views/Stake/index.tsx:197
+#: components/views/Stake/index.tsx:198
 msgid "stake.inputplaceholder.unstake"
 msgstr "Zu unstakende Menge"
 
@@ -651,20 +657,20 @@ msgstr "Rebase"
 msgid "stake.rebase.info"
 msgstr "Das Protokoll erstellt und verteilt Belohnungen automatisch. Deine Auszahlung ist ein Prozentwert deines sKLIMA-Guthabens."
 
-#: components/views/Stake/index.tsx:252
+#: components/views/Stake/index.tsx:253
 msgid "stake.stake"
 msgstr "Staken"
 
-#: components/views/Stake/index.tsx:163
-#: components/views/Stake/index.tsx:229
+#: components/views/Stake/index.tsx:164
+#: components/views/Stake/index.tsx:230
 msgid "stake.stake_klima"
 msgstr "KLIMA staken"
 
-#: components/views/Stake/index.tsx:264
+#: components/views/Stake/index.tsx:265
 msgid "stake.unstake"
 msgstr "Unstaken"
 
-#: components/views/Stake/index.tsx:173
+#: components/views/Stake/index.tsx:174
 msgid "stake.unstake_klima"
 msgstr "KLIMA unstaken"
 

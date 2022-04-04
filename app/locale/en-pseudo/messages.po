@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:588
 msgid "Beneficiary Address"
@@ -94,6 +100,15 @@ msgstr ""
 msgid "bond.debt_ratio.tooltip"
 msgstr ""
 
+#: components/views/Bond/index.tsx:524
+msgid "bond.discount"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:528
+msgid "bond.discount.tooltip"
+msgstr ""
+
 #: components/views/Bond/index.tsx:366
 msgid "bond.inputplaceholder.amount_to_bond"
 msgstr ""
@@ -136,15 +151,6 @@ msgstr ""
 #. Long sentence
 #: components/views/Bond/index.tsx:651
 msgid "bond.redeemable.tooltip"
-msgstr ""
-
-#: components/views/Bond/index.tsx:524
-msgid "bond.discount"
-msgstr ""
-
-#. Long sentence
-#: components/views/Bond/index.tsx:528
-msgid "bond.discount.tooltip"
 msgstr ""
 
 #. Long sentence
@@ -233,7 +239,7 @@ msgstr ""
 msgid "choose_bond.percent_discount"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:180
+#: components/views/ChooseBond/index.tsx:184
 msgid "choose_bond.sold_out"
 msgstr ""
 
@@ -504,8 +510,8 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:337
 #: components/views/Offset/index.tsx:257
-#: components/views/Stake/index.tsx:150
-#: components/views/Stake/index.tsx:156
+#: components/views/Stake/index.tsx:151
+#: components/views/Stake/index.tsx:157
 msgid "shared.approve"
 msgstr ""
 
@@ -519,20 +525,20 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:331
 #: components/views/PKlima/index.tsx:139
-#: components/views/Stake/index.tsx:144
+#: components/views/Stake/index.tsx:145
 msgid "shared.confirming"
 msgstr ""
 
 #: components/views/Bond/index.tsx:304
 #: components/views/Offset/index.tsx:231
 #: components/views/PKlima/index.tsx:124
-#: components/views/Stake/index.tsx:129
+#: components/views/Stake/index.tsx:130
 #: components/views/Wrap/index.tsx:115
 msgid "shared.connect_wallet"
 msgstr ""
 
-#: components/views/Stake/index.tsx:165
-#: components/views/Stake/index.tsx:175
+#: components/views/Stake/index.tsx:166
+#: components/views/Stake/index.tsx:176
 msgid "shared.enter_amount"
 msgstr ""
 
@@ -543,8 +549,8 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:357
 #: components/views/Bond/index.tsx:376
-#: components/views/Stake/index.tsx:183
-#: components/views/Stake/index.tsx:202
+#: components/views/Stake/index.tsx:184
+#: components/views/Stake/index.tsx:203
 msgid "shared.error"
 msgstr ""
 
@@ -559,17 +565,17 @@ msgstr ""
 #: components/views/Offset/index.tsx:237
 #: components/views/Offset/index.tsx:324
 #: components/views/PKlima/index.tsx:130
-#: components/views/Stake/index.tsx:135
-#: components/views/Stake/index.tsx:340
-#: components/views/Stake/index.tsx:347
-#: components/views/Stake/index.tsx:354
+#: components/views/Stake/index.tsx:136
+#: components/views/Stake/index.tsx:344
+#: components/views/Stake/index.tsx:351
+#: components/views/Stake/index.tsx:358
 #: components/views/Wrap/index.tsx:121
 msgid "shared.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:455
 #: components/views/PKlima/index.tsx:208
-#: components/views/Stake/index.tsx:284
+#: components/views/Stake/index.tsx:285
 #: components/views/Wrap/index.tsx:240
 msgid "shared.max"
 msgstr ""
@@ -582,26 +588,26 @@ msgstr ""
 msgid "shared.sold_out"
 msgstr ""
 
-#: components/views/Stake/index.tsx:295
+#: components/views/Stake/index.tsx:298
 msgid "stake.5_day_rewards"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:298
+#: components/views/Stake/index.tsx:301
 msgid "stake.5_day_rewards.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:308
+#: components/views/Stake/index.tsx:314
 msgid "stake.akr"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:311
+#: components/views/Stake/index.tsx:317
 msgid "stake.akr.tooltip"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:216
+#: components/views/Stake/index.tsx:217
 msgid "stake.balancescard.tooltip"
 msgstr ""
 
@@ -610,24 +616,24 @@ msgid "stake.estimated_payout"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:232
+#: components/views/Stake/index.tsx:233
 msgid "stake.hold_stake_and_compound"
 msgstr ""
 
-#: components/views/Stake/index.tsx:324
+#: components/views/Stake/index.tsx:328
 msgid "stake.index"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:327
+#: components/views/Stake/index.tsx:331
 msgid "stake.index.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:192
+#: components/views/Stake/index.tsx:193
 msgid "stake.inputplaceholder.stake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:197
+#: components/views/Stake/index.tsx:198
 msgid "stake.inputplaceholder.unstake"
 msgstr ""
 
@@ -647,20 +653,20 @@ msgstr ""
 msgid "stake.rebase.info"
 msgstr ""
 
-#: components/views/Stake/index.tsx:252
+#: components/views/Stake/index.tsx:253
 msgid "stake.stake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:163
-#: components/views/Stake/index.tsx:229
+#: components/views/Stake/index.tsx:164
+#: components/views/Stake/index.tsx:230
 msgid "stake.stake_klima"
 msgstr ""
 
-#: components/views/Stake/index.tsx:264
+#: components/views/Stake/index.tsx:265
 msgid "stake.unstake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:173
+#: components/views/Stake/index.tsx:174
 msgid "stake.unstake_klima"
 msgstr ""
 
