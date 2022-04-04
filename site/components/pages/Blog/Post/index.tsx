@@ -88,10 +88,10 @@ export const PostPage = (props: PostProps) => {
             <BlockContentRenderer blocks={props.post.body} />
             {props.post.showDisclaimer && (
               <div className={styles.disclaimer}>
-                <Text t="caption">
+                <Text t="caption" color="lighter">
                   <Trans id="blog.disclaimer.title">Disclaimer:</Trans>
                 </Text>
-                <Text t="caption">
+                <Text t="caption" color="lighter">
                   <Trans
                     id="blog.disclaimer.description"
                     comment="Long sentence"

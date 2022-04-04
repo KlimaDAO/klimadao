@@ -88,6 +88,6 @@ export const disclaimer = css`
   margin-top: 4rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
   font-style: italic;
 `;
