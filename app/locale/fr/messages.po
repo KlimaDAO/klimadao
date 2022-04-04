@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-03-31 16:33+0000\n"
+"POT-Creation-Date: 2022-04-04 16:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,15 +25,15 @@ msgstr "Nom"
 
 #: components/views/Offset/index.tsx:576
 msgid "Retirement Successful"
-msgstr "Destruction réussie"
+msgstr "Retrait réussie"
 
 #: components/views/Offset/index.tsx:616
 msgid "Share retirement"
-msgstr "Partager la destruction"
+msgstr "Partager le retrait"
 
 #: components/views/Offset/index.tsx:602
 msgid "Tonnes Retired"
-msgstr "Tonnes détruites"
+msgstr "Tonnes retirées"
 
 #: components/views/Offset/index.tsx:623
 msgid "View on <0>polygonscan.com</0>"
@@ -47,7 +47,9 @@ msgstr "[Bientôt disponible]"
 #. Long sentence
 #: components/views/Bond/index.tsx:720
 msgid "bond.all_demand_has_been_filled"
-msgstr "🪧 VENDU. Toutes les émissions ont été satisfaites pour cette obligation. Merci Klimates !"
+msgstr ""
+"🪧 VENDU. Toutes les émissions ont été satisfaites pour cette obligation. Merci Klimates !.0\n"
+""
 
 #: components/views/Bond/index.tsx:470
 msgid "bond.balance"
@@ -360,7 +362,7 @@ msgstr "Ce coût comprend le glissement et les frais d'agrégation de 1 %."
 
 #: components/views/Offset/index.tsx:382
 msgid "offset.amount_in_tonnes"
-msgstr ""
+msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:24
 msgid "offset.breakdown"
@@ -368,15 +370,15 @@ msgstr "Ventilation"
 
 #: components/views/Offset/index.tsx:492
 msgid "offset.default_retirement_address"
-msgstr ""
+msgstr "Par défaut, l'adresse du portefeuille connecté"
 
 #: components/views/Offset/index.tsx:486
 msgid "offset.ethereum_address"
-msgstr ""
+msgstr "Adresse Ethereum"
 
 #: components/views/Offset/index.tsx:359
 msgid "offset.go_carbon_neutral"
-msgstr ""
+msgstr "Rendez votre bilan carbone neutre en en retirant du carbone et en réclamant les avantages environnementaux issus du mécanisme de compensation carbone. Choisissez de détruire des <0>Crédits Moss Carbons</0> (MCO2), <1>Tonnes de carbone de base</1> (BCT), ou <2>Tonnes de carbone basées sur la nature</2> (NCT), d'autres choix seront bientôt disponibles."
 
 #: components/views/Offset/index.tsx:338
 msgid "offset.incompatible"
@@ -384,37 +386,37 @@ msgstr "JETON EN ENTRÉE INCOMPATIBLE"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:37
 msgid "offset.number_of_retirements"
-msgstr "Destructions totales"
+msgstr "Retraits totaux"
 
 #: components/views/Offset/index.tsx:400
 msgid "offset.offset_quantity"
-msgstr ""
+msgstr "Entrez la quantité à compenser"
 
 #: components/views/Offset/index.tsx:356
 msgid "offset.retire_carbon"
-msgstr "Détruire du Carbone"
+msgstr "Retirer du Carbone"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:30
 #: components/CarbonTonnesBreakdownCard/index.tsx:44
 #: components/CarbonTonnesBreakdownCard/index.tsx:58
 msgid "offset.retired"
-msgstr "Détruit"
+msgstr "Retiré"
 
 #: components/views/Offset/index.tsx:475
 msgid "offset.retirement_beneficiary"
-msgstr ""
+msgstr "Nom ou organisation"
 
 #: components/views/Offset/index.tsx:467
 msgid "offset.retirement_credit"
-msgstr ""
+msgstr "A qui ce retrait sera-t-il crédité ?"
 
 #: components/views/Offset/index.tsx:502
 msgid "offset.retirement_message"
-msgstr ""
+msgstr "Message de destruction"
 
 #: components/views/Offset/index.tsx:511
 msgid "offset.retirement_purpose"
-msgstr "Décrivez le but de cette retraite"
+msgstr "Décrivez le but de ce retrait"
 
 #: components/views/Offset/index.tsx:456
 msgid "offset.retiring"
@@ -426,7 +428,7 @@ msgstr "Tonnes de carbone"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:20
 msgid "offset.you_have_retired"
-msgstr "Vous avez détruit"
+msgstr "Vous avez retiré"
 
 #: components/views/Offset/index.tsx:433
 msgid "offset_cost"
@@ -434,7 +436,7 @@ msgstr "Coût"
 
 #: components/views/Offset/index.tsx:521
 msgid "offset_disclaimer"
-msgstr ""
+msgstr "Veillez à ne pas divulguer d'informations personnelles sensibles. Votre message ne pourrra pas être modifié et sera enregistré définitivement sur une blockchain publique."
 
 #: components/views/PKlima/index.tsx:150
 msgid "pklima.approve_bct"
@@ -578,7 +580,7 @@ msgstr "Max"
 
 #: components/views/Offset/index.tsx:263
 msgid "shared.retire"
-msgstr "DÉTRUIRE DU CARBONE"
+msgstr "RETIRER DU CARBONE"
 
 #: components/views/Bond/index.tsx:298
 msgid "shared.sold_out"
@@ -733,7 +735,7 @@ msgstr "Encapsuler sKLIMA"
 #. Long sentence
 #: components/views/Wrap/index.tsx:190
 msgid "wrap.wrap_sklima.some_find_this_useful"
-msgstr ""
+msgstr "Certains trouvent cela utile à des fins comptables, mais le rendement est exactement le même. La valeur des actifs encapsulées et non encapsulées est calculée en fonction de l'indece actuel."
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:181

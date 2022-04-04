@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-03-31 16:33+0000\n"
+"POT-Creation-Date: 2022-04-04 16:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -47,7 +47,7 @@ msgstr "Blockchain for Climate Foundation-Logo"
 
 #: components/pages/Resources/Community/index.tsx:333
 msgid "community.come_on_in"
-msgstr "Komm herein"
+msgstr "Betreten"
 
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:394
@@ -65,7 +65,7 @@ msgstr "Digital Charity Art-Logo"
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:348
 msgid "community.discord_is_where_we_share"
-msgstr "Wir nutzen Discord, um wichtige Ankündigungen mitzuteilen, Fragen zu beantworten, Office Hours abzuhalten - und Memes zu tauschen. Die Aktivität auf unserem permanent moderierten Discord-Server ist durchgehend hoch. Wir haben separate Kanäle für alles: von Tokenhandel über Nachhaltigkeit bis zu CO²-Märkten."
+msgstr "Wir nutzen Discord, um wichtige Ankündigungen mitzuteilen, Fragen zu beantworten, wöchentliche Voice-Meetings abzuhalten - und Memes zu tauschen. Auf unserem permanent moderierten Discord-Server ist immer etwas los. Wir haben separate Kanäle für alles: vom Tokenhandel über Nachhaltigkeit bis zu CO2-Märkten."
 
 #: components/pages/Resources/Community/index.tsx:258
 msgid "community.dovu_logo"
@@ -116,7 +116,7 @@ msgstr "Tritt der Klima-Community bei"
 #: components/pages/Resources/Community/index.tsx:94
 #: components/pages/Resources/Community/index.tsx:378
 msgid "community.lets_work_together"
-msgstr "Lass uns zusammenarbeiten"
+msgstr "Lass uns zusammenarbeiten!"
 
 #: components/pages/Resources/Community/index.tsx:137
 msgid "community.moss_logo"
@@ -156,12 +156,12 @@ msgstr "Thought for Food-Logo"
 
 #: components/pages/Resources/Community/index.tsx:113
 msgid "community.tree_grove"
-msgstr ""
+msgstr "Baumgruppe"
 
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:100
 msgid "community.we_work_with_traditionnal"
-msgstr "Wir arbeiten zusammen mit traditionellen Akteuren auf dem CO2-Markt, Kryptoplattformen, Unternehmen - und allem dazwischen."
+msgstr "Wir kollaborieren mit traditionellen Akteuren auf dem CO2-Markt, Kryptoplattformen, Unternehmen - und allem dazwischen."
 
 #: components/pages/Resources/Contact/index.tsx:64
 msgid "concat.careers"
@@ -179,7 +179,7 @@ msgstr "Trete unserem Discord-Communityserver bei, um im #bug-reports-Kanal Fehl
 #. Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you.
 #: components/pages/Resources/Contact/index.tsx:67
 msgid "contact.careers.we_re_hiring"
-msgstr ""
+msgstr "Wir stellen ein! Bis wir den Aufbau unserer Karriereseite abgeschlossen haben, kannst du eine Anfrage über unseren <0>Discord-Server</0> schicken. Folge dort den Bewerbungsanweisungen für die Abteilung, bei der du gerne mitarbeiten würdest."
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
@@ -187,7 +187,7 @@ msgstr "Kontakt"
 
 #: components/pages/Resources/Contact/index.tsx:19
 msgid "contact.head.subline"
-msgstr "Fragen, Sorgen, Ideen? Über diese Möglichkeiten kannst du mit uns in Kontakt treten. Wir freuen uns auf Organisationen ebenso wie auf Privatpersonen."
+msgstr "Fragen, Sorgen, Ideen? Über diese Kanäle kannst du mit uns in Kontakt treten. Wir freuen uns auf Organisationen ebenso wie auf Privatpersonen."
 
 #: components/pages/Resources/Contact/index.tsx:17
 #: components/pages/Resources/Contact/index.tsx:24
@@ -206,7 +206,7 @@ msgstr "Journalist/in oder Contentcreator? Unser Marketingteam würde dich gerne
 #. Use this <0>Media Request Form</0>.
 #: components/pages/Resources/Contact/index.tsx:120
 msgid "contact.media.use_this_media_request_form"
-msgstr ""
+msgstr "Nutze dieses <0>Medienanfrageformular</0>."
 
 #: components/pages/Resources/Contact/index.tsx:88
 msgid "contact.partnerships"
@@ -215,7 +215,7 @@ msgstr "Partnerschaften"
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
 #: components/pages/Resources/Contact/index.tsx:91
 msgid "contact.partnerships.until_we_finish_building"
-msgstr ""
+msgstr "Bis der Aufbau der Partnerschaftenseite abgeschlossen ist, leiten wir potenzielle Partner und Kooperationsanfragen an <0>dieses Kontaktformular</0> weiter."
 
 #: components/pages/Resources/Contact/index.tsx:36
 msgid "contact.quest_and_support"
@@ -306,7 +306,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:197
 msgid "disclaimer.we_recommend_that_you_visit"
-msgstr "Wir empfehlen, dass du dir unsere Seite über den Umgang mit Kryptosicherheit anschaust, bevor du unsere Webseite nutzt. Bitte denke immer daran: Teile niemals deine privaten Schlüssel oder deine Seed-Phrase mit jemandem. Unsere Mitglieder und unsere dApp werden dich niemals(!) dazu auffordern."
+msgstr "Wir empfehlen, dass du dir unsere Seite über den Umgang mit Kryptosicherheit anschaust, bevor du unsere Webseite nutzt. Bitte denke immer daran: Teile niemals deine privaten Schlüssel oder deine Seed-Phrase mit jemandem! Unsere Mitglieder und unsere dApp werden dich niemals(!) dazu auffordern."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:152
@@ -365,7 +365,7 @@ msgstr "ENTSPRICHT"
 #. Long sentence
 #: components/pages/Home/index.tsx:378
 msgid "home.every_klima_token_is_backed"
-msgstr "Jedes KLIMA-Token ist von einem echten CO2-Zertifikate gedeckt. Diese Tokens werden genutzt, um CO2-Emissionen auszugleichen, mit DeFi-Applikationen zu interagieren, und Zugang zum rasant wachsenden weltweiten CO2-Markt zu erhalten."
+msgstr "Jedes KLIMA-Token ist von einem echten CO2-Zertifikat gedeckt. Diese Tokens werden genutzt, um CO2-Emissionen auszugleichen, mit DeFi-Applikationen zu interagieren, und Zugang zum rasant wachsenden weltweiten CO2-Markt zu erhalten."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:101
@@ -374,7 +374,7 @@ msgstr "Bekämpfe den Klimawandel und erhalte Belohnungen durch KLIMA: eine digi
 
 #: components/pages/Home/index.tsx:429
 msgid "home.get_exposure_to_the_growing_carbon_economy"
-msgstr "Steigen Sie jetzt in die wachsende CO2-Wirtschaft ein. Erwerbe, stake, und werde belohnt. Finanzieller Aktivismus für unser Klima."
+msgstr "Steige jetzt in die wachsende CO2-Wirtschaft ein. Kaufe, stake, und werde belohnt. Finanzieller Aktivismus für unseren Planeten."
 
 #: components/pages/Home/index.tsx:426
 msgid "home.get_klima"
@@ -392,7 +392,7 @@ msgstr "KlimaDAO ist ein <0>Schwarzes Loch für CO2</0> im Zentrum einer <1>neue
 #. Long sentence
 #: components/pages/Home/index.tsx:407
 msgid "home.klima_tokens_are_minted"
-msgstr "KLIMA-Tokens werden ungefähr alle sieben Stunden neu generiert und an aktuelle KLIMA-Besitzer verteilt. Gemeinsam errichten wir eine neue, nachhaltige Zukunft, während dein KLIMA-Vorrat wächst."
+msgstr "KLIMA-Tokens werden ungefähr alle sieben Stunden neu generiert und an aktuelle sKLIMA-Besitzer verteilt. Gemeinsam errichten wir eine neue, nachhaltige Zukunft, während dein KLIMA-Vorrat wächst."
 
 #: components/pages/Home/index.tsx:77
 msgid "home.latest_news"
@@ -412,7 +412,7 @@ msgstr "Massive Auswirkung."
 
 #: components/pages/Home/index.tsx:177
 msgid "home.mechanics"
-msgstr "MECHANIKEN"
+msgstr "MECHANISMUS"
 
 #: components/pages/Home/index.tsx:458
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
@@ -442,7 +442,7 @@ msgstr "<0>Die Reservewährung</0><1>der CO2-Wirtschaft</1>"
 
 #: components/pages/Home/index.tsx:436
 msgid "home.see_tutorial"
-msgstr "Tutorial anschauen"
+msgstr "Tutorial ansehen"
 
 #: components/pages/Home/index.tsx:324
 msgid "home.source"
@@ -450,12 +450,12 @@ msgstr "Quelle"
 
 #: components/pages/Home/index.tsx:221
 msgid "home.strong_incentives"
-msgstr "Starke Anreize."
+msgstr "Überzeugende Anreize."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:180
 msgid "home.the_dao_sell_bonds"
-msgstr "Die DAO verkauft Anleihen und verteilt den Profit an bestehende KLIMA-Besitzer. Jede verkaufte Anleihe wird einer ständig wachsenden, grünen Schatzkammer hinzugefügt oder verbessert die Liquidität von grünen Schlüssel-Assets. Eine Win-Win-Situation für Mensch und Planet."
+msgstr "Die DAO verkauft Bonds und verteilt den Profit an bestehende KLIMA-Besitzer. Jede verkaufte Anleihe wird einer permanent wachsenden Schatzkammer hinzugefügt oder verbessert die Liquidität von grünen Schlüssel-Assets. Eine Win-Win-Situation für Mensch und Planet."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:250
@@ -465,7 +465,7 @@ msgstr "<0>CO2-TONNEN EINGEFANGEN</0> DURCH KLIMADAO"
 #. Long sentence
 #: components/pages/Home/index.tsx:153
 msgid "home.we_ve_kickstarted"
-msgstr "Wir haben einen <0>dezentralisierten und offenen Marktplatz für CO</0> ins Leben gerufen. Unser Token liefert Anreize für Investoren, Bürger und Organisationen, um sich an dieser neuen Wirtschaft zu beteiligen und sie zu verwalten."
+msgstr "Wir haben einen <0>dezentralisierten und offenen Marktplatz für CO2</0> ins Leben gerufen. Unser Token liefert Anreize für Investoren, Bürger und Organisationen, um sich an dieser neuen Wirtschaft zu beteiligen und sie zu verwalten."
 
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
 #: components/pages/Home/index.tsx:395
@@ -538,4 +538,4 @@ msgstr "App öffnen"
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "shared.head.description"
-msgstr ""
+msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
