@@ -139,13 +139,13 @@ msgid "bond.redeemable.tooltip"
 msgstr "Menge an KLIMA, die bereits garantiert ist und eingelöst werden kann."
 
 #: components/views/Bond/index.tsx:524
-msgid "bond.roi"
-msgstr "ROI (Bondrabatt)"
+msgid "bond.discount"
+msgstr "Bondrabatt"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:528
-msgid "bond.roi.tooltip"
-msgstr "Rendite, dargestellt als prozentualer Rabatt auf den Marktwerkt von KLIMA"
+msgid "bond.discount.tooltip"
+msgstr "Rabatt (oder Prämie, falls negativ) auf KLIMA für diese Bond erhalt, auf den Marktwerkt von KLIMA."
 
 #. Long sentence
 #: components/views/Bond/index.tsx:709
@@ -587,22 +587,22 @@ msgid "shared.sold_out"
 msgstr "Ausverkauft"
 
 #: components/views/Stake/index.tsx:297
-msgid "stake.5_day_roi"
-msgstr "ROI über 5 Tage"
+msgid "stake.5_day_rewards"
+msgstr "Belohnungen über 5 Tage"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:300
-msgid "stake.5_day_roi.tooltip"
-msgstr "Ungefährer ROI inklusive Zinseszinseffekt, falls du über die nächsten fünf Tage stakest."
+msgid "stake.5_day_rewards.tooltip"
+msgstr "Ungefähre Belohnungsrate inklusive Zinseszinseffekt, falls du über die nächsten fünf Tage stakest."
 
 #: components/views/Stake/index.tsx:310
-msgid "stake.apy"
-msgstr "APY"
+msgid "stake.akr"
+msgstr "AKR"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:313
-msgid "stake.apy.tooltip"
-msgstr "Effektiver jährlicher Ertrag unter Einbezug von Zinseszinseffekten, falls die aktuelle Emissionsrate die nächsten zwölf Monate konstant bleibt (Rate kann sich verändern)."
+msgid "stake.akr.tooltip"
+msgstr "Effektiver jährlicher Belohnungsrate unter Einbezug von Zinseszinseffekten, falls die aktuelle Belohnungsrate die nächsten zwölf Monate konstant bleibt (Rate kann sich verändern)."
 
 #. Long sentence
 #: components/views/Stake/index.tsx:216

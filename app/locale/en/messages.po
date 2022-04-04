@@ -145,13 +145,13 @@ msgid "bond.redeemable.tooltip"
 msgstr "Amount of KLIMA that has already vested and can be redeemed"
 
 #: components/views/Bond/index.tsx:524
-msgid "bond.roi"
-msgstr "ROI (bond discount)"
+msgid "bond.discount"
+msgstr "Bond discount"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:528
-msgid "bond.roi.tooltip"
-msgstr "Return on investment, expressed as a percentage discount on the market value of KLIMA"
+msgid "bond.discount.tooltip"
+msgstr "Percentage discount (or premium if negative) on KLIMA received for this bond, relative to the market value of KLIMA."
 
 #. Long sentence
 #: components/views/Bond/index.tsx:709
@@ -213,7 +213,7 @@ msgstr "Bond Carbon"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:135
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds have a mandatory 5-day vesting period."
+msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds have a mandatory 5 day vesting period."
 
 #: components/views/ChooseBond/index.tsx:159
 msgid "choose_bond.choose_bond"
@@ -588,23 +588,23 @@ msgstr "RETIRE CARBON"
 msgid "shared.sold_out"
 msgstr "Sold Out"
 
-#: components/views/Stake/index.tsx:297
-msgid "stake.5_day_roi"
-msgstr "5-day ROI"
+#: components/views/Stake/index.tsx:295
+msgid "stake.5_day_rewards"
+msgstr "5 Day Rewards"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:300
-msgid "stake.5_day_roi.tooltip"
-msgstr "Approximate return on investment, including compounding interest, should you remain staked for 5 days."
+#: components/views/Stake/index.tsx:298
+msgid "stake.5_day_rewards.tooltip"
+msgstr "Approximate reward rate, including compounding interest, should you remain staked for 5 days. Reward rate may be subject to change."
 
-#: components/views/Stake/index.tsx:310
-msgid "stake.apy"
-msgstr "APY"
+#: components/views/Stake/index.tsx:308
+msgid "stake.akr"
+msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:313
-msgid "stake.apy.tooltip"
-msgstr "Annual Percentage Yield, including compounding interest, should the current reward rate remain unchanged for 12 months (rates may be subject to change)"
+#: components/views/Stake/index.tsx:311
+msgid "stake.akr.tooltip"
+msgstr "Annualized KLIMA Rewards, including autocompounding, should the current staking reward rate remain unchanged for 12 months (reward rate may be subject to change)"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:216
@@ -618,7 +618,7 @@ msgstr "Est. payout (sKLIMA)"
 #. Long sentence
 #: components/views/Stake/index.tsx:232
 msgid "stake.hold_stake_and_compound"
-msgstr "Hold, stake, and compound. If the protocol earns a profit selling carbon bonds, these rewards are shared among all holders of staked KLIMA (sKLIMA)."
+msgstr "Hold, stake, and compound. If the protocol earns excess reserves selling carbon bonds, these rewards are shared among all holders of staked KLIMA (sKLIMA)."
 
 #: components/views/Stake/index.tsx:324
 msgid "stake.index"
@@ -737,7 +737,7 @@ msgstr "Wrap sKLIMA"
 #. Long sentence
 #: components/views/Wrap/index.tsx:190
 msgid "wrap.wrap_sklima.some_find_this_useful"
-msgstr "Some find this useful for accounting purposes, but the yield is exactly the same. Wrapped and unwrapped values are calculated based on the current index."
+msgstr "Some find this useful for accounting purposes, but the rewards are exactly the same. Wrap and unwrap values are calculated based on the current index."
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:181

@@ -111,7 +111,7 @@ export const bondLink = css`
   }
 `;
 
-export const bondROI = css`
+export const bondDiscount = css`
   justify-self: center;
   align-self: center;
   &[data-hide="true"] {

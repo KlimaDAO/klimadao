@@ -137,7 +137,7 @@ export function ChooseBond() {
               comment="Long sentence"
             >
               The best way to buy KLIMA. Commit carbon to our treasury, and
-              receive KLIMA at a discount. All bonds have a mandatory 5-day
+              receive KLIMA at a discount. All bonds have a mandatory 5 day
               vesting period.
             </Trans>
           </Text>
@@ -176,13 +176,17 @@ export function ChooseBond() {
                     </Text>
                   </div>
                   {bond.disabled ? (
-                    <Text t="h5" color="lightest" className={styles.bondROI}>
+                    <Text
+                      t="h5"
+                      color="lightest"
+                      className={styles.bondDiscount}
+                    >
                       <Trans id="choose_bond.sold_out">SOLD OUT</Trans>
                     </Text>
                   ) : (
                     <Text
                       t="h5"
-                      className={styles.bondROI}
+                      className={styles.bondDiscount}
                       data-hide={!bond?.discount || bond.discount < 0}
                     >
                       {trimWithPlaceholder(bond?.discount, 2)}

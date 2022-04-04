@@ -191,9 +191,9 @@ export const Wrap: FC<Props> = (props) => {
               id="wrap.wrap_sklima.some_find_this_useful"
               comment="Long sentence"
             >
-              Some find this useful for accounting purposes, but the yield is
-              exactly the same. Wrapped and unwrapped values are calculated
-              based on the current index.
+              Some find this useful for accounting purposes, but the rewards are
+              exactly the same. Wrap and unwrap values are calculated based on
+              the current index.
             </Trans>
           </Text>
         </div>

@@ -461,7 +461,7 @@ msgstr "Strong incentives."
 #. Long sentence
 #: components/pages/Home/index.tsx:180
 msgid "home.the_dao_sell_bonds"
-msgstr "The DAO sells bonds and distributes profits to KLIMA holders. Every bond we sell adds to an ever-growing green treasury, or improves liquidity for key environmental assets. A win-win for people and planet."
+msgstr "The DAO sells bonds and distributes rewards to KLIMA holders. Every bond we sell adds to an ever-growing green treasury, or improves liquidity for key environmental assets. A win-win for people and planet."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:250

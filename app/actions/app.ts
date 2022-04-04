@@ -62,7 +62,7 @@ export const loadAppDetails = (params: {
       const stakingRebase = stakingReward / circSupply;
       const fiveDayRate =
         Math.pow(1 + stakingRebase, 5 * estimatedDailyRebases) - 1;
-      const stakingAPY = Math.pow(
+      const stakingAnnualPercent = Math.pow(
         1 + stakingRebase,
         365 * estimatedDailyRebases
       );
@@ -72,7 +72,7 @@ export const loadAppDetails = (params: {
           currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
           currentBlock,
           fiveDayRate,
-          stakingAPY,
+          stakingAnnualPercent,
           stakingRebase,
           treasuryBalance,
           rebaseBlock: rebaseBlock.toNumber(),

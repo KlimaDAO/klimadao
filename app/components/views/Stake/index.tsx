@@ -60,7 +60,8 @@ export const Stake = (props: Props) => {
 
   const [quantity, setQuantity] = useState("");
 
-  const { fiveDayRate, currentIndex, stakingAPY } = useSelector(selectAppState);
+  const { fiveDayRate, currentIndex, stakingAnnualPercent } =
+    useSelector(selectAppState);
 
   const stakeAllowance = useSelector(selectStakeAllowance);
   const balances = useSelector(selectBalances);
@@ -69,7 +70,7 @@ export const Stake = (props: Props) => {
     !stakeAllowance || typeof stakeAllowance.klima === "undefined";
 
   const fiveDayRatePercent = fiveDayRate && fiveDayRate * 100;
-  const stakingAPYPercent = stakingAPY && stakingAPY * 100;
+  const stakingAKR = stakingAnnualPercent && stakingAnnualPercent * 100;
 
   const setMax = () => {
     setStatus(null);
@@ -230,9 +231,9 @@ export const Stake = (props: Props) => {
           </Text>
           <Text t="caption" color="lightest">
             <Trans id="stake.hold_stake_and_compound" comment="Long sentence">
-              Hold, stake, and compound. If the protocol earns a profit selling
-              carbon bonds, these rewards are shared among all holders of staked
-              KLIMA (sKLIMA).
+              Hold, stake, and compound. If the protocol accumulates excess
+              reserves issuing carbon bonds, these rewards are shared among all
+              holders of staked KLIMA (sKLIMA).
             </Trans>
           </Text>
         </div>
@@ -294,12 +295,15 @@ export const Stake = (props: Props) => {
 
           <div className={styles.infoTable}>
             <div className={styles.infoTable_label}>
-              <Trans id="stake.5_day_roi">5-day ROI</Trans>
+              <Trans id="stake.5_day_rewards">5 Day Rewards</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans id="stake.5_day_roi.tooltip" comment="Long sentence">
-                    Approximate return on investment, including compounding
-                    interest, should you remain staked for 5 days.
+                  <Trans
+                    id="stake.5_day_rewards.tooltip"
+                    comment="Long sentence"
+                  >
+                    Approximate rewards, including compounding, should you
+                    remain staked for 5 days.
                   </Trans>
                 }
               >
@@ -307,13 +311,13 @@ export const Stake = (props: Props) => {
               </TextInfoTooltip>
             </div>
             <div className={styles.infoTable_label}>
-              <Trans id="stake.apy">APY</Trans>
+              <Trans id="stake.akr">AKR</Trans>
               <TextInfoTooltip
                 content={
-                  <Trans id="stake.apy.tooltip" comment="Long sentence">
-                    Annual Percentage Yield, including compounding interest,
-                    should the current reward rate remain unchanged for 12
-                    months (rates may be subject to change)
+                  <Trans id="stake.akr.tooltip" comment="Long sentence">
+                    Annualized Reward Yield, including compounding, should the
+                    current reward rate remain unchanged for 12 months (reward
+                    rate may be subject to change)
                   </Trans>
                 }
               >
@@ -341,8 +345,8 @@ export const Stake = (props: Props) => {
               )}
             </div>
             <div className={styles.infoTable_value}>
-              {stakingAPYPercent ? (
-                trimWithPlaceholder(stakingAPYPercent, 0) + "%"
+              {stakingAKR ? (
+                trimWithPlaceholder(stakingAKR, 0) + "%"
               ) : (
                 <Trans id="shared.loading">Loading...</Trans>
               )}
