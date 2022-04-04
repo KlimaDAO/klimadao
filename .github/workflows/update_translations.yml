@@ -43,9 +43,10 @@ jobs:
       - name: Cache node_modules
         uses: actions/cache@v3
         with:
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          path: |
-            node_modules
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install latest npm
         run: |
