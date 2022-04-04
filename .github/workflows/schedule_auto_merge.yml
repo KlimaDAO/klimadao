@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   schedule:
     # At 16:00 UTC (9am PDT) on every day-of-week from Monday through Thursday.
-    - cron: "0 16 * * 1-4"
+    - cron: "0 16 * * 1,2,3,4"
 
 jobs:
   call_update_translations:
