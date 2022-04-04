@@ -139,13 +139,13 @@ msgid "bond.redeemable.tooltip"
 msgstr "Menge an KLIMA, die bereits garantiert ist und eingelöst werden kann."
 
 #: components/views/Bond/index.tsx:524
-msgid "bond.roi"
-msgstr "ROI (Bondrabatt)"
+msgid "bond.discount"
+msgstr "Bondrabatt"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:528
-msgid "bond.roi.tooltip"
-msgstr "Rendite, dargestellt als prozentualer Rabatt auf den Marktwerkt von KLIMA"
+msgid "bond.discount.tooltip"
+msgstr "Rabatt (oder Prämie, falls negativ) auf KLIMA für diese Bond erhalt, auf den Marktwerkt von KLIMA."
 
 #. Long sentence
 #: components/views/Bond/index.tsx:709

@@ -141,13 +141,13 @@ msgid "bond.redeemable.tooltip"
 msgstr "Montant de KLIMA déjà disponible et pouvant être réclamés"
 
 #: components/views/Bond/index.tsx:524
-msgid "bond.roi"
-msgstr "ROI (escompte obligataire)"
+msgid "bond.discount"
+msgstr "Escompte bond"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:528
-msgid "bond.roi.tooltip"
-msgstr "Retour sur investissement, exprimé en pourcentage de remise sur le prix de marché de KLIMA"
+msgid "bond.discount.tooltip"
+msgstr "Pourcentage de remise (ou prime si négatif) pour KLIMA reçu pour cette bond, relatif à le prix de marché de KLIMA."
 
 #. Long sentence
 #: components/views/Bond/index.tsx:709

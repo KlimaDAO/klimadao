@@ -139,12 +139,12 @@ msgid "bond.redeemable.tooltip"
 msgstr ""
 
 #: components/views/Bond/index.tsx:524
-msgid "bond.roi"
+msgid "bond.discount"
 msgstr ""
 
 #. Long sentence
 #: components/views/Bond/index.tsx:528
-msgid "bond.roi.tooltip"
+msgid "bond.discount.tooltip"
 msgstr ""
 
 #. Long sentence

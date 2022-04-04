@@ -522,13 +522,13 @@ export const Bond: FC<Props> = (props) => {
               <DataRow
                 singleton={singleton}
                 label={t({
-                  id: "bond.roi",
-                  message: "ROI (bond discount)",
+                  id: "bond.discount",
+                  message: "Bond discount",
                 })}
                 tooltip={t({
-                  id: "bond.roi.tooltip",
+                  id: "bond.discount.tooltip",
                   message:
-                    "Return on investment, expressed as a percentage discount on the market value of KLIMA",
+                    "Percentage discount (or premium if negative) on KLIMA received for this bond, relative to the market value of KLIMA.",
                   comment: "Long sentence",
                 })}
                 unit={"%"}

@@ -145,13 +145,13 @@ msgid "bond.redeemable.tooltip"
 msgstr "Amount of KLIMA that has already vested and can be redeemed"
 
 #: components/views/Bond/index.tsx:524
-msgid "bond.roi"
-msgstr "ROI (bond discount)"
+msgid "bond.discount"
+msgstr "Bond discount"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:528
-msgid "bond.roi.tooltip"
-msgstr "Return on investment, expressed as a percentage discount on the market value of KLIMA"
+msgid "bond.discount.tooltip"
+msgstr "Percentage discount (or premium if negative) on KLIMA received for this bond, relative to the market value of KLIMA."
 
 #. Long sentence
 #: components/views/Bond/index.tsx:709
