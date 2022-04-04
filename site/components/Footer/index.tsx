@@ -24,36 +24,36 @@ export const Footer: FC = () => (
       <nav className={styles.footer_nav}>
         <Link href="/">
           <a>
-            <Trans id="footer.home">Home</Trans>
+            <Trans id="shared.home">Home</Trans>
           </a>
         </Link>
         <Link href="/buy">
           <a>
-            <Trans id="footer.get_klima">Get KLIMA</Trans>
+            <Trans id="shared.get_klima">Get KLIMA</Trans>
           </a>
         </Link>
         <a href={urls.stake}>
-          <Trans id="footer.stake">Stake</Trans>
+          <Trans id="shared.stake">Stake</Trans>
         </a>
         <a href={urls.bonds}>
-          <Trans id="footer.bond">Bond</Trans>
+          <Trans id="shared.bond">Bond</Trans>
         </a>
         <A href={urls.officialDocs}>
-          <Trans id="footer.docs">Docs</Trans>
+          <Trans id="shared.docs">Docs</Trans>
         </A>
         <Link href="/blog">
           <a>
-            <Trans id="footer.blog">Blog</Trans>
+            <Trans id="shared.blog">Blog</Trans>
           </a>
         </Link>
         <Link href="/contact">
           <a>
-            <Trans id="footer.contact">Contact</Trans>
+            <Trans id="shared.contact">Contact</Trans>
           </a>
         </Link>
         <Link href="/disclaimer">
           <a>
-            <Trans id="footer.disclaimer">Disclaimer</Trans>
+            <Trans id="shared.disclaimer">Disclaimer</Trans>
           </a>
         </Link>
       </nav>
