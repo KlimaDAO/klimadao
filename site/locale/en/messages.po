@@ -21,6 +21,15 @@ msgstr "Articles"
 msgid "Change language"
 msgstr "Change language"
 
+#. Long sentence
+#: components/pages/Blog/Post/index.tsx:95
+msgid "blog.disclaimer.description"
+msgstr "The information provided in this blog post pertaining to KlimaDAO (“KlimaDAO”), its crypto-assets, business assets, strategy, and operations, is for general informational purposes only and is not a formal offer to sell or a solicitation of an offer to buy any securities, options, futures, or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws. Information contained in this blog post should not be relied upon as advice to buy or sell or hold such securities or as an offer to sell such securities. This blog post does not take into account nor does it provide any tax, legal or investment advice or opinion regarding the specific investment objectives or financial situation of any person. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders make no representation or warranties, expressed or implied, as to the accuracy of such information and KlimaDAO expressly disclaims any and all liability that may be based on such information or errors or omissions thereof. KlimaDAO reserves the right to amend or replace the information contained herein, in part or entirely, at any time, and undertakes no obligation to provide the recipient with access to the amended information or to notify the recipient thereof. The information contained in this blog post supersedes any prior blog post or conversation concerning the same, similar or related information. Any information, representations or statements not contained herein shall not be relied upon for any purpose. Neither KlimaDAO nor any of its representatives shall have any liability whatsoever, under contract, tort, trust or otherwise, to you or any person resulting from the use of the information in this blog post by you or any of your representatives or for omissions from the information in this blog post. Additionally, KlimaDAO undertakes no obligation to comment on the expectations of, or statements made by, third parties in respect of the matters discussed in this blog post."
+
+#: components/pages/Blog/Post/index.tsx:92
+msgid "blog.disclaimer.title"
+msgstr "Disclaimer:"
+
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
 msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
@@ -54,11 +63,6 @@ msgstr "Blockchain for Climate Foundation logo"
 #: components/pages/Resources/Community/index.tsx:333
 msgid "community.come_on_in"
 msgstr "Come On In"
-
-#: components/pages/Resources/Community/index.tsx:110
-#: components/pages/Resources/Community/index.tsx:394
-msgid "community.contact_us"
-msgstr "Contact Us"
 
 #: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
@@ -319,38 +323,6 @@ msgstr "We recommend that you visit our Crypto Security 101 page for safety inst
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 
-#: components/Footer/index.tsx:46
-msgid "footer.blog"
-msgstr "Blog"
-
-#: components/Footer/index.tsx:39
-msgid "footer.bond"
-msgstr "Bond"
-
-#: components/Footer/index.tsx:51
-msgid "footer.contact"
-msgstr "Contact"
-
-#: components/Footer/index.tsx:56
-msgid "footer.disclaimer"
-msgstr "Disclaimer"
-
-#: components/Footer/index.tsx:42
-msgid "footer.docs"
-msgstr "Docs"
-
-#: components/Footer/index.tsx:32
-msgid "footer.get_klima"
-msgstr "Get KLIMA"
-
-#: components/Footer/index.tsx:27
-msgid "footer.home"
-msgstr "Home"
-
-#: components/Footer/index.tsx:36
-msgid "footer.stake"
-msgstr "Stake"
-
 #: components/pages/Home/index.tsx:203
 msgid "home.backed_by_carbon"
 msgstr "Backed by Carbon."
@@ -487,51 +459,52 @@ msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
-#: components/Navigation/index.tsx:50
-#: components/Navigation/index.tsx:75
-msgid "mainNav.bond"
-msgstr "Bond"
-
-#: components/Navigation/index.tsx:34
-msgid "mainNav.enter_app"
-msgstr "Enter App"
-
-#: components/Navigation/index.tsx:41
-#: components/Navigation/index.tsx:67
-msgid "mainNav.get_klima"
-msgstr "Get KLIMA"
-
-#: components/Navigation/index.tsx:54
-#: components/Navigation/index.tsx:79
-msgid "mainNav.resources"
-msgstr "Resources"
-
-#: components/Navigation/index.tsx:46
-#: components/Navigation/index.tsx:71
-msgid "mainNav.stake"
-msgstr "Stake"
-
+#: components/Footer/index.tsx:46
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "Blog"
+
+#: components/Footer/index.tsx:39
+#: components/Navigation/index.tsx:50
+#: components/Navigation/index.tsx:75
+msgid "shared.bond"
+msgstr "Bond"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
 msgid "shared.community"
 msgstr "Community"
 
+#: components/Footer/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "Contact"
 
+#: components/pages/Resources/Community/index.tsx:110
+#: components/pages/Resources/Community/index.tsx:394
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 msgid "shared.contact_us"
 msgstr "Contact Us"
 
+#: components/Footer/index.tsx:56
+msgid "shared.disclaimer"
+msgstr "Disclaimer"
+
+#: components/Footer/index.tsx:42
+msgid "shared.docs"
+msgstr "Docs"
+
+#: components/Navigation/index.tsx:34
 #: components/pages/Home/index.tsx:109
 msgid "shared.enter_app"
 msgstr "Enter App"
+
+#: components/Footer/index.tsx:32
+#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:67
+msgid "shared.get_klima"
+msgstr "Get KLIMA"
 
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
@@ -541,3 +514,18 @@ msgstr "Enter App"
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
+
+#: components/Footer/index.tsx:27
+msgid "shared.home"
+msgstr "Home"
+
+#: components/Navigation/index.tsx:54
+#: components/Navigation/index.tsx:79
+msgid "shared.resources"
+msgstr "Resources"
+
+#: components/Footer/index.tsx:36
+#: components/Navigation/index.tsx:46
+#: components/Navigation/index.tsx:71
+msgid "shared.stake"
+msgstr "Stake"

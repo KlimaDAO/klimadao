@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
@@ -14,6 +20,15 @@ msgstr "Artikel"
 #: components/ChangeLanguageButton/index.tsx:59
 msgid "Change language"
 msgstr "Sprache wechseln"
+
+#. Long sentence
+#: components/pages/Blog/Post/index.tsx:95
+msgid "blog.disclaimer.description"
+msgstr ""
+
+#: components/pages/Blog/Post/index.tsx:92
+msgid "blog.disclaimer.title"
+msgstr ""
 
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
@@ -48,11 +63,6 @@ msgstr "Blockchain for Climate Foundation-Logo"
 #: components/pages/Resources/Community/index.tsx:333
 msgid "community.come_on_in"
 msgstr "Betreten"
-
-#: components/pages/Resources/Community/index.tsx:110
-#: components/pages/Resources/Community/index.tsx:394
-msgid "community.contact_us"
-msgstr "Kontaktiere uns"
 
 #: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
@@ -313,38 +323,6 @@ msgstr "Wir empfehlen, dass du dir unsere Seite über den Umgang mit Kryptosiche
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "Du trägst die volle Verantwortung für die Bereitstellung privater Daten, die Verifizierung der Identität und die Legimität."
 
-#: components/Footer/index.tsx:46
-msgid "footer.blog"
-msgstr "Blog"
-
-#: components/Footer/index.tsx:39
-msgid "footer.bond"
-msgstr "Bond"
-
-#: components/Footer/index.tsx:51
-msgid "footer.contact"
-msgstr "Kontakt"
-
-#: components/Footer/index.tsx:56
-msgid "footer.disclaimer"
-msgstr "Haftungsausschluss"
-
-#: components/Footer/index.tsx:42
-msgid "footer.docs"
-msgstr "Dokumente"
-
-#: components/Footer/index.tsx:32
-msgid "footer.get_klima"
-msgstr "KLIMA kaufen"
-
-#: components/Footer/index.tsx:27
-msgid "footer.home"
-msgstr "Home"
-
-#: components/Footer/index.tsx:36
-msgid "footer.stake"
-msgstr "Staken"
-
 #: components/pages/Home/index.tsx:203
 msgid "home.backed_by_carbon"
 msgstr "Gedeckt durch CO2."
@@ -485,51 +463,52 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr "Investiere in die Zukunft."
 
-#: components/Navigation/index.tsx:50
-#: components/Navigation/index.tsx:75
-msgid "mainNav.bond"
-msgstr "Bond"
-
-#: components/Navigation/index.tsx:34
-msgid "mainNav.enter_app"
-msgstr "App öffnen"
-
-#: components/Navigation/index.tsx:41
-#: components/Navigation/index.tsx:67
-msgid "mainNav.get_klima"
-msgstr "KLIMA kaufen"
-
-#: components/Navigation/index.tsx:54
-#: components/Navigation/index.tsx:79
-msgid "mainNav.resources"
-msgstr "Ressourcen"
-
-#: components/Navigation/index.tsx:46
-#: components/Navigation/index.tsx:71
-msgid "mainNav.stake"
-msgstr "Staken"
-
+#: components/Footer/index.tsx:46
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "Blog"
+
+#: components/Footer/index.tsx:39
+#: components/Navigation/index.tsx:50
+#: components/Navigation/index.tsx:75
+msgid "shared.bond"
+msgstr ""
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
 msgid "shared.community"
 msgstr "Community"
 
+#: components/Footer/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "Kontakt"
 
+#: components/pages/Resources/Community/index.tsx:110
+#: components/pages/Resources/Community/index.tsx:394
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 msgid "shared.contact_us"
 msgstr "Kontaktiere uns"
 
+#: components/Footer/index.tsx:56
+msgid "shared.disclaimer"
+msgstr ""
+
+#: components/Footer/index.tsx:42
+msgid "shared.docs"
+msgstr ""
+
+#: components/Navigation/index.tsx:34
 #: components/pages/Home/index.tsx:109
 msgid "shared.enter_app"
 msgstr "App öffnen"
+
+#: components/Footer/index.tsx:32
+#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:67
+msgid "shared.get_klima"
+msgstr ""
 
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
@@ -539,3 +518,18 @@ msgstr "App öffnen"
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "shared.head.description"
 msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
+
+#: components/Footer/index.tsx:27
+msgid "shared.home"
+msgstr ""
+
+#: components/Navigation/index.tsx:54
+#: components/Navigation/index.tsx:79
+msgid "shared.resources"
+msgstr ""
+
+#: components/Footer/index.tsx:36
+#: components/Navigation/index.tsx:46
+#: components/Navigation/index.tsx:71
+msgid "shared.stake"
+msgstr ""
