@@ -84,3 +84,10 @@ export const loadingArticle = css`
   justify-self: center;
   align-self: center;
 `;
+export const disclaimer = css`
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-style: italic;
+`;
