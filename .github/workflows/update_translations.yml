@@ -31,14 +31,10 @@ jobs:
           token: ${{ secrets.PUSH_ACTOR_TOKEN }}
           ref: ${{ inputs.branch }}
 
-      - name: Read .nvmrc
-        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
-        id: nvm
-
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
+          node-version-file: ".nvmrc"
 
       - name: Cache node_modules
         uses: actions/cache@v2
