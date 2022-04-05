@@ -53,8 +53,8 @@ jobs:
       - name: Install packages
         run: npm install
 
-      - name: Extract and Compile Translation strings
-        run: npm run compile-strings
+      - name: Extract Translation strings and sync with translation.io
+        run: npm run extract-strings
         env:
           TRANSLATIONIO_KEY_APP: ${{ secrets.TRANSLATIONIO_KEY_APP }}
           TRANSLATIONIO_KEY_SITE: ${{ secrets.TRANSLATIONIO_KEY_SITE }}
