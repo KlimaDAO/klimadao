@@ -202,7 +202,7 @@ msgid "buy.buy_klima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Buy/index.tsx:96
+#: components/views/Buy/index.tsx:97
 msgid "buy.connect_wallet"
 msgstr ""
 
@@ -211,7 +211,7 @@ msgstr ""
 msgid "buy.how_to_buy"
 msgstr ""
 
-#: components/views/Buy/index.tsx:93
+#: components/views/Buy/index.tsx:94
 msgid "buy.not_connected"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgid "shared.confirming"
 msgstr ""
 
 #: components/views/Bond/index.tsx:304
-#: components/views/Buy/index.tsx:101
+#: components/views/Buy/index.tsx:102
 #: components/views/Offset/index.tsx:231
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:130
@@ -568,7 +568,7 @@ msgstr ""
 msgid "shared.connect_wallet"
 msgstr ""
 
-#: components/views/Buy/index.tsx:64
+#: components/views/Buy/index.tsx:65
 msgid "shared.copy_wallet_address"
 msgstr ""
 
@@ -623,7 +623,7 @@ msgstr ""
 msgid "shared.sold_out"
 msgstr ""
 
-#: components/views/Buy/index.tsx:71
+#: components/views/Buy/index.tsx:72
 msgid "shared.wallet_address_copied"
 msgstr ""
 
@@ -647,7 +647,7 @@ msgstr ""
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:111
+#: components/views/Buy/index.tsx:112
 #: components/views/Stake/index.tsx:217
 msgid "stake.balancescard.tooltip"
 msgstr ""

@@ -6,7 +6,7 @@ import Payment from "@mui/icons-material/Payment";
 import Check from "@mui/icons-material/Check";
 import ContentCopy from "@mui/icons-material/ContentCopy";
 
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { Anchor, ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 
 import { BalancesCard } from "components/BalancesCard";
@@ -46,11 +46,12 @@ export const Buy = (props: Props) => {
           </Text>
           <Text t="caption" color="lightest">
             <Trans id="buy.how_to_buy" comment="Long sentence">
-              Purchase KLIMA in a few clicks. Our partner Mobilum will send your
-              purchased KLIMA to whichever address you provide. Double check
-              that you are connected with a secure and private wallet, and that
-              the address is correct. After purchase is complete, refresh the
-              page and <Link to="/stake">stake</Link> your KLIMA!
+              Purchase KLIMA in a few clicks. Our partner{" "}
+              <Anchor href="https://mobilum.com/">Mobilum</Anchor> will send
+              your purchased KLIMA to whichever address you provide. Double
+              check that you are connected with a secure and private wallet, and
+              that the address is correct. After purchase is complete, refresh
+              the page and <Link to="/stake">stake</Link> your KLIMA!
             </Trans>
           </Text>
         </div>
