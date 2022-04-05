@@ -1,0 +1,72 @@
+specVersion: 0.0.2
+description: Klima DAO Protocol Metrics
+repository: https://github.com/KlimaDAO/klima-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  # Treasury V1
+  - kind: ethereum/contract
+    name: TreasuryV1
+    network: matic
+    source:
+      address: '0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7'
+      abi: TreasuryV1
+      startBlock: 20400000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Treasury
+      abis:
+        - name: TreasuryV1
+          file: ../lib/abis/TreasuryV1.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: UniswapV2Pair
+          file: ../lib/abis/UniswapV2Pair.json
+        - name: BondV1
+          file: ../lib/abis/BondV1.json
+        - name: KlimaStakingV1
+          file: ../lib/abis/KlimaStakingV1.json
+        - name: sKlimaERC20V1
+          file: ../lib/abis/sKlimaERC20V1.json
+        - name: KlimaERC20V1
+          file: ../lib/abis/KlimaERC20V1.json
+      eventHandlers:
+        - event: Deposit(indexed address,uint256,uint256)
+          handler: handleDeposit
+      file: ./src/TreasuryV1.ts
+  # Treasury V1
+  - kind: ethereum/contract
+    name: sKlimaERC20V1
+    network: matic
+    source:
+      address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
+      abi: sKlimaERC20V1
+      startBlock: 20400000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - sKlima
+      abis:
+        - name: TreasuryV1
+          file: ../lib/abis/TreasuryV1.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: UniswapV2Pair
+          file: ../lib/abis/UniswapV2Pair.json
+        - name: BondV1
+          file: ../lib/abis/BondV1.json
+        - name: KlimaStakingV1
+          file: ../lib/abis/KlimaStakingV1.json
+        - name: sKlimaERC20V1
+          file: ../lib/abis/sKlimaERC20V1.json
+        - name: KlimaERC20V1
+          file: ../lib/abis/KlimaERC20V1.json
+      eventHandlers:
+        - event: LogRebase(indexed uint256,uint256,uint256)
+          handler: handleRebase
+      file: ./src/sKlimaV1.ts
