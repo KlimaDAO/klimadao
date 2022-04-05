@@ -646,13 +646,9 @@ msgid "stake.akr.tooltip"
 msgstr ""
 
 #. Long sentence
-<<<<<<< HEAD
-#: components/views/Stake/index.tsx:217
-=======
 #. Long sentence
 #: components/views/Buy/index.tsx:96
-#: components/views/Stake/index.tsx:216
->>>>>>> Fixing mobile styling of buy card. Adding balances card to buy page.
+#: components/views/Stake/index.tsx:217
 msgid "stake.balancescard.tooltip"
 msgstr ""
 
