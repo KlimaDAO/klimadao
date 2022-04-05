@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-04 16:37+0000\n"
+"POT-Creation-Date: 2022-04-05 16:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:588
 msgid "Beneficiary Address"
@@ -104,12 +98,12 @@ msgstr "Ratio actuel de l'offre par rapport aux obligations en circulation du pr
 
 #: components/views/Bond/index.tsx:524
 msgid "bond.discount"
-msgstr "Escompte bond"
+msgstr ""
 
 #. Long sentence
 #: components/views/Bond/index.tsx:528
 msgid "bond.discount.tooltip"
-msgstr "Pourcentage de remise (ou prime si négatif) pour KLIMA reçu pour cette bond, relatif à le prix de marché de KLIMA."
+msgstr ""
 
 #: components/views/Bond/index.tsx:366
 msgid "bond.inputplaceholder.amount_to_bond"
@@ -215,7 +209,7 @@ msgstr "Obligation carbone."
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:135
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "La meilleure façon d'acheter KLIMA. Séquestrez du carbone dans notre trésorerie et recevez KLIMA à prix soldé. Toutes les obligations ont une période de mise à disposition obligatoire de 5 jours."
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:159
 msgid "choose_bond.choose_bond"
@@ -594,21 +588,21 @@ msgstr "Épuisé"
 
 #: components/views/Stake/index.tsx:298
 msgid "stake.5_day_rewards"
-msgstr "Taux de récompense sur 5 jours"
+msgstr ""
 
 #. Long sentence
 #: components/views/Stake/index.tsx:301
 msgid "stake.5_day_rewards.tooltip"
-msgstr "Taux de récompense de KLIMA approximatif, y compris les intérêts composés, si vous laissez votre dépôt pendant 5 jours."
+msgstr ""
 
 #: components/views/Stake/index.tsx:314
 msgid "stake.akr"
-msgstr "AKR"
+msgstr ""
 
 #. Long sentence
 #: components/views/Stake/index.tsx:317
 msgid "stake.akr.tooltip"
-msgstr "Taux de récompense de KLIMA annualisé en pourcentage, y compris les intérêts composés, si le taux de récompense actuel reste inchangé pendant 12 mois (les taux peuvent être sujets à changement)"
+msgstr ""
 
 #. Long sentence
 #: components/views/Stake/index.tsx:217
@@ -622,7 +616,7 @@ msgstr "Est. paiement (sKLIMA)"
 #. Long sentence
 #: components/views/Stake/index.tsx:233
 msgid "stake.hold_stake_and_compound"
-msgstr "Conservez, mettez en dépôt et recevez des intérêts. Si le protocole réalise un profit en vendant des obligations carbone, ces récompenses seront partagées entre tous les détenteurs de KLIMA mis en dépôt (sKLIMA)."
+msgstr ""
 
 #: components/views/Stake/index.tsx:328
 msgid "stake.index"
@@ -741,7 +735,7 @@ msgstr "Encapsuler sKLIMA"
 #. Long sentence
 #: components/views/Wrap/index.tsx:190
 msgid "wrap.wrap_sklima.some_find_this_useful"
-msgstr "Certains trouvent cela utile à des fins comptables, mais le rendement est exactement le même. La valeur des actifs encapsulées et non encapsulées est calculée en fonction de l'indece actuel."
+msgstr ""
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:181
