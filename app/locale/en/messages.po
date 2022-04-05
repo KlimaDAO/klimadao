@@ -197,21 +197,21 @@ msgstr "You will get"
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
-#: components/views/Buy/index.tsx:41
+#: components/views/Buy/index.tsx:45
 msgid "buy.buy_klima"
 msgstr "Buy KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:81
+#: components/views/Buy/index.tsx:96
 msgid "buy.connect_wallet"
 msgstr "You must connect a wallet in order to purchase KLIMA."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:44
+#: components/views/Buy/index.tsx:48
 msgid "buy.how_to_buy"
 msgstr "Purchase KLIMA in a few clicks. Our partner Mobilum will send your purchased KLIMA to whichever address you provide. Double check that you are connected with a secure and private wallet, and that the address is correct. After purchase is complete, refresh the page and <0>stake</0> your KLIMA!"
 
-#: components/views/Buy/index.tsx:78
+#: components/views/Buy/index.tsx:93
 msgid "buy.not_connected"
 msgstr "Not Connected"
 
@@ -560,7 +560,7 @@ msgid "shared.confirming"
 msgstr "Confirming"
 
 #: components/views/Bond/index.tsx:304
-#: components/views/Buy/index.tsx:86
+#: components/views/Buy/index.tsx:101
 #: components/views/Offset/index.tsx:231
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:130
@@ -568,9 +568,9 @@ msgstr "Confirming"
 msgid "shared.connect_wallet"
 msgstr "Connect wallet"
 
-#: components/views/Buy/index.tsx:58
+#: components/views/Buy/index.tsx:64
 msgid "shared.copy_wallet_address"
-msgstr "Copy Wallet Address {0}"
+msgstr "Copy Address {0}"
 
 #: components/views/Stake/index.tsx:166
 #: components/views/Stake/index.tsx:176
@@ -623,7 +623,7 @@ msgstr "RETIRE CARBON"
 msgid "shared.sold_out"
 msgstr "Sold Out"
 
-#: components/views/Buy/index.tsx:62
+#: components/views/Buy/index.tsx:71
 msgid "shared.wallet_address_copied"
 msgstr "Copied!"
 
@@ -647,7 +647,7 @@ msgstr "Annualized KLIMA Rewards, including compounding, should the current rewa
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:96
+#: components/views/Buy/index.tsx:111
 #: components/views/Stake/index.tsx:217
 msgid "stake.balancescard.tooltip"
 msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."
