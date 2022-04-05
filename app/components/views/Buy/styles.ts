@@ -24,27 +24,44 @@ export const buyCard = css`
   ${breakpoints.desktop} {
     grid-column: cardsleft;
     grid-row: 2 / span 3;
-    gap: 4.8rem;
     grid-template-rows: 1fr 1fr 1fr;
     align-items: start;
   }
 
   ${breakpoints.desktopLarge} {
     padding: 3.2rem;
+    min-height: 107rem; /* gross overflow hack */
   }
+`;
+
+export const buyCard_iframeStack = css`
+  display: grid;
+  gap: 1.6rem;
 `;
 
 export const buyCard_iframeContainer = css`
   display: flex;
   flex-direction: column;
+  position: relative;
+  .spinner_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding: 2.4rem;
+  }
 `;
 
 export const buyCard_iframe = css`
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 1.2rem;
   border: none;
   width: 100%;
-  height: 82rem;
-  margin-top: 1.5rem;
+  height: 73rem;
+  z-index: 2;
+  overflow-y: auto;
 `;
 
 export const buyCard_header = css`
@@ -85,6 +102,15 @@ export const buyCard_ui = css`
 
 export const submitButton = css`
   width: 100%;
+`;
+
+export const copyButton = css`
+  margin: 0rem 2.4rem;
+  justify-self: start;
+  gap: 0.4rem;
+  ${breakpoints.desktopLarge} {
+    margin: unset;
+  }
 `;
 
 export const address = css`

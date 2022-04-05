@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { providers } from "ethers";
-import { ImageCard } from "../../ImageCard";
-import * as styles from "./styles";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { Link } from "react-router-dom";
 import { Trans, t } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
+import Check from "@mui/icons-material/Check";
+import ContentCopy from "@mui/icons-material/ContentCopy";
+
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
-import Link from "next/link";
-import { BalancesCard } from "../../BalancesCard";
+
+import { BalancesCard } from "components/BalancesCard";
+import { ImageCard } from "components/ImageCard";
+import * as styles from "./styles";
 
 interface Props {
   provider: providers.JsonRpcProvider;
@@ -46,30 +50,41 @@ export const Buy = (props: Props) => {
               purchased KLIMA to whichever address you provide. Double check
               that you are connected with a secure and private wallet, and that
               the address is correct. After purchase is complete, refresh the
-              page and <Link href="/stake">stake</Link> your KLIMA!
+              page and <Link to="/stake">stake</Link> your KLIMA!
             </Trans>
           </Text>
         </div>
         {props.isConnected && props.address && (
-          <div className={styles.buyCard_iframeContainer}>
+          <div className={styles.buyCard_iframeStack}>
             <ButtonPrimary
               label={
                 !isAddressCopied ? (
-                  <Trans id="shared.copy_wallet_address">
-                    Copy Wallet Address {concatAddress(props.address)}
-                  </Trans>
+                  <>
+                    <ContentCopy />
+                    <Trans id="shared.copy_wallet_address">
+                      Copy Address {concatAddress(props.address)}
+                    </Trans>
+                  </>
                 ) : (
-                  <Trans id="shared.wallet_address_copied">Copied!</Trans>
+                  <>
+                    <Check />
+                    <Trans id="shared.wallet_address_copied">Copied!</Trans>
+                  </>
                 )
               }
               onClick={handleCopyAddressClick}
               disabled={false}
-              className={styles.submitButton}
+              className={styles.copyButton}
             />
-            <iframe
-              className={styles.buyCard_iframe}
-              src={"https://klima.mobilum.com/"}
-            ></iframe>
+            <div className={styles.buyCard_iframeContainer}>
+              <iframe
+                className={styles.buyCard_iframe}
+                src={"https://klima.mobilum.com/"}
+              ></iframe>
+              <div className="spinner_container">
+                <Spinner />
+              </div>
+            </div>
           </div>
         )}
         {!props.isConnected && (
