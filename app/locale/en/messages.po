@@ -209,7 +209,7 @@ msgstr "You must connect a wallet in order to purchase KLIMA."
 #. Long sentence
 #: components/views/Buy/index.tsx:48
 msgid "buy.how_to_buy"
-msgstr "Purchase KLIMA in a few clicks. Our partner Mobilum will send your purchased KLIMA to whichever address you provide. Double check that you are connected with a secure and private wallet, and that the address is correct. After purchase is complete, refresh the page and <0>stake</0> your KLIMA!"
+msgstr "Purchase KLIMA in a few clicks. Our partner <0>Mobilum</0> will send your purchased KLIMA to whichever address you provide. Double check that you are connected with a secure and private wallet, and that the address is correct. After purchase is complete, refresh the page and <1>stake</1> your KLIMA!"
 
 #: components/views/Buy/index.tsx:94
 msgid "buy.not_connected"
