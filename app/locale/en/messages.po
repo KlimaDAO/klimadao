@@ -595,7 +595,7 @@ msgstr "5 Day Rewards"
 #. Long sentence
 #: components/views/Stake/index.tsx:301
 msgid "stake.5_day_rewards.tooltip"
-msgstr "Approximate reward rate, including compounding interest, should you remain staked for 5 days. Reward rate may be subject to change."
+msgstr "Approximate rewards, including compounding, should you remain staked for 5 days."
 
 #: components/views/Stake/index.tsx:314
 msgid "stake.akr"
@@ -604,7 +604,7 @@ msgstr "AKR"
 #. Long sentence
 #: components/views/Stake/index.tsx:317
 msgid "stake.akr.tooltip"
-msgstr "Annualized KLIMA Rewards, including autocompounding, should the current staking reward rate remain unchanged for 12 months (reward rate may be subject to change)"
+msgstr "Annualized Reward Yield, including compounding, should the current reward rate remain unchanged for 12 months (reward rate may be subject to change)"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:217
@@ -618,7 +618,7 @@ msgstr "Est. payout (sKLIMA)"
 #. Long sentence
 #: components/views/Stake/index.tsx:233
 msgid "stake.hold_stake_and_compound"
-msgstr "Hold, stake, and compound. If the protocol earns excess reserves selling carbon bonds, these rewards are shared among all holders of staked KLIMA (sKLIMA)."
+msgstr "Hold, stake, and compound. If the protocol accumulates excess reserves issuing carbon bonds, these rewards are shared among all holders of staked KLIMA (sKLIMA)."
 
 #: components/views/Stake/index.tsx:328
 msgid "stake.index"
