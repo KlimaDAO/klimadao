@@ -1,0 +1,23 @@
+name: On Push to Staging
+on:
+  push:
+    branches:
+      - staging
+    paths-ignore:
+      - ".github/**"
+      # do not trigger again if translations have been pushed from this workflow
+      - "**/locale/**"
+
+jobs:
+  call_update_translations:
+    # ignore pushes from dependabot
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    uses: ./.github/workflows/update_translations.yml
+    with:
+      environment: Translation Sync
+      branch: staging
+    secrets:
+      PUSH_ACTOR_TOKEN: ${{ secrets.PUSH_ACTOR_TOKEN }}
+      PUSH_ACTOR: ${{ secrets.PUSH_ACTOR }}
+      TRANSLATIONIO_KEY_APP: ${{ secrets.TRANSLATIONIO_KEY_APP }}
+      TRANSLATIONIO_KEY_SITE: ${{ secrets.TRANSLATIONIO_KEY_SITE }}
