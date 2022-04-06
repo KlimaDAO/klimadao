@@ -9,7 +9,7 @@ jobs:
   call_update_translations:
     uses: ./.github/workflows/update_translations.yml
     with:
-      environment: Release-staging
+      environment: Translation Sync
       branch: staging
     secrets:
       PUSH_ACTOR_TOKEN: ${{ secrets.PUSH_ACTOR_TOKEN }}
