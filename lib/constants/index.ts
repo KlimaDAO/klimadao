@@ -29,7 +29,7 @@ const mainnet = {
   staking: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd",
-  offsetConsumption: "0xEde3bd57a04960E6469B70B4863cE1c9d9363Cb8",
+  retirementAggregator: "0xEde3bd57a04960E6469B70B4863cE1c9d9363Cb8",
 };
 
 const testnet: typeof mainnet = {
@@ -63,7 +63,7 @@ const testnet: typeof mainnet = {
   staking: "0x2960DCE5aE04eF503b36f8581EA5Ac5238632092",
   staking_helper: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
   retirementStorage: "",
-  offsetConsumption: "",
+  retirementAggregator: "",
 };
 
 export const addresses = {
