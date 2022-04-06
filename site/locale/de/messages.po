@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-05 16:31+0000\n"
+"POT-Creation-Date: 2022-04-06 15:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: components/pages/Blog/Post/index.tsx:92
 msgid "blog.disclaimer.title"
-msgstr ""
+msgstr "Haftungsausschluss:"
 
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
@@ -427,7 +427,7 @@ msgstr "Überzeugende Anreize."
 #. Long sentence
 #: components/pages/Home/index.tsx:180
 msgid "home.the_dao_sell_bonds"
-msgstr ""
+msgstr "Die DAO verkauft Anleihen und verteilt den Gewinn an KLIMA-Besitzer. Jede verkaufte Anleihe wird unserer Schatzkammer hinzugefügt oder verbessert die Liquidität grüner Schlüsselassets. Eine Win-Win-Situation für Mensch und Planet."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:250
