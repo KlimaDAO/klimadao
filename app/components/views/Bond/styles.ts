@@ -54,17 +54,16 @@ export const bondCard_header = css`
     "icon title";
   align-items: center;
 
-  img {
-    width: 3.2rem;
-    height: 3.2rem;
+  .icon_container {
     grid-area: icon;
+    width: 3.2rem;
   }
 
   ${breakpoints.large} {
     gap: 1.6rem;
-    img {
+
+    .icon_container {
       width: 4.8rem;
-      height: 4.8rem;
     }
   }
 `;

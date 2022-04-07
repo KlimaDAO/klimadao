@@ -76,6 +76,16 @@ const nextConfig = {
   },
 };
 
+if (process.env.IS_STATIC_EXPORT) {
+  /**
+   * In package.json we set this variable to indicate that this is a fleek-compatible static export
+   * next/image still doesn't support static export, so we fallback to a custom loader defined in `app/components/Image`
+   */
+  nextConfig.images = {
+    loader: "custom",
+  };
+}
+
 module.exports = withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 })(nextConfig);

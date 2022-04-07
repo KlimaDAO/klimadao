@@ -4,7 +4,7 @@ import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import { Link } from "react-router-dom";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import { selectNotificationStatus } from "state/selectors";
-
+import { TippyProps } from "@tippyjs/react";
 import {
   changeApprovalTransaction,
   bondTransaction,
@@ -39,11 +39,11 @@ import { RootState, useAppDispatch } from "state";
 import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { ImageCard } from "components/ImageCard";
 
 import * as styles from "./styles";
-import { TippyProps } from "@tippyjs/react";
 import { BondBalancesCard } from "components/BondBalancesCard";
+import { Image } from "components/Image";
+import { ImageCard } from "components/ImageCard";
 
 export function prettyVestingPeriod(
   locale: string | undefined,
@@ -391,7 +391,16 @@ export const Bond: FC<Props> = (props) => {
               <Trans id="nav.back">BACK</Trans>
             </Text>
           </Link>
-          <img src={bondInfo.icon} alt="" />
+          <div className="icon_container">
+            <Image
+              className="icon"
+              src={bondInfo.icon}
+              alt=""
+              width={48}
+              height={48}
+            />
+          </div>
+
           <div>
             <Text t="h5">
               <Trans id="bond.bond_token" comment="Bond {0}">
