@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-07 21:49+0000\n"
+"POT-Creation-Date: 2022-04-07 23:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,63 +45,63 @@ msgid "[coming soon]"
 msgstr "[Bientôt disponible]"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:720
+#: components/views/Bond/index.tsx:729
 msgid "bond.all_demand_has_been_filled"
 msgstr ""
 "🪧 VENDU. Toutes les émissions ont été satisfaites pour cette obligation. Merci Klimates !.0\n"
 ""
 
-#: components/views/Bond/index.tsx:470
+#: components/views/Bond/index.tsx:479
 msgid "bond.balance"
 msgstr "Solde"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:474
+#: components/views/Bond/index.tsx:483
 msgid "bond.balance.tooltip"
 msgstr "Solde disponible pour le dépôt"
 
 #: components/views/Bond/index.tsx:344
-#: components/views/Bond/index.tsx:417
+#: components/views/Bond/index.tsx:426
 msgid "bond.bond"
 msgstr "Obligation"
 
-#: components/views/Bond/index.tsx:492
+#: components/views/Bond/index.tsx:501
 msgid "bond.bond_price"
 msgstr "Prix de l'obligation"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:496
+#: components/views/Bond/index.tsx:505
 msgid "bond.bond_price.tooltip"
 msgstr "Prix soldé. Montant total pour contracter 1 KLIMA complet (les contrats fractionnaires sont également autorisées)"
 
 #. Bond {0}
-#: components/views/Bond/index.tsx:397
+#: components/views/Bond/index.tsx:406
 msgid "bond.bond_token"
 msgstr "Obligation {0}"
 
-#: components/views/Bond/index.tsx:680
+#: components/views/Bond/index.tsx:689
 msgid "bond.date_of_full_vesting"
 msgstr "Date d'acquisition complète"
 
-#: components/views/Bond/index.tsx:685
+#: components/views/Bond/index.tsx:694
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr "Date à laquelle la valeur totale de l'obligation pourra être réclamée"
 
-#: components/views/Bond/index.tsx:582
+#: components/views/Bond/index.tsx:591
 msgid "bond.debt_ratio"
 msgstr "Ratio d'endettement"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:586
+#: components/views/Bond/index.tsx:595
 msgid "bond.debt_ratio.tooltip"
 msgstr "Ratio actuel de l'offre par rapport aux obligations en circulation du protocole"
 
-#: components/views/Bond/index.tsx:524
+#: components/views/Bond/index.tsx:533
 msgid "bond.discount"
 msgstr ""
 
 #. Long sentence
-#: components/views/Bond/index.tsx:528
+#: components/views/Bond/index.tsx:537
 msgid "bond.discount.tooltip"
 msgstr ""
 
@@ -113,21 +113,21 @@ msgstr "Montant à investir"
 msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr "Montant à réclamer"
 
-#: components/views/Bond/index.tsx:508
+#: components/views/Bond/index.tsx:517
 msgid "bond.market_price"
 msgstr "Prix du marché"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:512
+#: components/views/Bond/index.tsx:521
 msgid "bond.market_price.tooltip"
 msgstr "Cours actuel de KLIMA, sans décote obligataire"
 
-#: components/views/Bond/index.tsx:563
+#: components/views/Bond/index.tsx:572
 msgid "bond.maximum"
 msgstr "Maximum"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:567
+#: components/views/Bond/index.tsx:576
 msgid "bond.maximum.tooltip"
 msgstr "Montant maximum de KLIMA que vous pouvez acquérir via les contrats obligataires"
 
@@ -136,48 +136,48 @@ msgid "bond.not_redeemable"
 msgstr "Ne pouvant être réclamé"
 
 #: components/views/Bond/index.tsx:350
-#: components/views/Bond/index.tsx:427
+#: components/views/Bond/index.tsx:436
 msgid "bond.redeem"
 msgstr "réclamer"
 
-#: components/views/Bond/index.tsx:648
+#: components/views/Bond/index.tsx:657
 msgid "bond.redeemable"
 msgstr "Réclamable"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:651
+#: components/views/Bond/index.tsx:660
 msgid "bond.redeemable.tooltip"
 msgstr "Montant de KLIMA déjà disponible et pouvant être réclamés"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:709
+#: components/views/Bond/index.tsx:718
 msgid "bond.this_bond_price_is_inflated"
 msgstr "⚠️ Attention : le prix de l'obligation est augmenté car la remise actuelle est négative."
 
-#: components/views/Bond/index.tsx:619
+#: components/views/Bond/index.tsx:628
 msgid "bond.unredeemed"
 msgstr "Non réclamé"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:622
+#: components/views/Bond/index.tsx:631
 msgid "bond.unredeemed.tooltip"
 msgstr "Valeur non réclamée restante (disponible et non disponible)"
 
-#: components/views/Bond/index.tsx:598
+#: components/views/Bond/index.tsx:607
 msgid "bond.vesting_term_end"
 msgstr "Fin de la période de maturation"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:602
+#: components/views/Bond/index.tsx:611
 msgid "bond.vesting_term_end.tooltip"
 msgstr "Si vous contractez une obligation maintenant, votre période d'acquisition se terminera à cette date. La réclamation de Klima est lentement déverrouillé sur cette durée."
 
-#: components/views/Bond/index.tsx:540
+#: components/views/Bond/index.tsx:549
 msgid "bond.you_will_get"
 msgstr "Vous obtiendrez"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:544
+#: components/views/Bond/index.tsx:553
 msgid "bond.you_will_get.tooltip"
 msgstr "Montant d'obligations KLIMA liée que vous obtiendrez, d'après la quantité soumise en entrée."
 
@@ -571,7 +571,7 @@ msgstr "SOLDE INSUFFISANT"
 msgid "shared.loading"
 msgstr "Chargement..."
 
-#: components/views/Bond/index.tsx:455
+#: components/views/Bond/index.tsx:464
 #: components/views/PKlima/index.tsx:208
 #: components/views/Stake/index.tsx:285
 #: components/views/Wrap/index.tsx:240
