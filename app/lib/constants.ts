@@ -8,3 +8,6 @@ export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 export const BASE_URL = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
   : "http://localhost:3001";
+
+/** Set first in package.json then passed to javascript bundle in next.config.js */
+export const IS_STATIC_EXPORT = process.env.IS_STATIC_EXPORT;
