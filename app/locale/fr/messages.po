@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-07 15:41+0000\n"
+"POT-Creation-Date: 2022-04-07 17:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -378,7 +378,7 @@ msgstr "Adresse Ethereum"
 
 #: components/views/Offset/index.tsx:359
 msgid "offset.go_carbon_neutral"
-msgstr "Rendez votre bilan carbone neutre en en retirant du carbone et en réclamant les avantages environnementaux issus du mécanisme de compensation carbone. Choisissez de détruire des <0>Crédits Moss Carbons</0> (MCO2), <1>Tonnes de carbone de base</1> (BCT), ou <2>Tonnes de carbone basées sur la nature</2> (NCT), d'autres choix seront bientôt disponibles."
+msgstr ""
 
 #: components/views/Offset/index.tsx:338
 msgid "offset.incompatible"

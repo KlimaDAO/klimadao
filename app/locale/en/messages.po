@@ -380,7 +380,7 @@ msgstr "Ethereum address"
 
 #: components/views/Offset/index.tsx:359
 msgid "offset.go_carbon_neutral"
-msgstr "Go carbon neutral by retiring carbon and claiming the underlying environmental benefit of the carbon offset. Choose to retire <0>Moss Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT), or <2>Nature-based Carbon Tonnes</2> (NCT), with more coming soon."
+msgstr "Go carbon neutral by retiring carbon and claiming the underlying environmental benefit of the carbon offset. Choose to retire <0>Moss Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT), or <2>Nature Carbon Tonnes</2> (NCT), with more coming soon."
 
 #: components/views/Offset/index.tsx:338
 msgid "offset.incompatible"

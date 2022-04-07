@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-07 15:41+0000\n"
+"POT-Creation-Date: 2022-04-07 17:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -376,7 +376,7 @@ msgstr "Ethereum-Adresse"
 
 #: components/views/Offset/index.tsx:359
 msgid "offset.go_carbon_neutral"
-msgstr "Werde CO2-neutral, indem du CO2 kompensierst und die im CO2-Offset enthaltenen Umweltvorteile beanspruchst. Du kannst <0>Moss CO2-Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT), oder <2>Nature-based Carbon Tonnes</2> (NCT) kompensieren (weitere folgen demnächst)."
+msgstr ""
 
 #: components/views/Offset/index.tsx:338
 msgid "offset.incompatible"
