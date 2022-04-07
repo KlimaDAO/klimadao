@@ -8,9 +8,9 @@ import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import { ImageCard } from "components/ImageCard";
 import { Trans, t } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
-
 import * as styles from "./styles";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
+import { Image } from "components/Image";
 
 export const useBond = (bond: Bond) => {
   const bondState = useSelector((state: RootState) => {
@@ -167,7 +167,7 @@ export function ChooseBond() {
               <Link to={bond.href} key={bond.href}>
                 <div className={styles.bondLink} key={bond.name}>
                   <div className="bondLink_imgContainer">
-                    <img src={bond.icon} alt="" />
+                    <Image src={bond.icon} alt="" width={64} height={64} />
                   </div>
                   <div>
                     <Text t="body1">{bond.name}</Text>

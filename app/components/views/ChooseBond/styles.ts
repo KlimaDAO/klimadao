@@ -91,23 +91,22 @@ export const bondLink = css`
     display: grid;
     gap: 0.4rem;
   }
+
   .bondLink_imgContainer {
     display: flex;
     align-self: center;
     justify-content: center;
     align-items: center;
-  }
-  .bondLink_imgContainer img {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 4rem;
+    height: 4rem;
+    ${breakpoints.medium} {
+      width: 4.8rem;
+      height: 4.8rem;
+    }
   }
 
   ${breakpoints.medium} {
     padding: 1.2rem 1.6rem;
-    .bondLink_imgContainer img {
-      width: 4.8rem;
-      height: 4.8rem;
-    }
   }
 `;
 
