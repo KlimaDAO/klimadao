@@ -177,12 +177,12 @@ msgstr "We work with traditional carbon market players, crypto platforms, corpor
 msgid "concat.careers"
 msgstr "Careers"
 
-#: components/pages/Resources/Contact/index.tsx:135
+#: components/pages/Resources/Contact/index.tsx:143
 msgid "contact.bug_reports"
 msgstr "Bug Reports"
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
-#: components/pages/Resources/Contact/index.tsx:138
+#: components/pages/Resources/Contact/index.tsx:146
 msgid "contact.bug_reports.to_file_a_bug_report"
 msgstr "To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you."
 
@@ -216,7 +216,7 @@ msgstr "If you are a journalist or content creator, our marketing team would lov
 #. Use this <0>Media Request Form</0>.
 #: components/pages/Resources/Contact/index.tsx:120
 msgid "contact.media.use_this_media_request_form"
-msgstr "Use this <0>Media Request Form</0>."
+msgstr "Use this <0>Media Request Form</0> or send an email to <1>press@klimadao.finance</1>"
 
 #: components/pages/Resources/Contact/index.tsx:88
 msgid "contact.partnerships"
