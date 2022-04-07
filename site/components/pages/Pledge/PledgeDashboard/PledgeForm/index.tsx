@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { useMoralis } from "react-moralis";
 
-import { Input } from "../../../../Input";
-import { Textarea } from "../../../../Textarea";
+import { Input } from "components/Input";
+import { Textarea } from "components/Textarea";
 
 import * as styles from "./styles";
 
@@ -17,8 +17,6 @@ import * as styles from "./styles";
 
 export const PledgeForm: FC = () => {
   const { setUserData, user } = useMoralis();
-
-  console.log(user);
 
   return (
     <div className={styles.container}>

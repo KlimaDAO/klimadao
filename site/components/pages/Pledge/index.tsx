@@ -18,7 +18,12 @@ export const Pledge: NextPage = () => {
     setAddress(event.currentTarget.value);
   };
 
-  const handleClick = () => {
+  const handleFormSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    handleSubmit();
+  };
+
+  const handleSubmit = () => {
     try {
       ethers.utils.getAddress(address);
       router.push(`/pledge/${address.toLowerCase()}`);
@@ -30,7 +35,7 @@ export const Pledge: NextPage = () => {
   return (
     <PledgeLayout>
       <div className={styles.container}>
-        <div className={styles.inputContainer}>
+        <form className={styles.inputContainer} onSubmit={handleFormSubmit}>
           <input
             className={styles.input}
             placeholder="Search for a wallet address"
@@ -44,8 +49,8 @@ export const Pledge: NextPage = () => {
             </Text>
           )}
 
-          <ButtonPrimary label="Search" onClick={handleClick} />
-        </div>
+          <ButtonPrimary label="Search" onClick={handleSubmit} />
+        </form>
       </div>
     </PledgeLayout>
   );
