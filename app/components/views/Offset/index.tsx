@@ -368,7 +368,7 @@ export const Offset = (props: Props) => {
               </A>{" "}
               (BCT), or{" "}
               <A href="https://docs.klimadao.finance/references/glossary#nct">
-                Nature-based Carbon Tonnes
+                Nature Carbon Tonnes
               </A>{" "}
               (NCT), with more coming soon.
             </Trans>
