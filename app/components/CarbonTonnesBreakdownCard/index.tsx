@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Image from "next/image";
+import { Image } from "components/Image";
 
 import { Trans } from "@lingui/macro";
 import CloudOutlined from "@mui/icons-material/CloudOutlined";

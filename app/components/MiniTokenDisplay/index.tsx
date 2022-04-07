@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import Image from "next/image";
+import { Image } from "components/Image";
 
 import { Spinner, Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";

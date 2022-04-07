@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Image from "next/image";
+import { Image } from "components/Image";
 
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import Close from "@mui/icons-material/Close";
