@@ -20,7 +20,7 @@ export const button_primary = css`
   &:focus:not(:disabled) {
     opacity: 0.6;
   }
-  &:focus:not(:disabled) {
+  &:active:not(:disabled) {
     transform: scale(0.9);
   }
   &,
