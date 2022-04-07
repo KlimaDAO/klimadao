@@ -121,7 +121,15 @@ export const Contact: NextPage<Props> = () => {
                 id="contact.media.use_this_media_request_form"
                 comment="Use this <0>Media Request Form</0>."
               >
-                Use this <a href={urls.mediaRequestForm}>Media Request Form</a>.
+                Use this <a href={urls.mediaRequestForm}>Media Request Form</a>{" "}
+                or send an email to{" "}
+                <a
+                  href={urls.pressEmail}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  press@klimadao.finance
+                </a>
               </Trans>
             </Text>
           </div>
