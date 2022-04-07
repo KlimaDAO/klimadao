@@ -1,89 +1,52 @@
 import React, { useState } from "react";
+import { ethers } from "ethers";
+import { useRouter } from "next/router";
 import { NextPage } from "next";
-import { useMoralis } from "react-moralis";
-import dynamic from "next/dynamic";
-import {
-  KlimaInfinityLogo,
-  Text,
-  ButtonPrimary,
-} from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 
-import { Pledge as PledgeType } from "lib/moralis";
-import {
-  ActiveAssetsCard,
-  AssetsOverTimeCard,
-  FootprintCard,
-  MethodologyCard,
-  PledgeCard,
-  RetiredAssetsCard,
-} from "./Cards";
+import { PledgeLayout } from "./PledgeLayout";
 import * as styles from "./styles";
 
-const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
-  ssr: false,
-});
+export const Pledge: NextPage = () => {
+  const router = useRouter();
+  const [address, setAddress] = useState("");
+  const [error, setError] = useState(false);
 
-type Props = {
-  pledge: PledgeType;
-};
+  const handleAddressInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setAddress(event.currentTarget.value);
+  };
 
-const defaultValues = (pledge: PledgeType) =>
-  Object.assign(
-    {
-      address: "",
-      description: "Write your pledge today!",
-      footprint: [0],
-      methodology: "How will you meet your pledge?",
-      name: "",
-    },
-    pledge
-  );
-
-export const Pledge: NextPage<Props> = (props) => {
-  const { isAuthenticated, authenticate, logout } = useMoralis();
-  const [pledge, _setPledge] = useState<PledgeType>(
-    defaultValues(props.pledge)
-  );
+  const handleClick = () => {
+    try {
+      ethers.utils.getAddress(address);
+      router.push(`/pledge/${address.toLowerCase()}`);
+    } catch {
+      setError(true);
+    }
+  };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.contentContainer}>
-        <div className={styles.header}>
-          <div className={styles.logo}>
-            <KlimaInfinityLogo />
-          </div>
-          <div className={styles.group}>
-            <ThemeToggle />
-            {isAuthenticated ? (
-              <ButtonPrimary label="Sign out" onClick={() => logout()} />
-            ) : (
-              <ButtonPrimary label="Sign in" onClick={() => authenticate()} />
-            )}
-          </div>
-        </div>
+    <PledgeLayout>
+      <div className={styles.container}>
+        <div className={styles.inputContainer}>
+          <input
+            className={styles.input}
+            placeholder="Search for a wallet address"
+            value={address}
+            onChange={handleAddressInputChange}
+          />
 
-        <div className={styles.profile}>
-          <Text t="h3" className="profileImage" align="center">
-            -
-          </Text>
-          <Text t="h4">{pledge.name || pledge.address || "Company name"}</Text>
-        </div>
+          {error && (
+            <Text className={styles.errorMessage} t="caption">
+              Enter a valid ethereum wallet address
+            </Text>
+          )}
 
-        <div className={styles.pledgeChart}>
-          <AssetsOverTimeCard />
-        </div>
-
-        <div className={styles.column}>
-          <PledgeCard pledge={pledge.description} />
-          <FootprintCard footprint={pledge.footprint} />
-          <MethodologyCard methodology={pledge.methodology} />
-        </div>
-
-        <div className={styles.column}>
-          <ActiveAssetsCard />
-          <RetiredAssetsCard />
+          <ButtonPrimary label="Search" onClick={handleClick} />
         </div>
       </div>
-    </div>
+    </PledgeLayout>
   );
 };

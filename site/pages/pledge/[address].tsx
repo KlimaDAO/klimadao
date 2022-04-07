@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 
-import { Pledge } from "components/pages/Pledge";
 import { getPledge } from "queries/pledge";
+import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
 import { loadTranslation } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
@@ -35,4 +35,4 @@ export const getStaticPaths = async () => ({
   fallback: "blocking",
 });
 
-export default Pledge;
+export default PledgeDashboard;
