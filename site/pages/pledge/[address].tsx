@@ -1,16 +1,18 @@
 import { GetStaticProps } from "next";
 
 import { Pledge } from "components/pages/Pledge";
-import { getPledgeByAddress } from "lib/moralis";
+import { getPledge } from "queries/pledge";
 import { loadTranslation } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
-  let profile;
+  const { address } = ctx.params as { address: string };
+  let pledge;
 
   try {
-    const queryAddress = ctx.params?.address as string;
-    profile = await getPledgeByAddress(queryAddress.toLowerCase());
+    const reponse = await getPledge(address.toLowerCase());
+    const data = await reponse.json();
+    pledge = data.pledge;
   } catch (e) {
     console.log(e);
   }
@@ -18,7 +20,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   return {
     props: {
       translation,
-      profile,
+      pledge,
     },
     revalidate: 180,
   };

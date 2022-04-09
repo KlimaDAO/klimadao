@@ -4,19 +4,21 @@ import { Text } from "@klimadao/lib/components";
 
 import { BaseCard } from "../BaseCard";
 
-export const MethodologyCard: FC = () => (
-  <BaseCard
-    title="Methodology"
-    icon={<HowToRegOutlinedIcon fontSize="large" />}
-  >
-    <Text t="body2">
-      <em>
-        "Everyone loves the big cheese say cheese hard cheese cut the cheese
-        cheese on toast chalk and cheese who moved my cheese airedale croque
-        monsieur, brie. cheese triangles parmesan cut the cheese smelly cheese
-        cheesy feet cow, dolcelatte bavarian bergkase cauliflower cheese danish
-        fontina fromage swiss chalk and cheese. hard cheese cream cheese"
-      </em>
-    </Text>
-  </BaseCard>
-);
+type Props = {
+  methodology: string;
+};
+
+export const MethodologyCard: FC<Props> = (props) => {
+  const methodology = props.methodology || "How will you meet your pledge?";
+
+  return (
+    <BaseCard
+      title="Methodology"
+      icon={<HowToRegOutlinedIcon fontSize="large" />}
+    >
+      <Text t="body2">
+        <em>"{methodology}"</em>
+      </Text>
+    </BaseCard>
+  );
+};
