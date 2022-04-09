@@ -315,9 +315,9 @@ export const Stake = (props: Props) => {
               <TextInfoTooltip
                 content={
                   <Trans id="stake.akr.tooltip" comment="Long sentence">
-                    Annualized Reward Yield, including compounding, should the
+                    Annualized KLIMA Rewards, including compounding, should the
                     current reward rate remain unchanged for 12 months (reward
-                    rate may be subject to change)
+                    rate may be subject to change).
                   </Trans>
                 }
               >
