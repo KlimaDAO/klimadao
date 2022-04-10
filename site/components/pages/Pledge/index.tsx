@@ -27,9 +27,23 @@ type Props = {
   pledge: PledgeType;
 };
 
+const defaultValues = (pledge: PledgeType) =>
+  Object.assign(
+    {
+      address: "",
+      description: "Write your pledge today!",
+      footprint: [0],
+      methodology: "How will you meet your pledge?",
+      name: "",
+    },
+    pledge
+  );
+
 export const Pledge: NextPage<Props> = (props) => {
   const { isAuthenticated, authenticate, logout } = useMoralis();
-  const [pledge, _setPledge] = useState<PledgeType>(props.pledge);
+  const [pledge, _setPledge] = useState<PledgeType>(
+    defaultValues(props.pledge)
+  );
 
   return (
     <div className={styles.container}>
@@ -52,9 +66,7 @@ export const Pledge: NextPage<Props> = (props) => {
           <Text t="h3" className="profileImage" align="center">
             -
           </Text>
-          <Text t="h4">
-            {pledge?.name || pledge?.address || "Company name"}
-          </Text>
+          <Text t="h4">{pledge.name || pledge.address || "Company name"}</Text>
         </div>
 
         <div className={styles.pledgeChart}>
@@ -62,9 +74,9 @@ export const Pledge: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.column}>
-          <PledgeCard pledge={pledge?.description} />
-          <FootprintCard footprint={pledge?.footprint} />
-          <MethodologyCard methodology={pledge?.methodology} />
+          <PledgeCard pledge={pledge.description} />
+          <FootprintCard footprint={pledge.footprint} />
+          <MethodologyCard methodology={pledge.methodology} />
         </div>
 
         <div className={styles.column}>

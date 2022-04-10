@@ -13,6 +13,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     const reponse = await getPledge(address.toLowerCase());
     const data = await reponse.json();
     pledge = data.pledge;
+
+    if (!data.pledge) {
+      pledge = null;
+    }
   } catch (e) {
     console.log(e);
   }

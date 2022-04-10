@@ -10,8 +10,6 @@ type Props = {
 };
 
 export const FootprintCard: FC<Props> = (props) => {
-  const footprint = props.footprint ? props.footprint.at(-1) : 0;
-
   return (
     <BaseCard
       title="Footprint"
@@ -19,7 +17,7 @@ export const FootprintCard: FC<Props> = (props) => {
     >
       <div className={styles.value}>
         <Text t="h1" uppercase>
-          {footprint}k
+          {props.footprint}k
         </Text>
         <Text t="h4" color="lightest" uppercase>
           Tonnes

@@ -13,7 +13,7 @@ export default async function handler(
         const data = await getPledgeByAddress(address);
 
         if (!data) {
-          res.status(404).json({ pledge: null });
+          res.status(404).json({ message: "Not found" });
         }
 
         const pledge = JSON.parse(JSON.stringify(data));
