@@ -21,7 +21,7 @@ const StyledInput = styled.input<InputProps>`
   border-radius: 1rem;
   border: 0.175rem solid var(--surface-03);
   padding-left: 1rem;
-  transition: border-color 0.25s ease-in;
+  transition: border-color 0.2s ease-in;
   outline: none;
   padding: 1rem;
 

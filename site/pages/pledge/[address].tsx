@@ -10,8 +10,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   let pledge;
 
   try {
-    const reponse = await getPledge(address.toLowerCase());
-    const data = await reponse.json();
+    const response = await getPledge(address.toLowerCase());
+    const data = await response.json();
     pledge = data.pledge;
 
     if (!data.pledge) {
@@ -25,6 +25,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     props: {
       translation,
       pledge,
+      pageAddress: address,
     },
     revalidate: 180,
   };
