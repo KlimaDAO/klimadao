@@ -1,7 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-
 export const contentContainer = css`
   grid-column: main;
   gap: 2rem;
