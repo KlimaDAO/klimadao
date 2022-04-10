@@ -23,7 +23,7 @@ type Props = {
   pledge: Pledge;
 };
 
-const defaultValues = (pledge: Pledge) =>
+const defaultValues = (pledge: Pledge): Pledge =>
   Object.assign(
     {
       address: "",
