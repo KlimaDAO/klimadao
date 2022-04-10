@@ -4,10 +4,13 @@ import { getPledge } from "queries/pledge";
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
 import { loadTranslation } from "lib/i18n";
 import { getRetirements } from "lib/getRetirements";
+import { getBalances } from "lib/getBalances";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
   const { address } = ctx.params as { address: string };
+
+  let balances;
   let pledge;
   let retirements;
 
@@ -16,21 +19,23 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     const data = await response.json();
 
     pledge = data.pledge;
+    balances = await getBalances({ address });
     retirements = await getRetirements({ address });
     console.log(retirements);
     if (!data.pledge) {
       pledge = null;
     }
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    console.log(error);
   }
 
   return {
     props: {
-      translation,
-      pledge,
+      balances,
       pageAddress: address,
+      pledge,
       retirements,
+      translation,
     },
     revalidate: 180,
   };

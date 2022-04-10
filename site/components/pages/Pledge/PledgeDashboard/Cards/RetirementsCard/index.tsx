@@ -12,7 +12,7 @@ type Props = {
   retirements: Retirements;
 };
 
-export const RetiredAssetsCard: FC<Props> = (props) => {
+export const RetirementsCard: FC<Props> = (props) => {
   const totalTonnesRetired =
     Number(props.retirements.totalTonnesRetired) > 0
       ? trimStringDecimals(props.retirements.totalTonnesRetired, 2)
