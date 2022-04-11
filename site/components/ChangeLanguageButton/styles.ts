@@ -27,6 +27,18 @@ export const changeLanguageButton = css`
   ${breakpoints.medium} {
     top: 10.8rem;
   }
+  &:hover,
+  &:focus {
+    opacity: 0.7;
+  }
+  &:focus {
+    transform: scale(0.9);
+  }
+  &,
+  &:hover,
+  &:visited {
+    color: var(--font-01); /* same in darkmode */
+  }
 `;
 
 export const tooltip = css`
@@ -45,7 +57,7 @@ export const tooltip = css`
 
 export const menuItem = css`
   ${typography.button};
-  color: white !important;
+  color: var(--font-02) !important;
   &:hover {
     color: var(--klima-green) !important;
   }
