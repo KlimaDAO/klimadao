@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-11 15:41+0000\n"
+"POT-Creation-Date: 2022-04-11 23:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -204,7 +204,7 @@ msgstr "Tonne de Carbone de base Toucan"
 
 #: components/views/ChooseBond/index.tsx:132
 msgid "choose_bond.bond_carbon"
-msgstr "Obligation carbone."
+msgstr "Obligation carbone"
 
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:135
@@ -302,7 +302,7 @@ msgstr "Adresses officielles des contrats"
 
 #: components/NavMenu/index.tsx:145
 msgid "menu.bond_carbon"
-msgstr "Obligation carbone."
+msgstr "Obligation carbone"
 
 #: components/NavMenu/index.tsx:129
 msgid "menu.buy_klima"
@@ -602,7 +602,7 @@ msgstr "AKR"
 #. Long sentence
 #: components/views/Stake/index.tsx:317
 msgid "stake.akr.tooltip"
-msgstr "Rendement annualisé, comprenant la capitalisation, si le taux d'intérêt actuel reste inchangé pendant 12 mois (le taux d'intérêt est variable)"
+msgstr ""
 
 #. Long sentence
 #: components/views/Stake/index.tsx:217
@@ -629,7 +629,7 @@ msgstr "Montant de KLIMA que vous auriez aujourd'hui si vous aviez mis en dépô
 
 #: components/views/Stake/index.tsx:193
 msgid "stake.inputplaceholder.stake"
-msgstr "Montant à mettre ne dépôt"
+msgstr "Montant à déposer"
 
 #: components/views/Stake/index.tsx:198
 msgid "stake.inputplaceholder.unstake"
@@ -641,7 +641,7 @@ msgstr "Environ. Prochain rebasage"
 
 #: components/RebaseCard/index.tsx:71
 msgid "stake.percent_payout"
-msgstr "Paiement en pourcentage"
+msgstr "de rendement"
 
 #: components/RebaseCard/index.tsx:43
 msgid "stake.rebase"
