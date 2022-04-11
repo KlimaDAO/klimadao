@@ -1,4 +1,3 @@
-
 import { urls } from "@klimadao/lib/constants";
 import { IS_LOCAL_DEVELOPMENT } from "lib/constants";
 
