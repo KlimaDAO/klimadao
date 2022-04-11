@@ -5,8 +5,6 @@ import { concatAddress } from "@klimadao/lib/utils";
 
 import { Modal } from "components/Modal";
 import { Pledge } from "lib/moralis";
-import { Retirements } from "lib/getRetirements";
-import { Balances } from "lib/getBalances";
 
 import {
   AssetBalanceCard,
@@ -21,10 +19,8 @@ import { PledgeLayout } from "../PledgeLayout";
 import * as styles from "./styles";
 
 type Props = {
-  balances: Balances;
   pageAddress: string;
   pledge: Pledge;
-  retirements: Retirements;
 };
 
 const defaultValues = (pledge: Pledge): Pledge =>
@@ -82,8 +78,8 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.column}>
-          <AssetBalanceCard balances={props.balances} />
-          <RetirementsCard retirements={props.retirements} />
+          <AssetBalanceCard pageAddress={props.pageAddress} />
+          <RetirementsCard pageAddress={props.pageAddress} />
         </div>
       </div>
     </PledgeLayout>

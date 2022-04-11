@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import { Text } from "@klimadao/lib/components";
@@ -7,18 +7,27 @@ import { trimStringDecimals } from "@klimadao/lib/utils";
 import BCTIcon from "public/icon-bct.png";
 import KlimaIcon from "public/icon-klima.png";
 import MCO2Icon from "public/icon-mco2.png";
-import { Balances } from "lib/getBalances";
+import { getBalances, Balances } from "lib/getBalances";
 
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 
 type Props = {
-  balances: Balances;
+  pageAddress: string;
 };
 
 export const AssetBalanceCard: FC<Props> = (props) => {
+  const [balances, setBalances] = useState<Balances | null>(null);
+
   const formatBalance = (balance: string) =>
     Number(balance) > 0.01 ? trimStringDecimals(balance, 2) : 0;
+
+  useEffect(() => {
+    (async () => {
+      const balances = await getBalances({ address: props.pageAddress });
+      setBalances(balances);
+    })();
+  }, []);
 
   return (
     <BaseCard title="Carbon Assets" icon={<CloudQueueIcon fontSize="large" />}>
@@ -27,12 +36,20 @@ export const AssetBalanceCard: FC<Props> = (props) => {
         <div className={styles.tokenHoldings}>
           <Text t="caption">Holding</Text>
           <div>
-            <Text t="h4" as="span">
-              {formatBalance(props.balances.klima)}{" "}
-            </Text>
-            <Text t="h4" as="span" color="lightest" uppercase>
-              Klima
-            </Text>
+            {balances ? (
+              <>
+                <Text t="h4" as="span">
+                  {formatBalance(balances.klima)}{" "}
+                </Text>
+                <Text t="h4" as="span" color="lightest" uppercase>
+                  Klima
+                </Text>
+              </>
+            ) : (
+              <Text t="h4" color="lightest">
+                Loading...
+              </Text>
+            )}
           </div>
         </div>
       </div>
@@ -44,15 +61,23 @@ export const AssetBalanceCard: FC<Props> = (props) => {
         <div className={styles.tokenHoldings}>
           <Text t="caption">Holding</Text>
           <div>
-            <Text t="h4" as="span">
-              {formatBalance(props.balances.sklima)}{" "}
-            </Text>
-            <Text t="h4" as="span" color="lightest">
-              s
-            </Text>
-            <Text t="h4" as="span" color="lightest" uppercase>
-              Klima
-            </Text>
+            {balances ? (
+              <>
+                <Text t="h4" as="span">
+                  {formatBalance(balances.sklima)}{" "}
+                </Text>
+                <Text t="h4" as="span" color="lightest">
+                  s
+                </Text>
+                <Text t="h4" as="span" color="lightest" uppercase>
+                  Klima
+                </Text>
+              </>
+            ) : (
+              <Text t="h4" color="lightest">
+                Loading...
+              </Text>
+            )}
           </div>
         </div>
       </div>
@@ -64,12 +89,20 @@ export const AssetBalanceCard: FC<Props> = (props) => {
         <div className={styles.tokenHoldings}>
           <Text t="caption">Holding</Text>
           <div>
-            <Text t="h4" as="span">
-              {formatBalance(props.balances.mco2)}{" "}
-            </Text>
-            <Text t="h4" as="span" color="lightest" uppercase>
-              MCO2
-            </Text>
+            {balances ? (
+              <>
+                <Text t="h4" as="span">
+                  {formatBalance(balances.mco2)}{" "}
+                </Text>
+                <Text t="h4" as="span" color="lightest" uppercase>
+                  MCO2
+                </Text>
+              </>
+            ) : (
+              <Text t="h4" color="lightest">
+                Loading...
+              </Text>
+            )}
           </div>
         </div>
       </div>
@@ -81,12 +114,20 @@ export const AssetBalanceCard: FC<Props> = (props) => {
         <div className={styles.tokenHoldings}>
           <Text t="caption">Holding</Text>
           <div>
-            <Text t="h4" as="span">
-              {formatBalance(props.balances.bct)}{" "}
-            </Text>
-            <Text t="h4" as="span" color="lightest" uppercase>
-              BCT
-            </Text>
+            {balances ? (
+              <>
+                <Text t="h4" as="span">
+                  {formatBalance(balances.bct)}{" "}
+                </Text>
+                <Text t="h4" as="span" color="lightest" uppercase>
+                  BCT
+                </Text>
+              </>
+            ) : (
+              <Text t="h4" color="lightest">
+                Loading...
+              </Text>
+            )}
           </div>
         </div>
       </div>

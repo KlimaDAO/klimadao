@@ -1,21 +1,30 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 
-import { Retirements } from "lib/getRetirements";
+import { getRetirements, Retirements } from "lib/getRetirements";
 
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 
 type Props = {
-  retirements: Retirements;
+  pageAddress: string;
 };
 
 export const RetirementsCard: FC<Props> = (props) => {
+  const [retirements, setBalances] = useState<Retirements | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const retirements = await getRetirements({ address: props.pageAddress });
+      setBalances(retirements);
+    })();
+  }, []);
+
   const totalTonnesRetired =
-    Number(props.retirements.totalTonnesRetired) > 0
-      ? trimStringDecimals(props.retirements.totalTonnesRetired, 2)
+    retirements && Number(retirements.totalTonnesRetired) > 0
+      ? trimStringDecimals(retirements.totalTonnesRetired, 2)
       : 0;
 
   return (
@@ -24,9 +33,16 @@ export const RetirementsCard: FC<Props> = (props) => {
       icon={<LocalFireDepartmentIcon fontSize="large" />}
     >
       <div className={styles.value}>
-        <Text t="h1" uppercase>
-          {totalTonnesRetired}k
-        </Text>
+        {retirements ? (
+          <Text t="h1" uppercase>
+            {totalTonnesRetired}k
+          </Text>
+        ) : (
+          <Text t="h4" color="lightest">
+            Loading...
+          </Text>
+        )}
+
         <Text t="h4" color="lightest">
           Total Carbon Tonnes Retired
         </Text>
