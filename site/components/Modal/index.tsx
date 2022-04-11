@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { useEffect, FC } from "react";
 import styled from "@emotion/styled";
 import Close from "@mui/icons-material/Close";
 import { Text } from "@klimadao/lib/components";
@@ -22,6 +22,14 @@ export interface Props {
 }
 
 export const Modal: FC<Props> = (props) => {
+  useEffect(() => {
+    if (props.showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [props.showModal]);
+
   const handleBackgroundClick = props.closeOnBackgroundClick
     ? props.onToggleModal
     : undefined;

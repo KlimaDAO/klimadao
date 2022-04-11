@@ -18,7 +18,7 @@ type Props = {
 
 export const AssetBalanceCard: FC<Props> = (props) => {
   const formatBalance = (balance: string) =>
-    Number(balance) > 0 ? trimStringDecimals(balance, 2) : 0;
+    Number(balance) > 0.01 ? trimStringDecimals(balance, 2) : 0;
 
   return (
     <BaseCard title="Carbon Assets" icon={<CloudQueueIcon fontSize="large" />}>

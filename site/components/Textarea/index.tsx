@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "@emotion/styled";
 
 import { Input, InputProps } from "../Input";
 
@@ -6,8 +7,12 @@ type TextareaProps = InputProps & {
   rows?: number;
 };
 
+const StyledTextarea = styled(Input)`
+  resize: vertical;
+`;
+
 export const Textarea = (props: TextareaProps) => (
-  <Input rows={props.rows} {...props} />
+  <StyledTextarea rows={props.rows} {...props} />
 );
 
 Textarea.defaultProps = {

@@ -25,8 +25,11 @@ export const modalContainer = css`
 `;
 
 export const modalContent = css`
-  width: 50rem;
-  max-width: 50rem;
+  width: 55rem;
+  max-width: 55rem;
+  height: fit-content;
+  max-height: calc(100vh - 10rem);
+  overflow: scroll;
   border-radius: 1.2rem;
   background-color: var(--surface-01);
   pointer-events: fill;

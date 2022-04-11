@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     pledge = data.pledge;
     balances = await getBalances({ address });
     retirements = await getRetirements({ address });
-    console.log(retirements);
+
     if (!data.pledge) {
       pledge = null;
     }

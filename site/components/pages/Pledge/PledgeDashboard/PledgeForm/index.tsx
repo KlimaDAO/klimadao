@@ -40,7 +40,7 @@ export const PledgeForm: FC = () => {
           id="pledge"
           name="pledge"
           type="text"
-          rows={4}
+          rows={2}
           placeholder="What is your pledge?"
         />
       </div>
