@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-07 23:41+0000\n"
+"POT-Creation-Date: 2022-04-11 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -98,12 +98,12 @@ msgstr "Ratio actuel de l'offre par rapport aux obligations en circulation du pr
 
 #: components/views/Bond/index.tsx:533
 msgid "bond.discount"
-msgstr ""
+msgstr "Escompte obligataire"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:537
 msgid "bond.discount.tooltip"
-msgstr ""
+msgstr "Pourcentage de décote (ou prime si négative) sur les jetons KLIMA reçus pour cette obligation, par rapport à la valeur marchande de KLIMA."
 
 #: components/views/Bond/index.tsx:366
 msgid "bond.inputplaceholder.amount_to_bond"
@@ -209,7 +209,7 @@ msgstr "Obligation carbone."
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:135
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr ""
+msgstr "La meilleure façon d'acheter KLIMA. Déposez du carbone dans notre trésorerie et recevez des jetons KLIMA à prix réduit. Toutes les obligations ont une période de maturation obligatoire de 5 jours."
 
 #: components/views/ChooseBond/index.tsx:159
 msgid "choose_bond.choose_bond"
@@ -378,7 +378,7 @@ msgstr "Adresse Ethereum"
 
 #: components/views/Offset/index.tsx:359
 msgid "offset.go_carbon_neutral"
-msgstr ""
+msgstr "Devenez neutre en carbone en retirant du carbone et en bénéficiant des avantages environnementaux liés aux compensation carbone. Choisissez de retirer des <0>Crédits Moss Carbon</0> (MCO2), des <1>Tonnes de carbone de base</1> (BCT), ou des <2>Nature Carbon Tonnes</2> (NCT), plus de choix à venir."
 
 #: components/views/Offset/index.tsx:338
 msgid "offset.incompatible"
@@ -588,21 +588,21 @@ msgstr "Épuisé"
 
 #: components/views/Stake/index.tsx:298
 msgid "stake.5_day_rewards"
-msgstr ""
+msgstr "Récompenses sur 5 jours"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:301
 msgid "stake.5_day_rewards.tooltip"
-msgstr ""
+msgstr "Plus value approximative, comprenant les intérêts composés, si vous laissez votre dépôt pendant 5 jours."
 
 #: components/views/Stake/index.tsx:314
 msgid "stake.akr"
-msgstr ""
+msgstr "AKR"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:317
 msgid "stake.akr.tooltip"
-msgstr ""
+msgstr "Rendement annualisé, comprenant la capitalisation, si le taux d'intérêt actuel reste inchangé pendant 12 mois (le taux d'intérêt est variable)"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:217
@@ -616,7 +616,7 @@ msgstr "Est. paiement (sKLIMA)"
 #. Long sentence
 #: components/views/Stake/index.tsx:233
 msgid "stake.hold_stake_and_compound"
-msgstr ""
+msgstr "Détenez, déposez et composez. Si le protocole accumule des réserves excédentaires en émettant des obligations carbone, les récompenses sont partagées entre tous les détenteurs de KLIMA en dépôt (sKLIMA)."
 
 #: components/views/Stake/index.tsx:328
 msgid "stake.index"
@@ -735,7 +735,7 @@ msgstr "Encapsuler sKLIMA"
 #. Long sentence
 #: components/views/Wrap/index.tsx:190
 msgid "wrap.wrap_sklima.some_find_this_useful"
-msgstr ""
+msgstr "Peut être utile à des fins comptables, néanmoins, les récompenses sont exactement les mêmes. Les valeurs d'encapsulation et de dés-encapsulation sont calculées en fonction de l'indice actuel."
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:181
