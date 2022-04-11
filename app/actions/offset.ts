@@ -5,7 +5,7 @@ import {
   setCarbonRetiredBalances,
 } from "state/user";
 
-import OffsetConsumption from "@klimadao/lib/abi/OffsetConsumption.json";
+import KlimaRetirementAggregator from "@klimadao/lib/abi/KlimaRetirementAggregator.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import RetirementStorage from "@klimadao/lib/abi/RetirementStorage.json";
 import {
@@ -77,7 +77,7 @@ export const getRetirementAllowances = (params: {
         arr.push(
           contract.allowance(
             params.address, // owner
-            addresses["mainnet"].offsetConsumption // spender
+            addresses["mainnet"].retirementAggregator // spender
           )
         );
         return arr;
@@ -118,7 +118,7 @@ export const changeApprovalTransaction = async (params: {
     const value = ethers.utils.parseUnits("1000000000", decimals);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
-      addresses["mainnet"].offsetConsumption,
+      addresses["mainnet"].retirementAggregator,
       value.toString()
     );
     params.onStatus("networkConfirmation", "");
@@ -143,16 +143,16 @@ export const getOffsetConsumptionCost = async (params: {
   quantity: string;
   amountInCarbon: boolean;
 }): Promise<[string, string]> => {
-  const offsetConsumptionContract = new ethers.Contract(
-    addresses["mainnet"].offsetConsumption,
-    OffsetConsumption.abi,
+  const retirementAggregatorContract = new ethers.Contract(
+    addresses["mainnet"].retirementAggregator,
+    KlimaRetirementAggregator.abi,
     params.provider
   );
   const parsed = ethers.utils.parseUnits(
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
-  const sourceAmount = await offsetConsumptionContract.getSourceAmount(
+  const sourceAmount = await retirementAggregatorContract.getSourceAmount(
     addresses["mainnet"][params.inputToken],
     addresses["mainnet"][params.retirementToken],
     parsed,
@@ -178,8 +178,8 @@ export const retireCarbonTransaction = async (params: {
 }) => {
   try {
     const retireContract = new ethers.Contract(
-      addresses["mainnet"].offsetConsumption,
-      OffsetConsumption.abi,
+      addresses["mainnet"].retirementAggregator,
+      KlimaRetirementAggregator.abi,
       params.provider.getSigner()
     );
     params.onStatus("userConfirmation");
