@@ -10,8 +10,6 @@ import MCO2Icon from "public/icon-mco2.png";
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 
-// type Props = {};
-
 export const ActiveAssetsCard: FC = () => (
   <BaseCard title="Carbon Assets" icon={<CloudQueueIcon fontSize="large" />}>
     <div className={styles.tokenRow}>

@@ -20,13 +20,23 @@ export const contentContainer = css`
 
 export const header = css`
   grid-column: span 2;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: space-between;
   align-items: center;
 `;
 
 export const logo = css`
+  grid-column: span 1;
   max-width: 26rem;
+`;
+
+export const group = css`
+  grid-column: span 1;
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 `;
 
 export const icon = css`
@@ -40,7 +50,7 @@ export const profile = css`
   justify-items: center;
   padding: 2rem 0;
 
-  .companyLogo {
+  .profileImage {
     display: grid;
     align-items: center;
     width: 80px;

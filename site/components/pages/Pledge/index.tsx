@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { NextPage } from "next";
+import { useMoralis } from "react-moralis";
 import dynamic from "next/dynamic";
-import { KlimaInfinityLogo, Text } from "@klimadao/lib/components";
+import {
+  KlimaInfinityLogo,
+  Text,
+  ButtonPrimary,
+} from "@klimadao/lib/components";
 
+import { Pledge as PledgeType } from "lib/moralis";
 import {
   ActiveAssetsCard,
   AssetsOverTimeCard,
@@ -17,7 +23,28 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
   ssr: false,
 });
 
-export const Pledge: NextPage = () => {
+type Props = {
+  pledge: PledgeType;
+};
+
+const defaultValues = (pledge: PledgeType) =>
+  Object.assign(
+    {
+      address: "",
+      description: "Write your pledge today!",
+      footprint: [0],
+      methodology: "How will you meet your pledge?",
+      name: "",
+    },
+    pledge
+  );
+
+export const Pledge: NextPage<Props> = (props) => {
+  const { isAuthenticated, authenticate, logout } = useMoralis();
+  const [pledge, _setPledge] = useState<PledgeType>(
+    defaultValues(props.pledge)
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.contentContainer}>
@@ -25,14 +52,21 @@ export const Pledge: NextPage = () => {
           <div className={styles.logo}>
             <KlimaInfinityLogo />
           </div>
-          <ThemeToggle />
+          <div className={styles.group}>
+            <ThemeToggle />
+            {isAuthenticated ? (
+              <ButtonPrimary label="Sign out" onClick={() => logout()} />
+            ) : (
+              <ButtonPrimary label="Sign in" onClick={() => authenticate()} />
+            )}
+          </div>
         </div>
 
         <div className={styles.profile}>
-          <Text t="h3" className="companyLogo" align="center">
+          <Text t="h3" className="profileImage" align="center">
             -
           </Text>
-          <Text t="h4">Company name</Text>
+          <Text t="h4">{pledge.name || pledge.address || "Company name"}</Text>
         </div>
 
         <div className={styles.pledgeChart}>
@@ -40,9 +74,9 @@ export const Pledge: NextPage = () => {
         </div>
 
         <div className={styles.column}>
-          <PledgeCard />
-          <FootprintCard />
-          <MethodologyCard />
+          <PledgeCard pledge={pledge.description} />
+          <FootprintCard footprint={pledge.footprint} />
+          <MethodologyCard methodology={pledge.methodology} />
         </div>
 
         <div className={styles.column}>
