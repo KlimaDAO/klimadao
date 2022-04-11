@@ -26,7 +26,7 @@ export const Pledge: NextPage = () => {
   const handleSubmit = () => {
     try {
       ethers.utils.getAddress(address);
-      router.push(`/pledge/${address.toLowerCase()}`);
+      router.push(`/pledge/${address}`);
     } catch {
       setError(true);
     }

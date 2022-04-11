@@ -16,12 +16,9 @@ export const button_primary = css`
   transition: opacity 0.3s ease 0s;
   background-color: var(--klima-green);
 
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
-    opacity: 0.6;
-  }
   &:active:not(:disabled) {
-    transform: scale(0.9);
+    transform: scale(0.95);
+    opacity: 0.6;
   }
   &,
   &:hover:not(:disabled),

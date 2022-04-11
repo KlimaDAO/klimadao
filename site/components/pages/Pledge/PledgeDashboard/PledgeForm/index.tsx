@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { useMoralis } from "react-moralis";
 
 import { Input } from "components/Input";
 import { Textarea } from "components/Textarea";
@@ -16,8 +15,6 @@ import * as styles from "./styles";
 // );
 
 export const PledgeForm: FC = () => {
-  const { setUserData, user } = useMoralis();
-
   return (
     <div className={styles.container}>
       <div className={styles.input}>
@@ -71,7 +68,7 @@ export const PledgeForm: FC = () => {
         />
       </div>
 
-      <ButtonPrimary label="Save pledge" onClick={() => console.log(user)} />
+      <ButtonPrimary label="Save pledge" />
     </div>
   );
 };
