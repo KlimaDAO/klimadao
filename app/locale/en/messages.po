@@ -30,8 +30,8 @@ msgid "Name"
 msgstr "Name"
 
 #: components/CheckURLBanner/index.tsx:39
-msgid "On April 12, 2022 we migrated from \"dapp.klimadao.finance\" to \"app.klimadao.finance\". Please update your bookmarks."
-msgstr "On April 12, 2022 we migrated from \"dapp.klimadao.finance\" to \"app.klimadao.finance\". Please update your bookmarks."
+msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
+msgstr "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 
 #: components/views/Offset/index.tsx:576
 msgid "Retirement Successful"
