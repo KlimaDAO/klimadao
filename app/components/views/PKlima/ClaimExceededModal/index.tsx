@@ -21,16 +21,10 @@ export const ClaimExceededModal: FC = () => {
           <Text t="body2">
             <Trans id="pklima.update">
               The updated contract now assumes pKLIMA holders have staked and
-              earned interest on previously claimed tokens. Prior to the
-              November fix, these staking rewards were not counted against your
-              supply share limit, which meant your share of the total KLIMA
-              supply could surpass the limit defined in your terms.
-            </Trans>
-          </Text>
-          <Text t="body2">
-            <Trans id="pklima.growth">
-              It may be a few days, depending on the KLIMA growth rate, before
-              you can access this page and continue redeeming pKLIMA.
+              earned rewards on previously claimed tokens. Prior to the November
+              fix, these staking rewards were not counted against your supply
+              share limit, which meant your share of the total KLIMA supply
+              could surpass the limit defined in your terms.
             </Trans>
           </Text>
         </div>
