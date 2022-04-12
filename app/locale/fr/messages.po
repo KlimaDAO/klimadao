@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-12 21:17+0000\n"
+"POT-Creation-Date: 2022-04-12 21:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -489,10 +489,6 @@ msgstr "EXERCER"
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "Exercez 1 pKLIMA et 1 BCT pour recevoir 1 KLIMA."
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:31
-msgid "pklima.growth"
-msgstr "Selon la vitesse de croissance de KLIMA, Il faudra patienter quelques jours avant que vous ne puissiez accéder à cette page et continuer à échanger pKLIMA."
-
 #: components/views/PKlima/index.tsx:249
 msgid "pklima.index_adjusted"
 msgstr "Indice ajusté"
@@ -534,7 +530,7 @@ msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par 
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
-msgstr "Le nouveau contrat suppose désormais que les détenteurs de pKLIMA ont mis en dépôt et gagné des intérêts sur les jetons précédemment réclamés. Avant le correctif de novembre, ces récompenses n'étaient pas prises en compte dans votre limite d'approvisionnement, ce qui signifiait que votre part de l'approvisionnement total de KLIMA pouvait dépasser la limite définie dans vos conditions."
+msgstr ""
 
 #: components/views/Bond/index.tsx:337
 #: components/views/Offset/index.tsx:257

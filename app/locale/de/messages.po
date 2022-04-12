@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-12 21:17+0000\n"
+"POT-Creation-Date: 2022-04-12 21:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -489,10 +489,6 @@ msgstr "AUSÜBEN"
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "1 pKLIMA und 1 BCT ausüben, um 1 KLIMA zu erhalten."
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:31
-msgid "pklima.growth"
-msgstr "Es kann einige Tage dauern - abhängig von der aktuellen KLIMA Emissionsrate -, bevor du diese Seite aufrufen und weiteres pKLIMA einlösen kannst."
-
 #: components/views/PKlima/index.tsx:249
 msgid "pklima.index_adjusted"
 msgstr "Indexbereinigt"
@@ -534,7 +530,7 @@ msgstr "Ein Prozentwert des gesamten Tokenangebotes. Deine indexbereinigte Anfor
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
-msgstr "Der neue Smart Contract geht davon aus, dass pKLIMA-Besitzer die vorherig beanspruchten Tokens gestaket und Zinsen dafür bekommen haben. Vor dem November-Bugfix wurden diese Staking-Belohnungen nicht auf das Supply-Share-Limit angerechnet, was bedeutete, dass dein Anteil des kompletten KLIMA-Angebots das dir zustehende Limit überschritten haben könnte."
+msgstr ""
 
 #: components/views/Bond/index.tsx:337
 #: components/views/Offset/index.tsx:257

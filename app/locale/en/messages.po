@@ -491,10 +491,6 @@ msgstr "EXERCISE"
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
 
-#: components/views/PKlima/ClaimExceededModal/index.tsx:31
-msgid "pklima.growth"
-msgstr "It may be a few days, depending on the KLIMA growth rate, before you can access this page and continue redeeming pKLIMA."
-
 #: components/views/PKlima/index.tsx:249
 msgid "pklima.index_adjusted"
 msgstr "Index adjusted"
@@ -536,7 +532,7 @@ msgstr "A percent of total token supply. Your index-adjusted claim may not excee
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
-msgstr "The updated contract now assumes pKLIMA holders have staked and earned interest on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
+msgstr "The updated contract now assumes pKLIMA holders have staked and earned rewards on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
 #: components/views/Bond/index.tsx:337
 #: components/views/Offset/index.tsx:257
