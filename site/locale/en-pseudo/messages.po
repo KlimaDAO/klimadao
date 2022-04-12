@@ -6,9 +6,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:183
+msgid "Buy Now"
 msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:59

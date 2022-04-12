@@ -33,6 +33,7 @@ import { ConnectButton } from "../../ConnectButton";
 import { NavMenu } from "components/NavMenu";
 import Menu from "@mui/icons-material/Menu";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
+import { Buy } from "../Buy";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -309,6 +310,17 @@ export const Home: FC = () => {
             />
           </div>
           <IsomorphicRoutes>
+            <Route
+              path="/buy"
+              element={
+                <Buy
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                  loadWeb3Modal={loadWeb3Modal}
+                />
+              }
+            />
             <Route
               path="/stake"
               element={

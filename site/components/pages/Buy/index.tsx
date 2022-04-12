@@ -179,9 +179,9 @@ export const Buy: NextPage<Props> = ({}) => {
               traditional currencies - powered by our partners at Mobilum.
               Coming Soon!
             </Text>
-            <button disabled={true} className={styles.comingSoonButton}>
-              Coming Soon
-            </button>
+            <a href={urls.buy_dapp}>
+              <ButtonPrimary label={t`Buy Now`} />
+            </a>
             <div className={styles.hero}>
               <Image
                 alt="Master card"

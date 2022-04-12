@@ -18,10 +18,10 @@ export const button_primary = css`
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    opacity: 0.6;
+    opacity: 0.8;
   }
   &:focus:not(:disabled) {
-    transform: scale(0.9);
+    transform: scale(0.98);
   }
   &,
   &:hover:not(:disabled),
