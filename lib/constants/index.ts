@@ -2,6 +2,8 @@ const mainnet = {
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   nct: "0xD838290e877E0188a4A44700463419ED96c16107",
+  ubo: "0x2B3eCb0991AF0498ECE9135bcD04013d7993110c",
+  nbo: "0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48",
   treasury: "0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7",
   distributor: "0x4cC7584C3f8FAABf734374ef129dF17c3517e9cB",
   klima: "0x4e78011ce80ee02d2c3e649fb657e45898257815",
@@ -36,6 +38,8 @@ const testnet: typeof mainnet = {
   bct: "0x8f8b7D5d12c1fC37f20a89Bf4Dfe1E787Da529B5",
   mco2: "",
   nct: "",
+  ubo: "0x1C08ED3fF245dE937a6414C2C39E372f2640f5f8",
+  nbo: "0x28D5158d45EC651133Fac4c858BeD65252Ed5b7b",
   treasury: "",
   distributor: "0xd49869652B3F194F73eC29a6954bC5DE6baeA8b8",
   klima: "0x6b4499909fD8947A3bdEa5d524Fb3697018fC750",
@@ -156,6 +160,8 @@ export const SANITY_STUDIO_API_DATASET = "production";
 
 /** Tokens accepted as input for the offset aggregator /#/offset */
 export const inputTokens = [
+  "ubo",
+  "nbo",
   "bct",
   "nct",
   "mco2",
@@ -167,16 +173,18 @@ export const inputTokens = [
 export type InputToken = typeof inputTokens[number];
 
 /** Retireable tokens for the offset aggregator /#/offset */
-export const retirementTokens = ["bct", "nct", "mco2"] as const;
+export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 export type RetirementToken = typeof retirementTokens[number];
 
 type CompatMap = { [token in InputToken]: RetirementToken[] };
 export const offsetCompatibility: CompatMap = {
+  ubo: ["ubo"],
+  nbo: ["nbo"],
   bct: ["bct", "nct"],
   nct: ["bct", "nct"],
   mco2: ["mco2"],
-  usdc: ["bct", "nct", "mco2"],
-  klima: ["bct", "mco2"],
-  sklima: ["bct", "mco2"],
-  wsklima: ["bct", "mco2"],
+  usdc: ["bct", "nct", "mco2", "ubo", "nbo"],
+  klima: ["bct", "mco2", "ubo", "nbo"],
+  sklima: ["bct", "mco2", "ubo", "nbo"],
+  wsklima: ["bct", "mco2", "ubo", "nbo"],
 };
