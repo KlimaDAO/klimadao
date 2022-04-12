@@ -21,7 +21,7 @@ const HomePage: NextPage = () => {
         production={IS_PRODUCTION}
         title="KlimaDAO | Official App"
         mediaTitle="KlimaDAO | Official App"
-        metaDescription="Use the KLIMA web app to bond, stake and earn interest."
+        metaDescription="Use the KLIMA web app to bond, stake and earn rewards."
         mediaImageSrc="/og-media.png"
       />
       <WithRedux>
