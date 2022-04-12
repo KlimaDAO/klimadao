@@ -48,7 +48,7 @@ export const Buy: NextPage<Props> = ({}) => {
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
       />
-      <Navigation activePage="Get KLIMA" />
+      <Navigation activePage="Buy" />
 
       <Section variant="gray" className={styles.section}>
         <div className={styles.buyContainer}>
@@ -157,7 +157,7 @@ export const Buy: NextPage<Props> = ({}) => {
             </A>{" "}
             page for safety tips before you get started. REMEMBER: never share
             your private key or seed phrase with anyone - neither our members
-            nor our dApp will ever ask for or request this from you. While our
+            nor our app will ever ask for or request this from you. While our
             support team may assist you with issues that you have, please note
             that they cannot guarantee the safety or return of any lost funds as
             a result of a scam or a financial loss.

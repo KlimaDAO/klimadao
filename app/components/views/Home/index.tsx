@@ -56,7 +56,7 @@ const useWeb3Modal = () => {
         walletlink: {
           package: WalletLink,
           options: {
-            appName: "Official KlimaDAO Dapp",
+            appName: "Official KlimaDAO App",
             rpc: urls.polygonMainnetRpc,
             chainId: 137, // Optional. It defaults to 1 if not provided
             appLogoUrl: null, // Optional. Application logo image URL. favicon is used if unspecified

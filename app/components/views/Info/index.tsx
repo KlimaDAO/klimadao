@@ -115,7 +115,7 @@ export const Info: FC<Props> = (props) => (
           <div style={{ display: "grid", gap: "0.8rem" }}>
             <Text t="h5" as="h2">
               <Trans id="info.app_not_loading.title" comment="Long sentence">
-                Why won't the dApp load for me?
+                Why won't the app load for me?
               </Trans>
             </Text>
             <Text t="caption" color="lightest">

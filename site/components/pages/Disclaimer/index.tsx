@@ -201,7 +201,7 @@ export const Disclaimer: NextPage<Props> = ({}) => {
                 We recommend that you visit our Crypto Security 101 page for
                 safety instructions before the use of the website. Please, take
                 into consideration: never share your private key or seed phrase
-                with anyone – neither our members nor our dApp will ever ask for
+                with anyone – neither our members nor our app will ever ask for
                 or request this from you.
               </Trans>
             </Text>
