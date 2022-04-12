@@ -189,10 +189,10 @@ msgstr "Ne pas me le rappeler"
 msgid "checkurlbanner.got_it"
 msgstr "J'ai compris"
 
-#. <0>dapp.klimadao.finance</0> is the only official domain.
+#. <0>app.klimadao.finance</0> is the only official domain.
 #: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
-msgstr "<0>dapp.klimadao.finance</0> est notre seul domaine officiel."
+msgstr "<0>app.klimadao.finance</0> est notre seul domaine officiel."
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
@@ -269,8 +269,8 @@ msgstr "2. Allez dans Paramètres/Réseaux/Polygon et cliquez sur 'supprimer'"
 
 #. Long sentence
 #: components/views/Info/index.tsx:144
-msgid "info.app_not_loading.3_return_to_dapp"
-msgstr "3. Retournez sur dapp.klimadao.finance et cliquez sur \"passer au réseau principal\"."
+msgid "info.app_not_loading.3_return_to_app"
+msgstr "3. Retournez sur app.klimadao.finance et cliquez sur \"passer au réseau principal\"."
 
 #. Long sentence
 #: components/views/Info/index.tsx:122

@@ -312,7 +312,7 @@ msgstr "Les service disponibles ou accessibles via le site sont fournis « tels
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:197
 msgid "disclaimer.we_recommend_that_you_visit"
-msgstr "Nous vous recommandons de visiter notre page Crypto Security 101 pour les consignes de sécurité avant d'utiliser notre site. Soyez très attentifs aux points suivants: ne partagez jamais votre clé privée ou votre phrase mnémotechnique avec qui que ce soit - aucun de nos membres ni notre dApp ne vous le demandera."
+msgstr "Nous vous recommandons de visiter notre page Crypto Security 101 pour les consignes de sécurité avant d'utiliser notre site. Soyez très attentifs aux points suivants: ne partagez jamais votre clé privée ou votre phrase mnémotechnique avec qui que ce soit - aucun de nos membres ni notre app ne vous le demandera."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:152

@@ -4,7 +4,7 @@ This repo contains 3 packages: `@klimadao/site`, `@klimadao/app` and `@klimadao/
 
 `@klimadao/site` -> klimadao.finance homepage. In the future, we can add the docs and blog as well.
 
-`@klimadao/app` -> dapp.klimadao.finance app, a standalone single-page-app. Should be exportable as a static site for deployment on IPFS.
+`@klimadao/app` -> app.klimadao.finance, a standalone single-page-app. Should be exportable as a static site for deployment on IPFS.
 
 `@klimadao/lib` -> A shared component and theme library. For now, just a set of resources shared by the above two apps. In the future, this can be extended and published on NPM as a component library for use in other community projects.
 

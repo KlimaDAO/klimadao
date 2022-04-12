@@ -142,11 +142,10 @@ export const Info: FC<Props> = (props) => (
               </Trans>
               <br />
               <Trans
-                id="info.app_not_loading.3_return_to_dapp"
+                id="info.app_not_loading.3_return_to_app"
                 comment="Long sentence"
               >
-                3. Return to dapp.klimadao.finance and click 'switch to
-                mainnet'.{" "}
+                3. Return to app.klimadao.finance and click 'switch to mainnet'.{" "}
               </Trans>
               <br />
               <Trans

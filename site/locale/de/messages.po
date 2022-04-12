@@ -310,7 +310,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:197
 msgid "disclaimer.we_recommend_that_you_visit"
-msgstr "Wir empfehlen, dass du dir unsere Seite über den Umgang mit Kryptosicherheit anschaust, bevor du unsere Webseite nutzt. Bitte denke immer daran: Teile niemals deine privaten Schlüssel oder deine Seed-Phrase mit jemandem! Unsere Mitglieder und unsere dApp werden dich niemals(!) dazu auffordern."
+msgstr "Wir empfehlen, dass du dir unsere Seite über den Umgang mit Kryptosicherheit anschaust, bevor du unsere Webseite nutzt. Bitte denke immer daran: Teile niemals deine privaten Schlüssel oder deine Seed-Phrase mit jemandem! Unsere Mitglieder und unsere app werden dich niemals(!) dazu auffordern."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:152

@@ -21,7 +21,7 @@ export const PageHead = (props: PageHeadProps) => {
       {!noRobots && (
         <script
           defer
-          data-domain="dapp.klimadao.finance"
+          data-domain="app.klimadao.finance"
           src="https://plausible.io/js/plausible.js"
         />
       )}

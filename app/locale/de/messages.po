@@ -189,10 +189,10 @@ msgstr ""
 "Ich verstehe\n"
 ""
 
-#. <0>dapp.klimadao.finance</0> is the only official domain.
+#. <0>app.klimadao.finance</0> is the only official domain.
 #: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
-msgstr "<0>dapp.klimadao.finance</0> ist die einzige offizielle Domain."
+msgstr "<0>app.klimadao.finance</0> ist die einzige offizielle Domain."
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
@@ -267,13 +267,13 @@ msgstr "2. Gehe nach Einstellungen -> Netzwerke -> Polygon und klicke \"Löschen
 
 #. Long sentence
 #: components/views/Info/index.tsx:144
-msgid "info.app_not_loading.3_return_to_dapp"
-msgstr "3. Kehre zurück auf dapp.klimadao.finance und klicke \"Wechsel zum Mainnet\"."
+msgid "info.app_not_loading.3_return_to_app"
+msgstr "3. Kehre zurück auf app.klimadao.finance und klicke \"Wechsel zum Mainnet\"."
 
 #. Long sentence
 #: components/views/Info/index.tsx:122
 msgid "info.app_not_loading.if_app_says_loading"
-msgstr "Falls die dApp \"Laden...\" anzeigt, liegt wahrscheinlich ein Problem der Netzwerkkonfiguration in Metamask vor. Löse dies wie folgt:"
+msgstr "Falls die app \"Laden...\" anzeigt, liegt wahrscheinlich ein Problem der Netzwerkkonfiguration in Metamask vor. Löse dies wie folgt:"
 
 #. Long sentence
 #: components/views/Info/index.tsx:152
@@ -283,7 +283,7 @@ msgstr "Metamask sollte dich dazu auffordern, Polygon mit der korrekten RPC-Konf
 #. Long sentence
 #: components/views/Info/index.tsx:117
 msgid "info.app_not_loading.title"
-msgstr "Warum lädt die dApp nicht?"
+msgstr "Warum lädt die app nicht?"
 
 #. Long sentence
 #: components/views/Info/index.tsx:105

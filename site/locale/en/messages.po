@@ -316,7 +316,7 @@ msgstr "The service available in or accessible through the service are provided 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:197
 msgid "disclaimer.we_recommend_that_you_visit"
-msgstr "We recommend that you visit our Crypto Security 101 page for safety instructions before the use of the website. Please, take into consideration: never share your private key or seed phrase with anyone – neither our members nor our dApp will ever ask for or request this from you."
+msgstr "We recommend that you visit our Crypto Security 101 page for safety instructions before the use of the website. Please, take into consideration: never share your private key or seed phrase with anyone – neither our members nor our app will ever ask for or request this from you."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:152

@@ -187,7 +187,7 @@ msgstr ""
 msgid "checkurlbanner.got_it"
 msgstr ""
 
-#. <0>dapp.klimadao.finance</0> is the only official domain.
+#. <0>app.klimadao.finance</0> is the only official domain.
 #: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
 msgstr ""
@@ -265,7 +265,7 @@ msgstr ""
 
 #. Long sentence
 #: components/views/Info/index.tsx:144
-msgid "info.app_not_loading.3_return_to_dapp"
+msgid "info.app_not_loading.3_return_to_app"
 msgstr ""
 
 #. Long sentence
