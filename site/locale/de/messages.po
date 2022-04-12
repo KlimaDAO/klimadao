@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-12 15:41+0000\n"
+"POT-Creation-Date: 2022-04-12 20:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -310,7 +310,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:197
 msgid "disclaimer.we_recommend_that_you_visit"
-msgstr "Wir empfehlen, dass du dir unsere Seite über den Umgang mit Kryptosicherheit anschaust, bevor du unsere Webseite nutzt. Bitte denke immer daran: Teile niemals deine privaten Schlüssel oder deine Seed-Phrase mit jemandem! Unsere Mitglieder und unsere app werden dich niemals(!) dazu auffordern."
+msgstr ""
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:152
@@ -464,10 +464,14 @@ msgid "shared.blog"
 msgstr "Blog"
 
 #: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:50
-#: components/Navigation/index.tsx:75
 msgid "shared.bond"
-msgstr "Bond"
+msgstr ""
+
+#: components/Footer/index.tsx:32
+#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:67
+msgid "shared.buy"
+msgstr ""
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
@@ -498,12 +502,6 @@ msgstr "Dokumente"
 msgid "shared.enter_app"
 msgstr "App öffnen"
 
-#: components/Footer/index.tsx:32
-#: components/Navigation/index.tsx:41
-#: components/Navigation/index.tsx:67
-msgid "shared.get_klima"
-msgstr "KLIMA kaufen"
-
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
 #: components/pages/Disclaimer/index.tsx:23
@@ -516,6 +514,11 @@ msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-ge
 #: components/Footer/index.tsx:27
 msgid "shared.home"
 msgstr "Home"
+
+#: components/Navigation/index.tsx:50
+#: components/Navigation/index.tsx:75
+msgid "shared.loveletters"
+msgstr ""
 
 #: components/Navigation/index.tsx:54
 #: components/Navigation/index.tsx:79

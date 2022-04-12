@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-12 15:41+0000\n"
+"POT-Creation-Date: 2022-04-12 20:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,6 +31,14 @@ msgstr "Kompensation erfolgreich"
 msgid "Share retirement"
 msgstr "CO2-Ausgleich teilen"
 
+#: components/InvalidNetworkModal/index.tsx:89
+msgid "Switch to Polygon"
+msgstr ""
+
+#: components/InvalidNetworkModal/index.tsx:75
+msgid "This app only works on Polygon Mainnet."
+msgstr ""
+
 #: components/views/Offset/index.tsx:602
 msgid "Tonnes Retired"
 msgstr "Tonnen kompensiert"
@@ -38,6 +46,10 @@ msgstr "Tonnen kompensiert"
 #: components/views/Offset/index.tsx:623
 msgid "View on <0>polygonscan.com</0>"
 msgstr "Auf <0>polygonscan.com</0> ansehen"
+
+#: components/InvalidNetworkModal/index.tsx:72
+msgid "Wrong Network"
+msgstr ""
 
 #: components/views/Offset/index.tsx:611
 #: components/views/Offset/index.tsx:619
@@ -179,11 +191,11 @@ msgstr "Du erhältst"
 msgid "bond.you_will_get.tooltip"
 msgstr "Menge an gebondetem KLIMA, die du für die angegebene Eingangsmenge bekommst"
 
-#: components/CheckURLBanner/index.tsx:42
+#: components/CheckURLBanner/index.tsx:41
 msgid "checkurlbanner.dont_remind_me"
 msgstr "Nicht wieder erinnern"
 
-#: components/CheckURLBanner/index.tsx:45
+#: components/CheckURLBanner/index.tsx:44
 msgid "checkurlbanner.got_it"
 msgstr ""
 "Ich verstehe\n"
@@ -192,7 +204,7 @@ msgstr ""
 #. <0>app.klimadao.finance</0> is the only official domain.
 #: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
-msgstr "<0>app.klimadao.finance</0> ist die einzige offizielle Domain."
+msgstr ""
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
@@ -268,22 +280,22 @@ msgstr "2. Gehe nach Einstellungen -> Netzwerke -> Polygon und klicke \"Löschen
 #. Long sentence
 #: components/views/Info/index.tsx:144
 msgid "info.app_not_loading.3_return_to_app"
-msgstr "3. Kehre zurück auf app.klimadao.finance und klicke \"Wechsel zum Mainnet\"."
+msgstr ""
 
 #. Long sentence
 #: components/views/Info/index.tsx:122
 msgid "info.app_not_loading.if_app_says_loading"
-msgstr "Falls die app \"Laden...\" anzeigt, liegt wahrscheinlich ein Problem der Netzwerkkonfiguration in Metamask vor. Löse dies wie folgt:"
+msgstr "Falls die dApp \"Laden...\" anzeigt, liegt wahrscheinlich ein Problem der Netzwerkkonfiguration in Metamask vor. Löse dies wie folgt:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:152
+#: components/views/Info/index.tsx:151
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask sollte dich dazu auffordern, Polygon mit der korrekten RPC-Konfiguration hinzuzufügen."
 
 #. Long sentence
 #: components/views/Info/index.tsx:117
 msgid "info.app_not_loading.title"
-msgstr "Warum lädt die app nicht?"
+msgstr ""
 
 #. Long sentence
 #: components/views/Info/index.tsx:105
@@ -294,7 +306,7 @@ msgstr "Häufige Fragen zur App und nützliche Links. Umfassende Informationen z
 msgid "info.info_and_faq"
 msgstr "Info & FAQ"
 
-#: components/views/Info/index.tsx:166
+#: components/views/Info/index.tsx:165
 msgid "info.official_contract_addresses"
 msgstr "Offizielle Vertragsadressen"
 

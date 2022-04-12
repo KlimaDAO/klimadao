@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-12 15:41+0000\n"
+"POT-Creation-Date: 2022-04-12 20:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,12 +31,24 @@ msgstr ""
 msgid "Share retirement"
 msgstr ""
 
+#: components/InvalidNetworkModal/index.tsx:89
+msgid "Switch to Polygon"
+msgstr ""
+
+#: components/InvalidNetworkModal/index.tsx:75
+msgid "This app only works on Polygon Mainnet."
+msgstr ""
+
 #: components/views/Offset/index.tsx:602
 msgid "Tonnes Retired"
 msgstr ""
 
 #: components/views/Offset/index.tsx:623
 msgid "View on <0>polygonscan.com</0>"
+msgstr ""
+
+#: components/InvalidNetworkModal/index.tsx:72
+msgid "Wrong Network"
 msgstr ""
 
 #: components/views/Offset/index.tsx:611
@@ -179,11 +191,11 @@ msgstr ""
 msgid "bond.you_will_get.tooltip"
 msgstr ""
 
-#: components/CheckURLBanner/index.tsx:42
+#: components/CheckURLBanner/index.tsx:41
 msgid "checkurlbanner.dont_remind_me"
 msgstr ""
 
-#: components/CheckURLBanner/index.tsx:45
+#: components/CheckURLBanner/index.tsx:44
 msgid "checkurlbanner.got_it"
 msgstr ""
 
@@ -274,7 +286,7 @@ msgid "info.app_not_loading.if_app_says_loading"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:152
+#: components/views/Info/index.tsx:151
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr ""
 
@@ -292,7 +304,7 @@ msgstr ""
 msgid "info.info_and_faq"
 msgstr ""
 
-#: components/views/Info/index.tsx:166
+#: components/views/Info/index.tsx:165
 msgid "info.official_contract_addresses"
 msgstr ""
 

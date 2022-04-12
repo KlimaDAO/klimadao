@@ -466,10 +466,14 @@ msgid "shared.blog"
 msgstr "Blog"
 
 #: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:50
-#: components/Navigation/index.tsx:75
 msgid "shared.bond"
-msgstr "Bond"
+msgstr "App"
+
+#: components/Footer/index.tsx:32
+#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:67
+msgid "shared.buy"
+msgstr "Buy"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
@@ -500,12 +504,6 @@ msgstr "Docs"
 msgid "shared.enter_app"
 msgstr "Enter App"
 
-#: components/Footer/index.tsx:32
-#: components/Navigation/index.tsx:41
-#: components/Navigation/index.tsx:67
-msgid "shared.get_klima"
-msgstr "Get KLIMA"
-
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
 #: components/pages/Disclaimer/index.tsx:23
@@ -518,6 +516,11 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 #: components/Footer/index.tsx:27
 msgid "shared.home"
 msgstr "Home"
+
+#: components/Navigation/index.tsx:50
+#: components/Navigation/index.tsx:75
+msgid "shared.loveletters"
+msgstr "Love Letters"
 
 #: components/Navigation/index.tsx:54
 #: components/Navigation/index.tsx:79

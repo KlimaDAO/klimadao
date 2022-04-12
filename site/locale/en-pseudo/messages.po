@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-12 15:41+0000\n"
+"POT-Creation-Date: 2022-04-12 20:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -460,9 +460,13 @@ msgid "shared.blog"
 msgstr ""
 
 #: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:50
-#: components/Navigation/index.tsx:75
 msgid "shared.bond"
+msgstr ""
+
+#: components/Footer/index.tsx:32
+#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:67
+msgid "shared.buy"
 msgstr ""
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
@@ -494,12 +498,6 @@ msgstr ""
 msgid "shared.enter_app"
 msgstr ""
 
-#: components/Footer/index.tsx:32
-#: components/Navigation/index.tsx:41
-#: components/Navigation/index.tsx:67
-msgid "shared.get_klima"
-msgstr ""
-
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
 #: components/pages/Disclaimer/index.tsx:23
@@ -511,6 +509,11 @@ msgstr ""
 
 #: components/Footer/index.tsx:27
 msgid "shared.home"
+msgstr ""
+
+#: components/Navigation/index.tsx:50
+#: components/Navigation/index.tsx:75
+msgid "shared.loveletters"
 msgstr ""
 
 #: components/Navigation/index.tsx:54

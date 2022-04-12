@@ -37,6 +37,14 @@ msgstr "Retirement Successful"
 msgid "Share retirement"
 msgstr "Share retirement"
 
+#: components/InvalidNetworkModal/index.tsx:89
+msgid "Switch to Polygon"
+msgstr "Switch to Polygon"
+
+#: components/InvalidNetworkModal/index.tsx:75
+msgid "This app only works on Polygon Mainnet."
+msgstr "This app only works on Polygon Mainnet."
+
 #: components/views/Offset/index.tsx:602
 msgid "Tonnes Retired"
 msgstr "Tonnes Retired"
@@ -44,6 +52,10 @@ msgstr "Tonnes Retired"
 #: components/views/Offset/index.tsx:623
 msgid "View on <0>polygonscan.com</0>"
 msgstr "View on <0>polygonscan.com</0>"
+
+#: components/InvalidNetworkModal/index.tsx:72
+msgid "Wrong Network"
+msgstr "Wrong Network"
 
 #: components/views/Offset/index.tsx:611
 #: components/views/Offset/index.tsx:619
@@ -185,11 +197,11 @@ msgstr "You will get"
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
-#: components/CheckURLBanner/index.tsx:42
+#: components/CheckURLBanner/index.tsx:41
 msgid "checkurlbanner.dont_remind_me"
 msgstr "Don't Remind Me"
 
-#: components/CheckURLBanner/index.tsx:45
+#: components/CheckURLBanner/index.tsx:44
 msgid "checkurlbanner.got_it"
 msgstr "Got it"
 
@@ -280,7 +292,7 @@ msgid "info.app_not_loading.if_app_says_loading"
 msgstr "If the app says 'loading...' this is likely a problem with your network configuration in Metamask. To fix this:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:152
+#: components/views/Info/index.tsx:151
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask should prompt you to add Polygon, with the correct RPC configuration."
 
@@ -298,7 +310,7 @@ msgstr "Common app-related questions and useful links. For comprehensive reading
 msgid "info.info_and_faq"
 msgstr "Info & FAQ"
 
-#: components/views/Info/index.tsx:166
+#: components/views/Info/index.tsx:165
 msgid "info.official_contract_addresses"
 msgstr "Official Contract Addresses"
 
