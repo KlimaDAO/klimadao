@@ -215,7 +215,7 @@ msgstr "Purchase KLIMA in a few clicks. Our partner <0>Mobilum</0> will send you
 msgid "buy.not_connected"
 msgstr "Not Connected"
 
-#: components/CheckURLBanner/index.tsx:42
+#: components/CheckURLBanner/index.tsx:41
 msgid "checkurlbanner.dont_remind_me"
 msgstr "Don't Remind Me"
 

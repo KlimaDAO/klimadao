@@ -215,7 +215,7 @@ msgstr ""
 msgid "buy.not_connected"
 msgstr ""
 
-#: components/CheckURLBanner/index.tsx:42
+#: components/CheckURLBanner/index.tsx:41
 msgid "checkurlbanner.dont_remind_me"
 msgstr ""
 
