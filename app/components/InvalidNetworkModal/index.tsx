@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import { Text } from "@klimadao/lib/components";
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { providers } from "ethers";
+import { Trans } from "@lingui/macro";
 
 interface Props {
   provider: providers.JsonRpcProvider;
@@ -67,9 +68,11 @@ export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
       <div className={styles.bg}>
         <div className={styles.card}>
           <div className={styles.card_header}>
-            <Text t="h3">⚠ Wrong Network</Text>
+            <Text t="h3">
+              ⚠ <Trans>Wrong Network</Trans>
+            </Text>
             <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
-              This dApp only works on Polygon Mainnet.
+              <Trans>This app only works on Polygon Mainnet.</Trans>
             </Text>
           </div>
           <div
@@ -83,7 +86,7 @@ export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
               onClick={handleChangeNetwork("mainnet")}
               className={styles.switchNetworkButton}
             >
-              Switch to Mainnet
+              <Trans>Switch to Polygon</Trans>
             </button>
           </div>
         </div>
