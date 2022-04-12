@@ -15,7 +15,7 @@ import { IS_PRODUCTION } from "lib/constants";
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-type PageName = "Home" | "Get KLIMA" | "Resources" | "Disclaimer";
+type PageName = "Home" | "Buy" | "Resources" | "Disclaimer";
 
 export type Props = {
   activePage: PageName;
@@ -38,16 +38,16 @@ export const Navigation: FC<Props> = (props) => (
     >
       <NavItemDesktop
         url={"/buy"}
-        name={t({ message: "Get KLIMA", id: "shared.get_klima" })}
-        active={props.activePage === "Get KLIMA"}
+        name={t({ message: "Buy", id: "shared.buy" })}
+        active={props.activePage === "Buy"}
       />
       <NavItemDesktop
         url={urls.stake}
         name={t({ message: "Stake", id: "shared.stake" })}
       />
       <NavItemDesktop
-        url={urls.bonds}
-        name={t({ message: "Bond", id: "shared.bond" })}
+        url={urls.loveletter}
+        name={t({ message: "Love Letters", id: "shared.loveletters" })}
       />
       <NavItemDesktop
         url="/blog"
@@ -64,7 +64,7 @@ export const Navigation: FC<Props> = (props) => (
     >
       <NavItemMobile
         url="/buy"
-        name={t({ message: "Get KLIMA", id: "shared.get_klima" })}
+        name={t({ message: "Buy", id: "shared.buy" })}
       />
       <NavItemMobile
         url={urls.stake}
@@ -72,7 +72,7 @@ export const Navigation: FC<Props> = (props) => (
       />
       <NavItemMobile
         url={urls.bonds}
-        name={t({ message: "Bond", id: "shared.bond" })}
+        name={t({ message: "Love Letters", id: "shared.loveletters" })}
       />
       <NavItemMobile
         url="/blog"

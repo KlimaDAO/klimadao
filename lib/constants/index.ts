@@ -112,6 +112,7 @@ export const urls = {
   partnerShipsContactForm:
     "https://notionforms.io/forms/klimadao-request-for-collaboration",
   pressEmail: "mailto:press@klimadao.finance",
+  loveletter: "https://loveletter.klimadao.finance",
 };
 
 export const INFURA_ID = "0f83eb63faea409abc1f440c9f077646";

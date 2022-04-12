@@ -29,14 +29,14 @@ export const Footer: FC = () => (
         </Link>
         <Link href="/buy">
           <a>
-            <Trans id="shared.get_klima">Get KLIMA</Trans>
+            <Trans id="shared.buy">Buy</Trans>
           </a>
         </Link>
         <a href={urls.stake}>
           <Trans id="shared.stake">Stake</Trans>
         </a>
-        <a href={urls.bonds}>
-          <Trans id="shared.bond">Bond</Trans>
+        <a href={urls.app}>
+          <Trans id="shared.bond">App</Trans>
         </a>
         <A href={urls.officialDocs}>
           <Trans id="shared.docs">Docs</Trans>
