@@ -9,6 +9,10 @@ import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
+import Add from "@mui/icons-material/Add";
+import Delete from "@mui/icons-material/Delete";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
@@ -404,7 +408,6 @@ export const Offset = (props: Props) => {
               />
             </div>
           </div>
-
           {/* Input Token */}
           <DropdownWithModal
             label="Pay with"
@@ -425,7 +428,6 @@ export const Offset = (props: Props) => {
             onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectRetirementToken}
           />
-
           <MiniTokenDisplay
             label={
               <div className="mini_token_label">
@@ -449,7 +451,6 @@ export const Offset = (props: Props) => {
             loading={cost === "loading"}
             warn={insufficientBalance}
           />
-
           <MiniTokenDisplay
             label={
               <Text t="caption" color="lighter">
@@ -461,7 +462,6 @@ export const Offset = (props: Props) => {
             name={selectedRetirementToken}
             labelAlignment="start"
           />
-
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
               <Trans id="offset.retirement_credit">
@@ -495,7 +495,6 @@ export const Offset = (props: Props) => {
               </Text>
             </div>
           </div>
-
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -514,7 +513,7 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-
+          <AdvancedTextInput />
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
@@ -632,5 +631,79 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
         </div>
       </div>
     </div>
+  );
+};
+
+const AdvancedTextInput = () => {
+  const [isOpen, toggleIsOpen] = useState(false);
+  const [inputAddresses, setInputAddresses] = useState([""]);
+  return (
+    <>
+      <button
+        onClick={() => {
+          toggleIsOpen((prev) => !prev);
+        }}
+        className={styles.advancedButton}
+      >
+        {isOpen ? <KeyboardArrowDown /> : <KeyboardArrowRight />}
+        <Text t="caption" color="lighter">
+          <Trans id="advanced">ADVANCED</Trans>
+        </Text>
+      </button>
+      {isOpen && (
+        <div className={styles.input}>
+          <label>
+            <Text t="caption" color="lighter">
+              <Trans id="offset.retire_specific">
+                Retire specific project tokens
+              </Trans>
+            </Text>
+          </label>
+          {inputAddresses.map((address, i) => {
+            return (
+              <div key={i} className={styles.advancedButtonInput}>
+                <input
+                  value={address}
+                  onChange={(e) => {
+                    setInputAddresses((prev) => [
+                      ...prev.slice(0, i),
+                      e.target.value,
+                      ...prev.slice(i + 1),
+                    ]);
+                  }}
+                  placeholder={t({
+                    id: "offset.enter_address",
+                    message: "Enter 0x address",
+                  })}
+                />
+                {i === inputAddresses.length - 1 && (
+                  <button
+                    onClick={() => {
+                      setInputAddresses((prev) => [...prev, ""]);
+                    }}
+                    className="plusbutton"
+                  >
+                    <Add />
+                  </button>
+                )}
+                {inputAddresses.length > 1 && (
+                  <button
+                    onClick={() => {
+                      setInputAddresses((prev) => [
+                        ...prev.slice(0, i),
+                        ...prev.slice(i + 1),
+                      ]);
+                    }}
+                    className="plusbutton"
+                  >
+                    <Delete />
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 };

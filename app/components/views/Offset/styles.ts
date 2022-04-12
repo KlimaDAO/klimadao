@@ -212,3 +212,22 @@ export const retirementSuccessModal = css`
     }
   }
 `;
+
+export const advancedButton = css`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
+export const advancedButtonInput = css`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  .plusbutton {
+    width: 3.4rem;
+    height: 3.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
