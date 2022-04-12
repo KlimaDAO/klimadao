@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:588
 msgid "Beneficiary Address"
@@ -22,6 +28,10 @@ msgstr "Nachricht"
 #: components/views/Offset/index.tsx:582
 msgid "Name"
 msgstr "Name"
+
+#: components/CheckURLBanner/index.tsx:39
+msgid "On April 12, 2022 we migrated from \"dapp.klimadao.finance\" to \"app.klimadao.finance\". Please update your bookmarks."
+msgstr ""
 
 #: components/views/Offset/index.tsx:576
 msgid "Retirement Successful"
@@ -209,11 +219,11 @@ msgstr ""
 msgid "buy.not_connected"
 msgstr ""
 
-#: components/CheckURLBanner/index.tsx:41
+#: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
 msgstr "Nicht wieder erinnern"
 
-#: components/CheckURLBanner/index.tsx:44
+#: components/CheckURLBanner/index.tsx:50
 msgid "checkurlbanner.got_it"
 msgstr ""
 "Ich verstehe\n"

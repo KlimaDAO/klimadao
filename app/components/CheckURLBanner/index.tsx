@@ -10,12 +10,12 @@ interface Props {
 
 export const skipCheckURLBanner = () => {
   if (typeof window === "undefined") return true;
-  return window.localStorage.getItem("checkURLBanner") === "skip";
+  return window.localStorage.getItem("checkURLBanner_app") === "skip";
 };
 
 export const CheckURLBanner: FC<Props> = ({ onHide }) => {
   const onDontRemind = () => {
-    window.localStorage.setItem("checkURLBanner", "skip");
+    window.localStorage.setItem("checkURLBanner_app", "skip");
     onHide();
   };
   return (
@@ -33,6 +33,12 @@ export const CheckURLBanner: FC<Props> = ({ onHide }) => {
               comment="<0>app.klimadao.finance</0> is the only official domain."
             >
               <strong>app.klimadao.finance</strong> is the only official domain.
+            </Trans>
+          </Text>
+          <Text t="caption" color="lightest">
+            <Trans>
+              On April 12, 2022 we migrated from "dapp" to "app". Please update
+              your bookmarks.
             </Trans>
           </Text>
         </div>

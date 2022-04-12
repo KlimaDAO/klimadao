@@ -29,6 +29,10 @@ msgstr "Message"
 msgid "Name"
 msgstr "Name"
 
+#: components/CheckURLBanner/index.tsx:39
+msgid "On April 12, 2022 we migrated from \"dapp.klimadao.finance\" to \"app.klimadao.finance\". Please update your bookmarks."
+msgstr "On April 12, 2022 we migrated from \"dapp.klimadao.finance\" to \"app.klimadao.finance\". Please update your bookmarks."
+
 #: components/views/Offset/index.tsx:576
 msgid "Retirement Successful"
 msgstr "Retirement Successful"
@@ -215,11 +219,11 @@ msgstr "Purchase KLIMA in a few clicks. Our partner <0>Mobilum</0> will send you
 msgid "buy.not_connected"
 msgstr "Not Connected"
 
-#: components/CheckURLBanner/index.tsx:41
+#: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
 msgstr "Don't Remind Me"
 
-#: components/CheckURLBanner/index.tsx:44
+#: components/CheckURLBanner/index.tsx:50
 msgid "checkurlbanner.got_it"
 msgstr "Got it"
 
