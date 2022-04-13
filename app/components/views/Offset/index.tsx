@@ -10,7 +10,7 @@ import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import Add from "@mui/icons-material/Add";
-import Delete from "@mui/icons-material/Delete";
+import CancelIcon from "@mui/icons-material/Cancel";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
@@ -57,6 +57,7 @@ import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
 
 import * as styles from "./styles";
+import { cx } from "@emotion/css";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -693,8 +694,8 @@ const AdvancedTextInput: FC<{
             <TextInfoTooltip
               content={
                 <Trans id="offset.retire_specific_tooltip">
-                  Subject to additional fee, determined by the pool and bridge
-                  provider.
+                  Subject to additional fee, determined by the selected pool and
+                  payed to the bridge provider.
                 </Trans>
               }
             >
@@ -704,25 +705,30 @@ const AdvancedTextInput: FC<{
           {props.value.map((address, i) => {
             return (
               <div key={i} className={styles.advancedButtonInput}>
-                <input
-                  value={address}
-                  onChange={handleEdit(i)}
-                  placeholder={t({
-                    id: "offset.enter_address",
-                    message: "Enter 0x address",
+                <div className="advancedButtonInput_iconAligner">
+                  <input
+                    value={address}
+                    onChange={handleEdit(i)}
+                    placeholder={t({
+                      id: "offset.enter_address",
+                      message: "Enter 0x address",
+                    })}
+                    pattern="^0x[a-fA-F0-9]{40}$"
+                  />
+                  {props.value.length > 1 && (
+                    <button onClick={handleDelete(i)} className="deletebutton">
+                      <CancelIcon />
+                    </button>
+                  )}
+                </div>
+                <button
+                  onClick={handleAddInput}
+                  className={cx("plusbutton", {
+                    hidden: i !== props.value.length - 1,
                   })}
-                  pattern="^0x[a-fA-F0-9]{40}$"
-                />
-                {i === props.value.length - 1 && (
-                  <button onClick={handleAddInput} className="plusbutton">
-                    <Add />
-                  </button>
-                )}
-                {props.value.length > 1 && (
-                  <button onClick={handleDelete(i)} className="plusbutton">
-                    <Delete />
-                  </button>
-                )}
+                >
+                  <Add />
+                </button>
               </div>
             );
           })}

@@ -16,7 +16,7 @@ export const columnRight = css`
 
 export const beneficiary = css`
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
   align-content: start;
 
   .defaultAddress {
@@ -113,18 +113,18 @@ export const submitButton = css`
 export const input = css`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
 
   textarea {
     width: 100%;
     background-color: var(--surface-02);
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     border: 0.2rem solid var(--surface-03);
-    padding-inline-start: 1rem;
+    padding-inline-start: 0.8rem;
     min-height: 2.4rem;
     color: var(--font-01);
     resize: none;
-    padding-top: 1rem;
+    padding-top: 0.8rem;
     overflow-y: hidden;
     min-height: 16rem;
   }
@@ -132,9 +132,9 @@ export const input = css`
   input {
     width: 100%;
     background-color: var(--surface-02);
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     border: 0.2rem solid var(--surface-03);
-    padding-inline-start: 1rem;
+    padding-inline-start: 0.8rem;
     min-height: 4.8rem;
     color: var(--font-01);
   }
@@ -239,12 +239,32 @@ export const advancedButtonInput = css`
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  .plusbutton {
+  gap: 0.8rem;
+  .advancedButtonInput_iconAligner {
+    display: flex;
+    width: 100%;
+    position: relative;
+    align-items: center;
+  }
+  .deletebutton {
+    position: absolute;
+    right: 0.2rem;
+    background-color: var(--surface-02);
+  }
+  .plusbutton,
+  .deletebutton {
+    color: var(--font-03);
     width: 3.4rem;
     height: 3.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .plusbutton:hover,
+  .deletebutton:hover {
+    color: var(--font-01);
+  }
+  .plusbutton.hidden {
+    visibility: hidden;
   }
 `;
