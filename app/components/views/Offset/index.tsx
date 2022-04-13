@@ -459,8 +459,8 @@ export const Offset = (props: Props) => {
                 value={beneficiaryAddress}
                 onChange={(e) => setBeneficiaryAddress(e.target.value)}
                 placeholder={t({
-                  id: "offset.ethereum_address",
-                  message: "Ethereum address",
+                  id: "offset.enter_address",
+                  message: "Enter 0x address",
                 })}
               />
               <Text t="caption" color="lightest" className="defaultAddress">
