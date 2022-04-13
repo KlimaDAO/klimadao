@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
@@ -110,6 +110,8 @@ export const Offset = (props: Props) => {
   const [beneficiary, setBeneficiary] = useState("");
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
   const [retirementMessage, setRetirementMessage] = useState("");
+  // for selective retirement
+  const [specificAddresses, setSpecificAddresses] = useState([""]);
 
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
@@ -513,7 +515,10 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-          <AdvancedTextInput />
+          <AdvancedTextInput
+            value={specificAddresses}
+            onChange={setSpecificAddresses}
+          />
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
@@ -634,9 +639,30 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
   );
 };
 
-const AdvancedTextInput = () => {
+const AdvancedTextInput: FC<{
+  value: string[];
+  onChange: (val: string[]) => void;
+}> = (props) => {
   const [isOpen, toggleIsOpen] = useState(false);
-  const [inputAddresses, setInputAddresses] = useState([""]);
+
+  const handleEdit = (i: number) => (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = [
+      ...props.value.slice(0, i),
+      e.target.value,
+      ...props.value.slice(i + 1),
+    ];
+    props.onChange(newValue);
+  };
+
+  const handleAddInput = () => {
+    props.onChange([...props.value, ""]);
+  };
+
+  const handleDelete = (i: number) => () => {
+    const newValue = [...props.value.slice(0, i), ...props.value.slice(i + 1)];
+    props.onChange(newValue);
+  };
+
   return (
     <>
       <button
@@ -659,43 +685,24 @@ const AdvancedTextInput = () => {
               </Trans>
             </Text>
           </label>
-          {inputAddresses.map((address, i) => {
+          {props.value.map((address, i) => {
             return (
               <div key={i} className={styles.advancedButtonInput}>
                 <input
                   value={address}
-                  onChange={(e) => {
-                    setInputAddresses((prev) => [
-                      ...prev.slice(0, i),
-                      e.target.value,
-                      ...prev.slice(i + 1),
-                    ]);
-                  }}
+                  onChange={handleEdit(i)}
                   placeholder={t({
                     id: "offset.enter_address",
                     message: "Enter 0x address",
                   })}
                 />
-                {i === inputAddresses.length - 1 && (
-                  <button
-                    onClick={() => {
-                      setInputAddresses((prev) => [...prev, ""]);
-                    }}
-                    className="plusbutton"
-                  >
+                {i === props.value.length - 1 && (
+                  <button onClick={handleAddInput} className="plusbutton">
                     <Add />
                   </button>
                 )}
-                {inputAddresses.length > 1 && (
-                  <button
-                    onClick={() => {
-                      setInputAddresses((prev) => [
-                        ...prev.slice(0, i),
-                        ...prev.slice(i + 1),
-                      ]);
-                    }}
-                    className="plusbutton"
-                  >
+                {props.value.length > 1 && (
+                  <button onClick={handleDelete(i)} className="plusbutton">
                     <Delete />
                   </button>
                 )}
