@@ -112,7 +112,9 @@ export const Offset = (props: Props) => {
   const [retirementMessage, setRetirementMessage] = useState("");
   // for selective retirement
   const [specificAddresses, setSpecificAddresses] = useState([""]);
-
+  const validSpecificAddresses = specificAddresses.filter(
+    (str) => str.length === 42 && str.startsWith("0x")
+  );
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
 
@@ -166,11 +168,12 @@ export const Offset = (props: Props) => {
         quantity: debouncedQuantity,
         amountInCarbon: true,
         provider: props.provider,
+        getSpecific: !!validSpecificAddresses.length,
       });
       setCost(consumptionCost);
     };
     awaitGetOffsetConsumptionCost();
-  }, [debouncedQuantity]);
+  }, [debouncedQuantity, validSpecificAddresses.length]);
 
   const handleOnSuccessModalClose = () => {
     setQuantity("0");
@@ -695,6 +698,7 @@ const AdvancedTextInput: FC<{
                     id: "offset.enter_address",
                     message: "Enter 0x address",
                   })}
+                  pattern="^0x[a-fA-F0-9]{40}$"
                 />
                 {i === props.value.length - 1 && (
                   <button onClick={handleAddInput} className="plusbutton">

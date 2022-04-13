@@ -139,6 +139,10 @@ export const input = css`
     color: var(--font-01);
   }
 
+  input:invalid {
+    outline: 1px solid red;
+  }
+
   .number_input_container {
     min-height: 4.8rem;
     display: grid;

@@ -142,6 +142,7 @@ export const getOffsetConsumptionCost = async (params: {
   retirementToken: RetirementToken;
   quantity: string;
   amountInCarbon: boolean;
+  getSpecific: boolean;
 }): Promise<[string, string]> => {
   const retirementAggregatorContract = new ethers.Contract(
     addresses["mainnet"].retirementAggregator,
@@ -152,12 +153,23 @@ export const getOffsetConsumptionCost = async (params: {
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
-  const sourceAmount = await retirementAggregatorContract.getSourceAmount(
-    addresses["mainnet"][params.inputToken],
-    addresses["mainnet"][params.retirementToken],
-    parsed,
-    params.amountInCarbon // amountInCarbon: bool
-  );
+  let sourceAmount: any;
+  if (params.getSpecific) {
+    sourceAmount = await retirementAggregatorContract.getSourceAmountSpecific(
+      addresses["mainnet"][params.inputToken],
+      addresses["mainnet"][params.retirementToken],
+      parsed,
+      params.amountInCarbon // amountInCarbon: bool
+    );
+  } else {
+    sourceAmount = await retirementAggregatorContract.getSourceAmount(
+      addresses["mainnet"][params.inputToken],
+      addresses["mainnet"][params.retirementToken],
+      parsed,
+      params.amountInCarbon // amountInCarbon: bool
+    );
+  }
+
   return [
     formatUnits(sourceAmount[0], getTokenDecimals(params.inputToken)),
     formatUnits(sourceAmount[1], getTokenDecimals(params.retirementToken)),
