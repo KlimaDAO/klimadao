@@ -680,7 +680,7 @@ const AdvancedTextInput: FC<{
         className={styles.advancedButton}
       >
         {isOpen ? <KeyboardArrowDown /> : <KeyboardArrowRight />}
-        <Text t="caption" className="advancedButton_label">
+        <Text t="caption" className="advancedButton_label" uppercase>
           <Trans id="advanced">ADVANCED</Trans>
         </Text>
       </button>
