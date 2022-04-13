@@ -1,4 +1,4 @@
-import { urls } from '@klimadao/lib/constants'
+import { urls } from "@klimadao/lib/constants";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -11,4 +11,6 @@ export const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY;
 
 export const MONTH_IN_SECONDS = 2592000;
 
-export const API_BASE_URL = IS_LOCAL_DEVELOPMENT ? "http://localhost:3000" : urls.home;
+export const API_BASE_URL = IS_LOCAL_DEVELOPMENT
+  ? "http://localhost:3000"
+  : urls.home;
