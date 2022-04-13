@@ -163,6 +163,7 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
+      setCost("loading");
       const [consumptionCost] = await getOffsetConsumptionCost({
         inputToken: selectedInputToken,
         retirementToken: selectedRetirementToken,
