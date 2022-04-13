@@ -212,6 +212,7 @@ export const Offset = (props: Props) => {
         beneficiaryName: beneficiary,
         retirementMessage,
         onStatus: setStatus,
+        specificAddresses: validSpecificAddresses,
       });
       dispatch(
         updateRetirement({
