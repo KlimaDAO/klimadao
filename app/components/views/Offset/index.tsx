@@ -423,6 +423,7 @@ export const Offset = (props: Props) => {
             onToggleModal={() => setInputTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectInputToken}
           />
+
           {/* Retire Token  */}
           <DropdownWithModal
             label="Select carbon offset token to retire"
@@ -433,40 +434,11 @@ export const Offset = (props: Props) => {
             onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectRetirementToken}
           />
-          <MiniTokenDisplay
-            label={
-              <div className="mini_token_label">
-                <Text t="caption" color="lighter">
-                  <Trans id="offset_cost">Cost</Trans>
-                </Text>
-                <TextInfoTooltip
-                  content={
-                    <Trans id="offset.aggregation_fee_tooltip">
-                      This cost includes slippage and the aggregation fee of 1%.
-                    </Trans>
-                  }
-                >
-                  <InfoOutlined />
-                </TextInfoTooltip>
-              </div>
-            }
-            amount={cost}
-            icon={tokenInfo[selectedInputToken].icon}
-            name={selectedInputToken}
-            loading={cost === "loading"}
-            warn={insufficientBalance}
+          <AdvancedTextInput
+            value={specificAddresses}
+            onChange={setSpecificAddresses}
           />
-          <MiniTokenDisplay
-            label={
-              <Text t="caption" color="lighter">
-                <Trans id="offset.retiring">Retiring</Trans>
-              </Text>
-            }
-            amount={quantity}
-            icon={tokenInfo[selectedRetirementToken].icon}
-            name={selectedRetirementToken}
-            labelAlignment="start"
-          />
+
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
               <Trans id="offset.retirement_credit">
@@ -518,9 +490,39 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-          <AdvancedTextInput
-            value={specificAddresses}
-            onChange={setSpecificAddresses}
+          <MiniTokenDisplay
+            label={
+              <div className="mini_token_label">
+                <Text t="caption" color="lighter">
+                  <Trans id="offset_cost">Cost</Trans>
+                </Text>
+                <TextInfoTooltip
+                  content={
+                    <Trans id="offset.aggregation_fee_tooltip">
+                      This cost includes slippage and the aggregation fee of 1%.
+                    </Trans>
+                  }
+                >
+                  <InfoOutlined />
+                </TextInfoTooltip>
+              </div>
+            }
+            amount={cost}
+            icon={tokenInfo[selectedInputToken].icon}
+            name={selectedInputToken}
+            loading={cost === "loading"}
+            warn={insufficientBalance}
+          />
+          <MiniTokenDisplay
+            label={
+              <Text t="caption" color="lighter">
+                <Trans id="offset.retiring">Retiring</Trans>
+              </Text>
+            }
+            amount={quantity}
+            icon={tokenInfo[selectedRetirementToken].icon}
+            name={selectedRetirementToken}
+            labelAlignment="start"
           />
           <div className="disclaimer">
             <GppMaybeOutlined />
@@ -675,7 +677,7 @@ const AdvancedTextInput: FC<{
         className={styles.advancedButton}
       >
         {isOpen ? <KeyboardArrowDown /> : <KeyboardArrowRight />}
-        <Text t="caption" color="lighter">
+        <Text t="caption" className="advancedButton_label">
           <Trans id="advanced">ADVANCED</Trans>
         </Text>
       </button>
@@ -687,6 +689,16 @@ const AdvancedTextInput: FC<{
                 Retire specific project tokens
               </Trans>
             </Text>
+            <TextInfoTooltip
+              content={
+                <Trans id="offset.retire_specific_tooltip">
+                  Subject to additional fee, determined by the pool and bridge
+                  provider.
+                </Trans>
+              }
+            >
+              <InfoOutlined />
+            </TextInfoTooltip>
           </label>
           {props.value.map((address, i) => {
             return (

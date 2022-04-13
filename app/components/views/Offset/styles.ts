@@ -140,7 +140,14 @@ export const input = css`
   }
 
   input:invalid {
-    outline: 1px solid red;
+    outline: 0.1rem solid red;
+  }
+
+  label {
+    display: flex;
+    gap: 0.8rem;
+    color: white;
+    align-items: center;
   }
 
   .number_input_container {
@@ -221,6 +228,11 @@ export const advancedButton = css`
   width: 100%;
   display: flex;
   align-items: center;
+
+  &,
+  & .advancedButton_label {
+    color: var(--font-03);
+  }
 `;
 
 export const advancedButtonInput = css`
