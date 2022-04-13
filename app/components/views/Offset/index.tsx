@@ -175,7 +175,12 @@ export const Offset = (props: Props) => {
       setCost(consumptionCost);
     };
     awaitGetOffsetConsumptionCost();
-  }, [debouncedQuantity, validSpecificAddresses.length]);
+  }, [
+    debouncedQuantity,
+    validSpecificAddresses.length,
+    selectedInputToken,
+    selectedRetirementToken,
+  ]);
 
   const handleOnSuccessModalClose = () => {
     setQuantity("0");
@@ -281,20 +286,10 @@ export const Offset = (props: Props) => {
   };
 
   const handleSelectInputToken = (tkn: string) => {
-    if (tkn !== selectedInputToken) {
-      setQuantity("");
-      setDebouncedQuantity("");
-      setCost("");
-    }
     setSelectedInputToken(tkn as InputToken);
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
-    if (tkn !== selectedRetirementToken) {
-      setQuantity("");
-      setDebouncedQuantity("");
-      setCost("");
-    }
     setSelectedRetirementToken(tkn as RetirementToken);
   };
 
