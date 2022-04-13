@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
@@ -9,6 +9,10 @@ import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
+import Add from "@mui/icons-material/Add";
+import CancelIcon from "@mui/icons-material/Cancel";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
@@ -53,6 +57,7 @@ import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
 
 import * as styles from "./styles";
+import { cx } from "@emotion/css";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -106,7 +111,11 @@ export const Offset = (props: Props) => {
   const [beneficiary, setBeneficiary] = useState("");
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
   const [retirementMessage, setRetirementMessage] = useState("");
-
+  // for selective retirement
+  const [specificAddresses, setSpecificAddresses] = useState([""]);
+  const validSpecificAddresses = specificAddresses.filter(
+    (str) => str.length === 42 && str.startsWith("0x")
+  );
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
 
@@ -154,17 +163,19 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
+      setCost("loading");
       const [consumptionCost] = await getOffsetConsumptionCost({
         inputToken: selectedInputToken,
         retirementToken: selectedRetirementToken,
         quantity: debouncedQuantity,
         amountInCarbon: true,
         provider: props.provider,
+        getSpecific: !!validSpecificAddresses.length,
       });
       setCost(consumptionCost);
     };
     awaitGetOffsetConsumptionCost();
-  }, [debouncedQuantity]);
+  }, [debouncedQuantity, validSpecificAddresses.length]);
 
   const handleOnSuccessModalClose = () => {
     setQuantity("0");
@@ -203,6 +214,7 @@ export const Offset = (props: Props) => {
         beneficiaryName: beneficiary,
         retirementMessage,
         onStatus: setStatus,
+        specificAddresses: validSpecificAddresses,
       });
       dispatch(
         updateRetirement({
@@ -404,7 +416,6 @@ export const Offset = (props: Props) => {
               />
             </div>
           </div>
-
           {/* Input Token */}
           <DropdownWithModal
             label="Pay with"
@@ -415,6 +426,7 @@ export const Offset = (props: Props) => {
             onToggleModal={() => setInputTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectInputToken}
           />
+
           {/* Retire Token  */}
           <DropdownWithModal
             label="Select carbon offset token to retire"
@@ -425,41 +437,9 @@ export const Offset = (props: Props) => {
             onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectRetirementToken}
           />
-
-          <MiniTokenDisplay
-            label={
-              <div className="mini_token_label">
-                <Text t="caption" color="lighter">
-                  <Trans id="offset_cost">Cost</Trans>
-                </Text>
-                <TextInfoTooltip
-                  content={
-                    <Trans id="offset.aggregation_fee_tooltip">
-                      This cost includes slippage and the aggregation fee of 1%.
-                    </Trans>
-                  }
-                >
-                  <InfoOutlined />
-                </TextInfoTooltip>
-              </div>
-            }
-            amount={cost}
-            icon={tokenInfo[selectedInputToken].icon}
-            name={selectedInputToken}
-            loading={cost === "loading"}
-            warn={insufficientBalance}
-          />
-
-          <MiniTokenDisplay
-            label={
-              <Text t="caption" color="lighter">
-                <Trans id="offset.retiring">Retiring</Trans>
-              </Text>
-            }
-            amount={quantity}
-            icon={tokenInfo[selectedRetirementToken].icon}
-            name={selectedRetirementToken}
-            labelAlignment="start"
+          <AdvancedTextInput
+            value={specificAddresses}
+            onChange={setSpecificAddresses}
           />
 
           <div className={styles.beneficiary}>
@@ -495,7 +475,6 @@ export const Offset = (props: Props) => {
               </Text>
             </div>
           </div>
-
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -514,7 +493,40 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-
+          <MiniTokenDisplay
+            label={
+              <div className="mini_token_label">
+                <Text t="caption" color="lighter">
+                  <Trans id="offset_cost">Cost</Trans>
+                </Text>
+                <TextInfoTooltip
+                  content={
+                    <Trans id="offset.aggregation_fee_tooltip">
+                      This cost includes slippage and the aggregation fee of 1%.
+                    </Trans>
+                  }
+                >
+                  <InfoOutlined />
+                </TextInfoTooltip>
+              </div>
+            }
+            amount={cost}
+            icon={tokenInfo[selectedInputToken].icon}
+            name={selectedInputToken}
+            loading={cost === "loading"}
+            warn={insufficientBalance}
+          />
+          <MiniTokenDisplay
+            label={
+              <Text t="caption" color="lighter">
+                <Trans id="offset.retiring">Retiring</Trans>
+              </Text>
+            }
+            amount={quantity}
+            icon={tokenInfo[selectedRetirementToken].icon}
+            name={selectedRetirementToken}
+            labelAlignment="start"
+          />
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
@@ -632,5 +644,97 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
         </div>
       </div>
     </div>
+  );
+};
+
+const AdvancedTextInput: FC<{
+  value: string[];
+  onChange: (val: string[]) => void;
+}> = (props) => {
+  const [isOpen, toggleIsOpen] = useState(false);
+
+  const handleEdit = (i: number) => (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = [
+      ...props.value.slice(0, i),
+      e.target.value,
+      ...props.value.slice(i + 1),
+    ];
+    props.onChange(newValue);
+  };
+
+  const handleAddInput = () => {
+    props.onChange([...props.value, ""]);
+  };
+
+  const handleDelete = (i: number) => () => {
+    const newValue = [...props.value.slice(0, i), ...props.value.slice(i + 1)];
+    props.onChange(newValue);
+  };
+
+  return (
+    <>
+      <button
+        onClick={() => {
+          toggleIsOpen((prev) => !prev);
+        }}
+        className={styles.advancedButton}
+      >
+        {isOpen ? <KeyboardArrowDown /> : <KeyboardArrowRight />}
+        <Text t="caption" className="advancedButton_label" uppercase>
+          <Trans id="advanced">ADVANCED</Trans>
+        </Text>
+      </button>
+      {isOpen && (
+        <div className={styles.input}>
+          <label>
+            <Text t="caption" color="lighter">
+              <Trans id="offset.retire_specific">
+                Retire specific project tokens
+              </Trans>
+            </Text>
+            <TextInfoTooltip
+              content={
+                <Trans id="offset.retire_specific_tooltip">
+                  Subject to additional fee, determined by the selected pool and
+                  payed to the bridge provider.
+                </Trans>
+              }
+            >
+              <InfoOutlined />
+            </TextInfoTooltip>
+          </label>
+          {props.value.map((address, i) => {
+            return (
+              <div key={i} className={styles.advancedButtonInput}>
+                <div className="advancedButtonInput_iconAligner">
+                  <input
+                    value={address}
+                    onChange={handleEdit(i)}
+                    placeholder={t({
+                      id: "offset.enter_address",
+                      message: "Enter 0x address",
+                    })}
+                    pattern="^0x[a-fA-F0-9]{40}$"
+                  />
+                  {props.value.length > 1 && (
+                    <button onClick={handleDelete(i)} className="deletebutton">
+                      <CancelIcon />
+                    </button>
+                  )}
+                </div>
+                <button
+                  onClick={handleAddInput}
+                  className={cx("plusbutton", {
+                    hidden: i !== props.value.length - 1,
+                  })}
+                >
+                  <Add />
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 };

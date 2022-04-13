@@ -142,6 +142,7 @@ export const getOffsetConsumptionCost = async (params: {
   retirementToken: RetirementToken;
   quantity: string;
   amountInCarbon: boolean;
+  getSpecific: boolean;
 }): Promise<[string, string]> => {
   const retirementAggregatorContract = new ethers.Contract(
     addresses["mainnet"].retirementAggregator,
@@ -152,12 +153,23 @@ export const getOffsetConsumptionCost = async (params: {
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
-  const sourceAmount = await retirementAggregatorContract.getSourceAmount(
-    addresses["mainnet"][params.inputToken],
-    addresses["mainnet"][params.retirementToken],
-    parsed,
-    params.amountInCarbon // amountInCarbon: bool
-  );
+  let sourceAmount: any;
+  if (params.getSpecific) {
+    sourceAmount = await retirementAggregatorContract.getSourceAmountSpecific(
+      addresses["mainnet"][params.inputToken],
+      addresses["mainnet"][params.retirementToken],
+      parsed,
+      params.amountInCarbon // amountInCarbon: bool
+    );
+  } else {
+    sourceAmount = await retirementAggregatorContract.getSourceAmount(
+      addresses["mainnet"][params.inputToken],
+      addresses["mainnet"][params.retirementToken],
+      parsed,
+      params.amountInCarbon // amountInCarbon: bool
+    );
+  }
+
   return [
     formatUnits(sourceAmount[0], getTokenDecimals(params.inputToken)),
     formatUnits(sourceAmount[1], getTokenDecimals(params.retirementToken)),
@@ -175,6 +187,7 @@ export const retireCarbonTransaction = async (params: {
   beneficiaryName: string;
   retirementMessage: string;
   onStatus: OnStatusHandler;
+  specificAddresses: string[];
 }) => {
   try {
     const retireContract = new ethers.Contract(
@@ -183,18 +196,35 @@ export const retireCarbonTransaction = async (params: {
       params.provider.getSigner()
     );
     params.onStatus("userConfirmation");
-    const txn = await retireContract.retireCarbon(
-      addresses["mainnet"][params.inputToken],
-      addresses["mainnet"][params.retirementToken],
-      ethers.utils.parseUnits(
-        params.quantity,
-        getTokenDecimals(params.retirementToken)
-      ),
-      params.amountInCarbon,
-      params.beneficiaryAddress || params.address,
-      params.beneficiaryName,
-      params.retirementMessage
-    );
+    let txn;
+    if (!!params.specificAddresses.length) {
+      txn = await retireContract.retireCarbonSpecific(
+        addresses["mainnet"][params.inputToken],
+        addresses["mainnet"][params.retirementToken],
+        ethers.utils.parseUnits(
+          params.quantity,
+          getTokenDecimals(params.retirementToken)
+        ),
+        params.amountInCarbon,
+        params.beneficiaryAddress || params.address,
+        params.beneficiaryName,
+        params.retirementMessage,
+        params.specificAddresses
+      );
+    } else {
+      txn = await retireContract.retireCarbon(
+        addresses["mainnet"][params.inputToken],
+        addresses["mainnet"][params.retirementToken],
+        ethers.utils.parseUnits(
+          params.quantity,
+          getTokenDecimals(params.retirementToken)
+        ),
+        params.amountInCarbon,
+        params.beneficiaryAddress || params.address,
+        params.beneficiaryName,
+        params.retirementMessage
+      );
+    }
     params.onStatus("networkConfirmation");
     const receipt = await txn.wait(1);
     return receipt;
