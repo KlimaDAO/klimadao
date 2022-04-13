@@ -30,7 +30,7 @@ import {
 } from "actions/pklima";
 import * as styles from "components/views/Stake/styles";
 import { BalancesCard } from "components/BalancesCard";
-import { RedeemOutlined } from "@mui/icons-material";
+import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 interface Props {

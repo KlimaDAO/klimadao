@@ -21,7 +21,7 @@ import {
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
-import { MenuBookOutlined } from "@mui/icons-material";
+import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
