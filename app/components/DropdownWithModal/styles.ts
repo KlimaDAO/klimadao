@@ -8,11 +8,11 @@ export const container = css`
   gap: 0.6rem;
 
   button {
+    border: 0.2rem solid var(--surface-03);
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--surface-01);
     border-radius: 1rem;
     padding: 0.4rem 0.8rem;
     &:hover {
