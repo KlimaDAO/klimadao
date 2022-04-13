@@ -446,7 +446,7 @@ msgstr "Retire specific project tokens"
 
 #: components/views/Offset/index.tsx:697
 msgid "offset.retire_specific_tooltip"
-msgstr "Subject to additional fee, determined by the selected pool and payed to the bridge provider."
+msgstr "Subject to additional fee, determined by the selected pool and paid to the bridge provider."
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:30
 #: components/CarbonTonnesBreakdownCard/index.tsx:44

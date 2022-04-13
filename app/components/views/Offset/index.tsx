@@ -696,7 +696,7 @@ const AdvancedTextInput: FC<{
               content={
                 <Trans id="offset.retire_specific_tooltip">
                   Subject to additional fee, determined by the selected pool and
-                  payed to the bridge provider.
+                  paid to the bridge provider.
                 </Trans>
               }
             >
