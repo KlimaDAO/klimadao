@@ -13,13 +13,13 @@ export const profile = css`
   display: grid;
   gap: 1.6rem;
   justify-items: center;
-  padding: 2rem 0;
+  padding: 6rem 0 2rem 0;
 
   .profileImage {
     display: grid;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
     background-color: var(--surface-02);
     transition: background-color 0.25s ease-in-out;

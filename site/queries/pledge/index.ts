@@ -1,7 +1,5 @@
 import { urls } from "@klimadao/lib/constants";
-import { IS_LOCAL_DEVELOPMENT } from "lib/constants";
-
-const API_BASE_URL = IS_LOCAL_DEVELOPMENT ? "http://localhost:3000" : urls.home;
+import { API_BASE_URL } from "lib/constants";
 
 type getPledgeParams = { address: string };
 

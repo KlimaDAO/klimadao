@@ -7,29 +7,10 @@ import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { PledgeLayout } from "./PledgeLayout";
 import * as styles from "./styles";
 
-type Props = {
-  pledge: PledgeType;
-};
-
-const defaultValues = (pledge: PledgeType) =>
-  Object.assign(
-    {
-      address: "",
-      description: "Write your pledge today!",
-      footprint: [0],
-      methodology: "How will you meet your pledge?",
-      name: "",
-    },
-    pledge
-  );
-
 export const Pledge: NextPage = () => {
   const router = useRouter();
   const [address, setAddress] = useState("");
   const [error, setError] = useState(false);
-  const [pledge, _setPledge] = useState<PledgeType>(
-    defaultValues(props.pledge)
-  );
 
   const handleAddressInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
