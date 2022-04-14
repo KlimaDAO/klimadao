@@ -71,7 +71,7 @@ export const Navigation: FC<Props> = (props) => (
         name={t({ message: "Stake", id: "shared.stake" })}
       />
       <NavItemMobile
-        url={urls.bonds}
+        url={urls.loveletter}
         name={t({ message: "Love Letters", id: "shared.loveletters" })}
       />
       <NavItemMobile
