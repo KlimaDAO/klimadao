@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-13 21:59+0000\n"
+"POT-Creation-Date: 2022-04-14 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr "Name"
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
-msgstr ""
+msgstr "Am 12. April haben wir unsere URL von \"dapp\" auf \"app\" geändert. Aktualisiere daher bitte deine Lesezeichen."
 
 #: components/views/Offset/index.tsx:583
 msgid "Retirement Successful"
@@ -37,11 +37,11 @@ msgstr "CO2-Ausgleich teilen"
 
 #: components/InvalidNetworkModal/index.tsx:89
 msgid "Switch to Polygon"
-msgstr ""
+msgstr "Zu Polygon wechseln"
 
 #: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
-msgstr ""
+msgstr "Die App funktioniert nur im Polygon-Mainnet."
 
 #: components/views/Offset/index.tsx:609
 msgid "Tonnes Retired"
@@ -53,7 +53,7 @@ msgstr "Auf <0>polygonscan.com</0> ansehen"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Wrong Network"
-msgstr ""
+msgstr "Falsches Netzwerk"
 
 #: components/views/Offset/index.tsx:618
 #: components/views/Offset/index.tsx:626
@@ -62,7 +62,7 @@ msgstr "[folgt demnächst]"
 
 #: components/views/Offset/index.tsx:679
 msgid "advanced"
-msgstr ""
+msgstr "FORTGESCHRITTEN"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:729
@@ -206,7 +206,7 @@ msgstr "KLIMA kaufen"
 #. Long sentence
 #: components/views/Buy/index.tsx:97
 msgid "buy.connect_wallet"
-msgstr ""
+msgstr "Du musst deine Wallet verbinden, um KLIMA zu kaufen."
 
 #. Long sentence
 #: components/views/Buy/index.tsx:48
@@ -215,7 +215,7 @@ msgstr ""
 
 #: components/views/Buy/index.tsx:94
 msgid "buy.not_connected"
-msgstr ""
+msgstr "Nicht verbunden"
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -230,7 +230,7 @@ msgstr ""
 #. <0>app.klimadao.finance</0> is the only official domain.
 #: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
-msgstr ""
+msgstr "<0>app.klimadao.finance</0> ist die einzige offizielle Domain."
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
@@ -306,7 +306,7 @@ msgstr "2. Gehe nach Einstellungen -> Netzwerke -> Polygon und klicke \"Löschen
 #. Long sentence
 #: components/views/Info/index.tsx:144
 msgid "info.app_not_loading.3_return_to_app"
-msgstr ""
+msgstr "Gehe zurück nach app.klimadao.finance und klicke auf \"Wechsel zum Mainnet\"."
 
 #. Long sentence
 #: components/views/Info/index.tsx:122
@@ -321,7 +321,7 @@ msgstr "Metamask sollte dich dazu auffordern, Polygon mit der korrekten RPC-Konf
 #. Long sentence
 #: components/views/Info/index.tsx:117
 msgid "info.app_not_loading.title"
-msgstr ""
+msgstr "Warum lädt die App nicht?"
 
 #. Long sentence
 #: components/views/Info/index.tsx:105
@@ -411,7 +411,7 @@ msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 #: components/views/Offset/index.tsx:461
 #: components/views/Offset/index.tsx:708
 msgid "offset.enter_address"
-msgstr ""
+msgstr "0x-Adresse eingeben"
 
 #: components/views/Offset/index.tsx:366
 msgid "offset.go_carbon_neutral"
@@ -581,7 +581,7 @@ msgstr "Wallet verbinden"
 
 #: components/views/Buy/index.tsx:65
 msgid "shared.copy_wallet_address"
-msgstr ""
+msgstr "Adresse kopieren {0}"
 
 #: components/views/Stake/index.tsx:166
 #: components/views/Stake/index.tsx:176
@@ -636,7 +636,7 @@ msgstr "Ausverkauft"
 
 #: components/views/Buy/index.tsx:72
 msgid "shared.wallet_address_copied"
-msgstr ""
+msgstr "Kopiert!"
 
 #: components/views/Stake/index.tsx:298
 msgid "stake.5_day_rewards"
