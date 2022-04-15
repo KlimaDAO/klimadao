@@ -15,7 +15,7 @@ export interface Pledge {
   objectId: string;
 }
 
-export const pledgeResolver = (pledge: Pledge) => ({
+export const pledgeResolver = (pledge: Pledge): Pledge => ({
   objectId: pledge.objectId,
   address: pledge.address || "",
   name: pledge.name || "",

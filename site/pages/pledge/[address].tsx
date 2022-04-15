@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 
-import { Pledge } from "components/pages/Pledge";
-import { getPledge } from "queries/pledge";
+import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
+import { getPledgeByAddress, pledgeResolver } from "lib/moralis";
 import { loadTranslation } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
@@ -10,21 +10,21 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   let pledge;
 
   try {
-    const response = await getPledge(address.toLowerCase());
-    const data = await response.json();
-    pledge = data.pledge;
+    const data = await getPledgeByAddress(address.toLowerCase());
 
-    if (!data.pledge) {
-      pledge = null;
-    }
-  } catch (e) {
-    console.log(e);
+    if (!data) throw new Error("Not found");
+    pledge = pledgeResolver(JSON.parse(JSON.stringify(data)));
+  } catch (error) {
+    console.log("hi");
+    console.log(error);
+    pledge = null;
   }
 
   return {
     props: {
-      translation,
+      pageAddress: address,
       pledge,
+      translation,
     },
     revalidate: 180,
   };
@@ -35,4 +35,4 @@ export const getStaticPaths = async () => ({
   fallback: "blocking",
 });
 
-export default Pledge;
+export default PledgeDashboard;
