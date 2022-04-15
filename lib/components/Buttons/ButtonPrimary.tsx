@@ -36,6 +36,7 @@ export const ButtonPrimary: FC<Props> = ({ link: LinkElement, ...props }) => {
       </a>
     );
   }
+
   return (
     <button
       type="button"
