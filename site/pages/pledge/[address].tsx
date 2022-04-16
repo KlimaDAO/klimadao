@@ -15,8 +15,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     if (!data) throw new Error("Not found");
     pledge = pledgeResolver(JSON.parse(JSON.stringify(data)));
   } catch (error) {
-    console.log("hi");
-    console.log(error);
     pledge = null;
   }
 
