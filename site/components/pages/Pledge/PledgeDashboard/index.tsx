@@ -29,7 +29,7 @@ const defaultValues = (pledge: Pledge): Pledge =>
   Object.assign(
     {
       address: "",
-      description: "Write your pledge today!",
+      pledge: "Write your pledge today!",
       footprint: [0],
       methodology: "How will you meet your pledge?",
       name: "",
@@ -41,7 +41,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [validAddress, setValidAddress] = useState(false);
-  const [pledge, _setPledge] = useState<Pledge>(defaultValues(props.pledge));
+  const [pledge, setPledge] = useState<Pledge>(defaultValues(props.pledge));
 
   const ToggleModal = (
     <ButtonPrimary
@@ -60,6 +60,11 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     }
   });
 
+  const handleFormSubmit = (data) => {
+    setPledge(data);
+    setShowModal(false);
+  };
+
   return (
     <PledgeLayout buttons={[ToggleModal]}>
       {validAddress && (
@@ -69,7 +74,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             showModal={showModal}
             onToggleModal={() => setShowModal(!showModal)}
           >
-            <PledgeForm />
+            <PledgeForm pledge={pledge} onFormSubmit={handleFormSubmit} />
           </Modal>
 
           <div className={styles.contentContainer}>
@@ -89,7 +94,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             </div>
 
             <div className={styles.column}>
-              <PledgeCard pledge={pledge.description} />
+              <PledgeCard pledge={pledge.pledge} />
               <FootprintCard footprint={pledge.footprint} />
               <MethodologyCard methodology={pledge.methodology} />
             </div>

@@ -8,7 +8,7 @@ export const MoralisClient = Moralis.start({
 
 export interface Pledge {
   address: string;
-  description: string;
+  pledge: string;
   footprint: number[];
   methodology: string;
   name: string;
@@ -19,7 +19,7 @@ export const pledgeResolver = (pledge: Pledge): Pledge => ({
   objectId: pledge.objectId,
   address: pledge.address || "",
   name: pledge.name || "",
-  description: pledge.description || "",
+  pledge: pledge.pledge || "",
   methodology: pledge.methodology || "",
   footprint: pledge.footprint || [],
 });

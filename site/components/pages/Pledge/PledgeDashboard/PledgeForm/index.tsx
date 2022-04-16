@@ -1,74 +1,84 @@
 import React, { FC } from "react";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm, SubmitHandler } from "react-hook-form";
+import * as yup from "yup";
 
-import { Input } from "components/Input";
-import { Textarea } from "components/Textarea";
+import { InputField, TextareaField } from "components/Form";
+import { Pledge } from "lib/moralis";
 
 import * as styles from "./styles";
 
-// const InputField: FC = (props) => (
-//   <>
-//     <label>{props.label}</label>
-//     <props.Component id={props.name} name={props.name} />
-//     {props.errorMessage && errorMessage}
-//   </>
-// );
+type Props = {
+  pledge: Pledge;
+  onFormSubmit: (data: PledgeForm) => void;
+};
 
-export const PledgeForm: FC = () => {
+const schema = yup
+  .object({
+    name: yup.string().required("Enter a name"),
+    pledge: yup.string().required("Enter a pledge").max(280),
+    methodology: yup.string().required("Enter a methodology").max(280),
+    footprint: yup
+      .number()
+      .min(10)
+      .required("Enter your carbon footprint")
+      .typeError("Enter your carbon footprint"),
+  })
+  .noUnknown();
+
+type PledgeForm = yup.InferType<typeof schema>;
+
+export const PledgeForm: FC<Props> = (props) => {
+  const { register, handleSubmit, formState } = useForm({
+    mode: "onBlur",
+    defaultValues: props.pledge,
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit: SubmitHandler<PledgeForm> = (data: PledgeForm) => {
+    console.log(data);
+    props.onFormSubmit(data);
+  };
+
   return (
-    <div className={styles.container}>
-      <div className={styles.input}>
-        <label htmlFor="name">
-          <Text t="caption">Name</Text>
-        </label>
-        <Input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Name or company name"
-        />
-      </div>
+    <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
+      <InputField
+        label="Name"
+        placeholder="Name or company name"
+        type="text"
+        errors={formState.errors.name}
+        {...register("name")}
+      />
 
-      <div className={styles.input}>
-        <label htmlFor="pledge">
-          <Text t="caption">Pledge</Text>
-        </label>
-        <Textarea
-          id="pledge"
-          name="pledge"
-          type="text"
-          rows={2}
-          placeholder="What is your pledge?"
-        />
-      </div>
+      <TextareaField
+        id="pledge"
+        label="Pledge"
+        rows={2}
+        placeholder="What is your pledge?"
+        errors={formState.errors.pledge}
+        {...register("pledge")}
+      />
 
-      <div className={styles.input}>
-        <label htmlFor="methodology">
-          <Text t="caption">Methodology</Text>
-        </label>
-        <Textarea
-          id="methodology"
-          name="methodology"
-          type="text"
-          height="auto"
-          rows={6}
-          placeholder="How will you meet your pledge?"
-        />
-      </div>
+      <TextareaField
+        id="methodology"
+        label="Methodology"
+        rows={6}
+        placeholder="How will you meet your pledge?"
+        errors={formState.errors.methodology}
+        {...register("methodology")}
+      />
 
-      <div className={styles.input}>
-        <label htmlFor="footprint">
-          <Text t="caption">Footprint (carbon tonnes)</Text>
-        </label>
-        <Input
-          id="footprint"
-          name="footprint"
-          type="number"
-          placeholder="Quantity in carbon tonnes"
-        />
-      </div>
+      <InputField
+        id="footprint"
+        type="number"
+        label="Footprint (carbon tonnes)"
+        placeholder="Quantity in carbon tonnes"
+        errors={formState.errors.footprint}
+        {...register("footprint")}
+      />
 
-      <ButtonPrimary label="Save pledge" />
-    </div>
+      <ButtonPrimary label="Save pledge" onClick={handleSubmit(onSubmit)} />
+    </form>
   );
 };
