@@ -10,3 +10,16 @@ export const getPledge = (params: getPledgeParams) =>
       "Content-Type": "application/json",
     },
   });
+
+export const putPledge = (params) => {
+  return fetch(
+    `${API_BASE_URL}/api/pledge?sessionToken=${params.sessionToken}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(params.pledge),
+    }
+  );
+};

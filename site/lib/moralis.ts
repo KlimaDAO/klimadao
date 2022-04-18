@@ -32,3 +32,34 @@ export const getPledgeByAddress = async (address: string) => {
 
   return await query.equalTo("address", address).first();
 };
+
+export const findOrCreatePledgeById = async (params) => {
+  await MoralisClient;
+
+  const userSession = await findUserSession(params.sessionToken);
+  if (!userSession) throw new Error('')
+
+  const user = userSession?.get("user");
+
+  console.log(params.pledge)
+
+  // const acl = new Moralis.ACL();
+  // acl.setPublicReadAccess(true);
+  // acl.setWriteAccess(user.id, true);
+
+  // const Pledge = Moralis.Object.extend("Pledge");
+  // const newPledge = new Pledge({
+  //   ...params.pledge,
+  //   footprint: [params.pledge.footprint],
+  // });
+  // newPledge.setACL(acl);
+
+  // return await newPledge.save();
+};
+
+export const findUserSession = async (sessionToken: string) => {
+  const query = new Moralis.Query("_Session");
+  return await query
+    .equalTo("sessionToken", sessionToken)
+    .first({ useMasterKey: true });
+};

@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
-import { getPledgeByAddress, pledgeResolver } from "lib/moralis";
+import {
+  getPledgeByAddress,
+  pledgeResolver,
+  findOrCreatePledgeById,
+} from "lib/moralis";
 
 export default async function handler(
   req: NextApiRequest,
@@ -23,6 +27,16 @@ export default async function handler(
       }
       break;
     case "PUT":
+      try {
+        const data = await findOrCreatePledgeById({
+          pledge: req.body,
+          sessionToken: req.query.sessionToken,
+        });
+
+        res.status(200).json({ data });
+      } catch (error) {
+        console.log(error);
+      }
       break;
     default:
       // TODO: boilerplate, will revisit

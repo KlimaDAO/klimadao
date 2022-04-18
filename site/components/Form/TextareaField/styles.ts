@@ -46,10 +46,10 @@ export const errorStyles = css`
   &:hover {
     border-color: var(--warn);
   }
-`
+`;
 
 export const errorMessage = css`
-  p { 
+  p {
     font-size: 1.2rem;
     line-height: 1.4rem;
     font-weight: 400;

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useMoralis } from "react-moralis";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -6,6 +7,7 @@ import * as yup from "yup";
 
 import { InputField, TextareaField } from "components/Form";
 import { Pledge } from "lib/moralis";
+import { putPledge } from "queries/pledge";
 
 import * as styles from "./styles";
 
@@ -16,6 +18,8 @@ type Props = {
 
 const schema = yup
   .object({
+    objectId: yup.string().nullable(),
+    address: yup.string().required(),
     name: yup.string().required("Enter a name"),
     pledge: yup.string().required("Enter a pledge").max(280),
     methodology: yup.string().required("Enter a methodology").max(280),
@@ -30,15 +34,27 @@ const schema = yup
 type PledgeForm = yup.InferType<typeof schema>;
 
 export const PledgeForm: FC<Props> = (props) => {
+  const { user } = useMoralis();
   const { register, handleSubmit, formState } = useForm({
     mode: "onBlur",
     defaultValues: props.pledge,
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<PledgeForm> = (data: PledgeForm) => {
+  const onSubmit: SubmitHandler<PledgeForm> = async (data: PledgeForm) => {
     console.log(data);
-    props.onFormSubmit(data);
+    try {
+      // const results = await putPledge({
+      //   pledge: { address: user?.get("ethAddress"), ...data },
+      //   sessionToken: user?.getSessionToken(),
+      // });
+
+      // console.log(results);
+
+      props.onFormSubmit(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
