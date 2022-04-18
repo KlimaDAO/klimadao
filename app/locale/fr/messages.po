@@ -1,25 +1,25 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-18 15:42+0000\n"
+"POT-Creation-Date: 2022-04-18 22:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
 
-#: components/views/Offset/index.tsx:595
+#: components/views/Offset/index.tsx:598
 msgid "Beneficiary Address"
 msgstr "Adresse du bénéficiaire"
 
-#: components/views/Offset/index.tsx:615
+#: components/views/Offset/index.tsx:618
 msgid "Download certificate"
 msgstr "Télécharger le certificat"
 
-#: components/views/Offset/index.tsx:603
+#: components/views/Offset/index.tsx:606
 msgid "Message"
 msgstr "message"
 
-#: components/views/Offset/index.tsx:589
+#: components/views/Offset/index.tsx:592
 msgid "Name"
 msgstr "Nom"
 
@@ -27,11 +27,11 @@ msgstr "Nom"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr ""
 
-#: components/views/Offset/index.tsx:583
+#: components/views/Offset/index.tsx:586
 msgid "Retirement Successful"
 msgstr "Retrait réussie"
 
-#: components/views/Offset/index.tsx:623
+#: components/views/Offset/index.tsx:626
 msgid "Share retirement"
 msgstr "Partager le retrait"
 
@@ -43,11 +43,11 @@ msgstr ""
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
-#: components/views/Offset/index.tsx:609
+#: components/views/Offset/index.tsx:612
 msgid "Tonnes Retired"
 msgstr "Tonnes retirées"
 
-#: components/views/Offset/index.tsx:630
+#: components/views/Offset/index.tsx:633
 msgid "View on <0>polygonscan.com</0>"
 msgstr "Voir sur <0>polygonscan.com</0>"
 
@@ -55,12 +55,12 @@ msgstr "Voir sur <0>polygonscan.com</0>"
 msgid "Wrong Network"
 msgstr ""
 
-#: components/views/Offset/index.tsx:618
-#: components/views/Offset/index.tsx:626
+#: components/views/Offset/index.tsx:621
+#: components/views/Offset/index.tsx:629
 msgid "[coming soon]"
 msgstr "[Bientôt disponible]"
 
-#: components/views/Offset/index.tsx:679
+#: components/views/Offset/index.tsx:682
 msgid "advanced"
 msgstr ""
 
@@ -394,32 +394,36 @@ msgstr "CONFIRMATION"
 msgid "nav.back"
 msgstr "RETOUR"
 
-#: components/views/Offset/index.tsx:499
+#: components/views/Offset/index.tsx:502
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Ce coût comprend le glissement et les frais d'agrégation de 1 %."
 
-#: components/views/Offset/index.tsx:389
+#: components/views/Offset/index.tsx:393
 msgid "offset.amount_in_tonnes"
 msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:24
+#: components/CarbonTonnesBreakdownCard/index.tsx:42
 msgid "offset.breakdown"
 msgstr "Ventilation"
 
-#: components/views/Offset/index.tsx:467
+#: components/views/Offset/index.tsx:470
 msgid "offset.default_retirement_address"
 msgstr "Par défaut, l'adresse du portefeuille connecté"
 
-#: components/views/Offset/index.tsx:461
-#: components/views/Offset/index.tsx:708
+#: components/CarbonTonnesBreakdownCard/index.tsx:54
+msgid "offset.empty"
+msgstr ""
+
+#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:711
 msgid "offset.enter_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:366
+#: components/views/Offset/index.tsx:370
 msgid "offset.go_carbon_neutral"
 msgstr "Devenez neutre en carbone en retirant du carbone et en bénéficiant des avantages environnementaux liés aux compensation carbone. Choisissez de retirer des <0>Crédits Moss Carbon</0> (MCO2), des <1>Tonnes de carbone de base</1> (BCT), ou des <2>Nature Carbon Tonnes</2> (NCT), plus de choix à venir."
 
-#: components/views/Offset/index.tsx:345
+#: components/views/Offset/index.tsx:349
 msgid "offset.incompatible"
 msgstr "JETON EN ENTRÉE INCOMPATIBLE"
 
@@ -427,45 +431,39 @@ msgstr "JETON EN ENTRÉE INCOMPATIBLE"
 msgid "offset.number_of_retirements"
 msgstr "Retraits totaux"
 
-#: components/views/Offset/index.tsx:407
+#: components/views/Offset/index.tsx:410
 msgid "offset.offset_quantity"
 msgstr "Entrez la quantité à compenser"
 
-#: components/views/Offset/index.tsx:363
+#: components/views/Offset/index.tsx:367
 msgid "offset.retire_carbon"
 msgstr "Retirer du Carbone"
 
-#: components/views/Offset/index.tsx:686
+#: components/views/Offset/index.tsx:689
 msgid "offset.retire_specific"
 msgstr ""
 
-#: components/views/Offset/index.tsx:692
+#: components/views/Offset/index.tsx:695
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:30
-#: components/CarbonTonnesBreakdownCard/index.tsx:44
-#: components/CarbonTonnesBreakdownCard/index.tsx:58
-msgid "offset.retired"
-msgstr "Retiré"
-
-#: components/views/Offset/index.tsx:450
+#: components/views/Offset/index.tsx:453
 msgid "offset.retirement_beneficiary"
 msgstr "Nom ou organisation"
 
-#: components/views/Offset/index.tsx:442
+#: components/views/Offset/index.tsx:445
 msgid "offset.retirement_credit"
 msgstr "A qui ce retrait sera-t-il crédité ?"
 
-#: components/views/Offset/index.tsx:476
+#: components/views/Offset/index.tsx:479
 msgid "offset.retirement_message"
 msgstr "Message de destruction"
 
-#: components/views/Offset/index.tsx:485
+#: components/views/Offset/index.tsx:488
 msgid "offset.retirement_purpose"
 msgstr "Décrivez le but de ce retrait"
 
-#: components/views/Offset/index.tsx:517
+#: components/views/Offset/index.tsx:520
 msgid "offset.retiring"
 msgstr "Destruction en cours"
 
@@ -477,11 +475,11 @@ msgstr "Tonnes de carbone"
 msgid "offset.you_have_retired"
 msgstr "Vous avez retiré"
 
-#: components/views/Offset/index.tsx:495
+#: components/views/Offset/index.tsx:498
 msgid "offset_cost"
 msgstr "Coût"
 
-#: components/views/Offset/index.tsx:528
+#: components/views/Offset/index.tsx:531
 msgid "offset_disclaimer"
 msgstr "Veillez à ne pas divulguer d'informations personnelles sensibles. Votre message ne pourrra pas être modifié et sera enregistré définitivement sur une blockchain publique."
 
@@ -550,13 +548,13 @@ msgid "pklima.update"
 msgstr ""
 
 #: components/views/Bond/index.tsx:337
-#: components/views/Offset/index.tsx:274
+#: components/views/Offset/index.tsx:278
 #: components/views/Stake/index.tsx:151
 #: components/views/Stake/index.tsx:157
 msgid "shared.approve"
 msgstr "Approuver"
 
-#: components/BalancesCard/index.tsx:39
+#: components/BalancesCard/index.tsx:41
 msgid "shared.balances"
 msgstr "Soldes"
 
@@ -572,7 +570,7 @@ msgstr "Confirmation en cours"
 
 #: components/views/Bond/index.tsx:304
 #: components/views/Buy/index.tsx:102
-#: components/views/Offset/index.tsx:248
+#: components/views/Offset/index.tsx:252
 #: components/views/PKlima/index.tsx:124
 #: components/views/Stake/index.tsx:130
 #: components/views/Wrap/index.tsx:115
@@ -589,7 +587,7 @@ msgid "shared.enter_amount"
 msgstr "Entrez le montant"
 
 #: components/views/Bond/index.tsx:316
-#: components/views/Offset/index.tsx:260
+#: components/views/Offset/index.tsx:264
 msgid "shared.enter_quantity"
 msgstr "ENTRER LE MONTANT"
 
@@ -600,16 +598,17 @@ msgstr "ENTRER LE MONTANT"
 msgid "shared.error"
 msgstr "ERREUR"
 
-#: components/views/Offset/index.tsx:267
+#: components/views/Offset/index.tsx:271
 msgid "shared.insufficient_balance"
 msgstr "SOLDE INSUFFISANT"
 
+#: components/CarbonTonnesBreakdownCard/index.tsx:49
 #: components/RebaseCard/index.tsx:56
 #: components/RebaseCard/index.tsx:67
 #: components/views/Bond/index.tsx:310
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:254
-#: components/views/Offset/index.tsx:331
+#: components/views/Offset/index.tsx:258
+#: components/views/Offset/index.tsx:335
 #: components/views/PKlima/index.tsx:130
 #: components/views/Stake/index.tsx:136
 #: components/views/Stake/index.tsx:344
@@ -626,7 +625,7 @@ msgstr "Chargement..."
 msgid "shared.max"
 msgstr "Max"
 
-#: components/views/Offset/index.tsx:280
+#: components/views/Offset/index.tsx:284
 msgid "shared.retire"
 msgstr "RETIRER DU CARBONE"
 
