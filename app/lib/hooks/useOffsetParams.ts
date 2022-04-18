@@ -65,10 +65,15 @@ export const useOffsetParams = (): OffsetParams => {
         data[param] = params.get(param) || undefined;
       }
     });
+
     // set state to trigger re-render in parent component
     setState(data);
     // strip the params from the browser url
-    setParams({});
+    const strippedParams = Object.fromEntries(params.entries());
+    for (const key of inputParams) {
+      delete strippedParams[key];
+    }
+    setParams(strippedParams);
   }, []);
   return state;
 };
