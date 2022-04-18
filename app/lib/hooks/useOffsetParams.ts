@@ -27,18 +27,11 @@ interface OffsetParams {
   projectTokens?: string[];
 }
 
-/** Type guard */
-const isValidInputToken = (str: string | undefined): str is InputToken => {
-  if (typeof str === "undefined") return true;
-  return !!inputTokens.includes(str.toLocaleLowerCase() as InputToken);
-};
-/** Type guard */
-const isValidRetirementToken = (
-  str: string | undefined
-): str is RetirementToken => {
-  if (typeof str === "undefined") return true;
-  return !!retirementTokens.includes(str.toLowerCase() as RetirementToken);
-};
+/** Type guard to correctly infer the typed string e.g. "mco2" | "bct" */
+const isValidToken = <T extends readonly string[]>(
+  str: string,
+  arr: T
+): str is T[number] => arr.includes(str);
 
 /**
  * For the Offset view in the app. On mount, validates, extracts and strips the search params from the url and returns them as a typed object.
@@ -63,10 +56,11 @@ export const useOffsetParams = (): OffsetParams => {
         data.projectTokens = params.getAll("projectToken") || undefined;
       } else if (param === "inputToken") {
         const tkn = params.get("inputToken")?.toLowerCase() || undefined;
-        data[param] = isValidInputToken(tkn) ? tkn : undefined;
+        data[param] = tkn && isValidToken(tkn, inputTokens) ? tkn : undefined;
       } else if (param === "retirementToken") {
         const tkn = params.get("retirementToken")?.toLowerCase() || undefined;
-        data[param] = isValidRetirementToken(tkn) ? tkn : undefined;
+        data[param] =
+          tkn && isValidToken(tkn, retirementTokens) ? tkn : undefined;
       } else {
         data[param] = params.get(param) || undefined;
       }
