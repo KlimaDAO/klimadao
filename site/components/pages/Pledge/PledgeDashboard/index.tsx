@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import { useMoralis } from "react-moralis";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 
@@ -39,14 +40,17 @@ const defaultValues = (pledge: Pledge): Pledge =>
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const router = useRouter();
+  const { isAuthenticated, user } = useMoralis();
   const [showModal, setShowModal] = useState(false);
   const [validAddress, setValidAddress] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(defaultValues(props.pledge));
 
-  const ToggleModal = (
+  const canEditPledge =
+    isAuthenticated && user?.get("ethAddress") === props.pageAddress;
+  const EditPledge = canEditPledge && (
     <ButtonPrimary
       key="toggleModal"
-      label="Toggle modal"
+      label="Edit Pledge"
       onClick={() => setShowModal(!showModal)}
     />
   );
@@ -66,7 +70,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   };
 
   return (
-    <PledgeLayout buttons={[ToggleModal]}>
+    <PledgeLayout buttons={[EditPledge]}>
       {validAddress && (
         <>
           <Modal
@@ -89,9 +93,9 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               </Text>
             </div>
 
-            <div className={styles.pledgeChart}>
+            {/* <div className={styles.pledgeChart}>
               <AssetsOverTimeCard />
-            </div>
+            </div> */}
 
             <div className={styles.column}>
               <PledgeCard pledge={pledge.pledge} />

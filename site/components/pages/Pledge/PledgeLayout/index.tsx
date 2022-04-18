@@ -24,9 +24,10 @@ export const PledgeLayout: FC<Props> = (props) => {
             <KlimaInfinityLogo />
           </div>
           <div className={styles.group}>
+            <ThemeToggle />
+
             {props.buttons}
 
-            <ThemeToggle />
             {isAuthenticated ? (
               <ButtonPrimary label="Sign out" onClick={() => logout()} />
             ) : (

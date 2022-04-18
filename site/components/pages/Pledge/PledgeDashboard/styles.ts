@@ -25,9 +25,9 @@ export const profile = css`
     transition: background-color 0.25s ease-in-out;
   }
 
-  p {
-    text-transform: uppercase;
-  }
+  // p {
+  //   text-transform: uppercase;
+  // }
 `;
 
 export const pledgeChart = css`
