@@ -58,9 +58,6 @@ export const CarbonTonnesBreakdownCard: FC = () => {
           )}
           {retiredTokens.map((tkn) => (
             <>
-              <Text t="body3">
-                <Trans id="offset.retired">Retired</Trans>
-              </Text>
               <div className={styles.row}>
                 <div className="image">
                   <Image src={iconMap[tkn]} width={48} height={48} alt="" />
