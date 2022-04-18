@@ -55,6 +55,8 @@ import NCT from "public/icons/NCT.png";
 import MCO2 from "public/icons/MCO2.png";
 import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
+import UBO from "public/icons/UBO.png";
+import NBO from "public/icons/NBO.png";
 
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
@@ -73,6 +75,8 @@ type TokenInfoMap = {
   };
 };
 const tokenInfo: TokenInfoMap = {
+  ubo: { key: "ubo", icon: UBO, label: "UBO" },
+  nbo: { key: "nbo", icon: NBO, label: "NBO" },
   bct: { key: "bct", icon: BCT, label: "BCT" },
   nct: { key: "nct", icon: NCT, label: "NCT" },
   mco2: { key: "mco2", icon: MCO2, label: "MCO2" },
@@ -394,8 +398,7 @@ export const Offset = (props: Props) => {
             <div className="number_input_container">
               <input
                 type="number"
-                step={1}
-                max={balances?.[selectedInputToken]}
+                min="0"
                 value={quantity}
                 onKeyDown={(e) => {
                   // dont let user enter these special characters into the number input

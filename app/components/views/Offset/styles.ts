@@ -139,10 +139,6 @@ export const input = css`
     color: var(--font-01);
   }
 
-  input:invalid {
-    outline: 0.1rem solid red;
-  }
-
   label {
     display: flex;
     gap: 0.8rem;

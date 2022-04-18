@@ -44,6 +44,14 @@ export const getRetiredOffsetBalances = (params: {
         params.address,
         addresses["mainnet"].nct
       );
+      const ubo = await retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].ubo
+      );
+      const nbo = await retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].nbo
+      );
       dispatch(
         setCarbonRetiredBalances({
           totalTonnesRetired: formatUnits(totalTonnesRetired, 18),
@@ -52,6 +60,8 @@ export const getRetiredOffsetBalances = (params: {
           bct: formatUnits(bct, 18),
           mco2: formatUnits(mco2, 18),
           nct: formatUnits(nct, 18),
+          ubo: formatUnits(ubo, 18),
+          nbo: formatUnits(nbo, 18),
         })
       );
     } catch (error: any) {

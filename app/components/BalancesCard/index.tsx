@@ -30,6 +30,8 @@ export const BalancesCard: FC<Props> = (props) => {
     mco2: "MCO2",
     usdc: "USDC",
     nct: "NCT",
+    ubo: "UBO",
+    nbo: "NBO",
   };
   return (
     <div className={styles.card + " " + status}>

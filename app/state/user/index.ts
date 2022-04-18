@@ -14,6 +14,8 @@ export interface UserState {
     bct: string;
     mco2: string;
     nct: string;
+    ubo: string;
+    nbo: string;
     usdc: string;
   };
   pklimaTerms?: {
@@ -49,6 +51,8 @@ export interface UserState {
     mco2: string;
     nct: string;
     usdc: string;
+    ubo: string;
+    nbo: string;
   };
   carbonRetired?: {
     totalTonnesRetired: string;
@@ -57,6 +61,8 @@ export interface UserState {
     bct: string;
     mco2: string;
     nct: string;
+    ubo: string;
+    nbo: string;
   };
 }
 
