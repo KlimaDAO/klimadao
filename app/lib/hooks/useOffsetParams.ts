@@ -51,9 +51,9 @@ const isValidRetirementToken = (
  *   &beneficiary=The%20Devs
  *   &beneficiaryAddress=0x123&message=Thanks%20devs!
  * */
-export const useOffsetParams = (): OffsetParams | undefined => {
+export const useOffsetParams = (): OffsetParams => {
   const [params, setParams] = useSearchParams();
-  const [state, setState] = useState<OffsetParams>();
+  const [state, setState] = useState<OffsetParams>({});
 
   useEffect(() => {
     const data: OffsetParams = {};

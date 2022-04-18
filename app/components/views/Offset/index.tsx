@@ -132,25 +132,25 @@ export const Offset = (props: Props) => {
 
   /** Initialize input from params after they are extracted, validated & stripped */
   useEffect(() => {
-    if (params?.inputToken) {
+    if (params.inputToken) {
       setSelectedInputToken(params.inputToken);
     }
-    if (params?.retirementToken) {
+    if (params.retirementToken) {
       setSelectedRetirementToken(params.retirementToken);
     }
-    if (params?.message) {
+    if (params.message) {
       setRetirementMessage(params.message);
     }
-    if (params?.beneficiary) {
+    if (params.beneficiary) {
       setBeneficiary(params.beneficiary);
     }
-    if (params?.beneficiaryAddress) {
+    if (params.beneficiaryAddress) {
       setBeneficiaryAddress(params.beneficiaryAddress);
     }
-    if (params?.projectTokens) {
+    if (params.projectTokens) {
       setSpecificAddresses(params.projectTokens);
     }
-    if (params?.quantity) {
+    if (params.quantity) {
       setQuantity(params.quantity);
       setDebouncedQuantity(params.quantity);
     }
