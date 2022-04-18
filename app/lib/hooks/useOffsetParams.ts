@@ -14,7 +14,7 @@ const inputParams = [
   "beneficiary",
   "beneficiaryAddress",
   "message",
-  "projectToken",
+  "projectTokens",
 ] as const;
 
 interface OffsetParams {
@@ -39,8 +39,8 @@ const isValidToken = <T extends readonly string[]>(
  *   ?quantity=123
  *   &inputToken=klima
  *   &retirementToken=mco2
- *   &projectToken=0x1234
- *   &projectToken=0x5678
+ *   &projectTokens=0x1234
+ *   &projectTokens=0x5678
  *   &beneficiary=The%20Devs
  *   &beneficiaryAddress=0x123&message=Thanks%20devs!
  * */
@@ -51,9 +51,9 @@ export const useOffsetParams = (): OffsetParams => {
   useEffect(() => {
     const data: OffsetParams = {};
     inputParams.forEach((param) => {
-      if (param === "projectToken") {
-        // NOTE: input is singular because of how query params work: `projectToken=0x123&projectToken=0x456`
-        data.projectTokens = params.getAll("projectToken") || undefined;
+      if (param === "projectTokens") {
+        const arr = params.getAll("projectTokens");
+        data.projectTokens = arr.length ? arr : undefined;
       } else if (param === "inputToken") {
         const tkn = params.get("inputToken")?.toLowerCase() || undefined;
         data[param] = tkn && isValidToken(tkn, inputTokens) ? tkn : undefined;
