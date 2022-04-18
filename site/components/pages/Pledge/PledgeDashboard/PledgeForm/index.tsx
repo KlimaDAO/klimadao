@@ -19,13 +19,12 @@ type Props = {
 const schema = yup
   .object({
     objectId: yup.string().nullable(),
-    address: yup.string().required(),
     name: yup.string().required("Enter a name"),
     pledge: yup.string().required("Enter a pledge").max(280),
     methodology: yup.string().required("Enter a methodology").max(280),
     footprint: yup
       .number()
-      .min(10)
+      .min(1, "Enter a value greater than 1")
       .required("Enter your carbon footprint")
       .typeError("Enter your carbon footprint"),
   })
@@ -35,23 +34,22 @@ type PledgeForm = yup.InferType<typeof schema>;
 
 export const PledgeForm: FC<Props> = (props) => {
   const { user } = useMoralis();
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState, reset, getValues } = useForm({
     mode: "onBlur",
     defaultValues: props.pledge,
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<PledgeForm> = async (data: PledgeForm) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<PledgeForm> = async (formData: PledgeForm) => {
     try {
-      // const results = await putPledge({
-      //   pledge: { address: user?.get("ethAddress"), ...data },
-      //   sessionToken: user?.getSessionToken(),
-      // });
+      const response = await putPledge({
+        pledge: { ...formData, address: user?.get("ethAddress") },
+        sessionToken: user?.getSessionToken(),
+      });
+      const data = await response.json();
 
-      // console.log(results);
-
-      props.onFormSubmit(data);
+      props.onFormSubmit(data.pledge);
+      reset(data.pledge);
     } catch (error) {
       console.log(error);
     }
@@ -59,6 +57,7 @@ export const PledgeForm: FC<Props> = (props) => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
+      {JSON.stringify(getValues(), null, 2)}
       <InputField
         label="Name"
         placeholder="Name or company name"

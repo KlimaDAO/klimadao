@@ -33,28 +33,29 @@ export const getPledgeByAddress = async (address: string) => {
   return await query.equalTo("address", address).first();
 };
 
-export const findOrCreatePledgeById = async (params) => {
+export const findOrCreatePledge = async (params) => {
   await MoralisClient;
 
   const userSession = await findUserSession(params.sessionToken);
-  if (!userSession) throw new Error('')
+  if (!userSession) throw new Error("Invalid Session");
 
   const user = userSession?.get("user");
+  const acl = new Moralis.ACL();
+  acl.setPublicReadAccess(true);
+  acl.setWriteAccess(user.id, true);
 
-  console.log(params.pledge)
+  const Pledge = Moralis.Object.extend("Pledge");
+  const newPledge = params.pledge.objectId
+    ? await new Moralis.Query(Pledge).get(params.pledge.objectId)
+    : new Pledge();
 
-  // const acl = new Moralis.ACL();
-  // acl.setPublicReadAccess(true);
-  // acl.setWriteAccess(user.id, true);
+  newPledge.set({
+    ...params.pledge,
+    footprint: [params.pledge.footprint],
+  });
+  newPledge.setACL(acl);
 
-  // const Pledge = Moralis.Object.extend("Pledge");
-  // const newPledge = new Pledge({
-  //   ...params.pledge,
-  //   footprint: [params.pledge.footprint],
-  // });
-  // newPledge.setACL(acl);
-
-  // return await newPledge.save();
+  return await newPledge.save(null, { useMasterKey: true });
 };
 
 export const findUserSession = async (sessionToken: string) => {

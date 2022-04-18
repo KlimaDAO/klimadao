@@ -1,4 +1,3 @@
-import { urls } from "@klimadao/lib/constants";
 import { API_BASE_URL } from "lib/constants";
 
 type getPledgeParams = { address: string };

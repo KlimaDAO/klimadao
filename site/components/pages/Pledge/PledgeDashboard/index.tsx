@@ -43,9 +43,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const { isAuthenticated, user } = useMoralis();
   const [showModal, setShowModal] = useState(false);
   const [validAddress, setValidAddress] = useState(false);
-  const [pledge, setPledge] = useState<Pledge>(
-    defaultValues({ address: user?.get("ethAddress"), ...props.pledge })
-  );
+  const [pledge, setPledge] = useState<Pledge>(defaultValues(props.pledge));
 
   const canEditPledge =
     isAuthenticated && user?.get("ethAddress") === props.pageAddress;
