@@ -44,7 +44,11 @@ export const MiniTokenDisplay: FC<Props> = (props) => (
             warn: !!props.warn,
           })}
         >
-          {props.amount ? trimStringDecimals(props.amount, 2) : "0"}
+          {!props.amount
+            ? "0"
+            : Number(props.amount) > 1
+            ? trimStringDecimals(props.amount, 3)
+            : trimStringDecimals(props.amount, 5)}
         </Text>
       )}
     </div>

@@ -398,8 +398,7 @@ export const Offset = (props: Props) => {
             <div className="number_input_container">
               <input
                 type="number"
-                step={1}
-                max={balances?.[selectedInputToken]}
+                min="0"
                 value={quantity}
                 onKeyDown={(e) => {
                   // dont let user enter these special characters into the number input
