@@ -40,13 +40,14 @@ const defaultValues = (pledge: Pledge): Pledge =>
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const router = useRouter();
-  const { isAuthenticated, user } = useMoralis();
+  const { isAuthenticated, user, account } = useMoralis();
   const [showModal, setShowModal] = useState(false);
   const [validAddress, setValidAddress] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(defaultValues(props.pledge));
 
   const canEditPledge =
     isAuthenticated && user?.get("ethAddress") === props.pageAddress;
+
   const EditPledge = canEditPledge && (
     <ButtonPrimary
       key="toggleModal"
@@ -63,6 +64,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       router.push("/pledge");
     }
   });
+
+  useEffect(() => {
+    console.log(account);
+  }, [account]);
 
   const handleFormSubmit = async (data) => {
     setPledge(data);
@@ -86,11 +91,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               <Text t="h3" className="profileImage" align="center">
                 -
               </Text>
-              <Text t="h4">
-                {pledge.name ||
-                  pledge.address ||
-                  concatAddress(props.pageAddress)}
-              </Text>
+              <Text t="h4">{pledge.name || concatAddress(pledge.address)}</Text>
             </div>
 
             {/* <div className={styles.pledgeChart}>

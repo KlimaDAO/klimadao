@@ -21,7 +21,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   return {
     props: {
       pageAddress: address.toLowerCase(),
-      pledge,
+      pledge: {
+        ...pledge,
+        address: pledge?.address || address.toLowerCase(),
+      },
       translation,
     },
     revalidate: 180,

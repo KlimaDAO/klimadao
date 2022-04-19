@@ -6,20 +6,26 @@ import * as styles from "./styles";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
+  hideLabel?: boolean;
   errors?: { message?: string };
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, Props>(
-  ({ errors, id, label, ...props }, ref) => {
+  ({ errors, id, label, hideLabel, ...props }, ref) => {
     const inputStyles = cx(styles.baseStyles, {
       [styles.errorStyles]: Boolean(errors),
+    });
+    // for a11y if we don't want visually show labels
+    const visuallyHidden = cx({
+      [styles.visuallyHidden]: Boolean(hideLabel),
     });
 
     return (
       <div className={styles.container}>
-        <label htmlFor={id}>
+        <label htmlFor={id} className={visuallyHidden}>
           <Text t="caption">{label}</Text>
         </label>
+
         <input
           id={id}
           className={inputStyles}
