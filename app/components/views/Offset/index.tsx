@@ -60,6 +60,7 @@ import NBO from "public/icons/NBO.png";
 
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
+import { useOffsetParams } from "lib/hooks/useOffsetParams";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -98,7 +99,7 @@ export const Offset = (props: Props) => {
   const dispatch = useAppDispatch();
   const balances = useSelector(selectBalances);
   const allowances = useSelector(selectCarbonRetiredAllowance);
-
+  const params = useOffsetParams();
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
@@ -128,6 +129,32 @@ export const Offset = (props: Props) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
+
+  /** Initialize input from params after they are extracted, validated & stripped */
+  useEffect(() => {
+    if (params.inputToken) {
+      setSelectedInputToken(params.inputToken);
+    }
+    if (params.retirementToken) {
+      setSelectedRetirementToken(params.retirementToken);
+    }
+    if (params.message) {
+      setRetirementMessage(params.message);
+    }
+    if (params.beneficiary) {
+      setBeneficiary(params.beneficiary);
+    }
+    if (params.beneficiaryAddress) {
+      setBeneficiaryAddress(params.beneficiaryAddress);
+    }
+    if (params.projectTokens) {
+      setSpecificAddresses(params.projectTokens);
+    }
+    if (params.quantity) {
+      setQuantity(params.quantity);
+      setDebouncedQuantity(params.quantity);
+    }
+  }, [params]);
 
   useEffect(() => {
     if (props.isConnected && props.address) {
@@ -649,7 +676,15 @@ const AdvancedTextInput: FC<{
   value: string[];
   onChange: (val: string[]) => void;
 }> = (props) => {
-  const [isOpen, toggleIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const concatValue = props.value.join("");
+
+  /** when query params are loaded we force the toggle open */
+  useEffect(() => {
+    if (!isOpen && concatValue.length > 1) {
+      setIsOpen(true);
+    }
+  }, [concatValue]);
 
   const handleEdit = (i: number) => (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = [
@@ -673,7 +708,7 @@ const AdvancedTextInput: FC<{
     <>
       <button
         onClick={() => {
-          toggleIsOpen((prev) => !prev);
+          setIsOpen((prev) => !prev);
         }}
         className={styles.advancedButton}
       >
