@@ -88,6 +88,7 @@ if (!IS_PRODUCTION) {
   nextConfig.i18n = {
     ...nextConfig.i18n,
     locales: ["en", "en-pseudo", "fr", "de"],
+    localeDetection: true,
   };
 }
 
