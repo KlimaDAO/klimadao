@@ -3,7 +3,7 @@ import Link from "next/link";
 import Tippy from "@tippyjs/react";
 import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
-
+import { IS_PRODUCTION } from "lib/constants";
 import { locales } from "lib/i18n";
 
 import * as styles from "./styles";
@@ -16,11 +16,16 @@ export const ChangeLanguageButton: FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { locale } = useRouter();
 
-  const labels = {
-    en: "English",
-    fr: "Français",
-    "en-pseudo": "Pseudo",
+  const labels: { [key: string]: string } = {
+    en: t`English`,
+    fr: t`French`,
+    de: t`German`,
   };
+
+  // enable 'pseudo' locale only for Staging environment
+  if (!IS_PRODUCTION) {
+    labels["en-pseudo"] = "Pseudo";
+  }
 
   const content = (
     <div className={styles.menuItemContainer}>

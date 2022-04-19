@@ -1,7 +1,7 @@
 import { i18n } from "@lingui/core";
-import { en, fr } from "make-plural/plurals";
+import { en, fr, de } from "make-plural/plurals";
 import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
-import { IS_PRODUCTION } from "lib/constants";
+import { IS_PRODUCTION, IS_LOCAL_DEVELOPMENT } from "lib/constants";
 
 // TODO: remove NODE_ENV=test hack from package.json https://github.com/lingui/js-lingui/issues/433
 
@@ -18,6 +18,7 @@ interface ILocales {
 const locales: ILocales = {
   en: { plurals: en, time: "en-US" },
   fr: { plurals: fr, time: "fr-FR" },
+  de: { plurals: de, time: "de-DE" },
 };
 
 // Add pseudo locale only in development
@@ -30,8 +31,23 @@ for (const key in locales) {
   const locale = locales[key];
   i18n.loadLocaleData(key, { plurals: locale.plurals });
 }
+
+/**
+ * Loads a translation file
+ */
+async function loadTranslation(locale = "en") {
+  let data;
+  if (IS_LOCAL_DEVELOPMENT) {
+    // dynamic loading in dev https://lingui.js.org/ref/loader.html
+    data = await import(`@lingui/loader!../locale/${locale}/messages.po`);
+  } else {
+    data = await import(`../locale/${locale}/messages`);
+  }
+  return data.messages;
+}
+
 async function load(locale: string) {
-  const { messages } = await import(`../locale/${locale}/messages.js`);
+  const messages = await loadTranslation(locale);
   i18n.load(locale, messages);
   i18n.activate(locale);
 }

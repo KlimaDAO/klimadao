@@ -29,7 +29,11 @@ export const tooltip = css`
 
 export const menuItem = css`
   ${typography.button};
+  padding: 0.5rem 0;
   &:hover {
+    color: var(--klima-green);
+  }
+  &[data-active="true"] {
     color: var(--klima-green);
   }
 `;

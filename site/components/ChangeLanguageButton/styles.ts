@@ -61,6 +61,9 @@ export const menuItem = css`
   &:hover {
     color: var(--klima-green) !important;
   }
+  &[data-active="true"] {
+    color: var(--klima-green) !important;
+  }
 `;
 
 export const menuItemContainer = css`
