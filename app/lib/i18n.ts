@@ -1,5 +1,5 @@
 import { i18n } from "@lingui/core";
-import { en, fr } from "make-plural/plurals";
+import { en, fr, de } from "make-plural/plurals";
 import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
 import { IS_PRODUCTION } from "lib/constants";
 
@@ -18,6 +18,7 @@ interface ILocales {
 const locales: ILocales = {
   en: { plurals: en, time: "en-US" },
   fr: { plurals: fr, time: "fr-FR" },
+  de: { plurals: de, time: "de-DE" },
 };
 
 // Add pseudo locale only in development
