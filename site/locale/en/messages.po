@@ -21,9 +21,21 @@ msgstr "Articles"
 msgid "Buy Now"
 msgstr "Buy Now"
 
-#: components/ChangeLanguageButton/index.tsx:59
+#: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr "Change language"
+
+#: components/ChangeLanguageButton/index.tsx:20
+msgid "English"
+msgstr "English"
+
+#: components/ChangeLanguageButton/index.tsx:21
+msgid "French"
+msgstr "French"
+
+#: components/ChangeLanguageButton/index.tsx:22
+msgid "German"
+msgstr "German"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:95
