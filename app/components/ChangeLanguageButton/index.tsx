@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import Tippy from "@tippyjs/react";
 import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
+import { IS_PRODUCTION } from "lib/constants";
 
 import { activate, locales } from "lib/i18n";
 import { selectAppState } from "state/selectors";
@@ -29,11 +30,16 @@ export const ChangeLanguageButton: FC = () => {
     setShowMenu(false);
   };
 
-  const labels = {
-    en: "English",
-    fr: "Français",
-    "en-pseudo": "Pseudo",
+  const labels: { [key: string]: string } = {
+    en: t`English`,
+    fr: t`French`,
+    de: t`German`,
   };
+
+  // enable 'pseudo' locale only for Staging environment
+  if (!IS_PRODUCTION) {
+    labels["en-pseudo"] = "Pseudo";
+  }
 
   const content = (
     <div>
