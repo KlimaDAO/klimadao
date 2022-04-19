@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-module.exports = {
+const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
+
+const nextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
@@ -80,3 +82,12 @@ module.exports = {
     domains: ["cdn.sanity.io"],
   },
 };
+
+if (!IS_PRODUCTION) {
+  nextConfig.i18n = {
+    ...nextConfig.i18n,
+    locales: ["en", "en-pseudo", "fr", "de"],
+  };
+}
+
+module.exports = nextConfig;
