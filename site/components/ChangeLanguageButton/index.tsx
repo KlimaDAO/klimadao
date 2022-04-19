@@ -16,11 +16,10 @@ export const ChangeLanguageButton: FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { locale } = useRouter();
 
-  const labels = {
-    en: "English",
-    fr: "Français",
-    de: "Deutsch",
-    "en-pseudo": "Pseudo",
+  const labels: { [key: string]: string } = {
+    en: t`English`,
+    fr: t`French`,
+    de: t`German`,
   };
 
   const content = (
