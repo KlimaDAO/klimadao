@@ -19,6 +19,7 @@ export const ChangeLanguageButton: FC = () => {
   const labels = {
     en: "English",
     fr: "Français",
+    de: "Deutsch",
     "en-pseudo": "Pseudo",
   };
 
