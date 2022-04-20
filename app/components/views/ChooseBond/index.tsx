@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import React from "react";
 import { RootState } from "state";
-import { selectAppState } from "state/selectors";
+import { selectAppState, selectLocale } from "state/selectors";
 import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import { ImageCard } from "components/ImageCard";
@@ -112,6 +112,8 @@ export const useBond = (bond: Bond) => {
 };
 
 export function ChooseBond() {
+  const locale = useSelector(selectLocale);
+
   const bct = useBond("bct");
   const klimaBctLp = useBond("klima_bct_lp");
   const bctUsdcLp = useBond("bct_usdc_lp");
@@ -149,7 +151,7 @@ export function ChooseBond() {
               <Trans id="choose_bond.treasury_balance">Treasury Balance</Trans>
             </Text>
             <Text>
-              {trimWithPlaceholder(treasuryBalance, 0)}
+              {trimWithPlaceholder(treasuryBalance, 0, locale)}
               {treasuryBalance ? " T CO2" : ""}
             </Text>
           </div>
@@ -189,7 +191,7 @@ export function ChooseBond() {
                       className={styles.bondDiscount}
                       data-hide={!bond?.discount || bond.discount < 0}
                     >
-                      {trimWithPlaceholder(bond?.discount, 2)}
+                      {trimWithPlaceholder(bond?.discount, 2, locale)}
                       {bond.discount ? "%" : ""}
                     </Text>
                   )}

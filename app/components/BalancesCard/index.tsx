@@ -3,7 +3,7 @@ import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import { useSelector } from "react-redux";
 import { InfoButton } from "components/InfoButton";
-import { selectBalances } from "state/selectors";
+import { selectBalances, selectLocale } from "state/selectors";
 import * as styles from "./styles";
 import { FC } from "react";
 import { RootState } from "state";
@@ -19,6 +19,8 @@ interface Props {
 
 export const BalancesCard: FC<Props> = (props) => {
   const balances = useSelector(selectBalances);
+  const locale = useSelector(selectLocale);
+
   const labels: AssetLabels = {
     bct: "BCT",
     aklima: "aKLIMA",
@@ -46,7 +48,7 @@ export const BalancesCard: FC<Props> = (props) => {
         {props.assets.map((asset) => (
           <div className="stack" key={asset}>
             <Text className="value">
-              {trimWithPlaceholder(balances?.[asset] ?? 0, 9)}
+              {trimWithPlaceholder(balances?.[asset] ?? 0, 9, locale)}
             </Text>
             <Text className="label" color="lightest">
               {labels[asset]}

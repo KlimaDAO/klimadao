@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
-import { selectNotificationStatus } from "state/selectors";
+import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -46,6 +46,8 @@ interface Props {
 }
 
 export const Stake = (props: Props) => {
+  const locale = useSelector(selectLocale);
+
   const dispatch = useAppDispatch();
   const [view, setView] = useState("stake");
   const fullStatus: AppNotificationStatus | null = useSelector(
@@ -339,21 +341,21 @@ export const Stake = (props: Props) => {
             </div>
             <div className={styles.infoTable_value}>
               {fiveDayRatePercent ? (
-                trimWithPlaceholder(fiveDayRatePercent, 2) + "%"
+                trimWithPlaceholder(fiveDayRatePercent, 2, locale) + "%"
               ) : (
                 <Trans id="shared.loading">Loading...</Trans>
               )}
             </div>
             <div className={styles.infoTable_value}>
               {stakingAKR ? (
-                trimWithPlaceholder(stakingAKR, 0) + "%"
+                trimWithPlaceholder(stakingAKR, 0, locale) + "%"
               ) : (
                 <Trans id="shared.loading">Loading...</Trans>
               )}
             </div>
             <div className={styles.infoTable_value}>
               {currentIndex ? (
-                trimWithPlaceholder(currentIndex, 2) + " sKLIMA"
+                trimWithPlaceholder(currentIndex, 2, locale) + " sKLIMA"
               ) : (
                 <Trans id="shared.loading">Loading...</Trans>
               )}

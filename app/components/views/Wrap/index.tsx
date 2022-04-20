@@ -5,7 +5,7 @@ import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 
 import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
-import { selectNotificationStatus } from "state/selectors";
+import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
 import {
@@ -35,6 +35,8 @@ interface Props {
 }
 
 export const Wrap: FC<Props> = (props) => {
+  const locale = useSelector(selectLocale);
+
   const dispatch = useAppDispatch();
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
@@ -272,13 +274,15 @@ export const Wrap: FC<Props> = (props) => {
             </div>
             <div className={styles.infoTable_value}>
               {currentIndex
-                ? trimWithPlaceholder(currentIndex, 2)
+                ? trimWithPlaceholder(currentIndex, 2, locale)
                 : "loading..."}
             </div>
             <div className={styles.infoTable_value}>
               {view === "wrap"
-                ? trimWithPlaceholder(balances?.sklima ?? 0, 6) + " sKLIMA"
-                : trimWithPlaceholder(balances?.wsklima ?? 0, 6) + " wsKLIMA"}
+                ? trimWithPlaceholder(balances?.sklima ?? 0, 6, locale) +
+                  " sKLIMA"
+                : trimWithPlaceholder(balances?.wsklima ?? 0, 6, locale) +
+                  " wsKLIMA"}
             </div>
             <div className={styles.infoTable_value}>{youWillGet()}</div>
           </div>

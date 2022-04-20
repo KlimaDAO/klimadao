@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 
-import { selectNotificationStatus } from "state/selectors";
+import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
 import {
@@ -56,6 +56,7 @@ export const PKlima: FC<Props> = (props) => {
 
   const [quantity, setQuantity] = useState("");
 
+  const locale = useSelector(selectLocale);
   const { currentIndex } = useSelector(selectAppState);
   const allowances = useSelector(selectExerciseAllowance);
   const terms = useSelector(selectPklimaTerms);
@@ -263,17 +264,17 @@ export const PKlima: FC<Props> = (props) => {
             </div>
             <div className={styles.infoTable_value}>
               {terms?.supplyShare
-                ? trimWithPlaceholder(terms?.supplyShare, 2) + "%"
+                ? trimWithPlaceholder(terms?.supplyShare, 2, locale) + "%"
                 : "loading..."}
             </div>
             <div className={styles.infoTable_value}>
               {terms?.claimed
-                ? trimWithPlaceholder(terms?.claimed, 4) + " KLIMA"
+                ? trimWithPlaceholder(terms?.claimed, 4, locale) + " KLIMA"
                 : "loading..."}
             </div>
             <div className={styles.infoTable_value}>
               {indexAdjustedClaim
-                ? trimWithPlaceholder(indexAdjustedClaim, 4) + " KLIMA"
+                ? trimWithPlaceholder(indexAdjustedClaim, 4, locale) + " KLIMA"
                 : "loading..."}
             </div>
           </div>

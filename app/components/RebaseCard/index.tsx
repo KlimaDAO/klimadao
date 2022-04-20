@@ -2,7 +2,7 @@ import { Text } from "@klimadao/lib/components";
 import Sync from "@mui/icons-material/Sync";
 import { useSelector } from "react-redux";
 import { InfoButton } from "components/InfoButton";
-import { selectAppState, selectBalances } from "state/selectors";
+import { selectAppState, selectBalances, selectLocale } from "state/selectors";
 import * as styles from "./styles";
 import { secondsUntilBlock, trimWithPlaceholder } from "@klimadao/lib/utils";
 import { FC } from "react";
@@ -14,6 +14,7 @@ interface Props {
 
 export const RebaseCard: FC<Props> = (props) => {
   const balances = useSelector(selectBalances);
+  const locale = useSelector(selectLocale);
   const { stakingRebase, currentBlock, rebaseBlock, blockRate } =
     useSelector(selectAppState);
   const nextRebasePercent = stakingRebase ? stakingRebase * 100 : 0;
@@ -62,7 +63,7 @@ export const RebaseCard: FC<Props> = (props) => {
         <div className="stack">
           <Text className="value">
             {stakingRebase ? (
-              `${trimWithPlaceholder(nextRebasePercent, 2)}%`
+              `${trimWithPlaceholder(nextRebasePercent, 2, locale)}%`
             ) : (
               <Trans id="shared.loading">Loading...</Trans>
             )}
@@ -74,7 +75,7 @@ export const RebaseCard: FC<Props> = (props) => {
         {props.isConnected && (
           <div className="stack">
             <Text className="value">
-              {trimWithPlaceholder(nextRebaseValue, 6)}
+              {trimWithPlaceholder(nextRebaseValue, 6, locale)}
             </Text>
             <Text className="label" color="lightest">
               <Trans id="stake.estimated_payout">Est. payout (sKLIMA)</Trans>

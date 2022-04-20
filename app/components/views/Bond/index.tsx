@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import { Link } from "react-router-dom";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
-import { selectNotificationStatus } from "state/selectors";
+import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { TippyProps } from "@tippyjs/react";
 import {
   changeApprovalTransaction,
@@ -108,6 +108,7 @@ interface Props {
 }
 
 export const Bond: FC<Props> = (props) => {
+  const locale = useSelector(selectLocale);
   const bondInfo = useBond(props.bond);
 
   const fullStatus: AppNotificationStatus | null = useSelector(
@@ -126,7 +127,7 @@ export const Bond: FC<Props> = (props) => {
   const [quantity, setQuantity] = useState("");
   const debouncedQuantity = useDebounce(quantity, 500);
 
-  const { currentBlock, locale, blockRate } = useSelector(selectAppState);
+  const { currentBlock, blockRate } = useSelector(selectAppState);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
   const allowance = useSelector(selectBondAllowance);
 
@@ -491,7 +492,8 @@ export const Bond: FC<Props> = (props) => {
                     ? 0
                     : trimWithPlaceholder(
                         bondState?.balance,
-                        Number(bondState?.balance) < 1 ? 18 : 2
+                        Number(bondState?.balance) < 1 ? 18 : 2,
+                        locale
                       )
                 }
                 warning={Number(quantity) > Number(bondState?.balance)}
@@ -509,7 +511,7 @@ export const Bond: FC<Props> = (props) => {
                   comment: "Long sentence",
                 })}
                 unit={bondInfo.priceUnit}
-                value={trimWithPlaceholder(bondState?.bondPrice, 2)}
+                value={trimWithPlaceholder(bondState?.bondPrice, 2, locale)}
                 warning={false}
               />
               <DataRow
@@ -525,7 +527,7 @@ export const Bond: FC<Props> = (props) => {
                   comment: "Long sentence",
                 })}
                 unit={bondInfo.priceUnit}
-                value={trimWithPlaceholder(bondState?.marketPrice, 2)}
+                value={trimWithPlaceholder(bondState?.marketPrice, 2, locale)}
                 warning={false}
               />
               <DataRow
@@ -541,7 +543,7 @@ export const Bond: FC<Props> = (props) => {
                   comment: "Long sentence",
                 })}
                 unit={"%"}
-                value={trimWithPlaceholder(bondState?.bondDiscount, 2)}
+                value={trimWithPlaceholder(bondState?.bondDiscount, 2, locale)}
                 warning={isBondDiscountNegative}
               />
               <DataRow
@@ -562,7 +564,8 @@ export const Bond: FC<Props> = (props) => {
                     ? 0
                     : trimWithPlaceholder(
                         isLoading ? NaN : bondState?.bondQuote,
-                        Number(bondState?.bondQuote) < 1 ? 5 : 2
+                        Number(bondState?.bondQuote) < 1 ? 5 : 2,
+                        locale
                       )
                 }
                 warning={false}
@@ -583,7 +586,7 @@ export const Bond: FC<Props> = (props) => {
                   !!bondState?.maxBondPrice &&
                   Number(bondState?.bondQuote) > Number(bondState?.maxBondPrice)
                 }
-                value={trimWithPlaceholder(bondState?.maxBondPrice, 2)}
+                value={trimWithPlaceholder(bondState?.maxBondPrice, 2, locale)}
                 unit="KLIMA"
               />
               <DataRow
@@ -599,7 +602,11 @@ export const Bond: FC<Props> = (props) => {
                   comment: "Long sentence",
                 })}
                 warning={false}
-                value={trimWithPlaceholder(Number(bondState?.debtRatio), 2)}
+                value={trimWithPlaceholder(
+                  Number(bondState?.debtRatio),
+                  2,
+                  locale
+                )}
                 unit="%"
               />
               <DataRow
@@ -646,7 +653,7 @@ export const Bond: FC<Props> = (props) => {
                     placeholder="NOT CONNECTED"
                   >
                     <span>
-                      {trimWithPlaceholder(bondState?.interestDue, 4)}
+                      {trimWithPlaceholder(bondState?.interestDue, 4, locale)}
                     </span>{" "}
                     KLIMA
                   </WithPlaceholder>
@@ -677,7 +684,8 @@ export const Bond: FC<Props> = (props) => {
                     <span>
                       {trimWithPlaceholder(
                         bondState?.pendingPayout,
-                        Number(bondState?.pendingPayout) < 1 ? 5 : 2
+                        Number(bondState?.pendingPayout) < 1 ? 5 : 2,
+                        locale
                       )}
                     </span>{" "}
                     KLIMA

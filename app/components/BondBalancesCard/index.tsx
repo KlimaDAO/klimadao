@@ -2,6 +2,7 @@ import { Text } from "@klimadao/lib/components";
 import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import { useSelector } from "react-redux";
+import { selectLocale } from "state/selectors";
 import * as styles from "./styles";
 import { FC } from "react";
 import { RootState } from "state";
@@ -16,6 +17,7 @@ interface Props {
 export const BondBalancesCard: FC<Props> = (props) => {
   const { name } = useBond(props.bond);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
+  const locale = useSelector(selectLocale);
 
   return (
     <div className={styles.card + " " + status}>
@@ -30,7 +32,7 @@ export const BondBalancesCard: FC<Props> = (props) => {
       <div className="cardContent">
         <div className="stack">
           <Text className="value">
-            {trimWithPlaceholder(bondState?.balance ?? 0, 9)}
+            {trimWithPlaceholder(bondState?.balance ?? 0, 9, locale)}
           </Text>
           <Text className="label" color="lightest">
             {name}
@@ -40,7 +42,8 @@ export const BondBalancesCard: FC<Props> = (props) => {
           <Text className="value">
             {trimWithPlaceholder(
               bondState?.pendingPayout ?? 0,
-              Number(bondState?.pendingPayout) < 1 ? 5 : 2
+              Number(bondState?.pendingPayout) < 1 ? 5 : 2,
+              locale
             )}
           </Text>
           <Text className="label" color="lightest">
