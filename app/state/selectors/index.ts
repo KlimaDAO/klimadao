@@ -41,3 +41,7 @@ export const selectNotificationStatus = createSelector(
   selectAppState,
   (rootState) => rootState.notificationStatus
 );
+export const selectLocale = createSelector(
+  selectAppState,
+  (rootState) => rootState.locale || "en"
+);
