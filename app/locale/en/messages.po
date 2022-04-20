@@ -21,18 +21,6 @@ msgstr "Beneficiary Address"
 msgid "Download certificate"
 msgstr "Download certificate"
 
-#: components/ChangeLanguageButton/index.tsx:34
-msgid "English"
-msgstr "English"
-
-#: components/ChangeLanguageButton/index.tsx:35
-msgid "French"
-msgstr "French"
-
-#: components/ChangeLanguageButton/index.tsx:36
-msgid "German"
-msgstr "German"
-
 #: components/views/Offset/index.tsx:633
 msgid "Message"
 msgstr "Message"
@@ -572,7 +560,7 @@ msgstr "Approve"
 msgid "shared.balances"
 msgstr "Balances"
 
-#: components/ChangeLanguageButton/index.tsx:71
+#: components/ChangeLanguageButton/index.tsx:73
 msgid "shared.change_language"
 msgstr "Change language"
 
