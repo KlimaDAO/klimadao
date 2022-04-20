@@ -14,7 +14,7 @@ import {
 } from "actions/bonds";
 
 import { Trans, t } from "@lingui/macro";
-import { prettifySeconds } from "lib/i18n";
+import { prettifySeconds } from "@klimadao/lib/utils";
 
 import { useBond } from "../ChooseBond";
 import { Bond as BondType } from "@klimadao/lib/constants";
@@ -46,7 +46,7 @@ import { Image } from "components/Image";
 import { ImageCard } from "components/ImageCard";
 
 export function prettyVestingPeriod(
-  locale: string | undefined,
+  locale: string,
   currentBlock: number,
   vestingBlock: number,
   blockRate: number
@@ -59,7 +59,7 @@ export function prettyVestingPeriod(
   if (seconds < 0) {
     return "Fully Vested";
   }
-  return prettifySeconds(seconds);
+  return prettifySeconds(seconds, locale);
 }
 
 interface DataRowProps {
@@ -145,7 +145,7 @@ export const Bond: FC<Props> = (props) => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
     const vestingBlock = currentBlock + bondState.vestingTerm;
     const seconds = secondsUntilBlock(currentBlock, vestingBlock, blockRate);
-    return prettifySeconds(seconds);
+    return prettifySeconds(seconds, locale);
   };
 
   const vestingTime = () => {

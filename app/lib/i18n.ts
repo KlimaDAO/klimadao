@@ -1,6 +1,5 @@
 import { i18n } from "@lingui/core";
 import { en, fr, de } from "make-plural/plurals";
-import { prettifySeconds as prettifySecondsLib } from "@klimadao/lib/utils";
 import { IS_PRODUCTION, IS_LOCAL_DEVELOPMENT } from "lib/constants";
 
 // TODO: remove NODE_ENV=test hack from package.json https://github.com/lingui/js-lingui/issues/433
@@ -72,12 +71,4 @@ async function init() {
   return locale;
 }
 
-/**
- * Localizes an amount of seconds
- * TODO: revert temp fix and pass locale back down to prettify
- */
-function prettifySeconds(seconds: number) {
-  return prettifySecondsLib(seconds);
-}
-
-export { locales, activate, init, prettifySeconds };
+export { locales, activate, init };
