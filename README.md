@@ -1,12 +1,14 @@
 # Summary
 
-This repo contains 3 packages: `@klimadao/site`, `@klimadao/app` and `@klimadao/lib`.
+This repo contains 4 packages: `@klimadao/site`, `@klimadao/app`, `@klimadao/cms` and `@klimadao/lib`.
 
 `@klimadao/site` -> klimadao.finance homepage. In the future, we can add the docs and blog as well.
 
 `@klimadao/app` -> app.klimadao.finance, a standalone single-page-app. Should be exportable as a static site for deployment on IPFS.
 
 `@klimadao/lib` -> A shared component and theme library. For now, just a set of resources shared by the above two apps. In the future, this can be extended and published on NPM as a component library for use in other community projects.
+
+`@klimadao/cms` -> The Content Management System at klimadao.sanity.studio. NOTE: Unlike the other packages, this one is **not** included as an NPM workspace from the root package.json. To work with the CMS you need to run `sanity install` from inside the `cms` folder. This is because it is managed by the sanity [command line interface](https://www.sanity.io/docs/getting-started-with-sanity-cli), which uses `yarn` under the hood.
 
 # Getting Started
 
