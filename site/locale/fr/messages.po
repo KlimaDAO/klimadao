@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-20 15:44+0000\n"
+"POT-Creation-Date: 2022-04-20 18:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -335,139 +335,139 @@ msgstr ""
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "Vous assumez l'entière responsabilité de fournir des informations privées, de vérifier l'identité et la légitimité de ce site. Nonobstant les indicateurs et les messages pouvant suggérer que l'identité et la légitimité du site sont conformes, KlimaDAO ne fait aucune déclaration sur l'identité sur la plate-forme. Nous ne garantissons ni la sécurité des données divulguées en ligne, ni la prévention de pertes subies en raison d'une vulnérabilité, de défaillance quel quelle soit ou d'un comportement inattendu du logiciel."
 
-#: components/pages/Home/index.tsx:203
+#: components/pages/Home/index.tsx:206
 msgid "home.backed_by_carbon"
 msgstr "Collatéralisé par du carbone."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:161
+#: components/pages/Home/index.tsx:164
 msgid "home.by_increasing_access"
 msgstr "En augmentant l'accès et la demande aux compensations carbone, nous rendons les projets pro-climat plus rentables, tout en obligeant les entreprises à s'adapter plus rapidement aux réalités du changement climatique."
 
-#: components/pages/Home/index.tsx:294
+#: components/pages/Home/index.tsx:297
 msgid "home.cars_annual"
 msgstr "Voitures (annuellement)"
 
-#: components/pages/Home/index.tsx:263
+#: components/pages/Home/index.tsx:266
 msgid "home.equivalent_to"
 msgstr "ÉQUIVALENT À"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:378
+#: components/pages/Home/index.tsx:381
 msgid "home.every_klima_token_is_backed"
 msgstr "Chaque jeton KLIMA est collatéralisé par un actif carbone réel. Les jetons sont utilisés pour compenser les émissions carbone, interagir avec les applications DeFi et prendre part au marché mondial carbone qui est en croissance rapide."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:101
+#: components/pages/Home/index.tsx:104
 msgid "home.fight_climate_change"
 msgstr "Combattez le changement climatique et gagnez des récompenses avec KLIMA, une monnaie numérique collatéralisée par de vrais actifs carbone."
 
-#: components/pages/Home/index.tsx:429
+#: components/pages/Home/index.tsx:432
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "Prenez part à l'économie carbone actuellement en plein essort. Acquérez, déposez et soyez récompensés. Activisme financier pour le climat."
 
-#: components/pages/Home/index.tsx:426
+#: components/pages/Home/index.tsx:429
 msgid "home.get_klima"
 msgstr "OBTENEZ DES JETONS KLIMA"
 
-#: components/pages/Home/index.tsx:277
+#: components/pages/Home/index.tsx:280
 msgid "home.hectares_of_forest"
 msgstr "Hectares de forêt"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:146
+#: components/pages/Home/index.tsx:149
 msgid "home.klima_is_a_black_hole"
 msgstr "KlimaDAO est un <0>trou noir pour carbone</0> positionné au centre d'une <1>nouvelle économie verte</1> ."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:407
+#: components/pages/Home/index.tsx:410
 msgid "home.klima_tokens_are_minted"
 msgstr "Les jetons KLIMA sont créés et distribués automatiquement toutes les ~7 heures aux déposants KLIMA . Développez vos avoirs KLIMA alors que nous créons ensemble un avenir plus soutenable."
 
-#: components/pages/Home/index.tsx:77
+#: components/pages/Home/index.tsx:80
 msgid "home.latest_news"
 msgstr "Dernières nouvelles"
 
-#: components/pages/Home/index.tsx:132
+#: components/pages/Home/index.tsx:135
 msgid "home.learn_more"
 msgstr "EN SAVOIR PLUS"
 
-#: components/pages/Home/index.tsx:309
+#: components/pages/Home/index.tsx:312
 msgid "home.liters_if_gasoline"
 msgstr "Litres d'essence"
 
-#: components/pages/Home/index.tsx:239
+#: components/pages/Home/index.tsx:242
 msgid "home.massive impact"
 msgstr "Impact massif."
 
-#: components/pages/Home/index.tsx:177
+#: components/pages/Home/index.tsx:180
 msgid "home.mechanics"
 msgstr "MÉCANIQUES"
 
-#: components/pages/Home/index.tsx:458
+#: components/pages/Home/index.tsx:461
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "Tout l'Alpha, directement dans votre boîte de réception"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:466
+#: components/pages/Home/index.tsx:469
 msgid "home.newletter.get_the_latest_updates"
 msgstr "Recevez les dernières mises à jour concernant KlimaDAO, tandis que nous construisons l'avenir de l'économie du carbone."
 
-#: components/pages/Home/index.tsx:483
+#: components/pages/Home/index.tsx:486
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "Jamais partagé. Jamais spammé."
 
-#: components/pages/Home/index.tsx:477
+#: components/pages/Home/index.tsx:480
 msgid "home.newletter.sign_up"
 msgstr "S'inscrire"
 
-#: components/pages/Home/index.tsx:463
+#: components/pages/Home/index.tsx:466
 msgid "home.newsletter"
 msgstr "Bulletin d'information"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:366
+#: components/pages/Home/index.tsx:369
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr "<0>Actif de réserve</0> <1>De l'économie carbone</1>"
 
-#: components/pages/Home/index.tsx:436
+#: components/pages/Home/index.tsx:439
 msgid "home.see_tutorial"
 msgstr "Voir le tutoriel"
 
-#: components/pages/Home/index.tsx:324
+#: components/pages/Home/index.tsx:327
 msgid "home.source"
 msgstr "Source"
 
-#: components/pages/Home/index.tsx:221
+#: components/pages/Home/index.tsx:224
 msgid "home.strong_incentives"
 msgstr "Fortes incitations."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:180
+#: components/pages/Home/index.tsx:183
 msgid "home.the_dao_sell_bonds"
 msgstr "Le DAO vend des obligations et reverse les intérêts aux détenteurs de KLIMA. Chaque obligation que nous vendons s'ajoute à une trésorerie verte en constante croissance ou améliore la liquidité d'actifs environnementaux clés. Un processus  gagnant-gagnant pour les personnes et pour notre Terre."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:250
+#: components/pages/Home/index.tsx:253
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr "TONNES DE <0>CARBONE ABSORBÉES</0> PAR KLIMADAO"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:153
+#: components/pages/Home/index.tsx:156
 msgid "home.we_ve_kickstarted"
 msgstr "Nous avons lancé un <0>marché décentralisé et ouvert pour le carbone</0> . Notre jeton incite les investisseurs, les citoyens et les organisations à participer et à piloter cette nouvelle économie."
 
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:395
+#: components/pages/Home/index.tsx:398
 msgid "home.weekly_rewards_for_token_holders"
 msgstr "<0>{0}% DE RÉCOMPENSES HEBDOMADAIRES</0> <1>POUR LES DÉTENTEURS DE JETONS</1>"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:88
+#: components/pages/Home/index.tsx:91
 msgid "home.welcome_to_klimadao"
 msgstr "<0>BIENVENUE À</0> <1>KlimaDAO</1>"
 
-#: components/pages/Home/index.tsx:351
+#: components/pages/Home/index.tsx:354
 msgid "invest_in_the_future"
 msgstr "Investissez dans l'avenir."
 
@@ -512,14 +512,14 @@ msgid "shared.docs"
 msgstr "Documentation"
 
 #: components/Navigation/index.tsx:34
-#: components/pages/Home/index.tsx:109
+#: components/pages/Home/index.tsx:112
 msgid "shared.enter_app"
 msgstr "Visitez l'application"
 
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:45
 #: components/pages/Disclaimer/index.tsx:23
-#: components/pages/Home/index.tsx:62
+#: components/pages/Home/index.tsx:65
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "shared.head.description"
