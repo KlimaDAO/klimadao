@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import { Trans, t } from "@lingui/macro";
@@ -37,16 +38,18 @@ const passengerVehiclesPerTonne = 1 / 4.6;
 const litersGasPerTonne = 1 / 0.03368173;
 
 export const Home: NextPage<Props> = (props) => {
-  const formattedTreasuryBalance = props.treasuryBalance.toLocaleString();
+  const { locale } = useRouter();
+
+  const formattedTreasuryBalance = props.treasuryBalance.toLocaleString(locale);
   const hectaresForest = Math.floor(
     props.treasuryBalance * hectaresForestPerTonne
-  ).toLocaleString();
+  ).toLocaleString(locale);
   const passengerVehicles = Math.floor(
     props.treasuryBalance * passengerVehiclesPerTonne
-  ).toLocaleString();
+  ).toLocaleString(locale);
   const litersGas = Math.floor(
     props.treasuryBalance * litersGasPerTonne
-  ).toLocaleString();
+  ).toLocaleString(locale);
 
   const scrollToRef = useRef<null | HTMLDivElement>(null);
   const scrollToNextSection = () =>
