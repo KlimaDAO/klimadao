@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-20 18:10+0000\n"
+"POT-Creation-Date: 2022-04-20 21:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr "Artikel"
 
 #: components/pages/Buy/index.tsx:183
 msgid "Buy Now"
-msgstr ""
+msgstr "Jetzt kaufen"
 
 #: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
@@ -21,15 +21,15 @@ msgstr "Sprache wechseln"
 
 #: components/ChangeLanguageButton/index.tsx:20
 msgid "English"
-msgstr ""
+msgstr "Englisch"
 
 #: components/ChangeLanguageButton/index.tsx:21
 msgid "French"
-msgstr ""
+msgstr "Französisch"
 
 #: components/ChangeLanguageButton/index.tsx:22
 msgid "German"
-msgstr ""
+msgstr "Deutsch"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:95
@@ -181,7 +181,7 @@ msgstr "Baumgruppe"
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:100
 msgid "community.we_work_with_traditionnal"
-msgstr "Wir kollaborieren mit traditionellen Akteuren auf dem CO2-Markt, Kryptoplattformen, Unternehmen - und allem dazwischen."
+msgstr "Wir arbeiten eng mit traditionellen Akteuren auf dem CO2-Markt, Kryptoplattformen und Unternehmen zusammen - und allem dazwischen."
 
 #: components/pages/Resources/Contact/index.tsx:64
 msgid "concat.careers"
@@ -226,7 +226,7 @@ msgstr "Journalist/in oder Contentcreator? Unser Marketingteam würde dich gerne
 #. Use this <0>Media Request Form</0>.
 #: components/pages/Resources/Contact/index.tsx:120
 msgid "contact.media.use_this_media_request_form"
-msgstr ""
+msgstr "Nutze dieses <0>Medienanfrageformular</0> oder sende eine E-Mail an <1>press@klimadao.finance</1>"
 
 #: components/pages/Resources/Contact/index.tsx:88
 msgid "contact.partnerships"
@@ -326,7 +326,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:197
 msgid "disclaimer.we_recommend_that_you_visit"
-msgstr ""
+msgstr "Aus Sicherheitsgründen empfehlen wir dir, unsere allgemeine Krypto-Sicherheitsseite zu besuchen. Denke bitte immer daran: Teile nie deine Private Keys oder deine Seed Phrase mit anderen. Weder unsere Teammitglieder noch unsere App wird jemals nach diesen Daten fragen."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:152
@@ -481,13 +481,13 @@ msgstr "Blog"
 
 #: components/Footer/index.tsx:39
 msgid "shared.bond"
-msgstr ""
+msgstr "App"
 
 #: components/Footer/index.tsx:32
 #: components/Navigation/index.tsx:41
 #: components/Navigation/index.tsx:67
 msgid "shared.buy"
-msgstr ""
+msgstr "Kaufen"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
@@ -534,7 +534,7 @@ msgstr "Home"
 #: components/Navigation/index.tsx:50
 #: components/Navigation/index.tsx:75
 msgid "shared.loveletters"
-msgstr ""
+msgstr "Love Letters"
 
 #: components/Navigation/index.tsx:54
 #: components/Navigation/index.tsx:79
