@@ -4,7 +4,7 @@
 
 /** @type {Config} */
 const config = {
-  locales: ["en", "en-pseudo", "fr", "de"],
+  locales: ["en", "zh-CN", "en-pseudo", "fr", "de", "ru"],
   sourceLocale: "en",
   fallbackLocales: {
     default: "en",

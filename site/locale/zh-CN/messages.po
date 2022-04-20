@@ -1,0 +1,544 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2022-04-20 14:51-0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: zh-CN\n"
+
+#: components/pages/Blog/index.tsx:35
+msgid "Articles"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:183
+msgid "Buy Now"
+msgstr ""
+
+#: components/ChangeLanguageButton/index.tsx:64
+msgid "Change language"
+msgstr ""
+
+#: components/ChangeLanguageButton/index.tsx:20
+msgid "English"
+msgstr ""
+
+#: components/ChangeLanguageButton/index.tsx:21
+msgid "French"
+msgstr ""
+
+#: components/ChangeLanguageButton/index.tsx:22
+msgid "German"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Blog/Post/index.tsx:95
+msgid "blog.disclaimer.description"
+msgstr ""
+
+#: components/pages/Blog/Post/index.tsx:92
+msgid "blog.disclaimer.title"
+msgstr ""
+
+#: components/pages/Blog/index.tsx:19
+msgid "blog.head.description"
+msgstr ""
+
+#: components/pages/Blog/index.tsx:18
+msgid "blog.head.headline"
+msgstr ""
+
+#: components/pages/Blog/index.tsx:17
+#: components/pages/Blog/index.tsx:24
+msgid "blog.head.title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:43
+#: components/pages/Buy/index.tsx:44
+msgid "buy.head.title"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:97
+msgid "community.become_a_partner"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:170
+msgid "community.bigcowg_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:159
+msgid "community.blockchainforclimatefondation_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:333
+msgid "community.come_on_in"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:236
+msgid "community.deltawave_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:288
+msgid "community.digitalcharityart_logo"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Community/index.tsx:348
+msgid "community.discord_is_where_we_share"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:258
+msgid "community.dovu_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:266
+msgid "community.eco_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:247
+msgid "community.etcgroup_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:381
+msgid "community.get_in_touch"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:203
+msgid "community.gitcoin_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:75
+msgid "community.head.headline"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:76
+msgid "community.head.subline"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:74
+#: components/pages/Resources/Community/index.tsx:81
+msgid "community.head.title"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Community/index.tsx:384
+msgid "community.if_you_ve_got_questions"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:336
+msgid "community.join_our_discord"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:323
+msgid "community.join_the_klima_community"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:94
+#: components/pages/Resources/Community/index.tsx:378
+msgid "community.lets_work_together"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:137
+msgid "community.moss_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:192
+msgid "community.oceandrop_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:277
+msgid "community.offsetra_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:214
+msgid "community.olympusdao_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:225
+msgid "community.openearth_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:130
+msgid "community.our_partners"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:181
+msgid "community.polygon_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:148
+msgid "community.toucan_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:299
+msgid "community.toughtforfood_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:113
+msgid "community.tree_grove"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Community/index.tsx:100
+msgid "community.we_work_with_traditionnal"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:64
+msgid "concat.careers"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:143
+msgid "contact.bug_reports"
+msgstr ""
+
+#. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
+#: components/pages/Resources/Contact/index.tsx:146
+msgid "contact.bug_reports.to_file_a_bug_report"
+msgstr ""
+
+#. Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you.
+#: components/pages/Resources/Contact/index.tsx:67
+msgid "contact.careers.we_re_hiring"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:18
+msgid "contact.head.headline"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:19
+msgid "contact.head.subline"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:17
+#: components/pages/Resources/Contact/index.tsx:24
+msgid "contact.head.title"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:108
+msgid "contact.media"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Contact/index.tsx:111
+msgid "contact.media.if_you_are_a_journalist"
+msgstr ""
+
+#. Use this <0>Media Request Form</0>.
+#: components/pages/Resources/Contact/index.tsx:120
+msgid "contact.media.use_this_media_request_form"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:88
+msgid "contact.partnerships"
+msgstr ""
+
+#. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
+#: components/pages/Resources/Contact/index.tsx:91
+msgid "contact.partnerships.until_we_finish_building"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:36
+msgid "contact.quest_and_support"
+msgstr ""
+
+#. Join our <0>community</0>
+#: components/pages/Resources/Contact/index.tsx:39
+msgid "contact.quest_and_support.join_our_community"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Contact/index.tsx:47
+msgid "contact.quest_and_support.join_our_discord_server"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:72
+msgid "disclaimer.1_an_offer_or_sollicitation"
+msgstr ""
+
+#: components/pages/Disclaimer/index.tsx:119
+msgid "disclaimer.1_meet_your_requirements"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:124
+msgid "disclaimer.2_be_available_on_an_uninterrupted"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:82
+msgid "disclaimer.2_financial_investment_or_trading_advice"
+msgstr ""
+
+#: components/pages/Disclaimer/index.tsx:133
+msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:40
+msgid "disclaimer.all_information_on_this_website"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:167
+msgid "disclaimer.any_action_you_take_upon_the_information"
+msgstr ""
+
+#: components/pages/Disclaimer/index.tsx:36
+msgid "disclaimer.disclaimer"
+msgstr ""
+
+#: components/pages/Disclaimer/index.tsx:19
+#: components/pages/Disclaimer/index.tsx:28
+msgid "disclaimer.head.title"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:110
+msgid "disclaimer.klimadao_and_its_suppliers"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:51
+msgid "disclaimer.klimadao_is_a_platform"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:138
+msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:186
+msgid "disclaimer.nothing_in_this_disclaimer"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:64
+msgid "disclaimer.nothing_in_this_platform"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:91
+msgid "disclaimer.the_service_available"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:197
+msgid "disclaimer.we_recommend_that_you_visit"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:152
+msgid "disclaimer.you_bear_full_responsibility"
+msgstr ""
+
+#: components/pages/Home/index.tsx:206
+msgid "home.backed_by_carbon"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:164
+msgid "home.by_increasing_access"
+msgstr ""
+
+#: components/pages/Home/index.tsx:297
+msgid "home.cars_annual"
+msgstr ""
+
+#: components/pages/Home/index.tsx:266
+msgid "home.equivalent_to"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:381
+msgid "home.every_klima_token_is_backed"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:104
+msgid "home.fight_climate_change"
+msgstr ""
+
+#: components/pages/Home/index.tsx:432
+msgid "home.get_exposure_to_the_growing_carbon_economy"
+msgstr ""
+
+#: components/pages/Home/index.tsx:429
+msgid "home.get_klima"
+msgstr ""
+
+#: components/pages/Home/index.tsx:280
+msgid "home.hectares_of_forest"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:149
+msgid "home.klima_is_a_black_hole"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:410
+msgid "home.klima_tokens_are_minted"
+msgstr ""
+
+#: components/pages/Home/index.tsx:80
+msgid "home.latest_news"
+msgstr ""
+
+#: components/pages/Home/index.tsx:135
+msgid "home.learn_more"
+msgstr ""
+
+#: components/pages/Home/index.tsx:312
+msgid "home.liters_if_gasoline"
+msgstr ""
+
+#: components/pages/Home/index.tsx:242
+msgid "home.massive impact"
+msgstr ""
+
+#: components/pages/Home/index.tsx:180
+msgid "home.mechanics"
+msgstr ""
+
+#: components/pages/Home/index.tsx:461
+msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:469
+msgid "home.newletter.get_the_latest_updates"
+msgstr ""
+
+#: components/pages/Home/index.tsx:486
+msgid "home.newletter.never_shared_never_spammed"
+msgstr ""
+
+#: components/pages/Home/index.tsx:480
+msgid "home.newletter.sign_up"
+msgstr ""
+
+#: components/pages/Home/index.tsx:466
+msgid "home.newsletter"
+msgstr ""
+
+#. <0>Reserve Asset</0><1>Of the carbon economy</1>
+#: components/pages/Home/index.tsx:369
+msgid "home.reserve_asset_of_the_carbon_economy"
+msgstr ""
+
+#: components/pages/Home/index.tsx:439
+msgid "home.see_tutorial"
+msgstr ""
+
+#: components/pages/Home/index.tsx:327
+msgid "home.source"
+msgstr ""
+
+#: components/pages/Home/index.tsx:224
+msgid "home.strong_incentives"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:183
+msgid "home.the_dao_sell_bonds"
+msgstr ""
+
+#. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
+#: components/pages/Home/index.tsx:253
+msgid "home.tons_of_carbon_absorbed_by_klimadao"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:156
+msgid "home.we_ve_kickstarted"
+msgstr ""
+
+#. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
+#: components/pages/Home/index.tsx:398
+msgid "home.weekly_rewards_for_token_holders"
+msgstr ""
+
+#. <0>WELCOME TO</0><1>KlimaDAO</1>
+#: components/pages/Home/index.tsx:91
+msgid "home.welcome_to_klimadao"
+msgstr ""
+
+#: components/pages/Home/index.tsx:354
+msgid "invest_in_the_future"
+msgstr ""
+
+#: components/Footer/index.tsx:46
+#: components/pages/Resources/ResourcesHeader/index.tsx:29
+#: components/pages/Resources/ResourcesHeader/index.tsx:64
+msgid "shared.blog"
+msgstr ""
+
+#: components/Footer/index.tsx:39
+msgid "shared.bond"
+msgstr ""
+
+#: components/Footer/index.tsx:32
+#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:67
+msgid "shared.buy"
+msgstr ""
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:70
+msgid "shared.community"
+msgstr ""
+
+#: components/Footer/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:76
+msgid "shared.contact"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:110
+#: components/pages/Resources/Community/index.tsx:394
+#: components/pages/Resources/ResourcesHeader/index.tsx:51
+msgid "shared.contact_us"
+msgstr ""
+
+#: components/Footer/index.tsx:56
+msgid "shared.disclaimer"
+msgstr ""
+
+#: components/Footer/index.tsx:42
+msgid "shared.docs"
+msgstr ""
+
+#: components/Navigation/index.tsx:34
+#: components/pages/Home/index.tsx:112
+msgid "shared.enter_app"
+msgstr ""
+
+#: components/pages/Blog/index.tsx:25
+#: components/pages/Buy/index.tsx:45
+#: components/pages/Disclaimer/index.tsx:23
+#: components/pages/Home/index.tsx:65
+#: components/pages/Resources/Community/index.tsx:82
+#: components/pages/Resources/Contact/index.tsx:25
+msgid "shared.head.description"
+msgstr ""
+
+#: components/Footer/index.tsx:27
+msgid "shared.home"
+msgstr ""
+
+#: components/Navigation/index.tsx:50
+#: components/Navigation/index.tsx:75
+msgid "shared.loveletters"
+msgstr ""
+
+#: components/Navigation/index.tsx:54
+#: components/Navigation/index.tsx:79
+msgid "shared.resources"
+msgstr ""
+
+#: components/Footer/index.tsx:36
+#: components/Navigation/index.tsx:46
+#: components/Navigation/index.tsx:71
+msgid "shared.stake"
+msgstr ""
