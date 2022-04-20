@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from "react";
+import { StaticImageData } from "next/image";
 import { Image } from "components/Image";
 
 import { Spinner, Text } from "@klimadao/lib/components";

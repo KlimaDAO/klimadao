@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
+import { StaticImageData } from "next/image";
 
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
