@@ -1,5 +1,5 @@
 import { i18n } from "@lingui/core";
-import { en, fr, de } from "make-plural/plurals";
+import { en, fr, de, ru, zh } from "make-plural/plurals";
 import { IS_PRODUCTION, IS_LOCAL_DEVELOPMENT } from "lib/constants";
 
 // TODO: remove NODE_ENV=test hack from package.json https://github.com/lingui/js-lingui/issues/433
@@ -18,6 +18,8 @@ const locales: ILocales = {
   en: { plurals: en, time: "en-US" },
   fr: { plurals: fr, time: "fr-FR" },
   de: { plurals: de, time: "de-DE" },
+  ru: { plurals: ru, time: "ru-RU" },
+  zh: { plurals: zh, time: "zh-CN" },
 };
 
 // Add pseudo locale only in development
