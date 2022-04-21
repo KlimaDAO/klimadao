@@ -17,9 +17,11 @@ export const ChangeLanguageButton: FC = () => {
   const { locale } = useRouter();
 
   const labels: { [key: string]: string } = {
-    en: t`English`,
-    fr: t`French`,
-    de: t`German`,
+    en: "English",
+    fr: "Français",
+    de: "Deutsch",
+    ru: "Русский",
+    zh: "中文",
   };
 
   // enable 'pseudo' locale only for Staging environment

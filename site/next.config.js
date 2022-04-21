@@ -87,7 +87,7 @@ const nextConfig = {
 if (!IS_PRODUCTION) {
   nextConfig.i18n = {
     ...nextConfig.i18n,
-    locales: ["en", "zh-CN", "en-pseudo", "fr", "de", "ru"],
+    locales: ["en", "fr", "de", "ru", "zh-CN", "en-pseudo"],
     localeDetection: true,
   };
 }
