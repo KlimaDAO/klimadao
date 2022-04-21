@@ -443,8 +443,14 @@ export const Offset = (props: Props) => {
           </div>
           {/* Input Token */}
           <DropdownWithModal
-            label="Pay with"
-            modalTitle="Select Token"
+            label={t({
+              id: "offset.dropdown_payWith.label",
+              message: "Pay with",
+            })}
+            modalTitle={t({
+              id: "offset.modal_payWith.title",
+              message: "Select Token",
+            })}
             currentItem={selectedInputToken}
             items={inputTokenItems}
             isModalOpen={isInputTokenModalOpen}
@@ -454,8 +460,14 @@ export const Offset = (props: Props) => {
 
           {/* Retire Token  */}
           <DropdownWithModal
-            label="Select carbon offset token to retire"
-            modalTitle="Select Carbon Type"
+            label={t({
+              id: "offset.dropdown_retire.label",
+              message: "Select carbon offset token to retire",
+            })}
+            modalTitle={t({
+              id: "offset.modal_retire.title",
+              message: "Select Carbon Type",
+            })}
             currentItem={selectedRetirementToken}
             items={retirementTokenItems}
             isModalOpen={isRetireTokenModalOpen}
