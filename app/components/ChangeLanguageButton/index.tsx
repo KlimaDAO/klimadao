@@ -35,7 +35,7 @@ export const ChangeLanguageButton: FC = () => {
     fr: "Français",
     de: "Deutsch",
     ru: "Русский",
-    zh: "中文",
+    "zh-CN": "中文",
   };
 
   // enable 'pseudo' locale only for Staging environment

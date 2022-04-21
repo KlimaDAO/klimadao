@@ -19,7 +19,7 @@ const locales: ILocales = {
   fr: { plurals: fr, time: "fr-FR" },
   de: { plurals: de, time: "de-DE" },
   ru: { plurals: ru, time: "ru-RU" },
-  zh: { plurals: zh, time: "zh-CN" },
+  "zh-CN": { plurals: zh, time: "zh-CN" },
 };
 
 // Add pseudo locale only in development
