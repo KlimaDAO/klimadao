@@ -19,6 +19,8 @@ const getBondAddress = (params: { bond: Bond }): string => {
     bct: addresses["mainnet"].bond_bct,
     bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
     mco2: addresses["mainnet"].bond_mco2,
+    nbo: addresses["mainnet"].bond_nbo,
+    ubo: addresses["mainnet"].bond_ubo,
   }[params.bond];
 };
 
@@ -30,6 +32,8 @@ const getReserveAddress = (params: { bond: Bond }): string => {
     mco2: addresses["mainnet"].mco2,
     bct_usdc_lp: addresses["mainnet"].bctUsdcLp,
     klima_mco2_lp: addresses["mainnet"].klimaMco2Lp,
+    nbo: addresses["mainnet"].nbo,
+    ubo: addresses["mainnet"].ubo,
   }[params.bond];
 };
 
@@ -41,6 +45,8 @@ const getReserveABI = (params: { bond: Bond }): ContractInterface => {
     mco2: IERC20.abi,
     bct_usdc_lp: OhmDai.abi,
     klima_mco2_lp: OhmDai.abi,
+    nbo: IERC20.abi,
+    ubo: IERC20.abi,
   }[params.bond];
 };
 
@@ -74,6 +80,32 @@ const getBCTMarketPrice = async (params: {
   const reserves = await pairContract.getReserves();
   // [BCT, KLIMA] - KLIMA has 9 decimals, BCT has 18 decimals
   return reserves[0] / (reserves[1] * Math.pow(10, 9));
+};
+
+const getUBOMarketPrice = async (params: {
+  provider: providers.JsonRpcProvider;
+}) => {
+  const pairContract = new ethers.Contract(
+    addresses["mainnet"].klimaUboLp,
+    PairContract.abi,
+    params.provider
+  );
+  const reserves = await pairContract.getReserves();
+  // [UBO, KLIMA] - UBO has 18 decimals, KLIMA has 9 decimals
+  return reserves[0] / (reserves[1] * Math.pow(10, 9));
+};
+
+const getNBOMarketPrice = async (params: {
+  provider: providers.JsonRpcProvider;
+}) => {
+  const pairContract = new ethers.Contract(
+    addresses["mainnet"].klimaNboLp,
+    PairContract.abi,
+    params.provider
+  );
+  const reserves = await pairContract.getReserves();
+  // [KLIMA, NBO] - KLIMA has 9 decimals, NBO has 18 decimals,
+  return (reserves[1] * Math.pow(10, 9)) / reserves[0];
 };
 
 // for Klima/USDC LP
@@ -139,6 +171,8 @@ export const calcBondDetails = (params: {
       klima_bct_lp: getBCTMarketPrice,
       bct_usdc_lp: getBCTMarketPrice,
       bct: getBCTMarketPrice,
+      ubo: getUBOMarketPrice,
+      nbo: getNBOMarketPrice,
     }[params.bond];
 
     const marketPrice = await getMarketPrice({
