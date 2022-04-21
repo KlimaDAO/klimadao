@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Image } from "components/Image";
-
+import { StaticImageData } from "next/image";
 import { Trans } from "@lingui/macro";
 import CloudOutlined from "@mui/icons-material/CloudOutlined";
 

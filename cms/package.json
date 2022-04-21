@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "install": "sanity install",
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy"
@@ -12,18 +13,18 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.29.3",
-    "@sanity/core": "^2.29.3",
-    "@sanity/default-layout": "^2.29.3",
-    "@sanity/default-login": "^2.29.3",
-    "@sanity/desk-tool": "^2.29.4",
-    "@sanity/vision": "^2.29.3",
+    "@sanity/base": "^2.29.5",
+    "@sanity/core": "^2.29.5",
+    "@sanity/default-layout": "^2.29.5",
+    "@sanity/default-login": "^2.29.5",
+    "@sanity/desk-tool": "^2.29.5",
+    "@sanity/vision": "^2.29.5",
     "prop-types": "^15.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.29.3"
+    "@sanity/cli": "^2.29.5"
   }
 }
