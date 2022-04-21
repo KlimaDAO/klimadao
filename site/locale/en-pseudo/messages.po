@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-21 22:14+0000\n"
+"POT-Creation-Date: 2022-04-21 22:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,20 +15,8 @@ msgstr ""
 msgid "Buy Now"
 msgstr ""
 
-#: components/ChangeLanguageButton/index.tsx:64
+#: components/ChangeLanguageButton/index.tsx:66
 msgid "Change language"
-msgstr ""
-
-#: components/ChangeLanguageButton/index.tsx:20
-msgid "English"
-msgstr ""
-
-#: components/ChangeLanguageButton/index.tsx:21
-msgid "French"
-msgstr ""
-
-#: components/ChangeLanguageButton/index.tsx:22
-msgid "German"
 msgstr ""
 
 #. Long sentence
