@@ -75,9 +75,9 @@ const nextConfig = {
     ];
   },
   i18n: {
-    locales: ["en"],
+    locales: ["en", "fr", "de"],
     defaultLocale: "en",
-    localeDetection: false,
+    localeDetection: true,
   },
   images: {
     domains: ["cdn.sanity.io"],
@@ -88,7 +88,6 @@ if (!IS_PRODUCTION) {
   nextConfig.i18n = {
     ...nextConfig.i18n,
     locales: ["en", "fr", "de", "ru", "zh-CN", "en-pseudo"],
-    localeDetection: true,
   };
 }
 
