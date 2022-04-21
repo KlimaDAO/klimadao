@@ -34,12 +34,12 @@ export const ChangeLanguageButton: FC = () => {
     en: "English",
     fr: "Français",
     de: "Deutsch",
-    ru: "Русский",
-    "zh-CN": "中文",
   };
 
   // enable 'pseudo' locale only for Staging environment
   if (!IS_PRODUCTION) {
+    labels["ru"] = "Русский";
+    labels["zh-CN"] = "中文";
     labels["en-pseudo"] = "Pseudo";
   }
 
