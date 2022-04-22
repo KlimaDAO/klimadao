@@ -7,10 +7,13 @@ import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import { useSelector } from "react-redux";
+
+import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
 import { selectAppState } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
+
 import { Stake } from "components/views/Stake";
 import { PKlima } from "components/views/PKlima";
 import { Info } from "components/views/Info";
@@ -23,7 +26,7 @@ import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 import { NotificationModal } from "components/NotificationModal";
 
-import { init } from "lib/i18n";
+import { initLocale } from "lib/i18n";
 
 import styles from "./index.module.css";
 import { IS_PRODUCTION } from "lib/constants";
@@ -146,6 +149,8 @@ export const Home: FC = () => {
   const [showRPCModal, setShowRPCModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
+  const localeFromURL = useLocaleFromParams();
+
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [showCheckURLBanner, setShowCheckURLBanner] = useState(
@@ -156,11 +161,11 @@ export const Home: FC = () => {
 
   useEffect(() => {
     if (locale === undefined) {
-      init().then((init_locale: string) => {
+      initLocale(localeFromURL).then((init_locale: string) => {
         dispatch(setAppState({ locale: init_locale }));
       });
     }
-  }, []);
+  }, [localeFromURL]);
 
   useEffect(() => {
     if (pathname === "/") {
