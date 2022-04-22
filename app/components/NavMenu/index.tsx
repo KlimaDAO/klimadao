@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectBalances } from "state/selectors";
+import { selectBalances, selectLocale } from "state/selectors";
 import { Trans } from "@lingui/macro";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
@@ -28,6 +28,8 @@ import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import Payment from "@mui/icons-material/Payment";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
+
+import { createLinkWithLocaleSubPath } from "lib/i18n";
 
 import * as styles from "./styles";
 
@@ -92,6 +94,7 @@ interface Props {
 }
 
 export const NavMenu: FC<Props> = (props) => {
+  const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
   const { pathname } = useLocation();
 
@@ -101,7 +104,7 @@ export const NavMenu: FC<Props> = (props) => {
 
   return (
     <nav className={styles.container}>
-      <a href={urls.home}>
+      <a href={createLinkWithLocaleSubPath(urls.home, locale)}>
         <LogoWithClaim />
       </a>
       <div className="stack-12">

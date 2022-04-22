@@ -77,4 +77,9 @@ async function initLocale(localeFromURL: string | null) {
   return locale;
 }
 
+export const createLinkWithLocaleSubPath = (
+  url: string,
+  locale = "en"
+): string => `${url}/${locale}`;
+
 export { locales, activate, initLocale };
