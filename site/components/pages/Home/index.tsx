@@ -12,6 +12,7 @@ import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
+import { createLinkWithLocaleQuery } from "lib/i18n";
 import { LatestPost } from "lib/queries";
 
 import forest from "public/forest.jpg";
@@ -110,7 +111,7 @@ export const Home: NextPage<Props> = (props) => {
                 <ButtonPrimary
                   key="Enter App"
                   label={t({ id: "shared.enter_app", message: "Enter App" })}
-                  href={urls.app}
+                  href={createLinkWithLocaleQuery(urls.app, locale)}
                 />
               </div>
             </div>

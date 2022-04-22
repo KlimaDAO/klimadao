@@ -1,6 +1,9 @@
 import { NextPage } from "next";
 import Image from "next/image";
 
+import { useRouter } from "next/router";
+import { createLinkWithLocaleQuery } from "lib/i18n";
+
 import {
   Anchor as A,
   Text,
@@ -29,6 +32,8 @@ import { t } from "@lingui/macro";
 export type Props = HTMLHtmlElement;
 
 export const Buy: NextPage<Props> = ({}) => {
+  const { locale } = useRouter();
+
   const begginerSectionRef = useRef<null | HTMLDivElement>(null);
   const intermediateSectionRef = useRef<null | HTMLDivElement>(null);
   const advancedSectionRef = useRef<null | HTMLDivElement>(null);
@@ -260,7 +265,7 @@ export const Buy: NextPage<Props> = ({}) => {
             </Text>
             <ButtonPrimary
               label="ENTER APP"
-              href={urls.bonds}
+              href={createLinkWithLocaleQuery(urls.bonds, locale)}
               target="_blank"
               rel="noopener noreferrer"
             />

@@ -43,4 +43,7 @@ async function loadTranslation(locale = "en") {
   return data.messages;
 }
 
+export const createLinkWithLocaleQuery = (url: string, locale = "en"): string =>
+  `${url}?locale=${locale}`;
+
 export { locales, loadTranslation };
