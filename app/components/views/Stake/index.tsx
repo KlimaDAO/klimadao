@@ -210,7 +210,7 @@ export const Stake = (props: Props) => {
   return (
     <>
       <BalancesCard
-        assets={["klima", "sklima"]}
+        assets={["klima", "sklima", "wsklima"]}
         tooltip={
           <Trans id="stake.balancescard.tooltip" comment="Long sentence">
             Stake your KLIMA tokens to receive sKLIMA. After every rebase, your

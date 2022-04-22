@@ -8,6 +8,7 @@ export interface UserState {
     klima: string;
     sklima: string;
     wsklima: string;
+    wsklimaUnwrapped: string;
     aklima: string;
     alklima: string;
     pklima: string;

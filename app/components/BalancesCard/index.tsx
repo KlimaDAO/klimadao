@@ -2,9 +2,9 @@ import { Text } from "@klimadao/lib/components";
 import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
 import { useSelector } from "react-redux";
-import { InfoButton } from "components/InfoButton";
-import { selectBalances, selectLocale } from "state/selectors";
-import * as styles from "./styles";
+import { InfoButton }                                   from "components/InfoButton";
+import { selectAppState, selectBalances, selectLocale } from "state/selectors";
+import * as styles                                      from "./styles";
 import { FC } from "react";
 import { RootState } from "state";
 import { Trans } from "@lingui/macro";
@@ -18,6 +18,7 @@ interface Props {
 }
 
 export const BalancesCard: FC<Props> = (props) => {
+  const {currentIndex} = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
   const locale = useSelector(selectLocale);
 
@@ -29,12 +30,14 @@ export const BalancesCard: FC<Props> = (props) => {
     pklima: "pKLIMA",
     sklima: "sKLIMA",
     wsklima: "wsKLIMA",
+    wsklimaUnwrapped: "wsKLIMA (unwrapped)",
     mco2: "MCO2",
     usdc: "USDC",
     nct: "NCT",
     ubo: "UBO",
     nbo: "NBO",
   };
+
   return (
     <div className={styles.card + " " + status}>
       <div className="header">
@@ -47,9 +50,22 @@ export const BalancesCard: FC<Props> = (props) => {
       <div className="cardContent">
         {props.assets.map((asset) => (
           <div className="stack" key={asset}>
-            <Text className="value">
-              {trimWithPlaceholder(balances?.[asset] ?? 0, 9, locale)}
-            </Text>
+            {
+              asset !== "wsklimaUnwrapped" && (
+                <Text className="value">
+                  {trimWithPlaceholder(balances?.[asset] ?? 0, 9, locale)}
+                </Text>
+              )
+            }
+            {
+              asset === "wsklimaUnwrapped" &&
+              balances &&
+              currentIndex && (
+                <Text className="value">
+                  {trimWithPlaceholder((Number(balances["wsklima"]) * Number(currentIndex)) ?? 0, 9, locale)}
+                </Text>
+              )
+            }
             <Text className="label" color="lightest">
               {labels[asset]}
             </Text>
