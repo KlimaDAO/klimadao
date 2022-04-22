@@ -9,3 +9,12 @@ export const Image = (props: ImageProps) => {
   }
   return <NextImage {...props} />;
 };
+
+// FIXME: next/image doesn't export this interface so this is a temporary hack
+// Currently located in this file: node_modules/next/image-types/global.d.ts
+export interface StaticImageData {
+  src: string;
+  height: number;
+  width: number;
+  blurDataURL?: string;
+}

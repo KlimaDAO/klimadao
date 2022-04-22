@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: fr\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:638
 msgid "Beneficiary Address"
@@ -583,7 +589,7 @@ msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont gagné 
 msgid "shared.approve"
 msgstr "Approuver"
 
-#: components/BalancesCard/index.tsx:43
+#: components/BalancesCard/index.tsx:46
 msgid "shared.balances"
 msgstr "Soldes"
 
@@ -830,3 +836,7 @@ msgstr "wsKLIMA à dés-encapsuler"
 #: components/views/Wrap/index.tsx:286
 msgid "wrap.you_will_get"
 msgstr "Vous obtiendrez"
+
+#: components/BalancesCard/index.tsx:33
+msgid "wsklima.unwrapped.label"
+msgstr ""

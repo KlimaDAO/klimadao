@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { StaticImageData } from "next/image";
+import { StaticImageData } from "components/Image";
 import { Image } from "components/Image";
 
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
