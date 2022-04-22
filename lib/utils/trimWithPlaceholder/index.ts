@@ -2,7 +2,7 @@
 export const trimWithPlaceholder = (
   number: string | number | undefined,
   precision: number,
-  locale: string
+  locale = "en"
 ) => {
   if (typeof number === "undefined" || Number.isNaN(number)) {
     return "Loading... ";

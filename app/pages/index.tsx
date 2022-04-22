@@ -16,20 +16,18 @@ export async function getStaticProps() {
 }
 const HomePage: NextPage = () => {
   return (
-    <>
-      <PageHead
-        production={IS_PRODUCTION}
-        title="KlimaDAO | Official App"
-        mediaTitle="KlimaDAO | Official App"
-        metaDescription="Use the KLIMA web app to bond, stake and earn rewards."
-        mediaImageSrc="/og-media.png"
-      />
-      <WithRedux>
-        <WithIsomorphicRouter location="/#">
-          <Home />
-        </WithIsomorphicRouter>
-      </WithRedux>
-    </>
+    <WithRedux>
+      <WithIsomorphicRouter location="/#">
+        <PageHead
+          production={IS_PRODUCTION}
+          title="KlimaDAO | Official App"
+          mediaTitle="KlimaDAO | Official App"
+          metaDescription="Use the KLIMA web app to bond, stake and earn rewards."
+          mediaImageSrc="/og-media.png"
+        />
+        <Home />
+      </WithIsomorphicRouter>
+    </WithRedux>
   );
 };
 
