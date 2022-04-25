@@ -7,7 +7,7 @@
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
-    "lingui:extract": "cmd=\"NODE_ENV=test npx lingui extract --clean --overwrite 2>&1 | grep 'Cannot process file'\"; if [ -z \"$(eval $cmd)\" ]; then exit 0; else exit 1; fi",
+    "lingui:extract": "NODE_ENV=test npx lingui extract --clean --overwrite",
     "lingui:compile": "NODE_ENV=test lingui compile",
     "postinstall": "npm run lingui:compile"
   },
