@@ -1,6 +1,6 @@
 import { ethers, providers } from "ethers";
 import { FC, useRef, useState, useEffect } from "react";
-import { useNavigate, Route, useLocation } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import WalletLink from "walletlink";
 import Web3Modal from "web3modal";
@@ -152,7 +152,6 @@ export const Home: FC = () => {
   const localeFromURL = useLocaleFromParams();
 
   const { pathname } = useLocation();
-  const navigate = useNavigate();
   const [showCheckURLBanner, setShowCheckURLBanner] = useState(
     !skipCheckURLBanner()
   );
@@ -169,7 +168,7 @@ export const Home: FC = () => {
 
   useEffect(() => {
     if (pathname === "/") {
-      navigate("/stake");
+      window.location.replace(`/#/stake${window.location.search}`);
     }
   }, [pathname]);
 
