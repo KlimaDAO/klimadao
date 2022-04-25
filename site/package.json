@@ -8,6 +8,7 @@
     "lint": "next lint",
     "lingui:extract": "NODE_ENV=test npx lingui extract --clean --overwrite",
     "lingui:compile": "NODE_ENV=test lingui compile",
+    "lingui:extract:dev": "NODE_ENV=test npx lingui extract --clean --overwrite --locale=en",
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {

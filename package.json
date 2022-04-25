@@ -24,6 +24,7 @@
     "deploy-cms": "cd ./cms && npm run deploy",
     "format-all": "prettier --write ./",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract",
-    "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile"
+    "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile",
+    "extract-strings:dev": "npm run -w site lingui:extract:dev && npm run -w app lingui:extract:dev"
   }
 }

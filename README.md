@@ -47,7 +47,19 @@ A set of NPM Workspace commands are provided, and can be run from the root folde
 
 `npm run format-all`: Format all files with `prettier`.
 
+`npm run extract-strings:dev`: Extract translation files for the source language "en".
+
 ## Translations
+
+### For Developers
+
+This repo uses [lingui](https://lingui.js.org/tutorials/react.html) in combination with [translation.io](https://translation.io).
+
+We follow these rules:
+
+- always add an ID to each translation
+- extract the source translation with `npm run extract-strings:dev`
+- commit source language files "en" only
 
 ### For translators
 
