@@ -2,6 +2,8 @@ import { FC } from "react";
 import dynamic from "next/dynamic";
 import { t } from "@lingui/macro";
 import { ButtonPrimary } from "@klimadao/lib/components";
+import { useRouter } from "next/router";
+import { createLinkWithLocaleQuery } from "lib/i18n";
 
 import { urls } from "@klimadao/lib/constants";
 import { HeaderDesktop } from "components/Header/HeaderDesktop";
@@ -21,63 +23,67 @@ export type Props = {
   activePage: PageName;
 };
 
-export const Navigation: FC<Props> = (props) => (
-  <>
-    <HeaderDesktop
-      buttons={(!IS_PRODUCTION
-        ? [<ChangeLanguageButton key="ChangeLanguageButton" />]
-        : []
-      ).concat([
-        <ThemeToggle key="ThemeToggle" />,
-        <ButtonPrimary
-          key="Enter App"
-          label={t({ message: "Enter App", id: "shared.enter_app" })}
-          href={urls.app}
-        />,
-      ])}
-    >
-      <NavItemDesktop
-        url={"/buy"}
-        name={t({ message: "Buy", id: "shared.buy" })}
-        active={props.activePage === "Buy"}
-      />
-      <NavItemDesktop
-        url={urls.stake}
-        name={t({ message: "Stake", id: "shared.stake" })}
-      />
-      <NavItemDesktop
-        url={urls.loveletter}
-        name={t({ message: "Love Letters", id: "shared.loveletters" })}
-      />
-      <NavItemDesktop
-        url="/blog"
-        name={t({ message: "Resources", id: "shared.resources" })}
-        active={props.activePage === "Resources"}
-      />
-    </HeaderDesktop>
+export const Navigation: FC<Props> = (props) => {
+  const { locale } = useRouter();
 
-    <HeaderMobile
-      buttons={(!IS_PRODUCTION
-        ? [<ChangeLanguageButton key="ChangeLanguageButton" />]
-        : []
-      ).concat([<ThemeToggle key="ThemeToggle" />])}
-    >
-      <NavItemMobile
-        url="/buy"
-        name={t({ message: "Buy", id: "shared.buy" })}
-      />
-      <NavItemMobile
-        url={urls.stake}
-        name={t({ message: "Stake", id: "shared.stake" })}
-      />
-      <NavItemMobile
-        url={urls.loveletter}
-        name={t({ message: "Love Letters", id: "shared.loveletters" })}
-      />
-      <NavItemMobile
-        url="/blog"
-        name={t({ message: "Resources", id: "shared.resources" })}
-      />
-    </HeaderMobile>
-  </>
-);
+  return (
+    <>
+      <HeaderDesktop
+        buttons={(!IS_PRODUCTION
+          ? [<ChangeLanguageButton key="ChangeLanguageButton" />]
+          : []
+        ).concat([
+          <ThemeToggle key="ThemeToggle" />,
+          <ButtonPrimary
+            key="Enter App"
+            label={t({ message: "Enter App", id: "shared.enter_app" })}
+            href={createLinkWithLocaleQuery(urls.app, locale)}
+          />,
+        ])}
+      >
+        <NavItemDesktop
+          url={"/buy"}
+          name={t({ message: "Buy", id: "shared.buy" })}
+          active={props.activePage === "Buy"}
+        />
+        <NavItemDesktop
+          url={createLinkWithLocaleQuery(urls.stake, locale)}
+          name={t({ message: "Stake", id: "shared.stake" })}
+        />
+        <NavItemDesktop
+          url={urls.loveletter}
+          name={t({ message: "Love Letters", id: "shared.loveletters" })}
+        />
+        <NavItemDesktop
+          url="/blog"
+          name={t({ message: "Resources", id: "shared.resources" })}
+          active={props.activePage === "Resources"}
+        />
+      </HeaderDesktop>
+
+      <HeaderMobile
+        buttons={(!IS_PRODUCTION
+          ? [<ChangeLanguageButton key="ChangeLanguageButton" />]
+          : []
+        ).concat([<ThemeToggle key="ThemeToggle" />])}
+      >
+        <NavItemMobile
+          url="/buy"
+          name={t({ message: "Buy", id: "shared.buy" })}
+        />
+        <NavItemMobile
+          url={createLinkWithLocaleQuery(urls.stake, locale)}
+          name={t({ message: "Stake", id: "shared.stake" })}
+        />
+        <NavItemMobile
+          url={urls.loveletter}
+          name={t({ message: "Love Letters", id: "shared.loveletters" })}
+        />
+        <NavItemMobile
+          url="/blog"
+          name={t({ message: "Resources", id: "shared.resources" })}
+        />
+      </HeaderMobile>
+    </>
+  );
+};

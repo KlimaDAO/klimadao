@@ -27,6 +27,10 @@ if (!IS_PRODUCTION) {
   locales["en-pseudo"] = { plurals: en, time: "en-US" };
 }
 
+// Validate locale language tag
+export const localeExists = (locale: string) =>
+  Object.keys(locales).includes(locale);
+
 // Load localedata
 for (const key in locales) {
   const locale = locales[key];
@@ -65,12 +69,17 @@ async function activate(locale: string) {
 /**
  * Initializes locale (retrieve current locale from localstorage if possible)
  */
-async function init() {
+async function initLocale(localeFromURL: string | null) {
   // Load user locale
-  let locale = window.localStorage.getItem("locale") as string;
-  if (!Object.keys(locales).includes(locale)) locale = "en";
+  let locale = localeFromURL || window.localStorage.getItem("locale");
+  if (!locale || (!!locale && !localeExists(locale))) locale = "en";
   await load(locale);
   return locale;
 }
 
-export { locales, activate, init };
+export const createLinkWithLocaleSubPath = (
+  url: string,
+  locale = "en"
+): string => `${url}/${locale}`;
+
+export { locales, activate, initLocale };
