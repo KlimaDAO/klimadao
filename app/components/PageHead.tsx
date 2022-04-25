@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
-
+import { useSelector } from "react-redux";
+import { selectLocale } from "state/selectors";
 export interface PageHeadProps {
   production: boolean;
   /** <title> tag */
@@ -14,6 +15,7 @@ export interface PageHeadProps {
 }
 
 export const PageHead = (props: PageHeadProps) => {
+  const locale = useSelector(selectLocale);
   const noRobots = props.doNotIndex || !props.production;
   return (
     <Head>
@@ -33,7 +35,7 @@ export const PageHead = (props: PageHeadProps) => {
         <meta property="og:image" content={props.mediaImageSrc} />
       )}
       <meta property="og:type" content="website" />
-      <meta property="og:locale" content="en" />
+      <meta property="og:locale" content={locale || "en"} />
       <link
         rel="apple-touch-icon"
         sizes="180x180"

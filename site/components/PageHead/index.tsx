@@ -21,6 +21,7 @@ export const PageHead = (props: PageHeadProps) => {
   const router = useRouter();
   const relativePath = router.asPath.split(/[#,?]/)[0];
   const canonicalUrl = `https://www.klimadao.finance${relativePath}`;
+
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
@@ -38,7 +39,7 @@ export const PageHead = (props: PageHeadProps) => {
       <meta property="og:description" content={props.metaDescription} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:locale" content="en" />
+      <meta property="og:locale" content={router.locale || "en"} />
       <meta property="og:site_name" content="KlimaDAO" />
 
       {props.mediaImageSrc && (

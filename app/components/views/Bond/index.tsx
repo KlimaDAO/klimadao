@@ -46,7 +46,7 @@ import { Image } from "components/Image";
 import { ImageCard } from "components/ImageCard";
 
 export function prettyVestingPeriod(
-  locale: string,
+  locale = "en",
   currentBlock: number,
   vestingBlock: number,
   blockRate: number
