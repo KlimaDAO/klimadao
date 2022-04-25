@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-25 16:52+0000\n"
+"POT-Creation-Date: 2022-04-25 21:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -338,39 +338,39 @@ msgstr "Informations et FAQ"
 msgid "info.official_contract_addresses"
 msgstr "Adresses officielles des contrats"
 
-#: components/NavMenu/index.tsx:145
+#: components/NavMenu/index.tsx:148
 msgid "menu.bond_carbon"
 msgstr "Obligation carbone"
 
-#: components/NavMenu/index.tsx:129
+#: components/NavMenu/index.tsx:132
 msgid "menu.buy_klima"
 msgstr "Acheter KLIMA"
 
-#: components/NavMenu/index.tsx:169
+#: components/NavMenu/index.tsx:172
 msgid "menu.info"
 msgstr "Informations"
 
-#: components/NavMenu/index.tsx:174
+#: components/NavMenu/index.tsx:177
 msgid "menu.just_for_you"
 msgstr "JUSTE POUR VOUS"
 
-#: components/NavMenu/index.tsx:117
+#: components/NavMenu/index.tsx:120
 msgid "menu.not_connected"
 msgstr "NON CONNECTÉ"
 
-#: components/NavMenu/index.tsx:161
+#: components/NavMenu/index.tsx:164
 msgid "menu.offset"
 msgstr "Compensation"
 
-#: components/NavMenu/index.tsx:137
+#: components/NavMenu/index.tsx:140
 msgid "menu.stake_klima"
 msgstr "Mettre KLIMA en dépôt"
 
-#: components/NavMenu/index.tsx:111
+#: components/NavMenu/index.tsx:114
 msgid "menu.wallet_address"
 msgstr "L'adresse de votre portefeuille"
 
-#: components/NavMenu/index.tsx:153
+#: components/NavMenu/index.tsx:156
 msgid "menu.wrap_klima"
 msgstr "Encapsuler sKLIMA"
 
@@ -757,7 +757,7 @@ msgstr "Veuillez cliquer sur « confirmer » dans votre portefeuille pour cont
 msgid "status.user_rejected"
 msgstr "Vous avez rejeté la transaction"
 
-#: components/NavMenu/index.tsx:181
+#: components/NavMenu/index.tsx:184
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

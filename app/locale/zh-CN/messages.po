@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-25 16:52+0000\n"
+"POT-Creation-Date: 2022-04-25 21:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -334,39 +334,39 @@ msgstr "信息和常见问题解答"
 msgid "info.official_contract_addresses"
 msgstr "官方合同地址"
 
-#: components/NavMenu/index.tsx:145
+#: components/NavMenu/index.tsx:148
 msgid "menu.bond_carbon"
 msgstr "碳债券"
 
-#: components/NavMenu/index.tsx:129
+#: components/NavMenu/index.tsx:132
 msgid "menu.buy_klima"
 msgstr "购买 KLIMA"
 
-#: components/NavMenu/index.tsx:169
+#: components/NavMenu/index.tsx:172
 msgid "menu.info"
 msgstr "信息"
 
-#: components/NavMenu/index.tsx:174
+#: components/NavMenu/index.tsx:177
 msgid "menu.just_for_you"
 msgstr "只为您服务"
 
-#: components/NavMenu/index.tsx:117
+#: components/NavMenu/index.tsx:120
 msgid "menu.not_connected"
 msgstr "未连接"
 
-#: components/NavMenu/index.tsx:161
+#: components/NavMenu/index.tsx:164
 msgid "menu.offset"
 msgstr "抵消"
 
-#: components/NavMenu/index.tsx:137
+#: components/NavMenu/index.tsx:140
 msgid "menu.stake_klima"
 msgstr "质押 KLIMA"
 
-#: components/NavMenu/index.tsx:111
+#: components/NavMenu/index.tsx:114
 msgid "menu.wallet_address"
 msgstr "您的钱包地址"
 
-#: components/NavMenu/index.tsx:153
+#: components/NavMenu/index.tsx:156
 msgid "menu.wrap_klima"
 msgstr "封装sKLIMA"
 
@@ -753,7 +753,7 @@ msgstr "请点击您钱包中的 \"确认\" 以继续。"
 msgid "status.user_rejected"
 msgstr "您已选择拒绝交易"
 
-#: components/NavMenu/index.tsx:181
+#: components/NavMenu/index.tsx:184
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

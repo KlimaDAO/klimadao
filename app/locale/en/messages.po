@@ -340,39 +340,39 @@ msgstr "Info & FAQ"
 msgid "info.official_contract_addresses"
 msgstr "Official Contract Addresses"
 
-#: components/NavMenu/index.tsx:145
+#: components/NavMenu/index.tsx:148
 msgid "menu.bond_carbon"
 msgstr "Bond Carbon"
 
-#: components/NavMenu/index.tsx:129
+#: components/NavMenu/index.tsx:132
 msgid "menu.buy_klima"
 msgstr "Buy KLIMA"
 
-#: components/NavMenu/index.tsx:169
+#: components/NavMenu/index.tsx:172
 msgid "menu.info"
 msgstr "Info"
 
-#: components/NavMenu/index.tsx:174
+#: components/NavMenu/index.tsx:177
 msgid "menu.just_for_you"
 msgstr "JUST FOR YOU"
 
-#: components/NavMenu/index.tsx:117
+#: components/NavMenu/index.tsx:120
 msgid "menu.not_connected"
 msgstr "NOT CONNECTED"
 
-#: components/NavMenu/index.tsx:161
+#: components/NavMenu/index.tsx:164
 msgid "menu.offset"
 msgstr "Offset"
 
-#: components/NavMenu/index.tsx:137
+#: components/NavMenu/index.tsx:140
 msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/NavMenu/index.tsx:111
+#: components/NavMenu/index.tsx:114
 msgid "menu.wallet_address"
 msgstr "Your Wallet Address"
 
-#: components/NavMenu/index.tsx:153
+#: components/NavMenu/index.tsx:156
 msgid "menu.wrap_klima"
 msgstr "Wrap sKLIMA"
 
@@ -759,7 +759,7 @@ msgstr "Please click 'confirm' in your wallet to continue."
 msgid "status.user_rejected"
 msgstr "You chose to reject the transaction"
 
-#: components/NavMenu/index.tsx:181
+#: components/NavMenu/index.tsx:184
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

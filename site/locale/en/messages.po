@@ -17,7 +17,7 @@ msgstr ""
 msgid "Articles"
 msgstr "Articles"
 
-#: components/pages/Buy/index.tsx:183
+#: components/pages/Buy/index.tsx:188
 msgid "Buy Now"
 msgstr "Buy Now"
 
@@ -47,8 +47,8 @@ msgstr "Blog"
 msgid "blog.head.title"
 msgstr "KlimaDAO Blog"
 
-#: components/pages/Buy/index.tsx:43
-#: components/pages/Buy/index.tsx:44
+#: components/pages/Buy/index.tsx:48
+#: components/pages/Buy/index.tsx:49
 msgid "buy.head.title"
 msgstr "How to buy KLIMA"
 
@@ -327,155 +327,155 @@ msgstr "We recommend that you visit our Crypto Security 101 page for safety inst
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 
-#: components/pages/Home/index.tsx:206
+#: components/pages/Home/index.tsx:207
 msgid "home.backed_by_carbon"
 msgstr "Backed by Carbon."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:164
+#: components/pages/Home/index.tsx:165
 msgid "home.by_increasing_access"
 msgstr "By increasing access and demand for carbon offsets, we make pro-climate projects more profitable, while forcing companies to adapt more quickly to the realities of climate change."
 
-#: components/pages/Home/index.tsx:297
+#: components/pages/Home/index.tsx:298
 msgid "home.cars_annual"
 msgstr "Cars (annual)"
 
-#: components/pages/Home/index.tsx:266
+#: components/pages/Home/index.tsx:267
 msgid "home.equivalent_to"
 msgstr "EQUIVALENT TO"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:381
+#: components/pages/Home/index.tsx:382
 msgid "home.every_klima_token_is_backed"
 msgstr "Every KLIMA token is backed by a real-world carbon asset. Tokens are used to offset carbon emissions, interact with DeFi applications, and get exposure to the rapidly growing global carbon market."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:104
+#: components/pages/Home/index.tsx:105
 msgid "home.fight_climate_change"
 msgstr "Fight climate change and earn rewards with KLIMA, a digital currency backed by real carbon assets."
 
-#: components/pages/Home/index.tsx:432
+#: components/pages/Home/index.tsx:433
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "Get exposure to the growing carbon economy today. Acquire, stake, and get rewarded. Financial activism for the climate."
 
-#: components/pages/Home/index.tsx:429
+#: components/pages/Home/index.tsx:430
 msgid "home.get_klima"
 msgstr "GET KLIMA"
 
-#: components/pages/Home/index.tsx:280
+#: components/pages/Home/index.tsx:281
 msgid "home.hectares_of_forest"
 msgstr "Hectares of forest"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:149
+#: components/pages/Home/index.tsx:150
 msgid "home.klima_is_a_black_hole"
 msgstr "KlimaDAO is a <0>black hole for carbon</0> at the center of a <1>new green economy</1>."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:410
+#: components/pages/Home/index.tsx:411
 msgid "home.klima_tokens_are_minted"
 msgstr "KLIMA tokens are minted and distributed automatically every ~7 hours to staked KLIMA holders. Grow your KLIMA holdings as we usher in a more sustainable future together."
 
-#: components/pages/Home/index.tsx:80
+#: components/pages/Home/index.tsx:81
 msgid "home.latest_news"
 msgstr "📰 Latest News:"
 
-#: components/pages/Home/index.tsx:135
+#: components/pages/Home/index.tsx:136
 msgid "home.learn_more"
 msgstr "LEARN MORE"
 
-#: components/pages/Home/index.tsx:312
+#: components/pages/Home/index.tsx:313
 msgid "home.liters_if_gasoline"
 msgstr "Liters of gasoline"
 
-#: components/pages/Home/index.tsx:242
+#: components/pages/Home/index.tsx:243
 msgid "home.massive impact"
 msgstr "Massive impact."
 
-#: components/pages/Home/index.tsx:180
+#: components/pages/Home/index.tsx:181
 msgid "home.mechanics"
 msgstr "MECHANICS"
 
-#: components/pages/Home/index.tsx:461
+#: components/pages/Home/index.tsx:462
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "All the Alpha, straight to your inbox"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:469
+#: components/pages/Home/index.tsx:470
 msgid "home.newletter.get_the_latest_updates"
 msgstr "Get the latest updates on KlimaDAO, as we build the future of the carbon economy."
 
-#: components/pages/Home/index.tsx:486
+#: components/pages/Home/index.tsx:487
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "Never shared. Never spammed."
 
-#: components/pages/Home/index.tsx:480
+#: components/pages/Home/index.tsx:481
 msgid "home.newletter.sign_up"
 msgstr "Sign up"
 
-#: components/pages/Home/index.tsx:466
+#: components/pages/Home/index.tsx:467
 msgid "home.newsletter"
 msgstr "Newsletter"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:369
+#: components/pages/Home/index.tsx:370
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr "<0>Reserve Asset</0><1>Of the carbon economy</1>"
 
-#: components/pages/Home/index.tsx:439
+#: components/pages/Home/index.tsx:440
 msgid "home.see_tutorial"
 msgstr "See Tutorial"
 
-#: components/pages/Home/index.tsx:327
+#: components/pages/Home/index.tsx:328
 msgid "home.source"
 msgstr "Source"
 
-#: components/pages/Home/index.tsx:224
+#: components/pages/Home/index.tsx:225
 msgid "home.strong_incentives"
 msgstr "Strong incentives."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:183
+#: components/pages/Home/index.tsx:184
 msgid "home.the_dao_sell_bonds"
 msgstr "The DAO sells bonds and distributes rewards to KLIMA holders. Every bond we sell adds to an ever-growing green treasury, or improves liquidity for key environmental assets. A win-win for people and planet."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:253
+#: components/pages/Home/index.tsx:254
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr "TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:156
+#: components/pages/Home/index.tsx:157
 msgid "home.we_ve_kickstarted"
 msgstr "We’ve kick-started a <0>decentralized and open market for carbon</0>. Our token incentivizes investors, citizens, and organizations to participate in and govern this new economy."
 
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:398
+#: components/pages/Home/index.tsx:399
 msgid "home.weekly_rewards_for_token_holders"
 msgstr "<0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:91
+#: components/pages/Home/index.tsx:92
 msgid "home.welcome_to_klimadao"
 msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
 
-#: components/pages/Home/index.tsx:354
+#: components/pages/Home/index.tsx:355
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
-#: components/Footer/index.tsx:46
+#: components/Footer/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "Blog"
 
-#: components/Footer/index.tsx:39
+#: components/Footer/index.tsx:44
 msgid "shared.bond"
 msgstr "App"
 
-#: components/Footer/index.tsx:32
-#: components/Navigation/index.tsx:41
-#: components/Navigation/index.tsx:67
+#: components/Footer/index.tsx:37
+#: components/Navigation/index.tsx:46
+#: components/Navigation/index.tsx:72
 msgid "shared.buy"
 msgstr "Buy"
 
@@ -484,7 +484,7 @@ msgstr "Buy"
 msgid "shared.community"
 msgstr "Community"
 
-#: components/Footer/index.tsx:51
+#: components/Footer/index.tsx:56
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "Contact"
@@ -495,44 +495,44 @@ msgstr "Contact"
 msgid "shared.contact_us"
 msgstr "Contact Us"
 
-#: components/Footer/index.tsx:56
+#: components/Footer/index.tsx:61
 msgid "shared.disclaimer"
 msgstr "Disclaimer"
 
-#: components/Footer/index.tsx:42
+#: components/Footer/index.tsx:47
 msgid "shared.docs"
 msgstr "Docs"
 
-#: components/Navigation/index.tsx:34
-#: components/pages/Home/index.tsx:112
+#: components/Navigation/index.tsx:39
+#: components/pages/Home/index.tsx:113
 msgid "shared.enter_app"
 msgstr "Enter App"
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:45
+#: components/pages/Buy/index.tsx:50
 #: components/pages/Disclaimer/index.tsx:23
-#: components/pages/Home/index.tsx:65
+#: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/Footer/index.tsx:27
+#: components/Footer/index.tsx:32
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:50
-#: components/Navigation/index.tsx:75
+#: components/Navigation/index.tsx:55
+#: components/Navigation/index.tsx:80
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:54
-#: components/Navigation/index.tsx:79
+#: components/Navigation/index.tsx:59
+#: components/Navigation/index.tsx:84
 msgid "shared.resources"
 msgstr "Resources"
 
-#: components/Footer/index.tsx:36
-#: components/Navigation/index.tsx:46
-#: components/Navigation/index.tsx:71
+#: components/Footer/index.tsx:41
+#: components/Navigation/index.tsx:51
+#: components/Navigation/index.tsx:76
 msgid "shared.stake"
 msgstr "Stake"
