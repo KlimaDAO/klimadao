@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-21 22:15+0000\n"
+"POT-Creation-Date: 2022-04-25 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -529,4 +529,4 @@ msgstr ""
 #: components/Navigation/index.tsx:46
 #: components/Navigation/index.tsx:71
 msgid "shared.stake"
-msgstr ""
+msgstr "Стейкинг"

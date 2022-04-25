@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-21 22:16+0000\n"
+"POT-Creation-Date: 2022-04-25 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,23 +25,23 @@ msgstr "Nom"
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
-msgstr ""
+msgstr "Le 12 avril 2022, nous avons migré de \"dapp\" à \"app\". Veuillez mettre à jour vos favoris."
 
 #: components/views/Offset/index.tsx:626
 msgid "Retirement Successful"
-msgstr "Retrait réussie"
+msgstr "Désactivation réussie"
 
 #: components/views/Offset/index.tsx:666
 msgid "Share retirement"
-msgstr "Partager le retrait"
+msgstr "Partager la désactivation"
 
 #: components/InvalidNetworkModal/index.tsx:89
 msgid "Switch to Polygon"
-msgstr ""
+msgstr "Passez sur le réseau Polygon"
 
 #: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
-msgstr ""
+msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal."
 
 #: components/views/Offset/index.tsx:652
 msgid "Tonnes Retired"
@@ -53,7 +53,7 @@ msgstr "Voir sur <0>polygonscan.com</0>"
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Wrong Network"
-msgstr ""
+msgstr "Mauvais réseau"
 
 #: components/views/Offset/index.tsx:661
 #: components/views/Offset/index.tsx:669
@@ -62,7 +62,7 @@ msgstr "[Bientôt disponible]"
 
 #: components/views/Offset/index.tsx:730
 msgid "advanced"
-msgstr ""
+msgstr "AVANCE"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:737
@@ -208,16 +208,16 @@ msgstr "Acheter KLIMA"
 #. Long sentence
 #: components/views/Buy/index.tsx:97
 msgid "buy.connect_wallet"
-msgstr ""
+msgstr "Vous devez connecter un portefeuille pour acheter KLIMA."
 
 #. Long sentence
 #: components/views/Buy/index.tsx:48
 msgid "buy.how_to_buy"
-msgstr ""
+msgstr "Achetez KLIMA en quelques clics. Notre partenaire <0>Mobilum</0> enverra le KLIMA que vous avez acheté à l'adresse que vous spécifiez. Vérifiez que vous êtes connecté avec un portefeuille sécurisé et privé et que l'adresse est correcte. Une fois l'achat terminé, actualisez la page et <1>déposez</1> votre KLIMA !"
 
 #: components/views/Buy/index.tsx:94
 msgid "buy.not_connected"
-msgstr ""
+msgstr "Non connecté"
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -230,7 +230,7 @@ msgstr "J'ai compris"
 #. <0>app.klimadao.finance</0> is the only official domain.
 #: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
-msgstr ""
+msgstr "<0>app.klimadao.finance</0> est le seul domaine officiel."
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
@@ -308,7 +308,7 @@ msgstr "2. Allez dans Paramètres/Réseaux/Polygon et cliquez sur 'supprimer'"
 #. Long sentence
 #: components/views/Info/index.tsx:144
 msgid "info.app_not_loading.3_return_to_app"
-msgstr ""
+msgstr "3. Retournez sur app.klimadao.finance et choisissez le réseau principal"
 
 #. Long sentence
 #: components/views/Info/index.tsx:122
@@ -323,7 +323,7 @@ msgstr "Metamask devrait vous inviter à ajouter le réseau Polygon, avec la con
 #. Long sentence
 #: components/views/Info/index.tsx:117
 msgid "info.app_not_loading.title"
-msgstr ""
+msgstr "Pourquoi l'application ne se charge-t-elle pas pour moi ?"
 
 #. Long sentence
 #: components/views/Info/index.tsx:105
@@ -412,20 +412,20 @@ msgstr "Par défaut, l'adresse du portefeuille connecté"
 
 #: components/views/Offset/index.tsx:447
 msgid "offset.dropdown_payWith.label"
-msgstr ""
+msgstr "Payer avec"
 
 #: components/views/Offset/index.tsx:464
 msgid "offset.dropdown_retire.label"
-msgstr ""
+msgstr "Sélectionnez l'actif compensation carbone à désactiver"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:54
 msgid "offset.empty"
-msgstr ""
+msgstr "Cette adresse n'a effectué aucune désactivation."
 
 #: components/views/Offset/index.tsx:504
 #: components/views/Offset/index.tsx:759
 msgid "offset.enter_address"
-msgstr ""
+msgstr "Entrez l'adresse commençant par 0x"
 
 #: components/views/Offset/index.tsx:398
 msgid "offset.go_carbon_neutral"
@@ -437,11 +437,11 @@ msgstr "JETON EN ENTRÉE INCOMPATIBLE"
 
 #: components/views/Offset/index.tsx:451
 msgid "offset.modal_payWith.title"
-msgstr ""
+msgstr "Sélectionnez l'actif"
 
 #: components/views/Offset/index.tsx:468
 msgid "offset.modal_retire.title"
-msgstr ""
+msgstr "Sélectionnez le type de carbone"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:37
 msgid "offset.number_of_retirements"
@@ -453,15 +453,15 @@ msgstr "Entrez la quantité à compenser"
 
 #: components/views/Offset/index.tsx:395
 msgid "offset.retire_carbon"
-msgstr "Retirer du Carbone"
+msgstr "Désactiver du Carbone"
 
 #: components/views/Offset/index.tsx:737
 msgid "offset.retire_specific"
-msgstr ""
+msgstr "Désactiver des actifs de projet spécifiques"
 
 #: components/views/Offset/index.tsx:743
 msgid "offset.retire_specific_tooltip"
-msgstr ""
+msgstr "Soumis à des frais supplémentaires, fonctions du pool sélectionné et payés à l'opérateur du pont."
 
 #: components/views/Offset/index.tsx:493
 msgid "offset.retirement_beneficiary"
@@ -469,11 +469,11 @@ msgstr "Nom ou organisation"
 
 #: components/views/Offset/index.tsx:485
 msgid "offset.retirement_credit"
-msgstr "A qui ce retrait sera-t-il crédité ?"
+msgstr "A qui cette désactivation sera-t-elle créditée ?"
 
 #: components/views/Offset/index.tsx:519
 msgid "offset.retirement_message"
-msgstr "Message de destruction"
+msgstr "Message de désactivation"
 
 #: components/views/Offset/index.tsx:528
 msgid "offset.retirement_purpose"
@@ -489,7 +489,7 @@ msgstr "Tonnes de carbone"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:20
 msgid "offset.you_have_retired"
-msgstr "Vous avez retiré"
+msgstr "Vous avez désactivé"
 
 #: components/views/Offset/index.tsx:538
 msgid "offset_cost"
@@ -557,11 +557,11 @@ msgstr "Quantité maximale"
 #. Long sentence
 #: components/views/PKlima/index.tsx:225
 msgid "pklima.supply_limit.tooltip"
-msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par l'indece ne peut pas dépasser cette valeur."
+msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par l’index ne peut pas dépasser cette valeur."
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
-msgstr ""
+msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont gagné des récompenses provenant d'actifs réclamés au préalable. Avant le correctif de novembre, le rendement des dépôts n'étaient pas pris en compte dans votre limite d'approvisionnement. De fait votre approvisionnement total en KLIMA pouvait dépasser la limite définie dans vos conditions."
 
 #: components/views/Bond/index.tsx:338
 #: components/views/Offset/index.tsx:306
@@ -595,7 +595,7 @@ msgstr "Connectez votre portefeuille"
 
 #: components/views/Buy/index.tsx:65
 msgid "shared.copy_wallet_address"
-msgstr ""
+msgstr "Copier l'adresse"
 
 #: components/views/Stake/index.tsx:168
 #: components/views/Stake/index.tsx:178
@@ -643,7 +643,7 @@ msgstr "Max"
 
 #: components/views/Offset/index.tsx:312
 msgid "shared.retire"
-msgstr "RETIRER DU CARBONE"
+msgstr "DÉSACTIVER DU CARBONE"
 
 #: components/views/Bond/index.tsx:299
 msgid "shared.sold_out"
@@ -651,7 +651,7 @@ msgstr "Épuisé"
 
 #: components/views/Buy/index.tsx:72
 msgid "shared.wallet_address_copied"
-msgstr ""
+msgstr "Copié!"
 
 #: components/views/Stake/index.tsx:300
 msgid "stake.5_day_rewards"
@@ -669,7 +669,7 @@ msgstr "AKR"
 #. Long sentence
 #: components/views/Stake/index.tsx:319
 msgid "stake.akr.tooltip"
-msgstr ""
+msgstr "Rendement en KLIMA annualisé, y compris les intérêts composés, si le rendement actuel reste inchangé pendant 12 mois (le rendement peut être variable)."
 
 #. Long sentence
 #. Long sentence
