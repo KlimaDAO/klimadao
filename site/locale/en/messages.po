@@ -474,8 +474,8 @@ msgid "shared.bond"
 msgstr "App"
 
 #: components/Footer/index.tsx:37
-#: components/Navigation/index.tsx:46
-#: components/Navigation/index.tsx:72
+#: components/Navigation/index.tsx:44
+#: components/Navigation/index.tsx:70
 msgid "shared.buy"
 msgstr "Buy"
 
@@ -503,7 +503,7 @@ msgstr "Disclaimer"
 msgid "shared.docs"
 msgstr "Docs"
 
-#: components/Navigation/index.tsx:39
+#: components/Navigation/index.tsx:37
 #: components/pages/Home/index.tsx:113
 msgid "shared.enter_app"
 msgstr "Enter App"
@@ -521,18 +521,18 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:55
-#: components/Navigation/index.tsx:80
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:78
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:59
-#: components/Navigation/index.tsx:84
+#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:82
 msgid "shared.resources"
 msgstr "Resources"
 
 #: components/Footer/index.tsx:41
-#: components/Navigation/index.tsx:51
-#: components/Navigation/index.tsx:76
+#: components/Navigation/index.tsx:49
+#: components/Navigation/index.tsx:74
 msgid "shared.stake"
 msgstr "Stake"
