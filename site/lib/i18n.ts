@@ -17,11 +17,11 @@ const locales: ILocales = {
   en: { plurals: en, time: "en-US" },
   fr: { plurals: fr, time: "fr-FR" },
   de: { plurals: de, time: "de-DE" },
-  ru: { plurals: ru, time: "ru-RU" },
-  "zh-CN": { plurals: zh, time: "zh-CN" },
 };
 // Add pseudo locale only in development
 if (!IS_PRODUCTION) {
+  locales["ru"] = { plurals: ru, time: "ru-RU" };
+  locales["zh-CN"] = { plurals: zh, time: "zh-CN" };
   locales["en-pseudo"] = { plurals: en, time: "en-US" };
 }
 
