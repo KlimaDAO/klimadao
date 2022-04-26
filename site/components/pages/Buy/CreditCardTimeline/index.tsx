@@ -36,8 +36,8 @@ const creditCardContent: CardContent[] = [
         <Text color="lighter">
           <Trans id="buy.beginner_02.description_02">
             After you connect, the KlimaDAO app should prompt you to switch to
-            Polygon network automatically. Metamask will ask you to confirm this
-            action.
+            the Polygon network automatically. Metamask will ask you to confirm
+            this action.
           </Trans>
         </Text>
       </div>

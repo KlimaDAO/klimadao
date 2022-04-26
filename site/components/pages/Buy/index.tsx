@@ -260,15 +260,16 @@ export const Buy: NextPage<Props> = ({}) => {
               <Trans id="buy.bonding.description_01">
                 Bonding is the process of depositing carbon assets in exchange
                 for discounted KLIMA. This is one of the ways the Klima Treasury
-                absorbs carbon credits for positive climate impact, and to
-                provide the backing for each KLIMA token.
+                absorbs carbon credits for positive climate impact. Bonding also
+                provides the backing for each new KLIMA token.
               </Trans>
             </Text>
             <Text t="body3" color="lighter">
               <Trans id="buy.bonding.description_02">
                 The discount fluctuates depending on market conditions. The
-                Treasury accepts carbon in the form of carbon tokens (UBO, BCT,
-                MCO2) or Liquidity Pool (LP) tokens (KLIMA/BCT, KLIMA/MCO2).
+                Treasury accepts carbon in the form of carbon tokens (such as
+                UBO, BCT, or MCO2) or Liquidity Pool (LP) tokens (such as
+                KLIMA/BCT, KLIMA/MCO2).
               </Trans>
             </Text>
             <ButtonPrimary
