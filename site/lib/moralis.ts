@@ -39,7 +39,7 @@ export const findOrCreatePledge = async (params) => {
   const userSession = await findUserSession(params.sessionToken);
   if (!userSession) throw new Error("Invalid Session");
 
-  const user = userSession?.get("user");
+  const user = userSession.get("user");
   const acl = new Moralis.ACL();
   acl.setPublicReadAccess(true);
   acl.setWriteAccess(user.id, true);

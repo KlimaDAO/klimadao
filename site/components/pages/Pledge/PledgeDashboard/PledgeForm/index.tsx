@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { useMoralis } from "react-moralis";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, useFieldArray, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 
 import { InputField, TextareaField } from "components/Form";
@@ -24,16 +24,14 @@ const schema = yup
     pledge: yup.string().required("Enter a pledge").max(280),
     methodology: yup.string().required("Enter a methodology").max(280),
     footprint: yup.array().of(
-      yup
-        .object({
-          category: yup.string().required("Enter a category"),
-          amount: yup
-            .number()
-            .required("Enter a number")
-            .typeError("Enter a number")
-            .min(1, "Enter a number greater than 0"),
-        })
-        .required()
+      yup.object({
+        category: yup.string().required("Enter a category"),
+        amount: yup
+          .number()
+          .required("Enter a number")
+          .typeError("Enter a number")
+          .min(1, "Enter a number greater than 0"),
+      })
     ),
   })
   .noUnknown();
@@ -42,15 +40,11 @@ type PledgeForm = yup.InferType<typeof schema>;
 
 export const PledgeForm: FC<Props> = (props) => {
   const { user } = useMoralis();
-  const { register, handleSubmit, formState, reset, getValues, control } =
+  const { register, handleSubmit, formState, reset, getValues } =
     useForm<PledgeForm>({
       defaultValues: props.pledge,
       resolver: yupResolver(schema),
     });
-  const { fields, append, remove } = useFieldArray<PledgeForm>({
-    control,
-    name: "footprint",
-  });
 
   const onSubmit: SubmitHandler<PledgeForm> = async (values: PledgeForm) => {
     try {
@@ -96,36 +90,13 @@ export const PledgeForm: FC<Props> = (props) => {
         {...register("methodology")}
       />
 
-      <Text t="caption">Footprint (carbon tonnes)</Text>
-      {fields.map((category, index) => (
-        <div className={styles.footprintContainer} key={category.id}>
-          <div className={styles.footprintRow}>
-            <InputField
-              hideLabel={true}
-              label="Category"
-              placeholder="Category"
-              type="text"
-              errors={formState.errors.footprint?.[index]?.category}
-              {...register(`footprint.${index}.category` as const)}
-            />
-            <InputField
-              hideLabel={true}
-              label="Amount"
-              placeholder="Amount"
-              type="number"
-              step={1}
-              errors={formState.errors.footprint?.[index]?.amount}
-              {...register(`footprint.${index}.amount` as const)}
-            />
-            {index !== 0 && <button onClick={() => remove(index)}>-</button>}
-          </div>
-        </div>
-      ))}
-      <button
-        onClick={() => append({ category: undefined, amount: undefined })}
-      >
-        +
-      </button>
+      <InputField
+        label="footprint"
+        placeholder="Footprint (carbon tonnes)"
+        type="number"
+        errors={formState.errors.name}
+        {...register("footprint")}
+      />
 
       <ButtonPrimary label="Save pledge" onClick={handleSubmit(onSubmit)} />
     </form>
