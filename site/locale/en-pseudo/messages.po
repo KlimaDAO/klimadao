@@ -6,17 +6,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:188
-msgid "Buy Now"
-msgstr ""
-
 #: components/ChangeLanguageButton/index.tsx:66
 msgid "Change language"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:276
+msgid "Enter App"
 msgstr ""
 
 #. Long sentence
@@ -41,9 +47,166 @@ msgstr ""
 msgid "blog.head.title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:48
+#: components/pages/Buy/index.tsx:136
+#: components/pages/Buy/index.tsx:255
+msgid "buy.advanced"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:91
+#: components/pages/Buy/index.tsx:177
+msgid "buy.beginner"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:14
+msgid "buy.beginner_01.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:10
+msgid "buy.beginner_01.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:29
+msgid "buy.beginner_02.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:37
+msgid "buy.beginner_02.description_02"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:25
+msgid "buy.beginner_02.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:51
+msgid "buy.beginner_03.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:57
+msgid "buy.beginner_03.description_2"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:47
+msgid "buy.beginner_03.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:72
+msgid "buy.beginner_04.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:79
+msgid "buy.beginner_04.description_02"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:68
+msgid "buy.beginner_04.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:97
+msgid "buy.beginner_05.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:93
+msgid "buy.beginner_05.title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:133
+#: components/pages/Buy/index.tsx:258
+msgid "buy.bonding"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:261
+msgid "buy.bonding.description_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:269
+msgid "buy.bonding.description_02"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:88
+#: components/pages/Buy/index.tsx:180
+msgid "buy.credit_card"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:183
+msgid "buy.credit_card.summary"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:109
+msgid "buy.decentralized_exchange"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.dex"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:242
+msgid "buy.dex.how_zapper"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:215
+msgid "buy.dex.summary_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:222
+msgid "buy.dex.summary_02"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:147
+msgid "buy.disclaimer"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:152
+msgid "buy.disclaimer_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:162
+msgid "buy.disclaimer_02"
+msgstr ""
+
 #: components/pages/Buy/index.tsx:49
+#: components/pages/Buy/index.tsx:50
 msgid "buy.head.title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:114
+#: components/pages/Buy/index.tsx:208
+msgid "buy.intermediate"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:66
+msgid "buy.subtitle"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:63
+msgid "buy.title"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:13
+msgid "buy.zapper_01.description_01"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:19
+msgid "buy.zapper_01.description_02"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:9
+msgid "buy.zapper_01.title"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:36
+msgid "buy.zapper_02.description_02"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:32
+msgid "buy.zapper_02.title"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:49
+msgid "buy.zapper_03.description_01"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:45
+msgid "buy.zapper_03.title"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:97
@@ -535,7 +698,7 @@ msgid "shared.enter_app"
 msgstr ""
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:50
+#: components/pages/Buy/index.tsx:51
 #: components/pages/Disclaimer/index.tsx:23
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82

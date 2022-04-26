@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:638
 msgid "Beneficiary Address"
@@ -199,21 +205,26 @@ msgstr ""
 msgid "bond.you_will_get.tooltip"
 msgstr ""
 
-#: components/views/Buy/index.tsx:45
+#: components/views/Buy/index.tsx:44
 msgid "buy.buy_klima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Buy/index.tsx:97
+#: components/views/Buy/index.tsx:108
 msgid "buy.connect_wallet"
 msgstr ""
 
 #. Long sentence
-#: components/views/Buy/index.tsx:48
+#: components/views/Buy/index.tsx:55
+msgid "buy.data_disclaimer"
+msgstr ""
+
+#. Long sentence
+#: components/views/Buy/index.tsx:47
 msgid "buy.how_to_buy"
 msgstr ""
 
-#: components/views/Buy/index.tsx:94
+#: components/views/Buy/index.tsx:105
 msgid "buy.not_connected"
 msgstr ""
 
@@ -589,7 +600,7 @@ msgid "shared.confirming"
 msgstr ""
 
 #: components/views/Bond/index.tsx:305
-#: components/views/Buy/index.tsx:102
+#: components/views/Buy/index.tsx:113
 #: components/views/Offset/index.tsx:280
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:132
@@ -597,7 +608,7 @@ msgstr ""
 msgid "shared.connect_wallet"
 msgstr ""
 
-#: components/views/Buy/index.tsx:65
+#: components/views/Buy/index.tsx:76
 msgid "shared.copy_wallet_address"
 msgstr ""
 
@@ -652,7 +663,7 @@ msgstr ""
 msgid "shared.sold_out"
 msgstr ""
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:83
 msgid "shared.wallet_address_copied"
 msgstr ""
 
@@ -676,7 +687,7 @@ msgstr ""
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:113
+#: components/views/Buy/index.tsx:124
 #: components/views/Stake/index.tsx:204
 msgid "stake.balancescard.tooltip"
 msgstr ""

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { providers } from "ethers";
-import { Link } from "react-router-dom";
 import { Trans } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
 import Check from "@mui/icons-material/Check";
