@@ -158,10 +158,8 @@ export const Wrap: FC<Props> = (props) => {
     return `${Number(quantity) * Number(currentIndex)} ${suffix}`;
   };
 
-  const inputPlaceholder =
-    view === "wrap"
-      ? t({ id: "wrap.sklima_to_wrap", message: "sKLIMA to wrap" })
-      : t({ id: "wrap.wsklima_to_unwrap", message: "wsKLIMA to unwrap" });
+  const inputPlaceholderMessageID =
+    view === "wrap" ? "wrap.sklima_to_wrap" : "wrap.wsklima_to_unwrap";
 
   return (
     <>
@@ -226,13 +224,18 @@ export const Wrap: FC<Props> = (props) => {
               </button>
             </div>
             <div className={styles.stakeInput}>
-              <input
-                className={styles.stakeInput_input}
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-                type="number"
-                placeholder={inputPlaceholder}
-                min="0"
+              <Trans
+                id={inputPlaceholderMessageID}
+                render={({ translation }) => (
+                  <input
+                    className={styles.stakeInput_input}
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    type="number"
+                    placeholder={translation as string}
+                    min="0"
+                  />
+                )}
               />
               <button
                 className={styles.stakeInput_max}
