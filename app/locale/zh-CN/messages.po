@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 20:05+0000\n"
+"POT-Creation-Date: 2022-04-26 20:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -512,7 +512,7 @@ msgid "pklima.approve_pklima"
 msgstr "1. 批准 pKLIMA"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:168
+#: components/views/PKlima/index.tsx:169
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "确保用已赎回的 pKLIMA 来做质押，并持续质押，直至全球温室气体排放量趋于稳定。"
 
@@ -520,20 +520,20 @@ msgstr "确保用已赎回的 pKLIMA 来做质押，并持续质押，直至全�
 msgid "pklima.exercise"
 msgstr "使用"
 
-#: components/views/PKlima/index.tsx:182
+#: components/views/PKlima/index.tsx:185
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "每使用 1个 pKLIMA 和 1个 BCT，即可获取 1个 KLIMA。"
 
-#: components/views/PKlima/index.tsx:250
+#: components/views/PKlima/index.tsx:253
 msgid "pklima.index_adjusted"
 msgstr "指数调整"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:253
+#: components/views/PKlima/index.tsx:256
 msgid "pklima.index_adjusted.tooltip"
 msgstr "等价的 sKLIMA 称，假设你把所有赎回的KLIMA质押到今天。"
 
-#: components/views/PKlima/index.tsx:198
+#: components/views/PKlima/index.tsx:201
 msgid "pklima.klima_to_exercise"
 msgstr "用 pKLIMA 来..."
 
@@ -541,25 +541,25 @@ msgstr "用 pKLIMA 来..."
 msgid "pklima.overclaim"
 msgstr "您申请的 KLIMA 已经超过了您的供应份额限制。该情况可能是由2021年11月24日对  pKLIMA 赎回合约的修复造成的。"
 
-#: components/views/PKlima/index.tsx:179
+#: components/views/PKlima/index.tsx:182
 msgid "pklima.redeem_pklima"
 msgstr "赎回 pKLIMA"
 
-#: components/views/PKlima/index.tsx:238
+#: components/views/PKlima/index.tsx:241
 msgid "pklima.redeemed"
 msgstr "已赎回"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:241
+#: components/views/PKlima/index.tsx:244
 msgid "pklima.redeemed.tooltip"
 msgstr "到目前为止，您已赎回的 KLIMA 总数。"
 
-#: components/views/PKlima/index.tsx:222
+#: components/views/PKlima/index.tsx:225
 msgid "pklima.supply_limit"
 msgstr "供应限制"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:225
+#: components/views/PKlima/index.tsx:228
 msgid "pklima.supply_limit.tooltip"
 msgstr "代币总供应量的百分比。指数调整后的索赔不得超过此值。"
 
@@ -622,8 +622,8 @@ msgid "shared.insufficient_balance"
 msgstr "余额不足"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:49
-#: components/RebaseCard/index.tsx:57
-#: components/RebaseCard/index.tsx:68
+#: components/RebaseCard/index.tsx:58
+#: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:311
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:286
@@ -638,9 +638,9 @@ msgid "shared.loading"
 msgstr "正在加载..."
 
 #: components/views/Bond/index.tsx:465
-#: components/views/PKlima/index.tsx:209
+#: components/views/PKlima/index.tsx:212
 #: components/views/Stake/index.tsx:276
-#: components/views/Wrap/index.tsx:245
+#: components/views/Wrap/index.tsx:246
 msgid "shared.max"
 msgstr "最大额度"
 
@@ -676,12 +676,12 @@ msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能�
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:112
-#: components/views/Stake/index.tsx:203
+#: components/views/Buy/index.tsx:113
+#: components/views/Stake/index.tsx:204
 msgid "stake.balancescard.tooltip"
 msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将按给定的百分比增加。"
 
-#: components/RebaseCard/index.tsx:81
+#: components/RebaseCard/index.tsx:82
 msgid "stake.estimated_payout"
 msgstr "预计支出 (sKLIMA)"
 
@@ -699,11 +699,11 @@ msgstr "指数"
 msgid "stake.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。对做账有利。"
 
-#: components/RebaseCard/index.tsx:60
+#: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
 msgstr "至下次变基约还有..."
 
-#: components/RebaseCard/index.tsx:72
+#: components/RebaseCard/index.tsx:73
 msgid "stake.percent_payout"
 msgstr "支付百分比"
 
@@ -711,9 +711,9 @@ msgstr "支付百分比"
 msgid "stake.rebase"
 msgstr "变基"
 
-#: components/RebaseCard/index.tsx:47
+#: components/RebaseCard/index.tsx:48
 msgid "stake.rebase.info"
-msgstr "该协议自动铸造和分配奖励。所得是sKLIMA余额的给定百分比。"
+msgstr ""
 
 #: components/views/Stake/index.tsx:239
 msgid "stake.stake"
@@ -764,44 +764,44 @@ msgstr "连接"
 msgid "wallet.disconnect"
 msgstr "断开"
 
-#: components/views/Wrap/index.tsx:273
+#: components/views/Wrap/index.tsx:274
 msgid "wrap.balance"
 msgstr "余额"
 
-#: components/views/Wrap/index.tsx:168
+#: components/views/Wrap/index.tsx:169
 msgid "wrap.balances_tooltip"
 msgstr "打包 sKLIMA 以获得指数调整的已打包质押的 KLIMA"
 
-#: components/views/Wrap/index.tsx:260
+#: components/views/Wrap/index.tsx:261
 msgid "wrap.index"
 msgstr "指数"
 
-#: components/views/Wrap/index.tsx:263
+#: components/views/Wrap/index.tsx:264
 msgid "wrap.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。用于计算 wsKLIMA 价值。"
 
-#: components/views/Wrap/index.tsx:223
+#: components/views/Wrap/index.tsx:224
 msgid "wrap.unwrap"
 msgstr "分拆"
 
-#: components/views/Wrap/index.tsx:212
+#: components/views/Wrap/index.tsx:213
 msgid "wrap.wrap"
 msgstr "打包"
 
-#: components/views/Wrap/index.tsx:178
+#: components/views/Wrap/index.tsx:179
 msgid "wrap.wrap_sklima"
 msgstr "打包 sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:190
+#: components/views/Wrap/index.tsx:191
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "部分人认为这对做账有帮助，但其实收益则完全相同。 打包数值和分拆数值是根据当前指标计算得出的。"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:181
+#: components/views/Wrap/index.tsx:182
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "打包 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不会随着时间的推移而增加。"
 
-#: components/views/Wrap/index.tsx:276
+#: components/views/Wrap/index.tsx:277
 msgid "wrap.you_will_get"
 msgstr "你将获得"
