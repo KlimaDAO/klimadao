@@ -13,7 +13,7 @@ import * as styles from "./styles";
 
 type Props = {
   pledge: Pledge;
-  onFormSubmit: (data: PledgeForm) => void;
+  onFormSubmit: (data: PledgeFormValues) => void;
 };
 
 const schema = yup
@@ -23,30 +23,26 @@ const schema = yup
     name: yup.string().required("Enter a name"),
     pledge: yup.string().required("Enter a pledge").max(280),
     methodology: yup.string().required("Enter a methodology").max(280),
-    footprint: yup.array().of(
-      yup.object({
-        category: yup.string().required("Enter a category"),
-        amount: yup
-          .number()
-          .required("Enter a number")
-          .typeError("Enter a number")
-          .min(1, "Enter a number greater than 0"),
-      })
-    ),
+    footprint: yup
+      .number()
+      .required("Enter your footprint")
+      .min(1, "Value needs to be greater than 1"),
   })
   .noUnknown();
 
-type PledgeForm = yup.InferType<typeof schema>;
+type PledgeFormValues = yup.InferType<typeof schema>;
 
 export const PledgeForm: FC<Props> = (props) => {
   const { user } = useMoralis();
-  const { register, handleSubmit, formState, reset, getValues } =
-    useForm<PledgeForm>({
+  const { register, handleSubmit, formState, reset } =
+    useForm<PledgeFormValues>({
       defaultValues: props.pledge,
       resolver: yupResolver(schema),
     });
 
-  const onSubmit: SubmitHandler<PledgeForm> = async (values: PledgeForm) => {
+  const onSubmit: SubmitHandler<PledgeFormValues> = async (
+    values: PledgeFormValues
+  ) => {
     try {
       const response = await putPledge({
         pledge: values,
@@ -63,7 +59,6 @@ export const PledgeForm: FC<Props> = (props) => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
-      {/* {JSON.stringify(getValues(), null, 2)} */}
       <InputField
         label="Name"
         placeholder="Name or company name"
@@ -91,10 +86,10 @@ export const PledgeForm: FC<Props> = (props) => {
       />
 
       <InputField
-        label="footprint"
+        label="Footprint"
         placeholder="Footprint (carbon tonnes)"
         type="number"
-        errors={formState.errors.name}
+        errors={formState.errors.footprint}
         {...register("footprint")}
       />
 

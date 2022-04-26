@@ -5,14 +5,13 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { address } = req.query as { address: string };
-
   switch (req.method) {
     case "PUT":
       try {
+        const sessionToken = req.headers.authorization?.split(" ")[1]
         const data = await findOrCreatePledge({
           pledge: req.body,
-          sessionToken: req.query.sessionToken,
+          sessionToken,
         });
         const pledge = JSON.parse(JSON.stringify(data));
 

@@ -10,15 +10,14 @@ export const getPledge = (params: getPledgeParams) =>
     },
   });
 
-export const putPledge = (params) => {
-  return fetch(
-    `${API_BASE_URL}/api/pledge?sessionToken=${params.sessionToken}`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(params.pledge),
-    }
-  );
-};
+type putPledgeParams = { sessionToken: string | undefined};
+
+export const putPledge = (params: putPledgeParams) =>
+  fetch(`${API_BASE_URL}/api/pledge`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${params.sessionToken}`,
+    },
+    body: JSON.stringify(params.pledge),
+  });
