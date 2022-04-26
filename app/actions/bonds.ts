@@ -105,7 +105,7 @@ const getNBOMarketPrice = async (params: {
   );
   const reserves = await pairContract.getReserves();
   // [KLIMA, NBO] - KLIMA has 9 decimals, NBO has 18 decimals,
-  return reserves[1] / (reserves[0] * Math.pow(10, 9)) ;
+  return reserves[1] / (reserves[0] * Math.pow(10, 9));
 };
 
 // for Klima/USDC LP
@@ -185,7 +185,12 @@ export const calcBondDetails = (params: {
     const bondPrice = await bondContract.bondPriceInUSD();
 
     let bondQuote;
-    if (params.bond === "bct" || params.bond === "mco2" || params.bond === "nbo" || params.bond === "ubo") {
+    if (
+      params.bond === "bct" ||
+      params.bond === "mco2" ||
+      params.bond === "nbo" ||
+      params.bond === "ubo"
+    ) {
       bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
     } else {
       const valuation = await bondCalcContract.valuation(
