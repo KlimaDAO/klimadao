@@ -165,10 +165,11 @@ export const Wrap: FC<Props> = (props) => {
     <>
       <BalancesCard
         assets={["sklima", "wsklima"]}
-        tooltip={t({
-          id: "wrap.balances_tooltip",
-          message: "Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA",
-        })}
+        tooltip={
+          <Trans id="wrap.balances_tooltip">
+            Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA
+          </Trans>
+        }
       />
 
       <div className={styles.stakeCard} style={{ minHeight: "74rem" }}>

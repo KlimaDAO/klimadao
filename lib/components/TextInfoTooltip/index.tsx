@@ -4,7 +4,7 @@ import styles from "./styles";
 
 interface Props extends TippyProps {
   /** String to be displayed in the tooltip. */
-  content: string | React.ReactNode;
+  content: React.ReactNode;
   /** Must be a focusable plain JSX element. Wrap with <span tabindex="0"> if needed. */
   children: JSX.Element;
 }
