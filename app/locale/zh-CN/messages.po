@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 01:35+0000\n"
+"POT-Creation-Date: 2022-04-26 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,7 +62,7 @@ msgstr "[敬请期待]"
 
 #: components/views/Offset/index.tsx:730
 msgid "advanced"
-msgstr "更多细节信息"
+msgstr "更多细节"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:737
@@ -85,7 +85,7 @@ msgstr "债券"
 
 #: components/views/Bond/index.tsx:503
 msgid "bond.bond_price"
-msgstr "债券价"
+msgstr "债券价格"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:507
@@ -121,7 +121,7 @@ msgstr "债券折扣"
 #. Long sentence
 #: components/views/Bond/index.tsx:539
 msgid "bond.discount.tooltip"
-msgstr "相对于KLIMA的市场价值，债券收到的KLIMA折扣百分比（或在负数情况时溢价）。"
+msgstr "相对于KLIMA的市场价值，该债券收到的KLIMA折扣百分比（或在负数情况时溢价）。"
 
 #: components/views/Bond/index.tsx:367
 msgid "bond.inputplaceholder.amount_to_bond"
@@ -142,7 +142,7 @@ msgstr "KLIMA当前交易价格，不含债券折扣"
 
 #: components/views/Bond/index.tsx:575
 msgid "bond.maximum"
-msgstr "最大限度"
+msgstr "最大额度"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:579
@@ -179,7 +179,7 @@ msgstr "未赎回"
 #. Long sentence
 #: components/views/Bond/index.tsx:638
 msgid "bond.unredeemed.tooltip"
-msgstr "剩余未兑现价值（已归属和未归属）"
+msgstr "剩余未赎回价值（已归属和未归属）"
 
 #: components/views/Bond/index.tsx:614
 msgid "bond.vesting_term_end"
@@ -269,7 +269,7 @@ msgstr "KLIMA/MCO2 Quickswap 流动性"
 
 #: components/views/ChooseBond/index.tsx:69
 msgid "choose_bond.nbo.description"
-msgstr ""
+msgstr "C3 基于自然抵消"
 
 #: components/views/ChooseBond/index.tsx:193
 msgid "choose_bond.percent_discount"
@@ -285,7 +285,7 @@ msgstr "国库余额"
 
 #: components/views/ChooseBond/index.tsx:65
 msgid "choose_bond.ubo.description"
-msgstr ""
+msgstr "C3 基本通用抵消"
 
 #: components/views/ChooseBond/index.tsx:89
 msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
@@ -322,7 +322,7 @@ msgstr "如果应用程序显示 “正在加载...”，这可能是您的 Meta
 #. Long sentence
 #: components/views/Info/index.tsx:151
 msgid "info.app_not_loading.metamask_should_prompt"
-msgstr "Metamask 会提示您使用正确的RPC配置来添加 Polygon。"
+msgstr "Metamask 会提示您使用正确的 RPC 配置来添加 Polygon。"
 
 #. Long sentence
 #: components/views/Info/index.tsx:117
@@ -376,7 +376,7 @@ msgstr "您的钱包地址"
 
 #: components/NavMenu/index.tsx:156
 msgid "menu.wrap_klima"
-msgstr "封装sKLIMA"
+msgstr "打包 sKLIMA"
 
 #: components/NotificationModal/index.tsx:26
 msgid "modal.done"
@@ -514,7 +514,7 @@ msgstr "1. 批准 pKLIMA"
 #. Long sentence
 #: components/views/PKlima/index.tsx:168
 msgid "pklima.balances_card.make_sure_to_stake"
-msgstr "确保质押已赎回的 pKLIMA，并持续质押，直至全球温室气体排放量趋于稳定。"
+msgstr "确保用已赎回的 pKLIMA 来做质押，并持续质押，直至全球温室气体排放量趋于稳定。"
 
 #: components/views/PKlima/index.tsx:156
 msgid "pklima.exercise"
@@ -531,7 +531,7 @@ msgstr "指数调整"
 #. Long sentence
 #: components/views/PKlima/index.tsx:253
 msgid "pklima.index_adjusted.tooltip"
-msgstr "等价的 sKLIMA 称，假设你质押了所有已赎回的KLIMA至今 。"
+msgstr "等价的 sKLIMA 称，假设你把所有赎回的KLIMA质押到今天。"
 
 #: components/views/PKlima/index.tsx:198
 msgid "pklima.klima_to_exercise"
@@ -539,7 +539,7 @@ msgstr "用 pKLIMA 来..."
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
-msgstr "您申请的 KLIMA 已经超过了您的供应份额限制。这可能是由于2021年11月24日对  pKLIMA 赎回合约实施的修复造成的结果。"
+msgstr "您申请的 KLIMA 已经超过了您的供应份额限制。该情况可能是由2021年11月24日对  pKLIMA 赎回合约的修复造成的。"
 
 #: components/views/PKlima/index.tsx:179
 msgid "pklima.redeem_pklima"
@@ -565,7 +565,7 @@ msgstr "代币总供应量的百分比。指数调整后的索赔不得超过此
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
-msgstr "更新后的合约假设现在 pKLIMA 持有者已经用之前获得的代币进行了质押，并获得了奖励。在11月合约修复之前，这些质押奖励不计入供应份额限制，就是说您在 KLIMA 总供应量中持有的份额，可能会超过条款定义中限定的份额。"
+msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之前获得的代币，并挣得奖励。在11月合约修复之前，这些质押奖励不计入供应份额限制，就是说您在 KLIMA 总供应量中持有的份额，可能会超过条款定义中限定的份额。"
 
 #: components/views/Bond/index.tsx:338
 #: components/views/Offset/index.tsx:306
@@ -643,7 +643,7 @@ msgstr "正在加载..."
 #: components/views/Stake/index.tsx:287
 #: components/views/Wrap/index.tsx:242
 msgid "shared.max"
-msgstr "最大限度"
+msgstr "最大额度"
 
 #: components/views/Offset/index.tsx:312
 msgid "shared.retire"
@@ -673,7 +673,7 @@ msgstr "KLIMA年化奖励率"
 #. Long sentence
 #: components/views/Stake/index.tsx:319
 msgid "stake.akr.tooltip"
-msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能会发生变化), 年化 KLIMA 将利率...，包括复利。"
+msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能会发生变化), KLIMA 年化奖利率...，包括复利。"
 
 #. Long sentence
 #. Long sentence
@@ -684,7 +684,7 @@ msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将�
 
 #: components/RebaseCard/index.tsx:81
 msgid "stake.estimated_payout"
-msgstr "约支出 (sKLIMA)"
+msgstr "预计支出 (sKLIMA)"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:235
@@ -698,7 +698,7 @@ msgstr "指数"
 #. Long sentence
 #: components/views/Stake/index.tsx:333
 msgid "stake.index.tooltip"
-msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。对做账有用。"
+msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。对做账有利。"
 
 #: components/views/Stake/index.tsx:195
 msgid "stake.inputplaceholder.stake"
@@ -710,7 +710,7 @@ msgstr "取消质押量"
 
 #: components/RebaseCard/index.tsx:60
 msgid "stake.next_rebase"
-msgstr "至下次变基 约..."
+msgstr "至下次变基约还有..."
 
 #: components/RebaseCard/index.tsx:72
 msgid "stake.percent_payout"
@@ -779,7 +779,7 @@ msgstr "余额"
 
 #: components/views/Wrap/index.tsx:170
 msgid "wrap.balances_tooltip"
-msgstr "封装 sKLIMA 以获得指数调整的已封装质押的 KLIMA"
+msgstr "打包 sKLIMA 以获得指数调整的已打包质押的 KLIMA"
 
 #: components/views/Wrap/index.tsx:257
 msgid "wrap.index"
@@ -791,33 +791,33 @@ msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数�
 
 #: components/views/Wrap/index.tsx:163
 msgid "wrap.sklima_to_wrap"
-msgstr "封装 sKLIMA 来..."
+msgstr "打包 sKLIMA 来..."
 
 #: components/views/Wrap/index.tsx:225
 msgid "wrap.unwrap"
-msgstr "拆封"
+msgstr "分拆"
 
 #: components/views/Wrap/index.tsx:214
 msgid "wrap.wrap"
-msgstr "封装"
+msgstr "打包"
 
 #: components/views/Wrap/index.tsx:180
 msgid "wrap.wrap_sklima"
-msgstr "封装sKLIMA"
+msgstr "打包 sKLIMA"
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:192
 msgid "wrap.wrap_sklima.some_find_this_useful"
-msgstr "部分人认为这对做账有帮助，但其实收益则完全相同。 封装值和拆封值是根据当前索引计算得出的。"
+msgstr "部分人认为这对做账有帮助，但其实收益则完全相同。 打包数值和分拆数值是根据当前指标计算得出的。"
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:183
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
-msgstr "封装 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不会随着时间的推移而增加。"
+msgstr "打包 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不会随着时间的推移而增加。"
 
 #: components/views/Wrap/index.tsx:164
 msgid "wrap.wsklima_to_unwrap"
-msgstr "拆封 wsKLIMA 来..."
+msgstr "拆分 wsKLIMA 来..."
 
 #: components/views/Wrap/index.tsx:273
 msgid "wrap.you_will_get"
