@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 15:41+0000\n"
+"POT-Creation-Date: 2022-04-26 20:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,15 +9,15 @@ msgstr ""
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
-msgstr ""
+msgstr "Статьи"
 
 #: components/pages/Buy/index.tsx:188
 msgid "Buy Now"
-msgstr ""
+msgstr "Купить сейчас"
 
 #: components/ChangeLanguageButton/index.tsx:66
 msgid "Change language"
-msgstr ""
+msgstr "измененить язык"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:95
@@ -26,7 +26,7 @@ msgstr ""
 
 #: components/pages/Blog/Post/index.tsx:92
 msgid "blog.disclaimer.title"
-msgstr ""
+msgstr "Отказ от ответственности"
 
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
@@ -34,29 +34,29 @@ msgstr ""
 
 #: components/pages/Blog/index.tsx:18
 msgid "blog.head.headline"
-msgstr ""
+msgstr "Блог"
 
 #: components/pages/Blog/index.tsx:17
 #: components/pages/Blog/index.tsx:24
 msgid "blog.head.title"
-msgstr ""
+msgstr "Блог KlimaDAO"
 
 #: components/pages/Buy/index.tsx:48
 #: components/pages/Buy/index.tsx:49
 msgid "buy.head.title"
-msgstr ""
+msgstr "Как купить KLIMA"
 
 #: components/pages/Resources/Community/index.tsx:97
 msgid "community.become_a_partner"
-msgstr ""
+msgstr "СТАТЬ ПАРТНЕРОМ"
 
 #: components/pages/Resources/Community/index.tsx:170
 msgid "community.bigcowg_logo"
-msgstr ""
+msgstr "Логотип BICOWG"
 
 #: components/pages/Resources/Community/index.tsx:159
 msgid "community.blockchainforclimatefondation_logo"
-msgstr ""
+msgstr "Логотип Blockchain for Climate Foundation"
 
 #: components/pages/Resources/Community/index.tsx:333
 msgid "community.come_on_in"
@@ -64,7 +64,7 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
-msgstr ""
+msgstr "Delta Wave логотип"
 
 #: components/pages/Resources/Community/index.tsx:288
 msgid "community.digitalcharityart_logo"
@@ -77,11 +77,11 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:258
 msgid "community.dovu_logo"
-msgstr ""
+msgstr "Dovu логотип "
 
 #: components/pages/Resources/Community/index.tsx:266
 msgid "community.eco_logo"
-msgstr ""
+msgstr "Есо логотип"
 
 #: components/pages/Resources/Community/index.tsx:247
 msgid "community.etcgroup_logo"
@@ -89,15 +89,15 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:381
 msgid "community.get_in_touch"
-msgstr ""
+msgstr "Связаться?"
 
 #: components/pages/Resources/Community/index.tsx:203
 msgid "community.gitcoin_logo"
-msgstr ""
+msgstr "Gitcoin логотип"
 
 #: components/pages/Resources/Community/index.tsx:75
 msgid "community.head.headline"
-msgstr ""
+msgstr "Сообщество"
 
 #: components/pages/Resources/Community/index.tsx:76
 msgid "community.head.subline"
@@ -106,7 +106,7 @@ msgstr ""
 #: components/pages/Resources/Community/index.tsx:74
 #: components/pages/Resources/Community/index.tsx:81
 msgid "community.head.title"
-msgstr ""
+msgstr "KlimaDAO Сообщество"
 
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:384
@@ -115,56 +115,56 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:336
 msgid "community.join_our_discord"
-msgstr ""
+msgstr "Присоединяйтесь к нашему Discord"
 
 #: components/pages/Resources/Community/index.tsx:323
 msgid "community.join_the_klima_community"
-msgstr ""
+msgstr "Присоединяйтесь к сообществу Klima "
 
 #: components/pages/Resources/Community/index.tsx:94
 #: components/pages/Resources/Community/index.tsx:378
 msgid "community.lets_work_together"
-msgstr ""
+msgstr "Давайте работать вместе"
 
 #: components/pages/Resources/Community/index.tsx:137
 msgid "community.moss_logo"
-msgstr ""
+msgstr "Moss логотип"
 
 #: components/pages/Resources/Community/index.tsx:192
 msgid "community.oceandrop_logo"
-msgstr ""
+msgstr "Oceandrop логотип "
 
 #: components/pages/Resources/Community/index.tsx:277
 msgid "community.offsetra_logo"
-msgstr ""
+msgstr "Offsetra Логотип "
 
 #: components/pages/Resources/Community/index.tsx:214
 msgid "community.olympusdao_logo"
-msgstr ""
+msgstr "Логотип OlympusDAO"
 
 #: components/pages/Resources/Community/index.tsx:225
 msgid "community.openearth_logo"
-msgstr ""
+msgstr "Логотип Открытой Земли"
 
 #: components/pages/Resources/Community/index.tsx:130
 msgid "community.our_partners"
-msgstr ""
+msgstr "НАШИ ПАРТНЕРЫ"
 
 #: components/pages/Resources/Community/index.tsx:181
 msgid "community.polygon_logo"
-msgstr ""
+msgstr "Логотип Polygon "
 
 #: components/pages/Resources/Community/index.tsx:148
 msgid "community.toucan_logo"
-msgstr ""
+msgstr "Toucan логотип"
 
 #: components/pages/Resources/Community/index.tsx:299
 msgid "community.toughtforfood_logo"
-msgstr ""
+msgstr "Thought for Food логотип"
 
 #: components/pages/Resources/Community/index.tsx:113
 msgid "community.tree_grove"
-msgstr ""
+msgstr "Роща деревьев"
 
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:100
@@ -177,7 +177,7 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:143
 msgid "contact.bug_reports"
-msgstr ""
+msgstr "Отчет об ошибках"
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
 #: components/pages/Resources/Contact/index.tsx:146
@@ -191,7 +191,7 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
-msgstr ""
+msgstr "Контакт"
 
 #: components/pages/Resources/Contact/index.tsx:19
 msgid "contact.head.subline"
@@ -200,16 +200,16 @@ msgstr ""
 #: components/pages/Resources/Contact/index.tsx:17
 #: components/pages/Resources/Contact/index.tsx:24
 msgid "contact.head.title"
-msgstr ""
+msgstr "Связаться с КлимаДАО"
 
 #: components/pages/Resources/Contact/index.tsx:108
 msgid "contact.media"
-msgstr ""
+msgstr "Медиа"
 
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:111
 msgid "contact.media.if_you_are_a_journalist"
-msgstr ""
+msgstr "Если вы журналист или создатель контента, наша маркетинговая команда будет рада познакомиться с вами."
 
 #. Use this <0>Media Request Form</0>.
 #: components/pages/Resources/Contact/index.tsx:120
@@ -218,7 +218,7 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:88
 msgid "contact.partnerships"
-msgstr ""
+msgstr "Партнерство"
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
 #: components/pages/Resources/Contact/index.tsx:91
@@ -227,12 +227,12 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:36
 msgid "contact.quest_and_support"
-msgstr ""
+msgstr "Вопросы и поддержка"
 
 #. Join our <0>community</0>
 #: components/pages/Resources/Contact/index.tsx:39
 msgid "contact.quest_and_support.join_our_community"
-msgstr ""
+msgstr "Присоединяйтесь к нашему <0>сообществу</0>"
 
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:47
@@ -274,12 +274,12 @@ msgstr ""
 
 #: components/pages/Disclaimer/index.tsx:36
 msgid "disclaimer.disclaimer"
-msgstr ""
+msgstr "Отказ от ответственности"
 
 #: components/pages/Disclaimer/index.tsx:19
 #: components/pages/Disclaimer/index.tsx:28
 msgid "disclaimer.head.title"
-msgstr ""
+msgstr "Отказ от ответственности KlimaDAO"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:110
@@ -321,6 +321,38 @@ msgstr ""
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr ""
 
+#: components/pages/errors/Custom404.tsx:39
+msgid "error.404.page.text"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:36
+msgid "error.404.page.title"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:41
+msgid "error.500.page.text"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:36
+msgid "error.500.page.title"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:21
+msgid "error.page.404.head.title"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:17
+msgid "error.page.404.title"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:21
+msgid "error.page.500.head.title"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:17
+msgid "error.page.500.title"
+msgstr ""
+
 #: components/pages/Home/index.tsx:207
 msgid "home.backed_by_carbon"
 msgstr ""
@@ -336,7 +368,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:267
 msgid "home.equivalent_to"
-msgstr ""
+msgstr "ЭКВИВАЛЕНТ"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:382
@@ -354,11 +386,11 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:430
 msgid "home.get_klima"
-msgstr ""
+msgstr "ПОЛУЧИТЬ KLIMA"
 
 #: components/pages/Home/index.tsx:281
 msgid "home.hectares_of_forest"
-msgstr ""
+msgstr "Гектары леса"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:150
@@ -372,15 +404,17 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:81
 msgid "home.latest_news"
-msgstr ""
+msgstr "📰 Последние новости:"
 
 #: components/pages/Home/index.tsx:136
 msgid "home.learn_more"
-msgstr ""
+msgstr "УЗНАТЬ БОЛЬШЕ"
 
 #: components/pages/Home/index.tsx:313
 msgid "home.liters_if_gasoline"
 msgstr ""
+"Литры бензина\n"
+""
 
 #: components/pages/Home/index.tsx:243
 msgid "home.massive impact"
@@ -388,7 +422,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:181
 msgid "home.mechanics"
-msgstr ""
+msgstr "МЕХАНИКА"
 
 #: components/pages/Home/index.tsx:462
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
@@ -401,15 +435,15 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:487
 msgid "home.newletter.never_shared_never_spammed"
-msgstr ""
+msgstr "Никогда не делились. Никогда не спамили."
 
 #: components/pages/Home/index.tsx:481
 msgid "home.newletter.sign_up"
-msgstr ""
+msgstr "Зарегистрироваться"
 
 #: components/pages/Home/index.tsx:467
 msgid "home.newsletter"
-msgstr ""
+msgstr "Рассылка новостей"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
 #: components/pages/Home/index.tsx:370
@@ -418,11 +452,11 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:440
 msgid "home.see_tutorial"
-msgstr ""
+msgstr "См. инструкции"
 
 #: components/pages/Home/index.tsx:328
 msgid "home.source"
-msgstr ""
+msgstr "Источник"
 
 #: components/pages/Home/index.tsx:225
 msgid "home.strong_incentives"
@@ -455,52 +489,52 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:355
 msgid "invest_in_the_future"
-msgstr ""
+msgstr "Инвестируйте в будущее."
 
 #: components/Footer/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
-msgstr ""
+msgstr "Блог"
 
 #: components/Footer/index.tsx:44
 msgid "shared.bond"
-msgstr ""
+msgstr "Приложение"
 
 #: components/Footer/index.tsx:37
 #: components/Navigation/index.tsx:44
 #: components/Navigation/index.tsx:70
 msgid "shared.buy"
-msgstr ""
+msgstr "Купить"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:70
 msgid "shared.community"
-msgstr ""
+msgstr "Сообщество"
 
 #: components/Footer/index.tsx:56
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
-msgstr ""
+msgstr "Контакт"
 
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:394
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 msgid "shared.contact_us"
-msgstr ""
+msgstr "Связаться с нами"
 
 #: components/Footer/index.tsx:61
 msgid "shared.disclaimer"
-msgstr ""
+msgstr "Отказ от ответственности"
 
 #: components/Footer/index.tsx:47
 msgid "shared.docs"
-msgstr ""
+msgstr "Документы"
 
 #: components/Navigation/index.tsx:37
 #: components/pages/Home/index.tsx:113
 msgid "shared.enter_app"
-msgstr ""
+msgstr "Войдите в приложение"
 
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:50
@@ -508,22 +542,24 @@ msgstr ""
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
+#: components/pages/errors/Custom404.tsx:25
+#: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
 msgstr ""
 
 #: components/Footer/index.tsx:32
 msgid "shared.home"
-msgstr ""
+msgstr "Домашняя страница"
 
 #: components/Navigation/index.tsx:53
 #: components/Navigation/index.tsx:78
 msgid "shared.loveletters"
-msgstr ""
+msgstr "Любовные письма"
 
 #: components/Navigation/index.tsx:57
 #: components/Navigation/index.tsx:82
 msgid "shared.resources"
-msgstr ""
+msgstr "Источники"
 
 #: components/Footer/index.tsx:41
 #: components/Navigation/index.tsx:49

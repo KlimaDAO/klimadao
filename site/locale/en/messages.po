@@ -327,6 +327,38 @@ msgstr "We recommend that you visit our Crypto Security 101 page for safety inst
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "You bear full responsibility for providing of private information, verifying the identity and legitimacy. Notwithstanding indicators and messages that suggest providing the private information and verification, KlimaDAO makes no claims about the identity on the platform. We cannot guarantee the security of any data that disclose online, and for sustained casualties due to vulnerability or any kind of failure, abnormal behavior of software."
 
+#: components/pages/errors/Custom404.tsx:39
+msgid "error.404.page.text"
+msgstr "Sorry, looks like we sent you the wrong way. <0/>Let us guide you back to the Start Page:"
+
+#: components/pages/errors/Custom404.tsx:36
+msgid "error.404.page.title"
+msgstr "404 - Page Not Found"
+
+#: components/pages/errors/Custom500.tsx:41
+msgid "error.500.page.text"
+msgstr "Sorry, something bad happened.<0/>Try to go back to the Start Page:"
+
+#: components/pages/errors/Custom500.tsx:36
+msgid "error.500.page.title"
+msgstr "500 - Server-side error occurred"
+
+#: components/pages/errors/Custom404.tsx:21
+msgid "error.page.404.head.title"
+msgstr "404 - Page Not Found"
+
+#: components/pages/errors/Custom404.tsx:17
+msgid "error.page.404.title"
+msgstr "404 - Page Not Found"
+
+#: components/pages/errors/Custom500.tsx:21
+msgid "error.page.500.head.title"
+msgstr "500 - Page Not Found"
+
+#: components/pages/errors/Custom500.tsx:17
+msgid "error.page.500.title"
+msgstr "500 - Page Not Found"
+
 #: components/pages/Home/index.tsx:207
 msgid "home.backed_by_carbon"
 msgstr "Backed by Carbon."
@@ -514,6 +546,8 @@ msgstr "Enter App"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
+#: components/pages/errors/Custom404.tsx:25
+#: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
