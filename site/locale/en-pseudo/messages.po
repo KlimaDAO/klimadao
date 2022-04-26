@@ -47,13 +47,13 @@ msgstr ""
 msgid "blog.head.title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:136
-#: components/pages/Buy/index.tsx:255
+#: components/pages/Buy/index.tsx:135
+#: components/pages/Buy/index.tsx:254
 msgid "buy.advanced"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:91
-#: components/pages/Buy/index.tsx:177
+#: components/pages/Buy/index.tsx:90
+#: components/pages/Buy/index.tsx:176
 msgid "buy.beginner"
 msgstr ""
 
@@ -109,75 +109,75 @@ msgstr ""
 msgid "buy.beginner_05.title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:133
-#: components/pages/Buy/index.tsx:258
+#: components/pages/Buy/index.tsx:132
+#: components/pages/Buy/index.tsx:257
 msgid "buy.bonding"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:261
+#: components/pages/Buy/index.tsx:260
 msgid "buy.bonding.description_01"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:269
+#: components/pages/Buy/index.tsx:268
 msgid "buy.bonding.description_02"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:88
-#: components/pages/Buy/index.tsx:180
+#: components/pages/Buy/index.tsx:87
+#: components/pages/Buy/index.tsx:179
 msgid "buy.credit_card"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:183
+#: components/pages/Buy/index.tsx:182
 msgid "buy.credit_card.summary"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:109
+#: components/pages/Buy/index.tsx:108
 msgid "buy.decentralized_exchange"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:211
+#: components/pages/Buy/index.tsx:210
 msgid "buy.dex"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:242
+#: components/pages/Buy/index.tsx:241
 msgid "buy.dex.how_zapper"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:215
+#: components/pages/Buy/index.tsx:214
 msgid "buy.dex.summary_01"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:222
+#: components/pages/Buy/index.tsx:221
 msgid "buy.dex.summary_02"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:147
+#: components/pages/Buy/index.tsx:146
 msgid "buy.disclaimer"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:152
+#: components/pages/Buy/index.tsx:151
 msgid "buy.disclaimer_01"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:162
+#: components/pages/Buy/index.tsx:161
 msgid "buy.disclaimer_02"
 msgstr ""
 
+#: components/pages/Buy/index.tsx:48
 #: components/pages/Buy/index.tsx:49
-#: components/pages/Buy/index.tsx:50
 msgid "buy.head.title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:114
-#: components/pages/Buy/index.tsx:208
+#: components/pages/Buy/index.tsx:113
+#: components/pages/Buy/index.tsx:207
 msgid "buy.intermediate"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:66
+#: components/pages/Buy/index.tsx:65
 msgid "buy.subtitle"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:63
+#: components/pages/Buy/index.tsx:62
 msgid "buy.title"
 msgstr ""
 
@@ -698,7 +698,7 @@ msgid "shared.enter_app"
 msgstr ""
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:51
+#: components/pages/Buy/index.tsx:50
 #: components/pages/Disclaimer/index.tsx:23
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
