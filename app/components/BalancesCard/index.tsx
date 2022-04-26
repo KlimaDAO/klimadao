@@ -14,7 +14,7 @@ type AssetLabels = { [key in Asset]: string };
 
 interface Props {
   assets: Asset[];
-  tooltip: string;
+  tooltip: React.ReactNode;
 }
 
 export const BalancesCard: FC<Props> = (props) => {

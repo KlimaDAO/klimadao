@@ -6,7 +6,7 @@ import { selectAppState, selectBalances, selectLocale } from "state/selectors";
 import * as styles from "./styles";
 import { secondsUntilBlock, trimWithPlaceholder } from "@klimadao/lib/utils";
 import { FC } from "react";
-import { Trans, t } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 
 interface Props {
   isConnected?: boolean;
@@ -44,11 +44,12 @@ export const RebaseCard: FC<Props> = (props) => {
           <Trans id="stake.rebase">Rebase</Trans>
         </Text>
         <InfoButton
-          content={t({
-            id: "stake.rebase.info",
-            message:
-              "The protocol automatically mints and distributes rewards. Your payout is a percentage of your sKLIMA balance.",
-          })}
+          content={
+            <Trans id="stake.rebase.info">
+              The protocol automatically mints and distributes rewards. Your
+              payout is a percentage of your sKLIMA balance
+            </Trans>
+          }
         />
       </div>
       <div className="cardContent">

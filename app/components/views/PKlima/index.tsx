@@ -165,12 +165,15 @@ export const PKlima: FC<Props> = (props) => {
     <>
       <BalancesCard
         assets={["pklima", "bct"]}
-        tooltip={t({
-          id: "pklima.balances_card.make_sure_to_stake",
-          message:
-            "Make sure to stake your redeemed pKLIMA, and stay staked, until global GHG emissions have plateaued.",
-          comment: "Long sentence",
-        })}
+        tooltip={
+          <Trans
+            id="pklima.balances_card.make_sure_to_stake"
+            comment="Long sentence"
+          >
+            Make sure to stake your redeemed pKLIMA, and stay staked, until
+            global GHG emissions have plateaued.
+          </Trans>
+        }
       />
       <div className={styles.stakeCard} style={{ minHeight: "48rem" }}>
         <div className={styles.stakeCard_header}>

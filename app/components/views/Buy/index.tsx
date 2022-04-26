@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { providers } from "ethers";
 import { Link } from "react-router-dom";
-import { Trans, t } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
 import Check from "@mui/icons-material/Check";
 import ContentCopy from "@mui/icons-material/ContentCopy";
@@ -109,12 +109,12 @@ export const Buy = (props: Props) => {
       </div>
       <BalancesCard
         assets={["klima", "sklima"]}
-        tooltip={t({
-          id: "stake.balancescard.tooltip",
-          message:
-            "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage.",
-          comment: "Long sentence",
-        })}
+        tooltip={
+          <Trans id="stake.balancescard.tooltip" comment="Long sentence">
+            Stake your KLIMA tokens to receive sKLIMA. After every rebase, your
+            sKLIMA balance will increase by the given percentage.
+          </Trans>
+        }
       />
       <ImageCard />
     </>

@@ -216,12 +216,12 @@ export const Stake = (props: Props) => {
     <>
       <BalancesCard
         assets={["klima", "sklima"]}
-        tooltip={t({
-          id: "stake.balancescard.tooltip",
-          message:
-            "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage.",
-          comment: "Long sentence",
-        })}
+        tooltip={
+          <Trans id="stake.balancescard.tooltip" comment="Long sentence">
+            Stake your KLIMA tokens to receive sKLIMA. After every rebase, your
+            sKLIMA balance will increase by the given percentage.
+          </Trans>
+        }
       />
       <RebaseCard isConnected={props.isConnected} />
 

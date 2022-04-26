@@ -4,7 +4,7 @@ import * as styles from "./styles";
 import { TextInfoTooltip } from "@klimadao/lib/components";
 
 interface Props {
-  content: string | React.ReactNode;
+  content: React.ReactNode;
 }
 
 export const InfoButton: FC<Props> = (props) => {
