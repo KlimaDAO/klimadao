@@ -11,7 +11,7 @@ import * as styles from "./styles";
 
 export const Custom404 = () => {
   return (
-    <>
+    <div className={styles.errorPageWrapper}>
       <PageHead
         production={IS_PRODUCTION}
         title={t({
@@ -30,7 +30,7 @@ export const Custom404 = () => {
       />
       <Navigation activePage="Home" />
 
-      <Section variant="gray" className={styles.fullheight}>
+      <Section variant="gray">
         <div className={styles.textGroup}>
           <Text t="h2" as="h2" align="center">
             <Trans id="error.404.page.title">404 - Page Not Found</Trans>
@@ -47,6 +47,6 @@ export const Custom404 = () => {
         </div>
       </Section>
       <Footer />
-    </>
+    </div>
   );
 };

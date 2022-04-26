@@ -11,7 +11,7 @@ import * as styles from "./styles";
 
 export const Custom500 = () => {
   return (
-    <>
+    <div className={styles.errorPageWrapper}>
       <PageHead
         production={IS_PRODUCTION}
         title={t({
@@ -30,7 +30,7 @@ export const Custom500 = () => {
       />
       <Navigation activePage="Home" />
 
-      <Section variant="gray" className={styles.fullheight}>
+      <Section variant="gray">
         <div className={styles.textGroup}>
           <Text t="h2" as="h2" align="center">
             <Trans id="error.500.page.title">
@@ -50,6 +50,6 @@ export const Custom500 = () => {
         </div>
       </Section>
       <Footer />
-    </>
+    </div>
   );
 };

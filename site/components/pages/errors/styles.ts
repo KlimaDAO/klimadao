@@ -1,13 +1,15 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const fullheight = css`
-  min-height: calc(
-    100vh - (var(--footer-height) / 2 + var(--header-height) / 2)
-  );
+export const errorPageWrapper = css`
+  display: grid;
+  grid-column: full;
+  grid-template-columns: inherit;
+  min-height: 100vh;
+  grid-template-rows: 1fr auto;
 
   ${breakpoints.large} {
-    min-height: calc(100vh - (var(--footer-height) + var(--header-height)));
+    grid-template-rows: auto 1fr auto;
   }
 `;
 
