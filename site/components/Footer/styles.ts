@@ -69,6 +69,7 @@ export const footer_icons = css`
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
+  flex-wrap: wrap;
 
   & svg path {
     fill: var(--font-02);
