@@ -210,16 +210,21 @@ msgid "buy.buy_klima"
 msgstr "Buy KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:97
+#: components/views/Buy/index.tsx:109
 msgid "buy.connect_wallet"
 msgstr "You must connect a wallet in order to purchase KLIMA."
 
 #. Long sentence
+#: components/views/Buy/index.tsx:56
+msgid "buy.data_disclaimer"
+msgstr "KlimaDAO does not receive any personal data whatsoever. Review the Mobilum <0>Privacy Policy</0> and <1>Terms and Conditions</1>."
+
+#. Long sentence
 #: components/views/Buy/index.tsx:48
 msgid "buy.how_to_buy"
-msgstr "Purchase KLIMA in a few clicks. Our partner <0>Mobilum</0> will send your purchased KLIMA to whichever address you provide. Double check that you are connected with a secure and private wallet, and that the address is correct. After purchase is complete, refresh the page and <1>stake</1> your KLIMA!"
+msgstr "Buy KLIMA directly using our partner, <0>Mobilum</0>. Double check that you are connected with your own secure wallet, and that the provided address is correct."
 
-#: components/views/Buy/index.tsx:94
+#: components/views/Buy/index.tsx:106
 msgid "buy.not_connected"
 msgstr "Not Connected"
 
@@ -595,7 +600,7 @@ msgid "shared.confirming"
 msgstr "Confirming"
 
 #: components/views/Bond/index.tsx:305
-#: components/views/Buy/index.tsx:102
+#: components/views/Buy/index.tsx:114
 #: components/views/Offset/index.tsx:280
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:132
@@ -603,7 +608,7 @@ msgstr "Confirming"
 msgid "shared.connect_wallet"
 msgstr "Connect wallet"
 
-#: components/views/Buy/index.tsx:65
+#: components/views/Buy/index.tsx:77
 msgid "shared.copy_wallet_address"
 msgstr "Copy Address {0}"
 
@@ -658,7 +663,7 @@ msgstr "RETIRE CARBON"
 msgid "shared.sold_out"
 msgstr "Sold Out"
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:84
 msgid "shared.wallet_address_copied"
 msgstr "Copied!"
 
@@ -682,7 +687,7 @@ msgstr "Annualized KLIMA Rewards, including compounding, should the current rewa
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:113
+#: components/views/Buy/index.tsx:125
 #: components/views/Stake/index.tsx:204
 msgid "stake.balancescard.tooltip"
 msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."

@@ -46,12 +46,24 @@ export const Buy = (props: Props) => {
           </Text>
           <Text t="caption" color="lightest">
             <Trans id="buy.how_to_buy" comment="Long sentence">
-              Purchase KLIMA in a few clicks. Our partner{" "}
-              <Anchor href="https://mobilum.com/">Mobilum</Anchor> will send
-              your purchased KLIMA to whichever address you provide. Double
-              check that you are connected with a secure and private wallet, and
-              that the address is correct. After purchase is complete, refresh
-              the page and <Link to="/stake">stake</Link> your KLIMA!
+              Buy KLIMA directly using our partner,{" "}
+              <Anchor href="https://mobilum.com/">Mobilum</Anchor>. Double check
+              that you are connected with your own secure wallet, and that the
+              provided address is correct.
+            </Trans>
+          </Text>
+          <Text t="caption" color="lightest">
+            <Trans id="buy.data_disclaimer" comment="Long sentence">
+              KlimaDAO does not receive any personal data whatsoever. Review the
+              Mobilum{" "}
+              <Anchor href="https://mobilum.com/privacy-policy/">
+                Privacy Policy
+              </Anchor>{" "}
+              and{" "}
+              <Anchor href="https://mobilum.com/terms-and-conditions/">
+                Terms and Conditions
+              </Anchor>
+              .
             </Trans>
           </Text>
         </div>
