@@ -27,7 +27,8 @@ export const useBond = (bond: Bond) => {
     klima_bct_lp: false,
     bct_usdc_lp: true,
     klima_mco2_lp: false,
-    // future bond names go here
+    ubo: false,
+    nbo: false,
   };
   let disabled = disabledBonds[bond];
   if (bondPrice && bondFee && parseFloat(bondPrice) < 1 + bondFee) {
@@ -39,6 +40,8 @@ export const useBond = (bond: Bond) => {
     discount: bondState?.bondDiscount,
     disabled: disabled,
     icon: {
+      ubo: "/icons/UBO.png",
+      nbo: "/icons/NBO.png",
       mco2: "/icons/MCO2.png",
       bct: "/icons/BCT.png",
       klima_bct_lp: "/icons/BCT-KLIMA-LP.png",
@@ -48,6 +51,8 @@ export const useBond = (bond: Bond) => {
       // future bond names go here
     }[bond],
     name: {
+      ubo: "UBO",
+      nbo: "NBO",
       mco2: "MCO2",
       bct: "BCT",
       klima_usdc_lp: "KLIMA/USDC LP",
@@ -57,6 +62,14 @@ export const useBond = (bond: Bond) => {
       // future bond names go here
     }[bond],
     description: {
+      ubo: t({
+        id: "choose_bond.ubo.description",
+        message: "C3 Universal Basic Offset",
+      }),
+      nbo: t({
+        id: "choose_bond.nbo.description",
+        message: "C3 Nature Based Offset",
+      }),
       mco2: t({
         id: "choose_bond.mco2.moss_carbon_credit_token",
         message: "MOSS Carbon Credit Token",
@@ -84,6 +97,8 @@ export const useBond = (bond: Bond) => {
       // future bond descriptions go here
     }[bond],
     href: {
+      ubo: "/bonds/ubo",
+      nbo: "/bonds/nbo",
       mco2: "/bonds/mco2",
       bct: "/bonds/bct",
       klima_usdc_lp: "/bonds/klima_usdc_lp",
@@ -93,6 +108,8 @@ export const useBond = (bond: Bond) => {
       // future bond hrefs go here
     }[bond],
     balanceUnit: {
+      ubo: "UBO",
+      nbo: "NBO",
       mco2: "MCO2",
       bct: "BCT",
       klima_usdc_lp: "SLP",
@@ -101,6 +118,8 @@ export const useBond = (bond: Bond) => {
       klima_mco2_lp: "LP",
     }[bond],
     priceUnit: {
+      ubo: "UBO",
+      nbo: "NBO",
       mco2: "MCO2",
       bct: "BCT",
       klima_usdc_lp: "USDC",
@@ -113,7 +132,8 @@ export const useBond = (bond: Bond) => {
 
 export function ChooseBond() {
   const locale = useSelector(selectLocale);
-
+  const ubo = useBond("ubo");
+  const nbo = useBond("nbo");
   const bct = useBond("bct");
   const klimaBctLp = useBond("klima_bct_lp");
   const bctUsdcLp = useBond("bct_usdc_lp");
@@ -123,7 +143,16 @@ export function ChooseBond() {
 
   const { treasuryBalance } = useSelector(selectAppState);
 
-  const bonds = [mco2, bct, klimaMco2Lp, klimaUsdcLp, klimaBctLp, bctUsdcLp];
+  const bonds = [
+    ubo,
+    nbo,
+    mco2,
+    bct,
+    klimaMco2Lp,
+    klimaUsdcLp,
+    klimaBctLp,
+    bctUsdcLp,
+  ];
 
   return (
     <>
