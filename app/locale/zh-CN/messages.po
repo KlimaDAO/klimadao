@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 00:05+0000\n"
+"POT-Creation-Date: 2022-04-26 01:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -234,52 +234,60 @@ msgstr "<0>app.klimadao.finance</0>是唯一官方域名。"
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ 验证 URL 并将此页面添加为书签！"
 
-#: components/views/ChooseBond/index.tsx:64
+#: components/views/ChooseBond/index.tsx:77
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan基地碳吨"
 
-#: components/views/ChooseBond/index.tsx:134
+#: components/views/ChooseBond/index.tsx:163
 msgid "choose_bond.bond_carbon"
 msgstr "碳债券"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:137
+#: components/views/ChooseBond/index.tsx:166
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "购买 KLIMA 的最佳方式。将碳投入国库，获得一定的 KLIMA 折扣。所有债券都有5天的强制性归属期。"
 
-#: components/views/ChooseBond/index.tsx:161
+#: components/views/ChooseBond/index.tsx:190
 msgid "choose_bond.choose_bond"
 msgstr "选择一款债券"
 
-#: components/views/ChooseBond/index.tsx:72
+#: components/views/ChooseBond/index.tsx:85
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "KLIMA/BCT Sushiswap 流动性"
 
-#: components/views/ChooseBond/index.tsx:68
+#: components/views/ChooseBond/index.tsx:81
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/USDC Sushiswap 流动性"
 
-#: components/views/ChooseBond/index.tsx:60
+#: components/views/ChooseBond/index.tsx:73
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "MOSS碳信用代币"
 
-#: components/views/ChooseBond/index.tsx:80
+#: components/views/ChooseBond/index.tsx:93
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "KLIMA/MCO2 Quickswap 流动性"
 
-#: components/views/ChooseBond/index.tsx:164
+#: components/views/ChooseBond/index.tsx:69
+msgid "choose_bond.nbo.description"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:193
 msgid "choose_bond.percent_discount"
 msgstr "％ 折扣"
 
-#: components/views/ChooseBond/index.tsx:186
+#: components/views/ChooseBond/index.tsx:215
 msgid "choose_bond.sold_out"
 msgstr "售罄"
 
-#: components/views/ChooseBond/index.tsx:151
+#: components/views/ChooseBond/index.tsx:180
 msgid "choose_bond.treasury_balance"
 msgstr "国库余额"
 
-#: components/views/ChooseBond/index.tsx:76
+#: components/views/ChooseBond/index.tsx:65
+msgid "choose_bond.ubo.description"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:89
 msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
 msgstr "BCT/USDC Sushiswap 流动性"
 
