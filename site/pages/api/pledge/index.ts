@@ -8,7 +8,7 @@ export default async function handler(
   switch (req.method) {
     case "PUT":
       try {
-        const sessionToken = req.headers.authorization?.split(" ")[1]
+        const sessionToken = req.headers.authorization?.split(" ")[1];
         const data = await findOrCreatePledge({
           pledge: req.body,
           sessionToken,

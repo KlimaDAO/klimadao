@@ -6,13 +6,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 
 import { InputField, TextareaField } from "components/Form";
-import { Pledge } from "lib/moralis";
 import { putPledge } from "queries/pledge";
 
 import * as styles from "./styles";
 
 type Props = {
-  pledge: Pledge;
+  pledge: PledgeFormValues;
   onFormSubmit: (data: PledgeFormValues) => void;
 };
 
@@ -30,7 +29,7 @@ const schema = yup
   })
   .noUnknown();
 
-type PledgeFormValues = yup.InferType<typeof schema>;
+export type PledgeFormValues = yup.InferType<typeof schema>;
 
 export const PledgeForm: FC<Props> = (props) => {
   const { user } = useMoralis();

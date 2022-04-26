@@ -1,4 +1,5 @@
 import Moralis from "moralis/node.js";
+import { putPledgeParams } from "queries/pledge";
 
 export const MoralisClient = Moralis.start({
   appId: process.env.NEXT_PUBLIC_MORALIS_APP_ID,
@@ -33,8 +34,10 @@ export const getPledgeByAddress = async (address: string) => {
   return await query.equalTo("address", address).first();
 };
 
-export const findOrCreatePledge = async (params) => {
+export const findOrCreatePledge = async (params: putPledgeParams) => {
   await MoralisClient;
+
+  if (!params.sessionToken) throw new Error("Unauthorized");
 
   const userSession = await findUserSession(params.sessionToken);
   if (!userSession) throw new Error("Invalid Session");

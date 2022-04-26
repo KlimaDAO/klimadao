@@ -11,7 +11,6 @@ import { Pledge } from "lib/moralis";
 
 import {
   AssetBalanceCard,
-  AssetsOverTimeCard,
   FootprintCard,
   MethodologyCard,
   PledgeCard,
