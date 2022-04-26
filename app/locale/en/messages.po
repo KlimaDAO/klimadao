@@ -604,7 +604,7 @@ msgstr "Confirming"
 #: components/views/Offset/index.tsx:280
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:132
-#: components/views/Wrap/index.tsx:117
+#: components/views/Wrap/index.tsx:118
 msgid "shared.connect_wallet"
 msgstr "Connect wallet"
 
@@ -644,14 +644,14 @@ msgstr "INSUFFICIENT BALANCE"
 #: components/views/Stake/index.tsx:335
 #: components/views/Stake/index.tsx:342
 #: components/views/Stake/index.tsx:349
-#: components/views/Wrap/index.tsx:123
+#: components/views/Wrap/index.tsx:124
 msgid "shared.loading"
 msgstr "Loading..."
 
 #: components/views/Bond/index.tsx:465
 #: components/views/PKlima/index.tsx:212
 #: components/views/Stake/index.tsx:276
-#: components/views/Wrap/index.tsx:246
+#: components/views/Wrap/index.tsx:247
 msgid "shared.max"
 msgstr "Max"
 
@@ -775,44 +775,44 @@ msgstr "Connect"
 msgid "wallet.disconnect"
 msgstr "Disconnect"
 
-#: components/views/Wrap/index.tsx:274
+#: components/views/Wrap/index.tsx:275
 msgid "wrap.balance"
 msgstr "Balance"
 
-#: components/views/Wrap/index.tsx:169
+#: components/views/Wrap/index.tsx:170
 msgid "wrap.balances_tooltip"
 msgstr "Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA"
 
-#: components/views/Wrap/index.tsx:261
+#: components/views/Wrap/index.tsx:262
 msgid "wrap.index"
 msgstr "Index"
 
-#: components/views/Wrap/index.tsx:264
+#: components/views/Wrap/index.tsx:265
 msgid "wrap.index.tooltip"
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 
-#: components/views/Wrap/index.tsx:224
+#: components/views/Wrap/index.tsx:225
 msgid "wrap.unwrap"
 msgstr "Unwrap"
 
-#: components/views/Wrap/index.tsx:213
+#: components/views/Wrap/index.tsx:214
 msgid "wrap.wrap"
 msgstr "Wrap"
 
-#: components/views/Wrap/index.tsx:179
+#: components/views/Wrap/index.tsx:180
 msgid "wrap.wrap_sklima"
 msgstr "Wrap sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:191
+#: components/views/Wrap/index.tsx:192
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Some find this useful for accounting purposes, but the rewards are exactly the same. Wrap and unwrap values are calculated based on the current index."
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:182
+#: components/views/Wrap/index.tsx:183
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
 
-#: components/views/Wrap/index.tsx:277
+#: components/views/Wrap/index.tsx:278
 msgid "wrap.you_will_get"
 msgstr "You Will Get"

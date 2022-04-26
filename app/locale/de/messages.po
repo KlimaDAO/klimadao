@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 20:11+0000\n"
+"POT-Creation-Date: 2022-04-26 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -199,21 +199,26 @@ msgstr "Du erhältst"
 msgid "bond.you_will_get.tooltip"
 msgstr "Menge an gebondetem KLIMA, die du für die angegebene Eingangsmenge bekommst"
 
-#: components/views/Buy/index.tsx:45
+#: components/views/Buy/index.tsx:44
 msgid "buy.buy_klima"
 msgstr "KLIMA kaufen"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:97
+#: components/views/Buy/index.tsx:108
 msgid "buy.connect_wallet"
 msgstr "Du musst deine Wallet verbinden, um KLIMA zu kaufen."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:48
-msgid "buy.how_to_buy"
-msgstr "Kaufe KLIMA mit wenigen Klicks. Unser Partner <0>Mobilum</0> sendet gekaufte KLIMA-Tokens an die von dir angegebene Adresse. Überprüfe, ob du mit einer sicheren Wallet verbunden bist und dass die Adresse korrekt ist. Aktualisiere die Seite, nachdem der Kauf abgeschlossen ist, und <1>stake</1> dein KLIMA!"
+#: components/views/Buy/index.tsx:55
+msgid "buy.data_disclaimer"
+msgstr ""
 
-#: components/views/Buy/index.tsx:94
+#. Long sentence
+#: components/views/Buy/index.tsx:47
+msgid "buy.how_to_buy"
+msgstr ""
+
+#: components/views/Buy/index.tsx:105
 msgid "buy.not_connected"
 msgstr "Nicht verbunden"
 
@@ -595,15 +600,15 @@ msgid "shared.confirming"
 msgstr "Bestätigen..."
 
 #: components/views/Bond/index.tsx:305
-#: components/views/Buy/index.tsx:102
+#: components/views/Buy/index.tsx:113
 #: components/views/Offset/index.tsx:280
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:132
-#: components/views/Wrap/index.tsx:117
+#: components/views/Wrap/index.tsx:118
 msgid "shared.connect_wallet"
 msgstr "Wallet verbinden"
 
-#: components/views/Buy/index.tsx:65
+#: components/views/Buy/index.tsx:76
 msgid "shared.copy_wallet_address"
 msgstr "Adresse kopieren {0}"
 
@@ -639,14 +644,14 @@ msgstr "UNZUREICHENDES GUTHABEN"
 #: components/views/Stake/index.tsx:335
 #: components/views/Stake/index.tsx:342
 #: components/views/Stake/index.tsx:349
-#: components/views/Wrap/index.tsx:123
+#: components/views/Wrap/index.tsx:124
 msgid "shared.loading"
 msgstr "Lade..."
 
 #: components/views/Bond/index.tsx:465
 #: components/views/PKlima/index.tsx:212
 #: components/views/Stake/index.tsx:276
-#: components/views/Wrap/index.tsx:246
+#: components/views/Wrap/index.tsx:247
 msgid "shared.max"
 msgstr "Max"
 
@@ -658,7 +663,7 @@ msgstr "CO2 AUSGLEICHEN"
 msgid "shared.sold_out"
 msgstr "Ausverkauft"
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:83
 msgid "shared.wallet_address_copied"
 msgstr "Kopiert!"
 
@@ -682,7 +687,7 @@ msgstr "Jährliche KLIMA-Belohnungen, Zinseszinseffekte inbegriffen, sofern die 
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:113
+#: components/views/Buy/index.tsx:124
 #: components/views/Stake/index.tsx:204
 msgid "stake.balancescard.tooltip"
 msgstr "Stake deine KLIMA-Tokens, um sKLIMA zu erhalten. Nach jedem Rebase wird dein sKLIMA um die angegebene Prozentwahl wachsen."
@@ -770,44 +775,44 @@ msgstr "Verbinden"
 msgid "wallet.disconnect"
 msgstr "Trennen"
 
-#: components/views/Wrap/index.tsx:274
+#: components/views/Wrap/index.tsx:275
 msgid "wrap.balance"
 msgstr "Guthaben"
 
-#: components/views/Wrap/index.tsx:169
+#: components/views/Wrap/index.tsx:170
 msgid "wrap.balances_tooltip"
 msgstr "sKLIMA wrappen, um indexbereinigstes wsKLIMA zu erhalten"
 
-#: components/views/Wrap/index.tsx:261
+#: components/views/Wrap/index.tsx:262
 msgid "wrap.index"
 msgstr "Index"
 
-#: components/views/Wrap/index.tsx:264
+#: components/views/Wrap/index.tsx:265
 msgid "wrap.index.tooltip"
 msgstr "Menge an KLIMA, die du heute besitzen würdest, wenn du 1 KLIMA am Starttag gestaket hättest. Wird zur Berechnung des wsKLIMA-Wertes genutzt."
 
-#: components/views/Wrap/index.tsx:224
+#: components/views/Wrap/index.tsx:225
 msgid "wrap.unwrap"
 msgstr "Unwrappen"
 
-#: components/views/Wrap/index.tsx:213
+#: components/views/Wrap/index.tsx:214
 msgid "wrap.wrap"
 msgstr "Wrappen"
 
-#: components/views/Wrap/index.tsx:179
+#: components/views/Wrap/index.tsx:180
 msgid "wrap.wrap_sklima"
 msgstr "sKLIMA wrappen"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:191
+#: components/views/Wrap/index.tsx:192
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Manche finden dies für Buchhaltungszwecke nützlich, die Belohnungen unterscheiden sich jedoch nicht. Der aktuelle Index wird herangezogen, um die Wrap- und Unwrap-Werte zu berechnen."
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:182
+#: components/views/Wrap/index.tsx:183
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "sKLIMA wrappen, um wsKLIMA zu erhalten. Anders als bei sKLIMA wird dein wsKLIMA-Guthaben konstant bleiben."
 
-#: components/views/Wrap/index.tsx:277
+#: components/views/Wrap/index.tsx:278
 msgid "wrap.you_will_get"
 msgstr "Du erhältst"

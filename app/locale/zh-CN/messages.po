@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 20:11+0000\n"
+"POT-Creation-Date: 2022-04-26 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -199,21 +199,26 @@ msgstr "你将获得"
 msgid "bond.you_will_get.tooltip"
 msgstr "在提供输入量的情况下，您将获得的债券化KLIMA数量"
 
-#: components/views/Buy/index.tsx:45
+#: components/views/Buy/index.tsx:44
 msgid "buy.buy_klima"
 msgstr "购买 KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:97
+#: components/views/Buy/index.tsx:108
 msgid "buy.connect_wallet"
 msgstr "必须连接钱包才能购买 KLIMA。"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:48
-msgid "buy.how_to_buy"
-msgstr "只需点击几下即可购买 KLIMA。我们的合作伙伴 <0>Mobilum</0>会将您购买的 KLIMA 发送到您提供的任何钱包地址。仔细检查您是否已连接到安全的私人钱包，并确保地址正确。购买完成后，刷新页面并<1>质押</1>你的 KLIMA！"
+#: components/views/Buy/index.tsx:55
+msgid "buy.data_disclaimer"
+msgstr ""
 
-#: components/views/Buy/index.tsx:94
+#. Long sentence
+#: components/views/Buy/index.tsx:47
+msgid "buy.how_to_buy"
+msgstr ""
+
+#: components/views/Buy/index.tsx:105
 msgid "buy.not_connected"
 msgstr "未连接"
 
@@ -589,15 +594,15 @@ msgid "shared.confirming"
 msgstr "确认中"
 
 #: components/views/Bond/index.tsx:305
-#: components/views/Buy/index.tsx:102
+#: components/views/Buy/index.tsx:113
 #: components/views/Offset/index.tsx:280
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:132
-#: components/views/Wrap/index.tsx:117
+#: components/views/Wrap/index.tsx:118
 msgid "shared.connect_wallet"
 msgstr "连接钱包"
 
-#: components/views/Buy/index.tsx:65
+#: components/views/Buy/index.tsx:76
 msgid "shared.copy_wallet_address"
 msgstr "复制地址 {0}"
 
@@ -633,14 +638,14 @@ msgstr "余额不足"
 #: components/views/Stake/index.tsx:335
 #: components/views/Stake/index.tsx:342
 #: components/views/Stake/index.tsx:349
-#: components/views/Wrap/index.tsx:123
+#: components/views/Wrap/index.tsx:124
 msgid "shared.loading"
 msgstr "正在加载..."
 
 #: components/views/Bond/index.tsx:465
 #: components/views/PKlima/index.tsx:212
 #: components/views/Stake/index.tsx:276
-#: components/views/Wrap/index.tsx:246
+#: components/views/Wrap/index.tsx:247
 msgid "shared.max"
 msgstr "最大额度"
 
@@ -652,7 +657,7 @@ msgstr "碳停用"
 msgid "shared.sold_out"
 msgstr "售罄"
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:83
 msgid "shared.wallet_address_copied"
 msgstr "已复制！"
 
@@ -676,7 +681,7 @@ msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能�
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:113
+#: components/views/Buy/index.tsx:124
 #: components/views/Stake/index.tsx:204
 msgid "stake.balancescard.tooltip"
 msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将按给定的百分比增加。"
@@ -764,44 +769,44 @@ msgstr "连接"
 msgid "wallet.disconnect"
 msgstr "断开"
 
-#: components/views/Wrap/index.tsx:274
+#: components/views/Wrap/index.tsx:275
 msgid "wrap.balance"
 msgstr "余额"
 
-#: components/views/Wrap/index.tsx:169
+#: components/views/Wrap/index.tsx:170
 msgid "wrap.balances_tooltip"
 msgstr "打包 sKLIMA 以获得指数调整的已打包质押的 KLIMA"
 
-#: components/views/Wrap/index.tsx:261
+#: components/views/Wrap/index.tsx:262
 msgid "wrap.index"
 msgstr "指数"
 
-#: components/views/Wrap/index.tsx:264
+#: components/views/Wrap/index.tsx:265
 msgid "wrap.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。用于计算 wsKLIMA 价值。"
 
-#: components/views/Wrap/index.tsx:224
+#: components/views/Wrap/index.tsx:225
 msgid "wrap.unwrap"
 msgstr "分拆"
 
-#: components/views/Wrap/index.tsx:213
+#: components/views/Wrap/index.tsx:214
 msgid "wrap.wrap"
 msgstr "打包"
 
-#: components/views/Wrap/index.tsx:179
+#: components/views/Wrap/index.tsx:180
 msgid "wrap.wrap_sklima"
 msgstr "打包 sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:191
+#: components/views/Wrap/index.tsx:192
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "部分人认为这对做账有帮助，但其实收益则完全相同。 打包数值和分拆数值是根据当前指标计算得出的。"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:182
+#: components/views/Wrap/index.tsx:183
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "打包 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不会随着时间的推移而增加。"
 
-#: components/views/Wrap/index.tsx:277
+#: components/views/Wrap/index.tsx:278
 msgid "wrap.you_will_get"
 msgstr "你将获得"

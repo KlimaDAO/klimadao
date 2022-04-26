@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 20:11+0000\n"
+"POT-Creation-Date: 2022-04-26 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -199,21 +199,26 @@ msgstr "Вы получете"
 msgid "bond.you_will_get.tooltip"
 msgstr "Количество бондированого KLIMA, которое вы получите, при указанном количестве входных данных"
 
-#: components/views/Buy/index.tsx:45
+#: components/views/Buy/index.tsx:44
 msgid "buy.buy_klima"
 msgstr "Купить KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:97
+#: components/views/Buy/index.tsx:108
 msgid "buy.connect_wallet"
 msgstr "Вы должны подключить кошелек, чтобы купить KLIMA."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:48
-msgid "buy.how_to_buy"
-msgstr "Приобретите KLIMA в несколько кликов. Наш партнер <0>Mobilum</0> отправит купленные вами KLIMA на указанный вами адрес. Дважды проверьте, что вы подключены к безопасному и приватному кошельку, и что адрес указан правильно. После завершения покупки обновите страницу и <1> заберите</1> свои KLIMA!"
+#: components/views/Buy/index.tsx:55
+msgid "buy.data_disclaimer"
+msgstr ""
 
-#: components/views/Buy/index.tsx:94
+#. Long sentence
+#: components/views/Buy/index.tsx:47
+msgid "buy.how_to_buy"
+msgstr ""
+
+#: components/views/Buy/index.tsx:105
 msgid "buy.not_connected"
 msgstr "НЕ ПОДКЛЮЧЕН"
 
@@ -593,15 +598,15 @@ msgid "shared.confirming"
 msgstr "Подтверждение"
 
 #: components/views/Bond/index.tsx:305
-#: components/views/Buy/index.tsx:102
+#: components/views/Buy/index.tsx:113
 #: components/views/Offset/index.tsx:280
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:132
-#: components/views/Wrap/index.tsx:117
+#: components/views/Wrap/index.tsx:118
 msgid "shared.connect_wallet"
 msgstr "Подключить кошелек"
 
-#: components/views/Buy/index.tsx:65
+#: components/views/Buy/index.tsx:76
 msgid "shared.copy_wallet_address"
 msgstr "Копировать адрес {0}"
 
@@ -637,14 +642,14 @@ msgstr "НЕДОСТАТОЧНЫЙ БАЛАНС"
 #: components/views/Stake/index.tsx:335
 #: components/views/Stake/index.tsx:342
 #: components/views/Stake/index.tsx:349
-#: components/views/Wrap/index.tsx:123
+#: components/views/Wrap/index.tsx:124
 msgid "shared.loading"
 msgstr "Загрузка..."
 
 #: components/views/Bond/index.tsx:465
 #: components/views/PKlima/index.tsx:212
 #: components/views/Stake/index.tsx:276
-#: components/views/Wrap/index.tsx:246
+#: components/views/Wrap/index.tsx:247
 msgid "shared.max"
 msgstr "Максимум"
 
@@ -656,7 +661,7 @@ msgstr "Вывод карбона"
 msgid "shared.sold_out"
 msgstr "РАСПРОДАННЫЙ"
 
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:83
 msgid "shared.wallet_address_copied"
 msgstr "Скопировано!"
 
@@ -680,7 +685,7 @@ msgstr "Годовые вознаграждения KLIMA, включая нач
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:113
+#: components/views/Buy/index.tsx:124
 #: components/views/Stake/index.tsx:204
 msgid "stake.balancescard.tooltip"
 msgstr "Стейкайте ваши KLIMA, чтобы получить sKLIMA. После каждого пополнения ваш баланс sKLIMA будет увеличиваться на указанный процент."
@@ -768,44 +773,44 @@ msgstr "Соединить"
 msgid "wallet.disconnect"
 msgstr "Отключить"
 
-#: components/views/Wrap/index.tsx:274
+#: components/views/Wrap/index.tsx:275
 msgid "wrap.balance"
 msgstr "Баланс"
 
-#: components/views/Wrap/index.tsx:169
+#: components/views/Wrap/index.tsx:170
 msgid "wrap.balances_tooltip"
 msgstr "Оберните sKLIMA для получения скорректированного индекса обернутого стейкинга KLIMA"
 
-#: components/views/Wrap/index.tsx:261
+#: components/views/Wrap/index.tsx:262
 msgid "wrap.index"
 msgstr "Показатель"
 
-#: components/views/Wrap/index.tsx:264
+#: components/views/Wrap/index.tsx:265
 msgid "wrap.index.tooltip"
 msgstr "Количество KLIMA, которое вы имели бы сегодня, если бы сделали ставку в 1 KLIMA в день запуска. Используется для расчета значения wsKLIMA."
 
-#: components/views/Wrap/index.tsx:224
+#: components/views/Wrap/index.tsx:225
 msgid "wrap.unwrap"
 msgstr "Unwrap"
 
-#: components/views/Wrap/index.tsx:213
+#: components/views/Wrap/index.tsx:214
 msgid "wrap.wrap"
 msgstr "Wrap"
 
-#: components/views/Wrap/index.tsx:179
+#: components/views/Wrap/index.tsx:180
 msgid "wrap.wrap_sklima"
 msgstr "Wrap sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:191
+#: components/views/Wrap/index.tsx:192
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Некоторые считают это полезным для бухгалтерских целей, но вознаграждения точно такие же. Стоимость обертывания и развертывания рассчитывается на основе текущего индекса."
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:182
+#: components/views/Wrap/index.tsx:183
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Оберните sKLIMA, чтобы получить wsKLIMA. В отличие от sKLIMA, ваш баланс wsKLIMA не будет увеличиваться со временем."
 
-#: components/views/Wrap/index.tsx:277
+#: components/views/Wrap/index.tsx:278
 msgid "wrap.you_will_get"
 msgstr "Вы получете"

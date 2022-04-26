@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 20:11+0000\n"
+"POT-Creation-Date: 2022-04-26 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:638
 msgid "Beneficiary Address"
@@ -604,7 +598,7 @@ msgstr ""
 #: components/views/Offset/index.tsx:280
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:132
-#: components/views/Wrap/index.tsx:117
+#: components/views/Wrap/index.tsx:118
 msgid "shared.connect_wallet"
 msgstr ""
 
@@ -644,14 +638,14 @@ msgstr ""
 #: components/views/Stake/index.tsx:335
 #: components/views/Stake/index.tsx:342
 #: components/views/Stake/index.tsx:349
-#: components/views/Wrap/index.tsx:123
+#: components/views/Wrap/index.tsx:124
 msgid "shared.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:465
 #: components/views/PKlima/index.tsx:212
 #: components/views/Stake/index.tsx:276
-#: components/views/Wrap/index.tsx:246
+#: components/views/Wrap/index.tsx:247
 msgid "shared.max"
 msgstr ""
 
@@ -775,44 +769,44 @@ msgstr ""
 msgid "wallet.disconnect"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:274
+#: components/views/Wrap/index.tsx:275
 msgid "wrap.balance"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:169
+#: components/views/Wrap/index.tsx:170
 msgid "wrap.balances_tooltip"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:261
+#: components/views/Wrap/index.tsx:262
 msgid "wrap.index"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:264
+#: components/views/Wrap/index.tsx:265
 msgid "wrap.index.tooltip"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:224
+#: components/views/Wrap/index.tsx:225
 msgid "wrap.unwrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:213
+#: components/views/Wrap/index.tsx:214
 msgid "wrap.wrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:179
+#: components/views/Wrap/index.tsx:180
 msgid "wrap.wrap_sklima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:191
+#: components/views/Wrap/index.tsx:192
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr ""
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:182
+#: components/views/Wrap/index.tsx:183
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:277
+#: components/views/Wrap/index.tsx:278
 msgid "wrap.you_will_get"
 msgstr ""

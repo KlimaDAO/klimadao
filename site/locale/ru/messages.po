@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 20:10+0000\n"
+"POT-Creation-Date: 2022-04-26 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,13 +11,13 @@ msgstr ""
 msgid "Articles"
 msgstr "Статьи"
 
-#: components/pages/Buy/index.tsx:188
-msgid "Buy Now"
-msgstr "Купить сейчас"
-
 #: components/ChangeLanguageButton/index.tsx:66
 msgid "Change language"
 msgstr "измененить язык"
+
+#: components/pages/Buy/index.tsx:276
+msgid "Enter App"
+msgstr "Войдите в приложение"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:95
@@ -41,10 +41,167 @@ msgstr "Блог"
 msgid "blog.head.title"
 msgstr "Блог KlimaDAO"
 
+#: components/pages/Buy/index.tsx:135
+#: components/pages/Buy/index.tsx:254
+msgid "buy.advanced"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:90
+#: components/pages/Buy/index.tsx:176
+msgid "buy.beginner"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:14
+msgid "buy.beginner_01.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:10
+msgid "buy.beginner_01.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:29
+msgid "buy.beginner_02.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:37
+msgid "buy.beginner_02.description_02"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:25
+msgid "buy.beginner_02.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:51
+msgid "buy.beginner_03.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:57
+msgid "buy.beginner_03.description_2"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:47
+msgid "buy.beginner_03.title"
+msgstr "Купить KLIMA"
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:72
+msgid "buy.beginner_04.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:79
+msgid "buy.beginner_04.description_02"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:68
+msgid "buy.beginner_04.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:97
+msgid "buy.beginner_05.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:93
+msgid "buy.beginner_05.title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:132
+#: components/pages/Buy/index.tsx:257
+msgid "buy.bonding"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:260
+msgid "buy.bonding.description_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:268
+msgid "buy.bonding.description_02"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:87
+#: components/pages/Buy/index.tsx:179
+msgid "buy.credit_card"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:182
+msgid "buy.credit_card.summary"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:108
+msgid "buy.decentralized_exchange"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:210
+msgid "buy.dex"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:241
+msgid "buy.dex.how_zapper"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:214
+msgid "buy.dex.summary_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:221
+msgid "buy.dex.summary_02"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:146
+msgid "buy.disclaimer"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:151
+msgid "buy.disclaimer_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:161
+msgid "buy.disclaimer_02"
+msgstr ""
+
 #: components/pages/Buy/index.tsx:48
 #: components/pages/Buy/index.tsx:49
 msgid "buy.head.title"
 msgstr "Как купить KLIMA"
+
+#: components/pages/Buy/index.tsx:113
+#: components/pages/Buy/index.tsx:207
+msgid "buy.intermediate"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.subtitle"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:62
+msgid "buy.title"
+msgstr "Как купить KLIMA"
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:13
+msgid "buy.zapper_01.description_01"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:19
+msgid "buy.zapper_01.description_02"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:9
+msgid "buy.zapper_01.title"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:36
+msgid "buy.zapper_02.description_02"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:32
+msgid "buy.zapper_02.title"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:49
+msgid "buy.zapper_03.description_01"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:45
+msgid "buy.zapper_03.title"
+msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:97
 msgid "community.become_a_partner"
