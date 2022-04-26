@@ -49,7 +49,7 @@ export const Stake = (props: Props) => {
   const locale = useSelector(selectLocale);
 
   const dispatch = useAppDispatch();
-  const [view, setView] = useState("stake");
+  const [view, setView] = useState<"stake" | "unstake">("stake");
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
   );
@@ -190,22 +190,6 @@ export const Stake = (props: Props) => {
     }
   };
 
-  const getInputPlaceholder = (): string => {
-    if (view === "stake") {
-      return t({
-        id: "stake.inputplaceholder.stake",
-        message: "Amount to stake",
-      });
-    } else if (view === "unstake") {
-      return t({
-        id: "stake.inputplaceholder.unstake",
-        message: "Amount to unstake",
-      });
-    } else {
-      return t({ id: "shared.error", message: "ERROR" });
-    }
-  };
-
   const showSpinner =
     props.isConnected &&
     (status === "userConfirmation" ||
@@ -268,16 +252,21 @@ export const Stake = (props: Props) => {
               </button>
             </div>
             <div className={styles.stakeInput}>
-              <input
-                className={styles.stakeInput_input}
-                value={quantity}
-                onChange={(e) => {
-                  setQuantity(e.target.value);
-                  setStatus(null);
-                }}
-                type="number"
-                placeholder={getInputPlaceholder()}
-                min="0"
+              <Trans
+                id={`stake.inputplaceholder.${view}`}
+                render={({ translation }) => (
+                  <input
+                    className={styles.stakeInput_input}
+                    value={quantity}
+                    onChange={(e) => {
+                      setQuantity(e.target.value);
+                      setStatus(null);
+                    }}
+                    type="number"
+                    placeholder={translation as string}
+                    min="0"
+                  />
+                )}
               />
               <button
                 className={styles.stakeInput_max}
