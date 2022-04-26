@@ -17,13 +17,13 @@ msgstr ""
 msgid "Articles"
 msgstr "Articles"
 
-#: components/pages/Buy/index.tsx:188
-msgid "Buy Now"
-msgstr "Buy Now"
-
 #: components/ChangeLanguageButton/index.tsx:66
 msgid "Change language"
 msgstr "Change language"
+
+#: components/pages/Buy/index.tsx:276
+msgid "Enter App"
+msgstr "Enter App"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:95
@@ -47,10 +47,167 @@ msgstr "Blog"
 msgid "blog.head.title"
 msgstr "KlimaDAO Blog"
 
+#: components/pages/Buy/index.tsx:135
+#: components/pages/Buy/index.tsx:254
+msgid "buy.advanced"
+msgstr "Advanced"
+
+#: components/pages/Buy/index.tsx:90
+#: components/pages/Buy/index.tsx:176
+msgid "buy.beginner"
+msgstr "Beginner"
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:14
+msgid "buy.beginner_01.description_01"
+msgstr "<0>Metamask</0> is the most popular wallet for Ethereum and Polygon. This is what you use to connect to our app and send transactions. Be sure to install the extension for your web browser."
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:10
+msgid "buy.beginner_01.title"
+msgstr "Install Metamask"
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:29
+msgid "buy.beginner_02.description_01"
+msgstr "With the Metamask browser extension installed and your new wallet set up, head to <0>app.klimadao.finance/#/buy</0> and click \"connect\"."
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:37
+msgid "buy.beginner_02.description_02"
+msgstr "After you connect, the KlimaDAO app should prompt you to switch to the Polygon network automatically. Metamask will ask you to confirm this action."
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:25
+msgid "buy.beginner_02.title"
+msgstr "Connect to our app"
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:51
+msgid "buy.beginner_03.description_01"
+msgstr "Once connected, you should be able to follow the steps in our app to complete your purchase."
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:57
+msgid "buy.beginner_03.description_2"
+msgstr "You will be asked to provide an email, a payment method, and to verify your identity. The DAO does not receive or store any personal information whatsoever. This information is only used by our payment providers for legal compliance."
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:47
+msgid "buy.beginner_03.title"
+msgstr "Buy KLIMA"
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:72
+msgid "buy.beginner_04.description_01"
+msgstr "In order to use KLIMA to stake, swap, or offset carbon emissions, you will need to execute transactions on the Polygon network. Every transaction requires a network fee paid in MATIC."
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:79
+msgid "buy.beginner_04.description_02"
+msgstr "1 MATIC should be plenty for most users. You can connect to the official Polygon app and use their <0>Gas Swap tool</0>. This tool allows you to trade a variety of assets for MATIC for free."
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:68
+msgid "buy.beginner_04.title"
+msgstr "Buy MATIC (for new users)"
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:97
+msgid "buy.beginner_05.description_01"
+msgstr "Now that you have some KLIMA and some MATIC in your wallet, you should <0>stake</0> it for sKLIMA to start accruing rewards. You can also use it to offset carbon emissions. And as a token holder, you can use your KLIMA and sKLIMA to participate in the governance of the DAO! So keep an eye out for proposals on our <1>forum</1>."
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:93
+msgid "buy.beginner_05.title"
+msgstr "Stake, offset, govern!"
+
+#: components/pages/Buy/index.tsx:132
+#: components/pages/Buy/index.tsx:257
+msgid "buy.bonding"
+msgstr "Bonding"
+
+#: components/pages/Buy/index.tsx:260
+msgid "buy.bonding.description_01"
+msgstr "Bonding is the process of depositing carbon assets in exchange for discounted KLIMA. This is one of the ways the Klima Treasury absorbs carbon credits for positive climate impact. Bonding also provides the backing for each new KLIMA token."
+
+#: components/pages/Buy/index.tsx:268
+msgid "buy.bonding.description_02"
+msgstr "The discount fluctuates depending on market conditions. The Treasury accepts carbon in the form of carbon tokens (such as UBO, BCT, or MCO2) or Liquidity Pool (LP) tokens (such as KLIMA/BCT, KLIMA/MCO2)."
+
+#: components/pages/Buy/index.tsx:87
+#: components/pages/Buy/index.tsx:179
+msgid "buy.credit_card"
+msgstr "Credit Card"
+
+#: components/pages/Buy/index.tsx:182
+msgid "buy.credit_card.summary"
+msgstr "You can now use your credit card to purchase KLIMA tokens directly to your wallet! Our payment partners support most major currencies."
+
+#: components/pages/Buy/index.tsx:108
+msgid "buy.decentralized_exchange"
+msgstr "Decentralized Exchange"
+
+#: components/pages/Buy/index.tsx:210
+msgid "buy.dex"
+msgstr "Decentralized exchanges (DEXs)"
+
+#: components/pages/Buy/index.tsx:241
+msgid "buy.dex.how_zapper"
+msgstr "How do I buy KLIMA on Zapper?"
+
+#: components/pages/Buy/index.tsx:214
+msgid "buy.dex.summary_01"
+msgstr "If you already have a Polygon wallet with MATIC, you can use decentralized exchanges to swap for KLIMA. This helps you to avoid paying extra fees, and represents the fair market price."
+
+#: components/pages/Buy/index.tsx:221
+msgid "buy.dex.summary_02"
+msgstr "KLIMA can be found on <0>Sushi Swap</0>, but we recommend that you use a DEX aggregator called Zapper. Just connect your wallet to Zapper, and it will route your trade through the best DEX available."
+
+#: components/pages/Buy/index.tsx:146
+msgid "buy.disclaimer"
+msgstr "Safety Tips & Important Disclaimer"
+
+#: components/pages/Buy/index.tsx:151
+msgid "buy.disclaimer_01"
+msgstr "Never share your private key or seed phrase with anyone, ever. We recommend that you visit our <0>Crypto Security 101</0> page for safety tips before you get started."
+
+#: components/pages/Buy/index.tsx:161
+msgid "buy.disclaimer_02"
+msgstr "Blockchain transactions are permanent and irreversible. Our team is not able to retrieve lost or stolen assets. KlimaDAO does not assume any responsibility, liability, nor offer any guarantees. All markets and exchanges operate independently and with high volatility."
+
 #: components/pages/Buy/index.tsx:48
 #: components/pages/Buy/index.tsx:49
 msgid "buy.head.title"
 msgstr "How to buy KLIMA"
+
+#: components/pages/Buy/index.tsx:113
+#: components/pages/Buy/index.tsx:207
+msgid "buy.intermediate"
+msgstr "Intermediate"
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.subtitle"
+msgstr "You can get KLIMA in three ways: using a credit card, from decentralized exchanges (DEXs), or by bonding carbon assets."
+
+#: components/pages/Buy/index.tsx:62
+msgid "buy.title"
+msgstr "How to buy KLIMA"
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:13
+msgid "buy.zapper_01.description_01"
+msgstr "Make sure you have a wallet like Metamask installed, connected to Polygon network, and loaded with some MATIC."
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:19
+msgid "buy.zapper_01.description_02"
+msgstr "You can load your Polygon wallet directly using popular on-ramp services like <0>Transak</0> or our partner <1>Mobilum</1>. Alternatively, you can load your wallet with assets on Ethereum and <2>bridge</2> them to the Polygon network"
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:9
+msgid "buy.zapper_01.title"
+msgstr "Load your Polygon wallet"
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:36
+msgid "buy.zapper_02.description_02"
+msgstr "Head to <0>zapper.fi</0> and click Connect."
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:32
+msgid "buy.zapper_02.title"
+msgstr "Connect to Zapper.fi"
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:49
+msgid "buy.zapper_03.description_01"
+msgstr "Use the “Swap” interface in Zapper to set up your trade. If you are having trouble, check out the resources and tutorials provided by the Zapper team."
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:45
+msgid "buy.zapper_03.title"
+msgstr "SWAP"
 
 #: components/pages/Resources/Community/index.tsx:97
 msgid "community.become_a_partner"

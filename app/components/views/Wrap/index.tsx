@@ -26,7 +26,8 @@ import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
 
 import * as styles from "components/views/Stake/styles";
-import { Trans, t } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
+
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
   address?: string;

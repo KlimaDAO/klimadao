@@ -25,7 +25,7 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
-import { Trans, t } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import { BalancesCard } from "components/BalancesCard";
 import { RebaseCard } from "components/RebaseCard";
 import { ImageCard } from "components/ImageCard";
