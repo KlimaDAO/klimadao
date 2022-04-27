@@ -26,7 +26,7 @@ import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
 
 import * as styles from "components/views/Stake/styles";
-import { Trans } from "@lingui/macro";
+import { Trans, defineMessage } from "@lingui/macro";
 
 interface Props {
   provider: ethers.providers.JsonRpcProvider;
@@ -34,6 +34,17 @@ interface Props {
   isConnected?: boolean;
   loadWeb3Modal: () => Promise<void>;
 }
+
+const inputPlaceholderMessage = {
+  wrap: defineMessage({
+    id: "wrap.sklima_to_wrap",
+    message: "sKLIMA to wrap",
+  }),
+  unwrap: defineMessage({
+    id: "wrap.wsklima_to_unwrap",
+    message: "wsKLIMA to unwrap",
+  }),
+};
 
 export const Wrap: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
@@ -159,9 +170,6 @@ export const Wrap: FC<Props> = (props) => {
     return `${Number(quantity) * Number(currentIndex)} ${suffix}`;
   };
 
-  const inputPlaceholderMessageID =
-    view === "wrap" ? "wrap.sklima_to_wrap" : "wrap.wsklima_to_unwrap";
-
   return (
     <>
       <BalancesCard
@@ -227,7 +235,7 @@ export const Wrap: FC<Props> = (props) => {
             </div>
             <div className={styles.stakeInput}>
               <Trans
-                id={inputPlaceholderMessageID}
+                id={inputPlaceholderMessage[view].id}
                 render={({ translation }) => (
                   <input
                     className={styles.stakeInput_input}

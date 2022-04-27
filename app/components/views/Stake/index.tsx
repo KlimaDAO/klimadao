@@ -25,7 +25,7 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
-import { Trans } from "@lingui/macro";
+import { Trans, defineMessage } from "@lingui/macro";
 import { BalancesCard } from "components/BalancesCard";
 import { RebaseCard } from "components/RebaseCard";
 import { ImageCard } from "components/ImageCard";
@@ -44,6 +44,17 @@ interface Props {
   isConnected: boolean;
   loadWeb3Modal: () => void;
 }
+
+const inputPlaceholderMessage = {
+  stake: defineMessage({
+    id: "stake.inputplaceholder.stake",
+    message: "Amount to stake",
+  }),
+  unstake: defineMessage({
+    id: "stake.inputplaceholder.unstake",
+    message: "Amount to unstake",
+  }),
+};
 
 export const Stake = (props: Props) => {
   const locale = useSelector(selectLocale);
@@ -253,7 +264,7 @@ export const Stake = (props: Props) => {
             </div>
             <div className={styles.stakeInput}>
               <Trans
-                id={`stake.inputplaceholder.${view}`}
+                id={inputPlaceholderMessage[view].id}
                 render={({ translation }) => (
                   <input
                     className={styles.stakeInput_input}
