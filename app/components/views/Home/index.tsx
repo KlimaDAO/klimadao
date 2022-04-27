@@ -52,7 +52,6 @@ const useWeb3Modal = () => {
         walletconnect: {
           package: WalletConnectProvider, // required
           options: {
-            // infuraId: INFURA_ID,
             rpc: { 137: urls.polygonMainnetRpc },
           },
         },

@@ -105,6 +105,7 @@ export const urls = {
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",
+  polygonTestnetRpc: "https://rpc-mumbai.matic.today",
   sushiUSDCBCT: `https://app.sushi.com/swap?inputCurrency=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&outputCurrency=${addresses["mainnet"].bct}`,
   sushiKLIMABCT: `https://app.sushi.com/swap?inputCurrency=${addresses["mainnet"].klima}&outputCurrency=${addresses["mainnet"].bct}`,
   communityHub: "https://klimadao.notion.site",
@@ -128,14 +129,12 @@ export const urls = {
   loveletter: "https://loveletter.klimadao.finance",
 };
 
-export const INFURA_ID = "0f83eb63faea409abc1f440c9f077646";
-
 export const polygonNetworks = {
   testnet: {
     chainName: "Polygon Testnet Mumbai",
     hexChainId: "0x13881",
     chainId: 80001,
-    rpcUrls: [`https://polygon-mumbai.infura.io/v3/${INFURA_ID}`],
+    rpcUrls: [urls.polygonTestnetRpc],
     blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
   },
   mainnet: {
