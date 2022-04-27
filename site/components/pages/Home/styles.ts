@@ -44,7 +44,7 @@ export const heroSection = css`
     grid-template-rows: auto 1fr;
     grid-template-columns: inherit;
     grid-column: full;
-    z-index: 1;
+    z-index: 0;
   }
 
   .hero_whiteCard {
@@ -126,7 +126,6 @@ export const heroSection = css`
       grid-template-rows: unset;
       grid-template-columns: 1fr 1fr;
       grid-column: main;
-      z-index: 1;
       gap: 2.4rem;
     }
     .hero_whiteCard,
