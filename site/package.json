@@ -8,6 +8,7 @@
     "lint": "next lint",
     "lingui:extract": "cmd=\"NODE_ENV=test npx lingui extract --clean --overwrite 2>&1 | grep 'Cannot process file'\"; if [ -z \"$(eval $cmd)\" ]; then exit 0; else exit 1; fi",
     "lingui:compile": "NODE_ENV=test lingui compile",
+    "lingui:extract:dev": "NODE_ENV=test npx lingui extract --clean --overwrite --locale=en",
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
