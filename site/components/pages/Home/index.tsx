@@ -174,7 +174,7 @@ export const Home: NextPage<Props> = (props) => {
           <ParralaxWormhole />
         </div>
       </Section>
-      <Section variant="gray" fillViewport>
+      <Section variant="gray" fillViewport style={{ overflow: "hidden" }}>
         <div className={styles.mechanicsSection}>
           <div className="mechanics_textGroup">
             <Text t="h2" as="h2">
