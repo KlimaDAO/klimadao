@@ -270,7 +270,7 @@ export const mechanicsSection = css`
     animation: ${floatRight} 14s ease-in-out 1s infinite;
   }
   p.align-start {
-    margin-inline-start: -4.8rem;
+    margin-inline-start: -8.8rem;
     animation: ${floatLeft} 14s ease-in-out 2s infinite;
   }
   .mechanics_item:nth-child(1) {
@@ -454,7 +454,7 @@ export const sproutsSection = css`
     gap: 0.8rem;
   }
 
-  ${breakpoints.large} {
+  ${breakpoints.desktop} {
     grid-template-columns: 1fr 1fr;
     .sprouts_col2 > div {
       display: flex;
