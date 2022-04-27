@@ -417,7 +417,7 @@ msgstr "This cost includes slippage and the aggregation fee of 1%."
 msgid "offset.amount_in_tonnes"
 msgstr "How many tonnes of carbon would you like to offset?"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:42
+#: components/CarbonTonnesBreakdownCard/index.tsx:41
 msgid "offset.breakdown"
 msgstr "Breakdown"
 
@@ -433,7 +433,7 @@ msgstr "Pay with"
 msgid "offset.dropdown_retire.label"
 msgstr "Select carbon offset token to retire"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:54
+#: components/CarbonTonnesBreakdownCard/index.tsx:53
 msgid "offset.empty"
 msgstr "This address has not completed any retirements."
 
@@ -585,7 +585,7 @@ msgstr "The updated contract now assumes pKLIMA holders have staked and earned r
 msgid "shared.approve"
 msgstr "Approve"
 
-#: components/BalancesCard/index.tsx:46
+#: components/BalancesCard/index.tsx:49
 msgid "shared.balances"
 msgstr "Balances"
 
@@ -632,7 +632,7 @@ msgstr "ERROR"
 msgid "shared.insufficient_balance"
 msgstr "INSUFFICIENT BALANCE"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:49
+#: components/CarbonTonnesBreakdownCard/index.tsx:48
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:311
@@ -833,6 +833,6 @@ msgstr "wsKLIMA to unwrap"
 msgid "wrap.you_will_get"
 msgstr "You Will Get"
 
-#: components/BalancesCard/index.tsx:33
+#: components/BalancesCard/index.tsx:35
 msgid "wsklima.unwrapped.label"
 msgstr "unwrapped"

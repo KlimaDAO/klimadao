@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-27 16:43+0000\n"
+"POT-Creation-Date: 2022-04-27 16:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: zh-CN\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:638
 msgid "Beneficiary Address"
@@ -417,7 +411,7 @@ msgstr "该成本包括1%的滑点和聚合费用。"
 msgid "offset.amount_in_tonnes"
 msgstr "您要抵消多少吨碳？"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:42
+#: components/CarbonTonnesBreakdownCard/index.tsx:41
 msgid "offset.breakdown"
 msgstr "分解"
 
@@ -433,7 +427,7 @@ msgstr "使用...支付"
 msgid "offset.dropdown_retire.label"
 msgstr "选择碳抵消代币来停用碳"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:54
+#: components/CarbonTonnesBreakdownCard/index.tsx:53
 msgid "offset.empty"
 msgstr "此地址尚未完成任何碳停用。"
 
@@ -585,7 +579,7 @@ msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之�
 msgid "shared.approve"
 msgstr "批准"
 
-#: components/BalancesCard/index.tsx:46
+#: components/BalancesCard/index.tsx:49
 msgid "shared.balances"
 msgstr "余额"
 
@@ -632,7 +626,7 @@ msgstr "错误"
 msgid "shared.insufficient_balance"
 msgstr "余额不足"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:49
+#: components/CarbonTonnesBreakdownCard/index.tsx:48
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:311
@@ -833,6 +827,6 @@ msgstr "待拆分的 wsKLIMA"
 msgid "wrap.you_will_get"
 msgstr "你将获得"
 
-#: components/BalancesCard/index.tsx:33
+#: components/BalancesCard/index.tsx:35
 msgid "wsklima.unwrapped.label"
 msgstr ""
