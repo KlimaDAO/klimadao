@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-26 20:31+0000\n"
+"POT-Creation-Date: 2022-04-27 06:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -89,7 +89,7 @@ msgstr ""
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:79
 msgid "buy.beginner_04.description_02"
-msgstr ""
+msgstr "1 对于大多数用户来说, MATIC应该足够了。您可以连接到官方 Polygon 应用程序并使用他们的 <0>Gas Swap 工具</0>. 该工具可让您免费将各种资产用于MATIC交易。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:68
 msgid "buy.beginner_04.title"
@@ -484,7 +484,7 @@ msgstr ""
 
 #: components/pages/errors/Custom404.tsx:36
 msgid "error.404.page.title"
-msgstr ""
+msgstr "404 - 页面不存在"
 
 #: components/pages/errors/Custom500.tsx:41
 msgid "error.500.page.text"
@@ -492,23 +492,23 @@ msgstr ""
 
 #: components/pages/errors/Custom500.tsx:36
 msgid "error.500.page.title"
-msgstr ""
+msgstr "500 - 服务器端发生错误"
 
 #: components/pages/errors/Custom404.tsx:21
 msgid "error.page.404.head.title"
-msgstr ""
+msgstr "404 - 页面不存在"
 
 #: components/pages/errors/Custom404.tsx:17
 msgid "error.page.404.title"
-msgstr ""
+msgstr "404 - 页面不存在"
 
 #: components/pages/errors/Custom500.tsx:21
 msgid "error.page.500.head.title"
-msgstr ""
+msgstr "500 - 页面不存在"
 
 #: components/pages/errors/Custom500.tsx:17
 msgid "error.page.500.title"
-msgstr ""
+msgstr "500 - 页面不存在"
 
 #: components/pages/Home/index.tsx:207
 msgid "home.backed_by_carbon"
