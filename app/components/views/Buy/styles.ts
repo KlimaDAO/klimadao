@@ -86,6 +86,9 @@ export const buyCard_header_title = css`
 export const buyCard_ui = css`
   display: grid;
   gap: 2.4rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  padding-bottom: 2.4rem;
   ${breakpoints.medium} {
     border: 2px solid var(--surface-03);
     padding: 2.4rem;
