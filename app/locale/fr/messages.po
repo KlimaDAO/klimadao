@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-27 06:15+0000\n"
+"POT-Creation-Date: 2022-04-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -710,11 +710,11 @@ msgstr "Montant de KLIMA que vous auriez aujourd'hui si vous aviez mis en dépô
 
 #: components/views/Stake/index.tsx:49
 msgid "stake.inputplaceholder.stake"
-msgstr ""
+msgstr "Montant à déposer"
 
 #: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.unstake"
-msgstr ""
+msgstr "Montant à retirer"
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -799,7 +799,7 @@ msgstr "Montant de KLIMA que vous posséderiez aujourd'hui si vous aviez mis en 
 
 #: components/views/Wrap/index.tsx:39
 msgid "wrap.sklima_to_wrap"
-msgstr ""
+msgstr "sKLIMA à encapsuler"
 
 #: components/views/Wrap/index.tsx:233
 msgid "wrap.unwrap"
@@ -825,7 +825,7 @@ msgstr "Encapsulez sKLIMA pour recevoir wsKLIMA. Contrairement à sKLIMA, votre 
 
 #: components/views/Wrap/index.tsx:43
 msgid "wrap.wsklima_to_unwrap"
-msgstr ""
+msgstr "wsKLIMA à dés-encapsuler"
 
 #: components/views/Wrap/index.tsx:286
 msgid "wrap.you_will_get"

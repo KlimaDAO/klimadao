@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-27 06:15+0000\n"
+"POT-Creation-Date: 2022-04-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,40 +44,40 @@ msgstr "KlimaDAO 博客"
 #: components/pages/Buy/index.tsx:135
 #: components/pages/Buy/index.tsx:254
 msgid "buy.advanced"
-msgstr ""
+msgstr "专家用户"
 
 #: components/pages/Buy/index.tsx:90
 #: components/pages/Buy/index.tsx:176
 msgid "buy.beginner"
-msgstr ""
+msgstr "新手用户"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:14
 msgid "buy.beginner_01.description_01"
-msgstr ""
+msgstr "<0>Metamask</0>是 Ethereum 和 Polygon 最受欢迎的钱包。这是来连接我们应用程序并发送交易的工具。请务必在您的网络浏览器上安装扩展程序。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:10
 msgid "buy.beginner_01.title"
-msgstr ""
+msgstr "安装 Metamask"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:29
 msgid "buy.beginner_02.description_01"
-msgstr ""
+msgstr "安装 Metamask 扩展浏览器并设置新钱包后，前往<0>app.klimadao.finance/#/buy</0> 并点击“连接”。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:37
 msgid "buy.beginner_02.description_02"
-msgstr ""
+msgstr "连接钱包后，KlimaDAO 应用程序会自动提示您切换到 Polygon 网络。 Metamask 将要求您确认此操作。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:25
 msgid "buy.beginner_02.title"
-msgstr ""
+msgstr "连接我们的应用程序"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:51
 msgid "buy.beginner_03.description_01"
-msgstr ""
+msgstr "连接后，您就可以按照我们应用程序中的步骤提示来完成购买。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:57
 msgid "buy.beginner_03.description_2"
-msgstr ""
+msgstr "我们会要求您提供电子邮件、付款方式并验证您的身份。 DAO 不会接收或存储任何个人信息。此信息仅用作我们的支付提供商的法律合规需求。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:47
 msgid "buy.beginner_03.title"
@@ -85,7 +85,7 @@ msgstr "购买 KLIMA"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:72
 msgid "buy.beginner_04.description_01"
-msgstr ""
+msgstr "为了用 KLIMA 进行质押、交换或抵消碳排放，您需要在 Polygon 网络上执行所有交易。每笔交易的网络费用都需用 MATIC 结算。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:79
 msgid "buy.beginner_04.description_02"
@@ -93,69 +93,69 @@ msgstr "1 对于大多数用户来说, MATIC应该足够了。您可以连接到
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:68
 msgid "buy.beginner_04.title"
-msgstr ""
+msgstr "购买 MATIC（新用户）"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:97
 msgid "buy.beginner_05.description_01"
-msgstr ""
+msgstr "现在您的钱包里已经有一些 KLIMA 和一些 MATIC 了，您应该 <0>质押KLIMA</0> 来换得 sKLIMA 开始累积奖励。您也可以用它来抵消碳排放。作为代币持有者，您可以使用 KLIMA 和 sKLIMA 参与 DAO 的治理！所以请留意我们<1>论坛</1>上的提案。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:93
 msgid "buy.beginner_05.title"
-msgstr ""
+msgstr "股权，抵消，治理！"
 
 #: components/pages/Buy/index.tsx:132
 #: components/pages/Buy/index.tsx:257
 msgid "buy.bonding"
-msgstr ""
+msgstr "债券化"
 
 #: components/pages/Buy/index.tsx:260
 msgid "buy.bonding.description_01"
-msgstr ""
+msgstr "债券化是存入碳资产以换取 KLIMA 折扣的过程。这是 Klima 财政部吸收碳信用以对气候产生积极影响的方式之一。债券化还为每个新的 KLIMA 代币提供支持。"
 
 #: components/pages/Buy/index.tsx:268
 msgid "buy.bonding.description_02"
-msgstr ""
+msgstr "折扣会根据市场情况而波动。财政部接受碳代币形式的碳（如 UBO、BCT 或 MCO2）或流动性池（LP）代币形式的碳（如 KLIMA/BCT、KLIMA/MCO2）。"
 
 #: components/pages/Buy/index.tsx:87
 #: components/pages/Buy/index.tsx:179
 msgid "buy.credit_card"
-msgstr ""
+msgstr "信用卡"
 
 #: components/pages/Buy/index.tsx:182
 msgid "buy.credit_card.summary"
-msgstr ""
+msgstr "您现在可以使用信用卡直接购买 KLIMA 代币到您的钱包中！我们的支付合作伙伴支持多种主流货币。"
 
 #: components/pages/Buy/index.tsx:108
 msgid "buy.decentralized_exchange"
-msgstr ""
+msgstr "去中心化交易所"
 
 #: components/pages/Buy/index.tsx:210
 msgid "buy.dex"
-msgstr ""
+msgstr "去中心化交易所（DEX）"
 
 #: components/pages/Buy/index.tsx:241
 msgid "buy.dex.how_zapper"
-msgstr ""
+msgstr "我要如何在 Zapper 上购买 KLIMA ？"
 
 #: components/pages/Buy/index.tsx:214
 msgid "buy.dex.summary_01"
-msgstr ""
+msgstr "如果您的 Polygon 钱包中已经有 MATIC，您可以使用去中心化交易所兑换 KLIMA。这能帮您避免支付额外费用，也代表了公平的市场价格。"
 
 #: components/pages/Buy/index.tsx:221
 msgid "buy.dex.summary_02"
-msgstr ""
+msgstr "您可以在 <0>Sushi Swap </0> 上找到 KLIMA，但我们建议您使用 DEX 聚合器 Zapper 。只需将您的钱包连接到 Zapper，聚合器 DEX 就能帮你找到最佳的交易路径。"
 
 #: components/pages/Buy/index.tsx:146
 msgid "buy.disclaimer"
-msgstr ""
+msgstr "安全提示和重要免责声明"
 
 #: components/pages/Buy/index.tsx:151
 msgid "buy.disclaimer_01"
-msgstr ""
+msgstr "请注意：切勿与任何人分享您的私钥或助记词。我们建议您在开始任何操作之前, 访问我们的 <0>Crypto Security 101<0>页面, 了解获取安全提示。"
 
 #: components/pages/Buy/index.tsx:161
 msgid "buy.disclaimer_02"
-msgstr ""
+msgstr "区块链交易是永久且不可逆的。我们的团队无法找回丢失或被盗的资产。 KlimaDAO 不承担任何责任或义务，也不提供任何保证。所有市场和交易所都独立运作，具有极大的波动性。"
 
 #: components/pages/Buy/index.tsx:48
 #: components/pages/Buy/index.tsx:49
@@ -165,11 +165,11 @@ msgstr "如何购买 KLIMA"
 #: components/pages/Buy/index.tsx:113
 #: components/pages/Buy/index.tsx:207
 msgid "buy.intermediate"
-msgstr ""
+msgstr "中间用户"
 
 #: components/pages/Buy/index.tsx:65
 msgid "buy.subtitle"
-msgstr ""
+msgstr "您有三种方式可获得 KLIMA：使用信用卡购买、在去中心化交易所 (DEXs) 上兑换，或 债券化碳资产。"
 
 #: components/pages/Buy/index.tsx:62
 msgid "buy.title"
@@ -177,31 +177,31 @@ msgstr "如何购买 KLIMA"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:13
 msgid "buy.zapper_01.description_01"
-msgstr ""
+msgstr "确保您已经安装了像 Metamask 这样的钱包，连接到 Polygon 网络，并已兑换了一些 MATIC。"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:19
 msgid "buy.zapper_01.description_02"
-msgstr ""
+msgstr "使用像<0>Transak</0>或我们的合作伙伴 <1>Mobilum</1> 这样的常用入口服务直接加载您的 Polygon 钱包。或者，也可以使用 Ethereum 和 <2>bridge<2> 上的资产在Polygon 网络上加载您的钱包。"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:9
 msgid "buy.zapper_01.title"
-msgstr ""
+msgstr "加载你的 Polygon 钱包"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:36
 msgid "buy.zapper_02.description_02"
-msgstr ""
+msgstr "前往 <0>zapper.fi</0>并点击连接。"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:32
 msgid "buy.zapper_02.title"
-msgstr ""
+msgstr "连接 Zapper.fi"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:49
 msgid "buy.zapper_03.description_01"
-msgstr ""
+msgstr "用 Zapper 的“兑换”界面设置您的交易。如果您遇到问题，请查看 Zapper 团队提供的资源和教程。"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:45
 msgid "buy.zapper_03.title"
-msgstr ""
+msgstr "兑换"
 
 #: components/pages/Resources/Community/index.tsx:97
 msgid "community.become_a_partner"
@@ -221,7 +221,7 @@ msgstr "由此进入"
 
 #: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
-msgstr "Delta Wave标识"
+msgstr "Delta Wave 标识"
 
 #: components/pages/Resources/Community/index.tsx:288
 msgid "community.digitalcharityart_logo"
@@ -234,7 +234,7 @@ msgstr "Discord 是我们分享重要公告、安排办公时间、回答问题�
 
 #: components/pages/Resources/Community/index.tsx:258
 msgid "community.dovu_logo"
-msgstr "Dovu标识"
+msgstr "Dovu 标识"
 
 #: components/pages/Resources/Community/index.tsx:266
 msgid "community.eco_logo"
@@ -246,11 +246,11 @@ msgstr "等等集体标识"
 
 #: components/pages/Resources/Community/index.tsx:381
 msgid "community.get_in_touch"
-msgstr "联系一下？"
+msgstr "取得联系？"
 
 #: components/pages/Resources/Community/index.tsx:203
 msgid "community.gitcoin_logo"
-msgstr "Gitcoin标识"
+msgstr "Gitcoin 标识"
 
 #: components/pages/Resources/Community/index.tsx:75
 msgid "community.head.headline"
@@ -281,23 +281,23 @@ msgstr "加入Klima社区"
 #: components/pages/Resources/Community/index.tsx:94
 #: components/pages/Resources/Community/index.tsx:378
 msgid "community.lets_work_together"
-msgstr "我们一起工作吧"
+msgstr "我们一起努力吧"
 
 #: components/pages/Resources/Community/index.tsx:137
 msgid "community.moss_logo"
-msgstr "Moss标识"
+msgstr "Moss 标识"
 
 #: components/pages/Resources/Community/index.tsx:192
 msgid "community.oceandrop_logo"
-msgstr "Oceandrop标识"
+msgstr "Oceandrop 标识"
 
 #: components/pages/Resources/Community/index.tsx:277
 msgid "community.offsetra_logo"
-msgstr "Offsetra标识"
+msgstr "Offsetra 标识"
 
 #: components/pages/Resources/Community/index.tsx:214
 msgid "community.olympusdao_logo"
-msgstr "OlympusDAO标识"
+msgstr "OlympusDAO 标识"
 
 #: components/pages/Resources/Community/index.tsx:225
 msgid "community.openearth_logo"
@@ -309,11 +309,11 @@ msgstr "我们的伙伴"
 
 #: components/pages/Resources/Community/index.tsx:181
 msgid "community.polygon_logo"
-msgstr "Polygon标识"
+msgstr "Polygon 标识"
 
 #: components/pages/Resources/Community/index.tsx:148
 msgid "community.toucan_logo"
-msgstr "Toucan标识"
+msgstr "Toucan 标识"
 
 #: components/pages/Resources/Community/index.tsx:299
 msgid "community.toughtforfood_logo"
@@ -480,7 +480,7 @@ msgstr "您对提供私人信息、验证身份和合法性承担全部责任。
 
 #: components/pages/errors/Custom404.tsx:39
 msgid "error.404.page.text"
-msgstr ""
+msgstr "抱歉，好像我们发送了错误方式。 <0/>请让我们引导您回到起始页："
 
 #: components/pages/errors/Custom404.tsx:36
 msgid "error.404.page.title"
@@ -488,7 +488,7 @@ msgstr "404 - 页面不存在"
 
 #: components/pages/errors/Custom500.tsx:41
 msgid "error.500.page.text"
-msgstr ""
+msgstr "抱歉，出问题了。<0/>尝试返回起始页："
 
 #: components/pages/errors/Custom500.tsx:36
 msgid "error.500.page.title"
@@ -590,7 +590,7 @@ msgstr "在我们构建碳经济未来的同时，获取有关 KlimaDAO 的最�
 
 #: components/pages/Home/index.tsx:487
 msgid "home.newletter.never_shared_never_spammed"
-msgstr "不分享。不发送垃圾邮件。"
+msgstr "不泄露个人信息。不发送垃圾邮件。"
 
 #: components/pages/Home/index.tsx:481
 msgid "home.newletter.sign_up"
@@ -720,4 +720,4 @@ msgstr "资源"
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"
-msgstr "利益"
+msgstr "股权"

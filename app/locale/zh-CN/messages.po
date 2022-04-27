@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-27 06:15+0000\n"
+"POT-Creation-Date: 2022-04-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -706,11 +706,11 @@ msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数�
 
 #: components/views/Stake/index.tsx:49
 msgid "stake.inputplaceholder.stake"
-msgstr ""
+msgstr "质押量"
 
 #: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.unstake"
-msgstr ""
+msgstr "取消质押量"
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -795,7 +795,7 @@ msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数�
 
 #: components/views/Wrap/index.tsx:39
 msgid "wrap.sklima_to_wrap"
-msgstr ""
+msgstr "待打包的 sKLIMA"
 
 #: components/views/Wrap/index.tsx:233
 msgid "wrap.unwrap"
@@ -821,7 +821,7 @@ msgstr "打包 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不�
 
 #: components/views/Wrap/index.tsx:43
 msgid "wrap.wsklima_to_unwrap"
-msgstr ""
+msgstr "待拆分的 wsKLIMA"
 
 #: components/views/Wrap/index.tsx:286
 msgid "wrap.you_will_get"

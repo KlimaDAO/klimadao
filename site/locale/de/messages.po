@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-27 06:15+0000\n"
+"POT-Creation-Date: 2022-04-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,12 +44,12 @@ msgstr "KlimaDAO-Blog"
 #: components/pages/Buy/index.tsx:135
 #: components/pages/Buy/index.tsx:254
 msgid "buy.advanced"
-msgstr ""
+msgstr "Fortgeschritten"
 
 #: components/pages/Buy/index.tsx:90
 #: components/pages/Buy/index.tsx:176
 msgid "buy.beginner"
-msgstr ""
+msgstr "Anfänger"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:14
 msgid "buy.beginner_01.description_01"
@@ -61,11 +61,11 @@ msgstr "Metamask installieren"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:29
 msgid "buy.beginner_02.description_01"
-msgstr ""
+msgstr "Sobald du Metamask in deinem Browser installiert und eingerichtet hast, gehe nach <0>app.klimadao.finance/#/buy</0> und klicke auf \"Verbinden\"."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:37
 msgid "buy.beginner_02.description_02"
-msgstr ""
+msgstr "Sobald du verbunden bist, sollte die KlimaDAO-App dich automatisch fragen, ins Polygon-Netzwerk zu wechseln. Metamask wird dich bitten, diese Aktion zu bestätigen."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:25
 msgid "buy.beginner_02.title"
@@ -73,7 +73,7 @@ msgstr "Mit unserer App verbinden"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:51
 msgid "buy.beginner_03.description_01"
-msgstr ""
+msgstr "Sobald du verbunden bist, solltest du unserer Anleitung in der App folgen können, um deinen Einkauf abzuschließen."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:57
 msgid "buy.beginner_03.description_2"
@@ -123,7 +123,7 @@ msgstr "Kreditkarte"
 
 #: components/pages/Buy/index.tsx:182
 msgid "buy.credit_card.summary"
-msgstr ""
+msgstr "Du kannst jetzt deine Kreditkarte nutzen, um KLIMA zu kaufen und direkt in deine Wallet zu transferieren! Unsere Zahlungspartner bieten die meisten großen Währungen an."
 
 #: components/pages/Buy/index.tsx:108
 msgid "buy.decentralized_exchange"
@@ -139,23 +139,23 @@ msgstr "Wie kaufe ich KLIMA via Zapper?"
 
 #: components/pages/Buy/index.tsx:214
 msgid "buy.dex.summary_01"
-msgstr ""
+msgstr "Solltest du bereits eine Polygon-Wallet und MATIC-Tokens haben, kannst du eine dezentralisierte Börse nutzen, um KLIMA zu kaufen. Dies verringert die Gebühren beim Kauf und du bezahlst den bestmöglichen Preis."
 
 #: components/pages/Buy/index.tsx:221
 msgid "buy.dex.summary_02"
-msgstr ""
+msgstr "Du kannst KLIMA zwar bei <0>Sushi Swap</0> kaufen, aber wir empfehlen einen sogenannten DEX-Aggregator namens Zapper. Verbindest du deine Wallet mit Zapper, wird dein Kauf automatisch auf der günstigsten Börse abgewickelt."
 
 #: components/pages/Buy/index.tsx:146
 msgid "buy.disclaimer"
-msgstr ""
+msgstr "Sicherheitstipps & Haftungsausschluss"
 
 #: components/pages/Buy/index.tsx:151
 msgid "buy.disclaimer_01"
-msgstr ""
+msgstr "Teile deine Private Keys oder Seed Phrases niemals mit anderen. Wir empfehlen dir, einen Blick auf unsere Seite über <0>allgemeine Kryptosicherheit</0> zu werfen, bevor du loslegst."
 
 #: components/pages/Buy/index.tsx:161
 msgid "buy.disclaimer_02"
-msgstr ""
+msgstr "Blockchain-Transaktionen können nicht rückgängig gemacht werden. Unser Team kann verlorene oder gestohlene Assets nicht wiederherstellen. KlimaDAO übernimmt in diesen Fällen keine Verantwortung oder Haftung und bietet keine Garantien an. Alle Märkte und Börsen arbeiten unabhängig und mit hoher Volatilität."
 
 #: components/pages/Buy/index.tsx:48
 #: components/pages/Buy/index.tsx:49
@@ -169,7 +169,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:65
 msgid "buy.subtitle"
-msgstr ""
+msgstr "Du kannst KLIMA auf drei Arten erhalten: mit einer Kreditkarte, über eine dezentralisierte Börse (DEX), oder indem du CO2-Assets bondest."
 
 #: components/pages/Buy/index.tsx:62
 msgid "buy.title"
@@ -177,7 +177,7 @@ msgstr "So kaufst du KLIMA"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:13
 msgid "buy.zapper_01.description_01"
-msgstr ""
+msgstr "Stelle sicher, dass du eine Wallet wie Metamask installiert hast, mit dem Polygon-Netzwerk verbunden bist und einige MATIC-Tokens besitzt."
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:19
 msgid "buy.zapper_01.description_02"
@@ -185,11 +185,11 @@ msgstr ""
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:9
 msgid "buy.zapper_01.title"
-msgstr ""
+msgstr "Lade deine Polygon-Wallet"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:36
 msgid "buy.zapper_02.description_02"
-msgstr ""
+msgstr "Besuche <0>zapper.fi</0> und klicke auf Connect."
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:32
 msgid "buy.zapper_02.title"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:45
 msgid "buy.zapper_03.title"
-msgstr ""
+msgstr "TAUSCHEN"
 
 #: components/pages/Resources/Community/index.tsx:97
 msgid "community.become_a_partner"
@@ -403,7 +403,7 @@ msgstr "1. Ein Angebot oder die Aufforderung zur Abgabe eines Angebots, um Wertp
 
 #: components/pages/Disclaimer/index.tsx:119
 msgid "disclaimer.1_meet_your_requirements"
-msgstr "1. Ihre Anforderungen entspricht;"
+msgstr "1. Ihren Anforderungen entspricht;"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:124
@@ -480,7 +480,7 @@ msgstr "Du trägst die volle Verantwortung für die Bereitstellung privater Date
 
 #: components/pages/errors/Custom404.tsx:39
 msgid "error.404.page.text"
-msgstr ""
+msgstr "Tut uns Leid, wir haben dich wohl in die falsche Richtung geschickt. <0/> Hier geht es zurück zur Startseite:"
 
 #: components/pages/errors/Custom404.tsx:36
 msgid "error.404.page.title"
@@ -488,11 +488,11 @@ msgstr "404 - Seite nicht gefunden"
 
 #: components/pages/errors/Custom500.tsx:41
 msgid "error.500.page.text"
-msgstr ""
+msgstr "Tut uns Leid, irgendwas ist schiefgelaufen.<0/> Kehre hier zur Startseite zurück:"
 
 #: components/pages/errors/Custom500.tsx:36
 msgid "error.500.page.title"
-msgstr ""
+msgstr "500 - Serverseitiger Fehler aufgetreten"
 
 #: components/pages/errors/Custom404.tsx:21
 msgid "error.page.404.head.title"

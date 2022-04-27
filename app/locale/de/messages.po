@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-27 06:15+0000\n"
+"POT-Creation-Date: 2022-04-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -712,11 +712,11 @@ msgstr "Menge an KLIMA, die du heute hättest, wenn du 1 KLIMA am Starttag gesta
 
 #: components/views/Stake/index.tsx:49
 msgid "stake.inputplaceholder.stake"
-msgstr ""
+msgstr "Zu stakende Menge"
 
 #: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.unstake"
-msgstr ""
+msgstr "Zu unstakende Menge"
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -801,7 +801,7 @@ msgstr "Menge an KLIMA, die du heute besitzen würdest, wenn du 1 KLIMA am Start
 
 #: components/views/Wrap/index.tsx:39
 msgid "wrap.sklima_to_wrap"
-msgstr ""
+msgstr "Zu wrappendes sKLIMA"
 
 #: components/views/Wrap/index.tsx:233
 msgid "wrap.unwrap"
@@ -827,7 +827,7 @@ msgstr "sKLIMA wrappen, um wsKLIMA zu erhalten. Anders als bei sKLIMA wird dein 
 
 #: components/views/Wrap/index.tsx:43
 msgid "wrap.wsklima_to_unwrap"
-msgstr ""
+msgstr "Zu unwrappendes wsKLIMA"
 
 #: components/views/Wrap/index.tsx:286
 msgid "wrap.you_will_get"
