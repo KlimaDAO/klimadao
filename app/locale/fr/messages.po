@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-27 18:16+0000\n"
+"POT-Creation-Date: 2022-04-27 21:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,7 +68,7 @@ msgstr "AVANCE"
 #: components/views/Bond/index.tsx:737
 msgid "bond.all_demand_has_been_filled"
 msgstr ""
-"🪧 VENDU. Toutes les émissions ont été satisfaites pour cette obligation. Merci Klimates !.0\n"
+"🪧 VENDU. Toutes les émissions ont été satisfaites pour cette obligation. Merci Klimates !\n"
 ""
 
 #: components/views/Bond/index.tsx:480
@@ -78,7 +78,7 @@ msgstr "Solde"
 #. Long sentence
 #: components/views/Bond/index.tsx:484
 msgid "bond.balance.tooltip"
-msgstr "Solde disponible pour le dépôt"
+msgstr "Solde disponible pour acheter des obligations"
 
 #: components/views/Bond/index.tsx:345
 #: components/views/Bond/index.tsx:427
@@ -570,7 +570,7 @@ msgstr "Quantité maximale"
 #. Long sentence
 #: components/views/PKlima/index.tsx:228
 msgid "pklima.supply_limit.tooltip"
-msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par l’index ne peut pas dépasser cette valeur."
+msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par l’indice ne peut pas dépasser cette valeur."
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
@@ -833,4 +833,4 @@ msgstr "Vous obtiendrez"
 
 #: components/BalancesCard/index.tsx:35
 msgid "wsklima.unwrapped.label"
-msgstr ""
+msgstr "Désencapsulé"
