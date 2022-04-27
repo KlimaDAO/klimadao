@@ -173,7 +173,7 @@ export const Wrap: FC<Props> = (props) => {
   return (
     <>
       <BalancesCard
-        assets={["sklima", "wsklima"]}
+        assets={["sklima", "wsklima", "wsklimaUnwrapped"]}
         tooltip={
           <Trans id="wrap.balances_tooltip">
             Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA

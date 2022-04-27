@@ -585,7 +585,7 @@ msgstr "The updated contract now assumes pKLIMA holders have staked and earned r
 msgid "shared.approve"
 msgstr "Approve"
 
-#: components/BalancesCard/index.tsx:43
+#: components/BalancesCard/index.tsx:46
 msgid "shared.balances"
 msgstr "Balances"
 
@@ -832,3 +832,7 @@ msgstr "wsKLIMA to unwrap"
 #: components/views/Wrap/index.tsx:286
 msgid "wrap.you_will_get"
 msgstr "You Will Get"
+
+#: components/BalancesCard/index.tsx:33
+msgid "wsklima.unwrapped.label"
+msgstr "unwrapped"
