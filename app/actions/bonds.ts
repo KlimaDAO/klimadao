@@ -344,9 +344,11 @@ export const redeemTransaction = async (params: {
   bond: Bond;
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
+  shouldAutostake: boolean;
 }) => {
   try {
-    const autostake = false;
+    // update this line if we change prop to required
+    const autostake = params.shouldAutostake;
     const signer = params.provider.getSigner();
     const contractAddress = getBondAddress({ bond: params.bond });
     const contract = new ethers.Contract(
