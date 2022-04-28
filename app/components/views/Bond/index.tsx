@@ -224,7 +224,7 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
-  const handleAutostakeCheck = () => setShouldAutostake(!shouldAutostake)
+  const handleAutostakeCheck = () => setShouldAutostake(!shouldAutostake);
 
   const handleBond = async () => {
     try {
