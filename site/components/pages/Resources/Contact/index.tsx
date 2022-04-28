@@ -66,15 +66,13 @@ export const Contact: NextPage<Props> = () => {
             <Text t="body3" align="center">
               <Trans
                 id="contact.careers.we_re_hiring"
-                comment="Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you."
+                comment="Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!"
               >
-                We're hiring! Until we finish building out our careers page, you
-                can submit a resume by joining our{" "}
-                <a href={urls.discordContributorsInvite}>
-                  contributor's Discord server
-                </a>{" "}
-                and following the application instructions for whichever
-                department(s) interest you.
+                We're a fully remote team hiring across all time zones. We
+                regularly post roles and bounties in our{" "}
+                <a href={urls.discordInvite}>Community Discord Server</a>. If
+                you’re a self-starter who's motivated to join a purpose driven
+                DAO, we'd love to hear from you!
               </Trans>
             </Text>
           </div>
