@@ -3,9 +3,14 @@ import { GetStaticProps } from "next";
 import { getRetirementIndexInfo } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirement/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
+import { IS_PRODUCTION } from "lib/constants";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
+    if (IS_PRODUCTION) {
+      throw new Error("Not on Staging");
+    }
+
     const { params, locale } = ctx;
 
     if (

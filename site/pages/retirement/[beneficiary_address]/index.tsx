@@ -1,11 +1,17 @@
 import { GetStaticProps } from "next";
 
+import { IS_PRODUCTION } from "lib/constants";
+
 import { getRetirements } from "@klimadao/lib/utils";
 import { RetirementPage } from "components/pages/Retirement";
 import { loadTranslation } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
+    if (IS_PRODUCTION) {
+      throw new Error("Not on Staging");
+    }
+
     const { params, locale } = ctx;
 
     if (!params || !params?.beneficiary_address) {
