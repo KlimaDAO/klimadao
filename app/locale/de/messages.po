@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-28 15:42+0000\n"
+"POT-Creation-Date: 2022-05-02 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -211,7 +211,7 @@ msgstr "Du musst deine Wallet verbinden, um KLIMA zu kaufen."
 #. Long sentence
 #: components/views/Buy/index.tsx:55
 msgid "buy.data_disclaimer"
-msgstr "KlimaDAO erhält keinerlei persönliche Daten. Prüfen Sie hier die <0>Datenschutzerklärung</0> von Mobilum und die <1>Allgemeinen Geschäftsbedingungen</1>."
+msgstr "KlimaDAO erhebt keinerlei persönliche Daten. Prüfe hier die <0>Datenschutzerklärung</0> von Mobilum und die <1>Allgemeinen Geschäftsbedingungen</1>."
 
 #. Long sentence
 #: components/views/Buy/index.tsx:47
@@ -699,7 +699,7 @@ msgstr "Geschätzte Auszahlung (sKLIMA)"
 #. Long sentence
 #: components/views/Stake/index.tsx:230
 msgid "stake.hold_stake_and_compound"
-msgstr "Kaufen, staken und Zinsen bekommen. Falls das Protokoll durch den Verkauf von Bonds überschüssiges Kapital einnimmt, wird dies mit allen aktuellen Besitzern von gestaketem KLIMA geteilt."
+msgstr "Kaufen, staken und Belohnungen bekommen. Falls das Protokoll durch den Verkauf von Anleihen überschüssiges Kapital einnimmt, wird dies mit allen aktuellen Besitzern von gestaketem KLIMA geteilt."
 
 #: components/views/Stake/index.tsx:330
 msgid "stake.index"
@@ -823,7 +823,7 @@ msgstr "Manche finden dies für Buchhaltungszwecke nützlich, die Belohnungen un
 #. Long sentence
 #: components/views/Wrap/index.tsx:191
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
-msgstr "sKLIMA wrappen, um wsKLIMA zu erhalten. Anders als bei sKLIMA wird dein wsKLIMA-Guthaben konstant bleiben."
+msgstr "sKLIMA wrappen, um wsKLIMA zu erhalten. Anders als bei sKLIMA wird dein wsKLIMA-Guthaben konstant bleiben, der Gewinn ist jedoch identisch"
 
 #: components/views/Wrap/index.tsx:43
 msgid "wrap.wsklima_to_unwrap"

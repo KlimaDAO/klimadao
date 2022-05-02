@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-04-28 15:42+0000\n"
+"POT-Creation-Date: 2022-05-02 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,7 +53,7 @@ msgstr "Anfänger"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:14
 msgid "buy.beginner_01.description_01"
-msgstr "<0>Metamask</0> ist die beliebteste Wallet für Ethereum und Polygon. Durch die Wallet verbindest du dich mit unserer App und unterschreibst Transaktionen. Achte darauf, die richtige Erweiterung für deinen Browser zu installieren."
+msgstr "<0>Metamask</0> ist die beliebteste Wallet für Ethereum und Polygon. Durch die Wallet verbindest du dich mit unserer App und übermittelst Transaktionen. Achte darauf, die richtige Erweiterung für deinen Browser zu installieren."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:10
 msgid "buy.beginner_01.title"
@@ -97,20 +97,20 @@ msgstr "MATIC kaufen (für Anfänger)"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:97
 msgid "buy.beginner_05.description_01"
-msgstr "Da du jetzt sowohl KLIMA als auch MATIC in deiner Wallet hast, kannst du deine KLIMA-Tokens nun staken, damit in sKLIMA umwandeln und somit Belohnungen erhalten. Du kannst KLIMA auch nutzen, um CO2-Emissionen auszugleichen. Als Tokenbesitzer darfst du außerdem die Ausrichtung der DAO durch ein Wahlverfahren beeinflussen. Werfe dafür einen Blick in unser <1>Forum</1>. "
+msgstr "Da du jetzt sowohl KLIMA als auch MATIC in deiner Wallet hast, kannst du deine KLIMA-Tokens nun staken, damit in sKLIMA umwandeln und somit Belohnungen erhalten. Du kannst KLIMA auch nutzen, um CO2-Emissionen auszugleichen. Als Tokenbesitzer darfst du außerdem die Ausrichtung der DAO durch ein Wahlverfahren beeinflussen. Werfe dafür einen Blick in unser <1>Forum</1> (Englisch). "
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:93
 msgid "buy.beginner_05.title"
-msgstr "Staken, ausgleichen, beeinflussen!"
+msgstr "Staken, ausgleichen, mitmachen!"
 
 #: components/pages/Buy/index.tsx:132
 #: components/pages/Buy/index.tsx:257
 msgid "buy.bonding"
-msgstr "Bonden"
+msgstr "Bonding"
 
 #: components/pages/Buy/index.tsx:260
 msgid "buy.bonding.description_01"
-msgstr "Durch Bonding überträgst du CO2-Assets in die Schatzkammer und erhältst dafür KLIMA-Tokens. Dadurch absorbiert die Klima-Schatzkammer CO2-Zertifikate und beeinflusst den Klimawandel positiv. Durch Bonding wird außerdem das KLIMA-Token gedeckt."
+msgstr "Durch Bonding verkaufst du CO2-Assets an die Schatzkammer und erhältst dafür KLIMA-Tokens. Dadurch absorbiert die Klima-Schatzkammer CO2-Zertifikate und beeinflusst den Klimawandel positiv. Durch Bonding wird außerdem das KLIMA-Token gedeckt."
 
 #: components/pages/Buy/index.tsx:268
 msgid "buy.bonding.description_02"
@@ -123,7 +123,7 @@ msgstr "Kreditkarte"
 
 #: components/pages/Buy/index.tsx:182
 msgid "buy.credit_card.summary"
-msgstr "Du kannst jetzt deine Kreditkarte nutzen, um KLIMA zu kaufen und direkt in deine Wallet zu transferieren! Unsere Zahlungspartner bieten die meisten großen Währungen an."
+msgstr "Du kannst jetzt deine Kreditkarte nutzen, um KLIMA zu kaufen und direkt in deine Wallet zu transferieren! Unsere Zahlungspartner unterstützen die meisten großen Währungen."
 
 #: components/pages/Buy/index.tsx:108
 msgid "buy.decentralized_exchange"
@@ -139,7 +139,7 @@ msgstr "Wie kaufe ich KLIMA via Zapper?"
 
 #: components/pages/Buy/index.tsx:214
 msgid "buy.dex.summary_01"
-msgstr "Solltest du bereits eine Polygon-Wallet und MATIC-Tokens haben, kannst du eine dezentralisierte Börse nutzen, um KLIMA zu kaufen. Dies verringert die Gebühren beim Kauf und du bezahlst den bestmöglichen Preis."
+msgstr "Solltest du bereits eine Polygon-Wallet und MATIC-Tokens haben, kannst du eine dezentralisierte Börse nutzen, um KLIMA zu kaufen. Dies verringert die Gebühren beim Kauf im Vergleich zu einer Kreditkarte und du bezahlst den bestmöglichen Preis."
 
 #: components/pages/Buy/index.tsx:221
 msgid "buy.dex.summary_02"
@@ -151,7 +151,7 @@ msgstr "Sicherheitstipps & Haftungsausschluss"
 
 #: components/pages/Buy/index.tsx:151
 msgid "buy.disclaimer_01"
-msgstr "Teile deine Private Keys oder Seed Phrases niemals mit anderen. Wir empfehlen dir, einen Blick auf unsere Seite über <0>allgemeine Kryptosicherheit</0> zu werfen, bevor du loslegst."
+msgstr "Teile deine Private Keys oder Seed Phrases niemals mit anderen. Wir empfehlen dir, einen Blick auf unsere Seite über <0>allgemeine Kryptosicherheit</0> (Englisch) zu werfen, bevor du loslegst."
 
 #: components/pages/Buy/index.tsx:161
 msgid "buy.disclaimer_02"
@@ -169,7 +169,7 @@ msgstr "Fortgeschrittene"
 
 #: components/pages/Buy/index.tsx:65
 msgid "buy.subtitle"
-msgstr "Du kannst KLIMA auf drei Arten erhalten: mit einer Kreditkarte, über eine dezentralisierte Börse (DEX) oder indem du CO2-Assets bondest."
+msgstr "Du kannst dir Klima auf drei Arten holen: mit einer Kreditkarte, über eine dezentralisierte Börse (DEX) oder indem du CO2-Assets bondest."
 
 #: components/pages/Buy/index.tsx:62
 msgid "buy.title"
@@ -181,15 +181,15 @@ msgstr "Stelle sicher, dass du eine Wallet wie Metamask installiert hast, mit de
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:19
 msgid "buy.zapper_01.description_02"
-msgstr "Du kannst deine Polygon-Wallet durch beliebte Dienstleister wie <0>Transak</0> oder unseren Partner <1>Mobilum</1> direkt aufladen. Alternativ transferierst du Tokens im Ethereum-Netzwerk in deine Wallet und <2>überträgst</2> sie ins Polygon-Netzwerk."
+msgstr "Du kannst Tokens durch beliebte Dienstleister wie <0>Transak</0> oder unseren Partner <1>Mobilum</1> direkt in deine Polygon-Wallet schicken. Alternativ transferierst du Tokens im Ethereum-Netzwerk in deine Wallet und <2>überträgst</2> sie ins Polygon-Netzwerk."
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:9
 msgid "buy.zapper_01.title"
-msgstr "Lade deine Polygon-Wallet"
+msgstr "Lade deine Polygon-Wallet auf"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:36
 msgid "buy.zapper_02.description_02"
-msgstr "Besuche <0>zapper.fi</0> und klicke auf Connect."
+msgstr "Besuche <0>zapper.fi</0> und klicke auf \"Wallet Verbinden\"."
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:32
 msgid "buy.zapper_02.title"
@@ -530,7 +530,7 @@ msgstr "ENTSPRICHT"
 #. Long sentence
 #: components/pages/Home/index.tsx:382
 msgid "home.every_klima_token_is_backed"
-msgstr "Jedes KLIMA-Token ist von einem echten CO2-Zertifikat gedeckt. Diese Tokens werden genutzt, um CO2-Emissionen auszugleichen, mit DeFi-Applikationen zu interagieren, und Zugang zum rasant wachsenden weltweiten CO2-Markt zu erhalten."
+msgstr "Jedes KLIMA-Token ist von einem echten CO2-Zertifikat gedeckt. Diese Tokens werden genutzt, um CO2-Emissionen auszugleichen, mit DeFi-Applikationen zu interagieren und Zugang zum rasant wachsenden weltweiten CO2-Markt zu erhalten."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:105
