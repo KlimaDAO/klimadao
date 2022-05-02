@@ -1,25 +1,25 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-02 15:43+0000\n"
+"POT-Creation-Date: 2022-05-02 19:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
 
-#: components/views/Offset/index.tsx:638
+#: components/views/Offset/index.tsx:636
 msgid "Beneficiary Address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:658
+#: components/views/Offset/index.tsx:656
 msgid "Download certificate"
 msgstr ""
 
-#: components/views/Offset/index.tsx:646
+#: components/views/Offset/index.tsx:644
 msgid "Message"
 msgstr ""
 
-#: components/views/Offset/index.tsx:632
+#: components/views/Offset/index.tsx:630
 msgid "Name"
 msgstr ""
 
@@ -27,11 +27,11 @@ msgstr ""
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr ""
 
-#: components/views/Offset/index.tsx:626
+#: components/views/Offset/index.tsx:624
 msgid "Retirement Successful"
 msgstr ""
 
-#: components/views/Offset/index.tsx:666
+#: components/views/Offset/index.tsx:664
 msgid "Share retirement"
 msgstr ""
 
@@ -43,11 +43,11 @@ msgstr ""
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
-#: components/views/Offset/index.tsx:652
+#: components/views/Offset/index.tsx:650
 msgid "Tonnes Retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:673
+#: components/views/Offset/index.tsx:671
 msgid "View on <0>polygonscan.com</0>"
 msgstr ""
 
@@ -55,12 +55,12 @@ msgstr ""
 msgid "Wrong Network"
 msgstr ""
 
-#: components/views/Offset/index.tsx:661
-#: components/views/Offset/index.tsx:669
+#: components/views/Offset/index.tsx:659
+#: components/views/Offset/index.tsx:667
 msgid "[coming soon]"
 msgstr ""
 
-#: components/views/Offset/index.tsx:730
+#: components/views/Offset/index.tsx:728
 msgid "advanced"
 msgstr ""
 
@@ -403,7 +403,7 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
-#: components/views/Offset/index.tsx:542
+#: components/views/Offset/index.tsx:540
 msgid "offset.aggregation_fee_tooltip"
 msgstr ""
 
@@ -415,7 +415,7 @@ msgstr ""
 msgid "offset.breakdown"
 msgstr ""
 
-#: components/views/Offset/index.tsx:510
+#: components/views/Offset/index.tsx:508
 msgid "offset.default_retirement_address"
 msgstr ""
 
@@ -423,7 +423,7 @@ msgstr ""
 msgid "offset.dropdown_payWith.label"
 msgstr ""
 
-#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:462
 msgid "offset.dropdown_retire.label"
 msgstr ""
 
@@ -431,8 +431,8 @@ msgstr ""
 msgid "offset.empty"
 msgstr ""
 
-#: components/views/Offset/index.tsx:504
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:502
+#: components/views/Offset/index.tsx:757
 msgid "offset.enter_address"
 msgstr ""
 
@@ -444,11 +444,11 @@ msgstr ""
 msgid "offset.incompatible"
 msgstr ""
 
-#: components/views/Offset/index.tsx:451
+#: components/views/Offset/index.tsx:448
 msgid "offset.modal_payWith.title"
 msgstr ""
 
-#: components/views/Offset/index.tsx:468
+#: components/views/Offset/index.tsx:466
 msgid "offset.modal_retire.title"
 msgstr ""
 
@@ -464,31 +464,31 @@ msgstr ""
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/views/Offset/index.tsx:737
+#: components/views/Offset/index.tsx:735
 msgid "offset.retire_specific"
 msgstr ""
 
-#: components/views/Offset/index.tsx:743
+#: components/views/Offset/index.tsx:741
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:493
+#: components/views/Offset/index.tsx:491
 msgid "offset.retirement_beneficiary"
 msgstr ""
 
-#: components/views/Offset/index.tsx:485
+#: components/views/Offset/index.tsx:483
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/views/Offset/index.tsx:519
+#: components/views/Offset/index.tsx:517
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/views/Offset/index.tsx:528
+#: components/views/Offset/index.tsx:526
 msgid "offset.retirement_purpose"
 msgstr ""
 
-#: components/views/Offset/index.tsx:560
+#: components/views/Offset/index.tsx:558
 msgid "offset.retiring"
 msgstr ""
 
@@ -500,11 +500,11 @@ msgstr ""
 msgid "offset.you_have_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:538
+#: components/views/Offset/index.tsx:536
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/Offset/index.tsx:571
+#: components/views/Offset/index.tsx:569
 msgid "offset_disclaimer"
 msgstr ""
 

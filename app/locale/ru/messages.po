@@ -1,25 +1,25 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-02 15:43+0000\n"
+"POT-Creation-Date: 2022-05-02 19:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ru\n"
 
-#: components/views/Offset/index.tsx:638
+#: components/views/Offset/index.tsx:636
 msgid "Beneficiary Address"
 msgstr "Адрес получателя"
 
-#: components/views/Offset/index.tsx:658
+#: components/views/Offset/index.tsx:656
 msgid "Download certificate"
 msgstr "Загрузить сертификат"
 
-#: components/views/Offset/index.tsx:646
+#: components/views/Offset/index.tsx:644
 msgid "Message"
 msgstr "Сообщение"
 
-#: components/views/Offset/index.tsx:632
+#: components/views/Offset/index.tsx:630
 msgid "Name"
 msgstr "Имя"
 
@@ -27,11 +27,11 @@ msgstr "Имя"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "12 апреля 2022 года мы перешли с «dapp» на «app». Пожалуйста, обновите закладки."
 
-#: components/views/Offset/index.tsx:626
+#: components/views/Offset/index.tsx:624
 msgid "Retirement Successful"
 msgstr "Успешный вывод"
 
-#: components/views/Offset/index.tsx:666
+#: components/views/Offset/index.tsx:664
 msgid "Share retirement"
 msgstr "Поделится выводом"
 
@@ -43,11 +43,11 @@ msgstr "Переключиться на Polygon"
 msgid "This app only works on Polygon Mainnet."
 msgstr "Это приложение работает только в Polygon Mainnet."
 
-#: components/views/Offset/index.tsx:652
+#: components/views/Offset/index.tsx:650
 msgid "Tonnes Retired"
 msgstr "Тонны выведенные из обращения"
 
-#: components/views/Offset/index.tsx:673
+#: components/views/Offset/index.tsx:671
 msgid "View on <0>polygonscan.com</0>"
 msgstr "Посмотреть на <0>polygonscan.com</0>"
 
@@ -55,12 +55,12 @@ msgstr "Посмотреть на <0>polygonscan.com</0>"
 msgid "Wrong Network"
 msgstr "Неверная сеть"
 
-#: components/views/Offset/index.tsx:661
-#: components/views/Offset/index.tsx:669
+#: components/views/Offset/index.tsx:659
+#: components/views/Offset/index.tsx:667
 msgid "[coming soon]"
 msgstr "[вскоре]"
 
-#: components/views/Offset/index.tsx:730
+#: components/views/Offset/index.tsx:728
 msgid "advanced"
 msgstr "Продвинутый"
 
@@ -407,7 +407,7 @@ msgstr "ПОДТВЕРЖДЕНИЕ"
 msgid "nav.back"
 msgstr "НАЗАД"
 
-#: components/views/Offset/index.tsx:542
+#: components/views/Offset/index.tsx:540
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Эта стоимость включает проскальзывание и комиссию за агрегацию в размере 1%."
 
@@ -419,7 +419,7 @@ msgstr "Сколько тонн углерода вы хотели бы комп
 msgid "offset.breakdown"
 msgstr "Распределение"
 
-#: components/views/Offset/index.tsx:510
+#: components/views/Offset/index.tsx:508
 msgid "offset.default_retirement_address"
 msgstr "По умолчанию используется адрес подключенного кошелька"
 
@@ -427,7 +427,7 @@ msgstr "По умолчанию используется адрес подклю
 msgid "offset.dropdown_payWith.label"
 msgstr "Заплатить с"
 
-#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:462
 msgid "offset.dropdown_retire.label"
 msgstr "Выберите углеродный офсет, чтобы выбить его"
 
@@ -435,8 +435,8 @@ msgstr "Выберите углеродный офсет, чтобы выбит�
 msgid "offset.empty"
 msgstr "Этот адрес не завершил ни одного вывода."
 
-#: components/views/Offset/index.tsx:504
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:502
+#: components/views/Offset/index.tsx:757
 msgid "offset.enter_address"
 msgstr "Введите 0x-адрес"
 
@@ -448,11 +448,11 @@ msgstr "Станьте углеродно-нейтральным, отказав
 msgid "offset.incompatible"
 msgstr "ТОКЕН ВВОДА НЕСОВМЕСТИМ"
 
-#: components/views/Offset/index.tsx:451
+#: components/views/Offset/index.tsx:448
 msgid "offset.modal_payWith.title"
 msgstr "Выберите токен"
 
-#: components/views/Offset/index.tsx:468
+#: components/views/Offset/index.tsx:466
 msgid "offset.modal_retire.title"
 msgstr "Выберите тип углерода"
 
@@ -468,31 +468,31 @@ msgstr "Введите количество для офсета"
 msgid "offset.retire_carbon"
 msgstr "Вывод карбона"
 
-#: components/views/Offset/index.tsx:737
+#: components/views/Offset/index.tsx:735
 msgid "offset.retire_specific"
 msgstr "Вывести из обращения токены конкретного проекта"
 
-#: components/views/Offset/index.tsx:743
+#: components/views/Offset/index.tsx:741
 msgid "offset.retire_specific_tooltip"
 msgstr "За дополнительную плату, определяемую выбранным пулом и выплачиваемую поставщику бриджа."
 
-#: components/views/Offset/index.tsx:493
+#: components/views/Offset/index.tsx:491
 msgid "offset.retirement_beneficiary"
 msgstr "Имя или организация"
 
-#: components/views/Offset/index.tsx:485
+#: components/views/Offset/index.tsx:483
 msgid "offset.retirement_credit"
 msgstr "Кому будет приписано это выбивание?"
 
-#: components/views/Offset/index.tsx:519
+#: components/views/Offset/index.tsx:517
 msgid "offset.retirement_message"
 msgstr "Сообщение о выводе"
 
-#: components/views/Offset/index.tsx:528
+#: components/views/Offset/index.tsx:526
 msgid "offset.retirement_purpose"
 msgstr "Опишите цель этого вывода"
 
-#: components/views/Offset/index.tsx:560
+#: components/views/Offset/index.tsx:558
 msgid "offset.retiring"
 msgstr "Вывод"
 
@@ -504,11 +504,11 @@ msgstr "Тонны углерода"
 msgid "offset.you_have_retired"
 msgstr "Вы выбили"
 
-#: components/views/Offset/index.tsx:538
+#: components/views/Offset/index.tsx:536
 msgid "offset_cost"
 msgstr "Стоимость"
 
-#: components/views/Offset/index.tsx:571
+#: components/views/Offset/index.tsx:569
 msgid "offset_disclaimer"
 msgstr "Будьте осторожны и не раскрывайте конфиденциальную личную информацию. Ваше сообщение не может быть отредактировано и будет постоянно существовать в публичном блокчейне."
 
