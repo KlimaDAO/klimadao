@@ -34,13 +34,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         retirementIndexInfo,
         translation,
       },
-      revalidate: 120,
+      revalidate: 240,
     };
   } catch (e) {
     console.error("Failed to generate", e);
     return {
       notFound: true,
-      revalidate: 120,
+      revalidate: 240,
     };
   }
 };
