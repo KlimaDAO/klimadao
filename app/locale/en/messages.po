@@ -13,19 +13,19 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Offset/index.tsx:638
+#: components/views/Offset/index.tsx:636
 msgid "Beneficiary Address"
 msgstr "Beneficiary Address"
 
-#: components/views/Offset/index.tsx:658
+#: components/views/Offset/index.tsx:656
 msgid "Download certificate"
 msgstr "Download certificate"
 
-#: components/views/Offset/index.tsx:646
+#: components/views/Offset/index.tsx:644
 msgid "Message"
 msgstr "Message"
 
-#: components/views/Offset/index.tsx:632
+#: components/views/Offset/index.tsx:630
 msgid "Name"
 msgstr "Name"
 
@@ -33,11 +33,11 @@ msgstr "Name"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 
-#: components/views/Offset/index.tsx:626
+#: components/views/Offset/index.tsx:624
 msgid "Retirement Successful"
 msgstr "Retirement Successful"
 
-#: components/views/Offset/index.tsx:666
+#: components/views/Offset/index.tsx:664
 msgid "Share retirement"
 msgstr "Share retirement"
 
@@ -49,11 +49,11 @@ msgstr "Switch to Polygon"
 msgid "This app only works on Polygon Mainnet."
 msgstr "This app only works on Polygon Mainnet."
 
-#: components/views/Offset/index.tsx:652
+#: components/views/Offset/index.tsx:650
 msgid "Tonnes Retired"
 msgstr "Tonnes Retired"
 
-#: components/views/Offset/index.tsx:673
+#: components/views/Offset/index.tsx:671
 msgid "View on <0>polygonscan.com</0>"
 msgstr "View on <0>polygonscan.com</0>"
 
@@ -61,12 +61,12 @@ msgstr "View on <0>polygonscan.com</0>"
 msgid "Wrong Network"
 msgstr "Wrong Network"
 
-#: components/views/Offset/index.tsx:661
-#: components/views/Offset/index.tsx:669
+#: components/views/Offset/index.tsx:659
+#: components/views/Offset/index.tsx:667
 msgid "[coming soon]"
 msgstr "[coming soon]"
 
-#: components/views/Offset/index.tsx:730
+#: components/views/Offset/index.tsx:728
 msgid "advanced"
 msgstr "ADVANCED"
 
@@ -409,7 +409,7 @@ msgstr "CONFIRMATION"
 msgid "nav.back"
 msgstr "BACK"
 
-#: components/views/Offset/index.tsx:542
+#: components/views/Offset/index.tsx:540
 msgid "offset.aggregation_fee_tooltip"
 msgstr "This cost includes slippage and the aggregation fee of 1%."
 
@@ -421,7 +421,7 @@ msgstr "How many tonnes of carbon would you like to offset?"
 msgid "offset.breakdown"
 msgstr "Breakdown"
 
-#: components/views/Offset/index.tsx:510
+#: components/views/Offset/index.tsx:508
 msgid "offset.default_retirement_address"
 msgstr "Defaults to the connected wallet address"
 
@@ -429,7 +429,7 @@ msgstr "Defaults to the connected wallet address"
 msgid "offset.dropdown_payWith.label"
 msgstr "Pay with"
 
-#: components/views/Offset/index.tsx:464
+#: components/views/Offset/index.tsx:462
 msgid "offset.dropdown_retire.label"
 msgstr "Select carbon offset token to retire"
 
@@ -437,8 +437,8 @@ msgstr "Select carbon offset token to retire"
 msgid "offset.empty"
 msgstr "This address has not completed any retirements."
 
-#: components/views/Offset/index.tsx:504
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:502
+#: components/views/Offset/index.tsx:757
 msgid "offset.enter_address"
 msgstr "Enter 0x address"
 
@@ -450,11 +450,11 @@ msgstr "Go carbon neutral by retiring carbon and claiming the underlying environ
 msgid "offset.incompatible"
 msgstr "INPUT TOKEN INCOMPATIBLE"
 
-#: components/views/Offset/index.tsx:451
+#: components/views/Offset/index.tsx:448
 msgid "offset.modal_payWith.title"
 msgstr "Select Token"
 
-#: components/views/Offset/index.tsx:468
+#: components/views/Offset/index.tsx:466
 msgid "offset.modal_retire.title"
 msgstr "Select Carbon Type"
 
@@ -470,31 +470,31 @@ msgstr "Enter quantity to offset"
 msgid "offset.retire_carbon"
 msgstr "Retire Carbon"
 
-#: components/views/Offset/index.tsx:737
+#: components/views/Offset/index.tsx:735
 msgid "offset.retire_specific"
 msgstr "Retire specific project tokens"
 
-#: components/views/Offset/index.tsx:743
+#: components/views/Offset/index.tsx:741
 msgid "offset.retire_specific_tooltip"
 msgstr "Subject to additional fee, determined by the selected pool and paid to the bridge provider."
 
-#: components/views/Offset/index.tsx:493
+#: components/views/Offset/index.tsx:491
 msgid "offset.retirement_beneficiary"
 msgstr "Name or organisation"
 
-#: components/views/Offset/index.tsx:485
+#: components/views/Offset/index.tsx:483
 msgid "offset.retirement_credit"
 msgstr "Who will this retirement be credited to?"
 
-#: components/views/Offset/index.tsx:519
+#: components/views/Offset/index.tsx:517
 msgid "offset.retirement_message"
 msgstr "Retirement message"
 
-#: components/views/Offset/index.tsx:528
+#: components/views/Offset/index.tsx:526
 msgid "offset.retirement_purpose"
 msgstr "Describe the purpose of this retirement"
 
-#: components/views/Offset/index.tsx:560
+#: components/views/Offset/index.tsx:558
 msgid "offset.retiring"
 msgstr "Retiring"
 
@@ -506,11 +506,11 @@ msgstr "Tonnes of carbon"
 msgid "offset.you_have_retired"
 msgstr "You've Retired"
 
-#: components/views/Offset/index.tsx:538
+#: components/views/Offset/index.tsx:536
 msgid "offset_cost"
 msgstr "Cost"
 
-#: components/views/Offset/index.tsx:571
+#: components/views/Offset/index.tsx:569
 msgid "offset_disclaimer"
 msgstr "Be careful not to expose any sensitive personal information. Your message can not be edited and will permanently exist on a public blockchain."
 
