@@ -44,6 +44,9 @@ export const RetirementPage: NextPage<Props> = (props) => {
               Retirements Total
             </Text>
             <Text align="center">
+              beneficiaryAddress: {props.beneficiaryAddress}
+            </Text>
+            <Text align="center">
               totalRetirements: {props.retirements.totalRetirements}
             </Text>
             <Text align="center">
