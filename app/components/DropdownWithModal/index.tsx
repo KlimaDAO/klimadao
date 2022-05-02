@@ -19,7 +19,7 @@ interface Item {
 
 interface Props {
   modalTitle: string;
-  label: string;
+  label: React.ReactNode;
   currentItem: string;
   items: Item[];
   isModalOpen: boolean;

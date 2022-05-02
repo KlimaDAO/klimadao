@@ -444,10 +444,7 @@ export const Offset = (props: Props) => {
           </div>
           {/* Input Token */}
           <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_payWith.label",
-              message: "Pay with",
-            })}
+            label={<Trans id="offset.dropdown_payWith.label">Pay with</Trans>}
             modalTitle={t({
               id: "offset.modal_payWith.title",
               message: "Select Token",
@@ -461,10 +458,11 @@ export const Offset = (props: Props) => {
 
           {/* Retire Token  */}
           <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_retire.label",
-              message: "Select carbon offset token to retire",
-            })}
+            label={
+              <Trans id="offset.dropdown_retire.label">
+                Select carbon offset token to retire
+              </Trans>
+            }
             modalTitle={t({
               id: "offset.modal_retire.title",
               message: "Select Carbon Type",
