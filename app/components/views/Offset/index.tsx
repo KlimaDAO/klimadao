@@ -240,7 +240,7 @@ export const Offset = (props: Props) => {
   const handleRetire = async () => {
     try {
       if (!props.isConnected || !props.address) return;
-      const receipt = await retireCarbonTransaction({
+      const { receipt } = await retireCarbonTransaction({
         address: props.address,
         provider: props.provider,
         inputToken: selectedInputToken,
