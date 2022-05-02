@@ -66,8 +66,21 @@ export type RetirementIndexInfo = [
   message: string
 ];
 
+export type RetirementIndexInfoResult = {
+  address: RetirementIndexInfo[0];
+  amount: ReturnType<RetirementIndexInfo[1]["toNumber"]>;
+  beneficiaryName: RetirementIndexInfo[2];
+  message: RetirementIndexInfo[3];
+};
+
 export type Retirements = [
   totalRetirements: BigNumber,
   totalCarbonRetired: BigNumber,
   totalClaimed: BigNumber
 ];
+
+export type RetirementsResult = {
+  totalRetirements: ReturnType<Retirements[0]["toNumber"]>;
+  totalCarbonRetired: ReturnType<Retirements[1]["toNumber"]>;
+  totalClaimed: ReturnType<Retirements[2]["toNumber"]>;
+};
