@@ -59,3 +59,15 @@ export interface RetirementReceipt {
 
 export type RetirementTotals = [BigNumber, BigNumber, BigNumber];
 
+export type RetirementIndexInfo = [
+  address: string,
+  amount: BigNumber,
+  beneficiaryName: string,
+  message: string
+];
+
+export type Retirements = [
+  totalRetirements: BigNumber,
+  totalCarbonRetired: BigNumber,
+  totalClaimed: BigNumber
+];

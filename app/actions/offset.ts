@@ -21,8 +21,7 @@ import { OnStatusHandler } from "./utils";
 import {
   RetirementReceipt,
   RetirementTotals,
-  RetireCarbonTransactionResult,
-} from "../types/offset";
+} from "@klimadao/lib/types/offset";
 
 export const getRetiredOffsetBalances = (params: {
   provider: providers.JsonRpcProvider;
