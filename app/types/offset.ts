@@ -40,7 +40,7 @@ interface Event {
 export interface RetirementReceipt {
   to: string;
   from: string;
-  contractAddress?: any;
+  contractAddress?: null | string;
   transactionIndex: number;
   gasUsed: GasUsed;
   logsBloom: string;
@@ -59,7 +59,3 @@ export interface RetirementReceipt {
 
 export type RetirementTotals = [BigNumber, BigNumber, BigNumber];
 
-export type RetireCarbonTransactionResult = {
-  receipt: RetirementReceipt;
-  retirementTotals: ReturnType<BigNumber["toNumber"]>;
-};

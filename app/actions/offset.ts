@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { ethers, providers, BigNumber } from "ethers";
 import { Thunk } from "state";
 import {
   setCarbonRetiredAllowance,
@@ -193,6 +193,11 @@ export const getOffsetConsumptionCost = async (params: {
   ];
 };
 
+export type RetireCarbonTransactionResult = {
+  receipt: RetirementReceipt;
+  retirementTotals: ReturnType<BigNumber["toNumber"]>;
+};
+
 export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
@@ -205,7 +210,10 @@ export const retireCarbonTransaction = async (params: {
   retirementMessage: string;
   onStatus: OnStatusHandler;
   specificAddresses: string[];
-}): Promise<RetireCarbonTransactionResult> => {
+}): Promise<{
+  receipt: RetirementReceipt;
+  retirementTotals: ReturnType<BigNumber["toNumber"]>;
+}> => {
   try {
     // get all current retirement totals
     const storageContract = new ethers.Contract(
