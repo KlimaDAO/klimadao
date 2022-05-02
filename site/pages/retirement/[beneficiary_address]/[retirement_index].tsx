@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     }
     const retirementIndexInfo = await getRetirementIndexInfo(
       params.beneficiary_address as string,
-      Number(params.retirement_index)
+      Number(params.retirement_index) - 1 // totals does not include index 0
     );
 
     const translation = await loadTranslation(locale);
