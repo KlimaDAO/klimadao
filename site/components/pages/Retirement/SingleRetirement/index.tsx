@@ -43,7 +43,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               Retirement SINGLE
             </Text>
             <Text align="center">
-              address: {props.retirementIndexInfo.address}
+              tokenAddress: {props.retirementIndexInfo.tokenAddress}
             </Text>
             <Text align="center">
               amount: {props.retirementIndexInfo.amount}
@@ -52,7 +52,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               beneficiaryName: {props.retirementIndexInfo.beneficiaryName}
             </Text>
             <Text align="center">
-              message: {props.retirementIndexInfo.message}
+              message: {props.retirementIndexInfo.retirementMessage}
             </Text>
           </div>
         </div>

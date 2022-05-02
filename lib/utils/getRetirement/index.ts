@@ -51,14 +51,21 @@ export const getRetirementIndexInfo = async (
       provider
     );
 
-    const [address, amount, beneficiaryName, message]: RetirementIndexInfo =
-      await storageContract.getRetirementIndexInfo(beneficiaryAdress, index);
+    const [
+      tokenAddress,
+      amount,
+      beneficiaryName,
+      retirementMessage,
+    ]: RetirementIndexInfo = await storageContract.getRetirementIndexInfo(
+      beneficiaryAdress,
+      index
+    );
 
     return {
-      address,
+      tokenAddress,
       amount: amount.toNumber(),
       beneficiaryName,
-      message,
+      retirementMessage,
     };
   } catch (e) {
     console.error(e);

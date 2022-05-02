@@ -60,17 +60,17 @@ export interface RetirementReceipt {
 export type RetirementTotals = [BigNumber, BigNumber, BigNumber];
 
 export type RetirementIndexInfo = [
-  address: string,
+  tokenAddress: string,
   amount: BigNumber,
   beneficiaryName: string,
-  message: string
+  retirementMessage: string
 ];
 
 export type RetirementIndexInfoResult = {
-  address: RetirementIndexInfo[0];
+  tokenAddress: RetirementIndexInfo[0];
   amount: ReturnType<RetirementIndexInfo[1]["toNumber"]>;
   beneficiaryName: RetirementIndexInfo[2];
-  message: RetirementIndexInfo[3];
+  retirementMessage: RetirementIndexInfo[3];
 };
 
 export type Retirements = [
