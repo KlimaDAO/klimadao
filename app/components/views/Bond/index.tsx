@@ -39,8 +39,8 @@ import { RootState, useAppDispatch } from "state";
 import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { Box, Checkbox } from "@mui/material";
-
+import Box from "@mui/material/Box";
+import Checkbox from "@mui/material/Checkbox";
 import * as styles from "./styles";
 import { BondBalancesCard } from "components/BondBalancesCard";
 import { Image } from "components/Image";
@@ -224,7 +224,7 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
-  const handleAutostakeCheck = () => setShouldAutostake(!shouldAutostake);
+  const handleAutostakeCheck = (): void => setShouldAutostake(!shouldAutostake);
 
   const handleBond = async () => {
     try {
@@ -286,6 +286,7 @@ export const Bond: FC<Props> = (props) => {
         redeemBond({
           bond: props.bond,
           value: bondState.pendingPayout,
+          autostake: shouldAutostake,
         })
       );
     } catch (e) {
@@ -762,29 +763,21 @@ export const Bond: FC<Props> = (props) => {
                   className={styles.submitButton}
                 />
                 {view === "redeem" && !showSpinner && (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      width: "100%",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      paddingRight: "16px",
-                    }}
-                  >
+                  <div className={styles.checkboxContainer}>
                     <Checkbox
                       checked={shouldAutostake}
                       onChange={handleAutostakeCheck}
-                      sx={{ color: "#fff" }}
+                      className={styles.checkbox}
                     />{" "}
                     <Text t="caption" align="center">
                       <Trans
                         id="bond.should_autostake"
                         comment="should autostake?"
                       >
-                        Autostake
+                        Automatically stake for sKLIMA
                       </Trans>
                     </Text>
-                  </Box>
+                  </div>
                 )}
               </Box>
             )}

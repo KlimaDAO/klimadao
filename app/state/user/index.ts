@@ -220,7 +220,10 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(redeemBond, (s, a) => {
       if (!s.balance) return;
-      s.balance.klima = safeAdd(s.balance.klima, a.payload.value);
+      s.balance.klima = safeAdd(
+        a.payload.autostake ? s.balance.sklima : s.balance.klima,
+        a.payload.value
+      );
     });
   },
 });
