@@ -57,7 +57,11 @@ export interface RetirementReceipt {
   events: Event[];
 }
 
-export type RetirementTotals = [BigNumber, BigNumber, BigNumber];
+export type RetirementTotals = [
+  totalRetirements: BigNumber,
+  totalCarbonRetired: BigNumber,
+  totalClaimed: BigNumber
+];
 
 export type RetirementIndexInfo = [
   tokenAddress: string,
