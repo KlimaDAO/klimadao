@@ -686,15 +686,13 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
           </Text>
           {!IS_PRODUCTION && props.retirementTotals && (
             <Text t="caption">
-              <Trans>
-                Open retirement details on:
-                <A
-                  target="_blank"
-                  href={`${urls.home}/retirement/${props.beneficiaryAddress}/${props.retirementTotals}`}
-                >
-                  klimadao.finance
-                </A>
-              </Trans>
+              Open retirement details on:
+              <A
+                target="_blank"
+                href={`${urls.home}/retirement/${props.beneficiaryAddress}/${props.retirementTotals}`}
+              >
+                klimadao.finance
+              </A>
             </Text>
           )}
         </div>
