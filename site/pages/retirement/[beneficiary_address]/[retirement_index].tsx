@@ -32,6 +32,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     return {
       props: {
         retirementIndexInfo,
+        beneficiaryAddress: params.beneficiary_address,
+        retirementIndex: params.retirement_index,
         translation,
       },
       revalidate: 240,

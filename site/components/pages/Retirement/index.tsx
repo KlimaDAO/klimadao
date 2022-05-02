@@ -13,6 +13,7 @@ import * as styles from "./styles";
 
 type Props = {
   retirements: RetirementsResult;
+  beneficiaryAddress: string;
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
@@ -22,11 +23,11 @@ export const RetirementPage: NextPage<Props> = (props) => {
         production={IS_PRODUCTION}
         title={t({
           id: "retirement.totals.head.title",
-          message: "Your total retirements",
+          message: `KlimaDao - Your total retirements for address: ${props.beneficiaryAddress}`,
         })}
         mediaTitle={t({
           id: "retirement.totals.head.title",
-          message: "Your total retirements",
+          message: `KlimaDao - Your total retirements for address: ${props.beneficiaryAddress}`,
         })}
         metaDescription={t({
           id: "shared.head.description",

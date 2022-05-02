@@ -13,6 +13,8 @@ import * as styles from "../styles";
 
 type Props = {
   retirementIndexInfo: RetirementIndexInfoResult;
+  beneficiaryAddress: string;
+  retirementIndex: string;
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
@@ -22,11 +24,11 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         production={IS_PRODUCTION}
         title={t({
           id: "retirement.head.title",
-          message: "Your retirement for address: ",
+          message: `Your retirement number ${props.retirementIndex} for address: ${props.beneficiaryAddress}`,
         })}
         mediaTitle={t({
           id: "retirement.head.title",
-          message: "Your retirement for address: ",
+          message: `Your retirement number ${props.retirementIndex} for address: ${props.beneficiaryAddress}`,
         })}
         metaDescription={t({
           id: "shared.head.description",
