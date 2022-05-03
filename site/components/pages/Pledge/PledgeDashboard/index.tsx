@@ -39,7 +39,7 @@ const defaultValues = (pledge: Pledge): Pledge =>
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const router = useRouter();
-  const { isAuthenticated, user, account } = useMoralis();
+  const { isAuthenticated, user } = useMoralis();
   const [showModal, setShowModal] = useState(false);
   const [validAddress, setValidAddress] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(defaultValues(props.pledge));
@@ -63,10 +63,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       router.push("/pledge");
     }
   });
-
-  useEffect(() => {
-    console.log(account);
-  }, [account]);
 
   const handleFormSubmit = async (data) => {
     setPledge(data);
@@ -92,10 +88,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               </Text>
               <Text t="h4">{pledge.name || concatAddress(pledge.address)}</Text>
             </div>
-
-            {/* <div className={styles.pledgeChart}>
-              <AssetsOverTimeCard />
-            </div> */}
 
             <div className={styles.column}>
               <PledgeCard pledge={pledge.pledge} />

@@ -42,11 +42,6 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
   const userSession = await findUserSession(params.sessionToken);
   if (!userSession) throw new Error("Invalid Session");
 
-  const user = userSession.get("user");
-  const acl = new Moralis.ACL();
-  acl.setPublicReadAccess(true);
-  acl.setWriteAccess(user.id, true);
-
   const Pledge = Moralis.Object.extend("Pledge");
   const newPledge = params.pledge.objectId
     ? await new Moralis.Query(Pledge).get(params.pledge.objectId)
@@ -56,7 +51,6 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
     ...params.pledge,
     footprint: [params.pledge.footprint],
   });
-  newPledge.setACL(acl);
 
   return await newPledge.save(null, { useMasterKey: true });
 };

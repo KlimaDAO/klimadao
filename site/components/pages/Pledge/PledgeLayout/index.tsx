@@ -26,7 +26,7 @@ export const PledgeLayout: FC<Props> = (props) => {
           <div className={styles.group}>
             <ThemeToggle />
 
-            {props.buttons}
+            {props.buttons && props.buttons}
 
             {isAuthenticated ? (
               <ButtonPrimary label="Sign out" onClick={() => logout()} />

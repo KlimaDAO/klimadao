@@ -35,6 +35,7 @@ export const PledgeForm: FC<Props> = (props) => {
   const { user } = useMoralis();
   const { register, handleSubmit, formState, reset } =
     useForm<PledgeFormValues>({
+      mode: "onBlur",
       defaultValues: props.pledge,
       resolver: yupResolver(schema),
     });
