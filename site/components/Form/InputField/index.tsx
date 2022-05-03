@@ -35,9 +35,9 @@ export const InputField = React.forwardRef<HTMLInputElement, Props>(
         />
 
         {errors && (
-          <div className={styles.errorMessage}>
-            <Text t="caption">{errors.message}</Text>
-          </div>
+          <Text t="caption" className={styles.errorMessage}>
+            {errors.message}
+          </Text>
         )}
       </div>
     );

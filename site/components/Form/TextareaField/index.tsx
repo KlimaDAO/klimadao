@@ -21,6 +21,7 @@ export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
         <label htmlFor={id}>
           <Text t="caption">{label}</Text>
         </label>
+
         <textarea
           id={id}
           ref={ref}
@@ -31,9 +32,9 @@ export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
         />
 
         {errors && (
-          <div className={styles.errorMessage}>
-            <Text t="caption">{errors.message}</Text>
-          </div>
+          <Text t="caption" className={styles.errorMessage}>
+            {errors.message}
+          </Text>
         )}
       </div>
     );
