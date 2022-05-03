@@ -38,7 +38,10 @@ export const bondsSlice = createSlice({
     setBond: (s, a: PayloadAction<BondPayload>) => {
       s[a.payload.bond] = { ...s[a.payload.bond], ...a.payload };
     },
-    redeemBond: (s, a: PayloadAction<{ bond: Bond; value: string }>) => {
+    redeemBond: (
+      s,
+      a: PayloadAction<{ bond: Bond; value: string; autostake?: boolean }>
+    ) => {
       s[a.payload.bond]!.pendingPayout = safeSub(
         s[a.payload.bond]!.pendingPayout!,
         a.payload.value
