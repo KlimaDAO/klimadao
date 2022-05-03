@@ -28,6 +28,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       retirementIndex
     );
 
+    if (!retirement) {
+      throw new Error("No retirement found");
+    }
+
     const translation = await loadTranslation(locale);
     if (!translation) {
       throw new Error("No translation found");
