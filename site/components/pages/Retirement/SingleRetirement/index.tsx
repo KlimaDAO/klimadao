@@ -59,6 +59,9 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               beneficiaryAddress: {retirement.beneficiaryAddress}
             </Text>
             <Text align="center">message: {retirement.retirementMessage}</Text>
+            <Text align="center" t="caption">
+              blockhash: {retirement.transaction.blockHash}
+            </Text>
           </div>
         </div>
       </Section>

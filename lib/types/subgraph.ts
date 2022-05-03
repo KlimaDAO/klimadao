@@ -11,6 +11,7 @@ export interface KlimaRetire {
     id: string;
     timestamp: string;
     value: string;
+    blockHash: string;
   };
   offset: {
     id: string;

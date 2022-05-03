@@ -27,6 +27,7 @@ export const queryKlimaRetireByIndex = async (
                 id
                 timestamp
                 value
+                blockHash
               }
               retiringAddress
               beneficiaryAddress
