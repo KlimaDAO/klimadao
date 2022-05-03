@@ -18,17 +18,20 @@ type Props = {
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
+  const { beneficiaryAddress, retirementIndex } = props;
   return (
     <>
       <PageHead
         production={IS_PRODUCTION}
         title={t({
           id: "retirement.head.title",
-          message: `Your retirement number ${props.retirementIndex} for address: ${props.beneficiaryAddress}`,
+          message: `Your retirement number ${retirementIndex} for address: ${beneficiaryAddress}`,
+          values: { retirementIndex, beneficiaryAddress },
         })}
         mediaTitle={t({
           id: "retirement.head.title",
-          message: `Your retirement number ${props.retirementIndex} for address: ${props.beneficiaryAddress}`,
+          message: `Your retirement number ${retirementIndex} for address: ${beneficiaryAddress}`,
+          values: { retirementIndex, beneficiaryAddress },
         })}
         metaDescription={t({
           id: "shared.head.description",

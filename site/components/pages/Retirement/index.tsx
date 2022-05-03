@@ -17,17 +17,20 @@ type Props = {
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
+  const { beneficiaryAddress } = props;
   return (
     <>
       <PageHead
         production={IS_PRODUCTION}
         title={t({
           id: "retirement.totals.head.title",
-          message: `KlimaDao - Your total retirements for address: ${props.beneficiaryAddress}`,
+          message: `KlimaDao - Your total retirements for address: ${beneficiaryAddress}`,
+          values: { beneficiaryAddress },
         })}
         mediaTitle={t({
           id: "retirement.totals.head.title",
           message: `KlimaDao - Your total retirements for address: ${props.beneficiaryAddress}`,
+          values: { beneficiaryAddress },
         })}
         metaDescription={t({
           id: "shared.head.description",
