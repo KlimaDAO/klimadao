@@ -3,6 +3,7 @@ import { Thunk } from "state";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import wsKlima from "@klimadao/lib/abi/wsKlima.json";
+import PunkTLD from "@klimadao/lib/abi/PunkTLD.json";
 
 import { addresses } from "@klimadao/lib/constants";
 import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
@@ -12,7 +13,80 @@ import {
   setMigrateAllowance,
   setStakeAllowance,
   setWrapAllowance,
+  setDomains,
 } from "state/user";
+
+const getEns = async (address: string) => {
+  const ethProvider = ethers.getDefaultProvider(1);
+  const ensDomain = await ethProvider.lookupAddress(address);
+  return ensDomain;
+};
+const parseURL = (url: string): any => {
+  const regex = /^data:([a-z]+\/[a-z0-9-+.]+(;[a-z0-9-.!#$%*+.{}|~`]+=[a-z0-9-.!#$%*+.{}()|~`]+)*)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s<>]*?)$/i
+  if (!regex.test((url || '').trim())) {
+    return
+  }
+  const parts = url.trim().match(regex);
+  const parsed: any = {};
+
+  if (parts[1]) {
+    parsed.mediaType = parts[1].toLowerCase();
+
+    const mediaTypeParts = parts[1].split(';').map((x: string) => x.toLowerCase());
+
+    parsed.contentType = mediaTypeParts[0];
+
+    mediaTypeParts.slice(1).forEach((attribute) => {
+      const p = attribute.split('=');
+      parsed[p[0]] = p[1];
+    });
+  }
+
+  parsed.base64 = !!parts[parts.length - 2];
+  parsed.data = parts[parts.length - 1] || '';
+
+  parsed.toBuffer = () => {
+    const encoding = parsed.base64 ? 'base64' : 'utf8';
+
+    return Buffer.from(parsed.data, encoding);
+  };
+
+  return parsed;
+}
+// more semantic func name?
+const getKns = async (params: {
+  provider: providers.JsonRpcProvider;
+  address: string;
+  contract: any;
+}) => {
+  const domain: any = {}
+
+  try {
+    const domainName = await params.contract.defaultNames(params.address)
+    const isNameVerified = await params.contract.getDomainHolder(domainName) === params.address
+    // what do we do if this is false?
+    if(!isNameVerified) null
+    domain.name = domainName
+    // idk if custom image is accurate
+    const customImage = await params.contract.getDomainData(domainName)
+    if(customImage) {
+      domain.image = JSON.parse(customImage)
+    } else {
+      // const domains = await params.contract.domains(domainName)
+      // const tokenId = domains.tokenId
+      // const domainData = await params.contract.tokenURI(tokenId)
+    }
+    const domains = await params.contract.domains(domainName)
+    const tokenId = domains.tokenId
+    const domainData = await params.contract.tokenURI(tokenId)
+    console.log("domainData", parseURL(domainData))
+    // if no image is in getDomainData get metadata from tokenURI
+    // base64 decode metadata and get default image
+  } catch(e: any) {
+    console.log(e)
+  }
+  return domain;
+};
 
 export const loadAccountDetails = (params: {
   provider: providers.JsonRpcProvider;
@@ -81,6 +155,21 @@ export const loadAccountDetails = (params: {
         IERC20.abi,
         params.provider
       );
+      // remember to add this to addresses object
+      const klimaDomainContract = new ethers.Contract(
+        "0xe8b97542A433e7eCc7bB791872af04DF02A1a6E4",
+        PunkTLD.abi,
+        params.provider
+      );
+
+      //domains
+      // put this into its own function and forward lookup address with getDomainHolder and verify the address returned is the same as params.address
+      const knsDomain = await getKns({
+        address: params.address,
+        provider: params.provider,
+        contract: klimaDomainContract,
+      });
+      const ensDomain = await getEns(params.address);
 
       // balances
       // CARBON
@@ -130,6 +219,12 @@ export const loadAccountDetails = (params: {
         addresses["mainnet"].pklima_exercise
       );
       dispatch(
+        setDomains({
+          knsDomain: knsDomain ?? undefined,
+          ensDomain: ensDomain ?? undefined,
+        })
+      );
+      dispatch(
         setBalance({
           klima: formatUnits(klimaBalance, 9),
           sklima: formatUnits(sklimaBalance, 9),
@@ -170,6 +265,7 @@ export const loadAccountDetails = (params: {
         })
       );
     } catch (error: any) {
+      console.log(error);
       if (error.message && error.message.includes("Non-200 status code")) {
         params.onRPCError();
       }

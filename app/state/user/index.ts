@@ -19,6 +19,10 @@ export interface UserState {
     nbo: string;
     usdc: string;
   };
+  nameServiceDomains?: {
+    knsDomain: string;
+    ensDomain: string;
+  };
   pklimaTerms?: {
     claimed: string;
     max: string;
@@ -87,6 +91,12 @@ export const userSlice = createSlice({
   reducers: {
     setBalance: (s, a: Setter<"balance">) => {
       s.balance = { ...s.balance!, ...a.payload };
+    },
+    setDomains: (s, a: Setter<"nameServiceDomains">) => {
+      s.nameServiceDomains = {
+        ...s.nameServiceDomains!,
+        ...a.payload,
+      };
     },
     setPklimaTerms: (s, a: Setter<"pklimaTerms">) => {
       s.pklimaTerms = {
@@ -242,6 +252,7 @@ export const {
   decrementWrap,
   redeemAlpha,
   redeemPklima,
+  setDomains,
 } = userSlice.actions;
 
 export default userSlice.reducer;

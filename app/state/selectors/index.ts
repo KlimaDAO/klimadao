@@ -45,3 +45,7 @@ export const selectLocale = createSelector(
   selectAppState,
   (rootState) => rootState.locale
 );
+export const selectDomain = createSelector(
+  selectUserState,
+  (user) => user.nameServiceDomains
+);

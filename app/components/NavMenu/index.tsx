@@ -1,6 +1,11 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectBalances, selectLocale } from "state/selectors";
+import {
+  selectBalances,
+  selectLocale,
+  selectDomain,
+  selectUserState,
+} from "state/selectors";
 import { Trans } from "@lingui/macro";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
@@ -96,8 +101,10 @@ interface Props {
 export const NavMenu: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
+  const domains = useSelector(selectDomain);
+  const userInfo = useSelector(selectUserState);
   const { pathname } = useLocation();
-
+  console.log(domains);
   const handleHide = () => {
     props.onHide?.();
   };
