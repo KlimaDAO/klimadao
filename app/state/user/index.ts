@@ -20,8 +20,8 @@ export interface UserState {
     usdc: string;
   };
   nameServiceDomains?: {
-    knsDomain: string;
-    ensDomain: string;
+    knsDomain: Domain;
+    ensDomain: Domain;
   };
   pklimaTerms?: {
     claimed: string;
@@ -69,6 +69,10 @@ export interface UserState {
     ubo: string;
     nbo: string;
   };
+}
+export interface Domain {
+  name: string;
+  image: string;
 }
 
 const initialState: UserState = {

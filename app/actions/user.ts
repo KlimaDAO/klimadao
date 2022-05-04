@@ -16,15 +16,26 @@ import {
   setDomains,
 } from "state/user";
 
-const getEns = async (address: string) => {
+const getEns = async (params: { address: string }) => {
   const ethProvider = ethers.getDefaultProvider(1);
-  const ensDomain = await ethProvider.lookupAddress(address);
-  return ensDomain;
+  const ens: any = {};
+  const ensDomain: string | null = await ethProvider.lookupAddress(
+    params.address
+  );
+  if (ensDomain) {
+    const avatar = ethProvider.getAvatar(ensDomain);
+    ens.avatar = avatar;
+  }
+  if (ensDomain) {
+    ens.name = `${ensDomain}.eth`;
+  }
+  return ens;
 };
 const parseURL = (url: string): any => {
-  const regex = /^data:([a-z]+\/[a-z0-9-+.]+(;[a-z0-9-.!#$%*+.{}|~`]+=[a-z0-9-.!#$%*+.{}()|~`]+)*)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s<>]*?)$/i
-  if (!regex.test((url || '').trim())) {
-    return
+  const regex =
+    /^data:([a-z]+\/[a-z0-9-+.]+(;[a-z0-9-.!#$%*+.{}|~`]+=[a-z0-9-.!#$%*+.{}()|~`]+)*)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s<>]*?)$/i;
+  if (!regex.test((url || "").trim())) {
+    return;
   }
   const parts = url.trim().match(regex);
   const parsed: any = {};
@@ -32,58 +43,58 @@ const parseURL = (url: string): any => {
   if (parts[1]) {
     parsed.mediaType = parts[1].toLowerCase();
 
-    const mediaTypeParts = parts[1].split(';').map((x: string) => x.toLowerCase());
+    const mediaTypeParts = parts[1]
+      .split(";")
+      .map((x: string) => x.toLowerCase());
 
     parsed.contentType = mediaTypeParts[0];
 
     mediaTypeParts.slice(1).forEach((attribute) => {
-      const p = attribute.split('=');
+      const p = attribute.split("=");
       parsed[p[0]] = p[1];
     });
   }
 
   parsed.base64 = !!parts[parts.length - 2];
-  parsed.data = parts[parts.length - 1] || '';
+  parsed.data = parts[parts.length - 1] || "";
 
   parsed.toBuffer = () => {
-    const encoding = parsed.base64 ? 'base64' : 'utf8';
+    const encoding = parsed.base64 ? "base64" : "utf8";
 
     return Buffer.from(parsed.data, encoding);
   };
 
   return parsed;
-}
+};
 // more semantic func name?
-const getKns = async (params: {
-  provider: providers.JsonRpcProvider;
-  address: string;
-  contract: any;
-}) => {
-  const domain: any = {}
+const getKns = async (params: { address: string; contract: any }) => {
+  const domain: any = {};
 
   try {
-    const domainName = await params.contract.defaultNames(params.address)
-    const isNameVerified = await params.contract.getDomainHolder(domainName) === params.address
+    const domainName = await params.contract.defaultNames(params.address);
+    const isNameVerified =
+      (await params.contract.getDomainHolder(domainName)) === params.address;
     // what do we do if this is false?
-    if(!isNameVerified) null
-    domain.name = domainName
-    // idk if custom image is accurate
-    const customImage = await params.contract.getDomainData(domainName)
-    if(customImage) {
-      domain.image = JSON.parse(customImage)
+    if (!isNameVerified) null;
+    domain.name = `${domainName}.klima`;
+    const customImage = await params.contract.getDomainData(domainName);
+    if (customImage) {
+      domain.image = JSON.parse(customImage).imgAddress;
     } else {
-      // const domains = await params.contract.domains(domainName)
-      // const tokenId = domains.tokenId
-      // const domainData = await params.contract.tokenURI(tokenId)
+      const domains = await params.contract.domains(domainName);
+      const tokenId = domains.tokenId;
+      // if no image is in getDomainData get metadata from tokenURI and parse+decode it
+      const domainData = await params.contract.tokenURI(tokenId);
+      const domainDataDecoded = parseURL(domainData);
+      const domainMetadata = atob(domainDataDecoded.data);
+      // base64 decode metadata and get default image
+      const decodedDefaultImage = atob(
+        parseURL(JSON.parse(domainMetadata).image).data
+      );
+      domain.image = decodedDefaultImage;
     }
-    const domains = await params.contract.domains(domainName)
-    const tokenId = domains.tokenId
-    const domainData = await params.contract.tokenURI(tokenId)
-    console.log("domainData", parseURL(domainData))
-    // if no image is in getDomainData get metadata from tokenURI
-    // base64 decode metadata and get default image
-  } catch(e: any) {
-    console.log(e)
+  } catch (error: any) {
+    console.log(error);
   }
   return domain;
 };
@@ -166,10 +177,9 @@ export const loadAccountDetails = (params: {
       // put this into its own function and forward lookup address with getDomainHolder and verify the address returned is the same as params.address
       const knsDomain = await getKns({
         address: params.address,
-        provider: params.provider,
         contract: klimaDomainContract,
       });
-      const ensDomain = await getEns(params.address);
+      const ensDomain = await getEns({ address: params.address });
 
       // balances
       // CARBON

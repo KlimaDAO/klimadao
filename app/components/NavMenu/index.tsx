@@ -1,11 +1,6 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  selectBalances,
-  selectLocale,
-  selectDomain,
-  selectUserState,
-} from "state/selectors";
+import { selectBalances, selectLocale, selectDomain } from "state/selectors";
 import { Trans } from "@lingui/macro";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
@@ -37,6 +32,7 @@ import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 
 import * as styles from "./styles";
+import { Domain } from "state/user";
 
 interface MenuButtonProps {
   icon: ReactElement;
@@ -102,9 +98,17 @@ export const NavMenu: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
   const domains = useSelector(selectDomain);
-  const userInfo = useSelector(selectUserState);
+  const [domain, setDomain] = useState<Domain | undefined>(undefined);
+  useEffect(() => {
+    if (domains?.knsDomain.name) {
+      setDomain(domains.knsDomain);
+    } else if (domains?.ensDomain.name) {
+      setDomain(domains.ensDomain);
+    }
+  }, [domains]);
+
   const { pathname } = useLocation();
-  console.log(domains);
+  console.log(domain);
   const handleHide = () => {
     props.onHide?.();
   };
@@ -120,13 +124,20 @@ export const NavMenu: FC<Props> = (props) => {
           <Text t="caption">
             <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
           </Text>
-          <Text t="caption" color="lightest">
-            {props.address ? (
-              concatAddress(props.address)
-            ) : (
-              <Trans id="menu.not_connected">NOT CONNECTED</Trans>
-            )}
-          </Text>
+          {!domain && (
+            <Text t="caption" color="lightest">
+              {props.address ? (
+                concatAddress(props.address)
+              ) : (
+                <Trans id="menu.not_connected">NOT CONNECTED</Trans>
+              )}
+            </Text>
+          )}
+          {domain && (
+            <div>
+              <img src={domain.image ?? ""} alt="profile avatar" /><Text t="caption" color="lightest">{domain.name}</Text>
+            </div>
+          )}
         </div>
         <div className="hr" />
       </div>
