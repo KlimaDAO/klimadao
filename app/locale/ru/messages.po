@@ -1,25 +1,25 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-03 15:42+0000\n"
+"POT-Creation-Date: 2022-05-04 04:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ru\n"
 
-#: components/views/Offset/index.tsx:636
+#: components/views/Offset/index.tsx:643
 msgid "Beneficiary Address"
 msgstr "Адрес получателя"
 
-#: components/views/Offset/index.tsx:656
+#: components/views/Offset/index.tsx:663
 msgid "Download certificate"
 msgstr "Загрузить сертификат"
 
-#: components/views/Offset/index.tsx:644
+#: components/views/Offset/index.tsx:651
 msgid "Message"
 msgstr "Сообщение"
 
-#: components/views/Offset/index.tsx:630
+#: components/views/Offset/index.tsx:637
 msgid "Name"
 msgstr "Имя"
 
@@ -27,11 +27,11 @@ msgstr "Имя"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "12 апреля 2022 года мы перешли с «dapp» на «app». Пожалуйста, обновите закладки."
 
-#: components/views/Offset/index.tsx:624
+#: components/views/Offset/index.tsx:631
 msgid "Retirement Successful"
 msgstr "Успешный вывод"
 
-#: components/views/Offset/index.tsx:664
+#: components/views/Offset/index.tsx:671
 msgid "Share retirement"
 msgstr "Поделится выводом"
 
@@ -43,11 +43,11 @@ msgstr "Переключиться на Polygon"
 msgid "This app only works on Polygon Mainnet."
 msgstr "Это приложение работает только в Polygon Mainnet."
 
-#: components/views/Offset/index.tsx:650
+#: components/views/Offset/index.tsx:657
 msgid "Tonnes Retired"
 msgstr "Тонны выведенные из обращения"
 
-#: components/views/Offset/index.tsx:671
+#: components/views/Offset/index.tsx:678
 msgid "View on <0>polygonscan.com</0>"
 msgstr "Посмотреть на <0>polygonscan.com</0>"
 
@@ -55,147 +55,152 @@ msgstr "Посмотреть на <0>polygonscan.com</0>"
 msgid "Wrong Network"
 msgstr "Неверная сеть"
 
-#: components/views/Offset/index.tsx:659
-#: components/views/Offset/index.tsx:667
+#: components/views/Offset/index.tsx:666
+#: components/views/Offset/index.tsx:674
 msgid "[coming soon]"
 msgstr "[вскоре]"
 
-#: components/views/Offset/index.tsx:728
+#: components/views/Offset/index.tsx:746
 msgid "advanced"
 msgstr "Продвинутый"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:737
+#: components/views/Bond/index.tsx:743
 msgid "bond.all_demand_has_been_filled"
 msgstr "🪧 Распродано. Весь спрос на эту облигацию был удовлетворен. Спасибо, Климатес!"
 
-#: components/views/Bond/index.tsx:480
+#: components/views/Bond/index.tsx:486
 msgid "bond.balance"
 msgstr "Баланс"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:484
+#: components/views/Bond/index.tsx:490
 msgid "bond.balance.tooltip"
 msgstr "Баланс доступен для бондинга"
 
-#: components/views/Bond/index.tsx:345
-#: components/views/Bond/index.tsx:427
+#: components/views/Bond/index.tsx:351
+#: components/views/Bond/index.tsx:433
 msgid "bond.bond"
 msgstr "Бонд"
 
-#: components/views/Bond/index.tsx:503
+#: components/views/Bond/index.tsx:509
 msgid "bond.bond_price"
 msgstr "Цена Бонда"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:507
+#: components/views/Bond/index.tsx:513
 msgid "bond.bond_price.tooltip"
 msgstr "Цена со скидкой. Общая сумма для бонда 1 полная KLIMA (допускаются также разбивка бонда)"
 
 #. Bond {0}
-#: components/views/Bond/index.tsx:407
+#: components/views/Bond/index.tsx:413
 msgid "bond.bond_token"
 msgstr "Бонд{0}"
 
-#: components/views/Bond/index.tsx:697
+#: components/views/Bond/index.tsx:703
 msgid "bond.date_of_full_vesting"
 msgstr "Дата полного вестинга"
 
-#: components/views/Bond/index.tsx:702
+#: components/views/Bond/index.tsx:708
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr "Дата, когда может быть погашена вся стоимость бонда"
 
-#: components/views/Bond/index.tsx:594
+#: components/views/Bond/index.tsx:600
 msgid "bond.debt_ratio"
 msgstr "соотношение долга"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:598
+#: components/views/Bond/index.tsx:604
 msgid "bond.debt_ratio.tooltip"
 msgstr "Текущее отношение предложения к размещенным бондам по протоколу"
 
-#: components/views/Bond/index.tsx:535
+#: components/views/Bond/index.tsx:541
 msgid "bond.discount"
 msgstr "Дисконт бонда"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:539
+#: components/views/Bond/index.tsx:545
 msgid "bond.discount.tooltip"
 msgstr "Процентная скидка (или премия, если она отрицательная) на KLIMA, полученная за данный бонд, относительно рыночной стоимости KLIMA."
 
-#: components/views/Bond/index.tsx:367
+#: components/views/Bond/index.tsx:373
 msgid "bond.inputplaceholder.amount_to_bond"
 msgstr "равносильно бонду"
 
-#: components/views/Bond/index.tsx:372
+#: components/views/Bond/index.tsx:378
 msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr "Сумма к погашению"
 
-#: components/views/Bond/index.tsx:519
+#: components/views/Bond/index.tsx:525
 msgid "bond.market_price"
 msgstr "Рыночная цена"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:523
+#: components/views/Bond/index.tsx:529
 msgid "bond.market_price.tooltip"
 msgstr "Текущая торговая цена KLIMA, без учета дисконта по бондам"
 
-#: components/views/Bond/index.tsx:575
+#: components/views/Bond/index.tsx:581
 msgid "bond.maximum"
 msgstr "Максимум"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:579
+#: components/views/Bond/index.tsx:585
 msgid "bond.maximum.tooltip"
 msgstr "Максимальное количество KLIMA, которое вы можете получить с помощью бондинга"
 
-#: components/views/Bond/index.tsx:323
+#: components/views/Bond/index.tsx:329
 msgid "bond.not_redeemable"
 msgstr "Не подлежащие погашению"
 
-#: components/views/Bond/index.tsx:351
-#: components/views/Bond/index.tsx:437
+#: components/views/Bond/index.tsx:357
+#: components/views/Bond/index.tsx:443
 msgid "bond.redeem"
 msgstr "Погасить"
 
-#: components/views/Bond/index.tsx:664
+#: components/views/Bond/index.tsx:670
 msgid "bond.redeemable"
 msgstr "Погашаемый"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:667
+#: components/views/Bond/index.tsx:673
 msgid "bond.redeemable.tooltip"
 msgstr "Сумма KLIMA, права на которую уже распределены и могут быть погашены"
 
+#. should autostake?
+#: components/views/Bond/index.tsx:773
+msgid "bond.should_autostake"
+msgstr ""
+
 #. Long sentence
-#: components/views/Bond/index.tsx:726
+#: components/views/Bond/index.tsx:732
 msgid "bond.this_bond_price_is_inflated"
 msgstr "⚠️ Внимание: цена этой облигации завышена, поскольку текущая ставка дисконтирования отрицательна."
 
-#: components/views/Bond/index.tsx:635
+#: components/views/Bond/index.tsx:641
 msgid "bond.unredeemed"
 msgstr "Непогашенный"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:638
+#: components/views/Bond/index.tsx:644
 msgid "bond.unredeemed.tooltip"
 msgstr "Оставшаяся невыкупленная стоимость ((наделенная и не наделенная правами)"
 
-#: components/views/Bond/index.tsx:614
+#: components/views/Bond/index.tsx:620
 msgid "bond.vesting_term_end"
 msgstr "Дата полного вестинга"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:618
+#: components/views/Bond/index.tsx:624
 msgid "bond.vesting_term_end.tooltip"
 msgstr "Если вы разместите бонд сейчас, срок наделения правами закончится в эту дату. Клима постепенно разблокируется для погашения в течение этого срока."
 
-#: components/views/Bond/index.tsx:551
+#: components/views/Bond/index.tsx:557
 msgid "bond.you_will_get"
 msgstr "Вы получете"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:555
+#: components/views/Bond/index.tsx:561
 msgid "bond.you_will_get.tooltip"
 msgstr "Количество бондированого KLIMA, которое вы получите, при указанном количестве входных данных"
 
@@ -403,15 +408,15 @@ msgstr "В ОЖИДАНИИ"
 msgid "modal.user_confirmation"
 msgstr "ПОДТВЕРЖДЕНИЕ"
 
-#: components/views/Bond/index.tsx:392
+#: components/views/Bond/index.tsx:398
 msgid "nav.back"
 msgstr "НАЗАД"
 
-#: components/views/Offset/index.tsx:540
+#: components/views/Offset/index.tsx:545
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Эта стоимость включает проскальзывание и комиссию за агрегацию в размере 1%."
 
-#: components/views/Offset/index.tsx:421
+#: components/views/Offset/index.tsx:426
 msgid "offset.amount_in_tonnes"
 msgstr "Сколько тонн углерода вы хотели бы компенсировать?"
 
@@ -419,15 +424,15 @@ msgstr "Сколько тонн углерода вы хотели бы комп
 msgid "offset.breakdown"
 msgstr "Распределение"
 
-#: components/views/Offset/index.tsx:508
+#: components/views/Offset/index.tsx:513
 msgid "offset.default_retirement_address"
 msgstr "По умолчанию используется адрес подключенного кошелька"
 
-#: components/views/Offset/index.tsx:447
+#: components/views/Offset/index.tsx:452
 msgid "offset.dropdown_payWith.label"
 msgstr "Заплатить с"
 
-#: components/views/Offset/index.tsx:462
+#: components/views/Offset/index.tsx:467
 msgid "offset.dropdown_retire.label"
 msgstr "Выберите углеродный офсет, чтобы выбить его"
 
@@ -435,24 +440,24 @@ msgstr "Выберите углеродный офсет, чтобы выбит�
 msgid "offset.empty"
 msgstr "Этот адрес не завершил ни одного вывода."
 
-#: components/views/Offset/index.tsx:502
-#: components/views/Offset/index.tsx:757
+#: components/views/Offset/index.tsx:507
+#: components/views/Offset/index.tsx:775
 msgid "offset.enter_address"
 msgstr "Введите 0x-адрес"
 
-#: components/views/Offset/index.tsx:398
+#: components/views/Offset/index.tsx:403
 msgid "offset.go_carbon_neutral"
 msgstr "Станьте углеродно-нейтральным, отказавшись от углерода и заявив об основных экологических преимуществах компенсации выбросов углерода. Отказаться от <0>Углеродных кредитов Moss</0> (MCO2), <1>базовые тонны углерода</1> (BCT), или <2>Тонны природного углерода</2> (NCT), скоро будет больше."
 
-#: components/views/Offset/index.tsx:377
+#: components/views/Offset/index.tsx:382
 msgid "offset.incompatible"
 msgstr "ТОКЕН ВВОДА НЕСОВМЕСТИМ"
 
-#: components/views/Offset/index.tsx:448
+#: components/views/Offset/index.tsx:453
 msgid "offset.modal_payWith.title"
 msgstr "Выберите токен"
 
-#: components/views/Offset/index.tsx:466
+#: components/views/Offset/index.tsx:471
 msgid "offset.modal_retire.title"
 msgstr "Выберите тип углерода"
 
@@ -460,39 +465,39 @@ msgstr "Выберите тип углерода"
 msgid "offset.number_of_retirements"
 msgstr "Итого выведено "
 
-#: components/views/Offset/index.tsx:438
+#: components/views/Offset/index.tsx:443
 msgid "offset.offset_quantity"
 msgstr "Введите количество для офсета"
 
-#: components/views/Offset/index.tsx:395
+#: components/views/Offset/index.tsx:400
 msgid "offset.retire_carbon"
 msgstr "Вывод карбона"
 
-#: components/views/Offset/index.tsx:735
+#: components/views/Offset/index.tsx:753
 msgid "offset.retire_specific"
 msgstr "Вывести из обращения токены конкретного проекта"
 
-#: components/views/Offset/index.tsx:741
+#: components/views/Offset/index.tsx:759
 msgid "offset.retire_specific_tooltip"
 msgstr "За дополнительную плату, определяемую выбранным пулом и выплачиваемую поставщику бриджа."
 
-#: components/views/Offset/index.tsx:491
+#: components/views/Offset/index.tsx:496
 msgid "offset.retirement_beneficiary"
 msgstr "Имя или организация"
 
-#: components/views/Offset/index.tsx:483
+#: components/views/Offset/index.tsx:488
 msgid "offset.retirement_credit"
 msgstr "Кому будет приписано это выбивание?"
 
-#: components/views/Offset/index.tsx:517
+#: components/views/Offset/index.tsx:522
 msgid "offset.retirement_message"
 msgstr "Сообщение о выводе"
 
-#: components/views/Offset/index.tsx:526
+#: components/views/Offset/index.tsx:531
 msgid "offset.retirement_purpose"
 msgstr "Опишите цель этого вывода"
 
-#: components/views/Offset/index.tsx:558
+#: components/views/Offset/index.tsx:563
 msgid "offset.retiring"
 msgstr "Вывод"
 
@@ -504,11 +509,11 @@ msgstr "Тонны углерода"
 msgid "offset.you_have_retired"
 msgstr "Вы выбили"
 
-#: components/views/Offset/index.tsx:536
+#: components/views/Offset/index.tsx:541
 msgid "offset_cost"
 msgstr "Стоимость"
 
-#: components/views/Offset/index.tsx:569
+#: components/views/Offset/index.tsx:574
 msgid "offset_disclaimer"
 msgstr "Будьте осторожны и не раскрывайте конфиденциальную личную информацию. Ваше сообщение не может быть отредактировано и будет постоянно существовать в публичном блокчейне."
 
@@ -576,8 +581,8 @@ msgstr "Процент от общего количества токенов. В
 msgid "pklima.update"
 msgstr "Обновленный контракт теперь предполагает, что держатели pKLIMA застейкали и заработали награды за ранее полученные токены. До ноябрьского исправления эти награды за стейкинг не учитывались в лимите доли поставок, что означало, что ваша доля в общем объеме поставок KLIMA могла превысить лимит, определенный в ваших условиях."
 
-#: components/views/Bond/index.tsx:338
-#: components/views/Offset/index.tsx:306
+#: components/views/Bond/index.tsx:344
+#: components/views/Offset/index.tsx:311
 #: components/views/Stake/index.tsx:164
 #: components/views/Stake/index.tsx:170
 msgid "shared.approve"
@@ -591,15 +596,15 @@ msgstr "Балансы"
 msgid "shared.change_language"
 msgstr "измененить язык"
 
-#: components/views/Bond/index.tsx:332
+#: components/views/Bond/index.tsx:338
 #: components/views/PKlima/index.tsx:140
 #: components/views/Stake/index.tsx:158
 msgid "shared.confirming"
 msgstr "Подтверждение"
 
-#: components/views/Bond/index.tsx:305
+#: components/views/Bond/index.tsx:311
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:280
+#: components/views/Offset/index.tsx:285
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:143
 #: components/views/Wrap/index.tsx:129
@@ -615,28 +620,28 @@ msgstr "Копировать адрес {0}"
 msgid "shared.enter_amount"
 msgstr "Введите сумму"
 
-#: components/views/Bond/index.tsx:317
-#: components/views/Offset/index.tsx:292
+#: components/views/Bond/index.tsx:323
+#: components/views/Offset/index.tsx:297
 msgid "shared.enter_quantity"
 msgstr "ВВЕДИТЕ КОЛИЧЕСТВО"
 
-#: components/views/Bond/index.tsx:358
-#: components/views/Bond/index.tsx:377
+#: components/views/Bond/index.tsx:364
+#: components/views/Bond/index.tsx:383
 #: components/views/Stake/index.tsx:197
 msgid "shared.error"
 msgstr "ОШИБКА"
 
-#: components/views/Offset/index.tsx:299
+#: components/views/Offset/index.tsx:304
 msgid "shared.insufficient_balance"
 msgstr "НЕДОСТАТОЧНЫЙ БАЛАНС"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:48
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
-#: components/views/Bond/index.tsx:311
+#: components/views/Bond/index.tsx:317
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:286
-#: components/views/Offset/index.tsx:363
+#: components/views/Offset/index.tsx:291
+#: components/views/Offset/index.tsx:368
 #: components/views/PKlima/index.tsx:131
 #: components/views/Stake/index.tsx:149
 #: components/views/Stake/index.tsx:346
@@ -646,18 +651,18 @@ msgstr "НЕДОСТАТОЧНЫЙ БАЛАНС"
 msgid "shared.loading"
 msgstr "Загрузка..."
 
-#: components/views/Bond/index.tsx:465
+#: components/views/Bond/index.tsx:471
 #: components/views/PKlima/index.tsx:212
 #: components/views/Stake/index.tsx:287
 #: components/views/Wrap/index.tsx:255
 msgid "shared.max"
 msgstr "Максимум"
 
-#: components/views/Offset/index.tsx:312
+#: components/views/Offset/index.tsx:317
 msgid "shared.retire"
 msgstr "Вывод карбона"
 
-#: components/views/Bond/index.tsx:299
+#: components/views/Bond/index.tsx:305
 msgid "shared.sold_out"
 msgstr "РАСПРОДАННЫЙ"
 

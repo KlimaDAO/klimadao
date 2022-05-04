@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-03 15:42+0000\n"
+"POT-Creation-Date: 2022-05-04 04:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -332,19 +332,19 @@ msgstr "我们与传统的碳市场参与者、加密平台、公司以及介于
 msgid "concat.careers"
 msgstr "职业生涯"
 
-#: components/pages/Resources/Contact/index.tsx:143
+#: components/pages/Resources/Contact/index.tsx:141
 msgid "contact.bug_reports"
 msgstr "错误报告"
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
-#: components/pages/Resources/Contact/index.tsx:146
+#: components/pages/Resources/Contact/index.tsx:144
 msgid "contact.bug_reports.to_file_a_bug_report"
 msgstr "要提交错误报告，请加入我们的社区 Discord 服务器并在 # 错误报告频道中提问。我们<0>社区中的某位成员</0>很乐意为您调查并找到解决方案。"
 
-#. Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you.
+#. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
 #: components/pages/Resources/Contact/index.tsx:67
 msgid "contact.careers.we_re_hiring"
-msgstr "我们正在招聘！在我们完成构建求职页面之前，您可以通过加入我们的<0>贡献者的 Discord 服务器来提交简历</0>并按照您感兴部门的申请说明进行申请。"
+msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
@@ -359,26 +359,26 @@ msgstr "问题、疑虑、想法？您可以通过以下几种方式与我们取
 msgid "contact.head.title"
 msgstr "联系 KlimaDAO"
 
-#: components/pages/Resources/Contact/index.tsx:108
+#: components/pages/Resources/Contact/index.tsx:106
 msgid "contact.media"
 msgstr "媒体"
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:111
+#: components/pages/Resources/Contact/index.tsx:109
 msgid "contact.media.if_you_are_a_journalist"
 msgstr "如果您是记者或内容创作者，我们的营销团队很乐意与您会面。"
 
 #. Use this <0>Media Request Form</0>.
-#: components/pages/Resources/Contact/index.tsx:120
+#: components/pages/Resources/Contact/index.tsx:118
 msgid "contact.media.use_this_media_request_form"
 msgstr "使用此<0>媒体申请表</0>或发送电子邮件至 <1>press@klimadao.finance</1>"
 
-#: components/pages/Resources/Contact/index.tsx:88
+#: components/pages/Resources/Contact/index.tsx:86
 msgid "contact.partnerships"
 msgstr "伙伴关系"
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
-#: components/pages/Resources/Contact/index.tsx:91
+#: components/pages/Resources/Contact/index.tsx:89
 msgid "contact.partnerships.until_we_finish_building"
 msgstr "在完成构建我们的合作伙伴页面之前，我们会将潜在的合作伙伴和合作查询发送至<0>此联系表</0>."
 
@@ -646,6 +646,22 @@ msgstr "<0>欢迎来到</0><1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "投资于未来。"
 
+#: components/pages/Retirement/SingleRetirement/index.tsx:31
+msgid "retirement.head.metaTitle"
+msgstr ""
+
+#: components/pages/Retirement/SingleRetirement/index.tsx:26
+msgid "retirement.head.title"
+msgstr ""
+
+#: components/pages/Retirement/index.tsx:30
+msgid "retirement.totals.head.metaTitle"
+msgstr ""
+
+#: components/pages/Retirement/index.tsx:25
+msgid "retirement.totals.head.title"
+msgstr ""
+
 #: components/Footer/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
@@ -697,6 +713,8 @@ msgstr "进入应用"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
+#: components/pages/Retirement/SingleRetirement/index.tsx:36
+#: components/pages/Retirement/index.tsx:35
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"

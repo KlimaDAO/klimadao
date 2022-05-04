@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-03 15:42+0000\n"
+"POT-Creation-Date: 2022-05-04 04:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -332,16 +332,16 @@ msgstr ""
 msgid "concat.careers"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:143
+#: components/pages/Resources/Contact/index.tsx:141
 msgid "contact.bug_reports"
 msgstr ""
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
-#: components/pages/Resources/Contact/index.tsx:146
+#: components/pages/Resources/Contact/index.tsx:144
 msgid "contact.bug_reports.to_file_a_bug_report"
 msgstr ""
 
-#. Long We're hiring! Until we finish building out our careers page, you can submit a resume by joining our <0>contributor's Discord server</0> and following the application instructions for whichever department(s) interest you.
+#. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
 #: components/pages/Resources/Contact/index.tsx:67
 msgid "contact.careers.we_re_hiring"
 msgstr ""
@@ -359,26 +359,26 @@ msgstr ""
 msgid "contact.head.title"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:108
+#: components/pages/Resources/Contact/index.tsx:106
 msgid "contact.media"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:111
+#: components/pages/Resources/Contact/index.tsx:109
 msgid "contact.media.if_you_are_a_journalist"
 msgstr ""
 
 #. Use this <0>Media Request Form</0>.
-#: components/pages/Resources/Contact/index.tsx:120
+#: components/pages/Resources/Contact/index.tsx:118
 msgid "contact.media.use_this_media_request_form"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:88
+#: components/pages/Resources/Contact/index.tsx:86
 msgid "contact.partnerships"
 msgstr ""
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
-#: components/pages/Resources/Contact/index.tsx:91
+#: components/pages/Resources/Contact/index.tsx:89
 msgid "contact.partnerships.until_we_finish_building"
 msgstr ""
 
@@ -646,6 +646,22 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
+#: components/pages/Retirement/SingleRetirement/index.tsx:31
+msgid "retirement.head.metaTitle"
+msgstr ""
+
+#: components/pages/Retirement/SingleRetirement/index.tsx:26
+msgid "retirement.head.title"
+msgstr ""
+
+#: components/pages/Retirement/index.tsx:30
+msgid "retirement.totals.head.metaTitle"
+msgstr ""
+
+#: components/pages/Retirement/index.tsx:25
+msgid "retirement.totals.head.title"
+msgstr ""
+
 #: components/Footer/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
@@ -697,6 +713,8 @@ msgstr ""
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
+#: components/pages/Retirement/SingleRetirement/index.tsx:36
+#: components/pages/Retirement/index.tsx:35
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
