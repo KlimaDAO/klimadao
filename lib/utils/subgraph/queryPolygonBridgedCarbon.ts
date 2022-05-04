@@ -17,10 +17,11 @@ export const queryKlimaRetireByIndex = async (
               first: 1000,
               orderBy: timestamp, 
               orderDirection: asc,
-              where: {beneficiaryAddress: "${beneficiaryAddress}", index: ${BigNumber.from(
-          index
-        )} }
-              ) {
+              where: {
+                beneficiaryAddress: "${beneficiaryAddress}", 
+                index: ${BigNumber.from(index)} 
+              }
+            ) {
               id
               timestamp
               transaction {
