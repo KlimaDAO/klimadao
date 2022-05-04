@@ -14,11 +14,8 @@ export const queryKlimaRetireByIndex = async (
         query: `
           query {
             klimaRetires(
-              first: 1000,
-              orderBy: timestamp, 
-              orderDirection: asc,
               where: {
-                beneficiaryAddress: "${beneficiaryAddress}", 
+                beneficiaryAddress: "${beneficiaryAddress.toLowerCase()}", 
                 index: ${BigNumber.from(index)} 
               }
             ) {
