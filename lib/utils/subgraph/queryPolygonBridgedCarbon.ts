@@ -23,24 +23,14 @@ export const queryKlimaRetireByIndex = async (
               timestamp
               transaction {
                 id
-                timestamp
-                value
-                blockHash
               }
-              retiringAddress
               beneficiaryAddress
               beneficiary
               retirementMessage
-              pool
               amount
               offset {
                 id
-                name
                 tokenAddress
-                bridge
-                vintage
-                projectID
-                bridge
               }
             }
           }
