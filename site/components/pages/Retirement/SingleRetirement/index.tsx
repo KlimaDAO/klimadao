@@ -59,8 +59,15 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               beneficiaryAddress: {retirement.beneficiaryAddress}
             </Text>
             <Text align="center">message: {retirement.retirementMessage}</Text>
-            <Text align="center" t="caption">
-              blockhash: {retirement.transaction.blockHash}
+            <Text align="center">
+              View on{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`https://polygonscan.com/tx/${retirement.transaction.id}`}
+              >
+                polygonscan.com
+              </a>
             </Text>
           </div>
         </div>
