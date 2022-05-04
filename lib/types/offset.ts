@@ -1,5 +1,5 @@
 import { BigNumber } from "ethers";
-
+import { InputToken } from "../constants";
 interface GasUsed {
   type: string;
   hex: string;
@@ -72,7 +72,8 @@ export type RetirementIndexInfo = [
 
 export type RetirementIndexInfoResult = {
   tokenAddress: RetirementIndexInfo[0];
-  amount: ReturnType<RetirementIndexInfo[1]["toNumber"]>;
+  typeOfToken?: InputToken;
+  amount: string;
   beneficiaryName: RetirementIndexInfo[2];
   retirementMessage: RetirementIndexInfo[3];
 };
@@ -85,6 +86,6 @@ export type Retirements = [
 
 export type RetirementsResult = {
   totalRetirements: ReturnType<Retirements[0]["toNumber"]>;
-  totalCarbonRetired: ReturnType<Retirements[1]["toNumber"]>;
-  totalClaimed: ReturnType<Retirements[2]["toNumber"]>;
+  totalCarbonRetired: string;
+  totalClaimed: string;
 };
