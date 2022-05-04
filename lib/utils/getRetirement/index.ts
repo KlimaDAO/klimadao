@@ -58,7 +58,7 @@ export const getRetirementIndexInfo = async (
       retirementMessage,
     ]: RetirementIndexInfo = await storageContract.getRetirementIndexInfo(
       beneficiaryAdress,
-      index
+      BigNumber.from(index)
     );
 
     return {
