@@ -1,7 +1,12 @@
-import { ethers } from "ethers";
+import { ethers, BigNumber } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 import { addresses } from "../../constants";
+import {
+  getTypeofTokenByAddress,
+  formatUnits,
+  getTokenDecimals,
+} from "../../utils";
 
 import {
   Retirements,
@@ -61,14 +66,19 @@ export const getRetirementIndexInfo = async (
       BigNumber.from(index)
     );
 
+    const typeOfToken = getTypeofTokenByAddress(tokenAddress);
+    const tokenDecimals = getTokenDecimals(typeOfToken || "");
+    const formattedAmount = formatUnits(amount, tokenDecimals);
+
     return {
       tokenAddress,
-      amount: amount.toNumber(),
+      typeOfToken,
+      amount: formattedAmount,
       beneficiaryName,
       retirementMessage,
     };
   } catch (e) {
-    console.error(e);
+    console.error("getRetirementIndexInfo Error", e);
     return Promise.reject(e);
   }
 };

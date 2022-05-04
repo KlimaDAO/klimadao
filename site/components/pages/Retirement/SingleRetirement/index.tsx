@@ -51,6 +51,9 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               tokenAddress: {props.retirementIndexInfo.tokenAddress}
             </Text>
             <Text align="center">
+              typeOfToken: {props.retirementIndexInfo.typeOfToken}
+            </Text>
+            <Text align="center">
               amount: {props.retirementIndexInfo.amount}
             </Text>
             <Text align="center">
