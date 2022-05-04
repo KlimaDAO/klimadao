@@ -1,5 +1,6 @@
 import Moralis from "moralis/node.js";
 import { putPledgeParams } from "queries/pledge";
+import * as yup from "yup";
 
 export const MoralisClient = Moralis.start({
   appId: process.env.NEXT_PUBLIC_MORALIS_APP_ID,
@@ -7,24 +8,52 @@ export const MoralisClient = Moralis.start({
   masterKey: process.env.MORALIS_SECRET,
 });
 
-export interface Pledge {
-  address: string;
-  pledge: string;
-  footprint: number[];
-  methodology: string;
-  name: string;
+export type Footprint = {
+  timestamp: Date;
+  total: number;
+};
+
+export type Pledge = {
   objectId: string;
-}
+  address: string;
+  name: string;
+  pledge: string;
+  methodology: string;
+  footprint: Footprint[];
+};
 
-export const pledgeResolver = (pledge: Pledge): Pledge => ({
-  objectId: pledge.objectId,
-  address: pledge.address || "",
-  name: pledge.name || "",
-  pledge: pledge.pledge || "",
-  methodology: pledge.methodology || "",
-  footprint: pledge.footprint || [],
-});
+export const formSchema = yup
+  .object({
+    objectId: yup.string().nullable(),
+    address: yup.string().required(),
+    name: yup.string().required("Enter a name"),
+    pledge: yup.string().required("Enter a pledge").max(280),
+    methodology: yup.string().required("Enter a methodology").max(280),
+    footprint: yup
+      .number()
+      .required("Enter your footprint")
+      .min(1, "Enter a value greater than 1"),
+  })
+  .noUnknown();
 
+export type PledgeFormValues = yup.InferType<typeof formSchema>;
+
+export const pledgeResolver = (pledge: Pledge): PledgeFormValues => {
+  const currentFootprint = pledge.footprint
+    ? pledge.footprint.at(-1)?.total
+    : 0;
+
+  return {
+    objectId: pledge.objectId,
+    address: pledge.address || "",
+    name: pledge.name || "",
+    pledge: pledge.pledge || "",
+    methodology: pledge.methodology || "",
+    footprint: currentFootprint as number,
+  };
+};
+
+// Moralis queries
 export const getPledgeByAddress = async (address: string) => {
   await MoralisClient;
 
@@ -43,16 +72,28 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
   if (!userSession) throw new Error("Invalid Session");
 
   const Pledge = Moralis.Object.extend("Pledge");
-  const newPledge = params.pledge.objectId
+  const pledgeObject = params.pledge.objectId
     ? await new Moralis.Query(Pledge).get(params.pledge.objectId)
     : new Pledge();
 
-  newPledge.set({
-    ...params.pledge,
-    footprint: [params.pledge.footprint],
-  });
+  const currentFootprint = pledgeObject.get("footprint");
+  const footprint =
+    params.pledge.objectId && currentFootprint
+      ? buildFootprint(currentFootprint, params.pledge.footprint)
+      : [{ timestamp: Date.now(), total: params.pledge.footprint }];
 
-  return await newPledge.save(null, { useMasterKey: true });
+  pledgeObject.set({ ...params.pledge, footprint });
+
+  return await pledgeObject.save(null, { useMasterKey: true });
+};
+
+const buildFootprint = (
+  currentFootprint: Footprint[],
+  newFootprint: number
+) => {
+  if (currentFootprint.at(-1)?.total === newFootprint) return currentFootprint;
+
+  return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
 };
 
 export const findUserSession = async (sessionToken: string) => {

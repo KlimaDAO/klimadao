@@ -1,5 +1,5 @@
 import { API_BASE_URL } from "lib/constants";
-import { PledgeFormValues } from "components/pages/Pledge/PledgeDashboard/PledgeForm";
+import { PledgeFormValues } from "lib/moralis";
 
 export type putPledgeParams = {
   pledge: PledgeFormValues;

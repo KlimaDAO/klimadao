@@ -12,3 +12,8 @@ export const input = css`
   align-content: start;
   gap: 0.75rem;
 `;
+
+export const errorMessage = css`
+  color: var(--warn);
+  text-align: center;
+`;

@@ -21,7 +21,6 @@ export default async function handler(
       }
       break;
     default:
-      // TODO: boilerplate, will revisit
       res.setHeader("Allow", ["PUT"]);
       res.status(405).end(`Method ${req.method} Not Allowed`);
   }

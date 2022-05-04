@@ -9,10 +9,12 @@ type Props = {
 };
 
 export const PledgeCard: FC<Props> = (props) => {
+  const defaultText = "Write your pledge today!";
+
   return (
     <BaseCard title="Pledge" icon={<MailOutlineIcon fontSize="large" />}>
       <Text t="body2">
-        <em>"{props.pledge}"</em>
+        <em>"{props.pledge || defaultText}"</em>
       </Text>
     </BaseCard>
   );

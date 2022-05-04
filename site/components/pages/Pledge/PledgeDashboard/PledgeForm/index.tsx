@@ -1,12 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useMoralis } from "react-moralis";
-import { ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 
 import { InputField, TextareaField } from "components/Form";
 import { putPledge } from "queries/pledge";
+import { PledgeFormValues } from "lib/moralis";
 
 import * as styles from "./styles";
 
@@ -15,6 +16,8 @@ type Props = {
   onFormSubmit: (data: PledgeFormValues) => void;
 };
 
+// temporarily duplicated due to weird iteraction with moralis-sdk resulting in a breaking build
+// we should be able to export the schema object from another file
 const schema = yup
   .object({
     objectId: yup.string().nullable(),
@@ -29,10 +32,9 @@ const schema = yup
   })
   .noUnknown();
 
-export type PledgeFormValues = yup.InferType<typeof schema>;
-
 export const PledgeForm: FC<Props> = (props) => {
   const { user } = useMoralis();
+  const [serverError, setServerError] = useState(false);
   const { register, handleSubmit, formState, reset } =
     useForm<PledgeFormValues>({
       mode: "onBlur",
@@ -53,12 +55,19 @@ export const PledgeForm: FC<Props> = (props) => {
       props.onFormSubmit(data.pledge);
       reset(data.pledge);
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      setServerError(true);
     }
   };
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
+      {serverError && (
+        <Text className={styles.errorMessage} t="caption">
+          Something went wrong. Please try again.
+        </Text>
+      )}
+
       <InputField
         label="Name"
         placeholder="Name or company name"

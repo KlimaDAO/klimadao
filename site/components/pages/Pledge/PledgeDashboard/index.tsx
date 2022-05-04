@@ -7,7 +7,7 @@ import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 
 import { Modal } from "components/Modal";
-import { Pledge } from "lib/moralis";
+import { PledgeFormValues } from "lib/moralis";
 
 import {
   AssetBalanceCard,
@@ -22,16 +22,16 @@ import * as styles from "./styles";
 
 type Props = {
   pageAddress: string;
-  pledge: Pledge;
+  pledge: PledgeFormValues;
 };
 
-const defaultValues = (pledge: Pledge): Pledge =>
+const defaultValues = (pledge: PledgeFormValues): PledgeFormValues =>
   Object.assign(
     {
       address: "",
-      pledge: "Write your pledge today!",
+      pledge: "",
       footprint: [0],
-      methodology: "How will you meet your pledge?",
+      methodology: "",
       name: "",
     },
     pledge
@@ -42,18 +42,22 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const { isAuthenticated, user } = useMoralis();
   const [showModal, setShowModal] = useState(false);
   const [validAddress, setValidAddress] = useState(false);
-  const [pledge, setPledge] = useState<Pledge>(defaultValues(props.pledge));
+  const [pledge, setPledge] = useState<PledgeFormValues>(
+    defaultValues(props.pledge)
+  );
 
   const canEditPledge =
     isAuthenticated && user?.get("ethAddress") === props.pageAddress;
 
-  const EditPledge = canEditPledge && (
-    <ButtonPrimary
-      key="toggleModal"
-      label="Edit Pledge"
-      onClick={() => setShowModal(!showModal)}
-    />
-  );
+  const buttons = canEditPledge
+    ? [
+        <ButtonPrimary
+          key="toggleModal"
+          label="Edit Pledge"
+          onClick={() => setShowModal(!showModal)}
+        />,
+      ]
+    : [];
 
   useEffect(() => {
     try {
@@ -64,13 +68,13 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     }
   });
 
-  const handleFormSubmit = async (data) => {
+  const handleFormSubmit = async (data: PledgeFormValues) => {
     setPledge(data);
     setShowModal(false);
   };
 
   return (
-    <PledgeLayout buttons={[EditPledge]}>
+    <PledgeLayout buttons={buttons}>
       {validAddress && (
         <>
           <Modal

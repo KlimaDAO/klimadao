@@ -49,15 +49,13 @@ export const errorStyles = css`
 `;
 
 export const errorMessage = css`
-  p {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    font-weight: 400;
-    color: var(--warn);
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  font-weight: 400;
+  color: var(--warn);
 
-    ${breakpoints.large} {
-      font-size: 1.4rem;
-      line-height: 1.2rem;
-    }
+  ${breakpoints.large} {
+    font-size: 1.4rem;
+    line-height: 1.2rem;
   }
 `;
