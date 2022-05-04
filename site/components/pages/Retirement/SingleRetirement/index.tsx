@@ -29,7 +29,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           values: { retirementIndex, beneficiaryAddress },
         })}
         mediaTitle={t({
-          id: "retirement.head.title",
+          id: "retirement.head.metaTitle",
           message: `Your retirement number ${retirementIndex} for address: ${beneficiaryAddress}`,
           values: { retirementIndex, beneficiaryAddress },
         })}

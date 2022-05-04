@@ -28,8 +28,8 @@ export const RetirementPage: NextPage<Props> = (props) => {
           values: { beneficiaryAddress },
         })}
         mediaTitle={t({
-          id: "retirement.totals.head.title",
-          message: `KlimaDao - Your total retirements for address: ${props.beneficiaryAddress}`,
+          id: "retirement.totals.head.metaTitle",
+          message: `KlimaDao - Your total retirements for address: ${beneficiaryAddress}`,
           values: { beneficiaryAddress },
         })}
         metaDescription={t({
