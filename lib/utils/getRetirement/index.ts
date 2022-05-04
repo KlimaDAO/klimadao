@@ -30,8 +30,8 @@ export const getRetirements = async (
       await storageContract.retirements(beneficiaryAdress);
 
     const formattedTotalRetirements = totalRetirements.toNumber();
-    const formattedTotalCarbonRetired = totalCarbonRetired.toNumber();
-    const formattedTotalClaimed = totalClaimed.toNumber();
+    const formattedTotalCarbonRetired = formatUnits(totalCarbonRetired);
+    const formattedTotalClaimed = formatUnits(totalClaimed);
 
     return {
       totalRetirements: formattedTotalRetirements,

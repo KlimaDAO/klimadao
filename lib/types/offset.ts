@@ -86,6 +86,6 @@ export type Retirements = [
 
 export type RetirementsResult = {
   totalRetirements: ReturnType<Retirements[0]["toNumber"]>;
-  totalCarbonRetired: ReturnType<Retirements[1]["toNumber"]>;
-  totalClaimed: ReturnType<Retirements[2]["toNumber"]>;
+  totalCarbonRetired: string;
+  totalClaimed: string;
 };
