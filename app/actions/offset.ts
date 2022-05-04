@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { ethers, providers, BigNumber } from "ethers";
 import { Thunk } from "state";
 import {
   setCarbonRetiredAllowance,
@@ -209,7 +209,10 @@ export const retireCarbonTransaction = async (params: {
   retirementMessage: string;
   onStatus: OnStatusHandler;
   specificAddresses: string[];
-}): Promise<RetireCarbonTransactionResult> => {
+}): Promise<{
+  receipt: RetirementReceipt;
+  retirementTotals: ReturnType<BigNumber["toNumber"]>;
+}> => {
   try {
     // get all current retirement totals
     const storageContract = new ethers.Contract(
