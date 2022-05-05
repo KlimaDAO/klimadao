@@ -1,3 +1,5 @@
+import { INFURA_ID } from "@klimadao/site/lib/constants";
+
 const mainnet = {
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
@@ -108,6 +110,7 @@ export const urls = {
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",
   polygonTestnetRpc: "https://rpc-mumbai.matic.today",
+  infuraRpc: `https://polygon-mainnet.infura.io/v3/${INFURA_ID}`,
   sushiUSDCBCT: `https://app.sushi.com/swap?inputCurrency=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&outputCurrency=${addresses["mainnet"].bct}`,
   sushiKLIMABCT: `https://app.sushi.com/swap?inputCurrency=${addresses["mainnet"].klima}&outputCurrency=${addresses["mainnet"].bct}`,
   communityHub: "https://klimadao.notion.site",

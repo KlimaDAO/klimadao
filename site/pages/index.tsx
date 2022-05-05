@@ -7,9 +7,10 @@ import {
 import { Home, Props } from "components/pages/Home";
 import { fetchCMSContent } from "lib/fetchCMSContent";
 import { loadTranslation } from "lib/i18n";
+import { urls } from "@klimadao/lib/constants";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
-  const treasuryBalance = await getTreasuryBalance();
+  const treasuryBalance = await getTreasuryBalance(urls.infuraRpc);
   const latestPost = await fetchCMSContent("latestPost");
   const translation = await loadTranslation(ctx.locale);
   const blockRate = await fetchBlockRate();
