@@ -8,3 +8,5 @@ export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 export const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY;
 
 export const MONTH_IN_SECONDS = 2592000;
+
+export const INFURA_ID = process.env.INFURA_ID;
