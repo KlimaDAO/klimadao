@@ -294,9 +294,7 @@ export const Home: FC = () => {
             <div
               className={styles.mobileNavMenu_overlay}
               data-visible={showMobileMenu}
-              onClick={() => {
-                setShowMobileMenu(false);
-              }}
+              onClick={() => setShowMobileMenu(false)}
             />
             <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
               <NavMenu

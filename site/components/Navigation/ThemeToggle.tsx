@@ -5,5 +5,12 @@ import { ThemeToggle } from "@klimadao/lib/components";
 // as it is loaded dynamically later in Navigation
 // https://github.com/vercel/next.js/issues/25454#issuecomment-862571514
 
-const ThemeToggleExport: FC = () => <ThemeToggle />;
+interface Props {
+  className?: string;
+}
+
+const ThemeToggleExport: FC<Props> = (props) => (
+  <ThemeToggle className={props.className} />
+);
+
 export default ThemeToggleExport;
