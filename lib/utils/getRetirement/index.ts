@@ -1,7 +1,7 @@
 import { ethers, providers, BigNumber } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
-import { addresses } from "../../constants";
+import { addresses, urls } from "../../constants";
 import {
   getTypeofTokenByAddress,
   formatUnits,
@@ -29,7 +29,7 @@ export const getRetirements = async (
   beneficiaryAdress: string
 ): Promise<RetirementsResult> => {
   try {
-    const provider = getJsonRpcProvider();
+    const provider = getJsonRpcProvider(urls.infuraRpc);
     const storageContract = createRetirementStorageContract(provider);
 
     const [
@@ -60,7 +60,7 @@ export const getRetirementIndexInfo = async (
   index: number
 ): Promise<RetirementIndexInfoResult> => {
   try {
-    const provider = getJsonRpcProvider();
+    const provider = getJsonRpcProvider(urls.infuraRpc);
     const storageContract = createRetirementStorageContract(provider);
 
     const [
