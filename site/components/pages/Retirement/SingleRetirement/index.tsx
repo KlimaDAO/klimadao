@@ -2,6 +2,7 @@ import { NextPage } from "next";
 
 import { Text, Section } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
+import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -15,10 +16,17 @@ type Props = {
   beneficiaryAddress: string;
   retirementTotals: string;
   retirement: KlimaRetire;
+  retirementIndexInfo: RetirementIndexInfoResult;
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
-  const { beneficiaryAddress, retirementTotals, retirement } = props;
+  const {
+    beneficiaryAddress,
+    retirementTotals,
+    retirement,
+    retirementIndexInfo,
+  } = props;
+
   return (
     <>
       <PageHead
@@ -52,6 +60,9 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               tokenAddress: {retirement.offset.tokenAddress}
             </Text>
             <Text align="center">amount: {retirement.amount}</Text>
+            <Text align="center">
+              typeOfToken: {retirementIndexInfo.typeOfToken}
+            </Text>
             <Text align="center">
               beneficiaryName: {retirement.beneficiary}
             </Text>

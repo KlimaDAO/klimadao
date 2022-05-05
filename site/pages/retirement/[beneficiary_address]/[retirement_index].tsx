@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 
 import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
+import { getRetirementIndexInfo } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirement/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
 import { IS_PRODUCTION } from "lib/constants";
@@ -28,10 +29,16 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         params?.beneficiary_address as string,
         retirementIndex
       ),
+      getRetirementIndexInfo(
+        params.beneficiary_address as string,
+        retirementIndex
+      ),
       loadTranslation(locale),
     ];
 
-    const [retirement, translation] = await Promise.all(promises);
+    const [retirement, retirementIndexInfo, translation] = await Promise.all(
+      promises
+    );
 
     if (!retirement) {
       throw new Error("No retirement found");
@@ -43,6 +50,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     return {
       props: {
         retirement,
+        retirementIndexInfo,
         beneficiaryAddress: params.beneficiary_address,
         retirementTotals: params.retirement_index,
         translation,
