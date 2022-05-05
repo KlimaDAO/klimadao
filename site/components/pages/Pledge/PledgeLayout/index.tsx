@@ -24,14 +24,22 @@ export const PledgeLayout: FC<Props> = (props) => {
             <KlimaInfinityLogo />
           </div>
           <div className={styles.group}>
-            <ThemeToggle />
+            <ThemeToggle className={styles.themeToggle} />
 
             {props.buttons && props.buttons}
 
             {isAuthenticated ? (
               <ButtonPrimary label="Sign out" onClick={() => logout()} />
             ) : (
-              <ButtonPrimary label="Sign in" onClick={() => authenticate()} />
+              <ButtonPrimary
+                label="Sign in"
+                onClick={() =>
+                  authenticate({
+                    signingMessage:
+                      "Sign in to edit your pledge dashboard.\n\nKlimaDAO",
+                  })
+                }
+              />
             )}
           </div>
         </div>
