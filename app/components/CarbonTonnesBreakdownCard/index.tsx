@@ -55,20 +55,18 @@ export const CarbonTonnesBreakdownCard: FC = () => {
               </Trans>
             </Text>
           )}
-          {retiredTokens.map((tkn) => (
-            <>
-              <div className={styles.row}>
-                <div className="image">
-                  <Image src={iconMap[tkn]} width={48} height={48} alt="" />
-                </div>
-                <div className="content">
-                  <Text className="value">{carbonRetired?.[tkn] || 0}</Text>
-                  <Text className="label" color="lightest">
-                    {tkn.toUpperCase()}
-                  </Text>
-                </div>
+          {retiredTokens.map((tkn, index) => (
+            <div className={styles.row} key={`${tkn}-${index}`}>
+              <div className="image">
+                <Image src={iconMap[tkn]} width={48} height={48} alt="" />
               </div>
-            </>
+              <div className="content">
+                <Text className="value">{carbonRetired?.[tkn] || 0}</Text>
+                <Text className="label" color="lightest">
+                  {tkn.toUpperCase()}
+                </Text>
+              </div>
+            </div>
           ))}
         </div>
       </div>
