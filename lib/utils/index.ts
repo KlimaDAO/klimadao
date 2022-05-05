@@ -3,7 +3,7 @@ export { getKlimaSupply } from "./getKlimaSupply";
 export { getJsonRpcProvider } from "./getJsonRpcProvider";
 export { getTreasuryBalance } from "./getTreasuryBalance";
 export { getStakingRewards } from "./getStakingRewards";
-export { getRetirements } from "./getRetirement";
+export { getRetirements, getRetirementIndexInfo } from "./getRetirement";
 export { trimStringDecimals } from "./trimStringDecimals";
 export { secondsUntilBlock } from "./secondsUntilBlock";
 export { prettifySeconds } from "./prettifySeconds";
