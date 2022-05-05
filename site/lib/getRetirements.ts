@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import RetirementStorage from "@klimadao/lib/abi/RetirementStorage.json";
+import RetirementStorage from "@klimadao/lib/abi/KlimaRetirementStorage.json";
 import { addresses } from "@klimadao/lib/constants";
 import { getJsonRpcProvider } from "@klimadao/lib/utils";
 import { formatUnits } from "@klimadao/lib/utils";
