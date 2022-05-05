@@ -15,7 +15,7 @@ export const ThemeToggle: FC<Props> = (props) => {
   const inactiveTheme =
     activeTheme === "theme-light" ? "theme-dark" : "theme-light";
   const themeIcon =
-    activeTheme === "theme-light" ? <ThemeSunIcon /> : <ThemeMoonIcon />;
+    activeTheme === "theme-light" ? <ThemeMoonIcon /> : <ThemeSunIcon />;
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
