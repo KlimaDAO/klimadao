@@ -44,6 +44,7 @@ import {
   offsetCompatibility,
   RetirementToken,
   retirementTokens,
+  urls,
 } from "@klimadao/lib/constants";
 
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
@@ -61,6 +62,7 @@ import NBO from "public/icons/NBO.png";
 
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
+import { IS_PRODUCTION } from "lib/constants";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 
 interface ButtonProps {
@@ -124,6 +126,7 @@ export const Offset = (props: Props) => {
   );
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
+  const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
 
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
@@ -222,6 +225,7 @@ export const Offset = (props: Props) => {
     setBeneficiaryAddress("");
     setRetirementMessage("");
     setRetirementTransactionHash("");
+    setRetirementTotals(null);
   };
 
   const handleApprove = async () => {
@@ -240,7 +244,7 @@ export const Offset = (props: Props) => {
   const handleRetire = async () => {
     try {
       if (!props.isConnected || !props.address) return;
-      const receipt = await retireCarbonTransaction({
+      const { receipt, retirementTotals } = await retireCarbonTransaction({
         address: props.address,
         provider: props.provider,
         inputToken: selectedInputToken,
@@ -264,6 +268,7 @@ export const Offset = (props: Props) => {
       setStatus(null);
       // this opens RetirementSuccessModal
       setRetirementTransactionHash(receipt.transactionHash);
+      setRetirementTotals(retirementTotals);
     } catch (e) {
       return;
     }
@@ -596,6 +601,7 @@ export const Offset = (props: Props) => {
           message={retirementMessage}
           quantityCarbonRetired={quantity}
           retirementTransactionHash={retirementTransactionHash}
+          retirementTotals={retirementTotals}
         />
       )}
     </>
@@ -609,6 +615,7 @@ interface RetirementSuccessModalProps {
   message: string;
   quantityCarbonRetired: string;
   retirementTransactionHash: string;
+  retirementTotals: null | number;
 }
 
 const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
@@ -677,6 +684,17 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
               </A>
             </Trans>
           </Text>
+          {!IS_PRODUCTION && props.retirementTotals && (
+            <Text t="caption">
+              Open retirement details on:
+              <A
+                target="_blank"
+                href={`${urls.home}/retirement/${props.beneficiaryAddress}/${props.retirementTotals}`}
+              >
+                klimadao.finance
+              </A>
+            </Text>
+          )}
         </div>
       </div>
     </div>

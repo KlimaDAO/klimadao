@@ -7,15 +7,23 @@ import {
 
 import KlimaRetirementAggregator from "@klimadao/lib/abi/KlimaRetirementAggregator.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import RetirementStorage from "@klimadao/lib/abi/RetirementStorage.json";
 import {
   addresses,
   InputToken,
   inputTokens,
   RetirementToken,
 } from "@klimadao/lib/constants";
-import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getTokenDecimals,
+  createRetirementStorageContract,
+} from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
+
+import {
+  RetirementReceipt,
+  RetirementTotals,
+} from "@klimadao/lib/types/offset";
 
 export const getRetiredOffsetBalances = (params: {
   provider: providers.JsonRpcProvider;
@@ -24,14 +32,17 @@ export const getRetiredOffsetBalances = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const retirementStorageContract = new ethers.Contract(
-        addresses["mainnet"].retirementStorage,
-        RetirementStorage.abi,
+      const retirementStorageContract = createRetirementStorageContract(
         params.provider
       );
       // @return Int tuple. Total retirements, total tons retired, total tons claimed for NFTs.
-      const [totalRetirements, totalTonnesRetired, totalTonnesClaimedForNFTS] =
-        await retirementStorageContract.getRetirementTotals(params.address);
+      const [
+        totalRetirements,
+        totalTonnesRetired,
+        totalTonnesClaimedForNFTS,
+      ]: RetirementTotals = await retirementStorageContract.getRetirementTotals(
+        params.address
+      );
       const bct = await retirementStorageContract.getRetirementPoolInfo(
         params.address,
         addresses["mainnet"].bct
@@ -186,6 +197,11 @@ export const getOffsetConsumptionCost = async (params: {
   ];
 };
 
+export type RetireCarbonTransactionResult = {
+  receipt: RetirementReceipt;
+  retirementTotals: ReturnType<RetirementTotals[1]["toNumber"]>;
+};
+
 export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
@@ -198,14 +214,29 @@ export const retireCarbonTransaction = async (params: {
   retirementMessage: string;
   onStatus: OnStatusHandler;
   specificAddresses: string[];
-}) => {
+}): Promise<RetireCarbonTransactionResult> => {
   try {
+    // get all current retirement totals
+    const storageContract = createRetirementStorageContract(params.provider);
+
+    const [totals]: RetirementTotals =
+      await storageContract.getRetirementTotals(
+        params.beneficiaryAddress || params.address
+      );
+
+    // add + 1 now as this number is only passed on if transaction succeeded
+    const formattedTotals = totals.toNumber();
+    const retirementTotals = formattedTotals + 1;
+
+    // retire transaction
     const retireContract = new ethers.Contract(
       addresses["mainnet"].retirementAggregator,
       KlimaRetirementAggregator.abi,
       params.provider.getSigner()
     );
+
     params.onStatus("userConfirmation");
+
     let txn;
     if (!!params.specificAddresses.length) {
       txn = await retireContract.retireCarbonSpecific(
@@ -235,9 +266,12 @@ export const retireCarbonTransaction = async (params: {
         params.retirementMessage
       );
     }
+
     params.onStatus("networkConfirmation");
-    const receipt = await txn.wait(1);
-    return receipt;
+
+    const receipt: RetirementReceipt = await txn.wait(1);
+
+    return { receipt, retirementTotals };
   } catch (e: any) {
     if (e.code === 4001) {
       params.onStatus("error", "userRejected");

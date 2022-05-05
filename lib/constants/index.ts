@@ -200,3 +200,8 @@ export const offsetCompatibility: CompatMap = {
   sklima: ["bct", "mco2", "ubo", "nbo"],
   wsklima: ["bct", "mco2", "ubo", "nbo"],
 };
+
+const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
+export const subgraphs = {
+  polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
+};

@@ -154,3 +154,15 @@ export const inputsContainer = css`
   display: grid;
   gap: 2rem;
 `;
+
+export const checkboxContainer = css`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1.6rem;
+`;
+
+export const checkbox = css`
+  color: var(--font-01);
+`;

@@ -1,5 +1,5 @@
 {
-  "contractName": "RetirementStorage",
+  "contractName": "KlimaRetirementStorage",
   "abi": [
     {
       "anonymous": false,

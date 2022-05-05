@@ -3,6 +3,11 @@ export { getKlimaSupply } from "./getKlimaSupply";
 export { getJsonRpcProvider } from "./getJsonRpcProvider";
 export { getTreasuryBalance } from "./getTreasuryBalance";
 export { getStakingRewards } from "./getStakingRewards";
+export {
+  createRetirementStorageContract,
+  getRetirements,
+  getRetirementIndexInfo,
+} from "./getRetirement";
 export { trimStringDecimals } from "./trimStringDecimals";
 export { secondsUntilBlock } from "./secondsUntilBlock";
 export { prettifySeconds } from "./prettifySeconds";
@@ -15,3 +20,5 @@ export { safeSub } from "./safeSub";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { getTokenDecimals } from "./getTokenDecimals";
+export { getTypeofTokenByAddress } from "./getTypeOfToken";
+export { queryKlimaRetireByIndex } from "./subgraph/queryPolygonBridgedCarbon";

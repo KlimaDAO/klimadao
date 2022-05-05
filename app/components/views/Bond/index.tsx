@@ -39,7 +39,8 @@ import { RootState, useAppDispatch } from "state";
 import { setBondAllowance } from "state/user";
 import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-
+import Box from "@mui/material/Box";
+import Checkbox from "@mui/material/Checkbox";
 import * as styles from "./styles";
 import { BondBalancesCard } from "components/BondBalancesCard";
 import { Image } from "components/Image";
@@ -125,6 +126,7 @@ export const Bond: FC<Props> = (props) => {
 
   const [view, setView] = useState("bond");
   const [quantity, setQuantity] = useState("");
+  const [shouldAutostake, setShouldAutostake] = useState(false);
   const debouncedQuantity = useDebounce(quantity, 500);
 
   const { currentBlock, blockRate } = useSelector(selectAppState);
@@ -222,6 +224,8 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
+  const handleAutostakeCheck = (): void => setShouldAutostake(!shouldAutostake);
+
   const handleBond = async () => {
     try {
       if (
@@ -276,11 +280,13 @@ export const Bond: FC<Props> = (props) => {
         bond: props.bond,
         provider: props.provider,
         onStatus: setStatus,
+        shouldAutostake,
       });
       dispatch(
         redeemBond({
           bond: props.bond,
           value: bondState.pendingPayout,
+          autostake: shouldAutostake,
         })
       );
     } catch (e) {
@@ -749,10 +755,31 @@ export const Bond: FC<Props> = (props) => {
                 <Spinner />
               </div>
             ) : (
-              <ButtonPrimary
-                {...getButtonProps()}
-                className={styles.submitButton}
-              />
+              <Box
+                sx={{ display: "flex", flexDirection: "column", width: "100%" }}
+              >
+                <ButtonPrimary
+                  {...getButtonProps()}
+                  className={styles.submitButton}
+                />
+                {view === "redeem" && !showSpinner && (
+                  <div className={styles.checkboxContainer}>
+                    <Checkbox
+                      checked={shouldAutostake}
+                      onChange={handleAutostakeCheck}
+                      className={styles.checkbox}
+                    />{" "}
+                    <Text t="caption" align="center">
+                      <Trans
+                        id="bond.should_autostake"
+                        comment="should autostake?"
+                      >
+                        Automatically stake for sKLIMA
+                      </Trans>
+                    </Text>
+                  </div>
+                )}
+              </Box>
             )}
           </div>
         </div>

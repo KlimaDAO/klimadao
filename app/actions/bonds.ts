@@ -344,9 +344,9 @@ export const redeemTransaction = async (params: {
   bond: Bond;
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
+  shouldAutostake: boolean;
 }) => {
   try {
-    const autostake = false;
     const signer = params.provider.getSigner();
     const contractAddress = getBondAddress({ bond: params.bond });
     const contract = new ethers.Contract(
@@ -355,7 +355,7 @@ export const redeemTransaction = async (params: {
       signer
     );
     params.onStatus("userConfirmation", "");
-    const txn = await contract.redeem(params.address, autostake);
+    const txn = await contract.redeem(params.address, params.shouldAutostake);
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Bond redeemed successfully");
