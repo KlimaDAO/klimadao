@@ -59,8 +59,8 @@ export interface RetirementReceipt {
 
 export type RetirementTotals = [
   totalRetirements: BigNumber,
-  totalCarbonRetired: BigNumber,
-  totalClaimed: BigNumber
+  totalTonnesCarbonRetired: BigNumber,
+  totalTonnesClaimedForNFTS: BigNumber
 ];
 
 export type RetirementIndexInfo = [
@@ -78,14 +78,8 @@ export type RetirementIndexInfoResult = {
   retirementMessage: RetirementIndexInfo[3];
 };
 
-export type Retirements = [
-  totalRetirements: BigNumber,
-  totalCarbonRetired: BigNumber,
-  totalClaimed: BigNumber
-];
-
 export type RetirementsResult = {
-  totalRetirements: ReturnType<Retirements[0]["toNumber"]>;
-  totalCarbonRetired: string;
-  totalClaimed: string;
+  totalRetirements: ReturnType<RetirementTotals[0]["toString"]>;
+  totalTonnesCarbonRetired: string;
+  totalTonnesClaimedForNFTS: string;
 };

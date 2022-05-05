@@ -1,4 +1,4 @@
-import { ethers, BigNumber } from "ethers";
+import { ethers, providers, BigNumber } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 import { addresses } from "../../constants";
@@ -9,37 +9,48 @@ import {
 } from "../../utils";
 
 import {
-  Retirements,
+  RetirementTotals,
   RetirementsResult,
   RetirementIndexInfo,
   RetirementIndexInfoResult,
 } from "../../types/offset";
+
+export const createRetirementStorageContract = (
+  provider: providers.JsonRpcProvider
+) => {
+  return new ethers.Contract(
+    addresses["mainnet"].retirementStorage,
+    KlimaRetirementStorage.abi,
+    provider
+  );
+};
 
 export const getRetirements = async (
   beneficiaryAdress: string
 ): Promise<RetirementsResult> => {
   try {
     const provider = getJsonRpcProvider();
-    const storageContract = new ethers.Contract(
-      addresses.mainnet.retirementStorage,
-      KlimaRetirementStorage.abi,
-      provider
+    const storageContract = createRetirementStorageContract(provider);
+
+    const [
+      totalRetirements,
+      totalCarbonRetired,
+      totalClaimed,
+    ]: RetirementTotals = await storageContract.getRetirementTotals(
+      beneficiaryAdress
     );
 
-    const [totalRetirements, totalCarbonRetired, totalClaimed]: Retirements =
-      await storageContract.retirements(beneficiaryAdress);
-
-    const formattedTotalRetirements = totalRetirements.toNumber();
-    const formattedTotalCarbonRetired = formatUnits(totalCarbonRetired);
-    const formattedTotalClaimed = formatUnits(totalClaimed);
+    const formattedTotalRetirements = totalRetirements.toString();
+    const formattedTotalCarbonRetired = formatUnits(totalCarbonRetired, 18);
+    const formattedTotalClaimed = formatUnits(totalClaimed, 18);
 
     return {
       totalRetirements: formattedTotalRetirements,
-      totalCarbonRetired: formattedTotalCarbonRetired,
-      totalClaimed: formattedTotalClaimed,
+      totalTonnesCarbonRetired: formattedTotalCarbonRetired,
+      totalTonnesClaimedForNFTS: formattedTotalClaimed,
     };
   } catch (e) {
-    console.error(e);
+    console.error("getRetirements Error", e);
     return Promise.reject(e);
   }
 };
@@ -50,11 +61,7 @@ export const getRetirementIndexInfo = async (
 ): Promise<RetirementIndexInfoResult> => {
   try {
     const provider = getJsonRpcProvider();
-    const storageContract = new ethers.Contract(
-      addresses.mainnet.retirementStorage,
-      KlimaRetirementStorage.abi,
-      provider
-    );
+    const storageContract = createRetirementStorageContract(provider);
 
     const [
       tokenAddress,
