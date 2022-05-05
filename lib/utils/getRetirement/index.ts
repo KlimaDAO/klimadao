@@ -1,4 +1,4 @@
-import { ethers, BigNumber } from "ethers";
+import { ethers, providers, BigNumber } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 import { addresses } from "../../constants";
@@ -14,6 +14,16 @@ import {
   RetirementIndexInfo,
   RetirementIndexInfoResult,
 } from "../../types/offset";
+
+export const createRetirementStorageContract = (
+  provider: providers.JsonRpcProvider
+) => {
+  return new ethers.Contract(
+    addresses["mainnet"].retirementStorage,
+    KlimaRetirementStorage.abi,
+    provider
+  );
+};
 
 export const getRetirements = async (
   beneficiaryAdress: string
