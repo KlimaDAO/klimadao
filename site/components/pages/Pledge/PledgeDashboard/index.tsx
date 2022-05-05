@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import { useMoralis } from "react-moralis";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 
 import { Modal } from "components/Modal";
-import { Pledge } from "lib/moralis";
+import { PledgeFormValues } from "lib/moralis";
 
 import {
   AssetBalanceCard,
-  AssetsOverTimeCard,
   FootprintCard,
   MethodologyCard,
   PledgeCard,
@@ -22,16 +22,16 @@ import * as styles from "./styles";
 
 type Props = {
   pageAddress: string;
-  pledge: Pledge;
+  pledge: PledgeFormValues;
 };
 
-const defaultValues = (pledge: Pledge): Pledge =>
+const defaultValues = (pledge: PledgeFormValues): PledgeFormValues =>
   Object.assign(
     {
       address: "",
-      description: "Write your pledge today!",
+      pledge: "",
       footprint: [0],
-      methodology: "How will you meet your pledge?",
+      methodology: "",
       name: "",
     },
     pledge
@@ -39,17 +39,25 @@ const defaultValues = (pledge: Pledge): Pledge =>
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const router = useRouter();
+  const { isAuthenticated, user } = useMoralis();
   const [showModal, setShowModal] = useState(false);
   const [validAddress, setValidAddress] = useState(false);
-  const [pledge, _setPledge] = useState<Pledge>(defaultValues(props.pledge));
-
-  const ToggleModal = (
-    <ButtonPrimary
-      key="toggleModal"
-      label="Toggle modal"
-      onClick={() => setShowModal(!showModal)}
-    />
+  const [pledge, setPledge] = useState<PledgeFormValues>(
+    defaultValues(props.pledge)
   );
+
+  const canEditPledge =
+    isAuthenticated && user?.get("ethAddress") === props.pageAddress;
+
+  const buttons = canEditPledge
+    ? [
+        <ButtonPrimary
+          key="toggleModal"
+          label="Edit Pledge"
+          onClick={() => setShowModal(!showModal)}
+        />,
+      ]
+    : [];
 
   useEffect(() => {
     try {
@@ -60,8 +68,13 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     }
   });
 
+  const handleFormSubmit = async (data: PledgeFormValues) => {
+    setPledge(data);
+    setShowModal(false);
+  };
+
   return (
-    <PledgeLayout buttons={[ToggleModal]}>
+    <PledgeLayout buttons={buttons}>
       {validAddress && (
         <>
           <Modal
@@ -69,7 +82,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             showModal={showModal}
             onToggleModal={() => setShowModal(!showModal)}
           >
-            <PledgeForm />
+            <PledgeForm pledge={pledge} onFormSubmit={handleFormSubmit} />
           </Modal>
 
           <div className={styles.contentContainer}>
@@ -77,19 +90,11 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               <Text t="h3" className="profileImage" align="center">
                 -
               </Text>
-              <Text t="h4">
-                {pledge.name ||
-                  pledge.address ||
-                  concatAddress(props.pageAddress)}
-              </Text>
-            </div>
-
-            <div className={styles.pledgeChart}>
-              <AssetsOverTimeCard />
+              <Text t="h4">{pledge.name || concatAddress(pledge.address)}</Text>
             </div>
 
             <div className={styles.column}>
-              <PledgeCard pledge={pledge.description} />
+              <PledgeCard pledge={pledge.pledge} />
               <FootprintCard footprint={pledge.footprint} />
               <MethodologyCard methodology={pledge.methodology} />
             </div>

@@ -9,13 +9,14 @@ type Props = {
 };
 
 export const MethodologyCard: FC<Props> = (props) => {
+  const defaultText = "How will you meet your pledge?";
   return (
     <BaseCard
       title="Methodology"
       icon={<HowToRegOutlinedIcon fontSize="large" />}
     >
       <Text t="body2">
-        <em>"{props.methodology}"</em>
+        <em>"{props.methodology || defaultText}"</em>
       </Text>
     </BaseCard>
   );

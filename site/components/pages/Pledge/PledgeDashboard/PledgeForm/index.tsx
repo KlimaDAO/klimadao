@@ -1,74 +1,115 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+import { useMoralis } from "react-moralis";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm, SubmitHandler } from "react-hook-form";
+import * as yup from "yup";
 
-import { Input } from "components/Input";
-import { Textarea } from "components/Textarea";
+import { InputField, TextareaField } from "components/Form";
+import { putPledge } from "queries/pledge";
+import { PledgeFormValues } from "lib/moralis";
 
 import * as styles from "./styles";
 
-// const InputField: FC = (props) => (
-//   <>
-//     <label>{props.label}</label>
-//     <props.Component id={props.name} name={props.name} />
-//     {props.errorMessage && errorMessage}
-//   </>
-// );
+type Props = {
+  pledge: PledgeFormValues;
+  onFormSubmit: (data: PledgeFormValues) => void;
+};
 
-export const PledgeForm: FC = () => {
+// temporarily duplicated due to weird iteraction with moralis-sdk resulting in a breaking build
+// we should be able to export the schema object from another file
+const schema = yup
+  .object({
+    objectId: yup.string().nullable(),
+    address: yup.string().required(),
+    name: yup.string().required("Enter a name"),
+    pledge: yup
+      .string()
+      .required("Enter a pledge")
+      .max(280, "Enter less than 280 characters"),
+    methodology: yup
+      .string()
+      .required("Enter a methodology")
+      .max(280, "Enter less than 280 characters"),
+    footprint: yup
+      .number()
+      .typeError("Enter your estimated carbon footprint")
+      .required("Enter your estimated carbon footprint")
+      .min(1, "Value needs to be greater than 1"),
+  })
+  .noUnknown();
+
+export const PledgeForm: FC<Props> = (props) => {
+  const { user } = useMoralis();
+  const [serverError, setServerError] = useState(false);
+  const { register, handleSubmit, formState, reset } =
+    useForm<PledgeFormValues>({
+      mode: "onBlur",
+      defaultValues: props.pledge,
+      resolver: yupResolver(schema),
+    });
+
+  const onSubmit: SubmitHandler<PledgeFormValues> = async (
+    values: PledgeFormValues
+  ) => {
+    try {
+      const response = await putPledge({
+        pledge: values,
+        sessionToken: user?.getSessionToken(),
+      });
+      const data = await response.json();
+
+      props.onFormSubmit(data.pledge);
+      reset(data.pledge);
+    } catch (error) {
+      console.error(error);
+      setServerError(true);
+    }
+  };
+
   return (
-    <div className={styles.container}>
-      <div className={styles.input}>
-        <label htmlFor="name">
-          <Text t="caption">Name</Text>
-        </label>
-        <Input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Name or company name"
-        />
-      </div>
+    <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
+      {serverError && (
+        <Text className={styles.errorMessage} t="caption">
+          Something went wrong. Please try again.
+        </Text>
+      )}
 
-      <div className={styles.input}>
-        <label htmlFor="pledge">
-          <Text t="caption">Pledge</Text>
-        </label>
-        <Textarea
-          id="pledge"
-          name="pledge"
-          type="text"
-          rows={2}
-          placeholder="What is your pledge?"
-        />
-      </div>
+      <InputField
+        label="Name"
+        placeholder="Name or company name"
+        type="text"
+        errors={formState.errors.name}
+        {...register("name")}
+      />
 
-      <div className={styles.input}>
-        <label htmlFor="methodology">
-          <Text t="caption">Methodology</Text>
-        </label>
-        <Textarea
-          id="methodology"
-          name="methodology"
-          type="text"
-          height="auto"
-          rows={6}
-          placeholder="How will you meet your pledge?"
-        />
-      </div>
+      <TextareaField
+        id="pledge"
+        label="Pledge"
+        rows={2}
+        placeholder="What is your pledge?"
+        errors={formState.errors.pledge}
+        {...register("pledge")}
+      />
 
-      <div className={styles.input}>
-        <label htmlFor="footprint">
-          <Text t="caption">Footprint (carbon tonnes)</Text>
-        </label>
-        <Input
-          id="footprint"
-          name="footprint"
-          type="number"
-          placeholder="Quantity in carbon tonnes"
-        />
-      </div>
+      <TextareaField
+        id="methodology"
+        label="Methodology"
+        rows={6}
+        placeholder="How will you meet your pledge?"
+        errors={formState.errors.methodology}
+        {...register("methodology")}
+      />
 
-      <ButtonPrimary label="Save pledge" />
-    </div>
+      <InputField
+        label="Footprint"
+        placeholder="Footprint (carbon tonnes)"
+        type="number"
+        errors={formState.errors.footprint}
+        {...register("footprint")}
+      />
+
+      <ButtonPrimary label="Save pledge" onClick={handleSubmit(onSubmit)} />
+    </form>
   );
 };

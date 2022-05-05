@@ -6,7 +6,7 @@ import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
 
 type Props = {
-  footprint: number[];
+  footprint: number;
 };
 
 export const FootprintCard: FC<Props> = (props) => {
