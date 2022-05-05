@@ -8,7 +8,7 @@ import {
   getTreasuryBalance,
   fetchBlockRate,
 } from "@klimadao/lib/utils";
-import { addresses } from "@klimadao/lib/constants";
+import { addresses, urls } from "@klimadao/lib/constants";
 import DistributorContractv4 from "@klimadao/lib/abi/DistributorContractv4.json";
 import SKlima from "@klimadao/lib/abi/sKlima.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
@@ -41,7 +41,7 @@ export const loadAppDetails = (params: {
         distributorContract.info(0),
         sKlimaMainContract.circulatingSupply(),
         sKlimaContract.balanceOf("0x693aD12DbA5F6E07dE86FaA21098B691F60A1BEa"),
-        getTreasuryBalance(),
+        getTreasuryBalance(urls.polygonMainnetRpc),
         distributorContract.nextEpochBlock(),
         fetchBlockRate(),
       ];
