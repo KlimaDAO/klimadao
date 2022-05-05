@@ -27,6 +27,10 @@ export const logo = css`
   max-width: 26rem;
 `;
 
+export const themeToggle = css`
+  background-color: var(--surface-02);
+`;
+
 export const group = css`
   grid-column: span 1;
   gap: 1rem;

@@ -1,12 +1,17 @@
-import { urls } from "@klimadao/lib/constants";
 import { API_BASE_URL } from "lib/constants";
+import { PledgeFormValues } from "lib/moralis";
 
-type getPledgeParams = { address: string };
+export type putPledgeParams = {
+  pledge: PledgeFormValues;
+  sessionToken: string | undefined;
+};
 
-export const getPledge = (params: getPledgeParams) =>
-  fetch(`${API_BASE_URL}/api/pledge?address=${params.address}`, {
-    method: "GET",
+export const putPledge = (params: putPledgeParams) =>
+  fetch(`${API_BASE_URL}/api/pledge`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${params.sessionToken}`,
     },
+    body: JSON.stringify(params.pledge),
   });
