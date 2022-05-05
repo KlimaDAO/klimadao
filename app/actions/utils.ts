@@ -1,9 +1,6 @@
 import { AppNotificationStatus, TxnStatus } from "state/app";
 import { t } from "@lingui/macro";
-import {
-
-  Domain
-} from "state/user";
+import { Domain } from "state/user";
 import { Contract, ethers } from "ethers";
 export type OnStatusHandler = (status: TxnStatus, message?: string) => void;
 

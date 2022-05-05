@@ -16,8 +16,7 @@ import {
   setDomains,
 } from "state/user";
 
-import {getKns, getEns} from './utils'
-
+import { getKns, getEns } from "./utils";
 
 export const loadAccountDetails = (params: {
   provider: providers.JsonRpcProvider;
