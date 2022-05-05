@@ -10,9 +10,9 @@ import {
 
 import {
   Retirements,
+  RetirementsResult,
   RetirementIndexInfo,
   RetirementIndexInfoResult,
-  RetirementsResult,
 } from "../../types/offset";
 
 export const getRetirements = async (

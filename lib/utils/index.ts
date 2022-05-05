@@ -17,3 +17,4 @@ export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { getTokenDecimals } from "./getTokenDecimals";
 export { getTypeofTokenByAddress } from "./getTypeOfToken";
+export { queryKlimaRetireByIndex } from "./subgraph/queryPolygonBridgedCarbon";
