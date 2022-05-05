@@ -23,11 +23,18 @@ const schema = yup
     objectId: yup.string().nullable(),
     address: yup.string().required(),
     name: yup.string().required("Enter a name"),
-    pledge: yup.string().required("Enter a pledge").max(280),
-    methodology: yup.string().required("Enter a methodology").max(280),
+    pledge: yup
+      .string()
+      .required("Enter a pledge")
+      .max(280, "Enter less than 280 characters"),
+    methodology: yup
+      .string()
+      .required("Enter a methodology")
+      .max(280, "Enter less than 280 characters"),
     footprint: yup
       .number()
-      .required("Enter your footprint")
+      .typeError("Enter your estimated carbon footprint")
+      .required("Enter your estimated carbon footprint")
       .min(1, "Value needs to be greater than 1"),
   })
   .noUnknown();
