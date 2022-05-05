@@ -2,7 +2,7 @@ import { BigNumber } from "ethers";
 import { subgraphs } from "../../constants";
 import { QueryKlimaRetires, KlimaRetire } from "../../types/subgraph";
 
-export const queryKlimaRetires = async (
+export const queryKlimaRetireByIndex = async (
   beneficiaryAddress: string,
   index: number
 ): Promise<KlimaRetire | false> => {

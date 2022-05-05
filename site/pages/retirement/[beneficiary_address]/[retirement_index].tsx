@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 
-import { queryKlimaRetires } from "@klimadao/lib/utils";
+import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirement/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
 import { IS_PRODUCTION } from "lib/constants";
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    const retirement = await queryKlimaRetires(
+    const retirement = await queryKlimaRetireByIndex(
       params?.beneficiary_address as string,
       retirementIndex
     );
