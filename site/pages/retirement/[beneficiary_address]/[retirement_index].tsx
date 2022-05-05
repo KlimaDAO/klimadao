@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 
-import { getRetirementIndexInfo } from "@klimadao/lib/utils";
+import { queryKlimaRetires } from "@klimadao/lib/utils";
 import { SingleRetirementPage } from "components/pages/Retirement/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
 import { IS_PRODUCTION } from "lib/constants";
@@ -20,9 +20,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     ) {
       throw new Error("No params found");
     }
-    const retirementIndexInfo = await getRetirementIndexInfo(
-      params.beneficiary_address as string,
-      Number(params.retirement_index) - 1 // totals does not include index 0
+
+    const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
+
+    const retirement = await queryKlimaRetires(
+      params?.beneficiary_address as string,
+      retirementIndex
     );
 
     const translation = await loadTranslation(locale);
@@ -31,9 +34,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     }
     return {
       props: {
-        retirementIndexInfo,
+        retirement,
         beneficiaryAddress: params.beneficiary_address,
-        retirementIndex: params.retirement_index,
+        retirementTotals: params.retirement_index,
         translation,
       },
       revalidate: 240,

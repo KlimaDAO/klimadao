@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 import { Text, Section } from "@klimadao/lib/components";
-import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
+import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -12,26 +12,26 @@ import { t } from "@lingui/macro";
 import * as styles from "../styles";
 
 type Props = {
-  retirementIndexInfo: RetirementIndexInfoResult;
   beneficiaryAddress: string;
-  retirementIndex: string;
+  retirementTotals: string;
+  retirement: KlimaRetire;
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
-  const { beneficiaryAddress, retirementIndex } = props;
+  const { beneficiaryAddress, retirementTotals, retirement } = props;
   return (
     <>
       <PageHead
         production={IS_PRODUCTION}
         title={t({
           id: "retirement.head.title",
-          message: `Your retirement number ${retirementIndex} for address: ${beneficiaryAddress}`,
-          values: { retirementIndex, beneficiaryAddress },
+          message: `Your retirement number ${retirementTotals} for address: ${beneficiaryAddress}`,
+          values: { retirementTotals, beneficiaryAddress },
         })}
         mediaTitle={t({
           id: "retirement.head.metaTitle",
-          message: `Your retirement number ${retirementIndex} for address: ${beneficiaryAddress}`,
-          values: { retirementIndex, beneficiaryAddress },
+          message: `Your retirement number ${retirementTotals} for address: ${beneficiaryAddress}`,
+          values: { retirementTotals, beneficiaryAddress },
         })}
         metaDescription={t({
           id: "shared.head.description",
@@ -47,21 +47,18 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
             <Text t="h2" as="h2" align="center">
               Retirement SINGLE
             </Text>
+            <Text align="center">timestamp: {retirement.timestamp}</Text>
             <Text align="center">
-              tokenAddress: {props.retirementIndexInfo.tokenAddress}
+              tokenAddress: {retirement.offset.tokenAddress}
+            </Text>
+            <Text align="center">amount: {retirement.amount}</Text>
+            <Text align="center">
+              beneficiaryName: {retirement.beneficiary}
             </Text>
             <Text align="center">
-              typeOfToken: {props.retirementIndexInfo.typeOfToken}
+              beneficiaryAddress: {retirement.beneficiaryAddress}
             </Text>
-            <Text align="center">
-              amount: {props.retirementIndexInfo.amount}
-            </Text>
-            <Text align="center">
-              beneficiaryName: {props.retirementIndexInfo.beneficiaryName}
-            </Text>
-            <Text align="center">
-              message: {props.retirementIndexInfo.retirementMessage}
-            </Text>
+            <Text align="center">message: {retirement.retirementMessage}</Text>
           </div>
         </div>
       </Section>
