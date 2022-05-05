@@ -8,7 +8,6 @@ import {
 import KlimaRetirementAggregator from "@klimadao/lib/abi/KlimaRetirementAggregator.json";
 import KlimaRetirementStorage from "@klimadao/lib/abi/KlimaRetirementStorage.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import RetirementStorage from "@klimadao/lib/abi/RetirementStorage.json";
 import {
   addresses,
   InputToken,
@@ -32,12 +31,17 @@ export const getRetiredOffsetBalances = (params: {
     try {
       const retirementStorageContract = new ethers.Contract(
         addresses["mainnet"].retirementStorage,
-        RetirementStorage.abi,
+        KlimaRetirementStorage.abi,
         params.provider
       );
       // @return Int tuple. Total retirements, total tons retired, total tons claimed for NFTs.
-      const [totalRetirements, totalTonnesRetired, totalTonnesClaimedForNFTS] =
-        await retirementStorageContract.getRetirementTotals(params.address);
+      const [
+        totalRetirements,
+        totalTonnesRetired,
+        totalTonnesClaimedForNFTS,
+      ]: RetirementTotals = await retirementStorageContract.getRetirementTotals(
+        params.address
+      );
       const bct = await retirementStorageContract.getRetirementPoolInfo(
         params.address,
         addresses["mainnet"].bct
