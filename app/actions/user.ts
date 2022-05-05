@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { Contract, ethers, providers } from "ethers";
 import { Thunk } from "state";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
@@ -14,6 +14,7 @@ import {
   setStakeAllowance,
   setWrapAllowance,
   setDomains,
+  Domain,
 } from "state/user";
 
 const getEns = async (params: { address: string }) => {
@@ -39,7 +40,9 @@ const parseURL = (url: string): any => {
   }
   const parts = url.trim().match(regex);
   const parsed: any = {};
-
+  if (!parts) {
+    return "";
+  }
   if (parts[1]) {
     parsed.mediaType = parts[1].toLowerCase();
 
@@ -66,19 +69,18 @@ const parseURL = (url: string): any => {
 
   return parsed;
 };
-// more semantic func name?
-const getKns = async (params: { address: string; contract: any }) => {
+const getKns = async (params: { address: string; contract: Contract }): Promise<Domain> => {
   const domain: any = {};
 
   try {
     const domainName = await params.contract.defaultNames(params.address);
+    // what do we do if this is false?
     const isNameVerified =
       (await params.contract.getDomainHolder(domainName)) === params.address;
-    // what do we do if this is false?
     if (!isNameVerified) null;
     domain.name = `${domainName}.klima`;
     const customImage = await params.contract.getDomainData(domainName);
-    if (customImage) {
+    if (customImage && JSON.parse(customImage).imgAddress) {
       domain.image = JSON.parse(customImage).imgAddress;
     } else {
       const domains = await params.contract.domains(domainName);
@@ -91,7 +93,7 @@ const getKns = async (params: { address: string; contract: any }) => {
       const decodedDefaultImage = atob(
         parseURL(JSON.parse(domainMetadata).image).data
       );
-      domain.image = decodedDefaultImage;
+      domain.defaultImage = decodedDefaultImage;
     }
   } catch (error: any) {
     console.log(error);

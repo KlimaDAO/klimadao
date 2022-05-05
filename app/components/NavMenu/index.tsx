@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect, useState } from "react";
+import React, { FC, ReactElement, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectBalances, selectLocale, selectDomain } from "state/selectors";
 import { Trans } from "@lingui/macro";
@@ -99,6 +99,7 @@ export const NavMenu: FC<Props> = (props) => {
   const balances = useSelector(selectBalances);
   const domains = useSelector(selectDomain);
   const [domain, setDomain] = useState<Domain | undefined>(undefined);
+  const svg = useRef(null);
   useEffect(() => {
     if (domains?.knsDomain.name) {
       setDomain(domains.knsDomain);
@@ -106,13 +107,22 @@ export const NavMenu: FC<Props> = (props) => {
       setDomain(domains.ensDomain);
     }
   }, [domains]);
+  useEffect(() => {
+    if (svg.current && domain && domain.defaultImage) {
+      (svg.current as any).appendChild(htmlToElement(domain.defaultImage));
+    }
+  }, [domain]);
 
   const { pathname } = useLocation();
-  console.log(domain);
   const handleHide = () => {
     props.onHide?.();
   };
-
+  const htmlToElement = (htmlString: string): Element => {
+    const template = document.createElement("template");
+    htmlString = htmlString.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = htmlString;
+    return template.content.firstChild as Element;
+  };
   return (
     <nav className={styles.container}>
       <a href={createLinkWithLocaleSubPath(urls.home, locale)}>
@@ -134,8 +144,19 @@ export const NavMenu: FC<Props> = (props) => {
             </Text>
           )}
           {domain && (
-            <div>
-              <img src={domain.image ?? ""} alt="profile avatar" /><Text t="caption" color="lightest">{domain.name}</Text>
+            <div className="domain-wrapper">
+              {domain.image ? (
+                <img
+                  src={domain.image}
+                  alt="profile avatar"
+                  className="avatar"
+                />
+              ) : (
+                <div className="avatar" ref={svg} />
+              )}
+              <Text t="caption" color="lightest" className="domain-name">
+                {domain.name}
+              </Text>
             </div>
           )}
         </div>
