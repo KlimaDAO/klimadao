@@ -7,7 +7,6 @@ export interface KlimaRetire {
   amount: string;
   transaction: {
     id: string;
-    timestamp: string;
   };
   offset: {
     id: string;
