@@ -30,11 +30,7 @@ export const getRetirements = async (
 ): Promise<RetirementsResult> => {
   try {
     const provider = getJsonRpcProvider();
-    const storageContract = new ethers.Contract(
-      addresses.mainnet.retirementStorage,
-      KlimaRetirementStorage.abi,
-      provider
-    );
+    const storageContract = createRetirementStorageContract(provider);
 
     const [totalRetirements, totalCarbonRetired, totalClaimed]: Retirements =
       await storageContract.retirements(beneficiaryAdress);
@@ -49,7 +45,7 @@ export const getRetirements = async (
       totalClaimed: formattedTotalClaimed,
     };
   } catch (e) {
-    console.error(e);
+    console.error("getRetirements Error", e);
     return Promise.reject(e);
   }
 };
@@ -60,11 +56,7 @@ export const getRetirementIndexInfo = async (
 ): Promise<RetirementIndexInfoResult> => {
   try {
     const provider = getJsonRpcProvider();
-    const storageContract = new ethers.Contract(
-      addresses.mainnet.retirementStorage,
-      KlimaRetirementStorage.abi,
-      provider
-    );
+    const storageContract = createRetirementStorageContract(provider);
 
     const [
       tokenAddress,

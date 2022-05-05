@@ -6,7 +6,6 @@ import {
 } from "state/user";
 
 import KlimaRetirementAggregator from "@klimadao/lib/abi/KlimaRetirementAggregator.json";
-import KlimaRetirementStorage from "@klimadao/lib/abi/KlimaRetirementStorage.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import {
   addresses,
@@ -14,7 +13,11 @@ import {
   inputTokens,
   RetirementToken,
 } from "@klimadao/lib/constants";
-import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getTokenDecimals,
+  createRetirementStorageContract,
+} from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
 
 import {
@@ -29,9 +32,7 @@ export const getRetiredOffsetBalances = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const retirementStorageContract = new ethers.Contract(
-        addresses["mainnet"].retirementStorage,
-        KlimaRetirementStorage.abi,
+      const retirementStorageContract = createRetirementStorageContract(
         params.provider
       );
       // @return Int tuple. Total retirements, total tons retired, total tons claimed for NFTs.
@@ -216,11 +217,7 @@ export const retireCarbonTransaction = async (params: {
 }): Promise<RetireCarbonTransactionResult> => {
   try {
     // get all current retirement totals
-    const storageContract = new ethers.Contract(
-      addresses["mainnet"].retirementStorage,
-      KlimaRetirementStorage.abi,
-      params.provider.getSigner()
-    );
+    const storageContract = createRetirementStorageContract(params.provider);
 
     const [totals]: RetirementTotals =
       await storageContract.getRetirementTotals(
