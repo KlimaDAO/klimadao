@@ -22,6 +22,10 @@ interface PageProps {
   retirementIndexInfo: RetirementIndexInfoResult;
 }
 
+// second param should always be a number
+const isNumeric = (value: string) => {
+  return /^\d+$/.test(value);
+};
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   ctx
@@ -36,9 +40,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     if (
       !params ||
       (!params?.beneficiary_address && !params?.retirement_index) ||
-      (!!params.retirement_index && Number(params.retirement_index) === NaN)
+      (!!params.retirement_index && !isNumeric(params.retirement_index))
     ) {
-      throw new Error("No params found");
+      throw new Error("No matching params found");
     }
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
