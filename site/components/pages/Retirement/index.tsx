@@ -53,10 +53,12 @@ export const RetirementPage: NextPage<Props> = (props) => {
               totalRetirements: {props.retirements.totalRetirements}
             </Text>
             <Text align="center">
-              totalCarbonRetired: {props.retirements.totalCarbonRetired}
+              totalTonnesCarbonRetired:{" "}
+              {props.retirements.totalTonnesCarbonRetired}
             </Text>
             <Text align="center">
-              totalClaimed: {props.retirements.totalClaimed}
+              totalTonnesClaimedForNFTS:{" "}
+              {props.retirements.totalTonnesClaimedForNFTS}
             </Text>
           </div>
         </div>

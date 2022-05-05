@@ -9,7 +9,7 @@ import {
 } from "../../utils";
 
 import {
-  Retirements,
+  RetirementTotals,
   RetirementsResult,
   RetirementIndexInfo,
   RetirementIndexInfoResult,
@@ -32,17 +32,22 @@ export const getRetirements = async (
     const provider = getJsonRpcProvider();
     const storageContract = createRetirementStorageContract(provider);
 
-    const [totalRetirements, totalCarbonRetired, totalClaimed]: Retirements =
-      await storageContract.retirements(beneficiaryAdress);
+    const [
+      totalRetirements,
+      totalCarbonRetired,
+      totalClaimed,
+    ]: RetirementTotals = await storageContract.getRetirementTotals(
+      beneficiaryAdress
+    );
 
-    const formattedTotalRetirements = totalRetirements.toNumber();
-    const formattedTotalCarbonRetired = formatUnits(totalCarbonRetired);
-    const formattedTotalClaimed = formatUnits(totalClaimed);
+    const formattedTotalRetirements = totalRetirements.toString();
+    const formattedTotalCarbonRetired = formatUnits(totalCarbonRetired, 18);
+    const formattedTotalClaimed = formatUnits(totalClaimed, 18);
 
     return {
       totalRetirements: formattedTotalRetirements,
-      totalCarbonRetired: formattedTotalCarbonRetired,
-      totalClaimed: formattedTotalClaimed,
+      totalTonnesCarbonRetired: formattedTotalCarbonRetired,
+      totalTonnesClaimedForNFTS: formattedTotalClaimed,
     };
   } catch (e) {
     console.error("getRetirements Error", e);
