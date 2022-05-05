@@ -1,4 +1,4 @@
-import { Contract, ethers, providers } from "ethers";
+import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
@@ -14,95 +14,10 @@ import {
   setStakeAllowance,
   setWrapAllowance,
   setDomains,
-  Domain,
 } from "state/user";
 
-const getEns = async (params: { address: string }) => {
-  const ethProvider = ethers.getDefaultProvider(1);
-  const ens: any = {};
-  const ensDomain: string | null = await ethProvider.lookupAddress(
-    params.address
-  );
-  if (ensDomain) {
-    const avatar = ethProvider.getAvatar(ensDomain);
-    ens.avatar = avatar;
-  }
-  if (ensDomain) {
-    ens.name = `${ensDomain}.eth`;
-  }
-  return ens;
-};
-const parseURL = (url: string): any => {
-  const regex =
-    /^data:([a-z]+\/[a-z0-9-+.]+(;[a-z0-9-.!#$%*+.{}|~`]+=[a-z0-9-.!#$%*+.{}()|~`]+)*)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s<>]*?)$/i;
-  if (!regex.test((url || "").trim())) {
-    return;
-  }
-  const parts = url.trim().match(regex);
-  const parsed: any = {};
-  if (!parts) {
-    return "";
-  }
-  if (parts[1]) {
-    parsed.mediaType = parts[1].toLowerCase();
+import {getKns, getEns} from './utils'
 
-    const mediaTypeParts = parts[1]
-      .split(";")
-      .map((x: string) => x.toLowerCase());
-
-    parsed.contentType = mediaTypeParts[0];
-
-    mediaTypeParts.slice(1).forEach((attribute) => {
-      const p = attribute.split("=");
-      parsed[p[0]] = p[1];
-    });
-  }
-
-  parsed.base64 = !!parts[parts.length - 2];
-  parsed.data = parts[parts.length - 1] || "";
-
-  parsed.toBuffer = () => {
-    const encoding = parsed.base64 ? "base64" : "utf8";
-
-    return Buffer.from(parsed.data, encoding);
-  };
-
-  return parsed;
-};
-const getKns = async (params: {
-  address: string;
-  contract: Contract;
-}): Promise<Domain> => {
-  const domain: any = {};
-
-  try {
-    const domainName = await params.contract.defaultNames(params.address);
-    // what do we do if this is false?
-    const isNameVerified =
-      (await params.contract.getDomainHolder(domainName)) === params.address;
-    if (!isNameVerified) null;
-    domain.name = `${domainName}.klima`;
-    const customImage = await params.contract.getDomainData(domainName);
-    if (customImage && JSON.parse(customImage).imgAddress) {
-      domain.image = JSON.parse(customImage).imgAddress;
-    } else {
-      const domains = await params.contract.domains(domainName);
-      const tokenId = domains.tokenId;
-      // if no image is in getDomainData get metadata from tokenURI and parse+decode it
-      const domainData = await params.contract.tokenURI(tokenId);
-      const domainDataDecoded = parseURL(domainData);
-      const domainMetadata = atob(domainDataDecoded.data);
-      // base64 decode metadata and get default image
-      const decodedDefaultImage = atob(
-        parseURL(JSON.parse(domainMetadata).image).data
-      );
-      domain.defaultImage = decodedDefaultImage;
-    }
-  } catch (error: any) {
-    console.log(error);
-  }
-  return domain;
-};
 
 export const loadAccountDetails = (params: {
   provider: providers.JsonRpcProvider;
