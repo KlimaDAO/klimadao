@@ -17,11 +17,14 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     if (!params || !params?.beneficiary_address) {
       throw new Error("No params found");
     }
-    const retirements = await getRetirements(
-      params.beneficiary_address as string
-    );
 
-    const translation = await loadTranslation(locale);
+    const promises = [
+      getRetirements(params.beneficiary_address as string),
+      loadTranslation(locale),
+    ];
+
+    const [retirements, translation] = await Promise.all(promises);
+
     if (!translation) {
       throw new Error("No translation found");
     }

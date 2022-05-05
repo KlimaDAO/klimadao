@@ -23,16 +23,20 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    const retirement = await queryKlimaRetireByIndex(
-      params?.beneficiary_address as string,
-      retirementIndex
-    );
+    const promises = [
+      queryKlimaRetireByIndex(
+        params?.beneficiary_address as string,
+        retirementIndex
+      ),
+      loadTranslation(locale),
+    ];
+
+    const [retirement, translation] = await Promise.all(promises);
 
     if (!retirement) {
       throw new Error("No retirement found");
     }
 
-    const translation = await loadTranslation(locale);
     if (!translation) {
       throw new Error("No translation found");
     }
