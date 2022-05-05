@@ -652,13 +652,13 @@ msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:31
+#: components/pages/Retirement/SingleRetirement/index.tsx:39
 msgid "retirement.head.metaTitle"
-msgstr "Your retirement number {retirementIndex} for address: {beneficiaryAddress}"
+msgstr "Your retirement number {retirementTotals} for address: {beneficiaryAddress}"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:26
+#: components/pages/Retirement/SingleRetirement/index.tsx:34
 msgid "retirement.head.title"
-msgstr "Your retirement number {retirementIndex} for address: {beneficiaryAddress}"
+msgstr "Your retirement number {retirementTotals} for address: {beneficiaryAddress}"
 
 #: components/pages/Retirement/index.tsx:30
 msgid "retirement.totals.head.metaTitle"
@@ -719,7 +719,7 @@ msgstr "Enter App"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirement/SingleRetirement/index.tsx:36
+#: components/pages/Retirement/SingleRetirement/index.tsx:44
 #: components/pages/Retirement/index.tsx:35
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-04 17:53+0000\n"
+"POT-Creation-Date: 2022-05-05 11:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -646,11 +646,11 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:31
+#: components/pages/Retirement/SingleRetirement/index.tsx:39
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:26
+#: components/pages/Retirement/SingleRetirement/index.tsx:34
 msgid "retirement.head.title"
 msgstr ""
 
@@ -713,7 +713,7 @@ msgstr ""
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirement/SingleRetirement/index.tsx:36
+#: components/pages/Retirement/SingleRetirement/index.tsx:44
 #: components/pages/Retirement/index.tsx:35
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25

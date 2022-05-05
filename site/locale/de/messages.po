@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-04 17:53+0000\n"
+"POT-Creation-Date: 2022-05-05 11:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -344,7 +344,7 @@ msgstr "Trete unserem Discord-Communityserver bei, um im #bug-reports-Kanal Fehl
 #. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
 #: components/pages/Resources/Contact/index.tsx:67
 msgid "contact.careers.we_re_hiring"
-msgstr ""
+msgstr "Unser Team arbeitet global verteilt in allen Zeitzonen. Wir geben regelmäßig neue Rollen und Bountys auf unserem <0>Discordserver</0> bekannt. Wenn du dich gut selbst organisieren kannst und einer zielorientierten DAO beitreten möchtest, würden wir uns freuen, wenn du dich bei uns meldest!"
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
@@ -650,21 +650,21 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr "Investiere in die Zukunft."
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:31
+#: components/pages/Retirement/SingleRetirement/index.tsx:39
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:26
+#: components/pages/Retirement/SingleRetirement/index.tsx:34
 msgid "retirement.head.title"
 msgstr ""
 
 #: components/pages/Retirement/index.tsx:30
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO - Dein Gesamtausgleich für diese Adresse: {beneficiaryAddress}"
 
 #: components/pages/Retirement/index.tsx:25
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "KlimaDAO - Dein Gesamtausgleich für diese Adresse: {beneficiaryAddress}"
 
 #: components/Footer/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
@@ -717,7 +717,7 @@ msgstr "App öffnen"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirement/SingleRetirement/index.tsx:36
+#: components/pages/Retirement/SingleRetirement/index.tsx:44
 #: components/pages/Retirement/index.tsx:35
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25

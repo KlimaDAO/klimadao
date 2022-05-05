@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-04 17:53+0000\n"
+"POT-Creation-Date: 2022-05-05 11:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -170,7 +170,7 @@ msgstr "Menge an KLIMA, die bereits garantiert ist und eingelöst werden kann."
 #. should autostake?
 #: components/views/Bond/index.tsx:773
 msgid "bond.should_autostake"
-msgstr ""
+msgstr "Automatisch für sKLIMA staken"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:732
@@ -445,7 +445,7 @@ msgstr "0x-Adresse eingeben"
 
 #: components/views/Offset/index.tsx:403
 msgid "offset.go_carbon_neutral"
-msgstr "Werde CO2-neutral, indem du das passende CO2-Token erwirbst dann ausgleichst. Du hast die Wahl zwischen <0>MOSS Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT) und <2>Nature Carbon Tonnes</2> (NCT) - mehr folgen demnächst!"
+msgstr "Werde CO2-neutral, indem du das passende CO2-Token erwirbst und dann ausgleichst. Du hast die Wahl zwischen <0>MOSS Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT) und <2>Nature Carbon Tonnes</2> (NCT) - mehr folgen demnächst!"
 
 #: components/views/Offset/index.tsx:382
 msgid "offset.incompatible"
@@ -828,7 +828,7 @@ msgstr "Manche finden dies für Buchhaltungszwecke nützlich, die Belohnungen un
 #. Long sentence
 #: components/views/Wrap/index.tsx:191
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
-msgstr "sKLIMA wrappen, um wsKLIMA zu erhalten. Anders als bei sKLIMA wird dein wsKLIMA-Guthaben konstant bleiben, der Gewinn ist jedoch identisch"
+msgstr "sKLIMA wrappen, um wsKLIMA zu erhalten. Anders als bei sKLIMA wird dein wsKLIMA-Guthaben konstant bleiben, der Gewinn ist jedoch identisch."
 
 #: components/views/Wrap/index.tsx:43
 msgid "wrap.wsklima_to_unwrap"
