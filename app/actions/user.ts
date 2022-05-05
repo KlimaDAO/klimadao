@@ -69,7 +69,10 @@ const parseURL = (url: string): any => {
 
   return parsed;
 };
-const getKns = async (params: { address: string; contract: Contract }): Promise<Domain> => {
+const getKns = async (params: {
+  address: string;
+  contract: Contract;
+}): Promise<Domain> => {
   const domain: any = {};
 
   try {
@@ -176,7 +179,6 @@ export const loadAccountDetails = (params: {
       );
 
       //domains
-      // put this into its own function and forward lookup address with getDomainHolder and verify the address returned is the same as params.address
       const knsDomain = await getKns({
         address: params.address,
         contract: klimaDomainContract,
