@@ -9,7 +9,7 @@ export const MoralisClient = Moralis.start({
 });
 
 export type Footprint = {
-  timestamp: Date;
+  timestamp: number;
   total: number;
 };
 
@@ -90,7 +90,7 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
 const buildFootprint = (
   currentFootprint: Footprint[],
   newFootprint: number
-) => {
+): Footprint[] => {
   if (currentFootprint.at(-1)?.total === newFootprint) return currentFootprint;
 
   return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
