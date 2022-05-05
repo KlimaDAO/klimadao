@@ -1,12 +1,26 @@
 import { GetStaticProps } from "next";
+import { ParsedUrlQuery } from "querystring";
 
 import { IS_PRODUCTION } from "lib/constants";
 
 import { getRetirements } from "@klimadao/lib/utils";
+import { RetirementsResult } from "@klimadao/lib/types/offset";
+
 import { RetirementPage } from "components/pages/Retirement";
 import { loadTranslation } from "lib/i18n";
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+interface Params extends ParsedUrlQuery {
+  beneficiary_address: string;
+}
+
+interface PageProps {
+  beneficiaryAddress: Params["beneficiary_address"];
+  retirements: RetirementsResult;
+}
+
+export const getStaticProps: GetStaticProps<PageProps, Params> = async (
+  ctx
+) => {
   try {
     if (IS_PRODUCTION) {
       throw new Error("Not on Staging");
