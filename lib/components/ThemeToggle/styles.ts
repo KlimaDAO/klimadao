@@ -4,13 +4,13 @@ import { button } from "../../theme/typography";
 export const buttonToggle = css`
   ${button};
   display: flex;
-  padding: 0rem 1.5rem;
   align-items: center;
   justify-content: center;
   appearance: none;
   text-decoration: none;
   /* min-height to conform with Lighthouse min tap-target */
   min-height: 4.8rem;
+  min-width: 4.8rem;
   padding: 0rem
   cursor: pointer;
   border-radius: var(--border-radius);

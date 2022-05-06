@@ -1,14 +1,21 @@
 import React, { FC, useState, useEffect } from "react";
 import { cx } from "@emotion/css";
-import { ThemeMoonIcon } from "../Icons/ThemeMoonIcon";
+import { ThemeMoonIcon, ThemeSunIcon } from "..";
+
 import * as styles from "./styles";
 
-export const ThemeToggle: FC = () => {
+interface Props {
+  className?: string;
+}
+
+export const ThemeToggle: FC<Props> = (props) => {
   const [activeTheme, setActiveTheme] = useState(
     document.body.dataset.theme || "theme-light"
   );
   const inactiveTheme =
     activeTheme === "theme-light" ? "theme-dark" : "theme-light";
+  const themeIcon =
+    activeTheme === "theme-light" ? <ThemeMoonIcon /> : <ThemeSunIcon />;
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;
@@ -17,13 +24,13 @@ export const ThemeToggle: FC = () => {
 
   return (
     <button
-      className={cx(styles.buttonToggle, activeTheme)}
+      className={cx(styles.buttonToggle, activeTheme, props.className)}
       aria-label={`Change to ${inactiveTheme} mode`}
       title={`Change to ${inactiveTheme} mode`}
       type="button"
       onClick={() => setActiveTheme(inactiveTheme)}
     >
-      <ThemeMoonIcon />
+      {themeIcon}
     </button>
   );
 };
