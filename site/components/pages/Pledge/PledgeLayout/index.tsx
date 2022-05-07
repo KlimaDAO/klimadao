@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
 
-import { useProvider } from "lib/useProvider";
+import { useWeb3 } from "hooks/useWeb3";
 import * as styles from "./styles";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
@@ -14,23 +14,8 @@ type Props = {
 };
 
 export const PledgeLayout: FC<Props> = (props) => {
-  const { provider, address, connect, disconnect } = useProvider();
-  const [chainId, setChainId] = useState<number>();
+  const { address, connect, disconnect } = useWeb3();
   const isConnected = Boolean(address);
-
-  const loadNetworkInfo = async () => {
-    if (!provider) return;
-
-    // if network is invalid, modal will ask for network change -> page will reload
-    const networkInfo = await provider.getNetwork();
-    if (chainId !== networkInfo.chainId) {
-      setChainId(networkInfo.chainId);
-    }
-  };
-
-  useEffect(() => {
-    loadNetworkInfo();
-  }, [provider, address]);
 
   return (
     <div className={styles.pageContainer}>
