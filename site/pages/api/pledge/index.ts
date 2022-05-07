@@ -11,7 +11,7 @@ export default async function handler(
         const signature = req.headers.authorization?.split(" ")[1];
         const data = await findOrCreatePledge({
           pledge: req.body,
-          sessionToken,
+          signature,
         });
         const pledge = JSON.parse(JSON.stringify(data));
 

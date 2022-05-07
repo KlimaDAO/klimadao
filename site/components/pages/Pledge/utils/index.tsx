@@ -49,15 +49,15 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
   // save pledge to firebase
   // await userDocSnapshot.ref.set(partialUserDoc, { merge: true });
 
-  const currentFootprint = pledgeObject.get("footprint");
-  const footprint =
-    params.pledge.objectId && currentFootprint
-      ? buildFootprint(currentFootprint, params.pledge.footprint)
-      : [{ timestamp: Date.now(), total: params.pledge.footprint }];
+  // const currentFootprint = pledgeObject.get("footprint");
+  // const footprint =
+  //   params.pledge.objectId && currentFootprint
+  //     ? buildFootprint(currentFootprint, params.pledge.footprint)
+  //     : [{ timestamp: Date.now(), total: params.pledge.footprint }];
 
-  pledgeObject.set({ ...params.pledge, footprint });
+  // pledgeObject.set({ ...params.pledge, footprint });
 
-  return await pledgeObject.save(null, { useMasterKey: true });
+  // return await pledgeObject.save(null, { useMasterKey: true });
 };
 
 // const pledgeDocument = snapshot.docs[0];

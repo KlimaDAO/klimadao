@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useMoralis } from "react-moralis";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
+import { useProvider } from "lib/useProvider";
 
 import { Modal } from "components/Modal";
 import { PledgeFormValues } from "lib/moralis";
