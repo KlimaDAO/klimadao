@@ -8,12 +8,15 @@ export default async function handler(
   switch (req.method) {
     case "PUT":
       try {
-        const sessionToken = req.headers.authorization?.split(" ")[1];
+        const signature = req.headers.authorization?.split(" ")[1];
         const data = await findOrCreatePledge({
           pledge: req.body,
           sessionToken,
         });
         const pledge = JSON.parse(JSON.stringify(data));
+
+        // init firebase admin
+        // function verify
 
         res.status(200).json({ pledge: pledgeResolver(pledge) });
       } catch (error) {

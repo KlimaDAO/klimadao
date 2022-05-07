@@ -33,6 +33,7 @@ const defaultValues = (pledge: PledgeFormValues): PledgeFormValues =>
       footprint: [0],
       methodology: "",
       name: "",
+      nonce: 33,
     },
     pledge
   );
