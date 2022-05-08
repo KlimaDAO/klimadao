@@ -1,6 +1,7 @@
 import {
     KLIMA_BCT_PAIR, BCT_USDC_PAIR,
-    KLIMA_MCO2_PAIR, KLIMA_ERC20_V1_CONTRACT
+    KLIMA_MCO2_PAIR, KLIMA_ERC20_V1_CONTRACT,
+    KLIMA_UBO_PAIR, KLIMA_NBO_PAIR 
 } from '../../../lib/utils/Constants'
 import { Address, BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
 import { UniswapV2Pair } from '../../generated/TreasuryV1/UniswapV2Pair';
@@ -61,6 +62,32 @@ export function getKLIMAMCO2Rate(): BigDecimal {
 
     let klimaRate = reserve0.div(reserve1).div(BIG_DECIMAL_1E9)
     log.debug("KLIMA MCO2 rate {}", [klimaRate.toString()])
+
+    return klimaRate
+}
+
+export function getKLIMAUBORate(): BigDecimal {
+    let pair = UniswapV2Pair.bind(Address.fromString(KLIMA_UBO_PAIR))
+
+    let reserves = pair.getReserves()
+    let reserve0 = reserves.value0.toBigDecimal()
+    let reserve1 = reserves.value1.toBigDecimal()
+
+    let klimaRate = reserve0.div(reserve1).div(BIG_DECIMAL_1E9)
+    log.debug("KLIMA UBO rate {}", [klimaRate.toString()])
+
+    return klimaRate
+}
+
+export function getKLIMANBORate(): BigDecimal {
+    let pair = UniswapV2Pair.bind(Address.fromString(KLIMA_NBO_PAIR))
+
+    let reserves = pair.getReserves()
+    let reserve0 = reserves.value0.toBigDecimal()
+    let reserve1 = reserves.value1.toBigDecimal()
+
+    let klimaRate = reserve0.div(reserve1).div(BIG_DECIMAL_1E9)
+    log.debug("KLIMA NBO rate {}", [klimaRate.toString()])
 
     return klimaRate
 }
