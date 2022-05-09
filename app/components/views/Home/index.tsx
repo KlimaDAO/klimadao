@@ -25,6 +25,7 @@ import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 import { NotificationModal } from "components/NotificationModal";
+import dynamic from "next/dynamic";
 
 import { initLocale } from "lib/i18n";
 
@@ -41,6 +42,11 @@ type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
   remove: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
 };
+
+// dynamic import for ThemeToggle as its reads the document and localStorage of Browser
+// see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
+
+const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
 /** wrap in useEffect to skip on server-side render */
 const useWeb3Modal = () => {
@@ -302,6 +308,7 @@ export const Home: FC = () => {
                 onHide={() => setShowMobileMenu(false)}
               />
             </div>
+            <ThemeToggle />
             <ChangeLanguageButton />
             <ConnectButton
               isConnected={isConnected}
