@@ -74,7 +74,7 @@ export const getRetirementIndexInfo = async (
     );
 
     const typeOfToken = getTypeofTokenByAddress(tokenAddress);
-    const tokenDecimals = getTokenDecimals(typeOfToken || "");
+    const tokenDecimals = getTokenDecimals(typeOfToken);
     const formattedAmount = formatUnits(amount, tokenDecimals);
 
     return {
