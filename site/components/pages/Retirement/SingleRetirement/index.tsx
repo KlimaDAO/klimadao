@@ -88,14 +88,16 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           />
           <div className={styles.metaData}>
             <div className="column">
-              <TextGroup
-                title={
-                  <Trans id="retirement.single.beneficiary.title">
-                    Beneficiary
-                  </Trans>
-                }
-                text={retireData.beneficiaryName}
-              />
+              {!!retireData.beneficiaryName && (
+                <TextGroup
+                  title={
+                    <Trans id="retirement.single.beneficiary.title">
+                      Beneficiary
+                    </Trans>
+                  }
+                  text={retireData.beneficiaryName}
+                />
+              )}
               <TextGroup
                 title={
                   <Trans id="retirement.single.beneficiaryAddress.title">
