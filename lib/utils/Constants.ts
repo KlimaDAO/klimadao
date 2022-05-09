@@ -4,6 +4,10 @@ export const KLIMABCT_LPBOND_TOKEN: string = 'KLIMA-BCT';
 export const BCTUSDC_LPBOND_TOKEN: string = 'BCT-USDC';
 export const MCO2_BOND_TOKEN: string = 'MCO2';
 export const KLIMAMCO2_LPBOND_TOKEN: string = 'KLIMA-MCO2';
+export const UBO_BOND_TOKEN: string = 'UBO';
+export const KLIMAUBO_LPBOND_TOKEN: string = 'KLIMA-UBO';
+export const NBO_BOND_TOKEN: string = 'NBO';
+export const KLIMANBO_LPBOND_TOKEN: string = 'KLIMA-NBO';
 export const KLIMAUSDC_LPBOND_TOKEN: string = 'KLIMA-USDC';
 
 // LP Pair Addresses and Blocks
@@ -15,6 +19,10 @@ export const KLIMA_MCO2_PAIR = '0x64a3b8ca5a7e406a78e660ae10c7563d9153a739';
 export const KLIMA_MCO2_PAIR_BLOCK = '23688190';
 export const KLIMA_USDC_PAIR = '0x5786b267d35f9d011c4750e0b0ba584e1fdbead1';
 export const KLIMA_USDC_PAIR_BLOCK = '20358666';
+export const KLIMA_UBO_PAIR = '0x5400A05B8B45EaF9105315B4F2e31F806AB706dE';
+export const KLIMA_UBO_PAIR_BLOCK = '26470811';
+export const KLIMA_NBO_PAIR = '0x251cA6A70cbd93Ccd7039B6b708D4cb9683c266C';
+export const KLIMA_NBO_PAIR_BLOCK = '26470990';
 export const TREASURY_ADDRESS = '0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7';
 
 // Bond Contract Addresses and Blocks
@@ -34,12 +42,22 @@ export const KLIMA_MCO2_BOND_V1_2 = '0x18c3713d523f91fBd26E65C8BaBAB63A0f31B9a6'
 export const KLIMA_MCO2_BOND_V1_2_BLOCK = '26055500';
 export const KLIMA_USDC_BOND_V1 = '0xb5aF101742EcAe095944F60C384d09453006bFde';
 export const KLIMA_USDC_BOND_V1_BLOCK = '23920000';
+export const UBOBOND_V1 = '0x08eE531979B730Dbb63469BC56E1d6cD9F43b8d4';
+export const UBOBOND_V1_BLOCK = '27329320';
+// export const KLIMA_UBO_BOND_V1 = '';
+// export const KLIMA_UBO_BOND_V1_BLOCK = '';
+export const NBOBOND_V1 = '0x285A6054DdC2980C62E716086B065E1e770fffb3';
+export const NBOBOND_V1_BLOCK = '27329359';
+// export const KLIMA_NBO_BOND_V1 = '';
+// export const KLIMA_NBO_BOND_V1_BLOCK = '';
 
 // Token Addresses
 export const KLIMA_ERC20_V1_CONTRACT = '0x4e78011ce80ee02d2c3e649fb657e45898257815';
 export const SKLIMA_ERC20_V1_CONTRACT = '0xb0C22d8D350C67420f06F48936654f567C73E8C8';
 export const BCT_ERC20_CONTRACT = '0x2f800db0fdb5223b3c3f354886d907a671414a7f';
 export const MCO2_ERC20_CONTRACT = '0xaa7dbd1598251f856c12f63557a4c4397c253cea';
+export const UBO_ERC20_CONTRACT = '0x2B3eCb0991AF0498ECE9135bcD04013d7993110c';
+export const NBO_ERC20_CONTRACT = '0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48';
 
 // Protocol Functional Addresses
 export const DAO_MULTISIG = '0x65a5076c0ba74e5f3e069995dc3dab9d197d995c';
