@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-05 23:05+0000\n"
+"POT-Creation-Date: 2022-05-09 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -172,7 +172,7 @@ msgstr "Montant de KLIMA déjà disponible et pouvant être réclamés"
 #. should autostake?
 #: components/views/Bond/index.tsx:773
 msgid "bond.should_autostake"
-msgstr ""
+msgstr "Déposer automatiquement sKLIMA"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:732
@@ -613,7 +613,7 @@ msgstr "Connectez votre portefeuille"
 
 #: components/views/Buy/index.tsx:76
 msgid "shared.copy_wallet_address"
-msgstr "Copier l'adresse"
+msgstr "Copier l'adresse {0}"
 
 #: components/views/Stake/index.tsx:179
 #: components/views/Stake/index.tsx:189
