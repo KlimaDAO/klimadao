@@ -39,6 +39,9 @@ import Menu from "@mui/icons-material/Menu";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { Buy } from "../Buy";
 
+// Taken from https://mui.com/material-ui/material-icons/?query=email&selected=MailOutline
+const emailIconDataUri = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' class=\'MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-10cscxr\' focusable=\'false\' aria-hidden=\'true\' viewBox=\'0 0 24 24\' data-testid=\'MailOutlineIcon\'%3E%3Cpath stroke=\'%2371717A\' fill=\'%2371717A\' d=\'M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z\'%3E%3C/path%3E%3C/svg%3E'
+
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
   remove: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -73,6 +76,11 @@ const useWeb3Modal = () => {
             networkParams: {
               host: "matic", // optional
             },
+          },
+          display: {
+            name: "Email, Google, Twitter",
+            description: "Use your existing services to connect.",
+            logo: emailIconDataUri,
           }
         },
       },
