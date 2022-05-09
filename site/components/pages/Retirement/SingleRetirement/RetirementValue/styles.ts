@@ -4,6 +4,7 @@ export const retirementValue_textGroup = css`
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 0.5rem;
 `;
 
 export const tokenInfo = css`
