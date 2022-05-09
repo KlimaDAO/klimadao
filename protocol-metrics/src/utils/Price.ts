@@ -1,7 +1,7 @@
 import {
-    KLIMA_BCT_PAIR, BCT_USDC_PAIR,
+    KLIMA_BCT_PAIR, BCT_USDC_PAIR, NCT_USDC_PAIR,
     KLIMA_MCO2_PAIR, KLIMA_ERC20_V1_CONTRACT,
-    KLIMA_UBO_PAIR, KLIMA_NBO_PAIR 
+    KLIMA_UBO_PAIR, KLIMA_NBO_PAIR
 } from '../../../lib/utils/Constants'
 import { Address, BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
 import { UniswapV2Pair } from '../../generated/TreasuryV1/UniswapV2Pair';
@@ -23,6 +23,20 @@ export function getBCTUSDRate(): BigDecimal {
     log.debug("BCT rate {}", [bctRate.toString()])
 
     return bctRate
+}
+
+export function getNCTUSDRate(): BigDecimal {
+
+    let pair = UniswapV2Pair.bind(Address.fromString(NCT_USDC_PAIR))
+
+    let reserves = pair.getReserves()
+    let reserve0 = reserves.value0.toBigDecimal()
+    let reserve1 = reserves.value1.toBigDecimal()
+
+    let nctRate = reserve0.div(reserve1).times(BIG_DECIMAL_1E12)
+    log.debug("NCT rate {}", [nctRate.toString()])
+
+    return nctRate
 }
 
 export function getKLIMAUSDRate(): BigDecimal {

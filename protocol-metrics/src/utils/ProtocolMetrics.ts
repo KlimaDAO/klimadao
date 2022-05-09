@@ -10,7 +10,7 @@ import { dayFromTimestamp } from '../../../lib/utils/Dates';
 import { toDecimal } from '../../../lib/utils/Decimals';
 import {
     getKLIMAUSDRate, getDiscountedPairCO2, getKlimaPairUSD, getBCTUSDRate, getKLIMAMCO2Rate,
-    getKLIMAUBORate, getKLIMANBORate
+    getKLIMAUBORate, getKLIMANBORate, getNCTUSDRate
 } from './Price';
 import { getHolderAux } from './Aux';
 import {
@@ -21,7 +21,8 @@ import {
     KLIMA_USDC_PAIR_BLOCK, MCO2BOND_V1, MCO2BOND_V1_2, MCO2BOND_V1_BLOCK,
     MCO2_ERC20_CONTRACT, UBOBOND_V1, UBOBOND_V1_BLOCK, UBO_ERC20_CONTRACT,
     KLIMA_UBO_PAIR_BLOCK, NBOBOND_V1, NBOBOND_V1_BLOCK, NBO_ERC20_CONTRACT,
-    KLIMA_NBO_PAIR_BLOCK, SKLIMA_ERC20_V1_CONTRACT, STAKING_CONTRACT_V1, TREASURY_ADDRESS
+    KLIMA_NBO_PAIR_BLOCK, SKLIMA_ERC20_V1_CONTRACT, STAKING_CONTRACT_V1, TREASURY_ADDRESS,
+    NCT_USDC_PAIR, NCT_ERC20_CONTRACT, NCT_USDC_PAIR_BLOCK
 } from '../../../lib/utils/Constants';
 
 export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
@@ -124,6 +125,10 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     let bctERC20 = ERC20.bind(Address.fromString(BCT_ERC20_CONTRACT))
     let treasuryBCT = loadOrCreateTreasuryAsset(transaction.timestamp, BCT_ERC20_CONTRACT)
 
+    // NCT
+    let nctERC20 = ERC20.bind(Address.fromString(NCT_ERC20_CONTRACT))
+    let treasuryNCT = loadOrCreateTreasuryAsset(transaction.timestamp, NCT_ERC20_CONTRACT)
+
     // MCO2
     let mco2ERC20 = ERC20.bind(Address.fromString(MCO2_ERC20_CONTRACT))
     let treasuryMCO2 = loadOrCreateTreasuryAsset(transaction.timestamp, MCO2_ERC20_CONTRACT)
@@ -139,6 +144,10 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     // Treasury token balance
     treasuryBCT.tokenBalance = toDecimal(bctERC20.balanceOf(treasuryAddress), 18)
 
+    if (transaction.blockNumber.gt(BigInt.fromString(NCT_USDC_PAIR_BLOCK))) {
+        treasuryNCT.tokenBalance = toDecimal(nctERC20.balanceOf(treasuryAddress), 18)
+    }
+
     if (transaction.blockNumber.gt(BigInt.fromString(MCO2BOND_V1_BLOCK))) {
         treasuryMCO2.tokenBalance = toDecimal(mco2ERC20.balanceOf(treasuryAddress))
     }
@@ -152,6 +161,9 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     // Reserve asset so carbon and CC = token balance
     treasuryBCT.carbonBalance = treasuryBCT.tokenBalance
     treasuryBCT.carbonCustodied = treasuryBCT.tokenBalance
+
+    treasuryNCT.carbonBalance = treasuryNCT.tokenBalance
+    treasuryNCT.carbonCustodied = treasuryNCT.tokenBalance
 
     treasuryMCO2.carbonBalance = treasuryMCO2.tokenBalance
     treasuryMCO2.carbonCustodied = treasuryMCO2.tokenBalance
@@ -167,6 +179,10 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
         treasuryBCT.marketValue = treasuryBCT.tokenBalance.times(getBCTUSDRate())
     }
 
+    if (transaction.blockNumber.gt(BigInt.fromString(NCT_USDC_PAIR_BLOCK))) {
+        treasuryNCT.marketValue = treasuryNCT.tokenBalance.times(getNCTUSDRate())
+    }
+
     if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_MCO2_PAIR_BLOCK))) {
         treasuryMCO2.marketValue = treasuryMCO2.tokenBalance.times(getKLIMAMCO2Rate()).times(getKLIMAUSDRate())
     }
@@ -180,6 +196,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     }
 
     treasuryBCT.save()
+    treasuryNCT.save()
     treasuryMCO2.save()
     treasuryUBO.save()
     treasuryNBO.save()
@@ -238,20 +255,20 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     //     if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_UBO_PAIR_BLOCK))) {
     //         let klimauboERC20 = ERC20.bind(Address.fromString(KLIMA_UBO_PAIR))
     //         let klimauboUNIV2 = UniswapV2Pair.bind(Address.fromString(KLIMA_UBO_PAIR))
-    
+
     //         // Treasury LP token balance
     //         treasuryKLIMAUBO.tokenBalance = toDecimal(klimauboERC20.balanceOf(treasuryAddress), 18)
-    
+
     //         // Get total LP supply and calc treasury percent
     //         let total_lp = toDecimal(klimauboUNIV2.totalSupply(), 18)
     //         let ownedLP = treasuryKLIMAUBO.tokenBalance.div(total_lp)
     //         treasuryKLIMAUBO.POL = ownedLP
-    
+
     //         // Percent of Carbon in LP owned by the treasury
     //         treasuryKLIMAUBO.carbonBalance = toDecimal(klimauboUNIV2.getReserves().value0, 18).times(ownedLP)
     //         treasuryKLIMAUBO.marketValue = treasuryKLIMAUBO.carbonBalance.times(getKLIMAUBORate()).times(getKLIMAUSDRate())
     //     }
-    
+
     //     treasuryKLIMAUBO.save()
 
     // // KLIMA-NBO
@@ -330,7 +347,8 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
         // treasuryKLIMAUBO.id,
         // treasuryKLIMANBO.id,
         treasuryBCTUSDC.id,
-        treasuryKLIMAUSDC.id
+        treasuryKLIMAUSDC.id,
+        treasuryNCT.id
     ]
 }
 

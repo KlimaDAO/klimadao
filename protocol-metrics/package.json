@@ -10,8 +10,13 @@
     "create-local": "graph create --node http://127.0.0.1:8020 klima-protocol-metrics",
     "remove-local": "graph remove --node http://127.0.0.1:8020 klima-protocol-metrics",
     "watch-local": "graph deploy --watch --debug --node http://127.0.0.1:8020/ --ipfs http://127.0.0.1:5001 klima",
-    "deploy-local": "graph deploy --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5001 klima-protocol-metrics",
-    "deploy": "graph deploy --product hosted-service klimadao/klima-protocol-metrics"
+    "deploy-local": "graph deploy --node http://127.0.0.1:8020 --ipfs http://127.0.0.1:5001 klimadao-protocol-metrics",
+    "create-args": "graph create --node $npm_config_node klimadao-protocol-metrics",
+    "deploy-args": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node klimadao-protocol-metrics",
+    "deploy-version": "graph deploy --ipfs $npm_config_ipfs --node $npm_config_node --version-label $npm_config_label klimadao-protocol-metrics",
+    "deploy-staging": "graph deploy --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/ klimadao-protocol-metrics",
+    "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
+    "deploy": "graph deploy --product hosted-service klimadao/klimadao-protocol-metrics"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "^0.29.0",
