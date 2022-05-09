@@ -9,7 +9,7 @@ type Props = {
 
 export const TextGroup: FC<Props> = ({ title, text }) => {
   return (
-    <div className={styles.metaData_textGroup}>
+    <div className={styles.textGroup}>
       <Text t="caption" color="lightest" uppercase>
         {title}
       </Text>
