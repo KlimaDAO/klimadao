@@ -41,7 +41,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
       <Navigation activePage="Home" />
 
       <Section variant="gray" className={styles.section}>
-        <div className={styles.retirementContainer}>
+        <div className={styles.retirementContent}>
           <div className={styles.retirement_textGroup}>
             <Text t="h2" as="h2" align="center">
               Retirements Total
