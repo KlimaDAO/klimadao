@@ -3,7 +3,7 @@ import * as styles from "./styles";
 import { FC } from "react";
 import { RetirementToken } from "@klimadao/lib/constants";
 import Image from "next/image";
-import { Trans, t } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 
 type Props = {
   value: string;
