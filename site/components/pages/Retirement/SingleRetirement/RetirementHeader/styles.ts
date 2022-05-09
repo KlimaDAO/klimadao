@@ -16,4 +16,5 @@ export const retirementHeader = css`
 
 export const retirementHeaderText = css`
   color: var(--white);
+  word-break: break-word;
 `;

@@ -11,4 +11,9 @@ export const tokenInfo = css`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  .amount {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
