@@ -8,10 +8,8 @@ import { IS_PRODUCTION } from "lib/constants";
 export const getStaticProps: GetStaticProps = async (ctx) => {
   if (IS_PRODUCTION) {
     return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
+      notFound: true,
+      revalidate: 180,
     };
   }
 
