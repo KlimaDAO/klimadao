@@ -6,6 +6,7 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { RetirementsResult } from "@klimadao/lib/types/offset";
+import { RetirementFooter } from "./Footer";
 
 import { IS_PRODUCTION } from "lib/constants";
 import { t } from "@lingui/macro";
@@ -63,6 +64,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
           </div>
         </div>
       </Section>
+      <RetirementFooter />
       <Footer />
     </>
   );

@@ -12,6 +12,7 @@ import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
 import { RetirementDate } from "./RetirementDate";
 import { TextGroup } from "./TextGroup";
+import { RetirementFooter } from "../Footer";
 
 import { IS_PRODUCTION } from "lib/constants";
 import { Trans, t } from "@lingui/macro";
@@ -150,6 +151,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           </Text>
         </div>
       </Section>
+      <RetirementFooter />
       <Footer />
     </>
   );

@@ -2,9 +2,10 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const section = css`
+  padding-bottom: 4rem;
   ${breakpoints.medium} {
     padding-top: 9rem;
-    padding-bottom: 9rem;
+    padding-bottom: 4rem;
   }
 `;
 
