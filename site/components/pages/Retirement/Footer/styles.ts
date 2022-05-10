@@ -35,6 +35,7 @@ export const footerContent = css`
   }
 
   .column {
+    flex: 1;
     display: flex;
     gap: 4rem;
     flex-direction: column;
