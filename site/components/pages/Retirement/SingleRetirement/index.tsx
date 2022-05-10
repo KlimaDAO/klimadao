@@ -34,17 +34,18 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     retirementIndexInfo,
   } = props;
 
+  const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
+
   // collect from indexInfo and optional data from subgraph
   const retireData = {
     amount: retirementIndexInfo.amount,
-    typeOfToken: retirementIndexInfo.typeOfToken,
+    tokenLabel: tokenData.label,
+    tokenIcon: tokenData.icon,
     beneficiaryName: retirementIndexInfo.beneficiaryName,
     retirementMessage: retirementIndexInfo.retirementMessage,
     timestamp: retirement?.timestamp,
     transactionID: retirement?.transaction?.id,
   };
-
-  const tokenData = retirementTokenInfoMap[retireData.typeOfToken];
 
   return (
     <>
@@ -71,7 +72,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
       <Section variant="gray" className={styles.section}>
         <RetirementHeader
           title={`
-            ${retireData.amount} ${tokenData.label} ${t({
+            ${retireData.amount} ${retireData.tokenLabel} ${t({
             id: "retirement.single.header.offset",
             message: "Offset",
           })}`}
@@ -83,8 +84,8 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           )}
           <RetirementValue
             value={retireData.amount}
-            label={tokenData.label}
-            icon={tokenData.icon}
+            label={retireData.tokenLabel}
+            icon={retireData.tokenIcon}
           />
           <div className={styles.metaData}>
             <div className="column">
