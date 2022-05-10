@@ -66,6 +66,7 @@ export const footerBuyKlima = css`
 export const footerBuyKlimaText = css`
   ${breakpoints.large} {
     max-width: 70%;
+    color: var(--white);
   }
 `;
 
