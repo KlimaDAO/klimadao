@@ -57,6 +57,7 @@ export const footerBuyKlima = css`
   gap: 2.5rem;
 
   ${breakpoints.medium} {
+    padding: 8rem 5.2rem 6rem;
     justify-content: start;
     align-items: start;
   }
