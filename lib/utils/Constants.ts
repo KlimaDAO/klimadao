@@ -66,3 +66,6 @@ export const NBO_ERC20_CONTRACT = '0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48';
 export const DAO_MULTISIG = '0x65a5076c0ba74e5f3e069995dc3dab9d197d995c';
 export const STAKING_CONTRACT_V1 = '0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d';
 export const BONDING_CALCULATOR = '0x0b8d6D6611Ed7cCe01BbcC57826548C6107B0478';
+
+// Assumed epochs per day (until we have dynamic)
+export const EPOCHS_PER_DAY = 3.4256
