@@ -66,7 +66,7 @@ msgstr "Wrong Network"
 msgid "[coming soon]"
 msgstr "[coming soon]"
 
-#: components/views/Offset/index.tsx:746
+#: components/views/Offset/index.tsx:748
 msgid "advanced"
 msgstr "ADVANCED"
 
@@ -443,7 +443,7 @@ msgid "offset.empty"
 msgstr "This address has not completed any retirements."
 
 #: components/views/Offset/index.tsx:507
-#: components/views/Offset/index.tsx:775
+#: components/views/Offset/index.tsx:777
 msgid "offset.enter_address"
 msgstr "Enter 0x address"
 
@@ -475,11 +475,11 @@ msgstr "Enter quantity to offset"
 msgid "offset.retire_carbon"
 msgstr "Retire Carbon"
 
-#: components/views/Offset/index.tsx:753
+#: components/views/Offset/index.tsx:755
 msgid "offset.retire_specific"
 msgstr "Retire specific project tokens"
 
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:761
 msgid "offset.retire_specific_tooltip"
 msgstr "Subject to additional fee, determined by the selected pool and paid to the bridge provider."
 
@@ -582,6 +582,10 @@ msgstr "A percent of total token supply. Your index-adjusted claim may not excee
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned rewards on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
+
+#: components/views/Offset/index.tsx:689
+msgid "retirementSuccessModal.viewOnKlimadao"
+msgstr "View your retirement details on <0>klimadao.finance</0>"
 
 #: components/views/Bond/index.tsx:344
 #: components/views/Offset/index.tsx:311
