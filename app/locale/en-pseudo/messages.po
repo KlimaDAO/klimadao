@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-12 15:43+0000\n"
+"POT-Creation-Date: 2022-05-12 21:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "[coming soon]"
 msgstr ""
 
-#: components/views/Offset/index.tsx:746
+#: components/views/Offset/index.tsx:748
 msgid "advanced"
 msgstr ""
 
@@ -437,7 +437,7 @@ msgid "offset.empty"
 msgstr ""
 
 #: components/views/Offset/index.tsx:507
-#: components/views/Offset/index.tsx:775
+#: components/views/Offset/index.tsx:777
 msgid "offset.enter_address"
 msgstr ""
 
@@ -469,11 +469,11 @@ msgstr ""
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/views/Offset/index.tsx:753
+#: components/views/Offset/index.tsx:755
 msgid "offset.retire_specific"
 msgstr ""
 
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:761
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
@@ -575,6 +575,10 @@ msgstr ""
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
+msgstr ""
+
+#: components/views/Offset/index.tsx:689
+msgid "retirementSuccessModal.viewOnKlimadao"
 msgstr ""
 
 #: components/views/Bond/index.tsx:344
