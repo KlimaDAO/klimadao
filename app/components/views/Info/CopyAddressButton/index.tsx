@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import styles from "./index.module.css";
-// import * as styles from './styles'
+import * as styles from './styles'
 
 const CopyAddressButton = (params: { address: string; ariaLabel: string }) => {
   const [copied, setCopied] = useState(false);
