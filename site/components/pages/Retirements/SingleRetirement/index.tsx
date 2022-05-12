@@ -103,18 +103,14 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                   </Trans>
                 }
                 text={
-                  retireData.transactionID ? (
-                    <a
-                      className="address"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={`https://polygonscan.com/tx/${retireData.transactionID}`}
-                    >
-                      {concatAddress(beneficiaryAddress)}
-                    </a>
-                  ) : (
-                    concatAddress(beneficiaryAddress)
-                  )
+                  <a
+                    className="address"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://polygonscan.com/address/${beneficiaryAddress}`}
+                  >
+                    {concatAddress(beneficiaryAddress)}
+                  </a>
                 }
               />
             </div>
