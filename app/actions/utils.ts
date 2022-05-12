@@ -36,7 +36,7 @@ export const getStatusMessage = (status: AppNotificationStatus) => {
 export const getKns = async (params: {
   address: string;
   contract: Contract;
-}): Promise<Domain> => {
+}): Promise<Domain | null> => {
   const domain: any = {};
 
   try {
@@ -44,10 +44,11 @@ export const getKns = async (params: {
     // what do we do if this is false?
     const isNameVerified =
       (await params.contract.getDomainHolder(domainName)) === params.address;
-    if (!isNameVerified) null;
+    if (!isNameVerified || !domainName) return null;
     domain.name = `${domainName}.klima`;
     const customImage = await params.contract.getDomainData(domainName);
-    if (customImage && JSON.parse(customImage).imgAddress) {
+    const imageUrl = JSON.parse(customImage).imgAddress ?? undefined;
+    if (customImage && imageUrl) {
       domain.image = JSON.parse(customImage).imgAddress;
     } else {
       const domains = await params.contract.domains(domainName);
@@ -55,10 +56,10 @@ export const getKns = async (params: {
       // if no image is in getDomainData get metadata from tokenURI and parse+decode it
       const domainData = await params.contract.tokenURI(tokenId);
       const domainDataDecoded = parseURL(domainData);
-      const domainMetadata = atob(domainDataDecoded.data);
+      const domainMetadata = atob(domainDataDecoded!.data);
       // base64 decode metadata and get default image
       const decodedDefaultImage = atob(
-        parseURL(JSON.parse(domainMetadata).image).data
+        parseURL(JSON.parse(domainMetadata).image)!.data
       );
       domain.defaultImage = decodedDefaultImage;
     }
@@ -83,16 +84,24 @@ export const getEns = async (params: { address: string }): Promise<Domain> => {
   return ens;
 };
 
-const parseURL = (url: string): any => {
+interface ParsedDataUrl {
+  data: string;
+  contentType: string;
+  mediaType: string;
+  base64: string;
+}
+
+// urls are returned as data url so this parses the url and returns an object of type ParsedDataUrl
+const parseURL = (url: string): ParsedDataUrl | undefined => {
   const regex =
     /^data:([a-z]+\/[a-z0-9-+.]+(;[a-z0-9-.!#$%*+.{}|~`]+=[a-z0-9-.!#$%*+.{}()|~`]+)*)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s<>]*?)$/i;
   if (!regex.test((url || "").trim())) {
-    return;
+    return undefined;
   }
   const parts = url.trim().match(regex);
   const parsed: any = {};
   if (!parts) {
-    return "";
+    return undefined;
   }
   if (parts[1]) {
     parsed.mediaType = parts[1].toLowerCase();

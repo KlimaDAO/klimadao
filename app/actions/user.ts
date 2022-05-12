@@ -87,7 +87,7 @@ export const loadAccountDetails = (params: {
       );
       // remember to add this to addresses object
       const klimaDomainContract = new ethers.Contract(
-        "0xe8b97542A433e7eCc7bB791872af04DF02A1a6E4",
+        addresses["mainnet"].klimaNameService,
         PunkTLD.abi,
         params.provider
       );

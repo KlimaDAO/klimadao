@@ -34,6 +34,55 @@ import { createLinkWithLocaleSubPath } from "lib/i18n";
 import * as styles from "./styles";
 import { Domain } from "state/user";
 
+
+interface AddressProps {
+  address: string | undefined;
+  domains: {
+    knsDomain: Domain;
+    ensDomain: Domain;
+  } | undefined;
+}
+const Address: FC<AddressProps> = (props) => {
+  let domain = undefined;
+  if (props.domains?.knsDomain && props.domains?.knsDomain.name) {
+    domain = props.domains.knsDomain;
+  } else if (props.domains?.ensDomain && props.domains?.ensDomain.name) {
+    domain = props. domains.ensDomain;
+  }
+  return  (
+    <div className="stack-04">
+          <Text t="caption">
+            <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
+          </Text>
+          {!domain && (
+            <Text t="caption" color="lightest">
+              {props.address ? (
+                concatAddress(props.address)
+              ) : (
+                <Trans id="menu.not_connected">NOT CONNECTED</Trans>
+              )}
+            </Text>
+          )}
+          {domain && (
+            <div className="domain-wrapper">
+              {domain.image ? (
+                <img
+                  src={domain.image}
+                  alt="profile avatar"
+                  className="avatar"
+                />
+              ) : (
+                <div className="avatar" dangerouslySetInnerHTML={{ __html: domain.defaultImage ?? "" }} />
+              )}
+              <Text t="caption" color="lightest" className="domain-name">
+                {domain.name}
+              </Text>
+            </div>
+          )}
+        </div>
+  )
+}
+
 interface MenuButtonProps {
   icon: ReactElement;
   href: string;
@@ -98,31 +147,11 @@ export const NavMenu: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
   const domains = useSelector(selectDomain);
-  const [domain, setDomain] = useState<Domain | undefined>(undefined);
-  const svg = useRef(null);
-  useEffect(() => {
-    if (domains?.knsDomain.name) {
-      setDomain(domains.knsDomain);
-    } else if (domains?.ensDomain.name) {
-      setDomain(domains.ensDomain);
-    }
-  }, [domains]);
-  useEffect(() => {
-    if (svg.current && domain && domain.defaultImage) {
-      (svg.current as any).appendChild(htmlToElement(domain.defaultImage));
-    }
-  }, [domain]);
-
   const { pathname } = useLocation();
   const handleHide = () => {
     props.onHide?.();
   };
-  const htmlToElement = (htmlString: string): Element => {
-    const template = document.createElement("template");
-    htmlString = htmlString.trim(); // Never return a text node of whitespace as the result
-    template.innerHTML = htmlString;
-    return template.content.firstChild as Element;
-  };
+
   return (
     <nav className={styles.container}>
       <a href={createLinkWithLocaleSubPath(urls.home, locale)}>
@@ -130,36 +159,7 @@ export const NavMenu: FC<Props> = (props) => {
       </a>
       <div className="stack-12">
         <div className="hr" />
-        <div className="stack-04">
-          <Text t="caption">
-            <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
-          </Text>
-          {!domain && (
-            <Text t="caption" color="lightest">
-              {props.address ? (
-                concatAddress(props.address)
-              ) : (
-                <Trans id="menu.not_connected">NOT CONNECTED</Trans>
-              )}
-            </Text>
-          )}
-          {domain && (
-            <div className="domain-wrapper">
-              {domain.image ? (
-                <img
-                  src={domain.image}
-                  alt="profile avatar"
-                  className="avatar"
-                />
-              ) : (
-                <div className="avatar" ref={svg} />
-              )}
-              <Text t="caption" color="lightest" className="domain-name">
-                {domain.name}
-              </Text>
-            </div>
-          )}
-        </div>
+        <Address domains={domains} address={props.address} />
         <div className="hr" />
       </div>
       <MenuButton
