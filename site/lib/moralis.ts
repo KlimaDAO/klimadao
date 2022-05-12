@@ -1,12 +1,5 @@
-import Moralis from "moralis/node.js";
 import { putPledgeParams } from "queries/pledge";
 import * as yup from "yup";
-
-export const MoralisClient = Moralis.start({
-  appId: process.env.NEXT_PUBLIC_MORALIS_APP_ID,
-  serverUrl: process.env.NEXT_PUBLIC_MORALIS_SERVER_URL,
-  masterKey: process.env.MORALIS_SECRET,
-});
 
 export type Footprint = {
   timestamp: number;
@@ -60,42 +53,4 @@ export const pledgeResolver = (pledge: Pledge): PledgeFormValues => {
     methodology: pledge.methodology || "",
     footprint: currentFootprint as number,
   };
-};
-
-// Moralis queries
-export const getPledgeByAddress = async (address: string) => {
-  await MoralisClient;
-
-  const Pledge = Moralis.Object.extend("Pledge");
-  const query = new Moralis.Query(Pledge);
-
-  return await query.equalTo("address", address).first();
-};
-
-export const findOrCreatePledge = async (params: putPledgeParams) => {
-  await MoralisClient;
-
-  const Pledge = Moralis.Object.extend("Pledge");
-  const pledgeObject = params.pledge.objectId
-    ? await new Moralis.Query(Pledge).get(params.pledge.objectId)
-    : new Pledge();
-
-  const currentFootprint = pledgeObject.get("footprint");
-  const footprint =
-    params.pledge.objectId && currentFootprint
-      ? buildFootprint(currentFootprint, params.pledge.footprint)
-      : [{ timestamp: Date.now(), total: params.pledge.footprint }];
-
-  pledgeObject.set({ ...params.pledge, footprint });
-
-  return await pledgeObject.save(null, { useMasterKey: true });
-};
-
-const buildFootprint = (
-  currentFootprint: Footprint[],
-  newFootprint: number
-): Footprint[] => {
-  if (currentFootprint.at(-1)?.total === newFootprint) return currentFootprint;
-
-  return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
 };

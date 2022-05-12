@@ -55,10 +55,7 @@ export const PledgeForm: FC<Props> = (props) => {
         pledge: values,
         signature: "boo",
       });
-
-      console.log({ response });
       const data = await response.json();
-      console.log({ data });
 
       props.onFormSubmit(data.pledge);
       reset(data.pledge);

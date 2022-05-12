@@ -2,7 +2,6 @@ import "@klimadao/lib/theme/variables.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/globals.css";
 import type { AppProps } from "next/app";
-import { MoralisProvider } from "react-moralis";
 import { useEffect, useRef } from "react";
 
 import { I18nProvider } from "@lingui/react";
@@ -49,18 +48,13 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }, [locale]);
 
   return (
-    <MoralisProvider
-      appId={process.env.NEXT_PUBLIC_MORALIS_APP_ID as string}
-      serverUrl={process.env.NEXT_PUBLIC_MORALIS_SERVER_URL as string}
-    >
-      <Web3ContextProvider>
-        <I18nProvider i18n={i18n}>
-          <GridContainer>
-            <Component {...pageProps} />
-          </GridContainer>
-        </I18nProvider>
-      </Web3ContextProvider>
-    </MoralisProvider>
+    <Web3ContextProvider>
+      <I18nProvider i18n={i18n}>
+        <GridContainer>
+          <Component {...pageProps} />
+        </GridContainer>
+      </I18nProvider>
+    </Web3ContextProvider>
   );
 }
 
