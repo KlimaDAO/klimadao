@@ -6,7 +6,7 @@ import { getRetirementIndexInfo } from "@klimadao/lib/utils";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 
-import { SingleRetirementPage } from "components/pages/Retirement/SingleRetirement";
+import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
 import { IS_PRODUCTION } from "lib/constants";
 
