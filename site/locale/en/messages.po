@@ -652,27 +652,55 @@ msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:58
+#: components/pages/Retirement/Footer/index.tsx:49
+msgid "retirement.button.buy"
+msgstr "Buy KLIMA"
+
+#: components/pages/Retirement/Footer/index.tsx:53
+msgid "retirement.button.learnMore"
+msgstr "Learn More"
+
+#: components/pages/Retirement/Footer/index.tsx:25
+msgid "retirement.footer.aboutKlima.learnMore"
+msgstr "Learn more about carbon offsetting, carbon markets, and the underlying assets in our <0>knowledge base</0>."
+
+#: components/pages/Retirement/Footer/index.tsx:17
+msgid "retirement.footer.aboutKlima.stake"
+msgstr "Stake your KLIMA to earn rewards, and use those rewards to offset!"
+
+#: components/pages/Retirement/Footer/index.tsx:12
+msgid "retirement.footer.aboutKlima.title"
+msgstr "About Klima"
+
+#: components/pages/Retirement/Footer/index.tsx:41
+msgid "retirement.footer.buyKlima.text"
+msgstr "KLIMA tokens can be used to swap and retire a variety of high-quality, transparent, third-party verified carbon offsets. Stake your KLIMA to earn rewards, and use those rewards to offset!"
+
+#: components/pages/Retirement/Footer/index.tsx:36
+msgid "retirement.footer.buyKlima.title"
+msgstr "KLIMA is the easiest way to reach your sustainability goals."
+
+#: components/pages/Retirement/SingleRetirement/index.tsx:60
 msgid "retirement.head.metaTitle"
 msgstr "Your retirement number {retirementTotals} for address: {beneficiaryAddress}"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:53
+#: components/pages/Retirement/SingleRetirement/index.tsx:55
 msgid "retirement.head.title"
 msgstr "Your retirement number {retirementTotals} for address: {beneficiaryAddress}"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:93
+#: components/pages/Retirement/SingleRetirement/index.tsx:96
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:101
+#: components/pages/Retirement/SingleRetirement/index.tsx:105
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:140
+#: components/pages/Retirement/SingleRetirement/index.tsx:144
 msgid "retirement.single.description"
 msgstr "This represents the permanent on-chain retirement of tokenized carbon assets. This data is written publically and immutably on the Polygon blockchain. Our open-source, permissionless, decentralized system ensures that these tokens or the underlying offsets can never be retired more than once."
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:74
+#: components/pages/Retirement/SingleRetirement/index.tsx:76
 msgid "retirement.single.header.offset"
 msgstr "Offset"
 
@@ -680,11 +708,11 @@ msgstr "Offset"
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:132
+#: components/pages/Retirement/SingleRetirement/index.tsx:136
 msgid "retirement.single.retirementCertificate.link"
 msgstr "...coming soon"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:127
+#: components/pages/Retirement/SingleRetirement/index.tsx:131
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 
@@ -696,11 +724,11 @@ msgstr "Date"
 msgid "retirement.single.value.title"
 msgstr "Value"
 
-#: components/pages/Retirement/index.tsx:30
+#: components/pages/Retirement/index.tsx:31
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDao - Your total retirements for address: {beneficiaryAddress}"
 
-#: components/pages/Retirement/index.tsx:25
+#: components/pages/Retirement/index.tsx:26
 msgid "retirement.totals.head.title"
 msgstr "KlimaDao - Your total retirements for address: {beneficiaryAddress}"
 
@@ -755,8 +783,8 @@ msgstr "Enter App"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirement/SingleRetirement/index.tsx:63
-#: components/pages/Retirement/index.tsx:35
+#: components/pages/Retirement/SingleRetirement/index.tsx:65
+#: components/pages/Retirement/index.tsx:36
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
