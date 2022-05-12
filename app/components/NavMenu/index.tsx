@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect, useRef, useState } from "react";
+import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectBalances, selectLocale, selectDomain } from "state/selectors";
 import { Trans } from "@lingui/macro";
@@ -34,54 +34,54 @@ import { createLinkWithLocaleSubPath } from "lib/i18n";
 import * as styles from "./styles";
 import { Domain } from "state/user";
 
-
 interface AddressProps {
   address: string | undefined;
-  domains: {
-    knsDomain: Domain;
-    ensDomain: Domain;
-  } | undefined;
+  domains:
+    | {
+        knsDomain: Domain;
+        ensDomain: Domain;
+      }
+    | undefined;
 }
 const Address: FC<AddressProps> = (props) => {
   let domain = undefined;
   if (props.domains?.knsDomain && props.domains?.knsDomain.name) {
     domain = props.domains.knsDomain;
   } else if (props.domains?.ensDomain && props.domains?.ensDomain.name) {
-    domain = props. domains.ensDomain;
+    domain = props.domains.ensDomain;
   }
-  return  (
+  return (
     <div className="stack-04">
-          <Text t="caption">
-            <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
+      <Text t="caption">
+        <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
+      </Text>
+      {!domain && (
+        <Text t="caption" color="lightest">
+          {props.address ? (
+            concatAddress(props.address)
+          ) : (
+            <Trans id="menu.not_connected">NOT CONNECTED</Trans>
+          )}
+        </Text>
+      )}
+      {domain && (
+        <div className="domain-wrapper">
+          {domain.image ? (
+            <img src={domain.image} alt="profile avatar" className="avatar" />
+          ) : (
+            <div
+              className="avatar"
+              dangerouslySetInnerHTML={{ __html: domain.defaultImage ?? "" }}
+            />
+          )}
+          <Text t="caption" color="lightest" className="domain-name">
+            {domain.name}
           </Text>
-          {!domain && (
-            <Text t="caption" color="lightest">
-              {props.address ? (
-                concatAddress(props.address)
-              ) : (
-                <Trans id="menu.not_connected">NOT CONNECTED</Trans>
-              )}
-            </Text>
-          )}
-          {domain && (
-            <div className="domain-wrapper">
-              {domain.image ? (
-                <img
-                  src={domain.image}
-                  alt="profile avatar"
-                  className="avatar"
-                />
-              ) : (
-                <div className="avatar" dangerouslySetInnerHTML={{ __html: domain.defaultImage ?? "" }} />
-              )}
-              <Text t="caption" color="lightest" className="domain-name">
-                {domain.name}
-              </Text>
-            </div>
-          )}
         </div>
-  )
-}
+      )}
+    </div>
+  );
+};
 
 interface MenuButtonProps {
   icon: ReactElement;
