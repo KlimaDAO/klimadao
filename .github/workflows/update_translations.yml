@@ -50,8 +50,8 @@ jobs:
           npm --version &&
           npm list -g --depth 0
 
-      - name: Install packages
-        run: npm install
+      - name: Install packages without postinstall
+        run: npm install --ignore-scripts
 
       - name: Extract Translation strings and sync with translation.io
         run: npm run extract-strings
