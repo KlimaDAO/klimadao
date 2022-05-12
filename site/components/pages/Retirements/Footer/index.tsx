@@ -1,8 +1,11 @@
 import { FC } from "react";
+import Image from "next/image";
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
+
+import droneView from "public/drone_view.png";
 
 export const RetirementFooter: FC = () => {
   return (
@@ -32,6 +35,13 @@ export const RetirementFooter: FC = () => {
         </div>
       </div>
       <div className={styles.footerBuyKlima}>
+        <Image
+          alt="Drone View"
+          src={droneView}
+          layout="fill"
+          objectFit="cover"
+        />
+        <div className={styles.buyKlimaImageGradient}></div>
         <Text t="h2" as="h2" className={styles.footerBuyKlimaText}>
           <Trans id="retirement.footer.buyKlima.title">
             KLIMA is the easiest way to reach your sustainability goals.

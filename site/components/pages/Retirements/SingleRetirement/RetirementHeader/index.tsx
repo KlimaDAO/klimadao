@@ -4,6 +4,7 @@ import * as styles from "./styles";
 import { FC, ReactNode } from "react";
 
 import leafImage from "public/leaf.png";
+import greenHills from "public/green_hills.png";
 
 type Props = {
   title: ReactNode;
@@ -13,6 +14,12 @@ type Props = {
 export const RetirementHeader: FC<Props> = ({ title, subline }) => {
   return (
     <div className={styles.retirementHeader}>
+      <Image
+        alt="Green Hill"
+        src={greenHills}
+        layout="fill"
+        objectFit="cover"
+      />
       <Image alt="Leaf Picture" width={32} height={32} src={leafImage} />
       <Text t="h2" align="center" className={styles.retirementHeaderText}>
         {title}

@@ -43,12 +43,11 @@ export const footerContent = css`
 `;
 
 export const footerBuyKlima = css`
+  position: relative;
+  overflow: hidden;
+
   grid-column: main;
   padding: 8rem 2.4rem 6rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/drone_view.png");
-  background-position: center;
-  background-size: cover;
   border-radius: 1.2rem 1.2rem 0 0;
   display: flex;
   justify-content: center;
@@ -63,7 +62,18 @@ export const footerBuyKlima = css`
   }
 `;
 
+export const buyKlimaImageGradient = css`
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
 export const footerBuyKlimaText = css`
+  z-index: 2;
   ${breakpoints.large} {
     max-width: 70%;
     color: var(--white);
@@ -71,6 +81,7 @@ export const footerBuyKlimaText = css`
 `;
 
 export const footerButtons = css`
+  z-index: 2;
   padding-top: 2rem;
   display: flex;
   justify-content: center;
