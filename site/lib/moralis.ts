@@ -14,25 +14,32 @@ export type Footprint = {
 };
 
 export type Pledge = {
-  objectId: string;
-  address: string;
+  id: string;
+  ownerAddress: string;
   name: string;
-  pledge: string;
+  description: string;
   methodology: string;
   footprint: Footprint[];
 };
 
 export const formSchema = yup
   .object({
-    objectId: yup.string().nullable(),
-    address: yup.string().required(),
+    id: yup.string().uuid(),
+    ownerAddress: yup.string().required(),
     name: yup.string().required("Enter a name"),
-    pledge: yup.string().required("Enter a pledge").max(280),
-    methodology: yup.string().required("Enter a methodology").max(280),
+    description: yup
+      .string()
+      .required("Enter a pledge")
+      .max(280, "Enter less than 280 characters"),
+    methodology: yup
+      .string()
+      .required("Enter a methodology")
+      .max(280, "Enter less than 280 characters"),
     footprint: yup
       .number()
-      .required("Enter your footprint")
-      .min(1, "Enter a value greater than 1"),
+      .typeError("Enter your estimated carbon footprint")
+      .required("Enter your estimated carbon footprint")
+      .min(1, "Value needs to be greater than 1"),
   })
   .noUnknown();
 
@@ -43,11 +50,13 @@ export const pledgeResolver = (pledge: Pledge): PledgeFormValues => {
     ? pledge.footprint.at(-1)?.total
     : 0;
 
+    console.log({pledge})
+
   return {
-    objectId: pledge.objectId,
-    address: pledge.address || "",
+    id: pledge.id || "",
+    ownerAddress: pledge.ownerAddress || "",
     name: pledge.name || "",
-    pledge: pledge.pledge || "",
+    description: pledge.description || "",
     methodology: pledge.methodology || "",
     footprint: currentFootprint as number,
   };
@@ -65,11 +74,6 @@ export const getPledgeByAddress = async (address: string) => {
 
 export const findOrCreatePledge = async (params: putPledgeParams) => {
   await MoralisClient;
-
-  if (!params.sessionToken) throw new Error("Unauthorized");
-
-  const userSession = await findUserSession(params.sessionToken);
-  if (!userSession) throw new Error("Invalid Session");
 
   const Pledge = Moralis.Object.extend("Pledge");
   const pledgeObject = params.pledge.objectId
@@ -94,11 +98,4 @@ const buildFootprint = (
   if (currentFootprint.at(-1)?.total === newFootprint) return currentFootprint;
 
   return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
-};
-
-export const findUserSession = async (sessionToken: string) => {
-  const query = new Moralis.Query("_Session");
-  return await query
-    .equalTo("sessionToken", sessionToken)
-    .first({ useMasterKey: true });
 };

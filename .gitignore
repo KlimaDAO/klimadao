@@ -47,4 +47,5 @@ yarn-error.log*
 # jetbrains
 .idea
 
-
+# firebase
+firebaseServiceAccountFile.json

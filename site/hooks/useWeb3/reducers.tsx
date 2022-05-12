@@ -6,6 +6,7 @@ export type Web3ProviderState = {
   web3Provider: ethers.providers.Web3Provider | null | undefined;
   address: string | null | undefined;
   network: ethers.providers.Network | null | undefined;
+  isConnected: boolean;
   connect?: () => Promise<void>;
   disconnect?: () => Promise<void>;
 };
@@ -15,6 +16,7 @@ export const web3InitialState: Web3ProviderState = {
   web3Provider: null,
   address: null,
   network: null,
+  isConnected: false,
 };
 
 export type Web3Action =
@@ -24,6 +26,7 @@ export type Web3Action =
       web3Provider?: Web3ProviderState["web3Provider"];
       address?: Web3ProviderState["address"];
       network?: Web3ProviderState["network"];
+      isConnected: Web3ProviderState["isConnected"];
     }
   | {
       type: "SET_ADDRESS";
@@ -49,6 +52,7 @@ export function web3Reducer(
         web3Provider: action.web3Provider,
         address: action.address,
         network: action.network,
+        isConnected: action.isConnected,
       };
     case "SET_ADDRESS":
       return {

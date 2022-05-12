@@ -1,7 +1,8 @@
 import { GetStaticProps } from "next";
 
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
-import { getPledgeByAddress, pledgeResolver } from "lib/moralis";
+import { pledgeResolver } from "lib/moralis";
+import { getPledgeByAddress } from "components/pages/Pledge/utils";
 import { loadTranslation } from "lib/i18n";
 import { IS_PRODUCTION } from "lib/constants";
 
@@ -20,6 +21,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
     const data = await getPledgeByAddress(address.toLowerCase());
 
+    console.log("page", data);
+
     if (!data) throw new Error("Not found");
     pledge = pledgeResolver(JSON.parse(JSON.stringify(data)));
   } catch (error) {
@@ -31,7 +34,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       pageAddress: address.toLowerCase(),
       pledge: {
         ...pledge,
-        address: pledge?.address || address.toLowerCase(),
+        ownerAddress: pledge?.ownerAddress || address.toLowerCase(),
       },
       translation,
     },

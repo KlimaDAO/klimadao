@@ -14,8 +14,8 @@ type Props = {
 };
 
 export const PledgeLayout: FC<Props> = (props) => {
-  const { address, connect, disconnect } = useWeb3();
-  const isConnected = Boolean(address);
+  const values = useWeb3();
+  const isConnected = Boolean(values.address);
 
   return (
     <div className={styles.pageContainer}>
@@ -30,9 +30,12 @@ export const PledgeLayout: FC<Props> = (props) => {
             {props.buttons && props.buttons}
 
             {isConnected ? (
-              <ButtonPrimary label={address} onClick={disconnect} />
+              <ButtonPrimary
+                label={values.address}
+                onClick={values.disconnect}
+              />
             ) : (
-              <ButtonPrimary label="Connect" onClick={connect} />
+              <ButtonPrimary label="Connect" onClick={values.connect} />
             )}
           </div>
         </div>

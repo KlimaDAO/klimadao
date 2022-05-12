@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
-import { findOrCreatePledge, pledgeResolver } from "lib/moralis";
+import { pledgeResolver } from "lib/moralis";
+import { findOrCreatePledge } from 'components/pages/Pledge/utils'
 
 export default async function handler(
   req: NextApiRequest,
@@ -14,9 +15,6 @@ export default async function handler(
           signature,
         });
         const pledge = JSON.parse(JSON.stringify(data));
-
-        // init firebase admin
-        // function verify
 
         res.status(200).json({ pledge: pledgeResolver(pledge) });
       } catch (error) {

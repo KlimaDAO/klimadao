@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useMoralis } from "react-moralis";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 
@@ -19,6 +18,7 @@ import {
 import { PledgeForm } from "./PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import * as styles from "./styles";
+import { useWeb3 } from "hooks/useWeb3";
 
 type Props = {
   pageAddress: string;
@@ -40,25 +40,25 @@ const defaultValues = (pledge: PledgeFormValues): PledgeFormValues =>
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const router = useRouter();
-  const { isAuthenticated, user } = useMoralis();
+  const { address, isConnected } = useWeb3();
   const [showModal, setShowModal] = useState(false);
   const [validAddress, setValidAddress] = useState(false);
   const [pledge, setPledge] = useState<PledgeFormValues>(
     defaultValues(props.pledge)
   );
 
-  const canEditPledge =
-    isAuthenticated && user?.get("ethAddress") === props.pageAddress;
+  const canEditPledge = address?.toLowerCase() === props.pageAddress;
 
-  const buttons = canEditPledge
-    ? [
-        <ButtonPrimary
-          key="toggleModal"
-          label="Edit Pledge"
-          onClick={() => setShowModal(!showModal)}
-        />,
-      ]
-    : [];
+  const buttons =
+    isConnected && canEditPledge
+      ? [
+          <ButtonPrimary
+            key="toggleModal"
+            label="Edit Pledge"
+            onClick={() => setShowModal(!showModal)}
+          />,
+        ]
+      : [];
 
   useEffect(() => {
     try {
@@ -91,11 +91,14 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               <Text t="h3" className="profileImage" align="center">
                 -
               </Text>
-              <Text t="h4">{pledge.name || concatAddress(pledge.address)}</Text>
+              <Text t="h4">
+                {pledge.name || concatAddress(pledge.ownerAddress)}
+              </Text>
+              {address}
             </div>
 
             <div className={styles.column}>
-              <PledgeCard pledge={pledge.pledge} />
+              <PledgeCard pledge={pledge.description} />
               <FootprintCard footprint={pledge.footprint} />
               <MethodologyCard methodology={pledge.methodology} />
             </div>

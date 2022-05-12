@@ -3,15 +3,15 @@ import { PledgeFormValues } from "lib/moralis";
 
 export type putPledgeParams = {
   pledge: PledgeFormValues;
-  sessionToken: string | undefined;
+  signature: string | undefined;
 };
 
-export const putPledge = (params: putPledgeParams) =>
-  fetch(`${API_BASE_URL}/api/pledge`, {
+export const putPledge = (params: putPledgeParams) => {
+  return fetch(`${API_BASE_URL}/api/pledge`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${params.sessionToken}`,
+      Authorization: `Bearer ${params.signature}`,
     },
     body: JSON.stringify(params.pledge),
-  });
+  })};

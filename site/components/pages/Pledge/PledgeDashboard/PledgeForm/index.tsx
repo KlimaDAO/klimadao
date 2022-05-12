@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-import { useMoralis } from "react-moralis";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -16,14 +15,14 @@ type Props = {
   onFormSubmit: (data: PledgeFormValues) => void;
 };
 
-// temporarily duplicated due to weird iteraction with moralis-sdk resulting in a breaking build
+// temporarily duplicated due to weird interaction with moralis-sdk resulting in a breaking build
 // we should be able to export the schema object from another file
 const schema = yup
   .object({
     objectId: yup.string().nullable(),
-    address: yup.string().required(),
+    ownerAddress: yup.string().required(),
     name: yup.string().required("Enter a name"),
-    pledge: yup
+    description: yup
       .string()
       .required("Enter a pledge")
       .max(280, "Enter less than 280 characters"),
@@ -40,7 +39,6 @@ const schema = yup
   .noUnknown();
 
 export const PledgeForm: FC<Props> = (props) => {
-  const { user } = useMoralis();
   const [serverError, setServerError] = useState(false);
   const { register, handleSubmit, formState, reset } =
     useForm<PledgeFormValues>({
@@ -55,9 +53,12 @@ export const PledgeForm: FC<Props> = (props) => {
     try {
       const response = await putPledge({
         pledge: values,
-        sessionToken: user?.getSessionToken(),
+        signature: "boo",
       });
+
+      console.log({ response });
       const data = await response.json();
+      console.log({ data });
 
       props.onFormSubmit(data.pledge);
       reset(data.pledge);
@@ -88,8 +89,8 @@ export const PledgeForm: FC<Props> = (props) => {
         label="Pledge"
         rows={2}
         placeholder="What is your pledge?"
-        errors={formState.errors.pledge}
-        {...register("pledge")}
+        errors={formState.errors.description}
+        {...register("description")}
       />
 
       <TextareaField
