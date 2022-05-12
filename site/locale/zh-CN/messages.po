@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-11 15:42+0000\n"
+"POT-Creation-Date: 2022-05-12 15:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -727,7 +727,7 @@ msgstr "主页"
 #: components/Navigation/index.tsx:53
 #: components/Navigation/index.tsx:78
 msgid "shared.loveletters"
-msgstr "地球情书"
+msgstr "Love Letters"
 
 #: components/Navigation/index.tsx:57
 #: components/Navigation/index.tsx:82
