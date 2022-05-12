@@ -8,7 +8,6 @@ import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
-import { IS_PRODUCTION } from "lib/constants";
 
 interface Params extends ParsedUrlQuery {
   beneficiary_address: string;
@@ -31,10 +30,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   ctx
 ) => {
   try {
-    if (IS_PRODUCTION) {
-      throw new Error("Not on Staging");
-    }
-
     const { params, locale } = ctx;
 
     if (

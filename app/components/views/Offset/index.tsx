@@ -62,7 +62,6 @@ import NBO from "public/icons/NBO.png";
 
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
-import { IS_PRODUCTION } from "lib/constants";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 
 interface ButtonProps {
@@ -684,7 +683,7 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
               </A>
             </Trans>
           </Text>
-          {!IS_PRODUCTION && props.retirementTotals && (
+          {props.retirementTotals && (
             <Text t="caption">
               <Trans id="offset.retirement_success_modal.view_on_klimadao">
                 View your retirement details on{" "}
