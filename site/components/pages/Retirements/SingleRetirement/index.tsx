@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import { Text, Section } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
+import { concatAddress } from "@klimadao/lib/utils";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -28,12 +29,7 @@ type Props = {
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
-  const {
-    beneficiaryAddress,
-    retirementTotals,
-    retirement,
-    retirementIndexInfo,
-  } = props;
+  const { beneficiaryAddress, retirement, retirementIndexInfo } = props;
 
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
 
@@ -54,19 +50,19 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         production={IS_PRODUCTION}
         title={t({
           id: "retirement.head.title",
-          message: `Your retirement number ${retirementTotals} for address: ${beneficiaryAddress}`,
-          values: { retirementTotals, beneficiaryAddress },
+          message: `KlimaDAO | Carbon Retirement Receipt`,
         })}
         mediaTitle={t({
           id: "retirement.head.metaTitle",
-          message: `Your retirement number ${retirementTotals} for address: ${beneficiaryAddress}`,
-          values: { retirementTotals, beneficiaryAddress },
+          message: `${
+            retireData.beneficiaryName || concatAddress(beneficiaryAddress)
+          } retired ${retireData.amount} Tonnes of carbon`,
         })}
         metaDescription={t({
-          id: "shared.head.description",
-          message:
-            "Drive climate action and earn rewards with a carbon-backed digital currency.",
+          id: "retirement.head.metaDescription",
+          message: "Transparent, on-chain offsets powered by KlimaDAO.",
         })}
+        mediaImageSrc="/og-media.png"
       />
       <Navigation activePage="Home" />
 
@@ -113,10 +109,10 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                       rel="noopener noreferrer"
                       href={`https://polygonscan.com/tx/${retireData.transactionID}`}
                     >
-                      {beneficiaryAddress}
+                      {concatAddress(beneficiaryAddress)}
                     </a>
                   ) : (
-                    { beneficiaryAddress }
+                    concatAddress(beneficiaryAddress)
                   )
                 }
               />
@@ -139,13 +135,13 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               />
             </div>
           </div>
-          <Text className={styles.data_description}>
+          <Text className={styles.data_description} t="body2" align="center">
             <Trans id="retirement.single.description">
               This represents the permanent on-chain retirement of tokenized
-              carbon assets. This data is written publically and immutably on
-              the Polygon blockchain. Our open-source, permissionless,
-              decentralized system ensures that these tokens or the underlying
-              offsets can never be retired more than once.
+              carbon assets. This data is written permanently on the public
+              Polygon blockchain. Our open-source system ensures that these
+              tokens or the underlying offsets can never be retired more than
+              once.
             </Trans>
           </Text>
         </div>

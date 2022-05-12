@@ -38,6 +38,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
+        mediaImageSrc="/og-media.png"
       />
       <Navigation activePage="Home" />
 
