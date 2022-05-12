@@ -47,6 +47,14 @@ msgstr "Blog"
 msgid "blog.head.title"
 msgstr "KlimaDAO Blog"
 
+#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:29
+msgid "button.copyURL.copied"
+msgstr "Copied"
+
+#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:31
+msgid "button.copyURL.copy"
+msgstr "Copy URL"
+
 #: components/pages/Buy/index.tsx:135
 #: components/pages/Buy/index.tsx:254
 msgid "buy.advanced"
@@ -680,31 +688,31 @@ msgstr "KLIMA tokens can be used to swap and retire a variety of high-quality, t
 msgid "retirement.footer.buyKlima.title"
 msgstr "KLIMA is the easiest way to reach your sustainability goals."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:61
+#: components/pages/Retirements/SingleRetirement/index.tsx:62
 msgid "retirement.head.metaDescription"
 msgstr "Transparent, on-chain offsets powered by KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:55
+#: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "retirement.head.metaTitle"
 msgstr "{0} retired {1} Tonnes of carbon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:51
+#: components/pages/Retirements/SingleRetirement/index.tsx:52
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Carbon Retirement Receipt"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:99
+#: components/pages/Retirements/SingleRetirement/index.tsx:101
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:138
+#: components/pages/Retirements/SingleRetirement/index.tsx:140
 msgid "retirement.single.description"
 msgstr "This represents the permanent on-chain retirement of tokenized carbon assets. This data is written permanently on the public Polygon blockchain. Our open-source system ensures that these tokens or the underlying offsets can never be retired more than once."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/index.tsx:72
 msgid "retirement.single.header.offset"
 msgstr "{0} {1} Offset"
 
@@ -712,11 +720,11 @@ msgstr "{0} {1} Offset"
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:130
+#: components/pages/Retirements/SingleRetirement/index.tsx:132
 msgid "retirement.single.retirementCertificate.link"
 msgstr "...coming soon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:125
+#: components/pages/Retirements/SingleRetirement/index.tsx:127
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 
@@ -727,6 +735,10 @@ msgstr "Date"
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.value.title"
 msgstr "Value"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:159
+msgid "retirement.single.viewOnPolygon"
+msgstr "View on Polygon"
 
 #: components/pages/Retirements/index.tsx:31
 msgid "retirement.totals.head.metaTitle"

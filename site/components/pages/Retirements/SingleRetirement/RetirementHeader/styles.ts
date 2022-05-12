@@ -5,7 +5,7 @@ export const retirementHeader = css`
   position: relative;
   overflow: hidden;
   grid-column: main;
-  padding: 2rem 0;
+  padding: 2.5rem 0;
   border-radius: 1.2rem 1.2rem 0 0;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@ export const retirementHeader = css`
   gap: 2.5rem;
 
   ${breakpoints.medium} {
-    padding: 8rem 0;
+    padding: 10rem 0;
   }
 `;
 

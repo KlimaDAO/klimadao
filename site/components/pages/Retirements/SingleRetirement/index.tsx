@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 
-import { Text, Section } from "@klimadao/lib/components";
+import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { concatAddress } from "@klimadao/lib/utils";
@@ -14,6 +14,7 @@ import { RetirementValue } from "./RetirementValue";
 import { RetirementDate } from "./RetirementDate";
 import { TextGroup } from "./TextGroup";
 import { RetirementFooter } from "../Footer";
+import { CopyURLButton } from "./CopyURLButton";
 
 import { IS_PRODUCTION } from "lib/constants";
 import { Trans, t } from "@lingui/macro";
@@ -144,6 +145,23 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               once.
             </Trans>
           </Text>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.sectionButtons}>
+        <div className={styles.sectionButtonsWrap}>
+          <CopyURLButton />
+          {retireData.transactionID && (
+            <ButtonPrimary
+              variant="gray"
+              href={`https://polygonscan.com/tx/${retireData.transactionID}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              label={t({
+                id: "retirement.single.viewOnPolygon",
+                message: "View on Polygon",
+              })}
+            />
+          )}
         </div>
       </Section>
       <RetirementFooter />
