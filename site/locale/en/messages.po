@@ -700,15 +700,19 @@ msgstr "{0} retired {1} Tonnes of carbon"
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Carbon Retirement Receipt"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:92
+#: components/pages/Retirements/SingleRetirement/index.tsx:103
+msgid "retirement.single.beneficiary.placeholder"
+msgstr "No beneficiary name provided"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:97
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:101
+#: components/pages/Retirements/SingleRetirement/index.tsx:111
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:140
+#: components/pages/Retirements/SingleRetirement/index.tsx:152
 msgid "retirement.single.description"
 msgstr "This represents the permanent on-chain retirement of tokenized carbon assets. This data is written permanently on the public Polygon blockchain. Our open-source system ensures that these tokens or the underlying offsets can never be retired more than once."
 
@@ -720,11 +724,11 @@ msgstr "{0} {1} Offset"
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:132
+#: components/pages/Retirements/SingleRetirement/index.tsx:144
 msgid "retirement.single.retirementCertificate.link"
 msgstr "...coming soon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:127
+#: components/pages/Retirements/SingleRetirement/index.tsx:139
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 
@@ -732,11 +736,19 @@ msgstr "Certificate"
 msgid "retirement.single.retirementDate.title"
 msgstr "Date"
 
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "retirement.single.retirementMessage.placeholder"
+msgstr "No retirement message provided"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:131
+msgid "retirement.single.timestamp.placeholder"
+msgstr "No retirement timestamp provided"
+
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.value.title"
 msgstr "Value"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:159
+#: components/pages/Retirements/SingleRetirement/index.tsx:171
 msgid "retirement.single.viewOnPolygon"
 msgstr "View on Polygon"
 

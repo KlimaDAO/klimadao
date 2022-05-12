@@ -76,9 +76,15 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           subline={retireData.beneficiaryName}
         />
         <div className={styles.retirementContent}>
-          {!!retireData.retirementMessage && (
-            <RetirementMessage message={retireData.retirementMessage} />
-          )}
+          <RetirementMessage
+            message={
+              retireData.retirementMessage ||
+              t({
+                id: "retirement.single.retirementMessage.placeholder",
+                message: "No retirement message provided",
+              })
+            }
+          />
           <RetirementValue
             value={retireData.amount}
             label={retireData.tokenLabel}
@@ -86,16 +92,20 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           />
           <div className={styles.metaData}>
             <div className="column">
-              {!!retireData.beneficiaryName && (
-                <TextGroup
-                  title={
-                    <Trans id="retirement.single.beneficiary.title">
-                      Beneficiary
-                    </Trans>
-                  }
-                  text={retireData.beneficiaryName}
-                />
-              )}
+              <TextGroup
+                title={
+                  <Trans id="retirement.single.beneficiary.title">
+                    Beneficiary
+                  </Trans>
+                }
+                text={
+                  retireData.beneficiaryName ||
+                  t({
+                    id: "retirement.single.beneficiary.placeholder",
+                    message: "No beneficiary name provided",
+                  })
+                }
+              />
               <TextGroup
                 title={
                   <Trans id="retirement.single.beneficiaryAddress.title">
@@ -115,9 +125,15 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               />
             </div>
             <div className="column">
-              {retireData.timestamp && (
-                <RetirementDate timestamp={retireData.timestamp} />
-              )}
+              <RetirementDate
+                timestamp={
+                  retireData.timestamp ||
+                  t({
+                    id: "retirement.single.timestamp.placeholder",
+                    message: "No retirement timestamp provided",
+                  })
+                }
+              />
               <TextGroup
                 title={
                   <Trans id="retirement.single.retirementCertificate.title">
