@@ -688,31 +688,31 @@ msgstr "Your retirement number {retirementTotals} for address: {beneficiaryAddre
 msgid "retirement.head.title"
 msgstr "Your retirement number {retirementTotals} for address: {beneficiaryAddress}"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:96
+#: components/pages/Retirement/SingleRetirement/index.tsx:95
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:105
+#: components/pages/Retirement/SingleRetirement/index.tsx:104
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:144
+#: components/pages/Retirement/SingleRetirement/index.tsx:143
 msgid "retirement.single.description"
 msgstr "This represents the permanent on-chain retirement of tokenized carbon assets. This data is written publically and immutably on the Polygon blockchain. Our open-source, permissionless, decentralized system ensures that these tokens or the underlying offsets can never be retired more than once."
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:76
+#: components/pages/Retirement/SingleRetirement/index.tsx:75
 msgid "retirement.single.header.offset"
-msgstr "Offset"
+msgstr "{0} {1} Offset"
 
 #: components/pages/Retirement/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:136
+#: components/pages/Retirement/SingleRetirement/index.tsx:135
 msgid "retirement.single.retirementCertificate.link"
 msgstr "...coming soon"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:131
+#: components/pages/Retirement/SingleRetirement/index.tsx:130
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 

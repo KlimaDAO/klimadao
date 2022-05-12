@@ -72,11 +72,10 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
 
       <Section variant="gray" className={styles.section}>
         <RetirementHeader
-          title={`
-            ${retireData.amount} ${retireData.tokenLabel} ${t({
+          title={t({
             id: "retirement.single.header.offset",
-            message: "Offset",
-          })}`}
+            message: `${retireData.amount} ${retireData.tokenLabel} Offset`,
+          })}
           subline={retireData.beneficiaryName}
         />
         <div className={styles.retirementContent}>
