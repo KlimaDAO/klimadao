@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-13 15:14+0000\n"
+"POT-Creation-Date: 2022-05-13 18:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -660,33 +660,33 @@ msgstr "<0>ДОБРО ПОЖАЛОВАТЬ</0> <1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Инвестируйте в будущее."
 
-#: components/pages/Retirements/Footer/index.tsx:59
-msgid "retirement.button.buy"
-msgstr "Купить KLIMA"
+#: components/pages/Retirements/Footer/index.tsx:26
+msgid "retirement.footer.aboutKlima.column1"
+msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:63
-msgid "retirement.button.learnMore"
-msgstr "УЗНАТЬ БОЛЬШЕ"
+#: components/pages/Retirements/Footer/index.tsx:35
+msgid "retirement.footer.aboutKlima.column2"
+msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:28
-msgid "retirement.footer.aboutKlima.learnMore"
-msgstr "Узнайте больше о компенсации выбросов углерода, углеродных рынках и базовых активах в нашей <0>knowledge base</0>"
-
-#: components/pages/Retirements/Footer/index.tsx:20
-msgid "retirement.footer.aboutKlima.stake"
-msgstr "Ставьте свою KLIMA, чтобы получать вознаграждения, и используйте эти вознаграждения для компенсации!"
-
-#: components/pages/Retirements/Footer/index.tsx:15
+#: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
 msgstr "О Климе"
 
-#: components/pages/Retirements/Footer/index.tsx:51
-msgid "retirement.footer.buyKlima.text"
-msgstr "Токены KLIMA можно использовать для обмена и погашения различных высококачественных, прозрачных, проверенных третьей стороной углеродных компенсаций. Стейкайте KLIMA, чтобы получать вознаграждения, и используйте их для компенсации!"
+#: components/pages/Retirements/Footer/index.tsx:66
+msgid "retirement.footer.buy_klima.button.buy"
+msgstr "Купить"
 
-#: components/pages/Retirements/Footer/index.tsx:46
-msgid "retirement.footer.buyKlima.title"
-msgstr "KLIMA - это самый простой способ достижения ваших целей в области устойчивого развития."
+#: components/pages/Retirements/Footer/index.tsx:73
+msgid "retirement.footer.buy_klima.button.offset"
+msgstr "Офсет"
+
+#: components/pages/Retirements/Footer/index.tsx:59
+msgid "retirement.footer.buy_klima.text"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:54
+msgid "retirement.footer.buy_klima.title"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:62
 msgid "retirement.head.metaDescription"
@@ -713,8 +713,8 @@ msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Адрес получателя"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:152
-msgid "retirement.single.description"
-msgstr "Это представляет собой постоянное списание токенизированных углеродных активов в сети. Эти данные постоянно записываются в общедоступную цепочку блоков Polygon. Наша система с открытым исходным кодом гарантирует, что эти токены или лежащие в их основе офсеты не могут быть удалены более одного раза."
+msgid "retirement.single.disclaimer"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:72
 msgid "retirement.single.header.offset"
@@ -748,9 +748,9 @@ msgstr "Не предоставлена время использования"
 msgid "retirement.single.value.title"
 msgstr "Ценность"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:171
-msgid "retirement.single.viewOnPolygon"
-msgstr "Посмотреть на Polygon"
+#: components/pages/Retirements/SingleRetirement/index.tsx:169
+msgid "retirement.single.view_on_polygon_scan"
+msgstr ""
 
 #: components/pages/Retirements/index.tsx:31
 msgid "retirement.totals.head.metaTitle"
