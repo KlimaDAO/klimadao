@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-12 15:43+0000\n"
+"POT-Creation-Date: 2022-05-13 15:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,7 +60,7 @@ msgstr "网络错误"
 msgid "[coming soon]"
 msgstr "[敬请期待]"
 
-#: components/views/Offset/index.tsx:746
+#: components/views/Offset/index.tsx:748
 msgid "advanced"
 msgstr "更多细节"
 
@@ -437,7 +437,7 @@ msgid "offset.empty"
 msgstr "此地址尚未完成任何碳停用。"
 
 #: components/views/Offset/index.tsx:507
-#: components/views/Offset/index.tsx:775
+#: components/views/Offset/index.tsx:777
 msgid "offset.enter_address"
 msgstr "输入 0x 地址"
 
@@ -469,11 +469,11 @@ msgstr "输入要抵消的数量"
 msgid "offset.retire_carbon"
 msgstr "碳停用"
 
-#: components/views/Offset/index.tsx:753
+#: components/views/Offset/index.tsx:755
 msgid "offset.retire_specific"
 msgstr "停用特定项目代币"
 
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:761
 msgid "offset.retire_specific_tooltip"
 msgstr "需支付的额外费用，由所选矿池和需支付给链接桥供应商的费用来确定。"
 
@@ -577,6 +577,10 @@ msgstr "代币总供应量的百分比。指数调整后的索赔不得超过此
 msgid "pklima.update"
 msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之前获得的代币，并挣得奖励。在11月合约修复之前，这些质押奖励不计入供应份额限制，就是说您在 KLIMA 总供应量中持有的份额，可能会超过条款定义中限定的份额。"
 
+#: components/views/Offset/index.tsx:689
+msgid "retirementSuccessModal.viewOnKlimadao"
+msgstr ""
+
 #: components/views/Bond/index.tsx:344
 #: components/views/Offset/index.tsx:311
 #: components/views/Stake/index.tsx:164
@@ -588,7 +592,7 @@ msgstr "批准"
 msgid "shared.balances"
 msgstr "余额"
 
-#: components/ChangeLanguageButton/index.tsx:73
+#: components/ChangeLanguageButton/index.tsx:75
 msgid "shared.change_language"
 msgstr "变更语言"
 

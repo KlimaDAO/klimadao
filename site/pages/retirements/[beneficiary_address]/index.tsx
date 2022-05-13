@@ -6,7 +6,7 @@ import { IS_PRODUCTION } from "lib/constants";
 import { getRetirements } from "@klimadao/lib/utils";
 import { RetirementsResult } from "@klimadao/lib/types/offset";
 
-import { RetirementPage } from "components/pages/Retirement";
+import { RetirementPage } from "components/pages/Retirements";
 import { loadTranslation } from "lib/i18n";
 
 interface Params extends ParsedUrlQuery {

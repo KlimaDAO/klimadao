@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { providers } from "ethers";
-import styles from "./index.module.css";
+import * as styles from "./styles";
+
 import { AddressInfo } from "..";
 
 interface Props {

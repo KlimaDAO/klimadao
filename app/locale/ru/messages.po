@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-12 15:43+0000\n"
+"POT-Creation-Date: 2022-05-13 15:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,7 +60,7 @@ msgstr "Неверная сеть"
 msgid "[coming soon]"
 msgstr "[вскоре]"
 
-#: components/views/Offset/index.tsx:746
+#: components/views/Offset/index.tsx:748
 msgid "advanced"
 msgstr "Продвинутый"
 
@@ -443,7 +443,7 @@ msgid "offset.empty"
 msgstr "Этот адрес не завершил ни одного вывода."
 
 #: components/views/Offset/index.tsx:507
-#: components/views/Offset/index.tsx:775
+#: components/views/Offset/index.tsx:777
 msgid "offset.enter_address"
 msgstr "Введите 0x-адрес"
 
@@ -475,11 +475,11 @@ msgstr "Введите количество для офсета"
 msgid "offset.retire_carbon"
 msgstr "Вывод карбона"
 
-#: components/views/Offset/index.tsx:753
+#: components/views/Offset/index.tsx:755
 msgid "offset.retire_specific"
 msgstr "Вывести из обращения токены конкретного проекта"
 
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:761
 msgid "offset.retire_specific_tooltip"
 msgstr "За дополнительную плату, определяемую выбранным пулом и выплачиваемую поставщику бриджа."
 
@@ -583,6 +583,10 @@ msgstr "Процент от общего количества токенов. В
 msgid "pklima.update"
 msgstr "Обновленный контракт теперь предполагает, что держатели pKLIMA застейкали и заработали награды за ранее полученные токены. До ноябрьского исправления эти награды за стейкинг не учитывались в лимите доли поставок, что означало, что ваша доля в общем объеме поставок KLIMA могла превысить лимит, определенный в ваших условиях."
 
+#: components/views/Offset/index.tsx:689
+msgid "retirementSuccessModal.viewOnKlimadao"
+msgstr "Просмотреть информацию о своем использовании на сайте <0>klimadao.finance</0>"
+
 #: components/views/Bond/index.tsx:344
 #: components/views/Offset/index.tsx:311
 #: components/views/Stake/index.tsx:164
@@ -594,7 +598,7 @@ msgstr "Одобрить"
 msgid "shared.balances"
 msgstr "Балансы"
 
-#: components/ChangeLanguageButton/index.tsx:73
+#: components/ChangeLanguageButton/index.tsx:75
 msgid "shared.change_language"
 msgstr "измененить язык"
 

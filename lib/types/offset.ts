@@ -1,5 +1,5 @@
 import { BigNumber } from "ethers";
-import { InputToken } from "../constants";
+import { RetirementToken } from "../constants";
 interface GasUsed {
   type: string;
   hex: string;
@@ -72,7 +72,7 @@ export type RetirementIndexInfo = [
 
 export type RetirementIndexInfoResult = {
   tokenAddress: RetirementIndexInfo[0];
-  typeOfToken?: InputToken;
+  typeOfToken: RetirementToken;
   amount: string;
   beneficiaryName: RetirementIndexInfo[2];
   retirementMessage: RetirementIndexInfo[3];

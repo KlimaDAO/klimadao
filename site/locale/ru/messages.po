@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-12 15:43+0000\n"
+"POT-Creation-Date: 2022-05-13 15:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Articles"
 msgstr "Статьи"
 
-#: components/ChangeLanguageButton/index.tsx:66
+#: components/ChangeLanguageButton/index.tsx:68
 msgid "Change language"
 msgstr "измененить язык"
 
@@ -40,6 +40,14 @@ msgstr "Блог"
 #: components/pages/Blog/index.tsx:24
 msgid "blog.head.title"
 msgstr "Блог KlimaDAO"
+
+#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:29
+msgid "button.copyURL.copied"
+msgstr "Скопировано"
+
+#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:31
+msgid "button.copyURL.copy"
+msgstr "Скопировать URL"
 
 #: components/pages/Buy/index.tsx:135
 #: components/pages/Buy/index.tsx:254
@@ -521,7 +529,7 @@ msgstr "поддерживается Carbon"
 #. Long sentence
 #: components/pages/Home/index.tsx:165
 msgid "home.by_increasing_access"
-msgstr "Расширяя доступ и спрос на углеродные офсеты, мы делаем проекты в защиту климата более прибыльными, одновременно заставляя компании быстрее адаптироваться к реалиям изменения климата."
+msgstr "Увеличивая доступ и спрос на углеродные квоты, мы делаем проекты в защиту климата более прибыльными, одновременно заставляя компании быстрее адаптироваться к реалиям изменения климата."
 
 #: components/pages/Home/index.tsx:298
 msgid "home.cars_annual"
@@ -652,19 +660,103 @@ msgstr "<0>ДОБРО ПОЖАЛОВАТЬ</0> <1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Инвестируйте в будущее."
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:39
+#: components/pages/Retirements/Footer/index.tsx:59
+msgid "retirement.button.buy"
+msgstr "Купить KLIMA"
+
+#: components/pages/Retirements/Footer/index.tsx:63
+msgid "retirement.button.learnMore"
+msgstr "УЗНАТЬ БОЛЬШЕ"
+
+#: components/pages/Retirements/Footer/index.tsx:28
+msgid "retirement.footer.aboutKlima.learnMore"
+msgstr "Узнайте больше о компенсации выбросов углерода, углеродных рынках и базовых активах в нашей <0>knowledge base</0>"
+
+#: components/pages/Retirements/Footer/index.tsx:20
+msgid "retirement.footer.aboutKlima.stake"
+msgstr "Ставьте свою KLIMA, чтобы получать вознаграждения, и используйте эти вознаграждения для компенсации!"
+
+#: components/pages/Retirements/Footer/index.tsx:15
+msgid "retirement.footer.aboutKlima.title"
+msgstr "О Климе"
+
+#: components/pages/Retirements/Footer/index.tsx:51
+msgid "retirement.footer.buyKlima.text"
+msgstr "Токены KLIMA можно использовать для обмена и погашения различных высококачественных, прозрачных, проверенных третьей стороной углеродных компенсаций. Стейкайте KLIMA, чтобы получать вознаграждения, и используйте их для компенсации!"
+
+#: components/pages/Retirements/Footer/index.tsx:46
+msgid "retirement.footer.buyKlima.title"
+msgstr "KLIMA - это самый простой способ достижения ваших целей в области устойчивого развития."
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:62
+msgid "retirement.head.metaDescription"
+msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "retirement.head.metaTitle"
-msgstr "Ваш номер требования  {retirementTotals} для адреса: {beneficiaryAddress}"
+msgstr "{0} использование {1} Тонны углерода"
 
-#: components/pages/Retirement/SingleRetirement/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/index.tsx:52
 msgid "retirement.head.title"
-msgstr "Ваш номер требования  {retirementTotals} для адреса: {beneficiaryAddress}"
+msgstr "KlimaDAO | Квитанция о возврате углерода"
 
-#: components/pages/Retirement/index.tsx:30
+#: components/pages/Retirements/SingleRetirement/index.tsx:103
+msgid "retirement.single.beneficiary.placeholder"
+msgstr "Имя получателя не указано"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:97
+msgid "retirement.single.beneficiary.title"
+msgstr "Бенефициар"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:111
+msgid "retirement.single.beneficiaryAddress.title"
+msgstr "Адрес получателя"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:152
+msgid "retirement.single.description"
+msgstr "Это представляет собой постоянное списание токенизированных углеродных активов в сети. Эти данные постоянно записываются в общедоступную цепочку блоков Polygon. Наша система с открытым исходным кодом гарантирует, что эти токены или лежащие в их основе офсеты не могут быть удалены более одного раза."
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:72
+msgid "retirement.single.header.offset"
+msgstr "{0} {1} Смещение"
+
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
+msgid "retirement.single.message.title"
+msgstr "Сообщение о использовании"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:144
+msgid "retirement.single.retirementCertificate.link"
+msgstr "...вскоре"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:139
+msgid "retirement.single.retirementCertificate.title"
+msgstr "Сертификат"
+
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:19
+msgid "retirement.single.retirementDate.title"
+msgstr "Дата"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "retirement.single.retirementMessage.placeholder"
+msgstr "Сообщение об использовании не предоставлено"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:131
+msgid "retirement.single.timestamp.placeholder"
+msgstr "Не предоставлена время использования"
+
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
+msgid "retirement.single.value.title"
+msgstr "Ценность"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:171
+msgid "retirement.single.viewOnPolygon"
+msgstr "Посмотреть на Polygon"
+
+#: components/pages/Retirements/index.tsx:31
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDao - Ваша общая сумма требования по адресу: {beneficiaryAddress}"
 
-#: components/pages/Retirement/index.tsx:25
+#: components/pages/Retirements/index.tsx:26
 msgid "retirement.totals.head.title"
 msgstr "KlimaDao - Ваша общая сумма требования по адресу: {beneficiaryAddress}"
 
@@ -719,8 +811,7 @@ msgstr "Войдите в приложение"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirement/SingleRetirement/index.tsx:44
-#: components/pages/Retirement/index.tsx:35
+#: components/pages/Retirements/index.tsx:36
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"

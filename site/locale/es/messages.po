@@ -1,0 +1,832 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2022-05-13 15:14+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: es\n"
+
+#: components/pages/Blog/index.tsx:35
+msgid "Articles"
+msgstr ""
+
+#: components/ChangeLanguageButton/index.tsx:68
+msgid "Change language"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:276
+msgid "Enter App"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Blog/Post/index.tsx:95
+msgid "blog.disclaimer.description"
+msgstr ""
+
+#: components/pages/Blog/Post/index.tsx:92
+msgid "blog.disclaimer.title"
+msgstr ""
+
+#: components/pages/Blog/index.tsx:19
+msgid "blog.head.description"
+msgstr ""
+
+#: components/pages/Blog/index.tsx:18
+msgid "blog.head.headline"
+msgstr ""
+
+#: components/pages/Blog/index.tsx:17
+#: components/pages/Blog/index.tsx:24
+msgid "blog.head.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:29
+msgid "button.copyURL.copied"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:31
+msgid "button.copyURL.copy"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:135
+#: components/pages/Buy/index.tsx:254
+msgid "buy.advanced"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:90
+#: components/pages/Buy/index.tsx:176
+msgid "buy.beginner"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:14
+msgid "buy.beginner_01.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:10
+msgid "buy.beginner_01.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:29
+msgid "buy.beginner_02.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:37
+msgid "buy.beginner_02.description_02"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:25
+msgid "buy.beginner_02.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:51
+msgid "buy.beginner_03.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:57
+msgid "buy.beginner_03.description_2"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:47
+msgid "buy.beginner_03.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:72
+msgid "buy.beginner_04.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:79
+msgid "buy.beginner_04.description_02"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:68
+msgid "buy.beginner_04.title"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:97
+msgid "buy.beginner_05.description_01"
+msgstr ""
+
+#: components/pages/Buy/CreditCardTimeline/index.tsx:93
+msgid "buy.beginner_05.title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:132
+#: components/pages/Buy/index.tsx:257
+msgid "buy.bonding"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:260
+msgid "buy.bonding.description_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:268
+msgid "buy.bonding.description_02"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:87
+#: components/pages/Buy/index.tsx:179
+msgid "buy.credit_card"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:182
+msgid "buy.credit_card.summary"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:108
+msgid "buy.decentralized_exchange"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:210
+msgid "buy.dex"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:241
+msgid "buy.dex.how_zapper"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:214
+msgid "buy.dex.summary_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:221
+msgid "buy.dex.summary_02"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:146
+msgid "buy.disclaimer"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:151
+msgid "buy.disclaimer_01"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:161
+msgid "buy.disclaimer_02"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:48
+#: components/pages/Buy/index.tsx:49
+msgid "buy.head.title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:113
+#: components/pages/Buy/index.tsx:207
+msgid "buy.intermediate"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.subtitle"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:62
+msgid "buy.title"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:13
+msgid "buy.zapper_01.description_01"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:19
+msgid "buy.zapper_01.description_02"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:9
+msgid "buy.zapper_01.title"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:36
+msgid "buy.zapper_02.description_02"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:32
+msgid "buy.zapper_02.title"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:49
+msgid "buy.zapper_03.description_01"
+msgstr ""
+
+#: components/pages/Buy/ZapperTimeline/index.tsx:45
+msgid "buy.zapper_03.title"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:97
+msgid "community.become_a_partner"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:170
+msgid "community.bigcowg_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:159
+msgid "community.blockchainforclimatefondation_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:333
+msgid "community.come_on_in"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:236
+msgid "community.deltawave_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:288
+msgid "community.digitalcharityart_logo"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Community/index.tsx:348
+msgid "community.discord_is_where_we_share"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:258
+msgid "community.dovu_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:266
+msgid "community.eco_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:247
+msgid "community.etcgroup_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:381
+msgid "community.get_in_touch"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:203
+msgid "community.gitcoin_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:75
+msgid "community.head.headline"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:76
+msgid "community.head.subline"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:74
+#: components/pages/Resources/Community/index.tsx:81
+msgid "community.head.title"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Community/index.tsx:384
+msgid "community.if_you_ve_got_questions"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:336
+msgid "community.join_our_discord"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:323
+msgid "community.join_the_klima_community"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:94
+#: components/pages/Resources/Community/index.tsx:378
+msgid "community.lets_work_together"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:137
+msgid "community.moss_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:192
+msgid "community.oceandrop_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:277
+msgid "community.offsetra_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:214
+msgid "community.olympusdao_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:225
+msgid "community.openearth_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:130
+msgid "community.our_partners"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:181
+msgid "community.polygon_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:148
+msgid "community.toucan_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:299
+msgid "community.toughtforfood_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:113
+msgid "community.tree_grove"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Community/index.tsx:100
+msgid "community.we_work_with_traditionnal"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:64
+msgid "concat.careers"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:141
+msgid "contact.bug_reports"
+msgstr ""
+
+#. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
+#: components/pages/Resources/Contact/index.tsx:144
+msgid "contact.bug_reports.to_file_a_bug_report"
+msgstr ""
+
+#. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
+#: components/pages/Resources/Contact/index.tsx:67
+msgid "contact.careers.we_re_hiring"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:18
+msgid "contact.head.headline"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:19
+msgid "contact.head.subline"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:17
+#: components/pages/Resources/Contact/index.tsx:24
+msgid "contact.head.title"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:106
+msgid "contact.media"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Contact/index.tsx:109
+msgid "contact.media.if_you_are_a_journalist"
+msgstr ""
+
+#. Use this <0>Media Request Form</0>.
+#: components/pages/Resources/Contact/index.tsx:118
+msgid "contact.media.use_this_media_request_form"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:86
+msgid "contact.partnerships"
+msgstr ""
+
+#. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
+#: components/pages/Resources/Contact/index.tsx:89
+msgid "contact.partnerships.until_we_finish_building"
+msgstr ""
+
+#: components/pages/Resources/Contact/index.tsx:36
+msgid "contact.quest_and_support"
+msgstr ""
+
+#. Join our <0>community</0>
+#: components/pages/Resources/Contact/index.tsx:39
+msgid "contact.quest_and_support.join_our_community"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Resources/Contact/index.tsx:47
+msgid "contact.quest_and_support.join_our_discord_server"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:72
+msgid "disclaimer.1_an_offer_or_sollicitation"
+msgstr ""
+
+#: components/pages/Disclaimer/index.tsx:119
+msgid "disclaimer.1_meet_your_requirements"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:124
+msgid "disclaimer.2_be_available_on_an_uninterrupted"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:82
+msgid "disclaimer.2_financial_investment_or_trading_advice"
+msgstr ""
+
+#: components/pages/Disclaimer/index.tsx:133
+msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:40
+msgid "disclaimer.all_information_on_this_website"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:167
+msgid "disclaimer.any_action_you_take_upon_the_information"
+msgstr ""
+
+#: components/pages/Disclaimer/index.tsx:36
+msgid "disclaimer.disclaimer"
+msgstr ""
+
+#: components/pages/Disclaimer/index.tsx:19
+#: components/pages/Disclaimer/index.tsx:28
+msgid "disclaimer.head.title"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:110
+msgid "disclaimer.klimadao_and_its_suppliers"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:51
+msgid "disclaimer.klimadao_is_a_platform"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:138
+msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:186
+msgid "disclaimer.nothing_in_this_disclaimer"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:64
+msgid "disclaimer.nothing_in_this_platform"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:91
+msgid "disclaimer.the_service_available"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:197
+msgid "disclaimer.we_recommend_that_you_visit"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Disclaimer/index.tsx:152
+msgid "disclaimer.you_bear_full_responsibility"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:39
+msgid "error.404.page.text"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:36
+msgid "error.404.page.title"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:41
+msgid "error.500.page.text"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:36
+msgid "error.500.page.title"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:21
+msgid "error.page.404.head.title"
+msgstr ""
+
+#: components/pages/errors/Custom404.tsx:17
+msgid "error.page.404.title"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:21
+msgid "error.page.500.head.title"
+msgstr ""
+
+#: components/pages/errors/Custom500.tsx:17
+msgid "error.page.500.title"
+msgstr ""
+
+#: components/pages/Home/index.tsx:207
+msgid "home.backed_by_carbon"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:165
+msgid "home.by_increasing_access"
+msgstr ""
+
+#: components/pages/Home/index.tsx:298
+msgid "home.cars_annual"
+msgstr ""
+
+#: components/pages/Home/index.tsx:267
+msgid "home.equivalent_to"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:382
+msgid "home.every_klima_token_is_backed"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:105
+msgid "home.fight_climate_change"
+msgstr ""
+
+#: components/pages/Home/index.tsx:433
+msgid "home.get_exposure_to_the_growing_carbon_economy"
+msgstr ""
+
+#: components/pages/Home/index.tsx:430
+msgid "home.get_klima"
+msgstr ""
+
+#: components/pages/Home/index.tsx:281
+msgid "home.hectares_of_forest"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:150
+msgid "home.klima_is_a_black_hole"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:411
+msgid "home.klima_tokens_are_minted"
+msgstr ""
+
+#: components/pages/Home/index.tsx:81
+msgid "home.latest_news"
+msgstr ""
+
+#: components/pages/Home/index.tsx:136
+msgid "home.learn_more"
+msgstr ""
+
+#: components/pages/Home/index.tsx:313
+msgid "home.liters_if_gasoline"
+msgstr ""
+
+#: components/pages/Home/index.tsx:243
+msgid "home.massive impact"
+msgstr ""
+
+#: components/pages/Home/index.tsx:181
+msgid "home.mechanics"
+msgstr ""
+
+#: components/pages/Home/index.tsx:462
+msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:470
+msgid "home.newletter.get_the_latest_updates"
+msgstr ""
+
+#: components/pages/Home/index.tsx:487
+msgid "home.newletter.never_shared_never_spammed"
+msgstr ""
+
+#: components/pages/Home/index.tsx:481
+msgid "home.newletter.sign_up"
+msgstr ""
+
+#: components/pages/Home/index.tsx:467
+msgid "home.newsletter"
+msgstr ""
+
+#. <0>Reserve Asset</0><1>Of the carbon economy</1>
+#: components/pages/Home/index.tsx:370
+msgid "home.reserve_asset_of_the_carbon_economy"
+msgstr ""
+
+#: components/pages/Home/index.tsx:440
+msgid "home.see_tutorial"
+msgstr ""
+
+#: components/pages/Home/index.tsx:328
+msgid "home.source"
+msgstr ""
+
+#: components/pages/Home/index.tsx:225
+msgid "home.strong_incentives"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:184
+msgid "home.the_dao_sell_bonds"
+msgstr ""
+
+#. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
+#: components/pages/Home/index.tsx:254
+msgid "home.tons_of_carbon_absorbed_by_klimadao"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:157
+msgid "home.we_ve_kickstarted"
+msgstr ""
+
+#. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
+#: components/pages/Home/index.tsx:399
+msgid "home.weekly_rewards_for_token_holders"
+msgstr ""
+
+#. <0>WELCOME TO</0><1>KlimaDAO</1>
+#: components/pages/Home/index.tsx:92
+msgid "home.welcome_to_klimadao"
+msgstr ""
+
+#: components/pages/Home/index.tsx:355
+msgid "invest_in_the_future"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:59
+msgid "retirement.button.buy"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:63
+msgid "retirement.button.learnMore"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:28
+msgid "retirement.footer.aboutKlima.learnMore"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:20
+msgid "retirement.footer.aboutKlima.stake"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:15
+msgid "retirement.footer.aboutKlima.title"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:51
+msgid "retirement.footer.buyKlima.text"
+msgstr ""
+
+#: components/pages/Retirements/Footer/index.tsx:46
+msgid "retirement.footer.buyKlima.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:62
+msgid "retirement.head.metaDescription"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:56
+msgid "retirement.head.metaTitle"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:52
+msgid "retirement.head.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:103
+msgid "retirement.single.beneficiary.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:97
+msgid "retirement.single.beneficiary.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:111
+msgid "retirement.single.beneficiaryAddress.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:152
+msgid "retirement.single.description"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:72
+msgid "retirement.single.header.offset"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
+msgid "retirement.single.message.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:144
+msgid "retirement.single.retirementCertificate.link"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:139
+msgid "retirement.single.retirementCertificate.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:19
+msgid "retirement.single.retirementDate.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
+msgid "retirement.single.retirementMessage.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:131
+msgid "retirement.single.timestamp.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
+msgid "retirement.single.value.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:171
+msgid "retirement.single.viewOnPolygon"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:31
+msgid "retirement.totals.head.metaTitle"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:26
+msgid "retirement.totals.head.title"
+msgstr ""
+
+#: components/Footer/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:29
+#: components/pages/Resources/ResourcesHeader/index.tsx:64
+msgid "shared.blog"
+msgstr ""
+
+#: components/Footer/index.tsx:44
+msgid "shared.bond"
+msgstr ""
+
+#: components/Footer/index.tsx:37
+#: components/Navigation/index.tsx:44
+#: components/Navigation/index.tsx:70
+msgid "shared.buy"
+msgstr ""
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:70
+msgid "shared.community"
+msgstr ""
+
+#: components/Footer/index.tsx:56
+#: components/pages/Resources/ResourcesHeader/index.tsx:76
+msgid "shared.contact"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:110
+#: components/pages/Resources/Community/index.tsx:394
+#: components/pages/Resources/ResourcesHeader/index.tsx:51
+msgid "shared.contact_us"
+msgstr ""
+
+#: components/Footer/index.tsx:61
+msgid "shared.disclaimer"
+msgstr ""
+
+#: components/Footer/index.tsx:47
+msgid "shared.docs"
+msgstr ""
+
+#: components/Navigation/index.tsx:37
+#: components/pages/Home/index.tsx:113
+msgid "shared.enter_app"
+msgstr ""
+
+#: components/pages/Blog/index.tsx:25
+#: components/pages/Buy/index.tsx:50
+#: components/pages/Disclaimer/index.tsx:23
+#: components/pages/Home/index.tsx:66
+#: components/pages/Resources/Community/index.tsx:82
+#: components/pages/Resources/Contact/index.tsx:25
+#: components/pages/Retirements/index.tsx:36
+#: components/pages/errors/Custom404.tsx:25
+#: components/pages/errors/Custom500.tsx:25
+msgid "shared.head.description"
+msgstr ""
+
+#: components/Footer/index.tsx:32
+msgid "shared.home"
+msgstr ""
+
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:78
+msgid "shared.loveletters"
+msgstr ""
+
+#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:82
+msgid "shared.resources"
+msgstr ""
+
+#: components/Footer/index.tsx:41
+#: components/Navigation/index.tsx:49
+#: components/Navigation/index.tsx:74
+msgid "shared.stake"
+msgstr ""

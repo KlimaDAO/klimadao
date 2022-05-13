@@ -35,7 +35,7 @@ export const Navigation: FC<Props> = (props) => {
           <ButtonPrimary
             key="Enter App"
             label={t({ message: "Enter App", id: "shared.enter_app" })}
-            href={urls.app}
+            href={createLinkWithLocaleQuery(urls.app, locale)}
           />,
         ]}
       >

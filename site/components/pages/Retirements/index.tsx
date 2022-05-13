@@ -6,6 +6,7 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { RetirementsResult } from "@klimadao/lib/types/offset";
+import { RetirementFooter } from "./Footer";
 
 import { IS_PRODUCTION } from "lib/constants";
 import { t } from "@lingui/macro";
@@ -37,11 +38,12 @@ export const RetirementPage: NextPage<Props> = (props) => {
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
+        mediaImageSrc="/og-media.png"
       />
       <Navigation activePage="Home" />
 
       <Section variant="gray" className={styles.section}>
-        <div className={styles.retirementContainer}>
+        <div className={styles.retirementContent}>
           <div className={styles.retirement_textGroup}>
             <Text t="h2" as="h2" align="center">
               Retirements Total
@@ -63,6 +65,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
           </div>
         </div>
       </Section>
+      <RetirementFooter />
       <Footer />
     </>
   );

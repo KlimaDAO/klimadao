@@ -1,10 +1,10 @@
-import { addresses, InputToken } from "../../constants";
+import { addresses, RetirementToken } from "../../constants";
 
 const { mainnet } = addresses;
 
 export const getTypeofTokenByAddress = (
   tokenAddress: string
-): InputToken | undefined =>
+): RetirementToken =>
   Object.keys(mainnet).find(
-    (key) => mainnet[key as InputToken] === tokenAddress.toLowerCase()
-  ) as InputToken;
+    (key) => mainnet[key as RetirementToken] === tokenAddress.toLowerCase()
+  ) as RetirementToken;
