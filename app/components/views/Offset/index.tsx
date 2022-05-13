@@ -22,6 +22,7 @@ import {
   selectNotificationStatus,
   selectBalances,
   selectCarbonRetiredAllowance,
+  selectLocale,
 } from "state/selectors";
 import {
   changeApprovalTransaction,
@@ -63,6 +64,7 @@ import NBO from "public/icons/NBO.png";
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
+import { createLinkWithLocaleSubPath } from "lib/i18n";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -618,6 +620,7 @@ interface RetirementSuccessModalProps {
 }
 
 const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
+  const locale = useSelector(selectLocale);
   return (
     <div className={styles.retirementSuccessModal}>
       <div className="card">
@@ -689,7 +692,10 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
                 View your retirement details on{" "}
                 <A
                   target="_blank"
-                  href={`${urls.retirements}/${props.beneficiaryAddress}/${props.retirementTotals}`}
+                  href={createLinkWithLocaleSubPath(
+                    `${urls.retirements}/${props.beneficiaryAddress}/${props.retirementTotals}`,
+                    locale
+                  )}
                 >
                   klimadao.finance
                 </A>
