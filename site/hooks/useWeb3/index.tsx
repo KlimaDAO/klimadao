@@ -39,7 +39,7 @@ if (typeof window !== "undefined") {
   });
 }
 
-export const useWeb3 = () => {
+export const useWeb3State = () => {
   const [state, dispatch] = useReducer(web3Reducer, web3InitialState);
   const { provider, web3Provider, address, network, isConnected } = state;
 
@@ -110,11 +110,7 @@ export const useWeb3 = () => {
         }
       };
 
-      const handleDisconnect = (error: { code: number; message: string }) => {
-        // eslint-disable-next-line no-console
-        console.log("disconnect", error);
-        disconnect();
-      };
+      const handleDisconnect = () => disconnect();
 
       provider.on("accountsChanged", handleAccountsChanged);
       provider.on("chainChanged", handleChainChanged);

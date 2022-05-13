@@ -3,9 +3,9 @@ import { ethers } from "ethers";
 export type Web3ProviderState = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   provider: any;
-  web3Provider: ethers.providers.Web3Provider | null | undefined;
-  address: string | null | undefined;
-  network: ethers.providers.Network | null | undefined;
+  web3Provider: ethers.providers.Web3Provider | null;
+  address: string | null;
+  network: ethers.providers.Network | null;
   isConnected: boolean;
   connect?: () => Promise<void>;
   disconnect?: () => Promise<void>;
@@ -22,19 +22,19 @@ export const web3InitialState: Web3ProviderState = {
 export type Web3Action =
   | {
       type: "SET_WEB3_PROVIDER";
-      provider?: Web3ProviderState["provider"];
-      web3Provider?: Web3ProviderState["web3Provider"];
-      address?: Web3ProviderState["address"];
-      network?: Web3ProviderState["network"];
+      provider: Web3ProviderState["provider"];
+      web3Provider: Web3ProviderState["web3Provider"];
+      address: Web3ProviderState["address"];
+      network: Web3ProviderState["network"];
       isConnected: Web3ProviderState["isConnected"];
     }
   | {
       type: "SET_ADDRESS";
-      address?: Web3ProviderState["address"];
+      address: Web3ProviderState["address"];
     }
   | {
       type: "SET_NETWORK";
-      network?: Web3ProviderState["network"];
+      network: Web3ProviderState["network"];
     }
   | {
       type: "RESET_WEB3_PROVIDER";

@@ -18,7 +18,7 @@ import {
 import { PledgeForm } from "./PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import * as styles from "./styles";
-import { useWeb3 } from "hooks/useWeb3";
+import { useWeb3 } from "hooks/useWeb3/web3context";
 
 type Props = {
   pageAddress: string;
@@ -50,7 +50,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const canEditPledge = address?.toLowerCase() === props.pageAddress;
 
   const buttons =
-    isConnected && canEditPledge
+    canEditPledge && isConnected
       ? [
           <ButtonPrimary
             key="toggleModal"

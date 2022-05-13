@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
 
-import { useWeb3 } from "hooks/useWeb3";
+import { useWeb3 } from "hooks/useWeb3/web3context";
 import * as styles from "./styles";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
@@ -14,8 +14,7 @@ type Props = {
 };
 
 export const PledgeLayout: FC<Props> = (props) => {
-  const values = useWeb3();
-  const isConnected = Boolean(values.address);
+  const { address, connect, disconnect, isConnected } = useWeb3();
 
   return (
     <div className={styles.pageContainer}>
@@ -30,12 +29,9 @@ export const PledgeLayout: FC<Props> = (props) => {
             {props.buttons && props.buttons}
 
             {isConnected ? (
-              <ButtonPrimary
-                label={values.address}
-                onClick={values.disconnect}
-              />
+              <ButtonPrimary label={address} onClick={disconnect} />
             ) : (
-              <ButtonPrimary label="Connect" onClick={values.connect} />
+              <ButtonPrimary label="Connect" onClick={connect} />
             )}
           </div>
         </div>
