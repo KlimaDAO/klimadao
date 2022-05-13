@@ -749,8 +749,8 @@ msgid "retirement.single.value.title"
 msgstr "Value"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:171
-msgid "retirement.single.viewOnPolygon"
-msgstr "View on Polygon"
+msgid "retirement.single.view_on_polygon_scan"
+msgstr "View on Polygonscan"
 
 #: components/pages/Retirements/index.tsx:31
 msgid "retirement.totals.head.metaTitle"
