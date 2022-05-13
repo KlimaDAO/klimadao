@@ -36,7 +36,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
 
   // collect from indexInfo and optional data from subgraph
   const retireData = {
-    amount: retirementIndexInfo.amount,
+    amount: retirementIndexInfo.amount.replace(/\.?0+$/, ""), // remove whitespace 0s from string, e.g. 1.0 => 1
     tokenLabel: tokenData.label,
     tokenIcon: tokenData.icon,
     beneficiaryName: retirementIndexInfo.beneficiaryName,
