@@ -149,12 +149,10 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
             </div>
           </div>
           <Text className={styles.data_description} t="body2" align="center">
-            <Trans id="retirement.single.description">
-              This represents the permanent on-chain retirement of tokenized
-              carbon assets. This data is written permanently on the public
-              Polygon blockchain. Our open-source system ensures that these
-              tokens or the underlying offsets can never be retired more than
-              once.
+            <Trans id="retirement.single.disclaimer">
+              This represents the permanent retirement of tokenized carbon
+              assets on the Polygon blockchain. This retirement and the
+              associated data are immutable public records.
             </Trans>
           </Text>
         </div>

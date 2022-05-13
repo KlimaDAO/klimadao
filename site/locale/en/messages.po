@@ -713,8 +713,8 @@ msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:152
-msgid "retirement.single.description"
-msgstr "This represents the permanent on-chain retirement of tokenized carbon assets. This data is written permanently on the public Polygon blockchain. Our open-source system ensures that these tokens or the underlying offsets can never be retired more than once."
+msgid "retirement.single.disclaimer"
+msgstr "This represents the permanent retirement of tokenized carbon assets on the Polygon blockchain. This retirement and the associated data are immutable public records."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:72
 msgid "retirement.single.header.offset"
@@ -748,7 +748,7 @@ msgstr "No retirement timestamp provided"
 msgid "retirement.single.value.title"
 msgstr "Value"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:171
+#: components/pages/Retirements/SingleRetirement/index.tsx:169
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
