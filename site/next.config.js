@@ -87,7 +87,7 @@ const nextConfig = {
 if (!IS_PRODUCTION) {
   nextConfig.i18n = {
     ...nextConfig.i18n,
-    locales: [...nextConfig.i18n.locales, "en-pseudo"],
+    locales: [...nextConfig.i18n.locales, "ko", "es", "en-pseudo"],
   };
 }
 

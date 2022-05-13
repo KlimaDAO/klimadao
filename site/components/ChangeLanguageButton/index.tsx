@@ -26,6 +26,8 @@ export const ChangeLanguageButton: FC = () => {
 
   // enable 'pseudo' locale only for Staging environment
   if (!IS_PRODUCTION) {
+    labels["es"] = "Español";
+    labels["ko"] = "한국어";
     labels["en-pseudo"] = "Pseudo";
   }
 
