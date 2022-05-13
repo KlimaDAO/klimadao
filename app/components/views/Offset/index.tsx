@@ -686,7 +686,7 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
           </Text>
           {!IS_PRODUCTION && props.retirementTotals && (
             <Text t="caption">
-              <Trans id="retirementSuccessModal.viewOnKlimadao">
+              <Trans id="offset.retirement_success_modal.view_on_klimadao">
                 View your retirement details on{" "}
                 <A
                   target="_blank"
