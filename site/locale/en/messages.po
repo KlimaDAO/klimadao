@@ -660,33 +660,33 @@ msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
-#: components/pages/Retirements/Footer/index.tsx:61
-msgid "retirement.button.buy"
-msgstr "Buy KLIMA"
-
-#: components/pages/Retirements/Footer/index.tsx:65
-msgid "retirement.button.learnMore"
-msgstr "Learn More"
-
-#: components/pages/Retirements/Footer/index.tsx:20
+#: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.column1"
 msgstr "We’re incentivizing sustainability, and bringing the carbon market to Web3. We’ve made it possible for anyone to swap and offset with quality carbon assets. All you need is a wallet!"
 
-#: components/pages/Retirements/Footer/index.tsx:29
+#: components/pages/Retirements/Footer/index.tsx:35
 msgid "retirement.footer.aboutKlima.column2"
 msgstr "KlimaDAO is the center of a burgeoning on-chain carbon economy. Learn more about carbon offsetting, carbon markets, and the underlying assets in our <0>knowledge base</0>."
 
-#: components/pages/Retirements/Footer/index.tsx:15
+#: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
 msgstr "About Klima"
 
-#: components/pages/Retirements/Footer/index.tsx:53
-msgid "retirement.footer.buyKlima.text"
-msgstr "KLIMA tokens can be used to swap and retire a variety of high-quality, transparent, third-party verified carbon offsets. Stake your KLIMA to earn rewards, and use those rewards to offset!"
+#: components/pages/Retirements/Footer/index.tsx:66
+msgid "retirement.footer.buy_klima.button.buy"
+msgstr "Buy"
 
-#: components/pages/Retirements/Footer/index.tsx:48
-msgid "retirement.footer.buyKlima.title"
-msgstr "KLIMA is the easiest way to reach your sustainability goals."
+#: components/pages/Retirements/Footer/index.tsx:73
+msgid "retirement.footer.buy_klima.button.offset"
+msgstr "Offset"
+
+#: components/pages/Retirements/Footer/index.tsx:59
+msgid "retirement.footer.buy_klima.text"
+msgstr "Use carbon-backed KLIMA tokens to govern, swap, and earn staking rewards— then use those rewards to offset your emissions!"
+
+#: components/pages/Retirements/Footer/index.tsx:54
+msgid "retirement.footer.buy_klima.title"
+msgstr "Acquire, stake, and get rewarded."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:62
 msgid "retirement.head.metaDescription"
