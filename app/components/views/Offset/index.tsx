@@ -410,11 +410,19 @@ export const Offset = (props: Props) => {
               <A href="https://docs.klimadao.finance/references/glossary#bct">
                 Base Carbon Tonnes
               </A>{" "}
-              (BCT), or{" "}
+              (BCT),{" "}
               <A href="https://docs.klimadao.finance/references/glossary#nct">
                 Nature Carbon Tonnes
               </A>{" "}
-              (NCT), with more coming soon.
+              (NCT),{" "}
+              <A href="https://docs.c3.app/c3-pool-specifications-and-carbon-methodologies/ubo">
+                Universal Basic Offsets
+              </A>{" "}
+              (UBO), or{" "}
+              <A href="https://docs.c3.app/c3-pool-specifications-and-carbon-methodologies/nbo">
+                Nature Based Offsets
+              </A>{" "}
+              (NBO), with more coming soon.{" "}
             </Trans>
           </Text>
         </div>
