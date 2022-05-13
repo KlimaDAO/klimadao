@@ -660,31 +660,31 @@ msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
-#: components/pages/Retirements/Footer/index.tsx:59
+#: components/pages/Retirements/Footer/index.tsx:61
 msgid "retirement.button.buy"
 msgstr "Buy KLIMA"
 
-#: components/pages/Retirements/Footer/index.tsx:63
+#: components/pages/Retirements/Footer/index.tsx:65
 msgid "retirement.button.learnMore"
 msgstr "Learn More"
 
-#: components/pages/Retirements/Footer/index.tsx:28
-msgid "retirement.footer.aboutKlima.learnMore"
-msgstr "Learn more about carbon offsetting, carbon markets, and the underlying assets in our <0>knowledge base</0>."
-
 #: components/pages/Retirements/Footer/index.tsx:20
-msgid "retirement.footer.aboutKlima.stake"
-msgstr "Stake your KLIMA to earn rewards, and use those rewards to offset!"
+msgid "retirement.footer.aboutKlima.column1"
+msgstr "We’re incentivizing sustainability, and bringing the carbon market to Web3. We’ve made it possible for anyone to swap and offset with quality carbon assets. All you need is a wallet!"
+
+#: components/pages/Retirements/Footer/index.tsx:29
+msgid "retirement.footer.aboutKlima.column2"
+msgstr "KlimaDAO is the center of a burgeoning on-chain carbon economy. Learn more about carbon offsetting, carbon markets, and the underlying assets in our <0>knowledge base</0>."
 
 #: components/pages/Retirements/Footer/index.tsx:15
 msgid "retirement.footer.aboutKlima.title"
 msgstr "About Klima"
 
-#: components/pages/Retirements/Footer/index.tsx:51
+#: components/pages/Retirements/Footer/index.tsx:53
 msgid "retirement.footer.buyKlima.text"
 msgstr "KLIMA tokens can be used to swap and retire a variety of high-quality, transparent, third-party verified carbon offsets. Stake your KLIMA to earn rewards, and use those rewards to offset!"
 
-#: components/pages/Retirements/Footer/index.tsx:46
+#: components/pages/Retirements/Footer/index.tsx:48
 msgid "retirement.footer.buyKlima.title"
 msgstr "KLIMA is the easiest way to reach your sustainability goals."
 

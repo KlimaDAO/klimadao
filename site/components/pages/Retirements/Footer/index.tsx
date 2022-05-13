@@ -17,15 +17,17 @@ export const RetirementFooter: FC = () => {
         <div className={styles.footerContent}>
           <div className="column">
             <Text>
-              <Trans id="retirement.footer.aboutKlima.stake">
-                Stake your KLIMA to earn rewards, and use those rewards to
-                offset!
+              <Trans id="retirement.footer.aboutKlima.column1">
+                We’re incentivizing sustainability, and bringing the carbon
+                market to Web3. We’ve made it possible for anyone to swap and
+                offset with quality carbon assets. All you need is a wallet!
               </Trans>
             </Text>
           </div>
           <div className="column">
             <Text>
-              <Trans id="retirement.footer.aboutKlima.learnMore">
+              <Trans id="retirement.footer.aboutKlima.column2">
+                KlimaDAO is the center of a burgeoning on-chain carbon economy.
                 Learn more about carbon offsetting, carbon markets, and the
                 underlying assets in our{" "}
                 <a href={urls.officialDocs}>knowledge base</a>.
