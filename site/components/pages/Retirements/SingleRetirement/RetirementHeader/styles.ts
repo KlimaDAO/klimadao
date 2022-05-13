@@ -32,3 +32,8 @@ export const imageGradient = css`
   left: 0;
   right: 0;
   bottom: 0;
+`;
+
+export const leafImage = css`
+  z-index: 1;
+`;
