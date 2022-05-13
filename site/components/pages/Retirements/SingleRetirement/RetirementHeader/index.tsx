@@ -21,6 +21,7 @@ export const RetirementHeader: FC<Props> = ({ title, subline }) => {
         objectFit="cover"
       />
       <Image alt="Leaf Picture" width={32} height={32} src={leafImage} />
+      <div className={styles.imageGradient}></div>
       <Text t="h2" align="center" className={styles.retirementHeaderText}>
         {title}
       </Text>

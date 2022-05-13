@@ -23,3 +23,12 @@ export const retirementHeaderText = css`
   word-break: break-word;
   z-index: 1;
 `;
+
+export const imageGradient = css`
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
