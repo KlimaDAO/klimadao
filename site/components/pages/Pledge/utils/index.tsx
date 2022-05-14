@@ -22,18 +22,6 @@ const initFirebaseAdmin = () => {
 
 export default initFirebaseAdmin;
 
-export const getPledgeByAddress = async (address: string) => {
-  const db = initFirebaseAdmin();
-  const snapshot = await db
-    .collection("pledges")
-    .where("ownerAddress", "==", address)
-    .get();
-
-  const pledge = snapshot.docs.at(0)?.data();
-
-  return pledge;
-};
-
 const buildFootprint = (
   currentFootprint: Footprint[],
   newFootprint: number
@@ -43,46 +31,76 @@ const buildFootprint = (
   return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
 };
 
+export const getPledgeByAddress = async (address: string) => {
+  const db = initFirebaseAdmin();
+  const snapshot = await db
+    .collection("pledges")
+    .where("ownerAddress", "==", address)
+    .get();
+
+  const pledge = snapshot.docs[0]?.data();
+
+  return pledge;
+};
+
+const getPledgeRef = async (id: string | undefined) => {
+  const db = initFirebaseAdmin();
+  const pledgeCollectionRef = db.collection("pledges");
+  const pledgeSnapshot = await pledgeCollectionRef
+    .where("id", "==", id || "")
+    .get();
+
+  if (!!pledgeSnapshot.docs[0]) {
+    return pledgeSnapshot.docs[0];
+  } else {
+    return null;
+  }
+};
+
 export const findOrCreatePledge = async (params: putPledgeParams) => {
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection("pledges");
 
-  const res = await pledgeCollectionRef.add({
-    ...params.pledge,
-    id: uuidv4(),
-    footprint: [{ total: params.pledge.footprint, timestamp: Date.now() }],
-  });
+  const pledgeRef = await getPledgeRef(params.pledge.id);
+  let data;
 
-  const data = await res.get().then((pledge) => pledge.data());
+  if (pledgeRef) {
+    const currentPledge = pledgeRef.data();
+
+    // verify with nonce
+    // throw if pledge does not belong to signer wallet
+
+    pledgeRef.ref.update({
+      ...params.pledge,
+      nonce: Math.random(),
+      footprint: buildFootprint(
+        currentPledge.footprint,
+        params.pledge.footprint
+      ),
+    });
+
+    const updatedPledgeRef = await getPledgeRef(currentPledge.id);
+
+    data = updatedPledgeRef?.data();
+  } else {
+    // verify signature with nonce of 33
+    // throw if page address does not belong match with signer wallet
+
+    const pledge = await pledgeCollectionRef.add({
+      ...params.pledge,
+      id: uuidv4(),
+      footprint: [{ total: params.pledge.footprint, timestamp: Date.now() }],
+    });
+
+    data = await pledge.get().then((pledge) => pledge.data());
+  }
 
   return data;
-
-  // query pledge
-  // getPledgeByAddress(params.pledge.id)
-  // pledge = snapshot.docs[0].data()
-
-  // new user
-  // /pledge and create a pledg
-  // pledge data and
-  // compare pledger owner address with address from signer signature
 
   // use nonce to create signature
   // verify function -> compare address to pledge address
   // throw if not valid address
   // otherwise return true
-
-  // save pledge to firebase
-  // await userDocSnapshot.ref.set(partialUserDoc, { merge: true });
-
-  const currentFootprint = pledgeObject.get("footprint");
-  const footprint =
-    params.pledge.objectId && currentFootprint
-      ? buildFootprint(currentFootprint, params.pledge.footprint)
-      : [{ timestamp: Date.now(), total: params.pledge.footprint }];
-
-  // pledgeObject.set({ ...params.pledge, footprint });
-
-  // return await pledgeObject.save(null, { useMasterKey: true });
 };
 
 // // const pledgeDocument = snapshot.docs[0];

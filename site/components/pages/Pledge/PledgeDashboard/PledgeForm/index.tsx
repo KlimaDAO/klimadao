@@ -19,7 +19,7 @@ type Props = {
 // we should be able to export the schema object from another file
 const schema = yup
   .object({
-    objectId: yup.string().nullable(),
+    id: yup.string().nullable(),
     ownerAddress: yup.string().required(),
     name: yup.string().required("Enter a name"),
     description: yup

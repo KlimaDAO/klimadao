@@ -4,6 +4,7 @@ import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
 
 import { useWeb3 } from "hooks/useWeb3/web3context";
 import * as styles from "./styles";
+import { concatAddress } from "@klimadao/lib/utils";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
   ssr: false,
@@ -28,8 +29,11 @@ export const PledgeLayout: FC<Props> = (props) => {
 
             {props.buttons && props.buttons}
 
-            {isConnected ? (
-              <ButtonPrimary label={address} onClick={disconnect} />
+            {isConnected && address ? (
+              <ButtonPrimary
+                label={concatAddress(address)}
+                onClick={disconnect}
+              />
             ) : (
               <ButtonPrimary label="Connect" onClick={connect} />
             )}

@@ -94,7 +94,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               <Text t="h4">
                 {pledge.name || concatAddress(pledge.ownerAddress)}
               </Text>
-              {address}
             </div>
 
             <div className={styles.column}>
