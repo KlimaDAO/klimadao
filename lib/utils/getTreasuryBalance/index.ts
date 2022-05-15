@@ -5,12 +5,16 @@ import PairContract from "../../abi/PairContract.json";
 import { addresses } from "../../constants";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 
-const getOwnedBCTFromSLP = async (
-  adr: "bctUsdcLp" | "klimaBctLp",
-  provider: providers.JsonRpcProvider
-) => {
-  const slpAddress = addresses.mainnet[adr];
-  const contract = new ethers.Contract(slpAddress, PairContract.abi, provider);
+const getOwnedBCTFromSLP = async (params: {
+  adr: "bctUsdcLp" | "klimaBctLp";
+  provider: providers.JsonRpcProvider;
+}) => {
+  const slpAddress = addresses.mainnet[params.adr];
+  const contract = new ethers.Contract(
+    slpAddress,
+    PairContract.abi,
+    params.provider
+  );
   const [token0, token1, [reserve0, reserve1], treasurySLP, totalSLP] =
     await Promise.all([
       contract.token0() as string,
@@ -37,9 +41,11 @@ const getOwnedBCTFromSLP = async (
  * Return the balance in BCT of the klima treasury.
  * NakedBCT + (klimaBctReserve * klimaBctTreasuryPercent) + (bctUsdcReserve * bctUsdcTreasuryPercent)
  */
-export const getTreasuryBalance = async (rpcUrl: string): Promise<number> => {
+export const getTreasuryBalance = async (
+  infuraId?: string
+): Promise<number> => {
   try {
-    const provider = getJsonRpcProvider(rpcUrl);
+    const provider = getJsonRpcProvider(infuraId);
     const bctContract = new ethers.Contract(
       addresses.mainnet.bct,
       IERC20.abi,
@@ -49,8 +55,8 @@ export const getTreasuryBalance = async (rpcUrl: string): Promise<number> => {
     const nakedBCT = getInteger(
       await bctContract.balanceOf(addresses.mainnet.treasury)
     );
-    const bctUSDC = await getOwnedBCTFromSLP("bctUsdcLp", provider);
-    const bctKLIMA = await getOwnedBCTFromSLP("klimaBctLp", provider);
+    const bctUSDC = await getOwnedBCTFromSLP({ adr: "bctUsdcLp", provider });
+    const bctKLIMA = await getOwnedBCTFromSLP({ adr: "klimaBctLp", provider });
     const sum = nakedBCT + bctUSDC + bctKLIMA;
     return sum;
   } catch (e) {

@@ -1,12 +1,9 @@
-import { INFURA_ID } from "@klimadao/site/lib/constants";
 import { ethers } from "ethers";
 import { urls } from "../../constants";
 
-export const getJsonRpcProvider = (provider: string) => {
-  if (provider === urls.infuraRpc && INFURA_ID !== undefined) {
-    return new ethers.providers.JsonRpcProvider(
-      `https://polygon-mainnet.infura.io/v3/${INFURA_ID}`
-    );
+export const getJsonRpcProvider = (infuraId?: string) => {
+  if (infuraId) {
+    return new ethers.providers.JsonRpcProvider(`${urls.infuraRpc}${infuraId}`);
   }
-  return new ethers.providers.JsonRpcProvider("https://polygon-rpc.com");
+  return new ethers.providers.JsonRpcProvider(urls.polygonMainnetRpc);
 };
