@@ -1,6 +1,6 @@
 import { POLYGONSCAN_API_KEY, MONTH_IN_SECONDS } from "lib/constants";
 import { getJsonRpcProvider } from "@klimadao/lib/utils";
-import { urls } from "@klimadao/lib/constants";
+import { INFURA_ID } from "lib/constants";
 
 /** Calculates block rate by dividing one month in seconds by number of blocks that got created during that month */
 export async function getBlockRate(): Promise<number> {
@@ -10,7 +10,7 @@ export async function getBlockRate(): Promise<number> {
   const currentTimestamp = Math.floor(Date.now() / 1000);
   const timestamp30DaysAgo = currentTimestamp - MONTH_IN_SECONDS;
   try {
-    const provider = getJsonRpcProvider(urls.infuraRpc);
+    const provider = getJsonRpcProvider(INFURA_ID);
     const latestBlock = await provider.getBlock("latest");
 
     let url = `https://api.polygonscan.com/api?module=block&action=getblocknobytime&timestamp=${timestamp30DaysAgo}&closest=before`;

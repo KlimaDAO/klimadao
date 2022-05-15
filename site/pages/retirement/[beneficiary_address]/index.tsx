@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-import { IS_PRODUCTION } from "lib/constants";
+import { INFURA_ID, IS_PRODUCTION } from "lib/constants";
 
 import { getRetirements } from "@klimadao/lib/utils";
 import { RetirementsResult } from "@klimadao/lib/types/offset";
@@ -33,7 +33,10 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     }
 
     const promises = [
-      getRetirements(params.beneficiary_address as string),
+      getRetirements({
+        beneficiaryAdress: params.beneficiary_address as string,
+        infuraId: INFURA_ID,
+      }),
       loadTranslation(locale),
     ];
 

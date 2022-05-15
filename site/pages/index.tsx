@@ -7,14 +7,18 @@ import {
 import { Home, Props } from "components/pages/Home";
 import { fetchCMSContent } from "lib/fetchCMSContent";
 import { loadTranslation } from "lib/i18n";
-import { urls } from "@klimadao/lib/constants";
+import { INFURA_ID } from "lib/constants";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
-  const treasuryBalance = await getTreasuryBalance(urls.infuraRpc);
+  const treasuryBalance = await getTreasuryBalance(INFURA_ID);
   const latestPost = await fetchCMSContent("latestPost");
   const translation = await loadTranslation(ctx.locale);
   const blockRate = await fetchBlockRate();
-  const weeklyStakingRewards = await getStakingRewards(7, blockRate);
+  const weeklyStakingRewards = await getStakingRewards({
+    days: 7,
+    blockRate,
+    infuraId: INFURA_ID,
+  });
 
   return {
     props: {
