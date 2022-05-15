@@ -24,7 +24,9 @@ export const AssetBalanceCard: FC<Props> = (props) => {
 
   useEffect(() => {
     (async () => {
-      const balances = await getBalances({ address: props.pageAddress });
+      const balances = await getBalances({
+        address: props.pageAddress,
+      });
       setBalances(balances);
     })();
   }, []);

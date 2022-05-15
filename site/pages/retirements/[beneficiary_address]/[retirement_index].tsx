@@ -8,6 +8,7 @@ import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
+import { INFURA_ID } from "lib/constants";
 
 interface Params extends ParsedUrlQuery {
   beneficiary_address: string;
@@ -47,10 +48,11 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         params?.beneficiary_address as string,
         retirementIndex
       ),
-      getRetirementIndexInfo(
-        params.beneficiary_address as string,
-        retirementIndex
-      ),
+      getRetirementIndexInfo({
+        beneficiaryAdress: params.beneficiary_address as string,
+        index: retirementIndex,
+        infuraId: INFURA_ID,
+      }),
       loadTranslation(locale),
     ];
 
