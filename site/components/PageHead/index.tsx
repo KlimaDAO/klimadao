@@ -42,8 +42,16 @@ export const PageHead = (props: PageHeadProps) => {
       <meta property="og:locale" content={router.locale || "en"} />
       <meta property="og:site_name" content="KlimaDAO" />
 
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:title" content={props.mediaTitle} />
+      <meta property="twitter:description" content={props.metaDescription} />
+
       {props.mediaImageSrc && (
         <meta property="og:image" content={props.mediaImageSrc} />
+      )}
+
+      {props.mediaImageSrc && (
+        <meta property="twitter:image" content={props.mediaImageSrc} />
       )}
 
       {props.isArticle && (
@@ -53,7 +61,6 @@ export const PageHead = (props: PageHeadProps) => {
       )}
       <meta property="og:url" content={canonicalUrl} />
       <link rel="canonical" href={canonicalUrl} />
-      <meta name="twitter:card" content="summary_large_image" />
 
       <link
         rel="apple-touch-icon"
