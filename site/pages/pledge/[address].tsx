@@ -21,8 +21,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
     const data = await getPledgeByAddress(address.toLowerCase());
 
-    console.log("page", data);
-
     if (!data) throw new Error("Not found");
     pledge = pledgeResolver(JSON.parse(JSON.stringify(data)));
   } catch (error) {

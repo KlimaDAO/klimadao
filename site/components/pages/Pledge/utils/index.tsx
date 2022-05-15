@@ -43,45 +43,34 @@ export const getPledgeByAddress = async (address: string) => {
   return pledge;
 };
 
-const getPledgeRef = async (id: string | undefined) => {
-  const db = initFirebaseAdmin();
-  const pledgeCollectionRef = db.collection("pledges");
-  const pledgeSnapshot = await pledgeCollectionRef
-    .where("id", "==", id || "")
-    .get();
-
-  if (!!pledgeSnapshot.docs[0]) {
-    return pledgeSnapshot.docs[0];
-  } else {
-    return null;
-  }
-};
-
 export const findOrCreatePledge = async (params: putPledgeParams) => {
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection("pledges");
 
-  const pledgeRef = await getPledgeRef(params.pledge.id);
+  const pledgeSnapshot = await pledgeCollectionRef
+    .where("id", "==", params.pledge.id || "")
+    .get();
+  const pledgeRef = pledgeSnapshot.docs[0];
+
   let data;
 
-  if (pledgeRef) {
+  if (!!pledgeRef) {
     const currentPledge = pledgeRef.data();
 
     // verify with nonce
     // throw if pledge does not belong to signer wallet
 
-    pledgeRef.ref.update({
+    await pledgeRef.ref.update({
       ...params.pledge,
-      nonce: Math.random(),
+      nonce: Math.floor(Math.random() * 10000000),
       footprint: buildFootprint(
         currentPledge.footprint,
         params.pledge.footprint
       ),
     });
 
-    const updatedPledgeRef = await getPledgeRef(currentPledge.id);
-
-    data = updatedPledgeRef?.data();
+    const updatedPledge = await pledgeCollectionRef.doc(pledgeRef.id).get();
+    data = updatedPledge.data();
   } else {
     // verify signature with nonce of 33
     // throw if page address does not belong match with signer wallet

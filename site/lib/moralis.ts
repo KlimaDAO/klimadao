@@ -43,8 +43,6 @@ export const pledgeResolver = (pledge: Pledge): PledgeFormValues => {
     ? pledge.footprint.at(-1)?.total
     : 0;
 
-    console.log({pledge})
-
   return {
     id: pledge.id || "",
     ownerAddress: pledge.ownerAddress || "",
