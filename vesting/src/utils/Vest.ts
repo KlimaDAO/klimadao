@@ -13,7 +13,7 @@ export function loadOrCreateAggregateVestingInfo(id: string): AggregatedVestingI
         aggregatedVestingInfo.maturityDate = ""
         aggregatedVestingInfo.totalUnlocks = BigInt.fromString('0')
         aggregatedVestingInfo.totalAmount = BigDecimal.fromString('0')
-        
+
         aggregatedVestingInfo.save()
     }
 

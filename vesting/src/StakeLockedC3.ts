@@ -22,7 +22,7 @@ export function handleStakeLocked(event: StakeLocked): void {
     vesting.save()
 
     const maturityDateString = dayFromTimestamp(vesting.maturityDate)
-    const id = maturityDateString + vesting.platform + vesting.token 
+    const id = maturityDateString + vesting.platform + vesting.token
     const aggregateVestingInfo = loadOrCreateAggregateVestingInfo(id)
 
     aggregateVestingInfo.platform = vesting.platform
@@ -30,6 +30,6 @@ export function handleStakeLocked(event: StakeLocked): void {
     aggregateVestingInfo.maturityDate = maturityDateString
     aggregateVestingInfo.totalUnlocks = aggregateVestingInfo.totalUnlocks.plus(BigInt.fromString("1"))
     aggregateVestingInfo.totalAmount = aggregateVestingInfo.totalAmount.plus(vesting.lockedAmount)
-    
+
     aggregateVestingInfo.save()
 }
