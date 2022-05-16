@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2021-12-10 22:51+0100\n"
-"Mime-Version: 1.0\n"
+"POT-Creation-Date: 2022-05-16 13:07-0400\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:651
 msgid "Beneficiary Address"
@@ -66,7 +60,7 @@ msgstr "Wrong Network"
 msgid "[coming soon]"
 msgstr "[coming soon]"
 
-#: components/views/Offset/index.tsx:748
+#: components/views/Offset/index.tsx:756
 msgid "advanced"
 msgstr "ADVANCED"
 
@@ -442,8 +436,8 @@ msgstr "Select carbon offset token to retire"
 msgid "offset.empty"
 msgstr "This address has not completed any retirements."
 
-#: components/views/Offset/index.tsx:507
-#: components/views/Offset/index.tsx:777
+#: components/views/Offset/index.tsx:515
+#: components/views/Offset/index.tsx:785
 msgid "offset.enter_address"
 msgstr "Enter 0x address"
 
@@ -475,11 +469,11 @@ msgstr "Enter quantity to offset"
 msgid "offset.retire_carbon"
 msgstr "Retire Carbon"
 
-#: components/views/Offset/index.tsx:755
+#: components/views/Offset/index.tsx:763
 msgid "offset.retire_specific"
 msgstr "Retire specific project tokens"
 
-#: components/views/Offset/index.tsx:761
+#: components/views/Offset/index.tsx:769
 msgid "offset.retire_specific_tooltip"
 msgstr "Subject to additional fee, determined by the selected pool and paid to the bridge provider."
 
@@ -583,7 +577,7 @@ msgstr "A percent of total token supply. Your index-adjusted claim may not excee
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned rewards on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
-#: components/views/Offset/index.tsx:689
+#: components/views/Offset/index.tsx:697
 msgid "retirementSuccessModal.viewOnKlimadao"
 msgstr "View your retirement details on <0>klimadao.finance</0>"
 
