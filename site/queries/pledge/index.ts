@@ -1,10 +1,10 @@
 import { API_BASE_URL } from "lib/constants";
-import { PledgeFormValues } from "lib/moralis";
+import { PledgeFormValues } from "components/pages/Pledge/types";
 
-export type putPledgeParams = {
-  pageAddress: string
+export interface putPledgeParams {
   pledge: PledgeFormValues;
-  signature: string | undefined;
+  pageAddress: string
+  signature: string;
 };
 
 export const putPledge = (params: putPledgeParams) => {

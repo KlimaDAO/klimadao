@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
-import { pledgeResolver } from "lib/moralis";
-import { findOrCreatePledge } from 'components/pages/Pledge/utils'
+import { findOrCreatePledge, pledgeResolver } from 'components/pages/Pledge/lib'
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,15 +8,12 @@ export default async function handler(
   switch (req.method) {
     case "PUT":
       try {
-        const signature = req.headers.authorization?.split(" ")[1];
-        const data = await findOrCreatePledge({
+        const signature = req.headers.authorization?.split(" ")[1] as string;
+        const pledge = await findOrCreatePledge({
           pageAddress: req.body.pageAddress,
           pledge: req.body.pledge,
           signature,
         });
-
-        console.log({ data })
-        const pledge = JSON.parse(JSON.stringify(data));
 
         res.status(200).json({ pledge: pledgeResolver(pledge) });
       } catch (error) {

@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { ethers } from "ethers";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
@@ -8,8 +7,8 @@ import * as yup from "yup";
 import { InputField, TextareaField } from "components/Form";
 import { putPledge } from "queries/pledge";
 import { useWeb3 } from "hooks/useWeb3/web3context";
-import { PledgeFormValues } from "lib/moralis";
 
+import { PledgeFormValues } from "../../types";
 import * as styles from "./styles";
 
 type Props = {

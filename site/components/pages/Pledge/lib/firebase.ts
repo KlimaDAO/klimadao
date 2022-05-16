@@ -2,26 +2,21 @@ import * as admin from "firebase-admin";
 import { v4 as uuidv4 } from "uuid";
 
 import { putPledgeParams } from "queries/pledge";
-import { verifySignature } from "lib/verifySignature";
+import { Footprint, Pledge } from "../types";
+import { verifySignature } from ".";
+
 
 import serviceAccount from "./firebaseServiceAccountFile.json";
-
-export type Footprint = {
-  timestamp: number;
-  total: number;
-};
 
 const initFirebaseAdmin = () => {
   if (!admin.apps.length) {
     // the key is a string on vercel/env.local
     admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
+      credential: admin.credential.cert(serviceAccount as admin.ServiceAccount), // TODO
     });
   }
   return admin.firestore();
 };
-
-export default initFirebaseAdmin;
 
 const buildFootprint = (
   currentFootprint: Footprint[],
@@ -32,7 +27,7 @@ const buildFootprint = (
   return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
 };
 
-export const getPledgeByAddress = async (address: string) => {
+export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
   const db = initFirebaseAdmin();
   const snapshot = await db
     .collection("pledges")
@@ -41,10 +36,10 @@ export const getPledgeByAddress = async (address: string) => {
 
   const pledge = snapshot.docs[0]?.data();
 
-  return pledge;
+  return pledge as Pledge;
 };
 
-export const findOrCreatePledge = async (params: putPledgeParams) => {
+export const findOrCreatePledge = async (params: putPledgeParams): Promise<Pledge> => {
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection("pledges");
 
@@ -92,5 +87,5 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
     data = await pledge.get().then((pledge) => pledge.data());
   }
 
-  return data;
+  return data as Pledge;
 };

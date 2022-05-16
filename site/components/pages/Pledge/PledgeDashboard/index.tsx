@@ -6,7 +6,7 @@ import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 
 import { Modal } from "components/Modal";
-import { PledgeFormValues } from "lib/moralis";
+import { PledgeFormValues } from "../types";
 
 import {
   AssetBalanceCard,
@@ -25,6 +25,7 @@ type Props = {
   pledge: PledgeFormValues;
 };
 
+// TODO - might not need this due to pledgeResolver
 const defaultValues = (pledge: PledgeFormValues): PledgeFormValues =>
   Object.assign(
     {
