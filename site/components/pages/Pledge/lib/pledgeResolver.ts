@@ -1,4 +1,4 @@
-import { Pledge, PledgeFormValues } from '../types'
+import { Pledge, PledgeFormValues } from "../types";
 
 export const pledgeResolver = (pledge: Pledge): PledgeFormValues => {
   const currentFootprint = pledge.footprint

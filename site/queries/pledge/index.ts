@@ -3,9 +3,9 @@ import { PledgeFormValues } from "components/pages/Pledge/types";
 
 export interface putPledgeParams {
   pledge: PledgeFormValues;
-  pageAddress: string
+  pageAddress: string;
   signature: string;
-};
+}
 
 export const putPledge = (params: putPledgeParams) => {
   return fetch(`${API_BASE_URL}/api/pledge`, {
@@ -16,6 +16,7 @@ export const putPledge = (params: putPledgeParams) => {
     },
     body: JSON.stringify({
       pageAddress: params.pageAddress,
-      pledge: params.pledge
+      pledge: params.pledge,
     }),
-  })};
+  });
+};

@@ -1,4 +1,4 @@
-import { ethers } from 'ethers'
+import { ethers } from "ethers";
 
 interface Params {
   address: string;
@@ -7,11 +7,14 @@ interface Params {
 }
 
 export const verifySignature = (params: Params): void => {
-  console.log(params)
-  const decodedAddress = ethers.utils.verifyMessage(params.nonce, params.signature)
-  console.log(decodedAddress)
+  console.log(params);
+  const decodedAddress = ethers.utils.verifyMessage(
+    params.nonce,
+    params.signature
+  );
+  console.log(decodedAddress);
 
-  if (decodedAddress.toLowerCase() !== params.address) { 
-    throw new Error('Invalid signature')
+  if (decodedAddress.toLowerCase() !== params.address) {
+    throw new Error("Invalid signature");
   }
-}
+};

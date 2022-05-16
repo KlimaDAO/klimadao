@@ -8,7 +8,7 @@ import { InputField, TextareaField } from "components/Form";
 import { putPledge } from "queries/pledge";
 import { useWeb3 } from "hooks/useWeb3/web3context";
 
-import { PledgeFormValues } from "../../types";
+import { PledgeFormValues } from "../types";
 import * as styles from "./styles";
 
 type Props = {
@@ -17,9 +17,7 @@ type Props = {
   onFormSubmit: (data: PledgeFormValues) => void;
 };
 
-// temporarily duplicated due to weird interaction with moralis-sdk resulting in a breaking build
-// we should be able to export the schema object from another file
-const schema = yup
+export const schema = yup
   .object({
     id: yup.string().nullable(),
     ownerAddress: yup.string().required(),
@@ -55,7 +53,7 @@ export const PledgeForm: FC<Props> = (props) => {
     values: PledgeFormValues
   ) => {
     const nonce = values.nonce.toString();
-    const signature = await signer?.signMessage(nonce);
+    const signature = (await signer?.signMessage(nonce)) as string;
 
     try {
       const response = await putPledge({

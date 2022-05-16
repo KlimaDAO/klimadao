@@ -1,5 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
-import { findOrCreatePledge, pledgeResolver } from 'components/pages/Pledge/lib'
+import {
+  findOrCreatePledge,
+  pledgeResolver,
+} from "components/pages/Pledge/lib";
 
 export default async function handler(
   req: NextApiRequest,

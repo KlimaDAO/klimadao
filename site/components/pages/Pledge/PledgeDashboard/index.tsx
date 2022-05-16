@@ -15,7 +15,7 @@ import {
   PledgeCard,
   RetirementsCard,
 } from "./Cards";
-import { PledgeForm } from "./PledgeForm";
+import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import * as styles from "./styles";
 import { useWeb3 } from "hooks/useWeb3/web3context";

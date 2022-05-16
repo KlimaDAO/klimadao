@@ -5,7 +5,6 @@ import { putPledgeParams } from "queries/pledge";
 import { Footprint, Pledge } from "../types";
 import { verifySignature } from ".";
 
-
 import serviceAccount from "./firebaseServiceAccountFile.json";
 
 const initFirebaseAdmin = () => {
@@ -39,7 +38,9 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
   return pledge as Pledge;
 };
 
-export const findOrCreatePledge = async (params: putPledgeParams): Promise<Pledge> => {
+export const findOrCreatePledge = async (
+  params: putPledgeParams
+): Promise<Pledge> => {
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection("pledges");
 

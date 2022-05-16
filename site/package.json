@@ -31,7 +31,6 @@
     "web3modal": "^1.9.5",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"
-    
   },
   "devDependencies": {
     "@lingui/cli": "^3.13.0",
