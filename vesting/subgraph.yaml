@@ -1,0 +1,28 @@
+specVersion: 0.0.2
+description: Klima DAO Vesting Metrics
+repository: https://github.com/KlimaDAO/klima-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  # C3 Locked Stake
+  - kind: ethereum/contract
+    name: C3WsKlimaVesting
+    network: matic
+    source:
+      address: '0xe02efadA566Af74c92b6659d03BAaCb4c06Cc856'
+      abi: C3WsKlimaVesting
+      startBlock: 27838612
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - C3WsKlimaVest
+      abis:
+        - name: C3WsKlimaVesting
+          file: ../lib/abis/C3WsKlimaVesting.json
+      eventHandlers:
+        - event: StakeLocked(indexed address,uint256,uint256,bytes32,address)
+          handler: handleStakeLocked
+      file: ./src/StakeLockedC3.ts
+ 
