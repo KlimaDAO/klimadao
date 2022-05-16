@@ -83,7 +83,11 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             showModal={showModal}
             onToggleModal={() => setShowModal(!showModal)}
           >
-            <PledgeForm pledge={pledge} onFormSubmit={handleFormSubmit} />
+            <PledgeForm
+              pageAddress={props.pageAddress}
+              pledge={pledge}
+              onFormSubmit={handleFormSubmit}
+            />
           </Modal>
 
           <div className={styles.contentContainer}>

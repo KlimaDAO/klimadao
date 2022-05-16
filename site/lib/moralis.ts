@@ -1,4 +1,3 @@
-import { putPledgeParams } from "queries/pledge";
 import * as yup from "yup";
 
 export type Footprint = {
@@ -10,6 +9,7 @@ export type Pledge = {
   id: string;
   ownerAddress: string;
   name: string;
+  nonce: number;
   description: string;
   methodology: string;
   footprint: Footprint[];
@@ -18,8 +18,9 @@ export type Pledge = {
 export const formSchema = yup
   .object({
     id: yup.string().uuid(),
-    ownerAddress: yup.string().required(),
+    ownerAddress: yup.string().required(),    
     name: yup.string().required("Enter a name"),
+    nonce: yup.number().required(),
     description: yup
       .string()
       .required("Enter a pledge")
@@ -47,6 +48,7 @@ export const pledgeResolver = (pledge: Pledge): PledgeFormValues => {
     id: pledge.id || "",
     ownerAddress: pledge.ownerAddress || "",
     name: pledge.name || "",
+    nonce: pledge.nonce || 33,
     description: pledge.description || "",
     methodology: pledge.methodology || "",
     footprint: currentFootprint as number,

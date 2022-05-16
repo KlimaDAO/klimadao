@@ -11,9 +11,12 @@ export default async function handler(
       try {
         const signature = req.headers.authorization?.split(" ")[1];
         const data = await findOrCreatePledge({
-          pledge: req.body,
+          pageAddress: req.body.pageAddress,
+          pledge: req.body.pledge,
           signature,
         });
+
+        console.log({ data })
         const pledge = JSON.parse(JSON.stringify(data));
 
         res.status(200).json({ pledge: pledgeResolver(pledge) });

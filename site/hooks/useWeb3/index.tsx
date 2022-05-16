@@ -41,7 +41,8 @@ if (typeof window !== "undefined") {
 
 export const useWeb3State = () => {
   const [state, dispatch] = useReducer(web3Reducer, web3InitialState);
-  const { provider, web3Provider, address, network, isConnected } = state;
+  const { provider, web3Provider, signer, address, network, isConnected } =
+    state;
 
   const connect = useCallback(async () => {
     if (web3Modal) {
@@ -57,6 +58,7 @@ export const useWeb3State = () => {
           type: "SET_WEB3_PROVIDER",
           provider,
           web3Provider,
+          signer,
           address,
           network,
           isConnected,
@@ -130,6 +132,7 @@ export const useWeb3State = () => {
   return {
     provider,
     web3Provider,
+    signer,
     address,
     network,
     isConnected,

@@ -23,6 +23,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     if (!data) throw new Error("Not found");
     pledge = pledgeResolver(JSON.parse(JSON.stringify(data)));
+    console.log(pledge);
   } catch (error) {
     pledge = null;
   }

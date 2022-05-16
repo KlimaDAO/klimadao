@@ -2,6 +2,7 @@ import { API_BASE_URL } from "lib/constants";
 import { PledgeFormValues } from "lib/moralis";
 
 export type putPledgeParams = {
+  pageAddress: string
   pledge: PledgeFormValues;
   signature: string | undefined;
 };
@@ -13,5 +14,8 @@ export const putPledge = (params: putPledgeParams) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${params.signature}`,
     },
-    body: JSON.stringify(params.pledge),
+    body: JSON.stringify({
+      pageAddress: params.pageAddress,
+      pledge: params.pledge
+    }),
   })};

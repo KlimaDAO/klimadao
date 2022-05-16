@@ -5,6 +5,7 @@ export type Web3ProviderState = {
   provider: any;
   web3Provider: ethers.providers.Web3Provider | null;
   address: string | null;
+  signer: ethers.providers.JsonRpcSigner | null;
   network: ethers.providers.Network | null;
   isConnected: boolean;
   connect?: () => Promise<void>;
@@ -14,6 +15,7 @@ export type Web3ProviderState = {
 export const web3InitialState: Web3ProviderState = {
   provider: null,
   web3Provider: null,
+  signer: null,
   address: null,
   network: null,
   isConnected: false,
@@ -24,6 +26,7 @@ export type Web3Action =
       type: "SET_WEB3_PROVIDER";
       provider: Web3ProviderState["provider"];
       web3Provider: Web3ProviderState["web3Provider"];
+      signer: Web3ProviderState["signer"];
       address: Web3ProviderState["address"];
       network: Web3ProviderState["network"];
       isConnected: Web3ProviderState["isConnected"];
@@ -50,6 +53,7 @@ export function web3Reducer(
         ...state,
         provider: action.provider,
         web3Provider: action.web3Provider,
+        signer: action.signer,
         address: action.address,
         network: action.network,
         isConnected: action.isConnected,

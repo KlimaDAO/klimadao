@@ -2,6 +2,7 @@ import * as admin from "firebase-admin";
 import { v4 as uuidv4 } from "uuid";
 
 import { putPledgeParams } from "queries/pledge";
+import { verifySignature } from "lib/verifySignature";
 
 import serviceAccount from "./firebaseServiceAccountFile.json";
 
@@ -57,8 +58,11 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
   if (!!pledgeRef) {
     const currentPledge = pledgeRef.data();
 
-    // verify with nonce
-    // throw if pledge does not belong to signer wallet
+    verifySignature({
+      address: currentPledge.ownerAddress,
+      signature: params.signature,
+      nonce: currentPledge.nonce.toString(),
+    });
 
     await pledgeRef.ref.update({
       ...params.pledge,
@@ -72,12 +76,16 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
     const updatedPledge = await pledgeCollectionRef.doc(pledgeRef.id).get();
     data = updatedPledge.data();
   } else {
-    // verify signature with nonce of 33
-    // throw if page address does not belong match with signer wallet
+    verifySignature({
+      address: params.pageAddress,
+      signature: params.signature,
+      nonce: "33",
+    });
 
     const pledge = await pledgeCollectionRef.add({
       ...params.pledge,
       id: uuidv4(),
+      nonce: Math.floor(Math.random() * 10000000),
       footprint: [{ total: params.pledge.footprint, timestamp: Date.now() }],
     });
 
@@ -85,16 +93,4 @@ export const findOrCreatePledge = async (params: putPledgeParams) => {
   }
 
   return data;
-
-  // use nonce to create signature
-  // verify function -> compare address to pledge address
-  // throw if not valid address
-  // otherwise return true
 };
-
-// // const pledgeDocument = snapshot.docs[0];
-// // const pledgeData = pledgeDocument.data();
-// // await pledgeDocument.ref.set(newPledge, { merge: true });
-
-// // create a new reference to a new doc w/ random id
-// // const newPledgeRef = db.collection("pledges").doc();

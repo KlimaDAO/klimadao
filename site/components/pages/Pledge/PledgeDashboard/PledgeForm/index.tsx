@@ -1,16 +1,19 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ethers } from "ethers";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
 
 import { InputField, TextareaField } from "components/Form";
 import { putPledge } from "queries/pledge";
+import { useWeb3 } from "hooks/useWeb3/web3context";
 import { PledgeFormValues } from "lib/moralis";
 
 import * as styles from "./styles";
 
 type Props = {
+  pageAddress: string;
   pledge: PledgeFormValues;
   onFormSubmit: (data: PledgeFormValues) => void;
 };
@@ -21,6 +24,7 @@ const schema = yup
   .object({
     id: yup.string().nullable(),
     ownerAddress: yup.string().required(),
+    nonce: yup.number().required(),
     name: yup.string().required("Enter a name"),
     description: yup
       .string()
@@ -40,6 +44,7 @@ const schema = yup
 
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
+  const { signer } = useWeb3();
   const { register, handleSubmit, formState, reset } =
     useForm<PledgeFormValues>({
       mode: "onBlur",
@@ -50,10 +55,14 @@ export const PledgeForm: FC<Props> = (props) => {
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
+    const nonce = values.nonce.toString();
+    const signature = await signer?.signMessage(nonce);
+
     try {
       const response = await putPledge({
+        pageAddress: props.pageAddress,
         pledge: values,
-        signature: "boo",
+        signature,
       });
       const data = await response.json();
 
