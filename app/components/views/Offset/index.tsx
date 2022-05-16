@@ -621,6 +621,25 @@ interface RetirementSuccessModalProps {
 
 const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
   const locale = useSelector(selectLocale);
+  const retirementPageLink =
+    !!props.retirementTotals &&
+    createLinkWithLocaleSubPath(
+      `${urls.retirements}/${props.beneficiaryAddress}/${props.retirementTotals}`,
+      locale
+    );
+
+  useEffect(() => {
+    if (retirementPageLink) {
+      // show the modal shortly, open new window with URL to Site
+      const timer = setTimeout(() => {
+        window.open(retirementPageLink, "_blank");
+      }, 1500);
+      return () => {
+        !!timer && clearTimeout(timer);
+      };
+    }
+  }, [retirementPageLink]);
+
   return (
     <div className={styles.retirementSuccessModal}>
       <div className="card">
@@ -686,17 +705,11 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
               </A>
             </Trans>
           </Text>
-          {props.retirementTotals && (
+          {retirementPageLink && (
             <Text t="caption">
               <Trans id="offset.retirement_success_modal.view_on_klimadao">
                 View your retirement details on{" "}
-                <A
-                  target="_blank"
-                  href={createLinkWithLocaleSubPath(
-                    `${urls.retirements}/${props.beneficiaryAddress}/${props.retirementTotals}`,
-                    locale
-                  )}
-                >
+                <A target="_blank" href={retirementPageLink}>
                   klimadao.finance
                 </A>
               </Trans>
