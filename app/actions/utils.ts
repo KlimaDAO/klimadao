@@ -82,7 +82,7 @@ export const getEns = async (params: { address: string }): Promise<Domain> => {
       ens.name = `${ensDomain}`;
     }
   } catch (error: any) {
-    console.log("ens error", error)
+    console.log("ens error", error);
   }
   return ens;
 };
