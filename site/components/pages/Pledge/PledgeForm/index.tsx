@@ -20,17 +20,19 @@ type Props = {
 export const schema = yup
   .object({
     id: yup.string().nullable(),
-    ownerAddress: yup.string().required(),
+    ownerAddress: yup.string().required().trim(),
     nonce: yup.number().required(),
-    name: yup.string().required("Enter a name"),
+    name: yup.string().required("Enter a name").trim(),
     description: yup
       .string()
       .required("Enter a pledge")
-      .max(280, "Enter less than 280 characters"),
+      .max(280, "Enter less than 280 characters")
+      .trim(),
     methodology: yup
       .string()
       .required("Enter a methodology")
-      .max(280, "Enter less than 280 characters"),
+      .max(280, "Enter less than 280 characters")
+      .trim(),
     footprint: yup
       .number()
       .typeError("Enter your estimated carbon footprint")
