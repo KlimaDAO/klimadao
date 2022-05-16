@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-13 18:49+0000\n"
+"POT-Creation-Date: 2022-05-16 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -662,11 +662,11 @@ msgstr "Инвестируйте в будущее."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.column1"
-msgstr ""
+msgstr "Мы стимулируем устойчивое развитие и приводим углеродный рынок в Web3. Мы сделали возможным для каждого обмен и компенсацию с помощью качественных углеродных активов. Все, что вам нужно - это кошелек!"
 
 #: components/pages/Retirements/Footer/index.tsx:35
 msgid "retirement.footer.aboutKlima.column2"
-msgstr ""
+msgstr "KlimaDAO является центром растущей углеродной экономики. Узнайте больше о компенсации выбросов углерода, углеродных рынках и базовых активах в нашей <0>базе знаний.</0> ."
 
 #: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
@@ -682,11 +682,11 @@ msgstr "Офсет"
 
 #: components/pages/Retirements/Footer/index.tsx:59
 msgid "retirement.footer.buy_klima.text"
-msgstr ""
+msgstr "Используйте токены KLIMA, обеспеченные углеродом, для управления, обмена и получения вознаграждений за стейкинг, а затем используйте эти вознаграждения для компенсации своих выбросов!"
 
 #: components/pages/Retirements/Footer/index.tsx:54
 msgid "retirement.footer.buy_klima.title"
-msgstr ""
+msgstr "Приобретайте, стейкайте и получайте вознаграждение."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:62
 msgid "retirement.head.metaDescription"
@@ -714,7 +714,7 @@ msgstr "Адрес получателя"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:152
 msgid "retirement.single.disclaimer"
-msgstr ""
+msgstr "Это представляет собой постоянное выбытие токенизированных углеродных активов на блокчейне Polygon. Это выбытие и связанные с ним данные являются неизменяемыми публичными записями."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:72
 msgid "retirement.single.header.offset"
@@ -750,7 +750,7 @@ msgstr "Ценность"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:169
 msgid "retirement.single.view_on_polygon_scan"
-msgstr ""
+msgstr "Посмотреть на Polygonscan"
 
 #: components/pages/Retirements/index.tsx:31
 msgid "retirement.totals.head.metaTitle"
