@@ -40,7 +40,9 @@ export const PageHead = (props: PageHeadProps) => {
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content={props.mediaTitle} />
       <meta property="twitter:description" content={props.metaDescription} />
-      <meta property="twitter:image" content={props.mediaImageSrc} />
+      {props.mediaImageSrc && (
+        <meta property="twitter:image" content={props.mediaImageSrc} />
+      )}
       <link
         rel="apple-touch-icon"
         sizes="180x180"
