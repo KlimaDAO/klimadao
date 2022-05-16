@@ -7,11 +7,12 @@ import leafImage from "public/leaf.svg";
 import greenHills from "public/green_hills.png";
 
 type Props = {
+  overline: ReactNode;
   title: ReactNode;
   subline: ReactNode;
 };
 
-export const RetirementHeader: FC<Props> = ({ title, subline }) => {
+export const RetirementHeader: FC<Props> = (props) => {
   return (
     <div className={styles.retirementHeader}>
       <Image
@@ -21,19 +22,26 @@ export const RetirementHeader: FC<Props> = ({ title, subline }) => {
         objectFit="cover"
       />
       <div className={styles.imageGradient}></div>
-      <Image
-        alt="Leaf Picture"
-        width={44}
-        height={44}
-        src={leafImage}
-        className={styles.leafImage}
-      />
-      <Text t="h2" align="center" className={styles.retirementHeaderText}>
-        {title}
-      </Text>
-      <Text t="h4" align="center" className={styles.retirementHeaderText}>
-        {subline}
-      </Text>
+      <div className="stack">
+        <Image
+          alt="Leaf Picture"
+          width={44}
+          height={44}
+          src={leafImage}
+          className={styles.leafImage}
+        />
+        <Text t="h4" align="center" className={styles.retirementHeaderText}>
+          {props.overline}
+        </Text>
+      </div>
+      <div className="stack">
+        <Text t="h2" align="center" className={styles.retirementHeaderText}>
+          {props.title}
+        </Text>
+        <Text t="badge" align="center" className={styles.retirementHeaderText}>
+          {props.subline}
+        </Text>
+      </div>
     </div>
   );
 };

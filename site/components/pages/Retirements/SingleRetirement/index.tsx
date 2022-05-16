@@ -69,11 +69,16 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
 
       <Section variant="gray" className={styles.section}>
         <RetirementHeader
+          overline={retireData.beneficiaryName}
           title={t({
-            id: "retirement.single.header.offset",
-            message: `${retireData.amount} ${retireData.tokenLabel} Offset`,
+            id: "retirement.single.header.quantity",
+            message: `${retireData.amount} t`,
           })}
-          subline={retireData.beneficiaryName}
+          subline={
+            <Trans id="retirement.single.header.subline">
+              CO2-Equivalent Emissions Offset (Metric Tonnes)
+            </Trans>
+          }
         />
         <div className={styles.retirementContent}>
           <RetirementMessage
@@ -141,8 +146,8 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                   </Trans>
                 }
                 text={
-                  <Trans id="retirement.single.retirementCertificate.link">
-                    ...coming soon
+                  <Trans id="retirement.single.retirementCertificate.soon">
+                    ...coming soon!
                   </Trans>
                 }
               />
