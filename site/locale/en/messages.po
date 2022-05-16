@@ -808,12 +808,12 @@ msgstr "Enter App"
 #: components/pages/Blog/index.tsx:25
 #: components/pages/Buy/index.tsx:50
 #: components/pages/Disclaimer/index.tsx:23
-#: components/pages/errors/Custom404.tsx:25
-#: components/pages/errors/Custom500.tsx:25
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
 #: components/pages/Retirements/index.tsx:36
+#: components/pages/errors/Custom404.tsx:25
+#: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
