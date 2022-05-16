@@ -36,6 +36,7 @@ import { NavMenu } from "components/NavMenu";
 import Menu from "@mui/icons-material/Menu";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { Buy } from "../Buy";
+import { t } from "@lingui/macro";
 
 type EIP1139Provider = ethers.providers.ExternalProvider & {
   on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
@@ -45,6 +46,8 @@ type EIP1139Provider = ethers.providers.ExternalProvider & {
 /** wrap in useEffect to skip on server-side render */
 const useWeb3Modal = () => {
   const ref = useRef<Web3Modal>();
+  const { locale } = useSelector(selectAppState);
+
   useEffect(() => {
     const modal = new Web3Modal({
       cacheProvider: true, // optional
@@ -53,6 +56,12 @@ const useWeb3Modal = () => {
           package: WalletConnectProvider, // required
           options: {
             rpc: { 137: urls.polygonMainnetRpc },
+          },
+          display: {
+            description: t({
+              id: "web3modal.walletconnect.description",
+              message: "Scan with WalletConnect to connect",
+            }),
           },
         },
         walletlink: {
@@ -64,11 +73,26 @@ const useWeb3Modal = () => {
             appLogoUrl: null, // Optional. Application logo image URL. favicon is used if unspecified
             darkMode: false, // Optional. Use dark theme, defaults to false
           },
+          display: {
+            description: t({
+              id: "web3modal.walletlink.description",
+              message: "Scan with Coinbase to connect",
+            }),
+          },
+        },
+        injected: {
+          display: {
+            description: t({
+              id: "web3modal.injected.description",
+              message: "Connect with your browser web3 provider",
+            }),
+          },
+          package: null,
         },
       },
     });
     ref.current = modal;
-  }, []);
+  }, [locale]);
   return ref.current;
 };
 
