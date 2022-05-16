@@ -66,9 +66,10 @@ const Address: FC<AddressProps> = (props) => {
       )}
       {domain && (
         <div className="domain-wrapper">
-          {domain.image ? (
+          {domain.image && (
             <img src={domain.image} alt="profile avatar" className="avatar" />
-          ) : (
+          )}
+          {domain.defaultImage && (
             <div
               className="avatar"
               dangerouslySetInnerHTML={{ __html: domain.defaultImage ?? "" }}

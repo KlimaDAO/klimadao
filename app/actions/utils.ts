@@ -38,7 +38,6 @@ export const getKns = async (params: {
   contract: Contract;
 }): Promise<Domain | null> => {
   const domain: any = {};
-
   try {
     const domainName = await params.contract.defaultNames(params.address);
     // what do we do if this is false?
@@ -64,22 +63,26 @@ export const getKns = async (params: {
       domain.defaultImage = decodedDefaultImage;
     }
   } catch (error: any) {
-    console.log(error);
+    console.log("kns error", error);
   }
   return domain;
 };
 export const getEns = async (params: { address: string }): Promise<Domain> => {
   const ethProvider = ethers.getDefaultProvider(1);
   const ens: any = {};
-  const ensDomain: string | null = await ethProvider.lookupAddress(
-    params.address
-  );
-  if (ensDomain) {
-    const avatar = ethProvider.getAvatar(ensDomain);
-    ens.avatar = avatar;
-  }
-  if (ensDomain) {
-    ens.name = `${ensDomain}.eth`;
+  try {
+    const ensDomain: string | null = await ethProvider.lookupAddress(
+      params.address
+    );
+    if (ensDomain) {
+      const avatar = ethProvider.getAvatar(ensDomain);
+      ens.avatar = avatar;
+    }
+    if (ensDomain) {
+      ens.name = `${ensDomain}`;
+    }
+  } catch (error: any) {
+    console.log("ens error", error)
   }
   return ens;
 };
