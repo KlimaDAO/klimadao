@@ -30,6 +30,10 @@ export const button_primary = css`
     background-color: var(--surface-03);
     cursor: not-allowed;
   }
+
+  &.icon {
+    gap: 0.8rem;
+  }
 `;
 
 export const button_gray = css`
