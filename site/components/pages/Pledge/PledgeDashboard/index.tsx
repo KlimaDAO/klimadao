@@ -6,7 +6,7 @@ import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 
 import { Modal } from "components/Modal";
-import { PledgeFormValues } from "../types";
+import { useWeb3 } from "hooks/useWeb3/web3context";
 
 import {
   AssetBalanceCard,
@@ -17,8 +17,8 @@ import {
 } from "./Cards";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
+import { PledgeFormValues } from "../types";
 import * as styles from "./styles";
-import { useWeb3 } from "hooks/useWeb3/web3context";
 
 type Props = {
   pageAddress: string;
@@ -43,7 +43,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const router = useRouter();
   const { address, isConnected } = useWeb3();
   const [showModal, setShowModal] = useState(false);
-  const [validAddress, setValidAddress] = useState(false);
+  const [isValidAddress, setIsValidAddress] = useState(false);
   const [pledge, setPledge] = useState<PledgeFormValues>(
     defaultValues(props.pledge)
   );
@@ -64,7 +64,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   useEffect(() => {
     try {
       ethers.utils.getAddress(props.pageAddress);
-      setValidAddress(true);
+      setIsValidAddress(true);
     } catch {
       router.push("/pledge");
     }
@@ -77,7 +77,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
 
   return (
     <PledgeLayout buttons={buttons}>
-      {validAddress && (
+      {isValidAddress && (
         <>
           <Modal
             title="Your pledge"
