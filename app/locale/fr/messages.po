@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-13 15:14+0000\n"
+"POT-Creation-Date: 2022-05-16 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,15 +29,15 @@ msgstr "Le 12 avril 2022, nous avons migré de \"dapp\" à \"app\". Veuillez met
 
 #: components/views/Offset/index.tsx:631
 msgid "Retirement Successful"
-msgstr "Désactivation réussie"
+msgstr "Compensation carbone réussie"
 
 #: components/views/Offset/index.tsx:671
 msgid "Share retirement"
-msgstr "Partager la désactivation"
+msgstr "Partager la compensation carbone"
 
 #: components/InvalidNetworkModal/index.tsx:89
 msgid "Switch to Polygon"
-msgstr "Passez sur le réseau Polygon"
+msgstr "Passer sur le réseau Polygon"
 
 #: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
@@ -434,11 +434,11 @@ msgstr "Payer avec"
 
 #: components/views/Offset/index.tsx:467
 msgid "offset.dropdown_retire.label"
-msgstr "Sélectionnez l'actif compensation carbone à désactiver"
+msgstr "Sélectionnez l'actif carbone à compenser"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:53
 msgid "offset.empty"
-msgstr "Cette adresse n'a effectué aucune désactivation."
+msgstr "Cette adresse n'a encore réalisée aucune compensation carbone."
 
 #: components/views/Offset/index.tsx:507
 #: components/views/Offset/index.tsx:777
@@ -471,11 +471,11 @@ msgstr "Entrez la quantité à compenser"
 
 #: components/views/Offset/index.tsx:400
 msgid "offset.retire_carbon"
-msgstr "Désactiver du Carbone"
+msgstr "Compenser des émissions Carbone"
 
 #: components/views/Offset/index.tsx:755
 msgid "offset.retire_specific"
-msgstr "Désactiver des actifs de projet spécifiques"
+msgstr "compenser des actifs de projet spécifiques"
 
 #: components/views/Offset/index.tsx:761
 msgid "offset.retire_specific_tooltip"
@@ -487,15 +487,19 @@ msgstr "Nom ou organisation"
 
 #: components/views/Offset/index.tsx:488
 msgid "offset.retirement_credit"
-msgstr "A qui cette désactivation sera-t-elle créditée ?"
+msgstr "A qui cette compensation carbone sera-t-elle créditée ?"
 
 #: components/views/Offset/index.tsx:522
 msgid "offset.retirement_message"
-msgstr "Message de désactivation"
+msgstr "Message de compensation carbone"
 
 #: components/views/Offset/index.tsx:531
 msgid "offset.retirement_purpose"
 msgstr "Décrivez le but de ce retrait"
+
+#: components/views/Offset/index.tsx:689
+msgid "offset.retirement_success_modal.view_on_klimadao"
+msgstr "Consultez l'historique de vos mises en retrait sur <0>klimadao.finance</0>"
 
 #: components/views/Offset/index.tsx:563
 msgid "offset.retiring"
@@ -507,7 +511,7 @@ msgstr "Tonnes de carbone"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:20
 msgid "offset.you_have_retired"
-msgstr "Vous avez désactivé"
+msgstr "Vous avez compensé"
 
 #: components/views/Offset/index.tsx:541
 msgid "offset_cost"
@@ -580,10 +584,6 @@ msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
 msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont gagné des récompenses provenant d'actifs réclamés au préalable. Avant le correctif de novembre, le rendement des dépôts n'étaient pas pris en compte dans votre limite d'approvisionnement. De fait votre approvisionnement total en KLIMA pouvait dépasser la limite définie dans vos conditions."
-
-#: components/views/Offset/index.tsx:689
-msgid "retirementSuccessModal.viewOnKlimadao"
-msgstr ""
 
 #: components/views/Bond/index.tsx:344
 #: components/views/Offset/index.tsx:311
@@ -664,7 +664,7 @@ msgstr "Max"
 
 #: components/views/Offset/index.tsx:317
 msgid "shared.retire"
-msgstr "DÉSACTIVER DU CARBONE"
+msgstr "RETRAIT CARBONE"
 
 #: components/views/Bond/index.tsx:305
 msgid "shared.sold_out"

@@ -36,7 +36,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
 
   // collect from indexInfo and optional data from subgraph
   const retireData = {
-    amount: retirementIndexInfo.amount,
+    amount: retirementIndexInfo.amount.replace(/\.?0+$/, ""), // remove whitespace 0s from string, e.g. 1.0 => 1
     tokenLabel: tokenData.label,
     tokenIcon: tokenData.icon,
     beneficiaryName: retirementIndexInfo.beneficiaryName,
@@ -149,12 +149,10 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
             </div>
           </div>
           <Text className={styles.data_description} t="body2" align="center">
-            <Trans id="retirement.single.description">
-              This represents the permanent on-chain retirement of tokenized
-              carbon assets. This data is written permanently on the public
-              Polygon blockchain. Our open-source system ensures that these
-              tokens or the underlying offsets can never be retired more than
-              once.
+            <Trans id="retirement.single.disclaimer">
+              This represents the permanent retirement of tokenized carbon
+              assets on the Polygon blockchain. This retirement and the
+              associated data are immutable public records.
             </Trans>
           </Text>
         </div>
@@ -169,8 +167,8 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               target="_blank"
               rel="noopener noreferrer"
               label={t({
-                id: "retirement.single.viewOnPolygon",
-                message: "View on Polygon",
+                id: "retirement.single.view_on_polygon_scan",
+                message: "View on Polygonscan",
               })}
             />
           )}

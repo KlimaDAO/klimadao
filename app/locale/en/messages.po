@@ -493,7 +493,15 @@ msgstr "Retirement message"
 msgid "offset.retirement_purpose"
 msgstr "Describe the purpose of this retirement"
 
+<<<<<<< HEAD
 #: components/views/Offset/index.tsx:571
+=======
+#: components/views/Offset/index.tsx:689
+msgid "offset.retirement_success_modal.view_on_klimadao"
+msgstr "View your retirement details on <0>klimadao.finance</0>"
+
+#: components/views/Offset/index.tsx:563
+>>>>>>> 080f0f7585b1017067544f30023b48fcc2fdfad9
 msgid "offset.retiring"
 msgstr "Retiring"
 
@@ -577,10 +585,13 @@ msgstr "A percent of total token supply. Your index-adjusted claim may not excee
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned rewards on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
+<<<<<<< HEAD
 #: components/views/Offset/index.tsx:697
 msgid "retirementSuccessModal.viewOnKlimadao"
 msgstr "View your retirement details on <0>klimadao.finance</0>"
 
+=======
+>>>>>>> 080f0f7585b1017067544f30023b48fcc2fdfad9
 #: components/views/Bond/index.tsx:344
 #: components/views/Offset/index.tsx:311
 #: components/views/Stake/index.tsx:164

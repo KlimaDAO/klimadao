@@ -3,7 +3,7 @@ import Image from "next/image";
 import * as styles from "./styles";
 import { FC, ReactNode } from "react";
 
-import leafImage from "public/leaf.png";
+import leafImage from "public/leaf.svg";
 import greenHills from "public/green_hills.png";
 
 type Props = {
@@ -20,7 +20,14 @@ export const RetirementHeader: FC<Props> = ({ title, subline }) => {
         layout="fill"
         objectFit="cover"
       />
-      <Image alt="Leaf Picture" width={32} height={32} src={leafImage} />
+      <div className={styles.imageGradient}></div>
+      <Image
+        alt="Leaf Picture"
+        width={44}
+        height={44}
+        src={leafImage}
+        className={styles.leafImage}
+      />
       <Text t="h2" align="center" className={styles.retirementHeaderText}>
         {title}
       </Text>
