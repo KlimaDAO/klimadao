@@ -74,9 +74,9 @@ export const buyKlimaImageGradient = css`
 
 export const footerBuyKlimaText = css`
   z-index: 2;
+  color: var(--white);
   ${breakpoints.large} {
     max-width: 70%;
-    color: var(--white);
   }
 `;
 
