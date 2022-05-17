@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 00:37+0000\n"
+"POT-Creation-Date: 2022-05-17 14:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -662,11 +662,11 @@ msgstr "Инвестируйте в будущее."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
-msgstr ""
+msgstr "KlimaDAO стимулирует устойчивое развитие и является катализатором более прозрачного и ликвидного углеродного рынка. Наши инструменты позволяют любому физическому или юридическому лицу торговать и списывать качественные углеродные активы на блокчейне."
 
 #: components/pages/Retirements/Footer/index.tsx:36
 msgid "retirement.footer.aboutKlima.right"
-msgstr ""
+msgstr "Токены KLIMA находятся в центре бурно развивающейся углеродной экономики на цепочке. Посетите нашу <0>базу знаний</0>, чтобы узнать больше о KLIMA, компенсации выбросов углерода, углеродных рынках и лежащих в их основе углеродных активах."
 
 #: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
@@ -718,11 +718,11 @@ msgstr "Это представляет собой постоянное выбы
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:73
 msgid "retirement.single.header.quantity"
-msgstr ""
+msgstr "{0} t"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:78
 msgid "retirement.single.header.subline"
-msgstr ""
+msgstr "Коррекция выбросов в CO2-эквиваленте (метрические тонны)"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
@@ -730,11 +730,11 @@ msgstr "Сообщение о использовании"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
-msgstr ""
+msgstr "КОЛИЧЕСТВО УПОТРЕБЛЕННЫХ "
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:149
 msgid "retirement.single.retirementCertificate.soon"
-msgstr ""
+msgstr "...скоро!"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:144
 msgid "retirement.single.retirementCertificate.title"

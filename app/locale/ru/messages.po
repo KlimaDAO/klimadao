@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 00:37+0000\n"
+"POT-Creation-Date: 2022-05-17 14:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -412,7 +412,7 @@ msgstr "Введите 0x-адрес"
 
 #: components/views/Offset/index.tsx:405
 msgid "offset.go_carbon_neutral"
-msgstr ""
+msgstr "Перейдите на углеродно-нейтральный режим, выбывая углерод и получая экологическую выгоду от компенсации углерода. Выберите: <0>Мосс углеродные кредиты</0> (MCO2), <1>Базовые углеродные тонны</1> (BCT), <2>Природные углеродные тонны</2> (NCT), <3>Универсальные базовые офсеты</3> (UBO) или <4>Природные офсеты</4> (NBO), и в ближайшее время появятся другие варианты."
 
 #: components/views/Offset/index.tsx:384
 msgid "offset.incompatible"
@@ -468,19 +468,19 @@ msgstr "Вывод"
 
 #: components/views/Offset/index.tsx:643
 msgid "offset.successModal.body1"
-msgstr ""
+msgstr "Спасибо. Участвуя в добровольном углеродном рынке, вы делаете сохранение природы более выгодным, а смягчение последствий изменения климата - более эффективным"
 
 #: components/views/Offset/index.tsx:652
 msgid "offset.successModal.body2"
-msgstr ""
+msgstr "Нажмите на кнопку ниже, чтобы просмотреть ваше употребление. Поделитесь этой страницей, чтобы поддержать нас на пути к созданию более прозрачного, доступного и выгодного углеродного рынка!"
 
 #: components/views/Offset/index.tsx:666
 msgid "offset.successModal.cta"
-msgstr ""
+msgstr "Посмотреть употребление"
 
 #: components/views/Offset/index.tsx:636
 msgid "offset.successModal.title"
-msgstr ""
+msgstr "Использование успешно!"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "offset.tonnes_of_carbon_retired"
