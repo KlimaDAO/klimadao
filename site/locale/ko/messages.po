@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 18:26+0000\n"
+"POT-Creation-Date: 2022-05-17 18:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -758,17 +758,17 @@ msgstr ""
 msgid "retirement.totals.head.title"
 msgstr ""
 
-#: components/Footer/index.tsx:51
+#: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr ""
 
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:42
 msgid "shared.bond"
 msgstr ""
 
-#: components/Footer/index.tsx:37
+#: components/Footer/index.tsx:35
 #: components/Navigation/index.tsx:44
 #: components/Navigation/index.tsx:70
 msgid "shared.buy"
@@ -779,7 +779,7 @@ msgstr ""
 msgid "shared.community"
 msgstr ""
 
-#: components/Footer/index.tsx:56
+#: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr ""
@@ -790,11 +790,11 @@ msgstr ""
 msgid "shared.contact_us"
 msgstr ""
 
-#: components/Footer/index.tsx:61
+#: components/Footer/index.tsx:59
 msgid "shared.disclaimer"
 msgstr ""
 
-#: components/Footer/index.tsx:47
+#: components/Footer/index.tsx:45
 msgid "shared.docs"
 msgstr ""
 
@@ -815,7 +815,7 @@ msgstr ""
 msgid "shared.head.description"
 msgstr ""
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:30
 msgid "shared.home"
 msgstr ""
 
@@ -829,7 +829,7 @@ msgstr ""
 msgid "shared.resources"
 msgstr ""
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:39
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"

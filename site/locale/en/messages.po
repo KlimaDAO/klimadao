@@ -764,17 +764,17 @@ msgstr "KlimaDao - Your total retirements for address: {beneficiaryAddress}"
 msgid "retirement.totals.head.title"
 msgstr "KlimaDao - Your total retirements for address: {beneficiaryAddress}"
 
-#: components/Footer/index.tsx:51
+#: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "Blog"
 
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:42
 msgid "shared.bond"
 msgstr "App"
 
-#: components/Footer/index.tsx:37
+#: components/Footer/index.tsx:35
 #: components/Navigation/index.tsx:44
 #: components/Navigation/index.tsx:70
 msgid "shared.buy"
@@ -785,7 +785,7 @@ msgstr "Buy"
 msgid "shared.community"
 msgstr "Community"
 
-#: components/Footer/index.tsx:56
+#: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "Contact"
@@ -796,11 +796,11 @@ msgstr "Contact"
 msgid "shared.contact_us"
 msgstr "Contact Us"
 
-#: components/Footer/index.tsx:61
+#: components/Footer/index.tsx:59
 msgid "shared.disclaimer"
 msgstr "Disclaimer"
 
-#: components/Footer/index.tsx:47
+#: components/Footer/index.tsx:45
 msgid "shared.docs"
 msgstr "Docs"
 
@@ -821,7 +821,7 @@ msgstr "Enter App"
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:30
 msgid "shared.home"
 msgstr "Home"
 
@@ -835,7 +835,7 @@ msgstr "Love Letters"
 msgid "shared.resources"
 msgstr "Resources"
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:39
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"

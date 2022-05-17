@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 18:26+0000\n"
+"POT-Creation-Date: 2022-05-17 18:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -760,17 +760,17 @@ msgstr "KlimaDao - Total des mises en retraite pour l'adresse : {beneficiaryAdd
 msgid "retirement.totals.head.title"
 msgstr "KlimaDao - Total de vos mises en retraite pour l'adresse : {beneficiaryAddress}"
 
-#: components/Footer/index.tsx:51
+#: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "Blog"
 
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:42
 msgid "shared.bond"
 msgstr "App"
 
-#: components/Footer/index.tsx:37
+#: components/Footer/index.tsx:35
 #: components/Navigation/index.tsx:44
 #: components/Navigation/index.tsx:70
 msgid "shared.buy"
@@ -781,7 +781,7 @@ msgstr "Achat"
 msgid "shared.community"
 msgstr "Communauté"
 
-#: components/Footer/index.tsx:56
+#: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "Contact"
@@ -792,11 +792,11 @@ msgstr "Contact"
 msgid "shared.contact_us"
 msgstr "Contact"
 
-#: components/Footer/index.tsx:61
+#: components/Footer/index.tsx:59
 msgid "shared.disclaimer"
 msgstr "Conditions"
 
-#: components/Footer/index.tsx:47
+#: components/Footer/index.tsx:45
 msgid "shared.docs"
 msgstr "Docs"
 
@@ -817,7 +817,7 @@ msgstr "Visitez l'application"
 msgid "shared.head.description"
 msgstr "Influez sur l'action climatique et soyez récompensés avec une monnaie numérique garantie par du carbone."
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:30
 msgid "shared.home"
 msgstr "Acceuil"
 
@@ -831,7 +831,7 @@ msgstr "Love Letters"
 msgid "shared.resources"
 msgstr "Ressources"
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:39
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"
