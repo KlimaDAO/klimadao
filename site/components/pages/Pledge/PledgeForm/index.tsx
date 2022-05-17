@@ -4,7 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { InputField, TextareaField } from "components/Form";
-// import { putPledge } from "queries/pledge";
 import { useWeb3 } from "hooks/useWeb3/web3context";
 
 import { editPledgeSignature, formSchema, putPledge } from "../lib";
