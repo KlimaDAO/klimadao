@@ -2,16 +2,14 @@ import * as admin from "firebase-admin";
 import { v4 as uuidv4 } from "uuid";
 
 import { putPledgeParams } from "queries/pledge";
+import { FIREBASE_ADMIN_CERT } from "lib/secrets";
 import { Footprint, Pledge } from "../types";
 import { verifySignature } from ".";
 
-import serviceAccount from "./firebaseServiceAccountFile.json";
-
 const initFirebaseAdmin = () => {
   if (!admin.apps.length) {
-    // the key is a string on vercel/env.local
     admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount as admin.ServiceAccount), // TODO
+      credential: admin.credential.cert(JSON.parse(FIREBASE_ADMIN_CERT as string)),
     });
   }
   return admin.firestore();
@@ -25,6 +23,8 @@ const buildFootprint = (
 
   return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
 };
+
+const generateNonce = (): number => Math.floor(Math.random() * 10000000);
 
 export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
   const db = initFirebaseAdmin();
@@ -62,7 +62,8 @@ export const findOrCreatePledge = async (
 
     await pledgeRef.ref.update({
       ...params.pledge,
-      nonce: Math.floor(Math.random() * 10000000),
+      updatedAt: Date.now(),
+      nonce: generateNonce(),
       footprint: buildFootprint(
         currentPledge.footprint,
         params.pledge.footprint
@@ -81,8 +82,10 @@ export const findOrCreatePledge = async (
     const pledge = await pledgeCollectionRef.add({
       ...params.pledge,
       id: uuidv4(),
-      nonce: Math.floor(Math.random() * 10000000),
+      nonce: generateNonce(),
       footprint: [{ total: params.pledge.footprint, timestamp: Date.now() }],
+      createdAt: Date.now(),
+      updatedAt: Date.now()
     });
 
     data = await pledge.get().then((pledge) => pledge.data());
