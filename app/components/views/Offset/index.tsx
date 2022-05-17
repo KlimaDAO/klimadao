@@ -624,18 +624,6 @@ interface RetirementSuccessModalProps {
 }
 
 const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
-  useEffect(() => {
-    if (props.url) {
-      // show the modal shortly, open new window with URL to Site
-      const timer = setTimeout(() => {
-        window.open(props.url, "_blank");
-      }, 1500);
-      return () => {
-        !!timer && clearTimeout(timer);
-      };
-    }
-  }, [props.url]);
-
   return (
     <div className={styles.retirementSuccessModal}>
       <div className="card">
