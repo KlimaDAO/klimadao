@@ -1,6 +1,7 @@
 import { i18n } from "@lingui/core";
 import { en, fr, de, ru, zh, ko, es } from "make-plural/plurals";
 import { IS_PRODUCTION, IS_LOCAL_DEVELOPMENT } from "lib/constants";
+import { urls } from "@klimadao/lib/constants";
 
 // TODO: remove NODE_ENV=test hack from package.json https://github.com/lingui/js-lingui/issues/433
 
@@ -82,6 +83,13 @@ async function initLocale(localeFromURL: string | null) {
 export const createLinkWithLocaleSubPath = (
   url: string,
   locale = "en"
-): string => `${url}/${locale}`;
+): string => {
+  // ensure that the locale is added right after the main Site URL
+  // klimadao.finance/LOCALE/the/other/sub/page
+  if (url.startsWith(urls.home)) {
+    return url.replace(urls.home, `${urls.home}/${locale}`);
+  }
+  return `${url}/${locale}`;
+};
 
 export { locales, activate, initLocale };

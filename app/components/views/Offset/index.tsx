@@ -22,6 +22,7 @@ import {
   selectNotificationStatus,
   selectBalances,
   selectCarbonRetiredAllowance,
+  selectLocale,
 } from "state/selectors";
 import {
   changeApprovalTransaction,
@@ -62,8 +63,8 @@ import NBO from "public/icons/NBO.png";
 
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
-import { IS_PRODUCTION } from "lib/constants";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
+import { createLinkWithLocaleSubPath } from "lib/i18n";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -627,6 +628,26 @@ interface RetirementSuccessModalProps {
 }
 
 const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
+  const locale = useSelector(selectLocale);
+  const retirementPageLink =
+    !!props.retirementTotals &&
+    createLinkWithLocaleSubPath(
+      `${urls.retirements}/${props.beneficiaryAddress}/${props.retirementTotals}`,
+      locale
+    );
+
+  useEffect(() => {
+    if (retirementPageLink) {
+      // show the modal shortly, open new window with URL to Site
+      const timer = setTimeout(() => {
+        window.open(retirementPageLink, "_blank");
+      }, 1500);
+      return () => {
+        !!timer && clearTimeout(timer);
+      };
+    }
+  }, [retirementPageLink]);
+
   return (
     <div className={styles.retirementSuccessModal}>
       <div className="card">
@@ -692,14 +713,11 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
               </A>
             </Trans>
           </Text>
-          {!IS_PRODUCTION && props.retirementTotals && (
+          {retirementPageLink && (
             <Text t="caption">
               <Trans id="offset.retirement_success_modal.view_on_klimadao">
                 View your retirement details on{" "}
-                <A
-                  target="_blank"
-                  href={`${urls.retirements}/${props.beneficiaryAddress}/${props.retirementTotals}`}
-                >
+                <A target="_blank" href={retirementPageLink}>
                   klimadao.finance
                 </A>
               </Trans>
