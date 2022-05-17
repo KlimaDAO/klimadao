@@ -4,7 +4,7 @@ export const formSchema = yup
   .object({
     id: yup.string().nullable(),
     ownerAddress: yup.string().required().trim(),
-    nonce: yup.number().required(),
+    nonce: yup.string().required().trim(),
     name: yup.string().required("Enter a name").trim(),
     description: yup
       .string()

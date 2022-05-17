@@ -25,28 +25,12 @@ type Props = {
   pledge: PledgeFormValues;
 };
 
-// TODO - might not need this due to pledgeResolver
-const defaultValues = (pledge: PledgeFormValues): PledgeFormValues =>
-  Object.assign(
-    {
-      address: "",
-      pledge: "",
-      footprint: [0],
-      methodology: "",
-      name: "",
-      nonce: 33,
-    },
-    pledge
-  );
-
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const router = useRouter();
   const { address, isConnected } = useWeb3();
   const [showModal, setShowModal] = useState(false);
   const [isValidAddress, setIsValidAddress] = useState(false);
-  const [pledge, setPledge] = useState<PledgeFormValues>(
-    defaultValues(props.pledge)
-  );
+  const [pledge, setPledge] = useState<PledgeFormValues>(props.pledge);
 
   const canEditPledge = address?.toLowerCase() === props.pageAddress;
 

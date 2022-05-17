@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { putPledgeParams } from "queries/pledge";
 import { FIREBASE_ADMIN_CERT } from "lib/secrets";
 import { Footprint, Pledge } from "../types";
-import { verifySignature } from ".";
+import { verifySignature, DEFAULT_NONCE, generateNonce } from ".";
 
 const initFirebaseAdmin = () => {
   if (!admin.apps.length) {
@@ -25,8 +25,6 @@ const buildFootprint = (
 
   return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
 };
-
-const generateNonce = (): number => Math.floor(Math.random() * 10000000);
 
 export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
   const db = initFirebaseAdmin();
@@ -78,7 +76,7 @@ export const findOrCreatePledge = async (
     verifySignature({
       address: params.pageAddress,
       signature: params.signature,
-      nonce: "33",
+      nonce: DEFAULT_NONCE,
     });
 
     const pledge = await pledgeCollectionRef.add({

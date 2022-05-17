@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     pledge = pledgeResolver(data);
   } catch (error) {
-    pledge = null;
+    pledge = pledgeResolver(null);
   }
 
   return {

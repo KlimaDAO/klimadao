@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-import { schema } from "../PledgeForm";
+import { formSchema } from "../lib";
 
 export type Footprint = {
   timestamp: number;
@@ -11,10 +11,10 @@ export type Pledge = {
   id: string;
   ownerAddress: string;
   name: string;
-  nonce: number;
+  nonce: string;
   description: string;
   methodology: string;
   footprint: Footprint[];
 };
 
-export type PledgeFormValues = yup.InferType<typeof schema>;
+export type PledgeFormValues = yup.InferType<typeof formSchema>;
