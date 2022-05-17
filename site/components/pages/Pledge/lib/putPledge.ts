@@ -1,5 +1,5 @@
 import { API_BASE_URL } from "lib/constants";
-import { PledgeFormValues } from "components/pages/Pledge/types";
+import { PledgeFormValues } from "../types";
 
 export interface putPledgeParams {
   pledge: PledgeFormValues;
@@ -7,8 +7,8 @@ export interface putPledgeParams {
   signature: string;
 }
 
-export const putPledge = (params: putPledgeParams) => {
-  return fetch(`${API_BASE_URL}/api/pledge`, {
+export const putPledge = (params: putPledgeParams) =>
+  fetch(`${API_BASE_URL}/api/pledge`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -19,4 +19,3 @@ export const putPledge = (params: putPledgeParams) => {
       pledge: params.pledge,
     }),
   });
-};

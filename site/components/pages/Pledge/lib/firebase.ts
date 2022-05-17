@@ -1,9 +1,8 @@
 import * as admin from "firebase-admin";
 import { v4 as uuidv4 } from "uuid";
 
-import { putPledgeParams } from "queries/pledge";
 import { FIREBASE_ADMIN_CERT } from "lib/secrets";
-import { Footprint, Pledge } from "../types";
+import { Footprint, Pledge, putPledgeParams } from "../types";
 import { verifySignature, DEFAULT_NONCE, generateNonce } from ".";
 
 const initFirebaseAdmin = () => {
