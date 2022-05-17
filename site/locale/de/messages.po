@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 00:07+0000\n"
+"POT-Creation-Date: 2022-05-17 00:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -659,30 +659,30 @@ msgid "invest_in_the_future"
 msgstr "Investiere in die Zukunft."
 
 #: components/pages/Retirements/Footer/index.tsx:26
-msgid "retirement.footer.aboutKlima.column1"
-msgstr "Wir schaffen Anreize für Nachhaltigkeit und bringen den CO2-Markt ins Web3. Ab sofort kann jeder mit CO2-Zerfitikaten handeln und damit Emissionen ausgleichen. Alles, was du brauchst, ist eine Wallet!"
+msgid "retirement.footer.aboutKlima.left"
+msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:35
-msgid "retirement.footer.aboutKlima.column2"
-msgstr "KlimaDAO ist das Zentrum der wachsenden CO2-Wirtschaft auf der Blockchain. Mehr über CO2-Offsets, CO2-Märkte und die zugrundeliegenden CO2-Zertifikate erfährst du in unserer <0>Wissensdatenbank</0>."
+#: components/pages/Retirements/Footer/index.tsx:36
+msgid "retirement.footer.aboutKlima.right"
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
 msgstr "Über Klima"
 
-#: components/pages/Retirements/Footer/index.tsx:66
+#: components/pages/Retirements/Footer/index.tsx:68
 msgid "retirement.footer.buy_klima.button.buy"
 msgstr "Kaufen"
 
-#: components/pages/Retirements/Footer/index.tsx:73
+#: components/pages/Retirements/Footer/index.tsx:75
 msgid "retirement.footer.buy_klima.button.offset"
 msgstr "Ausgleichen"
 
-#: components/pages/Retirements/Footer/index.tsx:59
+#: components/pages/Retirements/Footer/index.tsx:61
 msgid "retirement.footer.buy_klima.text"
 msgstr "Mit CO2-gedeckten KLIMA-Tokens kannst du handeln, Staking-Belohnungen erhalten und mitmachen - und deine Belohnungen nutzen, um deine Emissionen auszugleichen!"
 
-#: components/pages/Retirements/Footer/index.tsx:54
+#: components/pages/Retirements/Footer/index.tsx:56
 msgid "retirement.footer.buy_klima.title"
 msgstr "Kaufen, staken und belohnt werden."
 
@@ -698,35 +698,43 @@ msgstr "{0}"
 msgid "retirement.head.title"
 msgstr "KlimaDAO | CO2-Ausgleichsquittung"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/index.tsx:108
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Keinen Empfängername angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:97
+#: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "retirement.single.beneficiary.title"
 msgstr "Empfänger"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:116
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Empfängeradresse"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:152
+#: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "retirement.single.disclaimer"
 msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch tokenisierte CO2-Zertifikate auf der Polygon-Blockchain. Jeder Emissionsausgleich und die damit verbundenen Daten sind unveränderlich und öffentlich einsehbar."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:72
-msgid "retirement.single.header.offset"
-msgstr "{0} {1} Ausgleich"
+#: components/pages/Retirements/SingleRetirement/index.tsx:73
+msgid "retirement.single.header.quantity"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "retirement.single.header.subline"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
 msgstr "Ausgleichsnachricht"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:144
-msgid "retirement.single.retirementCertificate.link"
-msgstr "... kommt demnächst"
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
+msgid "retirement.single.quantity"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/index.tsx:149
+msgid "retirement.single.retirementCertificate.soon"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:144
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Zertifikat"
 
@@ -734,19 +742,15 @@ msgstr "Zertifikat"
 msgid "retirement.single.retirementDate.title"
 msgstr "Datum"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:87
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Keine Ausgleichsnachricht angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:136
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
-msgid "retirement.single.value.title"
-msgstr "Wert"
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:174
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 

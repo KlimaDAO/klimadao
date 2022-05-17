@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 00:07+0000\n"
+"POT-Creation-Date: 2022-05-17 00:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -655,30 +655,30 @@ msgid "invest_in_the_future"
 msgstr "投资于未来。"
 
 #: components/pages/Retirements/Footer/index.tsx:26
-msgid "retirement.footer.aboutKlima.column1"
-msgstr "我们正在激励可持续发展，并将碳市场引入 Web3。我们实现了让任何人都可以用优质碳资产进行兑换和抵消的可能。你只需要一个钱包！"
+msgid "retirement.footer.aboutKlima.left"
+msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:35
-msgid "retirement.footer.aboutKlima.column2"
-msgstr "KlimaDAO 是新兴的链上碳经济的中心。在我们的<0>知识库</0>中了解有关碳抵消、碳市场和基础资产的更多信息."
+#: components/pages/Retirements/Footer/index.tsx:36
+msgid "retirement.footer.aboutKlima.right"
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
 msgstr "关于 Klima"
 
-#: components/pages/Retirements/Footer/index.tsx:66
+#: components/pages/Retirements/Footer/index.tsx:68
 msgid "retirement.footer.buy_klima.button.buy"
 msgstr "购买"
 
-#: components/pages/Retirements/Footer/index.tsx:73
+#: components/pages/Retirements/Footer/index.tsx:75
 msgid "retirement.footer.buy_klima.button.offset"
 msgstr "抵消"
 
-#: components/pages/Retirements/Footer/index.tsx:59
+#: components/pages/Retirements/Footer/index.tsx:61
 msgid "retirement.footer.buy_klima.text"
 msgstr "使用碳支持的 KLIMA 代币来治理、兑换并获取质押奖励 --- 然后用这些奖励来抵消你的碳排放！"
 
-#: components/pages/Retirements/Footer/index.tsx:54
+#: components/pages/Retirements/Footer/index.tsx:56
 msgid "retirement.footer.buy_klima.title"
 msgstr "获取、质押并获得奖励。"
 
@@ -694,35 +694,43 @@ msgstr "{0} 已停用 {1} 吨碳"
 msgid "retirement.head.title"
 msgstr "KlimaDAO |碳停用收据"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/index.tsx:108
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "未提供受益人姓名"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:97
+#: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "retirement.single.beneficiary.title"
 msgstr "受益人"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:116
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "受益人地址"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:152
+#: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "retirement.single.disclaimer"
 msgstr "这代表了 Polygon 区块链上代币化碳资产的永久停用。该停用碳和相关数据是不可变的公共记录。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:72
-msgid "retirement.single.header.offset"
-msgstr "{0} {1} 抵消"
+#: components/pages/Retirements/SingleRetirement/index.tsx:73
+msgid "retirement.single.header.quantity"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "retirement.single.header.subline"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
 msgstr "停用消息"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:144
-msgid "retirement.single.retirementCertificate.link"
-msgstr "...敬请期待"
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
+msgid "retirement.single.quantity"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/index.tsx:149
+msgid "retirement.single.retirementCertificate.soon"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:144
 msgid "retirement.single.retirementCertificate.title"
 msgstr "证书"
 
@@ -730,19 +738,15 @@ msgstr "证书"
 msgid "retirement.single.retirementDate.title"
 msgstr "日期"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:87
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "未提供停用信息"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:136
 msgid "retirement.single.timestamp.placeholder"
 msgstr "未提供停用时间戳"
 
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
-msgid "retirement.single.value.title"
-msgstr "价值"
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:174
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
 
