@@ -9,7 +9,9 @@ import { verifySignature } from ".";
 const initFirebaseAdmin = () => {
   if (!admin.apps.length) {
     admin.initializeApp({
-      credential: admin.credential.cert(JSON.parse(FIREBASE_ADMIN_CERT as string)),
+      credential: admin.credential.cert(
+        JSON.parse(FIREBASE_ADMIN_CERT as string)
+      ),
     });
   }
   return admin.firestore();
@@ -85,7 +87,7 @@ export const findOrCreatePledge = async (
       nonce: generateNonce(),
       footprint: [{ total: params.pledge.footprint, timestamp: Date.now() }],
       createdAt: Date.now(),
-      updatedAt: Date.now()
+      updatedAt: Date.now(),
     });
 
     data = await pledge.get().then((pledge) => pledge.data());
