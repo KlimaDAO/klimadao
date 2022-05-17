@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 14:59+0000\n"
+"POT-Creation-Date: 2022-05-17 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -466,7 +466,7 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:652
 msgid "offset.successModal.body2"
-msgstr ""
+msgstr "单击下面的按钮查看您的碳停用情况。您可以分享该页面，以支持我们向更加透明、可访问和有回报的碳市场迈进！"
 
 #: components/views/Offset/index.tsx:666
 msgid "offset.successModal.cta"
