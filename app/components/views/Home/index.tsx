@@ -7,6 +7,7 @@ import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
 import { bonds, urls } from "@klimadao/lib/constants";
 import { useSelector } from "react-redux";
+import { Global, css } from "@emotion/react";
 
 import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
 import { selectAppState } from "state/selectors";
@@ -28,7 +29,7 @@ import { NotificationModal } from "components/NotificationModal";
 
 import { initLocale } from "lib/i18n";
 
-import styles from "./index.module.css";
+import * as styles from "./styles";
 import { setAppState } from "state/app";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { ConnectButton } from "../../ConnectButton";
@@ -278,6 +279,15 @@ export const Home: FC = () => {
 
   return (
     <>
+      <Global
+        styles={css`
+          .MuiSvgIcon-root {
+            font-size: 2.4rem;
+            width: 2.4rem;
+            height: 2.4rem;
+          }
+        `}
+      />
       <div className={styles.container} data-scrolllock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
           <NavMenu address={address} />
