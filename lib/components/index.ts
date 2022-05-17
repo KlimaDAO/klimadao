@@ -13,8 +13,6 @@ export { SnapshotIcon } from "./Icons/SnapshotIcon";
 export { TelegramIcon } from "./Icons/TelegramIcon";
 export { ThemeMoonIcon } from "./Icons/ThemeMoonIcon";
 export { ThemeSunIcon } from "./Icons/ThemeSunIcon";
-export { TiktokIcon } from "./Icons/TiktokIcon";
-export { TwitchIcon } from "./Icons/TwitchIcon";
 export { TwitterIcon } from "./Icons/TwitterIcon";
 export { YoutubeIcon } from "./Icons/YoutubeIcon";
 export { GridContainer } from "./Layout/GridContainer";

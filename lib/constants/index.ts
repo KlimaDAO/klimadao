@@ -119,8 +119,6 @@ export const urls = {
   reddit: "https://www.reddit.com/r/Klima",
   podcast: "https://rss.com/podcasts/potk",
   telegram: "https://t.me/joinchat/Zb06f_mnMosyYTYy",
-  tiktok: "https://www.tiktok.com/@klimadao",
-  twitch: "https://www.twitch.tv/klimadao",
   twitter: "https://twitter.com/KlimaDAO",
   youtube: "https://www.youtube.com/c/klimadaofinance",
   mediaRequestForm:

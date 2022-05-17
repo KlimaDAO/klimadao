@@ -12,8 +12,6 @@ import {
   RedditIcon,
   RSSIcon,
   TelegramIcon,
-  TiktokIcon,
-  TwitchIcon,
   TwitterIcon,
   YoutubeIcon,
 } from "@klimadao/lib/components";
@@ -76,14 +74,8 @@ export const Footer: FC = () => {
           <A href={urls.reddit}>
             <RedditIcon />
           </A>
-          <A href={urls.twitch}>
-            <TwitchIcon />
-          </A>
           <A href={urls.github}>
             <GithubIcon />
-          </A>
-          <A href={urls.tiktok}>
-            <TiktokIcon />
           </A>
           <A href={urls.linkedIn}>
             <LinkedInIcon />
