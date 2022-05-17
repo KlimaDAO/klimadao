@@ -36,18 +36,18 @@ export const PledgeForm: FC<Props> = (props) => {
       editPledgeSignature(nonce)
     )) as string;
 
-    try {
-      const response = await putPledge({
-        pageAddress: props.pageAddress,
-        pledge: values,
-        signature,
-      });
-      const data = await response.json();
+    const response = await putPledge({
+      pageAddress: props.pageAddress,
+      pledge: values,
+      signature,
+    });
+    const data = await response.json();
 
+    if (data.pledge) {
       props.onFormSubmit(data.pledge);
       reset(data.pledge);
-    } catch (error) {
-      console.error(error);
+      setServerError(false);
+    } else {
       setServerError(true);
     }
   };

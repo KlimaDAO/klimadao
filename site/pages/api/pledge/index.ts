@@ -18,7 +18,8 @@ export default async function handler(
 
         res.status(200).json({ pledge: pledgeResolver(pledge) });
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        res.status(400).json({ error });
       }
       break;
     default:

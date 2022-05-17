@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 import { formSchema } from "../lib";
 
-export type { putPledgeParams } from '../lib/putPledge';
+export type { putPledgeParams } from "../lib/putPledge";
 
 export type Footprint = {
   timestamp: number;

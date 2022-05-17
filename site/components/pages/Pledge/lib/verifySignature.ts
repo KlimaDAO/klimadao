@@ -13,7 +13,7 @@ export const verifySignature = (params: Params): void => {
     params.signature
   );
 
-  if (decodedAddress.toLowerCase() !== params.address.toLowerCase()) {
+  // if (decodedAddress.toLowerCase() !== params.address.toLowerCase()) {
     throw new Error("Invalid signature");
-  }
+  // }
 };
