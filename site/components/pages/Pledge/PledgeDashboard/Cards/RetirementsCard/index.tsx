@@ -1,9 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { Text } from "@klimadao/lib/components";
-import { trimStringDecimals } from "@klimadao/lib/utils";
-
-import { getRetirements, Retirements } from "lib/getRetirements";
+import {
+  trimStringDecimals,
+  getRetirementTotalsAndBalances,
+} from "@klimadao/lib/utils";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import { BaseCard } from "../BaseCard";
 import * as styles from "./styles";
@@ -13,12 +15,19 @@ type Props = {
 };
 
 export const RetirementsCard: FC<Props> = (props) => {
-  const [retirements, setBalances] = useState<Retirements | null>(null);
+  const [retirements, setRetirements] =
+    useState<RetirementsTotalsAndBalances | null>(null);
 
   useEffect(() => {
     (async () => {
-      const retirements = await getRetirements({ address: props.pageAddress });
-      setBalances(retirements);
+      try {
+        const retirements = await getRetirementTotalsAndBalances({
+          address: props.pageAddress,
+        });
+        setRetirements(retirements);
+      } catch (e) {
+        console.log(e);
+      }
     })();
   }, []);
 
