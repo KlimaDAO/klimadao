@@ -25,11 +25,12 @@ export const createRetirementStorageContract = (
   );
 };
 
-export const getRetirements = async (
-  beneficiaryAdress: string
-): Promise<RetirementsResult> => {
+export const getRetirements = async (params: {
+  beneficiaryAdress: string;
+  infuraId?: string;
+}): Promise<RetirementsResult> => {
   try {
-    const provider = getJsonRpcProvider();
+    const provider = getJsonRpcProvider(params.infuraId);
     const storageContract = createRetirementStorageContract(provider);
 
     const [
@@ -37,7 +38,7 @@ export const getRetirements = async (
       totalCarbonRetired,
       totalClaimed,
     ]: RetirementTotals = await storageContract.getRetirementTotals(
-      beneficiaryAdress
+      params.beneficiaryAdress
     );
 
     const formattedTotalRetirements = totalRetirements.toString();
@@ -55,12 +56,13 @@ export const getRetirements = async (
   }
 };
 
-export const getRetirementIndexInfo = async (
-  beneficiaryAdress: string,
-  index: number
-): Promise<RetirementIndexInfoResult> => {
+export const getRetirementIndexInfo = async (params: {
+  beneficiaryAdress: string;
+  index: number;
+  infuraId?: string;
+}): Promise<RetirementIndexInfoResult> => {
   try {
-    const provider = getJsonRpcProvider();
+    const provider = getJsonRpcProvider(params.infuraId);
     const storageContract = createRetirementStorageContract(provider);
 
     const [
@@ -69,8 +71,8 @@ export const getRetirementIndexInfo = async (
       beneficiaryName,
       retirementMessage,
     ]: RetirementIndexInfo = await storageContract.getRetirementIndexInfo(
-      beneficiaryAdress,
-      BigNumber.from(index)
+      params.beneficiaryAdress,
+      BigNumber.from(params.index)
     );
 
     const typeOfToken = getTypeofTokenByAddress(tokenAddress);
