@@ -5,13 +5,18 @@ export const retirementHeader = css`
   position: relative;
   overflow: hidden;
   grid-column: main;
-  padding: 2.5rem 0;
+  padding: 2.4rem 1.6rem;
   border-radius: 1.2rem 1.2rem 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 2.5rem;
+
+  .stack {
+    display: grid;
+    gap: 1.6rem;
+  }
 
   ${breakpoints.medium} {
     padding: 10rem 0;

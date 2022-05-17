@@ -8,7 +8,6 @@ import { Trans, t } from "@lingui/macro";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
-import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import Add from "@mui/icons-material/Add";
 import CancelIcon from "@mui/icons-material/Cancel";
@@ -65,6 +64,7 @@ import * as styles from "./styles";
 import { cx } from "@emotion/css";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
+import SendRounded from "@mui/icons-material/SendRounded";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -101,6 +101,7 @@ interface Props {
 
 export const Offset = (props: Props) => {
   const dispatch = useAppDispatch();
+  const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
   const allowances = useSelector(selectCarbonRetiredAllowance);
   const params = useOffsetParams();
@@ -605,12 +606,12 @@ export const Offset = (props: Props) => {
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}
-          beneficiaryName={beneficiary}
-          beneficiaryAddress={beneficiaryAddress || props.address || ""}
-          message={retirementMessage}
-          quantityCarbonRetired={quantity}
-          retirementTransactionHash={retirementTransactionHash}
-          retirementTotals={retirementTotals}
+          url={createLinkWithLocaleSubPath(
+            `${urls.retirements}/${
+              beneficiaryAddress || props.address
+            }/${retirementTotals}`,
+            locale
+          )}
         />
       )}
     </>
@@ -619,35 +620,10 @@ export const Offset = (props: Props) => {
 
 interface RetirementSuccessModalProps {
   onSuccessModalClose: () => void;
-  beneficiaryName: string;
-  beneficiaryAddress: string;
-  message: string;
-  quantityCarbonRetired: string;
-  retirementTransactionHash: string;
-  retirementTotals: null | number;
+  url: string;
 }
 
 const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
-  const locale = useSelector(selectLocale);
-  const retirementPageLink =
-    !!props.retirementTotals &&
-    createLinkWithLocaleSubPath(
-      `${urls.retirements}/${props.beneficiaryAddress}/${props.retirementTotals}`,
-      locale
-    );
-
-  useEffect(() => {
-    if (retirementPageLink) {
-      // show the modal shortly, open new window with URL to Site
-      const timer = setTimeout(() => {
-        window.open(retirementPageLink, "_blank");
-      }, 1500);
-      return () => {
-        !!timer && clearTimeout(timer);
-      };
-    }
-  }, [retirementPageLink]);
-
   return (
     <div className={styles.retirementSuccessModal}>
       <div className="card">
@@ -657,72 +633,40 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
         <div className="content">
           <div className="success">
             <Text>
-              <Trans>Retirement Successful</Trans>
-            </Text>
-            <CheckIcon />
-          </div>
-          <div className="stack">
-            <Text t="badge">
-              <Trans>Name</Trans>
-            </Text>
-            <Text t="caption">{props.beneficiaryName}</Text>
-          </div>
-          <div className="stack">
-            <Text t="badge">
-              <Trans>Beneficiary Address</Trans>
-            </Text>
-            <Text t="caption" className="address">
-              {props.beneficiaryAddress}
-            </Text>
-          </div>
-          <div className="stack">
-            <Text t="badge">
-              <Trans>Message</Trans>
-            </Text>
-            <Text t="caption">{props.message}</Text>
-          </div>
-          <div className="stack">
-            <Text t="badge">
-              <Trans>Tonnes Retired</Trans>
-            </Text>
-            <Text t="caption">{props.quantityCarbonRetired}</Text>
-          </div>
-          <div className="stack">
-            <Text t="badge">
-              <Trans>Download certificate</Trans>
-            </Text>
-            <Text t="caption">
-              <Trans>[coming soon]</Trans>
-            </Text>
-          </div>
-          <div className="stack">
-            <Text t="badge">
-              <Trans>Share retirement</Trans>
-            </Text>
-            <Text t="caption">
-              <Trans>[coming soon]</Trans>
-            </Text>
-          </div>
-          <Text t="caption">
-            <Trans>
-              View on{" "}
-              <A
-                href={`https://polygonscan.com/tx/${props.retirementTransactionHash}`}
-              >
-                polygonscan.com
-              </A>
-            </Trans>
-          </Text>
-          {retirementPageLink && (
-            <Text t="caption">
-              <Trans id="offset.retirement_success_modal.view_on_klimadao">
-                View your retirement details on{" "}
-                <A target="_blank" href={retirementPageLink}>
-                  klimadao.finance
-                </A>
+              <Trans id="offset.successModal.title">
+                Retirement Successful!
               </Trans>
             </Text>
-          )}
+          </div>
+          <div className="stack">
+            <Text t="caption">
+              <Trans id="offset.successModal.body1">
+                Thank you. By participating in the voluntary carbon market, you
+                are making conservation more profitable and climate mitigation
+                more impactful
+              </Trans>
+            </Text>
+          </div>
+          <div className="stack">
+            <Text t="caption">
+              <Trans id="offset.successModal.body2">
+                Click the button below to view your retirement. Consider sharing
+                the page to support us on our journey towards a more
+                transparent, accessible and rewarding carbon market!
+              </Trans>
+            </Text>
+          </div>
+          <ButtonPrimary
+            variant="icon"
+            href={props.url}
+            target="_blank"
+            label={
+              <>
+                <SendRounded />
+                <Trans id="offset.successModal.cta">VIEW RETIREMENT</Trans>
+              </>
+            }
+          />
         </div>
       </div>
     </div>

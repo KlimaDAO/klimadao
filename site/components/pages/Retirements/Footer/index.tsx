@@ -23,20 +23,22 @@ export const RetirementFooter: FC = () => {
         <div className={styles.footerContent}>
           <div className="column">
             <Text>
-              <Trans id="retirement.footer.aboutKlima.column1">
-                We’re incentivizing sustainability, and bringing the carbon
-                market to Web3. We’ve made it possible for anyone to swap and
-                offset with quality carbon assets. All you need is a wallet!
+              <Trans id="retirement.footer.aboutKlima.left">
+                KlimaDAO is incentivizing sustainability and catalyzing a more
+                transparent and liquid carbon market. Our tools make it possible
+                for any individual or businesses to trade and retire quality
+                carbon assets on the blockchain.
               </Trans>
             </Text>
           </div>
           <div className="column">
             <Text>
-              <Trans id="retirement.footer.aboutKlima.column2">
-                KlimaDAO is the center of a burgeoning on-chain carbon economy.
-                Learn more about carbon offsetting, carbon markets, and the
-                underlying assets in our{" "}
-                <a href={urls.officialDocs}>knowledge base</a>.
+              <Trans id="retirement.footer.aboutKlima.right">
+                KLIMA tokens are at the center of a burgeoning on-chain carbon
+                economy. Visit our{" "}
+                <a href={urls.officialDocs}>knowledge base</a> to learn more
+                about KLIMA, carbon offsetting, carbon markets, and the
+                underlying carbon assets.
               </Trans>
             </Text>
           </div>

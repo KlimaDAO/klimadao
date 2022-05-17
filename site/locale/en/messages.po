@@ -661,30 +661,30 @@ msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
 #: components/pages/Retirements/Footer/index.tsx:26
-msgid "retirement.footer.aboutKlima.column1"
-msgstr "We’re incentivizing sustainability, and bringing the carbon market to Web3. We’ve made it possible for anyone to swap and offset with quality carbon assets. All you need is a wallet!"
+msgid "retirement.footer.aboutKlima.left"
+msgstr "KlimaDAO is incentivizing sustainability and catalyzing a more transparent and liquid carbon market. Our tools make it possible for any individual or businesses to trade and retire quality carbon assets on the blockchain."
 
-#: components/pages/Retirements/Footer/index.tsx:35
-msgid "retirement.footer.aboutKlima.column2"
-msgstr "KlimaDAO is the center of a burgeoning on-chain carbon economy. Learn more about carbon offsetting, carbon markets, and the underlying assets in our <0>knowledge base</0>."
+#: components/pages/Retirements/Footer/index.tsx:36
+msgid "retirement.footer.aboutKlima.right"
+msgstr "KLIMA tokens are at the center of a burgeoning on-chain carbon economy. Visit our <0>knowledge base</0> to learn more about KLIMA, carbon offsetting, carbon markets, and the underlying carbon assets."
 
 #: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
 msgstr "About Klima"
 
-#: components/pages/Retirements/Footer/index.tsx:66
+#: components/pages/Retirements/Footer/index.tsx:68
 msgid "retirement.footer.buy_klima.button.buy"
 msgstr "Buy"
 
-#: components/pages/Retirements/Footer/index.tsx:73
+#: components/pages/Retirements/Footer/index.tsx:75
 msgid "retirement.footer.buy_klima.button.offset"
 msgstr "Offset"
 
-#: components/pages/Retirements/Footer/index.tsx:59
+#: components/pages/Retirements/Footer/index.tsx:61
 msgid "retirement.footer.buy_klima.text"
 msgstr "Use carbon-backed KLIMA tokens to govern, swap, and earn staking rewards— then use those rewards to offset your emissions!"
 
-#: components/pages/Retirements/Footer/index.tsx:54
+#: components/pages/Retirements/Footer/index.tsx:56
 msgid "retirement.footer.buy_klima.title"
 msgstr "Acquire, stake, and get rewarded."
 
@@ -700,35 +700,43 @@ msgstr "{0} retired {1} Tonnes of carbon"
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Carbon Retirement Receipt"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/index.tsx:108
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No beneficiary name provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:97
+#: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:116
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:152
+#: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "retirement.single.disclaimer"
 msgstr "This represents the permanent retirement of tokenized carbon assets on the Polygon blockchain. This retirement and the associated data are immutable public records."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:72
-msgid "retirement.single.header.offset"
-msgstr "{0} {1} Offset"
+#: components/pages/Retirements/SingleRetirement/index.tsx:73
+msgid "retirement.single.header.quantity"
+msgstr "{0} t"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
+msgid "retirement.single.header.subline"
+msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:144
-msgid "retirement.single.retirementCertificate.link"
-msgstr "...coming soon"
+#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
+msgid "retirement.single.quantity"
+msgstr "QUANTITY RETIRED"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/index.tsx:149
+msgid "retirement.single.retirementCertificate.soon"
+msgstr "...coming soon!"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:144
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 
@@ -736,19 +744,15 @@ msgstr "Certificate"
 msgid "retirement.single.retirementDate.title"
 msgstr "Date"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:87
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "No retirement message provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:136
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No retirement timestamp provided"
 
-#: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
-msgid "retirement.single.value.title"
-msgstr "Value"
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:174
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 

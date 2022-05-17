@@ -15,7 +15,7 @@ export const RetirementValue: FC<Props> = ({ value, label, icon }) => {
   return (
     <div className={styles.retirementValue_textGroup}>
       <Text t="caption" align="center" color="lightest" uppercase>
-        <Trans id="retirement.single.value.title">Value</Trans>
+        <Trans id="retirement.single.quantity">QUANTITY RETIRED</Trans>
       </Text>
       <div className={styles.tokenInfo}>
         <Image alt={label} src={icon} width={48} height={48} />
