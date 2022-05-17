@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 15:42+0000\n"
+"POT-Creation-Date: 2022-05-17 18:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -406,7 +406,7 @@ msgstr "输入 0x 地址"
 
 #: components/views/Offset/index.tsx:405
 msgid "offset.go_carbon_neutral"
-msgstr ""
+msgstr "通过停用碳并获得碳抵消的潜在环境效益来实现碳中和。选择停用 <0>Moss Carbon Credits</0> (MCO2) ，<1>Base Carbon Tonnes</1>(BCT), <2>Nature Carbon Tonnes</2>(NCT), <3>Universal Basic Offsets</3>(UBO) 或 <4> Nature Based Offsets</4>（NBO），即将推出更多。"
 
 #: components/views/Offset/index.tsx:384
 msgid "offset.incompatible"
@@ -462,7 +462,7 @@ msgstr "停用中"
 
 #: components/views/Offset/index.tsx:643
 msgid "offset.successModal.body1"
-msgstr ""
+msgstr "非常感谢。通过参与自愿碳市场，使保护更有益，气候缓解更具影响力"
 
 #: components/views/Offset/index.tsx:652
 msgid "offset.successModal.body2"
@@ -470,11 +470,11 @@ msgstr "单击下面的按钮查看您的碳停用情况。您可以分享该页
 
 #: components/views/Offset/index.tsx:666
 msgid "offset.successModal.cta"
-msgstr ""
+msgstr "查看停用情况"
 
 #: components/views/Offset/index.tsx:636
 msgid "offset.successModal.title"
-msgstr ""
+msgstr "停用成功！"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "offset.tonnes_of_carbon_retired"
