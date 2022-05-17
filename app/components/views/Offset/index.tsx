@@ -642,8 +642,8 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
             <Text t="caption">
               <Trans id="offset.successModal.body1">
                 Thank you. By participating in the voluntary carbon market, you
-                are making conservation and climate mitigation more profitable
-                and more impactful.
+                are making conservation more profitable and climate mitigation
+                more impactful
               </Trans>
             </Text>
           </div>
@@ -651,8 +651,8 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
             <Text t="caption">
               <Trans id="offset.successModal.body2">
                 Click the button below to view your retirement. Consider sharing
-                the page to support us on our journey towards transparent,
-                accessible and rewarding carbon market!
+                the page to support us on our journey towards a more
+                transparent, accessible and rewarding carbon market!
               </Trans>
             </Text>
           </div>
