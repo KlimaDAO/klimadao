@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import { editPledgeSignature } from ".";
 
 interface Params {
   address: string;
@@ -8,7 +9,7 @@ interface Params {
 
 export const verifySignature = (params: Params): void => {
   const decodedAddress = ethers.utils.verifyMessage(
-    params.nonce,
+    editPledgeSignature(params.nonce),
     params.signature
   );
 
