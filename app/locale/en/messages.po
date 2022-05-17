@@ -29,7 +29,7 @@ msgstr "This app only works on Polygon Mainnet."
 msgid "Wrong Network"
 msgstr "Wrong Network"
 
-#: components/views/Offset/index.tsx:730
+#: components/views/Offset/index.tsx:718
 msgid "advanced"
 msgstr "ADVANCED"
 
@@ -406,7 +406,7 @@ msgid "offset.empty"
 msgstr "This address has not completed any retirements."
 
 #: components/views/Offset/index.tsx:517
-#: components/views/Offset/index.tsx:759
+#: components/views/Offset/index.tsx:747
 msgid "offset.enter_address"
 msgstr "Enter 0x address"
 
@@ -438,11 +438,11 @@ msgstr "Enter quantity to offset"
 msgid "offset.retire_carbon"
 msgstr "Retire Carbon"
 
-#: components/views/Offset/index.tsx:737
+#: components/views/Offset/index.tsx:725
 msgid "offset.retire_specific"
 msgstr "Retire specific project tokens"
 
-#: components/views/Offset/index.tsx:743
+#: components/views/Offset/index.tsx:731
 msgid "offset.retire_specific_tooltip"
 msgstr "Subject to additional fee, determined by the selected pool and paid to the bridge provider."
 
@@ -466,19 +466,19 @@ msgstr "Describe the purpose of this retirement"
 msgid "offset.retiring"
 msgstr "Retiring"
 
-#: components/views/Offset/index.tsx:655
+#: components/views/Offset/index.tsx:643
 msgid "offset.successModal.body1"
 msgstr "Thank you. By participating in the voluntary carbon market, you are making conservation and climate mitigation more profitable and more impactful."
 
-#: components/views/Offset/index.tsx:664
+#: components/views/Offset/index.tsx:652
 msgid "offset.successModal.body2"
 msgstr "Click the button below to view your retirement. Consider sharing the page to support us on our journey towards transparent, accessible and rewarding carbon market!"
 
-#: components/views/Offset/index.tsx:678
+#: components/views/Offset/index.tsx:666
 msgid "offset.successModal.cta"
 msgstr "VIEW RETIREMENT"
 
-#: components/views/Offset/index.tsx:648
+#: components/views/Offset/index.tsx:636
 msgid "offset.successModal.title"
 msgstr "Retirement Successful!"
 
