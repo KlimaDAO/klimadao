@@ -11,6 +11,7 @@ import { Text } from "@klimadao/lib/components";
 
 import { Post } from "lib/queries";
 import { IS_PRODUCTION } from "lib/constants";
+import { urls } from "@klimadao/lib/constants";
 
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
@@ -50,7 +51,7 @@ export const PostPage = (props: PostProps) => {
         title={props.post.title}
         mediaTitle={props.post.title}
         metaDescription={props.post.summary}
-        mediaImageSrc={props.post.imageUrl || "/og-media.png"}
+        mediaImageSrc={props.post.imageUrl || urls.mediaImage}
         isArticle={true}
       />
 

@@ -84,7 +84,7 @@ export const Community: NextPage = () => (
       message:
         "Drive climate action and earn rewards with a carbon-backed digital currency.",
     })}
-    mediaImageSrc="/og-media.png"
+    mediaImageSrc={urls.mediaImage}
     headerElements={HeaderElements}
   >
     <Section style={{ paddingBottom: "unset" }}>
