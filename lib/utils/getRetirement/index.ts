@@ -95,9 +95,10 @@ export const getRetirementIndexInfo = async (params: {
 
 export const getRetirementTotalsAndBalances = async (params: {
   address: string;
+  infuraId?: string;
 }): Promise<RetirementsTotalsAndBalances> => {
   try {
-    const provider = getJsonRpcProvider();
+    const provider = getJsonRpcProvider(params.infuraId);
     const retirementStorageContract = createRetirementStorageContract(provider);
 
     const [
