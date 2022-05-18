@@ -744,8 +744,8 @@ export const Bond: FC<Props> = (props) => {
                 id="bond.all_demand_has_been_filled"
                 comment="Long sentence"
               >
-                🪧 SOLD OUT. All demand has been filled for this bond. Thank you,
-                Klimates!
+                &#U+1FAA7 SOLD OUT. All demand has been filled for this bond.
+                Thank you, Klimates!
               </Trans>
             </Text>
           )}
