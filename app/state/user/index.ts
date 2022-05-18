@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
 import { Bond, InputToken, RetirementToken } from "@klimadao/lib/constants";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 export interface UserState {
   balance?: {
@@ -55,16 +56,7 @@ export interface UserState {
     ubo: string;
     nbo: string;
   };
-  carbonRetired?: {
-    totalTonnesRetired: string;
-    totalRetirements: string;
-    totalTonnesClaimedForNFTS: string;
-    bct: string;
-    mco2: string;
-    nct: string;
-    ubo: string;
-    nbo: string;
-  };
+  carbonRetired?: RetirementsTotalsAndBalances;
 }
 
 const initialState: UserState = {

@@ -10,7 +10,7 @@ import {
 
 import {
   RetirementTotals,
-  RetirementsResult,
+  RetirementsTotalsAndBalances,
   RetirementIndexInfo,
   RetirementIndexInfoResult,
 } from "../../types/offset";
@@ -23,37 +23,6 @@ export const createRetirementStorageContract = (
     KlimaRetirementStorage.abi,
     provider
   );
-};
-
-export const getRetirements = async (params: {
-  beneficiaryAdress: string;
-  infuraId?: string;
-}): Promise<RetirementsResult> => {
-  try {
-    const provider = getJsonRpcProvider(params.infuraId);
-    const storageContract = createRetirementStorageContract(provider);
-
-    const [
-      totalRetirements,
-      totalCarbonRetired,
-      totalClaimed,
-    ]: RetirementTotals = await storageContract.getRetirementTotals(
-      params.beneficiaryAdress
-    );
-
-    const formattedTotalRetirements = totalRetirements.toString();
-    const formattedTotalCarbonRetired = formatUnits(totalCarbonRetired, 18);
-    const formattedTotalClaimed = formatUnits(totalClaimed, 18);
-
-    return {
-      totalRetirements: formattedTotalRetirements,
-      totalTonnesCarbonRetired: formattedTotalCarbonRetired,
-      totalTonnesClaimedForNFTS: formattedTotalClaimed,
-    };
-  } catch (e) {
-    console.error("getRetirements Error", e);
-    return Promise.reject(e);
-  }
 };
 
 export const getRetirementIndexInfo = async (params: {
@@ -89,5 +58,67 @@ export const getRetirementIndexInfo = async (params: {
   } catch (e) {
     console.error("getRetirementIndexInfo Error", e);
     return Promise.reject(e);
+  }
+};
+
+export const getRetirementTotalsAndBalances = async (params: {
+  address: string;
+  infuraId?: string;
+}): Promise<RetirementsTotalsAndBalances> => {
+  try {
+    const provider = getJsonRpcProvider(params.infuraId);
+    const retirementStorageContract = createRetirementStorageContract(provider);
+
+    const promises: [
+      RetirementTotals,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber
+    ] = [
+      retirementStorageContract.getRetirementTotals(params.address),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].bct
+      ),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].mco2
+      ),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].nct
+      ),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].ubo
+      ),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].nbo
+      ),
+    ];
+    const [totals, bct, mco2, nct, ubo, nbo] = await Promise.all(promises);
+
+    const [
+      totalRetirements,
+      totalTonnesRetired,
+      totalTonnesClaimedForNFTS,
+    ]: RetirementTotals = totals;
+
+    return {
+      totalRetirements: totalRetirements.toString(),
+      totalTonnesRetired: formatUnits(totalTonnesRetired, 18),
+      totalTonnesClaimedForNFTS: formatUnits(totalTonnesClaimedForNFTS, 18),
+      bct: formatUnits(bct, 18),
+      mco2: formatUnits(mco2, 18),
+      nct: formatUnits(nct, 18),
+      ubo: formatUnits(ubo, 18),
+      nbo: formatUnits(nbo, 18),
+    };
+  } catch (error) {
+    console.error(error);
+    return Promise.reject(error);
   }
 };

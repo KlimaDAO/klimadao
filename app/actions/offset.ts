@@ -17,6 +17,7 @@ import {
   formatUnits,
   getTokenDecimals,
   createRetirementStorageContract,
+  getRetirementTotalsAndBalances,
 } from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
 
@@ -32,49 +33,11 @@ export const getRetiredOffsetBalances = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const retirementStorageContract = createRetirementStorageContract(
-        params.provider
-      );
-      // @return Int tuple. Total retirements, total tons retired, total tons claimed for NFTs.
-      const [
-        totalRetirements,
-        totalTonnesRetired,
-        totalTonnesClaimedForNFTS,
-      ]: RetirementTotals = await retirementStorageContract.getRetirementTotals(
-        params.address
-      );
-      const bct = await retirementStorageContract.getRetirementPoolInfo(
-        params.address,
-        addresses["mainnet"].bct
-      );
-      const mco2 = await retirementStorageContract.getRetirementPoolInfo(
-        params.address,
-        addresses["mainnet"].mco2
-      );
-      const nct = await retirementStorageContract.getRetirementPoolInfo(
-        params.address,
-        addresses["mainnet"].nct
-      );
-      const ubo = await retirementStorageContract.getRetirementPoolInfo(
-        params.address,
-        addresses["mainnet"].ubo
-      );
-      const nbo = await retirementStorageContract.getRetirementPoolInfo(
-        params.address,
-        addresses["mainnet"].nbo
-      );
-      dispatch(
-        setCarbonRetiredBalances({
-          totalTonnesRetired: formatUnits(totalTonnesRetired, 18),
-          totalRetirements: totalRetirements.toString(),
-          totalTonnesClaimedForNFTS: formatUnits(totalTonnesClaimedForNFTS, 18),
-          bct: formatUnits(bct, 18),
-          mco2: formatUnits(mco2, 18),
-          nct: formatUnits(nct, 18),
-          ubo: formatUnits(ubo, 18),
-          nbo: formatUnits(nbo, 18),
-        })
-      );
+      const retired = await getRetirementTotalsAndBalances({
+        address: params.address,
+      });
+
+      dispatch(setCarbonRetiredBalances(retired));
     } catch (error: any) {
       console.error(error);
     }

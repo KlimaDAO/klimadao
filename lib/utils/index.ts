@@ -5,8 +5,8 @@ export { getTreasuryBalance } from "./getTreasuryBalance";
 export { getStakingRewards } from "./getStakingRewards";
 export {
   createRetirementStorageContract,
-  getRetirements,
   getRetirementIndexInfo,
+  getRetirementTotalsAndBalances,
 } from "./getRetirement";
 export { trimStringDecimals } from "./trimStringDecimals";
 export { secondsUntilBlock } from "./secondsUntilBlock";

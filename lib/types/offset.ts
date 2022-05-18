@@ -1,4 +1,5 @@
 import { BigNumber } from "ethers";
+import { formatUnits } from "../utils";
 import { RetirementToken } from "../constants";
 interface GasUsed {
   type: string;
@@ -63,6 +64,19 @@ export type RetirementTotals = [
   totalTonnesClaimedForNFTS: BigNumber
 ];
 
+type RetirementTotalsFormatted = {
+  totalTonnesRetired: ReturnType<RetirementTotals[0]["toString"]>;
+  totalRetirements: ReturnType<typeof formatUnits>;
+  totalTonnesClaimedForNFTS: ReturnType<typeof formatUnits>;
+};
+
+type RetirementPoolInfo = {
+  [key in RetirementToken]: ReturnType<typeof formatUnits>;
+};
+
+export type RetirementsTotalsAndBalances = RetirementTotalsFormatted &
+  RetirementPoolInfo;
+
 export type RetirementIndexInfo = [
   tokenAddress: string,
   amount: BigNumber,
@@ -76,10 +90,4 @@ export type RetirementIndexInfoResult = {
   amount: string;
   beneficiaryName: RetirementIndexInfo[2];
   retirementMessage: RetirementIndexInfo[3];
-};
-
-export type RetirementsResult = {
-  totalRetirements: ReturnType<RetirementTotals[0]["toString"]>;
-  totalTonnesCarbonRetired: string;
-  totalTonnesClaimedForNFTS: string;
 };
