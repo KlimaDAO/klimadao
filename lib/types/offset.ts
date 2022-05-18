@@ -91,9 +91,3 @@ export type RetirementIndexInfoResult = {
   beneficiaryName: RetirementIndexInfo[2];
   retirementMessage: RetirementIndexInfo[3];
 };
-
-export type RetirementsResult = {
-  totalRetirements: ReturnType<RetirementTotals[0]["toString"]>;
-  totalTonnesCarbonRetired: string;
-  totalTonnesClaimedForNFTS: string;
-};

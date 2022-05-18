@@ -11,7 +11,6 @@ import {
 import {
   RetirementTotals,
   RetirementsTotalsAndBalances,
-  RetirementsResult,
   RetirementIndexInfo,
   RetirementIndexInfoResult,
 } from "../../types/offset";
@@ -24,37 +23,6 @@ export const createRetirementStorageContract = (
     KlimaRetirementStorage.abi,
     provider
   );
-};
-
-export const getRetirements = async (params: {
-  beneficiaryAdress: string;
-  infuraId?: string;
-}): Promise<RetirementsResult> => {
-  try {
-    const provider = getJsonRpcProvider(params.infuraId);
-    const storageContract = createRetirementStorageContract(provider);
-
-    const [
-      totalRetirements,
-      totalCarbonRetired,
-      totalClaimed,
-    ]: RetirementTotals = await storageContract.getRetirementTotals(
-      params.beneficiaryAdress
-    );
-
-    const formattedTotalRetirements = totalRetirements.toString();
-    const formattedTotalCarbonRetired = formatUnits(totalCarbonRetired, 18);
-    const formattedTotalClaimed = formatUnits(totalClaimed, 18);
-
-    return {
-      totalRetirements: formattedTotalRetirements,
-      totalTonnesCarbonRetired: formattedTotalCarbonRetired,
-      totalTonnesClaimedForNFTS: formattedTotalClaimed,
-    };
-  } catch (e) {
-    console.error("getRetirements Error", e);
-    return Promise.reject(e);
-  }
 };
 
 export const getRetirementIndexInfo = async (params: {
