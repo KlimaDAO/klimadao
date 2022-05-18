@@ -8,7 +8,7 @@ import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 
 import { IS_PRODUCTION } from "lib/constants";
-
+import { urls } from "@klimadao/lib/constants";
 export type Props = HTMLHtmlElement;
 
 export const Disclaimer: NextPage<Props> = ({}) => {
@@ -26,7 +26,7 @@ export const Disclaimer: NextPage<Props> = ({}) => {
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
         mediaTitle={t({ id: "disclaimer.head.title" })}
-        mediaImageSrc="/og-media.png"
+        mediaImageSrc={urls.mediaImage}
       />
       <Navigation activePage="Disclaimer" />
 

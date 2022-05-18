@@ -128,6 +128,7 @@ export const urls = {
     "https://notionforms.io/forms/klimadao-request-for-collaboration",
   pressEmail: "mailto:press@klimadao.finance",
   loveletter: "https://loveletter.klimadao.finance",
+  mediaImage: "https://www.klimadao.finance/og-media.png",
 };
 
 export const polygonNetworks = {

@@ -11,6 +11,7 @@ import { RetirementFooter } from "./Footer";
 import { IS_PRODUCTION } from "lib/constants";
 import { t } from "@lingui/macro";
 import * as styles from "./styles";
+import { urls } from "@klimadao/lib/constants";
 
 type Props = {
   retirements: RetirementsTotalsAndBalances;
@@ -38,7 +39,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
-        mediaImageSrc="/og-media.png"
+        mediaImageSrc={urls.mediaImage}
       />
       <Navigation activePage="Home" />
 

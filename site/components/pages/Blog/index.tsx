@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Trans, t } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
-
+import { urls } from "@klimadao/lib/constants";
 import { AllPosts } from "lib/queries";
 import { Card } from "components/Card";
 import styles from "./index.module.css";
@@ -27,7 +27,7 @@ export const Blog: FC<Props> = (props) => (
       message:
         "Drive climate action and earn rewards with a carbon-backed digital currency.",
     })}
-    mediaImageSrc="/og-media.png"
+    mediaImageSrc={urls.mediaImage}
   >
     <div className={styles.container}>
       <section className={styles.cardsSection}>

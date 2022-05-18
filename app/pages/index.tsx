@@ -4,6 +4,7 @@ import { WithRedux } from "components/WithRedux";
 import { NextPage } from "next";
 import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
+import { urls } from "@klimadao/lib/constants";
 import { messages as default_messages } from "../locale/en/messages";
 import { i18n } from "@lingui/core";
 
@@ -23,7 +24,7 @@ const HomePage: NextPage = () => {
           title="KlimaDAO | Official App"
           mediaTitle="KlimaDAO | Official App"
           metaDescription="Use the KLIMA web app to bond, stake and earn rewards."
-          mediaImageSrc="/og-media.png"
+          mediaImageSrc={urls.mediaImage}
         />
         <Home />
       </WithIsomorphicRouter>
