@@ -75,7 +75,15 @@ const Address: FC<AddressProps> = (props) => {
               dangerouslySetInnerHTML={{ __html: domain.defaultImage ?? "" }}
             />
           )}
-          <Text t="caption" color="lightest" className={domain.image || domain.defaultImage ? "domain-name" : "domain-name-no-pad"}>
+          <Text
+            t="caption"
+            color="lightest"
+            className={
+              domain.image || domain.defaultImage
+                ? "domain-name"
+                : "domain-name-no-pad"
+            }
+          >
             {domain.name}
           </Text>
         </div>
