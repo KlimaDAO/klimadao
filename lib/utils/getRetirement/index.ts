@@ -69,33 +69,43 @@ export const getRetirementTotalsAndBalances = async (params: {
     const provider = getJsonRpcProvider(params.infuraId);
     const retirementStorageContract = createRetirementStorageContract(provider);
 
+    const promises: [
+      RetirementTotals,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber,
+      BigNumber
+    ] = [
+      retirementStorageContract.getRetirementTotals(params.address),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].bct
+      ),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].mco2
+      ),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].nct
+      ),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].ubo
+      ),
+      retirementStorageContract.getRetirementPoolInfo(
+        params.address,
+        addresses["mainnet"].nbo
+      ),
+    ];
+    const [totals, bct, mco2, nct, ubo, nbo] = await Promise.all(promises);
+
     const [
       totalRetirements,
       totalTonnesRetired,
       totalTonnesClaimedForNFTS,
-    ]: RetirementTotals = await retirementStorageContract.getRetirementTotals(
-      params.address
-    );
-    const bct = await retirementStorageContract.getRetirementPoolInfo(
-      params.address,
-      addresses["mainnet"].bct
-    );
-    const mco2 = await retirementStorageContract.getRetirementPoolInfo(
-      params.address,
-      addresses["mainnet"].mco2
-    );
-    const nct = await retirementStorageContract.getRetirementPoolInfo(
-      params.address,
-      addresses["mainnet"].nct
-    );
-    const ubo = await retirementStorageContract.getRetirementPoolInfo(
-      params.address,
-      addresses["mainnet"].ubo
-    );
-    const nbo = await retirementStorageContract.getRetirementPoolInfo(
-      params.address,
-      addresses["mainnet"].nbo
-    );
+    ]: RetirementTotals = totals;
 
     return {
       totalRetirements: totalRetirements.toString(),
