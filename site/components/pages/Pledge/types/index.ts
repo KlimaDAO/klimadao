@@ -17,6 +17,8 @@ export type Pledge = {
   description: string;
   methodology: string;
   footprint: Footprint[];
+  createdAt: number;
+  updatedAt: number;
 };
 
 export type PledgeFormValues = yup.InferType<typeof formSchema>;
