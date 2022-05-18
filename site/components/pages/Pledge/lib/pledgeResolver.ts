@@ -14,7 +14,12 @@ const DEFAULT_VALUES = {
 export const pledgeResolver = (pledge: Pledge | null): PledgeFormValues => {
   if (!pledge) return DEFAULT_VALUES;
 
-  const footprint = pledge.footprint.at(-1)?.total as number;
+  const footprint = pledge.footprint.at(-1);
+
+  if (!footprint) {
+    console.error(`Broken pledge document, id: ${pledge.id}`)
+    throw new Error(`Bad request`)
+  }
 
   return {
     id: pledge.id,
@@ -23,6 +28,6 @@ export const pledgeResolver = (pledge: Pledge | null): PledgeFormValues => {
     nonce: pledge.nonce,
     description: pledge.description,
     methodology: pledge.methodology,
-    footprint,
+    footprint: footprint.total,
   };
 };

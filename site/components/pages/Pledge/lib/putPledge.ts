@@ -7,7 +7,7 @@ export interface putPledgeParams {
   signature: string;
 }
 
-export const putPledge = (params: putPledgeParams) =>
+export const putPledge = (params: putPledgeParams): Promise<Response> =>
   fetch(`${API_BASE_URL}/api/pledge`, {
     method: "PUT",
     headers: {

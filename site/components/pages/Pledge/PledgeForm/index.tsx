@@ -30,10 +30,11 @@ export const PledgeForm: FC<Props> = (props) => {
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
-    const nonce = values.nonce.toString();
-    const signature = (await signer?.signMessage(
-      editPledgeSignature(nonce)
-    )) as string;
+    if (!signer) return; // TODO: should probably add user feedback
+
+    const signature = await signer.signMessage(
+      editPledgeSignature(values.nonce)
+    );
 
     const response = await putPledge({
       pageAddress: props.pageAddress,

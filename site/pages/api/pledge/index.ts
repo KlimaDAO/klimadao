@@ -9,7 +9,12 @@ export default async function handler(
   switch (req.method) {
     case "PUT":
       try {
-        const signature = req.headers.authorization?.split(" ")[1] as string;
+        const signature = req.headers.authorization?.split(" ")[1];
+
+        if (!signature) {
+          res.status(400).json({ message: 'Bad request' })
+        }
+
         const pledge = await findOrCreatePledge({
           pageAddress: req.body.pageAddress,
           pledge: req.body.pledge,
