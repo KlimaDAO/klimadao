@@ -16,6 +16,10 @@ export const container = css`
     width: 2.4rem;
     height: 2.4rem;
   }
+  &[data-scrolllock="true"] {
+    overflow-y: hidden;
+    max-height: 100vh;
+  }
   ${breakpoints.desktop} {
     max-height: 100vh;
     overflow-y: hidden;
