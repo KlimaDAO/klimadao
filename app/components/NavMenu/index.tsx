@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectBalances, selectLocale } from "state/selectors";
+import { selectBalances, selectLocale, selectDomain } from "state/selectors";
 import { Trans } from "@lingui/macro";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
@@ -30,6 +30,65 @@ import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 
 import * as styles from "./styles";
+import { Domain } from "state/user";
+
+interface AddressProps {
+  address: string | undefined;
+  domains:
+    | {
+        knsDomain: Domain;
+        ensDomain: Domain;
+      }
+    | undefined;
+}
+const Address: FC<AddressProps> = (props) => {
+  let domain = undefined;
+  if (props.domains?.knsDomain && props.domains?.knsDomain.name) {
+    domain = props.domains.knsDomain;
+  } else if (props.domains?.ensDomain && props.domains?.ensDomain.name) {
+    domain = props.domains.ensDomain;
+  }
+  return (
+    <div className="stack-04">
+      <Text t="caption">
+        <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
+      </Text>
+      {!domain && (
+        <Text t="caption" color="lightest">
+          {props.address ? (
+            concatAddress(props.address)
+          ) : (
+            <Trans id="menu.not_connected">NOT CONNECTED</Trans>
+          )}
+        </Text>
+      )}
+      {domain && (
+        <div className="domain-wrapper">
+          {domain.image && (
+            <img src={domain.image} alt="profile avatar" className="avatar" />
+          )}
+          {domain.defaultImage && (
+            <div
+              className="avatar"
+              dangerouslySetInnerHTML={{ __html: domain.defaultImage ?? "" }}
+            />
+          )}
+          <Text
+            t="caption"
+            color="lightest"
+            className={
+              domain.image || domain.defaultImage
+                ? "domain-name"
+                : "domain-name-no-pad"
+            }
+          >
+            {domain.name}
+          </Text>
+        </div>
+      )}
+    </div>
+  );
+};
 
 interface MenuButtonProps {
   icon: ReactElement;
@@ -94,8 +153,8 @@ interface Props {
 export const NavMenu: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
+  const domains = useSelector(selectDomain);
   const { pathname } = useLocation();
-
   const handleHide = () => {
     props.onHide?.();
   };
@@ -107,18 +166,7 @@ export const NavMenu: FC<Props> = (props) => {
       </a>
       <div className="stack-12">
         <div className="hr" />
-        <div className="stack-04">
-          <Text t="caption">
-            <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
-          </Text>
-          <Text t="caption" color="lightest">
-            {props.address ? (
-              concatAddress(props.address)
-            ) : (
-              <Trans id="menu.not_connected">NOT CONNECTED</Trans>
-            )}
-          </Text>
-        </div>
+        <Address domains={domains} address={props.address} />
         <div className="hr" />
       </div>
       <MenuButton

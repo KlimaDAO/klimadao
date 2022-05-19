@@ -55,6 +55,42 @@ export const container = css`
     grid-column: 1 / 4;
   }
 
+  .domain-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    padding-top: 0.5rem;
+  }
+
+  .avatar {
+    height: 4rem;
+    width: 4rem;
+    min-width: 4rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      height: 4rem;
+      width: 4rem;
+    }
+    overflow: hidden;
+  }
+
+  .domain-name {
+    text-overflow: ellipsis;
+    padding-left: 1rem;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .domain-name-no-pad {
+    text-overflow: ellipsis;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   .navFooter_buttons {
     display: grid;
     width: 100%;

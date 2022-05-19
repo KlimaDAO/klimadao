@@ -20,6 +20,10 @@ export interface UserState {
     nbo: string;
     usdc: string;
   };
+  nameServiceDomains?: {
+    knsDomain: Domain;
+    ensDomain: Domain;
+  };
   pklimaTerms?: {
     claimed: string;
     max: string;
@@ -58,6 +62,11 @@ export interface UserState {
   };
   carbonRetired?: RetirementsTotalsAndBalances;
 }
+export interface Domain {
+  name: string;
+  image?: string;
+  defaultImage?: string;
+}
 
 const initialState: UserState = {
   balance: undefined,
@@ -79,6 +88,12 @@ export const userSlice = createSlice({
   reducers: {
     setBalance: (s, a: Setter<"balance">) => {
       s.balance = { ...s.balance!, ...a.payload };
+    },
+    setDomains: (s, a: Setter<"nameServiceDomains">) => {
+      s.nameServiceDomains = {
+        ...s.nameServiceDomains!,
+        ...a.payload,
+      };
     },
     setPklimaTerms: (s, a: Setter<"pklimaTerms">) => {
       s.pklimaTerms = {
@@ -238,6 +253,7 @@ export const {
   decrementWrap,
   redeemAlpha,
   redeemPklima,
+  setDomains,
 } = userSlice.actions;
 
 export default userSlice.reducer;

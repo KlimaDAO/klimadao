@@ -3,6 +3,7 @@ import { Thunk } from "state";
 
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import wsKlima from "@klimadao/lib/abi/wsKlima.json";
+import PunkTLD from "@klimadao/lib/abi/PunkTLD.json";
 
 import { addresses } from "@klimadao/lib/constants";
 import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
@@ -12,7 +13,10 @@ import {
   setMigrateAllowance,
   setStakeAllowance,
   setWrapAllowance,
+  setDomains,
 } from "state/user";
+
+import { getKns, getEns } from "./utils";
 
 export const loadAccountDetails = (params: {
   provider: providers.JsonRpcProvider;
@@ -81,6 +85,19 @@ export const loadAccountDetails = (params: {
         IERC20.abi,
         params.provider
       );
+      // remember to add this to addresses object
+      const klimaDomainContract = new ethers.Contract(
+        addresses["mainnet"].klimaNameService,
+        PunkTLD.abi,
+        params.provider
+      );
+
+      //domains
+      const knsDomain = await getKns({
+        address: params.address,
+        contract: klimaDomainContract,
+      });
+      const ensDomain = await getEns({ address: params.address });
 
       // balances
       const balances = [
@@ -149,6 +166,12 @@ export const loadAccountDetails = (params: {
       ] = await Promise.all(balances);
 
       dispatch(
+        setDomains({
+          knsDomain: knsDomain ?? undefined,
+          ensDomain: ensDomain ?? undefined,
+        })
+      );
+      dispatch(
         setBalance({
           klima: formatUnits(klimaBalance, 9),
           sklima: formatUnits(sklimaBalance, 9),
@@ -189,6 +212,7 @@ export const loadAccountDetails = (params: {
         })
       );
     } catch (error: any) {
+      console.log(error);
       if (error.message && error.message.includes("Non-200 status code")) {
         params.onRPCError();
       }
