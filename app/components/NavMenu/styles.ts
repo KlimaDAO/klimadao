@@ -87,7 +87,6 @@ export const container = css`
 
   .domain-name-no-pad {
     text-overflow: ellipsis;
-    padding-left: 1rem;
     max-width: 100%;
     overflow: hidden;
   }
