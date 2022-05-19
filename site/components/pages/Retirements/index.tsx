@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { Text, Section } from "@klimadao/lib/components";
+import { trimStringDecimals } from "@klimadao/lib/utils";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -93,7 +94,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
               </Trans>
             </Text>
             <Text t="h2" className="value" align="center">
-              {totalsAndBalances.totalTonnesRetired} t
+              {trimStringDecimals(totalsAndBalances.totalTonnesRetired, 5)} t
             </Text>
             <Trans id="retirement.totals.total_carbon_tonnes">
               <Text t="h4" color="lightest" align="center">
