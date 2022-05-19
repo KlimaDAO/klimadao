@@ -38,6 +38,21 @@ export const container = css`
       [full-start] minmax(0px, 1fr)
       [full-end];
   }
+  // safari and chrome
+  *::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--dark-gray);
+    outline: 1px solid var(--dark-gray);
+    border-radius: 0.2rem;
+    width: 0.6rem;
+  }
+
+  //firefox scrollbar
+  scrollbar-color: var(--dark-gray);
+  scrollbar-width: 0.6rem;
 `;
 
 export const desktopNavMenu = css`

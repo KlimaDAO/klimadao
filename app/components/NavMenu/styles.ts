@@ -121,7 +121,7 @@ export const sidebarButton = css`
   display: flex;
   align-items: center;
   gap: 1.6rem;
-  padding: 0.4rem;
+  padding: 0.1rem;
   border-radius: 0.8rem;
   width: 100%;
 
