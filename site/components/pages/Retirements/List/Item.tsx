@@ -24,6 +24,7 @@ export const RetirementItem: FC<Props> = (props) => {
     dateStyle: "full",
   }).format(retirementDate);
   const typeOfToken = getTypeofTokenByAddress(retirement.offset.tokenAddress);
+  // typeOfToken can be undefined! Due to incorrect tokenAddress received from subgraph - Why?
 
   const url = `/retirements/${retirement.beneficiaryAddress}/${
     Number(retirement.index) + 1
