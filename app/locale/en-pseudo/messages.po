@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-19 16:26+0000\n"
+"POT-Creation-Date: 2022-05-19 22:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -315,39 +315,39 @@ msgstr ""
 msgid "info.official_contract_addresses"
 msgstr ""
 
-#: components/NavMenu/index.tsx:146
+#: components/NavMenu/index.tsx:194
 msgid "menu.bond_carbon"
 msgstr ""
 
-#: components/NavMenu/index.tsx:130
+#: components/NavMenu/index.tsx:178
 msgid "menu.buy_klima"
 msgstr ""
 
-#: components/NavMenu/index.tsx:170
+#: components/NavMenu/index.tsx:218
 msgid "menu.info"
 msgstr ""
 
-#: components/NavMenu/index.tsx:175
+#: components/NavMenu/index.tsx:223
 msgid "menu.just_for_you"
 msgstr ""
 
-#: components/NavMenu/index.tsx:118
+#: components/NavMenu/index.tsx:61
 msgid "menu.not_connected"
 msgstr ""
 
-#: components/NavMenu/index.tsx:162
+#: components/NavMenu/index.tsx:210
 msgid "menu.offset"
 msgstr ""
 
-#: components/NavMenu/index.tsx:138
+#: components/NavMenu/index.tsx:186
 msgid "menu.stake_klima"
 msgstr ""
 
-#: components/NavMenu/index.tsx:112
+#: components/NavMenu/index.tsx:54
 msgid "menu.wallet_address"
 msgstr ""
 
-#: components/NavMenu/index.tsx:154
+#: components/NavMenu/index.tsx:202
 msgid "menu.wrap_klima"
 msgstr ""
 
@@ -729,27 +729,27 @@ msgstr ""
 msgid "stake.unstake_klima"
 msgstr ""
 
-#: actions/utils.ts:21
+#: actions/utils.ts:22
 msgid "status.done"
 msgstr ""
 
-#: actions/utils.ts:16
+#: actions/utils.ts:17
 msgid "status.error"
 msgstr ""
 
-#: actions/utils.ts:28
+#: actions/utils.ts:29
 msgid "status.network_confirmation"
 msgstr ""
 
-#: actions/utils.ts:23
+#: actions/utils.ts:24
 msgid "status.user_confirmation"
 msgstr ""
 
-#: actions/utils.ts:10
+#: actions/utils.ts:11
 msgid "status.user_rejected"
 msgstr ""
 
-#: components/NavMenu/index.tsx:182
+#: components/NavMenu/index.tsx:230
 msgid "token.pKLIMA"
 msgstr ""
 
