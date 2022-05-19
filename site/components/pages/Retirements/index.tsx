@@ -118,19 +118,27 @@ export const RetirementPage: NextPage<Props> = (props) => {
             </Trans>
           </div>
           <div className={styles.breakdownList}>
-            {breakdownTokens.map((tkn, index) => (
-              <div className={styles.breakdownListItem} key={`${tkn}-${index}`}>
-                <Image src={tkn.icon} width={48} height={48} alt="" />
-                <div className="content">
-                  <Text>
-                    {totalsAndBalances[
-                      tkn.key as keyof RetirementsTotalsAndBalances
-                    ] || 0}
-                  </Text>
-                  <Text color="lightest">{tkn.label}</Text>
+            {breakdownTokens.map((tkn, index) => {
+              const amount =
+                totalsAndBalances[
+                  tkn.key as keyof RetirementsTotalsAndBalances
+                ];
+              const formattedAmount =
+                (amount && amount.replace(/\.?0+$/, "")) || 0;
+
+              return (
+                <div
+                  className={styles.breakdownListItem}
+                  key={`${tkn}-${index}`}
+                >
+                  <Image src={tkn.icon} width={48} height={48} alt="" />
+                  <div className="content">
+                    <Text>{formattedAmount}</Text>
+                    <Text color="lightest">{tkn.label}</Text>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
         <AllRetirements klimaRetires={props.klimaRetires} />
