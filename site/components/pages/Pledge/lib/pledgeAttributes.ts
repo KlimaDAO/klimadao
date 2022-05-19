@@ -38,6 +38,9 @@ export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
     id: params.currentPledge.id,
     updatedAt: Date.now(),
     nonce: generateNonce(),
-    footprint: buildFootprint(params.currentPledge.footprint, params.pledge.footprint),
+    footprint: buildFootprint(
+      params.currentPledge.footprint,
+      params.pledge.footprint
+    ),
   };
 };

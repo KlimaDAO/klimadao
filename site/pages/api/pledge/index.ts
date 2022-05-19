@@ -21,13 +21,15 @@ export default async function handler(
         });
 
         if (!pledge) {
-          throw new Error(`Failed put pledge request (address: ${req.body.pageAddress})`)
+          throw new Error(
+            `Failed put pledge request (address: ${req.body.pageAddress})`
+          );
         }
 
         res.status(200).json({ pledge });
       } catch ({ message }) {
-        console.error('Request failed:', message);
-        res.status(500).json({ message: 'Internal server error' });
+        console.error("Request failed:", message);
+        res.status(500).json({ message: "Internal server error" });
       }
       break;
     default:

@@ -44,11 +44,13 @@ export const findOrCreatePledge = async (
   params: putPledgeParams
 ): Promise<Pledge | null> => {
   const db = initFirebaseAdmin();
-  const pledgeCollectionRef = db.collection("pledges") as admin.firestore.CollectionReference<Pledge>;
+  const pledgeCollectionRef = db.collection(
+    "pledges"
+  ) as admin.firestore.CollectionReference<Pledge>;
 
   if (!!params.pledge.id) {
-    const pledgeRef = await pledgeCollectionRef.doc(params.pledge.id).get()
-    const currentPledge = pledgeRef.data()
+    const pledgeRef = await pledgeCollectionRef.doc(params.pledge.id).get();
+    const currentPledge = pledgeRef.data();
 
     if (!currentPledge) return null;
 
@@ -74,7 +76,10 @@ export const findOrCreatePledge = async (
     });
 
     const newPledgeRef = pledgeCollectionRef.doc();
-    const pledgeAttributes = createPledgeAttributes({ id: newPledgeRef.id, pledge: params.pledge });
+    const pledgeAttributes = createPledgeAttributes({
+      id: newPledgeRef.id,
+      pledge: params.pledge,
+    });
 
     await newPledgeRef.set(pledgeAttributes);
 
