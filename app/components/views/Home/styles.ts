@@ -42,16 +42,16 @@ export const container = css`
   *::-webkit-scrollbar {
     width: 0.6rem;
   }
- 
+
   *::-webkit-scrollbar-thumb {
-    background-color: var(--gray);
-    outline: 1px solid var(--gray);
+    background-color: var(--dark-gray);
+    outline: 1px solid var(--dark-gray);
     border-radius: 0.2rem;
     width: 0.6rem;
   }
 
   //firefox scrollbar
-  scrollbar-color: var(--gray);
+  scrollbar-color: var(--dark-gray);
   scrollbar-width: 0.6rem;
 `;
 
