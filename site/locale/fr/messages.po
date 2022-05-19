@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-18 21:05+0000\n"
+"POT-Creation-Date: 2022-05-19 00:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,11 +20,11 @@ msgid "Enter App"
 msgstr "Visitez l'application"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:95
+#: components/pages/Blog/Post/index.tsx:96
 msgid "blog.disclaimer.description"
 msgstr "Les informations fournies dans cet article de blog concernant KlimaDAO (\"KlimaDAO\"), ses crypto-actifs, ses actifs commerciaux, sa stratégie et ses opérations, sont fournis uniquement à des fins d'information générale et ne constituent pas une offre formelle de vente ou une sollicitation d'offre visant à l'achat de valeurs mobilières, d'options, de contrats à terme ou d'autres dérivés liés à des valeurs mobilières dans quelque juridiction que ce soit et dont le contenu n'est pas prescrit par les lois sur les valeurs mobilières. Les informations contenues dans cet article de blog ne constituent pas des conseils pour acheter, vendre ou détenir des titres ou une proposition de vente de titres. Cet article de blog ne prend pas en compte et ne fournit aucun conseil ou avis fiscal, juridique ou d'investissement concernant les objectifs d'investissement spécifiques ou la situation financière particulière d'un individu. KlimaDAO et ses agents, conseillers, administrateurs, dirigeants, employés et actionnaires ne font aucune déclaration ni ne promettent aucune garantie, expresse ou implicite, quant à l'exactitude de ces informations et KlimaDAO décline expressément toute responsabilité concernant des erreurs ou des oublis pouvant y être présentes. KlimaDAO se réserve le droit de modifier ou de remplacer à tout moment tout ou partie des informations contenues dans ce document, et n'assume aucune obligation d'en prévenir le lecteur ni de lui fournir l'accès aux informations modifiées. Les informations contenues dans cet article de blog remplacent tout article de blog ou conversation antérieure concernant des informations identiques, similaires ou connexes. Toute information, ou déclaration non contenue dans le présent document ne pourra être invoquée à quelque fin que ce soit. La responsabilité contractuelle, délictuelle, fiduciaire ou autre de KlimaDAO ni d'aucun de ses représentants ne pourra être invoquée, par vous ou toute autre personne dans le cas de l'utilisation des informations contenues dans ce blog ou en regard a des oublis d'informations dans cet article de blog. De plus, KlimaDAO n'assume aucune obligation de commenter sur les attentes ou de commenter les déclarations faites par un tiers concernant les sujets abordés dans cet article de blog."
 
-#: components/pages/Blog/Post/index.tsx:92
+#: components/pages/Blog/Post/index.tsx:93
 msgid "blog.disclaimer.title"
 msgstr "Clause de non-responsabilité"
 
@@ -752,11 +752,11 @@ msgstr "Compensation carbone non horodatée"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Voir sur Polyscan"
 
-#: components/pages/Retirements/index.tsx:31
+#: components/pages/Retirements/index.tsx:32
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDao - Total des mises en retraite pour l'adresse : {beneficiaryAddress}"
 
-#: components/pages/Retirements/index.tsx:26
+#: components/pages/Retirements/index.tsx:27
 msgid "retirement.totals.head.title"
 msgstr "KlimaDao - Total de vos mises en retraite pour l'adresse : {beneficiaryAddress}"
 
@@ -811,7 +811,7 @@ msgstr "Visitez l'application"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:36
+#: components/pages/Retirements/index.tsx:37
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"

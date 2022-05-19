@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-18 21:05+0000\n"
+"POT-Creation-Date: 2022-05-19 00:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,11 +20,11 @@ msgid "Enter App"
 msgstr "进入应用"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:95
+#: components/pages/Blog/Post/index.tsx:96
 msgid "blog.disclaimer.description"
 msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资产、商业资产、战略和运营的信息仅供一般参考之用，并非正式的出售要约或要约邀请在任何司法管辖区购买与证券相关的任何证券、期权、期货或其他衍生品，其内容不受证券法的规定。本博文中包含的信息不应被视为购买或出售或持有此类证券的建议或出售此类证券的要约。本博文不考虑也不提供关于任何人的具体投资目标或财务状况的任何税务、法律或投资建议或意见。 KlimaDAO 及其代理人、顾问、董事、管理人员、员工和股东对此类信息的准确性不作任何明示或暗示的陈述或保证，且 KlimaDAO 明确否认可能基于此类信息或错误或遗漏的任何和所有责任。 KlimaDAO 保留随时部分或全部修改或替换此处包含的信息的权利，并且不承担向接收者提供访问修改后的信息或通知接收者的义务。本博文中包含的信息将取代之前任何关于相同、相似或相关信息的博文或对话。不得出于任何目的依赖此处未包含的任何信息、陈述或声明。 KlimaDAO 或其任何代表，均不对您或任何人因您或您的任何代表使用本博客文章中的信息或遗漏而导致的合同、侵权、信托或其他方式产生的结果承担任何责任。此外，KlimaDAO 不承担评论第三方对本博文中讨论的事项的期望或声明的义务。"
 
-#: components/pages/Blog/Post/index.tsx:92
+#: components/pages/Blog/Post/index.tsx:93
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
@@ -750,11 +750,11 @@ msgstr "未提供停用时间戳"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
 
-#: components/pages/Retirements/index.tsx:31
+#: components/pages/Retirements/index.tsx:32
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDao - 您停用的碳总量地址{beneficiaryAddress}"
 
-#: components/pages/Retirements/index.tsx:26
+#: components/pages/Retirements/index.tsx:27
 msgid "retirement.totals.head.title"
 msgstr "KlimaDao - 您停用的碳总量地址{beneficiaryAddress}"
 
@@ -809,7 +809,7 @@ msgstr "进入应用"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:36
+#: components/pages/Retirements/index.tsx:37
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
