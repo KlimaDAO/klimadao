@@ -6,6 +6,7 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementFooter } from "./Footer";
 
 import { IS_PRODUCTION } from "lib/constants";
@@ -14,7 +15,8 @@ import * as styles from "./styles";
 import { urls } from "@klimadao/lib/constants";
 
 type Props = {
-  retirements: RetirementsTotalsAndBalances;
+  totalsAndBalances: RetirementsTotalsAndBalances;
+  klimaRetires: KlimaRetire[];
   beneficiaryAddress: string;
 };
 
@@ -53,14 +55,17 @@ export const RetirementPage: NextPage<Props> = (props) => {
               beneficiaryAddress: {props.beneficiaryAddress}
             </Text>
             <Text align="center">
-              totalRetirements: {props.retirements.totalRetirements}
+              You've got {props.totalsAndBalances.totalRetirements} Total
+              retirements
             </Text>
             <Text align="center">
-              totalTonnesRetired: {props.retirements.totalTonnesRetired}
+              You've retired {props.totalsAndBalances.totalTonnesRetired} tonnes
+              of carbon
             </Text>
             <Text align="center">
-              totalTonnesClaimedForNFTS:{" "}
-              {props.retirements.totalTonnesClaimedForNFTS}
+              You've got
+              {props.totalsAndBalances.totalTonnesClaimedForNFTS} Total tonnes
+              claimed for NFTs
             </Text>
           </div>
         </div>
