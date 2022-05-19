@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import { ethers } from "ethers";
 
 import { loadTranslation } from "lib/i18n";
 import { IS_PRODUCTION } from "lib/constants";
@@ -7,6 +8,10 @@ import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
 import { pledgeResolver } from "components/pages/Pledge/lib";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+  const translation = await loadTranslation(ctx.locale);
+  const { address } = ctx.params as { address: string };
+  let pledge;
+
   if (IS_PRODUCTION) {
     return {
       notFound: true,
@@ -14,9 +19,14 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     };
   }
 
-  const translation = await loadTranslation(ctx.locale);
-  const { address } = ctx.params as { address: string };
-  let pledge;
+  if (!ethers.utils.isAddress(address)) {
+    return {
+      redirect: {
+        destination: "/pledge",
+        permanent: false,
+      },
+    };
+  }
 
   try {
     const data = await getPledgeByAddress(address.toLowerCase());
