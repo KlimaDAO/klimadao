@@ -3,7 +3,7 @@ import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 import { addresses } from "../../constants";
 import {
-  getTypeofTokenByAddress,
+  getRetirementTokenByAddress,
   formatUnits,
   getTokenDecimals,
 } from "../../utils";
@@ -44,7 +44,11 @@ export const getRetirementIndexInfo = async (params: {
       BigNumber.from(params.index)
     );
 
-    const typeOfToken = getTypeofTokenByAddress(tokenAddress);
+    const typeOfToken = getRetirementTokenByAddress(tokenAddress);
+
+    if (!typeOfToken) throw new Error(`Unknown tokenAddress: ${tokenAddress}`);
+
+    // if not a known token assume 18 e.g. TC02
     const tokenDecimals = getTokenDecimals(typeOfToken);
     const formattedAmount = formatUnits(amount, tokenDecimals);
 
