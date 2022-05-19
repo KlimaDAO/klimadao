@@ -29,7 +29,6 @@
     "react-hook-form": "^7.29.0",
     "walletlink": "^2.4.7",
     "web3modal": "^1.9.5",
-    "uuid": "^8.3.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -38,7 +37,6 @@
     "@lingui/macro": "^3.13.0",
     "@types/node": "16.11.12",
     "@types/react": "^17.0.37",
-    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
     "eslint": "8.4.1",
