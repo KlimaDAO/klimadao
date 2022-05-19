@@ -40,22 +40,28 @@ export const getKns = async (params: {
   const domain: any = {};
   try {
     const domainName = await params.contract.defaultNames(params.address);
+    console.log(domainName);
     // what do we do if this is false?
     const isNameVerified =
       (await params.contract.getDomainHolder(domainName)) === params.address;
     if (!isNameVerified || !domainName) return null;
     domain.name = `${domainName}.klima`;
     const customImage = await params.contract.getDomainData(domainName);
+    console.log("customImage", customImage);
     const imageUrl = JSON.parse(customImage).imgAddress ?? undefined;
+    console.log("imageUrl", imageUrl);
     if (customImage && imageUrl) {
       domain.image = JSON.parse(customImage).imgAddress;
     } else {
       const domains = await params.contract.domains(domainName);
+      console.log("domains", domains);
       const tokenId = domains.tokenId;
       // if no image is in getDomainData get metadata from tokenURI and parse+decode it
       const domainData = await params.contract.tokenURI(tokenId);
+      console.log("domainData", domainData);
       const domainDataDecoded = parseURL(domainData);
       const domainMetadata = atob(domainDataDecoded!.data);
+      console.log("domainDataDecoded", domainDataDecoded);
       // base64 decode metadata and get default image
       const decodedDefaultImage = atob(
         parseURL(JSON.parse(domainMetadata).image)!.data
