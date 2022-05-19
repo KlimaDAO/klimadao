@@ -17,8 +17,8 @@ export const pledgeResolver = (pledge: Pledge | null): PledgeFormValues => {
   const footprint = pledge.footprint.at(-1);
 
   if (!footprint) {
-    console.error(`Broken pledge document, id: ${pledge.id}`)
-    throw new Error(`Bad request`)
+    console.error(`Broken pledge document, id: ${pledge.id}`);
+    throw new Error(`Bad request`);
   }
 
   return {

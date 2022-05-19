@@ -12,7 +12,7 @@ export default async function handler(
         const signature = req.headers.authorization?.split(" ")[1];
 
         if (!signature) {
-          return res.status(400).json({ message: 'Bad request' })
+          return res.status(400).json({ message: "Bad request" });
         }
 
         const pledge = await findOrCreatePledge({
