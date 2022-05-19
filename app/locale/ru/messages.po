@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 15:42+0000\n"
+"POT-Creation-Date: 2022-05-19 00:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -321,39 +321,39 @@ msgstr "Информация и часто задаваемые вопросы"
 msgid "info.official_contract_addresses"
 msgstr "Официальные адреса контрактов"
 
-#: components/NavMenu/index.tsx:148
+#: components/NavMenu/index.tsx:146
 msgid "menu.bond_carbon"
 msgstr "Бонд Карбон"
 
-#: components/NavMenu/index.tsx:132
+#: components/NavMenu/index.tsx:130
 msgid "menu.buy_klima"
 msgstr "Купить KLIMA"
 
-#: components/NavMenu/index.tsx:172
+#: components/NavMenu/index.tsx:170
 msgid "menu.info"
 msgstr "Информация"
 
-#: components/NavMenu/index.tsx:177
+#: components/NavMenu/index.tsx:175
 msgid "menu.just_for_you"
 msgstr "ТОЛЬКО ДЛЯ ВАС"
 
-#: components/NavMenu/index.tsx:120
+#: components/NavMenu/index.tsx:118
 msgid "menu.not_connected"
 msgstr "НЕ ПОДКЛЮЧЕН"
 
-#: components/NavMenu/index.tsx:164
+#: components/NavMenu/index.tsx:162
 msgid "menu.offset"
 msgstr "Офсет"
 
-#: components/NavMenu/index.tsx:140
+#: components/NavMenu/index.tsx:138
 msgid "menu.stake_klima"
 msgstr "Стейкинг KLIMA"
 
-#: components/NavMenu/index.tsx:114
+#: components/NavMenu/index.tsx:112
 msgid "menu.wallet_address"
 msgstr "Адрес вашего кошелька"
 
-#: components/NavMenu/index.tsx:156
+#: components/NavMenu/index.tsx:154
 msgid "menu.wrap_klima"
 msgstr "обернуть sKLIMA"
 
@@ -755,7 +755,7 @@ msgstr "Пожалуйста, нажмите \"подтвердить\" в ва�
 msgid "status.user_rejected"
 msgstr "Вы решили отклонить транзакцию"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:182
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 15:42+0000\n"
+"POT-Creation-Date: 2022-05-19 00:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,11 +20,11 @@ msgid "Enter App"
 msgstr "App öffnen"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:95
+#: components/pages/Blog/Post/index.tsx:96
 msgid "blog.disclaimer.description"
 msgstr "Die in diesem Blogbeitrag bereitgestellten Informationen zu KlimaDAO („KlimaDAO“), seinen Krypto-Assets, Geschäftsvermögen, Strategie und Betrieb dienen nur allgemeinen Informationszwecken und sind kein formelles Verkaufsangebot oder eine Aufforderung zur Abgabe eines Angebots von Wertpapieren, Optionen, Futures oder andere Derivaten im Zusammenhang mit Wertpapieren in jeglicher Rechtsordnung, und der Inhalt ist nicht durch Wertpapiergesetze vorgeschrieben. Die in diesem Blogbeitrag enthaltenen Informationen sollten nicht als Empfehlung zum Kauf oder Verkauf oder Halten solcher Wertpapiere oder als Angebot zum Verkauf solcher Wertpapiere angesehen werden. Dieser Blog-Beitrag berücksichtigt weder Steuer-, Rechts- oder Anlageberatung noch gibt er eine Stellungnahme zu den spezifischen Anlagezielen oder der finanziellen Situation einer Person ab. KlimaDAO und seine Vertreter, Berater, Direktoren, leitenden Angestellten, Mitarbeiter und Aktionäre geben keine ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Richtigkeit dieser Informationen ab, und KlimaDAO lehnt ausdrücklich jegliche Haftung ab, die auf solchen Informationen oder Fehlern oder Auslassungen beruhen könnte. KlimaDAO behält sich das Recht vor, die hierin enthaltenen Informationen ganz oder teilweise jederzeit zu ändern oder zu ersetzen, und übernimmt keine Verpflichtung, dem Empfänger die geänderten Informationen zugänglich zu machen oder den Empfänger hiervon in Kenntnis zu setzen. Die in diesem Blog-Beitrag enthaltenen Informationen ersetzen alle in früheren Blog-Beiträge oder Konversationen ähnlichen oder verwandten Informationen. Auf Informationen, Darstellungen oder Aussagen, die hier nicht enthalten sind, darf für keinen Zweck vertraut werden. Weder KlimaDAO noch einer seiner Vertreter haften Ihnen oder einer anderen Person gegenüber aus jeglichen Gründen, die sich aus der Verwendung oder Nichtverwendung der Informationen in diesem Blog-Beitrag durch Sie oder einen Ihrer Vertreter ergibt. Darüber hinaus übernimmt KlimaDAO keine Verpflichtung, die Erwartungen oder Aussagen Dritter in Bezug auf die in diesem Blogbeitrag erörterten Angelegenheiten zu kommentieren."
 
-#: components/pages/Blog/Post/index.tsx:92
+#: components/pages/Blog/Post/index.tsx:93
 msgid "blog.disclaimer.title"
 msgstr "Haftungsausschluss:"
 
@@ -716,7 +716,7 @@ msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch toke
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:73
 msgid "retirement.single.header.quantity"
-msgstr ""
+msgstr "{0} t"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:78
 msgid "retirement.single.header.subline"
@@ -754,25 +754,25 @@ msgstr "Kein Ausgleichszeitpunkt angegeben"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
-#: components/pages/Retirements/index.tsx:31
+#: components/pages/Retirements/index.tsx:32
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDAO - Dein Gesamtausgleich für diese Adresse: {beneficiaryAddress}"
 
-#: components/pages/Retirements/index.tsx:26
+#: components/pages/Retirements/index.tsx:27
 msgid "retirement.totals.head.title"
 msgstr "KlimaDAO - Dein Gesamtausgleich für diese Adresse: {beneficiaryAddress}"
 
-#: components/Footer/index.tsx:51
+#: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "Blog"
 
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:42
 msgid "shared.bond"
 msgstr "App"
 
-#: components/Footer/index.tsx:37
+#: components/Footer/index.tsx:35
 #: components/Navigation/index.tsx:44
 #: components/Navigation/index.tsx:70
 msgid "shared.buy"
@@ -783,7 +783,7 @@ msgstr "Kaufen"
 msgid "shared.community"
 msgstr "Community"
 
-#: components/Footer/index.tsx:56
+#: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "Kontakt"
@@ -794,11 +794,11 @@ msgstr "Kontakt"
 msgid "shared.contact_us"
 msgstr "Kontaktiere uns"
 
-#: components/Footer/index.tsx:61
+#: components/Footer/index.tsx:59
 msgid "shared.disclaimer"
 msgstr "Haftungsausschluss"
 
-#: components/Footer/index.tsx:47
+#: components/Footer/index.tsx:45
 msgid "shared.docs"
 msgstr "Dokumente"
 
@@ -813,13 +813,13 @@ msgstr "App öffnen"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:36
+#: components/pages/Retirements/index.tsx:37
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
 msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:30
 msgid "shared.home"
 msgstr "Home"
 
@@ -833,7 +833,7 @@ msgstr "Love Letters"
 msgid "shared.resources"
 msgstr "Ressourcen"
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:39
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"

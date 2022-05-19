@@ -83,52 +83,71 @@ export const loadAccountDetails = (params: {
       );
 
       // balances
-      // CARBON
-      const bctBalance = await bctContract.balanceOf(params.address);
-      const mco2Balance = await mco2Contract.balanceOf(params.address);
-      const nctBalance = await nctContract.balanceOf(params.address);
-      const uboBalance = await uboContract.balanceOf(params.address);
-      const nboBalance = await nboContract.balanceOf(params.address);
+      const balances = [
+        // CARBON
+        bctContract.balanceOf(params.address),
+        mco2Contract.balanceOf(params.address),
+        nctContract.balanceOf(params.address),
+        uboContract.balanceOf(params.address),
+        nboContract.balanceOf(params.address),
 
-      // KLIMA
-      const klimaBalance = await klimaContract.balanceOf(params.address);
-      const sklimaBalance = await sklimaContract.balanceOf(params.address);
-      const wsklimaBalance = await wsklimaContract.balanceOf(params.address);
-      const aklimaBalance = await aklimaContract.balanceOf(params.address);
-      const alklimaBalance = await alklimaContract.balanceOf(params.address);
-      const pklimaBalance = await pKlimaContract.balanceOf(params.address);
-      // USDC
-      const usdcBalance = await usdcContract.balanceOf(params.address);
+        // KLIMA
+        klimaContract.balanceOf(params.address),
+        sklimaContract.balanceOf(params.address),
+        wsklimaContract.balanceOf(params.address),
+        aklimaContract.balanceOf(params.address),
+        alklimaContract.balanceOf(params.address),
+        pKlimaContract.balanceOf(params.address),
+        // USDC
+        usdcContract.balanceOf(params.address),
 
-      // allowances token.allowance(owner, spender)
-      const stakeAllowance = await klimaContract.allowance(
-        params.address,
-        addresses["mainnet"].staking_helper
-      );
-      const unstakeAllowance = await sklimaContract.allowance(
-        params.address,
-        addresses["mainnet"].staking
-      );
-      const wrapAllowance = await sklimaContract.allowance(
-        params.address,
-        addresses["mainnet"].wsklima
-      );
-      const aKlimaAllowance = await aklimaContract.allowance(
-        params.address,
-        addresses["mainnet"].aklima_migrate
-      );
-      const alKlimaAllowance = await alklimaContract.allowance(
-        params.address,
-        addresses["mainnet"].alklima_migrate
-      );
-      const pKlimaAllowance = await pKlimaContract.allowance(
-        params.address,
-        addresses["mainnet"].pklima_exercise
-      );
-      const bctAllowance = await bctContract.allowance(
-        params.address,
-        addresses["mainnet"].pklima_exercise
-      );
+        // allowances token.allowance(owner, spender)
+        klimaContract.allowance(
+          params.address,
+          addresses["mainnet"].staking_helper
+        ),
+        sklimaContract.allowance(params.address, addresses["mainnet"].staking),
+        sklimaContract.allowance(params.address, addresses["mainnet"].wsklima),
+        aklimaContract.allowance(
+          params.address,
+          addresses["mainnet"].aklima_migrate
+        ),
+        alklimaContract.allowance(
+          params.address,
+          addresses["mainnet"].alklima_migrate
+        ),
+        pKlimaContract.allowance(
+          params.address,
+          addresses["mainnet"].pklima_exercise
+        ),
+        bctContract.allowance(
+          params.address,
+          addresses["mainnet"].pklima_exercise
+        ),
+      ];
+
+      const [
+        bctBalance,
+        mco2Balance,
+        nctBalance,
+        uboBalance,
+        nboBalance,
+        klimaBalance,
+        sklimaBalance,
+        wsklimaBalance,
+        aklimaBalance,
+        alklimaBalance,
+        pklimaBalance,
+        usdcBalance,
+        stakeAllowance,
+        unstakeAllowance,
+        wrapAllowance,
+        aKlimaAllowance,
+        alKlimaAllowance,
+        pKlimaAllowance,
+        bctAllowance,
+      ] = await Promise.all(balances);
+
       dispatch(
         setBalance({
           klima: formatUnits(klimaBalance, 9),

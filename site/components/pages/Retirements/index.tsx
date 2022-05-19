@@ -5,15 +5,16 @@ import { Text, Section } from "@klimadao/lib/components";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
-import { RetirementsResult } from "@klimadao/lib/types/offset";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { RetirementFooter } from "./Footer";
 
 import { IS_PRODUCTION } from "lib/constants";
 import { t } from "@lingui/macro";
 import * as styles from "./styles";
+import { urls } from "@klimadao/lib/constants";
 
 type Props = {
-  retirements: RetirementsResult;
+  retirements: RetirementsTotalsAndBalances;
   beneficiaryAddress: string;
 };
 
@@ -38,7 +39,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
-        mediaImageSrc="/og-media.png"
+        mediaImageSrc={urls.mediaImage}
       />
       <Navigation activePage="Home" />
 
@@ -55,8 +56,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
               totalRetirements: {props.retirements.totalRetirements}
             </Text>
             <Text align="center">
-              totalTonnesCarbonRetired:{" "}
-              {props.retirements.totalTonnesCarbonRetired}
+              totalTonnesRetired: {props.retirements.totalTonnesRetired}
             </Text>
             <Text align="center">
               totalTonnesClaimedForNFTS:{" "}

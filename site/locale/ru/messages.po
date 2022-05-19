@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 15:42+0000\n"
+"POT-Creation-Date: 2022-05-19 00:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,11 +20,11 @@ msgid "Enter App"
 msgstr "Войдите в приложение"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:95
+#: components/pages/Blog/Post/index.tsx:96
 msgid "blog.disclaimer.description"
 msgstr "Информация, представленная в данном блоге, касающаяся KlimaDAO («KlimaDAO»), ее криптоактивов, бизнес-активов, стратегии и операций, предназначена исключительно для общих информационных целей и не является официальным предложением о продаже или предложением оферты. о покупке любых ценных бумаг, опционов, фьючерсов или других производных инструментов, связанных с ценными бумагами, в любой юрисдикции, и ее содержание не предусмотрено законодательством о ценных бумагах. Информация, содержащаяся в этом блоге, не должна рассматриваться как совет купить или продать или держать такие ценные бумаги или как предложение продать такие ценные бумаги. Данная статья в блоге не учитывает и не предоставляет никаких налоговых, юридических или инвестиционных консультаций или мнений относительно конкретных инвестиционных целей или финансового положения любого лица. KlimaDAO и ее агенты, советники, директора, должностные лица, сотрудники и акционеры не делают никаких заявлений или гарантий, выраженных или подразумеваемых, в отношении точности такой информации, и KlimaDAO в данной форме отказывается от любой ответственности, которая может быть основана на такой информации или ошибках или упущениях в ней. KlimaDAO оставляет за собой право в любое время частично или полностью изменять или заменять содержащуюся здесь информацию и не берет на себя никаких обязательств по предоставлению получателю доступа к измененной информации или уведомлению получателя об этом. Информация, содержащаяся в этом сообщении в блоге, заменяет собой любое предыдущее сообщение в блоге или обсуждение, касающееся той же, похожей или связанной информации. Любая информация, утверждения или заявления, не содержащиеся в настоящем документе, не должны приниматься во внимание для каких-либо целей. Ни KlimaDAO, ни кто-либо из ее представителей не несут никакой ответственности по контракту, гражданскому правонарушению, доверительному праву или иным образом перед вами или любым лицом в результате использования информации в этом сообщении в блоге вами или любым из ваших представителей или за упущения в информация в этом сообщении в блоге. Кроме того, KlimaDAO не берет на себя обязательств комментировать ожидания или заявления третьих лиц в отношении вопросов, обсуждаемых в этом сообщении в блоге."
 
-#: components/pages/Blog/Post/index.tsx:92
+#: components/pages/Blog/Post/index.tsx:93
 msgid "blog.disclaimer.title"
 msgstr "Отказ от ответственности"
 
@@ -756,25 +756,25 @@ msgstr "Не предоставлена время использования"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Посмотреть на Polygonscan"
 
-#: components/pages/Retirements/index.tsx:31
+#: components/pages/Retirements/index.tsx:32
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDao - Ваша общая сумма требования по адресу: {beneficiaryAddress}"
 
-#: components/pages/Retirements/index.tsx:26
+#: components/pages/Retirements/index.tsx:27
 msgid "retirement.totals.head.title"
 msgstr "KlimaDao - Ваша общая сумма требования по адресу: {beneficiaryAddress}"
 
-#: components/Footer/index.tsx:51
+#: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "Блог"
 
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:42
 msgid "shared.bond"
 msgstr "Приложение"
 
-#: components/Footer/index.tsx:37
+#: components/Footer/index.tsx:35
 #: components/Navigation/index.tsx:44
 #: components/Navigation/index.tsx:70
 msgid "shared.buy"
@@ -785,7 +785,7 @@ msgstr "Купить"
 msgid "shared.community"
 msgstr "Сообщество"
 
-#: components/Footer/index.tsx:56
+#: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "Связаться"
@@ -796,11 +796,11 @@ msgstr "Связаться"
 msgid "shared.contact_us"
 msgstr "Связаться с нами"
 
-#: components/Footer/index.tsx:61
+#: components/Footer/index.tsx:59
 msgid "shared.disclaimer"
 msgstr "Отказ от ответственности"
 
-#: components/Footer/index.tsx:47
+#: components/Footer/index.tsx:45
 msgid "shared.docs"
 msgstr "Документы"
 
@@ -815,7 +815,7 @@ msgstr "Войдите в приложение"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:36
+#: components/pages/Retirements/index.tsx:37
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
@@ -823,7 +823,7 @@ msgstr ""
 "Стимулируйте действия по защите климата и получайте вознаграждения с цифровой валютой обеспеченной реальными углеродными активами.\n"
 ""
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:30
 msgid "shared.home"
 msgstr "Домашняя страница"
 
@@ -837,7 +837,7 @@ msgstr "Love Letters"
 msgid "shared.resources"
 msgstr "Источники"
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:39
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"

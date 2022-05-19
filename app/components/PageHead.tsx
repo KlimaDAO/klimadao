@@ -37,11 +37,11 @@ export const PageHead = (props: PageHeadProps) => {
       <meta property="og:type" content="website" />
       <meta property="og:locale" content={locale || "en"} />
 
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:title" content={props.mediaTitle} />
-      <meta property="twitter:description" content={props.metaDescription} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={props.mediaTitle} />
+      <meta name="twitter:description" content={props.metaDescription} />
       {props.mediaImageSrc && (
-        <meta property="twitter:image" content={props.mediaImageSrc} />
+        <meta name="twitter:image" content={props.mediaImageSrc} />
       )}
       <link
         rel="apple-touch-icon"

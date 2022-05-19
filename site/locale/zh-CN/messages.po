@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-17 15:42+0000\n"
+"POT-Creation-Date: 2022-05-19 00:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,11 +20,11 @@ msgid "Enter App"
 msgstr "进入应用"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:95
+#: components/pages/Blog/Post/index.tsx:96
 msgid "blog.disclaimer.description"
 msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资产、商业资产、战略和运营的信息仅供一般参考之用，并非正式的出售要约或要约邀请在任何司法管辖区购买与证券相关的任何证券、期权、期货或其他衍生品，其内容不受证券法的规定。本博文中包含的信息不应被视为购买或出售或持有此类证券的建议或出售此类证券的要约。本博文不考虑也不提供关于任何人的具体投资目标或财务状况的任何税务、法律或投资建议或意见。 KlimaDAO 及其代理人、顾问、董事、管理人员、员工和股东对此类信息的准确性不作任何明示或暗示的陈述或保证，且 KlimaDAO 明确否认可能基于此类信息或错误或遗漏的任何和所有责任。 KlimaDAO 保留随时部分或全部修改或替换此处包含的信息的权利，并且不承担向接收者提供访问修改后的信息或通知接收者的义务。本博文中包含的信息将取代之前任何关于相同、相似或相关信息的博文或对话。不得出于任何目的依赖此处未包含的任何信息、陈述或声明。 KlimaDAO 或其任何代表，均不对您或任何人因您或您的任何代表使用本博客文章中的信息或遗漏而导致的合同、侵权、信托或其他方式产生的结果承担任何责任。此外，KlimaDAO 不承担评论第三方对本博文中讨论的事项的期望或声明的义务。"
 
-#: components/pages/Blog/Post/index.tsx:92
+#: components/pages/Blog/Post/index.tsx:93
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
@@ -151,7 +151,7 @@ msgstr "如果您的 Polygon 钱包中已经有 MATIC，您可以使用去中心
 
 #: components/pages/Buy/index.tsx:221
 msgid "buy.dex.summary_02"
-msgstr "您可以在 <0>Sushi Swap </0> 上找到 KLIMA，但我们建议您使用 DEX 聚合器 Zapper 。只需将您的钱包连接到 Zapper，聚合器 DEX 就能帮你找到最佳的交易路径。"
+msgstr "您可以在 <0>Sushi Swap</0> 上找到 KLIMA，但我们建议您使用 DEX 聚合器 Zapper 。只需将您的钱包连接到 Zapper，聚合器 DEX 就能帮你找到最佳的交易路径。"
 
 #: components/pages/Buy/index.tsx:146
 msgid "buy.disclaimer"
@@ -159,7 +159,7 @@ msgstr "安全提示和重要免责声明"
 
 #: components/pages/Buy/index.tsx:151
 msgid "buy.disclaimer_01"
-msgstr "请注意：切勿与任何人分享您的私钥或助记词。我们建议您在开始任何操作之前, 访问我们的 <0>Crypto Security 101</0>页面, 了解获取安全提示。"
+msgstr "请注意：切勿与任何人分享您的私钥或助记词。我们建议您在开始任何操作之前, 访问我们的 <0> Crypto Security 101 </0>页面, 了解获取安全提示。"
 
 #: components/pages/Buy/index.tsx:161
 msgid "buy.disclaimer_02"
@@ -347,7 +347,7 @@ msgstr "错误报告"
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
 #: components/pages/Resources/Contact/index.tsx:144
 msgid "contact.bug_reports.to_file_a_bug_report"
-msgstr "要提交错误报告，请加入我们的社区 Discord 服务器并在 # 错误报告频道中提问。我们<0>社区中的某位成员</0>很乐意为您调查并找到解决方案。"
+msgstr "要提交错误报告，请加入我们的社区 Discord 服务器并在 # 错误报告频道中提问。我们<0> 社区 </0>很乐意为您调查并找到解决方案。"
 
 #. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
 #: components/pages/Resources/Contact/index.tsx:67
@@ -397,7 +397,7 @@ msgstr "问题与支持"
 #. Join our <0>community</0>
 #: components/pages/Resources/Contact/index.tsx:39
 msgid "contact.quest_and_support.join_our_community"
-msgstr "加入我们的<0>社区</0>"
+msgstr "加入我们的<0> 社区 </0>"
 
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:47
@@ -633,7 +633,7 @@ msgstr "DAO 出售债券并向所有KLIMA 持有者分配所得奖励。我们�
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:254
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
-msgstr "吨 <0> 碳吸收</0>由KLIMADAO"
+msgstr "吨 <0> 碳吸收 </0>由KLIMADAO"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:157
@@ -656,11 +656,11 @@ msgstr "投资于未来。"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
-msgstr ""
+msgstr "KlimaDAO 正在激励可持续发展并促进更加透明和流动的碳市场。我们的工具使任何个人或企业都可以在区块链上交易和停用优质碳资产。"
 
 #: components/pages/Retirements/Footer/index.tsx:36
 msgid "retirement.footer.aboutKlima.right"
-msgstr ""
+msgstr "KLIMA 代币处于蓬勃发展的链上碳经济的中心。访问我们的<0> 知识库 </0>了解更多关于 KLIMA、碳抵消、碳市场和基础碳资产的资讯。"
 
 #: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
@@ -712,11 +712,11 @@ msgstr "这代表了 Polygon 区块链上代币化碳资产的永久停用。该
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:73
 msgid "retirement.single.header.quantity"
-msgstr ""
+msgstr "{0} t"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:78
 msgid "retirement.single.header.subline"
-msgstr ""
+msgstr "二氧化碳当量排放抵消（公吨）"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
@@ -724,11 +724,11 @@ msgstr "停用消息"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
-msgstr ""
+msgstr "停用数量"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:149
 msgid "retirement.single.retirementCertificate.soon"
-msgstr ""
+msgstr "...敬请期待！"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:144
 msgid "retirement.single.retirementCertificate.title"
@@ -750,25 +750,25 @@ msgstr "未提供停用时间戳"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
 
-#: components/pages/Retirements/index.tsx:31
+#: components/pages/Retirements/index.tsx:32
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDao - 您停用的碳总量地址{beneficiaryAddress}"
 
-#: components/pages/Retirements/index.tsx:26
+#: components/pages/Retirements/index.tsx:27
 msgid "retirement.totals.head.title"
 msgstr "KlimaDao - 您停用的碳总量地址{beneficiaryAddress}"
 
-#: components/Footer/index.tsx:51
+#: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:64
 msgid "shared.blog"
 msgstr "博客"
 
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:42
 msgid "shared.bond"
 msgstr "应用程序"
 
-#: components/Footer/index.tsx:37
+#: components/Footer/index.tsx:35
 #: components/Navigation/index.tsx:44
 #: components/Navigation/index.tsx:70
 msgid "shared.buy"
@@ -779,7 +779,7 @@ msgstr "购买"
 msgid "shared.community"
 msgstr "社区"
 
-#: components/Footer/index.tsx:56
+#: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:76
 msgid "shared.contact"
 msgstr "联系方式"
@@ -790,11 +790,11 @@ msgstr "联系方式"
 msgid "shared.contact_us"
 msgstr "联系我们"
 
-#: components/Footer/index.tsx:61
+#: components/Footer/index.tsx:59
 msgid "shared.disclaimer"
 msgstr "免责声明"
 
-#: components/Footer/index.tsx:47
+#: components/Footer/index.tsx:45
 msgid "shared.docs"
 msgstr "文档"
 
@@ -809,13 +809,13 @@ msgstr "进入应用"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:36
+#: components/pages/Retirements/index.tsx:37
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
 msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 
-#: components/Footer/index.tsx:32
+#: components/Footer/index.tsx:30
 msgid "shared.home"
 msgstr "主页"
 
@@ -829,7 +829,7 @@ msgstr "Love Letters"
 msgid "shared.resources"
 msgstr "资源"
 
-#: components/Footer/index.tsx:41
+#: components/Footer/index.tsx:39
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"

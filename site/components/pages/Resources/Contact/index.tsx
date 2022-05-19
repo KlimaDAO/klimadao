@@ -27,7 +27,7 @@ export const Contact: NextPage<Props> = () => {
         message:
           "Drive climate action and earn rewards with a carbon-backed digital currency.",
       })}
-      mediaImageSrc="/og-media.png"
+      mediaImageSrc={urls.mediaImage}
     >
       <Section>
         <div className={styles.contactContainer}>

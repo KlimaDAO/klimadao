@@ -14,8 +14,6 @@ import {
   RSSIcon,
   TelegramIcon,
   Text,
-  TiktokIcon,
-  TwitchIcon,
   TwitterIcon,
   YoutubeIcon,
 } from "@klimadao/lib/components";
@@ -200,14 +198,8 @@ export const NavMenu: FC<Props> = (props) => {
           <A className="navFooter_button" href={urls.reddit}>
             <RedditIcon />
           </A>
-          <A className="navFooter_button" href={urls.twitch}>
-            <TwitchIcon />
-          </A>
           <A className="navFooter_button" href={urls.github}>
             <GithubIcon />
-          </A>
-          <A className="navFooter_button" href={urls.tiktok}>
-            <TiktokIcon />
           </A>
           <A className="navFooter_button" href={urls.linkedIn}>
             <LinkedInIcon />

@@ -19,7 +19,7 @@ import { CopyURLButton } from "./CopyURLButton";
 import { IS_PRODUCTION } from "lib/constants";
 import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
-
+import { urls } from "@klimadao/lib/constants";
 import { retirementTokenInfoMap } from "../../../../lib/getTokenInfo";
 
 type Props = {
@@ -63,7 +63,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           id: "retirement.head.metaDescription",
           message: "Transparent, on-chain offsets powered by KlimaDAO.",
         })}
-        mediaImageSrc="/og-media.png"
+        mediaImageSrc={urls.mediaImage}
       />
       <Navigation activePage="Home" />
 
