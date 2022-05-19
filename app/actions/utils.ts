@@ -48,7 +48,7 @@ export const getKns = async (params: {
     domain.name = `${domainName}.klima`;
     const customImage = await params.contract.getDomainData(domainName);
     console.log("customImage", customImage);
-    const imageUrl = customImage ? JSON.parse(customImage).imgAddress : undefined;
+    const imageUrl = customImage ? JSON.parse(customImage).imgAddress ?? undefined : undefined;
     console.log("imageUrl", imageUrl);
     if (customImage && imageUrl) {
       domain.image = JSON.parse(customImage).imgAddress;
