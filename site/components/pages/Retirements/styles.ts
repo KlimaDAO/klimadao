@@ -97,13 +97,6 @@ export const breakdownList = css`
     margin: 0 auto;
     max-width: 70%;
   }
-
-  ${breakpoints.desktop} {
-    display: grid;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-auto-flow: column;
-    max-width: 100%;
-  }
 `;
 
 export const breakdownListItem = css`
@@ -123,17 +116,6 @@ export const breakdownListItem = css`
   .content {
     display: flex;
     gap: 0.8rem;
-
-    ${breakpoints.desktop} {
-      gap: 0em;
-      flex-direction: column;
-    }
-  }
-
-  ${breakpoints.desktop} {
-    padding-top: 0;
-    padding-bottom: 0;
-    border-bottom: none;
   }
 `;
 
