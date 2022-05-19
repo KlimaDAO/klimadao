@@ -7,6 +7,8 @@ import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
+import { concatAddress } from "@klimadao/lib/utils";
+
 import { RetirementFooter } from "./Footer";
 
 import { IS_PRODUCTION } from "lib/constants";
@@ -22,18 +24,20 @@ type Props = {
 
 export const RetirementPage: NextPage<Props> = (props) => {
   const { beneficiaryAddress } = props;
+  const concattedAddress = concatAddress(beneficiaryAddress);
+
   return (
     <>
       <PageHead
         production={IS_PRODUCTION}
         title={t({
           id: "retirement.totals.head.title",
-          message: `KlimaDao - Your total retirements for address: ${beneficiaryAddress}`,
+          message: `KlimaDao - Carbon Retirements for beneficiary ${concattedAddress}`,
           values: { beneficiaryAddress },
         })}
         mediaTitle={t({
           id: "retirement.totals.head.metaTitle",
-          message: `KlimaDao - Your total retirements for address: ${beneficiaryAddress}`,
+          message: `KlimaDao - Carbon Retirements for beneficiary ${concattedAddress}`,
           values: { beneficiaryAddress },
         })}
         metaDescription={t({
@@ -49,11 +53,9 @@ export const RetirementPage: NextPage<Props> = (props) => {
         <div className={styles.retirementContent}>
           <div className={styles.retirement_textGroup}>
             <Text t="h2" as="h2" align="center">
-              Retirements Total
+              Carbon Retirements
             </Text>
-            <Text align="center">
-              beneficiaryAddress: {props.beneficiaryAddress}
-            </Text>
+            <Text align="center">for beneficiary {concattedAddress}</Text>
             <Text align="center">
               You've got {props.totalsAndBalances.totalRetirements} Total
               retirements
