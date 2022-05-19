@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-19 00:06+0000\n"
+"POT-Creation-Date: 2022-05-19 15:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -408,7 +408,7 @@ msgstr "0x-Adresse eingeben"
 
 #: components/views/Offset/index.tsx:405
 msgid "offset.go_carbon_neutral"
-msgstr ""
+msgstr "Werde CO2-neutral, indem du CO2 ausgleichst und damit den zugrundeliegenden Umweltvorteil beanspruchst. Du hast die Wahl zwischen <0>Moss Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT), <2>Nature Carbon Tonnes</2> (NCT), <3>Universal Basic Offsets</3> (UBO) und <4>Nature Based Offsets</4> (NBO). Mehr folgen demnächst!"
 
 #: components/views/Offset/index.tsx:384
 msgid "offset.incompatible"
@@ -466,19 +466,19 @@ msgstr "Ausgleich nach Gebührenabzug"
 
 #: components/views/Offset/index.tsx:643
 msgid "offset.successModal.body1"
-msgstr ""
+msgstr "Danke! Durch deine Teilnahme am freiwilligen CO2-Markt machst du Umweltschutz profitabler und klimapositive Projekte wirkungsvoller."
 
 #: components/views/Offset/index.tsx:652
 msgid "offset.successModal.body2"
-msgstr ""
+msgstr "Klicke auf den Button, um deinen CO2-Ausgleich anzusehen. Indem du diese Seite teilst, unterstützt du uns auf unserem gemeinsamen Weg in Richtung eines transparenteren, offeneren und einträglicheren CO2-Marktes!"
 
 #: components/views/Offset/index.tsx:666
 msgid "offset.successModal.cta"
-msgstr ""
+msgstr "AUSGLEICH ANSEHEN"
 
 #: components/views/Offset/index.tsx:636
 msgid "offset.successModal.title"
-msgstr ""
+msgstr "Ausgleich erfolgreich!"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "offset.tonnes_of_carbon_retired"
