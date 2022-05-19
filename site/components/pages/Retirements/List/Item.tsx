@@ -37,7 +37,8 @@ export const RetirementItem: FC<Props> = (props) => {
         <div className="content">
           <Text className="value">
             {retirement.amount}{" "}
-            {typeOfToken || concatAddress(retirement.offset.tokenAddress)}
+            {(typeOfToken && typeOfToken.toUpperCase()) ||
+              concatAddress(retirement.offset.tokenAddress)}
           </Text>
           <Text className="label" color="lightest">
             {formattedDate}
