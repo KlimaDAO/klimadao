@@ -136,3 +136,22 @@ export const breakdownListItem = css`
     border-bottom: none;
   }
 `;
+
+export const sectionButtons = css`
+  padding: unset !important;
+  grid-column: full;
+`;
+
+export const sectionButtonsWrap = css`
+  grid-column: main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.8rem;
+  padding: 2.8rem 1.5rem;
+
+  ${breakpoints.medium} {
+    flex-direction: row;
+  }
+`;

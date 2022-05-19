@@ -15,6 +15,7 @@ import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 
 import { AllRetirements } from "./List";
 import { RetirementFooter } from "./Footer";
+import { CopyURLButton } from "./CopyURLButton";
 import { allRetirementTokenInfos } from "../../../lib/getTokenInfo";
 
 import { IS_PRODUCTION } from "lib/constants";
@@ -132,6 +133,11 @@ export const RetirementPage: NextPage<Props> = (props) => {
           </div>
         </div>
         <AllRetirements klimaRetires={props.klimaRetires} />
+      </Section>
+      <Section variant="gray" className={styles.sectionButtons}>
+        <div className={styles.sectionButtonsWrap}>
+          <CopyURLButton />
+        </div>
       </Section>
       <RetirementFooter />
       <Footer />

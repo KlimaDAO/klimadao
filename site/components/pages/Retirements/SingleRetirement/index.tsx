@@ -14,7 +14,7 @@ import { RetirementValue } from "./RetirementValue";
 import { RetirementDate } from "./RetirementDate";
 import { TextGroup } from "./TextGroup";
 import { RetirementFooter } from "../Footer";
-import { CopyURLButton } from "./CopyURLButton";
+import { CopyURLButton } from "../CopyURLButton";
 
 import { IS_PRODUCTION } from "lib/constants";
 import { Trans, t } from "@lingui/macro";
