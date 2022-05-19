@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-
 import { Footprint, Pledge, PledgeFormValues } from "../types";
 import { generateNonce } from ".";
 
@@ -20,7 +18,7 @@ interface createPledgeParams {
 export const createPledgeAttributes = (params: createPledgeParams): Pledge => {
   return {
     ...params.pledge,
-    id: uuidv4(),
+    id: params.id,
     nonce: generateNonce(),
     footprint: [{ total: params.pledge.footprint, timestamp: Date.now() }],
     createdAt: Date.now(),
@@ -30,14 +28,16 @@ export const createPledgeAttributes = (params: createPledgeParams): Pledge => {
 
 interface putPledgeParams {
   pledge: PledgeFormValues;
-  currentFootprint: Footprint[];
+  currentPledge: Pledge;
 }
 
 export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
   return {
+    ...params.currentPledge,
     ...params.pledge,
+    id: params.currentPledge.id,
     updatedAt: Date.now(),
     nonce: generateNonce(),
-    footprint: buildFootprint(params.currentFootprint, params.pledge.footprint),
+    footprint: buildFootprint(params.currentPledge.footprint, params.pledge.footprint),
   };
 };

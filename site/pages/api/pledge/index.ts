@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
 import { findOrCreatePledge } from "components/pages/Pledge/lib/firebase";
-import { pledgeResolver } from "components/pages/Pledge/lib";
 
 export default async function handler(
   req: NextApiRequest,
@@ -21,10 +20,14 @@ export default async function handler(
           signature,
         });
 
-        res.status(200).json({ pledge: pledgeResolver(pledge) });
-      } catch (error) {
-        console.error(error);
-        res.status(400).json({ error });
+        if (!pledge) {
+          throw new Error(`Failed put pledge request (address: ${req.body.pageAddress})`)
+        }
+
+        res.status(200).json({ pledge });
+      } catch ({ message }) {
+        console.error('Request failed:', message);
+        res.status(500).json({ message: 'Internal server error' });
       }
       break;
     default:

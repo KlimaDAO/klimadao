@@ -13,7 +13,6 @@ const DEFAULT_VALUES = {
 
 export const pledgeResolver = (pledge: Pledge | null): PledgeFormValues => {
   if (!pledge) return DEFAULT_VALUES;
-
   const footprint = pledge.footprint.at(-1);
 
   if (!footprint) {

@@ -6,7 +6,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { InputField, TextareaField } from "components/Form";
 import { useWeb3 } from "hooks/useWeb3/web3context";
 
-import { editPledgeSignature, formSchema, putPledge } from "../lib";
+import {
+  editPledgeSignature,
+  formSchema,
+  putPledge,
+  pledgeResolver,
+} from "../lib";
 import { PledgeFormValues } from "../types";
 import * as styles from "./styles";
 
@@ -42,10 +47,11 @@ export const PledgeForm: FC<Props> = (props) => {
       signature,
     });
     const data = await response.json();
+    const pledge = pledgeResolver(data.pledge);
 
     if (data.pledge) {
-      props.onFormSubmit(data.pledge);
-      reset(data.pledge);
+      props.onFormSubmit(pledge);
+      reset(pledge);
       setServerError(false);
     } else {
       setServerError(true);

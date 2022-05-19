@@ -1,13 +1,12 @@
 import * as admin from "firebase-admin";
 
 import { FIREBASE_ADMIN_CERT } from "lib/secrets";
-import { Footprint, Pledge, putPledgeParams } from "../types";
+import { Pledge, putPledgeParams } from "../types";
 import {
-  verifySignature,
   DEFAULT_NONCE,
-  generateNonce,
   createPledgeAttributes,
   putPledgeAttributes,
+  verifySignature,
 } from ".";
 
 const initFirebaseAdmin = () => {
@@ -43,18 +42,15 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
 
 export const findOrCreatePledge = async (
   params: putPledgeParams
-): Promise<Pledge> => {
+): Promise<Pledge | null> => {
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection("pledges") as admin.firestore.CollectionReference<Pledge>;
-  const pledgeSnapshot = await pledgeCollectionRef
-    .where("id", "==", params.pledge.id)
-    .get();
-  const pledgeRef = pledgeSnapshot.docs[0];
 
-  let pledge: Pledge | undefined;
+  if (!!params.pledge.id) {
+    const pledgeRef = await pledgeCollectionRef.doc(params.pledge.id).get()
+    const currentPledge = pledgeRef.data()
 
-  if (!!pledgeRef) {
-    const currentPledge = pledgeRef.data();
+    if (!currentPledge) return null;
 
     verifySignature({
       address: currentPledge.ownerAddress,
@@ -64,12 +60,12 @@ export const findOrCreatePledge = async (
 
     const pledgeAttributes = putPledgeAttributes({
       pledge: params.pledge,
-      currentFootprint: currentPledge.footprint,
+      currentPledge,
     });
 
     await pledgeRef.ref.update(pledgeAttributes);
 
-    pledge = pledgeAttributes
+    return pledgeAttributes;
   } else {
     verifySignature({
       address: params.pageAddress,
@@ -77,15 +73,11 @@ export const findOrCreatePledge = async (
       nonce: DEFAULT_NONCE,
     });
 
-    const pledgeAttributes = createPledgeAttributes({ pledge: params.pledge });
-    await pledgeCollectionRef.add(pledgeAttributes);
+    const newPledgeRef = pledgeCollectionRef.doc();
+    const pledgeAttributes = createPledgeAttributes({ id: newPledgeRef.id, pledge: params.pledge });
 
-    pledge = pledgeAttributes;
+    await newPledgeRef.set(pledgeAttributes);
+
+    return pledgeAttributes;
   }
-
-  if (!pledge) {
-    throw new Error("Bad request");
-  }
-
-  return pledge;
 };
