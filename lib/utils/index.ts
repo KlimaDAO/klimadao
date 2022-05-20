@@ -20,5 +20,5 @@ export { safeSub } from "./safeSub";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { getTokenDecimals } from "./getTokenDecimals";
-export { getTypeofTokenByAddress } from "./getTypeOfToken";
+export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export { queryKlimaRetireByIndex } from "./subgraph/queryPolygonBridgedCarbon";
