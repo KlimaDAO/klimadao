@@ -41,12 +41,12 @@ export const RetirementPage: NextPage<Props> = (props) => {
         production={IS_PRODUCTION}
         title={t({
           id: "retirement.totals.head.title",
-          message: `KlimaDao - Carbon Retirements for beneficiary ${concattedAddress}`,
+          message: `KlimaDAO - Carbon Retirements for beneficiary ${concattedAddress}`,
           values: { beneficiaryAddress },
         })}
         mediaTitle={t({
           id: "retirement.totals.head.metaTitle",
-          message: `KlimaDao - Carbon Retirements for beneficiary ${concattedAddress}`,
+          message: `KlimaDAO - Carbon Retirements for beneficiary ${concattedAddress}`,
           values: { beneficiaryAddress },
         })}
         metaDescription={t({
