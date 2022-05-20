@@ -58,7 +58,9 @@ export const queryKlimaRetiresByAddress = async (
             klimaRetires(
               where: {
                 beneficiaryAddress: "${beneficiaryAddress.toLowerCase()}"
-              }
+              },
+              orderBy: timestamp, 
+              orderDirection: desc
             ) {
               id
               beneficiaryAddress
