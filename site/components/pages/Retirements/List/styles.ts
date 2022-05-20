@@ -71,4 +71,9 @@ export const allRetirementsListItem = css`
   .number {
     width: 3.2rem;
   }
+
+  .label {
+    color: var(--font-03);
+    padding-left: 0.8rem;
+  }
 `;
