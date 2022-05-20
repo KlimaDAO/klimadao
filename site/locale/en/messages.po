@@ -780,10 +780,6 @@ msgstr "KlimaDAO - Carbon Retirements for beneficiary {concattedAddress}"
 msgid "retirement.totals.head.title"
 msgstr "KlimaDAO - Carbon Retirements for beneficiary {concattedAddress}"
 
-#: components/pages/Retirements/index.tsx:86
-msgid "retirement.totals.number_of_total_retirements"
-msgstr "Number of Total Retirements"
-
 #: components/pages/Retirements/index.tsx:65
 msgid "retirement.totals.page_headline"
 msgstr "Carbon Retirements"
@@ -803,6 +799,10 @@ msgstr "Retirements"
 #: components/pages/Retirements/index.tsx:102
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "Total Carbon Tonnes Retired"
+
+#: components/pages/Retirements/index.tsx:86
+msgid "retirement.totals.total_retirement_transactions"
+msgstr "Total Retirement Transactions"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29

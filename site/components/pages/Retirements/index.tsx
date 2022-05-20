@@ -83,8 +83,8 @@ export const RetirementPage: NextPage<Props> = (props) => {
               {totalsAndBalances.totalRetirements}
             </Text>
             <Text t="h4" color="lightest" align="center">
-              <Trans id="retirement.totals.number_of_total_retirements">
-                Number of Total Retirements
+              <Trans id="retirement.totals.total_retirement_transactions">
+                Total Retirement Transactions
               </Trans>
             </Text>
           </div>
