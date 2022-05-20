@@ -22,6 +22,7 @@ export const RetirementItem: FC<Props> = (props) => {
   const { retirement } = props;
   const { locale } = useRouter();
 
+  const retirementNumber = Number(retirement.index) + 1;
   const retirementDate = new Date(parseInt(retirement.timestamp) * 1000); //expects milliseconds
   const formattedDate = new Intl.DateTimeFormat(locale, {
     dateStyle: "full",
@@ -31,13 +32,12 @@ export const RetirementItem: FC<Props> = (props) => {
   );
   // typeOfToken can be undefined! Due to incorrect tokenAddress received from subgraph - Why?
 
-  const url = `/retirements/${retirement.beneficiaryAddress}/${
-    Number(retirement.index) + 1
-  }`;
+  const url = `/retirements/${retirement.beneficiaryAddress}/${retirementNumber}`;
 
   return (
     <Link href={url} passHref>
       <a className={styles.allRetirementsListItem}>
+        <Text className="number">{retirementNumber}.</Text>
         <LeafIcon />
         <div className="content">
           <Text className="value">

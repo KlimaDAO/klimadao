@@ -58,4 +58,8 @@ export const allRetirementsListItem = css`
     width: 2.4rem;
     height: 2.4rem;
   }
+
+  .number {
+    width: 3.2rem;
+  }
 `;
