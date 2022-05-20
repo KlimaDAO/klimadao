@@ -40,7 +40,7 @@ export const queryKlimaRetireByIndex = async (
     const json: QueryKlimaRetires = await result.json();
     return !!json.data.klimaRetires.length && json.data.klimaRetires[0];
   } catch (e) {
-    console.log("e", e);
+    console.error("Failed to query KlimaRetireByIndex", e);
     return Promise.reject(e);
   }
 };
@@ -78,7 +78,7 @@ export const queryKlimaRetiresByAddress = async (
     const json: QueryKlimaRetires = await result.json();
     return !!json.data.klimaRetires.length && json.data.klimaRetires;
   } catch (e) {
-    console.log("e", e);
+    console.error("Failed to query KlimaRetiresByAddress", e);
     return Promise.reject(e);
   }
 };
