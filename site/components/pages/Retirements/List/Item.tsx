@@ -5,7 +5,10 @@ import Link from "next/link";
 import { Text } from "@klimadao/lib/components";
 
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { concatAddress, getTypeofTokenByAddress } from "@klimadao/lib/utils";
+import {
+  concatAddress,
+  getRetirementTokenByAddress,
+} from "@klimadao/lib/utils";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { LeafIcon } from "./Leaf";
 
@@ -23,7 +26,9 @@ export const RetirementItem: FC<Props> = (props) => {
   const formattedDate = new Intl.DateTimeFormat(locale, {
     dateStyle: "full",
   }).format(retirementDate);
-  const typeOfToken = getTypeofTokenByAddress(retirement.offset.tokenAddress);
+  const typeOfToken = getRetirementTokenByAddress(
+    retirement.offset.tokenAddress
+  );
   // typeOfToken can be undefined! Due to incorrect tokenAddress received from subgraph - Why?
 
   const url = `/retirements/${retirement.beneficiaryAddress}/${
