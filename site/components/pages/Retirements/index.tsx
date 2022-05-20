@@ -29,7 +29,7 @@ type Props = {
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
-  const { beneficiaryAddress, totalsAndBalances } = props;
+  const { beneficiaryAddress, totalsAndBalances, klimaRetires } = props;
   const concattedAddress = concatAddress(beneficiaryAddress);
 
   return (
@@ -103,7 +103,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
           </div>
         </div>
         <Breakdown totalsAndBalances={props.totalsAndBalances} />
-        <AllRetirements klimaRetires={props.klimaRetires} />
+        <AllRetirements klimaRetires={klimaRetires} />
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>

@@ -33,12 +33,13 @@ export const AllRetirements: FC<Props> = (props) => {
         </Text>
       </div>
       <div className={styles.allRetirementsList}>
-        {klimaRetires.map((retirement, index) => (
-          <RetirementItem
-            retirement={retirement}
-            key={`${retirement}-${index}`}
-          />
-        ))}
+        {!!klimaRetires.length &&
+          klimaRetires.map((retirement, index) => (
+            <RetirementItem
+              retirement={retirement}
+              key={`${retirement}-${index}`}
+            />
+          ))}
       </div>
     </div>
   );
