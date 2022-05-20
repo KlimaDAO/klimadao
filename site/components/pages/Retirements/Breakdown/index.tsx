@@ -6,7 +6,7 @@ import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 
-import { allRetirementTokenInfos as breakdownTokens } from "../../../../lib/getTokenInfo";
+import { allRetirementTokenInfos } from "../../../../lib/getTokenInfo";
 
 import { Trans } from "@lingui/macro";
 import * as styles from "./styles";
@@ -17,6 +17,14 @@ type Props = {
 
 export const Breakdown: NextPage<Props> = (props) => {
   const { totalsAndBalances } = props;
+
+  const breakdownTokens = allRetirementTokenInfos
+    .map((tkn) => ({
+      ...tkn,
+      amount:
+        totalsAndBalances[tkn.key as keyof RetirementsTotalsAndBalances] || "0",
+    }))
+    .sort((a, b) => Number(b.amount) - Number(a.amount));
 
   return (
     <div className={styles.breakdown}>
@@ -34,14 +42,25 @@ export const Breakdown: NextPage<Props> = (props) => {
       <div className={styles.breakdownList}>
         {breakdownTokens.map((tkn, index) => {
           const amount =
-            totalsAndBalances[tkn.key as keyof RetirementsTotalsAndBalances];
-          const formattedAmount = (amount && amount.replace(/\.?0+$/, "")) || 0;
-
+            Number(tkn.amount) > 0 ? (
+              <Text>{tkn.amount}</Text>
+            ) : (
+              <Text color="lightest" t="caption">
+                <Trans id="retirement.totals.breakdown.no_retirement_found">
+                  No retirements found
+                </Trans>
+              </Text>
+            );
           return (
             <div className={styles.breakdownListItem} key={`${tkn}-${index}`}>
-              <Image src={tkn.icon} width={48} height={48} alt="" />
+              <Image
+                src={tkn.icon}
+                width={48}
+                height={48}
+                alt={`${tkn.label}-icon`}
+              />
               <div className="content">
-                <Text>{formattedAmount}</Text>
+                {amount}
                 <Text color="lightest">{tkn.label}</Text>
               </div>
             </div>

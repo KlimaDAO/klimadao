@@ -54,5 +54,6 @@ export const breakdownListItem = css`
   .content {
     display: flex;
     gap: 0.8rem;
+    align-items: center;
   }
 `;
