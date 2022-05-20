@@ -8,7 +8,9 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   concatAddress,
   getRetirementTokenByAddress,
+  trimStringDecimals,
 } from "@klimadao/lib/utils";
+
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { LeafIcon } from "./Leaf";
 
@@ -41,7 +43,7 @@ export const RetirementItem: FC<Props> = (props) => {
         <LeafIcon />
         <div className="content">
           <Text className="value">
-            {retirement.amount}{" "}
+            {trimStringDecimals(retirement.amount, 10)}{" "}
             {(typeOfToken && typeOfToken.toUpperCase()) ||
               concatAddress(retirement.offset.tokenAddress)}
           </Text>
