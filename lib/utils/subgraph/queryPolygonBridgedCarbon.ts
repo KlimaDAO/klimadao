@@ -21,6 +21,7 @@ export const queryKlimaRetireByIndex = async (
             ) {
               id
               timestamp
+              pool
               transaction {
                 id
               }
@@ -63,6 +64,7 @@ export const queryKlimaRetiresByAddress = async (
               orderDirection: desc
             ) {
               id
+              pool
               beneficiaryAddress
               index
               timestamp
