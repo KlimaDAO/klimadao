@@ -44,3 +44,41 @@ export const queryKlimaRetireByIndex = async (
     return Promise.reject(e);
   }
 };
+
+export const queryKlimaRetiresByAddress = async (
+  beneficiaryAddress: string
+): Promise<KlimaRetire[] | false> => {
+  try {
+    const result = await fetch(subgraphs.polygonBridgedCarbon, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `
+          query {
+            klimaRetires(
+              where: {
+                beneficiaryAddress: "${beneficiaryAddress.toLowerCase()}"
+              }
+            ) {
+              id
+              beneficiaryAddress
+              index
+              timestamp
+              retirementMessage
+              amount
+              offset {
+                id
+                tokenAddress
+              }
+            }
+          }
+          `,
+      }),
+    });
+    const json: QueryKlimaRetires = await result.json();
+    return !!json.data.klimaRetires.length && json.data.klimaRetires;
+  } catch (e) {
+    console.log("e", e);
+    return Promise.reject(e);
+  }
+};

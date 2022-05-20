@@ -1,6 +1,7 @@
 export interface KlimaRetire {
   id: string;
   timestamp: string;
+  index: string;
   beneficiaryAddress: string;
   beneficiary: string;
   retirementMessage: string;

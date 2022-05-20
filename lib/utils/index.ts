@@ -21,4 +21,7 @@ export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { getTokenDecimals } from "./getTokenDecimals";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
-export { queryKlimaRetireByIndex } from "./subgraph/queryPolygonBridgedCarbon";
+export {
+  queryKlimaRetireByIndex,
+  queryKlimaRetiresByAddress,
+} from "./subgraph/queryPolygonBridgedCarbon";
