@@ -20,17 +20,17 @@ export const AllRetirements: FC<Props> = (props) => {
   return (
     <div className={styles.allRetirements}>
       <div className={styles.allRetirementsHeadline}>
-        <Trans id="retirement.totals.all_retirements_list.headline">
-          <Text t="h3" as="h3" align="center" className="title">
-            <NaturePeopleIcon fontSize="inherit" />
+        <Text t="h3" as="h3" align="center" className="title">
+          <NaturePeopleIcon fontSize="inherit" />
+          <Trans id="retirement.totals.all_retirements_list.headline">
             All Retirements
-          </Text>
-        </Trans>
-        <Trans id="retirement.totals.all_retirements_list.subline">
-          <Text t="h4" color="lightest" align="center">
+          </Trans>
+        </Text>
+        <Text t="h4" color="lightest" align="center">
+          <Trans id="retirement.totals.all_retirements_list.subline">
             List of single retirements
-          </Text>
-        </Trans>
+          </Trans>
+        </Text>
       </div>
       <div className={styles.allRetirementsList}>
         {klimaRetires.map((retirement, index) => (

@@ -61,14 +61,16 @@ export const RetirementPage: NextPage<Props> = (props) => {
       <Section variant="gray" className={styles.section}>
         <div className={styles.pageHeadline}>
           <div className="textGroup">
-            <Trans id="retirement.totals.page_headline">
-              <Text t="h2" as="h2" align="center">
+            <Text t="h2" as="h2" align="center">
+              <Trans id="retirement.totals.page_headline">
                 Carbon Retirements
-              </Text>
-            </Trans>
-            <Trans id="retirement.totals.page_subline">
-              <Text align="center">for beneficiary {concattedAddress}</Text>
-            </Trans>
+              </Trans>
+            </Text>
+            <Text align="center">
+              <Trans id="retirement.totals.page_subline">
+                for beneficiary {concattedAddress}{" "}
+              </Trans>
+            </Text>
           </div>
         </div>
         <div className={styles.cards}>
@@ -80,11 +82,11 @@ export const RetirementPage: NextPage<Props> = (props) => {
             <Text t="h2" className="value" align="center">
               {totalsAndBalances.totalRetirements}
             </Text>
-            <Trans id="retirement.totals.number_of_total_retirements">
-              <Text t="h4" color="lightest" align="center">
+            <Text t="h4" color="lightest" align="center">
+              <Trans id="retirement.totals.number_of_total_retirements">
                 Number of Total Retirements
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
           </div>
           <div className={styles.card}>
             <Text t="h3" as="h3" align="center" className="headline">
@@ -96,26 +98,24 @@ export const RetirementPage: NextPage<Props> = (props) => {
             <Text t="h2" className="value" align="center">
               {trimStringDecimals(totalsAndBalances.totalTonnesRetired, 5)} t
             </Text>
-            <Trans id="retirement.totals.total_carbon_tonnes">
-              <Text t="h4" color="lightest" align="center">
+            <Text t="h4" color="lightest" align="center">
+              <Trans id="retirement.totals.total_carbon_tonnes">
                 Total Carbon Tonnes Retired
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
           </div>
         </div>
         <div className={styles.breakdown}>
           <div className={styles.breakdownHeadline}>
-            <Trans id="retirement.totals.breakdown_headline">
-              <Text t="h3" as="h3" align="center" className="title">
-                <CloudQueueIcon fontSize="inherit" />
-                Breakdown
-              </Text>
-            </Trans>
-            <Trans id="retirement.totals.breakdown_subline">
-              <Text t="h4" color="lightest" align="center">
+            <Text t="h3" as="h3" align="center" className="title">
+              <CloudQueueIcon fontSize="inherit" />
+              <Trans id="retirement.totals.breakdown_headline">Breakdown</Trans>
+            </Text>
+            <Text t="h4" color="lightest" align="center">
+              <Trans id="retirement.totals.breakdown_subline">
                 Tokens used for retirements
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
           </div>
           <div className={styles.breakdownList}>
             {breakdownTokens.map((tkn, index) => {
