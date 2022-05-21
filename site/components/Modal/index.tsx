@@ -40,9 +40,9 @@ export const Modal: FC<Props> = (props) => {
       <div className={styles.modalContainer}>
         <div className={styles.modalContent}>
           <div className="title">
-            <Text>{props.title}</Text>
+            <Text t="h4">{props.title}</Text>
             <button onClick={props.onToggleModal}>
-              <Close />
+              <Close fontSize="large" />
             </button>
           </div>
 
