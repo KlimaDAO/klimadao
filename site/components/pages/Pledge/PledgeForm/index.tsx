@@ -17,9 +17,9 @@ import {
   editPledgeSignature,
   formSchema,
   putPledge,
-  pledgeResolver,
+  pledgeFormAdapter,
 } from "../lib";
-import { PledgeFormValues } from "../types";
+import { Pledge, PledgeFormValues } from "../types";
 import * as styles from "./styles";
 
 type TotalFootprintProps = {
@@ -41,8 +41,8 @@ const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
 
 type Props = {
   pageAddress: string;
-  pledge: PledgeFormValues;
-  onFormSubmit: (data: PledgeFormValues) => void;
+  pledge: Pledge;
+  onFormSubmit: (data: Pledge) => void;
 };
 
 export const PledgeForm: FC<Props> = (props) => {
@@ -51,7 +51,7 @@ export const PledgeForm: FC<Props> = (props) => {
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
       mode: "onBlur",
-      defaultValues: props.pledge,
+      defaultValues: pledgeFormAdapter(props.pledge),
       resolver: yupResolver(formSchema),
     });
   const { isDirty, isValid } = formState;
@@ -77,11 +77,10 @@ export const PledgeForm: FC<Props> = (props) => {
       signature,
     });
     const data = await response.json();
-    const pledge = pledgeResolver(data.pledge);
 
     if (data.pledge) {
-      props.onFormSubmit(pledge);
-      reset(pledge);
+      props.onFormSubmit(data.pledge);
+      reset(pledgeFormAdapter(data.pledge));
       setServerError(false);
     } else {
       setServerError(true);

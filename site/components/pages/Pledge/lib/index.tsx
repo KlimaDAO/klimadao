@@ -5,6 +5,6 @@ export {
   createPledgeAttributes,
   putPledgeAttributes,
 } from "./pledgeAttributes";
-export { pledgeResolver } from "./pledgeResolver";
+export { pledgeFormAdapter } from "./pledgeFormAdapter";
 export { putPledge } from "./putPledge";
 export { verifySignature } from "./verifySignature";

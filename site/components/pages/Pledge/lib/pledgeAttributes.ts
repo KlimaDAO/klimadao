@@ -3,13 +3,17 @@ import { generateNonce } from ".";
 
 const buildFootprint = (
   currentFootprint: Footprint[],
-  newFootprint: number,
   categories: Category[],
+  total: number
 ): Footprint[] => {
-  if (currentFootprint.at(-1)?.total === newFootprint) return currentFootprint;
+  // const current = currentFootprint[currentFootprint.length - 1];
+  if (currentFootprint.at(-1)?.total === total) return currentFootprint;
   // compare categories
 
-  return [...currentFootprint, { timestamp: Date.now(), total: newFootprint, categories }];
+  return [
+    ...currentFootprint,
+    { timestamp: Date.now(), total: total, categories },
+  ];
 };
 
 interface createPledgeParams {
@@ -24,11 +28,13 @@ export const createPledgeAttributes = (params: createPledgeParams): Pledge => {
     ...rest,
     id: params.id,
     nonce: generateNonce(),
-    footprint: [{ 
-      timestamp: Date.now(),
-      total: params.pledge.footprint,
-      categories,
-    }],
+    footprint: [
+      {
+        timestamp: Date.now(),
+        total: params.pledge.footprint,
+        categories,
+      },
+    ],
     createdAt: Date.now(),
     updatedAt: Date.now(),
   };
@@ -50,8 +56,8 @@ export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
     nonce: generateNonce(),
     footprint: buildFootprint(
       params.currentPledgeValues.footprint,
-      params.newPledgeValues.footprint,
-      categories
+      categories,
+      params.newPledgeValues.footprint
     ),
   };
 };

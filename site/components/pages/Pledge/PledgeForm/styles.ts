@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import breakpoints from '@klimadao/lib/theme/breakpoints'
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
   display: grid;
@@ -23,7 +23,7 @@ export const categories_section = css`
   display: grid;
   align-content: start;
   row-gap: 1rem;
-`
+`;
 
 export const categories = css`
   display: grid;
@@ -32,17 +32,16 @@ export const categories = css`
   ${breakpoints.medium} {
     row-gap: 0.6rem;
   }
-`
+`;
 
 export const categoryRow = css`
   display: grid;
   grid-template-columns: 1fr 0.1fr;
   gap: 0.6rem;
   align-items: start;
-  
 
   ${breakpoints.medium} {
-    grid-template-columns: 1fr 0.1fr; 
+    grid-template-columns: 1fr 0.1fr;
   }
 `;
 
@@ -65,7 +64,7 @@ export const categoryRow_removeButton = css`
   border-radius: 1rem;
   border: 0.175rem solid var(--surface-03);
   background-color: var(--surface-02);
-  
+
   svg {
     fill: var(--font-02);
   }
@@ -75,13 +74,13 @@ export const categoryRow_removeButton = css`
     height: 4.8rem;
     width: 4.8rem;
   }
-`
+`;
 
 export const categories_appendRow = css`
   display: flex;
   align-content: center;
   justify-content: center;
-`
+`;
 
 export const categories_appendButton = css`
   width: 16rem;
@@ -93,4 +92,4 @@ export const categories_appendButton = css`
   ${breakpoints.medium} {
     width: 22rem;
   }
-`
+`;
