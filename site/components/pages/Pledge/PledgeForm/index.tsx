@@ -1,7 +1,14 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import RemoveIcon from "@mui/icons-material/Remove";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, SubmitHandler } from "react-hook-form";
+import {
+  useForm,
+  useFieldArray,
+  useWatch,
+  Control,
+  SubmitHandler,
+} from "react-hook-form";
 
 import { InputField, TextareaField } from "components/Form";
 import { useWeb3 } from "hooks/useWeb3/web3context";
@@ -15,6 +22,27 @@ import {
 import { PledgeFormValues } from "../types";
 import * as styles from "./styles";
 
+type TotalFootprintProps = {
+  control: Control<PledgeFormValues>;
+  setValue: (field: "footprint", value: number) => void;
+};
+
+const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
+  const categories = useWatch({ name: "categories", control });
+
+  if (!categories) {
+    return <Text t="h3">Total Footprint: 0K</Text>;
+  }
+
+  const totalFootprint = categories?.reduce(
+    (acc, current) => Number(acc) + Number(current.quantity || 0),
+    0
+  );
+  setValue("footprint", totalFootprint);
+
+  return <Text t="h3">Total Footprint: {totalFootprint}K</Text>;
+};
+
 type Props = {
   pageAddress: string;
   pledge: PledgeFormValues;
@@ -24,17 +52,26 @@ type Props = {
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
   const { signer } = useWeb3();
-  const { register, handleSubmit, formState, reset } =
+  const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
       mode: "onBlur",
-      defaultValues: props.pledge,
+      defaultValues: {
+        ...props.pledge,
+        categories: [{ name: "", quantity: 0 }],
+      },
       resolver: yupResolver(formSchema),
     });
   const { isDirty, isValid } = formState;
 
+  const { fields, append, remove } = useFieldArray({
+    name: "categories",
+    control,
+  });
+
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
+    console.log(values);
     if (!signer) return; // TODO: should probably add user feedback
 
     const signature = await signer.signMessage(
@@ -92,14 +129,64 @@ export const PledgeForm: FC<Props> = (props) => {
         {...register("methodology")}
       />
 
+      <div className={styles.categories_section}>
+        <Text t="caption">Footprint</Text>
+
+        <div className={styles.categories}>
+          {fields.map((field, index) => (
+            <div className={styles.categoryRow} key={field.id}>
+              <div className={styles.categoryRow_inputs}>
+                <InputField
+                  label="Name"
+                  hideLabel
+                  placeholder="Category name"
+                  type="text"
+                  errors={formState.errors.categories?.[index]?.name}
+                  {...register(`categories.${index}.name` as const)}
+                />
+                <InputField
+                  label="Quantity"
+                  hideLabel
+                  placeholder="Carbon tonnes"
+                  type="number"
+                  errors={formState.errors.categories?.[index]?.quantity}
+                  {...register(`categories.${index}.quantity` as const)}
+                />
+              </div>
+
+              <ButtonPrimary
+                variant="icon"
+                className={styles.categoryRow_removeButton}
+                label={<RemoveIcon fontSize="large" />}
+                onClick={() => remove(index)}
+              >
+                <RemoveIcon fontSize="medium" />
+              </ButtonPrimary>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.categories_appendRow}>
+          <ButtonPrimary
+            className={styles.categories_appendButton}
+            variant="gray"
+            label="Add category"
+            onClick={() => append({ name: "", quantity: 0 })}
+          />
+        </div>
+      </div>
+
       <InputField
-        label="Footprint"
-        placeholder="Footprint (carbon tonnes)"
-        type="number"
+        label="Total footprint"
+        hideLabel
+        type="hidden"
         errors={formState.errors.footprint}
         {...register("footprint")}
       />
 
+      <TotalFootprint control={control} setValue={setValue} />
+
+      {/* better to use an input type=submit */}
       <ButtonPrimary
         disabled={!isDirty || !isValid}
         label="Save pledge"
