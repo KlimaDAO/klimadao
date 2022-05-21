@@ -30,11 +30,7 @@ type TotalFootprintProps = {
 const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
   const categories = useWatch({ name: "categories", control });
 
-  if (!categories) {
-    return <Text t="h3">Total Footprint: 0K</Text>;
-  }
-
-  const totalFootprint = categories?.reduce(
+  const totalFootprint: number = categories.reduce(
     (acc, current) => Number(acc) + Number(current.quantity || 0),
     0
   );
@@ -55,10 +51,7 @@ export const PledgeForm: FC<Props> = (props) => {
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
       mode: "onBlur",
-      defaultValues: {
-        ...props.pledge,
-        categories: [{ name: "", quantity: 0 }],
-      },
+      defaultValues: props.pledge,
       resolver: yupResolver(formSchema),
     });
   const { isDirty, isValid } = formState;

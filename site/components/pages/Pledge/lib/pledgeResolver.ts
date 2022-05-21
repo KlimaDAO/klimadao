@@ -9,6 +9,7 @@ const DEFAULT_VALUES = {
   description: "",
   methodology: "",
   footprint: 0,
+  categories: [{ name: '' , quantity: 0}]
 };
 
 export const pledgeResolver = (pledge: Pledge | null): PledgeFormValues => {
@@ -28,5 +29,6 @@ export const pledgeResolver = (pledge: Pledge | null): PledgeFormValues => {
     description: pledge.description,
     methodology: pledge.methodology,
     footprint: footprint.total,
+    categories: footprint.categories
   };
 };
