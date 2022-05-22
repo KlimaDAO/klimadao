@@ -7,9 +7,9 @@
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
-    "lingui:extract": "node ../lib/out/utils/linguiHelper/lingui.js extract --clean --overwrite",
-    "lingui:compile": "node ../lib/out/utils/linguiHelper/lingui.js compile",
-    "lingui:extract:dev": "node ../lib/out/utils/linguiHelper/lingui.js extract --clean --overwrite --locale=en && node ../lib/out/utils/linguiHelper/lingui.js extract --clean --overwrite --locale=en-pseudo",
+    "lingui:extract": "node ../lib/out/scripts/lingui.js extract --clean --overwrite",
+    "lingui:compile": "NODE_ENV=test lingui compile",
+    "lingui:extract:dev": "node ../lib/out/scripts/lingui.js extract --clean --overwrite --locale=en && node ../lib/out/scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
