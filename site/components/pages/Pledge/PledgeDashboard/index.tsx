@@ -66,7 +66,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             <Text t="h3" className="profileImage" align="center">
               -
             </Text>
-            <Text t="h4">
+            <Text t="h2">
               {pledge.name || concatAddress(pledge.ownerAddress)}
             </Text>
           </div>
