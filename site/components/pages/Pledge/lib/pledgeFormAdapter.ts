@@ -8,11 +8,13 @@ export const DEFAULT_VALUES: Pledge = {
   nonce: DEFAULT_NONCE,
   description: "",
   methodology: "",
-  footprint: [{
-    timestamp: 0,
-    total: 0,
-    categories: [{ name: "", quantity: 0 }],
-  }],
+  footprint: [
+    {
+      timestamp: 0,
+      total: 0,
+      categories: [{ name: "", quantity: 0 }],
+    },
+  ],
 };
 
 export const pledgeFormAdapter = (pledge: Pledge): PledgeFormValues => {

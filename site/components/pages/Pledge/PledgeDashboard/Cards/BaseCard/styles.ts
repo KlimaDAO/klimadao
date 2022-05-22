@@ -21,6 +21,4 @@ export const card = css`
   display: flex;
   flex-direction: column;
   align-content: start;
-
-  min-height: 200px; // temp
 `;
