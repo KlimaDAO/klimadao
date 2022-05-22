@@ -64,25 +64,28 @@ export const PledgeForm: FC<Props> = (props) => {
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
-    console.log(values);
-    if (!signer) return; // TODO: should probably add user feedback
+    try {
+      if (!signer) return;
+      const signature = await signer.signMessage(
+        editPledgeSignature(values.nonce)
+      );
 
-    const signature = await signer.signMessage(
-      editPledgeSignature(values.nonce)
-    );
+      const response = await putPledge({
+        pageAddress: props.pageAddress,
+        pledge: values,
+        signature,
+      });
+      const data = await response.json();
 
-    const response = await putPledge({
-      pageAddress: props.pageAddress,
-      pledge: values,
-      signature,
-    });
-    const data = await response.json();
-
-    if (data.pledge) {
-      props.onFormSubmit(data.pledge);
-      reset(pledgeFormAdapter(data.pledge));
-      setServerError(false);
-    } else {
+      if (data.pledge) {
+        props.onFormSubmit(data.pledge);
+        reset(pledgeFormAdapter(data.pledge));
+        setServerError(false);
+      } else {
+        setServerError(true);
+      }
+    } catch (error) {
+      console.log(error);
       setServerError(true);
     }
   };
@@ -124,6 +127,12 @@ export const PledgeForm: FC<Props> = (props) => {
       <div className={styles.categories_section}>
         <Text t="caption">Footprint</Text>
 
+        {fields.length === 0 && (
+          <Text t="caption" style={{ textAlign: "center", marginTop: "1rem" }}>
+            Add a category and start calculating your carbon footprint
+          </Text>
+        )}
+
         <div className={styles.categories}>
           {fields.map((field, index) => (
             <div className={styles.categoryRow} key={field.id}>
@@ -158,14 +167,16 @@ export const PledgeForm: FC<Props> = (props) => {
           ))}
         </div>
 
-        <div className={styles.categories_appendRow}>
-          <ButtonPrimary
-            className={styles.categories_appendButton}
-            variant="gray"
-            label="Add category"
-            onClick={() => append({ name: "", quantity: 0 })}
-          />
-        </div>
+        {fields.length < 10 && (
+          <div className={styles.categories_appendRow}>
+            <ButtonPrimary
+              className={styles.categories_appendButton}
+              variant="gray"
+              label="Add category"
+              onClick={() => append({ name: "", quantity: 0 })}
+            />
+          </div>
+        )}
       </div>
 
       <InputField
