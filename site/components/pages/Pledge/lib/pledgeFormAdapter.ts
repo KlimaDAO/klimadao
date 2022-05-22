@@ -1,25 +1,22 @@
 import { Pledge, PledgeFormValues } from "../types";
 import { DEFAULT_NONCE } from ".";
 
-const DEFAULT_VALUES = {
+export const DEFAULT_VALUES: Pledge = {
   id: "",
   ownerAddress: "",
   name: "",
   nonce: DEFAULT_NONCE,
   description: "",
   methodology: "",
-  footprint: 0,
-  categories: [{ name: "", quantity: 0 }],
+  footprint: [{
+    timestamp: 0,
+    total: 0,
+    categories: [{ name: "", quantity: 0 }],
+  }],
 };
 
-export const pledgeFormAdapter = (pledge: Pledge | null): PledgeFormValues => {
-  if (!pledge) return DEFAULT_VALUES;
-  const footprint = pledge.footprint.at(-1);
-
-  if (!footprint) {
-    console.error(`Broken pledge document, id: ${pledge.id}`);
-    throw new Error(`Bad request`);
-  }
+export const pledgeFormAdapter = (pledge: Pledge): PledgeFormValues => {
+  const currentFootprint = pledge.footprint[pledge.footprint.length - 1];
 
   return {
     id: pledge.id,
@@ -28,7 +25,7 @@ export const pledgeFormAdapter = (pledge: Pledge | null): PledgeFormValues => {
     nonce: pledge.nonce,
     description: pledge.description,
     methodology: pledge.methodology,
-    footprint: footprint.total,
-    categories: footprint.categories,
+    footprint: currentFootprint.total,
+    categories: currentFootprint.categories,
   };
 };
