@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-23 21:28+0000\n"
+"POT-Creation-Date: 2022-05-23 21:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -710,7 +710,7 @@ msgstr "Empfänger"
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Empfängeradresse"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:157
+#: components/pages/Retirements/SingleRetirement/index.tsx:155
 msgid "retirement.single.disclaimer"
 msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch tokenisierte CO2-Zertifikate auf der Polygon-Blockchain. Jeder Emissionsausgleich und die damit verbundenen Daten sind unveränderlich und öffentlich einsehbar."
 
@@ -730,11 +730,11 @@ msgstr "Ausgleichsnachricht"
 msgid "retirement.single.quantity"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:149
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "... kommt demnächst!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:144
+#: components/pages/Retirements/SingleRetirement/index.tsx:142
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Zertifikat"
 
@@ -746,13 +746,17 @@ msgstr "Datum"
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Keine Ausgleichsnachricht angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:136
+#: components/pages/Retirements/SingleRetirement/index.tsx:134
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:174
+#: components/pages/Retirements/SingleRetirement/index.tsx:172
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
+
+#: components/pages/Retirements/List/index.tsx:45
+msgid "retirement.totals.all_retirements_list.empty"
+msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:25
 msgid "retirement.totals.all_retirements_list.headline"

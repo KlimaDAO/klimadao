@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-23 21:28+0000\n"
+"POT-Creation-Date: 2022-05-23 21:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -714,7 +714,7 @@ msgstr "Beneficiario"
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Dirección del beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:157
+#: components/pages/Retirements/SingleRetirement/index.tsx:155
 msgid "retirement.single.disclaimer"
 msgstr "Esto representa la retirada permanente de los activos de carbono tokenizados en la blockchain de Polygon. Esta retirada y los datos asociados son registros públicos inmutables."
 
@@ -734,11 +734,11 @@ msgstr "Mensaje de Retiro"
 msgid "retirement.single.quantity"
 msgstr "CANTIDAD RETIRADA"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:149
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...¡próximamente!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:144
+#: components/pages/Retirements/SingleRetirement/index.tsx:142
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificado"
 
@@ -750,13 +750,17 @@ msgstr "Fecha"
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "No se proporcionó ningún mensaje de retiro"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:136
+#: components/pages/Retirements/SingleRetirement/index.tsx:134
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No se proporcionó una marca de tiempo de retiro"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:174
+#: components/pages/Retirements/SingleRetirement/index.tsx:172
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Ver en Polygonscan"
+
+#: components/pages/Retirements/List/index.tsx:45
+msgid "retirement.totals.all_retirements_list.empty"
+msgstr "No se han encontrado retiros"
 
 #: components/pages/Retirements/List/index.tsx:25
 msgid "retirement.totals.all_retirements_list.headline"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-23 21:28+0000\n"
+"POT-Creation-Date: 2022-05-23 21:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -706,7 +706,7 @@ msgstr "受益人"
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "受益人地址"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:157
+#: components/pages/Retirements/SingleRetirement/index.tsx:155
 msgid "retirement.single.disclaimer"
 msgstr "这代表了 Polygon 区块链上代币化碳资产的永久停用。该停用碳和相关数据是不可变的公共记录。"
 
@@ -726,11 +726,11 @@ msgstr "停用消息"
 msgid "retirement.single.quantity"
 msgstr "停用数量"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:149
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...敬请期待！"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:144
+#: components/pages/Retirements/SingleRetirement/index.tsx:142
 msgid "retirement.single.retirementCertificate.title"
 msgstr "证书"
 
@@ -742,13 +742,17 @@ msgstr "日期"
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "未提供停用信息"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:136
+#: components/pages/Retirements/SingleRetirement/index.tsx:134
 msgid "retirement.single.timestamp.placeholder"
 msgstr "未提供停用时间戳"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:174
+#: components/pages/Retirements/SingleRetirement/index.tsx:172
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
+
+#: components/pages/Retirements/List/index.tsx:45
+msgid "retirement.totals.all_retirements_list.empty"
+msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:25
 msgid "retirement.totals.all_retirements_list.headline"
