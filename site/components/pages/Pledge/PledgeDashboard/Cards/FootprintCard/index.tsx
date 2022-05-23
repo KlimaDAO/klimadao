@@ -15,47 +15,6 @@ interface CategoryWithPercent extends Category {
   percent: number;
 }
 
-type SkeletonProps = {
-  width: number;
-};
-
-const Skeleton: FC<SkeletonProps> = (props) => (
-  <div
-    className={css({
-      width: `${props.width}rem`,
-      height: "2.6rem",
-      borderRadius: "0.6rem",
-      backgroundColor: "var(--surface-01)",
-    })}
-  />
-);
-
-const FootprintSkeleton = () => (
-  <div className={styles.categories}>
-    <div className={styles.categoryRow}>
-      <Skeleton width={26} />
-      <div className={styles.skeleton_right}>
-        <Skeleton width={5} />
-        <Skeleton width={5} />
-      </div>
-    </div>
-    <div className={styles.categoryRow}>
-      <Skeleton width={20} />
-      <div className={styles.skeleton_right}>
-        <Skeleton width={5} />
-        <Skeleton width={5} />
-      </div>
-    </div>
-    <div className={styles.categoryRow}>
-      <Skeleton width={23} />
-      <div className={styles.skeleton_right}>
-        <Skeleton width={5} />
-        <Skeleton width={5} />
-      </div>
-    </div>
-  </div>
-);
-
 const calcFootprintPercent = (
   total: number,
   categories: Category[]
@@ -113,3 +72,44 @@ export const FootprintCard: FC<Props> = (props) => {
     </BaseCard>
   );
 };
+
+type SkeletonProps = {
+  width: number;
+};
+
+const Skeleton: FC<SkeletonProps> = (props) => (
+  <div
+    className={css({
+      width: `${props.width}rem`,
+      height: "2.6rem",
+      borderRadius: "0.6rem",
+      backgroundColor: "var(--surface-01)",
+    })}
+  />
+);
+
+const FootprintSkeleton: FC = () => (
+  <div className={styles.categories}>
+    <div className={styles.categoryRow}>
+      <Skeleton width={26} />
+      <div className={styles.skeleton_right}>
+        <Skeleton width={5} />
+        <Skeleton width={5} />
+      </div>
+    </div>
+    <div className={styles.categoryRow}>
+      <Skeleton width={20} />
+      <div className={styles.skeleton_right}>
+        <Skeleton width={5} />
+        <Skeleton width={5} />
+      </div>
+    </div>
+    <div className={styles.categoryRow}>
+      <Skeleton width={23} />
+      <div className={styles.skeleton_right}>
+        <Skeleton width={5} />
+        <Skeleton width={5} />
+      </div>
+    </div>
+  </div>
+);
