@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { StaticImageData } from "components/Image";
 
 import { useSelector } from "react-redux";
-import { providers } from "ethers";
+import { ethers, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
 
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
@@ -65,7 +65,6 @@ import { cx } from "@emotion/css";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 import SendRounded from "@mui/icons-material/SendRounded";
-import { style } from "@mui/system";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -126,7 +125,7 @@ export const Offset = (props: Props) => {
   // for selective retirement
   const [specificAddresses, setSpecificAddresses] = useState({
     addresses: [""],
-    errors: [],
+    errors: [false],
   });
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
@@ -233,11 +232,11 @@ export const Offset = (props: Props) => {
   };
 
   const handleBeneficiaryAddressChange = (address: string) => {
-    if ("address is bad") {
-      setBeneficiaryAddressError(true);
+    if (ethers.utils.isAddress(address)) {
+      setBeneficiaryAddressError(false);
       setBeneficiaryAddress(address);
     } else {
-      setBeneficiaryAddressError(false);
+      setBeneficiaryAddressError(true);
       setBeneficiaryAddress(address);
     }
   };
@@ -309,6 +308,16 @@ export const Offset = (props: Props) => {
     } else if (!quantity || !Number(quantity)) {
       return {
         label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (specificAddresses.errors.includes(true)) {
+      return {
+        label: (
+          <Trans id="shared.improper_address_format">
+            PLEASE FORMAT ADDRESS
+          </Trans>
+        ),
         onClick: undefined,
         disabled: true,
       };
@@ -691,12 +700,11 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
 
 const AdvancedTextInput: FC<{
   addressArray: { addresses: string[]; errors: boolean[] };
-  onChange: (val: {addresses: string[], errors: boolean[]}) => void;
+  onChange: (val: { addresses: string[]; errors: boolean[] }) => void;
   // fix prop types
 }> = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const concatValue = props.addressArray.addresses.join("");
-
   /** when query params are loaded we force the toggle open */
   useEffect(() => {
     if (!isOpen && concatValue.length > 1) {
@@ -705,24 +713,40 @@ const AdvancedTextInput: FC<{
   }, [concatValue]);
   // check for errors in here
   const handleEdit = (i: number) => (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = [
-      ...props.addressArray.addresses.slice(0, i),
-      e.target.value,
-      ...props.addressArray.addresses.slice(i + 1),
-    ];
+    const newValue = {
+      addresses: [
+        ...props.addressArray.addresses.slice(0, i),
+        e.target.value,
+        ...props.addressArray.addresses.slice(i + 1),
+      ],
+      errors: [
+        ...props.addressArray.errors.slice(0, i),
+        !ethers.utils.isAddress(e.target.value),
+        ...props.addressArray.errors.slice(i + 1),
+      ],
+    };
     props.onChange(newValue);
   };
   // check for errors here
   const handleAddInput = () => {
-    const isValidAddress = true;
-    props.onChange({addresses: [...props.addressArray.addresses, ""], errors: [...props.addressArray.errors, isValidAddress]});
+    const isError = false;
+    props.onChange({
+      addresses: [...props.addressArray.addresses, ""],
+      errors: [...props.addressArray.errors, isError],
+    });
   };
 
   const handleDelete = (i: number) => () => {
-    const newValue = [
-      ...props.addressArray.addresses.slice(0, i),
-      ...props.addressArray.addresses.slice(i + 1),
-    ];
+    const newValue = {
+      addresses: [
+        ...props.addressArray.addresses.slice(0, i),
+        ...props.addressArray.addresses.slice(i + 1),
+      ],
+      errors: [
+        ...props.addressArray.errors.slice(0, i),
+        ...props.addressArray.errors.slice(i + 1),
+      ],
+    };
     props.onChange(newValue);
   };
 
@@ -758,15 +782,10 @@ const AdvancedTextInput: FC<{
               <InfoOutlined />
             </TextInfoTooltip>
           </label>
-          {props.addressArray.addresses.map((address, i) => {
+          {props.addressArray.addresses.map((address: string, i: number) => {
             return (
               <div key={i} className={styles.advancedButtonInput}>
-                <div
-                  className={
-                    
-                 "advancedButtonInput_iconAligner"
-                  }
-                >
+                <div className={"advancedButtonInput_iconAligner"}>
                   <input
                     value={address}
                     onChange={handleEdit(i)}
