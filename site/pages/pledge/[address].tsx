@@ -1,11 +1,17 @@
 import { GetStaticProps } from "next";
+import { ethers } from "ethers";
 
-import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
-import { getPledgeByAddress, pledgeResolver } from "lib/moralis";
 import { loadTranslation } from "lib/i18n";
 import { IS_PRODUCTION } from "lib/constants";
+import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
+import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
+import { pledgeResolver } from "components/pages/Pledge/lib";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+  const translation = await loadTranslation(ctx.locale);
+  const { address } = ctx.params as { address: string };
+  let pledge;
+
   if (IS_PRODUCTION) {
     return {
       notFound: true,
@@ -13,17 +19,22 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     };
   }
 
-  const translation = await loadTranslation(ctx.locale);
-  const { address } = ctx.params as { address: string };
-  let pledge;
+  if (!ethers.utils.isAddress(address)) {
+    return {
+      redirect: {
+        destination: "/pledge",
+        permanent: false,
+      },
+    };
+  }
 
   try {
     const data = await getPledgeByAddress(address.toLowerCase());
-
     if (!data) throw new Error("Not found");
-    pledge = pledgeResolver(JSON.parse(JSON.stringify(data)));
+
+    pledge = pledgeResolver(data);
   } catch (error) {
-    pledge = null;
+    pledge = pledgeResolver(null);
   }
 
   return {
@@ -31,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       pageAddress: address.toLowerCase(),
       pledge: {
         ...pledge,
-        address: pledge?.address || address.toLowerCase(),
+        ownerAddress: pledge?.ownerAddress || address.toLowerCase(),
       },
       translation,
     },

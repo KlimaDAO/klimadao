@@ -2,12 +2,12 @@ import "@klimadao/lib/theme/variables.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/globals.css";
 import type { AppProps } from "next/app";
-import { MoralisProvider } from "react-moralis";
 import { useEffect, useRef } from "react";
 
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 import { GridContainer } from "@klimadao/lib/components";
+import { Web3ContextProvider } from "hooks/useWeb3/web3context";
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
@@ -48,16 +48,13 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }, [locale]);
 
   return (
-    <MoralisProvider
-      appId={process.env.NEXT_PUBLIC_MORALIS_APP_ID as string}
-      serverUrl={process.env.NEXT_PUBLIC_MORALIS_SERVER_URL as string}
-    >
+    <Web3ContextProvider>
       <I18nProvider i18n={i18n}>
         <GridContainer>
           <Component {...pageProps} />
         </GridContainer>
       </I18nProvider>
-    </MoralisProvider>
+    </Web3ContextProvider>
   );
 }
 

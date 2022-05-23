@@ -10,16 +10,6 @@ This repo contains 4 packages: `@klimadao/site`, `@klimadao/app`, `@klimadao/cms
 
 `@klimadao/cms` -> The Content Management System at klimadao.sanity.studio. NOTE: Unlike the other packages, this one is **not** included as an NPM workspace from the root package.json. To work with the CMS you need to run `sanity install` from inside the `cms` folder. This is because it is managed by the sanity [command line interface](https://www.sanity.io/docs/getting-started-with-sanity-cli), which uses `yarn` under the hood.
 
-# Getting Started
-
-**The DAO is looking for react/typescript devs as well as experienced Solidity devs!** Enjoy a flexible work schedule and work on something truly ambitious and meaningful. Monthly compensation available based on your level of experience and degree of contribution.
-
-If you'd like to just take a ticket or fix a bug, go for it (always better to ask first, though).
-
-If you'd like to become a regular contributor to the DAO, [join the contributor discord](https://discord.gg/wuzAzUdcqW) and follow the application instructions.
-
-📚Check out the [contribution & style guide](https://github.com/KlimaDAO/klimadao/wiki).
-
 ## Requirements
 
 Take note, this repo utilizes newer features from Node, NPM and TypeScript 4.5.
@@ -35,7 +25,7 @@ Take note, this repo utilizes newer features from Node, NPM and TypeScript 4.5.
 From the `klimadao/` root folder, _not_ from individual packages:
 `npm install`
 
-## Develop
+## Development
 
 A set of NPM Workspace commands are provided, and can be run from the root folder.
 
@@ -77,3 +67,27 @@ We follow these rules:
 - Select an item to translate in the left column
 - On the bottom right you will notice the source text (in English) and the place to translate the text beneath.
 - You can prefill this by selecting an entry in the Suggestion area above.
+
+## Pledge Dashboard
+
+Klima Infinity pledge dashboard is backed by a firebase database. Follow the following to set up your dev environment if you'd like to contribute to the project.
+
+### Setup
+
+- Set up a firebase account and download the service account JSON file. See [here](https://firebase.google.com/docs/admin/setup#set-up-project-and-service-account) for more information.
+- Remove the line breaks on the JSON file. You can use this [tool](https://www.textfixer.com/tools/remove-line-breaks.php). _Do not_ remove the `/n` characters from the `private_key` fields or the key will no longer be valid.
+- Under `/site`, create a `.env.local` file with the environment variable `FIREBASE_ADMIN_CERT` set to the service account JSON file with no line breaks. It should look like this.
+
+```
+FIREBASE_ADMIN_CERT={ "type": "service_account", "project_id": "your_database_name", "private_key_id": .... }
+```
+
+# Contributing
+
+**The DAO is looking for react/typescript devs as well as experienced Solidity devs!** Enjoy a flexible work schedule and work on something truly ambitious and meaningful. Monthly compensation available based on your level of experience and degree of contribution.
+
+If you'd like to just take a ticket or fix a bug, go for it (always better to ask first, though).
+
+If you'd like to become a regular contributor to the DAO, [join the KlimaDAO discord](https://discord.gg/utTTEbrk) and follow the application instructions.
+
+📚Check out the [contribution & style guide](https://github.com/KlimaDAO/klimadao/wiki).

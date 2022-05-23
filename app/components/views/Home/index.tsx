@@ -277,8 +277,7 @@ export const Home: FC = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const untypedProvider = provider as any;
     if (
-      untypedProvider &&
-      untypedProvider.provider &&
+      untypedProvider?.provider &&
       typeof untypedProvider.provider.disconnect === "function"
     ) {
       await untypedProvider.provider.disconnect();

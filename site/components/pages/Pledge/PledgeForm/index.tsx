@@ -1,68 +1,59 @@
 import React, { FC, useState } from "react";
-import { useMoralis } from "react-moralis";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
-import * as yup from "yup";
 
 import { InputField, TextareaField } from "components/Form";
-import { putPledge } from "queries/pledge";
-import { PledgeFormValues } from "lib/moralis";
+import { useWeb3 } from "hooks/useWeb3/web3context";
 
+import {
+  editPledgeSignature,
+  formSchema,
+  putPledge,
+  pledgeResolver,
+} from "../lib";
+import { PledgeFormValues } from "../types";
 import * as styles from "./styles";
 
 type Props = {
+  pageAddress: string;
   pledge: PledgeFormValues;
   onFormSubmit: (data: PledgeFormValues) => void;
 };
 
-// temporarily duplicated due to weird iteraction with moralis-sdk resulting in a breaking build
-// we should be able to export the schema object from another file
-const schema = yup
-  .object({
-    objectId: yup.string().nullable(),
-    address: yup.string().required(),
-    name: yup.string().required("Enter a name"),
-    pledge: yup
-      .string()
-      .required("Enter a pledge")
-      .max(280, "Enter less than 280 characters"),
-    methodology: yup
-      .string()
-      .required("Enter a methodology")
-      .max(280, "Enter less than 280 characters"),
-    footprint: yup
-      .number()
-      .typeError("Enter your estimated carbon footprint")
-      .required("Enter your estimated carbon footprint")
-      .min(1, "Value needs to be greater than 1"),
-  })
-  .noUnknown();
-
 export const PledgeForm: FC<Props> = (props) => {
-  const { user } = useMoralis();
   const [serverError, setServerError] = useState(false);
+  const { signer } = useWeb3();
   const { register, handleSubmit, formState, reset } =
     useForm<PledgeFormValues>({
       mode: "onBlur",
       defaultValues: props.pledge,
-      resolver: yupResolver(schema),
+      resolver: yupResolver(formSchema),
     });
+  const { isDirty, isValid } = formState;
 
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
-    try {
-      const response = await putPledge({
-        pledge: values,
-        sessionToken: user?.getSessionToken(),
-      });
-      const data = await response.json();
+    if (!signer) return; // TODO: should probably add user feedback
 
-      props.onFormSubmit(data.pledge);
-      reset(data.pledge);
-    } catch (error) {
-      console.error(error);
+    const signature = await signer.signMessage(
+      editPledgeSignature(values.nonce)
+    );
+
+    const response = await putPledge({
+      pageAddress: props.pageAddress,
+      pledge: values,
+      signature,
+    });
+    const data = await response.json();
+    const pledge = pledgeResolver(data.pledge);
+
+    if (data.pledge) {
+      props.onFormSubmit(pledge);
+      reset(pledge);
+      setServerError(false);
+    } else {
       setServerError(true);
     }
   };
@@ -88,8 +79,8 @@ export const PledgeForm: FC<Props> = (props) => {
         label="Pledge"
         rows={2}
         placeholder="What is your pledge?"
-        errors={formState.errors.pledge}
-        {...register("pledge")}
+        errors={formState.errors.description}
+        {...register("description")}
       />
 
       <TextareaField
@@ -109,7 +100,11 @@ export const PledgeForm: FC<Props> = (props) => {
         {...register("footprint")}
       />
 
-      <ButtonPrimary label="Save pledge" onClick={handleSubmit(onSubmit)} />
+      <ButtonPrimary
+        disabled={!isDirty || !isValid}
+        label="Save pledge"
+        onClick={handleSubmit(onSubmit)}
+      />
     </form>
   );
 };

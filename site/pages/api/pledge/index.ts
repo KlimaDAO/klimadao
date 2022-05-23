@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
-import { findOrCreatePledge, pledgeResolver } from "lib/moralis";
+import { findOrCreatePledge } from "components/pages/Pledge/lib/firebase";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,16 +8,28 @@ export default async function handler(
   switch (req.method) {
     case "PUT":
       try {
-        const sessionToken = req.headers.authorization?.split(" ")[1];
-        const data = await findOrCreatePledge({
-          pledge: req.body,
-          sessionToken,
-        });
-        const pledge = JSON.parse(JSON.stringify(data));
+        const signature = req.headers.authorization?.split(" ")[1];
 
-        res.status(200).json({ pledge: pledgeResolver(pledge) });
-      } catch (error) {
-        console.log(error);
+        if (!signature) {
+          return res.status(400).json({ message: "Bad request" });
+        }
+
+        const pledge = await findOrCreatePledge({
+          pageAddress: req.body.pageAddress,
+          pledge: req.body.pledge,
+          signature,
+        });
+
+        if (!pledge) {
+          throw new Error(
+            `Failed put pledge request (address: ${req.body.pageAddress})`
+          );
+        }
+
+        res.status(200).json({ pledge });
+      } catch ({ message }) {
+        console.error("Request failed:", message);
+        res.status(500).json({ message: "Internal server error" });
       }
       break;
     default:
