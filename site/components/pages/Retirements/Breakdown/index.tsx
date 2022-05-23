@@ -6,7 +6,7 @@ import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 
-import { allRetirementTokenInfos } from "../../../../lib/getTokenInfo";
+import { allRetirementTokenInfos } from "lib/getTokenInfo";
 
 import { Trans } from "@lingui/macro";
 import * as styles from "./styles";

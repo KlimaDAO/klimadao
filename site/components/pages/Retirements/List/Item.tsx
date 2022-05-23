@@ -12,7 +12,7 @@ import {
   trimStringDecimals,
 } from "@klimadao/lib/utils";
 
-import { retirementTokenInfoMap } from "../../../../lib/getTokenInfo";
+import { retirementTokenInfoMap } from "lib/getTokenInfo";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardOutlined";
 import { LeafIcon } from "./Leaf";
 
