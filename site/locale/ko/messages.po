@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-23 15:43+0000\n"
+"POT-Creation-Date: 2022-05-23 17:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,11 +41,11 @@ msgstr ""
 msgid "blog.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:29
+#: components/pages/Retirements/CopyURLButton/index.tsx:29
 msgid "button.copyURL.copied"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:31
+#: components/pages/Retirements/CopyURLButton/index.tsx:31
 msgid "button.copyURL.copy"
 msgstr ""
 
@@ -750,12 +750,56 @@ msgstr ""
 msgid "retirement.single.view_on_polygon_scan"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:32
+#: components/pages/Retirements/List/index.tsx:25
+msgid "retirement.totals.all_retirements_list.headline"
+msgstr ""
+
+#: components/pages/Retirements/List/index.tsx:30
+msgid "retirement.totals.all_retirements_list.subline"
+msgstr ""
+
+#: components/pages/Retirements/Breakdown/index.tsx:49
+msgid "retirement.totals.breakdown.no_retirement_found"
+msgstr ""
+
+#: components/pages/Retirements/Breakdown/index.tsx:34
+msgid "retirement.totals.breakdown_headline"
+msgstr ""
+
+#: components/pages/Retirements/Breakdown/index.tsx:37
+msgid "retirement.totals.breakdown_subline"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:44
 msgid "retirement.totals.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:27
+#: components/pages/Retirements/index.tsx:39
 msgid "retirement.totals.head.title"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:62
+msgid "retirement.totals.page_headline"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:67
+msgid "retirement.totals.page_subline"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:91
+msgid "retirement.totals.retired_assets"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:77
+msgid "retirement.totals.retirements"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:99
+msgid "retirement.totals.total_carbon_tonnes"
+msgstr ""
+
+#: components/pages/Retirements/index.tsx:83
+msgid "retirement.totals.total_retirement_transactions"
 msgstr ""
 
 #: components/Footer/index.tsx:49
@@ -809,7 +853,7 @@ msgstr ""
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:37
+#: components/pages/Retirements/index.tsx:49
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
