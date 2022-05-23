@@ -4,7 +4,9 @@ import { ParsedUrlQuery } from "querystring";
 import { INFURA_ID, IS_PRODUCTION } from "lib/constants";
 
 import { getRetirementTotalsAndBalances } from "@klimadao/lib/utils";
+import { queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
 import { RetirementPage } from "components/pages/Retirements";
 import { loadTranslation } from "lib/i18n";
@@ -15,7 +17,8 @@ interface Params extends ParsedUrlQuery {
 
 interface PageProps {
   beneficiaryAddress: Params["beneficiary_address"];
-  retirements: RetirementsTotalsAndBalances;
+  totalsAndBalances: RetirementsTotalsAndBalances;
+  klimaRetires: KlimaRetire[];
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -37,17 +40,21 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         address: params.beneficiary_address as string,
         infuraId: INFURA_ID,
       }),
+      queryKlimaRetiresByAddress(params.beneficiary_address),
       loadTranslation(locale),
     ];
 
-    const [retirements, translation] = await Promise.all(promises);
+    const [totalsAndBalances, klimaRetires, translation] = await Promise.all(
+      promises
+    );
 
     if (!translation) {
       throw new Error("No translation found");
     }
     return {
       props: {
-        retirements,
+        totalsAndBalances,
+        klimaRetires,
         beneficiaryAddress: params.beneficiary_address,
         translation,
       },

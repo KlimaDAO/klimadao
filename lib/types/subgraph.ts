@@ -1,6 +1,8 @@
 export interface KlimaRetire {
   id: string;
   timestamp: string;
+  index: string;
+  pool: string; // mainnet address for retirement tokens
   beneficiaryAddress: string;
   beneficiary: string;
   retirementMessage: string;

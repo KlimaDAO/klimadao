@@ -1,4 +1,4 @@
-import { RetirementToken } from "@klimadao/lib/constants";
+import { RetirementToken, retirementTokens } from "@klimadao/lib/constants";
 
 import BCT from "public/icons/BCT.png";
 import NCT from "public/icons/NCT.png";
@@ -21,3 +21,7 @@ export const retirementTokenInfoMap: RetirementTokenInfoMap = {
   nct: { key: "nct", icon: NCT, label: "NCT" },
   mco2: { key: "mco2", icon: MCO2, label: "MCO2" },
 };
+
+export const allRetirementTokenInfos = retirementTokens.map((tkn) => ({
+  ...retirementTokenInfoMap[tkn],
+}));

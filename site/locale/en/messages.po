@@ -47,11 +47,11 @@ msgstr "Blog"
 msgid "blog.head.title"
 msgstr "KlimaDAO Blog"
 
-#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:29
+#: components/pages/Retirements/CopyURLButton/index.tsx:29
 msgid "button.copyURL.copied"
 msgstr "Copied"
 
-#: components/pages/Retirements/SingleRetirement/CopyURLButton/index.tsx:31
+#: components/pages/Retirements/CopyURLButton/index.tsx:31
 msgid "button.copyURL.copy"
 msgstr "Copy URL"
 
@@ -756,13 +756,57 @@ msgstr "No retirement timestamp provided"
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
-#: components/pages/Retirements/index.tsx:32
-msgid "retirement.totals.head.metaTitle"
-msgstr "KlimaDao - Your total retirements for address: {beneficiaryAddress}"
+#: components/pages/Retirements/List/index.tsx:25
+msgid "retirement.totals.all_retirements_list.headline"
+msgstr "All Retirements"
 
-#: components/pages/Retirements/index.tsx:27
+#: components/pages/Retirements/List/index.tsx:30
+msgid "retirement.totals.all_retirements_list.subline"
+msgstr "List of single retirements"
+
+#: components/pages/Retirements/Breakdown/index.tsx:49
+msgid "retirement.totals.breakdown.no_retirement_found"
+msgstr "No retirements found"
+
+#: components/pages/Retirements/Breakdown/index.tsx:34
+msgid "retirement.totals.breakdown_headline"
+msgstr "Breakdown"
+
+#: components/pages/Retirements/Breakdown/index.tsx:37
+msgid "retirement.totals.breakdown_subline"
+msgstr "Tokens used for retirements"
+
+#: components/pages/Retirements/index.tsx:44
+msgid "retirement.totals.head.metaTitle"
+msgstr "KlimaDAO - Carbon Retirements for beneficiary {concattedAddress}"
+
+#: components/pages/Retirements/index.tsx:39
 msgid "retirement.totals.head.title"
-msgstr "KlimaDao - Your total retirements for address: {beneficiaryAddress}"
+msgstr "KlimaDAO - Carbon Retirements for beneficiary {concattedAddress}"
+
+#: components/pages/Retirements/index.tsx:62
+msgid "retirement.totals.page_headline"
+msgstr "Carbon Retirements"
+
+#: components/pages/Retirements/index.tsx:67
+msgid "retirement.totals.page_subline"
+msgstr "for beneficiary {concattedAddress}"
+
+#: components/pages/Retirements/index.tsx:91
+msgid "retirement.totals.retired_assets"
+msgstr "Retired Assets"
+
+#: components/pages/Retirements/index.tsx:77
+msgid "retirement.totals.retirements"
+msgstr "Retirements"
+
+#: components/pages/Retirements/index.tsx:99
+msgid "retirement.totals.total_carbon_tonnes"
+msgstr "Total Carbon Tonnes Retired"
+
+#: components/pages/Retirements/index.tsx:83
+msgid "retirement.totals.total_retirement_transactions"
+msgstr "Total Retirement Transactions"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
@@ -815,7 +859,7 @@ msgstr "Enter App"
 #: components/pages/Home/index.tsx:66
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:37
+#: components/pages/Retirements/index.tsx:49
 #: components/pages/errors/Custom404.tsx:25
 #: components/pages/errors/Custom500.tsx:25
 msgid "shared.head.description"
