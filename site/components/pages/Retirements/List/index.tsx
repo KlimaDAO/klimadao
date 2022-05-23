@@ -40,6 +40,13 @@ export const AllRetirements: FC<Props> = (props) => {
               key={`${retirement}-${index}`}
             />
           ))}
+        {!klimaRetires.length && (
+          <Text align="center">
+            <Trans id="retirement.totals.all_retirements_list.empty">
+              No retirements found
+            </Trans>
+          </Text>
+        )}
       </div>
     </div>
   );
