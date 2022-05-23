@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-23 17:03+0000\n"
+"POT-Creation-Date: 2022-05-23 21:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +32,7 @@ msgstr "Aviso legal:"
 
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
-msgstr ""
+msgstr "Actualizaciones y liderazgo de pensamiento de los fundadores, colaboradores de la DAO, asesores y comunidad."
 
 #: components/pages/Blog/index.tsx:18
 msgid "blog.head.headline"
@@ -71,7 +71,7 @@ msgstr "Instalar Metamask"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:29
 msgid "buy.beginner_02.description_01"
-msgstr ""
+msgstr "Con la extensión Metamask del navegador instalada y tu nuevo monedero en funcionamiento, dirígete a <0>app.klimadao.finance/#/buy</0> y haz clic en \"conectar\"."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:37
 msgid "buy.beginner_02.description_02"
@@ -87,7 +87,7 @@ msgstr "Una vez conectado, deberías poder seguir los pasos de nuestra aplicaci�
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:57
 msgid "buy.beginner_03.description_2"
-msgstr ""
+msgstr "Se le pedirá que proporcione un correo electrónico, un método de pago y que verifique su identidad. La DAO no recibe ni almacena ningún tipo de información personal. Esta información sólo es utilizada por nuestros proveedores de pago para el cumplimiento de las leyes."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:47
 msgid "buy.beginner_03.title"
@@ -95,7 +95,7 @@ msgstr "Comprar KLIMA"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:72
 msgid "buy.beginner_04.description_01"
-msgstr "Para utilizar KLIMA para stake, intercambiar o compensar las emisiones de carbono, tendrá que ejecutar transacciones en la red Polygon. Cada transacción requiere una tasa de red pagada en MATIC."
+msgstr "Para utilizar KLIMA para stakear, intercambiar o compensar las emisiones de carbono, tendrá que ejecutar transacciones en la red Polygon. Cada transacción requiere una tasa de red pagada en MATIC."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:79
 msgid "buy.beginner_04.description_02"
@@ -107,16 +107,16 @@ msgstr "Comprar MATIC (para nuevos usuarios)"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:97
 msgid "buy.beginner_05.description_01"
-msgstr "Ahora que tienes algo de KLIMA y algo de MATIC en tu cartera, deberías <0>Stake</0> para que sKLIMA empiece a acumular recompensas. También puedes utilizarlo para compensar las emisiones de carbono. Y como poseedor de un token, puedes utilizar tu KLIMA y sKLIMA para participar en la gobernanza del DAO. Así que estate atento a las propuestas en nuestro <1>foro</1>."
+msgstr "Ahora que tienes algo de KLIMA y algo de MATIC en tu cartera, deberías <0>Stakear</0> para que sKLIMA empiece a acumular recompensas. También puedes utilizarlo para compensar las emisiones de carbono. Y como poseedor de un token, puedes utilizar tu KLIMA y sKLIMA para participar en la gobernanza del DAO. Así que estate atento a las propuestas en nuestro <1>foro</1>."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:93
 msgid "buy.beginner_05.title"
-msgstr "¡Apostar, compensar, gobernar!"
+msgstr "¡Stakear, compensar, gobernar!"
 
 #: components/pages/Buy/index.tsx:132
 #: components/pages/Buy/index.tsx:257
 msgid "buy.bonding"
-msgstr ""
+msgstr "Bonos"
 
 #: components/pages/Buy/index.tsx:260
 msgid "buy.bonding.description_01"
@@ -133,7 +133,7 @@ msgstr "Tarjeta de crédito"
 
 #: components/pages/Buy/index.tsx:182
 msgid "buy.credit_card.summary"
-msgstr ""
+msgstr "Ahora puede utilizar su tarjeta de crédito para comprar tokens KLIMA directamente en su cartera. Nuestros socios de pago soportan la mayoría de las monedas principales."
 
 #: components/pages/Buy/index.tsx:108
 msgid "buy.decentralized_exchange"
@@ -179,7 +179,7 @@ msgstr "Intermedio"
 
 #: components/pages/Buy/index.tsx:65
 msgid "buy.subtitle"
-msgstr ""
+msgstr "Puedes conseguir KLIMA de tres maneras: usando una tarjeta de crédito, desde los exchanges descentralizados (DEXs), o mediante la vinculación de activos de carbono."
 
 #: components/pages/Buy/index.tsx:62
 msgid "buy.title"
@@ -191,7 +191,7 @@ msgstr "Asegúrate de que tienes un monedero como Metamask instalado, conectado 
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:19
 msgid "buy.zapper_01.description_02"
-msgstr ""
+msgstr "Puedes cargar tu monedero Polygon directamente usando servicios populares de on-ramp como <0>Transak</0> o nuestro socio <1>Mobilum</1>. Alternativamente, puede cargar su cartera con activos en Ethereum y <2>transferirlos</2> a la red Polygon"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:9
 msgid "buy.zapper_01.title"
@@ -207,11 +207,11 @@ msgstr "Conectarse a Zapper.fi"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:49
 msgid "buy.zapper_03.description_01"
-msgstr ""
+msgstr "Utiliza la interfaz \"Swap\" de Zapper para configurar tu intercambio. Si tienes problemas, consulta los recursos y tutoriales que ofrece el equipo de Zapper."
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:45
 msgid "buy.zapper_03.title"
-msgstr ""
+msgstr "SWAP"
 
 #: components/pages/Resources/Community/index.tsx:97
 msgid "community.become_a_partner"
@@ -311,7 +311,7 @@ msgstr "Logo de OlympusDAO"
 
 #: components/pages/Resources/Community/index.tsx:225
 msgid "community.openearth_logo"
-msgstr ""
+msgstr "Logo de Open Earth"
 
 #: components/pages/Resources/Community/index.tsx:130
 msgid "community.our_partners"
@@ -336,7 +336,7 @@ msgstr "arboleda"
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:100
 msgid "community.we_work_with_traditionnal"
-msgstr ""
+msgstr "Trabajamos con los actores del mercado tradicional de carbono, las plataformas de criptomonedas, las empresas y todos los que están en el medio."
 
 #: components/pages/Resources/Contact/index.tsx:64
 msgid "concat.careers"
@@ -354,7 +354,7 @@ msgstr "Para presentar un informe de error, únete a nuestro servidor de Discord
 #. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
 #: components/pages/Resources/Contact/index.tsx:67
 msgid "contact.careers.we_re_hiring"
-msgstr ""
+msgstr "Somos un equipo totalmente remoto que contrata en todas las zonas horarias. Publicamos regularmente funciones y recompensas en nuestro <0>Servidor de Discord de la Comunidad</0>. Si eres una persona con iniciativa y estás motivado para unirte a una DAO impulsada por un propósito, ¡nos encantaría saber de ti!"
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
@@ -381,7 +381,7 @@ msgstr "Si eres periodista o creador de contenidos, a nuestro equipo de marketin
 #. Use this <0>Media Request Form</0>.
 #: components/pages/Resources/Contact/index.tsx:118
 msgid "contact.media.use_this_media_request_form"
-msgstr ""
+msgstr "Utilice este <0>Formulario de solicitud de medios</0> o envíe un correo electrónico a <1>press@klimadao.finance</1>"
 
 #: components/pages/Resources/Contact/index.tsx:86
 msgid "contact.partnerships"
@@ -390,7 +390,7 @@ msgstr "Asociaciones"
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
 #: components/pages/Resources/Contact/index.tsx:89
 msgid "contact.partnerships.until_we_finish_building"
-msgstr ""
+msgstr "Hasta que terminemos de crear nuestra página de socios, estamos dirigiendo las consultas sobre posibles asociaciones y colaboraciones a <0>este formulario de contacto</0>."
 
 #: components/pages/Resources/Contact/index.tsx:36
 msgid "contact.quest_and_support"
@@ -487,12 +487,12 @@ msgstr "Los servicios disponibles o accesibles a través del servicio se proporc
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:197
 msgid "disclaimer.we_recommend_that_you_visit"
-msgstr ""
+msgstr "Le recomendamos que visite nuestra página Crypto Security 101 para obtener instrucciones de seguridad antes de utilizar el sitio web. Por favor, ten en cuenta: nunca compartas tu clave privada o frase semilla con nadie - ni nuestros miembros ni nuestra app te lo pedirán o solicitarán nunca."
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:152
 msgid "disclaimer.you_bear_full_responsibility"
-msgstr ""
+msgstr "El usuario es el único responsable de proporcionar la información privada y de verificar la identidad y la legitimidad. A pesar de los indicadores y mensajes que sugieren proporcionar la información privada y la verificación, KlimaDAO no hace ninguna afirmación sobre la identidad en la plataforma. No podemos garantizar la seguridad de los datos que se revelan en línea, y para las consecuencias sostenidas debido a la vulnerabilidad o cualquier tipo de fallo, el comportamiento anormal de software."
 
 #: components/pages/errors/Custom404.tsx:39
 msgid "error.404.page.text"
@@ -555,7 +555,7 @@ msgstr "Lucha contra el cambio climático y gana recompensas con KLIMA, una mone
 
 #: components/pages/Home/index.tsx:433
 msgid "home.get_exposure_to_the_growing_carbon_economy"
-msgstr "Consiga exposición a la creciente economía del carbono hoy mismo. Adquiera, participe y sea recompensado. Activismo financiero por el clima."
+msgstr "Consiga exposición a la creciente economía del carbono hoy mismo. Adquiere, stakea y se recompensado. Activismo financiero por el clima."
 
 #: components/pages/Home/index.tsx:430
 msgid "home.get_klima"
@@ -646,7 +646,7 @@ msgstr "TONELADAS DE <0>CARBONO ABSORBIDO</0> POR KLIMADAO"
 #. Long sentence
 #: components/pages/Home/index.tsx:157
 msgid "home.we_ve_kickstarted"
-msgstr ""
+msgstr "Hemos puesto en marcha un <0>mercado descentralizado y abierto para el carbono</0>. Nuestro token incentiva a los inversores, los ciudadanos y las organizaciones a participar y gobernar esta nueva economía."
 
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
 #: components/pages/Home/index.tsx:399
@@ -680,11 +680,11 @@ msgstr "Comprar"
 
 #: components/pages/Retirements/Footer/index.tsx:75
 msgid "retirement.footer.buy_klima.button.offset"
-msgstr ""
+msgstr "Compensación"
 
 #: components/pages/Retirements/Footer/index.tsx:61
 msgid "retirement.footer.buy_klima.text"
-msgstr ""
+msgstr "Utiliza tokens KLIMA respaldados por carbono para gobernar, intercambiar y ganar recompensas de staking, ¡y luego utiliza esas recompensas para compensar tus emisiones!"
 
 #: components/pages/Retirements/Footer/index.tsx:56
 msgid "retirement.footer.buy_klima.title"
@@ -692,11 +692,11 @@ msgstr "Adquirir, stake y ser recompensado."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:62
 msgid "retirement.head.metaDescription"
-msgstr "Offsets transparentes en el blockchain con la ayuda de KlimaDAO."
+msgstr "Compensaciones transparentes en el blockchain con la ayuda de KlimaDAO."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:56
 msgid "retirement.head.metaTitle"
-msgstr ""
+msgstr "{0} retirado {1} Toneladas de carbono"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:52
 msgid "retirement.head.title"
@@ -756,59 +756,59 @@ msgstr "No se proporcionó una marca de tiempo de retiro"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:174
 msgid "retirement.single.view_on_polygon_scan"
-msgstr ""
+msgstr "Ver en Polygonscan"
 
 #: components/pages/Retirements/List/index.tsx:25
 msgid "retirement.totals.all_retirements_list.headline"
-msgstr ""
+msgstr "Todos los retiros"
 
 #: components/pages/Retirements/List/index.tsx:30
 msgid "retirement.totals.all_retirements_list.subline"
-msgstr ""
+msgstr "Lista de retiros individuales"
 
 #: components/pages/Retirements/Breakdown/index.tsx:49
 msgid "retirement.totals.breakdown.no_retirement_found"
-msgstr ""
+msgstr "No se han encontrado retiros"
 
 #: components/pages/Retirements/Breakdown/index.tsx:34
 msgid "retirement.totals.breakdown_headline"
-msgstr ""
+msgstr "Desglose"
 
 #: components/pages/Retirements/Breakdown/index.tsx:37
 msgid "retirement.totals.breakdown_subline"
-msgstr ""
+msgstr "Tokens utilizados para las retiradas"
 
 #: components/pages/Retirements/index.tsx:44
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO - Retirada de carbono para el beneficiario {concattedAddress}"
 
 #: components/pages/Retirements/index.tsx:39
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "KlimaDAO - Retirada de carbono para el beneficiario {concattedAddress}"
 
 #: components/pages/Retirements/index.tsx:62
 msgid "retirement.totals.page_headline"
-msgstr ""
+msgstr "Retiradas de carbono"
 
 #: components/pages/Retirements/index.tsx:67
 msgid "retirement.totals.page_subline"
-msgstr ""
+msgstr "para el beneficiario {concattedAddress}"
 
 #: components/pages/Retirements/index.tsx:91
 msgid "retirement.totals.retired_assets"
-msgstr ""
+msgstr "Activos retirados"
 
 #: components/pages/Retirements/index.tsx:77
 msgid "retirement.totals.retirements"
-msgstr ""
+msgstr "Retiros"
 
 #: components/pages/Retirements/index.tsx:99
 msgid "retirement.totals.total_carbon_tonnes"
-msgstr ""
+msgstr "Total de toneladas de carbono retiradas"
 
 #: components/pages/Retirements/index.tsx:83
 msgid "retirement.totals.total_retirement_transactions"
-msgstr ""
+msgstr "Total de transacciones de retirada"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
@@ -885,4 +885,4 @@ msgstr "Recursos"
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"
-msgstr "Stake"
+msgstr "Stakear"
