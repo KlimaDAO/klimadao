@@ -120,9 +120,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                 text={
                   <a
                     className="address"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={`https://polygonscan.com/address/${beneficiaryAddress}`}
+                    href={`${urls.retirements}/${beneficiaryAddress}`}
                   >
                     {concatAddress(beneficiaryAddress)}
                   </a>

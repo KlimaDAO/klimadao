@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-import { INFURA_ID, IS_PRODUCTION } from "lib/constants";
+import { INFURA_ID } from "lib/constants";
 
 import { getRetirementTotalsAndBalances } from "@klimadao/lib/utils";
 import { queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
@@ -25,10 +25,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   ctx
 ) => {
   try {
-    if (IS_PRODUCTION) {
-      throw new Error("Not on Staging");
-    }
-
     const { params, locale } = ctx;
 
     if (!params || !params?.beneficiary_address) {
