@@ -131,6 +131,8 @@ export const urls = {
   pressEmail: "mailto:press@klimadao.finance",
   loveletter: "https://loveletter.klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
+  lifi_stake:
+    "https://transferto.xyz/embed/stake-klima?fromChain=eth&fromToken=0x0000000000000000000000000000000000000000&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
 };
 
 export const polygonNetworks = {
