@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-23 21:41+0000\n"
+"POT-Creation-Date: 2022-05-24 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +30,7 @@ msgstr "Продвинутый"
 #. Long sentence
 #: components/views/Bond/index.tsx:743
 msgid "bond.all_demand_has_been_filled"
-msgstr ""
+msgstr "РАСПРОДАНО. Весь спрос на эту облигацию был удовлетворен. Спасибо, Климатес!"
 
 #: components/views/Bond/index.tsx:486
 msgid "bond.balance"
