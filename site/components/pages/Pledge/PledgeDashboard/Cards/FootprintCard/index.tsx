@@ -5,15 +5,10 @@ import { Text } from "@klimadao/lib/components";
 import { Footprint, Category } from "../../../types";
 import { BaseCard } from "../BaseCard";
 import { FootprintSkeleton } from "./FootprintSkeleton";
+import { FootprintChart, PlaceholderFootprintChart } from "./FootprintCharts";
 import * as styles from "./styles";
 
-import { Cell, PieChart, Pie, ResponsiveContainer, Tooltip } from "recharts";
-
-type FootprintPieChartProps = {
-  data: CategoryWithPercent[];
-};
-
-const COLORS = [
+const COLOR_PALATTE = [
   "#147b11",
   "#2c8e18",
   "#4aa11f",
@@ -26,55 +21,11 @@ const COLORS = [
   "#fdd175",
 ];
 
-const FootprintPieChart: FC<FootprintPieChartProps> = (props) => {
-  return (
-    <ResponsiveContainer width={175} height={175}>
-      <PieChart>
-        <Tooltip />
-        <Pie
-          data={props.data}
-          nameKey="name"
-          dataKey="percent"
-          stroke="var(--surface-01)"
-          fill="var(--klima-green)"
-          outerRadius={80}
-          innerRadius={65}
-          paddingAngle={2}
-          isAnimationActive={true}
-        >
-          {props.data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={`${entry.fill}`} />
-          ))}
-        </Pie>
-      </PieChart>
-    </ResponsiveContainer>
-  );
-};
-
-const PlaceholderPieChart: FC = () => {
-  return (
-    <ResponsiveContainer width={175} height={175}>
-      <PieChart>
-        <Pie
-          data={[{ name: "Example", percent: 100 }]}
-          nameKey="name"
-          dataKey="percent"
-          stroke="var(--surface-01)"
-          fill="var(--surface-01)"
-          outerRadius={80}
-          innerRadius={65}
-          isAnimationActive={true}
-        />
-      </PieChart>
-    </ResponsiveContainer>
-  );
-};
-
 type Props = {
   footprint: Footprint[];
 };
 
-interface CategoryWithPercent extends Category {
+export interface CategoryWithPercent extends Category {
   percent: number;
   fill: string;
 }
@@ -86,7 +37,7 @@ const calcFootprintPercent = (
   return categories.map((category, index) => ({
     ...category,
     percent: Math.round((category.quantity / total) * 100),
-    fill: COLORS[index],
+    fill: COLOR_PALATTE[index],
   }));
 };
 
@@ -108,9 +59,9 @@ export const FootprintCard: FC<Props> = (props) => {
     >
       <div className={styles.summary}>
         {hasFootprint ? (
-          <FootprintPieChart data={categoriesWithPercent} />
+          <FootprintChart data={categoriesWithPercent} />
         ) : (
-          <PlaceholderPieChart />
+          <PlaceholderFootprintChart />
         )}
         <div className={styles.footprintTotal}>
           <Text t="h1" uppercase>

@@ -85,3 +85,11 @@ export const skeleton_right = css`
     gap: 1rem;
   }
 `;
+
+// Footprint charts
+export const footprintChart_tooltip = css`
+  background-color: var(--surface-01);
+  padding: 0.8rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid var(--font-03);
+`;
