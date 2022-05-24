@@ -65,6 +65,7 @@ export const categoryRow_percentage = css`
   color: var(--klima-green);
 `;
 
+// Footprint skeleton
 export const skeleton = css`
   height: 2.6rem;
   width: 24rem;
@@ -73,6 +74,10 @@ export const skeleton = css`
 `;
 
 export const skeleton_right = css`
-  display: flex;
-  gap: 1rem;
+  display: none;
+
+  ${breakpoints.medium} {
+    display: flex;
+    gap: 1rem;
+  }  
 `;

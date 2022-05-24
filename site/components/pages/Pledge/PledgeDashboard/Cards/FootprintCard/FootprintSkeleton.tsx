@@ -21,21 +21,21 @@ const Skeleton: FC<SkeletonProps> = (props) => (
 export const FootprintSkeleton: FC = () => (
   <div className={styles.categories}>
     <div className={styles.categoryRow}>
-      <Skeleton width={26} />
+      <Skeleton width={24} />
       <div className={styles.skeleton_right}>
         <Skeleton width={5} />
         <Skeleton width={5} />
       </div>
     </div>
     <div className={styles.categoryRow}>
-      <Skeleton width={20} />
+      <Skeleton width={18} />
       <div className={styles.skeleton_right}>
         <Skeleton width={5} />
         <Skeleton width={5} />
       </div>
     </div>
     <div className={styles.categoryRow}>
-      <Skeleton width={23} />
+      <Skeleton width={22} />
       <div className={styles.skeleton_right}>
         <Skeleton width={5} />
         <Skeleton width={5} />
