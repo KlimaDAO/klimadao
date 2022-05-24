@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint",
     "lingui:extract": "node ../scripts/lingui.js extract --clean --overwrite",
-    "lingui:compile": "node ../scripts/lingui.js compile",
+    "lingui:compile": "lingui compile",
     "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
     "postinstall": "npm run lingui:compile"
   },
