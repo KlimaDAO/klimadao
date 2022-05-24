@@ -63,6 +63,25 @@ const FootprintPieChart: FC<FootprintPieChartProps> = (props) => {
   );
 };
 
+const PlaceholderPieChart: FC = () => {
+  return (
+    <ResponsiveContainer width={175} height={175}>
+      <PieChart>
+        <Pie
+          data={[{ name: "Example", percent: 100 }]}
+          nameKey="name"
+          dataKey="percent"
+          stroke="var(--surface-01)"
+          fill="var(--surface-01)"
+          outerRadius={80}
+          innerRadius={65}
+          isAnimationActive={true}
+        />
+      </PieChart>
+    </ResponsiveContainer>
+  );
+};
+
 type Props = {
   footprint: Footprint[];
 };
@@ -100,8 +119,10 @@ export const FootprintCard: FC<Props> = (props) => {
       icon={<LocalGasStationOutlinedIcon fontSize="large" />}
     >
       <div className={styles.summary}>
-        {footprint.total !== 0 && (
+        {footprint.total !== 0 ? (
           <FootprintPieChart data={categoriesWithPercent} />
+        ) : (
+          <PlaceholderPieChart />
         )}
         <div className={styles.footprintTotal}>
           <Text t="h1" uppercase>

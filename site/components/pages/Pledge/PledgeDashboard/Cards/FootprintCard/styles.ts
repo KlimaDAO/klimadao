@@ -31,6 +31,7 @@ export const categoryRow = css`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  overflow: hidden;
 
   ${breakpoints.medium} {
     flex-direction: row;
