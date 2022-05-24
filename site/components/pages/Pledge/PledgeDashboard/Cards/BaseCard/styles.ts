@@ -19,6 +19,7 @@ export const cardHeader = css`
 export const card = css`
   ${common.cardSurface}
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   align-content: start;
 `;

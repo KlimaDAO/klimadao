@@ -1,11 +1,67 @@
 import React, { FC } from "react";
-import { css } from "@emotion/css";
 import LocalGasStationOutlinedIcon from "@mui/icons-material/LocalGasStationOutlined";
 import { Text } from "@klimadao/lib/components";
 
 import { Footprint, Category } from "../../../types";
 import { BaseCard } from "../BaseCard";
+import { FootprintSkeleton } from "./FootprintSkeleton";
 import * as styles from "./styles";
+
+import { Cell, PieChart, Pie, ResponsiveContainer, Tooltip } from "recharts";
+
+type FootprintPieChartProps = {
+  data: CategoryWithPercent[];
+};
+
+const COLORS = [
+  "#147b11",
+  "#2c8e18",
+  "#4aa11f",
+  "#6db524",
+  "#96cb27",
+  "#c0dc30",
+  "#e3e541",
+  "#eedc51",
+  "#f6d562",
+  "#fdd175",
+];
+// const COLORS = [
+//   "#088513",
+//   "#0c9a0e",
+//   "#1caf11",
+//   "#31c415",
+//   "#49db18",
+//   "#68e823",
+//   "#88ed38",
+//   "#a4f34c",
+//   "#bdf860",
+//   "#d1fd75",
+// ];
+
+const FootprintPieChart: FC<FootprintPieChartProps> = (props) => {
+  return (
+    <ResponsiveContainer width={175} height={175}>
+      <PieChart>
+        <Tooltip />
+        <Pie
+          data={props.data}
+          nameKey="name"
+          dataKey="percent"
+          stroke="var(--surface-01)"
+          fill="var(--klima-green)"
+          outerRadius={80}
+          innerRadius={65}
+          paddingAngle={2}
+          isAnimationActive={true}
+        >
+          {props.data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={`${entry.fill}`} />
+          ))}
+        </Pie>
+      </PieChart>
+    </ResponsiveContainer>
+  );
+};
 
 type Props = {
   footprint: Footprint[];
@@ -13,24 +69,29 @@ type Props = {
 
 interface CategoryWithPercent extends Category {
   percent: number;
+  fill: string;
 }
 
 const calcFootprintPercent = (
   total: number,
   categories: Category[]
 ): CategoryWithPercent[] => {
-  return categories.map((category) => ({
+  return categories.map((category, index) => ({
     ...category,
     percent: Math.round((category.quantity / total) * 100),
+    fill: COLORS[index],
   }));
 };
 
 export const FootprintCard: FC<Props> = (props) => {
   const footprint = props.footprint[props.footprint.length - 1];
 
+  const sortedCategories = footprint.categories.sort(
+    (a, b) => b.quantity - a.quantity
+  );
   const categoriesWithPercent = calcFootprintPercent(
     footprint.total,
-    footprint.categories
+    sortedCategories
   );
 
   return (
@@ -38,13 +99,18 @@ export const FootprintCard: FC<Props> = (props) => {
       title="Footprint"
       icon={<LocalGasStationOutlinedIcon fontSize="large" />}
     >
-      <div className={styles.footprintTotal}>
-        <Text t="h1" uppercase>
-          {footprint.total}k
-        </Text>
-        <Text t="h4" color="lightest" uppercase>
-          Tonnes
-        </Text>
+      <div className={styles.summary}>
+        {footprint.total !== 0 && (
+          <FootprintPieChart data={categoriesWithPercent} />
+        )}
+        <div className={styles.footprintTotal}>
+          <Text t="h1" uppercase>
+            {footprint.total}k
+          </Text>
+          <Text t="h3" color="lightest" uppercase>
+            Tonnes
+          </Text>
+        </div>
       </div>
 
       {footprint.total === 0 ? (
@@ -57,13 +123,18 @@ export const FootprintCard: FC<Props> = (props) => {
                 <Text t="h4" className={styles.categoryRow_name} uppercase>
                   {category.name}
                 </Text>
-                <Text t="h4" uppercase>
-                  {category.quantity}k{" "}
-                  <span className={styles.categoryRow_divider}>|</span>{" "}
-                  <span className={styles.categoryRow_percentage}>
-                    {category.percent}%
-                  </span>
-                </Text>
+                <div className={styles.catergoryRow_values}>
+                  <Text t="h4" uppercase>
+                    {category.quantity}k{" "}
+                    <span className={styles.categoryRow_divider}>|</span>{" "}
+                    <span
+                      className={styles.categoryRow_percentage}
+                      style={{ color: `${category.fill}` }}
+                    >
+                      {category.percent}%
+                    </span>
+                  </Text>
+                </div>
               </div>
             </div>
           ))}
@@ -72,44 +143,3 @@ export const FootprintCard: FC<Props> = (props) => {
     </BaseCard>
   );
 };
-
-type SkeletonProps = {
-  width: number;
-};
-
-const Skeleton: FC<SkeletonProps> = (props) => (
-  <div
-    className={css({
-      width: `${props.width}rem`,
-      height: "2.6rem",
-      borderRadius: "0.6rem",
-      backgroundColor: "var(--surface-01)",
-    })}
-  />
-);
-
-const FootprintSkeleton: FC = () => (
-  <div className={styles.categories}>
-    <div className={styles.categoryRow}>
-      <Skeleton width={26} />
-      <div className={styles.skeleton_right}>
-        <Skeleton width={5} />
-        <Skeleton width={5} />
-      </div>
-    </div>
-    <div className={styles.categoryRow}>
-      <Skeleton width={20} />
-      <div className={styles.skeleton_right}>
-        <Skeleton width={5} />
-        <Skeleton width={5} />
-      </div>
-    </div>
-    <div className={styles.categoryRow}>
-      <Skeleton width={23} />
-      <div className={styles.skeleton_right}>
-        <Skeleton width={5} />
-        <Skeleton width={5} />
-      </div>
-    </div>
-  </div>
-);

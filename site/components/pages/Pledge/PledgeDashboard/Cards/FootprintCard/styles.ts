@@ -1,9 +1,24 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const summary = css`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+
+  ${breakpoints.medium} {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+  }
+`;
+
 export const footprintTotal = css`
   display: grid;
-  gap: 1rem;
+  align-items: start;
 `;
 
 export const categories = css`
@@ -14,7 +29,6 @@ export const categories = css`
 
 export const categoryRow = css`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: column;
 
@@ -32,7 +46,15 @@ export const categoryRow = css`
 `;
 
 export const categoryRow_name = css`
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const catergoryRow_values = css`
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
 `;
 
 export const categoryRow_divider = css`
