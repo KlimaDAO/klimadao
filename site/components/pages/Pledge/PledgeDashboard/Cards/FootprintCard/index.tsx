@@ -25,18 +25,6 @@ const COLORS = [
   "#f6d562",
   "#fdd175",
 ];
-// const COLORS = [
-//   "#088513",
-//   "#0c9a0e",
-//   "#1caf11",
-//   "#31c415",
-//   "#49db18",
-//   "#68e823",
-//   "#88ed38",
-//   "#a4f34c",
-//   "#bdf860",
-//   "#d1fd75",
-// ];
 
 const FootprintPieChart: FC<FootprintPieChartProps> = (props) => {
   return (
@@ -104,7 +92,7 @@ const calcFootprintPercent = (
 
 export const FootprintCard: FC<Props> = (props) => {
   const footprint = props.footprint[props.footprint.length - 1];
-
+  const hasFootprint = footprint.total !== 0;
   const sortedCategories = footprint.categories.sort(
     (a, b) => b.quantity - a.quantity
   );
@@ -119,7 +107,7 @@ export const FootprintCard: FC<Props> = (props) => {
       icon={<LocalGasStationOutlinedIcon fontSize="large" />}
     >
       <div className={styles.summary}>
-        {footprint.total !== 0 ? (
+        {hasFootprint ? (
           <FootprintPieChart data={categoriesWithPercent} />
         ) : (
           <PlaceholderPieChart />
@@ -134,9 +122,7 @@ export const FootprintCard: FC<Props> = (props) => {
         </div>
       </div>
 
-      {footprint.total === 0 ? (
-        <FootprintSkeleton />
-      ) : (
+      {hasFootprint ? (
         <div className={styles.categories}>
           {categoriesWithPercent.map((category, index) => (
             <div key={index}>
@@ -160,6 +146,8 @@ export const FootprintCard: FC<Props> = (props) => {
             </div>
           ))}
         </div>
+      ) : (
+        <FootprintSkeleton />
       )}
     </BaseCard>
   );

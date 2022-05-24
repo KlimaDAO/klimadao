@@ -3,16 +3,19 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const summary = css`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
 
+  div > p {
+    word-break: break-word;
+  }
+
   ${breakpoints.medium} {
     justify-content: center;
-    align-items: center;
     flex-direction: row;
-    gap: 2rem;
   }
 `;
 
@@ -80,5 +83,5 @@ export const skeleton_right = css`
   ${breakpoints.medium} {
     display: flex;
     gap: 1rem;
-  }  
+  }
 `;
