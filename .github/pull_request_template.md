@@ -16,6 +16,7 @@ Resolves #<issue-number>
 | Before  | After  |
 |---------|--------|
 |img here |img here|
+
 -->
 
 ## Checklist
