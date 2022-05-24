@@ -54,8 +54,8 @@ export const modalContent = css`
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 3.2rem;
-      height: 3.2rem;
+      width: 4rem;
+      height: 4rem;
       padding: 1rem;
       border-radius: 0.4rem;
       background-color: var(--surface-02);

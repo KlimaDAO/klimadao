@@ -4,9 +4,15 @@ import { formSchema } from "../lib";
 
 export type { putPledgeParams } from "../lib/putPledge";
 
+export type Category = {
+  name: string;
+  quantity: number;
+};
+
 export type Footprint = {
   timestamp: number;
   total: number;
+  categories: Category[];
 };
 
 export type Pledge = {

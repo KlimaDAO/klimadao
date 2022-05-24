@@ -15,18 +15,18 @@ import {
 } from "./Cards";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
-import { PledgeFormValues } from "../types";
+import { Pledge } from "../types";
 import * as styles from "./styles";
 
 type Props = {
   pageAddress: string;
-  pledge: PledgeFormValues;
+  pledge: Pledge;
 };
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const { address, isConnected } = useWeb3();
   const [showModal, setShowModal] = useState(false);
-  const [pledge, setPledge] = useState<PledgeFormValues>(props.pledge);
+  const [pledge, setPledge] = useState<Pledge>(props.pledge);
 
   const canEditPledge = address?.toLowerCase() === props.pageAddress;
 
@@ -41,7 +41,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         ]
       : [];
 
-  const handleFormSubmit = async (data: PledgeFormValues) => {
+  const handleFormSubmit = async (data: Pledge) => {
     setPledge(data);
     setShowModal(false);
   };
@@ -56,7 +56,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         >
           <PledgeForm
             pageAddress={props.pageAddress}
-            pledge={pledge}
+            pledge={props.pledge}
             onFormSubmit={handleFormSubmit}
           />
         </Modal>
@@ -66,7 +66,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             <Text t="h3" className="profileImage" align="center">
               -
             </Text>
-            <Text t="h4">
+            <Text t="h2">
               {pledge.name || concatAddress(pledge.ownerAddress)}
             </Text>
           </div>

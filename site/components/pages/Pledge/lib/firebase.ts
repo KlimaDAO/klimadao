@@ -61,8 +61,8 @@ export const findOrCreatePledge = async (
     });
 
     const pledgeAttributes = putPledgeAttributes({
-      pledge: params.pledge,
-      currentPledge,
+      currentPledgeValues: currentPledge,
+      newPledgeValues: params.pledge,
     });
 
     await pledgeRef.ref.update(pledgeAttributes);

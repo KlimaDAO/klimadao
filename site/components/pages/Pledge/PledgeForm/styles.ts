@@ -1,9 +1,10 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
   display: grid;
   align-content: start;
-  gap: 2rem;
+  gap: 1.6rem;
   margin-top: 2rem;
 `;
 
@@ -16,4 +17,79 @@ export const input = css`
 export const errorMessage = css`
   color: var(--warn);
   text-align: center;
+`;
+
+export const categories_section = css`
+  display: grid;
+  align-content: start;
+  row-gap: 1rem;
+`;
+
+export const categories = css`
+  display: grid;
+  row-gap: 1.6rem;
+
+  ${breakpoints.medium} {
+    row-gap: 0.6rem;
+  }
+`;
+
+export const categoryRow = css`
+  display: grid;
+  grid-template-columns: 1fr 0.1fr;
+  gap: 0.6rem;
+  align-items: start;
+
+  ${breakpoints.medium} {
+    grid-template-columns: 1fr 0.1fr;
+  }
+`;
+
+export const categoryRow_inputs = css`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+
+  ${breakpoints.medium} {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
+export const categoryRow_removeButton = css`
+  padding: 0rem;
+  margin-top: 3.2rem;
+  min-height: 3.6rem;
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 1rem;
+  border: 0.175rem solid var(--surface-03);
+  background-color: var(--surface-02);
+
+  svg {
+    fill: var(--font-02);
+  }
+
+  ${breakpoints.medium} {
+    margin-top: 0rem;
+    height: 4.8rem;
+    width: 4.8rem;
+  }
+`;
+
+export const categories_appendRow = css`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+`;
+
+export const categories_appendButton = css`
+  width: 16rem;
+  margin-top: 0.8rem;
+  border-radius: 1rem;
+  background-color: var(--surface-02);
+  border: 0.175rem solid var(--surface-03);
+
+  ${breakpoints.medium} {
+    width: 22rem;
+  }
 `;
