@@ -8,7 +8,7 @@ import { FootprintSkeleton } from "./FootprintSkeleton";
 import { FootprintChart, PlaceholderFootprintChart } from "./FootprintCharts";
 import * as styles from "./styles";
 
-const COLOR_PALATTE = [
+const COLOR_PALETTE = [
   "#147b11",
   "#2c8e18",
   "#4aa11f",
@@ -37,7 +37,7 @@ const calcFootprintPercent = (
   return categories.map((category, index) => ({
     ...category,
     percent: Math.round((category.quantity / total) * 100),
-    fill: COLOR_PALATTE[index],
+    fill: COLOR_PALETTE[index],
   }));
 };
 
