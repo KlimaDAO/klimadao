@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
+import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { concatAddress } from "@klimadao/lib/utils";
 
 import { Navigation } from "components/Navigation";
@@ -13,6 +14,7 @@ import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
 import { RetirementDate } from "./RetirementDate";
 import { TextGroup } from "./TextGroup";
+import { ProjectDetails } from "./ProjectDetails";
 import { RetirementFooter } from "../Footer";
 import { CopyURLButton } from "../CopyURLButton";
 
@@ -24,8 +26,9 @@ import { retirementTokenInfoMap } from "lib/getTokenInfo";
 type Props = {
   beneficiaryAddress: string;
   retirementTotals: string;
-  retirement?: KlimaRetire;
+  retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
+  projectDetails?: VerraProjectDetails;
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
@@ -40,8 +43,8 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     tokenIcon: tokenData.icon,
     beneficiaryName: retirementIndexInfo.beneficiaryName,
     retirementMessage: retirementIndexInfo.retirementMessage,
-    timestamp: retirement?.timestamp,
-    transactionID: retirement?.transaction?.id,
+    timestamp: retirement.timestamp,
+    transactionID: retirement.transaction?.id,
   };
 
   return (
@@ -162,6 +165,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           <CopyURLButton />
           {retireData.transactionID && (
             <ButtonPrimary
+              className="gray_button"
               variant="gray"
               href={`https://polygonscan.com/tx/${retireData.transactionID}`}
               target="_blank"
@@ -174,6 +178,12 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           )}
         </div>
       </Section>
+      {props.projectDetails && (
+        <ProjectDetails
+          projectDetails={props.projectDetails}
+          offset={props.retirement.offset}
+        />
+      )}
       <RetirementFooter />
       <Footer />
     </>

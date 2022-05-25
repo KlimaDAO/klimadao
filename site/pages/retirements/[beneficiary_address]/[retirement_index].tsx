@@ -1,10 +1,14 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-import { queryKlimaRetireByIndex } from "@klimadao/lib/utils";
+import {
+  queryKlimaRetireByIndex,
+  getVerraProjectByID,
+} from "@klimadao/lib/utils";
 import { getRetirementIndexInfo } from "@klimadao/lib/utils";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
+import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
@@ -20,6 +24,7 @@ interface PageProps {
   retirementTotals: Params["retirement_index"];
   retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
+  projectDetails: VerraProjectDetails | null;
 }
 
 // second param should always be a number
@@ -43,7 +48,11 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
-    const promises = [
+    const promises: [
+      Promise<KlimaRetire | false>,
+      Promise<RetirementIndexInfoResult>,
+      Promise<Record<string, unknown>>
+    ] = [
       queryKlimaRetireByIndex(
         params?.beneficiary_address as string,
         retirementIndex
@@ -60,13 +69,21 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       promises
     );
 
-    if (!retirement) {
+    if (!retirement || !retirementIndexInfo) {
       throw new Error("No retirement found");
     }
 
     if (!translation) {
       throw new Error("No translation found");
     }
+
+    let projectDetails = null;
+    if (!!retirement.offset.projectID) {
+      projectDetails = await getVerraProjectByID(
+        retirement.offset.projectID.replace("VCS-", "")
+      );
+    }
+
     return {
       props: {
         retirement,
@@ -74,6 +91,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         beneficiaryAddress: params.beneficiary_address,
         retirementTotals: params.retirement_index,
         translation,
+        projectDetails,
       },
       revalidate: 240,
     };
