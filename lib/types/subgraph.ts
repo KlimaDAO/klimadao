@@ -13,6 +13,13 @@ export interface KlimaRetire {
   offset: {
     id: string;
     tokenAddress: string;
+    totalRetired: string;
+    projectID: string; // starts with 'VCS-'
+    country: string;
+    region: string;
+    bridge: string;
+    registry: string;
+    standard: string;
   };
 }
 
