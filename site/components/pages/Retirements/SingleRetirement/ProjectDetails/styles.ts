@@ -11,7 +11,7 @@ export const section = css`
 
 export const projectDetails = css`
   background-color: var(--surface-01);
-  border-radius: 0 0 1.2rem 1.2rem;
+  border-radius: 1.2rem;
   grid-column: main;
   display: grid;
   gap: 2.8rem;
@@ -33,7 +33,7 @@ export const list = css`
   gap: 1.2rem;
 
   .link {
-    color: var(--white);
+    color: var(--font-01);
     &:hover {
       text-decoration: underline;
     }
