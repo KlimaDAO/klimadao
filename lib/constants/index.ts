@@ -206,3 +206,10 @@ const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
   polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
 };
+
+const VERRA_REGISTRY = "https://registry.verra.org";
+const VERRA_REGISTRY_API = `${VERRA_REGISTRY}/uiapi`;
+export const verra = {
+  projectSearch: `${VERRA_REGISTRY_API}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
+  projectDetailPage: `${VERRA_REGISTRY}/app/projectDetail/VCS`, // add ID after VCS like /191
+};
