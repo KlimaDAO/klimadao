@@ -9,7 +9,7 @@ import { ProtocolMetric, Transaction, TreasuryAsset } from '../../generated/sche
 import { dayFromTimestamp } from '../../../lib/utils/Dates';
 import { toDecimal } from '../../../lib/utils/Decimals';
 import {
-    getKLIMAUSDRate, getDiscountedPairCO2, getBCTUSDRate, getKLIMAMCO2Rate,
+    getKLIMAUSDRate, getBCTUSDRate, getKLIMAMCO2Rate,
     getKLIMAUBORate, getKLIMANBORate, getNCTUSDRate
 } from './Price';
 import { getHolderAux } from './Aux';
@@ -22,8 +22,9 @@ import {
     MCO2_ERC20_CONTRACT, UBOBOND_V1, UBOBOND_V1_BLOCK, UBO_ERC20_CONTRACT,
     KLIMA_UBO_PAIR_BLOCK, NBOBOND_V1, NBOBOND_V1_BLOCK, NBO_ERC20_CONTRACT,
     KLIMA_NBO_PAIR_BLOCK, SKLIMA_ERC20_V1_CONTRACT, STAKING_CONTRACT_V1, TREASURY_ADDRESS,
-    NCT_USDC_PAIR, NCT_ERC20_CONTRACT, NCT_USDC_PAIR_BLOCK, EPOCHS_PER_DAY
+    NCT_ERC20_CONTRACT, NCT_USDC_PAIR_BLOCK
 } from '../../../lib/utils/Constants';
+import { EpochUtil } from './Epoch';
 
 export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
     let dayTimestamp = dayFromTimestamp(timestamp);
@@ -397,7 +398,7 @@ function getAKR_Rebase(sKLIMA: BigDecimal, distributedKLIMA: BigDecimal): BigDec
     let nextEpochRebase = distributedKLIMA.div(sKLIMA).times(BigDecimal.fromString("100"));
 
     let nextEpochRebase_number = Number.parseFloat(nextEpochRebase.toString())
-    let currentAKR = Math.pow(((nextEpochRebase_number / 100) + 1), (365 * EPOCHS_PER_DAY) - 1) * 100
+    let currentAKR = Math.pow(((nextEpochRebase_number / 100) + 1), (365 * EpochUtil.getDynamicRebaseRate()) - 1) * 100
 
     let currentAKRdecimal = BigDecimal.fromString(currentAKR.toString())
 
@@ -427,7 +428,7 @@ function getRunway(sKLIMA: BigDecimal, rfv: BigDecimal, rebase: BigDecimal): Big
         //let runway2dot5k_num = (Math.log(treasury_runway) / Math.log(1 + 0.002685997)) / EPOCHS_PER_DAY;
         //let runway5k_num = (Math.log(treasury_runway) / Math.log(1 + 0.003265339)) / EPOCHS_PER_DAY;
         let nextEpochRebase_number = Number.parseFloat(rebase.toString()) / 100
-        let runwayCurrent_num = (Math.log(treasury_runway) / Math.log(1 + nextEpochRebase_number)) / EPOCHS_PER_DAY;
+        let runwayCurrent_num = (Math.log(treasury_runway) / Math.log(1 + nextEpochRebase_number)) / EpochUtil.getDynamicRebaseRate();
 
         //runway100 = BigDecimal.fromString(runway100_num.toString())
         //runway250 = BigDecimal.fromString(runway250_num.toString())

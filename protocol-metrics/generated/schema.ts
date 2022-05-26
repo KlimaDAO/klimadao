@@ -442,3 +442,106 @@ export class Transaction extends Entity {
     }
   }
 }
+
+export class Epoch extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("epochNumber", Value.fromBigInt(BigInt.zero()));
+    this.set("blockFrom", Value.fromBigInt(BigInt.zero()));
+    this.set("blockFromTimestamp", Value.fromBigInt(BigInt.zero()));
+    this.set("blockTo", Value.fromBigInt(BigInt.zero()));
+    this.set("blockToTimestamp", Value.fromBigInt(BigInt.zero()));
+    this.set("duration", Value.fromBigInt(BigInt.zero()));
+    this.set("prevAvgRebaseRate", Value.fromBigDecimal(BigDecimal.zero()));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save Epoch entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type Epoch must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("Epoch", id.toString(), this);
+    }
+  }
+
+  static load(id: string): Epoch | null {
+    return changetype<Epoch | null>(store.get("Epoch", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get epochNumber(): BigInt {
+    let value = this.get("epochNumber");
+    return value!.toBigInt();
+  }
+
+  set epochNumber(value: BigInt) {
+    this.set("epochNumber", Value.fromBigInt(value));
+  }
+
+  get blockFrom(): BigInt {
+    let value = this.get("blockFrom");
+    return value!.toBigInt();
+  }
+
+  set blockFrom(value: BigInt) {
+    this.set("blockFrom", Value.fromBigInt(value));
+  }
+
+  get blockFromTimestamp(): BigInt {
+    let value = this.get("blockFromTimestamp");
+    return value!.toBigInt();
+  }
+
+  set blockFromTimestamp(value: BigInt) {
+    this.set("blockFromTimestamp", Value.fromBigInt(value));
+  }
+
+  get blockTo(): BigInt {
+    let value = this.get("blockTo");
+    return value!.toBigInt();
+  }
+
+  set blockTo(value: BigInt) {
+    this.set("blockTo", Value.fromBigInt(value));
+  }
+
+  get blockToTimestamp(): BigInt {
+    let value = this.get("blockToTimestamp");
+    return value!.toBigInt();
+  }
+
+  set blockToTimestamp(value: BigInt) {
+    this.set("blockToTimestamp", Value.fromBigInt(value));
+  }
+
+  get duration(): BigInt {
+    let value = this.get("duration");
+    return value!.toBigInt();
+  }
+
+  set duration(value: BigInt) {
+    this.set("duration", Value.fromBigInt(value));
+  }
+
+  get prevAvgRebaseRate(): BigDecimal {
+    let value = this.get("prevAvgRebaseRate");
+    return value!.toBigDecimal();
+  }
+
+  set prevAvgRebaseRate(value: BigDecimal) {
+    this.set("prevAvgRebaseRate", Value.fromBigDecimal(value));
+  }
+}

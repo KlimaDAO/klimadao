@@ -71,6 +71,3 @@ export const BONDING_CALCULATOR = '0x0b8d6D6611Ed7cCe01BbcC57826548C6107B0478';
 export const C3_PLATFORM = "C3"
 export const C3_WSKLIMA_CONTRACT = "0xe02efadA566Af74c92b6659d03BAaCb4c06Cc856"
 export const C3_WSKLIMA_TOKEN = "WSKLIMA"
-
-// Assumed epochs per day (until we have dynamic)
-export const EPOCHS_PER_DAY = 3.4256
