@@ -10,7 +10,6 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Text } from "@klimadao/lib/components";
 
 import { Post } from "lib/queries";
-import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 
 import { PageHead } from "components/PageHead";
