@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { providers } from "ethers";
 import { Trans } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
-import Check from "@mui/icons-material/Check";
-import ContentCopy from "@mui/icons-material/ContentCopy";
 
 import { Anchor, ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import { concatAddress } from "@klimadao/lib/utils";
 
-import { BalancesCard } from "components/BalancesCard";
-import { ImageCard } from "components/ImageCard";
-import * as styles from "./styles";
+import { BalancesCard }    from "components/BalancesCard";
+import { ImageCard }       from "components/ImageCard";
+import * as styles         from "./styles";
+import Image               from 'next/image'
+import TransakLogoWordmark from '../../../public/transak_logo_wordmark.png';
+import MobilumLogoWordmark from '../../../public/mobilum_logo_wordmark.png';
+import { useAppDispatch }  from '../../../state'
+import { setAppState }     from '../../../state/app'
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -20,20 +22,12 @@ interface Props {
 }
 
 export const Buy = (props: Props) => {
-  const [isAddressCopied, setIsAddressCopied] = useState(false);
+  const dispatch = useAppDispatch();
 
-  const handleCopyAddressClick = (): void => {
-    if (props.address) {
-      setIsAddressCopied(true);
-      navigator.clipboard.writeText(props.address);
-      if (document.activeElement) {
-        (document.activeElement as HTMLElement).blur();
-      }
-      setTimeout(() => {
-        setIsAddressCopied(false);
-      }, 3000);
-    }
-  };
+  const handleBuyClick = (serviceName: string) => {
+    dispatch(setAppState({buyModalService: serviceName}))
+  }
+
 
   return (
     <>
@@ -66,39 +60,6 @@ export const Buy = (props: Props) => {
             </Trans>
           </Text>
         </div>
-        {props.isConnected && props.address && (
-          <div className={styles.buyCard_iframeStack}>
-            <ButtonPrimary
-              label={
-                !isAddressCopied ? (
-                  <>
-                    <ContentCopy />
-                    <Trans id="shared.copy_wallet_address">
-                      Copy Address {concatAddress(props.address)}
-                    </Trans>
-                  </>
-                ) : (
-                  <>
-                    <Check />
-                    <Trans id="shared.wallet_address_copied">Copied!</Trans>
-                  </>
-                )
-              }
-              onClick={handleCopyAddressClick}
-              disabled={false}
-              className={styles.copyButton}
-            />
-            <div className={styles.buyCard_iframeContainer}>
-              <iframe
-                className={styles.buyCard_iframe}
-                src={"https://klima.mobilum.com/"}
-              ></iframe>
-              <div className="spinner_container">
-                <Spinner />
-              </div>
-            </div>
-          </div>
-        )}
         {!props.isConnected && (
           <div className={styles.buyCard_ui}>
             <Text t="h4" className={styles.buyCard_header_title}>
@@ -117,6 +78,81 @@ export const Buy = (props: Props) => {
             />
           </div>
         )}
+        {
+          props.isConnected && props.address && (
+            <div className={styles.buyCard_service_wrapper}>
+              <div className={styles.buyCard_service}>
+                <div className={'header'}>
+                  <div className={'logo'}>
+                    <Image
+                      src={TransakLogoWordmark}
+                      layout={'intrinsic'}
+                      objectPosition={'center'}
+                      alt={'Transak logo and wordmark'}
+                    />
+                  </div>
+
+                </div>
+                <ul>
+                  <li>
+                    <span className={'key'}>Regions:</span>
+                    <span>&nbsp;</span>
+                    <span className={'value'}>All</span>
+                  </li>
+                  <li>
+                    <span className={'key'}>Fee:</span>
+                    <span>&nbsp;</span>
+                    <span className={'value'}>3%</span>
+                  </li>
+                  <li>
+                    <span className={'key'}>Minimum buy:</span>
+                    <span>&nbsp;</span>
+                    <span className={'value'}>$1</span>
+                  </li>
+                </ul>
+                <button
+                  onClick={() => handleBuyClick('transak')}
+                >
+                  Buy KLIMA
+                </button>
+              </div>
+              <div className={styles.buyCard_service}>
+                <div className={'header'}>
+                  <div className={'logo'}>
+                    <Image
+                      src={MobilumLogoWordmark}
+                      layout={'intrinsic'}
+                      alt={'Mobilum logo and wordmark'}
+                    />
+                  </div>
+
+                </div>
+                <ul>
+                  <li>
+                    <span className={'key'}>Regions:</span>
+                    <span>&nbsp;</span>
+                    <span className={'value'}>All, excluding USA</span>
+                  </li>
+                  <li>
+                    <span className={'key'}>Fee:</span>
+                    <span>&nbsp;</span>
+                    <span className={'value'}>6%</span>
+                  </li>
+                  <li>
+                    <span className={'key'}>Minimum buy:</span>
+                    <span>&nbsp;</span>
+                    <span className={'value'}>$50</span>
+                  </li>
+                </ul>
+                <button
+                  onClick={() => handleBuyClick('mobilum')}
+                >
+                  Buy KLIMA
+                </button>
+              </div>
+            </div>
+          )
+        }
       </div>
       <BalancesCard
         assets={["klima", "sklima"]}

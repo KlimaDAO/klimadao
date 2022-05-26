@@ -26,4 +26,6 @@ export default {
   desktop: "@media (min-width: 62em)",
   /** 75em, 1200px */
   desktopLarge: "@media (min-width: 75em)",
+  /** 90em, 1440px */
+  desktopExtraLarge: "@media (min-width: 90em)",
 };

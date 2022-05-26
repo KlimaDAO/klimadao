@@ -34,35 +34,7 @@ export const buyCard = css`
   }
 `;
 
-export const buyCard_iframeStack = css`
-  display: grid;
-  gap: 1.6rem;
-`;
 
-export const buyCard_iframeContainer = css`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  .spinner_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    padding: 2.4rem;
-  }
-`;
-
-export const buyCard_iframe = css`
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 1.2rem;
-  border: none;
-  width: 100%;
-  height: 73rem;
-  z-index: 2;
-  overflow-y: auto;
-`;
 
 export const buyCard_header = css`
   display: grid;
@@ -120,4 +92,72 @@ export const address = css`
   font-family: monospace;
   text-align: center;
   color: var(--gray);
+`;
+
+
+export const buyCard_service_wrapper = css`
+  display: grid;
+  gap: 2.4rem;
+  grid-template-columns: 28.8rem;
+  grid-template-rows: 26.4rem 26.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.4rem;
+  
+  ${breakpoints.desktopExtraLarge} {
+    grid-template-columns: 28.8rem 28.8rem;
+    grid-template-rows: 26.4rem;
+  }
+`;
+
+export const buyCard_service = css`
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.2rem;
+  background-color: #2B2B2B;
+  color: var(--font-03);
+  padding: 2.4rem;
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+    height: 3.4rem;
+    
+    .logo {
+      position: relative;
+      width: 18.8rem;
+    }
+  
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    
+    li {
+      margin-bottom: .4rem;
+    }
+  }
+  
+  span.key {
+    color: var(--font-03);
+    
+  }
+  
+  span.value {
+  }
+  
+  button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+    background-color: #2575FC;
+    padding: 1rem 2rem;
+    border-radius: .4rem;
+  }
 `;

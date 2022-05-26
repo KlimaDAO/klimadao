@@ -14,7 +14,7 @@ export interface AppNotificationStatus {
   message: string | undefined;
 }
 
-interface AppState {
+export interface AppState {
   currentIndex: string | undefined;
   currentBlock: number | undefined;
   fiveDayRate: number | undefined;
@@ -25,6 +25,7 @@ interface AppState {
   blockRate: number;
   locale: string | undefined;
   notificationStatus: AppNotificationStatus | null;
+  buyModalService: string | null | undefined;
 }
 
 const initialState: AppState = {
@@ -38,6 +39,7 @@ const initialState: AppState = {
   blockRate: FALLBACK_BLOCK_RATE,
   locale: undefined,
   notificationStatus: null,
+  buyModalService: null,
 };
 
 export const appSlice = createSlice({
