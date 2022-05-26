@@ -26,6 +26,7 @@ const renderActiveIndex = (props: SectorProps) => (
       outerRadius={props.outerRadius && props.outerRadius + 10}
       startAngle={props.startAngle}
       endAngle={props.endAngle}
+      stroke={props.stroke}
       fill={props.fill}
     />
   </g>
@@ -51,11 +52,11 @@ export const FootprintChart: FC<FootprintChartProps> = (props) => {
         data={props.data}
         nameKey="name"
         dataKey="percent"
-        stroke="var(--surface-01)"
+        stroke="var(--surface-02)"
         fill="var(--klima-green)"
         outerRadius={90}
         innerRadius={72}
-        paddingAngle={2}
+        paddingAngle={1.5}
         isAnimationActive={true}
         activeIndex={activeIndex}
         activeShape={renderActiveIndex}

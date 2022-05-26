@@ -36,7 +36,7 @@ const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
   );
   setValue("footprint", totalFootprint);
 
-  return <Text t="h3">Total Footprint: {totalFootprint}K</Text>;
+  return <Text t="h4">Total Footprint: {totalFootprint}K</Text>;
 };
 
 type Props = {
