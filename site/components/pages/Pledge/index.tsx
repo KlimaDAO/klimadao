@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { NextPage } from "next";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 
+import { PageHead } from "components/PageHead";
 import { PledgeLayout } from "./PledgeLayout";
 import * as styles from "./styles";
 
@@ -34,6 +35,11 @@ export const Pledge: NextPage = () => {
 
   return (
     <PledgeLayout>
+      <PageHead
+        title="Klima Infinity | Pledge"
+        mediaTitle="Klima Infinity - Search or start your pledge to the world today" // TODO - copy check
+        metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency." // Need better meta description
+      />
       <div className={styles.container}>
         <form className={styles.inputContainer} onSubmit={handleFormSubmit}>
           <input

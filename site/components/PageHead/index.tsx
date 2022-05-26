@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
+import { urls } from "@klimadao/lib/constants";
+
+import { IS_PRODUCTION } from "lib/constants";
 
 export interface PageHeadProps {
-  production: boolean;
   /** <title> tag */
   title: string;
   /** og:title */
@@ -17,7 +19,7 @@ export interface PageHeadProps {
 }
 
 export const PageHead = (props: PageHeadProps) => {
-  const noRobots = props.doNotIndex || !props.production;
+  const noRobots = props.doNotIndex || !IS_PRODUCTION;
   const router = useRouter();
   const relativePath = router.asPath.split(/[#,?]/)[0];
   const canonicalUrl = `https://www.klimadao.finance${relativePath}`;
@@ -46,19 +48,20 @@ export const PageHead = (props: PageHeadProps) => {
       <meta name="twitter:title" content={props.mediaTitle} />
       <meta name="twitter:description" content={props.metaDescription} />
 
-      {props.mediaImageSrc && (
-        <meta property="og:image" content={props.mediaImageSrc} />
-      )}
-
-      {props.mediaImageSrc && (
-        <meta name="twitter:image" content={props.mediaImageSrc} />
-      )}
-
-      {props.isArticle && (
+      {props.mediaImageSrc ? (
         <>
-          <meta property="og:type" content="article" />
+          <meta property="og:image" content={props.mediaImageSrc} />
+          <meta name="twitter:image" content={props.mediaImageSrc} />
+        </>
+      ) : (
+        <>
+          <meta property="og:image" content={urls.mediaImage} />
+          <meta name="twitter:image" content={urls.mediaImage} />
         </>
       )}
+
+      {props.isArticle && <meta property="og:type" content="article" />}
+
       <meta property="og:url" content={canonicalUrl} />
       <link rel="canonical" href={canonicalUrl} />
 

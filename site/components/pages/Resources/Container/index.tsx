@@ -1,9 +1,9 @@
+import { FC, PropsWithChildren, ReactNode } from "react";
 import { PageHead } from "components/PageHead";
 import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
+
 import { ResourcesHeader } from "../ResourcesHeader";
-import { IS_PRODUCTION } from "lib/constants";
-import { FC, PropsWithChildren, ReactNode } from "react";
 
 type PageName = "blog" | "community" | "contact";
 
@@ -22,7 +22,6 @@ export const Container: FC<Props> = (props) => {
   return (
     <>
       <PageHead
-        production={IS_PRODUCTION}
         title={props.title}
         mediaTitle={props.mediaTitle}
         metaDescription={props.metaDescription}

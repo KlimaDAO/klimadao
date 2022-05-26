@@ -47,7 +47,6 @@ export const PostPage = (props: PostProps) => {
   return (
     <>
       <PageHead
-        production={IS_PRODUCTION}
         title={props.post.title}
         mediaTitle={props.post.title}
         metaDescription={props.post.summary}

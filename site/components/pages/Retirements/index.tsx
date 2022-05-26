@@ -17,10 +17,8 @@ import { AllRetirements } from "./List";
 import { RetirementFooter } from "./Footer";
 import { CopyURLButton } from "./CopyURLButton";
 
-import { IS_PRODUCTION } from "lib/constants";
 import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
-import { urls } from "@klimadao/lib/constants";
 
 type Props = {
   totalsAndBalances: RetirementsTotalsAndBalances;
@@ -35,7 +33,6 @@ export const RetirementPage: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        production={IS_PRODUCTION}
         title={t({
           id: "retirement.totals.head.title",
           message: `KlimaDAO - Carbon Retirements for beneficiary ${concattedAddress}`,
@@ -51,7 +48,6 @@ export const RetirementPage: NextPage<Props> = (props) => {
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
-        mediaImageSrc={urls.mediaImage}
       />
       <Navigation activePage="Home" />
 
