@@ -106,6 +106,7 @@ export const urls = {
   community: "https://www.klimadao.finance/community",
   buy: "https://www.klimadao.finance/buy",
   buy_dapp: "https://app.klimadao.finance/#/buy",
+  carbonDashboard: "https://carbon.klimadao.finance",
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",

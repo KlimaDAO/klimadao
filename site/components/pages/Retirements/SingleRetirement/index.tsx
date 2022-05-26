@@ -178,12 +178,10 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           )}
         </div>
       </Section>
-      {props.projectDetails && (
-        <ProjectDetails
-          projectDetails={props.projectDetails}
-          offset={props.retirement.offset}
-        />
-      )}
+      <ProjectDetails
+        projectDetails={props.projectDetails}
+        offset={props.retirement.offset}
+      />
       <RetirementFooter />
       <Footer />
     </>

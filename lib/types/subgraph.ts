@@ -13,13 +13,13 @@ export interface KlimaRetire {
   offset: {
     id: string;
     tokenAddress: string;
-    totalRetired: string;
-    projectID: string; // starts with 'VCS-'
+    totalRetired: string; // "0" if bridge is "Moss"
+    projectID: string; // starts with 'VCS-' if registry is "Verra"
     country: string;
     region: string;
-    bridge: string;
-    registry: string;
-    standard: string;
+    bridge: string; // "Toucan", "Moss" or "C3"
+    registry: string; // "Verra" or "VCS"
+    standard: string; // "VCS" or "" for Moss
   };
 }
 

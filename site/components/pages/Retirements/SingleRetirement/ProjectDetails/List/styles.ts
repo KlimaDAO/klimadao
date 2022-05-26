@@ -1,34 +1,6 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const section = css`
-  padding-bottom: 4rem;
-  ${breakpoints.medium} {
-    padding-top: 9rem;
-    padding-bottom: 4rem;
-  }
-`;
-
-export const projectDetails = css`
-  background-color: var(--surface-01);
-  border-radius: 1.2rem;
-  grid-column: main;
-  display: grid;
-  gap: 2.8rem;
-  padding: 2.8rem 1.5rem;
-
-  ${breakpoints.medium} {
-    gap: 5.2rem;
-    padding: 5.2rem;
-  }
-`;
-
-export const title = css`
-  display: grid;
-  gap: 1.6rem;
-`;
-
-export const list = css`
+export const listItem = css`
   display: grid;
   gap: 1.2rem;
 
