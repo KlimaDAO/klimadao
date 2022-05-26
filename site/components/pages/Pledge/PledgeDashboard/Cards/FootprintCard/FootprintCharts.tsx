@@ -13,7 +13,7 @@ import { Text } from "@klimadao/lib/components";
 import { CategoryWithPercent } from ".";
 import * as styles from "./styles";
 
-type FootprintChartProps = {
+export type FootprintChartProps = {
   data: CategoryWithPercent[];
 };
 
@@ -93,10 +93,10 @@ const CustomTooltip: FC<TooltipProps<number, string>> = ({
   if (active && payload && payload.length) {
     return (
       <div className={styles.footprintChart_tooltip}>
-        <Text t="body3" uppercase>
+        <Text t="caption" uppercase>
           {payload[0].name}
         </Text>
-        <Text t="body3" color="lightest">
+        <Text t="caption" color="lightest">
           {payload[0].value}K carbon tonnes
         </Text>
       </div>

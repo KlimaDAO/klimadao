@@ -1,12 +1,23 @@
 import React, { FC } from "react";
+import dynamic from "next/dynamic";
 import LocalGasStationOutlinedIcon from "@mui/icons-material/LocalGasStationOutlined";
 import { Text } from "@klimadao/lib/components";
 
 import { Footprint, Category } from "../../../types";
 import { BaseCard } from "../BaseCard";
 import { FootprintSkeleton } from "./FootprintSkeleton";
-import { FootprintChart, PlaceholderFootprintChart } from "./FootprintCharts";
+import { FootprintChartProps } from "./FootprintCharts";
 import * as styles from "./styles";
+
+const FootprintChart: React.ComponentType<FootprintChartProps> = dynamic(
+  () => import("./FootprintCharts").then((mod) => mod.FootprintChart),
+  { ssr: false }
+);
+const PlaceholderFootprintChart: React.ComponentType = dynamic(
+  () =>
+    import("./FootprintCharts").then((mod) => mod.PlaceholderFootprintChart),
+  { ssr: false }
+);
 
 const COLOR_PALETTE = [
   "#147b11",
