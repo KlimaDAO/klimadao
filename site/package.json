@@ -37,6 +37,7 @@
     "@lingui/cli": "^3.13.0",
     "@lingui/loader": "^3.13.0",
     "@lingui/macro": "^3.13.0",
+    "@types/lodash": "^4.14.182",
     "@types/node": "16.11.12",
     "@types/react": "^17.0.37",
     "@typescript-eslint/eslint-plugin": "^5.7.0",

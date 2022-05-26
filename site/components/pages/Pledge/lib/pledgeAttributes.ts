@@ -1,3 +1,5 @@
+import isEqual from "lodash/isEqual";
+import sortBy from "lodash/sortBy";
 import { Footprint, Pledge, Category, PledgeFormValues } from "../types";
 import { generateNonce } from ".";
 
@@ -6,9 +8,18 @@ const buildFootprint = (
   categories: Category[],
   total: number
 ): Footprint[] => {
-  // const current = currentFootprint[currentFootprint.length - 1];
-  if (currentFootprint.at(-1)?.total === total) return currentFootprint;
-  // compare categories
+  const current = currentFootprint[currentFootprint.length - 1];
+
+  // ensure category objects in the array are in order before comparing for equality
+  const currentCategories = sortBy(
+    current.categories,
+    (category) => category.name
+  );
+  const newCategories = sortBy(categories, (category) => category.name);
+
+  if (isEqual(currentCategories, newCategories) && current.total === total) {
+    return currentFootprint;
+  }
 
   return [
     ...currentFootprint,
