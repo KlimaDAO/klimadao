@@ -728,19 +728,23 @@ msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:36
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+msgid "retirement.single.project_details.moss_headline"
+msgstr "Click here to learn more about the projects that back the MCO2 pools"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
 msgstr "The following projects were retired. Click a project title to learn more about it."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:43
 msgid "retirement.single.project_details.tonnes"
 msgstr "Tonnes"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:53
 msgid "retirement.single.project_details.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
