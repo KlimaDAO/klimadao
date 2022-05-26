@@ -9,14 +9,11 @@ import { FootprintSkeleton } from "./FootprintSkeleton";
 import { FootprintChartProps } from "./FootprintCharts";
 import * as styles from "./styles";
 
-const FootprintChart: React.ComponentType<FootprintChartProps> = dynamic(
-  () => import("./FootprintCharts").then((mod) => mod.FootprintChart),
-  { ssr: false }
+const FootprintChart: React.ComponentType<FootprintChartProps> = dynamic(() =>
+  import("./FootprintCharts").then((mod) => mod.FootprintChart)
 );
-const PlaceholderFootprintChart: React.ComponentType = dynamic(
-  () =>
-    import("./FootprintCharts").then((mod) => mod.PlaceholderFootprintChart),
-  { ssr: false }
+const PlaceholderFootprintChart: React.ComponentType = dynamic(() =>
+  import("./FootprintCharts").then((mod) => mod.PlaceholderFootprintChart)
 );
 
 const COLOR_PALETTE = [
@@ -31,18 +28,6 @@ const COLOR_PALETTE = [
   "#f6d562",
   "#fdd175",
 ];
-// const COLOR_PALETTE = [
-//   "#fdd175",
-//   "#f6d562",
-//   "#eedc51",
-//   "#e3e541",
-//   "#c0dc30",
-//   "#96cb27",
-//   "#6db524",
-//   "#4aa11f",
-//   "#2c8e18",
-//   "#147b11",
-// ];
 
 type Props = {
   footprint: Footprint[];
