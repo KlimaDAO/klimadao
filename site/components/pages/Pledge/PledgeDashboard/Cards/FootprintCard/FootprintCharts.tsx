@@ -93,10 +93,10 @@ const CustomTooltip: FC<TooltipProps<number, string>> = ({
   if (active && payload && payload.length) {
     return (
       <div className={styles.footprintChart_tooltip}>
-        <Text t="caption" uppercase>
+        <Text t="body3" uppercase>
           {payload[0].name}
         </Text>
-        <Text t="caption" color="lightest">
+        <Text t="body3" color="lightest">
           {payload[0].value}K carbon tonnes
         </Text>
       </div>

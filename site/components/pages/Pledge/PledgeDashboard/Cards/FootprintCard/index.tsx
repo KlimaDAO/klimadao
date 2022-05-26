@@ -20,6 +20,18 @@ const COLOR_PALETTE = [
   "#f6d562",
   "#fdd175",
 ];
+// const COLOR_PALETTE = [
+//   "#fdd175",
+//   "#f6d562",
+//   "#eedc51",
+//   "#e3e541",
+//   "#c0dc30",
+//   "#96cb27",
+//   "#6db524",
+//   "#4aa11f",
+//   "#2c8e18",
+//   "#147b11",
+// ];
 
 type Props = {
   footprint: Footprint[];
@@ -45,7 +57,7 @@ export const FootprintCard: FC<Props> = (props) => {
   const footprint = props.footprint[props.footprint.length - 1];
   const hasFootprint = footprint.total !== 0;
   const sortedCategories = footprint.categories.sort(
-    (a, b) => b.quantity - a.quantity
+    (a, b) => a.quantity - b.quantity
   );
   const categoriesWithPercent = calcFootprintPercent(
     footprint.total,
