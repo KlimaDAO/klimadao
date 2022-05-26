@@ -1,21 +1,17 @@
 import React from "react";
-
 import Image from "next/image";
 import Link from "next/link";
-
 import { Trans } from "@lingui/macro";
-
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-import { Text } from "@klimadao/lib/components";
-
-import { Post } from "lib/queries";
 import { urls } from "@klimadao/lib/constants";
+import { Text } from "@klimadao/lib/components";
 
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import BlockContentRenderer from "components/BlockContentRenderer";
+import { Post } from "lib/queries";
 
 import defaultImage from "public/cover-default.png";
 
