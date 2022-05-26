@@ -4,7 +4,7 @@ import * as typography from "@klimadao/lib/theme/typography";
 export const inputContainer = css`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.8rem;
   align-items: center;
   justify-content: center;
   width: 70rem;
@@ -20,7 +20,7 @@ export const container = css`
 
 export const errorMessage = css`
   color: var(--warn);
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
 `;
 
 export const input = css`

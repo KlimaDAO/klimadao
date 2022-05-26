@@ -37,7 +37,7 @@ export const Pledge: NextPage = () => {
     <PledgeLayout>
       <PageHead
         title="Klima Infinity | Pledge"
-        mediaTitle="Klima Infinity - Search or start your pledge to the world today" // TODO - copy check
+        mediaTitle="Klima Infinity - Search for or start a pledge to the world today" // TODO - copy check
         metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency." // Need better meta description
       />
       <div className={styles.container}>
