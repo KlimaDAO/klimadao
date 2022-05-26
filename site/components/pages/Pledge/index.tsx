@@ -46,6 +46,7 @@ export const Pledge: NextPage = () => {
             className={styles.input}
             placeholder="Search for a wallet address"
             value={address}
+            data-error={error}
             onChange={handleAddressInputChange}
           />
 

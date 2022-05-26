@@ -36,7 +36,7 @@ export const Custom404 = () => {
           <Text align="center">
             <Trans id="error.404.page.text">
               Sorry, looks like we sent you the wrong way. <br />
-              Let us guide you back to the Start Page:
+              Let us guide you back to the home page:
             </Trans>
           </Text>
           <Text>
