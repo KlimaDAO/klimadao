@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-25 15:43+0000\n"
+"POT-Creation-Date: 2022-05-26 15:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,11 +44,11 @@ msgstr "Saldo disponible para bonding"
 #: components/views/Bond/index.tsx:351
 #: components/views/Bond/index.tsx:433
 msgid "bond.bond"
-msgstr ""
+msgstr "Vincular bono"
 
 #: components/views/Bond/index.tsx:509
 msgid "bond.bond_price"
-msgstr ""
+msgstr "Precio del bono"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:513
@@ -58,7 +58,7 @@ msgstr "Cantidad total para bondear 1 dólar completo."
 #. Bond {0}
 #: components/views/Bond/index.tsx:413
 msgid "bond.bond_token"
-msgstr ""
+msgstr "Bono {0}"
 
 #: components/views/Bond/index.tsx:703
 msgid "bond.date_of_full_vesting"
@@ -79,7 +79,7 @@ msgstr "Relación actual entre la oferta y los bonos en circulación del Protoco
 
 #: components/views/Bond/index.tsx:541
 msgid "bond.discount"
-msgstr ""
+msgstr "Descuento de bono"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:545
@@ -213,7 +213,7 @@ msgstr "Toucan Base Carbon Tonne"
 
 #: components/views/ChooseBond/index.tsx:163
 msgid "choose_bond.bond_carbon"
-msgstr ""
+msgstr "Vincular bono de carbono"
 
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:166
@@ -317,7 +317,7 @@ msgstr "Direcciones oficiales del contrato"
 
 #: components/NavMenu/index.tsx:194
 msgid "menu.bond_carbon"
-msgstr ""
+msgstr "Vincular bono de carbono"
 
 #: components/NavMenu/index.tsx:178
 msgid "menu.buy_klima"
@@ -349,7 +349,7 @@ msgstr "La dirección de su monedero"
 
 #: components/NavMenu/index.tsx:202
 msgid "menu.wrap_klima"
-msgstr "Wrap sKLIMA"
+msgstr "Desempaquetar sKLIMA"
 
 #: components/NotificationModal/index.tsx:26
 msgid "modal.done"
@@ -470,7 +470,7 @@ msgstr "Haga clic en el botón de abajo para ver su retiro. ¡Considere la posib
 
 #: components/views/Offset/index.tsx:666
 msgid "offset.successModal.cta"
-msgstr "VER LA RETIRO"
+msgstr "VER RETIRO"
 
 #: components/views/Offset/index.tsx:636
 msgid "offset.successModal.title"
@@ -507,7 +507,7 @@ msgstr "Asegúrate de hacer staking con tu pKLIMA redimido, y de mantenerlo ahi 
 
 #: components/views/PKlima/index.tsx:156
 msgid "pklima.exercise"
-msgstr ""
+msgstr "EJERCER"
 
 #: components/views/PKlima/index.tsx:185
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
@@ -528,7 +528,7 @@ msgstr "pKLIMA a ejercer"
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
-msgstr ""
+msgstr "Has reclamado más KLIMA que tu límite de suministro. Esto se debe probablemente a un arreglo implementado el 24 de noviembre de 2021 en el contrato de canje de pKLIMA."
 
 #: components/views/PKlima/index.tsx:182
 msgid "pklima.redeem_pklima"
@@ -694,7 +694,7 @@ msgstr "Cantidad para hacer staking"
 
 #: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.unstake"
-msgstr "Cantidad para hacer unstaking"
+msgstr "Cantidad para retirar"
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -719,15 +719,15 @@ msgstr "Stake"
 #: components/views/Stake/index.tsx:177
 #: components/views/Stake/index.tsx:227
 msgid "stake.stake_klima"
-msgstr "Estaquear KLIMA"
+msgstr "Stake KLIMA"
 
 #: components/views/Stake/index.tsx:262
 msgid "stake.unstake"
-msgstr "Hacer unstake"
+msgstr "Retirar"
 
 #: components/views/Stake/index.tsx:187
 msgid "stake.unstake_klima"
-msgstr ""
+msgstr "Retirar KLIMA"
 
 #: actions/utils.ts:22
 msgid "status.done"
@@ -767,7 +767,7 @@ msgstr "Saldo"
 
 #: components/views/Wrap/index.tsx:178
 msgid "wrap.balances_tooltip"
-msgstr "Wrap tus sKLIMA para recibir el KLIMA ajustado al índice"
+msgstr "Desempaqueta tus sKLIMA para recibir el KLIMA ajustado al índice"
 
 #: components/views/Wrap/index.tsx:270
 msgid "wrap.index"
@@ -779,33 +779,33 @@ msgstr "Cantidad de KLIMA que tendrías hoy si hubieras hecho staking con 1 KLIM
 
 #: components/views/Wrap/index.tsx:39
 msgid "wrap.sklima_to_wrap"
-msgstr "sKLIMA para hacer wrap"
+msgstr "sKLIMA para empaquetar"
 
 #: components/views/Wrap/index.tsx:233
 msgid "wrap.unwrap"
-msgstr "Unwrap"
+msgstr "Desempaquetar"
 
 #: components/views/Wrap/index.tsx:222
 msgid "wrap.wrap"
-msgstr "Wrap"
+msgstr "Empaquetar"
 
 #: components/views/Wrap/index.tsx:188
 msgid "wrap.wrap_sklima"
-msgstr "Wrap sKLIMA"
+msgstr "Desempaquetar sKLIMA"
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:200
 msgid "wrap.wrap_sklima.some_find_this_useful"
-msgstr "A algunos les resulta útil para la contabilidad, pero las recompensas son exactamente las mismas. Los valores de Wrap y unwrap se calculan en función del índice actual."
+msgstr "A algunos les resulta útil para la contabilidad, pero las recompensas son exactamente las mismas. Los valores de empaquetado y desempaquetado se calculan en función del índice actual."
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:191
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
-msgstr ""
+msgstr "Empaqueta tus sKLIMA para recibir wsKLIMA. A diferencia de sKLIMA, su saldo de wsKLIMA no aumentará con el tiempo."
 
 #: components/views/Wrap/index.tsx:43
 msgid "wrap.wsklima_to_unwrap"
-msgstr "wsKLIMA para unwrap"
+msgstr "wsKLIMA para desempaquetar"
 
 #: components/views/Wrap/index.tsx:286
 msgid "wrap.you_will_get"
@@ -813,4 +813,4 @@ msgstr "Conseguirás"
 
 #: components/BalancesCard/index.tsx:35
 msgid "wsklima.unwrapped.label"
-msgstr "unwrapped"
+msgstr "Desempaquetado"
