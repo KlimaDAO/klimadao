@@ -41,3 +41,15 @@ type Transaction @entity {
   from: Bytes!
   to: Bytes
 }
+
+type Epoch @entity {
+   id: ID!
+   epochNumber: BigInt!
+   blockFrom: BigInt!
+   blockFromTimestamp: BigInt!
+   blockTo: BigInt!
+   blockToTimestamp: BigInt!
+   duration: BigInt!
+   prevAvgRebaseRate: BigDecimal!
+ }
+ 
