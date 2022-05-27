@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
  */
 export const ChangeLanguageButton: FC = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const { locale } = useRouter();
+  const router = useRouter();
 
   const labels: { [key: string]: string } = {
     en: "English",
@@ -36,14 +36,14 @@ export const ChangeLanguageButton: FC = () => {
       {Object.keys(locales).map((localeKey) => (
         <Link
           key={localeKey}
-          href="/"
+          href={router.pathname}
           locale={localeKey}
           /** don't want to prefetch all locales */
           prefetch={false}
           replace={true}
         >
           <a
-            data-active={locale == localeKey ? "true" : "false"}
+            data-active={router.locale == localeKey ? "true" : "false"}
             className={styles.menuItem}
           >
             {labels[localeKey as keyof typeof labels]}
