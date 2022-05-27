@@ -11,7 +11,6 @@ import { Section, ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import { IS_PRODUCTION } from "lib/constants";
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import { LatestPost } from "lib/queries";
 
@@ -60,7 +59,6 @@ export const Home: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        production={IS_PRODUCTION}
         title="KlimaDAO"
         mediaTitle="KlimaDAO"
         metaDescription={t({
@@ -68,7 +66,6 @@ export const Home: NextPage<Props> = (props) => {
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
-        mediaImageSrc={urls.mediaImage}
       />
 
       <Navigation activePage="Home" />

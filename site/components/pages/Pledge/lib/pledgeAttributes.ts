@@ -1,13 +1,30 @@
-import { Footprint, Pledge, PledgeFormValues } from "../types";
+import isEqual from "lodash/isEqual";
+import sortBy from "lodash/sortBy";
+import { Footprint, Pledge, Category, PledgeFormValues } from "../types";
 import { generateNonce } from ".";
 
 const buildFootprint = (
   currentFootprint: Footprint[],
-  newFootprint: number
+  categories: Category[],
+  total: number
 ): Footprint[] => {
-  if (currentFootprint.at(-1)?.total === newFootprint) return currentFootprint;
+  const current = currentFootprint[currentFootprint.length - 1];
 
-  return [...currentFootprint, { timestamp: Date.now(), total: newFootprint }];
+  // ensure category objects in the array are in order before comparing for equality
+  const currentCategories = sortBy(
+    current.categories,
+    (category) => category.name
+  );
+  const newCategories = sortBy(categories, (category) => category.name);
+
+  if (isEqual(currentCategories, newCategories) && current.total === total) {
+    return currentFootprint;
+  }
+
+  return [
+    ...currentFootprint,
+    { timestamp: Date.now(), total: total, categories },
+  ];
 };
 
 interface createPledgeParams {
@@ -16,31 +33,42 @@ interface createPledgeParams {
 }
 
 export const createPledgeAttributes = (params: createPledgeParams): Pledge => {
+  const { categories, ...rest } = params.pledge;
+
   return {
-    ...params.pledge,
+    ...rest,
     id: params.id,
     nonce: generateNonce(),
-    footprint: [{ total: params.pledge.footprint, timestamp: Date.now() }],
+    footprint: [
+      {
+        timestamp: Date.now(),
+        total: params.pledge.footprint,
+        categories,
+      },
+    ],
     createdAt: Date.now(),
     updatedAt: Date.now(),
   };
 };
 
 interface putPledgeParams {
-  pledge: PledgeFormValues;
-  currentPledge: Pledge;
+  newPledgeValues: PledgeFormValues;
+  currentPledgeValues: Pledge;
 }
 
 export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
+  const { categories, ...rest } = params.newPledgeValues;
+
   return {
-    ...params.currentPledge,
-    ...params.pledge,
-    id: params.currentPledge.id,
+    ...params.currentPledgeValues,
+    ...rest,
+    id: params.currentPledgeValues.id,
     updatedAt: Date.now(),
     nonce: generateNonce(),
     footprint: buildFootprint(
-      params.currentPledge.footprint,
-      params.pledge.footprint
+      params.currentPledgeValues.footprint,
+      categories,
+      params.newPledgeValues.footprint
     ),
   };
 };

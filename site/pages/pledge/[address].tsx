@@ -5,7 +5,7 @@ import { loadTranslation } from "lib/i18n";
 import { IS_PRODUCTION } from "lib/constants";
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
 import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
-import { pledgeResolver } from "components/pages/Pledge/lib";
+import { DEFAULT_VALUES } from "components/pages/Pledge/lib";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
@@ -32,9 +32,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     const data = await getPledgeByAddress(address.toLowerCase());
     if (!data) throw new Error("Not found");
 
-    pledge = pledgeResolver(data);
+    pledge = data;
   } catch (error) {
-    pledge = pledgeResolver(null);
+    pledge = DEFAULT_VALUES;
   }
 
   return {

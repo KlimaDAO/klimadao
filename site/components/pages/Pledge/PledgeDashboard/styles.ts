@@ -11,7 +11,7 @@ export const contentContainer = css`
 export const profile = css`
   grid-column: span 2;
   display: grid;
-  gap: 1.6rem;
+  gap: 2.8rem;
   justify-items: center;
   padding: 6rem 0 2rem 0;
 
@@ -23,10 +23,6 @@ export const profile = css`
     border-radius: 50%;
     background-color: var(--surface-02);
     transition: background-color 0.25s ease-in-out;
-  }
-
-  p {
-    text-transform: uppercase;
   }
 `;
 

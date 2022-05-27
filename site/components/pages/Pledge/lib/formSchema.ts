@@ -18,8 +18,22 @@ export const formSchema = yup
       .trim(),
     footprint: yup
       .number()
-      .typeError("Enter your estimated carbon footprint")
-      .required("Enter your estimated carbon footprint")
+      .required("Enter a carbon tonne estimate")
+      .typeError("Enter a carbon tonne estimate")
+      .required("Enter a carbon tonne estimate")
       .min(1, "Value needs to be greater than 1"),
+    categories: yup
+      .array()
+      .of(
+        yup.object({
+          name: yup.string().required("Enter a category").trim(),
+          quantity: yup
+            .number()
+            .required("Enter a carbon tonne estimate")
+            .typeError("Enter a carbon tonne estimate")
+            .min(1, "Value needs to be greater than 1"),
+        })
+      )
+      .required(),
   })
   .noUnknown();

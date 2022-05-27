@@ -12,7 +12,7 @@ export const BaseCard: React.FC<CardProps> = (props) => (
   <div className={styles.card}>
     <div className={styles.cardHeader}>
       {props.icon}
-      <Text t="h4">{props.title}</Text>
+      <Text t="h3">{props.title}</Text>
     </div>
 
     {props.children}

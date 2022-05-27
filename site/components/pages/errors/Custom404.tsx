@@ -4,7 +4,6 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 
-import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import * as styles from "./styles";
@@ -13,7 +12,6 @@ export const Custom404 = () => {
   return (
     <div className={styles.errorPageWrapper}>
       <PageHead
-        production={IS_PRODUCTION}
         title={t({
           id: "error.page.404.title",
           message: "404 - Page Not Found",
@@ -38,7 +36,7 @@ export const Custom404 = () => {
           <Text align="center">
             <Trans id="error.404.page.text">
               Sorry, looks like we sent you the wrong way. <br />
-              Let us guide you back to the Start Page:
+              Let us guide you back to the home page:
             </Trans>
           </Text>
           <Text>

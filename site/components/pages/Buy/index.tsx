@@ -24,7 +24,6 @@ import zapperSmall from "public/zapper-small.jpg";
 
 import bondCarbon from "public/bond-carbon.jpg";
 
-import { IS_PRODUCTION } from "lib/constants";
 import { MutableRefObject, useRef } from "react";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
@@ -44,7 +43,6 @@ export const Buy: NextPage<Props> = ({}) => {
   return (
     <>
       <PageHead
-        production={IS_PRODUCTION}
         title={t({ id: "buy.head.title", message: "How to buy KLIMA" })}
         mediaTitle={t({ id: "buy.head.title", message: "How to buy KLIMA" })}
         metaDescription={t({

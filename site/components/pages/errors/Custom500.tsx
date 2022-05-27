@@ -4,7 +4,6 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 
-import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import * as styles from "./styles";
@@ -13,7 +12,6 @@ export const Custom500 = () => {
   return (
     <div className={styles.errorPageWrapper}>
       <PageHead
-        production={IS_PRODUCTION}
         title={t({
           id: "error.page.500.title",
           message: "500 - Page Not Found",
