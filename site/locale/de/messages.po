@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-26 15:44+0000\n"
+"POT-Creation-Date: 2022-05-27 00:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,16 +15,16 @@ msgstr "Artikel"
 msgid "Change language"
 msgstr "Sprache wechseln"
 
-#: components/pages/Buy/index.tsx:276
+#: components/pages/Buy/index.tsx:274
 msgid "Enter App"
 msgstr "App öffnen"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:96
+#: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.description"
 msgstr "Die in diesem Blogbeitrag bereitgestellten Informationen zu KlimaDAO („KlimaDAO“), seinen Krypto-Assets, Geschäftsvermögen, Strategie und Betrieb dienen nur allgemeinen Informationszwecken und sind kein formelles Verkaufsangebot oder eine Aufforderung zur Abgabe eines Angebots von Wertpapieren, Optionen, Futures oder andere Derivaten im Zusammenhang mit Wertpapieren in jeglicher Rechtsordnung, und der Inhalt ist nicht durch Wertpapiergesetze vorgeschrieben. Die in diesem Blogbeitrag enthaltenen Informationen sollten nicht als Empfehlung zum Kauf oder Verkauf oder Halten solcher Wertpapiere oder als Angebot zum Verkauf solcher Wertpapiere angesehen werden. Dieser Blog-Beitrag berücksichtigt weder Steuer-, Rechts- oder Anlageberatung noch gibt er eine Stellungnahme zu den spezifischen Anlagezielen oder der finanziellen Situation einer Person ab. KlimaDAO und seine Vertreter, Berater, Direktoren, leitenden Angestellten, Mitarbeiter und Aktionäre geben keine ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Richtigkeit dieser Informationen ab, und KlimaDAO lehnt ausdrücklich jegliche Haftung ab, die auf solchen Informationen oder Fehlern oder Auslassungen beruhen könnte. KlimaDAO behält sich das Recht vor, die hierin enthaltenen Informationen ganz oder teilweise jederzeit zu ändern oder zu ersetzen, und übernimmt keine Verpflichtung, dem Empfänger die geänderten Informationen zugänglich zu machen oder den Empfänger hiervon in Kenntnis zu setzen. Die in diesem Blog-Beitrag enthaltenen Informationen ersetzen alle in früheren Blog-Beiträge oder Konversationen ähnlichen oder verwandten Informationen. Auf Informationen, Darstellungen oder Aussagen, die hier nicht enthalten sind, darf für keinen Zweck vertraut werden. Weder KlimaDAO noch einer seiner Vertreter haften Ihnen oder einer anderen Person gegenüber aus jeglichen Gründen, die sich aus der Verwendung oder Nichtverwendung der Informationen in diesem Blog-Beitrag durch Sie oder einen Ihrer Vertreter ergibt. Darüber hinaus übernimmt KlimaDAO keine Verpflichtung, die Erwartungen oder Aussagen Dritter in Bezug auf die in diesem Blogbeitrag erörterten Angelegenheiten zu kommentieren."
 
-#: components/pages/Blog/Post/index.tsx:93
+#: components/pages/Blog/Post/index.tsx:87
 msgid "blog.disclaimer.title"
 msgstr "Haftungsausschluss:"
 
@@ -49,13 +49,13 @@ msgstr "Kopiert"
 msgid "button.copyURL.copy"
 msgstr "URL kopieren"
 
-#: components/pages/Buy/index.tsx:135
-#: components/pages/Buy/index.tsx:254
+#: components/pages/Buy/index.tsx:133
+#: components/pages/Buy/index.tsx:252
 msgid "buy.advanced"
 msgstr "Experten"
 
-#: components/pages/Buy/index.tsx:90
-#: components/pages/Buy/index.tsx:176
+#: components/pages/Buy/index.tsx:88
+#: components/pages/Buy/index.tsx:174
 msgid "buy.beginner"
 msgstr "Anfänger"
 
@@ -111,75 +111,75 @@ msgstr "Da du jetzt sowohl KLIMA als auch MATIC in deiner Wallet hast, kannst du
 msgid "buy.beginner_05.title"
 msgstr "Staken, ausgleichen, mitmachen!"
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:257
+#: components/pages/Buy/index.tsx:130
+#: components/pages/Buy/index.tsx:255
 msgid "buy.bonding"
 msgstr "Bonding"
 
-#: components/pages/Buy/index.tsx:260
+#: components/pages/Buy/index.tsx:258
 msgid "buy.bonding.description_01"
 msgstr "Durch Bonding verkaufst du CO2-Assets an die Schatzkammer und erhältst dafür KLIMA-Tokens. Dadurch absorbiert die Klima-Schatzkammer CO2-Zertifikate und beeinflusst den Klimawandel positiv. Durch Bonding wird außerdem das KLIMA-Token gedeckt."
 
-#: components/pages/Buy/index.tsx:268
+#: components/pages/Buy/index.tsx:266
 msgid "buy.bonding.description_02"
 msgstr "Der Rabatt variiert je nach aktueller Marktlage. Die Schatzkammer akzeptiert CO2 in Form von CO2-Tokens (wie UBO, BCT oder MCO2) oder Liquidity-Pool-Tokens (LP-Tokens) wie KLIMA/BCT und KLIMA/MCO2."
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:179
+#: components/pages/Buy/index.tsx:85
+#: components/pages/Buy/index.tsx:177
 msgid "buy.credit_card"
 msgstr "Kreditkarte"
 
-#: components/pages/Buy/index.tsx:182
+#: components/pages/Buy/index.tsx:180
 msgid "buy.credit_card.summary"
 msgstr "Du kannst jetzt deine Kreditkarte nutzen, um KLIMA zu kaufen und direkt in deine Wallet zu transferieren! Unsere Zahlungspartner unterstützen die meisten großen Währungen."
 
-#: components/pages/Buy/index.tsx:108
+#: components/pages/Buy/index.tsx:106
 msgid "buy.decentralized_exchange"
 msgstr "Dezentralisierte Börse"
 
-#: components/pages/Buy/index.tsx:210
+#: components/pages/Buy/index.tsx:208
 msgid "buy.dex"
 msgstr "Dezentralisierte Börsen (DEXs)"
 
-#: components/pages/Buy/index.tsx:241
+#: components/pages/Buy/index.tsx:239
 msgid "buy.dex.how_zapper"
 msgstr "Wie kaufe ich KLIMA via Zapper?"
 
-#: components/pages/Buy/index.tsx:214
+#: components/pages/Buy/index.tsx:212
 msgid "buy.dex.summary_01"
 msgstr "Solltest du bereits eine Polygon-Wallet und MATIC-Tokens haben, kannst du eine dezentralisierte Börse nutzen, um KLIMA zu kaufen. Dies verringert die Gebühren beim Kauf im Vergleich zu einer Kreditkarte und du bezahlst den bestmöglichen Preis."
 
-#: components/pages/Buy/index.tsx:221
+#: components/pages/Buy/index.tsx:219
 msgid "buy.dex.summary_02"
 msgstr "Du kannst KLIMA zwar bei <0>Sushi Swap</0> kaufen, aber wir empfehlen einen sogenannten DEX-Aggregator namens Zapper. Verbindest du deine Wallet mit Zapper, wird dein Kauf automatisch auf der günstigsten Börse abgewickelt."
 
-#: components/pages/Buy/index.tsx:146
+#: components/pages/Buy/index.tsx:144
 msgid "buy.disclaimer"
 msgstr "Sicherheitstipps & Haftungsausschluss"
 
-#: components/pages/Buy/index.tsx:151
+#: components/pages/Buy/index.tsx:149
 msgid "buy.disclaimer_01"
 msgstr "Teile deine Private Keys oder Seed Phrases niemals mit anderen. Wir empfehlen dir, einen Blick auf unsere Seite über <0>allgemeine Kryptosicherheit</0> (Englisch) zu werfen, bevor du loslegst."
 
-#: components/pages/Buy/index.tsx:161
+#: components/pages/Buy/index.tsx:159
 msgid "buy.disclaimer_02"
 msgstr "Blockchain-Transaktionen können nicht rückgängig gemacht werden. Unser Team kann verlorene oder gestohlene Assets nicht wiederherstellen. KlimaDAO übernimmt in diesen Fällen keine Verantwortung oder Haftung und bietet keine Garantien an. Alle Märkte und Börsen arbeiten unabhängig und mit hoher Volatilität."
 
-#: components/pages/Buy/index.tsx:48
-#: components/pages/Buy/index.tsx:49
+#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:47
 msgid "buy.head.title"
 msgstr "So kaufst du KLIMA"
 
-#: components/pages/Buy/index.tsx:113
-#: components/pages/Buy/index.tsx:207
+#: components/pages/Buy/index.tsx:111
+#: components/pages/Buy/index.tsx:205
 msgid "buy.intermediate"
 msgstr "Fortgeschrittene"
 
-#: components/pages/Buy/index.tsx:65
+#: components/pages/Buy/index.tsx:63
 msgid "buy.subtitle"
 msgstr "Du kannst dir Klima auf drei Arten holen: mit einer Kreditkarte, über eine dezentralisierte Börse (DEX) oder indem du CO2-Assets bondest."
 
-#: components/pages/Buy/index.tsx:62
+#: components/pages/Buy/index.tsx:60
 msgid "buy.title"
 msgstr "So kaufst du KLIMA"
 
@@ -405,256 +405,256 @@ msgid "contact.quest_and_support.join_our_discord_server"
 msgstr "Trete unserem Discord-Server bei und stelle Fragen im #questions-Kanal. Bei uns findest du tausende freundliche, sachkundige Communitymitglieder, die dir gerne helfen werden."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:72
+#: components/pages/Disclaimer/index.tsx:68
 msgid "disclaimer.1_an_offer_or_sollicitation"
 msgstr "1. Ein Angebot oder die Aufforderung zur Abgabe eines Angebots, um Wertpapiere, andere Vermögenswerte oder Dienstleistungen zu halten oder zu kontrollieren, die mit immateriellen Vorteilen verbunden sind;"
 
-#: components/pages/Disclaimer/index.tsx:119
+#: components/pages/Disclaimer/index.tsx:115
 msgid "disclaimer.1_meet_your_requirements"
 msgstr "1. Ihren Anforderungen entspricht;"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:124
+#: components/pages/Disclaimer/index.tsx:120
 msgid "disclaimer.2_be_available_on_an_uninterrupted"
 msgstr "2. Rund um die Uhr, fehlerfrei und zu 100 % sicher ist;"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:82
+#: components/pages/Disclaimer/index.tsx:78
 msgid "disclaimer.2_financial_investment_or_trading_advice"
 msgstr "2. Finanz-, Anlage- oder Handelsberatung oder ein Angebot zur Erbringung einer solchen Beratung und/oder Dienstleistung."
 
-#: components/pages/Disclaimer/index.tsx:133
+#: components/pages/Disclaimer/index.tsx:129
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
 msgstr "3. Zuverlässig, vollständig und rechtssicher ist."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:40
+#: components/pages/Disclaimer/index.tsx:36
 msgid "disclaimer.all_information_on_this_website"
 msgstr "Alle Informationen auf dieser Website werden nach bestem Wissen und Gewissen und nur zu allgemeinen Informationszwecken veröffentlicht."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:167
+#: components/pages/Disclaimer/index.tsx:163
 msgid "disclaimer.any_action_you_take_upon_the_information"
 msgstr "Alle Maßnahmen, die Sie aufgrund der Informationen auf dieser Website ergreifen, erfolgen ausschließlich auf Ihr eigenes Risiko. Entscheidungen auf der Grundlage der auf dieser Website enthaltenen Informationen liegen in der alleinigen Verantwortung des Besuchers. KlimaDAO haftet nicht für Verluste und/oder Schäden im Zusammenhang mit der Nutzung der Website, dem Verlust Ihres Passworts/Ihrer Seed-Phrase, einem schlechten Handelsgeschäft, dem Senden eines Vermögenswertes an die falsche Adresse, dem Verlust Ihres Vermögens und durch Betrüger verursachte Schäden. KlimaDAO kann keine Verantwortung oder Haftung im Zusammenhang mit Marktveränderungen und deren Volatilität übernehmen. Sie müssen Ihre eigene Recherche durchführen und sich Ihrer eigenen Situation, Vertrautheit und Kenntnis der von dieser Plattform bereitgestellten Informationen oder Dienstleistungen gewiss sein."
 
-#: components/pages/Disclaimer/index.tsx:36
+#: components/pages/Disclaimer/index.tsx:32
 msgid "disclaimer.disclaimer"
 msgstr "Haftungsausschluss"
 
-#: components/pages/Disclaimer/index.tsx:19
-#: components/pages/Disclaimer/index.tsx:28
+#: components/pages/Disclaimer/index.tsx:16
+#: components/pages/Disclaimer/index.tsx:25
 msgid "disclaimer.head.title"
 msgstr "KlimaDAO-Haftungsausschluss"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:110
+#: components/pages/Disclaimer/index.tsx:106
 msgid "disclaimer.klimadao_and_its_suppliers"
 msgstr "KlimaDAO und seine Lieferanten geben keine Garantie ab, dass die Plattform:"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:51
+#: components/pages/Disclaimer/index.tsx:47
 msgid "disclaimer.klimadao_is_a_platform"
 msgstr "KlimaDAO ist eine Plattform. Wir sind kein Makler, Finanzinstitut oder Kreditgeber. Die Dienstleistungen auf dieser Webseite beinhalten keine Angebote, die Ihre Wertpapiere, Optionen, Vermögenswerte, Terminkontrakte oder andere Derivate im Zusammenhang mit Wertpapieren in jeglichem rechtlichem Zuständigkeitsbereich halten oder kontrollieren. Der Webseiteninhalt ist nicht durch Wertpapiergesetze vorgeschrieben."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:138
+#: components/pages/Disclaimer/index.tsx:134
 msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
 msgstr "Weder KlimaDAO noch seine Vertreter haften für Verluste jeglicher Art aus Handlungen, die im Vertrauen auf Materialien oder Informationen, die in dem Dienst enthalten sind, unternommen werden oder wurden. KlimaDAO macht die Nutzung des Dienstes und der Inhalte sicher, erklärt oder garantiert jedoch nicht, dass der Dienst und die Inhalte auf unserer Plattform frei von Viren oder anderen schädlichen Komponenten sind."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:186
+#: components/pages/Disclaimer/index.tsx:182
 msgid "disclaimer.nothing_in_this_disclaimer"
 msgstr "Nichts in diesem Haftungsausschluss, Informationsinhalt oder Material soll oder soll so konstruiert werden, dass es eine Rechtsbeziehung zwischen uns und Ihnen herstellt oder einem von uns Rechte oder Pflichten gewährt."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:64
+#: components/pages/Disclaimer/index.tsx:60
 msgid "disclaimer.nothing_in_this_platform"
 msgstr "Nichts auf dieser Plattform stellt Folgendes dar oder wird so ausgelegt:"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:91
+#: components/pages/Disclaimer/index.tsx:87
 msgid "disclaimer.the_service_available"
 msgstr "Der im Dienst verfügbare oder über den Dienst zugängliche Dienst wird „wie besehen“ und im größtmöglichen Umfang gemäß geltendem Recht bereitgestellt. KlimaDAO und seine Vertreter, Berater, Direktoren, leitenden Angestellten, Mitarbeiter und Anteilseigner lehnen alle ausdrücklichen oder stillschweigenden Garantien ab, einschließlich, aber nicht beschränkt auf stillschweigende Garantien der Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung von Rechten sowie Garantien, die sich aus einem Kurs ergeben. KlimaDAO übernimmt keine Gewährleistung für die Vollständigkeit, Zuverlässigkeit und Richtigkeit dieser Informationen, Gewährleistung der Marktgängigkeit oder Eignung für einen bestimmten Zweck. Diese Plattform übernimmt keine Gewährleistung für die Vollständigkeit und Richtigkeit dieser Informationen."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:197
+#: components/pages/Disclaimer/index.tsx:193
 msgid "disclaimer.we_recommend_that_you_visit"
 msgstr "Aus Sicherheitsgründen empfehlen wir dir, unsere allgemeine Krypto-Sicherheitsseite zu besuchen. Denke bitte immer daran: Teile nie deine Private Keys oder deine Seed Phrase mit anderen. Weder unsere Teammitglieder noch unsere App wird jemals nach diesen Daten fragen."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:152
+#: components/pages/Disclaimer/index.tsx:148
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "Du trägst die volle Verantwortung für die Bereitstellung privater Daten, die Verifizierung der Identität und die Legimität."
 
-#: components/pages/errors/Custom404.tsx:39
+#: components/pages/errors/Custom404.tsx:37
 msgid "error.404.page.text"
-msgstr "Tut uns Leid, wir haben dich wohl in die falsche Richtung geschickt. <0/> Hier geht es zurück zur Startseite:"
+msgstr ""
 
-#: components/pages/errors/Custom404.tsx:36
+#: components/pages/errors/Custom404.tsx:34
 msgid "error.404.page.title"
 msgstr "404 - Seite nicht gefunden"
 
-#: components/pages/errors/Custom500.tsx:41
+#: components/pages/errors/Custom500.tsx:39
 msgid "error.500.page.text"
 msgstr "Tut uns Leid, irgendwas ist schiefgelaufen.<0/> Kehre hier zur Startseite zurück:"
 
-#: components/pages/errors/Custom500.tsx:36
+#: components/pages/errors/Custom500.tsx:34
 msgid "error.500.page.title"
 msgstr "500 - Serverseitiger Fehler aufgetreten"
 
-#: components/pages/errors/Custom404.tsx:21
+#: components/pages/errors/Custom404.tsx:19
 msgid "error.page.404.head.title"
 msgstr "404 - Seite nicht gefunden"
 
-#: components/pages/errors/Custom404.tsx:17
+#: components/pages/errors/Custom404.tsx:15
 msgid "error.page.404.title"
 msgstr "404 - Seite nicht gefunden"
 
-#: components/pages/errors/Custom500.tsx:21
+#: components/pages/errors/Custom500.tsx:19
 msgid "error.page.500.head.title"
 msgstr "500 - Seite nicht gefunden"
 
-#: components/pages/errors/Custom500.tsx:17
+#: components/pages/errors/Custom500.tsx:15
 msgid "error.page.500.title"
 msgstr "500 - Seite nicht gefunden"
 
-#: components/pages/Home/index.tsx:207
+#: components/pages/Home/index.tsx:204
 msgid "home.backed_by_carbon"
 msgstr "Gedeckt durch CO2."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:165
+#: components/pages/Home/index.tsx:162
 msgid "home.by_increasing_access"
 msgstr "Indem wir den Zugang zu und die Nachfrage nach CO2-Kompensationen erhöhen, machen wir klimapositive Projekte wirtschaftlich tragbar. Gleichzeitig zwingt dies Unternehmen, schneller Antworten auf den Klimawandel zu finden."
 
-#: components/pages/Home/index.tsx:298
+#: components/pages/Home/index.tsx:295
 msgid "home.cars_annual"
 msgstr "Autos (jährlich)"
 
-#: components/pages/Home/index.tsx:267
+#: components/pages/Home/index.tsx:264
 msgid "home.equivalent_to"
 msgstr "ENTSPRICHT"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:382
+#: components/pages/Home/index.tsx:379
 msgid "home.every_klima_token_is_backed"
 msgstr "Jedes KLIMA-Token ist von einem echten CO2-Zertifikat gedeckt. Diese Tokens werden genutzt, um CO2-Emissionen auszugleichen, mit DeFi-Applikationen zu interagieren und Zugang zum rasant wachsenden weltweiten CO2-Markt zu erhalten."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:105
+#: components/pages/Home/index.tsx:102
 msgid "home.fight_climate_change"
 msgstr "Bekämpfe den Klimawandel und erhalte Belohnungen durch KLIMA: eine digitale, durch reale CO2-Zertifikate gedeckte Währung."
 
-#: components/pages/Home/index.tsx:433
+#: components/pages/Home/index.tsx:430
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "Steige jetzt in die wachsende CO2-Wirtschaft ein. Kaufe, stake, und werde belohnt. Finanzieller Aktivismus für unseren Planeten."
 
-#: components/pages/Home/index.tsx:430
+#: components/pages/Home/index.tsx:427
 msgid "home.get_klima"
 msgstr "KLIMA KAUFEN"
 
-#: components/pages/Home/index.tsx:281
+#: components/pages/Home/index.tsx:278
 msgid "home.hectares_of_forest"
 msgstr "Hektar Wald"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:150
+#: components/pages/Home/index.tsx:147
 msgid "home.klima_is_a_black_hole"
 msgstr "KlimaDAO ist ein <0>Schwarzes Loch für CO2</0> im Zentrum einer <1>neuen, grünen Wirtschaft</1>."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:411
+#: components/pages/Home/index.tsx:408
 msgid "home.klima_tokens_are_minted"
 msgstr "KLIMA-Tokens werden ungefähr alle sieben Stunden neu generiert und an aktuelle sKLIMA-Besitzer verteilt. Gemeinsam errichten wir eine neue, nachhaltige Zukunft, während dein KLIMA-Vorrat wächst."
 
-#: components/pages/Home/index.tsx:81
+#: components/pages/Home/index.tsx:78
 msgid "home.latest_news"
 msgstr "📰 Aktuelle Blog-Posts (Englisch):"
 
-#: components/pages/Home/index.tsx:136
+#: components/pages/Home/index.tsx:133
 msgid "home.learn_more"
 msgstr "MEHR ERFAHREN"
 
-#: components/pages/Home/index.tsx:313
+#: components/pages/Home/index.tsx:310
 msgid "home.liters_if_gasoline"
 msgstr "Liter Benzin"
 
-#: components/pages/Home/index.tsx:243
+#: components/pages/Home/index.tsx:240
 msgid "home.massive impact"
 msgstr "Massive Auswirkung."
 
-#: components/pages/Home/index.tsx:181
+#: components/pages/Home/index.tsx:178
 msgid "home.mechanics"
 msgstr "MECHANISMUS"
 
-#: components/pages/Home/index.tsx:462
+#: components/pages/Home/index.tsx:459
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "Alle Neuigkeiten, direkt in deinen Posteingang"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:470
+#: components/pages/Home/index.tsx:467
 msgid "home.newletter.get_the_latest_updates"
 msgstr "Hole dir die neuesten Updates über KlimaDAO, während wir gemeinsam die Zukunft der CO2-Wirtschaft aufbauen."
 
-#: components/pages/Home/index.tsx:487
+#: components/pages/Home/index.tsx:484
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "Garantiert spamfrei."
 
-#: components/pages/Home/index.tsx:481
+#: components/pages/Home/index.tsx:478
 msgid "home.newletter.sign_up"
 msgstr "Anmelden"
 
-#: components/pages/Home/index.tsx:467
+#: components/pages/Home/index.tsx:464
 msgid "home.newsletter"
 msgstr "Newsletter"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:370
+#: components/pages/Home/index.tsx:367
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr "<0>Die Reservewährung</0><1>der CO2-Wirtschaft</1>"
 
-#: components/pages/Home/index.tsx:440
+#: components/pages/Home/index.tsx:437
 msgid "home.see_tutorial"
 msgstr "Tutorial ansehen"
 
-#: components/pages/Home/index.tsx:328
+#: components/pages/Home/index.tsx:325
 msgid "home.source"
 msgstr "Quelle"
 
-#: components/pages/Home/index.tsx:225
+#: components/pages/Home/index.tsx:222
 msgid "home.strong_incentives"
 msgstr "Überzeugende Anreize."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:184
+#: components/pages/Home/index.tsx:181
 msgid "home.the_dao_sell_bonds"
 msgstr "Die DAO verkauft Anleihen und verteilt den Gewinn an KLIMA-Besitzer. Jede verkaufte Anleihe wird unserer Schatzkammer hinzugefügt oder verbessert die Liquidität grüner Schlüsselassets. Eine Win-Win-Situation für Mensch und Planet."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:254
+#: components/pages/Home/index.tsx:251
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr "<0>CO2-TONNEN IM BESITZ</0> VON KLIMADAO"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:157
+#: components/pages/Home/index.tsx:154
 msgid "home.we_ve_kickstarted"
 msgstr "Wir haben einen <0>dezentralisierten und offenen Marktplatz für CO2</0> ins Leben gerufen. Unser Token liefert Anreize für Investoren, Bürger und Organisationen, um sich an dieser neuen Wirtschaft zu beteiligen und sie zu verwalten."
 
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:399
+#: components/pages/Home/index.tsx:396
 msgid "home.weekly_rewards_for_token_holders"
 msgstr ""
 "<0>{0}% WÖCHENTLICHE BELOHNUNGEN</0><1>FÜR TOKENBESITZER</1>\n"
 ""
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:92
+#: components/pages/Home/index.tsx:89
 msgid "home.welcome_to_klimadao"
 msgstr ""
 "<0>WILLKOMMEN BEI</0><1>KlimaDAO</1>\n"
 ""
 
-#: components/pages/Home/index.tsx:355
+#: components/pages/Home/index.tsx:352
 msgid "invest_in_the_future"
 msgstr "Investiere in die Zukunft."
 
@@ -686,39 +686,39 @@ msgstr "Mit CO2-gedeckten KLIMA-Tokens kannst du handeln, Staking-Belohnungen er
 msgid "retirement.footer.buy_klima.title"
 msgstr "Kaufen, staken und belohnt werden."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:62
+#: components/pages/Retirements/SingleRetirement/index.tsx:60
 msgid "retirement.head.metaDescription"
 msgstr "Transparente CO2-Offsets auf der Blockchain durch KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/index.tsx:54
 msgid "retirement.head.metaTitle"
 msgstr "{0}"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:52
+#: components/pages/Retirements/SingleRetirement/index.tsx:50
 msgid "retirement.head.title"
 msgstr "KlimaDAO | CO2-Ausgleichsquittung"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:108
+#: components/pages/Retirements/SingleRetirement/index.tsx:105
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Keinen Empfängername angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:102
+#: components/pages/Retirements/SingleRetirement/index.tsx:99
 msgid "retirement.single.beneficiary.title"
 msgstr "Empfänger"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:116
+#: components/pages/Retirements/SingleRetirement/index.tsx:113
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Empfängeradresse"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:155
+#: components/pages/Retirements/SingleRetirement/index.tsx:152
 msgid "retirement.single.disclaimer"
 msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch tokenisierte CO2-Zertifikate auf der Polygon-Blockchain. Jeder Emissionsausgleich und die damit verbundenen Daten sind unveränderlich und öffentlich einsehbar."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/index.tsx:70
 msgid "retirement.single.header.quantity"
 msgstr "{0} t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:78
+#: components/pages/Retirements/SingleRetirement/index.tsx:75
 msgid "retirement.single.header.subline"
 msgstr "CO2-äquivalente Emissionen ausgeglichen (in Tonnen)"
 
@@ -730,11 +730,11 @@ msgstr "Ausgleichsnachricht"
 msgid "retirement.single.quantity"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:147
+#: components/pages/Retirements/SingleRetirement/index.tsx:144
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "... kommt demnächst!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:142
+#: components/pages/Retirements/SingleRetirement/index.tsx:139
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Zertifikat"
 
@@ -742,15 +742,15 @@ msgstr "Zertifikat"
 msgid "retirement.single.retirementDate.title"
 msgstr "Datum"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:87
+#: components/pages/Retirements/SingleRetirement/index.tsx:84
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Keine Ausgleichsnachricht angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:134
+#: components/pages/Retirements/SingleRetirement/index.tsx:131
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:172
+#: components/pages/Retirements/SingleRetirement/index.tsx:169
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
@@ -778,35 +778,35 @@ msgstr "Zusammenfassung"
 msgid "retirement.totals.breakdown_subline"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:44
+#: components/pages/Retirements/index.tsx:41
 msgid "retirement.totals.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:39
+#: components/pages/Retirements/index.tsx:36
 msgid "retirement.totals.head.title"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:62
+#: components/pages/Retirements/index.tsx:58
 msgid "retirement.totals.page_headline"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:67
+#: components/pages/Retirements/index.tsx:63
 msgid "retirement.totals.page_subline"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:91
+#: components/pages/Retirements/index.tsx:87
 msgid "retirement.totals.retired_assets"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:77
+#: components/pages/Retirements/index.tsx:73
 msgid "retirement.totals.retirements"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:99
+#: components/pages/Retirements/index.tsx:95
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:83
+#: components/pages/Retirements/index.tsx:79
 msgid "retirement.totals.total_retirement_transactions"
 msgstr ""
 
@@ -851,19 +851,19 @@ msgid "shared.docs"
 msgstr "Dokumente"
 
 #: components/Navigation/index.tsx:37
-#: components/pages/Home/index.tsx:113
+#: components/pages/Home/index.tsx:110
 msgid "shared.enter_app"
 msgstr "App öffnen"
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:50
-#: components/pages/Disclaimer/index.tsx:23
-#: components/pages/Home/index.tsx:66
+#: components/pages/Buy/index.tsx:48
+#: components/pages/Disclaimer/index.tsx:20
+#: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:49
-#: components/pages/errors/Custom404.tsx:25
-#: components/pages/errors/Custom500.tsx:25
+#: components/pages/Retirements/index.tsx:46
+#: components/pages/errors/Custom404.tsx:23
+#: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
 msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
 
