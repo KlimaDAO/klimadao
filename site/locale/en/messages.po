@@ -728,6 +728,22 @@ msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:36
+msgid "retirement.single.project_details.subline"
+msgstr "The following projects were retired. Click a project title to learn more about it."
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+msgid "retirement.single.project_details.title"
+msgstr "Project Details"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:60
+msgid "retirement.single.project_details.tonnes"
+msgstr "Tonnes"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:71
+msgid "retirement.single.project_details.view_on_polygon_scan"
+msgstr "View on Polygonscan"
+
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
 msgstr "QUANTITY RETIRED"
