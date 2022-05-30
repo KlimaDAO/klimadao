@@ -25,3 +25,4 @@ export {
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,
 } from "./subgraph/queryPolygonBridgedCarbon";
+export { getVerraProjectByID } from "./verra/getVerraProjects";

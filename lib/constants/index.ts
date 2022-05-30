@@ -106,6 +106,7 @@ export const urls = {
   community: "https://www.klimadao.finance/community",
   buy: "https://www.klimadao.finance/buy",
   buy_dapp: "https://app.klimadao.finance/#/buy",
+  carbonDashboard: "https://carbon.klimadao.finance",
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",
@@ -205,4 +206,11 @@ export const offsetCompatibility: CompatMap = {
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
   polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
+};
+
+const VERRA_REGISTRY = "https://registry.verra.org";
+const VERRA_REGISTRY_API = `${VERRA_REGISTRY}/uiapi`;
+export const verra = {
+  projectSearch: `${VERRA_REGISTRY_API}/resource/resource/search?maxResults=2000&$count=true&$skip=0&$top=50`,
+  projectDetailPage: `${VERRA_REGISTRY}/app/projectDetail/VCS`, // add ID after VCS like /191
 };

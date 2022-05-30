@@ -32,6 +32,13 @@ export const queryKlimaRetireByIndex = async (
               offset {
                 id
                 tokenAddress
+                totalRetired
+                projectID
+                country
+                region 
+                bridge
+                registry 
+                standard
               }
             }
           }
@@ -73,6 +80,13 @@ export const queryKlimaRetiresByAddress = async (
               offset {
                 id
                 tokenAddress
+                totalRetired
+                projectID
+                country
+                region 
+                bridge
+                registry 
+                standard
               }
             }
           }
