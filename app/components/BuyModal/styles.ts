@@ -30,7 +30,7 @@ export const card_header = css`
   justify-content: space-between;
   align-items: center;
   height: 3.2rem;
-  
+
   p {
     font-size: 2rem;
     font-weight: 600;
@@ -43,7 +43,7 @@ export const card_connected = css`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  
+
   p {
     font-size: 1.6rem;
     color: #313131;
@@ -57,21 +57,21 @@ export const closeButton = css`
   padding: 0.6rem;
   border: none;
   color: #313131;
-  background-color: #FAFAFA;
-  border-radius: .4rem;
+  background-color: #fafafa;
+  border-radius: 0.4rem;
 `;
 
 export const copyAddress = css`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #E7E7E7;
+  background-color: #e7e7e7;
   color: #313131;
   padding: 1rem 1.6rem 1rem 2rem;
   font-size: 1.6rem;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   flex-shrink: 0;
-  
+
   span {
     margin-right: 1.2rem;
   }
@@ -115,9 +115,9 @@ export const buyCard_iframe = css`
 `;
 
 export const spinner_container = css`
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   margin-top: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.2rem;
 `;

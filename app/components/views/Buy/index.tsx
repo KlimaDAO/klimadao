@@ -5,14 +5,14 @@ import Payment from "@mui/icons-material/Payment";
 
 import { Anchor, ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 
-import { BalancesCard }    from "components/BalancesCard";
-import { ImageCard }       from "components/ImageCard";
-import * as styles         from "./styles";
-import Image               from 'next/image'
-import TransakLogoWordmark from '../../../public/transak_logo_wordmark.png';
-import MobilumLogoWordmark from '../../../public/mobilum_logo_wordmark.png';
-import { useAppDispatch }  from '../../../state'
-import { setAppState }     from '../../../state/app'
+import { BalancesCard } from "components/BalancesCard";
+import { ImageCard } from "components/ImageCard";
+import * as styles from "./styles";
+import Image from "next/image";
+import TransakLogoWordmark from "../../../public/transak_logo_wordmark.png";
+import MobilumLogoWordmark from "../../../public/mobilum_logo_wordmark.png";
+import { useAppDispatch } from "../../../state";
+import { setAppState } from "../../../state/app";
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -25,9 +25,8 @@ export const Buy = (props: Props) => {
   const dispatch = useAppDispatch();
 
   const handleBuyClick = (serviceName: string) => {
-    dispatch(setAppState({buyModalService: serviceName}))
-  }
-
+    dispatch(setAppState({ buyModalService: serviceName }));
+  };
 
   return (
     <>
@@ -78,81 +77,73 @@ export const Buy = (props: Props) => {
             />
           </div>
         )}
-        {
-          props.isConnected && props.address && (
-            <div className={styles.buyCard_service_wrapper}>
-              <div className={styles.buyCard_service}>
-                <div className={'header'}>
-                  <div className={'logo'}>
-                    <Image
-                      src={TransakLogoWordmark}
-                      layout={'intrinsic'}
-                      objectPosition={'center'}
-                      alt={'Transak logo and wordmark'}
-                    />
-                  </div>
-
+        {props.isConnected && props.address && (
+          <div className={styles.buyCard_service_wrapper}>
+            <div className={styles.buyCard_service}>
+              <div className={"header"}>
+                <div className={"logo"}>
+                  <Image
+                    src={TransakLogoWordmark}
+                    layout={"intrinsic"}
+                    objectPosition={"center"}
+                    alt={"Transak logo and wordmark"}
+                  />
                 </div>
-                <ul>
-                  <li>
-                    <span className={'key'}>Regions:</span>
-                    <span>&nbsp;</span>
-                    <span className={'value'}>All</span>
-                  </li>
-                  <li>
-                    <span className={'key'}>Fee:</span>
-                    <span>&nbsp;</span>
-                    <span className={'value'}>3%</span>
-                  </li>
-                  <li>
-                    <span className={'key'}>Minimum buy:</span>
-                    <span>&nbsp;</span>
-                    <span className={'value'}>$1</span>
-                  </li>
-                </ul>
-                <button
-                  onClick={() => handleBuyClick('transak')}
-                >
-                  Buy KLIMA
-                </button>
               </div>
-              <div className={styles.buyCard_service}>
-                <div className={'header'}>
-                  <div className={'logo'}>
-                    <Image
-                      src={MobilumLogoWordmark}
-                      layout={'intrinsic'}
-                      alt={'Mobilum logo and wordmark'}
-                    />
-                  </div>
-
-                </div>
-                <ul>
-                  <li>
-                    <span className={'key'}>Regions:</span>
-                    <span>&nbsp;</span>
-                    <span className={'value'}>All, excluding USA</span>
-                  </li>
-                  <li>
-                    <span className={'key'}>Fee:</span>
-                    <span>&nbsp;</span>
-                    <span className={'value'}>6%</span>
-                  </li>
-                  <li>
-                    <span className={'key'}>Minimum buy:</span>
-                    <span>&nbsp;</span>
-                    <span className={'value'}>$50</span>
-                  </li>
-                </ul>
-                <button
-                  onClick={() => handleBuyClick('mobilum')}
-                >
-                  Buy KLIMA
-                </button>
-              </div>
+              <ul>
+                <li>
+                  <span className={"key"}>Regions:</span>
+                  <span>&nbsp;</span>
+                  <span className={"value"}>All</span>
+                </li>
+                <li>
+                  <span className={"key"}>Fee:</span>
+                  <span>&nbsp;</span>
+                  <span className={"value"}>3%</span>
+                </li>
+                <li>
+                  <span className={"key"}>Minimum buy:</span>
+                  <span>&nbsp;</span>
+                  <span className={"value"}>$1</span>
+                </li>
+              </ul>
+              <button onClick={() => handleBuyClick("transak")}>
+                Buy KLIMA
+              </button>
             </div>
-          )
-        }
+            <div className={styles.buyCard_service}>
+              <div className={"header"}>
+                <div className={"logo"}>
+                  <Image
+                    src={MobilumLogoWordmark}
+                    layout={"intrinsic"}
+                    alt={"Mobilum logo and wordmark"}
+                  />
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <span className={"key"}>Regions:</span>
+                  <span>&nbsp;</span>
+                  <span className={"value"}>All, excluding USA</span>
+                </li>
+                <li>
+                  <span className={"key"}>Fee:</span>
+                  <span>&nbsp;</span>
+                  <span className={"value"}>6%</span>
+                </li>
+                <li>
+                  <span className={"key"}>Minimum buy:</span>
+                  <span>&nbsp;</span>
+                  <span className={"value"}>$50</span>
+                </li>
+              </ul>
+              <button onClick={() => handleBuyClick("mobilum")}>
+                Buy KLIMA
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       <BalancesCard
         assets={["klima", "sklima"]}

@@ -1,80 +1,83 @@
-import React, { FC, useEffect, useState } from 'react'
-import { useAppDispatch }                         from '../../state'
-import { AppState, setAppState, } from '../../state/app'
-import * as styles                from './styles'
-import { Text, Spinner, }                               from "@klimadao/lib/components";
-import { Trans }                              from '@lingui/macro';
-import { concatAddress }                      from '@klimadao/lib/utils';
-import CloseIcon                              from "@mui/icons-material/Close";
-import ContentCopyIcon                        from "@mui/icons-material/ContentCopy";
-import Check                                  from "@mui/icons-material/Check";
-import { useSelector }                              from 'react-redux'
-import { selectAppState, } from '../../state/selectors';
-import transakSDK from '@transak/transak-sdk';
+import React, { FC, useEffect, useState } from "react";
+import { useAppDispatch } from "../../state";
+import { AppState, setAppState } from "../../state/app";
+import * as styles from "./styles";
+import { Text, Spinner } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
+import { concatAddress } from "@klimadao/lib/utils";
+import CloseIcon from "@mui/icons-material/Close";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import Check from "@mui/icons-material/Check";
+import { useSelector } from "react-redux";
+import { selectAppState } from "../../state/selectors";
+import transakSDK from "@transak/transak-sdk";
 
 type Props = {
-  address?: string
-}
+  address?: string;
+};
 
 export const BuyModal: FC<Props> = (props) => {
   const dispatch = useAppDispatch();
-  const {buyModalService}: AppState = useSelector(
-    selectAppState
-  );
+  const { buyModalService }: AppState = useSelector(selectAppState);
 
-  const [ isAddressCopied, setIsAddressCopied ] = useState(false);
-  const [ isLoadingMobilumWidget, setIsLoadingMobilumWidget ] = useState(false);
+  const [isAddressCopied, setIsAddressCopied] = useState(false);
+  const [isLoadingMobilumWidget, setIsLoadingMobilumWidget] = useState(false);
 
   useEffect(() => {
     if (buyModalService && buyModalService.length > 0) {
-      if (buyModalService === 'transak') {
+      if (buyModalService === "transak") {
         const transak = new transakSDK({
           apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY,
-          environment: 'PRODUCTION',
-          widgetHeight: '625px',
-          widgetWidth: '500px',
-          defaultCryptoCurrency: 'KLIMA',
+          environment: "PRODUCTION",
+          widgetHeight: "625px",
+          widgetWidth: "500px",
+          defaultCryptoCurrency: "KLIMA",
+          fiatCurrency: "EUR",
           walletAddress: props.address,
-        })
+        });
 
-        transak.init()
+        transak.init();
       }
-      if (buyModalService === 'mobilum') {
+      if (buyModalService === "mobilum") {
         const _getWidget = async (): Promise<void> => {
-          setIsLoadingMobilumWidget(true)
-          const res = await fetch('/api/buy', {
-            method: 'POST',
+          setIsLoadingMobilumWidget(true);
+          const res = await fetch("/api/buy", {
+            method: "POST",
             body: JSON.stringify({
               address: props.address,
-            })
-          })
+            }),
+          });
 
-          const json = await res.json()
+          const json = await res.json();
 
-          const element = document.getElementById('mobilumWidgetContainer');
-          if ( element ) {
-            setIsLoadingMobilumWidget(false)
+          const element = document.getElementById("mobilumWidgetContainer");
+          if (element) {
+            setIsLoadingMobilumWidget(false);
             element.innerHTML = json.html;
-            const script        = document.createElement('script');
-            script.async      = true;
-            script.src        = json.scriptUrl;
+            const script = document.createElement("script");
+            script.async = true;
+            script.src = json.scriptUrl;
             element.appendChild(script);
           }
+        };
 
-        }
-
-        _getWidget()
+        _getWidget();
       }
     }
-  }, [buyModalService])
+  }, [buyModalService]);
 
-  if (!buyModalService || buyModalService.length === 0 || buyModalService === 'transak') return null;
+  if (
+    !buyModalService ||
+    buyModalService.length === 0 ||
+    buyModalService === "transak"
+  )
+    return null;
 
   const handleCopyAddressClick = (): void => {
-    if ( props.address ) {
+    if (props.address) {
       setIsAddressCopied(true);
       navigator.clipboard.writeText(props.address);
-      if ( document.activeElement ) {
+      if (document.activeElement) {
         (document.activeElement as HTMLElement).blur();
       }
       setTimeout(() => {
@@ -84,7 +87,7 @@ export const BuyModal: FC<Props> = (props) => {
   };
 
   const closeModal = function (): void {
-    dispatch(setAppState({buyModalService: null}));
+    dispatch(setAppState({ buyModalService: null }));
   };
 
   return (
@@ -92,12 +95,10 @@ export const BuyModal: FC<Props> = (props) => {
       <div className={styles.card}>
         <div className={styles.card_header}>
           <Text>
-            <Trans id={"buy.modal.headline"}>
-              Buy Klima
-            </Trans>
+            <Trans id={"buy.modal.headline"}>Buy Klima</Trans>
           </Text>
           <button onClick={closeModal} className={styles.closeButton}>
-            <CloseIcon/>
+            <CloseIcon />
           </button>
         </div>
         <div className={styles.card_connected}>
@@ -108,36 +109,29 @@ export const BuyModal: FC<Props> = (props) => {
             className={styles.copyAddress}
             onClick={handleCopyAddressClick}
           >
-            {
-              !isAddressCopied && (
-                <>
-                  <span>{props.address ? concatAddress(props.address) : ''}</span>
-                  <ContentCopyIcon />
-                </>
-              )
-            }
-            {
-              isAddressCopied && (
-                <>
-                  <span>Copied!</span>
-                  <Check />
-                </>
-              )
-            }
+            {!isAddressCopied && (
+              <>
+                <span>{props.address ? concatAddress(props.address) : ""}</span>
+                <ContentCopyIcon />
+              </>
+            )}
+            {isAddressCopied && (
+              <>
+                <span>Copied!</span>
+                <Check />
+              </>
+            )}
           </button>
         </div>
-        {
-          isLoadingMobilumWidget && (
-            <div className={styles.spinner_container}>
-              <Spinner/>
-            </div>
-          )
-        }
+        {isLoadingMobilumWidget && (
+          <div className={styles.spinner_container}>
+            <Spinner />
+          </div>
+        )}
         <div
-          id={'mobilumWidgetContainer'}
+          id={"mobilumWidgetContainer"}
           className={styles.card_iframe_container}
         >
-
           {/*<iframe*/}
           {/*  className={styles.buyCard_iframe}*/}
           {/*  src={"https://klima.mobilum.com/"}*/}
