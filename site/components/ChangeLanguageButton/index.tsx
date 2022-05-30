@@ -36,7 +36,10 @@ export const ChangeLanguageButton: FC = () => {
       {Object.keys(locales).map((localeKey) => (
         <Link
           key={localeKey}
-          href={router.pathname}
+          href={{
+            pathname: router.pathname,
+            query: { ...router.query },
+          }}
           locale={localeKey}
           /** don't want to prefetch all locales */
           prefetch={false}
