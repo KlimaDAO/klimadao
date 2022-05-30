@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-30 15:56+0000\n"
+"POT-Creation-Date: 2022-05-30 17:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -686,39 +686,39 @@ msgstr "Mit CO2-gedeckten KLIMA-Tokens kannst du handeln, Staking-Belohnungen er
 msgid "retirement.footer.buy_klima.title"
 msgstr "Kaufen, staken und belohnt werden."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:60
+#: components/pages/Retirements/SingleRetirement/index.tsx:63
 msgid "retirement.head.metaDescription"
 msgstr "Transparente CO2-Offsets auf der Blockchain durch KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:54
+#: components/pages/Retirements/SingleRetirement/index.tsx:57
 msgid "retirement.head.metaTitle"
 msgstr "{0}"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:50
+#: components/pages/Retirements/SingleRetirement/index.tsx:53
 msgid "retirement.head.title"
 msgstr "KlimaDAO | CO2-Ausgleichsquittung"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:105
+#: components/pages/Retirements/SingleRetirement/index.tsx:108
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Keinen Empfängername angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:99
+#: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "retirement.single.beneficiary.title"
 msgstr "Empfänger"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:113
+#: components/pages/Retirements/SingleRetirement/index.tsx:116
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Empfängeradresse"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:152
+#: components/pages/Retirements/SingleRetirement/index.tsx:155
 msgid "retirement.single.disclaimer"
 msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch tokenisierte CO2-Zertifikate auf der Polygon-Blockchain. Jeder Emissionsausgleich und die damit verbundenen Daten sind unveränderlich und öffentlich einsehbar."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:70
+#: components/pages/Retirements/SingleRetirement/index.tsx:73
 msgid "retirement.single.header.quantity"
 msgstr "{0} t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:75
+#: components/pages/Retirements/SingleRetirement/index.tsx:78
 msgid "retirement.single.header.subline"
 msgstr "CO2-äquivalente Emissionen ausgeglichen (in Tonnen)"
 
@@ -726,15 +726,35 @@ msgstr "CO2-äquivalente Emissionen ausgeglichen (in Tonnen)"
 msgid "retirement.single.message.title"
 msgstr "Ausgleichsnachricht"
 
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+msgid "retirement.single.project_details.moss_headline"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+msgid "retirement.single.project_details.subline"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
+msgid "retirement.single.project_details.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:43
+msgid "retirement.single.project_details.tonnes"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:53
+msgid "retirement.single.project_details.view_on_polygon_scan"
+msgstr "Auf Polygonscan ansehen"
+
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:144
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "... kommt demnächst!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:139
+#: components/pages/Retirements/SingleRetirement/index.tsx:142
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Zertifikat"
 
@@ -742,15 +762,15 @@ msgstr "Zertifikat"
 msgid "retirement.single.retirementDate.title"
 msgstr "Datum"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:84
+#: components/pages/Retirements/SingleRetirement/index.tsx:87
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Keine Ausgleichsnachricht angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:134
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:173
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
