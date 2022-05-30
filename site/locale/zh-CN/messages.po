@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-27 23:03+0000\n"
+"POT-Creation-Date: 2022-05-30 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -488,7 +488,7 @@ msgstr "您对提供私人信息、验证身份和合法性承担全部责任。
 
 #: components/pages/errors/Custom404.tsx:37
 msgid "error.404.page.text"
-msgstr ""
+msgstr "抱歉，好像我们发错了。 <0/>请让我们引导您回到主页："
 
 #: components/pages/errors/Custom404.tsx:34
 msgid "error.404.page.title"
