@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-30 17:53+0000\n"
+"POT-Creation-Date: 2022-05-31 15:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -343,7 +343,7 @@ msgstr "Compensation"
 
 #: components/NavMenu/index.tsx:186
 msgid "menu.stake_klima"
-msgstr "Mettre KLIMA en dépôt"
+msgstr "Déposer KLIMA"
 
 #: components/NavMenu/index.tsx:54
 msgid "menu.wallet_address"
@@ -721,7 +721,7 @@ msgstr "Dépôt"
 #: components/views/Stake/index.tsx:177
 #: components/views/Stake/index.tsx:227
 msgid "stake.stake_klima"
-msgstr "Mettre KLIMA en dépôt"
+msgstr "Déposer KLIMA"
 
 #: components/views/Stake/index.tsx:262
 msgid "stake.unstake"

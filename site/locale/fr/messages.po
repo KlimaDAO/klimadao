@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-30 17:53+0000\n"
+"POT-Creation-Date: 2022-05-31 15:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +30,7 @@ msgstr "Clause de non-responsabilité"
 
 #: components/pages/Blog/index.tsx:19
 msgid "blog.head.description"
-msgstr "Nouvelles et opinions des fondateurs, des contributeurs du DAO, des conseillers et des membres de la communauté."
+msgstr "Nouvelles et opinions des fondateurs, des contributeurs de la DAO, des conseillers et des membres de la communauté."
 
 #: components/pages/Blog/index.tsx:18
 msgid "blog.head.headline"
@@ -225,7 +225,7 @@ msgstr "Logo de Blockchain for Climate Foundation"
 
 #: components/pages/Resources/Community/index.tsx:333
 msgid "community.come_on_in"
-msgstr "Rejoignez-nous"
+msgstr "Entrez donc"
 
 #: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
@@ -354,7 +354,7 @@ msgstr "Pour soumettre un rapport de bogue, rejoignez notre serveur Discord et p
 #. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
 #: components/pages/Resources/Contact/index.tsx:67
 msgid "contact.careers.we_re_hiring"
-msgstr "Notre équipe travaille entièrement en distanciel et nous recrutons dans tous les fuseaux horaires. Nous publions régulièrement des offres et des primes sur le <0>Serveur Discord de notre communité</0> . Si vous entreprenant et motivé et que vous souhaitez rejoindre un DAO à l'objectif clair, nous aimerions vous connaître !"
+msgstr "Nous sommes une équipe entièrement à distance qui embauche sur tous les fuseaux horaires. Nous publions régulièrement des offres d'emploi et des missions sur notre <0>Serveur Discord Communautaire</0>. Si vous êtes une personne autonome et motivée pour rejoindre une DAO déterminée, nous aimerions avoir de vos nouvelles !"
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
@@ -650,7 +650,7 @@ msgstr "<0>{0}% DE RÉCOMPENSES HEBDOMADAIRES</0> <1>POUR LES DÉTENTEURS DE JET
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
 #: components/pages/Home/index.tsx:89
 msgid "home.welcome_to_klimadao"
-msgstr "<0>BIENVENUE À</0> <1>KlimaDAO</1>"
+msgstr "<0>BIENVENUE CHEZ</0> <1>KlimaDAO</1>"
 
 #: components/pages/Home/index.tsx:352
 msgid "invest_in_the_future"
@@ -726,23 +726,23 @@ msgstr "Message de compensation"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
 msgid "retirement.single.project_details.moss_headline"
-msgstr ""
+msgstr "Cliquez ici pour en savoir plus sur les projets derrière les réserves de MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
-msgstr ""
+msgstr "Les projets suivants ont compensé leur empreinte carbone. Cliquez sur le titre du projet désiré pour en savoir plus."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
-msgstr ""
+msgstr "Détails du projet"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:43
 msgid "retirement.single.project_details.tonnes"
-msgstr ""
+msgstr "Tonnes"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:53
 msgid "retirement.single.project_details.view_on_polygon_scan"
-msgstr "Voir sur Polyscan"
+msgstr "Voir sur Polygonscan"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
@@ -770,7 +770,7 @@ msgstr "Compensation carbone non horodatée"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:173
 msgid "retirement.single.view_on_polygon_scan"
-msgstr "Voir sur Polyscan"
+msgstr "Voir sur Polygonscan"
 
 #: components/pages/Retirements/List/index.tsx:45
 msgid "retirement.totals.all_retirements_list.empty"
@@ -903,4 +903,4 @@ msgstr "Ressources"
 #: components/Navigation/index.tsx:49
 #: components/Navigation/index.tsx:74
 msgid "shared.stake"
-msgstr "Dépôt"
+msgstr "Déposer"
