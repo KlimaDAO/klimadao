@@ -75,7 +75,7 @@ const nextConfig = {
     ];
   },
   i18n: {
-    locales: ["en", "fr", "de", "ru", "zh-CN"],
+    locales: ["en", "fr", "de", "ru", "zh-CN", "es"],
     defaultLocale: "en",
     localeDetection: true,
   },
@@ -87,7 +87,7 @@ const nextConfig = {
 if (!IS_PRODUCTION) {
   nextConfig.i18n = {
     ...nextConfig.i18n,
-    locales: [...nextConfig.i18n.locales, "ko", "es", "en-pseudo"],
+    locales: [...nextConfig.i18n.locales, "ko", "en-pseudo"],
   };
 }
 
