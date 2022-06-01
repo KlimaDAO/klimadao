@@ -788,17 +788,9 @@ msgstr "All Retirements"
 msgid "retirement.totals.all_retirements_list.subline"
 msgstr "List of single retirements"
 
-#: components/pages/Retirements/Breakdown/index.tsx:49
-msgid "retirement.totals.breakdown.no_retirement_found"
-msgstr "No retirements found"
-
-#: components/pages/Retirements/Breakdown/index.tsx:34
-msgid "retirement.totals.breakdown_headline"
-msgstr "Breakdown"
-
-#: components/pages/Retirements/Breakdown/index.tsx:37
-msgid "retirement.totals.breakdown_subline"
-msgstr "Tokens used for retirements"
+#: components/pages/Retirements/Breakdown/index.tsx:32
+msgid "retirement.totals.assets_used_headline"
+msgstr "Assets used for retirements"
 
 #: components/pages/Retirements/index.tsx:41
 msgid "retirement.totals.head.metaTitle"

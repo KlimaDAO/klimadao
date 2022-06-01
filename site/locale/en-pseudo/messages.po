@@ -782,17 +782,10 @@ msgstr ""
 msgid "retirement.totals.all_retirements_list.subline"
 msgstr ""
 
-#: components/pages/Retirements/Breakdown/index.tsx:49
-msgid "retirement.totals.breakdown.no_retirement_found"
+#: components/pages/Retirements/Breakdown/index.tsx:32
+msgid "retirement.totals.assets_used_headline"
 msgstr ""
 
-#: components/pages/Retirements/Breakdown/index.tsx:34
-msgid "retirement.totals.breakdown_headline"
-msgstr ""
-
-#: components/pages/Retirements/Breakdown/index.tsx:37
-msgid "retirement.totals.breakdown_subline"
-msgstr ""
 
 #: components/pages/Retirements/index.tsx:41
 msgid "retirement.totals.head.metaTitle"
