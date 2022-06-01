@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { Text, Section } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 
@@ -28,6 +29,7 @@ type Props = {
 
 export const RetirementPage: NextPage<Props> = (props) => {
   const { beneficiaryAddress, totalsAndBalances, klimaRetires } = props;
+  const { locale } = useRouter();
   const concattedAddress = concatAddress(beneficiaryAddress);
 
   return (
@@ -75,7 +77,10 @@ export const RetirementPage: NextPage<Props> = (props) => {
               </Trans>
             </Text>
             <Text t="h2" className="value" align="center">
-              {trimStringDecimals(totalsAndBalances.totalTonnesRetired, 5)} t
+              {Number(
+                trimStringDecimals(totalsAndBalances.totalTonnesRetired, 5)
+              ).toLocaleString(locale)}
+              t
             </Text>
             <Text t="h4" color="lightest" align="center">
               <Trans id="retirement.totals.total_carbon_tonnes">
