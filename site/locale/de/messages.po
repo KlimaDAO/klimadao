@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-05-31 23:30+0000\n"
+"POT-Creation-Date: 2022-06-01 15:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -728,7 +728,7 @@ msgstr "Ausgleichsnachricht"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
 msgid "retirement.single.project_details.moss_headline"
-msgstr ""
+msgstr "Klicke hier, um mehr über die Projekte hinter den MCO2-Pools zu erfahren."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
@@ -736,11 +736,11 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
-msgstr ""
+msgstr "Projektinformationen"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:43
 msgid "retirement.single.project_details.tonnes"
-msgstr ""
+msgstr "Tonnen"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:53
 msgid "retirement.single.project_details.view_on_polygon_scan"
