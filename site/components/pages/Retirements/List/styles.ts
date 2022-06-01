@@ -37,43 +37,6 @@ export const allRetirementsList = css`
   }
 `;
 
-export const allRetirementsListItem1 = css`
-  display: flex;
-  gap: 1.6rem;
-  align-items: center;
-  border-bottom: 0.1rem solid var(--font-03);
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-
-  ${breakpoints.medium} {
-    gap: 4rem;
-  }
-
-  &:hover {
-    opacity: 0.5;
-  }
-
-  &:first-child {
-    padding-top: 0;
-  }
-  &:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .arrow-icon {
-    margin-left: auto;
-    color: var(--klima-green);
-    width: 2.4rem;
-    height: 2.4rem;
-  }
-
-  .label {
-    color: var(--font-03);
-    padding-left: 0.8rem;
-  }
-`;
-
 export const allRetirementsListItem = css`
   display: flex;
   gap: 1.6rem;
