@@ -12,6 +12,7 @@ export { trimStringDecimals } from "./trimStringDecimals";
 export { secondsUntilBlock } from "./secondsUntilBlock";
 export { prettifySeconds } from "./prettifySeconds";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
+export { trimWithLocale } from "./trimWithLocale";
 export { concatAddress } from "./concatAddress";
 export { formatUnits } from "./formatUnits";
 export { useDebounce } from "./useDebounce";
