@@ -69,20 +69,6 @@ export const RetirementPage: NextPage<Props> = (props) => {
         <div className={styles.cards}>
           <div className={styles.card}>
             <Text t="h3" as="h3" align="center" className="headline">
-              <LocalFireDepartmentIcon fontSize="inherit" />
-              <Trans id="retirement.totals.retirements">Retirements</Trans>
-            </Text>
-            <Text t="h2" className="value" align="center">
-              {totalsAndBalances.totalRetirements}
-            </Text>
-            <Text t="h4" color="lightest" align="center">
-              <Trans id="retirement.totals.total_retirement_transactions">
-                Total Retirement Transactions
-              </Trans>
-            </Text>
-          </div>
-          <div className={styles.card}>
-            <Text t="h3" as="h3" align="center" className="headline">
               <ForestOutlinedIcon fontSize="inherit" />
               <Trans id="retirement.totals.retired_assets">
                 Retired Assets
@@ -94,6 +80,20 @@ export const RetirementPage: NextPage<Props> = (props) => {
             <Text t="h4" color="lightest" align="center">
               <Trans id="retirement.totals.total_carbon_tonnes">
                 Total Carbon Tonnes Retired
+              </Trans>
+            </Text>
+          </div>
+          <div className={styles.card}>
+            <Text t="h3" as="h3" align="center" className="headline">
+              <LocalFireDepartmentIcon fontSize="inherit" />
+              <Trans id="retirement.totals.retirements">Retirements</Trans>
+            </Text>
+            <Text t="h2" className="value" align="center">
+              {totalsAndBalances.totalRetirements}
+            </Text>
+            <Text t="h4" color="lightest" align="center">
+              <Trans id="retirement.totals.total_retirement_transactions">
+                Total Retirement Transactions
               </Trans>
             </Text>
           </div>
