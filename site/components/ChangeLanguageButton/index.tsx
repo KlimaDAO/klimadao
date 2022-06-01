@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-import Link from "next/link";
 import Tippy from "@tippyjs/react";
 import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
@@ -15,6 +14,7 @@ import { useRouter } from "next/router";
 export const ChangeLanguageButton: FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const router = useRouter();
+  const { pathname, asPath, query, locale } = router;
 
   const labels: { [key: string]: string } = {
     en: "English",
@@ -34,24 +34,17 @@ export const ChangeLanguageButton: FC = () => {
   const content = (
     <div className={styles.menuItemContainer}>
       {Object.keys(locales).map((localeKey) => (
-        <Link
+        <button
           key={localeKey}
-          href={{
-            pathname: router.pathname,
-            query: { ...router.query },
+          type="button"
+          data-active={locale == localeKey ? "true" : "false"}
+          className={styles.menuItem}
+          onClick={() => {
+            router.push({ pathname, query }, asPath, { locale: localeKey });
           }}
-          locale={localeKey}
-          /** don't want to prefetch all locales */
-          prefetch={false}
-          replace={true}
         >
-          <a
-            data-active={router.locale == localeKey ? "true" : "false"}
-            className={styles.menuItem}
-          >
-            {labels[localeKey as keyof typeof labels]}
-          </a>
-        </Link>
+          {labels[localeKey as keyof typeof labels]}
+        </button>
       ))}
     </div>
   );
