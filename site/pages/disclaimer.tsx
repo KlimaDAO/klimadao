@@ -10,7 +10,6 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
     props: {
       translation,
     },
-    revalidate: 60,
   };
 };
 
