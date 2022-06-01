@@ -39,7 +39,7 @@ export const breakdownList = css`
 
 export const breakdownListItem = css`
   display: flex;
-  gap: 2.4rem;
+  gap: 1.6rem;
   align-items: center;
   border-bottom: 0.1rem solid var(--surface-03);
   padding-bottom: 1.6rem;
@@ -53,7 +53,7 @@ export const breakdownListItem = css`
   }
   .content {
     display: flex;
-    gap: 0.8rem;
+    gap: 0.4rem;
     align-items: center;
   }
 `;

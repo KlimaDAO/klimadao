@@ -47,11 +47,11 @@ msgstr "Blog"
 msgid "blog.head.title"
 msgstr "KlimaDAO Blog"
 
-#: components/pages/Retirements/CopyURLButton/index.tsx:29
+#: components/pages/Retirements/CopyURLButton/index.tsx:17
 msgid "button.copyURL.copied"
 msgstr "Copied"
 
-#: components/pages/Retirements/CopyURLButton/index.tsx:31
+#: components/pages/Retirements/CopyURLButton/index.tsx:19
 msgid "button.copyURL.copy"
 msgstr "Copy URL"
 
@@ -688,39 +688,39 @@ msgstr "Use carbon-backed KLIMA tokens to govern, swap, and earn staking rewards
 msgid "retirement.footer.buy_klima.title"
 msgstr "Acquire, stake, and get rewarded."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:63
+#: components/pages/Retirements/SingleRetirement/index.tsx:67
 msgid "retirement.head.metaDescription"
 msgstr "Transparent, on-chain offsets powered by KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/index.tsx:61
 msgid "retirement.head.metaTitle"
 msgstr "{0} retired {1} Tonnes of carbon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:53
+#: components/pages/Retirements/SingleRetirement/index.tsx:57
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Carbon Retirement Receipt"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:108
+#: components/pages/Retirements/SingleRetirement/index.tsx:112
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No beneficiary name provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:102
+#: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiary"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:116
+#: components/pages/Retirements/SingleRetirement/index.tsx:120
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:155
+#: components/pages/Retirements/SingleRetirement/index.tsx:159
 msgid "retirement.single.disclaimer"
 msgstr "This represents the permanent retirement of tokenized carbon assets on the Polygon blockchain. This retirement and the associated data are immutable public records."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/index.tsx:77
 msgid "retirement.single.header.quantity"
-msgstr "{0} t"
+msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:78
+#: components/pages/Retirements/SingleRetirement/index.tsx:82
 msgid "retirement.single.header.subline"
 msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 
@@ -740,11 +740,11 @@ msgstr "The following projects were retired. Click a project title to learn more
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:43
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:42
 msgid "retirement.single.project_details.tonnes"
 msgstr "Tonnes"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:53
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
 msgid "retirement.single.project_details.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
@@ -752,11 +752,11 @@ msgstr "View on Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "QUANTITY RETIRED"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:147
+#: components/pages/Retirements/SingleRetirement/index.tsx:151
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...coming soon!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:142
+#: components/pages/Retirements/SingleRetirement/index.tsx:146
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 
@@ -764,71 +764,59 @@ msgstr "Certificate"
 msgid "retirement.single.retirementDate.title"
 msgstr "Date"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:87
+#: components/pages/Retirements/SingleRetirement/index.tsx:91
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "No retirement message provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:134
+#: components/pages/Retirements/SingleRetirement/index.tsx:138
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No retirement timestamp provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:173
+#: components/pages/Retirements/SingleRetirement/index.tsx:177
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
-#: components/pages/Retirements/List/index.tsx:45
+#: components/pages/Retirements/List/index.tsx:38
 msgid "retirement.totals.all_retirements_list.empty"
 msgstr "No retirements found"
 
-#: components/pages/Retirements/List/index.tsx:25
+#: components/pages/Retirements/List/index.tsx:23
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr "All Retirements"
 
-#: components/pages/Retirements/List/index.tsx:30
-msgid "retirement.totals.all_retirements_list.subline"
-msgstr "List of single retirements"
+#: components/pages/Retirements/Breakdown/index.tsx:32
+msgid "retirement.totals.assets_used_headline"
+msgstr "Assets used for retirements"
 
-#: components/pages/Retirements/Breakdown/index.tsx:49
-msgid "retirement.totals.breakdown.no_retirement_found"
-msgstr "No retirements found"
-
-#: components/pages/Retirements/Breakdown/index.tsx:34
-msgid "retirement.totals.breakdown_headline"
-msgstr "Breakdown"
-
-#: components/pages/Retirements/Breakdown/index.tsx:37
-msgid "retirement.totals.breakdown_subline"
-msgstr "Tokens used for retirements"
-
-#: components/pages/Retirements/index.tsx:41
+#: components/pages/Retirements/index.tsx:48
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDAO - Carbon Retirements for beneficiary {concattedAddress}"
 
-#: components/pages/Retirements/index.tsx:36
+#: components/pages/Retirements/index.tsx:43
 msgid "retirement.totals.head.title"
 msgstr "KlimaDAO - Carbon Retirements for beneficiary {concattedAddress}"
 
-#: components/pages/Retirements/index.tsx:58
+#: components/pages/Retirements/index.tsx:65
 msgid "retirement.totals.page_headline"
 msgstr "Carbon Retirements"
 
-#: components/pages/Retirements/index.tsx:63
+#: components/pages/Retirements/index.tsx:70
 msgid "retirement.totals.page_subline"
-msgstr "for beneficiary {concattedAddress}"
+msgstr "for beneficiary"
 
-#: components/pages/Retirements/index.tsx:87
+#: components/pages/Retirements/index.tsx:89
 msgid "retirement.totals.retired_assets"
 msgstr "Retired Assets"
 
-#: components/pages/Retirements/index.tsx:73
+#: components/pages/Retirements/index.tsx:105
 msgid "retirement.totals.retirements"
 msgstr "Retirements"
 
-#: components/pages/Retirements/index.tsx:95
+#: components/pages/Retirements/index.tsx:97
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "Total Carbon Tonnes Retired"
 
-#: components/pages/Retirements/index.tsx:79
+#: components/pages/Retirements/index.tsx:111
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total Retirement Transactions"
 
@@ -883,7 +871,7 @@ msgstr "Enter App"
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:46
+#: components/pages/Retirements/index.tsx:53
 #: components/pages/errors/Custom404.tsx:23
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"

@@ -48,7 +48,7 @@ export const footerBuyKlima = css`
 
   grid-column: main;
   padding: 8rem 2.4rem 6rem;
-  border-radius: 1.2rem 1.2rem 0 0;
+  border-radius: 1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;

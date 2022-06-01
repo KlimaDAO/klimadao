@@ -1,26 +1,14 @@
-import { FC, useState, useEffect } from "react";
+import { FC } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
+import { useCopyToClipboard } from "hooks/useCopyToClipboard";
 
 export const CopyURLButton: FC = () => {
-  const [copied, setCopied] = useState(false);
+  const [copied, doCopy] = useCopyToClipboard();
 
-  const handleCopy = async () => {
-    const url = window.location.href;
-    await navigator.clipboard.writeText(url);
-    setCopied(true);
+  const handleCopy = () => {
+    doCopy(window.location.href);
   };
-
-  useEffect(() => {
-    if (copied) {
-      const timer = setTimeout(() => {
-        setCopied(false);
-      }, 3000);
-      return () => {
-        !!timer && clearTimeout(timer);
-      };
-    }
-  }, [copied]);
 
   return (
     <ButtonPrimary

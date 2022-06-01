@@ -9,7 +9,7 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   concatAddress,
   getRetirementTokenByAddress,
-  trimStringDecimals,
+  trimWithLocale,
 } from "@klimadao/lib/utils";
 
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
@@ -40,7 +40,6 @@ export const RetirementItem: FC<Props> = (props) => {
   return (
     <Link href={url} passHref>
       <a className={styles.allRetirementsListItem}>
-        <Text className="number">{retirementNumber}.</Text>
         {tokenData ? (
           <Image
             alt={tokenData.label}
@@ -52,13 +51,15 @@ export const RetirementItem: FC<Props> = (props) => {
           <LeafIcon />
         )}
         <div className="content">
-          <Text>
-            {trimStringDecimals(retirement.amount, 10)}{" "}
-            <span className="label">
+          <div className="amount">
+            <Text>{trimWithLocale(retirement.amount, 5, locale)}</Text>
+            <Text color="lightest">
               {(tokenData && tokenData.label) || concatAddress(retirement.pool)}
-            </span>
+            </Text>
+          </div>
+          <Text color="lightest" className="time">
+            {formattedDate}
           </Text>
-          <Text color="lightest">{formattedDate}</Text>
         </div>
         <ArrowForwardIcon className="arrow-icon" />
       </a>

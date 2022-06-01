@@ -27,13 +27,13 @@ export const allRetirementsHeadline = css`
 
 export const allRetirementsList = css`
   grid-column: main;
-  padding: 1rem;
-  display: grid;
+  padding: 2rem;
   background-color: var(--surface-01);
   border-radius: 1.2rem;
 
   ${breakpoints.medium} {
-    padding: 3rem;
+    margin: 0 auto;
+    max-width: 70%;
   }
 `;
 
@@ -41,13 +41,9 @@ export const allRetirementsListItem = css`
   display: flex;
   gap: 1.6rem;
   align-items: center;
-  border-bottom: 0.1rem solid var(--font-03);
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-
-  ${breakpoints.medium} {
-    gap: 4rem;
-  }
+  border-bottom: 0.1rem solid var(--surface-03);
+  padding-bottom: 1.6rem;
+  padding-top: 1.6rem;
 
   &:hover {
     opacity: 0.5;
@@ -60,20 +56,28 @@ export const allRetirementsListItem = css`
     border-bottom: none;
     padding-bottom: 0;
   }
+  .content {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+
+    ${breakpoints.desktop} {
+      flex-direction: row;
+    }
+  }
+
+  .amount {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
 
   .arrow-icon {
     margin-left: auto;
     color: var(--klima-green);
     width: 2.4rem;
     height: 2.4rem;
-  }
-
-  .number {
-    width: 3.2rem;
-  }
-
-  .label {
-    color: var(--font-03);
-    padding-left: 0.8rem;
   }
 `;
