@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Text } from "@klimadao/lib/components";
 import { useRouter } from "next/router";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
-import { trimStringDecimals } from "@klimadao/lib/utils";
+import { trimWithLocale } from "@klimadao/lib/utils";
 import { allRetirementTokenInfos } from "lib/getTokenInfo";
 
 import { Trans } from "@lingui/macro";
@@ -45,11 +45,7 @@ export const Breakdown: NextPage<Props> = (props) => {
                 alt={`${tkn.label}-icon`}
               />
               <div className="content">
-                <Text>
-                  {Number(trimStringDecimals(tkn.amount, 5)).toLocaleString(
-                    locale
-                  )}
-                </Text>
+                <Text>{trimWithLocale(tkn.amount, 5, locale)}</Text>
                 <Text color="lightest">{tkn.label}</Text>
               </div>
             </div>

@@ -1,10 +1,10 @@
 import { NextPage } from "next";
-
+import { useRouter } from "next/router";
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
-import { concatAddress } from "@klimadao/lib/utils";
+import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -33,12 +33,16 @@ type Props = {
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
   const { beneficiaryAddress, retirement, retirementIndexInfo } = props;
-
+  const { locale } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
+  const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
+    /\.?0+$/,
+    ""
+  ); // remove whitespace 0s from string, e.g. 1.0 => 1
 
   // collect from indexInfo and optional data from subgraph
   const retireData = {
-    amount: retirementIndexInfo.amount.replace(/\.?0+$/, ""), // remove whitespace 0s from string, e.g. 1.0 => 1
+    amount: trimWithLocale(amountWithoutWhiteSpace, 2, locale),
     tokenLabel: tokenData.label,
     tokenIcon: tokenData.icon,
     beneficiaryName: retirementIndexInfo.beneficiaryName,
@@ -72,7 +76,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           overline={retireData.beneficiaryName}
           title={t({
             id: "retirement.single.header.quantity",
-            message: `${retireData.amount} t`,
+            message: `${retireData.amount}t`,
           })}
           subline={
             <Trans id="retirement.single.header.subline">

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useRouter } from "next/router";
 import { Text, ButtonPrimary } from "@klimadao/lib/components";
-import { trimStringDecimals } from "@klimadao/lib/utils";
+import { trimWithLocale } from "@klimadao/lib/utils";
 
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Trans, t } from "@lingui/macro";
@@ -19,8 +19,7 @@ export const ProjectDetail: FC<Props> = (props) => {
   const { locale } = useRouter();
 
   const trimTotalRetired =
-    !!totalRetired &&
-    Number(trimStringDecimals(totalRetired, 6)).toLocaleString(locale);
+    !!totalRetired && trimWithLocale(totalRetired, 2, locale);
 
   return (
     <div className={styles.listItem}>

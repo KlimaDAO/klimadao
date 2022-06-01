@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { Text, Section } from "@klimadao/lib/components";
-import { trimStringDecimals } from "@klimadao/lib/utils";
+import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -77,10 +77,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
               </Trans>
             </Text>
             <Text t="h2" className="value" align="center">
-              {Number(
-                trimStringDecimals(totalsAndBalances.totalTonnesRetired, 5)
-              ).toLocaleString(locale)}
-              t
+              {trimWithLocale(totalsAndBalances.totalTonnesRetired, 2, locale)}t
             </Text>
             <Text t="h4" color="lightest" align="center">
               <Trans id="retirement.totals.total_carbon_tonnes">

@@ -9,7 +9,7 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   concatAddress,
   getRetirementTokenByAddress,
-  trimStringDecimals,
+  trimWithLocale,
 } from "@klimadao/lib/utils";
 
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
@@ -52,11 +52,7 @@ export const RetirementItem: FC<Props> = (props) => {
         )}
         <div className="content">
           <div className="amount">
-            <Text>
-              {Number(trimStringDecimals(retirement.amount, 10)).toLocaleString(
-                locale
-              )}
-            </Text>
+            <Text>{trimWithLocale(retirement.amount, 5, locale)}</Text>
             <Text color="lightest">
               {(tokenData && tokenData.label) || concatAddress(retirement.pool)}
             </Text>
