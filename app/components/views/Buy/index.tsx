@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { providers } from "ethers";
 import { Trans } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
 
-import { Anchor, ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { Anchor, ButtonPrimary, Text } from "@klimadao/lib/components";
 
 import { BalancesCard } from "components/BalancesCard";
 import { ImageCard } from "components/ImageCard";

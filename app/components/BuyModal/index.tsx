@@ -10,7 +10,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import Check from "@mui/icons-material/Check";
 import { useSelector } from "react-redux";
 import { selectAppState } from "../../state/selectors";
-import transakSDK from "@transak/transak-sdk";
+import TransakSDK         from "../../types/transak";
 
 type Props = {
   address?: string;
@@ -26,7 +26,7 @@ export const BuyModal: FC<Props> = (props) => {
   useEffect(() => {
     if (buyModalService && buyModalService.length > 0) {
       if (buyModalService === "transak") {
-        const transak = new transakSDK({
+        const transak = new TransakSDK({
           apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY,
           environment: "PRODUCTION",
           widgetHeight: "625px",
