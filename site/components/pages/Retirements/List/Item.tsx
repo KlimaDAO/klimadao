@@ -40,7 +40,6 @@ export const RetirementItem: FC<Props> = (props) => {
   return (
     <Link href={url} passHref>
       <a className={styles.allRetirementsListItem}>
-        <Text className="number">{retirementNumber}.</Text>
         {tokenData ? (
           <Image
             alt={tokenData.label}
@@ -52,13 +51,19 @@ export const RetirementItem: FC<Props> = (props) => {
           <LeafIcon />
         )}
         <div className="content">
-          <Text>
-            {trimStringDecimals(retirement.amount, 10)}{" "}
-            <span className="label">
+          <div className="amount">
+            <Text>
+              {Number(trimStringDecimals(retirement.amount, 10)).toLocaleString(
+                locale
+              )}
+            </Text>
+            <Text color="lightest">
               {(tokenData && tokenData.label) || concatAddress(retirement.pool)}
-            </span>
+            </Text>
+          </div>
+          <Text color="lightest" className="time">
+            {formattedDate}
           </Text>
-          <Text color="lightest">{formattedDate}</Text>
         </div>
         <ArrowForwardIcon className="arrow-icon" />
       </a>
