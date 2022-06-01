@@ -1,5 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
+import * as typography from "@klimadao/lib/theme/typography";
 
 export const section = css`
   padding-bottom: 0;
@@ -26,6 +27,26 @@ export const pageHeadline = css`
     p {
       max-width: 57rem;
     }
+  }
+`;
+
+export const address = css`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const copyButton = css`
+  ${typography.body1}
+  justify-self: start;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.7;
   }
 `;
 
