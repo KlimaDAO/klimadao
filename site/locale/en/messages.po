@@ -17,7 +17,7 @@ msgstr ""
 msgid "Articles"
 msgstr "Articles"
 
-#: components/ChangeLanguageButton/index.tsx:68
+#: components/ChangeLanguageButton/index.tsx:64
 msgid "Change language"
 msgstr "Change language"
 
