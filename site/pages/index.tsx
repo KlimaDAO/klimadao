@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
       translation,
       weeklyStakingRewards,
     },
-    revalidate: 60,
+    revalidate: 600,
   };
 };
 
