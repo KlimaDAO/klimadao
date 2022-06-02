@@ -25,3 +25,4 @@ export { LogoWithClaim } from "./Logos/LogoWithClaim";
 export { Text } from "./Text";
 export { ThemeToggle } from "./ThemeToggle";
 export { InitializeTheme } from "./InitializeTheme";
+export { Web3ContextProvider } from "./Web3Context";
