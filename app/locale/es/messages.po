@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-01 20:40+0000\n"
+"POT-Creation-Date: 2022-06-02 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,7 +39,7 @@ msgstr "Saldo"
 #. Long sentence
 #: components/views/Bond/index.tsx:490
 msgid "bond.balance.tooltip"
-msgstr "Saldo disponible para bonding"
+msgstr "Saldo disponible para vincular"
 
 #: components/views/Bond/index.tsx:351
 #: components/views/Bond/index.tsx:433
@@ -53,7 +53,7 @@ msgstr "Precio del bono"
 #. Long sentence
 #: components/views/Bond/index.tsx:513
 msgid "bond.bond_price.tooltip"
-msgstr "Cantidad total para bondear 1 dólar completo."
+msgstr "Precio con descuento. Cantidad total de la fianza de 1 KLIMA completo (también se permiten las fianzas fraccionadas)"
 
 #. Bond {0}
 #: components/views/Bond/index.tsx:413
@@ -88,7 +88,7 @@ msgstr "Porcentaje de descuento (o prima si es negativa) sobre KLIMA recibido po
 
 #: components/views/Bond/index.tsx:373
 msgid "bond.inputplaceholder.amount_to_bond"
-msgstr "Cantidad a bondear"
+msgstr "Cantidad a vincular"
 
 #: components/views/Bond/index.tsx:378
 msgid "bond.inputplaceholder.amount_to_redeem"
@@ -349,7 +349,7 @@ msgstr "La dirección de su monedero"
 
 #: components/NavMenu/index.tsx:202
 msgid "menu.wrap_klima"
-msgstr "Desempaquetar sKLIMA"
+msgstr "Empaquetar sKLIMA"
 
 #: components/NotificationModal/index.tsx:26
 msgid "modal.done"
@@ -393,7 +393,7 @@ msgstr "Pagar con"
 
 #: components/views/Offset/index.tsx:477
 msgid "offset.dropdown_retire.label"
-msgstr "Seleccione la ficha de compensación de carbono para retirar"
+msgstr "Seleccione el token de compensación de carbono para retirar"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:53
 msgid "offset.empty"
@@ -406,7 +406,7 @@ msgstr "Ingrese la dirección 0x"
 
 #: components/views/Offset/index.tsx:405
 msgid "offset.go_carbon_neutral"
-msgstr "Sea neutro en carbono retirando el carbono y reclamando el beneficio medioambiental subyacente de la compensación de carbono. Elija retirar<0>Moss Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT), <2>Nature Carbon Tonnes</2> (NCT), <3>Universal Basic Offsets</3> (UBO), or <4>Nature Based Offsets</4> (NBO), con más en breve."
+msgstr "Sea neutro en carbono retirando el carbono y reclamando el beneficio medioambiental subyacente de la compensación de carbono. Elija retirar <0>Moss Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT), <2>Nature Carbon Tonnes</2> (NCT), <3>Universal Basic Offsets</3> (UBO), or <4>Nature Based Offsets</4> (NBO), con más en breve."
 
 #: components/views/Offset/index.tsx:384
 msgid "offset.incompatible"
@@ -482,7 +482,7 @@ msgstr "toneladas de carbono"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:20
 msgid "offset.you_have_retired"
-msgstr "Te has retirado"
+msgstr "Has retirado"
 
 #: components/views/Offset/index.tsx:551
 msgid "offset_cost"
@@ -698,7 +698,7 @@ msgstr "Cantidad para retirar"
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
-msgstr "Aprox. siguiente rebase"
+msgstr "Siguiente rebase aprox."
 
 #: components/RebaseCard/index.tsx:73
 msgid "stake.percent_payout"
@@ -767,7 +767,7 @@ msgstr "Saldo"
 
 #: components/views/Wrap/index.tsx:178
 msgid "wrap.balances_tooltip"
-msgstr "Desempaqueta tus sKLIMA para recibir el KLIMA ajustado al índice"
+msgstr "Empaqueta tus sKLIMA para recibir el KLIMA ajustado al índice"
 
 #: components/views/Wrap/index.tsx:270
 msgid "wrap.index"
@@ -791,7 +791,7 @@ msgstr "Empaquetar"
 
 #: components/views/Wrap/index.tsx:188
 msgid "wrap.wrap_sklima"
-msgstr "Desempaquetar sKLIMA"
+msgstr "Empaquetar sKLIMA"
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:200
