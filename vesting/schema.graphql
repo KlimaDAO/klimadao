@@ -1,5 +1,6 @@
-type Vesting @entity {
+type Lock @entity {
   id: ID!
+  timestamp: BigInt!
   token: String!
   platform: String!
   contractAddress: Bytes!
@@ -10,12 +11,29 @@ type Vesting @entity {
   lockedAmount: BigDecimal!
 }
 
-type AggregatedVestingInfo @entity {
+type Unlock @entity {
   id: ID!
-  platform: String!
+  timestamp: BigInt!
   token: String!
-  maturityDate: String!
-  totalUnlocks: BigInt!
-  totalAmount: BigDecimal!
+  platform: String!
+  contractAddress: Bytes!
+  stakerAddress: Bytes!
+  maturityDate: BigInt!
+  amount: BigDecimal!
 }
 
+type VestingMetric @entity {
+  id: ID!
+  timestamp: BigInt!
+  platform: String!
+  token: String!
+  contractAddress: String!
+  dailyLockCount: BigInt! #Aggregated count of lock events for a particular day and token via platform (eg Token = WSKLIMA; Platform = C3)
+  dailyLockAmount: BigDecimal! #Aggregated locked amount -||-
+  dailyUnlockCount: BigInt! #Aggregated count of unlock events -||-
+  dailyUnlockAmount: BigDecimal! #Aggregated unlocked amount -||-
+  dailyMaturityCount: BigInt! #Aggregated count of lock period endings -||-
+  dailyMaturityAmount: BigDecimal! #Aggregated amount of lock period endings -||-
+  totalAmountLocked: BigDecimal! #Total amount of locked tokens -||-
+  inFuture: Boolean! #Returns if the given metric is for the future date or not
+}

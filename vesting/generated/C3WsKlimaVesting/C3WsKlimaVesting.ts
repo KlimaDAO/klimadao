@@ -310,6 +310,18 @@ export class C3WsKlimaVesting__calcCurCombinedWeightResult {
     map.set("value2", ethereum.Value.fromUnsignedBigInt(this.value2));
     return map;
   }
+
+  getOld_combined_weight(): BigInt {
+    return this.value0;
+  }
+
+  getNew_vec3_multiplier(): BigInt {
+    return this.value1;
+  }
+
+  getNew_combined_weight(): BigInt {
+    return this.value2;
+  }
 }
 
 export class C3WsKlimaVesting__earnedResult {
@@ -326,6 +338,14 @@ export class C3WsKlimaVesting__earnedResult {
     map.set("value0", ethereum.Value.fromUnsignedBigInt(this.value0));
     map.set("value1", ethereum.Value.fromUnsignedBigInt(this.value1));
     return map;
+  }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
   }
 }
 
@@ -344,6 +364,14 @@ export class C3WsKlimaVesting__getRewardResult {
     map.set("value1", ethereum.Value.fromUnsignedBigInt(this.value1));
     return map;
   }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
+  }
 }
 
 export class C3WsKlimaVesting__getRewardForDurationResult {
@@ -360,6 +388,14 @@ export class C3WsKlimaVesting__getRewardForDurationResult {
     map.set("value0", ethereum.Value.fromUnsignedBigInt(this.value0));
     map.set("value1", ethereum.Value.fromUnsignedBigInt(this.value1));
     return map;
+  }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
   }
 }
 
@@ -399,6 +435,14 @@ export class C3WsKlimaVesting__rewardPerTokenResult {
     map.set("value0", ethereum.Value.fromUnsignedBigInt(this.value0));
     map.set("value1", ethereum.Value.fromUnsignedBigInt(this.value1));
     return map;
+  }
+
+  getValue0(): BigInt {
+    return this.value0;
+  }
+
+  getValue1(): BigInt {
+    return this.value1;
   }
 }
 
