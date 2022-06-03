@@ -245,15 +245,20 @@ export const calcBondDetails = (params: {
       params.bond === "klima_usdc_lp" || params.bond === "inverse_usdc"
         ? bondPrice * Math.pow(10, 12) // need to add decimals because this bond returns USDC (6 dec).
         : bondPrice;
-    const bondDiscount =
-      (marketPrice * Math.pow(10, 18) - decimalAdjustedBondPrice) /
+    let bondDiscount 
+    if(params.bond === "inverse_usdc") {
+      bondDiscount = returnOnInterest
+    } else {
+      bondDiscount = (marketPrice * Math.pow(10, 18) - decimalAdjustedBondPrice) /
       decimalAdjustedBondPrice;
+    }
+      
     if (params.bond === "inverse_usdc") {
       console.log("right before the dispatch");
       dispatch(
         setBond({
           bond: params.bond,
-          bondDiscount: bondDiscount * 100,
+          bondDiscount: bondDiscount! * 100,
           bondQuote: "55",
           vestingTerm: 0,
           maxBondPrice: formatUnits(maxBondPrice, 9),
@@ -267,14 +272,14 @@ export const calcBondDetails = (params: {
       dispatch(
         setBond({
           bond: params.bond,
-          bondDiscount: bondDiscount * 100,
+          bondDiscount: bondDiscount! * 100,
           debtRatio: debtRatio / 10000000,
           bondQuote,
           vestingTerm: parseInt(terms.vestingTerm),
           maxBondPrice: formatUnits(maxBondPrice, 9),
           bondPrice: formatUnits(
             bondPrice,
-            params.bond === "klima_usdc_lp" || params.bond === "inverse_usdc"
+            params.bond === "klima_usdc_lp"
               ? 6
               : 18
           ),
