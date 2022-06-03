@@ -46,23 +46,6 @@ import { BondBalancesCard } from "components/BondBalancesCard";
 import { Image } from "components/Image";
 import { ImageCard } from "components/ImageCard";
 
-export function prettyVestingPeriod(
-  locale = "en",
-  currentBlock: number,
-  vestingBlock: number,
-  blockRate: number
-) {
-  if (vestingBlock === 0) {
-    return "";
-  }
-
-  const seconds = secondsUntilBlock(currentBlock, vestingBlock, blockRate);
-  if (seconds < 0) {
-    return "Fully Vested";
-  }
-  return prettifySeconds(seconds, locale);
-}
-
 interface DataRowProps {
   unit: string;
   label: string;
@@ -101,14 +84,14 @@ interface ButtonProps {
 }
 
 interface Props {
-  provider?: providers.JsonRpcProvider;
+  provider: providers.JsonRpcProvider;
   address?: string;
-  bond: BondType;
+  inverseBond: BondType;
   isConnected?: boolean;
   loadWeb3Modal: () => void;
 }
 
-export const Bond: FC<Props> = (props) => {
+export const InverseBond: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
   const bondInfo = useBond(props.bond);
 
@@ -143,23 +126,6 @@ export const Bond: FC<Props> = (props) => {
       status === "networkConfirmation" ||
       isLoading);
 
-  const vestingPeriod = () => {
-    if (!bondState || !currentBlock || !bondState.vestingTerm) return;
-    const vestingBlock = currentBlock + bondState.vestingTerm;
-    const seconds = secondsUntilBlock(currentBlock, vestingBlock, blockRate);
-    return prettifySeconds(seconds, locale);
-  };
-
-  const vestingTime = () => {
-    if (!currentBlock || !bondState?.bondMaturationBlock) return;
-    return prettyVestingPeriod(
-      locale,
-      currentBlock,
-      bondState.bondMaturationBlock,
-      blockRate
-    );
-  };
-
   const getBondMax = (): string => {
     if (
       !bondState?.maxBondPrice ||
@@ -186,136 +152,88 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
-  useEffect(() => {
-    async function loadBondDetails() {
-      if (props.provider) {
-        dispatch(
-          calcBondDetails({
-            bond: props.bond,
-            value: debouncedQuantity,
-          })
-        );
-      }
-      if (props.provider && props.address && props.bond !== "inverse_usdc") {
-        dispatch(
-          calculateUserBondDetails({
-            address: props.address,
-            bond: props.bond,
-            provider: props.provider,
-          })
-        );
-      }
-    }
-    loadBondDetails();
-  }, [debouncedQuantity, props.address]);
+  // useEffect(() => {
+  //   async function loadBondDetails() {
+  //     if (props.provider) {
+  //       dispatch(
+  //         calcBondDetails({
+  //           bond: props.bond,
+  //           value: debouncedQuantity,
+  //           provider: props.provider,
+  //         })
+  //       );
+  //     }
+  //     if (props.provider && props.address) {
+  //       dispatch(
+  //         calculateUserBondDetails({
+  //           address: props.address,
+  //           bond: props.bond,
+  //           provider: props.provider,
+  //         })
+  //       );
+  //     }
+  //   }
+  //   loadBondDetails();
+  // }, [debouncedQuantity, props.address]);
 
-  const handleAllowance = async () => {
-    try {
-      if (!props.provider) return;
-      setStatus(null);
-      const value = await changeApprovalTransaction({
-        provider: props.provider,
-        bond: props.bond,
-        onStatus: setStatus,
-      });
-      dispatch(setBondAllowance({ [props.bond]: value }));
-    } catch (e) {
-      return;
-    }
-  };
+  // const handleAllowance = async () => {
+  //   try {
+  //     setStatus(null);
+  //     const value = await changeApprovalTransaction({
+  //       provider: props.provider,
+  //       bond: props.bond,
+  //       onStatus: setStatus,
+  //     });
+  //     dispatch(setBondAllowance({ [props.bond]: value }));
+  //   } catch (e) {
+  //     return;
+  //   }
+  // };
 
-  const handleAutostakeCheck = (): void => setShouldAutostake(!shouldAutostake);
-
-  const handleBond = async () => {
-    if (!props.provider) return;
-    if (props.bond === "inverse_usdc") {
-      try {
-        if (!props.address) {
-          return;
-        }
-        await bondTransaction({
-          value: quantity,
-          // idk about the slippage
-          slippage: 2,
-          bond: props.bond,
-          provider: props.provider,
-          address: props.address,
-          onStatus: setStatus,
-        });
-        setQuantity("");
-      } catch (error: any) {
-        console.log(error);
-        return;
-      }
-    } else {
-      try {
-        if (
-          !props.address ||
-          !bondState ||
-          !bondState.balance ||
-          !bondState.bondQuote ||
-          !bondState.interestDue ||
-          !bondState.maxBondPrice
-        ) {
-          return;
-        }
-        if (
-          Number(bondState?.interestDue) > 0 ||
-          Number(bondState?.pendingPayout) > 0
-        ) {
-          const didConfirm = window.confirm(
-            "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?"
-          );
-          if (!didConfirm) {
-            return; // early exit
-          }
-        }
-        await bondTransaction({
-          value: quantity,
-          slippage: 2,
-          bond: props.bond,
-          provider: props.provider,
-          address: props.address,
-          onStatus: setStatus,
-        });
-        setQuantity("");
-        dispatch(
-          setBond({
-            bond: props.bond,
-            balance: safeSub(bondState.balance, bondState.bondQuote),
-            interestDue: safeAdd(bondState.interestDue, bondState.bondQuote),
-            maxBondPrice: safeSub(bondState.maxBondPrice, bondState.bondQuote),
-          })
-        );
-      } catch (error) {
-        return;
-      }
-    }
-  };
-
-  const handleRedeem = async () => {
-    try {
-      if (!bondState?.pendingPayout || !props.address || !props.provider)
-        return;
-      setQuantity("");
-      await redeemTransaction({
-        address: props.address,
-        bond: props.bond,
-        provider: props.provider,
-        onStatus: setStatus,
-        shouldAutostake,
-      });
-      dispatch(
-        redeemBond({
-          bond: props.bond,
-          value: bondState.pendingPayout,
-          autostake: shouldAutostake,
-        })
-      );
-    } catch (e) {
-      return;
-    }
-  };
+  // const handleBond = async () => {
+  //   try {
+  //     if (
+  //       !props.address ||
+  //       !bondState ||
+  //       !bondState.balance ||
+  //       !bondState.bondQuote ||
+  //       !bondState.interestDue ||
+  //       !bondState.maxBondPrice
+  //     ) {
+  //       return;
+  //     }
+  //     if (
+  //       Number(bondState?.interestDue) > 0 ||
+  //       Number(bondState?.pendingPayout) > 0
+  //     ) {
+  //       const didConfirm = window.confirm(
+  //         "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?"
+  //       );
+  //       if (!didConfirm) {
+  //         return; // early exit
+  //       }
+  //     }
+  //     await bondTransaction({
+  //       value: quantity,
+  //       slippage: 2,
+  //       bond: props.bond,
+  //       provider: props.provider,
+  //       address: props.address,
+  //       onStatus: setStatus,
+  //     });
+  //     setQuantity("");
+  //     dispatch(
+  //       setBond({
+  //         bond: props.bond,
+  //         balance: safeSub(bondState.balance, bondState.bondQuote),
+  //         interestDue: safeAdd(bondState.interestDue, bondState.bondQuote),
+  //         maxBondPrice: safeSub(bondState.maxBondPrice, bondState.bondQuote),
+  //       })
+  //     );
+  //   } catch (error) {
+  //     return;
+  //   }
+  // };
 
   const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
 
@@ -347,12 +265,6 @@ export const Bond: FC<Props> = (props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (view === "redeem" && !Number(bondState?.pendingPayout)) {
-      return {
-        label: <Trans id="bond.not_redeemable">Not Redeemable</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
     } else if (
       status === "userConfirmation" ||
       status === "networkConfirmation"
@@ -375,12 +287,6 @@ export const Bond: FC<Props> = (props) => {
         onClick: handleBond,
         disabled: !value || !bondMax || Number(value) > Number(bondMax),
       };
-    } else if (view === "redeem") {
-      return {
-        label: <Trans id="bond.redeem">Redeem</Trans>,
-        onClick: handleRedeem,
-        disabled: !Number(bondState?.pendingPayout),
-      };
     } else {
       // No trans_id tag for Error in stake
       return {
@@ -397,11 +303,6 @@ export const Bond: FC<Props> = (props) => {
         id: "bond.inputplaceholder.amount_to_bond",
         message: "Amount to bond",
       });
-    } else if (view === "redeem") {
-      return t({
-        id: "bond.inputplaceholder.amount_to_redeem",
-        message: "Amount to redeem",
-      });
     } else {
       return t({ id: "shared.error", message: "ERROR" });
     }
@@ -412,7 +313,7 @@ export const Bond: FC<Props> = (props) => {
 
   return (
     <>
-      {props.bond !== "inverse_usdc" && <BondBalancesCard bond={props.bond} />}
+      <BondBalancesCard bond={props.bond} />
       <div className={styles.bondCard}>
         <div className={styles.bondCard_header}>
           <Link to="/bonds" className={styles.backButton}>
@@ -444,30 +345,28 @@ export const Bond: FC<Props> = (props) => {
         </div>
         <div className={styles.bondCard_ui}>
           <div className={styles.inputsContainer}>
-            {props.bond !== "inverse_usdc" && (
-              <div className={styles.stakeSwitch}>
-                <button
-                  className={styles.switchButton}
-                  type="button"
-                  onClick={() => {
-                    setView("bond");
-                  }}
-                  data-active={view === "bond"}
-                >
-                  <Trans id="bond.bond">Bond</Trans>
-                </button>
-                <button
-                  className={styles.switchButton}
-                  type="button"
-                  onClick={() => {
-                    setView("redeem");
-                  }}
-                  data-active={view === "redeem"}
-                >
-                  <Trans id="bond.redeem">Redeem</Trans>
-                </button>
-              </div>
-            )}
+            <div className={styles.stakeSwitch}>
+              <button
+                className={styles.switchButton}
+                type="button"
+                onClick={() => {
+                  setView("bond");
+                }}
+                data-active={view === "bond"}
+              >
+                <Trans id="bond.bond">Bond</Trans>
+              </button>
+              <button
+                className={styles.switchButton}
+                type="button"
+                onClick={() => {
+                  setView("redeem");
+                }}
+                data-active={view === "redeem"}
+              >
+                <Trans id="bond.redeem">Redeem</Trans>
+              </button>
+            </div>
             <div className={styles.stakeInput}>
               <input
                 className={styles.stakeInput_input}
@@ -814,7 +713,7 @@ export const Bond: FC<Props> = (props) => {
   );
 };
 
-export default Bond;
+export default InverseBond;
 
 const WithPlaceholder: FC<{
   condition: boolean;

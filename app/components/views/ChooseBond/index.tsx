@@ -12,6 +12,8 @@ import * as styles from "./styles";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { Image } from "components/Image";
 
+// put inverse into bonds array and add to useBond
+
 export const useBond = (bond: Bond) => {
   const bondState = useSelector((state: RootState) => {
     return state.bonds[bond];
@@ -29,6 +31,7 @@ export const useBond = (bond: Bond) => {
     klima_mco2_lp: false,
     ubo: false,
     nbo: false,
+    inverse_usdc: false,
   };
   let disabled = disabledBonds[bond];
   if (bondPrice && bondFee && parseFloat(bondPrice) < 1 + bondFee) {
@@ -48,6 +51,7 @@ export const useBond = (bond: Bond) => {
       klima_usdc_lp: "/icons/KLIMA-USDC-LP.png",
       bct_usdc_lp: "/icons/BCT-USDC-LP.png",
       klima_mco2_lp: "/icons/KLIMA-MCO2-LP.png",
+      inverse_usdc: "/icons/KLIMA-USDC-LP.png",
       // future bond names go here
     }[bond],
     name: {
@@ -59,6 +63,7 @@ export const useBond = (bond: Bond) => {
       klima_bct_lp: "KLIMA/BCT LP",
       bct_usdc_lp: "BCT/USDC LP",
       klima_mco2_lp: "KLIMA/MCO2 LP",
+      inverse_usdc: "INVERSE USDC",
       // future bond names go here
     }[bond],
     description: {
@@ -94,6 +99,10 @@ export const useBond = (bond: Bond) => {
         id: "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity",
         message: "KLIMA/MCO2 Quickswap Liquidity",
       }),
+      inverse_usdc: t({
+        id: "choose_bond.inverse_usdc",
+        message: "INVERSE USDC",
+      }),
       // future bond descriptions go here
     }[bond],
     href: {
@@ -105,6 +114,7 @@ export const useBond = (bond: Bond) => {
       klima_bct_lp: "/bonds/klima_bct_lp",
       bct_usdc_lp: "/bonds/bct_usdc_lp",
       klima_mco2_lp: "/bonds/klima_mco2_lp",
+      inverse_usdc: "/bonds/inverse_usdc",
       // future bond hrefs go here
     }[bond],
     balanceUnit: {
@@ -116,6 +126,7 @@ export const useBond = (bond: Bond) => {
       klima_bct_lp: "SLP",
       bct_usdc_lp: "SLP",
       klima_mco2_lp: "LP",
+      inverse_usdc: "USDC",
     }[bond],
     priceUnit: {
       ubo: "UBO",
@@ -126,6 +137,18 @@ export const useBond = (bond: Bond) => {
       klima_bct_lp: "BCT",
       bct_usdc_lp: "BCT",
       klima_mco2_lp: "MCO2",
+      inverse_usdc: "KLIMA",
+    }[bond],
+    isInverse: {
+      ubo: false,
+      nbo: false,
+      mco2: false,
+      bct: false,
+      klima_usdc_lp: false,
+      klima_bct_lp: false,
+      bct_usdc_lp: false,
+      klima_mco2_lp: false,
+      inverse_usdc: true,
     }[bond],
   };
 };
@@ -140,6 +163,7 @@ export function ChooseBond() {
   const mco2 = useBond("mco2");
   const klimaUsdcLp = useBond("klima_usdc_lp");
   const klimaMco2Lp = useBond("klima_mco2_lp");
+  const inverse_usdc = useBond("inverse_usdc");
 
   const { treasuryBalance } = useSelector(selectAppState);
 
@@ -152,8 +176,8 @@ export function ChooseBond() {
     klimaUsdcLp,
     klimaBctLp,
     bctUsdcLp,
+    inverse_usdc,
   ];
-
   return (
     <>
       <div className={styles.chooseBondCard}>
@@ -193,7 +217,6 @@ export function ChooseBond() {
                 <Trans id="choose_bond.percent_discount">% Discount</Trans>
               </Text>
             </div>
-
             {bonds.map((bond) => (
               <Link to={bond.href} key={bond.href}>
                 <div className={styles.bondLink} key={bond.name}>

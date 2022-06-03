@@ -1,6 +1,7 @@
 import { ContractInterface, ethers, providers } from "ethers";
 import { Thunk } from "state";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
+import KlimaProV2 from "@klimadao/lib/abi/KlimaProV2.json";
 import { addresses } from "@klimadao/lib/constants";
 import { OnStatusHandler } from "./utils";
 
@@ -31,30 +32,5 @@ export const changeApprovalTransaction = async (params: {
     }
     params.onStatus("error");
     throw error;
-  }
-};
-
-export const getInverseBondDetails = async (params: any) => {
-  try {
-    // call the klima pro contract to get bond details
-    // from olympus
-    // const transaction = await OP_BOND_DEPOSITORY_CONTRACT.getEthersContract(networks.MAINNET)
-    // .connect(signer)
-    // .deposit(
-    //   bond.id,
-    //   [parsedAmount.toBigNumber(), minAmountOut.toBigNumber(bond.baseToken.decimals)],
-    //   [recipientAddress, referrer],
-    // );
-    // return transaction.wait();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const inverseBondTransaction = async (params: any) => {
-  try {
-    // call the deposit method
-  } catch (error) {
-    console.log(error);
   }
 };
