@@ -12,9 +12,6 @@ import { setAppState } from "state/app";
 
 import * as styles from "./styles";
 
-/**
- * Temporary demo component until we have one from design
- */
 export const ChangeLanguageButton: FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { locale } = useSelector(selectAppState);
