@@ -4,79 +4,53 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import WalletLink from "walletlink";
 import Torus from "@toruslabs/torus-embed";
-import { urls } from "../../constants";
 
+import { urls } from "../../constants";
 import {
   web3InitialState,
-  Web3ProviderState,
-} from "../../components/Web3Context";
+  ConnectedWeb3State,
+  Web3ModalState,
+  Web3State,
+  Web3Action,
+  Web3ModalStrings,
+} from "../../components/Web3Context/types";
 
-type Web3Action =
-  | {
-      type: "SET_WEB3_PROVIDER";
-      provider: Web3ProviderState["provider"];
-      web3Provider: Web3ProviderState["web3Provider"];
-      signer: Web3ProviderState["signer"];
-      address: Web3ProviderState["address"];
-      network: Web3ProviderState["network"];
-      isConnected: Web3ProviderState["isConnected"];
-    }
-  | {
-      type: "SET_ADDRESS";
-      address: Web3ProviderState["address"];
-    }
-  | {
-      type: "SET_NETWORK";
-      network: Web3ProviderState["network"];
-    }
-  | {
-      type: "RESET_WEB3_PROVIDER";
-    };
-
-function web3Reducer(
-  state: Web3ProviderState,
-  action: Web3Action
-): Web3ProviderState {
+const web3Reducer = (state: Web3State, action: Web3Action): Web3State => {
   switch (action.type) {
-    case "SET_WEB3_PROVIDER":
+    case "CONNECT":
       return {
         ...state,
-        provider: action.provider,
-        web3Provider: action.web3Provider,
-        signer: action.signer,
-        address: action.address,
-        network: action.network,
-        isConnected: action.isConnected,
+        ...action.payload,
       };
+    case "DISCONNECT":
+      return web3InitialState;
     case "SET_ADDRESS":
+      if (!state.isConnected) return web3InitialState; // type-guard
       return {
         ...state,
-        address: action.address,
+        address: action.payload,
       };
     case "SET_NETWORK":
+      if (!state.isConnected) return web3InitialState; // type-guard
       return {
         ...state,
-        network: action.network,
+        network: action.payload,
       };
-    case "RESET_WEB3_PROVIDER":
-      return web3InitialState;
     default:
       throw new Error();
   }
-}
-
-export interface Web3ModalStrings {
-  walletconnect_desc: string;
-  coinbase_desc: string;
-  injected_desc: string;
-  torus_name: string;
-  torus_desc: string;
-}
+};
 
 /** NOTE: only invoke client-side */
-const createWeb3Modal = (strings: Web3ModalStrings) => {
-  if (typeof window === "undefined") return;
-  return new Web3Modal({
+const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
+  // BUG: Something about our @klimadao/lib transpilation does not properly export the Web3Modal library.
+  // Probably because it doesn't use babel, only typescript.
+  // Babel automatically adds a default export for interoperability reasons, which is why this isn't a problem in /site and /app (nextjs uses babel)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const untypedImport = Web3Modal as any;
+  const TypedWeb3Modal = untypedImport.default as typeof Web3Modal;
+
+  return new TypedWeb3Modal({
     cacheProvider: true,
     providerOptions: {
       walletconnect: {
@@ -151,42 +125,37 @@ const useLocalizedModal = (
 };
 
 /** React Hook to create and manage the web3Modal lifecycle */
-export const useWeb3Modal = (strings: Web3ModalStrings) => {
-  const [state, dispatch] = useReducer(web3Reducer, web3InitialState);
+export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
+  const [web3state, dispatch] = useReducer(web3Reducer, web3InitialState);
   const web3Modal = useLocalizedModal(strings);
-  const { provider, web3Provider, signer, address, network, isConnected } =
-    state;
-
-  const connect = async () => {
-    if (!web3Modal) return;
-    const provider = await web3Modal.connect();
-    const web3Provider = new ethers.providers.Web3Provider(provider);
-    const signer = web3Provider.getSigner();
-    const address = await signer.getAddress();
-    const network = await web3Provider.getNetwork();
-    const isConnected = Boolean(address);
-    dispatch({
-      type: "SET_WEB3_PROVIDER",
-      provider,
-      web3Provider,
-      signer,
-      address,
-      network,
-      isConnected,
-    } as Web3Action);
-  };
 
   const disconnect = async () => {
     if (web3Modal) {
       web3Modal.clearCachedProvider();
-      if (provider?.disconnect && typeof provider.disconnect === "function") {
-        await provider.disconnect();
-      }
-
-      dispatch({ type: "RESET_WEB3_PROVIDER" } as Web3Action);
+      dispatch({ type: "DISCONNECT" });
     } else {
       console.error("No Web3Modal");
     }
+  };
+
+  const connect = async () => {
+    if (!web3Modal) return;
+    const wrappedProvider = await web3Modal.connect();
+    const provider = new ethers.providers.Web3Provider(wrappedProvider);
+    const signer = provider.getSigner();
+    const address = await signer.getAddress();
+    const network = await provider.getNetwork();
+    const payload: ConnectedWeb3State = {
+      provider,
+      signer,
+      address,
+      network,
+      isConnected: true,
+    };
+    dispatch({
+      type: "CONNECT",
+      payload,
+    });
   };
 
   // Auto connect to the cached provider
@@ -199,12 +168,12 @@ export const useWeb3Modal = (strings: Web3ModalStrings) => {
 
   // EIP-1193 events
   useEffect(() => {
-    if (provider?.on) {
+    if (web3state.provider?.on) {
       const handleAccountsChanged = (accounts: string[]) => {
         dispatch({
           type: "SET_ADDRESS",
-          address: accounts[0],
-        } as Web3Action);
+          payload: accounts[0],
+        });
       };
 
       // https://docs.ethers.io/v5/concepts/best-practices/#best-practices--network-changes
@@ -220,29 +189,27 @@ export const useWeb3Modal = (strings: Web3ModalStrings) => {
 
       const handleDisconnect = () => disconnect();
 
-      provider.on("accountsChanged", handleAccountsChanged);
-      provider.on("chainChanged", handleChainChanged);
-      provider.on("disconnect", handleDisconnect);
+      web3state.provider.on("accountsChanged", handleAccountsChanged);
+      web3state.provider.on("chainChanged", handleChainChanged);
+      web3state.provider.on("disconnect", handleDisconnect);
 
       // Subscription Cleanup
       return () => {
-        if (provider.removeListener) {
-          provider.removeListener("accountsChanged", handleAccountsChanged);
-          provider.removeListener("chainChanged", handleChainChanged);
-          provider.removeListener("disconnect", handleDisconnect);
+        if (web3state.provider.removeListener) {
+          web3state.provider.removeListener(
+            "accountsChanged",
+            handleAccountsChanged
+          );
+          web3state.provider.removeListener("chainChanged", handleChainChanged);
+          web3state.provider.removeListener("disconnect", handleDisconnect);
         }
       };
     }
-  }, [provider]);
+  }, [web3state.provider]);
 
   return {
-    provider,
-    web3Provider,
-    signer,
-    address,
-    network,
-    isConnected,
+    ...web3state,
     connect,
     disconnect,
-  } as Web3ProviderState;
+  };
 };

@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { ethers } from "ethers";
 
 import { Thunk } from "state";
 import { setAppState } from "state/app";
@@ -7,34 +7,33 @@ import {
   getEstimatedDailyRebases,
   getTreasuryBalance,
   fetchBlockRate,
+  getJsonRpcProvider,
 } from "@klimadao/lib/utils";
 import { addresses } from "@klimadao/lib/constants";
 import DistributorContractv4 from "@klimadao/lib/abi/DistributorContractv4.json";
 import SKlima from "@klimadao/lib/abi/sKlima.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
-export const loadAppDetails = (params: {
-  provider: providers.JsonRpcProvider;
-  onRPCError: () => void;
-}): Thunk => {
+export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
   return async (dispatch) => {
+    const provider = getJsonRpcProvider();
     try {
-      const currentBlock = await params.provider.getBlockNumber();
+      const currentBlock = await provider.getBlockNumber();
 
       const distributorContract = new ethers.Contract(
         addresses["mainnet"].distributor,
         DistributorContractv4.abi,
-        params.provider
+        provider
       );
       const sKlimaContract = new ethers.Contract(
         addresses["mainnet"].sklima,
         IERC20.abi,
-        params.provider
+        provider
       );
       const sKlimaMainContract = new ethers.Contract(
         addresses["mainnet"].sklima,
         SKlima.abi,
-        params.provider
+        provider
       );
 
       const promises = [

@@ -6,7 +6,7 @@ import { providers } from "ethers";
 import { Trans } from "@lingui/macro";
 
 interface Props {
-  provider: providers.JsonRpcProvider;
+  provider?: providers.JsonRpcProvider;
 }
 
 export const InvalidNetworkModal: FC<Props> = ({ provider }) => {

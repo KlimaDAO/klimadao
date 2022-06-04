@@ -1,12 +1,7 @@
-import { ethers, providers } from "ethers";
-import { FC, useRef, useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import { Route, useLocation } from "react-router-dom";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import WalletLink from "walletlink";
-import Torus from "@toruslabs/torus-embed";
-import Web3Modal from "web3modal";
 import { useAppDispatch } from "state";
-import { bonds, urls } from "@klimadao/lib/constants";
+import { bonds } from "@klimadao/lib/constants";
 import { useSelector } from "react-redux";
 import { Global, css } from "@emotion/react";
 
@@ -38,143 +33,23 @@ import { NavMenu } from "components/NavMenu";
 import Menu from "@mui/icons-material/Menu";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { Buy } from "../Buy";
-
-// Taken from https://mui.com/material-ui/material-icons/?query=email&selected=MailOutline
-const emailIconDataUri =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-10cscxr' focusable='false' aria-hidden='true' viewBox='0 0 24 24' data-testid='MailOutlineIcon'%3E%3Cpath stroke-width='.1' stroke='%23999999' fill='%23999999' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z'%3E%3C/path%3E%3C/svg%3E";
-
-type EIP1139Provider = ethers.providers.ExternalProvider & {
-  on: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
-  remove: (e: "accountsChanged" | "chainChanged", cb: () => void) => void;
-};
-
-/** wrap in useEffect to skip on server-side render */
-const useWeb3Modal = () => {
-  const ref = useRef<Web3Modal>();
-  useEffect(() => {
-    const modal = new Web3Modal({
-      cacheProvider: true, // optional
-      providerOptions: {
-        walletconnect: {
-          package: WalletConnectProvider, // required
-          options: {
-            rpc: { 137: urls.polygonMainnetRpc },
-          },
-        },
-        walletlink: {
-          package: WalletLink,
-          options: {
-            appName: "Official KlimaDAO App",
-            rpc: urls.polygonMainnetRpc,
-            chainId: 137, // Optional. It defaults to 1 if not provided
-            appLogoUrl: null, // Optional. Application logo image URL. favicon is used if unspecified
-            darkMode: false, // Optional. Use dark theme, defaults to false
-          },
-        },
-        torus: {
-          package: Torus,
-          options: {
-            networkParams: {
-              host: "matic", // optional
-            },
-          },
-          display: {
-            name: "Email or Social",
-            description:
-              "Torus provides easy one-click email or social wallets",
-            logo: emailIconDataUri,
-          },
-        },
-      },
-    });
-    ref.current = modal;
-  }, []);
-  return ref.current;
-};
-
-const useProvider = (): [
-  ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider,
-  string | undefined,
-  Web3Modal | undefined,
-  () => Promise<void>
-] => {
-  const fallbackProvider = useRef<ethers.providers.JsonRpcProvider>();
-  const web3Modal = useWeb3Modal();
-  const [provider, setProvider] = useState<ethers.providers.Web3Provider>();
-  const [address, setAddress] = useState<string>();
-
-  const loadWeb3Modal = async () => {
-    try {
-      const modalProvider = await web3Modal?.connect();
-      if (modalProvider) {
-        const provider = new ethers.providers.Web3Provider(modalProvider);
-        const address = await provider.getSigner().getAddress();
-        setProvider(provider);
-        setAddress(address);
-      }
-    } catch (e) {
-      // handle bug where old cached providers cause the modal to keep reappearing
-      web3Modal?.clearCachedProvider();
-    }
-  };
-
-  useEffect(() => {
-    if (web3Modal?.cachedProvider) {
-      loadWeb3Modal();
-    }
-  }, [web3Modal]);
-
-  useEffect(() => {
-    const handleChainChanged = () => {
-      window.location.reload();
-    };
-    const handleAccountsChanged = () => {
-      window.location.reload();
-    };
-    if (provider && provider.provider) {
-      const typedProvider = provider.provider as EIP1139Provider;
-      // EIP-1193 Providers (metamask) have these methods
-      typedProvider.on("chainChanged", handleChainChanged);
-      typedProvider.on("accountsChanged", handleAccountsChanged);
-    }
-    return () => {
-      const typedProvider = provider?.provider as EIP1139Provider;
-      if (typedProvider && typedProvider.remove) {
-        typedProvider.remove("accountsChanged", handleAccountsChanged);
-        typedProvider.remove("chainChanged", handleChainChanged);
-      }
-    };
-  }, [provider]);
-
-  if (!provider && !fallbackProvider.current) {
-    fallbackProvider.current = new ethers.providers.JsonRpcProvider(
-      urls.polygonMainnetRpc
-    );
-    return [fallbackProvider.current, "", web3Modal, loadWeb3Modal];
-  }
-  return [
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    provider || fallbackProvider.current!,
-    address,
-    web3Modal,
-    loadWeb3Modal,
-  ];
-};
+import { useWeb3 } from "@klimadao/lib/components";
 
 export const Home: FC = () => {
   const dispatch = useAppDispatch();
   const [chainId, setChainId] = useState<number>();
   const [showRPCModal, setShowRPCModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
   const localeFromURL = useLocaleFromParams();
 
   const { pathname } = useLocation();
   const [showCheckURLBanner, setShowCheckURLBanner] = useState(
     !skipCheckURLBanner()
   );
-  const [provider, address, web3Modal, loadWeb3Modal] = useProvider();
+
   const { locale } = useSelector(selectAppState);
+
+  const web3 = useWeb3();
 
   useEffect(() => {
     if (locale === undefined) {
@@ -195,19 +70,19 @@ export const Home: FC = () => {
   };
 
   const loadNetworkInfo = async () => {
-    const networkInfo = await provider.getNetwork();
-    if (chainId !== networkInfo.chainId) {
-      setChainId(networkInfo.chainId);
+    if (web3.network && chainId !== web3.network.chainId) {
+      setChainId(web3.network.chainId);
       // if network is invalid, modal will ask for network change -> page will reload
     }
   };
 
-  const loadUserInfo = async (addr: string) => {
+  const loadUserInfo = async () => {
+    if (!web3.isConnected) return; // type-guard
     try {
       dispatch(
         loadAccountDetails({
-          address: addr,
-          provider,
+          address: web3.address,
+          provider: web3.provider,
           onRPCError: handleRPCError,
         })
       );
@@ -219,7 +94,6 @@ export const Home: FC = () => {
   const initApp = async () => {
     dispatch(
       loadAppDetails({
-        provider,
         onRPCError: handleRPCError,
       })
     );
@@ -227,7 +101,6 @@ export const Home: FC = () => {
       dispatch(
         calcBondDetails({
           bond,
-          provider,
         })
       );
     });
@@ -238,16 +111,16 @@ export const Home: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (provider) {
+    if (web3.provider) {
       loadNetworkInfo();
     }
-  }, [provider]);
+  }, [web3.provider]);
 
   useEffect(() => {
-    if (address) {
-      loadUserInfo(address);
+    if (web3.isConnected) {
+      loadUserInfo();
     }
-  }, [address]);
+  }, [web3.isConnected]);
 
   /**
    * Outline manager for a11y
@@ -273,28 +146,6 @@ export const Home: FC = () => {
     };
   }, []);
 
-  const disconnect = async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const untypedProvider = provider as any;
-    if (
-      untypedProvider?.provider &&
-      typeof untypedProvider.provider.disconnect === "function"
-    ) {
-      await untypedProvider.provider.disconnect();
-    }
-    if (untypedProvider && typeof untypedProvider.disconnect === "function") {
-      await untypedProvider.disconnect();
-    }
-    if (web3Modal) {
-      web3Modal.clearCachedProvider();
-    }
-    setTimeout(() => {
-      window.location.reload();
-    }, 10);
-  };
-
-  const isConnected = !!address;
-
   return (
     <>
       <Global
@@ -308,7 +159,7 @@ export const Home: FC = () => {
       />
       <div className={styles.container} data-scrolllock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
-          <NavMenu address={address} />
+          <NavMenu address={web3.address} />
         </div>
         <div className={styles.cardGrid}>
           <div className={styles.controls}>
@@ -326,15 +177,19 @@ export const Home: FC = () => {
             />
             <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
               <NavMenu
-                address={address}
+                address={web3.address}
                 onHide={() => setShowMobileMenu(false)}
               />
             </div>
             <ChangeLanguageButton />
             <ConnectButton
-              isConnected={isConnected}
-              loadWeb3Modal={loadWeb3Modal}
-              disconnect={disconnect}
+              isConnected={web3.isConnected}
+              loadWeb3Modal={async () => {
+                await web3.connect?.();
+              }}
+              disconnect={async () => {
+                await web3.disconnect?.();
+              }}
             />
           </div>
           <IsomorphicRoutes>
@@ -342,10 +197,12 @@ export const Home: FC = () => {
               path="/buy"
               element={
                 <Buy
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  loadWeb3Modal={loadWeb3Modal}
+                  address={web3.address}
+                  provider={web3.provider}
+                  isConnected={web3.isConnected}
+                  loadWeb3Modal={async () => {
+                    await web3.connect?.();
+                  }}
                 />
               }
             />
@@ -353,10 +210,12 @@ export const Home: FC = () => {
               path="/stake"
               element={
                 <Stake
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  loadWeb3Modal={loadWeb3Modal}
+                  address={web3.address}
+                  provider={web3.provider}
+                  isConnected={web3.isConnected}
+                  loadWeb3Modal={async () => {
+                    await web3.connect?.();
+                  }}
                 />
               }
             />
@@ -364,10 +223,12 @@ export const Home: FC = () => {
               path="/pklima"
               element={
                 <PKlima
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  loadWeb3Modal={loadWeb3Modal}
+                  address={web3.address}
+                  provider={web3.provider}
+                  isConnected={web3.isConnected}
+                  loadWeb3Modal={async () => {
+                    await web3.connect?.();
+                  }}
                 />
               }
             />
@@ -375,10 +236,12 @@ export const Home: FC = () => {
               path="/wrap"
               element={
                 <Wrap
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  loadWeb3Modal={loadWeb3Modal}
+                  address={web3.address}
+                  provider={web3.provider}
+                  isConnected={web3.isConnected}
+                  loadWeb3Modal={async () => {
+                    await web3.connect?.();
+                  }}
                 />
               }
             />
@@ -386,18 +249,17 @@ export const Home: FC = () => {
               path="/offset"
               element={
                 <Offset
-                  address={address}
-                  provider={provider}
-                  isConnected={isConnected}
-                  loadWeb3Modal={loadWeb3Modal}
+                  address={web3.address}
+                  provider={web3.provider}
+                  isConnected={web3.isConnected}
+                  loadWeb3Modal={async () => {
+                    await web3.connect?.();
+                  }}
                   onRPCError={handleRPCError}
                 />
               }
             />
-            <Route
-              path="/info"
-              element={<Info provider={provider as providers.Web3Provider} />}
-            />
+            <Route path="/info" element={<Info provider={web3.provider} />} />
             <Route path="/bonds" element={<ChooseBond />} />
             {bonds.map((bond) => {
               return (
@@ -406,11 +268,13 @@ export const Home: FC = () => {
                   path={`/bonds/${bond}`}
                   element={
                     <Bond
-                      loadWeb3Modal={loadWeb3Modal}
-                      provider={provider}
-                      address={address}
+                      loadWeb3Modal={async () => {
+                        await web3.connect?.();
+                      }}
+                      provider={web3.provider}
+                      address={web3.address}
                       bond={bond}
-                      isConnected={isConnected}
+                      isConnected={web3.isConnected}
                     />
                   }
                 />
@@ -420,7 +284,7 @@ export const Home: FC = () => {
         </div>
       </div>
 
-      <InvalidNetworkModal provider={provider} />
+      <InvalidNetworkModal provider={web3.provider} />
       <NotificationModal />
 
       {showRPCModal && (

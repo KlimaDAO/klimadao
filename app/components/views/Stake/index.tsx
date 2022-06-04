@@ -42,7 +42,7 @@ interface ButtonProps {
 }
 
 interface Props {
-  provider: providers.JsonRpcProvider;
+  provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
   loadWeb3Modal: () => void;
@@ -98,6 +98,7 @@ export const Stake = (props: Props) => {
   };
 
   const handleApproval = (action: "stake" | "unstake") => async () => {
+    if (!props.provider) return;
     try {
       const value = await changeApprovalTransaction({
         provider: props.provider,
@@ -115,6 +116,7 @@ export const Stake = (props: Props) => {
   };
 
   const handleStake = (action: "stake" | "unstake") => async () => {
+    if (!props.provider) return;
     try {
       const value = quantity.toString();
       setQuantity("");

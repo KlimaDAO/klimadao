@@ -34,7 +34,7 @@ import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 interface Props {
-  provider: providers.JsonRpcProvider;
+  provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected?: boolean;
   loadWeb3Modal: () => Promise<void>;
@@ -70,7 +70,7 @@ export const PKlima: FC<Props> = (props) => {
       isLoading);
 
   useEffect(() => {
-    if (!address) return;
+    if (!address || !provider) return;
     dispatch(
       loadTerms({
         onStatus: setStatus,
@@ -86,6 +86,7 @@ export const PKlima: FC<Props> = (props) => {
   };
 
   const handleApproval = (action: "pklima" | "bct") => async () => {
+    if (!provider) return;
     try {
       const value = await changeApprovalTransaction({
         provider,
@@ -99,6 +100,7 @@ export const PKlima: FC<Props> = (props) => {
   };
 
   const handleExercise = async () => {
+    if (!provider) return;
     try {
       const value = quantity.toString();
       setQuantity("");

@@ -101,7 +101,7 @@ interface ButtonProps {
 }
 
 interface Props {
-  provider: providers.JsonRpcProvider;
+  provider?: providers.JsonRpcProvider;
   address?: string;
   bond: BondType;
   isConnected?: boolean;
@@ -193,7 +193,6 @@ export const Bond: FC<Props> = (props) => {
           calcBondDetails({
             bond: props.bond,
             value: debouncedQuantity,
-            provider: props.provider,
           })
         );
       }
@@ -212,6 +211,7 @@ export const Bond: FC<Props> = (props) => {
 
   const handleAllowance = async () => {
     try {
+      if (!props.provider) return;
       setStatus(null);
       const value = await changeApprovalTransaction({
         provider: props.provider,
@@ -227,6 +227,7 @@ export const Bond: FC<Props> = (props) => {
   const handleAutostakeCheck = (): void => setShouldAutostake(!shouldAutostake);
 
   const handleBond = async () => {
+    if (!props.provider) return;
     try {
       if (
         !props.address ||
@@ -273,7 +274,8 @@ export const Bond: FC<Props> = (props) => {
 
   const handleRedeem = async () => {
     try {
-      if (!bondState?.pendingPayout || !props.address) return;
+      if (!bondState?.pendingPayout || !props.address || !props.provider)
+        return;
       setQuantity("");
       await redeemTransaction({
         address: props.address,

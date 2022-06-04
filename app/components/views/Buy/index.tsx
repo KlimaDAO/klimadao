@@ -13,7 +13,7 @@ import { ImageCard } from "components/ImageCard";
 import * as styles from "./styles";
 
 interface Props {
-  provider: providers.JsonRpcProvider;
+  provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
   loadWeb3Modal: () => void;

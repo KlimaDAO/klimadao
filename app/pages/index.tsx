@@ -9,6 +9,9 @@ import { messages as default_messages } from "../locale/en/messages";
 import { i18n } from "@lingui/core";
 import { Web3ContextProvider } from "@klimadao/lib/components";
 import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
+import { FC } from "react";
+import { useSelector } from "react-redux";
+import { selectLocale } from "state/selectors";
 
 export async function getStaticProps() {
   i18n.load("en", default_messages);
@@ -18,13 +21,20 @@ export async function getStaticProps() {
   };
 }
 
+/** Wrap in component so we can render as child of WithRedux and invoke useSelector */
+const LocalizedWeb3ContextProvider: FC = (props) => {
+  useSelector(selectLocale); // trigger re-render
+  return (
+    <Web3ContextProvider strings={getWeb3ModalStrings()}>
+      {props.children}
+    </Web3ContextProvider>
+  );
+};
+
 const HomePage: NextPage = () => {
-  /**
-   * TODO: force re-render when redux locale changes.
-   */
   return (
     <WithRedux>
-      <Web3ContextProvider strings={getWeb3ModalStrings()}>
+      <LocalizedWeb3ContextProvider>
         <WithIsomorphicRouter location="/#">
           <PageHead
             production={IS_PRODUCTION}
@@ -35,7 +45,7 @@ const HomePage: NextPage = () => {
           />
           <Home />
         </WithIsomorphicRouter>
-      </Web3ContextProvider>
+      </LocalizedWeb3ContextProvider>
     </WithRedux>
   );
 };

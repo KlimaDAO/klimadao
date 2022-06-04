@@ -92,7 +92,7 @@ const tokenInfo: TokenInfoMap = {
 };
 
 interface Props {
-  provider: providers.JsonRpcProvider;
+  provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
   loadWeb3Modal: () => void;
@@ -163,7 +163,7 @@ export const Offset = (props: Props) => {
   }, [params]);
 
   useEffect(() => {
-    if (props.isConnected && props.address) {
+    if (props.isConnected && props.address && props.provider) {
       dispatch(
         getRetiredOffsetBalances({
           address: props.address,
@@ -179,7 +179,7 @@ export const Offset = (props: Props) => {
         })
       );
     }
-  }, [props.isConnected, props.address]);
+  }, [props.isConnected, props.address, props.provider]);
 
   // effects
   useEffect(() => {
@@ -200,6 +200,7 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
+      if (!props.provider) return;
       setCost("loading");
       const [consumptionCost] = await getOffsetConsumptionCost({
         inputToken: selectedInputToken,
@@ -236,6 +237,7 @@ export const Offset = (props: Props) => {
 
   const handleApprove = async () => {
     try {
+      if (!props.provider) return;
       const value = await changeApprovalTransaction({
         provider: props.provider,
         token: selectedInputToken,
@@ -249,7 +251,7 @@ export const Offset = (props: Props) => {
 
   const handleRetire = async () => {
     try {
-      if (!props.isConnected || !props.address) return;
+      if (!props.isConnected || !props.address || !props.provider) return;
       const { receipt, retirementTotals } = await retireCarbonTransaction({
         address: props.address,
         provider: props.provider,

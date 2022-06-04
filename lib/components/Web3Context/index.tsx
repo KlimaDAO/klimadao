@@ -1,30 +1,9 @@
-import { ethers } from "ethers";
 import React, { createContext, FC, useContext } from "react";
 
-import { useWeb3Modal, Web3ModalStrings } from "../../utils/useWeb3Modal";
+import { useWeb3Modal } from "../../utils/useWeb3Modal";
+import { web3InitialState, Web3ModalState, Web3ModalStrings } from "./types";
 
-export type Web3ProviderState = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  provider: any;
-  web3Provider: ethers.providers.Web3Provider | null;
-  address: string | null;
-  signer: ethers.providers.JsonRpcSigner | null;
-  network: ethers.providers.Network | null;
-  isConnected: boolean;
-  connect?: () => Promise<void>;
-  disconnect?: () => Promise<void>;
-};
-
-export const web3InitialState: Web3ProviderState = {
-  provider: null,
-  web3Provider: null,
-  signer: null,
-  address: null,
-  network: null,
-  isConnected: false,
-};
-
-export const Web3Context = createContext<Web3ProviderState>(web3InitialState);
+export const Web3Context = createContext<Web3ModalState>(web3InitialState);
 
 interface Props {
   strings: Web3ModalStrings;
