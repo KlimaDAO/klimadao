@@ -15,13 +15,6 @@ export class DailyBond extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
-    this.set("token", Value.fromString(""));
-    this.set("payout", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("tokenValue", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("carbonCustodied", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("BCV", Value.fromBigInt(BigInt.zero()));
   }
 
   save(): void {
@@ -76,6 +69,15 @@ export class DailyBond extends Entity {
     this.set("payout", Value.fromBigDecimal(value));
   }
 
+  get daoFee(): BigDecimal {
+    let value = this.get("daoFee");
+    return value!.toBigDecimal();
+  }
+
+  set daoFee(value: BigDecimal) {
+    this.set("daoFee", Value.fromBigDecimal(value));
+  }
+
   get tokenValue(): BigDecimal {
     let value = this.get("tokenValue");
     return value!.toBigDecimal();
@@ -108,9 +110,6 @@ export class Bonder extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("totalKlimaBonded", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("totalCarbonCustodied", Value.fromBigDecimal(BigDecimal.zero()));
   }
 
   save(): void {
@@ -189,23 +188,21 @@ export class Bonder extends Entity {
   set totalCarbonCustodied(value: BigDecimal) {
     this.set("totalCarbonCustodied", Value.fromBigDecimal(value));
   }
+
+  get totalKlimaMintedForDao(): BigDecimal {
+    let value = this.get("totalKlimaMintedForDao");
+    return value!.toBigDecimal();
+  }
+
+  set totalKlimaMintedForDao(value: BigDecimal) {
+    this.set("totalKlimaMintedForDao", Value.fromBigDecimal(value));
+  }
 }
 
 export class Deposit extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("token", Value.fromString(""));
-    this.set("transaction", Value.fromString(""));
-    this.set("bonder", Value.fromString(""));
-    this.set("payout", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("bondPrice", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("marketPrice", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("discount", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("tokenValue", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("carbonCustodied", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
   }
 
   save(): void {
@@ -269,6 +266,15 @@ export class Deposit extends Entity {
     this.set("payout", Value.fromBigDecimal(value));
   }
 
+  get daoFee(): BigDecimal {
+    let value = this.get("daoFee");
+    return value!.toBigDecimal();
+  }
+
+  set daoFee(value: BigDecimal) {
+    this.set("daoFee", Value.fromBigDecimal(value));
+  }
+
   get bondPrice(): BigDecimal {
     let value = this.get("bondPrice");
     return value!.toBigDecimal();
@@ -328,11 +334,6 @@ export class Redemption extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("bonder", Value.fromString(""));
-    this.set("payout", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("payoutRemaining", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
   }
 
   save(): void {
@@ -435,10 +436,6 @@ export class Transaction extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("timestamp", Value.fromBigInt(BigInt.zero()));
-    this.set("blockNumber", Value.fromBigInt(BigInt.zero()));
-    this.set("from", Value.fromBytes(Bytes.empty()));
   }
 
   save(): void {

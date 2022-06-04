@@ -193,6 +193,14 @@ export class UniswapV2Pair__burnResult {
     map.set("value1", ethereum.Value.fromUnsignedBigInt(this.value1));
     return map;
   }
+
+  getAmount0(): BigInt {
+    return this.value0;
+  }
+
+  getAmount1(): BigInt {
+    return this.value1;
+  }
 }
 
 export class UniswapV2Pair__getReservesResult {
@@ -212,6 +220,18 @@ export class UniswapV2Pair__getReservesResult {
     map.set("value1", ethereum.Value.fromUnsignedBigInt(this.value1));
     map.set("value2", ethereum.Value.fromUnsignedBigInt(this.value2));
     return map;
+  }
+
+  get_reserve0(): BigInt {
+    return this.value0;
+  }
+
+  get_reserve1(): BigInt {
+    return this.value1;
+  }
+
+  get_blockTimestampLast(): BigInt {
+    return this.value2;
   }
 }
 

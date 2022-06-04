@@ -1,20 +1,26 @@
 import {
     KLIMA_BCT_PAIR, BCT_USDC_PAIR,
-    KLIMA_MCO2_PAIR, KLIMA_ERC20_V1_CONTRACT
+    KLIMA_MCO2_PAIR
 } from '../../../lib/utils/Constants'
 import { Address, BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
 import { UniswapV2Pair } from '../../generated/BCTBondV1/UniswapV2Pair'
-import { toDecimal } from '../../../lib/utils/Decimals'
+import { toDecimal, BIG_DECIMAL_1E9, BIG_DECIMAL_1E12 } from '../../../lib/utils/Decimals'
+import { IToken } from '../../../lib/tokens/IToken'
 
-
-let BIG_DECIMAL_1E9 = BigDecimal.fromString('1e9')
-let BIG_DECIMAL_1E12 = BigDecimal.fromString('1e12')
-
+/**
+ * Sekula: TODO: Create a uniform method that would calculate rate
+ * from univ2 pool based on parameters in order not to repeat code.
+ * That method would be referenced from concrete Token classes
+ */
 export function getBCTUSDRate(): BigDecimal {
 
     let pair = UniswapV2Pair.bind(Address.fromString(BCT_USDC_PAIR))
 
-    let reserves = pair.getReserves()
+    let reservesCall = pair.try_getReserves()
+    if (reservesCall.reverted) {
+        return BigDecimal.zero()
+    }
+    let reserves = reservesCall.value
     let reserve0 = reserves.value0.toBigDecimal()
     let reserve1 = reserves.value1.toBigDecimal()
 
@@ -27,7 +33,11 @@ export function getBCTUSDRate(): BigDecimal {
 export function getKLIMAUSDRate(): BigDecimal {
     let pair = UniswapV2Pair.bind(Address.fromString(KLIMA_BCT_PAIR))
 
-    let reserves = pair.getReserves()
+    let reservesCall = pair.try_getReserves()
+    if (reservesCall.reverted) {
+        return BigDecimal.zero()
+    }
+    let reserves = reservesCall.value
     let reserve0 = reserves.value0.toBigDecimal()
     let reserve1 = reserves.value1.toBigDecimal()
 
@@ -42,7 +52,11 @@ export function getKLIMAUSDRate(): BigDecimal {
 export function getKLIMABCTRate(): BigDecimal {
     let pair = UniswapV2Pair.bind(Address.fromString(KLIMA_BCT_PAIR))
 
-    let reserves = pair.getReserves()
+    let reservesCall = pair.try_getReserves()
+    if (reservesCall.reverted) {
+        return BigDecimal.zero()
+    }
+    let reserves = reservesCall.value
     let reserve0 = reserves.value0.toBigDecimal()
     let reserve1 = reserves.value1.toBigDecimal()
 
@@ -55,7 +69,11 @@ export function getKLIMABCTRate(): BigDecimal {
 export function getKLIMAMCO2Rate(): BigDecimal {
     let pair = UniswapV2Pair.bind(Address.fromString(KLIMA_MCO2_PAIR))
 
-    let reserves = pair.getReserves()
+    let reservesCall = pair.try_getReserves()
+    if (reservesCall.reverted) {
+        return BigDecimal.zero()
+    }
+    let reserves = reservesCall.value
     let reserve0 = reserves.value0.toBigDecimal()
     let reserve1 = reserves.value1.toBigDecimal()
 
@@ -66,12 +84,17 @@ export function getKLIMAMCO2Rate(): BigDecimal {
 }
 
 //(slp_treasury/slp_supply)*(2*sqrt(lp_dai * lp_ohm))
-export function getDiscountedPairCO2(lp_amount: BigInt, pair_address: string): BigDecimal {
-    let pair = UniswapV2Pair.bind(Address.fromString(pair_address))
+export function getDiscountedPairCO2(lp_amount: BigInt, pair_address: Address, pairToken1: IToken, pairToken2: IToken): BigDecimal {
+    let pair = UniswapV2Pair.bind(pair_address)
 
-    let total_lp = pair.totalSupply()
-    let lp_token_1 = toDecimal(pair.getReserves().value0, 9)
-    let lp_token_2 = toDecimal(pair.getReserves().value1, 18)
+    let total_lpCall = pair.try_totalSupply()
+    if (total_lpCall.reverted) {
+        return BigDecimal.zero()
+    }
+    
+    let total_lp = total_lpCall.value
+    let lp_token_1 = toDecimal(pair.getReserves().value0, pairToken1.getDecimals())
+    let lp_token_2 = toDecimal(pair.getReserves().value1, pairToken2.getDecimals())
     let kLast = lp_token_1.times(lp_token_2).truncate(0).digits
 
     let part1 = toDecimal(lp_amount, 18).div(toDecimal(total_lp, 18))
@@ -81,4 +104,10 @@ export function getDiscountedPairCO2(lp_amount: BigInt, pair_address: string): B
     let part2 = toDecimal(two.times(sqrt), 0)
     let result = part1.times(part2)
     return result
+}
+
+// (bondPrice-marketPrice)/bondPrice
+export function calculateBondDiscount(bondPrice: BigDecimal, marketPrice: BigDecimal): BigDecimal {
+    const discount = (marketPrice.minus(bondPrice)).div(bondPrice)
+    return discount
 }

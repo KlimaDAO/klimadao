@@ -6,8 +6,9 @@ export function loadOrCreateBonder(addr: Address): Bonder {
     let bonder = Bonder.load(addr.toHexString())
     if (bonder == null) {
         bonder = new Bonder(addr.toHexString())
-        bonder.totalKlimaBonded = BigDecimal.fromString('0')
-        bonder.totalCarbonCustodied = BigDecimal.fromString('0')
+        bonder.totalKlimaBonded = BigDecimal.zero()
+        bonder.totalCarbonCustodied = BigDecimal.zero()
+        bonder.totalKlimaMintedForDao = BigDecimal.zero()
         bonder.save()
     }
 
