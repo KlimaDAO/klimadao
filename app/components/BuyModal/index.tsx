@@ -10,7 +10,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import Check from "@mui/icons-material/Check";
 import { useSelector } from "react-redux";
 import { selectAppState } from "../../state/selectors";
-import TransakSDK         from "../../types/transak";
+import TransakSDK from "@transak/transak-sdk";
 
 type Props = {
   address?: string;
@@ -27,13 +27,13 @@ export const BuyModal: FC<Props> = (props) => {
     if (buyModalService && buyModalService.length > 0) {
       if (buyModalService === "transak") {
         const transak = new TransakSDK({
-          apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY,
+          apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY as string,
           environment: "PRODUCTION",
           widgetHeight: "625px",
           widgetWidth: "500px",
           defaultCryptoCurrency: "KLIMA",
           fiatCurrency: "EUR",
-          walletAddress: props.address,
+          walletAddress: props.address as string,
         });
 
         transak.init();

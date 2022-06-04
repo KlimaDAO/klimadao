@@ -1,4 +1,9 @@
-export default async function handler(req, res) {
+import { NextApiResponse, NextApiRequest } from "next";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   console.log(process.env.MOBILUM_API_KEY);
 
   if (req.method !== "POST") {
