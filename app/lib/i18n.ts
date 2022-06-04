@@ -65,7 +65,7 @@ async function load(locale: string) {
  * Stores the choice in localestorage
  */
 async function activate(locale: string) {
-  load(locale);
+  await load(locale);
   window.localStorage.setItem("locale", locale);
 }
 

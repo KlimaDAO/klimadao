@@ -21,7 +21,7 @@ export const ChangeLanguageButton: FC = () => {
   const dispatch = useAppDispatch();
 
   const selectLocale = async (locale: string) => {
-    activate(locale);
+    await activate(locale);
     dispatch(setAppState({ locale }));
   };
 
