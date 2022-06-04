@@ -1,8 +1,7 @@
-import { Web3ModalStrings } from "@klimadao/lib/utils/useWeb3Modal";
 import { t } from "@lingui/macro";
 
 /** Identical to app/lib/getWeb3ModalStrings because we can't use lingui in @klimadao/lib */
-export const getWeb3ModalStrings = (): Web3ModalStrings => ({
+export const getWeb3ModalStrings = () => ({
   walletconnect_desc: t({
     id: "web3modal.walletconnect.desc",
     message: "Scan with WalletConnect to connect",
