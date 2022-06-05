@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-02 21:49+0000\n"
+"POT-Creation-Date: 2022-06-05 23:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -558,8 +558,8 @@ msgstr "El contrato actualizado asume ahora que los titulares de pKLIMA han hech
 
 #: components/views/Bond/index.tsx:344
 #: components/views/Offset/index.tsx:313
-#: components/views/Stake/index.tsx:164
-#: components/views/Stake/index.tsx:170
+#: components/views/Stake/index.tsx:167
+#: components/views/Stake/index.tsx:173
 msgid "shared.approve"
 msgstr "Aprobar"
 
@@ -573,7 +573,7 @@ msgstr "Cambiar idioma"
 
 #: components/views/Bond/index.tsx:338
 #: components/views/PKlima/index.tsx:140
-#: components/views/Stake/index.tsx:158
+#: components/views/Stake/index.tsx:161
 msgid "shared.confirming"
 msgstr "Confirmando"
 
@@ -581,7 +581,7 @@ msgstr "Confirmando"
 #: components/views/Buy/index.tsx:113
 #: components/views/Offset/index.tsx:287
 #: components/views/PKlima/index.tsx:125
-#: components/views/Stake/index.tsx:143
+#: components/views/Stake/index.tsx:146
 #: components/views/Wrap/index.tsx:129
 msgid "shared.connect_wallet"
 msgstr "Conectar monedero"
@@ -590,8 +590,8 @@ msgstr "Conectar monedero"
 msgid "shared.copy_wallet_address"
 msgstr "Copiar dirección {0}"
 
-#: components/views/Stake/index.tsx:179
-#: components/views/Stake/index.tsx:189
+#: components/views/Stake/index.tsx:182
+#: components/views/Stake/index.tsx:192
 msgid "shared.enter_amount"
 msgstr "Ingrese la cantidad"
 
@@ -602,7 +602,7 @@ msgstr "INTRODUCIR CANTIDAD"
 
 #: components/views/Bond/index.tsx:364
 #: components/views/Bond/index.tsx:383
-#: components/views/Stake/index.tsx:197
+#: components/views/Stake/index.tsx:200
 msgid "shared.error"
 msgstr "ERROR"
 
@@ -618,17 +618,17 @@ msgstr "SALDO INSUFICIENTE"
 #: components/views/Offset/index.tsx:293
 #: components/views/Offset/index.tsx:370
 #: components/views/PKlima/index.tsx:131
-#: components/views/Stake/index.tsx:149
-#: components/views/Stake/index.tsx:346
-#: components/views/Stake/index.tsx:353
-#: components/views/Stake/index.tsx:360
+#: components/views/Stake/index.tsx:152
+#: components/views/Stake/index.tsx:355
+#: components/views/Stake/index.tsx:362
+#: components/views/Stake/index.tsx:369
 #: components/views/Wrap/index.tsx:135
 msgid "shared.loading"
 msgstr "Cargando..."
 
 #: components/views/Bond/index.tsx:471
 #: components/views/PKlima/index.tsx:212
-#: components/views/Stake/index.tsx:287
+#: components/views/Stake/index.tsx:296
 #: components/views/Wrap/index.tsx:255
 msgid "shared.max"
 msgstr "Max"
@@ -645,28 +645,28 @@ msgstr "Agotado"
 msgid "shared.wallet_address_copied"
 msgstr "¡Copiado!"
 
-#: components/views/Stake/index.tsx:300
+#: components/views/Stake/index.tsx:309
 msgid "stake.5_day_rewards"
 msgstr "Recompensas en 5 días"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:303
+#: components/views/Stake/index.tsx:312
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Recompensas aproximadas, incluyendo el compounding, en caso de hacer staking durante 5 días."
 
-#: components/views/Stake/index.tsx:316
+#: components/views/Stake/index.tsx:325
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:319
+#: components/views/Stake/index.tsx:328
 msgid "stake.akr.tooltip"
 msgstr "Recompensas KLIMA anualizadas, incluida la capitalización, en caso de que la tasa de recompensa actual se mantenga sin cambios durante 12 meses (la tasa de recompensa puede estar sujeta a cambios)."
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:124
-#: components/views/Stake/index.tsx:215
+#: components/views/Stake/index.tsx:218
 msgid "stake.balancescard.tooltip"
 msgstr "Haga staking con sus tokens KLIMA para recibir sKLIMA. Después de cada rebase, su saldo de sKLIMA aumentará en el porcentaje indicado."
 
@@ -674,27 +674,26 @@ msgstr "Haga staking con sus tokens KLIMA para recibir sKLIMA. Después de cada 
 msgid "stake.estimated_payout"
 msgstr "Pago estimado (sKLIMA)"
 
-#. Long sentence
-#: components/views/Stake/index.tsx:230
-msgid "stake.hold_stake_and_compound"
-msgstr "Holdea, haga staking y haga compounding. Si el protocolo acumula un exceso de reservas emitiendo bonos de carbono, estas recompensas se reparten entre todos los titulares de KLIMA estaqueados (sKLIMA)."
-
-#: components/views/Stake/index.tsx:330
+#: components/views/Stake/index.tsx:339
 msgid "stake.index"
 msgstr "Índice"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:333
+#: components/views/Stake/index.tsx:342
 msgid "stake.index.tooltip"
 msgstr "Cantidad de KLIMA que tendrías hoy si hubieras hecho staking con 1 KLIMA el día del lanzamiento. Útil para fines contables."
 
-#: components/views/Stake/index.tsx:49
+#: components/views/Stake/index.tsx:52
 msgid "stake.inputplaceholder.stake"
 msgstr "Cantidad para hacer staking"
 
-#: components/views/Stake/index.tsx:53
+#: components/views/Stake/index.tsx:56
 msgid "stake.inputplaceholder.unstake"
 msgstr "Cantidad para retirar"
+
+#: components/views/Stake/index.tsx:239
+msgid "stake.lifi"
+msgstr ""
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -712,20 +711,24 @@ msgstr "Rebase"
 msgid "stake.rebase.info"
 msgstr "El protocolo mintea y distribuye automáticamente las recompensas. Su pago es un porcentaje de su saldo sKLIMA"
 
-#: components/views/Stake/index.tsx:250
+#: components/views/Stake/index.tsx:259
 msgid "stake.stake"
 msgstr "Stake"
 
-#: components/views/Stake/index.tsx:177
-#: components/views/Stake/index.tsx:227
+#: components/views/Stake/index.tsx:233
+msgid "stake.stake_hold_earn"
+msgstr ""
+
+#: components/views/Stake/index.tsx:180
+#: components/views/Stake/index.tsx:230
 msgid "stake.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/views/Stake/index.tsx:262
+#: components/views/Stake/index.tsx:271
 msgid "stake.unstake"
 msgstr "Retirar"
 
-#: components/views/Stake/index.tsx:187
+#: components/views/Stake/index.tsx:190
 msgid "stake.unstake_klima"
 msgstr "Retirar KLIMA"
 

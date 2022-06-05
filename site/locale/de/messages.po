@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-02 21:49+0000\n"
+"POT-Creation-Date: 2022-06-05 23:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -716,7 +716,7 @@ msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch toke
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:77
 msgid "retirement.single.header.quantity"
-msgstr ""
+msgstr "{0}t"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:82
 msgid "retirement.single.header.subline"
@@ -784,7 +784,7 @@ msgstr "Alle CO2-Ausgleiche"
 
 #: components/pages/Retirements/Breakdown/index.tsx:32
 msgid "retirement.totals.assets_used_headline"
-msgstr ""
+msgstr "Für CO2-Ausgleich genutzte Assets"
 
 #: components/pages/Retirements/index.tsx:48
 msgid "retirement.totals.head.metaTitle"
@@ -800,7 +800,7 @@ msgstr "CO2-Ausgleiche"
 
 #: components/pages/Retirements/index.tsx:70
 msgid "retirement.totals.page_subline"
-msgstr ""
+msgstr "für Empfänger"
 
 #: components/pages/Retirements/index.tsx:89
 msgid "retirement.totals.retired_assets"

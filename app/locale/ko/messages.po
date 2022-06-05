@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-02 21:49+0000\n"
+"POT-Creation-Date: 2022-06-05 23:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -558,8 +558,8 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:344
 #: components/views/Offset/index.tsx:313
-#: components/views/Stake/index.tsx:164
-#: components/views/Stake/index.tsx:170
+#: components/views/Stake/index.tsx:167
+#: components/views/Stake/index.tsx:173
 msgid "shared.approve"
 msgstr ""
 
@@ -573,7 +573,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:338
 #: components/views/PKlima/index.tsx:140
-#: components/views/Stake/index.tsx:158
+#: components/views/Stake/index.tsx:161
 msgid "shared.confirming"
 msgstr ""
 
@@ -581,7 +581,7 @@ msgstr ""
 #: components/views/Buy/index.tsx:113
 #: components/views/Offset/index.tsx:287
 #: components/views/PKlima/index.tsx:125
-#: components/views/Stake/index.tsx:143
+#: components/views/Stake/index.tsx:146
 #: components/views/Wrap/index.tsx:129
 msgid "shared.connect_wallet"
 msgstr ""
@@ -590,8 +590,8 @@ msgstr ""
 msgid "shared.copy_wallet_address"
 msgstr ""
 
-#: components/views/Stake/index.tsx:179
-#: components/views/Stake/index.tsx:189
+#: components/views/Stake/index.tsx:182
+#: components/views/Stake/index.tsx:192
 msgid "shared.enter_amount"
 msgstr ""
 
@@ -602,7 +602,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:364
 #: components/views/Bond/index.tsx:383
-#: components/views/Stake/index.tsx:197
+#: components/views/Stake/index.tsx:200
 msgid "shared.error"
 msgstr ""
 
@@ -618,17 +618,17 @@ msgstr ""
 #: components/views/Offset/index.tsx:293
 #: components/views/Offset/index.tsx:370
 #: components/views/PKlima/index.tsx:131
-#: components/views/Stake/index.tsx:149
-#: components/views/Stake/index.tsx:346
-#: components/views/Stake/index.tsx:353
-#: components/views/Stake/index.tsx:360
+#: components/views/Stake/index.tsx:152
+#: components/views/Stake/index.tsx:355
+#: components/views/Stake/index.tsx:362
+#: components/views/Stake/index.tsx:369
 #: components/views/Wrap/index.tsx:135
 msgid "shared.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:471
 #: components/views/PKlima/index.tsx:212
-#: components/views/Stake/index.tsx:287
+#: components/views/Stake/index.tsx:296
 #: components/views/Wrap/index.tsx:255
 msgid "shared.max"
 msgstr ""
@@ -645,28 +645,28 @@ msgstr ""
 msgid "shared.wallet_address_copied"
 msgstr ""
 
-#: components/views/Stake/index.tsx:300
+#: components/views/Stake/index.tsx:309
 msgid "stake.5_day_rewards"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:303
+#: components/views/Stake/index.tsx:312
 msgid "stake.5_day_rewards.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:316
+#: components/views/Stake/index.tsx:325
 msgid "stake.akr"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:319
+#: components/views/Stake/index.tsx:328
 msgid "stake.akr.tooltip"
 msgstr ""
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:124
-#: components/views/Stake/index.tsx:215
+#: components/views/Stake/index.tsx:218
 msgid "stake.balancescard.tooltip"
 msgstr ""
 
@@ -674,26 +674,25 @@ msgstr ""
 msgid "stake.estimated_payout"
 msgstr ""
 
-#. Long sentence
-#: components/views/Stake/index.tsx:230
-msgid "stake.hold_stake_and_compound"
-msgstr ""
-
-#: components/views/Stake/index.tsx:330
+#: components/views/Stake/index.tsx:339
 msgid "stake.index"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:333
+#: components/views/Stake/index.tsx:342
 msgid "stake.index.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:49
+#: components/views/Stake/index.tsx:52
 msgid "stake.inputplaceholder.stake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:53
+#: components/views/Stake/index.tsx:56
 msgid "stake.inputplaceholder.unstake"
+msgstr ""
+
+#: components/views/Stake/index.tsx:239
+msgid "stake.lifi"
 msgstr ""
 
 #: components/RebaseCard/index.tsx:61
@@ -712,20 +711,24 @@ msgstr ""
 msgid "stake.rebase.info"
 msgstr ""
 
-#: components/views/Stake/index.tsx:250
+#: components/views/Stake/index.tsx:259
 msgid "stake.stake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:177
-#: components/views/Stake/index.tsx:227
+#: components/views/Stake/index.tsx:233
+msgid "stake.stake_hold_earn"
+msgstr ""
+
+#: components/views/Stake/index.tsx:180
+#: components/views/Stake/index.tsx:230
 msgid "stake.stake_klima"
 msgstr ""
 
-#: components/views/Stake/index.tsx:262
+#: components/views/Stake/index.tsx:271
 msgid "stake.unstake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:187
+#: components/views/Stake/index.tsx:190
 msgid "stake.unstake_klima"
 msgstr ""
 
