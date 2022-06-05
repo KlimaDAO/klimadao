@@ -50,7 +50,7 @@ export const PledgeForm: FC<Props> = (props) => {
   const { signer } = useWeb3();
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
-      mode: "onBlur",
+      mode: "onChange",
       defaultValues: pledgeFormAdapter(props.pledge),
       resolver: yupResolver(formSchema),
     });
