@@ -64,9 +64,15 @@ export const categoryRow_removeButton = css`
   border-radius: 1rem;
   border: 0.175rem solid var(--surface-03);
   background-color: var(--surface-02);
+  transition: border-color 0.2s ease-in;
 
   svg {
     fill: var(--font-02);
+  }
+
+  &:focus,
+  &:hover {
+    border-color: var(--klima-green);
   }
 
   ${breakpoints.medium} {
