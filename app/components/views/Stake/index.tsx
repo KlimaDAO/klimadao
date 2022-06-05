@@ -238,7 +238,7 @@ export const Stake = (props: Props) => {
             <FiberNewRoundedIcon className="new-releases-icon" />
             <Trans id="stake.lifi">
               Cross-chain staking is now available through{" "}
-              <Anchor href={urls.lifi_stake}>LI.FI</Anchor>, with support for
+              <Anchor href={urls.lifiStake}>LI.FI</Anchor>, with support for
               dozens of tokens like ETH, BNB and DAI.
             </Trans>
           </Text>
