@@ -5,6 +5,7 @@ import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
+import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 
 import {
   changeApprovalTransaction,
@@ -19,6 +20,7 @@ import {
 } from "state/selectors";
 
 import {
+  Anchor,
   ButtonPrimary,
   Spinner,
   Text,
@@ -31,6 +33,7 @@ import { RebaseCard } from "components/RebaseCard";
 import { ImageCard } from "components/ImageCard";
 
 import * as styles from "./styles";
+import { urls } from "@klimadao/lib/constants";
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -227,10 +230,16 @@ export const Stake = (props: Props) => {
             <Trans id="stake.stake_klima">Stake KLIMA</Trans>
           </Text>
           <Text t="caption" color="lightest">
-            <Trans id="stake.hold_stake_and_compound" comment="Long sentence">
-              Hold, stake, and compound. If the protocol accumulates excess
-              reserves issuing carbon bonds, these rewards are shared among all
-              holders of staked KLIMA (sKLIMA).
+            <Trans id="stake.stake_hold_earn">
+              Stake, hold, and earn compounding sKLIMA.
+            </Trans>
+          </Text>
+          <Text t="caption" color="lightest">
+            <FiberNewRoundedIcon className="new-releases-icon" />
+            <Trans id="stake.lifi">
+              Cross-chain staking is now available through{" "}
+              <Anchor href={urls.lifiStake}>LI.FI</Anchor>, with support for
+              dozens of tokens like ETH, BNB and DAI.
             </Trans>
           </Text>
         </div>
