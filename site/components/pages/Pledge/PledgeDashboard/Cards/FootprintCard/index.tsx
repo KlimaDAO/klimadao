@@ -73,7 +73,7 @@ export const FootprintCard: FC<Props> = (props) => {
         )}
         <div className={styles.footprintTotal}>
           <Text t="h1" uppercase>
-            {footprint.total}k
+            {footprint.total}
           </Text>
           <Text t="h3" color="lightest" uppercase>
             Tonnes
@@ -91,7 +91,7 @@ export const FootprintCard: FC<Props> = (props) => {
                 </Text>
                 <div className={styles.catergoryRow_values}>
                   <Text t="h4" uppercase>
-                    {category.quantity}k{" "}
+                    {category.quantity}{" "}
                     <span className={styles.categoryRow_divider}>|</span>{" "}
                     <span
                       className={styles.categoryRow_percentage}

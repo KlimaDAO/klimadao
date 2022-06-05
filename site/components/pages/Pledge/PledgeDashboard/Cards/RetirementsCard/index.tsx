@@ -44,7 +44,7 @@ export const RetirementsCard: FC<Props> = (props) => {
       <div className={styles.value}>
         {retirements ? (
           <Text t="h1" uppercase>
-            {totalTonnesRetired}k
+            {totalTonnesRetired}
           </Text>
         ) : (
           <Text t="h4" color="lightest">
