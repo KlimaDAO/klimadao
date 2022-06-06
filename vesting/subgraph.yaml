@@ -1,4 +1,4 @@
-specVersion: 0.0.5
+specVersion: 0.0.2
 description: Klima DAO Vesting Metrics
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
