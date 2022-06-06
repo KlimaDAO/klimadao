@@ -1,5 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
+import Link from "next/link";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { Text } from "@klimadao/lib/components";
 import {
   trimStringDecimals,
@@ -36,10 +38,21 @@ export const RetirementsCard: FC<Props> = (props) => {
       ? trimStringDecimals(retirements.totalTonnesRetired, 2)
       : 0;
 
+  const linkToRetirements = (
+    <Link href={`/retirements/${props.pageAddress}`} passHref>
+      <a title="View retirements">
+        <div className={styles.retirementLink}>
+          <LaunchIcon />
+        </div>
+      </a>
+    </Link>
+  );
+
   return (
     <BaseCard
-      title="Retired Assets"
+      title="Retirements"
       icon={<LocalFireDepartmentIcon fontSize="large" />}
+      action={linkToRetirements}
     >
       <div className={styles.value}>
         {retirements ? (
