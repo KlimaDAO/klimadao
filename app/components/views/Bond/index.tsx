@@ -135,6 +135,7 @@ export const Bond: FC<Props> = (props) => {
 
   const [sourceSingleton, singleton] = useTooltipSingleton();
   // no user bond details for inverse which is where allowance is stored so check if bond is inverse
+  // need to check klima allowance for inverse bonds
   const isLoading =
     (!allowance && props.bond !== "inverse_usdc") ||
     quantity !== debouncedQuantity;
@@ -377,8 +378,7 @@ export const Bond: FC<Props> = (props) => {
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
-        // disabled: !value || !bondMax || Number(value) > Number(bondMax),
-        disabled: false,
+        disabled: !value || !bondMax || Number(value) > Number(bondMax),
       };
     } else if (view === "redeem") {
       return {

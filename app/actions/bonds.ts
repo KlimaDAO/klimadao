@@ -247,10 +247,14 @@ export const calcBondDetails = (params: {
     ) {
       bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
     } else if (params.bond !== "inverse_usdc" && Number(params.value)) {
-      bondQuote = Number(params.value) * Math.pow(10, 6) * bondPrice.toNumber();
+      bondQuote = (
+        Number(params.value) *
+        Math.pow(10, 6) *
+        bondPrice.toNumber()
+      ).toString();
       console.log("bondQuote", bondQuote, params.value, bondPrice.toNumber());
     } else if (params.bond !== "inverse_usdc" && !Number(params.value)) {
-      bondQuote = 0;
+      bondQuote = "0";
     } else {
       const valuation = await bondCalcContract.valuation(
         getReserveAddress({ bond: params.bond }),
