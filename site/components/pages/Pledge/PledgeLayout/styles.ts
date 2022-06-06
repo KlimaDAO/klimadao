@@ -14,7 +14,7 @@ export const contentContainer = css`
   grid-column: main;
 `;
 
-export const header = css`
+export const headerBar = css`
   grid-column: span 2;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -22,9 +22,22 @@ export const header = css`
   align-items: center;
 `;
 
-export const logo = css`
+export const mainHeader = css`
   grid-column: span 1;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+`;
+
+export const logo = css`
   max-width: 26rem;
+`;
+
+export const betaBadge = css`
+  color: var(--klima-green);
+  padding: 0.4rem;
+  border: 0.1rem solid var(--klima-green);
+  border-radius: var(--border-radius);
 `;
 
 export const themeToggle = css`
