@@ -13,6 +13,8 @@ import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
 import { INFURA_ID } from "lib/constants";
+import { getIsDomainInURL } from "lib/getIsDomainInURL";
+import { getAddressByDomain } from "lib/getAddressByDomain";
 
 interface Params extends ParsedUrlQuery {
   beneficiary_address: string;
@@ -46,6 +48,17 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No matching params found");
     }
 
+    let addressByDomain;
+    const isDomainInURL = getIsDomainInURL(params.beneficiary_address);
+    if (isDomainInURL) {
+      addressByDomain = await getAddressByDomain(params.beneficiary_address);
+    }
+
+    // Do not continue if KNS or ENS Domain can not be resolved
+    if (isDomainInURL && addressByDomain === null) {
+      throw new Error("No valid KNS or ENS domain holder address found !");
+    }
+
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
     const promises: [
@@ -54,11 +67,12 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       Promise<Record<string, unknown>>
     ] = [
       queryKlimaRetireByIndex(
-        params?.beneficiary_address as string,
+        addressByDomain || (params.beneficiary_address as string),
         retirementIndex
       ),
       getRetirementIndexInfo({
-        beneficiaryAdress: params.beneficiary_address as string,
+        beneficiaryAdress:
+          addressByDomain || (params.beneficiary_address as string),
         index: retirementIndex,
         infuraId: INFURA_ID,
       }),
