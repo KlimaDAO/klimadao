@@ -413,7 +413,6 @@ export const bondTransaction = async (params: {
       );
       const bondPrice = await contract.marketPrice(marketId);
       // const klimaMarketPriceInUSDC = getInverseKlimaUSDCPrice({provider: params.provider});
-      // this no right. need do good math
       const minAmountOut =
         bondPrice * Number(params.value) -
         bondPrice * Number(params.value) * acceptedSlippage;
