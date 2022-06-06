@@ -134,15 +134,16 @@ export const Bond: FC<Props> = (props) => {
   const allowance = useSelector(selectBondAllowance);
 
   const [sourceSingleton, singleton] = useTooltipSingleton();
-
-  const isLoading = !allowance || quantity !== debouncedQuantity;
+  // no user bond details for inverse which is where allowance is stored so check if bond is inverse
+  const isLoading =
+    (!allowance && props.bond !== "inverse_usdc") ||
+    quantity !== debouncedQuantity;
 
   const showSpinner =
     props.isConnected &&
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
-
   const vestingPeriod = () => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
     const vestingBlock = currentBlock + bondState.vestingTerm;
@@ -217,8 +218,11 @@ export const Bond: FC<Props> = (props) => {
         provider: props.provider,
         bond: props.bond,
         onStatus: setStatus,
+        isInverse: true,
       });
-      dispatch(setBondAllowance({ [props.bond]: value }));
+      console.log(value);
+      // added toNumber for inverse
+      dispatch(setBondAllowance({ [props.bond]: value.toNumber() }));
     } catch (e) {
       return;
     }
@@ -228,7 +232,7 @@ export const Bond: FC<Props> = (props) => {
 
   const handleBond = async () => {
     if (!props.provider) return;
-    if (props.bond === "inverse_usdc") {
+    if (bondState!.bond === "inverse_usdc") {
       try {
         if (!props.address) {
           return;
@@ -373,7 +377,8 @@ export const Bond: FC<Props> = (props) => {
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
-        disabled: !value || !bondMax || Number(value) > Number(bondMax),
+        // disabled: !value || !bondMax || Number(value) > Number(bondMax),
+        disabled: false,
       };
     } else if (view === "redeem") {
       return {
@@ -620,42 +625,46 @@ export const Bond: FC<Props> = (props) => {
                 value={trimWithPlaceholder(bondState?.maxBondPrice, 2, locale)}
                 unit="KLIMA"
               />
-              <DataRow
-                singleton={singleton}
-                label={t({
-                  id: "bond.debt_ratio",
-                  message: "Debt ratio",
-                })}
-                tooltip={t({
-                  id: "bond.debt_ratio.tooltip",
-                  message:
-                    "Protocol's current ratio of supply to outstanding bonds",
-                  comment: "Long sentence",
-                })}
-                warning={false}
-                value={trimWithPlaceholder(
-                  Number(bondState?.debtRatio),
-                  2,
-                  locale
-                )}
-                unit="%"
-              />
-              <DataRow
-                singleton={singleton}
-                label={t({
-                  id: "bond.vesting_term_end",
-                  message: "Vesting term end",
-                })}
-                tooltip={t({
-                  id: "bond.vesting_term_end.tooltip",
-                  message:
-                    "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term.",
-                  comment: "Long sentence",
-                })}
-                warning={false}
-                value={vestingPeriod() ?? ""}
-                unit=""
-              />
+              {bondState && bondState!.bond !== "inverse_usdc" && (
+                <DataRow
+                  singleton={singleton}
+                  label={t({
+                    id: "bond.debt_ratio",
+                    message: "Debt ratio",
+                  })}
+                  tooltip={t({
+                    id: "bond.debt_ratio.tooltip",
+                    message:
+                      "Protocol's current ratio of supply to outstanding bonds",
+                    comment: "Long sentence",
+                  })}
+                  warning={false}
+                  value={trimWithPlaceholder(
+                    Number(bondState?.debtRatio),
+                    2,
+                    locale
+                  )}
+                  unit="%"
+                />
+              )}
+              {bondState && bondState!.bond !== "inverse_usdc" && (
+                <DataRow
+                  singleton={singleton}
+                  label={t({
+                    id: "bond.vesting_term_end",
+                    message: "Vesting term end",
+                  })}
+                  tooltip={t({
+                    id: "bond.vesting_term_end.tooltip",
+                    message:
+                      "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term.",
+                    comment: "Long sentence",
+                  })}
+                  warning={false}
+                  value={vestingPeriod() ?? ""}
+                  unit=""
+                />
+              )}
             </ul>
           )}
           {view === "redeem" && (

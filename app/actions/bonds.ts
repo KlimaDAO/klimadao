@@ -74,7 +74,6 @@ export const contractForBond = (params: {
 }) => {
   const address = getBondAddress({ bond: params.bond });
   if (getIsInverse({ bond: params.bond })) {
-    console.log("inverse contract");
     return new ethers.Contract(address, KlimaProV2.abi, params.provider);
   } else {
     return new ethers.Contract(address, Depository.abi, params.provider);
@@ -143,7 +142,23 @@ const getKlimaUSDCMarketPrice = async (params: {
   const reserves = await pairContract.getReserves();
   // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
   // divide usdc/klima to get klima usdc price
+  // i just swapped this to klima/usdc
   return (reserves[0] * Math.pow(10, 12)) / (reserves[1] * Math.pow(10, 9));
+};
+
+const getInverseKlimaUSDCPrice = async (params: {
+  provider: providers.JsonRpcProvider;
+}) => {
+  const pairContract = new ethers.Contract(
+    addresses["mainnet"].klimaUsdcLp,
+    PairContract.abi,
+    params.provider
+  );
+  const reserves = await pairContract.getReserves();
+  // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
+  // divide usdc/klima to get klima usdc price
+  // i just swapped this to klima/usdc
+  return (reserves[1] * Math.pow(10, 9)) / (reserves[0] * Math.pow(10, 12));
 };
 
 // [usdc, klima] 200/2 = 100
@@ -198,7 +213,7 @@ export const calcBondDetails = (params: {
       bct: getBCTMarketPrice,
       ubo: getUBOMarketPrice,
       nbo: getNBOMarketPrice,
-      inverse_usdc: getKlimaUSDCMarketPrice,
+      inverse_usdc: getInverseKlimaUSDCPrice,
     }[params.bond];
 
     const marketPrice = await getMarketPrice({
@@ -211,10 +226,9 @@ export const calcBondDetails = (params: {
     let returnOnInterest;
     // stopped here. make the stuff below here work plox
     if (getIsInverse({ bond: params.bond })) {
-      console.log("is inverse has begun oh yeaaaa");
       bondPrice = await bondContract.marketPrice(2);
       const bonus = 1 / bondPrice.toNumber() - marketPrice;
-      returnOnInterest = bonus / marketPrice;
+      returnOnInterest = bonus;
       terms = await bondContract.terms(2);
       const marketData = await bondContract.markets(2);
       maxBondPrice = marketData.maxPayout.toNumber();
@@ -245,16 +259,16 @@ export const calcBondDetails = (params: {
       params.bond === "klima_usdc_lp" || params.bond === "inverse_usdc"
         ? bondPrice * Math.pow(10, 12) // need to add decimals because this bond returns USDC (6 dec).
         : bondPrice;
-    let bondDiscount 
-    if(params.bond === "inverse_usdc") {
-      bondDiscount = returnOnInterest
-    } else {
-      bondDiscount = (marketPrice * Math.pow(10, 18) - decimalAdjustedBondPrice) /
-      decimalAdjustedBondPrice;
-    }
-      
+    let bondDiscount;
     if (params.bond === "inverse_usdc") {
-      console.log("right before the dispatch");
+      bondDiscount = returnOnInterest;
+    } else {
+      bondDiscount =
+        (marketPrice * Math.pow(10, 18) - decimalAdjustedBondPrice) /
+        decimalAdjustedBondPrice;
+    }
+
+    if (params.bond === "inverse_usdc") {
       dispatch(
         setBond({
           bond: params.bond,
@@ -266,6 +280,7 @@ export const calcBondDetails = (params: {
             bondPrice,
             params.bond === "inverse_usdc" ? 6 : 18
           ),
+          marketPrice: marketPrice.toString(),
         })
       );
     } else {
@@ -279,9 +294,7 @@ export const calcBondDetails = (params: {
           maxBondPrice: formatUnits(maxBondPrice, 9),
           bondPrice: formatUnits(
             bondPrice,
-            params.bond === "klima_usdc_lp"
-              ? 6
-              : 18
+            params.bond === "klima_usdc_lp" ? 6 : 18
           ),
           marketPrice: marketPrice.toString(),
           // format fee as # of tonnes
@@ -303,7 +316,7 @@ export const changeApprovalTransaction = async (params: {
       ? new ethers.Contract(
           addresses["mainnet"].klima,
           IERC20.abi,
-          params.provider
+          params.provider.getSigner()
         )
       : contractForReserve({
           bond: params.bond,
@@ -312,7 +325,9 @@ export const changeApprovalTransaction = async (params: {
     const approvalAddress = getBondAddress({ bond: params.bond });
     const value = ethers.utils.parseUnits("1000000000", "ether");
     params.onStatus("userConfirmation", "");
+    console.log("contract", contract);
     const txn = await contract.approve(approvalAddress, value.toString());
+    console.log("txn", txn);
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
@@ -386,6 +401,9 @@ export const bondTransaction = async (params: {
 }) => {
   if (params.bond === "inverse_usdc") {
     try {
+      console.log("params.value", params.value);
+      const marketId = 2;
+      const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
       const signer = params.provider.getSigner();
       const contractAddress = getBondAddress({ bond: params.bond });
       const contract = new ethers.Contract(
@@ -393,11 +411,19 @@ export const bondTransaction = async (params: {
         KlimaProV2.abi,
         signer
       );
+      const bondPrice = await contract.marketPrice(marketId);
+      // const klimaMarketPriceInUSDC = getInverseKlimaUSDCPrice({provider: params.provider});
+      // this no right. need do good math
+      const minAmountOut =
+        bondPrice * Number(params.value) -
+        bondPrice * Number(params.value) * acceptedSlippage;
+      console.log("minAmountOut", minAmountOut);
+      // const minAmountOut = 1000000
       params.onStatus("userConfirmation", "");
       // contract.deposit(__id, [amountIn (inKLIMA), min Amount Out (inUSDC)], [userAddress, DAOMSigAddress(0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c)])
       const txn = await contract.deposit(
-        1,
-        [params.value, "min Amount Out (inUSDC)"],
+        marketId,
+        [Number(params.value) * Math.pow(10, 9), minAmountOut],
         [params.address, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
       );
       params.onStatus("networkConfirmation", "");
