@@ -189,8 +189,6 @@ export const calcBondDetails = (params: {
       amountInWei = ethers.utils.parseEther(params.value);
     }
 
-    // const isInverse =
-
     const bondContract = contractForBond({
       bond: params.bond,
       provider: provider,
@@ -231,6 +229,7 @@ export const calcBondDetails = (params: {
       returnOnInterest = bonus;
       terms = await bondContract.terms(2);
       const marketData = await bondContract.markets(2);
+      console.log("maxBondPrice", marketData.maxPayout.toNumber());
       maxBondPrice = marketData.maxPayout.toNumber();
     } else {
       terms = await bondContract.terms();
@@ -247,7 +246,12 @@ export const calcBondDetails = (params: {
       params.bond === "ubo"
     ) {
       bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
-    } else if (params.bond !== "inverse_usdc") {
+    } else if (params.bond !== "inverse_usdc" && Number(params.value)) {
+      bondQuote = Number(params.value) * Math.pow(10, 6) * bondPrice.toNumber();
+      console.log("bondQuote", bondQuote, params.value, bondPrice.toNumber());
+    } else if (params.bond !== "inverse_usdc" && !Number(params.value)) {
+      bondQuote = 0;
+    } else {
       const valuation = await bondCalcContract.valuation(
         getReserveAddress({ bond: params.bond }),
         amountInWei
@@ -268,14 +272,14 @@ export const calcBondDetails = (params: {
         decimalAdjustedBondPrice;
     }
 
-    if (params.bond === "inverse_usdc") {
+    if (getIsInverse({ bond: params.bond })) {
       dispatch(
         setBond({
           bond: params.bond,
           bondDiscount: bondDiscount! * 100,
           bondQuote: "55",
           vestingTerm: 0,
-          maxBondPrice: formatUnits(maxBondPrice, 9),
+          maxBondPrice,
           bondPrice: formatUnits(
             bondPrice,
             params.bond === "inverse_usdc" ? 6 : 18
