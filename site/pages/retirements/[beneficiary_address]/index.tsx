@@ -23,6 +23,7 @@ interface PageProps {
   beneficiaryAddress: Params["beneficiary_address"];
   totalsAndBalances: RetirementsTotalsAndBalances;
   klimaRetires: KlimaRetire[];
+  domain?: string;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -67,6 +68,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         totalsAndBalances,
         klimaRetires,
         beneficiaryAddress: params.beneficiary_address,
+        domain: !!addressByDomain ? params.beneficiary_address : undefined,
         translation,
       },
       revalidate: 240,

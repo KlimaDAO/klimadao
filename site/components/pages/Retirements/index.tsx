@@ -28,10 +28,11 @@ type Props = {
   totalsAndBalances: RetirementsTotalsAndBalances;
   klimaRetires: KlimaRetire[];
   beneficiaryAddress: string;
+  domain?: string;
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
-  const { beneficiaryAddress, totalsAndBalances, klimaRetires } = props;
+  const { beneficiaryAddress, totalsAndBalances, klimaRetires, domain } = props;
   const { locale } = useRouter();
   const [copied, doCopy] = useCopyToClipboard();
 
@@ -42,13 +43,15 @@ export const RetirementPage: NextPage<Props> = (props) => {
       <PageHead
         title={t({
           id: "retirement.totals.head.title",
-          message: `KlimaDAO - Carbon Retirements for beneficiary ${concattedAddress}`,
-          values: { beneficiaryAddress },
+          message: `KlimaDAO - Carbon Retirements for beneficiary ${
+            domain || concattedAddress
+          }`,
         })}
         mediaTitle={t({
           id: "retirement.totals.head.metaTitle",
-          message: `KlimaDAO - Carbon Retirements for beneficiary ${concattedAddress}`,
-          values: { beneficiaryAddress },
+          message: `KlimaDAO - Carbon Retirements for beneficiary ${
+            domain || concattedAddress
+          }`,
         })}
         metaDescription={t({
           id: "shared.head.description",
@@ -70,9 +73,9 @@ export const RetirementPage: NextPage<Props> = (props) => {
               <Trans id="retirement.totals.page_subline">for beneficiary</Trans>
               <button
                 className={styles.copyButton}
-                onClick={() => doCopy(beneficiaryAddress)}
+                onClick={() => doCopy(domain || beneficiaryAddress)}
               >
-                {concattedAddress}
+                {domain || concattedAddress}
                 {copied ? (
                   <Check fontSize="large" />
                 ) : (

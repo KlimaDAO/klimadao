@@ -27,6 +27,7 @@ interface PageProps {
   retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
+  domain?: string;
 }
 
 // second param should always be a number
@@ -106,6 +107,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         retirementTotals: params.retirement_index,
         translation,
         projectDetails,
+        domain: !!addressByDomain ? params.beneficiary_address : undefined,
       },
       revalidate: 240,
     };
