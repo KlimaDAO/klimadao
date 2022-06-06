@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-06 00:32+0000\n"
+"POT-Creation-Date: 2022-06-06 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -699,7 +699,7 @@ msgstr "Zu unstakende Menge"
 
 #: components/views/Stake/index.tsx:239
 msgid "stake.lifi"
-msgstr ""
+msgstr "<0>LI.FI</0> ermöglicht ab sofort Cross-Chain-Staking: ETH, BNB, DAI und viele weitere Tokens werden unterstützt."
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -723,7 +723,7 @@ msgstr "Staken"
 
 #: components/views/Stake/index.tsx:233
 msgid "stake.stake_hold_earn"
-msgstr ""
+msgstr "Stake, behalte und verdiene automatisch verzinstes sKLIMA."
 
 #: components/views/Stake/index.tsx:180
 #: components/views/Stake/index.tsx:230
