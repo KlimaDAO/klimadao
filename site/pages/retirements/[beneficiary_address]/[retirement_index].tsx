@@ -28,6 +28,7 @@ interface PageProps {
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
   domain?: string;
+  canonicalUrl?: string;
 }
 
 // second param should always be a number
@@ -108,6 +109,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         translation,
         projectDetails,
         domain: !!addressByDomain ? params.beneficiary_address : undefined,
+        canonicalUrl: !!addressByDomain
+          ? `https://www.klimadao.finance/${addressByDomain}/${params.retirement_index}`
+          : undefined,
       },
       revalidate: 240,
     };

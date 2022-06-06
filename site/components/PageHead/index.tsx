@@ -16,13 +16,16 @@ export interface PageHeadProps {
   mediaImageSrc?: string;
   /** displays some useful meta tags if current page is an article */
   isArticle?: boolean;
+  /** overwrite canonical for pages with duplicate content */
+  canonicalUrl?: string;
 }
 
 export const PageHead = (props: PageHeadProps) => {
   const noRobots = props.doNotIndex || !IS_PRODUCTION;
   const router = useRouter();
   const relativePath = router.asPath.split(/[#,?]/)[0];
-  const canonicalUrl = `https://www.klimadao.finance${relativePath}`;
+  const canonicalUrl =
+    props.canonicalUrl || `https://www.klimadao.finance${relativePath}`;
 
   return (
     <Head>

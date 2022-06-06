@@ -24,6 +24,7 @@ interface PageProps {
   totalsAndBalances: RetirementsTotalsAndBalances;
   klimaRetires: KlimaRetire[];
   domain?: string;
+  canonicalUrl?: string;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -69,6 +70,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         klimaRetires,
         beneficiaryAddress: params.beneficiary_address,
         domain: !!addressByDomain ? params.beneficiary_address : undefined,
+        canonicalUrl: !!addressByDomain
+          ? `https://www.klimadao.finance/${addressByDomain}`
+          : undefined,
         translation,
       },
       revalidate: 240,

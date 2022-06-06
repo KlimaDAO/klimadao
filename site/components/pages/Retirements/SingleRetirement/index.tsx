@@ -30,6 +30,7 @@ type Props = {
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails?: VerraProjectDetails;
   domain?: string;
+  canonicalUrl?: string;
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
@@ -71,6 +72,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           id: "retirement.head.metaDescription",
           message: "Transparent, on-chain offsets powered by KlimaDAO.",
         })}
+        canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />
 

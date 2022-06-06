@@ -29,6 +29,7 @@ type Props = {
   klimaRetires: KlimaRetire[];
   beneficiaryAddress: string;
   domain?: string;
+  canonicalUrl?: string;
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
@@ -58,6 +59,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
+        canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />
 
