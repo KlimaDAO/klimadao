@@ -22,6 +22,7 @@ export const modalContainer = css`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 
 export const modalContent = css`

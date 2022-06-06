@@ -145,6 +145,7 @@ export const PledgeForm: FC<Props> = (props) => {
                   errors={formState.errors.categories?.[index]?.name}
                   {...register(`categories.${index}.name` as const)}
                 />
+
                 <InputField
                   label="Quantity"
                   hideLabel

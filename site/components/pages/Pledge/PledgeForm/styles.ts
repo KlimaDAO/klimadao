@@ -6,6 +6,7 @@ export const container = css`
   align-content: start;
   gap: 1.6rem;
   margin-top: 2rem;
+  overflow: hidden;
 `;
 
 export const input = css`
