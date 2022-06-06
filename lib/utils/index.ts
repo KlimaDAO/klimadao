@@ -27,3 +27,9 @@ export {
   queryKlimaRetiresByAddress,
 } from "./subgraph/queryPolygonBridgedCarbon";
 export { getVerraProjectByID } from "./verra/getVerraProjects";
+
+// KNS
+export { isKNSDomain, KNSContract, getAddressByKNS } from "./kns";
+
+// ENS
+export { isENSDomain, ETHProvider, getAddressByENS } from "./ens";
