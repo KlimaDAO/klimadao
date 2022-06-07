@@ -7,17 +7,18 @@ import {
 import { Home, Props } from "components/pages/Home";
 import { fetchCMSContent } from "lib/fetchCMSContent";
 import { loadTranslation } from "lib/i18n";
-import { INFURA_ID } from "lib/secrets";
+import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
-  const treasuryBalance = await getTreasuryBalance(INFURA_ID);
+  const infuraURL = getInfuraUrlPolygon();
+  const treasuryBalance = await getTreasuryBalance(infuraURL);
   const latestPost = await fetchCMSContent("latestPost");
   const translation = await loadTranslation(ctx.locale);
   const blockRate = await fetchBlockRate();
   const weeklyStakingRewards = await getStakingRewards({
     days: 7,
     blockRate,
-    infuraId: INFURA_ID,
+    providerUrl: infuraURL,
   });
 
   return {

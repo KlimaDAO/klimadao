@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-import { INFURA_ID } from "lib/secrets";
+import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 
 import {
   getRetirementTotalsAndBalances,
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     const promises = [
       getRetirementTotalsAndBalances({
         address: addressByDomain || (params.beneficiary_address as string),
-        infuraId: INFURA_ID,
+        providerUrl: getInfuraUrlPolygon(),
       }),
       queryKlimaRetiresByAddress(addressByDomain || params.beneficiary_address),
       loadTranslation(locale),

@@ -8,9 +8,9 @@ import SKlima from "../../abi/sKlima.json";
 export const getStakingRewards = async (params: {
   days: number;
   blockRate: number;
-  infuraId?: string;
+  providerUrl?: string;
 }): Promise<number> => {
-  const provider = getJsonRpcProvider(params.infuraId);
+  const provider = getJsonRpcProvider(params.providerUrl);
   const distributorContract = new ethers.Contract(
     addresses.mainnet.distributor,
     DistributorContractv4.abi,

@@ -4,8 +4,8 @@ import { addresses } from "../../constants";
 import IERC20 from "../../abi/IERC20.json";
 import { formatUnits } from "..";
 
-export const getKlimaSupply = async (infuraId?: string): Promise<string> => {
-  const provider = getJsonRpcProvider(infuraId);
+export const getKlimaSupply = async (providerUrl?: string): Promise<string> => {
+  const provider = getJsonRpcProvider(providerUrl);
   const klimaContract = new ethers.Contract(
     addresses.mainnet.klima,
     IERC20.abi,

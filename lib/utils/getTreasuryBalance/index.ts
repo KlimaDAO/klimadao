@@ -42,10 +42,10 @@ const getOwnedBCTFromSLP = async (params: {
  * NakedBCT + (klimaBctReserve * klimaBctTreasuryPercent) + (bctUsdcReserve * bctUsdcTreasuryPercent)
  */
 export const getTreasuryBalance = async (
-  infuraId?: string
+  providerUrl?: string
 ): Promise<number> => {
   try {
-    const provider = getJsonRpcProvider(infuraId);
+    const provider = getJsonRpcProvider(providerUrl);
     const bctContract = new ethers.Contract(
       addresses.mainnet.bct,
       IERC20.abi,

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
 import { getKlimaSupply } from "@klimadao/lib/utils";
-import { INFURA_ID } from "lib/secrets";
+import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 
 /** CORS is set in next.config.js */
 export default async function handler(
@@ -8,7 +8,7 @@ export default async function handler(
   res: NextApiResponse<string>
 ) {
   try {
-    const supply = await getKlimaSupply(INFURA_ID);
+    const supply = await getKlimaSupply(getInfuraUrlPolygon());
 
     // share-cache after last cached request:
     // 0-1 minutes -> fresh, return from cache

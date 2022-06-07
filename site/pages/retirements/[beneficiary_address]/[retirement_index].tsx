@@ -14,7 +14,7 @@ import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
-import { INFURA_ID } from "lib/secrets";
+import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 
@@ -77,7 +77,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         beneficiaryAdress:
           resolvedAddress || (params.beneficiary_address as string),
         index: retirementIndex,
-        infuraId: INFURA_ID,
+        providerUrl: getInfuraUrlPolygon(),
       }),
       loadTranslation(locale),
     ];
