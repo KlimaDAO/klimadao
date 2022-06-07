@@ -112,6 +112,7 @@ export const urls = {
   polygonMainnetRpc: "https://polygon-rpc.com",
   polygonTestnetRpc: "https://rpc-mumbai.matic.today",
   infuraRpc: "https://polygon-mainnet.infura.io/v3/",
+  infuraEth: "https://mainnet.infura.io/v3/",
   sushiUSDCBCT: `https://app.sushi.com/swap?inputCurrency=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&outputCurrency=${addresses["mainnet"].bct}`,
   sushiKLIMABCT: `https://app.sushi.com/swap?inputCurrency=${addresses["mainnet"].klima}&outputCurrency=${addresses["mainnet"].bct}`,
   communityHub: "https://klimadao.notion.site",
