@@ -18,7 +18,8 @@ export const retirementsLink = css`
   background-color: var(--surface-01);
   transition: opacity 0.3s ease 0s;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     opacity: 0.7;
   }
 
