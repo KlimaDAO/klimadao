@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-06 15:41+0000\n"
+"POT-Creation-Date: 2022-06-07 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -718,7 +718,7 @@ msgstr "Это представляет собой постоянное выбы
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:77
 msgid "retirement.single.header.quantity"
-msgstr ""
+msgstr "{0}t"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:82
 msgid "retirement.single.header.subline"
@@ -730,19 +730,19 @@ msgstr "Сообщение о использовании"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
 msgid "retirement.single.project_details.moss_headline"
-msgstr ""
+msgstr "Нажмите здесь, чтобы узнать больше о проектах, которые поддерживают пуллы MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
-msgstr ""
+msgstr "Следующие проекты были использованы. Нажмите на название проекта, чтобы узнать о нем больше."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
-msgstr ""
+msgstr "Детали проекта"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:42
 msgid "retirement.single.project_details.tonnes"
-msgstr ""
+msgstr "Тонны"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
 msgid "retirement.single.project_details.view_on_polygon_scan"
@@ -787,6 +787,8 @@ msgstr "Итого выведено"
 #: components/pages/Retirements/Breakdown/index.tsx:32
 msgid "retirement.totals.assets_used_headline"
 msgstr ""
+"Активы, используемые для выбытия\n"
+""
 
 #: components/pages/Retirements/index.tsx:48
 msgid "retirement.totals.head.metaTitle"
@@ -802,7 +804,7 @@ msgstr "Выбивание углерода"
 
 #: components/pages/Retirements/index.tsx:70
 msgid "retirement.totals.page_subline"
-msgstr ""
+msgstr "для бенефициара"
 
 #: components/pages/Retirements/index.tsx:89
 msgid "retirement.totals.retired_assets"
