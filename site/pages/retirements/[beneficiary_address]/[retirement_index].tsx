@@ -4,8 +4,9 @@ import { ParsedUrlQuery } from "querystring";
 import {
   queryKlimaRetireByIndex,
   getVerraProjectByID,
+  getRetirementIndexInfo,
 } from "@klimadao/lib/utils";
-import { getRetirementIndexInfo } from "@klimadao/lib/utils";
+import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
@@ -110,7 +111,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         projectDetails,
         domain: !!addressByDomain ? params.beneficiary_address : undefined,
         canonicalUrl: !!addressByDomain
-          ? `https://www.klimadao.finance/${addressByDomain}/${params.retirement_index}`
+          ? `${urls.retirements}/${addressByDomain}/${params.retirement_index}`
           : undefined,
       },
       revalidate: 240,

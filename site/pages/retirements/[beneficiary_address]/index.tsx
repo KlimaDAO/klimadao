@@ -7,6 +7,7 @@ import {
   getRetirementTotalsAndBalances,
   queryKlimaRetiresByAddress,
 } from "@klimadao/lib/utils";
+import { urls } from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
@@ -71,7 +72,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         beneficiaryAddress: params.beneficiary_address,
         domain: !!addressByDomain ? params.beneficiary_address : undefined,
         canonicalUrl: !!addressByDomain
-          ? `https://www.klimadao.finance/${addressByDomain}`
+          ? `${urls.retirements}/${addressByDomain}`
           : undefined,
         translation,
       },
