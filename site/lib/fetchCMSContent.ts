@@ -1,5 +1,7 @@
 import sanityClient from "@sanity/client";
 import { queries, QueryContent } from "./queries";
+import { IS_PRODUCTION } from "./constants";
+
 import {
   SANITY_STUDIO_API_PROJECT_ID,
   SANITY_STUDIO_API_DATASET,
@@ -11,7 +13,7 @@ const getSanityClient = () => {
     dataset: SANITY_STUDIO_API_DATASET,
     apiVersion: "2022-01-05",
     // token: 'sanity-auth-token', // or leave blank for unauthenticated usage
-    useCdn: true, // `false` if you want to ensure fresh data
+    useCdn: IS_PRODUCTION, // `false` if you want to ensure fresh data
   });
 };
 

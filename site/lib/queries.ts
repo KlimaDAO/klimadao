@@ -6,10 +6,14 @@ wants to publish their posts but dont want it to appear in the production enviro
 NOTE: When constructing a new query for posts, please add the hideFromProduction filter to the prodQuery
 so the query wont reveal any hidden posts in the production environment */
 
-const prodQueries = {
+export const queryFilter = IS_PRODUCTION
+  ? "hideFromProduction != true"
+  : "true";
+
+export const queries = {
   /** fetch all blog posts, sorted by publishedAt */
   allPosts: /* groq */ `
-    *[_type == "post" && hideFromProduction != true] | order(publishedAt desc) {
+    *[_type == "post" && ${queryFilter}] | order(publishedAt desc) {
       summary, 
       "slug": slug.current, 
       title, 
@@ -20,14 +24,14 @@ const prodQueries = {
   `,
   /** fetch the last published post slug and title */
   latestPost: /* groq */ `
-    *[_type == "post" && hideFromProduction != true] | order(publishedAt desc) {
+    *[_type == "post" && ${queryFilter}] | order(publishedAt desc) {
       "slug": slug.current, 
       title
     }[0]
   `,
   /** fetch a blog post based on slug */
   post: /* groq */ `
-    *[_type == "post" && slug.current == $slug && hideFromProduction != true][0] {
+    *[_type == "post" && slug.current == $slug && ${queryFilter}][0] {
       body[] {
         ...,
         markDefs[]{
@@ -55,58 +59,6 @@ const prodQueries = {
     }
   `,
 };
-
-const stagingQueries: typeof prodQueries = {
-  /** fetch all blog posts, sorted by publishedAt */
-  allPosts: /* groq */ `
-    *[_type == "post" && hideFromProduction != true] | order(publishedAt desc) {
-      summary, 
-      "slug": slug.current, 
-      title, 
-      publishedAt, 
-      author->, 
-      "imageUrl": mainImage.asset->url
-    }
-  `,
-  /** fetch the last published post slug and title */
-  latestPost: /* groq */ `
-    *[_type == "post" && hideFromProduction != true] | order(publishedAt desc) {
-      "slug": slug.current, 
-      title
-    }[0]
-  `,
-  /** fetch a blog post based on slug */
-  post: /* groq */ `
-    *[_type == "post" && slug.current == $slug][0] {
-      body[] {
-        ...,
-        markDefs[]{
-          ...,
-          _type == "internalLink" => {
-            "name": uploadedFile->.name,
-            "href": uploadedFile->.file.asset->url
-          }
-        },
-        _type == "image" => {
-          ...,
-          asset -> {
-            url,
-            "width": metadata.dimensions.width,
-            "height": metadata.dimensions.height,
-          }
-        }
-      },
-      title,
-      author->,
-      "imageUrl": mainImage.asset->url,
-      publishedAt,
-      summary,
-      showDisclaimer
-    }
-  `,
-};
-
-export const queries = IS_PRODUCTION ? prodQueries : stagingQueries;
 
 /** Just details needed to render cards */
 export type PostDetails = {
