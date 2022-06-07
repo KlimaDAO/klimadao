@@ -126,7 +126,7 @@ export const useBond = (bond: Bond) => {
       klima_bct_lp: "SLP",
       bct_usdc_lp: "SLP",
       klima_mco2_lp: "LP",
-      inverse_usdc: "USDC",
+      inverse_usdc: "KLIMA",
     }[bond],
     priceUnit: {
       ubo: "UBO",

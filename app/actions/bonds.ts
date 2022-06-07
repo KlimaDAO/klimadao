@@ -142,7 +142,6 @@ const getKlimaUSDCMarketPrice = async (params: {
   const reserves = await pairContract.getReserves();
   // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
   // divide usdc/klima to get klima usdc price
-  // i just swapped this to klima/usdc
   return (reserves[0] * Math.pow(10, 12)) / (reserves[1] * Math.pow(10, 9));
 };
 
@@ -179,6 +178,8 @@ const getMCO2MarketPrice = async (params: {
 export const calcBondDetails = (params: {
   bond: Bond;
   value?: string;
+  provider: providers.JsonRpcProvider;
+  address?: string;
 }): Thunk => {
   return async (dispatch) => {
     const provider = getJsonRpcProvider();
@@ -222,15 +223,30 @@ export const calcBondDetails = (params: {
     let debtRatio;
     let bondPrice;
     let returnOnInterest;
-    // stopped here. make the stuff below here work plox
     if (getIsInverse({ bond: params.bond })) {
-      bondPrice = await bondContract.marketPrice(2);
+      if (!params.address) return;
+      const marketId = 3;
+      bondPrice = await bondContract.marketPrice(marketId);
       const bonus = 1 / bondPrice.toNumber() - marketPrice;
       returnOnInterest = bonus;
-      terms = await bondContract.terms(2);
-      const marketData = await bondContract.markets(2);
-      console.log("maxBondPrice", marketData.maxPayout.toNumber());
+      terms = await bondContract.terms(marketId);
+      const marketData = await bondContract.markets(marketId);
       maxBondPrice = marketData.maxPayout.toNumber();
+      const klimaContract = new ethers.Contract(
+        addresses["mainnet"].klima,
+        IERC20.abi,
+        params.provider
+      );
+      const inverseAllowance = await klimaContract.allowance(
+        params.address,
+        getBondAddress({ bond: params.bond })
+      );
+      console.log("inverseAllowance", formatUnits(inverseAllowance));
+      dispatch(
+        setBondAllowance({
+          [params.bond]: formatUnits(inverseAllowance),
+        })
+      );
     } else {
       terms = await bondContract.terms();
       maxBondPrice = await bondContract.maxPayout();
@@ -246,14 +262,15 @@ export const calcBondDetails = (params: {
       params.bond === "ubo"
     ) {
       bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
-    } else if (params.bond !== "inverse_usdc" && Number(params.value)) {
-      bondQuote = (
-        Number(params.value) *
-        Math.pow(10, 6) *
-        bondPrice.toNumber()
-      ).toString();
+    } else if (params.bond === "inverse_usdc" && Number(params.value)) {
+      bondQuote = formatUnits(
+        ethers.BigNumber.from(
+          Number(params.value) * Math.pow(10, 6) * bondPrice.toNumber()
+        ),
+        6
+      );
       console.log("bondQuote", bondQuote, params.value, bondPrice.toNumber());
-    } else if (params.bond !== "inverse_usdc" && !Number(params.value)) {
+    } else if (!Number(params.value)) {
       bondQuote = "0";
     } else {
       const valuation = await bondCalcContract.valuation(
@@ -281,7 +298,7 @@ export const calcBondDetails = (params: {
         setBond({
           bond: params.bond,
           bondDiscount: bondDiscount! * 100,
-          bondQuote: "55",
+          bondQuote,
           vestingTerm: 0,
           maxBondPrice,
           bondPrice: formatUnits(
@@ -357,10 +374,6 @@ export const calculateUserBondDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     if (!params.address) return;
-    // inverse bonds dont have user details
-    if (getIsInverse({ bond: params.bond })) return;
-
-    // Calculate bond details.
     const bondContract = contractForBond({
       bond: params.bond,
       provider: params.provider,
@@ -369,6 +382,10 @@ export const calculateUserBondDetails = (params: {
       bond: params.bond,
       providerOrSigner: params.provider,
     });
+    // inverse bonds dont have user details
+    if (getIsInverse({ bond: params.bond })) return;
+
+    // Calculate bond details.
     const bondDetails = await bondContract.bondInfo(params.address);
     const interestDue = bondDetails[0];
     const bondMaturationBlock = +bondDetails[1] + +bondDetails[2];
@@ -410,7 +427,7 @@ export const bondTransaction = async (params: {
   if (params.bond === "inverse_usdc") {
     try {
       console.log("params.value", params.value);
-      const marketId = 2;
+      const marketId = 3;
       const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
       const signer = params.provider.getSigner();
       const contractAddress = getBondAddress({ bond: params.bond });

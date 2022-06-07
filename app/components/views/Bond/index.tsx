@@ -131,6 +131,7 @@ export const Bond: FC<Props> = (props) => {
 
   const { currentBlock, blockRate } = useSelector(selectAppState);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
+  const userState = useSelector((state: RootState) => state.user);
   const allowance = useSelector(selectBondAllowance);
 
   const [sourceSingleton, singleton] = useTooltipSingleton();
@@ -164,11 +165,28 @@ export const Bond: FC<Props> = (props) => {
 
   const getBondMax = (): string => {
     if (
-      !bondState?.maxBondPrice ||
-      !bondState?.bondPrice ||
-      !bondState?.balance
+      (!bondState?.maxBondPrice ||
+        !bondState?.bondPrice ||
+        !bondState?.balance) &&
+      bondState?.bond !== "inverse_usdc"
     ) {
       return "0";
+    } else if (
+      (!bondState.maxBondPrice ||
+        !bondState.bondPrice ||
+        !userState.balance ||
+        !userState.balance.klima) &&
+      bondState.bond === "inverse_usdc"
+    ) {
+      return "0";
+    } else if (bondState.bond === "inverse_usdc") {
+      const price = bondState?.bondPrice;
+      const maxPayable = Number(bondState.maxBondPrice) * Number(price);
+      const bondMax =
+        Number(userState.balance.klima) < Number(maxPayable)
+          ? userState.balance.klima
+          : maxPayable.toString();
+      return bondMax ? bondMax : "0";
     }
     const price = bondState?.bondPrice;
     const maxPayable = Number(bondState.maxBondPrice) * Number(price);
@@ -176,7 +194,7 @@ export const Bond: FC<Props> = (props) => {
       Number(bondState?.balance) < Number(maxPayable)
         ? bondState?.balance
         : maxPayable.toString();
-    return bondMax;
+    return bondMax ? bondMax : "0";
   };
 
   const setMax = () => {
@@ -195,6 +213,8 @@ export const Bond: FC<Props> = (props) => {
           calcBondDetails({
             bond: props.bond,
             value: debouncedQuantity,
+            provider: props.provider,
+            address: props.address,
           })
         );
       }
@@ -219,7 +239,7 @@ export const Bond: FC<Props> = (props) => {
         provider: props.provider,
         bond: props.bond,
         onStatus: setStatus,
-        isInverse: true,
+        isInverse: bondState && bondState.bond === "inverse_usdc",
       });
       console.log(value);
       // added toNumber for inverse
@@ -321,8 +341,14 @@ export const Bond: FC<Props> = (props) => {
       return;
     }
   };
-
-  const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
+  // fix thissss
+  const hasAllowance = () => {
+    if (bondState && bondState.bond !== "inverse_usdc") {
+      return !!allowance && !!Number(allowance[props.bond]);
+    } else {
+      // get the allowance here?
+    }
+  };
 
   const isDisabled = view === "bond" && bondInfo.disabled;
 
@@ -409,6 +435,28 @@ export const Bond: FC<Props> = (props) => {
       });
     } else {
       return t({ id: "shared.error", message: "ERROR" });
+    }
+  };
+
+  const getBondBalance = () => {
+    if (!props.isConnected) {
+      return 0;
+    } else if (
+      bondState &&
+      bondState.bond === "inverse_usdc" &&
+      userState.balance &&
+      userState.balance.klima
+    ) {
+      console.log("balances here", userState.balance.klima);
+      return userState.balance.klima;
+    } else if (bondState && bondState.balance) {
+      return trimWithPlaceholder(
+        bondState?.balance,
+        Number(bondState?.balance) < 1 ? 18 : 2,
+        locale
+      );
+    } else {
+      return 0;
     }
   };
 
@@ -523,15 +571,7 @@ export const Bond: FC<Props> = (props) => {
                   comment: "Long sentence",
                 })}
                 unit={bondInfo.balanceUnit}
-                value={
-                  !props.isConnected
-                    ? 0
-                    : trimWithPlaceholder(
-                        bondState?.balance,
-                        Number(bondState?.balance) < 1 ? 18 : 2,
-                        locale
-                      )
-                }
+                value={getBondBalance()}
                 warning={Number(quantity) > Number(bondState?.balance)}
               />
               <DataRow
@@ -594,7 +634,11 @@ export const Bond: FC<Props> = (props) => {
                     "Amount of bonded KLIMA you will get, at the provided input quantity",
                   comment: "Long sentence",
                 })}
-                unit="KLIMA"
+                unit={
+                  bondState && bondState.bond === "inverse_usdc"
+                    ? "USDC"
+                    : "KLIMA"
+                }
                 value={
                   !props.isConnected
                     ? 0
