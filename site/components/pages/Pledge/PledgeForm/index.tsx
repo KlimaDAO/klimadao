@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import RemoveIcon from "@mui/icons-material/Remove";
+import ClearIcon from "@mui/icons-material/Clear";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   useForm,
@@ -159,11 +159,9 @@ export const PledgeForm: FC<Props> = (props) => {
               <ButtonPrimary
                 variant="icon"
                 className={styles.categoryRow_removeButton}
-                label={<RemoveIcon fontSize="large" />}
+                label={<ClearIcon fontSize="large" />}
                 onClick={() => remove(index)}
-              >
-                <RemoveIcon fontSize="medium" />
-              </ButtonPrimary>
+              />
             </div>
           ))}
         </div>
