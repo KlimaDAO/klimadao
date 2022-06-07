@@ -6,6 +6,7 @@ import {
   getRetirementTokenByAddress,
   formatUnits,
   getTokenDecimals,
+  getIsValidAddress,
 } from "../../utils";
 
 import {
@@ -43,6 +44,9 @@ export const getRetirementIndexInfo = async (params: {
       params.beneficiaryAdress,
       BigNumber.from(params.index)
     );
+
+    if (!getIsValidAddress(tokenAddress))
+      throw new Error(`Invalid tokenAddress: ${tokenAddress}`);
 
     const typeOfToken = getRetirementTokenByAddress(tokenAddress);
 

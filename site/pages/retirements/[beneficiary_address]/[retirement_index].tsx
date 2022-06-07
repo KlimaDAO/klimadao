@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { ethers } from "ethers";
 
 import {
   queryKlimaRetireByIndex,
@@ -51,15 +52,14 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No matching params found");
     }
 
-    let addressByDomain;
+    let resolvedAddress: string;
     const isDomainInURL = getIsDomainInURL(params.beneficiary_address);
     if (isDomainInURL) {
-      addressByDomain = await getAddressByDomain(params.beneficiary_address);
-    }
-
-    // Do not continue if KNS or ENS Domain can not be resolved
-    if (isDomainInURL && addressByDomain === null) {
-      throw new Error("No valid KNS or ENS domain holder address found !");
+      resolvedAddress = await getAddressByDomain(params.beneficiary_address); // this fn should throw if it fails to resolve
+    } else if (ethers.utils.isAddress(params.beneficiary_address)) {
+      resolvedAddress = params.beneficiary_address;
+    } else {
+      throw new Error("Not a valid beneficiary address");
     }
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
@@ -70,12 +70,12 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       Promise<Record<string, unknown>>
     ] = [
       queryKlimaRetireByIndex(
-        addressByDomain || (params.beneficiary_address as string),
+        resolvedAddress || (params.beneficiary_address as string),
         retirementIndex
       ),
       getRetirementIndexInfo({
         beneficiaryAdress:
-          addressByDomain || (params.beneficiary_address as string),
+          resolvedAddress || (params.beneficiary_address as string),
         index: retirementIndex,
         infuraId: INFURA_ID,
       }),
@@ -109,11 +109,11 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         retirementTotals: params.retirement_index,
         translation,
         projectDetails,
-        nameserviceDomain: !!addressByDomain
+        nameserviceDomain: !!resolvedAddress
           ? params.beneficiary_address
           : undefined,
-        canonicalUrl: !!addressByDomain
-          ? `${urls.retirements}/${addressByDomain}/${params.retirement_index}`
+        canonicalUrl: !!resolvedAddress
+          ? `${urls.retirements}/${resolvedAddress}/${params.retirement_index}`
           : undefined,
       },
       revalidate: 240,

@@ -21,6 +21,7 @@ export { safeSub } from "./safeSub";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { getTokenDecimals } from "./getTokenDecimals";
+export { getIsValidAddress } from "./getIsValidAddress";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export {
   queryKlimaRetireByIndex,

@@ -1,3 +1,4 @@
+import { ethers } from "ethers";
 import {
   isKNSDomain,
   getAddressByKNS,
@@ -5,17 +6,14 @@ import {
   getAddressByENS,
 } from "@klimadao/lib/utils";
 
-export const getAddressByDomain = async (
-  domain: string
-): Promise<string | null> => {
+export const getAddressByDomain = async (domain: string): Promise<string> => {
   try {
-    let address;
-    if (isKNSDomain(domain)) {
-      address = await getAddressByKNS(domain);
-    } else if (isENSDomain(domain)) {
-      address = await getAddressByENS(domain);
-    } else {
-      address = null;
+    const kns = isKNSDomain(domain) && (await getAddressByKNS(domain));
+    const ens = isENSDomain(domain) && (await getAddressByENS(domain));
+    const address = kns || ens;
+
+    if (!address || !ethers.utils.isAddress(address)) {
+      throw new Error("Not a valid address");
     }
     return address;
   } catch (e) {
