@@ -19,7 +19,7 @@ export const getAddressByDomain = async (
     }
     return address;
   } catch (e) {
-    console.log("Error in getAddressByDomain", e);
+    console.error("Error in getAddressByDomain", e);
     return Promise.reject(e);
   }
 };

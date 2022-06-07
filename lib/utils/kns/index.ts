@@ -30,7 +30,7 @@ export const getAddressByKNS = async (
     const address = await KNSContract.getDomainHolder(strippedDomain);
     return isValidAddress(address) ? address : null;
   } catch (e) {
-    console.log("Error in getAddressByKNS", e);
+    console.error("Error in getAddressByKNS", e);
     return Promise.reject(e);
   }
 };

@@ -10,7 +10,7 @@ export const getAddressByENS = async (domain: string) => {
     const address = await ETHProvider.resolveName(domain);
     return address;
   } catch (e) {
-    console.log("Error in getAddressByENS", e);
+    console.error("Error in getAddressByENS", e);
     return Promise.reject(e);
   }
 };
