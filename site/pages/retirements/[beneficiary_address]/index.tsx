@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { ethers } from "ethers";
 
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 
@@ -38,23 +39,22 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No params found");
     }
 
-    let addressByDomain;
+    let resolvedAddress: string;
     const isDomainInURL = getIsDomainInURL(params.beneficiary_address);
     if (isDomainInURL) {
-      addressByDomain = await getAddressByDomain(params.beneficiary_address);
-    }
-
-    // Do not continue if KNS or ENS Domain can not be resolved
-    if (addressByDomain === null) {
-      throw new Error("No valid KNS or ENS domain holder address found !");
+      resolvedAddress = await getAddressByDomain(params.beneficiary_address); // this fn should throw if it fails to resolve
+    } else if (ethers.utils.isAddress(params.beneficiary_address)) {
+      resolvedAddress = params.beneficiary_address;
+    } else {
+      throw new Error("Not a valid beneficiary address");
     }
 
     const promises = [
       getRetirementTotalsAndBalances({
-        address: addressByDomain || (params.beneficiary_address as string),
+        address: resolvedAddress || (params.beneficiary_address as string),
         providerUrl: getInfuraUrlPolygon(),
       }),
-      queryKlimaRetiresByAddress(addressByDomain || params.beneficiary_address),
+      queryKlimaRetiresByAddress(resolvedAddress || params.beneficiary_address),
       loadTranslation(locale),
     ];
 
@@ -70,11 +70,11 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         totalsAndBalances,
         klimaRetires,
         beneficiaryAddress: params.beneficiary_address,
-        nameserviceDomain: !!addressByDomain
+        nameserviceDomain: !!resolvedAddress
           ? params.beneficiary_address
           : undefined,
-        canonicalUrl: !!addressByDomain
-          ? `${urls.retirements}/${addressByDomain}`
+        canonicalUrl: !!resolvedAddress
+          ? `${urls.retirements}/${resolvedAddress}`
           : undefined,
         translation,
       },
