@@ -682,39 +682,39 @@ msgstr ""
 msgid "retirement.footer.buy_klima.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:71
+#: components/pages/Retirements/SingleRetirement/index.tsx:76
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:63
+#: components/pages/Retirements/SingleRetirement/index.tsx:68
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:59
+#: components/pages/Retirements/SingleRetirement/index.tsx:64
 msgid "retirement.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:117
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:116
 msgid "retirement.single.beneficiary.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:125
+#: components/pages/Retirements/SingleRetirement/index.tsx:130
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:164
+#: components/pages/Retirements/SingleRetirement/index.tsx:171
 msgid "retirement.single.disclaimer"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:87
 msgid "retirement.single.header.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:87
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.single.header.subline"
 msgstr ""
 
@@ -746,11 +746,11 @@ msgstr ""
 msgid "retirement.single.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:156
+#: components/pages/Retirements/SingleRetirement/index.tsx:163
 msgid "retirement.single.retirementCertificate.soon"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:151
+#: components/pages/Retirements/SingleRetirement/index.tsx:158
 msgid "retirement.single.retirementCertificate.title"
 msgstr ""
 
@@ -758,23 +758,23 @@ msgstr ""
 msgid "retirement.single.retirementDate.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:96
+#: components/pages/Retirements/SingleRetirement/index.tsx:101
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:143
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
 msgid "retirement.single.timestamp.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:182
+#: components/pages/Retirements/SingleRetirement/index.tsx:189
 msgid "retirement.single.view_on_polygon_scan"
 msgstr ""
 
-#: components/pages/Retirements/List/index.tsx:38
+#: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
 msgstr ""
 
-#: components/pages/Retirements/List/index.tsx:23
+#: components/pages/Retirements/List/index.tsx:24
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr ""
 
@@ -782,35 +782,35 @@ msgstr ""
 msgid "retirement.totals.assets_used_headline"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:51
+#: components/pages/Retirements/index.tsx:56
 msgid "retirement.totals.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:45
+#: components/pages/Retirements/index.tsx:50
 msgid "retirement.totals.head.title"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:70
+#: components/pages/Retirements/index.tsx:75
 msgid "retirement.totals.page_headline"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:75
+#: components/pages/Retirements/index.tsx:80
 msgid "retirement.totals.page_subline"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:94
+#: components/pages/Retirements/index.tsx:99
 msgid "retirement.totals.retired_assets"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:110
+#: components/pages/Retirements/index.tsx:115
 msgid "retirement.totals.retirements"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:102
+#: components/pages/Retirements/index.tsx:107
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:116
+#: components/pages/Retirements/index.tsx:121
 msgid "retirement.totals.total_retirement_transactions"
 msgstr ""
 
@@ -865,7 +865,7 @@ msgstr ""
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:57
+#: components/pages/Retirements/index.tsx:62
 #: components/pages/errors/Custom404.tsx:23
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
