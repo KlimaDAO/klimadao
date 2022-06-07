@@ -104,7 +104,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           </Text>
 
           <div className={styles.progressContainer}>
-            <Text t="h4" color="lightest" className={styles.pledgeAmount}>
+            <Text t="h4" color="lightest" align="center">
               Pledged to offset <strong>{currentFootprint.total}</strong> Carbon
               Tonnes
             </Text>

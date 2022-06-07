@@ -37,10 +37,6 @@ export const progressContainer = css`
   gap: 1.6rem;
 `;
 
-export const pledgeAmount = css`
-  text-align: center;
-`;
-
 export const pledgeProgress = css`
   text-align: center;
   align-self: center;
