@@ -7,7 +7,7 @@ export const cardHeader = css`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.8rem;
-  align-items: center;  
+  align-items: center;
 `;
 
 export const title = css`
@@ -19,7 +19,7 @@ export const title = css`
     fill: var(--font-01);
     font-size: 3rem;
   }
-`
+`;
 
 export const card = css`
   ${common.cardSurface}

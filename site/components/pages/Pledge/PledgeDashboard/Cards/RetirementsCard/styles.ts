@@ -16,7 +16,7 @@ export const retirementsLink = css`
   min-width: 4.2rem;
   border-radius: var(--border-radius);
   background-color: var(--surface-01);
-  
+
   svg {
     fill: var(--font-01);
     font-size: 2.4rem;
@@ -29,5 +29,5 @@ export const retirementsLink = css`
     svg {
       font-size: 2.8rem;
     }
-  }  
+  }
 `;
