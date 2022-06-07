@@ -16,6 +16,11 @@ export const retirementsLink = css`
   min-width: 4.2rem;
   border-radius: var(--border-radius);
   background-color: var(--surface-01);
+  transition: opacity 0.3s ease 0s;
+
+  &:hover, &:focus {
+    opacity: 0.7;
+  }
 
   svg {
     fill: var(--font-01);
