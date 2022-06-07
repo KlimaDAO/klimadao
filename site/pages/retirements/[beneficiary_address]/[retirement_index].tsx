@@ -28,7 +28,7 @@ interface PageProps {
   retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
-  domain?: string;
+  nameserviceDomain?: string;
   canonicalUrl?: string;
 }
 
@@ -109,7 +109,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         retirementTotals: params.retirement_index,
         translation,
         projectDetails,
-        domain: !!addressByDomain ? params.beneficiary_address : undefined,
+        nameserviceDomain: !!addressByDomain
+          ? params.beneficiary_address
+          : undefined,
         canonicalUrl: !!addressByDomain
           ? `${urls.retirements}/${addressByDomain}/${params.retirement_index}`
           : undefined,

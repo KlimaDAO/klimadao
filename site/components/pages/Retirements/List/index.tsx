@@ -11,11 +11,11 @@ import * as styles from "./styles";
 
 type Props = {
   klimaRetires: KlimaRetire[];
-  domain?: string;
+  nameserviceDomain?: string;
 };
 
 export const AllRetirements: FC<Props> = (props) => {
-  const { klimaRetires, domain } = props;
+  const { klimaRetires, nameserviceDomain } = props;
 
   return (
     <div className={styles.allRetirements}>
@@ -31,7 +31,7 @@ export const AllRetirements: FC<Props> = (props) => {
           klimaRetires.map((retirement, index) => (
             <RetirementItem
               retirement={retirement}
-              domain={domain}
+              nameserviceDomain={nameserviceDomain}
               key={`${retirement}-${index}`}
             />
           ))}

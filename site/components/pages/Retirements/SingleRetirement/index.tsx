@@ -29,12 +29,17 @@ type Props = {
   retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails?: VerraProjectDetails;
-  domain?: string;
+  nameserviceDomain?: string;
   canonicalUrl?: string;
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
-  const { beneficiaryAddress, retirement, retirementIndexInfo, domain } = props;
+  const {
+    beneficiaryAddress,
+    retirement,
+    retirementIndexInfo,
+    nameserviceDomain,
+  } = props;
   const { locale } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
   const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
@@ -64,7 +69,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           id: "retirement.head.metaTitle",
           message: `${
             retireData.beneficiaryName ||
-            domain ||
+            nameserviceDomain ||
             concatAddress(beneficiaryAddress)
           } retired ${retireData.amount} Tonnes of carbon`,
         })}
@@ -129,9 +134,11 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                 text={
                   <a
                     className="address"
-                    href={`${urls.retirements}/${domain || beneficiaryAddress}`}
+                    href={`${urls.retirements}/${
+                      nameserviceDomain || beneficiaryAddress
+                    }`}
                   >
-                    {domain || concatAddress(beneficiaryAddress)}
+                    {nameserviceDomain || concatAddress(beneficiaryAddress)}
                   </a>
                 }
               />

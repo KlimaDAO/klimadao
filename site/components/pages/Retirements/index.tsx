@@ -28,12 +28,17 @@ type Props = {
   totalsAndBalances: RetirementsTotalsAndBalances;
   klimaRetires: KlimaRetire[];
   beneficiaryAddress: string;
-  domain?: string;
+  nameserviceDomain?: string;
   canonicalUrl?: string;
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
-  const { beneficiaryAddress, totalsAndBalances, klimaRetires, domain } = props;
+  const {
+    beneficiaryAddress,
+    totalsAndBalances,
+    klimaRetires,
+    nameserviceDomain,
+  } = props;
   const { locale } = useRouter();
   const [copied, doCopy] = useCopyToClipboard();
 
@@ -45,13 +50,13 @@ export const RetirementPage: NextPage<Props> = (props) => {
         title={t({
           id: "retirement.totals.head.title",
           message: `KlimaDAO - Carbon Retirements for beneficiary ${
-            domain || concattedAddress
+            nameserviceDomain || concattedAddress
           }`,
         })}
         mediaTitle={t({
           id: "retirement.totals.head.metaTitle",
           message: `KlimaDAO - Carbon Retirements for beneficiary ${
-            domain || concattedAddress
+            nameserviceDomain || concattedAddress
           }`,
         })}
         metaDescription={t({
@@ -75,9 +80,9 @@ export const RetirementPage: NextPage<Props> = (props) => {
               <Trans id="retirement.totals.page_subline">for beneficiary</Trans>
               <button
                 className={styles.copyButton}
-                onClick={() => doCopy(domain || beneficiaryAddress)}
+                onClick={() => doCopy(nameserviceDomain || beneficiaryAddress)}
               >
-                {domain || concattedAddress}
+                {nameserviceDomain || concattedAddress}
                 {copied ? (
                   <Check fontSize="large" />
                 ) : (
@@ -120,7 +125,10 @@ export const RetirementPage: NextPage<Props> = (props) => {
           </div>
         </div>
         <Breakdown totalsAndBalances={props.totalsAndBalances} />
-        <AllRetirements klimaRetires={klimaRetires} domain={props.domain} />
+        <AllRetirements
+          klimaRetires={klimaRetires}
+          nameserviceDomain={props.nameserviceDomain}
+        />
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
