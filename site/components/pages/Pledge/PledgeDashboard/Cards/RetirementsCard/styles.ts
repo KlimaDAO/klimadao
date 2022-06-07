@@ -6,7 +6,7 @@ export const value = css`
   gap: 1rem;
 `;
 
-export const retirementLink = css`
+export const retirementsLink = css`
   display: flex;
   align-items: center;
   justify-content: center;

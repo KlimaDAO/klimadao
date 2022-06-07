@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { concatAddress } from "@klimadao/lib/utils";
+import {
+  concatAddress,
+  getRetirementTotalsAndBalances,
+} from "@klimadao/lib/utils";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import { PageHead } from "components/PageHead";
 import { Modal } from "components/Modal";
@@ -28,8 +32,17 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const { address, isConnected } = useWeb3();
   const [showModal, setShowModal] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(props.pledge);
+  const [retirements, setRetirements] =
+    useState<RetirementsTotalsAndBalances | null>(null);
 
   const canEditPledge = address?.toLowerCase() === props.pageAddress;
+
+  const currentFootprint = pledge.footprint[pledge.footprint.length - 1];
+  const totalTonnesRetired = Number(retirements?.totalTonnesRetired);
+  const pledgeProgress =
+    totalTonnesRetired && (totalTonnesRetired / currentFootprint.total) * 100;
+  const displayPledgeProgress =
+    !isNaN(totalTonnesRetired) && !isNaN(totalTonnesRetired);
 
   const buttons =
     canEditPledge && isConnected
@@ -41,6 +54,19 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           />,
         ]
       : [];
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const retirements = await getRetirementTotalsAndBalances({
+          address: props.pageAddress,
+        });
+        setRetirements(retirements);
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  }, []);
 
   const handleFormSubmit = async (data: Pledge) => {
     setPledge(data);
@@ -76,6 +102,19 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           <Text t="h2">
             {pledge.name || concatAddress(pledge.ownerAddress)}
           </Text>
+
+          <div className={styles.progressContainer}>
+            <Text t="h4" color="lightest" className={styles.pledgeAmount}>
+              Pledged to offset <strong>{currentFootprint.total}</strong> Carbon
+              Tonnes
+            </Text>
+
+            {displayPledgeProgress && currentFootprint.total > 0 ? (
+              <Text t="h4" className={styles.pledgeProgress}>
+                {Math.round(pledgeProgress)}% of pledge met
+              </Text>
+            ) : null}
+          </div>
         </div>
 
         <div className={styles.column}>
@@ -86,7 +125,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
 
         <div className={styles.column}>
           <AssetBalanceCard pageAddress={props.pageAddress} />
-          <RetirementsCard pageAddress={props.pageAddress} />
+          <RetirementsCard
+            pageAddress={props.pageAddress}
+            retirements={retirements}
+          />
         </div>
       </div>
     </PledgeLayout>

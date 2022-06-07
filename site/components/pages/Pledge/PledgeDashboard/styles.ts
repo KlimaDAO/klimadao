@@ -30,6 +30,26 @@ export const pledgeChart = css`
   grid-column: span 2;
 `;
 
+export const progressContainer = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+`;
+
+export const pledgeAmount = css`
+  text-align: center;
+`;
+
+export const pledgeProgress = css`
+  text-align: center;
+  align-self: center;
+  color: var(--klima-green);
+  padding: 1.2rem;
+  border: 0.1rem solid var(--klima-green);
+  border-radius: var(--border-radius);
+`;
+
 export const column = css`
   display: grid;
   gap: 2rem;
