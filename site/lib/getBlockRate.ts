@@ -1,6 +1,6 @@
 import { POLYGONSCAN_API_KEY, MONTH_IN_SECONDS } from "lib/constants";
 import { getJsonRpcProvider } from "@klimadao/lib/utils";
-import { INFURA_ID } from "lib/constants";
+import { INFURA_ID } from "lib/secrets";
 
 /** Calculates block rate by dividing one month in seconds by number of blocks that got created during that month */
 export async function getBlockRate(): Promise<number> {

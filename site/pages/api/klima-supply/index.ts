@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next/types";
 import { getKlimaSupply } from "@klimadao/lib/utils";
-import { INFURA_ID } from "lib/constants";
+import { INFURA_ID } from "lib/secrets";
 
 /** CORS is set in next.config.js */
 export default async function handler(

@@ -14,7 +14,7 @@ import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
-import { INFURA_ID } from "lib/constants";
+import { INFURA_ID } from "lib/secrets";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 

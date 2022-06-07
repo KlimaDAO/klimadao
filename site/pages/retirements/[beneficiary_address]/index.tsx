@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-import { INFURA_ID } from "lib/constants";
+import { INFURA_ID } from "lib/secrets";
 
 import {
   getRetirementTotalsAndBalances,

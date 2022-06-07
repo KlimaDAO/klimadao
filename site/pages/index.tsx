@@ -7,7 +7,7 @@ import {
 import { Home, Props } from "components/pages/Home";
 import { fetchCMSContent } from "lib/fetchCMSContent";
 import { loadTranslation } from "lib/i18n";
-import { INFURA_ID } from "lib/constants";
+import { INFURA_ID } from "lib/secrets";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   const treasuryBalance = await getTreasuryBalance(INFURA_ID);
