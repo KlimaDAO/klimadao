@@ -1,14 +1,13 @@
-import { getDefaultProvider } from "@ethersproject/providers";
+import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getIsValidAddress } from "../getIsValidAddress";
 
 export const isENSDomain = (domain: string) =>
   !!domain && domain.includes(".eth");
 
-export const ETHProvider = getDefaultProvider();
-
-export const getAddressByENS = async (domain: string) => {
+export const getAddressByENS = async (domain: string, providerUrl?: string) => {
   try {
-    const address = await ETHProvider.resolveName(domain);
+    const provider = getJsonRpcProvider(providerUrl);
+    const address = await provider.resolveName(domain);
     if (!address || !getIsValidAddress(address)) {
       throw new Error("Not a valid ENS address");
     }
