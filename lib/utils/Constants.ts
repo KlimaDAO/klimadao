@@ -1,14 +1,24 @@
 // Tokens definition
-export const BCT_BOND_TOKEN: string = 'BCT';
+// ERC20
+export const BCT_TOKEN: string = 'BCT';
+export const MCO2_TOKEN: string = 'MCO2';
+export const UBO_TOKEN: string = 'UBO';
+export const NBO_TOKEN: string = 'NBO';
+export const NCT_TOKEN: string = 'NCT';
+export const KLIMA_TOKEN: string = 'KLIMA';
+export const SKLIMA_TOKEN: string = 'sKLIMA';
+// LP Bonds
 export const KLIMABCT_LPBOND_TOKEN: string = 'KLIMA-BCT';
 export const BCTUSDC_LPBOND_TOKEN: string = 'BCT-USDC';
-export const MCO2_BOND_TOKEN: string = 'MCO2';
 export const KLIMAMCO2_LPBOND_TOKEN: string = 'KLIMA-MCO2';
-export const UBO_BOND_TOKEN: string = 'UBO';
 export const KLIMAUBO_LPBOND_TOKEN: string = 'KLIMA-UBO';
-export const NBO_BOND_TOKEN: string = 'NBO';
 export const KLIMANBO_LPBOND_TOKEN: string = 'KLIMA-NBO';
 export const KLIMAUSDC_LPBOND_TOKEN: string = 'KLIMA-USDC';
+// Reserve Bonds
+export const BCT_BOND_TOKEN: string = 'BCT';
+export const MCO2_BOND_TOKEN: string = 'MCO2';
+export const UBO_BOND_TOKEN: string = 'UBO';
+export const NBO_BOND_TOKEN: string = 'NBO';
 
 // LP Pair Addresses and Blocks
 export const KLIMA_BCT_PAIR = '0x9803c7aE526049210a1725F7487AF26fE2c24614';
@@ -62,6 +72,7 @@ export const NCT_ERC20_CONTRACT = '0xD838290e877E0188a4A44700463419ED96c16107';
 export const MCO2_ERC20_CONTRACT = '0xaa7dbd1598251f856c12f63557a4c4397c253cea';
 export const UBO_ERC20_CONTRACT = '0x2B3eCb0991AF0498ECE9135bcD04013d7993110c';
 export const NBO_ERC20_CONTRACT = '0x6BCa3B77C1909Ce1a4Ba1A20d1103bDe8d222E48';
+export const USDC_ERC20_CONTRACT = '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174';
 
 // Protocol Functional Addresses
 export const DAO_MULTISIG = '0x65a5076c0ba74e5f3e069995dc3dab9d197d995c';
@@ -72,3 +83,9 @@ export const BONDING_CALCULATOR = '0x0b8d6D6611Ed7cCe01BbcC57826548C6107B0478';
 export const C3_PLATFORM = "C3"
 export const C3_WSKLIMA_CONTRACT = "0xe02efadA566Af74c92b6659d03BAaCb4c06Cc856"
 export const C3_WSKLIMA_TOKEN = "WSKLIMA"
+
+// Assumed epochs per day (until we have dynamic)
+export const EPOCHS_PER_DAY = 3.4256
+
+// Misc Items
+export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'

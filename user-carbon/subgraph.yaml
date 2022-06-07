@@ -1,0 +1,111 @@
+specVersion: 0.0.2
+description: Klima DAO Users Subgraph
+repository: https://github.com/KlimaDAO/klima-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  # BCT Holdings
+  - kind: ethereum/contract
+    name: BCT
+    network: matic
+    source:
+      address: '0x2F800Db0fdb5223b3C3f354886d907A671414A7F'
+      abi: ERC20
+      startBlock: 20078351
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/TransferHandler.ts
+      entities:
+        - BCT
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  # NCT Holdings
+  - kind: ethereum/contract
+    name: NCT
+    network: matic
+    source:
+      address: '0xd838290e877e0188a4a44700463419ed96c16107'
+      abi: ERC20
+      startBlock: 24705011
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/TransferHandler.ts
+      entities:
+        - NCT
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  # MCO2 Holdings
+  - kind: ethereum/contract
+    name: MCO2
+    network: matic
+    source:
+      address: '0xaa7dbd1598251f856c12f63557a4c4397c253cea'
+      abi: ERC20
+      startBlock: 22820506
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/TransferHandler.ts
+      entities:
+        - MCO2
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  # UBO Holdings
+  - kind: ethereum/contract
+    name: UBO
+    network: matic
+    source:
+      address: '0x2b3ecb0991af0498ece9135bcd04013d7993110c'
+      abi: ERC20
+      startBlock: 25429110
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/TransferHandler.ts
+      entities:
+        - UBO
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+  # NBO Holdings
+  - kind: ethereum/contract
+    name: NBO
+    network: matic
+    source:
+      address: '0x6bca3b77c1909ce1a4ba1a20d1103bde8d222e48'
+      abi: ERC20
+      startBlock: 25428966
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/TransferHandler.ts
+      entities:
+        - NBO
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer

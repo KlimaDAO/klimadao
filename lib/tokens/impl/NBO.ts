@@ -1,6 +1,6 @@
 import { BigDecimal, BigInt, Address, log } from "@graphprotocol/graph-ts";
 import { UniswapV2Pair } from '../../../bonds/generated/BCTBondV1/UniswapV2Pair'
-import { ERC20 } from '../../../bonds/generated/BCTBondV1/ERC20'
+import { ERC20 } from '../../generated/ERC20'
 import { IToken } from "../IToken";
 
 import * as constants from '../../utils/Constants'
@@ -10,11 +10,11 @@ import { KLIMA } from "./KLIMA";
 
 export class NBO implements IToken {
 
-  private contractAddress: string = constants.NBO_ERC20_CONTRACT
+  private contractAddress: Address = Address.fromString(constants.NBO_ERC20_CONTRACT)
   private klimaToken: KLIMA = new KLIMA()
 
   getERC20ContractAddress(): string {
-    return this.contractAddress
+    return this.contractAddress.toHexString()
   }
 
   getTokenName(): string {
@@ -33,7 +33,7 @@ export class NBO implements IToken {
 
     let reservesCall = pair.try_getReserves()
     if (reservesCall.reverted) {
-        return BigDecimal.zero()
+      return BigDecimal.zero()
     }
 
     let reserves = reservesCall.value
@@ -45,21 +45,29 @@ export class NBO implements IToken {
 
     return klimaRate
   }
-   
+
   getUSDPrice(): BigDecimal {
     const klimaUsdPrice = this.klimaToken.getUSDPrice()
     const nboMarketPrice = this.getMarketPrice()
     if (nboMarketPrice.equals(BigDecimal.zero())) {
       return BigDecimal.zero()
     }
-    
+
     return klimaUsdPrice.div(nboMarketPrice)
   }
 
   getTotalSupply(): BigDecimal {
-   let ercContract = ERC20.bind(Address.fromString(this.contractAddress))
-   let totalSupply = toDecimal(ercContract.totalSupply(), this.getDecimals())
+    let ercContract = ERC20.bind(this.contractAddress)
+    let totalSupply = toDecimal(ercContract.totalSupply(), this.getDecimals())
 
-   return totalSupply
+    return totalSupply
+  }
+
+  getAddressBalance(address: Address): BigDecimal {
+    const newBalanceRaw = ERC20.bind(this.contractAddress).try_balanceOf(address)
+    if (!newBalanceRaw.reverted) {
+      return toDecimal(newBalanceRaw.value, this.getDecimals())
+    }
+    return BigDecimal.fromString("0")
   }
 }

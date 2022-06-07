@@ -1,0 +1,22 @@
+type Klimate @entity {
+  id: ID!
+  active: Boolean!
+  tokensHeld: [Holding!]! @derivedFrom(field: "klimate")
+}
+
+type Holding @entity {
+  id: ID! 
+  klimate: Klimate!
+  token: String!
+  timestamp: BigInt!
+  tokenAmount: BigDecimal!
+  carbonValue: BigDecimal!
+}
+
+type Transaction @entity {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  from: Bytes!
+  to: Bytes
+}

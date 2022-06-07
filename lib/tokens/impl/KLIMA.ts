@@ -1,6 +1,6 @@
 import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
 import { getKLIMAUSDRate } from "../../../bonds/src/utils/Price";
-import { ERC20 } from "../../../bonds/generated/BCTBondV1/ERC20";
+import { ERC20 } from '../../generated/ERC20';
 import { IToken } from "../IToken";
 
 import * as constants from "../../utils/Constants";
@@ -8,10 +8,10 @@ import { toDecimal } from "../../utils/Decimals";
 
 export class KLIMA implements IToken {
 
-  private contractAddress: string = constants.KLIMA_ERC20_V1_CONTRACT;
+  private contractAddress: Address = Address.fromString(constants.KLIMA_ERC20_V1_CONTRACT);
 
   getERC20ContractAddress(): string {
-    return this.contractAddress;
+    return this.contractAddress.toHexString();
   }
 
   getTokenName(): string {
@@ -35,9 +35,17 @@ export class KLIMA implements IToken {
   }
 
   getTotalSupply(): BigDecimal {
-    let ercContract = ERC20.bind(Address.fromString(this.contractAddress));
+    let ercContract = ERC20.bind(this.contractAddress);
     let totalSupply = toDecimal(ercContract.totalSupply(), this.getDecimals());
 
     return totalSupply;
+  }
+
+  getAddressBalance(address: Address): BigDecimal {
+    const newBalanceRaw = ERC20.bind(this.contractAddress).try_balanceOf(address)
+    if (!newBalanceRaw.reverted) {
+      return toDecimal(newBalanceRaw.value, this.getDecimals())
+    }
+    return BigDecimal.fromString("0")
   }
 }
