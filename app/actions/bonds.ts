@@ -448,9 +448,9 @@ export const bondTransaction = async (params: {
         signer
       );
       const bondPrice = await contract.marketPrice(marketId);
-      const marketPrice = await getMarketPrice({
-        provider: params.provider,
-      });
+      // const marketPrice = await getMarketPrice({
+      //   provider: params.provider,
+      // });
       // const klimaMarketPriceInUSDC = getInverseKlimaUSDCPrice({provider: params.provider});
       // minimum amount to be paid out in usdc. need bondPrice in usdc
       const minAmountOut =
