@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-07 15:41+0000\n"
+"POT-Creation-Date: 2022-06-08 15:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -693,7 +693,7 @@ msgstr "Cantidad para retirar"
 
 #: components/views/Stake/index.tsx:239
 msgid "stake.lifi"
-msgstr ""
+msgstr "El staking entre cadenas ya está disponible a través de <0>LI.FI</0>, con soporte para decenas de tokens como ETH, BNB y DAI."
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -717,7 +717,7 @@ msgstr "Stake"
 
 #: components/views/Stake/index.tsx:233
 msgid "stake.stake_hold_earn"
-msgstr ""
+msgstr "Haz staking, holdea y gana compounding sKLIMA."
 
 #: components/views/Stake/index.tsx:180
 #: components/views/Stake/index.tsx:230
