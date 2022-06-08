@@ -16,6 +16,9 @@ export const profile = css`
   padding: 6rem 0 2rem 0;
 
   .profileImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     object-fit: cover;
     width: 12rem;
     height: 12rem;
