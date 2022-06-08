@@ -426,17 +426,17 @@ export const bondTransaction = async (params: {
 }) => {
   if (params.bond === "inverse_usdc") {
     try {
-      const getMarketPrice = {
-        mco2: getMCO2MarketPrice,
-        klima_mco2_lp: getMCO2MarketPrice,
-        klima_usdc_lp: getKlimaUSDCMarketPrice,
-        klima_bct_lp: getBCTMarketPrice,
-        bct_usdc_lp: getBCTMarketPrice,
-        bct: getBCTMarketPrice,
-        ubo: getUBOMarketPrice,
-        nbo: getNBOMarketPrice,
-        inverse_usdc: getInverseKlimaUSDCPrice,
-      }[params.bond];
+      // const getMarketPrice = {
+      //   mco2: getMCO2MarketPrice,
+      //   klima_mco2_lp: getMCO2MarketPrice,
+      //   klima_usdc_lp: getKlimaUSDCMarketPrice,
+      //   klima_bct_lp: getBCTMarketPrice,
+      //   bct_usdc_lp: getBCTMarketPrice,
+      //   bct: getBCTMarketPrice,
+      //   ubo: getUBOMarketPrice,
+      //   nbo: getNBOMarketPrice,
+      //   inverse_usdc: getInverseKlimaUSDCPrice,
+      // }[params.bond];
       console.log("params.value", params.value);
       const marketId = 3;
       const acceptedSlippage = params.slippage / 100 || 0.2; // 20%
