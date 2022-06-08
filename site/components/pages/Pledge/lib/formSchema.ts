@@ -6,7 +6,7 @@ export const formSchema = yup
     ownerAddress: yup.string().required().trim(),
     nonce: yup.string().required().trim(),
     name: yup.string().required("Enter a name").trim(),
-    profileImageUrl: yup.string().url('Enter a valid url').trim().nullable(),
+    profileImageUrl: yup.string().url("Enter a valid url").trim().ensure(),
     description: yup
       .string()
       .required("Enter a pledge")
