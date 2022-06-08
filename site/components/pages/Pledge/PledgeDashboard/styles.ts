@@ -11,24 +11,21 @@ export const contentContainer = css`
 export const profile = css`
   grid-column: span 2;
   display: grid;
-  gap: 2.8rem;
+  gap: 1.6rem;
   justify-items: center;
   padding: 6rem 0 2rem 0;
 
   .profileImage {
-    display: grid;
-    align-items: center;
+    object-fit: cover;
     width: 12rem;
     height: 12rem;
-    border-radius: 50%;
     background-color: var(--surface-02);
-    transition: background-color 0.25s ease-in-out;
+    border-radius: 50%;
+    border: 0.1rem solid var(--surface-01);
   }
 
-  img {
-    width: 12rem;
-    height: 12rem;
-    border-radius: 50%;
+  ${breakpoints.desktop} {
+    gap: 2rem;
   }
 `;
 

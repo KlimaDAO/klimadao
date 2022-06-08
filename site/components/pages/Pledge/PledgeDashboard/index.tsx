@@ -97,7 +97,11 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       <div className={styles.contentContainer}>
         <div className={styles.profile}>
           {Boolean(pledge.profileImageUrl) ? (
-            <img src={pledge.profileImageUrl} alt="Profile image" />
+            <img
+              className="profileImage"
+              src={pledge.profileImageUrl}
+              alt="Profile image"
+            />
           ) : (
             <Text t="h3" className="profileImage" align="center">
               -
