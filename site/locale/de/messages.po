@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-08 15:39+0000\n"
+"POT-Creation-Date: 2022-06-08 21:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -686,39 +686,39 @@ msgstr "Mit CO2-gedeckten KLIMA-Tokens kannst du handeln, Staking-Belohnungen er
 msgid "retirement.footer.buy_klima.title"
 msgstr "Kaufen, staken und belohnt werden."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:67
+#: components/pages/Retirements/SingleRetirement/index.tsx:76
 msgid "retirement.head.metaDescription"
 msgstr "Transparente CO2-Offsets auf der Blockchain durch KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:61
+#: components/pages/Retirements/SingleRetirement/index.tsx:68
 msgid "retirement.head.metaTitle"
 msgstr "{0}"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/index.tsx:64
 msgid "retirement.head.title"
 msgstr "KlimaDAO | CO2-Ausgleichsquittung"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:112
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Keinen Empfängername angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/index.tsx:116
 msgid "retirement.single.beneficiary.title"
 msgstr "Empfänger"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/index.tsx:130
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Empfängeradresse"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:159
+#: components/pages/Retirements/SingleRetirement/index.tsx:171
 msgid "retirement.single.disclaimer"
 msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch tokenisierte CO2-Zertifikate auf der Polygon-Blockchain. Jeder Emissionsausgleich und die damit verbundenen Daten sind unveränderlich und öffentlich einsehbar."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/index.tsx:87
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.single.header.subline"
 msgstr "CO2-äquivalente Emissionen ausgeglichen (in Tonnen)"
 
@@ -750,11 +750,11 @@ msgstr "Auf Polygonscan ansehen"
 msgid "retirement.single.quantity"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:151
+#: components/pages/Retirements/SingleRetirement/index.tsx:163
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "... kommt demnächst!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:146
+#: components/pages/Retirements/SingleRetirement/index.tsx:158
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Zertifikat"
 
@@ -762,23 +762,23 @@ msgstr "Zertifikat"
 msgid "retirement.single.retirementDate.title"
 msgstr "Datum"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:91
+#: components/pages/Retirements/SingleRetirement/index.tsx:101
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Keine Ausgleichsnachricht angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:138
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:177
+#: components/pages/Retirements/SingleRetirement/index.tsx:189
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
-#: components/pages/Retirements/List/index.tsx:38
+#: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
 msgstr "Keine CO2-Ausgleiche gefunden"
 
-#: components/pages/Retirements/List/index.tsx:23
+#: components/pages/Retirements/List/index.tsx:24
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr "Alle CO2-Ausgleiche"
 
@@ -786,35 +786,35 @@ msgstr "Alle CO2-Ausgleiche"
 msgid "retirement.totals.assets_used_headline"
 msgstr "Für CO2-Ausgleich genutzte Assets"
 
-#: components/pages/Retirements/index.tsx:48
+#: components/pages/Retirements/index.tsx:56
 msgid "retirement.totals.head.metaTitle"
-msgstr "KlimADAO - Empfänger des CO2-Ausgleichs {concattedAddress}"
+msgstr ""
 
-#: components/pages/Retirements/index.tsx:43
+#: components/pages/Retirements/index.tsx:50
 msgid "retirement.totals.head.title"
-msgstr "KlimADAO - Empfänger des CO2-Ausgleichs {concattedAddress}"
+msgstr ""
 
-#: components/pages/Retirements/index.tsx:65
+#: components/pages/Retirements/index.tsx:75
 msgid "retirement.totals.page_headline"
 msgstr "CO2-Ausgleiche"
 
-#: components/pages/Retirements/index.tsx:70
+#: components/pages/Retirements/index.tsx:80
 msgid "retirement.totals.page_subline"
 msgstr "für Empfänger"
 
-#: components/pages/Retirements/index.tsx:89
+#: components/pages/Retirements/index.tsx:99
 msgid "retirement.totals.retired_assets"
 msgstr "Ausgeglichene Assets"
 
-#: components/pages/Retirements/index.tsx:105
+#: components/pages/Retirements/index.tsx:115
 msgid "retirement.totals.retirements"
 msgstr "CO2-Ausgleiche"
 
-#: components/pages/Retirements/index.tsx:97
+#: components/pages/Retirements/index.tsx:107
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "CO2-Tonnen insgesamt ausgeglichen"
 
-#: components/pages/Retirements/index.tsx:111
+#: components/pages/Retirements/index.tsx:121
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Summe der Ausgleichstransaktionen"
 
@@ -869,7 +869,7 @@ msgstr "App öffnen"
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:53
+#: components/pages/Retirements/index.tsx:62
 #: components/pages/errors/Custom404.tsx:23
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"

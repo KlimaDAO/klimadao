@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-08 15:39+0000\n"
+"POT-Creation-Date: 2022-06-08 21:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -688,39 +688,39 @@ msgstr "Используйте токены KLIMA, обеспеченные уг
 msgid "retirement.footer.buy_klima.title"
 msgstr "Приобретайте, стейкайте и получайте вознаграждение."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:67
+#: components/pages/Retirements/SingleRetirement/index.tsx:76
 msgid "retirement.head.metaDescription"
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:61
+#: components/pages/Retirements/SingleRetirement/index.tsx:68
 msgid "retirement.head.metaTitle"
 msgstr "{0} использование {1} Тонны углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/index.tsx:64
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Квитанция о возврате углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:112
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Имя получателя не указано"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/index.tsx:116
 msgid "retirement.single.beneficiary.title"
 msgstr "Бенефициар"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/index.tsx:130
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Адрес получателя"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:159
+#: components/pages/Retirements/SingleRetirement/index.tsx:171
 msgid "retirement.single.disclaimer"
 msgstr "Это представляет собой постоянное выбытие токенизированных углеродных активов на блокчейне Polygon. Это выбытие и связанные с ним данные являются неизменяемыми публичными записями."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/index.tsx:87
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.single.header.subline"
 msgstr "Коррекция выбросов в CO2-эквиваленте (метрические тонны)"
 
@@ -752,11 +752,11 @@ msgstr "Посмотреть на Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "КОЛИЧЕСТВО УПОТРЕБЛЕННЫХ "
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:151
+#: components/pages/Retirements/SingleRetirement/index.tsx:163
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...скоро!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:146
+#: components/pages/Retirements/SingleRetirement/index.tsx:158
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Сертификат"
 
@@ -764,23 +764,23 @@ msgstr "Сертификат"
 msgid "retirement.single.retirementDate.title"
 msgstr "Дата"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:91
+#: components/pages/Retirements/SingleRetirement/index.tsx:101
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Сообщение об использовании не предоставлено"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:138
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Не предоставлена время использования"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:177
+#: components/pages/Retirements/SingleRetirement/index.tsx:189
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Посмотреть на Polygonscan"
 
-#: components/pages/Retirements/List/index.tsx:38
+#: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
 msgstr "Выбиваний не найдено"
 
-#: components/pages/Retirements/List/index.tsx:23
+#: components/pages/Retirements/List/index.tsx:24
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr "Итого выведено"
 
@@ -790,35 +790,35 @@ msgstr ""
 "Активы, используемые для выбытия\n"
 ""
 
-#: components/pages/Retirements/index.tsx:48
+#: components/pages/Retirements/index.tsx:56
 msgid "retirement.totals.head.metaTitle"
-msgstr "KlimaDAO - Использование углерода для бенефициара {concattedAddress}"
+msgstr ""
 
-#: components/pages/Retirements/index.tsx:43
+#: components/pages/Retirements/index.tsx:50
 msgid "retirement.totals.head.title"
-msgstr "KlimaDAO - Использование углерода для бенефициара {concattedAddress}"
+msgstr ""
 
-#: components/pages/Retirements/index.tsx:65
+#: components/pages/Retirements/index.tsx:75
 msgid "retirement.totals.page_headline"
 msgstr "Выбивание углерода"
 
-#: components/pages/Retirements/index.tsx:70
+#: components/pages/Retirements/index.tsx:80
 msgid "retirement.totals.page_subline"
 msgstr "для бенефициара"
 
-#: components/pages/Retirements/index.tsx:89
+#: components/pages/Retirements/index.tsx:99
 msgid "retirement.totals.retired_assets"
 msgstr "Выбывшие активы"
 
-#: components/pages/Retirements/index.tsx:105
+#: components/pages/Retirements/index.tsx:115
 msgid "retirement.totals.retirements"
 msgstr "Выбытия"
 
-#: components/pages/Retirements/index.tsx:97
+#: components/pages/Retirements/index.tsx:107
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "Всего выбыло тонн углерода"
 
-#: components/pages/Retirements/index.tsx:111
+#: components/pages/Retirements/index.tsx:121
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Всего транзакции выбивания"
 
@@ -873,7 +873,7 @@ msgstr "Войдите в приложение"
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:53
+#: components/pages/Retirements/index.tsx:62
 #: components/pages/errors/Custom404.tsx:23
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"

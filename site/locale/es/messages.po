@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-08 15:39+0000\n"
+"POT-Creation-Date: 2022-06-08 21:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -690,39 +690,39 @@ msgstr "Utiliza tokens KLIMA respaldados por carbono para gobernar, intercambiar
 msgid "retirement.footer.buy_klima.title"
 msgstr "Adquirir, hacer staking y ser recompensado."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:67
+#: components/pages/Retirements/SingleRetirement/index.tsx:76
 msgid "retirement.head.metaDescription"
 msgstr "Compensaciones transparentes en el blockchain con la ayuda de KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:61
+#: components/pages/Retirements/SingleRetirement/index.tsx:68
 msgid "retirement.head.metaTitle"
 msgstr "{0} retirado {1} Toneladas de carbono"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/index.tsx:64
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Recibo de Retiro de Carbono"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:112
+#: components/pages/Retirements/SingleRetirement/index.tsx:122
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No se ha facilitado el nombre del beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/index.tsx:116
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:120
+#: components/pages/Retirements/SingleRetirement/index.tsx:130
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Dirección del beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:159
+#: components/pages/Retirements/SingleRetirement/index.tsx:171
 msgid "retirement.single.disclaimer"
 msgstr "Esto representa la retirada permanente de los activos de carbono tokenizados en la blockchain de Polygon. Esta retirada y los datos asociados son registros públicos inmutables."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/index.tsx:87
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:82
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.single.header.subline"
 msgstr "Compensación de emisiones de CO2 equivalente (toneladas métricas)"
 
@@ -754,11 +754,11 @@ msgstr "Ver en Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "CANTIDAD RETIRADA"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:151
+#: components/pages/Retirements/SingleRetirement/index.tsx:163
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...¡próximamente!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:146
+#: components/pages/Retirements/SingleRetirement/index.tsx:158
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificado"
 
@@ -766,23 +766,23 @@ msgstr "Certificado"
 msgid "retirement.single.retirementDate.title"
 msgstr "Fecha"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:91
+#: components/pages/Retirements/SingleRetirement/index.tsx:101
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "No se proporcionó ningún mensaje de retiro"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:138
+#: components/pages/Retirements/SingleRetirement/index.tsx:150
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No se proporcionó una marca de tiempo de retiro"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:177
+#: components/pages/Retirements/SingleRetirement/index.tsx:189
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Ver en Polygonscan"
 
-#: components/pages/Retirements/List/index.tsx:38
+#: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
 msgstr "No se han encontrado retiros"
 
-#: components/pages/Retirements/List/index.tsx:23
+#: components/pages/Retirements/List/index.tsx:24
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr "Todos los retiros"
 
@@ -790,35 +790,35 @@ msgstr "Todos los retiros"
 msgid "retirement.totals.assets_used_headline"
 msgstr "Activos utilizados para las retiradas"
 
-#: components/pages/Retirements/index.tsx:48
+#: components/pages/Retirements/index.tsx:56
 msgid "retirement.totals.head.metaTitle"
-msgstr "KlimaDAO - Retirada de carbono para el beneficiario {concattedAddress}"
+msgstr ""
 
-#: components/pages/Retirements/index.tsx:43
+#: components/pages/Retirements/index.tsx:50
 msgid "retirement.totals.head.title"
-msgstr "KlimaDAO - Retirada de carbono para el beneficiario {concattedAddress}"
+msgstr ""
 
-#: components/pages/Retirements/index.tsx:65
+#: components/pages/Retirements/index.tsx:75
 msgid "retirement.totals.page_headline"
 msgstr "Retiradas de carbono"
 
-#: components/pages/Retirements/index.tsx:70
+#: components/pages/Retirements/index.tsx:80
 msgid "retirement.totals.page_subline"
 msgstr "para el beneficiario"
 
-#: components/pages/Retirements/index.tsx:89
+#: components/pages/Retirements/index.tsx:99
 msgid "retirement.totals.retired_assets"
 msgstr "Activos retirados"
 
-#: components/pages/Retirements/index.tsx:105
+#: components/pages/Retirements/index.tsx:115
 msgid "retirement.totals.retirements"
 msgstr "Retiros"
 
-#: components/pages/Retirements/index.tsx:97
+#: components/pages/Retirements/index.tsx:107
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "Total de toneladas de carbono retiradas"
 
-#: components/pages/Retirements/index.tsx:111
+#: components/pages/Retirements/index.tsx:121
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total de transacciones de retirada"
 
@@ -873,7 +873,7 @@ msgstr "Entrar a la aplicación"
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:53
+#: components/pages/Retirements/index.tsx:62
 #: components/pages/errors/Custom404.tsx:23
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
