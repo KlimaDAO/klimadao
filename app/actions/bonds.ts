@@ -272,7 +272,7 @@ export const calcBondDetails = (params: {
     let bondDiscount: number;
     if (params.bond === "inverse_usdc") {
       // var name is misleading, in the inverse bond UI we call it premium. multiply by -1 because inverse "discount" is backwards
-      bondDiscount = premium * -1;
+      bondDiscount = premium;
     } else {
       bondDiscount =
         (marketPrice * Math.pow(10, 18) - decimalAdjustedBondPrice) /
