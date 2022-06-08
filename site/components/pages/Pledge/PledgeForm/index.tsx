@@ -36,7 +36,7 @@ const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
   );
   setValue("footprint", totalFootprint);
 
-  return <Text t="h4">Total Footprint: {totalFootprint}</Text>;
+  return <Text t="h4">Total Footprint: {totalFootprint} Carbon Tonnes</Text>;
 };
 
 type Props = {
@@ -104,6 +104,14 @@ export const PledgeForm: FC<Props> = (props) => {
         type="text"
         errors={formState.errors.name}
         {...register("name")}
+      />
+
+      <InputField
+        label="Profile image url (optional)"
+        placeholder="https://"
+        type="text"
+        errors={formState.errors.profileImageUrl}
+        {...register("profileImageUrl")}
       />
 
       <TextareaField
