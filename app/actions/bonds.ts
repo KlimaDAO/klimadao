@@ -426,9 +426,20 @@ export const bondTransaction = async (params: {
 }) => {
   if (params.bond === "inverse_usdc") {
     try {
+      const getMarketPrice = {
+        mco2: getMCO2MarketPrice,
+        klima_mco2_lp: getMCO2MarketPrice,
+        klima_usdc_lp: getKlimaUSDCMarketPrice,
+        klima_bct_lp: getBCTMarketPrice,
+        bct_usdc_lp: getBCTMarketPrice,
+        bct: getBCTMarketPrice,
+        ubo: getUBOMarketPrice,
+        nbo: getNBOMarketPrice,
+        inverse_usdc: getInverseKlimaUSDCPrice,
+      }[params.bond];
       console.log("params.value", params.value);
       const marketId = 3;
-      const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
+      const acceptedSlippage = params.slippage / 100 || 0.2; // 20%
       const signer = params.provider.getSigner();
       const contractAddress = getBondAddress({ bond: params.bond });
       const contract = new ethers.Contract(
@@ -437,17 +448,29 @@ export const bondTransaction = async (params: {
         signer
       );
       const bondPrice = await contract.marketPrice(marketId);
+      const marketPrice = await getMarketPrice({
+        provider: params.provider,
+      });
       // const klimaMarketPriceInUSDC = getInverseKlimaUSDCPrice({provider: params.provider});
+      // minimum amount to be paid out in usdc. need bondPrice in usdc
       const minAmountOut =
-        bondPrice * Number(params.value) -
-        bondPrice * Number(params.value) * acceptedSlippage;
-      console.log("minAmountOut", minAmountOut);
-      // const minAmountOut = 1000000
+        (1 / Number(formatUnits(bondPrice, 6))) * Number(params.value) -
+        (1 / Number(formatUnits(bondPrice, 6))) *
+          Number(params.value) *
+          acceptedSlippage;
+      const formattedMinAmountOut =
+        Number(minAmountOut.toFixed(6)) * Math.pow(10, 6);
+      console.log(
+        "params sent with txn",
+        marketId,
+        [Number(params.value) * Math.pow(10, 9), formattedMinAmountOut],
+        [params.address, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
+      );
       params.onStatus("userConfirmation", "");
       // contract.deposit(__id, [amountIn (inKLIMA), min Amount Out (inUSDC)], [userAddress, DAOMSigAddress(0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c)])
       const txn = await contract.deposit(
         marketId,
-        [Number(params.value) * Math.pow(10, 9), minAmountOut],
+        [Number(params.value) * Math.pow(10, 9), formattedMinAmountOut],
         [params.address, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
       );
       params.onStatus("networkConfirmation", "");
