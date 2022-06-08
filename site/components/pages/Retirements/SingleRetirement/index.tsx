@@ -29,10 +29,17 @@ type Props = {
   retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails?: VerraProjectDetails;
+  nameserviceDomain?: string;
+  canonicalUrl?: string;
 };
 
 export const SingleRetirementPage: NextPage<Props> = (props) => {
-  const { beneficiaryAddress, retirement, retirementIndexInfo } = props;
+  const {
+    beneficiaryAddress,
+    retirement,
+    retirementIndexInfo,
+    nameserviceDomain,
+  } = props;
   const { locale } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
   const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
@@ -61,13 +68,16 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         mediaTitle={t({
           id: "retirement.head.metaTitle",
           message: `${
-            retireData.beneficiaryName || concatAddress(beneficiaryAddress)
+            retireData.beneficiaryName ||
+            nameserviceDomain ||
+            concatAddress(beneficiaryAddress)
           } retired ${retireData.amount} Tonnes of carbon`,
         })}
         metaDescription={t({
           id: "retirement.head.metaDescription",
           message: "Transparent, on-chain offsets powered by KlimaDAO.",
         })}
+        canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />
 
@@ -124,9 +134,11 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                 text={
                   <a
                     className="address"
-                    href={`${urls.retirements}/${beneficiaryAddress}`}
+                    href={`${urls.retirements}/${
+                      nameserviceDomain || beneficiaryAddress
+                    }`}
                   >
-                    {concatAddress(beneficiaryAddress)}
+                    {nameserviceDomain || concatAddress(beneficiaryAddress)}
                   </a>
                 }
               />

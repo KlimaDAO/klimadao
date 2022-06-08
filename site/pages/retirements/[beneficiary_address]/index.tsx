@@ -1,15 +1,21 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { ethers } from "ethers";
 
-import { INFURA_ID } from "lib/constants";
+import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 
-import { getRetirementTotalsAndBalances } from "@klimadao/lib/utils";
-import { queryKlimaRetiresByAddress } from "@klimadao/lib/utils";
+import {
+  getRetirementTotalsAndBalances,
+  queryKlimaRetiresByAddress,
+} from "@klimadao/lib/utils";
+import { urls } from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
 import { RetirementPage } from "components/pages/Retirements";
 import { loadTranslation } from "lib/i18n";
+import { getIsDomainInURL } from "lib/getIsDomainInURL";
+import { getAddressByDomain } from "lib/getAddressByDomain";
 
 interface Params extends ParsedUrlQuery {
   beneficiary_address: string;
@@ -19,6 +25,8 @@ interface PageProps {
   beneficiaryAddress: Params["beneficiary_address"];
   totalsAndBalances: RetirementsTotalsAndBalances;
   klimaRetires: KlimaRetire[];
+  nameserviceDomain?: string;
+  canonicalUrl?: string;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -31,12 +39,22 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No params found");
     }
 
+    let resolvedAddress: string;
+    const isDomainInURL = getIsDomainInURL(params.beneficiary_address);
+    if (isDomainInURL) {
+      resolvedAddress = await getAddressByDomain(params.beneficiary_address); // this fn should throw if it fails to resolve
+    } else if (ethers.utils.isAddress(params.beneficiary_address)) {
+      resolvedAddress = params.beneficiary_address;
+    } else {
+      throw new Error("Not a valid beneficiary address");
+    }
+
     const promises = [
       getRetirementTotalsAndBalances({
-        address: params.beneficiary_address as string,
-        infuraId: INFURA_ID,
+        address: resolvedAddress || (params.beneficiary_address as string),
+        providerUrl: getInfuraUrlPolygon(),
       }),
-      queryKlimaRetiresByAddress(params.beneficiary_address),
+      queryKlimaRetiresByAddress(resolvedAddress || params.beneficiary_address),
       loadTranslation(locale),
     ];
 
@@ -52,6 +70,12 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         totalsAndBalances,
         klimaRetires,
         beneficiaryAddress: params.beneficiary_address,
+        nameserviceDomain: !!resolvedAddress
+          ? params.beneficiary_address
+          : undefined,
+        canonicalUrl: !!resolvedAddress
+          ? `${urls.retirements}/${resolvedAddress}`
+          : undefined,
         translation,
       },
       revalidate: 240,

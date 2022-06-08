@@ -28,10 +28,17 @@ type Props = {
   totalsAndBalances: RetirementsTotalsAndBalances;
   klimaRetires: KlimaRetire[];
   beneficiaryAddress: string;
+  nameserviceDomain?: string;
+  canonicalUrl?: string;
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
-  const { beneficiaryAddress, totalsAndBalances, klimaRetires } = props;
+  const {
+    beneficiaryAddress,
+    totalsAndBalances,
+    klimaRetires,
+    nameserviceDomain,
+  } = props;
   const { locale } = useRouter();
   const [copied, doCopy] = useCopyToClipboard();
 
@@ -42,19 +49,22 @@ export const RetirementPage: NextPage<Props> = (props) => {
       <PageHead
         title={t({
           id: "retirement.totals.head.title",
-          message: `KlimaDAO - Carbon Retirements for beneficiary ${concattedAddress}`,
-          values: { beneficiaryAddress },
+          message: `KlimaDAO - Carbon Retirements for beneficiary ${
+            nameserviceDomain || concattedAddress
+          }`,
         })}
         mediaTitle={t({
           id: "retirement.totals.head.metaTitle",
-          message: `KlimaDAO - Carbon Retirements for beneficiary ${concattedAddress}`,
-          values: { beneficiaryAddress },
+          message: `KlimaDAO - Carbon Retirements for beneficiary ${
+            nameserviceDomain || concattedAddress
+          }`,
         })}
         metaDescription={t({
           id: "shared.head.description",
           message:
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
+        canonicalUrl={props.canonicalUrl}
       />
       <Navigation activePage="Home" />
 
@@ -70,9 +80,9 @@ export const RetirementPage: NextPage<Props> = (props) => {
               <Trans id="retirement.totals.page_subline">for beneficiary</Trans>
               <button
                 className={styles.copyButton}
-                onClick={() => doCopy(beneficiaryAddress)}
+                onClick={() => doCopy(nameserviceDomain || beneficiaryAddress)}
               >
-                {concattedAddress}
+                {nameserviceDomain || concattedAddress}
                 {copied ? (
                   <Check fontSize="large" />
                 ) : (
@@ -115,7 +125,10 @@ export const RetirementPage: NextPage<Props> = (props) => {
           </div>
         </div>
         <Breakdown totalsAndBalances={props.totalsAndBalances} />
-        <AllRetirements klimaRetires={klimaRetires} />
+        <AllRetirements
+          klimaRetires={klimaRetires}
+          nameserviceDomain={props.nameserviceDomain}
+        />
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>

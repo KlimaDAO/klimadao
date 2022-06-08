@@ -21,9 +21,16 @@ export { safeSub } from "./safeSub";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { fetchBlockRate } from "./fetchBlockRate";
 export { getTokenDecimals } from "./getTokenDecimals";
+export { getIsValidAddress } from "./getIsValidAddress";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export {
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,
 } from "./subgraph/queryPolygonBridgedCarbon";
 export { getVerraProjectByID } from "./verra/getVerraProjects";
+
+// KNS
+export { isKNSDomain, KNSContract, getAddressByKNS } from "./kns";
+
+// ENS
+export { isENSDomain, getAddressByENS } from "./ens";

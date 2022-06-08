@@ -20,10 +20,11 @@ import * as styles from "./styles";
 
 type Props = {
   retirement: KlimaRetire;
+  nameserviceDomain?: string;
 };
 
 export const RetirementItem: FC<Props> = (props) => {
-  const { retirement } = props;
+  const { retirement, nameserviceDomain } = props;
   const { locale } = useRouter();
 
   const retirementNumber = Number(retirement.index) + 1;
@@ -35,7 +36,9 @@ export const RetirementItem: FC<Props> = (props) => {
   const typeOfToken = getRetirementTokenByAddress(retirement.pool);
   const tokenData = !!typeOfToken && retirementTokenInfoMap[typeOfToken];
 
-  const url = `/retirements/${retirement.beneficiaryAddress}/${retirementNumber}`;
+  const url = `/retirements/${
+    nameserviceDomain || retirement.beneficiaryAddress
+  }/${retirementNumber}`;
 
   return (
     <Link href={url} passHref>

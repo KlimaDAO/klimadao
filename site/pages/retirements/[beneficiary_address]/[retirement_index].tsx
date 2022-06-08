@@ -1,18 +1,22 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { ethers } from "ethers";
 
 import {
   queryKlimaRetireByIndex,
   getVerraProjectByID,
+  getRetirementIndexInfo,
 } from "@klimadao/lib/utils";
-import { getRetirementIndexInfo } from "@klimadao/lib/utils";
+import { urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { loadTranslation } from "lib/i18n";
-import { INFURA_ID } from "lib/constants";
+import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
+import { getIsDomainInURL } from "lib/getIsDomainInURL";
+import { getAddressByDomain } from "lib/getAddressByDomain";
 
 interface Params extends ParsedUrlQuery {
   beneficiary_address: string;
@@ -25,6 +29,8 @@ interface PageProps {
   retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
+  nameserviceDomain?: string;
+  canonicalUrl?: string;
 }
 
 // second param should always be a number
@@ -46,6 +52,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No matching params found");
     }
 
+    let resolvedAddress: string;
+    const isDomainInURL = getIsDomainInURL(params.beneficiary_address);
+    if (isDomainInURL) {
+      resolvedAddress = await getAddressByDomain(params.beneficiary_address); // this fn should throw if it fails to resolve
+    } else if (ethers.utils.isAddress(params.beneficiary_address)) {
+      resolvedAddress = params.beneficiary_address;
+    } else {
+      throw new Error("Not a valid beneficiary address");
+    }
+
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
 
     const promises: [
@@ -54,13 +70,14 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       Promise<Record<string, unknown>>
     ] = [
       queryKlimaRetireByIndex(
-        params?.beneficiary_address as string,
+        resolvedAddress || (params.beneficiary_address as string),
         retirementIndex
       ),
       getRetirementIndexInfo({
-        beneficiaryAdress: params.beneficiary_address as string,
+        beneficiaryAdress:
+          resolvedAddress || (params.beneficiary_address as string),
         index: retirementIndex,
-        infuraId: INFURA_ID,
+        providerUrl: getInfuraUrlPolygon(),
       }),
       loadTranslation(locale),
     ];
@@ -92,6 +109,12 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         retirementTotals: params.retirement_index,
         translation,
         projectDetails,
+        nameserviceDomain: !!resolvedAddress
+          ? params.beneficiary_address
+          : undefined,
+        canonicalUrl: !!resolvedAddress
+          ? `${urls.retirements}/${resolvedAddress}/${params.retirement_index}`
+          : undefined,
       },
       revalidate: 240,
     };

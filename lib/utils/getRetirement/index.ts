@@ -6,6 +6,7 @@ import {
   getRetirementTokenByAddress,
   formatUnits,
   getTokenDecimals,
+  getIsValidAddress,
 } from "../../utils";
 
 import {
@@ -28,10 +29,10 @@ export const createRetirementStorageContract = (
 export const getRetirementIndexInfo = async (params: {
   beneficiaryAdress: string;
   index: number;
-  infuraId?: string;
+  providerUrl?: string;
 }): Promise<RetirementIndexInfoResult> => {
   try {
-    const provider = getJsonRpcProvider(params.infuraId);
+    const provider = getJsonRpcProvider(params.providerUrl);
     const storageContract = createRetirementStorageContract(provider);
 
     const [
@@ -43,6 +44,9 @@ export const getRetirementIndexInfo = async (params: {
       params.beneficiaryAdress,
       BigNumber.from(params.index)
     );
+
+    if (!getIsValidAddress(tokenAddress))
+      throw new Error(`Invalid tokenAddress: ${tokenAddress}`);
 
     const typeOfToken = getRetirementTokenByAddress(tokenAddress);
 
@@ -67,10 +71,10 @@ export const getRetirementIndexInfo = async (params: {
 
 export const getRetirementTotalsAndBalances = async (params: {
   address: string;
-  infuraId?: string;
+  providerUrl?: string;
 }): Promise<RetirementsTotalsAndBalances> => {
   try {
-    const provider = getJsonRpcProvider(params.infuraId);
+    const provider = getJsonRpcProvider(params.providerUrl);
     const retirementStorageContract = createRetirementStorageContract(provider);
 
     const promises: [

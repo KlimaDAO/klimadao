@@ -1,9 +1,9 @@
 import { ethers } from "ethers";
 import { urls } from "../../constants";
 
-export const getJsonRpcProvider = (infuraId?: string) => {
-  if (infuraId) {
-    return new ethers.providers.JsonRpcProvider(`${urls.infuraRpc}${infuraId}`);
+export const getJsonRpcProvider = (providerUrl?: string) => {
+  if (providerUrl) {
+    return new ethers.providers.JsonRpcProvider(providerUrl);
   }
   return new ethers.providers.JsonRpcProvider(urls.polygonMainnetRpc);
 };
