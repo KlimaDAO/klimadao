@@ -484,7 +484,7 @@ export const Bond: FC<Props> = (props) => {
       locale
     );
   };
-
+  console.log(bondState?.bondDiscount);
   const isBondDiscountNegative =
     !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
 
