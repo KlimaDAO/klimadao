@@ -18,11 +18,17 @@ export const profile = css`
   .profileImage {
     display: grid;
     align-items: center;
-    width: 8rem;
-    height: 8rem;
+    width: 12rem;
+    height: 12rem;
     border-radius: 50%;
     background-color: var(--surface-02);
     transition: background-color 0.25s ease-in-out;
+  }
+
+  img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
   }
 `;
 
