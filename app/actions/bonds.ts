@@ -155,8 +155,7 @@ const getInverseKlimaUSDCPrice = async (params: {
   );
   const reserves = await pairContract.getReserves();
   // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
-  // divide usdc/klima to get klima usdc price
-  // i just swapped this to klima/usdc
+  // returns klimas per dollar
   return (reserves[1] * Math.pow(10, 9)) / (reserves[0] * Math.pow(10, 12));
 };
 
@@ -202,7 +201,6 @@ export const calcBondDetails = (params: {
       BondCalcContract.abi,
       provider
     );
-
     const getMarketPrice = {
       mco2: getMCO2MarketPrice,
       klima_mco2_lp: getMCO2MarketPrice,
@@ -215,6 +213,7 @@ export const calcBondDetails = (params: {
       inverse_usdc: getInverseKlimaUSDCPrice,
     }[params.bond];
 
+    // returns the going rate on the relevant LP by dividing one side over the other
     const marketPrice = await getMarketPrice({
       provider: provider,
     });
@@ -222,31 +221,21 @@ export const calcBondDetails = (params: {
     let maxBondPrice;
     let debtRatio;
     let bondPrice;
-    let returnOnInterest;
+    let premium = 0;
     if (getIsInverse({ bond: params.bond })) {
-      if (!params.address) return;
+      // v2 bonds have multiple markets within them, we know that inverse USDC bonds is this one:
+      // in a later version we could clean this up by querying for "live markets"
       const marketId = 3;
+      // returns klimas-per-dollar with 6 decimals
       bondPrice = await bondContract.marketPrice(marketId);
-      const bonus = 1 / bondPrice.toNumber() - marketPrice;
-      returnOnInterest = bonus;
+      // profit is the bond price in klima minus the LP market price in klima
+      const profit = marketPrice - Number(formatUnits(bondPrice, 6));
+      // premium is the percent "bonus" over the LP market price
+      premium = profit / marketPrice;
       terms = await bondContract.terms(marketId);
       const marketData = await bondContract.markets(marketId);
-      maxBondPrice = marketData.maxPayout.toNumber();
-      const klimaContract = new ethers.Contract(
-        addresses["mainnet"].klima,
-        IERC20.abi,
-        params.provider
-      );
-      const inverseAllowance = await klimaContract.allowance(
-        params.address,
-        getBondAddress({ bond: params.bond })
-      );
-      console.log("inverseAllowance", formatUnits(inverseAllowance));
-      dispatch(
-        setBondAllowance({
-          [params.bond]: formatUnits(inverseAllowance),
-        })
-      );
+      // 6 decimals
+      maxBondPrice = marketData.maxPayout;
     } else {
       terms = await bondContract.terms();
       maxBondPrice = await bondContract.maxPayout();
@@ -255,23 +244,18 @@ export const calcBondDetails = (params: {
     }
 
     let bondQuote;
-    if (
+    if (!Number(params.value)) {
+      bondQuote = "0";
+    } else if (
       params.bond === "bct" ||
       params.bond === "mco2" ||
       params.bond === "nbo" ||
       params.bond === "ubo"
     ) {
       bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
-    } else if (params.bond === "inverse_usdc" && Number(params.value)) {
-      bondQuote = formatUnits(
-        ethers.BigNumber.from(
-          Number(params.value) * Math.pow(10, 6) * bondPrice.toNumber()
-        ),
-        6
-      );
-      console.log("bondQuote", bondQuote, params.value, bondPrice.toNumber());
-    } else if (!Number(params.value)) {
-      bondQuote = "0";
+    } else if (params.bond === "inverse_usdc") {
+      const quote = Number(params.value) / Number(formatUnits(bondPrice, 6));
+      bondQuote = quote.toString();
     } else {
       const valuation = await bondCalcContract.valuation(
         getReserveAddress({ bond: params.bond }),
@@ -284,9 +268,11 @@ export const calcBondDetails = (params: {
       params.bond === "klima_usdc_lp" || params.bond === "inverse_usdc"
         ? bondPrice * Math.pow(10, 12) // need to add decimals because this bond returns USDC (6 dec).
         : bondPrice;
-    let bondDiscount;
+
+    let bondDiscount: number;
     if (params.bond === "inverse_usdc") {
-      bondDiscount = returnOnInterest;
+      // var name is misleading, in the inverse bond UI we call it premium
+      bondDiscount = premium;
     } else {
       bondDiscount =
         (marketPrice * Math.pow(10, 18) - decimalAdjustedBondPrice) /
@@ -297,14 +283,11 @@ export const calcBondDetails = (params: {
       dispatch(
         setBond({
           bond: params.bond,
-          bondDiscount: bondDiscount! * 100,
+          bondDiscount: bondDiscount * 100,
           bondQuote,
           vestingTerm: 0,
-          maxBondPrice,
-          bondPrice: formatUnits(
-            bondPrice,
-            params.bond === "inverse_usdc" ? 6 : 18
-          ),
+          maxBondPrice: formatUnits(maxBondPrice, 6),
+          bondPrice: formatUnits(bondPrice, 6),
           marketPrice: marketPrice.toString(),
         })
       );
@@ -312,7 +295,7 @@ export const calcBondDetails = (params: {
       dispatch(
         setBond({
           bond: params.bond,
-          bondDiscount: bondDiscount! * 100,
+          bondDiscount: bondDiscount * 100,
           debtRatio: debtRatio / 10000000,
           bondQuote,
           vestingTerm: parseInt(terms.vestingTerm),
@@ -382,8 +365,24 @@ export const calculateUserBondDetails = (params: {
       bond: params.bond,
       providerOrSigner: params.provider,
     });
+    const klimaContract = new ethers.Contract(
+      addresses["mainnet"].klima,
+      IERC20.abi,
+      params.provider
+    );
     // inverse bonds dont have user details
-    if (getIsInverse({ bond: params.bond })) return;
+    if (getIsInverse({ bond: params.bond })) {
+      const inverseAllowance = await klimaContract.allowance(
+        params.address,
+        getBondAddress({ bond: params.bond })
+      );
+      dispatch(
+        setBondAllowance({
+          [params.bond]: formatUnits(inverseAllowance, 9),
+        })
+      );
+      return;
+    }
 
     // Calculate bond details.
     const bondDetails = await bondContract.bondInfo(params.address);
@@ -394,6 +393,7 @@ export const calculateUserBondDetails = (params: {
       params.address,
       getBondAddress({ bond: params.bond })
     );
+    // TODO: we can just use the state.user.balance for these values and eliminate this code.
     const balance = ethers.utils.formatUnits(
       await reserveContract.balanceOf(params.address),
       "ether"

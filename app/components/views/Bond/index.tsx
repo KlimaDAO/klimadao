@@ -98,6 +98,7 @@ interface ButtonProps {
   label: React.ReactElement | string;
   onClick: undefined | (() => void);
   disabled: boolean;
+  variant?: "blue";
 }
 
 interface Props {
@@ -163,38 +164,46 @@ export const Bond: FC<Props> = (props) => {
     );
   };
 
-  const getBondMax = (): string => {
+  const getBondV1Max = (): string => {
     if (
-      (!bondState?.maxBondPrice ||
-        !bondState?.bondPrice ||
-        !bondState?.balance) &&
-      bondState?.bond !== "inverse_usdc"
+      !bondState?.maxBondPrice ||
+      !bondState?.bondPrice ||
+      !bondState?.balance
     ) {
       return "0";
-    } else if (
-      (!bondState.maxBondPrice ||
-        !bondState.bondPrice ||
-        !userState.balance ||
-        !userState.balance.klima) &&
-      bondState.bond === "inverse_usdc"
-    ) {
-      return "0";
-    } else if (bondState.bond === "inverse_usdc") {
-      const price = bondState?.bondPrice;
-      const maxPayable = Number(bondState.maxBondPrice) * Number(price);
-      const bondMax =
-        Number(userState.balance.klima) < Number(maxPayable)
-          ? userState.balance.klima
-          : maxPayable.toString();
-      return bondMax ? bondMax : "0";
     }
-    const price = bondState?.bondPrice;
-    const maxPayable = Number(bondState.maxBondPrice) * Number(price);
+    // max you can input = the max amount you can get out (klima) * price
+    const maxPayable =
+      Number(bondState.maxBondPrice) * Number(bondState.bondPrice);
     const bondMax =
       Number(bondState?.balance) < Number(maxPayable)
         ? bondState?.balance
         : maxPayable.toString();
-    return bondMax ? bondMax : "0";
+    return bondMax;
+  };
+
+  const getInverseBondMax = (): string => {
+    if (
+      !bondState?.maxBondPrice ||
+      !bondState?.bondPrice ||
+      !userState?.balance?.klima
+    ) {
+      return "0";
+    }
+    const maxPayable =
+      Number(bondState.maxBondPrice) / Number(bondState.bondPrice);
+    const bondMax =
+      Number(userState.balance.klima) < Number(maxPayable)
+        ? userState.balance.klima
+        : maxPayable.toString();
+    return bondMax;
+  };
+
+  const getBondMax = (): string => {
+    if (bondState?.bond === "inverse_usdc") {
+      return getInverseBondMax();
+    }
+    return getBondV1Max();
   };
 
   const setMax = () => {
@@ -218,7 +227,8 @@ export const Bond: FC<Props> = (props) => {
           })
         );
       }
-      if (props.provider && props.address && props.bond !== "inverse_usdc") {
+      // only when the user is connected
+      if (props.provider && props.address) {
         dispatch(
           calculateUserBondDetails({
             address: props.address,
@@ -251,71 +261,89 @@ export const Bond: FC<Props> = (props) => {
 
   const handleAutostakeCheck = (): void => setShouldAutostake(!shouldAutostake);
 
-  const handleBond = async () => {
+  const handleV1Bond = async () => {
     if (!props.provider) return;
-    if (bondState!.bond === "inverse_usdc") {
-      try {
-        if (!props.address) {
-          return;
-        }
-        await bondTransaction({
-          value: quantity,
-          // idk about the slippage
-          slippage: 2,
-          bond: props.bond,
-          provider: props.provider,
-          address: props.address,
-          onStatus: setStatus,
-        });
-        setQuantity("");
-      } catch (error: any) {
-        console.log(error);
+    try {
+      if (
+        !props.address ||
+        !bondState ||
+        !bondState.balance ||
+        !bondState.bondQuote ||
+        !bondState.interestDue ||
+        !bondState.maxBondPrice
+      ) {
         return;
       }
-    } else {
-      try {
-        if (
-          !props.address ||
-          !bondState ||
-          !bondState.balance ||
-          !bondState.bondQuote ||
-          !bondState.interestDue ||
-          !bondState.maxBondPrice
-        ) {
-          return;
-        }
-        if (
-          Number(bondState?.interestDue) > 0 ||
-          Number(bondState?.pendingPayout) > 0
-        ) {
-          const didConfirm = window.confirm(
-            "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?"
-          );
-          if (!didConfirm) {
-            return; // early exit
-          }
-        }
-        await bondTransaction({
-          value: quantity,
-          slippage: 2,
-          bond: props.bond,
-          provider: props.provider,
-          address: props.address,
-          onStatus: setStatus,
-        });
-        setQuantity("");
-        dispatch(
-          setBond({
-            bond: props.bond,
-            balance: safeSub(bondState.balance, bondState.bondQuote),
-            interestDue: safeAdd(bondState.interestDue, bondState.bondQuote),
-            maxBondPrice: safeSub(bondState.maxBondPrice, bondState.bondQuote),
-          })
+      if (
+        Number(bondState?.interestDue) > 0 ||
+        Number(bondState?.pendingPayout) > 0
+      ) {
+        const didConfirm = window.confirm(
+          "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?"
         );
-      } catch (error) {
+        if (!didConfirm) {
+          return; // early exit
+        }
+      }
+      await bondTransaction({
+        value: quantity,
+        slippage: 2,
+        bond: props.bond,
+        provider: props.provider,
+        address: props.address,
+        onStatus: setStatus,
+      });
+      setQuantity("");
+      dispatch(
+        setBond({
+          bond: props.bond,
+          balance: safeSub(bondState.balance, bondState.bondQuote),
+          interestDue: safeAdd(bondState.interestDue, bondState.bondQuote),
+          maxBondPrice: safeSub(bondState.maxBondPrice, bondState.bondQuote),
+        })
+      );
+    } catch (error) {
+      return;
+    }
+  };
+
+  const handleInverseBond = async () => {
+    try {
+      if (
+        !props.address ||
+        !bondState?.bondQuote ||
+        !bondState?.maxBondPrice ||
+        !props.provider
+      ) {
         return;
       }
+      await bondTransaction({
+        value: quantity,
+        // idk about the slippage
+        slippage: 2,
+        bond: props.bond,
+        provider: props.provider,
+        address: props.address,
+        onStatus: setStatus,
+      });
+      setQuantity("");
+      dispatch(
+        setBond({
+          bond: props.bond,
+          maxBondPrice: safeSub(bondState.maxBondPrice, bondState.bondQuote),
+        })
+      );
+    } catch (error: any) {
+      console.log(error);
+      return;
     }
+  };
+
+  const handleBond = () => {
+    if (props.bond === "inverse_usdc") {
+      return handleInverseBond();
+    }
+    return handleV1Bond();
   };
 
   const handleRedeem = async () => {
@@ -341,19 +369,14 @@ export const Bond: FC<Props> = (props) => {
       return;
     }
   };
-  // fix thissss
-  const hasAllowance = () => {
-    if (bondState && bondState.bond !== "inverse_usdc") {
-      return !!allowance && !!Number(allowance[props.bond]);
-    } else {
-      // get the allowance here?
-    }
-  };
+
+  const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
 
   const isDisabled = view === "bond" && bondInfo.disabled;
 
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
+    const bondMax = Number(getBondMax());
     if (isDisabled) {
       return {
         label: <Trans id="shared.sold_out">Sold Out</Trans>,
@@ -393,18 +416,24 @@ export const Bond: FC<Props> = (props) => {
         onClick: undefined,
         disabled: true,
       };
+    } else if (bondMax && value && value > bondMax) {
+      return {
+        label: <Trans id="bond.max_exceeded">MAX EXCEEDED</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (!hasAllowance()) {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         disabled: false,
         onClick: handleAllowance,
+        variant: "blue",
       };
     } else if (view === "bond") {
-      const bondMax = getBondMax();
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
-        disabled: !value || !bondMax || Number(value) > Number(bondMax),
+        disabled: !value || !bondMax,
       };
     } else if (view === "redeem") {
       return {
@@ -438,26 +467,22 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
-  const getBondBalance = () => {
+  const getBalance = () => {
     if (!props.isConnected) {
       return 0;
-    } else if (
-      bondState &&
-      bondState.bond === "inverse_usdc" &&
-      userState.balance &&
-      userState.balance.klima
-    ) {
-      console.log("balances here", userState.balance.klima);
-      return userState.balance.klima;
-    } else if (bondState && bondState.balance) {
+    }
+    if (props.bond === "inverse_usdc") {
       return trimWithPlaceholder(
-        bondState?.balance,
-        Number(bondState?.balance) < 1 ? 18 : 2,
+        userState?.balance?.klima,
+        Number(userState?.balance?.klima) < 1 ? 18 : 2,
         locale
       );
-    } else {
-      return 0;
     }
+    return trimWithPlaceholder(
+      bondState?.balance,
+      Number(bondState?.balance) < 1 ? 18 : 2,
+      locale
+    );
   };
 
   const isBondDiscountNegative =
@@ -571,41 +596,87 @@ export const Bond: FC<Props> = (props) => {
                   comment: "Long sentence",
                 })}
                 unit={bondInfo.balanceUnit}
-                value={getBondBalance()}
+                value={getBalance()}
                 warning={Number(quantity) > Number(bondState?.balance)}
               />
-              <DataRow
-                singleton={singleton}
-                label={t({
-                  id: "bond.bond_price",
-                  message: "Bond price",
-                })}
-                tooltip={t({
-                  id: "bond.bond_price.tooltip",
-                  message:
-                    "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)",
-                  comment: "Long sentence",
-                })}
-                unit={bondInfo.priceUnit}
-                value={trimWithPlaceholder(bondState?.bondPrice, 2, locale)}
-                warning={false}
-              />
-              <DataRow
-                singleton={singleton}
-                label={t({
-                  id: "bond.market_price",
-                  message: "Market price",
-                })}
-                tooltip={t({
-                  id: "bond.market_price.tooltip",
-                  message:
-                    "Current trading price of KLIMA, without bond discount",
-                  comment: "Long sentence",
-                })}
-                unit={bondInfo.priceUnit}
-                value={trimWithPlaceholder(bondState?.marketPrice, 2, locale)}
-                warning={false}
-              />
+              {props.bond === "inverse_usdc" ? (
+                <>
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.market_price",
+                      message: "Market price",
+                    })}
+                    tooltip={t({
+                      id: "bond.bond_price.tooltip.inverse",
+                      message: "Current trading price of KLIMA on the market",
+                    })}
+                    unit="USDC"
+                    value={trimWithPlaceholder(
+                      1 / Number(bondState?.marketPrice),
+                      2,
+                      locale
+                    )}
+                    warning={false}
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      message: "Payout per KLIMA",
+                    })}
+                    tooltip={t({
+                      message:
+                        "If you bond 1 KLIMA, you will receive this amount in USDC.",
+                    })}
+                    unit={"USDC"}
+                    value={trimWithPlaceholder(
+                      1 / Number(bondState?.bondPrice),
+                      3,
+                      locale
+                    )}
+                    warning={false}
+                  />
+                </>
+              ) : (
+                <>
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.bond_price",
+                      message: "Bond price",
+                    })}
+                    tooltip={t({
+                      id: "bond.bond_price.tooltip",
+                      message:
+                        "Discounted price. Total amount to bond 1 full KLIMA (fractional bonds are also allowed)",
+                      comment: "Long sentence",
+                    })}
+                    unit={bondInfo.priceUnit}
+                    value={trimWithPlaceholder(bondState?.bondPrice, 2, locale)}
+                    warning={false}
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.market_price",
+                      message: "Market price",
+                    })}
+                    tooltip={t({
+                      id: "bond.market_price.tooltip",
+                      message:
+                        "Current trading price of KLIMA, without bond discount",
+                      comment: "Long sentence",
+                    })}
+                    unit={bondInfo.priceUnit}
+                    value={trimWithPlaceholder(
+                      bondState?.marketPrice,
+                      2,
+                      locale
+                    )}
+                    warning={false}
+                  />
+                </>
+              )}
               <DataRow
                 singleton={singleton}
                 label={t({
@@ -667,7 +738,7 @@ export const Bond: FC<Props> = (props) => {
                   Number(bondState?.bondQuote) > Number(bondState?.maxBondPrice)
                 }
                 value={trimWithPlaceholder(bondState?.maxBondPrice, 2, locale)}
-                unit="KLIMA"
+                unit="USDC"
               />
               {bondState && bondState!.bond !== "inverse_usdc" && (
                 <DataRow

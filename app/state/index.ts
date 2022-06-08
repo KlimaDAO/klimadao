@@ -3,14 +3,12 @@ import { useDispatch } from "react-redux";
 
 import userReducer from "./user";
 import bondsReducer from "./bonds";
-import inverseBondsReducer from "./inverseBonds";
 import appReducer from "./app";
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
     bonds: bondsReducer,
-    inverseBonds: inverseBondsReducer,
     app: appReducer,
   },
 });

@@ -101,7 +101,7 @@ export const useBond = (bond: Bond) => {
       }),
       inverse_usdc: t({
         id: "choose_bond.inverse_usdc",
-        message: "INVERSE USDC",
+        message: "Provide KLIMA, get USDC",
       }),
       // future bond descriptions go here
     }[bond],
@@ -155,28 +155,28 @@ export const useBond = (bond: Bond) => {
 
 export function ChooseBond() {
   const locale = useSelector(selectLocale);
+  const inverse_usdc = useBond("inverse_usdc");
+  const klimaBctLp = useBond("klima_bct_lp");
   const ubo = useBond("ubo");
   const nbo = useBond("nbo");
   const bct = useBond("bct");
-  const klimaBctLp = useBond("klima_bct_lp");
   const bctUsdcLp = useBond("bct_usdc_lp");
   const mco2 = useBond("mco2");
   const klimaUsdcLp = useBond("klima_usdc_lp");
   const klimaMco2Lp = useBond("klima_mco2_lp");
-  const inverse_usdc = useBond("inverse_usdc");
 
   const { treasuryBalance } = useSelector(selectAppState);
 
   const bonds = [
+    inverse_usdc,
+    klimaBctLp,
+    bctUsdcLp,
     ubo,
     nbo,
     mco2,
     bct,
     klimaMco2Lp,
     klimaUsdcLp,
-    klimaBctLp,
-    bctUsdcLp,
-    inverse_usdc,
   ];
   return (
     <>

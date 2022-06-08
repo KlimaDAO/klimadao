@@ -149,6 +149,7 @@ export const polygonNetworks = {
 };
 
 export const bonds = [
+  "inverse_usdc",
   "ubo",
   "nbo",
   "bct_usdc_lp",
@@ -157,7 +158,6 @@ export const bonds = [
   "klima_mco2_lp",
   "bct",
   "mco2",
-  "inverse_usdc",
 ] as const;
 export type Bond = typeof bonds[number];
 
