@@ -427,7 +427,7 @@ export const bondTransaction = async (params: {
   if (params.bond === "inverse_usdc") {
     try {
       const marketId = 3;
-      const acceptedSlippage = 0.2; // 20% instead of 2% bc 2% not working. 20% also not working lol
+      const acceptedSlippage = 0.0; // 20% instead of 2% bc 2% not working. 20% also not working lol
       const signer = params.provider.getSigner();
       const contractAddress = getBondAddress({ bond: params.bond });
       const contract = new ethers.Contract(
@@ -442,22 +442,21 @@ export const bondTransaction = async (params: {
         (1 / Number(formatUnits(bondPrice, 6))) *
           Number(params.value) *
           acceptedSlippage;
-      const formattedMinAmountOut =
-        Number(minAmountOut.toFixed(6)) * Math.pow(10, 6);
-      console.log({
-        marketId,
-        values: [Number(params.value) * Math.pow(10, 9), formattedMinAmountOut],
-        addresses: [
-          params.address,
-          "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c",
-        ],
-      });
+      const formattedMinAmountOut = ethers.utils.parseUnits(
+        Number(minAmountOut.toFixed(6)).toString(),
+        "mwei"
+      );
+      // TODO add "remaining cpacity" line in view
+      // TODO check "capacity" in markets call to see if there is enough usdc in bond. returns usdc
       params.onStatus("userConfirmation", "");
+      const notFuckedAddress = await signer.getAddress();
+      const formattedValue = ethers.utils.parseUnits(params.value, "gwei");
       // contract.deposit(__id, [amountIn (inKLIMA), min Amount Out (inUSDC)], [userAddress, DAOMSigAddress(0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c)])
+      debugger;
       const txn = await contract.deposit(
-        marketId,
-        [Number(params.value) * Math.pow(10, 9), formattedMinAmountOut],
-        [params.address, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
+        ethers.BigNumber.from(marketId),
+        [formattedValue, formattedMinAmountOut],
+        [notFuckedAddress, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
       );
       params.onStatus("networkConfirmation", "");
       await txn.wait(1);
