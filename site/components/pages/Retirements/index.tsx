@@ -30,6 +30,7 @@ type Props = {
   beneficiaryAddress: string;
   nameserviceDomain?: string;
   canonicalUrl?: string;
+  fixedTheme: string; // ONLY FOR TESTING, REMOVE BEFORE MERGE
 };
 
 export const RetirementPage: NextPage<Props> = (props) => {
@@ -38,6 +39,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
     totalsAndBalances,
     klimaRetires,
     nameserviceDomain,
+    fixedTheme, // ONLY FOR TESTING, REMOVE BEFORE MERGE
   } = props;
   const { locale } = useRouter();
   const [copied, doCopy] = useCopyToClipboard();
@@ -66,7 +68,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
         })}
         canonicalUrl={props.canonicalUrl}
       />
-      <Navigation activePage="Home" />
+      <Navigation activePage="Home" showThemeToggle={!fixedTheme} />
 
       <Section variant="gray" className={styles.section}>
         <div className={styles.pageHeadline}>
