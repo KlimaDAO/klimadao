@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-09 15:38+0000\n"
+"POT-Creation-Date: 2022-06-09 23:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -788,11 +788,11 @@ msgstr "Für CO2-Ausgleich genutzte Assets"
 
 #: components/pages/Retirements/index.tsx:56
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO - CO2-Ausgleich für {0}"
 
 #: components/pages/Retirements/index.tsx:50
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "KlimaDAO - CO2-Ausgleich für {0}"
 
 #: components/pages/Retirements/index.tsx:75
 msgid "retirement.totals.page_headline"
