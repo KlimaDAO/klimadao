@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-08 21:51+0000\n"
+"POT-Creation-Date: 2022-06-09 15:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr "Mauvais réseau"
 
 #: components/views/Offset/index.tsx:718
 msgid "advanced"
-msgstr "AVANCE"
+msgstr "AVANCÉ"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:743
@@ -436,7 +436,7 @@ msgstr "Compenser des émissions Carbone"
 
 #: components/views/Offset/index.tsx:725
 msgid "offset.retire_specific"
-msgstr "compenser des actifs de projet spécifiques"
+msgstr "Compenser des actifs de projet spécifiques"
 
 #: components/views/Offset/index.tsx:731
 msgid "offset.retire_specific_tooltip"
@@ -715,7 +715,7 @@ msgstr "Le protocole génère et distribue automatiquement les intérêts. Vous 
 
 #: components/views/Stake/index.tsx:259
 msgid "stake.stake"
-msgstr "Dépôt"
+msgstr "Déposer"
 
 #: components/views/Stake/index.tsx:233
 msgid "stake.stake_hold_earn"
