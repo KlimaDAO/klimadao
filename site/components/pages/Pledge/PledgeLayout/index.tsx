@@ -5,8 +5,8 @@ import { HeaderMobile } from "../HeaderMobile";
 import * as styles from "./styles";
 
 type Props = {
-  canEditPledge: boolean;
-  toggleEditModal: (bool: boolean) => void;
+  canEditPledge?: boolean;
+  toggleEditModal?: (bool: boolean) => void;
 };
 
 export const PledgeLayout: FC<Props> = (props) => {

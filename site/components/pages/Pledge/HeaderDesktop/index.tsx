@@ -12,8 +12,8 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 });
 
 type Props = {
-  canEditPledge: boolean;
-  toggleEditModal: (bool: boolean) => void;
+  canEditPledge?: boolean;
+  toggleEditModal?: (bool: boolean) => void;
 };
 
 export const HeaderDesktop: FC<Props> = (props) => {
@@ -39,7 +39,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
           <ButtonPrimary
             key="toggleModal"
             label="Edit Pledge"
-            onClick={() => props.toggleEditModal(true)}
+            onClick={() => props.toggleEditModal?.(true)}
           />
         )}
 

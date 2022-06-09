@@ -13,8 +13,8 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 });
 
 interface Props {
-  canEditPledge: boolean;
-  toggleEditModal: (bool: boolean) => void;
+  canEditPledge?: boolean;
+  toggleEditModal?: (bool: boolean) => void | (() => void);
 }
 
 export const HeaderMobile: FC<Props> = (props) => {
@@ -38,7 +38,7 @@ export const HeaderMobile: FC<Props> = (props) => {
           {props.canEditPledge && (
             <button
               className={styles.editButton}
-              onClick={() => props.toggleEditModal(true)}
+              onClick={() => props.toggleEditModal?.(true)}
             >
               <EditIcon />
             </button>
