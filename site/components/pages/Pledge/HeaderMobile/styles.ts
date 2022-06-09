@@ -46,7 +46,7 @@ export const navMain_Buttons = css`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.4rem;
 
   ${breakpoints.large} {
     button,
@@ -106,4 +106,8 @@ export const editButton = css`
 
 export const authButton = css`
   padding: 0 1rem;
+
+  ${breakpoints.medium} {
+    padding: 0rem 2.4rem;
+  }
 `;
