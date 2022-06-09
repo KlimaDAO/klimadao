@@ -370,7 +370,6 @@ export const Bond: FC<Props> = (props) => {
   const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
 
   const isDisabled = view === "bond" && bondInfo.disabled;
-  console.log("capacity", bondState?.capacity, bondState?.bondQuote);
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
