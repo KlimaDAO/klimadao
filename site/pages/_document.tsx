@@ -6,13 +6,15 @@ import { WebFonts, InitializeTheme } from "@klimadao/lib/components";
 
 class MyDocument extends Document {
   render() {
+    const { fixedTheme } = this.props.__NEXT_DATA__.props.pageProps;
+
     return (
-      <Html className="theme-light">
+      <Html>
         <Head>
           <WebFonts />
         </Head>
         <body>
-          <InitializeTheme />
+          {!fixedTheme && <InitializeTheme />}
           <Main />
           <NextScript />
         </body>
