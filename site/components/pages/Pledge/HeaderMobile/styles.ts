@@ -11,6 +11,7 @@ export const headerMobileWrap = css`
   background-color: rgba(255, 255, 255, 0);
   transition: background-color 0.5s ease 0s;
   z-index: 100;
+  padding: 0 1.6rem;
 
   ${breakpoints.large} {
     display: none;
@@ -34,7 +35,9 @@ export const headerMobile = css`
 
 export const mainLogoMobile = css`
   max-width: 12rem;
-  padding: 0 2.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 `;
 
 export const navMain_Buttons = css`
@@ -51,4 +54,16 @@ export const navMain_Buttons = css`
       box-shadow: var(--shadow-light);
     }
   }
+`;
+
+export const themeToggle = css`
+  background-color: var(--surface-02);
+`;
+
+export const betaBadge = css`
+  color: var(--klima-green);
+  padding: 0.4rem;
+  border: 0.1rem solid var(--klima-green);
+  border-radius: var(--border-radius);
+  font-size: 1.4rem;
 `;
