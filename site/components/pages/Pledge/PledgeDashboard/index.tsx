@@ -35,7 +35,8 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const [retirements, setRetirements] =
     useState<RetirementsTotalsAndBalances | null>(null);
 
-  const canEditPledge = address?.toLowerCase() === props.pageAddress;
+  const canEditPledge =
+    address?.toLowerCase() === props.pageAddress && isConnected;
 
   const currentFootprint = pledge.footprint[pledge.footprint.length - 1];
   const totalTonnesRetired = Number(retirements?.totalTonnesRetired);
@@ -43,17 +44,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     totalTonnesRetired && (totalTonnesRetired / currentFootprint.total) * 100;
   const displayPledgeProgress =
     !isNaN(totalTonnesRetired) && !isNaN(totalTonnesRetired);
-
-  const buttons =
-    canEditPledge && isConnected
-      ? [
-          <ButtonPrimary
-            key="toggleModal"
-            label="Edit Pledge"
-            onClick={() => setShowModal(!showModal)}
-          />,
-        ]
-      : [];
 
   useEffect(() => {
     (async () => {
@@ -74,7 +64,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   };
 
   return (
-    <PledgeLayout buttons={buttons}>
+    <PledgeLayout canEditPledge={canEditPledge} toggleEditModal={setShowModal}>
       <PageHead
         title="Klima Infinity | Pledge"
         mediaTitle={`${

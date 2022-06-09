@@ -13,7 +13,8 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 });
 
 type Props = {
-  buttons?: JSX.Element[];
+  canEditPledge: boolean;
+  toggleEditModal: (bool: boolean) => void;
 };
 
 export const PledgeLayout: FC<Props> = (props) => {
@@ -22,7 +23,10 @@ export const PledgeLayout: FC<Props> = (props) => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.contentContainer}>
-        <HeaderMobile buttons={props.buttons} />
+        <HeaderMobile
+          canEditPledge={props.canEditPledge}
+          toggleEditModal={props.toggleEditModal}
+        />
 
         <div className={styles.headerBar}>
           <div className={styles.mainHeader}>
@@ -39,7 +43,13 @@ export const PledgeLayout: FC<Props> = (props) => {
           <div className={styles.group}>
             <ThemeToggle className={styles.themeToggle} />
 
-            {props.buttons && props.buttons}
+            {props.canEditPledge && (
+              <ButtonPrimary
+                key="toggleModal"
+                label="Edit Pledge"
+                onClick={() => props.toggleEditModal(true)}
+              />
+            )}
 
             {isConnected && address ? (
               <ButtonPrimary
