@@ -46,11 +46,16 @@ export const HeaderMobile: FC<Props> = (props) => {
 
           {isConnected && address ? (
             <ButtonPrimary
+              className={styles.authButton}
               label={concatAddress(address)}
               onClick={disconnect}
             />
           ) : (
-            <ButtonPrimary label="Connect" onClick={connect} />
+            <ButtonPrimary
+              className={styles.authButton}
+              label="Connect"
+              onClick={connect}
+            />
           )}
         </div>
       </header>

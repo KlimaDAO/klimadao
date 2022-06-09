@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import {
   concatAddress,
   getRetirementTotalsAndBalances,

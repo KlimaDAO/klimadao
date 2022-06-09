@@ -103,3 +103,7 @@ export const editButton = css`
     }
   }
 `;
+
+export const authButton = css`
+  padding: 0 1rem;
+`;
