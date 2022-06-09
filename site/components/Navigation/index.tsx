@@ -66,7 +66,7 @@ export const Navigation: FC<Props> = ({
       <HeaderMobile
         buttons={[
           <ChangeLanguageButton key="ChangeLanguageButton" />,
-          <ThemeToggle key="ThemeToggle" />,
+          ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
         ]}
       >
         <NavItemMobile
