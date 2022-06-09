@@ -10,7 +10,7 @@ interface Props {
 
 export const ThemeToggle: FC<Props> = (props) => {
   const [activeTheme, setActiveTheme] = useState(
-    document.body.dataset.theme || "theme-light"
+    window.localStorage.getItem("theme") || "theme-light"
   );
   const inactiveTheme =
     activeTheme === "theme-light" ? "theme-dark" : "theme-light";
