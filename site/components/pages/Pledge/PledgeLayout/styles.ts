@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const pageContainer = css`
   grid-column: full;
@@ -15,11 +16,15 @@ export const contentContainer = css`
 `;
 
 export const headerBar = css`
-  grid-column: span 2;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: space-between;
-  align-items: center;
+  display: none;
+
+  ${breakpoints.large} {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 export const mainHeader = css`

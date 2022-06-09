@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
+import { concatAddress } from "@klimadao/lib/utils";
 import Link from "next/link";
 
 import { useWeb3 } from "hooks/useWeb3/web3context";
+import { HeaderMobile } from "../HeaderMobile";
 import * as styles from "./styles";
-import { concatAddress } from "@klimadao/lib/utils";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
   ssr: false,
@@ -21,6 +22,8 @@ export const PledgeLayout: FC<Props> = (props) => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.contentContainer}>
+        <HeaderMobile buttons={props.buttons} />
+
         <div className={styles.headerBar}>
           <div className={styles.mainHeader}>
             <div className={styles.logo}>
