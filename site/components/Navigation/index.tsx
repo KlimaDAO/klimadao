@@ -21,9 +21,13 @@ type PageName = "Home" | "Buy" | "Resources" | "Disclaimer";
 
 export type Props = {
   activePage: PageName;
+  showThemeToggle?: boolean;
 };
 
-export const Navigation: FC<Props> = (props) => {
+export const Navigation: FC<Props> = ({
+  activePage,
+  showThemeToggle = true,
+}) => {
   const { locale } = useRouter();
 
   return (
@@ -31,7 +35,7 @@ export const Navigation: FC<Props> = (props) => {
       <HeaderDesktop
         buttons={[
           <ChangeLanguageButton key="ChangeLanguageButton" />,
-          <ThemeToggle key="ThemeToggle" />,
+          ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
           <ButtonPrimary
             key="Enter App"
             label={t({ message: "Enter App", id: "shared.enter_app" })}
@@ -42,7 +46,7 @@ export const Navigation: FC<Props> = (props) => {
         <NavItemDesktop
           url={"/buy"}
           name={t({ message: "Buy", id: "shared.buy" })}
-          active={props.activePage === "Buy"}
+          active={activePage === "Buy"}
         />
         <NavItemDesktop
           url={createLinkWithLocaleQuery(urls.stake, locale)}
@@ -55,7 +59,7 @@ export const Navigation: FC<Props> = (props) => {
         <NavItemDesktop
           url="/blog"
           name={t({ message: "Resources", id: "shared.resources" })}
-          active={props.activePage === "Resources"}
+          active={activePage === "Resources"}
         />
       </HeaderDesktop>
 
