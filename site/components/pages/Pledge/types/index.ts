@@ -20,6 +20,7 @@ export type Pledge = {
   ownerAddress: string;
   name: string;
   nonce: string;
+  profileImageUrl: string;
   description: string;
   methodology: string;
   footprint: Footprint[];

@@ -11,23 +11,45 @@ export const contentContainer = css`
 export const profile = css`
   grid-column: span 2;
   display: grid;
-  gap: 2.8rem;
+  gap: 1.6rem;
   justify-items: center;
   padding: 6rem 0 2rem 0;
 
   .profileImage {
-    display: grid;
+    display: flex;
     align-items: center;
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
+    justify-content: center;
+    object-fit: cover;
+    width: 12rem;
+    height: 12rem;
     background-color: var(--surface-02);
-    transition: background-color 0.25s ease-in-out;
+    border-radius: 50%;
+    border: 0.1rem solid var(--surface-01);
+  }
+
+  ${breakpoints.desktop} {
+    gap: 2rem;
   }
 `;
 
 export const pledgeChart = css`
   grid-column: span 2;
+`;
+
+export const progressContainer = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+`;
+
+export const pledgeProgress = css`
+  text-align: center;
+  align-self: center;
+  color: var(--klima-green);
+  padding: 1.2rem;
+  border: 0.1rem solid var(--klima-green);
+  border-radius: var(--border-radius);
 `;
 
 export const column = css`

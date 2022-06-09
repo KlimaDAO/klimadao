@@ -97,7 +97,10 @@ const CustomTooltip: FC<TooltipProps<number, string>> = ({
           {payload[0].name}
         </Text>
         <Text t="caption" color="lightest">
-          {payload[0].value}K carbon tonnes
+          {payload[0].value}% of footprint
+        </Text>
+        <Text t="caption" color="lightest">
+          {payload[0].payload.quantity} Carbon Tonne(s)
         </Text>
       </div>
     );

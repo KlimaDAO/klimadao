@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import RemoveIcon from "@mui/icons-material/Remove";
+import ClearIcon from "@mui/icons-material/Clear";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   useForm,
@@ -36,7 +36,7 @@ const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
   );
   setValue("footprint", totalFootprint);
 
-  return <Text t="h4">Total Footprint: {totalFootprint}K</Text>;
+  return <Text t="h4">Total Footprint: {totalFootprint} Carbon Tonnes</Text>;
 };
 
 type Props = {
@@ -50,7 +50,7 @@ export const PledgeForm: FC<Props> = (props) => {
   const { signer } = useWeb3();
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
-      mode: "onBlur",
+      mode: "onChange",
       defaultValues: pledgeFormAdapter(props.pledge),
       resolver: yupResolver(formSchema),
     });
@@ -106,6 +106,14 @@ export const PledgeForm: FC<Props> = (props) => {
         {...register("name")}
       />
 
+      <InputField
+        label="Profile image url (optional)"
+        placeholder="https://"
+        type="text"
+        errors={formState.errors.profileImageUrl}
+        {...register("profileImageUrl")}
+      />
+
       <TextareaField
         id="pledge"
         label="Pledge"
@@ -145,6 +153,7 @@ export const PledgeForm: FC<Props> = (props) => {
                   errors={formState.errors.categories?.[index]?.name}
                   {...register(`categories.${index}.name` as const)}
                 />
+
                 <InputField
                   label="Quantity"
                   hideLabel
@@ -158,11 +167,9 @@ export const PledgeForm: FC<Props> = (props) => {
               <ButtonPrimary
                 variant="icon"
                 className={styles.categoryRow_removeButton}
-                label={<RemoveIcon fontSize="large" />}
+                label={<ClearIcon fontSize="large" />}
                 onClick={() => remove(index)}
-              >
-                <RemoveIcon fontSize="medium" />
-              </ButtonPrimary>
+              />
             </div>
           ))}
         </div>

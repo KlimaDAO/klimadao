@@ -20,7 +20,7 @@ export const buttonToggle = css`
   &:hover, &:focus {
     opacity: 0.7;
   }
-  &:focus {
+  &:active {
     transform: scale(0.9);
   }
   &, &:hover, &:visited {

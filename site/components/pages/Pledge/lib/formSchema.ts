@@ -6,6 +6,7 @@ export const formSchema = yup
     ownerAddress: yup.string().required().trim(),
     nonce: yup.string().required().trim(),
     name: yup.string().required("Enter a name").trim(),
+    profileImageUrl: yup.string().url("Enter a valid url").trim().ensure(),
     description: yup
       .string()
       .required("Enter a pledge")
@@ -21,7 +22,7 @@ export const formSchema = yup
       .required("Enter a carbon tonne estimate")
       .typeError("Enter a carbon tonne estimate")
       .required("Enter a carbon tonne estimate")
-      .min(1, "Value needs to be greater than 1"),
+      .min(0, "Value needs to be greater than 0"),
     categories: yup
       .array()
       .of(
@@ -31,7 +32,7 @@ export const formSchema = yup
             .number()
             .required("Enter a carbon tonne estimate")
             .typeError("Enter a carbon tonne estimate")
-            .min(1, "Value needs to be greater than 1"),
+            .min(0, "Value needs to be greater than 0"),
         })
       )
       .required(),

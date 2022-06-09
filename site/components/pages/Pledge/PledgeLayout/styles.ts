@@ -10,31 +10,6 @@ export const pageContainer = css`
   background-color: var(--surface-01);
 `;
 
-export const contentContainer = css`
+export const headerContainer = css`
   grid-column: main;
-`;
-
-export const header = css`
-  grid-column: span 2;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const logo = css`
-  grid-column: span 1;
-  max-width: 26rem;
-`;
-
-export const themeToggle = css`
-  background-color: var(--surface-02);
-`;
-
-export const group = css`
-  grid-column: span 1;
-  gap: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
 `;
