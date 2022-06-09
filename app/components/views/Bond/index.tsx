@@ -251,7 +251,6 @@ export const Bond: FC<Props> = (props) => {
         onStatus: setStatus,
         isInverse: bondState && bondState.bond === "inverse_usdc",
       });
-      console.log(value);
       // added toNumber for inverse
       dispatch(setBondAllowance({ [props.bond]: value.toNumber() }));
     } catch (e) {
@@ -290,7 +289,6 @@ export const Bond: FC<Props> = (props) => {
         slippage: 2,
         bond: props.bond,
         provider: props.provider,
-        address: props.address,
         onStatus: setStatus,
       });
       setQuantity("");
@@ -323,7 +321,6 @@ export const Bond: FC<Props> = (props) => {
         slippage: 2,
         bond: props.bond,
         provider: props.provider,
-        address: props.address,
         onStatus: setStatus,
       });
       setQuantity("");
@@ -373,7 +370,7 @@ export const Bond: FC<Props> = (props) => {
   const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
 
   const isDisabled = view === "bond" && bondInfo.disabled;
-
+  console.log("capacity", bondState?.capacity, bondState?.bondQuote);
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
@@ -419,6 +416,16 @@ export const Bond: FC<Props> = (props) => {
     } else if (bondMax && value && value > bondMax) {
       return {
         label: <Trans id="bond.max_exceeded">MAX EXCEEDED</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (
+      bondState?.capacity &&
+      bondState.bondQuote &&
+      bondState?.capacity < Number(bondState.bondQuote)
+    ) {
+      return {
+        label: <Trans id="bond.max_exceeded">CAPACITY EXCEEDED</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -484,7 +491,6 @@ export const Bond: FC<Props> = (props) => {
       locale
     );
   };
-  console.log(bondState?.bondDiscount);
   const isBondDiscountNegative =
     !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
 
@@ -631,6 +637,23 @@ export const Bond: FC<Props> = (props) => {
                     unit={"USDC"}
                     value={trimWithPlaceholder(
                       1 / Number(bondState?.bondPrice),
+                      3,
+                      locale
+                    )}
+                    warning={false}
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      message: "Capacity",
+                    })}
+                    tooltip={t({
+                      message:
+                        "This is the amount of USDC in the contract available for bonds.",
+                    })}
+                    unit={"USDC"}
+                    value={trimWithPlaceholder(
+                      1 / Number(bondState?.capacity),
                       3,
                       locale
                     )}

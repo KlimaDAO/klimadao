@@ -222,18 +222,21 @@ export const calcBondDetails = (params: {
     let debtRatio;
     let bondPrice;
     let premium = 0;
+    let capacity = 0;
     if (getIsInverse({ bond: params.bond })) {
       // v2 bonds have multiple markets within them, we know that inverse USDC bonds is this one:
       // in a later version we could clean this up by querying for "live markets"
       const marketId = 3;
       // returns klimas-per-dollar with 6 decimals
       bondPrice = await bondContract.marketPrice(marketId);
+
       // profit is the bond price in klima minus the LP market price in klima
       const profit = marketPrice - Number(formatUnits(bondPrice, 6));
       // premium is the percent "bonus" over the LP market price
       premium = profit / marketPrice;
       terms = await bondContract.terms(marketId);
       const marketData = await bondContract.markets(marketId);
+      capacity = Number(formatUnits(marketData.capacity, 6));
       // 6 decimals
       maxBondPrice = marketData.maxPayout;
     } else {
@@ -289,6 +292,7 @@ export const calcBondDetails = (params: {
           maxBondPrice: formatUnits(maxBondPrice, 6),
           bondPrice: formatUnits(bondPrice, 6),
           marketPrice: marketPrice.toString(),
+          capacity,
         })
       );
     } else {
@@ -333,9 +337,7 @@ export const changeApprovalTransaction = async (params: {
     const approvalAddress = getBondAddress({ bond: params.bond });
     const value = ethers.utils.parseUnits("1000000000", "ether");
     params.onStatus("userConfirmation", "");
-    console.log("contract", contract);
     const txn = await contract.approve(approvalAddress, value.toString());
-    console.log("txn", txn);
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
@@ -418,7 +420,6 @@ export const calculateUserBondDetails = (params: {
 
 export const bondTransaction = async (params: {
   value: string;
-  address: string;
   bond: Bond;
   provider: providers.JsonRpcProvider;
   slippage: number;
@@ -483,11 +484,12 @@ export const bondTransaction = async (params: {
       const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
       const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
       const valueInWei = ethers.utils.parseUnits(params.value, "ether");
+      const notFuckedAddress = await signer.getAddress();
       params.onStatus("userConfirmation", "");
       const txn = await contract.deposit(
         valueInWei,
         maxPremium,
-        params.address
+        notFuckedAddress
       );
       params.onStatus("networkConfirmation", "");
       await txn.wait(1);
