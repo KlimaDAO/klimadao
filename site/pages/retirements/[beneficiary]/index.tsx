@@ -18,11 +18,13 @@ import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 
 interface Params extends ParsedUrlQuery {
-  beneficiary_address: string;
+  /** Either an 0x or a nameservice domain like atmosfearful.klima */
+  beneficiary: string;
 }
 
 interface PageProps {
-  beneficiaryAddress: Params["beneficiary_address"];
+  /** The resolved 0x address */
+  beneficiaryAddress: string;
   totalsAndBalances: RetirementsTotalsAndBalances;
   klimaRetires: KlimaRetire[];
   nameserviceDomain: string | null;
@@ -40,21 +42,21 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     }
 
     let resolvedAddress: string;
-    const isDomainInURL = getIsDomainInURL(params.beneficiary_address);
+    const isDomainInURL = getIsDomainInURL(params.beneficiary);
     if (isDomainInURL) {
-      resolvedAddress = await getAddressByDomain(params.beneficiary_address); // this fn should throw if it fails to resolve
-    } else if (ethers.utils.isAddress(params.beneficiary_address)) {
-      resolvedAddress = params.beneficiary_address;
+      resolvedAddress = await getAddressByDomain(params.beneficiary); // this fn should throw if it fails to resolve
+    } else if (ethers.utils.isAddress(params.beneficiary)) {
+      resolvedAddress = params.beneficiary;
     } else {
       throw new Error("Not a valid beneficiary address");
     }
 
     const promises = [
       getRetirementTotalsAndBalances({
-        address: resolvedAddress || (params.beneficiary_address as string),
+        address: resolvedAddress || (params.beneficiary as string),
         providerUrl: getInfuraUrlPolygon(),
       }),
-      queryKlimaRetiresByAddress(resolvedAddress || params.beneficiary_address),
+      queryKlimaRetiresByAddress(resolvedAddress || params.beneficiary),
       loadTranslation(locale),
     ];
 
@@ -69,9 +71,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       props: {
         totalsAndBalances,
         klimaRetires,
-        beneficiaryAddress: params.beneficiary_address,
-        nameserviceDomain: isDomainInURL ? params.beneficiary_address : null,
-        canonicalUrl: `${urls.retirements}/${params.beneficiary_address}`,
+        beneficiaryAddress: resolvedAddress,
+        nameserviceDomain: isDomainInURL ? params.beneficiary : null,
+        canonicalUrl: `${urls.retirements}/${params.beneficiary}`,
         translation,
       },
       revalidate: 240,
