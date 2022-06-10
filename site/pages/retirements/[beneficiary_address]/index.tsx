@@ -25,8 +25,8 @@ interface PageProps {
   beneficiaryAddress: Params["beneficiary_address"];
   totalsAndBalances: RetirementsTotalsAndBalances;
   klimaRetires: KlimaRetire[];
-  nameserviceDomain?: string;
-  canonicalUrl?: string;
+  nameserviceDomain: string | null;
+  canonicalUrl: string;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
