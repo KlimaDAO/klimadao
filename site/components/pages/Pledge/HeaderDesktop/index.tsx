@@ -1,10 +1,9 @@
 import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
-import { concatAddress } from "@klimadao/lib/utils";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import Link from "next/link";
 
-import { useWeb3 } from "hooks/useWeb3/web3context";
 import * as styles from "./styles";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
