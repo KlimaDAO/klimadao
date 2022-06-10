@@ -95,6 +95,12 @@ export const categories_appendButton = css`
   border-radius: 1rem;
   background-color: var(--surface-02);
   border: 0.175rem solid var(--surface-03);
+  transition: border-color 0.2s ease-in;
+
+  &:focus,
+  &:hover {
+    border-color: var(--klima-green);
+  }
 
   ${breakpoints.medium} {
     width: 22rem;
