@@ -136,7 +136,6 @@ export const Bond: FC<Props> = (props) => {
   const allowance = useSelector(selectBondAllowance);
 
   const [sourceSingleton, singleton] = useTooltipSingleton();
-  console.log(allowance);
   const isLoading = !allowance || quantity !== debouncedQuantity;
 
   const showSpinner =
@@ -193,7 +192,6 @@ export const Bond: FC<Props> = (props) => {
       Number(userState.balance.klima) < Number(maxPayable)
         ? userState.balance.klima
         : maxPayable.toString();
-    console.log(bondMax);
     return bondMax;
   };
 
@@ -371,7 +369,6 @@ export const Bond: FC<Props> = (props) => {
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
-    console.log(bondMax);
     if (isDisabled) {
       return {
         label: <Trans id="shared.sold_out">Sold Out</Trans>,
@@ -435,7 +432,6 @@ export const Bond: FC<Props> = (props) => {
         variant: "blue",
       };
     } else if (view === "bond") {
-      console.log(!value, !bondMax, Number(bondState?.bondQuote) > bondMax);
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
@@ -759,10 +755,18 @@ export const Bond: FC<Props> = (props) => {
                   !!bondState?.maxBondPrice &&
                   Number(bondState?.bondQuote) > Number(bondState?.maxBondPrice)
                 }
-                value={trimWithPlaceholder(bondState?.maxBondPrice, 2, locale)}
+                value={
+                  Number(bondState?.capacity) < Number(getBondMax())
+                    ? trimWithPlaceholder(
+                        1 / Number(bondState?.capacity),
+                        3,
+                        locale
+                      )
+                    : trimWithPlaceholder(bondState?.maxBondPrice, 2, locale)
+                }
                 unit="USDC"
               />
-              {bondState && bondState!.bond !== "inverse_usdc" && (
+              {bondState?.bond !== "inverse_usdc" && (
                 <DataRow
                   singleton={singleton}
                   label={t({
@@ -784,7 +788,7 @@ export const Bond: FC<Props> = (props) => {
                   unit="%"
                 />
               )}
-              {bondState && bondState!.bond !== "inverse_usdc" && (
+              {bondState?.bond !== "inverse_usdc" && (
                 <DataRow
                   singleton={singleton}
                   label={t({
