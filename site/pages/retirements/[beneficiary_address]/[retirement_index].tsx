@@ -24,12 +24,13 @@ interface Params extends ParsedUrlQuery {
 }
 
 interface PageProps {
+  /** Either an 0x or a nameservice domain like atmosfearful.klima */
   beneficiaryAddress: Params["beneficiary_address"];
   retirementTotals: Params["retirement_index"];
   retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
-  nameserviceDomain?: string;
+  /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
 }
 
@@ -69,13 +70,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       Promise<RetirementIndexInfoResult>,
       Promise<Record<string, unknown>>
     ] = [
-      queryKlimaRetireByIndex(
-        resolvedAddress || (params.beneficiary_address as string),
-        retirementIndex
-      ),
+      queryKlimaRetireByIndex(resolvedAddress, retirementIndex),
       getRetirementIndexInfo({
-        beneficiaryAdress:
-          resolvedAddress || (params.beneficiary_address as string),
+        beneficiaryAdress: resolvedAddress,
         index: retirementIndex,
         providerUrl: getInfuraUrlPolygon(),
       }),
@@ -94,7 +91,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No translation found");
     }
 
-    let projectDetails = null;
+    let projectDetails: VerraProjectDetails | null = null;
     if (!!retirement.offset.projectID) {
       projectDetails = await getVerraProjectByID(
         retirement.offset.projectID.replace("VCS-", "")
