@@ -12,6 +12,7 @@ import {
   Web3ModalState,
   Web3ModalStrings,
   Web3State,
+  TypedProvider,
 } from "../../components/Web3Context/types";
 
 /** NOTE: only invoke client-side */
@@ -112,7 +113,9 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   const connect = async () => {
     if (!web3Modal) return;
     const wrappedProvider = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(wrappedProvider);
+    const provider = new ethers.providers.Web3Provider(
+      wrappedProvider
+    ) as TypedProvider; // assert for better typings, see event handlers below
     const signer = provider.getSigner();
     const address = await signer.getAddress();
     const network = await provider.getNetwork();
@@ -135,29 +138,25 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
 
   // EIP-1193 events
   useEffect(() => {
-    if (web3state.provider?.on) {
-      const handleAccountsChanged = () => window.location.reload();
-      // https://docs.ethers.io/v5/concepts/best-practices/#best-practices--network-changes
-      const handleChainChanged = (_hexChainId: string) =>
-        window.location.reload();
-      const handleDisconnect = () => disconnect();
+    if (!web3state.provider) return;
+    // https://docs.ethers.io/v5/concepts/best-practices/#best-practices--network-changes
+    const handleDisconnect = () => disconnect();
+    const handleReload = () => window.location.reload();
 
-      web3state.provider.on("accountsChanged", handleAccountsChanged);
-      web3state.provider.on("chainChanged", handleChainChanged);
-      web3state.provider.on("disconnect", handleDisconnect);
+    /** There is a bug where ethers doesn't respond to web3modal events for these two, so we use the nested provider
+     * https://github.com/ethers-io/ethers.js/issues/2988 */
+    web3state.provider.provider.on("accountsChanged", handleReload);
+    web3state.provider.provider.on("chainChanged", handleReload);
+    web3state.provider.on("disconnect", handleDisconnect);
 
-      // Subscription Cleanup
-      return () => {
-        if (web3state.provider.removeListener) {
-          web3state.provider.removeListener(
-            "accountsChanged",
-            handleAccountsChanged
-          );
-          web3state.provider.removeListener("chainChanged", handleChainChanged);
-          web3state.provider.removeListener("disconnect", handleDisconnect);
-        }
-      };
-    }
+    return () => {
+      web3state.provider.provider.removeListener(
+        "accountsChanged",
+        handleReload
+      );
+      web3state.provider.provider.removeListener("chainChanged", handleReload);
+      web3state.provider.removeListener("disconnect", handleDisconnect);
+    };
   }, [web3state.provider]);
 
   return {

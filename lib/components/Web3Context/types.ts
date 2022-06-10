@@ -2,6 +2,17 @@
 
 import { providers } from "ethers";
 
+type ProviderEvent = "accountsChanged" | "chainChanged" | "disconnect";
+type ProviderEventHandler = (evt: ProviderEvent, cb: () => void) => void;
+interface WrappedProvider extends providers.ExternalProvider {
+  on: ProviderEventHandler;
+  removeListener: ProviderEventHandler;
+}
+/** Ethers doesn't type the wrapped provider (metamask), so we have to type it to support `provider.provider.on('accountsChanged')` */
+export interface TypedProvider extends providers.Web3Provider {
+  provider: WrappedProvider;
+}
+
 export interface Web3ModalStrings {
   walletconnect_desc: string;
   coinbase_desc: string;
@@ -12,7 +23,7 @@ export interface Web3ModalStrings {
 
 export interface ConnectedWeb3State {
   isConnected: true;
-  provider: providers.Web3Provider;
+  provider: TypedProvider;
   address: string;
   signer: providers.JsonRpcSigner;
   network: providers.Network;
