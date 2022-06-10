@@ -27,10 +27,10 @@ export function handleTransfers(event: Transfer): void {
 
     lock.save()
 
-    VestingMetricUtils.updateLock(co2Compount, event.block.timestamp, lock.lockedAmount)
+    VestingMetricUtils.updateLockMetric(co2Compount, event.block.timestamp, lock.lockedAmount)
 
     //Update vesting metrics for future maturity date
     const maturityTimestampString = dayFromTimestamp(lock.maturityDate);
-    VestingMetricUtils.updateMaturity(co2Compount, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
+    VestingMetricUtils.updateMaturityMetric(co2Compount, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
     }
 }

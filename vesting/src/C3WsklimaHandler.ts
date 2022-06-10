@@ -29,11 +29,11 @@ export function handleStakeLocked(event: StakeLocked): void {
     lock.save()
 
     //Update vesting metrics for today
-    VestingMetricUtils.updateLock(c3Wsklima, event.block.timestamp, lock.lockedAmount)
+    VestingMetricUtils.updateLockMetric(c3Wsklima, event.block.timestamp, lock.lockedAmount)
 
     //Update vesting metrics for future maturity date
     const maturityTimestampString = dayFromTimestamp(lock.maturityDate);
-    VestingMetricUtils.updateMaturity(c3Wsklima, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
+    VestingMetricUtils.updateMaturityMetric(c3Wsklima, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
 }
 
 export function handleWithdrawLocked(event: WithdrawLocked): void {
@@ -57,5 +57,5 @@ export function handleWithdrawLocked(event: WithdrawLocked): void {
     unlock.save()
 
     //Update vesting metrics for today
-    VestingMetricUtils.updateUnlock(c3Wsklima, event.block.timestamp, lock.lockedAmount)
+    VestingMetricUtils.updateUnlockMetric(c3Wsklima, event.block.timestamp, lock.lockedAmount)
 }
