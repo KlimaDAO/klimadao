@@ -74,7 +74,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     ] = [
       queryKlimaRetireByIndex(resolvedAddress, retirementIndex),
       getRetirementIndexInfo({
-        beneficiaryAdress: resolvedAddress,
+        beneficiaryAddress: resolvedAddress,
         index: retirementIndex,
         providerUrl: getInfuraUrlPolygon(),
       }),
