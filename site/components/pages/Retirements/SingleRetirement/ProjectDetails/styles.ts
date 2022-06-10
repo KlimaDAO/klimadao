@@ -1,5 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
+import { THEME_LIGHT } from "@klimadao/lib/theme/constants";
 
 export const section = css`
   padding-bottom: 4rem;
@@ -59,7 +60,7 @@ export const list = css`
       opacity: 0.8;
     }
 
-    [data-theme="theme-light"] & {
+    [data-theme=${THEME_LIGHT}] & {
       background-color: var(--gray);
       color: white;
     }

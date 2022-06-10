@@ -1,4 +1,5 @@
 import React from "react";
+import { THEME_DARK, THEME_LIGHT } from "@klimadao/lib/theme/constants";
 
 /**
  * Prevent flash-of-light-mode by checking for previous theme and setting body.dataset.theme
@@ -9,10 +10,10 @@ export const InitializeTheme = () => {
   const __html = `
       function getUserPreference() {
         const prevTheme = window.localStorage.getItem("theme");
-        if (prevTheme === "theme-dark" || prevTheme === "theme-light") {
+        if (prevTheme === ${THEME_DARK} || prevTheme === ${THEME_LIGHT}) {
           return prevTheme;
         }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "theme-dark" : "theme-light";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? ${THEME_DARK} : ${THEME_LIGHT};
       }
       document.body.dataset.theme = getUserPreference();
     `;
