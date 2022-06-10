@@ -36,7 +36,11 @@ const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
   );
   setValue("footprint", totalFootprint);
 
-  return <Text t="h4">Total Footprint: {totalFootprint} Carbon Tonnes</Text>;
+  return (
+    <Text t="h4">
+      Total Footprint: {+totalFootprint.toFixed(2)} Carbon Tonnes
+    </Text>
+  );
 };
 
 type Props = {
@@ -127,7 +131,7 @@ export const PledgeForm: FC<Props> = (props) => {
         id="methodology"
         label="Methodology"
         rows={6}
-        placeholder="How will you meet your pledge?"
+        placeholder="What tools or methodologies did you use to determine your carbon footprint?"
         errors={formState.errors.methodology}
         {...register("methodology")}
       />

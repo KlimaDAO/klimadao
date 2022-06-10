@@ -30,7 +30,7 @@ export const modalContent = css`
   max-width: 55rem;
   height: fit-content;
   max-height: calc(100vh - 10rem);
-  overflow: scroll;
+  overflow-y: auto;
   border-radius: 1.2rem;
   background-color: var(--surface-01);
   pointer-events: fill;
