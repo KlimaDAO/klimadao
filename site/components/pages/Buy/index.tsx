@@ -29,10 +29,10 @@ import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 
 type Props = {
-  fixedTheme: string; // ONLY FOR TESTING, REMOVE BEFORE MERGE
+  fixedThemeName: string; // ONLY FOR TESTING, REMOVE BEFORE MERGE
 };
 
-export const Buy: NextPage<Props> = ({ fixedTheme }) => {
+export const Buy: NextPage<Props> = ({ fixedThemeName }) => {
   const { locale } = useRouter();
 
   const begginerSectionRef = useRef<null | HTMLDivElement>(null);
@@ -53,7 +53,7 @@ export const Buy: NextPage<Props> = ({ fixedTheme }) => {
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
       />
-      <Navigation activePage="Buy" showThemeToggle={!fixedTheme} />
+      <Navigation activePage="Buy" showThemeToggle={!fixedThemeName} />
 
       <Section variant="gray" className={styles.section}>
         <div className={styles.buyContainer}>

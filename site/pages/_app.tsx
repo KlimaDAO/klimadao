@@ -22,7 +22,7 @@ const loadFallbackOnServer = async () => {
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const firstRender = useRef(true);
-  const { translation, fixedTheme } = pageProps;
+  const { translation, fixedThemeName } = pageProps;
 
   const locale = router.locale || (router.defaultLocale as string);
   // run only once on the first render (for server side)
@@ -49,8 +49,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }, [locale]);
 
   useEffect(() => {
-    if (fixedTheme) {
-      document.body.dataset.theme = fixedTheme;
+    if (fixedThemeName) {
+      document.body.dataset.theme = fixedThemeName;
     }
   });
 
