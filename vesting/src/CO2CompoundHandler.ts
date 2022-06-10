@@ -14,7 +14,7 @@ export function handleTransfers(event: Transfer): void {
     if (event.params.from == Address.fromString(constants.ZERO_ADDRESS)) {
 
     const lock = loadOrCreateLock(event.transaction.hash.toHexString())
-    const co2Compount = new Co2Compound(event.address)
+    const co2Compound = new Co2Compound(event.address)
     lock.platform = constants.NFT_CO2COMPOUND_PLATFORM
     lock.token = constants.NFT_CO2COMPOUND_TOKEN
     lock.timestamp = event.block.timestamp
@@ -27,10 +27,10 @@ export function handleTransfers(event: Transfer): void {
 
     lock.save()
 
-    VestingMetricUtils.updateLockMetric(co2Compount, event.block.timestamp, lock.lockedAmount)
+    VestingMetricUtils.updateLockMetric(co2Compound, event.block.timestamp, lock.lockedAmount)
 
     //Update vesting metrics for future maturity date
     const maturityTimestampString = dayFromTimestamp(lock.maturityDate);
-    VestingMetricUtils.updateMaturityMetric(co2Compount, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
+    VestingMetricUtils.updateMaturityMetric(co2Compound, BigInt.fromString(maturityTimestampString), lock.lockedAmount)
     }
 }
