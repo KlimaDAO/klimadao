@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   useForm,
@@ -11,7 +12,6 @@ import {
 } from "react-hook-form";
 
 import { InputField, TextareaField } from "components/Form";
-import { useWeb3 } from "hooks/useWeb3/web3context";
 
 import {
   editPledgeSignature,

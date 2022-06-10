@@ -10,23 +10,6 @@ export interface Web3ModalStrings {
   torus_desc: string;
 }
 
-export type Web3Action =
-  | {
-      type: "CONNECT";
-      payload: ConnectedWeb3State;
-    }
-  | {
-      type: "DISCONNECT";
-    }
-  | {
-      type: "SET_NETWORK";
-      payload: ConnectedWeb3State["network"];
-    }
-  | {
-      type: "SET_ADDRESS";
-      payload: ConnectedWeb3State["address"];
-    };
-
 export interface ConnectedWeb3State {
   isConnected: true;
   provider: providers.Web3Provider;
@@ -59,6 +42,4 @@ export const web3InitialState: Web3ModalState = {
   address: undefined,
   signer: undefined,
   network: undefined,
-  connect: undefined,
-  disconnect: undefined,
 };

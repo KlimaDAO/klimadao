@@ -6,8 +6,8 @@ import { useEffect, useRef } from "react";
 
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
-import { GridContainer } from "@klimadao/lib/components";
-import { Web3ContextProvider } from "hooks/useWeb3/web3context";
+import { GridContainer, Web3ContextProvider } from "@klimadao/lib/components";
+import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   });
 
   return (
-    <Web3ContextProvider>
+    <Web3ContextProvider strings={getWeb3ModalStrings()}>
       <I18nProvider i18n={i18n}>
         <GridContainer>
           <Component {...pageProps} />

@@ -1,4 +1,4 @@
-import React, { createContext, FC, useContext } from "react";
+import React, { createContext, FC } from "react";
 
 import { useWeb3Modal } from "../../utils/useWeb3Modal";
 import { web3InitialState, Web3ModalState, Web3ModalStrings } from "./types";
@@ -17,16 +17,4 @@ export const Web3ContextProvider: FC<Props> = (props) => {
       {props.children}
     </Web3Context.Provider>
   );
-};
-
-/**
- * A hook for accessing the Web3Context. Must be child of context provider.
- * @example const { provider, address, signer, isConnected } = useWeb3();
- */
-export const useWeb3 = () => {
-  const context = useContext(Web3Context);
-  if (context === undefined) {
-    throw new Error("useWeb3 must be used within a Web3ContextProvider");
-  }
-  return context;
 };

@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
@@ -10,41 +10,13 @@ import {
   web3InitialState,
   ConnectedWeb3State,
   Web3ModalState,
-  Web3State,
-  Web3Action,
   Web3ModalStrings,
+  Web3State,
 } from "../../components/Web3Context/types";
-
-const web3Reducer = (state: Web3State, action: Web3Action): Web3State => {
-  switch (action.type) {
-    case "CONNECT":
-      return {
-        ...state,
-        ...action.payload,
-      };
-    case "DISCONNECT":
-      return web3InitialState;
-    case "SET_ADDRESS":
-      if (!state.isConnected) return web3InitialState; // type-guard
-      return {
-        ...state,
-        address: action.payload,
-      };
-    case "SET_NETWORK":
-      if (!state.isConnected) return web3InitialState; // type-guard
-      return {
-        ...state,
-        network: action.payload,
-      };
-    default:
-      throw new Error();
-  }
-};
 
 /** NOTE: only invoke client-side */
 const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
-  // BUG: Something about our @klimadao/lib transpilation does not properly export the Web3Modal library.
-  // Probably because it doesn't use babel, only typescript.
+  // BUG: @klimadao/lib transpilation does not properly re-export the Web3Modal library, probably because we don't use babel in here.
   // Babel automatically adds a default export for interoperability reasons, which is why this isn't a problem in /site and /app (nextjs uses babel)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const untypedImport = Web3Modal as any;
@@ -126,15 +98,14 @@ const useLocalizedModal = (
 
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
-  const [web3state, dispatch] = useReducer(web3Reducer, web3InitialState);
+  const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
   const web3Modal = useLocalizedModal(strings);
 
   const disconnect = async () => {
     if (web3Modal) {
       web3Modal.clearCachedProvider();
-      dispatch({ type: "DISCONNECT" });
-    } else {
-      console.error("No Web3Modal");
+      setWeb3State(web3InitialState);
+      window.location.reload();
     }
   };
 
@@ -145,23 +116,19 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
     const signer = provider.getSigner();
     const address = await signer.getAddress();
     const network = await provider.getNetwork();
-    const payload: ConnectedWeb3State = {
+    const newState: ConnectedWeb3State = {
       provider,
       signer,
       address,
       network,
       isConnected: true,
     };
-    dispatch({
-      type: "CONNECT",
-      payload,
-    });
+    setWeb3State(newState);
   };
 
   // Auto connect to the cached provider
   useEffect(() => {
     if (web3Modal && web3Modal.cachedProvider) {
-      console.log("auto connect");
       connect();
     }
   }, []);
@@ -169,24 +136,10 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   // EIP-1193 events
   useEffect(() => {
     if (web3state.provider?.on) {
-      const handleAccountsChanged = (accounts: string[]) => {
-        dispatch({
-          type: "SET_ADDRESS",
-          payload: accounts[0],
-        });
-      };
-
+      const handleAccountsChanged = () => window.location.reload();
       // https://docs.ethers.io/v5/concepts/best-practices/#best-practices--network-changes
-      const handleChainChanged = (_hexChainId: string) => {
-        if (typeof window !== "undefined") {
-          console.log("Switched to chain...", _hexChainId);
-
-          window.location.reload();
-        } else {
-          console.log("Window is undefined");
-        }
-      };
-
+      const handleChainChanged = (_hexChainId: string) =>
+        window.location.reload();
       const handleDisconnect = () => disconnect();
 
       web3state.provider.on("accountsChanged", handleAccountsChanged);

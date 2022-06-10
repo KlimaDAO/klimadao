@@ -33,7 +33,7 @@ import { NavMenu } from "components/NavMenu";
 import Menu from "@mui/icons-material/Menu";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { Buy } from "../Buy";
-import { useWeb3 } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 
 export const Home: FC = () => {
   const dispatch = useAppDispatch();
