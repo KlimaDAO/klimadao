@@ -14,13 +14,14 @@ interface Props {
 export const InitializeTheme: FC<Props> = ({ fixedThemeName }) => {
   const __html = `
       function getUserPreference() {
+        if (!!"${fixedThemeName}") return "${fixedThemeName}";
         const prevTheme = window.localStorage.getItem("theme");
-        if (prevTheme === ${THEME_DARK} || prevTheme === ${THEME_LIGHT}) {
+        if (prevTheme === "${THEME_DARK}" || prevTheme === "${THEME_LIGHT}") {
           return prevTheme;
         }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? ${THEME_DARK} : ${THEME_LIGHT};
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "${THEME_DARK}" : "${THEME_LIGHT}";
       }
-      document.body.dataset.theme = ${fixedThemeName} || getUserPreference();
+      document.body.dataset.theme = getUserPreference();
     `;
   return <script dangerouslySetInnerHTML={{ __html }} />;
 };
