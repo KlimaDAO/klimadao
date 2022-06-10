@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-09 23:30+0000\n"
+"POT-Creation-Date: 2022-06-10 11:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr "Статьи"
 msgid "Change language"
 msgstr "измененить язык"
 
-#: components/pages/Buy/index.tsx:274
+#: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "Войдите в приложение"
 
@@ -49,13 +49,13 @@ msgstr "Скопировано"
 msgid "button.copyURL.copy"
 msgstr "Скопировать URL"
 
-#: components/pages/Buy/index.tsx:133
-#: components/pages/Buy/index.tsx:252
+#: components/pages/Buy/index.tsx:131
+#: components/pages/Buy/index.tsx:250
 msgid "buy.advanced"
 msgstr "Продвинутый"
 
-#: components/pages/Buy/index.tsx:88
-#: components/pages/Buy/index.tsx:174
+#: components/pages/Buy/index.tsx:86
+#: components/pages/Buy/index.tsx:172
 msgid "buy.beginner"
 msgstr "Начинающим"
 
@@ -111,75 +111,75 @@ msgstr "Теперь, когда у вас есть немного KLIMA и не
 msgid "buy.beginner_05.title"
 msgstr "Стейкайте, компенсируйте, управляйте!"
 
-#: components/pages/Buy/index.tsx:130
-#: components/pages/Buy/index.tsx:255
+#: components/pages/Buy/index.tsx:128
+#: components/pages/Buy/index.tsx:253
 msgid "buy.bonding"
 msgstr "Бондинг"
 
-#: components/pages/Buy/index.tsx:258
+#: components/pages/Buy/index.tsx:256
 msgid "buy.bonding.description_01"
 msgstr "Бондинг — это процесс внесения углеродных активов в обмен на KLIMA со скидкой. Это один из способов, которым Klima Treasury поглощает углеродные кредиты для положительного воздействия на климат. Бондинг также обеспечивает основу каждого нового токена KLIMA."
 
-#: components/pages/Buy/index.tsx:266
+#: components/pages/Buy/index.tsx:264
 msgid "buy.bonding.description_02"
 msgstr "Скидка колеблется в зависимости от рыночных условий. Казначейство принимает углерод в виде углеродных токенов (таких как UBO, BCT или MCO2) или токенов пула ликвидности (LP) (таких как KLIMA/BCT, KLIMA/MCO2)."
 
-#: components/pages/Buy/index.tsx:85
-#: components/pages/Buy/index.tsx:177
+#: components/pages/Buy/index.tsx:83
+#: components/pages/Buy/index.tsx:175
 msgid "buy.credit_card"
 msgstr "Кредитная карта"
 
-#: components/pages/Buy/index.tsx:180
+#: components/pages/Buy/index.tsx:178
 msgid "buy.credit_card.summary"
 msgstr "Теперь вы можете использовать свою кредитную карту для покупки токенов KLIMA прямо на свой кошелек! Наши платежные партнеры поддерживают большинство основных валют."
 
-#: components/pages/Buy/index.tsx:106
+#: components/pages/Buy/index.tsx:104
 msgid "buy.decentralized_exchange"
 msgstr "Децентрализованная биржа"
 
-#: components/pages/Buy/index.tsx:208
+#: components/pages/Buy/index.tsx:206
 msgid "buy.dex"
 msgstr "Децентрализованные биржи (DEXs)"
 
-#: components/pages/Buy/index.tsx:239
+#: components/pages/Buy/index.tsx:237
 msgid "buy.dex.how_zapper"
 msgstr "Как купить KLIMA на Zapper?"
 
-#: components/pages/Buy/index.tsx:212
+#: components/pages/Buy/index.tsx:210
 msgid "buy.dex.summary_01"
 msgstr "Если у вас уже есть кошелек Polygon с MATIC, вы можете использовать децентрализованные биржи для обмена на KLIMA. Это поможет вам избежать дополнительных комиссий и предоставит справедливую рыночную цену."
 
-#: components/pages/Buy/index.tsx:219
+#: components/pages/Buy/index.tsx:217
 msgid "buy.dex.summary_02"
 msgstr "KLIMA можно найти на <0>Sushi Swap</0>, но мы рекомендуем вам использовать агрегатор DEX под названием Zapper. Просто подключите свой кошелек к Zapper, и он направит вашу сделку через лучший из доступных DEX."
 
-#: components/pages/Buy/index.tsx:144
+#: components/pages/Buy/index.tsx:142
 msgid "buy.disclaimer"
 msgstr "Советы по безопасности и важный отказ от ответственности"
 
-#: components/pages/Buy/index.tsx:149
+#: components/pages/Buy/index.tsx:147
 msgid "buy.disclaimer_01"
 msgstr "Никогда и никому не сообщайте свой закрытый ключ или сид фразу. Мы рекомендуем вам посетить нашу страницу <0>Crypto Security 101</0> для получения советов по безопасности, прежде чем вы начнете работу."
 
-#: components/pages/Buy/index.tsx:159
+#: components/pages/Buy/index.tsx:157
 msgid "buy.disclaimer_02"
 msgstr "Транзакции блокчейн являются непрерывные и необратимыми. Наша команда не в состоянии вернуть потерянные или украденные активы. KlimaDAO не берет на себя никакой ответственности, не несет обязательств и не предлагает никаких гарантий. Все рынки и биржи работают независимо и с высокой волатильностью."
 
-#: components/pages/Buy/index.tsx:46
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:44
+#: components/pages/Buy/index.tsx:45
 msgid "buy.head.title"
 msgstr "Как купить KLIMA"
 
-#: components/pages/Buy/index.tsx:111
-#: components/pages/Buy/index.tsx:205
+#: components/pages/Buy/index.tsx:109
+#: components/pages/Buy/index.tsx:203
 msgid "buy.intermediate"
 msgstr "Промежуточный"
 
-#: components/pages/Buy/index.tsx:63
+#: components/pages/Buy/index.tsx:61
 msgid "buy.subtitle"
 msgstr "Вы можете получить KLIMA тремя способами: с помощью кредитной карты, на децентрализованных биржах (DEX) или путем бондинга углеродных активов."
 
-#: components/pages/Buy/index.tsx:60
+#: components/pages/Buy/index.tsx:58
 msgid "buy.title"
 msgstr "Как купить KLIMA"
 
@@ -772,7 +772,7 @@ msgstr "Сообщение об использовании не предоста
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Не предоставлена время использования"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:188
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Посмотреть на Polygonscan"
 
@@ -833,8 +833,8 @@ msgid "shared.bond"
 msgstr "Приложение"
 
 #: components/Footer/index.tsx:35
-#: components/Navigation/index.tsx:44
-#: components/Navigation/index.tsx:70
+#: components/Navigation/index.tsx:48
+#: components/Navigation/index.tsx:74
 msgid "shared.buy"
 msgstr "Купить"
 
@@ -862,13 +862,13 @@ msgstr "Отказ от ответственности"
 msgid "shared.docs"
 msgstr "Документы"
 
-#: components/Navigation/index.tsx:37
+#: components/Navigation/index.tsx:41
 #: components/pages/Home/index.tsx:110
 msgid "shared.enter_app"
 msgstr "Войдите в приложение"
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:48
+#: components/pages/Buy/index.tsx:46
 #: components/pages/Disclaimer/index.tsx:20
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
@@ -885,18 +885,18 @@ msgstr ""
 msgid "shared.home"
 msgstr "Домашняя страница"
 
-#: components/Navigation/index.tsx:53
-#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:57
-#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:61
+#: components/Navigation/index.tsx:86
 msgid "shared.resources"
 msgstr "Источники"
 
 #: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:49
-#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:78
 msgid "shared.stake"
 msgstr "Стейкинг"

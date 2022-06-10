@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-09 23:30+0000\n"
+"POT-Creation-Date: 2022-06-10 11:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr "文章"
 msgid "Change language"
 msgstr "变更语言"
 
-#: components/pages/Buy/index.tsx:274
+#: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "进入应用"
 
@@ -49,13 +49,13 @@ msgstr "已复制"
 msgid "button.copyURL.copy"
 msgstr "复制网址"
 
-#: components/pages/Buy/index.tsx:133
-#: components/pages/Buy/index.tsx:252
+#: components/pages/Buy/index.tsx:131
+#: components/pages/Buy/index.tsx:250
 msgid "buy.advanced"
 msgstr "专家用户"
 
-#: components/pages/Buy/index.tsx:88
-#: components/pages/Buy/index.tsx:174
+#: components/pages/Buy/index.tsx:86
+#: components/pages/Buy/index.tsx:172
 msgid "buy.beginner"
 msgstr "新手用户"
 
@@ -111,75 +111,75 @@ msgstr "现在您的钱包里已经有一些 KLIMA 和一些 MATIC 了，您应�
 msgid "buy.beginner_05.title"
 msgstr "股权，抵消，治理！"
 
-#: components/pages/Buy/index.tsx:130
-#: components/pages/Buy/index.tsx:255
+#: components/pages/Buy/index.tsx:128
+#: components/pages/Buy/index.tsx:253
 msgid "buy.bonding"
 msgstr "债券化"
 
-#: components/pages/Buy/index.tsx:258
+#: components/pages/Buy/index.tsx:256
 msgid "buy.bonding.description_01"
 msgstr "债券化是存入碳资产以换取 KLIMA 折扣的过程。这是 Klima 财政部吸收碳信用以对气候产生积极影响的方式之一。债券化还为每个新的 KLIMA 代币提供支持。"
 
-#: components/pages/Buy/index.tsx:266
+#: components/pages/Buy/index.tsx:264
 msgid "buy.bonding.description_02"
 msgstr "折扣会根据市场情况而波动。财政部接受碳代币形式的碳（如 UBO、BCT 或 MCO2）或流动性池（LP）代币形式的碳（如 KLIMA/BCT、KLIMA/MCO2）。"
 
-#: components/pages/Buy/index.tsx:85
-#: components/pages/Buy/index.tsx:177
+#: components/pages/Buy/index.tsx:83
+#: components/pages/Buy/index.tsx:175
 msgid "buy.credit_card"
 msgstr "信用卡"
 
-#: components/pages/Buy/index.tsx:180
+#: components/pages/Buy/index.tsx:178
 msgid "buy.credit_card.summary"
 msgstr "您现在可以使用信用卡直接购买 KLIMA 代币到您的钱包中！我们的支付合作伙伴支持多种主流货币。"
 
-#: components/pages/Buy/index.tsx:106
+#: components/pages/Buy/index.tsx:104
 msgid "buy.decentralized_exchange"
 msgstr "去中心化交易所"
 
-#: components/pages/Buy/index.tsx:208
+#: components/pages/Buy/index.tsx:206
 msgid "buy.dex"
 msgstr "去中心化交易所（DEX）"
 
-#: components/pages/Buy/index.tsx:239
+#: components/pages/Buy/index.tsx:237
 msgid "buy.dex.how_zapper"
 msgstr "我要如何在 Zapper 上购买 KLIMA ？"
 
-#: components/pages/Buy/index.tsx:212
+#: components/pages/Buy/index.tsx:210
 msgid "buy.dex.summary_01"
 msgstr "如果您的 Polygon 钱包中已经有 MATIC，您可以使用去中心化交易所兑换 KLIMA。这能帮您避免支付额外费用，也代表了公平的市场价格。"
 
-#: components/pages/Buy/index.tsx:219
+#: components/pages/Buy/index.tsx:217
 msgid "buy.dex.summary_02"
 msgstr "您可以在 <0>Sushi Swap</0> 上找到 KLIMA，但我们建议您使用 DEX 聚合器 Zapper 。只需将您的钱包连接到 Zapper，聚合器 DEX 就能帮你找到最佳的交易路径。"
 
-#: components/pages/Buy/index.tsx:144
+#: components/pages/Buy/index.tsx:142
 msgid "buy.disclaimer"
 msgstr "安全提示和重要免责声明"
 
-#: components/pages/Buy/index.tsx:149
+#: components/pages/Buy/index.tsx:147
 msgid "buy.disclaimer_01"
 msgstr "请注意：切勿与任何人分享您的私钥或助记词。我们建议您在开始任何操作之前, 访问我们的 <0> Crypto Security 101 </0>页面, 了解获取安全提示。"
 
-#: components/pages/Buy/index.tsx:159
+#: components/pages/Buy/index.tsx:157
 msgid "buy.disclaimer_02"
 msgstr "区块链交易是永久且不可逆的。我们的团队无法找回丢失或被盗的资产。 KlimaDAO 不承担任何责任或义务，也不提供任何保证。所有市场和交易所都独立运作，具有极大的波动性。"
 
-#: components/pages/Buy/index.tsx:46
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:44
+#: components/pages/Buy/index.tsx:45
 msgid "buy.head.title"
 msgstr "如何购买 KLIMA"
 
-#: components/pages/Buy/index.tsx:111
-#: components/pages/Buy/index.tsx:205
+#: components/pages/Buy/index.tsx:109
+#: components/pages/Buy/index.tsx:203
 msgid "buy.intermediate"
 msgstr "中间用户"
 
-#: components/pages/Buy/index.tsx:63
+#: components/pages/Buy/index.tsx:61
 msgid "buy.subtitle"
 msgstr "您有三种方式可获得 KLIMA：使用信用卡购买、在去中心化交易所 (DEXs) 上兑换，或 债券化碳资产。"
 
-#: components/pages/Buy/index.tsx:60
+#: components/pages/Buy/index.tsx:58
 msgid "buy.title"
 msgstr "如何购买 KLIMA"
 
@@ -766,7 +766,7 @@ msgstr "未提供停用信息"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "未提供停用时间戳"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:188
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
 
@@ -784,11 +784,11 @@ msgstr "用作停用的资产"
 
 #: components/pages/Retirements/index.tsx:56
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO - 受益人的碳停用 {0}"
 
 #: components/pages/Retirements/index.tsx:50
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "KlimaDAO - 受益人的碳停用 {0}"
 
 #: components/pages/Retirements/index.tsx:75
 msgid "retirement.totals.page_headline"
@@ -825,8 +825,8 @@ msgid "shared.bond"
 msgstr "应用程序"
 
 #: components/Footer/index.tsx:35
-#: components/Navigation/index.tsx:44
-#: components/Navigation/index.tsx:70
+#: components/Navigation/index.tsx:48
+#: components/Navigation/index.tsx:74
 msgid "shared.buy"
 msgstr "购买"
 
@@ -854,13 +854,13 @@ msgstr "免责声明"
 msgid "shared.docs"
 msgstr "文档"
 
-#: components/Navigation/index.tsx:37
+#: components/Navigation/index.tsx:41
 #: components/pages/Home/index.tsx:110
 msgid "shared.enter_app"
 msgstr "进入应用"
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:48
+#: components/pages/Buy/index.tsx:46
 #: components/pages/Disclaimer/index.tsx:20
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
@@ -875,18 +875,18 @@ msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 msgid "shared.home"
 msgstr "主页"
 
-#: components/Navigation/index.tsx:53
-#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:57
-#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:61
+#: components/Navigation/index.tsx:86
 msgid "shared.resources"
 msgstr "资源"
 
 #: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:49
-#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:78
 msgid "shared.stake"
 msgstr "股权"

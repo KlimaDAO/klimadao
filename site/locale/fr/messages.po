@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-09 23:30+0000\n"
+"POT-Creation-Date: 2022-06-10 11:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr "Articles"
 msgid "Change language"
 msgstr "Changer de langue"
 
-#: components/pages/Buy/index.tsx:274
+#: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "Visitez l'application"
 
@@ -49,13 +49,13 @@ msgstr "Copié"
 msgid "button.copyURL.copy"
 msgstr "Copier le lien"
 
-#: components/pages/Buy/index.tsx:133
-#: components/pages/Buy/index.tsx:252
+#: components/pages/Buy/index.tsx:131
+#: components/pages/Buy/index.tsx:250
 msgid "buy.advanced"
 msgstr "Avancé"
 
-#: components/pages/Buy/index.tsx:88
-#: components/pages/Buy/index.tsx:174
+#: components/pages/Buy/index.tsx:86
+#: components/pages/Buy/index.tsx:172
 msgid "buy.beginner"
 msgstr "Débutant"
 
@@ -111,75 +111,75 @@ msgstr "Maintenant que vous possédez des jetons KLIMA et MATIC dans votre porte
 msgid "buy.beginner_05.title"
 msgstr "Déposer, Compenser, Gouverner!"
 
-#: components/pages/Buy/index.tsx:130
-#: components/pages/Buy/index.tsx:255
+#: components/pages/Buy/index.tsx:128
+#: components/pages/Buy/index.tsx:253
 msgid "buy.bonding"
 msgstr "Achat d'obligation"
 
-#: components/pages/Buy/index.tsx:258
+#: components/pages/Buy/index.tsx:256
 msgid "buy.bonding.description_01"
 msgstr "Le processus d'achat d'obligation consiste en un dépôt d'actifs carbone en échange de KLIMA à prix réduit. C'est l'un des leviers permettant d'injecter des crédits carbone dans la trésorerie Klima afin d'impacter positivement celui-ci. Ce processus permet également d'augmenter le collatéral pour chaque nouveau jeton KLIMA."
 
-#: components/pages/Buy/index.tsx:266
+#: components/pages/Buy/index.tsx:264
 msgid "buy.bonding.description_02"
 msgstr "La remise fluctue en fonction des conditions du marché. La trésorerie accepte le carbone sous forme de jetons carbone (tels que UBO, BCT ou MCO2) ou de jetons de réservoirs de de liquidité (LP) (tels que KLIMA/BCT, KLIMA/MCO2)."
 
-#: components/pages/Buy/index.tsx:85
-#: components/pages/Buy/index.tsx:177
+#: components/pages/Buy/index.tsx:83
+#: components/pages/Buy/index.tsx:175
 msgid "buy.credit_card"
 msgstr "Carte de crédit"
 
-#: components/pages/Buy/index.tsx:180
+#: components/pages/Buy/index.tsx:178
 msgid "buy.credit_card.summary"
 msgstr "Vous pouvez maintenant utiliser votre carte de crédit pour acheter des jetons KLIMA directement dans votre portefeuille ! Nos partenaires se chargeant de la transaction  prennent en charge la plupart des devises courantes."
 
-#: components/pages/Buy/index.tsx:106
+#: components/pages/Buy/index.tsx:104
 msgid "buy.decentralized_exchange"
 msgstr "Échange décentralisé"
 
-#: components/pages/Buy/index.tsx:208
+#: components/pages/Buy/index.tsx:206
 msgid "buy.dex"
 msgstr "Échanges décentralisés (DEXs)"
 
-#: components/pages/Buy/index.tsx:239
+#: components/pages/Buy/index.tsx:237
 msgid "buy.dex.how_zapper"
 msgstr "Comment acheter KLIMA sur Zapper ?"
 
-#: components/pages/Buy/index.tsx:212
+#: components/pages/Buy/index.tsx:210
 msgid "buy.dex.summary_01"
 msgstr "Si vous avez déjà un portefeuille Polygon contenant des jetons MATIC, vous pouvez utiliser une plateforme d'échange décentralisée pour les échanger contre des jetons KLIMA. Ceci vous permet d'éviter le paiement des frais supplémentaires et de les obtenir au prix de marché."
 
-#: components/pages/Buy/index.tsx:219
+#: components/pages/Buy/index.tsx:217
 msgid "buy.dex.summary_02"
 msgstr "Les jetons KLIMA peuvent être échangés sur <0>Sushi Swap</0> , mais nous vous recommandons d'utiliser un agrégateur DEX appelé Zapper. Connectez simplement votre portefeuille à Zapper, et il acheminera votre échange via le meilleur DEX disponible."
 
-#: components/pages/Buy/index.tsx:144
+#: components/pages/Buy/index.tsx:142
 msgid "buy.disclaimer"
 msgstr "Conseils de sécurité et clauses de non-responsabilité importantes"
 
-#: components/pages/Buy/index.tsx:149
+#: components/pages/Buy/index.tsx:147
 msgid "buy.disclaimer_01"
 msgstr "Ne partagez jamais et avec personne votre clé privée ou votre phrase mnémotechnique. Nous vous recommandons de consulter notre page <0>Crypto Security 101</0> pour vous instruire au sujet des problématiques de sécurité avant de continuer."
 
-#: components/pages/Buy/index.tsx:159
+#: components/pages/Buy/index.tsx:157
 msgid "buy.disclaimer_02"
 msgstr "Les transactions sur la blockchain sont permanentes et irréversibles. Notre équipe n'est pas en mesure de récupérer des actifs perdus ou volés. KlimaDAO n'assume aucune responsabilité, obligation et n'offre aucune garantie. Tous les marchés et services d'échange fonctionnent de manière indépendante et sont sujets à une forte volatilité."
 
-#: components/pages/Buy/index.tsx:46
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:44
+#: components/pages/Buy/index.tsx:45
 msgid "buy.head.title"
 msgstr "Comment acheter des jetons KLIMA"
 
-#: components/pages/Buy/index.tsx:111
-#: components/pages/Buy/index.tsx:205
+#: components/pages/Buy/index.tsx:109
+#: components/pages/Buy/index.tsx:203
 msgid "buy.intermediate"
 msgstr "Intermédiaire"
 
-#: components/pages/Buy/index.tsx:63
+#: components/pages/Buy/index.tsx:61
 msgid "buy.subtitle"
 msgstr "Vous pouvez obtenir des jetons KLIMA de trois façons : en utilisant une carte de crédit, à partir de plateformes d'échange décentralisées (DEX) ou en achetant des obligations carbone."
 
-#: components/pages/Buy/index.tsx:60
+#: components/pages/Buy/index.tsx:58
 msgid "buy.title"
 msgstr "Comment acheter des jetons KLIMA"
 
@@ -768,7 +768,7 @@ msgstr "Aucun message de compensation carbone indiqué"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Compensation carbone non horodatée"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:188
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Voir sur Polygonscan"
 
@@ -829,8 +829,8 @@ msgid "shared.bond"
 msgstr "App"
 
 #: components/Footer/index.tsx:35
-#: components/Navigation/index.tsx:44
-#: components/Navigation/index.tsx:70
+#: components/Navigation/index.tsx:48
+#: components/Navigation/index.tsx:74
 msgid "shared.buy"
 msgstr "Achat"
 
@@ -858,13 +858,13 @@ msgstr "Conditions"
 msgid "shared.docs"
 msgstr "Docs"
 
-#: components/Navigation/index.tsx:37
+#: components/Navigation/index.tsx:41
 #: components/pages/Home/index.tsx:110
 msgid "shared.enter_app"
 msgstr "Visitez l'application"
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:48
+#: components/pages/Buy/index.tsx:46
 #: components/pages/Disclaimer/index.tsx:20
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
@@ -879,18 +879,18 @@ msgstr "Influez sur l'action climatique et soyez récompensés avec une monnaie 
 msgid "shared.home"
 msgstr "Accueil"
 
-#: components/Navigation/index.tsx:53
-#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:57
-#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:61
+#: components/Navigation/index.tsx:86
 msgid "shared.resources"
 msgstr "Ressources"
 
 #: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:49
-#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:78
 msgid "shared.stake"
 msgstr "Déposer"

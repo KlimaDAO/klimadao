@@ -21,7 +21,7 @@ msgstr "Articles"
 msgid "Change language"
 msgstr "Change language"
 
-#: components/pages/Buy/index.tsx:274
+#: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "Enter App"
 
@@ -55,13 +55,13 @@ msgstr "Copied"
 msgid "button.copyURL.copy"
 msgstr "Copy URL"
 
-#: components/pages/Buy/index.tsx:133
-#: components/pages/Buy/index.tsx:252
+#: components/pages/Buy/index.tsx:131
+#: components/pages/Buy/index.tsx:250
 msgid "buy.advanced"
 msgstr "Advanced"
 
-#: components/pages/Buy/index.tsx:88
-#: components/pages/Buy/index.tsx:174
+#: components/pages/Buy/index.tsx:86
+#: components/pages/Buy/index.tsx:172
 msgid "buy.beginner"
 msgstr "Beginner"
 
@@ -117,75 +117,75 @@ msgstr "Now that you have some KLIMA and some MATIC in your wallet, you should <
 msgid "buy.beginner_05.title"
 msgstr "Stake, offset, govern!"
 
-#: components/pages/Buy/index.tsx:130
-#: components/pages/Buy/index.tsx:255
+#: components/pages/Buy/index.tsx:128
+#: components/pages/Buy/index.tsx:253
 msgid "buy.bonding"
 msgstr "Bonding"
 
-#: components/pages/Buy/index.tsx:258
+#: components/pages/Buy/index.tsx:256
 msgid "buy.bonding.description_01"
 msgstr "Bonding is the process of depositing carbon assets in exchange for discounted KLIMA. This is one of the ways the Klima Treasury absorbs carbon credits for positive climate impact. Bonding also provides the backing for each new KLIMA token."
 
-#: components/pages/Buy/index.tsx:266
+#: components/pages/Buy/index.tsx:264
 msgid "buy.bonding.description_02"
 msgstr "The discount fluctuates depending on market conditions. The Treasury accepts carbon in the form of carbon tokens (such as UBO, BCT, or MCO2) or Liquidity Pool (LP) tokens (such as KLIMA/BCT, KLIMA/MCO2)."
 
-#: components/pages/Buy/index.tsx:85
-#: components/pages/Buy/index.tsx:177
+#: components/pages/Buy/index.tsx:83
+#: components/pages/Buy/index.tsx:175
 msgid "buy.credit_card"
 msgstr "Credit Card"
 
-#: components/pages/Buy/index.tsx:180
+#: components/pages/Buy/index.tsx:178
 msgid "buy.credit_card.summary"
 msgstr "You can now use your credit card to purchase KLIMA tokens directly to your wallet! Our payment partners support most major currencies."
 
-#: components/pages/Buy/index.tsx:106
+#: components/pages/Buy/index.tsx:104
 msgid "buy.decentralized_exchange"
 msgstr "Decentralized Exchange"
 
-#: components/pages/Buy/index.tsx:208
+#: components/pages/Buy/index.tsx:206
 msgid "buy.dex"
 msgstr "Decentralized exchanges (DEXs)"
 
-#: components/pages/Buy/index.tsx:239
+#: components/pages/Buy/index.tsx:237
 msgid "buy.dex.how_zapper"
 msgstr "How do I buy KLIMA on Zapper?"
 
-#: components/pages/Buy/index.tsx:212
+#: components/pages/Buy/index.tsx:210
 msgid "buy.dex.summary_01"
 msgstr "If you already have a Polygon wallet with MATIC, you can use decentralized exchanges to swap for KLIMA. This helps you to avoid paying extra fees, and represents the fair market price."
 
-#: components/pages/Buy/index.tsx:219
+#: components/pages/Buy/index.tsx:217
 msgid "buy.dex.summary_02"
 msgstr "KLIMA can be found on <0>Sushi Swap</0>, but we recommend that you use a DEX aggregator called Zapper. Just connect your wallet to Zapper, and it will route your trade through the best DEX available."
 
-#: components/pages/Buy/index.tsx:144
+#: components/pages/Buy/index.tsx:142
 msgid "buy.disclaimer"
 msgstr "Safety Tips & Important Disclaimer"
 
-#: components/pages/Buy/index.tsx:149
+#: components/pages/Buy/index.tsx:147
 msgid "buy.disclaimer_01"
 msgstr "Never share your private key or seed phrase with anyone, ever. We recommend that you visit our <0>Crypto Security 101</0> page for safety tips before you get started."
 
-#: components/pages/Buy/index.tsx:159
+#: components/pages/Buy/index.tsx:157
 msgid "buy.disclaimer_02"
 msgstr "Blockchain transactions are permanent and irreversible. Our team is not able to retrieve lost or stolen assets. KlimaDAO does not assume any responsibility, liability, nor offer any guarantees. All markets and exchanges operate independently and with high volatility."
 
-#: components/pages/Buy/index.tsx:46
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:44
+#: components/pages/Buy/index.tsx:45
 msgid "buy.head.title"
 msgstr "How to buy KLIMA"
 
-#: components/pages/Buy/index.tsx:111
-#: components/pages/Buy/index.tsx:205
+#: components/pages/Buy/index.tsx:109
+#: components/pages/Buy/index.tsx:203
 msgid "buy.intermediate"
 msgstr "Intermediate"
 
-#: components/pages/Buy/index.tsx:63
+#: components/pages/Buy/index.tsx:61
 msgid "buy.subtitle"
 msgstr "You can get KLIMA in three ways: using a credit card, from decentralized exchanges (DEXs), or by bonding carbon assets."
 
-#: components/pages/Buy/index.tsx:60
+#: components/pages/Buy/index.tsx:58
 msgid "buy.title"
 msgstr "How to buy KLIMA"
 
@@ -772,7 +772,7 @@ msgstr "No retirement message provided"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No retirement timestamp provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:188
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
@@ -831,8 +831,8 @@ msgid "shared.bond"
 msgstr "App"
 
 #: components/Footer/index.tsx:35
-#: components/Navigation/index.tsx:44
-#: components/Navigation/index.tsx:70
+#: components/Navigation/index.tsx:48
+#: components/Navigation/index.tsx:74
 msgid "shared.buy"
 msgstr "Buy"
 
@@ -860,13 +860,13 @@ msgstr "Disclaimer"
 msgid "shared.docs"
 msgstr "Docs"
 
-#: components/Navigation/index.tsx:37
+#: components/Navigation/index.tsx:41
 #: components/pages/Home/index.tsx:110
 msgid "shared.enter_app"
 msgstr "Enter App"
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:48
+#: components/pages/Buy/index.tsx:46
 #: components/pages/Disclaimer/index.tsx:20
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
@@ -881,18 +881,18 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:53
-#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:57
-#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:61
+#: components/Navigation/index.tsx:86
 msgid "shared.resources"
 msgstr "Resources"
 
 #: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:49
-#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:78
 msgid "shared.stake"
 msgstr "Stake"

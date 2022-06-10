@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-09 23:30+0000\n"
+"POT-Creation-Date: 2022-06-10 11:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr "Artikel"
 msgid "Change language"
 msgstr "Sprache wechseln"
 
-#: components/pages/Buy/index.tsx:274
+#: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "App öffnen"
 
@@ -49,13 +49,13 @@ msgstr "Kopiert"
 msgid "button.copyURL.copy"
 msgstr "URL kopieren"
 
-#: components/pages/Buy/index.tsx:133
-#: components/pages/Buy/index.tsx:252
+#: components/pages/Buy/index.tsx:131
+#: components/pages/Buy/index.tsx:250
 msgid "buy.advanced"
 msgstr "Experten"
 
-#: components/pages/Buy/index.tsx:88
-#: components/pages/Buy/index.tsx:174
+#: components/pages/Buy/index.tsx:86
+#: components/pages/Buy/index.tsx:172
 msgid "buy.beginner"
 msgstr "Anfänger"
 
@@ -111,75 +111,75 @@ msgstr "Da du jetzt sowohl KLIMA als auch MATIC in deiner Wallet hast, kannst du
 msgid "buy.beginner_05.title"
 msgstr "Staken, ausgleichen, mitmachen!"
 
-#: components/pages/Buy/index.tsx:130
-#: components/pages/Buy/index.tsx:255
+#: components/pages/Buy/index.tsx:128
+#: components/pages/Buy/index.tsx:253
 msgid "buy.bonding"
 msgstr "Bonding"
 
-#: components/pages/Buy/index.tsx:258
+#: components/pages/Buy/index.tsx:256
 msgid "buy.bonding.description_01"
 msgstr "Durch Bonding verkaufst du CO2-Assets an die Schatzkammer und erhältst dafür KLIMA-Tokens. Dadurch absorbiert die Klima-Schatzkammer CO2-Zertifikate und beeinflusst den Klimawandel positiv. Durch Bonding wird außerdem das KLIMA-Token gedeckt."
 
-#: components/pages/Buy/index.tsx:266
+#: components/pages/Buy/index.tsx:264
 msgid "buy.bonding.description_02"
 msgstr "Der Rabatt variiert je nach aktueller Marktlage. Die Schatzkammer akzeptiert CO2 in Form von CO2-Tokens (wie UBO, BCT oder MCO2) oder Liquidity-Pool-Tokens (LP-Tokens) wie KLIMA/BCT und KLIMA/MCO2."
 
-#: components/pages/Buy/index.tsx:85
-#: components/pages/Buy/index.tsx:177
+#: components/pages/Buy/index.tsx:83
+#: components/pages/Buy/index.tsx:175
 msgid "buy.credit_card"
 msgstr "Kreditkarte"
 
-#: components/pages/Buy/index.tsx:180
+#: components/pages/Buy/index.tsx:178
 msgid "buy.credit_card.summary"
 msgstr "Du kannst jetzt deine Kreditkarte nutzen, um KLIMA zu kaufen und direkt in deine Wallet zu transferieren! Unsere Zahlungspartner unterstützen die meisten großen Währungen."
 
-#: components/pages/Buy/index.tsx:106
+#: components/pages/Buy/index.tsx:104
 msgid "buy.decentralized_exchange"
 msgstr "Dezentralisierte Börse"
 
-#: components/pages/Buy/index.tsx:208
+#: components/pages/Buy/index.tsx:206
 msgid "buy.dex"
 msgstr "Dezentralisierte Börsen (DEXs)"
 
-#: components/pages/Buy/index.tsx:239
+#: components/pages/Buy/index.tsx:237
 msgid "buy.dex.how_zapper"
 msgstr "Wie kaufe ich KLIMA via Zapper?"
 
-#: components/pages/Buy/index.tsx:212
+#: components/pages/Buy/index.tsx:210
 msgid "buy.dex.summary_01"
 msgstr "Solltest du bereits eine Polygon-Wallet und MATIC-Tokens haben, kannst du eine dezentralisierte Börse nutzen, um KLIMA zu kaufen. Dies verringert die Gebühren beim Kauf im Vergleich zu einer Kreditkarte und du bezahlst den bestmöglichen Preis."
 
-#: components/pages/Buy/index.tsx:219
+#: components/pages/Buy/index.tsx:217
 msgid "buy.dex.summary_02"
 msgstr "Du kannst KLIMA zwar bei <0>Sushi Swap</0> kaufen, aber wir empfehlen einen sogenannten DEX-Aggregator namens Zapper. Verbindest du deine Wallet mit Zapper, wird dein Kauf automatisch auf der günstigsten Börse abgewickelt."
 
-#: components/pages/Buy/index.tsx:144
+#: components/pages/Buy/index.tsx:142
 msgid "buy.disclaimer"
 msgstr "Sicherheitstipps & Haftungsausschluss"
 
-#: components/pages/Buy/index.tsx:149
+#: components/pages/Buy/index.tsx:147
 msgid "buy.disclaimer_01"
 msgstr "Teile deine Private Keys oder Seed Phrases niemals mit anderen. Wir empfehlen dir, einen Blick auf unsere Seite über <0>allgemeine Kryptosicherheit</0> (Englisch) zu werfen, bevor du loslegst."
 
-#: components/pages/Buy/index.tsx:159
+#: components/pages/Buy/index.tsx:157
 msgid "buy.disclaimer_02"
 msgstr "Blockchain-Transaktionen können nicht rückgängig gemacht werden. Unser Team kann verlorene oder gestohlene Assets nicht wiederherstellen. KlimaDAO übernimmt in diesen Fällen keine Verantwortung oder Haftung und bietet keine Garantien an. Alle Märkte und Börsen arbeiten unabhängig und mit hoher Volatilität."
 
-#: components/pages/Buy/index.tsx:46
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:44
+#: components/pages/Buy/index.tsx:45
 msgid "buy.head.title"
 msgstr "So kaufst du KLIMA"
 
-#: components/pages/Buy/index.tsx:111
-#: components/pages/Buy/index.tsx:205
+#: components/pages/Buy/index.tsx:109
+#: components/pages/Buy/index.tsx:203
 msgid "buy.intermediate"
 msgstr "Fortgeschrittene"
 
-#: components/pages/Buy/index.tsx:63
+#: components/pages/Buy/index.tsx:61
 msgid "buy.subtitle"
 msgstr "Du kannst dir Klima auf drei Arten holen: mit einer Kreditkarte, über eine dezentralisierte Börse (DEX) oder indem du CO2-Assets bondest."
 
-#: components/pages/Buy/index.tsx:60
+#: components/pages/Buy/index.tsx:58
 msgid "buy.title"
 msgstr "So kaufst du KLIMA"
 
@@ -770,7 +770,7 @@ msgstr "Keine Ausgleichsnachricht angegeben"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:188
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
@@ -829,8 +829,8 @@ msgid "shared.bond"
 msgstr "App"
 
 #: components/Footer/index.tsx:35
-#: components/Navigation/index.tsx:44
-#: components/Navigation/index.tsx:70
+#: components/Navigation/index.tsx:48
+#: components/Navigation/index.tsx:74
 msgid "shared.buy"
 msgstr "Kaufen"
 
@@ -858,13 +858,13 @@ msgstr "Haftungsausschluss"
 msgid "shared.docs"
 msgstr "Dokumente"
 
-#: components/Navigation/index.tsx:37
+#: components/Navigation/index.tsx:41
 #: components/pages/Home/index.tsx:110
 msgid "shared.enter_app"
 msgstr "App öffnen"
 
 #: components/pages/Blog/index.tsx:25
-#: components/pages/Buy/index.tsx:48
+#: components/pages/Buy/index.tsx:46
 #: components/pages/Disclaimer/index.tsx:20
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
@@ -879,18 +879,18 @@ msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-ge
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:53
-#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:57
-#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:61
+#: components/Navigation/index.tsx:86
 msgid "shared.resources"
 msgstr "Ressourcen"
 
 #: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:49
-#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:53
+#: components/Navigation/index.tsx:78
 msgid "shared.stake"
 msgstr "Stake"
