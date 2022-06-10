@@ -14,7 +14,7 @@ class MyDocument extends Document {
           <WebFonts />
         </Head>
         <body>
-          {!fixedTheme && <InitializeTheme />}
+          <InitializeTheme fixedTheme={fixedTheme} />
           <Main />
           <NextScript />
         </body>

@@ -1,12 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import { THEME_DARK, THEME_LIGHT } from "@klimadao/lib/theme/constants";
+import { Themes } from "@klimadao/lib/types/theme";
+
+interface Props {
+  fixedTheme?: Themes;
+}
 
 /**
  * Prevent flash-of-light-mode by checking for previous theme and setting body.dataset.theme
  * Using an inline-script and rendering in pages/_document, it runs before Next does js hydration, before any of the React life-cycles.
  * It does not run on the server.
  * */
-export const InitializeTheme = () => {
+export const InitializeTheme: FC<Props> = ({ fixedTheme }) => {
   const __html = `
       function getUserPreference() {
         const prevTheme = window.localStorage.getItem("theme");
@@ -15,7 +20,7 @@ export const InitializeTheme = () => {
         }
         return window.matchMedia("(prefers-color-scheme: dark)").matches ? ${THEME_DARK} : ${THEME_LIGHT};
       }
-      document.body.dataset.theme = getUserPreference();
+      document.body.dataset.theme = ${fixedTheme} || getUserPreference();
     `;
   return <script dangerouslySetInnerHTML={{ __html }} />;
 };
