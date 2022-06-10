@@ -181,7 +181,6 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           <CopyURLButton />
           {retireData.transactionID && (
             <ButtonPrimary
-              className="gray_button"
               variant="gray"
               href={`https://polygonscan.com/tx/${retireData.transactionID}`}
               target="_blank"

@@ -28,9 +28,7 @@ import { MutableRefObject, useRef } from "react";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 
-export type Props = HTMLHtmlElement;
-
-export const Buy: NextPage<Props> = ({}) => {
+export const Buy: NextPage = () => {
   const { locale } = useRouter();
 
   const begginerSectionRef = useRef<null | HTMLDivElement>(null);

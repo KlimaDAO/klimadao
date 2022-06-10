@@ -22,11 +22,12 @@ const loadFallbackOnServer = async () => {
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const firstRender = useRef(true);
+  const { translation, fixedThemeName } = pageProps;
 
   const locale = router.locale || (router.defaultLocale as string);
   // run only once on the first render (for server side)
-  if (pageProps.translation && firstRender.current) {
-    i18n.load(locale, pageProps.translation);
+  if (translation && firstRender.current) {
+    i18n.load(locale, translation);
     i18n.activate(locale);
     firstRender.current = false;
   } else if (
@@ -41,11 +42,17 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   // listen for the locale changes
   useEffect(() => {
-    if (pageProps.translation && !router.isFallback) {
-      i18n.load(locale, pageProps.translation);
+    if (translation && !router.isFallback) {
+      i18n.load(locale, translation);
       i18n.activate(locale);
     }
   }, [locale]);
+
+  useEffect(() => {
+    if (fixedThemeName) {
+      document.body.dataset.theme = fixedThemeName;
+    }
+  });
 
   return (
     <Web3ContextProvider>
