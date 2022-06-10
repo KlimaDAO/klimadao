@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   try {
     const { params, locale } = ctx;
 
-    if (!params || !params?.beneficiary_address) {
+    if (!params || !params?.beneficiary) {
       throw new Error("No params found");
     }
 
