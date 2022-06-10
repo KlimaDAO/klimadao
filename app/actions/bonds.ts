@@ -453,7 +453,6 @@ export const bondTransaction = async (params: {
       const notFuckedAddress = await signer.getAddress();
       const formattedValue = ethers.utils.parseUnits(params.value, "gwei");
       // contract.deposit(__id, [amountIn (inKLIMA), min Amount Out (inUSDC)], [userAddress, DAOMSigAddress(0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c)])
-      debugger;
       const txn = await contract.deposit(
         ethers.BigNumber.from(marketId),
         [formattedValue, formattedMinAmountOut],

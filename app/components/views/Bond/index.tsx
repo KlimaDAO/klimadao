@@ -136,11 +136,8 @@ export const Bond: FC<Props> = (props) => {
   const allowance = useSelector(selectBondAllowance);
 
   const [sourceSingleton, singleton] = useTooltipSingleton();
-  // no user bond details for inverse which is where allowance is stored so check if bond is inverse
-  // need to check klima allowance for inverse bonds
-  const isLoading =
-    (!allowance && props.bond !== "inverse_usdc") ||
-    quantity !== debouncedQuantity;
+  console.log(allowance);
+  const isLoading = !allowance || quantity !== debouncedQuantity;
 
   const showSpinner =
     props.isConnected &&
@@ -196,6 +193,7 @@ export const Bond: FC<Props> = (props) => {
       Number(userState.balance.klima) < Number(maxPayable)
         ? userState.balance.klima
         : maxPayable.toString();
+    console.log(bondMax);
     return bondMax;
   };
 
@@ -251,8 +249,8 @@ export const Bond: FC<Props> = (props) => {
         onStatus: setStatus,
         isInverse: bondState && bondState.bond === "inverse_usdc",
       });
-      // added toNumber for inverse
-      dispatch(setBondAllowance({ [props.bond]: value.toNumber() }));
+      // added toNumber for inverse bc its a bignumber
+      dispatch(setBondAllowance({ [props.bond]: value }));
     } catch (e) {
       return;
     }
@@ -373,6 +371,7 @@ export const Bond: FC<Props> = (props) => {
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
+    console.log(bondMax);
     if (isDisabled) {
       return {
         label: <Trans id="shared.sold_out">Sold Out</Trans>,
@@ -436,6 +435,7 @@ export const Bond: FC<Props> = (props) => {
         variant: "blue",
       };
     } else if (view === "bond") {
+      console.log(!value, !bondMax, Number(bondState?.bondQuote) > bondMax);
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
