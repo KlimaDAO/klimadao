@@ -6,7 +6,7 @@ import { ILockable } from "./vesting_platforms/ILockable";
 const DAY_IN_SECONDS: BigInt = BigInt.fromString("86400")
 
 export class VestingMetricUtils {
-  static updateLock(lockableToken: ILockable, timestamp: BigInt, amount: BigDecimal): void {
+  static updateLockMetric(lockableToken: ILockable, timestamp: BigInt, amount: BigDecimal): void {
     const vestingMetric = this.loadOrCreateVestingMetric(timestamp, lockableToken)
     vestingMetric.dailyLockCount =  vestingMetric.dailyLockCount.plus(BigInt.fromI32(1))
     vestingMetric.dailyLockAmount =  vestingMetric.dailyLockAmount.plus(amount)
@@ -16,7 +16,7 @@ export class VestingMetricUtils {
     vestingMetric.save()
   }
 
-  static updateUnlock(lockableToken: ILockable, timestamp: BigInt, amount: BigDecimal): void {
+  static updateUnlockMetric(lockableToken: ILockable, timestamp: BigInt, amount: BigDecimal): void {
     const vestingMetric = this.loadOrCreateVestingMetric(timestamp, lockableToken)
     vestingMetric.dailyUnlockCount =  vestingMetric.dailyUnlockCount.plus(BigInt.fromI32(1))
     vestingMetric.dailyUnlockAmount =  vestingMetric.dailyUnlockAmount.plus(amount)
@@ -26,7 +26,7 @@ export class VestingMetricUtils {
     vestingMetric.save()
   }
 
-  static updateMaturity(lockableToken: ILockable, timestamp: BigInt, amount: BigDecimal): void {
+  static updateMaturityMetric(lockableToken: ILockable, timestamp: BigInt, amount: BigDecimal): void {
     const vestingMetric = this.loadOrCreateFutureVestingMetric(timestamp, lockableToken)
     vestingMetric.dailyMaturityCount = vestingMetric.dailyMaturityCount.plus(BigInt.fromI32(1))  
     vestingMetric.dailyMaturityAmount = vestingMetric.dailyMaturityAmount.plus(amount)
