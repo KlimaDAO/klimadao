@@ -13,7 +13,7 @@ export const queryFilter = IS_PRODUCTION
 export const queries = {
   /** fetch all blog posts, sorted by publishedAt */
   allPosts: /* groq */ `
-    *[_type == "post" && ${queryFilter}] | order(publishedAt desc) {
+    *[_type == "post" && hideFromProduction != true] | order(publishedAt desc) {
       summary, 
       "slug": slug.current, 
       title, 
