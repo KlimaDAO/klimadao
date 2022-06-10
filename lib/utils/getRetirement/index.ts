@@ -27,7 +27,7 @@ export const createRetirementStorageContract = (
 };
 
 export const getRetirementIndexInfo = async (params: {
-  beneficiaryAdress: string;
+  beneficiaryAddress: string;
   index: number;
   providerUrl?: string;
 }): Promise<RetirementIndexInfoResult> => {
@@ -41,7 +41,7 @@ export const getRetirementIndexInfo = async (params: {
       beneficiaryName,
       retirementMessage,
     ]: RetirementIndexInfo = await storageContract.getRetirementIndexInfo(
-      params.beneficiaryAdress,
+      params.beneficiaryAddress,
       BigNumber.from(params.index)
     );
 
