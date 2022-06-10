@@ -13,8 +13,8 @@ class MyDocument extends Document {
         <Head>
           <WebFonts />
         </Head>
-        <body>
-          <InitializeTheme fixedThemeName={fixedThemeName} />
+        <body data-theme={fixedThemeName}>
+          {!fixedThemeName && <InitializeTheme />}
           <Main />
           <NextScript />
         </body>
