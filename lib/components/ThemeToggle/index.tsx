@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import { cx } from "@emotion/css";
 import { ThemeMoonIcon, ThemeSunIcon } from "..";
-import { THEME_DARK, THEME_LIGHT } from "@klimadao/lib/theme/constants";
 
 import * as styles from "./styles";
 
@@ -11,11 +10,12 @@ interface Props {
 
 export const ThemeToggle: FC<Props> = (props) => {
   const [activeTheme, setActiveTheme] = useState(
-    window.localStorage.getItem("theme") || THEME_LIGHT
+    window.localStorage.getItem("theme") || "theme-light"
   );
-  const inactiveTheme = activeTheme === THEME_LIGHT ? THEME_DARK : THEME_LIGHT;
+  const inactiveTheme =
+    activeTheme === "theme-light" ? "theme-dark" : "theme-light";
   const themeIcon =
-    activeTheme === THEME_LIGHT ? <ThemeMoonIcon /> : <ThemeSunIcon />;
+    activeTheme === "theme-light" ? <ThemeMoonIcon /> : <ThemeSunIcon />;
 
   useEffect(() => {
     document.body.dataset.theme = activeTheme;

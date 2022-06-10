@@ -3,7 +3,6 @@ import { WebFonts } from "@klimadao/lib/components";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import { cache } from "@emotion/css";
-import { THEME_DARK } from "@klimadao/lib/theme/constants";
 
 class MyDocument extends Document {
   render() {
@@ -12,7 +11,7 @@ class MyDocument extends Document {
         <Head>
           <WebFonts />
         </Head>
-        <body data-theme={THEME_DARK}>
+        <body data-theme="theme-dark">
           <Main />
           <NextScript />
         </body>

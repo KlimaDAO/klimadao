@@ -1,5 +1,4 @@
 import { css } from "@emotion/css";
-import { THEME_LIGHT } from "@klimadao/lib/theme/constants";
 
 export const listItem = css`
   display: grid;
@@ -32,7 +31,7 @@ export const listItem = css`
       opacity: 0.8;
     }
 
-    [data-theme=${THEME_LIGHT}] & {
+    [data-theme="theme-light"] & {
       background-color: var(--gray);
       color: white;
     }
