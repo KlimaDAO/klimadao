@@ -109,12 +109,8 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         retirementTotals: params.retirement_index,
         translation,
         projectDetails,
-        nameserviceDomain: !!resolvedAddress
-          ? params.beneficiary_address
-          : undefined,
-        canonicalUrl: !!resolvedAddress
-          ? `${urls.retirements}/${resolvedAddress}/${params.retirement_index}`
-          : undefined,
+        nameserviceDomain: isDomainInURL ? params.beneficiary_address : null,
+        canonicalUrl: `${urls.retirements}/${params.beneficiary_address}/${params.retirement_index}`,
       },
       revalidate: 240,
     };
