@@ -7,7 +7,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   return {
     props: {
       translation,
-      fixedThemeName: "theme-dark", // ONLY FOR TESTING, REMOVE BEFORE MERGE
     },
   };
 };

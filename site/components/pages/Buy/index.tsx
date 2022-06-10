@@ -28,11 +28,7 @@ import { MutableRefObject, useRef } from "react";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 
-type Props = {
-  fixedThemeName: string; // ONLY FOR TESTING, REMOVE BEFORE MERGE
-};
-
-export const Buy: NextPage<Props> = ({ fixedThemeName }) => {
+export const Buy: NextPage = () => {
   const { locale } = useRouter();
 
   const begginerSectionRef = useRef<null | HTMLDivElement>(null);
@@ -53,7 +49,7 @@ export const Buy: NextPage<Props> = ({ fixedThemeName }) => {
             "Drive climate action and earn rewards with a carbon-backed digital currency.",
         })}
       />
-      <Navigation activePage="Buy" showThemeToggle={!fixedThemeName} />
+      <Navigation activePage="Buy" />
 
       <Section variant="gray" className={styles.section}>
         <div className={styles.buyContainer}>
