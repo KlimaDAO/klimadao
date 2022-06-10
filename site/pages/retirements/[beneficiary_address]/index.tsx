@@ -27,7 +27,6 @@ interface PageProps {
   klimaRetires: KlimaRetire[];
   nameserviceDomain?: string;
   canonicalUrl?: string;
-  fixedTheme: string;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -78,7 +77,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
           ? `${urls.retirements}/${resolvedAddress}`
           : undefined,
         translation,
-        fixedTheme: "theme-light", // ONLY FOR TESTING, REMOVE BEFORE MERGE
       },
       revalidate: 240,
     };
