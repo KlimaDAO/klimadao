@@ -16,7 +16,7 @@ export class C3Wsklima implements ILockable {
     }
     
     getTokenName(): string {
-        return constants.C3_WSKLIMA_TOKEN
+        return constants.WSKLIMA_TOKEN
     }
     getPlatformName(): string {
         return constants.C3_PLATFORM

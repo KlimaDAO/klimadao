@@ -16,7 +16,7 @@ export class Co2Compound implements ILockable {
     }
     
     getTokenName(): string {
-        return constants.NFT_CO2COMPOUND_TOKEN
+        return constants.WSKLIMA_TOKEN
     }
     getPlatformName(): string {
         return constants.NFT_CO2COMPOUND_PLATFORM

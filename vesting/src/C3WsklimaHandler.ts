@@ -46,9 +46,9 @@ export function handleWithdrawLocked(event: WithdrawLocked): void {
         throw new Error("Failed to retrieve a Lock record for Unlock - ID: "+lockId)
     }
 
-    unlock.platform = constants.C3_PLATFORM
+    unlock.platform = c3Wsklima.getPlatformName()
     unlock.timestamp = event.block.timestamp
-    unlock.token = constants.C3_WSKLIMA_TOKEN
+    unlock.token = c3Wsklima.getTokenName()
     unlock.contractAddress = event.address
     unlock.stakerAddress = event.params.user
     unlock.maturityDate = lock.maturityDate
