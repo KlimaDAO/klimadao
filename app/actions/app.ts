@@ -86,12 +86,3 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
     }
   };
 };
-export const setLocale = (locale: string): Thunk => {
-  return (dispatch) => {
-    dispatch(
-      setAppState({
-        locale,
-      })
-    );
-  };
-};
