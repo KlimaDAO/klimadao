@@ -907,3 +907,23 @@ msgstr "Resources"
 #: components/Navigation/index.tsx:78
 msgid "shared.stake"
 msgstr "Stake"
+
+#: lib/getWeb3ModalStrings.ts:13
+msgid "web3modal.injected.des"
+msgstr "Connect with your browser web3 provider"
+
+#: lib/getWeb3ModalStrings.ts:21
+msgid "web3modal.torus.desc"
+msgstr "Easy one-click wallet by Torus"
+
+#: lib/getWeb3ModalStrings.ts:17
+msgid "web3modal.torus.name"
+msgstr "Email or Social"
+
+#: lib/getWeb3ModalStrings.ts:5
+msgid "web3modal.walletconnect.desc"
+msgstr "Scan with WalletConnect to connect"
+
+#: lib/getWeb3ModalStrings.ts:9
+msgid "web3modal.walletlink.desc"
+msgstr "Scan with Coinbase to connect"
