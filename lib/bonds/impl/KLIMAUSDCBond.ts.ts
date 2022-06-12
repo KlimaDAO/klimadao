@@ -1,13 +1,13 @@
 import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
 import { BondV1 } from "../../../bonds/generated/BCTBondV1/BondV1";
 import { getDaoFee } from "../../../bonds/src/utils/DaoFee";
-import { calculateBondDiscount } from "../../../bonds/src/utils/Price";
 import { IBondable } from "../IBondable";
 import { IToken } from "../../tokens/IToken";
 
 import * as constants from "../../utils/Constants";
 import { toDecimal } from "../../utils/Decimals";
 import { USDC } from "../../tokens/impl/USDC";
+import { PriceUtil } from "../../utils/Price";
 
 export class KLIMAUSDCBond implements IBondable {
   
@@ -32,15 +32,15 @@ export class KLIMAUSDCBond implements IBondable {
     let bond = BondV1.bind(this.contractAddress)
     const bondPriceInUsd = bond.bondPriceInUSD()
 
-    return toDecimal(bondPriceInUsd, 6)
+    return toDecimal(bondPriceInUsd, this.getToken().getDecimals())
   }
 
-  getBondDiscount(): BigDecimal {
+  getBondDiscount(blockNumber: BigInt): BigDecimal {
 
     const bondPrice = this.getBondPrice()
-    const marketPrice = this.getToken().getMarketPrice()
+    const marketPrice = this.getToken().getMarketPrice(blockNumber)
 
-    return calculateBondDiscount(bondPrice, marketPrice)
+    return PriceUtil.calculateBondDiscount(bondPrice, marketPrice)
   }
 
   getDaoFeeForBondPayout(payout: BigDecimal): BigDecimal {
@@ -48,7 +48,7 @@ export class KLIMAUSDCBond implements IBondable {
   }
 
   parseBondPrice(priceInUSD: BigInt): BigDecimal {
-    return toDecimal(priceInUSD, 6);
+    return toDecimal(priceInUSD, this.getToken().getDecimals());
   }
 
   parseBondTokenValueFormatted(rawPrice: BigInt): BigDecimal {

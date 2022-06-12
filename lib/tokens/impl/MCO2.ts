@@ -4,8 +4,9 @@ import { ERC20 } from '../../generated/ERC20'
 import { IToken } from "../IToken";
 
 import * as constants from '../../utils/Constants'
-import { toDecimal, BIG_DECIMAL_1E9, BIG_DECIMAL_1E12, BIG_DECIMAL_1E18 } from "../../utils/Decimals";
+import { toDecimal } from "../../utils/Decimals";
 import { KLIMA } from "./KLIMA";
+import { PriceUtil } from "../../utils/Price";
 
 export class MCO2 implements IToken {
 
@@ -17,7 +18,7 @@ export class MCO2 implements IToken {
   }
 
   getTokenName(): string {
-    return constants.MCO2_BOND_TOKEN
+    return constants.MCO2_TOKEN
   }
 
   getDecimals(): number {
@@ -28,28 +29,20 @@ export class MCO2 implements IToken {
     return toDecimal(rawPrice, this.getDecimals())
   }
 
-  getMarketPrice(): BigDecimal {
+  getMarketPrice(blockNumber: BigInt): BigDecimal {
 
-    let pair = UniswapV2Pair.bind(Address.fromString(constants.KLIMA_MCO2_PAIR))
-    let reserveCall = pair.try_getReserves()
-
-    if (reserveCall.reverted) {
-      return this.getMarketPriceViaUsdc()
+    //We are going through MCO2-USD until KLIMA-MCO2 LP is created
+    if (blockNumber.lt(BigInt.fromString(constants.KLIMA_MCO2_PAIR_BLOCK))) {
+      return this.getMarketPriceViaUsdc(blockNumber)
+    } else {
+      return PriceUtil.getKLIMA_MCO2Rate()
     }
-
-    let reserve0 = reserveCall.value.value0.toBigDecimal()
-    let reserve1 = reserveCall.value.value1.toBigDecimal()
-
-    let klimaRate = (reserve1.div(BIG_DECIMAL_1E18)).div((reserve0).div(BIG_DECIMAL_1E9))
-    log.debug("[MCO2] Getting market price directly from LP: {}", [klimaRate.toString()])
-
-    return klimaRate
   }
 
-  private getMarketPriceViaUsdc(): BigDecimal {
+  private getMarketPriceViaUsdc(blockNumber: BigInt): BigDecimal {
 
-    let mco2UsdcRate = this.getMco2USDRate()
-    let klimaUsdcRate = this.klimaToken.getUSDPrice()
+    let mco2UsdcRate = this.getUSDPrice(blockNumber)
+    let klimaUsdcRate = this.klimaToken.getUSDPrice(blockNumber)
 
     log.debug("[MCO2] Getting market price via USDC - MCO2-USDC Rate: {} ; KLIMA-USDC Rate: {}",
       [mco2UsdcRate.toString(), klimaUsdcRate.toString()])
@@ -61,30 +54,10 @@ export class MCO2 implements IToken {
     return klimaUsdcRate.div(mco2UsdcRate);
   }
 
-  getUSDPrice(): BigDecimal {
-    return this.getMco2USDRate()
+  getUSDPrice(blockNumber: BigInt): BigDecimal {
+    return PriceUtil.getMCO2_USDRate()
   }
 
-  private getMco2USDRate(): BigDecimal {
-
-    let mco2UsdcPair = UniswapV2Pair.bind(Address.fromString(constants.MCO2_USDC_PAIR))
-    let reservesCall = mco2UsdcPair.try_getReserves()
-    if (reservesCall.reverted) {
-      return BigDecimal.zero()
-    }
-
-    let mco2UsdcReserves = reservesCall.value
-    let mco2UsdcReserve1 = mco2UsdcReserves.value0.toBigDecimal()
-    let mco2UsdcReserve2 = mco2UsdcReserves.value1.toBigDecimal()
-
-    let mco2UsdcRate = (mco2UsdcReserve1.times(BIG_DECIMAL_1E12)).div(mco2UsdcReserve2)
-
-    return mco2UsdcRate
-  }
-
-  /**
-   * Sekula: Need to find the most elegant way to call ether smart contract from here 
-   */
   getTotalSupply(): BigDecimal {
     let ercContract = ERC20.bind(this.contractAddress)
     let totalSupply = toDecimal(ercContract.totalSupply(), this.getDecimals())

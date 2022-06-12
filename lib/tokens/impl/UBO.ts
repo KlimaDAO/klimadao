@@ -1,11 +1,11 @@
 import { BigDecimal, BigInt, Address, log } from "@graphprotocol/graph-ts";
-import { UniswapV2Pair } from '../../../bonds/generated/BCTBondV1/UniswapV2Pair'
 import { ERC20 } from '../../generated/ERC20'
 import { IToken } from "../IToken";
 
 import * as constants from '../../utils/Constants'
-import { toDecimal, BIG_DECIMAL_1E9 } from "../../utils/Decimals"
+import { toDecimal } from "../../utils/Decimals"
 import { KLIMA } from "./KLIMA";
+import { PriceUtil } from "../../utils/Price";
 
 
 export class UBO implements IToken {
@@ -18,7 +18,7 @@ export class UBO implements IToken {
   }
 
   getTokenName(): string {
-    return constants.UBO_BOND_TOKEN
+    return constants.UBO_TOKEN
   }
   getDecimals(): number {
     return 18
@@ -28,27 +28,13 @@ export class UBO implements IToken {
     return toDecimal(rawPrice, this.getDecimals())
   }
 
-  getMarketPrice(): BigDecimal {
-    let pair = UniswapV2Pair.bind(Address.fromString(constants.KLIMA_UBO_PAIR))
-
-    let reservesCall = pair.try_getReserves()
-    if (reservesCall.reverted) {
-      return BigDecimal.zero()
-    }
-
-    let reserves = reservesCall.value
-    let reserve0 = reserves.value0.toBigDecimal()
-    let reserve1 = reserves.value1.toBigDecimal()
-
-    let klimaRate = reserve0.div(reserve1).div(BIG_DECIMAL_1E9)
-    log.debug("KLIMA UBO rate {}", [klimaRate.toString()])
-
-    return klimaRate
+  getMarketPrice(blockNumber: BigInt): BigDecimal {
+    return PriceUtil.getKLIMA_UBORate()
   }
 
-  getUSDPrice(): BigDecimal {
-    const klimaUsdPrice = this.klimaToken.getUSDPrice()
-    const uboMarketPrice = this.getMarketPrice()
+  getUSDPrice(blockNumber: BigInt): BigDecimal {
+    const klimaUsdPrice = this.klimaToken.getUSDPrice(blockNumber)
+    const uboMarketPrice = this.getMarketPrice(blockNumber)
     if (uboMarketPrice.equals(BigDecimal.zero())) {
       return BigDecimal.zero()
     }

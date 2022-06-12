@@ -2,13 +2,13 @@ import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
 import { BondV1 } from "../../../bonds/generated/BCTBondV1/BondV1";
 import { ERC20 } from "../../../bonds/generated/BCTBondV1/ERC20";
 import { getDaoFee } from "../../../bonds/src/utils/DaoFee";
-import { calculateBondDiscount } from "../../../bonds/src/utils/Price";
 import { IBondable } from "../IBondable";
 import { IToken } from "../../tokens/IToken";
 
 import * as constants from "../../utils/Constants";
 import { toDecimal } from "../../utils/Decimals";
 import { MCO2 } from "../../tokens/impl/MCO2";
+import { PriceUtil } from "../../utils/Price";
 
 export class MCO2Bond implements IBondable {
   private contractAddress: Address;
@@ -39,12 +39,12 @@ export class MCO2Bond implements IBondable {
     return toDecimal(bondPriceInUsd, this.getToken().getDecimals())
   }
 
-  getBondDiscount(): BigDecimal {
+  getBondDiscount(blockNumber: BigInt): BigDecimal {
 
     const bondPrice = this.getBondPrice()
-    const marketPrice = this.getToken().getMarketPrice()
+    const marketPrice = this.getToken().getMarketPrice(blockNumber)
 
-    return calculateBondDiscount(bondPrice, marketPrice)
+    return PriceUtil.calculateBondDiscount(bondPrice, marketPrice)
   }
 
   parseBondPrice(priceInUSD: BigInt): BigDecimal {

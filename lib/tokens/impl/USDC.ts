@@ -3,12 +3,13 @@ import { IToken } from "../IToken";
 import { ERC20 } from '../../generated/ERC20'
 import * as constants from '../../utils/Constants'
 
-import { getKLIMAUSDRate } from "../../../bonds/src/utils/Price";
 import { toDecimal } from "../../utils/Decimals";
+import { KLIMA } from "./KLIMA";
 
 export class USDC implements IToken {
 
     private contractAddress: Address = Address.fromString(constants.USDC_ERC20_CONTRACT)
+    private klimaToken: KLIMA = new KLIMA()
 
     getERC20ContractAddress(): string {
         return this.contractAddress.toHexString()
@@ -18,17 +19,17 @@ export class USDC implements IToken {
         return "USDC"
     }
     getDecimals(): number {
-        return 12
+        return 6
     }
     getFormattedPrice(rawPrice: BigInt): BigDecimal {
         return toDecimal(rawPrice, this.getDecimals())
     }
 
-    getMarketPrice(): BigDecimal {
-        return getKLIMAUSDRate()
+    getMarketPrice(blockNumber: BigInt): BigDecimal {
+        return this.klimaToken.getUSDPrice(blockNumber)
     }
 
-    getUSDPrice(): BigDecimal {
+    getUSDPrice(blockNumber: BigInt): BigDecimal {
         return BigDecimal.fromString("1")
     }
 

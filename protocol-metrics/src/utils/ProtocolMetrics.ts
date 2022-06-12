@@ -8,10 +8,7 @@ import { KlimaStakingV1 } from '../../generated/TreasuryV1/KlimaStakingV1';
 import { ProtocolMetric, Transaction, TreasuryAsset } from '../../generated/schema'
 import { dayFromTimestamp } from '../../../lib/utils/Dates';
 import { toDecimal } from '../../../lib/utils/Decimals';
-import {
-    getKLIMAUSDRate, getBCTUSDRate, getKLIMAMCO2Rate,
-    getKLIMAUBORate, getKLIMANBORate, getNCTUSDRate
-} from './Price';
+
 import { getHolderAux } from './Aux';
 import {
     BCTBOND_V1, BCT_ERC20_CONTRACT, BCT_USDC_BOND_V1,
@@ -25,6 +22,12 @@ import {
     NCT_ERC20_CONTRACT, NCT_USDC_PAIR_BLOCK
 } from '../../../lib/utils/Constants';
 import { EpochUtil } from './Epoch';
+import { BCT } from '../../../lib/tokens/impl/BCT';
+import { NCT } from '../../../lib/tokens/impl/NCT';
+import { MCO2 } from '../../../lib/tokens/impl/MCO2';
+import { UBO } from '../../../lib/tokens/impl/UBO';
+import { NBO } from '../../../lib/tokens/impl/NBO';
+import { KLIMA } from '../../../lib/tokens/impl/KLIMA';
 
 export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
     let dayTimestamp = dayFromTimestamp(timestamp);
@@ -175,25 +178,32 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     treasuryNBO.carbonBalance = treasuryNBO.tokenBalance
     treasuryNBO.carbonCustodied = treasuryNBO.tokenBalance
 
+    const bctUsdPrice = new BCT().getUSDPrice(transaction.blockNumber)
+    const nctUsdPrice = new NCT().getUSDPrice(transaction.blockNumber)
+    const mco2UsdPrice = new MCO2().getUSDPrice(transaction.blockNumber)
+    const uboUsdPrice = new UBO().getUSDPrice(transaction.blockNumber)
+    const nboUsdPrice = new NBO().getUSDPrice(transaction.blockNumber)
+    const klimaUsdPrice = new KLIMA().getUSDPrice(transaction.blockNumber)
+
     // Get market value if pools are deployed
     if (transaction.blockNumber.gt(BigInt.fromString(BCT_USDC_PAIR_BLOCK))) {
-        treasuryBCT.marketValue = treasuryBCT.tokenBalance.times(getBCTUSDRate())
+        treasuryBCT.marketValue = treasuryBCT.tokenBalance.times(bctUsdPrice)
     }
 
     if (transaction.blockNumber.gt(BigInt.fromString(NCT_USDC_PAIR_BLOCK))) {
-        treasuryNCT.marketValue = treasuryNCT.tokenBalance.times(getNCTUSDRate())
+        treasuryNCT.marketValue = treasuryNCT.tokenBalance.times(nctUsdPrice)
     }
 
     if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_MCO2_PAIR_BLOCK))) {
-        treasuryMCO2.marketValue = treasuryMCO2.tokenBalance.times(getKLIMAMCO2Rate()).times(getKLIMAUSDRate())
+        treasuryMCO2.marketValue = treasuryMCO2.tokenBalance.times(mco2UsdPrice)
     }
 
     if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_UBO_PAIR_BLOCK))) {
-        treasuryUBO.marketValue = treasuryUBO.tokenBalance.times(getKLIMAUBORate()).times(getKLIMAUSDRate())
+        treasuryUBO.marketValue = treasuryUBO.tokenBalance.times(uboUsdPrice)
     }
 
     if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_NBO_PAIR_BLOCK))) {
-        treasuryNBO.marketValue = treasuryNBO.tokenBalance.times(getKLIMANBORate()).times(getKLIMAUSDRate())
+        treasuryNBO.marketValue = treasuryNBO.tokenBalance.times(nboUsdPrice)
     }
 
     treasuryBCT.save()
@@ -222,7 +232,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
 
         // Percent of Carbon in LP owned by the treasury
         treasuryKLIMABCT.carbonBalance = toDecimal(klimabctUNIV2.getReserves().value0, 18).times(ownedLP)
-        treasuryKLIMABCT.marketValue = treasuryKLIMABCT.carbonBalance.times(getBCTUSDRate()).times(BigDecimal.fromString('2'))
+        treasuryKLIMABCT.marketValue = treasuryKLIMABCT.carbonBalance.times(bctUsdPrice).times(BigDecimal.fromString('2'))
 
     }
 
@@ -245,7 +255,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
 
         // Percent of Carbon in LP owned by the treasury
         treasuryKLIMAMCO2.carbonBalance = toDecimal(klimamco2UNIV2.getReserves().value1, 18).times(ownedLP)
-        treasuryKLIMAMCO2.marketValue = treasuryKLIMAMCO2.carbonBalance.times(getKLIMAMCO2Rate()).times(getKLIMAUSDRate()).times(BigDecimal.fromString('2'))
+        treasuryKLIMAMCO2.marketValue = treasuryKLIMAMCO2.carbonBalance.times(mco2UsdPrice).times(BigDecimal.fromString('2'))
     }
 
     treasuryKLIMAMCO2.save()
@@ -312,7 +322,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
 
         // Percent of Carbon in LP owned by the treasury
         treasuryBCTUSDC.carbonBalance = toDecimal(bctusdcUNIV2.getReserves().value1, 18).times(ownedLP)
-        treasuryBCTUSDC.marketValue = treasuryBCTUSDC.carbonBalance.times(getBCTUSDRate()).times(BigDecimal.fromString('2'))
+        treasuryBCTUSDC.marketValue = treasuryBCTUSDC.carbonBalance.times(bctUsdPrice).times(BigDecimal.fromString('2'))
 
     }
 
@@ -333,7 +343,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
         let total_lp = toDecimal(klimausdcUNIV2.totalSupply(), 18)
         let ownedLP = treasuryKLIMAUSDC.tokenBalance.div(total_lp)
         treasuryKLIMAUSDC.POL = ownedLP
-        treasuryKLIMAUSDC.marketValue = toDecimal(klimausdcUNIV2.getReserves().value1, 9).times(getKLIMAUSDRate()).times(ownedLP).times(BigDecimal.fromString('2'))
+        treasuryKLIMAUSDC.marketValue = toDecimal(klimausdcUNIV2.getReserves().value1, 9).times(klimaUsdPrice).times(ownedLP).times(BigDecimal.fromString('2'))
     }
 
     treasuryKLIMAUSDC.save()
@@ -457,7 +467,8 @@ export function updateProtocolMetrics(transaction: Transaction): void {
 
     //KLIMA Price
     if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_BCT_PAIR_BLOCK))) {
-        pm.klimaPrice = getKLIMAUSDRate()
+        const klimaToken = new KLIMA()
+        pm.klimaPrice = klimaToken.getUSDPrice(transaction.blockNumber)
     }
 
     //KLIMA Market Cap

@@ -22,7 +22,7 @@ export function handleDeposit(event: BondCreated): void {
     deposit.payout = klimaToken.getFormattedPrice(event.params.payout)
     deposit.daoFee = bond.getDaoFeeForBondPayout(deposit.payout)
     deposit.bondPrice = bond.parseBondPrice(event.params.priceInUSD)
-    deposit.marketPrice = bond.getToken().getMarketPrice()
+    deposit.marketPrice = bond.getToken().getMarketPrice(event.block.number)
     deposit.discount = (deposit.marketPrice.minus(deposit.bondPrice)).div(deposit.bondPrice)
     deposit.tokenValue = bond.parseBondTokenValueFormatted(event.params.deposit)
     deposit.carbonCustodied = bond.getCarbonCustodied(event.params.deposit) 
