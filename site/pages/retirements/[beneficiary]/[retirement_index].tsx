@@ -19,17 +19,20 @@ import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 
 interface Params extends ParsedUrlQuery {
-  beneficiary_address: string;
+  /** Either an 0x or a nameservice domain like atmosfearful.klima */
+  beneficiary: string;
   retirement_index: string;
 }
 
 interface PageProps {
-  beneficiaryAddress: Params["beneficiary_address"];
+  /** The resolved 0x address */
+  beneficiaryAddress: string;
   retirementTotals: Params["retirement_index"];
   retirement: KlimaRetire;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
-  nameserviceDomain?: string;
+  nameserviceDomain: string | null;
+  /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
 }
 
@@ -46,18 +49,18 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     if (
       !params ||
-      (!params?.beneficiary_address && !params?.retirement_index) ||
+      (!params?.beneficiary && !params?.retirement_index) ||
       (!!params.retirement_index && !isNumeric(params.retirement_index))
     ) {
       throw new Error("No matching params found");
     }
 
     let resolvedAddress: string;
-    const isDomainInURL = getIsDomainInURL(params.beneficiary_address);
+    const isDomainInURL = getIsDomainInURL(params.beneficiary);
     if (isDomainInURL) {
-      resolvedAddress = await getAddressByDomain(params.beneficiary_address); // this fn should throw if it fails to resolve
-    } else if (ethers.utils.isAddress(params.beneficiary_address)) {
-      resolvedAddress = params.beneficiary_address;
+      resolvedAddress = await getAddressByDomain(params.beneficiary); // this fn should throw if it fails to resolve
+    } else if (ethers.utils.isAddress(params.beneficiary)) {
+      resolvedAddress = params.beneficiary;
     } else {
       throw new Error("Not a valid beneficiary address");
     }
@@ -69,13 +72,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       Promise<RetirementIndexInfoResult>,
       Promise<Record<string, unknown>>
     ] = [
-      queryKlimaRetireByIndex(
-        resolvedAddress || (params.beneficiary_address as string),
-        retirementIndex
-      ),
+      queryKlimaRetireByIndex(resolvedAddress, retirementIndex),
       getRetirementIndexInfo({
-        beneficiaryAdress:
-          resolvedAddress || (params.beneficiary_address as string),
+        beneficiaryAddress: resolvedAddress,
         index: retirementIndex,
         providerUrl: getInfuraUrlPolygon(),
       }),
@@ -94,7 +93,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No translation found");
     }
 
-    let projectDetails = null;
+    let projectDetails: VerraProjectDetails | null = null;
     if (!!retirement.offset.projectID) {
       projectDetails = await getVerraProjectByID(
         retirement.offset.projectID.replace("VCS-", "")
@@ -105,16 +104,12 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       props: {
         retirement,
         retirementIndexInfo,
-        beneficiaryAddress: params.beneficiary_address,
+        beneficiaryAddress: resolvedAddress,
         retirementTotals: params.retirement_index,
         translation,
         projectDetails,
-        nameserviceDomain: !!resolvedAddress
-          ? params.beneficiary_address
-          : undefined,
-        canonicalUrl: !!resolvedAddress
-          ? `${urls.retirements}/${resolvedAddress}/${params.retirement_index}`
-          : undefined,
+        nameserviceDomain: isDomainInURL ? params.beneficiary : null,
+        canonicalUrl: `${urls.retirements}/${params.beneficiary}/${params.retirement_index}`,
       },
       revalidate: 240,
     };
