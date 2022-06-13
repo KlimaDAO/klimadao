@@ -166,63 +166,8 @@ export const input = css`
       cursor: default;
     }
   }
-`;
-
-export const inputError = css`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-
-  textarea {
-    width: 100%;
-    background-color: var(--surface-02);
-    border-radius: 0.8rem;
+  input[data-error="true"] {
     border: 0.2rem solid red;
-    padding-inline-start: 0.8rem;
-    min-height: 2.4rem;
-    color: var(--font-01);
-    resize: none;
-    padding-top: 0.8rem;
-    overflow-y: hidden;
-    min-height: 16rem;
-  }
-
-  input {
-    width: 100%;
-    background-color: var(--surface-02);
-    border-radius: 0.8rem;
-    border: 0.2rem solid red;
-    padding-inline-start: 0.8rem;
-    min-height: 4.8rem;
-    color: var(--font-01);
-  }
-
-  label {
-    display: flex;
-    gap: 0.8rem;
-    color: red;
-    align-items: center;
-  }
-
-  .number_input_container {
-    min-height: 4.8rem;
-    display: grid;
-    grid-template-columns: 1fr min-content;
-    z-index: 1; /* cover advanced-settings border */
-  }
-
-  .button_max {
-    ${common.iconButton};
-    ${typography.button};
-    padding: 0 1.6rem;
-    border-radius: 0 0.8rem 0.8rem 0;
-    &:hover:not(:disabled) {
-      background-color: var(--surface-03);
-    }
-    &:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
   }
 `;
 
@@ -294,9 +239,11 @@ export const advancedButtonInput = css`
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  .inputError {
-    border-color: red;
+
+  input[data-error="true"] {
+    border: 0.2rem solid red;
   }
+
   .advancedButtonInput_iconAligner {
     display: flex;
     width: 100%;

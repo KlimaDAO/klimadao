@@ -120,13 +120,9 @@ export const Offset = (props: Props) => {
   const [cost, setCost] = useState("");
   const [beneficiary, setBeneficiary] = useState("");
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
-  const [beneficiaryAddressError, setBeneficiaryAddressError] = useState(false);
   const [retirementMessage, setRetirementMessage] = useState("");
   // for selective retirement
-  const [specificAddresses, setSpecificAddresses] = useState({
-    addresses: [""],
-    errors: [false],
-  });
+  const [specificAddresses, setSpecificAddresses] = useState([""]);
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
@@ -155,7 +151,7 @@ export const Offset = (props: Props) => {
       setBeneficiaryAddress(params.beneficiaryAddress);
     }
     if (params.projectTokens) {
-      setSpecificAddresses({ addresses: params.projectTokens, errors: [] });
+      setSpecificAddresses(params.projectTokens);
     }
     if (params.quantity) {
       setQuantity(params.quantity);
@@ -208,14 +204,14 @@ export const Offset = (props: Props) => {
         quantity: debouncedQuantity,
         amountInCarbon: true,
         provider: props.provider,
-        getSpecific: !!specificAddresses.addresses.length,
+        getSpecific: !!specificAddresses.length,
       });
       setCost(consumptionCost);
     };
     awaitGetOffsetConsumptionCost();
   }, [
     debouncedQuantity,
-    specificAddresses.addresses.length,
+    specificAddresses.length,
     selectedInputToken,
     selectedRetirementToken,
   ]);
@@ -232,13 +228,7 @@ export const Offset = (props: Props) => {
   };
 
   const handleBeneficiaryAddressChange = (address: string) => {
-    if (ethers.utils.isAddress(address)) {
-      setBeneficiaryAddressError(false);
-      setBeneficiaryAddress(address);
-    } else {
-      setBeneficiaryAddressError(true);
-      setBeneficiaryAddress(address);
-    }
+    setBeneficiaryAddress(address);
   };
 
   const handleApprove = async () => {
@@ -268,7 +258,7 @@ export const Offset = (props: Props) => {
         beneficiaryName: beneficiary,
         retirementMessage,
         onStatus: setStatus,
-        specificAddresses: specificAddresses.addresses,
+        specificAddresses: specificAddresses,
       });
       dispatch(
         updateRetirement({
@@ -311,7 +301,12 @@ export const Offset = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (specificAddresses.errors.includes(true)) {
+    } else if (
+      (beneficiaryAddress !== "" &&
+        !ethers.utils.isAddress(beneficiaryAddress)) ||
+      (specificAddresses.length !== 0 &&
+        specificAddresses.find((address) => !ethers.utils.isAddress(address)))
+    ) {
       return {
         label: (
           <Trans id="shared.improper_address_format">
@@ -531,13 +526,13 @@ export const Offset = (props: Props) => {
               />
             </div>
 
-            <div
-              className={
-                beneficiaryAddressError ? styles.inputError : styles.input
-              }
-            >
+            <div className={styles.input}>
               <input
                 value={beneficiaryAddress}
+                data-error={
+                  !ethers.utils.isAddress(beneficiaryAddress) &&
+                  beneficiaryAddress !== ""
+                }
                 onChange={(e) => handleBeneficiaryAddressChange(e.target.value)}
                 placeholder={t({
                   id: "offset.enter_address",
@@ -699,12 +694,12 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
 };
 
 const AdvancedTextInput: FC<{
-  addressArray: { addresses: string[]; errors: boolean[] };
-  onChange: (val: { addresses: string[]; errors: boolean[] }) => void;
+  addressArray: string[];
+  onChange: (val: string[]) => void;
   // fix prop types
 }> = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
-  const concatValue = props.addressArray.addresses.join("");
+  const concatValue = props.addressArray.join("");
   /** when query params are loaded we force the toggle open */
   useEffect(() => {
     if (!isOpen && concatValue.length > 1) {
@@ -713,40 +708,24 @@ const AdvancedTextInput: FC<{
   }, [concatValue]);
   // check for errors in here
   const handleEdit = (i: number) => (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = {
-      addresses: [
-        ...props.addressArray.addresses.slice(0, i),
-        e.target.value,
-        ...props.addressArray.addresses.slice(i + 1),
-      ],
-      errors: [
-        ...props.addressArray.errors.slice(0, i),
-        !ethers.utils.isAddress(e.target.value),
-        ...props.addressArray.errors.slice(i + 1),
-      ],
-    };
+    const newValue = [
+      ...props.addressArray.slice(0, i),
+      e.target.value,
+      ...props.addressArray.slice(i + 1),
+    ];
     props.onChange(newValue);
   };
   // check for errors here
   const handleAddInput = () => {
-    const isError = false;
-    props.onChange({
-      addresses: [...props.addressArray.addresses, ""],
-      errors: [...props.addressArray.errors, isError],
-    });
+    props.onChange([...props.addressArray, ""]);
   };
 
   const handleDelete = (i: number) => () => {
-    const newValue = {
-      addresses: [
-        ...props.addressArray.addresses.slice(0, i),
-        ...props.addressArray.addresses.slice(i + 1),
-      ],
-      errors: [
-        ...props.addressArray.errors.slice(0, i),
-        ...props.addressArray.errors.slice(i + 1),
-      ],
-    };
+    const newValue = [
+      ...props.addressArray.slice(0, i),
+      ...props.addressArray.slice(i + 1),
+    ];
+
     props.onChange(newValue);
   };
 
@@ -782,7 +761,7 @@ const AdvancedTextInput: FC<{
               <InfoOutlined />
             </TextInfoTooltip>
           </label>
-          {props.addressArray.addresses.map((address: string, i: number) => {
+          {props.addressArray.map((address: string, i: number) => {
             return (
               <div key={i} className={styles.advancedButtonInput}>
                 <div className={"advancedButtonInput_iconAligner"}>
@@ -793,10 +772,13 @@ const AdvancedTextInput: FC<{
                       id: "offset.enter_address",
                       message: "Enter 0x address",
                     })}
-                    className={props.addressArray.errors[i] ? "inputError" : ""}
+                    data-error={
+                      ethers.utils.isAddress(address) === false &&
+                      address !== ""
+                    }
                     pattern="^0x[a-fA-F0-9]{40}$"
                   />
-                  {props.addressArray.addresses.length > 1 && (
+                  {props.addressArray.length > 1 && (
                     <button onClick={handleDelete(i)} className="deletebutton">
                       <CancelIcon />
                     </button>
@@ -805,7 +787,7 @@ const AdvancedTextInput: FC<{
                 <button
                   onClick={handleAddInput}
                   className={cx("plusbutton", {
-                    hidden: i !== props.addressArray.addresses.length - 1,
+                    hidden: i !== props.addressArray.length - 1,
                   })}
                 >
                   <Add />
