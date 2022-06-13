@@ -450,13 +450,13 @@ export const bondTransaction = async (params: {
       // TODO add "remaining cpacity" line in view
       // TODO check "capacity" in markets call to see if there is enough usdc in bond. returns usdc
       params.onStatus("userConfirmation", "");
-      const notFuckedAddress = await signer.getAddress();
+      const address = await signer.getAddress();
       const formattedValue = ethers.utils.parseUnits(params.value, "gwei");
       // contract.deposit(__id, [amountIn (inKLIMA), min Amount Out (inUSDC)], [userAddress, DAOMSigAddress(0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c)])
       const txn = await contract.deposit(
         ethers.BigNumber.from(marketId),
         [formattedValue, formattedMinAmountOut],
-        [notFuckedAddress, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
+        [address, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
       );
       params.onStatus("networkConfirmation", "");
       await txn.wait(1);
@@ -483,13 +483,9 @@ export const bondTransaction = async (params: {
       const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
       const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
       const valueInWei = ethers.utils.parseUnits(params.value, "ether");
-      const notFuckedAddress = await signer.getAddress();
+      const address = await signer.getAddress();
       params.onStatus("userConfirmation", "");
-      const txn = await contract.deposit(
-        valueInWei,
-        maxPremium,
-        notFuckedAddress
-      );
+      const txn = await contract.deposit(valueInWei, maxPremium, address);
       params.onStatus("networkConfirmation", "");
       await txn.wait(1);
       params.onStatus("done", "Bond acquired successfully");
