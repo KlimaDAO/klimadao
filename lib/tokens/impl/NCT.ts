@@ -26,7 +26,7 @@ export class NCT implements IToken {
         return toDecimal(rawPrice, this.getDecimals())
     }
 
-    getMarketPrice(): BigDecimal {
+    getMarketPrice(blockNumber: BigInt): BigDecimal {
         throw new Error("Method not implemented.");
     }
 
