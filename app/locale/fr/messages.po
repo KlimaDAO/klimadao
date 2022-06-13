@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-13 15:48+0000\n"
+"POT-Creation-Date: 2022-06-13 19:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal
 msgid "Wrong Network"
 msgstr "Mauvais réseau"
 
-#: components/views/Offset/index.tsx:718
+#: components/views/Offset/index.tsx:742
 msgid "advanced"
 msgstr "AVANCÉ"
 
@@ -373,11 +373,11 @@ msgstr "CONFIRMATION"
 msgid "nav.back"
 msgstr "RETOUR"
 
-#: components/views/Offset/index.tsx:555
+#: components/views/Offset/index.tsx:575
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Ce coût comprend le glissement et les frais d'agrégation de 1 %."
 
-#: components/views/Offset/index.tsx:436
+#: components/views/Offset/index.tsx:452
 msgid "offset.amount_in_tonnes"
 msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 
@@ -385,15 +385,15 @@ msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 msgid "offset.breakdown"
 msgstr "Ventilation"
 
-#: components/views/Offset/index.tsx:523
+#: components/views/Offset/index.tsx:543
 msgid "offset.default_retirement_address"
 msgstr "Par défaut, l'adresse du portefeuille connecté"
 
-#: components/views/Offset/index.tsx:462
+#: components/views/Offset/index.tsx:478
 msgid "offset.dropdown_payWith.label"
 msgstr "Payer avec"
 
-#: components/views/Offset/index.tsx:477
+#: components/views/Offset/index.tsx:493
 msgid "offset.dropdown_retire.label"
 msgstr "Sélectionnez l'actif carbone à compenser"
 
@@ -401,24 +401,24 @@ msgstr "Sélectionnez l'actif carbone à compenser"
 msgid "offset.empty"
 msgstr "Cette adresse n'a encore réalisée aucune compensation carbone."
 
-#: components/views/Offset/index.tsx:517
-#: components/views/Offset/index.tsx:747
+#: components/views/Offset/index.tsx:537
+#: components/views/Offset/index.tsx:771
 msgid "offset.enter_address"
 msgstr "Entrez l'adresse commençant par 0x"
 
-#: components/views/Offset/index.tsx:405
+#: components/views/Offset/index.tsx:421
 msgid "offset.go_carbon_neutral"
 msgstr "Devenez neutre en carbone en retirant celui-ci et en réclamant le bénéfice environnemental sous-jacent de la compensation carbone. Choisissez de retirer des <0>Crédits de carbone de Moss</0> (MCO2), des <1>Tonnes de carbone de base</1> (TCC), des <2>Tonnes de carbone naturel</2> (TCN), des <3>Compensations de base universelles</3> (UBO) ou des <4>Compensations basés sur la Nature</4> (NBO), et d'autres seront bientôt disponibles."
 
-#: components/views/Offset/index.tsx:384
+#: components/views/Offset/index.tsx:400
 msgid "offset.incompatible"
 msgstr "JETON EN ENTRÉE INCOMPATIBLE"
 
-#: components/views/Offset/index.tsx:463
+#: components/views/Offset/index.tsx:479
 msgid "offset.modal_payWith.title"
 msgstr "Sélectionnez l'actif"
 
-#: components/views/Offset/index.tsx:481
+#: components/views/Offset/index.tsx:497
 msgid "offset.modal_retire.title"
 msgstr "Sélectionnez le type de carbone"
 
@@ -426,55 +426,55 @@ msgstr "Sélectionnez le type de carbone"
 msgid "offset.number_of_retirements"
 msgstr "Retraits totaux"
 
-#: components/views/Offset/index.tsx:453
+#: components/views/Offset/index.tsx:469
 msgid "offset.offset_quantity"
 msgstr "Entrez la quantité à compenser"
 
-#: components/views/Offset/index.tsx:402
+#: components/views/Offset/index.tsx:418
 msgid "offset.retire_carbon"
 msgstr "Compenser des émissions Carbone"
 
-#: components/views/Offset/index.tsx:725
+#: components/views/Offset/index.tsx:749
 msgid "offset.retire_specific"
 msgstr "Compenser des actifs de projet spécifiques"
 
-#: components/views/Offset/index.tsx:731
+#: components/views/Offset/index.tsx:755
 msgid "offset.retire_specific_tooltip"
 msgstr "Soumis à des frais supplémentaires, fonctions du pool sélectionné et payés à l'opérateur du pont."
 
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:522
 msgid "offset.retirement_beneficiary"
 msgstr "Nom ou organisation"
 
-#: components/views/Offset/index.tsx:498
+#: components/views/Offset/index.tsx:514
 msgid "offset.retirement_credit"
 msgstr "A qui cette compensation carbone sera-t-elle créditée ?"
 
-#: components/views/Offset/index.tsx:532
+#: components/views/Offset/index.tsx:552
 msgid "offset.retirement_message"
 msgstr "Message de compensation carbone"
 
-#: components/views/Offset/index.tsx:541
+#: components/views/Offset/index.tsx:561
 msgid "offset.retirement_purpose"
 msgstr "Décrivez le but de ce retrait"
 
-#: components/views/Offset/index.tsx:573
+#: components/views/Offset/index.tsx:593
 msgid "offset.retiring"
 msgstr "Destruction en cours"
 
-#: components/views/Offset/index.tsx:643
+#: components/views/Offset/index.tsx:663
 msgid "offset.successModal.body1"
 msgstr "Un grand merci. En participant au marché volontaire du carbone, vous rendez la conservation plus rentable et l'atténuation du climat plus efficace."
 
-#: components/views/Offset/index.tsx:652
+#: components/views/Offset/index.tsx:672
 msgid "offset.successModal.body2"
 msgstr "Cliquez sur le bouton ci-dessous pour afficher votre retrait. Pensez à partager la page pour nous soutenir dans notre cheminement vers un marché du carbone plus transparent, plus accessible et plus rémunérateur !"
 
-#: components/views/Offset/index.tsx:666
+#: components/views/Offset/index.tsx:686
 msgid "offset.successModal.cta"
 msgstr "VOIR MON RETRAIT"
 
-#: components/views/Offset/index.tsx:636
+#: components/views/Offset/index.tsx:656
 msgid "offset.successModal.title"
 msgstr "Retrait réussi !"
 
@@ -486,11 +486,11 @@ msgstr "Tonnes de carbone"
 msgid "offset.you_have_retired"
 msgstr "Vous avez compensé"
 
-#: components/views/Offset/index.tsx:551
+#: components/views/Offset/index.tsx:571
 msgid "offset_cost"
 msgstr "Coût"
 
-#: components/views/Offset/index.tsx:584
+#: components/views/Offset/index.tsx:604
 msgid "offset_disclaimer"
 msgstr "Veillez à ne pas divulguer d'informations personnelles sensibles. Votre message ne pourrra pas être modifié et sera enregistré définitivement sur une blockchain publique."
 
@@ -559,7 +559,7 @@ msgid "pklima.update"
 msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont gagné des récompenses provenant d'actifs réclamés au préalable. Avant le correctif de novembre, le rendement des dépôts n'étaient pas pris en compte dans votre limite d'approvisionnement. De fait votre approvisionnement total en KLIMA pouvait dépasser la limite définie dans vos conditions."
 
 #: components/views/Bond/index.tsx:344
-#: components/views/Offset/index.tsx:313
+#: components/views/Offset/index.tsx:329
 #: components/views/Stake/index.tsx:167
 #: components/views/Stake/index.tsx:173
 msgid "shared.approve"
@@ -581,7 +581,7 @@ msgstr "Confirmation en cours"
 
 #: components/views/Bond/index.tsx:311
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:287
+#: components/views/Offset/index.tsx:288
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:146
 #: components/views/Wrap/index.tsx:129
@@ -598,7 +598,7 @@ msgid "shared.enter_amount"
 msgstr "Entrez le montant"
 
 #: components/views/Bond/index.tsx:323
-#: components/views/Offset/index.tsx:299
+#: components/views/Offset/index.tsx:300
 msgid "shared.enter_quantity"
 msgstr "ENTRER LE MONTANT"
 
@@ -608,7 +608,11 @@ msgstr "ENTRER LE MONTANT"
 msgid "shared.error"
 msgstr "ERREUR"
 
-#: components/views/Offset/index.tsx:306
+#: components/views/Offset/index.tsx:312
+msgid "shared.improper_address_format"
+msgstr ""
+
+#: components/views/Offset/index.tsx:322
 msgid "shared.insufficient_balance"
 msgstr "SOLDE INSUFFISANT"
 
@@ -617,8 +621,8 @@ msgstr "SOLDE INSUFFISANT"
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:317
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:293
-#: components/views/Offset/index.tsx:370
+#: components/views/Offset/index.tsx:294
+#: components/views/Offset/index.tsx:386
 #: components/views/PKlima/index.tsx:131
 #: components/views/Stake/index.tsx:152
 #: components/views/Stake/index.tsx:355
@@ -635,7 +639,7 @@ msgstr "Chargement..."
 msgid "shared.max"
 msgstr "Max"
 
-#: components/views/Offset/index.tsx:319
+#: components/views/Offset/index.tsx:335
 msgid "shared.retire"
 msgstr "RETRAIT CARBONE"
 

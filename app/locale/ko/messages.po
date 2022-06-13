@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-13 15:48+0000\n"
+"POT-Creation-Date: 2022-06-13 19:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Wrong Network"
 msgstr ""
 
-#: components/views/Offset/index.tsx:718
+#: components/views/Offset/index.tsx:742
 msgid "advanced"
 msgstr ""
 
@@ -371,11 +371,11 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
-#: components/views/Offset/index.tsx:555
+#: components/views/Offset/index.tsx:575
 msgid "offset.aggregation_fee_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:436
+#: components/views/Offset/index.tsx:452
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
@@ -383,15 +383,15 @@ msgstr ""
 msgid "offset.breakdown"
 msgstr ""
 
-#: components/views/Offset/index.tsx:523
+#: components/views/Offset/index.tsx:543
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:462
+#: components/views/Offset/index.tsx:478
 msgid "offset.dropdown_payWith.label"
 msgstr ""
 
-#: components/views/Offset/index.tsx:477
+#: components/views/Offset/index.tsx:493
 msgid "offset.dropdown_retire.label"
 msgstr ""
 
@@ -399,24 +399,24 @@ msgstr ""
 msgid "offset.empty"
 msgstr ""
 
-#: components/views/Offset/index.tsx:517
-#: components/views/Offset/index.tsx:747
+#: components/views/Offset/index.tsx:537
+#: components/views/Offset/index.tsx:771
 msgid "offset.enter_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:405
+#: components/views/Offset/index.tsx:421
 msgid "offset.go_carbon_neutral"
 msgstr ""
 
-#: components/views/Offset/index.tsx:384
+#: components/views/Offset/index.tsx:400
 msgid "offset.incompatible"
 msgstr ""
 
-#: components/views/Offset/index.tsx:463
+#: components/views/Offset/index.tsx:479
 msgid "offset.modal_payWith.title"
 msgstr ""
 
-#: components/views/Offset/index.tsx:481
+#: components/views/Offset/index.tsx:497
 msgid "offset.modal_retire.title"
 msgstr ""
 
@@ -424,55 +424,55 @@ msgstr ""
 msgid "offset.number_of_retirements"
 msgstr ""
 
-#: components/views/Offset/index.tsx:453
+#: components/views/Offset/index.tsx:469
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/views/Offset/index.tsx:402
+#: components/views/Offset/index.tsx:418
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/views/Offset/index.tsx:725
+#: components/views/Offset/index.tsx:749
 msgid "offset.retire_specific"
 msgstr ""
 
-#: components/views/Offset/index.tsx:731
+#: components/views/Offset/index.tsx:755
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:522
 msgid "offset.retirement_beneficiary"
 msgstr ""
 
-#: components/views/Offset/index.tsx:498
+#: components/views/Offset/index.tsx:514
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/views/Offset/index.tsx:532
+#: components/views/Offset/index.tsx:552
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/views/Offset/index.tsx:541
+#: components/views/Offset/index.tsx:561
 msgid "offset.retirement_purpose"
 msgstr ""
 
-#: components/views/Offset/index.tsx:573
+#: components/views/Offset/index.tsx:593
 msgid "offset.retiring"
 msgstr ""
 
-#: components/views/Offset/index.tsx:643
+#: components/views/Offset/index.tsx:663
 msgid "offset.successModal.body1"
 msgstr ""
 
-#: components/views/Offset/index.tsx:652
+#: components/views/Offset/index.tsx:672
 msgid "offset.successModal.body2"
 msgstr ""
 
-#: components/views/Offset/index.tsx:666
+#: components/views/Offset/index.tsx:686
 msgid "offset.successModal.cta"
 msgstr ""
 
-#: components/views/Offset/index.tsx:636
+#: components/views/Offset/index.tsx:656
 msgid "offset.successModal.title"
 msgstr ""
 
@@ -484,11 +484,11 @@ msgstr ""
 msgid "offset.you_have_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:551
+#: components/views/Offset/index.tsx:571
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/Offset/index.tsx:584
+#: components/views/Offset/index.tsx:604
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -557,7 +557,7 @@ msgid "pklima.update"
 msgstr ""
 
 #: components/views/Bond/index.tsx:344
-#: components/views/Offset/index.tsx:313
+#: components/views/Offset/index.tsx:329
 #: components/views/Stake/index.tsx:167
 #: components/views/Stake/index.tsx:173
 msgid "shared.approve"
@@ -579,7 +579,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:311
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:287
+#: components/views/Offset/index.tsx:288
 #: components/views/PKlima/index.tsx:125
 #: components/views/Stake/index.tsx:146
 #: components/views/Wrap/index.tsx:129
@@ -596,7 +596,7 @@ msgid "shared.enter_amount"
 msgstr ""
 
 #: components/views/Bond/index.tsx:323
-#: components/views/Offset/index.tsx:299
+#: components/views/Offset/index.tsx:300
 msgid "shared.enter_quantity"
 msgstr ""
 
@@ -606,7 +606,11 @@ msgstr ""
 msgid "shared.error"
 msgstr ""
 
-#: components/views/Offset/index.tsx:306
+#: components/views/Offset/index.tsx:312
+msgid "shared.improper_address_format"
+msgstr ""
+
+#: components/views/Offset/index.tsx:322
 msgid "shared.insufficient_balance"
 msgstr ""
 
@@ -615,8 +619,8 @@ msgstr ""
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:317
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:293
-#: components/views/Offset/index.tsx:370
+#: components/views/Offset/index.tsx:294
+#: components/views/Offset/index.tsx:386
 #: components/views/PKlima/index.tsx:131
 #: components/views/Stake/index.tsx:152
 #: components/views/Stake/index.tsx:355
@@ -633,7 +637,7 @@ msgstr ""
 msgid "shared.max"
 msgstr ""
 
-#: components/views/Offset/index.tsx:319
+#: components/views/Offset/index.tsx:335
 msgid "shared.retire"
 msgstr ""
 
