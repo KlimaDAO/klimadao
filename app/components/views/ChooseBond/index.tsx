@@ -63,7 +63,7 @@ export const useBond = (bond: Bond) => {
       klima_bct_lp: "KLIMA/BCT LP",
       bct_usdc_lp: "BCT/USDC LP",
       klima_mco2_lp: "KLIMA/MCO2 LP",
-      inverse_usdc: "INVERSE USDC",
+      inverse_usdc: "KLIMA (inverse)",
       // future bond names go here
     }[bond],
     description: {
@@ -101,7 +101,7 @@ export const useBond = (bond: Bond) => {
       }),
       inverse_usdc: t({
         id: "choose_bond.inverse_usdc",
-        message: "Provide KLIMA, get USDC",
+        message: "Provide KLIMA, receive USDC",
       }),
       // future bond descriptions go here
     }[bond],

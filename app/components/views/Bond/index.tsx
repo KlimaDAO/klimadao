@@ -420,7 +420,7 @@ export const Bond: FC<Props> = (props) => {
       bondState?.capacity < Number(bondState.bondQuote)
     ) {
       return {
-        label: <Trans id="bond.max_exceeded">CAPACITY EXCEEDED</Trans>,
+        label: <Trans id="bond.capacity_exceeded">CAPACITY EXCEEDED</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -486,6 +486,17 @@ export const Bond: FC<Props> = (props) => {
       locale
     );
   };
+
+  const getBalanceExceeded = () => {
+    if (!props.isConnected) {
+      return false;
+    }
+    if (props.bond === "inverse_usdc") {
+      return Number(quantity) > Number(userState?.balance?.klima);
+    }
+    return Number(quantity) > Number(bondState?.balance);
+  };
+
   const isBondDiscountNegative =
     !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
 
@@ -598,9 +609,14 @@ export const Bond: FC<Props> = (props) => {
                 })}
                 unit={bondInfo.balanceUnit}
                 value={getBalance()}
-                warning={Number(quantity) > Number(bondState?.balance)}
+                warning={getBalanceExceeded()}
               />
               {props.bond === "inverse_usdc" ? (
+                /**
+                 *
+                 * INVERSE BONDS
+                 *
+                 */
                 <>
                   <DataRow
                     singleton={singleton}
@@ -623,9 +639,11 @@ export const Bond: FC<Props> = (props) => {
                   <DataRow
                     singleton={singleton}
                     label={t({
+                      id: "bond.payout_per_klima",
                       message: "Payout per KLIMA",
                     })}
                     tooltip={t({
+                      id: "bond.payout_per_klima.description_inverse",
                       message:
                         "If you bond 1 KLIMA, you will receive this amount in USDC.",
                     })}
@@ -640,9 +658,28 @@ export const Bond: FC<Props> = (props) => {
                   <DataRow
                     singleton={singleton}
                     label={t({
+                      id: "bond.inverse.premium",
+                      message: "Premium",
+                    })}
+                    tooltip={t({
+                      id: "bond.inverse.premium.description",
+                      message: "Premium relative to the market value of KLIMA.",
+                    })}
+                    unit={"%"}
+                    value={trimWithPlaceholder(
+                      bondState?.bondDiscount,
+                      2,
+                      locale
+                    )}
+                    warning={isBondDiscountNegative}
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
                       message: "Capacity",
                     })}
                     tooltip={t({
+                      id: "capacity.description_inverse",
                       message:
                         "This is the amount of USDC in the contract available for bonds.",
                     })}
@@ -654,8 +691,67 @@ export const Bond: FC<Props> = (props) => {
                     )}
                     warning={false}
                   />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.maximum",
+                      message: "Maximum",
+                    })}
+                    tooltip={t({
+                      id: "bond.maximum.tooltip",
+                      message: "Maximum amount you can acquire by bonding",
+                    })}
+                    warning={
+                      !!bondState?.bondQuote &&
+                      !!bondState?.maxBondPrice &&
+                      Number(bondState?.bondQuote) >
+                        Number(bondState?.maxBondPrice)
+                    }
+                    value={
+                      Number(bondState?.capacity) < Number(getBondMax())
+                        ? trimWithPlaceholder(
+                            1 / Number(bondState?.capacity),
+                            3,
+                            locale
+                          )
+                        : trimWithPlaceholder(
+                            bondState?.maxBondPrice,
+                            2,
+                            locale
+                          )
+                    }
+                    unit="USDC"
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.you_will_get",
+                      message: "You will get",
+                    })}
+                    tooltip={t({
+                      id: "bond.you_will_get.description_inverse",
+                      message:
+                        "Amount you will get, at the provided input quantity",
+                    })}
+                    unit="USDC"
+                    value={
+                      !props.isConnected
+                        ? 0
+                        : trimWithPlaceholder(
+                            isLoading ? NaN : bondState?.bondQuote,
+                            Number(bondState?.bondQuote) < 1 ? 5 : 2,
+                            locale
+                          )
+                    }
+                    warning={false}
+                  />
                 </>
               ) : (
+                /**
+                 *
+                 * NON-INVERSE BONDS
+                 *
+                 * */
                 <>
                   <DataRow
                     singleton={singleton}
@@ -693,118 +789,108 @@ export const Bond: FC<Props> = (props) => {
                     )}
                     warning={false}
                   />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.debt_ratio",
+                      message: "Debt ratio",
+                    })}
+                    tooltip={t({
+                      id: "bond.debt_ratio.tooltip",
+                      message:
+                        "Protocol's current ratio of supply to outstanding bonds",
+                      comment: "Long sentence",
+                    })}
+                    warning={false}
+                    value={trimWithPlaceholder(
+                      Number(bondState?.debtRatio),
+                      2,
+                      locale
+                    )}
+                    unit="%"
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.vesting_term_end",
+                      message: "Vesting term end",
+                    })}
+                    tooltip={t({
+                      id: "bond.vesting_term_end.tooltip",
+                      message:
+                        "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term.",
+                    })}
+                    warning={false}
+                    value={vestingPeriod() ?? ""}
+                    unit=""
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.discount",
+                      message: "Bond discount",
+                    })}
+                    tooltip={t({
+                      id: "bond.discount.description_tooltip",
+                      message:
+                        "Percentage discount (or premium if negative) relative to the market value of KLIMA.",
+                    })}
+                    unit={"%"}
+                    value={trimWithPlaceholder(
+                      bondState?.bondDiscount,
+                      2,
+                      locale
+                    )}
+                    warning={isBondDiscountNegative}
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.maximum",
+                      message: "Maximum",
+                    })}
+                    tooltip={t({
+                      id: "bond.maximum.tooltip",
+                      message: "Maximum amount you can acquire by bonding",
+                    })}
+                    warning={
+                      !!bondState?.bondQuote &&
+                      !!bondState?.maxBondPrice &&
+                      Number(bondState?.bondQuote) >
+                        Number(bondState?.maxBondPrice)
+                    }
+                    value={trimWithPlaceholder(
+                      bondState?.maxBondPrice,
+                      2,
+                      locale
+                    )}
+                    unit="KLIMA"
+                  />
+                  <DataRow
+                    singleton={singleton}
+                    label={t({
+                      id: "bond.you_will_get",
+                      message: "You will get",
+                    })}
+                    tooltip={t({
+                      id: "bond.you_will_get.tooltip",
+                      message:
+                        "Amount of bonded KLIMA you will get, at the provided input quantity",
+                      comment: "Long sentence",
+                    })}
+                    unit="KLIMA"
+                    value={
+                      !props.isConnected
+                        ? 0
+                        : trimWithPlaceholder(
+                            isLoading ? NaN : bondState?.bondQuote,
+                            Number(bondState?.bondQuote) < 1 ? 5 : 2,
+                            locale
+                          )
+                    }
+                    warning={false}
+                  />
                 </>
-              )}
-              <DataRow
-                singleton={singleton}
-                label={t({
-                  id: "bond.discount",
-                  message: "Bond discount",
-                })}
-                tooltip={t({
-                  id: "bond.discount.tooltip",
-                  message:
-                    "Percentage discount (or premium if negative) on KLIMA received for this bond, relative to the market value of KLIMA.",
-                  comment: "Long sentence",
-                })}
-                unit={"%"}
-                value={trimWithPlaceholder(bondState?.bondDiscount, 2, locale)}
-                warning={isBondDiscountNegative}
-              />
-              <DataRow
-                singleton={singleton}
-                label={t({
-                  id: "bond.you_will_get",
-                  message: "You will get",
-                })}
-                tooltip={t({
-                  id: "bond.you_will_get.tooltip",
-                  message:
-                    "Amount of bonded KLIMA you will get, at the provided input quantity",
-                  comment: "Long sentence",
-                })}
-                unit={
-                  bondState && bondState.bond === "inverse_usdc"
-                    ? "USDC"
-                    : "KLIMA"
-                }
-                value={
-                  !props.isConnected
-                    ? 0
-                    : trimWithPlaceholder(
-                        isLoading ? NaN : bondState?.bondQuote,
-                        Number(bondState?.bondQuote) < 1 ? 5 : 2,
-                        locale
-                      )
-                }
-                warning={false}
-              />
-              <DataRow
-                singleton={singleton}
-                label={t({
-                  id: "bond.maximum",
-                  message: "Maximum",
-                })}
-                tooltip={t({
-                  id: "bond.maximum.tooltip",
-                  message: "Maximum amount of KLIMA you can acquire by bonding",
-                  comment: "Long sentence",
-                })}
-                warning={
-                  !!bondState?.bondQuote &&
-                  !!bondState?.maxBondPrice &&
-                  Number(bondState?.bondQuote) > Number(bondState?.maxBondPrice)
-                }
-                value={
-                  Number(bondState?.capacity) < Number(getBondMax())
-                    ? trimWithPlaceholder(
-                        1 / Number(bondState?.capacity),
-                        3,
-                        locale
-                      )
-                    : trimWithPlaceholder(bondState?.maxBondPrice, 2, locale)
-                }
-                unit="USDC"
-              />
-              {bondState?.bond !== "inverse_usdc" && (
-                <DataRow
-                  singleton={singleton}
-                  label={t({
-                    id: "bond.debt_ratio",
-                    message: "Debt ratio",
-                  })}
-                  tooltip={t({
-                    id: "bond.debt_ratio.tooltip",
-                    message:
-                      "Protocol's current ratio of supply to outstanding bonds",
-                    comment: "Long sentence",
-                  })}
-                  warning={false}
-                  value={trimWithPlaceholder(
-                    Number(bondState?.debtRatio),
-                    2,
-                    locale
-                  )}
-                  unit="%"
-                />
-              )}
-              {bondState?.bond !== "inverse_usdc" && (
-                <DataRow
-                  singleton={singleton}
-                  label={t({
-                    id: "bond.vesting_term_end",
-                    message: "Vesting term end",
-                  })}
-                  tooltip={t({
-                    id: "bond.vesting_term_end.tooltip",
-                    message:
-                      "If you bond now, your vesting term ends at this date. Klima is slowly unlocked for redemption over the duration of this term.",
-                    comment: "Long sentence",
-                  })}
-                  warning={false}
-                  value={vestingPeriod() ?? ""}
-                  unit=""
-                />
               )}
             </ul>
           )}
