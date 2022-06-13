@@ -166,6 +166,9 @@ export const input = css`
       cursor: default;
     }
   }
+  input[data-error="true"] {
+    border: 0.2rem solid red;
+  }
 `;
 
 export const retirementSuccessModal = css`
@@ -236,6 +239,11 @@ export const advancedButtonInput = css`
   display: flex;
   align-items: center;
   gap: 0.8rem;
+
+  input[data-error="true"] {
+    border: 0.2rem solid red;
+  }
+
   .advancedButtonInput_iconAligner {
     display: flex;
     width: 100%;
