@@ -23,6 +23,7 @@ export { fetchBlockRate } from "./fetchBlockRate";
 export { getTokenDecimals } from "./getTokenDecimals";
 export { getIsValidAddress } from "./getIsValidAddress";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
+export { getOgImageSrc } from "./getOgImageSrc";
 export {
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,

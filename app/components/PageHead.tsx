@@ -1,7 +1,9 @@
 import Head from "next/head";
 import React from "react";
+
 import { useSelector } from "react-redux";
 import { selectLocale } from "state/selectors";
+import { getOgImageSrc } from "@klimadao/lib/utils";
 export interface PageHeadProps {
   production: boolean;
   /** <title> tag */
@@ -17,6 +19,8 @@ export interface PageHeadProps {
 export const PageHead = (props: PageHeadProps) => {
   const locale = useSelector(selectLocale);
   const noRobots = props.doNotIndex || !props.production;
+  const mediaImageSrc = getOgImageSrc(props.mediaImageSrc);
+
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
@@ -31,18 +35,16 @@ export const PageHead = (props: PageHeadProps) => {
       <meta name="description" content={props.metaDescription} />
       <meta property="og:description" content={props.metaDescription} />
       <meta property="og:title" content={props.mediaTitle} />
-      {props.mediaImageSrc && (
-        <meta property="og:image" content={props.mediaImageSrc} />
-      )}
+      <meta property="og:image" content={mediaImageSrc} />
+
       <meta property="og:type" content="website" />
       <meta property="og:locale" content={locale || "en"} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={props.mediaTitle} />
       <meta name="twitter:description" content={props.metaDescription} />
-      {props.mediaImageSrc && (
-        <meta name="twitter:image" content={props.mediaImageSrc} />
-      )}
+      <meta name="twitter:image" content={mediaImageSrc} />
+
       <link
         rel="apple-touch-icon"
         sizes="180x180"
