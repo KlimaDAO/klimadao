@@ -29,8 +29,8 @@ export const Breakdown: NextPage<Props> = (props) => {
     <div className={styles.breakdown}>
       <div className={styles.breakdownHeadline}>
         <Text t="h3" as="h3" align="center" className="title">
-          <Trans id="retirement.totals.assets_used_headline">
-            Assets used for retirements
+          <Trans id="retirement.totals_by_assets.headline">
+            Retirement Totals By Asset
           </Trans>
         </Text>
       </div>

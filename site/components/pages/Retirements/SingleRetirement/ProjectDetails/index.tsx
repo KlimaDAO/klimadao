@@ -30,8 +30,7 @@ export const ProjectDetails: FC<Props> = (props) => {
           </Text>
           <Text t="body2">
             <Trans id="retirement.single.project_details.subline">
-              The following projects were retired. Click a project title to
-              learn more about it.
+              The tonne(s) retired originated from the following project(s).
             </Trans>
           </Text>
         </div>
