@@ -8,6 +8,9 @@ import { getIsValidAddress } from "../getIsValidAddress";
 export const isKNSDomain = (domain: string): boolean =>
   !!domain && domain.toLowerCase().includes(".klima");
 
+export const createKNSDomainFromName = (name: string): string =>
+  `${name}.klima`;
+
 // Use this import and overwrite your provider if needed with
 // import { KNSContract } from '...'
 // KNSContract.provider = myProvider;

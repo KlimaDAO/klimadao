@@ -32,6 +32,7 @@ export { getVerraProjectByID } from "./verra/getVerraProjects";
 // KNS
 export {
   isKNSDomain,
+  createKNSDomainFromName,
   KNSContract,
   getAddressByKNS,
   getKNSByAddress,
