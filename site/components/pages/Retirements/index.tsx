@@ -37,8 +37,8 @@ export const RetirementPage: NextPage<Props> = (props) => {
     klimaRetires,
     nameserviceDomain,
   } = props;
-  const { locale } = useRouter();
 
+  const { locale } = useRouter();
   const concattedAddress = concatAddress(beneficiaryAddress);
 
   return (
@@ -66,14 +66,14 @@ export const RetirementPage: NextPage<Props> = (props) => {
       <Navigation activePage="Home" />
 
       <Section variant="gray" className={styles.section}>
-        <div className={styles.pageHeadline}>
-          <div className="textGroup">
+        <div className={styles.pageHeader}>
+          <div className={styles.headline}>
             <Text t="h2" as="h2" align="center">
               <Trans id="retirement.totals.page_headline">
                 Carbon Retirements
               </Trans>
             </Text>
-            <div>
+            <div className={styles.subline}>
               <Text align="center" className={styles.address}>
                 <Trans id="retirement.totals.page_subline">
                   for beneficiary
@@ -84,7 +84,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
                 />
               </Text>
               {nameserviceDomain && (
-                <Text align="center" className={styles.address2}>
+                <Text align="center" className={styles.address}>
                   <CopyAddressButton
                     address={beneficiaryAddress}
                     label={concattedAddress}

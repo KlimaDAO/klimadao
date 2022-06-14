@@ -10,7 +10,7 @@ export const section = css`
   }
 `;
 
-export const pageHeadline = css`
+export const pageHeader = css`
   grid-column: main;
   display: grid;
   gap: 2.8rem;
@@ -18,16 +18,20 @@ export const pageHeadline = css`
   ${breakpoints.medium} {
     gap: 5.2rem;
   }
+`;
 
-  .textGroup {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 2.8rem;
-    p {
-      max-width: 57rem;
-    }
-  }
+export const headline = css`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.8rem;
+`;
+
+export const subline = css`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.8rem;
 `;
 
 export const address = css`
@@ -36,10 +40,6 @@ export const address = css`
   gap: 0.8rem;
   align-items: center;
   justify-content: center;
-`;
-export const address2 = css`
-  ${address}
-  margin-top: 0.8rem;
 `;
 
 export const copyButton = css`
