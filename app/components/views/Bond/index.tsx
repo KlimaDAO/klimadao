@@ -685,7 +685,7 @@ export const Bond: FC<Props> = (props) => {
                     })}
                     unit={"USDC"}
                     value={trimWithPlaceholder(
-                      1 / Number(bondState?.capacity),
+                      Number(bondState?.capacity),
                       3,
                       locale
                     )}
@@ -710,7 +710,7 @@ export const Bond: FC<Props> = (props) => {
                     value={
                       Number(bondState?.capacity) < Number(getBondMax())
                         ? trimWithPlaceholder(
-                            1 / Number(bondState?.capacity),
+                            Number(bondState?.capacity),
                             3,
                             locale
                           )
