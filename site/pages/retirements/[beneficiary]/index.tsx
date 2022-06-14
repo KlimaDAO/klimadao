@@ -16,6 +16,7 @@ import { RetirementPage } from "components/pages/Retirements";
 import { loadTranslation } from "lib/i18n";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
+import { getDomainByAddress } from "lib/getDomainByAddress";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
@@ -48,6 +49,19 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");
+    }
+
+    const nameserviceDomain =
+      !isDomainInURL && (await getDomainByAddress(beneficiaryInUrl));
+
+    // redirect now to this page again with nameserviceDomain in URL
+    if (nameserviceDomain) {
+      return {
+        redirect: {
+          destination: `/retirements/${nameserviceDomain}`,
+          statusCode: 301,
+        },
+      };
     }
 
     let beneficiaryAddress: string;
