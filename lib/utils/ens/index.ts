@@ -23,7 +23,7 @@ export const getENSByAddress = async (
   providerUrl?: string
 ): Promise<string | null> => {
   try {
-    const provider = getJsonRpcProvider(providerUrl);
+    const provider = getJsonRpcProvider(providerUrl, "eth"); // fallback to "eth" if providerUrl is undefined
     const domain = await provider.lookupAddress(address);
     return domain;
   } catch (e) {
