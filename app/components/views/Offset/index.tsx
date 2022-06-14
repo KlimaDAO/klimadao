@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { StaticImageData } from "components/Image";
 
 import { useSelector } from "react-redux";
-import { ethers, providers } from "ethers";
+import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
 
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
@@ -123,6 +123,9 @@ export const Offset = (props: Props) => {
   const [retirementMessage, setRetirementMessage] = useState("");
   // for selective retirement
   const [specificAddresses, setSpecificAddresses] = useState([""]);
+  const validSpecificAddresses = specificAddresses.filter((addr) =>
+    utils.isAddress(addr)
+  );
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
@@ -204,14 +207,14 @@ export const Offset = (props: Props) => {
         quantity: debouncedQuantity,
         amountInCarbon: true,
         provider: props.provider,
-        getSpecific: !!specificAddresses.length,
+        getSpecific: !!validSpecificAddresses.length,
       });
       setCost(consumptionCost);
     };
     awaitGetOffsetConsumptionCost();
   }, [
     debouncedQuantity,
-    specificAddresses.length,
+    validSpecificAddresses.length,
     selectedInputToken,
     selectedRetirementToken,
   ]);
@@ -258,7 +261,7 @@ export const Offset = (props: Props) => {
         beneficiaryName: beneficiary,
         retirementMessage,
         onStatus: setStatus,
-        specificAddresses: specificAddresses,
+        specificAddresses: validSpecificAddresses,
       });
       dispatch(
         updateRetirement({
@@ -302,17 +305,11 @@ export const Offset = (props: Props) => {
         disabled: true,
       };
     } else if (
-      (beneficiaryAddress !== "" &&
-        !ethers.utils.isAddress(beneficiaryAddress)) ||
-      (specificAddresses.length !== 0 &&
-        specificAddresses.find((address) => !ethers.utils.isAddress(address)))
+      (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) ||
+      specificAddresses.find((addr) => !!addr && !utils.isAddress(addr))
     ) {
       return {
-        label: (
-          <Trans id="shared.improper_address_format">
-            PLEASE FORMAT ADDRESS
-          </Trans>
-        ),
+        label: <Trans id="shared.invalid_inputs">INVALID INPUTS</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -530,8 +527,7 @@ export const Offset = (props: Props) => {
               <input
                 value={beneficiaryAddress}
                 data-error={
-                  !ethers.utils.isAddress(beneficiaryAddress) &&
-                  beneficiaryAddress !== ""
+                  !!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)
                 }
                 onChange={(e) => handleBeneficiaryAddressChange(e.target.value)}
                 placeholder={t({
@@ -696,17 +692,17 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
 const AdvancedTextInput: FC<{
   addressArray: string[];
   onChange: (val: string[]) => void;
-  // fix prop types
 }> = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const concatValue = props.addressArray.join("");
+
   /** when query params are loaded we force the toggle open */
   useEffect(() => {
     if (!isOpen && concatValue.length > 1) {
       setIsOpen(true);
     }
   }, [concatValue]);
-  // check for errors in here
+
   const handleEdit = (i: number) => (e: ChangeEvent<HTMLInputElement>) => {
     const newValue = [
       ...props.addressArray.slice(0, i),
@@ -715,7 +711,7 @@ const AdvancedTextInput: FC<{
     ];
     props.onChange(newValue);
   };
-  // check for errors here
+
   const handleAddInput = () => {
     props.onChange([...props.addressArray, ""]);
   };
@@ -725,7 +721,6 @@ const AdvancedTextInput: FC<{
       ...props.addressArray.slice(0, i),
       ...props.addressArray.slice(i + 1),
     ];
-
     props.onChange(newValue);
   };
 
@@ -772,10 +767,7 @@ const AdvancedTextInput: FC<{
                       id: "offset.enter_address",
                       message: "Enter 0x address",
                     })}
-                    data-error={
-                      ethers.utils.isAddress(address) === false &&
-                      address !== ""
-                    }
+                    data-error={!!address && !utils.isAddress(address)}
                     pattern="^0x[a-fA-F0-9]{40}$"
                   />
                   {props.addressArray.length > 1 && (
