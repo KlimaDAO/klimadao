@@ -55,14 +55,20 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No matching params found");
     }
 
-    let resolvedAddress: string;
-    const isDomainInURL = getIsDomainInURL(params.beneficiary);
-    if (isDomainInURL) {
-      resolvedAddress = await getAddressByDomain(params.beneficiary); // this fn should throw if it fails to resolve
-    } else if (ethers.utils.isAddress(params.beneficiary)) {
-      resolvedAddress = params.beneficiary;
-    } else {
+    const beneficiaryInUrl = params.beneficiary;
+    const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
+    const isValidAddress =
+      !isDomainInURL && ethers.utils.isAddress(beneficiaryInUrl);
+
+    if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");
+    }
+
+    let beneficiaryAddress: string;
+    if (isDomainInURL) {
+      beneficiaryAddress = await getAddressByDomain(beneficiaryInUrl); // this fn should throw if it fails to resolve
+    } else {
+      beneficiaryAddress = beneficiaryInUrl;
     }
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
@@ -72,9 +78,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       Promise<RetirementIndexInfoResult>,
       Promise<Record<string, unknown>>
     ] = [
-      queryKlimaRetireByIndex(resolvedAddress, retirementIndex),
+      queryKlimaRetireByIndex(beneficiaryAddress, retirementIndex),
       getRetirementIndexInfo({
-        beneficiaryAddress: resolvedAddress,
+        beneficiaryAddress: beneficiaryAddress,
         index: retirementIndex,
         providerUrl: getInfuraUrlPolygon(),
       }),
@@ -104,12 +110,12 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       props: {
         retirement,
         retirementIndexInfo,
-        beneficiaryAddress: resolvedAddress,
+        beneficiaryAddress: beneficiaryAddress,
         retirementTotals: params.retirement_index,
         translation,
         projectDetails,
-        nameserviceDomain: isDomainInURL ? params.beneficiary : null,
-        canonicalUrl: `${urls.retirements}/${params.beneficiary}/${params.retirement_index}`,
+        nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
+        canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}/${params.retirement_index}`,
       },
       revalidate: 240,
     };

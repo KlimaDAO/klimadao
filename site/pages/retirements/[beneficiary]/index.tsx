@@ -41,22 +41,28 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No params found");
     }
 
-    let resolvedAddress: string;
-    const isDomainInURL = getIsDomainInURL(params.beneficiary);
-    if (isDomainInURL) {
-      resolvedAddress = await getAddressByDomain(params.beneficiary); // this fn should throw if it fails to resolve
-    } else if (ethers.utils.isAddress(params.beneficiary)) {
-      resolvedAddress = params.beneficiary;
-    } else {
+    const beneficiaryInUrl = params.beneficiary;
+    const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
+    const isValidAddress =
+      !isDomainInURL && ethers.utils.isAddress(beneficiaryInUrl);
+
+    if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");
+    }
+
+    let beneficiaryAddress: string;
+    if (isDomainInURL) {
+      beneficiaryAddress = await getAddressByDomain(beneficiaryInUrl); // this fn should throw if it fails to resolve
+    } else {
+      beneficiaryAddress = beneficiaryInUrl;
     }
 
     const promises = [
       getRetirementTotalsAndBalances({
-        address: resolvedAddress || (params.beneficiary as string),
+        address: beneficiaryAddress,
         providerUrl: getInfuraUrlPolygon(),
       }),
-      queryKlimaRetiresByAddress(resolvedAddress || params.beneficiary),
+      queryKlimaRetiresByAddress(beneficiaryAddress),
       loadTranslation(locale),
     ];
 
@@ -71,9 +77,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       props: {
         totalsAndBalances,
         klimaRetires,
-        beneficiaryAddress: resolvedAddress,
-        nameserviceDomain: isDomainInURL ? params.beneficiary : null,
-        canonicalUrl: `${urls.retirements}/${params.beneficiary}`,
+        beneficiaryAddress: beneficiaryAddress,
+        nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
+        canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}`,
         translation,
       },
       revalidate: 240,
