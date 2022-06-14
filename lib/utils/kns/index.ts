@@ -30,3 +30,15 @@ export const getAddressByKNS = async (domain: string): Promise<string> => {
     return Promise.reject(e);
   }
 };
+
+export const getKNSByAddress = async (
+  address: string
+): Promise<string | null> => {
+  try {
+    const domain = await KNSContract.defaultNames(address); // name without .klima
+    return domain;
+  } catch (e) {
+    console.error("Error in getKNSByAddress", e);
+    return Promise.reject(e);
+  }
+};
