@@ -33,15 +33,22 @@ export const useBond = (bond: Bond) => {
     nbo: false,
     inverse_usdc: false,
   };
-  let disabled = disabledBonds[bond];
-  if (bondPrice && bondFee && parseFloat(bondPrice) < 1 + bondFee) {
-    disabled = true;
+
+  if (bond === "inverse_usdc" && Number(bondState?.capacity) < 1) {
+    disabledBonds[bond] = true;
+  } else if (
+    bond !== "inverse_usdc" &&
+    bondPrice &&
+    bondFee &&
+    parseFloat(bondPrice) < 1 + bondFee
+  ) {
+    disabledBonds[bond] = true;
   }
 
   return {
     price: bondPrice,
     discount: bondState?.bondDiscount,
-    disabled: disabled,
+    disabled: disabledBonds[bond],
     icon: {
       ubo: "/icons/UBO.png",
       nbo: "/icons/NBO.png",
