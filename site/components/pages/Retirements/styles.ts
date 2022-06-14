@@ -37,6 +37,10 @@ export const address = css`
   align-items: center;
   justify-content: center;
 `;
+export const address2 = css`
+  ${address}
+  margin-top: 0.8rem;
+`;
 
 export const copyButton = css`
   ${typography.body1}
@@ -48,6 +52,12 @@ export const copyButton = css`
   &:hover {
     opacity: 0.7;
   }
+`;
+
+export const copyButtonSmall = css`
+  ${copyButton}
+  ${typography.caption}
+  color: var(--font-02);
 `;
 
 export const cards = css`
