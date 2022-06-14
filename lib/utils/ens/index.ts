@@ -17,3 +17,17 @@ export const getAddressByENS = async (domain: string, providerUrl?: string) => {
     return Promise.reject(e);
   }
 };
+
+export const getENSByAddress = async (
+  address: string,
+  providerUrl?: string
+): Promise<string | null> => {
+  try {
+    const provider = getJsonRpcProvider(providerUrl);
+    const domain = await provider.lookupAddress(address);
+    return domain;
+  } catch (e) {
+    console.error("Error in getENSByAddress", e);
+    return Promise.reject(e);
+  }
+};
