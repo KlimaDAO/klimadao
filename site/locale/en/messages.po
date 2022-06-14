@@ -788,6 +788,10 @@ msgstr "No retirements found"
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr "All Retirements"
 
+#: components/pages/Retirements/Breakdown/index.tsx:57
+msgid "retirement.totals.breakdown_token_assets.empty"
+msgstr "No retirement assets found"
+
 #: components/pages/Retirements/index.tsx:56
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDAO - Carbon Retirements for beneficiary {0}"
