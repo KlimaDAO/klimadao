@@ -33,6 +33,13 @@ export const ProjectDetails: FC<Props> = (props) => {
               The tonne(s) retired originated from the following project(s).
             </Trans>
           </Text>
+          {isVerraProject && (
+            <Text t="body2">
+              <Trans id="retirement.single.project_details.click_on_project">
+                Click on the project title to learn more.
+              </Trans>
+            </Text>
+          )}
         </div>
         {isVerraProject &&
           projectDetails.value.map((value) => (
@@ -49,8 +56,7 @@ export const ProjectDetails: FC<Props> = (props) => {
             projectLink={`${urls.carbonDashboard}/MCO2`}
             headline={t({
               id: "retirement.single.project_details.moss_headline",
-              message:
-                "Click here to learn more about the projects that back the MCO2 pools",
+              message: "Learn more about the projects that back the MCO2 pools",
             })}
             tokenAddress={offset.tokenAddress}
           />
