@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-13 19:52+0000\n"
+"POT-Creation-Date: 2022-06-14 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -608,7 +608,7 @@ msgstr "错误"
 
 #: components/views/Offset/index.tsx:312
 msgid "shared.improper_address_format"
-msgstr ""
+msgstr "请格式化地址"
 
 #: components/views/Offset/index.tsx:322
 msgid "shared.insufficient_balance"

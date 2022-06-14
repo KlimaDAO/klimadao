@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-13 19:52+0000\n"
+"POT-Creation-Date: 2022-06-14 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -792,11 +792,11 @@ msgstr "Activos utilizados para las retiradas"
 
 #: components/pages/Retirements/index.tsx:56
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO - Retiradas de carbono para el beneficiario {0}"
 
 #: components/pages/Retirements/index.tsx:50
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "KlimaDAO - Retiradas de carbono para el beneficiario {0}"
 
 #: components/pages/Retirements/index.tsx:75
 msgid "retirement.totals.page_headline"
