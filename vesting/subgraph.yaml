@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.5
 description: Klima DAO Vesting Metrics
 repository: https://github.com/KlimaDAO/klima-subgraph
 schema:
@@ -24,5 +24,30 @@ dataSources:
       eventHandlers:
         - event: StakeLocked(indexed address,uint256,uint256,bytes32,address)
           handler: handleStakeLocked
-      file: ./src/StakeLockedC3.ts
+        - event: WithdrawLocked(indexed address,uint256,bytes32,address)
+          handler: handleWithdrawLocked
+      file: ./src/C3WsklimaHandler.ts
+  # CO2 Compound NFT
+  - kind: ethereum/contract
+    name: CO2CompoundNFT
+    network: matic
+    source:
+      address: '0xb0C22d8D350C67420f06F48936654f567C73E8C8'
+      abi: ERC20
+      startBlock: 22096611
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - CO2Compound
+      abis:
+        - name: KlimaStakingV1
+          file: ../lib/abis/KlimaStakingV1.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfers
+      file: ./src/CO2CompoundHandler.ts
  

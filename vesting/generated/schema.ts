@@ -11,7 +11,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class Vesting extends Entity {
+export class Lock extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -19,18 +19,18 @@ export class Vesting extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save Vesting entity without an ID");
+    assert(id != null, "Cannot save Lock entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Vesting must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Lock must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("Vesting", id.toString(), this);
+      store.set("Lock", id.toString(), this);
     }
   }
 
-  static load(id: string): Vesting | null {
-    return changetype<Vesting | null>(store.get("Vesting", id));
+  static load(id: string): Lock | null {
+    return changetype<Lock | null>(store.get("Lock", id));
   }
 
   get id(): string {
@@ -40,6 +40,15 @@ export class Vesting extends Entity {
 
   set id(value: string) {
     this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
   }
 
   get token(): string {
@@ -115,7 +124,7 @@ export class Vesting extends Entity {
   }
 }
 
-export class AggregatedVestingInfo extends Entity {
+export class Unlock extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -123,23 +132,18 @@ export class AggregatedVestingInfo extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save AggregatedVestingInfo entity without an ID"
-    );
+    assert(id != null, "Cannot save Unlock entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type AggregatedVestingInfo must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Unlock must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("AggregatedVestingInfo", id.toString(), this);
+      store.set("Unlock", id.toString(), this);
     }
   }
 
-  static load(id: string): AggregatedVestingInfo | null {
-    return changetype<AggregatedVestingInfo | null>(
-      store.get("AggregatedVestingInfo", id)
-    );
+  static load(id: string): Unlock | null {
+    return changetype<Unlock | null>(store.get("Unlock", id));
   }
 
   get id(): string {
@@ -149,6 +153,110 @@ export class AggregatedVestingInfo extends Entity {
 
   set id(value: string) {
     this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
+  }
+
+  get token(): string {
+    let value = this.get("token");
+    return value!.toString();
+  }
+
+  set token(value: string) {
+    this.set("token", Value.fromString(value));
+  }
+
+  get platform(): string {
+    let value = this.get("platform");
+    return value!.toString();
+  }
+
+  set platform(value: string) {
+    this.set("platform", Value.fromString(value));
+  }
+
+  get contractAddress(): Bytes {
+    let value = this.get("contractAddress");
+    return value!.toBytes();
+  }
+
+  set contractAddress(value: Bytes) {
+    this.set("contractAddress", Value.fromBytes(value));
+  }
+
+  get stakerAddress(): Bytes {
+    let value = this.get("stakerAddress");
+    return value!.toBytes();
+  }
+
+  set stakerAddress(value: Bytes) {
+    this.set("stakerAddress", Value.fromBytes(value));
+  }
+
+  get maturityDate(): BigInt {
+    let value = this.get("maturityDate");
+    return value!.toBigInt();
+  }
+
+  set maturityDate(value: BigInt) {
+    this.set("maturityDate", Value.fromBigInt(value));
+  }
+
+  get amount(): BigDecimal {
+    let value = this.get("amount");
+    return value!.toBigDecimal();
+  }
+
+  set amount(value: BigDecimal) {
+    this.set("amount", Value.fromBigDecimal(value));
+  }
+}
+
+export class VestingMetric extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save VestingMetric entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type VestingMetric must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("VestingMetric", id.toString(), this);
+    }
+  }
+
+  static load(id: string): VestingMetric | null {
+    return changetype<VestingMetric | null>(store.get("VestingMetric", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get timestamp(): BigInt {
+    let value = this.get("timestamp");
+    return value!.toBigInt();
+  }
+
+  set timestamp(value: BigInt) {
+    this.set("timestamp", Value.fromBigInt(value));
   }
 
   get platform(): string {
@@ -169,30 +277,84 @@ export class AggregatedVestingInfo extends Entity {
     this.set("token", Value.fromString(value));
   }
 
-  get maturityDate(): string {
-    let value = this.get("maturityDate");
+  get contractAddress(): string {
+    let value = this.get("contractAddress");
     return value!.toString();
   }
 
-  set maturityDate(value: string) {
-    this.set("maturityDate", Value.fromString(value));
+  set contractAddress(value: string) {
+    this.set("contractAddress", Value.fromString(value));
   }
 
-  get totalUnlocks(): BigInt {
-    let value = this.get("totalUnlocks");
+  get dailyLockCount(): BigInt {
+    let value = this.get("dailyLockCount");
     return value!.toBigInt();
   }
 
-  set totalUnlocks(value: BigInt) {
-    this.set("totalUnlocks", Value.fromBigInt(value));
+  set dailyLockCount(value: BigInt) {
+    this.set("dailyLockCount", Value.fromBigInt(value));
   }
 
-  get totalAmount(): BigDecimal {
-    let value = this.get("totalAmount");
+  get dailyLockAmount(): BigDecimal {
+    let value = this.get("dailyLockAmount");
     return value!.toBigDecimal();
   }
 
-  set totalAmount(value: BigDecimal) {
-    this.set("totalAmount", Value.fromBigDecimal(value));
+  set dailyLockAmount(value: BigDecimal) {
+    this.set("dailyLockAmount", Value.fromBigDecimal(value));
+  }
+
+  get dailyUnlockCount(): BigInt {
+    let value = this.get("dailyUnlockCount");
+    return value!.toBigInt();
+  }
+
+  set dailyUnlockCount(value: BigInt) {
+    this.set("dailyUnlockCount", Value.fromBigInt(value));
+  }
+
+  get dailyUnlockAmount(): BigDecimal {
+    let value = this.get("dailyUnlockAmount");
+    return value!.toBigDecimal();
+  }
+
+  set dailyUnlockAmount(value: BigDecimal) {
+    this.set("dailyUnlockAmount", Value.fromBigDecimal(value));
+  }
+
+  get dailyMaturityCount(): BigInt {
+    let value = this.get("dailyMaturityCount");
+    return value!.toBigInt();
+  }
+
+  set dailyMaturityCount(value: BigInt) {
+    this.set("dailyMaturityCount", Value.fromBigInt(value));
+  }
+
+  get dailyMaturityAmount(): BigDecimal {
+    let value = this.get("dailyMaturityAmount");
+    return value!.toBigDecimal();
+  }
+
+  set dailyMaturityAmount(value: BigDecimal) {
+    this.set("dailyMaturityAmount", Value.fromBigDecimal(value));
+  }
+
+  get totalAmountLocked(): BigDecimal {
+    let value = this.get("totalAmountLocked");
+    return value!.toBigDecimal();
+  }
+
+  set totalAmountLocked(value: BigDecimal) {
+    this.set("totalAmountLocked", Value.fromBigDecimal(value));
+  }
+
+  get inFuture(): boolean {
+    let value = this.get("inFuture");
+    return value!.toBoolean();
+  }
+
+  set inFuture(value: boolean) {
+    this.set("inFuture", Value.fromBoolean(value));
   }
 }

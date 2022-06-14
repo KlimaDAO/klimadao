@@ -7,6 +7,7 @@ export const NBO_TOKEN: string = 'NBO';
 export const NCT_TOKEN: string = 'NCT';
 export const KLIMA_TOKEN: string = 'KLIMA';
 export const SKLIMA_TOKEN: string = 'sKLIMA';
+export const WSKLIMA_TOKEN: string = 'wsKLIMA';
 // LP Bonds
 export const KLIMABCT_LPBOND_TOKEN: string = 'KLIMA-BCT';
 export const BCTUSDC_LPBOND_TOKEN: string = 'BCT-USDC';
@@ -82,10 +83,10 @@ export const BONDING_CALCULATOR = '0x0b8d6D6611Ed7cCe01BbcC57826548C6107B0478';
 //Vesting constants
 export const C3_PLATFORM = "C3"
 export const C3_WSKLIMA_CONTRACT = "0xe02efadA566Af74c92b6659d03BAaCb4c06Cc856"
-export const C3_WSKLIMA_TOKEN = "WSKLIMA"
+export const C3_WSKLIMA_INIT_TIMESTAMP = "1651449600" //Date Timestamp of contract creation
 
-// Assumed epochs per day (until we have dynamic)
-export const EPOCHS_PER_DAY = 3.4256
+export const NFT_CO2COMPOUND_PLATFORM = "NFT_CO2_COMPOUND"
+export const NFT_CO2COMPOUND_CONTRACT = "0x08e253270240509E57B9543c0453F0bAc839d0a1"
+export const NFT_CO2COMPOUND_INIT_TIMESTAMP = "1638486000" //Date Timestamp of contract creation
 
-// Misc Items
-export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
+export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
