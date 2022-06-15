@@ -874,15 +874,9 @@ msgstr ""
 msgid "shared.contact"
 msgstr ""
 
-<<<<<<< HEAD
-#: components/pages/Resources/Community/index.tsx:109
-#: components/pages/Resources/Community/index.tsx:393
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
-=======
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:394
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
->>>>>>> compiled dev strings
 msgid "shared.contact_us"
 msgstr ""
 
@@ -900,10 +894,6 @@ msgid "shared.enter_app"
 msgstr ""
 
 #: components/pages/Buy/index.tsx:46
-<<<<<<< HEAD
-#: components/pages/Home/index.tsx:63
-#: components/pages/Retirements/index.tsx:59
-=======
 #: components/pages/Disclaimer/index.tsx:20
 #: components/pages/Home/index.tsx:64
 #: components/pages/Podcast/index.tsx:35
@@ -911,7 +901,6 @@ msgstr ""
 #: components/pages/Resources/Contact/index.tsx:25
 #: components/pages/Retirements/index.tsx:62
 #: components/pages/errors/Custom404.tsx:23
->>>>>>> compiled dev strings
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
 msgstr ""

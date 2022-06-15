@@ -11,7 +11,7 @@ type PageName = "blog" | "community" | "contact" | "podcast";
 export type Props = {
   activePage: PageName;
   title: string;
-  subline: JSX.Element | string;
+  subline: Element | string;
   headerElements?: FC;
 };
 

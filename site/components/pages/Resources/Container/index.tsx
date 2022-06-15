@@ -11,7 +11,7 @@ export type Props = PropsWithChildren<ReactNode> & {
   activePage: PageName;
   title: string;
   headline: string;
-  subline: JSX.Element | string;
+  subline: Element | string;
   mediaTitle: string;
   metaDescription: string;
   mediaImageSrc: string;
