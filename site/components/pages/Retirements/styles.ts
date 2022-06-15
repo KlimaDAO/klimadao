@@ -54,12 +54,6 @@ export const copyButton = css`
   }
 `;
 
-export const copyButtonSmall = css`
-  ${copyButton}
-  ${typography.caption}
-  color: var(--font-02);
-`;
-
 export const cards = css`
   grid-column: main;
   display: grid;

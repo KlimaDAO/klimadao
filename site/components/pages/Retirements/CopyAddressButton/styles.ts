@@ -18,7 +18,6 @@ export const medium = css`
 `;
 
 export const small = css`
-  ${copyButton}
   ${typography.caption}
   color: var(--font-02);
 `;
