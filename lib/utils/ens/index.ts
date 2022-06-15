@@ -1,3 +1,4 @@
+import { providers } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getIsValidAddress } from "../getIsValidAddress";
 
@@ -23,7 +24,10 @@ export const getENSByAddress = async (
   providerUrl?: string
 ): Promise<string | null> => {
   try {
-    const provider = getJsonRpcProvider(providerUrl, "eth"); // fallback to "eth" if providerUrl is undefined
+    // fallback to getDefaultProvider on local development where secrets are not present
+    const provider = providerUrl
+      ? getJsonRpcProvider(providerUrl)
+      : providers.getDefaultProvider(1);
     const domain = await provider.lookupAddress(address);
     return domain;
   } catch (e) {
