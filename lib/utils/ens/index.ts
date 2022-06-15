@@ -24,6 +24,7 @@ export const getENSByAddress = async (
   providerUrl?: string
 ): Promise<string | null> => {
   try {
+    // ENS lookup on the serverside works only with providerUrl
     // fallback to getDefaultProvider on local development where secrets are not present
     const provider = providerUrl
       ? getJsonRpcProvider(providerUrl)
