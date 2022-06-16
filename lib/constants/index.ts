@@ -101,6 +101,7 @@ export const urls = {
   contact: "https://www.klimadao.finance/contact",
   community: "https://www.klimadao.finance/community",
   buy: "https://www.klimadao.finance/buy",
+  infinity: "https://www.klimadao.finance/infinity",
   buy_dapp: "https://app.klimadao.finance/#/buy",
   carbonDashboard: "https://carbon.klimadao.finance",
   forum: "https://forum.klimadao.finance",

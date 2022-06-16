@@ -22,6 +22,7 @@ export { Section } from "./Layout/Section";
 export { NavMobile } from "./Navigation/NavMobile";
 export { ToggleNavButton } from "./Navigation/ToggleNavButton";
 export { ButtonPrimary } from "./Buttons/ButtonPrimary";
+export { ButtonSecondary } from "./Buttons/ButtonSecondary";
 export { LogoWithClaim } from "./Logos/LogoWithClaim";
 export { Text } from "./Text";
 export { ThemeToggle } from "./ThemeToggle";
