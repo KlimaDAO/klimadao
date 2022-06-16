@@ -1,5 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import Link from "next/link";
+
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
@@ -20,7 +22,6 @@ import { CopyURLButton } from "../CopyURLButton";
 
 import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
-import { urls } from "@klimadao/lib/constants";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
 
 type Props = {
@@ -132,14 +133,16 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                   </Trans>
                 }
                 text={
-                  <a
-                    className="address"
-                    href={`${urls.retirements}/${
+                  <Link
+                    href={`/retirements/${
                       nameserviceDomain || beneficiaryAddress
                     }`}
+                    passHref
                   >
-                    {nameserviceDomain || concatAddress(beneficiaryAddress)}
-                  </a>
+                    <a className="address">
+                      {nameserviceDomain || concatAddress(beneficiaryAddress)}
+                    </a>
+                  </Link>
                 }
               />
             </div>

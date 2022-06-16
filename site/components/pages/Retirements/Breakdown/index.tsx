@@ -29,28 +29,36 @@ export const Breakdown: NextPage<Props> = (props) => {
     <div className={styles.breakdown}>
       <div className={styles.breakdownHeadline}>
         <Text t="h3" as="h3" align="center" className="title">
-          <Trans id="retirement.totals.assets_used_headline">
-            Assets used for retirements
+          <Trans id="retirement.totals_by_assets.headline">
+            Retirement Totals By Asset
           </Trans>
         </Text>
       </div>
       <div className={styles.breakdownList}>
-        {breakdownTokens.map((tkn, index) => {
-          return (
-            <div className={styles.breakdownListItem} key={`${tkn}-${index}`}>
-              <Image
-                src={tkn.icon}
-                width={48}
-                height={48}
-                alt={`${tkn.label}-icon`}
-              />
-              <div className="content">
-                <Text>{trimWithLocale(tkn.amount, 5, locale)}</Text>
-                <Text color="lightest">{tkn.label}</Text>
+        {!!breakdownTokens.length &&
+          breakdownTokens.map((tkn, index) => {
+            return (
+              <div className={styles.breakdownListItem} key={`${tkn}-${index}`}>
+                <Image
+                  src={tkn.icon}
+                  width={48}
+                  height={48}
+                  alt={`${tkn.label}-icon`}
+                />
+                <div className="content">
+                  <Text>{trimWithLocale(tkn.amount, 5, locale)}</Text>
+                  <Text color="lightest">{tkn.label}</Text>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        {!breakdownTokens.length && (
+          <Text align="center">
+            <Trans id="retirement.totals.breakdown_token_assets.empty">
+              No retirement assets found
+            </Trans>
+          </Text>
+        )}
       </div>
     </div>
   );

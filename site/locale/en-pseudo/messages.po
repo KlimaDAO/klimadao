@@ -722,7 +722,11 @@ msgstr ""
 msgid "retirement.single.message.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
+msgid "retirement.single.project_details.click_on_project"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
 msgid "retirement.single.project_details.moss_headline"
 msgstr ""
 
@@ -778,8 +782,8 @@ msgstr ""
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr ""
 
-#: components/pages/Retirements/Breakdown/index.tsx:32
-msgid "retirement.totals.assets_used_headline"
+#: components/pages/Retirements/Breakdown/index.tsx:57
+msgid "retirement.totals.breakdown_token_assets.empty"
 msgstr ""
 
 #: components/pages/Retirements/index.tsx:53
@@ -812,6 +816,10 @@ msgstr ""
 
 #: components/pages/Retirements/index.tsx:124
 msgid "retirement.totals.total_retirement_transactions"
+msgstr ""
+
+#: components/pages/Retirements/Breakdown/index.tsx:32
+msgid "retirement.totals_by_assets.headline"
 msgstr ""
 
 #: components/Footer/index.tsx:49

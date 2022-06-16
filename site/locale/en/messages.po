@@ -728,13 +728,17 @@ msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
+msgid "retirement.single.project_details.click_on_project"
+msgstr "Click on the project title to learn more."
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
 msgid "retirement.single.project_details.moss_headline"
-msgstr "Click here to learn more about the projects that back the MCO2 pools"
+msgstr "Learn more about the projects that back the MCO2 pools"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
-msgstr "The following projects were retired. Click a project title to learn more about it."
+msgstr "The tonne(s) retired originated from the following project(s)."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
@@ -784,9 +788,9 @@ msgstr "No retirements found"
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr "All Retirements"
 
-#: components/pages/Retirements/Breakdown/index.tsx:32
-msgid "retirement.totals.assets_used_headline"
-msgstr "Assets used for retirements"
+#: components/pages/Retirements/Breakdown/index.tsx:57
+msgid "retirement.totals.breakdown_token_assets.empty"
+msgstr "No retirement assets found"
 
 #: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
@@ -819,6 +823,10 @@ msgstr "Total Carbon Tonnes Retired"
 #: components/pages/Retirements/index.tsx:124
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total Retirement Transactions"
+
+#: components/pages/Retirements/Breakdown/index.tsx:32
+msgid "retirement.totals_by_assets.headline"
+msgstr "Retirement Totals By Asset"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
