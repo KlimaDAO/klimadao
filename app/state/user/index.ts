@@ -48,15 +48,7 @@ export interface UserState {
     // wsklima: string;
   };
   carbonRetiredAllowance?: {
-    klima: string;
-    sklima: string;
-    wsklima: string;
-    bct: string;
-    mco2: string;
-    nct: string;
-    usdc: string;
-    ubo: string;
-    nbo: string;
+    [key in OffsetInputToken]: string;
   };
   carbonRetired?: RetirementsTotalsAndBalances;
 }
