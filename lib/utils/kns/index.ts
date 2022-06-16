@@ -8,6 +8,9 @@ import { getIsValidAddress } from "../getIsValidAddress";
 export const isKNSDomain = (domain: string): boolean =>
   !!domain && domain.toLowerCase().includes(".klima");
 
+export const createKNSDomainFromName = (name: string): string =>
+  `${name}.klima`;
+
 // Use this import and overwrite your provider if needed with
 // import { KNSContract } from '...'
 // KNSContract.provider = myProvider;
@@ -27,6 +30,18 @@ export const getAddressByKNS = async (domain: string): Promise<string> => {
     return address;
   } catch (e) {
     console.error("Error in getAddressByKNS", e);
+    return Promise.reject(e);
+  }
+};
+
+export const getKNSByAddress = async (
+  address: string
+): Promise<string | null> => {
+  try {
+    const domain = await KNSContract.defaultNames(address); // name without .klima
+    return domain;
+  } catch (e) {
+    console.error("Error in getKNSByAddress", e);
     return Promise.reject(e);
   }
 };

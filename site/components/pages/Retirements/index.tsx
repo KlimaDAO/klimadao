@@ -9,8 +9,6 @@ import { Footer } from "components/Footer";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { concatAddress } from "@klimadao/lib/utils";
-import ContentCopy from "@mui/icons-material/ContentCopy";
-import Check from "@mui/icons-material/Check";
 
 import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
@@ -19,7 +17,7 @@ import { Breakdown } from "./Breakdown";
 import { AllRetirements } from "./List";
 import { RetirementFooter } from "./Footer";
 import { CopyURLButton } from "./CopyURLButton";
-import { useCopyToClipboard } from "hooks/useCopyToClipboard";
+import { CopyAddressButton } from "./CopyAddressButton";
 
 import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
@@ -39,9 +37,8 @@ export const RetirementPage: NextPage<Props> = (props) => {
     klimaRetires,
     nameserviceDomain,
   } = props;
-  const { locale } = useRouter();
-  const [copied, doCopy] = useCopyToClipboard();
 
+  const { locale } = useRouter();
   const concattedAddress = concatAddress(beneficiaryAddress);
 
   return (
@@ -69,27 +66,33 @@ export const RetirementPage: NextPage<Props> = (props) => {
       <Navigation activePage="Home" />
 
       <Section variant="gray" className={styles.section}>
-        <div className={styles.pageHeadline}>
-          <div className="textGroup">
+        <div className={styles.pageHeader}>
+          <div className={styles.headline}>
             <Text t="h2" as="h2" align="center">
               <Trans id="retirement.totals.page_headline">
                 Carbon Retirements
               </Trans>
             </Text>
-            <Text align="center" className={styles.address}>
-              <Trans id="retirement.totals.page_subline">for beneficiary</Trans>
-              <button
-                className={styles.copyButton}
-                onClick={() => doCopy(nameserviceDomain || beneficiaryAddress)}
-              >
-                {nameserviceDomain || concattedAddress}
-                {copied ? (
-                  <Check fontSize="large" />
-                ) : (
-                  <ContentCopy fontSize="large" />
-                )}
-              </button>
-            </Text>
+            <div className={styles.subline}>
+              <Text align="center" className={styles.address}>
+                <Trans id="retirement.totals.page_subline">
+                  for beneficiary
+                </Trans>
+                <CopyAddressButton
+                  address={nameserviceDomain || beneficiaryAddress}
+                  label={nameserviceDomain || concattedAddress}
+                />
+              </Text>
+              {nameserviceDomain && (
+                <Text align="center" className={styles.address}>
+                  <CopyAddressButton
+                    address={beneficiaryAddress}
+                    label={concattedAddress}
+                    size="small"
+                  />
+                </Text>
+              )}
+            </div>
           </div>
         </div>
         <div className={styles.cards}>

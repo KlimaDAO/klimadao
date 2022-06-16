@@ -1,9 +1,9 @@
-import { ethers } from "ethers";
+import { providers } from "ethers";
 import { urls } from "../../constants";
 
 export const getJsonRpcProvider = (providerUrl?: string) => {
   if (providerUrl) {
-    return new ethers.providers.JsonRpcProvider(providerUrl);
+    return new providers.JsonRpcProvider(providerUrl);
   }
-  return new ethers.providers.JsonRpcProvider(urls.polygonMainnetRpc);
+  return new providers.JsonRpcProvider(urls.polygonMainnetRpc);
 };

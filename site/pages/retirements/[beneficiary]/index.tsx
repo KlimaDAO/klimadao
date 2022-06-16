@@ -16,6 +16,7 @@ import { RetirementPage } from "components/pages/Retirements";
 import { loadTranslation } from "lib/i18n";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
+import { getDomainByAddress } from "lib/getDomainByAddress";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
@@ -41,22 +42,41 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No params found");
     }
 
-    let resolvedAddress: string;
-    const isDomainInURL = getIsDomainInURL(params.beneficiary);
-    if (isDomainInURL) {
-      resolvedAddress = await getAddressByDomain(params.beneficiary); // this fn should throw if it fails to resolve
-    } else if (ethers.utils.isAddress(params.beneficiary)) {
-      resolvedAddress = params.beneficiary;
-    } else {
+    const beneficiaryInUrl = params.beneficiary;
+    const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
+    const isValidAddress =
+      !isDomainInURL && ethers.utils.isAddress(beneficiaryInUrl);
+
+    if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");
+    }
+
+    const nameserviceDomain =
+      !isDomainInURL && (await getDomainByAddress(beneficiaryInUrl));
+
+    // redirect now to this page again with nameserviceDomain in URL
+    if (nameserviceDomain) {
+      return {
+        redirect: {
+          destination: `/retirements/${nameserviceDomain}`,
+          statusCode: 301,
+        },
+      };
+    }
+
+    let beneficiaryAddress: string;
+    if (isDomainInURL) {
+      beneficiaryAddress = await getAddressByDomain(beneficiaryInUrl); // this fn should throw if it fails to resolve
+    } else {
+      beneficiaryAddress = beneficiaryInUrl;
     }
 
     const promises = [
       getRetirementTotalsAndBalances({
-        address: resolvedAddress || (params.beneficiary as string),
+        address: beneficiaryAddress,
         providerUrl: getInfuraUrlPolygon(),
       }),
-      queryKlimaRetiresByAddress(resolvedAddress || params.beneficiary),
+      queryKlimaRetiresByAddress(beneficiaryAddress),
       loadTranslation(locale),
     ];
 
@@ -71,9 +91,9 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       props: {
         totalsAndBalances,
         klimaRetires,
-        beneficiaryAddress: resolvedAddress,
-        nameserviceDomain: isDomainInURL ? params.beneficiary : null,
-        canonicalUrl: `${urls.retirements}/${params.beneficiary}`,
+        beneficiaryAddress: beneficiaryAddress,
+        nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
+        canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}`,
         translation,
       },
       revalidate: 240,

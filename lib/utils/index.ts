@@ -30,7 +30,13 @@ export {
 export { getVerraProjectByID } from "./verra/getVerraProjects";
 
 // KNS
-export { isKNSDomain, KNSContract, getAddressByKNS } from "./kns";
+export {
+  isKNSDomain,
+  createKNSDomainFromName,
+  KNSContract,
+  getAddressByKNS,
+  getKNSByAddress,
+} from "./kns";
 
 // ENS
-export { isENSDomain, getAddressByENS } from "./ens";
+export { isENSDomain, getAddressByENS, getENSByAddress } from "./ens";
