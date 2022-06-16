@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
-import { urls } from "@klimadao/lib/constants";
+import { getOgImageSrc } from "@klimadao/lib/utils";
 
 import { IS_PRODUCTION } from "lib/constants";
 
@@ -26,7 +26,7 @@ export const PageHead = (props: PageHeadProps) => {
   const relativePath = router.asPath.split(/[#,?]/)[0];
   const canonicalUrl =
     props.canonicalUrl || `https://www.klimadao.finance${relativePath}`;
-
+  const mediaImageSrc = getOgImageSrc(props.mediaImageSrc);
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
@@ -51,17 +51,8 @@ export const PageHead = (props: PageHeadProps) => {
       <meta name="twitter:title" content={props.mediaTitle} />
       <meta name="twitter:description" content={props.metaDescription} />
 
-      {props.mediaImageSrc ? (
-        <>
-          <meta property="og:image" content={props.mediaImageSrc} />
-          <meta name="twitter:image" content={props.mediaImageSrc} />
-        </>
-      ) : (
-        <>
-          <meta property="og:image" content={urls.mediaImage} />
-          <meta name="twitter:image" content={urls.mediaImage} />
-        </>
-      )}
+      <meta property="og:image" content={mediaImageSrc} />
+      <meta name="twitter:image" content={mediaImageSrc} />
 
       {props.isArticle && <meta property="og:type" content="article" />}
 
