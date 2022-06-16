@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-15 15:41+0000\n"
+"POT-Creation-Date: 2022-06-16 01:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -786,35 +786,35 @@ msgstr "Alle CO2-Ausgleiche"
 msgid "retirement.totals.assets_used_headline"
 msgstr "Für CO2-Ausgleich genutzte Assets"
 
-#: components/pages/Retirements/index.tsx:56
+#: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDAO - CO2-Ausgleich für {0}"
 
-#: components/pages/Retirements/index.tsx:50
+#: components/pages/Retirements/index.tsx:47
 msgid "retirement.totals.head.title"
 msgstr "KlimaDAO - CO2-Ausgleich für {0}"
 
-#: components/pages/Retirements/index.tsx:75
+#: components/pages/Retirements/index.tsx:72
 msgid "retirement.totals.page_headline"
 msgstr "CO2-Ausgleiche"
 
-#: components/pages/Retirements/index.tsx:80
+#: components/pages/Retirements/index.tsx:78
 msgid "retirement.totals.page_subline"
 msgstr "für Empfänger"
 
-#: components/pages/Retirements/index.tsx:99
+#: components/pages/Retirements/index.tsx:102
 msgid "retirement.totals.retired_assets"
 msgstr "Ausgeglichene Assets"
 
-#: components/pages/Retirements/index.tsx:115
+#: components/pages/Retirements/index.tsx:118
 msgid "retirement.totals.retirements"
 msgstr "CO2-Ausgleiche"
 
-#: components/pages/Retirements/index.tsx:107
+#: components/pages/Retirements/index.tsx:110
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "CO2-Tonnen insgesamt ausgeglichen"
 
-#: components/pages/Retirements/index.tsx:121
+#: components/pages/Retirements/index.tsx:124
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Summe der Ausgleichstransaktionen"
 
@@ -869,7 +869,7 @@ msgstr "App öffnen"
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:62
+#: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom404.tsx:23
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"

@@ -788,35 +788,35 @@ msgstr "All Retirements"
 msgid "retirement.totals.assets_used_headline"
 msgstr "Assets used for retirements"
 
-#: components/pages/Retirements/index.tsx:56
+#: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDAO - Carbon Retirements for beneficiary {0}"
 
-#: components/pages/Retirements/index.tsx:50
+#: components/pages/Retirements/index.tsx:47
 msgid "retirement.totals.head.title"
 msgstr "KlimaDAO - Carbon Retirements for beneficiary {0}"
 
-#: components/pages/Retirements/index.tsx:75
+#: components/pages/Retirements/index.tsx:72
 msgid "retirement.totals.page_headline"
 msgstr "Carbon Retirements"
 
-#: components/pages/Retirements/index.tsx:80
+#: components/pages/Retirements/index.tsx:78
 msgid "retirement.totals.page_subline"
 msgstr "for beneficiary"
 
-#: components/pages/Retirements/index.tsx:99
+#: components/pages/Retirements/index.tsx:102
 msgid "retirement.totals.retired_assets"
 msgstr "Retired Assets"
 
-#: components/pages/Retirements/index.tsx:115
+#: components/pages/Retirements/index.tsx:118
 msgid "retirement.totals.retirements"
 msgstr "Retirements"
 
-#: components/pages/Retirements/index.tsx:107
+#: components/pages/Retirements/index.tsx:110
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "Total Carbon Tonnes Retired"
 
-#: components/pages/Retirements/index.tsx:121
+#: components/pages/Retirements/index.tsx:124
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total Retirement Transactions"
 
@@ -871,7 +871,7 @@ msgstr "Enter App"
 #: components/pages/Home/index.tsx:64
 #: components/pages/Resources/Community/index.tsx:82
 #: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:62
+#: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom404.tsx:23
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
