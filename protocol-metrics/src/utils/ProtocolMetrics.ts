@@ -19,7 +19,7 @@ import {
     MCO2_ERC20_CONTRACT, UBOBOND_V1, UBOBOND_V1_BLOCK, UBO_ERC20_CONTRACT,
     KLIMA_UBO_PAIR_BLOCK, NBOBOND_V1, NBOBOND_V1_BLOCK, NBO_ERC20_CONTRACT,
     KLIMA_NBO_PAIR_BLOCK, SKLIMA_ERC20_V1_CONTRACT, STAKING_CONTRACT_V1, TREASURY_ADDRESS,
-    NCT_ERC20_CONTRACT, NCT_USDC_PAIR_BLOCK
+    NCT_ERC20_CONTRACT, NCT_USDC_PAIR_BLOCK, KLIMA_NBO_PAIR, KLIMA_UBO_PAIR
 } from '../../../lib/utils/Constants';
 import { EpochUtil } from './Epoch';
 import { BCT } from '../../../lib/tokens/impl/BCT';
@@ -38,6 +38,8 @@ export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
         protocolMetric.timestamp = timestamp
         protocolMetric.klimaCirculatingSupply = BigDecimal.fromString("0")
         protocolMetric.sKlimaCirculatingSupply = BigDecimal.fromString("0")
+        protocolMetric.totalKlimaInLP = BigDecimal.fromString("0")
+        protocolMetric.totalKlimaUnstaked = BigDecimal.fromString("0")
         protocolMetric.totalSupply = BigDecimal.fromString("0")
         protocolMetric.klimaPrice = BigDecimal.fromString("0")
         protocolMetric.marketCap = BigDecimal.fromString("0")
@@ -363,6 +365,41 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     ]
 }
 
+function getKlimaFromLP(transaction: Transaction): BigDecimal {
+    let totalKlimaInLP = BigDecimal.zero()
+    if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_USDC_PAIR_BLOCK))) {
+        totalKlimaInLP = totalKlimaInLP.plus(getKlimaReserveAmount(KLIMA_USDC_PAIR, false))
+    }
+    if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_BCT_PAIR_BLOCK))) {
+        totalKlimaInLP = totalKlimaInLP.plus(getKlimaReserveAmount(KLIMA_BCT_PAIR, false))
+    }
+    if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_MCO2_PAIR_BLOCK))) {
+        totalKlimaInLP = totalKlimaInLP.plus(getKlimaReserveAmount(KLIMA_MCO2_PAIR, true))
+    }
+    if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_UBO_PAIR_BLOCK))) {
+        totalKlimaInLP = totalKlimaInLP.plus(getKlimaReserveAmount(KLIMA_UBO_PAIR, false))
+    }
+    if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_NBO_PAIR_BLOCK))) {
+        totalKlimaInLP = totalKlimaInLP.plus(getKlimaReserveAmount(KLIMA_NBO_PAIR, true))
+    }
+
+    return totalKlimaInLP
+}
+
+function getKlimaReserveAmount(pair: string, isFirst: boolean): BigDecimal {
+    let uniV2Pair = UniswapV2Pair.bind(Address.fromString(pair))
+    const reserveCall = uniV2Pair.try_getReserves()
+    if (reserveCall.reverted) {
+    return BigDecimal.zero()
+    }
+
+    if (isFirst) {
+        return toDecimal(reserveCall.value.value0, 9)
+    } else {
+        return toDecimal(reserveCall.value.value1, 9)
+    }
+}
+
 function getMV_CC(transaction: Transaction, assets: string[]): BigDecimal[] {
 
     let totalCarbon = BigDecimal.fromString("0")
@@ -461,6 +498,15 @@ export function updateProtocolMetrics(transaction: Transaction): void {
 
     //Circ Supply
     pm.klimaCirculatingSupply = getCirculatingSupply(transaction, pm.totalSupply)
+
+    //Total Klima in LP
+    pm.totalKlimaInLP = getKlimaFromLP(transaction)
+
+    //sKlima Supply
+    pm.sKlimaCirculatingSupply = getSklimaSupply(transaction)
+
+    //Total Klima unstaked
+    pm.totalKlimaUnstaked = pm.totalSupply.minus(pm.totalKlimaInLP).minus(pm.sKlimaCirculatingSupply)
 
     //sKlima Supply
     pm.sKlimaCirculatingSupply = getSklimaSupply(transaction)

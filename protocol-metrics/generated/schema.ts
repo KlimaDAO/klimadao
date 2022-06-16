@@ -22,6 +22,8 @@ export class ProtocolMetric extends Entity {
       "sKlimaCirculatingSupply",
       Value.fromBigDecimal(BigDecimal.zero())
     );
+    this.set("totalKlimaInLP", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalKlimaUnstaked", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("totalSupply", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("klimaPrice", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("marketCap", Value.fromBigDecimal(BigDecimal.zero()));
@@ -89,6 +91,24 @@ export class ProtocolMetric extends Entity {
 
   set sKlimaCirculatingSupply(value: BigDecimal) {
     this.set("sKlimaCirculatingSupply", Value.fromBigDecimal(value));
+  }
+
+  get totalKlimaInLP(): BigDecimal {
+    let value = this.get("totalKlimaInLP");
+    return value!.toBigDecimal();
+  }
+
+  set totalKlimaInLP(value: BigDecimal) {
+    this.set("totalKlimaInLP", Value.fromBigDecimal(value));
+  }
+
+  get totalKlimaUnstaked(): BigDecimal {
+    let value = this.get("totalKlimaUnstaked");
+    return value!.toBigDecimal();
+  }
+
+  set totalKlimaUnstaked(value: BigDecimal) {
+    this.set("totalKlimaUnstaked", Value.fromBigDecimal(value));
   }
 
   get totalSupply(): BigDecimal {

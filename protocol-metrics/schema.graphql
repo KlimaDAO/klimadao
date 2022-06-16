@@ -3,6 +3,8 @@ type ProtocolMetric @entity {
   timestamp: BigInt!
   klimaCirculatingSupply: BigDecimal!
   sKlimaCirculatingSupply: BigDecimal!
+  totalKlimaInLP: BigDecimal!
+  totalKlimaUnstaked: BigDecimal!
   totalSupply: BigDecimal!
   klimaPrice: BigDecimal!
   marketCap: BigDecimal!
