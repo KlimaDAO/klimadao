@@ -17,7 +17,7 @@ import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-type PageName = "Home" | "Buy" | "Resources" | "Disclaimer";
+type PageName = "Home" | "Buy" | "Resources" | "Disclaimer" | "Infinity";
 
 export type Props = {
   activePage: PageName;
@@ -53,6 +53,10 @@ export const Navigation: FC<Props> = ({
           name={t({ message: "Stake", id: "shared.stake" })}
         />
         <NavItemDesktop
+          url={"/infinity"}
+          name={t({ message: "KlimaInfinity", id: "shared.infity" })}
+        />
+        <NavItemDesktop
           url={urls.loveletter}
           name={t({ message: "Love Letters", id: "shared.loveletters" })}
         />
@@ -76,6 +80,10 @@ export const Navigation: FC<Props> = ({
         <NavItemMobile
           url={createLinkWithLocaleQuery(urls.stake, locale)}
           name={t({ message: "Stake", id: "shared.stake" })}
+        />
+        <NavItemMobile
+          url="/infinity"
+          name={t({ message: "KlimaInfinity", id: "shared.buy" })}
         />
         <NavItemMobile
           url={urls.loveletter}

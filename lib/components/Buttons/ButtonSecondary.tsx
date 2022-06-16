@@ -16,22 +16,22 @@ interface Props {
   disabled?: boolean;
 }
 
-export const ButtonPrimary: FC<Props> = ({ link: LinkElement, ...props }) => {
+export const ButtonSecondary: FC<Props> = ({ link: LinkElement, ...props }) => {
   let buttonStyle;
   if (props.variant === "gray") {
     buttonStyle = cx(
-      styles.button_primary,
-      styles.button_primary_gray,
+      styles.button_secondary,
+      styles.button_secondary_gray,
       props.className
     );
   } else if (props.variant === "blue") {
     buttonStyle = cx(
-      styles.button_primary,
-      styles.button_primary_blue,
+      styles.button_secondary,
+      styles.button_secondary_blue,
       props.className
     );
   } else {
-    buttonStyle = cx(styles.button_primary, props.className, {
+    buttonStyle = cx(styles.button_secondary, props.className, {
       icon: props.variant === "icon",
     });
   }
