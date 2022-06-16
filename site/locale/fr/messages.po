@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-16 02:02+0000\n"
+"POT-Creation-Date: 2022-06-16 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -122,7 +122,7 @@ msgstr "Le processus d'achat d'obligation consiste en un dépôt d'actifs carbon
 
 #: components/pages/Buy/index.tsx:264
 msgid "buy.bonding.description_02"
-msgstr "La remise fluctue en fonction des conditions du marché. La trésorerie accepte le carbone sous forme de jetons carbone (tels que UBO, BCT ou MCO2) ou de jetons de réservoirs de de liquidité (LP) (tels que KLIMA/BCT, KLIMA/MCO2)."
+msgstr "La remise fluctue en fonction des conditions du marché. La trésorerie accepte le carbone sous forme de jetons carbone (tels que UBO, BCT ou MCO2) ou de jetons de réservoirs de liquidité (LP) (tels que KLIMA/BCT, KLIMA/MCO2)."
 
 #: components/pages/Buy/index.tsx:83
 #: components/pages/Buy/index.tsx:175
@@ -726,15 +726,15 @@ msgstr "Message de compensation"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
-msgstr ""
+msgstr "Cliquez sur le titre du projet pour en savoir plus."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
 msgid "retirement.single.project_details.moss_headline"
-msgstr ""
+msgstr "En savoir plus sur les projets qui soutiennent les réservoirs de MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
-msgstr ""
+msgstr "La ou les tonne(s) compensée(s) provenaient du ou des projet(s) suivant(s)."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
@@ -786,7 +786,7 @@ msgstr "Toutes les compensations"
 
 #: components/pages/Retirements/Breakdown/index.tsx:57
 msgid "retirement.totals.breakdown_token_assets.empty"
-msgstr ""
+msgstr "Aucun actif de compensation trouvé"
 
 #: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
@@ -824,7 +824,7 @@ msgstr "Total des transactions de compensation"
 
 #: components/pages/Retirements/Breakdown/index.tsx:32
 msgid "retirement.totals_by_assets.headline"
-msgstr ""
+msgstr "Compensations Totales Par Actif"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
