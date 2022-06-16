@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-16 01:24+0000\n"
+"POT-Creation-Date: 2022-06-16 01:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -682,39 +682,39 @@ msgstr "使用碳支持的 KLIMA 代币来治理、兑换并获取质押奖励 -
 msgid "retirement.footer.buy_klima.title"
 msgstr "获取、质押并获得奖励。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:76
+#: components/pages/Retirements/SingleRetirement/index.tsx:77
 msgid "retirement.head.metaDescription"
 msgstr "透明，由 KlimaDAO 支持的链上抵消。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:68
+#: components/pages/Retirements/SingleRetirement/index.tsx:69
 msgid "retirement.head.metaTitle"
 msgstr "{0} 已停用 {1} 吨碳"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/index.tsx:65
 msgid "retirement.head.title"
 msgstr "KlimaDAO |碳停用收据"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:122
+#: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "未提供受益人姓名"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:116
+#: components/pages/Retirements/SingleRetirement/index.tsx:117
 msgid "retirement.single.beneficiary.title"
 msgstr "受益人"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:130
+#: components/pages/Retirements/SingleRetirement/index.tsx:131
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "受益人地址"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:171
+#: components/pages/Retirements/SingleRetirement/index.tsx:174
 msgid "retirement.single.disclaimer"
 msgstr "这代表了 Polygon 区块链上代币化碳资产的永久停用。该停用碳和相关数据是不可变的公共记录。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:87
+#: components/pages/Retirements/SingleRetirement/index.tsx:88
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:92
+#: components/pages/Retirements/SingleRetirement/index.tsx:93
 msgid "retirement.single.header.subline"
 msgstr "二氧化碳当量排放抵消（公吨）"
 
@@ -722,13 +722,17 @@ msgstr "二氧化碳当量排放抵消（公吨）"
 msgid "retirement.single.message.title"
 msgstr "停用消息"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:51
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
+msgid "retirement.single.project_details.click_on_project"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
 msgid "retirement.single.project_details.moss_headline"
-msgstr "单击此处了解更多有关支持 MCO2 池的项目信息"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
-msgstr "以下项目已停用。单击项目标题以了解更多信息。"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
@@ -746,11 +750,11 @@ msgstr "在 Polygonscan 上查看"
 msgid "retirement.single.quantity"
 msgstr "停用数量"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:163
+#: components/pages/Retirements/SingleRetirement/index.tsx:166
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...敬请期待！"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:158
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.retirementCertificate.title"
 msgstr "证书"
 
@@ -758,15 +762,15 @@ msgstr "证书"
 msgid "retirement.single.retirementDate.title"
 msgstr "日期"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:101
+#: components/pages/Retirements/SingleRetirement/index.tsx:102
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "未提供停用信息"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:150
+#: components/pages/Retirements/SingleRetirement/index.tsx:153
 msgid "retirement.single.timestamp.placeholder"
 msgstr "未提供停用时间戳"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:188
+#: components/pages/Retirements/SingleRetirement/index.tsx:191
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
 
@@ -778,9 +782,9 @@ msgstr "未找到碳停用"
 msgid "retirement.totals.all_retirements_list.headline"
 msgstr "所有停用"
 
-#: components/pages/Retirements/Breakdown/index.tsx:32
-msgid "retirement.totals.assets_used_headline"
-msgstr "用作停用的资产"
+#: components/pages/Retirements/Breakdown/index.tsx:57
+msgid "retirement.totals.breakdown_token_assets.empty"
+msgstr ""
 
 #: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
@@ -813,6 +817,10 @@ msgstr "已停用的总碳吨"
 #: components/pages/Retirements/index.tsx:124
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "总停用交易"
+
+#: components/pages/Retirements/Breakdown/index.tsx:32
+msgid "retirement.totals_by_assets.headline"
+msgstr ""
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
