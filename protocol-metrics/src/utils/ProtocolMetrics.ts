@@ -508,9 +508,6 @@ export function updateProtocolMetrics(transaction: Transaction): void {
     //Total Klima unstaked
     pm.totalKlimaUnstaked = pm.totalSupply.minus(pm.totalKlimaInLP).minus(pm.sKlimaCirculatingSupply)
 
-    //sKlima Supply
-    pm.sKlimaCirculatingSupply = getSklimaSupply(transaction)
-
     //KLIMA Price
     if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_BCT_PAIR_BLOCK))) {
         const klimaToken = new KLIMA()
