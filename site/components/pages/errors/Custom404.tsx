@@ -13,17 +13,16 @@ export const Custom404 = () => {
     <div className={styles.errorPageWrapper}>
       <PageHead
         title={t({
-          id: "error.page.404.title",
+          id: "shared.404",
           message: "404 - Page Not Found",
         })}
         mediaTitle={t({
-          id: "error.page.404.head.title",
+          id: "shared.404",
           message: "404 - Page Not Found",
         })}
         metaDescription={t({
-          id: "shared.head.description",
-          message:
-            "Drive climate action and earn rewards with a carbon-backed digital currency.",
+          id: "shared.404",
+          message: "404 - Page Not Found",
         })}
       />
       <Navigation activePage="Home" />
@@ -31,7 +30,7 @@ export const Custom404 = () => {
       <Section variant="gray">
         <div className={styles.textGroup}>
           <Text t="h2" as="h2" align="center">
-            <Trans id="error.404.page.title">404 - Page Not Found</Trans>
+            <Trans id="shared.404">404 - Page Not Found</Trans>
           </Text>
           <Text align="center">
             <Trans id="error.404.page.text">
