@@ -365,7 +365,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     ]
 }
 
-function getKlimaFromLP(transaction: Transaction): BigDecimal {
+function getKlimaAmountFromLP(transaction: Transaction): BigDecimal {
     let totalKlimaInLP = BigDecimal.zero()
     if (transaction.blockNumber.gt(BigInt.fromString(KLIMA_USDC_PAIR_BLOCK))) {
         totalKlimaInLP = totalKlimaInLP.plus(getKlimaReserveAmount(KLIMA_USDC_PAIR, false))
@@ -500,7 +500,7 @@ export function updateProtocolMetrics(transaction: Transaction): void {
     pm.klimaCirculatingSupply = getCirculatingSupply(transaction, pm.totalSupply)
 
     //Total Klima in LP
-    pm.totalKlimaInLP = getKlimaFromLP(transaction)
+    pm.totalKlimaInLP = getKlimaAmountFromLP(transaction)
 
     //sKlima Supply
     pm.sKlimaCirculatingSupply = getSklimaSupply(transaction)
