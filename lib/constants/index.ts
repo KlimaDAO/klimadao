@@ -203,6 +203,57 @@ export const offsetCompatibility: CompatMap = {
   wsklima: ["bct", "mco2", "ubo", "nbo"],
 };
 
+/** Allowance tokens which have to be approved first with spender contract */
+export const allowancesTokens = [
+  "ubo",
+  "nbo",
+  "bct",
+  "nct",
+  "mco2",
+  "usdc",
+  "klima",
+  "sklima",
+  "wsklima",
+  "aklima",
+  "alklima",
+  "pklima",
+] as const;
+export type AllowancesToken = typeof allowancesTokens[number];
+export const spenderContracts = [
+  "staking_helper",
+  "staking",
+  "aklima_migrate",
+  "alklima_migrate",
+  "pklima_exercise",
+  "retirementAggregator",
+] as const;
+export type AllowancesSpender = typeof spenderContracts[number];
+type AllowancesMap = { [token in AllowancesSpender]: AllowancesToken[] };
+export const allowancesContracts: AllowancesMap = {
+  retirementAggregator: [
+    "ubo",
+    "nbo",
+    "bct",
+    "nct",
+    "mco2",
+    "usdc",
+    "klima",
+    "sklima",
+    "wsklima",
+  ],
+  staking_helper: ["klima"],
+  staking: ["sklima", "wsklima"],
+  pklima_exercise: ["bct", "pklima"],
+  aklima_migrate: ["aklima"],
+  alklima_migrate: ["alklima"],
+};
+// final Allowances
+export type Allowances = {
+  [key in AllowancesToken]: {
+    [key in AllowancesSpender]: string;
+  };
+};
+
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
   polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
