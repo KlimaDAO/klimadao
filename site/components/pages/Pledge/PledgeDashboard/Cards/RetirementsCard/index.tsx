@@ -7,6 +7,7 @@ import { trimStringDecimals } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import { BaseCard } from "../BaseCard";
+import { RetirementsChart } from "./RetirementChart";
 import * as styles from "./styles";
 
 type Props = {
@@ -51,6 +52,12 @@ export const RetirementsCard: FC<Props> = (props) => {
           Total Carbon Tonnes Retired
         </Text>
       </div>
+
+      {props.retirements && (
+        <div className={styles.chartContainer}>
+          <RetirementsChart retirements={props.retirements} />
+        </div>
+      )}
     </BaseCard>
   );
 };
