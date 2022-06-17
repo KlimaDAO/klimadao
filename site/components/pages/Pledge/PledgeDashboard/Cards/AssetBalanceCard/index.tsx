@@ -4,9 +4,9 @@ import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 
-import BCTIcon from "public/icon-bct.png";
-import KlimaIcon from "public/icon-klima.png";
-import MCO2Icon from "public/icon-mco2.png";
+import BCTIcon from "public/icons/BCT.png";
+import KlimaIcon from "public/icons/KLIMA.png";
+import MCO2Icon from "public/icons/MCO2.png";
 import { getBalances, Balances } from "lib/getBalances";
 
 import { BaseCard } from "../BaseCard";
