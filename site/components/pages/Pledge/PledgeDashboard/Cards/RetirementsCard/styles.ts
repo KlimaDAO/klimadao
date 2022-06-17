@@ -42,7 +42,7 @@ export const retirementsLink = css`
 export const chartContainer = css`
   height: 36rem;
   width: 100%;
-`
+`;
 
 export const chart_tooltip = css`
   background-color: var(--surface-01);
