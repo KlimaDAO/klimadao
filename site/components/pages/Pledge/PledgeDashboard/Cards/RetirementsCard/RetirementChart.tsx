@@ -45,21 +45,13 @@ export const RetirementsChart: FC<Props> = (props) => {
     tonnesRetired: props.retirements[token],
   }));
 
-  const mockData = [
-    { name: "bct", tonnesRetired: "50.895" },
-    { name: "mco2", tonnesRetired: "17.895" },
-    { name: "nct", tonnesRetired: "15.895" },
-    { name: "ubo", tonnesRetired: "8.895" },
-    { name: "nbo", tonnesRetired: "0.895" },
-  ];
-
-  const yDomainMax: number = mockData
+  const yDomainMax: number = mappedData
     .map((token) => Number(token.tonnesRetired))
     .sort((a, b) => a + b)[0];
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={mockData}>
+      <BarChart data={mappedData}>
         <defs>
           <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
             <stop
