@@ -20,7 +20,7 @@ import NBOIcon from "public/icons/NBO.png";
 import UBOIcon from "public/icons/UBO.png";
 import * as styles from "./styles";
 
-type Props = {
+export type RetirementsChartProps = {
   retirements: RetirementsTotalsAndBalances;
 };
 
@@ -40,7 +40,7 @@ const tokenIconMap = {
 
 const tokens = keys(tokenIconMap) as Token[];
 
-export const RetirementsChart: FC<Props> = (props) => {
+export const RetirementsChart: FC<RetirementsChartProps> = (props) => {
   const mappedData: RetirementChartData = tokens.map((token: Token) => ({
     name: token,
     tonnesRetired: props.retirements[token],
