@@ -10,6 +10,7 @@ import {
   OffsetInputToken,
   offsetInputTokens,
   RetirementToken,
+  AllowancesToken,
 } from "@klimadao/lib/constants";
 import {
   formatUnits,
@@ -65,7 +66,7 @@ export const getRetirementAllowances = (params: {
         return arr;
       }, [] as Promise<ethers.BigNumber>[]);
 
-      type Allowances = { [key in typeof offsetInputTokens[number]]: string };
+      type Allowances = { [key in AllowancesToken]: string };
 
       // await to get arr of bignumbers
       const res = await Promise.all(promises);
