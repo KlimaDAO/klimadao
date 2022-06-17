@@ -5,6 +5,7 @@ import {
   Bond,
   OffsetInputToken,
   RetirementToken,
+  Allowances,
 } from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
@@ -51,6 +52,7 @@ export interface UserState {
     [key in OffsetInputToken]: string;
   };
   carbonRetired?: RetirementsTotalsAndBalances;
+  allowances?: Allowances;
 }
 export interface Domain {
   name: string;
@@ -68,6 +70,7 @@ const initialState: UserState = {
   wrapAllowance: undefined,
   carbonRetiredAllowance: undefined,
   carbonRetired: undefined,
+  allowances: undefined,
 };
 
 /** Helper type to reduce boilerplate */
@@ -127,6 +130,12 @@ export const userSlice = createSlice({
     setCarbonRetiredBalances: (s, a: Setter<"carbonRetired">) => {
       s.carbonRetired = {
         ...s.carbonRetired!,
+        ...a.payload,
+      };
+    },
+    setAllowances: (s, a: Setter<"allowances">) => {
+      s.allowances = {
+        ...s.allowances!,
         ...a.payload,
       };
     },
@@ -221,6 +230,7 @@ export const {
   setWrapAllowance,
   setCarbonRetiredBalances,
   setCarbonRetiredAllowance,
+  setAllowances,
   updateRetirement,
   incrementStake,
   decrementStake,
