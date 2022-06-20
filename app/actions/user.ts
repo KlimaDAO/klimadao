@@ -69,16 +69,6 @@ export const loadAccountDetails = (params: {
         wsKlima.abi,
         params.provider
       );
-      const aklimaContract = new ethers.Contract(
-        addresses["mainnet"].aklima,
-        IERC20.abi,
-        params.provider
-      );
-      const alklimaContract = new ethers.Contract(
-        addresses["mainnet"].alklima,
-        IERC20.abi,
-        params.provider
-      );
       const pKlimaContract = new ethers.Contract(
         addresses["mainnet"].pklima,
         IERC20.abi,
