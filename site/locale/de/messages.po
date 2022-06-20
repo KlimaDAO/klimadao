@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-16 15:41+0000\n"
+"POT-Creation-Date: 2022-06-20 15:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -728,15 +728,15 @@ msgstr "Ausgleichsnachricht"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
-msgstr ""
+msgstr "Klicke auf den Namen des Projekts, um mehr zu erfahren."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
 msgid "retirement.single.project_details.moss_headline"
-msgstr ""
+msgstr "Erfahre mehr über die Projekte, aus denen der MCO2-Pool besteht."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
-msgstr ""
+msgstr "Die für den Ausgleich genutzten CO2-Offsets stammen aus den folgenden Projekten."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
@@ -788,7 +788,7 @@ msgstr "Alle CO2-Ausgleiche"
 
 #: components/pages/Retirements/Breakdown/index.tsx:57
 msgid "retirement.totals.breakdown_token_assets.empty"
-msgstr ""
+msgstr "Keine für CO2-Ausgleich geeignete Assets gefunden"
 
 #: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
@@ -824,7 +824,7 @@ msgstr "Summe der Ausgleichstransaktionen"
 
 #: components/pages/Retirements/Breakdown/index.tsx:32
 msgid "retirement.totals_by_assets.headline"
-msgstr ""
+msgstr "Kompletter CO2-Ausgleich nach Assettyp."
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29

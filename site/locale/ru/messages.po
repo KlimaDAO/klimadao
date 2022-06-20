@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-16 15:41+0000\n"
+"POT-Creation-Date: 2022-06-20 15:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -730,15 +730,15 @@ msgstr "Сообщение о использовании"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
-msgstr ""
+msgstr "Нажмите на название проекта, чтобы узнать больше."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
 msgid "retirement.single.project_details.moss_headline"
-msgstr ""
+msgstr "Узнайте больше о проектах, которые поддерживают пулы MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
-msgstr ""
+msgstr "Тонна(ы), использованные, была(и) получена(ы) из следующего(их) проекта(ов)."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
@@ -790,15 +790,15 @@ msgstr "Итого выведено"
 
 #: components/pages/Retirements/Breakdown/index.tsx:57
 msgid "retirement.totals.breakdown_token_assets.empty"
-msgstr ""
+msgstr "выбывшие активы не обнаружены"
 
 #: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO - Отказ от углерода для получателя {0}"
 
 #: components/pages/Retirements/index.tsx:47
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "KlimaDAO - Отказ от углерода для получателя {0}"
 
 #: components/pages/Retirements/index.tsx:72
 msgid "retirement.totals.page_headline"
@@ -826,7 +826,7 @@ msgstr "Всего транзакции выбивания"
 
 #: components/pages/Retirements/Breakdown/index.tsx:32
 msgid "retirement.totals_by_assets.headline"
-msgstr ""
+msgstr "Итого выведено"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
