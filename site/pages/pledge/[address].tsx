@@ -2,7 +2,6 @@ import { GetStaticProps } from "next";
 import { ethers } from "ethers";
 
 import { loadTranslation } from "lib/i18n";
-import { IS_PRODUCTION } from "lib/constants";
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
 import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
 import { DEFAULT_VALUES } from "components/pages/Pledge/lib";
@@ -11,13 +10,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
   const { address } = ctx.params as { address: string };
   let pledge;
-
-  if (IS_PRODUCTION) {
-    return {
-      notFound: true,
-      revalidate: 180,
-    };
-  }
 
   if (!ethers.utils.isAddress(address)) {
     return {
