@@ -30,10 +30,6 @@ export interface UserState {
     redeemable: string;
     supplyShare: number;
   };
-  migrateAllowance?: {
-    aklima: string;
-    alklima: string;
-  };
   exerciseAllowance?: {
     pklima: string;
     bct: string;
@@ -70,7 +66,6 @@ export interface Domain {
 
 const initialState: UserState = {
   balance: undefined,
-  migrateAllowance: undefined,
   exerciseAllowance: undefined,
   stakeAllowance: undefined,
   bondAllowance: undefined,
@@ -98,12 +93,6 @@ export const userSlice = createSlice({
     setPklimaTerms: (s, a: Setter<"pklimaTerms">) => {
       s.pklimaTerms = {
         ...s.pklimaTerms!,
-        ...a.payload,
-      };
-    },
-    setMigrateAllowance: (s, a: Setter<"migrateAllowance">) => {
-      s.migrateAllowance = {
-        ...s.migrateAllowance!,
         ...a.payload,
       };
     },
@@ -239,7 +228,6 @@ export const userSlice = createSlice({
 export const {
   setBalance,
   setPklimaTerms,
-  setMigrateAllowance,
   setExerciseAllowance,
   setStakeAllowance,
   setBondAllowance,

@@ -10,7 +10,6 @@ import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
 import {
   setBalance,
   setExerciseAllowance,
-  setMigrateAllowance,
   setStakeAllowance,
   setWrapAllowance,
   setDomains,
@@ -125,14 +124,6 @@ export const loadAccountDetails = (params: {
         ),
         sklimaContract.allowance(params.address, addresses["mainnet"].staking),
         sklimaContract.allowance(params.address, addresses["mainnet"].wsklima),
-        aklimaContract.allowance(
-          params.address,
-          addresses["mainnet"].aklima_migrate
-        ),
-        alklimaContract.allowance(
-          params.address,
-          addresses["mainnet"].alklima_migrate
-        ),
         pKlimaContract.allowance(
           params.address,
           addresses["mainnet"].pklima_exercise
@@ -159,8 +150,6 @@ export const loadAccountDetails = (params: {
         stakeAllowance,
         unstakeAllowance,
         wrapAllowance,
-        aKlimaAllowance,
-        alKlimaAllowance,
         pKlimaAllowance,
         bctAllowance,
       ] = await Promise.all(balances);
@@ -185,12 +174,6 @@ export const loadAccountDetails = (params: {
           ubo: formatUnits(uboBalance),
           nbo: formatUnits(nboBalance),
           usdc: formatUnits(usdcBalance, 6),
-        })
-      );
-      dispatch(
-        setMigrateAllowance({
-          aklima: formatUnits(aKlimaAllowance),
-          alklima: formatUnits(alKlimaAllowance),
         })
       );
       dispatch(
