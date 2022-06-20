@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-20 22:22+0000\n"
+"POT-Creation-Date: 2022-06-20 22:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -569,7 +569,7 @@ msgstr "Der aktualisierte Vertrag geht davon aus, dass pKLIMA-Besitzer ehemals b
 msgid "shared.approve"
 msgstr "Bestätigen"
 
-#: components/BalancesCard/index.tsx:49
+#: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
 msgstr "Guthaben"
 
@@ -824,6 +824,6 @@ msgstr "Zu unwrappendes wsKLIMA"
 msgid "wrap.you_will_get"
 msgstr "Du erhältst"
 
-#: components/BalancesCard/index.tsx:35
+#: components/BalancesCard/index.tsx:33
 msgid "wsklima.unwrapped.label"
 msgstr "Unwrapped"
