@@ -10,8 +10,6 @@ export interface UserState {
     sklima: string;
     wsklima: string;
     wsklimaUnwrapped: string;
-    aklima: string;
-    alklima: string;
     pklima: string;
     bct: string;
     mco2: string;
@@ -29,10 +27,6 @@ export interface UserState {
     max: string;
     redeemable: string;
     supplyShare: number;
-  };
-  migrateAllowance?: {
-    aklima: string;
-    alklima: string;
   };
   exerciseAllowance?: {
     pklima: string;
@@ -70,7 +64,6 @@ export interface Domain {
 
 const initialState: UserState = {
   balance: undefined,
-  migrateAllowance: undefined,
   exerciseAllowance: undefined,
   stakeAllowance: undefined,
   bondAllowance: undefined,
@@ -98,12 +91,6 @@ export const userSlice = createSlice({
     setPklimaTerms: (s, a: Setter<"pklimaTerms">) => {
       s.pklimaTerms = {
         ...s.pklimaTerms!,
-        ...a.payload,
-      };
-    },
-    setMigrateAllowance: (s, a: Setter<"migrateAllowance">) => {
-      s.migrateAllowance = {
-        ...s.migrateAllowance!,
         ...a.payload,
       };
     },
@@ -204,17 +191,6 @@ export const userSlice = createSlice({
       s.balance.sklima = safeAdd(s.balance.sklima, indexAdjusted);
       s.balance.wsklima = safeSub(s.balance.wsklima, a.payload.wsklima);
     },
-    redeemAlpha: (
-      s,
-      a: PayloadAction<{ token: "aklima" | "alklima"; value: string }>
-    ) => {
-      if (!s.balance) return s;
-      s.balance[a.payload.token] = safeSub(
-        s.balance[a.payload.token],
-        a.payload.value
-      );
-      s.balance.klima = safeAdd(s.balance.klima, a.payload.value);
-    },
     redeemPklima: (s, a: PayloadAction<string>) => {
       if (!s.balance || !s.pklimaTerms) return s;
       s.balance.pklima = safeSub(s.balance.pklima, a.payload);
@@ -239,7 +215,6 @@ export const userSlice = createSlice({
 export const {
   setBalance,
   setPklimaTerms,
-  setMigrateAllowance,
   setExerciseAllowance,
   setStakeAllowance,
   setBondAllowance,
@@ -251,7 +226,6 @@ export const {
   decrementStake,
   incrementWrap,
   decrementWrap,
-  redeemAlpha,
   redeemPklima,
   setDomains,
 } = userSlice.actions;

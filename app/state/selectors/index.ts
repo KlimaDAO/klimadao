@@ -9,10 +9,6 @@ export const selectStakeAllowance = createSelector(
   selectUserState,
   (user) => user.stakeAllowance
 );
-export const selectMigrateAllowance = createSelector(
-  selectUserState,
-  (user) => user.migrateAllowance
-);
 export const selectExerciseAllowance = createSelector(
   selectUserState,
   (user) => user.exerciseAllowance

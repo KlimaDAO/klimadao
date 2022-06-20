@@ -24,8 +24,6 @@ export const BalancesCard: FC<Props> = (props) => {
 
   const labels: AssetLabels = {
     bct: "BCT",
-    aklima: "aKLIMA",
-    alklima: "alKLIMA",
     klima: "KLIMA",
     pklima: "pKLIMA",
     sklima: "sKLIMA",

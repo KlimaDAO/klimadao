@@ -10,7 +10,6 @@ import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
 import {
   setBalance,
   setExerciseAllowance,
-  setMigrateAllowance,
   setStakeAllowance,
   setWrapAllowance,
   setDomains,
@@ -70,16 +69,6 @@ export const loadAccountDetails = (params: {
         wsKlima.abi,
         params.provider
       );
-      const aklimaContract = new ethers.Contract(
-        addresses["mainnet"].aklima,
-        IERC20.abi,
-        params.provider
-      );
-      const alklimaContract = new ethers.Contract(
-        addresses["mainnet"].alklima,
-        IERC20.abi,
-        params.provider
-      );
       const pKlimaContract = new ethers.Contract(
         addresses["mainnet"].pklima,
         IERC20.abi,
@@ -112,8 +101,6 @@ export const loadAccountDetails = (params: {
         klimaContract.balanceOf(params.address),
         sklimaContract.balanceOf(params.address),
         wsklimaContract.balanceOf(params.address),
-        aklimaContract.balanceOf(params.address),
-        alklimaContract.balanceOf(params.address),
         pKlimaContract.balanceOf(params.address),
         // USDC
         usdcContract.balanceOf(params.address),
@@ -125,14 +112,6 @@ export const loadAccountDetails = (params: {
         ),
         sklimaContract.allowance(params.address, addresses["mainnet"].staking),
         sklimaContract.allowance(params.address, addresses["mainnet"].wsklima),
-        aklimaContract.allowance(
-          params.address,
-          addresses["mainnet"].aklima_migrate
-        ),
-        alklimaContract.allowance(
-          params.address,
-          addresses["mainnet"].alklima_migrate
-        ),
         pKlimaContract.allowance(
           params.address,
           addresses["mainnet"].pklima_exercise
@@ -152,15 +131,11 @@ export const loadAccountDetails = (params: {
         klimaBalance,
         sklimaBalance,
         wsklimaBalance,
-        aklimaBalance,
-        alklimaBalance,
         pklimaBalance,
         usdcBalance,
         stakeAllowance,
         unstakeAllowance,
         wrapAllowance,
-        aKlimaAllowance,
-        alKlimaAllowance,
         pKlimaAllowance,
         bctAllowance,
       ] = await Promise.all(balances);
@@ -176,21 +151,13 @@ export const loadAccountDetails = (params: {
           klima: formatUnits(klimaBalance, 9),
           sklima: formatUnits(sklimaBalance, 9),
           wsklima: trimStringDecimals(formatUnits(wsklimaBalance), 9), // trim to 9 for compat with sKLIMA contract
-          aklima: formatUnits(aklimaBalance),
           pklima: formatUnits(pklimaBalance),
-          alklima: formatUnits(alklimaBalance),
           bct: formatUnits(bctBalance),
           nct: formatUnits(nctBalance),
           mco2: formatUnits(mco2Balance),
           ubo: formatUnits(uboBalance),
           nbo: formatUnits(nboBalance),
           usdc: formatUnits(usdcBalance, 6),
-        })
-      );
-      dispatch(
-        setMigrateAllowance({
-          aklima: formatUnits(aKlimaAllowance),
-          alklima: formatUnits(alKlimaAllowance),
         })
       );
       dispatch(
