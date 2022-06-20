@@ -111,8 +111,6 @@ export const loadAccountDetails = (params: {
         klimaContract.balanceOf(params.address),
         sklimaContract.balanceOf(params.address),
         wsklimaContract.balanceOf(params.address),
-        aklimaContract.balanceOf(params.address),
-        alklimaContract.balanceOf(params.address),
         pKlimaContract.balanceOf(params.address),
         // USDC
         usdcContract.balanceOf(params.address),
@@ -143,8 +141,6 @@ export const loadAccountDetails = (params: {
         klimaBalance,
         sklimaBalance,
         wsklimaBalance,
-        aklimaBalance,
-        alklimaBalance,
         pklimaBalance,
         usdcBalance,
         stakeAllowance,
@@ -165,9 +161,7 @@ export const loadAccountDetails = (params: {
           klima: formatUnits(klimaBalance, 9),
           sklima: formatUnits(sklimaBalance, 9),
           wsklima: trimStringDecimals(formatUnits(wsklimaBalance), 9), // trim to 9 for compat with sKLIMA contract
-          aklima: formatUnits(aklimaBalance),
           pklima: formatUnits(pklimaBalance),
-          alklima: formatUnits(alklimaBalance),
           bct: formatUnits(bctBalance),
           nct: formatUnits(nctBalance),
           mco2: formatUnits(mco2Balance),

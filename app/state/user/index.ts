@@ -10,8 +10,6 @@ export interface UserState {
     sklima: string;
     wsklima: string;
     wsklimaUnwrapped: string;
-    aklima: string;
-    alklima: string;
     pklima: string;
     bct: string;
     mco2: string;
