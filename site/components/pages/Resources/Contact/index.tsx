@@ -23,9 +23,8 @@ export const Contact: NextPage<Props> = () => {
       })}
       mediaTitle={t({ id: "contact.head.title" })}
       metaDescription={t({
-        id: "shared.head.description",
-        message:
-          "Drive climate action and earn rewards with a carbon-backed digital currency.",
+        id: "contact.head.description",
+        message: "Get in touch with someone from KlimaDAO.",
       })}
       mediaImageSrc={urls.mediaImage}
     >

@@ -80,9 +80,8 @@ export const Community: NextPage = () => (
     })}
     mediaTitle={t({ id: "community.head.title" })}
     metaDescription={t({
-      id: "shared.head.description",
-      message:
-        "Drive climate action and earn rewards with a carbon-backed digital currency.",
+      id: "community.head.metadescription",
+      message: "Learn about our community of passionate Klimates",
     })}
     mediaImageSrc={urls.mediaImage}
     headerElements={HeaderElements}

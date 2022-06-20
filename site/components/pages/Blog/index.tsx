@@ -23,9 +23,9 @@ export const Blog: FC<Props> = (props) => (
     })}
     mediaTitle={t({ id: "blog.head.title" })}
     metaDescription={t({
-      id: "shared.head.description",
+      id: "blog.head.description",
       message:
-        "Drive climate action and earn rewards with a carbon-backed digital currency.",
+        "Updates and thought leadership from the founders, DAO contributors, advisors and community.",
     })}
     mediaImageSrc={urls.mediaImage}
   >
