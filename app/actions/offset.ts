@@ -5,7 +5,6 @@ import {
   setCarbonRetiredBalances,
 } from "state/user";
 
-import KlimaRetirementAggregator from "@klimadao/lib/abi/KlimaRetirementAggregator.json";
 import {
   addresses,
   InputToken,
@@ -126,11 +125,10 @@ export const getOffsetConsumptionCost = async (params: {
   amountInCarbon: boolean;
   getSpecific: boolean;
 }): Promise<[string, string]> => {
-  const retirementAggregatorContract = new ethers.Contract(
-    addresses["mainnet"].retirementAggregator,
-    KlimaRetirementAggregator.abi,
-    params.provider
-  );
+  const retirementAggregatorContract = getContractByToken({
+    token: "retirementAggregator",
+    provider: params.provider,
+  });
   const parsed = ethers.utils.parseUnits(
     params.quantity,
     getTokenDecimals(params.retirementToken)
@@ -190,11 +188,10 @@ export const retireCarbonTransaction = async (params: {
     const retirementTotals = formattedTotals + 1;
 
     // retire transaction
-    const retireContract = new ethers.Contract(
-      addresses["mainnet"].retirementAggregator,
-      KlimaRetirementAggregator.abi,
-      params.provider.getSigner()
-    );
+    const retireContract = getContractByToken({
+      token: "retirementAggregator",
+      provider: params.provider,
+    });
 
     params.onStatus("userConfirmation");
 
