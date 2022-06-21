@@ -60,9 +60,13 @@ export interface Domain {
 
 const initialState: UserState = {
   balance: undefined,
+  nameServiceDomains: undefined,
+  pklimaTerms: undefined,
   exerciseAllowance: undefined,
   stakeAllowance: undefined,
   bondAllowance: undefined,
+  wrapAllowance: undefined,
+  carbonRetiredAllowance: undefined,
   carbonRetired: undefined,
 };
 
