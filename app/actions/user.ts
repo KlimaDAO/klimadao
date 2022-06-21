@@ -69,12 +69,14 @@ export const loadAccountDetails = (params: {
         provider: params.provider,
       });
 
-      //domains
-      const knsDomain = await getKns({
-        address: params.address,
-        contract: klimaDomainContract,
-      });
-      const ensDomain = await getEns({ address: params.address });
+      // domains
+      const domains = [
+        getKns({
+          address: params.address,
+          contract: klimaDomainContract,
+        }),
+        getEns({ address: params.address }),
+      ];
 
       // balances
       const balances = [
@@ -92,25 +94,38 @@ export const loadAccountDetails = (params: {
         pKlimaContract.balanceOf(params.address),
         // USDC
         usdcContract.balanceOf(params.address),
+      ];
 
-        // allowances token.allowance(owner, spender)
+      // allowances
+      const allowances = [
+        // token.allowance(owner, spender)
+
+        // KLIMA
         klimaContract.allowance(
           params.address,
           addresses["mainnet"].staking_helper
         ),
+        // SKLIMA
         sklimaContract.allowance(params.address, addresses["mainnet"].staking),
+        // WSKLIMA
         sklimaContract.allowance(params.address, addresses["mainnet"].wsklima),
+        // PKLIMA
         pKlimaContract.allowance(
           params.address,
           addresses["mainnet"].pklima_exercise
         ),
+        // BCT
         bctContract.allowance(
           params.address,
           addresses["mainnet"].pklima_exercise
         ),
       ];
 
+      const promises = [...domains, ...balances, ...allowances];
+
       const [
+        knsDomain,
+        ensDomain,
         bctBalance,
         mco2Balance,
         nctBalance,
@@ -126,7 +141,7 @@ export const loadAccountDetails = (params: {
         wrapAllowance,
         pKlimaAllowance,
         bctAllowance,
-      ] = await Promise.all(balances);
+      ] = await Promise.all(promises);
 
       dispatch(
         setDomains({
