@@ -1,7 +1,5 @@
-import { ethers, providers } from "ethers";
+import { providers } from "ethers";
 import { Thunk } from "state";
-
-import PunkTLD from "@klimadao/lib/abi/PunkTLD.json";
 
 import { addresses } from "@klimadao/lib/constants";
 import {

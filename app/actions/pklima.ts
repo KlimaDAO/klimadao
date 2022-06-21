@@ -1,7 +1,6 @@
 import { ethers, providers } from "ethers";
 
 import { addresses } from "@klimadao/lib/constants";
-import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
 import { OnStatusHandler } from "./utils";
 import { Thunk } from "state";
 import { setPklimaTerms } from "state/user";
