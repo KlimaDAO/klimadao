@@ -5,6 +5,7 @@ import IERC20 from "../../abi/IERC20.json";
 import WSKLIMA from "../../abi/wsKlima.json";
 import DistributorContractv4 from "../../abi/DistributorContractv4.json";
 import PunkTLD from "../../abi/PunkTLD.json";
+import PairContract from "../../abi/PairContract.json";
 
 type Token = keyof typeof addresses["mainnet"];
 type ContractMap = {
@@ -30,6 +31,8 @@ const contractMap = {
   // Others
   distributor: DistributorContractv4.abi,
   klimaNameService: PunkTLD.abi,
+  bctUsdcLp: PairContract.abi,
+  klimaBctLp: PairContract.abi,
 } as ContractMap;
 
 export const getContractAbiByToken = (token: Token) => {
