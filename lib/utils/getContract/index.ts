@@ -7,6 +7,7 @@ import DistributorContractv4 from "../../abi/DistributorContractv4.json";
 import PunkTLD from "../../abi/PunkTLD.json";
 import PairContract from "../../abi/PairContract.json";
 import KlimaRetirementAggregator from "../../abi/KlimaRetirementAggregator.json";
+import ExercisePKlima from "../../abi/ExercisepKLIMA.json";
 
 type Token = keyof typeof addresses["mainnet"];
 type ContractMap = {
@@ -35,6 +36,7 @@ const contractMap = {
   bctUsdcLp: PairContract.abi,
   klimaBctLp: PairContract.abi,
   retirementAggregator: KlimaRetirementAggregator.abi,
+  pklima_exercise: ExercisePKlima.abi,
 } as ContractMap;
 
 export const getContractAbiByToken = (token: Token) => {

@@ -18,11 +18,10 @@ export const loadTerms = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const pExerciseContract = new ethers.Contract(
-        addresses["mainnet"].pklima_exercise,
-        ExercisePKlima.abi,
-        params.provider
-      );
+      const pExerciseContract = getContractByToken({
+        token: "pklima_exercise",
+        provider: params.provider,
+      });
       const pklimaRedeemBalance = await pExerciseContract.redeemableFor(
         params.address
       );
@@ -95,11 +94,10 @@ export const exerciseTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const contract = new ethers.Contract(
-      addresses["mainnet"].pklima_exercise,
-      ExercisePKlima.abi,
-      params.provider.getSigner()
-    );
+    const contract = getContractByToken({
+      token: "pklima_exercise",
+      provider: params.provider,
+    });
     params.onStatus("userConfirmation", "");
     const txn = await contract.exercise(
       ethers.utils.parseUnits(params.value, "ether")
