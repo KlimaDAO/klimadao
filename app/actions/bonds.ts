@@ -447,12 +447,9 @@ export const bondTransaction = async (params: {
         Number(minAmountOut.toFixed(6)).toString(),
         "mwei"
       );
-      // TODO add "remaining cpacity" line in view
-      // TODO check "capacity" in markets call to see if there is enough usdc in bond. returns usdc
       params.onStatus("userConfirmation", "");
       const address = await signer.getAddress();
       const formattedValue = ethers.utils.parseUnits(params.value, "gwei");
-      // contract.deposit(__id, [amountIn (inKLIMA), min Amount Out (inUSDC)], [userAddress, DAOMSigAddress(0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c)])
       const txn = await contract.deposit(
         ethers.BigNumber.from(INVERSE_USDC_MARKET_ID),
         [formattedValue, formattedMinAmountOut],
