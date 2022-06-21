@@ -1,7 +1,6 @@
 import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 
-import wsKlima from "@klimadao/lib/abi/wsKlima.json";
 import PunkTLD from "@klimadao/lib/abi/PunkTLD.json";
 
 import { addresses } from "@klimadao/lib/constants";
@@ -27,11 +26,6 @@ export const loadAccountDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const wsklimaContract = new ethers.Contract(
-        addresses["mainnet"].wsklima,
-        wsKlima.abi,
-        params.provider
-      );
       const bctContract = getContractByToken({
         token: "bct",
         provider: params.provider,
@@ -62,6 +56,10 @@ export const loadAccountDetails = (params: {
       });
       const sklimaContract = getContractByToken({
         token: "sklima",
+        provider: params.provider,
+      });
+      const wsklimaContract = getContractByToken({
+        token: "wsklima",
         provider: params.provider,
       });
       const pKlimaContract = getContractByToken({

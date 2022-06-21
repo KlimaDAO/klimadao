@@ -1,7 +1,6 @@
 import { addresses } from "@klimadao/lib/constants";
 import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
-import wsKlima from "@klimadao/lib/abi/wsKlima.json";
 import { formatUnits, getContractByToken } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
@@ -40,11 +39,10 @@ export const wrapTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const contract = new ethers.Contract(
-      addresses["mainnet"].wsklima,
-      wsKlima.abi,
-      params.provider.getSigner()
-    );
+    const contract = getContractByToken({
+      token: "wsklima",
+      provider: params.provider,
+    });
     params.onStatus("userConfirmation", "");
     const decimal = params.action === "wrap" ? 9 : 18;
     const txn = await contract[params.action](
