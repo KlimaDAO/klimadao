@@ -60,9 +60,12 @@ export const changeApprovalTransaction = async (params: {
     const contract = {
       pklima: getContractByToken({
         token: "pklima",
-        provider: params.provider,
+        provider: params.provider.getSigner(),
       }),
-      bct: getContractByToken({ token: "bct", provider: params.provider }),
+      bct: getContractByToken({
+        token: "bct",
+        provider: params.provider.getSigner(),
+      }),
     }[params.action];
     const value = ethers.utils.parseUnits(
       "1000000000000000000000000000",
@@ -95,7 +98,7 @@ export const exerciseTransaction = async (params: {
   try {
     const contract = getContractByToken({
       token: "pklima_exercise",
-      provider: params.provider,
+      provider: params.provider.getSigner(),
     });
     params.onStatus("userConfirmation", "");
     const txn = await contract.exercise(

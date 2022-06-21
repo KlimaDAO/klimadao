@@ -10,7 +10,7 @@ export const changeApprovalTransaction = async (params: {
   try {
     const contract = getContractByToken({
       token: "sklima",
-      provider: params.provider,
+      provider: params.provider.getSigner(),
     });
     const value = ethers.utils.parseUnits("1000000000", "gwei"); //bignumber
     params.onStatus("userConfirmation", "");
@@ -41,7 +41,7 @@ export const wrapTransaction = async (params: {
   try {
     const contract = getContractByToken({
       token: "wsklima",
-      provider: params.provider,
+      provider: params.provider.getSigner(),
     });
     params.onStatus("userConfirmation", "");
     const decimal = params.action === "wrap" ? 9 : 18;

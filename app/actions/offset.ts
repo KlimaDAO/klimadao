@@ -93,7 +93,7 @@ export const changeApprovalTransaction = async (params: {
   try {
     const contract = getContractByToken({
       token: params.token,
-      provider: params.provider,
+      provider: params.provider.getSigner(),
     });
     const decimals = getTokenDecimals(params.token);
     const value = ethers.utils.parseUnits("1000000000", decimals);
@@ -190,7 +190,7 @@ export const retireCarbonTransaction = async (params: {
     // retire transaction
     const retireContract = getContractByToken({
       token: "retirementAggregator",
-      provider: params.provider,
+      provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation");

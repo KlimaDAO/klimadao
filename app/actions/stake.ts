@@ -11,10 +11,13 @@ export const changeApprovalTransaction = async (params: {
 }): Promise<string> => {
   try {
     const contract = {
-      stake: getContractByToken({ token: "klima", provider: params.provider }),
+      stake: getContractByToken({
+        token: "klima",
+        provider: params.provider.getSigner(),
+      }),
       unstake: getContractByToken({
         token: "sklima",
-        provider: params.provider,
+        provider: params.provider.getSigner(),
       }),
     }[params.action];
     const address = {
@@ -49,11 +52,11 @@ export const changeStakeTransaction = async (params: {
     const contract = {
       stake: getContractByToken({
         token: "staking_helper",
-        provider: params.provider,
+        provider: params.provider.getSigner(),
       }),
       unstake: getContractByToken({
         token: "staking",
-        provider: params.provider,
+        provider: params.provider.getSigner(),
       }),
     }[params.action];
     params.onStatus("userConfirmation", "");

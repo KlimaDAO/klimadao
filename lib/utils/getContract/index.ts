@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { ethers, providers, Signer } from "ethers";
 
 import { addresses } from "../../constants";
 import IERC20 from "../../abi/IERC20.json";
@@ -51,7 +51,7 @@ export const getContractAbiByToken = (token: Token) => {
 
 export const getContractByToken = (params: {
   token: Token;
-  provider: providers.JsonRpcProvider;
+  provider: providers.JsonRpcProvider | Signer;
 }): ethers.Contract => {
   const abi = getContractAbiByToken(params.token);
   if (!abi) throw new Error(`Unknown abi for token: ${params.token}`);
