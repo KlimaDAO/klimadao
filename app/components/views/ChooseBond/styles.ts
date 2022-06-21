@@ -83,6 +83,9 @@ export const bondLink = css`
   padding: 0.8rem 1.2rem;
   border: 1px solid transparent;
   color: white;
+  &.disabled {
+    opacity: 0.4;
+  }
   &:hover {
     border: 1px solid var(--klima-green);
     background-color: var(--surface-03);

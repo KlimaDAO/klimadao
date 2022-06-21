@@ -1,3 +1,4 @@
+import { cx } from "@emotion/css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import React from "react";
@@ -23,14 +24,14 @@ export const useBond = (bond: Bond) => {
   const bondFee = bondState?.fee;
 
   const disabledBonds = {
-    mco2: false,
-    bct: false,
-    klima_usdc_lp: false,
-    klima_bct_lp: false,
+    mco2: true,
+    bct: true,
+    klima_usdc_lp: true,
+    klima_bct_lp: true,
     bct_usdc_lp: true,
-    klima_mco2_lp: false,
-    ubo: false,
-    nbo: false,
+    klima_mco2_lp: true,
+    ubo: true,
+    nbo: true,
     inverse_usdc: false,
   };
 
@@ -226,7 +227,12 @@ export function ChooseBond() {
             </div>
             {bonds.map((bond) => (
               <Link to={bond.href} key={bond.href}>
-                <div className={styles.bondLink} key={bond.name}>
+                <div
+                  className={cx(styles.bondLink, {
+                    disabled: !!bond.disabled,
+                  })}
+                  key={bond.name}
+                >
                   <div className="bondLink_imgContainer">
                     <Image src={bond.icon} alt="" width={64} height={64} />
                   </div>
