@@ -54,8 +54,8 @@ export const Infinity: NextPage<Props> = () => {
           <div className="hero_title_container">
             <Image src={klimaInfinityLogo} alt="Klima Infinity logo" />
             <Trans
-              id="home.welcome_to_infinity"
-              comment="<0>WELCOME TO</0><1>KlimaDAO</1>"
+              id="infinity.welcome_to_infinity"
+              comment="<0>WELCOME TO</0><1>KlimaInfinity</1>"
             >
               <Text t="h2" className="hero_title">
                 The easiest way to go carbon neutral
@@ -68,12 +68,21 @@ export const Infinity: NextPage<Props> = () => {
             <div className="hero_buttons">
               <ButtonPrimary
                 className="hero_button_primary"
-                variant="blue"
+                variant="blueRounded"
                 label="Get started"
               />
-              <ButtonSecondary variant="blue" label="Contact sales" />
+              <ButtonSecondary variant="blueRounded" label="Contact sales" />
             </div>
           </div>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.sliderSection}>
+        <div className="slider_container">
+
+        <div><Trans id="infinity.organizations">
+          <Text t="h3">Dozens of organizations have offset over 150,000 carbon tonnes with Klima Infinity</Text>
+          </Trans></div>
+        <div>cards here</div>
         </div>
       </Section>
       <Footer />

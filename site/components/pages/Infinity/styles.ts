@@ -55,3 +55,14 @@ export const heroSection = css`
   ${breakpoints.desktopLarge} {
   }
 `;
+
+export const sliderSection = css`
+padding: 0 !important;
+.slider_container {
+  grid-column: main;
+  display: grid;
+  gap: 4.4rem;
+  justify-content: center;
+  align-items: center;
+}
+`

@@ -36,11 +36,16 @@ export const Navigation: FC<Props> = ({
         buttons={[
           <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
-          <ButtonPrimary
+          activePage !== "Infinity" ? <ButtonPrimary
             key="Enter App"
             label={t({ message: "Enter App", id: "shared.enter_app" })}
             href={createLinkWithLocaleQuery(urls.app, locale)}
-          />,
+          /> : <ButtonPrimary
+          key="Contact Sales"
+          variant="blueRounded"
+          label={t({ message: "Contact Sales", id: "shared.contact_sales" })}
+          href={createLinkWithLocaleQuery(urls.app, locale)}
+        />,
         ]}
       >
         <NavItemDesktop
