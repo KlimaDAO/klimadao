@@ -8,7 +8,7 @@ interface Props {
   className?: string;
   onClick?: () => void;
   href?: string;
-  variant?: "gray" | "icon" | "blue" | null;
+  variant?: "gray" | "icon" | "blueRounded" | null;
   link?: Link;
   rel?: string;
   target?: string;
@@ -24,7 +24,7 @@ export const ButtonSecondary: FC<Props> = ({ link: LinkElement, ...props }) => {
       styles.button_secondary_gray,
       props.className
     );
-  } else if (props.variant === "blue") {
+  } else if (props.variant === "blueRounded") {
     buttonStyle = cx(
       styles.button_secondary,
       styles.button_secondary_blue,

@@ -86,7 +86,7 @@ export const button_primary_gray = css`
 export const button_primary_blue = css`
   background-color: var(--klima-blue);
   color: var(--surface-01);
-
+  border-radius: 0.8rem;
   &,
   &:hover,
   &:hover:not(:disabled),
@@ -109,7 +109,7 @@ export const button_secondary_gray = css`
 export const button_secondary_blue = css`
   border-color: var(--klima-blue);
   color: var(--klima-blue);
-
+  border-radius: 0.8rem;
   &,
   &:hover,
   &:hover:not(:disabled),
