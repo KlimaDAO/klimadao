@@ -174,6 +174,10 @@ const getMCO2MarketPrice = async (params: {
   return MCO2KLIMAPrice;
 };
 
+// v2 bonds have multiple markets within them, we know that inverse USDC bonds is this one:
+// in a later version we could clean this up by querying for "live markets"
+const INVERSE_USDC_MARKET_ID = 4;
+
 export const calcBondDetails = (params: {
   bond: Bond;
   value?: string;
@@ -224,18 +228,15 @@ export const calcBondDetails = (params: {
     let premium = 0;
     let capacity = 0;
     if (getIsInverse({ bond: params.bond })) {
-      // v2 bonds have multiple markets within them, we know that inverse USDC bonds is this one:
-      // in a later version we could clean this up by querying for "live markets"
-      const marketId = 3;
       // returns klimas-per-dollar with 6 decimals
-      bondPrice = await bondContract.marketPrice(marketId);
+      bondPrice = await bondContract.marketPrice(INVERSE_USDC_MARKET_ID);
 
       // profit is the bond price in klima minus the LP market price in klima
       const profit = marketPrice - Number(formatUnits(bondPrice, 6));
       // premium is the percent "bonus" over the LP market price
       premium = profit / marketPrice;
-      terms = await bondContract.terms(marketId);
-      const marketData = await bondContract.markets(marketId);
+      terms = await bondContract.terms(INVERSE_USDC_MARKET_ID);
+      const marketData = await bondContract.markets(INVERSE_USDC_MARKET_ID);
       capacity = Number(formatUnits(marketData.capacity, 6));
       // 6 decimals
       maxBondPrice = marketData.maxPayout;
@@ -427,7 +428,6 @@ export const bondTransaction = async (params: {
 }) => {
   if (params.bond === "inverse_usdc") {
     try {
-      const marketId = 3;
       const acceptedSlippage = 0.0; // 20% instead of 2% bc 2% not working. 20% also not working lol
       const signer = params.provider.getSigner();
       const contractAddress = getBondAddress({ bond: params.bond });
@@ -436,7 +436,7 @@ export const bondTransaction = async (params: {
         KlimaProV2.abi,
         signer
       );
-      const bondPrice = await contract.marketPrice(marketId);
+      const bondPrice = await contract.marketPrice(INVERSE_USDC_MARKET_ID);
       // minimum amount to be paid out in usdc. need bondPrice in usdc
       const minAmountOut =
         (1 / Number(formatUnits(bondPrice, 6))) * Number(params.value) -
@@ -454,7 +454,7 @@ export const bondTransaction = async (params: {
       const formattedValue = ethers.utils.parseUnits(params.value, "gwei");
       // contract.deposit(__id, [amountIn (inKLIMA), min Amount Out (inUSDC)], [userAddress, DAOMSigAddress(0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c)])
       const txn = await contract.deposit(
-        ethers.BigNumber.from(marketId),
+        ethers.BigNumber.from(INVERSE_USDC_MARKET_ID),
         [formattedValue, formattedMinAmountOut],
         [address, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
       );
