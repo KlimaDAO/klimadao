@@ -214,16 +214,12 @@ export const allowancesTokens = [
   "klima",
   "sklima",
   "wsklima",
-  "aklima",
-  "alklima",
   "pklima",
 ] as const;
 export type AllowancesToken = typeof allowancesTokens[number];
 export const spenderContracts = [
   "staking_helper",
   "staking",
-  "aklima_migrate",
-  "alklima_migrate",
   "pklima_exercise",
   "retirementAggregator",
 ] as const;
@@ -244,8 +240,6 @@ export const allowancesContracts: AllowancesMap = {
   staking_helper: ["klima"],
   staking: ["sklima", "wsklima"],
   pklima_exercise: ["bct", "pklima"],
-  aklima_migrate: ["aklima"],
-  alklima_migrate: ["alklima"],
 };
 // final Allowances
 export type Allowances = {
