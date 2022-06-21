@@ -10,6 +10,7 @@ import KlimaRetirementAggregator from "../../abi/KlimaRetirementAggregator.json"
 import ExercisePKlima from "../../abi/ExercisepKLIMA.json";
 import KlimaStakingHelper from "../../abi/KlimaStakingHelper.json";
 import KlimaStakingv2 from "../../abi/KlimaStakingv2.json";
+import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 
 type Token = keyof typeof addresses["mainnet"];
 type ContractMap = {
@@ -41,6 +42,7 @@ const contractMap = {
   pklima_exercise: ExercisePKlima.abi,
   staking_helper: KlimaStakingHelper.abi,
   staking: KlimaStakingv2.abi,
+  retirementStorage: KlimaRetirementStorage.abi,
 } as ContractMap;
 
 export const getContractAbiByToken = (token: Token) => {
