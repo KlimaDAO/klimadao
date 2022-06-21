@@ -2,6 +2,7 @@ import { ethers, providers } from "ethers";
 
 import { addresses } from "../../constants";
 import IERC20 from "../../abi/IERC20.json";
+import WSKLIMA from "../../abi/wsKlima.json";
 
 type Token = keyof typeof addresses["mainnet"];
 type ContractMap = {
@@ -18,6 +19,7 @@ const contractMap = {
   // KLIMA
   klima: IERC20.abi,
   sklima: IERC20.abi,
+  wsklima: WSKLIMA.abi,
   pklima: IERC20.abi,
 
   // USDC
