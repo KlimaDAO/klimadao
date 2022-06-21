@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-20 23:09+0000\n"
+"POT-Creation-Date: 2022-06-21 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -267,7 +267,7 @@ msgstr "Communauté"
 
 #: components/pages/Resources/Community/index.tsx:82
 msgid "community.head.metadescription"
-msgstr ""
+msgstr "Découvrez notre communauté de passionnés Klimates"
 
 #: components/pages/Resources/Community/index.tsx:76
 msgid "community.head.subline"
@@ -363,7 +363,7 @@ msgstr "Nous sommes une équipe entièrement à distance qui embauche sur tous l
 
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "contact.head.description"
-msgstr ""
+msgstr "Entrez en contact avec quelqu'un de KlimaDAO."
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
@@ -454,7 +454,7 @@ msgstr "Clause de non-responsabilité"
 
 #: components/pages/Disclaimer/index.tsx:20
 msgid "disclaimer.head.description"
-msgstr ""
+msgstr "Un avertissement important de l'équipe juridique de KlimaDAO."
 
 #: components/pages/Disclaimer/index.tsx:16
 #: components/pages/Disclaimer/index.tsx:24
