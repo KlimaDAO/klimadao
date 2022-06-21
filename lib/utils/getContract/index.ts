@@ -8,10 +8,12 @@ import PunkTLD from "../../abi/PunkTLD.json";
 import PairContract from "../../abi/PairContract.json";
 import KlimaRetirementAggregator from "../../abi/KlimaRetirementAggregator.json";
 import ExercisePKlima from "../../abi/ExercisepKLIMA.json";
+import KlimaStakingHelper from "../../abi/KlimaStakingHelper.json";
+import KlimaStakingv2 from "../../abi/KlimaStakingv2.json";
 
 type Token = keyof typeof addresses["mainnet"];
 type ContractMap = {
-  [K in Token]: typeof IERC20["abi"];
+  [K in Token]: typeof IERC20["abi"] | typeof KlimaStakingHelper["abi"];
 };
 const contractMap = {
   // CARBON
@@ -37,6 +39,8 @@ const contractMap = {
   klimaBctLp: PairContract.abi,
   retirementAggregator: KlimaRetirementAggregator.abi,
   pklima_exercise: ExercisePKlima.abi,
+  staking_helper: KlimaStakingHelper.abi,
+  staking: KlimaStakingv2.abi,
 } as ContractMap;
 
 export const getContractAbiByToken = (token: Token) => {

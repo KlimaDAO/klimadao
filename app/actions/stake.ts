@@ -2,8 +2,6 @@ import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
 import { addresses } from "@klimadao/lib/constants";
 
-import KlimaStakingHelper from "@klimadao/lib/abi/KlimaStakingHelper.json";
-import KlimaStakingv2 from "@klimadao/lib/abi/KlimaStakingv2.json";
 import { formatUnits, getContractByToken } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
@@ -49,16 +47,14 @@ export const changeStakeTransaction = async (params: {
   try {
     const parsedValue = ethers.utils.parseUnits(params.value, "gwei");
     const contract = {
-      stake: new ethers.Contract(
-        addresses["mainnet"].staking_helper,
-        KlimaStakingHelper.abi,
-        params.provider.getSigner()
-      ),
-      unstake: new ethers.Contract(
-        addresses["mainnet"].staking,
-        KlimaStakingv2.abi,
-        params.provider.getSigner()
-      ),
+      stake: getContractByToken({
+        token: "staking_helper",
+        provider: params.provider,
+      }),
+      unstake: getContractByToken({
+        token: "staking",
+        provider: params.provider,
+      }),
     }[params.action];
     params.onStatus("userConfirmation", "");
     const txn =
