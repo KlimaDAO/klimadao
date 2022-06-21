@@ -1,4 +1,5 @@
 const mainnet = {
+  daoMultiSig: "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c",
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   nct: "0xD838290e877E0188a4A44700463419ED96c16107",
@@ -37,6 +38,7 @@ const mainnet = {
 };
 
 const testnet: typeof mainnet = {
+  daoMultiSig: "",
   bct: "0x8f8b7D5d12c1fC37f20a89Bf4Dfe1E787Da529B5",
   mco2: "",
   nct: "",

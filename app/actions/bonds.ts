@@ -453,7 +453,7 @@ export const bondTransaction = async (params: {
       const txn = await contract.deposit(
         ethers.BigNumber.from(INVERSE_USDC_MARKET_ID),
         [formattedValue, formattedMinAmountOut],
-        [address, "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c"]
+        [address, addresses.mainnet.daoMultiSig]
       );
       params.onStatus("networkConfirmation", "");
       await txn.wait(1);
