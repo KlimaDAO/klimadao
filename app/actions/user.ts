@@ -17,6 +17,19 @@ import {
 
 import { getKns, getEns } from "./utils";
 
+const assets = [
+  "bct",
+  "nct",
+  "mco2",
+  "ubo",
+  "nbo",
+  "usdc",
+  "klima",
+  "sklima",
+  "wsklima",
+  "pklima",
+] as const;
+
 export const loadAccountDetails = (params: {
   provider: providers.JsonRpcProvider;
   address: string;
@@ -24,51 +37,25 @@ export const loadAccountDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const bctContract = getContract({
-        contractName: "bct",
-        provider: params.provider,
-      });
-      const nctContract = getContract({
-        contractName: "nct",
-        provider: params.provider,
-      });
-      const mco2Contract = getContract({
-        contractName: "mco2",
-        provider: params.provider,
-      });
-      const uboContract = getContract({
-        contractName: "ubo",
-        provider: params.provider,
-      });
-      const nboContract = getContract({
-        contractName: "nbo",
-        provider: params.provider,
-      });
-      const usdcContract = getContract({
-        contractName: "usdc",
-        provider: params.provider,
-      });
-      const klimaContract = getContract({
-        contractName: "klima",
-        provider: params.provider,
-      });
-      const sklimaContract = getContract({
-        contractName: "sklima",
-        provider: params.provider,
-      });
-      const wsklimaContract = getContract({
-        contractName: "wsklima",
-        provider: params.provider,
-      });
-      const pKlimaContract = getContract({
-        contractName: "pklima",
-        provider: params.provider,
-      });
+      const [
+        bctContract,
+        nctContract,
+        mco2Contract,
+        uboContract,
+        nboContract,
+        usdcContract,
+        klimaContract,
+        sklimaContract,
+        wsklimaContract,
+        pKlimaContract,
+      ] = assets.map((contract) =>
+        getContract({ contractName: contract, provider: params.provider })
+      );
+
       const klimaDomainContract = getContract({
         contractName: "klimaNameService",
         provider: params.provider,
       });
-
       // domains
       const domains = [
         getKns({
@@ -94,7 +81,10 @@ export const loadAccountDetails = (params: {
         pKlimaContract.balanceOf(params.address),
         // USDC
         usdcContract.balanceOf(params.address),
+      ];
 
+      // allowances
+      const allowances = [
         // allowances token.allowance(owner, spender)
         klimaContract.allowance(
           params.address,
@@ -112,7 +102,7 @@ export const loadAccountDetails = (params: {
         ),
       ];
 
-      const promises = [...domains, ...balances];
+      const promises = [...domains, ...balances, ...allowances];
 
       const [
         knsDomain,
