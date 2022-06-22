@@ -12,11 +12,11 @@ export const changeApprovalTransaction = async (params: {
   try {
     const contract = {
       stake: getContract({
-        token: "klima",
+        contractName: "klima",
         provider: params.provider.getSigner(),
       }),
       unstake: getContract({
-        token: "sklima",
+        contractName: "sklima",
         provider: params.provider.getSigner(),
       }),
     }[params.action];
@@ -51,11 +51,11 @@ export const changeStakeTransaction = async (params: {
     const parsedValue = ethers.utils.parseUnits(params.value, "gwei");
     const contract = {
       stake: getContract({
-        token: "staking_helper",
+        contractName: "staking_helper",
         provider: params.provider.getSigner(),
       }),
       unstake: getContract({
-        token: "staking",
+        contractName: "staking",
         provider: params.provider.getSigner(),
       }),
     }[params.action];

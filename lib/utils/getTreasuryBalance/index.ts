@@ -9,7 +9,7 @@ const getOwnedBCTFromSLP = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
   const contract = getContract({
-    token: params.adr,
+    contractName: params.adr,
     provider: params.provider,
   });
   const [token0, token1, [reserve0, reserve1], treasurySLP, totalSLP] =
@@ -43,7 +43,7 @@ export const getTreasuryBalance = async (
 ): Promise<number> => {
   try {
     const provider = getJsonRpcProvider(providerUrl);
-    const bctContract = getContract({ token: "bct", provider });
+    const bctContract = getContract({ contractName: "bct", provider });
 
     const nakedBCT = getInteger(
       await bctContract.balanceOf(addresses.mainnet.treasury)

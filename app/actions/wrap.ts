@@ -9,7 +9,7 @@ export const changeApprovalTransaction = async (params: {
 }) => {
   try {
     const contract = getContract({
-      token: "sklima",
+      contractName: "sklima",
       provider: params.provider.getSigner(),
     });
     const value = ethers.utils.parseUnits("1000000000", "gwei"); //bignumber
@@ -40,7 +40,7 @@ export const wrapTransaction = async (params: {
 }) => {
   try {
     const contract = getContract({
-      token: "wsklima",
+      contractName: "wsklima",
       provider: params.provider.getSigner(),
     });
     params.onStatus("userConfirmation", "");

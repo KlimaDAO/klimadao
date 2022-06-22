@@ -50,13 +50,14 @@ export const getContractAbiByToken = (token: Token) => {
 };
 
 export const getContract = (params: {
-  token: Token;
+  contractName: Token;
   provider: providers.JsonRpcProvider | Signer;
 }): ethers.Contract => {
-  const abi = getContractAbiByToken(params.token);
-  if (!abi) throw new Error(`Unknown abi for token: ${params.token}`);
+  const abi = getContractAbiByToken(params.contractName);
+  if (!abi)
+    throw new Error(`Unknown abi for contractName: ${params.contractName}`);
   return new ethers.Contract(
-    addresses["mainnet"][params.token],
+    addresses["mainnet"][params.contractName],
     abi,
     params.provider
   );

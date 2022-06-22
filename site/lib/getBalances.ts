@@ -16,11 +16,11 @@ export type Balances = {
 export const getBalances = async (params: Params): Promise<Balances> => {
   const provider = getJsonRpcProvider();
 
-  const bctContract = getContract({ token: "bct", provider });
-  const nctContract = getContract({ token: "nct", provider });
-  const mco2Contract = getContract({ token: "mco2", provider });
-  const klimaContract = getContract({ token: "klima", provider });
-  const sklimaContract = getContract({ token: "sklima", provider });
+  const bctContract = getContract({ contractName: "bct", provider });
+  const nctContract = getContract({ contractName: "nct", provider });
+  const mco2Contract = getContract({ contractName: "mco2", provider });
+  const klimaContract = getContract({ contractName: "klima", provider });
+  const sklimaContract = getContract({ contractName: "sklima", provider });
 
   const klimaBalance = await klimaContract.balanceOf(params.address);
   const sklimaBalance = await sklimaContract.balanceOf(params.address);

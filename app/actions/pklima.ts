@@ -18,7 +18,7 @@ export const loadTerms = (params: {
   return async (dispatch) => {
     try {
       const pExerciseContract = getContract({
-        token: "pklima_exercise",
+        contractName: "pklima_exercise",
         provider: params.provider,
       });
       const pklimaRedeemBalance = await pExerciseContract.redeemableFor(
@@ -59,11 +59,11 @@ export const changeApprovalTransaction = async (params: {
   try {
     const contract = {
       pklima: getContract({
-        token: "pklima",
+        contractName: "pklima",
         provider: params.provider.getSigner(),
       }),
       bct: getContract({
-        token: "bct",
+        contractName: "bct",
         provider: params.provider.getSigner(),
       }),
     }[params.action];
@@ -97,7 +97,7 @@ export const exerciseTransaction = async (params: {
 }) => {
   try {
     const contract = getContract({
-      token: "pklima_exercise",
+      contractName: "pklima_exercise",
       provider: params.provider.getSigner(),
     });
     params.onStatus("userConfirmation", "");

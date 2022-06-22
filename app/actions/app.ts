@@ -20,11 +20,11 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
       const currentBlock = await provider.getBlockNumber();
 
       const distributorContract = getContract({
-        token: "distributor",
+        contractName: "distributor",
         provider: provider,
       });
       const sKlimaContract = getContract({
-        token: "sklima",
+        contractName: "sklima",
         provider: provider,
       });
       const sKlimaMainContract = new ethers.Contract(

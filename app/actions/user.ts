@@ -25,47 +25,47 @@ export const loadAccountDetails = (params: {
   return async (dispatch) => {
     try {
       const bctContract = getContract({
-        token: "bct",
+        contractName: "bct",
         provider: params.provider,
       });
       const nctContract = getContract({
-        token: "nct",
+        contractName: "nct",
         provider: params.provider,
       });
       const mco2Contract = getContract({
-        token: "mco2",
+        contractName: "mco2",
         provider: params.provider,
       });
       const uboContract = getContract({
-        token: "ubo",
+        contractName: "ubo",
         provider: params.provider,
       });
       const nboContract = getContract({
-        token: "nbo",
+        contractName: "nbo",
         provider: params.provider,
       });
       const usdcContract = getContract({
-        token: "usdc",
+        contractName: "usdc",
         provider: params.provider,
       });
       const klimaContract = getContract({
-        token: "klima",
+        contractName: "klima",
         provider: params.provider,
       });
       const sklimaContract = getContract({
-        token: "sklima",
+        contractName: "sklima",
         provider: params.provider,
       });
       const wsklimaContract = getContract({
-        token: "wsklima",
+        contractName: "wsklima",
         provider: params.provider,
       });
       const pKlimaContract = getContract({
-        token: "pklima",
+        contractName: "pklima",
         provider: params.provider,
       });
       const klimaDomainContract = getContract({
-        token: "klimaNameService",
+        contractName: "klimaNameService",
         provider: params.provider,
       });
 

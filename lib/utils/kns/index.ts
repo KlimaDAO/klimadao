@@ -13,7 +13,7 @@ export const createKNSDomainFromName = (name: string): string =>
 // import { KNSContract } from '...'
 // KNSContract.provider = myProvider;
 export const KNSContract = getContract({
-  token: "klimaNameService",
+  contractName: "klimaNameService",
   provider: getJsonRpcProvider(),
 });
 

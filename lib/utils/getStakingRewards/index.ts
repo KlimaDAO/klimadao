@@ -11,7 +11,7 @@ export const getStakingRewards = async (params: {
 }): Promise<number> => {
   const provider = getJsonRpcProvider(params.providerUrl);
   const distributorContract = getContract({
-    token: "distributor",
+    contractName: "distributor",
     provider,
   });
   const sklimaContract = new ethers.Contract(

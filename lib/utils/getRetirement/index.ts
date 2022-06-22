@@ -18,7 +18,7 @@ import {
 
 export const createRetirementStorageContract = (
   provider: providers.JsonRpcProvider
-) => getContract({ token: "retirementStorage", provider });
+) => getContract({ contractName: "retirementStorage", provider });
 
 export const getRetirementIndexInfo = async (params: {
   beneficiaryAddress: string;

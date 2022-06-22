@@ -53,7 +53,7 @@ export const getRetirementAllowances = (params: {
       // create arr of promises, one for each of the above erc20s
       const promises = inputTokens.reduce((arr, val) => {
         const contract = getContract({
-          token: val,
+          contractName: val,
           provider: params.provider,
         });
         arr.push(
@@ -92,7 +92,7 @@ export const changeApprovalTransaction = async (params: {
 }): Promise<string> => {
   try {
     const contract = getContract({
-      token: params.token,
+      contractName: params.token,
       provider: params.provider.getSigner(),
     });
     const decimals = getTokenDecimals(params.token);
@@ -126,7 +126,7 @@ export const getOffsetConsumptionCost = async (params: {
   getSpecific: boolean;
 }): Promise<[string, string]> => {
   const retirementAggregatorContract = getContract({
-    token: "retirementAggregator",
+    contractName: "retirementAggregator",
     provider: params.provider,
   });
   const parsed = ethers.utils.parseUnits(
@@ -189,7 +189,7 @@ export const retireCarbonTransaction = async (params: {
 
     // retire transaction
     const retireContract = getContract({
-      token: "retirementAggregator",
+      contractName: "retirementAggregator",
       provider: params.provider.getSigner(),
     });
 
