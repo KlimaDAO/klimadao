@@ -94,34 +94,25 @@ export const loadAccountDetails = (params: {
         pKlimaContract.balanceOf(params.address),
         // USDC
         usdcContract.balanceOf(params.address),
-      ];
 
-      // allowances
-      const allowances = [
-        // token.allowance(owner, spender)
-
-        // KLIMA
+        // allowances token.allowance(owner, spender)
         klimaContract.allowance(
           params.address,
           addresses["mainnet"].staking_helper
         ),
-        // SKLIMA
         sklimaContract.allowance(params.address, addresses["mainnet"].staking),
-        // WSKLIMA
         sklimaContract.allowance(params.address, addresses["mainnet"].wsklima),
-        // PKLIMA
         pKlimaContract.allowance(
           params.address,
           addresses["mainnet"].pklima_exercise
         ),
-        // BCT
         bctContract.allowance(
           params.address,
           addresses["mainnet"].pklima_exercise
         ),
       ];
 
-      const promises = [...domains, ...balances, ...allowances];
+      const promises = [...domains, ...balances];
 
       const [
         knsDomain,
