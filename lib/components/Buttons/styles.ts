@@ -47,3 +47,7 @@ export const button_gray = css`
     color: var(--font-02); /* same in darkmode */
   }
 `;
+
+export const button_blue = css`
+  background-color: var(--klima-blue);
+`;

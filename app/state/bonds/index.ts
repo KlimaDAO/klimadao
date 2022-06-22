@@ -17,6 +17,7 @@ type BondState = {
     bondPrice?: string;
     marketPrice?: string;
     fee?: number;
+    capacity?: number;
   };
 };
 

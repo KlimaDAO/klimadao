@@ -1,4 +1,5 @@
 const mainnet = {
+  daoMultiSig: "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c",
   bct: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
   mco2: "0xaa7dbd1598251f856c12f63557a4c4397c253cea",
   nct: "0xD838290e877E0188a4A44700463419ED96c16107",
@@ -19,6 +20,7 @@ const mainnet = {
   klimaUboLp: "0x5400A05B8B45EaF9105315B4F2e31F806AB706dE",
   klimaNboLp: "0x251cA6A70cbd93Ccd7039B6b708D4cb9683c266C",
   klimaNameService: "0xe8b97542A433e7eCc7bB791872af04DF02A1a6E4",
+  klimaProV2: "0xcf37f6B4754b34eA32a49cF5def3095a17732C1b",
   bond_klimaBctLp: "0x1E0Dd93C81aC7Af2974cdB326c85B87Dd879389B",
   bond_klimaUsdcLp: "0xb5aF101742EcAe095944F60C384d09453006bFde",
   bond_klimaMco2Lp: "0x18c3713d523f91fBd26E65C8BaBAB63A0f31B9a6",
@@ -36,6 +38,7 @@ const mainnet = {
 };
 
 const testnet: typeof mainnet = {
+  daoMultiSig: "",
   bct: "0x8f8b7D5d12c1fC37f20a89Bf4Dfe1E787Da529B5",
   mco2: "",
   nct: "",
@@ -56,6 +59,7 @@ const testnet: typeof mainnet = {
   klimaUboLp: "",
   klimaNboLp: "",
   klimaNameService: "",
+  klimaProV2: "",
   bond_klimaBctLp: "0x285A6054DdC2980C62E716086B065E1e770fffb3",
   bond_klimaUsdcLp: "",
   bond_klimaMco2Lp: "0xf9c3FC299dE5f86d9CD6a724e6B44933720f5e6D",
@@ -147,6 +151,7 @@ export const polygonNetworks = {
 };
 
 export const bonds = [
+  "inverse_usdc",
   "ubo",
   "nbo",
   "bct_usdc_lp",
