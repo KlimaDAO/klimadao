@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { ButtonPrimary, KlimaInfinityLogoOnly } from "@klimadao/lib/components";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+
 import EditIcon from "@mui/icons-material/Edit";
-import { useWeb3 } from "hooks/useWeb3/web3context";
-import { concatAddress } from "@klimadao/lib/utils";
 
 import Link from "next/link";
 import * as styles from "./styles";

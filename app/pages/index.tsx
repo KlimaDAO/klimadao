@@ -7,6 +7,11 @@ import { IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 import { messages as default_messages } from "../locale/en/messages";
 import { i18n } from "@lingui/core";
+import { Web3ContextProvider } from "@klimadao/lib/components";
+import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
+import { FC } from "react";
+import { useSelector } from "react-redux";
+import { selectLocale } from "state/selectors";
 
 export async function getStaticProps() {
   i18n.load("en", default_messages);
@@ -15,19 +20,32 @@ export async function getStaticProps() {
     props: {},
   };
 }
+
+/** Wrap in component so we can render as child of WithRedux and invoke useSelector */
+const LocalizedWeb3ContextProvider: FC = (props) => {
+  useSelector(selectLocale); // trigger re-render
+  return (
+    <Web3ContextProvider strings={getWeb3ModalStrings()}>
+      {props.children}
+    </Web3ContextProvider>
+  );
+};
+
 const HomePage: NextPage = () => {
   return (
     <WithRedux>
-      <WithIsomorphicRouter location="/#">
-        <PageHead
-          production={IS_PRODUCTION}
-          title="KlimaDAO | Official App"
-          mediaTitle="KlimaDAO | Official App"
-          metaDescription="Use the KLIMA web app to bond, stake and earn rewards."
-          mediaImageSrc={urls.mediaImage}
-        />
-        <Home />
-      </WithIsomorphicRouter>
+      <LocalizedWeb3ContextProvider>
+        <WithIsomorphicRouter location="/#">
+          <PageHead
+            production={IS_PRODUCTION}
+            title="KlimaDAO | Official App"
+            mediaTitle="KlimaDAO | Official App"
+            metaDescription="Use the KLIMA web app to bond, stake and earn rewards."
+            mediaImageSrc={urls.mediaImage}
+          />
+          <Home />
+        </WithIsomorphicRouter>
+      </LocalizedWeb3ContextProvider>
     </WithRedux>
   );
 };

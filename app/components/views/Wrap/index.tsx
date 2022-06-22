@@ -29,7 +29,7 @@ import * as styles from "components/views/Stake/styles";
 import { Trans, defineMessage } from "@lingui/macro";
 
 interface Props {
-  provider: ethers.providers.JsonRpcProvider;
+  provider?: ethers.providers.Web3Provider;
   address?: string;
   isConnected?: boolean;
   loadWeb3Modal: () => Promise<void>;
@@ -83,6 +83,7 @@ export const Wrap: FC<Props> = (props) => {
   };
 
   const handleApproval = () => async () => {
+    if (!props.provider) return;
     try {
       const value = await changeApprovalTransaction({
         provider: props.provider,
@@ -100,7 +101,7 @@ export const Wrap: FC<Props> = (props) => {
 
   const handleAction = (action: "wrap" | "unwrap") => async () => {
     try {
-      if (!quantity || !currentIndex) return;
+      if (!quantity || !currentIndex || !props.provider) return;
       setQuantity("");
       await wrapTransaction({
         action,

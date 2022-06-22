@@ -3,7 +3,7 @@ import { Thunk } from "state";
 import { setBond } from "state/bonds";
 import { OnStatusHandler } from "./utils";
 import { setBondAllowance } from "state/user";
-import { formatUnits } from "@klimadao/lib/utils";
+import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
 import { addresses, Bond } from "@klimadao/lib/constants";
 import Depository from "@klimadao/lib/abi/KlimaBondDepository_Regular.json";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
@@ -141,9 +141,9 @@ const getMCO2MarketPrice = async (params: {
 export const calcBondDetails = (params: {
   bond: Bond;
   value?: string;
-  provider: providers.JsonRpcProvider;
 }): Thunk => {
   return async (dispatch) => {
+    const provider = getJsonRpcProvider();
     let amountInWei;
     if (!params.value || params.value === "") {
       amountInWei = ethers.utils.parseEther("0");
@@ -153,7 +153,7 @@ export const calcBondDetails = (params: {
 
     const bondContract = contractForBond({
       bond: params.bond,
-      provider: params.provider,
+      provider: provider,
     });
     // for SLP bonds
     const bondCalcContract = new ethers.Contract(
@@ -161,7 +161,7 @@ export const calcBondDetails = (params: {
         ? addresses["mainnet"].bond_calc_klimaUsdc
         : addresses["mainnet"].bond_calc,
       BondCalcContract.abi,
-      params.provider
+      provider
     );
 
     const getMarketPrice = {
@@ -176,7 +176,7 @@ export const calcBondDetails = (params: {
     }[params.bond];
 
     const marketPrice = await getMarketPrice({
-      provider: params.provider,
+      provider: provider,
     });
 
     const terms = await bondContract.terms();

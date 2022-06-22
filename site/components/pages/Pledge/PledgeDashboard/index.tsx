@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
-import { Text } from "@klimadao/lib/components";
 import {
   concatAddress,
   getRetirementTotalsAndBalances,
+  useWeb3,
 } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { Text } from "@klimadao/lib/components";
 
 import { PageHead } from "components/PageHead";
 import { Modal } from "components/Modal";
-import { useWeb3 } from "hooks/useWeb3/web3context";
 
 import {
   AssetBalanceCard,
