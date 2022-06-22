@@ -13,10 +13,7 @@ import KlimaStakingv2 from "../../abi/KlimaStakingv2.json";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 import SKlima from "../../abi/sKlima.json";
 
-const mainTokenContracts = ["sklimaMain"] as const;
 type Address = keyof typeof addresses["mainnet"];
-type MainTokenContracts = typeof mainTokenContracts[number];
-type ContractName = Address | MainTokenContracts;
 type ContractMap = {
   [K in ContractName]: typeof IERC20["abi"] | typeof KlimaStakingHelper["abi"];
 };
@@ -31,8 +28,8 @@ const contractMap = {
   // KLIMA
   klima: IERC20.abi,
   sklima: IERC20.abi,
-  wsklima: WSKLIMA.abi,
   pklima: IERC20.abi,
+  wsklima: WSKLIMA.abi,
 
   // USDC
   usdc: IERC20.abi,
@@ -50,7 +47,8 @@ const contractMap = {
   staking_helper: KlimaStakingHelper.abi,
   staking: KlimaStakingv2.abi,
   retirementStorage: KlimaRetirementStorage.abi,
-} as ContractMap;
+} as const;
+type ContractName = keyof typeof contractMap;
 
 export const isKeyInAddresses = (name: string): boolean => {
   const keys = Object.keys(
