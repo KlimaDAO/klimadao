@@ -56,13 +56,15 @@ export const BalancesCard: FC<Props> = (props) => {
                 {trimWithPlaceholder(balances?.[asset] ?? 0, 9, locale)}
               </Text>
             )}
-            {asset === "wsklimaUnwrapped" && balances && currentIndex && (
+            {asset === "wsklimaUnwrapped" && (
               <Text className="value">
-                {trimWithPlaceholder(
-                  Number(balances["wsklima"]) * Number(currentIndex) ?? 0,
-                  9,
-                  locale
-                )}
+                {balances && currentIndex
+                  ? trimWithPlaceholder(
+                      Number(balances["wsklima"]) * Number(currentIndex) ?? 0,
+                      9,
+                      locale
+                    )
+                  : 0}
               </Text>
             )}
             <Text className="label" color="lightest">
