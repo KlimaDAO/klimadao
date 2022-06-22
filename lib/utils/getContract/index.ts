@@ -12,9 +12,9 @@ import KlimaStakingHelper from "../../abi/KlimaStakingHelper.json";
 import KlimaStakingv2 from "../../abi/KlimaStakingv2.json";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 
-type Token = keyof typeof addresses["mainnet"];
+type ContractName = keyof typeof addresses["mainnet"];
 type ContractMap = {
-  [K in Token]: typeof IERC20["abi"] | typeof KlimaStakingHelper["abi"];
+  [K in ContractName]: typeof IERC20["abi"] | typeof KlimaStakingHelper["abi"];
 };
 const contractMap = {
   // CARBON
@@ -45,15 +45,15 @@ const contractMap = {
   retirementStorage: KlimaRetirementStorage.abi,
 } as ContractMap;
 
-export const getContractAbiByToken = (token: Token) => {
-  return contractMap[token as keyof ContractMap];
+export const getContractAbiByName = (name: ContractName) => {
+  return contractMap[name as keyof ContractMap];
 };
 
 export const getContract = (params: {
-  contractName: Token;
+  contractName: ContractName;
   provider: providers.JsonRpcProvider | Signer;
 }): ethers.Contract => {
-  const abi = getContractAbiByToken(params.contractName);
+  const abi = getContractAbiByName(params.contractName);
   if (!abi)
     throw new Error(`Unknown abi for contractName: ${params.contractName}`);
   return new ethers.Contract(
