@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-21 15:42+0000\n"
+"POT-Creation-Date: 2022-06-22 01:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,147 +23,147 @@ msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal
 msgid "Wrong Network"
 msgstr "Mauvais réseau"
 
-#: components/views/Offset/index.tsx:737
+#: components/views/Offset/index.tsx:739
 msgid "advanced"
 msgstr "AVANCÉ"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:743
+#: components/views/Bond/index.tsx:745
 msgid "bond.all_demand_has_been_filled"
 msgstr "ÉPUISÉ. Toute la demande a été remplie pour cet obligation. Merci à tous, les Klimates !"
 
-#: components/views/Bond/index.tsx:486
+#: components/views/Bond/index.tsx:488
 msgid "bond.balance"
 msgstr "Solde"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:490
+#: components/views/Bond/index.tsx:492
 msgid "bond.balance.tooltip"
 msgstr "Solde disponible pour acheter des obligations"
 
-#: components/views/Bond/index.tsx:351
-#: components/views/Bond/index.tsx:433
+#: components/views/Bond/index.tsx:353
+#: components/views/Bond/index.tsx:435
 msgid "bond.bond"
 msgstr "Obligation"
 
-#: components/views/Bond/index.tsx:509
+#: components/views/Bond/index.tsx:511
 msgid "bond.bond_price"
 msgstr "Prix de l'obligation"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:513
+#: components/views/Bond/index.tsx:515
 msgid "bond.bond_price.tooltip"
 msgstr "Prix soldé. Montant total pour contracter 1 KLIMA complet (les contrats fractionnaires sont également autorisées)"
 
 #. Bond {0}
-#: components/views/Bond/index.tsx:413
+#: components/views/Bond/index.tsx:415
 msgid "bond.bond_token"
 msgstr "Obligation {0}"
 
-#: components/views/Bond/index.tsx:703
+#: components/views/Bond/index.tsx:705
 msgid "bond.date_of_full_vesting"
 msgstr "Date d'acquisition complète"
 
-#: components/views/Bond/index.tsx:708
+#: components/views/Bond/index.tsx:710
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr "Date à laquelle la valeur totale de l'obligation pourra être réclamée"
 
-#: components/views/Bond/index.tsx:600
+#: components/views/Bond/index.tsx:602
 msgid "bond.debt_ratio"
 msgstr "Ratio d'endettement"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:604
+#: components/views/Bond/index.tsx:606
 msgid "bond.debt_ratio.tooltip"
 msgstr "Ratio actuel de l'offre par rapport aux obligations en circulation du protocole"
 
-#: components/views/Bond/index.tsx:541
+#: components/views/Bond/index.tsx:543
 msgid "bond.discount"
 msgstr "Escompte obligataire"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:545
+#: components/views/Bond/index.tsx:547
 msgid "bond.discount.tooltip"
 msgstr "Pourcentage de décote (ou prime si négative) sur les jetons KLIMA reçus pour cette obligation, par rapport à la valeur marchande de KLIMA."
 
-#: components/views/Bond/index.tsx:373
+#: components/views/Bond/index.tsx:375
 msgid "bond.inputplaceholder.amount_to_bond"
 msgstr "Montant à investir"
 
-#: components/views/Bond/index.tsx:378
+#: components/views/Bond/index.tsx:380
 msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr "Montant à réclamer"
 
-#: components/views/Bond/index.tsx:525
+#: components/views/Bond/index.tsx:527
 msgid "bond.market_price"
 msgstr "Prix du marché"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:529
+#: components/views/Bond/index.tsx:531
 msgid "bond.market_price.tooltip"
 msgstr "Cours actuel de KLIMA, sans décote obligataire"
 
-#: components/views/Bond/index.tsx:581
+#: components/views/Bond/index.tsx:583
 msgid "bond.maximum"
 msgstr "Maximum"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:585
+#: components/views/Bond/index.tsx:587
 msgid "bond.maximum.tooltip"
 msgstr "Montant maximum de KLIMA que vous pouvez acquérir via les contrats obligataires"
 
-#: components/views/Bond/index.tsx:329
+#: components/views/Bond/index.tsx:331
 msgid "bond.not_redeemable"
 msgstr "Ne pouvant être réclamé"
 
-#: components/views/Bond/index.tsx:357
-#: components/views/Bond/index.tsx:443
+#: components/views/Bond/index.tsx:359
+#: components/views/Bond/index.tsx:445
 msgid "bond.redeem"
 msgstr "réclamer"
 
-#: components/views/Bond/index.tsx:670
+#: components/views/Bond/index.tsx:672
 msgid "bond.redeemable"
 msgstr "Réclamable"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:673
+#: components/views/Bond/index.tsx:675
 msgid "bond.redeemable.tooltip"
 msgstr "Montant de KLIMA déjà disponible et pouvant être réclamés"
 
 #. should autostake?
-#: components/views/Bond/index.tsx:773
+#: components/views/Bond/index.tsx:775
 msgid "bond.should_autostake"
 msgstr "Déposer automatiquement sKLIMA"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:732
+#: components/views/Bond/index.tsx:734
 msgid "bond.this_bond_price_is_inflated"
 msgstr "⚠️ Attention : le prix de l'obligation est augmenté car la remise actuelle est négative."
 
-#: components/views/Bond/index.tsx:641
+#: components/views/Bond/index.tsx:643
 msgid "bond.unredeemed"
 msgstr "Non réclamé"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:644
+#: components/views/Bond/index.tsx:646
 msgid "bond.unredeemed.tooltip"
 msgstr "Valeur non réclamée restante (disponible et non disponible)"
 
-#: components/views/Bond/index.tsx:620
+#: components/views/Bond/index.tsx:622
 msgid "bond.vesting_term_end"
 msgstr "Fin de la période de maturation"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:624
+#: components/views/Bond/index.tsx:626
 msgid "bond.vesting_term_end.tooltip"
 msgstr "Si vous contractez une obligation maintenant, votre période d'acquisition se terminera à cette date. La réclamation de Klima est lentement déverrouillé sur cette durée."
 
-#: components/views/Bond/index.tsx:557
+#: components/views/Bond/index.tsx:559
 msgid "bond.you_will_get"
 msgstr "Vous obtiendrez"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:561
+#: components/views/Bond/index.tsx:563
 msgid "bond.you_will_get.tooltip"
 msgstr "Montant d'obligations KLIMA liée que vous obtiendrez, d'après la quantité soumise en entrée."
 
@@ -369,15 +369,15 @@ msgstr "EN ATTENTE"
 msgid "modal.user_confirmation"
 msgstr "CONFIRMATION"
 
-#: components/views/Bond/index.tsx:398
+#: components/views/Bond/index.tsx:400
 msgid "nav.back"
 msgstr "RETOUR"
 
-#: components/views/Offset/index.tsx:571
+#: components/views/Offset/index.tsx:573
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Ce coût comprend le glissement et les frais d'agrégation de 1 %."
 
-#: components/views/Offset/index.tsx:449
+#: components/views/Offset/index.tsx:451
 msgid "offset.amount_in_tonnes"
 msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 
@@ -385,15 +385,15 @@ msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 msgid "offset.breakdown"
 msgstr "Ventilation"
 
-#: components/views/Offset/index.tsx:539
+#: components/views/Offset/index.tsx:541
 msgid "offset.default_retirement_address"
 msgstr "Par défaut, l'adresse du portefeuille connecté"
 
-#: components/views/Offset/index.tsx:475
+#: components/views/Offset/index.tsx:477
 msgid "offset.dropdown_payWith.label"
 msgstr "Payer avec"
 
-#: components/views/Offset/index.tsx:490
+#: components/views/Offset/index.tsx:492
 msgid "offset.dropdown_retire.label"
 msgstr "Sélectionnez l'actif carbone à compenser"
 
@@ -401,24 +401,24 @@ msgstr "Sélectionnez l'actif carbone à compenser"
 msgid "offset.empty"
 msgstr "Cette adresse n'a encore réalisée aucune compensation carbone."
 
-#: components/views/Offset/index.tsx:533
-#: components/views/Offset/index.tsx:766
+#: components/views/Offset/index.tsx:535
+#: components/views/Offset/index.tsx:768
 msgid "offset.enter_address"
 msgstr "Entrez l'adresse commençant par 0x"
 
-#: components/views/Offset/index.tsx:418
+#: components/views/Offset/index.tsx:420
 msgid "offset.go_carbon_neutral"
 msgstr "Devenez neutre en carbone en retirant celui-ci et en réclamant le bénéfice environnemental sous-jacent de la compensation carbone. Choisissez de retirer des <0>Crédits de carbone de Moss</0> (MCO2), des <1>Tonnes de carbone de base</1> (TCC), des <2>Tonnes de carbone naturel</2> (TCN), des <3>Compensations de base universelles</3> (UBO) ou des <4>Compensations basés sur la Nature</4> (NBO), et d'autres seront bientôt disponibles."
 
-#: components/views/Offset/index.tsx:397
+#: components/views/Offset/index.tsx:399
 msgid "offset.incompatible"
 msgstr "JETON EN ENTRÉE INCOMPATIBLE"
 
-#: components/views/Offset/index.tsx:476
+#: components/views/Offset/index.tsx:478
 msgid "offset.modal_payWith.title"
 msgstr "Sélectionnez l'actif"
 
-#: components/views/Offset/index.tsx:494
+#: components/views/Offset/index.tsx:496
 msgid "offset.modal_retire.title"
 msgstr "Sélectionnez le type de carbone"
 
@@ -426,55 +426,55 @@ msgstr "Sélectionnez le type de carbone"
 msgid "offset.number_of_retirements"
 msgstr "Retraits totaux"
 
-#: components/views/Offset/index.tsx:466
+#: components/views/Offset/index.tsx:468
 msgid "offset.offset_quantity"
 msgstr "Entrez la quantité à compenser"
 
-#: components/views/Offset/index.tsx:415
+#: components/views/Offset/index.tsx:417
 msgid "offset.retire_carbon"
 msgstr "Compenser des émissions Carbone"
 
-#: components/views/Offset/index.tsx:744
+#: components/views/Offset/index.tsx:746
 msgid "offset.retire_specific"
 msgstr "Compenser des actifs de projet spécifiques"
 
-#: components/views/Offset/index.tsx:750
+#: components/views/Offset/index.tsx:752
 msgid "offset.retire_specific_tooltip"
 msgstr "Soumis à des frais supplémentaires, fonctions du pool sélectionné et payés à l'opérateur du pont."
 
-#: components/views/Offset/index.tsx:519
+#: components/views/Offset/index.tsx:521
 msgid "offset.retirement_beneficiary"
 msgstr "Nom ou organisation"
 
-#: components/views/Offset/index.tsx:511
+#: components/views/Offset/index.tsx:513
 msgid "offset.retirement_credit"
 msgstr "A qui cette compensation carbone sera-t-elle créditée ?"
 
-#: components/views/Offset/index.tsx:548
+#: components/views/Offset/index.tsx:550
 msgid "offset.retirement_message"
 msgstr "Message de compensation carbone"
 
-#: components/views/Offset/index.tsx:557
+#: components/views/Offset/index.tsx:559
 msgid "offset.retirement_purpose"
 msgstr "Décrivez le but de ce retrait"
 
-#: components/views/Offset/index.tsx:589
+#: components/views/Offset/index.tsx:591
 msgid "offset.retiring"
 msgstr "Destruction en cours"
 
-#: components/views/Offset/index.tsx:659
+#: components/views/Offset/index.tsx:661
 msgid "offset.successModal.body1"
 msgstr "Un grand merci. En participant au marché volontaire du carbone, vous rendez la conservation plus rentable et l'atténuation du climat plus efficace."
 
-#: components/views/Offset/index.tsx:668
+#: components/views/Offset/index.tsx:670
 msgid "offset.successModal.body2"
 msgstr "Cliquez sur le bouton ci-dessous pour afficher votre retrait. Pensez à partager la page pour nous soutenir dans notre cheminement vers un marché du carbone plus transparent, plus accessible et plus rémunérateur !"
 
-#: components/views/Offset/index.tsx:682
+#: components/views/Offset/index.tsx:684
 msgid "offset.successModal.cta"
 msgstr "VOIR MON RETRAIT"
 
-#: components/views/Offset/index.tsx:652
+#: components/views/Offset/index.tsx:654
 msgid "offset.successModal.title"
 msgstr "Retrait réussi !"
 
@@ -486,45 +486,45 @@ msgstr "Tonnes de carbone"
 msgid "offset.you_have_retired"
 msgstr "Vous avez compensé"
 
-#: components/views/Offset/index.tsx:567
+#: components/views/Offset/index.tsx:569
 msgid "offset_cost"
 msgstr "Coût"
 
-#: components/views/Offset/index.tsx:600
+#: components/views/Offset/index.tsx:602
 msgid "offset_disclaimer"
 msgstr "Veillez à ne pas divulguer d'informations personnelles sensibles. Votre message ne pourrra pas être modifié et sera enregistré définitivement sur une blockchain publique."
 
-#: components/views/PKlima/index.tsx:151
+#: components/views/PKlima/index.tsx:153
 msgid "pklima.approve_bct"
 msgstr "2. Approuver BCT"
 
-#: components/views/PKlima/index.tsx:146
+#: components/views/PKlima/index.tsx:148
 msgid "pklima.approve_pklima"
 msgstr "1. Approuver pKLIMA"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:169
+#: components/views/PKlima/index.tsx:171
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "Assurez-vous de mettre en dépôt le pKLIMA réclamé et de conserver votre dépôt jusqu'à ce que les émissions mondiales de GHG aient atteint un plateau."
 
-#: components/views/PKlima/index.tsx:156
+#: components/views/PKlima/index.tsx:158
 msgid "pklima.exercise"
 msgstr "EXERCER"
 
-#: components/views/PKlima/index.tsx:185
+#: components/views/PKlima/index.tsx:187
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "Exercez 1 pKLIMA et 1 BCT pour recevoir 1 KLIMA."
 
-#: components/views/PKlima/index.tsx:253
+#: components/views/PKlima/index.tsx:255
 msgid "pklima.index_adjusted"
 msgstr "Indice ajusté"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:256
+#: components/views/PKlima/index.tsx:258
 msgid "pklima.index_adjusted.tooltip"
 msgstr "Équivalent sKLIMA réclamé, en supposant que vous avez mis en dépôt tous vos KLIMA jusqu'à aujourd'hui."
 
-#: components/views/PKlima/index.tsx:201
+#: components/views/PKlima/index.tsx:203
 msgid "pklima.klima_to_exercise"
 msgstr "pKLIMA que vous pouvez exercer"
 
@@ -532,25 +532,25 @@ msgstr "pKLIMA que vous pouvez exercer"
 msgid "pklima.overclaim"
 msgstr "Vous avez réclamé plus de KLIMA que votre limite de partage d'approvisionnement ne le permet. Cela est probablement dû au correctif mis en œuvre le 24 novembre 2021 au contrat de réclamation de pKLIMA."
 
-#: components/views/PKlima/index.tsx:182
+#: components/views/PKlima/index.tsx:184
 msgid "pklima.redeem_pklima"
 msgstr "Réclamer pKlima"
 
-#: components/views/PKlima/index.tsx:241
+#: components/views/PKlima/index.tsx:243
 msgid "pklima.redeemed"
 msgstr "Réclamé"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:244
+#: components/views/PKlima/index.tsx:246
 msgid "pklima.redeemed.tooltip"
 msgstr "Montant total de KLIMA que vous avez échangé jusqu'à présent."
 
-#: components/views/PKlima/index.tsx:225
+#: components/views/PKlima/index.tsx:227
 msgid "pklima.supply_limit"
 msgstr "Quantité maximale"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:228
+#: components/views/PKlima/index.tsx:230
 msgid "pklima.supply_limit.tooltip"
 msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par l’indice ne peut pas dépasser cette valeur."
 
@@ -558,10 +558,10 @@ msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par 
 msgid "pklima.update"
 msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont gagné des récompenses provenant d'actifs réclamés au préalable. Avant le correctif de novembre, le rendement des dépôts n'étaient pas pris en compte dans votre limite d'approvisionnement. De fait votre approvisionnement total en KLIMA pouvait dépasser la limite définie dans vos conditions."
 
-#: components/views/Bond/index.tsx:344
-#: components/views/Offset/index.tsx:326
-#: components/views/Stake/index.tsx:167
-#: components/views/Stake/index.tsx:173
+#: components/views/Bond/index.tsx:346
+#: components/views/Offset/index.tsx:328
+#: components/views/Stake/index.tsx:169
+#: components/views/Stake/index.tsx:175
 msgid "shared.approve"
 msgstr "Approuver"
 
@@ -569,22 +569,22 @@ msgstr "Approuver"
 msgid "shared.balances"
 msgstr "Soldes"
 
-#: components/ChangeLanguageButton/index.tsx:75
+#: components/ChangeLanguageButton/index.tsx:72
 msgid "shared.change_language"
 msgstr "Changer de langue"
 
-#: components/views/Bond/index.tsx:338
-#: components/views/PKlima/index.tsx:140
-#: components/views/Stake/index.tsx:161
+#: components/views/Bond/index.tsx:340
+#: components/views/PKlima/index.tsx:142
+#: components/views/Stake/index.tsx:163
 msgid "shared.confirming"
 msgstr "Confirmation en cours"
 
-#: components/views/Bond/index.tsx:311
+#: components/views/Bond/index.tsx:313
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:291
-#: components/views/PKlima/index.tsx:125
-#: components/views/Stake/index.tsx:146
-#: components/views/Wrap/index.tsx:129
+#: components/views/Offset/index.tsx:293
+#: components/views/PKlima/index.tsx:127
+#: components/views/Stake/index.tsx:148
+#: components/views/Wrap/index.tsx:130
 msgid "shared.connect_wallet"
 msgstr "Connectez votre portefeuille"
 
@@ -592,58 +592,58 @@ msgstr "Connectez votre portefeuille"
 msgid "shared.copy_wallet_address"
 msgstr "Copier l'adresse {0}"
 
-#: components/views/Stake/index.tsx:182
-#: components/views/Stake/index.tsx:192
+#: components/views/Stake/index.tsx:184
+#: components/views/Stake/index.tsx:194
 msgid "shared.enter_amount"
 msgstr "Entrez le montant"
 
-#: components/views/Bond/index.tsx:323
-#: components/views/Offset/index.tsx:303
+#: components/views/Bond/index.tsx:325
+#: components/views/Offset/index.tsx:305
 msgid "shared.enter_quantity"
 msgstr "ENTRER LE MONTANT"
 
-#: components/views/Bond/index.tsx:364
-#: components/views/Bond/index.tsx:383
-#: components/views/Stake/index.tsx:200
+#: components/views/Bond/index.tsx:366
+#: components/views/Bond/index.tsx:385
+#: components/views/Stake/index.tsx:202
 msgid "shared.error"
 msgstr "ERREUR"
 
-#: components/views/Offset/index.tsx:319
+#: components/views/Offset/index.tsx:321
 msgid "shared.insufficient_balance"
 msgstr "SOLDE INSUFFISANT"
 
-#: components/views/Offset/index.tsx:312
+#: components/views/Offset/index.tsx:314
 msgid "shared.invalid_inputs"
 msgstr "ENTRÉES INCORRECTES"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:48
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
-#: components/views/Bond/index.tsx:317
+#: components/views/Bond/index.tsx:319
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:297
-#: components/views/Offset/index.tsx:383
-#: components/views/PKlima/index.tsx:131
-#: components/views/Stake/index.tsx:152
-#: components/views/Stake/index.tsx:355
-#: components/views/Stake/index.tsx:362
-#: components/views/Stake/index.tsx:369
-#: components/views/Wrap/index.tsx:135
+#: components/views/Offset/index.tsx:299
+#: components/views/Offset/index.tsx:385
+#: components/views/PKlima/index.tsx:133
+#: components/views/Stake/index.tsx:154
+#: components/views/Stake/index.tsx:357
+#: components/views/Stake/index.tsx:364
+#: components/views/Stake/index.tsx:371
+#: components/views/Wrap/index.tsx:136
 msgid "shared.loading"
 msgstr "Chargement..."
 
-#: components/views/Bond/index.tsx:471
-#: components/views/PKlima/index.tsx:212
-#: components/views/Stake/index.tsx:296
-#: components/views/Wrap/index.tsx:255
+#: components/views/Bond/index.tsx:473
+#: components/views/PKlima/index.tsx:214
+#: components/views/Stake/index.tsx:298
+#: components/views/Wrap/index.tsx:256
 msgid "shared.max"
 msgstr "Max"
 
-#: components/views/Offset/index.tsx:332
+#: components/views/Offset/index.tsx:334
 msgid "shared.retire"
 msgstr "RETRAIT CARBONE"
 
-#: components/views/Bond/index.tsx:305
+#: components/views/Bond/index.tsx:307
 msgid "shared.sold_out"
 msgstr "Épuisé"
 
@@ -651,28 +651,28 @@ msgstr "Épuisé"
 msgid "shared.wallet_address_copied"
 msgstr "Copié!"
 
-#: components/views/Stake/index.tsx:309
+#: components/views/Stake/index.tsx:311
 msgid "stake.5_day_rewards"
 msgstr "Récompenses sur 5 jours"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:312
+#: components/views/Stake/index.tsx:314
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Plus value approximative, comprenant les intérêts composés, si vous laissez votre dépôt pendant 5 jours."
 
-#: components/views/Stake/index.tsx:325
+#: components/views/Stake/index.tsx:327
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:328
+#: components/views/Stake/index.tsx:330
 msgid "stake.akr.tooltip"
 msgstr "Rendement en KLIMA annualisé, y compris les intérêts composés, si le rendement actuel reste inchangé pendant 12 mois (le rendement peut être variable)."
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:124
-#: components/views/Stake/index.tsx:218
+#: components/views/Stake/index.tsx:220
 msgid "stake.balancescard.tooltip"
 msgstr "Mettez vos jetons KLIMA en dépôt pour recevoir sKLIMA. Après chaque rebasement, votre solde sKLIMA augmentera du pourcentage indiqué."
 
@@ -680,12 +680,12 @@ msgstr "Mettez vos jetons KLIMA en dépôt pour recevoir sKLIMA. Après chaque r
 msgid "stake.estimated_payout"
 msgstr "Est. paiement (sKLIMA)"
 
-#: components/views/Stake/index.tsx:339
+#: components/views/Stake/index.tsx:341
 msgid "stake.index"
 msgstr "Indice"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:342
+#: components/views/Stake/index.tsx:344
 msgid "stake.index.tooltip"
 msgstr "Montant de KLIMA que vous auriez aujourd'hui si vous aviez mis en dépôt 1 KLIMA le jour du lancement. Utile à des fins comptables."
 
@@ -697,7 +697,7 @@ msgstr "Montant à déposer"
 msgid "stake.inputplaceholder.unstake"
 msgstr "Montant à retirer"
 
-#: components/views/Stake/index.tsx:239
+#: components/views/Stake/index.tsx:241
 msgid "stake.lifi"
 msgstr "Les dépôts inter-chaînes sont désormais disponible via <0>LI.FI</0> , des dizaines de jetons tels que  ETH, BNB et DAI sont pris en charge."
 
@@ -717,24 +717,24 @@ msgstr "Rebasage"
 msgid "stake.rebase.info"
 msgstr "Le protocole génère et distribue automatiquement les intérêts. Vous êtes rémunéré un pourcentage de votre solde en sKLIMA"
 
-#: components/views/Stake/index.tsx:259
+#: components/views/Stake/index.tsx:261
 msgid "stake.stake"
 msgstr "Déposer"
 
-#: components/views/Stake/index.tsx:233
+#: components/views/Stake/index.tsx:235
 msgid "stake.stake_hold_earn"
 msgstr "Misez, accumulez et gagnez des sKLIMA via les intérêts composés."
 
-#: components/views/Stake/index.tsx:180
-#: components/views/Stake/index.tsx:230
+#: components/views/Stake/index.tsx:182
+#: components/views/Stake/index.tsx:232
 msgid "stake.stake_klima"
 msgstr "Déposer KLIMA"
 
-#: components/views/Stake/index.tsx:271
+#: components/views/Stake/index.tsx:273
 msgid "stake.unstake"
 msgstr "Retirer"
 
-#: components/views/Stake/index.tsx:190
+#: components/views/Stake/index.tsx:192
 msgid "stake.unstake_klima"
 msgstr "Retirer KLIMA"
 
@@ -770,19 +770,39 @@ msgstr "Connexion"
 msgid "wallet.disconnect"
 msgstr "Déconnexion"
 
-#: components/views/Wrap/index.tsx:283
+#: lib/getWeb3ModalStrings.ts:13
+msgid "web3modal.injected.des"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:21
+msgid "web3modal.torus.desc"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:17
+msgid "web3modal.torus.name"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:5
+msgid "web3modal.walletconnect.desc"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:9
+msgid "web3modal.walletlink.desc"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:284
 msgid "wrap.balance"
 msgstr "Solde"
 
-#: components/views/Wrap/index.tsx:178
+#: components/views/Wrap/index.tsx:179
 msgid "wrap.balances_tooltip"
 msgstr "Encapsulez sKLIMA pour recevoir un KLIMA ajusté à l'indice, encapsulé et mis en dépôt"
 
-#: components/views/Wrap/index.tsx:270
+#: components/views/Wrap/index.tsx:271
 msgid "wrap.index"
 msgstr "Indice"
 
-#: components/views/Wrap/index.tsx:273
+#: components/views/Wrap/index.tsx:274
 msgid "wrap.index.tooltip"
 msgstr "Montant de KLIMA que vous posséderiez aujourd'hui si vous aviez mis en dépôt 1 KLIMA le jour du lancement. Utilisé pour calculer la valeur wsKLIMA."
 
@@ -790,25 +810,25 @@ msgstr "Montant de KLIMA que vous posséderiez aujourd'hui si vous aviez mis en 
 msgid "wrap.sklima_to_wrap"
 msgstr "sKLIMA à encapsuler"
 
-#: components/views/Wrap/index.tsx:233
+#: components/views/Wrap/index.tsx:234
 msgid "wrap.unwrap"
 msgstr "Dés-encapsuler"
 
-#: components/views/Wrap/index.tsx:222
+#: components/views/Wrap/index.tsx:223
 msgid "wrap.wrap"
 msgstr "Encapsuler"
 
-#: components/views/Wrap/index.tsx:188
+#: components/views/Wrap/index.tsx:189
 msgid "wrap.wrap_sklima"
 msgstr "Encapsuler sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:200
+#: components/views/Wrap/index.tsx:201
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Peut être utile à des fins comptables, néanmoins, les récompenses sont exactement les mêmes. Les valeurs d'encapsulation et de dés-encapsulation sont calculées en fonction de l'indice actuel."
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:191
+#: components/views/Wrap/index.tsx:192
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Encapsulez sKLIMA pour recevoir wsKLIMA. Contrairement à sKLIMA, votre solde wsKLIMA n'augmentera pas avec le temps."
 
@@ -816,7 +836,7 @@ msgstr "Encapsulez sKLIMA pour recevoir wsKLIMA. Contrairement à sKLIMA, votre 
 msgid "wrap.wsklima_to_unwrap"
 msgstr "wsKLIMA à dés-encapsuler"
 
-#: components/views/Wrap/index.tsx:286
+#: components/views/Wrap/index.tsx:287
 msgid "wrap.you_will_get"
 msgstr "Vous obtiendrez"
 
