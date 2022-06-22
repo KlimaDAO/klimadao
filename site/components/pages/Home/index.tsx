@@ -144,31 +144,36 @@ export const Home: NextPage<Props> = (props) => {
         <div className={styles.blackHoleSection}>
           <div className="blackHole_textGroup">
             <Text t="h2_alt" as="h2" color="lightest">
-              <Trans id="home.klima_is_a_black_hole" comment="Long sentence">
-                KlimaDAO is a <span>black hole for carbon</span> at the center
-                of a <span>new green economy</span>.
-              </Trans>
-            </Text>
-            <div className="blackHole_columns">
-              <Text t="body3" color="lighter">
-                <Trans id="home.we_ve_kickstarted" comment="Long sentence">
-                  We’ve kick-started a{" "}
-                  <span>decentralized and open market for carbon</span>. Our
-                  token incentivizes investors, citizens, and organizations to
-                  participate in and govern this new economy.
+              <span>
+                <Trans
+                  id="home.klima_defies_climate_change"
+                  comment="Long sentence"
+                >
+                  KlimaDAO is DeFi that defies climate change
                 </Trans>
-              </Text>
-              <Text t="body3" color="lighter">
-                <Trans id="home.by_increasing_access" comment="Long sentence">
-                  By increasing access and demand for carbon offsets, we make
-                  pro-climate projects more profitable, while forcing companies
-                  to adapt more quickly to the realities of climate change.
+              </span>
+            </Text>
+            <div>
+              <Text t="body3" color="lighter" className="blackHole_caption">
+                <Trans id="home.klima_is_the_center" comment="Long sentence">
+                  <span>KlimaDAO</span> is the center of a new{" "}
+                  <span>green economy</span>. Built on the energy efficient{" "}
+                  <span>Polygon network</span>, KlimaDAO uses a stack of
+                  technologies to reduce market fragmentation and accelerate the
+                  delivery of <span>climate finance</span> to{" "}
+                  <span>sustainability projects</span> globally.
                 </Trans>
               </Text>
             </div>
           </div>
-
-          <ParralaxWormhole />
+          <div className="blackHole_video">
+            <iframe
+              src="https://www.youtube.com/embed/eRmmDh1ingU?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </Section>
       <Section variant="gray" fillViewport style={{ overflow: "hidden" }}>

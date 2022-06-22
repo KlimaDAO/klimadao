@@ -173,12 +173,18 @@ export const blackHoleSection = css`
     grid-column: main;
     gap: 3.2rem;
     padding: 0 2.4rem;
+    text-align: justify;
   }
-
-  .blackHole_columns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3.2rem;
+  .blackHole_caption {
+    text-align: center;
+  }
+  .blackHole_video {
+    grid-column: main;
+  }
+  .blackHole_video > iframe {
+    width: 1008px;
+    height: 567px;
+    border: 0;
   }
 
   ${breakpoints.large} {
