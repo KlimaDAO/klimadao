@@ -25,7 +25,6 @@ import sprouts from "public/sprouts.jpg";
 import dummyswap from "public/dummyswap.png";
 
 import * as styles from "./styles";
-import { ParralaxWormhole } from "./ParralaxWormhole";
 
 export interface Props {
   latestPost: LatestPost;
