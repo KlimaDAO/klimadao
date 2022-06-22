@@ -1,8 +1,5 @@
-import { ethers } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
-import { addresses } from "../../constants";
 import { getEstimatedDailyRebases, getContract } from "..";
-import SKlima from "../../abi/sKlima.json";
 
 export const getStakingRewards = async (params: {
   days: number;
@@ -14,11 +11,11 @@ export const getStakingRewards = async (params: {
     contractName: "distributor",
     provider,
   });
-  const sklimaContract = new ethers.Contract(
-    addresses.mainnet.sklima,
-    SKlima.abi,
-    provider
-  );
+  const sklimaContract = getContract({
+    contractName: "sklimaMain",
+    provider,
+  });
+
   const circSupply = await sklimaContract.circulatingSupply();
   const info = await distributorContract.info(0);
   const stakingReward = await distributorContract.nextRewardAt(info.rate);
