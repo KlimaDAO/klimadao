@@ -2,10 +2,9 @@ import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
 import { addresses } from "@klimadao/lib/constants";
 
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import KlimaStakingHelper from "@klimadao/lib/abi/KlimaStakingHelper.json";
 import KlimaStakingv2 from "@klimadao/lib/abi/KlimaStakingv2.json";
-import { formatUnits } from "@klimadao/lib/utils";
+import { formatUnits, getContractByToken } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
   provider: providers.JsonRpcProvider;
@@ -14,16 +13,11 @@ export const changeApprovalTransaction = async (params: {
 }): Promise<string> => {
   try {
     const contract = {
-      stake: new ethers.Contract(
-        addresses["mainnet"].klima,
-        IERC20.abi,
-        params.provider.getSigner()
-      ),
-      unstake: new ethers.Contract(
-        addresses["mainnet"].sklima,
-        IERC20.abi,
-        params.provider.getSigner()
-      ),
+      stake: getContractByToken({ token: "klima", provider: params.provider }),
+      unstake: getContractByToken({
+        token: "sklima",
+        provider: params.provider,
+      }),
     }[params.action];
     const address = {
       stake: addresses["mainnet"].staking_helper,

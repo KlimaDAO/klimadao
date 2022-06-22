@@ -2,11 +2,14 @@ import { ethers, providers } from "ethers";
 
 import { addresses } from "@klimadao/lib/constants";
 import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { OnStatusHandler } from "./utils";
 import { Thunk } from "state";
 import { setPklimaTerms } from "state/user";
-import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  trimStringDecimals,
+  getContractByToken,
+} from "@klimadao/lib/utils";
 
 export const loadTerms = (params: {
   address: string;
@@ -57,16 +60,11 @@ export const changeApprovalTransaction = async (params: {
 }) => {
   try {
     const contract = {
-      pklima: new ethers.Contract(
-        addresses["mainnet"].pklima,
-        IERC20.abi,
-        params.provider.getSigner()
-      ),
-      bct: new ethers.Contract(
-        addresses["mainnet"].bct,
-        IERC20.abi,
-        params.provider.getSigner()
-      ),
+      pklima: getContractByToken({
+        token: "pklima",
+        provider: params.provider,
+      }),
+      bct: getContractByToken({ token: "bct", provider: params.provider }),
     }[params.action];
     const value = ethers.utils.parseUnits(
       "1000000000000000000000000000",

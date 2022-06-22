@@ -8,11 +8,11 @@ import {
   getTreasuryBalance,
   fetchBlockRate,
   getJsonRpcProvider,
+  getContractByToken,
 } from "@klimadao/lib/utils";
 import { addresses } from "@klimadao/lib/constants";
 import DistributorContractv4 from "@klimadao/lib/abi/DistributorContractv4.json";
 import SKlima from "@klimadao/lib/abi/sKlima.json";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
 export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
   return async (dispatch) => {
@@ -25,11 +25,10 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
         DistributorContractv4.abi,
         provider
       );
-      const sKlimaContract = new ethers.Contract(
-        addresses["mainnet"].sklima,
-        IERC20.abi,
-        provider
-      );
+      const sKlimaContract = getContractByToken({
+        token: "sklima",
+        provider: provider,
+      });
       const sKlimaMainContract = new ethers.Contract(
         addresses["mainnet"].sklima,
         SKlima.abi,

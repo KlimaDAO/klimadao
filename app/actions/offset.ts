@@ -6,7 +6,6 @@ import {
 } from "state/user";
 
 import KlimaRetirementAggregator from "@klimadao/lib/abi/KlimaRetirementAggregator.json";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import {
   addresses,
   InputToken,
@@ -18,6 +17,7 @@ import {
   getTokenDecimals,
   createRetirementStorageContract,
   getRetirementTotalsAndBalances,
+  getContractByToken,
 } from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
 
@@ -53,11 +53,10 @@ export const getRetirementAllowances = (params: {
     try {
       // create arr of promises, one for each of the above erc20s
       const promises = inputTokens.reduce((arr, val) => {
-        const contract = new ethers.Contract(
-          addresses["mainnet"][val],
-          IERC20.abi,
-          params.provider
-        );
+        const contract = getContractByToken({
+          token: val,
+          provider: params.provider,
+        });
         arr.push(
           contract.allowance(
             params.address, // owner
@@ -93,11 +92,10 @@ export const changeApprovalTransaction = async (params: {
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
-    const contract = new ethers.Contract(
-      addresses["mainnet"][params.token],
-      IERC20.abi,
-      params.provider.getSigner()
-    );
+    const contract = getContractByToken({
+      token: params.token,
+      provider: params.provider,
+    });
     const decimals = getTokenDecimals(params.token);
     const value = ethers.utils.parseUnits("1000000000", decimals);
     params.onStatus("userConfirmation", "");
