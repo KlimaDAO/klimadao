@@ -50,14 +50,11 @@ const contractMap = {
 } as const;
 type ContractName = keyof typeof contractMap;
 
-export const isKeyInAddresses = (name: string): boolean => {
+export const isNameInAddresses = (name: string): boolean => {
   const keys = Object.keys(
     addresses.mainnet
   ) as (keyof typeof addresses["mainnet"])[];
-  const token = keys.find(
-    (key) => addresses["mainnet"][key].toLowerCase() === name.toLowerCase()
-  );
-  return !!token;
+  return keys.includes(name as keyof typeof addresses["mainnet"]);
 };
 
 export const getContractAbiByName = (name: ContractName) => {
@@ -71,11 +68,14 @@ export const getContract = (params: {
   const abi = getContractAbiByName(params.contractName);
   if (!abi)
     throw new Error(`Unknown abi for contractName: ${params.contractName}`);
-  const keyInAddresses = params.contractName.replace("Main", "") as Address;
-  if (!isKeyInAddresses)
-    throw new Error(`Unknown contract name in mainnet: ${keyInAddresses}`);
+
+  const nameInAddresses = params.contractName.replace("Main", "") as Address;
+  if (!isNameInAddresses(nameInAddresses)) {
+    throw new Error(`Unknown contract name in mainnet: ${nameInAddresses}`);
+  }
+
   return new ethers.Contract(
-    addresses["mainnet"][keyInAddresses],
+    addresses["mainnet"][nameInAddresses],
     abi,
     params.provider
   );
