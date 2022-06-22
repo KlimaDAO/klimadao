@@ -1,6 +1,6 @@
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getIsValidAddress } from "../getIsValidAddress";
-import { getContractByToken } from "../getContract";
+import { getContract } from "../getContract";
 
 // https://www.kns.earth/#/
 export const isKNSDomain = (domain: string): boolean =>
@@ -12,7 +12,7 @@ export const createKNSDomainFromName = (name: string): string =>
 // Use this import and overwrite your provider if needed with
 // import { KNSContract } from '...'
 // KNSContract.provider = myProvider;
-export const KNSContract = getContractByToken({
+export const KNSContract = getContract({
   token: "klimaNameService",
   provider: getJsonRpcProvider(),
 });

@@ -7,7 +7,7 @@ import { setPklimaTerms } from "state/user";
 import {
   formatUnits,
   trimStringDecimals,
-  getContractByToken,
+  getContract,
 } from "@klimadao/lib/utils";
 
 export const loadTerms = (params: {
@@ -17,7 +17,7 @@ export const loadTerms = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const pExerciseContract = getContractByToken({
+      const pExerciseContract = getContract({
         token: "pklima_exercise",
         provider: params.provider,
       });
@@ -58,11 +58,11 @@ export const changeApprovalTransaction = async (params: {
 }) => {
   try {
     const contract = {
-      pklima: getContractByToken({
+      pklima: getContract({
         token: "pklima",
         provider: params.provider.getSigner(),
       }),
-      bct: getContractByToken({
+      bct: getContract({
         token: "bct",
         provider: params.provider.getSigner(),
       }),
@@ -96,7 +96,7 @@ export const exerciseTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const contract = getContractByToken({
+    const contract = getContract({
       token: "pklima_exercise",
       provider: params.provider.getSigner(),
     });

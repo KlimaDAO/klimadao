@@ -49,7 +49,7 @@ export const getContractAbiByToken = (token: Token) => {
   return contractMap[token as keyof ContractMap];
 };
 
-export const getContractByToken = (params: {
+export const getContract = (params: {
   token: Token;
   provider: providers.JsonRpcProvider | Signer;
 }): ethers.Contract => {

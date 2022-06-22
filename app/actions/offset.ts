@@ -16,7 +16,7 @@ import {
   getTokenDecimals,
   createRetirementStorageContract,
   getRetirementTotalsAndBalances,
-  getContractByToken,
+  getContract,
 } from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
 
@@ -52,7 +52,7 @@ export const getRetirementAllowances = (params: {
     try {
       // create arr of promises, one for each of the above erc20s
       const promises = inputTokens.reduce((arr, val) => {
-        const contract = getContractByToken({
+        const contract = getContract({
           token: val,
           provider: params.provider,
         });
@@ -91,7 +91,7 @@ export const changeApprovalTransaction = async (params: {
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
-    const contract = getContractByToken({
+    const contract = getContract({
       token: params.token,
       provider: params.provider.getSigner(),
     });
@@ -125,7 +125,7 @@ export const getOffsetConsumptionCost = async (params: {
   amountInCarbon: boolean;
   getSpecific: boolean;
 }): Promise<[string, string]> => {
-  const retirementAggregatorContract = getContractByToken({
+  const retirementAggregatorContract = getContract({
     token: "retirementAggregator",
     provider: params.provider,
   });
@@ -188,7 +188,7 @@ export const retireCarbonTransaction = async (params: {
     const retirementTotals = formattedTotals + 1;
 
     // retire transaction
-    const retireContract = getContractByToken({
+    const retireContract = getContract({
       token: "retirementAggregator",
       provider: params.provider.getSigner(),
     });

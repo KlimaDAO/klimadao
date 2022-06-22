@@ -5,7 +5,7 @@ import { addresses } from "@klimadao/lib/constants";
 import {
   formatUnits,
   trimStringDecimals,
-  getContractByToken,
+  getContract,
 } from "@klimadao/lib/utils";
 import {
   setBalance,
@@ -24,47 +24,47 @@ export const loadAccountDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const bctContract = getContractByToken({
+      const bctContract = getContract({
         token: "bct",
         provider: params.provider,
       });
-      const nctContract = getContractByToken({
+      const nctContract = getContract({
         token: "nct",
         provider: params.provider,
       });
-      const mco2Contract = getContractByToken({
+      const mco2Contract = getContract({
         token: "mco2",
         provider: params.provider,
       });
-      const uboContract = getContractByToken({
+      const uboContract = getContract({
         token: "ubo",
         provider: params.provider,
       });
-      const nboContract = getContractByToken({
+      const nboContract = getContract({
         token: "nbo",
         provider: params.provider,
       });
-      const usdcContract = getContractByToken({
+      const usdcContract = getContract({
         token: "usdc",
         provider: params.provider,
       });
-      const klimaContract = getContractByToken({
+      const klimaContract = getContract({
         token: "klima",
         provider: params.provider,
       });
-      const sklimaContract = getContractByToken({
+      const sklimaContract = getContract({
         token: "sklima",
         provider: params.provider,
       });
-      const wsklimaContract = getContractByToken({
+      const wsklimaContract = getContract({
         token: "wsklima",
         provider: params.provider,
       });
-      const pKlimaContract = getContractByToken({
+      const pKlimaContract = getContract({
         token: "pklima",
         provider: params.provider,
       });
-      const klimaDomainContract = getContractByToken({
+      const klimaDomainContract = getContract({
         token: "klimaNameService",
         provider: params.provider,
       });

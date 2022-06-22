@@ -1,4 +1,4 @@
-import { getJsonRpcProvider, getContractByToken } from "@klimadao/lib/utils";
+import { getJsonRpcProvider, getContract } from "@klimadao/lib/utils";
 import { formatUnits } from "@klimadao/lib/utils";
 
 type Params = {
@@ -16,11 +16,11 @@ export type Balances = {
 export const getBalances = async (params: Params): Promise<Balances> => {
   const provider = getJsonRpcProvider();
 
-  const bctContract = getContractByToken({ token: "bct", provider });
-  const nctContract = getContractByToken({ token: "nct", provider });
-  const mco2Contract = getContractByToken({ token: "mco2", provider });
-  const klimaContract = getContractByToken({ token: "klima", provider });
-  const sklimaContract = getContractByToken({ token: "sklima", provider });
+  const bctContract = getContract({ token: "bct", provider });
+  const nctContract = getContract({ token: "nct", provider });
+  const mco2Contract = getContract({ token: "mco2", provider });
+  const klimaContract = getContract({ token: "klima", provider });
+  const sklimaContract = getContract({ token: "sklima", provider });
 
   const klimaBalance = await klimaContract.balanceOf(params.address);
   const sklimaBalance = await sklimaContract.balanceOf(params.address);

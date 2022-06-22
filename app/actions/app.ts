@@ -8,7 +8,7 @@ import {
   getTreasuryBalance,
   fetchBlockRate,
   getJsonRpcProvider,
-  getContractByToken,
+  getContract,
 } from "@klimadao/lib/utils";
 import { addresses } from "@klimadao/lib/constants";
 import SKlima from "@klimadao/lib/abi/sKlima.json";
@@ -19,11 +19,11 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
     try {
       const currentBlock = await provider.getBlockNumber();
 
-      const distributorContract = getContractByToken({
+      const distributorContract = getContract({
         token: "distributor",
         provider: provider,
       });
-      const sKlimaContract = getContractByToken({
+      const sKlimaContract = getContract({
         token: "sklima",
         provider: provider,
       });

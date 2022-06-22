@@ -2,13 +2,13 @@ import { providers } from "ethers";
 import { getInteger } from "../getInteger";
 import { addresses } from "../../constants";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
-import { getContractByToken } from "../getContract";
+import { getContract } from "../getContract";
 
 const getOwnedBCTFromSLP = async (params: {
   adr: "bctUsdcLp" | "klimaBctLp";
   provider: providers.JsonRpcProvider;
 }) => {
-  const contract = getContractByToken({
+  const contract = getContract({
     token: params.adr,
     provider: params.provider,
   });
@@ -43,7 +43,7 @@ export const getTreasuryBalance = async (
 ): Promise<number> => {
   try {
     const provider = getJsonRpcProvider(providerUrl);
-    const bctContract = getContractByToken({ token: "bct", provider });
+    const bctContract = getContract({ token: "bct", provider });
 
     const nakedBCT = getInteger(
       await bctContract.balanceOf(addresses.mainnet.treasury)

@@ -2,7 +2,7 @@ import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
 import { addresses } from "@klimadao/lib/constants";
 
-import { formatUnits, getContractByToken } from "@klimadao/lib/utils";
+import { formatUnits, getContract } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
   provider: providers.JsonRpcProvider;
@@ -11,11 +11,11 @@ export const changeApprovalTransaction = async (params: {
 }): Promise<string> => {
   try {
     const contract = {
-      stake: getContractByToken({
+      stake: getContract({
         token: "klima",
         provider: params.provider.getSigner(),
       }),
-      unstake: getContractByToken({
+      unstake: getContract({
         token: "sklima",
         provider: params.provider.getSigner(),
       }),
@@ -50,11 +50,11 @@ export const changeStakeTransaction = async (params: {
   try {
     const parsedValue = ethers.utils.parseUnits(params.value, "gwei");
     const contract = {
-      stake: getContractByToken({
+      stake: getContract({
         token: "staking_helper",
         provider: params.provider.getSigner(),
       }),
-      unstake: getContractByToken({
+      unstake: getContract({
         token: "staking",
         provider: params.provider.getSigner(),
       }),

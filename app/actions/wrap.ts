@@ -1,14 +1,14 @@
 import { addresses } from "@klimadao/lib/constants";
 import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
-import { formatUnits, getContractByToken } from "@klimadao/lib/utils";
+import { formatUnits, getContract } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const contract = getContractByToken({
+    const contract = getContract({
       token: "sklima",
       provider: params.provider.getSigner(),
     });
@@ -39,7 +39,7 @@ export const wrapTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const contract = getContractByToken({
+    const contract = getContract({
       token: "wsklima",
       provider: params.provider.getSigner(),
     });

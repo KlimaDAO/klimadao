@@ -6,7 +6,7 @@ import {
   formatUnits,
   getTokenDecimals,
   getIsValidAddress,
-  getContractByToken,
+  getContract,
 } from "../../utils";
 
 import {
@@ -18,7 +18,7 @@ import {
 
 export const createRetirementStorageContract = (
   provider: providers.JsonRpcProvider
-) => getContractByToken({ token: "retirementStorage", provider });
+) => getContract({ token: "retirementStorage", provider });
 
 export const getRetirementIndexInfo = async (params: {
   beneficiaryAddress: string;
