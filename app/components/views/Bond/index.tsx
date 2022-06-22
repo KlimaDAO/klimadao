@@ -218,8 +218,6 @@ export const Bond: FC<Props> = (props) => {
           calcBondDetails({
             bond: props.bond,
             value: debouncedQuantity,
-            provider: props.provider,
-            address: props.address,
           })
         );
       }

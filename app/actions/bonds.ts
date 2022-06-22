@@ -181,8 +181,6 @@ const INVERSE_USDC_MARKET_ID = 4;
 export const calcBondDetails = (params: {
   bond: Bond;
   value?: string;
-  provider: providers.JsonRpcProvider;
-  address?: string;
 }): Thunk => {
   return async (dispatch) => {
     const provider = getJsonRpcProvider();
