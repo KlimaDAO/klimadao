@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-22 08:54+0000\n"
+"POT-Creation-Date: 2022-06-22 15:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -912,20 +912,20 @@ msgstr "Стейкинг"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
-msgstr ""
+msgstr "Подключение к провайдеру web3 вашего браузера"
 
 #: lib/getWeb3ModalStrings.ts:21
 msgid "web3modal.torus.desc"
-msgstr ""
+msgstr "Простой кошелек в один клик от Torus"
 
 #: lib/getWeb3ModalStrings.ts:17
 msgid "web3modal.torus.name"
-msgstr ""
+msgstr "Электронная почта или социальные сети"
 
 #: lib/getWeb3ModalStrings.ts:5
 msgid "web3modal.walletconnect.desc"
-msgstr ""
+msgstr "Сканируйте с помощью WalletConnect для подключения"
 
 #: lib/getWeb3ModalStrings.ts:9
 msgid "web3modal.walletlink.desc"
-msgstr ""
+msgstr "Сканируйте с помощью Coinbase, чтобы подключиться"
