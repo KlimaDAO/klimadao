@@ -48,6 +48,8 @@ export const Home: FC = () => {
   );
 
   const { locale } = useSelector(selectAppState);
+  console.log("locale", locale);
+  console.log("localeFromURL", localeFromURL);
 
   const web3 = useWeb3();
 

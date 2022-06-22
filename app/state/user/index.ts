@@ -1,7 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
-import { Bond, InputToken, RetirementToken } from "@klimadao/lib/constants";
+import {
+  Bond,
+  OffsetInputToken,
+  RetirementToken,
+} from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 export interface UserState {
@@ -133,7 +137,7 @@ export const userSlice = createSlice({
     updateRetirement: (
       s,
       a: PayloadAction<{
-        inputToken: InputToken;
+        inputToken: OffsetInputToken;
         retirementToken: RetirementToken;
         cost: string;
         quantity: string;

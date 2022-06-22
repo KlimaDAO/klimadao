@@ -7,8 +7,8 @@ import {
 
 import {
   addresses,
-  InputToken,
-  inputTokens,
+  OffsetInputToken,
+  offsetInputTokens,
   RetirementToken,
 } from "@klimadao/lib/constants";
 import {
@@ -51,7 +51,7 @@ export const getRetirementAllowances = (params: {
   return async (dispatch) => {
     try {
       // create arr of promises, one for each of the above erc20s
-      const promises = inputTokens.reduce((arr, val) => {
+      const promises = offsetInputTokens.reduce((arr, val) => {
         const contract = getContract({
           contractName: val,
           provider: params.provider,
@@ -65,18 +65,21 @@ export const getRetirementAllowances = (params: {
         return arr;
       }, [] as Promise<ethers.BigNumber>[]);
 
-      type Allowances = { [key in typeof inputTokens[number]]: string };
+      type Allowances = { [key in typeof offsetInputTokens[number]]: string };
 
       // await to get arr of bignumbers
       const res = await Promise.all(promises);
 
       // reduce and format each with appropriate decimals
-      const allowances = inputTokens.reduce<Allowances>((obj, tkn, index) => {
-        const val = res[index];
-        const decimals = getTokenDecimals(tkn);
-        obj[tkn] = formatUnits(val, decimals);
-        return obj;
-      }, {} as Allowances);
+      const allowances = offsetInputTokens.reduce<Allowances>(
+        (obj, tkn, index) => {
+          const val = res[index];
+          const decimals = getTokenDecimals(tkn);
+          obj[tkn] = formatUnits(val, decimals);
+          return obj;
+        },
+        {} as Allowances
+      );
       dispatch(setCarbonRetiredAllowance(allowances));
     } catch (error: any) {
       console.error(error);
@@ -87,7 +90,7 @@ export const getRetirementAllowances = (params: {
 
 export const changeApprovalTransaction = async (params: {
   provider: providers.JsonRpcProvider;
-  token: InputToken;
+  token: OffsetInputToken;
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
@@ -119,7 +122,7 @@ export const changeApprovalTransaction = async (params: {
 
 export const getOffsetConsumptionCost = async (params: {
   provider: providers.JsonRpcProvider;
-  inputToken: InputToken;
+  inputToken: OffsetInputToken;
   retirementToken: RetirementToken;
   quantity: string;
   amountInCarbon: boolean;
@@ -164,7 +167,7 @@ export type RetireCarbonTransactionResult = {
 export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
-  inputToken: InputToken;
+  inputToken: OffsetInputToken;
   retirementToken: RetirementToken;
   quantity: string;
   amountInCarbon: boolean;

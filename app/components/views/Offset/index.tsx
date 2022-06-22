@@ -39,8 +39,8 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
-  InputToken,
-  inputTokens,
+  OffsetInputToken,
+  offsetInputTokens,
   offsetCompatibility,
   RetirementToken,
   retirementTokens,
@@ -73,7 +73,7 @@ interface ButtonProps {
 }
 
 type TokenInfoMap = {
-  [key in RetirementToken | InputToken]: {
+  [key in RetirementToken | OffsetInputToken]: {
     key: string;
     icon: StaticImageData;
     label: string;
@@ -109,7 +109,7 @@ export const Offset = (props: Props) => {
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
   const [selectedInputToken, setSelectedInputToken] =
-    useState<InputToken>("bct");
+    useState<OffsetInputToken>("bct");
   const [selectedRetirementToken, setSelectedRetirementToken] =
     useState<RetirementToken>("bct");
 
@@ -340,7 +340,7 @@ export const Offset = (props: Props) => {
   };
 
   const handleSelectInputToken = (tkn: string) => {
-    setSelectedInputToken(tkn as InputToken);
+    setSelectedInputToken(tkn as OffsetInputToken);
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
@@ -378,7 +378,7 @@ export const Offset = (props: Props) => {
     props.isConnected &&
     (status === "userConfirmation" || status === "networkConfirmation");
 
-  const inputTokenItems = inputTokens
+  const inputTokenItems = offsetInputTokens
     .map((tkn) => ({
       ...tokenInfo[tkn],
       description: (function () {
