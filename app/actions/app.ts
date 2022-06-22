@@ -11,7 +11,6 @@ import {
   getContractByToken,
 } from "@klimadao/lib/utils";
 import { addresses } from "@klimadao/lib/constants";
-import DistributorContractv4 from "@klimadao/lib/abi/DistributorContractv4.json";
 import SKlima from "@klimadao/lib/abi/sKlima.json";
 
 export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
@@ -20,11 +19,10 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
     try {
       const currentBlock = await provider.getBlockNumber();
 
-      const distributorContract = new ethers.Contract(
-        addresses["mainnet"].distributor,
-        DistributorContractv4.abi,
-        provider
-      );
+      const distributorContract = getContractByToken({
+        token: "distributor",
+        provider: provider,
+      });
       const sKlimaContract = getContractByToken({
         token: "sklima",
         provider: provider,

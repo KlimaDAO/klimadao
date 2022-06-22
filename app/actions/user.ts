@@ -66,12 +66,10 @@ export const loadAccountDetails = (params: {
         token: "pklima",
         provider: params.provider,
       });
-      // remember to add this to addresses object
-      const klimaDomainContract = new ethers.Contract(
-        addresses["mainnet"].klimaNameService,
-        PunkTLD.abi,
-        params.provider
-      );
+      const klimaDomainContract = getContractByToken({
+        token: "klimaNameService",
+        provider: params.provider,
+      });
 
       //domains
       const knsDomain = await getKns({
