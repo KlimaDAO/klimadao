@@ -1,12 +1,14 @@
 import { ethers, providers } from "ethers";
 
 import { addresses } from "@klimadao/lib/constants";
-import ExercisePKlima from "@klimadao/lib/abi/ExercisepKLIMA.json";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import { OnStatusHandler } from "./utils";
 import { Thunk } from "state";
 import { setPklimaTerms } from "state/user";
-import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  trimStringDecimals,
+  getContract,
+} from "@klimadao/lib/utils";
 
 export const loadTerms = (params: {
   address: string;
@@ -15,11 +17,10 @@ export const loadTerms = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const pExerciseContract = new ethers.Contract(
-        addresses["mainnet"].pklima_exercise,
-        ExercisePKlima.abi,
-        params.provider
-      );
+      const pExerciseContract = getContract({
+        contractName: "pklima_exercise",
+        provider: params.provider,
+      });
       const pklimaRedeemBalance = await pExerciseContract.redeemableFor(
         params.address
       );
@@ -57,16 +58,14 @@ export const changeApprovalTransaction = async (params: {
 }) => {
   try {
     const contract = {
-      pklima: new ethers.Contract(
-        addresses["mainnet"].pklima,
-        IERC20.abi,
-        params.provider.getSigner()
-      ),
-      bct: new ethers.Contract(
-        addresses["mainnet"].bct,
-        IERC20.abi,
-        params.provider.getSigner()
-      ),
+      pklima: getContract({
+        contractName: "pklima",
+        provider: params.provider.getSigner(),
+      }),
+      bct: getContract({
+        contractName: "bct",
+        provider: params.provider.getSigner(),
+      }),
     }[params.action];
     const value = ethers.utils.parseUnits(
       "1000000000000000000000000000",
@@ -97,11 +96,10 @@ export const exerciseTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const contract = new ethers.Contract(
-      addresses["mainnet"].pklima_exercise,
-      ExercisePKlima.abi,
-      params.provider.getSigner()
-    );
+    const contract = getContract({
+      contractName: "pklima_exercise",
+      provider: params.provider.getSigner(),
+    });
     params.onStatus("userConfirmation", "");
     const txn = await contract.exercise(
       ethers.utils.parseUnits(params.value, "ether")

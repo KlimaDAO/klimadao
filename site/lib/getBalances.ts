@@ -1,7 +1,4 @@
-import { ethers } from "ethers";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import { addresses } from "@klimadao/lib/constants";
-import { getJsonRpcProvider } from "@klimadao/lib/utils";
+import { getJsonRpcProvider, getContract } from "@klimadao/lib/utils";
 import { formatUnits } from "@klimadao/lib/utils";
 
 type Params = {
@@ -19,31 +16,11 @@ export type Balances = {
 export const getBalances = async (params: Params): Promise<Balances> => {
   const provider = getJsonRpcProvider();
 
-  const bctContract = new ethers.Contract(
-    addresses["mainnet"].bct,
-    IERC20.abi,
-    provider
-  );
-  const nctContract = new ethers.Contract(
-    addresses["mainnet"].nct,
-    IERC20.abi,
-    provider
-  );
-  const mco2Contract = new ethers.Contract(
-    addresses["mainnet"].mco2,
-    IERC20.abi,
-    provider
-  );
-  const klimaContract = new ethers.Contract(
-    addresses["mainnet"].klima,
-    IERC20.abi,
-    provider
-  );
-  const sklimaContract = new ethers.Contract(
-    addresses["mainnet"].sklima,
-    IERC20.abi,
-    provider
-  );
+  const bctContract = getContract({ contractName: "bct", provider });
+  const nctContract = getContract({ contractName: "nct", provider });
+  const mco2Contract = getContract({ contractName: "mco2", provider });
+  const klimaContract = getContract({ contractName: "klima", provider });
+  const sklimaContract = getContract({ contractName: "sklima", provider });
 
   const klimaBalance = await klimaContract.balanceOf(params.address);
   const sklimaBalance = await sklimaContract.balanceOf(params.address);

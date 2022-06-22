@@ -1,20 +1,17 @@
-import { ethers, providers } from "ethers";
+import { providers } from "ethers";
 import { getInteger } from "../getInteger";
-import IERC20 from "../../abi/IERC20.json";
-import PairContract from "../../abi/PairContract.json";
 import { addresses } from "../../constants";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
+import { getContract } from "../getContract";
 
 const getOwnedBCTFromSLP = async (params: {
   adr: "bctUsdcLp" | "klimaBctLp";
   provider: providers.JsonRpcProvider;
 }) => {
-  const slpAddress = addresses.mainnet[params.adr];
-  const contract = new ethers.Contract(
-    slpAddress,
-    PairContract.abi,
-    params.provider
-  );
+  const contract = getContract({
+    contractName: params.adr,
+    provider: params.provider,
+  });
   const [token0, token1, [reserve0, reserve1], treasurySLP, totalSLP] =
     await Promise.all([
       contract.token0() as string,
@@ -46,11 +43,7 @@ export const getTreasuryBalance = async (
 ): Promise<number> => {
   try {
     const provider = getJsonRpcProvider(providerUrl);
-    const bctContract = new ethers.Contract(
-      addresses.mainnet.bct,
-      IERC20.abi,
-      provider
-    );
+    const bctContract = getContract({ contractName: "bct", provider });
 
     const nakedBCT = getInteger(
       await bctContract.balanceOf(addresses.mainnet.treasury)

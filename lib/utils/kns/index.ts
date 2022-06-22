@@ -1,8 +1,6 @@
-import { ethers } from "ethers";
-import { addresses } from "../../constants";
-import PunkTLD from "../../abi/PunkTLD.json";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getIsValidAddress } from "../getIsValidAddress";
+import { getContract } from "../getContract";
 
 // https://www.kns.earth/#/
 export const isKNSDomain = (domain: string): boolean =>
@@ -14,11 +12,10 @@ export const createKNSDomainFromName = (name: string): string =>
 // Use this import and overwrite your provider if needed with
 // import { KNSContract } from '...'
 // KNSContract.provider = myProvider;
-export const KNSContract = new ethers.Contract(
-  addresses["mainnet"].klimaNameService,
-  PunkTLD.abi,
-  getJsonRpcProvider()
-);
+export const KNSContract = getContract({
+  contractName: "klimaNameService",
+  provider: getJsonRpcProvider(),
+});
 
 export const getAddressByKNS = async (domain: string): Promise<string> => {
   try {

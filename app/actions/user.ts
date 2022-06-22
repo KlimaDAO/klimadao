@@ -1,12 +1,12 @@
-import { ethers, providers } from "ethers";
+import { providers } from "ethers";
 import { Thunk } from "state";
 
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import wsKlima from "@klimadao/lib/abi/wsKlima.json";
-import PunkTLD from "@klimadao/lib/abi/PunkTLD.json";
-
 import { addresses } from "@klimadao/lib/constants";
-import { formatUnits, trimStringDecimals } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  trimStringDecimals,
+  getContract,
+} from "@klimadao/lib/utils";
 import {
   setBalance,
   setExerciseAllowance,
@@ -24,62 +24,50 @@ export const loadAccountDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const bctContract = new ethers.Contract(
-        addresses["mainnet"].bct,
-        IERC20.abi,
-        params.provider
-      );
-      const nctContract = new ethers.Contract(
-        addresses["mainnet"].nct,
-        IERC20.abi,
-        params.provider
-      );
-      const mco2Contract = new ethers.Contract(
-        addresses["mainnet"].mco2,
-        IERC20.abi,
-        params.provider
-      );
-      const uboContract = new ethers.Contract(
-        addresses["mainnet"].ubo,
-        IERC20.abi,
-        params.provider
-      );
-      const nboContract = new ethers.Contract(
-        addresses["mainnet"].nbo,
-        IERC20.abi,
-        params.provider
-      );
-      const usdcContract = new ethers.Contract(
-        addresses["mainnet"].usdc,
-        IERC20.abi,
-        params.provider
-      );
-      const klimaContract = new ethers.Contract(
-        addresses["mainnet"].klima,
-        IERC20.abi,
-        params.provider
-      );
-      const sklimaContract = new ethers.Contract(
-        addresses["mainnet"].sklima,
-        IERC20.abi,
-        params.provider
-      );
-      const wsklimaContract = new ethers.Contract(
-        addresses["mainnet"].wsklima,
-        wsKlima.abi,
-        params.provider
-      );
-      const pKlimaContract = new ethers.Contract(
-        addresses["mainnet"].pklima,
-        IERC20.abi,
-        params.provider
-      );
-      // remember to add this to addresses object
-      const klimaDomainContract = new ethers.Contract(
-        addresses["mainnet"].klimaNameService,
-        PunkTLD.abi,
-        params.provider
-      );
+      const bctContract = getContract({
+        contractName: "bct",
+        provider: params.provider,
+      });
+      const nctContract = getContract({
+        contractName: "nct",
+        provider: params.provider,
+      });
+      const mco2Contract = getContract({
+        contractName: "mco2",
+        provider: params.provider,
+      });
+      const uboContract = getContract({
+        contractName: "ubo",
+        provider: params.provider,
+      });
+      const nboContract = getContract({
+        contractName: "nbo",
+        provider: params.provider,
+      });
+      const usdcContract = getContract({
+        contractName: "usdc",
+        provider: params.provider,
+      });
+      const klimaContract = getContract({
+        contractName: "klima",
+        provider: params.provider,
+      });
+      const sklimaContract = getContract({
+        contractName: "sklima",
+        provider: params.provider,
+      });
+      const wsklimaContract = getContract({
+        contractName: "wsklima",
+        provider: params.provider,
+      });
+      const pKlimaContract = getContract({
+        contractName: "pklima",
+        provider: params.provider,
+      });
+      const klimaDomainContract = getContract({
+        contractName: "klimaNameService",
+        provider: params.provider,
+      });
 
       //domains
       const knsDomain = await getKns({

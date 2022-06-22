@@ -2,10 +2,7 @@ import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
 import { addresses } from "@klimadao/lib/constants";
 
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import KlimaStakingHelper from "@klimadao/lib/abi/KlimaStakingHelper.json";
-import KlimaStakingv2 from "@klimadao/lib/abi/KlimaStakingv2.json";
-import { formatUnits } from "@klimadao/lib/utils";
+import { formatUnits, getContract } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
   provider: providers.JsonRpcProvider;
@@ -14,16 +11,14 @@ export const changeApprovalTransaction = async (params: {
 }): Promise<string> => {
   try {
     const contract = {
-      stake: new ethers.Contract(
-        addresses["mainnet"].klima,
-        IERC20.abi,
-        params.provider.getSigner()
-      ),
-      unstake: new ethers.Contract(
-        addresses["mainnet"].sklima,
-        IERC20.abi,
-        params.provider.getSigner()
-      ),
+      stake: getContract({
+        contractName: "klima",
+        provider: params.provider.getSigner(),
+      }),
+      unstake: getContract({
+        contractName: "sklima",
+        provider: params.provider.getSigner(),
+      }),
     }[params.action];
     const address = {
       stake: addresses["mainnet"].staking_helper,
@@ -55,16 +50,14 @@ export const changeStakeTransaction = async (params: {
   try {
     const parsedValue = ethers.utils.parseUnits(params.value, "gwei");
     const contract = {
-      stake: new ethers.Contract(
-        addresses["mainnet"].staking_helper,
-        KlimaStakingHelper.abi,
-        params.provider.getSigner()
-      ),
-      unstake: new ethers.Contract(
-        addresses["mainnet"].staking,
-        KlimaStakingv2.abi,
-        params.provider.getSigner()
-      ),
+      stake: getContract({
+        contractName: "staking_helper",
+        provider: params.provider.getSigner(),
+      }),
+      unstake: getContract({
+        contractName: "staking",
+        provider: params.provider.getSigner(),
+      }),
     }[params.action];
     params.onStatus("userConfirmation", "");
     const txn =

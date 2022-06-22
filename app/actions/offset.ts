@@ -5,8 +5,6 @@ import {
   setCarbonRetiredBalances,
 } from "state/user";
 
-import KlimaRetirementAggregator from "@klimadao/lib/abi/KlimaRetirementAggregator.json";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import {
   addresses,
   InputToken,
@@ -18,6 +16,7 @@ import {
   getTokenDecimals,
   createRetirementStorageContract,
   getRetirementTotalsAndBalances,
+  getContract,
 } from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
 
@@ -53,11 +52,10 @@ export const getRetirementAllowances = (params: {
     try {
       // create arr of promises, one for each of the above erc20s
       const promises = inputTokens.reduce((arr, val) => {
-        const contract = new ethers.Contract(
-          addresses["mainnet"][val],
-          IERC20.abi,
-          params.provider
-        );
+        const contract = getContract({
+          contractName: val,
+          provider: params.provider,
+        });
         arr.push(
           contract.allowance(
             params.address, // owner
@@ -93,11 +91,10 @@ export const changeApprovalTransaction = async (params: {
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
-    const contract = new ethers.Contract(
-      addresses["mainnet"][params.token],
-      IERC20.abi,
-      params.provider.getSigner()
-    );
+    const contract = getContract({
+      contractName: params.token,
+      provider: params.provider.getSigner(),
+    });
     const decimals = getTokenDecimals(params.token);
     const value = ethers.utils.parseUnits("1000000000", decimals);
     params.onStatus("userConfirmation", "");
@@ -128,11 +125,10 @@ export const getOffsetConsumptionCost = async (params: {
   amountInCarbon: boolean;
   getSpecific: boolean;
 }): Promise<[string, string]> => {
-  const retirementAggregatorContract = new ethers.Contract(
-    addresses["mainnet"].retirementAggregator,
-    KlimaRetirementAggregator.abi,
-    params.provider
-  );
+  const retirementAggregatorContract = getContract({
+    contractName: "retirementAggregator",
+    provider: params.provider,
+  });
   const parsed = ethers.utils.parseUnits(
     params.quantity,
     getTokenDecimals(params.retirementToken)
@@ -192,11 +188,10 @@ export const retireCarbonTransaction = async (params: {
     const retirementTotals = formattedTotals + 1;
 
     // retire transaction
-    const retireContract = new ethers.Contract(
-      addresses["mainnet"].retirementAggregator,
-      KlimaRetirementAggregator.abi,
-      params.provider.getSigner()
-    );
+    const retireContract = getContract({
+      contractName: "retirementAggregator",
+      provider: params.provider.getSigner(),
+    });
 
     params.onStatus("userConfirmation");
 

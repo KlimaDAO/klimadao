@@ -1,20 +1,17 @@
 import { addresses } from "@klimadao/lib/constants";
 import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import wsKlima from "@klimadao/lib/abi/wsKlima.json";
-import { formatUnits } from "@klimadao/lib/utils";
+import { formatUnits, getContract } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const contract = new ethers.Contract(
-      addresses["mainnet"].sklima,
-      IERC20.abi,
-      params.provider.getSigner()
-    );
+    const contract = getContract({
+      contractName: "sklima",
+      provider: params.provider.getSigner(),
+    });
     const value = ethers.utils.parseUnits("1000000000", "gwei"); //bignumber
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
@@ -42,11 +39,10 @@ export const wrapTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const contract = new ethers.Contract(
-      addresses["mainnet"].wsklima,
-      wsKlima.abi,
-      params.provider.getSigner()
-    );
+    const contract = getContract({
+      contractName: "wsklima",
+      provider: params.provider.getSigner(),
+    });
     params.onStatus("userConfirmation", "");
     const decimal = params.action === "wrap" ? 9 : 18;
     const txn = await contract[params.action](

@@ -1,8 +1,7 @@
 import { ethers } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { addresses } from "../../constants";
-import { getEstimatedDailyRebases } from "..";
-import DistributorContractv4 from "../../abi/DistributorContractv4.json";
+import { getEstimatedDailyRebases, getContract } from "..";
 import SKlima from "../../abi/sKlima.json";
 
 export const getStakingRewards = async (params: {
@@ -11,11 +10,10 @@ export const getStakingRewards = async (params: {
   providerUrl?: string;
 }): Promise<number> => {
   const provider = getJsonRpcProvider(params.providerUrl);
-  const distributorContract = new ethers.Contract(
-    addresses.mainnet.distributor,
-    DistributorContractv4.abi,
-    provider
-  );
+  const distributorContract = getContract({
+    contractName: "distributor",
+    provider,
+  });
   const sklimaContract = new ethers.Contract(
     addresses.mainnet.sklima,
     SKlima.abi,
