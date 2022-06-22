@@ -1,11 +1,15 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-22 15:41+0000\n"
+"POT-Creation-Date: 2022-06-22 20:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: zh-CN\n"
+
+#: components/views/Bond/index.tsx:676
+msgid "Capacity"
+msgstr ""
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
@@ -28,142 +32,175 @@ msgid "advanced"
 msgstr "更多细节"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:745
+#: components/views/Bond/index.tsx:1002
 msgid "bond.all_demand_has_been_filled"
 msgstr "售罄。该债券的所有需求均已满足。感谢各位Klimates！"
 
-#: components/views/Bond/index.tsx:488
+#: components/views/Bond/index.tsx:599
 msgid "bond.balance"
 msgstr "余额"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:492
+#: components/views/Bond/index.tsx:603
 msgid "bond.balance.tooltip"
 msgstr "可用于债券化的余额"
 
-#: components/views/Bond/index.tsx:353
-#: components/views/Bond/index.tsx:435
+#: components/views/Bond/index.tsx:434
+#: components/views/Bond/index.tsx:545
 msgid "bond.bond"
 msgstr "债券"
 
-#: components/views/Bond/index.tsx:511
+#: components/views/Bond/index.tsx:756
 msgid "bond.bond_price"
 msgstr "债券价格"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:515
+#: components/views/Bond/index.tsx:760
 msgid "bond.bond_price.tooltip"
 msgstr "折后价。1 KLIMA的总债券量（也允许部分零星债券）"
 
+#: components/views/Bond/index.tsx:625
+msgid "bond.bond_price.tooltip.inverse"
+msgstr ""
+
 #. Bond {0}
-#: components/views/Bond/index.tsx:415
+#: components/views/Bond/index.tsx:524
 msgid "bond.bond_token"
 msgstr "债券{0}"
 
-#: components/views/Bond/index.tsx:705
+#: components/views/Bond/index.tsx:421
+msgid "bond.capacity_exceeded"
+msgstr ""
+
+#: components/views/Bond/index.tsx:962
 msgid "bond.date_of_full_vesting"
 msgstr "完全归属的日期"
 
-#: components/views/Bond/index.tsx:710
+#: components/views/Bond/index.tsx:967
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr "可赎回全部债券值的日期"
 
-#: components/views/Bond/index.tsx:602
+#: components/views/Bond/index.tsx:792
 msgid "bond.debt_ratio"
 msgstr "资产负债率"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:606
+#: components/views/Bond/index.tsx:796
 msgid "bond.debt_ratio.tooltip"
 msgstr "协议的当前供应与未偿债券的比率"
 
-#: components/views/Bond/index.tsx:543
+#: components/views/Bond/index.tsx:827
 msgid "bond.discount"
 msgstr "债券折扣"
 
-#. Long sentence
-#: components/views/Bond/index.tsx:547
-msgid "bond.discount.tooltip"
-msgstr "相对于KLIMA的市场价值，该债券收到的KLIMA折扣百分比（或在负数情况时溢价）。"
+#: components/views/Bond/index.tsx:831
+msgid "bond.discount.description_tooltip"
+msgstr ""
 
-#: components/views/Bond/index.tsx:375
+#: components/views/Bond/index.tsx:456
 msgid "bond.inputplaceholder.amount_to_bond"
 msgstr "债券量"
 
-#: components/views/Bond/index.tsx:380
+#: components/views/Bond/index.tsx:461
 msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr "赎回量"
 
-#: components/views/Bond/index.tsx:527
+#: components/views/Bond/index.tsx:658
+msgid "bond.inverse.premium"
+msgstr ""
+
+#: components/views/Bond/index.tsx:662
+msgid "bond.inverse.premium.description"
+msgstr ""
+
+#: components/views/Bond/index.tsx:621
+#: components/views/Bond/index.tsx:772
 msgid "bond.market_price"
 msgstr "市场价"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:531
+#: components/views/Bond/index.tsx:776
 msgid "bond.market_price.tooltip"
 msgstr "KLIMA当前交易价格，不含债券折扣"
 
-#: components/views/Bond/index.tsx:583
+#: components/views/Bond/index.tsx:411
+msgid "bond.max_exceeded"
+msgstr ""
+
+#: components/views/Bond/index.tsx:694
+#: components/views/Bond/index.tsx:846
 msgid "bond.maximum"
 msgstr "最大额度"
 
-#. Long sentence
-#: components/views/Bond/index.tsx:587
+#: components/views/Bond/index.tsx:698
+#: components/views/Bond/index.tsx:850
 msgid "bond.maximum.tooltip"
-msgstr "可通过债券化方式获得的最大量的KLIMA"
+msgstr ""
 
-#: components/views/Bond/index.tsx:331
+#: components/views/Bond/index.tsx:396
 msgid "bond.not_redeemable"
 msgstr "不可赎回"
 
-#: components/views/Bond/index.tsx:359
-#: components/views/Bond/index.tsx:445
+#: components/views/Bond/index.tsx:639
+msgid "bond.payout_per_klima"
+msgstr ""
+
+#: components/views/Bond/index.tsx:643
+msgid "bond.payout_per_klima.description_inverse"
+msgstr ""
+
+#: components/views/Bond/index.tsx:440
+#: components/views/Bond/index.tsx:555
 msgid "bond.redeem"
 msgstr "赎回"
 
-#: components/views/Bond/index.tsx:672
+#: components/views/Bond/index.tsx:929
 msgid "bond.redeemable"
 msgstr "可赎回"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:675
+#: components/views/Bond/index.tsx:932
 msgid "bond.redeemable.tooltip"
 msgstr "已归属且可赎回的 KLIMA 数量"
 
 #. should autostake?
-#: components/views/Bond/index.tsx:775
+#: components/views/Bond/index.tsx:1032
 msgid "bond.should_autostake"
 msgstr "自动质押以获得 sKLIMA"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:734
+#: components/views/Bond/index.tsx:991
 msgid "bond.this_bond_price_is_inflated"
 msgstr "⚠️ 警告：由于当前的贴现率为负，此债券价格虚高。"
 
-#: components/views/Bond/index.tsx:643
+#: components/views/Bond/index.tsx:900
 msgid "bond.unredeemed"
 msgstr "未赎回"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:646
+#: components/views/Bond/index.tsx:903
 msgid "bond.unredeemed.tooltip"
 msgstr "剩余未赎回价值（已归属和未归属）"
 
-#: components/views/Bond/index.tsx:622
+#: components/views/Bond/index.tsx:812
 msgid "bond.vesting_term_end"
 msgstr "归属期限结束"
 
-#. Long sentence
-#: components/views/Bond/index.tsx:626
+#: components/views/Bond/index.tsx:816
 msgid "bond.vesting_term_end.tooltip"
 msgstr "如果您现在绑定，您的归属期限将即日终止。在这个期限内，Klima会慢慢解锁以进行赎回。"
 
-#: components/views/Bond/index.tsx:559
+#: components/views/Bond/index.tsx:725
+#: components/views/Bond/index.tsx:869
 msgid "bond.you_will_get"
 msgstr "你将获得"
 
+#: components/views/Bond/index.tsx:729
+msgid "bond.you_will_get.description_inverse"
+msgstr ""
+
 #. Long sentence
-#: components/views/Bond/index.tsx:563
+#: components/views/Bond/index.tsx:873
 msgid "bond.you_will_get.tooltip"
 msgstr "在提供输入量的情况下，您将获得的债券化KLIMA数量"
 
@@ -190,6 +227,10 @@ msgstr "通过我们的合作伙伴 <0>Mobilum 直接购买 KLIMA</0> .仔细确
 msgid "buy.not_connected"
 msgstr "未连接"
 
+#: components/views/Bond/index.tsx:679
+msgid "capacity.description_inverse"
+msgstr ""
+
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
 msgstr "不再提醒"
@@ -207,60 +248,64 @@ msgstr "<0>app.klimadao.finance</0>是唯一官方域名。"
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ 验证 URL 并将此页面添加为书签！"
 
-#: components/views/ChooseBond/index.tsx:77
+#: components/views/ChooseBond/index.tsx:90
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan基地碳吨"
 
-#: components/views/ChooseBond/index.tsx:163
+#: components/views/ChooseBond/index.tsx:195
 msgid "choose_bond.bond_carbon"
 msgstr "碳债券"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:166
+#: components/views/ChooseBond/index.tsx:198
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "购买 KLIMA 的最佳方式。将碳投入国库，获得一定的 KLIMA 折扣。所有债券都有5天的强制性归属期。"
 
-#: components/views/ChooseBond/index.tsx:190
+#: components/views/ChooseBond/index.tsx:222
 msgid "choose_bond.choose_bond"
 msgstr "选择一款债券"
 
-#: components/views/ChooseBond/index.tsx:85
+#: components/views/ChooseBond/index.tsx:110
+msgid "choose_bond.inverse_usdc"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:98
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "KLIMA/BCT Sushiswap 流动性"
 
-#: components/views/ChooseBond/index.tsx:81
+#: components/views/ChooseBond/index.tsx:94
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/USDC Sushiswap 流动性"
 
-#: components/views/ChooseBond/index.tsx:73
+#: components/views/ChooseBond/index.tsx:86
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "MOSS碳信用代币"
 
-#: components/views/ChooseBond/index.tsx:93
+#: components/views/ChooseBond/index.tsx:106
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "KLIMA/MCO2 Quickswap 流动性"
 
-#: components/views/ChooseBond/index.tsx:69
+#: components/views/ChooseBond/index.tsx:82
 msgid "choose_bond.nbo.description"
 msgstr "C3 基于自然抵消"
 
-#: components/views/ChooseBond/index.tsx:193
+#: components/views/ChooseBond/index.tsx:225
 msgid "choose_bond.percent_discount"
 msgstr "％ 折扣"
 
-#: components/views/ChooseBond/index.tsx:215
+#: components/views/ChooseBond/index.tsx:251
 msgid "choose_bond.sold_out"
 msgstr "售罄"
 
-#: components/views/ChooseBond/index.tsx:180
+#: components/views/ChooseBond/index.tsx:212
 msgid "choose_bond.treasury_balance"
 msgstr "国库余额"
 
-#: components/views/ChooseBond/index.tsx:65
+#: components/views/ChooseBond/index.tsx:78
 msgid "choose_bond.ubo.description"
 msgstr "C3 基本通用抵消"
 
-#: components/views/ChooseBond/index.tsx:89
+#: components/views/ChooseBond/index.tsx:102
 msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
 msgstr "BCT/USDC Sushiswap 流动性"
 
@@ -367,7 +412,7 @@ msgstr "等待中"
 msgid "modal.user_confirmation"
 msgstr "确认"
 
-#: components/views/Bond/index.tsx:400
+#: components/views/Bond/index.tsx:509
 msgid "nav.back"
 msgstr "返回"
 
@@ -556,7 +601,7 @@ msgstr "代币总供应量的百分比。指数调整后的索赔不得超过此
 msgid "pklima.update"
 msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之前获得的代币，并挣得奖励。在11月合约修复之前，这些质押奖励不计入供应份额限制，就是说您在 KLIMA 总供应量中持有的份额，可能会超过条款定义中限定的份额。"
 
-#: components/views/Bond/index.tsx:346
+#: components/views/Bond/index.tsx:427
 #: components/views/Offset/index.tsx:328
 #: components/views/Stake/index.tsx:169
 #: components/views/Stake/index.tsx:175
@@ -571,13 +616,13 @@ msgstr "余额"
 msgid "shared.change_language"
 msgstr "变更语言"
 
-#: components/views/Bond/index.tsx:340
+#: components/views/Bond/index.tsx:405
 #: components/views/PKlima/index.tsx:142
 #: components/views/Stake/index.tsx:163
 msgid "shared.confirming"
 msgstr "确认中"
 
-#: components/views/Bond/index.tsx:313
+#: components/views/Bond/index.tsx:378
 #: components/views/Buy/index.tsx:113
 #: components/views/Offset/index.tsx:293
 #: components/views/PKlima/index.tsx:127
@@ -595,13 +640,13 @@ msgstr "复制地址 {0}"
 msgid "shared.enter_amount"
 msgstr "输入金额"
 
-#: components/views/Bond/index.tsx:325
+#: components/views/Bond/index.tsx:390
 #: components/views/Offset/index.tsx:305
 msgid "shared.enter_quantity"
 msgstr "输入数量"
 
-#: components/views/Bond/index.tsx:366
-#: components/views/Bond/index.tsx:385
+#: components/views/Bond/index.tsx:447
+#: components/views/Bond/index.tsx:466
 #: components/views/Stake/index.tsx:202
 msgid "shared.error"
 msgstr "错误"
@@ -617,7 +662,7 @@ msgstr "无效输入"
 #: components/CarbonTonnesBreakdownCard/index.tsx:48
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
-#: components/views/Bond/index.tsx:319
+#: components/views/Bond/index.tsx:384
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:299
 #: components/views/Offset/index.tsx:385
@@ -630,7 +675,7 @@ msgstr "无效输入"
 msgid "shared.loading"
 msgstr "正在加载..."
 
-#: components/views/Bond/index.tsx:473
+#: components/views/Bond/index.tsx:584
 #: components/views/PKlima/index.tsx:214
 #: components/views/Stake/index.tsx:298
 #: components/views/Wrap/index.tsx:256
@@ -641,7 +686,7 @@ msgstr "最大额度"
 msgid "shared.retire"
 msgstr "碳停用"
 
-#: components/views/Bond/index.tsx:307
+#: components/views/Bond/index.tsx:372
 msgid "shared.sold_out"
 msgstr "售罄"
 
