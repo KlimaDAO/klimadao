@@ -39,14 +39,6 @@ export default {
       validation: (Rule) => Rule.required().min(50).max(150),
     },
     {
-      name: "showDisclaimer",
-      title: "Show Disclaimer",
-      description:
-        "This will automatically add a disclaimer at the end of the blog so the author does not have to paste it in.",
-      type: "boolean",
-      initialValue: true,
-    },
-    {
       name: "hideFromProduction",
       title: "Hide From Production (preview mode):",
       description:
