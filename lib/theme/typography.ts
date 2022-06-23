@@ -82,6 +82,15 @@ export const body3 = css`
     line-height: 2.8rem;
   }
 `;
+export const body4 = css`
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+  ${breakpoints.large} {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+`;
 export const caption = css`
   font-size: 1.4rem;
   line-height: 1.6rem;
