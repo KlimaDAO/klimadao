@@ -10,7 +10,6 @@ import {
   OffsetInputToken,
   offsetInputTokens,
   RetirementToken,
-  AllowancesToken,
 } from "@klimadao/lib/constants";
 import {
   formatUnits,
@@ -25,6 +24,8 @@ import {
   RetirementReceipt,
   RetirementTotals,
 } from "@klimadao/lib/types/offset";
+
+import { AllowancesToken } from "@klimadao/lib/types/allowances";
 
 export const getRetiredOffsetBalances = (params: {
   provider: providers.JsonRpcProvider;

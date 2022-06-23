@@ -5,9 +5,9 @@ import {
   Bond,
   OffsetInputToken,
   RetirementToken,
-  Allowances,
 } from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 
 export interface UserState {
   balance?: {
@@ -52,7 +52,7 @@ export interface UserState {
     [key in OffsetInputToken]: string;
   };
   carbonRetired?: RetirementsTotalsAndBalances;
-  allowances?: Allowances;
+  allowances?: AllowancesFormatted;
 }
 export interface Domain {
   name: string;

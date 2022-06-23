@@ -163,6 +163,25 @@ export const bonds = [
 ] as const;
 export type Bond = typeof bonds[number];
 
+// Spender with their Allowances tokens
+export const allowancesContracts = {
+  retirementAggregator: [
+    "ubo",
+    "nbo",
+    "bct",
+    "nct",
+    "mco2",
+    "usdc",
+    "klima",
+    "sklima",
+    "wsklima",
+  ],
+  staking_helper: ["klima"],
+  staking: ["sklima"],
+  wsklima: ["sklima"],
+  pklima_exercise: ["bct", "pklima"],
+} as const;
+
 export const EPOCH_INTERVAL = 11520;
 export const FALLBACK_BLOCK_RATE = 2.3;
 
@@ -201,53 +220,6 @@ export const offsetCompatibility: CompatMap = {
   klima: ["bct", "mco2", "ubo", "nbo"],
   sklima: ["bct", "mco2", "ubo", "nbo"],
   wsklima: ["bct", "mco2", "ubo", "nbo"],
-};
-
-/** Allowance tokens which have to be approved first with spender contract */
-export const allowancesTokens = [
-  "ubo",
-  "nbo",
-  "bct",
-  "nct",
-  "mco2",
-  "usdc",
-  "klima",
-  "sklima",
-  "wsklima",
-  "pklima",
-] as const;
-export type AllowancesToken = typeof allowancesTokens[number];
-export const spenderContracts = [
-  "staking_helper",
-  "staking",
-  "wsklima",
-  "pklima_exercise",
-  "retirementAggregator",
-] as const;
-export type AllowancesSpender = typeof spenderContracts[number];
-type AllowancesMap = { [token in AllowancesSpender]: AllowancesToken[] };
-export const allowancesContracts: AllowancesMap = {
-  retirementAggregator: [
-    "ubo",
-    "nbo",
-    "bct",
-    "nct",
-    "mco2",
-    "usdc",
-    "klima",
-    "sklima",
-    "wsklima",
-  ],
-  staking_helper: ["klima"],
-  staking: ["sklima"],
-  wsklima: ["sklima"],
-  pklima_exercise: ["bct", "pklima"],
-};
-// final Allowances
-export type Allowances = {
-  [key in AllowancesToken]: {
-    [key in AllowancesSpender]: string;
-  };
 };
 
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
