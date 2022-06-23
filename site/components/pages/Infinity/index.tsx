@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 // import Link from "next/link";
@@ -14,10 +14,12 @@ import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { LatestPost } from "lib/queries";
-
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import LaunchIcon from "@mui/icons-material/Launch";
 import klimaInfinityLogo from "public/logo-klima-infinity.png";
 import klimaInfinityBackground from "public/bg-infinity.png";
-
+import { cards } from "./cards";
 import * as styles from "./styles";
 
 export interface Props {
@@ -27,6 +29,34 @@ export interface Props {
 }
 
 export const Infinity: NextPage<Props> = () => {
+  const scrollToRefEnd = useRef<null | HTMLDivElement>(null);
+  const scrollToRefStart = useRef<null | HTMLDivElement>(null);
+  const scrollToEnd = () =>
+    scrollToRefEnd.current &&
+    scrollToRefEnd.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  const scrollToStart = () => {
+    console.log(scrollToRefStart.current);
+    return (
+      scrollToRefStart.current &&
+      scrollToRefStart.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      })
+    );
+  };
+  const getRef = (index: number, length: number) => {
+    if (index === 0) {
+      return scrollToRefStart;
+    }
+    if (index === length - 1) {
+      return scrollToRefEnd;
+    } else {
+      return null;
+    }
+  };
   return (
     <>
       <PageHead
@@ -78,11 +108,58 @@ export const Infinity: NextPage<Props> = () => {
       </Section>
       <Section variant="gray" className={styles.sliderSection}>
         <div className="slider_container">
-
-        <div><Trans id="infinity.organizations">
-          <Text t="h3">Dozens of organizations have offset over 150,000 carbon tonnes with Klima Infinity</Text>
-          </Trans></div>
-        <div>cards here</div>
+          <Trans id="infinity.organizations">
+            <Text t="h3" className="slider_title">
+              Dozens of organizations have offset over 150,000 carbon tonnes
+              with Klima Infinity
+            </Text>
+          </Trans>
+          <div className="slider_button_container">
+            <div className="slider_arrow" onClick={scrollToStart}>
+              <ArrowBackIcon color="secondary" />
+            </div>
+            <div className="slider_arrow" onClick={scrollToEnd}>
+              <ArrowForwardIcon />
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.sliderSection}>
+        <div className="slider_cards_container">
+          {cards.map((card, index) => (
+            <div
+              className="slider_card"
+              key={card.link}
+              ref={getRef(index, cards.length)}
+            >
+              <div className="slider_title_container">
+                <div className="slider_image_container">
+                  <Image layout="intrinsic" src={card.logo} alt="logo" />
+                </div>
+                <LaunchIcon className="slider_launch_icon" />
+              </div>
+              <div className="slider_content">
+                <Trans id="infinity.quote">
+                  <Text t="body4" className="slider_quote">
+                    “{card.description}”
+                  </Text>
+                </Trans>
+                <div className="slider_footer">
+                  <div>
+                    <Trans>
+                      <Text t="h3">{card.tonsRetired}k</Text>
+                      <Text>Tonnes</Text>
+                    </Trans>
+                  </div>
+                  <Trans>
+                    <Text t="badge" className="slider_date">
+                      {card.date}
+                    </Text>
+                  </Trans>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </Section>
       <Footer />
