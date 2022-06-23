@@ -10,8 +10,6 @@ import {
   getJsonRpcProvider,
   getContract,
 } from "@klimadao/lib/utils";
-import { addresses } from "@klimadao/lib/constants";
-import SKlima from "@klimadao/lib/abi/sKlima.json";
 
 export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
   return async (dispatch) => {
@@ -27,11 +25,10 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
         contractName: "sklima",
         provider: provider,
       });
-      const sKlimaMainContract = new ethers.Contract(
-        addresses["mainnet"].sklima,
-        SKlima.abi,
-        provider
-      );
+      const sKlimaMainContract = getContract({
+        contractName: "sklimaMain",
+        provider: provider,
+      });
 
       const promises = [
         distributorContract.info(0),

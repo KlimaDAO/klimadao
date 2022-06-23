@@ -11,8 +11,9 @@ import ExercisePKlima from "../../abi/ExercisepKLIMA.json";
 import KlimaStakingHelper from "../../abi/KlimaStakingHelper.json";
 import KlimaStakingv2 from "../../abi/KlimaStakingv2.json";
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
+import SKlima from "../../abi/sKlima.json";
 
-type ContractName = keyof typeof addresses["mainnet"];
+type Address = keyof typeof addresses["mainnet"];
 type ContractMap = {
   [K in ContractName]: typeof IERC20["abi"] | typeof KlimaStakingHelper["abi"];
 };
@@ -27,11 +28,14 @@ const contractMap = {
   // KLIMA
   klima: IERC20.abi,
   sklima: IERC20.abi,
-  wsklima: WSKLIMA.abi,
   pklima: IERC20.abi,
+  wsklima: WSKLIMA.abi,
 
   // USDC
   usdc: IERC20.abi,
+
+  // Main Contracts
+  sklimaMain: SKlima.abi,
 
   // Others
   distributor: DistributorContractv4.abi,
@@ -43,7 +47,15 @@ const contractMap = {
   staking_helper: KlimaStakingHelper.abi,
   staking: KlimaStakingv2.abi,
   retirementStorage: KlimaRetirementStorage.abi,
-} as ContractMap;
+} as const;
+type ContractName = keyof typeof contractMap;
+
+export const isNameInAddresses = (name: string): boolean => {
+  const keys = Object.keys(
+    addresses.mainnet
+  ) as (keyof typeof addresses["mainnet"])[];
+  return keys.includes(name as keyof typeof addresses["mainnet"]);
+};
 
 export const getContractAbiByName = (name: ContractName) => {
   return contractMap[name as keyof ContractMap];
@@ -56,8 +68,14 @@ export const getContract = (params: {
   const abi = getContractAbiByName(params.contractName);
   if (!abi)
     throw new Error(`Unknown abi for contractName: ${params.contractName}`);
+
+  const nameInAddresses = params.contractName.replace("Main", "") as Address;
+  if (!isNameInAddresses(nameInAddresses)) {
+    throw new Error(`Unknown contract name in mainnet: ${nameInAddresses}`);
+  }
+
   return new ethers.Contract(
-    addresses["mainnet"][params.contractName],
+    addresses["mainnet"][nameInAddresses],
     abi,
     params.provider
   );
