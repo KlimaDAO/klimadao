@@ -139,9 +139,9 @@ export const Home: NextPage<Props> = (props) => {
 
       <div ref={scrollToRef}></div>
 
-      <Section variant="white" style={{ paddingBottom: "unset" }}>
-        <div className={styles.blackHoleSection}>
-          <div className="blackHole_textGroup">
+      <Section variant="white">
+        <div className={styles.klimaVideoSection}>
+          <div className="klimaVideo_textGroup">
             <Text t="h2_alt" as="h2" color="lightest">
               <span>
                 <Trans
@@ -153,19 +153,18 @@ export const Home: NextPage<Props> = (props) => {
               </span>
             </Text>
             <div>
-              <Text t="body3" color="lighter" className="blackHole_caption">
+              <Text t="body3" color="lighter" className="klimaVideo_caption">
                 <Trans id="home.klima_is_the_center" comment="Long sentence">
-                  <span>KlimaDAO</span> is the center of a new{" "}
-                  <span>green economy</span>. Built on the energy efficient{" "}
-                  <span>Polygon network</span>, KlimaDAO uses a stack of
+                  KlimaDAO is the center of a new green economy. Built on the
+                  energy efficient Polygon network, KlimaDAO uses a stack of
                   technologies to reduce market fragmentation and accelerate the
-                  delivery of <span>climate finance</span> to{" "}
-                  <span>sustainability projects</span> globally.
+                  delivery of climate finance to sustainability projects
+                  globally.
                 </Trans>
               </Text>
             </div>
           </div>
-          <div className="blackHole_video">
+          <div className="klimaVideo_video">
             <iframe
               src="https://www.youtube.com/embed/eRmmDh1ingU?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"
               title="YouTube video player"
