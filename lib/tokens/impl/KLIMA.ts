@@ -1,10 +1,10 @@
 import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
-import { getKLIMAUSDRate } from "../../../bonds/src/utils/Price";
 import { ERC20 } from '../../generated/ERC20';
 import { IToken } from "../IToken";
 
 import * as constants from "../../utils/Constants";
 import { toDecimal } from "../../utils/Decimals";
+import { PriceUtil } from "../../utils/Price";
 
 export class KLIMA implements IToken {
 
@@ -15,7 +15,7 @@ export class KLIMA implements IToken {
   }
 
   getTokenName(): string {
-    return "KLIMA";
+    return constants.KLIMA_TOKEN;
   }
 
   getDecimals(): number {
@@ -26,12 +26,18 @@ export class KLIMA implements IToken {
     return toDecimal(rawPrice, this.getDecimals());
   }
 
-  getMarketPrice(): BigDecimal {
+  getMarketPrice(blockNumber: BigInt): BigDecimal {
     return BigDecimal.fromString("1")
   }
 
-  getUSDPrice(): BigDecimal {
-    return getKLIMAUSDRate()
+  getUSDPrice(blockNumber: BigInt): BigDecimal {
+
+    //We are going through KLIMA-BCT route until Liquidity is bolstered for KLIMA USDC
+    if (blockNumber.lt(BigInt.fromString(constants.KLIMA_USDC_PAIR_BOLSTER_LIQUIDITY_BLOCK))) {
+      return PriceUtil.getKLIMA_BCTRate().times(PriceUtil.getBCT_USDRate())
+    }
+
+    return PriceUtil.getKLIMA_USDRate()
   }
 
   getTotalSupply(): BigDecimal {

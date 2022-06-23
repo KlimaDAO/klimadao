@@ -9,8 +9,8 @@ export interface IToken {
    * which lp to look for at a given point in time for Market and USD price
    * Maybe we could add a block number as a parameter here and pick an lp based on some logic underneath?
   */
-  getMarketPrice(): BigDecimal
-  getUSDPrice(): BigDecimal
+  getMarketPrice(blockNumber: BigInt): BigDecimal
+  getUSDPrice(blockNumber: BigInt): BigDecimal
   getTotalSupply(): BigDecimal
   getAddressBalance(address: Address): BigDecimal
 }

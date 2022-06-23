@@ -2,7 +2,6 @@ import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
 import { BondV1 } from "../../../bonds/generated/BCTBondV1/BondV1";
 import { UniswapV2Pair } from "../../../bonds/generated/BCTBondV1/UniswapV2Pair";
 import { getDaoFee } from "../../../bonds/src/utils/DaoFee";
-import { getDiscountedPairCO2, calculateBondDiscount } from "../../../bonds/src/utils/Price";
 import { IBondable } from "../../bonds/IBondable";
 import { IToken } from "../../tokens/IToken";
 
@@ -10,6 +9,7 @@ import * as constants from "../../utils/Constants";
 import { toDecimal } from "../../utils/Decimals";
 import { BCT } from "../../tokens/impl/BCT";
 import { KLIMA } from "../../tokens/impl/KLIMA";
+import { PriceUtil } from "../../utils/Price";
 
 export class KLIMABCTBond implements IBondable {
   
@@ -40,12 +40,12 @@ export class KLIMABCTBond implements IBondable {
     return toDecimal(bondPriceInUsd, this.getToken().getDecimals())
   }
 
-  getBondDiscount(): BigDecimal {
+  getBondDiscount(blockNumber: BigInt): BigDecimal {
 
     const bondPrice = this.getBondPrice()
-    const marketPrice = this.getToken().getMarketPrice()
+    const marketPrice = this.getToken().getMarketPrice(blockNumber)
 
-    return calculateBondDiscount(bondPrice, marketPrice)
+    return PriceUtil.calculateBondDiscount(bondPrice, marketPrice)
   }
 
   getDaoFeeForBondPayout(payout: BigDecimal): BigDecimal {
@@ -61,7 +61,7 @@ export class KLIMABCTBond implements IBondable {
   }
 
   getCarbonCustodied(depositAmount: BigInt): BigDecimal {
-    return getDiscountedPairCO2(depositAmount, this.contractAddress, this.klimaToken, this.bctToken)
+    return PriceUtil.getDiscountedPairCO2(depositAmount, Address.fromString(constants.KLIMA_BCT_PAIR), this.bctToken, this.klimaToken)
   }
 
   getTreasuredAmount(): BigDecimal {

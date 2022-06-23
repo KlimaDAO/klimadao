@@ -10,7 +10,7 @@ export interface IBondable {
     getBondName(): string
     getDaoFeeForBondPayout(payout: BigDecimal): BigDecimal
     getBondPrice(): BigDecimal
-    getBondDiscount(): BigDecimal
+    getBondDiscount(blockNumber: BigInt): BigDecimal
     parseBondPrice(priceInUSD: BigInt): BigDecimal
     parseBondTokenValueFormatted(rawPrice: BigInt): BigDecimal
     getCarbonCustodied(depositAmount: BigInt): BigDecimal

@@ -1,11 +1,11 @@
-import { BigDecimal, BigInt, Address, log } from "@graphprotocol/graph-ts";
-import { UniswapV2Pair } from '../../../bonds/generated/BCTBondV1/UniswapV2Pair'
+import { BigDecimal, BigInt, Address } from "@graphprotocol/graph-ts";
 import { ERC20 } from '../../generated/ERC20'
 import { IToken } from "../IToken";
 
 import * as constants from '../../utils/Constants'
-import { toDecimal, BIG_DECIMAL_1E9 } from "../../utils/Decimals"
+import { toDecimal } from "../../utils/Decimals"
 import { KLIMA } from "./KLIMA";
+import { PriceUtil } from "../../utils/Price";
 
 
 export class BCT implements IToken {
@@ -18,7 +18,7 @@ export class BCT implements IToken {
   }
 
   getTokenName(): string {
-    return constants.BCT_BOND_TOKEN
+    return constants.BCT_TOKEN
   }
   getDecimals(): number {
     return 18
@@ -28,28 +28,23 @@ export class BCT implements IToken {
     return toDecimal(rawPrice, this.getDecimals())
   }
 
-  getMarketPrice(): BigDecimal {
-    let pair = UniswapV2Pair.bind(Address.fromString(constants.KLIMA_BCT_PAIR))
-
-    let reservesCall = pair.try_getReserves()
-    if (reservesCall.reverted) {
-      return BigDecimal.zero()
-    }
-
-    let reserves = reservesCall.value
-    let reserve0 = reserves.value0.toBigDecimal()
-    let reserve1 = reserves.value1.toBigDecimal()
-
-    let klimaRate = reserve0.div(reserve1).div(BIG_DECIMAL_1E9)
-    log.debug("KLIMA BCT rate {}", [klimaRate.toString()])
-
-    return klimaRate
+  getMarketPrice(blockNumber: BigInt): BigDecimal {
+    return PriceUtil.getKLIMA_BCTRate()
   }
 
-  getUSDPrice(): BigDecimal {
-    const klimaUsdPrice = this.klimaToken.getUSDPrice()
-    const bctMarketPrice = this.getMarketPrice()
+  getUSDPrice(blockNumber: BigInt): BigDecimal {
 
+    //We are going through BCT-USD until the liquidity is removed
+    if (blockNumber.lt(BigInt.fromString(constants.BCT_USDC_PAIR_REMOVE_LIQUIDITY_BLOCK))) {
+      return PriceUtil.getBCT_USDRate()
+    }
+
+    const klimaUsdPrice = this.klimaToken.getUSDPrice(blockNumber)
+    const bctMarketPrice = this.getMarketPrice(blockNumber)
+
+    if (bctMarketPrice.equals(BigDecimal.zero())) {
+      return BigDecimal.zero()
+    }
     return klimaUsdPrice.div(bctMarketPrice)
   }
 
