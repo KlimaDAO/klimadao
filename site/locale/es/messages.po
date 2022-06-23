@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-23 11:26+0000\n"
+"POT-Creation-Date: 2022-06-23 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -269,7 +269,7 @@ msgstr "Comunidad"
 
 #: components/pages/Resources/Community/index.tsx:82
 msgid "community.head.metadescription"
-msgstr ""
+msgstr "Aprende sobre nuestra comunidad de apasionados Klimates"
 
 #: components/pages/Resources/Community/index.tsx:76
 msgid "community.head.subline"
@@ -363,7 +363,7 @@ msgstr "Somos un equipo totalmente remoto que contrata en todas las zonas horari
 
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "contact.head.description"
-msgstr ""
+msgstr "Ponte en contacto con alguien de KlimaDAO."
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
@@ -457,7 +457,7 @@ msgstr "Aviso legal"
 
 #: components/pages/Disclaimer/index.tsx:20
 msgid "disclaimer.head.description"
-msgstr ""
+msgstr "Una importante aviso legal del equipo legal de KlimaDAO."
 
 #: components/pages/Disclaimer/index.tsx:16
 #: components/pages/Disclaimer/index.tsx:24
@@ -733,11 +733,11 @@ msgstr "Mensaje de Retiro"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
-msgstr ""
+msgstr "Haga clic en el título del proyecto para obtener más información."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
 msgid "retirement.single.project_details.moss_headline"
-msgstr ""
+msgstr "Conoce más sobre los proyectos que respaldan las piscinas MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
@@ -793,7 +793,7 @@ msgstr "Todos los retiros"
 
 #: components/pages/Retirements/Breakdown/index.tsx:57
 msgid "retirement.totals.breakdown_token_assets.empty"
-msgstr ""
+msgstr "No se han encontrado retiros"
 
 #: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
@@ -829,7 +829,7 @@ msgstr "Total de transacciones de retirada"
 
 #: components/pages/Retirements/Breakdown/index.tsx:32
 msgid "retirement.totals_by_assets.headline"
-msgstr ""
+msgstr "Totales de retiro por activo"
 
 #: components/pages/errors/Custom404.tsx:15
 #: components/pages/errors/Custom404.tsx:19
@@ -912,20 +912,20 @@ msgstr "Hacer staking"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
-msgstr ""
+msgstr "Conéctese con su proveedor de navegador web3"
 
 #: lib/getWeb3ModalStrings.ts:21
 msgid "web3modal.torus.desc"
-msgstr ""
+msgstr "Monedero fácil con un solo clic de Torus"
 
 #: lib/getWeb3ModalStrings.ts:17
 msgid "web3modal.torus.name"
-msgstr ""
+msgstr "Correo electrónico o redes sociales"
 
 #: lib/getWeb3ModalStrings.ts:5
 msgid "web3modal.walletconnect.desc"
-msgstr ""
+msgstr "Escanea con WalletConnect para conectarte"
 
 #: lib/getWeb3ModalStrings.ts:9
 msgid "web3modal.walletlink.desc"
-msgstr ""
+msgstr "Escanea con Coinbase para conectarte"
