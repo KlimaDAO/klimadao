@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-23 16:30+0000\n"
+"POT-Creation-Date: 2022-06-24 19:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:676
 msgid "Capacity"
-msgstr ""
+msgstr "容量"
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
@@ -61,7 +61,7 @@ msgstr "折后价。1 KLIMA的总债券量（也允许部分零星债券）"
 
 #: components/views/Bond/index.tsx:625
 msgid "bond.bond_price.tooltip.inverse"
-msgstr ""
+msgstr "KLIMA 在市场上的当前交易价格"
 
 #. Bond {0}
 #: components/views/Bond/index.tsx:524
@@ -70,7 +70,7 @@ msgstr "债券{0}"
 
 #: components/views/Bond/index.tsx:421
 msgid "bond.capacity_exceeded"
-msgstr ""
+msgstr "超出容量"
 
 #: components/views/Bond/index.tsx:962
 msgid "bond.date_of_full_vesting"
@@ -95,7 +95,7 @@ msgstr "债券折扣"
 
 #: components/views/Bond/index.tsx:831
 msgid "bond.discount.description_tooltip"
-msgstr ""
+msgstr "对于 KLIMA 市场价值的百分比折扣（如果为负数则溢价）。"
 
 #: components/views/Bond/index.tsx:456
 msgid "bond.inputplaceholder.amount_to_bond"
@@ -107,11 +107,11 @@ msgstr "赎回量"
 
 #: components/views/Bond/index.tsx:658
 msgid "bond.inverse.premium"
-msgstr ""
+msgstr "溢价"
 
 #: components/views/Bond/index.tsx:662
 msgid "bond.inverse.premium.description"
-msgstr ""
+msgstr "对于 KLIMA 市场价值的溢价。"
 
 #: components/views/Bond/index.tsx:621
 #: components/views/Bond/index.tsx:772
@@ -125,7 +125,7 @@ msgstr "KLIMA当前交易价格，不含债券折扣"
 
 #: components/views/Bond/index.tsx:411
 msgid "bond.max_exceeded"
-msgstr ""
+msgstr "最大上限值"
 
 #: components/views/Bond/index.tsx:694
 #: components/views/Bond/index.tsx:846
@@ -135,7 +135,7 @@ msgstr "最大额度"
 #: components/views/Bond/index.tsx:698
 #: components/views/Bond/index.tsx:850
 msgid "bond.maximum.tooltip"
-msgstr ""
+msgstr "您可以通过债券化绑定获得的最大数量"
 
 #: components/views/Bond/index.tsx:396
 msgid "bond.not_redeemable"
@@ -143,11 +143,11 @@ msgstr "不可赎回"
 
 #: components/views/Bond/index.tsx:639
 msgid "bond.payout_per_klima"
-msgstr ""
+msgstr "每 KLIMA 的支出"
 
 #: components/views/Bond/index.tsx:643
 msgid "bond.payout_per_klima.description_inverse"
-msgstr ""
+msgstr "如果您抵押 1 个 KLIMA，您将收到等金额的 USDC。"
 
 #: components/views/Bond/index.tsx:440
 #: components/views/Bond/index.tsx:555
@@ -197,7 +197,7 @@ msgstr "你将获得"
 
 #: components/views/Bond/index.tsx:729
 msgid "bond.you_will_get.description_inverse"
-msgstr ""
+msgstr "在提供输入数量的情况下，您将获得的金额"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:873
@@ -229,7 +229,7 @@ msgstr "未连接"
 
 #: components/views/Bond/index.tsx:679
 msgid "capacity.description_inverse"
-msgstr ""
+msgstr "这是可用于债券合约中的 USDC 数量。"
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -267,7 +267,7 @@ msgstr "选择一款债券"
 
 #: components/views/ChooseBond/index.tsx:110
 msgid "choose_bond.inverse_usdc"
-msgstr ""
+msgstr "提供KLIMA，收到USDC"
 
 #: components/views/ChooseBond/index.tsx:98
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
@@ -815,23 +815,23 @@ msgstr "断开"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
-msgstr ""
+msgstr "与您的浏览器 web3 供应商连接"
 
 #: lib/getWeb3ModalStrings.ts:21
 msgid "web3modal.torus.desc"
-msgstr ""
+msgstr "简单的一键式 Torus 钱包"
 
 #: lib/getWeb3ModalStrings.ts:17
 msgid "web3modal.torus.name"
-msgstr ""
+msgstr "电子邮件或社交媒体"
 
 #: lib/getWeb3ModalStrings.ts:5
 msgid "web3modal.walletconnect.desc"
-msgstr ""
+msgstr "使用 WalletConnect 扫描进行连接"
 
 #: lib/getWeb3ModalStrings.ts:9
 msgid "web3modal.walletlink.desc"
-msgstr ""
+msgstr "使用 Coinbase 扫描进行连接"
 
 #: components/views/Wrap/index.tsx:284
 msgid "wrap.balance"

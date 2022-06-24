@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-23 16:30+0000\n"
+"POT-Creation-Date: 2022-06-24 19:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -519,139 +519,134 @@ msgstr "500 - 页面不存在"
 msgid "error.page.500.title"
 msgstr "500 - 页面不存在"
 
-#: components/pages/Home/index.tsx:204
+#: components/pages/Home/index.tsx:207
 msgid "home.backed_by_carbon"
 msgstr "碳支持。"
 
-#. Long sentence
-#: components/pages/Home/index.tsx:162
-msgid "home.by_increasing_access"
-msgstr "通过增加对碳抵消的访问和需求，亲气候的项目获得了更高的利润，同时迫使公司更快地适应气候变化的现实。"
-
-#: components/pages/Home/index.tsx:295
+#: components/pages/Home/index.tsx:298
 msgid "home.cars_annual"
 msgstr "汽车（每年）"
 
-#: components/pages/Home/index.tsx:264
+#: components/pages/Home/index.tsx:267
 msgid "home.equivalent_to"
 msgstr "相当于"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:379
+#: components/pages/Home/index.tsx:382
 msgid "home.every_klima_token_is_backed"
 msgstr "每个 KLIMA 代币都由现实世界的碳资产支持。代币用于抵消碳排放、与 DeFi 应用程序交互，并接触快速增长的全球碳市场。"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:102
+#: components/pages/Home/index.tsx:101
 msgid "home.fight_climate_change"
 msgstr "用真正碳资产支持的数字货币 KLIMA 对抗气候变化并获得奖励。"
 
-#: components/pages/Home/index.tsx:430
+#: components/pages/Home/index.tsx:433
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "了解当今不断增长的碳经济。获取、质押并获得奖励。气候金融行动主义。"
 
-#: components/pages/Home/index.tsx:427
+#: components/pages/Home/index.tsx:430
 msgid "home.get_klima"
 msgstr "获取 KLIMA"
 
-#: components/pages/Home/index.tsx:278
+#: components/pages/Home/index.tsx:281
 msgid "home.hectares_of_forest"
 msgstr "公顷森林"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:147
-msgid "home.klima_is_a_black_hole"
-msgstr "KlimaDAO 是一个<0>碳黑洞</0>在<1>新绿色经济的中心</1>."
+msgid "home.klima_defies_climate_change"
+msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:408
+#: components/pages/Home/index.tsx:157
+msgid "home.klima_is_the_center"
+msgstr ""
+
+#. Long sentence
+#: components/pages/Home/index.tsx:411
 msgid "home.klima_tokens_are_minted"
 msgstr "KLIMA 代币约每 7 小时完成一次自动铸造，并分发给质押的 KLIMA 的持有者。随着我们共同开创出一个更可持续的未来，您的 KLIMA 持有量亦稳步增长。"
 
-#: components/pages/Home/index.tsx:78
+#: components/pages/Home/index.tsx:77
 msgid "home.latest_news"
 msgstr "📰 最新消息："
 
-#: components/pages/Home/index.tsx:133
+#: components/pages/Home/index.tsx:132
 msgid "home.learn_more"
 msgstr "更多内容"
 
-#: components/pages/Home/index.tsx:310
+#: components/pages/Home/index.tsx:313
 msgid "home.liters_if_gasoline"
 msgstr "升汽油"
 
-#: components/pages/Home/index.tsx:240
+#: components/pages/Home/index.tsx:243
 msgid "home.massive impact"
 msgstr "巨大的影响。"
 
-#: components/pages/Home/index.tsx:178
+#: components/pages/Home/index.tsx:181
 msgid "home.mechanics"
 msgstr "操作"
 
-#: components/pages/Home/index.tsx:459
+#: components/pages/Home/index.tsx:462
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "所有Alpha版，直接发送到您的收件箱"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:467
+#: components/pages/Home/index.tsx:470
 msgid "home.newletter.get_the_latest_updates"
 msgstr "在我们构建碳经济未来的同时，获取有关 KlimaDAO 的最新更新。"
 
-#: components/pages/Home/index.tsx:484
+#: components/pages/Home/index.tsx:487
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "不泄露个人信息。不发送垃圾邮件。"
 
-#: components/pages/Home/index.tsx:478
+#: components/pages/Home/index.tsx:481
 msgid "home.newletter.sign_up"
 msgstr "注册"
 
-#: components/pages/Home/index.tsx:464
+#: components/pages/Home/index.tsx:467
 msgid "home.newsletter"
 msgstr "通讯"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:367
+#: components/pages/Home/index.tsx:370
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr "<0>储备资产</0><1>碳经济的</1>"
 
-#: components/pages/Home/index.tsx:437
+#: components/pages/Home/index.tsx:440
 msgid "home.see_tutorial"
 msgstr "见教程"
 
-#: components/pages/Home/index.tsx:325
+#: components/pages/Home/index.tsx:328
 msgid "home.source"
 msgstr "来源"
 
-#: components/pages/Home/index.tsx:222
+#: components/pages/Home/index.tsx:225
 msgid "home.strong_incentives"
 msgstr "有力的激励政策"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:181
+#: components/pages/Home/index.tsx:184
 msgid "home.the_dao_sell_bonds"
 msgstr "DAO 出售债券并向所有KLIMA 持有者分配所得奖励。我们出售的每一张债券都会为不断增长的绿色国库助力，或提高关键环境资产的流动性。人类和地球的双赢。"
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:251
+#: components/pages/Home/index.tsx:254
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr "吨 <0> 碳吸收 </0>由KLIMADAO"
 
-#. Long sentence
-#: components/pages/Home/index.tsx:154
-msgid "home.we_ve_kickstarted"
-msgstr "我们已经启动了一个<0>去中心化和开放的碳市场</0>.我们的代币激励投资者、公民以及参与并管理这个新经济体的组织。"
-
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:396
+#: components/pages/Home/index.tsx:399
 msgid "home.weekly_rewards_for_token_holders"
 msgstr "<0>{0}% 每周奖励</0><1>对代币持有者</1>"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:89
+#: components/pages/Home/index.tsx:88
 msgid "home.welcome_to_klimadao"
 msgstr "<0>欢迎来到</0><1>KlimaDAO</1>"
 
-#: components/pages/Home/index.tsx:352
+#: components/pages/Home/index.tsx:355
 msgid "invest_in_the_future"
 msgstr "投资于未来。"
 
@@ -871,12 +866,12 @@ msgid "shared.docs"
 msgstr "文档"
 
 #: components/Navigation/index.tsx:41
-#: components/pages/Home/index.tsx:110
+#: components/pages/Home/index.tsx:109
 msgid "shared.enter_app"
 msgstr "进入应用"
 
 #: components/pages/Buy/index.tsx:46
-#: components/pages/Home/index.tsx:64
+#: components/pages/Home/index.tsx:63
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -904,20 +899,20 @@ msgstr "股权"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
-msgstr ""
+msgstr "与您的浏览器 web3 供应商连接"
 
 #: lib/getWeb3ModalStrings.ts:21
 msgid "web3modal.torus.desc"
-msgstr ""
+msgstr "简单的一键式 Torus 钱包"
 
 #: lib/getWeb3ModalStrings.ts:17
 msgid "web3modal.torus.name"
-msgstr ""
+msgstr "电子邮件或社交媒体"
 
 #: lib/getWeb3ModalStrings.ts:5
 msgid "web3modal.walletconnect.desc"
-msgstr ""
+msgstr "使用 WalletConnect 扫描进行连接"
 
 #: lib/getWeb3ModalStrings.ts:9
 msgid "web3modal.walletlink.desc"
-msgstr ""
+msgstr "使用 Coinbase 扫描进行连接"
