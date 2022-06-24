@@ -159,42 +159,55 @@ export const heroSection = css`
   }
 `;
 
-export const blackHoleSection = css`
+export const klimaVideoSection = css`
   display: grid;
-  row-gap: 4.8rem;
+  row-gap: 3.2rem;
   grid-column: full;
   grid-template-columns: inherit;
+  text-align: center;
   span {
     color: var(--font-01);
   }
-  .blackHole_textGroup {
-    display: flex;
-    flex-wrap: wrap;
+  .klimaVideo_textGroup {
+    display: grid;
     grid-column: main;
-    gap: 3.2rem;
+    gap: 1.6rem;
     padding: 0 2.4rem;
   }
-
-  .blackHole_columns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3.2rem;
+  .klimaVideo_textGroup h2 {
+    text-align: center;
+  }
+  .klimaVideo_caption {
+    text-align: center;
+  }
+  .klimaVideo_video {
+    grid-column: main;
+  }
+  .klimaVideo_video > iframe {
+    width: 343px;
+    height: 191px;
+    border: 0;
+    border-radius: 1.6rem;
+    overflow: hidden;
   }
 
   ${breakpoints.large} {
     grid-column: main;
-    .blackHole_textGroup {
+    row-gap: 4.8rem;
+    .klimaVideo_textGroup {
       display: grid;
-      gap: 7.2rem;
+      gap: 2.4rem;
       padding: 0 4.8rem;
     }
-    .blackHole_textGroup h2 {
-      text-align: center;
+    .klimaVideo_video > iframe {
+      width: 600px;
+      height: 337px;
     }
-    .blackHole_columns {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 12rem;
+  }
+  ${breakpoints.desktopLarge} {
+    .klimaVideo_video > iframe {
+      width: 1008px;
+      height: 567px;
     }
   }
 `;
