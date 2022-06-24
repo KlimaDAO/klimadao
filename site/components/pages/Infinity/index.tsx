@@ -19,6 +19,10 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LaunchIcon from "@mui/icons-material/Launch";
 import klimaInfinityLogo from "public/logo-klima-infinity.png";
 import klimaInfinityBackground from "public/bg-infinity.png";
+import affordableMountain from "public/affordable-mountain.png";
+import fastMountain from "public/fast-mountain.png";
+import transparentTrees from "public/transparent-trees.png";
+
 import { cards } from "./cards";
 import * as styles from "./styles";
 
@@ -35,7 +39,6 @@ export const Infinity: NextPage<Props> = () => {
     scrollToRefEnd.current &&
     scrollToRefEnd.current.scrollIntoView({
       behavior: "smooth",
-      block: "start",
     });
   const scrollToStart = () => {
     console.log(scrollToRefStart.current);
@@ -160,6 +163,57 @@ export const Infinity: NextPage<Props> = () => {
               </div>
             </div>
           ))}
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.infoSection}>
+        <div className="info_container">
+          <div className="info_left_container_mobile">
+            {" "}
+            <Image
+              src={fastMountain}
+              alt="Fast: Offset in seconds, with no red tape"
+              layout="fixed"
+            />
+            <Image
+              src={affordableMountain}
+              alt="Affordable: Real time pricing, saving 30% or more"
+              layout="fixed"
+            />
+          </div>
+          <div className="info_left_container_desktop">
+            <Image
+              src={fastMountain}
+              alt="Fast: Offset in seconds, with no red tape"
+              layout="fixed"
+            />
+            <Image
+              src={affordableMountain}
+              alt="Affordable: Real time pricing, saving 30% or more"
+              layout="fixed"
+            />
+          </div>
+          <div className="info_right_container">
+            <Trans>
+              <Text t="body4">For the planet's pioneering organizations</Text>
+              <Text t="h3">
+                The world's most powerful and easy to use offsetting solution
+              </Text>
+            </Trans>
+            <div className="info_image_desktop">
+              <Image
+                src={transparentTrees}
+                alt="Tranparent: Immutably recorded on the blockchain"
+                layout="fixed"
+              />
+            </div>
+            <div className="info_image_mobile">
+              <Image
+                src={transparentTrees}
+                alt="Tranparent: Immutably recorded on the blockchain"
+                layout="intrinsic"
+              />
+            </div>
+          </div>
         </div>
       </Section>
       <Footer />

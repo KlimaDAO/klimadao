@@ -111,7 +111,7 @@ export const sliderSection = css`
   }
   .slider_cards_container {
     overflow-x: scroll;
-    width: 100vw;
+    width: 100%;
     max-width: 100vw;
     display: flex;
     gap: 2rem;
@@ -156,6 +156,67 @@ export const sliderSection = css`
     width: 100%;
     ${breakpoints.medium} {
       width: 88%;
+    }
+  }
+`;
+
+export const infoSection = css`
+  .info_container {
+    display: flex;
+    grid-column: main;
+    // gap: 2.4rem;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    ${breakpoints.large} {
+      flex-direction: row;
+    }
+  }
+  .info_left_container_desktop {
+    width: 100%;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6.4rem;
+    padding-right: 0;
+    ${breakpoints.large} {
+      display: flex;
+      width: 50%;
+      max-width: 50%;
+      padding-right: 1.2rem;
+    }
+  }
+  .info_left_container_mobile {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6.4rem;
+    ${breakpoints.large} {
+      display: none;
+    }
+  }
+  .info_right_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    ${breakpoints.large} {
+      width: 50%;
+      max-width: 50%;
+      padding-left: 1.2rem
+    }
+  }
+  .info_image_mobile {
+    display: flex;
+    ${breakpoints.large} {
+      display: none
+    }
+  }
+  .info_image_desktop {
+    display: none;
+    ${breakpoints.large} {
+      display: flex;
     }
   }
 `;
