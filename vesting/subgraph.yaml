@@ -21,6 +21,10 @@ dataSources:
       abis:
         - name: C3WsKlimaVesting
           file: ../lib/abis/C3WsKlimaVesting.json
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: KlimaStakingV1
+          file: ../lib/abis/KlimaStakingV1.json
       eventHandlers:
         - event: StakeLocked(indexed address,uint256,uint256,bytes32,address)
           handler: handleStakeLocked

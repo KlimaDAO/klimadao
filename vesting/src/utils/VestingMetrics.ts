@@ -1,6 +1,7 @@
 import { BigInt, BigDecimal, log } from "@graphprotocol/graph-ts";
 import { dayFromTimestamp } from "../../../lib/utils/Dates";
 import { VestingMetric } from "../../generated/schema";
+import { getKlimaIndex } from "./Convert";
 import { ILockable } from "./vesting_platforms/ILockable";
 
 const DAY_IN_SECONDS: BigInt = BigInt.fromString("86400")
@@ -10,8 +11,10 @@ export class VestingMetricUtils {
     const vestingMetric = this.loadOrCreateVestingMetric(timestamp, lockableToken)
     vestingMetric.dailyLockCount =  vestingMetric.dailyLockCount.plus(BigInt.fromI32(1))
     vestingMetric.dailyLockAmount =  vestingMetric.dailyLockAmount.plus(amount)
-  
+    vestingMetric.index = getKlimaIndex()
+
     vestingMetric.totalAmountLocked = vestingMetric.totalAmountLocked.plus(amount)
+    vestingMetric.totalSupply = lockableToken.getTotalSupply()
   
     vestingMetric.save()
   }
@@ -20,9 +23,11 @@ export class VestingMetricUtils {
     const vestingMetric = this.loadOrCreateVestingMetric(timestamp, lockableToken)
     vestingMetric.dailyUnlockCount =  vestingMetric.dailyUnlockCount.plus(BigInt.fromI32(1))
     vestingMetric.dailyUnlockAmount =  vestingMetric.dailyUnlockAmount.plus(amount)
+    vestingMetric.index = getKlimaIndex()
   
     vestingMetric.totalAmountLocked = vestingMetric.totalAmountLocked.minus(amount)
-  
+    vestingMetric.totalSupply = lockableToken.getTotalSupply()
+
     vestingMetric.save()
   }
 
@@ -104,6 +109,8 @@ export class VestingMetricUtils {
     vestingMetrics.dailyMaturityCount = BigInt.zero();
     vestingMetrics.dailyMaturityAmount = BigDecimal.zero();
     vestingMetrics.totalAmountLocked = BigDecimal.zero()
+    vestingMetrics.totalSupply = BigDecimal.zero()
+    vestingMetrics.index = BigDecimal.zero()
   
     return vestingMetrics as VestingMetric;
   }

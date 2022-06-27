@@ -51,6 +51,7 @@ export function loadOrCreateProtocolMetric(timestamp: BigInt): ProtocolMetric {
         protocolMetric.nextDistributedKlima = BigDecimal.fromString("0")
         protocolMetric.currentAKR = BigDecimal.fromString("0")
         protocolMetric.treasuryCarbon = BigDecimal.fromString("0")
+        protocolMetric.klimaIndex = BigDecimal.fromString("0")
         protocolMetric.holders = BigInt.fromI32(0)
 
         protocolMetric.save()
@@ -489,6 +490,17 @@ function getRunway(sKLIMA: BigDecimal, rfv: BigDecimal, rebase: BigDecimal): Big
     return runwayCurrent
 }
 
+export function getKlimaIndex(): BigDecimal {
+    const indexCall = KlimaStakingV1.bind(Address.fromString(STAKING_CONTRACT_V1)).try_index()
+    if (indexCall.reverted) {
+        throw new Error("Index call reverted")
+    }
+
+    const indexDecimal = toDecimal(BigInt.fromString(indexCall.value.toString()), 9)
+    log.debug("Get Klima Value {}; parsed: {}", [indexCall.value.toString(), indexDecimal.toString()])
+    return indexDecimal
+}
+
 
 export function updateProtocolMetrics(transaction: Transaction): void {
     let pm = loadOrCreateProtocolMetric(transaction.timestamp);
@@ -498,6 +510,9 @@ export function updateProtocolMetrics(transaction: Transaction): void {
 
     //Circ Supply
     pm.klimaCirculatingSupply = getCirculatingSupply(transaction, pm.totalSupply)
+
+    // //Index
+    pm.klimaIndex = getKlimaIndex()
 
     //Total Klima in LP
     pm.totalKlimaInLP = getKlimaAmountFromLP(transaction)

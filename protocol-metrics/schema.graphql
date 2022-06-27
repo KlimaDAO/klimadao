@@ -17,6 +17,7 @@ type ProtocolMetric @entity {
   treasuryCarbon: BigDecimal!
   currentAKR: BigDecimal!
   runwayCurrent: BigDecimal!
+  klimaIndex: BigDecimal!
   holders: BigInt!
 }
 

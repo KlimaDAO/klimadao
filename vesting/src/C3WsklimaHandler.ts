@@ -3,7 +3,6 @@ import { VestingMetricUtils } from './utils/VestingMetrics'
 import { loadOrCreateLock, loadOrCreateUnlock } from './utils/Lock'
 import { dayFromTimestamp } from '../../lib/utils/Dates'
 import { toDecimal } from "../../lib/utils/Decimals"
-import * as constants from '../../lib/utils/Constants'
 import { BigInt } from "@graphprotocol/graph-ts"
 import { Lock } from "../generated/schema";
 import { C3Wsklima } from "./utils/vesting_platforms/impl/C3Wsklima"

@@ -38,6 +38,7 @@ export class ProtocolMetric extends Entity {
     this.set("treasuryCarbon", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("currentAKR", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("runwayCurrent", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("klimaIndex", Value.fromBigDecimal(BigDecimal.zero()));
     this.set("holders", Value.fromBigInt(BigInt.zero()));
   }
 
@@ -225,6 +226,15 @@ export class ProtocolMetric extends Entity {
 
   set runwayCurrent(value: BigDecimal) {
     this.set("runwayCurrent", Value.fromBigDecimal(value));
+  }
+
+  get klimaIndex(): BigDecimal {
+    let value = this.get("klimaIndex");
+    return value!.toBigDecimal();
+  }
+
+  set klimaIndex(value: BigDecimal) {
+    this.set("klimaIndex", Value.fromBigDecimal(value));
   }
 
   get holders(): BigInt {

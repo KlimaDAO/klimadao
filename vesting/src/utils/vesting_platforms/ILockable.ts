@@ -1,4 +1,4 @@
-import { Address, BigInt } from "@graphprotocol/graph-ts"
+import { Address, BigInt, BigDecimal } from "@graphprotocol/graph-ts"
 
 export interface ILockable {
 
@@ -6,5 +6,5 @@ export interface ILockable {
   getTokenName(): string
   getPlatformName(): string
   getInitTimestamp(): BigInt
-
+  getTotalSupply(): BigDecimal
 }
