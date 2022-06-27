@@ -95,7 +95,7 @@ export const RetirementsChart: FC<RetirementsChartProps> = (props) => {
           type="category"
           height={70}
           tickLine={false}
-          tick={<TokenLabel />}
+          tick={(props) => <TokenLabel {...props} />}
         />
         <YAxis dataKey="tonnesRetired" hide={true} domain={[0, yDomainMax]} />
       </BarChart>
@@ -103,9 +103,15 @@ export const RetirementsChart: FC<RetirementsChartProps> = (props) => {
   );
 };
 
-// Not typed by recharts and can't find the correct type definitions for render prop pattern
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TokenLabel: FC<any> = (props) => {
+type TokenLabelProps = {
+  x: number;
+  y: number;
+  payload: {
+    value: Token;
+  };
+};
+
+const TokenLabel: FC<TokenLabelProps> = (props) => {
   const tokenName: Token = props.payload.value;
 
   return (
