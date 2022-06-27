@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-24 19:12+0000\n"
+"POT-Creation-Date: 2022-06-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -558,12 +558,12 @@ msgstr "Hectares de forêt"
 #. Long sentence
 #: components/pages/Home/index.tsx:147
 msgid "home.klima_defies_climate_change"
-msgstr ""
+msgstr "KlimaDAO est de la DeFi qui défie le changement climatique"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:157
 msgid "home.klima_is_the_center"
-msgstr ""
+msgstr "KlimaDAO est le centre d'une nouvelle économie verte. Construit sur le réseau économe en énergie Polygon, KlimaDAO utilise un ensemble de technologies pour réduire la fragmentation du marché et accélérer l'octroi de financements pour le climat à des projets de développement durable dans le monde entier."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:411

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-24 19:12+0000\n"
+"POT-Creation-Date: 2022-06-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -267,7 +267,7 @@ msgstr "Community"
 
 #: components/pages/Resources/Community/index.tsx:82
 msgid "community.head.metadescription"
-msgstr ""
+msgstr "Erfahre mehr über unsere Community leidenschaftlicher Klimates"
 
 #: components/pages/Resources/Community/index.tsx:76
 msgid "community.head.subline"
@@ -361,7 +361,7 @@ msgstr "Unser Team arbeitet global verteilt in allen Zeitzonen. Wir geben regelm
 
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "contact.head.description"
-msgstr ""
+msgstr "Kontaktiere jemanden von KlimaDAO."
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
@@ -452,7 +452,7 @@ msgstr "Haftungsausschluss"
 
 #: components/pages/Disclaimer/index.tsx:20
 msgid "disclaimer.head.description"
-msgstr ""
+msgstr "Wichtiger Haftungsausschluss von KlimaDAOs Rechtsabteilung."
 
 #: components/pages/Disclaimer/index.tsx:16
 #: components/pages/Disclaimer/index.tsx:24
@@ -556,12 +556,12 @@ msgstr "Hektar Wald"
 #. Long sentence
 #: components/pages/Home/index.tsx:147
 msgid "home.klima_defies_climate_change"
-msgstr ""
+msgstr "KlimaDAO ist DeFi, das dem Klimawandel trotz"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:157
 msgid "home.klima_is_the_center"
-msgstr ""
+msgstr "KlimaDAO ist das Zentrum einer neuen grünen Wirtschaft. Dafür nutzen wir das energieeffiziente Polygon-Netzwerk und viele neue Technologien, um Marktfragmentierung zu verringern und Nachhaltigkeitsprojekten schneller finanzielle Mittel bereitzustellen - weltweit."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:411
@@ -903,20 +903,20 @@ msgstr "Stake"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
-msgstr ""
+msgstr "Mit deiner Web3-Browserwallet verbinden"
 
 #: lib/getWeb3ModalStrings.ts:21
 msgid "web3modal.torus.desc"
-msgstr ""
+msgstr "Einfache One-Klick-Wallet von Torus"
 
 #: lib/getWeb3ModalStrings.ts:17
 msgid "web3modal.torus.name"
-msgstr ""
+msgstr "E-Mail oder Social-Media"
 
 #: lib/getWeb3ModalStrings.ts:5
 msgid "web3modal.walletconnect.desc"
-msgstr ""
+msgstr "Mit WalletConnect scannen, um dich zu verbinden"
 
 #: lib/getWeb3ModalStrings.ts:9
 msgid "web3modal.walletlink.desc"
-msgstr ""
+msgstr "Mit Coinbase scannen, um dich zu verbinden"
