@@ -81,7 +81,7 @@ export class VestingMetricUtils {
         return this.returnInitializedVestingMetric(id, prevTimestamp, lockableToken)
       } else {
         const vestingMetric = VestingMetric.load(id)
-          if (vestingMetric != null) {
+          if (vestingMetric != null && !vestingMetric.inFuture) {
             return vestingMetric  
           } else {
           return this.getTheMostRecentVestingMetric(prevTimestamp, lockableToken)
