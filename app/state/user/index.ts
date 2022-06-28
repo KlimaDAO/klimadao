@@ -113,12 +113,6 @@ export const userSlice = createSlice({
         ...a.payload,
       };
     },
-    setWrapAllowance: (s, a: Setter<"wrapAllowance">) => {
-      s.wrapAllowance = {
-        ...s.wrapAllowance!,
-        ...a.payload,
-      };
-    },
     setCarbonRetiredAllowance: (s, a: Setter<"carbonRetiredAllowance">) => {
       s.carbonRetiredAllowance = {
         ...s.carbonRetiredAllowance!,
@@ -252,7 +246,6 @@ export const {
   setPklimaTerms,
   setExerciseAllowance,
   setBondAllowance,
-  setWrapAllowance,
   setCarbonRetiredBalances,
   setCarbonRetiredAllowance,
   setAllowances,

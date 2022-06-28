@@ -91,7 +91,9 @@ export const Wrap: FC<Props> = (props) => {
   const handleApproval = () => async () => {
     if (!props.provider) return;
     try {
-      const value = await changeApprovalTransaction({
+      const currentQuantity = quantity.toString();
+      const approvedValue = await changeApprovalTransaction({
+        value: currentQuantity,
         provider: props.provider,
         onStatus: setStatus,
       });
@@ -99,7 +101,7 @@ export const Wrap: FC<Props> = (props) => {
         incrementAllowance({
           token: "sklima",
           spender: "wsklima",
-          value,
+          value: approvedValue,
         })
       );
     } catch (e) {
@@ -149,6 +151,12 @@ export const Wrap: FC<Props> = (props) => {
     } else if (isLoading) {
       return {
         label: <Trans id="shared.loading">Loading...</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!value) {
+      return {
+        label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
         onClick: undefined,
         disabled: true,
       };
