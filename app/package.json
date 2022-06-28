@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "prettier --check . && next build",
+    "build": "prettier --check . && npm run lingui:compile && next build",
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
