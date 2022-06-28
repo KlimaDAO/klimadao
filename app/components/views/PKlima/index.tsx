@@ -22,7 +22,7 @@ import {
   selectExerciseAllowancePklima,
   selectPklimaTerms,
 } from "state/selectors";
-import { redeemPklima, setExerciseAllowance } from "state/user";
+import { redeemPklima, incrementAllowance } from "state/user";
 import { useAppDispatch } from "state";
 
 import {
@@ -91,12 +91,30 @@ export const PKlima: FC<Props> = (props) => {
   const handleApproval = (action: "pklima" | "bct") => async () => {
     if (!provider) return;
     try {
-      const value = await changeApprovalTransaction({
+      const currentQuantity = quantity.toString();
+      const approvedValue = await changeApprovalTransaction({
+        value: currentQuantity,
         provider,
         action,
         onStatus: setStatus,
       });
-      dispatch(setExerciseAllowance({ [action]: value }));
+      if (action === "pklima") {
+        dispatch(
+          incrementAllowance({
+            token: "pklima",
+            spender: "pklima_exercise",
+            value: approvedValue,
+          })
+        );
+      } else {
+        dispatch(
+          incrementAllowance({
+            token: "bct",
+            spender: "pklima_exercise",
+            value: approvedValue,
+          })
+        );
+      }
     } catch (e) {
       return;
     }
@@ -113,6 +131,7 @@ export const PKlima: FC<Props> = (props) => {
         onStatus: setStatus,
       });
       dispatch(redeemPklima(value));
+      // WHICH ALLOWANCE HAS TO BE DECREMENTED HERE ??
     } catch (e) {
       return;
     }
