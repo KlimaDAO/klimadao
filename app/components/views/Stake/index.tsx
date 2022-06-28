@@ -13,6 +13,7 @@ import {
 import { useAppDispatch } from "state";
 import {
   incrementStake,
+  decrementAllowance,
   decrementStake,
   incrementAllowance,
 } from "state/user";
@@ -142,16 +143,32 @@ export const Stake = (props: Props) => {
     try {
       const value = quantity.toString();
       setQuantity("");
-      await changeStakeTransaction({
+      const approvedValue = await changeStakeTransaction({
         value,
         provider: props.provider,
         action,
         onStatus: setStatus,
       });
       dispatch(
-        action === "stake" ? incrementStake(value) : decrementStake(value)
+        action === "stake"
+          ? incrementStake(approvedValue)
+          : decrementStake(approvedValue)
+      );
+      dispatch(
+        action === "stake"
+          ? decrementAllowance({
+              token: "klima",
+              spender: "staking_helper",
+              value: approvedValue,
+            })
+          : decrementAllowance({
+              token: "sklima",
+              spender: "staking",
+              value: approvedValue,
+            })
       );
     } catch (e) {
+      console.error("Error in handleStake", e);
       return;
     }
   };

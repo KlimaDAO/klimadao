@@ -69,6 +69,7 @@ export const changeStakeTransaction = async (params: {
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Transaction confirmed");
+    return formatUnits(parsedValue, 9);
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");

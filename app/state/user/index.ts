@@ -157,6 +157,20 @@ export const userSlice = createSlice({
         a.payload.value
       );
     },
+    decrementAllowance: (
+      s,
+      a: PayloadAction<{
+        token: AllowancesToken;
+        spender: AllowancesSpender;
+        value: string;
+      }>
+    ) => {
+      if (!s.allowances) return s; // type-guard, should never happen
+      s.allowances[a.payload.token][a.payload.spender] = safeSub(
+        s.allowances[a.payload.token][a.payload.spender],
+        a.payload.value
+      );
+    },
     updateRetirement: (
       s,
       a: PayloadAction<{
@@ -250,6 +264,7 @@ export const {
   setCarbonRetiredAllowance,
   setAllowances,
   incrementAllowance,
+  decrementAllowance,
   updateRetirement,
   incrementStake,
   decrementStake,
