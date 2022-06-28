@@ -164,6 +164,12 @@ export const Stake = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
+    } else if (!value) {
+      return {
+        label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (insufficientBalance(view)) {
       return {
         label: (
