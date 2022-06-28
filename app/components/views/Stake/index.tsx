@@ -134,6 +134,15 @@ export const Stake = (props: Props) => {
     }
   };
 
+  const insufficientBalance = (action: "stake" | "unstake") => {
+    const token = action === "stake" ? "klima" : "sklima";
+    return (
+      props.isConnected &&
+      !isLoading &&
+      Number(quantity) > Number(balances?.[token] ?? "0")
+    );
+  };
+
   const hasApproval = (action: "stake" | "unstake") => {
     if (action === "stake")
       return stakeAllowance && !!Number(stakeAllowance.klima);
@@ -152,6 +161,14 @@ export const Stake = (props: Props) => {
     } else if (isLoading) {
       return {
         label: <Trans id="shared.loading">Loading...</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (insufficientBalance(view)) {
+      return {
+        label: (
+          <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
+        ),
         onClick: undefined,
         disabled: true,
       };
