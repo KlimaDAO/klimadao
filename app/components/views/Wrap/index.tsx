@@ -20,7 +20,12 @@ import {
   selectBalances,
   selectWrapAllowance,
 } from "state/selectors";
-import { decrementWrap, incrementWrap, setWrapAllowance } from "state/user";
+import {
+  decrementWrap,
+  incrementWrap,
+  incrementAllowance,
+  decrementAllowance,
+} from "state/user";
 import { ImageCard } from "components/ImageCard";
 import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
@@ -64,7 +69,7 @@ export const Wrap: FC<Props> = (props) => {
 
   const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
-  const allowances = useSelector(selectWrapAllowance);
+  const wrapAllowance = useSelector(selectWrapAllowance);
 
   const isLoading = !balances || typeof balances.klima === "undefined";
   const showSpinner =
@@ -82,6 +87,7 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
+  // So unwrap never needs a Approval ???? Where is that?
   const handleApproval = () => async () => {
     if (!props.provider) return;
     try {
@@ -90,8 +96,10 @@ export const Wrap: FC<Props> = (props) => {
         onStatus: setStatus,
       });
       dispatch(
-        setWrapAllowance({
-          sklima: value,
+        incrementAllowance({
+          token: "sklima",
+          spender: "wsklima",
+          value,
         })
       );
     } catch (e) {
@@ -111,6 +119,13 @@ export const Wrap: FC<Props> = (props) => {
       });
       if (action === "wrap") {
         dispatch(incrementWrap({ sklima: quantity, currentIndex }));
+        dispatch(
+          decrementAllowance({
+            token: "sklima",
+            spender: "wsklima",
+            value: quantity,
+          })
+        );
       } else {
         dispatch(decrementWrap({ wsklima: quantity, currentIndex }));
       }
@@ -120,7 +135,7 @@ export const Wrap: FC<Props> = (props) => {
   };
 
   const hasApproval = () => {
-    return !!allowances && !!Number(allowances.sklima);
+    return !!wrapAllowance && !!Number(wrapAllowance);
   };
 
   const getButtonProps = () => {
