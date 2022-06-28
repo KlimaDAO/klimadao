@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
-import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -15,6 +14,8 @@ import { useAppDispatch } from "state";
 import { incrementStake, decrementStake, setStakeAllowance } from "state/user";
 import {
   selectAppState,
+  selectNotificationStatus,
+  selectLocale,
   selectBalances,
   selectStakeAllowance,
 } from "state/selectors";
