@@ -18,6 +18,7 @@ import {
   selectLocale,
   selectBalances,
   selectStakeAllowance,
+  selectUnstakeAllowance,
 } from "state/selectors";
 
 import {
@@ -81,10 +82,11 @@ export const Stake = (props: Props) => {
     useSelector(selectAppState);
 
   const stakeAllowance = useSelector(selectStakeAllowance);
+  const unstakeAllowance = useSelector(selectUnstakeAllowance);
+
   const balances = useSelector(selectBalances);
 
-  const isLoading =
-    !stakeAllowance || typeof stakeAllowance.klima === "undefined";
+  const isLoading = !stakeAllowance || !unstakeAllowance;
 
   const fiveDayRatePercent = fiveDayRate && fiveDayRate * 100;
   const stakingAKR = stakingAnnualPercent && stakingAnnualPercent * 100;

@@ -5,10 +5,19 @@ export const selectBalances = (state: RootState) => state.user.balance;
 export const selectAppState = (state: RootState) => state.app;
 export const selectUserState = (state: RootState) => state.user;
 
-export const selectStakeAllowance = createSelector(
+export const selectAllowances = createSelector(
   selectUserState,
-  (user) => user.stakeAllowance
+  (user) => user.allowances
 );
+export const selectStakeAllowance = createSelector(
+  selectAllowances,
+  (allowances) => allowances?.klima?.staking_helper
+);
+export const selectUnstakeAllowance = createSelector(
+  selectAllowances,
+  (allowances) => allowances?.sklima?.staking
+);
+
 export const selectExerciseAllowance = createSelector(
   selectUserState,
   (user) => user.exerciseAllowance
