@@ -7,7 +7,11 @@ import {
   RetirementToken,
 } from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
-import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
+import {
+  AllowancesFormatted,
+  AllowancesSpender,
+  AllowancesToken,
+} from "@klimadao/lib/types/allowances";
 
 export interface UserState {
   balance?: {
@@ -139,6 +143,20 @@ export const userSlice = createSlice({
         ...a.payload,
       };
     },
+    incrementAllowance: (
+      s,
+      a: PayloadAction<{
+        token: AllowancesToken;
+        spender: AllowancesSpender;
+        value: string;
+      }>
+    ) => {
+      if (!s.allowances) return s; // type-guard, should never happen
+      s.allowances[a.payload.token][a.payload.spender] = safeAdd(
+        s.allowances[a.payload.token][a.payload.spender],
+        a.payload.value
+      );
+    },
     updateRetirement: (
       s,
       a: PayloadAction<{
@@ -231,6 +249,7 @@ export const {
   setCarbonRetiredBalances,
   setCarbonRetiredAllowance,
   setAllowances,
+  incrementAllowance,
   updateRetirement,
   incrementStake,
   decrementStake,

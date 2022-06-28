@@ -11,7 +11,11 @@ import {
   changeStakeTransaction,
 } from "actions/stake";
 import { useAppDispatch } from "state";
-import { incrementStake, decrementStake, setStakeAllowance } from "state/user";
+import {
+  incrementStake,
+  decrementStake,
+  incrementAllowance,
+} from "state/user";
 import {
   selectAppState,
   selectNotificationStatus,
@@ -103,17 +107,32 @@ export const Stake = (props: Props) => {
   const handleApproval = (action: "stake" | "unstake") => async () => {
     if (!props.provider) return;
     try {
-      const value = await changeApprovalTransaction({
+      const currentQuantity = quantity.toString();
+      const approvedValue = await changeApprovalTransaction({
+        value: currentQuantity,
         provider: props.provider,
         action,
         onStatus: setStatus,
       });
       if (action === "stake") {
-        dispatch(setStakeAllowance({ klima: value }));
+        dispatch(
+          incrementAllowance({
+            token: "klima",
+            spender: "staking_helper",
+            value: approvedValue,
+          })
+        );
       } else {
-        dispatch(setStakeAllowance({ sklima: value }));
+        dispatch(
+          incrementAllowance({
+            token: "sklima",
+            spender: "staking",
+            value: approvedValue,
+          })
+        );
       }
     } catch (e) {
+      console.error("Error in handleApproval", e);
       return;
     }
   };
