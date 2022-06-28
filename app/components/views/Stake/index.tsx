@@ -191,13 +191,13 @@ export const Stake = (props: Props) => {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         onClick: handleApproval("stake"),
-        disabled: false,
+        disabled: !value,
       };
     } else if (view === "unstake" && !hasApproval("unstake")) {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         onClick: handleApproval("unstake"),
-        disabled: false,
+        disabled: !value,
       };
     } else if (view === "stake" && hasApproval("stake")) {
       return {
