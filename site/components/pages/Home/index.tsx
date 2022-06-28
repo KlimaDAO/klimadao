@@ -25,6 +25,7 @@ import sprouts from "public/sprouts.jpg";
 import dummyswap from "public/dummyswap.png";
 
 import * as styles from "./styles";
+import { ParralaxWormhole } from "./ParralaxWormhole";
 
 export interface Props {
   latestPost: LatestPost;
@@ -139,39 +140,35 @@ export const Home: NextPage<Props> = (props) => {
 
       <div ref={scrollToRef}></div>
 
-      <Section variant="white">
-        <div className={styles.klimaVideoSection}>
-          <div className="klimaVideo_textGroup">
+      <Section variant="white" style={{ paddingBottom: "unset" }}>
+        <div className={styles.blackHoleSection}>
+          <div className="blackHole_textGroup">
             <Text t="h2_alt" as="h2" color="lightest">
-              <span>
-                <Trans
-                  id="home.klima_defies_climate_change"
-                  comment="Long sentence"
-                >
-                  KlimaDAO is DeFi that defies climate change
-                </Trans>
-              </span>
+              <Trans id="home.klima_is_a_black_hole" comment="Long sentence">
+                KlimaDAO is a <span>black hole for carbon</span> at the center
+                of a <span>new green economy</span>.
+              </Trans>
             </Text>
-            <div>
-              <Text t="body3" color="lighter" className="klimaVideo_caption">
-                <Trans id="home.klima_is_the_center" comment="Long sentence">
-                  KlimaDAO is the center of a new green economy. Built on the
-                  energy efficient Polygon network, KlimaDAO uses a stack of
-                  technologies to reduce market fragmentation and accelerate the
-                  delivery of climate finance to sustainability projects
-                  globally.
+            <div className="blackHole_columns">
+              <Text t="body3" color="lighter">
+                <Trans id="home.we_ve_kickstarted" comment="Long sentence">
+                  We’ve kick-started a{" "}
+                  <span>decentralized and open market for carbon</span>. Our
+                  token incentivizes investors, citizens, and organizations to
+                  participate in and govern this new economy.
+                </Trans>
+              </Text>
+              <Text t="body3" color="lighter">
+                <Trans id="home.by_increasing_access" comment="Long sentence">
+                  By increasing access and demand for carbon offsets, we make
+                  pro-climate projects more profitable, while forcing companies
+                  to adapt more quickly to the realities of climate change.
                 </Trans>
               </Text>
             </div>
           </div>
-          <div className="klimaVideo_video">
-            <iframe
-              src="https://www.youtube.com/embed/eRmmDh1ingU?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
+
+          <ParralaxWormhole />
         </div>
       </Section>
       <Section variant="gray" fillViewport style={{ overflow: "hidden" }}>

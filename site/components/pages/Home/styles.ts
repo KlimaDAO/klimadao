@@ -159,55 +159,42 @@ export const heroSection = css`
   }
 `;
 
-export const klimaVideoSection = css`
+export const blackHoleSection = css`
   display: grid;
-  row-gap: 3.2rem;
+  row-gap: 4.8rem;
   grid-column: full;
   grid-template-columns: inherit;
-  text-align: center;
   span {
     color: var(--font-01);
   }
-  .klimaVideo_textGroup {
-    display: grid;
+  .blackHole_textGroup {
+    display: flex;
+    flex-wrap: wrap;
     grid-column: main;
-    gap: 1.6rem;
+    gap: 3.2rem;
     padding: 0 2.4rem;
   }
-  .klimaVideo_textGroup h2 {
-    text-align: center;
-  }
-  .klimaVideo_caption {
-    text-align: center;
-  }
-  .klimaVideo_video {
-    grid-column: main;
-  }
-  .klimaVideo_video > iframe {
-    width: 343px;
-    height: 191px;
-    border: 0;
-    border-radius: 1.6rem;
-    overflow: hidden;
+
+  .blackHole_columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.2rem;
   }
 
   ${breakpoints.large} {
     grid-column: main;
-    row-gap: 4.8rem;
-    .klimaVideo_textGroup {
+    .blackHole_textGroup {
       display: grid;
-      gap: 2.4rem;
+      gap: 7.2rem;
       padding: 0 4.8rem;
     }
-    .klimaVideo_video > iframe {
-      width: 600px;
-      height: 337px;
+    .blackHole_textGroup h2 {
+      text-align: center;
     }
-  }
-  ${breakpoints.desktopLarge} {
-    .klimaVideo_video > iframe {
-      width: 1008px;
-      height: 567px;
+    .blackHole_columns {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 12rem;
     }
   }
 `;
