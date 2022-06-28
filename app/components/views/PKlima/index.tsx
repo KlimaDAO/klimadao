@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 
-import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
 import {
@@ -16,8 +15,11 @@ import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 
 import {
+  selectNotificationStatus,
+  selectLocale,
   selectAppState,
-  selectExerciseAllowance,
+  selectExerciseAllowanceBCT,
+  selectExerciseAllowancePklima,
   selectPklimaTerms,
 } from "state/selectors";
 import { redeemPklima, setExerciseAllowance } from "state/user";
@@ -58,11 +60,12 @@ export const PKlima: FC<Props> = (props) => {
 
   const locale = useSelector(selectLocale);
   const { currentIndex } = useSelector(selectAppState);
-  const allowances = useSelector(selectExerciseAllowance);
+  const allowanceBCT = useSelector(selectExerciseAllowanceBCT);
+  const allowancePklima = useSelector(selectExerciseAllowancePklima);
   const terms = useSelector(selectPklimaTerms);
 
   const indexAdjustedClaim = Number(terms?.claimed) * Number(currentIndex);
-  const isLoading = !allowances || typeof allowances.pklima === "undefined";
+  const isLoading = !allowanceBCT || !allowancePklima;
   const showSpinner =
     isConnected &&
     (status === "userConfirmation" ||
@@ -116,8 +119,9 @@ export const PKlima: FC<Props> = (props) => {
   };
 
   const hasApproval = (token: "pklima" | "bct") => {
-    if (token === "pklima") return allowances && !!Number(allowances.pklima);
-    return allowances && !!Number(allowances.bct);
+    if (token === "pklima")
+      return !!allowancePklima && !!Number(allowancePklima);
+    return allowanceBCT && !!Number(allowanceBCT);
   };
 
   const getButtonProps = () => {

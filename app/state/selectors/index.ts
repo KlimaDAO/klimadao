@@ -18,6 +18,15 @@ export const selectUnstakeAllowance = createSelector(
   (allowances) => allowances?.sklima?.staking
 );
 
+export const selectExerciseAllowanceBCT = createSelector(
+  selectAllowances,
+  (allowances) => allowances?.bct?.pklima_exercise
+);
+export const selectExerciseAllowancePklima = createSelector(
+  selectAllowances,
+  (allowances) => allowances?.pklima?.pklima_exercise
+);
+
 export const selectExerciseAllowance = createSelector(
   selectUserState,
   (user) => user.exerciseAllowance
