@@ -144,10 +144,19 @@ export const Stake = (props: Props) => {
   };
 
   const hasApproval = (action: "stake" | "unstake") => {
-    if (action === "stake")
-      return stakeAllowance && !!Number(stakeAllowance.klima);
+    if (action === "stake") {
+      return (
+        stakeAllowance &&
+        !!Number(stakeAllowance) &&
+        Number(quantity) <= Number(stakeAllowance) // Caution: Number trims values down to 17 decimal places of precision
+      );
+    }
     if (action === "unstake")
-      return stakeAllowance && !!Number(stakeAllowance.sklima);
+      return (
+        unstakeAllowance &&
+        !!Number(unstakeAllowance) &&
+        Number(quantity) <= Number(unstakeAllowance) // Caution: Number trims values down to 17 decimal places of precision
+      );
   };
 
   const getButtonProps = (): ButtonProps => {
@@ -170,7 +179,7 @@ export const Stake = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (insufficientBalance(view)) {
+    } else if (value && insufficientBalance(view)) {
       return {
         label: (
           <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
