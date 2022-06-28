@@ -36,6 +36,7 @@ export const useBond = (bond: Bond) => {
   };
 
   if (bond === "inverse_usdc" && Number(bondState?.capacity) < 1) {
+    // set to sold out if capacity reaches zero
     disabledBonds[bond] = true;
   } else if (
     bond !== "inverse_usdc" &&
