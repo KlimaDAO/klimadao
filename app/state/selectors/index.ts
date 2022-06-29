@@ -13,22 +13,6 @@ export const selectAllowances = createSelector(
   selectUserState,
   (user) => user.allowances
 );
-export const selectStakeAllowance = createSelector(
-  selectAllowances,
-  (allowances) => allowances?.klima?.staking_helper
-);
-export const selectUnstakeAllowance = createSelector(
-  selectAllowances,
-  (allowances) => allowances?.sklima?.staking
-);
-
-export const selectExerciseAllowanceBCT = createSelector(
-  selectAllowances,
-  (allowances) => allowances?.bct?.pklima_exercise
-);
-export const selectExerciseAllowancePklima = createSelector(
-  selectAllowances,
-  (allowances) => allowances?.pklima?.pklima_exercise
 // select allowances with params
 type Allowances = { [key in AllowancesToken]: string };
 type Params = { tokens: AllowancesToken[]; spender: AllowancesSpender };
@@ -49,10 +33,6 @@ export const selectAllowancesWithParams = createSelector(
   }
 );
 
-export const selectExerciseAllowance = createSelector(
-  selectUserState,
-  (user) => user.exerciseAllowance
-);
 export const selectBondAllowance = createSelector(
   selectUserState,
   (user) => user.bondAllowance
