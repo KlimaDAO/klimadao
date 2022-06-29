@@ -32,7 +32,7 @@ export const useBond = (bond: Bond) => {
     klima_mco2_lp: true,
     ubo: true,
     nbo: true,
-    inverse_usdc: false,
+    inverse_usdc: true,
   };
 
   if (bond === "inverse_usdc" && Number(bondState?.capacity) < 1) {

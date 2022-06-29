@@ -64,7 +64,7 @@ const getIsInverse = (params: { bond: Bond }): boolean => {
     klima_bct_lp: false,
     bct_usdc_lp: false,
     klima_mco2_lp: false,
-    inverse_usdc: false,
+    inverse_usdc: true,
   }[params.bond];
 };
 
