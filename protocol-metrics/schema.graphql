@@ -5,6 +5,10 @@ type ProtocolMetric @entity {
   sKlimaCirculatingSupply: BigDecimal!
   totalKlimaInLP: BigDecimal!
   totalKlimaUnstaked: BigDecimal!
+  treasuryUSDCInLP: BigDecimal
+  treasuryBalanceUSDC: BigDecimal
+  daoBalanceUSDC: BigDecimal
+  daoBalanceKLIMA: BigDecimal
   totalSupply: BigDecimal!
   klimaPrice: BigDecimal!
   marketCap: BigDecimal!

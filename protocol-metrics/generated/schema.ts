@@ -112,6 +112,74 @@ export class ProtocolMetric extends Entity {
     this.set("totalKlimaUnstaked", Value.fromBigDecimal(value));
   }
 
+  get treasuryUSDCInLP(): BigDecimal | null {
+    let value = this.get("treasuryUSDCInLP");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigDecimal();
+    }
+  }
+
+  set treasuryUSDCInLP(value: BigDecimal | null) {
+    if (!value) {
+      this.unset("treasuryUSDCInLP");
+    } else {
+      this.set("treasuryUSDCInLP", Value.fromBigDecimal(<BigDecimal>value));
+    }
+  }
+
+  get treasuryBalanceUSDC(): BigDecimal | null {
+    let value = this.get("treasuryBalanceUSDC");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigDecimal();
+    }
+  }
+
+  set treasuryBalanceUSDC(value: BigDecimal | null) {
+    if (!value) {
+      this.unset("treasuryBalanceUSDC");
+    } else {
+      this.set("treasuryBalanceUSDC", Value.fromBigDecimal(<BigDecimal>value));
+    }
+  }
+
+  get daoBalanceUSDC(): BigDecimal | null {
+    let value = this.get("daoBalanceUSDC");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigDecimal();
+    }
+  }
+
+  set daoBalanceUSDC(value: BigDecimal | null) {
+    if (!value) {
+      this.unset("daoBalanceUSDC");
+    } else {
+      this.set("daoBalanceUSDC", Value.fromBigDecimal(<BigDecimal>value));
+    }
+  }
+
+  get daoBalanceKLIMA(): BigDecimal | null {
+    let value = this.get("daoBalanceKLIMA");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBigDecimal();
+    }
+  }
+
+  set daoBalanceKLIMA(value: BigDecimal | null) {
+    if (!value) {
+      this.unset("daoBalanceKLIMA");
+    } else {
+      this.set("daoBalanceKLIMA", Value.fromBigDecimal(<BigDecimal>value));
+    }
+  }
+
   get totalSupply(): BigDecimal {
     let value = this.get("totalSupply");
     return value!.toBigDecimal();
