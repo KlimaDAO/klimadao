@@ -18,7 +18,7 @@ import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 import {
   selectAppState,
   selectBalances,
-  selectWrapAllowance,
+  selectAllowancesWithParams,
 } from "state/selectors";
 import {
   decrementWrap,
@@ -29,6 +29,7 @@ import {
 import { ImageCard } from "components/ImageCard";
 import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
+import { useParamSelector } from "lib/hooks/useParamsSelector";
 
 import * as styles from "components/views/Stake/styles";
 import { Trans, defineMessage } from "@lingui/macro";
@@ -69,7 +70,10 @@ export const Wrap: FC<Props> = (props) => {
 
   const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
-  const wrapAllowance = useSelector(selectWrapAllowance);
+  const wrapAllowance = useParamSelector(selectAllowancesWithParams, {
+    tokens: ["sklima"],
+    spender: "wsklima",
+  });
 
   const isLoading = !balances || typeof balances.klima === "undefined";
   const showSpinner =
@@ -137,7 +141,7 @@ export const Wrap: FC<Props> = (props) => {
   };
 
   const hasApproval = () => {
-    return !!wrapAllowance && !!Number(wrapAllowance);
+    return !!wrapAllowance && !!Number(wrapAllowance.sklima);
   };
 
   const getButtonProps = () => {
