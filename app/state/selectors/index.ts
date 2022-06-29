@@ -1,5 +1,9 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "state";
+import {
+  AllowancesSpender,
+  AllowancesToken,
+} from "@klimadao/lib/types/allowances";
 
 export const selectBalances = (state: RootState) => state.user.balance;
 export const selectAppState = (state: RootState) => state.app;
@@ -25,6 +29,24 @@ export const selectExerciseAllowanceBCT = createSelector(
 export const selectExerciseAllowancePklima = createSelector(
   selectAllowances,
   (allowances) => allowances?.pklima?.pklima_exercise
+// select allowances with params
+type Allowances = { [key in AllowancesToken]: string };
+type Params = { tokens: AllowancesToken[]; spender: AllowancesSpender };
+export const selectAllowancesWithParams = createSelector(
+  [selectAllowances, (state, params: Params) => params],
+  (allowances, params) => {
+    const collectedAllowances = params.tokens.reduce<Allowances>(
+      (obj, token) => {
+        if (allowances?.[token][params.spender]) {
+          obj[token] = allowances?.[token][params.spender];
+        }
+        return obj;
+      },
+      {} as Allowances
+    );
+    const isEmpty = Object.keys(collectedAllowances).length === 0;
+    return isEmpty ? null : collectedAllowances;
+  }
 );
 
 export const selectExerciseAllowance = createSelector(
