@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-29 16:05+0000\n"
+"POT-Creation-Date: 2022-06-29 16:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -248,64 +248,64 @@ msgstr ""
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:90
+#: components/views/ChooseBond/index.tsx:91
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:195
+#: components/views/ChooseBond/index.tsx:196
 msgid "choose_bond.bond_carbon"
 msgstr ""
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:198
+#: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:222
+#: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:110
+#: components/views/ChooseBond/index.tsx:111
 msgid "choose_bond.inverse_usdc"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:98
+#: components/views/ChooseBond/index.tsx:99
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:94
+#: components/views/ChooseBond/index.tsx:95
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:86
+#: components/views/ChooseBond/index.tsx:87
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:106
+#: components/views/ChooseBond/index.tsx:107
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:82
+#: components/views/ChooseBond/index.tsx:83
 msgid "choose_bond.nbo.description"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:225
+#: components/views/ChooseBond/index.tsx:226
 msgid "choose_bond.percent_discount"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:251
+#: components/views/ChooseBond/index.tsx:252
 msgid "choose_bond.sold_out"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:212
+#: components/views/ChooseBond/index.tsx:213
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:78
+#: components/views/ChooseBond/index.tsx:79
 msgid "choose_bond.ubo.description"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:102
+#: components/views/ChooseBond/index.tsx:103
 msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
 msgstr ""
 
