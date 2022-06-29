@@ -143,10 +143,7 @@ export const userSlice = createSlice({
       }>
     ) => {
       if (!s.allowances) return s; // type-guard, should never happen
-      s.allowances[a.payload.token][a.payload.spender] = safeAdd(
-        s.allowances[a.payload.token][a.payload.spender],
-        a.payload.value
-      );
+      s.allowances[a.payload.token][a.payload.spender] = a.payload.value;
     },
     decrementAllowance: (
       s,

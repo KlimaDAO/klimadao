@@ -115,6 +115,7 @@ export const Stake = (props: Props) => {
         action,
         onStatus: setStatus,
       });
+
       if (action === "stake") {
         dispatch(
           incrementAllowance({
