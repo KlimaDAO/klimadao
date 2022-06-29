@@ -21,7 +21,7 @@ export const selectAllowancesWithParams = createSelector(
   (allowances, params) => {
     const collectedAllowances = params.tokens.reduce<Allowances>(
       (obj, token) => {
-        if (allowances?.[token][params.spender]) {
+        if (allowances?.[token]?.[params.spender]) {
           obj[token] = allowances?.[token][params.spender];
         }
         return obj;
