@@ -11,6 +11,8 @@ import {
   changeStakeTransaction,
 } from "actions/stake";
 import { useAppDispatch } from "state";
+
+import { useParamSelector } from "lib/hooks/useParamsSelector";
 import {
   incrementStake,
   decrementAllowance,
@@ -22,8 +24,7 @@ import {
   selectNotificationStatus,
   selectLocale,
   selectBalances,
-  selectStakeAllowance,
-  selectUnstakeAllowance,
+  selectAllowancesWithParams,
 } from "state/selectors";
 
 import {
@@ -86,12 +87,18 @@ export const Stake = (props: Props) => {
   const { fiveDayRate, currentIndex, stakingAnnualPercent } =
     useSelector(selectAppState);
 
-  const stakeAllowance = useSelector(selectStakeAllowance);
-  const unstakeAllowance = useSelector(selectUnstakeAllowance);
+  const stakeAllowance = useParamSelector(selectAllowancesWithParams, {
+    tokens: ["klima"],
+    spender: "staking_helper",
+  });
+  const unstakeAllowance = useParamSelector(selectAllowancesWithParams, {
+    tokens: ["sklima"],
+    spender: "staking",
+  });
 
   const balances = useSelector(selectBalances);
 
-  const isLoading = !stakeAllowance || !unstakeAllowance;
+  const isLoading = !stakeAllowance?.klima || !unstakeAllowance?.sklima;
 
   const fiveDayRatePercent = fiveDayRate && fiveDayRate * 100;
   const stakingAKR = stakingAnnualPercent && stakingAnnualPercent * 100;
@@ -187,15 +194,15 @@ export const Stake = (props: Props) => {
     if (action === "stake") {
       return (
         stakeAllowance &&
-        !!Number(stakeAllowance) &&
-        Number(quantity) <= Number(stakeAllowance) // Caution: Number trims values down to 17 decimal places of precision
+        !!Number(stakeAllowance.klima) &&
+        Number(quantity) <= Number(stakeAllowance.klima) // Caution: Number trims values down to 17 decimal places of precision
       );
     }
     if (action === "unstake")
       return (
         unstakeAllowance &&
-        !!Number(unstakeAllowance) &&
-        Number(quantity) <= Number(unstakeAllowance) // Caution: Number trims values down to 17 decimal places of precision
+        !!Number(unstakeAllowance.sklima) &&
+        Number(quantity) <= Number(unstakeAllowance.sklima) // Caution: Number trims values down to 17 decimal places of precision
       );
   };
 
