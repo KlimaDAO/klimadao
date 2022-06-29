@@ -18,13 +18,12 @@ import {
   selectNotificationStatus,
   selectLocale,
   selectAppState,
-  selectExerciseAllowanceBCT,
-  selectExerciseAllowancePklima,
+  selectAllowancesWithParams,
   selectPklimaTerms,
 } from "state/selectors";
 import { redeemPklima, incrementAllowance } from "state/user";
 import { useAppDispatch } from "state";
-
+import { useParamSelector } from "lib/hooks/useParamsSelector";
 import {
   exerciseTransaction,
   changeApprovalTransaction,
@@ -60,12 +59,17 @@ export const PKlima: FC<Props> = (props) => {
 
   const locale = useSelector(selectLocale);
   const { currentIndex } = useSelector(selectAppState);
-  const allowanceBCT = useSelector(selectExerciseAllowanceBCT);
-  const allowancePklima = useSelector(selectExerciseAllowancePklima);
+  const exerciseAllowances = useParamSelector(selectAllowancesWithParams, {
+    tokens: ["bct", "pklima"],
+    spender: "pklima_exercise",
+  });
   const terms = useSelector(selectPklimaTerms);
 
   const indexAdjustedClaim = Number(terms?.claimed) * Number(currentIndex);
-  const isLoading = !allowanceBCT || !allowancePklima;
+  const isLoading =
+    !exerciseAllowances ||
+    !exerciseAllowances?.bct ||
+    !exerciseAllowances?.pklima;
   const showSpinner =
     isConnected &&
     (status === "userConfirmation" ||
@@ -139,8 +143,8 @@ export const PKlima: FC<Props> = (props) => {
 
   const hasApproval = (token: "pklima" | "bct") => {
     if (token === "pklima")
-      return !!allowancePklima && !!Number(allowancePklima);
-    return allowanceBCT && !!Number(allowanceBCT);
+      return !!exerciseAllowances && !!Number(exerciseAllowances.pklima);
+    return !!exerciseAllowances && !!Number(exerciseAllowances.bct);
   };
 
   const getButtonProps = () => {
