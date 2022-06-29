@@ -1,9 +1,6 @@
 import { ethers, providers } from "ethers";
 import { Thunk } from "state";
-import {
-  setCarbonRetiredAllowance,
-  setCarbonRetiredBalances,
-} from "state/user";
+import { setCarbonRetiredBalances, updateAllowances } from "state/user";
 
 import {
   addresses,
@@ -17,6 +14,7 @@ import {
   createRetirementStorageContract,
   getRetirementTotalsAndBalances,
   getContract,
+  getAllowance,
 } from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
 
@@ -25,7 +23,10 @@ import {
   RetirementTotals,
 } from "@klimadao/lib/types/offset";
 
-import { AllowancesToken } from "@klimadao/lib/types/allowances";
+import {
+  AllowancesFormatted,
+  Allowances,
+} from "@klimadao/lib/types/allowances";
 
 export const getRetiredOffsetBalances = (params: {
   provider: providers.JsonRpcProvider;
@@ -59,32 +60,37 @@ export const getRetirementAllowances = (params: {
           provider: params.provider,
         });
         arr.push(
-          contract.allowance(
-            params.address, // owner
-            addresses["mainnet"].retirementAggregator // spender
-          )
+          getAllowance({
+            contract,
+            address: params.address,
+            spender: "retirementAggregator",
+            token: val,
+          })
         );
         return arr;
-      }, [] as Promise<ethers.BigNumber>[]);
+      }, [] as Promise<Allowances>[]);
 
-      type Allowances = { [key in AllowancesToken]: string };
-
-      // await to get arr of bignumbers
-      const res = await Promise.all(promises);
+      // await to get arr of Allowances
+      const allAllowances = await Promise.all(promises);
 
       // reduce and format each with appropriate decimals
-      const allowances = offsetInputTokens.reduce<Allowances>(
-        (obj, tkn, index) => {
-          const val = res[index];
-          const decimals = getTokenDecimals(tkn);
-          obj[tkn] = formatUnits(val, decimals);
+      const allowances = allAllowances.reduce<AllowancesFormatted>(
+        (obj, allowance) => {
+          const [token, spender] = Object.entries(allowance)[0];
+          const decimals = getTokenDecimals(token);
+          const [spenderName, value] = Object.entries(spender)[0];
+          obj[token as keyof typeof allowance] = {
+            ...obj[token as keyof typeof allowance],
+            [spenderName]: formatUnits(value, decimals),
+          };
           return obj;
         },
-        {} as Allowances
+        {} as AllowancesFormatted
       );
-      dispatch(setCarbonRetiredAllowance(allowances));
+
+      dispatch(updateAllowances(allowances));
     } catch (error: any) {
-      console.error(error);
+      console.error("Error in getRetirementAllowances: ", error);
       throw error;
     }
   };

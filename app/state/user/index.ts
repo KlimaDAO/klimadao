@@ -107,12 +107,6 @@ export const userSlice = createSlice({
         ...a.payload,
       };
     },
-    setCarbonRetiredAllowance: (s, a: Setter<"carbonRetiredAllowance">) => {
-      s.carbonRetiredAllowance = {
-        ...s.carbonRetiredAllowance!,
-        ...a.payload,
-      };
-    },
     setCarbonRetiredBalances: (s, a: Setter<"carbonRetired">) => {
       s.carbonRetired = {
         ...s.carbonRetired!,
@@ -246,7 +240,6 @@ export const {
   setPklimaTerms,
   setBondAllowance,
   setCarbonRetiredBalances,
-  setCarbonRetiredAllowance,
   updateAllowances,
   incrementAllowance,
   decrementAllowance,
