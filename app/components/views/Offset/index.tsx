@@ -287,6 +287,14 @@ export const Offset = (props: Props) => {
     !isLoading &&
     Number(cost) > Number(balances?.[selectedInputToken] ?? "0");
 
+  const hasApproval = () => {
+    return (
+      allowances?.[selectedInputToken] &&
+      !!Number(allowances?.[selectedInputToken]) &&
+      Number(cost) <= Number(allowances?.[selectedInputToken]) // Caution: Number trims values down to 17 decimal places of precision
+    );
+  };
+
   const getButtonProps = (): ButtonProps => {
     if (!props.isConnected) {
       return {
@@ -323,7 +331,7 @@ export const Offset = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (!Number(allowances?.[selectedInputToken])) {
+    } else if (!hasApproval()) {
       return {
         label: <Trans id="shared.approve">APPROVE</Trans>,
         onClick: handleApprove,
