@@ -42,10 +42,10 @@ const contractMap = {
   klimaNameService: PunkTLD.abi,
   bctUsdcLp: PairContract.abi,
   klimaBctLp: PairContract.abi,
-  retirementAggregator: KlimaRetirementAggregator.abi,
+  retirementAggregator: KlimaRetirementAggregator.abi, // offset
   pklima_exercise: ExercisePKlima.abi,
-  staking_helper: KlimaStakingHelper.abi,
-  staking: KlimaStakingv2.abi,
+  staking_helper: KlimaStakingHelper.abi, // stake
+  staking: KlimaStakingv2.abi, // unstake
   retirementStorage: KlimaRetirementStorage.abi,
 } as const;
 type ContractName = keyof typeof contractMap;
