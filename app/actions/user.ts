@@ -14,7 +14,7 @@ import {
   AllowancesSpender,
   AllowancesFormatted,
 } from "@klimadao/lib/types/allowances";
-import { setBalance, setAllowances, setDomains } from "state/user";
+import { setBalance, updateAllowances, setDomains } from "state/user";
 
 import { getKns, getEns } from "./utils";
 
@@ -155,7 +155,7 @@ export const loadAccountDetails = (params: {
         })
       );
       dispatch(setBalance(balances));
-      dispatch(setAllowances(allowances));
+      dispatch(updateAllowances(allowances));
     } catch (error: any) {
       console.log(error);
       if (error.message && error.message.includes("Non-200 status code")) {

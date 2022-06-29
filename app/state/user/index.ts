@@ -119,10 +119,19 @@ export const userSlice = createSlice({
         ...a.payload,
       };
     },
-    setAllowances: (s, a: Setter<"allowances">) => {
+    updateAllowances: (s, a: PayloadAction<AllowancesFormatted>) => {
+      const allowancesState = { ...s.allowances };
+      const allTokens = Object.keys(a.payload);
+      const mergedAllowances = allTokens.reduce((obj, token) => {
+        obj[token as keyof typeof allowancesState] = {
+          ...allowancesState[token as keyof typeof allowancesState],
+          ...a.payload[token as keyof typeof allowancesState],
+        };
+        return obj;
+      }, {} as AllowancesFormatted);
       s.allowances = {
-        ...s.allowances!,
-        ...a.payload,
+        ...s.allowances,
+        ...mergedAllowances,
       };
     },
     incrementAllowance: (
@@ -241,7 +250,7 @@ export const {
   setBondAllowance,
   setCarbonRetiredBalances,
   setCarbonRetiredAllowance,
-  setAllowances,
+  updateAllowances,
   incrementAllowance,
   decrementAllowance,
   updateRetirement,
