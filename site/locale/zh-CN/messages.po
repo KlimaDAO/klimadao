@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-28 15:42+0000\n"
+"POT-Creation-Date: 2022-06-29 16:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -556,12 +556,12 @@ msgstr "公顷森林"
 #. Long sentence
 #: components/pages/Home/index.tsx:147
 msgid "home.klima_defies_climate_change"
-msgstr ""
+msgstr "KlimaDAO 是对抗气候变化的 DeFi"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:157
 msgid "home.klima_is_the_center"
-msgstr ""
+msgstr "KlimaDAO 是新绿色经济的中心。 KlimaDAO 建立在节能的 Polygon 网络之上，使用一系列技术来减少市场分散化，并加速向全球可持续发展项目提供气候融资。"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:411

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-28 15:42+0000\n"
+"POT-Creation-Date: 2022-06-29 16:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -556,7 +556,7 @@ msgstr "Hektar Wald"
 #. Long sentence
 #: components/pages/Home/index.tsx:147
 msgid "home.klima_defies_climate_change"
-msgstr "KlimaDAO ist DeFi, das dem Klimawandel trotz"
+msgstr "KlimaDAO ist DeFi für den Klimawandel"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:157

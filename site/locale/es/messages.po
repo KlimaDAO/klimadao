@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-06-28 15:42+0000\n"
+"POT-Creation-Date: 2022-06-29 16:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -564,12 +564,12 @@ msgstr "hectáreas de bosque"
 #. Long sentence
 #: components/pages/Home/index.tsx:147
 msgid "home.klima_defies_climate_change"
-msgstr ""
+msgstr "KlimaDAO es DeFi que desafía el cambio climático"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:157
 msgid "home.klima_is_the_center"
-msgstr ""
+msgstr "KlimaDAO es el centro de una nueva economía verde. Construida sobre la red Polygon, de gran eficiencia energética, KlimaDAO utiliza una pila de tecnologías para reducir la fragmentación del mercado y acelerar la entrega de financiación climática a los proyectos de sostenibilidad a nivel mundial."
 
 #. Long sentence
 #: components/pages/Home/index.tsx:411
@@ -736,7 +736,7 @@ msgstr "Conoce más sobre los proyectos que respaldan las piscinas MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
-msgstr ""
+msgstr "La(s) tonelada(s) retirada(s) procedía(n) del(de los) siguiente(s) proyecto(s)."
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
 msgid "retirement.single.project_details.title"
