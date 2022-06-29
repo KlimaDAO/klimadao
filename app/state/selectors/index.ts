@@ -49,10 +49,6 @@ export const selectCarbonRetired = createSelector(
   selectUserState,
   (user) => user.carbonRetired
 );
-export const selectCarbonRetiredAllowance = createSelector(
-  selectUserState,
-  (user) => user.carbonRetiredAllowance
-);
 export const selectNotificationStatus = createSelector(
   selectAppState,
   (rootState) => rootState.notificationStatus

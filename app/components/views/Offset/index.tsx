@@ -16,13 +16,16 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
-import { setCarbonRetiredAllowance, updateRetirement } from "state/user";
+import { incrementAllowance, updateRetirement } from "state/user";
 import {
   selectNotificationStatus,
   selectBalances,
-  selectCarbonRetiredAllowance,
+  selectAllowancesWithParams,
   selectLocale,
 } from "state/selectors";
+
+import { useParamSelector } from "lib/hooks/useParamsSelector";
+
 import {
   changeApprovalTransaction,
   getOffsetConsumptionCost,
@@ -103,7 +106,11 @@ export const Offset = (props: Props) => {
   const dispatch = useAppDispatch();
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
-  const allowances = useSelector(selectCarbonRetiredAllowance);
+  const allowances = useParamSelector(selectAllowancesWithParams, {
+    tokens: offsetInputTokens,
+    spender: "retirementAggregator",
+  });
+  console.log(allowances);
   const params = useOffsetParams();
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
@@ -238,12 +245,20 @@ export const Offset = (props: Props) => {
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
-      const value = await changeApprovalTransaction({
+      const value = quantity.toString();
+      const approvedValue = await changeApprovalTransaction({
+        value,
         provider: props.provider,
         token: selectedInputToken,
         onStatus: setStatus,
       });
-      dispatch(setCarbonRetiredAllowance({ [selectedInputToken]: value }));
+      dispatch(
+        incrementAllowance({
+          token: selectedInputToken,
+          spender: "retirementAggregator",
+          value: approvedValue,
+        })
+      );
     } catch (e) {
       return;
     }

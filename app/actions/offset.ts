@@ -97,6 +97,7 @@ export const getRetirementAllowances = (params: {
 };
 
 export const changeApprovalTransaction = async (params: {
+  value: string;
   provider: providers.JsonRpcProvider;
   token: OffsetInputToken;
   onStatus: OnStatusHandler;
@@ -106,17 +107,17 @@ export const changeApprovalTransaction = async (params: {
       contractName: params.token,
       provider: params.provider.getSigner(),
     });
-    const decimals = getTokenDecimals(params.token);
-    const value = ethers.utils.parseUnits("1000000000", decimals);
+    const decimals = getTokenDecimals(params.token); // why here not "gwei" as in all other changeApprovalTransaction?
+    const parsedValue = ethers.utils.parseUnits(params.value, decimals);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].retirementAggregator,
-      value.toString()
+      parsedValue.toString()
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
-    return formatUnits(value, decimals);
+    return formatUnits(parsedValue, decimals);
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");
