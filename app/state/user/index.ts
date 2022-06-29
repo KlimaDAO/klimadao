@@ -37,23 +37,8 @@ export interface UserState {
     redeemable: string;
     supplyShare: number;
   };
-  exerciseAllowance?: {
-    pklima: string;
-    bct: string;
-  };
-  stakeAllowance?: {
-    klima: string;
-    sklima: string;
-  };
   bondAllowance?: {
     [key in Bond]: string;
-  };
-  wrapAllowance?: {
-    sklima: string;
-    // wsklima: string;
-  };
-  carbonRetiredAllowance?: {
-    [key in OffsetInputToken]: string;
   };
   carbonRetired?: RetirementsTotalsAndBalances;
   allowances?: AllowancesFormatted;
@@ -68,11 +53,7 @@ const initialState: UserState = {
   balance: undefined,
   nameServiceDomains: undefined,
   pklimaTerms: undefined,
-  exerciseAllowance: undefined,
-  stakeAllowance: undefined,
   bondAllowance: undefined,
-  wrapAllowance: undefined,
-  carbonRetiredAllowance: undefined,
   carbonRetired: undefined,
   allowances: undefined,
 };

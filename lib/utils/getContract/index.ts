@@ -57,7 +57,7 @@ export const isNameInAddresses = (name: string): boolean => {
   return keys.includes(name as keyof typeof addresses["mainnet"]);
 };
 
-export const getContractAbiByName = (name: ContractName) => {
+const getContractAbiByName = (name: ContractName) => {
   return contractMap[name as keyof ContractMap];
 };
 

@@ -37,10 +37,6 @@ export const selectBondAllowance = createSelector(
   selectUserState,
   (user) => user.bondAllowance
 );
-export const selectWrapAllowance = createSelector(
-  selectAllowances,
-  (allowances) => allowances?.sklima?.wsklima
-);
 export const selectPklimaTerms = createSelector(
   selectUserState,
   (user) => user.pklimaTerms
