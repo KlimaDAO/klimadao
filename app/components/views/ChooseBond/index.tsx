@@ -32,10 +32,11 @@ export const useBond = (bond: Bond) => {
     klima_mco2_lp: true,
     ubo: true,
     nbo: true,
-    inverse_usdc: true,
+    inverse_usdc: false,
   };
 
   if (bond === "inverse_usdc" && Number(bondState?.capacity) < 1) {
+    // set to sold out if capacity reaches zero
     disabledBonds[bond] = true;
   } else if (
     bond !== "inverse_usdc" &&
