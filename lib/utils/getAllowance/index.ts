@@ -1,9 +1,10 @@
 import { BigNumber, ethers } from "ethers";
 import { addresses, allowancesContracts } from "../../constants";
+import { getTokenDecimals, formatUnits } from "../";
 import {
   AllowancesToken,
   AllowancesSpender,
-  Allowances,
+  AllowancesFormatted,
 } from "../../types/allowances";
 
 export const isSpenderInAddresses = (spender: string): boolean => {
@@ -18,7 +19,7 @@ export const getAllowance = async (params: {
   address: string;
   spender: AllowancesSpender;
   token: AllowancesToken;
-}): Promise<Allowances> => {
+}): Promise<AllowancesFormatted> => {
   try {
     if (!isSpenderInAddresses(params.spender)) {
       throw new Error(`Unknown spender name in mainnet: ${params.spender}`);
@@ -27,18 +28,17 @@ export const getAllowance = async (params: {
       params.address, // owner
       addresses["mainnet"][params.spender] // spender
     );
+    const decimals = getTokenDecimals(params.token);
     return {
       [params.token]: {
-        [params.spender]: value,
+        [params.spender]: formatUnits(value, decimals),
       },
-    } as Allowances;
+    } as AllowancesFormatted;
   } catch (e) {
     console.error(e);
     return Promise.reject(`Error in getAllowance: ${e}`);
   }
 };
 
-export const getSpendersAndTokens = (spenders: AllowancesSpender[]) =>
-  spenders.map((spender) => ({
-    [spender as keyof typeof allowancesContracts]: allowancesContracts[spender],
-  }));
+export const getTokensFromSpender = (spender: AllowancesSpender) =>
+  allowancesContracts[spender];

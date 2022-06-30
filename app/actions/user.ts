@@ -6,14 +6,10 @@ import {
   getContract,
   createContractsObject,
   getAllowance,
-  getSpendersAndTokens,
+  getTokensFromSpender,
   getTokenDecimals,
 } from "@klimadao/lib/utils";
-import {
-  Allowances,
-  AllowancesSpender,
-  AllowancesFormatted,
-} from "@klimadao/lib/types/allowances";
+import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 import { setBalance, updateAllowances, setDomains } from "state/user";
 
 import { getKns, getEns } from "./utils";
@@ -113,9 +109,8 @@ export const loadAccountDetails = (params: {
         {} as TokenValueFormatted
       );
 
-      const spenderWithTokens = getSpendersAndTokens(spenders as any);
-      const promisesAllowance = spenderWithTokens.reduce((arr, spender) => {
-        const [spenderName, tokens] = Object.entries(spender)[0];
+      const promisesAllowance = spenders.reduce((arr, spender) => {
+        const tokens = getTokensFromSpender(spender);
         tokens.forEach((tkn) => {
           const contract = assetsContracts[tkn];
           if (contract) {
@@ -123,25 +118,23 @@ export const loadAccountDetails = (params: {
               getAllowance({
                 contract,
                 address: params.address,
-                spender: spenderName as AllowancesSpender,
+                spender,
                 token: tkn,
               })
             );
           }
         });
         return arr;
-      }, [] as Promise<Allowances>[]);
+      }, [] as Promise<AllowancesFormatted>[]);
 
       const allAllowances = await Promise.all(promisesAllowance);
-      // reduce and format each with appropriate decimals
+      // reduce to match the state shape
       const allowances = allAllowances.reduce<AllowancesFormatted>(
         (obj, allowance) => {
           const [token, spender] = Object.entries(allowance)[0];
-          const decimals = getTokenDecimals(token);
-          const [spenderName, value] = Object.entries(spender)[0];
           obj[token as keyof typeof allowance] = {
             ...obj[token as keyof typeof allowance],
-            [spenderName as keyof typeof spender]: formatUnits(value, decimals),
+            ...spender,
           };
           return obj;
         },

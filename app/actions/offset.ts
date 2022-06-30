@@ -23,10 +23,7 @@ import {
   RetirementTotals,
 } from "@klimadao/lib/types/offset";
 
-import {
-  AllowancesFormatted,
-  Allowances,
-} from "@klimadao/lib/types/allowances";
+import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 
 export const getRetiredOffsetBalances = (params: {
   provider: providers.JsonRpcProvider;
@@ -68,20 +65,18 @@ export const getRetirementAllowances = (params: {
           })
         );
         return arr;
-      }, [] as Promise<Allowances>[]);
+      }, [] as Promise<AllowancesFormatted>[]);
 
       // await to get arr of Allowances
       const allAllowances = await Promise.all(promises);
 
-      // reduce and format each with appropriate decimals
+      // reduce to match the state shape
       const allowances = allAllowances.reduce<AllowancesFormatted>(
         (obj, allowance) => {
           const [token, spender] = Object.entries(allowance)[0];
-          const decimals = getTokenDecimals(token);
-          const [spenderName, value] = Object.entries(spender)[0];
           obj[token as keyof typeof allowance] = {
             ...obj[token as keyof typeof allowance],
-            [spenderName]: formatUnits(value, decimals),
+            ...spender,
           };
           return obj;
         },
