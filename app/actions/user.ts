@@ -1,4 +1,4 @@
-import { providers, ethers, BigNumber } from "ethers";
+import { providers, ethers } from "ethers";
 import { Thunk } from "state";
 
 import {
@@ -35,9 +35,6 @@ const spenders = [
   "pklima_exercise",
 ] as const;
 
-type TokenValue = {
-  [K in Asset]: BigNumber;
-};
 type TokenValueFormatted = {
   [K in Asset]: string;
 };
@@ -46,12 +43,13 @@ const getBalance = async (params: {
   token: Asset;
   contract: ethers.Contract;
   address: string;
-}): Promise<TokenValue> => {
+}): Promise<TokenValueFormatted> => {
   try {
     const balance = await params.contract.balanceOf(params.address);
+    const decimals = getTokenDecimals(params.token);
     return {
-      [params.token]: balance,
-    } as TokenValue;
+      [params.token]: formatUnits(balance, decimals),
+    } as TokenValueFormatted;
   } catch (e) {
     console.error(`Error in getBalance for token: ${params.token}`);
     return Promise.reject(e);
@@ -95,16 +93,17 @@ export const loadAccountDetails = (params: {
           );
         }
         return arr;
-      }, [] as Promise<TokenValue>[]);
+      }, [] as Promise<TokenValueFormatted>[]);
 
       const allBalances = await Promise.all(promisesBalance);
-      // reduce and format each with appropriate decimals
+      // reduce to match the state shape
       const balances = allBalances.reduce<TokenValueFormatted>(
         (obj, balance) => {
           const [token, value] = Object.entries(balance)[0];
-          const decimals = getTokenDecimals(token);
-          obj[token as keyof typeof balance] = formatUnits(value, decimals);
-          return obj;
+          return {
+            ...obj,
+            [token as keyof typeof balance]: value,
+          };
         },
         {} as TokenValueFormatted
       );
