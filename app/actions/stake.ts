@@ -11,7 +11,7 @@ export const changeApprovalTransaction = async (params: {
   action: "stake" | "unstake";
 }): Promise<string> => {
   try {
-    const parsedValue = ethers.utils.parseUnits(params.value, "gwei");
+    const parsedValue = ethers.utils.parseUnits(params.value, 9);
     const contract = {
       stake: getContract({
         contractName: "klima",

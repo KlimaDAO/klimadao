@@ -68,7 +68,7 @@ export const changeApprovalTransaction = async (params: {
         provider: params.provider.getSigner(),
       }),
     }[params.action];
-    const value = ethers.utils.parseUnits(params.value, "wei"); // BigNumber
+    const value = ethers.utils.parseUnits(params.value, 18); // BigNumber
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].pklima_exercise,
@@ -77,7 +77,7 @@ export const changeApprovalTransaction = async (params: {
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
-    return formatUnits(value, 9);
+    return formatUnits(value, 18);
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");

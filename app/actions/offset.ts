@@ -102,7 +102,7 @@ export const changeApprovalTransaction = async (params: {
       contractName: params.token,
       provider: params.provider.getSigner(),
     });
-    const decimals = getTokenDecimals(params.token); // why here not "gwei" as in all other changeApprovalTransaction?
+    const decimals = getTokenDecimals(params.token);
     const parsedValue = ethers.utils.parseUnits(params.value, decimals);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(

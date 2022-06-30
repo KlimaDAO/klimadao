@@ -13,7 +13,7 @@ export const changeApprovalTransaction = async (params: {
       contractName: "sklima",
       provider: params.provider.getSigner(),
     });
-    const value = ethers.utils.parseUnits(params.value, "gwei"); //bignumber
+    const value = ethers.utils.parseUnits(params.value, 9); // bignumber, is 9 correct here?
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].wsklima,
