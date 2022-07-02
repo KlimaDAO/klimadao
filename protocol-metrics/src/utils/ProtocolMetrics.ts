@@ -237,10 +237,17 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
         // Get total LP supply and calc treasury percent
         let total_lp = toDecimal(klimabctUNIV2.totalSupply(), 18)
         let ownedLP = treasuryKLIMABCT.tokenBalance.div(total_lp)
+        let reserves = klimabctUNIV2.getReserves()
+        let reserves0 = toDecimal(reserves.value0, 18)
+        let reserves1 = toDecimal(reserves.value1, 9)
+        let kValue = parseFloat(reserves0.times(reserves1).toString())
         treasuryKLIMABCT.POL = ownedLP
 
         // Percent of Carbon in LP owned by the treasury
-        treasuryKLIMABCT.carbonBalance = toDecimal(klimabctUNIV2.getReserves().value0, 18).times(ownedLP)
+        treasuryKLIMABCT.carbonBalance = reserves0.times(ownedLP)
+        treasuryKLIMABCT.carbonCustodied = BigDecimal.fromString(
+            (2 * Math.sqrt(kValue)).toString()
+        ).times(ownedLP)
         treasuryKLIMABCT.marketValue = treasuryKLIMABCT.carbonBalance.times(bctUsdPrice).times(BigDecimal.fromString('2'))
 
     }
