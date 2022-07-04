@@ -239,14 +239,15 @@ export const Bond: FC<Props> = (props) => {
     try {
       if (!props.provider) return;
       setStatus(null);
-      const value = await changeApprovalTransaction({
+      await changeApprovalTransaction({
         provider: props.provider,
         bond: props.bond,
         onStatus: setStatus,
         isInverse: bondState && bondState.bond === "inverse_usdc",
       });
       // added toNumber for inverse bc its a bignumber
-      dispatch(setBondAllowance({ [props.bond]: value }));
+      // TODO: this should reflect the actually approved value
+      dispatch(setBondAllowance({ [props.bond]: "1000000000" }));
     } catch (e) {
       return;
     }
@@ -362,6 +363,8 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
+
+  console.log("has allowance", hasAllowance());
 
   const isDisabled = view === "bond" && bondInfo.disabled;
   const getButtonProps = (): ButtonProps => {
