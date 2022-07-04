@@ -192,6 +192,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                 id: "retirement.single.view_on_polygon_scan",
                 message: "View on Polygonscan",
               })}
+              className={styles.buttonViewOnPolygon}
             />
           )}
         </div>

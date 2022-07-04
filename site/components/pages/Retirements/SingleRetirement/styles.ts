@@ -67,3 +67,9 @@ export const sectionButtonsWrap = css`
     flex-direction: row;
   }
 `;
+
+export const buttonViewOnPolygon = css`
+  &:hover {
+    opacity: 0.7; // same styles as of for CopyButton
+  }
+`;
