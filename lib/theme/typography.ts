@@ -11,6 +11,7 @@ export const h1 = css`
     line-height: 6rem;
   }
 `;
+
 export const h2 = css`
   font-family: var(--font-family-secondary);
   font-size: 3.6rem;
@@ -95,6 +96,33 @@ export const body4 = css`
   ${breakpoints.large} {
     font-size: 1.8rem;
     line-height: 2.4rem;
+  }
+`;
+export const body5 = css`
+  font-size: 2rem;
+  line-height: 2.8rem;
+  font-weight: 300;
+  ${breakpoints.large} {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+  }
+`;
+export const body6 = css`
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 300;
+  ${breakpoints.large} {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+`;
+export const body7 = css`
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  ${breakpoints.large} {
+    font-size: 2.8rem;
+    line-height: 3.6rem;
   }
 `;
 export const caption = css`

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 // import Link from "next/link";
@@ -22,6 +22,20 @@ import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/affordable-mountain.png";
 import fastMountain from "public/fast-mountain.png";
 import transparentTrees from "public/transparent-trees.png";
+import infiniteNightCliffs from "public/infinite_night_cliffs.png";
+import infinityWave from "public/infinity_wave.png";
+import hazyWindmills from "public/hazy_windmills.png";
+import forestCanopy from "public/forest_canopy.png";
+import cars from "public/cars.jpg";
+import gasPump from "public/gas_pump.png";
+import logoForbes from "public/logo-forbes.png";
+import logoWired from "public/logo-wired.png";
+import logoWSJ from "public/logo-WSJ.png";
+import logoBloomberg from "public/logo-Bloomberg.png";
+import logoCoinTelegraph from "public/logo-Cointelegraph.png";
+import logoNasdaq from "public/logo-Nasdaq.png";
+import logoTheTimes from "public/logo-theTimes.png";
+import logoYahoo from "public/logo-yahoofinance.png";
 
 import { cards } from "./cards";
 import * as styles from "./styles";
@@ -39,6 +53,7 @@ export const Infinity: NextPage<Props> = () => {
     scrollToRefEnd.current &&
     scrollToRefEnd.current.scrollIntoView({
       behavior: "smooth",
+      block: "center",
     });
   const scrollToStart = () => {
     console.log(scrollToRefStart.current);
@@ -60,6 +75,11 @@ export const Infinity: NextPage<Props> = () => {
       return null;
     }
   };
+  const [currentOpenQuestions, setCurrentOpenQuestions] = useState({
+    1: false,
+    2: false,
+    3: false,
+  })
   return (
     <>
       <PageHead
@@ -216,6 +236,345 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
+      <Section variant="gray" className={styles.whySection}>
+        <div className="why_container">
+          <div className="why_left_container">
+            <Trans>
+              <Text t="body6">Why KlimaDAO?</Text>
+              <Text t="h2_alt" className="why_title">
+                DeFi that defies climate change
+              </Text>
+              <Text t="body5">
+                KlimaDAO is leveraging a stack of DeFi technologies to reduce
+                market fragmentation and accelerate the delivery of climate
+                finance to sustainability projects globally.
+              </Text>
+            </Trans>
+          </div>
+          <div className="why_right_container">
+            <Image
+              src={infiniteNightCliffs}
+              alt="flashlight shining on dark cliffs"
+            />
+          </div>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.getStartedSection}>
+        <Image
+          src={infinityWave}
+          alt="waves on the sand"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="getStarted_image"
+        />
+        <div className="getStarted_container">
+          <div className="getStarted_left_container">
+            <div className="getStarted_section getStarted1">
+              <Trans>
+                <Text t="h1" className="getStarted_number">
+                  1
+                </Text>
+                <Text t="h3" className="getStarted_title">
+                  Calculate
+                </Text>
+                <Text t="body6" className="getStarted_description">
+                  Calculate your organization's carbon footprint and define the
+                  scope of your offset with Klima Infinity.
+                </Text>
+              </Trans>
+            </div>
+            <div className="getStarted_section getStarted2">
+              <Trans>
+                <Text t="h1" className="getStarted_number">
+                  2
+                </Text>
+                <Text t="h3" className="getStarted_title">
+                  Implement
+                </Text>
+                <Text t="body6" className="getStarted_description">
+                  Implement your offset with just a few clicks, and with
+                  near-instant transaction time.
+                </Text>
+              </Trans>
+            </div>
+            <div className="getStarted_section getStarted3">
+              <Trans>
+                <Text t="h1" className="getStarted_number">
+                  3
+                </Text>
+                <Text t="h3" className="getStarted_title">
+                  Amplify
+                </Text>
+                <Text t="body6" className="getStarted_description">
+                  Track your commitment, and amplify awareness around your
+                  Climate Positive actions.
+                </Text>
+              </Trans>
+            </div>
+          </div>
+          <div className="getStarted_right_container">
+            <Trans>
+              <Text t="h2_alt">
+                Accelerate your path to Net Zero - and beyond
+              </Text>
+            </Trans>
+            <ButtonPrimary
+              className="getStarted_button"
+              variant="blueRounded"
+              label="Get started"
+            />
+          </div>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.carouselSection}>
+        <div className="carousel_container">
+          <div className="carousel_left_container">
+            <Image
+              src={hazyWindmills}
+              alt="hazy air and windmills"
+              layout="responsive"
+            />
+            <Trans>
+              <Text t="body3" className="carousel_image_description">
+                Wind power project at Jaibhim, India
+              </Text>
+            </Trans>
+          </div>
+          <div className="carousel_right_container">
+            <Trans>
+              <Text t="badge">Support high quality projects</Text>
+              <Text t="h2_alt">
+                Drive funding to projects that move the needle on climate change
+                mitigation
+              </Text>
+            </Trans>
+          </div>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.polygonSection}>
+        <div className="polygon_container">
+          <div className="polygon_left_container">
+            <Trans>
+              <Text t="h2_alt">
+                Polygon chose Klima Infinity to offset their blockchain network
+              </Text>
+              <Text t="body5">
+                Polygon offset the network's carbon emissions since inception -
+                roughly 90,000 tonnes - and pledged to go carbon negative for
+                all of the network's future transactions.
+              </Text>
+            </Trans>
+            <ButtonPrimary label="Read Polygon's Story" />
+          </div>
+          <div className="polygon_right_container">
+            <div className="polygon_full_blox">
+              <Trans>
+                <Text>The offset is part of Polygon's Green Manifesto</Text>
+                <Text t="badge">
+                  By offsetting the historical emissions of their entire
+                  network, Polygon has ensured that every single interaction
+                  with the network - whether an NFT mint or a DeFi transaction -
+                  is accounted for and its environmental impact is offset. This
+                  is a key reason why Meta chose Polygon to issue its NFTs.
+                </Text>
+              </Trans>
+            </div>
+            <div className="polygon_half_blox">
+              <Trans>
+                <Text>Last Carbon Offset</Text>
+                <Text>11k</Text>
+                <Text>Tonnes</Text>
+              </Trans>
+            </div>
+            <div className="polygon_half_blox">
+              <Trans>
+                <Text>Total Carbon Retired</Text>
+                <Text>104k</Text>
+                <Text>Tonnes</Text>
+              </Trans>
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.missionSection}>
+        <div className="mission_container">
+          <Trans>
+            <Text t="h2_alt" align="center" className="mission_header">
+              KlimaDAO's mission is to democratize climate action
+            </Text>
+          </Trans>
+          <div className="mission_cards_container">
+            <div className="mission_card">
+              <div className="mission_card_text">
+                <Trans>
+                  <Text t="h2_alt" align="center">
+                    18.1 million
+                  </Text>
+                  <Text t="body7" align="center">
+                    Carbon tonnes held by KlimaDAO
+                  </Text>
+                </Trans>
+              </div>
+              <div className="mission_card_image">
+                <Image
+                  src={forestCanopy}
+                  alt="forest canopy from above"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            </div>
+            <div className="mission_card">
+              <div className="mission_card_text">
+                <Trans>
+                  <Text t="h2_alt" align="center">
+                    $10m+
+                  </Text>
+                  <Text t="body7" align="center">
+                    Carbon liquidity held by KlimaDAO
+                  </Text>
+                </Trans>
+              </div>
+              <div className="mission_card_image">
+                <Image
+                  src={cars}
+                  alt="heavy traffic in a city"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            </div>
+            <div className="mission_card">
+              <div className="mission_card_text">
+                <Trans>
+                  <Text t="h2_alt" align="center">
+                    150,000+
+                  </Text>
+                  <Text t="body7" align="center">
+                    Carbon tonnes offset via KlimaDAO
+                  </Text>
+                </Trans>
+              </div>
+              <div className="mission_card_image">
+                <Image
+                  src={gasPump}
+                  alt="gas pump handle"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            </div>
+          </div>
+          <ButtonPrimary
+            label="Visit the KlimaDAO Blog"
+            variant="blueRounded"
+          />
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.featuredSection}>
+        <div className="featured_container">
+          <Trans>
+            <Text t="body4" align="center" className="featured_title">
+              KlimaDAO featured on
+            </Text>
+          </Trans>
+          <div className="featured_logo_container">
+            <div className="featured_logo_wrapper">
+              <Image src={logoForbes} alt="" />
+            </div>
+            <div className="featured_logo_wrapper">
+              <Image src={logoWired} alt="" />
+            </div>
+            <div className="featured_logo_wrapper">
+              <Image src={logoWSJ} alt="" />
+            </div>
+            <div className="featured_logo_wrapper">
+              <Image src={logoBloomberg} alt="" />
+            </div>
+            <div className="featured_logo_wrapper">
+              <Image src={logoCoinTelegraph} alt="" />
+            </div>
+            <div className="featured_logo_wrapper">
+              <Image src={logoNasdaq} alt="" />
+            </div>
+            <div className="featured_logo_wrapper">
+              <Image src={logoTheTimes} alt="" />
+            </div>
+            <div className="featured_logo_wrapper">
+              <Image src={logoYahoo} alt="" />
+            </div>
+          </div>
+        </div>
+      </Section>
+      <Section className={styles.faqSection}>
+        <div className="faq_container">
+          {/* <div className="faq_blur" /> */}
+          <Trans>
+            <Text t="h2_alt" align="center" className="faq_title">
+              Frequently Asked Questions
+            </Text>
+          </Trans>
+          <div className="faq_question_container">
+            <div className="faq_title_container">
+              <Trans>
+                <Text>1. What is a carbon offset?</Text>
+              </Trans>
+              <Text className="faq_expand" onClick={() => setCurrentOpenQuestions({...currentOpenQuestions, 1: !currentOpenQuestions[1]})}>+</Text>
+            </div>
+            <div className="faq_answer_text" data-display={currentOpenQuestions[1]}>
+              <Trans>
+                <Text t="body6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                  aliquam, purus sit amet luctus venenatis, lectus magna
+                  fringilla urna, porttitor
+                </Text>
+              </Trans>
+            </div>
+          </div>
+          <div className="faq_divider" />
+          <div className="faq_question_container">
+            <div className="faq_title_container">
+              <Trans>
+                <Text>2. How does offsetting help in the fight against climate change?</Text>
+              </Trans>
+              <Text className="faq_expand" onClick={() => setCurrentOpenQuestions({...currentOpenQuestions, 2: !currentOpenQuestions[2]})}>+</Text>
+            </div>
+            <div className="faq_answer_text" data-display={currentOpenQuestions[2]}>
+              <Trans>
+                <Text t="body6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                  aliquam, purus sit amet luctus venenatis, lectus magna
+                  fringilla urna, porttitor
+                </Text>
+              </Trans>
+            </div>
+          </div>
+          <div className="faq_divider" />
+          <div className="faq_question_container">
+            <div className="faq_title_container">
+              <Trans>
+                <Text>3. What are carbon markets?</Text>
+              </Trans>
+              <Text className="faq_expand" onClick={() => setCurrentOpenQuestions({...currentOpenQuestions, 3: !currentOpenQuestions[3]})}>+</Text>
+            </div>
+            <div className="faq_answer_text" data-display={currentOpenQuestions[3]}>
+              <Trans>
+                <Text t="body6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                  aliquam, purus sit amet luctus venenatis, lectus magna
+                  fringilla urna, porttitor
+                </Text>
+              </Trans>
+            </div>
+          </div>
+          <div className="faq_button_container">
+
+          <ButtonPrimary className="faq_button" variant="blueRounded" label="Read in-depth FAQs for KI Clients" />
+          </div>
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.ctaSection}></Section>
       <Footer />
     </>
   );
