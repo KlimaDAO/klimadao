@@ -6,15 +6,13 @@ export const FACEBOOK_SHARE_URL = "https://www.facebook.com/sharer/sharer.php";
 
 type FacebookHref = {
   url: string;
-  title?: string;
 };
 
-// https://www.facebook.com/sharer/sharer.php?u=https://www.klimadao.finance/&quote=Awesome%20Text!
-export const getFacebookHref = ({ url, title }: FacebookHref) => {
+// https://www.facebook.com/sharer/sharer.php?u=https://www.klimadao.finance
+export const getFacebookHref = ({ url }: FacebookHref) => {
   const shareUrl = new URL(FACEBOOK_SHARE_URL);
   const search = new URLSearchParams({
     u: url,
-    ...(title ? { quote: title } : {}),
   }).toString();
 
   // combine URL with search params
@@ -23,11 +21,10 @@ export const getFacebookHref = ({ url, title }: FacebookHref) => {
 };
 
 type Props = {
-  title?: string;
   url?: string;
 };
 
-export const FacebookButton: FC<Props> = ({ title, url }) => {
+export const FacebookButton: FC<Props> = ({ url }) => {
   const [shareURL, setShareUrl] = useState<string>();
 
   // get parameters on the client because
@@ -35,7 +32,6 @@ export const FacebookButton: FC<Props> = ({ title, url }) => {
   useEffect(() => {
     setShareUrl(
       getFacebookHref({
-        title,
         url: url || window.location.href,
       })
     );
