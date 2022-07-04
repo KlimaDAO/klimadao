@@ -5,6 +5,7 @@ export { TextInfoTooltip, useTooltipSingleton } from "./TextInfoTooltip";
 export { DiscordIcon } from "./Icons/DiscordIcon";
 export { GithubIcon } from "./Icons/GithubIcon";
 export { LinkedInIcon } from "./Icons/LinkedInIcon";
+export { FacebookIcon } from "./Icons/FacebookIcon";
 export { MetaMaskFoxIcon } from "./Icons/MetaMaskFoxIcon";
 export { KlimaInfinityLogo } from "./Logos/KlimaInfinityLogo";
 export { KlimaInfinityLogoOnly } from "./Logos/KlimaInfinityLogoOnly";
