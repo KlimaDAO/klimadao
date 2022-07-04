@@ -61,10 +61,11 @@ export const sectionButtonsWrap = css`
   align-items: center;
   flex-direction: column;
   gap: 2.8rem;
-  padding: 2.8rem 1.5rem;
+  padding: 0rem 1.5rem;
 
   ${breakpoints.medium} {
     flex-direction: row;
+    padding: 0rem 1.5rem;
   }
 `;
 
