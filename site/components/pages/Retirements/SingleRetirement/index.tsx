@@ -185,6 +185,16 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
+          <TweetButton
+            title={`${retiree} retired ${retireData.amount} Tonnes of carbon`}
+            tags={["klimadao", "Offset"]}
+          />
+          <FacebookButton />
+          <LinkedInButton />
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.sectionButtons}>
+        <div className={styles.sectionButtonsWrap}>
           <CopyURLButton />
           {retireData.transactionID && (
             <ButtonPrimary
@@ -205,16 +215,6 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         projectDetails={props.projectDetails}
         offset={props.retirement.offset}
       />
-      <Section variant="gray" className={styles.sectionButtons}>
-        <div className={styles.sectionButtonsWrap}>
-          <TweetButton
-            title={`${retiree} retired ${retireData.amount} Tonnes of carbon`}
-            tags={["klimadao", "Offset"]}
-          />
-          <FacebookButton />
-          <LinkedInButton />
-        </div>
-      </Section>
       <RetirementFooter />
       <Footer />
     </>

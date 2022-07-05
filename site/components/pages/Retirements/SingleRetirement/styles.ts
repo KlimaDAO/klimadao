@@ -50,7 +50,7 @@ export const data_description = css`
 `;
 
 export const sectionButtons = css`
-  padding: unset !important;
+  padding: 2.8rem 0 !important;
   grid-column: full;
 `;
 
