@@ -187,13 +187,10 @@ export const Bond: FC<Props> = (props) => {
       return "0";
     }
     const maxPayable = Number(bondState.maxBondPrice);
-    console.log("bondQuote", bondState.bondQuote)
+    console.log("bondQuote", bondState.bondQuote);
     const bondMax =
-      Number(bondState.bondQuote) <
-      Number(maxPayable)
-        ? (
-            Number(userState.balance.klima)
-          ).toString()
+      Number(bondState.bondQuote) < Number(maxPayable)
+        ? Number(userState.balance.klima).toString()
         : (maxPayable / Number(bondState.bondPrice)).toString();
     return bondMax;
   };
@@ -437,7 +434,10 @@ export const Bond: FC<Props> = (props) => {
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
-        disabled: !value || !bondMax || Number(bondState?.bondQuote) > bondMax / Number(bondState?.bondPrice),
+        disabled:
+          !value ||
+          !bondMax ||
+          Number(bondState?.bondQuote) > bondMax / Number(bondState?.bondPrice),
       };
     } else if (view === "redeem") {
       return {
