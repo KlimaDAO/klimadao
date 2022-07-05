@@ -187,11 +187,12 @@ export const Bond: FC<Props> = (props) => {
       return "0";
     }
     const maxPayable = Number(bondState.maxBondPrice);
-    //Number(bondState.maxBondPrice) / Number(bondState.bondPrice);
-
     const bondMax =
-      Number(userState.balance.klima) < Number(maxPayable)
-        ? userState.balance.klima
+      Number(userState.balance.klima) * Number(bondState.bondQuote) <
+      Number(maxPayable)
+        ? (
+            Number(userState.balance.klima) * Number(bondState.bondQuote)
+          ).toString()
         : maxPayable.toString();
     return bondMax;
   };
