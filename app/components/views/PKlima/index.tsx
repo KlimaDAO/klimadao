@@ -21,7 +21,7 @@ import {
   selectAllowancesWithParams,
   selectPklimaTerms,
 } from "state/selectors";
-import { redeemPklima, setAllowance } from "state/user";
+import { redeemPklima, setAllowance, decrementAllowance } from "state/user";
 import { useAppDispatch } from "state";
 import { useParamSelector } from "lib/hooks/useParamsSelector";
 import {
@@ -129,13 +129,19 @@ export const PKlima: FC<Props> = (props) => {
     try {
       const value = quantity.toString();
       setQuantity("");
-      await exerciseTransaction({
+      const approvedValue = await exerciseTransaction({
         value,
         provider,
         onStatus: setStatus,
       });
-      dispatch(redeemPklima(value));
-      // WHICH ALLOWANCE HAS TO BE DECREMENTED HERE ??
+      dispatch(redeemPklima(approvedValue));
+      dispatch(
+        decrementAllowance({
+          token: "bct",
+          spender: "pklima_exercise",
+          value: approvedValue,
+        })
+      );
     } catch (e) {
       return;
     }
