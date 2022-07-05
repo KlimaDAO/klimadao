@@ -261,7 +261,7 @@ msgstr "Бонд Карбон"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "Лучший способ купить KLIMA. Вложите углерод в нашу казну и получите KLIMA со скидкой. Все бонды имеют обязательный 5-дневный вестинг период"
+msgstr "Лучший способ купить KLIMA. Вложите углерод в нашу казну и получите KLIMA со скидкой. Все бонды (кроме обратных) имеют обязательный 5-дневный вестинг период"
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"

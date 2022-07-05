@@ -261,7 +261,7 @@ msgstr "CO2 bonden"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "Der einfachste Weg, KLIMA zu kaufen. Übertrage CO2 in unsere Schatzkammer und erhalte dafür vergünstigte KLIMA-Tokens. Alle Bonds haben eine fünftägige Wartefrist."
+msgstr "Der einfachste Weg, KLIMA zu kaufen. Übertrage CO2 in unsere Schatzkammer und erhalte dafür vergünstigte KLIMA-Tokens. Alle Bonds (außer umgekehrt Bonds) haben eine fünftägige Wartefrist."
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"

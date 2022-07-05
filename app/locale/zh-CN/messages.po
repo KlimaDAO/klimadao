@@ -259,7 +259,7 @@ msgstr "碳债券"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "购买 KLIMA 的最佳方式。将碳投入国库，获得一定的 KLIMA 折扣。所有债券都有5天的强制性归属期。"
+msgstr "购买 KLIMA 的最佳方式。将碳投入国库，获得一定的 KLIMA 折扣。所有债券（反向债券除外）都有强制性的五天归属期。"
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"
