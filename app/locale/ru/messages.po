@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-05 15:42+0000\n"
+"POT-Creation-Date: 2022-07-05 22:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -261,7 +261,7 @@ msgstr "Бонд Карбон"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "Лучший способ купить KLIMA. Вложите углерод в нашу казну и получите KLIMA со скидкой. Все бонды (кроме обратных) имеют обязательный 5-дневный вестинг период"
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"

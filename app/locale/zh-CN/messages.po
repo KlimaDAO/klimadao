@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-05 15:42+0000\n"
+"POT-Creation-Date: 2022-07-05 22:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -259,7 +259,7 @@ msgstr "碳债券"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "购买 KLIMA 的最佳方式。将碳投入国库，获得一定的 KLIMA 折扣。所有债券（反向债券除外）都有强制性的五天归属期。"
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"

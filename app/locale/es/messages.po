@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-05 15:42+0000\n"
+"POT-Creation-Date: 2022-07-05 22:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -259,7 +259,7 @@ msgstr "Vincular bono de carbono"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "La mejor manera de comprar KLIMA. Deposite carbono en nuestra tesorería y reciba KLIMA con descuento. Todos los bonos (excepto bonos inversos) tienen un periodo de concesión obligatorio de 5 días."
+msgstr ""
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"
