@@ -162,65 +162,83 @@ export const sliderSection = css`
 
 export const infoSection = css`
   .info_container {
-    display: flex;
     grid-column: main;
+    display: flex;
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
+    gap: 6.4rem;
     ${breakpoints.large} {
       flex-direction: row;
     }
   }
-  .info_left_container_desktop {
+  .info_left_container {
     width: 100%;
-    display: none;
     flex-wrap: wrap;
     justify-content: flex-end;
+    display: flex;
     gap: 6.4rem;
-    padding-right: 0;
+    order: 2;
     ${breakpoints.large} {
-      display: flex;
-      width: 50%;
+      width: calc(50% - 3.2rem);
       max-width: 50%;
-      padding-right: 1.2rem;
+      order: 1;
     }
   }
-  .info_left_container_mobile {
-    width: 100%;
+  .info_subtitle {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 6.4rem;
-    ${breakpoints.large} {
-      display: none;
-    }
+    align-items: flex-end;
   }
   .info_right_container {
     width: 100%;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     padding-left: 0;
+    order: 1;
     ${breakpoints.large} {
-      width: 50%;
+      width: calc(50% - 3.2rem);
       max-width: 50%;
-      padding-left: 1.2rem;
+      order: 2;
     }
   }
-  .info_image_mobile {
-    display: flex;
+  .info_image_box {
+    height: 26.4rem;
+    position: relative;
+    width: 100%;
+    border-radius: 1.6rem;
+    overflow: hidden;
+  }
+  .info_image_box_alt {
+    height: 28.8rem;
+    position: relative;
+    width: 100%;
+    border-radius: 1.6rem;
+    overflow: hidden;
     ${breakpoints.large} {
-      display: none;
+      width: 80%;
     }
   }
-  .info_image_desktop {
-    display: none;
+  .info_image_description {
+    z-index: 999;
+    bottom: -3.2rem;
+    left: 3.2rem;
     ${breakpoints.large} {
-      display: flex;
+      left: 4.8rem;
+      bottom: -4.8rem;
     }
+    position: relative;
+  }
+  .carousel_image {
+    z-index: 1;
+  }
+  .info_image_title {
+    font-weight: 300;
   }
 `;
 
 export const whySection = css`
+  padding-top: 0 !important;
   .why_container {
     display: flex;
     grid-column: main;
@@ -399,6 +417,10 @@ export const polygonSection = css`
     padding: 5.5rem;
     display: flex;
     gap: 4.8rem;
+    flex-direction: column;
+    ${breakpoints.large} {
+      flex-direction: row;
+    }
   }
   .polygon_left_container {
     display: flex;
@@ -487,7 +509,7 @@ export const missionSection = css`
     justify-content: center;
     gap: 1.6rem;
   }
-  .mission_card_image {
+  .mission_card_image_box {
     height: 50%;
     position: relative;
     width: 100%;
@@ -596,4 +618,49 @@ export const faqSection = css`
     padding-top: 2.4rem;
   }
 `;
-export const ctaSection = css``;
+export const ctaSection = css`
+  /* padding-top: 0 !important; */
+  .cta_container {
+    grid-column: main;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cta_left_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-right: 0;
+    ${breakpoints.large} {
+      width: 50%;
+      padding-right: 10%;
+    }
+    p {
+      //styleName: Desktop/h4_alt;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 32px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+  }
+  .cta_right_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+    ${breakpoints.large} {
+      width: 50%;
+      justify-content: flex-end;
+    }
+    button {
+      height: 4rem;
+      min-height: 4rem;
+    }
+  }
+  .cta_logo {
+    height: 100%;
+    width: 100%;
+  }
+`;

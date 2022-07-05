@@ -19,9 +19,9 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LaunchIcon from "@mui/icons-material/Launch";
 import klimaInfinityLogo from "public/logo-klima-infinity.png";
 import klimaInfinityBackground from "public/bg-infinity.png";
-import affordableMountain from "public/affordable-mountain.png";
-import fastMountain from "public/fast-mountain.png";
-import transparentTrees from "public/transparent-trees.png";
+import affordableMountain from "public/green-cliff-canyon.png";
+import fastMountain from "public/green-mountainside.jpg";
+import transparentTrees from "public/trees-and-water.png";
 import infiniteNightCliffs from "public/infinite_night_cliffs.png";
 import infinityWave from "public/infinity_wave.png";
 import hazyWindmills from "public/hazy_windmills.png";
@@ -79,7 +79,7 @@ export const Infinity: NextPage<Props> = () => {
     1: false,
     2: false,
     3: false,
-  })
+  });
   return (
     <>
       <PageHead
@@ -187,50 +187,65 @@ export const Infinity: NextPage<Props> = () => {
       </Section>
       <Section variant="gray" className={styles.infoSection}>
         <div className="info_container">
-          <div className="info_left_container_mobile">
-            {" "}
-            <Image
-              src={fastMountain}
-              alt="Fast: Offset in seconds, with no red tape"
-              layout="fixed"
-            />
-            <Image
-              src={affordableMountain}
-              alt="Affordable: Real time pricing, saving 30% or more"
-              layout="fixed"
-            />
-          </div>
-          <div className="info_left_container_desktop">
-            <Image
-              src={fastMountain}
-              alt="Fast: Offset in seconds, with no red tape"
-              layout="fixed"
-            />
-            <Image
-              src={affordableMountain}
-              alt="Affordable: Real time pricing, saving 30% or more"
-              layout="fixed"
-            />
-          </div>
-          <div className="info_right_container">
-            <Trans>
-              <Text t="body4">For the planet's pioneering organizations</Text>
-              <Text t="h3">
-                The world's most powerful and easy to use offsetting solution
-              </Text>
-            </Trans>
-            <div className="info_image_desktop">
+          <div className="info_left_container">
+            <div className="info_image_box_alt">
+              <div className="info_image_description">
+                <Trans>
+                  <Text t="body4">Offset in seconds, with no red tape</Text>
+                  <Text t="h2_alt" className="info_image_title">
+                    Fast
+                  </Text>
+                </Trans>
+              </div>
               <Image
-                src={transparentTrees}
-                alt="Tranparent: Immutably recorded on the blockchain"
-                layout="fixed"
+                src={fastMountain}
+                alt="Fast: Offset in seconds, with no red tape"
+                layout="fill"
+                objectFit="cover"
               />
             </div>
-            <div className="info_image_mobile">
+            <div className="info_image_box">
+              <div className="info_image_description">
+                <Trans>
+                  <Text t="body4">Real time pricing, saving 30% or more</Text>
+                  <Text t="h2_alt" className="info_image_title">
+                    Affordable
+                  </Text>
+                </Trans>
+              </div>
+              <Image
+                src={affordableMountain}
+                alt="Affordable: Real time pricing, saving 30% or more"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          </div>
+          <div className="info_right_container">
+            <div>
+              <Trans>
+                <Text t="body6" className="info_subtitle">
+                  For the planet's pioneering organizations
+                </Text>
+                <Text t="h2_alt">
+                  The world's most powerful and easy to use offsetting solution
+                </Text>
+              </Trans>
+            </div>
+            <div className="info_image_box">
+              <div className="info_image_description">
+                <Trans>
+                  <Text t="body4">Immutably recorded on the blockchain</Text>
+                  <Text t="h2_alt" className="info_image_title">
+                    Tranparent
+                  </Text>
+                </Trans>
+              </div>
               <Image
                 src={transparentTrees}
                 alt="Tranparent: Immutably recorded on the blockchain"
-                layout="intrinsic"
+                layout="fill"
+                objectFit="cover"
               />
             </div>
           </div>
@@ -334,6 +349,7 @@ export const Infinity: NextPage<Props> = () => {
               src={hazyWindmills}
               alt="hazy air and windmills"
               layout="responsive"
+              className="carousel_image"
             />
             <Trans>
               <Text t="body3" className="carousel_image_description">
@@ -416,7 +432,7 @@ export const Infinity: NextPage<Props> = () => {
                   </Text>
                 </Trans>
               </div>
-              <div className="mission_card_image">
+              <div className="mission_card_image_box">
                 <Image
                   src={forestCanopy}
                   alt="forest canopy from above"
@@ -436,7 +452,7 @@ export const Infinity: NextPage<Props> = () => {
                   </Text>
                 </Trans>
               </div>
-              <div className="mission_card_image">
+              <div className="mission_card_image_box">
                 <Image
                   src={cars}
                   alt="heavy traffic in a city"
@@ -456,7 +472,7 @@ export const Infinity: NextPage<Props> = () => {
                   </Text>
                 </Trans>
               </div>
-              <div className="mission_card_image">
+              <div className="mission_card_image_box">
                 <Image
                   src={gasPump}
                   alt="gas pump handle"
@@ -520,9 +536,22 @@ export const Infinity: NextPage<Props> = () => {
               <Trans>
                 <Text>1. What is a carbon offset?</Text>
               </Trans>
-              <Text className="faq_expand" onClick={() => setCurrentOpenQuestions({...currentOpenQuestions, 1: !currentOpenQuestions[1]})}>+</Text>
+              <Text
+                className="faq_expand"
+                onClick={() =>
+                  setCurrentOpenQuestions({
+                    ...currentOpenQuestions,
+                    1: !currentOpenQuestions[1],
+                  })
+                }
+              >
+                +
+              </Text>
             </div>
-            <div className="faq_answer_text" data-display={currentOpenQuestions[1]}>
+            <div
+              className="faq_answer_text"
+              data-display={currentOpenQuestions[1]}
+            >
               <Trans>
                 <Text t="body6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
@@ -536,11 +565,27 @@ export const Infinity: NextPage<Props> = () => {
           <div className="faq_question_container">
             <div className="faq_title_container">
               <Trans>
-                <Text>2. How does offsetting help in the fight against climate change?</Text>
+                <Text>
+                  2. How does offsetting help in the fight against climate
+                  change?
+                </Text>
               </Trans>
-              <Text className="faq_expand" onClick={() => setCurrentOpenQuestions({...currentOpenQuestions, 2: !currentOpenQuestions[2]})}>+</Text>
+              <Text
+                className="faq_expand"
+                onClick={() =>
+                  setCurrentOpenQuestions({
+                    ...currentOpenQuestions,
+                    2: !currentOpenQuestions[2],
+                  })
+                }
+              >
+                +
+              </Text>
             </div>
-            <div className="faq_answer_text" data-display={currentOpenQuestions[2]}>
+            <div
+              className="faq_answer_text"
+              data-display={currentOpenQuestions[2]}
+            >
               <Trans>
                 <Text t="body6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
@@ -556,9 +601,22 @@ export const Infinity: NextPage<Props> = () => {
               <Trans>
                 <Text>3. What are carbon markets?</Text>
               </Trans>
-              <Text className="faq_expand" onClick={() => setCurrentOpenQuestions({...currentOpenQuestions, 3: !currentOpenQuestions[3]})}>+</Text>
+              <Text
+                className="faq_expand"
+                onClick={() =>
+                  setCurrentOpenQuestions({
+                    ...currentOpenQuestions,
+                    3: !currentOpenQuestions[3],
+                  })
+                }
+              >
+                +
+              </Text>
             </div>
-            <div className="faq_answer_text" data-display={currentOpenQuestions[3]}>
+            <div
+              className="faq_answer_text"
+              data-display={currentOpenQuestions[3]}
+            >
               <Trans>
                 <Text t="body6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
@@ -569,12 +627,36 @@ export const Infinity: NextPage<Props> = () => {
             </div>
           </div>
           <div className="faq_button_container">
-
-          <ButtonPrimary className="faq_button" variant="blueRounded" label="Read in-depth FAQs for KI Clients" />
+            <ButtonPrimary
+              className="faq_button"
+              variant="blueRounded"
+              label="Read in-depth FAQs for KI Clients"
+            />
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.ctaSection}></Section>
+      <Section variant="gray" className={styles.ctaSection}>
+        <div className="cta_container">
+          <div className="cta_left_container">
+            <div className="cta_logo">
+              <Image
+                src={klimaInfinityLogo}
+                alt="Klima Infinity logo"
+                layout="responsive"
+              />
+            </div>
+            <Trans>
+              <Text t="body7">
+                The next-generation carbon toolkit for your organization
+              </Text>
+            </Trans>
+          </div>
+          <div className="cta_right_container">
+            <ButtonPrimary label="Get Started" variant="blueRounded" />
+            <ButtonSecondary label="Contact sales" variant="blueRounded" />
+          </div>
+        </div>
+      </Section>
       <Footer />
     </>
   );
