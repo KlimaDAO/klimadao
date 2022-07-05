@@ -17,7 +17,7 @@ import {
   incrementStake,
   decrementAllowance,
   decrementStake,
-  incrementAllowance,
+  setAllowance,
 } from "state/user";
 import {
   selectAppState,
@@ -125,7 +125,7 @@ export const Stake = (props: Props) => {
 
       if (action === "stake") {
         dispatch(
-          incrementAllowance({
+          setAllowance({
             token: "klima",
             spender: "staking_helper",
             value: approvedValue,
@@ -133,7 +133,7 @@ export const Stake = (props: Props) => {
         );
       } else {
         dispatch(
-          incrementAllowance({
+          setAllowance({
             token: "sklima",
             spender: "staking",
             value: approvedValue,

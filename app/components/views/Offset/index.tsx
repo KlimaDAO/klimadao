@@ -16,7 +16,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
-import { incrementAllowance, updateRetirement } from "state/user";
+import { setAllowance, updateRetirement } from "state/user";
 import {
   selectNotificationStatus,
   selectBalances,
@@ -253,7 +253,7 @@ export const Offset = (props: Props) => {
         onStatus: setStatus,
       });
       dispatch(
-        incrementAllowance({
+        setAllowance({
           token: selectedInputToken,
           spender: "retirementAggregator",
           value: approvedValue,

@@ -21,7 +21,7 @@ import {
   selectAllowancesWithParams,
   selectPklimaTerms,
 } from "state/selectors";
-import { redeemPklima, incrementAllowance } from "state/user";
+import { redeemPklima, setAllowance } from "state/user";
 import { useAppDispatch } from "state";
 import { useParamSelector } from "lib/hooks/useParamsSelector";
 import {
@@ -104,7 +104,7 @@ export const PKlima: FC<Props> = (props) => {
       });
       if (action === "pklima") {
         dispatch(
-          incrementAllowance({
+          setAllowance({
             token: "pklima",
             spender: "pklima_exercise",
             value: approvedValue,
@@ -112,7 +112,7 @@ export const PKlima: FC<Props> = (props) => {
         );
       } else {
         dispatch(
-          incrementAllowance({
+          setAllowance({
             token: "bct",
             spender: "pklima_exercise",
             value: approvedValue,

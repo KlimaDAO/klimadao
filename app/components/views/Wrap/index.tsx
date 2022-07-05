@@ -23,7 +23,7 @@ import {
 import {
   decrementWrap,
   incrementWrap,
-  incrementAllowance,
+  setAllowance,
   decrementAllowance,
 } from "state/user";
 import { ImageCard } from "components/ImageCard";
@@ -102,7 +102,7 @@ export const Wrap: FC<Props> = (props) => {
         onStatus: setStatus,
       });
       dispatch(
-        incrementAllowance({
+        setAllowance({
           token: "sklima",
           spender: "wsklima",
           value: approvedValue,

@@ -109,7 +109,7 @@ export const userSlice = createSlice({
         ...mergedAllowances,
       };
     },
-    incrementAllowance: (
+    setAllowance: (
       s,
       a: PayloadAction<{
         token: AllowancesToken;
@@ -222,7 +222,7 @@ export const {
   setBondAllowance,
   setCarbonRetiredBalances,
   updateAllowances,
-  incrementAllowance,
+  setAllowance,
   decrementAllowance,
   updateRetirement,
   incrementStake,
