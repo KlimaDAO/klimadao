@@ -367,8 +367,6 @@ export const Bond: FC<Props> = (props) => {
 
   const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
 
-  console.log("has allowance", hasAllowance());
-
   const isDisabled = view === "bond" && bondInfo.disabled;
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
@@ -439,7 +437,7 @@ export const Bond: FC<Props> = (props) => {
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
-        disabled: !value || !bondMax || Number(bondState?.bondQuote) / Number(bondState?.bondPrice) > bondMax,
+        disabled: !value || !bondMax || Number(bondState?.bondQuote) > bondMax / Number(bondState?.bondPrice),
       };
     } else if (view === "redeem") {
       return {
