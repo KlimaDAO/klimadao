@@ -259,7 +259,7 @@ msgstr "Vincular bono de carbono"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "La mejor manera de comprar KLIMA. Deposite carbono en nuestra tesorería y reciba KLIMA con descuento. Todos los bonos tienen un periodo de concesión obligatorio de 5 días."
+msgstr "La mejor manera de comprar KLIMA. Deposite carbono en nuestra tesorería y reciba KLIMA con descuento. Todos los bonos (excepto bonos inversos) tienen un periodo de concesión obligatorio de 5 días."
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"

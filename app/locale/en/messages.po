@@ -265,7 +265,7 @@ msgstr "Bond Carbon"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds have a mandatory 5 day vesting period."
+msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds (except inverse bonds) have a mandatory 5 day vesting period."
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"

@@ -259,7 +259,7 @@ msgstr "Obligation carbone"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr "La meilleure façon d'acheter KLIMA. Déposez du carbone dans notre trésorerie et recevez des jetons KLIMA à prix réduit. Toutes les obligations ont une période de maturation obligatoire de 5 jours."
+msgstr "La meilleure façon d'acheter KLIMA. Déposez du carbone dans notre trésorerie et recevez des jetons KLIMA à prix réduit. Toutes les obligations (sauf obligations inverses) ont une période de maturation obligatoire de 5 jours."
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"
