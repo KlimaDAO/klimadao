@@ -80,20 +80,3 @@ export const getContract = (params: {
     params.provider
   );
 };
-
-type ContractsObject = {
-  [key in ContractName]: ethers.Contract;
-};
-
-export const createContractsObject = (params: {
-  contracts: ContractName[];
-  provider: providers.JsonRpcProvider | Signer;
-}) =>
-  params.contracts.reduce<ContractsObject>((obj, name) => {
-    const tokenContract = getContract({
-      contractName: name,
-      provider: params.provider,
-    });
-    obj[name] = tokenContract;
-    return obj;
-  }, {} as ContractsObject);

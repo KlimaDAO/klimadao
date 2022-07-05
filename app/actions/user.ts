@@ -4,7 +4,6 @@ import { Thunk } from "state";
 import {
   formatUnits,
   getContract,
-  createContractsObject,
   getAllowance,
   getTokensFromSpender,
   getTokenDecimals,
@@ -43,17 +42,19 @@ const getBalance = async (params: {
   token: Asset;
   contract: ethers.Contract;
   address: string;
-}): Promise<TokenValueFormatted> => {
+}): Promise<string> => {
   try {
     const balance = await params.contract.balanceOf(params.address);
     const decimals = getTokenDecimals(params.token);
-    return {
-      [params.token]: formatUnits(balance, decimals),
-    } as TokenValueFormatted;
+    return formatUnits(balance, decimals);
   } catch (e) {
     console.error(`Error in getBalance for token: ${params.token}`);
     return Promise.reject(e);
   }
+};
+
+type ContractsObject = {
+  [key in Asset]: ethers.Contract;
 };
 
 export const loadAccountDetails = (params: {
@@ -63,10 +64,14 @@ export const loadAccountDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const assetsContracts = createContractsObject({
-        contracts: assets as any,
-        provider: params.provider,
-      });
+      // all assets
+      const assetsContracts = assets.reduce((obj, asset) => {
+        const contract = getContract({
+          contractName: asset,
+          provider: params.provider,
+        });
+        return { ...obj, [asset]: contract };
+      }, {} as ContractsObject);
 
       const klimaDomainContract = getContract({
         contractName: "klimaNameService",
@@ -93,20 +98,17 @@ export const loadAccountDetails = (params: {
           );
         }
         return arr;
-      }, [] as Promise<TokenValueFormatted>[]);
+      }, [] as Promise<string>[]);
 
       const allBalances = await Promise.all(promisesBalance);
       // reduce to match the state shape
-      const balances = allBalances.reduce<TokenValueFormatted>(
-        (obj, balance) => {
-          const [token, value] = Object.entries(balance)[0];
-          return {
-            ...obj,
-            [token as keyof typeof balance]: value,
-          };
-        },
-        {} as TokenValueFormatted
-      );
+      const balances = assets.reduce((obj, asset, assetIndex) => {
+        const balance = allBalances[assetIndex];
+        return {
+          ...obj,
+          [asset]: balance,
+        };
+      }, {} as TokenValueFormatted);
 
       const promisesAllowance = spenders.reduce((arr, spender) => {
         const tokens = getTokensFromSpender(spender);

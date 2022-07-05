@@ -20,7 +20,7 @@ export { safeAdd } from "./safeAdd";
 export { safeSub } from "./safeSub";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { fetchBlockRate } from "./fetchBlockRate";
-export { getContract, createContractsObject } from "./getContract";
+export { getContract } from "./getContract";
 export { getAllowance, getTokensFromSpender } from "./getAllowance";
 export { getTokenDecimals } from "./getTokenDecimals";
 export { getIsValidAddress } from "./getIsValidAddress";
