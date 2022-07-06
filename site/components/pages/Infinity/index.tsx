@@ -49,25 +49,27 @@ export interface Props {
 
 export const Infinity: NextPage<Props> = () => {
   function useOnScreen(ref: any) {
+    const [isIntersecting, setIntersecting] = useState(false);
 
-    const [isIntersecting, setIntersecting] = useState(false)
-  
-    const observer = new IntersectionObserver(
-      ([entry]) => setIntersecting(entry.isIntersecting)
-    )
-  
+    const observer = new IntersectionObserver(([entry]) =>
+      setIntersecting(entry.isIntersecting)
+    );
+
     useEffect(() => {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
       // Remove the observer as soon as the component is unmounted
-      return () => { observer.disconnect() }
-    }, [])
-  
-    return isIntersecting
+      return () => {
+        observer.disconnect();
+      };
+    }, []);
+
+    return isIntersecting;
   }
   const ref = useRef<null | HTMLDivElement>(null);
   const scrollToRefEnd = useRef<null | HTMLDivElement>(null);
   const scrollToRefStart = useRef<null | HTMLDivElement>(null);
-  const isVisible = useOnScreen(ref)
+  const isVisible = useOnScreen(ref);
+  console.log(isVisible);
   const scrollToEnd = () =>
     scrollToRefEnd.current &&
     scrollToRefEnd.current.scrollIntoView({
@@ -436,13 +438,13 @@ export const Infinity: NextPage<Props> = () => {
         </div>
       </Section>
       <Section variant="black" className={styles.missionSection}>
-      <div className="mission_image_container">
-        <Image
-              src={wavyLines}
-              alt="wavy lines in background "
-              layout="fill"
-              objectFit="contain"
-            />
+        <div className="mission_image_container">
+          <Image
+            src={wavyLines}
+            alt="wavy lines in background "
+            layout="fill"
+            objectFit="contain"
+          />
         </div>
         <div className="mission_container">
           <Trans>
