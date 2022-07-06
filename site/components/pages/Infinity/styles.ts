@@ -636,7 +636,6 @@ export const ctaSection = css`
       padding-right: 10%;
     }
     p {
-      //styleName: Desktop/h4_alt;
       font-size: 24px;
       font-weight: 300;
       line-height: 32px;
