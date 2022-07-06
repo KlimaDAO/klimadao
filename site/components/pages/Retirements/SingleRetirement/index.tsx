@@ -11,6 +11,9 @@ import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
+import { TweetButton } from "components/TweetButton";
+import { FacebookButton } from "components/FacebookButton";
+import { LinkedInButton } from "components/LinkedInButton";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
@@ -59,6 +62,11 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     transactionID: retirement.transaction?.id,
   };
 
+  const retiree =
+    retireData.beneficiaryName ||
+    nameserviceDomain ||
+    concatAddress(beneficiaryAddress);
+
   return (
     <>
       <PageHead
@@ -68,11 +76,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         })}
         mediaTitle={t({
           id: "retirement.head.metaTitle",
-          message: `${
-            retireData.beneficiaryName ||
-            nameserviceDomain ||
-            concatAddress(beneficiaryAddress)
-          } retired ${retireData.amount} Tonnes of carbon`,
+          message: `${retiree} retired ${retireData.amount} Tonnes of carbon`,
         })}
         metaDescription={t({
           id: "retirement.head.metaDescription",
@@ -181,6 +185,16 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
+          <TweetButton
+            title={`${retiree} retired ${retireData.amount} Tonnes of carbon`}
+            tags={["klimadao", "Offset"]}
+          />
+          <FacebookButton />
+          <LinkedInButton />
+        </div>
+      </Section>
+      <Section variant="gray" className={styles.sectionButtons}>
+        <div className={styles.sectionButtonsWrap}>
           <CopyURLButton />
           {retireData.transactionID && (
             <ButtonPrimary
@@ -192,6 +206,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                 id: "retirement.single.view_on_polygon_scan",
                 message: "View on Polygonscan",
               })}
+              className={styles.buttonViewOnPolygon}
             />
           )}
         </div>

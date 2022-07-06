@@ -50,7 +50,7 @@ export const data_description = css`
 `;
 
 export const sectionButtons = css`
-  padding: unset !important;
+  padding: 2.8rem 0 !important;
   grid-column: full;
 `;
 
@@ -61,9 +61,16 @@ export const sectionButtonsWrap = css`
   align-items: center;
   flex-direction: column;
   gap: 2.8rem;
-  padding: 2.8rem 1.5rem;
+  padding: 0rem 1.5rem;
 
   ${breakpoints.medium} {
     flex-direction: row;
+    padding: 0rem 1.5rem;
+  }
+`;
+
+export const buttonViewOnPolygon = css`
+  &:hover {
+    opacity: 0.7; // same styles as of for CopyButton
   }
 `;
