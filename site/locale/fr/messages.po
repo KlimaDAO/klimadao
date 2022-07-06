@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-06 06:40+0000\n"
+"POT-Creation-Date: 2022-07-06 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -541,7 +541,7 @@ msgstr "Chaque jeton KLIMA est collatéralisé par un actif carbone réel. Les j
 #. Long sentence
 #: components/pages/Home/index.tsx:101
 msgid "home.fight_climate_change"
-msgstr "Combattez le changement climatique et gagnez des récompenses avec KLIMA, une monnaie numérique collatéralisée par de vrais actifs carbone."
+msgstr "Combattez le changement climatique et soyez récompensé avec KLIMA, une monnaie numérique collatéralisée par de vrais actifs carbone."
 
 #: components/pages/Home/index.tsx:433
 msgid "home.get_exposure_to_the_growing_carbon_economy"
@@ -558,7 +558,7 @@ msgstr "Hectares de forêt"
 #. Long sentence
 #: components/pages/Home/index.tsx:147
 msgid "home.klima_defies_climate_change"
-msgstr "KlimaDAO est de la DeFi qui défie le changement climatique"
+msgstr "KlimaDAO est la DeFi qui défie le changement climatique"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:157
@@ -568,7 +568,7 @@ msgstr "KlimaDAO est le centre d'une nouvelle économie verte. Construit sur le 
 #. Long sentence
 #: components/pages/Home/index.tsx:411
 msgid "home.klima_tokens_are_minted"
-msgstr "Les jetons KLIMA sont créés et distribués automatiquement toutes les ~7 heures aux déposants KLIMA. Développez votre capital KLIMA  tout en créant avec nous un futur plus soutenable."
+msgstr "Les jetons KLIMA sont créés et distribués automatiquement toutes les ~7 heures aux déposants KLIMA. Développez votre capital KLIMA  et participons ensemble à la construction d'un avenir plus durable."
 
 #: components/pages/Home/index.tsx:77
 msgid "home.latest_news"
@@ -631,7 +631,7 @@ msgstr "Fortes incitations."
 #. Long sentence
 #: components/pages/Home/index.tsx:184
 msgid "home.the_dao_sell_bonds"
-msgstr "Le DAO vend des obligations et reverse les intérêts aux détenteurs de KLIMA. Chaque obligation que nous vendons s'ajoute à une trésorerie verte en croissance constante ou améliore la liquidité d'actifs environnementaux clés. Un processus  gagnant-gagnant pour les Humanité et pour notre Planète."
+msgstr "La DAO vend des obligations et reverse les intérêts aux détenteurs de KLIMA. Chaque obligation que nous vendons s'ajoute à une trésorerie verte en croissance constante ou améliore la liquidité d'actifs environnementaux clés. Un processus  gagnant-gagnant pour l'Humanité et notre Planète."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
 #: components/pages/Home/index.tsx:254
@@ -641,7 +641,7 @@ msgstr "TONNES DE <0>CARBONE ABSORBÉES</0> PAR KLIMADAO"
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
 #: components/pages/Home/index.tsx:399
 msgid "home.weekly_rewards_for_token_holders"
-msgstr "<0>{0}% DE RÉCOMPENSES HEBDOMADAIRES</0> <1>POUR LES DÉTENTEURS DE JETONS</1>"
+msgstr "<0>{0}% D’INTÉRÊTS HEBDOMADAIRES</0> <1>POUR LES DÉTENTEURS DE JETONS</1>"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
 #: components/pages/Home/index.tsx:88
@@ -686,7 +686,7 @@ msgstr "Compensations carbones transparentes, activées par la blockchain et ali
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:77
 msgid "retirement.head.metaTitle"
-msgstr ""
+msgstr "{retiree} a compensé {0} Tonnes de carbone"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:73
 msgid "retirement.head.title"

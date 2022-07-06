@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-06 06:41+0000\n"
+"POT-Creation-Date: 2022-07-06 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -152,7 +152,7 @@ msgstr "Si vous prêtez 1 KLIMA, vous recevrez ce montant en USDC."
 #: components/views/Bond/index.tsx:445
 #: components/views/Bond/index.tsx:560
 msgid "bond.redeem"
-msgstr "réclamer"
+msgstr "Réclamer"
 
 #: components/views/Bond/index.tsx:934
 msgid "bond.redeemable"
@@ -259,7 +259,7 @@ msgstr "Obligation carbone"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr ""
+msgstr "La meilleure façon d'acheter des KLIMA. Déposez des équivalents carbone dans notre trésorerie et recevez des KLIMA à prix réduit. Toutes les obligations (sauf celles à taux variable inversé) ont une période de maturation obligatoire de 5 jours."
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"
@@ -505,7 +505,7 @@ msgstr "Décrivez le but de ce retrait"
 
 #: components/views/Offset/index.tsx:591
 msgid "offset.retiring"
-msgstr "Destruction en cours"
+msgstr "Compensation en cours"
 
 #: components/views/Offset/index.tsx:661
 msgid "offset.successModal.body1"
@@ -521,7 +521,7 @@ msgstr "VOIR MON RETRAIT"
 
 #: components/views/Offset/index.tsx:654
 msgid "offset.successModal.title"
-msgstr "Retrait réussi !"
+msgstr "Compensation réussi !"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "offset.tonnes_of_carbon_retired"
