@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-05 22:53+0000\n"
+"POT-Creation-Date: 2022-07-06 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,11 +42,11 @@ msgstr "Блог"
 msgid "blog.head.title"
 msgstr "Блог KlimaDAO"
 
-#: components/pages/Retirements/CopyURLButton/index.tsx:17
+#: components/pages/Retirements/CopyURLButton/index.tsx:22
 msgid "button.copyURL.copied"
 msgstr "Скопировано"
 
-#: components/pages/Retirements/CopyURLButton/index.tsx:19
+#: components/pages/Retirements/CopyURLButton/index.tsx:27
 msgid "button.copyURL.copy"
 msgstr "Скопировать URL"
 
@@ -684,39 +684,39 @@ msgstr "Используйте токены KLIMA, обеспеченные уг
 msgid "retirement.footer.buy_klima.title"
 msgstr "Приобретайте, стейкайте и получайте вознаграждение."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/index.tsx:81
 msgid "retirement.head.metaDescription"
 msgstr "Прозрачные компенсации по цепочке на базе KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:69
+#: components/pages/Retirements/SingleRetirement/index.tsx:77
 msgid "retirement.head.metaTitle"
-msgstr "{0} использование {1} Тонны углерода"
+msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:65
+#: components/pages/Retirements/SingleRetirement/index.tsx:73
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Квитанция о возврате углерода"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:127
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Имя получателя не указано"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:117
+#: components/pages/Retirements/SingleRetirement/index.tsx:121
 msgid "retirement.single.beneficiary.title"
 msgstr "Бенефициар"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:135
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Адрес получателя"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:174
+#: components/pages/Retirements/SingleRetirement/index.tsx:178
 msgid "retirement.single.disclaimer"
 msgstr "Это представляет собой постоянное выбытие токенизированных углеродных активов на блокчейне Polygon. Это выбытие и связанные с ним данные являются неизменяемыми публичными записями."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:88
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:93
+#: components/pages/Retirements/SingleRetirement/index.tsx:97
 msgid "retirement.single.header.subline"
 msgstr "Коррекция выбросов в CO2-эквиваленте (метрические тонны)"
 
@@ -752,11 +752,11 @@ msgstr "Посмотреть на Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "КОЛИЧЕСТВО УПОТРЕБЛЕННЫХ "
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:166
+#: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...скоро!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:165
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Сертификат"
 
@@ -764,15 +764,15 @@ msgstr "Сертификат"
 msgid "retirement.single.retirementDate.title"
 msgstr "Дата"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:102
+#: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Сообщение об использовании не предоставлено"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:153
+#: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Не предоставлена время использования"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:191
+#: components/pages/Retirements/SingleRetirement/index.tsx:205
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Посмотреть на Polygonscan"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-05 22:53+0000\n"
+"POT-Creation-Date: 2022-07-06 06:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,11 +42,11 @@ msgstr ""
 msgid "blog.head.title"
 msgstr ""
 
-#: components/pages/Retirements/CopyURLButton/index.tsx:17
+#: components/pages/Retirements/CopyURLButton/index.tsx:22
 msgid "button.copyURL.copied"
 msgstr ""
 
-#: components/pages/Retirements/CopyURLButton/index.tsx:19
+#: components/pages/Retirements/CopyURLButton/index.tsx:27
 msgid "button.copyURL.copy"
 msgstr ""
 
@@ -678,39 +678,39 @@ msgstr ""
 msgid "retirement.footer.buy_klima.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/index.tsx:81
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:69
+#: components/pages/Retirements/SingleRetirement/index.tsx:77
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:65
+#: components/pages/Retirements/SingleRetirement/index.tsx:73
 msgid "retirement.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:127
 msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:117
+#: components/pages/Retirements/SingleRetirement/index.tsx:121
 msgid "retirement.single.beneficiary.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:135
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:174
+#: components/pages/Retirements/SingleRetirement/index.tsx:178
 msgid "retirement.single.disclaimer"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:88
+#: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.single.header.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:93
+#: components/pages/Retirements/SingleRetirement/index.tsx:97
 msgid "retirement.single.header.subline"
 msgstr ""
 
@@ -746,11 +746,11 @@ msgstr ""
 msgid "retirement.single.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:166
+#: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.retirementCertificate.soon"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:165
 msgid "retirement.single.retirementCertificate.title"
 msgstr ""
 
@@ -758,15 +758,15 @@ msgstr ""
 msgid "retirement.single.retirementDate.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:102
+#: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:153
+#: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "retirement.single.timestamp.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:191
+#: components/pages/Retirements/SingleRetirement/index.tsx:205
 msgid "retirement.single.view_on_polygon_scan"
 msgstr ""
 
