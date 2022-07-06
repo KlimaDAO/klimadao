@@ -28,6 +28,9 @@ export const section = css`
   &.gray {
     background-color: var(--surface-02);
   }
+  &.black {
+    background-color: #000;
+  }
   &.fillViewport {
     min-height: 100vh;
     align-items: center;

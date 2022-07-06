@@ -7,7 +7,17 @@ export const heroSection = css`
   .tooltip_underline {
     text-decoration: dotted;
   }
+  .hero_blur {
+    z-index: 1;
+    position: absolute;
+    width: 521px;
+    height: 521px;
+    right: 0px;
+    top: 411.5px;
 
+    background: #0ba1ff;
+    filter: blur(800px);
+  }
   .hero_container {
     z-index: 2;
     display: flex;
@@ -21,7 +31,7 @@ export const heroSection = css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
   }
   .hero_title_container p {
     text-align: center;
@@ -31,7 +41,7 @@ export const heroSection = css`
   }
 
   .hero_image_container {
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     width: 100%;
     max-width: 100rem;
@@ -57,8 +67,11 @@ export const heroSection = css`
 `;
 
 export const sliderSection = css`
+  /* position: relative; */
   padding: 0 !important;
+
   .slider_container {
+    z-index: 2;
     grid-column: main;
     display: flex;
     justify-content: space-between;
@@ -161,7 +174,19 @@ export const sliderSection = css`
 `;
 
 export const infoSection = css`
+  position: relative;
+  .info_blur {
+    z-index: 1;
+    position: absolute;
+    width: 497.33px;
+    height: 492px;
+    left: 0px;
+    bottom: -280px;
+    background: #0ba1ff;
+    filter: blur(800px);
+  }
   .info_container {
+    z-index: 2;
     grid-column: main;
     display: flex;
     flex-direction: row;
@@ -277,6 +302,7 @@ export const getStartedSection = css`
   height: 100%;
   width: 100%;
   position: relative;
+
   .getStarted_container {
     display: flex;
     grid-column: main;
@@ -290,7 +316,7 @@ export const getStartedSection = css`
     }
   }
   .getStarted_image {
-    z-index: 1;
+    z-index: 2;
   }
   .getStarted_left_container {
     width: 100%;
@@ -361,9 +387,22 @@ export const getStartedSection = css`
 `;
 export const carouselSection = css`
   position: relative;
+  overflow: visible;
+  .carousel_blur {
+    z-index: 1;
+    position: absolute;
+    width: 521px;
+    height: 521px;
+    left: 0px;
+    bottom: -110px;
+    background: rgba(11, 161, 255, 0.8);
+    filter: blur(800px);
+    overflow: visible;
+  }
   .carousel_container {
     grid-column: main;
     display: flex;
+    z-index: 2;
     flex-direction: column;
     gap: 4rem;
     ${breakpoints.large} {
@@ -405,12 +444,26 @@ export const carouselSection = css`
     position: relative;
   }
   .carousel_image {
-    z-index: 1;
+    z-index: 2;
   }
 `;
 export const polygonSection = css`
+  overflow: visible;
   padding-top: 0px !important;
+  position: relative;
+  .polygon_blur {
+    z-index: 1;
+    position: absolute;
+    width: 521px;
+    height: 521px;
+    left: 66px;
+    top: 570px;
+
+    background: rgba(11, 161, 255, 0.7);
+    filter: blur(800px);
+  }
   .polygon_container {
+    z-index: 2;
     grid-column: main;
     background: var(--surface-04);
     border-radius: 1.6rem;
@@ -470,8 +523,20 @@ export const polygonSection = css`
 `;
 export const missionSection = css`
   padding-top: 0rem !important;
+  position: relative;
+  overflow: visible;
+  .mission_image_container {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    top: -5rem;
+  }
   .mission_container {
     grid-column: main;
+    z-index: 3;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     gap: 5.6rem;
@@ -574,16 +639,29 @@ export const faqSection = css`
   .faq_title_container p {
     font-weight: 300;
   }
-  .faq_answer_text[data-display="true"] {
-    padding: 1.2rem 0 3.2rem 0;
-    height: auto;
-  }
-  .faq_answer_text[data-display="false"] {
+  .faq_answer_text {
+    -webkit-transition: all 0.15s ease;
+    -moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+    padding: 0;
+    height: 0rem;
     max-height: 0rem;
     overflow: hidden;
   }
+  .faq_answer_text[data-display="true"] {
+    padding: 1.2rem 0 3.2rem 0;
+    height: auto;
+    max-height: 100%;
+  }
+
   .faq_question_container {
     padding-top: 1.6rem;
+    -webkit-transition: all 0.15s ease;
+    -moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+    height: 100%;
     ${breakpoints.large} {
       padding-top: 1.6rem;
     }
@@ -624,6 +702,7 @@ export const ctaSection = css`
     grid-column: main;
     display: flex;
     flex-wrap: wrap;
+    z-index: 2;
   }
   .cta_left_container {
     width: 100%;
@@ -661,5 +740,16 @@ export const ctaSection = css`
   .cta_logo {
     height: 100%;
     width: 100%;
+  }
+  .cta_blur {
+    z-index: 1;
+    position: absolute;
+    width: 521px;
+    height: 521px;
+    left: calc(50% - 521px / 2 + 349px);
+    top: 30px;
+
+    background: rgba(11, 161, 255, 0.8);
+    filter: blur(800px);
   }
 `;

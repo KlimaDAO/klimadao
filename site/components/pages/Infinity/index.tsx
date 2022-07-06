@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 // import Link from "next/link";
@@ -27,6 +27,7 @@ import infinityWave from "public/infinity_wave.png";
 import hazyWindmills from "public/hazy_windmills.png";
 import forestCanopy from "public/forest_canopy.png";
 import cars from "public/cars.jpg";
+import wavyLines from "public/bg_wavy_lines.png";
 import gasPump from "public/gas_pump.png";
 import logoForbes from "public/logo-forbes.png";
 import logoWired from "public/logo-wired.png";
@@ -47,8 +48,26 @@ export interface Props {
 }
 
 export const Infinity: NextPage<Props> = () => {
+  function useOnScreen(ref: any) {
+
+    const [isIntersecting, setIntersecting] = useState(false)
+  
+    const observer = new IntersectionObserver(
+      ([entry]) => setIntersecting(entry.isIntersecting)
+    )
+  
+    useEffect(() => {
+      observer.observe(ref.current)
+      // Remove the observer as soon as the component is unmounted
+      return () => { observer.disconnect() }
+    }, [])
+  
+    return isIntersecting
+  }
+  const ref = useRef<null | HTMLDivElement>(null);
   const scrollToRefEnd = useRef<null | HTMLDivElement>(null);
   const scrollToRefStart = useRef<null | HTMLDivElement>(null);
+  const isVisible = useOnScreen(ref)
   const scrollToEnd = () =>
     scrollToRefEnd.current &&
     scrollToRefEnd.current.scrollIntoView({
@@ -56,7 +75,6 @@ export const Infinity: NextPage<Props> = () => {
       block: "center",
     });
   const scrollToStart = () => {
-    console.log(scrollToRefStart.current);
     return (
       scrollToRefStart.current &&
       scrollToRefStart.current.scrollIntoView({
@@ -94,7 +112,8 @@ export const Infinity: NextPage<Props> = () => {
 
       <Navigation activePage="Infinity" />
 
-      <Section variant="gray" className={styles.heroSection}>
+      <Section variant="black" className={styles.heroSection}>
+        <div className="hero_blur"></div>
         <div className="hero_container">
           <div className="hero_image_container">
             <Image
@@ -129,7 +148,7 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.sliderSection}>
+      <Section variant="black" className={styles.sliderSection}>
         <div className="slider_container">
           <Trans id="infinity.organizations">
             <Text t="h3" className="slider_title">
@@ -147,7 +166,7 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.sliderSection}>
+      <Section variant="black" className={styles.sliderSection}>
         <div className="slider_cards_container">
           {cards.map((card, index) => (
             <div
@@ -185,7 +204,8 @@ export const Infinity: NextPage<Props> = () => {
           ))}
         </div>
       </Section>
-      <Section variant="gray" className={styles.infoSection}>
+      <Section variant="black" className={styles.infoSection}>
+        <div className="info_blur" />
         <div className="info_container">
           <div className="info_left_container">
             <div className="info_image_box_alt">
@@ -251,7 +271,7 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.whySection}>
+      <Section variant="black" className={styles.whySection}>
         <div className="why_container">
           <div className="why_left_container">
             <Trans>
@@ -274,7 +294,7 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.getStartedSection}>
+      <Section variant="black" className={styles.getStartedSection} ref={ref}>
         <Image
           src={infinityWave}
           alt="waves on the sand"
@@ -342,7 +362,8 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.carouselSection}>
+      <Section variant="black" className={styles.carouselSection}>
+        <div className="carousel_blur" />
         <div className="carousel_container">
           <div className="carousel_left_container">
             <Image
@@ -368,7 +389,8 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.polygonSection}>
+      <Section variant="black" className={styles.polygonSection}>
+        <div className="polygon_blur" />
         <div className="polygon_container">
           <div className="polygon_left_container">
             <Trans>
@@ -413,7 +435,15 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.missionSection}>
+      <Section variant="black" className={styles.missionSection}>
+      <div className="mission_image_container">
+        <Image
+              src={wavyLines}
+              alt="wavy lines in background "
+              layout="fill"
+              objectFit="contain"
+            />
+        </div>
         <div className="mission_container">
           <Trans>
             <Text t="h2_alt" align="center" className="mission_header">
@@ -488,7 +518,7 @@ export const Infinity: NextPage<Props> = () => {
           />
         </div>
       </Section>
-      <Section variant="gray" className={styles.featuredSection}>
+      <Section variant="black" className={styles.featuredSection}>
         <div className="featured_container">
           <Trans>
             <Text t="body4" align="center" className="featured_title">
@@ -635,7 +665,9 @@ export const Infinity: NextPage<Props> = () => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.ctaSection}>
+      <Section variant="black" className={styles.ctaSection}>
+        <div className="cta_blur" />
+
         <div className="cta_container">
           <div className="cta_left_container">
             <div className="cta_logo">
