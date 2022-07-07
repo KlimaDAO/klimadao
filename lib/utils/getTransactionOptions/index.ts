@@ -1,14 +1,15 @@
 import { ethers } from "ethers";
+import { urls } from "../../constants";
 
 /** Returns the fast gas price from polygonscan plus 10 percent*/
 export const getGasPrice = async () => {
   try {
-    const response = await fetch(
-      "https://api.polygonscan.com/api?module=gastracker&action=gasoracle"
-    );
+    const response = await fetch(urls.polyscanGasTracker);
     const data = await response.json();
     if (data.message == "OK") {
-      const targetGasPrice = data.result.FastGasPrice * 1.1;
+      const targetGasPrice = (
+        parseFloat(data.result.FastGasPrice) * 1.1
+      ).toFixed(2);
       return ethers.utils.parseUnits(targetGasPrice.toString(), "gwei");
     }
   } catch (error) {
