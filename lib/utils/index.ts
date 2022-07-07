@@ -38,6 +38,7 @@ export {
   getAddressByKNS,
   getKNSByAddress,
 } from "./kns";
+export { getTransactionOptions, getGasPrice } from "./getTransactionOptions";
 
 // ENS
 export { isENSDomain, getAddressByENS, getENSByAddress } from "./ens";
