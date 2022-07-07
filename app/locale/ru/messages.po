@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-06 15:44+0000\n"
+"POT-Creation-Date: 2022-07-07 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:681
 msgid "Capacity"
-msgstr ""
+msgstr "Вместимость"
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
@@ -61,7 +61,7 @@ msgstr "Цена со скидкой. Общая сумма для бонда 1 
 
 #: components/views/Bond/index.tsx:630
 msgid "bond.bond_price.tooltip.inverse"
-msgstr ""
+msgstr "Текущая рыночная цена KLIMA на рынке"
 
 #. Bond {0}
 #: components/views/Bond/index.tsx:529
@@ -70,7 +70,7 @@ msgstr "Бонд{0}"
 
 #: components/views/Bond/index.tsx:425
 msgid "bond.capacity_exceeded"
-msgstr ""
+msgstr "Вместимость превышена"
 
 #: components/views/Bond/index.tsx:967
 msgid "bond.date_of_full_vesting"
@@ -95,7 +95,7 @@ msgstr "Дисконт бонда"
 
 #: components/views/Bond/index.tsx:836
 msgid "bond.discount.description_tooltip"
-msgstr ""
+msgstr "Процентная скидка (или надбавка, если она отрицательная) по отношению к рыночной стоимости KLIMA."
 
 #: components/views/Bond/index.tsx:461
 msgid "bond.inputplaceholder.amount_to_bond"
@@ -107,11 +107,11 @@ msgstr "Сумма к погашению"
 
 #: components/views/Bond/index.tsx:663
 msgid "bond.inverse.premium"
-msgstr ""
+msgstr "Премиум"
 
 #: components/views/Bond/index.tsx:667
 msgid "bond.inverse.premium.description"
-msgstr ""
+msgstr "Премия по отношению к рыночной стоимости KLIMA."
 
 #: components/views/Bond/index.tsx:626
 #: components/views/Bond/index.tsx:777
@@ -125,7 +125,7 @@ msgstr "Текущая торговая цена KLIMA, без учета дис
 
 #: components/views/Bond/index.tsx:415
 msgid "bond.max_exceeded"
-msgstr ""
+msgstr "ПРЕВЫШЕН МАКС."
 
 #: components/views/Bond/index.tsx:699
 #: components/views/Bond/index.tsx:851
@@ -135,7 +135,7 @@ msgstr "Максимум"
 #: components/views/Bond/index.tsx:703
 #: components/views/Bond/index.tsx:855
 msgid "bond.maximum.tooltip"
-msgstr ""
+msgstr "Максимальная сумма, которую вы можете приобрести с помощью бондирования"
 
 #: components/views/Bond/index.tsx:400
 msgid "bond.not_redeemable"
@@ -143,11 +143,11 @@ msgstr "Не подлежащие погашению"
 
 #: components/views/Bond/index.tsx:644
 msgid "bond.payout_per_klima"
-msgstr ""
+msgstr "Выплата за KLIMA"
 
 #: components/views/Bond/index.tsx:648
 msgid "bond.payout_per_klima.description_inverse"
-msgstr ""
+msgstr "Если вы связываете 1 KLIMA, вы получите эту сумму в USDC."
 
 #: components/views/Bond/index.tsx:445
 #: components/views/Bond/index.tsx:560
@@ -197,7 +197,7 @@ msgstr "Вы получете"
 
 #: components/views/Bond/index.tsx:734
 msgid "bond.you_will_get.description_inverse"
-msgstr ""
+msgstr "Сумма, которую вы получите при заданном количестве ввода"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:878
@@ -231,7 +231,7 @@ msgstr "НЕ ПОДКЛЮЧЕН"
 
 #: components/views/Bond/index.tsx:684
 msgid "capacity.description_inverse"
-msgstr ""
+msgstr "Это сумма USDC в контракте, доступная для бондирования."
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -261,7 +261,7 @@ msgstr "Бонд Карбон"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr ""
+msgstr "Лучший способ купить KLIMA. Вложите углерод в нашу казну и получите KLIMA со скидкой. Все облигации (кроме обратных облигаций) имеют обязательный 5-дневный период наделения правами."
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"
@@ -269,7 +269,7 @@ msgstr "Выберите бонд"
 
 #: components/views/ChooseBond/index.tsx:111
 msgid "choose_bond.inverse_usdc"
-msgstr ""
+msgstr "Предоставьте KLIMA, получите USDC"
 
 #: components/views/ChooseBond/index.tsx:99
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
