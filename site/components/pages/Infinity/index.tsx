@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 // import Link from "next/link";
@@ -48,28 +48,26 @@ export interface Props {
 }
 
 export const Infinity: NextPage<Props> = () => {
-  function useOnScreen(ref: any) {
-    const [isIntersecting, setIntersecting] = useState(false);
+  // function useOnScreen(ref: any) {
+  //   const [isIntersecting, setIntersecting] = useState(false);
 
-    const observer = new IntersectionObserver(([entry]) =>
-      setIntersecting(entry.isIntersecting)
-    );
-
-    useEffect(() => {
-      observer.observe(ref.current);
-      // Remove the observer as soon as the component is unmounted
-      return () => {
-        observer.disconnect();
-      };
-    }, []);
-
-    return isIntersecting;
-  }
+  //   useEffect(() => {
+  //     const observer = new IntersectionObserver(([entry]) =>
+  //       setIntersecting(entry.isIntersecting)
+  //     );
+  //     observer.observe(ref.current);
+  //     // Remove the observer as soon as the component is unmounted
+  //     return () => {
+  //       observer.disconnect();
+  //     };
+  //   }, []);
+  //   return isIntersecting;
+  // }
   const ref = useRef<null | HTMLDivElement>(null);
   const scrollToRefEnd = useRef<null | HTMLDivElement>(null);
   const scrollToRefStart = useRef<null | HTMLDivElement>(null);
-  const isVisible = useOnScreen(ref);
-  console.log(isVisible);
+  // const isVisible = useOnScreen(ref);
+  // console.log(isVisible);
   const scrollToEnd = () =>
     scrollToRefEnd.current &&
     scrollToRefEnd.current.scrollIntoView({
