@@ -299,10 +299,7 @@ export const whySection = css`
 `;
 
 export const getStartedSection = css`
-  height: 100%;
-  width: 100%;
   position: relative;
-
   .getStarted_container {
     display: flex;
     grid-column: main;
@@ -363,6 +360,7 @@ export const getStartedSection = css`
     flex-direction: column;
     padding-right: 0;
     padding-top: 2.4rem;
+    animation: pulse 5s infinite;
     ${breakpoints.large} {
       padding-right: 1.6rem;
       padding-top: 0;
@@ -383,6 +381,17 @@ export const getStartedSection = css`
   }
   .getStarted3 {
     justify-content: flex-start;
+  }
+  @keyframes pulse {
+    0% {
+      margin-top: 0rem;
+    }
+    50% {
+      margin-top: -1rem;
+    }
+    100% {
+      margin-top: 0rem;
+    }
   }
 `;
 export const carouselSection = css`
