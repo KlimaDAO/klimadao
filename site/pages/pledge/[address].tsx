@@ -4,7 +4,10 @@ import { ethers } from "ethers";
 import { loadTranslation } from "lib/i18n";
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
 import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
-import { DEFAULT_VALUES } from "components/pages/Pledge/lib";
+import {
+  DEFAULT_VALUES,
+  queryHoldingsByAddress,
+} from "components/pages/Pledge/lib";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
@@ -19,6 +22,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       },
     };
   }
+  const holdings = await queryHoldingsByAddress(address);
+
+  console.log({ holdings });
 
   try {
     const data = await getPledgeByAddress(address.toLowerCase());
@@ -36,6 +42,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         ...pledge,
         ownerAddress: pledge?.ownerAddress || address.toLowerCase(),
       },
+      holdings,
       translation,
     },
     revalidate: 180,

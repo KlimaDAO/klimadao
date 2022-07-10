@@ -124,11 +124,11 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.column}>
-          <AssetBalanceCard pageAddress={props.pageAddress} />
-          <RetirementsCard
+          <AssetBalanceCard
+            holdings={props.holdings}
             pageAddress={props.pageAddress}
-            retirements={retirements}
           />
+          <RetirementsCard pageAddress={props.pageAddress} />
         </div>
       </div>
     </PledgeLayout>

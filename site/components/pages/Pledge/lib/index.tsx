@@ -8,3 +8,4 @@ export {
 export { DEFAULT_VALUES, pledgeFormAdapter } from "./pledgeFormAdapter";
 export { putPledge } from "./putPledge";
 export { verifySignature } from "./verifySignature";
+export { queryHoldingsByAddress } from "./subgraph";
