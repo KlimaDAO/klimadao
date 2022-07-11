@@ -12,7 +12,7 @@ import {
 } from "actions/stake";
 import { useAppDispatch } from "state";
 
-import { useParamSelector } from "lib/hooks/useParamsSelector";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import {
   incrementStake,
   decrementAllowance,
@@ -87,14 +87,18 @@ export const Stake = (props: Props) => {
   const { fiveDayRate, currentIndex, stakingAnnualPercent } =
     useSelector(selectAppState);
 
-  const stakeAllowance = useParamSelector(selectAllowancesWithParams, {
-    tokens: ["klima"],
-    spender: "staking_helper",
-  });
-  const unstakeAllowance = useParamSelector(selectAllowancesWithParams, {
-    tokens: ["sklima"],
-    spender: "staking",
-  });
+  const stakeAllowance = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["klima"],
+      spender: "staking_helper",
+    })
+  );
+  const unstakeAllowance = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["sklima"],
+      spender: "staking",
+    })
+  );
 
   const balances = useSelector(selectBalances);
 

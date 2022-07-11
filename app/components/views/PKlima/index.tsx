@@ -23,7 +23,7 @@ import {
 } from "state/selectors";
 import { redeemPklima, setAllowance, decrementAllowance } from "state/user";
 import { useAppDispatch } from "state";
-import { useParamSelector } from "lib/hooks/useParamsSelector";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import {
   exerciseTransaction,
   changeApprovalTransaction,
@@ -59,10 +59,12 @@ export const PKlima: FC<Props> = (props) => {
 
   const locale = useSelector(selectLocale);
   const { currentIndex } = useSelector(selectAppState);
-  const exerciseAllowances = useParamSelector(selectAllowancesWithParams, {
-    tokens: ["bct", "pklima"],
-    spender: "pklima_exercise",
-  });
+  const exerciseAllowances = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["bct", "pklima"],
+      spender: "pklima_exercise",
+    })
+  );
   const terms = useSelector(selectPklimaTerms);
 
   const indexAdjustedClaim = Number(terms?.claimed) * Number(currentIndex);

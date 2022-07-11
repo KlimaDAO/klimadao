@@ -29,7 +29,7 @@ import {
 import { ImageCard } from "components/ImageCard";
 import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
-import { useParamSelector } from "lib/hooks/useParamsSelector";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
 import * as styles from "components/views/Stake/styles";
 import { Trans, defineMessage } from "@lingui/macro";
@@ -70,10 +70,12 @@ export const Wrap: FC<Props> = (props) => {
 
   const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
-  const wrapAllowance = useParamSelector(selectAllowancesWithParams, {
-    tokens: ["sklima"],
-    spender: "wsklima",
-  });
+  const wrapAllowance = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["sklima"],
+      spender: "wsklima",
+    })
+  );
 
   const isLoading = !balances || typeof balances.klima === "undefined";
   const showSpinner =

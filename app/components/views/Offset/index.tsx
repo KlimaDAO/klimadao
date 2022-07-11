@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { StaticImageData } from "components/Image";
-
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
@@ -24,7 +23,7 @@ import {
   selectLocale,
 } from "state/selectors";
 
-import { useParamSelector } from "lib/hooks/useParamsSelector";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
 import {
   changeApprovalTransaction,
@@ -106,10 +105,12 @@ export const Offset = (props: Props) => {
   const dispatch = useAppDispatch();
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
-  const allowances = useParamSelector(selectAllowancesWithParams, {
-    tokens: offsetInputTokens,
-    spender: "retirementAggregator",
-  });
+  const allowances = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: offsetInputTokens,
+      spender: "retirementAggregator",
+    })
+  );
 
   const params = useOffsetParams();
   // local state
