@@ -27,5 +27,5 @@ export const card = css`
   overflow: hidden;
   flex-direction: column;
   align-content: start;
-  padding: 2rem;
+  padding: 1.8rem;
 `;

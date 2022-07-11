@@ -37,3 +37,16 @@ export const retirementsLink = css`
     }
   }
 `;
+
+// Retirement chart styles
+export const chartContainer = css`
+  height: 36rem;
+  width: 100%;
+`;
+
+export const chart_tooltip = css`
+  background-color: var(--surface-01);
+  padding: 0.8rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid var(--font-03);
+`;
