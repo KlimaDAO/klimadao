@@ -95,7 +95,7 @@ export const Navigation: FC<Props> = ({
         />
         <NavItemMobile
           url="/infinity"
-          name={t({ message: "KlimaInfinity", id: "shared.buy" })}
+          name={t({ message: "KlimaInfinity", id: "shared.infinity" })}
         />
         <NavItemMobile
           url={urls.loveletter}
