@@ -102,23 +102,13 @@ export const PKlima: FC<Props> = (props) => {
         action,
         onStatus: setStatus,
       });
-      if (action === "pklima") {
-        dispatch(
-          setAllowance({
-            token: "pklima",
-            spender: "pklima_exercise",
-            value: approvedValue,
-          })
-        );
-      } else {
-        dispatch(
-          setAllowance({
-            token: "bct",
-            spender: "pklima_exercise",
-            value: approvedValue,
-          })
-        );
-      }
+      dispatch(
+        setAllowance({
+          token: action,
+          spender: "pklima_exercise",
+          value: approvedValue,
+        })
+      );
     } catch (e) {
       return;
     }
