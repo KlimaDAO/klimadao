@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-07 15:43+0000\n"
+"POT-Creation-Date: 2022-07-11 11:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -261,7 +261,7 @@ msgstr "CO2 bonden"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr ""
+msgstr "Der beste Weg, KLIMA zu kaufen. Übertrage CO2-Tokens in unsere Schatzkammer und bekomme dafür vergünstigtes KLIMA. Alle Bonds (außer Inverse Bonds) haben eine obligatorische Sperrfrist von fünf Tagen."
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"

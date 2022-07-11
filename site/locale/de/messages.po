@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-07 15:42+0000\n"
+"POT-Creation-Date: 2022-07-11 11:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -688,7 +688,7 @@ msgstr "Transparente CO2-Offsets auf der Blockchain durch KlimaDAO."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:77
 msgid "retirement.head.metaTitle"
-msgstr ""
+msgstr "{retiree} hat {0} Tonnen CO2 ausgeglichen"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:73
 msgid "retirement.head.title"
