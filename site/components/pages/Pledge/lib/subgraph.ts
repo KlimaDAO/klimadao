@@ -7,6 +7,7 @@ export const queryHoldingsByAddress = async (
 ) => {
   try {
     const result = await fetch("https://api.thegraph.com/subgraphs/name/cujowolf/klima-user-dev", {
+    // const result = await fetch("https://api.thegraph.com/subgraphs/name/klimadao/klimadao-user-carbon", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -14,7 +15,7 @@ export const queryHoldingsByAddress = async (
           query {
             holdings(
               where: {
-                klimate: "${beneficiaryAddress.toLowerCase()}" 
+                klimate: "${beneficiaryAddress.toLowerCase()}",
               }
             ) {
               id

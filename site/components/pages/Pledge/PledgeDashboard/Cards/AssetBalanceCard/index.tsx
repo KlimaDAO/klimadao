@@ -40,7 +40,7 @@ const HoldingsOverTimeChart = (props) => {
   const tokenValues = props.data.map((tx) => Math.floor(tx.tokenAmount));
   const maxValue = last(orderBy(tokenValues)) * 1.01;
 
-  // console.log(maxValue);
+  console.log(maxValue);
 
   return (
     <ResponsiveContainer width={300} height={80}>
@@ -75,7 +75,9 @@ export const AssetBalanceCard: FC<Props> = (props) => {
   const [balances, setBalances] = useState<Balances | null>(null);
 
   const holdingsByToken = groupBy(props.holdings, "token");
-  console.log(props.holdings);
+  // console.log({holdingsByToken});
+  console.log({holdings: props.holdings});
+  console.log(props.holdings.length);
 
   const formatBalance = (balance: string) =>
     Number(balance) > 0.01 ? trimStringDecimals(balance, 2) : 0;
@@ -190,7 +192,9 @@ export const AssetBalanceCard: FC<Props> = (props) => {
             )}
           </div>
         </div>
-        <HoldingsOverTimeChart data={holdingsByToken.BCT} />
+
+        {props.holdings.length > 0 && (<HoldingsOverTimeChart data={holdingsByToken.BCT} />)}
+        
       </div>
     </BaseCard>
   );

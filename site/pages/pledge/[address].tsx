@@ -24,8 +24,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   }
   const holdings = await queryHoldingsByAddress(address);
 
-  console.log({ holdings });
-
   try {
     const data = await getPledgeByAddress(address.toLowerCase());
     if (!data) throw new Error("Not found");

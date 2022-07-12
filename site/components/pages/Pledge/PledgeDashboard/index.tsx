@@ -128,7 +128,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             holdings={props.holdings}
             pageAddress={props.pageAddress}
           />
-          <RetirementsCard pageAddress={props.pageAddress} />
+          <RetirementsCard retirements={retirements} pageAddress={props.pageAddress} />
         </div>
       </div>
     </PledgeLayout>
