@@ -19,13 +19,12 @@ export const Podcast: FC<Props> = (props) => {
       headline={t({ id: "podcast.head.headline", message: "Podcast" })}
       subline={
         <Trans id="podcast.head.description">
-          Planet of the Klimates is a community-driven podcast featuring all the
-          latest on KlimaDAO, as well in-depth conversations with Klima partners
-          and global thought leaders on carbon markets, web3, climate science,
-          and more. Hosted by Klimates Phaedrus, and Diamond Hands Klima, you
-          can explore the latest episodes and full archive of shows directly
-          below, and also find PotK on your favourite podcast platform,
-          including <a href="https://rss.com/podcasts/potk/">RSS</a> and{" "}
+          Planet of the Klimates is a community-driven podcast featuring
+          conversations with Klima Partners and thought leaders on climate
+          science, blockchain, and more. You can explore the latest episodes and
+          full archive of shows directly below, and also find PotK on your
+          favourite podcast platform, including{" "}
+          <a href="https://rss.com/podcasts/potk/">RSS</a> and{" "}
           <a href="https://podcasts.apple.com/us/podcast/planet-of-the-klimates/id1597590318">
             Apple Podcasts
           </a>

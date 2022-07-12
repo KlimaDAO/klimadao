@@ -9,6 +9,7 @@ export const cardsSection = css`
 export const articles = css`
   grid-column: main;
   text-transform: uppercase;
+  padding-bottom: 2.4rem;
 `;
 
 export const cards = css`

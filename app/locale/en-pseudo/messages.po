@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/views/Bond/index.tsx:676
+#: components/views/Bond/index.tsx:681
 msgid "Capacity"
 msgstr ""
 

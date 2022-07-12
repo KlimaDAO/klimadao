@@ -25,7 +25,7 @@ msgstr "Change language"
 msgid "Enter App"
 msgstr "Enter App"
 
-#: components/pages/Podcast/index.tsx:45
+#: components/pages/Podcast/index.tsx:44
 msgid "Episodes"
 msgstr "Episodes"
 
@@ -662,14 +662,14 @@ msgstr "Invest in the future."
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
-msgstr "Planet of the Klimates is a community-driven podcast featuring all the latest on KlimaDAO, as well in-depth conversations with Klima partners and global thought leaders on carbon markets, web3, climate science, and more. Hosted by Klimates Phaedrus, Diamond Hands Klima, and REG, you can explore the latest episodes and full archive of shows directly below, and also find PotK on your favourite podcast platform, including <0>RSS</0> and <1>Apple Podcasts</1>"
+msgstr "Planet of the Klimates is a community-driven podcast featuring conversations with Klima Partners and thought leaders on climate science, blockchain, and more. You can explore the latest episodes and full archive of shows directly below, and also find PotK on your favourite podcast platform, including <0>RSS</0> and <1>Apple Podcasts</1>"
 
 #: components/pages/Podcast/index.tsx:19
 msgid "podcast.head.headline"
 msgstr "Podcast"
 
 #: components/pages/Podcast/index.tsx:18
-#: components/pages/Podcast/index.tsx:34
+#: components/pages/Podcast/index.tsx:33
 msgid "podcast.head.title"
 msgstr "KlimaDAO Podcast"
 
@@ -874,8 +874,8 @@ msgstr "Community"
 msgid "shared.contact"
 msgstr "Contact"
 
-#: components/pages/Resources/Community/index.tsx:110
-#: components/pages/Resources/Community/index.tsx:394
+#: components/pages/Resources/Community/index.tsx:109
+#: components/pages/Resources/Community/index.tsx:393
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
 msgid "shared.contact_us"
 msgstr "Contact Us"
@@ -894,13 +894,9 @@ msgid "shared.enter_app"
 msgstr "Enter App"
 
 #: components/pages/Buy/index.tsx:46
-#: components/pages/Disclaimer/index.tsx:20
-#: components/pages/Home/index.tsx:64
-#: components/pages/Podcast/index.tsx:35
-#: components/pages/Resources/Community/index.tsx:82
-#: components/pages/Resources/Contact/index.tsx:25
-#: components/pages/Retirements/index.tsx:62
-#: components/pages/errors/Custom404.tsx:23
+#: components/pages/Home/index.tsx:63
+#: components/pages/Podcast/index.tsx:34
+#: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
@@ -915,6 +911,7 @@ msgid "shared.loveletters"
 msgstr "Love Letters"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "Podcast"
 
