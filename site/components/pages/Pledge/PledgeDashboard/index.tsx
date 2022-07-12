@@ -24,6 +24,7 @@ import { Pledge } from "../types";
 import * as styles from "./styles";
 
 type Props = {
+  domain: string | null;
   pageAddress: string;
   pledge: Pledge;
 };
@@ -99,7 +100,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           )}
 
           <Text t="h2">
-            {pledge.name || concatAddress(pledge.ownerAddress)}
+            {props.domain || pledge.name || concatAddress(pledge.ownerAddress)}
           </Text>
 
           <div className={styles.progressContainer}>

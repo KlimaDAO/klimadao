@@ -1,7 +1,9 @@
 import { GetStaticProps } from "next";
-import { ethers } from "ethers";
 
 import { loadTranslation } from "lib/i18n";
+import { getIsDomainInURL } from "lib/getIsDomainInURL";
+import { getAddressByDomain } from "lib/getAddressByDomain";
+
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
 import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
 import { DEFAULT_VALUES } from "components/pages/Pledge/lib";
@@ -10,8 +12,16 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
   const { address } = ctx.params as { address: string };
   let pledge;
+  let resolvedAddress;
 
-  if (!ethers.utils.isAddress(address)) {
+  const isDomainInURL = getIsDomainInURL(address);
+  const domain = isDomainInURL ? address : null;
+
+  try {
+    resolvedAddress = isDomainInURL
+      ? await getAddressByDomain(address)
+      : address;
+  } catch {
     return {
       redirect: {
         destination: "/pledge",
@@ -21,7 +31,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   }
 
   try {
-    const data = await getPledgeByAddress(address.toLowerCase());
+    const data = await getPledgeByAddress(resolvedAddress);
     if (!data) throw new Error("Not found");
 
     pledge = data;
@@ -31,10 +41,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      pageAddress: address.toLowerCase(),
+      domain,
+      pageAddress: resolvedAddress,
       pledge: {
         ...pledge,
-        ownerAddress: pledge?.ownerAddress || address.toLowerCase(),
+        ownerAddress: pledge?.ownerAddress || resolvedAddress,
       },
       translation,
     },
