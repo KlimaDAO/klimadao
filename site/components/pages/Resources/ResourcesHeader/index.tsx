@@ -89,6 +89,12 @@ export const ResourcesHeader: FC<Props> = (props) => {
               variant={isPageActive("contact") ? null : "gray"}
               link={Link}
             />
+            <ButtonPrimary
+              label={t({ id: "shared.podcast", message: "Podcast" })}
+              href={"/podcast"}
+              variant={isPageActive("podcast") ? null : "gray"}
+              link={Link}
+            />
           </div>
 
           <div className="resourcesHeader_textGroup">

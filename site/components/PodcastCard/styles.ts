@@ -1,6 +1,7 @@
-@value bp-large from "@klimadao/lib/theme/breakpoints.css";
+import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-.card {
+export const card = css`
   display: grid;
   grid-template-columns: auto;
   grid-template-areas:
@@ -11,38 +12,21 @@
   grid-column: main;
   border-radius: 1.2rem;
   box-shadow: var(--shadow-07);
-}
+  ${breakpoints.large} {
+    grid-template-areas: "content image";
+    grid-template-columns: 1fr 2fr;
+    height: 28rem;
+  }
+`;
 
-.content {
+export const content = css`
   margin: 2.4rem;
   grid-area: content;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-}
-.content .summary {
-  display: none;
-}
-.content .read_more,
-.content .date {
-  color: var(--font-03);
-}
-.image {
-  position: relative;
-  grid-area: image;
-  min-height: 24rem;
-  display: flex;
-  height: 100%;
-  align-items: center;
-}
-
-@media bp-large {
-  .card {
-    grid-template-areas: "content image";
-    grid-template-columns: 1fr 2fr;
-    height: 28rem;
-  }
-  .content .summary {
+  .summary {
+    display: none;
     display: flex;
     color: var(--font-02);
     font-size: 1.6rem;
@@ -56,11 +40,24 @@
     line-clamp: 3;
     -webkit-box-orient: vertical;
   }
-  .image {
+  .read_more .date {
+    color: var(--font-03);
+  }
+`;
+
+export const image = css`
+  position: relative;
+  grid-area: image;
+  min-height: 24rem;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  ${breakpoints.large} {
     min-height: unset;
+    div {
+      width: 100%;
+      padding-right: 1.6rem;
+    }
   }
-  .image div {
-    width: 100%;
-    padding-right: 1.6rem;
-  }
-}
+`;
