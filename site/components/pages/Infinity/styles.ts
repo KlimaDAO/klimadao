@@ -1,9 +1,19 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const pageContainer = css`
+  width: 100vw;
+  max-width: 100vw;
+  height: 100%;
+  overflow: hidden;
+`
+
 export const heroSection = css`
   min-height: 100vh;
-  padding: 0 !important;
+  /* padding: 1.6rem;
+  ${breakpoints.large} {
+    padding: 0 !important;
+  } */
   .tooltip_underline {
     text-decoration: dotted;
   }
@@ -20,8 +30,8 @@ export const heroSection = css`
   }
   .hero_container {
     z-index: 2;
-    display: flex;
     grid-column: main;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -68,7 +78,10 @@ export const heroSection = css`
 
 export const sliderSection = css`
   /* position: relative; */
-  padding: 0 !important;
+  /* padding: 1.6rem;
+  ${breakpoints.large} {
+    padding: 0 !important;
+  } */
 
   .slider_container {
     z-index: 2;
@@ -78,6 +91,7 @@ export const sliderSection = css`
     align-items: center;
     height: 100%;
     width: 100%;
+
   }
 
   .slider_card {
@@ -124,12 +138,31 @@ export const sliderSection = css`
   }
   .slider_cards_container {
     overflow-x: scroll;
-    width: 100%;
-    max-width: 100vw;
+    position: relative;
+    width: calc(100% - 2.4rem);
     display: flex;
     gap: 2rem;
     grid-column-start: main;
     padding-top: 3.4rem;
+    grid-column: full;
+    padding: 3.4rem 2.4rem 0 2.4rem;
+    left: 2.4rem;
+  }
+  .blur-left {
+    height: 38.4rem;
+    width: 2rem;
+    background: linear-gradient(0.25turn, #000, transparent);
+    z-index: 99;
+    position: absolute;
+    left: 0;
+  }
+  .blur-right {
+    height: 38.4rem;
+    width: 2rem;
+    background: linear-gradient(0.25turn, transparent, #000);
+    z-index: 99;
+    position: relative;
+    left: calc(100% - 2rem);
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -175,6 +208,10 @@ export const sliderSection = css`
 
 export const infoSection = css`
   position: relative;
+  /* padding: 1.6rem;
+  ${breakpoints.large} {
+    padding: 0 !important;
+  } */
   .info_blur {
     z-index: 1;
     position: absolute;
@@ -263,7 +300,10 @@ export const infoSection = css`
 `;
 
 export const whySection = css`
-  padding-top: 0 !important;
+  /* padding: 1.6rem;
+  ${breakpoints.large} {
+    padding: 0 !important;
+  } */
   .why_container {
     display: flex;
     grid-column: main;
@@ -300,6 +340,10 @@ export const whySection = css`
 
 export const getStartedSection = css`
   position: relative;
+  /* padding: 1.6rem;
+  ${breakpoints.large} {
+    padding: 0 !important;
+  } */
   .getStarted_container {
     display: flex;
     grid-column: main;
@@ -360,7 +404,7 @@ export const getStartedSection = css`
     flex-direction: column;
     padding-right: 0;
     padding-top: 2.4rem;
-    animation: pulse 5s infinite;
+    /* animation: pulse 5s infinite; */
     ${breakpoints.large} {
       padding-right: 1.6rem;
       padding-top: 0;
@@ -382,7 +426,7 @@ export const getStartedSection = css`
   .getStarted3 {
     justify-content: flex-start;
   }
-  @keyframes pulse {
+  /* @keyframes pulse {
     0% {
       margin-top: 0rem;
     }
@@ -392,11 +436,15 @@ export const getStartedSection = css`
     100% {
       margin-top: 0rem;
     }
-  }
+  } */
 `;
 export const carouselSection = css`
   position: relative;
   overflow: visible;
+  /* padding: 1.6rem;
+  ${breakpoints.large} {
+    padding: 0 !important;
+  } */
   .carousel_blur {
     z-index: 1;
     position: absolute;
@@ -458,8 +506,8 @@ export const carouselSection = css`
 `;
 export const polygonSection = css`
   overflow: visible;
-  padding-top: 0px !important;
-  position: relative;
+  /* padding: 2.4rem; */
+    position: relative;
   .polygon_blur {
     z-index: 1;
     position: absolute;
@@ -476,13 +524,15 @@ export const polygonSection = css`
     grid-column: main;
     background: var(--surface-04);
     border-radius: 1.6rem;
-    padding: 5.5rem;
     display: flex;
     gap: 4.8rem;
     flex-direction: column;
+    padding: 2.4rem;
     ${breakpoints.large} {
+      padding: 5.5rem;
       flex-direction: row;
     }
+    
   }
   .polygon_left_container {
     display: flex;
@@ -505,14 +555,14 @@ export const polygonSection = css`
     }
   }
   .polygon_full_blox {
-    height: 25.6rem;
+    height: 27.6rem;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 3.2rem 2.4rem 4.8rem;
     gap: 24px;
-    background: var(--surface-02);
+    background: #000;
     border-radius: 16px;
   }
   .polygon_half_blox {
@@ -521,13 +571,22 @@ export const polygonSection = css`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 3.2rem 2.4rem 4.8rem;
+    padding: 3.2rem 1.6rem 4.8rem;
     gap: 3.2rem;
-    background: var(--surface-02);
+    background: #000;
     border-radius: 16px;
     ${breakpoints.large} {
       width: calc(50% - 1.2rem);
     }
+  }
+  .polygon_number {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 72px;
+  }
+  .polygon_subtitle {
+    color: #9C9C9C;
+    /* white-space: nowrap; */
   }
 `;
 export const missionSection = css`
@@ -541,6 +600,7 @@ export const missionSection = css`
     height: 100%;
     overflow: visible;
     top: -5rem;
+    
   }
   .mission_container {
     grid-column: main;
@@ -550,6 +610,10 @@ export const missionSection = css`
     flex-direction: column;
     gap: 5.6rem;
     align-items: center;
+    padding: 1.6rem;
+  ${breakpoints.large} {
+    padding: 0 !important;
+  }
   }
   .mission_header {
     width: 100%;
@@ -706,7 +770,8 @@ export const faqSection = css`
   }
 `;
 export const ctaSection = css`
-  /* padding-top: 0 !important; */
+  padding-top: 0 !important;
+  position: relative;
   .cta_container {
     grid-column: main;
     display: flex;
@@ -719,6 +784,7 @@ export const ctaSection = css`
     align-items: center;
     flex-direction: column;
     padding-right: 0;
+    position: relative;
     ${breakpoints.large} {
       width: 50%;
       padding-right: 10%;
