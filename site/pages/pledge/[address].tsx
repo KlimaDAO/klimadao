@@ -18,8 +18,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const domain = isDomainInURL ? address : null;
 
   try {
-    if (!isDomainInURL && !ethers.utils.isAddress(address)) throw new Error('Invalid address');
-    resolvedAddress = isDomainInURL ? await getAddressByDomain(address) : address.toLowerCase();
+    if (!isDomainInURL && !ethers.utils.isAddress(address))
+      throw new Error("Invalid address");
+    resolvedAddress = isDomainInURL
+      ? await getAddressByDomain(address)
+      : address.toLowerCase();
   } catch {
     return {
       redirect: {
