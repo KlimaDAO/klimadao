@@ -26,12 +26,12 @@ import {
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
 import {
-  changeApprovalTransaction,
   getOffsetConsumptionCost,
   getRetiredOffsetBalances,
   getRetirementAllowances,
   retireCarbonTransaction,
 } from "actions/offset";
+import { changeApprovalTransaction } from "actions/utils";
 
 import {
   Anchor as A,
@@ -247,16 +247,20 @@ export const Offset = (props: Props) => {
     try {
       if (!props.provider) return;
       const value = quantity.toString();
+      const token = selectedInputToken;
+      const spender = "retirementAggregator";
+
       const approvedValue = await changeApprovalTransaction({
         value,
         provider: props.provider,
-        token: selectedInputToken,
+        token,
+        spender,
         onStatus: setStatus,
       });
       dispatch(
         setAllowance({
-          token: selectedInputToken,
-          spender: "retirementAggregator",
+          token,
+          spender,
           value: approvedValue,
         })
       );
