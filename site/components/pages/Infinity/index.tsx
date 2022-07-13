@@ -245,7 +245,7 @@ export const Infinity: NextPage<Props> = () => {
             </div>
           </div>
           <div className="info_right_container">
-            <div>
+            <div className="info_title_container">
               <Trans>
                 <Text t="body6" className="info_subtitle">
                   For the planet's pioneering organizations
