@@ -17,6 +17,20 @@ export const headerDesktop = css`
   }
 `;
 
+export const menuDesktop = css`
+  display: grid;
+  grid-column: main;
+  grid-template-columns: auto 1fr auto;
+  width: 100%;
+  align-items: center;
+  z-index: 99;
+`;
+
+export const headerInfinityDesktop = css`
+  background: #000 !important;
+  ${headerDesktop}
+`;
+
 export const headerMobileWrap = css`
   position: fixed;
   pointer-events: none;
@@ -53,14 +67,6 @@ export const headerMobile = css`
 
 export const mainLogoMobile = css`
   padding: 0 1rem;
-`;
-
-export const menuDesktop = css`
-  display: grid;
-  grid-column: main;
-  grid-template-columns: auto 1fr auto;
-  width: 100%;
-  align-items: center;
 `;
 
 export const navMain_Desktop = css`

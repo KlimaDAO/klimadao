@@ -1,35 +1,29 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const pageContainer = css`
-  width: 100vw;
-  max-width: 100vw;
-  height: 100%;
-  overflow: hidden;
-`
-
 export const heroSection = css`
   min-height: 100vh;
-  /* padding: 1.6rem;
-  ${breakpoints.large} {
-    padding: 0 !important;
-  } */
+  width: 100vw;
+  min-width: 100vw;
   .tooltip_underline {
     text-decoration: dotted;
   }
   .hero_blur {
-    z-index: 1;
+    z-index: 11;
     position: absolute;
     width: 521px;
     height: 521px;
     right: 0px;
     top: 411.5px;
-
     background: #0ba1ff;
     filter: blur(800px);
+    display: none;
+    ${breakpoints.medium} {
+      display: flex;
+    }
   }
   .hero_container {
-    z-index: 2;
+    z-index: 4;
     grid-column: main;
     display: flex;
     justify-content: center;
@@ -51,7 +45,7 @@ export const heroSection = css`
   }
 
   .hero_image_container {
-    z-index: 2;
+    z-index: 1;
     position: absolute;
     width: 100%;
     max-width: 100rem;
@@ -77,12 +71,9 @@ export const heroSection = css`
 `;
 
 export const sliderSection = css`
-  /* position: relative; */
-  /* padding: 1.6rem;
-  ${breakpoints.large} {
-    padding: 0 !important;
-  } */
-
+  position: relative;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   .slider_container {
     z-index: 2;
     grid-column: main;
@@ -91,7 +82,6 @@ export const sliderSection = css`
     align-items: center;
     height: 100%;
     width: 100%;
-
   }
 
   .slider_card {
@@ -139,7 +129,7 @@ export const sliderSection = css`
   .slider_cards_container {
     overflow-x: scroll;
     position: relative;
-    width: calc(100% - 2.4rem);
+    width: calc(100% - 4.8rem);
     display: flex;
     gap: 2rem;
     grid-column-start: main;
@@ -147,22 +137,6 @@ export const sliderSection = css`
     grid-column: full;
     padding: 3.4rem 2.4rem 0 2.4rem;
     left: 2.4rem;
-  }
-  .blur-left {
-    height: 38.4rem;
-    width: 2rem;
-    background: linear-gradient(0.25turn, #000, transparent);
-    z-index: 99;
-    position: absolute;
-    left: 0;
-  }
-  .blur-right {
-    height: 38.4rem;
-    width: 2rem;
-    background: linear-gradient(0.25turn, transparent, #000);
-    z-index: 99;
-    position: relative;
-    left: calc(100% - 2rem);
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -208,10 +182,6 @@ export const sliderSection = css`
 
 export const infoSection = css`
   position: relative;
-  /* padding: 1.6rem;
-  ${breakpoints.large} {
-    padding: 0 !important;
-  } */
   .info_blur {
     z-index: 1;
     position: absolute;
@@ -221,6 +191,10 @@ export const infoSection = css`
     bottom: -280px;
     background: #0ba1ff;
     filter: blur(800px);
+    display: none;
+    ${breakpoints.medium} {
+      display: flex;
+    }
   }
   .info_container {
     z-index: 2;
@@ -300,13 +274,12 @@ export const infoSection = css`
 `;
 
 export const whySection = css`
-  /* padding: 1.6rem;
-  ${breakpoints.large} {
-    padding: 0 !important;
-  } */
+  padding-top: 0 !important;
+  position: relative;
   .why_container {
     display: flex;
     grid-column: main;
+    z-index: 1;
     flex-direction: column;
     width: 100%;
     ${breakpoints.large} {
@@ -340,10 +313,6 @@ export const whySection = css`
 
 export const getStartedSection = css`
   position: relative;
-  /* padding: 1.6rem;
-  ${breakpoints.large} {
-    padding: 0 !important;
-  } */
   .getStarted_container {
     display: flex;
     grid-column: main;
@@ -404,7 +373,6 @@ export const getStartedSection = css`
     flex-direction: column;
     padding-right: 0;
     padding-top: 2.4rem;
-    /* animation: pulse 5s infinite; */
     ${breakpoints.large} {
       padding-right: 1.6rem;
       padding-top: 0;
@@ -426,25 +394,10 @@ export const getStartedSection = css`
   .getStarted3 {
     justify-content: flex-start;
   }
-  /* @keyframes pulse {
-    0% {
-      margin-top: 0rem;
-    }
-    50% {
-      margin-top: -1rem;
-    }
-    100% {
-      margin-top: 0rem;
-    }
-  } */
 `;
 export const carouselSection = css`
   position: relative;
   overflow: visible;
-  /* padding: 1.6rem;
-  ${breakpoints.large} {
-    padding: 0 !important;
-  } */
   .carousel_blur {
     z-index: 1;
     position: absolute;
@@ -455,6 +408,10 @@ export const carouselSection = css`
     background: rgba(11, 161, 255, 0.8);
     filter: blur(800px);
     overflow: visible;
+    display: none;
+    ${breakpoints.medium} {
+      display: flex;
+    }
   }
   .carousel_container {
     grid-column: main;
@@ -506,8 +463,8 @@ export const carouselSection = css`
 `;
 export const polygonSection = css`
   overflow: visible;
-  /* padding: 2.4rem; */
-    position: relative;
+  padding-top: 0 !important;
+  position: relative;
   .polygon_blur {
     z-index: 1;
     position: absolute;
@@ -515,9 +472,12 @@ export const polygonSection = css`
     height: 521px;
     left: 66px;
     top: 570px;
-
     background: rgba(11, 161, 255, 0.7);
     filter: blur(800px);
+    display: none;
+    ${breakpoints.medium} {
+      display: flex;
+    }
   }
   .polygon_container {
     z-index: 2;
@@ -528,11 +488,10 @@ export const polygonSection = css`
     gap: 4.8rem;
     flex-direction: column;
     padding: 2.4rem;
-    ${breakpoints.large} {
+    ${breakpoints.desktopLarge} {
       padding: 5.5rem;
       flex-direction: row;
     }
-    
   }
   .polygon_left_container {
     display: flex;
@@ -541,8 +500,13 @@ export const polygonSection = css`
     justify-content: center;
     width: 100%;
     gap: 2.4rem;
-    ${breakpoints.large} {
-      width: 50%;
+    ${breakpoints.desktopLarge} {
+      width: 40%;
+    }
+    button {
+      color: #000;
+      width: min-content;
+      white-space: nowrap;
     }
   }
   .polygon_right_container {
@@ -550,8 +514,8 @@ export const polygonSection = css`
     gap: 2.4rem;
     display: flex;
     flex-wrap: wrap;
-    ${breakpoints.large} {
-      width: 50%;
+    ${breakpoints.desktopLarge} {
+      width: 60%;
     }
   }
   .polygon_full_blox {
@@ -585,7 +549,10 @@ export const polygonSection = css`
     line-height: 72px;
   }
   .polygon_subtitle {
-    color: #9C9C9C;
+    color: #9c9c9c;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
     /* white-space: nowrap; */
   }
 `;
@@ -600,7 +567,6 @@ export const missionSection = css`
     height: 100%;
     overflow: visible;
     top: -5rem;
-    
   }
   .mission_container {
     grid-column: main;
@@ -611,9 +577,9 @@ export const missionSection = css`
     gap: 5.6rem;
     align-items: center;
     padding: 1.6rem;
-  ${breakpoints.large} {
-    padding: 0 !important;
-  }
+    ${breakpoints.large} {
+      padding: 0 !important;
+    }
   }
   .mission_header {
     width: 100%;
@@ -679,7 +645,7 @@ export const featuredSection = css`
   }
 `;
 export const faqSection = css`
-  background: rgba(27, 70, 89, 0.8);
+  background: #1b4659;
   padding-top: 0 !important;
   position: relative;
   .faq_blur {
@@ -690,6 +656,10 @@ export const faqSection = css`
     top: -70px;
     background: rgba(11, 161, 255, 0.8);
     filter: blur(800px);
+    display: none;
+    ${breakpoints.medium} {
+      display: flex;
+    }
   }
   .faq_container {
     grid-column: main;
@@ -770,7 +740,6 @@ export const faqSection = css`
   }
 `;
 export const ctaSection = css`
-  padding-top: 0 !important;
   position: relative;
   .cta_container {
     grid-column: main;
@@ -823,7 +792,10 @@ export const ctaSection = css`
     height: 521px;
     left: calc(50% - 521px / 2 + 349px);
     top: 30px;
-
+    display: none;
+    ${breakpoints.medium} {
+      display: flex;
+    }
     background: rgba(11, 161, 255, 0.8);
     filter: blur(800px);
   }

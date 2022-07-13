@@ -54,6 +54,7 @@ export const Navigation: FC<Props> = ({
             />
           ),
         ]}
+        activePage={activePage}
       >
         <NavItemDesktop
           url={"/buy"}

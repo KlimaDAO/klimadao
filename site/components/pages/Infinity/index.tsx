@@ -115,8 +115,6 @@ export const Infinity: NextPage<Props> = () => {
 
       <Navigation activePage="Infinity" />
 
-      
-
       <Section variant="black" className={styles.heroSection}>
         <div className="hero_blur"></div>
         <div className="hero_container">
@@ -173,8 +171,6 @@ export const Infinity: NextPage<Props> = () => {
       </Section>
       <Section variant="black" className={styles.sliderSection}>
         <div className="slider_cards_container">
-          <div className="blur-left" />
-          <div className="blur-right" />
           {cards.map((card, index) => (
             <div
               className="slider_card"
@@ -410,12 +406,18 @@ export const Infinity: NextPage<Props> = () => {
                 all of the network's future transactions.
               </Text>
             </Trans>
-            <ButtonPrimary label="Read Polygon's Story" />
+            <ButtonPrimary
+              label="Read Polygon's Story"
+              className="polygon_button"
+            />
           </div>
           <div className="polygon_right_container">
             <div className="polygon_full_blox">
               <Trans>
-                <Text t="body6" className="polygon_subtitle"><Image src={logoPolygonInfinity} alt="green polygon logo"/>The offset is part of Polygon's Green Manifesto</Text>
+                <Text t="body6" className="polygon_subtitle">
+                  <Image src={logoPolygonInfinity} alt="green polygon logo" />
+                  The offset is part of Polygon's Green Manifesto
+                </Text>
                 <Text t="body6">
                   By offsetting the historical emissions of their entire
                   network, Polygon has ensured that every single interaction
@@ -427,14 +429,20 @@ export const Infinity: NextPage<Props> = () => {
             </div>
             <div className="polygon_half_blox">
               <Trans>
-                <Text t="body6" className="polygon_subtitle"><Image src={greenCloud} alt="green cloud outline"/> Last Carbon Offset</Text>
+                <Text t="body6" className="polygon_subtitle">
+                  <Image src={greenCloud} alt="green cloud outline" /> Last
+                  Carbon Offset
+                </Text>
                 <Text className="polygon_number">11k</Text>
                 <Text t="body6">Tonnes</Text>
               </Trans>
             </div>
             <div className="polygon_half_blox">
               <Trans>
-                <Text t="body6" className="polygon_subtitle"><Image src={greenFire} alt="green fire outline"/> Total Carbon Retired</Text>
+                <Text t="body6" className="polygon_subtitle">
+                  <Image src={greenFire} alt="green fire outline" /> Total
+                  Carbon Retired
+                </Text>
                 <Text className="polygon_number">104k</Text>
                 <Text t="body6">Tonnes</Text>
               </Trans>
