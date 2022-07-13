@@ -67,7 +67,7 @@ export const Navigation: FC<Props> = ({
         />
         <NavItemDesktop
           url={"/infinity"}
-          name={t({ message: "KlimaInfinity", id: "shared.infity" })}
+          name={t({ message: "Klima Infinity", id: "shared.infity" })}
         />
         <NavItemDesktop
           url={urls.loveletter}
