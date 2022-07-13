@@ -434,10 +434,7 @@ export const Bond: FC<Props> = (props) => {
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: handleBond,
-        disabled:
-          !value ||
-          !bondMax ||
-          Number(bondState?.bondQuote) > bondMax / Number(bondState?.bondPrice),
+        disabled: !value || !bondMax,
       };
     } else if (view === "redeem") {
       return {
