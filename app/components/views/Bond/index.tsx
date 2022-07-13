@@ -98,7 +98,7 @@ interface ButtonProps {
   label: React.ReactElement | string;
   onClick: undefined | (() => void);
   disabled: boolean;
-  variant?: "blue";
+  variant?: "blueRounded";
 }
 
 interface Props {
@@ -431,7 +431,7 @@ export const Bond: FC<Props> = (props) => {
         label: <Trans id="shared.approve">Approve</Trans>,
         disabled: false,
         onClick: handleAllowance,
-        variant: "blue",
+        variant: "blueRounded",
       };
     } else if (view === "bond") {
       return {
