@@ -38,17 +38,14 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
     pledge = data;
   } catch (error) {
-    pledge = DEFAULT_VALUES;
+    pledge = { ...DEFAULT_VALUES, ownerAddress: resolvedAddress };
   }
 
   return {
     props: {
       domain,
       pageAddress: resolvedAddress,
-      pledge: {
-        ...pledge,
-        ownerAddress: pledge?.ownerAddress || resolvedAddress,
-      },
+      pledge,
       translation,
     },
     revalidate: 180,
