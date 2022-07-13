@@ -72,12 +72,8 @@ export const mainLogoMobile = css`
 export const navMain_Desktop = css`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 2.4rem;
-  ${breakpoints.desktopLarge} {
-    justify-content: center;
-    gap: 5.4rem;
-  }
+  justify-content: space-between;
+  padding: 0 0.8rem;
 `;
 
 export const navMain_DesktopLink = css`

@@ -238,6 +238,12 @@ export const infoSection = css`
       order: 2;
     }
   }
+  .info_title_container {
+    padding-bottom: 2.4rem;
+    ${breakpoints.medium} {
+      padding-bottom: 0;
+    }
+  }
   .info_image_box {
     height: 26.4rem;
     position: relative;
@@ -296,8 +302,10 @@ export const whySection = css`
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    padding-bottom: 2.4rem;
     ${breakpoints.large} {
       width: 35%;
+      padding-bottom: 0;
     }
   }
   .why_right_container {
@@ -519,7 +527,6 @@ export const polygonSection = css`
     }
   }
   .polygon_full_blox {
-    height: 27.6rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -528,9 +535,10 @@ export const polygonSection = css`
     gap: 24px;
     background: #000;
     border-radius: 16px;
+    height: min-content;
   }
   .polygon_half_blox {
-    height: 25.6rem;
+    height: min-content;
     width: 100%;
     display: flex;
     flex-direction: column;
