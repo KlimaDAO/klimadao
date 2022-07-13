@@ -100,7 +100,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           )}
 
           <Text t="h2">
-            {props.domain || pledge.name || concatAddress(pledge.ownerAddress)}
+            {pledge.name || props.domain || concatAddress(pledge.ownerAddress)}
           </Text>
 
           <div className={styles.progressContainer}>

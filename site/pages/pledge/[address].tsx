@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import { ethers } from "ethers";
 
 import { loadTranslation } from "lib/i18n";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
@@ -13,14 +14,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { address } = ctx.params as { address: string };
   let pledge;
   let resolvedAddress;
-
   const isDomainInURL = getIsDomainInURL(address);
   const domain = isDomainInURL ? address : null;
 
   try {
-    resolvedAddress = isDomainInURL
-      ? await getAddressByDomain(address)
-      : address;
+    if (!isDomainInURL && !ethers.utils.isAddress(address)) throw new Error('Invalid address');
+    resolvedAddress = isDomainInURL ? await getAddressByDomain(address) : address.toLowerCase();
   } catch {
     return {
       redirect: {
