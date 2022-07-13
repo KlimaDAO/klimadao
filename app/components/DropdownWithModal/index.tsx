@@ -3,9 +3,9 @@ import { StaticImageData } from "components/Image";
 import { Image } from "components/Image";
 
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import Close from "@mui/icons-material/Close";
 
 import { Text } from "@klimadao/lib/components";
+import { Modal } from "components/Modal";
 
 import * as styles from "./styles";
 
@@ -37,7 +37,7 @@ export const DropdownWithModal: FC<Props> = (props) => {
         {props.label}
       </Text>
 
-      <button onClick={props.onToggleModal}>
+      <button className={styles.listItem} onClick={props.onToggleModal}>
         <div className="start_content">
           <Image
             alt={currentItem.label}
@@ -58,7 +58,7 @@ export const DropdownWithModal: FC<Props> = (props) => {
       </button>
 
       {props.isModalOpen && (
-        <Modal
+        <DropdownModal
           title={props.modalTitle}
           currentItem={currentItem}
           items={props.items}
@@ -70,7 +70,7 @@ export const DropdownWithModal: FC<Props> = (props) => {
   );
 };
 
-interface ModalProps {
+interface DropdownModalProps {
   title: string;
   currentItem: Item;
   items: Item[];
@@ -78,49 +78,31 @@ interface ModalProps {
   onToggleModal: () => void;
 }
 
-const Modal = (props: ModalProps) => {
+const DropdownModal = (props: DropdownModalProps) => {
   return (
-    <>
-      <div className={styles.modalBackground} onClick={props.onToggleModal} />
-      <div className={styles.modalContainer}>
-        <div className={styles.modalContent}>
-          <div className="title">
-            <Text>{props.title}</Text>
-            <button onClick={props.onToggleModal}>
-              <Close />
-            </button>
+    <Modal title={props.title} onToggleModal={props.onToggleModal}>
+      {props.items.map((item) => (
+        <button
+          onClick={() => {
+            props.onItemSelect(item.key);
+            props.onToggleModal();
+          }}
+          key={item.label}
+          className={styles.select_button}
+          data-active={item.label === props.currentItem.label && !item.disabled}
+          disabled={item.disabled}
+        >
+          <div className="start_content">
+            <Image alt={item.label} src={item.icon} width={48} height={48} />
+            <Text t="body2">{item.label}</Text>
           </div>
-          {props.items.map((item) => (
-            <button
-              onClick={() => {
-                props.onItemSelect(item.key);
-                props.onToggleModal();
-              }}
-              key={item.label}
-              className="select_button"
-              data-active={
-                item.label === props.currentItem.label && !item.disabled
-              }
-              disabled={item.disabled}
-            >
-              <div className="start_content">
-                <Image
-                  alt={item.label}
-                  src={item.icon}
-                  width={48}
-                  height={48}
-                />
-                <Text t="body2">{item.label}</Text>
-              </div>
-              {item.description && (
-                <Text t="caption" color="lightest">
-                  {item.description}
-                </Text>
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
-    </>
+          {item.description && (
+            <Text t="caption" color="lightest">
+              {item.description}
+            </Text>
+          )}
+        </button>
+      ))}
+    </Modal>
   );
 };
