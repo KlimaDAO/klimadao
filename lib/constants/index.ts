@@ -192,8 +192,11 @@ export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
 export const SANITY_STUDIO_API_DATASET = "production";
 
 /** Tokens accepted as input for the offset aggregator /#/offset */
-export const offsetInputTokens = allowancesContracts["retirementAggregator"];
-export type OffsetInputToken = typeof offsetInputTokens[number];
+export type OffsetInputToken =
+  typeof allowancesContracts["retirementAggregator"][number];
+export const offsetInputTokens = allowancesContracts[
+  "retirementAggregator"
+] as unknown as OffsetInputToken[];
 
 /** Retireable tokens for the offset aggregator /#/offset */
 export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
