@@ -13,7 +13,6 @@ import {
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import { LatestPost } from "lib/queries";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LaunchIcon from "@mui/icons-material/Launch";
@@ -45,32 +44,13 @@ import { cards } from "./cards";
 import * as styles from "./styles";
 
 export interface Props {
-  latestPost: LatestPost;
-  treasuryBalance: number;
-  weeklyStakingRewards: number;
+  fixedThemeName: string;
 }
 
-export const Infinity: NextPage<Props> = () => {
-  // function useOnScreen(ref: any) {
-  //   const [isIntersecting, setIntersecting] = useState(false);
-
-  //   useEffect(() => {
-  //     const observer = new IntersectionObserver(([entry]) =>
-  //       setIntersecting(entry.isIntersecting)
-  //     );
-  //     observer.observe(ref.current);
-  //     // Remove the observer as soon as the component is unmounted
-  //     return () => {
-  //       observer.disconnect();
-  //     };
-  //   }, []);
-  //   return isIntersecting;
-  // }
+export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
   const ref = useRef<null | HTMLDivElement>(null);
   const scrollToRefEnd = useRef<null | HTMLDivElement>(null);
   const scrollToRefStart = useRef<null | HTMLDivElement>(null);
-  // const isVisible = useOnScreen(ref);
-  // console.log(isVisible);
   const scrollToEnd = () =>
     scrollToRefEnd.current &&
     scrollToRefEnd.current.scrollIntoView({
@@ -113,7 +93,7 @@ export const Infinity: NextPage<Props> = () => {
         })}
       />
 
-      <Navigation activePage="Infinity" />
+      <Navigation activePage="Infinity" showThemeToggle={!fixedThemeName} />
 
       <Section variant="black" className={styles.heroSection}>
         <div className="hero_blur"></div>
@@ -145,8 +125,13 @@ export const Infinity: NextPage<Props> = () => {
                 className="hero_button_primary"
                 variant="blueRounded"
                 label="Get started"
+                href="https://klima-dao.notion.site/Welcome-to-Klima-Infinity-f2626cb26a474e879287038662e83e47"
               />
-              <ButtonSecondary variant="blueRounded" label="Contact sales" />
+              <ButtonSecondary
+                variant="blueRounded"
+                label="Contact sales"
+                href="https://notionforms.io/forms/klimadao-request-for-collaboration"
+              />
             </div>
           </div>
         </div>
@@ -361,6 +346,7 @@ export const Infinity: NextPage<Props> = () => {
               className="getStarted_button"
               variant="blueRounded"
               label="Get started"
+              href="https://klima-dao.notion.site/Welcome-to-Klima-Infinity-f2626cb26a474e879287038662e83e47"
             />
           </div>
         </div>
@@ -699,8 +685,16 @@ export const Infinity: NextPage<Props> = () => {
             </Trans>
           </div>
           <div className="cta_right_container">
-            <ButtonPrimary label="Get Started" variant="blueRounded" />
-            <ButtonSecondary label="Contact sales" variant="blueRounded" />
+            <ButtonPrimary
+              label="Get Started"
+              variant="blueRounded"
+              href="https://klima-dao.notion.site/Welcome-to-Klima-Infinity-f2626cb26a474e879287038662e83e47"
+            />
+            <ButtonSecondary
+              label="Contact sales"
+              variant="blueRounded"
+              href="https://notionforms.io/forms/klimadao-request-for-collaboration"
+            />
           </div>
         </div>
       </Section>
