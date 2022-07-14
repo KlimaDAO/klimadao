@@ -28,20 +28,19 @@ export const switchButton = css`
   display: flex;
   justify-content: center;
   background-color: var(--surface-01);
-  border-radius: 0.4rem;
   min-height: 4.8rem;
+
   &:hover {
     opacity: 0.8;
   }
 
   &[data-active="false"] {
     color: var(--font-01);
-    background-color: var(--surface-01);
   }
 
   &[data-active="true"] {
-    background-color: var(--klima-green);
     font-weight: bold;
+    border-bottom: 3px solid var(--klima-green);
   }
 
   &:disabled {
