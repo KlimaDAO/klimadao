@@ -37,6 +37,7 @@ import { Trans, defineMessage } from "@lingui/macro";
 import { BalancesCard } from "components/BalancesCard";
 import { RebaseCard } from "components/RebaseCard";
 import { ImageCard } from "components/ImageCard";
+import { TransactionModal } from "components/TransactionModal";
 
 import * as styles from "./styles";
 import { urls } from "@klimadao/lib/constants";
@@ -71,6 +72,8 @@ export const Stake = (props: Props) => {
   const dispatch = useAppDispatch();
   const [view, setView] = useState<"stake" | "unstake">("stake");
   const [quantity, setQuantity] = useState("");
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
+
   const fullStatus: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
   );
@@ -135,6 +138,11 @@ export const Stake = (props: Props) => {
     } else {
       setQuantity(balances?.sklima ?? "0");
     }
+  };
+
+  const closeModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
   };
 
   const handleApproval = async () => {
@@ -246,45 +254,24 @@ export const Stake = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (
-      status === "userConfirmation" ||
-      status === "networkConfirmation"
-    ) {
-      return {
-        label: <Trans id="shared.confirming">Confirming</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
-    } else if (view === "stake" && !hasApproval("stake")) {
-      return {
-        label: <Trans id="shared.approve">Approve</Trans>,
-        onClick: handleApproval("stake"),
-        disabled: !value,
-      };
-    } else if (view === "unstake" && !hasApproval("unstake")) {
-      return {
-        label: <Trans id="shared.approve">Approve</Trans>,
-        onClick: handleApproval("unstake"),
-        disabled: !value,
-      };
-    } else if (view === "stake" && hasApproval("stake")) {
+    } else if (view === "stake") {
       return {
         label: value ? (
           <Trans id="stake.stake_klima">Stake KLIMA</Trans>
         ) : (
           <Trans id="shared.enter_amount">Enter Amount</Trans>
         ),
-        onClick: handleStake("stake"),
+        onClick: () => setShowTransactionModal(true),
         disabled: !balances?.klima || !value || value > Number(balances.klima),
       };
-    } else if (view === "unstake" && hasApproval("unstake")) {
+    } else if (view === "unstake") {
       return {
         label: value ? (
           <Trans id="stake.unstake_klima">Unstake KLIMA</Trans>
         ) : (
           <Trans id="shared.enter_amount">Enter Amount</Trans>
         ),
-        onClick: handleStake("unstake"),
+        onClick: () => setShowTransactionModal(true),
         disabled:
           !balances?.sklima || !value || value > Number(balances.sklima),
       };
@@ -479,6 +466,25 @@ export const Stake = (props: Props) => {
         </div>
       </div>
 
+      {showTransactionModal && (
+        <TransactionModal
+          title={
+            view === "stake" ? (
+              <Trans id="stake.stake_klima">Stake KLIMA</Trans>
+            ) : (
+              <Trans id="stake.unstake_klima">Unstake KLIMA</Trans>
+            )
+          }
+          onCloseModal={closeModal}
+          token={getToken()}
+          spender={getSpender()}
+          value={quantity.toString()}
+          status={fullStatus}
+          onApproval={handleApproval}
+          hasApproval={hasApproval()}
+          onSubmit={handleStake}
+        />
+      )}
       <ImageCard />
     </>
   );
