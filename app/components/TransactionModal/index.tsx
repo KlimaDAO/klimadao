@@ -150,7 +150,11 @@ export const TransactionModal: FC<Props> = (props) => {
             />
           </>
         )}
-        {!!props.status && <Text>{getStatusMessage(props.status)}</Text>}
+        {!!props.status && (
+          <Text t="caption" color="lighter" align="center">
+            {getStatusMessage(props.status)}
+          </Text>
+        )}
         <div className={styles.buttonRow}>
           {showButtonSpinner ? (
             <div className={styles.buttonRow_spinner}>
