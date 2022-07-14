@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import Close from "@mui/icons-material/Close";
 import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
@@ -6,7 +6,7 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
 interface Props {
-  title: string;
+  title: ReactNode;
   onToggleModal?: () => void;
   className?: string;
 }
