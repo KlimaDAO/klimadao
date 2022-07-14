@@ -662,6 +662,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               className="faq_button"
               variant="blueRounded"
               label="Read in-depth FAQs for KI Clients"
+              href="https://www.klimadao.finance/blog/klima-infinity-faqs"
             />
           </div>
         </div>
