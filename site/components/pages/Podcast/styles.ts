@@ -6,9 +6,9 @@ export const container = css`
     [main-start] minmax(0, 70rem)
     [main-end] minmax(0.8rem, 1fr)
     [full-end];
-    display: grid;
-    padding-top: 0 !important;
-`
+  display: grid;
+  padding-top: 0 !important;
+`;
 
 export const cardsSection = css`
   grid-column: main;
