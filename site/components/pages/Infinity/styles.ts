@@ -20,7 +20,6 @@ export const heroSection = css`
     background-color: #0ba1ff;
     filter: blur(800px);
     @-moz-document url-prefix() {
-      color: red;
       background-color: rgba(11, 161, 255, 0.2);
     }
     display: flex;
@@ -193,8 +192,11 @@ export const infoSection = css`
     height: 492px;
     left: 0px;
     bottom: -280px;
-    background: #0ba1ff;
+    background-color: #0ba1ff;
     filter: blur(800px);
+    @-moz-document url-prefix() {
+      background-color: rgba(11, 161, 255, 0.2);
+    }
     display: none;
     ${breakpoints.medium} {
       display: flex;
@@ -418,8 +420,11 @@ export const carouselSection = css`
     height: 521px;
     left: 0px;
     bottom: -110px;
-    background: rgba(11, 161, 255, 0.8);
+    background-color: rgba(11, 161, 255, 0.8);
     filter: blur(800px);
+    @-moz-document url-prefix() {
+      background-color: rgba(11, 161, 255, 0.2);
+    }
     overflow: visible;
     display: none;
     ${breakpoints.medium} {
@@ -485,8 +490,11 @@ export const polygonSection = css`
     height: 521px;
     left: 66px;
     top: 570px;
-    background: rgba(11, 161, 255, 0.7);
     filter: blur(800px);
+    background-color: rgba(11, 161, 255, 0.7);
+    @-moz-document url-prefix() {
+      background-color: rgba(11, 161, 255, 0.2);
+    }
     display: none;
     ${breakpoints.medium} {
       display: flex;
@@ -667,8 +675,11 @@ export const faqSection = css`
     height: 521px;
     left: 30px;
     top: -70px;
-    background: rgba(11, 161, 255, 0.8);
+    background-color: rgba(11, 161, 255, 0.8);
     filter: blur(800px);
+    @-moz-document url-prefix() {
+      background-color: rgba(11, 161, 255, 0.2);
+    }
     display: none;
     ${breakpoints.medium} {
       display: flex;
@@ -810,7 +821,10 @@ export const ctaSection = css`
     ${breakpoints.medium} {
       display: flex;
     }
-    background: rgba(11, 161, 255, 0.8);
+    background-color: rgba(11, 161, 255, 0.8);
+    @-moz-document url-prefix() {
+      background-color: rgba(11, 161, 255, 0.2);
+    }
     filter: blur(800px);
   }
 `;
