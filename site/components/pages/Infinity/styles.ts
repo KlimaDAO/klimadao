@@ -5,6 +5,8 @@ export const heroSection = css`
   min-height: 100vh;
   width: 100vw;
   min-width: 100vw;
+  grid-column: full;
+  position: relative;
   .tooltip_underline {
     text-decoration: dotted;
   }
@@ -15,9 +17,13 @@ export const heroSection = css`
     height: 521px;
     right: 0px;
     top: 411.5px;
-    background: #0ba1ff;
+    background-color: #0ba1ff;
     filter: blur(800px);
-    display: none;
+    @-moz-document url-prefix() {
+      color: red;
+      background-color: rgba(11, 161, 255, 0.2);
+    }
+    display: flex;
     ${breakpoints.medium} {
       display: flex;
     }
@@ -65,9 +71,6 @@ export const heroSection = css`
       grid-template-rows: unset;
     }
   }
-
-  ${breakpoints.desktopLarge} {
-  }
 `;
 
 export const sliderSection = css`
@@ -75,7 +78,7 @@ export const sliderSection = css`
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   .slider_container {
-    z-index: 2;
+    z-index: 12;
     grid-column: main;
     display: flex;
     justify-content: space-between;
@@ -129,6 +132,7 @@ export const sliderSection = css`
   .slider_cards_container {
     overflow-x: scroll;
     position: relative;
+    z-index: 12;
     width: calc(100% - 4.8rem);
     display: flex;
     gap: 2rem;
@@ -346,6 +350,7 @@ export const getStartedSection = css`
       width: 65%;
       flex-direction: row;
       order: 1;
+      gap: 1.6rem;
     }
   }
   .getStarted_right_container {
@@ -749,6 +754,7 @@ export const faqSection = css`
 `;
 export const ctaSection = css`
   position: relative;
+  overflow: hidden;
   .cta_container {
     grid-column: main;
     display: flex;
