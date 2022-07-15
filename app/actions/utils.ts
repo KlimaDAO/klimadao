@@ -45,11 +45,8 @@ export const getKNS = async (params: {
   contract: Contract;
 }): Promise<Domain | null> => {
   try {
-    // const domainName = await params.contract.defaultNames(params.address);
-    // if (!domainName) return null;
-    const domainName = await params.contract.defaultNames(
-      "0x293Ed38530005620e4B28600f196a97E1125dAAc".toLowerCase()
-    );
+    const domainName = await params.contract.defaultNames(params.address);
+    if (!domainName) return null;
 
     const domainData = await params.contract.getDomainData(domainName);
     const parsedDomainData = domainData ? JSON.parse(domainData) : null;
