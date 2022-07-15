@@ -93,7 +93,7 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
-  // So unwrap never needs a Approval ???? Where is that?
+  // Approval only needed for wrap, not for unwrap !
   const handleApproval = () => async () => {
     if (!props.provider) return;
     try {
@@ -142,8 +142,13 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
+  // Approval only needed for wrap, not for unwrap
   const hasApproval = () => {
-    return !!wrapAllowance && !!Number(wrapAllowance.sklima);
+    return (
+      !!wrapAllowance &&
+      !!Number(wrapAllowance.sklima) &&
+      Number(quantity) <= Number(wrapAllowance.sklima)
+    ); // Caution: Number trims values down to 17 decimal places of precision;
   };
 
   const getButtonProps = () => {
