@@ -246,7 +246,7 @@ export const Offset = (props: Props) => {
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
-      const value = quantity.toString();
+      const value = cost.toString();
       const approvedValue = await changeApprovalTransaction({
         value,
         provider: props.provider,
