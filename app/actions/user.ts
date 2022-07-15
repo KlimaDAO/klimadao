@@ -15,7 +15,7 @@ import {
   setDomains,
 } from "state/user";
 
-import { getKns, getEns } from "./utils";
+import { getKNS, getENS } from "./utils";
 
 export const loadAccountDetails = (params: {
   provider: providers.JsonRpcProvider;
@@ -70,11 +70,11 @@ export const loadAccountDetails = (params: {
       });
 
       //domains
-      const knsDomain = await getKns({
+      const knsDomain = await getKNS({
         address: params.address,
         contract: klimaDomainContract,
       });
-      const ensDomain = await getEns({ address: params.address });
+      const ensDomain = await getENS({ address: params.address });
 
       // balances
       const balances = [

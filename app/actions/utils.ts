@@ -33,104 +33,74 @@ export const getStatusMessage = (status: AppNotificationStatus) => {
   }
   return null;
 };
-export const getKns = async (params: {
+
+type DefaultDomainData = {
+  name: string;
+  description: string;
+  image: string;
+};
+
+export const getKNS = async (params: {
   address: string;
   contract: Contract;
 }): Promise<Domain | null> => {
-  const domain: any = {};
   try {
-    const domainName = await params.contract.defaultNames(params.address);
-    // what do we do if this is false? assume trickery and shame them?
-    const isNameVerified =
-      (await params.contract.getDomainHolder(domainName)) === params.address;
-    if (!isNameVerified || !domainName) return null;
-    domain.name = `${domainName}.klima`;
-    const customImage = await params.contract.getDomainData(domainName);
-    const imageUrl = customImage
-      ? JSON.parse(customImage).imgAddress ?? undefined
-      : undefined;
-    if (customImage && imageUrl) {
-      domain.image = JSON.parse(customImage).imgAddress;
-    } else {
-      const domains = await params.contract.domains(domainName);
-      const tokenId = domains.tokenId;
-      // if no image is in getDomainData get metadata from tokenURI and parse+decode it
-      const domainData = await params.contract.tokenURI(tokenId);
-      const domainDataDecoded = parseURL(domainData);
-      const domainMetadata = atob(domainDataDecoded!.data);
-      // base64 decode metadata and get default image
-      const decodedDefaultImage = atob(
-        parseURL(JSON.parse(domainMetadata).image)!.data
-      );
-      domain.defaultImage = decodedDefaultImage;
-    }
-  } catch (error: any) {
-    console.log("kns error", error);
-  }
-  return domain;
-};
-export const getEns = async (params: { address: string }): Promise<Domain> => {
-  const ethProvider = ethers.getDefaultProvider(1);
-  const ens: any = {};
-  try {
-    const ensDomain: string | null = await ethProvider.lookupAddress(
-      params.address
+    // const domainName = await params.contract.defaultNames(params.address);
+    // if (!domainName) return null;
+    const domainName = await params.contract.defaultNames(
+      "0x293Ed38530005620e4B28600f196a97E1125dAAc".toLowerCase()
     );
-    if (ensDomain) {
-      const avatar = ethProvider.getAvatar(ensDomain);
-      ens.avatar = avatar;
+
+    const domainData = await params.contract.getDomainData(domainName);
+    const parsedDomainData = domainData ? JSON.parse(domainData) : null;
+    const customKnsImage = parsedDomainData
+      ? parsedDomainData.imgAddress
+      : null;
+
+    if (customKnsImage) {
+      return {
+        name: `${domainName}.klima`,
+        imageUrl: customKnsImage,
+      };
+    } else {
+      // return default domain image if custom kns profile image not set by owner
+      const domainStruct = await params.contract.domains(domainName);
+      const tokenURI: string = await params.contract.tokenURI(
+        domainStruct.tokenId
+      );
+      const defaultDomainData: DefaultDomainData = await (
+        await fetch(tokenURI)
+      ).json();
+
+      return {
+        name: `${domainName}.klima`,
+        imageUrl: defaultDomainData.image,
+      };
     }
-    if (ensDomain) {
-      ens.name = `${ensDomain}`;
-    }
-  } catch (error: any) {
-    console.log("ens error", error);
+  } catch (error) {
+    console.log("getKNS error", error);
+    return Promise.reject(error);
   }
-  return ens;
 };
 
-interface ParsedDataUrl {
-  data: string;
-  contentType: string;
-  mediaType: string;
-  base64: string;
-}
+export const getENS = async (params: {
+  address: string;
+}): Promise<Domain | null> => {
+  try {
+    const ethProvider = ethers.getDefaultProvider();
+    const ensDomain = await ethProvider.lookupAddress(params.address);
+    const imageUrl = ensDomain ? await ethProvider.getAvatar(ensDomain) : null;
 
-// urls are returned as data url so this parses the url and returns an object of type ParsedDataUrl
-const parseURL = (url: string): ParsedDataUrl | undefined => {
-  const regex =
-    /^data:([a-z]+\/[a-z0-9-+.]+(;[a-z0-9-.!#$%*+.{}|~`]+=[a-z0-9-.!#$%*+.{}()|~`]+)*)?(;base64)?,([a-z0-9!$&',()*+;=\-._~:@\/?%\s<>]*?)$/i;
-  if (!regex.test((url || "").trim())) {
-    return undefined;
+    if (ensDomain && imageUrl) {
+      return {
+        name: ensDomain,
+        imageUrl,
+      };
+    }
+
+    return null;
+  } catch (error) {
+    console.log("getENS error", error);
+    return Promise.reject(error);
   }
-  const parts = url.trim().match(regex);
-  const parsed: any = {};
-  if (!parts) {
-    return undefined;
-  }
-  if (parts[1]) {
-    parsed.mediaType = parts[1].toLowerCase();
-
-    const mediaTypeParts = parts[1]
-      .split(";")
-      .map((x: string) => x.toLowerCase());
-
-    parsed.contentType = mediaTypeParts[0];
-
-    mediaTypeParts.slice(1).forEach((attribute) => {
-      const p = attribute.split("=");
-      parsed[p[0]] = p[1];
-    });
-  }
-
-  parsed.base64 = !!parts[parts.length - 2];
-  parsed.data = parts[parts.length - 1] || "";
-
-  parsed.toBuffer = () => {
-    const encoding = parsed.base64 ? "base64" : "utf8";
-
-    return Buffer.from(parsed.data, encoding);
-  };
-
-  return parsed;
 };

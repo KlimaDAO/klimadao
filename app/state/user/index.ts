@@ -58,8 +58,7 @@ export interface UserState {
 }
 export interface Domain {
   name: string;
-  image?: string;
-  defaultImage?: string;
+  imageUrl: string;
 }
 
 const initialState: UserState = {
