@@ -1,5 +1,15 @@
 import { css } from "@emotion/css";
 
+export const container = css`
+  grid-template-columns:
+    [full-start] minmax(0.8rem, 1fr)
+    [main-start] minmax(0, 70rem)
+    [main-end] minmax(0.8rem, 1fr)
+    [full-end];
+    display: grid;
+    padding-top: 0 !important;
+`
+
 export const cardsSection = css`
   grid-column: main;
   padding-bottom: 5rem;

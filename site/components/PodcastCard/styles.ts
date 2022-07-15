@@ -53,10 +53,12 @@ export const image = css`
   height: 100%;
   align-items: center;
   justify-content: center;
+  div {
+    width: 100%;
+  }
   ${breakpoints.large} {
     min-height: unset;
     div {
-      width: 100%;
       padding-right: 1.6rem;
     }
   }

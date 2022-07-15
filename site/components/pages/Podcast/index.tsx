@@ -38,7 +38,7 @@ export const Podcast: FC<Props> = (props) => {
       })}
       mediaImageSrc={urls.mediaImage}
     >
-      <Section variant="gray">
+      <Section variant="gray" className={styles.container}>
         <div className={styles.cardsSection}>
           <Text t="h4" className={styles.articles}>
             <Trans>Episodes</Trans>
