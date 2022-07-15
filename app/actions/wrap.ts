@@ -22,7 +22,7 @@ export const changeApprovalTransaction = async (params: {
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
-    return formatUnits(value);
+    return formatUnits(value, 9);
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");
