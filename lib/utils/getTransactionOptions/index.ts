@@ -10,7 +10,7 @@ export const getGasPrice = async () => {
       const targetGasPrice = (
         parseFloat(data.result.FastGasPrice) * 1.1
       ).toFixed(2);
-      return ethers.utils.parseUnits(targetGasPrice.toString(), 18);
+      return ethers.utils.parseUnits(targetGasPrice.toString(), 9);
     }
   } catch (error) {
     console.error(error);
