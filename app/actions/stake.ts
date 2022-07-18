@@ -1,6 +1,7 @@
 import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
 import { addresses } from "@klimadao/lib/constants";
+import { getTransactionOptions } from "@klimadao/lib/utils";
 
 import { formatUnits, getContract } from "@klimadao/lib/utils";
 
@@ -49,6 +50,7 @@ export const changeStakeTransaction = async (params: {
 }) => {
   try {
     const parsedValue = ethers.utils.parseUnits(params.value, "gwei");
+    const transactionOptions = await getTransactionOptions();
     const contract = {
       stake: getContract({
         contractName: "staking_helper",
@@ -62,7 +64,7 @@ export const changeStakeTransaction = async (params: {
     params.onStatus("userConfirmation", "");
     const txn =
       params.action === "stake"
-        ? await contract.stake(parsedValue)
+        ? await contract.stake(parsedValue, transactionOptions)
         : await contract.unstake(parsedValue, true); // always trigger rebase because gas is cheap
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
