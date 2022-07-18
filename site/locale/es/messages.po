@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-18 18:54+0000\n"
+"POT-Creation-Date: 2022-07-18 18:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,6 +18,10 @@ msgstr "Cambiar idioma"
 #: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "Entrar a la aplicación"
+
+#: components/pages/Podcast/index.tsx:44
+msgid "Episodes"
+msgstr ""
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
@@ -658,6 +662,19 @@ msgstr "<0>BIENVENIDO A</0> <1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Invierte en el futuro."
 
+#: components/pages/Podcast/index.tsx:21
+msgid "podcast.head.description"
+msgstr ""
+
+#: components/pages/Podcast/index.tsx:19
+msgid "podcast.head.headline"
+msgstr ""
+
+#: components/pages/Podcast/index.tsx:18
+#: components/pages/Podcast/index.tsx:33
+msgid "podcast.head.title"
+msgstr ""
+
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
 msgstr "KlimaDAO está incentivando la sostenibilidad y catalizando un mercado de carbono más transparente y líquido. Nuestras herramientas hacen posible que cualquier persona o empresa comercie y retire activos de carbono de calidad en el Blockchain."
@@ -835,7 +852,7 @@ msgstr "404 Pagina no encontrada"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:64
+#: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Blog"
 
@@ -849,19 +866,19 @@ msgstr "Aplicación"
 msgid "shared.buy"
 msgstr "Comprar"
 
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:70
+#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
 msgstr "Comunidad"
 
 #: components/Footer/index.tsx:54
-#: components/pages/Resources/ResourcesHeader/index.tsx:76
+#: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Contacto"
 
 #: components/pages/Resources/Community/index.tsx:109
 #: components/pages/Resources/Community/index.tsx:393
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:62
 msgid "shared.contact_us"
 msgstr "Contáctenos"
 
@@ -880,6 +897,7 @@ msgstr "Entrar a la aplicación"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:63
+#: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -893,6 +911,11 @@ msgstr "Casa"
 #: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:93
+msgid "shared.podcast"
+msgstr ""
 
 #: components/Navigation/index.tsx:61
 #: components/Navigation/index.tsx:86

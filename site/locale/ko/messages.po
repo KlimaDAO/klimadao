@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-18 18:54+0000\n"
+"POT-Creation-Date: 2022-07-18 18:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,6 +17,10 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:272
 msgid "Enter App"
+msgstr ""
+
+#: components/pages/Podcast/index.tsx:44
+msgid "Episodes"
 msgstr ""
 
 #. Long sentence
@@ -650,6 +654,19 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
+#: components/pages/Podcast/index.tsx:21
+msgid "podcast.head.description"
+msgstr ""
+
+#: components/pages/Podcast/index.tsx:19
+msgid "podcast.head.headline"
+msgstr ""
+
+#: components/pages/Podcast/index.tsx:18
+#: components/pages/Podcast/index.tsx:33
+msgid "podcast.head.title"
+msgstr ""
+
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
 msgstr ""
@@ -827,7 +844,7 @@ msgstr ""
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:64
+#: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr ""
 
@@ -841,19 +858,19 @@ msgstr ""
 msgid "shared.buy"
 msgstr ""
 
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:70
+#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
 msgstr ""
 
 #: components/Footer/index.tsx:54
-#: components/pages/Resources/ResourcesHeader/index.tsx:76
+#: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:109
 #: components/pages/Resources/Community/index.tsx:393
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:62
 msgid "shared.contact_us"
 msgstr ""
 
@@ -872,6 +889,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:63
+#: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -884,6 +902,11 @@ msgstr ""
 #: components/Navigation/index.tsx:57
 #: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
+msgstr ""
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:93
+msgid "shared.podcast"
 msgstr ""
 
 #: components/Navigation/index.tsx:61
