@@ -557,7 +557,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Image src={logoTheTimes} alt="" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoYahoo} alt="" />
+              <Image src={logoYahoo} alt="" layout="intrinsic" />
             </div>
           </div>
         </div>

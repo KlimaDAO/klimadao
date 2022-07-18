@@ -524,11 +524,11 @@ export const polygonSection = css`
     ${breakpoints.desktopLarge} {
       width: 40%;
     }
-    button {
-      color: #000;
-      width: min-content;
+  }
+  .polygon_button {
+    color: #000 !important;
+    width: min-content;
       white-space: nowrap;
-    }
   }
   .polygon_right_container {
     width: 100%;
