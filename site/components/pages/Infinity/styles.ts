@@ -772,6 +772,7 @@ export const faqSection = css`
   }
   .faq_title {
     padding-bottom: 4.8rem;
+    text-align: left;
   }
   .faq_button {
     width: 100%;
@@ -802,6 +803,10 @@ export const ctaSection = css`
     flex-direction: column;
     padding-right: 0;
     position: relative;
+    padding-bottom: 2.4rem;
+    ${breakpoints.large} {
+      padding-bottom: 0;
+    }
     ${breakpoints.large} {
       width: 50%;
       padding-right: 10%;

@@ -573,7 +573,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           <div className="faq_question_container">
             <div className="faq_title_container">
               <Trans id="faq.question1">
-                <Text>1. What is a carbon offset?</Text>
+                <Text t="body7">1. What is a carbon offset?</Text>
               </Trans>
               <Text
                 className="faq_expand"
@@ -604,7 +604,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           <div className="faq_question_container">
             <div className="faq_title_container">
               <Trans id="faq.question2">
-                <Text>
+                <Text t="body7">
                   2. How does offsetting help in the fight against climate
                   change?
                 </Text>
@@ -654,7 +654,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           <div className="faq_question_container">
             <div className="faq_title_container">
               <Trans id="faq.question3">
-                <Text>3. What are carbon markets?</Text>
+                <Text t="body7">3. What are carbon markets?</Text>
               </Trans>
               <Text
                 className="faq_expand"

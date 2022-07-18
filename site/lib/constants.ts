@@ -15,8 +15,7 @@ export const API_BASE_URL = IS_LOCAL_DEVELOPMENT
   ? "http://localhost:3000"
   : urls.home;
 
-export const LINK_INFINITY_GET_STARTED =
-  "https://klima-dao.notion.site/Welcome-to-Klima-Infinity-f2626cb26a474e879287038662e83e47";
+export const LINK_INFINITY_GET_STARTED = "/blog/klima-infinity-user-guide";
 export const LINK_POLYGON_BLOG =
   "/blog/polygon-goes-carbon-neutral-via-klimadao";
 export const LINK_BLOG = "/blog";
