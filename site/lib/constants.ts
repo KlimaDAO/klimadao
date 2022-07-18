@@ -14,3 +14,12 @@ export const MONTH_IN_SECONDS = 2592000;
 export const API_BASE_URL = IS_LOCAL_DEVELOPMENT
   ? "http://localhost:3000"
   : urls.home;
+
+export const LINK_INFINITY_GET_STARTED =
+  "https://klima-dao.notion.site/Welcome-to-Klima-Infinity-f2626cb26a474e879287038662e83e47";
+export const LINK_POLYGON_BLOG =
+  "/blog/polygon-goes-carbon-neutral-via-klimadao";
+export const LINK_BLOG = "/blog";
+export const LINK_INFINITY_FAQ = "/blog/klima-infinity-faqs";
+export const LINK_INFINITY_CONTACT_SLAES =
+  "https://notionforms.io/forms/klimadao-request-for-collaboration";

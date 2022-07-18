@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
-// import Link from "next/link";
 import { Trans, t } from "@lingui/macro";
 import {
   Section,
@@ -43,6 +42,13 @@ import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 import { cards } from "./cards";
 import * as styles from "./styles";
 
+import {
+  LINK_INFINITY_GET_STARTED,
+  LINK_POLYGON_BLOG,
+  LINK_BLOG,
+  LINK_INFINITY_FAQ,
+  LINK_INFINITY_CONTACT_SLAES,
+} from "../../../lib/constants";
 export interface Props {
   fixedThemeName: string;
 }
@@ -125,12 +131,12 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                 className="hero_button_primary"
                 variant="blueRounded"
                 label="Get started"
-                href="https://klima-dao.notion.site/Welcome-to-Klima-Infinity-f2626cb26a474e879287038662e83e47"
+                href={LINK_INFINITY_GET_STARTED}
               />
               <ButtonSecondary
                 variant="blueRounded"
                 label="Contact sales"
-                href="https://notionforms.io/forms/klimadao-request-for-collaboration"
+                href={LINK_INFINITY_CONTACT_SLAES}
               />
             </div>
           </div>
@@ -245,7 +251,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                 <Trans id="infinity.transparent">
                   <Text t="body4">Immutably recorded on the blockchain</Text>
                   <Text t="h2_alt" className="info_image_title">
-                    Tranparent
+                    Transparent
                   </Text>
                 </Trans>
               </div>
@@ -339,14 +345,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           <div className="getStarted_right_container">
             <Trans id="infinity.getStarted_cta">
               <Text t="h2_alt">
-                Accelerate your path to Net Zero - and beyond
+                Accelerate your path to carbon neutral - and beyond
               </Text>
             </Trans>
             <ButtonPrimary
               className="getStarted_button"
               variant="blueRounded"
               label="Get started"
-              href="https://klima-dao.notion.site/Welcome-to-Klima-Infinity-f2626cb26a474e879287038662e83e47"
+              href={LINK_INFINITY_GET_STARTED}
             />
           </div>
         </div>
@@ -395,6 +401,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             <ButtonPrimary
               label="Read Polygon's Story"
               className="polygon_button"
+              href={LINK_POLYGON_BLOG}
             />
           </div>
           <div className="polygon_right_container">
@@ -516,6 +523,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           <ButtonPrimary
             label="Visit the KlimaDAO Blog"
             variant="blueRounded"
+            href={LINK_BLOG}
           />
         </div>
       </Section>
@@ -585,9 +593,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             >
               <Trans id="faq.answer1">
                 <Text t="body6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                  aliquam, purus sit amet luctus venenatis, lectus magna
-                  fringilla urna, porttitor
+                  A carbon offset unit represents the removal of one tonne of
+                  carbon dioxide equivalent (tCO2e) from the atmosphere, or the
+                  avoidance of one tonne of emissions.
                 </Text>
               </Trans>
             </div>
@@ -619,9 +627,25 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             >
               <Trans id="faq.answer2">
                 <Text t="body6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                  aliquam, purus sit amet luctus venenatis, lectus magna
-                  fringilla urna, porttitor
+                  Carbon credits are a high-integrity mechanism that allow
+                  carbon finance to flow from those who pollute, to projects
+                  across the globe that help to mitigate or remove carbon from
+                  the atmosphere. They are a valuable tool to cover
+                  hard-to-abate emissions that may be costly or technically
+                  challenging to eliminate today.
+                  <br />
+                  <br />
+                  When you purchase a carbon credit, Klima Infinity enables you
+                  to retire this carbon credit, permanently removing it from
+                  circulation. This retirement is the point at which you can
+                  claim the benefit of the carbon offset.
+                  <br />
+                  <br />
+                  Purchased offsets lead to measurable and accountable emissions
+                  reductions elsewhere in the economy, and can be used to
+                  ‘offset’ an unavoidable carbon footprint. The trade and
+                  retirement of carbon credits enables a market mechanism to
+                  emerge that puts a price on carbon.
                 </Text>
               </Trans>
             </div>
@@ -650,9 +674,13 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             >
               <Trans id="faq.answer3">
                 <Text t="body6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                  aliquam, purus sit amet luctus venenatis, lectus magna
-                  fringilla urna, porttitor
+                  The objective of carbon markets is to reduce greenhouse gas
+                  (GHG, or “carbon”) emissions cost-effectively by setting
+                  limits on emissions and enabling the trading of emission
+                  units, which are financial instruments representing emission
+                  reductions. Trading enables entities that can reduce emissions
+                  at lower cost to be paid to do so by higher-cost emitters,
+                  thus lowering the economic cost of reducing emissions.
                 </Text>
               </Trans>
             </div>
@@ -662,7 +690,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               className="faq_button"
               variant="blueRounded"
               label="Read in-depth FAQs for KI Clients"
-              href="https://www.klimadao.finance/blog/klima-infinity-faqs"
+              href={LINK_INFINITY_FAQ}
             />
           </div>
         </div>
@@ -689,12 +717,12 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             <ButtonPrimary
               label="Get Started"
               variant="blueRounded"
-              href="https://klima-dao.notion.site/Welcome-to-Klima-Infinity-f2626cb26a474e879287038662e83e47"
+              href={LINK_INFINITY_GET_STARTED}
             />
             <ButtonSecondary
               label="Contact sales"
               variant="blueRounded"
-              href="https://notionforms.io/forms/klimadao-request-for-collaboration"
+              href={LINK_INFINITY_CONTACT_SLAES}
             />
           </div>
         </div>
