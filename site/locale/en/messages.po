@@ -710,7 +710,7 @@ msgstr "<0>Support high quality projects</0><1>Drive funding to projects that mo
 
 #: components/pages/Infinity/index.tsx:207
 msgid "infinity.fast"
-msgstr "<0>Offset in seconds, with no red tape</0><1>Fast</1>"
+msgstr "<0>Offset in seconds, with <1/> no red tape</0><2>Fast</2>"
 
 #: components/pages/Infinity/index.tsx:346
 msgid "infinity.getStarted_cta"

@@ -267,11 +267,29 @@ export const infoSection = css`
       width: 80%;
     }
   }
+  .info_br {
+    display: none;
+    ${breakpoints.medium} {
+      display: block;
+    }
+    ${breakpoints.large} {
+      display: none;
+    }
+  }
   .info_image_description {
     z-index: 999;
-    bottom: -3.2rem;
-    left: 3.2rem;
+    bottom: -2.2rem;
+    left: 2.2rem;
+    white-space: pre-wrap;
+    ${breakpoints.medium} {
+      bottom: -3.2rem;
+      left: 3.2rem;
+    }
     ${breakpoints.large} {
+      left: 3.8rem;
+      bottom: -3.8rem;
+    }
+    ${breakpoints.desktopLarge} {
       left: 4.8rem;
       bottom: -4.8rem;
     }
@@ -528,7 +546,7 @@ export const polygonSection = css`
   .polygon_button {
     color: #000 !important;
     width: min-content;
-      white-space: nowrap;
+    white-space: nowrap;
   }
   .polygon_right_container {
     width: 100%;
