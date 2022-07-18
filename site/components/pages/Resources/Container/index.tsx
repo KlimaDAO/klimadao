@@ -5,13 +5,13 @@ import { Footer } from "components/Footer";
 
 import { ResourcesHeader } from "../ResourcesHeader";
 
-type PageName = "blog" | "community" | "contact";
+type PageName = "blog" | "community" | "contact" | "podcast";
 
 export type Props = PropsWithChildren<ReactNode> & {
   activePage: PageName;
   title: string;
   headline: string;
-  subline: string;
+  subline: JSX.Element | string;
   mediaTitle: string;
   metaDescription: string;
   mediaImageSrc: string;

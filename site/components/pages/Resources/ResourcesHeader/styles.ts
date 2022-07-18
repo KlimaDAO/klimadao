@@ -51,6 +51,7 @@ export const navigationMobile = css`
   display: flex;
   gap: 0.8rem;
   justify-content: center;
+  flex-wrap: wrap;
   a {
     width: 10rem;
     max-width: 10rem;
