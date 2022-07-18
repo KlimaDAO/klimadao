@@ -6,11 +6,13 @@ import { getTransactionOptions } from "@klimadao/lib/utils";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
+  value: string;
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
   action: "stake" | "unstake";
 }): Promise<string> => {
   try {
+    const parsedValue = ethers.utils.parseUnits(params.value, 9);
     const contract = {
       stake: getContract({
         contractName: "klima",
@@ -25,19 +27,19 @@ export const changeApprovalTransaction = async (params: {
       stake: addresses["mainnet"].staking_helper,
       unstake: addresses["mainnet"].staking,
     }[params.action];
-    const value = ethers.utils.parseUnits("1000000000", "gwei"); //bignumber
     params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(address, value.toString());
+    const txn = await contract.approve(address, parsedValue.toString());
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Transaction approved successfully");
-    return formatUnits(value, 9);
+    return formatUnits(parsedValue, 9);
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");
       throw error;
     }
     params.onStatus("error");
+    console.error("Error in changeApprovalTransaction", error);
     throw error;
   }
 };
@@ -69,6 +71,7 @@ export const changeStakeTransaction = async (params: {
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Transaction confirmed");
+    return formatUnits(parsedValue, 9);
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");

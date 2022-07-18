@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 
-import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
 import {
@@ -16,13 +15,15 @@ import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 
 import {
+  selectNotificationStatus,
+  selectLocale,
   selectAppState,
-  selectExerciseAllowance,
+  selectAllowancesWithParams,
   selectPklimaTerms,
 } from "state/selectors";
-import { redeemPklima, setExerciseAllowance } from "state/user";
+import { redeemPklima, setAllowance, decrementAllowance } from "state/user";
 import { useAppDispatch } from "state";
-
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import {
   exerciseTransaction,
   changeApprovalTransaction,
@@ -58,11 +59,19 @@ export const PKlima: FC<Props> = (props) => {
 
   const locale = useSelector(selectLocale);
   const { currentIndex } = useSelector(selectAppState);
-  const allowances = useSelector(selectExerciseAllowance);
+  const exerciseAllowances = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["bct", "pklima"],
+      spender: "pklima_exercise",
+    })
+  );
   const terms = useSelector(selectPklimaTerms);
 
   const indexAdjustedClaim = Number(terms?.claimed) * Number(currentIndex);
-  const isLoading = !allowances || typeof allowances.pklima === "undefined";
+  const isLoading =
+    !exerciseAllowances ||
+    !exerciseAllowances?.bct ||
+    !exerciseAllowances?.pklima;
   const showSpinner =
     isConnected &&
     (status === "userConfirmation" ||
@@ -88,12 +97,20 @@ export const PKlima: FC<Props> = (props) => {
   const handleApproval = (action: "pklima" | "bct") => async () => {
     if (!provider) return;
     try {
-      const value = await changeApprovalTransaction({
+      const currentQuantity = quantity.toString();
+      const approvedValue = await changeApprovalTransaction({
+        value: currentQuantity,
         provider,
         action,
         onStatus: setStatus,
       });
-      dispatch(setExerciseAllowance({ [action]: value }));
+      dispatch(
+        setAllowance({
+          token: action,
+          spender: "pklima_exercise",
+          value: approvedValue,
+        })
+      );
     } catch (e) {
       return;
     }
@@ -104,20 +121,28 @@ export const PKlima: FC<Props> = (props) => {
     try {
       const value = quantity.toString();
       setQuantity("");
-      await exerciseTransaction({
+      const approvedValue = await exerciseTransaction({
         value,
         provider,
         onStatus: setStatus,
       });
-      dispatch(redeemPklima(value));
+      dispatch(redeemPklima(approvedValue));
+      dispatch(
+        decrementAllowance({
+          token: "bct",
+          spender: "pklima_exercise",
+          value: approvedValue,
+        })
+      );
     } catch (e) {
       return;
     }
   };
 
   const hasApproval = (token: "pklima" | "bct") => {
-    if (token === "pklima") return allowances && !!Number(allowances.pklima);
-    return allowances && !!Number(allowances.bct);
+    if (token === "pklima")
+      return !!exerciseAllowances && !!Number(exerciseAllowances.pklima);
+    return !!exerciseAllowances && !!Number(exerciseAllowances.bct);
   };
 
   const getButtonProps = () => {

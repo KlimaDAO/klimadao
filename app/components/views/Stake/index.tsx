@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
-import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
@@ -12,11 +11,20 @@ import {
   changeStakeTransaction,
 } from "actions/stake";
 import { useAppDispatch } from "state";
-import { incrementStake, decrementStake, setStakeAllowance } from "state/user";
+
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
+import {
+  incrementStake,
+  decrementAllowance,
+  decrementStake,
+  setAllowance,
+} from "state/user";
 import {
   selectAppState,
+  selectNotificationStatus,
+  selectLocale,
   selectBalances,
-  selectStakeAllowance,
+  selectAllowancesWithParams,
 } from "state/selectors";
 
 import {
@@ -79,11 +87,22 @@ export const Stake = (props: Props) => {
   const { fiveDayRate, currentIndex, stakingAnnualPercent } =
     useSelector(selectAppState);
 
-  const stakeAllowance = useSelector(selectStakeAllowance);
+  const stakeAllowance = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["klima"],
+      spender: "staking_helper",
+    })
+  );
+  const unstakeAllowance = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["sklima"],
+      spender: "staking",
+    })
+  );
+
   const balances = useSelector(selectBalances);
 
-  const isLoading =
-    !stakeAllowance || typeof stakeAllowance.klima === "undefined";
+  const isLoading = !stakeAllowance?.klima || !unstakeAllowance?.sklima;
 
   const fiveDayRatePercent = fiveDayRate && fiveDayRate * 100;
   const stakingAKR = stakingAnnualPercent && stakingAnnualPercent * 100;
@@ -100,17 +119,33 @@ export const Stake = (props: Props) => {
   const handleApproval = (action: "stake" | "unstake") => async () => {
     if (!props.provider) return;
     try {
-      const value = await changeApprovalTransaction({
+      const currentQuantity = quantity.toString();
+      const approvedValue = await changeApprovalTransaction({
+        value: currentQuantity,
         provider: props.provider,
         action,
         onStatus: setStatus,
       });
+
       if (action === "stake") {
-        dispatch(setStakeAllowance({ klima: value }));
+        dispatch(
+          setAllowance({
+            token: "klima",
+            spender: "staking_helper",
+            value: approvedValue,
+          })
+        );
       } else {
-        dispatch(setStakeAllowance({ sklima: value }));
+        dispatch(
+          setAllowance({
+            token: "sklima",
+            spender: "staking",
+            value: approvedValue,
+          })
+        );
       }
     } catch (e) {
+      console.error("Error in handleApproval", e);
       return;
     }
   };
@@ -120,25 +155,59 @@ export const Stake = (props: Props) => {
     try {
       const value = quantity.toString();
       setQuantity("");
-      await changeStakeTransaction({
+      const approvedValue = await changeStakeTransaction({
         value,
         provider: props.provider,
         action,
         onStatus: setStatus,
       });
       dispatch(
-        action === "stake" ? incrementStake(value) : decrementStake(value)
+        action === "stake"
+          ? incrementStake(approvedValue)
+          : decrementStake(approvedValue)
+      );
+      dispatch(
+        action === "stake"
+          ? decrementAllowance({
+              token: "klima",
+              spender: "staking_helper",
+              value: approvedValue,
+            })
+          : decrementAllowance({
+              token: "sklima",
+              spender: "staking",
+              value: approvedValue,
+            })
       );
     } catch (e) {
+      console.error("Error in handleStake", e);
       return;
     }
   };
 
+  const insufficientBalance = (action: "stake" | "unstake") => {
+    const token = action === "stake" ? "klima" : "sklima";
+    return (
+      props.isConnected &&
+      !isLoading &&
+      Number(quantity) > Number(balances?.[token] ?? "0")
+    );
+  };
+
   const hasApproval = (action: "stake" | "unstake") => {
-    if (action === "stake")
-      return stakeAllowance && !!Number(stakeAllowance.klima);
+    if (action === "stake") {
+      return (
+        stakeAllowance &&
+        !!Number(stakeAllowance.klima) &&
+        Number(quantity) <= Number(stakeAllowance.klima) // Caution: Number trims values down to 17 decimal places of precision
+      );
+    }
     if (action === "unstake")
-      return stakeAllowance && !!Number(stakeAllowance.sklima);
+      return (
+        unstakeAllowance &&
+        !!Number(unstakeAllowance.sklima) &&
+        Number(quantity) <= Number(unstakeAllowance.sklima) // Caution: Number trims values down to 17 decimal places of precision
+      );
   };
 
   const getButtonProps = (): ButtonProps => {
@@ -155,6 +224,20 @@ export const Stake = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
+    } else if (!value) {
+      return {
+        label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (value && insufficientBalance(view)) {
+      return {
+        label: (
+          <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (
       status === "userConfirmation" ||
       status === "networkConfirmation"
@@ -168,13 +251,13 @@ export const Stake = (props: Props) => {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         onClick: handleApproval("stake"),
-        disabled: false,
+        disabled: !value,
       };
     } else if (view === "unstake" && !hasApproval("unstake")) {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         onClick: handleApproval("unstake"),
-        disabled: false,
+        disabled: !value,
       };
     } else if (view === "stake" && hasApproval("stake")) {
       return {

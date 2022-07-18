@@ -1,25 +1,41 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "state";
+import {
+  AllowancesSpender,
+  AllowancesToken,
+} from "@klimadao/lib/types/allowances";
 
 export const selectBalances = (state: RootState) => state.user.balance;
 export const selectAppState = (state: RootState) => state.app;
 export const selectUserState = (state: RootState) => state.user;
 
-export const selectStakeAllowance = createSelector(
+export const selectAllowances = createSelector(
   selectUserState,
-  (user) => user.stakeAllowance
+  (user) => user.allowances
 );
-export const selectExerciseAllowance = createSelector(
-  selectUserState,
-  (user) => user.exerciseAllowance
+// select allowances with params
+type Allowances = { [key in AllowancesToken]: string };
+type Params = { tokens: AllowancesToken[]; spender: AllowancesSpender };
+export const selectAllowancesWithParams = createSelector(
+  [selectAllowances, (state, params: Params) => params],
+  (allowances, params) => {
+    const collectedAllowances = params.tokens.reduce<Allowances>(
+      (obj, token) => {
+        if (allowances?.[token]?.[params.spender]) {
+          obj[token] = allowances?.[token][params.spender];
+        }
+        return obj;
+      },
+      {} as Allowances
+    );
+    const isEmpty = Object.keys(collectedAllowances).length === 0;
+    return isEmpty ? null : collectedAllowances;
+  }
 );
+
 export const selectBondAllowance = createSelector(
   selectUserState,
   (user) => user.bondAllowance
-);
-export const selectWrapAllowance = createSelector(
-  selectUserState,
-  (user) => user.wrapAllowance
 );
 export const selectPklimaTerms = createSelector(
   selectUserState,
@@ -28,10 +44,6 @@ export const selectPklimaTerms = createSelector(
 export const selectCarbonRetired = createSelector(
   selectUserState,
   (user) => user.carbonRetired
-);
-export const selectCarbonRetiredAllowance = createSelector(
-  selectUserState,
-  (user) => user.carbonRetiredAllowance
 );
 export const selectNotificationStatus = createSelector(
   selectAppState,
