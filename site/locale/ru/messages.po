@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-18 20:17+0000\n"
+"POT-Creation-Date: 2022-07-19 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr "Войдите в приложение"
 
 #: components/pages/Podcast/index.tsx:44
 msgid "Episodes"
-msgstr ""
+msgstr "Выпуски"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
@@ -662,16 +662,16 @@ msgstr "Инвестируйте в будущее."
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
-msgstr ""
+msgstr "Planet of the Klimates - это подкаст, управляемый сообществом, в котором ведутся беседы с партнерами Klima и идейными лидерами по вопросам климатологии, блокчейна и многого другого. Вы можете ознакомиться с последними выпусками и полным архивом передач непосредственно ниже, а также найти PotK на вашей любимой платформе подкастов, включая <0>RSS</0> и <1>Apple Podcasts</1>."
 
 #: components/pages/Podcast/index.tsx:19
 msgid "podcast.head.headline"
-msgstr ""
+msgstr "Подкаст"
 
 #: components/pages/Podcast/index.tsx:18
 #: components/pages/Podcast/index.tsx:33
 msgid "podcast.head.title"
-msgstr ""
+msgstr "Подкаст KlimaDAO"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -915,7 +915,7 @@ msgstr "Love Letters"
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
-msgstr ""
+msgstr "Подкаст"
 
 #: components/Navigation/index.tsx:61
 #: components/Navigation/index.tsx:86
