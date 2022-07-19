@@ -44,36 +44,36 @@ export const getKNS = async (params: {
   address: string;
   contract: Contract;
 }): Promise<Domain | null> => {
+  const getDefaultKNSProfile = async (domainName: string) => {
+    const domainStruct = await params.contract.domains(domainName);
+    const tokenURI: string = await params.contract.tokenURI(
+      domainStruct.tokenId
+    );
+    const defaultDomainData: DefaultDomainData = await (
+      await fetch(tokenURI)
+    ).json();
+
+    return {
+      name: `${domainName}.klima`,
+      imageUrl: defaultDomainData.image,
+    };
+  };
+
   try {
     const domainName = await params.contract.defaultNames(params.address);
     if (!domainName) return null;
 
     const domainData = await params.contract.getDomainData(domainName);
     const parsedDomainData = domainData ? JSON.parse(domainData) : null;
-    const customKnsImage = parsedDomainData
-      ? parsedDomainData.imgAddress
-      : null;
 
-    if (customKnsImage) {
+    if (parsedDomainData && parsedDomainData.imgAddress) {
       return {
         name: `${domainName}.klima`,
-        imageUrl: customKnsImage,
-      };
-    } else {
-      // return default domain image if custom kns profile image not set by owner
-      const domainStruct = await params.contract.domains(domainName);
-      const tokenURI: string = await params.contract.tokenURI(
-        domainStruct.tokenId
-      );
-      const defaultDomainData: DefaultDomainData = await (
-        await fetch(tokenURI)
-      ).json();
-
-      return {
-        name: `${domainName}.klima`,
-        imageUrl: defaultDomainData.image,
+        imageUrl: parsedDomainData.imgAddress,
       };
     }
+
+    return await getDefaultKNSProfile(domainName);
   } catch (error) {
     console.log("getKNS error", error);
     return Promise.reject(error);
