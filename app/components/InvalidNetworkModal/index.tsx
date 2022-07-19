@@ -4,6 +4,7 @@ import { Text } from "@klimadao/lib/components";
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { providers } from "ethers";
 import { Trans } from "@lingui/macro";
+import { Modal } from "components/Modal";
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -64,33 +65,31 @@ export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
   };
 
   return (
-    <>
-      <div className={styles.bg}>
-        <div className={styles.card}>
-          <div className={styles.card_header}>
-            <Text t="h3">
-              ⚠ <Trans>Wrong Network</Trans>
-            </Text>
-            <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
-              <Trans>This app only works on Polygon Mainnet.</Trans>
-            </Text>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              gap: "0.8rem",
-            }}
-          >
-            <button
-              onClick={handleChangeNetwork("mainnet")}
-              className={styles.switchNetworkButton}
-            >
-              <Trans>Switch to Polygon</Trans>
-            </button>
-          </div>
-        </div>
+    <Modal
+      title={
+        <Text t="h3">
+          ⚠ <Trans>Wrong Network</Trans>
+        </Text>
+      }
+    >
+      <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
+        <Trans>This app only works on Polygon Mainnet.</Trans>
+      </Text>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          gap: "0.8rem",
+          marginTop: "1.6rem",
+        }}
+      >
+        <button
+          onClick={handleChangeNetwork("mainnet")}
+          className={styles.switchNetworkButton}
+        >
+          <Trans>Switch to Polygon</Trans>
+        </button>
       </div>
-    </>
+    </Modal>
   );
 };

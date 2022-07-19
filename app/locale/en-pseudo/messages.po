@@ -19,11 +19,11 @@ msgstr ""
 msgid "Switch to Polygon"
 msgstr ""
 
-#: components/InvalidNetworkModal/index.tsx:75
+#: components/InvalidNetworkModal/index.tsx:76
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
-#: components/InvalidNetworkModal/index.tsx:72
+#: components/InvalidNetworkModal/index.tsx:71
 msgid "Wrong Network"
 msgstr ""
 
