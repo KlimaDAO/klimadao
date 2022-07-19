@@ -692,6 +692,11 @@ export const faqSection = css`
   background: #1b4659;
   padding-top: 0 !important;
   position: relative;
+  .faq_answer2 {
+    gap: 1.2rem;
+    display: flex;
+    flex-direction: column;
+  }
   .faq_blur {
     position: absolute;
     width: 521px;

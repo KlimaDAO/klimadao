@@ -121,6 +121,8 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Text t="h2" className="hero_title">
                 The easiest way to go carbon neutral
               </Text>
+            </Trans>
+            <Trans id="infinity.welcome_subtitle">
               <Text t="body2">
                 Klima Infinity is a next-generation carbon toolkit for your
                 organization
@@ -144,12 +146,12 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
       </Section>
       <Section variant="black" className={styles.sliderSection}>
         <div className="slider_container">
-          <Trans id="infinity.organizations">
-            <Text t="h3" className="slider_title">
+          <Text t="h3" className="slider_title">
+            <Trans id="infinity.organizations">
               Dozens of organizations have offset over 150,000 carbon tonnes
               with Klima Infinity
-            </Text>
-          </Trans>
+            </Trans>
+          </Text>
           <div className="slider_button_container">
             <div className="slider_arrow" onClick={scrollToStart}>
               <ArrowBackIcon color="secondary" />
@@ -175,23 +177,23 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                 <LaunchIcon className="slider_launch_icon" />
               </div>
               <div className="slider_content">
-                <Trans id="infinity.quote">
-                  <Text t="body4" className="slider_quote">
-                    “{card.description}”
-                  </Text>
-                </Trans>
+                <Text t="body4" className="slider_quote">
+                  <Trans id="infinity.quote">“{card.description}”</Trans>
+                </Text>
                 <div className="slider_footer">
                   <div>
-                    <Trans id="infinity.retired_tons">
-                      <Text t="h3">{card.tonsRetired}k</Text>
-                      <Text>Tonnes</Text>
-                    </Trans>
-                  </div>
-                  <Trans id="infinity.retired_date">
-                    <Text t="badge" className="slider_date">
-                      {card.date}
+                    <Text t="h3">
+                      <Trans id="infinity.retired_tons_number">
+                        {card.tonsRetired}k
+                      </Trans>
                     </Text>
-                  </Trans>
+                    <Text>
+                      <Trans id="infinity.tonnes">Tonnes</Trans>
+                    </Text>
+                  </div>
+                  <Text t="badge" className="slider_date">
+                    <Trans id="infinity.retired_date">{card.date}</Trans>
+                  </Text>
                 </div>
               </div>
             </div>
@@ -204,12 +206,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           <div className="info_left_container">
             <div className="info_image_box_alt">
               <div className="info_image_description">
-                <Trans id="infinity.fast">
-                  <Text t="body4">Offset in seconds, with no red tape</Text>
-                  <Text t="h2_alt" className="info_image_title">
-                    Fast
-                  </Text>
-                </Trans>
+                <Text t="body4">
+                  <Trans id="infinity.fast_subtitle">
+                    Offset in seconds, with no red tape
+                  </Trans>
+                </Text>
+                <Text t="h2_alt" className="info_image_title">
+                  <Trans id="infinity.fast_title">Fast</Trans>
+                </Text>
               </div>
               <Image
                 src={fastMountain}
@@ -220,12 +224,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             </div>
             <div className="info_image_box">
               <div className="info_image_description">
-                <Trans id="infinity.affordable">
-                  <Text t="body4">Real time pricing, saving 30% or more</Text>
-                  <Text t="h2_alt" className="info_image_title">
-                    Affordable
-                  </Text>
-                </Trans>
+                <Text t="body4">
+                  <Trans id="infinity.affordable_title">
+                    Real time pricing, saving 30% or more
+                  </Trans>
+                </Text>
+                <Text t="h2_alt" className="info_image_title">
+                  <Trans id="infinity.affordable_subtitle">Affordable</Trans>
+                </Text>
               </div>
               <Image
                 src={affordableMountain}
@@ -237,23 +243,27 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
           <div className="info_right_container">
             <div className="info_title_container">
-              <Trans id="infinity.info_subtitle">
-                <Text t="body6" className="info_subtitle">
+              <Text t="body6" className="info_subtitle">
+                <Trans id="infinity.info_subtitle1">
                   For the planet's pioneering organizations
-                </Text>
-                <Text t="h2_alt">
+                </Trans>
+              </Text>
+              <Text t="h2_alt">
+                <Trans id="infinity.info_subtitle2">
                   The world's most powerful and easy to use offsetting solution
-                </Text>
-              </Trans>
+                </Trans>
+              </Text>
             </div>
             <div className="info_image_box">
               <div className="info_image_description">
-                <Trans id="infinity.transparent">
-                  <Text t="body4">Immutably recorded on the blockchain</Text>
-                  <Text t="h2_alt" className="info_image_title">
-                    Transparent
-                  </Text>
-                </Trans>
+                <Text t="body4">
+                  <Trans id="infinity.transparent_title">
+                    Immutably recorded on the blockchain
+                  </Trans>
+                </Text>
+                <Text t="h2_alt" className="info_image_title">
+                  <Trans id="infinity.transparent_subtitle">Transparent</Trans>
+                </Text>
               </div>
               <Image
                 src={transparentTrees}
@@ -268,17 +278,21 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
       <Section variant="black" className={styles.whySection}>
         <div className="why_container">
           <div className="why_left_container">
-            <Trans id="infinity.why_title">
-              <Text t="body6">Why KlimaDAO?</Text>
-              <Text t="h2_alt" className="why_title">
+            <Text t="body6">
+              <Trans id="infinity.why_title">Why KlimaDAO?</Trans>
+            </Text>
+            <Text t="h2_alt" className="why_title">
+              <Trans id="infinity.why_subtitle">
                 DeFi that defies climate change
-              </Text>
-              <Text t="body5">
+              </Trans>
+            </Text>
+            <Text t="body5">
+              <Trans id="infinity.why_description">
                 KlimaDAO is leveraging a stack of DeFi technologies to reduce
                 market fragmentation and accelerate the delivery of climate
                 finance to sustainability projects globally.
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
           </div>
           <div className="why_right_container">
             <Image
@@ -300,54 +314,54 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         <div className="getStarted_container">
           <div className="getStarted_left_container">
             <div className="getStarted_section getStarted1">
-              <Trans id="infinity.getStarted_first">
-                <Text t="h1" className="getStarted_number">
-                  1
-                </Text>
-                <Text t="h3" className="getStarted_title">
-                  Calculate
-                </Text>
-                <Text t="body6" className="getStarted_description">
+              <Text t="h1" className="getStarted_number">
+                <Trans id="infinity.getStarted_1">1</Trans>
+              </Text>
+              <Text t="h3" className="getStarted_title">
+                <Trans id="infinity.getStarted_calculate">Calculate</Trans>
+              </Text>
+              <Text t="body6" className="getStarted_description">
+                <Trans id="infinity.getStarted_calculate_subtitle">
                   Calculate your organization's carbon footprint and define the
                   scope of your offset with Klima Infinity.
-                </Text>
-              </Trans>
+                </Trans>
+              </Text>
             </div>
             <div className="getStarted_section getStarted2">
-              <Trans id="infinity.getStarted_second">
-                <Text t="h1" className="getStarted_number">
-                  2
-                </Text>
-                <Text t="h3" className="getStarted_title">
-                  Implement
-                </Text>
-                <Text t="body6" className="getStarted_description">
+              <Text t="h1" className="getStarted_number">
+                <Trans id="infinity.getStarted_2">2</Trans>
+              </Text>
+              <Text t="h3" className="getStarted_title">
+                <Trans id="infinity.getStarted_second_title">Implement</Trans>
+              </Text>
+              <Text t="body6" className="getStarted_description">
+                <Trans id="infinity.getStarted_second_subtitle">
                   Implement your offset with just a few clicks, and with
                   near-instant transaction time.
-                </Text>
-              </Trans>
+                </Trans>
+              </Text>
             </div>
             <div className="getStarted_section getStarted3">
-              <Trans id="infinity.getStarted_third">
-                <Text t="h1" className="getStarted_number">
-                  3
-                </Text>
-                <Text t="h3" className="getStarted_title">
-                  Amplify
-                </Text>
-                <Text t="body6" className="getStarted_description">
+              <Text t="h1" className="getStarted_number">
+                <Trans id="infinity.getStarted_third">3</Trans>
+              </Text>
+              <Text t="h3" className="getStarted_title">
+                <Trans id="infinity.getStarted_third_title">Amplify</Trans>
+              </Text>
+              <Text t="body6" className="getStarted_description">
+                <Trans id="infinity.getStarted_third_subtitle">
                   Track your commitment, and amplify awareness around your
                   Climate Positive actions.
-                </Text>
-              </Trans>
+                </Trans>
+              </Text>
             </div>
           </div>
           <div className="getStarted_right_container">
-            <Trans id="infinity.getStarted_cta">
-              <Text t="h2_alt">
+            <Text t="h2_alt">
+              <Trans id="infinity.getStarted_cta">
                 Accelerate your path to carbon neutral - and beyond
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
             <ButtonPrimary
               className="getStarted_button"
               variant="blueRounded"
@@ -367,20 +381,24 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               layout="responsive"
               className="carousel_image"
             />
-            <Trans id="infinity.carousel_image_description">
-              <Text t="body3" className="carousel_image_description">
+            <Text t="body3" className="carousel_image_description">
+              <Trans id="infinity.carousel_image_description">
                 Wind power project at Jaibhim, India
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
           </div>
           <div className="carousel_right_container">
-            <Trans id="infinity.carousel_info">
-              <Text t="badge">Support high quality projects</Text>
-              <Text t="h2_alt">
+            <Text t="badge">
+              <Trans id="infinity.carousel_info_title">
+                Support high quality projects
+              </Trans>
+            </Text>
+            <Text t="h2_alt">
+              <Trans id="infinity.carousel_info_subtitle">
                 Drive funding to projects that move the needle on climate change
                 mitigation
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
           </div>
         </div>
       </Section>
@@ -388,16 +406,18 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         <div className="polygon_blur" />
         <div className="polygon_container">
           <div className="polygon_left_container">
-            <Trans id="infinity.polygon_story">
-              <Text t="h2_alt">
+            <Text t="h2_alt">
+              <Trans id="infinity.polygon_story_title">
                 Polygon chose Klima Infinity to offset their blockchain network
-              </Text>
-              <Text t="body5">
+              </Trans>
+            </Text>
+            <Text t="body5">
+              <Trans id="infinity.polygon_story_description">
                 Polygon offset the network's carbon emissions since inception -
                 roughly 90,000 tonnes - and pledged to go carbon negative for
                 all of the network's future transactions.
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
             <ButtonPrimary
               label="Read Polygon's Story"
               className="polygon_button"
@@ -406,39 +426,45 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
           <div className="polygon_right_container">
             <div className="polygon_full_blox">
-              <Trans id="infinity.polygon_manifesto">
-                <Text t="body6" className="polygon_subtitle">
+              <Text t="body6" className="polygon_subtitle">
+                <Trans id="infinity.polygon_manifesto_title">
                   <Image src={logoPolygonInfinity} alt="green polygon logo" />
                   The offset is part of Polygon's Green Manifesto
-                </Text>
-                <Text t="body6">
+                </Trans>
+              </Text>
+              <Text t="body6">
+                <Trans id="infinity.polygon_manifesto_description">
                   By offsetting the historical emissions of their entire
                   network, Polygon has ensured that every single interaction
                   with the network - whether an NFT mint or a DeFi transaction -
                   is accounted for and its environmental impact is offset. This
                   is a key reason why Meta chose Polygon to issue its NFTs.
-                </Text>
-              </Trans>
+                </Trans>
+              </Text>
             </div>
             <div className="polygon_half_blox">
-              <Trans id="infinity.box_title">
-                <Text t="body6" className="polygon_subtitle">
-                  <Image src={greenCloud} alt="green cloud outline" /> Last
-                  Carbon Offset
-                </Text>
-                <Text className="polygon_number">11k</Text>
-                <Text t="body6">Tonnes</Text>
-              </Trans>
+              <Text t="body6" className="polygon_subtitle">
+                <Image src={greenCloud} alt="green cloud outline" />
+                <Trans id="infinity.box_title">Last Carbon Offset</Trans>
+              </Text>
+              <Text className="polygon_number">
+                <Trans id="infinity.box_amount_11k">11k</Trans>
+              </Text>
+              <Text t="body6">
+                <Trans id="infinity.tonnes">Tonnes</Trans>
+              </Text>
             </div>
             <div className="polygon_half_blox">
-              <Trans id="infinity.box_title2">
-                <Text t="body6" className="polygon_subtitle">
-                  <Image src={greenFire} alt="green fire outline" /> Total
-                  Carbon Retired
-                </Text>
-                <Text className="polygon_number">104k</Text>
-                <Text t="body6">Tonnes</Text>
-              </Trans>
+              <Text t="body6" className="polygon_subtitle">
+                <Image src={greenFire} alt="green fire outline" />
+                <Trans id="infinity.box_title2">Total Carbon Retired</Trans>
+              </Text>
+              <Text className="polygon_number">
+                <Trans id="infinity.box_amount_104k">104k</Trans>
+              </Text>
+              <Text t="body6">
+                <Trans id="infinity.tonnes">Tonnes</Trans>
+              </Text>
             </div>
           </div>
         </div>
@@ -453,22 +479,22 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           />
         </div>
         <div className="mission_container">
-          <Trans id="mission.header">
-            <Text t="h2_alt" align="center" className="mission_header">
+          <Text t="h2_alt" align="center" className="mission_header">
+            <Trans id="mission.header">
               KlimaDAO's mission is to democratize climate action
-            </Text>
-          </Trans>
+            </Trans>
+          </Text>
           <div className="mission_cards_container">
             <div className="mission_card">
               <div className="mission_card_text">
-                <Trans id="mission.card1">
-                  <Text t="h2_alt" align="center">
-                    18.1 million
-                  </Text>
-                  <Text t="body7" align="center">
+                <Text t="h2_alt" align="center">
+                  <Trans id="infinity.mission_card1_title">18.1 million</Trans>
+                </Text>
+                <Text t="body7" align="center">
+                  <Trans id="infinity.mission_card1_subtitle">
                     Carbon tonnes held by KlimaDAO
-                  </Text>
-                </Trans>
+                  </Trans>
+                </Text>
               </div>
               <div className="mission_card_image_box">
                 <Image
@@ -481,14 +507,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             </div>
             <div className="mission_card">
               <div className="mission_card_text">
-                <Trans id="mission.card2">
-                  <Text t="h2_alt" align="center">
-                    $10m+
-                  </Text>
-                  <Text t="body7" align="center">
+                <Text t="h2_alt" align="center">
+                  <Trans id="infinity.mission_card2_number">$10m+</Trans>
+                </Text>
+                <Text t="body7" align="center">
+                  <Trans id="infinity.mission_card2_description">
                     Carbon liquidity held by KlimaDAO
-                  </Text>
-                </Trans>
+                  </Trans>
+                </Text>
               </div>
               <div className="mission_card_image_box">
                 <Image
@@ -501,14 +527,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             </div>
             <div className="mission_card">
               <div className="mission_card_text">
-                <Trans id="mission.card3">
-                  <Text t="h2_alt" align="center">
-                    150,000+
-                  </Text>
-                  <Text t="body7" align="center">
+                <Text t="h2_alt" align="center">
+                  <Trans id="infinity.mission_card3_number">150,000+</Trans>
+                </Text>
+                <Text t="body7" align="center">
+                  <Trans id="infinity.mission_card3_description">
                     Carbon tonnes offset via KlimaDAO
-                  </Text>
-                </Trans>
+                  </Trans>
+                </Text>
               </div>
               <div className="mission_card_image_box">
                 <Image
@@ -529,11 +555,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
       </Section>
       <Section variant="black" className={styles.featuredSection}>
         <div className="featured_container">
-          <Trans id="featured.title">
-            <Text t="body4" align="center" className="featured_title">
-              KlimaDAO featured on
-            </Text>
-          </Trans>
+          <Text t="body4" align="center" className="featured_title">
+            <Trans id="featured.title">KlimaDAO featured on</Trans>
+          </Text>
           <div className="featured_logo_container">
             <div className="featured_logo_wrapper">
               <Image src={logoForbes} alt="" />
@@ -565,16 +589,17 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
       <Section className={styles.faqSection}>
         <div className="faq_container">
           <div className="faq_blur" />
-          <Trans>
-            <Text t="h2_alt" align="center" className="faq_title">
-              Frequently Asked Questions
-            </Text>
-          </Trans>
+          <Text t="h2_alt" align="center" className="faq_title">
+            <Trans>Frequently Asked Questions</Trans>
+          </Text>
           <div className="faq_question_container">
             <div className="faq_title_container">
-              <Trans id="faq.question1">
-                <Text t="body7">1. What is a carbon offset?</Text>
-              </Trans>
+              <Text t="body7">
+                <Trans id="infinity.faq_question1">
+                  1. What is a carbon offset?
+                </Trans>
+              </Text>
+
               <Text
                 className="faq_expand"
                 onClick={() =>
@@ -591,24 +616,24 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               className="faq_answer_text"
               data-display={currentOpenQuestions[1]}
             >
-              <Trans id="faq.answer1">
-                <Text t="body6">
+              <Text t="body6">
+                <Trans id="infinity.faq_answer1">
                   A carbon offset unit represents the removal of one tonne of
                   carbon dioxide equivalent (tCO2e) from the atmosphere, or the
                   avoidance of one tonne of emissions.
-                </Text>
-              </Trans>
+                </Trans>
+              </Text>
             </div>
           </div>
           <div className="faq_divider" />
           <div className="faq_question_container">
             <div className="faq_title_container">
-              <Trans id="faq.question2">
-                <Text t="body7">
+              <Text t="body7">
+                <Trans id="infinity.faq_question2">
                   2. How does offsetting help in the fight against climate
                   change?
-                </Text>
-              </Trans>
+                </Trans>
+              </Text>
               <Text
                 className="faq_expand"
                 onClick={() =>
@@ -625,37 +650,46 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               className="faq_answer_text"
               data-display={currentOpenQuestions[2]}
             >
-              <Trans id="faq.answer2">
-                <Text t="body6">
-                  Carbon credits are a high-integrity mechanism that allow
-                  carbon finance to flow from those who pollute, to projects
-                  across the globe that help to mitigate or remove carbon from
-                  the atmosphere. They are a valuable tool to cover
-                  hard-to-abate emissions that may be costly or technically
-                  challenging to eliminate today.
-                  <br />
-                  <br />
-                  When you purchase a carbon credit, Klima Infinity enables you
-                  to retire this carbon credit, permanently removing it from
-                  circulation. This retirement is the point at which you can
-                  claim the benefit of the carbon offset.
-                  <br />
-                  <br />
-                  Purchased offsets lead to measurable and accountable emissions
-                  reductions elsewhere in the economy, and can be used to
-                  ‘offset’ an unavoidable carbon footprint. The trade and
-                  retirement of carbon credits enables a market mechanism to
-                  emerge that puts a price on carbon.
-                </Text>
-              </Trans>
+              <Text t="body6" className="faq_answer2">
+                <div>
+                  <Trans id="infinity.faq_answer2_paragraph1">
+                    Carbon credits are a high-integrity mechanism that allow
+                    carbon finance to flow from those who pollute, to projects
+                    across the globe that help to mitigate or remove carbon from
+                    the atmosphere. They are a valuable tool to cover
+                    hard-to-abate emissions that may be costly or technically
+                    challenging to eliminate today.
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="infinity.faq_answer2_paragraph2">
+                    When you purchase a carbon credit, Klima Infinity enables
+                    you to retire this carbon credit, permanently removing it
+                    from circulation. This retirement is the point at which you
+                    can claim the benefit of the carbon offset.
+                  </Trans>
+                </div>
+                <div>
+                  <Trans id="infinity.faq_answer2_paragraph3">
+                    Purchased offsets lead to measurable and accountable
+                    emissions reductions elsewhere in the economy, and can be
+                    used to ‘offset’ an unavoidable carbon footprint. The trade
+                    and retirement of carbon credits enables a market mechanism
+                    to emerge that puts a price on carbon.
+                  </Trans>
+                </div>
+              </Text>
             </div>
           </div>
           <div className="faq_divider" />
           <div className="faq_question_container">
             <div className="faq_title_container">
-              <Trans id="faq.question3">
-                <Text t="body7">3. What are carbon markets?</Text>
-              </Trans>
+              <Text t="body7">
+                <Trans id="infinity.faq_question3">
+                  3. What are carbon markets?
+                </Trans>
+              </Text>
+
               <Text
                 className="faq_expand"
                 onClick={() =>
@@ -672,8 +706,8 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               className="faq_answer_text"
               data-display={currentOpenQuestions[3]}
             >
-              <Trans id="faq.answer3">
-                <Text t="body6">
+              <Text t="body6">
+                <Trans id="infinity.faq_answer3">
                   The objective of carbon markets is to reduce greenhouse gas
                   (GHG, or “carbon”) emissions cost-effectively by setting
                   limits on emissions and enabling the trading of emission
@@ -681,8 +715,8 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                   reductions. Trading enables entities that can reduce emissions
                   at lower cost to be paid to do so by higher-cost emitters,
                   thus lowering the economic cost of reducing emissions.
-                </Text>
-              </Trans>
+                </Trans>
+              </Text>
             </div>
           </div>
           <div className="faq_button_container">
@@ -707,11 +741,11 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                 layout="responsive"
               />
             </div>
-            <Trans id="cta.title">
-              <Text t="body7">
+            <Text t="body7">
+              <Trans id="infinity.cta_title">
                 The next-generation carbon toolkit for your organization
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
           </div>
           <div className="cta_right_container">
             <ButtonPrimary
