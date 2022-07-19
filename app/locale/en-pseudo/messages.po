@@ -15,15 +15,15 @@ msgstr ""
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr ""
 
-#: components/InvalidNetworkModal/index.tsx:89
+#: components/InvalidNetworkModal/index.tsx:80
 msgid "Switch to Polygon"
 msgstr ""
 
-#: components/InvalidNetworkModal/index.tsx:76
+#: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
 msgstr ""
 
-#: components/InvalidNetworkModal/index.tsx:71
+#: components/InvalidNetworkModal/index.tsx:70
 msgid "Wrong Network"
 msgstr ""
 

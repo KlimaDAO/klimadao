@@ -1,11 +1,10 @@
 import React, { useState, useEffect, FC } from "react";
-import styles from "./index.module.css";
-import { Text } from "@klimadao/lib/components";
+import { Text, ButtonPrimary } from "@klimadao/lib/components";
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { providers } from "ethers";
 import { Trans } from "@lingui/macro";
 import { Modal } from "components/Modal";
-
+import * as styles from "./styles";
 interface Props {
   provider?: providers.JsonRpcProvider;
 }
@@ -75,20 +74,12 @@ export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
       <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
         <Trans>This app only works on Polygon Mainnet.</Trans>
       </Text>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          gap: "0.8rem",
-          marginTop: "1.6rem",
-        }}
-      >
-        <button
+      <div className={styles.switchButtonContainer}>
+        <ButtonPrimary
+          className={styles.switchButton}
+          label={<Trans>Switch to Polygon</Trans>}
           onClick={handleChangeNetwork("mainnet")}
-          className={styles.switchNetworkButton}
-        >
-          <Trans>Switch to Polygon</Trans>
-        </button>
+        />
       </div>
     </Modal>
   );
