@@ -22,6 +22,7 @@ interface Props {
   onApproval: () => void;
   onSubmit: () => void;
   status?: AppNotificationStatus | null;
+  onResetStatus: () => void;
   hasApproval: boolean;
 }
 
@@ -46,7 +47,7 @@ export const TransactionModal: FC<Props> = (props) => {
               setView("approve");
             }}
             data-active={view === "approve"}
-            disabled={isLoading}
+            disabled={isLoading || view === "submit"}
           >
             1. <Trans id="transaction_modal.approve.title">Approve</Trans>
           </button>
