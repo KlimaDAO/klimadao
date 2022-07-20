@@ -469,11 +469,14 @@ export const Stake = (props: Props) => {
       {showTransactionModal && (
         <TransactionModal
           title={
-            view === "stake" ? (
-              <Trans id="stake.stake_klima">Stake KLIMA</Trans>
-            ) : (
-              <Trans id="stake.unstake_klima">Unstake KLIMA</Trans>
-            )
+            <Text t="h4" className={styles.stakeCard_header_title}>
+              <LibraryAddOutlined />
+              {view === "stake" ? (
+                <Trans id="stake.stake_klima">Stake KLIMA</Trans>
+              ) : (
+                <Trans id="stake.unstake_klima">Unstake KLIMA</Trans>
+              )}
+            </Text>
           }
           onCloseModal={closeModal}
           token={getToken()}
