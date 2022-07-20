@@ -1,7 +1,7 @@
 import { AppNotificationStatus, TxnStatus } from "state/app";
 import { t } from "@lingui/macro";
 import { Domain } from "state/user";
-import { Contract, ethers } from "ethers";
+import { ethers } from "ethers";
 export type OnStatusHandler = (status: TxnStatus, message?: string) => void;
 
 export const getStatusMessage = (status: AppNotificationStatus) => {
@@ -34,64 +34,22 @@ export const getStatusMessage = (status: AppNotificationStatus) => {
   return null;
 };
 
-type DefaultDomainData = {
-  name: string;
-  description: string;
-  image: string;
-};
-
-export const getKNS = async (params: {
-  address: string;
-  contract: Contract;
-}): Promise<Domain | null> => {
-  const getDefaultKNSProfile = async (domainName: string) => {
-    const domainStruct = await params.contract.domains(domainName);
-    const tokenURI: string = await params.contract.tokenURI(
-      domainStruct.tokenId
-    );
-    const defaultDomainData: DefaultDomainData = await (
-      await fetch(tokenURI)
-    ).json();
-
-    return {
-      name: `${domainName}.klima`,
-      imageUrl: defaultDomainData.image,
-    };
-  };
-
-  try {
-    const domainName = await params.contract.defaultNames(params.address);
-    if (!domainName) return null;
-
-    const domainData = await params.contract.getDomainData(domainName);
-    const parsedDomainData = domainData ? JSON.parse(domainData) : null;
-
-    if (parsedDomainData && parsedDomainData.imgAddress) {
-      return {
-        name: `${domainName}.klima`,
-        imageUrl: parsedDomainData.imgAddress,
-      };
-    }
-
-    return await getDefaultKNSProfile(domainName);
-  } catch (error) {
-    console.log("getKNS error", error);
-    return Promise.reject(error);
-  }
-};
-
 export const getENS = async (params: {
   address: string;
 }): Promise<Domain | null> => {
   try {
-    const ethProvider = ethers.getDefaultProvider();
-    const ensDomain = await ethProvider.lookupAddress(params.address);
+    const ethProvider = ethers.getDefaultProvider(1);
+    // const ensDomain = await ethProvider.lookupAddress(params.address);
+    const ensDomain = await ethProvider.lookupAddress(
+      "0x5A384227B65FA093DEC03Ec34e111Db80A040615".toLowerCase()
+    );
+
     const imageUrl = ensDomain ? await ethProvider.getAvatar(ensDomain) : null;
 
-    if (ensDomain && imageUrl) {
+    if (ensDomain) {
       return {
         name: ensDomain,
-        imageUrl,
+        imageUrl: imageUrl || "",
       };
     }
 

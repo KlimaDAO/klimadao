@@ -6,7 +6,6 @@ import {
   useWeb3,
 } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
-import { Text } from "@klimadao/lib/components";
 
 import { PageHead } from "components/PageHead";
 import { Modal } from "components/Modal";
@@ -39,13 +38,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
 
   const canEditPledge =
     address?.toLowerCase() === props.pageAddress && isConnected;
-
-  const currentFootprint = pledge.footprint[pledge.footprint.length - 1];
-  const totalTonnesRetired = Number(retirements?.totalTonnesRetired);
-  const pledgeProgress =
-    totalTonnesRetired && (totalTonnesRetired / currentFootprint.total) * 100;
-  const displayPledgeProgress =
-    !isNaN(totalTonnesRetired) && !isNaN(totalTonnesRetired);
 
   useEffect(() => {
     (async () => {
@@ -92,37 +84,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           pledge={props.pledge}
           retirements={retirements}
         />
-        <div className={styles.profile}>
-          {Boolean(pledge.profileImageUrl) ? (
-            <img
-              className="profileImage"
-              src={pledge.profileImageUrl}
-              alt="Profile image"
-            />
-          ) : (
-            <Text t="h3" className="profileImage" align="center">
-              -
-            </Text>
-          )}
-
-          <Text t="h2">
-            {pledge.name || props.domain || concatAddress(pledge.ownerAddress)}
-          </Text>
-
-          <div className={styles.progressContainer}>
-            <Text t="h4" color="lightest" align="center">
-              Pledged to offset{" "}
-              <strong>{+currentFootprint.total.toFixed(2)}</strong> Carbon
-              Tonnes
-            </Text>
-
-            {displayPledgeProgress && currentFootprint.total > 0 ? (
-              <Text t="h4" className={styles.pledgeProgress}>
-                {Math.round(pledgeProgress)}% of pledge met
-              </Text>
-            ) : null}
-          </div>
-        </div>
 
         <div className={styles.column}>
           <PledgeCard pledge={pledge.description} />

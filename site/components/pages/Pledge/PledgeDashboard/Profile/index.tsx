@@ -1,14 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
 import { Text } from "@klimadao/lib/components";
-import {
-  concatAddress,
-  getContract,
-  getKNSProfile,
-  isKNSDomain,
-  useWeb3,
-} from "@klimadao/lib/utils";
+import { concatAddress, getKNSProfile } from "@klimadao/lib/utils";
+import { Domain } from "@klimadao/lib/types/domains";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
+import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { Pledge } from "../../types";
 import * as styles from "./styles";
 
@@ -19,11 +15,23 @@ type Props = {
 };
 
 export const Profile: FC<Props> = (props) => {
-  const { provider } = useWeb3();
-  const [domainData, setDomainData] = useState<null>();
+  const [profileData, setProfileData] = useState<Domain | null>();
 
-  console.log(domainData);
+  useEffect(() => {
+    // TODO resolve ens profile avatar
+    const setKNSProfile = async () => {
+      const data = await getKNSProfile({
+        address: props.pledge.ownerAddress,
+        providerUrl: getInfuraUrlPolygon(),
+      });
 
+      setProfileData(data);
+    };
+
+    setKNSProfile();
+  }, []);
+
+  const hasProfileImage = props.pledge.profileImageUrl || profileData;
   const currentFootprint =
     props.pledge.footprint[props.pledge.footprint.length - 1];
   const totalTonnesRetired = Number(props.retirements?.totalTonnesRetired);
@@ -33,30 +41,6 @@ export const Profile: FC<Props> = (props) => {
     !isNaN(totalTonnesRetired) &&
     !isNaN(totalTonnesRetired) &&
     currentFootprint.total > 0;
-
-  useEffect(() => {
-    if (!props.domain || !provider) return;
-
-    if (isKNSDomain(props.domain)) {
-      const knsContract = getContract({
-        contractName: "klimaNameService",
-        provider,
-      });
-
-      const setProfile = async () => {
-        const data = await getKNSProfile({
-          address: props.pledge.ownerAddress,
-          contract: knsContract,
-        });
-
-        setDomainData(data);
-      };
-
-      setProfile();
-    }
-  }, [props.domain]);
-
-  const hasProfileImage = props.pledge.profileImageUrl || domainData;
 
   const renderPledgeProgress = () => {
     if (!displayPledgeProgress) return null;
@@ -79,11 +63,13 @@ export const Profile: FC<Props> = (props) => {
   return (
     <div className={styles.profile}>
       {hasProfileImage ? (
-        <img
-          className="profileImage"
-          src={props.pledge.profileImageUrl || domainData?.imageUrl}
-          alt="Profile image"
-        />
+        <>
+          <img
+            className="profileImage"
+            src={props.pledge.profileImageUrl || profileData?.imageUrl}
+            alt="Profile image"
+          />
+        </>
       ) : (
         <Text t="h3" className="profileImage" align="center">
           -

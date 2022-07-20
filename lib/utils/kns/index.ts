@@ -1,6 +1,7 @@
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getIsValidAddress } from "../getIsValidAddress";
 import { getContract } from "../getContract";
+import { Domain } from "../../types/domains";
 
 // https://www.kns.earth/#/
 export const isKNSDomain = (domain: string): boolean =>
@@ -43,32 +44,16 @@ export const getKNSByAddress = async (
   }
 };
 
-type DefaultDomainData = {
-  name: string;
-  description: string;
-  image: string;
-};
-
-export interface Domain {
-  name: string;
-  imageUrl: string;
-}
-
+// Resolves kns domain for profile image
 export const getKNSProfile = async (params: {
   address: string;
+  providerUrl?: string;
 }): Promise<Domain | null> => {
-  const getDefaultKNSProfile = async (domainName: string) => {
-    const domainStruct = await KNSContract.domains(domainName);
-    const tokenURI: string = await KNSContract.tokenURI(domainStruct.tokenId);
-    const defaultDomainData: DefaultDomainData = await (
-      await fetch(tokenURI)
-    ).json();
-
-    return {
-      name: `${domainName}.klima`,
-      imageUrl: defaultDomainData.image,
-    };
-  };
+  const provider = getJsonRpcProvider(params.providerUrl);
+  const KNSContract = getContract({
+    contractName: "klimaNameService",
+    provider,
+  });
 
   try {
     const domainName = await KNSContract.defaultNames(params.address);
@@ -89,4 +74,23 @@ export const getKNSProfile = async (params: {
     console.log("Error in getKNSProfile", error);
     return Promise.reject(error);
   }
+};
+
+export interface DefaultDomainData {
+  name: string;
+  description: string;
+  image: string;
+}
+
+const getDefaultKNSProfile = async (domainName: string) => {
+  const domainStruct = await KNSContract.domains(domainName);
+  const tokenURI: string = await KNSContract.tokenURI(domainStruct.tokenId);
+  const defaultDomainData: DefaultDomainData = await (
+    await fetch(tokenURI)
+  ).json();
+
+  return {
+    name: `${domainName}.klima`,
+    imageUrl: defaultDomainData.image,
+  };
 };
