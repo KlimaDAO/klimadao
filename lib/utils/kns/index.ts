@@ -42,3 +42,51 @@ export const getKNSByAddress = async (
     return Promise.reject(e);
   }
 };
+
+type DefaultDomainData = {
+  name: string;
+  description: string;
+  image: string;
+};
+
+export interface Domain {
+  name: string;
+  imageUrl: string;
+}
+
+export const getKNSProfile = async (params: {
+  address: string;
+}): Promise<Domain | null> => {
+  const getDefaultKNSProfile = async (domainName: string) => {
+    const domainStruct = await KNSContract.domains(domainName);
+    const tokenURI: string = await KNSContract.tokenURI(domainStruct.tokenId);
+    const defaultDomainData: DefaultDomainData = await (
+      await fetch(tokenURI)
+    ).json();
+
+    return {
+      name: `${domainName}.klima`,
+      imageUrl: defaultDomainData.image,
+    };
+  };
+
+  try {
+    const domainName = await KNSContract.defaultNames(params.address);
+    if (!domainName) return null;
+
+    const domainData = await KNSContract.getDomainData(domainName);
+    const parsedDomainData = domainData ? JSON.parse(domainData) : null;
+
+    if (parsedDomainData && parsedDomainData.imgAddress) {
+      return {
+        name: `${domainName}.klima`,
+        imageUrl: parsedDomainData.imgAddress,
+      };
+    }
+
+    return await getDefaultKNSProfile(domainName);
+  } catch (error) {
+    console.log("Error in getKNSProfile", error);
+    return Promise.reject(error);
+  }
+};
