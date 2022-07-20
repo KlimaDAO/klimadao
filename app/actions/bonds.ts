@@ -11,6 +11,7 @@ import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
 import OhmDai from "@klimadao/lib/abi/OhmDai.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import KlimaProV2 from "@klimadao/lib/abi/KlimaProV2.json";
+import { getTransactionOptions } from "@klimadao/lib/utils";
 
 const getBondAddress = (params: { bond: Bond }): string => {
   return {
@@ -336,7 +337,11 @@ export const changeApprovalTransaction = async (params: {
     const approvalAddress = getBondAddress({ bond: params.bond });
     const value = ethers.utils.parseUnits("1000000000", "ether");
     params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(approvalAddress, value.toString());
+    const txn = await contract.approve(
+      approvalAddress,
+      value.toString(),
+      await getTransactionOptions()
+    );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
@@ -451,7 +456,8 @@ export const bondTransaction = async (params: {
       const txn = await contract.deposit(
         ethers.BigNumber.from(INVERSE_USDC_MARKET_ID),
         [formattedValue, formattedMinAmountOut],
-        [address, addresses.mainnet.daoMultiSig]
+        [address, addresses.mainnet.daoMultiSig],
+        await getTransactionOptions()
       );
       params.onStatus("networkConfirmation", "");
       await txn.wait(1);
@@ -480,7 +486,12 @@ export const bondTransaction = async (params: {
       const valueInWei = ethers.utils.parseUnits(params.value, "ether");
       const address = await signer.getAddress();
       params.onStatus("userConfirmation", "");
-      const txn = await contract.deposit(valueInWei, maxPremium, address);
+      const txn = await contract.deposit(
+        valueInWei,
+        maxPremium,
+        address,
+        await getTransactionOptions()
+      );
       params.onStatus("networkConfirmation", "");
       await txn.wait(1);
       params.onStatus("done", "Bond acquired successfully");
@@ -511,7 +522,11 @@ export const redeemTransaction = async (params: {
       signer
     );
     params.onStatus("userConfirmation", "");
-    const txn = await contract.redeem(params.address, params.shouldAutostake);
+    const txn = await contract.redeem(
+      params.address,
+      params.shouldAutostake,
+      await getTransactionOptions()
+    );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Bond redeemed successfully");

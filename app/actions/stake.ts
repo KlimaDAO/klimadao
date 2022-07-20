@@ -28,7 +28,11 @@ export const changeApprovalTransaction = async (params: {
       unstake: addresses["mainnet"].staking,
     }[params.action];
     params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(address, parsedValue.toString());
+    const txn = await contract.approve(
+      address,
+      parsedValue.toString(),
+      await getTransactionOptions()
+    );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Transaction approved successfully");
@@ -67,7 +71,7 @@ export const changeStakeTransaction = async (params: {
     const txn =
       params.action === "stake"
         ? await contract.stake(parsedValue, transactionOptions)
-        : await contract.unstake(parsedValue, true); // always trigger rebase because gas is cheap
+        : await contract.unstake(parsedValue, true, transactionOptions); // always trigger rebase because gas is cheap
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Transaction confirmed");

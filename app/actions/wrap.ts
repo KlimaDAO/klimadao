@@ -2,6 +2,7 @@ import { addresses } from "@klimadao/lib/constants";
 import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
+import { getTransactionOptions } from "@klimadao/lib/utils";
 
 export const changeApprovalTransaction = async (params: {
   value: string;
@@ -17,7 +18,8 @@ export const changeApprovalTransaction = async (params: {
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].wsklima,
-      value.toString()
+      value.toString(),
+      await getTransactionOptions()
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
@@ -47,7 +49,8 @@ export const wrapTransaction = async (params: {
     params.onStatus("userConfirmation", "");
     const decimal = params.action === "wrap" ? 9 : 18;
     const txn = await contract[params.action](
-      ethers.utils.parseUnits(params.value, decimal)
+      ethers.utils.parseUnits(params.value, decimal),
+      await getTransactionOptions()
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);

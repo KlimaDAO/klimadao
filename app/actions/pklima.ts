@@ -9,6 +9,7 @@ import {
   trimStringDecimals,
   getContract,
 } from "@klimadao/lib/utils";
+import { getTransactionOptions } from "@klimadao/lib/utils";
 
 export const loadTerms = (params: {
   address: string;
@@ -72,7 +73,8 @@ export const changeApprovalTransaction = async (params: {
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].pklima_exercise,
-      value.toString()
+      value.toString(),
+      await getTransactionOptions()
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
@@ -100,7 +102,8 @@ export const exerciseTransaction = async (params: {
     });
     params.onStatus("userConfirmation", "");
     const txn = await contract.exercise(
-      ethers.utils.parseUnits(params.value, "ether")
+      ethers.utils.parseUnits(params.value, "ether"),
+      await getTransactionOptions()
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
