@@ -7,6 +7,7 @@ import {
   trimStringDecimals,
   getContract,
   getKNSProfile,
+  getENSProfile,
 } from "@klimadao/lib/utils";
 import {
   setBalance,
@@ -15,8 +16,6 @@ import {
   setWrapAllowance,
   setDomains,
 } from "state/user";
-
-import { getENS } from "./utils";
 
 export const loadAccountDetails = (params: {
   provider: providers.JsonRpcProvider;
@@ -67,13 +66,8 @@ export const loadAccountDetails = (params: {
       });
 
       // domains
-      // const knsDomain = await getKNSProfile({ address: params.address });
-      const knsDomain = undefined;
-      const ensDomain = await getENS({
-        address: "0xa679c6154b8d4619Af9F83f0bF9a13A680e01eCf".toLowerCase(),
-      });
-      // const ensDomain = await getENS({ address: params.address });
-      console.log(ensDomain);
+      const knsDomain = await getKNSProfile({ address: params.address });
+      const ensDomain = await getENSProfile({ address: params.address });
 
       // balances
       const balances = [

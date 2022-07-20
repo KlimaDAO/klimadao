@@ -1,7 +1,6 @@
 import { AppNotificationStatus, TxnStatus } from "state/app";
 import { t } from "@lingui/macro";
-import { Domain } from "state/user";
-import { ethers } from "ethers";
+
 export type OnStatusHandler = (status: TxnStatus, message?: string) => void;
 
 export const getStatusMessage = (status: AppNotificationStatus) => {
@@ -32,30 +31,4 @@ export const getStatusMessage = (status: AppNotificationStatus) => {
     });
   }
   return null;
-};
-
-export const getENS = async (params: {
-  address: string;
-}): Promise<Domain | null> => {
-  try {
-    const ethProvider = ethers.getDefaultProvider(1);
-    // const ensDomain = await ethProvider.lookupAddress(params.address);
-    const ensDomain = await ethProvider.lookupAddress(
-      "0x5A384227B65FA093DEC03Ec34e111Db80A040615".toLowerCase()
-    );
-
-    const imageUrl = ensDomain ? await ethProvider.getAvatar(ensDomain) : null;
-
-    if (ensDomain) {
-      return {
-        name: ensDomain,
-        imageUrl: imageUrl || "",
-      };
-    }
-
-    return null;
-  } catch (error) {
-    console.log("getENS error", error);
-    return Promise.reject(error);
-  }
 };

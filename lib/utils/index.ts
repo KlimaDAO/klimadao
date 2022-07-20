@@ -42,5 +42,10 @@ export {
 } from "./kns";
 
 // ENS
-export { isENSDomain, getAddressByENS, getENSByAddress } from "./ens";
+export {
+  isENSDomain,
+  getAddressByENS,
+  getENSByAddress,
+  getENSProfile,
+} from "./ens";
 export { useWeb3 } from "./useWeb3";
