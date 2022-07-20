@@ -1,20 +1,15 @@
 import { FC, ReactNode, useState, useEffect } from "react";
 import { Trans } from "@lingui/macro";
-import { cx } from "@emotion/css";
 import { AppNotificationStatus } from "state/app";
-import { getSpenderAddress, concatAddress } from "@klimadao/lib/utils";
-import { getStatusMessage } from "actions/utils";
 import {
   AllowancesToken,
   AllowancesSpender,
 } from "@klimadao/lib/types/allowances";
 
-import { tokenInfo } from "lib/getTokenInfo";
-
 import { Modal } from "components/Modal";
-import { Image } from "components/Image";
-
-import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
+import { Approve } from "./Approve";
+import { Submit } from "./Submit";
+import { Spinner } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 
@@ -30,51 +25,9 @@ interface Props {
   hasApproval: boolean;
 }
 
-interface HighlightValueProps {
-  label: ReactNode;
-  value: string;
-  icon?: StaticImageData;
-  iconName?: string;
-  warn?: boolean;
-}
-
-const HighlightValue: FC<HighlightValueProps> = (props) => {
-  return (
-    <div className={styles.valueContainer}>
-      <div className="label">{props.label}</div>
-      <div className={styles.value}>
-        {props.icon && (
-          <Image
-            className="icon"
-            src={props.icon}
-            width={48}
-            height={48}
-            alt={props.iconName}
-          />
-        )}
-
-        <Text
-          t="body3"
-          className={cx("value", {
-            warn: !!props.warn,
-          })}
-        >
-          {props.value}
-        </Text>
-      </div>
-    </div>
-  );
-};
 export const TransactionModal: FC<Props> = (props) => {
   const [view, setView] = useState<"approve" | "submit">("approve");
   const [isLoading, setIsLoading] = useState(true);
-
-  const statusType = props.status?.statusType;
-
-  const showButtonSpinner =
-    statusType === "userConfirmation" || statusType === "networkConfirmation";
-
-  const spenderAddress = getSpenderAddress(props.spender);
 
   useEffect(() => {
     if (props.hasApproval) {
@@ -113,61 +66,29 @@ export const TransactionModal: FC<Props> = (props) => {
             <Spinner />
           </div>
         )}
-        {!isLoading && (
-          <>
-            <Text>
-              <Trans id="transaction_modal.approve.allow_amount">
-                You must first approve the contract with the spender so that you
-                can spend the amount you want.
-              </Trans>
-            </Text>
-            <HighlightValue
-              label={
-                <Text t="caption" color="lighter">
-                  <Trans id="transaction_modal.approve.allow_amount.contract_owner">
-                    Contract Owner:
-                  </Trans>
-                </Text>
-              }
-              value={
-                spenderAddress
-                  ? concatAddress(spenderAddress)
-                  : "Unknown Contract Owner"
-              }
-              warn={!spenderAddress}
-            />
-            <HighlightValue
-              label={
-                <Text t="caption" color="lighter">
-                  <Trans id="transaction_modal.allow_amount.amount">
-                    Approve allowance to spend:
-                  </Trans>
-                </Text>
-              }
-              value={props.value || "0"}
-              icon={tokenInfo[props.token].icon}
-              iconName={props.token}
-            />
-          </>
+        {!isLoading && view === "approve" && (
+          <Approve
+            value={props.value}
+            token={props.token}
+            spender={props.spender}
+            onApproval={props.onApproval}
+            onSuccess={() => {
+              props.onResetStatus();
+              setView("submit");
+            }}
+            status={props.status}
+          />
         )}
-        {!!props.status && (
-          <Text t="caption" color="lighter" align="center">
-            {getStatusMessage(props.status)}
-          </Text>
+        {!isLoading && view === "submit" && (
+          <Submit
+            value={props.value}
+            token={props.token}
+            spender={props.spender}
+            onSubmit={props.onSubmit}
+            onSuccess={props.onCloseModal}
+            status={props.status}
+          />
         )}
-        <div className={styles.buttonRow}>
-          {showButtonSpinner ? (
-            <div className={styles.buttonRow_spinner}>
-              <Spinner />
-            </div>
-          ) : (
-            <ButtonPrimary
-              label={<Trans id="shared.approve">Approve</Trans>}
-              onClick={() => props.onApproval()}
-              className={styles.submitButton}
-            />
-          )}
-        </div>
       </div>
     </Modal>
   );
