@@ -480,6 +480,7 @@ export const Stake = (props: Props) => {
           spender={getSpender()}
           value={quantity.toString()}
           status={fullStatus}
+          onResetStatus={() => setStatus(null)}
           onApproval={handleApproval}
           hasApproval={hasApproval()}
           onSubmit={handleStake}
