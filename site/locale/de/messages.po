@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-19 15:44+0000\n"
+"POT-Creation-Date: 2022-07-20 07:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Articles"
 msgstr "Artikel"
 
-#: components/ChangeLanguageButton/index.tsx:64
+#: components/ChangeLanguageButton/index.tsx:65
 msgid "Change language"
 msgstr "Sprache wechseln"
 
@@ -660,7 +660,7 @@ msgstr "Investiere in die Zukunft."
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
-msgstr ""
+msgstr "Planet of the Klimates ist ein communityorientierter Podcast, in denen Klima-Partner und Vordenker aus Bereichen wie Klimawissenschaft, Blockchain und mehr zusammenkommen. Die aktuellen Folgen und ein Archiv aller alten Episoden findest du unten. Außerdem kannst du dir POTK auf Podcastingplattformen wie <0>RSS</0> und <1>Apple Podcast</1> anhören."
 
 #: components/pages/Podcast/index.tsx:19
 msgid "podcast.head.headline"
