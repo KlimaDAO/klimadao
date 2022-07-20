@@ -1,6 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
 import { Text } from "@klimadao/lib/components";
-import { concatAddress, getKNSProfile } from "@klimadao/lib/utils";
+import {
+  concatAddress,
+  getENSProfile,
+  getKNSProfile,
+} from "@klimadao/lib/utils";
 import { Domain } from "@klimadao/lib/types/domains";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
@@ -18,17 +22,17 @@ export const Profile: FC<Props> = (props) => {
   const [profileData, setProfileData] = useState<Domain | null>();
 
   useEffect(() => {
-    // TODO resolve ens profile avatar
-    const setKNSProfile = async () => {
-      const data = await getKNSProfile({
+    const setProfile = async () => {
+      const kns = await getKNSProfile({
         address: props.pledge.ownerAddress,
         providerUrl: getInfuraUrlPolygon(),
       });
+      const ens = await getENSProfile({ address: props.pledge.ownerAddress });
 
-      setProfileData(data);
+      setProfileData(kns || ens);
     };
 
-    setKNSProfile();
+    setProfile();
   }, []);
 
   const hasProfileImage = props.pledge.profileImageUrl || profileData;
