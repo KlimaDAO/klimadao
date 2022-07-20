@@ -18,6 +18,7 @@ import {
   PledgeCard,
   RetirementsCard,
 } from "./Cards";
+import { Profile } from "./Profile";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import { Pledge } from "../types";
@@ -86,6 +87,11 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       </Modal>
 
       <div className={styles.contentContainer}>
+        <Profile
+          domain={props.domain}
+          pledge={props.pledge}
+          retirements={retirements}
+        />
         <div className={styles.profile}>
           {Boolean(pledge.profileImageUrl) ? (
             <img
