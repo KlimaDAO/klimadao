@@ -173,11 +173,10 @@ export const Stake = (props: Props) => {
     }
   };
 
-  const handleStake = () => async () => {
+  const handleStake = async () => {
     if (!props.provider) return;
     try {
       const value = quantity.toString();
-      setQuantity("");
       const approvedValue = await changeStakeTransaction({
         value,
         provider: props.provider,
@@ -202,6 +201,7 @@ export const Stake = (props: Props) => {
               value: approvedValue,
             })
       );
+      setQuantity("");
     } catch (e) {
       console.error("Error in handleStake", e);
       return;
