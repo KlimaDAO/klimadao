@@ -47,7 +47,7 @@ const calcFootprintPercent = (
 ): CategoryWithPercent[] => {
   return categories.map((category, index) => ({
     ...category,
-    percent: Math.round((category.quantity / total) * 100),
+    percent: (category.quantity / total) * 100,
     fill: COLOR_PALETTE[index],
   }));
 };
@@ -100,7 +100,7 @@ export const FootprintCard: FC<Props> = (props) => {
                       className={styles.categoryRow_percentage}
                       style={{ color: `${category.fill}` }}
                     >
-                      {category.percent}%
+                      {+category.percent.toFixed(2)}%
                     </span>
                   </Text>
                 </div>
