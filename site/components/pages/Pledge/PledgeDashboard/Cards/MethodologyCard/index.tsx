@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import HowToRegOutlinedIcon from "@mui/icons-material/HowToRegOutlined";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import { Text } from "@klimadao/lib/components";
 
 import { BaseCard } from "../BaseCard";
@@ -13,7 +13,7 @@ export const MethodologyCard: FC<Props> = (props) => {
   return (
     <BaseCard
       title="Methodology"
-      icon={<HowToRegOutlinedIcon fontSize="large" />}
+      icon={<DescriptionOutlinedIcon fontSize="large" />}
     >
       <Text t="body2">{props.methodology || defaultText}</Text>
     </BaseCard>
