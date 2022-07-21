@@ -50,7 +50,10 @@ export const Navigation: FC<Props> = ({
                 message: "Contact Sales",
                 id: "shared.contact_sales",
               })}
-              href={createLinkWithLocaleQuery(urls.app, locale)}
+              href={createLinkWithLocaleQuery(
+                urls.partnerShipsContactForm,
+                locale
+              )}
             />
           ),
         ]}

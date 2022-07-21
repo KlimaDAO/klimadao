@@ -696,7 +696,7 @@ msgstr ""
 msgid "infinity.carousel_info_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:739
+#: components/pages/Infinity/index.tsx:745
 msgid "infinity.cta_title"
 msgstr ""
 
@@ -704,19 +704,19 @@ msgstr ""
 msgid "infinity.faq_answer1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:654
+#: components/pages/Infinity/index.tsx:655
 msgid "infinity.faq_answer2_paragraph1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:662
+#: components/pages/Infinity/index.tsx:665
 msgid "infinity.faq_answer2_paragraph2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:668
+#: components/pages/Infinity/index.tsx:673
 msgid "infinity.faq_answer2_paragraph3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:704
+#: components/pages/Infinity/index.tsx:710
 msgid "infinity.faq_answer3"
 msgstr ""
 
@@ -728,7 +728,7 @@ msgstr ""
 msgid "infinity.faq_question2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:682
+#: components/pages/Infinity/index.tsx:688
 msgid "infinity.faq_question3"
 msgstr ""
 
@@ -1121,26 +1121,26 @@ msgstr ""
 msgid "shared.home"
 msgstr ""
 
-#: components/Navigation/index.tsx:90
+#: components/Navigation/index.tsx:93
 msgid "shared.infinity"
 msgstr ""
 
-#: components/Navigation/index.tsx:65
+#: components/Navigation/index.tsx:68
 msgid "shared.infity"
 msgstr ""
 
-#: components/Navigation/index.tsx:69
-#: components/Navigation/index.tsx:94
+#: components/Navigation/index.tsx:72
+#: components/Navigation/index.tsx:97
 msgid "shared.loveletters"
 msgstr ""
 
-#: components/Navigation/index.tsx:61
-#: components/Navigation/index.tsx:86
+#: components/Navigation/index.tsx:64
+#: components/Navigation/index.tsx:89
 msgid "shared.offset"
 msgstr ""
 
-#: components/Navigation/index.tsx:73
-#: components/Navigation/index.tsx:98
+#: components/Navigation/index.tsx:76
+#: components/Navigation/index.tsx:101
 msgid "shared.resources"
 msgstr ""
 

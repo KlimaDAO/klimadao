@@ -696,7 +696,7 @@ msgstr "Drive funding to projects that move the needle on climate change mitigat
 msgid "infinity.carousel_info_title"
 msgstr "Support high quality projects"
 
-#: components/pages/Infinity/index.tsx:739
+#: components/pages/Infinity/index.tsx:745
 msgid "infinity.cta_title"
 msgstr "The next-generation carbon toolkit for your organization"
 
@@ -704,19 +704,19 @@ msgstr "The next-generation carbon toolkit for your organization"
 msgid "infinity.faq_answer1"
 msgstr "A carbon offset unit represents the removal of one tonne of carbon dioxide equivalent (tCO2e) from the atmosphere, or the avoidance of one tonne of emissions."
 
-#: components/pages/Infinity/index.tsx:654
+#: components/pages/Infinity/index.tsx:655
 msgid "infinity.faq_answer2_paragraph1"
 msgstr "Carbon credits are a high-integrity mechanism that allow carbon finance to flow from those who pollute, to projects across the globe that help to mitigate or remove carbon from the atmosphere. They are a valuable tool to cover hard-to-abate emissions that may be costly or technically challenging to eliminate today."
 
-#: components/pages/Infinity/index.tsx:662
+#: components/pages/Infinity/index.tsx:665
 msgid "infinity.faq_answer2_paragraph2"
 msgstr "When you purchase a carbon credit, Klima Infinity enables you to retire this carbon credit, permanently removing it from circulation. This retirement is the point at which you can claim the benefit of the carbon offset."
 
-#: components/pages/Infinity/index.tsx:668
+#: components/pages/Infinity/index.tsx:673
 msgid "infinity.faq_answer2_paragraph3"
 msgstr "Purchased offsets lead to measurable and accountable emissions reductions elsewhere in the economy, and can be used to ‘offset’ an unavoidable carbon footprint. The trade and retirement of carbon credits enables a market mechanism to emerge that puts a price on carbon."
 
-#: components/pages/Infinity/index.tsx:704
+#: components/pages/Infinity/index.tsx:710
 msgid "infinity.faq_answer3"
 msgstr "The objective of carbon markets is to reduce greenhouse gas (GHG, or “carbon”) emissions cost-effectively by setting limits on emissions and enabling the trading of emission units, which are financial instruments representing emission reductions. Trading enables entities that can reduce emissions at lower cost to be paid to do so by higher-cost emitters, thus lowering the economic cost of reducing emissions."
 
@@ -728,7 +728,7 @@ msgstr "1. What is a carbon offset?"
 msgid "infinity.faq_question2"
 msgstr "2. How does offsetting help in the fight against climate change?"
 
-#: components/pages/Infinity/index.tsx:682
+#: components/pages/Infinity/index.tsx:688
 msgid "infinity.faq_question3"
 msgstr "3. What are carbon markets?"
 
@@ -786,7 +786,7 @@ msgstr "For the planet's pioneering organizations"
 
 #: components/pages/Infinity/index.tsx:252
 msgid "infinity.info_subtitle2"
-msgstr "The world's most powerful and easy to use offsetting solution"
+msgstr "The world's most powerful and easy-to-use offsetting solution"
 
 #: components/pages/Infinity/index.tsx:494
 msgid "infinity.mission_card1_subtitle"
@@ -1121,26 +1121,26 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:90
+#: components/Navigation/index.tsx:93
 msgid "shared.infinity"
 msgstr "Infinity"
 
-#: components/Navigation/index.tsx:65
+#: components/Navigation/index.tsx:68
 msgid "shared.infity"
 msgstr "Infinity"
 
-#: components/Navigation/index.tsx:69
-#: components/Navigation/index.tsx:94
+#: components/Navigation/index.tsx:72
+#: components/Navigation/index.tsx:97
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:61
-#: components/Navigation/index.tsx:86
+#: components/Navigation/index.tsx:64
+#: components/Navigation/index.tsx:89
 msgid "shared.offset"
 msgstr "Offset"
 
-#: components/Navigation/index.tsx:73
-#: components/Navigation/index.tsx:98
+#: components/Navigation/index.tsx:76
+#: components/Navigation/index.tsx:101
 msgid "shared.resources"
 msgstr "Resources"
 
