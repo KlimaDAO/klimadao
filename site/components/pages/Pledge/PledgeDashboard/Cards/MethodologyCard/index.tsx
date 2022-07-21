@@ -15,9 +15,7 @@ export const MethodologyCard: FC<Props> = (props) => {
       title="Methodology"
       icon={<HowToRegOutlinedIcon fontSize="large" />}
     >
-      <Text t="body2">
-        <em>"{props.methodology || defaultText}"</em>
-      </Text>
+      <Text t="body2">{props.methodology || defaultText}</Text>
     </BaseCard>
   );
 };
