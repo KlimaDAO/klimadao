@@ -1,21 +1,61 @@
-import { providers } from "ethers";
+import { providers, ethers } from "ethers";
 import { Thunk } from "state";
 
-import { addresses } from "@klimadao/lib/constants";
 import {
   formatUnits,
-  trimStringDecimals,
   getContract,
   getKNSProfile,
   getENSProfile,
+  getAllowance,
+  getTokensFromSpender,
+  getTokenDecimals,
 } from "@klimadao/lib/utils";
-import {
-  setBalance,
-  setExerciseAllowance,
-  setStakeAllowance,
-  setWrapAllowance,
-  setDomains,
-} from "state/user";
+import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
+import { setBalance, updateAllowances, setDomains } from "state/user";
+
+const assets = [
+  "bct",
+  "nct",
+  "mco2",
+  "ubo",
+  "nbo",
+  "usdc",
+  "klima",
+  "sklima",
+  "wsklima",
+  "pklima",
+] as const;
+type Asset = typeof assets[number];
+
+const spenders = [
+  "staking_helper",
+  "staking",
+  "wsklima",
+  "pklima_exercise",
+] as const;
+
+type TokenValueFormatted = {
+  [K in Asset]: string;
+};
+
+const getBalance = async (params: {
+  token: Asset;
+  contract: ethers.Contract;
+  address: string;
+}): Promise<string> => {
+  try {
+    const balance = await params.contract.balanceOf(params.address);
+    const decimals = getTokenDecimals(params.token);
+    return formatUnits(balance, decimals);
+  } catch (e) {
+    console.error(`Error in getBalance for token: ${params.token}`);
+    return Promise.reject(e);
+  }
+};
+
+type ContractsObject = {
+  [key in Asset]: ethers.Contract;
+};
 
 export const loadAccountDetails = (params: {
   provider: providers.JsonRpcProvider;
@@ -24,102 +64,75 @@ export const loadAccountDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const bctContract = getContract({
-        contractName: "bct",
-        provider: params.provider,
-      });
-      const nctContract = getContract({
-        contractName: "nct",
-        provider: params.provider,
-      });
-      const mco2Contract = getContract({
-        contractName: "mco2",
-        provider: params.provider,
-      });
-      const uboContract = getContract({
-        contractName: "ubo",
-        provider: params.provider,
-      });
-      const nboContract = getContract({
-        contractName: "nbo",
-        provider: params.provider,
-      });
-      const usdcContract = getContract({
-        contractName: "usdc",
-        provider: params.provider,
-      });
-      const klimaContract = getContract({
-        contractName: "klima",
-        provider: params.provider,
-      });
-      const sklimaContract = getContract({
-        contractName: "sklima",
-        provider: params.provider,
-      });
-      const wsklimaContract = getContract({
-        contractName: "wsklima",
-        provider: params.provider,
-      });
-      const pKlimaContract = getContract({
-        contractName: "pklima",
-        provider: params.provider,
-      });
+      // all assets
+      const assetsContracts = assets.reduce((obj, asset) => {
+        const contract = getContract({
+          contractName: asset,
+          provider: params.provider,
+        });
+        return { ...obj, [asset]: contract };
+      }, {} as ContractsObject);
 
       // domains
-      const knsDomain = await getKNSProfile({ address: params.address });
-      const ensDomain = await getENSProfile({ address: params.address });
-
-      // balances
-      const balances = [
-        // CARBON
-        bctContract.balanceOf(params.address),
-        mco2Contract.balanceOf(params.address),
-        nctContract.balanceOf(params.address),
-        uboContract.balanceOf(params.address),
-        nboContract.balanceOf(params.address),
-
-        // KLIMA
-        klimaContract.balanceOf(params.address),
-        sklimaContract.balanceOf(params.address),
-        wsklimaContract.balanceOf(params.address),
-        pKlimaContract.balanceOf(params.address),
-        // USDC
-        usdcContract.balanceOf(params.address),
-
-        // allowances token.allowance(owner, spender)
-        klimaContract.allowance(
-          params.address,
-          addresses["mainnet"].staking_helper
-        ),
-        sklimaContract.allowance(params.address, addresses["mainnet"].staking),
-        sklimaContract.allowance(params.address, addresses["mainnet"].wsklima),
-        pKlimaContract.allowance(
-          params.address,
-          addresses["mainnet"].pklima_exercise
-        ),
-        bctContract.allowance(
-          params.address,
-          addresses["mainnet"].pklima_exercise
-        ),
+      const domains = [
+        getKNSProfile({ address: params.address }),
+        getENSProfile({ address: params.address }),
       ];
 
-      const [
-        bctBalance,
-        mco2Balance,
-        nctBalance,
-        uboBalance,
-        nboBalance,
-        klimaBalance,
-        sklimaBalance,
-        wsklimaBalance,
-        pklimaBalance,
-        usdcBalance,
-        stakeAllowance,
-        unstakeAllowance,
-        wrapAllowance,
-        pKlimaAllowance,
-        bctAllowance,
-      ] = await Promise.all(balances);
+      const [knsDomain, ensDomain] = await Promise.all(domains);
+
+      // balances
+      const promisesBalance = assets.reduce((arr, asset) => {
+        const contract = assetsContracts[asset];
+        if (contract) {
+          arr.push(
+            getBalance({ token: asset, contract, address: params.address })
+          );
+        }
+        return arr;
+      }, [] as Promise<string>[]);
+
+      const allBalances = await Promise.all(promisesBalance);
+      // reduce to match the state shape
+      const balances = assets.reduce((obj, asset, assetIndex) => {
+        const balance = allBalances[assetIndex];
+        return {
+          ...obj,
+          [asset]: balance,
+        };
+      }, {} as TokenValueFormatted);
+
+      const promisesAllowance = spenders.reduce((arr, spender) => {
+        const tokens = getTokensFromSpender(spender);
+        tokens.forEach((tkn) => {
+          const contract = assetsContracts[tkn];
+          if (contract) {
+            arr.push(
+              getAllowance({
+                contract,
+                address: params.address,
+                spender,
+                token: tkn,
+              })
+            );
+          }
+        });
+        return arr;
+      }, [] as Promise<AllowancesFormatted>[]);
+
+      const allAllowances = await Promise.all(promisesAllowance);
+      // reduce to match the state shape
+      const allowances = allAllowances.reduce<AllowancesFormatted>(
+        (obj, allowance) => {
+          const [token, spender] = Object.entries(allowance)[0];
+          obj[token as keyof typeof allowance] = {
+            ...obj[token as keyof typeof allowance],
+            ...spender,
+          };
+          return obj;
+        },
+        {} as AllowancesFormatted
+      );
 
       dispatch(
         setDomains({
@@ -127,38 +140,8 @@ export const loadAccountDetails = (params: {
           ensDomain: ensDomain ?? undefined,
         })
       );
-      dispatch(
-        setBalance({
-          klima: formatUnits(klimaBalance, 9),
-          sklima: formatUnits(sklimaBalance, 9),
-          wsklima: trimStringDecimals(formatUnits(wsklimaBalance), 9), // trim to 9 for compat with sKLIMA contract
-          pklima: formatUnits(pklimaBalance),
-          bct: formatUnits(bctBalance),
-          nct: formatUnits(nctBalance),
-          mco2: formatUnits(mco2Balance),
-          ubo: formatUnits(uboBalance),
-          nbo: formatUnits(nboBalance),
-          usdc: formatUnits(usdcBalance, 6),
-        })
-      );
-      dispatch(
-        setStakeAllowance({
-          klima: formatUnits(stakeAllowance, 9),
-          sklima: formatUnits(unstakeAllowance, 9),
-        })
-      );
-      dispatch(
-        setExerciseAllowance({
-          bct: formatUnits(bctAllowance),
-          pklima: formatUnits(pKlimaAllowance),
-        })
-      );
-      dispatch(
-        setWrapAllowance({
-          sklima: formatUnits(wrapAllowance),
-          // wsklima: formatUnits(wsklimaWrapAllowance),
-        })
-      );
+      dispatch(setBalance(balances));
+      dispatch(updateAllowances(allowances));
     } catch (error: any) {
       console.log(error);
       if (error.message && error.message.includes("Non-200 status code")) {

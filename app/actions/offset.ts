@@ -1,14 +1,11 @@
 import { ethers, providers } from "ethers";
 import { Thunk } from "state";
-import {
-  setCarbonRetiredAllowance,
-  setCarbonRetiredBalances,
-} from "state/user";
+import { setCarbonRetiredBalances, updateAllowances } from "state/user";
 
 import {
   addresses,
-  InputToken,
-  inputTokens,
+  OffsetInputToken,
+  offsetInputTokens,
   RetirementToken,
 } from "@klimadao/lib/constants";
 import {
@@ -17,6 +14,7 @@ import {
   createRetirementStorageContract,
   getRetirementTotalsAndBalances,
   getContract,
+  getAllowance,
 } from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
 
@@ -24,6 +22,8 @@ import {
   RetirementReceipt,
   RetirementTotals,
 } from "@klimadao/lib/types/offset";
+
+import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 
 export const getRetiredOffsetBalances = (params: {
   provider: providers.JsonRpcProvider;
@@ -51,43 +51,50 @@ export const getRetirementAllowances = (params: {
   return async (dispatch) => {
     try {
       // create arr of promises, one for each of the above erc20s
-      const promises = inputTokens.reduce((arr, val) => {
+      const promises = offsetInputTokens.reduce((arr, val) => {
         const contract = getContract({
           contractName: val,
           provider: params.provider,
         });
         arr.push(
-          contract.allowance(
-            params.address, // owner
-            addresses["mainnet"].retirementAggregator // spender
-          )
+          getAllowance({
+            contract,
+            address: params.address,
+            spender: "retirementAggregator",
+            token: val,
+          })
         );
         return arr;
-      }, [] as Promise<ethers.BigNumber>[]);
+      }, [] as Promise<AllowancesFormatted>[]);
 
-      type Allowances = { [key in typeof inputTokens[number]]: string };
+      // await to get arr of Allowances
+      const allAllowances = await Promise.all(promises);
 
-      // await to get arr of bignumbers
-      const res = await Promise.all(promises);
+      // reduce to match the state shape
+      const allowances = allAllowances.reduce<AllowancesFormatted>(
+        (obj, allowance) => {
+          const [token, spender] = Object.entries(allowance)[0];
+          obj[token as keyof typeof allowance] = {
+            ...obj[token as keyof typeof allowance],
+            ...spender,
+          };
+          return obj;
+        },
+        {} as AllowancesFormatted
+      );
 
-      // reduce and format each with appropriate decimals
-      const allowances = inputTokens.reduce<Allowances>((obj, tkn, index) => {
-        const val = res[index];
-        const decimals = getTokenDecimals(tkn);
-        obj[tkn] = formatUnits(val, decimals);
-        return obj;
-      }, {} as Allowances);
-      dispatch(setCarbonRetiredAllowance(allowances));
+      dispatch(updateAllowances(allowances));
     } catch (error: any) {
-      console.error(error);
+      console.error("Error in getRetirementAllowances: ", error);
       throw error;
     }
   };
 };
 
 export const changeApprovalTransaction = async (params: {
+  value: string;
   provider: providers.JsonRpcProvider;
-  token: InputToken;
+  token: OffsetInputToken;
   onStatus: OnStatusHandler;
 }): Promise<string> => {
   try {
@@ -96,16 +103,16 @@ export const changeApprovalTransaction = async (params: {
       provider: params.provider.getSigner(),
     });
     const decimals = getTokenDecimals(params.token);
-    const value = ethers.utils.parseUnits("1000000000", decimals);
+    const parsedValue = ethers.utils.parseUnits(params.value, decimals);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"].retirementAggregator,
-      value.toString()
+      parsedValue.toString()
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
-    return formatUnits(value, decimals);
+    return formatUnits(parsedValue, decimals);
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");
@@ -119,7 +126,7 @@ export const changeApprovalTransaction = async (params: {
 
 export const getOffsetConsumptionCost = async (params: {
   provider: providers.JsonRpcProvider;
-  inputToken: InputToken;
+  inputToken: OffsetInputToken;
   retirementToken: RetirementToken;
   quantity: string;
   amountInCarbon: boolean;
@@ -164,7 +171,7 @@ export type RetireCarbonTransactionResult = {
 export const retireCarbonTransaction = async (params: {
   address: string;
   provider: providers.JsonRpcProvider;
-  inputToken: InputToken;
+  inputToken: OffsetInputToken;
   retirementToken: RetirementToken;
   quantity: string;
   amountInCarbon: boolean;

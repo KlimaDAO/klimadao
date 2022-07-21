@@ -1,5 +1,5 @@
 import { i18n } from "@lingui/core";
-import { en, fr, de, ru, zh, ko, es } from "make-plural/plurals";
+import { en, fr, de, ru, zh, ko, es, hi } from "make-plural/plurals";
 import { IS_PRODUCTION, IS_LOCAL_DEVELOPMENT } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 
@@ -26,6 +26,7 @@ const locales: ILocales = {
 
 // Add pseudo locale only in development
 if (!IS_PRODUCTION) {
+  locales["hi"] = { plurals: hi, time: "hi-IN" };
   locales["ko"] = { plurals: ko, time: "ko-KR" };
   locales["en-pseudo"] = { plurals: en, time: "en-US" };
 }

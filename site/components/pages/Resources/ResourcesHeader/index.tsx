@@ -6,12 +6,12 @@ import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
-type PageName = "blog" | "community" | "contact";
+type PageName = "blog" | "community" | "contact" | "podcast";
 
 export type Props = {
   activePage: PageName;
   title: string;
-  subline: string;
+  subline: JSX.Element | string;
   headerElements?: FC;
 };
 
@@ -27,6 +27,17 @@ export const ResourcesHeader: FC<Props> = (props) => {
               <Link href="/blog">
                 <a>
                   <Trans id="shared.blog">Blog</Trans>
+                  <ArrowBack className="arrow" />
+                </a>
+              </Link>
+            </li>
+            <li
+              className={styles.listItem}
+              data-active={isPageActive("podcast")}
+            >
+              <Link href="/podcast">
+                <a>
+                  <Trans id="shared.podcast">Podcast</Trans>
                   <ArrowBack className="arrow" />
                 </a>
               </Link>
@@ -76,6 +87,12 @@ export const ResourcesHeader: FC<Props> = (props) => {
               label={t({ id: "shared.contact", message: "Contact" })}
               href={"/contact"}
               variant={isPageActive("contact") ? null : "gray"}
+              link={Link}
+            />
+            <ButtonPrimary
+              label={t({ id: "shared.podcast", message: "Podcast" })}
+              href={"/podcast"}
+              variant={isPageActive("podcast") ? null : "gray"}
               link={Link}
             />
           </div>

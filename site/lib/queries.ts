@@ -58,6 +58,16 @@ export const queries = {
       showDisclaimer,
     }
   `,
+  allPodcasts: /* groq */ `
+  *[_type == "podcast" && hideFromProduction != true] | order(publishedAt desc) {
+    summary, 
+    "slug": slug.current, 
+    title, 
+    publishedAt, 
+    host->, 
+    "embed": embedCode
+  }
+`,
 };
 
 /** Just details needed to render cards */
@@ -70,6 +80,15 @@ export type PostDetails = {
   imageUrl?: string;
 };
 export type AllPosts = PostDetails[];
+export type PodcastDetails = {
+  slug: string;
+  publishedAt: string;
+  title: string;
+  host: { name: string };
+  summary: string;
+  embed?: string;
+};
+export type AllPodcasts = PodcastDetails[];
 export type LatestPost = { slug: string; title: string };
 
 export type Post = {
@@ -87,4 +106,5 @@ export interface QueryContent {
   allPosts: AllPosts;
   latestPost: LatestPost;
   post: Post;
+  allPodcasts: AllPodcasts;
 }

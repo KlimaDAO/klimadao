@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-11 19:58+0000\n"
+"POT-Creation-Date: 2022-07-20 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,13 +11,17 @@ msgstr ""
 msgid "Articles"
 msgstr "Articles"
 
-#: components/ChangeLanguageButton/index.tsx:64
+#: components/ChangeLanguageButton/index.tsx:65
 msgid "Change language"
 msgstr "Changer de langue"
 
 #: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "Visitez l'application"
+
+#: components/pages/Podcast/index.tsx:44
+msgid "Episodes"
+msgstr "Épisodes"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
@@ -652,6 +656,19 @@ msgstr "<0>BIENVENUE CHEZ</0> <1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Investissez dans l'avenir."
 
+#: components/pages/Podcast/index.tsx:21
+msgid "podcast.head.description"
+msgstr "Planet of the Klimates est un podcast axé sur la communauté qui présente des conversations avec des partenaires de Klima et des leaders d'opinion sur la science du climat, la blockchain, et bien plus encore. Vous pouvez explorer les derniers épisodes et les archives complètes des émissions directement ci-dessous, et également trouver PotK sur votre plateforme de podcast préférée, notamment <0>RSS</0> et <1>Apple Podcasts</1>."
+
+#: components/pages/Podcast/index.tsx:19
+msgid "podcast.head.headline"
+msgstr "Podcast"
+
+#: components/pages/Podcast/index.tsx:18
+#: components/pages/Podcast/index.tsx:33
+msgid "podcast.head.title"
+msgstr "Podcast KlimaDAO"
+
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
 msgstr "KlimaDAO encourage la durabilité et catalyse un marché du carbone plus transparent et plus liquide. Nos outils permettent à tout individu ou entreprise d'échanger et de retirer des actifs carbone de qualité sur la blockchain."
@@ -831,7 +848,7 @@ msgstr "404 Page non trouvée"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:64
+#: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Blog"
 
@@ -845,19 +862,19 @@ msgstr "App"
 msgid "shared.buy"
 msgstr "Achat"
 
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:70
+#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
 msgstr "Communauté"
 
 #: components/Footer/index.tsx:54
-#: components/pages/Resources/ResourcesHeader/index.tsx:76
+#: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Contact"
 
 #: components/pages/Resources/Community/index.tsx:109
 #: components/pages/Resources/Community/index.tsx:393
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:62
 msgid "shared.contact_us"
 msgstr "Contact"
 
@@ -876,6 +893,7 @@ msgstr "Visitez l'application"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:63
+#: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -889,6 +907,11 @@ msgstr "Accueil"
 #: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:93
+msgid "shared.podcast"
+msgstr "Podcast"
 
 #: components/Navigation/index.tsx:61
 #: components/Navigation/index.tsx:86

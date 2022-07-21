@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-11 19:58+0000\n"
+"POT-Creation-Date: 2022-07-20 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,13 +11,17 @@ msgstr ""
 msgid "Articles"
 msgstr "Статьи"
 
-#: components/ChangeLanguageButton/index.tsx:64
+#: components/ChangeLanguageButton/index.tsx:65
 msgid "Change language"
 msgstr "измененить язык"
 
 #: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "Войдите в приложение"
+
+#: components/pages/Podcast/index.tsx:44
+msgid "Episodes"
+msgstr "Выпуски"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
@@ -656,6 +660,19 @@ msgstr "<0>ДОБРО ПОЖАЛОВАТЬ</0> <1>KlimaDAO</1>"
 msgid "invest_in_the_future"
 msgstr "Инвестируйте в будущее."
 
+#: components/pages/Podcast/index.tsx:21
+msgid "podcast.head.description"
+msgstr "Planet of the Klimates - это подкаст, управляемый сообществом, в котором ведутся беседы с партнерами Klima и идейными лидерами по вопросам климатологии, блокчейна и многого другого. Вы можете ознакомиться с последними выпусками и полным архивом передач непосредственно ниже, а также найти PotK на вашей любимой платформе подкастов, включая <0>RSS</0> и <1>Apple Podcasts</1>."
+
+#: components/pages/Podcast/index.tsx:19
+msgid "podcast.head.headline"
+msgstr "Подкаст"
+
+#: components/pages/Podcast/index.tsx:18
+#: components/pages/Podcast/index.tsx:33
+msgid "podcast.head.title"
+msgstr "Подкаст KlimaDAO"
+
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
 msgstr "KlimaDAO стимулирует устойчивое развитие и является катализатором более прозрачного и ликвидного углеродного рынка. Наши инструменты позволяют любому физическому или юридическому лицу торговать и списывать качественные углеродные активы на блокчейне."
@@ -833,7 +850,7 @@ msgstr "404 Страница не найдена"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:64
+#: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Блог"
 
@@ -847,19 +864,19 @@ msgstr "Приложение"
 msgid "shared.buy"
 msgstr "Купить"
 
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:70
+#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
 msgstr "Сообщество"
 
 #: components/Footer/index.tsx:54
-#: components/pages/Resources/ResourcesHeader/index.tsx:76
+#: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Связаться"
 
 #: components/pages/Resources/Community/index.tsx:109
 #: components/pages/Resources/Community/index.tsx:393
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:62
 msgid "shared.contact_us"
 msgstr "Связаться с нами"
 
@@ -878,6 +895,7 @@ msgstr "Войдите в приложение"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:63
+#: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -893,6 +911,11 @@ msgstr "Домашняя страница"
 #: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:93
+msgid "shared.podcast"
+msgstr "Подкаст"
 
 #: components/Navigation/index.tsx:61
 #: components/Navigation/index.tsx:86

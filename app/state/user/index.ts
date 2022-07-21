@@ -1,8 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
-import { Bond, InputToken, RetirementToken } from "@klimadao/lib/constants";
+import {
+  Bond,
+  OffsetInputToken,
+  RetirementToken,
+} from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import {
+  AllowancesFormatted,
+  AllowancesSpender,
+  AllowancesToken,
+} from "@klimadao/lib/types/allowances";
 
 export interface UserState {
   balance?: {
@@ -28,33 +37,11 @@ export interface UserState {
     redeemable: string;
     supplyShare: number;
   };
-  exerciseAllowance?: {
-    pklima: string;
-    bct: string;
-  };
-  stakeAllowance?: {
-    klima: string;
-    sklima: string;
-  };
   bondAllowance?: {
     [key in Bond]: string;
   };
-  wrapAllowance?: {
-    sklima: string;
-    // wsklima: string;
-  };
-  carbonRetiredAllowance?: {
-    klima: string;
-    sklima: string;
-    wsklima: string;
-    bct: string;
-    mco2: string;
-    nct: string;
-    usdc: string;
-    ubo: string;
-    nbo: string;
-  };
   carbonRetired?: RetirementsTotalsAndBalances;
+  allowances?: AllowancesFormatted;
 }
 export interface Domain {
   name: string;
@@ -63,10 +50,11 @@ export interface Domain {
 
 const initialState: UserState = {
   balance: undefined,
-  exerciseAllowance: undefined,
-  stakeAllowance: undefined,
+  nameServiceDomains: undefined,
+  pklimaTerms: undefined,
   bondAllowance: undefined,
   carbonRetired: undefined,
+  allowances: undefined,
 };
 
 /** Helper type to reduce boilerplate */
@@ -93,33 +81,9 @@ export const userSlice = createSlice({
         ...a.payload,
       };
     },
-    setExerciseAllowance: (s, a: Setter<"exerciseAllowance">) => {
-      s.exerciseAllowance = {
-        ...s.exerciseAllowance!,
-        ...a.payload,
-      };
-    },
-    setStakeAllowance: (s, a: Setter<"stakeAllowance">) => {
-      s.stakeAllowance = {
-        ...s.stakeAllowance!,
-        ...a.payload,
-      };
-    },
     setBondAllowance: (s, a: Setter<"bondAllowance">) => {
       s.bondAllowance = {
         ...s.bondAllowance!,
-        ...a.payload,
-      };
-    },
-    setWrapAllowance: (s, a: Setter<"wrapAllowance">) => {
-      s.wrapAllowance = {
-        ...s.wrapAllowance!,
-        ...a.payload,
-      };
-    },
-    setCarbonRetiredAllowance: (s, a: Setter<"carbonRetiredAllowance">) => {
-      s.carbonRetiredAllowance = {
-        ...s.carbonRetiredAllowance!,
         ...a.payload,
       };
     },
@@ -129,10 +93,50 @@ export const userSlice = createSlice({
         ...a.payload,
       };
     },
+    updateAllowances: (s, a: PayloadAction<AllowancesFormatted>) => {
+      const allowancesState = { ...s.allowances };
+      const allTokens = Object.keys(a.payload);
+      const mergedAllowances = allTokens.reduce((obj, token) => {
+        obj[token as keyof typeof allowancesState] = {
+          ...allowancesState[token as keyof typeof allowancesState],
+          ...a.payload[token as keyof typeof allowancesState],
+        };
+        return obj;
+      }, {} as AllowancesFormatted);
+      s.allowances = {
+        ...s.allowances,
+        ...mergedAllowances,
+      };
+    },
+    setAllowance: (
+      s,
+      a: PayloadAction<{
+        token: AllowancesToken;
+        spender: AllowancesSpender;
+        value: string;
+      }>
+    ) => {
+      if (!s.allowances) return s; // type-guard, should never happen
+      s.allowances[a.payload.token][a.payload.spender] = a.payload.value;
+    },
+    decrementAllowance: (
+      s,
+      a: PayloadAction<{
+        token: AllowancesToken;
+        spender: AllowancesSpender;
+        value: string;
+      }>
+    ) => {
+      if (!s.allowances) return s; // type-guard, should never happen
+      s.allowances[a.payload.token][a.payload.spender] = safeSub(
+        s.allowances[a.payload.token][a.payload.spender],
+        a.payload.value
+      );
+    },
     updateRetirement: (
       s,
       a: PayloadAction<{
-        inputToken: InputToken;
+        inputToken: OffsetInputToken;
         retirementToken: RetirementToken;
         cost: string;
         quantity: string;
@@ -214,12 +218,11 @@ export const userSlice = createSlice({
 export const {
   setBalance,
   setPklimaTerms,
-  setExerciseAllowance,
-  setStakeAllowance,
   setBondAllowance,
-  setWrapAllowance,
   setCarbonRetiredBalances,
-  setCarbonRetiredAllowance,
+  updateAllowances,
+  setAllowance,
+  decrementAllowance,
   updateRetirement,
   incrementStake,
   decrementStake,

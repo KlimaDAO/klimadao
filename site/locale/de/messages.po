@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-11 19:58+0000\n"
+"POT-Creation-Date: 2022-07-20 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,13 +11,17 @@ msgstr ""
 msgid "Articles"
 msgstr "Artikel"
 
-#: components/ChangeLanguageButton/index.tsx:64
+#: components/ChangeLanguageButton/index.tsx:65
 msgid "Change language"
 msgstr "Sprache wechseln"
 
 #: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "App öffnen"
+
+#: components/pages/Podcast/index.tsx:44
+msgid "Episodes"
+msgstr "Folgen"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
@@ -654,6 +658,19 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr "Investiere in die Zukunft."
 
+#: components/pages/Podcast/index.tsx:21
+msgid "podcast.head.description"
+msgstr "Planet of the Klimates ist ein communityorientierter Podcast, in denen Klima-Partner und Vordenker aus Bereichen wie Klimawissenschaft, Blockchain und mehr zusammenkommen. Die aktuellen Folgen und ein Archiv aller alten Episoden findest du unten. Außerdem kannst du dir POTK auf Podcastingplattformen wie <0>RSS</0> und <1>Apple Podcast</1> anhören."
+
+#: components/pages/Podcast/index.tsx:19
+msgid "podcast.head.headline"
+msgstr "Podcast"
+
+#: components/pages/Podcast/index.tsx:18
+#: components/pages/Podcast/index.tsx:33
+msgid "podcast.head.title"
+msgstr "KlimaDAO-Podcast"
+
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
 msgstr "KlimaDAO fördert Nachhaltigkeit und ist der Initiator für einen transparenteren, liquideren CO2-Markt. Durch unsere Tools können Privatpersonen und Unternehmen jeder Anzahl oder Größe hochwertige CO2-Zertifikate über die Blockchain handeln und ausgleichen."
@@ -831,7 +848,7 @@ msgstr "404 - Seite nicht gefunden"
 
 #: components/Footer/index.tsx:49
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:64
+#: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Blog"
 
@@ -845,19 +862,19 @@ msgstr "App"
 msgid "shared.buy"
 msgstr "Kaufen"
 
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:70
+#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
 msgstr "Community"
 
 #: components/Footer/index.tsx:54
-#: components/pages/Resources/ResourcesHeader/index.tsx:76
+#: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Kontakt"
 
 #: components/pages/Resources/Community/index.tsx:109
 #: components/pages/Resources/Community/index.tsx:393
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
+#: components/pages/Resources/ResourcesHeader/index.tsx:62
 msgid "shared.contact_us"
 msgstr "Kontaktiere uns"
 
@@ -876,6 +893,7 @@ msgstr "App öffnen"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:63
+#: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -889,6 +907,11 @@ msgstr "Home"
 #: components/Navigation/index.tsx:82
 msgid "shared.loveletters"
 msgstr "Love Letters"
+
+#: components/pages/Resources/ResourcesHeader/index.tsx:40
+#: components/pages/Resources/ResourcesHeader/index.tsx:93
+msgid "shared.podcast"
+msgstr "Podcast"
 
 #: components/Navigation/index.tsx:61
 #: components/Navigation/index.tsx:86

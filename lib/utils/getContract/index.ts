@@ -42,10 +42,10 @@ const contractMap = {
   klimaNameService: PunkTLD.abi,
   bctUsdcLp: PairContract.abi,
   klimaBctLp: PairContract.abi,
-  retirementAggregator: KlimaRetirementAggregator.abi,
+  retirementAggregator: KlimaRetirementAggregator.abi, // offset
   pklima_exercise: ExercisePKlima.abi,
-  staking_helper: KlimaStakingHelper.abi,
-  staking: KlimaStakingv2.abi,
+  staking_helper: KlimaStakingHelper.abi, // stake
+  staking: KlimaStakingv2.abi, // unstake
   retirementStorage: KlimaRetirementStorage.abi,
 } as const;
 type ContractName = keyof typeof contractMap;
@@ -57,7 +57,7 @@ export const isNameInAddresses = (name: string): boolean => {
   return keys.includes(name as keyof typeof addresses["mainnet"]);
 };
 
-export const getContractAbiByName = (name: ContractName) => {
+const getContractAbiByName = (name: ContractName) => {
   return contractMap[name as keyof ContractMap];
 };
 

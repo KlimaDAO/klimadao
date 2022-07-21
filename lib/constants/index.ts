@@ -131,6 +131,8 @@ export const urls = {
   mediaImage: "https://www.klimadao.finance/og-media.png",
   lifiStake:
     "https://transferto.xyz/embed/stake-klima?fromChain=eth&fromToken=0x0000000000000000000000000000000000000000&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+  polyscanGasTracker:
+    "https://api.polygonscan.com/api?module=gastracker&action=gasoracle",
 };
 
 export const polygonNetworks = {
@@ -163,6 +165,25 @@ export const bonds = [
 ] as const;
 export type Bond = typeof bonds[number];
 
+// Spender with their Allowances tokens
+export const allowancesContracts = {
+  retirementAggregator: [
+    "ubo",
+    "nbo",
+    "bct",
+    "nct",
+    "mco2",
+    "usdc",
+    "klima",
+    "sklima",
+    "wsklima",
+  ],
+  staking_helper: ["klima"],
+  staking: ["sklima"],
+  wsklima: ["sklima"],
+  pklima_exercise: ["bct", "pklima"],
+} as const;
+
 export const EPOCH_INTERVAL = 11520;
 export const FALLBACK_BLOCK_RATE = 2.3;
 
@@ -173,24 +194,17 @@ export const SANITY_STUDIO_API_PROJECT_ID = "dk34t4vc";
 export const SANITY_STUDIO_API_DATASET = "production";
 
 /** Tokens accepted as input for the offset aggregator /#/offset */
-export const inputTokens = [
-  "ubo",
-  "nbo",
-  "bct",
-  "nct",
-  "mco2",
-  "usdc",
-  "klima",
-  "sklima",
-  "wsklima",
-] as const;
-export type InputToken = typeof inputTokens[number];
+export type OffsetInputToken =
+  typeof allowancesContracts["retirementAggregator"][number];
+export const offsetInputTokens = allowancesContracts[
+  "retirementAggregator"
+] as unknown as OffsetInputToken[];
 
 /** Retireable tokens for the offset aggregator /#/offset */
 export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 export type RetirementToken = typeof retirementTokens[number];
 
-type CompatMap = { [token in InputToken]: RetirementToken[] };
+type CompatMap = { [token in OffsetInputToken]: RetirementToken[] };
 export const offsetCompatibility: CompatMap = {
   ubo: ["ubo"],
   nbo: ["nbo"],

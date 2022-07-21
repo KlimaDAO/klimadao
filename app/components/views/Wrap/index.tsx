@@ -18,12 +18,18 @@ import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 import {
   selectAppState,
   selectBalances,
-  selectWrapAllowance,
+  selectAllowancesWithParams,
 } from "state/selectors";
-import { decrementWrap, incrementWrap, setWrapAllowance } from "state/user";
+import {
+  decrementWrap,
+  incrementWrap,
+  setAllowance,
+  decrementAllowance,
+} from "state/user";
 import { ImageCard } from "components/ImageCard";
 import { BalancesCard } from "components/BalancesCard";
 import { useAppDispatch } from "state";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
 import * as styles from "components/views/Stake/styles";
 import { Trans, defineMessage } from "@lingui/macro";
@@ -64,7 +70,12 @@ export const Wrap: FC<Props> = (props) => {
 
   const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
-  const allowances = useSelector(selectWrapAllowance);
+  const wrapAllowance = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: ["sklima"],
+      spender: "wsklima",
+    })
+  );
 
   const isLoading = !balances || typeof balances.klima === "undefined";
   const showSpinner =
@@ -82,16 +93,21 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
+  // Approval only needed for wrap, not for unwrap !
   const handleApproval = () => async () => {
     if (!props.provider) return;
     try {
-      const value = await changeApprovalTransaction({
+      const currentQuantity = quantity.toString();
+      const approvedValue = await changeApprovalTransaction({
+        value: currentQuantity,
         provider: props.provider,
         onStatus: setStatus,
       });
       dispatch(
-        setWrapAllowance({
-          sklima: value,
+        setAllowance({
+          token: "sklima",
+          spender: "wsklima",
+          value: approvedValue,
         })
       );
     } catch (e) {
@@ -111,6 +127,13 @@ export const Wrap: FC<Props> = (props) => {
       });
       if (action === "wrap") {
         dispatch(incrementWrap({ sklima: quantity, currentIndex }));
+        dispatch(
+          decrementAllowance({
+            token: "sklima",
+            spender: "wsklima",
+            value: quantity,
+          })
+        );
       } else {
         dispatch(decrementWrap({ wsklima: quantity, currentIndex }));
       }
@@ -119,8 +142,13 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
+  // Approval only needed for wrap, not for unwrap
   const hasApproval = () => {
-    return !!allowances && !!Number(allowances.sklima);
+    return (
+      !!wrapAllowance &&
+      !!Number(wrapAllowance.sklima) &&
+      Number(quantity) <= Number(wrapAllowance.sklima)
+    ); // Caution: Number trims values down to 17 decimal places of precision;
   };
 
   const getButtonProps = () => {
@@ -134,6 +162,12 @@ export const Wrap: FC<Props> = (props) => {
     } else if (isLoading) {
       return {
         label: <Trans id="shared.loading">Loading...</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!value) {
+      return {
+        label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
         onClick: undefined,
         disabled: true,
       };

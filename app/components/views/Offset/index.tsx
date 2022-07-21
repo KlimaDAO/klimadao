@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { StaticImageData } from "components/Image";
-
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
@@ -16,13 +15,16 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
-import { setCarbonRetiredAllowance, updateRetirement } from "state/user";
+import { setAllowance, updateRetirement } from "state/user";
 import {
   selectNotificationStatus,
   selectBalances,
-  selectCarbonRetiredAllowance,
+  selectAllowancesWithParams,
   selectLocale,
 } from "state/selectors";
+
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
+
 import {
   changeApprovalTransaction,
   getOffsetConsumptionCost,
@@ -39,8 +41,8 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
-  InputToken,
-  inputTokens,
+  OffsetInputToken,
+  offsetInputTokens,
   offsetCompatibility,
   RetirementToken,
   retirementTokens,
@@ -73,7 +75,7 @@ interface ButtonProps {
 }
 
 type TokenInfoMap = {
-  [key in RetirementToken | InputToken]: {
+  [key in RetirementToken | OffsetInputToken]: {
     key: string;
     icon: StaticImageData;
     label: string;
@@ -103,13 +105,19 @@ export const Offset = (props: Props) => {
   const dispatch = useAppDispatch();
   const locale = useSelector(selectLocale);
   const balances = useSelector(selectBalances);
-  const allowances = useSelector(selectCarbonRetiredAllowance);
+  const allowances = useTypedSelector((state) =>
+    selectAllowancesWithParams(state, {
+      tokens: offsetInputTokens,
+      spender: "retirementAggregator",
+    })
+  );
+
   const params = useOffsetParams();
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
   const [selectedInputToken, setSelectedInputToken] =
-    useState<InputToken>("bct");
+    useState<OffsetInputToken>("bct");
   const [selectedRetirementToken, setSelectedRetirementToken] =
     useState<RetirementToken>("bct");
 
@@ -238,12 +246,20 @@ export const Offset = (props: Props) => {
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
-      const value = await changeApprovalTransaction({
+      const value = cost.toString();
+      const approvedValue = await changeApprovalTransaction({
+        value,
         provider: props.provider,
         token: selectedInputToken,
         onStatus: setStatus,
       });
-      dispatch(setCarbonRetiredAllowance({ [selectedInputToken]: value }));
+      dispatch(
+        setAllowance({
+          token: selectedInputToken,
+          spender: "retirementAggregator",
+          value: approvedValue,
+        })
+      );
     } catch (e) {
       return;
     }
@@ -287,6 +303,14 @@ export const Offset = (props: Props) => {
     !isLoading &&
     Number(cost) > Number(balances?.[selectedInputToken] ?? "0");
 
+  const hasApproval = () => {
+    return (
+      allowances?.[selectedInputToken] &&
+      !!Number(allowances?.[selectedInputToken]) &&
+      Number(cost) <= Number(allowances?.[selectedInputToken]) // Caution: Number trims values down to 17 decimal places of precision
+    );
+  };
+
   const getButtonProps = (): ButtonProps => {
     if (!props.isConnected) {
       return {
@@ -323,7 +347,7 @@ export const Offset = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (!Number(allowances?.[selectedInputToken])) {
+    } else if (!hasApproval()) {
       return {
         label: <Trans id="shared.approve">APPROVE</Trans>,
         onClick: handleApprove,
@@ -340,7 +364,7 @@ export const Offset = (props: Props) => {
   };
 
   const handleSelectInputToken = (tkn: string) => {
-    setSelectedInputToken(tkn as InputToken);
+    setSelectedInputToken(tkn as OffsetInputToken);
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
@@ -378,7 +402,7 @@ export const Offset = (props: Props) => {
     props.isConnected &&
     (status === "userConfirmation" || status === "networkConfirmation");
 
-  const inputTokenItems = inputTokens
+  const inputTokenItems = offsetInputTokens
     .map((tkn) => ({
       ...tokenInfo[tkn],
       description: (function () {
