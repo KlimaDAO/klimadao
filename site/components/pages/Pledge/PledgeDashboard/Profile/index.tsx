@@ -19,23 +19,27 @@ type Props = {
 };
 
 export const Profile: FC<Props> = (props) => {
-  const [profileData, setProfileData] = useState<Domain | null>();
+  const [profileData, setProfileData] = useState<Domain | null>(null);
 
   useEffect(() => {
+    if (!props.domain) return;
+
     const setProfile = async () => {
       const kns = await getKNSProfile({
         address: props.pledge.ownerAddress,
         providerUrl: getInfuraUrlPolygon(),
       });
-      const ens = await getENSProfile({ address: props.pledge.ownerAddress });
+      if (kns) return setProfileData(kns);
 
-      setProfileData(kns || ens);
+      const ens = await getENSProfile({ address: props.pledge.ownerAddress });
+      setProfileData(ens);
     };
 
     setProfile();
-  }, []);
+  }, [props.domain]);
 
   const hasProfileImage = props.pledge.profileImageUrl || profileData;
+
   const currentFootprint =
     props.pledge.footprint[props.pledge.footprint.length - 1];
   const totalTonnesRetired = Number(props.retirements?.totalTonnesRetired);
@@ -52,14 +56,14 @@ export const Profile: FC<Props> = (props) => {
     if (pledgeProgress >= 100) {
       return (
         <Text t="h4" className={styles.pledgeProgress}>
-          &ge; 100% of pledge met
+          &ge; 100% of Pledge Met
         </Text>
       );
     }
 
     return (
       <Text t="h4" className={styles.pledgeProgress}>
-        {Math.round(pledgeProgress)}% of pledge met
+        {Math.round(pledgeProgress)}% of Pledge Met
       </Text>
     );
   };
@@ -88,7 +92,7 @@ export const Profile: FC<Props> = (props) => {
 
       <div className={styles.progressContainer}>
         <Text t="h4" color="lightest" align="center">
-          Pledged to offset{" "}
+          Pledged to Offset{" "}
           <strong>{+currentFootprint.total.toFixed(2)}</strong> Carbon Tonnes
         </Text>
 
