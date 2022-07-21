@@ -10,12 +10,12 @@ export const formSchema = yup
     description: yup
       .string()
       .required("Enter a pledge")
-      .max(280, "Enter less than 280 characters")
+      .max(500, "Enter less than 500 characters")
       .trim(),
     methodology: yup
       .string()
       .required("Enter a methodology")
-      .max(280, "Enter less than 280 characters")
+      .max(1000, "Enter less than 1000 characters")
       .trim(),
     footprint: yup
       .number()
