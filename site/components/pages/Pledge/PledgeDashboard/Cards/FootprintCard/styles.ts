@@ -50,15 +50,22 @@ export const categoryRow = css`
 `;
 
 export const categoryRow_name = css`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-word;
 `;
 
 export const catergoryRow_values = css`
   display: flex;
   flex-direction: row;
   white-space: nowrap;
+
+  ${breakpoints.medium} {
+    min-width: 18rem;
+    justify-content: end;
+  }
+
+  ${breakpoints.desktop} {
+    min-width: 16rem;
+  }
 `;
 
 export const categoryRow_divider = css`

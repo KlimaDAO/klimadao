@@ -27,7 +27,11 @@ export const formSchema = yup
       .array()
       .of(
         yup.object({
-          name: yup.string().required("Enter a category").trim(),
+          name: yup
+            .string()
+            .required("Enter a category")
+            .max(32, "Enter less than 32 characters")
+            .trim(),
           quantity: yup
             .number()
             .required("Enter a carbon tonne estimate")

@@ -41,7 +41,7 @@ export interface CategoryWithPercent extends Category {
   fill: string;
 }
 
-const calcFootprintPercent = (
+const calculateFootprintPercent = (
   total: number,
   categories: Category[]
 ): CategoryWithPercent[] => {
@@ -58,7 +58,7 @@ export const FootprintCard: FC<Props> = (props) => {
   const sortedCategories = footprint.categories.sort(
     (a, b) => a.quantity - b.quantity
   );
-  const categoriesWithPercent = calcFootprintPercent(
+  const categoriesWithPercent = calculateFootprintPercent(
     footprint.total,
     sortedCategories
   );
