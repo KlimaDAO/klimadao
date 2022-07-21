@@ -18,7 +18,7 @@ export const title = css`
 
   svg {
     fill: var(--font-01);
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 `;
 
@@ -31,6 +31,6 @@ export const card = css`
   padding: 1.8rem;
 
   ${breakpoints.desktop} {
-    padding: 2rem;
+    padding: 2.2rem;
   }
 `;
