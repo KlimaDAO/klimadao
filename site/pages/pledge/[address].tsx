@@ -1,10 +1,10 @@
 import { GetStaticProps } from "next";
 import { ethers } from "ethers";
+import { urls } from "@klimadao/lib/constants";
 
 import { loadTranslation } from "lib/i18n";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
-
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
 import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
 import { DEFAULT_VALUES } from "components/pages/Pledge/lib";
@@ -46,6 +46,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
+      canonicalUrl: `${urls.pledges}/${address}`,
       domain,
       pageAddress: resolvedAddress,
       pledge,

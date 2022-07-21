@@ -24,6 +24,7 @@ import { Pledge } from "../types";
 import * as styles from "./styles";
 
 type Props = {
+  canonicalUrl: string;
   domain: string | null;
   pageAddress: string;
   pledge: Pledge;
@@ -62,9 +63,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       <PageHead
         title="Klima Infinity | Pledge"
         mediaTitle={`${
-          pledge.name || concatAddress(pledge.ownerAddress)
+          pledge.name || props.domain || concatAddress(pledge.ownerAddress)
         }'s pledge`}
         metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency." // Need better meta description
+        canonicalUrl={props.canonicalUrl}
       />
       <Modal
         title="Your pledge"
