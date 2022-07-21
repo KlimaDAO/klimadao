@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-20 15:41+0000\n"
+"POT-Creation-Date: 2022-07-21 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:65
 msgid "Change language"
-msgstr ""
+msgstr "भाषा बदलो"
 
 #: components/pages/Buy/index.tsx:272
 msgid "Enter App"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: components/pages/Podcast/index.tsx:44
 msgid "Episodes"
-msgstr ""
+msgstr "एपिसोड"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
@@ -39,30 +39,32 @@ msgstr ""
 
 #: components/pages/Blog/index.tsx:18
 msgid "blog.head.headline"
-msgstr ""
+msgstr "ब्लॉग"
 
 #: components/pages/Blog/index.tsx:17
 #: components/pages/Blog/index.tsx:24
 msgid "blog.head.title"
 msgstr ""
+"KlimaDAO (क्लीमाडाओ)\n"
+" ब्लॉग"
 
 #: components/pages/Retirements/CopyURLButton/index.tsx:22
 msgid "button.copyURL.copied"
-msgstr ""
+msgstr "कॉपी किया गया!"
 
 #: components/pages/Retirements/CopyURLButton/index.tsx:27
 msgid "button.copyURL.copy"
-msgstr ""
+msgstr "यूआरएल कॉपी करें"
 
 #: components/pages/Buy/index.tsx:131
 #: components/pages/Buy/index.tsx:250
 msgid "buy.advanced"
-msgstr ""
+msgstr "विकसित"
 
 #: components/pages/Buy/index.tsx:86
 #: components/pages/Buy/index.tsx:172
 msgid "buy.beginner"
-msgstr ""
+msgstr "शुरुआती"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:14
 msgid "buy.beginner_01.description_01"
@@ -82,7 +84,7 @@ msgstr ""
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:25
 msgid "buy.beginner_02.title"
-msgstr ""
+msgstr "Zapper.fi से कनेक्ट करें"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:51
 msgid "buy.beginner_03.description_01"
@@ -94,7 +96,7 @@ msgstr ""
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:47
 msgid "buy.beginner_03.title"
-msgstr ""
+msgstr "KLIMA खरीदें"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:72
 msgid "buy.beginner_04.description_01"
@@ -106,7 +108,7 @@ msgstr ""
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:68
 msgid "buy.beginner_04.title"
-msgstr ""
+msgstr "MATIC खरीदें (नए उपयोगकर्ताओं के लिए)"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:97
 msgid "buy.beginner_05.description_01"
@@ -132,7 +134,7 @@ msgstr ""
 #: components/pages/Buy/index.tsx:83
 #: components/pages/Buy/index.tsx:175
 msgid "buy.credit_card"
-msgstr ""
+msgstr "क्रेडिट कार्ड"
 
 #: components/pages/Buy/index.tsx:178
 msgid "buy.credit_card.summary"
@@ -173,12 +175,12 @@ msgstr ""
 #: components/pages/Buy/index.tsx:44
 #: components/pages/Buy/index.tsx:45
 msgid "buy.head.title"
-msgstr ""
+msgstr "KLIMA कैसे खरीदें?"
 
 #: components/pages/Buy/index.tsx:109
 #: components/pages/Buy/index.tsx:203
 msgid "buy.intermediate"
-msgstr ""
+msgstr "मध्यवर्ती"
 
 #: components/pages/Buy/index.tsx:61
 msgid "buy.subtitle"
@@ -186,7 +188,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:58
 msgid "buy.title"
-msgstr ""
+msgstr "KLIMA कैसे खरीदें?"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:13
 msgid "buy.zapper_01.description_01"
@@ -202,11 +204,11 @@ msgstr ""
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:36
 msgid "buy.zapper_02.description_02"
-msgstr ""
+msgstr "<0>zapper.fi . पर जाएं</0> और कनेक्ट पर क्लिक करें।"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:32
 msgid "buy.zapper_02.title"
-msgstr ""
+msgstr "Zapper.fi से कनेक्ट करें"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:49
 msgid "buy.zapper_03.description_01"
@@ -218,7 +220,7 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:96
 msgid "community.become_a_partner"
-msgstr ""
+msgstr "भागीदार बनें"
 
 #: components/pages/Resources/Community/index.tsx:169
 msgid "community.bigcowg_logo"
@@ -230,7 +232,7 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:332
 msgid "community.come_on_in"
-msgstr ""
+msgstr "अंदर आ जाओ"
 
 #: components/pages/Resources/Community/index.tsx:235
 msgid "community.deltawave_logo"
@@ -259,15 +261,15 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:380
 msgid "community.get_in_touch"
-msgstr ""
+msgstr "संपर्क में रहो?"
 
 #: components/pages/Resources/Community/index.tsx:202
 msgid "community.gitcoin_logo"
-msgstr ""
+msgstr "गिटकोइन लोगो"
 
 #: components/pages/Resources/Community/index.tsx:75
 msgid "community.head.headline"
-msgstr ""
+msgstr "समुदाय"
 
 #: components/pages/Resources/Community/index.tsx:82
 msgid "community.head.metadescription"
@@ -280,7 +282,7 @@ msgstr ""
 #: components/pages/Resources/Community/index.tsx:74
 #: components/pages/Resources/Community/index.tsx:81
 msgid "community.head.title"
-msgstr ""
+msgstr "KlimaDAO (क्लीमाडाओ) समुदाय"
 
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:383
@@ -298,11 +300,11 @@ msgstr ""
 #: components/pages/Resources/Community/index.tsx:93
 #: components/pages/Resources/Community/index.tsx:377
 msgid "community.lets_work_together"
-msgstr ""
+msgstr "चलो साथ मिलकर काम करें"
 
 #: components/pages/Resources/Community/index.tsx:136
 msgid "community.moss_logo"
-msgstr ""
+msgstr "मॉस लोगो"
 
 #: components/pages/Resources/Community/index.tsx:191
 msgid "community.oceandrop_logo"
@@ -314,15 +316,15 @@ msgstr ""
 
 #: components/pages/Resources/Community/index.tsx:213
 msgid "community.olympusdao_logo"
-msgstr ""
+msgstr "ओलंपसडीएओ लोगो"
 
 #: components/pages/Resources/Community/index.tsx:224
 msgid "community.openearth_logo"
-msgstr ""
+msgstr "ओपन अर्थ लोगो"
 
 #: components/pages/Resources/Community/index.tsx:129
 msgid "community.our_partners"
-msgstr ""
+msgstr "हमारे सहयोगि"
 
 #: components/pages/Resources/Community/index.tsx:180
 msgid "community.polygon_logo"
@@ -347,11 +349,11 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:63
 msgid "concat.careers"
-msgstr ""
+msgstr "करियर"
 
 #: components/pages/Resources/Contact/index.tsx:140
 msgid "contact.bug_reports"
-msgstr ""
+msgstr "दोष रिपोर्ट"
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
 #: components/pages/Resources/Contact/index.tsx:143
@@ -365,11 +367,11 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:25
 msgid "contact.head.description"
-msgstr ""
+msgstr "KlimaDAO के किसी व्यक्ति से संपर्क करें।"
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
-msgstr ""
+msgstr "संपर्क"
 
 #: components/pages/Resources/Contact/index.tsx:19
 msgid "contact.head.subline"
@@ -382,7 +384,7 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:105
 msgid "contact.media"
-msgstr ""
+msgstr "मीडिया"
 
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:108
@@ -396,7 +398,7 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:85
 msgid "contact.partnerships"
-msgstr ""
+msgstr "भागीदारी"
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
 #: components/pages/Resources/Contact/index.tsx:88
@@ -405,12 +407,12 @@ msgstr ""
 
 #: components/pages/Resources/Contact/index.tsx:35
 msgid "contact.quest_and_support"
-msgstr ""
+msgstr "प्रश्न और समर्थन"
 
 #. Join our <0>community</0>
 #: components/pages/Resources/Contact/index.tsx:38
 msgid "contact.quest_and_support.join_our_community"
-msgstr ""
+msgstr "हमारे <0>समुदाय में शामिल हों</0>"
 
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:46
@@ -461,7 +463,7 @@ msgstr ""
 #: components/pages/Disclaimer/index.tsx:16
 #: components/pages/Disclaimer/index.tsx:24
 msgid "disclaimer.head.title"
-msgstr ""
+msgstr "KlimaDAO (क्लीमाडाओ) अस्वीकरण"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:105
@@ -533,7 +535,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:267
 msgid "home.equivalent_to"
-msgstr ""
+msgstr "के बराबर"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:382
@@ -551,7 +553,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:430
 msgid "home.get_klima"
-msgstr ""
+msgstr "KLIMA (क्लीमा) प्राप्त करें"
 
 #: components/pages/Home/index.tsx:281
 msgid "home.hectares_of_forest"
@@ -574,15 +576,15 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:77
 msgid "home.latest_news"
-msgstr ""
+msgstr "📰 ताजा खबर:"
 
 #: components/pages/Home/index.tsx:132
 msgid "home.learn_more"
-msgstr ""
+msgstr "और अधिक जानें"
 
 #: components/pages/Home/index.tsx:313
 msgid "home.liters_if_gasoline"
-msgstr ""
+msgstr "लीटर पेट्रोल"
 
 #: components/pages/Home/index.tsx:243
 msgid "home.massive impact"
@@ -590,7 +592,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:181
 msgid "home.mechanics"
-msgstr ""
+msgstr "यांत्रिकी"
 
 #: components/pages/Home/index.tsx:462
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
@@ -607,11 +609,11 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:481
 msgid "home.newletter.sign_up"
-msgstr ""
+msgstr "साइन अप करें"
 
 #: components/pages/Home/index.tsx:467
 msgid "home.newsletter"
-msgstr ""
+msgstr "समाचार पत्रिका"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
 #: components/pages/Home/index.tsx:370
@@ -620,11 +622,11 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:440
 msgid "home.see_tutorial"
-msgstr ""
+msgstr "ट्यूटोरियल देखें"
 
 #: components/pages/Home/index.tsx:328
 msgid "home.source"
-msgstr ""
+msgstr "स्रोत"
 
 #: components/pages/Home/index.tsx:225
 msgid "home.strong_incentives"
@@ -660,12 +662,12 @@ msgstr ""
 
 #: components/pages/Podcast/index.tsx:19
 msgid "podcast.head.headline"
-msgstr ""
+msgstr "पॉडकास्ट"
 
 #: components/pages/Podcast/index.tsx:18
 #: components/pages/Podcast/index.tsx:33
 msgid "podcast.head.title"
-msgstr ""
+msgstr "KlimaDAO (क्लीमाडाओ) पॉडकास्ट"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -677,15 +679,15 @@ msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
-msgstr ""
+msgstr "Klima के बारे में"
 
 #: components/pages/Retirements/Footer/index.tsx:68
 msgid "retirement.footer.buy_klima.button.buy"
-msgstr ""
+msgstr "खरीदना"
 
 #: components/pages/Retirements/Footer/index.tsx:75
 msgid "retirement.footer.buy_klima.button.offset"
-msgstr ""
+msgstr "ओफ़्सेट"
 
 #: components/pages/Retirements/Footer/index.tsx:61
 msgid "retirement.footer.buy_klima.text"
@@ -713,11 +715,11 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:121
 msgid "retirement.single.beneficiary.title"
-msgstr ""
+msgstr "लाभार्थी"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:135
 msgid "retirement.single.beneficiaryAddress.title"
-msgstr ""
+msgstr "लाभार्थी पता"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:178
 msgid "retirement.single.disclaimer"
@@ -725,7 +727,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:92
 msgid "retirement.single.header.quantity"
-msgstr ""
+msgstr "{0}टी"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:97
 msgid "retirement.single.header.subline"
@@ -753,7 +755,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:42
 msgid "retirement.single.project_details.tonnes"
-msgstr ""
+msgstr "टन"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
 msgid "retirement.single.project_details.view_on_polygon_scan"
@@ -769,11 +771,11 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:165
 msgid "retirement.single.retirementCertificate.title"
-msgstr ""
+msgstr "प्रमाणपत्र"
 
 #: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:19
 msgid "retirement.single.retirementDate.title"
-msgstr ""
+msgstr "दिनांक"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:106
 msgid "retirement.single.retirementMessage.placeholder"
@@ -813,7 +815,7 @@ msgstr ""
 
 #: components/pages/Retirements/index.tsx:78
 msgid "retirement.totals.page_subline"
-msgstr ""
+msgstr "लाभार्थी के लिए"
 
 #: components/pages/Retirements/index.tsx:102
 msgid "retirement.totals.retired_assets"
@@ -846,7 +848,7 @@ msgstr ""
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
-msgstr ""
+msgstr "ब्लॉग"
 
 #: components/Footer/index.tsx:42
 msgid "shared.bond"
@@ -856,23 +858,23 @@ msgstr ""
 #: components/Navigation/index.tsx:48
 #: components/Navigation/index.tsx:74
 msgid "shared.buy"
-msgstr ""
+msgstr "खरीदना"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
-msgstr ""
+msgstr "समुदाय"
 
 #: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
-msgstr ""
+msgstr "संपर्क"
 
 #: components/pages/Resources/Community/index.tsx:109
 #: components/pages/Resources/Community/index.tsx:393
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
 msgid "shared.contact_us"
-msgstr ""
+msgstr "संपर्क करें"
 
 #: components/Footer/index.tsx:59
 msgid "shared.disclaimer"
@@ -880,7 +882,7 @@ msgstr ""
 
 #: components/Footer/index.tsx:45
 msgid "shared.docs"
-msgstr ""
+msgstr "डॉक्स"
 
 #: components/Navigation/index.tsx:41
 #: components/pages/Home/index.tsx:109
@@ -897,7 +899,7 @@ msgstr ""
 
 #: components/Footer/index.tsx:30
 msgid "shared.home"
-msgstr ""
+msgstr "घर"
 
 #: components/Navigation/index.tsx:57
 #: components/Navigation/index.tsx:82
@@ -907,12 +909,12 @@ msgstr ""
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
-msgstr ""
+msgstr "पॉडकास्ट"
 
 #: components/Navigation/index.tsx:61
 #: components/Navigation/index.tsx:86
 msgid "shared.resources"
-msgstr ""
+msgstr "साधन"
 
 #: components/Footer/index.tsx:39
 #: components/Navigation/index.tsx:53

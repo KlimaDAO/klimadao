@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-20 15:41+0000\n"
+"POT-Creation-Date: 2022-07-21 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:677
 msgid "Capacity"
-msgstr ""
+msgstr "क्षमता"
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
@@ -25,11 +25,11 @@ msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:72
 msgid "Wrong Network"
-msgstr ""
+msgstr "गलत नेटवर्क"
 
 #: components/views/Offset/index.tsx:763
 msgid "advanced"
-msgstr ""
+msgstr "उन्नत"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:1003
@@ -116,7 +116,7 @@ msgstr ""
 #: components/views/Bond/index.tsx:622
 #: components/views/Bond/index.tsx:773
 msgid "bond.market_price"
-msgstr ""
+msgstr "बाजार कीमत"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:777
@@ -130,7 +130,7 @@ msgstr ""
 #: components/views/Bond/index.tsx:695
 #: components/views/Bond/index.tsx:847
 msgid "bond.maximum"
-msgstr ""
+msgstr "ज्यादा से ज्यादा"
 
 #: components/views/Bond/index.tsx:699
 #: components/views/Bond/index.tsx:851
@@ -156,12 +156,12 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:930
 msgid "bond.redeemable"
-msgstr ""
+msgstr "प्रतिदेय"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:933
 msgid "bond.redeemable.tooltip"
-msgstr ""
+msgstr "KLIMA की राशि जो पहले से ही निहित है और जिसे भुनाया जा सकता है"
 
 #. should autostake?
 #: components/views/Bond/index.tsx:1033
@@ -193,7 +193,7 @@ msgstr ""
 #: components/views/Bond/index.tsx:726
 #: components/views/Bond/index.tsx:870
 msgid "bond.you_will_get"
-msgstr ""
+msgstr "तुम्हे मिल जाएगा"
 
 #: components/views/Bond/index.tsx:730
 msgid "bond.you_will_get.description_inverse"
@@ -206,7 +206,7 @@ msgstr ""
 
 #: components/views/Buy/index.tsx:44
 msgid "buy.buy_klima"
-msgstr ""
+msgstr "KLIMA खरीदें"
 
 #. Long sentence
 #: components/views/Buy/index.tsx:108
@@ -237,12 +237,12 @@ msgstr ""
 
 #: components/CheckURLBanner/index.tsx:50
 msgid "checkurlbanner.got_it"
-msgstr ""
+msgstr "समझ गया"
 
 #. <0>app.klimadao.finance</0> is the only official domain.
 #: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
-msgstr ""
+msgstr "<0>app.klimadao.finance</0> एकमात्र आधिकारिक डोमेन है।"
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
@@ -279,7 +279,7 @@ msgstr ""
 
 #: components/views/ChooseBond/index.tsx:87
 msgid "choose_bond.mco2.moss_carbon_credit_token"
-msgstr ""
+msgstr "MOSS कार्बन क्रेडिट टोकन"
 
 #: components/views/ChooseBond/index.tsx:107
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
@@ -291,15 +291,15 @@ msgstr ""
 
 #: components/views/ChooseBond/index.tsx:226
 msgid "choose_bond.percent_discount"
-msgstr ""
+msgstr "% छूट"
 
 #: components/views/ChooseBond/index.tsx:252
 msgid "choose_bond.sold_out"
-msgstr ""
+msgstr "बिक चुका है"
 
 #: components/views/ChooseBond/index.tsx:213
 msgid "choose_bond.treasury_balance"
-msgstr ""
+msgstr "ट्रेजरी बैलेंस"
 
 #: components/views/ChooseBond/index.tsx:79
 msgid "choose_bond.ubo.description"
@@ -311,26 +311,26 @@ msgstr ""
 
 #: components/ImageCard/index.tsx:16
 msgid "imagecard.how_to_get_started"
-msgstr ""
+msgstr "शुरुआत कैसे करें"
 
 #: components/ImageCard/index.tsx:13
 msgid "imagecard.new_to_klima"
-msgstr ""
+msgstr "KLIMA में नए हैं?"
 
 #. Long sentence
 #: components/views/Info/index.tsx:130
 msgid "info.app_not_loading.1_open_metamask"
-msgstr ""
+msgstr "1. Metamask (मेटामास्क) खोलें और Ethereum (एथेरियम) मेननेट पर स्विच करें"
 
 #. Long sentence
 #: components/views/Info/index.tsx:137
 msgid "info.app_not_loading.2_go_to_settings"
-msgstr ""
+msgstr "2. सेटिंग्स/नेटवर्क/Polygon(पोलीगोन)  पर जाएं और 'delete (हटाएं)' पर क्लिक करें"
 
 #. Long sentence
 #: components/views/Info/index.tsx:144
 msgid "info.app_not_loading.3_return_to_app"
-msgstr ""
+msgstr "3. app.klimadao.finance पर लौटें और 'मेननेट पर स्विच करें' पर क्लिक करें।"
 
 #. Long sentence
 #: components/views/Info/index.tsx:122
@@ -358,7 +358,7 @@ msgstr ""
 
 #: components/views/Info/index.tsx:165
 msgid "info.official_contract_addresses"
-msgstr ""
+msgstr "आधिकारिक अनुबंध पते"
 
 #: components/NavMenu/index.tsx:194
 msgid "menu.bond_carbon"
@@ -366,15 +366,15 @@ msgstr ""
 
 #: components/NavMenu/index.tsx:178
 msgid "menu.buy_klima"
-msgstr ""
+msgstr "KLIMA खरीदें"
 
 #: components/NavMenu/index.tsx:218
 msgid "menu.info"
-msgstr ""
+msgstr "जानकारी"
 
 #: components/NavMenu/index.tsx:223
 msgid "menu.just_for_you"
-msgstr ""
+msgstr "सिर्फ तुम्हारे लिए"
 
 #: components/NavMenu/index.tsx:61
 msgid "menu.not_connected"
@@ -382,7 +382,7 @@ msgstr ""
 
 #: components/NavMenu/index.tsx:210
 msgid "menu.offset"
-msgstr ""
+msgstr "ओफ़्सेट"
 
 #: components/NavMenu/index.tsx:186
 msgid "menu.stake_klima"
@@ -394,15 +394,15 @@ msgstr ""
 
 #: components/NavMenu/index.tsx:202
 msgid "menu.wrap_klima"
-msgstr ""
+msgstr "लपेटें sKLIMA"
 
 #: components/NotificationModal/index.tsx:26
 msgid "modal.done"
-msgstr ""
+msgstr "सफलता!"
 
 #: components/NotificationModal/index.tsx:27
 msgid "modal.error"
-msgstr ""
+msgstr "असफलता!"
 
 #: components/NotificationModal/index.tsx:29
 msgid "modal.pending"
@@ -414,7 +414,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:510
 msgid "nav.back"
-msgstr ""
+msgstr "पीछे"
 
 #: components/views/Offset/index.tsx:597
 msgid "offset.aggregation_fee_tooltip"
@@ -434,7 +434,7 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:501
 msgid "offset.dropdown_payWith.label"
-msgstr ""
+msgstr "के साथ भुगतान करें"
 
 #: components/views/Offset/index.tsx:516
 msgid "offset.dropdown_retire.label"
@@ -459,7 +459,7 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:502
 msgid "offset.modal_payWith.title"
-msgstr ""
+msgstr "टोकन चुनें"
 
 #: components/views/Offset/index.tsx:520
 msgid "offset.modal_retire.title"
@@ -487,7 +487,7 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:545
 msgid "offset.retirement_beneficiary"
-msgstr ""
+msgstr "नाम या संगठन"
 
 #: components/views/Offset/index.tsx:537
 msgid "offset.retirement_credit"
@@ -523,7 +523,7 @@ msgstr ""
 
 #: components/CarbonTonnesRetiredCard/index.tsx:29
 msgid "offset.tonnes_of_carbon_retired"
-msgstr ""
+msgstr "टन कार्बन"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:20
 msgid "offset.you_have_retired"
@@ -531,7 +531,7 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:593
 msgid "offset_cost"
-msgstr ""
+msgstr "लागत"
 
 #: components/views/Offset/index.tsx:626
 msgid "offset_disclaimer"
@@ -539,11 +539,11 @@ msgstr ""
 
 #: components/views/PKlima/index.tsx:178
 msgid "pklima.approve_bct"
-msgstr ""
+msgstr "2. BCT(बीसीटी) को मंजूरी दें"
 
 #: components/views/PKlima/index.tsx:173
 msgid "pklima.approve_pklima"
-msgstr ""
+msgstr "1. pKLIMA को मंजूरी दें"
 
 #. Long sentence
 #: components/views/PKlima/index.tsx:196
@@ -581,7 +581,7 @@ msgstr ""
 
 #: components/views/PKlima/index.tsx:268
 msgid "pklima.redeemed"
-msgstr ""
+msgstr "रिडीम किया"
 
 #. Long sentence
 #: components/views/PKlima/index.tsx:271
@@ -590,12 +590,12 @@ msgstr ""
 
 #: components/views/PKlima/index.tsx:252
 msgid "pklima.supply_limit"
-msgstr ""
+msgstr "आपूर्ति सीमा"
 
 #. Long sentence
 #: components/views/PKlima/index.tsx:255
 msgid "pklima.supply_limit.tooltip"
-msgstr ""
+msgstr "कुल टोकन आपूर्ति का एक प्रतिशत। आपका अनुक्रमणिका-समायोजित दावा इस मान से अधिक नहीं हो सकता है।"
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
@@ -606,7 +606,7 @@ msgstr ""
 #: components/views/Stake/index.tsx:252
 #: components/views/Stake/index.tsx:258
 msgid "shared.approve"
-msgstr ""
+msgstr "मंजूर"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -614,7 +614,7 @@ msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:73
 msgid "shared.change_language"
-msgstr ""
+msgstr "भाषा बदलो"
 
 #: components/views/Bond/index.tsx:406
 #: components/views/PKlima/index.tsx:167
@@ -629,34 +629,34 @@ msgstr ""
 #: components/views/Stake/index.tsx:217
 #: components/views/Wrap/index.tsx:158
 msgid "shared.connect_wallet"
-msgstr ""
+msgstr "वॉलेट कनेक्ट करें"
 
 #: components/views/Buy/index.tsx:76
 msgid "shared.copy_wallet_address"
-msgstr ""
+msgstr "कॉपी पता {0}"
 
 #: components/views/Stake/index.tsx:267
 #: components/views/Stake/index.tsx:277
 msgid "shared.enter_amount"
-msgstr ""
+msgstr "राशि डालें"
 
 #: components/views/Bond/index.tsx:391
 #: components/views/Offset/index.tsx:329
 #: components/views/Stake/index.tsx:229
 #: components/views/Wrap/index.tsx:170
 msgid "shared.enter_quantity"
-msgstr ""
+msgstr "मात्रा दर्ज करें"
 
 #: components/views/Bond/index.tsx:448
 #: components/views/Bond/index.tsx:467
 #: components/views/Stake/index.tsx:285
 msgid "shared.error"
-msgstr ""
+msgstr "गलती"
 
 #: components/views/Offset/index.tsx:345
 #: components/views/Stake/index.tsx:236
 msgid "shared.insufficient_balance"
-msgstr ""
+msgstr "अपर्याप्त शेषराशि"
 
 #: components/views/Offset/index.tsx:338
 msgid "shared.invalid_inputs"
@@ -676,7 +676,7 @@ msgstr ""
 #: components/views/Stake/index.tsx:454
 #: components/views/Wrap/index.tsx:164
 msgid "shared.loading"
-msgstr ""
+msgstr "लोड हो रहा है..."
 
 #: components/views/Bond/index.tsx:585
 #: components/views/PKlima/index.tsx:239
@@ -691,15 +691,15 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:373
 msgid "shared.sold_out"
-msgstr ""
+msgstr "बिक चुका है"
 
 #: components/views/Buy/index.tsx:83
 msgid "shared.wallet_address_copied"
-msgstr ""
+msgstr "कॉपी किया गया!"
 
 #: components/views/Stake/index.tsx:394
 msgid "stake.5_day_rewards"
-msgstr ""
+msgstr "5 दिन के पुरस्कार"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:397
@@ -708,7 +708,7 @@ msgstr ""
 
 #: components/views/Stake/index.tsx:410
 msgid "stake.akr"
-msgstr ""
+msgstr "AKR"
 
 #. Long sentence
 #: components/views/Stake/index.tsx:413
@@ -765,7 +765,7 @@ msgstr ""
 
 #: components/views/Stake/index.tsx:344
 msgid "stake.stake"
-msgstr ""
+msgstr "दांव लगाना"
 
 #: components/views/Stake/index.tsx:318
 msgid "stake.stake_hold_earn"
@@ -786,7 +786,7 @@ msgstr ""
 
 #: actions/utils.ts:22
 msgid "status.done"
-msgstr ""
+msgstr "लेन-देन पूरा।"
 
 #: actions/utils.ts:17
 msgid "status.error"
@@ -814,7 +814,7 @@ msgstr ""
 
 #: components/ConnectButton/index.tsx:24
 msgid "wallet.disconnect"
-msgstr ""
+msgstr "डिस्कनेक्ट"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
@@ -858,15 +858,15 @@ msgstr ""
 
 #: components/views/Wrap/index.tsx:268
 msgid "wrap.unwrap"
-msgstr ""
+msgstr "खोलना"
 
 #: components/views/Wrap/index.tsx:257
 msgid "wrap.wrap"
-msgstr ""
+msgstr "लपेटना"
 
 #: components/views/Wrap/index.tsx:223
 msgid "wrap.wrap_sklima"
-msgstr ""
+msgstr "लपेटें sKLIMA"
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:235
@@ -884,7 +884,7 @@ msgstr ""
 
 #: components/views/Wrap/index.tsx:321
 msgid "wrap.you_will_get"
-msgstr ""
+msgstr "तुम्हे मिल जाएगा"
 
 #: components/BalancesCard/index.tsx:33
 msgid "wsklima.unwrapped.label"

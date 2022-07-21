@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-20 15:41+0000\n"
+"POT-Creation-Date: 2022-07-21 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr "进入应用"
 
 #: components/pages/Podcast/index.tsx:44
 msgid "Episodes"
-msgstr ""
+msgstr "剧集"
 
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
@@ -656,16 +656,16 @@ msgstr "投资于未来。"
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
-msgstr ""
+msgstr "Planet of the Klimates 是一个社区驱动的播客，内容包括与 Klima 合作伙伴和思想领袖在气候科学、区块链等方面的对话。您可以直接在下方探索最新剧集和完整的节目存档，还可以在您最喜欢的播客平台上找到 PotK，包括 <0>RSS</0>和 <1>Apple Podcasts</1>"
 
 #: components/pages/Podcast/index.tsx:19
 msgid "podcast.head.headline"
-msgstr ""
+msgstr "播客"
 
 #: components/pages/Podcast/index.tsx:18
 #: components/pages/Podcast/index.tsx:33
 msgid "podcast.head.title"
-msgstr ""
+msgstr "KlimaDAO 播客"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -907,7 +907,7 @@ msgstr "Love Letters"
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
-msgstr ""
+msgstr "播客"
 
 #: components/Navigation/index.tsx:61
 #: components/Navigation/index.tsx:86
