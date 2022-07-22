@@ -5,18 +5,20 @@ import { loadOrCreateRedemption } from './utils/Redemption'
 import { createDailyBondRecord, updateBondBCV } from './utils/DailyBond'
 import { loadOrCreateBonder } from './utils/Bonder'
 import { KLIMA } from '../../lib/tokens/impl/KLIMA'
+import  * as constants  from '../../lib/utils/Constants'
 import { BondFactory } from '../../lib/bonds/BondFactory'
-
+import { BigInt } from '@graphprotocol/graph-ts'
 
 export function handleDeposit(event: BondCreated): void {
     let bonder = loadOrCreateBonder(event.transaction.from)
     let transaction = loadOrCreateTransaction(event.transaction, event.block)
 
-    const bond = new BondFactory().getBondForAddress(event.address)
+    const bond = new BondFactory().getBondForBondAddress(event.address)
     const klimaToken = new KLIMA()
 
     let deposit = new Deposit(transaction.id)
     deposit.token = bond.getBondName()
+    deposit.bondVersion = constants.BOND_VERSION_V1
     deposit.transaction = transaction.id
     deposit.bonder = bonder.id
     deposit.payout = klimaToken.getFormattedPrice(event.params.payout)
@@ -27,6 +29,9 @@ export function handleDeposit(event: BondCreated): void {
     deposit.tokenValue = bond.parseBondTokenValueFormatted(event.params.deposit)
     deposit.carbonCustodied = bond.getCarbonCustodied(event.params.deposit) 
     deposit.timestamp = transaction.timestamp;
+    deposit.startDate = deposit.timestamp
+    deposit.endDate = deposit.startDate.plus(BigInt.fromI32(432000))
+    deposit.expirationDate = deposit.endDate
     deposit.save()
 
     bonder.totalCarbonCustodied = bonder.totalCarbonCustodied.plus(deposit.carbonCustodied)
@@ -35,14 +40,14 @@ export function handleDeposit(event: BondCreated): void {
     bonder.save()
 
 
-    createDailyBondRecord(deposit.timestamp, deposit.token, deposit.payout, deposit.daoFee, deposit.tokenValue, deposit.carbonCustodied)
+    createDailyBondRecord(deposit.bondVersion, deposit.timestamp, deposit.token, deposit.payout, deposit.daoFee, deposit.tokenValue, deposit.carbonCustodied)
 }
 
 export function handleRedeem(event: BondRedeemed): void {
     let bonder = loadOrCreateBonder(event.params.recipient)
     let transaction = loadOrCreateTransaction(event.transaction, event.block)
 
-    const bond = new BondFactory().getBondForAddress(event.address)
+    const bond = new BondFactory().getBondForBondAddress(event.address)
     const klimaToken = new KLIMA()
 
     let redemption = loadOrCreateRedemption(event.transaction, transaction.timestamp)
@@ -56,7 +61,7 @@ export function handleRedeem(event: BondRedeemed): void {
 }
 
 export function handleBCV(event: ControlVariableAdjustment): void {
-    const bond = new BondFactory().getBondForAddress(event.address)
+    const bond = new BondFactory().getBondForBondAddress(event.address)
 
     let transaction = loadOrCreateTransaction(event.transaction, event.block)
     updateBondBCV(transaction.timestamp, bond.getBondName(), event.params.newBCV)

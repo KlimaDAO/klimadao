@@ -8,6 +8,7 @@ import { MCO2 } from "./impl/MCO2";
 import { UBO } from "./impl/UBO";
 import { NBO } from "./impl/NBO";
 import { NCT } from "./impl/NCT";
+import { USDC } from "./impl/USDC";
 
 
 
@@ -33,6 +34,9 @@ export class TokenFactory {
         }
         if (address.equals(Address.fromHexString(constants.KLIMA_ERC20_V1_CONTRACT))) {
             return new KLIMA()
+        }
+        if (address.equals(Address.fromHexString(constants.USDC_ERC20_CONTRACT))) {
+            return new USDC()
         }
 
         throw new Error("[Token Factory] Failed to get Token for address: " + address.toHexString());

@@ -1,5 +1,6 @@
 type DailyBond @entity {
   id: ID!
+  bondVersion: String!
   timestamp: BigInt!
   token: String!
   payout: BigDecimal!
@@ -20,7 +21,10 @@ type Bonder @entity {
 
 type Deposit @entity {
   id: ID!
+  bondVersion: String!
   token: String!
+  market: Market
+  depositOwnershipChanges: [DepositOwnershipChange!] @derivedFrom(field: "deposit")
   transaction: Transaction!
   bonder: Bonder!
   payout: BigDecimal!
@@ -30,6 +34,9 @@ type Deposit @entity {
   discount: BigDecimal!
   tokenValue: BigDecimal!                                                                                     
   carbonCustodied: BigDecimal!
+  expirationDate: BigInt!
+  startDate: BigInt!
+  endDate: BigInt!
   timestamp: BigInt!
 }
 
@@ -49,4 +56,36 @@ type Transaction @entity {
   blockNumber: BigInt!
   from: Bytes!
   to: Bytes
+}
+
+type Market @entity {
+  id: ID!
+  term: Term!
+  baseToken: String!
+  baseTokenAddress: Bytes!
+  quoteToken: String!
+  quoteTokenAddress: Bytes!
+  initialCapacity: BigDecimal!
+  maxPayout: BigDecimal!
+  purchased: BigDecimal!
+  sold: BigDecimal!
+  isActive: Boolean!
+}
+
+type Term @entity {
+  id: ID!
+  market: Market!
+  isFixedTerm: Boolean!
+  termExpiration: BigInt!
+  conclusion: BigInt!
+  controlVariable: BigInt!
+}
+
+type DepositOwnershipChange @entity {
+  id: ID!
+  deposit: Deposit!
+  fromAddress: Bytes!
+  toAddress: Bytes!
+  startDate: BigInt!
+  endDate: BigInt!
 }

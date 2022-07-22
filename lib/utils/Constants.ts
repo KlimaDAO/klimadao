@@ -21,6 +21,8 @@ export const MCO2_BOND_TOKEN: string = 'MCO2';
 export const UBO_BOND_TOKEN: string = 'UBO';
 export const NBO_BOND_TOKEN: string = 'NBO';
 
+export const USDC_INVERSE_BOND: string = 'USDC-INVERSE';
+
 // LP Pair Addresses and Blocks
 export const KLIMA_BCT_PAIR = '0x9803c7aE526049210a1725F7487AF26fE2c24614';
 export const KLIMA_BCT_PAIR_BLOCK = '20294501';
@@ -66,6 +68,10 @@ export const NBOBOND_V1 = '0x285A6054DdC2980C62E716086B065E1e770fffb3';
 export const NBOBOND_V1_BLOCK = '27329359';
 // export const KLIMA_NBO_BOND_V1 = '';
 // export const KLIMA_NBO_BOND_V1_BLOCK = '';
+export const PRO_KLIMA_V2 = '0xcf37f6B4754b34eA32a49cF5def3095a17732C1b'
+export const PRO_KLIMA_V2_BLOCK = '28719259';
+export const BOND_VERSION_V1 = 'BOND_V1'
+export const BOND_VERSION_V2 = 'BOND_V2'
 
 // Token Addresses
 export const KLIMA_ERC20_V1_CONTRACT = '0x4e78011ce80ee02d2c3e649fb657e45898257815';

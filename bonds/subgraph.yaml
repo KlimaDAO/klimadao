@@ -32,7 +32,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
   # KLIMA-BCT Bond Contract V1
   - kind: ethereum/contract
     name: KLIMABCTBondV1
@@ -61,7 +61,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
   # BCT-USDC Bond Contract V1
   - kind: ethereum/contract
     name: BCTUSDCBondV1
@@ -90,7 +90,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
   # KLIMA-USDC Bond Contract V1
   - kind: ethereum/contract
     name: KLIMAUSDCBondV1
@@ -119,7 +119,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
   # MCO2 Bond Contract V1
   - kind: ethereum/contract
     name: MCO2BondV1
@@ -148,7 +148,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
   # MCO2 Bond Contract V1 - Deployment 2
   - kind: ethereum/contract
     name: MCO2BondV1.2
@@ -177,7 +177,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
   # KLIMA MCO2 LP Bond Contract V1
   - kind: ethereum/contract
     name: KLIMAMCO2BondV1
@@ -206,7 +206,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
   # KLIMA MCO2 LP Bond Contract Deployment 2
   - kind: ethereum/contract
     name: KLIMAMCO2BondV1.2
@@ -235,7 +235,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
 
   # UBO Bond Contract Deployment
   - kind: ethereum/contract
@@ -265,7 +265,7 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
 
   # NBO Bond Contract Deployment
   - kind: ethereum/contract
@@ -295,4 +295,36 @@ dataSources:
           handler: handleRedeem
         - event: ControlVariableAdjustment(uint256,uint256,uint256,bool)
           handler: handleBCV
-      file: ./src/BondHandler.ts
+      file: ./src/BondHandlerV1.ts
+
+  # V2 Bond Contract deployment
+  - kind: ethereum/contract
+    name: BondV2
+    network: matic
+    source:
+      address: '0xcf37f6B4754b34eA32a49cF5def3095a17732C1b'
+      abi: KlimaProV2
+      startBlock: 28719259
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - BondV2
+      abis:
+        - name: ERC20
+          file: ../lib/abis/ERC20.json
+        - name: UniswapV2Pair
+          file: ../lib/abis/UniswapV2Pair.json
+        - name: KlimaProV2
+          file: ../lib/abis/KlimaProV2.json
+      eventHandlers:
+        - event: CreateMarket(indexed uint256,address,address,uint256,uint256)
+          handler: handleMarketCreated
+        - event: CloseMarket(indexed uint256)
+          handler: handleMarketClosed
+        - event: Bond(indexed uint256,uint256,uint256)
+          handler: handleBond
+        - event: Tuned(indexed uint256,uint256,uint256)
+          handler: handleTuned
+      file: ./src/BondHandlerV2.ts
