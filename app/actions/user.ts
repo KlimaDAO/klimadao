@@ -4,14 +4,14 @@ import { Thunk } from "state";
 import {
   formatUnits,
   getContract,
+  getKNSProfile,
+  getENSProfile,
   getAllowance,
   getTokensFromSpender,
   getTokenDecimals,
 } from "@klimadao/lib/utils";
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 import { setBalance, updateAllowances, setDomains } from "state/user";
-
-import { getKns, getEns } from "./utils";
 
 const assets = [
   "bct",
@@ -73,18 +73,10 @@ export const loadAccountDetails = (params: {
         return { ...obj, [asset]: contract };
       }, {} as ContractsObject);
 
-      const klimaDomainContract = getContract({
-        contractName: "klimaNameService",
-        provider: params.provider,
-      });
-
       // domains
       const domains = [
-        getKns({
-          address: params.address,
-          contract: klimaDomainContract,
-        }),
-        getEns({ address: params.address }),
+        getKNSProfile({ address: params.address }),
+        getENSProfile({ address: params.address }),
       ];
 
       const [knsDomain, ensDomain] = await Promise.all(domains);
