@@ -33,11 +33,11 @@ const renderActiveIndex = (props: SectorProps) => (
 );
 
 export const FootprintChart: FC<FootprintChartProps> = (props) => {
-  const [activeIndex, setactiveIndex] = useState<number>(33);
+  const [activeIndex, setActiveIndex] = useState<number>(33);
 
-  const onSectorLeave = (): void => setactiveIndex(33);
+  const onSectorLeave = (): void => setActiveIndex(33);
   const onSectorEnter = (_data: CategoryWithPercent, index: number): void =>
-    setactiveIndex(index);
+    setActiveIndex(index);
 
   return (
     <PieChart width={200} height={200}>
@@ -97,7 +97,7 @@ const CustomTooltip: FC<TooltipProps<number, string>> = ({
           {payload[0].name}
         </Text>
         <Text t="caption" color="lightest">
-          {payload[0].value}% of footprint
+          {+payload[0].payload.percent.toFixed(2)}% of footprint
         </Text>
         <Text t="caption" color="lightest">
           {payload[0].payload.quantity} Carbon Tonne(s)
