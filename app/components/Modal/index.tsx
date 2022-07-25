@@ -13,7 +13,7 @@ interface Props {
 
 export const Modal: FC<Props> = (props) => {
   const showCloseButton = !!props.onToggleModal;
-
+  console.log(showCloseButton);
   return (
     <>
       <div

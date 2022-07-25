@@ -7,11 +7,12 @@ import { Trans, t } from "@lingui/macro";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
-import CloseIcon from "@mui/icons-material/Close";
 import Add from "@mui/icons-material/Add";
 import CancelIcon from "@mui/icons-material/Cancel";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+
+import { Modal } from "components/Modal";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
@@ -671,51 +672,44 @@ interface RetirementSuccessModalProps {
 
 const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
   return (
-    <div className={styles.retirementSuccessModal}>
-      <div className="card">
-        <button onClick={props.onSuccessModalClose} className="close-icon">
-          <CloseIcon />
-        </button>
-        <div className="content">
-          <div className="success">
-            <Text>
-              <Trans id="offset.successModal.title">
-                Retirement Successful!
-              </Trans>
-            </Text>
-          </div>
-          <div className="stack">
-            <Text t="caption">
-              <Trans id="offset.successModal.body1">
-                Thank you. By participating in the voluntary carbon market, you
-                are making conservation more profitable and climate mitigation
-                more impactful
-              </Trans>
-            </Text>
-          </div>
-          <div className="stack">
-            <Text t="caption">
-              <Trans id="offset.successModal.body2">
-                Click the button below to view your retirement. Consider sharing
-                the page to support us on our journey towards a more
-                transparent, accessible and rewarding carbon market!
-              </Trans>
-            </Text>
-          </div>
-          <ButtonPrimary
-            variant="icon"
-            href={props.url}
-            target="_blank"
-            label={
-              <>
-                <SendRounded />
-                <Trans id="offset.successModal.cta">VIEW RETIREMENT</Trans>
-              </>
-            }
-          />
+    <Modal
+      title={
+        <Trans id="offset.successModal.title">Retirement Successful!</Trans>
+      }
+      onToggleModal={props.onSuccessModalClose}
+    >
+      <div className={styles.modalContent}>
+        <div className="stack">
+          <Text t="caption">
+            <Trans id="offset.successModal.body1">
+              Thank you. By participating in the voluntary carbon market, you
+              are making conservation more profitable and climate mitigation
+              more impactful
+            </Trans>
+          </Text>
         </div>
+        <div className="stack">
+          <Text t="caption">
+            <Trans id="offset.successModal.body2">
+              Click the button below to view your retirement. Consider sharing
+              the page to support us on our journey towards a more transparent,
+              accessible and rewarding carbon market!
+            </Trans>
+          </Text>
+        </div>
+        <ButtonPrimary
+          variant="icon"
+          href={props.url}
+          target="_blank"
+          label={
+            <>
+              <SendRounded />
+              <Trans id="offset.successModal.cta">VIEW RETIREMENT</Trans>
+            </>
+          }
+        />
       </div>
-    </div>
+    </Modal>
   );
 };
 
