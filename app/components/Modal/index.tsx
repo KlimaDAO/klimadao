@@ -6,7 +6,7 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
 interface Props {
-  title: string;
+  title: React.ReactNode;
   onToggleModal?: () => void;
   className?: string;
 }

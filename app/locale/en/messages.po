@@ -366,6 +366,14 @@ msgstr "Info & FAQ"
 msgid "info.official_contract_addresses"
 msgstr "Official Contract Addresses"
 
+#: components/InvalidRPCModal/index.tsx:27
+msgid "invalid_rpc.modal.text"
+msgstr "The network could not be reached. This is most likely caused by an old Polygon RPC configuration in your wallet. See <0>this guide</0> for a fix. Otherwise, reach out to us on <1>Discord</1> if problems persist."
+
+#: components/InvalidRPCModal/index.tsx:20
+msgid "invalid_rpc.modal.title"
+msgstr "Check your network settings"
+
 #: components/NavMenu/index.tsx:176
 msgid "menu.bond_carbon"
 msgstr "Bond Carbon"

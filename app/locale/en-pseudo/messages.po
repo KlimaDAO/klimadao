@@ -360,6 +360,14 @@ msgstr ""
 msgid "info.official_contract_addresses"
 msgstr ""
 
+#: components/InvalidRPCModal/index.tsx:27
+msgid "invalid_rpc.modal.text"
+msgstr ""
+
+#: components/InvalidRPCModal/index.tsx:20
+msgid "invalid_rpc.modal.title"
+msgstr ""
+
 #: components/NavMenu/index.tsx:176
 msgid "menu.bond_carbon"
 msgstr ""
