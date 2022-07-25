@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-25 08:18+0000\n"
+"POT-Creation-Date: 2022-07-25 13:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr "Kapazität"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "Am 12. April haben wir unsere URL von \"dapp\" auf \"app\" geändert. Aktualisiere daher bitte deine Lesezeichen."
 
-#: components/InvalidNetworkModal/index.tsx:89
+#: components/InvalidNetworkModal/index.tsx:80
 msgid "Switch to Polygon"
 msgstr "Zu Polygon wechseln"
 
@@ -23,11 +23,11 @@ msgstr "Zu Polygon wechseln"
 msgid "This app only works on Polygon Mainnet."
 msgstr "Die App funktioniert nur im Polygon-Mainnet."
 
-#: components/InvalidNetworkModal/index.tsx:72
+#: components/InvalidNetworkModal/index.tsx:70
 msgid "Wrong Network"
 msgstr "Falsches Netzwerk"
 
-#: components/views/Offset/index.tsx:767
+#: components/views/Offset/index.tsx:761
 msgid "advanced"
 msgstr "FORTGESCHRITTEN"
 
@@ -362,6 +362,14 @@ msgstr "Info & FAQ"
 msgid "info.official_contract_addresses"
 msgstr "Offizielle Vertragsadressen"
 
+#: components/InvalidRPCModal/index.tsx:27
+msgid "invalid_rpc.modal.text"
+msgstr ""
+
+#: components/InvalidRPCModal/index.tsx:20
+msgid "invalid_rpc.modal.title"
+msgstr ""
+
 #: components/NavMenu/index.tsx:176
 msgid "menu.bond_carbon"
 msgstr "CO2 bonden"
@@ -418,11 +426,11 @@ msgstr "BESTÄTIGUNG"
 msgid "nav.back"
 msgstr "ZURÜCK"
 
-#: components/views/Offset/index.tsx:601
+#: components/views/Offset/index.tsx:602
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Die Kosten beinhalten Handelsgebühren und die Aggregatorgebühr von 1 %."
 
-#: components/views/Offset/index.tsx:479
+#: components/views/Offset/index.tsx:480
 msgid "offset.amount_in_tonnes"
 msgstr "Wie viele Tonnen CO2 möchtest du ausgleichen?"
 
@@ -430,15 +438,15 @@ msgstr "Wie viele Tonnen CO2 möchtest du ausgleichen?"
 msgid "offset.breakdown"
 msgstr "Zusammenfassung"
 
-#: components/views/Offset/index.tsx:569
+#: components/views/Offset/index.tsx:570
 msgid "offset.default_retirement_address"
 msgstr "Standardmäßig die aktuell verbundene Walletadresse"
 
-#: components/views/Offset/index.tsx:505
+#: components/views/Offset/index.tsx:506
 msgid "offset.dropdown_payWith.label"
 msgstr "Bezahle mit"
 
-#: components/views/Offset/index.tsx:520
+#: components/views/Offset/index.tsx:521
 msgid "offset.dropdown_retire.label"
 msgstr "Auszugleichendes CO2-Token auswählen"
 
@@ -446,24 +454,24 @@ msgstr "Auszugleichendes CO2-Token auswählen"
 msgid "offset.empty"
 msgstr "Diese Adresse hat noch kein CO2 ausgeglichen."
 
-#: components/views/Offset/index.tsx:563
-#: components/views/Offset/index.tsx:796
+#: components/views/Offset/index.tsx:564
+#: components/views/Offset/index.tsx:790
 msgid "offset.enter_address"
 msgstr "0x-Adresse eingeben"
 
-#: components/views/Offset/index.tsx:448
+#: components/views/Offset/index.tsx:449
 msgid "offset.go_carbon_neutral"
 msgstr "Werde CO2-neutral, indem du CO2 ausgleichst und damit den zugrundeliegenden Umweltvorteil beanspruchst. Du hast die Wahl zwischen <0>Moss Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT), <2>Nature Carbon Tonnes</2> (NCT), <3>Universal Basic Offsets</3> (UBO) und <4>Nature Based Offsets</4> (NBO). Mehr folgen demnächst!"
 
-#: components/views/Offset/index.tsx:427
+#: components/views/Offset/index.tsx:428
 msgid "offset.incompatible"
 msgstr "INPUT-TOKEN INKOMPATIBEL"
 
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:507
 msgid "offset.modal_payWith.title"
 msgstr "Token auswählen"
 
-#: components/views/Offset/index.tsx:524
+#: components/views/Offset/index.tsx:525
 msgid "offset.modal_retire.title"
 msgstr "CO2-Typ auswählen"
 
@@ -471,57 +479,57 @@ msgstr "CO2-Typ auswählen"
 msgid "offset.number_of_retirements"
 msgstr "Insgesamt ausgeglichen"
 
-#: components/views/Offset/index.tsx:496
+#: components/views/Offset/index.tsx:497
 msgid "offset.offset_quantity"
 msgstr "Auszugleichende Menge angeben"
 
-#: components/views/Offset/index.tsx:445
+#: components/views/Offset/index.tsx:446
 msgid "offset.retire_carbon"
 msgstr "CO2-Fußabdruck ausgleichen"
 
-#: components/views/Offset/index.tsx:774
+#: components/views/Offset/index.tsx:768
 msgid "offset.retire_specific"
 msgstr "CO2-Tokens bestimmter Projekte ausgleichen"
 
-#: components/views/Offset/index.tsx:780
+#: components/views/Offset/index.tsx:774
 msgid "offset.retire_specific_tooltip"
 msgstr "Eine zusätzliche Gebühr - erhoben vom ausgewählten Pool und gezahlt an den Bridge-Provider - könnte anfallen."
 
-#: components/views/Offset/index.tsx:549
+#: components/views/Offset/index.tsx:550
 msgid "offset.retirement_beneficiary"
 msgstr "Name oder Organisation"
 
-#: components/views/Offset/index.tsx:541
+#: components/views/Offset/index.tsx:542
 msgid "offset.retirement_credit"
 msgstr "Wem soll dieser CO2-Ausgleich gewidmet werden?"
 
-#: components/views/Offset/index.tsx:578
+#: components/views/Offset/index.tsx:579
 msgid "offset.retirement_message"
 msgstr "Möchtest du eine Nachricht anhängen?"
 
-#: components/views/Offset/index.tsx:587
+#: components/views/Offset/index.tsx:588
 msgid "offset.retirement_purpose"
 msgstr ""
 "Beschreibe den Zweck dieses Ausgleichs\n"
 ""
 
-#: components/views/Offset/index.tsx:619
+#: components/views/Offset/index.tsx:620
 msgid "offset.retiring"
 msgstr "Ausgleich nach Gebührenabzug"
 
-#: components/views/Offset/index.tsx:689
+#: components/views/Offset/index.tsx:684
 msgid "offset.successModal.body1"
 msgstr "Danke! Durch deine Teilnahme am freiwilligen CO2-Markt machst du Umweltschutz profitabler und klimapositive Projekte wirkungsvoller."
 
-#: components/views/Offset/index.tsx:698
+#: components/views/Offset/index.tsx:693
 msgid "offset.successModal.body2"
 msgstr "Klicke auf den Button, um deinen CO2-Ausgleich anzusehen. Indem du diese Seite teilst, unterstützt du uns auf unserem gemeinsamen Weg in Richtung eines transparenteren, offeneren und einträglicheren CO2-Marktes!"
 
-#: components/views/Offset/index.tsx:712
+#: components/views/Offset/index.tsx:707
 msgid "offset.successModal.cta"
 msgstr "AUSGLEICH ANSEHEN"
 
-#: components/views/Offset/index.tsx:682
+#: components/views/Offset/index.tsx:677
 msgid "offset.successModal.title"
 msgstr "Ausgleich erfolgreich!"
 
@@ -533,11 +541,11 @@ msgstr "CO2-Tonnen"
 msgid "offset.you_have_retired"
 msgstr "Bislang ausgeglichen"
 
-#: components/views/Offset/index.tsx:597
+#: components/views/Offset/index.tsx:598
 msgid "offset_cost"
 msgstr "Kosten"
 
-#: components/views/Offset/index.tsx:630
+#: components/views/Offset/index.tsx:631
 msgid "offset_disclaimer"
 msgstr "Achte darauf, keine wichtigen persönlichen Daten zu veröffentlichen. Deine Nachricht kann nicht verändert werden und existiert für immer auf einer öffentlichen Blockchain."
 
@@ -608,7 +616,7 @@ msgid "pklima.update"
 msgstr "Der aktualisierte Vertrag geht davon aus, dass pKLIMA-Besitzer ehemals beanspruchte Tokens gestakt und Belohnungen dafür erhalten haben. Vor dem November-Fix wurden diese Staking-Belohnungen nicht gegen dein Supply-Share-Limit aufgerechnet, was bedeutet, dass dein Anteil am totalen KLIMA-Supply das in deinen Bedingungen angegebene Limit überschreiten konnte."
 
 #: components/views/Bond/index.tsx:428
-#: components/views/Offset/index.tsx:356
+#: components/views/Offset/index.tsx:357
 #: components/views/Stake/index.tsx:244
 #: components/views/Stake/index.tsx:250
 msgid "shared.approve"
@@ -630,7 +638,7 @@ msgstr "Bestätigen..."
 
 #: components/views/Bond/index.tsx:379
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:321
+#: components/views/Offset/index.tsx:322
 #: components/views/PKlima/index.tsx:150
 #: components/views/Stake/index.tsx:209
 #: components/views/Wrap/index.tsx:163
@@ -647,7 +655,7 @@ msgid "shared.enter_amount"
 msgstr "Menge eingeben"
 
 #: components/views/Bond/index.tsx:391
-#: components/views/Offset/index.tsx:333
+#: components/views/Offset/index.tsx:334
 #: components/views/Stake/index.tsx:221
 #: components/views/Wrap/index.tsx:175
 msgid "shared.enter_quantity"
@@ -659,12 +667,12 @@ msgstr "MENGE EINGEBEN"
 msgid "shared.error"
 msgstr "FEHLER"
 
-#: components/views/Offset/index.tsx:349
+#: components/views/Offset/index.tsx:350
 #: components/views/Stake/index.tsx:228
 msgid "shared.insufficient_balance"
 msgstr "UNZUREICHENDES GUTHABEN"
 
-#: components/views/Offset/index.tsx:342
+#: components/views/Offset/index.tsx:343
 msgid "shared.invalid_inputs"
 msgstr "UNGÜLTIGE EINGABE"
 
@@ -673,8 +681,8 @@ msgstr "UNGÜLTIGE EINGABE"
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:385
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:327
-#: components/views/Offset/index.tsx:413
+#: components/views/Offset/index.tsx:328
+#: components/views/Offset/index.tsx:414
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:215
 #: components/views/Stake/index.tsx:432
@@ -691,7 +699,7 @@ msgstr "Lade..."
 msgid "shared.max"
 msgstr "Max"
 
-#: components/views/Offset/index.tsx:362
+#: components/views/Offset/index.tsx:363
 msgid "shared.retire"
 msgstr "CO2 AUSGLEICHEN"
 
