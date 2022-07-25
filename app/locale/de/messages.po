@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-25 17:59+0000\n"
+"POT-Creation-Date: 2022-07-25 19:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -364,11 +364,11 @@ msgstr "Offizielle Vertragsadressen"
 
 #: components/InvalidRPCModal/index.tsx:27
 msgid "invalid_rpc.modal.text"
-msgstr ""
+msgstr "Netzwerk konnte nicht erreicht werden. Die Ursache ist wahrscheinlich eine veraltete Polygon-RPC-Konfiguration in deiner Wallet. Mit <0>diesem Guide</0> behebst du den Fehler. Sollte das Problem noch immer auftreten, helfen wir dir gerne bei <1>Discord</1>."
 
 #: components/InvalidRPCModal/index.tsx:20
 msgid "invalid_rpc.modal.title"
-msgstr ""
+msgstr "Überprüfe deine Netzwerkeinstellungen"
 
 #: components/NavMenu/index.tsx:176
 msgid "menu.bond_carbon"
