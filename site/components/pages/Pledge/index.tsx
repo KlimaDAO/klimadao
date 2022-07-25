@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { getIsDomainInURL } from "lib/getIsDomainInURL";
 
 import { PageHead } from "components/PageHead";
 import { PledgeLayout } from "./PledgeLayout";
@@ -25,12 +26,11 @@ export const Pledge: NextPage = () => {
   };
 
   const handleSubmit = () => {
-    try {
-      ethers.utils.getAddress(address);
+    if (ethers.utils.isAddress(address) || getIsDomainInURL(address)) {
       router.push(`/pledge/${address}`);
-    } catch {
-      setError(true);
     }
+
+    setError(true);
   };
 
   return (
@@ -44,7 +44,7 @@ export const Pledge: NextPage = () => {
         <form className={styles.inputContainer} onSubmit={handleFormSubmit}>
           <input
             className={styles.input}
-            placeholder="Search for a wallet address"
+            placeholder="Enter an address or an ENS/KNS domain"
             value={address}
             data-error={error}
             onChange={handleAddressInputChange}
@@ -52,7 +52,7 @@ export const Pledge: NextPage = () => {
 
           {error && (
             <Text className={styles.errorMessage} t="caption">
-              Enter a valid ethereum wallet address
+              Enter a valid ethereum wallet address or ENS/KNS domain
             </Text>
           )}
 

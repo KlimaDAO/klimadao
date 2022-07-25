@@ -31,16 +31,23 @@ export {
   queryKlimaRetiresByAddress,
 } from "./subgraph/queryPolygonBridgedCarbon";
 export { getVerraProjectByID } from "./verra/getVerraProjects";
+
 // KNS
 export {
-  isKNSDomain,
   createKNSDomainFromName,
-  KNSContract,
   getAddressByKNS,
   getKNSByAddress,
+  getKNSProfile,
+  isKNSDomain,
+  KNSContract,
 } from "./kns";
 export { getTransactionOptions, getGasPrice } from "./getTransactionOptions";
 
 // ENS
-export { isENSDomain, getAddressByENS, getENSByAddress } from "./ens";
+export {
+  isENSDomain,
+  getAddressByENS,
+  getENSByAddress,
+  getENSProfile,
+} from "./ens";
 export { useWeb3 } from "./useWeb3";

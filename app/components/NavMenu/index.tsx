@@ -41,19 +41,24 @@ interface AddressProps {
       }
     | undefined;
 }
+
 const Address: FC<AddressProps> = (props) => {
-  let domain = undefined;
-  if (props.domains?.knsDomain && props.domains?.knsDomain.name) {
-    domain = props.domains.knsDomain;
-  } else if (props.domains?.ensDomain && props.domains?.ensDomain.name) {
-    domain = props.domains.ensDomain;
-  }
+  const domain = props.domains?.knsDomain || props.domains?.ensDomain;
+
   return (
     <div className="stack-04">
       <Text t="caption">
         <Trans id="menu.wallet_address">Your Wallet Address</Trans>:
       </Text>
-      {!domain && (
+
+      {domain ? (
+        <div className="domain-wrapper">
+          <img src={domain.imageUrl} alt="profile avatar" className="avatar" />
+          <Text t="caption" color="lightest" className={"domain-name"}>
+            {domain.name}
+          </Text>
+        </div>
+      ) : (
         <Text t="caption" color="lightest">
           {props.address ? (
             concatAddress(props.address)
@@ -61,30 +66,6 @@ const Address: FC<AddressProps> = (props) => {
             <Trans id="menu.not_connected">NOT CONNECTED</Trans>
           )}
         </Text>
-      )}
-      {domain && (
-        <div className="domain-wrapper">
-          {domain.image && (
-            <img src={domain.image} alt="profile avatar" className="avatar" />
-          )}
-          {domain.defaultImage && (
-            <div
-              className="avatar"
-              dangerouslySetInnerHTML={{ __html: domain.defaultImage ?? "" }}
-            />
-          )}
-          <Text
-            t="caption"
-            color="lightest"
-            className={
-              domain.image || domain.defaultImage
-                ? "domain-name"
-                : "domain-name-no-pad"
-            }
-          >
-            {domain.name}
-          </Text>
-        </div>
       )}
     </div>
   );
@@ -97,6 +78,7 @@ interface MenuButtonProps {
   disabled?: boolean;
   onClick?: () => void;
 }
+
 const MenuButton: FC<MenuButtonProps> = (props) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

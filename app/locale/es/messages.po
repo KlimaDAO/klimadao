@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-21 15:43+0000\n"
+"POT-Creation-Date: 2022-07-24 21:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -360,39 +360,39 @@ msgstr "Información y preguntas frecuentes"
 msgid "info.official_contract_addresses"
 msgstr "Direcciones oficiales del contrato"
 
-#: components/NavMenu/index.tsx:194
+#: components/NavMenu/index.tsx:176
 msgid "menu.bond_carbon"
 msgstr "Vincular bono de carbono"
 
-#: components/NavMenu/index.tsx:178
+#: components/NavMenu/index.tsx:160
 msgid "menu.buy_klima"
 msgstr "Comprar KLIMA"
 
-#: components/NavMenu/index.tsx:218
+#: components/NavMenu/index.tsx:200
 msgid "menu.info"
 msgstr "Información"
 
-#: components/NavMenu/index.tsx:223
+#: components/NavMenu/index.tsx:205
 msgid "menu.just_for_you"
 msgstr "SOLO PARA TI"
 
-#: components/NavMenu/index.tsx:61
+#: components/NavMenu/index.tsx:66
 msgid "menu.not_connected"
 msgstr "NO CONECTADO"
 
-#: components/NavMenu/index.tsx:210
+#: components/NavMenu/index.tsx:192
 msgid "menu.offset"
 msgstr "Compensación"
 
-#: components/NavMenu/index.tsx:186
+#: components/NavMenu/index.tsx:168
 msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/NavMenu/index.tsx:54
+#: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
 msgstr "La dirección de su monedero"
 
-#: components/NavMenu/index.tsx:202
+#: components/NavMenu/index.tsx:184
 msgid "menu.wrap_klima"
 msgstr "Empaquetar sKLIMA"
 
@@ -784,27 +784,27 @@ msgstr "Retirar"
 msgid "stake.unstake_klima"
 msgstr "Retirar KLIMA"
 
-#: actions/utils.ts:22
+#: actions/utils.ts:21
 msgid "status.done"
 msgstr "Transacción completa."
 
-#: actions/utils.ts:17
+#: actions/utils.ts:16
 msgid "status.error"
 msgstr "❌ Error: algo ha salido mal..."
 
-#: actions/utils.ts:29
+#: actions/utils.ts:28
 msgid "status.network_confirmation"
 msgstr "Transacción iniciada. Esperando confirmación de la red."
 
-#: actions/utils.ts:24
+#: actions/utils.ts:23
 msgid "status.user_confirmation"
 msgstr "Por favor, haga clic en \"confirmar\" en su cartera para continuar."
 
-#: actions/utils.ts:11
+#: actions/utils.ts:10
 msgid "status.user_rejected"
 msgstr "Usted eligió rechazar la transacción"
 
-#: components/NavMenu/index.tsx:230
+#: components/NavMenu/index.tsx:212
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
