@@ -4,7 +4,8 @@ import { ethers } from "ethers";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 
-import { changeApprovalTransaction, wrapTransaction } from "actions/wrap";
+import { wrapTransaction } from "actions/wrap";
+import { changeApprovalTransaction } from "actions/utils";
 import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 
@@ -96,17 +97,21 @@ export const Wrap: FC<Props> = (props) => {
   // Approval only needed for wrap, not for unwrap !
   const handleApproval = () => async () => {
     if (!props.provider) return;
+    const token = "sklima";
+    const spender = "wsklima";
     try {
       const currentQuantity = quantity.toString();
       const approvedValue = await changeApprovalTransaction({
         value: currentQuantity,
         provider: props.provider,
+        token,
+        spender,
         onStatus: setStatus,
       });
       dispatch(
         setAllowance({
-          token: "sklima",
-          spender: "wsklima",
+          token,
+          spender,
           value: approvedValue,
         })
       );

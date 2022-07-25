@@ -1,5 +1,16 @@
 import { AppNotificationStatus, TxnStatus } from "state/app";
 import { t } from "@lingui/macro";
+import { ethers, providers } from "ethers";
+import {
+  formatUnits,
+  getTokenDecimals,
+  getContract,
+} from "@klimadao/lib/utils";
+import {
+  AllowancesSpender,
+  AllowancesToken,
+} from "@klimadao/lib/types/allowances";
+import { addresses } from "@klimadao/lib/constants";
 
 export type OnStatusHandler = (status: TxnStatus, message?: string) => void;
 
@@ -31,4 +42,38 @@ export const getStatusMessage = (status: AppNotificationStatus) => {
     });
   }
   return null;
+};
+
+export const changeApprovalTransaction = async (params: {
+  value: string;
+  provider: providers.JsonRpcProvider;
+  token: AllowancesToken;
+  spender: AllowancesSpender;
+  onStatus: OnStatusHandler;
+}): Promise<string> => {
+  try {
+    const contract = getContract({
+      contractName: params.token,
+      provider: params.provider.getSigner(),
+    });
+    const decimals = getTokenDecimals(params.token);
+    const parsedValue = ethers.utils.parseUnits(params.value, decimals);
+    params.onStatus("userConfirmation", "");
+    const txn = await contract.approve(
+      addresses["mainnet"][params.spender],
+      parsedValue.toString()
+    );
+    params.onStatus("networkConfirmation", "");
+    await txn.wait(1);
+    params.onStatus("done", "Approval was successful");
+    return formatUnits(parsedValue, decimals);
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("error", "userRejected");
+      throw error;
+    }
+    params.onStatus("error");
+    console.error(error);
+    throw error;
+  }
 };
