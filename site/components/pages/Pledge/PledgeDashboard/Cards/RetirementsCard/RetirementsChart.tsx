@@ -51,7 +51,7 @@ export const RetirementsChart: FC<RetirementsChartProps> = (props) => {
     .sort((a, b) => a + b)[0];
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer>
       <BarChart data={mappedData}>
         <defs>
           <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
