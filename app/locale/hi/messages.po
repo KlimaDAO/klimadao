@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-25 19:04+0000\n"
+"POT-Creation-Date: 2022-07-26 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -99,11 +99,11 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:457
 msgid "bond.inputplaceholder.amount_to_bond"
-msgstr ""
+msgstr "बंधित राशि"
 
 #: components/views/Bond/index.tsx:462
 msgid "bond.inputplaceholder.amount_to_redeem"
-msgstr ""
+msgstr "रिडीम राशि"
 
 #: components/views/Bond/index.tsx:659
 msgid "bond.inverse.premium"
@@ -197,12 +197,12 @@ msgstr "तुम्हे मिल जाएगा"
 
 #: components/views/Bond/index.tsx:730
 msgid "bond.you_will_get.description_inverse"
-msgstr ""
+msgstr "प्रदान की गई इनपुट मात्रा पर आपको यह राशि मिलेगी"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:874
 msgid "bond.you_will_get.tooltip"
-msgstr ""
+msgstr "प्रदान की गई इनपुट मात्रा पर आपको बंधित KLIMA की राशि मिलेगी"
 
 #: components/views/Buy/index.tsx:44
 msgid "buy.buy_klima"
@@ -242,7 +242,7 @@ msgstr "समझ गया"
 #. <0>app.klimadao.finance</0> is the only official domain.
 #: components/CheckURLBanner/index.tsx:31
 msgid "checkurlbanner.is_the_only_official_domain"
-msgstr "<0>app.klimadao.finance</0> एकमात्र आधिकारिक डोमेन है।"
+msgstr "<0>app.klimadao.finance</0> एकमात्र आधिकारिक डोमेन है। "
 
 #: components/CheckURLBanner/index.tsx:26
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
@@ -320,17 +320,17 @@ msgstr "KLIMA में नए हैं?"
 #. Long sentence
 #: components/views/Info/index.tsx:130
 msgid "info.app_not_loading.1_open_metamask"
-msgstr "1. Metamask (मेटामास्क) खोलें और Ethereum (एथेरियम) मेननेट पर स्विच करें"
+msgstr "1. Metamask (मेटामास्क) खोलें और Ethereum Mainnet पर स्विच करें"
 
 #. Long sentence
 #: components/views/Info/index.tsx:137
 msgid "info.app_not_loading.2_go_to_settings"
-msgstr "2. सेटिंग्स/नेटवर्क/Polygon(पोलीगोन)  पर जाएं और 'delete (हटाएं)' पर क्लिक करें"
+msgstr "2. Settings/Network/Polygon पर जाएं और 'delete' पर क्लिक करें"
 
 #. Long sentence
 #: components/views/Info/index.tsx:144
 msgid "info.app_not_loading.3_return_to_app"
-msgstr "3. app.klimadao.finance पर लौटें और 'मेननेट पर स्विच करें' पर क्लिक करें।"
+msgstr "3. app.klimadao.finance पर लौटें और 'switch to mainnet' पर क्लिक करें।"
 
 #. Long sentence
 #: components/views/Info/index.tsx:122
@@ -741,15 +741,15 @@ msgstr ""
 #. Long sentence
 #: components/views/Stake/index.tsx:419
 msgid "stake.index.tooltip"
-msgstr ""
+msgstr "यदि आप लॉन्च के दिन 1 KLIMA दांव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। लेखांकन के लिए उपयोगी।"
 
 #: components/views/Stake/index.tsx:58
 msgid "stake.inputplaceholder.stake"
-msgstr ""
+msgstr "स्टेक राशि"
 
 #: components/views/Stake/index.tsx:62
 msgid "stake.inputplaceholder.unstake"
-msgstr ""
+msgstr "अनस्टेक राशि"
 
 #: components/views/Stake/index.tsx:316
 msgid "stake.lifi"
@@ -858,7 +858,7 @@ msgstr ""
 
 #: components/views/Wrap/index.tsx:313
 msgid "wrap.index.tooltip"
-msgstr ""
+msgstr "यदि आप लॉन्च के दिन 1 KLIMA दांव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। wsKLIMA मूल्य की गणना करने के लिए उपयोग किया जाता है।"
 
 #: components/views/Wrap/index.tsx:46
 msgid "wrap.sklima_to_wrap"
