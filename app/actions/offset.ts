@@ -91,39 +91,6 @@ export const getRetirementAllowances = (params: {
   };
 };
 
-export const changeApprovalTransaction = async (params: {
-  value: string;
-  provider: providers.JsonRpcProvider;
-  token: OffsetInputToken;
-  onStatus: OnStatusHandler;
-}): Promise<string> => {
-  try {
-    const contract = getContract({
-      contractName: params.token,
-      provider: params.provider.getSigner(),
-    });
-    const decimals = getTokenDecimals(params.token);
-    const parsedValue = ethers.utils.parseUnits(params.value, decimals);
-    params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(
-      addresses["mainnet"].retirementAggregator,
-      parsedValue.toString()
-    );
-    params.onStatus("networkConfirmation", "");
-    await txn.wait(1);
-    params.onStatus("done", "Approval was successful");
-    return formatUnits(parsedValue, decimals);
-  } catch (error: any) {
-    if (error.code === 4001) {
-      params.onStatus("error", "userRejected");
-      throw error;
-    }
-    params.onStatus("error");
-    console.error(error);
-    throw error;
-  }
-};
-
 export const getOffsetConsumptionCost = async (params: {
   provider: providers.JsonRpcProvider;
   inputToken: OffsetInputToken;

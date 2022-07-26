@@ -2,9 +2,8 @@ import React, { FC, ReactElement, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { selectNotificationStatus } from "state/selectors";
-import styles from "./index.module.css";
+import * as styles from "./styles";
 import AlarmIcon from "@mui/icons-material/Alarm";
-import CloseIcon from "@mui/icons-material/Close";
 import CheckIcon from "@mui/icons-material/Check";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import { AppNotificationStatus } from "../../state/app";
@@ -14,6 +13,7 @@ import { getStatusMessage } from "actions/utils";
 import { ClaimExceededModal } from "components/views/PKlima/ClaimExceededModal";
 import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
+import { Modal } from "components/Modal";
 
 interface ModalAssetTypes {
   [key: string]: {
@@ -75,21 +75,16 @@ export const NotificationModal: FC = () => {
     dispatch(setAppState({ notificationStatus: null }));
   };
 
+  const enableCloseModal =
+    status && (statusType === "done" || statusType === "error");
+
   return (
-    <div className={styles.bg}>
-      <div className={styles.card}>
-        <div className={styles.card_header}>
-          <Text t="h5">{getAsset("header", status)}</Text>
-          {status && (statusType === "done" || statusType === "error") && (
-            <button onClick={closeModal} className={styles.closeButton}>
-              <CloseIcon />
-            </button>
-          )}
-        </div>
-        <div
-          className={`${styles.icon_container}  
-            ${getAsset("iconStyle", status)}`}
-        >
+    <Modal
+      title={getAsset("header", status)}
+      onToggleModal={enableCloseModal ? closeModal : undefined}
+    >
+      <div className={styles.modalContent}>
+        <div className={`${getAsset("iconStyle", status)}`}>
           {getAsset("iconComponent", status)}
         </div>
         <Text
@@ -101,6 +96,6 @@ export const NotificationModal: FC = () => {
           {getStatusMessage(status)}
         </Text>
       </div>
-    </div>
+    </Modal>
   );
 };

@@ -41,6 +41,10 @@ export const input = css`
     border-bottom: 0.1rem solid var(--klima-green);
   }
 
+  :focus::placeholder {
+    color: transparent;
+  }
+
   &[data-error="true"] {
     border-bottom: 0.1rem solid var(--warn);
   }

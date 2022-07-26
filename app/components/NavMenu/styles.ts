@@ -61,6 +61,7 @@ export const container = css`
     flex-wrap: nowrap;
     overflow: hidden;
     padding-top: 0.5rem;
+    gap: 1rem;
   }
 
   .avatar {
@@ -71,6 +72,7 @@ export const container = css`
     display: flex;
     justify-content: center;
     align-items: center;
+
     svg {
       height: 4rem;
       width: 4rem;
@@ -79,13 +81,6 @@ export const container = css`
   }
 
   .domain-name {
-    text-overflow: ellipsis;
-    padding-left: 1rem;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .domain-name-no-pad {
     text-overflow: ellipsis;
     max-width: 100%;
     overflow: hidden;

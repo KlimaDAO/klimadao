@@ -1,6 +1,7 @@
-import { providers } from "ethers";
+import { providers, getDefaultProvider } from "ethers";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getIsValidAddress } from "../getIsValidAddress";
+import { Domain } from "../../types/domains";
 
 export const isENSDomain = (domain: string) =>
   !!domain && domain.includes(".eth");
@@ -34,5 +35,30 @@ export const getENSByAddress = async (
   } catch (e) {
     console.error("Error in getENSByAddress", e);
     return Promise.reject(e);
+  }
+};
+
+const DEFAULT_ENS_PROFILE =
+  "https://raw.githubusercontent.com/ensdomains/media-kit/5ebbcb4e0f4cca1caa1630f30b1116935f5e6636/Logos/Token.svg";
+
+export const getENSProfile = async (params: {
+  address: string;
+}): Promise<Domain | null> => {
+  try {
+    const ethProvider = getDefaultProvider(1);
+    const ensDomain = await ethProvider.lookupAddress(params.address);
+    const imageUrl = ensDomain ? await ethProvider.getAvatar(ensDomain) : null;
+
+    if (ensDomain) {
+      return {
+        name: ensDomain,
+        imageUrl: imageUrl || DEFAULT_ENS_PROFILE,
+      };
+    }
+
+    return null;
+  } catch (error) {
+    console.log("getENS error", error);
+    return Promise.reject(error);
   }
 };

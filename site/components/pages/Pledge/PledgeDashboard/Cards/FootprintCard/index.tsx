@@ -41,13 +41,13 @@ export interface CategoryWithPercent extends Category {
   fill: string;
 }
 
-const calcFootprintPercent = (
+const calculateFootprintPercent = (
   total: number,
   categories: Category[]
 ): CategoryWithPercent[] => {
   return categories.map((category, index) => ({
     ...category,
-    percent: Math.round((category.quantity / total) * 100),
+    percent: (category.quantity / total) * 100,
     fill: COLOR_PALETTE[index],
   }));
 };
@@ -58,7 +58,7 @@ export const FootprintCard: FC<Props> = (props) => {
   const sortedCategories = footprint.categories.sort(
     (a, b) => a.quantity - b.quantity
   );
-  const categoriesWithPercent = calcFootprintPercent(
+  const categoriesWithPercent = calculateFootprintPercent(
     footprint.total,
     sortedCategories
   );
@@ -100,7 +100,7 @@ export const FootprintCard: FC<Props> = (props) => {
                       className={styles.categoryRow_percentage}
                       style={{ color: `${category.fill}` }}
                     >
-                      {category.percent}%
+                      {+category.percent.toFixed(2)}%
                     </span>
                   </Text>
                 </div>
