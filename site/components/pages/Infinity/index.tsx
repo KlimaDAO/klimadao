@@ -7,15 +7,14 @@ import {
   ButtonPrimary,
   ButtonSecondary,
   Text,
-  Anchor,
 } from "@klimadao/lib/components";
 
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import LaunchIcon from "@mui/icons-material/Launch";
+
+import { Slider } from "./Slider";
+
 import klimaInfinityLogo from "public/logo-klima-infinity.png";
 import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
@@ -40,7 +39,6 @@ import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 
-import { cards } from "./cards";
 import * as styles from "./styles";
 
 import { urls } from "@klimadao/lib/constants";
@@ -54,38 +52,12 @@ export interface Props {
 
 export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
   const ref = useRef<null | HTMLDivElement>(null);
-  const scrollToRefEnd = useRef<null | HTMLDivElement>(null);
-  const scrollToRefStart = useRef<null | HTMLDivElement>(null);
-  const scrollToEnd = () =>
-    scrollToRefEnd.current &&
-    scrollToRefEnd.current.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  const scrollToStart = () => {
-    return (
-      scrollToRefStart.current &&
-      scrollToRefStart.current.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      })
-    );
-  };
-  const getRef = (index: number, length: number) => {
-    if (index === 0) {
-      return scrollToRefStart;
-    }
-    if (index === length - 1) {
-      return scrollToRefEnd;
-    } else {
-      return null;
-    }
-  };
   const [currentOpenQuestions, setCurrentOpenQuestions] = useState({
     1: false,
     2: false,
     3: false,
   });
+
   return (
     <>
       <PageHead
@@ -147,64 +119,8 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
-      <Section variant="black" className={styles.sliderSection}>
-        <div className="slider_container">
-          <Text t="h3" className="slider_title">
-            <Trans id="infinity.organizations">
-              Dozens of organizations have offset over 150,000 carbon tonnes
-              with Klima Infinity
-            </Trans>
-          </Text>
-          <div className="slider_button_container">
-            <div className="slider_arrow" onClick={scrollToStart}>
-              <ArrowBackIcon color="secondary" />
-            </div>
-            <div className="slider_arrow" onClick={scrollToEnd}>
-              <ArrowForwardIcon />
-            </div>
-          </div>
-        </div>
-      </Section>
-      <Section variant="black" className={styles.sliderSection}>
-        <div className="slider_cards_container">
-          {cards.map((card, index) => (
-            <div
-              className="slider_card"
-              key={card.link}
-              ref={getRef(index, cards.length)}
-            >
-              <div className="slider_title_container">
-                <div className="slider_image_container">
-                  <Image layout="intrinsic" src={card.logo} alt="logo" />
-                </div>
-                <Anchor href={card.link}>
-                  <LaunchIcon className="slider_launch_icon" />
-                </Anchor>
-              </div>
-              <div className="slider_content">
-                <Text t="body4" className="slider_quote">
-                  <Trans id="infinity.quote">“{card.description}”</Trans>
-                </Text>
-                <div className="slider_footer">
-                  <div>
-                    <Text t="h3">
-                      <Trans id="infinity.retired_tons_number">
-                        {card.tonsRetired}k
-                      </Trans>
-                    </Text>
-                    <Text>
-                      <Trans id="infinity.tonnes">Tonnes</Trans>
-                    </Text>
-                  </div>
-                  <Text t="badge" className="slider_date">
-                    <Trans id="infinity.retired_date">{card.date}</Trans>
-                  </Text>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <Slider />
+
       <Section variant="black" className={styles.infoSection}>
         <div className="info_blur" />
         <div className="info_container">
