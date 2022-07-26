@@ -191,12 +191,12 @@ export const Infinity: NextPage<Props> = () => {
                 </Trans>
                 <div className="slider_footer">
                   <div>
-                    <Trans>
+                    <Trans id="infinity.retired_tons">
                       <Text t="h3">{card.tonsRetired}k</Text>
                       <Text>Tonnes</Text>
                     </Trans>
                   </div>
-                  <Trans>
+                  <Trans id="infinity.retired_date">
                     <Text t="badge" className="slider_date">
                       {card.date}
                     </Text>
@@ -213,7 +213,7 @@ export const Infinity: NextPage<Props> = () => {
           <div className="info_left_container">
             <div className="info_image_box_alt">
               <div className="info_image_description">
-                <Trans>
+                <Trans id="infinity.fast">
                   <Text t="body4">Offset in seconds, with no red tape</Text>
                   <Text t="h2_alt" className="info_image_title">
                     Fast
@@ -229,7 +229,7 @@ export const Infinity: NextPage<Props> = () => {
             </div>
             <div className="info_image_box">
               <div className="info_image_description">
-                <Trans>
+                <Trans id="infinity.affordable">
                   <Text t="body4">Real time pricing, saving 30% or more</Text>
                   <Text t="h2_alt" className="info_image_title">
                     Affordable
@@ -246,7 +246,7 @@ export const Infinity: NextPage<Props> = () => {
           </div>
           <div className="info_right_container">
             <div className="info_title_container">
-              <Trans>
+              <Trans id="infinity.info_subtitle">
                 <Text t="body6" className="info_subtitle">
                   For the planet's pioneering organizations
                 </Text>
@@ -257,7 +257,7 @@ export const Infinity: NextPage<Props> = () => {
             </div>
             <div className="info_image_box">
               <div className="info_image_description">
-                <Trans>
+                <Trans id="infinity.transparent">
                   <Text t="body4">Immutably recorded on the blockchain</Text>
                   <Text t="h2_alt" className="info_image_title">
                     Tranparent
@@ -277,7 +277,7 @@ export const Infinity: NextPage<Props> = () => {
       <Section variant="black" className={styles.whySection}>
         <div className="why_container">
           <div className="why_left_container">
-            <Trans>
+            <Trans id="infinity.why_title">
               <Text t="body6">Why KlimaDAO?</Text>
               <Text t="h2_alt" className="why_title">
                 DeFi that defies climate change
@@ -309,7 +309,7 @@ export const Infinity: NextPage<Props> = () => {
         <div className="getStarted_container">
           <div className="getStarted_left_container">
             <div className="getStarted_section getStarted1">
-              <Trans>
+              <Trans id="infinity.getStarted_first">
                 <Text t="h1" className="getStarted_number">
                   1
                 </Text>
@@ -323,7 +323,7 @@ export const Infinity: NextPage<Props> = () => {
               </Trans>
             </div>
             <div className="getStarted_section getStarted2">
-              <Trans>
+              <Trans id="infinity.getStarted_second">
                 <Text t="h1" className="getStarted_number">
                   2
                 </Text>
@@ -337,7 +337,7 @@ export const Infinity: NextPage<Props> = () => {
               </Trans>
             </div>
             <div className="getStarted_section getStarted3">
-              <Trans>
+              <Trans id="infinity.getStarted_third">
                 <Text t="h1" className="getStarted_number">
                   3
                 </Text>
@@ -352,7 +352,7 @@ export const Infinity: NextPage<Props> = () => {
             </div>
           </div>
           <div className="getStarted_right_container">
-            <Trans>
+            <Trans id="infinity.getStarted_cta">
               <Text t="h2_alt">
                 Accelerate your path to Net Zero - and beyond
               </Text>
@@ -375,14 +375,14 @@ export const Infinity: NextPage<Props> = () => {
               layout="responsive"
               className="carousel_image"
             />
-            <Trans>
+            <Trans id="infinity.carousel_image_description">
               <Text t="body3" className="carousel_image_description">
                 Wind power project at Jaibhim, India
               </Text>
             </Trans>
           </div>
           <div className="carousel_right_container">
-            <Trans>
+            <Trans id="infinity.carousel_info">
               <Text t="badge">Support high quality projects</Text>
               <Text t="h2_alt">
                 Drive funding to projects that move the needle on climate change
@@ -396,7 +396,7 @@ export const Infinity: NextPage<Props> = () => {
         <div className="polygon_blur" />
         <div className="polygon_container">
           <div className="polygon_left_container">
-            <Trans>
+            <Trans id="infinity.polygon_story">
               <Text t="h2_alt">
                 Polygon chose Klima Infinity to offset their blockchain network
               </Text>
@@ -413,7 +413,7 @@ export const Infinity: NextPage<Props> = () => {
           </div>
           <div className="polygon_right_container">
             <div className="polygon_full_blox">
-              <Trans>
+              <Trans id="infinity.polygon_manifesto">
                 <Text t="body6" className="polygon_subtitle">
                   <Image src={logoPolygonInfinity} alt="green polygon logo" />
                   The offset is part of Polygon's Green Manifesto
@@ -428,7 +428,7 @@ export const Infinity: NextPage<Props> = () => {
               </Trans>
             </div>
             <div className="polygon_half_blox">
-              <Trans>
+              <Trans id="infinity.box_title">
                 <Text t="body6" className="polygon_subtitle">
                   <Image src={greenCloud} alt="green cloud outline" /> Last
                   Carbon Offset
@@ -438,7 +438,7 @@ export const Infinity: NextPage<Props> = () => {
               </Trans>
             </div>
             <div className="polygon_half_blox">
-              <Trans>
+              <Trans id="infinity.box_title2">
                 <Text t="body6" className="polygon_subtitle">
                   <Image src={greenFire} alt="green fire outline" /> Total
                   Carbon Retired
@@ -460,7 +460,7 @@ export const Infinity: NextPage<Props> = () => {
           />
         </div>
         <div className="mission_container">
-          <Trans>
+          <Trans id="mission.header">
             <Text t="h2_alt" align="center" className="mission_header">
               KlimaDAO's mission is to democratize climate action
             </Text>
@@ -468,7 +468,7 @@ export const Infinity: NextPage<Props> = () => {
           <div className="mission_cards_container">
             <div className="mission_card">
               <div className="mission_card_text">
-                <Trans>
+                <Trans id="mission.card1">
                   <Text t="h2_alt" align="center">
                     18.1 million
                   </Text>
@@ -488,7 +488,7 @@ export const Infinity: NextPage<Props> = () => {
             </div>
             <div className="mission_card">
               <div className="mission_card_text">
-                <Trans>
+                <Trans id="mission.card2">
                   <Text t="h2_alt" align="center">
                     $10m+
                   </Text>
@@ -508,7 +508,7 @@ export const Infinity: NextPage<Props> = () => {
             </div>
             <div className="mission_card">
               <div className="mission_card_text">
-                <Trans>
+                <Trans id="mission.card3">
                   <Text t="h2_alt" align="center">
                     150,000+
                   </Text>
@@ -535,7 +535,7 @@ export const Infinity: NextPage<Props> = () => {
       </Section>
       <Section variant="black" className={styles.featuredSection}>
         <div className="featured_container">
-          <Trans>
+          <Trans id="featured.title">
             <Text t="body4" align="center" className="featured_title">
               KlimaDAO featured on
             </Text>
@@ -570,7 +570,7 @@ export const Infinity: NextPage<Props> = () => {
       </Section>
       <Section className={styles.faqSection}>
         <div className="faq_container">
-          {/* <div className="faq_blur" /> */}
+          <div className="faq_blur" />
           <Trans>
             <Text t="h2_alt" align="center" className="faq_title">
               Frequently Asked Questions
@@ -578,7 +578,7 @@ export const Infinity: NextPage<Props> = () => {
           </Trans>
           <div className="faq_question_container">
             <div className="faq_title_container">
-              <Trans>
+              <Trans id="faq.question1">
                 <Text>1. What is a carbon offset?</Text>
               </Trans>
               <Text
@@ -597,7 +597,7 @@ export const Infinity: NextPage<Props> = () => {
               className="faq_answer_text"
               data-display={currentOpenQuestions[1]}
             >
-              <Trans>
+              <Trans id="faq.answer1">
                 <Text t="body6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                   aliquam, purus sit amet luctus venenatis, lectus magna
@@ -609,7 +609,7 @@ export const Infinity: NextPage<Props> = () => {
           <div className="faq_divider" />
           <div className="faq_question_container">
             <div className="faq_title_container">
-              <Trans>
+              <Trans id="faq.question2">
                 <Text>
                   2. How does offsetting help in the fight against climate
                   change?
@@ -631,7 +631,7 @@ export const Infinity: NextPage<Props> = () => {
               className="faq_answer_text"
               data-display={currentOpenQuestions[2]}
             >
-              <Trans>
+              <Trans id="faq.answer2">
                 <Text t="body6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                   aliquam, purus sit amet luctus venenatis, lectus magna
@@ -643,7 +643,7 @@ export const Infinity: NextPage<Props> = () => {
           <div className="faq_divider" />
           <div className="faq_question_container">
             <div className="faq_title_container">
-              <Trans>
+              <Trans id="faq.question3">
                 <Text>3. What are carbon markets?</Text>
               </Trans>
               <Text
@@ -662,7 +662,7 @@ export const Infinity: NextPage<Props> = () => {
               className="faq_answer_text"
               data-display={currentOpenQuestions[3]}
             >
-              <Trans>
+              <Trans id="faq.answer3">
                 <Text t="body6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                   aliquam, purus sit amet luctus venenatis, lectus magna
@@ -692,7 +692,7 @@ export const Infinity: NextPage<Props> = () => {
                 layout="responsive"
               />
             </div>
-            <Trans>
+            <Trans id="cta.title">
               <Text t="body7">
                 The next-generation carbon toolkit for your organization
               </Text>
