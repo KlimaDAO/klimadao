@@ -35,11 +35,23 @@ import {
 
 const HoldingsOverTimeChart = (props) => {
   console.log(props.data);
-  const data = props.data.map((tx) => ({
-    timestamp: tx.timestamp,
-    date: new Date(tx.timestamp * 1000),
-    tokenAmount: tx.tokenAmount,
-  }));
+  const data = [
+    // {
+    //   timestamp: 1634475600,
+    //   date: new Date(1634475600 * 1000),
+    //   tokenAmount: 0,
+    // },
+    // {
+    //   timestamp: props.data[0].timestamp - 1209600,
+    //   date: new Date((props.data[0].timestamp - 1209600) * 1000),
+    //   tokenAmount: 0,
+    // },
+    ...props.data.map((tx) => ({
+      timestamp: tx.timestamp,
+      date: new Date(tx.timestamp * 1000),
+      tokenAmount: tx.tokenAmount,
+    })),
+  ];
 
   console.log(data);
   const tokenValues = props.data.map((tx) => Math.floor(tx.tokenAmount));

@@ -28,30 +28,16 @@ type Props = {
   domain: string | null;
   pageAddress: string;
   pledge: Pledge;
+  retirements: RetirementsTotalsAndBalances;
 };
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const { address, isConnected } = useWeb3();
   const [showModal, setShowModal] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(props.pledge);
-  const [retirements, setRetirements] =
-    useState<RetirementsTotalsAndBalances | null>(null);
 
   const canEditPledge =
     address?.toLowerCase() === props.pageAddress && isConnected;
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const retirements = await getRetirementTotalsAndBalances({
-          address: props.pageAddress,
-        });
-        setRetirements(retirements);
-      } catch (e) {
-        console.error(e);
-      }
-    })();
-  }, []);
 
   const handleFormSubmit = async (data: Pledge) => {
     setPledge(data);
@@ -84,7 +70,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         <Profile
           domain={props.domain}
           pledge={props.pledge}
-          retirements={retirements}
+          retirements={props.retirements}
         />
 
         <div className={styles.column}>
@@ -98,7 +84,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             holdings={props.holdings}
             pageAddress={props.pageAddress}
           />
-          <RetirementsCard retirements={retirements} pageAddress={props.pageAddress} />
+          <RetirementsCard
+            retirements={props.retirements}
+            pageAddress={props.pageAddress}
+          />
         </div>
       </div>
     </PledgeLayout>

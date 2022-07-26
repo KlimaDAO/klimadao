@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import { ethers } from "ethers";
 import { urls } from "@klimadao/lib/constants";
+import { getRetirementTotalsAndBalances } from "@klimadao/lib/utils";
 
 import { loadTranslation } from "lib/i18n";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
@@ -37,7 +38,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       },
     };
   }
-  const holdings = await queryHoldingsByAddress(address);
+
+  const holdings = await queryHoldingsByAddress(resolvedAddress);
+  const retirements = await getRetirementTotalsAndBalances({
+    address: resolvedAddress,
+  });
 
   try {
     const data = await getPledgeByAddress(resolvedAddress);
@@ -55,6 +60,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       holdings,
       pageAddress: resolvedAddress,
       pledge,
+      retirements,
       translation,
     },
     revalidate: 180,
