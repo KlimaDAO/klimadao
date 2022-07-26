@@ -42,13 +42,11 @@ import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 import { cards } from "./cards";
 import * as styles from "./styles";
 
-import {
-  LINK_INFINITY_GET_STARTED,
-  LINK_POLYGON_BLOG,
-  LINK_BLOG,
-  LINK_INFINITY_FAQ,
-  LINK_INFINITY_CONTACT_SLAES,
-} from "../../../lib/constants";
+import { urls } from "@klimadao/lib/constants";
+
+const linkToBlogUserGuide = `${urls.siteBlog}/klima-infinity-user-guide`;
+const linkToBlogFAQ = `${urls.siteBlog}/klima-infinity-faqs`;
+const linkToBlogPolygon = `${urls.siteBlog}/polygon-goes-carbon-neutral-via-klimadao`;
 export interface Props {
   fixedThemeName: string;
 }
@@ -129,13 +127,20 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <ButtonPrimary
                 className="hero_button_primary"
                 variant="blueRounded"
-                label="Get started"
-                href={LINK_INFINITY_GET_STARTED}
+                label={t({
+                  message: "Get Started",
+                  id: "shared.infinity.get_started",
+                })}
+                href={linkToBlogUserGuide}
               />
               <ButtonSecondary
                 variant="blueRounded"
-                label="Contact sales"
-                href={LINK_INFINITY_CONTACT_SLAES}
+                label={t({
+                  message: "Contact Sales",
+                  id: "shared.contact_sales",
+                })}
+                href={urls.klimaInfinityContactForm}
+                target="_blank"
               />
             </div>
           </div>
@@ -362,8 +367,11 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             <ButtonPrimary
               className="getStarted_button"
               variant="blueRounded"
-              label="Get started"
-              href={LINK_INFINITY_GET_STARTED}
+              label={t({
+                message: "Get Started",
+                id: "shared.infinity.get_started",
+              })}
+              href={linkToBlogUserGuide}
             />
           </div>
         </div>
@@ -416,9 +424,12 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               </Trans>
             </Text>
             <ButtonPrimary
-              label="Read Polygon's Story"
+              label={t({
+                id: "infinity.button.read_blog_polygon",
+                message: "Read Polygon's Story",
+              })}
               className="polygon_button"
-              href={LINK_POLYGON_BLOG}
+              href={linkToBlogPolygon}
             />
           </div>
           <div className="polygon_right_container">
@@ -544,9 +555,12 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             </div>
           </div>
           <ButtonPrimary
-            label="Visit the KlimaDAO Blog"
+            label={t({
+              message: "Visit the KlimaDAO Blog",
+              id: "shared.visit_klimadao_blog",
+            })}
             variant="blueRounded"
-            href={LINK_BLOG}
+            href={urls.siteBlog}
           />
         </div>
       </Section>
@@ -720,8 +734,11 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             <ButtonPrimary
               className="faq_button"
               variant="blueRounded"
-              label="Read in-depth FAQs for KI Clients"
-              href={LINK_INFINITY_FAQ}
+              label={t({
+                id: "infinity.button.read_blog_faq",
+                message: "Read in-depth FAQs for KI Clients",
+              })}
+              href={linkToBlogFAQ}
             />
           </div>
         </div>
@@ -746,14 +763,21 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
           <div className="cta_right_container">
             <ButtonPrimary
-              label="Get Started"
+              label={t({
+                message: "Get Started",
+                id: "shared.infinity.get_started",
+              })}
               variant="blueRounded"
-              href={LINK_INFINITY_GET_STARTED}
+              href={linkToBlogUserGuide}
             />
             <ButtonSecondary
-              label="Contact sales"
+              label={t({
+                message: "Contact Sales",
+                id: "shared.contact_sales",
+              })}
               variant="blueRounded"
-              href={LINK_INFINITY_CONTACT_SLAES}
+              href={urls.klimaInfinityContactForm}
+              target="_blank"
             />
           </div>
         </div>
