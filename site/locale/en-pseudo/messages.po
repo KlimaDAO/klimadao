@@ -29,7 +29,7 @@ msgstr ""
 msgid "Episodes"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:535
+#: components/pages/Infinity/index.tsx:527
 msgid "Frequently Asked Questions"
 msgstr ""
 
@@ -533,7 +533,7 @@ msgstr ""
 msgid "error.page.500.title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:501
+#: components/pages/Infinity/index.tsx:493
 msgid "featured.title"
 msgstr ""
 
@@ -664,229 +664,229 @@ msgstr ""
 msgid "home.welcome_to_klimadao"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:160
+#: components/pages/Infinity/index.tsx:152
 msgid "infinity.affordable_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:155
+#: components/pages/Infinity/index.tsx:147
 msgid "infinity.affordable_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:402
+#: components/pages/Infinity/index.tsx:394
 msgid "infinity.box_amount_104k"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:388
+#: components/pages/Infinity/index.tsx:380
 msgid "infinity.box_amount_11k"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:384
+#: components/pages/Infinity/index.tsx:376
 msgid "infinity.box_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:398
+#: components/pages/Infinity/index.tsx:390
 msgid "infinity.box_title2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:668
+#: components/pages/Infinity/index.tsx:660
 msgid "infinity.button.read_blog_faq"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:352
+#: components/pages/Infinity/index.tsx:344
 msgid "infinity.button.read_blog_polygon"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:315
+#: components/pages/Infinity/index.tsx:307
 msgid "infinity.carousel_image_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:327
+#: components/pages/Infinity/index.tsx:319
 msgid "infinity.carousel_info_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:322
+#: components/pages/Infinity/index.tsx:314
 msgid "infinity.carousel_info_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:690
+#: components/pages/Infinity/index.tsx:682
 msgid "infinity.cta_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:562
+#: components/pages/Infinity/index.tsx:554
 msgid "infinity.faq_answer1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:597
+#: components/pages/Infinity/index.tsx:589
 msgid "infinity.faq_answer2_paragraph1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:607
+#: components/pages/Infinity/index.tsx:599
 msgid "infinity.faq_answer2_paragraph2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:615
+#: components/pages/Infinity/index.tsx:607
 msgid "infinity.faq_answer2_paragraph3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:652
+#: components/pages/Infinity/index.tsx:644
 msgid "infinity.faq_answer3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:540
+#: components/pages/Infinity/index.tsx:532
 msgid "infinity.faq_question1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:574
+#: components/pages/Infinity/index.tsx:566
 msgid "infinity.faq_question2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:630
+#: components/pages/Infinity/index.tsx:622
 msgid "infinity.faq_question3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:137
+#: components/pages/Infinity/index.tsx:129
 msgid "infinity.fast_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:142
+#: components/pages/Infinity/index.tsx:134
 msgid "infinity.fast_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:245
+#: components/pages/Infinity/index.tsx:237
 msgid "infinity.getStarted_1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:259
+#: components/pages/Infinity/index.tsx:251
 msgid "infinity.getStarted_2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:248
+#: components/pages/Infinity/index.tsx:240
 msgid "infinity.getStarted_calculate"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:251
+#: components/pages/Infinity/index.tsx:243
 msgid "infinity.getStarted_calculate_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:288
+#: components/pages/Infinity/index.tsx:280
 msgid "infinity.getStarted_cta"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:265
+#: components/pages/Infinity/index.tsx:257
 msgid "infinity.getStarted_second_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:262
+#: components/pages/Infinity/index.tsx:254
 msgid "infinity.getStarted_second_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:273
+#: components/pages/Infinity/index.tsx:265
 msgid "infinity.getStarted_third"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:279
+#: components/pages/Infinity/index.tsx:271
 msgid "infinity.getStarted_third_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:276
+#: components/pages/Infinity/index.tsx:268
 msgid "infinity.getStarted_third_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:174
+#: components/pages/Infinity/index.tsx:166
 msgid "infinity.info_subtitle1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:179
+#: components/pages/Infinity/index.tsx:171
 msgid "infinity.info_subtitle2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:433
+#: components/pages/Infinity/index.tsx:425
 msgid "infinity.mission_card1_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:430
+#: components/pages/Infinity/index.tsx:422
 msgid "infinity.mission_card1_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:453
+#: components/pages/Infinity/index.tsx:445
 msgid "infinity.mission_card2_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:450
+#: components/pages/Infinity/index.tsx:442
 msgid "infinity.mission_card2_number"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:473
+#: components/pages/Infinity/index.tsx:465
 msgid "infinity.mission_card3_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:470
+#: components/pages/Infinity/index.tsx:462
 msgid "infinity.mission_card3_number"
 msgstr ""
 
-#: components/pages/Infinity/Slider.tsx:51
+#: components/pages/Infinity/Slider.tsx:56
 msgid "infinity.organizations"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:371
+#: components/pages/Infinity/index.tsx:363
 msgid "infinity.polygon_manifesto_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:365
+#: components/pages/Infinity/index.tsx:357
 msgid "infinity.polygon_manifesto_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:345
+#: components/pages/Infinity/index.tsx:337
 msgid "infinity.polygon_story_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:340
+#: components/pages/Infinity/index.tsx:332
 msgid "infinity.polygon_story_title"
 msgstr ""
 
-#: components/pages/Infinity/Slider.tsx:84
+#: components/pages/Infinity/Slider.tsx:89
 msgid "infinity.quote"
 msgstr ""
 
-#: components/pages/Infinity/Slider.tsx:98
+#: components/pages/Infinity/Slider.tsx:103
 msgid "infinity.retired_date"
 msgstr ""
 
-#: components/pages/Infinity/Slider.tsx:89
+#: components/pages/Infinity/Slider.tsx:94
 msgid "infinity.retired_tons_number"
 msgstr ""
 
-#: components/pages/Infinity/Slider.tsx:94
-#: components/pages/Infinity/index.tsx:391
-#: components/pages/Infinity/index.tsx:405
+#: components/pages/Infinity/Slider.tsx:99
+#: components/pages/Infinity/index.tsx:383
+#: components/pages/Infinity/index.tsx:397
 msgid "infinity.tonnes"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:192
+#: components/pages/Infinity/index.tsx:184
 msgid "infinity.transparent_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:187
+#: components/pages/Infinity/index.tsx:179
 msgid "infinity.transparent_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:98
+#: components/pages/Infinity/index.tsx:93
 msgid "infinity.welcome_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:93
+#: components/pages/Infinity/index.tsx:88
 msgid "infinity.welcome_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:217
+#: components/pages/Infinity/index.tsx:209
 msgid "infinity.why_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:212
+#: components/pages/Infinity/index.tsx:204
 msgid "infinity.why_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:209
+#: components/pages/Infinity/index.tsx:201
 msgid "infinity.why_title"
 msgstr ""
 
@@ -894,7 +894,7 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:422
+#: components/pages/Infinity/index.tsx:414
 msgid "mission.header"
 msgstr ""
 
@@ -1111,8 +1111,8 @@ msgid "shared.contact"
 msgstr ""
 
 #: components/Navigation/index.tsx:49
-#: components/pages/Infinity/index.tsx:115
-#: components/pages/Infinity/index.tsx:705
+#: components/pages/Infinity/index.tsx:110
+#: components/pages/Infinity/index.tsx:697
 msgid "shared.contact_sales"
 msgstr ""
 
@@ -1137,7 +1137,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:63
-#: components/pages/Infinity/index.tsx:70
+#: components/pages/Infinity/index.tsx:65
 #: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
@@ -1152,9 +1152,9 @@ msgstr ""
 msgid "shared.infinity"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:107
-#: components/pages/Infinity/index.tsx:295
-#: components/pages/Infinity/index.tsx:697
+#: components/pages/Infinity/index.tsx:102
+#: components/pages/Infinity/index.tsx:287
+#: components/pages/Infinity/index.tsx:689
 msgid "shared.infinity.get_started"
 msgstr ""
 
@@ -1186,7 +1186,7 @@ msgstr ""
 msgid "shared.stake"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:489
+#: components/pages/Infinity/index.tsx:481
 msgid "shared.visit_klimadao_blog"
 msgstr ""
 
