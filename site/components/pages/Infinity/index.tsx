@@ -217,7 +217,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Trans id="infinity.why_description">
                 KlimaDAO is leveraging a stack of DeFi technologies to reduce
                 market fragmentation and accelerate the delivery of climate
-                finance to sustainability projects globally.
+                finance to sustainability projects worldwide.
               </Trans>
             </Text>
           </div>
@@ -344,7 +344,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             <Text t="body5">
               <Trans id="infinity.polygon_story_description">
                 Polygon offset the network's carbon emissions since inception -
-                roughly 90,000 tonnes - and pledged to go carbon negative for
+                roughly 90,000 tonnes - and pledged to go climate positive for
                 all of the network's future transactions.
               </Trans>
             </Text>
@@ -370,10 +370,10 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Text t="body6">
                 <Trans id="infinity.polygon_manifesto_description">
                   By offsetting the historical emissions of their entire
-                  network, Polygon has ensured that every single interaction
-                  with the network - whether an NFT mint or a DeFi transaction -
-                  is accounted for and its environmental impact is offset. This
-                  is a key reason why Meta chose Polygon to issue its NFTs.
+                  network, Polygon has ensured that every interaction within its
+                  network - whether an NFT mint or a DeFi transaction - is taken
+                  into account. This is a key reason why Meta chose Polygon to
+                  issue its NFTs.
                 </Trans>
               </Text>
             </div>
