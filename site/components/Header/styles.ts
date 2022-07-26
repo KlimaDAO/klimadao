@@ -72,7 +72,7 @@ export const mainLogoMobile = css`
 export const navMain_Desktop = css`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 0.8rem;
 `;
 

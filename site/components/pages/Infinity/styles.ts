@@ -280,18 +280,23 @@ export const infoSection = css`
     z-index: 999;
     bottom: -2.2rem;
     left: 2.2rem;
-    white-space: pre-wrap;
     ${breakpoints.medium} {
       bottom: -3.2rem;
       left: 3.2rem;
+      width: calc(100% - 3.2rem);
+      padding-right: 1.6rem;
     }
     ${breakpoints.large} {
       left: 3.8rem;
       bottom: -3.8rem;
+      width: calc(100% - 3.8rem);
+      padding-right: 1.6rem;
     }
     ${breakpoints.desktopLarge} {
       left: 4.8rem;
       bottom: -4.8rem;
+      width: calc(100% - 4.8rem);
+      padding-right: 1.6rem;
     }
     position: relative;
   }

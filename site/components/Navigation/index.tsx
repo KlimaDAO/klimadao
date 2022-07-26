@@ -57,17 +57,12 @@ export const Navigation: FC<Props> = ({
         activePage={activePage}
       >
         <NavItemDesktop
-          url={"/buy"}
-          name={t({ message: "Buy", id: "shared.buy" })}
-          active={activePage === "Buy"}
-        />
-        <NavItemDesktop
-          url={createLinkWithLocaleQuery(urls.stake, locale)}
-          name={t({ message: "Stake", id: "shared.stake" })}
+          url={createLinkWithLocaleQuery(urls.offset, locale)}
+          name={t({ message: "Offset", id: "shared.offset" })}
         />
         <NavItemDesktop
           url={"/infinity"}
-          name={t({ message: "Klima Infinity", id: "shared.infity" })}
+          name={t({ message: "Infinity", id: "shared.infity" })}
         />
         <NavItemDesktop
           url={urls.loveletter}
@@ -87,16 +82,12 @@ export const Navigation: FC<Props> = ({
         ]}
       >
         <NavItemMobile
-          url="/buy"
-          name={t({ message: "Buy", id: "shared.buy" })}
-        />
-        <NavItemMobile
-          url={createLinkWithLocaleQuery(urls.stake, locale)}
-          name={t({ message: "Stake", id: "shared.stake" })}
+          url={createLinkWithLocaleQuery(urls.offset, locale)}
+          name={t({ message: "Offset", id: "shared.offset" })}
         />
         <NavItemMobile
           url="/infinity"
-          name={t({ message: "KlimaInfinity", id: "shared.infinity" })}
+          name={t({ message: "Infinity", id: "shared.infinity" })}
         />
         <NavItemMobile
           url={urls.loveletter}

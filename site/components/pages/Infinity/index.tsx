@@ -205,10 +205,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             <div className="info_image_box_alt">
               <div className="info_image_description">
                 <Trans id="infinity.fast">
-                  <Text t="body4">
-                    Offset in seconds, with <br className="info_br" /> no red
-                    tape
-                  </Text>
+                  <Text t="body4">Offset in seconds, with no red tape</Text>
                   <Text t="h2_alt" className="info_image_title">
                     Fast
                   </Text>
