@@ -158,10 +158,10 @@ export const sliderSection = css`
     height: 40px;
   }
   .slider_arrow {
-    width: 3rem;
-    height: 3rem;
+    width: 6rem;
+    height: 6rem;
     background: white;
-    border-radius: 1.5rem;
+    border-radius: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,6 +169,8 @@ export const sliderSection = css`
   }
   .slider_arrow svg {
     fill: var(--klima-blue);
+    height: 3rem;
+    width: 3rem;
   }
   .slider_button_container {
     display: none;

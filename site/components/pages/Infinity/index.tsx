@@ -51,7 +51,11 @@ export interface Props {
 }
 
 export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
-  const ref = useRef<null | HTMLDivElement>(null);
+  const scrollToRef = useRef<null | HTMLDivElement>(null);
+  const scrollToNextSection = () =>
+    scrollToRef.current &&
+    scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
   const [currentOpenQuestions, setCurrentOpenQuestions] = useState({
     1: false,
     2: false,
@@ -78,7 +82,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           <div className="hero_image_container">
             <Image
               src={klimaInfinityBackground}
-              alt="Infinity background "
+              alt="Infinity background"
               layout="fill"
               objectFit="contain"
             />
@@ -104,7 +108,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                   message: "Get Started",
                   id: "shared.infinity.get_started",
                 })}
-                href={linkToBlogUserGuide}
+                onClick={scrollToNextSection}
               />
               <ButtonSecondary
                 variant="blueRounded"
@@ -120,6 +124,8 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         </div>
       </Section>
       <Slider />
+
+      <div ref={scrollToRef}></div>
 
       <Section variant="black" className={styles.infoSection}>
         <div className="info_blur" />
@@ -223,7 +229,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
-      <Section variant="black" className={styles.getStartedSection} ref={ref}>
+      <Section variant="black" className={styles.getStartedSection}>
         <Image
           src={infinityWave}
           alt="waves on the sand"
