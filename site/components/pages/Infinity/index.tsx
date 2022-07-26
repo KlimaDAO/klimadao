@@ -7,6 +7,7 @@ import {
   ButtonPrimary,
   ButtonSecondary,
   Text,
+  Anchor,
 } from "@klimadao/lib/components";
 
 import { Footer } from "components/Footer";
@@ -176,7 +177,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                 <div className="slider_image_container">
                   <Image layout="intrinsic" src={card.logo} alt="logo" />
                 </div>
-                <LaunchIcon className="slider_launch_icon" />
+                <Anchor href={card.link}>
+                  <LaunchIcon className="slider_launch_icon" />
+                </Anchor>
               </div>
               <div className="slider_content">
                 <Text t="body4" className="slider_quote">
