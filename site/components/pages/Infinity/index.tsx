@@ -437,12 +437,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
           <div className="polygon_right_container">
             <div className="polygon_full_blox">
-              <Text t="body6" className="polygon_subtitle">
+              <div className="polygon_subtitle">
                 <Image src={logoPolygonInfinity} alt="green polygon logo" />
-                <Trans id="infinity.polygon_manifesto_title">
-                  The offset is part of Polygon's Green Manifesto
-                </Trans>
-              </Text>
+                <Text t="body6" color="lightest">
+                  <Trans id="infinity.polygon_manifesto_title">
+                    The offset is part of Polygon's Green Manifesto
+                  </Trans>
+                </Text>
+              </div>
               <Text t="body6">
                 <Trans id="infinity.polygon_manifesto_description">
                   By offsetting the historical emissions of their entire
@@ -454,10 +456,12 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               </Text>
             </div>
             <div className="polygon_half_blox">
-              <Text t="body6" className="polygon_subtitle">
+              <div className="polygon_subtitle">
                 <Image src={greenCloud} alt="green cloud outline" />
-                <Trans id="infinity.box_title">Last Carbon Offset</Trans>
-              </Text>
+                <Text t="body6" color="lightest">
+                  <Trans id="infinity.box_title">Last Carbon Offset</Trans>
+                </Text>
+              </div>
               <Text className="polygon_number">
                 <Trans id="infinity.box_amount_11k">11k</Trans>
               </Text>
@@ -466,10 +470,12 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               </Text>
             </div>
             <div className="polygon_half_blox">
-              <Text t="body6" className="polygon_subtitle">
+              <div className="polygon_subtitle">
                 <Image src={greenFire} alt="green fire outline" />
-                <Trans id="infinity.box_title2">Total Carbon Retired</Trans>
-              </Text>
+                <Text t="body6" color="lightest">
+                  <Trans id="infinity.box_title2">Total Carbon Retired</Trans>
+                </Text>
+              </div>
               <Text className="polygon_number">
                 <Trans id="infinity.box_amount_104k">104k</Trans>
               </Text>
