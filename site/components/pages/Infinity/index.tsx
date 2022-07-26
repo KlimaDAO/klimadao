@@ -153,7 +153,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <div className="info_image_description">
                 <Text t="body4">
                   <Trans id="infinity.affordable_title">
-                    Real time pricing, saving 30% or more
+                    Real-time pricing, low transaction costs
                   </Trans>
                 </Text>
                 <Text t="h2_alt" className="info_image_title">

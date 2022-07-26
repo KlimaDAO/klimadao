@@ -670,7 +670,7 @@ msgstr "Affordable"
 
 #: components/pages/Infinity/index.tsx:155
 msgid "infinity.affordable_title"
-msgstr "Real time pricing, saving 30% or more"
+msgstr "Real-time pricing, low transaction costs"
 
 #: components/pages/Infinity/index.tsx:402
 msgid "infinity.box_amount_104k"
