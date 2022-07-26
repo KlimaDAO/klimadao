@@ -171,54 +171,16 @@ export const input = css`
   }
 `;
 
-export const retirementSuccessModal = css`
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  cursor: not-allowed;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.6rem;
-  .card {
-    position: relative;
-    cursor: default;
-    align-self: center;
-    max-width: 62rem;
-    min-height: 24rem;
-    background-color: var(--surface-02);
-    border-radius: 0.8rem;
-    padding: 1.6rem;
-    ${breakpoints.desktop} {
-      padding: 2.4rem;
-    }
-    display: grid;
-    gap: 3.2rem;
-    .address {
-      word-break: break-all;
-    }
-    .close-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 0.8rem;
-    }
-    .content {
-      display: grid;
-      gap: 1.6rem;
-      .success {
-        display: flex;
-        gap: 0.8rem;
-        justify-content: center;
-        align-items: center;
-        svg {
-          color: var(--klima-green);
-        }
-      }
+export const modalContent = css`
+  display: grid;
+  gap: 1.6rem;
+  .success {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    svg {
+      color: var(--klima-green);
     }
   }
 `;
