@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { Trans } from "@lingui/macro";
+import { useRouter } from "next/router";
+
 import { Section, Text, Anchor } from "@klimadao/lib/components";
+import { trimWithLocale } from "@klimadao/lib/utils";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -11,6 +14,8 @@ import { cards } from "./cards";
 import * as styles from "./styles";
 
 export const Slider = () => {
+  const { locale } = useRouter();
+
   const scrollToRefEnd = useRef<null | HTMLDivElement>(null);
   const scrollToRefStart = useRef<null | HTMLDivElement>(null);
 
@@ -87,7 +92,7 @@ export const Slider = () => {
                   <div>
                     <Text t="h3">
                       <Trans id="infinity.retired_tons_number">
-                        {card.tonsRetired}k
+                        {trimWithLocale(card.tonsRetired, 2, locale)}k
                       </Trans>
                     </Text>
                     <Text>
