@@ -19,10 +19,12 @@ export const heroSection = css`
     top: 411.5px;
     background-color: #0ba1ff;
     filter: blur(800px);
+    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
+    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
     @-moz-document url-prefix() {
       background-color: rgba(11, 161, 255, 0.2);
     }
-    display: flex;
+    display: none;
     ${breakpoints.medium} {
       display: flex;
     }
@@ -194,6 +196,8 @@ export const infoSection = css`
     bottom: -280px;
     background-color: #0ba1ff;
     filter: blur(800px);
+    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
+    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
     @-moz-document url-prefix() {
       background-color: rgba(11, 161, 255, 0.2);
     }
@@ -445,6 +449,8 @@ export const carouselSection = css`
     bottom: -110px;
     background-color: rgba(11, 161, 255, 0.8);
     filter: blur(800px);
+    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
+    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
     @-moz-document url-prefix() {
       background-color: rgba(11, 161, 255, 0.2);
     }
@@ -515,6 +521,8 @@ export const polygonSection = css`
     top: 570px;
     filter: blur(800px);
     background-color: rgba(11, 161, 255, 0.7);
+    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
+    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
     @-moz-document url-prefix() {
       background-color: rgba(11, 161, 255, 0.2);
     }
@@ -705,6 +713,8 @@ export const faqSection = css`
     top: -70px;
     background-color: rgba(11, 161, 255, 0.8);
     filter: blur(800px);
+    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
+    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
     @-moz-document url-prefix() {
       background-color: rgba(11, 161, 255, 0.2);
     }
@@ -855,6 +865,8 @@ export const ctaSection = css`
       display: flex;
     }
     background-color: rgba(11, 161, 255, 0.8);
+    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
+    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
     @-moz-document url-prefix() {
       background-color: rgba(11, 161, 255, 0.2);
     }

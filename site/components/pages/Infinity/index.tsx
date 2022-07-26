@@ -250,7 +250,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               </Text>
               <Text t="h2_alt">
                 <Trans id="infinity.info_subtitle2">
-                  The world's most powerful and easy to use offsetting solution
+                  The world's most powerful and easy-to-use offsetting solution
                 </Trans>
               </Text>
             </div>
