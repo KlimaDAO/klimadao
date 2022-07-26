@@ -114,20 +114,17 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
           <div className="hero_title_container">
             <Image src={klimaInfinityLogo} alt="Klima Infinity logo" />
-            <Trans
-              id="infinity.welcome_to_infinity"
-              comment="<0>WELCOME TO</0><1>KlimaInfinity</1>"
-            >
-              <Text t="h2" className="hero_title">
+            <Text t="h2" className="hero_title">
+              <Trans id="infinity.welcome_title">
                 The easiest way to go carbon neutral
-              </Text>
-            </Trans>
-            <Trans id="infinity.welcome_subtitle">
-              <Text t="body2">
+              </Trans>
+            </Text>
+            <Text t="body2">
+              <Trans id="infinity.welcome_subtitle">
                 Klima Infinity is a next-generation carbon toolkit for your
                 organization
-              </Text>
-            </Trans>
+              </Trans>
+            </Text>
             <div className="hero_buttons">
               <ButtonPrimary
                 className="hero_button_primary"
@@ -427,8 +424,8 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           <div className="polygon_right_container">
             <div className="polygon_full_blox">
               <Text t="body6" className="polygon_subtitle">
+                <Image src={logoPolygonInfinity} alt="green polygon logo" />
                 <Trans id="infinity.polygon_manifesto_title">
-                  <Image src={logoPolygonInfinity} alt="green polygon logo" />
                   The offset is part of Polygon's Green Manifesto
                 </Trans>
               </Text>
@@ -560,28 +557,28 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </Text>
           <div className="featured_logo_container">
             <div className="featured_logo_wrapper">
-              <Image src={logoForbes} alt="" />
+              <Image src={logoForbes} alt="Logo Forbes" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoWired} alt="" />
+              <Image src={logoWired} alt="Logo Wired" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoWSJ} alt="" />
+              <Image src={logoWSJ} alt="Logo WSJ" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoBloomberg} alt="" />
+              <Image src={logoBloomberg} alt="Logo Bloomberg" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoCoinTelegraph} alt="" />
+              <Image src={logoCoinTelegraph} alt="Logo CoinTelegraph" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoNasdaq} alt="" />
+              <Image src={logoNasdaq} alt="Logo Nasdaq" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoTheTimes} alt="" />
+              <Image src={logoTheTimes} alt="Logo The Times" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoYahoo} alt="" layout="intrinsic" />
+              <Image src={logoYahoo} alt="Logo Yahoo" layout="intrinsic" />
             </div>
           </div>
         </div>
