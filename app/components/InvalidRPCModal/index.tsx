@@ -37,7 +37,7 @@ export const InvalidRPCModal: FC<Props> = (props) => (
       <ButtonPrimary
         onClick={props.onHide}
         label="OK"
-        variant="blue"
+        variant="blueRounded"
       ></ButtonPrimary>
     </div>
   </Modal>
