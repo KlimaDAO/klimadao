@@ -130,9 +130,8 @@ export const AssetBalanceCard: FC<Props> = (props) => {
     <BaseCard title="Carbon Assets" icon={<CloudQueueIcon fontSize="large" />}>
       <div className={styles.tokenCardContainer}>
         {map(tokenHoldingAndBalances, (token, index) => (
-          <>
+          <div className={styles.tokenRowContainer} key={index}>
             <TokenRow
-              key={index}
               label={token.label}
               icon={token.icon}
               balance={token.balance}
@@ -142,7 +141,7 @@ export const AssetBalanceCard: FC<Props> = (props) => {
             {tokenHoldingAndBalances.length - 1 !== index && (
               <div className={styles.divider} />
             )}
-          </>
+          </div>
         ))}
       </div>
     </BaseCard>

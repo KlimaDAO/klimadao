@@ -7,6 +7,12 @@ export const tokenCardContainer = css`
   gap: 1.8rem;
 `;
 
+export const tokenRowContainer = css`
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+`;
+
 export const tokenRow = css`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
