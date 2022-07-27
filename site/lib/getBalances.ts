@@ -5,14 +5,19 @@ type Params = {
   address: string;
 };
 
+const BALANCE_TOKENS = [
+  "klima",
+  "sklima",
+  "ubo",
+  "nbo",
+  "bct",
+  "nct",
+  "mco2",
+] as const;
+export type BalanceToken = typeof BALANCE_TOKENS[number];
+
 export type Balances = {
-  klima: string;
-  sklima: string;
-  bct: string;
-  nct: string;
-  mco2: string;
-  nbo: string;
-  ubo: string;
+  [key in BalanceToken]: string;
 };
 
 export const getBalances = async (params: Params): Promise<Balances> => {

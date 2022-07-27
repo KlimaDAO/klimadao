@@ -12,7 +12,7 @@ import MCO2Icon from "public/icons/MCO2.png";
 import NCTIcon from "public/icons/NCT.png";
 import NBOIcon from "public/icons/NBO.png";
 import UBOIcon from "public/icons/UBO.png";
-import { getBalances, Balances } from "lib/getBalances";
+import { getBalances, Balances, BalanceToken } from "lib/getBalances";
 
 import { Holding } from "../../../lib/subgraph";
 import { BaseCard } from "../BaseCard";
@@ -25,11 +25,8 @@ type Props = {
   holdings: Holding[];
 };
 
-const TOKENS = ["klima", "sklima", "ubo", "nbo", "bct", "nct", "mco2"] as const;
-type Token = typeof TOKENS[number];
-
 type TokenMap = {
-  [key in Token]: {
+  [key in BalanceToken]: {
     label: string;
     icon: StaticImageData;
   };
@@ -118,7 +115,7 @@ export const AssetBalanceCard: FC<Props> = (props) => {
   const holdingsByToken = groupBy(props.holdings, "token");
   const tokenHoldingAndBalances = map(TOKEN_MAP, (token, key) => ({
     ...token,
-    balance: balances && balances[key as Token],
+    balance: balances && balances[key as BalanceToken],
     holdings: holdingsByToken[token.label],
   }));
 
