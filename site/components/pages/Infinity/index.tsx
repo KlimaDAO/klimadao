@@ -13,7 +13,7 @@ import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 
-import { Slider } from "./Slider";
+import { CardsSlider } from "./Cards/CardsSlider";
 
 import klimaInfinityLogo from "public/logo-klima-infinity.png";
 import klimaInfinityBackground from "public/bg-infinity.png";
@@ -118,7 +118,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
-      <Slider />
+
+      <CardsSlider />
+
       <Section variant="black" className={styles.infoSection}>
         <div className="info_blur" />
         <div className="info_container">
