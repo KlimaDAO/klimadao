@@ -824,7 +824,7 @@ msgstr "Carbon tonnes offset via KlimaDAO"
 msgid "infinity.mission_card3_number"
 msgstr "150,000+"
 
-#: components/pages/Infinity/Slider.tsx:56
+#: components/pages/Infinity/Slider.tsx:60
 msgid "infinity.organizations"
 msgstr "Dozens of organizations have offset over 150,000 carbon tonnes with Klima Infinity"
 
@@ -844,19 +844,23 @@ msgstr "Polygon offset the network's carbon emissions since inception - roughly 
 msgid "infinity.polygon_story_title"
 msgstr "Polygon chose Klima Infinity to offset their blockchain network"
 
-#: components/pages/Infinity/Slider.tsx:89
+#: components/pages/Infinity/Cards/Card.tsx:40
+#: components/pages/Infinity/Slider.tsx:125
 msgid "infinity.quote"
 msgstr "“{0}”"
 
-#: components/pages/Infinity/Slider.tsx:103
+#: components/pages/Infinity/Cards/Card.tsx:54
+#: components/pages/Infinity/Slider.tsx:139
 msgid "infinity.retired_date"
 msgstr "{0}"
 
-#: components/pages/Infinity/Slider.tsx:94
+#: components/pages/Infinity/Cards/Card.tsx:45
+#: components/pages/Infinity/Slider.tsx:130
 msgid "infinity.retired_tons_number"
 msgstr "{0}k"
 
-#: components/pages/Infinity/Slider.tsx:99
+#: components/pages/Infinity/Cards/Card.tsx:50
+#: components/pages/Infinity/Slider.tsx:135
 #: components/pages/Infinity/index.tsx:383
 #: components/pages/Infinity/index.tsx:397
 msgid "infinity.tonnes"
