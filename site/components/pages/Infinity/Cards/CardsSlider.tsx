@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { Trans } from "@lingui/macro";
 
-import { Section, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -132,7 +132,7 @@ export const CardsSlider = () => {
   };
 
   return (
-    <Section variant="black" style={{ padding: "unset" }}>
+    <div className={styles.cardsSliderContainer}>
       <div className={styles.sliderHeader}>
         <Text t="h3" className={styles.sliderTitle}>
           <Trans id="infinity.cards_slider.title">
@@ -174,6 +174,6 @@ export const CardsSlider = () => {
           ))}
         </div>
       </div>
-    </Section>
+    </div>
   );
 };

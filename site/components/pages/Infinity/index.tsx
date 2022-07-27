@@ -71,58 +71,57 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
 
       <Navigation activePage="Infinity" showThemeToggle={!fixedThemeName} />
 
-      <Section variant="black" className={styles.heroSection}>
-        <div className="hero_blur"></div>
-        <div className="hero_container">
-          <div className="hero_image_container">
-            <Image
-              src={klimaInfinityBackground}
-              alt="Infinity background"
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
-          <div className="hero_title_container">
-            <Image src={klimaInfinityLogo} alt="Klima Infinity logo" />
-            <Text t="h2" className="hero_title">
-              <Trans id="infinity.welcome_title">
-                The easiest way to go carbon neutral
-              </Trans>
-            </Text>
-            <Text t="body2">
-              <Trans id="infinity.welcome_subtitle">
-                Klima Infinity is a next-generation carbon toolkit for your
-                organization
-              </Trans>
-            </Text>
-            <div className="hero_buttons">
-              <ButtonPrimary
-                className="hero_button_primary"
-                variant="blueRounded"
-                label={t({
-                  message: "Get Started",
-                  id: "shared.infinity.get_started",
-                })}
-                href={linkToBlogUserGuide}
+      <Section variant="black" className={styles.gradientBackgroundTop}>
+        <div className={styles.heroSection}>
+          <div className="hero_container">
+            <div className="hero_image_container">
+              <Image
+                src={klimaInfinityBackground}
+                alt="Infinity background"
+                layout="fill"
+                objectFit="contain"
               />
-              <ButtonSecondary
-                variant="blueRounded"
-                label={t({
-                  message: "Contact Sales",
-                  id: "shared.contact_sales",
-                })}
-                href={urls.klimaInfinityContactForm}
-                target="_blank"
-              />
+            </div>
+            <div className="hero_title_container">
+              <Image src={klimaInfinityLogo} alt="Klima Infinity logo" />
+              <Text t="h2" className="hero_title">
+                <Trans id="infinity.welcome_title">
+                  The easiest way to go carbon neutral
+                </Trans>
+              </Text>
+              <Text t="body2">
+                <Trans id="infinity.welcome_subtitle">
+                  Klima Infinity is a next-generation carbon toolkit for your
+                  organization
+                </Trans>
+              </Text>
+              <div className="hero_buttons">
+                <ButtonPrimary
+                  className="hero_button_primary"
+                  variant="blueRounded"
+                  label={t({
+                    message: "Get Started",
+                    id: "shared.infinity.get_started",
+                  })}
+                  href={linkToBlogUserGuide}
+                />
+                <ButtonSecondary
+                  variant="blueRounded"
+                  label={t({
+                    message: "Contact Sales",
+                    id: "shared.contact_sales",
+                  })}
+                  href={urls.klimaInfinityContactForm}
+                  target="_blank"
+                />
+              </div>
             </div>
           </div>
         </div>
+        <CardsSlider />
       </Section>
 
-      <CardsSlider />
-
       <Section variant="black" className={styles.infoSection}>
-        <div className="info_blur" />
         <div className="info_container">
           <div className="info_left_container">
             <div className="info_image_box_alt">
@@ -296,7 +295,6 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         </div>
       </Section>
       <Section variant="black" className={styles.carouselSection}>
-        <div className="carousel_blur" />
         <div className="carousel_container">
           <div className="carousel_left_container">
             <Image
@@ -669,8 +667,6 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         </div>
       </Section>
       <Section variant="black" className={styles.ctaSection}>
-        <div className="cta_blur" />
-
         <div className="cta_container">
           <div className="cta_left_container">
             <div className="cta_logo">

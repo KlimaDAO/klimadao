@@ -1,33 +1,30 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const gradientBackgroundTop = css`
+  padding: 0 !important;
+  grid-column: full;
+  display: grid;
+  grid-template-columns: inherit;
+  background-color: #000;
+  background: radial-gradient(
+    circle at center center,
+    rgba(57, 86, 107, 1),
+    transparent 400px
+  );
+`;
+
 export const heroSection = css`
   min-height: 100vh;
   width: 100vw;
   min-width: 100vw;
   grid-column: full;
   position: relative;
-  .tooltip_underline {
-    text-decoration: dotted;
-  }
-  .hero_blur {
-    z-index: 11;
-    position: absolute;
-    width: 521px;
-    height: 521px;
-    right: 0px;
-    top: 411.5px;
-    background-color: #0ba1ff;
-    filter: blur(800px);
-    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
-    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
-    @-moz-document url-prefix() {
-      background-color: rgba(11, 161, 255, 0.2);
-    }
-    display: none;
-    ${breakpoints.medium} {
-      display: flex;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${breakpoints.large} {
+    min-height: calc(100vh - var(--header-height) * 2);
   }
   .hero_container {
     z-index: 4;
@@ -65,7 +62,6 @@ export const heroSection = css`
     padding-top: 2.4rem;
   }
   ${breakpoints.large} {
-    min-height: calc(100vh - var(--header-height) * 2);
     .hero_container {
       align-content: center;
       margin-top: unset;
@@ -76,25 +72,7 @@ export const heroSection = css`
 
 export const infoSection = css`
   position: relative;
-  .info_blur {
-    z-index: 1;
-    position: absolute;
-    width: 497.33px;
-    height: 492px;
-    left: 0px;
-    bottom: -280px;
-    background-color: #0ba1ff;
-    filter: blur(800px);
-    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
-    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
-    @-moz-document url-prefix() {
-      background-color: rgba(11, 161, 255, 0.2);
-    }
-    display: none;
-    ${breakpoints.medium} {
-      display: flex;
-    }
-  }
+
   .info_container {
     z-index: 2;
     grid-column: main;
@@ -204,6 +182,21 @@ export const infoSection = css`
 export const whySection = css`
   padding-top: 0 !important;
   position: relative;
+  background-color: #000;
+  background: radial-gradient(
+    at bottom left,
+    rgba(57, 86, 107, 1),
+    transparent 600px
+  );
+
+  ${breakpoints.large} {
+    background: radial-gradient(
+      at bottom left,
+      rgba(57, 86, 107, 1),
+      transparent 1000px
+    );
+  }
+
   .why_container {
     display: flex;
     grid-column: main;
@@ -329,26 +322,7 @@ export const getStartedSection = css`
 export const carouselSection = css`
   position: relative;
   overflow: visible;
-  .carousel_blur {
-    z-index: 1;
-    position: absolute;
-    width: 521px;
-    height: 521px;
-    left: 0px;
-    bottom: -110px;
-    background-color: rgba(11, 161, 255, 0.8);
-    filter: blur(800px);
-    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
-    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
-    @-moz-document url-prefix() {
-      background-color: rgba(11, 161, 255, 0.2);
-    }
-    overflow: visible;
-    display: none;
-    ${breakpoints.medium} {
-      display: flex;
-    }
-  }
+
   .carousel_container {
     grid-column: main;
     display: flex;
@@ -694,11 +668,17 @@ export const faqSection = css`
 export const ctaSection = css`
   position: relative;
   overflow: hidden;
+  background-color: #000;
+  background: radial-gradient(
+    circle at top right,
+    rgba(57, 86, 107, 1),
+    transparent 800px
+  );
+
   .cta_container {
     grid-column: main;
     display: flex;
     flex-wrap: wrap;
-    z-index: 2;
   }
   .cta_left_container {
     width: 100%;
@@ -741,24 +721,5 @@ export const ctaSection = css`
   .cta_logo {
     height: 100%;
     width: 100%;
-  }
-  .cta_blur {
-    z-index: 1;
-    position: absolute;
-    width: 521px;
-    height: 521px;
-    left: calc(50% - 521px / 2 + 349px);
-    top: 30px;
-    display: none;
-    ${breakpoints.medium} {
-      display: flex;
-    }
-    background-color: rgba(11, 161, 255, 0.8);
-    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
-    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
-    @-moz-document url-prefix() {
-      background-color: rgba(11, 161, 255, 0.2);
-    }
-    filter: blur(800px);
   }
 `;

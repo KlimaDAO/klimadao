@@ -1,6 +1,12 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const cardsSliderContainer = css`
+  grid-column: full;
+  display: grid;
+  grid-template-columns: inherit;
+`;
+
 export const sliderHeader = css`
   grid-column: main;
   display: flex;
