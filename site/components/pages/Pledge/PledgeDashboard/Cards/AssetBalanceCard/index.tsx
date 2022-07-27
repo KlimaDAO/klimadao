@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
@@ -73,8 +74,11 @@ interface TokenRowProps {
 }
 
 const TokenRow: FC<TokenRowProps> = (props) => {
+  const { locale } = useRouter();
   const formatBalance = (balance: string) =>
-    Number(balance) > 0.01 ? trimStringDecimals(balance, 2) : 0;
+    Number(balance) > 0.01
+      ? Number(trimStringDecimals(balance, 2)).toLocaleString(locale)
+      : 0;
 
   return (
     <div className={styles.tokenRow}>
