@@ -325,7 +325,6 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         </div>
       </Section>
       <Section variant="black" className={styles.polygonSection}>
-        <div className="polygon_blur" />
         <div className="polygon_container">
           <div className="polygon_left_container">
             <Text t="h2_alt">
@@ -522,29 +521,26 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
       </Section>
       <Section className={styles.faqSection}>
         <div className="faq_container">
-          <div className="faq_blur" />
           <Text t="h2_alt" align="center" className="faq_title">
             <Trans>Frequently Asked Questions</Trans>
           </Text>
           <div className="faq_question_container">
-            <div className="faq_title_container">
+            <div
+              className="faq_title_container"
+              onClick={() =>
+                setCurrentOpenQuestions({
+                  ...currentOpenQuestions,
+                  1: !currentOpenQuestions[1],
+                })
+              }
+            >
               <Text t="body7">
                 <Trans id="infinity.faq_question1">
                   1. What is a carbon offset?
                 </Trans>
               </Text>
 
-              <Text
-                className="faq_expand"
-                onClick={() =>
-                  setCurrentOpenQuestions({
-                    ...currentOpenQuestions,
-                    1: !currentOpenQuestions[1],
-                  })
-                }
-              >
-                +
-              </Text>
+              <Text className="faq_expand">+</Text>
             </div>
             <div
               className="faq_answer_text"
@@ -561,24 +557,22 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
           <div className="faq_divider" />
           <div className="faq_question_container">
-            <div className="faq_title_container">
+            <div
+              className="faq_title_container"
+              onClick={() =>
+                setCurrentOpenQuestions({
+                  ...currentOpenQuestions,
+                  2: !currentOpenQuestions[2],
+                })
+              }
+            >
               <Text t="body7">
                 <Trans id="infinity.faq_question2">
                   2. How does offsetting help in the fight against climate
                   change?
                 </Trans>
               </Text>
-              <Text
-                className="faq_expand"
-                onClick={() =>
-                  setCurrentOpenQuestions({
-                    ...currentOpenQuestions,
-                    2: !currentOpenQuestions[2],
-                  })
-                }
-              >
-                +
-              </Text>
+              <Text className="faq_expand">+</Text>
             </div>
             <div
               className="faq_answer_text"
@@ -617,24 +611,22 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
           <div className="faq_divider" />
           <div className="faq_question_container">
-            <div className="faq_title_container">
+            <div
+              className="faq_title_container"
+              onClick={() =>
+                setCurrentOpenQuestions({
+                  ...currentOpenQuestions,
+                  3: !currentOpenQuestions[3],
+                })
+              }
+            >
               <Text t="body7">
                 <Trans id="infinity.faq_question3">
                   3. What are carbon markets?
                 </Trans>
               </Text>
 
-              <Text
-                className="faq_expand"
-                onClick={() =>
-                  setCurrentOpenQuestions({
-                    ...currentOpenQuestions,
-                    3: !currentOpenQuestions[3],
-                  })
-                }
-              >
-                +
-              </Text>
+              <Text className="faq_expand">+</Text>
             </div>
             <div
               className="faq_answer_text"

@@ -375,27 +375,8 @@ export const polygonSection = css`
   overflow: visible;
   padding-top: 0 !important;
   position: relative;
-  .polygon_blur {
-    z-index: 1;
-    position: absolute;
-    width: 521px;
-    height: 521px;
-    left: 66px;
-    top: 570px;
-    filter: blur(800px);
-    background-color: rgba(11, 161, 255, 0.7);
-    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
-    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
-    @-moz-document url-prefix() {
-      background-color: rgba(11, 161, 255, 0.2);
-    }
-    display: none;
-    ${breakpoints.medium} {
-      display: flex;
-    }
-  }
+
   .polygon_container {
-    z-index: 2;
     grid-column: main;
     background: var(--surface-04);
     border-radius: 1.6rem;
@@ -560,7 +541,13 @@ export const featuredSection = css`
   }
 `;
 export const faqSection = css`
-  background: #1b4659;
+  background: radial-gradient(
+      at top right,
+      rgba(11, 161, 255, 0.8),
+      transparent 900px
+    ),
+    radial-gradient(at bottom left, rgba(11, 161, 255, 0.5), transparent 900px);
+  background-color: #1b4659;
   padding-top: 0 !important;
   position: relative;
   .faq_answer2 {
@@ -568,24 +555,7 @@ export const faqSection = css`
     display: flex;
     flex-direction: column;
   }
-  .faq_blur {
-    position: absolute;
-    width: 521px;
-    height: 521px;
-    left: 30px;
-    top: -70px;
-    background-color: rgba(11, 161, 255, 0.8);
-    filter: blur(800px);
-    // filter opacity doesnt work the same on firefox and -moz-background-color wasnt working
-    // either so we are using this to target firefox instead. with -moz-background-color the background-color is still the one used. idk why.
-    @-moz-document url-prefix() {
-      background-color: rgba(11, 161, 255, 0.2);
-    }
-    display: none;
-    ${breakpoints.medium} {
-      display: flex;
-    }
-  }
+
   .faq_container {
     grid-column: main;
     display: flex;
@@ -600,6 +570,7 @@ export const faqSection = css`
     display: flex;
     justify-content: space-between;
     padding-bottom: 1.6rem;
+    cursor: pointer;
     ${breakpoints.large} {
       padding-bottom: 1.6rem;
     }
