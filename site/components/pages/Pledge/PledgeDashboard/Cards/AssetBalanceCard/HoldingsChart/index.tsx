@@ -1,14 +1,7 @@
 import React, { FC } from "react";
 import orderBy from "lodash/orderBy";
 
-import {
-  Area,
-  AreaChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 import { Holding } from "../../../../lib/subgraph";
 
@@ -65,7 +58,6 @@ export const HoldingsChart: FC<Props> = (props) => {
         </defs>
         <XAxis hide={true} dataKey="date" />
         <YAxis hide={true} domain={[0, maxValue]} />
-        <Tooltip />
         <Area
           isAnimationActive={true}
           type="linear"

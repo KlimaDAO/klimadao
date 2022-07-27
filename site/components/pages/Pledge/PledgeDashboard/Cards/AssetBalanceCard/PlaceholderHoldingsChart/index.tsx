@@ -1,13 +1,6 @@
 import React, { FC } from "react";
 
-import {
-  Area,
-  AreaChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 export const PlaceholderHoldingsChart: FC = () => {
   const data = [
@@ -32,7 +25,6 @@ export const PlaceholderHoldingsChart: FC = () => {
         </defs>
         <XAxis hide={true} dataKey="date" />
         <YAxis hide={true} domain={[0, 100]} />
-        <Tooltip />
         <Area
           isAnimationActive={true}
           type="linear"
