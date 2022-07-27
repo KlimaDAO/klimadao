@@ -1,22 +1,35 @@
-// import { BigNumber } from "ethers";
-// import { subgraphs } from "@klimadao/lib/constants";
-// import { QueryKlimaRetires, KlimaRetire } from "../../types/subgraph";
+import { subgraphs } from "@klimadao/lib/constants";
 
-export const queryHoldingsByAddress = async (beneficiaryAddress: string) => {
+export interface Holding {
+  id: string;
+  timestamp: string;
+  token: string;
+  tokenAmount: string;
+  carbonValue: string;
+}
+export interface QueryHoldings {
+  data: {
+    holdings: Holding[];
+  };
+}
+
+const QUERY_LIMIT = 1000;
+
+export const queryHoldingsByAddress = async (
+  beneficiaryAddress: string
+): Promise<Holding[]> => {
   try {
     // const result = await fetch(
     //   "https://api.thegraph.com/subgraphs/name/cujowolf/klima-user-dev",
     //   {
-    const result = await fetch(
-      "https://api.thegraph.com/subgraphs/name/klimadao/klimadao-user-carbon",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          query: `
+    const result = await fetch(subgraphs.userCarbon, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `
             query {
               holdings(
-                first: 1000,
+                first: ${QUERY_LIMIT},
                 where: {
                   klimate: "${beneficiaryAddress.toLowerCase()}",
                 }
@@ -29,10 +42,10 @@ export const queryHoldingsByAddress = async (beneficiaryAddress: string) => {
               }
             }
           `,
-        }),
-      }
-    );
-    const json = await result.json();
+      }),
+    });
+
+    const json: QueryHoldings = await result.json();
     return json.data.holdings;
   } catch (e) {
     console.error("Failed to query HoldingsByAddress", e);

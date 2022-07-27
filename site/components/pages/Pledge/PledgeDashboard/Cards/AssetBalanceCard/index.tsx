@@ -1,12 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
-import Image from "next/image";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
-import last from "lodash/last";
 import map from "lodash/map";
 import groupBy from "lodash/groupBy";
-import orderBy from "lodash/orderBy";
 
 import BCTIcon from "public/icons/BCT.png";
 import KLIMAIcon from "public/icons/KLIMA.png";
@@ -16,165 +13,79 @@ import NBOIcon from "public/icons/NBO.png";
 import UBOIcon from "public/icons/UBO.png";
 import { getBalances, Balances } from "lib/getBalances";
 
+import { Holding } from "../../../lib/subgraph";
 import { BaseCard } from "../BaseCard";
+import { PlaceholderHoldingsChart } from "./PlaceholderHoldingsChart";
+import { HoldingsChart } from "./HoldingsChart";
 import * as styles from "./styles";
 
 type Props = {
   pageAddress: string;
+  holdings: Holding[];
 };
 
-import {
-  Area,
-  AreaChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+const TOKENS = ["klima", "sklima", "ubo", "nbo", "bct", "nct", "mco2"] as const;
+type Token = typeof TOKENS[number];
 
-const NoHoldingsChart = () => {
-  const data = [
-    {
-      date: new Date(1634475600 * 1000),
-      tokenAmount: 33,
-    },
-    {
-      date: new Date(),
-      tokenAmount: 33,
-    },
-  ];
-
-  return (
-    <ResponsiveContainer>
-      <AreaChart data={data}>
-        <defs>
-          <linearGradient id="nullGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="var(--font-03)" stopOpacity={0.33} />
-            <stop offset="100%" stopColor="var(--font-03)" stopOpacity={0.05} />
-          </linearGradient>
-        </defs>
-        <XAxis hide={true} dataKey="date" />
-        <YAxis hide={true} domain={[0, 100]} />
-        <Tooltip />
-        <Area
-          isAnimationActive={true}
-          type="linear"
-          dataKey="tokenAmount"
-          stroke="var(--font-03)"
-          fillOpacity={0.6}
-          fill="url(#nullGradient)"
-        />
-      </AreaChart>
-    </ResponsiveContainer>
-  );
+type TokenMap = {
+  [key in Token]: {
+    label: string;
+    icon: StaticImageData;
+  };
 };
 
-const HoldingsOverTimeChart = (props) => {
-  const data = [
-    {
-      timestamp: 1634475600,
-      date: new Date(1634475600 * 1000),
-      tokenAmount: 0,
-    },
-    {
-      timestamp: props.data[0].timestamp - 1209600,
-      date: new Date((props.data[0].timestamp - 1209600) * 1000),
-      tokenAmount: 0,
-    },
-    {
-      timestamp: props.data[0].timestamp - 864000,
-      date: new Date((props.data[0].timestamp - 864000) * 1000),
-      tokenAmount: 0,
-    },
-    ...props.data.map((tx) => ({
-      timestamp: tx.timestamp,
-      date: new Date(tx.timestamp * 1000),
-      tokenAmount: tx.tokenAmount,
-    })),
-  ];
-
-  // calculate chart boundaries
-  const tokenValues = props.data.map((tx) => Math.floor(tx.tokenAmount));
-  const maxValue = last(orderBy(tokenValues)) * 1.01;
-
-  return (
-    <ResponsiveContainer>
-      <AreaChart data={data}>
-        <defs>
-          <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-            <stop
-              offset="5%"
-              stopColor="var(--klima-green)"
-              stopOpacity={0.5}
-            />
-            <stop
-              offset="100%"
-              stopColor="var(--klima-green)"
-              stopOpacity={0.05}
-            />
-          </linearGradient>
-        </defs>
-        <XAxis hide={true} dataKey="date" />
-        <YAxis hide={true} domain={[0, maxValue]} />
-        <Tooltip />
-        <Area
-          isAnimationActive={true}
-          type="linear"
-          dataKey="tokenAmount"
-          stroke="var(--klima-green)"
-          fillOpacity={0.6}
-          fill="url(#gradient)"
-        />
-      </AreaChart>
-    </ResponsiveContainer>
-  );
-};
-
-const TOKENS = [
-  {
-    name: "KLIMA",
+const TOKEN_MAP: TokenMap = {
+  klima: {
+    label: "KLIMA",
     icon: KLIMAIcon,
   },
-  {
-    name: "sKLIMA",
+  sklima: {
+    label: "sKLIMA",
     icon: KLIMAIcon,
   },
-  {
-    name: "MCO2",
+  mco2: {
+    label: "MCO2",
     icon: MCO2Icon,
   },
-  {
-    name: "BCT",
+  bct: {
+    label: "BCT",
     icon: BCTIcon,
   },
-  {
-    name: "NCT",
+  nct: {
+    label: "NCT",
     icon: NCTIcon,
   },
-  {
-    name: "NBO",
+  nbo: {
+    label: "NBO",
     icon: NBOIcon,
   },
-  {
-    name: "UBO",
+  ubo: {
+    label: "UBO",
     icon: UBOIcon,
   },
-];
+};
 
-const TokenRow = (props) => {
+interface TokenRowProps {
+  label: string;
+  icon: StaticImageData;
+  balance: string | null;
+  holdings: Holding[];
+}
+
+const TokenRow: FC<TokenRowProps> = (props) => {
   const formatBalance = (balance: string) =>
     Number(balance) > 0.01 ? trimStringDecimals(balance, 2) : 0;
 
   return (
     <div className={styles.tokenRow}>
       <div className={styles.tokenHoldings}>
-        <img src={props.icon.src} alt={`${props.name} token`} />
+        <img src={props.icon.src} alt={`${props.label} token`} />
 
         {props.balance ? (
           <div className={styles.tokenBalance}>
             <Text t="h4">{formatBalance(props.balance)} </Text>
             <Text t="h4" color="lightest">
-              {props.name}
+              {props.label}
             </Text>
           </div>
         ) : (
@@ -186,11 +97,11 @@ const TokenRow = (props) => {
 
       {props.holdings ? (
         <div className={styles.holdingsChart}>
-          <HoldingsOverTimeChart data={props.holdings} />
+          <HoldingsChart data={props.holdings} />
         </div>
       ) : (
         <div className={styles.holdingsChart}>
-          <NoHoldingsChart />
+          <PlaceholderHoldingsChart />
         </div>
       )}
     </div>
@@ -201,10 +112,10 @@ export const AssetBalanceCard: FC<Props> = (props) => {
   const [balances, setBalances] = useState<Balances | null>(null);
 
   const holdingsByToken = groupBy(props.holdings, "token");
-  const tokenHoldingAndBalances = map(TOKENS, (token) => ({
+  const tokenHoldingAndBalances = map(TOKEN_MAP, (token, key) => ({
     ...token,
-    balance: balances && balances[token.name.toLowerCase()],
-    holdings: holdingsByToken[token.name],
+    balance: balances && balances[key as Token],
+    holdings: holdingsByToken[token.label],
   }));
 
   useEffect(() => {
@@ -221,7 +132,7 @@ export const AssetBalanceCard: FC<Props> = (props) => {
           <>
             <TokenRow
               key={index}
-              name={token.name}
+              label={token.label}
               icon={token.icon}
               balance={token.balance}
               holdings={token.holdings}

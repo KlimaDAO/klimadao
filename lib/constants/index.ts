@@ -221,6 +221,7 @@ export const offsetCompatibility: CompatMap = {
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
   polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
+  userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
 };
 
 const VERRA_REGISTRY = "https://registry.verra.org";
