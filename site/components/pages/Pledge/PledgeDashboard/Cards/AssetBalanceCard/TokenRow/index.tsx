@@ -4,18 +4,10 @@ import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 
 import { Holding } from "components/pages/Pledge/lib/subgraph";
-import { BalanceToken } from "lib/getBalances";
 
 import { PlaceholderHoldingsChart } from "../PlaceholderHoldingsChart";
 import { HoldingsChart } from "../HoldingsChart";
 import * as styles from "./styles";
-
-type TokenMap = {
-  [key in BalanceToken]: {
-    label: string;
-    icon: StaticImageData;
-  };
-};
 
 interface TokenRowProps {
   label: string;

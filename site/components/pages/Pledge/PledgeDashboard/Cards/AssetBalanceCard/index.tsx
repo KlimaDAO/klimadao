@@ -1,8 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
-import { Text } from "@klimadao/lib/components";
-import { trimStringDecimals } from "@klimadao/lib/utils";
 import map from "lodash/map";
 import groupBy from "lodash/groupBy";
 
@@ -16,8 +13,6 @@ import { getBalances, Balances, BalanceToken } from "lib/getBalances";
 
 import { Holding } from "../../../lib/subgraph";
 import { BaseCard } from "../BaseCard";
-import { PlaceholderHoldingsChart } from "./PlaceholderHoldingsChart";
-import { HoldingsChart } from "./HoldingsChart";
 import { TokenRow } from "./TokenRow";
 import * as styles from "./styles";
 
