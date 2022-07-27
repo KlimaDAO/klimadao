@@ -14,7 +14,6 @@ import MCO2Icon from "public/icons/MCO2.png";
 import NCTIcon from "public/icons/NCT.png";
 import NBOIcon from "public/icons/NBO.png";
 import UBOIcon from "public/icons/UBO.png";
-
 import { getBalances, Balances } from "lib/getBalances";
 
 import { BaseCard } from "../BaseCard";
@@ -36,16 +35,21 @@ import {
 const HoldingsOverTimeChart = (props) => {
   console.log(props.data);
   const data = [
-    // {
-    //   timestamp: 1634475600,
-    //   date: new Date(1634475600 * 1000),
-    //   tokenAmount: 0,
-    // },
-    // {
-    //   timestamp: props.data[0].timestamp - 1209600,
-    //   date: new Date((props.data[0].timestamp - 1209600) * 1000),
-    //   tokenAmount: 0,
-    // },
+    {
+      timestamp: 1634475600,
+      date: new Date(1634475600 * 1000),
+      tokenAmount: 0,
+    },
+    {
+      timestamp: props.data[0].timestamp - 1209600,
+      date: new Date((props.data[0].timestamp - 1209600) * 1000),
+      tokenAmount: 0,
+    },
+    {
+      timestamp: props.data[0].timestamp - 864000,
+      date: new Date((props.data[0].timestamp - 864000) * 1000),
+      tokenAmount: 0,
+    },
     ...props.data.map((tx) => ({
       timestamp: tx.timestamp,
       date: new Date(tx.timestamp * 1000),
@@ -121,36 +125,27 @@ const TOKENS = [
   },
 ];
 
-const AssetRow = (props) => {
+const TokenRow = (props) => {
   const formatBalance = (balance: string) =>
     Number(balance) > 0.01 ? trimStringDecimals(balance, 2) : 0;
 
   return (
     <div className={styles.tokenRow}>
-      <div className={styles.tokenBalance}>
-        <div className={styles.tokenHoldings}>
-          <Image
-            height={48}
-            width={48}
-            src={props.icon}
-            alt={`${props.name} token`}
-          />
+      <div className={styles.tokenHoldings}>
+        <img src={props.icon.src} alt={`${props.name} token`} />
 
-          {props.balance ? (
-            <>
-              <Text t="h4" as="span">
-                {formatBalance(props.balance)}{" "}
-              </Text>
-              <Text t="h4" as="span" color="lightest">
-                {props.name}
-              </Text>
-            </>
-          ) : (
+        {props.balance ? (
+          <div className={styles.tokenBalance}>
+            <Text t="h4">{formatBalance(props.balance)} </Text>
             <Text t="h4" color="lightest">
-              Loading...
+              {props.name}
             </Text>
-          )}
-        </div>
+          </div>
+        ) : (
+          <Text t="h4" color="lightest">
+            Loading...
+          </Text>
+        )}
       </div>
 
       {props.holdings && (
@@ -181,21 +176,23 @@ export const AssetBalanceCard: FC<Props> = (props) => {
 
   return (
     <BaseCard title="Carbon Assets" icon={<CloudQueueIcon fontSize="large" />}>
-      {map(tokenHoldingAndBalances, (token, index) => (
-        <>
-          <AssetRow
-            key={index}
-            name={token.name}
-            icon={token.icon}
-            balance={token.balance}
-            holdings={token.holdings}
-          />
+      <div className={styles.tokenCardContainer}>
+        {map(tokenHoldingAndBalances, (token, index) => (
+          <>
+            <TokenRow
+              key={index}
+              name={token.name}
+              icon={token.icon}
+              balance={token.balance}
+              holdings={token.holdings}
+            />
 
-          {tokenHoldingAndBalances.length - 1 !== index && (
-            <div className={styles.divider} />
-          )}
-        </>
-      ))}
+            {tokenHoldingAndBalances.length - 1 !== index && (
+              <div className={styles.divider} />
+            )}
+          </>
+        ))}
+      </div>
     </BaseCard>
   );
 };
