@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-26 15:44+0000\n"
+"POT-Creation-Date: 2022-07-27 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -364,11 +364,11 @@ msgstr "Adresses officielles des contrats"
 
 #: components/InvalidRPCModal/index.tsx:27
 msgid "invalid_rpc.modal.text"
-msgstr ""
+msgstr "Le réseau n'a pas pu être atteint. Ceci est très probablement causé par une ancienne configuration du RPC de Polygon dans votre portefeuille. Voir <0>ce guide</0> pour la corriger. Sinon, contactez-nous sur <1>Discord</1> si les problèmes persistent."
 
 #: components/InvalidRPCModal/index.tsx:20
 msgid "invalid_rpc.modal.title"
-msgstr ""
+msgstr "Vérifiez vos paramètres réseau"
 
 #: components/NavMenu/index.tsx:176
 msgid "menu.bond_carbon"
