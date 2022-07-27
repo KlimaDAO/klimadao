@@ -60,8 +60,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
   return (
     <>
       <PageHead
-        title="KlimaDAO"
-        mediaTitle="KlimaDAO"
+        title={t({
+          id: "infinity.head.title",
+          message: "KlimaDAO - Infinity",
+        })}
+        mediaTitle={t({
+          id: "infinity.head.metaTitle",
+          message: `KlimaDAO - Infinity, The easiest way to go carbon neutral`,
+        })}
         metaDescription={t({
           id: "shared.head.description",
           message:
