@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-
 import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 export const PlaceholderHoldingsChart: FC = () => {
+  // data simulates no holdings design
   const data = [
     {
       date: new Date(1634475600 * 1000),
@@ -18,7 +18,13 @@ export const PlaceholderHoldingsChart: FC = () => {
     <ResponsiveContainer>
       <AreaChart data={data}>
         <defs>
-          <linearGradient id="nullGradient" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient
+            id="placeholderHoldingsGradient"
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="1"
+          >
             <stop offset="5%" stopColor="var(--font-03)" stopOpacity={0.33} />
             <stop offset="100%" stopColor="var(--font-03)" stopOpacity={0.05} />
           </linearGradient>
@@ -31,7 +37,7 @@ export const PlaceholderHoldingsChart: FC = () => {
           dataKey="tokenAmount"
           stroke="var(--font-03)"
           fillOpacity={0.6}
-          fill="url(#nullGradient)"
+          fill="url(#placeholderHoldingsGradient)"
         />
       </AreaChart>
     </ResponsiveContainer>

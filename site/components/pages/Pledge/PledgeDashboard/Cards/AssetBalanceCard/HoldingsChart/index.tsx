@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import orderBy from "lodash/orderBy";
-
 import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 import { Holding } from "../../../../lib/subgraph";
@@ -9,25 +8,29 @@ type Props = {
   data: Holding[];
 };
 
+const KLIMA_LAUNCH_UNIX_TIMESTAMP = 1634475600;
+const SECONDS_IN_ONE_DAY = 86400;
+const SECONDS_IN_A_FORTNIGHT = 86400 * 14;
+
 export const HoldingsChart: FC<Props> = (props) => {
+  const orderedByTimestamp = orderBy(props.data, "timestamp");
+  const FIRST_TIMESTAMP = Number(orderedByTimestamp[0].timestamp);
+
   const data = [
+    // manipulates data to generate a better chart due to lack of daily data points
     {
-      timestamp: 1634475600,
-      date: new Date(1634475600 * 1000),
+      date: new Date(KLIMA_LAUNCH_UNIX_TIMESTAMP * 1000),
       tokenAmount: 0,
     },
     {
-      timestamp: Number(props.data[0].timestamp) - 1209600,
-      date: new Date((Number(props.data[0].timestamp) - 1209600) * 1000),
+      date: new Date((FIRST_TIMESTAMP - SECONDS_IN_A_FORTNIGHT) * 1000),
       tokenAmount: 0,
     },
     {
-      timestamp: Number(props.data[0].timestamp) - 864000,
-      date: new Date((Number(props.data[0].timestamp) - 864000) * 1000),
+      date: new Date((FIRST_TIMESTAMP - SECONDS_IN_ONE_DAY) * 1000),
       tokenAmount: 0,
     },
-    ...props.data.map((tx) => ({
-      timestamp: tx.timestamp,
+    ...orderedByTimestamp.map((tx) => ({
       date: new Date(Number(tx.timestamp) * 1000),
       tokenAmount: tx.tokenAmount,
     })),
@@ -43,7 +46,7 @@ export const HoldingsChart: FC<Props> = (props) => {
     <ResponsiveContainer>
       <AreaChart data={data}>
         <defs>
-          <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="holdingsGradient" x1="0" y1="0" x2="0" y2="1">
             <stop
               offset="5%"
               stopColor="var(--klima-green)"
@@ -63,8 +66,8 @@ export const HoldingsChart: FC<Props> = (props) => {
           type="linear"
           dataKey="tokenAmount"
           stroke="var(--klima-green)"
+          fill="url(#holdingsGradient)"
           fillOpacity={0.6}
-          fill="url(#gradient)"
         />
       </AreaChart>
     </ResponsiveContainer>
