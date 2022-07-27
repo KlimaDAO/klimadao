@@ -323,6 +323,12 @@ export const carouselSection = css`
   position: relative;
   overflow: visible;
 
+  background: radial-gradient(
+    at top right,
+    rgba(57, 86, 107, 0.8),
+    transparent 400px
+  );
+
   .carousel_container {
     grid-column: main;
     display: flex;
@@ -544,9 +550,22 @@ export const faqSection = css`
   background: radial-gradient(
       at top right,
       rgba(11, 161, 255, 0.8),
-      transparent 900px
+      transparent 400px
     ),
-    radial-gradient(at bottom left, rgba(11, 161, 255, 0.5), transparent 900px);
+    radial-gradient(at bottom left, rgba(11, 161, 255, 0.5), transparent 600px);
+
+  ${breakpoints.large} {
+    background: radial-gradient(
+        at top right,
+        rgba(11, 161, 255, 0.8),
+        transparent 900px
+      ),
+      radial-gradient(
+        at bottom left,
+        rgba(11, 161, 255, 0.5),
+        transparent 900px
+      );
+  }
   background-color: #1b4659;
   padding-top: 0 !important;
   position: relative;
