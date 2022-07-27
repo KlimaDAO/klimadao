@@ -565,6 +565,7 @@ export const faqSection = css`
         rgba(11, 161, 255, 0.5),
         transparent 900px
       );
+    background-color: #1b4659;
   }
   background-color: #1b4659;
   padding-top: 0 !important;
