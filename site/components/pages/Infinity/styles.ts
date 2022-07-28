@@ -10,8 +10,15 @@ export const gradientBackgroundTop = css`
   background: radial-gradient(
     circle at center center,
     rgba(11, 161, 255, 0.6),
-    transparent 400px
+    transparent 600px
   );
+  ${breakpoints.large} {
+    background: radial-gradient(
+      circle at center center,
+      rgba(11, 161, 255, 0.6),
+      transparent 900px
+    );
+  }
 `;
 
 export const heroSection = css`
@@ -40,6 +47,7 @@ export const heroSection = css`
     justify-content: center;
     align-items: center;
     z-index: 3;
+    padding: 0.8rem;
   }
   .hero_title_container p {
     text-align: center;
