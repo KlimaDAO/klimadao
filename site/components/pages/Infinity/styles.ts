@@ -109,13 +109,16 @@ export const infoSection = css`
     flex-wrap: wrap;
     padding-left: 0;
     order: 1;
+    gap: 4rem;
     ${breakpoints.large} {
+      gap: 2rem;
       width: calc(50% - 3.2rem);
       max-width: 50%;
       order: 2;
     }
   }
   .info_title_container {
+    display: grid;
     padding-bottom: 2.4rem;
     ${breakpoints.medium} {
       padding-bottom: 0;
