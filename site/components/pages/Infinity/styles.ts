@@ -197,14 +197,14 @@ export const whySection = css`
   background-color: #000;
   background: radial-gradient(
     at bottom left,
-    rgba(11, 161, 255, 1),
+    rgba(11, 161, 255, 0.6),
     transparent 600px
   );
 
   ${breakpoints.large} {
     background: radial-gradient(
       at bottom left,
-      rgba(11, 161, 255, 1),
+      rgba(11, 161, 255, 0.6),
       transparent 1000px
     );
   }
@@ -337,7 +337,7 @@ export const carouselSection = css`
 
   background: radial-gradient(
     at top right,
-    rgba(11, 161, 255, 0.8),
+    rgba(11, 161, 255, 0.6),
     transparent 800px
   );
 
@@ -561,7 +561,7 @@ export const featuredSection = css`
 export const faqSection = css`
   background: radial-gradient(
       at top right,
-      rgba(11, 161, 255, 0.8),
+      rgba(11, 161, 255, 0.6),
       transparent 400px
     ),
     radial-gradient(at bottom left, rgba(11, 161, 255, 0.5), transparent 600px);
@@ -569,7 +569,7 @@ export const faqSection = css`
   ${breakpoints.large} {
     background: radial-gradient(
         at top right,
-        rgba(11, 161, 255, 0.8),
+        rgba(11, 161, 255, 0.6),
         transparent 900px
       ),
       radial-gradient(
@@ -674,7 +674,7 @@ export const ctaSection = css`
   background-color: #000;
   background: radial-gradient(
       circle at top right,
-      rgba(11, 161, 255, 0.8),
+      rgba(11, 161, 255, 0.6),
       transparent 200px
     ),
     radial-gradient(at bottom left, rgba(11, 161, 255, 0.5), transparent 200px);
@@ -682,7 +682,7 @@ export const ctaSection = css`
   ${breakpoints.large} {
     background: radial-gradient(
         circle at top right,
-        rgba(11, 161, 255, 0.8),
+        rgba(11, 161, 255, 0.6),
         transparent 800px
       ),
       radial-gradient(
