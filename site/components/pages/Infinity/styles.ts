@@ -2,6 +2,7 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const gradientBackgroundTop = css`
+  margin-top: -10rem;
   padding: 0 !important;
   grid-column: full;
   display: grid;
@@ -31,7 +32,7 @@ export const heroSection = css`
   align-items: center;
   justify-content: center;
   ${breakpoints.large} {
-    min-height: calc(100vh - var(--header-height) * 2);
+    min-height: calc(100vh - var(--header-height) * 2 + 10rem);
   }
   .hero_container {
     z-index: 4;
