@@ -499,28 +499,40 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </Text>
           <div className="featured_logo_container">
             <div className="featured_logo_wrapper">
-              <Image src={logoForbes} alt="Logo Forbes" />
+              <Image src={logoForbes} alt="Logo Forbes" objectFit="contain" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoWired} alt="Logo Wired" />
+              <Image src={logoWired} alt="Logo Wired" objectFit="contain" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoWSJ} alt="Logo WSJ" />
+              <Image src={logoWSJ} alt="Logo WSJ" objectFit="contain" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoBloomberg} alt="Logo Bloomberg" />
+              <Image
+                src={logoBloomberg}
+                alt="Logo Bloomberg"
+                objectFit="contain"
+              />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoCoinTelegraph} alt="Logo CoinTelegraph" />
+              <Image
+                src={logoCoinTelegraph}
+                alt="Logo CoinTelegraph"
+                objectFit="contain"
+              />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoNasdaq} alt="Logo Nasdaq" />
+              <Image src={logoNasdaq} alt="Logo Nasdaq" objectFit="contain" />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoTheTimes} alt="Logo The Times" />
+              <Image
+                src={logoTheTimes}
+                alt="Logo The Times"
+                objectFit="contain"
+              />
             </div>
             <div className="featured_logo_wrapper">
-              <Image src={logoYahoo} alt="Logo Yahoo" layout="intrinsic" />
+              <Image src={logoYahoo} alt="Logo Yahoo" objectFit="contain" />
             </div>
           </div>
         </div>
