@@ -41,6 +41,10 @@ export const sliderArrow = css`
   cursor: pointer;
   border-radius: 6rem;
 
+  &:disabled {
+    opacity: 50%;
+  }
+
   & svg {
     fill: var(--klima-blue);
     height: 3rem;

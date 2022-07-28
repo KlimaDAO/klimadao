@@ -74,32 +74,44 @@ const useWidth = (elementRef: RefObject<HTMLElement>) => {
 };
 
 export const CardsSlider = () => {
-  const carouselRef = useRef(null);
+  const cardRef = useRef(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-  const [itemWidth] = useWidth(carouselRef);
+  const [cardWidth] = useWidth(cardRef);
+  const [sliderWidth] = useWidth(sliderRef);
   const [, setScrollInterval] = useState<NodeJS.Timeout>();
   const [currentScrollLeft, setCurrentScrollLeft] = useState<number>(0);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const cc = cards.length;
+  const cardsLength = cards.length;
+
+  const hasReachedEnd = () => {
+    if (!!cardWidth && !!sliderWidth) {
+      const visibleCards = Math.floor(sliderWidth / cardWidth);
+      const maxIndex = cardsLength - visibleCards;
+      return currentScrollLeft > maxIndex;
+    }
+    return currentScrollLeft > cardsLength - 1;
+  };
 
   useEffect(() => {
-    if (currentScrollLeft < 0) {
-      wrapperRef.current?.scrollTo({ left: 0 });
-      setCurrentScrollLeft(0);
-      return;
-    }
-    if (currentScrollLeft > cc - 1) {
+    if (hasReachedEnd()) {
       setCurrentScrollLeft(0);
       return;
     }
 
-    if (itemWidth != undefined) {
-      wrapperRef.current?.scrollTo({
-        left: itemWidth * currentScrollLeft,
+    if (currentScrollLeft < 0) {
+      sliderRef.current?.scrollTo({ left: 0 });
+      setCurrentScrollLeft(0);
+      return;
+    }
+
+    // trigger scrolling
+    if (cardWidth != undefined) {
+      sliderRef.current?.scrollTo({
+        left: cardWidth * currentScrollLeft,
         behavior: "smooth",
       });
     }
-  }, [currentScrollLeft, itemWidth]);
+  }, [currentScrollLeft, cardWidth]);
 
   useEffect(() => {
     const i = setInterval(() => {
@@ -110,7 +122,7 @@ export const CardsSlider = () => {
     return () => {
       stopAutoSlide();
     };
-  }, [itemWidth]);
+  }, []);
 
   const stopAutoSlide = () => {
     setScrollInterval((i) => {
@@ -145,6 +157,7 @@ export const CardsSlider = () => {
             type="button"
             className={styles.sliderArrow}
             onClick={onBackwards}
+            disabled={currentScrollLeft <= 0}
           >
             <ArrowBackIcon />
           </button>
@@ -152,6 +165,7 @@ export const CardsSlider = () => {
             type="button"
             className={styles.sliderArrow}
             onClick={onForward}
+            disabled={hasReachedEnd()}
           >
             <ArrowForwardIcon />
           </button>
@@ -160,13 +174,13 @@ export const CardsSlider = () => {
       <div className={styles.rerouselContainer}>
         <div
           className={styles.sliderWrapper}
-          ref={wrapperRef}
+          ref={sliderRef}
           onTouchStart={stopAutoSlide}
         >
           {cards.map((card, index) => (
             <div
               key={`${card.link}-${index}`}
-              ref={carouselRef}
+              ref={cardRef}
               className={styles.rereouselItem}
             >
               <Card card={card} />
