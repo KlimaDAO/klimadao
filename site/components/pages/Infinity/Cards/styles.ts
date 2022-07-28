@@ -49,7 +49,7 @@ export const sliderArrow = css`
 `;
 
 export const rerouselContainer = css`
-  width: 90%;
+  width: 100%;
   margin: 50px auto;
   border-radius: 10px;
   grid-column: full;
