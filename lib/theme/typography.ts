@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 import breakpoints from "./breakpoints";
 
 export const h1 = css`
-  font-family: "Poppins";
+  font-family: var(--font-family-secondary);
   font-size: 4.8rem;
   line-height: 4.8rem;
   font-weight: 700;
@@ -12,7 +12,7 @@ export const h1 = css`
   }
 `;
 export const h2 = css`
-  font-family: "Poppins";
+  font-family: var(--font-family-secondary);
   font-size: 3.6rem;
   line-height: 3.6rem;
   font-weight: 700;
@@ -22,7 +22,7 @@ export const h2 = css`
   }
 `;
 export const h2_alt = css`
-  font-family: "Poppins";
+  font-family: var(--font-family-secondary);
   font-size: 3.6rem;
   line-height: 4rem;
   font-weight: 600;
@@ -32,7 +32,7 @@ export const h2_alt = css`
   }
 `;
 export const h3 = css`
-  font-family: "Poppins";
+  font-family: var(--font-family-secondary);
   font-size: 2.4rem;
   line-height: 2.8rem;
   font-weight: 600;
@@ -42,7 +42,7 @@ export const h3 = css`
   }
 `;
 export const h4 = css`
-  font-family: "Poppins";
+  font-family: var(--font-family-secondary);
   font-size: 2rem;
   line-height: 2.8rem;
   font-weight: 600;
@@ -52,7 +52,7 @@ export const h4 = css`
   }
 `;
 export const h5 = css`
-  font-family: "Poppins";
+  font-family: var(--font-family-secondary);
   font-size: 1.4rem;
   line-height: 1.8rem;
   font-weight: 700;
