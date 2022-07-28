@@ -682,7 +682,7 @@ export const ctaSection = css`
   ${breakpoints.large} {
     background: radial-gradient(
         circle at top right,
-        rgba(11, 161, 255, 0.6),
+        rgba(11, 161, 255, 0.5),
         transparent 800px
       ),
       radial-gradient(
