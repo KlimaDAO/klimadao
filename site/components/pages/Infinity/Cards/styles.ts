@@ -59,33 +59,8 @@ export const rerouselContainer = css`
   grid-column: full;
 `;
 
-export const rerouselHeader = css`
-  height: 50px;
-  background-color: gray;
-  border-radius: 10px 10px 0px 0px;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  color: white;
-  font-family: Raleway, sans-serif;
-  font-weight: bold;
-`;
-
 export const rereouselItem = css`
   display: flex;
-  /* -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  width: calc(50%);
-  height: 100px;
-  font-family: Signika;
-  font-weight: bold;
-  font-size: 1.5em;
-  border: 1px solid black;
-  background-color: rgb(97, 218, 251); */
   box-sizing: border-box;
   flex-shrink: 0;
   margin: 0 1rem;
@@ -109,10 +84,6 @@ export const sliderWrapper = css`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
-
-export const arrowIcon = css`
-  fill: yellow !important;
 `;
 
 export const card = css`
