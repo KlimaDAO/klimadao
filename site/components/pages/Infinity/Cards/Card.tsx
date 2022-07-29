@@ -37,21 +37,17 @@ export const Card: FC<Props> = ({ card }) => {
       </div>
       <div className={styles.cardContent}>
         <Text t="body4" className={styles.cardMessage}>
-          <Trans id="infinity.quote">“{card.description}”</Trans>
+          “{card.description}”
         </Text>
         <div className={styles.cardFooter}>
           <div>
-            <Text t="h3">
-              <Trans id="infinity.retired_tons_number">
-                {trimWithLocale(card.tonsRetired, 2, locale)}
-              </Trans>
-            </Text>
+            <Text t="h3">{trimWithLocale(card.tonsRetired, 2, locale)}</Text>
             <Text>
               <Trans id="infinity.tonnes">Tonnes</Trans>
             </Text>
           </div>
           <Text t="badge" className={styles.cardDate}>
-            <Trans id="infinity.retired_date">{card.date}</Trans>
+            {card.date}
           </Text>
         </div>
       </div>
