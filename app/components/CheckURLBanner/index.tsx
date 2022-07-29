@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import styles from "./index.module.css";
+import * as styles from "./styles";
 import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 
@@ -19,9 +19,9 @@ export const CheckURLBanner: FC<Props> = ({ onHide }) => {
     onHide();
   };
   return (
-    <div className={styles.bg}>
-      <div className={styles.banner}>
-        <div className={styles.banner_text}>
+    <div className={styles.container}>
+      <div className="banner">
+        <div className="banner_text">
           <Text t="h4" align="center">
             <Trans id="checkurlbanner.verify_url_and_bookmark_this_page">
               ⚠️ Verify the URL and bookmark this page!
@@ -42,11 +42,11 @@ export const CheckURLBanner: FC<Props> = ({ onHide }) => {
             </Trans>
           </Text>
         </div>
-        <div className={styles.okButtonWrap}>
-          <button onClick={onDontRemind} className={styles.dontButton}>
+        <div className="okButtonWrap">
+          <button onClick={onDontRemind} className="dontButton">
             <Trans id="checkurlbanner.dont_remind_me">Don't Remind Me</Trans>
           </button>
-          <button onClick={onHide} className={styles.okButton}>
+          <button onClick={onHide} className="okButton">
             <Trans id="checkurlbanner.got_it">Got it</Trans>
           </button>
         </div>
