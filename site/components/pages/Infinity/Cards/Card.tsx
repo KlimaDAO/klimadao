@@ -43,7 +43,7 @@ export const Card: FC<Props> = ({ card }) => {
           <div>
             <Text t="h3">
               <Trans id="infinity.retired_tons_number">
-                {trimWithLocale(card.tonsRetired, 2, locale)}k
+                {trimWithLocale(card.tonsRetired, 2, locale)}
               </Trans>
             </Text>
             <Text>

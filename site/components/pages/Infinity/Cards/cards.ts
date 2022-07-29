@@ -9,7 +9,7 @@ export const cards = [
     link: "https://www.klimadao.finance/retirements/0xe06efa3d9ee6923240ee1195a16ddd96b5cce8f7",
     description:
       "We're proud to offset 10+ years of carbon emissions from Olympus to become Climate Positive. From the Ohmies, with Love.",
-    tonsRetired: 33,
+    tonsRetired: 33333,
     date: "14 MAY 2022",
   },
   {
@@ -40,7 +40,7 @@ export const cards = [
     link: "https://www.klimadao.finance/retirements/0xe06efa3d9ee6923240ee1195a16ddd96b5cce8f7",
     description:
       "We're proud to offset 10+ years of carbon emissions from Olympus to become Climate Positive. From the Ohmies, with Love.",
-    tonsRetired: 33,
+    tonsRetired: 33333,
     date: "14 MAY 2022",
   },
   {
