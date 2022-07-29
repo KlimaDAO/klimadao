@@ -383,7 +383,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Text className="polygon_number">
                 <Trans id="infinity.box_amount_11k">11k</Trans>
               </Text>
-              <Text t="body6">
+              <Text t="body5">
                 <Trans id="infinity.tonnes">Tonnes</Trans>
               </Text>
             </div>
@@ -397,7 +397,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Text className="polygon_number">
                 <Trans id="infinity.box_amount_104k">104k</Trans>
               </Text>
-              <Text t="body6">
+              <Text t="body5">
                 <Trans id="infinity.tonnes">Tonnes</Trans>
               </Text>
             </div>

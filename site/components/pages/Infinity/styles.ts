@@ -476,7 +476,7 @@ export const polygonSection = css`
     display: flex;
     gap: 4.8rem;
     flex-direction: column;
-    padding: 2.4rem;
+    padding: 3.2rem;
     ${breakpoints.desktopLarge} {
       padding: 5.5rem;
       flex-direction: row;
@@ -524,8 +524,8 @@ export const polygonSection = css`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 3.2rem 1.6rem 4.8rem;
-    gap: 3.2rem;
+    padding: 3.2rem 2.4rem 4.8rem;
+    gap: 1.4rem;
     background: #000;
     border-radius: 16px;
     ${breakpoints.large} {
@@ -542,7 +542,7 @@ export const polygonSection = css`
     display: flex;
     gap: 1rem;
     align-items: center;
-    /* white-space: nowrap; */
+    margin-bottom: 1.6rem;
   }
 `;
 export const missionSection = css`
