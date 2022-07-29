@@ -20,8 +20,8 @@ import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
 import fastMountain from "public/green-mountainside.jpg";
 import transparentTrees from "public/trees-and-water.png";
-import infiniteNightCliffs from "public/infinite_night_cliffs.png";
-import infinityWave from "public/infinity_wave.png";
+import infiniteNightCliffs from "public/infinite_night_cliffs.jpg";
+import infinityWave from "public/infinity_wave.jpg";
 import hazyWindmills from "public/hazy_windmills.png";
 import forestCanopy from "public/forest_canopy.png";
 import cars from "public/cars.jpg";
@@ -204,7 +204,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
       <Section variant="black" className={styles.whySection}>
         <div className="why_container">
           <div className="why_left_container">
-            <Text t="body6">
+            <Text t="caption">
               <Trans id="infinity.why_title">Why KlimaDAO?</Trans>
             </Text>
             <Text t="h2_alt" className="why_title">
@@ -224,6 +224,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             <Image
               src={infiniteNightCliffs}
               alt="flashlight shining on dark cliffs"
+              className="why_right_img"
             />
           </div>
         </div>
@@ -246,7 +247,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Text t="h3" className="getStarted_title">
                 <Trans id="infinity.getStarted_calculate">Calculate</Trans>
               </Text>
-              <Text t="body6" className="getStarted_description">
+              <Text t="body2" className="getStarted_description">
                 <Trans id="infinity.getStarted_calculate_subtitle">
                   Calculate your organization's carbon footprint and define the
                   scope of your offset with Klima Infinity.
@@ -260,7 +261,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Text t="h3" className="getStarted_title">
                 <Trans id="infinity.getStarted_second_title">Implement</Trans>
               </Text>
-              <Text t="body6" className="getStarted_description">
+              <Text t="body2" className="getStarted_description">
                 <Trans id="infinity.getStarted_second_subtitle">
                   Implement your offset with just a few clicks, and with
                   near-instant transaction time.
@@ -274,7 +275,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               <Text t="h3" className="getStarted_title">
                 <Trans id="infinity.getStarted_third_title">Amplify</Trans>
               </Text>
-              <Text t="body6" className="getStarted_description">
+              <Text t="body2" className="getStarted_description">
                 <Trans id="infinity.getStarted_third_subtitle">
                   Track your commitment, and amplify awareness around your
                   Climate Positive actions.
@@ -316,7 +317,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             </Text>
           </div>
           <div className="carousel_right_container">
-            <Text t="badge">
+            <Text t="caption">
               <Trans id="infinity.carousel_info_title">
                 Support high quality projects
               </Trans>
@@ -713,7 +714,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
-      <Footer />
+      <div className={styles.footerWrapper}>
+        <Footer />
+      </div>
     </>
   );
 };

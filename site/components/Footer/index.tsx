@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Trans } from "@lingui/macro";
+import { cx } from "@emotion/css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { createLinkWithLocaleQuery } from "lib/i18n";
@@ -18,11 +19,15 @@ import {
 import { urls } from "@klimadao/lib/constants";
 import * as styles from "./styles";
 
-export const Footer: FC = () => {
+interface Props {
+  className?: string;
+}
+
+export const Footer: FC<Props> = (props) => {
   const { locale } = useRouter();
 
   return (
-    <footer className={styles.footer}>
+    <footer className={cx(styles.footer, props.className)}>
       <div className={styles.footer_content}>
         <nav className={styles.footer_nav}>
           <Link href="/">

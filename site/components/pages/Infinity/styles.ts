@@ -23,6 +23,8 @@ export const gradientBackgroundTop = css`
 `;
 
 export const heroSection = css`
+  margin-top: 10rem;
+  padding: 0.4rem;
   min-height: 100vh;
   width: 100vw;
   min-width: 100vw;
@@ -81,6 +83,29 @@ export const heroSection = css`
 
 export const infoSection = css`
   position: relative;
+  background: radial-gradient(
+    at bottom left,
+    rgba(11, 161, 255, 0.6),
+    transparent 600px
+  );
+
+  ${breakpoints.desktop} {
+    padding: 16rem 0rem;
+    background: radial-gradient(
+      at bottom left,
+      rgba(11, 161, 255, 0.5),
+      transparent 1600px
+    );
+  }
+
+  ${breakpoints.desktopLarge} {
+    padding: 16rem 0rem;
+    background: radial-gradient(
+      at bottom left,
+      rgba(11, 161, 255, 0.4),
+      transparent 2400px
+    );
+  }
 
   .info_container {
     z-index: 2;
@@ -192,20 +217,30 @@ export const infoSection = css`
 `;
 
 export const whySection = css`
-  padding-top: 0 !important;
+  padding: 12rem 0rem;
   position: relative;
   background-color: #000;
   background: radial-gradient(
-    at bottom left,
+    at top left,
     rgba(11, 161, 255, 0.6),
     transparent 600px
   );
 
-  ${breakpoints.large} {
+  ${breakpoints.desktop} {
+    padding: 16rem 0rem;
     background: radial-gradient(
-      at bottom left,
-      rgba(11, 161, 255, 0.6),
-      transparent 1000px
+      at top left,
+      rgba(11, 161, 255, 0.5),
+      transparent 1600px
+    );
+  }
+
+  ${breakpoints.desktopLarge} {
+    padding: 16rem 0rem;
+    background: radial-gradient(
+      at top left,
+      rgba(11, 161, 255, 0.4),
+      transparent 2400px
     );
   }
 
@@ -244,6 +279,9 @@ export const whySection = css`
       width: 65%;
     }
   }
+  .why_right_img {
+    border-radius: 1.6rem;
+  }
 `;
 
 export const getStartedSection = css`
@@ -262,6 +300,7 @@ export const getStartedSection = css`
   }
   .getStarted_image {
     z-index: 2;
+    opacity: 0.6;
   }
   .getStarted_left_container {
     width: 100%;
@@ -336,10 +375,26 @@ export const carouselSection = css`
   overflow: visible;
 
   background: radial-gradient(
-    at top right,
-    rgba(11, 161, 255, 0.6),
+    at bottom right,
+    rgba(11, 161, 255, 0.4),
     transparent 800px
   );
+
+  ${breakpoints.desktop} {
+    background: radial-gradient(
+      at bottom right,
+      rgba(11, 161, 255, 0.4),
+      transparent 1500px
+    );
+  }
+
+  ${breakpoints.desktopLarge} {
+    background: radial-gradient(
+      at bottom right,
+      rgba(11, 161, 255, 0.4),
+      transparent 2000px
+    );
+  }
 
   .carousel_container {
     grid-column: main;
@@ -391,8 +446,28 @@ export const carouselSection = css`
 `;
 export const polygonSection = css`
   overflow: visible;
-  padding-top: 0 !important;
   position: relative;
+  background: radial-gradient(
+    at top right,
+    rgba(11, 161, 255, 0.4),
+    transparent 800px
+  );
+
+  ${breakpoints.desktop} {
+    background: radial-gradient(
+      at top right,
+      rgba(11, 161, 255, 0.4),
+      transparent 1500px
+    );
+  }
+
+  ${breakpoints.desktopLarge} {
+    background: radial-gradient(
+      at top right,
+      rgba(11, 161, 255, 0.4),
+      transparent 2000px
+    );
+  }
 
   .polygon_container {
     grid-column: main;
@@ -471,9 +546,21 @@ export const polygonSection = css`
   }
 `;
 export const missionSection = css`
-  padding-top: 0rem !important;
   position: relative;
   overflow: visible;
+  background: radial-gradient(
+    at center center,
+    rgba(11, 161, 255, 0.3),
+    transparent 300px
+  );
+
+  ${breakpoints.desktop} {
+    background: radial-gradient(
+      at center,
+      rgba(11, 161, 255, 0.3),
+      transparent 1200px
+    );
+  }
   .mission_image_container {
     z-index: 2;
     position: absolute;
@@ -534,7 +621,6 @@ export const missionSection = css`
   }
 `;
 export const featuredSection = css`
-  padding-top: 0px !important;
   .featured_container {
     grid-column: main;
     height: 100%;
@@ -700,6 +786,7 @@ export const ctaSection = css`
   .cta_left_container {
     width: 100%;
     display: flex;
+    gap: 1.6rem;
     align-items: center;
     flex-direction: column;
     padding-right: 0;
@@ -738,5 +825,17 @@ export const ctaSection = css`
   .cta_logo {
     height: 100%;
     width: 100%;
+    max-width: 32rem;
+    ${breakpoints.large} {
+      max-width: unset;
+    }
+  }
+`;
+
+export const footerWrapper = css`
+  grid-column: full;
+  grid-template-columns: inherit;
+  footer {
+    background-color: black;
   }
 `;
