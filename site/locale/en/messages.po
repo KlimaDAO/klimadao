@@ -29,6 +29,10 @@ msgstr "Enter App"
 msgid "Episodes"
 msgstr "Episodes"
 
+#: components/pages/Infinity/index.tsx:544
+msgid "Frequently Asked Questions"
+msgstr "Frequently Asked Questions"
+
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.description"
@@ -529,6 +533,10 @@ msgstr "500 - Page Not Found"
 msgid "error.page.500.title"
 msgstr "500 - Page Not Found"
 
+#: components/pages/Infinity/index.tsx:499
+msgid "featured.title"
+msgstr "KlimaDAO featured on"
+
 #: components/pages/Home/index.tsx:207
 msgid "home.backed_by_carbon"
 msgstr "Backed by Carbon."
@@ -656,9 +664,251 @@ msgstr "<0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
 msgid "home.welcome_to_klimadao"
 msgstr "<0>WELCOME TO</0><1>KlimaDAO</1>"
 
+#: components/pages/Infinity/index.tsx:159
+msgid "infinity.affordable_subtitle"
+msgstr "Affordable"
+
+#: components/pages/Infinity/index.tsx:154
+msgid "infinity.affordable_title"
+msgstr "Real-time pricing, low transaction costs"
+
+#: components/pages/Infinity/index.tsx:400
+msgid "infinity.box_amount_104k"
+msgstr "104k"
+
+#: components/pages/Infinity/index.tsx:386
+msgid "infinity.box_amount_11k"
+msgstr "11k"
+
+#: components/pages/Infinity/index.tsx:382
+msgid "infinity.box_title"
+msgstr "Last Carbon Offset"
+
+#: components/pages/Infinity/index.tsx:396
+msgid "infinity.box_title2"
+msgstr "Total Carbon Retired"
+
+#: components/pages/Infinity/index.tsx:678
+msgid "infinity.button.read_blog_faq"
+msgstr "Read in-depth FAQs for KI Clients"
+
+#: components/pages/Infinity/index.tsx:350
+msgid "infinity.button.read_blog_polygon"
+msgstr "Read Polygon's Story"
+
+#: components/pages/Infinity/Cards/CardsSlider.tsx:150
+msgid "infinity.cards_slider.title"
+msgstr "Dozens of organizations have offset over 150,000 carbon tonnes with Klima Infinity"
+
+#: components/pages/Infinity/index.tsx:314
+msgid "infinity.carousel_image_description"
+msgstr "Wind power project at Jaibhim, India"
+
+#: components/pages/Infinity/index.tsx:326
+msgid "infinity.carousel_info_subtitle"
+msgstr "Drive funding to projects that move the needle on climate change mitigation"
+
+#: components/pages/Infinity/index.tsx:321
+msgid "infinity.carousel_info_title"
+msgstr "Support high quality projects"
+
+#: components/pages/Infinity/index.tsx:694
+msgid "infinity.cta_title"
+msgstr "The next-generation carbon toolkit for your organization"
+
+#: components/pages/Infinity/index.tsx:571
+msgid "infinity.faq_answer1"
+msgstr "A carbon offset unit represents the removal of one tonne of carbon dioxide equivalent (tCO2e) from the atmosphere, or the avoidance of one tonne of emissions."
+
+#: components/pages/Infinity/index.tsx:607
+msgid "infinity.faq_answer2_paragraph1"
+msgstr "Carbon credits are a high-integrity mechanism that allow carbon finance to flow from those who pollute, to projects across the globe that help to mitigate or remove carbon from the atmosphere. They are a valuable tool to cover hard-to-abate emissions that may be costly or technically challenging to eliminate today."
+
+#: components/pages/Infinity/index.tsx:617
+msgid "infinity.faq_answer2_paragraph2"
+msgstr "When you purchase a carbon credit, Klima Infinity enables you to retire this carbon credit, permanently removing it from circulation. This retirement is the point at which you can claim the benefit of the carbon offset."
+
+#: components/pages/Infinity/index.tsx:625
+msgid "infinity.faq_answer2_paragraph3"
+msgstr "Purchased offsets lead to measurable and accountable emissions reductions elsewhere in the economy, and can be used to ‘offset’ an unavoidable carbon footprint. The trade and retirement of carbon credits enables a market mechanism to emerge that puts a price on carbon."
+
+#: components/pages/Infinity/index.tsx:662
+msgid "infinity.faq_answer3"
+msgstr "The objective of carbon markets is to reduce greenhouse gas (GHG, or “carbon”) emissions cost-effectively by setting limits on emissions and enabling the trading of emission units, which are financial instruments representing emission reductions. Trading enables entities that can reduce emissions at lower cost to be paid to do so by higher-cost emitters, thus lowering the economic cost of reducing emissions."
+
+#: components/pages/Infinity/index.tsx:557
+msgid "infinity.faq_question1"
+msgstr "1. What is a carbon offset?"
+
+#: components/pages/Infinity/index.tsx:591
+msgid "infinity.faq_question2"
+msgstr "2. How does offsetting help in the fight against climate change?"
+
+#: components/pages/Infinity/index.tsx:648
+msgid "infinity.faq_question3"
+msgstr "3. What are carbon markets?"
+
+#: components/pages/Infinity/index.tsx:136
+msgid "infinity.fast_subtitle"
+msgstr "Offset in seconds, with no red tape"
+
+#: components/pages/Infinity/index.tsx:141
+msgid "infinity.fast_title"
+msgstr "Fast"
+
+#: components/pages/Infinity/index.tsx:245
+msgid "infinity.getStarted_1"
+msgstr "1"
+
+#: components/pages/Infinity/index.tsx:259
+msgid "infinity.getStarted_2"
+msgstr "2"
+
+#: components/pages/Infinity/index.tsx:248
+msgid "infinity.getStarted_calculate"
+msgstr "Calculate"
+
+#: components/pages/Infinity/index.tsx:251
+msgid "infinity.getStarted_calculate_subtitle"
+msgstr "Calculate your organization's carbon footprint and define the scope of your offset with Klima Infinity."
+
+#: components/pages/Infinity/index.tsx:288
+msgid "infinity.getStarted_cta"
+msgstr "Accelerate your path to carbon neutral - and beyond"
+
+#: components/pages/Infinity/index.tsx:265
+msgid "infinity.getStarted_second_subtitle"
+msgstr "Implement your offset with just a few clicks, and with near-instant transaction time."
+
+#: components/pages/Infinity/index.tsx:262
+msgid "infinity.getStarted_second_title"
+msgstr "Implement"
+
+#: components/pages/Infinity/index.tsx:273
+msgid "infinity.getStarted_third"
+msgstr "3"
+
+#: components/pages/Infinity/index.tsx:279
+msgid "infinity.getStarted_third_subtitle"
+msgstr "Track your commitment, and amplify awareness around your Climate Positive actions."
+
+#: components/pages/Infinity/index.tsx:276
+msgid "infinity.getStarted_third_title"
+msgstr "Amplify"
+
+#: components/pages/Infinity/index.tsx:71
+msgid "infinity.head.metaDescription"
+msgstr "A next-generation carbon toolkit for your organization."
+
+#: components/pages/Infinity/index.tsx:67
+msgid "infinity.head.metaTitle"
+msgstr "Klima Infinity - Go carbon neutral"
+
+#: components/pages/Infinity/index.tsx:63
+msgid "infinity.head.title"
+msgstr "KlimaDAO | Klima Infinity"
+
+#: components/pages/Infinity/index.tsx:173
+msgid "infinity.info_subtitle1"
+msgstr "For the planet's pioneering organizations"
+
+#: components/pages/Infinity/index.tsx:178
+msgid "infinity.info_subtitle2"
+msgstr "The world's most powerful and easy-to-use offsetting solution"
+
+#: components/pages/Infinity/index.tsx:431
+msgid "infinity.mission_card1_subtitle"
+msgstr "Carbon tonnes held by KlimaDAO"
+
+#: components/pages/Infinity/index.tsx:428
+msgid "infinity.mission_card1_title"
+msgstr "18.1 million"
+
+#: components/pages/Infinity/index.tsx:451
+msgid "infinity.mission_card2_description"
+msgstr "Carbon liquidity held by KlimaDAO"
+
+#: components/pages/Infinity/index.tsx:448
+msgid "infinity.mission_card2_number"
+msgstr "$10m+"
+
+#: components/pages/Infinity/index.tsx:471
+msgid "infinity.mission_card3_description"
+msgstr "Carbon tonnes offset via KlimaDAO"
+
+#: components/pages/Infinity/index.tsx:468
+msgid "infinity.mission_card3_number"
+msgstr "150,000+"
+
+#: components/pages/Infinity/index.tsx:369
+msgid "infinity.polygon_manifesto_description"
+msgstr "By offsetting the historical emissions of their entire network, Polygon has ensured that every interaction within its network - whether an NFT mint or a DeFi transaction - is taken into account. This is a key reason why Meta chose Polygon to issue its NFTs."
+
+#: components/pages/Infinity/index.tsx:363
+msgid "infinity.polygon_manifesto_title"
+msgstr "The offset is part of Polygon's Green Manifesto"
+
+#: components/pages/Infinity/index.tsx:343
+msgid "infinity.polygon_story_description"
+msgstr "Polygon offset the network's carbon emissions since inception - roughly 90,000 tonnes - and pledged to go climate positive for all of the network's future transactions."
+
+#: components/pages/Infinity/index.tsx:338
+msgid "infinity.polygon_story_title"
+msgstr "Polygon chose Klima Infinity to offset their blockchain network"
+
+#: components/pages/Infinity/Cards/Card.tsx:40
+msgid "infinity.quote"
+msgstr "“{0}”"
+
+#: components/pages/Infinity/Cards/Card.tsx:54
+msgid "infinity.retired_date"
+msgstr "{0}"
+
+#: components/pages/Infinity/Cards/Card.tsx:45
+msgid "infinity.retired_tons_number"
+msgstr "{0}"
+
+#: components/pages/Infinity/Cards/Card.tsx:50
+#: components/pages/Infinity/index.tsx:389
+#: components/pages/Infinity/index.tsx:403
+msgid "infinity.tonnes"
+msgstr "Tonnes"
+
+#: components/pages/Infinity/index.tsx:191
+msgid "infinity.transparent_subtitle"
+msgstr "Transparent"
+
+#: components/pages/Infinity/index.tsx:186
+msgid "infinity.transparent_title"
+msgstr "Immutably recorded on the blockchain"
+
+#: components/pages/Infinity/index.tsx:100
+msgid "infinity.welcome_subtitle"
+msgstr "Klima Infinity is a next-generation carbon toolkit for your organization"
+
+#: components/pages/Infinity/index.tsx:95
+msgid "infinity.welcome_title"
+msgstr "The easiest way to go carbon neutral"
+
+#: components/pages/Infinity/index.tsx:216
+msgid "infinity.why_description"
+msgstr "KlimaDAO is leveraging a stack of DeFi technologies to reduce market fragmentation and accelerate the delivery of climate finance to sustainability projects worldwide."
+
+#: components/pages/Infinity/index.tsx:211
+msgid "infinity.why_subtitle"
+msgstr "DeFi that defies climate change"
+
+#: components/pages/Infinity/index.tsx:208
+msgid "infinity.why_title"
+msgstr "Why KlimaDAO?"
+
 #: components/pages/Home/index.tsx:355
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
+
+#: components/pages/Infinity/index.tsx:420
+msgid "mission.header"
+msgstr "KlimaDAO's mission is to democratize climate action"
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
@@ -848,19 +1098,17 @@ msgstr "Retirement Totals By Asset"
 msgid "shared.404"
 msgstr "404 - Page Not Found"
 
-#: components/Footer/index.tsx:49
+#: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Blog"
 
-#: components/Footer/index.tsx:42
+#: components/Footer/index.tsx:47
 msgid "shared.bond"
 msgstr "App"
 
-#: components/Footer/index.tsx:35
-#: components/Navigation/index.tsx:48
-#: components/Navigation/index.tsx:74
+#: components/Footer/index.tsx:40
 msgid "shared.buy"
 msgstr "Buy"
 
@@ -869,10 +1117,16 @@ msgstr "Buy"
 msgid "shared.community"
 msgstr "Community"
 
-#: components/Footer/index.tsx:54
+#: components/Footer/index.tsx:59
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Contact"
+
+#: components/Navigation/index.tsx:49
+#: components/pages/Infinity/index.tsx:117
+#: components/pages/Infinity/index.tsx:709
+msgid "shared.contact_sales"
+msgstr "Contact Sales"
 
 #: components/pages/Resources/Community/index.tsx:109
 #: components/pages/Resources/Community/index.tsx:393
@@ -880,15 +1134,15 @@ msgstr "Contact"
 msgid "shared.contact_us"
 msgstr "Contact Us"
 
-#: components/Footer/index.tsx:59
+#: components/Footer/index.tsx:64
 msgid "shared.disclaimer"
 msgstr "Disclaimer"
 
-#: components/Footer/index.tsx:45
+#: components/Footer/index.tsx:50
 msgid "shared.docs"
 msgstr "Docs"
 
-#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:42
 #: components/pages/Home/index.tsx:109
 msgid "shared.enter_app"
 msgstr "Enter App"
@@ -901,30 +1155,51 @@ msgstr "Enter App"
 msgid "shared.head.description"
 msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
 
-#: components/Footer/index.tsx:30
+#: components/Footer/index.tsx:35
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:57
-#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:91
+msgid "shared.infinity"
+msgstr "Infinity"
+
+#: components/pages/Infinity/index.tsx:109
+#: components/pages/Infinity/index.tsx:295
+#: components/pages/Infinity/index.tsx:701
+msgid "shared.infinity.get_started"
+msgstr "Get Started"
+
+#: components/Navigation/index.tsx:66
+msgid "shared.infity"
+msgstr "Infinity"
+
+#: components/Navigation/index.tsx:70
+#: components/Navigation/index.tsx:95
 msgid "shared.loveletters"
 msgstr "Love Letters"
+
+#: components/Navigation/index.tsx:62
+#: components/Navigation/index.tsx:87
+msgid "shared.offset"
+msgstr "Offset"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "Podcast"
 
-#: components/Navigation/index.tsx:61
-#: components/Navigation/index.tsx:86
+#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:99
 msgid "shared.resources"
 msgstr "Resources"
 
-#: components/Footer/index.tsx:39
-#: components/Navigation/index.tsx:53
-#: components/Navigation/index.tsx:78
+#: components/Footer/index.tsx:44
 msgid "shared.stake"
 msgstr "Stake"
+
+#: components/pages/Infinity/index.tsx:487
+msgid "shared.visit_klimadao_blog"
+msgstr "Visit the KlimaDAO Blog"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"

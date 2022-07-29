@@ -98,10 +98,12 @@ export const urls = {
   offset: "https://app.klimadao.finance/#/offset",
   pledges: "https://app.klimadao.finance/pledge",
   resources: "https://www.klimadao.finance/resources",
+  siteBlog: "https://www.klimadao.finance/blog",
   retirements: "https://www.klimadao.finance/retirements",
   contact: "https://www.klimadao.finance/contact",
   community: "https://www.klimadao.finance/community",
   buy: "https://www.klimadao.finance/buy",
+  infinity: "https://www.klimadao.finance/infinity",
   buy_dapp: "https://app.klimadao.finance/#/buy",
   carbonDashboard: "https://carbon.klimadao.finance",
   forum: "https://forum.klimadao.finance",
@@ -127,6 +129,8 @@ export const urls = {
     "https://docs.google.com/forms/d/e/1FAIpQLSdIVolbOvbuw1LHGwT8ec9HHZTWxSluErInZ_TaiqKzAvG30w/viewform",
   partnerShipsContactForm:
     "https://notionforms.io/forms/klimadao-request-for-collaboration",
+  klimaInfinityContactForm:
+    "https://notionforms.io/forms/klima-infinity-collab-request-form",
   pressEmail: "mailto:press@klimadao.finance",
   loveletter: "https://loveletter.klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
