@@ -64,6 +64,7 @@ export const Navigation: FC<Props> = ({
         <NavItemDesktop
           url={"/infinity"}
           name={t({ message: "Infinity", id: "shared.infity" })}
+          active={activePage === "Infinity"}
         />
         <NavItemDesktop
           url={urls.loveletter}
