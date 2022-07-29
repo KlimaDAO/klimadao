@@ -62,21 +62,19 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
       <PageHead
         title={t({
           id: "infinity.head.title",
-          message: "KlimaDAO - Infinity",
+          message: "KlimaDAO | Klima Infinity",
         })}
         mediaTitle={t({
           id: "infinity.head.metaTitle",
-          message: `KlimaDAO - Infinity, The easiest way to go carbon neutral`,
+          message: `Klima Infinity - Go carbon neutral`,
         })}
         metaDescription={t({
-          id: "shared.head.description",
-          message:
-            "Drive climate action and earn rewards with a carbon-backed digital currency.",
+          id: "infinity.head.metaDescription",
+          message: "A next-generation carbon toolkit for your organization.",
         })}
       />
-
+      A next-generation carbon toolkit for your organization.
       <Navigation activePage="Infinity" showThemeToggle={!fixedThemeName} />
-
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
           <div className="hero_container">
@@ -126,7 +124,6 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         </div>
         <CardsSlider />
       </Section>
-
       <Section variant="black" className={styles.infoSection}>
         <div className="info_container">
           <div className="info_left_container">
