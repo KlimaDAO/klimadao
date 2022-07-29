@@ -557,7 +557,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                 </Trans>
               </Text>
 
-              <Text className="faq_expand">+</Text>
+              <Text t="h3" className="faq_expand">
+                +
+              </Text>
             </div>
             <div
               className="faq_answer_text"
@@ -589,7 +591,10 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                   change?
                 </Trans>
               </Text>
-              <Text className="faq_expand">+</Text>
+
+              <Text t="h3" className="faq_expand">
+                +
+              </Text>
             </div>
             <div
               className="faq_answer_text"
@@ -643,7 +648,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                 </Trans>
               </Text>
 
-              <Text className="faq_expand">+</Text>
+              <Text t="h3" className="faq_expand">
+                +
+              </Text>
             </div>
             <div
               className="faq_answer_text"
