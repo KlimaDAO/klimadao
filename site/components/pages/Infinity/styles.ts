@@ -41,7 +41,7 @@ export const heroSection = css`
   align-items: center;
   justify-content: center;
   ${breakpoints.large} {
-    min-height: calc(100vh - var(--header-height) * 2 + 10rem);
+    min-height: calc(100vh - var(--header-height) * 2);
   }
   .hero_container {
     z-index: 4;
