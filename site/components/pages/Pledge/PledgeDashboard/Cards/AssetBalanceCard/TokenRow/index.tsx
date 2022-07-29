@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 
-import { Holding } from "components/pages/Pledge/lib/subgraph";
-
+import { Holding } from "components/pages/Pledge/types";
 import { PlaceholderHoldingsChart } from "../PlaceholderHoldingsChart";
 import { HoldingsChart } from "../HoldingsChart";
 import * as styles from "./styles";

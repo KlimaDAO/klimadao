@@ -16,8 +16,7 @@ import {
 import { Profile } from "./Profile";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
-import { Pledge } from "../types";
-import { Holding } from "../lib/subgraph";
+import { Holding, Pledge } from "../types";
 import * as styles from "./styles";
 
 type Props = {

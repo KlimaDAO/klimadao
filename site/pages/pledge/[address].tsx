@@ -14,8 +14,7 @@ import {
   DEFAULT_VALUES,
   queryHoldingsByAddress,
 } from "components/pages/Pledge/lib";
-import { Pledge } from "components/pages/Pledge/types";
-import { Holding } from "components/pages/Pledge/lib/subgraph";
+import { Pledge, Holding } from "components/pages/Pledge/types";
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   address: string;

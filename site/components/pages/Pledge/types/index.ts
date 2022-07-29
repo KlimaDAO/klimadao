@@ -29,3 +29,16 @@ export type Pledge = {
 };
 
 export type PledgeFormValues = yup.InferType<typeof formSchema>;
+
+export interface Holding {
+  id: string;
+  timestamp: string;
+  token: string;
+  tokenAmount: string;
+  carbonValue: string;
+}
+export interface QueryHoldings {
+  data: {
+    holdings: Holding[];
+  };
+}

@@ -1,17 +1,6 @@
 import { subgraphs } from "@klimadao/lib/constants";
 
-export interface Holding {
-  id: string;
-  timestamp: string;
-  token: string;
-  tokenAmount: string;
-  carbonValue: string;
-}
-export interface QueryHoldings {
-  data: {
-    holdings: Holding[];
-  };
-}
+import { QueryHoldings, Holding } from "../types";
 
 const QUERY_LIMIT = 1000;
 
@@ -19,9 +8,6 @@ export const queryHoldingsByAddress = async (
   beneficiaryAddress: string
 ): Promise<Holding[]> => {
   try {
-    // const result = await fetch(
-    //   "https://api.thegraph.com/subgraphs/name/cujowolf/klima-user-dev",
-    //   {
     const result = await fetch(subgraphs.userCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
