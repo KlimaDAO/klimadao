@@ -1,17 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-07-28 15:43+0000\n"
+"POT-Creation-Date: 2022-07-29 13:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: hi\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
@@ -874,7 +868,7 @@ msgstr ""
 #: components/pages/Infinity/index.tsx:389
 #: components/pages/Infinity/index.tsx:403
 msgid "infinity.tonnes"
-msgstr ""
+msgstr "टन"
 
 #: components/pages/Infinity/index.tsx:191
 msgid "infinity.transparent_subtitle"
@@ -1161,7 +1155,7 @@ msgstr ""
 msgid "shared.home"
 msgstr "घर"
 
-#: components/Navigation/index.tsx:91
+#: components/Navigation/index.tsx:92
 msgid "shared.infinity"
 msgstr ""
 
@@ -1175,23 +1169,23 @@ msgstr ""
 msgid "shared.infity"
 msgstr ""
 
-#: components/Navigation/index.tsx:70
-#: components/Navigation/index.tsx:95
+#: components/Navigation/index.tsx:71
+#: components/Navigation/index.tsx:96
 msgid "shared.loveletters"
 msgstr ""
 
 #: components/Navigation/index.tsx:62
-#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:88
 msgid "shared.offset"
-msgstr ""
+msgstr "ओफ़्सेट"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "पॉडकास्ट"
 
-#: components/Navigation/index.tsx:74
-#: components/Navigation/index.tsx:99
+#: components/Navigation/index.tsx:75
+#: components/Navigation/index.tsx:100
 msgid "shared.resources"
 msgstr "साधन"
 

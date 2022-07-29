@@ -1159,7 +1159,7 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:91
+#: components/Navigation/index.tsx:92
 msgid "shared.infinity"
 msgstr "Infinity"
 
@@ -1173,13 +1173,13 @@ msgstr "Get Started"
 msgid "shared.infity"
 msgstr "Infinity"
 
-#: components/Navigation/index.tsx:70
-#: components/Navigation/index.tsx:95
+#: components/Navigation/index.tsx:71
+#: components/Navigation/index.tsx:96
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
 #: components/Navigation/index.tsx:62
-#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:88
 msgid "shared.offset"
 msgstr "Offset"
 
@@ -1188,8 +1188,8 @@ msgstr "Offset"
 msgid "shared.podcast"
 msgstr "Podcast"
 
-#: components/Navigation/index.tsx:74
-#: components/Navigation/index.tsx:99
+#: components/Navigation/index.tsx:75
+#: components/Navigation/index.tsx:100
 msgid "shared.resources"
 msgstr "Resources"
 
