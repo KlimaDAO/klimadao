@@ -337,11 +337,7 @@ export const getStartedSection = css`
     }
   }
   .getStarted_button {
-    width: 14rem;
-    padding: 0 2rem;
-    white-space: nowrap;
-    max-height: 4rem;
-    min-height: 4rem;
+    align-self: flex-start;
   }
   .getStarted_number {
     color: var(--klima-blue);
@@ -747,8 +743,6 @@ export const faqSection = css`
   }
   .faq_button {
     width: 100%;
-    max-height: 4rem;
-    min-height: 4rem;
 
     ${breakpoints.large} {
       width: max-content;
