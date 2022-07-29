@@ -10,8 +10,8 @@ import NCTIcon from "public/icons/NCT.png";
 import NBOIcon from "public/icons/NBO.png";
 import UBOIcon from "public/icons/UBO.png";
 import { getBalances, Balances, BalanceToken } from "lib/getBalances";
+import { Holding } from "components/pages/Pledge/types";
 
-import { Holding } from "../../../lib/subgraph";
 import { BaseCard } from "../BaseCard";
 import { TokenRow } from "./TokenRow";
 import * as styles from "./styles";
