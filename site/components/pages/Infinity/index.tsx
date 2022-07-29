@@ -73,7 +73,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           message: "A next-generation carbon toolkit for your organization.",
         })}
       />
-      A next-generation carbon toolkit for your organization.
+
       <Navigation activePage="Infinity" showThemeToggle={!fixedThemeName} />
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
