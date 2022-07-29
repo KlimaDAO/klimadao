@@ -183,7 +183,7 @@ export const Home: NextPage<Props> = (props) => {
           </div>
         </div>
       </Section>
-      <Section variant="gray" className={styles.socialProofSection}>
+      <Section variant="white" className={styles.socialProofSection}>
         <div className="socialProof_container">
           <Text t="h5" as="h2">
             <Trans id="home.featured_on">KlimaDAO featured on</Trans>

@@ -213,12 +213,12 @@ export const klimaVideoSection = css`
 `;
 
 export const socialProofSection = css`
-  padding-top: 5rem;
-  padding-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 8rem;
 
   ${breakpoints.large} {
-    padding-top: 5rem;
-    padding-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 8rem;
   }
 
   .socialProof_container {
