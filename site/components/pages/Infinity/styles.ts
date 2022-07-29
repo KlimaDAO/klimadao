@@ -23,7 +23,10 @@ export const gradientBackgroundTop = css`
 `;
 
 export const heroKlimaLogo = css`
-  max-width: 35rem;
+  max-width: 25rem;
+  ${breakpoints.large} {
+    max-width: 35rem;
+  }
 `;
 
 export const heroSection = css`
@@ -823,7 +826,10 @@ export const ctaSection = css`
   .cta_logo {
     height: 100%;
     width: 100%;
-    max-width: 45rem;
+    max-width: 30rem;
+    ${breakpoints.large} {
+      max-width: 45rem;
+    }
   }
 `;
 

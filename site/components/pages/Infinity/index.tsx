@@ -88,7 +88,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               />
             </div>
             <div className="hero_title_container">
-              <KlimaInfinityLogo className={styles.heroKlimaLogo} />
+              <div className={styles.heroKlimaLogo}>
+                <KlimaInfinityLogo />
+              </div>
               <Text t="h2" className="hero_title">
                 <Trans id="infinity.welcome_title">
                   The easiest way to go carbon neutral
