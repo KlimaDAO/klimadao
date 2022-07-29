@@ -7,6 +7,7 @@ import {
   ButtonPrimary,
   ButtonSecondary,
   Text,
+  KlimaInfinityLogo,
 } from "@klimadao/lib/components";
 
 import { Footer } from "components/Footer";
@@ -15,7 +16,6 @@ import { PageHead } from "components/PageHead";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 
-import klimaInfinityLogo from "public/logo-klima-infinity.png";
 import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
 import fastMountain from "public/green-mountainside.jpg";
@@ -75,6 +75,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
       />
 
       <Navigation activePage="Infinity" showThemeToggle={!fixedThemeName} />
+
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
           <div className="hero_container">
@@ -87,7 +88,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               />
             </div>
             <div className="hero_title_container">
-              <Image src={klimaInfinityLogo} alt="Klima Infinity logo" />
+              <KlimaInfinityLogo className={styles.heroKlimaLogo} />
               <Text t="h2" className="hero_title">
                 <Trans id="infinity.welcome_title">
                   The easiest way to go carbon neutral
@@ -678,11 +679,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         <div className="cta_container">
           <div className="cta_left_container">
             <div className="cta_logo">
-              <Image
-                src={klimaInfinityLogo}
-                alt="Klima Infinity logo"
-                layout="responsive"
-              />
+              <KlimaInfinityLogo />
             </div>
             <Text t="body7">
               <Trans id="infinity.cta_title">
