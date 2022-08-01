@@ -14,26 +14,43 @@ interface Props {
   target?: string;
   isExternalHref?: boolean;
   disabled?: boolean;
+  secondary?: boolean;
 }
 
 export const ButtonPrimary: FC<Props> = ({ link: LinkElement, ...props }) => {
   let buttonStyle;
   if (props.variant === "gray") {
-    buttonStyle = cx(
-      styles.button_primary,
-      styles.button_primary_gray,
-      props.className
-    );
+    props.secondary
+      ? (buttonStyle = cx(
+          styles.button_secondary,
+          styles.button_secondary_gray,
+          props.className
+        ))
+      : (buttonStyle = cx(
+          styles.button_primary,
+          styles.button_primary_gray,
+          props.className
+        ));
   } else if (props.variant === "blueRounded") {
-    buttonStyle = cx(
-      styles.button_primary,
-      styles.button_primary_blue,
-      props.className
-    );
+    props.secondary
+      ? (buttonStyle = cx(
+          styles.button_secondary,
+          styles.button_secondary_blue,
+          props.className
+        ))
+      : (buttonStyle = cx(
+          styles.button_primary,
+          styles.button_primary_blue,
+          props.className
+        ));
   } else {
-    buttonStyle = cx(styles.button_primary, props.className, {
-      icon: props.variant === "icon",
-    });
+    buttonStyle = cx(
+      props.secondary ? styles.button_secondary : styles.button_primary,
+      props.className,
+      {
+        icon: props.variant === "icon",
+      }
+    );
   }
 
   if (props.href) {

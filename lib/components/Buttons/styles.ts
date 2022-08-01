@@ -37,37 +37,14 @@ export const button_primary = css`
 `;
 export const button_secondary = css`
   ${button};
-  display: flex;
-  padding: 0rem 2.4rem;
-  align-items: center;
-  justify-content: center;
-  appearance: none;
-  text-decoration: none;
-  /* min-height to conform with Lighthouse min tap-target */
-  min-height: 4.8rem;
-  cursor: pointer;
+  ${button_primary};
   border: 1px solid var(--klima-green);
   border-radius: 0.4rem;
-  transition: opacity 0.3s ease 0s;
   background-color: transparent;
-
-  &:active:not(:disabled) {
-    transform: scale(0.95);
-    opacity: 0.6;
-  }
   &,
   &:hover:not(:disabled),
   &:visited {
     color: var(--klima-green); /* same in darkmode */
-  }
-
-  &:disabled {
-    border-color: var(--surface-03);
-    cursor: not-allowed;
-  }
-
-  &.icon {
-    gap: 0.8rem;
   }
 `;
 
