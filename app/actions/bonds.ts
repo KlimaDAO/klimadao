@@ -176,7 +176,7 @@ const getMCO2MarketPrice = async (params: {
 
 // v2 bonds have multiple markets within them, we know that inverse USDC bonds is this one:
 // in a later version we could clean this up by querying for "live markets"
-const INVERSE_USDC_MARKET_ID = 10;
+const INVERSE_USDC_MARKET_ID = 11;
 
 export const calcBondDetails = (params: {
   bond: Bond;
