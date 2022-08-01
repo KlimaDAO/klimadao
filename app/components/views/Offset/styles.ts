@@ -50,6 +50,11 @@ export const offsetCard_header = css`
   display: grid;
   gap: 0.8rem;
   max-width: 38rem;
+  .new-releases-icon {
+    color: var(--klima-green);
+    margin-inline-end: 0.4rem;
+    margin-bottom: -0.4rem;
+  }
 `;
 
 export const offsetCard_ui = css`

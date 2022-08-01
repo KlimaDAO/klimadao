@@ -62,6 +62,7 @@ import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
 import UBO from "public/icons/UBO.png";
 import NBO from "public/icons/NBO.png";
+import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
@@ -448,27 +449,16 @@ export const Offset = (props: Props) => {
           <Text t="caption" color="lightest">
             <Trans id="offset.go_carbon_neutral">
               Go carbon neutral by retiring carbon and claiming the underlying
-              environmental benefit of the carbon offset. Choose to retire{" "}
-              <A href="https://docs.klimadao.finance/references/glossary#mco2">
-                Moss Carbon Credits
-              </A>{" "}
-              (MCO2),{" "}
-              <A href="https://docs.klimadao.finance/references/glossary#bct">
-                Base Carbon Tonnes
-              </A>{" "}
-              (BCT),{" "}
-              <A href="https://docs.klimadao.finance/references/glossary#nct">
-                Nature Carbon Tonnes
-              </A>{" "}
-              (NCT),{" "}
-              <A href="https://docs.c3.app/c3-pool-specifications-and-carbon-methodologies/ubo">
-                Universal Basic Offsets
-              </A>{" "}
-              (UBO), or{" "}
-              <A href="https://docs.c3.app/c3-pool-specifications-and-carbon-methodologies/nbo">
-                Nature Based Offsets
-              </A>{" "}
-              (NBO), with more coming soon.{" "}
+              environmental benefit of the carbon offset. Learn more about
+              carbon tokens in our <A href={urls.officialDocs}>docs</A>.
+            </Trans>
+          </Text>
+          <Text t="caption" color="lightest">
+            <FiberNewRoundedIcon className="new-releases-icon" />
+            <Trans id="offset.lifi">
+              Cross-chain staking is now available through{" "}
+              <A href={urls.lifiStake}>LI.FI</A>, with support for dozens of
+              tokens like ETH, BNB and DAI.
             </Trans>
           </Text>
         </div>
