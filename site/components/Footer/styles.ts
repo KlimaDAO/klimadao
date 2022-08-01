@@ -6,7 +6,6 @@ export const footer = css`
   grid-column: full;
   padding: 2rem 2.4rem;
   position: relative;
-  grid-column: full;
 
   ${breakpoints.large} {
     padding: 4.8rem 0;

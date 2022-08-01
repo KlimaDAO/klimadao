@@ -7,11 +7,18 @@ import { LogoWithClaim } from "@klimadao/lib/components";
 interface Props {
   buttons?: JSX.Element[];
   href?: string;
+  activePage: "Home" | "Buy" | "Resources" | "Disclaimer" | "Infinity";
 }
 
 export const HeaderDesktop: FC<Props> = (props) => {
   return (
-    <header className={styles.headerDesktop}>
+    <header
+      className={
+        props.activePage === "Infinity"
+          ? styles.headerInfinityDesktop
+          : styles.headerDesktop
+      }
+    >
       <nav className={styles.menuDesktop}>
         <div>
           <Link href={"/"}>

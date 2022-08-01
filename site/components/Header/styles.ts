@@ -17,6 +17,20 @@ export const headerDesktop = css`
   }
 `;
 
+export const menuDesktop = css`
+  display: grid;
+  grid-column: main;
+  grid-template-columns: auto 1fr auto;
+  width: 100%;
+  align-items: center;
+  z-index: 99;
+`;
+
+export const headerInfinityDesktop = css`
+  background: transparent !important;
+  ${headerDesktop}
+`;
+
 export const headerMobileWrap = css`
   position: fixed;
   pointer-events: none;
@@ -55,23 +69,11 @@ export const mainLogoMobile = css`
   padding: 0 1rem;
 `;
 
-export const menuDesktop = css`
-  display: grid;
-  grid-column: main;
-  grid-template-columns: auto 1fr auto;
-  width: 100%;
-  align-items: center;
-`;
-
 export const navMain_Desktop = css`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 2.4rem;
-  ${breakpoints.desktopLarge} {
-    justify-content: center;
-    gap: 5.4rem;
-  }
+  justify-content: space-around;
+  padding: 0 0.8rem;
 `;
 
 export const navMain_DesktopLink = css`
