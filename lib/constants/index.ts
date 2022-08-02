@@ -172,7 +172,17 @@ export type Bond = typeof bonds[number];
 
 // Spender with their Allowances tokens
 export const allowancesContracts = {
-  retirementAggregator: ["ubo", "nbo", "bct", "nct", "mco2", "usdc"],
+  retirementAggregator: [
+    "ubo",
+    "nbo",
+    "bct",
+    "nct",
+    "mco2",
+    "usdc",
+    "klima",
+    "sklima",
+    "wsklima",
+  ],
   staking_helper: ["klima"],
   staking: ["sklima"],
   wsklima: ["sklima"],
@@ -207,6 +217,9 @@ export const offsetCompatibility: CompatMap = {
   nct: ["bct", "nct"],
   mco2: ["mco2"],
   usdc: ["bct", "nct", "mco2", "ubo", "nbo"],
+  klima: ["bct", "mco2"],
+  sklima: ["bct", "mco2"],
+  wsklima: ["bct", "mco2"],
 };
 
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
