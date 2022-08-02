@@ -58,6 +58,7 @@ import { DropdownWithModal } from "components/DropdownWithModal";
 import BCT from "public/icons/BCT.png";
 import NCT from "public/icons/NCT.png";
 import MCO2 from "public/icons/MCO2.png";
+import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
 import UBO from "public/icons/UBO.png";
 import NBO from "public/icons/NBO.png";
