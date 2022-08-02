@@ -21,13 +21,13 @@ import * as styles from "./styles";
 
 interface Props {
   className?: string;
+  transparent?: boolean;
 }
 
 export const Footer: FC<Props> = (props) => {
   const { locale } = useRouter();
-
   return (
-    <footer className={cx(styles.footer, props.className)}>
+    <footer className={cx(styles.footer(props.transparent), props.className)}>
       <div className={cx(styles.footer_content, "footer_content")}>
         <nav className={cx(styles.footer_nav, "footer_nav")}>
           <Link href="/">

@@ -1,26 +1,37 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
-export const footer = css`
-  background-color: var(--surface-02);
+export const footer = (transparent = false) => css`
+  background: ${transparent ? "none" : "var(--surface-02)"};
+  padding: 2.8rem 0;
   grid-column: full;
-  padding: 2rem 2.4rem;
-  position: relative;
+  display: grid;
+  grid-template-columns: inherit;
+  height: unset;
 
-  ${breakpoints.large} {
+  nav {
+    max-height: unset;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  ${breakpoints.medium} {
     padding: 4.8rem 0;
-    display: grid;
-    grid-template-columns: inherit;
+    nav {
+      width: unset;
+    }
   }
 `;
 
 export const footer_content = css`
-  grid-column: main;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  grid-column: main;
   align-items: center;
-  row-gap: 2.4rem;
+  gap: 5rem;
+  justify-content: space-between;
+  height: 100%;
 
   ${breakpoints.medium} {
     justify-content: center;
@@ -37,15 +48,23 @@ export const footer_nav = css`
   max-height: 12rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.6rem 3.2rem;
   justify-content: center;
+  row-gap: 1.6rem;
+  column-gap: 3.2rem;
+
+  a {
+    // Full width link on mobile
+    width: 100%;
+    ${breakpoints.medium} {
+      width: auto;
+    }
+  }
 
   & a {
     color: var(--font-02) !important;
-  }
-
-  & a:hover {
-    color: var(--font-01) !important;
+    &:hover {
+      color: var(--font-01) !important;
+    }
   }
 
   ${breakpoints.large} {
@@ -70,6 +89,10 @@ export const footer_icons = css`
   gap: 1.6rem;
   flex-wrap: wrap;
 
+  svg {
+    width: 1.6rem;
+  }
+
   & svg path {
     fill: var(--font-02);
   }
@@ -80,5 +103,8 @@ export const footer_icons = css`
 
   ${breakpoints.medium} {
     flex-direction: row;
+    svg {
+      width: 1.8rem;
+    }
   }
 `;

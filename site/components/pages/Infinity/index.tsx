@@ -721,7 +721,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
         <div className={styles.divider} />
-        <Footer className={styles.footer} />
+        <Footer transparent />
       </Section>
     </>
   );
