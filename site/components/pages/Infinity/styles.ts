@@ -758,25 +758,13 @@ export const faqSection = css`
 export const ctaSection = css`
   position: relative;
   overflow: hidden;
-  background-color: #000;
-  background: radial-gradient(
-      circle at top right,
-      rgba(11, 161, 255, 0.6),
-      transparent 200px
-    ),
-    radial-gradient(at bottom left, rgba(11, 161, 255, 0.5), transparent 200px);
 
   ${breakpoints.large} {
     background: radial-gradient(
-        circle at top right,
-        rgba(11, 161, 255, 0.5),
-        transparent 800px
-      ),
-      radial-gradient(
-        at bottom left,
-        rgba(11, 161, 255, 0.5),
-        transparent 900px
-      );
+      circle at right,
+      rgb(4 65 104 / 60%),
+      transparent 90%
+    );
   }
 
   .cta_container {
@@ -789,6 +777,7 @@ export const ctaSection = css`
     display: flex;
     gap: 1.6rem;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding-right: 0;
     position: relative;
@@ -805,7 +794,10 @@ export const ctaSection = css`
       font-weight: 300;
       line-height: 32px;
       letter-spacing: 0em;
-      text-align: left;
+      text-align: center;
+      ${breakpoints.large} {
+        text-align: left;
+      }
     }
   }
   .cta_right_container {
@@ -824,7 +816,6 @@ export const ctaSection = css`
     }
   }
   .cta_logo {
-    height: 100%;
     width: 100%;
     max-width: 30rem;
     ${breakpoints.large} {
@@ -833,10 +824,60 @@ export const ctaSection = css`
   }
 `;
 
-export const footerWrapper = css`
-  grid-column: full;
-  grid-template-columns: inherit;
-  footer {
-    background-color: black;
+export const footerContainer = css`
+  padding-bottom: 3rem;
+  padding-top: 5rem;
+  grid-template-rows: 1fr 50px 1fr;
+  row-gap: 1rem;
+  background-image: radial-gradient(
+    circle at top right,
+    rgb(11 103 160 / 60%),
+    transparent 135%
+  );
+
+  ${breakpoints.large} {
+    padding-bottom: 3rem;
   }
+`;
+
+export const footer = css`
+  background: none;
+  padding: 2rem 0;
+  grid-column: main;
+
+  .footer_content {
+    gap: 5rem;
+    grid-column: full;
+    justify-content: space-between;
+  }
+
+  .footer_nav {
+    column-gap: 3rem;
+    a {
+      // Full width link on mobile
+      width: 100%;
+      ${breakpoints.medium} {
+        width: auto;
+      }
+    }
+  }
+
+  nav {
+    max-height: unset;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    ${breakpoints.medium} {
+      width: unset;
+    }
+  }
+`;
+
+export const divider = css`
+  grid-column: main;
+  margin-top: auto;
+  height: 0.15rem;
+  width: 100%;
+  opacity: 0.3;
+  background-color: var(--font-03);
 `;

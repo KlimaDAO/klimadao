@@ -42,6 +42,7 @@ import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 import * as styles from "./styles";
 
 import { urls } from "@klimadao/lib/constants";
+import { cx } from "@emotion/css";
 
 const linkToBlogUserGuide = `${urls.siteBlog}/klima-infinity-user-guide`;
 const linkToBlogFAQ = `${urls.siteBlog}/klima-infinity-faqs`;
@@ -684,7 +685,10 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
-      <Section variant="black" className={styles.ctaSection}>
+      <Section
+        variant="black"
+        className={cx(styles.ctaSection, styles.footerContainer)}
+      >
         <div className="cta_container">
           <div className="cta_left_container">
             <div className="cta_logo">
@@ -716,10 +720,9 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             />
           </div>
         </div>
+        <div className={styles.divider} />
+        <Footer className={styles.footer} />
       </Section>
-      <div className={styles.footerWrapper}>
-        <Footer />
-      </div>
     </>
   );
 };

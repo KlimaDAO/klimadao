@@ -28,8 +28,8 @@ export const Footer: FC<Props> = (props) => {
 
   return (
     <footer className={cx(styles.footer, props.className)}>
-      <div className={styles.footer_content}>
-        <nav className={styles.footer_nav}>
+      <div className={cx(styles.footer_content, "footer_content")}>
+        <nav className={cx(styles.footer_nav, "footer_nav")}>
           <Link href="/">
             <a>
               <Trans id="shared.home">Home</Trans>
