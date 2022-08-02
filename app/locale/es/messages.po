@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-02 20:30+0000\n"
+"POT-Creation-Date: 2022-08-02 21:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +27,7 @@ msgstr "Esta aplicación sólo funciona en Polygon Mainnet."
 msgid "Wrong Network"
 msgstr "Red incorrecta"
 
-#: components/views/Offset/index.tsx:761
+#: components/views/Offset/index.tsx:751
 msgid "advanced"
 msgstr "AVANZADO"
 
@@ -424,11 +424,11 @@ msgstr "CONFIRMACIÓN"
 msgid "nav.back"
 msgstr "VOLVER"
 
-#: components/views/Offset/index.tsx:602
+#: components/views/Offset/index.tsx:592
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Este coste incluye el slippage y la tasa de agregación del 1%."
 
-#: components/views/Offset/index.tsx:480
+#: components/views/Offset/index.tsx:470
 msgid "offset.amount_in_tonnes"
 msgstr "¿Cuántas toneladas de carbono le gustaría compensar?"
 
@@ -436,15 +436,15 @@ msgstr "¿Cuántas toneladas de carbono le gustaría compensar?"
 msgid "offset.breakdown"
 msgstr "Desglose"
 
-#: components/views/Offset/index.tsx:570
+#: components/views/Offset/index.tsx:560
 msgid "offset.default_retirement_address"
 msgstr "Por defecto, la dirección del monedero conectado"
 
-#: components/views/Offset/index.tsx:506
+#: components/views/Offset/index.tsx:496
 msgid "offset.dropdown_payWith.label"
 msgstr "Pagar con"
 
-#: components/views/Offset/index.tsx:521
+#: components/views/Offset/index.tsx:511
 msgid "offset.dropdown_retire.label"
 msgstr "Seleccione el token de compensación de carbono para retirar"
 
@@ -452,24 +452,28 @@ msgstr "Seleccione el token de compensación de carbono para retirar"
 msgid "offset.empty"
 msgstr "Esta dirección no ha completado ninguna retirada."
 
-#: components/views/Offset/index.tsx:564
-#: components/views/Offset/index.tsx:790
+#: components/views/Offset/index.tsx:554
+#: components/views/Offset/index.tsx:780
 msgid "offset.enter_address"
 msgstr "Ingrese la dirección 0x"
 
-#: components/views/Offset/index.tsx:449
+#: components/views/Offset/index.tsx:450
 msgid "offset.go_carbon_neutral"
-msgstr "Sea neutro en carbono retirando el carbono y reclamando el beneficio medioambiental subyacente de la compensación de carbono. Elija retirar <0>Moss Carbon Credits</0> (MCO2), <1>Base Carbon Tonnes</1> (BCT), <2>Nature Carbon Tonnes</2> (NCT), <3>Universal Basic Offsets</3> (UBO), or <4>Nature Based Offsets</4> (NBO), con más en breve."
+msgstr ""
 
-#: components/views/Offset/index.tsx:428
+#: components/views/Offset/index.tsx:429
 msgid "offset.incompatible"
 msgstr "TOKEN INCOMPATIBLE"
 
-#: components/views/Offset/index.tsx:507
+#: components/views/Offset/index.tsx:458
+msgid "offset.lifi"
+msgstr ""
+
+#: components/views/Offset/index.tsx:497
 msgid "offset.modal_payWith.title"
 msgstr "Seleccionar token"
 
-#: components/views/Offset/index.tsx:525
+#: components/views/Offset/index.tsx:515
 msgid "offset.modal_retire.title"
 msgstr "Seleccionar tipo de carbono"
 
@@ -477,55 +481,55 @@ msgstr "Seleccionar tipo de carbono"
 msgid "offset.number_of_retirements"
 msgstr "Total de retiros"
 
-#: components/views/Offset/index.tsx:497
+#: components/views/Offset/index.tsx:487
 msgid "offset.offset_quantity"
 msgstr "Ingrese la cantidad a compensar"
 
-#: components/views/Offset/index.tsx:446
+#: components/views/Offset/index.tsx:447
 msgid "offset.retire_carbon"
 msgstr "RETIRA CARBONO"
 
-#: components/views/Offset/index.tsx:768
+#: components/views/Offset/index.tsx:758
 msgid "offset.retire_specific"
 msgstr "Retirar tokens de proyectos específicos"
 
-#: components/views/Offset/index.tsx:774
+#: components/views/Offset/index.tsx:764
 msgid "offset.retire_specific_tooltip"
 msgstr "Sujeto a una tasa adicional, determinada por el pool seleccionado y pagada al proveedor del puente."
 
-#: components/views/Offset/index.tsx:550
+#: components/views/Offset/index.tsx:540
 msgid "offset.retirement_beneficiary"
 msgstr "Nombre u organización"
 
-#: components/views/Offset/index.tsx:542
+#: components/views/Offset/index.tsx:532
 msgid "offset.retirement_credit"
 msgstr "¿A quién se acreditará esta retirada?"
 
-#: components/views/Offset/index.tsx:579
+#: components/views/Offset/index.tsx:569
 msgid "offset.retirement_message"
 msgstr "Mensaje de Retiro"
 
-#: components/views/Offset/index.tsx:588
+#: components/views/Offset/index.tsx:578
 msgid "offset.retirement_purpose"
 msgstr "Describa el objetivo de esta retirada"
 
-#: components/views/Offset/index.tsx:620
+#: components/views/Offset/index.tsx:610
 msgid "offset.retiring"
 msgstr "Retirando"
 
-#: components/views/Offset/index.tsx:684
+#: components/views/Offset/index.tsx:674
 msgid "offset.successModal.body1"
 msgstr "Gracias. Al participar en el mercado voluntario de carbono, usted está haciendo que la conservación sea más rentable y la mitigación del clima más impactante"
 
-#: components/views/Offset/index.tsx:693
+#: components/views/Offset/index.tsx:683
 msgid "offset.successModal.body2"
 msgstr "Haga clic en el botón de abajo para ver su retiro. ¡Considere la posibilidad de compartir la página para apoyarnos en nuestro camino hacia un mercado de carbono más transparente, accesible y gratificante!"
 
-#: components/views/Offset/index.tsx:707
+#: components/views/Offset/index.tsx:697
 msgid "offset.successModal.cta"
 msgstr "VER RETIRO"
 
-#: components/views/Offset/index.tsx:677
+#: components/views/Offset/index.tsx:667
 msgid "offset.successModal.title"
 msgstr "¡Retiro exitoso!"
 
@@ -537,11 +541,11 @@ msgstr "toneladas de carbono"
 msgid "offset.you_have_retired"
 msgstr "Has retirado"
 
-#: components/views/Offset/index.tsx:598
+#: components/views/Offset/index.tsx:588
 msgid "offset_cost"
 msgstr "Costo"
 
-#: components/views/Offset/index.tsx:631
+#: components/views/Offset/index.tsx:621
 msgid "offset_disclaimer"
 msgstr "Tenga cuidado de no exponer ninguna información personal sensible. Su mensaje no puede ser editado y existirá permanentemente en un blockchain público."
 
@@ -610,7 +614,7 @@ msgid "pklima.update"
 msgstr "El contrato actualizado asume ahora que los titulares de pKLIMA han hecho staking y ganado recompensas sobre tokens previamente reclamados. Antes de la corrección de noviembre, estas recompensas de staking no se contaban para el límite de la cuota de suministro, lo que significaba que su cuota del suministro total de KLIMA podía superar el límite definido en sus condiciones."
 
 #: components/views/Bond/index.tsx:428
-#: components/views/Offset/index.tsx:357
+#: components/views/Offset/index.tsx:358
 #: components/views/Stake/index.tsx:244
 #: components/views/Stake/index.tsx:250
 msgid "shared.approve"
@@ -632,7 +636,7 @@ msgstr "Confirmando"
 
 #: components/views/Bond/index.tsx:379
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:322
+#: components/views/Offset/index.tsx:323
 #: components/views/PKlima/index.tsx:150
 #: components/views/Stake/index.tsx:209
 #: components/views/Wrap/index.tsx:163
@@ -649,7 +653,7 @@ msgid "shared.enter_amount"
 msgstr "Ingrese la cantidad"
 
 #: components/views/Bond/index.tsx:391
-#: components/views/Offset/index.tsx:334
+#: components/views/Offset/index.tsx:335
 #: components/views/Stake/index.tsx:221
 #: components/views/Wrap/index.tsx:175
 msgid "shared.enter_quantity"
@@ -661,12 +665,12 @@ msgstr "INTRODUCIR CANTIDAD"
 msgid "shared.error"
 msgstr "ERROR"
 
-#: components/views/Offset/index.tsx:350
+#: components/views/Offset/index.tsx:351
 #: components/views/Stake/index.tsx:228
 msgid "shared.insufficient_balance"
 msgstr "SALDO INSUFICIENTE"
 
-#: components/views/Offset/index.tsx:343
+#: components/views/Offset/index.tsx:344
 msgid "shared.invalid_inputs"
 msgstr "ENTRADAS NO VÁLIDAS"
 
@@ -675,8 +679,8 @@ msgstr "ENTRADAS NO VÁLIDAS"
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:385
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:328
-#: components/views/Offset/index.tsx:414
+#: components/views/Offset/index.tsx:329
+#: components/views/Offset/index.tsx:415
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:215
 #: components/views/Stake/index.tsx:432
@@ -693,7 +697,7 @@ msgstr "Cargando..."
 msgid "shared.max"
 msgstr "Max"
 
-#: components/views/Offset/index.tsx:363
+#: components/views/Offset/index.tsx:364
 msgid "shared.retire"
 msgstr "RETIRA CARBONO"
 
