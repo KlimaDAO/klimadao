@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-02 21:05+0000\n"
+"POT-Creation-Date: 2022-08-02 21:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,15 +15,15 @@ msgstr "Capacité"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "Le 12 avril 2022, nous avons migré de \"dapp\" à \"app\". Veuillez mettre à jour vos favoris."
 
-#: components/InvalidNetworkModal/index.tsx:80
+#: components/InvalidNetworkModal/index.tsx:73
 msgid "Switch to Polygon"
 msgstr "Passer sur le réseau Polygon"
 
-#: components/InvalidNetworkModal/index.tsx:75
+#: components/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
 msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal."
 
-#: components/InvalidNetworkModal/index.tsx:70
+#: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
 msgstr "Mauvais réseau"
 

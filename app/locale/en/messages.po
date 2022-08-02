@@ -21,15 +21,15 @@ msgstr "Capacity"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 
-#: components/InvalidNetworkModal/index.tsx:80
+#: components/InvalidNetworkModal/index.tsx:73
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
 
-#: components/InvalidNetworkModal/index.tsx:75
+#: components/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
 msgstr "This app only works on Polygon Mainnet."
 
-#: components/InvalidNetworkModal/index.tsx:70
+#: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
 msgstr "Wrong Network"
 

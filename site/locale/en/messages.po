@@ -33,6 +33,18 @@ msgstr "Episodes"
 msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
 
+#: components/InvalidNetworkModal/index.tsx:80
+msgid "Switch to Polygon"
+msgstr "Switch to Polygon"
+
+#: components/InvalidNetworkModal/index.tsx:74
+msgid "This app only works on Polygon Mainnet."
+msgstr "This app only works on Polygon Mainnet."
+
+#: components/InvalidNetworkModal/index.tsx:64
+msgid "Wrong Network"
+msgstr "Wrong Network"
+
 #. Long sentence
 #: components/pages/Blog/Post/index.tsx:90
 msgid "blog.disclaimer.description"
