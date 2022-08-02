@@ -127,14 +127,12 @@ export const RetirementPage: NextPage<Props> = (props) => {
             </Text>
           </div>
         </div>
+        <Breakdown totalsAndBalances={props.totalsAndBalances} />
         {klimaRetires && (
-          <>
-            <Breakdown totalsAndBalances={props.totalsAndBalances} />
-            <AllRetirements
-              klimaRetires={klimaRetires}
-              nameserviceDomain={props.nameserviceDomain}
-            />
-          </>
+          <AllRetirements
+            klimaRetires={klimaRetires}
+            nameserviceDomain={props.nameserviceDomain}
+          />
         )}
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
