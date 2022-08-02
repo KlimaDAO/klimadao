@@ -24,7 +24,7 @@ import * as styles from "./styles";
 
 type Props = {
   totalsAndBalances: RetirementsTotalsAndBalances;
-  klimaRetires: KlimaRetire[];
+  klimaRetires: KlimaRetire[] | null;
   beneficiaryAddress: string;
   nameserviceDomain?: string;
   canonicalUrl?: string;
@@ -127,11 +127,15 @@ export const RetirementPage: NextPage<Props> = (props) => {
             </Text>
           </div>
         </div>
-        <Breakdown totalsAndBalances={props.totalsAndBalances} />
-        <AllRetirements
-          klimaRetires={klimaRetires}
-          nameserviceDomain={props.nameserviceDomain}
-        />
+        {klimaRetires && (
+          <>
+            <Breakdown totalsAndBalances={props.totalsAndBalances} />
+            <AllRetirements
+              klimaRetires={klimaRetires}
+              nameserviceDomain={props.nameserviceDomain}
+            />
+          </>
+        )}
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
