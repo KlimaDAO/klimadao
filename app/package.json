@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.6.0",
     "@lingui/core": "^3.13.0",
     "@lingui/react": "^3.13.0",
+    "@metamask/onboarding": "^1.0.1",
     "@mui/icons-material": "^5.2.1",
     "@mui/material": "^5.2.3",
     "@reduxjs/toolkit": "^1.7.0",
