@@ -128,9 +128,9 @@ export const urls = {
   mediaRequestForm:
     "https://docs.google.com/forms/d/e/1FAIpQLSdIVolbOvbuw1LHGwT8ec9HHZTWxSluErInZ_TaiqKzAvG30w/viewform",
   partnerShipsContactForm:
-    "https://notionforms.io/forms/klimadao-request-for-collaboration",
+    "https://share-eu1.hsforms.com/1fEb0LUdcRlKGTzNCVYz6igfhhlr",
   klimaInfinityContactForm:
-    "https://notionforms.io/forms/klima-infinity-collab-request-form",
+    "https://share-eu1.hsforms.com/1g2uooleDQ06MaRpylL5irwfhhlr",
   pressEmail: "mailto:press@klimadao.finance",
   loveletter: "https://loveletter.klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
