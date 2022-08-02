@@ -58,7 +58,6 @@ import { DropdownWithModal } from "components/DropdownWithModal";
 import BCT from "public/icons/BCT.png";
 import NCT from "public/icons/NCT.png";
 import MCO2 from "public/icons/MCO2.png";
-import KLIMA from "public/icons/KLIMA.png";
 import USDC from "public/icons/USDC.png";
 import UBO from "public/icons/UBO.png";
 import NBO from "public/icons/NBO.png";
@@ -89,9 +88,9 @@ const tokenInfo: TokenInfoMap = {
   nct: { key: "nct", icon: NCT, label: "NCT" },
   mco2: { key: "mco2", icon: MCO2, label: "MCO2" },
   usdc: { key: "usdc", icon: USDC, label: "USDC" },
-  klima: { key: "klima", icon: KLIMA, label: "KLIMA" },
-  sklima: { key: "sklima", icon: KLIMA, label: "sKLIMA" },
-  wsklima: { key: "wsklima", icon: KLIMA, label: "wsKLIMA" },
+  // klima: { key: "klima", icon: KLIMA, label: "KLIMA" },
+  // sklima: { key: "sklima", icon: KLIMA, label: "sKLIMA" },
+  // wsklima: { key: "wsklima", icon: KLIMA, label: "wsKLIMA" },
 };
 
 interface Props {
