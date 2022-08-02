@@ -975,7 +975,7 @@ msgstr "Beneficiary"
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:178
+#: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.disclaimer"
 msgstr "This represents the permanent retirement of tokenized carbon assets on the Polygon blockchain. This retirement and the associated data are immutable public records."
 
@@ -1019,15 +1019,15 @@ msgstr "View on Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "QUANTITY RETIRED"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:170
+#: components/pages/Retirements/SingleRetirement/index.tsx:162
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...coming soon!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:165
+#: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificate"
 
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:19
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:21
 msgid "retirement.single.retirementDate.title"
 msgstr "Date"
 
@@ -1035,11 +1035,11 @@ msgstr "Date"
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "No retirement message provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:157
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No retirement timestamp provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:205
+#: components/pages/Retirements/SingleRetirement/index.tsx:197
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 

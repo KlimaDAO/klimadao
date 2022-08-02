@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-02 21:32+0000\n"
+"POT-Creation-Date: 2022-08-02 22:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -977,7 +977,7 @@ msgstr "Beneficiario"
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Dirección del beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:178
+#: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.disclaimer"
 msgstr "Esto representa la retirada permanente de los activos de carbono tokenizados en la blockchain de Polygon. Esta retirada y los datos asociados son registros públicos inmutables."
 
@@ -1021,15 +1021,15 @@ msgstr "Ver en Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "CANTIDAD RETIRADA"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:170
+#: components/pages/Retirements/SingleRetirement/index.tsx:162
 msgid "retirement.single.retirementCertificate.soon"
 msgstr "...¡próximamente!"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:165
+#: components/pages/Retirements/SingleRetirement/index.tsx:157
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificado"
 
-#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:19
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:21
 msgid "retirement.single.retirementDate.title"
 msgstr "Fecha"
 
@@ -1037,11 +1037,11 @@ msgstr "Fecha"
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "No se proporcionó ningún mensaje de retiro"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:157
+#: components/pages/Retirements/SingleRetirement/RetirementDate/index.tsx:24
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No se proporcionó una marca de tiempo de retiro"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:205
+#: components/pages/Retirements/SingleRetirement/index.tsx:197
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Ver en Polygonscan"
 
