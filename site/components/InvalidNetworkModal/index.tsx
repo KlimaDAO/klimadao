@@ -3,6 +3,7 @@ import { Text, ButtonPrimary } from "@klimadao/lib/components";
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+
 import { Modal } from "components/Modal";
 import * as styles from "./styles";
 
@@ -59,14 +60,20 @@ export const InvalidNetworkModal: FC = () => {
   return (
     <Modal
       title={
-        <Text t="h3">
+        <Text t="h4">
           ⚠ <Trans>Wrong Network</Trans>
         </Text>
       }
+      showModal={showModal}
     >
-      <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
+      <Text
+        t="body3"
+        color="lightest"
+        style={{ fontWeight: "normal", paddingTop: "1rem" }}
+      >
         <Trans>This app only works on Polygon Mainnet.</Trans>
       </Text>
+
       <div className={styles.switchButtonContainer}>
         <ButtonPrimary
           className={styles.switchButton}

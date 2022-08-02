@@ -284,7 +284,7 @@ export const Home: FC = () => {
         </div>
       </div>
 
-      <InvalidNetworkModal provider={web3.provider} />
+      <InvalidNetworkModal />
       <NotificationModal />
 
       {showRPCModal && (
