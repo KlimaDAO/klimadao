@@ -21,19 +21,19 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
         contractName: "distributor",
         provider: provider,
       });
-      const sKlimaContract = getContract({
-        contractName: "sklima",
-        provider: provider,
-      });
       const sKlimaMainContract = getContract({
         contractName: "sklimaMain",
+        provider: provider,
+      });
+      const stakingContract = getContract({
+        contractName: "staking",
         provider: provider,
       });
 
       const promises = [
         distributorContract.info(0),
         sKlimaMainContract.circulatingSupply(),
-        sKlimaContract.balanceOf("0x693aD12DbA5F6E07dE86FaA21098B691F60A1BEa"),
+        stakingContract.index(),
         getTreasuryBalance(),
         distributorContract.nextEpochBlock(),
         fetchBlockRate(),
