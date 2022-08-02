@@ -206,7 +206,7 @@ export const Offset = (props: Props) => {
     selectedRetirementToken,
   ]);
 
-  const closeModal = () => {
+  const closeTransactionModal = () => {
     setStatus(null);
     setShowTransactionModal(false);
   };
@@ -276,7 +276,8 @@ export const Offset = (props: Props) => {
           quantity,
         })
       );
-      setStatus(null);
+      // close TransactionModal
+      closeTransactionModal();
       // this opens RetirementSuccessModal
       setRetirementTransactionHash(receipt.transactionHash);
       setRetirementTotals(retirementTotals);
@@ -291,18 +292,12 @@ export const Offset = (props: Props) => {
     Number(cost) > Number(balances?.[selectedInputToken] ?? "0");
 
   const hasApproval = () => {
-    console.log(
-      "allowances?.[selectedInputToken] ",
-      allowances?.[selectedInputToken]
-    );
     return (
       !!allowances?.[selectedInputToken] &&
       !!Number(allowances?.[selectedInputToken]) &&
       Number(cost) <= Number(allowances?.[selectedInputToken]) // Caution: Number trims values down to 17 decimal places of precision
     );
   };
-
-  console.log("hasApproval", hasApproval());
 
   const getButtonProps = (): ButtonProps => {
     if (!props.isConnected) {
@@ -637,7 +632,7 @@ export const Offset = (props: Props) => {
               <Trans id="offset.retire_carbon">Retire Carbon</Trans>
             </Text>
           }
-          onCloseModal={closeModal}
+          onCloseModal={closeTransactionModal}
           token={selectedInputToken}
           spender={"retirementAggregator"}
           value={cost.toString()}
