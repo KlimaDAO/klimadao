@@ -29,7 +29,7 @@ interface PageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
   retirementTotals: Params["retirement_index"];
-  retirement: KlimaRetire;
+  retirement: KlimaRetire | null;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
   nameserviceDomain: string | null;
@@ -105,7 +105,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       promises
     );
 
-    if (!retirement || !retirementIndexInfo) {
+    if (!retirementIndexInfo) {
       throw new Error("No retirement found");
     }
 
@@ -114,7 +114,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     }
 
     let projectDetails: VerraProjectDetails | null = null;
-    if (!!retirement.offset.projectID) {
+    if (retirement && !!retirement.offset.projectID) {
       projectDetails = await getVerraProjectByID(
         retirement.offset.projectID.replace("VCS-", "")
       );
@@ -122,7 +122,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     return {
       props: {
-        retirement,
+        retirement: retirement || null,
         retirementIndexInfo,
         beneficiaryAddress: beneficiaryAddress,
         retirementTotals: params.retirement_index,

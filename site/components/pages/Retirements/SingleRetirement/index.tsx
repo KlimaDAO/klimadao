@@ -30,7 +30,7 @@ import { retirementTokenInfoMap } from "lib/getTokenInfo";
 type Props = {
   beneficiaryAddress: string;
   retirementTotals: string;
-  retirement: KlimaRetire;
+  retirement: KlimaRetire | null;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails?: VerraProjectDetails;
   nameserviceDomain?: string;
@@ -58,8 +58,8 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     tokenIcon: tokenData.icon,
     beneficiaryName: retirementIndexInfo.beneficiaryName,
     retirementMessage: retirementIndexInfo.retirementMessage,
-    timestamp: retirement.timestamp,
-    transactionID: retirement.transaction?.id,
+    timestamp: retirement?.timestamp || null,
+    transactionID: retirement?.transaction?.id || null,
   };
 
   const retiree =
@@ -151,15 +151,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               />
             </div>
             <div className="column">
-              <RetirementDate
-                timestamp={
-                  retireData.timestamp ||
-                  t({
-                    id: "retirement.single.timestamp.placeholder",
-                    message: "No retirement timestamp provided",
-                  })
-                }
-              />
+              <RetirementDate timestamp={retireData.timestamp} />
               <TextGroup
                 title={
                   <Trans id="retirement.single.retirementCertificate.title">
@@ -211,10 +203,12 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           )}
         </div>
       </Section>
-      <ProjectDetails
-        projectDetails={props.projectDetails}
-        offset={props.retirement.offset}
-      />
+      {props.retirement?.offset && (
+        <ProjectDetails
+          projectDetails={props.projectDetails}
+          offset={props.retirement.offset}
+        />
+      )}
       <RetirementFooter />
       <Footer />
     </>
