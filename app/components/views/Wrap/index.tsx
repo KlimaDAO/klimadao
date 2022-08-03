@@ -97,6 +97,14 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
+  const getToken = () => {
+    if (view === WRAP) {
+      return "sklima";
+    } else {
+      return "wsklima";
+    }
+  };
+
   // Approval only needed for wrap, not for unwrap !
   const handleApproval = () => async () => {
     if (!props.provider) return;
