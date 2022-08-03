@@ -399,7 +399,7 @@ export const Wrap: FC<Props> = (props) => {
           title={
             <Text t="h4" className={styles.stakeCard_header_title}>
               <FlipOutlined />
-              {view === "wrap" ? ">Wrap sKLIMA" : "Unwrap sKLIMA"}
+              {view === "wrap" ? "Wrap sKLIMA" : "Unwrap sKLIMA"}
             </Text>
           }
           onCloseModal={closeModal}

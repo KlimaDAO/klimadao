@@ -10,6 +10,7 @@ import {
   AllowancesSpender,
 } from "@klimadao/lib/types/allowances";
 import SendRounded from "@mui/icons-material/SendRounded";
+import CheckIcon from "@mui/icons-material/Check";
 import { tokenInfo } from "lib/getTokenInfo";
 
 import { HighlightValue } from "./HighlightValue";
@@ -82,9 +83,12 @@ export const Approve: FC<Props> = (props) => {
         />
       </div>
       {!!props.status && (
-        <Text t="caption" color="lighter" align="center">
-          {getStatusMessage(props.status)}
-        </Text>
+        <div className={styles.statusMessage}>
+          {success && <CheckIcon />}
+          <Text t="caption" color="lighter" align="center">
+            {getStatusMessage(props.status)}
+          </Text>
+        </div>
       )}
       <div className={styles.buttonRow}>
         {showButtonSpinner && (
