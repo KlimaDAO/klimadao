@@ -29,6 +29,8 @@ import {
 } from "state/user";
 import { ImageCard } from "components/ImageCard";
 import { BalancesCard } from "components/BalancesCard";
+import { TransactionModal } from "components/TransactionModal";
+
 import { useAppDispatch } from "state";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
@@ -55,6 +57,7 @@ const inputPlaceholderMessage = {
 
 const WRAP = "wrap";
 const UNWRAP = "unwrap";
+const SPENDER = "wsklima";
 
 export const Wrap: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
@@ -71,13 +74,14 @@ export const Wrap: FC<Props> = (props) => {
 
   const [view, setView] = useState<typeof WRAP | typeof UNWRAP>(WRAP);
   const [quantity, setQuantity] = useState("");
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
   const wrapAllowance = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
       tokens: ["sklima"],
-      spender: "wsklima",
+      spender: SPENDER,
     })
   );
 
@@ -105,11 +109,16 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
+  const closeModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
   // Approval only needed for wrap, not for unwrap !
-  const handleApproval = () => async () => {
+  const handleApproval = async () => {
     if (!props.provider) return;
     const token = "sklima";
-    const spender = "wsklima";
+    const spender = SPENDER;
     try {
       const currentQuantity = quantity.toString();
       const approvedValue = await changeApprovalTransaction({
@@ -131,10 +140,9 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
-  const handleAction = () => async () => {
+  const handleAction = async () => {
     try {
       if (!quantity || !currentIndex || !props.provider) return;
-      setQuantity("");
       await wrapTransaction({
         action: view,
         token: getToken(),
@@ -147,14 +155,16 @@ export const Wrap: FC<Props> = (props) => {
         dispatch(
           decrementAllowance({
             token: "sklima",
-            spender: "wsklima",
+            spender: SPENDER,
             value: quantity,
           })
         );
       } else {
         dispatch(decrementWrap({ wsklima: quantity, currentIndex }));
       }
+      setQuantity("");
     } catch (e) {
+      console.error(e);
       return;
     }
   };
@@ -204,8 +214,6 @@ export const Wrap: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return { label: "Confirming", onClick: undefined, disabled: true };
-    } else if (!hasApproval()) {
-      return { label: "Approve", onClick: handleApproval() };
     } else if (value && insufficientBalance()) {
       return {
         label: (
@@ -217,13 +225,13 @@ export const Wrap: FC<Props> = (props) => {
     } else if (view === WRAP) {
       return {
         label: WRAP,
-        onClick: handleAction(),
+        onClick: () => setShowTransactionModal(true),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
     } else if (view === UNWRAP) {
       return {
         label: UNWRAP,
-        onClick: handleAction(),
+        onClick: () => setShowTransactionModal(true),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
@@ -385,6 +393,26 @@ export const Wrap: FC<Props> = (props) => {
           </div>
         </div>
       </div>
+
+      {showTransactionModal && (
+        <TransactionModal
+          title={
+            <Text t="h4" className={styles.stakeCard_header_title}>
+              <FlipOutlined />
+              {view === "wrap" ? ">Wrap sKLIMA" : "Unwrap sKLIMA"}
+            </Text>
+          }
+          onCloseModal={closeModal}
+          token={getToken()}
+          spender={SPENDER}
+          value={quantity.toString()}
+          status={fullStatus}
+          onResetStatus={() => setStatus(null)}
+          onApproval={handleApproval}
+          hasApproval={hasApproval()}
+          onSubmit={handleAction}
+        />
+      )}
 
       <ImageCard />
     </>
