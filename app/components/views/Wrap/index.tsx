@@ -170,6 +170,15 @@ export const Wrap: FC<Props> = (props) => {
     ); // Caution: Number trims values down to 17 decimal places of precision;
   };
 
+  const insufficientBalance = () => {
+    const token = getToken();
+    return (
+      props.isConnected &&
+      !isLoading &&
+      Number(quantity) > Number(balances?.[token] ?? "0")
+    );
+  };
+
   const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
@@ -197,9 +206,17 @@ export const Wrap: FC<Props> = (props) => {
       return { label: "Confirming", onClick: undefined, disabled: true };
     } else if (!hasApproval()) {
       return { label: "Approve", onClick: handleApproval() };
-    } else if (view === "wrap") {
+    } else if (value && insufficientBalance()) {
       return {
-        label: "Wrap",
+        label: (
+          <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (view === WRAP) {
+      return {
+        label: WRAP,
         onClick: handleAction(),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
