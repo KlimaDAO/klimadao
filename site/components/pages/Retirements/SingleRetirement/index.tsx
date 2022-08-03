@@ -14,6 +14,7 @@ import { Footer } from "components/Footer";
 import { TweetButton } from "components/TweetButton";
 import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
+import { DownloadCertificateButton } from "./DownloadCertificateButton";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
@@ -158,11 +159,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                     Certificate
                   </Trans>
                 }
-                text={
-                  <Trans id="retirement.single.retirementCertificate.soon">
-                    ...coming soon!
-                  </Trans>
-                }
+                text={<DownloadCertificateButton />}
               />
             </div>
           </div>
@@ -175,6 +172,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           </Text>
         </div>
       </Section>
+
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
           <TweetButton
@@ -185,6 +183,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           <LinkedInButton />
         </div>
       </Section>
+
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
           <CopyURLButton />
@@ -203,12 +202,14 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           )}
         </div>
       </Section>
+
       {props.retirement?.offset && (
         <ProjectDetails
           projectDetails={props.projectDetails}
           offset={props.retirement.offset}
         />
       )}
+
       <RetirementFooter />
       <Footer />
     </>
