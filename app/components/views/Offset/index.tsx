@@ -56,6 +56,7 @@ import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard"
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
+import { TransactionModal } from "components/TransactionModal";
 
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
@@ -113,6 +114,7 @@ export const Offset = (props: Props) => {
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
@@ -204,6 +206,11 @@ export const Offset = (props: Props) => {
     selectedRetirementToken,
   ]);
 
+  const closeModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
   const handleOnSuccessModalClose = () => {
     setQuantity("0");
     setDebouncedQuantity("0");
@@ -284,12 +291,18 @@ export const Offset = (props: Props) => {
     Number(cost) > Number(balances?.[selectedInputToken] ?? "0");
 
   const hasApproval = () => {
+    console.log(
+      "allowances?.[selectedInputToken] ",
+      allowances?.[selectedInputToken]
+    );
     return (
-      allowances?.[selectedInputToken] &&
+      !!allowances?.[selectedInputToken] &&
       !!Number(allowances?.[selectedInputToken]) &&
       Number(cost) <= Number(allowances?.[selectedInputToken]) // Caution: Number trims values down to 17 decimal places of precision
     );
   };
+
+  console.log("hasApproval", hasApproval());
 
   const getButtonProps = (): ButtonProps => {
     if (!props.isConnected) {
@@ -330,14 +343,16 @@ export const Offset = (props: Props) => {
     } else if (!hasApproval()) {
       return {
         label: <Trans id="shared.approve">APPROVE</Trans>,
-        onClick: handleApprove,
+        onClick: () => {
+          setShowTransactionModal(true);
+        },
         disabled: false,
       };
     }
     return {
       label: <Trans id="shared.retire">RETIRE CARBON</Trans>,
       onClick: () => {
-        handleRetire();
+        setShowTransactionModal(true);
       },
       disabled: false,
     };
@@ -613,6 +628,26 @@ export const Offset = (props: Props) => {
           </div>
         </div>
       </div>
+
+      {showTransactionModal && (
+        <TransactionModal
+          title={
+            <Text t="h4" className={styles.offsetCard_header_title}>
+              <ParkOutlined />
+              <Trans id="offset.retire_carbon">Retire Carbon</Trans>
+            </Text>
+          }
+          onCloseModal={closeModal}
+          token={selectedInputToken}
+          spender={"retirementAggregator"}
+          value={cost.toString()}
+          status={fullStatus}
+          onResetStatus={() => setStatus(null)}
+          onApproval={handleApprove}
+          hasApproval={hasApproval()}
+          onSubmit={handleRetire}
+        />
+      )}
 
       {retirementTransactionHash && (
         <RetirementSuccessModal

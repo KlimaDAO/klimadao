@@ -62,7 +62,7 @@ export const NotificationModal: FC = () => {
   });
 
   // temp fix to not show this modal on specific routes until this component can be removed completely
-  if (pathname === "/stake") return null;
+  if (pathname === "/stake" || pathname === "/offset") return null;
 
   if (!status) return null;
 
