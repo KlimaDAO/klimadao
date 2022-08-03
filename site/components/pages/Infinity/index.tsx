@@ -5,6 +5,7 @@ import { Trans, t } from "@lingui/macro";
 import {
   Section,
   ButtonPrimary,
+  ButtonSecondary,
   Text,
   KlimaInfinityLogo,
 } from "@klimadao/lib/components";
@@ -111,9 +112,8 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
                   })}
                   href={linkToBlogUserGuide}
                 />
-                <ButtonPrimary
+                <ButtonSecondary
                   variant="blueRounded"
-                  secondary
                   label={t({
                     message: "Contact Sales",
                     id: "shared.contact_sales",
@@ -705,8 +705,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
               variant="blueRounded"
               href={linkToBlogUserGuide}
             />
-            <ButtonPrimary
-              secondary
+            <ButtonSecondary
               label={t({
                 message: "Contact Sales",
                 id: "shared.contact_sales",
