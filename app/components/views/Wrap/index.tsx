@@ -53,6 +53,9 @@ const inputPlaceholderMessage = {
   }),
 };
 
+const WRAP = "wrap";
+const UNWRAP = "unwrap";
+
 export const Wrap: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
 
@@ -66,7 +69,7 @@ export const Wrap: FC<Props> = (props) => {
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
-  const [view, setView] = useState<"wrap" | "unwrap">("wrap");
+  const [view, setView] = useState<typeof WRAP | typeof UNWRAP>(WRAP);
   const [quantity, setQuantity] = useState("");
 
   const { currentIndex } = useSelector(selectAppState);
@@ -87,7 +90,7 @@ export const Wrap: FC<Props> = (props) => {
 
   const setMax = () => {
     setStatus(null);
-    if (view === "wrap") {
+    if (view === WRAP) {
       setQuantity(balances?.sklima ?? "0");
     } else {
       setQuantity(balances?.wsklima ?? "0");
@@ -130,7 +133,7 @@ export const Wrap: FC<Props> = (props) => {
         value: quantity,
         onStatus: setStatus,
       });
-      if (action === "wrap") {
+      if (view === WRAP) {
         dispatch(incrementWrap({ sklima: quantity, currentIndex }));
         dispatch(
           decrementAllowance({
@@ -189,10 +192,10 @@ export const Wrap: FC<Props> = (props) => {
         onClick: handleAction("wrap"),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
-    } else if (view === "unwrap") {
+    } else if (view === UNWRAP) {
       return {
-        label: "Unwrap",
         onClick: handleAction("unwrap"),
+        label: UNWRAP,
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
@@ -201,9 +204,9 @@ export const Wrap: FC<Props> = (props) => {
   };
 
   const youWillGet = () => {
-    const suffix = view === "wrap" ? "wsKLIMA" : "sKLIMA";
+    const suffix = view === WRAP ? "wsKLIMA" : "sKLIMA";
     if (!quantity || !currentIndex) return `0 ${suffix}`;
-    if (view === "wrap") {
+    if (view === WRAP) {
       // BigNumber doesn't support decimals so I'm not sure the safest way to divide and multiply...
       return `${Number(quantity) / Number(currentIndex)} ${suffix}`;
     }
@@ -255,9 +258,9 @@ export const Wrap: FC<Props> = (props) => {
                 type="button"
                 onClick={() => {
                   setQuantity("");
-                  setView("wrap");
+                  setView(WRAP);
                 }}
-                data-active={view === "wrap"}
+                data-active={view === WRAP}
               >
                 <Trans id="wrap.wrap">Wrap</Trans>
               </button>
@@ -266,9 +269,9 @@ export const Wrap: FC<Props> = (props) => {
                 type="button"
                 onClick={() => {
                   setQuantity("");
-                  setView("unwrap");
+                  setView(UNWRAP);
                 }}
-                data-active={view === "unwrap"}
+                data-active={view === UNWRAP}
               >
                 <Trans id="wrap.unwrap">Unwrap</Trans>
               </button>
@@ -331,7 +334,7 @@ export const Wrap: FC<Props> = (props) => {
                 : "loading..."}
             </div>
             <div className={styles.infoTable_value}>
-              {view === "wrap"
+              {view === WRAP
                 ? trimWithPlaceholder(balances?.sklima ?? 0, 6, locale) +
                   " sKLIMA"
                 : trimWithPlaceholder(balances?.wsklima ?? 0, 6, locale) +
