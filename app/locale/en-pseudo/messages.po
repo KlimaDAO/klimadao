@@ -27,7 +27,7 @@ msgstr ""
 msgid "Wrong Network"
 msgstr ""
 
-#: components/views/Offset/index.tsx:751
+#: components/views/Offset/index.tsx:755
 msgid "advanced"
 msgstr ""
 
@@ -424,11 +424,11 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
-#: components/views/Offset/index.tsx:592
+#: components/views/Offset/index.tsx:576
 msgid "offset.aggregation_fee_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:470
+#: components/views/Offset/index.tsx:454
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
@@ -436,15 +436,15 @@ msgstr ""
 msgid "offset.breakdown"
 msgstr ""
 
-#: components/views/Offset/index.tsx:560
+#: components/views/Offset/index.tsx:544
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:496
+#: components/views/Offset/index.tsx:480
 msgid "offset.dropdown_payWith.label"
 msgstr ""
 
-#: components/views/Offset/index.tsx:511
+#: components/views/Offset/index.tsx:495
 msgid "offset.dropdown_retire.label"
 msgstr ""
 
@@ -452,28 +452,28 @@ msgstr ""
 msgid "offset.empty"
 msgstr ""
 
-#: components/views/Offset/index.tsx:554
-#: components/views/Offset/index.tsx:780
+#: components/views/Offset/index.tsx:538
+#: components/views/Offset/index.tsx:784
 msgid "offset.enter_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:450
+#: components/views/Offset/index.tsx:434
 msgid "offset.go_carbon_neutral"
 msgstr ""
 
-#: components/views/Offset/index.tsx:429
+#: components/views/Offset/index.tsx:413
 msgid "offset.incompatible"
 msgstr ""
 
-#: components/views/Offset/index.tsx:458
+#: components/views/Offset/index.tsx:442
 msgid "offset.lifi"
 msgstr ""
 
-#: components/views/Offset/index.tsx:497
+#: components/views/Offset/index.tsx:481
 msgid "offset.modal_payWith.title"
 msgstr ""
 
-#: components/views/Offset/index.tsx:515
+#: components/views/Offset/index.tsx:499
 msgid "offset.modal_retire.title"
 msgstr ""
 
@@ -481,55 +481,56 @@ msgstr ""
 msgid "offset.number_of_retirements"
 msgstr ""
 
-#: components/views/Offset/index.tsx:487
+#: components/views/Offset/index.tsx:471
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/views/Offset/index.tsx:447
+#: components/views/Offset/index.tsx:431
+#: components/views/Offset/index.tsx:632
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/views/Offset/index.tsx:758
+#: components/views/Offset/index.tsx:762
 msgid "offset.retire_specific"
 msgstr ""
 
-#: components/views/Offset/index.tsx:764
+#: components/views/Offset/index.tsx:768
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:540
+#: components/views/Offset/index.tsx:524
 msgid "offset.retirement_beneficiary"
 msgstr ""
 
-#: components/views/Offset/index.tsx:532
+#: components/views/Offset/index.tsx:516
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/views/Offset/index.tsx:569
+#: components/views/Offset/index.tsx:553
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/views/Offset/index.tsx:578
+#: components/views/Offset/index.tsx:562
 msgid "offset.retirement_purpose"
 msgstr ""
 
-#: components/views/Offset/index.tsx:610
+#: components/views/Offset/index.tsx:594
 msgid "offset.retiring"
 msgstr ""
 
-#: components/views/Offset/index.tsx:674
+#: components/views/Offset/index.tsx:678
 msgid "offset.successModal.body1"
 msgstr ""
 
-#: components/views/Offset/index.tsx:683
+#: components/views/Offset/index.tsx:687
 msgid "offset.successModal.body2"
 msgstr ""
 
-#: components/views/Offset/index.tsx:697
+#: components/views/Offset/index.tsx:701
 msgid "offset.successModal.cta"
 msgstr ""
 
-#: components/views/Offset/index.tsx:667
+#: components/views/Offset/index.tsx:671
 msgid "offset.successModal.title"
 msgstr ""
 
@@ -541,11 +542,11 @@ msgstr ""
 msgid "offset.you_have_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:588
+#: components/views/Offset/index.tsx:572
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/Offset/index.tsx:621
+#: components/views/Offset/index.tsx:605
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -613,10 +614,9 @@ msgstr ""
 msgid "pklima.update"
 msgstr ""
 
+#: components/TransactionModal/Approve.tsx:93
 #: components/views/Bond/index.tsx:428
-#: components/views/Offset/index.tsx:358
-#: components/views/Stake/index.tsx:244
-#: components/views/Stake/index.tsx:250
+#: components/views/Offset/index.tsx:340
 msgid "shared.approve"
 msgstr ""
 
@@ -630,15 +630,14 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:406
 #: components/views/PKlima/index.tsx:165
-#: components/views/Stake/index.tsx:238
 msgid "shared.confirming"
 msgstr ""
 
 #: components/views/Bond/index.tsx:379
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:323
+#: components/views/Offset/index.tsx:305
 #: components/views/PKlima/index.tsx:150
-#: components/views/Stake/index.tsx:209
+#: components/views/Stake/index.tsx:233
 #: components/views/Wrap/index.tsx:163
 msgid "shared.connect_wallet"
 msgstr ""
@@ -647,30 +646,30 @@ msgstr ""
 msgid "shared.copy_wallet_address"
 msgstr ""
 
-#: components/views/Stake/index.tsx:259
-#: components/views/Stake/index.tsx:269
+#: components/views/Stake/index.tsx:262
+#: components/views/Stake/index.tsx:272
 msgid "shared.enter_amount"
 msgstr ""
 
 #: components/views/Bond/index.tsx:391
-#: components/views/Offset/index.tsx:335
-#: components/views/Stake/index.tsx:221
+#: components/views/Offset/index.tsx:317
+#: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:175
 msgid "shared.enter_quantity"
 msgstr ""
 
 #: components/views/Bond/index.tsx:448
 #: components/views/Bond/index.tsx:467
-#: components/views/Stake/index.tsx:277
+#: components/views/Stake/index.tsx:280
 msgid "shared.error"
 msgstr ""
 
-#: components/views/Offset/index.tsx:351
-#: components/views/Stake/index.tsx:228
+#: components/views/Offset/index.tsx:333
+#: components/views/Stake/index.tsx:252
 msgid "shared.insufficient_balance"
 msgstr ""
 
-#: components/views/Offset/index.tsx:344
+#: components/views/Offset/index.tsx:326
 msgid "shared.invalid_inputs"
 msgstr ""
 
@@ -679,25 +678,25 @@ msgstr ""
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:385
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:329
-#: components/views/Offset/index.tsx:415
+#: components/views/Offset/index.tsx:311
+#: components/views/Offset/index.tsx:399
 #: components/views/PKlima/index.tsx:156
-#: components/views/Stake/index.tsx:215
-#: components/views/Stake/index.tsx:432
-#: components/views/Stake/index.tsx:439
-#: components/views/Stake/index.tsx:446
+#: components/views/Stake/index.tsx:239
+#: components/views/Stake/index.tsx:435
+#: components/views/Stake/index.tsx:442
+#: components/views/Stake/index.tsx:449
 #: components/views/Wrap/index.tsx:169
 msgid "shared.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:585
 #: components/views/PKlima/index.tsx:237
-#: components/views/Stake/index.tsx:373
+#: components/views/Stake/index.tsx:376
 #: components/views/Wrap/index.tsx:295
 msgid "shared.max"
 msgstr ""
 
-#: components/views/Offset/index.tsx:364
+#: components/views/Offset/index.tsx:348
 msgid "shared.retire"
 msgstr ""
 
@@ -709,28 +708,28 @@ msgstr ""
 msgid "shared.wallet_address_copied"
 msgstr ""
 
-#: components/views/Stake/index.tsx:386
+#: components/views/Stake/index.tsx:389
 msgid "stake.5_day_rewards"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:389
+#: components/views/Stake/index.tsx:392
 msgid "stake.5_day_rewards.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:402
+#: components/views/Stake/index.tsx:405
 msgid "stake.akr"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:405
+#: components/views/Stake/index.tsx:408
 msgid "stake.akr.tooltip"
 msgstr ""
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:124
-#: components/views/Stake/index.tsx:295
+#: components/views/Stake/index.tsx:298
 msgid "stake.balancescard.tooltip"
 msgstr ""
 
@@ -738,24 +737,24 @@ msgstr ""
 msgid "stake.estimated_payout"
 msgstr ""
 
-#: components/views/Stake/index.tsx:416
+#: components/views/Stake/index.tsx:419
 msgid "stake.index"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:419
+#: components/views/Stake/index.tsx:422
 msgid "stake.index.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:58
+#: components/views/Stake/index.tsx:59
 msgid "stake.inputplaceholder.stake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:62
+#: components/views/Stake/index.tsx:63
 msgid "stake.inputplaceholder.unstake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:316
+#: components/views/Stake/index.tsx:319
 msgid "stake.lifi"
 msgstr ""
 
@@ -775,24 +774,26 @@ msgstr ""
 msgid "stake.rebase.info"
 msgstr ""
 
-#: components/views/Stake/index.tsx:336
+#: components/views/Stake/index.tsx:339
 msgid "stake.stake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:310
+#: components/views/Stake/index.tsx:313
 msgid "stake.stake_hold_earn"
 msgstr ""
 
-#: components/views/Stake/index.tsx:257
-#: components/views/Stake/index.tsx:307
+#: components/views/Stake/index.tsx:260
+#: components/views/Stake/index.tsx:310
+#: components/views/Stake/index.tsx:475
 msgid "stake.stake_klima"
 msgstr ""
 
-#: components/views/Stake/index.tsx:348
+#: components/views/Stake/index.tsx:351
 msgid "stake.unstake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:267
+#: components/views/Stake/index.tsx:270
+#: components/views/Stake/index.tsx:477
 msgid "stake.unstake_klima"
 msgstr ""
 
@@ -818,6 +819,50 @@ msgstr ""
 
 #: components/NavMenu/index.tsx:212
 msgid "token.pKLIMA"
+msgstr ""
+
+#: components/TransactionModal/Approve.tsx:67
+msgid "transaction_modal.allow_amount.amount"
+msgstr ""
+
+#: components/TransactionModal/Approve.tsx:44
+msgid "transaction_modal.approve.allow_amount"
+msgstr ""
+
+#: components/TransactionModal/Approve.tsx:52
+msgid "transaction_modal.approve.allow_amount.contract_owner"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:99
+msgid "transaction_modal.close"
+msgstr ""
+
+#: components/TransactionModal/Approve.tsx:106
+msgid "transaction_modal.next"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:65
+msgid "transaction_modal.submit.amount"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:89
+msgid "transaction_modal.submit.button"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:43
+msgid "transaction_modal.submit.confirm_transaction"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:50
+msgid "transaction_modal.submit.contract_owner"
+msgstr ""
+
+#: components/TransactionModal/index.tsx:52
+msgid "transaction_modal.view.approve.title"
+msgstr ""
+
+#: components/TransactionModal/index.tsx:62
+msgid "transaction_modal.view.submit.title"
 msgstr ""
 
 #: components/ConnectButton/index.tsx:20
