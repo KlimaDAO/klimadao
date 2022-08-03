@@ -161,6 +161,8 @@ export const Wrap: FC<Props> = (props) => {
 
   // Approval only needed for wrap, not for unwrap
   const hasApproval = () => {
+    if (view === UNWRAP) return true;
+
     return (
       !!wrapAllowance &&
       !!Number(wrapAllowance.sklima) &&
@@ -193,7 +195,7 @@ export const Wrap: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return { label: "Confirming", onClick: undefined, disabled: true };
-    } else if (view === "wrap" && !hasApproval()) {
+    } else if (!hasApproval()) {
       return { label: "Approve", onClick: handleApproval() };
     } else if (view === "wrap") {
       return {
