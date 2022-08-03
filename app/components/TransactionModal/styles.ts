@@ -11,6 +11,15 @@ export const container = css`
   border-radius: 1.2rem;
 `;
 
+export const contentContainer = css`
+  display: grid;
+  gap: 2rem;
+
+  &.success {
+    opacity: 0.3;
+  }
+`;
+
 export const viewSwitch = css`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -45,6 +54,17 @@ export const switchButton = css`
 
   &:disabled {
     opacity: 50%;
+  }
+`;
+
+export const statusMessage = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+
+  & svg {
+    color: var(--klima-green);
   }
 `;
 

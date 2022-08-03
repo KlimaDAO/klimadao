@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { Trans } from "@lingui/macro";
+import { cx } from "@emotion/css";
+
 import { AppNotificationStatus } from "state/app";
 import { getSpenderAddress, concatAddress } from "@klimadao/lib/utils";
 import { getStatusMessage } from "actions/utils";
@@ -40,39 +42,45 @@ export const Approve: FC<Props> = (props) => {
 
   return (
     <>
-      <Text>
-        <Trans id="transaction_modal.approve.allow_amount">
-          You must first approve the contract with the spender so that you can
-          spend the amount you want.
-        </Trans>
-      </Text>
-      <HighlightValue
-        label={
-          <Text t="caption" color="lighter">
-            <Trans id="transaction_modal.approve.allow_amount.contract_owner">
-              Contract Owner:
-            </Trans>
-          </Text>
-        }
-        value={
-          spenderAddress
-            ? concatAddress(spenderAddress)
-            : "Unknown Contract Owner"
-        }
-        warn={!spenderAddress}
-      />
-      <HighlightValue
-        label={
-          <Text t="caption" color="lighter">
-            <Trans id="transaction_modal.allow_amount.amount">
-              Approve allowance to spend:
-            </Trans>
-          </Text>
-        }
-        value={props.value || "0"}
-        icon={tokenInfo[props.token].icon}
-        iconName={props.token}
-      />
+      <div
+        className={cx(styles.contentContainer, {
+          success,
+        })}
+      >
+        <Text>
+          <Trans id="transaction_modal.approve.allow_amount">
+            You must first approve the contract with the spender so that you can
+            spend the amount you want.
+          </Trans>
+        </Text>
+        <HighlightValue
+          label={
+            <Text t="caption" color="lighter">
+              <Trans id="transaction_modal.approve.allow_amount.contract_owner">
+                Contract Owner:
+              </Trans>
+            </Text>
+          }
+          value={
+            spenderAddress
+              ? concatAddress(spenderAddress)
+              : "Unknown Contract Owner"
+          }
+          warn={!spenderAddress}
+        />
+        <HighlightValue
+          label={
+            <Text t="caption" color="lighter">
+              <Trans id="transaction_modal.allow_amount.amount">
+                Approve allowance to spend:
+              </Trans>
+            </Text>
+          }
+          value={props.value || "0"}
+          icon={tokenInfo[props.token].icon}
+          iconName={props.token}
+        />
+      </div>
       {!!props.status && (
         <Text t="caption" color="lighter" align="center">
           {getStatusMessage(props.status)}

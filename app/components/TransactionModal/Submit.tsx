@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { Trans } from "@lingui/macro";
+import { cx } from "@emotion/css";
+
 import { AppNotificationStatus } from "state/app";
 import { getSpenderAddress, concatAddress } from "@klimadao/lib/utils";
 import { getStatusMessage } from "actions/utils";
@@ -8,6 +10,7 @@ import {
   AllowancesSpender,
 } from "@klimadao/lib/types/allowances";
 import SendRounded from "@mui/icons-material/SendRounded";
+import CheckIcon from "@mui/icons-material/Check";
 import { tokenInfo } from "lib/getTokenInfo";
 
 import { HighlightValue } from "./HighlightValue";
@@ -39,40 +42,51 @@ export const Submit: FC<Props> = (props) => {
 
   return (
     <>
-      <Text>
-        <Trans id="transaction_modal.submit.confirm_transaction">
-          Pleaser submit the transaction.
-        </Trans>
-      </Text>
-      <HighlightValue
-        label={
-          <Text t="caption" color="lighter">
-            <Trans id="transaction_modal.submit.contract_owner">
-              Contract Owner:
-            </Trans>
-          </Text>
-        }
-        value={
-          spenderAddress
-            ? concatAddress(spenderAddress)
-            : "Unknown Contract Owner"
-        }
-        warn={!spenderAddress}
-      />
-      <HighlightValue
-        label={
-          <Text t="caption" color="lighter">
-            <Trans id="transaction_modal.submit.amount">Confirm amount:</Trans>
-          </Text>
-        }
-        value={props.value || "0"}
-        icon={tokenInfo[props.token].icon}
-        iconName={props.token}
-      />
-      {!!props.status && (
-        <Text t="caption" color="lighter" align="center">
-          {getStatusMessage(props.status)}
+      <div
+        className={cx(styles.contentContainer, {
+          success,
+        })}
+      >
+        <Text>
+          <Trans id="transaction_modal.submit.confirm_transaction">
+            Pleaser submit the transaction.
+          </Trans>
         </Text>
+        <HighlightValue
+          label={
+            <Text t="caption" color="lighter">
+              <Trans id="transaction_modal.submit.contract_owner">
+                Contract Owner:
+              </Trans>
+            </Text>
+          }
+          value={
+            spenderAddress
+              ? concatAddress(spenderAddress)
+              : "Unknown Contract Owner"
+          }
+          warn={!spenderAddress}
+        />
+        <HighlightValue
+          label={
+            <Text t="caption" color="lighter">
+              <Trans id="transaction_modal.submit.amount">
+                Confirm amount:
+              </Trans>
+            </Text>
+          }
+          value={props.value || "0"}
+          icon={tokenInfo[props.token].icon}
+          iconName={props.token}
+        />
+      </div>
+      {!!props.status && (
+        <div className={styles.statusMessage}>
+          {success && <CheckIcon />}
+          <Text t="caption" color="lighter" align="center">
+            {getStatusMessage(props.status)}
+          </Text>
+        </div>
       )}
       <div className={styles.buttonRow}>
         {showButtonSpinner && (
