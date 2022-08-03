@@ -137,6 +137,7 @@ export const Wrap: FC<Props> = (props) => {
       setQuantity("");
       await wrapTransaction({
         action,
+        token: getToken(),
         provider: props.provider,
         value: quantity,
         onStatus: setStatus,
