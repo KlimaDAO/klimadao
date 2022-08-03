@@ -131,12 +131,12 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
-  const handleAction = (action: "wrap" | "unwrap") => async () => {
+  const handleAction = () => async () => {
     try {
       if (!quantity || !currentIndex || !props.provider) return;
       setQuantity("");
       await wrapTransaction({
-        action,
+        action: view,
         token: getToken(),
         provider: props.provider,
         value: quantity,
@@ -200,13 +200,13 @@ export const Wrap: FC<Props> = (props) => {
     } else if (view === "wrap") {
       return {
         label: "Wrap",
-        onClick: handleAction("wrap"),
+        onClick: handleAction(),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
     } else if (view === UNWRAP) {
       return {
-        onClick: handleAction("unwrap"),
         label: UNWRAP,
+        onClick: handleAction(),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
