@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
-import { StaticImageData } from "components/Image";
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
@@ -50,18 +49,12 @@ import {
   urls,
 } from "@klimadao/lib/constants";
 
+import { tokenInfo } from "lib/getTokenInfo";
+
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
-
-import BCT from "public/icons/BCT.png";
-import NCT from "public/icons/NCT.png";
-import MCO2 from "public/icons/MCO2.png";
-import KLIMA from "public/icons/KLIMA.png";
-import USDC from "public/icons/USDC.png";
-import UBO from "public/icons/UBO.png";
-import NBO from "public/icons/NBO.png";
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 
 import * as styles from "./styles";
@@ -75,25 +68,6 @@ interface ButtonProps {
   onClick: undefined | (() => void);
   disabled: boolean;
 }
-
-type TokenInfoMap = {
-  [key in RetirementToken | OffsetInputToken]: {
-    key: string;
-    icon: StaticImageData;
-    label: string;
-  };
-};
-const tokenInfo: TokenInfoMap = {
-  ubo: { key: "ubo", icon: UBO, label: "UBO" },
-  nbo: { key: "nbo", icon: NBO, label: "NBO" },
-  bct: { key: "bct", icon: BCT, label: "BCT" },
-  nct: { key: "nct", icon: NCT, label: "NCT" },
-  mco2: { key: "mco2", icon: MCO2, label: "MCO2" },
-  usdc: { key: "usdc", icon: USDC, label: "USDC" },
-  klima: { key: "klima", icon: KLIMA, label: "KLIMA" },
-  sklima: { key: "sklima", icon: KLIMA, label: "sKLIMA" },
-  wsklima: { key: "wsklima", icon: KLIMA, label: "wsKLIMA" },
-};
 
 interface Props {
   provider?: providers.JsonRpcProvider;
