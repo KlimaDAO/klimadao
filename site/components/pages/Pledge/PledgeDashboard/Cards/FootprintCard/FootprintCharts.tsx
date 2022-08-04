@@ -81,7 +81,6 @@ export const PlaceholderFootprintChart: FC = () => (
       fill="var(--surface-01)"
       outerRadius={90}
       innerRadius={72}
-      isAnimationActive={true}
     />
   </PieChart>
 );

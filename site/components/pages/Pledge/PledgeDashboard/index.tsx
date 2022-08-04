@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NextPage } from "next";
-import {
-  concatAddress,
-  getRetirementTotalsAndBalances,
-  useWeb3,
-} from "@klimadao/lib/utils";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import { PageHead } from "components/PageHead";
@@ -20,38 +16,25 @@ import {
 import { Profile } from "./Profile";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
-import { Pledge } from "../types";
+import { Holding, Pledge } from "../types";
 import * as styles from "./styles";
 
 type Props = {
   canonicalUrl: string;
   domain: string | null;
+  holdings: Holding[];
   pageAddress: string;
   pledge: Pledge;
+  retirements: RetirementsTotalsAndBalances;
 };
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const { address, isConnected } = useWeb3();
   const [showModal, setShowModal] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(props.pledge);
-  const [retirements, setRetirements] =
-    useState<RetirementsTotalsAndBalances | null>(null);
 
   const canEditPledge =
     address?.toLowerCase() === props.pageAddress && isConnected;
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const retirements = await getRetirementTotalsAndBalances({
-          address: props.pageAddress,
-        });
-        setRetirements(retirements);
-      } catch (e) {
-        console.error(e);
-      }
-    })();
-  }, []);
 
   const handleFormSubmit = async (data: Pledge) => {
     setPledge(data);
@@ -84,7 +67,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         <Profile
           domain={props.domain}
           pledge={props.pledge}
-          retirements={retirements}
+          retirements={props.retirements}
         />
 
         <div className={styles.column}>
@@ -94,10 +77,13 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.column}>
-          <AssetBalanceCard pageAddress={props.pageAddress} />
-          <RetirementsCard
+          <AssetBalanceCard
+            holdings={props.holdings}
             pageAddress={props.pageAddress}
-            retirements={retirements}
+          />
+          <RetirementsCard
+            retirements={props.retirements}
+            pageAddress={props.pageAddress}
           />
         </div>
       </div>
