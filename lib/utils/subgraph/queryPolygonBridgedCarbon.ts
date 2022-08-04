@@ -41,6 +41,7 @@ export const queryKlimaRetireByIndex = async (
                 standard
                 vintage
                 methodology
+                category
               }
             }
           }
