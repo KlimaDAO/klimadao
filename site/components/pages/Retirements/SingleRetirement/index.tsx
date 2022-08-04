@@ -63,6 +63,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     transactionID: retirement?.transaction?.id || null,
   };
 
+  console.log(props.retirement?.offset);
   const retiree =
     retireData.beneficiaryName ||
     nameserviceDomain ||
