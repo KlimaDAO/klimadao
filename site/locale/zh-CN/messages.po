@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-04 01:18+0000\n"
+"POT-Creation-Date: 2022-08-04 14:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr "进入App"
 msgid "Episodes"
 msgstr "集"
 
-#: components/pages/Infinity/index.tsx:544
+#: components/pages/Infinity/index.tsx:545
 msgid "Frequently Asked Questions"
 msgstr "常见问题"
 
@@ -539,7 +539,7 @@ msgstr "500 - 页面不存在"
 msgid "error.page.500.title"
 msgstr "500 - 页面不存在"
 
-#: components/pages/Infinity/index.tsx:499
+#: components/pages/Infinity/index.tsx:500
 msgid "featured.title"
 msgstr "KlimaDAO 精选于"
 
@@ -670,35 +670,35 @@ msgstr "<0>{0}% 每周奖励</0><1>对代币持有者</1>"
 msgid "home.welcome_to_klimadao"
 msgstr "<0>欢迎来到</0><1>KlimaDAO</1>"
 
-#: components/pages/Infinity/index.tsx:159
+#: components/pages/Infinity/index.tsx:160
 msgid "infinity.affordable_subtitle"
 msgstr "经济实惠"
 
-#: components/pages/Infinity/index.tsx:154
+#: components/pages/Infinity/index.tsx:155
 msgid "infinity.affordable_title"
 msgstr "实时定价，交易成本低"
 
-#: components/pages/Infinity/index.tsx:400
+#: components/pages/Infinity/index.tsx:401
 msgid "infinity.box_amount_104k"
 msgstr "104000"
 
-#: components/pages/Infinity/index.tsx:386
+#: components/pages/Infinity/index.tsx:387
 msgid "infinity.box_amount_11k"
 msgstr "11000"
 
-#: components/pages/Infinity/index.tsx:382
+#: components/pages/Infinity/index.tsx:383
 msgid "infinity.box_title"
 msgstr "最近一次的碳抵消"
 
-#: components/pages/Infinity/index.tsx:396
+#: components/pages/Infinity/index.tsx:397
 msgid "infinity.box_title2"
 msgstr "已停用的总碳吨"
 
-#: components/pages/Infinity/index.tsx:678
+#: components/pages/Infinity/index.tsx:679
 msgid "infinity.button.read_blog_faq"
 msgstr "阅读为 KI 客户准备的深入问题及解答"
 
-#: components/pages/Infinity/index.tsx:350
+#: components/pages/Infinity/index.tsx:351
 msgid "infinity.button.read_blog_polygon"
 msgstr "阅读 Polygon 的故事"
 
@@ -706,193 +706,193 @@ msgstr "阅读 Polygon 的故事"
 msgid "infinity.cards_slider.title"
 msgstr "数十家组织已通过 Klima Infinity 抵消了超过 150,000 吨碳"
 
-#: components/pages/Infinity/index.tsx:314
+#: components/pages/Infinity/index.tsx:315
 msgid "infinity.carousel_image_description"
 msgstr "印度 Jaibhim 的风力发电项目"
 
-#: components/pages/Infinity/index.tsx:326
+#: components/pages/Infinity/index.tsx:327
 msgid "infinity.carousel_info_subtitle"
 msgstr "为推动减缓气候变化的项目筹集资金"
 
-#: components/pages/Infinity/index.tsx:321
+#: components/pages/Infinity/index.tsx:322
 msgid "infinity.carousel_info_title"
 msgstr "支持高质量项目"
 
-#: components/pages/Infinity/index.tsx:694
+#: components/pages/Infinity/index.tsx:698
 msgid "infinity.cta_title"
 msgstr "适用贵公司/组织的下一代碳工具包。"
 
-#: components/pages/Infinity/index.tsx:571
+#: components/pages/Infinity/index.tsx:572
 msgid "infinity.faq_answer1"
 msgstr "一个单位的碳抵消，表示从大气中去除一吨二氧化碳的当量 (tCO2e)，或避免一吨二氧化碳的排放。"
 
-#: components/pages/Infinity/index.tsx:607
+#: components/pages/Infinity/index.tsx:608
 msgid "infinity.faq_answer2_paragraph1"
 msgstr "碳信用是一种有着高完整性的机制，它允许碳融资从污染者向全球有助于减轻或消除大气中碳排放的项目转变。它们是一种有价值的工具，可以覆盖因为无法避免的排放，带来的高昂成本或技术挑战。"
 
-#: components/pages/Infinity/index.tsx:617
+#: components/pages/Infinity/index.tsx:618
 msgid "infinity.faq_answer2_paragraph2"
 msgstr "当您购买碳信用额度时，Klima Infinity 让您能够停用此碳信用的额度，并将其永久的从流通中移除。该停用的时间节点是您可以要求碳补偿收益的时间节点。"
 
-#: components/pages/Infinity/index.tsx:625
+#: components/pages/Infinity/index.tsx:626
 msgid "infinity.faq_answer2_paragraph3"
 msgstr "在经济中，购买的碳抵消让减排变得可衡量和负责任的，同时也能“抵消”不可避免的碳足迹。碳信用额的交易和报废促成了一种为碳定价的市场机制。"
 
-#: components/pages/Infinity/index.tsx:662
+#: components/pages/Infinity/index.tsx:663
 msgid "infinity.faq_answer3"
 msgstr "碳市场的目标是通过设定排放限制和实现排放单位的交易，以经济有效地减少温室气体（GHG，或“碳”）的排放，这些金融工具都是减排的代表。交易让以成本较高的排放实体向能够以较低成本减排的实体支付费用，来降低减排的经济成本。"
 
-#: components/pages/Infinity/index.tsx:557
+#: components/pages/Infinity/index.tsx:558
 msgid "infinity.faq_question1"
 msgstr "1. 什么是碳抵消？"
 
-#: components/pages/Infinity/index.tsx:591
+#: components/pages/Infinity/index.tsx:592
 msgid "infinity.faq_question2"
 msgstr "2. 碳抵消在应对气候变化上有何帮助？"
 
-#: components/pages/Infinity/index.tsx:648
+#: components/pages/Infinity/index.tsx:649
 msgid "infinity.faq_question3"
 msgstr "3. 什么是碳市场？"
 
-#: components/pages/Infinity/index.tsx:136
+#: components/pages/Infinity/index.tsx:137
 msgid "infinity.fast_subtitle"
 msgstr "在几秒钟内抵消，没有繁文缛节"
 
-#: components/pages/Infinity/index.tsx:141
+#: components/pages/Infinity/index.tsx:142
 msgid "infinity.fast_title"
 msgstr "快速地"
 
-#: components/pages/Infinity/index.tsx:245
+#: components/pages/Infinity/index.tsx:246
 msgid "infinity.getStarted_1"
 msgstr "1"
 
-#: components/pages/Infinity/index.tsx:259
+#: components/pages/Infinity/index.tsx:260
 msgid "infinity.getStarted_2"
 msgstr "2"
 
-#: components/pages/Infinity/index.tsx:248
+#: components/pages/Infinity/index.tsx:249
 msgid "infinity.getStarted_calculate"
 msgstr "计算"
 
-#: components/pages/Infinity/index.tsx:251
+#: components/pages/Infinity/index.tsx:252
 msgid "infinity.getStarted_calculate_subtitle"
 msgstr "使用 Klima Infinity 计算贵公司/组织的碳足迹并定义抵消范围。"
 
-#: components/pages/Infinity/index.tsx:288
+#: components/pages/Infinity/index.tsx:289
 msgid "infinity.getStarted_cta"
 msgstr "加快实现碳中和的道路 - 甚至超越"
 
-#: components/pages/Infinity/index.tsx:265
+#: components/pages/Infinity/index.tsx:266
 msgid "infinity.getStarted_second_subtitle"
 msgstr "只需单击几下即可实现您的抵消，且交易时间近乎即时。"
 
-#: components/pages/Infinity/index.tsx:262
+#: components/pages/Infinity/index.tsx:263
 msgid "infinity.getStarted_second_title"
 msgstr "实施"
 
-#: components/pages/Infinity/index.tsx:273
+#: components/pages/Infinity/index.tsx:274
 msgid "infinity.getStarted_third"
 msgstr "3"
 
-#: components/pages/Infinity/index.tsx:279
+#: components/pages/Infinity/index.tsx:280
 msgid "infinity.getStarted_third_subtitle"
 msgstr "跟踪您的承诺，并增强您对积极气候行动的认识。"
 
-#: components/pages/Infinity/index.tsx:276
+#: components/pages/Infinity/index.tsx:277
 msgid "infinity.getStarted_third_title"
 msgstr "放大"
 
-#: components/pages/Infinity/index.tsx:71
+#: components/pages/Infinity/index.tsx:72
 msgid "infinity.head.metaDescription"
 msgstr "适用贵公司/组织的下一代碳工具包。"
 
-#: components/pages/Infinity/index.tsx:67
+#: components/pages/Infinity/index.tsx:68
 msgid "infinity.head.metaTitle"
 msgstr "Klima Infinity - 实现碳中和"
 
-#: components/pages/Infinity/index.tsx:63
+#: components/pages/Infinity/index.tsx:64
 msgid "infinity.head.title"
 msgstr "KlimaDAO | Klima Infinity"
 
-#: components/pages/Infinity/index.tsx:173
+#: components/pages/Infinity/index.tsx:174
 msgid "infinity.info_subtitle1"
 msgstr "为地球上的先驱组织"
 
-#: components/pages/Infinity/index.tsx:178
+#: components/pages/Infinity/index.tsx:179
 msgid "infinity.info_subtitle2"
 msgstr "世界上最强大且易操作的碳抵消解决方案"
 
-#: components/pages/Infinity/index.tsx:431
+#: components/pages/Infinity/index.tsx:432
 msgid "infinity.mission_card1_subtitle"
 msgstr "KlimaDAO 持有的碳吨数"
 
-#: components/pages/Infinity/index.tsx:428
+#: components/pages/Infinity/index.tsx:429
 msgid "infinity.mission_card1_title"
 msgstr "1810万"
 
-#: components/pages/Infinity/index.tsx:451
+#: components/pages/Infinity/index.tsx:452
 msgid "infinity.mission_card2_description"
 msgstr "KlimaDAO 持有的碳流动性"
 
-#: components/pages/Infinity/index.tsx:448
+#: components/pages/Infinity/index.tsx:449
 msgid "infinity.mission_card2_number"
 msgstr "1000 万美元以上"
 
-#: components/pages/Infinity/index.tsx:471
+#: components/pages/Infinity/index.tsx:472
 msgid "infinity.mission_card3_description"
 msgstr "通过 KlimaDAO 抵消碳吨数"
 
-#: components/pages/Infinity/index.tsx:468
+#: components/pages/Infinity/index.tsx:469
 msgid "infinity.mission_card3_number"
 msgstr "150,000+"
 
-#: components/pages/Infinity/index.tsx:369
+#: components/pages/Infinity/index.tsx:370
 msgid "infinity.polygon_manifesto_description"
 msgstr "在抵消整个网络的历史排放量上，Polygon 确保其网络内的 - 无论是 NFT 的铸造，还是 DeFi 的交易 - 每一次交互都被考虑在内。这是 Meta 选择 Polygon 发行其 NFT 的关键原因。"
 
-#: components/pages/Infinity/index.tsx:363
+#: components/pages/Infinity/index.tsx:364
 msgid "infinity.polygon_manifesto_title"
 msgstr "碳抵消部分是 Polygon 绿色宣言的一部分"
 
-#: components/pages/Infinity/index.tsx:343
+#: components/pages/Infinity/index.tsx:344
 msgid "infinity.polygon_story_description"
 msgstr "Polygon 抵消了该网络自成立以来的碳排放量 - 约 90,000 吨 - 并承诺为该网络的所有未来交易会为气候产生积极影响。"
 
-#: components/pages/Infinity/index.tsx:338
+#: components/pages/Infinity/index.tsx:339
 msgid "infinity.polygon_story_title"
 msgstr "Polygon 选择 Klima Infinity 来抵消他们区块链网络产生的碳排放"
 
 #: components/pages/Infinity/Cards/Card.tsx:46
-#: components/pages/Infinity/index.tsx:389
-#: components/pages/Infinity/index.tsx:403
+#: components/pages/Infinity/index.tsx:390
+#: components/pages/Infinity/index.tsx:404
 msgid "infinity.tonnes"
 msgstr "吨"
 
-#: components/pages/Infinity/index.tsx:191
+#: components/pages/Infinity/index.tsx:192
 msgid "infinity.transparent_subtitle"
 msgstr "透明的"
 
-#: components/pages/Infinity/index.tsx:186
+#: components/pages/Infinity/index.tsx:187
 msgid "infinity.transparent_title"
 msgstr "在区块链上记录不可篡改"
 
-#: components/pages/Infinity/index.tsx:100
+#: components/pages/Infinity/index.tsx:101
 msgid "infinity.welcome_subtitle"
 msgstr "Klima Infinity 是适用于贵公司/组织的下一代碳工具包"
 
-#: components/pages/Infinity/index.tsx:95
+#: components/pages/Infinity/index.tsx:96
 msgid "infinity.welcome_title"
 msgstr "实现碳中和的最简单方法"
 
-#: components/pages/Infinity/index.tsx:216
+#: components/pages/Infinity/index.tsx:217
 msgid "infinity.why_description"
 msgstr "KlimaDAO 正在利用一系列 DeFi 技术来减少市场分散化，并加快向全球可持续项目提供气候融资。"
 
-#: components/pages/Infinity/index.tsx:211
+#: components/pages/Infinity/index.tsx:212
 msgid "infinity.why_subtitle"
 msgstr "对抗气候变化的 DeFi"
 
-#: components/pages/Infinity/index.tsx:208
+#: components/pages/Infinity/index.tsx:209
 msgid "infinity.why_title"
 msgstr "为什么选择 KlimaDAO？"
 
@@ -900,7 +900,7 @@ msgstr "为什么选择 KlimaDAO？"
 msgid "invest_in_the_future"
 msgstr "投资于未来。"
 
-#: components/pages/Infinity/index.tsx:420
+#: components/pages/Infinity/index.tsx:421
 msgid "mission.header"
 msgstr "KlimaDAO 的使命是使气候行动民主化"
 
@@ -1117,8 +1117,8 @@ msgid "shared.contact"
 msgstr "联系方式"
 
 #: components/Navigation/index.tsx:49
-#: components/pages/Infinity/index.tsx:117
-#: components/pages/Infinity/index.tsx:709
+#: components/pages/Infinity/index.tsx:118
+#: components/pages/Infinity/index.tsx:713
 msgid "shared.contact_sales"
 msgstr "联系销售"
 
@@ -1157,9 +1157,9 @@ msgstr "主页"
 msgid "shared.infinity"
 msgstr "无穷"
 
-#: components/pages/Infinity/index.tsx:109
-#: components/pages/Infinity/index.tsx:295
-#: components/pages/Infinity/index.tsx:701
+#: components/pages/Infinity/index.tsx:110
+#: components/pages/Infinity/index.tsx:296
+#: components/pages/Infinity/index.tsx:705
 msgid "shared.infinity.get_started"
 msgstr "开始使用"
 
@@ -1191,7 +1191,7 @@ msgstr "资源"
 msgid "shared.stake"
 msgstr "股权"
 
-#: components/pages/Infinity/index.tsx:487
+#: components/pages/Infinity/index.tsx:488
 msgid "shared.visit_klimadao_blog"
 msgstr "访问 KlimaDAO 博客"
 
