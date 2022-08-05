@@ -6,8 +6,9 @@ import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
-import { KlimaLogo } from "./base64KlimaLogo";
-import { bctBackground } from "./bctBackground";
+import KlimaLogo from "public/logo-klima.png";
+import bctBackground from "./assets/bg_bct.jpeg";
+import uboBackground from "./assets/bg_ubo.jpeg";
 import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 import { PoppinsBold } from "./poppinsBoldbase64";
 
@@ -16,44 +17,35 @@ interface Props {
   beneficiaryAddress: string;
   retirement: KlimaRetire;
   retirementMessage: string;
+  tokenData: any;
 }
 
 export const DownloadCertificateButton: FC<Props> = (props) => {
-  // const props = {
-  //   retirementAmount: 1000.94,
-  //   beneficiaryName: "Aeterno.klima",
-  //   retirementMessage:
-  //     "Retirement message?? jVxmaGGF2lWQwuyClMkZSstPef80Zumncu5IvLxfMhdBK6HTy5PFBDN3rc1KFhj9oNQqHqcCDgFvE6GBiwyNBf0xDTuxc1lHC533IcY8LMdjtYUDeaGuRwZ3BzX31RUk8wgY373iwljQgE4qemF9ymLE99OTqhRiCeWu3yUfsesv6nxFSHjw",
-  // };
   console.log(props.retirement);
+
   const margin = {
     left: 20,
   };
 
-  const handleClick = () => {
-    const doc = new jsPDF({
-      orientation: "landscape",
-      format: "letter",
-      putOnlyUsedFonts: true,
-      compress: true,
-    });
+  const doc = new jsPDF({
+    orientation: "landscape",
+    format: "letter",
+    putOnlyUsedFonts: true,
+    compress: true,
+  });
 
+  const setupFonts = (): void => {
     doc.addFileToVFS("Poppins-ExtraLight-normal.ttf", PoppinsExtraLight);
     doc.addFileToVFS("Poppins-SemiBold-normal.ttf", PoppinsBold);
     doc.addFont("Poppins-ExtraLight-normal.ttf", "Poppins", "ExtraLight");
     doc.addFont("Poppins-SemiBold-normal.ttf", "Poppins", "Bold");
+  };
 
-    doc.addImage(KlimaLogo, "JPEG", margin.left, 20, 60, 10);
-    doc.addImage(
-      bctBackground,
-      "JPEG",
-      margin.left + 168,
-      0,
-      doc.internal.pageSize.width / 3,
-      doc.internal.pageSize.height
-    );
+  const printHeader = (): void => {
+    const klimaLogo = new Image();
+    klimaLogo.src = KlimaLogo.src;
+    doc.addImage(klimaLogo, "JPEG", margin.left, 20, 60, 10);
 
-    // header
     doc.setFont("Poppins", "Bold");
     doc.setFontSize(24);
     doc.text("Certificate for On-chain", margin.left, 41);
@@ -61,8 +53,27 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     doc.setLineWidth(1.05);
     doc.setDrawColor(0, 204, 51); // klima green RGB
     doc.line(margin.left, 57, 167, 57);
+  };
 
-    // tonnage
+  const printImages = (): void => {
+    const tokenImage = new Image();
+    tokenImage.src = props.tokenData.icon.src;
+
+    const featureImage = new Image();
+    featureImage.src = bctBackground.src;
+
+    doc.addImage(tokenImage, "JPEG", margin.left, 5, 20, 20);
+    doc.addImage(
+      featureImage,
+      "JPEG",
+      margin.left + 167,
+      0,
+      doc.internal.pageSize.width / 3,
+      doc.internal.pageSize.height
+    );
+  };
+
+  const printRetirementDetails = (): void => {
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(30);
     doc.text(
@@ -73,23 +84,32 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
 
     doc.setFont("Poppins", "Bold");
     doc.setLineHeightFactor(1);
-    // const beneficiaryName = doc.splitTextToSize(
-    //   "Mark Cuban Cubano Companies",
-    //   136
-    // );
-
     const beneficiaryName = doc.splitTextToSize(
-      props.beneficiaryName || props.beneficiaryAddress,
+      "Mark Cuban Cubano Companies",
       136
     );
-    doc.text(beneficiaryName, margin.left, 89);
+
+    // const beneficiaryName = doc.splitTextToSize(
+    //   props.beneficiaryName || props.beneficiaryAddress,
+    //   136
+    // );
+    doc.text(beneficiaryName, margin.left, 87);
 
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(12);
     doc.setLineHeightFactor(1.5);
     const retirementMessage = doc.splitTextToSize(props.retirementMessage, 136);
-    // doc.text(retirementMessage, margin.left, 100);
-    doc.text(retirementMessage, margin.left, 110);
+    doc.text(retirementMessage, margin.left, 100);
+    // doc.text(retirementMessage, margin.left, 110);
+  };
+
+  const printProjectDetails = (): void => {};
+
+  const handleClick = () => {
+    setupFonts();
+    printHeader();
+    printImages();
+    printRetirementDetails();
 
     // Details
     doc.setFont("Poppins", "Bold");

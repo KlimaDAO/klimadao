@@ -48,6 +48,8 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
   const { locale } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
 
+  console.log(tokenData);
+
   const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
     /\.?0+$/,
     ""
@@ -168,6 +170,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                       beneficiaryAddress={beneficiaryAddress}
                       retirement={retirement}
                       retirementMessage={retireData.retirementMessage}
+                      tokenData={tokenData}
                     />
                   )
                 }
