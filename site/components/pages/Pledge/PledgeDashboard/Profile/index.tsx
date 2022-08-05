@@ -1,4 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 import {
   concatAddress,
@@ -7,6 +9,7 @@ import {
 } from "@klimadao/lib/utils";
 import { Domain } from "@klimadao/lib/types/domains";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { Pledge } from "../../types";
@@ -19,6 +22,7 @@ type Props = {
 };
 
 export const Profile: FC<Props> = (props) => {
+  const { locale } = useRouter();
   const [profileData, setProfileData] = useState<Domain | null>(null);
 
   useEffect(() => {
@@ -46,9 +50,7 @@ export const Profile: FC<Props> = (props) => {
   const pledgeProgress =
     totalTonnesRetired && (totalTonnesRetired / currentFootprint.total) * 100;
   const displayPledgeProgress =
-    !isNaN(totalTonnesRetired) &&
-    !isNaN(totalTonnesRetired) &&
-    currentFootprint.total > 0;
+    !isNaN(totalTonnesRetired) && currentFootprint.total > 0;
 
   const renderPledgeProgress = () => {
     if (!displayPledgeProgress) return null;
@@ -56,14 +58,18 @@ export const Profile: FC<Props> = (props) => {
     if (pledgeProgress >= 100) {
       return (
         <Text t="h4" className={styles.pledgeProgress}>
-          &ge; 100% of Pledge Met
+          <Trans id="pledges.dashboard.profile.pledge_met">
+            &ge; 100% of Pledge Met
+          </Trans>
         </Text>
       );
     }
 
     return (
       <Text t="h4" className={styles.pledgeProgress}>
-        {Math.round(pledgeProgress)}% of Pledge Met
+        <Trans id="pledges.dashboard.profile.pledge_progress">
+          {Math.round(pledgeProgress)}% of Pledge Met
+        </Trans>
       </Text>
     );
   };
@@ -92,8 +98,11 @@ export const Profile: FC<Props> = (props) => {
 
       <div className={styles.progressContainer}>
         <Text t="h4" color="lightest" align="center">
-          Pledged to Offset{" "}
-          <strong>{+currentFootprint.total.toFixed(2)}</strong> Carbon Tonnes
+          <Trans id="pledges.dashboard.profile.pledged_to_offset">
+            Pledged to Offset{" "}
+            <strong>{trimWithLocale(currentFootprint.total, 2, locale)}</strong>{" "}
+            Carbon Tonnes
+          </Trans>
         </Text>
 
         {renderPledgeProgress()}

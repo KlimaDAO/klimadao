@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
+import { t } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 
@@ -36,9 +37,20 @@ export const Pledge: NextPage = () => {
   return (
     <PledgeLayout>
       <PageHead
-        title="Klima Infinity | Pledge"
-        mediaTitle="Klima Infinity - Search for or start a pledge to the world today" // TODO - copy check
-        metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency." // Need better meta description
+        title={t({
+          id: "pledges.head.title",
+          message: "KlimaDAO | Pledges",
+        })}
+        mediaTitle={t({
+          id: "pledges.head.metaTitle",
+          message:
+            "Klima Infinity - Search for or start a pledge to the world today", // TODO - copy check
+        })}
+        metaDescription={t({
+          id: "pledges.head.metaDescription",
+          message:
+            "Drive climate action and earn rewards with a carbon-backed digital currency.", // Need better meta description
+        })}
       />
       <div className={styles.container}>
         <form className={styles.inputContainer} onSubmit={handleFormSubmit}>

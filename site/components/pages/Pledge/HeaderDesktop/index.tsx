@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import dynamic from "next/dynamic";
+import { t } from "@lingui/macro";
 import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import Link from "next/link";
@@ -37,7 +38,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
         {props.canEditPledge && (
           <ButtonPrimary
             key="toggleModal"
-            label="Edit Pledge"
+            label={t({ id: "pledges.edit_pledge", message: "Edit Pledge" })}
             onClick={() => props.toggleEditModal?.(true)}
           />
         )}
@@ -45,7 +46,10 @@ export const HeaderDesktop: FC<Props> = (props) => {
         {isConnected && address ? (
           <ButtonPrimary label={concatAddress(address)} onClick={disconnect} />
         ) : (
-          <ButtonPrimary label="Connect" onClick={connect} />
+          <ButtonPrimary
+            label={t({ id: "shared.connect", message: "Connect" })}
+            onClick={connect}
+          />
         )}
       </div>
     </div>

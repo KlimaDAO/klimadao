@@ -1,7 +1,9 @@
 import React, { FC, useState } from "react";
+import { Trans, t } from "@lingui/macro";
+import { useRouter } from "next/router";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useWeb3 } from "@klimadao/lib/utils";
+import { trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   useForm,
@@ -28,6 +30,7 @@ type TotalFootprintProps = {
 };
 
 const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
+  const { locale } = useRouter();
   const categories = useWatch({ name: "categories", control });
 
   const totalFootprint: number = categories.reduce(
@@ -38,7 +41,10 @@ const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
 
   return (
     <Text t="h4">
-      Total Footprint: {+totalFootprint.toFixed(2)} Carbon Tonnes
+      <Trans id="pledges.form.total_footprint_summary">
+        Total Footprint: {trimWithLocale(totalFootprint, 2, locale)} Carbon
+        Tonnes
+      </Trans>
     </Text>
   );
 };
@@ -98,20 +104,30 @@ export const PledgeForm: FC<Props> = (props) => {
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
       {serverError && (
         <Text className={styles.errorMessage} t="caption">
-          Something went wrong. Please try again.
+          <Trans id="pledges.form.generic_error">
+            Something went wrong. Please try again.
+          </Trans>
         </Text>
       )}
 
       <InputField
-        label="Name"
-        placeholder="Name or company name"
+        id="name"
+        label={t({ id: "pledges.form.input.name.label", message: "Name" })}
+        placeholder={t({
+          id: "pledges.form.input.name.placeholder",
+          message: "Name or company name",
+        })}
         type="text"
         errors={formState.errors.name}
         {...register("name")}
       />
 
       <InputField
-        label="Profile image url (optional)"
+        id="profileImageUrl"
+        label={t({
+          id: "pledges.form.input.profileImageUrl.label",
+          message: "Profile image url (optional)",
+        })}
         placeholder="https://"
         type="text"
         errors={formState.errors.profileImageUrl}
@@ -120,28 +136,45 @@ export const PledgeForm: FC<Props> = (props) => {
 
       <TextareaField
         id="pledge"
-        label="Pledge"
         rows={2}
-        placeholder="What is your pledge?"
+        label={t({
+          id: "pledges.form.input.description.label",
+          message: "Pledge",
+        })}
+        placeholder={t({
+          id: "pledges.form.input.description.placeholder",
+          message: "What is your pledge?",
+        })}
         errors={formState.errors.description}
         {...register("description")}
       />
 
       <TextareaField
         id="methodology"
-        label="Methodology"
         rows={6}
-        placeholder="What tools or methodologies did you use to determine your carbon footprint?"
+        label={t({
+          id: "pledges.form.input.methodology.label",
+          message: "Methodology",
+        })}
+        placeholder={t({
+          id: "pledges.form.input.methodology.placeholder",
+          message:
+            "What tools or methodologies did you use to calculate your carbon footprint?",
+        })}
         errors={formState.errors.methodology}
         {...register("methodology")}
       />
 
       <div className={styles.categories_section}>
-        <Text t="caption">Footprint</Text>
+        <Text t="caption">
+          <Trans id="pledges.form.footprint.label">Footprint</Trans>
+        </Text>
 
         {fields.length === 0 && (
           <Text t="caption" style={{ textAlign: "center", marginTop: "1rem" }}>
-            Add a category and start calculating your carbon footprint
+            <Trans id="pledges.form.footprint.prompt">
+              Add a category and start calculating your carbon footprint
+            </Trans>
           </Text>
         )}
 
@@ -150,18 +183,30 @@ export const PledgeForm: FC<Props> = (props) => {
             <div className={styles.categoryRow} key={field.id}>
               <div className={styles.categoryRow_inputs}>
                 <InputField
-                  label="Name"
                   hideLabel
-                  placeholder="Category name"
+                  label={t({
+                    id: "pledges.form.input.categoryName.label",
+                    message: "Category",
+                  })}
+                  placeholder={t({
+                    id: "pledges.form.input.categoryName.placeholder",
+                    message: "Category name",
+                  })}
                   type="text"
                   errors={formState.errors.categories?.[index]?.name}
                   {...register(`categories.${index}.name` as const)}
                 />
 
                 <InputField
-                  label="Quantity"
                   hideLabel
-                  placeholder="Carbon tonnes"
+                  label={t({
+                    id: "pledges.form.input.categoryQuantity.label",
+                    message: "Quantity",
+                  })}
+                  placeholder={t({
+                    id: "pledges.form.input.categoryQuantity.placeholder",
+                    message: "Carbon tonnes",
+                  })}
                   type="number"
                   errors={formState.errors.categories?.[index]?.quantity}
                   {...register(`categories.${index}.quantity` as const)}
@@ -183,7 +228,10 @@ export const PledgeForm: FC<Props> = (props) => {
             <ButtonPrimary
               className={styles.categories_appendButton}
               variant="gray"
-              label="Add category"
+              label={t({
+                id: "pledges.form.add_footprint_category_button",
+                message: "Add category",
+              })}
               onClick={() => append({ name: "", quantity: 0 })}
             />
           </div>
@@ -191,8 +239,11 @@ export const PledgeForm: FC<Props> = (props) => {
       </div>
 
       <InputField
-        label="Total footprint"
         hideLabel
+        label={t({
+          id: "pledges.form.input.totalFootprint.label",
+          message: "Total footprint",
+        })}
         type="hidden"
         errors={formState.errors.footprint}
         {...register("footprint")}
@@ -203,7 +254,10 @@ export const PledgeForm: FC<Props> = (props) => {
       {/* better to use an input type=submit */}
       <ButtonPrimary
         disabled={!isDirty || !isValid}
-        label="Save pledge"
+        label={t({
+          id: "pledges.form.submit_button",
+          message: "Save pledge",
+        })}
         onClick={handleSubmit(onSubmit)}
       />
     </form>
