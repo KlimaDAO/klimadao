@@ -56,7 +56,10 @@ export const Pledge: NextPage = () => {
         <form className={styles.inputContainer} onSubmit={handleFormSubmit}>
           <input
             className={styles.input}
-            placeholder="Enter an address or an ENS/KNS domain"
+            placeholder={t({
+              id: "pledges.home.search.placeholder",
+              message: "Enter a wallet address, .klima or .eth domain",
+            })}
             value={address}
             data-error={error}
             onChange={handleAddressInputChange}

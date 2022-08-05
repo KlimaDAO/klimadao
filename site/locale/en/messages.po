@@ -1070,8 +1070,12 @@ msgstr "Klima Infinity - Search for or start a pledge to the world today"
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Pledges"
 
-#: components/pages/Pledge/index.tsx:67
+#: components/pages/Pledge/index.tsx:70
 msgid "pledges.home.search.error_message"
+msgstr "Enter a wallet address, .klima or .eth domain"
+
+#: components/pages/Pledge/index.tsx:59
+msgid "pledges.home.search.placeholder"
 msgstr "Enter a wallet address, .klima or .eth domain"
 
 #: components/pages/Podcast/index.tsx:21
