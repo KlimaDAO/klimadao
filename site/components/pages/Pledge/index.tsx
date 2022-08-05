@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
-import { t } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 
@@ -64,7 +64,9 @@ export const Pledge: NextPage = () => {
 
           {error && (
             <Text className={styles.errorMessage} t="caption">
-              Enter a valid ethereum wallet address or ENS/KNS domain
+              <Trans id="pledges.home.search.error_message">
+                Enter a wallet address, .klima or .eth domain
+              </Trans>
             </Text>
           )}
 

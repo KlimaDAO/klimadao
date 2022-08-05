@@ -59,7 +59,7 @@ export const Profile: FC<Props> = (props) => {
       return (
         <Text t="h4" className={styles.pledgeProgress}>
           <Trans id="pledges.dashboard.profile.pledge_met">
-            &ge; 100% of Pledge Met
+            ≥ 100% of Pledge Met
           </Trans>
         </Text>
       );

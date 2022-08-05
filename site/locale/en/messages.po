@@ -1070,6 +1070,10 @@ msgstr "Klima Infinity - Search for or start a pledge to the world today"
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Pledges"
 
+#: components/pages/Pledge/index.tsx:67
+msgid "pledges.home.search.error_message"
+msgstr "Enter a wallet address, .klima or .eth domain"
+
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
 msgstr "Planet of the Klimates is a community-driven podcast featuring conversations with Klima Partners and thought leaders on climate science, blockchain, and more. You can explore the latest episodes and full archive of shows directly below, and also find PotK on your favourite podcast platform, including <0>RSS</0> and <1>Apple Podcasts</1>"
