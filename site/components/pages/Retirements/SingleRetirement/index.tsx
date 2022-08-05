@@ -47,11 +47,12 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
   } = props;
   const { locale } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
+
   const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
     /\.?0+$/,
     ""
   ); // remove whitespace 0s from string, e.g. 1.0 => 1
-
+  console.log(retirementIndexInfo.amount);
   // collect from indexInfo and optional data from subgraph
   const retireData = {
     amount: trimWithLocale(amountWithoutWhiteSpace, 2, locale),
@@ -160,7 +161,16 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                     Certificate
                   </Trans>
                 }
-                text={<DownloadCertificateButton />}
+                text={
+                  retirement && (
+                    <DownloadCertificateButton
+                      beneficiaryName={retireData.beneficiaryName}
+                      beneficiaryAddress={beneficiaryAddress}
+                      retirement={retirement}
+                      retirementMessage={retireData.retirementMessage}
+                    />
+                  )
+                }
               />
             </div>
           </div>

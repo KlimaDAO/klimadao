@@ -1,27 +1,42 @@
-import React from "react";
+import React, { FC } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { jsPDF } from "jspdf";
 // import map from "lodash/map";
+import { trimWithLocale } from "@klimadao/lib/utils";
+
+import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
 import { KlimaLogo } from "./base64KlimaLogo";
 import { bctBackground } from "./bctBackground";
 import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 import { PoppinsBold } from "./poppinsBoldbase64";
 
-export const DownloadCertificateButton = () => {
-  const props = {
-    retirementAmount: 1000.94,
-    beneficiaryName: "Aeterno.klima",
-    retirementMessage:
-      "Retirement message?? jVxmaGGF2lWQwuyClMkZSstPef80Zumncu5IvLxfMhdBK6HTy5PFBDN3rc1KFhj9oNQqHqcCDgFvE6GBiwyNBf0xDTuxc1lHC533IcY8LMdjtYUDeaGuRwZ3BzX31RUk8wgY373iwljQgE4qemF9ymLE99OTqhRiCeWu3yUfsesv6nxFSHjw",
-  };
+interface Props {
+  beneficiaryName: string;
+  beneficiaryAddress: string;
+  retirement: KlimaRetire;
+  retirementMessage: string;
+}
 
+export const DownloadCertificateButton: FC<Props> = (props) => {
+  // const props = {
+  //   retirementAmount: 1000.94,
+  //   beneficiaryName: "Aeterno.klima",
+  //   retirementMessage:
+  //     "Retirement message?? jVxmaGGF2lWQwuyClMkZSstPef80Zumncu5IvLxfMhdBK6HTy5PFBDN3rc1KFhj9oNQqHqcCDgFvE6GBiwyNBf0xDTuxc1lHC533IcY8LMdjtYUDeaGuRwZ3BzX31RUk8wgY373iwljQgE4qemF9ymLE99OTqhRiCeWu3yUfsesv6nxFSHjw",
+  // };
+  console.log(props.retirement);
   const margin = {
     left: 20,
   };
 
   const handleClick = () => {
-    const doc = new jsPDF({ orientation: "landscape", format: "letter" });
+    const doc = new jsPDF({
+      orientation: "landscape",
+      format: "letter",
+      putOnlyUsedFonts: true,
+      compress: true,
+    });
 
     doc.addFileToVFS("Poppins-ExtraLight-normal.ttf", PoppinsExtraLight);
     doc.addFileToVFS("Poppins-SemiBold-normal.ttf", PoppinsBold);
@@ -32,12 +47,13 @@ export const DownloadCertificateButton = () => {
     doc.addImage(
       bctBackground,
       "JPEG",
-      margin.left + 167,
+      margin.left + 168,
       0,
       doc.internal.pageSize.width / 3,
       doc.internal.pageSize.height
     );
 
+    // header
     doc.setFont("Poppins", "Bold");
     doc.setFontSize(24);
     doc.text("Certificate for On-chain", margin.left, 41);
@@ -49,19 +65,31 @@ export const DownloadCertificateButton = () => {
     // tonnage
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(30);
-    doc.text(`${props.retirementAmount} tonnes`, margin.left, 77);
+    doc.text(
+      `${trimWithLocale(props.retirement.amount, 2, "en")} tonnes`,
+      margin.left,
+      76
+    );
 
     doc.setFont("Poppins", "Bold");
-    doc.text(props.beneficiaryName, margin.left, 88);
+    doc.setLineHeightFactor(1);
+    // const beneficiaryName = doc.splitTextToSize(
+    //   "Mark Cuban Cubano Companies",
+    //   136
+    // );
+
+    const beneficiaryName = doc.splitTextToSize(
+      props.beneficiaryName || props.beneficiaryAddress,
+      136
+    );
+    doc.text(beneficiaryName, margin.left, 89);
 
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(12);
     doc.setLineHeightFactor(1.5);
-    const retirementMessageSplit = doc.splitTextToSize(
-      props.retirementMessage,
-      136
-    );
-    doc.text(retirementMessageSplit, margin.left, 100);
+    const retirementMessage = doc.splitTextToSize(props.retirementMessage, 136);
+    // doc.text(retirementMessage, margin.left, 100);
+    doc.text(retirementMessage, margin.left, 110);
 
     // Details
     doc.setFont("Poppins", "Bold");
