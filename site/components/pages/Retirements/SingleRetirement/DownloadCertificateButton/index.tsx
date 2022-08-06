@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { jsPDF } from "jspdf";
-// import map from "lodash/map";
 import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
@@ -9,7 +8,10 @@ import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
 import KlimaLogo from "public/logo-klima.png";
 import bctBackground from "./assets/bg_bct.jpeg";
+import nctBackground from "./assets/bg_nct.jpeg";
+import nboBackground from "./assets/bg_nbo.jpeg";
 import uboBackground from "./assets/bg_ubo.jpeg";
+
 import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 import { PoppinsBold } from "./poppinsBoldbase64";
 
@@ -24,6 +26,7 @@ interface Props {
 
 export const DownloadCertificateButton: FC<Props> = (props) => {
   console.log(props.retirement);
+  console.log(props.tokenData);
 
   const spacing = {
     margin: 15,
@@ -60,9 +63,16 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     doc.line(spacing.margin, 52, 172, 52);
   };
 
+  const featureImageMap = {
+    bct: bctBackground,
+    nct: nctBackground,
+    ubo: uboBackground,
+    nbo: nboBackground,
+  };
+
   const printFeatureImage = (): void => {
     const featureImage = new Image();
-    featureImage.src = bctBackground.src;
+    featureImage.src = featureImageMap[props.tokenData.key].src;
 
     doc.addImage(
       featureImage,
