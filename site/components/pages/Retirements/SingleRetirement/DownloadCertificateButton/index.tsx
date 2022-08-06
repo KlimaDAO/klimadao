@@ -119,7 +119,23 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
       spacing.margin,
       spacing.beneficiaryName + beneficiaryNamePosition
     );
-    // doc.text(retirementMessage, spacing.margin, 110);
+  };
+
+  const printTransactionDetails = (): void => {
+    doc.setFontSize(11);
+    doc.setFont("Poppins", "Bold");
+    doc.text("Beneficiary Address:", spacing.margin, 135);
+    doc.setFont("Poppins", "ExtraLight");
+    doc.text(props.beneficiaryAddress, spacing.margin, 140.5);
+
+    doc.setFont("Poppins", "Bold");
+    doc.text("Transaction ID:", spacing.margin, 146);
+    doc.setFont("Poppins", "ExtraLight");
+    const txHashSplit = doc.splitTextToSize(
+      props.retirement.transaction.id,
+      spacing.mainTextWidth
+    );
+    doc.text(txHashSplit, spacing.margin, 151.5);
   };
 
   const printProjectDetails = (): void => {
@@ -132,13 +148,15 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     doc.addImage(
       tokenImage,
       "JPEG",
-      spacing.margin,
+      spacing.margin + 125,
       spacing.projectDetails.y + 22,
       28,
       28
     );
 
     const project = props.projectDetails?.value[0];
+    const retirementDate = new Date(Number(props.retirement.timestamp) * 1000);
+    const formattedRetirementDate = `${retirementDate.getDate()}/${retirementDate.getMonth()}/${retirementDate.getFullYear()}`;
     const projectDetails = [
       {
         label: "Token",
@@ -164,21 +182,21 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
           .toString(),
       },
       {
-        label: "Timestamp",
-        value: props.retirement.timestamp,
+        label: "Retired",
+        value: formattedRetirementDate,
       },
     ];
 
-    let startPosition = 160;
+    let startPosition = 157;
     projectDetails.forEach((detail) => {
       const label = `${detail.label}:`;
       doc.setFont("Poppins", "Bold");
-      doc.text(label, spacing.margin + 34, startPosition);
+      doc.text(label, spacing.margin, startPosition);
 
       doc.setFont("Poppins", "ExtraLight");
       doc.text(
         `${detail.value}`,
-        spacing.margin + doc.getTextWidth(label) + 3 + 34,
+        spacing.margin + doc.getTextWidth(label) + 3,
         startPosition
       );
 
@@ -191,31 +209,15 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     printHeader();
     printFeatureImage();
     printRetirementDetails();
-
-    // Details
-    doc.setFontSize(11);
-    doc.setFont("Poppins", "Bold");
-    doc.text("Beneficiary Address:", spacing.margin, 135);
-    doc.setFont("Poppins", "ExtraLight");
-    doc.text(props.beneficiaryAddress, spacing.margin, 140.5);
-
-    doc.setFont("Poppins", "Bold");
-    doc.text("Transaction ID:", spacing.margin, 146);
-    doc.setFont("Poppins", "ExtraLight");
-    const txHashSplit = doc.splitTextToSize(
-      props.retirement.transaction.id,
-      spacing.mainTextWidth
-    );
-    doc.text(txHashSplit, spacing.margin, 151.5);
-
+    printTransactionDetails();
     printProjectDetails();
 
     doc.setFont("Poppins", "Bold");
-    doc.text("View this retirement on ", spacing.margin + 34, 200);
+    doc.text("View this retirement on ", spacing.margin, 200);
     doc.setTextColor(0, 204, 51);
     doc.textWithLink(
       "klimadao.finance",
-      spacing.margin + doc.getTextWidth("View this retirement on ") + 34,
+      spacing.margin + doc.getTextWidth("View this retirement on "),
       200,
       {
         url: "https://www.klimadao.finance/retirements/markcuban.klima/2",
