@@ -57,24 +57,12 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     doc.text("Carbon Retirement", spacing.margin, 46);
     doc.setLineWidth(1.05);
     doc.setDrawColor(0, 204, 51); // klima green RGB
-    doc.line(spacing.margin, 52, 170, 52);
+    doc.line(spacing.margin, 52, 172, 52);
   };
 
-  const printImages = (): void => {
-    const tokenImage = new Image();
-    tokenImage.src = props.tokenData.icon.src;
-
+  const printFeatureImage = (): void => {
     const featureImage = new Image();
     featureImage.src = bctBackground.src;
-
-    doc.addImage(
-      tokenImage,
-      "JPEG",
-      spacing.margin,
-      spacing.projectDetails.y + 18,
-      24,
-      24
-    );
 
     doc.addImage(
       featureImage,
@@ -97,16 +85,11 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
 
     doc.setFont("Poppins", "Bold");
     doc.setLineHeightFactor(1);
-    const beneficaryText = "Mark Cuban Cubano Companies";
+    const beneficaryText = props.beneficiaryName || props.beneficiaryAddress;
     const beneficiaryName = doc.splitTextToSize(
       beneficaryText,
       spacing.mainTextWidth
     );
-    // const beneficaryText = props.beneficiaryName || props.beneficiaryAddress;
-    // const beneficiaryName = doc.splitTextToSize(
-    //   beneficaryText,
-    //   spacing.mainTextWidth
-    // );
 
     const lineHeight = doc.getLineHeight() / doc.internal.scaleFactor;
     const lines = beneficiaryName.length;
@@ -117,12 +100,8 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(12);
     doc.setLineHeightFactor(1.2);
-    // const retirementMessage = doc.splitTextToSize(
-    //   props.retirementMessage,
-    //   spacing.mainTextWidth
-    // );
     const retirementMessage = doc.splitTextToSize(
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.",
+      props.retirementMessage,
       spacing.mainTextWidth
     );
     doc.text(
@@ -133,31 +112,74 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     // doc.text(retirementMessage, spacing.margin, 110);
   };
 
-  // const projectDetails = [
-  //   {
-  //     label: 'Beneficiary Address',
-  //     value: props.beneficiaryAddress
-  //   },
-  //   {
-  //     label: 'Transaction ID',
-  //     value: props.retirement.id
-  //   },
-  //   {
-  //     label: 'Project',
-  //     value: props.projectDetails?.value[0].resourceName
-  //   },
-  //   {
-  //     label: 'Methodology',
-  //     value: props.
-  //   }
-  // ]
+  const printProjectDetails = (): void => {
+    if (props.retirement.offset.bridge === "Moss") {
+      return; // print generic moss information link
+    }
 
-  const printProjectDetails = (): void => {};
+    const tokenImage = new Image();
+    tokenImage.src = props.tokenData.icon.src;
+    doc.addImage(
+      tokenImage,
+      "JPEG",
+      spacing.margin,
+      spacing.projectDetails.y + 22,
+      28,
+      28
+    );
+
+    const project = props.projectDetails?.value[0];
+    const projectDetails = [
+      {
+        label: "Token",
+        value: props.tokenData.label,
+      },
+      {
+        label: "Project",
+        value: project?.resourceName,
+      },
+      {
+        label: "Methodology",
+        value: props.retirement.offset.methodology,
+      },
+      {
+        label: "Country/Region",
+        value:
+          props.retirement.offset.country || props.retirement.offset.region,
+      },
+      {
+        label: "Vintage",
+        value: new Date(Number(props.retirement.offset.vintage) * 1000)
+          .getFullYear()
+          .toString(),
+      },
+      {
+        label: "Timestamp",
+        value: props.retirement.timestamp,
+      },
+    ];
+
+    let startPosition = 160;
+    projectDetails.forEach((detail) => {
+      const label = `${detail.label}:`;
+      doc.setFont("Poppins", "Bold");
+      doc.text(label, spacing.margin + 34, startPosition);
+
+      doc.setFont("Poppins", "ExtraLight");
+      doc.text(
+        `${detail.value}`,
+        spacing.margin + doc.getTextWidth(label) + 3 + 34,
+        startPosition
+      );
+
+      startPosition += 5.5;
+    });
+  };
 
   const handleClick = () => {
     setupFonts();
     printHeader();
-    printImages();
+    printFeatureImage();
     printRetirementDetails();
 
     // Details
@@ -165,96 +187,25 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     doc.setFont("Poppins", "Bold");
     doc.text("Beneficiary Address:", spacing.margin, 135);
     doc.setFont("Poppins", "ExtraLight");
-    // doc.text(
-    //   "0x01715cCa3fc96964682FFf4ff54f791cA154bE26",
-    //   spacing.margin + doc.getTextWidth("Beneficiary Address:") + 4 + 30,
-    //   140
-    // );
-    doc.text(props.beneficiaryAddress, spacing.margin, 140);
+    doc.text(props.beneficiaryAddress, spacing.margin, 140.5);
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Transaction ID:", spacing.margin, 145);
+    doc.text("Transaction ID:", spacing.margin, 146);
     doc.setFont("Poppins", "ExtraLight");
     const txHashSplit = doc.splitTextToSize(
       props.retirement.transaction.id,
       spacing.mainTextWidth
     );
-    // doc.text(
-    //   txHashSplit,
-    //   spacing.margin + doc.getTextWidth("Transaction Hash:") + 4,
-    //   152
-    // );
-    doc.text(txHashSplit, spacing.margin, 150);
+    doc.text(txHashSplit, spacing.margin, 151.5);
+
+    printProjectDetails();
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Token:", spacing.margin + 30, 156);
-    doc.setFont("Poppins", "ExtraLight");
-    doc.text(
-      props.tokenData.label,
-      spacing.margin + doc.getTextWidth("Token:") + 3 + 30,
-      156
-    );
-
-    doc.setFont("Poppins", "Bold");
-    doc.text("Project:", spacing.margin + 30, 161);
-    doc.setFont("Poppins", "ExtraLight");
-    // doc.text(
-    //   "4x50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
-    //   spacing.margin + doc.getTextWidth("Project:") + 3,
-    //   158
-    // );
-    doc.text(
-      "4x50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
-      spacing.margin + doc.getTextWidth("Project:") + 3 + 30,
-      161
-    );
-
-    doc.setFont("Poppins", "Bold");
-    doc.text("Methodology:", spacing.margin + 30, 166);
-    doc.setFont("Poppins", "ExtraLight");
-    doc.text(
-      "ACM0002",
-      spacing.margin + doc.getTextWidth("Methodology:") + 30 + 4,
-      166
-    );
-
-    doc.setFont("Poppins", "Bold");
-    doc.text("Country/Region:", spacing.margin + 30, 171);
-    doc.setFont("Poppins", "ExtraLight");
-    doc.text(
-      "China",
-      spacing.margin + doc.getTextWidth("Country/Region:") + 30 + 4,
-      171
-    );
-
-    const formattedVintage = new Date(1199145600 * 1000)
-      .getFullYear()
-      .toString();
-
-    doc.setFont("Poppins", "Bold");
-    doc.text("Vintage:", spacing.margin + 30, 176);
-    doc.setFont("Poppins", "ExtraLight");
-    doc.text(
-      formattedVintage,
-      spacing.margin + doc.getTextWidth("Vintage:") + 30 + 3,
-      176
-    );
-
-    doc.setFont("Poppins", "Bold");
-    doc.text("Timestamp:", spacing.margin + 30, 181);
-    doc.setFont("Poppins", "ExtraLight");
-    doc.text(
-      "03/05/2022",
-      spacing.margin + doc.getTextWidth("Timestamp:") + 30 + 4,
-      181
-    );
-
-    doc.setFont("Poppins", "Bold");
-    doc.text("View this retirement on ", spacing.margin + 30, 200);
+    doc.text("View this retirement on ", spacing.margin + 34, 200);
     doc.setTextColor(0, 204, 51);
     doc.textWithLink(
       "klimadao.finance",
-      spacing.margin + doc.getTextWidth("View this retirement on ") + 30,
+      spacing.margin + doc.getTextWidth("View this retirement on ") + 34,
       200,
       {
         url: "https://www.klimadao.finance/retirements/markcuban.klima/2",
