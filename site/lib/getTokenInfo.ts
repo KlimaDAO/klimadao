@@ -6,7 +6,7 @@ import MCO2 from "public/icons/MCO2.png";
 import UBO from "public/icons/UBO.png";
 import NBO from "public/icons/NBO.png";
 
-export type RetirementTokenInfoMap = {
+type RetirementTokenInfoMap = {
   [key in RetirementToken]: {
     key: string;
     icon: StaticImageData;
