@@ -1,6 +1,8 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { Trans, t } from "@lingui/macro";
 
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
@@ -15,7 +17,9 @@ import { Footer } from "components/Footer";
 import { TweetButton } from "components/TweetButton";
 import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
-import { DownloadCertificateButton } from "./DownloadCertificateButton";
+import { retirementTokenInfoMap } from "lib/getTokenInfo";
+
+import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
@@ -24,10 +28,16 @@ import { TextGroup } from "./TextGroup";
 import { ProjectDetails } from "./ProjectDetails";
 import { RetirementFooter } from "../Footer";
 import { CopyURLButton } from "../CopyURLButton";
-
-import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
-import { retirementTokenInfoMap } from "lib/getTokenInfo";
+
+const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
+  dynamic(
+    () =>
+      import("./DownloadCertificateButton").then(
+        (mod) => mod.DownloadCertificateButton
+      ),
+    { ssr: false }
+  );
 
 type Props = {
   beneficiaryAddress: string;
