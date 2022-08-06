@@ -5,6 +5,7 @@ import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
+import { RetirementTokenInfoMap } from "lib/getTokenInfo";
 
 import KlimaLogo from "public/logo-klima.png";
 import bctBackground from "./assets/bg_bct.jpeg";
@@ -21,13 +22,11 @@ interface Props {
   projectDetails?: VerraProjectDetails;
   retirement: KlimaRetire;
   retirementMessage: string;
-  tokenData: any;
+  retirementUrl: string;
+  tokenData: RetirementTokenInfoMap;
 }
 
 export const DownloadCertificateButton: FC<Props> = (props) => {
-  console.log(props.retirement);
-  console.log(props.tokenData);
-
   const spacing = {
     margin: 15,
     mainTextWidth: 160,
@@ -149,7 +148,7 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
       tokenImage,
       "JPEG",
       spacing.margin + 125,
-      spacing.projectDetails.y + 22,
+      spacing.projectDetails.y + 24,
       28,
       28
     );
@@ -220,7 +219,7 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
       spacing.margin + doc.getTextWidth("View this retirement on "),
       200,
       {
-        url: "https://www.klimadao.finance/retirements/markcuban.klima/2",
+        url: props.retirementUrl,
       }
     );
 

@@ -7,6 +7,7 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
+import { urls } from "@klimadao/lib/constants";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -45,14 +46,14 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     retirementIndexInfo,
     nameserviceDomain,
   } = props;
-  const { locale } = useRouter();
+  const { locale, asPath } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
 
   const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
     /\.?0+$/,
     ""
   ); // remove whitespace 0s from string, e.g. 1.0 => 1
-  console.log(retirementIndexInfo.amount);
+
   // collect from indexInfo and optional data from subgraph
   const retireData = {
     amount: trimWithLocale(amountWithoutWhiteSpace, 2, locale),
@@ -64,7 +65,6 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     transactionID: retirement?.transaction?.id || null,
   };
 
-  console.log(props.retirement?.offset);
   const retiree =
     retireData.beneficiaryName ||
     nameserviceDomain ||
@@ -168,6 +168,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                       beneficiaryAddress={beneficiaryAddress}
                       retirement={retirement}
                       retirementMessage={retireData.retirementMessage}
+                      retirementUrl={`${urls.home}/${asPath}`}
                       projectDetails={props.projectDetails}
                       tokenData={tokenData}
                     />
