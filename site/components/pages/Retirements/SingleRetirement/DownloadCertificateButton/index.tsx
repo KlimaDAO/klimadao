@@ -5,6 +5,7 @@ import { jsPDF } from "jspdf";
 import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
+import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
 import KlimaLogo from "public/logo-klima.png";
 import bctBackground from "./assets/bg_bct.jpeg";
@@ -15,6 +16,7 @@ import { PoppinsBold } from "./poppinsBoldbase64";
 interface Props {
   beneficiaryName: string;
   beneficiaryAddress: string;
+  projectDetails?: VerraProjectDetails;
   retirement: KlimaRetire;
   retirementMessage: string;
   tokenData: any;
@@ -23,8 +25,11 @@ interface Props {
 export const DownloadCertificateButton: FC<Props> = (props) => {
   console.log(props.retirement);
 
-  const margin = {
-    left: 20,
+  const spacing = {
+    margin: 15,
+    mainTextWidth: 160,
+    beneficiaryName: 81,
+    projectDetails: { x: 50, y: 135 },
   };
 
   const doc = new jsPDF({
@@ -44,15 +49,15 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
   const printHeader = (): void => {
     const klimaLogo = new Image();
     klimaLogo.src = KlimaLogo.src;
-    doc.addImage(klimaLogo, "JPEG", margin.left, 20, 60, 10);
+    doc.addImage(klimaLogo, "JPEG", spacing.margin, spacing.margin, 60, 10);
 
     doc.setFont("Poppins", "Bold");
     doc.setFontSize(24);
-    doc.text("Certificate for On-chain", margin.left, 41);
-    doc.text("Carbon Retirement", margin.left, 51);
+    doc.text("Certificate for On-chain", spacing.margin, 36);
+    doc.text("Carbon Retirement", spacing.margin, 46);
     doc.setLineWidth(1.05);
     doc.setDrawColor(0, 204, 51); // klima green RGB
-    doc.line(margin.left, 57, 167, 57);
+    doc.line(spacing.margin, 52, 170, 52);
   };
 
   const printImages = (): void => {
@@ -62,11 +67,19 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     const featureImage = new Image();
     featureImage.src = bctBackground.src;
 
-    doc.addImage(tokenImage, "JPEG", margin.left, 5, 20, 20);
+    doc.addImage(
+      tokenImage,
+      "JPEG",
+      spacing.margin,
+      spacing.projectDetails.y + 18,
+      24,
+      24
+    );
+
     doc.addImage(
       featureImage,
       "JPEG",
-      margin.left + 167,
+      spacing.margin + 173,
       0,
       doc.internal.pageSize.width / 3,
       doc.internal.pageSize.height
@@ -75,33 +88,69 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
 
   const printRetirementDetails = (): void => {
     doc.setFont("Poppins", "ExtraLight");
-    doc.setFontSize(30);
+    doc.setFontSize(28);
     doc.text(
       `${trimWithLocale(props.retirement.amount, 2, "en")} tonnes`,
-      margin.left,
-      76
+      spacing.margin,
+      70
     );
 
     doc.setFont("Poppins", "Bold");
     doc.setLineHeightFactor(1);
+    const beneficaryText = "Mark Cuban Cubano Companies";
     const beneficiaryName = doc.splitTextToSize(
-      "Mark Cuban Cubano Companies",
-      136
+      beneficaryText,
+      spacing.mainTextWidth
     );
-
+    // const beneficaryText = props.beneficiaryName || props.beneficiaryAddress;
     // const beneficiaryName = doc.splitTextToSize(
-    //   props.beneficiaryName || props.beneficiaryAddress,
-    //   136
+    //   beneficaryText,
+    //   spacing.mainTextWidth
     // );
-    doc.text(beneficiaryName, margin.left, 87);
+
+    const lineHeight = doc.getLineHeight() / doc.internal.scaleFactor;
+    const lines = beneficiaryName.length;
+    const beneficiaryNamePosition = lineHeight * lines;
+
+    doc.text(beneficiaryName, spacing.margin, spacing.beneficiaryName);
 
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(12);
-    doc.setLineHeightFactor(1.5);
-    const retirementMessage = doc.splitTextToSize(props.retirementMessage, 136);
-    doc.text(retirementMessage, margin.left, 100);
-    // doc.text(retirementMessage, margin.left, 110);
+    doc.setLineHeightFactor(1.2);
+    // const retirementMessage = doc.splitTextToSize(
+    //   props.retirementMessage,
+    //   spacing.mainTextWidth
+    // );
+    const retirementMessage = doc.splitTextToSize(
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.",
+      spacing.mainTextWidth
+    );
+    doc.text(
+      retirementMessage,
+      spacing.margin,
+      spacing.beneficiaryName + beneficiaryNamePosition
+    );
+    // doc.text(retirementMessage, spacing.margin, 110);
   };
+
+  // const projectDetails = [
+  //   {
+  //     label: 'Beneficiary Address',
+  //     value: props.beneficiaryAddress
+  //   },
+  //   {
+  //     label: 'Transaction ID',
+  //     value: props.retirement.id
+  //   },
+  //   {
+  //     label: 'Project',
+  //     value: props.projectDetails?.value[0].resourceName
+  //   },
+  //   {
+  //     label: 'Methodology',
+  //     value: props.
+  //   }
+  // ]
 
   const printProjectDetails = (): void => {};
 
@@ -112,53 +161,70 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     printRetirementDetails();
 
     // Details
+    doc.setFontSize(11);
     doc.setFont("Poppins", "Bold");
-    doc.text("Beneficiary Address:", margin.left, 140);
+    doc.text("Beneficiary Address:", spacing.margin, 135);
     doc.setFont("Poppins", "ExtraLight");
-    doc.text(
-      "0x01715cCa3fc96964682FFf4ff54f791cA154bE26",
-      margin.left + doc.getTextWidth("Beneficiary Address:") + 4,
-      140
-    );
+    // doc.text(
+    //   "0x01715cCa3fc96964682FFf4ff54f791cA154bE26",
+    //   spacing.margin + doc.getTextWidth("Beneficiary Address:") + 4 + 30,
+    //   140
+    // );
+    doc.text(props.beneficiaryAddress, spacing.margin, 140);
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Transaction Hash:", margin.left, 146);
+    doc.text("Transaction ID:", spacing.margin, 145);
     doc.setFont("Poppins", "ExtraLight");
     const txHashSplit = doc.splitTextToSize(
-      "0xed2d794fe1ac9a87dd2ff0ec2c3b749443bd4dc3c3c649da8775cfe8d48484ab",
-      100
+      props.retirement.transaction.id,
+      spacing.mainTextWidth
     );
-    doc.text(
-      txHashSplit,
-      margin.left + doc.getTextWidth("Transaction Hash:") + 4,
-      146
-    );
+    // doc.text(
+    //   txHashSplit,
+    //   spacing.margin + doc.getTextWidth("Transaction Hash:") + 4,
+    //   152
+    // );
+    doc.text(txHashSplit, spacing.margin, 150);
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Project:", margin.left, 158);
+    doc.text("Token:", spacing.margin + 30, 156);
     doc.setFont("Poppins", "ExtraLight");
     doc.text(
-      "4x50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
-      margin.left + doc.getTextWidth("Project:") + 3,
-      158
+      props.tokenData.label,
+      spacing.margin + doc.getTextWidth("Token:") + 3 + 30,
+      156
     );
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Methodology:", margin.left, 164);
+    doc.text("Project:", spacing.margin + 30, 161);
+    doc.setFont("Poppins", "ExtraLight");
+    // doc.text(
+    //   "4x50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
+    //   spacing.margin + doc.getTextWidth("Project:") + 3,
+    //   158
+    // );
+    doc.text(
+      "4x50 MW Dayingjiang- 3 Hydropower Project Phases 1&2",
+      spacing.margin + doc.getTextWidth("Project:") + 3 + 30,
+      161
+    );
+
+    doc.setFont("Poppins", "Bold");
+    doc.text("Methodology:", spacing.margin + 30, 166);
     doc.setFont("Poppins", "ExtraLight");
     doc.text(
       "ACM0002",
-      margin.left + doc.getTextWidth("Methodology:") + 4,
-      164
+      spacing.margin + doc.getTextWidth("Methodology:") + 30 + 4,
+      166
     );
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Country/Region:", margin.left, 170);
+    doc.text("Country/Region:", spacing.margin + 30, 171);
     doc.setFont("Poppins", "ExtraLight");
     doc.text(
       "China",
-      margin.left + doc.getTextWidth("Country/Region:") + 4,
-      170
+      spacing.margin + doc.getTextWidth("Country/Region:") + 30 + 4,
+      171
     );
 
     const formattedVintage = new Date(1199145600 * 1000)
@@ -166,29 +232,29 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
       .toString();
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Vintage:", margin.left, 176);
+    doc.text("Vintage:", spacing.margin + 30, 176);
     doc.setFont("Poppins", "ExtraLight");
     doc.text(
       formattedVintage,
-      margin.left + doc.getTextWidth("Vintage:") + 3,
+      spacing.margin + doc.getTextWidth("Vintage:") + 30 + 3,
       176
     );
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Timestamp:", margin.left, 182);
+    doc.text("Timestamp:", spacing.margin + 30, 181);
     doc.setFont("Poppins", "ExtraLight");
     doc.text(
       "03/05/2022",
-      margin.left + doc.getTextWidth("Timestamp:") + 4,
-      182
+      spacing.margin + doc.getTextWidth("Timestamp:") + 30 + 4,
+      181
     );
 
     doc.setFont("Poppins", "Bold");
-    doc.text("View this retirement on ", margin.left, 200);
+    doc.text("View this retirement on ", spacing.margin + 30, 200);
     doc.setTextColor(0, 204, 51);
     doc.textWithLink(
       "klimadao.finance",
-      margin.left + doc.getTextWidth("View this retirement on "),
+      spacing.margin + doc.getTextWidth("View this retirement on ") + 30,
       200,
       {
         url: "https://www.klimadao.finance/retirements/markcuban.klima/2",

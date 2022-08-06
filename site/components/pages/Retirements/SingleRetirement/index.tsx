@@ -170,6 +170,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                       beneficiaryAddress={beneficiaryAddress}
                       retirement={retirement}
                       retirementMessage={retireData.retirementMessage}
+                      projectDetails={props.projectDetails}
                       tokenData={tokenData}
                     />
                   )
