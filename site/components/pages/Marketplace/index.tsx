@@ -23,7 +23,7 @@ export const Home: NextPage<Props> = () => {
 
       <Section variant="gray">
         <div className={styles.stack}>
-          <Text t="h1">Project Bezos</Text>
+          <Text t="h1">Project Bezos.</Text>
           <iframe
             width="100%"
             height="315"
