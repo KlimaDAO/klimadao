@@ -42,6 +42,7 @@ import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 import * as styles from "./styles";
 
 import { urls } from "@klimadao/lib/constants";
+import { YoutubeEmbed } from "components/YoutubeEmbed";
 import { cx } from "@emotion/css";
 
 const linkToBlogUserGuide = `${urls.siteBlog}/klima-infinity-user-guide`;
@@ -222,10 +223,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             </Text>
           </div>
           <div className="why_right_container">
-            <Image
-              src={infiniteNightCliffs}
-              alt="flashlight shining on dark cliffs"
-              className="why_right_img"
+            <YoutubeEmbed
+              videoId="eRmmDh1ingU"
+              hideControls
+              hideFullscreen
+              posterImg={{
+                src: infiniteNightCliffs,
+                alt: "flashlight shining on dark cliffs",
+              }}
             />
           </div>
         </div>

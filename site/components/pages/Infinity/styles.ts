@@ -279,11 +279,12 @@ export const whySection = css`
   }
   .why_right_container {
     width: 100%;
-    height: 100%;
+    height: auto;
     padding-left: 0;
     ${breakpoints.large} {
       padding-left: 6.4rem;
       width: 65%;
+      height: 100%;
     }
   }
   .why_right_img {
