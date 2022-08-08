@@ -4,7 +4,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log(process.env.MOBILUM_API_KEY);
 
   if (req.method !== "POST") {
     return res.status(404).json({ status: "Not found" });
@@ -15,8 +14,6 @@ export default async function handler(
   }
 
   const reqBody = JSON.parse(req.body);
-
-  console.log(`reqBody: ${reqBody}`);
 
   if (!reqBody.address) {
     return res.status(500).json({ error: "Internal server error" });

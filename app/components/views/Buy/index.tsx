@@ -94,7 +94,7 @@ export const Buy = (props: Props) => {
                 <li>
                   <span className={"key"}>Regions:</span>
                   <span>&nbsp;</span>
-                  <span className={"value"}>All</span>
+                  <span className={"value"}>All, excluding USA</span>
                 </li>
                 <li>
                   <span className={"key"}>Fee:</span>
@@ -125,7 +125,7 @@ export const Buy = (props: Props) => {
                 <li>
                   <span className={"key"}>Regions:</span>
                   <span>&nbsp;</span>
-                  <span className={"value"}>All, excluding USA</span>
+                  <span className={"value"}>All</span>
                 </li>
                 <li>
                   <span className={"key"}>Fee:</span>
