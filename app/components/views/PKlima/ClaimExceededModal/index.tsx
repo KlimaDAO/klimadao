@@ -1,15 +1,15 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
-import styles from "./index.module.css";
+import * as styles from "./styles";
 import { Trans } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 
 export const ClaimExceededModal: FC = () => {
   return (
-    <div className={styles.bg}>
-      <div className={styles.card}>
-        <div className={styles.card_header}>
+    <div className={styles.container}>
+      <div className="card">
+        <div className="card_header">
           <Text t="h2_alt">⚠ Claim exceeded.</Text>
           <Text t="body2">
             <Trans id="pklima.overclaim">
@@ -28,13 +28,7 @@ export const ClaimExceededModal: FC = () => {
             </Trans>
           </Text>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            gap: "0.8rem",
-          }}
-        >
+        <div className="button_wrapper">
           <Link to="/stake">
             <ButtonPrimary label={"BACK TO APP"} />
           </Link>

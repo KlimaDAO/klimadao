@@ -4,8 +4,8 @@ import { Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { AllPosts } from "lib/queries";
 import { Card } from "components/Card";
-import styles from "./index.module.css";
 import { Container } from "../Resources/Container";
+import * as styles from "./styles";
 
 type Props = {
   posts: AllPosts;
@@ -30,11 +30,11 @@ export const Blog: FC<Props> = (props) => (
     mediaImageSrc={urls.mediaImage}
   >
     <div className={styles.container}>
-      <section className={styles.cardsSection}>
-        <Text t="h4" className={styles.articles}>
+      <section className="cardsSection">
+        <Text t="h4" className="articles">
           <Trans>Articles</Trans>
         </Text>
-        <div className={styles.cards}>
+        <div className="cards">
           {props.posts.map((post) => (
             <Card key={post.slug} post={post} />
           ))}
