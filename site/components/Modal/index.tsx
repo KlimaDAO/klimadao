@@ -1,7 +1,6 @@
 import React, { useEffect, FC } from "react";
 import styled from "@emotion/styled";
 import Close from "@mui/icons-material/Close";
-import { Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 
@@ -17,11 +16,13 @@ export const ModalWrapper = styled.div`
 export interface Props {
   showModal: boolean;
   closeOnBackgroundClick?: boolean;
-  title: string;
-  onToggleModal: () => void;
+  title: React.ReactNode;
+  onToggleModal?: () => void;
 }
 
 export const Modal: FC<Props> = (props) => {
+  const showCloseButton = !!props.onToggleModal;
+
   useEffect(() => {
     if (props.showModal) {
       document.body.style.overflow = "hidden";
@@ -40,10 +41,13 @@ export const Modal: FC<Props> = (props) => {
       <div className={styles.modalContainer}>
         <div className={styles.modalContent}>
           <div className="title">
-            <Text t="h4">{props.title}</Text>
-            <button onClick={props.onToggleModal}>
-              <Close fontSize="large" />
-            </button>
+            {props.title}
+
+            {showCloseButton && (
+              <button onClick={props.onToggleModal}>
+                <Close fontSize="large" />
+              </button>
+            )}
           </div>
 
           {props.children}

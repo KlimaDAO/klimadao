@@ -55,7 +55,7 @@ export const queryKlimaRetireByIndex = async (
 
 export const queryKlimaRetiresByAddress = async (
   beneficiaryAddress: string
-): Promise<KlimaRetire[]> => {
+): Promise<KlimaRetire[] | false> => {
   try {
     const result = await fetch(subgraphs.polygonBridgedCarbon, {
       method: "POST",
@@ -94,7 +94,7 @@ export const queryKlimaRetiresByAddress = async (
       }),
     });
     const json: QueryKlimaRetires = await result.json();
-    return json.data.klimaRetires;
+    return !!json.data.klimaRetires.length && json.data.klimaRetires;
   } catch (e) {
     console.error("Failed to query KlimaRetiresByAddress", e);
     return Promise.reject(e);

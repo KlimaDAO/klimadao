@@ -426,7 +426,7 @@ export const carbonSection = css`
   .carbon_counter {
     font-size: 5rem;
     line-height: 5rem;
-    font-weight: 700;
+    font-weight: 600;
     word-break: break-all;
   }
   .carbon_cardGroup {

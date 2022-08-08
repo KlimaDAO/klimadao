@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NextPage } from "next";
-import {
-  concatAddress,
-  getRetirementTotalsAndBalances,
-  useWeb3,
-} from "@klimadao/lib/utils";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
-import { Text } from "@klimadao/lib/components";
 
 import { PageHead } from "components/PageHead";
 import { Modal } from "components/Modal";
@@ -18,45 +13,28 @@ import {
   PledgeCard,
   RetirementsCard,
 } from "./Cards";
+import { Profile } from "./Profile";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
-import { Pledge } from "../types";
+import { Holding, Pledge } from "../types";
 import * as styles from "./styles";
 
 type Props = {
+  canonicalUrl: string;
+  domain: string | null;
+  holdings: Holding[];
   pageAddress: string;
   pledge: Pledge;
+  retirements: RetirementsTotalsAndBalances;
 };
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const { address, isConnected } = useWeb3();
   const [showModal, setShowModal] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(props.pledge);
-  const [retirements, setRetirements] =
-    useState<RetirementsTotalsAndBalances | null>(null);
 
   const canEditPledge =
     address?.toLowerCase() === props.pageAddress && isConnected;
-
-  const currentFootprint = pledge.footprint[pledge.footprint.length - 1];
-  const totalTonnesRetired = Number(retirements?.totalTonnesRetired);
-  const pledgeProgress =
-    totalTonnesRetired && (totalTonnesRetired / currentFootprint.total) * 100;
-  const displayPledgeProgress =
-    !isNaN(totalTonnesRetired) && !isNaN(totalTonnesRetired);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const retirements = await getRetirementTotalsAndBalances({
-          address: props.pageAddress,
-        });
-        setRetirements(retirements);
-      } catch (e) {
-        console.error(e);
-      }
-    })();
-  }, []);
 
   const handleFormSubmit = async (data: Pledge) => {
     setPledge(data);
@@ -68,9 +46,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       <PageHead
         title="Klima Infinity | Pledge"
         mediaTitle={`${
-          pledge.name || concatAddress(pledge.ownerAddress)
+          pledge.name || props.domain || concatAddress(pledge.ownerAddress)
         }'s pledge`}
         metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency." // Need better meta description
+        canonicalUrl={props.canonicalUrl}
       />
       <Modal
         title="Your pledge"
@@ -85,37 +64,11 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       </Modal>
 
       <div className={styles.contentContainer}>
-        <div className={styles.profile}>
-          {Boolean(pledge.profileImageUrl) ? (
-            <img
-              className="profileImage"
-              src={pledge.profileImageUrl}
-              alt="Profile image"
-            />
-          ) : (
-            <Text t="h3" className="profileImage" align="center">
-              -
-            </Text>
-          )}
-
-          <Text t="h2">
-            {pledge.name || concatAddress(pledge.ownerAddress)}
-          </Text>
-
-          <div className={styles.progressContainer}>
-            <Text t="h4" color="lightest" align="center">
-              Pledged to offset{" "}
-              <strong>{+currentFootprint.total.toFixed(2)}</strong> Carbon
-              Tonnes
-            </Text>
-
-            {displayPledgeProgress && currentFootprint.total > 0 ? (
-              <Text t="h4" className={styles.pledgeProgress}>
-                {Math.round(pledgeProgress)}% of pledge met
-              </Text>
-            ) : null}
-          </div>
-        </div>
+        <Profile
+          domain={props.domain}
+          pledge={props.pledge}
+          retirements={props.retirements}
+        />
 
         <div className={styles.column}>
           <PledgeCard pledge={pledge.description} />
@@ -124,10 +77,13 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.column}>
-          <AssetBalanceCard pageAddress={props.pageAddress} />
-          <RetirementsCard
+          <AssetBalanceCard
+            holdings={props.holdings}
             pageAddress={props.pageAddress}
-            retirements={retirements}
+          />
+          <RetirementsCard
+            retirements={props.retirements}
+            pageAddress={props.pageAddress}
           />
         </div>
       </div>

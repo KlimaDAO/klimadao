@@ -24,11 +24,8 @@ import {
 import { redeemPklima, setAllowance, decrementAllowance } from "state/user";
 import { useAppDispatch } from "state";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
-import {
-  exerciseTransaction,
-  changeApprovalTransaction,
-  loadTerms,
-} from "actions/pklima";
+import { exerciseTransaction, loadTerms } from "actions/pklima";
+import { changeApprovalTransaction } from "actions/utils";
 import * as styles from "components/views/Stake/styles";
 import { BalancesCard } from "components/BalancesCard";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
@@ -101,7 +98,8 @@ export const PKlima: FC<Props> = (props) => {
       const approvedValue = await changeApprovalTransaction({
         value: currentQuantity,
         provider,
-        action,
+        token: action,
+        spender: "pklima_exercise",
         onStatus: setStatus,
       });
       dispatch(

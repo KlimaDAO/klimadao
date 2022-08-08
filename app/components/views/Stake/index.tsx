@@ -6,10 +6,8 @@ import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 
-import {
-  changeApprovalTransaction,
-  changeStakeTransaction,
-} from "actions/stake";
+import { changeStakeTransaction } from "actions/stake";
+import { changeApprovalTransaction } from "actions/utils";
 import { useAppDispatch } from "state";
 
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
@@ -118,32 +116,26 @@ export const Stake = (props: Props) => {
 
   const handleApproval = (action: "stake" | "unstake") => async () => {
     if (!props.provider) return;
+    const token = action === "stake" ? "klima" : "sklima";
+    const spender = action === "stake" ? "staking_helper" : "staking";
+
     try {
       const currentQuantity = quantity.toString();
       const approvedValue = await changeApprovalTransaction({
         value: currentQuantity,
         provider: props.provider,
-        action,
+        token,
+        spender,
         onStatus: setStatus,
       });
 
-      if (action === "stake") {
-        dispatch(
-          setAllowance({
-            token: "klima",
-            spender: "staking_helper",
-            value: approvedValue,
-          })
-        );
-      } else {
-        dispatch(
-          setAllowance({
-            token: "sklima",
-            spender: "staking",
-            value: approvedValue,
-          })
-        );
-      }
+      dispatch(
+        setAllowance({
+          token,
+          spender,
+          value: approvedValue,
+        })
+      );
     } catch (e) {
       console.error("Error in handleApproval", e);
       return;

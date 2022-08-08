@@ -96,11 +96,14 @@ export const urls = {
   wrap: "https://app.klimadao.finance/#/wrap",
   bonds: "https://app.klimadao.finance/#/bonds",
   offset: "https://app.klimadao.finance/#/offset",
+  pledges: "https://app.klimadao.finance/pledge",
   resources: "https://www.klimadao.finance/resources",
+  siteBlog: "https://www.klimadao.finance/blog",
   retirements: "https://www.klimadao.finance/retirements",
   contact: "https://www.klimadao.finance/contact",
   community: "https://www.klimadao.finance/community",
   buy: "https://www.klimadao.finance/buy",
+  infinity: "https://www.klimadao.finance/infinity",
   buy_dapp: "https://app.klimadao.finance/#/buy",
   carbonDashboard: "https://carbon.klimadao.finance",
   forum: "https://forum.klimadao.finance",
@@ -125,7 +128,9 @@ export const urls = {
   mediaRequestForm:
     "https://docs.google.com/forms/d/e/1FAIpQLSdIVolbOvbuw1LHGwT8ec9HHZTWxSluErInZ_TaiqKzAvG30w/viewform",
   partnerShipsContactForm:
-    "https://notionforms.io/forms/klimadao-request-for-collaboration",
+    "https://share-eu1.hsforms.com/1fEb0LUdcRlKGTzNCVYz6igfhhlr",
+  klimaInfinityContactForm:
+    "https://share-eu1.hsforms.com/1g2uooleDQ06MaRpylL5irwfhhlr",
   pressEmail: "mailto:press@klimadao.finance",
   loveletter: "https://loveletter.klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
@@ -212,14 +217,15 @@ export const offsetCompatibility: CompatMap = {
   nct: ["bct", "nct"],
   mco2: ["mco2"],
   usdc: ["bct", "nct", "mco2", "ubo", "nbo"],
-  klima: ["bct", "mco2", "ubo", "nbo"],
-  sklima: ["bct", "mco2", "ubo", "nbo"],
-  wsklima: ["bct", "mco2", "ubo", "nbo"],
+  klima: ["bct", "mco2"],
+  sklima: ["bct", "mco2"],
+  wsklima: ["bct", "mco2"],
 };
 
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";
 export const subgraphs = {
   polygonBridgedCarbon: `${SUBGRAPH_URL}/polygon-bridged-carbon`,
+  userCarbon: `${SUBGRAPH_URL}/klimadao-user-carbon`,
 };
 
 const VERRA_REGISTRY = "https://registry.verra.org";

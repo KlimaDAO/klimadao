@@ -1,137 +1,98 @@
 import React, { FC, useEffect, useState } from "react";
-import Image from "next/image";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
-import { Text } from "@klimadao/lib/components";
-import { trimStringDecimals } from "@klimadao/lib/utils";
+import map from "lodash/map";
+import groupBy from "lodash/groupBy";
 
 import BCTIcon from "public/icons/BCT.png";
-import KlimaIcon from "public/icons/KLIMA.png";
+import KLIMAIcon from "public/icons/KLIMA.png";
 import MCO2Icon from "public/icons/MCO2.png";
-import { getBalances, Balances } from "lib/getBalances";
+import NCTIcon from "public/icons/NCT.png";
+import NBOIcon from "public/icons/NBO.png";
+import UBOIcon from "public/icons/UBO.png";
+import { getBalances, Balances, BalanceToken } from "lib/getBalances";
+import { Holding } from "components/pages/Pledge/types";
 
 import { BaseCard } from "../BaseCard";
+import { TokenRow } from "./TokenRow";
 import * as styles from "./styles";
 
 type Props = {
   pageAddress: string;
+  holdings: Holding[];
+};
+
+type TokenMap = {
+  [key in BalanceToken]: {
+    label: string;
+    icon: StaticImageData;
+  };
+};
+
+const TOKEN_MAP: TokenMap = {
+  klima: {
+    label: "KLIMA",
+    icon: KLIMAIcon,
+  },
+  sklima: {
+    label: "sKLIMA",
+    icon: KLIMAIcon,
+  },
+  mco2: {
+    label: "MCO2",
+    icon: MCO2Icon,
+  },
+  bct: {
+    label: "BCT",
+    icon: BCTIcon,
+  },
+  nct: {
+    label: "NCT",
+    icon: NCTIcon,
+  },
+  nbo: {
+    label: "NBO",
+    icon: NBOIcon,
+  },
+  ubo: {
+    label: "UBO",
+    icon: UBOIcon,
+  },
 };
 
 export const AssetBalanceCard: FC<Props> = (props) => {
   const [balances, setBalances] = useState<Balances | null>(null);
 
-  const formatBalance = (balance: string) =>
-    Number(balance) > 0.01 ? trimStringDecimals(balance, 2) : 0;
+  const holdingsByToken = groupBy(props.holdings, "token");
+  const tokenHoldingAndBalances = map(TOKEN_MAP, (token, key) => ({
+    ...token,
+    balance: balances && balances[key as BalanceToken],
+    holdings: holdingsByToken[token.label],
+  }));
 
   useEffect(() => {
     (async () => {
-      const balances = await getBalances({
-        address: props.pageAddress,
-      });
+      const balances = await getBalances({ address: props.pageAddress });
       setBalances(balances);
     })();
   }, []);
 
   return (
     <BaseCard title="Carbon Assets" icon={<CloudQueueIcon fontSize="large" />}>
-      <div className={styles.tokenRow}>
-        <Image height={48} width={48} src={KlimaIcon} alt="Klima" />
-        <div className={styles.tokenHoldings}>
-          <Text t="caption">Holding</Text>
-          <div>
-            {balances ? (
-              <>
-                <Text t="h4" as="span">
-                  {formatBalance(balances.klima)}{" "}
-                </Text>
-                <Text t="h4" as="span" color="lightest" uppercase>
-                  Klima
-                </Text>
-              </>
-            ) : (
-              <Text t="h4" color="lightest">
-                Loading...
-              </Text>
+      <div className={styles.tokenCardContainer}>
+        {map(tokenHoldingAndBalances, (token, index) => (
+          <div className={styles.tokenRowContainer} key={index}>
+            <TokenRow
+              label={token.label}
+              icon={token.icon}
+              balance={token.balance}
+              holdings={token.holdings}
+            />
+
+            {tokenHoldingAndBalances.length - 1 !== index && (
+              <div className={styles.divider} />
             )}
           </div>
-        </div>
-      </div>
-
-      <div className={styles.divider} />
-
-      <div className={styles.tokenRow}>
-        <Image height={48} width={48} src={KlimaIcon} alt="Klima" />
-        <div className={styles.tokenHoldings}>
-          <Text t="caption">Holding</Text>
-          <div>
-            {balances ? (
-              <>
-                <Text t="h4" as="span">
-                  {formatBalance(balances.sklima)}{" "}
-                </Text>
-                <Text t="h4" as="span" color="lightest">
-                  s
-                </Text>
-                <Text t="h4" as="span" color="lightest" uppercase>
-                  Klima
-                </Text>
-              </>
-            ) : (
-              <Text t="h4" color="lightest">
-                Loading...
-              </Text>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.divider} />
-
-      <div className={styles.tokenRow}>
-        <Image height={48} width={48} src={MCO2Icon} alt="MCO2" />
-        <div className={styles.tokenHoldings}>
-          <Text t="caption">Holding</Text>
-          <div>
-            {balances ? (
-              <>
-                <Text t="h4" as="span">
-                  {formatBalance(balances.mco2)}{" "}
-                </Text>
-                <Text t="h4" as="span" color="lightest" uppercase>
-                  MCO2
-                </Text>
-              </>
-            ) : (
-              <Text t="h4" color="lightest">
-                Loading...
-              </Text>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.divider} />
-
-      <div className={styles.tokenRow}>
-        <Image height={48} width={48} src={BCTIcon} alt="BCT" />
-        <div className={styles.tokenHoldings}>
-          <Text t="caption">Holding</Text>
-          <div>
-            {balances ? (
-              <>
-                <Text t="h4" as="span">
-                  {formatBalance(balances.bct)}{" "}
-                </Text>
-                <Text t="h4" as="span" color="lightest" uppercase>
-                  BCT
-                </Text>
-              </>
-            ) : (
-              <Text t="h4" color="lightest">
-                Loading...
-              </Text>
-            )}
-          </div>
-        </div>
+        ))}
       </div>
     </BaseCard>
   );

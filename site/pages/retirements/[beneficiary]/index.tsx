@@ -27,7 +27,7 @@ interface PageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
   totalsAndBalances: RetirementsTotalsAndBalances;
-  klimaRetires: KlimaRetire[];
+  klimaRetires: KlimaRetire[] | null;
   nameserviceDomain: string | null;
   canonicalUrl: string;
 }
@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     return {
       props: {
         totalsAndBalances,
-        klimaRetires,
+        klimaRetires: klimaRetires || null,
         beneficiaryAddress: beneficiaryAddress,
         nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
         canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}`,

@@ -1,5 +1,6 @@
 import { css } from "@emotion/css";
 import * as common from "@klimadao/lib/theme/common";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const cardHeader = css`
   display: flex;
@@ -17,7 +18,7 @@ export const title = css`
 
   svg {
     fill: var(--font-01);
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 `;
 
@@ -28,4 +29,8 @@ export const card = css`
   flex-direction: column;
   align-content: start;
   padding: 1.8rem;
+
+  ${breakpoints.desktop} {
+    padding: 2.2rem;
+  }
 `;

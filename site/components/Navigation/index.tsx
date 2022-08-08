@@ -17,7 +17,7 @@ import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-type PageName = "Home" | "Buy" | "Resources" | "Disclaimer";
+type PageName = "Home" | "Buy" | "Resources" | "Disclaimer" | "Infinity";
 
 export type Props = {
   activePage: PageName;
@@ -36,21 +36,35 @@ export const Navigation: FC<Props> = ({
         buttons={[
           <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
-          <ButtonPrimary
-            key="Enter App"
-            label={t({ message: "Enter App", id: "shared.enter_app" })}
-            href={createLinkWithLocaleQuery(urls.app, locale)}
-          />,
+          activePage !== "Infinity" ? (
+            <ButtonPrimary
+              key="Enter App"
+              label={t({ message: "Enter App", id: "shared.enter_app" })}
+              href={createLinkWithLocaleQuery(urls.app, locale)}
+            />
+          ) : (
+            <ButtonPrimary
+              key="Contact Sales"
+              variant="blueRounded"
+              label={t({
+                message: "Contact Sales",
+                id: "shared.contact_sales",
+              })}
+              href={urls.klimaInfinityContactForm}
+              target="_blank"
+            />
+          ),
         ]}
+        activePage={activePage}
       >
         <NavItemDesktop
-          url={"/buy"}
-          name={t({ message: "Buy", id: "shared.buy" })}
-          active={activePage === "Buy"}
+          url={createLinkWithLocaleQuery(urls.offset, locale)}
+          name={t({ message: "Offset", id: "shared.offset" })}
         />
         <NavItemDesktop
-          url={createLinkWithLocaleQuery(urls.stake, locale)}
-          name={t({ message: "Stake", id: "shared.stake" })}
+          url={"/infinity"}
+          name={t({ message: "Infinity", id: "shared.infity" })}
+          active={activePage === "Infinity"}
         />
         <NavItemDesktop
           url={urls.loveletter}
@@ -70,12 +84,12 @@ export const Navigation: FC<Props> = ({
         ]}
       >
         <NavItemMobile
-          url="/buy"
-          name={t({ message: "Buy", id: "shared.buy" })}
+          url={createLinkWithLocaleQuery(urls.offset, locale)}
+          name={t({ message: "Offset", id: "shared.offset" })}
         />
         <NavItemMobile
-          url={createLinkWithLocaleQuery(urls.stake, locale)}
-          name={t({ message: "Stake", id: "shared.stake" })}
+          url="/infinity"
+          name={t({ message: "Infinity", id: "shared.infinity" })}
         />
         <NavItemMobile
           url={urls.loveletter}

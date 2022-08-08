@@ -1,42 +1,33 @@
 import React, { useState, useEffect, FC } from "react";
-import styles from "./index.module.css";
-import { Text } from "@klimadao/lib/components";
+import { Text, ButtonPrimary } from "@klimadao/lib/components";
 import { polygonNetworks } from "@klimadao/lib/constants";
-import { providers } from "ethers";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import { Modal } from "components/Modal";
+import * as styles from "./styles";
 
-interface Props {
-  provider?: providers.JsonRpcProvider;
-}
-
-export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
-  const [show, setShow] = useState(false);
+export const InvalidNetworkModal: FC = () => {
+  const { provider } = useWeb3();
+  const [showModal, setShowModal] = useState(false);
 
   const onLoadProvider = async () => {
-    if (!provider) {
-      return;
-    }
+    if (!provider) return;
+
     // TODO: remove hardcoded chainId
     const network = await provider.getNetwork();
-    if (!network) {
-      return;
-    }
+    if (!network) return;
+
     if (
       network.chainId !== polygonNetworks.mainnet.chainId &&
       network.chainId !== polygonNetworks.testnet.chainId
     ) {
-      setShow(true);
+      setShowModal(true);
     }
   };
 
   useEffect(() => {
     if (provider) onLoadProvider();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [provider]);
-
-  if (!show) {
-    return null;
-  }
 
   const handleChangeNetwork = (net: "mainnet" | "testnet") => async () => {
     const { hexChainId, rpcUrls, blockExplorerUrls, chainName } =
@@ -63,34 +54,26 @@ export const InvalidNetworkModal: FC<Props> = ({ provider }) => {
     }
   };
 
+  if (!showModal) return null;
+
   return (
-    <>
-      <div className={styles.bg}>
-        <div className={styles.card}>
-          <div className={styles.card_header}>
-            <Text t="h3">
-              ⚠ <Trans>Wrong Network</Trans>
-            </Text>
-            <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
-              <Trans>This app only works on Polygon Mainnet.</Trans>
-            </Text>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              gap: "0.8rem",
-            }}
-          >
-            <button
-              onClick={handleChangeNetwork("mainnet")}
-              className={styles.switchNetworkButton}
-            >
-              <Trans>Switch to Polygon</Trans>
-            </button>
-          </div>
-        </div>
+    <Modal
+      title={
+        <Text t="h3">
+          ⚠ <Trans>Wrong Network</Trans>
+        </Text>
+      }
+    >
+      <Text t="body3" color="lightest" style={{ fontWeight: "normal" }}>
+        <Trans>This app only works on Polygon Mainnet.</Trans>
+      </Text>
+      <div className={styles.switchButtonContainer}>
+        <ButtonPrimary
+          className={styles.switchButton}
+          label={<Trans>Switch to Polygon</Trans>}
+          onClick={handleChangeNetwork("mainnet")}
+        />
       </div>
-    </>
+    </Modal>
   );
 };

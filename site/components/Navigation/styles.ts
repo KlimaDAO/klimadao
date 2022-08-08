@@ -19,7 +19,7 @@ export const navMain_DesktopLink = css`
   }
   &[data-active="true"] {
     color: var(--font-01);
-    font-weight: 700;
+    font-weight: 600;
   }
 `;
 

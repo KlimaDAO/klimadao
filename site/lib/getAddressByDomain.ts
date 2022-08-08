@@ -18,7 +18,7 @@ export const getAddressByDomain = async (domain: string): Promise<string> => {
     if (!address || !ethers.utils.isAddress(address)) {
       throw new Error("Not a valid address");
     }
-    return address;
+    return address.toLowerCase();
   } catch (e) {
     console.error("Error in getAddressByDomain", e);
     return Promise.reject(e);

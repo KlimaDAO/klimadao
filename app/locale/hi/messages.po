@@ -1,0 +1,903 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2022-08-08 15:44+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: hi\n"
+
+#: components/views/Bond/index.tsx:677
+msgid "Capacity"
+msgstr "क्षमता"
+
+#: components/CheckURLBanner/index.tsx:39
+msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
+msgstr ""
+
+#: components/InvalidNetworkModal/index.tsx:73
+msgid "Switch to Polygon"
+msgstr ""
+
+#: components/InvalidNetworkModal/index.tsx:68
+msgid "This app only works on Polygon Mainnet."
+msgstr ""
+
+#: components/InvalidNetworkModal/index.tsx:63
+msgid "Wrong Network"
+msgstr "गलत नेटवर्क"
+
+#: components/views/Offset/index.tsx:751
+msgid "advanced"
+msgstr "उन्नत"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:1003
+msgid "bond.all_demand_has_been_filled"
+msgstr ""
+
+#: components/views/Bond/index.tsx:600
+msgid "bond.balance"
+msgstr "बैलेंस"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:604
+msgid "bond.balance.tooltip"
+msgstr "बॉन्डिंग के लिए उपलब्ध बैलेंस"
+
+#: components/views/Bond/index.tsx:435
+#: components/views/Bond/index.tsx:546
+msgid "bond.bond"
+msgstr "बंधन"
+
+#: components/views/Bond/index.tsx:757
+msgid "bond.bond_price"
+msgstr "बंधन कीमत"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:761
+msgid "bond.bond_price.tooltip"
+msgstr "रियायती मूल्य। बंधन की कुल राशि 1 पूर्ण KLIMA (आंशिक बंधन की भी अनुमति है)"
+
+#: components/views/Bond/index.tsx:626
+msgid "bond.bond_price.tooltip.inverse"
+msgstr "बाजार पर KLIMA का वर्तमान ट्रेडिंग मूल्य"
+
+#. Bond {0}
+#: components/views/Bond/index.tsx:525
+msgid "bond.bond_token"
+msgstr "बंधन {0}"
+
+#: components/views/Bond/index.tsx:422
+msgid "bond.capacity_exceeded"
+msgstr "क्षमता से अधिक"
+
+#: components/views/Bond/index.tsx:963
+msgid "bond.date_of_full_vesting"
+msgstr "पूर्ण निहित होने की तिथि"
+
+#: components/views/Bond/index.tsx:968
+msgid "bond.date_of_full_vesting.tooltip"
+msgstr "दिनांक जब संपूर्ण बंधन मूल्य को भुनाया जा सकता है"
+
+#: components/views/Bond/index.tsx:793
+msgid "bond.debt_ratio"
+msgstr "ऋण अनुपात"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:797
+msgid "bond.debt_ratio.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:828
+msgid "bond.discount"
+msgstr "बंधन छूट"
+
+#: components/views/Bond/index.tsx:832
+msgid "bond.discount.description_tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:457
+msgid "bond.inputplaceholder.amount_to_bond"
+msgstr "बंधित राशि"
+
+#: components/views/Bond/index.tsx:462
+msgid "bond.inputplaceholder.amount_to_redeem"
+msgstr "रिडीम राशि"
+
+#: components/views/Bond/index.tsx:659
+msgid "bond.inverse.premium"
+msgstr ""
+
+#: components/views/Bond/index.tsx:663
+msgid "bond.inverse.premium.description"
+msgstr ""
+
+#: components/views/Bond/index.tsx:622
+#: components/views/Bond/index.tsx:773
+msgid "bond.market_price"
+msgstr "बाजार कीमत"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:777
+msgid "bond.market_price.tooltip"
+msgstr "KLIMA का वर्तमान ट्रेडिंग मूल्य, बिना बंधन छूट के"
+
+#: components/views/Bond/index.tsx:412
+msgid "bond.max_exceeded"
+msgstr ""
+
+#: components/views/Bond/index.tsx:695
+#: components/views/Bond/index.tsx:847
+msgid "bond.maximum"
+msgstr "ज्यादा से ज्यादा"
+
+#: components/views/Bond/index.tsx:699
+#: components/views/Bond/index.tsx:851
+msgid "bond.maximum.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:397
+msgid "bond.not_redeemable"
+msgstr ""
+
+#: components/views/Bond/index.tsx:640
+msgid "bond.payout_per_klima"
+msgstr ""
+
+#: components/views/Bond/index.tsx:644
+msgid "bond.payout_per_klima.description_inverse"
+msgstr ""
+
+#: components/views/Bond/index.tsx:441
+#: components/views/Bond/index.tsx:556
+msgid "bond.redeem"
+msgstr ""
+
+#: components/views/Bond/index.tsx:930
+msgid "bond.redeemable"
+msgstr "प्रतिदेय"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:933
+msgid "bond.redeemable.tooltip"
+msgstr "KLIMA की राशि जो पहले से ही निहित है और जिसे भुनाया जा सकता है"
+
+#. should autostake?
+#: components/views/Bond/index.tsx:1033
+msgid "bond.should_autostake"
+msgstr "sKLIMA के लिए स्वचालित रूप से स्टेकिंग"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:992
+msgid "bond.this_bond_price_is_inflated"
+msgstr ""
+
+#: components/views/Bond/index.tsx:901
+msgid "bond.unredeemed"
+msgstr ""
+
+#. Long sentence
+#: components/views/Bond/index.tsx:904
+msgid "bond.unredeemed.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:813
+msgid "bond.vesting_term_end"
+msgstr ""
+
+#: components/views/Bond/index.tsx:817
+msgid "bond.vesting_term_end.tooltip"
+msgstr ""
+
+#: components/views/Bond/index.tsx:726
+#: components/views/Bond/index.tsx:870
+msgid "bond.you_will_get"
+msgstr "तुम्हे मिल जाएगा"
+
+#: components/views/Bond/index.tsx:730
+msgid "bond.you_will_get.description_inverse"
+msgstr "प्रदान की गई इनपुट मात्रा पर आपको यह राशि मिलेगी"
+
+#. Long sentence
+#: components/views/Bond/index.tsx:874
+msgid "bond.you_will_get.tooltip"
+msgstr "प्रदान की गई इनपुट मात्रा पर आपको बंधित KLIMA की राशि मिलेगी"
+
+#: components/views/Buy/index.tsx:44
+msgid "buy.buy_klima"
+msgstr "KLIMA खरीदें"
+
+#. Long sentence
+#: components/views/Buy/index.tsx:108
+msgid "buy.connect_wallet"
+msgstr ""
+
+#. Long sentence
+#: components/views/Buy/index.tsx:55
+msgid "buy.data_disclaimer"
+msgstr ""
+
+#. Long sentence
+#: components/views/Buy/index.tsx:47
+msgid "buy.how_to_buy"
+msgstr "हमारे पार्टनर <0>Mobilum</0> का उपयोग करके सीधे KLIMA खरीदें। दोबारा जांचें कि आप अपने स्वयं के सुरक्षित वॉलेट से जुड़े हैं, और प्रदान किया गया पता सही है।"
+
+#: components/views/Buy/index.tsx:105
+msgid "buy.not_connected"
+msgstr ""
+
+#: components/views/Bond/index.tsx:680
+msgid "capacity.description_inverse"
+msgstr ""
+
+#: components/CheckURLBanner/index.tsx:47
+msgid "checkurlbanner.dont_remind_me"
+msgstr "मुझे याद न कराएँ"
+
+#: components/CheckURLBanner/index.tsx:50
+msgid "checkurlbanner.got_it"
+msgstr "समझ गया"
+
+#. <0>app.klimadao.finance</0> is the only official domain.
+#: components/CheckURLBanner/index.tsx:31
+msgid "checkurlbanner.is_the_only_official_domain"
+msgstr "<0>app.klimadao.finance</0> एकमात्र आधिकारिक डोमेन है। "
+
+#: components/CheckURLBanner/index.tsx:26
+msgid "checkurlbanner.verify_url_and_bookmark_this_page"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:91
+msgid "choose_bond.bct.toucan_base_carbon_tonne"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:196
+msgid "choose_bond.bond_carbon"
+msgstr "कार्बन बांधें"
+
+#. Long sentence
+#: components/views/ChooseBond/index.tsx:199
+msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:223
+msgid "choose_bond.choose_bond"
+msgstr "एक बंधन चुनें"
+
+#: components/views/ChooseBond/index.tsx:111
+msgid "choose_bond.inverse_usdc"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:99
+msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:95
+msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:87
+msgid "choose_bond.mco2.moss_carbon_credit_token"
+msgstr "MOSS कार्बन क्रेडिट टोकन"
+
+#: components/views/ChooseBond/index.tsx:107
+msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
+msgstr ""
+
+#: components/views/ChooseBond/index.tsx:83
+msgid "choose_bond.nbo.description"
+msgstr "C3 प्रकृति आधारित ऑफसेट"
+
+#: components/views/ChooseBond/index.tsx:226
+msgid "choose_bond.percent_discount"
+msgstr "% छूट"
+
+#: components/views/ChooseBond/index.tsx:252
+msgid "choose_bond.sold_out"
+msgstr "बिक चुका है"
+
+#: components/views/ChooseBond/index.tsx:213
+msgid "choose_bond.treasury_balance"
+msgstr "ट्रेजरी बैलेंस"
+
+#: components/views/ChooseBond/index.tsx:79
+msgid "choose_bond.ubo.description"
+msgstr "C3 यूनिवर्सल बेसिक ऑफ़सेट"
+
+#: components/views/ChooseBond/index.tsx:103
+msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
+msgstr "BCT(बीसीटी)/USDC(यूएसडीसी) Sushiswap (सुशीस्वैप) लिक्विडिटी"
+
+#: components/ImageCard/index.tsx:16
+msgid "imagecard.how_to_get_started"
+msgstr "शुरुआत कैसे करें"
+
+#: components/ImageCard/index.tsx:13
+msgid "imagecard.new_to_klima"
+msgstr "KLIMA में नए हैं?"
+
+#. Long sentence
+#: components/views/Info/index.tsx:130
+msgid "info.app_not_loading.1_open_metamask"
+msgstr "1. Metamask (मेटामास्क) खोलें और Ethereum Mainnet पर स्विच करें"
+
+#. Long sentence
+#: components/views/Info/index.tsx:137
+msgid "info.app_not_loading.2_go_to_settings"
+msgstr "2. Settings/Network/Polygon पर जाएं और 'delete' पर क्लिक करें"
+
+#. Long sentence
+#: components/views/Info/index.tsx:144
+msgid "info.app_not_loading.3_return_to_app"
+msgstr "3. app.klimadao.finance पर लौटें और 'switch to mainnet' पर क्लिक करें।"
+
+#. Long sentence
+#: components/views/Info/index.tsx:122
+msgid "info.app_not_loading.if_app_says_loading"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:151
+msgid "info.app_not_loading.metamask_should_prompt"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:117
+msgid "info.app_not_loading.title"
+msgstr ""
+
+#. Long sentence
+#: components/views/Info/index.tsx:105
+msgid "info.common_app_related_questions"
+msgstr "ऐप से संबंधित सामान्य प्रश्न और उपयोगी लिंक। KlimaDAO पर व्यापक पढ़ने के लिए, हमारा <0>आधिकारिक दस्तावेज़ीकरण</0> देखें।"
+
+#: components/views/Info/index.tsx:102
+msgid "info.info_and_faq"
+msgstr ""
+
+#: components/views/Info/index.tsx:165
+msgid "info.official_contract_addresses"
+msgstr "आधिकारिक अनुबंध पते"
+
+#: components/InvalidRPCModal/index.tsx:27
+msgid "invalid_rpc.modal.text"
+msgstr ""
+
+#: components/InvalidRPCModal/index.tsx:20
+msgid "invalid_rpc.modal.title"
+msgstr "अपनी नेटवर्क सेटिंग बदलें"
+
+#: components/NavMenu/index.tsx:176
+msgid "menu.bond_carbon"
+msgstr "कार्बन बांधें"
+
+#: components/NavMenu/index.tsx:160
+msgid "menu.buy_klima"
+msgstr "KLIMA खरीदें"
+
+#: components/NavMenu/index.tsx:200
+msgid "menu.info"
+msgstr "जानकारी"
+
+#: components/NavMenu/index.tsx:205
+msgid "menu.just_for_you"
+msgstr "सिर्फ तुम्हारे लिए"
+
+#: components/NavMenu/index.tsx:66
+msgid "menu.not_connected"
+msgstr ""
+
+#: components/NavMenu/index.tsx:192
+msgid "menu.offset"
+msgstr "ओफ़्सेट"
+
+#: components/NavMenu/index.tsx:168
+msgid "menu.stake_klima"
+msgstr ""
+
+#: components/NavMenu/index.tsx:51
+msgid "menu.wallet_address"
+msgstr ""
+
+#: components/NavMenu/index.tsx:184
+msgid "menu.wrap_klima"
+msgstr "लपेटें sKLIMA"
+
+#: components/NotificationModal/index.tsx:26
+msgid "modal.done"
+msgstr "सफलता!"
+
+#: components/NotificationModal/index.tsx:27
+msgid "modal.error"
+msgstr "असफलता!"
+
+#: components/NotificationModal/index.tsx:29
+msgid "modal.pending"
+msgstr ""
+
+#: components/NotificationModal/index.tsx:28
+msgid "modal.user_confirmation"
+msgstr "पुष्टिकरण"
+
+#: components/views/Bond/index.tsx:510
+msgid "nav.back"
+msgstr "पीछे"
+
+#: components/views/Offset/index.tsx:592
+msgid "offset.aggregation_fee_tooltip"
+msgstr ""
+
+#: components/views/Offset/index.tsx:470
+msgid "offset.amount_in_tonnes"
+msgstr ""
+
+#: components/CarbonTonnesBreakdownCard/index.tsx:41
+msgid "offset.breakdown"
+msgstr "नष्टीकरण"
+
+#: components/views/Offset/index.tsx:560
+msgid "offset.default_retirement_address"
+msgstr "डिफ़ॉल्ट कनेक्टेड वॉलेट का पते "
+
+#: components/views/Offset/index.tsx:496
+msgid "offset.dropdown_payWith.label"
+msgstr "के साथ भुगतान करें"
+
+#: components/views/Offset/index.tsx:511
+msgid "offset.dropdown_retire.label"
+msgstr ""
+
+#: components/CarbonTonnesBreakdownCard/index.tsx:53
+msgid "offset.empty"
+msgstr ""
+
+#: components/views/Offset/index.tsx:554
+#: components/views/Offset/index.tsx:780
+msgid "offset.enter_address"
+msgstr "0x पता दर्ज करें"
+
+#: components/views/Offset/index.tsx:450
+msgid "offset.go_carbon_neutral"
+msgstr ""
+
+#: components/views/Offset/index.tsx:429
+msgid "offset.incompatible"
+msgstr ""
+
+#: components/views/Offset/index.tsx:458
+msgid "offset.lifi"
+msgstr ""
+
+#: components/views/Offset/index.tsx:497
+msgid "offset.modal_payWith.title"
+msgstr "टोकन चुनें"
+
+#: components/views/Offset/index.tsx:515
+msgid "offset.modal_retire.title"
+msgstr ""
+
+#: components/CarbonTonnesRetiredCard/index.tsx:37
+msgid "offset.number_of_retirements"
+msgstr ""
+
+#: components/views/Offset/index.tsx:487
+msgid "offset.offset_quantity"
+msgstr "ऑफसेट करने के लिए मात्रा दर्ज करें"
+
+#: components/views/Offset/index.tsx:447
+msgid "offset.retire_carbon"
+msgstr ""
+
+#: components/views/Offset/index.tsx:758
+msgid "offset.retire_specific"
+msgstr ""
+
+#: components/views/Offset/index.tsx:764
+msgid "offset.retire_specific_tooltip"
+msgstr ""
+
+#: components/views/Offset/index.tsx:540
+msgid "offset.retirement_beneficiary"
+msgstr "नाम या संगठन"
+
+#: components/views/Offset/index.tsx:532
+msgid "offset.retirement_credit"
+msgstr ""
+
+#: components/views/Offset/index.tsx:569
+msgid "offset.retirement_message"
+msgstr ""
+
+#: components/views/Offset/index.tsx:578
+msgid "offset.retirement_purpose"
+msgstr "इस सेवानिवृत्ति के उद्देश्य का वर्णन करें"
+
+#: components/views/Offset/index.tsx:610
+msgid "offset.retiring"
+msgstr ""
+
+#: components/views/Offset/index.tsx:674
+msgid "offset.successModal.body1"
+msgstr ""
+
+#: components/views/Offset/index.tsx:683
+msgid "offset.successModal.body2"
+msgstr "अपनी सेवानिवृत्ति देखने के लिए नीचे दिए गए बटन पर क्लिक करें। अधिक पारदर्शी, सुलभ और लाभकारी कार्बन बाजार की दिशा में हमारी यात्रा में हमारा समर्थन करने के लिए पेज को साझा करने का विचार करें!"
+
+#: components/views/Offset/index.tsx:697
+msgid "offset.successModal.cta"
+msgstr ""
+
+#: components/views/Offset/index.tsx:667
+msgid "offset.successModal.title"
+msgstr ""
+
+#: components/CarbonTonnesRetiredCard/index.tsx:29
+msgid "offset.tonnes_of_carbon_retired"
+msgstr "टन कार्बन"
+
+#: components/CarbonTonnesRetiredCard/index.tsx:20
+msgid "offset.you_have_retired"
+msgstr ""
+
+#: components/views/Offset/index.tsx:588
+msgid "offset_cost"
+msgstr "लागत"
+
+#: components/views/Offset/index.tsx:621
+msgid "offset_disclaimer"
+msgstr "सावधान रहें कि किसी भी संवेदनशील व्यक्तिगत जानकारी को उजागर न करें। आपका संदेश संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
+
+#: components/views/PKlima/index.tsx:176
+msgid "pklima.approve_bct"
+msgstr "2. BCT(बीसीटी) को मंजूरी दें"
+
+#: components/views/PKlima/index.tsx:171
+msgid "pklima.approve_pklima"
+msgstr "1. pKLIMA को मंजूरी दें"
+
+#. Long sentence
+#: components/views/PKlima/index.tsx:194
+msgid "pklima.balances_card.make_sure_to_stake"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:181
+msgid "pklima.exercise"
+msgstr "व्यायाम"
+
+#: components/views/PKlima/index.tsx:210
+msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:278
+msgid "pklima.index_adjusted"
+msgstr ""
+
+#. Long sentence
+#: components/views/PKlima/index.tsx:281
+msgid "pklima.index_adjusted.tooltip"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:226
+msgid "pklima.klima_to_exercise"
+msgstr ""
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:15
+msgid "pklima.overclaim"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:207
+msgid "pklima.redeem_pklima"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:266
+msgid "pklima.redeemed"
+msgstr "रिडीम किया"
+
+#. Long sentence
+#: components/views/PKlima/index.tsx:269
+msgid "pklima.redeemed.tooltip"
+msgstr ""
+
+#: components/views/PKlima/index.tsx:250
+msgid "pklima.supply_limit"
+msgstr "आपूर्ति सीमा"
+
+#. Long sentence
+#: components/views/PKlima/index.tsx:253
+msgid "pklima.supply_limit.tooltip"
+msgstr "कुल टोकन आपूर्ति का एक प्रतिशत। आपका अनुक्रमणिका-समायोजित दावा इस मान से अधिक नहीं हो सकता है।"
+
+#: components/views/PKlima/ClaimExceededModal/index.tsx:22
+msgid "pklima.update"
+msgstr ""
+
+#: components/views/Bond/index.tsx:428
+#: components/views/Offset/index.tsx:358
+#: components/views/Stake/index.tsx:244
+#: components/views/Stake/index.tsx:250
+msgid "shared.approve"
+msgstr "मंजूरी दें"
+
+#: components/BalancesCard/index.tsx:47
+msgid "shared.balances"
+msgstr "बैलेंस"
+
+#: components/ChangeLanguageButton/index.tsx:73
+msgid "shared.change_language"
+msgstr "भाषा बदलें"
+
+#: components/views/Bond/index.tsx:406
+#: components/views/PKlima/index.tsx:165
+#: components/views/Stake/index.tsx:238
+msgid "shared.confirming"
+msgstr "पुष्टि"
+
+#: components/views/Bond/index.tsx:379
+#: components/views/Buy/index.tsx:113
+#: components/views/Offset/index.tsx:323
+#: components/views/PKlima/index.tsx:150
+#: components/views/Stake/index.tsx:209
+#: components/views/Wrap/index.tsx:163
+msgid "shared.connect_wallet"
+msgstr "वॉलेट कनेक्ट करें"
+
+#: components/views/Buy/index.tsx:76
+msgid "shared.copy_wallet_address"
+msgstr "कॉपी पता {0}"
+
+#: components/views/Stake/index.tsx:259
+#: components/views/Stake/index.tsx:269
+msgid "shared.enter_amount"
+msgstr "राशि डालें"
+
+#: components/views/Bond/index.tsx:391
+#: components/views/Offset/index.tsx:335
+#: components/views/Stake/index.tsx:221
+#: components/views/Wrap/index.tsx:175
+msgid "shared.enter_quantity"
+msgstr "मात्रा दर्ज करें"
+
+#: components/views/Bond/index.tsx:448
+#: components/views/Bond/index.tsx:467
+#: components/views/Stake/index.tsx:277
+msgid "shared.error"
+msgstr "गलती"
+
+#: components/views/Offset/index.tsx:351
+#: components/views/Stake/index.tsx:228
+msgid "shared.insufficient_balance"
+msgstr "अपर्याप्त शेषराशि"
+
+#: components/views/Offset/index.tsx:344
+msgid "shared.invalid_inputs"
+msgstr ""
+
+#: components/CarbonTonnesBreakdownCard/index.tsx:48
+#: components/RebaseCard/index.tsx:58
+#: components/RebaseCard/index.tsx:69
+#: components/views/Bond/index.tsx:385
+#: components/views/Loading/index.tsx:11
+#: components/views/Offset/index.tsx:329
+#: components/views/Offset/index.tsx:415
+#: components/views/PKlima/index.tsx:156
+#: components/views/Stake/index.tsx:215
+#: components/views/Stake/index.tsx:432
+#: components/views/Stake/index.tsx:439
+#: components/views/Stake/index.tsx:446
+#: components/views/Wrap/index.tsx:169
+msgid "shared.loading"
+msgstr "लोड हो रहा है..."
+
+#: components/views/Bond/index.tsx:585
+#: components/views/PKlima/index.tsx:237
+#: components/views/Stake/index.tsx:373
+#: components/views/Wrap/index.tsx:295
+msgid "shared.max"
+msgstr ""
+
+#: components/views/Offset/index.tsx:364
+msgid "shared.retire"
+msgstr ""
+
+#: components/views/Bond/index.tsx:373
+msgid "shared.sold_out"
+msgstr "बिक चुका है"
+
+#: components/views/Buy/index.tsx:83
+msgid "shared.wallet_address_copied"
+msgstr "कॉपी किया गया!"
+
+#: components/views/Stake/index.tsx:386
+msgid "stake.5_day_rewards"
+msgstr "5 दिन के पुरस्कार"
+
+#. Long sentence
+#: components/views/Stake/index.tsx:389
+msgid "stake.5_day_rewards.tooltip"
+msgstr "कंपाउंडिंग सहित अनुमानित पुरस्कार, यदि आप 5 दिनों तक दांव पर लगाते हैं।"
+
+#: components/views/Stake/index.tsx:402
+msgid "stake.akr"
+msgstr "AKR"
+
+#. Long sentence
+#: components/views/Stake/index.tsx:405
+msgid "stake.akr.tooltip"
+msgstr "कंपाउंडिंग सहित वार्षिक KLIMA पुरस्कार, यदी वर्तमान इनाम दर 12 महीनों के लिए अपरिवर्तित नही होता (इनाम दर परिवर्तन के अधीन हो सकती है)।"
+
+#. Long sentence
+#. Long sentence
+#: components/views/Buy/index.tsx:124
+#: components/views/Stake/index.tsx:295
+msgid "stake.balancescard.tooltip"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:82
+msgid "stake.estimated_payout"
+msgstr ""
+
+#: components/views/Stake/index.tsx:416
+msgid "stake.index"
+msgstr ""
+
+#. Long sentence
+#: components/views/Stake/index.tsx:419
+msgid "stake.index.tooltip"
+msgstr "यदि आप लॉन्च के दिन 1 KLIMA दांव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। लेखांकन के लिए उपयोगी।"
+
+#: components/views/Stake/index.tsx:58
+msgid "stake.inputplaceholder.stake"
+msgstr "स्टेक राशि"
+
+#: components/views/Stake/index.tsx:62
+msgid "stake.inputplaceholder.unstake"
+msgstr "अनस्टेक राशि"
+
+#: components/views/Stake/index.tsx:316
+msgid "stake.lifi"
+msgstr "क्रॉस-चेन स्टेकिंग अब <0>LI.FI</0> के माध्यम से उपलब्ध है। ETH, BNB और DAI जैसे दर्जनों टोकन के समर्थन के साथ।"
+
+#: components/RebaseCard/index.tsx:61
+msgid "stake.next_rebase"
+msgstr "लगभग। अगला रिबेस"
+
+#: components/RebaseCard/index.tsx:73
+msgid "stake.percent_payout"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:44
+msgid "stake.rebase"
+msgstr ""
+
+#: components/RebaseCard/index.tsx:48
+msgid "stake.rebase.info"
+msgstr ""
+
+#: components/views/Stake/index.tsx:336
+msgid "stake.stake"
+msgstr "दांव लगाना"
+
+#: components/views/Stake/index.tsx:310
+msgid "stake.stake_hold_earn"
+msgstr ""
+
+#: components/views/Stake/index.tsx:257
+#: components/views/Stake/index.tsx:307
+msgid "stake.stake_klima"
+msgstr ""
+
+#: components/views/Stake/index.tsx:348
+msgid "stake.unstake"
+msgstr ""
+
+#: components/views/Stake/index.tsx:267
+msgid "stake.unstake_klima"
+msgstr ""
+
+#: actions/utils.ts:32
+msgid "status.done"
+msgstr "लेन-देन पूरा।"
+
+#: actions/utils.ts:27
+msgid "status.error"
+msgstr ""
+
+#: actions/utils.ts:39
+msgid "status.network_confirmation"
+msgstr ""
+
+#: actions/utils.ts:34
+msgid "status.user_confirmation"
+msgstr ""
+
+#: actions/utils.ts:21
+msgid "status.user_rejected"
+msgstr ""
+
+#: components/NavMenu/index.tsx:212
+msgid "token.pKLIMA"
+msgstr ""
+
+#: components/ConnectButton/index.tsx:20
+msgid "wallet.connect"
+msgstr "कनेक्ट करें"
+
+#: components/ConnectButton/index.tsx:24
+msgid "wallet.disconnect"
+msgstr "डिस्कनेक्ट"
+
+#: lib/getWeb3ModalStrings.ts:13
+msgid "web3modal.injected.des"
+msgstr "अपने ब्राउज़र web3 प्रदाता से जुड़ें"
+
+#: lib/getWeb3ModalStrings.ts:21
+msgid "web3modal.torus.desc"
+msgstr "Torus(टोरस) द्वारा आसान एक-क्लिक वॉलेट"
+
+#: lib/getWeb3ModalStrings.ts:17
+msgid "web3modal.torus.name"
+msgstr "ईमेल या सामाजिक"
+
+#: lib/getWeb3ModalStrings.ts:5
+msgid "web3modal.walletconnect.desc"
+msgstr ""
+
+#: lib/getWeb3ModalStrings.ts:9
+msgid "web3modal.walletlink.desc"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:323
+msgid "wrap.balance"
+msgstr "बैलेंस"
+
+#: components/views/Wrap/index.tsx:218
+msgid "wrap.balances_tooltip"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:310
+msgid "wrap.index"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:313
+msgid "wrap.index.tooltip"
+msgstr "यदि आप लॉन्च के दिन 1 KLIMA दांव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। wsKLIMA मूल्य की गणना करने के लिए उपयोग किया जाता है।"
+
+#: components/views/Wrap/index.tsx:46
+msgid "wrap.sklima_to_wrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:273
+msgid "wrap.unwrap"
+msgstr "खोलना"
+
+#: components/views/Wrap/index.tsx:262
+msgid "wrap.wrap"
+msgstr "लपेटना"
+
+#: components/views/Wrap/index.tsx:228
+msgid "wrap.wrap_sklima"
+msgstr "लपेटें sKLIMA"
+
+#. Long sentence
+#: components/views/Wrap/index.tsx:240
+msgid "wrap.wrap_sklima.some_find_this_useful"
+msgstr ""
+
+#. Long sentence
+#: components/views/Wrap/index.tsx:231
+msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:50
+msgid "wrap.wsklima_to_unwrap"
+msgstr ""
+
+#: components/views/Wrap/index.tsx:326
+msgid "wrap.you_will_get"
+msgstr "तुम्हे मिल जाएगा"
+
+#: components/BalancesCard/index.tsx:33
+msgid "wsklima.unwrapped.label"
+msgstr ""
