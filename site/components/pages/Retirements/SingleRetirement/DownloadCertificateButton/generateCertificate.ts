@@ -10,6 +10,7 @@ import bctBackground from "public/bg_bct.jpeg";
 import nctBackground from "public/bg_nct.jpeg";
 import nboBackground from "public/bg_nbo.jpeg";
 import uboBackground from "public/bg_ubo.jpeg";
+import mco2Background from "public/bg_mco2.jpeg";
 
 import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 import { PoppinsBold } from "./poppinsBoldbase64";
@@ -41,23 +42,24 @@ const featureImageMap = {
   nct: nctBackground,
   ubo: uboBackground,
   nbo: nboBackground,
+  mco2: mco2Background,
+};
+
+const doc = new jsPDF({
+  orientation: "landscape",
+  format: "letter",
+  putOnlyUsedFonts: true,
+  compress: true,
+});
+
+const setupFonts = (): void => {
+  doc.addFileToVFS("Poppins-ExtraLight-normal.ttf", PoppinsExtraLight);
+  doc.addFileToVFS("Poppins-SemiBold-normal.ttf", PoppinsBold);
+  doc.addFont("Poppins-ExtraLight-normal.ttf", "Poppins", "ExtraLight");
+  doc.addFont("Poppins-SemiBold-normal.ttf", "Poppins", "Bold");
 };
 
 export const generateCertificate = (params: Params): void => {
-  const doc = new jsPDF({
-    orientation: "landscape",
-    format: "letter",
-    putOnlyUsedFonts: true,
-    compress: true,
-  });
-
-  const setupFonts = (): void => {
-    doc.addFileToVFS("Poppins-ExtraLight-normal.ttf", PoppinsExtraLight);
-    doc.addFileToVFS("Poppins-SemiBold-normal.ttf", PoppinsBold);
-    doc.addFont("Poppins-ExtraLight-normal.ttf", "Poppins", "ExtraLight");
-    doc.addFont("Poppins-SemiBold-normal.ttf", "Poppins", "Bold");
-  };
-
   const printHeader = (): void => {
     const klimaLogo = new Image();
     klimaLogo.src = KlimaLogo.src;
@@ -151,7 +153,7 @@ export const generateCertificate = (params: Params): void => {
     doc.addImage(
       tokenImage,
       "JPEG",
-      spacing.margin + 125,
+      spacing.margin + 128,
       spacing.projectDetails.y + 24,
       28,
       28
@@ -162,7 +164,7 @@ export const generateCertificate = (params: Params): void => {
     const formattedRetirementDate = `${retirementDate.getDate()}/${retirementDate.getMonth()}/${retirementDate.getFullYear()}`;
     const projectDetails = [
       {
-        label: "Token",
+        label: "Asset Retired",
         value: params.tokenData.label,
       },
       {
@@ -192,7 +194,7 @@ export const generateCertificate = (params: Params): void => {
 
     let startPosition = 157;
     projectDetails.forEach((detail) => {
-      const label = `${detail.label}:`;
+      const label = `${detail.label}: `;
       doc.setFont("Poppins", "Bold");
       doc.text(label, spacing.margin, startPosition);
 
