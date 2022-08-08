@@ -549,7 +549,7 @@ msgstr "500 - Page Not Found"
 msgid "featured.title"
 msgstr "KlimaDAO featured on"
 
-#: components/pages/Home/index.tsx:207
+#: components/pages/Home/index.tsx:257
 msgid "home.backed_by_carbon"
 msgstr "Backed by Carbon."
 
@@ -906,7 +906,7 @@ msgstr "DeFi that defies climate change"
 msgid "infinity.why_title"
 msgstr "Why KlimaDAO?"
 
-#: components/pages/Home/index.tsx:355
+#: components/pages/Home/index.tsx:405
 msgid "invest_in_the_future"
 msgstr "Invest in the future."
 
@@ -1146,7 +1146,7 @@ msgstr "Disclaimer"
 msgid "shared.docs"
 msgstr "Docs"
 
-#: components/Navigation/index.tsx:41
+#: components/Navigation/index.tsx:42
 #: components/pages/Home/index.tsx:118
 msgid "shared.enter_app"
 msgstr "Enter App"
