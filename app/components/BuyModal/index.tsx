@@ -47,11 +47,7 @@ export const BuyModal: FC<Props> = (props) => {
     }
   }, [buyModalService]);
 
-  if (
-    !buyModalService ||
-    buyModalService.length === 0
-  )
-    return null;
+  if (!buyModalService || buyModalService.length === 0) return null;
 
   const closeModal = function (): void {
     dispatch(setAppState({ buyModalService: null }));
@@ -61,41 +57,41 @@ export const BuyModal: FC<Props> = (props) => {
     <div className={styles.bg}>
       <div className={styles.card}>
         <div className={styles.card_header}>
-          <Text>
-            {buyModalService}
-          </Text>
+          <Text>{buyModalService}</Text>
           <button onClick={closeModal} className={styles.closeButton}>
             <CloseIcon />
           </button>
         </div>
-        <div className={styles.card_connected}>
-        </div>
-        {
-          buyModalService === 'mobilum' && (
-            <>
-              {isLoadingMobilumWidget && (
-                <div className={styles.spinner_container}>
-                  <Spinner />
-                </div>
-              )}
-              <div
-                id={"mobilumWidgetContainer"}
-                className={styles.card_iframe_container}
-              >
+        <div className={styles.card_connected}></div>
+        {buyModalService === "mobilum" && (
+          <>
+            {isLoadingMobilumWidget && (
+              <div className={styles.spinner_container}>
+                <Spinner />
               </div>
-            </>
-          )
-        }
-        {
-          buyModalService === 'transak' && (
-            <iframe height="700" title="Transak On/Off Ramp Widget"
-                    src={`https://global.transak.com?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&cryptoCurrencyCode=KLIMA`}
-                    allowTransparency
-                    allowFullScreen
-                    style={{display: 'block', width: '100%', maxHeight: '700px', maxWidth: '500px', border: 'none'}}>
-            </iframe>
-          )
-        }
+            )}
+            <div
+              id={"mobilumWidgetContainer"}
+              className={styles.card_iframe_container}
+            ></div>
+          </>
+        )}
+        {buyModalService === "transak" && (
+          <iframe
+            height="700"
+            title="Transak On/Off Ramp Widget"
+            src={`https://global.transak.com?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&cryptoCurrencyCode=KLIMA`}
+            allowTransparency
+            allowFullScreen
+            style={{
+              display: "block",
+              width: "100%",
+              maxHeight: "700px",
+              maxWidth: "500px",
+              border: "none",
+            }}
+          ></iframe>
+        )}
       </div>
     </div>
   );

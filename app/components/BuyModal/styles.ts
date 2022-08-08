@@ -83,56 +83,60 @@ export const card_iframe_container = css`
   margin-top: 2.4rem;
   margin-left: auto;
   margin-right: auto;
-  
+
   .MBMWidget_General {
     border: none;
   }
-  
+
   .MBMWidget_General input:focus {
     outline: none;
   }
-  
+
   .MBMWidget_Exchange_General .MBMWidget_Exchange_Toggle {
     display: none;
   }
-  
-  .MBMWidget_Exchange_General .MBMWidget_Exchange_Swap .MBMWidget_Exchange_Swap_Title {
+
+  .MBMWidget_Exchange_General
+    .MBMWidget_Exchange_Swap
+    .MBMWidget_Exchange_Swap_Title {
     display: none;
   }
-  
-  .MBMWidget_Exchange_General .MBMWidget_Exchange_Swap .MBMWidget_Exchange_Buy_Sell_Togle {
+
+  .MBMWidget_Exchange_General
+    .MBMWidget_Exchange_Swap
+    .MBMWidget_Exchange_Buy_Sell_Togle {
     display: none;
   }
-  
+
   .MBMWidget_General .MBWidget_general_menu_button {
     display: none;
   }
-  
+
   .MBMWidget_Exchange_General .MBMWidget_Header {
     display: none;
   }
-  
+
   .MBMWidget_Exchange_General .MBMWidget_title img {
     display: none;
   }
-  
+
   .MBMWidget_General .MBMWidget_Exchange_crypto {
     top: 10rem;
   }
-  
+
   .MBMWidget_General .MBMWidget_Exchange_preview {
     top: 21rem;
   }
-  
+
   .MBMWidget_Exchange_General .MBMWidget_Exchange_Swap {
     margin-top: 13.5rem;
   }
-  
+
   .MBWidget_block .MBWidget_footer_actions {
     position: unset;
     margin-top: 4rem;
   }
-  
+
   .MBMWidget_General .MBMWidget_GeneralButton[color="primary"] {
     display: flex;
     flex-direction: row;
@@ -140,21 +144,25 @@ export const card_iframe_container = css`
     justify-content: center;
     text-transform: uppercase;
   }
-  
+
   .MBMWidget_General .MBWidget_general_back_button {
-    top: .8rem;
+    top: 0.8rem;
     left: 0;
     box-shadow: unset;
   }
-  
-  .MBMWidget_Exchange_General .MBMWidget_Exchange_Swap .MBMWidget_Exchange_Swap_Input .MBMWidget_Exchange_fiat_selector_slot b {
+
+  .MBMWidget_Exchange_General
+    .MBMWidget_Exchange_Swap
+    .MBMWidget_Exchange_Swap_Input
+    .MBMWidget_Exchange_fiat_selector_slot
+    b {
     display: none;
   }
-  
+
   .MBMWidget_Exchange_General .MBMWidget_GeneralInput[type="email"] label {
     display: none;
   }
-  
+
   .MBMWidget_Exchange_General .MBWidget_Tfa .MBWidget_title.MBWidget_Header {
     margin-left: 0;
     margin-top: 6.2rem;
