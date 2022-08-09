@@ -21,7 +21,7 @@ interface Props {
   onCloseModal: () => void;
   onApproval: () => void;
   onSubmit: () => void;
-  status?: AppNotificationStatus | null;
+  status: AppNotificationStatus | null;
   onResetStatus: () => void;
   hasApproval: boolean;
 }

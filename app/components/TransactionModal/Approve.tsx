@@ -25,7 +25,7 @@ interface Props {
   spender: AllowancesSpender;
   onApproval: () => void;
   onSuccess: () => void;
-  status?: AppNotificationStatus | null;
+  status: AppNotificationStatus | null;
 }
 
 export const Approve: FC<Props> = (props) => {

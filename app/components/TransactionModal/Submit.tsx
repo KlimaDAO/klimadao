@@ -24,7 +24,7 @@ interface Props {
   spender: AllowancesSpender;
   onSubmit: () => void;
   onSuccess: () => void;
-  status?: AppNotificationStatus | null;
+  status: AppNotificationStatus | null;
 }
 
 export const Submit: FC<Props> = (props) => {
