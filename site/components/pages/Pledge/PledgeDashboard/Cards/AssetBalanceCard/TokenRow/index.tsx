@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useRouter } from "next/router";
+import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 
@@ -36,7 +37,7 @@ export const TokenRow: FC<TokenRowProps> = (props) => {
           </div>
         ) : (
           <Text t="h4" color="lightest">
-            Loading...
+            <Trans id="shared.loading">Loading...</Trans>
           </Text>
         )}
       </div>

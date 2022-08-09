@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
+import { t } from "@lingui/macro";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
@@ -41,14 +42,25 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     setShowModal(false);
   };
 
+  const pledgeOwnerTitle =
+    pledge.name || props.domain || concatAddress(pledge.ownerAddress);
+
   return (
     <PledgeLayout canEditPledge={canEditPledge} toggleEditModal={setShowModal}>
       <PageHead
-        title="Klima Infinity | Pledge"
-        mediaTitle={`${
-          pledge.name || props.domain || concatAddress(pledge.ownerAddress)
-        }'s pledge`}
-        metaDescription="Drive climate action and earn rewards with a carbon-backed digital currency." // Need better meta description
+        title={t({
+          id: "pledges.dashboard.head.title",
+          message: "KlimaDAO | Pledges",
+        })}
+        mediaTitle={t({
+          id: "pledges.dashboard.head.metaTitle",
+          message: `${pledgeOwnerTitle}'s pledge`,
+        })}
+        metaDescription={t({
+          id: "shared.head.description",
+          message:
+            "Drive climate action and earn rewards with a carbon-backed digital currency.", // Do we need a better metadescription??
+        })}
         canonicalUrl={props.canonicalUrl}
       />
       <Modal
@@ -66,7 +78,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       <div className={styles.contentContainer}>
         <Profile
           domain={props.domain}
-          pledge={props.pledge}
+          pledge={pledge}
           retirements={props.retirements}
         />
 

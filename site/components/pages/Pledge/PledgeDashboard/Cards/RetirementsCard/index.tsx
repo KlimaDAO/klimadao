@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Trans, t } from "@lingui/macro";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
@@ -39,7 +40,10 @@ export const RetirementsCard: FC<Props> = (props) => {
 
   return (
     <BaseCard
-      title="Retirements"
+      title={t({
+        id: "pledges.dashboard.retirements.title",
+        message: "Retirements",
+      })}
       icon={<LocalFireDepartmentIcon fontSize="large" />}
       action={linkToRetirements}
     >
@@ -50,12 +54,14 @@ export const RetirementsCard: FC<Props> = (props) => {
           </Text>
         ) : (
           <Text t="h4" color="lightest">
-            Loading...
+            <Trans id="shared.loading">Loading...</Trans>
           </Text>
         )}
 
         <Text t="h4" color="lightest">
-          Total Carbon Tonnes Retired
+          <Trans id="pledges.dashboard.retirements.total_tonnes_retired">
+            Total Carbon Tonnes Retired
+          </Trans>
         </Text>
       </div>
 

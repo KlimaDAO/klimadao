@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import dynamic from "next/dynamic";
+import { t } from "@lingui/macro";
 import { ButtonPrimary, KlimaInfinityLogoOnly } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 
@@ -53,7 +54,7 @@ export const HeaderMobile: FC<Props> = (props) => {
           ) : (
             <ButtonPrimary
               className={styles.authButton}
-              label="Connect"
+              label={t({ id: "shared.connect", message: "Connect" })}
               onClick={connect}
             />
           )}
