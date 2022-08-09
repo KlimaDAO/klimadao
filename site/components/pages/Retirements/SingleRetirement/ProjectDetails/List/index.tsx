@@ -18,8 +18,6 @@ export const ProjectDetail: FC<Props> = (props) => {
   const { projectLink, headline, tokenAddress, totalRetired } = props;
   const { locale } = useRouter();
 
-  console.log(props);
-
   const trimTotalRetired =
     !!totalRetired && trimWithLocale(totalRetired, 2, locale);
 
