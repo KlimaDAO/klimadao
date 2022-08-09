@@ -37,11 +37,17 @@ const contractMap = {
   // Main Contracts
   sklimaMain: SKlima.abi,
 
+  // PairContracts
+  bctUsdcLp: PairContract.abi,
+  klimaBctLp: PairContract.abi,
+  klimaUboLp: PairContract.abi,
+  klimaNboLp: PairContract.abi,
+  klimaUsdcLp: PairContract.abi,
+  klimaMco2Lp: PairContract.abi,
+
   // Others
   distributor: DistributorContractv4.abi,
   klimaNameService: PunkTLD.abi,
-  bctUsdcLp: PairContract.abi,
-  klimaBctLp: PairContract.abi,
   retirementAggregator: KlimaRetirementAggregator.abi, // offset
   pklima_exercise: ExercisePKlima.abi,
   staking_helper: KlimaStakingHelper.abi, // stake
