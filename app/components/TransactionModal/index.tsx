@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState, useEffect } from "react";
+import { FC, ReactNode, useState } from "react";
 import { Trans } from "@lingui/macro";
 import { AppNotificationStatus } from "state/app";
 import {
@@ -9,7 +9,6 @@ import {
 import { Modal } from "components/Modal";
 import { Approve } from "./Approve";
 import { Submit } from "./Submit";
-import { Spinner } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 
@@ -27,15 +26,9 @@ interface Props {
 }
 
 export const TransactionModal: FC<Props> = (props) => {
-  const [view, setView] = useState<"approve" | "submit">("approve");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (props.hasApproval) {
-      setView("submit");
-    }
-    setIsLoading(false);
-  }, []);
+  const [view, setView] = useState<"approve" | "submit">(
+    props.hasApproval ? "submit" : "approve"
+  );
 
   return (
     <Modal title={props.title} onToggleModal={props.onCloseModal}>
@@ -47,7 +40,7 @@ export const TransactionModal: FC<Props> = (props) => {
               setView("approve");
             }}
             data-active={view === "approve"}
-            disabled={isLoading || view === "submit"}
+            disabled={view === "submit"}
           >
             <Trans id="transaction_modal.view.approve.title">1. Approve</Trans>
           </button>
@@ -57,17 +50,12 @@ export const TransactionModal: FC<Props> = (props) => {
               setView("submit");
             }}
             data-active={view === "submit"}
-            disabled={isLoading || view === "approve"}
+            disabled={view === "approve"}
           >
             <Trans id="transaction_modal.view.submit.title">2. Submit</Trans>
           </button>
         </div>
-        {isLoading && (
-          <div className={styles.spinner_container}>
-            <Spinner />
-          </div>
-        )}
-        {!isLoading && view === "approve" && (
+        {view === "approve" && (
           <Approve
             value={props.value}
             token={props.token}
@@ -80,7 +68,7 @@ export const TransactionModal: FC<Props> = (props) => {
             status={props.status}
           />
         )}
-        {!isLoading && view === "submit" && (
+        {view === "submit" && (
           <Submit
             value={props.value}
             token={props.token}
