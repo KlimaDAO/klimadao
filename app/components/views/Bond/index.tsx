@@ -362,7 +362,13 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
-  const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
+  const hasApproval = () => {
+    return (
+      !!allowance &&
+      !!Number(allowance[props.bond]) &&
+      Number(quantity) <= Number(allowance[props.bond]) // Caution: Number trims values down to 17 decimal places of precision
+    );
+  };
 
   const isDisabled = view === "bond" && bondInfo.disabled;
   const getButtonProps = (): ButtonProps => {
@@ -423,7 +429,7 @@ export const Bond: FC<Props> = (props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (!hasAllowance()) {
+    } else if (!hasApproval()) {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         disabled: false,
