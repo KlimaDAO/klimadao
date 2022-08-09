@@ -239,15 +239,15 @@ export const Bond: FC<Props> = (props) => {
     try {
       if (!props.provider) return;
       setStatus(null);
-      await changeApprovalTransaction({
+      const approvedValue = await changeApprovalTransaction({
+        value: quantity.toString(),
         provider: props.provider,
         bond: props.bond,
         onStatus: setStatus,
         isInverse: bondState && bondState.bond === "inverse_usdc",
       });
-      // added toNumber for inverse bc its a bignumber
-      // TODO: this should reflect the actually approved value
-      dispatch(setBondAllowance({ [props.bond]: "1000000000" }));
+      // added toNumber for inverse bc its a bignumber <= ???
+      dispatch(setBondAllowance({ [props.bond]: approvedValue }));
     } catch (e) {
       return;
     }
