@@ -620,7 +620,7 @@ msgstr "A percent of total token supply. Your index-adjusted claim may not excee
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned rewards on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
-#: components/TransactionModal/Approve.tsx:93
+#: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:340
 msgid "shared.approve"
@@ -644,7 +644,7 @@ msgstr "Confirming"
 #: components/views/Offset/index.tsx:305
 #: components/views/PKlima/index.tsx:150
 #: components/views/Stake/index.tsx:233
-#: components/views/Wrap/index.tsx:163
+#: components/views/Wrap/index.tsx:196
 msgid "shared.connect_wallet"
 msgstr "Connect wallet"
 
@@ -660,7 +660,7 @@ msgstr "Enter Amount"
 #: components/views/Bond/index.tsx:391
 #: components/views/Offset/index.tsx:317
 #: components/views/Stake/index.tsx:245
-#: components/views/Wrap/index.tsx:175
+#: components/views/Wrap/index.tsx:208
 msgid "shared.enter_quantity"
 msgstr "ENTER QUANTITY"
 
@@ -672,6 +672,7 @@ msgstr "ERROR"
 
 #: components/views/Offset/index.tsx:333
 #: components/views/Stake/index.tsx:252
+#: components/views/Wrap/index.tsx:220
 msgid "shared.insufficient_balance"
 msgstr "INSUFFICIENT BALANCE"
 
@@ -691,14 +692,14 @@ msgstr "INVALID INPUTS"
 #: components/views/Stake/index.tsx:435
 #: components/views/Stake/index.tsx:442
 #: components/views/Stake/index.tsx:449
-#: components/views/Wrap/index.tsx:169
+#: components/views/Wrap/index.tsx:202
 msgid "shared.loading"
 msgstr "Loading..."
 
 #: components/views/Bond/index.tsx:585
 #: components/views/PKlima/index.tsx:237
 #: components/views/Stake/index.tsx:376
-#: components/views/Wrap/index.tsx:295
+#: components/views/Wrap/index.tsx:334
 msgid "shared.max"
 msgstr "Max"
 
@@ -827,49 +828,49 @@ msgstr "You chose to reject the transaction"
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
-#: components/TransactionModal/Approve.tsx:67
-msgid "transaction_modal.allow_amount.amount"
-msgstr "Approve allowance to spend:"
-
-#: components/TransactionModal/Approve.tsx:44
-msgid "transaction_modal.approve.allow_amount"
-msgstr "You must first approve the contract with the spender so that you can spend the amount you want."
-
 #: components/TransactionModal/Approve.tsx:52
-msgid "transaction_modal.approve.allow_amount.contract_owner"
-msgstr "Contract Owner:"
+msgid "transaction_modal.approve.allow_amount"
+msgstr "You must first give permission to our smart contract to transfer tokens on your behalf."
 
-#: components/TransactionModal/Submit.tsx:99
+#: components/TransactionModal/Approve.tsx:60
+msgid "transaction_modal.approve.approve_quantity.contract_address"
+msgstr "Contract address"
+
+#: components/TransactionModal/Approve.tsx:70
+msgid "transaction_modal.approve_quantity.quantity"
+msgstr "Quantity to approve"
+
+#: components/TransactionModal/Submit.tsx:106
 msgid "transaction_modal.close"
 msgstr "Close"
 
-#: components/TransactionModal/Approve.tsx:106
+#: components/TransactionModal/Approve.tsx:113
 msgid "transaction_modal.next"
 msgstr "Next"
 
-#: components/TransactionModal/Submit.tsx:65
+#: components/TransactionModal/Submit.tsx:68
 msgid "transaction_modal.submit.amount"
-msgstr "Confirm amount:"
+msgstr "Confirm amount"
 
-#: components/TransactionModal/Submit.tsx:89
+#: components/TransactionModal/Submit.tsx:96
 msgid "transaction_modal.submit.button"
 msgstr "Submit"
 
-#: components/TransactionModal/Submit.tsx:43
+#: components/TransactionModal/Submit.tsx:51
 msgid "transaction_modal.submit.confirm_transaction"
-msgstr "Pleaser submit the transaction."
+msgstr "Please submit the transaction."
 
-#: components/TransactionModal/Submit.tsx:50
-msgid "transaction_modal.submit.contract_owner"
-msgstr "Contract Owner:"
+#: components/TransactionModal/Submit.tsx:58
+msgid "transaction_modal.submit.contract_address"
+msgstr "Contract address"
 
-#: components/TransactionModal/index.tsx:52
+#: components/TransactionModal/index.tsx:45
 msgid "transaction_modal.view.approve.title"
-msgstr "Approve"
+msgstr "1. Approve"
 
-#: components/TransactionModal/index.tsx:62
+#: components/TransactionModal/index.tsx:55
 msgid "transaction_modal.view.submit.title"
-msgstr "Submit"
+msgstr "2. Submit"
 
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"
@@ -899,53 +900,53 @@ msgstr "Scan with WalletConnect to connect"
 msgid "web3modal.walletlink.desc"
 msgstr "Scan with Coinbase to connect"
 
-#: components/views/Wrap/index.tsx:323
+#: components/views/Wrap/index.tsx:362
 msgid "wrap.balance"
 msgstr "Balance"
 
-#: components/views/Wrap/index.tsx:218
+#: components/views/Wrap/index.tsx:257
 msgid "wrap.balances_tooltip"
 msgstr "Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA"
 
-#: components/views/Wrap/index.tsx:310
+#: components/views/Wrap/index.tsx:349
 msgid "wrap.index"
 msgstr "Index"
 
-#: components/views/Wrap/index.tsx:313
+#: components/views/Wrap/index.tsx:352
 msgid "wrap.index.tooltip"
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 
-#: components/views/Wrap/index.tsx:46
+#: components/views/Wrap/index.tsx:48
 msgid "wrap.sklima_to_wrap"
 msgstr "sKLIMA to wrap"
 
-#: components/views/Wrap/index.tsx:273
+#: components/views/Wrap/index.tsx:312
 msgid "wrap.unwrap"
 msgstr "Unwrap"
 
-#: components/views/Wrap/index.tsx:262
+#: components/views/Wrap/index.tsx:301
 msgid "wrap.wrap"
 msgstr "Wrap"
 
-#: components/views/Wrap/index.tsx:228
+#: components/views/Wrap/index.tsx:267
 msgid "wrap.wrap_sklima"
 msgstr "Wrap sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:240
+#: components/views/Wrap/index.tsx:279
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Some find this useful for accounting purposes, but the rewards are exactly the same. Wrap and unwrap values are calculated based on the current index."
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:231
+#: components/views/Wrap/index.tsx:270
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
 
-#: components/views/Wrap/index.tsx:50
+#: components/views/Wrap/index.tsx:52
 msgid "wrap.wsklima_to_unwrap"
 msgstr "wsKLIMA to unwrap"
 
-#: components/views/Wrap/index.tsx:326
+#: components/views/Wrap/index.tsx:365
 msgid "wrap.you_will_get"
 msgstr "You Will Get"
 

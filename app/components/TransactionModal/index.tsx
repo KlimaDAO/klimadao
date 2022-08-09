@@ -49,7 +49,7 @@ export const TransactionModal: FC<Props> = (props) => {
             data-active={view === "approve"}
             disabled={isLoading || view === "submit"}
           >
-            1. <Trans id="transaction_modal.view.approve.title">Approve</Trans>
+            <Trans id="transaction_modal.view.approve.title">1. Approve</Trans>
           </button>
           <button
             className={styles.switchButton}
@@ -59,7 +59,7 @@ export const TransactionModal: FC<Props> = (props) => {
             data-active={view === "submit"}
             disabled={isLoading || view === "approve"}
           >
-            2. <Trans id="transaction_modal.view.submit.title">Submit</Trans>
+            <Trans id="transaction_modal.view.submit.title">2. Submit</Trans>
           </button>
         </div>
         {isLoading && (

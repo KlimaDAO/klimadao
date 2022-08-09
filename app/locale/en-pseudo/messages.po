@@ -614,7 +614,7 @@ msgstr ""
 msgid "pklima.update"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:93
+#: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:340
 msgid "shared.approve"
@@ -638,7 +638,7 @@ msgstr ""
 #: components/views/Offset/index.tsx:305
 #: components/views/PKlima/index.tsx:150
 #: components/views/Stake/index.tsx:233
-#: components/views/Wrap/index.tsx:163
+#: components/views/Wrap/index.tsx:196
 msgid "shared.connect_wallet"
 msgstr ""
 
@@ -654,7 +654,7 @@ msgstr ""
 #: components/views/Bond/index.tsx:391
 #: components/views/Offset/index.tsx:317
 #: components/views/Stake/index.tsx:245
-#: components/views/Wrap/index.tsx:175
+#: components/views/Wrap/index.tsx:208
 msgid "shared.enter_quantity"
 msgstr ""
 
@@ -666,6 +666,7 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:333
 #: components/views/Stake/index.tsx:252
+#: components/views/Wrap/index.tsx:220
 msgid "shared.insufficient_balance"
 msgstr ""
 
@@ -685,14 +686,14 @@ msgstr ""
 #: components/views/Stake/index.tsx:435
 #: components/views/Stake/index.tsx:442
 #: components/views/Stake/index.tsx:449
-#: components/views/Wrap/index.tsx:169
+#: components/views/Wrap/index.tsx:202
 msgid "shared.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:585
 #: components/views/PKlima/index.tsx:237
 #: components/views/Stake/index.tsx:376
-#: components/views/Wrap/index.tsx:295
+#: components/views/Wrap/index.tsx:334
 msgid "shared.max"
 msgstr ""
 
@@ -821,47 +822,47 @@ msgstr ""
 msgid "token.pKLIMA"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:67
-msgid "transaction_modal.allow_amount.amount"
-msgstr ""
-
-#: components/TransactionModal/Approve.tsx:44
+#: components/TransactionModal/Approve.tsx:52
 msgid "transaction_modal.approve.allow_amount"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:52
-msgid "transaction_modal.approve.allow_amount.contract_owner"
+#: components/TransactionModal/Approve.tsx:60
+msgid "transaction_modal.approve.approve_quantity.contract_address"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:99
+#: components/TransactionModal/Approve.tsx:70
+msgid "transaction_modal.approve_quantity.quantity"
+msgstr ""
+
+#: components/TransactionModal/Submit.tsx:106
 msgid "transaction_modal.close"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:106
+#: components/TransactionModal/Approve.tsx:113
 msgid "transaction_modal.next"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:65
+#: components/TransactionModal/Submit.tsx:68
 msgid "transaction_modal.submit.amount"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:89
+#: components/TransactionModal/Submit.tsx:96
 msgid "transaction_modal.submit.button"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:43
+#: components/TransactionModal/Submit.tsx:51
 msgid "transaction_modal.submit.confirm_transaction"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:50
-msgid "transaction_modal.submit.contract_owner"
+#: components/TransactionModal/Submit.tsx:58
+msgid "transaction_modal.submit.contract_address"
 msgstr ""
 
-#: components/TransactionModal/index.tsx:52
+#: components/TransactionModal/index.tsx:45
 msgid "transaction_modal.view.approve.title"
 msgstr ""
 
-#: components/TransactionModal/index.tsx:62
+#: components/TransactionModal/index.tsx:55
 msgid "transaction_modal.view.submit.title"
 msgstr ""
 
@@ -893,53 +894,53 @@ msgstr ""
 msgid "web3modal.walletlink.desc"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:323
+#: components/views/Wrap/index.tsx:362
 msgid "wrap.balance"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:218
+#: components/views/Wrap/index.tsx:257
 msgid "wrap.balances_tooltip"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:310
+#: components/views/Wrap/index.tsx:349
 msgid "wrap.index"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:313
+#: components/views/Wrap/index.tsx:352
 msgid "wrap.index.tooltip"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:46
+#: components/views/Wrap/index.tsx:48
 msgid "wrap.sklima_to_wrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:273
+#: components/views/Wrap/index.tsx:312
 msgid "wrap.unwrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:262
+#: components/views/Wrap/index.tsx:301
 msgid "wrap.wrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:228
+#: components/views/Wrap/index.tsx:267
 msgid "wrap.wrap_sklima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:240
+#: components/views/Wrap/index.tsx:279
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr ""
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:231
+#: components/views/Wrap/index.tsx:270
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:50
+#: components/views/Wrap/index.tsx:52
 msgid "wrap.wsklima_to_unwrap"
 msgstr ""
 
-#: components/views/Wrap/index.tsx:326
+#: components/views/Wrap/index.tsx:365
 msgid "wrap.you_will_get"
 msgstr ""
 

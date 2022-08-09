@@ -50,15 +50,15 @@ export const Approve: FC<Props> = (props) => {
       >
         <Text>
           <Trans id="transaction_modal.approve.allow_amount">
-            You must first approve the contract with the spender so that you can
-            spend the amount you want.
+            You must first give permission to our smart contract to transfer
+            tokens on your behalf.
           </Trans>
         </Text>
         <HighlightValue
           label={
             <Text t="caption" color="lighter">
-              <Trans id="transaction_modal.approve.allow_amount.contract_owner">
-                Contract Owner:
+              <Trans id="transaction_modal.approve.approve_quantity.contract_address">
+                Contract address
               </Trans>
             </Text>
           }
@@ -72,8 +72,8 @@ export const Approve: FC<Props> = (props) => {
         <HighlightValue
           label={
             <Text t="caption" color="lighter">
-              <Trans id="transaction_modal.allow_amount.amount">
-                Approve allowance to spend:
+              <Trans id="transaction_modal.approve_quantity.quantity">
+                Quantity to approve
               </Trans>
             </Text>
           }
