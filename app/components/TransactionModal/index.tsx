@@ -30,8 +30,14 @@ export const TransactionModal: FC<Props> = (props) => {
     props.hasApproval ? "submit" : "approve"
   );
 
+  const statusType = props.status?.statusType;
+  const isPending =
+    statusType === "userConfirmation" || statusType === "networkConfirmation";
+
+  const onModalClose = !isPending ? props.onCloseModal : undefined;
+
   return (
-    <Modal title={props.title} onToggleModal={props.onCloseModal}>
+    <Modal title={props.title} onToggleModal={onModalClose}>
       <div className={styles.container}>
         <div className={styles.viewSwitch}>
           <button
@@ -40,7 +46,7 @@ export const TransactionModal: FC<Props> = (props) => {
               setView("approve");
             }}
             data-active={view === "approve"}
-            disabled={view === "submit"}
+            disabled={view === "submit" || isPending}
           >
             <Trans id="transaction_modal.view.approve.title">1. Approve</Trans>
           </button>
@@ -50,7 +56,7 @@ export const TransactionModal: FC<Props> = (props) => {
               setView("submit");
             }}
             data-active={view === "submit"}
-            disabled={view === "approve"}
+            disabled={view === "approve" || isPending}
           >
             <Trans id="transaction_modal.view.submit.title">2. Submit</Trans>
           </button>
