@@ -144,9 +144,9 @@ export const generateCertificate = (params: Params): void => {
   };
 
   const printProjectDetails = (): void => {
-    if (params.retirement.offset.bridge === "Moss") {
-      return; // TODO print generic moss information link
-    }
+    // if (params.retirement.offset.bridge === "Moss") {
+    //   return; // TODO print generic moss information link
+    // }
 
     const tokenImage = new Image();
     tokenImage.src = params.tokenData.icon.src;
