@@ -37,7 +37,10 @@ const spacing = {
   margin: 15,
   mainTextWidth: 160,
   beneficiaryName: 81,
-  projectDetails: { x: 50, y: 135 },
+  transactionDetails: 130,
+  projectDetails: 152,
+  tokenImage: { x: 143, y: 156 },
+  retirementLink: 200,
 };
 
 type FeatureImageMappingKey = keyof typeof featureImageMap;
@@ -64,7 +67,8 @@ const setupFonts = (): void => {
 };
 
 export const generateCertificate = (params: Params): void => {
-  const MOSS_RETIREMENT = params.retirement.offset.bridge === "Moss";
+  const isMossRetirement = params.retirement.offset.bridge === "Moss";
+
   const printHeader = (): void => {
     const klimaLogo = new Image();
     klimaLogo.src = KlimaLogo.src;
@@ -76,7 +80,7 @@ export const generateCertificate = (params: Params): void => {
     doc.text("Carbon Retirement", spacing.margin, 46);
     doc.setLineWidth(1.05);
     doc.setDrawColor(KLIMA_GREEN);
-    doc.line(spacing.margin, 52, 172, 52);
+    doc.line(spacing.margin, 52, 173, 52);
   };
 
   const printFeatureImage = (): void => {
@@ -113,43 +117,51 @@ export const generateCertificate = (params: Params): void => {
 
     const lineHeight = doc.getLineHeight() / doc.internal.scaleFactor;
     const lines = beneficiaryName.length;
-    const beneficiaryNamePosition = lineHeight * lines;
+    const beneficiaryNameBlockHeight = lineHeight * lines;
 
     doc.text(beneficiaryName, spacing.margin, spacing.beneficiaryName);
 
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(12);
     doc.setLineHeightFactor(1.2);
-    // const retirementMessage = doc.splitTextToSize(
-    //   params.retirementMessage,
-    //   spacing.mainTextWidth
-    // );
     const retirementMessage = doc.splitTextToSize(
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.",
+      params.retirementMessage,
       spacing.mainTextWidth
     );
     doc.text(
       retirementMessage,
       spacing.margin,
-      spacing.beneficiaryName + beneficiaryNamePosition
+      spacing.beneficiaryName + beneficiaryNameBlockHeight
     );
   };
 
   const printTransactionDetails = (): void => {
     doc.setFontSize(11);
     doc.setFont("Poppins", "Bold");
-    doc.text("Beneficiary Address:", spacing.margin, 135);
+    doc.text(
+      "Beneficiary Address:",
+      spacing.margin,
+      spacing.transactionDetails
+    );
     doc.setFont("Poppins", "ExtraLight");
-    doc.text(params.beneficiaryAddress, spacing.margin, 140.5);
+    doc.text(
+      params.beneficiaryAddress,
+      spacing.margin,
+      spacing.transactionDetails + 5.5
+    );
 
     doc.setFont("Poppins", "Bold");
-    doc.text("Transaction ID:", spacing.margin, 146);
+    doc.text(
+      "Transaction ID:",
+      spacing.margin,
+      spacing.transactionDetails + 11
+    );
     doc.setFont("Poppins", "ExtraLight");
     const txHashSplit = doc.splitTextToSize(
       params.retirement.transaction.id,
       spacing.mainTextWidth
     );
-    doc.text(txHashSplit, spacing.margin, 151.5);
+    doc.text(txHashSplit, spacing.margin, spacing.transactionDetails + 16.5);
   };
 
   const printProjectDetails = (): void => {
@@ -186,7 +198,7 @@ export const generateCertificate = (params: Params): void => {
       },
     ];
 
-    if (MOSS_RETIREMENT) {
+    if (isMossRetirement) {
       projectDetails = [
         {
           label: "Asset Retired",
@@ -204,13 +216,13 @@ export const generateCertificate = (params: Params): void => {
     doc.addImage(
       tokenImage,
       "JPEG",
-      spacing.margin + 128,
-      spacing.projectDetails.y + 24,
+      spacing.tokenImage.x,
+      spacing.tokenImage.y,
       28,
       28
     );
 
-    let startPosition = 157;
+    let startPosition = spacing.projectDetails;
     projectDetails.forEach((detail) => {
       const label = `${detail.label}:`;
       doc.setFont("Poppins", "Bold");
@@ -231,7 +243,7 @@ export const generateCertificate = (params: Params): void => {
     const linkText = "Learn more ";
     doc.setFont("Poppins", "Bold");
     doc.setTextColor(SECONDARY_FONT_COLOR);
-    doc.textWithLink(linkText, spacing.margin, 168, {
+    doc.textWithLink(linkText, spacing.margin, spacing.projectDetails + 11, {
       url: `${urls.carbonDashboard}/MCO2`,
     });
     doc.setTextColor(PRIMARY_FONT_COLOR);
@@ -245,12 +257,12 @@ export const generateCertificate = (params: Params): void => {
   const printRetirementLink = (): void => {
     const text = "View this retirement on ";
     doc.setFont("Poppins", "Bold");
-    doc.text(text, spacing.margin, 200);
+    doc.text(text, spacing.margin, spacing.retirementLink);
     doc.setTextColor(KLIMA_GREEN);
     doc.textWithLink(
       "klimadao.finance",
       spacing.margin + doc.getTextWidth(text),
-      200,
+      spacing.retirementLink,
       { url: params.retirementUrl }
     );
   };
@@ -261,7 +273,7 @@ export const generateCertificate = (params: Params): void => {
   printRetirementDetails();
   printTransactionDetails();
   printProjectDetails();
-  if (MOSS_RETIREMENT) printMossProjectDetails();
+  if (isMossRetirement) printMossProjectDetails();
   printRetirementLink();
 
   doc.save(`${params.retirement.id}.pdf`);
