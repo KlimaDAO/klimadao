@@ -4,6 +4,7 @@ import { trimWithLocale } from "@klimadao/lib/utils";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { RetirementToken } from "@klimadao/lib/constants";
+import { urls } from "@klimadao/lib/constants";
 
 import KlimaLogo from "public/logo-klima.png";
 import bctBackground from "public/bg_bct.jpeg";
@@ -29,6 +30,9 @@ type Params = {
   };
 };
 
+const KLIMA_GREEN = "#00cc33";
+const PRIMARY_FONT_COLOR = "#313131";
+const SECONDARY_FONT_COLOR = "#767676";
 const spacing = {
   margin: 15,
   mainTextWidth: 160,
@@ -60,6 +64,7 @@ const setupFonts = (): void => {
 };
 
 export const generateCertificate = (params: Params): void => {
+  const MOSS_RETIREMENT = params.retirement.offset.bridge === "Moss";
   const printHeader = (): void => {
     const klimaLogo = new Image();
     klimaLogo.src = KlimaLogo.src;
@@ -70,7 +75,7 @@ export const generateCertificate = (params: Params): void => {
     doc.text("Certificate for On-chain", spacing.margin, 36);
     doc.text("Carbon Retirement", spacing.margin, 46);
     doc.setLineWidth(1.05);
-    doc.setDrawColor(0, 204, 51); // klima green RGB
+    doc.setDrawColor(KLIMA_GREEN);
     doc.line(spacing.margin, 52, 172, 52);
   };
 
@@ -115,8 +120,12 @@ export const generateCertificate = (params: Params): void => {
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(12);
     doc.setLineHeightFactor(1.2);
+    // const retirementMessage = doc.splitTextToSize(
+    //   params.retirementMessage,
+    //   spacing.mainTextWidth
+    // );
     const retirementMessage = doc.splitTextToSize(
-      params.retirementMessage,
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.",
       spacing.mainTextWidth
     );
     doc.text(
@@ -144,32 +153,21 @@ export const generateCertificate = (params: Params): void => {
   };
 
   const printProjectDetails = (): void => {
-    // if (params.retirement.offset.bridge === "Moss") {
-    //   return; // TODO print generic moss information link
-    // }
-
-    const tokenImage = new Image();
-    tokenImage.src = params.tokenData.icon.src;
-    doc.addImage(
-      tokenImage,
-      "JPEG",
-      spacing.margin + 128,
-      spacing.projectDetails.y + 24,
-      28,
-      28
-    );
-
     const project = params.projectDetails?.value[0];
     const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
     const formattedRetirementDate = `${retirementDate.getDate()}/${retirementDate.getMonth()}/${retirementDate.getFullYear()}`;
-    const projectDetails = [
+    let projectDetails = [
+      {
+        label: "Project",
+        value: project?.resourceName,
+      },
       {
         label: "Asset Retired",
         value: params.tokenData.label,
       },
       {
-        label: "Project",
-        value: project?.resourceName,
+        label: "Retired on",
+        value: formattedRetirementDate,
       },
       {
         label: "Methodology",
@@ -186,15 +184,35 @@ export const generateCertificate = (params: Params): void => {
           .getFullYear()
           .toString(),
       },
-      {
-        label: "Retired",
-        value: formattedRetirementDate,
-      },
     ];
+
+    if (MOSS_RETIREMENT) {
+      projectDetails = [
+        {
+          label: "Asset Retired",
+          value: params.tokenData.label,
+        },
+        {
+          label: "Retired on",
+          value: formattedRetirementDate,
+        },
+      ];
+    }
+
+    const tokenImage = new Image();
+    tokenImage.src = params.tokenData.icon.src;
+    doc.addImage(
+      tokenImage,
+      "JPEG",
+      spacing.margin + 128,
+      spacing.projectDetails.y + 24,
+      28,
+      28
+    );
 
     let startPosition = 157;
     projectDetails.forEach((detail) => {
-      const label = `${detail.label}: `;
+      const label = `${detail.label}:`;
       doc.setFont("Poppins", "Bold");
       doc.text(label, spacing.margin, startPosition);
 
@@ -209,24 +227,42 @@ export const generateCertificate = (params: Params): void => {
     });
   };
 
+  const printMossProjectDetails = () => {
+    const linkText = "Learn more ";
+    doc.setFont("Poppins", "Bold");
+    doc.setTextColor(SECONDARY_FONT_COLOR);
+    doc.textWithLink(linkText, spacing.margin, 168, {
+      url: `${urls.carbonDashboard}/MCO2`,
+    });
+    doc.setTextColor(PRIMARY_FONT_COLOR);
+    doc.text(
+      "about the projects that back the MCO2 pools",
+      spacing.margin + doc.getTextWidth(linkText),
+      168
+    );
+  };
+
+  const printRetirementLink = (): void => {
+    const text = "View this retirement on ";
+    doc.setFont("Poppins", "Bold");
+    doc.text(text, spacing.margin, 200);
+    doc.setTextColor(KLIMA_GREEN);
+    doc.textWithLink(
+      "klimadao.finance",
+      spacing.margin + doc.getTextWidth(text),
+      200,
+      { url: params.retirementUrl }
+    );
+  };
+
   setupFonts();
   printHeader();
   printFeatureImage();
   printRetirementDetails();
   printTransactionDetails();
   printProjectDetails();
-
-  doc.setFont("Poppins", "Bold");
-  doc.text("View this retirement on ", spacing.margin, 200);
-  doc.setTextColor(0, 204, 51);
-  doc.textWithLink(
-    "klimadao.finance",
-    spacing.margin + doc.getTextWidth("View this retirement on "),
-    200,
-    {
-      url: params.retirementUrl,
-    }
-  );
+  if (MOSS_RETIREMENT) printMossProjectDetails();
+  printRetirementLink();
 
   doc.save(`${params.retirement.id}.pdf`);
 };
