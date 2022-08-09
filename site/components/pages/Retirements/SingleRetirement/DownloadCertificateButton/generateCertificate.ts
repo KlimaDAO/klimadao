@@ -250,7 +250,7 @@ export const generateCertificate = (params: Params): void => {
     doc.text(
       "about the projects that back the MCO2 pools",
       spacing.margin + doc.getTextWidth(linkText),
-      168
+      spacing.projectDetails + 11
     );
   };
 
