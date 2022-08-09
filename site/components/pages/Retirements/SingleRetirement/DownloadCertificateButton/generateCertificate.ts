@@ -265,6 +265,7 @@ export const generateCertificate = (params: Params): void => {
       spacing.retirementLink,
       { url: params.retirementUrl }
     );
+    doc.setTextColor(PRIMARY_FONT_COLOR);
   };
 
   setupFonts();
