@@ -60,12 +60,7 @@ export const Submit: FC<Props> = (props) => {
               </Trans>
             </Text>
           }
-          value={
-            spenderAddress
-              ? concatAddress(spenderAddress)
-              : "Unknown Contract Owner"
-          }
-          warn={!spenderAddress}
+          value={concatAddress(spenderAddress)}
         />
         <HighlightValue
           label={

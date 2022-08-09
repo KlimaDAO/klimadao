@@ -43,5 +43,5 @@ export const getAllowance = async (params: {
 export const getTokensFromSpender = (spender: AllowancesSpender) =>
   allowancesContracts[spender];
 
-export const getSpenderAddress = (spender: AllowancesSpender): string | false =>
-  isSpenderInAddresses(spender) && addresses["mainnet"][spender];
+export const getSpenderAddress = (spender: AllowancesSpender): string =>
+  addresses["mainnet"][spender];
