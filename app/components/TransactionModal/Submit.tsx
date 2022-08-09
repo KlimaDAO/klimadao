@@ -23,7 +23,7 @@ interface Props {
   token: AllowancesToken;
   spender: AllowancesSpender;
   onSubmit: () => void;
-  onSuccess: () => void;
+  onClose: () => void;
   status: AppNotificationStatus | null;
 }
 
@@ -109,7 +109,7 @@ export const Submit: FC<Props> = (props) => {
           <ButtonPrimary
             variant="gray"
             label={<Trans id="transaction_modal.close">Close</Trans>}
-            onClick={() => props.onSuccess()}
+            onClick={() => props.onClose()}
             className={styles.submitButton}
           />
         )}

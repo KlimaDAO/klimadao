@@ -74,7 +74,7 @@ export const TransactionModal: FC<Props> = (props) => {
             token={props.token}
             spender={props.spender}
             onSubmit={props.onSubmit}
-            onSuccess={props.onCloseModal}
+            onClose={props.onCloseModal}
             status={props.status}
           />
         )}
