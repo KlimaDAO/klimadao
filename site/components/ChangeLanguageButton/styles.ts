@@ -4,7 +4,10 @@ import * as typography from "@klimadao/lib/theme/typography";
 
 export const changeLanguageButton = css`
   display: flex;
-
+  svg {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
   ${breakpoints.small} {
     top: 3.2rem;
     right: -0.2rem;
@@ -58,6 +61,10 @@ export const tooltip = css`
 export const menuItem = css`
   ${typography.button};
   color: var(--font-02) !important;
+  button {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
   &:hover {
     color: var(--klima-green) !important;
   }

@@ -1,26 +1,39 @@
-import Link from "next/link";
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction, ReactElement } from "react";
 import * as styles from "./styles";
-
+import { cx } from "@emotion/css";
+import { ButtonPrimary } from "@klimadao/lib/components";
+import { NavItem } from "./index";
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
+  id: NavItem;
   url: string;
-  number?: string;
+  selected: string | undefined;
+  setSelected: Dispatch<SetStateAction<NavItem | undefined>>;
+  buttons?: ReactElement<any, any>[];
+  active?: boolean;
 }
 
 export const NavItemMobile: FC<Props> = (props) => {
   return (
-    <div className={styles.navMain_MobileItem}>
-      <Link href={props.url}>
-        <a {...props} className={styles.navMain_MobileLink}>
-          <div className={styles.navMain_MobileItemInner}>
-            <span className={styles.navMain_MobileItemInnerNumber}>
-              {props.number}
-            </span>
-            {props.name}
-          </div>
-        </a>
-      </Link>
+    <div className={cx(styles.navMain_MobileItem)}>
+      <ButtonPrimary
+        // href={props.url}
+        className={cx(styles.navMain_MobileLink, {
+          active: props.id === props.selected,
+        })}
+        label={props.name}
+        onClick={() =>
+          props.setSelected(props.id === props.selected ? undefined : props.id)
+        }
+      />
+      {props.buttons && (
+        <div
+          className={styles.navMain_MobileExpanded}
+          data-show={(props.selected === props.id).toString()}
+        >
+          {props.buttons}
+        </div>
+      )}
     </div>
   );
 };

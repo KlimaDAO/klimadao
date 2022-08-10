@@ -14,7 +14,7 @@ export const navMain_Mobile = css`
   transition: transform 0.5s ease 0s;
   padding-top: var(--header-height);
   display: flex;
-  ${breakpoints.large} {
+  ${breakpoints.desktop} {
     display: none;
   }
 `;
@@ -31,7 +31,7 @@ export const navMain_MobileClosed = css`
   transition: transform 0.5s ease 0s;
   padding-top: var(--header-height);
   display: flex;
-  ${breakpoints.large} {
+  ${breakpoints.desktop} {
     display: none;
   }
 `;
@@ -41,6 +41,7 @@ export const navMain_MobileList = css`
   padding-top: 2rem;
   list-style: none;
   margin: 0 auto;
+  width: 100%;
 `;
 
 export const buttonToggleNav = css`
