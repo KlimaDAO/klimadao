@@ -73,6 +73,25 @@ const addressInfo: AddressInfo[] = [
     decimals: 18,
   },
   {
+    name: "UBO Token",
+    address: addresses["mainnet"].ubo,
+    ariaLabel: "Copy UBO token address.",
+    metamaskAriaLabel: "Add UBO token to wallet.",
+    ticker: "UBO",
+    image: `${BASE_URL}/icons/UBO.png`,
+    decimals: 18,
+  },
+  {
+    name: "NBO Token",
+    address: addresses["mainnet"].nbo,
+    ariaLabel: "Copy NBO token address.",
+    metamaskAriaLabel: "Add NBO token to wallet.",
+    ticker: "NBO",
+    image: `${BASE_URL}/icons/NBO.png`,
+    decimals: 18,
+  },
+
+  {
     name: "BCT/USDC LP",
     address: addresses["mainnet"].bctUsdcLp,
     ariaLabel: "Copy BCT USDC LP address.",
@@ -166,7 +185,8 @@ export const Info: FC<Props> = (props) => (
             Official Contract Addresses
           </Trans>
         </Text>
-        <div style={{ display: "grid", gap: "0.4rem" }}>
+
+        <div style={{ display: "grid", gap: "1.2rem" }}>
           {addressInfo.map((info) => (
             <div key={info.address}>
               <p>{info.name}</p>
@@ -174,10 +194,12 @@ export const Info: FC<Props> = (props) => (
                 <A href={`https://polygonscan.com/address/${info.address}`}>
                   {concatAddress(info.address)}
                 </A>
+
                 <CopyAddressButton
                   ariaLabel={info.ariaLabel}
                   address={info.address}
                 />
+
                 {typeof props.provider?.provider?.request === "function" &&
                   props.provider.provider.isMetaMask && (
                     <AddToMetaMaskButton
