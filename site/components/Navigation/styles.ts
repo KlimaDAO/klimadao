@@ -11,7 +11,7 @@ export const navMain_DesktopLink = css`
   border-radius: 0.4rem;
   padding: 1.6rem 1.2rem;
   white-space: nowrap;
-  color: var(--font-01) !important;
+  color: var(--font-02) !important;
   &,
   &:hover,
   &:visited {
