@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-10 15:41+0000\n"
+"POT-Creation-Date: 2022-08-10 15:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -858,11 +858,11 @@ msgstr ""
 msgid "transaction_modal.submit.contract_address"
 msgstr ""
 
-#: components/TransactionModal/index.tsx:45
+#: components/TransactionModal/index.tsx:51
 msgid "transaction_modal.view.approve.title"
 msgstr ""
 
-#: components/TransactionModal/index.tsx:55
+#: components/TransactionModal/index.tsx:61
 msgid "transaction_modal.view.submit.title"
 msgstr ""
 

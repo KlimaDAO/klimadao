@@ -864,11 +864,11 @@ msgstr "Please submit the transaction."
 msgid "transaction_modal.submit.contract_address"
 msgstr "Contract address"
 
-#: components/TransactionModal/index.tsx:45
+#: components/TransactionModal/index.tsx:51
 msgid "transaction_modal.view.approve.title"
 msgstr "1. Approve"
 
-#: components/TransactionModal/index.tsx:55
+#: components/TransactionModal/index.tsx:61
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Submit"
 
