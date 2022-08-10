@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-09 15:43+0000\n"
+"POT-Creation-Date: 2022-08-10 15:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -918,11 +918,11 @@ msgstr "Миссия KlimaDAO — демократизация борьбы с �
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:82
 msgid "pledges.dashboard.assets.title"
-msgstr ""
+msgstr "Углеродные активы"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:73
 msgid "pledges.dashboard.footprint.title"
-msgstr ""
+msgstr "След"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:90
 msgid "pledges.dashboard.footprint.tonnes"
@@ -930,47 +930,47 @@ msgstr "Тонны"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/FootprintCharts.tsx:104
 msgid "pledges.dashboard.footprint.tooltip.category_percent"
-msgstr ""
+msgstr "{0}% от следа"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/FootprintCharts.tsx:110
 msgid "pledges.dashboard.footprint.tooltip.quantity"
-msgstr ""
+msgstr "{0} Углеродная тонна(ы)"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:55
 msgid "pledges.dashboard.head.metaTitle"
-msgstr ""
+msgstr "{pledgeOwnerTitle}'s обязательство"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:51
 msgid "pledges.dashboard.head.title"
-msgstr ""
+msgstr "KlimaDAO | Залоги"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:13
 msgid "pledges.dashboard.metholodogy.default_text"
-msgstr ""
+msgstr "Как вы будете выполнять свои обязательства?"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:20
 msgid "pledges.dashboard.metholodogy.title"
-msgstr ""
+msgstr "Методология"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:13
 msgid "pledges.dashboard.pledge.default_text"
-msgstr ""
+msgstr "Напишите свое обязательство сегодня!"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:20
 msgid "pledges.dashboard.pledge.title"
-msgstr ""
+msgstr "Залог"
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:61
 msgid "pledges.dashboard.profile.pledge_met"
-msgstr ""
+msgstr "≥ 100% обязательств выполнено"
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:70
 msgid "pledges.dashboard.profile.pledge_progress"
-msgstr ""
+msgstr "{0}% обязательства выполнено"
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:101
 msgid "pledges.dashboard.profile.pledged_to_offset"
-msgstr ""
+msgstr "Обязательство компенсировать <0>{0}</0> Углеродные тонны"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:43
 msgid "pledges.dashboard.retirements.title"
@@ -978,7 +978,7 @@ msgstr "Выбытия"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/RetirementsChart.tsx:141
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
-msgstr ""
+msgstr "{retiree} выбито {0} Тонны углерода"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:62
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
@@ -986,79 +986,79 @@ msgstr "Всего выбыло тонн углерода"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:41
 msgid "pledges.edit_pledge"
-msgstr ""
+msgstr "Изменить залог"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:231
 msgid "pledges.form.add_footprint_category_button"
-msgstr ""
+msgstr "Добавить категорию"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:170
 msgid "pledges.form.footprint.label"
-msgstr ""
+msgstr "След"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:175
 msgid "pledges.form.footprint.prompt"
-msgstr ""
+msgstr "Добавьте категорию и начните рассчитывать свой углеродный след"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:107
 msgid "pledges.form.generic_error"
-msgstr ""
+msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:187
 msgid "pledges.form.input.categoryName.label"
-msgstr ""
+msgstr "Категория"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:191
 msgid "pledges.form.input.categoryName.placeholder"
-msgstr ""
+msgstr "Название категории"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:202
 msgid "pledges.form.input.categoryQuantity.label"
-msgstr ""
+msgstr "Количество"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:206
 msgid "pledges.form.input.categoryQuantity.placeholder"
-msgstr ""
+msgstr "Тонны углерода"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:140
 msgid "pledges.form.input.description.label"
-msgstr ""
+msgstr "Залог"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:144
 msgid "pledges.form.input.description.placeholder"
-msgstr ""
+msgstr "Каково ваше обязательство?"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:155
 msgid "pledges.form.input.methodology.label"
-msgstr ""
+msgstr "Методология"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:159
 msgid "pledges.form.input.methodology.placeholder"
-msgstr ""
+msgstr "Какие инструменты или методики вы использовали для расчета своего углеродного следа?"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:115
 msgid "pledges.form.input.name.label"
-msgstr ""
+msgstr "Имя"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:116
 msgid "pledges.form.input.name.placeholder"
-msgstr ""
+msgstr "Имя или название компании"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:127
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "URL-адрес изображения профиля (необязательно)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:243
 msgid "pledges.form.input.totalFootprint.label"
-msgstr ""
+msgstr "Общий след"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:257
 msgid "pledges.form.submit_button"
-msgstr ""
+msgstr "Сохранить залог"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:44
 msgid "pledges.form.total_footprint_summary"
-msgstr ""
+msgstr "Общий след: {0} тонны углерода"
 
 #: components/pages/Pledge/index.tsx:49
 msgid "pledges.head.metaDescription"
@@ -1066,19 +1066,19 @@ msgstr "Стимулируйте действия по защите климат
 
 #: components/pages/Pledge/index.tsx:44
 msgid "pledges.head.metaTitle"
-msgstr ""
+msgstr "Klima Infinity - Найдите или начните давать обязательство перед миром сегодня"
 
 #: components/pages/Pledge/index.tsx:40
 msgid "pledges.head.title"
-msgstr ""
+msgstr "KlimaDAO | Залоги"
 
 #: components/pages/Pledge/index.tsx:70
 msgid "pledges.home.search.error_message"
-msgstr ""
+msgstr "Введите адрес кошелька, домен .klima или .eth"
 
 #: components/pages/Pledge/index.tsx:59
 msgid "pledges.home.search.placeholder"
-msgstr ""
+msgstr "Введите адрес кошелька, домен .klima или .eth"
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
