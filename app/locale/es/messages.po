@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-10 15:53+0000\n"
+"POT-Creation-Date: 2022-08-10 16:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -318,45 +318,45 @@ msgid "imagecard.new_to_klima"
 msgstr "¿Nuevo en KLIMA?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:130
+#: components/views/Info/index.tsx:149
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Abra Metamask y cambie a Ethereum Mainnet"
 
 #. Long sentence
-#: components/views/Info/index.tsx:137
+#: components/views/Info/index.tsx:156
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr "2. Vaya a Configuración/Redes/Polygon y haga clic en \"eliminar\"."
 
 #. Long sentence
-#: components/views/Info/index.tsx:144
+#: components/views/Info/index.tsx:163
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. Vuelve a app.klimadao.finance y haz clic en \"cambiar a la red principal\"."
 
 #. Long sentence
-#: components/views/Info/index.tsx:122
+#: components/views/Info/index.tsx:141
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "Si la aplicación dice \"cargando...\" es probable que haya un problema con la configuración de la red en Metamask. Para solucionarlo:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:151
+#: components/views/Info/index.tsx:170
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask debería pedirle que añada Polygon, con la configuración RPC correcta."
 
 #. Long sentence
-#: components/views/Info/index.tsx:117
+#: components/views/Info/index.tsx:136
 msgid "info.app_not_loading.title"
 msgstr "¿Por qué no se me carga la aplicación?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:105
+#: components/views/Info/index.tsx:124
 msgid "info.common_app_related_questions"
 msgstr "Preguntas comunes relacionadas con la aplicación y enlaces útiles. Para una lectura completa de KlimaDAO, consulte nuestra <0>documentación oficial</0>."
 
-#: components/views/Info/index.tsx:102
+#: components/views/Info/index.tsx:121
 msgid "info.info_and_faq"
 msgstr "Información y preguntas frecuentes"
 
-#: components/views/Info/index.tsx:165
+#: components/views/Info/index.tsx:184
 msgid "info.official_contract_addresses"
 msgstr "Direcciones oficiales del contrato"
 
