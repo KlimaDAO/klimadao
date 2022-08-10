@@ -52,6 +52,7 @@ const usePathnameChange = (cb: () => void) => {
 
 export const NotificationModal: FC = () => {
   const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
   const status: AppNotificationStatus | null = useSelector(
     selectNotificationStatus
   );
@@ -60,7 +61,12 @@ export const NotificationModal: FC = () => {
     dispatch(setAppState({ notificationStatus: null }));
   });
 
+  // temp fix to not show this modal on specific routes until this component can be removed completely
+  if (pathname === "/stake" || pathname === "/offset" || pathname === "/wrap")
+    return null;
+
   if (!status) return null;
+
   const { statusType } = status;
   if (status && statusType === "claimExceeded") return <ClaimExceededModal />;
 
