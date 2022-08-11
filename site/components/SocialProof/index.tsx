@@ -1,15 +1,15 @@
 import React from "react";
 import { Trans } from "@lingui/macro";
-import { Section, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 
-import BloombergLogo from "../Logos/BloombergLogo";
-import CointelegraphLogo from "../Logos/CointelegraphLogo";
-import ForbesLogo from "../Logos/ForbesLogo";
-import NasdaqLogo from "../Logos/NasdaqLogo";
-import TheTimesLogo from "../Logos/TheTimesLogo";
-import WiredLogo from "../Logos/WiredLogo";
-import WallStreetJournalLogo from "../Logos/WallStreetJournalLogo";
-import YahooFinanceLogo from "../Logos/YahooFinanceLogo";
+import BloombergLogo from "./Logos/BloombergLogo";
+import CointelegraphLogo from "./Logos/CointelegraphLogo";
+import ForbesLogo from "./Logos/ForbesLogo";
+import NasdaqLogo from "./Logos/NasdaqLogo";
+import TheTimesLogo from "./Logos/TheTimesLogo";
+import WiredLogo from "./Logos/WiredLogo";
+import WallStreetJournalLogo from "./Logos/WallStreetJournalLogo";
+import YahooFinanceLogo from "./Logos/YahooFinanceLogo";
 
 import * as styles from "./styles";
 

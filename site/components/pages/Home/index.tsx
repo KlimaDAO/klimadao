@@ -174,10 +174,10 @@ export const Home: NextPage<Props> = (props) => {
             ></iframe>
           </div>
         </div>
-      </Section>
 
-      <Section variant="white" className={styles.socialProofSection}>
-        <SocialProof />
+        <div className={styles.socialProofContainer}>
+          <SocialProof />
+        </div>
       </Section>
 
       <Section variant="gray" fillViewport style={{ overflow: "hidden" }}>

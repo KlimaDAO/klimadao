@@ -212,9 +212,13 @@ export const klimaVideoSection = css`
   }
 `;
 
-export const socialProofSection = css`
-  padding-top: 0;
-  padding-bottom: 8rem;
+export const socialProofContainer = css`
+  grid-column: main;
+  padding-top: 8rem;
+
+  ${breakpoints.large} {
+    padding-top: 12rem;
+  }
 `;
 
 const floatUp = keyframes`
@@ -257,6 +261,7 @@ export const mechanicsSection = css`
   display: grid;
   grid-column: main;
   row-gap: 6.4rem;
+
   .mechanics_textGroup {
     z-index: 1;
     display: grid;

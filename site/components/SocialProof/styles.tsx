@@ -15,16 +15,11 @@ export const socialProof_container = css`
     display: grid;
     column-gap: 1.6rem;
     row-gap: 3.2rem;
+    color: var(--font-02);
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 
     ${breakpoints.large} {
       grid-template-columns: repeat(4, 1fr);
-    }
-
-    color: var(--font-03);
-
-    [data-theme="theme-light"] & {
-      color: var(--font-02);
     }
   }
 
