@@ -11,6 +11,7 @@ import { Section, ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
+import { SocialProof } from "components/SocialProof";
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import { LatestPost } from "lib/queries";
 
@@ -23,15 +24,6 @@ import steams from "public/steams.jpg";
 import burningForest from "public/burning-forest.jpg";
 import sprouts from "public/sprouts.jpg";
 import dummyswap from "public/dummyswap.png";
-
-import BloombergLogo from "./Logos/BloombergLogo";
-import CointelegraphLogo from "./Logos/CointelegraphLogo";
-import ForbesLogo from "./Logos/ForbesLogo";
-import NasdaqLogo from "./Logos/NasdaqLogo";
-import TheTimesLogo from "./Logos/TheTimesLogo";
-import WiredLogo from "./Logos/WiredLogo";
-import WallStreetJournalLogo from "./Logos/WallStreetJournalLogo";
-import YahooFinanceLogo from "./Logos/YahooFinanceLogo";
 
 import * as styles from "./styles";
 
@@ -183,47 +175,11 @@ export const Home: NextPage<Props> = (props) => {
           </div>
         </div>
       </Section>
+
       <Section variant="white" className={styles.socialProofSection}>
-        <div className="socialProof_container">
-          <Text t="h5" as="h2">
-            <Trans id="home.featured_on">KlimaDAO featured on</Trans>
-          </Text>
-
-          <div className="socialProof_logos">
-            <div className="socialProof_logos_item">
-              <BloombergLogo />
-            </div>
-
-            <div className="socialProof_logos_item">
-              <CointelegraphLogo />
-            </div>
-
-            <div className="socialProof_logos_item">
-              <ForbesLogo />
-            </div>
-
-            <div className="socialProof_logos_item">
-              <NasdaqLogo />
-            </div>
-
-            <div className="socialProof_logos_item">
-              <TheTimesLogo />
-            </div>
-
-            <div className="socialProof_logos_item">
-              <WiredLogo />
-            </div>
-
-            <div className="socialProof_logos_item">
-              <WallStreetJournalLogo />
-            </div>
-
-            <div className="socialProof_logos_item">
-              <YahooFinanceLogo />
-            </div>
-          </div>
-        </div>
+        <SocialProof />
       </Section>
+
       <Section variant="gray" fillViewport style={{ overflow: "hidden" }}>
         <div className={styles.mechanicsSection}>
           <div className="mechanics_textGroup">
