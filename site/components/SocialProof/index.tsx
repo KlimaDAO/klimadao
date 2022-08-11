@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 
@@ -13,7 +13,7 @@ import YahooFinanceLogo from "./Logos/YahooFinanceLogo";
 
 import * as styles from "./styles";
 
-export const SocialProof = () => (
+export const SocialProof: FC = () => (
   <div className={styles.socialProof_container}>
     <Text t="h5" as="h2">
       <Trans id="home.featured_on">KlimaDAO featured on</Trans>
