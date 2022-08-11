@@ -4,6 +4,7 @@ import { button } from "@klimadao/lib/theme/typography";
 export const navMain_DesktopLink = css`
   ${button};
   text-decoration: none;
+  cursor: default;
   display: flex;
   align-items: center;
   text-align: center;
@@ -20,13 +21,12 @@ export const navMain_DesktopLink = css`
   }
   &:hover,
   &:focus {
-    color: var(--font-02);
+    color: var(--font-01) !important;
     background: var(--klima-green);
   }
   &.dropdown {
     &:hover,
     &:focus {
-      color: var(--font-02);
       border: 1px solid var(--font-01);
       background: transparent !important;
     }

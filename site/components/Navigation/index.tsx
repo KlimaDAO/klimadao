@@ -63,7 +63,6 @@ export const Navigation: FC<Props> = ({
         activePage={activePage}
       >
         <NavItemDesktop
-          url={createLinkWithLocaleQuery(urls.offset, locale)}
           name={t({ message: "About", id: "shared.about" })}
           buttons={[
             <ButtonPrimary
@@ -87,7 +86,6 @@ export const Navigation: FC<Props> = ({
           ]}
         />
         <NavItemDesktop
-          url={urls.loveletter}
           name={t({ message: "App", id: "shared.app" })}
           buttons={[
             <ButtonPrimary
@@ -129,7 +127,6 @@ export const Navigation: FC<Props> = ({
           ]}
         />
         <NavItemDesktop
-          url={"/infinity"}
           name={t({ message: "Infinity", id: "shared.infity" })}
           active={activePage === "Infinity"}
           buttons={[
@@ -158,7 +155,6 @@ export const Navigation: FC<Props> = ({
           name={t({ message: "Love Letters", id: "shared.loveletters" })}
         />
         <NavItemDesktop
-          url="/blog"
           name={t({ message: "Resources", id: "shared.resources" })}
           active={activePage === "Resources"}
           buttons={[

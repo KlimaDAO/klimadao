@@ -5,7 +5,7 @@ import { cx } from "@emotion/css";
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
-  url: string;
+  url?: string;
   hovered?: boolean;
   buttons?: any;
   active?: boolean;
@@ -20,18 +20,29 @@ export const NavItemDesktop: FC<Props> = ({
 }) => {
   return (
     <div className={cx(styles.navMain_DesktopSelectContainer)}>
-      <Link href={url}>
-        <a
+      {url ? (
+        <Link href={url}>
+          <a
+            className={cx(styles.navMain_DesktopLink, {
+              dropdown: buttons !== undefined,
+            })}
+            href={url}
+            data-active={active?.toString()}
+            {...props}
+          >
+            {name}
+          </a>
+        </Link>
+      ) : (
+        <div
           className={cx(styles.navMain_DesktopLink, {
             dropdown: buttons !== undefined,
           })}
-          href={url}
           data-active={active?.toString()}
-          {...props}
         >
           {name}
-        </a>
-      </Link>
+        </div>
+      )}
       {buttons && <div className="content">{buttons}</div>}
     </div>
   );
