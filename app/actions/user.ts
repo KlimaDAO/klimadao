@@ -105,7 +105,7 @@ export const loadAccountDetails = (params: {
       const promisesAllowance = spenders.reduce((arr, spender) => {
         const tokens = getTokensFromSpender(spender);
         tokens.forEach((tkn) => {
-          const contract = assetsContracts[tkn];
+          const contract = assetsContracts[tkn as Asset];
           if (contract) {
             arr.push(
               getAllowance({

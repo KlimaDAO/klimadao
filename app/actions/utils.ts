@@ -53,7 +53,7 @@ export const changeApprovalTransaction = async (params: {
 }): Promise<string> => {
   try {
     const contract = getContract({
-      contractName: params.token,
+      contractName: params.token as AllowancesToken,
       provider: params.provider.getSigner(),
     });
     const decimals = getTokenDecimals(params.token);
