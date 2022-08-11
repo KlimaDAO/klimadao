@@ -1,65 +1,17 @@
-import React, { FC, ReactNode } from "react";
+import { BaseButton, Props } from "./ButtonBase";
+import React, { FC } from "react";
 import * as styles from "./styles";
-import { Link } from "../types";
 import { cx } from "@emotion/css";
 
-interface Props {
-  label: ReactNode;
-  className?: string;
-  onClick?: () => void;
-  href?: string;
-  variant?: "gray" | "icon" | "blueRounded" | null;
-  link?: Link;
-  rel?: string;
-  target?: string;
-  isExternalHref?: boolean;
-  disabled?: boolean;
-}
-
-export const ButtonPrimary: FC<Props> = ({ link: LinkElement, ...props }) => {
-  let buttonStyle;
-  if (props.variant === "gray") {
-    buttonStyle = cx(
-      styles.button_primary,
-      styles.button_primary_gray,
-      props.className
-    );
-  } else if (props.variant === "blueRounded") {
-    buttonStyle = cx(
-      styles.button_primary,
-      styles.button_primary_blue,
-      props.className
-    );
-  } else {
-    buttonStyle = cx(styles.button_primary, props.className, {
+export const ButtonPrimary: FC<Props> = (props) => {
+  const buttonStyle = cx(
+    styles.buttonPrimary,
+    {
+      gray: props.variant === "gray",
+      blueRounded: props.variant === "blueRounded",
       icon: props.variant === "icon",
-    });
-  }
-
-  if (props.href) {
-    if (LinkElement) {
-      return (
-        <LinkElement href={props.href}>
-          <a className={buttonStyle}>{props.label}</a>
-        </LinkElement>
-      );
-    }
-
-    return (
-      <a {...props} className={buttonStyle} href={props.href}>
-        {props.label}
-      </a>
-    );
-  }
-
-  return (
-    <button
-      type="button"
-      className={buttonStyle}
-      onClick={props.onClick}
-      disabled={props.disabled}
-    >
-      {props.label}
-    </button>
+    },
+    props.className
   );
+  return <BaseButton {...props} buttonStyle={buttonStyle} />;
 };

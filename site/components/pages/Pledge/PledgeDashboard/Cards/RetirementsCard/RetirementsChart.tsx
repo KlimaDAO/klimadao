@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Trans } from "@lingui/macro";
 import {
   Bar,
   BarChart,
@@ -137,7 +138,9 @@ const CustomTooltip: FC<TooltipProps<number, string>> = ({
           {payload[0].payload.name}
         </Text>
         <Text t="caption" color="lightest">
-          {+Number(payload[0].value).toFixed(2)} Carbon Tonne(s) retired
+          <Trans id="pledges.dashboard.retirements.tooltip.tonnes_retired">
+            {+Number(payload[0].value).toFixed(2)} Carbon Tonne(s) Retired
+          </Trans>
         </Text>
       </div>
     );

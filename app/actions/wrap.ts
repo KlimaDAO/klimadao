@@ -1,9 +1,10 @@
 import { ethers, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
-import { getContract } from "@klimadao/lib/utils";
+import { getContract, getTokenDecimals } from "@klimadao/lib/utils";
 
 export const wrapTransaction = async (params: {
   action: "wrap" | "unwrap";
+  token: "sklima" | "wsklima";
   provider: providers.JsonRpcProvider;
   value: string;
   onStatus: OnStatusHandler;
@@ -14,7 +15,7 @@ export const wrapTransaction = async (params: {
       provider: params.provider.getSigner(),
     });
     params.onStatus("userConfirmation", "");
-    const decimal = params.action === "wrap" ? 9 : 18;
+    const decimal = getTokenDecimals(params.token);
     const txn = await contract[params.action](
       ethers.utils.parseUnits(params.value, decimal)
     );

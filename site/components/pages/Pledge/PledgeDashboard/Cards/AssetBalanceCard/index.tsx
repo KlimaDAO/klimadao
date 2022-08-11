@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import { t } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import map from "lodash/map";
 import groupBy from "lodash/groupBy";
@@ -77,7 +78,13 @@ export const AssetBalanceCard: FC<Props> = (props) => {
   }, []);
 
   return (
-    <BaseCard title="Carbon Assets" icon={<CloudQueueIcon fontSize="large" />}>
+    <BaseCard
+      title={t({
+        id: "pledges.dashboard.assets.title",
+        message: "Carbon Assets",
+      })}
+      icon={<CloudQueueIcon fontSize="large" />}
+    >
       <div className={styles.tokenCardContainer}>
         {map(tokenHoldingAndBalances, (token, index) => (
           <div className={styles.tokenRowContainer} key={index}>

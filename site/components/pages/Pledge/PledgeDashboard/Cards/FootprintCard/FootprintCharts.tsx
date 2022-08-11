@@ -1,4 +1,6 @@
 import React, { FC, useState } from "react";
+import { useRouter } from "next/router";
+import { Trans } from "@lingui/macro";
 import {
   Cell,
   Pie,
@@ -9,6 +11,7 @@ import {
   TooltipProps,
 } from "recharts";
 import { Text } from "@klimadao/lib/components";
+import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { CategoryWithPercent } from ".";
 import * as styles from "./styles";
@@ -89,6 +92,8 @@ const CustomTooltip: FC<TooltipProps<number, string>> = ({
   active,
   payload,
 }) => {
+  const { locale } = useRouter();
+
   if (active && payload && payload.length) {
     return (
       <div className={styles.footprintChart_tooltip}>
@@ -96,10 +101,15 @@ const CustomTooltip: FC<TooltipProps<number, string>> = ({
           {payload[0].name}
         </Text>
         <Text t="caption" color="lightest">
-          {+payload[0].payload.percent.toFixed(2)}% of footprint
+          <Trans id="pledges.dashboard.footprint.tooltip.category_percent">
+            {trimWithLocale(payload[0].payload.percent, 2, locale)}% of
+            footprint
+          </Trans>
         </Text>
         <Text t="caption" color="lightest">
-          {payload[0].payload.quantity} Carbon Tonne(s)
+          <Trans id="pledges.dashboard.footprint.tooltip.quantity">
+            {payload[0].payload.quantity} Carbon Tonne(s)
+          </Trans>
         </Text>
       </div>
     );

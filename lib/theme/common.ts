@@ -1,5 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "./breakpoints";
+import { button } from "./typography";
 
 export const cardSurface = css`
   position: relative;
@@ -11,6 +12,37 @@ export const cardSurface = css`
 
   ${breakpoints.desktopLarge} {
     padding: 3.2rem;
+  }
+`;
+
+export const textButton = css`
+  ${button};
+  display: flex;
+  min-height: 4rem;
+  align-items: center;
+  color: var(--font-01);
+  border: 2px solid var(--surface-03);
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.4rem;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(0, 0, 0, 0.3);
+  &:visited {
+    color: var(--font-01);
+  }
+  &:not(:disabled):hover {
+    border-color: var(--klima-green);
+  }
+  &[data-active="true"] {
+    background-color: var(--klima-green);
+    border-color: var(--klima-green);
+  }
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  ${breakpoints.small} {
+    padding: 0.8rem 1.6rem;
   }
 `;
 

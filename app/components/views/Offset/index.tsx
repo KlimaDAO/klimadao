@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
-import { StaticImageData } from "components/Image";
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
@@ -50,19 +49,14 @@ import {
   urls,
 } from "@klimadao/lib/constants";
 
+import { tokenInfo } from "lib/getTokenInfo";
+
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
-
-import BCT from "public/icons/BCT.png";
-import NCT from "public/icons/NCT.png";
-import MCO2 from "public/icons/MCO2.png";
-import KLIMA from "public/icons/KLIMA.png";
-import USDC from "public/icons/USDC.png";
-import UBO from "public/icons/UBO.png";
-import NBO from "public/icons/NBO.png";
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
+import { TransactionModal } from "components/TransactionModal";
 
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
@@ -75,25 +69,6 @@ interface ButtonProps {
   onClick: undefined | (() => void);
   disabled: boolean;
 }
-
-type TokenInfoMap = {
-  [key in RetirementToken | OffsetInputToken]: {
-    key: string;
-    icon: StaticImageData;
-    label: string;
-  };
-};
-const tokenInfo: TokenInfoMap = {
-  ubo: { key: "ubo", icon: UBO, label: "UBO" },
-  nbo: { key: "nbo", icon: NBO, label: "NBO" },
-  bct: { key: "bct", icon: BCT, label: "BCT" },
-  nct: { key: "nct", icon: NCT, label: "NCT" },
-  mco2: { key: "mco2", icon: MCO2, label: "MCO2" },
-  usdc: { key: "usdc", icon: USDC, label: "USDC" },
-  klima: { key: "klima", icon: KLIMA, label: "KLIMA" },
-  sklima: { key: "sklima", icon: KLIMA, label: "sKLIMA" },
-  wsklima: { key: "wsklima", icon: KLIMA, label: "wsKLIMA" },
-};
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -139,6 +114,7 @@ export const Offset = (props: Props) => {
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
@@ -230,6 +206,11 @@ export const Offset = (props: Props) => {
     selectedRetirementToken,
   ]);
 
+  const closeTransactionModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
   const handleOnSuccessModalClose = () => {
     setQuantity("0");
     setDebouncedQuantity("0");
@@ -295,7 +276,8 @@ export const Offset = (props: Props) => {
           quantity,
         })
       );
-      setStatus(null);
+      // close TransactionModal
+      closeTransactionModal();
       // this opens RetirementSuccessModal
       setRetirementTransactionHash(receipt.transactionHash);
       setRetirementTotals(retirementTotals);
@@ -311,7 +293,7 @@ export const Offset = (props: Props) => {
 
   const hasApproval = () => {
     return (
-      allowances?.[selectedInputToken] &&
+      !!allowances?.[selectedInputToken] &&
       !!Number(allowances?.[selectedInputToken]) &&
       Number(cost) <= Number(allowances?.[selectedInputToken]) // Caution: Number trims values down to 17 decimal places of precision
     );
@@ -356,14 +338,16 @@ export const Offset = (props: Props) => {
     } else if (!hasApproval()) {
       return {
         label: <Trans id="shared.approve">APPROVE</Trans>,
-        onClick: handleApprove,
+        onClick: () => {
+          setShowTransactionModal(true);
+        },
         disabled: false,
       };
     }
     return {
       label: <Trans id="shared.retire">RETIRE CARBON</Trans>,
       onClick: () => {
-        handleRetire();
+        setShowTransactionModal(true);
       },
       disabled: false,
     };
@@ -639,6 +623,26 @@ export const Offset = (props: Props) => {
           </div>
         </div>
       </div>
+
+      {showTransactionModal && (
+        <TransactionModal
+          title={
+            <Text t="h4" className={styles.offsetCard_header_title}>
+              <ParkOutlined />
+              <Trans id="offset.retire_carbon">Retire Carbon</Trans>
+            </Text>
+          }
+          onCloseModal={closeTransactionModal}
+          token={selectedInputToken}
+          spender={"retirementAggregator"}
+          value={cost.toString()}
+          status={fullStatus}
+          onResetStatus={() => setStatus(null)}
+          onApproval={handleApprove}
+          hasApproval={hasApproval()}
+          onSubmit={handleRetire}
+        />
+      )}
 
       {retirementTransactionHash && (
         <RetirementSuccessModal

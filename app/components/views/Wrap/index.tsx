@@ -29,6 +29,8 @@ import {
 } from "state/user";
 import { ImageCard } from "components/ImageCard";
 import { BalancesCard } from "components/BalancesCard";
+import { TransactionModal } from "components/TransactionModal";
+
 import { useAppDispatch } from "state";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
@@ -53,6 +55,10 @@ const inputPlaceholderMessage = {
   }),
 };
 
+const WRAP = "wrap";
+const UNWRAP = "unwrap";
+const SPENDER = "wsklima";
+
 export const Wrap: FC<Props> = (props) => {
   const locale = useSelector(selectLocale);
 
@@ -66,15 +72,16 @@ export const Wrap: FC<Props> = (props) => {
     dispatch(setAppState({ notificationStatus: { statusType, message } }));
   };
 
-  const [view, setView] = useState<"wrap" | "unwrap">("wrap");
+  const [view, setView] = useState<typeof WRAP | typeof UNWRAP>(WRAP);
   const [quantity, setQuantity] = useState("");
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const { currentIndex } = useSelector(selectAppState);
   const balances = useSelector(selectBalances);
   const wrapAllowance = useTypedSelector((state) =>
     selectAllowancesWithParams(state, {
       tokens: ["sklima"],
-      spender: "wsklima",
+      spender: SPENDER,
     })
   );
 
@@ -87,18 +94,31 @@ export const Wrap: FC<Props> = (props) => {
 
   const setMax = () => {
     setStatus(null);
-    if (view === "wrap") {
+    if (view === WRAP) {
       setQuantity(balances?.sklima ?? "0");
     } else {
       setQuantity(balances?.wsklima ?? "0");
     }
   };
 
+  const getToken = () => {
+    if (view === WRAP) {
+      return "sklima";
+    } else {
+      return "wsklima";
+    }
+  };
+
+  const closeModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
   // Approval only needed for wrap, not for unwrap !
-  const handleApproval = () => async () => {
+  const handleApproval = async () => {
     if (!props.provider) return;
     const token = "sklima";
-    const spender = "wsklima";
+    const spender = SPENDER;
     try {
       const currentQuantity = quantity.toString();
       const approvedValue = await changeApprovalTransaction({
@@ -120,40 +140,53 @@ export const Wrap: FC<Props> = (props) => {
     }
   };
 
-  const handleAction = (action: "wrap" | "unwrap") => async () => {
+  const handleAction = async () => {
     try {
       if (!quantity || !currentIndex || !props.provider) return;
-      setQuantity("");
       await wrapTransaction({
-        action,
+        action: view,
+        token: getToken(),
         provider: props.provider,
         value: quantity,
         onStatus: setStatus,
       });
-      if (action === "wrap") {
+      if (view === WRAP) {
         dispatch(incrementWrap({ sklima: quantity, currentIndex }));
         dispatch(
           decrementAllowance({
             token: "sklima",
-            spender: "wsklima",
+            spender: SPENDER,
             value: quantity,
           })
         );
       } else {
         dispatch(decrementWrap({ wsklima: quantity, currentIndex }));
       }
+      setQuantity("");
     } catch (e) {
+      console.error(e);
       return;
     }
   };
 
   // Approval only needed for wrap, not for unwrap
   const hasApproval = () => {
+    if (view === UNWRAP) return true;
+
     return (
       !!wrapAllowance &&
       !!Number(wrapAllowance.sklima) &&
       Number(quantity) <= Number(wrapAllowance.sklima)
     ); // Caution: Number trims values down to 17 decimal places of precision;
+  };
+
+  const insufficientBalance = () => {
+    const token = getToken();
+    return (
+      props.isConnected &&
+      !isLoading &&
+      Number(quantity) > Number(balances?.[token] ?? "0")
+    );
   };
 
   const getButtonProps = () => {
@@ -181,18 +214,24 @@ export const Wrap: FC<Props> = (props) => {
       status === "networkConfirmation"
     ) {
       return { label: "Confirming", onClick: undefined, disabled: true };
-    } else if (view === "wrap" && !hasApproval()) {
-      return { label: "Approve", onClick: handleApproval() };
-    } else if (view === "wrap") {
+    } else if (value && insufficientBalance()) {
       return {
-        label: "Wrap",
-        onClick: handleAction("wrap"),
+        label: (
+          <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (view === WRAP) {
+      return {
+        label: WRAP,
+        onClick: () => setShowTransactionModal(true),
         disabled: !value || !balances || value > Number(balances.sklima),
       };
-    } else if (view === "unwrap") {
+    } else if (view === UNWRAP) {
       return {
-        label: "Unwrap",
-        onClick: handleAction("unwrap"),
+        label: UNWRAP,
+        onClick: () => setShowTransactionModal(true),
         disabled: !value || !balances || value > Number(balances.wsklima),
       };
     } else {
@@ -201,9 +240,9 @@ export const Wrap: FC<Props> = (props) => {
   };
 
   const youWillGet = () => {
-    const suffix = view === "wrap" ? "wsKLIMA" : "sKLIMA";
+    const suffix = view === WRAP ? "wsKLIMA" : "sKLIMA";
     if (!quantity || !currentIndex) return `0 ${suffix}`;
-    if (view === "wrap") {
+    if (view === WRAP) {
       // BigNumber doesn't support decimals so I'm not sure the safest way to divide and multiply...
       return `${Number(quantity) / Number(currentIndex)} ${suffix}`;
     }
@@ -255,9 +294,9 @@ export const Wrap: FC<Props> = (props) => {
                 type="button"
                 onClick={() => {
                   setQuantity("");
-                  setView("wrap");
+                  setView(WRAP);
                 }}
-                data-active={view === "wrap"}
+                data-active={view === WRAP}
               >
                 <Trans id="wrap.wrap">Wrap</Trans>
               </button>
@@ -266,9 +305,9 @@ export const Wrap: FC<Props> = (props) => {
                 type="button"
                 onClick={() => {
                   setQuantity("");
-                  setView("unwrap");
+                  setView(UNWRAP);
                 }}
-                data-active={view === "unwrap"}
+                data-active={view === UNWRAP}
               >
                 <Trans id="wrap.unwrap">Unwrap</Trans>
               </button>
@@ -331,7 +370,7 @@ export const Wrap: FC<Props> = (props) => {
                 : "loading..."}
             </div>
             <div className={styles.infoTable_value}>
-              {view === "wrap"
+              {view === WRAP
                 ? trimWithPlaceholder(balances?.sklima ?? 0, 6, locale) +
                   " sKLIMA"
                 : trimWithPlaceholder(balances?.wsklima ?? 0, 6, locale) +
@@ -354,6 +393,26 @@ export const Wrap: FC<Props> = (props) => {
           </div>
         </div>
       </div>
+
+      {showTransactionModal && (
+        <TransactionModal
+          title={
+            <Text t="h4" className={styles.stakeCard_header_title}>
+              <FlipOutlined />
+              {view === "wrap" ? "Wrap sKLIMA" : "Unwrap sKLIMA"}
+            </Text>
+          }
+          onCloseModal={closeModal}
+          token={getToken()}
+          spender={SPENDER}
+          value={quantity.toString()}
+          status={fullStatus}
+          onResetStatus={() => setStatus(null)}
+          onApproval={handleApproval}
+          hasApproval={hasApproval()}
+          onSubmit={handleAction}
+        />
+      )}
 
       <ImageCard />
     </>
