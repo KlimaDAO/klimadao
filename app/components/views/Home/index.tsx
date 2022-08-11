@@ -29,7 +29,6 @@ import * as styles from "./styles";
 import { setAppState } from "state/app";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { ConnectButton } from "../../ConnectButton";
-import { MetamaskOnboardButton } from "components/MetamaskOnboardButton";
 import { NavMenu } from "components/NavMenu";
 import Menu from "@mui/icons-material/Menu";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
@@ -192,7 +191,6 @@ export const Home: FC = () => {
                 await web3.disconnect?.();
               }}
             />
-            <MetamaskOnboardButton />
           </div>
           <IsomorphicRoutes>
             <Route

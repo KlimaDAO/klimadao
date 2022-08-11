@@ -68,6 +68,7 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
     },
   };
 
+  // Add a Metamask onboarding dummy provider if metamask is not installed
   if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
     providerOptions["custom-metamaskonboardprovider"] = {
       display: {
@@ -79,6 +80,7 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
       connector: async (Provider: typeof MetaMaskOnboarding) => {
         const onboarding = new Provider();
         onboarding.startOnboarding();
+        setOnboarding();
         // eslint-disable-next-line @typescript-eslint/no-empty-function
         return new Promise(() => {});
       },
@@ -115,6 +117,17 @@ const useLocalizedModal = (
   return modalRef.current;
 };
 
+/* The following functions manage the onboarding state of the app */
+const isOnboarding = () => {
+  return localStorage.getItem("onboarding") === "true";
+};
+const setOnboarding = () => {
+  localStorage.setItem("onboarding", "true");
+};
+const unSetOnboarding = () => {
+  localStorage.removeItem("onboarding");
+};
+
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
@@ -147,10 +160,17 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
     setWeb3State(newState);
   };
 
-  // Auto connect to the cached provider
   useEffect(() => {
-    if (web3Modal && web3Modal.cachedProvider) {
-      connect();
+    // Auto connect to the cached provider
+    if (web3Modal) {
+      if (web3Modal.cachedProvider) {
+        connect();
+      }
+      // Show the web3modal if we are in onboarding mode and unset onboarding mode
+      else if (isOnboarding()) {
+        unSetOnboarding();
+        connect();
+      }
     }
   }, []);
 
