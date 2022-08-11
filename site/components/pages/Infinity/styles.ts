@@ -623,30 +623,7 @@ export const missionSection = css`
     width: 100%;
   }
 `;
-export const featuredSection = css`
-  .featured_container {
-    grid-column: main;
-    height: 100%;
-  }
-  .featured_logo_wrapper {
-    display: flex;
-    width: 50%;
-    justify-content: center;
-    padding: 1.6rem;
-    ${breakpoints.large} {
-      width: 25%;
-    }
-  }
-  .featured_logo_container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  .featured_title {
-    padding-bottom: 1.6rem;
-    color: var(--font-03);
-  }
-`;
+
 export const faqSection = css`
   background: radial-gradient(
       at top right,
