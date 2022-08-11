@@ -52,22 +52,22 @@ const featureImageMap = {
   mco2: mco2Background,
 };
 
-const doc = new jsPDF({
-  orientation: "landscape",
-  format: "letter",
-  putOnlyUsedFonts: true,
-  compress: true,
-});
-
-const setupFonts = (): void => {
-  doc.addFileToVFS("Poppins-ExtraLight-normal.ttf", PoppinsExtraLight);
-  doc.addFileToVFS("Poppins-SemiBold-normal.ttf", PoppinsBold);
-  doc.addFont("Poppins-ExtraLight-normal.ttf", "Poppins", "ExtraLight");
-  doc.addFont("Poppins-SemiBold-normal.ttf", "Poppins", "Bold");
-};
-
 export const generateCertificate = (params: Params): void => {
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
+
+  const doc = new jsPDF({
+    orientation: "landscape",
+    format: "letter",
+    putOnlyUsedFonts: true,
+    compress: true,
+  });
+
+  const setupFonts = (): void => {
+    doc.addFileToVFS("Poppins-ExtraLight-normal.ttf", PoppinsExtraLight);
+    doc.addFileToVFS("Poppins-SemiBold-normal.ttf", PoppinsBold);
+    doc.addFont("Poppins-ExtraLight-normal.ttf", "Poppins", "ExtraLight");
+    doc.addFont("Poppins-SemiBold-normal.ttf", "Poppins", "Bold");
+  };
 
   const printHeader = (): void => {
     const klimaLogo = new Image();
