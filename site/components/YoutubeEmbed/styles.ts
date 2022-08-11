@@ -33,10 +33,8 @@ export const youtubeEmbed = css`
   }
 `;
 
-export const posterOverlay = (hidden: boolean) => css`
+export const posterOverlay = css`
   width: 100%;
-  opacity: ${hidden ? 0 : 1};
-  z-index: ${hidden ? -1 : "initial"};
   top: 0;
   left: 0;
   > span:first-of-type {
@@ -44,6 +42,11 @@ export const posterOverlay = (hidden: boolean) => css`
     height: 100% !important;
     display: block !important;
   }
+`;
+
+export const posterOverlay_hidden = css`
+  opacity: 0;
+  z-index: -1;
 `;
 
 export const playIcon = css`

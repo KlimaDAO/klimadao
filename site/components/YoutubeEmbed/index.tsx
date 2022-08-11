@@ -1,7 +1,8 @@
-import { FC, HTMLAttributes, useState } from "react";
+import { FC, useState } from "react";
 import { toNumber } from "lodash";
 import * as styles from "./styles";
 import Image, { ImageProps } from "next/image";
+import { cx } from "@emotion/css";
 
 /**
  * For more information about the available youtube embed parameters see:
@@ -17,37 +18,29 @@ type YoutubeEmbedProps = {
     src: ImageProps["src"];
     alt: string;
   };
-} & HTMLAttributes<HTMLDivElement>;
+};
 
 /**
  * A wrapper around a youtube IFrame to provide a poster overlay
  * @note auto play does not function on mobile devices
  * see: https://stackoverflow.com/questions/15090782/youtube-autoplay-not-working-on-mobile-devices-with-embedded-html5-player
  */
-export const YoutubeEmbed: FC<YoutubeEmbedProps> = ({
-  videoId,
-  posterImg,
-  autoplay,
-  showSubtitles,
-  hideControls,
-  hideFullscreen,
-  ...props
-}) => {
+export const YoutubeEmbed: FC<YoutubeEmbedProps> = (props) => {
   // If a poster image is defined then track the play behaviour
-  const [playInitated, setPlayInitiated] = useState(!posterImg);
+  const [playInitiated, setPlayInitiated] = useState(!props.posterImg);
 
   // Build the src url
-  const src = `https://www.youtube.com/embed/${videoId}?\
-autoplay=${toNumber(!!(autoplay || playInitated))}&\
-controls=${toNumber(!hideControls)}&\
-fs=${toNumber(!hideFullscreen)}&\
+  const src = `https://www.youtube.com/embed/${props.videoId}?\
+autoplay=${toNumber(!!(props.autoplay || playInitiated))}&\
+controls=${toNumber(!props.hideControls)}&\
+fs=${toNumber(!props.hideFullscreen)}&\
 frameborder="0"&\
 iv_load_policy=3&\
 rel=0&\
-cc_load_policy=${toNumber(!!showSubtitles)}`;
+cc_load_policy=${toNumber(!!props.showSubtitles)}`;
 
   return (
-    <div className={styles.youtubeEmbed} {...props}>
+    <div className={styles.youtubeEmbed}>
       <iframe
         src={src}
         title="YouTube video player"
@@ -57,12 +50,17 @@ cc_load_policy=${toNumber(!!showSubtitles)}`;
       ></iframe>
 
       {/* Video overlay */}
-      {posterImg && (
+      {props.posterImg && (
         // The computed image height determines the height of the container (and the embedded video)
         // Because of this we are keeping the image in the DOM after click but hiding and setting
         // it behind the video
-        <div className={styles.posterOverlay(playInitated)}>
-          <Image src={posterImg.src} alt={posterImg.alt} />
+        <div
+          className={cx(
+            { [styles.posterOverlay_hidden]: playInitiated },
+            styles.posterOverlay
+          )}
+        >
+          <Image src={props.posterImg.src} alt={props.posterImg.alt} />
           <button
             className="youtubeEmbed_posterBtn"
             onClick={() => setPlayInitiated(true)}
