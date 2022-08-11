@@ -28,7 +28,7 @@ export const PageHead = (props: PageHeadProps) => {
         <script
           defer
           data-domain="app.klimadao.finance"
-          src="https://plausible.io/js/plausible.js"
+          src="https://plausible.io/js/script.outbound-links.js"
         />
       )}
       <title>{props.title}</title>
