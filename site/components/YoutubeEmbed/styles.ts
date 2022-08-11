@@ -37,6 +37,8 @@ export const posterOverlay = css`
   width: 100%;
   top: 0;
   left: 0;
+  // This ensures the video is still controllable
+  pointer-events: none;
   > span:first-of-type {
     //Unfortunately this is necessary because of NextJS Image inline styling
     height: 100% !important;
