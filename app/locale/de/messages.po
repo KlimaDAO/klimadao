@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-10 16:38+0000\n"
+"POT-Creation-Date: 2022-08-11 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -624,7 +624,7 @@ msgstr "Der aktualisierte Vertrag geht davon aus, dass pKLIMA-Besitzer ehemals b
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:340
 msgid "shared.approve"
-msgstr ""
+msgstr "GENEHMIGEN"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -830,47 +830,47 @@ msgstr "pKLIMA"
 
 #: components/TransactionModal/Approve.tsx:52
 msgid "transaction_modal.approve.allow_amount"
-msgstr ""
+msgstr "Du musst unserem Smart Contract zuerst erlauben, Tokens für dich zu transferieren."
 
 #: components/TransactionModal/Approve.tsx:60
 msgid "transaction_modal.approve.approve_quantity.contract_address"
-msgstr ""
+msgstr "Vertragsadresse"
 
 #: components/TransactionModal/Approve.tsx:70
 msgid "transaction_modal.approve_quantity.quantity"
-msgstr ""
+msgstr "Zu genehmigende Menge"
 
 #: components/TransactionModal/Submit.tsx:106
 msgid "transaction_modal.close"
-msgstr ""
+msgstr "Schließen"
 
 #: components/TransactionModal/Approve.tsx:113
 msgid "transaction_modal.next"
-msgstr ""
+msgstr "Weiter"
 
 #: components/TransactionModal/Submit.tsx:68
 msgid "transaction_modal.submit.amount"
-msgstr ""
+msgstr "Menge bestätigen"
 
 #: components/TransactionModal/Submit.tsx:96
 msgid "transaction_modal.submit.button"
-msgstr ""
+msgstr "Absenden"
 
 #: components/TransactionModal/Submit.tsx:51
 msgid "transaction_modal.submit.confirm_transaction"
-msgstr ""
+msgstr "Bitte sende die Transaktion ab."
 
 #: components/TransactionModal/Submit.tsx:58
 msgid "transaction_modal.submit.contract_address"
-msgstr ""
+msgstr "Vertragsadresse"
 
 #: components/TransactionModal/index.tsx:51
 msgid "transaction_modal.view.approve.title"
-msgstr ""
+msgstr "1. Bestätigen"
 
 #: components/TransactionModal/index.tsx:61
 msgid "transaction_modal.view.submit.title"
-msgstr ""
+msgstr "2. Absenden"
 
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"
