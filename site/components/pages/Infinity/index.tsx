@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { cx } from "@emotion/css";
 import { NextPage } from "next";
 import Image from "next/image";
 import { Trans, t } from "@lingui/macro";
+import { urls } from "@klimadao/lib/constants";
 import {
   Section,
   ButtonPrimary,
@@ -13,8 +15,7 @@ import {
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-
-import { CardsSlider } from "./Cards/CardsSlider";
+import { SocialProof } from "components/SocialProof";
 
 import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
@@ -27,29 +28,17 @@ import forestCanopy from "public/forest_canopy.png";
 import cars from "public/cars.jpg";
 import wavyLines from "public/bg_wavy_lines.png";
 import gasPump from "public/gas_pump.png";
-
-import logoForbes from "public/logo-forbes.png";
-import logoWired from "public/logo-wired.png";
-import logoWSJ from "public/logo-WSJ.png";
-import logoBloomberg from "public/logo-Bloomberg.png";
-import logoCoinTelegraph from "public/logo-Cointelegraph.png";
-import logoNasdaq from "public/logo-Nasdaq.png";
-import logoTheTimes from "public/logo-theTimes.png";
-import logoYahoo from "public/logo-yahoofinance.png";
-
 import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 
+import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
-
-import { urls } from "@klimadao/lib/constants";
-import { cx } from "@emotion/css";
-import { SocialProof } from "components/SocialProof";
 
 const linkToBlogUserGuide = `${urls.siteBlog}/klima-infinity-user-guide`;
 const linkToBlogFAQ = `${urls.siteBlog}/klima-infinity-faqs`;
 const linkToBlogPolygon = `${urls.siteBlog}/polygon-goes-carbon-neutral-via-klimadao`;
+
 export interface Props {
   fixedThemeName: string;
 }
