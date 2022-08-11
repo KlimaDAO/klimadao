@@ -1,18 +1,22 @@
 import { css } from "@emotion/css";
 
-import { stakeCard } from "../Stake/styles";
+import { chooseBondCard } from "../ChooseBond/styles";
 
 export const container = css`
-  ${stakeCard};
-  display: flex;
+  ${chooseBondCard};
   flex-direction: column;
   color: var(--font-01);
-  min-height: 88rem;
+  overflow: scroll;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   .infoSection {
     display: grid;
     gap: 0.8rem;
   }
-
   .addressRow {
     display: grid;
     grid-template-columns: repeat(3, max-content);

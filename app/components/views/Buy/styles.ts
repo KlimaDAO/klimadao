@@ -11,7 +11,13 @@ export const buyCard = css`
   border-radius: 1.2rem;
   padding-top: 2.4rem;
   gap: 2.4rem;
-
+  overflow: scroll;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   .hr {
     height: 2px;
     background-color: var(--surface-01);
@@ -23,9 +29,9 @@ export const buyCard = css`
 
   ${breakpoints.desktop} {
     grid-column: cardsleft;
-    grid-row: 2 / span 3;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-row: 1 / 5;
     align-items: start;
+    padding-bottom: 1.6rem;
   }
 
   ${breakpoints.desktopLarge} {

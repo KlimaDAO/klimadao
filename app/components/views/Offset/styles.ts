@@ -8,7 +8,7 @@ export const columnRight = css`
   gap: 2.4rem;
   grid-column: 1 / 3;
   align-content: start;
-
+  grid-row: 2 / auto;
   ${breakpoints.desktop} {
     grid-column: 2 / 3;
   }
@@ -33,10 +33,16 @@ export const offsetCard = css`
   padding: 2.4rem;
   gap: 2.4rem;
   grid-column: 1 / 3;
-
+  overflow: scroll;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   ${breakpoints.desktop} {
     grid-column: cardsleft;
-    grid-row: 2 / auto;
+    grid-row: 1 / 5;
     gap: 4.8rem;
     align-items: start;
   }

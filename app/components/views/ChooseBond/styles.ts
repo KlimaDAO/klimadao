@@ -9,7 +9,15 @@ export const chooseBondCard = css`
   gap: 2.4rem;
   align-content: start;
   grid-column: 1 / 3;
-
+  grid-row: 1 / 5;
+  overflow: scroll;
+  grid-template-rows: 1fr !important;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   ${breakpoints.small} {
     padding: 2.4rem;
   }
@@ -33,7 +41,6 @@ export const chooseBondCard_header = css`
 export const chooseBondCard_ui = css`
   display: grid;
   gap: 2.4rem;
-
   ${breakpoints.medium} {
     border: 2px solid var(--surface-01);
     padding: 2.4rem;
@@ -54,7 +61,7 @@ export const columnRight = css`
 
   ${breakpoints.desktop} {
     grid-column: 2 / 3;
-    grid-row: span 2;
+    grid-row-start: 2;
   }
 `;
 

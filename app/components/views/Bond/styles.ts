@@ -33,7 +33,7 @@ export const bondCard = css`
 
   ${breakpoints.desktop} {
     grid-column: cardsleft;
-    grid-row: 2 / span 3;
+    grid-row: 1 / span 3;
     gap: 4.8rem;
     grid-template-rows: 1fr 1fr 1fr;
     align-items: start;

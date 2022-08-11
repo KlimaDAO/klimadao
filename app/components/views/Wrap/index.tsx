@@ -35,7 +35,10 @@ import { useAppDispatch } from "state";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
 import * as styles from "components/views/Stake/styles";
+import * as bondStyles from "components/views/ChooseBond/styles";
+import * as overRideStyles from "./styles";
 import { Trans, defineMessage } from "@lingui/macro";
+import { cx } from "@emotion/css";
 
 interface Props {
   provider?: ethers.providers.Web3Provider;
@@ -260,7 +263,10 @@ export const Wrap: FC<Props> = (props) => {
         }
       />
 
-      <div className={styles.stakeCard} style={{ minHeight: "74rem" }}>
+      <div
+        className={cx(bondStyles.chooseBondCard, overRideStyles.wrapCard)}
+        style={{ minHeight: "74rem" }}
+      >
         <div className={styles.stakeCard_header}>
           <Text t="h4" className={styles.stakeCard_header_title}>
             <FlipOutlined />
