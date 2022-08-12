@@ -40,6 +40,24 @@ const bondMapToBondName = {
 type BondCName = keyof typeof bondMapToBondName;
 type BondContractName = typeof bondMapToBondName[BondCName];
 
+type TokensForPairContract =
+  | "klimaBctLp"
+  | "klimaUboLp"
+  | "klimaMco2Lp"
+  | "klimaNboLp" // not a Bond token
+  | "klimaUsdcLp"; // not a Bond token;
+
+const getPairContract = (params: {
+  token: TokensForPairContract;
+  provider: providers.JsonRpcProvider;
+}) => {
+  return new ethers.Contract(
+    addresses["mainnet"][params.token],
+    PairContract.abi,
+    params.provider
+  );
+};
+
 const getBondAddress = (params: { bond: Bond }): string => {
   const bondName = bondMapToBondName[params.bond];
   return addresses["mainnet"][bondName as BondContractName];
@@ -75,11 +93,10 @@ export function contractForReserve(params: {
 const getBCTMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaBctLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaBctLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [BCT, KLIMA] - KLIMA has 9 decimals, BCT has 18 decimals
   return reserves[0] / (reserves[1] * Math.pow(10, 9));
@@ -88,11 +105,10 @@ const getBCTMarketPrice = async (params: {
 const getUBOMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaUboLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaUboLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [UBO, KLIMA] - UBO has 18 decimals, KLIMA has 9 decimals
   return reserves[0] / (reserves[1] * Math.pow(10, 9));
@@ -101,11 +117,10 @@ const getUBOMarketPrice = async (params: {
 const getNBOMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaNboLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaNboLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [KLIMA, NBO] - KLIMA has 9 decimals, NBO has 18 decimals,
   return reserves[1] / (reserves[0] * Math.pow(10, 9));
@@ -115,11 +130,10 @@ const getNBOMarketPrice = async (params: {
 const getKlimaUSDCMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaUsdcLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaUsdcLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
   // divide usdc/klima to get klima usdc price
@@ -129,11 +143,10 @@ const getKlimaUSDCMarketPrice = async (params: {
 const getInverseKlimaUSDCPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaUsdcLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaUsdcLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
   // returns klimas per dollar
@@ -144,11 +157,10 @@ const getInverseKlimaUSDCPrice = async (params: {
 const getMCO2MarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaMco2Lp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaMco2Lp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [MCO2, KLIMA] - KLIMA has 9 decimals, MCO2 has 18 decimals
   const MCO2KLIMAPrice = reserves[1] / (reserves[0] * Math.pow(10, 9));
