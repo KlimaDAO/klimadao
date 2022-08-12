@@ -6,7 +6,6 @@ import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { TippyProps } from "@tippyjs/react";
 import {
-  changeApprovalTransaction,
   bondTransaction,
   redeemTransaction,
   calcBondDetails,
@@ -16,6 +15,8 @@ import {
   getIsInverse,
   BondWithoutInverse,
 } from "actions/bonds";
+
+import { changeApprovalTransaction } from "actions/utils";
 
 import { Trans, t } from "@lingui/macro";
 import { prettifySeconds } from "@klimadao/lib/utils";

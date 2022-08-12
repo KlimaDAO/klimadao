@@ -7,7 +7,6 @@ import {
   formatUnits,
   getJsonRpcProvider,
   getContract,
-  getTokenDecimals,
 } from "@klimadao/lib/utils";
 import { addresses, Bond } from "@klimadao/lib/constants";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
@@ -308,39 +307,6 @@ export const calcBondDetails = (params: {
       );
     }
   };
-};
-
-export const changeApprovalTransaction = async (params: {
-  value: string;
-  provider: providers.JsonRpcProvider;
-  token: BondToken | "klima";
-  spender: BondContractName;
-  onStatus: OnStatusHandler;
-}) => {
-  try {
-    const contract = getContract({
-      contractName: params.token,
-      provider: params.provider.getSigner(),
-    });
-    const decimals = getTokenDecimals(params.token);
-    const parsedValue = ethers.utils.parseUnits(params.value, decimals);
-    params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(
-      addresses["mainnet"][params.spender],
-      parsedValue.toString()
-    );
-    params.onStatus("networkConfirmation", "");
-    await txn.wait(1);
-    params.onStatus("done", "Approval was successful");
-    return formatUnits(parsedValue, decimals);
-  } catch (error: any) {
-    if (error.code === 4001) {
-      params.onStatus("error", "userRejected");
-      throw error;
-    }
-    params.onStatus("error");
-    throw error;
-  }
 };
 
 export const calculateUserBondDetails = (params: {
