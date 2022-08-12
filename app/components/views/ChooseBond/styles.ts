@@ -9,7 +9,7 @@ export const chooseBondCard = css`
   gap: 2.4rem;
   align-content: start;
   grid-column: 1 / 3;
-  grid-row: 1 / 5;
+  grid-row: auto;
   overflow: scroll;
   grid-template-rows: 1fr !important;
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -25,6 +25,7 @@ export const chooseBondCard = css`
   ${breakpoints.desktop} {
     grid-column: cardsleft;
     align-items: start;
+    grid-row: 1 / 5;
   }
 
   ${breakpoints.desktopLarge} {
