@@ -20,6 +20,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^3.3.2",
     "@translation/lingui": "^1.0.0",
+    "babel-plugin-recharts": "^2.0.0",
     "ethers": "^5.5.2",
     "firebase-admin": "^10.2.0",
     "lodash": "^4.17.21",

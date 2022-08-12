@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 
+const withBundleAnalyzer = require("@next/bundle-analyzer");
+
 const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 
 const nextConfig = {
@@ -91,4 +93,6 @@ if (!IS_PRODUCTION) {
   };
 }
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+})(nextConfig);
