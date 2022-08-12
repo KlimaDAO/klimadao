@@ -1,13 +1,25 @@
 import React, { FC } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 
 import { Holding } from "components/pages/Pledge/types";
-import { PlaceholderHoldingsChart } from "../PlaceholderHoldingsChart";
-import { HoldingsChart } from "../HoldingsChart";
 import * as styles from "./styles";
+
+const HoldingsChart: React.ComponentType<{ data: Holding[] }> = dynamic(
+  () => import("../HoldingsChart").then((mod) => mod.HoldingsChart),
+  { ssr: false }
+);
+
+const PlaceholderHoldingsChart: React.ComponentType = dynamic(
+  () =>
+    import("../PlaceholderHoldingsChart").then(
+      (mod) => mod.PlaceholderHoldingsChart
+    ),
+  { ssr: false }
+);
 
 interface TokenRowProps {
   label: string;
