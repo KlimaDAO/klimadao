@@ -7,12 +7,13 @@ import {
   formatUnits,
   getJsonRpcProvider,
   getContract,
+  getTokenDecimals,
 } from "@klimadao/lib/utils";
 import { addresses, Bond } from "@klimadao/lib/constants";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
 
-const bondMapToTokenName = {
+export const bondMapToTokenName = {
   klima_bct_lp: "klimaBctLp",
   klima_usdc_lp: "klimaUsdcLp",
   bct_usdc_lp: "bctUsdcLp",
@@ -26,7 +27,7 @@ const bondMapToTokenName = {
 type BondName = keyof typeof bondMapToTokenName;
 type BondToken = typeof bondMapToTokenName[BondName];
 
-const bondMapToBondName = {
+export const bondMapToBondName = {
   klima_bct_lp: "bond_klimaBctLp",
   klima_usdc_lp: "bond_klimaUsdcLp",
   bct_usdc_lp: "bond_bctUsdcLp",
@@ -68,7 +69,7 @@ const getReserveAddress = (params: { bond: Bond }): string => {
   return addresses["mainnet"][tokenName as BondToken];
 };
 
-const getIsInverse = (bond: Bond): boolean =>
+export const getIsInverse = (bond: Bond): boolean =>
   bond === "inverse_usdc" && bondMapToTokenName[bond] === "klimaProV2";
 
 export const contractForBond = (params: {
@@ -312,28 +313,26 @@ export const calcBondDetails = (params: {
 export const changeApprovalTransaction = async (params: {
   value: string;
   provider: providers.JsonRpcProvider;
-  bond: Bond;
+  token: BondToken | "klima";
+  spender: BondContractName;
   onStatus: OnStatusHandler;
-  isInverse?: boolean;
 }) => {
   try {
-    const contract = params.isInverse
-      ? getContract({
-          contractName: "klima",
-          provider: params.provider.getSigner(),
-        })
-      : contractForReserve({
-          bond: params.bond,
-          providerOrSigner: params.provider.getSigner(),
-        });
-    const approvalAddress = getBondAddress({ bond: params.bond });
-    const parsedValue = ethers.utils.parseUnits(params.value, "ether");
+    const contract = getContract({
+      contractName: params.token,
+      provider: params.provider.getSigner(),
+    });
+    const decimals = getTokenDecimals(params.token);
+    const parsedValue = ethers.utils.parseUnits(params.value, decimals);
     params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(approvalAddress, parsedValue.toString());
+    const txn = await contract.approve(
+      addresses["mainnet"][params.spender],
+      parsedValue.toString()
+    );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
-    return params.value;
+    return formatUnits(parsedValue, decimals);
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");

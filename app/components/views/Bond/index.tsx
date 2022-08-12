@@ -11,6 +11,9 @@ import {
   redeemTransaction,
   calcBondDetails,
   calculateUserBondDetails,
+  bondMapToBondName,
+  bondMapToTokenName,
+  getIsInverse,
 } from "actions/bonds";
 
 import { Trans, t } from "@lingui/macro";
@@ -238,13 +241,21 @@ export const Bond: FC<Props> = (props) => {
   const handleAllowance = async () => {
     try {
       if (!props.provider) return;
+
+      const token =
+        !!bondState && getIsInverse(bondState.bond)
+          ? "klima"
+          : bondMapToTokenName[props.bond];
+      const spender = bondMapToBondName[props.bond];
+
       setStatus(null);
+
       const approvedValue = await changeApprovalTransaction({
         value: quantity.toString(),
         provider: props.provider,
-        bond: props.bond,
+        token,
+        spender,
         onStatus: setStatus,
-        isInverse: bondState && bondState.bond === "inverse_usdc",
       });
       dispatch(setBondAllowance({ [props.bond]: approvedValue }));
     } catch (e) {
