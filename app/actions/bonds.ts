@@ -70,19 +70,8 @@ const getReserveAddress = (params: { bond: Bond }): string => {
   return addresses["mainnet"][tokenName as BondToken];
 };
 
-const getIsInverse = (params: { bond: Bond }): boolean => {
-  return {
-    ubo: false,
-    nbo: false,
-    mco2: false,
-    bct: false,
-    klima_usdc_lp: false,
-    klima_bct_lp: false,
-    bct_usdc_lp: false,
-    klima_mco2_lp: false,
-    inverse_usdc: true,
-  }[params.bond];
-};
+const getIsInverse = (params: { bond: Bond }): boolean =>
+  params.bond === "inverse_usdc";
 
 export const contractForBond = (params: {
   bond: Bond;
