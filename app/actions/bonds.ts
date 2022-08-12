@@ -12,32 +12,42 @@ import OhmDai from "@klimadao/lib/abi/OhmDai.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import KlimaProV2 from "@klimadao/lib/abi/KlimaProV2.json";
 
+const bondMapToTokenName = {
+  klima_bct_lp: "klimaBctLp",
+  klima_usdc_lp: "klimaUsdcLp",
+  bct_usdc_lp: "bctUsdcLp",
+  klima_mco2_lp: "klimaMco2Lp",
+  inverse_usdc: "klimaProV2",
+  mco2: "mco2",
+  bct: "bct",
+  nbo: "nbo",
+  ubo: "ubo",
+} as const;
+type BondName = keyof typeof bondMapToTokenName;
+type BondToken = typeof bondMapToTokenName[BondName];
+
+const bondMapToBondName = {
+  klima_bct_lp: "bond_klimaBctLp",
+  klima_usdc_lp: "bond_klimaUsdcLp",
+  bct_usdc_lp: "bond_bctUsdcLp",
+  klima_mco2_lp: "bond_klimaMco2Lp",
+  inverse_usdc: "klimaProV2",
+  mco2: "bond_mco2",
+  bct: "bond_bct",
+  nbo: "bond_nbo",
+  ubo: "bond_ubo",
+} as const;
+type BondCName = keyof typeof bondMapToBondName;
+type BondContractName = typeof bondMapToBondName[BondCName];
+
 const getBondAddress = (params: { bond: Bond }): string => {
-  return {
-    klima_mco2_lp: addresses["mainnet"].bond_klimaMco2Lp,
-    klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
-    klima_usdc_lp: addresses["mainnet"].bond_klimaUsdcLp,
-    bct: addresses["mainnet"].bond_bct,
-    bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
-    mco2: addresses["mainnet"].bond_mco2,
-    nbo: addresses["mainnet"].bond_nbo,
-    ubo: addresses["mainnet"].bond_ubo,
-    inverse_usdc: addresses["mainnet"].klimaProV2,
-  }[params.bond];
+  const bondName = bondMapToBondName[params.bond];
+  return addresses["mainnet"][bondName as BondContractName];
 };
 
 const getReserveAddress = (params: { bond: Bond }): string => {
-  return {
-    klima_bct_lp: addresses["mainnet"].klimaBctLp,
-    klima_usdc_lp: addresses["mainnet"].klimaUsdcLp,
-    bct: addresses["mainnet"].bct,
-    mco2: addresses["mainnet"].mco2,
-    bct_usdc_lp: addresses["mainnet"].bctUsdcLp,
-    klima_mco2_lp: addresses["mainnet"].klimaMco2Lp,
-    nbo: addresses["mainnet"].nbo,
-    ubo: addresses["mainnet"].ubo,
-    inverse_usdc: addresses["mainnet"].klimaProV2,
-  }[params.bond];
+  const tokenName = bondMapToTokenName[params.bond];
+  return addresses["mainnet"][tokenName as BondToken];
 };
 
 const getReserveABI = (params: { bond: Bond }): ContractInterface => {
