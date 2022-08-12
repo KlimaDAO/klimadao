@@ -1,4 +1,4 @@
-import { ContractInterface, ethers, providers } from "ethers";
+import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 import { setBond } from "state/bonds";
 import { OnStatusHandler } from "./utils";
@@ -11,8 +11,6 @@ import {
 import { addresses, Bond } from "@klimadao/lib/constants";
 import Depository from "@klimadao/lib/abi/KlimaBondDepository_Regular.json";
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
-import OhmDai from "@klimadao/lib/abi/OhmDai.json";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import KlimaProV2 from "@klimadao/lib/abi/KlimaProV2.json";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 
@@ -69,20 +67,6 @@ const getBondAddress = (params: { bond: Bond }): string => {
 
 const getReserveAddress = (params: { bond: Bond }): string => {
   const tokenName = bondMapToTokenName[params.bond];
-};
-
-const getReserveABI = (params: { bond: Bond }): ContractInterface => {
-  return {
-    klima_bct_lp: OhmDai.abi,
-    klima_usdc_lp: OhmDai.abi,
-    bct: IERC20.abi,
-    mco2: IERC20.abi,
-    bct_usdc_lp: OhmDai.abi,
-    klima_mco2_lp: OhmDai.abi,
-    nbo: IERC20.abi,
-    ubo: IERC20.abi,
-    inverse_usdc: KlimaProV2.abi,
-  }[params.bond];
   return addresses["mainnet"][tokenName as BondToken];
 };
 
@@ -104,23 +88,20 @@ export const contractForBond = (params: {
   bond: Bond;
   provider: providers.JsonRpcProvider;
 }) => {
-  const address = getBondAddress({ bond: params.bond });
-  if (getIsInverse({ bond: params.bond })) {
-    return new ethers.Contract(address, KlimaProV2.abi, params.provider);
-  } else {
-    return new ethers.Contract(address, Depository.abi, params.provider);
-  }
+  const token = bondMapToBondName[params.bond];
+
+  return getContract({ contractName: token, provider: params.provider });
 };
 
 export function contractForReserve(params: {
   bond: Bond;
   providerOrSigner: providers.JsonRpcProvider | providers.JsonRpcSigner;
 }) {
-  return new ethers.Contract(
-    getReserveAddress({ bond: params.bond }),
-    getReserveABI({ bond: params.bond }),
-    params.providerOrSigner
-  );
+  const token = bondMapToTokenName[params.bond];
+  return getContract({
+    contractName: token,
+    provider: params.providerOrSigner,
+  });
 }
 
 const getBCTMarketPrice = async (params: {
