@@ -25,7 +25,9 @@ const bondMapToTokenName = {
   bct: "bct",
   nbo: "nbo",
   ubo: "ubo",
-};
+} as const;
+type BondName = keyof typeof bondMapToTokenName;
+type BondToken = typeof bondMapToTokenName[BondName];
 
 const bondMapToBondName = {
   klima_bct_lp: "bond_klimaBctLp",
@@ -37,16 +39,18 @@ const bondMapToBondName = {
   bct: "bond_bct",
   nbo: "bond_nbo",
   ubo: "bond_ubo",
+} as const;
+type BondCName = keyof typeof bondMapToBondName;
+type BondContractName = typeof bondMapToBondName[BondCName];
 };
 
 const getBondAddress = (params: { bond: Bond }): string => {
   const bondName = bondMapToBondName[params.bond];
-  return addresses["mainnet"][bondName as keyof typeof addresses["mainnet"]];
+  return addresses["mainnet"][bondName as BondContractName];
 };
 
 const getReserveAddress = (params: { bond: Bond }): string => {
   const tokenName = bondMapToTokenName[params.bond];
-  return addresses["mainnet"][tokenName as keyof typeof addresses["mainnet"]];
 };
 
 const getReserveABI = (params: { bond: Bond }): ContractInterface => {
@@ -61,6 +65,7 @@ const getReserveABI = (params: { bond: Bond }): ContractInterface => {
     ubo: IERC20.abi,
     inverse_usdc: KlimaProV2.abi,
   }[params.bond];
+  return addresses["mainnet"][tokenName as BondToken];
 };
 
 const getIsInverse = (params: { bond: Bond }): boolean => {
