@@ -5,7 +5,6 @@ import IERC20 from "../../abi/IERC20.json";
 import WSKLIMA from "../../abi/wsKlima.json";
 import DistributorContractv4 from "../../abi/DistributorContractv4.json";
 import PunkTLD from "../../abi/PunkTLD.json";
-import PairContract from "../../abi/PairContract.json";
 import KlimaRetirementAggregator from "../../abi/KlimaRetirementAggregator.json";
 import ExercisePKlima from "../../abi/ExercisepKLIMA.json";
 import KlimaStakingHelper from "../../abi/KlimaStakingHelper.json";
@@ -39,14 +38,6 @@ const contractMap = {
 
   // Main Contracts
   sklimaMain: SKlima.abi,
-
-  // Bonds PairContracts
-  bctUsdcLp: PairContract.abi,
-  klimaBctLp: PairContract.abi,
-  klimaUboLp: PairContract.abi,
-  klimaNboLp: PairContract.abi,
-  klimaUsdcLp: PairContract.abi,
-  klimaMco2Lp: PairContract.abi,
 
   // Bonds Reserve
   // klimaBctLp: OhmDai.abi,
