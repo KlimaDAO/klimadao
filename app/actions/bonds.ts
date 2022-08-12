@@ -9,9 +9,7 @@ import {
   getContract,
 } from "@klimadao/lib/utils";
 import { addresses, Bond } from "@klimadao/lib/constants";
-import Depository from "@klimadao/lib/abi/KlimaBondDepository_Regular.json";
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
-import KlimaProV2 from "@klimadao/lib/abi/KlimaProV2.json";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 
 const bondMapToTokenName = {
@@ -75,10 +73,9 @@ const getIsInverse = (params: { bond: Bond }): boolean =>
 
 export const contractForBond = (params: {
   bond: Bond;
-  provider: providers.JsonRpcProvider;
+  provider: providers.JsonRpcProvider | providers.JsonRpcSigner;
 }) => {
   const token = bondMapToBondName[params.bond];
-
   return getContract({ contractName: token, provider: params.provider });
 };
 
@@ -423,12 +420,10 @@ export const bondTransaction = async (params: {
     try {
       const acceptedSlippage = 0.0; // 20% instead of 2% bc 2% not working. 20% also not working lol
       const signer = params.provider.getSigner();
-      const contractAddress = getBondAddress({ bond: params.bond });
-      const contract = new ethers.Contract(
-        contractAddress,
-        KlimaProV2.abi,
-        signer
-      );
+      const contract = contractForBond({
+        bond: params.bond,
+        provider: signer,
+      });
       const bondPrice = await contract.marketPrice(INVERSE_USDC_MARKET_ID);
       // minimum amount to be paid out in usdc. need bondPrice in usdc
       const minAmountOut =
@@ -463,12 +458,10 @@ export const bondTransaction = async (params: {
   } else {
     try {
       const signer = params.provider.getSigner();
-      const contractAddress = getBondAddress({ bond: params.bond });
-      const contract = new ethers.Contract(
-        contractAddress,
-        Depository.abi,
-        signer
-      );
+      const contract = contractForBond({
+        bond: params.bond,
+        provider: signer,
+      });
       const calculatePremium = await contract.bondPrice();
       const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
       const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
@@ -499,12 +492,10 @@ export const redeemTransaction = async (params: {
 }) => {
   try {
     const signer = params.provider.getSigner();
-    const contractAddress = getBondAddress({ bond: params.bond });
-    const contract = new ethers.Contract(
-      contractAddress,
-      Depository.abi,
-      signer
-    );
+    const contract = contractForBond({
+      bond: params.bond,
+      provider: signer,
+    });
     params.onStatus("userConfirmation", "");
     const txn = await contract.redeem(params.address, params.shouldAutostake);
     params.onStatus("networkConfirmation", "");
