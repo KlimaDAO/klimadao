@@ -1,14 +1,17 @@
-import { ContractInterface, ethers, providers } from "ethers";
+import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 import { setBond } from "state/bonds";
 import { OnStatusHandler } from "./utils";
 import { setBondAllowance } from "state/user";
-import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getJsonRpcProvider,
+  getContract,
+} from "@klimadao/lib/utils";
 import { addresses, Bond } from "@klimadao/lib/constants";
 import Depository from "@klimadao/lib/abi/KlimaBondDepository_Regular.json";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
-import OhmDai from "@klimadao/lib/abi/OhmDai.json";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 import KlimaProV2 from "@klimadao/lib/abi/KlimaProV2.json";
 
@@ -50,20 +53,6 @@ const getReserveAddress = (params: { bond: Bond }): string => {
   return addresses["mainnet"][tokenName as BondToken];
 };
 
-const getReserveABI = (params: { bond: Bond }): ContractInterface => {
-  return {
-    klima_bct_lp: OhmDai.abi,
-    klima_usdc_lp: OhmDai.abi,
-    bct: IERC20.abi,
-    mco2: IERC20.abi,
-    bct_usdc_lp: OhmDai.abi,
-    klima_mco2_lp: OhmDai.abi,
-    nbo: IERC20.abi,
-    ubo: IERC20.abi,
-    inverse_usdc: KlimaProV2.abi,
-  }[params.bond];
-};
-
 const getIsInverse = (params: { bond: Bond }): boolean => {
   return {
     ubo: false,
@@ -94,11 +83,11 @@ export function contractForReserve(params: {
   bond: Bond;
   providerOrSigner: providers.JsonRpcProvider | providers.JsonRpcSigner;
 }) {
-  return new ethers.Contract(
-    getReserveAddress({ bond: params.bond }),
-    getReserveABI({ bond: params.bond }),
-    params.providerOrSigner
-  );
+  const token = bondMapToTokenName[params.bond];
+  return getContract({
+    contractName: token,
+    provider: params.providerOrSigner,
+  });
 }
 
 const getBCTMarketPrice = async (params: {
