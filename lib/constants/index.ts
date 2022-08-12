@@ -170,19 +170,6 @@ export const bonds = [
 ] as const;
 export type Bond = typeof bonds[number];
 
-const bondTokensForSpender = [
-  "klimaProV2", // inverse_usdc
-  "ubo",
-  "nbo",
-  "bctUsdcLp", // bct_usdc_lp
-  "klimaBctLp", // klima_bct_lp
-  "klimaUsdcLp", // klima_usdc_lp
-  "klimaMco2Lp", // klima_mco2_lp
-  "bct",
-  "mco2",
-  "klima", // if is inverse
-] as const;
-
 // Spender with their Allowances tokens
 export const allowancesContracts = {
   retirementAggregator: [
@@ -200,15 +187,15 @@ export const allowancesContracts = {
   staking: ["sklima"],
   wsklima: ["sklima"],
   pklima_exercise: ["bct", "pklima"],
-  bond_klimaMco2Lp: bondTokensForSpender,
-  bond_klimaBctLp: bondTokensForSpender,
-  bond_klimaUsdcLp: bondTokensForSpender,
-  bond_bct: bondTokensForSpender,
-  bond_bctUsdcLp: bondTokensForSpender,
-  bond_mco2: bondTokensForSpender,
-  bond_nbo: bondTokensForSpender,
-  bond_ubo: bondTokensForSpender,
-  klimaProV2: bondTokensForSpender,
+  bond_klimaMco2Lp: ["klimaMco2Lp"],
+  bond_klimaBctLp: ["klimaBctLp"],
+  bond_klimaUsdcLp: ["klimaUsdcLp"],
+  bond_bct: ["bct"],
+  bond_bctUsdcLp: ["bctUsdcLp"],
+  bond_mco2: ["mco2"],
+  bond_nbo: ["nbo"],
+  bond_ubo: ["ubo"],
+  klimaProV2: ["klima"],
 } as const;
 
 export const EPOCH_INTERVAL = 11520;
