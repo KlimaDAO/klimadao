@@ -51,19 +51,8 @@ const getReserveAddress = (params: { bond: Bond }): string => {
   return addresses["mainnet"][tokenName as BondToken];
 };
 
-const getIsInverse = (params: { bond: Bond }): boolean => {
-  return {
-    ubo: false,
-    nbo: false,
-    mco2: false,
-    bct: false,
-    klima_usdc_lp: false,
-    klima_bct_lp: false,
-    bct_usdc_lp: false,
-    klima_mco2_lp: false,
-    inverse_usdc: true,
-  }[params.bond];
-};
+const getIsInverse = (bond: Bond): boolean =>
+  bond === "inverse_usdc" && bondMapToTokenName[bond] === "klimaProV2";
 
 export const contractForBond = (params: {
   bond: Bond;
@@ -218,7 +207,7 @@ export const calcBondDetails = (params: {
     let bondPrice;
     let premium = 0;
     let capacity = 0;
-    if (getIsInverse({ bond: params.bond })) {
+    if (getIsInverse(params.bond)) {
       // returns klimas-per-dollar with 6 decimals
       bondPrice = await bondContract.marketPrice(INVERSE_USDC_MARKET_ID);
 
@@ -248,7 +237,7 @@ export const calcBondDetails = (params: {
       params.bond === "ubo"
     ) {
       bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
-    } else if (params.bond === "inverse_usdc") {
+    } else if (getIsInverse(params.bond)) {
       const quote = Number(params.value) / Number(formatUnits(bondPrice, 6));
       bondQuote = quote.toString();
     } else {
@@ -260,12 +249,12 @@ export const calcBondDetails = (params: {
     }
 
     const decimalAdjustedBondPrice =
-      params.bond === "klima_usdc_lp" || params.bond === "inverse_usdc"
+      params.bond === "klima_usdc_lp" || getIsInverse(params.bond)
         ? bondPrice * Math.pow(10, 12) // need to add decimals because this bond returns USDC (6 dec).
         : bondPrice;
 
     let bondDiscount: number;
-    if (params.bond === "inverse_usdc") {
+    if (getIsInverse(params.bond)) {
       // var name is misleading, in the inverse bond UI we call it premium. multiply by -1 because inverse "discount" is backwards
       bondDiscount = premium;
     } else {
@@ -274,7 +263,7 @@ export const calcBondDetails = (params: {
         decimalAdjustedBondPrice;
     }
 
-    if (getIsInverse({ bond: params.bond })) {
+    if (getIsInverse(params.bond)) {
       dispatch(
         setBond({
           bond: params.bond,
@@ -365,7 +354,7 @@ export const calculateUserBondDetails = (params: {
       params.provider
     );
     // inverse bonds dont have user details
-    if (getIsInverse({ bond: params.bond })) {
+    if (getIsInverse(params.bond)) {
       const inverseAllowance = await klimaContract.allowance(
         params.address,
         getBondAddress({ bond: params.bond })
