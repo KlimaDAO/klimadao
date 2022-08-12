@@ -1347,7 +1347,7 @@ msgstr "Get Started"
 msgid "shared.infity"
 msgstr "Infinity"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:52
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
 msgid "shared.loading"
 msgstr "Loading..."
