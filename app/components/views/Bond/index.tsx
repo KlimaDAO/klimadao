@@ -14,6 +14,7 @@ import {
   bondMapToBondName,
   bondMapToTokenName,
   getIsInverse,
+  BondWithoutInverse,
 } from "actions/bonds";
 
 import { Trans, t } from "@lingui/macro";
@@ -245,7 +246,7 @@ export const Bond: FC<Props> = (props) => {
       const token =
         !!bondState && getIsInverse(bondState.bond)
           ? "klima"
-          : bondMapToTokenName[props.bond];
+          : bondMapToTokenName[props.bond as BondWithoutInverse]; // we know here it can't be inverse
       const spender = bondMapToBondName[props.bond];
 
       setStatus(null);

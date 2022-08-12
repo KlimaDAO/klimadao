@@ -44,6 +44,8 @@ const contractMap = {
   klimaUsdcLp: OhmDai.abi,
   bctUsdcLp: OhmDai.abi,
   klimaMco2Lp: OhmDai.abi,
+
+  // Bonds Inverse
   klimaProV2: KlimaProV2.abi,
 
   // Bonds Contracts

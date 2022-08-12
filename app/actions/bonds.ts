@@ -13,19 +13,19 @@ import { addresses, Bond } from "@klimadao/lib/constants";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
 
+// All Bonds without Inverse
 export const bondMapToTokenName = {
   klima_bct_lp: "klimaBctLp",
   klima_usdc_lp: "klimaUsdcLp",
   bct_usdc_lp: "bctUsdcLp",
   klima_mco2_lp: "klimaMco2Lp",
-  inverse_usdc: "klimaProV2",
   mco2: "mco2",
   bct: "bct",
   nbo: "nbo",
   ubo: "ubo",
 } as const;
-type BondName = keyof typeof bondMapToTokenName;
-type BondToken = typeof bondMapToTokenName[BondName];
+export type BondWithoutInverse = keyof typeof bondMapToTokenName;
+type BondToken = typeof bondMapToTokenName[BondWithoutInverse];
 
 export const bondMapToBondName = {
   klima_bct_lp: "bond_klimaBctLp",
@@ -64,13 +64,13 @@ const getBondAddress = (params: { bond: Bond }): string => {
   return addresses["mainnet"][bondName as BondContractName];
 };
 
-const getReserveAddress = (params: { bond: Bond }): string => {
+const getReserveAddress = (params: { bond: BondWithoutInverse }): string => {
   const tokenName = bondMapToTokenName[params.bond];
   return addresses["mainnet"][tokenName as BondToken];
 };
 
 export const getIsInverse = (bond: Bond): boolean =>
-  bond === "inverse_usdc" && bondMapToTokenName[bond] === "klimaProV2";
+  bond === "inverse_usdc" && bondMapToBondName[bond] === "klimaProV2";
 
 export const contractForBond = (params: {
   bond: Bond;
@@ -81,7 +81,7 @@ export const contractForBond = (params: {
 };
 
 export function contractForReserve(params: {
-  bond: Bond;
+  bond: BondWithoutInverse;
   providerOrSigner: providers.JsonRpcProvider | providers.JsonRpcSigner;
 }) {
   const token = bondMapToTokenName[params.bond];
@@ -254,7 +254,7 @@ export const calcBondDetails = (params: {
       bondQuote = quote.toString();
     } else {
       const valuation = await bondCalcContract.valuation(
-        getReserveAddress({ bond: params.bond }),
+        getReserveAddress({ bond: params.bond as BondWithoutInverse }), // we know here that it can't be inverse
         amountInWei
       );
       bondQuote = formatUnits(await bondContract.payoutFor(valuation), 9);
@@ -350,20 +350,13 @@ export const calculateUserBondDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     if (!params.address) return;
-    const bondContract = contractForBond({
-      bond: params.bond,
-      provider: params.provider,
-    });
-    const reserveContract = contractForReserve({
-      bond: params.bond,
-      providerOrSigner: params.provider,
-    });
-    const klimaContract = getContract({
-      contractName: "klima",
-      provider: params.provider,
-    });
     // inverse bonds dont have user details
     if (getIsInverse(params.bond)) {
+      const klimaContract = getContract({
+        contractName: "klima",
+        provider: params.provider,
+      });
+
       const inverseAllowance = await klimaContract.allowance(
         params.address,
         getBondAddress({ bond: params.bond })
@@ -377,6 +370,16 @@ export const calculateUserBondDetails = (params: {
     }
 
     // Calculate bond details.
+    const bondContract = contractForBond({
+      bond: params.bond,
+      provider: params.provider,
+    });
+
+    const reserveContract = contractForReserve({
+      bond: params.bond as BondWithoutInverse, // we know here that it can't be inverse_usdc
+      providerOrSigner: params.provider,
+    });
+
     const bondDetails = await bondContract.bondInfo(params.address);
     const interestDue = bondDetails[0];
     const bondMaturationBlock = +bondDetails[1] + +bondDetails[2];
