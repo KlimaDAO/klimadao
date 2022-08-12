@@ -11,7 +11,6 @@ import {
 import { addresses, Bond } from "@klimadao/lib/constants";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
 const bondMapToTokenName = {
   klima_bct_lp: "klimaBctLp",
@@ -306,11 +305,10 @@ export const changeApprovalTransaction = async (params: {
 }) => {
   try {
     const contract = params.isInverse
-      ? new ethers.Contract(
-          addresses["mainnet"].klima,
-          IERC20.abi,
-          params.provider.getSigner()
-        )
+      ? getContract({
+          contractName: "klima",
+          provider: params.provider.getSigner(),
+        })
       : contractForReserve({
           bond: params.bond,
           providerOrSigner: params.provider.getSigner(),
@@ -348,11 +346,10 @@ export const calculateUserBondDetails = (params: {
       bond: params.bond,
       providerOrSigner: params.provider,
     });
-    const klimaContract = new ethers.Contract(
-      addresses["mainnet"].klima,
-      IERC20.abi,
-      params.provider
-    );
+    const klimaContract = getContract({
+      contractName: "klima",
+      provider: params.provider,
+    });
     // inverse bonds dont have user details
     if (getIsInverse(params.bond)) {
       const inverseAllowance = await klimaContract.allowance(
