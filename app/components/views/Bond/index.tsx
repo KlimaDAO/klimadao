@@ -239,15 +239,14 @@ export const Bond: FC<Props> = (props) => {
     try {
       if (!props.provider) return;
       setStatus(null);
-      await changeApprovalTransaction({
+      const approvedValue = await changeApprovalTransaction({
+        value: quantity.toString(),
         provider: props.provider,
         bond: props.bond,
         onStatus: setStatus,
         isInverse: bondState && bondState.bond === "inverse_usdc",
       });
-      // added toNumber for inverse bc its a bignumber
-      // TODO: this should reflect the actually approved value
-      dispatch(setBondAllowance({ [props.bond]: "1000000000" }));
+      dispatch(setBondAllowance({ [props.bond]: approvedValue }));
     } catch (e) {
       return;
     }
@@ -362,7 +361,13 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
-  const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
+  const hasApproval = () => {
+    return (
+      !!allowance &&
+      !!Number(allowance[props.bond]) &&
+      Number(quantity) <= Number(allowance[props.bond]) // Caution: Number trims values down to 17 decimal places of precision
+    );
+  };
 
   const isDisabled = view === "bond" && bondInfo.disabled;
   const getButtonProps = (): ButtonProps => {
@@ -423,7 +428,7 @@ export const Bond: FC<Props> = (props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (!hasAllowance()) {
+    } else if (!hasApproval()) {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         disabled: false,

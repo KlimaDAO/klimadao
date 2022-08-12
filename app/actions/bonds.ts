@@ -310,6 +310,7 @@ export const calcBondDetails = (params: {
 };
 
 export const changeApprovalTransaction = async (params: {
+  value: string;
   provider: providers.JsonRpcProvider;
   bond: Bond;
   onStatus: OnStatusHandler;
@@ -326,13 +327,13 @@ export const changeApprovalTransaction = async (params: {
           providerOrSigner: params.provider.getSigner(),
         });
     const approvalAddress = getBondAddress({ bond: params.bond });
-    const value = ethers.utils.parseUnits("1000000000", "ether");
+    const parsedValue = ethers.utils.parseUnits(params.value, "ether");
     params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(approvalAddress, value.toString());
+    const txn = await contract.approve(approvalAddress, parsedValue.toString());
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);
     params.onStatus("done", "Approval was successful");
-    return value;
+    return params.value;
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");
