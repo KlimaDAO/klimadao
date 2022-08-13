@@ -19,6 +19,8 @@ export interface Web3ModalStrings {
   injected_desc: string;
   torus_name: string;
   torus_desc: string;
+  metamaskonboarding_name: string;
+  metamaskonboarding_desc: string;
 }
 
 export interface ConnectedWeb3State {

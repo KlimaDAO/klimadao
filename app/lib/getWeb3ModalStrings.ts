@@ -22,4 +22,12 @@ export const getWeb3ModalStrings = () => ({
     id: "web3modal.torus.desc",
     message: "Easy one-click wallet by Torus",
   }),
+  metamaskonboarding_name: t({
+    id: "web3modal.metamaskonboarding.name",
+    message: "MetaMask",
+  }),
+  metamaskonboarding_desc: t({
+    id: "web3modal.metamaskonboarding.desc",
+    message: "Install MetaMask",
+  }),
 });
