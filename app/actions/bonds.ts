@@ -42,10 +42,10 @@ type BondContractName = typeof bondMapToBondName[BondCName];
 
 type TokensForPairContract =
   | "klimaBctLp"
-  | "klimaUboLp"
+  | "klimaUsdcLp"
   | "klimaMco2Lp"
-  | "klimaNboLp" // not a Bond token
-  | "klimaUsdcLp"; // not a Bond token;
+  | "klimaUboLp" // not a Bond token
+  | "klimaNboLp"; // not a Bond token // not a Bond token
 
 const getPairContract = (params: {
   token: TokensForPairContract;
