@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-15 18:57+0000\n"
+"POT-Creation-Date: 2022-08-15 21:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1115,39 +1115,39 @@ msgstr ""
 msgid "retirement.footer.buy_klima.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:81
+#: components/pages/Retirements/SingleRetirement/index.tsx:94
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:77
+#: components/pages/Retirements/SingleRetirement/index.tsx:90
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:73
+#: components/pages/Retirements/SingleRetirement/index.tsx:86
 msgid "retirement.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:127
+#: components/pages/Retirements/SingleRetirement/index.tsx:140
 msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:121
+#: components/pages/Retirements/SingleRetirement/index.tsx:134
 msgid "retirement.single.beneficiary.title"
 msgstr "लाभार्थी"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:135
+#: components/pages/Retirements/SingleRetirement/index.tsx:148
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "लाभार्थी पता"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:170
+#: components/pages/Retirements/SingleRetirement/index.tsx:191
 msgid "retirement.single.disclaimer"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:92
+#: components/pages/Retirements/SingleRetirement/index.tsx:105
 msgid "retirement.single.header.quantity"
 msgstr "{0}टी"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:97
+#: components/pages/Retirements/SingleRetirement/index.tsx:110
 msgid "retirement.single.header.subline"
 msgstr ""
 
@@ -1183,11 +1183,7 @@ msgstr ""
 msgid "retirement.single.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:162
-msgid "retirement.single.retirementCertificate.soon"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:157
+#: components/pages/Retirements/SingleRetirement/index.tsx:170
 msgid "retirement.single.retirementCertificate.title"
 msgstr "प्रमाणपत्र"
 
@@ -1195,7 +1191,7 @@ msgstr "प्रमाणपत्र"
 msgid "retirement.single.retirementDate.title"
 msgstr "दिनांक"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:106
+#: components/pages/Retirements/SingleRetirement/index.tsx:119
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr ""
 
@@ -1203,7 +1199,7 @@ msgstr ""
 msgid "retirement.single.timestamp.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:197
+#: components/pages/Retirements/SingleRetirement/index.tsx:220
 msgid "retirement.single.view_on_polygon_scan"
 msgstr ""
 
