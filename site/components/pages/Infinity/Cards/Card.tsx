@@ -31,8 +31,22 @@ export const Card: FC<Props> = (props) => {
     <div className={styles.card}>
       <div className={styles.cardTitleContainer}>
         <div className={styles.cardImageContainer}>
-          {props.card.width && props.card.height ? <Image src={props.card.logo} alt="logo" width={props.card.width} height={props.card.height} className={styles.cardImage}/> :
-          <Image layout="intrinsic" src={props.card.logo} alt="logo" className={styles.cardImage}/>}
+          {props.card.width && props.card.height ? (
+            <Image
+              src={props.card.logo}
+              alt="logo"
+              width={props.card.width}
+              height={props.card.height}
+              className={styles.cardImage}
+            />
+          ) : (
+            <Image
+              layout="intrinsic"
+              src={props.card.logo}
+              alt="logo"
+              className={styles.cardImage}
+            />
+          )}
         </div>
         <Anchor href={props.card.link}>
           <LaunchIcon />
@@ -44,7 +58,9 @@ export const Card: FC<Props> = (props) => {
         </Text>
         <div className={styles.cardFooter}>
           <div>
-            <Text t="h3">{trimWithLocale(props.card.tonsRetired, 2, locale)}</Text>
+            <Text t="h3">
+              {trimWithLocale(props.card.tonsRetired, 2, locale)}
+            </Text>
             <Text>
               <Trans id="infinity.tonnes">Tonnes</Trans>
             </Text>

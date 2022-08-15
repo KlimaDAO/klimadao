@@ -147,4 +147,4 @@ export const cardDate = css`
 
 export const cardImage = css`
   display: block;
-`
+`;
