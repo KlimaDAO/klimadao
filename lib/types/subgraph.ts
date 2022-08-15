@@ -20,6 +20,9 @@ export interface KlimaRetire {
     bridge: string; // "Toucan", "Moss" or "C3"
     registry: string; // "Verra" or "VCS"
     standard: string; // "VCS" or "" for Moss
+    vintage: string;
+    methodology: string;
+    category: string;
   };
 }
 
