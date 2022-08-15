@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-11 15:41+0000\n"
+"POT-Creation-Date: 2022-08-15 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -910,11 +910,11 @@ msgstr "KlimaDAO 的使命是使气候行动民主化"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:82
 msgid "pledges.dashboard.assets.title"
-msgstr ""
+msgstr "碳资产"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:73
 msgid "pledges.dashboard.footprint.title"
-msgstr ""
+msgstr "足迹"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:90
 msgid "pledges.dashboard.footprint.tonnes"
@@ -922,47 +922,47 @@ msgstr "吨"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/FootprintCharts.tsx:104
 msgid "pledges.dashboard.footprint.tooltip.category_percent"
-msgstr ""
+msgstr "{0}% 的足迹"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/FootprintCharts.tsx:110
 msgid "pledges.dashboard.footprint.tooltip.quantity"
-msgstr ""
+msgstr "{0} 碳吨"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:55
 msgid "pledges.dashboard.head.metaTitle"
-msgstr ""
+msgstr "{pledgeOwnerTitle}的承诺"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:51
 msgid "pledges.dashboard.head.title"
-msgstr ""
+msgstr "KlimaDAO |承诺"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:13
 msgid "pledges.dashboard.metholodogy.default_text"
-msgstr ""
+msgstr "你将如何兑现你的承诺？"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:20
 msgid "pledges.dashboard.metholodogy.title"
-msgstr ""
+msgstr "方法"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:13
 msgid "pledges.dashboard.pledge.default_text"
-msgstr ""
+msgstr "今天写下你的承诺！"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:20
 msgid "pledges.dashboard.pledge.title"
-msgstr ""
+msgstr "承诺"
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:61
 msgid "pledges.dashboard.profile.pledge_met"
-msgstr ""
+msgstr "≥ 100% 兑现承诺"
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:70
 msgid "pledges.dashboard.profile.pledge_progress"
-msgstr ""
+msgstr "{0}% 的承诺兑现"
 
 #: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:101
 msgid "pledges.dashboard.profile.pledged_to_offset"
-msgstr ""
+msgstr "承诺抵消<0>{0}</0>碳吨"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:43
 msgid "pledges.dashboard.retirements.title"
@@ -970,7 +970,7 @@ msgstr "碳停用"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/RetirementsChart.tsx:141
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
-msgstr ""
+msgstr "{0} 停用的碳吨"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:62
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
@@ -978,79 +978,79 @@ msgstr "已停用的总碳吨"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:41
 msgid "pledges.edit_pledge"
-msgstr ""
+msgstr "编辑承诺"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:231
 msgid "pledges.form.add_footprint_category_button"
-msgstr ""
+msgstr "添加类别"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:170
 msgid "pledges.form.footprint.label"
-msgstr ""
+msgstr "足迹"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:175
 msgid "pledges.form.footprint.prompt"
-msgstr ""
+msgstr "添加一个类别并开始计算您的碳足迹"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:107
 msgid "pledges.form.generic_error"
-msgstr ""
+msgstr "出问题了。请再试一次。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:187
 msgid "pledges.form.input.categoryName.label"
-msgstr ""
+msgstr "类别"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:191
 msgid "pledges.form.input.categoryName.placeholder"
-msgstr ""
+msgstr "分类名称"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:202
 msgid "pledges.form.input.categoryQuantity.label"
-msgstr ""
+msgstr "数量"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:206
 msgid "pledges.form.input.categoryQuantity.placeholder"
-msgstr ""
+msgstr "碳吨"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:140
 msgid "pledges.form.input.description.label"
-msgstr ""
+msgstr "承诺"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:144
 msgid "pledges.form.input.description.placeholder"
-msgstr ""
+msgstr "你的承诺是什么？"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:155
 msgid "pledges.form.input.methodology.label"
-msgstr ""
+msgstr "方法"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:159
 msgid "pledges.form.input.methodology.placeholder"
-msgstr ""
+msgstr "您使用什么工具或方法来计算您的碳足迹？"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:115
 msgid "pledges.form.input.name.label"
-msgstr ""
+msgstr "名称"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:116
 msgid "pledges.form.input.name.placeholder"
-msgstr ""
+msgstr "姓名或公司名称"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:127
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "个人资料图片网址（可选）"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:243
 msgid "pledges.form.input.totalFootprint.label"
-msgstr ""
+msgstr "总碳足迹"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:257
 msgid "pledges.form.submit_button"
-msgstr ""
+msgstr "承诺"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:44
 msgid "pledges.form.total_footprint_summary"
-msgstr ""
+msgstr "总碳足迹：{0} 碳吨"
 
 #: components/pages/Pledge/index.tsx:49
 msgid "pledges.head.metaDescription"
@@ -1058,19 +1058,19 @@ msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 
 #: components/pages/Pledge/index.tsx:44
 msgid "pledges.head.metaTitle"
-msgstr ""
+msgstr "Klima Infinity - 寻找或开始一个面对当今世界的承诺"
 
 #: components/pages/Pledge/index.tsx:40
 msgid "pledges.head.title"
-msgstr ""
+msgstr "KlimaDAO |承诺"
 
 #: components/pages/Pledge/index.tsx:70
 msgid "pledges.home.search.error_message"
-msgstr ""
+msgstr "输入钱包地址, .klima 或 .eth 域"
 
 #: components/pages/Pledge/index.tsx:59
 msgid "pledges.home.search.placeholder"
-msgstr ""
+msgstr "输入钱包地址, .klima 或 .eth 域"
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"

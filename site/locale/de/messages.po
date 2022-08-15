@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-11 15:41+0000\n"
+"POT-Creation-Date: 2022-08-15 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -764,7 +764,7 @@ msgstr "3. Was sind Kohlenstoffmärkte?"
 
 #: components/pages/Infinity/index.tsx:137
 msgid "infinity.fast_subtitle"
-msgstr "CO2-Ausgleich in wenigen Sekunden - ohne Papierkram"
+msgstr "CO2-Ausgleich in Sekunden - ohne Papierkram"
 
 #: components/pages/Infinity/index.tsx:142
 msgid "infinity.fast_title"

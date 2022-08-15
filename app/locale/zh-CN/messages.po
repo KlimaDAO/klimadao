@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-11 15:41+0000\n"
+"POT-Creation-Date: 2022-08-15 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -618,7 +618,7 @@ msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之�
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:340
 msgid "shared.approve"
-msgstr ""
+msgstr "批准"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -824,47 +824,47 @@ msgstr "pKLIMA"
 
 #: components/TransactionModal/Approve.tsx:52
 msgid "transaction_modal.approve.allow_amount"
-msgstr ""
+msgstr "您必须先授权我们的智能合约，我们才可以代表您转移代币。"
 
 #: components/TransactionModal/Approve.tsx:60
 msgid "transaction_modal.approve.approve_quantity.contract_address"
-msgstr ""
+msgstr "合约地址"
 
 #: components/TransactionModal/Approve.tsx:70
 msgid "transaction_modal.approve_quantity.quantity"
-msgstr ""
+msgstr "批准数量"
 
 #: components/TransactionModal/Submit.tsx:106
 msgid "transaction_modal.close"
-msgstr ""
+msgstr "关闭"
 
 #: components/TransactionModal/Approve.tsx:113
 msgid "transaction_modal.next"
-msgstr ""
+msgstr "下一步"
 
 #: components/TransactionModal/Submit.tsx:68
 msgid "transaction_modal.submit.amount"
-msgstr ""
+msgstr "确认金额"
 
 #: components/TransactionModal/Submit.tsx:96
 msgid "transaction_modal.submit.button"
-msgstr ""
+msgstr "提交"
 
 #: components/TransactionModal/Submit.tsx:51
 msgid "transaction_modal.submit.confirm_transaction"
-msgstr ""
+msgstr "请提交交易。"
 
 #: components/TransactionModal/Submit.tsx:58
 msgid "transaction_modal.submit.contract_address"
-msgstr ""
+msgstr "合约地址"
 
 #: components/TransactionModal/index.tsx:51
 msgid "transaction_modal.view.approve.title"
-msgstr ""
+msgstr "1. 批准"
 
 #: components/TransactionModal/index.tsx:61
 msgid "transaction_modal.view.submit.title"
-msgstr ""
+msgstr "2. 提交"
 
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"

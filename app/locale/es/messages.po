@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-11 15:41+0000\n"
+"POT-Creation-Date: 2022-08-15 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -618,7 +618,7 @@ msgstr "El contrato actualizado asume ahora que los titulares de pKLIMA han hech
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:340
 msgid "shared.approve"
-msgstr ""
+msgstr "APROBAR"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -824,47 +824,47 @@ msgstr "pKLIMA"
 
 #: components/TransactionModal/Approve.tsx:52
 msgid "transaction_modal.approve.allow_amount"
-msgstr ""
+msgstr "Primero debes dar permiso a nuestro contrato inteligente para que transfiera tokens en tu nombre."
 
 #: components/TransactionModal/Approve.tsx:60
 msgid "transaction_modal.approve.approve_quantity.contract_address"
-msgstr ""
+msgstr "Dirección del contrato"
 
 #: components/TransactionModal/Approve.tsx:70
 msgid "transaction_modal.approve_quantity.quantity"
-msgstr ""
+msgstr "Cantidad a aprobar"
 
 #: components/TransactionModal/Submit.tsx:106
 msgid "transaction_modal.close"
-msgstr ""
+msgstr "Cerrar"
 
 #: components/TransactionModal/Approve.tsx:113
 msgid "transaction_modal.next"
-msgstr ""
+msgstr "Siguiente"
 
 #: components/TransactionModal/Submit.tsx:68
 msgid "transaction_modal.submit.amount"
-msgstr ""
+msgstr "Confirmar cantidad"
 
 #: components/TransactionModal/Submit.tsx:96
 msgid "transaction_modal.submit.button"
-msgstr ""
+msgstr "Enviar"
 
 #: components/TransactionModal/Submit.tsx:51
 msgid "transaction_modal.submit.confirm_transaction"
-msgstr ""
+msgstr "Por favor, envíe la transacción."
 
 #: components/TransactionModal/Submit.tsx:58
 msgid "transaction_modal.submit.contract_address"
-msgstr ""
+msgstr "Dirección del contrato"
 
 #: components/TransactionModal/index.tsx:51
 msgid "transaction_modal.view.approve.title"
-msgstr ""
+msgstr "1. Aprobar"
 
 #: components/TransactionModal/index.tsx:61
 msgid "transaction_modal.view.submit.title"
-msgstr ""
+msgstr "2. Enviar"
 
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"
