@@ -55,6 +55,21 @@ export default {
       validation: (Rule) => Rule.required().min(50).max(150),
     },
     {
+      title: "Tags",
+      name: "tags",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "tag" }],
+        },
+      ],
+      options: {
+        layout: "tags",
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "showDisclaimer",
       title: "Show Disclaimer",
       description:
