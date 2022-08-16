@@ -23,6 +23,7 @@ import digitalCharityArtLogo from "public/logo-digital-charity-art.png";
 import ecoLogo from "public/logo-eco.png";
 import etcGroupLogo from "public/logo-etc-group.png";
 import gitcoinLogo from "public/logo-gitcoin.png";
+import landxLogo from "public/logo-landx.png";
 import mossLogo from "public/logo-moss.png";
 import oceandropLogo from "public/logo-oceandrop.svg";
 import offsetraLogo from "public/logo-offsetra.png";
@@ -300,6 +301,17 @@ export const Community: NextPage = () => (
                   message: `Thought for Food logo`,
                 })}
                 src={thoughtForFoodLogo}
+              />
+            </A>
+          </div>
+          <div className="partner_logo">
+            <A href="https://landx.fi">
+              <Image
+                alt={t({
+                  id: "community.landx_logo",
+                  message: `LandX logo`,
+                })}
+                src={landxLogo}
               />
             </A>
           </div>
