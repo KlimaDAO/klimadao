@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-16 15:43+0000\n"
+"POT-Creation-Date: 2022-08-16 20:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -232,132 +232,136 @@ msgstr "Используйте интерфейс \"Swap\" в Zapper для на
 msgid "buy.zapper_03.title"
 msgstr "Обмен"
 
-#: components/pages/Resources/Community/index.tsx:96
+#: components/pages/Resources/Community/index.tsx:97
 msgid "community.become_a_partner"
 msgstr "СТАТЬ ПАРТНЕРОМ"
 
-#: components/pages/Resources/Community/index.tsx:169
+#: components/pages/Resources/Community/index.tsx:170
 msgid "community.bigcowg_logo"
 msgstr "Логотип BICOWG"
 
-#: components/pages/Resources/Community/index.tsx:158
+#: components/pages/Resources/Community/index.tsx:159
 msgid "community.blockchainforclimatefondation_logo"
 msgstr "Логотип Blockchain for Climate Foundation"
 
-#: components/pages/Resources/Community/index.tsx:332
+#: components/pages/Resources/Community/index.tsx:344
 msgid "community.come_on_in"
 msgstr "Войдите"
 
-#: components/pages/Resources/Community/index.tsx:235
+#: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
 msgstr "Delta Wave логотип"
 
-#: components/pages/Resources/Community/index.tsx:287
+#: components/pages/Resources/Community/index.tsx:288
 msgid "community.digitalcharityart_logo"
 msgstr "Digital Charity Art логотип"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:347
+#: components/pages/Resources/Community/index.tsx:359
 msgid "community.discord_is_where_we_share"
 msgstr "Discord - это место, где мы делимся важными объявлениями, проводим  рабочее время, отвечаем на вопросы и обмениваемся мемами. Наш сервер Discord очень активен и круглосуточно модерируется. У нас есть каналы для всего, начиная от торговли и заканчивая устойчивостью и углеродными рынками."
 
-#: components/pages/Resources/Community/index.tsx:257
+#: components/pages/Resources/Community/index.tsx:258
 msgid "community.dovu_logo"
 msgstr "Dovu логотип "
 
-#: components/pages/Resources/Community/index.tsx:265
+#: components/pages/Resources/Community/index.tsx:266
 msgid "community.eco_logo"
 msgstr "Есо логотип"
 
-#: components/pages/Resources/Community/index.tsx:246
+#: components/pages/Resources/Community/index.tsx:247
 msgid "community.etcgroup_logo"
 msgstr "Etc Group логотип"
 
-#: components/pages/Resources/Community/index.tsx:380
+#: components/pages/Resources/Community/index.tsx:392
 msgid "community.get_in_touch"
 msgstr "Связаться?"
 
-#: components/pages/Resources/Community/index.tsx:202
+#: components/pages/Resources/Community/index.tsx:203
 msgid "community.gitcoin_logo"
 msgstr "Gitcoin логотип"
 
-#: components/pages/Resources/Community/index.tsx:75
+#: components/pages/Resources/Community/index.tsx:76
 msgid "community.head.headline"
 msgstr "Сообщество"
 
-#: components/pages/Resources/Community/index.tsx:82
+#: components/pages/Resources/Community/index.tsx:83
 msgid "community.head.metadescription"
 msgstr "Узнайте о нашем сообществе увлеченных Klimates"
 
-#: components/pages/Resources/Community/index.tsx:76
+#: components/pages/Resources/Community/index.tsx:77
 msgid "community.head.subline"
 msgstr "KlimaDAO — это децентрализованная автономная организация перемен. Мы управляемся и создаемся сообществом увлеченных климатов."
 
-#: components/pages/Resources/Community/index.tsx:74
-#: components/pages/Resources/Community/index.tsx:81
+#: components/pages/Resources/Community/index.tsx:75
+#: components/pages/Resources/Community/index.tsx:82
 msgid "community.head.title"
 msgstr "KlimaDAO Сообщество"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:383
+#: components/pages/Resources/Community/index.tsx:395
 msgid "community.if_you_ve_got_questions"
 msgstr "Если у вас есть вопросы, идеи, советы или что-то еще: мы поможем вам найти нужного человека, с которым можно это обсудить."
 
-#: components/pages/Resources/Community/index.tsx:335
+#: components/pages/Resources/Community/index.tsx:347
 msgid "community.join_our_discord"
 msgstr "Присоединяйтесь к нашему Discord"
 
-#: components/pages/Resources/Community/index.tsx:322
+#: components/pages/Resources/Community/index.tsx:334
 msgid "community.join_the_klima_community"
 msgstr "Присоединяйтесь к сообществу Klima "
 
-#: components/pages/Resources/Community/index.tsx:93
-#: components/pages/Resources/Community/index.tsx:377
+#: components/pages/Resources/Community/index.tsx:310
+msgid "community.landx_logo"
+msgstr ""
+
+#: components/pages/Resources/Community/index.tsx:94
+#: components/pages/Resources/Community/index.tsx:389
 msgid "community.lets_work_together"
 msgstr "Давайте работать вместе"
 
-#: components/pages/Resources/Community/index.tsx:136
+#: components/pages/Resources/Community/index.tsx:137
 msgid "community.moss_logo"
 msgstr "Moss логотип"
 
-#: components/pages/Resources/Community/index.tsx:191
+#: components/pages/Resources/Community/index.tsx:192
 msgid "community.oceandrop_logo"
 msgstr "Oceandrop логотип "
 
-#: components/pages/Resources/Community/index.tsx:276
+#: components/pages/Resources/Community/index.tsx:277
 msgid "community.offsetra_logo"
 msgstr "Offsetra Логотип "
 
-#: components/pages/Resources/Community/index.tsx:213
+#: components/pages/Resources/Community/index.tsx:214
 msgid "community.olympusdao_logo"
 msgstr "Логотип OlympusDAO"
 
-#: components/pages/Resources/Community/index.tsx:224
+#: components/pages/Resources/Community/index.tsx:225
 msgid "community.openearth_logo"
 msgstr "Логотип Открытой Земли"
 
-#: components/pages/Resources/Community/index.tsx:129
+#: components/pages/Resources/Community/index.tsx:130
 msgid "community.our_partners"
 msgstr "НАШИ ПАРТНЕРЫ"
 
-#: components/pages/Resources/Community/index.tsx:180
+#: components/pages/Resources/Community/index.tsx:181
 msgid "community.polygon_logo"
 msgstr "Логотип Polygon "
 
-#: components/pages/Resources/Community/index.tsx:147
+#: components/pages/Resources/Community/index.tsx:148
 msgid "community.toucan_logo"
 msgstr "Toucan логотип"
 
-#: components/pages/Resources/Community/index.tsx:298
+#: components/pages/Resources/Community/index.tsx:299
 msgid "community.toughtforfood_logo"
 msgstr "Thought for Food логотип"
 
-#: components/pages/Resources/Community/index.tsx:112
+#: components/pages/Resources/Community/index.tsx:113
 msgid "community.tree_grove"
 msgstr "Роща деревьев"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:99
+#: components/pages/Resources/Community/index.tsx:100
 msgid "community.we_work_with_traditionnal"
 msgstr "Мы работаем с традиционными участниками углеродного рынка, криптовалютными платформами, корпорациями и всеми, кто находится между ними."
 
@@ -1295,8 +1299,8 @@ msgstr "Связаться"
 msgid "shared.contact_sales"
 msgstr "Связаться с отделом продаж"
 
-#: components/pages/Resources/Community/index.tsx:109
-#: components/pages/Resources/Community/index.tsx:393
+#: components/pages/Resources/Community/index.tsx:110
+#: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
 msgid "shared.contact_us"
 msgstr "Связаться с нами"
