@@ -40,7 +40,7 @@ const spacing = {
   beneficiaryName: 81,
   transactionDetails: 130,
   projectDetails: 152,
-  tokenImage: { x: 143, y: 156 },
+  tokenImage: { x: 145, y: 158 },
   retirementLink: 200,
 };
 
@@ -186,6 +186,10 @@ export const generateCertificate = (params: Params): void => {
       {
         label: "Methodology",
         value: params.retirement.offset.methodology,
+      },
+      {
+        label: "Type",
+        value: params.retirement.offset.methodologyCategory,
       },
       {
         label: "Country/Region",
