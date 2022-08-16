@@ -4,19 +4,19 @@ export default {
   type: "document",
   fields: [
     {
+      name: "label_en",
+      title: "Label (en)",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "tag",
       title: "Tag",
       type: "slug",
       options: {
-        source: "title",
+        source: "label_en",
         maxLength: 100,
       },
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: "label_en",
-      title: "Label (en)",
-      type: "string",
       validation: (Rule) => Rule.required(),
     },
     {
@@ -28,9 +28,7 @@ export default {
   ],
   preview: {
     select: {
-      title: "title",
-      label_en: "label_en",
-      description_en: "description_en",
+      title: "label_en",
     },
   },
 };
