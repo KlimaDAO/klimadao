@@ -20,7 +20,7 @@ import {
     MCO2_ERC20_CONTRACT, UBOBOND_V1, UBOBOND_V1_BLOCK, UBO_ERC20_CONTRACT,
     KLIMA_UBO_PAIR_BLOCK, NBOBOND_V1, NBOBOND_V1_BLOCK, NBO_ERC20_CONTRACT,
     KLIMA_NBO_PAIR_BLOCK, SKLIMA_ERC20_V1_CONTRACT, STAKING_CONTRACT_V1, TREASURY_ADDRESS,
-    NCT_ERC20_CONTRACT, NCT_USDC_PAIR_BLOCK, KLIMA_NBO_PAIR, KLIMA_UBO_PAIR
+    NCT_ERC20_CONTRACT, NCT_USDC_PAIR_BLOCK, KLIMA_NBO_PAIR, KLIMA_UBO_PAIR, USDC_ERC20_CONTRACT
 } from '../../../lib/utils/Constants';
 import { EpochUtil } from './Epoch';
 import { BCT } from '../../../lib/tokens/impl/BCT';
@@ -134,6 +134,10 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
 
     let treasuryAddress = Address.fromString(TREASURY_ADDRESS)
 
+    //USDC
+    let usdcERC20 = ERC20.bind(Address.fromString(USDC_ERC20_CONTRACT))
+    let treasuryUSDC = loadOrCreateTreasuryAsset(transaction.timestamp, USDC_ERC20_CONTRACT)
+
     // BCT
     let bctERC20 = ERC20.bind(Address.fromString(BCT_ERC20_CONTRACT))
     let treasuryBCT = loadOrCreateTreasuryAsset(transaction.timestamp, BCT_ERC20_CONTRACT)
@@ -155,6 +159,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     let treasuryNBO = loadOrCreateTreasuryAsset(transaction.timestamp, NBO_ERC20_CONTRACT)
 
     // Treasury token balance
+    treasuryUSDC.tokenBalance = toDecimal(usdcERC20.balanceOf(treasuryAddress), 6)
     treasuryBCT.tokenBalance = toDecimal(bctERC20.balanceOf(treasuryAddress), 18)
 
     if (transaction.blockNumber.gt(BigInt.fromString(NCT_USDC_PAIR_BLOCK))) {
@@ -172,6 +177,9 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     }
 
     // Reserve asset so carbon and CC = token balance
+    treasuryUSDC.carbonBalance = BigDecimal.zero()
+    treasuryUSDC.carbonCustodied = BigDecimal.zero()
+    
     treasuryBCT.carbonBalance = treasuryBCT.tokenBalance
     treasuryBCT.carbonCustodied = treasuryBCT.tokenBalance
 
@@ -195,6 +203,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     const klimaUsdPrice = new KLIMA().getUSDPrice(transaction.blockNumber)
 
     // Get market value if pools are deployed
+    treasuryUSDC.marketValue = treasuryUSDC.tokenBalance
     if (transaction.blockNumber.gt(BigInt.fromString(BCT_USDC_PAIR_BLOCK))) {
         treasuryBCT.marketValue = treasuryBCT.tokenBalance.times(bctUsdPrice)
     }
@@ -215,6 +224,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
         treasuryNBO.marketValue = treasuryNBO.tokenBalance.times(nboUsdPrice)
     }
 
+    treasuryUSDC.save()
     treasuryBCT.save()
     treasuryNCT.save()
     treasuryMCO2.save()
@@ -365,6 +375,7 @@ function updateTreasuryAssets(transaction: Transaction): string[] {
     treasuryKLIMAUSDC.save()
 
     return [
+        treasuryUSDC.id,
         treasuryBCT.id,
         treasuryMCO2.id,
         treasuryUBO.id,
