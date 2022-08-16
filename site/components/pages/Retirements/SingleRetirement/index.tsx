@@ -41,8 +41,8 @@ const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonPr
 
 type Props = {
   beneficiaryAddress: string;
-  retirementTotals: string;
   retirement: KlimaRetire | null;
+  retirementIndex: string;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails?: VerraProjectDetails;
   nameserviceDomain?: string;
@@ -177,6 +177,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                       beneficiaryName={retireData.beneficiaryName}
                       beneficiaryAddress={beneficiaryAddress}
                       retirement={retirement}
+                      retirementIndex={props.retirementIndex}
                       retirementMessage={retireData.retirementMessage}
                       retirementUrl={`${urls.home}/${asPath}`}
                       projectDetails={props.projectDetails}

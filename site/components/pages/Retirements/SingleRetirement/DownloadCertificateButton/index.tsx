@@ -11,6 +11,7 @@ export interface DownloadCertificateButtonProps {
   beneficiaryAddress: string;
   projectDetails?: VerraProjectDetails;
   retirement: KlimaRetire;
+  retirementIndex: string;
   retirementMessage: string;
   retirementUrl: string;
   tokenData: {
