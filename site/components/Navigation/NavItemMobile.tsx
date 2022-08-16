@@ -1,37 +1,46 @@
-import React, { Dispatch, FC, SetStateAction, ReactElement } from "react";
+import React, { FC } from "react";
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
 import { ButtonPrimary } from "@klimadao/lib/components";
-import { NavItem } from "./index";
+import { NavItemMobileID } from "./index";
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
-  id: NavItem;
-  url: string;
-  selected: string | undefined;
-  setSelected: Dispatch<SetStateAction<NavItem | undefined>>;
-  buttons?: ReactElement<any, any>[];
+  toggledNavItemID?: string | undefined;
+  id?: NavItemMobileID;
+  url?: string;
+  setToggledNavItemID?: (string: NavItemMobileID | undefined) => void;
+  subMenu?: JSX.Element[];
   active?: boolean;
 }
 
 export const NavItemMobile: FC<Props> = (props) => {
+  const activeItem = () => {
+    if (!props.id || !props.toggledNavItemID) {
+      return false;
+    } else {
+      return props.id === props.toggledNavItemID;
+    }
+  };
   return (
     <div className={cx(styles.navMain_MobileItem)}>
       <ButtonPrimary
-        // href={props.url}
+        href={props.url ? props.url : undefined}
         className={cx(styles.navMain_MobileLink, {
-          active: props.id === props.selected,
+          active: activeItem(),
         })}
         label={props.name}
         onClick={() =>
-          props.setSelected(props.id === props.selected ? undefined : props.id)
+          props.setToggledNavItemID
+            ? props.setToggledNavItemID(activeItem() ? undefined : props.id)
+            : null
         }
       />
-      {props.buttons && (
+      {props.subMenu && (
         <div
           className={styles.navMain_MobileExpanded}
-          data-show={(props.selected === props.id).toString()}
+          data-show={activeItem().toString()}
         >
-          {props.buttons}
+          {props.subMenu}
         </div>
       )}
     </div>

@@ -61,10 +61,6 @@ export const tooltip = css`
 export const menuItem = css`
   ${typography.button};
   color: var(--font-02) !important;
-  /* button {
-    height: 100%;
-    width: 100%;
-  } */
   &:hover {
     color: var(--klima-green) !important;
   }

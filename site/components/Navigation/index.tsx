@@ -16,9 +16,8 @@ import * as styles from "./styles";
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
-// these types should be the same?
 type PageName = "Home" | "Buy" | "Resources" | "Disclaimer" | "Infinity";
-export type NavItem =
+export type NavItemMobileID =
   | "About"
   | "App"
   | "Infinity"
@@ -33,7 +32,9 @@ export const Navigation: FC<Props> = ({
   activePage,
   showThemeToggle = true,
 }) => {
-  const [selected, setSelected] = useState<NavItem | undefined>(undefined);
+  const [toggledNavItemID, setToggledNavItemID] = useState<
+    NavItemMobileID | undefined
+  >(undefined);
   const { locale } = useRouter();
   return (
     <>
@@ -64,90 +65,117 @@ export const Navigation: FC<Props> = ({
       >
         <NavItemDesktop
           name={t({ message: "About", id: "shared.about" })}
-          buttons={[
-            <ButtonPrimary
-              label="BLOG"
+          subMenu={[
+            <NavItemDesktop
+              name={t({
+                message: "BLOG",
+                id: "shared.blog",
+              })}
               key="blog"
               href="/blog"
-              className={styles.navMain_DesktopMenuItem}
             />,
-            <ButtonPrimary
-              label="COMMUNITY"
+            <NavItemDesktop
+              name={t({
+                message: "COMMUNITY",
+                id: "shared.community",
+              })}
               key="community"
               href="/community"
-              className={styles.navMain_DesktopMenuItem}
             />,
-            <ButtonPrimary
-              label="CONTACT US"
+            <NavItemDesktop
+              name={t({
+                message: "CONTACT US",
+                id: "shared.contact",
+              })}
               key="contact"
               href="/contact"
-              className={styles.navMain_DesktopMenuItem}
             />,
           ]}
         />
         <NavItemDesktop
           name={t({ message: "App", id: "shared.app" })}
-          buttons={[
-            <ButtonPrimary
-              label="BUY KLIMA"
+          subMenu={[
+            <NavItemDesktop
+              name={t({
+                message: "BUY KLIMA",
+                id: "shared.buy",
+              })}
               key="buy klima"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
+              href={createLinkWithLocaleQuery(urls.buy, locale)}
             />,
-            <ButtonPrimary
-              label="STAKE KLIMA"
+            <NavItemDesktop
+              name={t({
+                message: "STAKE KLIMA",
+                id: "shared.stake",
+              })}
               key="stake"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
+              href={createLinkWithLocaleQuery(urls.stake, locale)}
             />,
-            <ButtonPrimary
-              label="BOND CARBON"
+            <NavItemDesktop
+              name={t({
+                message: "BOND KLIMA",
+                id: "shared.bond",
+              })}
               key="bond"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
+              href={createLinkWithLocaleQuery(urls.bonds, locale)}
             />,
-            <ButtonPrimary
-              label="WRAP SKLIMA"
+            <NavItemDesktop
+              name={t({
+                message: "WRAP SKLIMA",
+                id: "shared.wrap",
+              })}
               key="wrap"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
+              href={createLinkWithLocaleQuery(urls.wrap, locale)}
             />,
-            <ButtonPrimary
-              label="OFFSET"
+            <NavItemDesktop
+              name={t({
+                message: "OFFSET",
+                id: "shared.offset",
+              })}
               key="offset"
-              href="/offset"
-              className={styles.navMain_DesktopMenuItem}
+              href={createLinkWithLocaleQuery(urls.offset, locale)}
             />,
-            <ButtonPrimary
-              label="INFO"
+            <NavItemDesktop
+              name={t({
+                message: "INFO",
+                id: "shared.info",
+              })}
               key="info"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
+              href={createLinkWithLocaleQuery(urls.info, locale)}
             />,
           ]}
         />
         <NavItemDesktop
           name={t({ message: "Infinity", id: "shared.infity" })}
           active={activePage === "Infinity"}
-          buttons={[
-            <ButtonPrimary
-              label="INTRODUCTION"
+          subMenu={[
+            <NavItemDesktop
+              name={t({
+                message: "INTRODUCTION",
+                id: "shared.intoduction",
+              })}
               key="intro"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
+              href="/infinity"
             />,
-            <ButtonPrimary
-              label="HOT TO PLEDGE"
-              key="how pleadge"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
-            />,
-            <ButtonPrimary
-              label="LEADER BOARD"
-              key="leader board"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
-            />,
+            // these can be uncommented with resources page reqork
+            // <NavItemDesktop
+            //   label={t({
+            //     message: "HOW TO PLEDGE",
+            //     id: "shared.how_to_pledge",
+            //   })}
+            //   key="how pledge"
+            //   href="/blog"
+            //   className={styles.navMain_DesktopMenuItem}
+            // />,
+            // <NavItemDesktop
+            // label={t({
+            //   message: "LEADER BOARD",
+            //   id: "shared.leader_board",
+            // })}
+            //   key="leader board"
+            //   href="/blog"
+            //   className={styles.navMain_DesktopMenuItem}
+            // />,
           ]}
         />
         <NavItemDesktop
@@ -157,30 +185,38 @@ export const Navigation: FC<Props> = ({
         <NavItemDesktop
           name={t({ message: "Resources", id: "shared.resources" })}
           active={activePage === "Resources"}
-          buttons={[
-            <ButtonPrimary
-              label="HOW TO BUY KLIMA"
+          subMenu={[
+            <NavItemDesktop
+              name={t({
+                message: "HOW TO BUY KLIMA",
+                id: "shared.how_to_buy",
+              })}
               key="how to buy"
               href="/blog"
-              className={styles.navMain_DesktopMenuItem}
             />,
-            <ButtonPrimary
-              label="CARBON DASHBOARDS"
+            <NavItemDesktop
+              name={t({
+                message: "CARBON DASHBOARDS",
+                id: "shared.carbon_dashboards",
+              })}
               key="carbon dashboards"
               href="/blog"
-              className={styles.navMain_DesktopMenuItem}
             />,
-            <ButtonPrimary
-              label="DISCLAIMER"
+            <NavItemDesktop
+              name={t({
+                message: "DISCLAIMER",
+                id: "shared.disclaimer",
+              })}
               key="disclaimer"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
+              href="/disclaimer"
             />,
-            <ButtonPrimary
-              label="DOCS"
+            <NavItemDesktop
+              name={t({
+                message: "DOCS",
+                id: "shared.docs",
+              })}
               key="docs"
-              href="/blog"
-              className={styles.navMain_DesktopMenuItem}
+              href={urls.officialDocs}
             />,
           ]}
         />
@@ -192,141 +228,165 @@ export const Navigation: FC<Props> = ({
         <div className={styles.navMain_MobileItemsWrapper}>
           <div className="links">
             <NavItemMobile
-              url={createLinkWithLocaleQuery(urls.offset, locale)}
               name={t({ message: "About", id: "shared.about" })}
-              selected={selected}
-              setSelected={setSelected}
+              toggledNavItemID={toggledNavItemID}
+              setToggledNavItemID={setToggledNavItemID}
               id="About"
-              buttons={[
-                <ButtonPrimary
-                  label="BLOG"
+              subMenu={[
+                <NavItemMobile
+                  name={t({
+                    message: "BLOG",
+                    id: "shared.blog",
+                  })}
                   key="blog"
                   href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
-                <ButtonPrimary
-                  label="COMMUNITY"
+                <NavItemMobile
+                  name={t({
+                    message: "COMMUNITY",
+                    id: "shared.community",
+                  })}
                   key="community"
                   href="/community"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
-                <ButtonPrimary
-                  label="CONTACT US"
+                <NavItemMobile
+                  name={t({
+                    message: "CONTACT US",
+                    id: "shared.contact",
+                  })}
                   key="contact"
                   href="/contact"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
               ]}
             />
             <NavItemMobile
-              url="/infinity"
               name={t({ message: "App", id: "shared.app" })}
-              selected={selected}
-              setSelected={setSelected}
+              toggledNavItemID={toggledNavItemID}
+              setToggledNavItemID={setToggledNavItemID}
               id="App"
-              buttons={[
-                <ButtonPrimary
-                  label="BUY KLIMA"
+              subMenu={[
+                <NavItemMobile
+                  name={t({ message: "BUY KLIMA", id: "shared.buy" })}
                   key="buy klima"
-                  href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
+                  href={createLinkWithLocaleQuery(urls.buy, locale)}
                 />,
-                <ButtonPrimary
-                  label="STAKE KLIMA"
+                <NavItemMobile
+                  name={t({
+                    message: "STAKE KLIMA",
+                    id: "shared.stake",
+                  })}
                   key="stake"
-                  href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
+                  href={createLinkWithLocaleQuery(urls.stake, locale)}
                 />,
-                <ButtonPrimary
-                  label="BOND CARBON"
+                <NavItemMobile
+                  name={t({
+                    message: "BOND KLIMA",
+                    id: "shared.bond",
+                  })}
                   key="bond"
-                  href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
+                  href={createLinkWithLocaleQuery(urls.bonds, locale)}
                 />,
-                <ButtonPrimary
-                  label="WRAP SKLIMA"
+                <NavItemMobile
+                  name={t({
+                    message: "WRAP SKLIMA",
+                    id: "shared.wrap",
+                  })}
                   key="wrap"
-                  href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
+                  href={createLinkWithLocaleQuery(urls.wrap, locale)}
                 />,
-                <ButtonPrimary
-                  label="OFFSET"
+                <NavItemMobile
+                  name={t({
+                    message: "OFFSET",
+                    id: "shared.offset",
+                  })}
                   key="offset"
-                  href="/offset"
-                  className={styles.navMain_DesktopMenuItem}
+                  href={createLinkWithLocaleQuery(urls.offset, locale)}
                 />,
-                <ButtonPrimary
-                  label="INFO"
+                <NavItemMobile
+                  name={t({
+                    message: "INFO",
+                    id: "shared.info",
+                  })}
                   key="info"
-                  href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
+                  href={createLinkWithLocaleQuery(urls.info, locale)}
                 />,
               ]}
             />
             <NavItemMobile
-              url={urls.loveletter}
               name={t({ message: "Infinity", id: "shared.infinity" })}
-              selected={selected}
-              setSelected={setSelected}
+              toggledNavItemID={toggledNavItemID}
+              setToggledNavItemID={setToggledNavItemID}
               id="Infinity"
-              buttons={[
-                <ButtonPrimary
-                  label="INTRODUCTION"
+              subMenu={[
+                <NavItemMobile
+                  name={t({
+                    message: "INTRODUCTION",
+                    id: "shared.intoduction",
+                  })}
                   key="intro"
                   href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
-                <ButtonPrimary
-                  label="HOT TO PLEDGE"
+                <NavItemMobile
+                  name={t({
+                    message: "HOW TO PLEDGE",
+                    id: "shared.how_to_pledge",
+                  })}
                   key="how pleadge"
                   href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
-                <ButtonPrimary
-                  label="LEADER BOARD"
+                <NavItemMobile
+                  name={t({
+                    message: "LEADER BOARD",
+                    id: "shared.leader_board",
+                  })}
                   key="leader board"
                   href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
               ]}
             />
             <NavItemMobile
-              url="/blog"
               name={t({ message: "Love Letters", id: "shared.loveletters" })}
-              selected={selected}
-              setSelected={setSelected}
+              toggledNavItemID={toggledNavItemID}
+              setToggledNavItemID={setToggledNavItemID}
               id="Love Letters"
             />
             <NavItemMobile
-              url="/blog"
               name={t({ message: "Resources", id: "shared.resources" })}
-              selected={selected}
-              setSelected={setSelected}
+              toggledNavItemID={toggledNavItemID}
+              setToggledNavItemID={setToggledNavItemID}
               id="Resources"
-              buttons={[
-                <ButtonPrimary
-                  label="HOW TO BUY KLIMA"
+              subMenu={[
+                <NavItemMobile
+                  name={t({
+                    message: "HOW TO BUY KLIMA",
+                    id: "shared.how_to_buy",
+                  })}
                   key="how to buy"
                   href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
-                <ButtonPrimary
-                  label="CARBON DASHBOARDS"
+                <NavItemMobile
+                  name={t({
+                    message: "CARBON DASHBOARDS",
+                    id: "shared.carbon_dashboards",
+                  })}
                   key="carbon dashboards"
                   href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
-                <ButtonPrimary
-                  label="DISCLAIMER"
+                <NavItemMobile
+                  name={t({
+                    message: "DISCLAIMER",
+                    id: "shared.disclaimer",
+                  })}
                   key="disclaimer"
                   href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
-                <ButtonPrimary
-                  label="DOCS"
+                <NavItemMobile
+                  name={t({
+                    message: "DOCS",
+                    id: "shared.docs",
+                  })}
                   key="docs"
                   href="/blog"
-                  className={styles.navMain_DesktopMenuItem}
                 />,
               ]}
             />
