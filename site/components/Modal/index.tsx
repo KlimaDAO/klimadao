@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Close from "@mui/icons-material/Close";
 
 import * as styles from "./styles";
+import { Text } from "@klimadao/lib/components";
 
 type ModalWrapperProps = {
   showModal: boolean;
@@ -41,7 +42,9 @@ export const Modal: FC<Props> = (props) => {
       <div className={styles.modalContainer}>
         <div className={styles.modalContent}>
           <div className="title">
-            {props.title}
+            <Text t="h4" uppercase={true}>
+              {props.title}
+            </Text>
 
             {showCloseButton && (
               <button onClick={props.onToggleModal}>
