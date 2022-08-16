@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
-import { Trans, t } from "@lingui/macro";
+import { t } from "@lingui/macro";
 
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
