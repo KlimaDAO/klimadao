@@ -8,6 +8,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   hideLabel?: boolean;
   errors?: { message?: string };
+  errorMessageMap: (id: string) => string;
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, Props>(
@@ -34,9 +35,9 @@ export const InputField = React.forwardRef<HTMLInputElement, Props>(
           {...props}
         />
 
-        {errors && (
+        {errors && errors.message && (
           <Text t="caption" className={styles.errorMessage}>
-            {errors.message}
+            {props.errorMessageMap(errors.message)}
           </Text>
         )}
       </div>
