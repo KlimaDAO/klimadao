@@ -1094,6 +1094,10 @@ msgstr "Total footprint"
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
+#: components/pages/Pledge/PledgeDashboard/index.tsx:67
+msgid "pledges.form.title"
+msgstr "Your pledge"
+
 #: components/pages/Pledge/PledgeForm/index.tsx:45
 msgid "pledges.form.total_footprint_summary"
 msgstr "Total Footprint: {0} Carbon Tonnes"
