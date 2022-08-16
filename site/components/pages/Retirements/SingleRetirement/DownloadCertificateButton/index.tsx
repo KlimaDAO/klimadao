@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
+import { Trans, t } from "@lingui/macro";
 
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
@@ -26,5 +27,13 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
 ) => {
   const handleClick = () => generateCertificate(props);
 
-  return <ButtonPrimary onClick={handleClick} label="Download PDF" />;
+  return (
+    <ButtonPrimary
+      onClick={handleClick}
+      label={t({
+        id: "retirement.single.download_certificate_button",
+        message: "Download PDF",
+      })}
+    />
+  );
 };
