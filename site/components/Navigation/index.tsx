@@ -181,6 +181,7 @@ export const Navigation: FC<Props> = ({
         <NavItemDesktop
           url={urls.loveletter}
           name={t({ message: "Love Letters", id: "shared.loveletters" })}
+          href={createLinkWithLocaleQuery(urls.loveletter, locale)}
         />
         <NavItemDesktop
           name={t({ message: "Resources", id: "shared.resources" })}
@@ -192,7 +193,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.how_to_buy",
               })}
               key="how to buy"
-              href="/blog"
+              href="/buy"
             />,
             <NavItemDesktop
               name={t({
@@ -200,7 +201,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.carbon_dashboards",
               })}
               key="carbon dashboards"
-              href="/blog"
+              href={createLinkWithLocaleQuery(urls.carbonDashboard, locale)}
             />,
             <NavItemDesktop
               name={t({
@@ -216,7 +217,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.docs",
               })}
               key="docs"
-              href={urls.officialDocs}
+              href={createLinkWithLocaleQuery(urls.officialDocs, locale)}
             />,
           ]}
         />
@@ -324,24 +325,25 @@ export const Navigation: FC<Props> = ({
                     id: "shared.intoduction",
                   })}
                   key="intro"
-                  href="/blog"
+                  href="/infinity"
                 />,
                 <NavItemMobile
                   name={t({
                     message: "HOW TO PLEDGE",
                     id: "shared.how_to_pledge",
                   })}
-                  key="how pleadge"
+                  key="how pledge"
+                  // not sure about this url
                   href="/blog"
                 />,
-                <NavItemMobile
-                  name={t({
-                    message: "LEADER BOARD",
-                    id: "shared.leader_board",
-                  })}
-                  key="leader board"
-                  href="/blog"
-                />,
+                // <NavItemMobile
+                //   name={t({
+                //     message: "LEADER BOARD",
+                //     id: "shared.leader_board",
+                //   })}
+                //   key="leader board"
+                //   href="/blog"
+                // />,
               ]}
             />
             <NavItemMobile
@@ -349,6 +351,7 @@ export const Navigation: FC<Props> = ({
               toggledNavItemID={toggledNavItemID}
               setToggledNavItemID={setToggledNavItemID}
               id="Love Letters"
+              href={createLinkWithLocaleQuery(urls.loveletter, locale)}
             />
             <NavItemMobile
               name={t({ message: "Resources", id: "shared.resources" })}
@@ -362,7 +365,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.how_to_buy",
                   })}
                   key="how to buy"
-                  href="/blog"
+                  href="/buy"
                 />,
                 <NavItemMobile
                   name={t({
@@ -370,7 +373,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.carbon_dashboards",
                   })}
                   key="carbon dashboards"
-                  href="/blog"
+                  href={createLinkWithLocaleQuery(urls.carbonDashboard, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -378,7 +381,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.disclaimer",
                   })}
                   key="disclaimer"
-                  href="/blog"
+                  href="/disclaimer"
                 />,
                 <NavItemMobile
                   name={t({
@@ -386,7 +389,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.docs",
                   })}
                   key="docs"
-                  href="/blog"
+                  href={createLinkWithLocaleQuery(urls.officialDocs, locale)}
                 />,
               ]}
             />
@@ -394,7 +397,7 @@ export const Navigation: FC<Props> = ({
           <div className="buttons">
             <ButtonPrimary
               label="Enter App"
-              href="app.klimadao.finance"
+              href={createLinkWithLocaleQuery(urls.app, locale)}
               className={styles.navMain_MobileButton}
             />
             <ThemeToggle key="ThemeToggle" />
