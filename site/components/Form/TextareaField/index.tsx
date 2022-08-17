@@ -8,6 +8,7 @@ interface Props extends InputHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   rows: number;
   errors?: { message?: string };
+  errorMessageMap: (id: string) => string;
 }
 
 export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
@@ -31,9 +32,9 @@ export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
           {...props}
         />
 
-        {errors && (
+        {errors && errors.message && (
           <Text t="caption" className={styles.errorMessage}>
-            {errors.message}
+            {props.errorMessageMap(errors.message)}
           </Text>
         )}
       </div>

@@ -62,10 +62,11 @@ export const errorMessage = css`
   font-weight: 400;
   color: var(--warn);
   margin-bottom: 0.2rem;
+  word-break: break-word;
 
   ${breakpoints.large} {
     font-size: 1.4rem;
-    line-height: 1.2rem;
+    line-height: 1.6rem;
     margin-bottom: 0.8rem;
   }
 `;

@@ -49,7 +49,6 @@ export const modalContent = css`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    text-transform: uppercase;
 
     button {
       display: flex;
