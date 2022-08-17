@@ -40,7 +40,7 @@ export const PageHead = (props: PageHeadProps) => {
       <script
         defer
         data-domain="klimadao-site-git-goats-plausible-test-klimadao.vercel.app"
-        src="https://plausible.io/js/plausible.js"
+        src="https://plausible.io/js/plausible.js/script.outbound-links.js"
       ></script>
       <title>{props.title}</title>
       <meta property="og:title" content={props.mediaTitle} />
