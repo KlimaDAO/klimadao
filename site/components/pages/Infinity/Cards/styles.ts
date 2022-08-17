@@ -64,7 +64,6 @@ export const rereouselItem = css`
   box-sizing: border-box;
   flex-shrink: 0;
   padding: 0 1rem;
-  /* margin: 0 1rem; */
 `;
 
 export const sliderWrapper = css`

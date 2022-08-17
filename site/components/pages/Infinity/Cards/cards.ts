@@ -19,6 +19,7 @@ export const cards = [
       "We're proud to offset 10+ years of carbon emissions from Olympus to become Climate Positive. From the Ohmies, with Love.",
     tonsRetired: 33333,
     date: "21 APR 2022",
+    alt: "OlympusDAO",
   },
   {
     logo: polygonLogo,
@@ -27,6 +28,7 @@ export const cards = [
       "Together with Polygon, the broader blockchain industry needs to form a united front to fund, support, and leverage technoilogy that helps heal the earth, rather than destroy it",
     tonsRetired: 104794,
     date: "21 JUN 2022",
+    alt: "Polygon",
   },
   {
     logo: markCubanLogo,
@@ -34,6 +36,7 @@ export const cards = [
     description: "Retire to offset corporate carbon usage.",
     tonsRetired: 1000,
     date: "04 APR 2022",
+    alt: "Mark Cuban",
   },
   {
     logo: stadiusLogo,
@@ -42,6 +45,7 @@ export const cards = [
       "'Unless someone like you cares a whole awful lot Nothing is going to get better. It's not.' - The Lorax",
     tonsRetired: 75,
     date: "06 APR 2022",
+    alt: "Stadius",
   },
   {
     logo: offsetraLogo,
@@ -50,8 +54,9 @@ export const cards = [
       "Offsetra is proud to pledge to offset 484 tonnes from our operational emissions, including employee travel. KlimaDAO has initiated a paradigm shift in the voluntary carbon market and we are excited to contribute to the on-chain market's innovations in the years to come.",
     tonsRetired: 510,
     date: "26 MAR 2022",
-    width: 120,
-    height: 30,
+    logoWidth: 120,
+    logoHeight: 30,
+    alt: "Offsetra",
   },
   {
     logo: beachPartyLogo,
@@ -60,8 +65,9 @@ export const cards = [
       "As surfers and outdoor recreationists who care deeply about mother nature we're proud to make a commitment to offset the footprint that will be created by our web3 project. We'd like to thank KlimaDAO for the opportunity to collaborate on these efforts.",
     tonsRetired: 700,
     date: "01 MAY 2022",
-    width: 50,
-    height: 50,
+    logoWidth: 50,
+    logoHeight: 50,
+    alt: "Beach Party",
   },
   {
     logo: earthWalletLogo,
@@ -70,6 +76,7 @@ export const cards = [
       "Offsetting team and operational carbon emissions since founding.",
     tonsRetired: 777,
     date: "10 APR 2022",
+    alt: "Earth Wallet",
   },
   {
     logo: gmStudiosLogo,
@@ -78,8 +85,9 @@ export const cards = [
       "At gm. studio, we work with artists who care deeply about their work, and in turn we care deeply about preserving it. This also applies more generally, and we wish to preserve the planet which has afforded us this freedom.",
     tonsRetired: 700,
     date: "26 MAR 2022",
-    width: 40,
-    height: 40,
+    logoWidth: 40,
+    logoHeight: 40,
+    alt: "gmStudios",
   },
   {
     logo: meritCircleLogo,
@@ -88,6 +96,7 @@ export const cards = [
       "We want to offset our travel emission. As a blockchain entity we would (obviously) like to do that on-chain. That's why we use KlimaDAO.",
     tonsRetired: 3500,
     date: "12 JUL 2022",
+    alt: "Merit Circle",
   },
   {
     logo: metalCoreLogo,
@@ -96,8 +105,9 @@ export const cards = [
       "METALCORE is excited to partner with KlimaDAO and Polygon in moving the blockchain industry toward carbon negative and climate positive initiatives.",
     tonsRetired: 237,
     date: "07 JUN 2022",
-    width: 58,
-    height: 40,
+    logoWidth: 58,
+    logoHeight: 40,
+    alt: "Metal Core",
   },
   {
     logo: mossLogo,
@@ -106,6 +116,7 @@ export const cards = [
       "Everyday we wake up thinking about what's next to save the planet. Our goal is that this dream is shared with all of us - ton by ton offset for a better future for all.",
     tonsRetired: 200,
     date: "24 MAR 2022",
+    alt: "Moss",
   },
   {
     logo: scbLogo,
@@ -114,7 +125,8 @@ export const cards = [
       "Our SCBBR L💚VE letter to the planet. Committed to innovative financing for climate action on and off chain",
     tonsRetired: 200,
     date: "02 MAY 2022",
-    width: 82,
-    height: 40,
+    logoWidth: 82,
+    logoHeight: 40,
+    alt: "SCB",
   },
 ];

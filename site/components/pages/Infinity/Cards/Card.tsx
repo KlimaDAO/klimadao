@@ -16,8 +16,9 @@ type Card = {
   description: string;
   tonsRetired: number;
   date: string;
-  width?: number;
-  height?: number;
+  alt: string;
+  logoWidth?: number;
+  logoHeight?: number;
 };
 
 type Props = {
@@ -31,19 +32,19 @@ export const Card: FC<Props> = (props) => {
     <div className={styles.card}>
       <div className={styles.cardTitleContainer}>
         <div className={styles.cardImageContainer}>
-          {props.card.width && props.card.height ? (
+          {props.card.logoWidth && props.card.logoHeight ? (
             <Image
               src={props.card.logo}
-              alt="logo"
-              width={props.card.width}
-              height={props.card.height}
+              alt={props.card.alt}
+              width={props.card.logoWidth}
+              height={props.card.logoHeight}
               className={styles.cardImage}
             />
           ) : (
             <Image
               layout="intrinsic"
               src={props.card.logo}
-              alt="logo"
+              alt={props.card.alt}
               className={styles.cardImage}
             />
           )}
