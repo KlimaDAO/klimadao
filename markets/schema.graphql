@@ -1,0 +1,31 @@
+type Pair @entity {
+  id: ID!
+  token0: Token!
+  token1: Token!
+  currentprice: BigDecimal!
+  totalklimaearnedfees: BigDecimal!
+  totalvolume: BigDecimal!
+  lastupdate: String!
+  trades: [Trade!]! @derivedFrom(field: "pair")
+}
+
+type Token @entity {
+  id: ID!
+  name: String!
+  symbol: String!
+  decimals: Int!
+}
+
+type Trade @entity {
+  id: ID!     # PAIR_ADDR-TIMESTAMP
+  open: BigDecimal!
+  high: BigDecimal!
+  low: BigDecimal!
+  close: BigDecimal!
+  volume: BigDecimal!
+  lpfees: BigDecimal!
+  klimaearnedfees: BigDecimal!
+  slippage: BigDecimal!
+  timestamp: String!
+  pair: Pair!
+}
