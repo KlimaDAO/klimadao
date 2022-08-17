@@ -244,9 +244,6 @@ export const Offset = (props: Props) => {
       const token = selectedInputToken;
       const spender = "retirementAggregator";
 
-      console.log("COST", cost);
-      console.log("APPROVAL", getApprovalValue());
-
       const approvedValue = await changeApprovalTransaction({
         value: getApprovalValue(),
         provider: props.provider,
