@@ -64,6 +64,10 @@ import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 import SendRounded from "@mui/icons-material/SendRounded";
 
+// We need to approve a little bit extra (here 1%)
+// It's possible that the price can slip upward between approval and final transaction
+const APPROVAL_SLIPPAGE = 0.01;
+
 interface ButtonProps {
   label: React.ReactElement | string;
   onClick: undefined | (() => void);
@@ -227,21 +231,24 @@ export const Offset = (props: Props) => {
     setBeneficiaryAddress(address);
   };
 
+  const getApprovalValue = (): string => {
+    const costAsNumber = Number(cost);
+    const costPlusOnePercent = costAsNumber + costAsNumber * APPROVAL_SLIPPAGE;
+    return costPlusOnePercent.toFixed(18); // ethers does not like more than 18 digits and returns with "underflow" otherwise
+  };
+
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
 
-      // We need to approve a little bit extra (here 1%)
-      // it's possible the price can slip upward between approval and final transaction
-      const costAsNumber = Number(cost);
-      const onePercent = costAsNumber / 100;
-      const approvalValue = (costAsNumber + onePercent).toFixed(18); // ethers does not like more than 18 digits and returns with "underflow" otherwise
-
       const token = selectedInputToken;
       const spender = "retirementAggregator";
 
+      console.log("COST", cost);
+      console.log("APPROVAL", getApprovalValue());
+
       const approvedValue = await changeApprovalTransaction({
-        value: approvalValue,
+        value: getApprovalValue(),
         provider: props.provider,
         token,
         spender,
@@ -644,6 +651,7 @@ export const Offset = (props: Props) => {
           token={selectedInputToken}
           spender={"retirementAggregator"}
           value={cost.toString()}
+          approvalValue={getApprovalValue()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}
           onApproval={handleApprove}

@@ -15,6 +15,7 @@ import * as styles from "./styles";
 interface Props {
   title: ReactNode;
   value: string;
+  approvalValue?: string;
   token: AllowancesToken;
   spender: AllowancesSpender;
   onCloseModal: () => void;
@@ -63,7 +64,7 @@ export const TransactionModal: FC<Props> = (props) => {
         </div>
         {view === "approve" && (
           <Approve
-            value={props.value}
+            value={props.approvalValue || props.value}
             token={props.token}
             spender={props.spender}
             onApproval={props.onApproval}
