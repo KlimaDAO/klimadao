@@ -30,13 +30,18 @@ export const PageHead = (props: PageHeadProps) => {
   return (
     <Head>
       {noRobots && <meta name="robots" content="noindex" />}
-      {!noRobots && (
+      {/* {!noRobots && (
         <script
           defer
           data-domain="klimadao.finance"
           src="https://plausible.io/js/script.outbound-links.js"
         />
-      )}
+      )} */}
+      <script
+        defer
+        data-domain="klimadao-site-git-goats-plausible-test-klimadao.vercel.app"
+        src="https://plausible.io/js/plausible.js"
+      ></script>
       <title>{props.title}</title>
       <meta property="og:title" content={props.mediaTitle} />
 
