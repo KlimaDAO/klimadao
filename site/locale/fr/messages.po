@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"POT-Creation-Date: 2022-08-17 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1166,39 +1166,43 @@ msgstr "Utilisez des jetons KLIMA collatéralisés par du au carbone pour gouver
 msgid "retirement.footer.buy_klima.title"
 msgstr "Obtenir, déposer et être récompensé."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:94
+#: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.metaDescription"
 msgstr "Compensations carbones transparentes, activées par la blockchain et alimentées par KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:90
+#: components/pages/Retirements/SingleRetirement/index.tsx:103
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} a compensé {0} Tonnes de carbone"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:86
+#: components/pages/Retirements/SingleRetirement/index.tsx:99
 msgid "retirement.head.title"
 msgstr "Klimadao | Reçu de compensation carbone"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:140
+#: components/pages/Retirements/SingleRetirement/index.tsx:153
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Aucun bénéficiaire associé"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:134
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.beneficiary.title"
 msgstr "Bénéficiaire"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:148
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Adresse du bénéficiaire"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:191
+#: components/pages/Retirements/SingleRetirement/index.tsx:207
 msgid "retirement.single.disclaimer"
 msgstr "Ceci représente la compensation permanente des actifs carbone sous formes de jetons présents sur la blockchain Polygon. Cette compensation et les données associées constituent des entrées publiques immuables."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:105
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:33
+msgid "retirement.single.download_certificate_button"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:110
+#: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.single.header.subline"
 msgstr "Compensation d'émissions en équivalent CO2 (en tonnes)"
 
@@ -1234,7 +1238,7 @@ msgstr "Voir sur Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "QUANTITÉ COMPENSÉE"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:170
+#: components/pages/Retirements/SingleRetirement/index.tsx:183
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificat"
 
@@ -1242,7 +1246,7 @@ msgstr "Certificat"
 msgid "retirement.single.retirementDate.title"
 msgstr "Date"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:119
+#: components/pages/Retirements/SingleRetirement/index.tsx:132
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Aucun message de compensation carbone indiqué"
 
@@ -1250,7 +1254,7 @@ msgstr "Aucun message de compensation carbone indiqué"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Compensation carbone non horodatée"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:220
+#: components/pages/Retirements/SingleRetirement/index.tsx:236
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Voir sur Polygonscan"
 
@@ -1394,6 +1398,7 @@ msgstr "Infinity"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/index.tsx:36
 msgid "shared.loading"
 msgstr "Chargement..."
 
