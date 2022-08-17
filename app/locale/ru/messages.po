@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-17 00:52+0000\n"
+"POT-Creation-Date: 2022-08-17 14:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -624,7 +624,7 @@ msgstr "Обновленный контракт теперь предполаг�
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:340
 msgid "shared.approve"
-msgstr ""
+msgstr "ОДОБРИТЬ"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -830,47 +830,51 @@ msgstr "pKLIMA"
 
 #: components/TransactionModal/Approve.tsx:52
 msgid "transaction_modal.approve.allow_amount"
-msgstr ""
+msgstr "Сначала вы должны дать разрешение нашему смарт-контракту на перевод токенов от вашего имени."
 
 #: components/TransactionModal/Approve.tsx:60
 msgid "transaction_modal.approve.approve_quantity.contract_address"
-msgstr ""
+msgstr "Адрес контракта"
 
 #: components/TransactionModal/Approve.tsx:70
 msgid "transaction_modal.approve_quantity.quantity"
 msgstr ""
+"Количество для утверждения\n"
+""
 
 #: components/TransactionModal/Submit.tsx:106
 msgid "transaction_modal.close"
-msgstr ""
+msgstr "Закрыть"
 
 #: components/TransactionModal/Approve.tsx:113
 msgid "transaction_modal.next"
-msgstr ""
+msgstr "Следующий"
 
 #: components/TransactionModal/Submit.tsx:68
 msgid "transaction_modal.submit.amount"
-msgstr ""
+msgstr "Подтвердить сумму"
 
 #: components/TransactionModal/Submit.tsx:96
 msgid "transaction_modal.submit.button"
-msgstr ""
+msgstr "Отправить"
 
 #: components/TransactionModal/Submit.tsx:51
 msgid "transaction_modal.submit.confirm_transaction"
-msgstr ""
+msgstr "Пожалуйста, отправьте транзакцию."
 
 #: components/TransactionModal/Submit.tsx:58
 msgid "transaction_modal.submit.contract_address"
-msgstr ""
+msgstr "Адрес контракта"
 
 #: components/TransactionModal/index.tsx:51
 msgid "transaction_modal.view.approve.title"
-msgstr ""
+msgstr "1. Одобрить"
 
 #: components/TransactionModal/index.tsx:61
 msgid "transaction_modal.view.submit.title"
 msgstr ""
+"2. Отправить\n"
+""
 
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"

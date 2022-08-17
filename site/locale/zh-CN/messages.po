@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-17 00:51+0000\n"
+"POT-Creation-Date: 2022-08-17 14:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -313,7 +313,7 @@ msgstr "加入Klima社区"
 
 #: components/pages/Resources/Community/index.tsx:310
 msgid "community.landx_logo"
-msgstr ""
+msgstr "LandX 标识"
 
 #: components/pages/Resources/Community/index.tsx:94
 #: components/pages/Resources/Community/index.tsx:389
@@ -986,47 +986,47 @@ msgstr "添加类别"
 
 #: components/pages/Pledge/lib/formSchema.ts:42
 msgid "pledges.form.errors.categoryName.max"
-msgstr ""
+msgstr "输入字符少于 32 个"
 
 #: components/pages/Pledge/lib/formSchema.ts:38
 msgid "pledges.form.errors.categoryName.required"
-msgstr ""
+msgstr "输入一个类别"
 
 #: components/pages/Pledge/lib/formSchema.ts:46
 msgid "pledges.form.errors.categoryQuantity.min"
-msgstr ""
+msgstr "输入一个大于 0 的值"
 
 #: components/pages/Pledge/lib/formSchema.ts:18
 msgid "pledges.form.errors.description.max"
-msgstr ""
+msgstr "输入字符少于 500 个"
 
 #: components/pages/Pledge/lib/formSchema.ts:14
 msgid "pledges.form.errors.description.required"
-msgstr ""
+msgstr "输入承诺"
 
 #: components/pages/Pledge/lib/formSchema.ts:30
 msgid "pledges.form.errors.footprint.generic_error"
-msgstr ""
+msgstr "输入估算值碳吨"
 
 #: components/pages/Pledge/lib/formSchema.ts:34
 msgid "pledges.form.errors.footprint.min"
-msgstr ""
+msgstr "输入一个大于 0 的值"
 
 #: components/pages/Pledge/lib/formSchema.ts:26
 msgid "pledges.form.errors.methodology.max"
-msgstr ""
+msgstr "输入字符少于 1000 个"
 
 #: components/pages/Pledge/lib/formSchema.ts:22
 msgid "pledges.form.errors.methodology.required"
-msgstr ""
+msgstr "输入方法"
 
 #: components/pages/Pledge/lib/formSchema.ts:6
 msgid "pledges.form.errors.name.required"
-msgstr ""
+msgstr "输入名称"
 
 #: components/pages/Pledge/lib/formSchema.ts:10
 msgid "pledges.form.errors.profileImageUrl.url"
-msgstr ""
+msgstr "输入有效的网址"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:175
 msgid "pledges.form.footprint.label"
@@ -1094,7 +1094,7 @@ msgstr "承诺"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:67
 msgid "pledges.form.title"
-msgstr ""
+msgstr "你的承诺"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:45
 msgid "pledges.form.total_footprint_summary"
@@ -1191,7 +1191,7 @@ msgstr "这代表了 Polygon 区块链上代币化碳资产的永久停用。该
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:33
 msgid "retirement.single.download_certificate_button"
-msgstr ""
+msgstr "下载PDF"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"

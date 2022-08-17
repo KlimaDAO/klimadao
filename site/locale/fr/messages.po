@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-17 00:51+0000\n"
+"POT-Creation-Date: 2022-08-17 14:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -991,47 +991,47 @@ msgstr "Ajouter une catégorie"
 
 #: components/pages/Pledge/lib/formSchema.ts:42
 msgid "pledges.form.errors.categoryName.max"
-msgstr ""
+msgstr "Saisir moins de 32 caractères"
 
 #: components/pages/Pledge/lib/formSchema.ts:38
 msgid "pledges.form.errors.categoryName.required"
-msgstr ""
+msgstr "Saisir une catégorie"
 
 #: components/pages/Pledge/lib/formSchema.ts:46
 msgid "pledges.form.errors.categoryQuantity.min"
-msgstr ""
+msgstr "Saisir une valeur supérieure à 0"
 
 #: components/pages/Pledge/lib/formSchema.ts:18
 msgid "pledges.form.errors.description.max"
-msgstr ""
+msgstr "Saisir moins de 500 caractères"
 
 #: components/pages/Pledge/lib/formSchema.ts:14
 msgid "pledges.form.errors.description.required"
-msgstr ""
+msgstr "Saisir un engagement"
 
 #: components/pages/Pledge/lib/formSchema.ts:30
 msgid "pledges.form.errors.footprint.generic_error"
-msgstr ""
+msgstr "Saisir une estimation de tonne de carbone"
 
 #: components/pages/Pledge/lib/formSchema.ts:34
 msgid "pledges.form.errors.footprint.min"
-msgstr ""
+msgstr "Saisir une valeur supérieure à 0"
 
 #: components/pages/Pledge/lib/formSchema.ts:26
 msgid "pledges.form.errors.methodology.max"
-msgstr ""
+msgstr "Saisir moins de 1000 caractères"
 
 #: components/pages/Pledge/lib/formSchema.ts:22
 msgid "pledges.form.errors.methodology.required"
-msgstr ""
+msgstr "Saisir une méthodologie"
 
 #: components/pages/Pledge/lib/formSchema.ts:6
 msgid "pledges.form.errors.name.required"
-msgstr ""
+msgstr "Saisir un nom"
 
 #: components/pages/Pledge/lib/formSchema.ts:10
 msgid "pledges.form.errors.profileImageUrl.url"
-msgstr ""
+msgstr "Saisir une URL valide"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:175
 msgid "pledges.form.footprint.label"
@@ -1099,7 +1099,7 @@ msgstr "Sauvegarder l'engagement"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:67
 msgid "pledges.form.title"
-msgstr ""
+msgstr "Votre engagement"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:45
 msgid "pledges.form.total_footprint_summary"
@@ -1196,7 +1196,7 @@ msgstr "Ceci représente la compensation permanente des actifs carbone sous form
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:33
 msgid "retirement.single.download_certificate_button"
-msgstr ""
+msgstr "Télécharger le PDF"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"
