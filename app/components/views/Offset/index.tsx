@@ -49,6 +49,8 @@ import {
   urls,
 } from "@klimadao/lib/constants";
 
+import { getTokenDecimals } from "@klimadao/lib/utils";
+
 import { tokenInfo } from "lib/getTokenInfo";
 
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
@@ -234,7 +236,8 @@ export const Offset = (props: Props) => {
   const getApprovalValue = (): string => {
     const costAsNumber = Number(cost);
     const costPlusOnePercent = costAsNumber + costAsNumber * APPROVAL_SLIPPAGE;
-    return costPlusOnePercent.toFixed(18); // ethers does not like more than 18 digits and returns with "underflow" otherwise
+    const decimals = getTokenDecimals(selectedInputToken);
+    return costPlusOnePercent.toFixed(decimals); // ethers throws with "underflow" if decimals exceeds
   };
 
   const handleApprove = async () => {
