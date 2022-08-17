@@ -14,31 +14,32 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 export const NavItemMobile: FC<Props> = (props) => {
-  const activeItem = () => {
-    if (!props.id || !props.toggledNavItemID) {
-      return false;
-    } else {
-      return props.id === props.toggledNavItemID;
-    }
+  const isToggled =
+    !!props.id &&
+    !!props.toggledNavItemID &&
+    props.id === props.toggledNavItemID;
+  const onToggleSubmenu = () => {
+    if (isToggled && props.setToggledNavItemID)
+      return props.setToggledNavItemID(undefined);
+    props.setToggledNavItemID &&
+      props.id &&
+      props.setToggledNavItemID(props.id);
   };
+
   return (
     <div className={cx(styles.navMain_MobileItem)}>
       <ButtonPrimary
-        href={props.url ? props.url : undefined}
+        href={props.url}
         className={cx(styles.navMain_MobileLink, {
-          active: activeItem(),
+          active: isToggled,
         })}
         label={props.name}
-        onClick={() =>
-          props.setToggledNavItemID
-            ? props.setToggledNavItemID(activeItem() ? undefined : props.id)
-            : null
-        }
+        onClick={onToggleSubmenu}
       />
       {props.subMenu && (
         <div
           className={styles.navMain_MobileExpanded}
-          data-show={activeItem().toString()}
+          data-show={isToggled.toString()}
         >
           {props.subMenu}
         </div>

@@ -16,7 +16,15 @@ import * as styles from "./styles";
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
-type PageName = "Home" | "Buy" | "Resources" | "Disclaimer" | "Infinity";
+export type PageName =
+  | "Home"
+  | "Buy"
+  | "Resources"
+  | "Disclaimer"
+  | "Infinity"
+  | "Blog"
+  | "Community"
+  | "Contact";
 export type NavItemMobileID =
   | "About"
   | "App"
@@ -72,7 +80,8 @@ export const Navigation: FC<Props> = ({
                 id: "shared.blog",
               })}
               key="blog"
-              href="/blog"
+              url="/blog"
+              active={activePage === "Blog"}
             />,
             <NavItemDesktop
               name={t({
@@ -80,7 +89,8 @@ export const Navigation: FC<Props> = ({
                 id: "shared.community",
               })}
               key="community"
-              href="/community"
+              url="/community"
+              active={activePage === "Community"}
             />,
             <NavItemDesktop
               name={t({
@@ -88,7 +98,8 @@ export const Navigation: FC<Props> = ({
                 id: "shared.contact",
               })}
               key="contact"
-              href="/contact"
+              active={activePage === "Contact"}
+              url="/contact"
             />,
           ]}
         />
@@ -155,9 +166,10 @@ export const Navigation: FC<Props> = ({
                 id: "shared.intoduction",
               })}
               key="intro"
-              href="/infinity"
+              url="/infinity"
+              active={activePage === "Infinity"}
             />,
-            // these can be uncommented with resources page reqork
+            // these can be uncommented with resources page rework
             // <NavItemDesktop
             //   label={t({
             //     message: "HOW TO PLEDGE",
@@ -181,7 +193,7 @@ export const Navigation: FC<Props> = ({
         <NavItemDesktop
           url={urls.loveletter}
           name={t({ message: "Love Letters", id: "shared.loveletters" })}
-          href={createLinkWithLocaleQuery(urls.loveletter, locale)}
+          href={urls.loveletter}
         />
         <NavItemDesktop
           name={t({ message: "Resources", id: "shared.resources" })}
@@ -193,7 +205,8 @@ export const Navigation: FC<Props> = ({
                 id: "shared.how_to_buy",
               })}
               key="how to buy"
-              href="/buy"
+              active={activePage === "Buy"}
+              url="/buy"
             />,
             <NavItemDesktop
               name={t({
@@ -201,7 +214,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.carbon_dashboards",
               })}
               key="carbon dashboards"
-              href={createLinkWithLocaleQuery(urls.carbonDashboard, locale)}
+              href={urls.carbonDashboard}
             />,
             <NavItemDesktop
               name={t({
@@ -209,7 +222,8 @@ export const Navigation: FC<Props> = ({
                 id: "shared.disclaimer",
               })}
               key="disclaimer"
-              href="/disclaimer"
+              active={activePage === "Disclaimer"}
+              url="/disclaimer"
             />,
             <NavItemDesktop
               name={t({
@@ -217,7 +231,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.docs",
               })}
               key="docs"
-              href={createLinkWithLocaleQuery(urls.officialDocs, locale)}
+              href={urls.officialDocs}
             />,
           ]}
         />
@@ -240,7 +254,8 @@ export const Navigation: FC<Props> = ({
                     id: "shared.blog",
                   })}
                   key="blog"
-                  href="/blog"
+                  url="/blog"
+                  active={activePage === "Blog"}
                 />,
                 <NavItemMobile
                   name={t({
@@ -248,7 +263,8 @@ export const Navigation: FC<Props> = ({
                     id: "shared.community",
                   })}
                   key="community"
-                  href="/community"
+                  active={activePage === "Community"}
+                  url="/community"
                 />,
                 <NavItemMobile
                   name={t({
@@ -256,7 +272,8 @@ export const Navigation: FC<Props> = ({
                     id: "shared.contact",
                   })}
                   key="contact"
-                  href="/contact"
+                  active={activePage === "Contact"}
+                  url="/contact"
                 />,
               ]}
             />
@@ -325,7 +342,8 @@ export const Navigation: FC<Props> = ({
                     id: "shared.intoduction",
                   })}
                   key="intro"
-                  href="/infinity"
+                  url="/infinity"
+                  active={activePage === "Infinity"}
                 />,
                 <NavItemMobile
                   name={t({
@@ -364,8 +382,9 @@ export const Navigation: FC<Props> = ({
                     message: "HOW TO BUY KLIMA",
                     id: "shared.how_to_buy",
                   })}
+                  active={activePage === "Buy"}
                   key="how to buy"
-                  href="/buy"
+                  url="/buy"
                 />,
                 <NavItemMobile
                   name={t({
@@ -381,7 +400,8 @@ export const Navigation: FC<Props> = ({
                     id: "shared.disclaimer",
                   })}
                   key="disclaimer"
-                  href="/disclaimer"
+                  active={activePage === "Disclaimer"}
+                  url="/disclaimer"
                 />,
                 <NavItemMobile
                   name={t({
