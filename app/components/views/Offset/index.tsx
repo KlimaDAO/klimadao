@@ -196,6 +196,7 @@ export const Offset = (props: Props) => {
         provider: props.provider,
         getSpecific: !!validSpecificAddresses.length,
       });
+
       setCost(consumptionCost);
     };
     awaitGetOffsetConsumptionCost();
@@ -229,17 +230,24 @@ export const Offset = (props: Props) => {
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
-      const value = cost.toString();
+
+      // We need to approve a little bit extra (here 1%)
+      // it's possible the price can slip upward between approval and final transaction
+      const costAsNumber = Number(cost);
+      const onePercent = costAsNumber / 100;
+      const approvalValue = (costAsNumber + onePercent).toFixed(18); // ethers does not like more than 18 digits and returns with "underflow" otherwise
+
       const token = selectedInputToken;
       const spender = "retirementAggregator";
 
       const approvedValue = await changeApprovalTransaction({
-        value,
+        value: approvalValue,
         provider: props.provider,
         token,
         spender,
         onStatus: setStatus,
       });
+
       dispatch(
         setAllowance({
           token,
