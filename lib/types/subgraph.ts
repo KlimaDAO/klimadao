@@ -22,6 +22,7 @@ export interface KlimaRetire {
     standard: string; // "VCS" or "" for Moss
     vintage: string;
     methodology: string;
+    methodologyCategory: string;
     category: string;
   };
 }

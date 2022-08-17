@@ -21,6 +21,7 @@ type Params = {
   beneficiaryAddress: string;
   projectDetails?: VerraProjectDetails;
   retirement: KlimaRetire;
+  retirementIndex: string;
   retirementMessage: string;
   retirementUrl: string;
   tokenData: {
@@ -39,7 +40,7 @@ const spacing = {
   beneficiaryName: 81,
   transactionDetails: 130,
   projectDetails: 152,
-  tokenImage: { x: 143, y: 156 },
+  tokenImage: { x: 145, y: 158 },
   retirementLink: 200,
 };
 
@@ -54,6 +55,7 @@ const featureImageMap = {
 
 export const generateCertificate = (params: Params): void => {
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
+  const fileName = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
 
   const doc = new jsPDF({
     orientation: "landscape",
@@ -186,6 +188,10 @@ export const generateCertificate = (params: Params): void => {
         value: params.retirement.offset.methodology,
       },
       {
+        label: "Type",
+        value: params.retirement.offset.methodologyCategory,
+      },
+      {
         label: "Country/Region",
         value:
           params.retirement.offset.country || params.retirement.offset.region,
@@ -277,5 +283,5 @@ export const generateCertificate = (params: Params): void => {
   if (isMossRetirement) printMossProjectDetails();
   printRetirementLink();
 
-  doc.save(`${params.retirement.id}.pdf`);
+  doc.save(fileName);
 };

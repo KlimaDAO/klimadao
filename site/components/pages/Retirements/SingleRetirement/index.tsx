@@ -30,19 +30,32 @@ import { RetirementFooter } from "../Footer";
 import { CopyURLButton } from "../CopyURLButton";
 import * as styles from "./styles";
 
+const LoadingCertificateButton: React.FC = () => (
+  <ButtonPrimary
+    disabled={true}
+    label={t({
+      id: "shared.loading",
+      message: "Loading...",
+    })}
+  />
+);
+
 const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
   dynamic(
     () =>
       import("./DownloadCertificateButton").then(
         (mod) => mod.DownloadCertificateButton
       ),
-    { ssr: false }
+    {
+      ssr: false,
+      loading: () => <LoadingCertificateButton />,
+    }
   );
 
 type Props = {
   beneficiaryAddress: string;
-  retirementTotals: string;
   retirement: KlimaRetire | null;
+  retirementIndex: string;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails?: VerraProjectDetails;
   nameserviceDomain?: string;
@@ -172,16 +185,19 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                   </Trans>
                 }
                 text={
-                  retirement && (
+                  retirement ? (
                     <DownloadCertificateButton
                       beneficiaryName={retireData.beneficiaryName}
                       beneficiaryAddress={beneficiaryAddress}
                       retirement={retirement}
+                      retirementIndex={props.retirementIndex}
                       retirementMessage={retireData.retirementMessage}
                       retirementUrl={`${urls.home}/${asPath}`}
                       projectDetails={props.projectDetails}
                       tokenData={tokenData}
                     />
+                  ) : (
+                    <LoadingCertificateButton />
                   )
                 }
               />

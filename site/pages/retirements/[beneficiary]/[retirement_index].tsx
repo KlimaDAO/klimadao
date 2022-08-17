@@ -28,8 +28,8 @@ interface Params extends ParsedUrlQuery {
 interface PageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
-  retirementTotals: Params["retirement_index"];
   retirement: KlimaRetire | null;
+  retirementIndex: Params["retirement_index"];
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails: VerraProjectDetails | null;
   nameserviceDomain: string | null;
@@ -122,14 +122,14 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     return {
       props: {
-        retirement: retirement || null,
-        retirementIndexInfo,
         beneficiaryAddress: beneficiaryAddress,
-        retirementTotals: params.retirement_index,
-        translation,
-        projectDetails,
-        nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
         canonicalUrl: `${urls.retirements}/${beneficiaryInUrl}/${params.retirement_index}`,
+        nameserviceDomain: isDomainInURL ? beneficiaryInUrl : null,
+        projectDetails,
+        retirement: retirement || null,
+        retirementIndex: params.retirement_index,
+        retirementIndexInfo,
+        translation,
       },
       revalidate: 240,
     };
