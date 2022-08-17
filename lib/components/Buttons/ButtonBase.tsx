@@ -18,18 +18,22 @@ interface BaseProps extends Props {
   buttonStyle: string;
 }
 
-export const BaseButton: FC<BaseProps> = ({ link: LinkElement, ...props }) => {
+export const BaseButton: FC<BaseProps> = ({
+  link: LinkElement,
+  buttonStyle,
+  ...props
+}) => {
   if (props.href) {
     if (LinkElement) {
       return (
         <LinkElement href={props.href}>
-          <a className={props.buttonStyle}>{props.label}</a>
+          <a className={buttonStyle}>{props.label}</a>
         </LinkElement>
       );
     }
 
     return (
-      <a {...props} className={props.buttonStyle} href={props.href}>
+      <a {...props} className={buttonStyle} href={props.href}>
         {props.label}
       </a>
     );
@@ -38,7 +42,7 @@ export const BaseButton: FC<BaseProps> = ({ link: LinkElement, ...props }) => {
   return (
     <button
       type="button"
-      className={props.buttonStyle}
+      className={buttonStyle}
       onClick={props.onClick}
       disabled={props.disabled}
     >
