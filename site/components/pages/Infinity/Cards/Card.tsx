@@ -27,7 +27,7 @@ type Props = {
 
 export const Card: FC<Props> = (props) => {
   const { locale } = useRouter();
-  console.log("something to compare")
+  console.log("something to compare");
   return (
     <div className={styles.card}>
       <div className={styles.cardTitleContainer}>
