@@ -49,6 +49,8 @@ import {
   urls,
 } from "@klimadao/lib/constants";
 
+import { getTokenDecimals } from "@klimadao/lib/utils";
+
 import { tokenInfo } from "lib/getTokenInfo";
 
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
@@ -63,6 +65,10 @@ import { cx } from "@emotion/css";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 import SendRounded from "@mui/icons-material/SendRounded";
+
+// We need to approve a little bit extra (here 1%)
+// It's possible that the price can slip upward between approval and final transaction
+const APPROVAL_SLIPPAGE = 0.01;
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -196,6 +202,7 @@ export const Offset = (props: Props) => {
         provider: props.provider,
         getSpecific: !!validSpecificAddresses.length,
       });
+
       setCost(consumptionCost);
     };
     awaitGetOffsetConsumptionCost();
@@ -226,20 +233,28 @@ export const Offset = (props: Props) => {
     setBeneficiaryAddress(address);
   };
 
+  const getApprovalValue = (): string => {
+    const costAsNumber = Number(cost);
+    const costPlusOnePercent = costAsNumber + costAsNumber * APPROVAL_SLIPPAGE;
+    const decimals = getTokenDecimals(selectedInputToken);
+    return costPlusOnePercent.toFixed(decimals); // ethers throws with "underflow" if decimals exceeds
+  };
+
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
-      const value = cost.toString();
+
       const token = selectedInputToken;
       const spender = "retirementAggregator";
 
       const approvedValue = await changeApprovalTransaction({
-        value,
+        value: getApprovalValue(),
         provider: props.provider,
         token,
         spender,
         onStatus: setStatus,
       });
+
       dispatch(
         setAllowance({
           token,
@@ -636,6 +651,7 @@ export const Offset = (props: Props) => {
           token={selectedInputToken}
           spender={"retirementAggregator"}
           value={cost.toString()}
+          approvalValue={getApprovalValue()}
           status={fullStatus}
           onResetStatus={() => setStatus(null)}
           onApproval={handleApprove}
