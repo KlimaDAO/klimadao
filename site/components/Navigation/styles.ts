@@ -134,6 +134,7 @@ export const navMain_DesktopSelectContainer = css`
     min-width: fit-content;
     z-index: 1;
     border-radius: 0.8rem;
+    box-shadow: var(--shadow-03);
   }
   &:hover .content {
     display: flex;

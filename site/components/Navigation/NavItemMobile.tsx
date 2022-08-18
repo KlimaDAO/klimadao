@@ -5,9 +5,9 @@ import { ButtonPrimary } from "@klimadao/lib/components";
 import { NavItemMobileID } from "./index";
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
-  toggledNavItemID?: string | undefined;
   id?: NavItemMobileID;
   url?: string;
+  toggledNavItemID?: string | undefined;
   setToggledNavItemID?: (string: NavItemMobileID | undefined) => void;
   subMenu?: JSX.Element[];
   active?: boolean;

@@ -112,7 +112,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.buy",
               })}
               key="buy klima"
-              href={createLinkWithLocaleQuery(urls.buy, locale)}
+              url={createLinkWithLocaleQuery(urls.buy, locale)}
             />,
             <NavItemDesktop
               name={t({
@@ -120,7 +120,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.stake",
               })}
               key="stake"
-              href={createLinkWithLocaleQuery(urls.stake, locale)}
+              url={createLinkWithLocaleQuery(urls.stake, locale)}
             />,
             <NavItemDesktop
               name={t({
@@ -128,7 +128,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.bond",
               })}
               key="bond"
-              href={createLinkWithLocaleQuery(urls.bonds, locale)}
+              url={createLinkWithLocaleQuery(urls.bonds, locale)}
             />,
             <NavItemDesktop
               name={t({
@@ -136,7 +136,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.wrap",
               })}
               key="wrap"
-              href={createLinkWithLocaleQuery(urls.wrap, locale)}
+              url={createLinkWithLocaleQuery(urls.wrap, locale)}
             />,
             <NavItemDesktop
               name={t({
@@ -144,7 +144,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.offset",
               })}
               key="offset"
-              href={createLinkWithLocaleQuery(urls.offset, locale)}
+              url={createLinkWithLocaleQuery(urls.offset, locale)}
             />,
             <NavItemDesktop
               name={t({
@@ -152,48 +152,48 @@ export const Navigation: FC<Props> = ({
                 id: "shared.info",
               })}
               key="info"
-              href={createLinkWithLocaleQuery(urls.info, locale)}
+              url={createLinkWithLocaleQuery(urls.info, locale)}
             />,
           ]}
         />
         <NavItemDesktop
           name={t({ message: "Infinity", id: "shared.infity" })}
           active={activePage === "Infinity"}
-          subMenu={[
-            <NavItemDesktop
-              name={t({
-                message: "INTRODUCTION",
-                id: "shared.intoduction",
-              })}
-              key="intro"
-              url="/infinity"
-              active={activePage === "Infinity"}
-            />,
-            // these can be uncommented with resources page rework
-            // <NavItemDesktop
-            //   label={t({
-            //     message: "HOW TO PLEDGE",
-            //     id: "shared.how_to_pledge",
-            //   })}
-            //   key="how pledge"
-            //   href="/blog"
-            //   className={styles.navMain_DesktopMenuItem}
-            // />,
-            // <NavItemDesktop
-            // label={t({
-            //   message: "LEADER BOARD",
-            //   id: "shared.leader_board",
-            // })}
-            //   key="leader board"
-            //   href="/blog"
-            //   className={styles.navMain_DesktopMenuItem}
-            // />,
-          ]}
+          url="/infinity"
+          // subMenu={[
+          //   <NavItemDesktop
+          //     name={t({
+          //       message: "INTRODUCTION",
+          //       id: "shared.intoduction",
+          //     })}
+          //     key="intro"
+          //     url="/infinity"
+          //     active={activePage === "Infinity"}
+          //   />,
+          // these can be uncommented with resources page rework
+          // <NavItemDesktop
+          //   label={t({
+          //     message: "HOW TO PLEDGE",
+          //     id: "shared.how_to_pledge",
+          //   })}
+          //   key="how pledge"
+          //   href="/blog"
+          //   className={styles.navMain_DesktopMenuItem}
+          // />,
+          // <NavItemDesktop
+          // label={t({
+          //   message: "LEADER BOARD",
+          //   id: "shared.leader_board",
+          // })}
+          //   key="leader board"
+          //   href="/blog"
+          //   className={styles.navMain_DesktopMenuItem}
+          // />,
+          // ]}
         />
         <NavItemDesktop
           url={urls.loveletter}
           name={t({ message: "Love Letters", id: "shared.loveletters" })}
-          href={urls.loveletter}
         />
         <NavItemDesktop
           name={t({ message: "Resources", id: "shared.resources" })}
@@ -214,7 +214,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.carbon_dashboards",
               })}
               key="carbon dashboards"
-              href={urls.carbonDashboard}
+              url={urls.carbonDashboard}
             />,
             <NavItemDesktop
               name={t({
@@ -231,7 +231,7 @@ export const Navigation: FC<Props> = ({
                 id: "shared.docs",
               })}
               key="docs"
-              href={urls.officialDocs}
+              url={urls.officialDocs}
             />,
           ]}
         />
@@ -286,7 +286,7 @@ export const Navigation: FC<Props> = ({
                 <NavItemMobile
                   name={t({ message: "BUY KLIMA", id: "shared.buy" })}
                   key="buy klima"
-                  href={createLinkWithLocaleQuery(urls.buy, locale)}
+                  url={createLinkWithLocaleQuery(urls.buy, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -294,7 +294,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.stake",
                   })}
                   key="stake"
-                  href={createLinkWithLocaleQuery(urls.stake, locale)}
+                  url={createLinkWithLocaleQuery(urls.stake, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -302,7 +302,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.bond",
                   })}
                   key="bond"
-                  href={createLinkWithLocaleQuery(urls.bonds, locale)}
+                  url={createLinkWithLocaleQuery(urls.bonds, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -310,7 +310,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.wrap",
                   })}
                   key="wrap"
-                  href={createLinkWithLocaleQuery(urls.wrap, locale)}
+                  url={createLinkWithLocaleQuery(urls.wrap, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -318,7 +318,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.offset",
                   })}
                   key="offset"
-                  href={createLinkWithLocaleQuery(urls.offset, locale)}
+                  url={createLinkWithLocaleQuery(urls.offset, locale)}
                 />,
                 <NavItemMobile
                   name={t({
@@ -326,7 +326,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.info",
                   })}
                   key="info"
-                  href={createLinkWithLocaleQuery(urls.info, locale)}
+                  url={createLinkWithLocaleQuery(urls.info, locale)}
                 />,
               ]}
             />
@@ -334,42 +334,45 @@ export const Navigation: FC<Props> = ({
               name={t({ message: "Infinity", id: "shared.infinity" })}
               toggledNavItemID={toggledNavItemID}
               setToggledNavItemID={setToggledNavItemID}
+              url="/infinity"
               id="Infinity"
-              subMenu={[
-                <NavItemMobile
-                  name={t({
-                    message: "INTRODUCTION",
-                    id: "shared.intoduction",
-                  })}
-                  key="intro"
-                  url="/infinity"
-                  active={activePage === "Infinity"}
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "HOW TO PLEDGE",
-                    id: "shared.how_to_pledge",
-                  })}
-                  key="how pledge"
-                  // not sure about this url
-                  href="/blog"
-                />,
-                // <NavItemMobile
-                //   name={t({
-                //     message: "LEADER BOARD",
-                //     id: "shared.leader_board",
-                //   })}
-                //   key="leader board"
-                //   href="/blog"
-                // />,
-              ]}
+              // subMenu={
+              //   [
+              // <NavItemMobile
+              //   name={t({
+              //     message: "INTRODUCTION",
+              //     id: "shared.intoduction",
+              //   })}
+              //   key="intro"
+              //   url="/infinity"
+              //   active={activePage === "Infinity"}
+              // />,
+              // <NavItemMobile
+              //   name={t({
+              //     message: "HOW TO PLEDGE",
+              //     id: "shared.how_to_pledge",
+              //   })}
+              //   key="how pledge"
+              //   // not sure about this url
+              //   url="/blog"
+              // />,
+              // <NavItemMobile
+              //   name={t({
+              //     message: "LEADER BOARD",
+              //     id: "shared.leader_board",
+              //   })}
+              //   key="leader board"
+              //   url="/blog"
+              // />,
+              //   ]
+              // }
             />
             <NavItemMobile
               name={t({ message: "Love Letters", id: "shared.loveletters" })}
               toggledNavItemID={toggledNavItemID}
               setToggledNavItemID={setToggledNavItemID}
               id="Love Letters"
-              href={createLinkWithLocaleQuery(urls.loveletter, locale)}
+              url={createLinkWithLocaleQuery(urls.loveletter, locale)}
             />
             <NavItemMobile
               name={t({ message: "Resources", id: "shared.resources" })}
@@ -392,7 +395,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.carbon_dashboards",
                   })}
                   key="carbon dashboards"
-                  href={createLinkWithLocaleQuery(urls.carbonDashboard, locale)}
+                  url={urls.carbonDashboard}
                 />,
                 <NavItemMobile
                   name={t({
@@ -409,7 +412,7 @@ export const Navigation: FC<Props> = ({
                     id: "shared.docs",
                   })}
                   key="docs"
-                  href={createLinkWithLocaleQuery(urls.officialDocs, locale)}
+                  url={urls.officialDocs}
                 />,
               ]}
             />
