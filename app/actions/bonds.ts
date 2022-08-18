@@ -390,7 +390,7 @@ export const bondTransaction = async (params: {
   slippage: number;
   onStatus: OnStatusHandler;
 }) => {
-  if (params.bond === "inverse_usdc") {
+  if (getIsInverse(params.bond)) {
     try {
       const acceptedSlippage = 0.0; // 20% instead of 2% bc 2% not working. 20% also not working lol
       const signer = params.provider.getSigner();

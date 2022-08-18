@@ -13,6 +13,7 @@ import {
   calculateUserBondDetails,
   bondMapToBondName,
   bondMapToTokenName,
+  getIsInverse,
 } from "actions/bonds";
 
 import { changeApprovalTransaction } from "actions/utils";
@@ -208,7 +209,7 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const getBondMax = (): string => {
-    if (bondState?.bond === "inverse_usdc") {
+    if (!!bondState && getIsInverse(bondState.bond)) {
       return getInverseBondMax();
     }
     return getBondV1Max();
@@ -348,7 +349,7 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const handleBond = () => {
-    if (props.bond === "inverse_usdc") {
+    if (getIsInverse(props.bond)) {
       return handleInverseBond();
     }
     return handleV1Bond();
@@ -496,7 +497,7 @@ export const Bond: FC<Props> = (props) => {
     if (!props.isConnected) {
       return 0;
     }
-    if (props.bond === "inverse_usdc") {
+    if (getIsInverse(props.bond)) {
       return trimWithPlaceholder(
         userState?.balance?.klima,
         Number(userState?.balance?.klima) < 1 ? 18 : 2,
@@ -514,7 +515,7 @@ export const Bond: FC<Props> = (props) => {
     if (!props.isConnected) {
       return false;
     }
-    if (props.bond === "inverse_usdc") {
+    if (getIsInverse(props.bond)) {
       return Number(quantity) > Number(userState?.balance?.klima);
     }
     return Number(quantity) > Number(bondState?.balance);
@@ -525,7 +526,7 @@ export const Bond: FC<Props> = (props) => {
 
   return (
     <>
-      {props.bond !== "inverse_usdc" && <BondBalancesCard bond={props.bond} />}
+      {getIsInverse(props.bond) && <BondBalancesCard bond={props.bond} />}
       <div className={styles.bondCard}>
         <div className={styles.bondCard_header}>
           <Link to="/bonds" className={styles.backButton}>
@@ -557,7 +558,7 @@ export const Bond: FC<Props> = (props) => {
         </div>
         <div className={styles.bondCard_ui}>
           <div className={styles.inputsContainer}>
-            {props.bond !== "inverse_usdc" && (
+            {!getIsInverse(props.bond) && (
               <div className={styles.stakeSwitch}>
                 <button
                   className={styles.switchButton}
@@ -634,7 +635,7 @@ export const Bond: FC<Props> = (props) => {
                 value={getBalance()}
                 warning={getBalanceExceeded()}
               />
-              {props.bond === "inverse_usdc" ? (
+              {getIsInverse(props.bond) ? (
                 /**
                  *
                  * INVERSE BONDS
