@@ -163,7 +163,14 @@ export const generateCertificate = (params: Params): void => {
       params.retirement.transaction.id,
       spacing.mainTextWidth
     );
-    doc.text(txHashSplit, spacing.margin, spacing.transactionDetails + 16.5);
+    doc.textWithLink(
+      txHashSplit,
+      spacing.margin,
+      spacing.transactionDetails + 16.5,
+      {
+        url: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+      }
+    );
   };
 
   const printProjectDetails = (): void => {
