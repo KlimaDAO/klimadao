@@ -217,7 +217,7 @@ export const Bond: FC<Props> = (props) => {
 
   const setMax = () => {
     setStatus(null);
-    if (view === "bond") {
+    if (viewIsBond) {
       setQuantity(getBondMax());
     } else {
       setQuantity(bondState?.pendingPayout ?? "0");
@@ -387,7 +387,10 @@ export const Bond: FC<Props> = (props) => {
     );
   };
 
-  const isDisabled = view === "bond" && bondInfo.disabled;
+  const viewIsBond = view === "bond";
+  const viewIsReedem = view === "redeem";
+
+  const isDisabled = viewIsBond && bondInfo.disabled;
 
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
@@ -411,13 +414,13 @@ export const Bond: FC<Props> = (props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (view === "bond" && !value) {
+    } else if (viewIsBond && !value) {
       return {
         label: <Trans id="shared.enter_quantity">Enter Quantity</Trans>,
         onClick: undefined,
         disabled: true,
       };
-    } else if (view === "redeem" && !Number(bondState?.pendingPayout)) {
+    } else if (viewIsReedem && !Number(bondState?.pendingPayout)) {
       return {
         label: <Trans id="bond.not_redeemable">Not Redeemable</Trans>,
         onClick: undefined,
@@ -455,13 +458,13 @@ export const Bond: FC<Props> = (props) => {
         onClick: () => setShowTransactionModal(true),
         variant: "blueRounded",
       };
-    } else if (view === "bond") {
+    } else if (viewIsBond) {
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
         onClick: () => setShowTransactionModal(true),
         disabled: !value || !bondMax,
       };
-    } else if (view === "redeem") {
+    } else if (viewIsReedem) {
       return {
         label: <Trans id="bond.redeem">Redeem</Trans>,
         onClick: handleRedeem,
@@ -478,12 +481,12 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const getInputPlaceholder = (): string => {
-    if (view === "bond") {
+    if (viewIsBond) {
       return t({
         id: "bond.inputplaceholder.amount_to_bond",
         message: "Amount to bond",
       });
-    } else if (view === "redeem") {
+    } else if (viewIsReedem) {
       return t({
         id: "bond.inputplaceholder.amount_to_redeem",
         message: "Amount to redeem",
@@ -566,7 +569,7 @@ export const Bond: FC<Props> = (props) => {
                   onClick={() => {
                     setView("bond");
                   }}
-                  data-active={view === "bond"}
+                  data-active={viewIsBond}
                 >
                   <Trans id="bond.bond">Bond</Trans>
                 </button>
@@ -576,7 +579,7 @@ export const Bond: FC<Props> = (props) => {
                   onClick={() => {
                     setView("redeem");
                   }}
-                  data-active={view === "redeem"}
+                  data-active={viewIsReedem}
                 >
                   <Trans id="bond.redeem">Redeem</Trans>
                 </button>
@@ -586,26 +589,22 @@ export const Bond: FC<Props> = (props) => {
               <input
                 className={styles.stakeInput_input}
                 value={
-                  view === "bond"
-                    ? quantity || ""
-                    : bondState?.pendingPayout || ""
+                  viewIsBond ? quantity || "" : bondState?.pendingPayout || ""
                 }
                 onChange={(e) => setQuantity(e.target.value)}
                 type="number"
                 placeholder={getInputPlaceholder()}
                 min="0"
                 step={
-                  view === "bond" && bondInfo.balanceUnit === "SLP"
-                    ? "0.0001"
-                    : "1"
+                  viewIsBond && bondInfo.balanceUnit === "SLP" ? "0.0001" : "1"
                 }
-                disabled={view === "redeem"}
+                disabled={viewIsReedem}
               />
               <button
                 className={styles.stakeInput_max}
                 type="button"
                 onClick={setMax}
-                disabled={view === "redeem"}
+                disabled={viewIsReedem}
               >
                 <Trans id="shared.max">Max</Trans>
               </button>
@@ -617,7 +616,7 @@ export const Bond: FC<Props> = (props) => {
             )}
             <div className="hr" />
           </div>
-          {view === "bond" && (
+          {viewIsBond && (
             <ul className={styles.dataContainer}>
               {sourceSingleton}
               <DataRow
@@ -918,7 +917,7 @@ export const Bond: FC<Props> = (props) => {
               )}
             </ul>
           )}
-          {view === "redeem" && (
+          {viewIsReedem && (
             <ul className={styles.dataContainer}>
               {sourceSingleton}
               <li className={styles.dataContainer_row}>
@@ -1012,7 +1011,7 @@ export const Bond: FC<Props> = (props) => {
               </li>
             </ul>
           )}
-          {isBondDiscountNegative && view === "bond" && (
+          {isBondDiscountNegative && viewIsBond && (
             <Text t="caption" align="center">
               <Trans
                 id="bond.this_bond_price_is_inflated"
@@ -1047,7 +1046,7 @@ export const Bond: FC<Props> = (props) => {
                   {...getButtonProps()}
                   className={styles.submitButton}
                 />
-                {view === "redeem" && !showSpinner && (
+                {viewIsReedem && !showSpinner && (
                   <div className={styles.checkboxContainer}>
                     <Checkbox
                       checked={shouldAutostake}
