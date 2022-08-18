@@ -26,6 +26,8 @@ export const bondMapToTokenName = {
 } as const;
 export type BondTokens = keyof typeof bondMapToTokenName;
 type BondToken = typeof bondMapToTokenName[BondTokens];
+type NormalBond = Exclude<BondTokens, "inverse_usdc">;
+type InverseBond = Extract<BondTokens, "inverse_usdc">;
 
 export const bondMapToBondName = {
   klima_bct_lp: "bond_klimaBctLp",
@@ -64,13 +66,16 @@ const getBondAddress = (params: { bond: Bond }): string => {
   return addresses["mainnet"][bondName as BondContractName];
 };
 
-const getReserveAddress = (params: { bond: BondTokens }): string => {
+const getReserveAddress = (params: { bond: NormalBond }): string => {
   const tokenName = bondMapToTokenName[params.bond];
   return addresses["mainnet"][tokenName as BondToken];
 };
 
-export const getIsInverse = (bond: Bond): boolean =>
-  bond === "inverse_usdc" && bondMapToBondName[bond] === "klimaProV2";
+export const getIsInverse = (
+  bond: NormalBond | InverseBond
+): bond is InverseBond => {
+  return bond === "inverse_usdc";
+};
 
 export const contractForBond = (params: {
   bond: Bond;
