@@ -159,12 +159,8 @@ export const generateCertificate = (params: Params): void => {
       spacing.transactionDetails + 11
     );
     doc.setFont("Poppins", "ExtraLight");
-    const txHashSplit = doc.splitTextToSize(
-      params.retirement.transaction.id,
-      spacing.mainTextWidth
-    );
     doc.textWithLink(
-      txHashSplit,
+      params.retirement.transaction.id,
       spacing.margin,
       spacing.transactionDetails + 16.5,
       {
