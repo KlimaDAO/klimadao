@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-17 16:31+0000\n"
+"POT-Creation-Date: 2022-08-18 15:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -706,7 +706,7 @@ msgstr ""
 msgid "infinity.button.read_blog_polygon"
 msgstr ""
 
-#: components/pages/Infinity/Cards/CardsSlider.tsx:150
+#: components/pages/Infinity/Cards/CardsSlider.tsx:137
 msgid "infinity.cards_slider.title"
 msgstr ""
 
@@ -866,7 +866,7 @@ msgstr ""
 msgid "infinity.polygon_story_title"
 msgstr ""
 
-#: components/pages/Infinity/Cards/Card.tsx:46
+#: components/pages/Infinity/Cards/Card.tsx:66
 #: components/pages/Infinity/index.tsx:387
 #: components/pages/Infinity/index.tsx:401
 msgid "infinity.tonnes"

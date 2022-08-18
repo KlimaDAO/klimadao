@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-17 16:31+0000\n"
+"POT-Creation-Date: 2022-08-18 15:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -315,7 +315,7 @@ msgstr "Únete a la comunidad Klima"
 
 #: components/pages/Resources/Community/index.tsx:310
 msgid "community.landx_logo"
-msgstr ""
+msgstr "Logotipo de LandX"
 
 #: components/pages/Resources/Community/index.tsx:94
 #: components/pages/Resources/Community/index.tsx:389
@@ -714,7 +714,7 @@ msgstr "Lea en profundidad las preguntas frecuentes de los clientes de KI"
 msgid "infinity.button.read_blog_polygon"
 msgstr "Lea la historia de Polygon"
 
-#: components/pages/Infinity/Cards/CardsSlider.tsx:150
+#: components/pages/Infinity/Cards/CardsSlider.tsx:137
 msgid "infinity.cards_slider.title"
 msgstr "Decenas de organizaciones han compensado más de 150.000 toneladas de carbono con Klima Infinity"
 
@@ -877,7 +877,7 @@ msgstr "Polygon ha compensado las emisiones de carbono de la red desde su creaci
 msgid "infinity.polygon_story_title"
 msgstr "Polygon eligió a Klima Infinity para compensar su red de blockchain"
 
-#: components/pages/Infinity/Cards/Card.tsx:46
+#: components/pages/Infinity/Cards/Card.tsx:66
 #: components/pages/Infinity/index.tsx:387
 #: components/pages/Infinity/index.tsx:401
 msgid "infinity.tonnes"
@@ -997,47 +997,47 @@ msgstr "Añadir categoría"
 
 #: components/pages/Pledge/lib/formSchema.ts:42
 msgid "pledges.form.errors.categoryName.max"
-msgstr ""
+msgstr "Introduzca menos de 32 caracteres"
 
 #: components/pages/Pledge/lib/formSchema.ts:38
 msgid "pledges.form.errors.categoryName.required"
-msgstr ""
+msgstr "Introduzca una categoría"
 
 #: components/pages/Pledge/lib/formSchema.ts:46
 msgid "pledges.form.errors.categoryQuantity.min"
-msgstr ""
+msgstr "Introduzca un valor mayor que 0"
 
 #: components/pages/Pledge/lib/formSchema.ts:18
 msgid "pledges.form.errors.description.max"
-msgstr ""
+msgstr "Introduzca menos de 500 caracteres"
 
 #: components/pages/Pledge/lib/formSchema.ts:14
 msgid "pledges.form.errors.description.required"
-msgstr ""
+msgstr "Introduzca un compromiso"
 
 #: components/pages/Pledge/lib/formSchema.ts:30
 msgid "pledges.form.errors.footprint.generic_error"
-msgstr ""
+msgstr "Introduzca una estimación de toneladas de carbono"
 
 #: components/pages/Pledge/lib/formSchema.ts:34
 msgid "pledges.form.errors.footprint.min"
-msgstr ""
+msgstr "Introduzca un valor mayor que 0"
 
 #: components/pages/Pledge/lib/formSchema.ts:26
 msgid "pledges.form.errors.methodology.max"
-msgstr ""
+msgstr "Introduzca menos de 1000 caracteres"
 
 #: components/pages/Pledge/lib/formSchema.ts:22
 msgid "pledges.form.errors.methodology.required"
-msgstr ""
+msgstr "Introduzca una metodología"
 
 #: components/pages/Pledge/lib/formSchema.ts:6
 msgid "pledges.form.errors.name.required"
-msgstr ""
+msgstr "Introduzca un nombre"
 
 #: components/pages/Pledge/lib/formSchema.ts:10
 msgid "pledges.form.errors.profileImageUrl.url"
-msgstr ""
+msgstr "Introduzca una url válida"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:175
 msgid "pledges.form.footprint.label"
@@ -1105,7 +1105,7 @@ msgstr "Guardar el compromiso"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:67
 msgid "pledges.form.title"
-msgstr ""
+msgstr "Su compromiso"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:45
 msgid "pledges.form.total_footprint_summary"
@@ -1202,7 +1202,7 @@ msgstr "Esto representa la retirada permanente de los activos de carbono tokeniz
 
 #: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:33
 msgid "retirement.single.download_certificate_button"
-msgstr ""
+msgstr "Descargar PDF"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"

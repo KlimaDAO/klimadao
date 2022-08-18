@@ -712,7 +712,7 @@ msgstr "Read in-depth FAQs for KI Clients"
 msgid "infinity.button.read_blog_polygon"
 msgstr "Read Polygon's Story"
 
-#: components/pages/Infinity/Cards/CardsSlider.tsx:150
+#: components/pages/Infinity/Cards/CardsSlider.tsx:137
 msgid "infinity.cards_slider.title"
 msgstr "Dozens of organizations have offset over 150,000 carbon tonnes with Klima Infinity"
 
@@ -872,7 +872,7 @@ msgstr "Polygon offset the network's carbon emissions since inception - roughly 
 msgid "infinity.polygon_story_title"
 msgstr "Polygon chose Klima Infinity to offset their blockchain network"
 
-#: components/pages/Infinity/Cards/Card.tsx:46
+#: components/pages/Infinity/Cards/Card.tsx:66
 #: components/pages/Infinity/index.tsx:387
 #: components/pages/Infinity/index.tsx:401
 msgid "infinity.tonnes"

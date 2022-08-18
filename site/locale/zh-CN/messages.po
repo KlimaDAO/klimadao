@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-17 16:31+0000\n"
+"POT-Creation-Date: 2022-08-18 15:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -706,7 +706,7 @@ msgstr "阅读为 KI 客户准备的深入问题及解答"
 msgid "infinity.button.read_blog_polygon"
 msgstr "阅读 Polygon 的故事"
 
-#: components/pages/Infinity/Cards/CardsSlider.tsx:150
+#: components/pages/Infinity/Cards/CardsSlider.tsx:137
 msgid "infinity.cards_slider.title"
 msgstr "数十家组织已通过 Klima Infinity 抵消了超过 150,000 吨碳"
 
@@ -866,7 +866,7 @@ msgstr "Polygon 抵消了该网络自成立以来的碳排放量 - 约 90,000 �
 msgid "infinity.polygon_story_title"
 msgstr "Polygon 选择 Klima Infinity 来抵消他们区块链网络产生的碳排放"
 
-#: components/pages/Infinity/Cards/Card.tsx:46
+#: components/pages/Infinity/Cards/Card.tsx:66
 #: components/pages/Infinity/index.tsx:387
 #: components/pages/Infinity/index.tsx:401
 msgid "infinity.tonnes"

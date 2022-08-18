@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-17 16:31+0000\n"
+"POT-Creation-Date: 2022-08-18 15:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -708,7 +708,7 @@ msgstr "Lire les FAQs détaillées pour les clients KI"
 msgid "infinity.button.read_blog_polygon"
 msgstr "Lire l'article sur Polygon"
 
-#: components/pages/Infinity/Cards/CardsSlider.tsx:150
+#: components/pages/Infinity/Cards/CardsSlider.tsx:137
 msgid "infinity.cards_slider.title"
 msgstr "Des dizaines d'organisations ont compensé plus de 150 000 tonnes de carbone avec Klima Infinity."
 
@@ -871,7 +871,7 @@ msgstr "Polygon a compensé les émissions de carbone du réseau depuis sa créa
 msgid "infinity.polygon_story_title"
 msgstr "Polygon a choisi Klima Infinity pour compenser son réseau de blockchain."
 
-#: components/pages/Infinity/Cards/Card.tsx:46
+#: components/pages/Infinity/Cards/Card.tsx:66
 #: components/pages/Infinity/index.tsx:387
 #: components/pages/Infinity/index.tsx:401
 msgid "infinity.tonnes"
