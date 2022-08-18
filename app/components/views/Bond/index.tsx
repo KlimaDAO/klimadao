@@ -13,8 +13,6 @@ import {
   calculateUserBondDetails,
   bondMapToBondName,
   bondMapToTokenName,
-  getIsInverse,
-  BondWithoutInverse,
 } from "actions/bonds";
 
 import { changeApprovalTransaction } from "actions/utils";
@@ -253,10 +251,7 @@ export const Bond: FC<Props> = (props) => {
     try {
       if (!props.provider) return;
 
-      const token =
-        !!bondState && getIsInverse(bondState.bond)
-          ? "klima"
-          : bondMapToTokenName[props.bond as BondWithoutInverse]; // we know here it can't be inverse
+      const token = bondMapToTokenName[props.bond];
       const spender = bondMapToBondName[props.bond];
 
       setStatus(null);
@@ -1085,11 +1080,7 @@ export const Bond: FC<Props> = (props) => {
             </Text>
           }
           onCloseModal={closeModal}
-          token={
-            !!bondState && getIsInverse(bondState.bond)
-              ? "klima"
-              : bondMapToTokenName[props.bond as BondWithoutInverse]
-          }
+          token={bondMapToTokenName[props.bond]}
           spender={bondMapToBondName[props.bond]}
           value={quantity.toString()}
           status={fullStatus}
