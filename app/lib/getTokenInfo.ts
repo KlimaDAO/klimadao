@@ -12,7 +12,6 @@ import KlimaBCTLP from "public/icons/BCT-KLIMA-LP.png";
 import KlimaUsdcLP from "public/icons/KLIMA-USDC-LP.png";
 import BCTUSDCLP from "public/icons/BCT-USDC-LP.png";
 import KlimaMCO2LP from "public/icons/KLIMA-MCO2-LP.png";
-// import INVERSE_USDC from "public/icons/KLIMA-USDC-LP.png";
 
 type TokenInfoMap = {
   [key in AllowancesToken]: {
