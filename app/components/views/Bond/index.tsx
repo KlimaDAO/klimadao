@@ -467,7 +467,7 @@ export const Bond: FC<Props> = (props) => {
     } else if (viewIsReedem) {
       return {
         label: <Trans id="bond.redeem">Redeem</Trans>,
-        onClick: handleRedeem,
+        onClick: () => setShowTransactionModal(true),
         disabled: !Number(bondState?.pendingPayout),
       };
     } else {
@@ -1074,20 +1074,26 @@ export const Bond: FC<Props> = (props) => {
           title={
             <Text t="h4" className={styles.transaction_modal_header_title}>
               <SpaOutlined />
-              <Trans id="bond.transaction_modal.title" comment="Bond {0}">
-                Bond {bondInfo.name}
-              </Trans>
+              {viewIsBond ? (
+                <Trans id="bond.transaction_modal.title" comment="Bond {0}">
+                  Bond {bondInfo.name}
+                </Trans>
+              ) : (
+                "Redeem Klima"
+              )}
             </Text>
           }
           onCloseModal={closeModal}
-          token={bondMapToTokenName[props.bond]}
+          token={viewIsBond ? bondMapToTokenName[props.bond] : "klima"}
           spender={bondMapToBondName[props.bond]}
-          value={quantity.toString()}
+          value={
+            viewIsBond ? quantity.toString() : bondState?.pendingPayout || "0"
+          }
           status={fullStatus}
           onResetStatus={() => setStatus(null)}
-          onApproval={handleAllowance}
-          hasApproval={hasApproval()}
-          onSubmit={handleBond}
+          onApproval={handleAllowance} // skipped if is Reedem
+          hasApproval={viewIsBond ? hasApproval() : true} // Redeem needs no approval
+          onSubmit={viewIsBond ? handleBond : handleRedeem}
         />
       )}
 
