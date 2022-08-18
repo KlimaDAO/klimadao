@@ -151,6 +151,14 @@ export const Bond: FC<Props> = (props) => {
       status === "networkConfirmation" ||
       isLoading);
 
+  const viewIsBond = view === "bond";
+  const viewIsReedem = view === "redeem";
+
+  const isDisabled = viewIsBond && bondInfo.disabled;
+
+  const isBondDiscountNegative =
+    !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
+
   const closeModal = () => {
     setStatus(null);
     setShowTransactionModal(false);
@@ -387,11 +395,6 @@ export const Bond: FC<Props> = (props) => {
     );
   };
 
-  const viewIsBond = view === "bond";
-  const viewIsReedem = view === "redeem";
-
-  const isDisabled = viewIsBond && bondInfo.disabled;
-
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
@@ -523,9 +526,6 @@ export const Bond: FC<Props> = (props) => {
     }
     return Number(quantity) > Number(bondState?.balance);
   };
-
-  const isBondDiscountNegative =
-    !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
 
   return (
     <>
