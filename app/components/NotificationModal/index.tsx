@@ -62,7 +62,12 @@ export const NotificationModal: FC = () => {
   });
 
   // temp fix to not show this modal on specific routes until this component can be removed completely
-  if (pathname === "/stake" || pathname === "/offset" || pathname === "/wrap")
+  if (
+    pathname === "/stake" ||
+    pathname === "/offset" ||
+    pathname === "/wrap" ||
+    pathname.startsWith("/bonds/")
+  )
     return null;
 
   if (!status) return null;

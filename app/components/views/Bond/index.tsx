@@ -1,6 +1,7 @@
 import React, { useState, useEffect, FC } from "react";
 import { useSelector } from "react-redux";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
+import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { Link } from "react-router-dom";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import { selectNotificationStatus, selectLocale } from "state/selectors";
@@ -30,6 +31,7 @@ import {
   TextInfoTooltip,
   useTooltipSingleton,
 } from "@klimadao/lib/components";
+import { TransactionModal } from "components/TransactionModal";
 import {
   useDebounce,
   trimWithPlaceholder,
@@ -134,6 +136,7 @@ export const Bond: FC<Props> = (props) => {
   const [quantity, setQuantity] = useState("");
   const [shouldAutostake, setShouldAutostake] = useState(false);
   const debouncedQuantity = useDebounce(quantity, 500);
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const { currentBlock, blockRate } = useSelector(selectAppState);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
@@ -148,6 +151,12 @@ export const Bond: FC<Props> = (props) => {
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
+
+  const closeModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
   const vestingPeriod = () => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
     const vestingBlock = currentBlock + bondState.vestingTerm;
@@ -383,9 +392,11 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const isDisabled = view === "bond" && bondInfo.disabled;
+
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
+
     if (isDisabled) {
       return {
         label: <Trans id="shared.sold_out">Sold Out</Trans>,
@@ -445,13 +456,13 @@ export const Bond: FC<Props> = (props) => {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         disabled: false,
-        onClick: handleAllowance,
+        onClick: () => setShowTransactionModal(true),
         variant: "blueRounded",
       };
     } else if (view === "bond") {
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
-        onClick: handleBond,
+        onClick: () => setShowTransactionModal(true),
         disabled: !value || !bondMax,
       };
     } else if (view === "redeem") {
@@ -1062,6 +1073,33 @@ export const Bond: FC<Props> = (props) => {
           </div>
         </div>
       </div>
+
+      {showTransactionModal && (
+        <TransactionModal
+          title={
+            <Text t="h4" className={styles.transaction_modal_header_title}>
+              <SpaOutlined />
+              <Trans id="bond.transaction_modal.title" comment="Bond {0}">
+                Bond {bondInfo.name}
+              </Trans>
+            </Text>
+          }
+          onCloseModal={closeModal}
+          token={
+            !!bondState && getIsInverse(bondState.bond)
+              ? "klima"
+              : bondMapToTokenName[props.bond as BondWithoutInverse]
+          }
+          spender={bondMapToBondName[props.bond]}
+          value={quantity.toString()}
+          status={fullStatus}
+          onResetStatus={() => setStatus(null)}
+          onApproval={handleAllowance}
+          hasApproval={hasApproval()}
+          onSubmit={handleBond}
+        />
+      )}
+
       <ImageCard />
     </>
   );
