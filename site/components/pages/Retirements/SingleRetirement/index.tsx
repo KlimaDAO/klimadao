@@ -1,12 +1,15 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+import { Trans, t } from "@lingui/macro";
 
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
+import { urls } from "@klimadao/lib/constants";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -14,6 +17,9 @@ import { Footer } from "components/Footer";
 import { TweetButton } from "components/TweetButton";
 import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
+import { retirementTokenInfoMap } from "lib/getTokenInfo";
+
+import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
@@ -22,15 +28,34 @@ import { TextGroup } from "./TextGroup";
 import { ProjectDetails } from "./ProjectDetails";
 import { RetirementFooter } from "../Footer";
 import { CopyURLButton } from "../CopyURLButton";
-
-import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
-import { retirementTokenInfoMap } from "lib/getTokenInfo";
+
+const LoadingCertificateButton: React.FC = () => (
+  <ButtonPrimary
+    disabled={true}
+    label={t({
+      id: "shared.loading",
+      message: "Loading...",
+    })}
+  />
+);
+
+const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
+  dynamic(
+    () =>
+      import("./DownloadCertificateButton").then(
+        (mod) => mod.DownloadCertificateButton
+      ),
+    {
+      ssr: false,
+      loading: () => <LoadingCertificateButton />,
+    }
+  );
 
 type Props = {
   beneficiaryAddress: string;
-  retirementTotals: string;
   retirement: KlimaRetire | null;
+  retirementIndex: string;
   retirementIndexInfo: RetirementIndexInfoResult;
   projectDetails?: VerraProjectDetails;
   nameserviceDomain?: string;
@@ -44,8 +69,9 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     retirementIndexInfo,
     nameserviceDomain,
   } = props;
-  const { locale } = useRouter();
+  const { locale, asPath } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
+
   const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
     /\.?0+$/,
     ""
@@ -159,9 +185,20 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                   </Trans>
                 }
                 text={
-                  <Trans id="retirement.single.retirementCertificate.soon">
-                    ...coming soon!
-                  </Trans>
+                  retirement ? (
+                    <DownloadCertificateButton
+                      beneficiaryName={retireData.beneficiaryName}
+                      beneficiaryAddress={beneficiaryAddress}
+                      retirement={retirement}
+                      retirementIndex={props.retirementIndex}
+                      retirementMessage={retireData.retirementMessage}
+                      retirementUrl={`${urls.home}/${asPath}`}
+                      projectDetails={props.projectDetails}
+                      tokenData={tokenData}
+                    />
+                  ) : (
+                    <LoadingCertificateButton />
+                  )
                 }
               />
             </div>
@@ -175,6 +212,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           </Text>
         </div>
       </Section>
+
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
           <TweetButton
@@ -185,6 +223,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           <LinkedInButton />
         </div>
       </Section>
+
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
           <CopyURLButton />
@@ -203,12 +242,14 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
           )}
         </div>
       </Section>
+
       {props.retirement?.offset && (
         <ProjectDetails
           projectDetails={props.projectDetails}
           offset={props.retirement.offset}
         />
       )}
+
       <RetirementFooter />
       <Footer />
     </>

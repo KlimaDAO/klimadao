@@ -64,7 +64,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         canonicalUrl={props.canonicalUrl}
       />
       <Modal
-        title="Your pledge"
+        title={t({
+          id: "pledges.form.title",
+          message: "Your pledge",
+        })}
         showModal={showModal}
         onToggleModal={() => setShowModal(!showModal)}
       >

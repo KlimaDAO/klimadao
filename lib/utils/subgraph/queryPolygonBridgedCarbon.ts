@@ -39,6 +39,10 @@ export const queryKlimaRetireByIndex = async (
                 bridge
                 registry 
                 standard
+                vintage
+                methodology
+                methodologyCategory
+                category
               }
             }
           }

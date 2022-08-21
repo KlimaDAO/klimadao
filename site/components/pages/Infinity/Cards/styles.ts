@@ -63,7 +63,7 @@ export const rereouselItem = css`
   display: flex;
   box-sizing: border-box;
   flex-shrink: 0;
-  margin: 0 1rem;
+  padding: 0 1rem;
 `;
 
 export const sliderWrapper = css`
@@ -89,7 +89,7 @@ export const sliderWrapper = css`
 export const card = css`
   min-width: 29rem;
   max-width: 32.8rem;
-  min-height: 38.4rem;
+  min-height: 40rem;
   height: 38.4rem;
   width: 100%;
   border-radius: 1.6rem;
@@ -97,6 +97,7 @@ export const card = css`
   background: var(--surface-04);
   display: flex;
   flex-direction: column;
+  margin: 0;
 `;
 
 export const cardTitleContainer = css`
@@ -111,7 +112,11 @@ export const cardTitleContainer = css`
 `;
 
 export const cardImageContainer = css`
-  height: 40px;
+  height: 4rem;
+  width: 50%;
+  max-height: 4rem;
+  position: relative;
+  display: block;
 `;
 
 export const cardContent = css`
@@ -137,4 +142,8 @@ export const cardFooter = css`
 export const cardDate = css`
   color: var(--klima-green);
   padding-bottom: 0.4rem;
+`;
+
+export const cardImage = css`
+  display: block;
 `;

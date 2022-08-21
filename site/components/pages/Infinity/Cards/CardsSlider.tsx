@@ -45,19 +45,6 @@ const useWidth = (elementRef: RefObject<HTMLElement>) => {
             .getPropertyValue("border-right-width")
         );
 
-      width =
-        width -
-        parseInt(
-          window
-            .getComputedStyle(elementRef.current)
-            .getPropertyValue("padding-left")
-        ) -
-        parseInt(
-          window
-            .getComputedStyle(elementRef.current)
-            .getPropertyValue("padding-right")
-        );
-
       setWidth(width);
     }
   }, [elementRef]);

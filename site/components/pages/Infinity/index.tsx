@@ -13,8 +13,7 @@ import {
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-
-import { CardsSlider } from "./Cards/CardsSlider";
+import { SocialProof } from "components/SocialProof";
 
 import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
@@ -27,18 +26,11 @@ import forestCanopy from "public/forest_canopy.png";
 import cars from "public/cars.jpg";
 import wavyLines from "public/bg_wavy_lines.png";
 import gasPump from "public/gas_pump.png";
-import logoForbes from "public/logo-forbes.png";
-import logoWired from "public/logo-wired.png";
-import logoWSJ from "public/logo-WSJ.png";
-import logoBloomberg from "public/logo-Bloomberg.png";
-import logoCoinTelegraph from "public/logo-Cointelegraph.png";
-import logoNasdaq from "public/logo-Nasdaq.png";
-import logoTheTimes from "public/logo-theTimes.png";
-import logoYahoo from "public/logo-yahoofinance.png";
 import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 
+import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
 
 import { urls } from "@klimadao/lib/constants";
@@ -48,6 +40,7 @@ import { cx } from "@emotion/css";
 const linkToBlogUserGuide = `${urls.siteBlog}/klima-infinity-user-guide`;
 const linkToBlogFAQ = `${urls.siteBlog}/klima-infinity-faqs`;
 const linkToBlogPolygon = `${urls.siteBlog}/polygon-goes-carbon-neutral-via-klimadao`;
+
 export interface Props {
   fixedThemeName: string;
 }
@@ -129,6 +122,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         </div>
         <CardsSlider />
       </Section>
+
       <Section variant="black" className={styles.infoSection}>
         <div className="info_container">
           <div className="info_left_container">
@@ -203,6 +197,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
+
       <Section variant="black" className={styles.whySection}>
         <div className="why_container">
           <div className="why_left_container">
@@ -235,6 +230,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
+
       <Section variant="black" className={styles.getStartedSection}>
         <Image
           src={infinityWave}
@@ -307,6 +303,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
+
       <Section variant="black" className={styles.carouselSection}>
         <div className="carousel_container">
           <div className="carousel_left_container">
@@ -337,6 +334,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
+
       <Section variant="black" className={styles.polygonSection}>
         <div className="polygon_container">
           <div className="polygon_left_container">
@@ -412,6 +410,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
+
       <Section variant="black" className={styles.missionSection}>
         <div className="mission_image_container">
           <Image
@@ -499,51 +498,11 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           />
         </div>
       </Section>
-      <Section variant="black" className={styles.featuredSection}>
-        <div className="featured_container">
-          <Text t="body4" align="center" className="featured_title">
-            <Trans id="featured.title">KlimaDAO featured on</Trans>
-          </Text>
-          <div className="featured_logo_container">
-            <div className="featured_logo_wrapper">
-              <Image src={logoForbes} alt="Logo Forbes" objectFit="contain" />
-            </div>
-            <div className="featured_logo_wrapper">
-              <Image src={logoWired} alt="Logo Wired" objectFit="contain" />
-            </div>
-            <div className="featured_logo_wrapper">
-              <Image src={logoWSJ} alt="Logo WSJ" objectFit="contain" />
-            </div>
-            <div className="featured_logo_wrapper">
-              <Image
-                src={logoBloomberg}
-                alt="Logo Bloomberg"
-                objectFit="contain"
-              />
-            </div>
-            <div className="featured_logo_wrapper">
-              <Image
-                src={logoCoinTelegraph}
-                alt="Logo CoinTelegraph"
-                objectFit="contain"
-              />
-            </div>
-            <div className="featured_logo_wrapper">
-              <Image src={logoNasdaq} alt="Logo Nasdaq" objectFit="contain" />
-            </div>
-            <div className="featured_logo_wrapper">
-              <Image
-                src={logoTheTimes}
-                alt="Logo The Times"
-                objectFit="contain"
-              />
-            </div>
-            <div className="featured_logo_wrapper">
-              <Image src={logoYahoo} alt="Logo Yahoo" objectFit="contain" />
-            </div>
-          </div>
-        </div>
+
+      <Section variant="black">
+        <SocialProof />
       </Section>
+
       <Section className={styles.faqSection}>
         <div className="faq_container">
           <Text t="h2_alt" align="center" className="faq_title">
@@ -690,6 +649,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
           </div>
         </div>
       </Section>
+
       <Section
         variant="black"
         className={cx(styles.ctaSection, styles.footerContainer)}

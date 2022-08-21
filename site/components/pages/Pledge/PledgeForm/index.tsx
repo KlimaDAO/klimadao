@@ -18,6 +18,7 @@ import { InputField, TextareaField } from "components/Form";
 import {
   editPledgeSignature,
   formSchema,
+  getPledgeFormErrorTranslations,
   putPledge,
   pledgeFormAdapter,
 } from "../lib";
@@ -119,6 +120,7 @@ export const PledgeForm: FC<Props> = (props) => {
         })}
         type="text"
         errors={formState.errors.name}
+        errorMessageMap={getPledgeFormErrorTranslations}
         {...register("name")}
       />
 
@@ -131,6 +133,7 @@ export const PledgeForm: FC<Props> = (props) => {
         placeholder="https://"
         type="text"
         errors={formState.errors.profileImageUrl}
+        errorMessageMap={getPledgeFormErrorTranslations}
         {...register("profileImageUrl")}
       />
 
@@ -146,6 +149,7 @@ export const PledgeForm: FC<Props> = (props) => {
           message: "What is your pledge?",
         })}
         errors={formState.errors.description}
+        errorMessageMap={getPledgeFormErrorTranslations}
         {...register("description")}
       />
 
@@ -162,6 +166,7 @@ export const PledgeForm: FC<Props> = (props) => {
             "What tools or methodologies did you use to calculate your carbon footprint?",
         })}
         errors={formState.errors.methodology}
+        errorMessageMap={getPledgeFormErrorTranslations}
         {...register("methodology")}
       />
 
@@ -194,6 +199,7 @@ export const PledgeForm: FC<Props> = (props) => {
                   })}
                   type="text"
                   errors={formState.errors.categories?.[index]?.name}
+                  errorMessageMap={getPledgeFormErrorTranslations}
                   {...register(`categories.${index}.name` as const)}
                 />
 
@@ -209,6 +215,7 @@ export const PledgeForm: FC<Props> = (props) => {
                   })}
                   type="number"
                   errors={formState.errors.categories?.[index]?.quantity}
+                  errorMessageMap={getPledgeFormErrorTranslations}
                   {...register(`categories.${index}.quantity` as const)}
                 />
               </div>
@@ -246,6 +253,7 @@ export const PledgeForm: FC<Props> = (props) => {
         })}
         type="hidden"
         errors={formState.errors.footprint}
+        errorMessageMap={getPledgeFormErrorTranslations}
         {...register("footprint")}
       />
 
