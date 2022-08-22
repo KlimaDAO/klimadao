@@ -261,7 +261,7 @@ export const PledgeForm: FC<Props> = (props) => {
 
       {/* better to use an input type=submit */}
       <ButtonPrimary
-        disabled={!isDirty || !isValid}
+        disabled={!isDirty}
         label={t({
           id: "pledges.form.submit_button",
           message: "Save pledge",
