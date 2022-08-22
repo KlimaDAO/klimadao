@@ -1,39 +1,15 @@
-import React, { useState } from "react";
-import { ethers } from "ethers";
-import { useRouter } from "next/router";
+import React from "react";
 import { NextPage } from "next";
-import { Trans, t } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { getIsDomainInURL } from "lib/getIsDomainInURL";
 
 import { PageHead } from "components/PageHead";
 import { PledgeLayout } from "./PledgeLayout";
 import * as styles from "./styles";
+import { InputField } from "components/Form";
+import { SocialProof } from "components/SocialProof";
 
 export const Pledge: NextPage = () => {
-  const router = useRouter();
-  const [address, setAddress] = useState("");
-  const [error, setError] = useState(false);
-
-  const handleAddressInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setAddress(event.currentTarget.value);
-  };
-
-  const handleFormSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    handleSubmit();
-  };
-
-  const handleSubmit = () => {
-    if (ethers.utils.isAddress(address) || getIsDomainInURL(address)) {
-      router.push(`/pledge/${address}`);
-    }
-
-    setError(true);
-  };
-
   return (
     <PledgeLayout>
       <PageHead
@@ -43,38 +19,127 @@ export const Pledge: NextPage = () => {
         })}
         mediaTitle={t({
           id: "pledges.head.metaTitle",
-          message:
-            "Klima Infinity - Search for or start a pledge to the world today", // TODO - copy check
+          message: "Create a carbon pledge and showcase your impact",
         })}
         metaDescription={t({
           id: "pledges.head.metaDescription",
           message:
-            "Drive climate action and earn rewards with a carbon-backed digital currency.", // Need better meta description
+            "Demonstrate your commitment to climate positivity by claiming your pledge dashboard to highlight all of your carbon offsetting activity",
         })}
       />
-      <div className={styles.container}>
-        <form className={styles.inputContainer} onSubmit={handleFormSubmit}>
-          <input
-            className={styles.input}
-            placeholder={t({
-              id: "pledges.home.search.placeholder",
-              message: "Enter a wallet address, .klima or .eth domain",
-            })}
-            value={address}
-            data-error={error}
-            onChange={handleAddressInputChange}
-          />
 
-          {error && (
-            <Text className={styles.errorMessage} t="caption">
-              <Trans id="pledges.home.search.error_message">
-                Enter a wallet address, .klima or .eth domain
-              </Trans>
+      <div className={styles.heroContainer}>
+        <section className={styles.hero}>
+          <div className="inner">
+            <Text t="h2_alt" as="h1" align="center">
+              Create a carbon pledge and showcase your impact
             </Text>
-          )}
 
-          <ButtonPrimary label="Search" onClick={handleSubmit} />
-        </form>
+            <Text t="h4" as="p" align="center">
+              Demonstrate your commitment to climate positivity by claiming your
+              pledge dashboard to highlight all of your carbon offsetting
+              activity
+            </Text>
+
+            <div className="actions">
+              <ButtonPrimary variant="blue" label="Create a pledge" />
+              <ButtonPrimary variant="gray" label="Learn more" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div className={styles.container}>
+        <SocialProof />
+
+        <main className={styles.search}>
+          <Text t="h2_alt" as="h2" align="center">
+            Search for a wallet address
+          </Text>
+
+          <form>
+            <InputField
+              hideLabel
+              name="address"
+              id="address"
+              label={t({
+                id: "",
+                message: "ENS or 0x address",
+              })}
+              placeholder={t({
+                id: "",
+                message: "Enter ENS or 0x address",
+              })}
+              type="text"
+            />
+            <ButtonPrimary variant="blue" label="Search" />
+          </form>
+        </main>
+
+        <section className={styles.getStarted}>
+          <Text t="h2_alt" as="h2" align="center">
+            Get started
+          </Text>
+
+          <ol>
+            <li>
+              <Text t="caption" as="h3" align="center">
+                Step 1
+              </Text>
+
+              <div className="inner">
+                <Text t="h4" as="h3" align="center">
+                  Calculate your footprint
+                </Text>
+                <Text t="body6" as="p" align="center">
+                  Discover your carbon emissions impact. See how you compare to
+                  others.
+                </Text>
+              </div>
+            </li>
+
+            <li>
+              <Text t="caption" as="h3" align="center">
+                Step 2
+              </Text>
+
+              <div className="inner">
+                <Text t="h4" as="h3" align="center">
+                  Create a pledge and offset your emissions
+                </Text>
+                <Text t="body6" as="p" align="center">
+                  Description
+                </Text>
+              </div>
+            </li>
+
+            <li>
+              <Text t="caption" as="h3" align="center">
+                Step 3
+              </Text>
+
+              <div className="inner">
+                <Text t="h4" as="h3" align="center">
+                  Watch your impact grow
+                </Text>
+                <Text t="body6" as="p" align="center">
+                  Description
+                </Text>
+              </div>
+            </li>
+          </ol>
+
+          <ButtonPrimary variant="blue" label="Connect wallet" />
+        </section>
+
+        <section className={styles.banner}>
+          <div className="inner">
+            <Text t="h4" as="h2">
+              Create your pledge and go climate positive
+            </Text>
+            <ButtonPrimary variant="blue" label="Get started" />
+          </div>
+        </section>
       </div>
     </PledgeLayout>
   );
