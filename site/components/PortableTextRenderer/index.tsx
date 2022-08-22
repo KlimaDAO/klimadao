@@ -2,21 +2,20 @@ import React, { FC } from "react";
 import Image from "next/image";
 
 import { Anchor as A, Text } from "@klimadao/lib/components";
-
-import { PortableText, PortableTextComponents } from "@portabletext/react";
+import {
+  PortableText,
+  PortableTextComponents,
+  PortableTextProps,
+} from "@portabletext/react";
 import * as styles from "./styles";
 
-interface PortableTextProps {
-  // value: {
-  //   children: {
-  //     text: string;
-  //   }[];
-  // }[];
-  value: any;
-  components?: any;
-}
+// interface Props {
+//   children: {
+//     text: string;
+// }[];
+// }
 
-const BlockRenderer  = {
+const BlockRenderer = {
   h1: ({ children }: { children: JSX.Element[] }) => (
     <Text t="h3" as="h2" className={styles.heading}>
       {children}
@@ -51,7 +50,7 @@ const BlockRenderer  = {
   ),
 };
 
-const components: PortableTextComponents  = {
+const components: PortableTextComponents = {
   list: {
     bullet: ({ children, value }) => {
       return (
@@ -60,12 +59,13 @@ const components: PortableTextComponents  = {
         </ul>
       );
     },
-    default: ({ children, value }) => {      
+    number: ({ children, value }) => {
       return (
-      <ol className={value.level === 2 ? styles.nestedOl : styles.ol}>
-        {children}
-      </ol>
-    )},
+        <ol className={value.level === 2 ? styles.nestedOl : styles.ol}>
+          {children}
+        </ol>
+      );
+    },
   },
   listItem: ({ children }) => <li className={styles.li}>{children}</li>,
 
