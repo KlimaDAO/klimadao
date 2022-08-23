@@ -99,15 +99,11 @@ const nextConfig = {
   },
 };
 
-console.log("nextConfig", nextConfig);
-
 if (!IS_PRODUCTION) {
   nextConfig.i18n = {
     ...nextConfig.i18n,
     locales: [...nextConfig.i18n.locales, "ko", "hi", "en-pseudo"],
   };
 }
-
-console.log("nextConfig 2", nextConfig);
 
 module.exports = nextConfig;
