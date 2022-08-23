@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-23 15:18+0000\n"
+"POT-Creation-Date: 2022-08-23 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -460,7 +460,7 @@ msgstr "2. वित्तीय, निवेश या व्यापार�
 
 #: components/pages/Disclaimer/index.tsx:128
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
-msgstr "3. विश्वसनीय, पूर्ण, क़ानूनन वैध या सुरक्षित रहें।"
+msgstr "3. विश्वसनीय, पूर्ण, क़ानूनन वैध या सुरक्षित रहेगा।"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:35
