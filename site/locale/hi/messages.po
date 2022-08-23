@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-22 15:43+0000\n"
+"POT-Creation-Date: 2022-08-23 15:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -120,7 +120,7 @@ msgstr ""
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:79
 msgid "buy.beginner_04.description_02"
-msgstr ""
+msgstr "1 MATIC अधिकांश उपयोगकर्ताओं के लिए पर्याप्त होना चाहिए। आप आधिकारिक Polygon (पॉलीगॉन) ऐप से जुड़ सकते हैं और उनके <0>गैस स्वैप टूल</0> का उपयोग कर सकते हैं। यह उपकरण आपको MATIC के लिए विभिन्न प्रकार की संपत्तियों का मुफ़्त में व्यापार करने की अनुमति देता है।"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:68
 msgid "buy.beginner_04.title"
@@ -442,25 +442,25 @@ msgstr ""
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:67
 msgid "disclaimer.1_an_offer_or_sollicitation"
-msgstr ""
+msgstr "1. अमूर्त लाभों से सम्बंधित किसी सुरक्षा, अन्य संपत्ति या सेवा को होल्ड करने या नियंत्रित करने का एक प्रस्ताव, या प्रस्ताव का आग्रह;"
 
 #: components/pages/Disclaimer/index.tsx:114
 msgid "disclaimer.1_meet_your_requirements"
-msgstr ""
+msgstr "1. आपकी आवश्यकताओं को पूरा करेगा;"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:119
 msgid "disclaimer.2_be_available_on_an_uninterrupted"
-msgstr ""
+msgstr "2. एक निर्बाध, समयोचित, सुरक्षित, या त्रुटि मुक्त आधार पर उपलब्ध रहेगा;"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:77
 msgid "disclaimer.2_financial_investment_or_trading_advice"
-msgstr ""
+msgstr "2. वित्तीय, निवेश या व्यापारिक सलाह या ऐसी सलाह और/या सेवा प्रदान करने का प्रस्ताव।"
 
 #: components/pages/Disclaimer/index.tsx:128
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
-msgstr ""
+msgstr "3. विश्वसनीय, पूर्ण, क़ानूनन वैध या सुरक्षित रहें।"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:35
@@ -535,15 +535,15 @@ msgstr ""
 
 #: components/pages/errors/Custom500.tsx:34
 msgid "error.500.page.title"
-msgstr ""
+msgstr "500 - सर्वर-साइड त्रुटि हो गयी"
 
 #: components/pages/errors/Custom500.tsx:19
 msgid "error.page.500.head.title"
-msgstr ""
+msgstr "500 - पृष्ठ नहीं मिला"
 
 #: components/pages/errors/Custom500.tsx:15
 msgid "error.page.500.title"
-msgstr ""
+msgstr "500 - पृष्ठ नहीं मिला"
 
 #: components/pages/Home/index.tsx:213
 msgid "home.backed_by_carbon"
@@ -686,11 +686,11 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:398
 msgid "infinity.box_amount_104k"
-msgstr ""
+msgstr "104k"
 
 #: components/pages/Infinity/index.tsx:384
 msgid "infinity.box_amount_11k"
-msgstr ""
+msgstr "11k"
 
 #: components/pages/Infinity/index.tsx:380
 msgid "infinity.box_title"
@@ -750,15 +750,15 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:516
 msgid "infinity.faq_question1"
-msgstr ""
+msgstr "1. कार्बन ऑफ़सेट क्या है?"
 
 #: components/pages/Infinity/index.tsx:550
 msgid "infinity.faq_question2"
-msgstr ""
+msgstr "2. जलवायु परिवर्तन के विरुद्ध लड़ाई में ऑफ़सेटिंग कैसे मदद् करती है?"
 
 #: components/pages/Infinity/index.tsx:607
 msgid "infinity.faq_question3"
-msgstr ""
+msgstr "3. कार्बन बाज़ार क्या हैं?"
 
 #: components/pages/Infinity/index.tsx:130
 msgid "infinity.fast_subtitle"
@@ -770,11 +770,11 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:241
 msgid "infinity.getStarted_1"
-msgstr ""
+msgstr "1"
 
 #: components/pages/Infinity/index.tsx:255
 msgid "infinity.getStarted_2"
-msgstr ""
+msgstr "2"
 
 #: components/pages/Infinity/index.tsx:244
 msgid "infinity.getStarted_calculate"
@@ -798,7 +798,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:269
 msgid "infinity.getStarted_third"
-msgstr ""
+msgstr "3"
 
 #: components/pages/Infinity/index.tsx:275
 msgid "infinity.getStarted_third_subtitle"
@@ -834,7 +834,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:427
 msgid "infinity.mission_card1_title"
-msgstr ""
+msgstr "18.1 मिलियन"
 
 #: components/pages/Infinity/index.tsx:450
 msgid "infinity.mission_card2_description"
@@ -850,7 +850,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:467
 msgid "infinity.mission_card3_number"
-msgstr ""
+msgstr "150,000+"
 
 #: components/pages/Infinity/index.tsx:367
 msgid "infinity.polygon_manifesto_description"
@@ -1308,7 +1308,7 @@ msgstr ""
 #: components/pages/errors/Custom404.tsx:23
 #: components/pages/errors/Custom404.tsx:33
 msgid "shared.404"
-msgstr ""
+msgstr "404 - पृष्ठ नहीं मिला"
 
 #: components/Footer/index.tsx:54
 #: components/pages/Resources/ResourcesHeader/index.tsx:29

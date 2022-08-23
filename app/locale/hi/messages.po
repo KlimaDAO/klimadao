@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-22 15:43+0000\n"
+"POT-Creation-Date: 2022-08-23 15:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,11 +21,11 @@ msgstr "Polygon (पॉलिगॉन) पर स्विच करें"
 
 #: components/InvalidNetworkModal/index.tsx:68
 msgid "This app only works on Polygon Mainnet."
-msgstr ""
+msgstr "यह ऐप केवल Polygon Mainnet (पॉलीगॉन मेननेट) पर ही काम करता है।"
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
-msgstr "गलत नेटवर्क"
+msgstr "ग़लत नेटवर्क"
 
 #: components/views/Offset/index.tsx:771
 msgid "advanced"
@@ -175,7 +175,7 @@ msgstr "⚠️️ चेतावनी: इस बॉन्ड की क़ीम
 
 #: components/views/Bond/index.tsx:901
 msgid "bond.unredeemed"
-msgstr ""
+msgstr "अनरिडीम्ड"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:904
@@ -184,7 +184,7 @@ msgstr "शेष अविमोचित राशि (निहित और 
 
 #: components/views/Bond/index.tsx:813
 msgid "bond.vesting_term_end"
-msgstr ""
+msgstr "निधान अवधि की समाप्ति "
 
 #: components/views/Bond/index.tsx:817
 msgid "bond.vesting_term_end.tooltip"
@@ -193,7 +193,7 @@ msgstr "यदि आप अभी बंधित करते हैं, त�
 #: components/views/Bond/index.tsx:726
 #: components/views/Bond/index.tsx:870
 msgid "bond.you_will_get"
-msgstr "तुम्हे मिल जाएगा"
+msgstr "आपको मिलेगा"
 
 #: components/views/Bond/index.tsx:730
 msgid "bond.you_will_get.description_inverse"
@@ -211,7 +211,7 @@ msgstr "KLIMA ख़रीदें"
 #. Long sentence
 #: components/views/Buy/index.tsx:108
 msgid "buy.connect_wallet"
-msgstr ""
+msgstr "KLIMA ख़रीदने के क्रम में आपको किसी वॉलेट को जोड़ना पड़ेगा।"
 
 #. Long sentence
 #: components/views/Buy/index.tsx:55
@@ -229,7 +229,7 @@ msgstr "कनेक्ट नहीं हैं"
 
 #: components/views/Bond/index.tsx:680
 msgid "capacity.description_inverse"
-msgstr ""
+msgstr "यह बॉन्ड के लिए उपलब्ध अनुबंध में USDC (यूएसडीसी) की राशि है।"
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
@@ -250,7 +250,7 @@ msgstr "️ ⚠️ URL (यूआरएल) सत्यापित करे�
 
 #: components/views/ChooseBond/index.tsx:91
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
-msgstr ""
+msgstr "Toucan (टूकन) Base Carbon Tonne (बेस कार्बन टन)"
 
 #: components/views/ChooseBond/index.tsx:196
 msgid "choose_bond.bond_carbon"
@@ -259,7 +259,7 @@ msgstr "कार्बन बांधें"
 #. Long sentence
 #: components/views/ChooseBond/index.tsx:199
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
-msgstr ""
+msgstr "KLIMA ख़रीदने का सबसे बढ़िया तरीक़ा। हमारी ट्रेज़री में कार्बन जमा करें, और छूट के साथ KLIMA प्राप्त करें। सभी बॉन्ड्स (इनवर्स बॉन्ड्स के अलावा) में 5 दिनों की अनिवार्य निहित अवधि होती है।"
 
 #: components/views/ChooseBond/index.tsx:223
 msgid "choose_bond.choose_bond"
@@ -299,7 +299,7 @@ msgstr "बिक चुका है"
 
 #: components/views/ChooseBond/index.tsx:213
 msgid "choose_bond.treasury_balance"
-msgstr "ट्रेजरी बैलेंस"
+msgstr "ट्रेज़री बैलेंस"
 
 #: components/views/ChooseBond/index.tsx:79
 msgid "choose_bond.ubo.description"
@@ -345,7 +345,7 @@ msgstr "Metamask (मेटामास्क) आपको सही RPC (आ�
 #. Long sentence
 #: components/views/Info/index.tsx:136
 msgid "info.app_not_loading.title"
-msgstr ""
+msgstr "मेरा ऐप लोड क्यों नहीं होता?"
 
 #. Long sentence
 #: components/views/Info/index.tsx:124
@@ -362,7 +362,7 @@ msgstr "आधिकारिक अनुबंध पते"
 
 #: components/InvalidRPCModal/index.tsx:27
 msgid "invalid_rpc.modal.text"
-msgstr ""
+msgstr "नेटवर्क पहुँच से बाहर है। बहुत संभव है कि ऐसा आपकी वॉलेट की किसी पुरानी Polygon RPC (पॉलिगॉन आरपीसी) कॉन्फ़िगरेशन के कारण हो। इसे सही करने के लिए <0>यह गाइड</0> पढ़ें। अन्यथा, समस्याएँ बनीं रहने पर <1>डिस्कॉर्ड</1> पर हमसे संपर्क करें।"
 
 #: components/InvalidRPCModal/index.tsx:20
 msgid "invalid_rpc.modal.title"
@@ -402,7 +402,7 @@ msgstr "आपका वॉलेट पता"
 
 #: components/NavMenu/index.tsx:184
 msgid "menu.wrap_klima"
-msgstr "लपेटें sKLIMA"
+msgstr "sKLIMA रैप करें"
 
 #: components/NotificationModal/index.tsx:26
 msgid "modal.done"
@@ -426,7 +426,7 @@ msgstr "पीछे"
 
 #: components/views/Offset/index.tsx:591
 msgid "offset.aggregation_fee_tooltip"
-msgstr ""
+msgstr "इस लागत में स्लिपेज शुल्क और 1% का एकत्रीकरण शुल्क शामिल है।"
 
 #: components/views/Offset/index.tsx:469
 msgid "offset.amount_in_tonnes"
@@ -450,7 +450,7 @@ msgstr "कार्बन ऑफ़सेट टोकन चुनें जो �
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:53
 msgid "offset.empty"
-msgstr ""
+msgstr "इस एड्रेस द्वारा एक भी रिटायरमेंट पूरी नहीं की गयी है।"
 
 #: components/views/Offset/index.tsx:553
 #: components/views/Offset/index.tsx:800
@@ -467,7 +467,7 @@ msgstr "अयोग्य टोकन दर्ज करें"
 
 #: components/views/Offset/index.tsx:457
 msgid "offset.lifi"
-msgstr "क्रॉस-चेन ऑफ़सेटिंग अब<0>LI.FI</0>. के माध्यम से उपलब्ध है, दर्जनों टोकनों के समर्थन के साथ!"
+msgstr "क्रॉस-चेन ऑफ़सेटिंग अब<0>LI.FI</0> के माध्यम से उपलब्ध है, दर्जनों टोकनों के समर्थन के साथ!"
 
 #: components/views/Offset/index.tsx:496
 msgid "offset.modal_payWith.title"
@@ -479,7 +479,7 @@ msgstr "कार्बन प्रकार चुनें"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:37
 msgid "offset.number_of_retirements"
-msgstr ""
+msgstr "कुल रिटायरमेंट्स"
 
 #: components/views/Offset/index.tsx:486
 msgid "offset.offset_quantity"
@@ -504,7 +504,7 @@ msgstr "नाम अथवा संगठन"
 
 #: components/views/Offset/index.tsx:531
 msgid "offset.retirement_credit"
-msgstr ""
+msgstr "यह रिटायरमेंट किसके खाते में जाएगी?"
 
 #: components/views/Offset/index.tsx:568
 msgid "offset.retirement_message"
@@ -528,7 +528,7 @@ msgstr "अपना रिटायरमेंट देखने के ल�
 
 #: components/views/Offset/index.tsx:717
 msgid "offset.successModal.cta"
-msgstr ""
+msgstr "रिटयरमेंट देखें"
 
 #: components/views/Offset/index.tsx:687
 msgid "offset.successModal.title"
@@ -540,7 +540,7 @@ msgstr "टन कार्बन"
 
 #: components/CarbonTonnesRetiredCard/index.tsx:20
 msgid "offset.you_have_retired"
-msgstr ""
+msgstr "अपने रिटायर किया"
 
 #: components/views/Offset/index.tsx:587
 msgid "offset_cost"
@@ -586,7 +586,7 @@ msgstr "प्रयुक्त pKLIMA"
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:15
 msgid "pklima.overclaim"
-msgstr ""
+msgstr "आपने अपनी आपूर्त्ति-शेयर सीमा से अधिक KLIMA क्लेम किया है। ऐसा शायद 24 नवंबर, 2021 को pKLIMA मोचन अनुबंध के लिए लागू किए गए सुधार के कारण हुआ है।"
 
 #: components/views/PKlima/index.tsx:207
 msgid "pklima.redeem_pklima"
@@ -599,7 +599,7 @@ msgstr "भुनाया गया"
 #. Long sentence
 #: components/views/PKlima/index.tsx:269
 msgid "pklima.redeemed.tooltip"
-msgstr ""
+msgstr "कुल KLIMA जिसे आपने अब तक रिडीम किया है।"
 
 #: components/views/PKlima/index.tsx:250
 msgid "pklima.supply_limit"
@@ -612,7 +612,7 @@ msgstr "कुल टोकन आपूर्त्ति का एक प्�
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
-msgstr ""
+msgstr "अपडेटेड अनुबंध अब मानता है कि pKLIMA धारकों ने पहले दावा किए गए टोकनों पर दाँव लगाया और पुरस्कार अर्जित किया। नवंबर फिक्स से पहले, इन दाँव पुरस्कारों को आपकी आपूर्त्ति शेयर सीमा के मुक़ाबले नहीं गिना जाता था, जिसका अर्थ था कि कुल KLIMA आपूर्त्ति का आपका हिस्सा आपकी शर्तों में परिभाषित सीमा को पार कर सकता है।"
 
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:428
@@ -662,7 +662,7 @@ msgstr "मात्रा दर्ज करें"
 #: components/views/Bond/index.tsx:467
 #: components/views/Stake/index.tsx:280
 msgid "shared.error"
-msgstr "गलती"
+msgstr "ग़लती"
 
 #: components/views/Offset/index.tsx:348
 #: components/views/Stake/index.tsx:252
@@ -773,7 +773,7 @@ msgstr "रिबेस करना"
 
 #: components/RebaseCard/index.tsx:48
 msgid "stake.rebase.info"
-msgstr ""
+msgstr "प्रोटोकॉल स्वचालित रूप से पुरस्कार बनाता और वितरित करता है। आपका भुगतान आपके sKLIMA बैलेंस का कुछेक प्रतिशत है"
 
 #: components/views/Stake/index.tsx:339
 msgid "stake.stake"
@@ -791,16 +791,16 @@ msgstr "KLIMA दाँव पर लगाएँ"
 
 #: components/views/Stake/index.tsx:351
 msgid "stake.unstake"
-msgstr ""
+msgstr "अनस्टेक करना"
 
 #: components/views/Stake/index.tsx:270
 #: components/views/Stake/index.tsx:477
 msgid "stake.unstake_klima"
-msgstr ""
+msgstr "KLIMA अनस्टेक करें"
 
 #: actions/utils.ts:32
 msgid "status.done"
-msgstr "लेन-देन पूरा।"
+msgstr "लेन-देन पूर्ण हुआ।"
 
 #: actions/utils.ts:27
 msgid "status.error"
@@ -808,7 +808,7 @@ msgstr "❌ एरर: कुछ गड़बड़ हो गयी..."
 
 #: actions/utils.ts:39
 msgid "status.network_confirmation"
-msgstr ""
+msgstr "लेन-देन शुरू किया। नेटवर्क पुष्टि की प्रतीक्षा कर रहा है।"
 
 #: actions/utils.ts:34
 msgid "status.user_confirmation"
@@ -816,7 +816,7 @@ msgstr "जारी रखने के लिए कृपया अपने 
 
 #: actions/utils.ts:21
 msgid "status.user_rejected"
-msgstr ""
+msgstr "आपने लेन-देन को अस्वीकार करना चयनित किया"
 
 #: components/NavMenu/index.tsx:212
 msgid "token.pKLIMA"
@@ -824,7 +824,7 @@ msgstr "pKLIMA"
 
 #: components/TransactionModal/Approve.tsx:52
 msgid "transaction_modal.approve.allow_amount"
-msgstr ""
+msgstr "आपको अपनी ओर से टोकन ट्रांस्फ़र करने के लिए पहले हमारे स्मार्ट कॉन्ट्रैक्ट को अनुमति देनी होगी।"
 
 #: components/TransactionModal/Approve.tsx:60
 msgid "transaction_modal.approve.approve_quantity.contract_address"
@@ -900,7 +900,7 @@ msgstr "बैलेंस"
 
 #: components/views/Wrap/index.tsx:257
 msgid "wrap.balances_tooltip"
-msgstr ""
+msgstr "इंडेक्स-समायोजित रैप्ड-स्टैक्ड-KLIMA प्राप्त करने के लिए sKLIMA रैप करें"
 
 #: components/views/Wrap/index.tsx:349
 msgid "wrap.index"
@@ -912,19 +912,19 @@ msgstr "यदि आप लॉन्च के दिन 1 KLIMA दाँव �
 
 #: components/views/Wrap/index.tsx:48
 msgid "wrap.sklima_to_wrap"
-msgstr "रैप sKLIMA"
+msgstr "रैप किया जाने वाला sKLIMA"
 
 #: components/views/Wrap/index.tsx:312
 msgid "wrap.unwrap"
-msgstr "खोलना"
+msgstr "अनरैप करना"
 
 #: components/views/Wrap/index.tsx:301
 msgid "wrap.wrap"
-msgstr "लपेटना"
+msgstr "रैप करना"
 
 #: components/views/Wrap/index.tsx:267
 msgid "wrap.wrap_sklima"
-msgstr "लपेटें sKLIMA"
+msgstr "sKLIMA  रैप करें"
 
 #. Long sentence
 #: components/views/Wrap/index.tsx:279
@@ -934,15 +934,15 @@ msgstr "कुछ इसे लेखांकन उद्देश्यों
 #. Long sentence
 #: components/views/Wrap/index.tsx:270
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
-msgstr ""
+msgstr "WsKLIMA प्राप्त करने के लिए sKLIMA रैप करें। sKLIMA के विपरीत, आपका wsKLIMA बैलेंस समय के साथ नहीं बढ़ेगा।"
 
 #: components/views/Wrap/index.tsx:52
 msgid "wrap.wsklima_to_unwrap"
-msgstr "अनरैप wsKLIMA"
+msgstr "अनरैप किया जाने वाला wsKLIMA"
 
 #: components/views/Wrap/index.tsx:365
 msgid "wrap.you_will_get"
-msgstr "तुम्हे मिल जाएगा"
+msgstr "आपको मिलेगा"
 
 #: components/BalancesCard/index.tsx:33
 msgid "wsklima.unwrapped.label"
