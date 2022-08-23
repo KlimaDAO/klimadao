@@ -1133,6 +1133,26 @@ msgstr ""
 msgid "podcast.head.title"
 msgstr ""
 
+#: components/pages/Resources/index.tsx:31
+msgid "resources.head.metaDescription"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:27
+msgid "resources.head.metaTitle"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:23
+msgid "resources.head.title"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:46
+msgid "resources.page.header.subline"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:43
+msgid "resources.page.header.title"
+msgstr ""
+
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
 msgstr ""

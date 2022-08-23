@@ -1,6 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
-import { t } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { Text, Section } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
@@ -39,8 +39,14 @@ export const Resources: NextPage<Props> = ({ documents }) => {
 
       <Section variant="gray">
         <div className={styles.header}>
-          <Text t="h3" align="center">
-            Resources Page - Hidden on Production
+          <Text t="h1" align="center">
+            <Trans id="resources.page.header.title">Featured Articles</Trans>
+          </Text>
+          <Text t="body3" align="center">
+            <Trans id="resources.page.header.subline">
+              Updates and thought leadership from the founders, DAO
+              contributors, advisors and community.
+            </Trans>
           </Text>
         </div>
         <div className={styles.list}>
