@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-23 16:15+0000\n"
+"POT-Creation-Date: 2022-08-23 21:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -877,7 +877,7 @@ msgstr "Polygon ha compensado las emisiones de carbono de la red desde su creaci
 msgid "infinity.polygon_story_title"
 msgstr "Polygon eligió a Klima Infinity para compensar su red de blockchain"
 
-#: components/pages/Infinity/Cards/Card.tsx:66
+#: components/pages/Infinity/Cards/Card.tsx:64
 #: components/pages/Infinity/index.tsx:387
 #: components/pages/Infinity/index.tsx:401
 msgid "infinity.tonnes"
