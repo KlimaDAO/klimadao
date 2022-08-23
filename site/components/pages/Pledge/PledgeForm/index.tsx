@@ -65,7 +65,7 @@ export const PledgeForm: FC<Props> = (props) => {
       defaultValues: pledgeFormAdapter(props.pledge),
       resolver: yupResolver(formSchema),
     });
-  const { isDirty, isValid } = formState;
+  const { isDirty } = formState;
 
   const { fields, append, remove } = useFieldArray({
     name: "categories",
