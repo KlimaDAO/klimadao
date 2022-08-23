@@ -101,13 +101,14 @@ export const generateCertificate = (params: Params): void => {
   };
 
   const printRetirementDetails = (): void => {
+    const retirementAmount =
+      Number(params.retirement.amount) < 0.01
+        ? "< 0.01"
+        : trimWithLocale(params.retirement.amount, 2, "en");
+
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(28);
-    doc.text(
-      `${trimWithLocale(params.retirement.amount, 2, "en")} tonnes`,
-      spacing.margin,
-      70
-    );
+    doc.text(`${retirementAmount} tonnes`, spacing.margin, 70);
 
     doc.setFont("Poppins", "Bold");
     doc.setLineHeightFactor(1);
