@@ -37,7 +37,7 @@ export const Resources: NextPage<Props> = ({ documents }) => {
 
       <Navigation activePage="Resources" />
 
-      <Section variant="black">
+      <Section variant="gray">
         <div className={styles.header}>
           <Text t="h3" align="center">
             Resources Page - Hidden on Production
