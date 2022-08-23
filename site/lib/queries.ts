@@ -98,7 +98,6 @@ export type PodcastDetails = {
   slug: string;
   publishedAt: string;
   title: string;
-  host: { name: string };
   summary: string;
   embed?: string;
 };
