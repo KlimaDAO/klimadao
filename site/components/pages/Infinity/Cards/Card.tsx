@@ -54,9 +54,7 @@ export const Card: FC<Props> = (props) => {
         </Anchor>
       </div>
       <div className={styles.cardContent}>
-        <Text t="body4" className={styles.cardMessage}>
-          “{props.card.description}”
-        </Text>
+        <Text className={styles.cardMessage}>“{props.card.description}”</Text>
         <div className={styles.cardFooter}>
           <div>
             <Text t="h3">
