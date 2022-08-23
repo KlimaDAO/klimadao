@@ -5,12 +5,27 @@ const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 const nextConfig = {
   reactStrictMode: true,
   async redirects() {
+    if (IS_PRODUCTION) {
+      return [
+        {
+          source: "/resources",
+          destination: "/blog",
+          permanent: true,
+        },
+        {
+          source: "/cms",
+          destination: "https://klimadao.sanity.studio/desk",
+          permanent: true,
+        },
+      ];
+    }
     return [
-      {
-        source: "/resources",
-        destination: "/blog",
-        permanent: true,
-      },
+      // Enable this as soon as the Resources page is live
+      // {
+      //   source: "/blog",
+      //   destination: "/resources",
+      //   permanent: true,
+      // },
       {
         source: "/cms",
         destination: "https://klimadao.sanity.studio/desk",
@@ -84,11 +99,15 @@ const nextConfig = {
   },
 };
 
+console.log("nextConfig", nextConfig);
+
 if (!IS_PRODUCTION) {
   nextConfig.i18n = {
     ...nextConfig.i18n,
     locales: [...nextConfig.i18n.locales, "ko", "hi", "en-pseudo"],
   };
 }
+
+console.log("nextConfig 2", nextConfig);
 
 module.exports = nextConfig;
