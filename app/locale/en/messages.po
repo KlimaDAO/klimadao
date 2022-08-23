@@ -482,7 +482,7 @@ msgstr "INPUT TOKEN INCOMPATIBLE"
 
 #: components/views/Offset/index.tsx:457
 msgid "offset.lifi"
-msgstr "Cross-chain offsetting is now available through<0>LI.FI</0>, with support for dozens of tokens!"
+msgstr "Cross-chain offsetting is now available through <0>LI.FI</0>, with support for dozens of tokens!"
 
 #: components/views/Offset/index.tsx:496
 msgid "offset.modal_payWith.title"
