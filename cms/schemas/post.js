@@ -78,6 +78,14 @@ export default {
       initialValue: true,
     },
     {
+      name: "isFeaturedArticle",
+      title: "Is Featured Article",
+      description:
+        "This will show this post in the featured article slider. Please ensure that the uploaded image is a nice one without any text.",
+      type: "boolean",
+      initialValue: false,
+    },
+    {
       name: "hideFromProduction",
       title: "Hide From Production (preview mode):",
       description:
