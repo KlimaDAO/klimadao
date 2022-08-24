@@ -254,6 +254,14 @@ export const Stake = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
+    } else if (!hasApproval()) {
+      return {
+        label: <Trans id="shared.approve">APPROVE</Trans>,
+        onClick: () => {
+          setShowTransactionModal(true);
+        },
+        disabled: false,
+      };
     } else if (view === "stake") {
       return {
         label: value ? (

@@ -222,6 +222,14 @@ export const Wrap: FC<Props> = (props) => {
         onClick: undefined,
         disabled: true,
       };
+    } else if (!hasApproval()) {
+      return {
+        label: <Trans id="shared.approve">APPROVE</Trans>,
+        onClick: () => {
+          setShowTransactionModal(true);
+        },
+        disabled: false,
+      };
     } else if (view === WRAP) {
       return {
         label: WRAP,
