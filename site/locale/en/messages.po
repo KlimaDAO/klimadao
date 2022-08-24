@@ -942,19 +942,19 @@ msgstr "{pledgeOwnerTitle}'s pledge"
 msgid "pledges.dashboard.head.title"
 msgstr "KlimaDAO | Pledges"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:13
+#: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
 msgstr "How will you meet your pledge?"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:20
+#: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:21
 msgid "pledges.dashboard.metholodogy.title"
 msgstr "Methodology"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:13
+#: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:14
 msgid "pledges.dashboard.pledge.default_text"
 msgstr "Write your pledge today!"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:20
+#: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:21
 msgid "pledges.dashboard.pledge.title"
 msgstr "Pledge"
 

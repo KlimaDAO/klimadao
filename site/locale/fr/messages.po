@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-24 22:02+0000\n"
+"POT-Creation-Date: 2022-08-24 22:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -941,19 +941,19 @@ msgstr "L'engagement de {pledgeOwnerTitle}"
 msgid "pledges.dashboard.head.title"
 msgstr "KlimaDAO | Engagements"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:13
+#: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
 msgstr "Comment allez-vous tenir votre engagement ?"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:20
+#: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:21
 msgid "pledges.dashboard.metholodogy.title"
 msgstr "Méthodologie"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:13
+#: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:14
 msgid "pledges.dashboard.pledge.default_text"
 msgstr "Rédigez votre engagement aujourd'hui !"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:20
+#: components/pages/Pledge/PledgeDashboard/Cards/PledgeCard/index.tsx:21
 msgid "pledges.dashboard.pledge.title"
 msgstr "Engagement"
 
