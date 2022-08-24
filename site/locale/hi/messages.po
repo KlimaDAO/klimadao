@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-24 17:17+0000\n"
+"POT-Creation-Date: 2022-08-24 21:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,7 +9,7 @@ msgstr ""
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
-msgstr ""
+msgstr "लेख"
 
 #: components/ChangeLanguageButton/index.tsx:65
 msgid "Change language"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Episodes"
 msgstr "एपिसोड"
 
-#: components/pages/Infinity/index.tsx:503
+#: components/pages/Infinity/index.tsx:509
 msgid "Frequently Asked Questions"
 msgstr ""
 
@@ -80,11 +80,11 @@ msgstr "विकसित"
 #: components/pages/Buy/index.tsx:86
 #: components/pages/Buy/index.tsx:172
 msgid "buy.beginner"
-msgstr "शुरुआती"
+msgstr "बिगिनर"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:14
 msgid "buy.beginner_01.description_01"
-msgstr ""
+msgstr "<0>Metamask</0> (मेटामास्क) एथेरियम और पॉलीगॉन के लिए सबसे लोकप्रिय वॉलेट है। यही वह है जिसका उपयोग आप हमारे ऐप से जुड़ने और लेनदेन भेजने के लिए करते हैं। अपने वेब ब्राउज़र में एक्सटेंशन इंस्टॉल करना सुनिश्चित करें।"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:10
 msgid "buy.beginner_01.title"
@@ -96,7 +96,7 @@ msgstr ""
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:37
 msgid "buy.beginner_02.description_02"
-msgstr ""
+msgstr "आपके कनेक्ट होने के बाद, KlimaDAO ऐप अपने आप आपको पॉलीगॉन नेटवर्क पर स्विच करने के लिए संकेत करेगा। Metamask (मेटामास्क) आपसे इस क्रिया की पुष्टि करने के लिए कहेगा।"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:25
 msgid "buy.beginner_02.title"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:47
 msgid "buy.beginner_03.title"
-msgstr "KLIMA खरीदें"
+msgstr "KLIMA ख़रीदें"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:72
 msgid "buy.beginner_04.description_01"
@@ -124,7 +124,7 @@ msgstr "1 MATIC अधिकांश उपयोगकर्ताओं क�
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:68
 msgid "buy.beginner_04.title"
-msgstr "MATIC खरीदें (नए उपयोगकर्ताओं के लिए)"
+msgstr "MATIC ख़रीदें (नए उपयोगकर्ताओं के लिए)"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:97
 msgid "buy.beginner_05.description_01"
@@ -137,11 +137,11 @@ msgstr ""
 #: components/pages/Buy/index.tsx:128
 #: components/pages/Buy/index.tsx:253
 msgid "buy.bonding"
-msgstr ""
+msgstr "बॉन्डिंग"
 
 #: components/pages/Buy/index.tsx:256
 msgid "buy.bonding.description_01"
-msgstr ""
+msgstr "बॉन्डिंग रियायती KLIMA के बदले कार्बन संपत्ति जमा करने की प्रक्रिया है। यह एक तरीक़ा है जिससे KLIMA ट्रेज़री सकारात्मक जलवायु प्रभाव के लिए कार्बन क्रेडिट को अवशोषित करता है। बॉन्डिंग प्रत्येक नए KLIMA टोकन के लिए समर्थन भी प्रदान करती है।"
 
 #: components/pages/Buy/index.tsx:264
 msgid "buy.bonding.description_02"
@@ -186,7 +186,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:157
 msgid "buy.disclaimer_02"
-msgstr ""
+msgstr "ब्लॉकचेन लेनदेन स्थायी और अपरिवर्तनीय हैं। हमारी टीम खोई हुई या चोरी हुई संपत्ति को पुनः प्राप्त करने में सक्षम नहीं है। KlimaDAO कोई ज़िम्मेदारी, दायित्व नहीं लेता है और न ही कोई गारंटी प्रदान करता है। सभी बाज़ार और एक्सचेंज स्वतंत्र रूप से और उच्च अस्थिरता के साथ काम करते हैं।"
 
 #: components/pages/Buy/index.tsx:44
 #: components/pages/Buy/index.tsx:45
@@ -240,11 +240,11 @@ msgstr "भागीदार बनें"
 
 #: components/pages/Resources/Community/index.tsx:170
 msgid "community.bigcowg_logo"
-msgstr ""
+msgstr "BICOWG लोगो"
 
 #: components/pages/Resources/Community/index.tsx:159
 msgid "community.blockchainforclimatefondation_logo"
-msgstr ""
+msgstr "Climate Foundation (क्लाइमेट फाउंडेशन) लोगो के लिए ब्लॉकचेन"
 
 #: components/pages/Resources/Community/index.tsx:344
 msgid "community.come_on_in"
@@ -465,12 +465,12 @@ msgstr "3. विश्वसनीय, पूर्ण, क़ानूनन व�
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:35
 msgid "disclaimer.all_information_on_this_website"
-msgstr ""
+msgstr "इस वेबसाइट पर संपूर्ण जानकारी सद्भावना के साथ और सामान्य जानकारी के उद्देश्य से ही प्रकाशित की जाती है। KlimaDAO को इस आधार पर वितरित किया जाता है कि यह उपयोगी होगा और उपरोक्त वेबसाइट पर वर्णित तर्कों और सीमाओं के भीतर ही काम करेगा।"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:162
 msgid "disclaimer.any_action_you_take_upon_the_information"
-msgstr ""
+msgstr "इस वेबसाइट पर आपको जो जानकारी मिलती है, उस पर आप जो भी कार्रवाई करते हैं, वह पूरी तरह से आपके अपने जोखिम पर है। इस वेबसाइट पर निहित जानकारी के आधार पर निर्णय पूरी तरह से आगंतुक की जिम्मेदारी है। KlimaDAO इस वेबसाइट के उपयोग के संबंध में किसी भी नुकसान और/या क्षति के लिए उत्तरदायी नहीं होगा, आपके पासवर्ड/सीड वाक्यांश की हानि, एक ख़राब व्यापार, ग़लत पते पर संपत्ति भेजना, आपकी संपत्ति के खोने और स्कैमर्स के कारण क्षति से संबंधित घटनाओं के लिए उत्तरदायी नहीं होगा। KlimaDAO बाज़ार में बदलाव और इसकी अस्थिरता से जुड़ी कोई जिम्मेदारी या दायित्व नहीं ले सकता है। आपको अपना शोध स्वयं करना चाहिए और इस मंच द्वारा प्रदान की गई जानकारी या सेवा के बारे में अपनी स्थिति, परिचय और ज्ञान से खुद को संतुष्ट करना चाहिए।"
 
 #: components/pages/Disclaimer/index.tsx:31
 msgid "disclaimer.disclaimer"
@@ -478,7 +478,7 @@ msgstr ""
 
 #: components/pages/Disclaimer/index.tsx:20
 msgid "disclaimer.head.description"
-msgstr ""
+msgstr "KlimaDAO विधिक टीम की ओर से एक महत्वपूर्ण अस्वीकरण।"
 
 #: components/pages/Disclaimer/index.tsx:16
 #: components/pages/Disclaimer/index.tsx:24
@@ -535,7 +535,7 @@ msgstr ""
 
 #: components/pages/errors/Custom500.tsx:34
 msgid "error.500.page.title"
-msgstr "500 - सर्वर-साइड त्रुटि हो गयी"
+msgstr "500 - सर्वर-संबंधी त्रुटि हो गयी"
 
 #: components/pages/errors/Custom500.tsx:19
 msgid "error.page.500.head.title"
@@ -547,7 +547,7 @@ msgstr "500 - पृष्ठ नहीं मिला"
 
 #: components/pages/Home/index.tsx:213
 msgid "home.backed_by_carbon"
-msgstr ""
+msgstr "Carbon (कार्बन) द्वारा समर्थित।"
 
 #: components/pages/Home/index.tsx:304
 msgid "home.cars_annual"
@@ -620,7 +620,7 @@ msgstr "यांत्रिकी"
 
 #: components/pages/Home/index.tsx:468
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
-msgstr ""
+msgstr "सभी अल्फ़ा साथियों, सीधे आपके इनबॉक्स में"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:476
@@ -642,7 +642,7 @@ msgstr "समाचार पत्रिका"
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
 #: components/pages/Home/index.tsx:376
 msgid "home.reserve_asset_of_the_carbon_economy"
-msgstr ""
+msgstr "<1>कार्बन अर्थव्यवस्था की</1><0>आरक्षित संपत्ति</0>"
 
 #: components/pages/Home/index.tsx:446
 msgid "home.see_tutorial"
@@ -669,42 +669,42 @@ msgstr ""
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
 #: components/pages/Home/index.tsx:405
 msgid "home.weekly_rewards_for_token_holders"
-msgstr ""
+msgstr "<1>टोकन धारकों के लिए</1><0>{0}% साप्ताहिक पुरस्कार</0>"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
 #: components/pages/Home/index.tsx:89
 msgid "home.welcome_to_klimadao"
-msgstr ""
+msgstr "<1>KlimaDAO</1><0>में आपका स्वागत है</0>"
 
-#: components/pages/Infinity/index.tsx:153
+#: components/pages/Infinity/index.tsx:155
 msgid "infinity.affordable_subtitle"
-msgstr ""
+msgstr "वहनयोग्य"
 
-#: components/pages/Infinity/index.tsx:148
+#: components/pages/Infinity/index.tsx:150
 msgid "infinity.affordable_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:398
+#: components/pages/Infinity/index.tsx:404
 msgid "infinity.box_amount_104k"
 msgstr "104k"
 
-#: components/pages/Infinity/index.tsx:384
+#: components/pages/Infinity/index.tsx:390
 msgid "infinity.box_amount_11k"
 msgstr "11k"
 
-#: components/pages/Infinity/index.tsx:380
+#: components/pages/Infinity/index.tsx:386
 msgid "infinity.box_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:394
+#: components/pages/Infinity/index.tsx:400
 msgid "infinity.box_title2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:637
+#: components/pages/Infinity/index.tsx:643
 msgid "infinity.button.read_blog_faq"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:348
+#: components/pages/Infinity/index.tsx:354
 msgid "infinity.button.read_blog_polygon"
 msgstr ""
 
@@ -712,193 +712,193 @@ msgstr ""
 msgid "infinity.cards_slider.title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:311
+#: components/pages/Infinity/index.tsx:317
 msgid "infinity.carousel_image_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:323
+#: components/pages/Infinity/index.tsx:329
 msgid "infinity.carousel_info_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:318
+#: components/pages/Infinity/index.tsx:324
 msgid "infinity.carousel_info_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:657
+#: components/pages/Infinity/index.tsx:663
 msgid "infinity.cta_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:530
+#: components/pages/Infinity/index.tsx:536
 msgid "infinity.faq_answer1"
-msgstr ""
+msgstr "एक कार्बन ऑफ़सेट यूनिट का अर्थ वातावरण से एक टन कार्बन डाइऑक्साइड समकक्ष (tCO2e) को हटाना, अथवा एक टन उत्सर्जन से बचना है।"
 
-#: components/pages/Infinity/index.tsx:566
+#: components/pages/Infinity/index.tsx:572
 msgid "infinity.faq_answer2_paragraph1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:576
+#: components/pages/Infinity/index.tsx:582
 msgid "infinity.faq_answer2_paragraph2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:584
+#: components/pages/Infinity/index.tsx:590
 msgid "infinity.faq_answer2_paragraph3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:621
+#: components/pages/Infinity/index.tsx:627
 msgid "infinity.faq_answer3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:516
+#: components/pages/Infinity/index.tsx:522
 msgid "infinity.faq_question1"
 msgstr "1. कार्बन ऑफ़सेट क्या है?"
 
-#: components/pages/Infinity/index.tsx:550
+#: components/pages/Infinity/index.tsx:556
 msgid "infinity.faq_question2"
 msgstr "2. जलवायु परिवर्तन के विरुद्ध लड़ाई में ऑफ़सेटिंग कैसे मदद् करती है?"
 
-#: components/pages/Infinity/index.tsx:607
+#: components/pages/Infinity/index.tsx:613
 msgid "infinity.faq_question3"
 msgstr "3. कार्बन बाज़ार क्या हैं?"
 
-#: components/pages/Infinity/index.tsx:130
+#: components/pages/Infinity/index.tsx:132
 msgid "infinity.fast_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:135
+#: components/pages/Infinity/index.tsx:137
 msgid "infinity.fast_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:241
+#: components/pages/Infinity/index.tsx:247
 msgid "infinity.getStarted_1"
 msgstr "1"
 
-#: components/pages/Infinity/index.tsx:255
+#: components/pages/Infinity/index.tsx:261
 msgid "infinity.getStarted_2"
 msgstr "2"
 
-#: components/pages/Infinity/index.tsx:244
+#: components/pages/Infinity/index.tsx:250
 msgid "infinity.getStarted_calculate"
-msgstr ""
+msgstr "गणना करें"
 
-#: components/pages/Infinity/index.tsx:247
+#: components/pages/Infinity/index.tsx:253
 msgid "infinity.getStarted_calculate_subtitle"
-msgstr ""
+msgstr "अपने संगठन के कार्बन फुटप्रिंट की गणना करें और Klima Infinity (क्लीमा इनफिनिटी) के साथ अपने ऑफ़सेट के दायरे को परिभाषित करें।"
 
-#: components/pages/Infinity/index.tsx:284
+#: components/pages/Infinity/index.tsx:290
 msgid "infinity.getStarted_cta"
-msgstr ""
+msgstr "कार्बन न्यूट्रल होने - और उससे आगे के लिए अपनी रफ़्तार तेज़ करें"
 
-#: components/pages/Infinity/index.tsx:261
+#: components/pages/Infinity/index.tsx:267
 msgid "infinity.getStarted_second_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:258
+#: components/pages/Infinity/index.tsx:264
 msgid "infinity.getStarted_second_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:269
+#: components/pages/Infinity/index.tsx:275
 msgid "infinity.getStarted_third"
 msgstr "3"
 
-#: components/pages/Infinity/index.tsx:275
+#: components/pages/Infinity/index.tsx:281
 msgid "infinity.getStarted_third_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:272
+#: components/pages/Infinity/index.tsx:278
 msgid "infinity.getStarted_third_title"
-msgstr ""
+msgstr "विस्तार करें"
 
-#: components/pages/Infinity/index.tsx:64
+#: components/pages/Infinity/index.tsx:66
 msgid "infinity.head.metaDescription"
-msgstr ""
+msgstr "आपके संगठन के लिए अगली पीढ़ी का कार्बन टूलकिट।"
 
-#: components/pages/Infinity/index.tsx:60
+#: components/pages/Infinity/index.tsx:62
 msgid "infinity.head.metaTitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:56
+#: components/pages/Infinity/index.tsx:58
 msgid "infinity.head.title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:167
+#: components/pages/Infinity/index.tsx:169
 msgid "infinity.info_subtitle1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:172
+#: components/pages/Infinity/index.tsx:174
 msgid "infinity.info_subtitle2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:430
+#: components/pages/Infinity/index.tsx:436
 msgid "infinity.mission_card1_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:427
+#: components/pages/Infinity/index.tsx:433
 msgid "infinity.mission_card1_title"
 msgstr "18.1 मिलियन"
 
-#: components/pages/Infinity/index.tsx:450
+#: components/pages/Infinity/index.tsx:456
 msgid "infinity.mission_card2_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:447
+#: components/pages/Infinity/index.tsx:453
 msgid "infinity.mission_card2_number"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:470
+#: components/pages/Infinity/index.tsx:476
 msgid "infinity.mission_card3_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:467
+#: components/pages/Infinity/index.tsx:473
 msgid "infinity.mission_card3_number"
 msgstr "150,000+"
 
-#: components/pages/Infinity/index.tsx:367
+#: components/pages/Infinity/index.tsx:373
 msgid "infinity.polygon_manifesto_description"
-msgstr ""
+msgstr "अपने पूरे नेटवर्क के ऐतिहासिक उत्सर्जन को ऑफसेट करके, पॉलीगॉन ने यह सुनिश्चित किया है कि उसके नेटवर्क के भीतर हर आदान-प्रदान - चाहे वह NFT (एनएफटी) मिंट हो या DeFi (डीफ़ाई) लेनदेन - को ध्यान में रखा जाता है। यह एक प्रमुख कारण है कि मेटा ने अपने NFT (एनएफटी) जारी करने के लिए बहुभुज को चुना।"
 
-#: components/pages/Infinity/index.tsx:361
+#: components/pages/Infinity/index.tsx:367
 msgid "infinity.polygon_manifesto_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:341
+#: components/pages/Infinity/index.tsx:347
 msgid "infinity.polygon_story_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:336
+#: components/pages/Infinity/index.tsx:342
 msgid "infinity.polygon_story_title"
 msgstr ""
 
 #: components/pages/Infinity/Cards/Card.tsx:64
-#: components/pages/Infinity/index.tsx:387
-#: components/pages/Infinity/index.tsx:401
+#: components/pages/Infinity/index.tsx:393
+#: components/pages/Infinity/index.tsx:407
 msgid "infinity.tonnes"
 msgstr "टन"
 
-#: components/pages/Infinity/index.tsx:185
+#: components/pages/Infinity/index.tsx:187
 msgid "infinity.transparent_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:180
+#: components/pages/Infinity/index.tsx:182
 msgid "infinity.transparent_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:93
+#: components/pages/Infinity/index.tsx:95
 msgid "infinity.welcome_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:88
+#: components/pages/Infinity/index.tsx:90
 msgid "infinity.welcome_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:211
+#: components/pages/Infinity/index.tsx:213
 msgid "infinity.why_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:206
+#: components/pages/Infinity/index.tsx:208
 msgid "infinity.why_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:203
+#: components/pages/Infinity/index.tsx:205
 msgid "infinity.why_title"
 msgstr ""
 
@@ -906,13 +906,13 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:419
+#: components/pages/Infinity/index.tsx:425
 msgid "mission.header"
 msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:82
 msgid "pledges.dashboard.assets.title"
-msgstr ""
+msgstr "कार्बन एसेट्स"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:73
 msgid "pledges.dashboard.footprint.title"
@@ -984,7 +984,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:238
 msgid "pledges.form.add_footprint_category_button"
-msgstr ""
+msgstr "कैटेगरी जोड़ें"
 
 #: components/pages/Pledge/lib/formSchema.ts:42
 msgid "pledges.form.errors.categoryName.max"
@@ -1036,7 +1036,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:180
 msgid "pledges.form.footprint.prompt"
-msgstr ""
+msgstr "एक कैटेगरी जोड़ें और अपने कार्बन फुटप्रिंट की गणना शुरू करें"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:108
 msgid "pledges.form.generic_error"
@@ -1149,7 +1149,7 @@ msgstr "Klima के बारे में"
 
 #: components/pages/Retirements/Footer/index.tsx:68
 msgid "retirement.footer.buy_klima.button.buy"
-msgstr "खरीदना"
+msgstr "ख़रीदें"
 
 #: components/pages/Retirements/Footer/index.tsx:75
 msgid "retirement.footer.buy_klima.button.offset"
@@ -1161,7 +1161,7 @@ msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:56
 msgid "retirement.footer.buy_klima.title"
-msgstr ""
+msgstr "खरीदें, दाँव पर लगाएँ, और पुरस्कृत हों।"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.metaDescription"
@@ -1201,7 +1201,7 @@ msgstr "{0}टी"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.single.header.subline"
-msgstr ""
+msgstr "CO2-समतुल्य उत्सर्जन ऑफ़सेट (मीट्रिक टन)"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
@@ -1261,7 +1261,7 @@ msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:24
 msgid "retirement.totals.all_retirements_list.headline"
-msgstr ""
+msgstr "समस्त रिटायरमेन्ट्स"
 
 #: components/pages/Retirements/Breakdown/index.tsx:57
 msgid "retirement.totals.breakdown_token_assets.empty"
@@ -1277,7 +1277,7 @@ msgstr ""
 
 #: components/pages/Retirements/index.tsx:72
 msgid "retirement.totals.page_headline"
-msgstr ""
+msgstr "कार्बन रिटायरमेंट्स"
 
 #: components/pages/Retirements/index.tsx:78
 msgid "retirement.totals.page_subline"
@@ -1318,11 +1318,11 @@ msgstr "ब्लॉग"
 
 #: components/Footer/index.tsx:47
 msgid "shared.bond"
-msgstr ""
+msgstr "ऐप"
 
 #: components/Footer/index.tsx:40
 msgid "shared.buy"
-msgstr "खरीदना"
+msgstr "ख़रीदें"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
@@ -1340,8 +1340,8 @@ msgid "shared.contact"
 msgstr "संपर्क"
 
 #: components/Navigation/index.tsx:49
-#: components/pages/Infinity/index.tsx:110
-#: components/pages/Infinity/index.tsx:672
+#: components/pages/Infinity/index.tsx:112
+#: components/pages/Infinity/index.tsx:678
 msgid "shared.contact_sales"
 msgstr ""
 
@@ -1381,9 +1381,9 @@ msgstr "घर"
 msgid "shared.infinity"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:102
-#: components/pages/Infinity/index.tsx:291
-#: components/pages/Infinity/index.tsx:664
+#: components/pages/Infinity/index.tsx:104
+#: components/pages/Infinity/index.tsx:297
+#: components/pages/Infinity/index.tsx:670
 msgid "shared.infinity.get_started"
 msgstr ""
 
@@ -1421,7 +1421,7 @@ msgstr "साधन"
 msgid "shared.stake"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:486
+#: components/pages/Infinity/index.tsx:492
 msgid "shared.visit_klimadao_blog"
 msgstr ""
 
