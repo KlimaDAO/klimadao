@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-24 15:41+0000\n"
+"POT-Creation-Date: 2022-08-24 17:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -617,6 +617,8 @@ msgstr "अपडेटेड अनुबंध अब मानता है �
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:355
+#: components/views/Stake/index.tsx:259
+#: components/views/Wrap/index.tsx:227
 msgid "shared.approve"
 msgstr "मंज़ूरी"
 
@@ -646,8 +648,8 @@ msgstr "वॉलेट कनेक्ट करें"
 msgid "shared.copy_wallet_address"
 msgstr "कॉपी पता {0}"
 
-#: components/views/Stake/index.tsx:262
-#: components/views/Stake/index.tsx:272
+#: components/views/Stake/index.tsx:270
+#: components/views/Stake/index.tsx:280
 msgid "shared.enter_amount"
 msgstr "राशि डालें"
 
@@ -660,7 +662,7 @@ msgstr "मात्रा दर्ज करें"
 
 #: components/views/Bond/index.tsx:448
 #: components/views/Bond/index.tsx:467
-#: components/views/Stake/index.tsx:280
+#: components/views/Stake/index.tsx:288
 msgid "shared.error"
 msgstr "ग़लती"
 
@@ -683,17 +685,17 @@ msgstr "अमान्य इनपुट"
 #: components/views/Offset/index.tsx:414
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:239
-#: components/views/Stake/index.tsx:435
-#: components/views/Stake/index.tsx:442
-#: components/views/Stake/index.tsx:449
+#: components/views/Stake/index.tsx:443
+#: components/views/Stake/index.tsx:450
+#: components/views/Stake/index.tsx:457
 #: components/views/Wrap/index.tsx:202
 msgid "shared.loading"
 msgstr "लोड हो रहा है..."
 
 #: components/views/Bond/index.tsx:585
 #: components/views/PKlima/index.tsx:237
-#: components/views/Stake/index.tsx:376
-#: components/views/Wrap/index.tsx:334
+#: components/views/Stake/index.tsx:384
+#: components/views/Wrap/index.tsx:342
 msgid "shared.max"
 msgstr "अधिकतम"
 
@@ -709,28 +711,28 @@ msgstr "बिक चुका है"
 msgid "shared.wallet_address_copied"
 msgstr "कॉपी किया गया!"
 
-#: components/views/Stake/index.tsx:389
+#: components/views/Stake/index.tsx:397
 msgid "stake.5_day_rewards"
 msgstr "5 दिन के पुरस्कार"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:392
+#: components/views/Stake/index.tsx:400
 msgid "stake.5_day_rewards.tooltip"
 msgstr "कंपाउंडिंग सहित अनुमानित पुरस्कार, यदि आप 5 दिनों तक दाँव पर लगाते हैं।"
 
-#: components/views/Stake/index.tsx:405
+#: components/views/Stake/index.tsx:413
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:408
+#: components/views/Stake/index.tsx:416
 msgid "stake.akr.tooltip"
 msgstr "कंपाउंडिंग सहित वार्षिक KLIMA पुरस्कार, यदि वर्तमान इनाम दर 12 महीनों के लिए अपरिवर्तित रहे (इनाम दर परिवर्तन के अधीन हो सकती है)।"
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:124
-#: components/views/Stake/index.tsx:298
+#: components/views/Stake/index.tsx:306
 msgid "stake.balancescard.tooltip"
 msgstr "sKLIMA प्राप्त करने के लिए अपने KLIMA टोकन को दाँव पर लगाएँ। हर रिबेस के बाद, आपका sKLIMA बैलेंस दिए गए प्रतिशत के हिसाब से बढ़ जाएगा।"
 
@@ -738,12 +740,12 @@ msgstr "sKLIMA प्राप्त करने के लिए अपने 
 msgid "stake.estimated_payout"
 msgstr "अनुमानित भुगतान (sKLIMA)"
 
-#: components/views/Stake/index.tsx:419
+#: components/views/Stake/index.tsx:427
 msgid "stake.index"
 msgstr "इंडेक्स"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:422
+#: components/views/Stake/index.tsx:430
 msgid "stake.index.tooltip"
 msgstr "यदि आप लॉन्च के दिन 1 KLIMA दाँव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। लेखांकन के लिए उपयोगी।"
 
@@ -755,7 +757,7 @@ msgstr "स्टेक राशि"
 msgid "stake.inputplaceholder.unstake"
 msgstr "अनस्टेक राशि"
 
-#: components/views/Stake/index.tsx:319
+#: components/views/Stake/index.tsx:327
 msgid "stake.lifi"
 msgstr "क्रॉस-चेन स्टेकिंग अब <0>LI.FI</0> के माध्यम से उपलब्ध है, ETH, BNB और DAI जैसे दर्जनों टोकनों के समर्थन के साथ।"
 
@@ -775,26 +777,26 @@ msgstr "रिबेस करना"
 msgid "stake.rebase.info"
 msgstr "प्रोटोकॉल स्वचालित रूप से पुरस्कार बनाता और वितरित करता है। आपका भुगतान आपके sKLIMA बैलेंस का कुछेक प्रतिशत है"
 
-#: components/views/Stake/index.tsx:339
+#: components/views/Stake/index.tsx:347
 msgid "stake.stake"
 msgstr "दाँव लगाना"
 
-#: components/views/Stake/index.tsx:313
+#: components/views/Stake/index.tsx:321
 msgid "stake.stake_hold_earn"
 msgstr "दाँव पर लगाएँ, होल्ड करें, और कंपाउंडिंग sKLIMA अर्जित करें"
 
-#: components/views/Stake/index.tsx:260
-#: components/views/Stake/index.tsx:310
-#: components/views/Stake/index.tsx:475
+#: components/views/Stake/index.tsx:268
+#: components/views/Stake/index.tsx:318
+#: components/views/Stake/index.tsx:483
 msgid "stake.stake_klima"
 msgstr "KLIMA दाँव पर लगाएँ"
 
-#: components/views/Stake/index.tsx:351
+#: components/views/Stake/index.tsx:359
 msgid "stake.unstake"
 msgstr "अनस्टेक करना"
 
-#: components/views/Stake/index.tsx:270
-#: components/views/Stake/index.tsx:477
+#: components/views/Stake/index.tsx:278
+#: components/views/Stake/index.tsx:485
 msgid "stake.unstake_klima"
 msgstr "KLIMA अनस्टेक करें"
 
@@ -894,19 +896,19 @@ msgstr "जुड़ने के लिए WalletConnect (वॉलेटकने
 msgid "web3modal.walletlink.desc"
 msgstr "जुड़ने के लिए Coinbase (कॉइनबेस) के साथ स्कैन करें"
 
-#: components/views/Wrap/index.tsx:362
+#: components/views/Wrap/index.tsx:370
 msgid "wrap.balance"
 msgstr "बैलेंस"
 
-#: components/views/Wrap/index.tsx:257
+#: components/views/Wrap/index.tsx:265
 msgid "wrap.balances_tooltip"
 msgstr "इंडेक्स-समायोजित रैप्ड-स्टैक्ड-KLIMA प्राप्त करने के लिए sKLIMA रैप करें"
 
-#: components/views/Wrap/index.tsx:349
+#: components/views/Wrap/index.tsx:357
 msgid "wrap.index"
 msgstr "इंडेक्स"
 
-#: components/views/Wrap/index.tsx:352
+#: components/views/Wrap/index.tsx:360
 msgid "wrap.index.tooltip"
 msgstr "यदि आप लॉन्च के दिन 1 KLIMA दाँव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। wsKLIMA मूल्य की गणना करने के लिए उपयोग किया जाता है।"
 
@@ -914,25 +916,25 @@ msgstr "यदि आप लॉन्च के दिन 1 KLIMA दाँव �
 msgid "wrap.sklima_to_wrap"
 msgstr "रैप किया जाने वाला sKLIMA"
 
-#: components/views/Wrap/index.tsx:312
+#: components/views/Wrap/index.tsx:320
 msgid "wrap.unwrap"
 msgstr "अनरैप करना"
 
-#: components/views/Wrap/index.tsx:301
+#: components/views/Wrap/index.tsx:309
 msgid "wrap.wrap"
 msgstr "रैप करना"
 
-#: components/views/Wrap/index.tsx:267
+#: components/views/Wrap/index.tsx:275
 msgid "wrap.wrap_sklima"
 msgstr "sKLIMA  रैप करें"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:279
+#: components/views/Wrap/index.tsx:287
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "कुछ इसे लेखांकन उद्देश्यों के लिए उपयोगी पाते हैं, लेकिन पुरस्कार बिल्कुल समान हैं। रैप और अनरैप मानों की गणना वर्तमान इंडेक्स के आधार पर की जाती है।"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:270
+#: components/views/Wrap/index.tsx:278
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "WsKLIMA प्राप्त करने के लिए sKLIMA रैप करें। sKLIMA के विपरीत, आपका wsKLIMA बैलेंस समय के साथ नहीं बढ़ेगा।"
 
@@ -940,7 +942,7 @@ msgstr "WsKLIMA प्राप्त करने के लिए sKLIMA र�
 msgid "wrap.wsklima_to_unwrap"
 msgstr "अनरैप किया जाने वाला wsKLIMA"
 
-#: components/views/Wrap/index.tsx:365
+#: components/views/Wrap/index.tsx:373
 msgid "wrap.you_will_get"
 msgstr "आपको मिलेगा"
 

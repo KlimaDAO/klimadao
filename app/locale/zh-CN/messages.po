@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-24 15:41+0000\n"
+"POT-Creation-Date: 2022-08-24 17:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -617,6 +617,8 @@ msgstr "更新后的合约，假设现在 pKLIMA 的持有者已经质押了之�
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:355
+#: components/views/Stake/index.tsx:259
+#: components/views/Wrap/index.tsx:227
 msgid "shared.approve"
 msgstr "批准"
 
@@ -646,8 +648,8 @@ msgstr "连接钱包"
 msgid "shared.copy_wallet_address"
 msgstr "复制地址 {0}"
 
-#: components/views/Stake/index.tsx:262
-#: components/views/Stake/index.tsx:272
+#: components/views/Stake/index.tsx:270
+#: components/views/Stake/index.tsx:280
 msgid "shared.enter_amount"
 msgstr "输入金额"
 
@@ -660,7 +662,7 @@ msgstr "输入数量"
 
 #: components/views/Bond/index.tsx:448
 #: components/views/Bond/index.tsx:467
-#: components/views/Stake/index.tsx:280
+#: components/views/Stake/index.tsx:288
 msgid "shared.error"
 msgstr "错误"
 
@@ -683,17 +685,17 @@ msgstr "无效输入"
 #: components/views/Offset/index.tsx:414
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:239
-#: components/views/Stake/index.tsx:435
-#: components/views/Stake/index.tsx:442
-#: components/views/Stake/index.tsx:449
+#: components/views/Stake/index.tsx:443
+#: components/views/Stake/index.tsx:450
+#: components/views/Stake/index.tsx:457
 #: components/views/Wrap/index.tsx:202
 msgid "shared.loading"
 msgstr "正在加载..."
 
 #: components/views/Bond/index.tsx:585
 #: components/views/PKlima/index.tsx:237
-#: components/views/Stake/index.tsx:376
-#: components/views/Wrap/index.tsx:334
+#: components/views/Stake/index.tsx:384
+#: components/views/Wrap/index.tsx:342
 msgid "shared.max"
 msgstr "最大额度"
 
@@ -709,28 +711,28 @@ msgstr "售罄"
 msgid "shared.wallet_address_copied"
 msgstr "已复制！"
 
-#: components/views/Stake/index.tsx:389
+#: components/views/Stake/index.tsx:397
 msgid "stake.5_day_rewards"
 msgstr "5天奖励"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:392
+#: components/views/Stake/index.tsx:400
 msgid "stake.5_day_rewards.tooltip"
 msgstr "如果连续质押5天，约可获得...奖励，包括复利。"
 
-#: components/views/Stake/index.tsx:405
+#: components/views/Stake/index.tsx:413
 msgid "stake.akr"
 msgstr "KLIMA年化奖励率"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:408
+#: components/views/Stake/index.tsx:416
 msgid "stake.akr.tooltip"
 msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能会发生变化), KLIMA 年化奖利率...，包括复利。"
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:124
-#: components/views/Stake/index.tsx:298
+#: components/views/Stake/index.tsx:306
 msgid "stake.balancescard.tooltip"
 msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将按给定的百分比增加。"
 
@@ -738,12 +740,12 @@ msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将�
 msgid "stake.estimated_payout"
 msgstr "预计支出 (sKLIMA)"
 
-#: components/views/Stake/index.tsx:419
+#: components/views/Stake/index.tsx:427
 msgid "stake.index"
 msgstr "指数"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:422
+#: components/views/Stake/index.tsx:430
 msgid "stake.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。对做账有利。"
 
@@ -755,7 +757,7 @@ msgstr "质押量"
 msgid "stake.inputplaceholder.unstake"
 msgstr "取消质押量"
 
-#: components/views/Stake/index.tsx:319
+#: components/views/Stake/index.tsx:327
 msgid "stake.lifi"
 msgstr "现在可以通过 <0>LI.FI</0> 进行跨链质押，支持 ETH、BNB 和 DAI 等数十种代币。"
 
@@ -775,26 +777,26 @@ msgstr "变基"
 msgid "stake.rebase.info"
 msgstr "该协议自动铸造和分配奖励。所得是您的 sKLIMA 余额的百分比"
 
-#: components/views/Stake/index.tsx:339
+#: components/views/Stake/index.tsx:347
 msgid "stake.stake"
 msgstr "质押"
 
-#: components/views/Stake/index.tsx:313
+#: components/views/Stake/index.tsx:321
 msgid "stake.stake_hold_earn"
 msgstr "质押、持有并赚取 sKLIMA 复利 。"
 
-#: components/views/Stake/index.tsx:260
-#: components/views/Stake/index.tsx:310
-#: components/views/Stake/index.tsx:475
+#: components/views/Stake/index.tsx:268
+#: components/views/Stake/index.tsx:318
+#: components/views/Stake/index.tsx:483
 msgid "stake.stake_klima"
 msgstr "质押 KLIMA"
 
-#: components/views/Stake/index.tsx:351
+#: components/views/Stake/index.tsx:359
 msgid "stake.unstake"
 msgstr "取消质押"
 
-#: components/views/Stake/index.tsx:270
-#: components/views/Stake/index.tsx:477
+#: components/views/Stake/index.tsx:278
+#: components/views/Stake/index.tsx:485
 msgid "stake.unstake_klima"
 msgstr "取消质押KLIMA"
 
@@ -894,19 +896,19 @@ msgstr "使用 WalletConnect 扫描进行连接"
 msgid "web3modal.walletlink.desc"
 msgstr "使用 Coinbase 扫描进行连接"
 
-#: components/views/Wrap/index.tsx:362
+#: components/views/Wrap/index.tsx:370
 msgid "wrap.balance"
 msgstr "余额"
 
-#: components/views/Wrap/index.tsx:257
+#: components/views/Wrap/index.tsx:265
 msgid "wrap.balances_tooltip"
 msgstr "打包 sKLIMA 以获得指数调整的已打包质押的 KLIMA"
 
-#: components/views/Wrap/index.tsx:349
+#: components/views/Wrap/index.tsx:357
 msgid "wrap.index"
 msgstr "指数"
 
-#: components/views/Wrap/index.tsx:352
+#: components/views/Wrap/index.tsx:360
 msgid "wrap.index.tooltip"
 msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数量。用于计算 wsKLIMA 价值。"
 
@@ -914,25 +916,25 @@ msgstr "如果在发行当日质押1个KLIMA，至今您将拥有的 KLIMA 数�
 msgid "wrap.sklima_to_wrap"
 msgstr "待打包的 sKLIMA"
 
-#: components/views/Wrap/index.tsx:312
+#: components/views/Wrap/index.tsx:320
 msgid "wrap.unwrap"
 msgstr "分拆"
 
-#: components/views/Wrap/index.tsx:301
+#: components/views/Wrap/index.tsx:309
 msgid "wrap.wrap"
 msgstr "打包"
 
-#: components/views/Wrap/index.tsx:267
+#: components/views/Wrap/index.tsx:275
 msgid "wrap.wrap_sklima"
 msgstr "打包 sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:279
+#: components/views/Wrap/index.tsx:287
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "部分人认为这对做账有帮助，但其实收益则完全相同。 打包数值和分拆数值是根据当前指标计算得出的。"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:270
+#: components/views/Wrap/index.tsx:278
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "打包 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不会随着时间的推移而增加。"
 
@@ -940,7 +942,7 @@ msgstr "打包 sKLIMA 即获得 wsKLIMA。与 sKLIMA 不同，wsKLIMA 余额不�
 msgid "wrap.wsklima_to_unwrap"
 msgstr "待拆分的 wsKLIMA"
 
-#: components/views/Wrap/index.tsx:365
+#: components/views/Wrap/index.tsx:373
 msgid "wrap.you_will_get"
 msgstr "你将获得"
 

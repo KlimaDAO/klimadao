@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-24 15:41+0000\n"
+"POT-Creation-Date: 2022-08-24 17:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -619,6 +619,8 @@ msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont gagné 
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:428
 #: components/views/Offset/index.tsx:355
+#: components/views/Stake/index.tsx:259
+#: components/views/Wrap/index.tsx:227
 msgid "shared.approve"
 msgstr "APPROUVER"
 
@@ -648,8 +650,8 @@ msgstr "Connectez votre portefeuille"
 msgid "shared.copy_wallet_address"
 msgstr "Copier l'adresse {0}"
 
-#: components/views/Stake/index.tsx:262
-#: components/views/Stake/index.tsx:272
+#: components/views/Stake/index.tsx:270
+#: components/views/Stake/index.tsx:280
 msgid "shared.enter_amount"
 msgstr "Entrez le montant"
 
@@ -662,7 +664,7 @@ msgstr "ENTRER LE MONTANT"
 
 #: components/views/Bond/index.tsx:448
 #: components/views/Bond/index.tsx:467
-#: components/views/Stake/index.tsx:280
+#: components/views/Stake/index.tsx:288
 msgid "shared.error"
 msgstr "ERREUR"
 
@@ -685,17 +687,17 @@ msgstr "ENTRÉES INCORRECTES"
 #: components/views/Offset/index.tsx:414
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:239
-#: components/views/Stake/index.tsx:435
-#: components/views/Stake/index.tsx:442
-#: components/views/Stake/index.tsx:449
+#: components/views/Stake/index.tsx:443
+#: components/views/Stake/index.tsx:450
+#: components/views/Stake/index.tsx:457
 #: components/views/Wrap/index.tsx:202
 msgid "shared.loading"
 msgstr "Chargement..."
 
 #: components/views/Bond/index.tsx:585
 #: components/views/PKlima/index.tsx:237
-#: components/views/Stake/index.tsx:376
-#: components/views/Wrap/index.tsx:334
+#: components/views/Stake/index.tsx:384
+#: components/views/Wrap/index.tsx:342
 msgid "shared.max"
 msgstr "Max"
 
@@ -711,28 +713,28 @@ msgstr "Épuisé"
 msgid "shared.wallet_address_copied"
 msgstr "Copié!"
 
-#: components/views/Stake/index.tsx:389
+#: components/views/Stake/index.tsx:397
 msgid "stake.5_day_rewards"
 msgstr "Récompenses sur 5 jours"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:392
+#: components/views/Stake/index.tsx:400
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Plus value approximative, comprenant les intérêts composés, si vous laissez votre dépôt pendant 5 jours."
 
-#: components/views/Stake/index.tsx:405
+#: components/views/Stake/index.tsx:413
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:408
+#: components/views/Stake/index.tsx:416
 msgid "stake.akr.tooltip"
 msgstr "Rendement en KLIMA annualisé, y compris les intérêts composés, si le rendement actuel reste inchangé pendant 12 mois (le rendement peut être variable)."
 
 #. Long sentence
 #. Long sentence
 #: components/views/Buy/index.tsx:124
-#: components/views/Stake/index.tsx:298
+#: components/views/Stake/index.tsx:306
 msgid "stake.balancescard.tooltip"
 msgstr "Mettez vos jetons KLIMA en dépôt pour recevoir sKLIMA. Après chaque rebasement, votre solde sKLIMA augmentera du pourcentage indiqué."
 
@@ -740,12 +742,12 @@ msgstr "Mettez vos jetons KLIMA en dépôt pour recevoir sKLIMA. Après chaque r
 msgid "stake.estimated_payout"
 msgstr "Est. paiement (sKLIMA)"
 
-#: components/views/Stake/index.tsx:419
+#: components/views/Stake/index.tsx:427
 msgid "stake.index"
 msgstr "Indice"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:422
+#: components/views/Stake/index.tsx:430
 msgid "stake.index.tooltip"
 msgstr "Montant de KLIMA que vous auriez aujourd'hui si vous aviez mis en dépôt 1 KLIMA le jour du lancement. Utile à des fins comptables."
 
@@ -757,7 +759,7 @@ msgstr "Montant à déposer"
 msgid "stake.inputplaceholder.unstake"
 msgstr "Montant à retirer"
 
-#: components/views/Stake/index.tsx:319
+#: components/views/Stake/index.tsx:327
 msgid "stake.lifi"
 msgstr "Les dépôts inter-chaînes sont désormais disponible via <0>LI.FI</0> , des dizaines de jetons tels que  ETH, BNB et DAI sont pris en charge."
 
@@ -777,26 +779,26 @@ msgstr "Rebasage"
 msgid "stake.rebase.info"
 msgstr "Le protocole génère et distribue automatiquement les intérêts. Vous êtes rémunéré un pourcentage de votre solde en sKLIMA"
 
-#: components/views/Stake/index.tsx:339
+#: components/views/Stake/index.tsx:347
 msgid "stake.stake"
 msgstr "Déposer"
 
-#: components/views/Stake/index.tsx:313
+#: components/views/Stake/index.tsx:321
 msgid "stake.stake_hold_earn"
 msgstr "Misez, accumulez et gagnez des sKLIMA via les intérêts composés."
 
-#: components/views/Stake/index.tsx:260
-#: components/views/Stake/index.tsx:310
-#: components/views/Stake/index.tsx:475
+#: components/views/Stake/index.tsx:268
+#: components/views/Stake/index.tsx:318
+#: components/views/Stake/index.tsx:483
 msgid "stake.stake_klima"
 msgstr "Déposer KLIMA"
 
-#: components/views/Stake/index.tsx:351
+#: components/views/Stake/index.tsx:359
 msgid "stake.unstake"
 msgstr "Retirer"
 
-#: components/views/Stake/index.tsx:270
-#: components/views/Stake/index.tsx:477
+#: components/views/Stake/index.tsx:278
+#: components/views/Stake/index.tsx:485
 msgid "stake.unstake_klima"
 msgstr "Retirer KLIMA"
 
@@ -896,19 +898,19 @@ msgstr "Scannez avec l'application WalletConnect pour vous connecter"
 msgid "web3modal.walletlink.desc"
 msgstr "Scannez avec Coinbase pour vous connecter"
 
-#: components/views/Wrap/index.tsx:362
+#: components/views/Wrap/index.tsx:370
 msgid "wrap.balance"
 msgstr "Solde"
 
-#: components/views/Wrap/index.tsx:257
+#: components/views/Wrap/index.tsx:265
 msgid "wrap.balances_tooltip"
 msgstr "Encapsulez sKLIMA pour recevoir un KLIMA ajusté à l'indice, encapsulé et mis en dépôt"
 
-#: components/views/Wrap/index.tsx:349
+#: components/views/Wrap/index.tsx:357
 msgid "wrap.index"
 msgstr "Indice"
 
-#: components/views/Wrap/index.tsx:352
+#: components/views/Wrap/index.tsx:360
 msgid "wrap.index.tooltip"
 msgstr "Montant de KLIMA que vous posséderiez aujourd'hui si vous aviez mis en dépôt 1 KLIMA le jour du lancement. Utilisé pour calculer la valeur wsKLIMA."
 
@@ -916,25 +918,25 @@ msgstr "Montant de KLIMA que vous posséderiez aujourd'hui si vous aviez mis en 
 msgid "wrap.sklima_to_wrap"
 msgstr "sKLIMA à encapsuler"
 
-#: components/views/Wrap/index.tsx:312
+#: components/views/Wrap/index.tsx:320
 msgid "wrap.unwrap"
 msgstr "Dés-encapsuler"
 
-#: components/views/Wrap/index.tsx:301
+#: components/views/Wrap/index.tsx:309
 msgid "wrap.wrap"
 msgstr "Encapsuler"
 
-#: components/views/Wrap/index.tsx:267
+#: components/views/Wrap/index.tsx:275
 msgid "wrap.wrap_sklima"
 msgstr "Encapsuler sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:279
+#: components/views/Wrap/index.tsx:287
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Peut être utile à des fins comptables, néanmoins, les récompenses sont exactement les mêmes. Les valeurs d'encapsulation et de dés-encapsulation sont calculées en fonction de l'indice actuel."
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:270
+#: components/views/Wrap/index.tsx:278
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Encapsulez sKLIMA pour recevoir wsKLIMA. Contrairement à sKLIMA, votre solde wsKLIMA n'augmentera pas avec le temps."
 
@@ -942,7 +944,7 @@ msgstr "Encapsulez sKLIMA pour recevoir wsKLIMA. Contrairement à sKLIMA, votre 
 msgid "wrap.wsklima_to_unwrap"
 msgstr "wsKLIMA à dés-encapsuler"
 
-#: components/views/Wrap/index.tsx:365
+#: components/views/Wrap/index.tsx:373
 msgid "wrap.you_will_get"
 msgstr "Vous obtiendrez"
 
