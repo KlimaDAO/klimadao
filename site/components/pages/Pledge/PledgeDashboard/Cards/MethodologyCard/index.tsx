@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { css } from "@emotion/css";
 import { t } from "@lingui/macro";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import { Text } from "@klimadao/lib/components";
@@ -23,7 +24,14 @@ export const MethodologyCard: FC<Props> = (props) => {
       })}
       icon={<DescriptionOutlinedIcon fontSize="large" />}
     >
-      <Text t="body2">{props.methodology || defaultText}</Text>
+      <Text
+        t="body2"
+        className={css`
+          white-space: pre-line;
+        `}
+      >
+        {props.methodology || defaultText}
+      </Text>
     </BaseCard>
   );
 };

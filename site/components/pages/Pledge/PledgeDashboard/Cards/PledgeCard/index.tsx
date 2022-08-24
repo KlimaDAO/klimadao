@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { css } from "@emotion/css";
 import { t } from "@lingui/macro";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { Text } from "@klimadao/lib/components";
@@ -23,7 +24,12 @@ export const PledgeCard: FC<Props> = (props) => {
       })}
       icon={<MailOutlineIcon fontSize="large" />}
     >
-      <Text t="body2">
+      <Text
+        t="body2"
+        className={css`
+          white-space: pre-line;
+        `}
+      >
         <em>"{props.pledge || defaultText}"</em>
       </Text>
     </BaseCard>

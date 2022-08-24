@@ -94,6 +94,7 @@ export const formSchema = yup
             .min(0, "pledges.form.errors.categoryQuantity.min"),
         })
       )
-      .required(),
+      .required()
+      .min(1, "pledges.form.errors.footprint.generic_error"),
   })
   .noUnknown();
