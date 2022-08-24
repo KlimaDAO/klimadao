@@ -9,47 +9,6 @@ import {
 } from "@portabletext/react";
 import * as styles from "./styles";
 
-// interface Props {
-//   children: {
-//     text: string;
-// }[];
-// }
-
-const BlockRenderer = {
-  h1: ({ children }: { children: JSX.Element[] }) => (
-    <Text t="h3" as="h2" className={styles.heading}>
-      {children}
-    </Text>
-  ),
-  h2: ({ children }: { children: JSX.Element[] }) => (
-    <Text t="h4" as="h3" className={styles.heading}>
-      {children}
-    </Text>
-  ),
-  h3: ({ children }: { children: JSX.Element[] }) => (
-    <Text t="h4" as="h3" className={styles.heading}>
-      {children}
-    </Text>
-  ),
-  h4: ({ children }: { children: JSX.Element[] }) => (
-    <Text t="h4" as="h3" className={styles.heading}>
-      {children}
-    </Text>
-  ),
-
-  normal: ({ children }: { children: JSX.Element[] }) => (
-    <Text t="body2" className={styles.paragraph}>
-      {children}
-    </Text>
-  ),
-
-  blockquote: ({ children }: { children: JSX.Element[] }) => (
-    <Text t="body2" className={styles.blockQuote}>
-      {children}
-    </Text>
-  ),
-};
-
 const components: PortableTextComponents = {
   list: {
     bullet: ({ children, value }) => {
@@ -87,8 +46,42 @@ const components: PortableTextComponents = {
       );
     },
   },
-  // this was inside of types before
-  block: BlockRenderer,
+
+  block: {
+    h1: ({ children }) => (
+      <Text t="h3" as="h2" className={styles.heading}>
+        {children}
+      </Text>
+    ),
+    h2: ({ children }) => (
+      <Text t="h4" as="h3" className={styles.heading}>
+        {children}
+      </Text>
+    ),
+    h3: ({ children }) => (
+      <Text t="h4" as="h3" className={styles.heading}>
+        {children}
+      </Text>
+    ),
+    h4: ({ children }) => (
+      <Text t="h4" as="h3" className={styles.heading}>
+        {children}
+      </Text>
+    ),
+
+    normal: ({ children }) => (
+      <Text t="body2" className={styles.paragraph}>
+        {children}
+      </Text>
+    ),
+
+    blockquote: ({ children }) => (
+      <Text t="body2" className={styles.blockQuote}>
+        {children}
+      </Text>
+    ),
+  },
+
   types: {
     image: ({ value }) => {
       return (
