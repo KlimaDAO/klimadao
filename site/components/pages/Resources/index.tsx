@@ -9,6 +9,7 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
+import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";
 
 import { Document } from "lib/queries";
 
@@ -49,6 +50,15 @@ export const Resources: NextPage<Props> = ({ documents }) => {
             </Trans>
           </Text>
         </div>
+      </Section>
+
+      <Section variant="gray" style={{ padding: "unset" }}>
+        <ArticlesSlider
+          articles={documents.filter((doc) => doc.type === "post")} // here it should be all posts with flag "featured_article"
+        />
+      </Section>
+
+      <Section variant="gray">
         <div className={styles.list}>
           {documents.map((doc) => {
             if (doc.type === "post") {
