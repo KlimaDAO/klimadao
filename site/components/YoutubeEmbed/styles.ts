@@ -37,18 +37,17 @@ export const posterOverlay = css`
   width: 100%;
   top: 0;
   left: 0;
-  // This ensures the video is still controllable
-  pointer-events: none;
+  &.hidden {
+    opacity: 0;
+    z-index: -1;
+    // This ensures the video is still controllable
+    pointer-events: none;
+  }
   > span:first-of-type {
     //Unfortunately this is necessary because of NextJS Image inline styling
     height: 100% !important;
     display: block !important;
   }
-`;
-
-export const posterOverlay_hidden = css`
-  opacity: 0;
-  z-index: -1;
 `;
 
 export const playIcon = css`

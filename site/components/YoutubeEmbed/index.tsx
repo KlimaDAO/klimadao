@@ -27,7 +27,8 @@ type YoutubeEmbedProps = {
  */
 export const YoutubeEmbed: FC<YoutubeEmbedProps> = (props) => {
   // If a poster image is defined then track the play behaviour
-  const [playInitiated, setPlayInitiated] = useState(!props.posterImg);
+  const [playInitiated, setPlayInitiated] = useState(false);
+  const handleClick = () => setPlayInitiated(true);
 
   // Build the src url
   const src = `https://www.youtube.com/embed/${props.videoId}?\
@@ -54,17 +55,9 @@ cc_load_policy=${toNumber(!!props.showSubtitles)}`;
         // The computed image height determines the height of the container (and the embedded video)
         // Because of this we are keeping the image in the DOM after click but hiding and setting
         // it behind the video
-        <div
-          className={cx(
-            { [styles.posterOverlay_hidden]: playInitiated },
-            styles.posterOverlay
-          )}
-        >
+        <div className={cx(styles.posterOverlay, { hidden: playInitiated })}>
           <Image src={props.posterImg.src} alt={props.posterImg.alt} />
-          <button
-            className="youtubeEmbed_posterBtn"
-            onClick={() => setPlayInitiated(true)}
-          >
+          <button className="youtubeEmbed_posterBtn" onClick={handleClick}>
             <div className="youtubeEmbed_playIconContainer">
               <PlayIcon />
             </div>
