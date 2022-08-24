@@ -160,11 +160,14 @@ export const generateCertificate = (params: Params): void => {
       spacing.transactionDetails + 11
     );
     doc.setFont("Poppins", "ExtraLight");
-    const txHashSplit = doc.splitTextToSize(
+    doc.textWithLink(
       params.retirement.transaction.id,
-      spacing.mainTextWidth
+      spacing.margin,
+      spacing.transactionDetails + 16.5,
+      {
+        url: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+      }
     );
-    doc.text(txHashSplit, spacing.margin, spacing.transactionDetails + 16.5);
   };
 
   const printProjectDetails = (): void => {
