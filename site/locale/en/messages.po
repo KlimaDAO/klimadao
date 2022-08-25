@@ -1139,6 +1139,26 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "KlimaDAO Podcast"
 
+#: components/pages/Resources/index.tsx:31
+msgid "resources.head.metaDescription"
+msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
+
+#: components/pages/Resources/index.tsx:27
+msgid "resources.head.metaTitle"
+msgstr "KlimaDAO Resources - Go beyond Carbon neutral"
+
+#: components/pages/Resources/index.tsx:23
+msgid "resources.head.title"
+msgstr "KlimaDAO | Resources"
+
+#: components/pages/Resources/index.tsx:46
+msgid "resources.page.header.subline"
+msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
+
+#: components/pages/Resources/index.tsx:43
+msgid "resources.page.header.title"
+msgstr "Featured Articles"
+
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
 msgstr "KlimaDAO is incentivizing sustainability and catalyzing a more transparent and liquid carbon market. Our tools make it possible for any individual or businesses to trade and retire quality carbon assets on the blockchain."

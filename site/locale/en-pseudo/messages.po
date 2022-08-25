@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
@@ -1131,6 +1137,26 @@ msgstr ""
 #: components/pages/Podcast/index.tsx:18
 #: components/pages/Podcast/index.tsx:33
 msgid "podcast.head.title"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:31
+msgid "resources.head.metaDescription"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:27
+msgid "resources.head.metaTitle"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:23
+msgid "resources.head.title"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:46
+msgid "resources.page.header.subline"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:43
+msgid "resources.page.header.title"
 msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:26
