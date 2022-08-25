@@ -17,7 +17,13 @@ import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
-type PageName = "Home" | "Buy" | "Resources" | "Disclaimer" | "Infinity";
+type PageName =
+  | "Home"
+  | "Buy"
+  | "Resources"
+  | "Disclaimer"
+  | "Infinity"
+  | "Pledges";
 
 export type Props = {
   activePage: PageName;

@@ -7,15 +7,21 @@ import { LogoWithClaim } from "@klimadao/lib/components";
 interface Props {
   buttons?: JSX.Element[];
   href?: string;
-  activePage: "Home" | "Buy" | "Resources" | "Disclaimer" | "Infinity";
+  activePage:
+    | "Home"
+    | "Buy"
+    | "Resources"
+    | "Disclaimer"
+    | "Infinity"
+    | "Pledges";
 }
 
 export const HeaderDesktop: FC<Props> = (props) => {
   return (
     <header
       className={
-        props.activePage === "Infinity"
-          ? styles.headerInfinityDesktop
+        props.activePage === "Infinity" || props.activePage === "Pledges"
+          ? styles.headerTransparentDesktop
           : styles.headerDesktop
       }
     >
