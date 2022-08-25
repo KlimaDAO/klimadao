@@ -25,7 +25,6 @@ export const NavItemDesktop: FC<Props> = ({
             className={cx(styles.navMain_DesktopLink, {
               dropdown: subMenu !== undefined,
             })}
-            href={url}
             data-active={active?.toString()}
             {...props}
           >

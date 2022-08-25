@@ -95,7 +95,7 @@ export const Navigation: FC<Props> = ({
             <NavItemDesktop
               name={t({
                 message: "CONTACT US",
-                id: "shared.contact",
+                id: "shared.contact_us",
               })}
               key="contact"
               active={activePage === "Contact"}
@@ -157,7 +157,7 @@ export const Navigation: FC<Props> = ({
           ]}
         />
         <NavItemDesktop
-          name={t({ message: "Infinity", id: "shared.infity" })}
+          name={t({ message: "Infinity", id: "shared.infinity" })}
           active={activePage === "Infinity"}
           url="/infinity"
           // subMenu={[
@@ -286,7 +286,7 @@ export const Navigation: FC<Props> = ({
                 <NavItemMobile
                   name={t({ message: "BUY KLIMA", id: "shared.buy" })}
                   key="buy klima"
-                  url={createLinkWithLocaleQuery(urls.buy, locale)}
+                  url="/buy"
                 />,
                 <NavItemMobile
                   name={t({
@@ -372,7 +372,7 @@ export const Navigation: FC<Props> = ({
               toggledNavItemID={toggledNavItemID}
               setToggledNavItemID={setToggledNavItemID}
               id="Love Letters"
-              url={createLinkWithLocaleQuery(urls.loveletter, locale)}
+              url={urls.loveletter}
             />
             <NavItemMobile
               name={t({ message: "Resources", id: "shared.resources" })}
