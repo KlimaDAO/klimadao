@@ -1145,11 +1145,11 @@ msgstr "Updates and thought leadership from the founders, DAO contributors, advi
 
 #: components/pages/Resources/index.tsx:27
 msgid "resources.head.metaTitle"
-msgstr "Klima Resources - Go beyond Carbon neutral"
+msgstr "KlimaDAO Resources - Go beyond Carbon neutral"
 
 #: components/pages/Resources/index.tsx:23
 msgid "resources.head.title"
-msgstr "KlimaDAO | Klima Resources"
+msgstr "KlimaDAO | Resources"
 
 #: components/pages/Resources/index.tsx:46
 msgid "resources.page.header.subline"

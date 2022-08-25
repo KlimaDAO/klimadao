@@ -22,11 +22,11 @@ export const Resources: NextPage<Props> = ({ documents }) => {
       <PageHead
         title={t({
           id: "resources.head.title",
-          message: "KlimaDAO | Klima Resources",
+          message: "KlimaDAO | Resources",
         })}
         mediaTitle={t({
           id: "resources.head.metaTitle",
-          message: `Klima Resources - Go beyond Carbon neutral`,
+          message: `KlimaDAO Resources - Go beyond Carbon neutral`,
         })}
         metaDescription={t({
           id: "resources.head.metaDescription",
