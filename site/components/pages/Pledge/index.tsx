@@ -17,19 +17,23 @@ import { Footer } from "components/Footer";
 export const Pledge: NextPage = () => {
   const router = useRouter();
   const [error, setError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    setError(true);
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    setSubmitting(true);
+    setError(false);
 
     event.preventDefault();
 
     const address = event.currentTarget.address.value;
 
-    if (!ethers.utils.isAddress(address) && !getIsDomainInURL(address)) {
-      return setError(true);
+    if (ethers.utils.isAddress(address) || getIsDomainInURL(address)) {
+      await router.push(`/pledge/${address}`);
+    } else {
+      setError(true);
     }
 
-    router.push(`/pledge/${address}`);
+    setSubmitting(false);
   };
 
   const errorMessages = error
@@ -107,14 +111,14 @@ export const Pledge: NextPage = () => {
                   type="text"
                   errors={errorMessages}
                 />
-                {/* {error && (
-                  <Text t="caption" as="p" className="error">
-                    {error}
-                  </Text>
-                )} */}
               </div>
 
-              <ButtonPrimary type="submit" variant="blue" label="Search" />
+              <ButtonPrimary
+                disabled={submitting}
+                type="submit"
+                variant="blue"
+                label="Search"
+              />
             </form>
           </main>
 
