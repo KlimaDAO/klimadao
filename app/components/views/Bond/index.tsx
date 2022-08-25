@@ -1075,11 +1075,16 @@ export const Bond: FC<Props> = (props) => {
             <Text t="h4" className={styles.transaction_modal_header_title}>
               <SpaOutlined />
               {viewIsBond ? (
-                <Trans id="bond.transaction_modal.title" comment="Bond {0}">
+                <Trans
+                  id="bond.transaction_modal.bond.title"
+                  comment="Bond {0}"
+                >
                   Bond {bondInfo.name}
                 </Trans>
               ) : (
-                "Redeem Klima"
+                <Trans id="bond.transaction_modal.redeem.title">
+                  Redeem Klima
+                </Trans>
               )}
             </Text>
           }

@@ -181,7 +181,11 @@ msgstr ""
 
 #. Bond {0}
 #: components/views/Bond/index.tsx:1078
-msgid "bond.transaction_modal.title"
+msgid "bond.transaction_modal.bond.title"
+msgstr ""
+
+#: components/views/Bond/index.tsx:1085
+msgid "bond.transaction_modal.redeem.title"
 msgstr ""
 
 #: components/views/Bond/index.tsx:925
