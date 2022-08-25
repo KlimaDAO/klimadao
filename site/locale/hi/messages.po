@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-25 05:48+0000\n"
+"POT-Creation-Date: 2022-08-25 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr "लेख"
 
 #: components/ChangeLanguageButton/index.tsx:65
 msgid "Change language"
-msgstr "भाषा बदलो"
+msgstr "भाषा बदलें"
 
 #: components/pages/Buy/index.tsx:272
 msgid "Enter App"
@@ -46,7 +46,7 @@ msgstr ""
 
 #: components/pages/Blog/Post/index.tsx:87
 msgid "blog.disclaimer.title"
-msgstr ""
+msgstr "अस्वीकरण:"
 
 #: components/pages/Blog/index.tsx:19
 #: components/pages/Blog/index.tsx:25
@@ -100,7 +100,7 @@ msgstr "आपके कनेक्ट होने के बाद, KlimaDAO 
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:25
 msgid "buy.beginner_02.title"
-msgstr "Zapper.fi से कनेक्ट करें"
+msgstr "Zapper.fi से जुड़ें"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:51
 msgid "buy.beginner_03.description_01"
@@ -158,11 +158,11 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:104
 msgid "buy.decentralized_exchange"
-msgstr ""
+msgstr "विकेंद्रीकृत एक्सचेंज"
 
 #: components/pages/Buy/index.tsx:206
 msgid "buy.dex"
-msgstr ""
+msgstr "विकेंद्रीकृत एक्सचेंजेज़ (DEXs)"
 
 #: components/pages/Buy/index.tsx:237
 msgid "buy.dex.how_zapper"
@@ -224,7 +224,7 @@ msgstr "<0>zapper.fi . पर जाएं</0> और कनेक्ट पर 
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:32
 msgid "buy.zapper_02.title"
-msgstr "Zapper.fi से कनेक्ट करें"
+msgstr "Zapper.fi से जुड़ें"
 
 #: components/pages/Buy/ZapperTimeline/index.tsx:49
 msgid "buy.zapper_03.description_01"
@@ -248,20 +248,20 @@ msgstr "Climate Foundation (क्लाइमेट फाउंडेशन) �
 
 #: components/pages/Resources/Community/index.tsx:344
 msgid "community.come_on_in"
-msgstr "अंदर आ जाओ"
+msgstr "अंदर आ जाइए"
 
 #: components/pages/Resources/Community/index.tsx:236
 msgid "community.deltawave_logo"
-msgstr ""
+msgstr "Delta (डेल्टा वेव) लोगो"
 
 #: components/pages/Resources/Community/index.tsx:288
 msgid "community.digitalcharityart_logo"
-msgstr ""
+msgstr "Delta Charity Art (डेल्टा चैरिटी आर्ट) लोगो"
 
 #. Long sentence
 #: components/pages/Resources/Community/index.tsx:359
 msgid "community.discord_is_where_we_share"
-msgstr ""
+msgstr "Discord (डिस्कॉर्ड) वह स्थान है जहाँ हम महत्वपूर्ण घोषणाएँ साझा करते हैं, कार्यालय के समय को रोकते हैं, सवालों के जवाब देते हैं, और व्यापार यादें साझा करते हैं। हमारा डिस्कॉर्ड सर्वर बेहद सक्रिय है और चौबीसों घंटे संचालित होता है। हमारे पास ट्रेडिंग से लेकर सस्टेनेबिलिटी और कार्बन मार्केट तक हर चीज के लिए चैनल हैं।"
 
 #: components/pages/Resources/Community/index.tsx:258
 msgid "community.dovu_logo"
@@ -391,7 +391,7 @@ msgstr "KlimaDAO के किसी व्यक्ति से संपर�
 
 #: components/pages/Resources/Contact/index.tsx:18
 msgid "contact.head.headline"
-msgstr "संपर्क"
+msgstr "संपर्क करें"
 
 #: components/pages/Resources/Contact/index.tsx:19
 msgid "contact.head.subline"
@@ -400,7 +400,7 @@ msgstr ""
 #: components/pages/Resources/Contact/index.tsx:17
 #: components/pages/Resources/Contact/index.tsx:24
 msgid "contact.head.title"
-msgstr ""
+msgstr "KlimaDAO से संपर्क करें"
 
 #: components/pages/Resources/Contact/index.tsx:105
 msgid "contact.media"
@@ -474,7 +474,7 @@ msgstr "इस वेबसाइट पर आपको जो जानका�
 
 #: components/pages/Disclaimer/index.tsx:31
 msgid "disclaimer.disclaimer"
-msgstr ""
+msgstr "अस्वीकरण"
 
 #: components/pages/Disclaimer/index.tsx:20
 msgid "disclaimer.head.description"
@@ -551,7 +551,7 @@ msgstr "Carbon (कार्बन) द्वारा समर्थित।"
 
 #: components/pages/Home/index.tsx:304
 msgid "home.cars_annual"
-msgstr ""
+msgstr "कारें (वार्षिक)"
 
 #: components/pages/Home/index.tsx:273
 msgid "home.equivalent_to"
@@ -734,7 +734,7 @@ msgstr "एक कार्बन ऑफ़सेट यूनिट का अर�
 
 #: components/pages/Infinity/index.tsx:572
 msgid "infinity.faq_answer2_paragraph1"
-msgstr ""
+msgstr "कार्बन क्रेडिट एक उच्च-अखंडता तंत्र है जो कार्बन वित्त को, प्रदूषित करने वालों से दुनिया भर की उन परियोजनाओं में प्रवाहित करने की अनुमति देता है जो वातावरण से कार्बन को कम करने या हटाने में मदद् करते हैं। वे ऐसे कठोर उत्सर्जनों को कवर करने के लिए एक मूल्यवान उपकरण हैं जिन्हें आज खत्म करना महँगा या तकनीकी रूप से चुनौतीपूर्ण हो सकता है।"
 
 #: components/pages/Infinity/index.tsx:582
 msgid "infinity.faq_answer2_paragraph2"
@@ -830,7 +830,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:436
 msgid "infinity.mission_card1_subtitle"
-msgstr ""
+msgstr "KlimaDAO द्वारा होल्ड किए गए कार्बन टन"
 
 #: components/pages/Infinity/index.tsx:433
 msgid "infinity.mission_card1_title"
@@ -838,7 +838,7 @@ msgstr "18.1 मिलियन"
 
 #: components/pages/Infinity/index.tsx:456
 msgid "infinity.mission_card2_description"
-msgstr ""
+msgstr "KlimaDAO द्वारा होल्ड की गयी कार्बन तरलता"
 
 #: components/pages/Infinity/index.tsx:453
 msgid "infinity.mission_card2_number"
@@ -846,7 +846,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:476
 msgid "infinity.mission_card3_description"
-msgstr ""
+msgstr "KlimaDAO के माध्यम से ऑफ़सेट किए गए कार्बन टन"
 
 #: components/pages/Infinity/index.tsx:473
 msgid "infinity.mission_card3_number"
@@ -896,7 +896,7 @@ msgstr ""
 
 #: components/pages/Infinity/index.tsx:208
 msgid "infinity.why_subtitle"
-msgstr ""
+msgstr "DeFi (डीफ़ाई) जो जलवायु परिवर्तन की उपेक्षा करता है"
 
 #: components/pages/Infinity/index.tsx:205
 msgid "infinity.why_title"
@@ -1044,11 +1044,11 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:192
 msgid "pledges.form.input.categoryName.label"
-msgstr ""
+msgstr "कैटेगरी"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:196
 msgid "pledges.form.input.categoryName.placeholder"
-msgstr ""
+msgstr "कैटेगरी नाम"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:208
 msgid "pledges.form.input.categoryQuantity.label"
@@ -1056,7 +1056,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:212
 msgid "pledges.form.input.categoryQuantity.placeholder"
-msgstr ""
+msgstr "कार्बन टन"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:143
 msgid "pledges.form.input.description.label"
@@ -1229,7 +1229,7 @@ msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
-msgstr ""
+msgstr "अधिक जानने के लिए प्रॉजेक्ट शीर्षक पर क्लिक करें।"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
 msgid "retirement.single.project_details.moss_headline"
@@ -1357,13 +1357,13 @@ msgstr "कनेक्ट करें"
 #: components/Footer/index.tsx:59
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
-msgstr "संपर्क"
+msgstr "संपर्क करें"
 
 #: components/Navigation/index.tsx:49
 #: components/pages/Infinity/index.tsx:112
 #: components/pages/Infinity/index.tsx:678
 msgid "shared.contact_sales"
-msgstr ""
+msgstr "सेल्स से संपर्क करें"
 
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
@@ -1373,7 +1373,7 @@ msgstr "संपर्क करें"
 
 #: components/Footer/index.tsx:64
 msgid "shared.disclaimer"
-msgstr ""
+msgstr "अस्वीकरण"
 
 #: components/Footer/index.tsx:50
 msgid "shared.docs"
@@ -1447,7 +1447,7 @@ msgstr ""
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
-msgstr ""
+msgstr "अपने ब्राउज़र web3 प्रदाता से जुड़ें"
 
 #: lib/getWeb3ModalStrings.ts:21
 msgid "web3modal.torus.desc"
