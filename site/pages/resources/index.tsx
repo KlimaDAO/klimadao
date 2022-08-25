@@ -21,11 +21,13 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
     };
   } catch (e) {
     console.error("RESOURCES getStaticProps error: ", e);
+    throw e;
 
-    return {
-      notFound: true,
-      revalidate: 240,
-    };
+    // enable below before Go Live
+    // return {
+    //   notFound: true,
+    //   revalidate: 240,
+    // };
   }
 }
 
