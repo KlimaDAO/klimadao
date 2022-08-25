@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-25 05:25+0000\n"
+"POT-Creation-Date: 2022-08-25 05:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1137,6 +1137,26 @@ msgstr "Podcast"
 #: components/pages/Podcast/index.tsx:33
 msgid "podcast.head.title"
 msgstr "Podcast KlimaDAO"
+
+#: components/pages/Resources/index.tsx:31
+msgid "resources.head.metaDescription"
+msgstr "Nouvelles et opinions des fondateurs, des contributeurs de la DAO, des conseillers et des membres de la communauté."
+
+#: components/pages/Resources/index.tsx:27
+msgid "resources.head.metaTitle"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:23
+msgid "resources.head.title"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:46
+msgid "resources.page.header.subline"
+msgstr "Nouvelles et opinions des fondateurs, des contributeurs de la DAO, des conseillers et des membres de la communauté."
+
+#: components/pages/Resources/index.tsx:43
+msgid "resources.page.header.title"
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
