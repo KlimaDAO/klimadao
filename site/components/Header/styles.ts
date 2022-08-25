@@ -9,10 +9,10 @@ export const headerDesktop = css`
   justify-content: center;
   align-items: center;
   background: var(--surface-02);
-  padding-top: 4.8rem;
+  padding-top: 2.4rem;
   height: calc(var(--header-height) * 2);
   z-index: 10; /* so the drop-shadow is visible over next section, 10 to make opened Translation menu flow over main content */
-  ${breakpoints.large} {
+  ${breakpoints.desktop} {
     display: grid;
   }
 `;
@@ -41,7 +41,7 @@ export const headerMobileWrap = css`
   background-color: rgba(255, 255, 255, 0);
   transition: background-color 0.5s ease 0s;
   z-index: 100;
-  ${breakpoints.large} {
+  ${breakpoints.desktop} {
     display: none;
   }
 `;
@@ -60,7 +60,8 @@ export const headerMobile = css`
   justify-content: space-between;
   height: var(--header-height);
   z-index: 1;
-  ${breakpoints.large} {
+  padding: 0 1.6rem;
+  ${breakpoints.desktop} {
     display: none;
   }
 `;
@@ -93,7 +94,7 @@ export const navMain_Buttons = css`
   align-items: center;
   gap: 1rem;
 
-  ${breakpoints.large} {
+  ${breakpoints.desktop} {
     button,
     a {
       box-shadow: var(--shadow-light);
