@@ -14,6 +14,7 @@ import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { SocialProof } from "components/SocialProof";
+import { Modal } from "components/Modal";
 
 import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
@@ -51,7 +52,7 @@ export const Infinity: NextPage<Props> = () => {
     2: false,
     3: false,
   });
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <PageHead
@@ -70,7 +71,15 @@ export const Infinity: NextPage<Props> = () => {
       />
 
       <Navigation activePage="Infinity" showThemeToggle={false} />
-
+      <Modal
+        onToggleModal={() => setShowModal(false)}
+        showModal={showModal}
+        closeOnBackgroundClick={true}
+        title="Get Started"
+        variant="contrast"
+      >
+        Some stuff in the modal
+      </Modal>
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
           <div className="hero_container">
@@ -105,7 +114,7 @@ export const Infinity: NextPage<Props> = () => {
                     message: "Get Started",
                     id: "shared.infinity.get_started",
                   })}
-                  href={linkToBlogUserGuide}
+                  onClick={() => setShowModal(true)}
                 />
                 <ButtonSecondary
                   variant="blueRounded"

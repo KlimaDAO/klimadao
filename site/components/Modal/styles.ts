@@ -33,6 +33,9 @@ export const modalContent = css`
   overflow-y: auto;
   border-radius: 1.2rem;
   background-color: var(--surface-01);
+  &.contrast {
+    background-color: var(--font-01);
+  }
   pointer-events: fill;
   margin: 2rem;
   gap: 1rem;
@@ -45,6 +48,9 @@ export const modalContent = css`
   }
 
   .title {
+    &.contrast {
+      color: var(--surface-01);
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;

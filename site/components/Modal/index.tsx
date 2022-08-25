@@ -1,5 +1,6 @@
 import React, { useEffect, FC } from "react";
 import styled from "@emotion/styled";
+import { cx } from "@emotion/css";
 import Close from "@mui/icons-material/Close";
 
 import * as styles from "./styles";
@@ -8,6 +9,8 @@ import { Text } from "@klimadao/lib/components";
 type ModalWrapperProps = {
   showModal: boolean;
 };
+
+type Variant = "contrast";
 
 export const ModalWrapper = styled.div`
   display: ${(props: ModalWrapperProps) =>
@@ -19,6 +22,7 @@ export interface Props {
   closeOnBackgroundClick?: boolean;
   title: React.ReactNode;
   onToggleModal?: () => void;
+  variant?: Variant;
 }
 
 export const Modal: FC<Props> = (props) => {
@@ -40,7 +44,11 @@ export const Modal: FC<Props> = (props) => {
     <ModalWrapper showModal={props.showModal}>
       <div className={styles.modalBackground} onClick={handleBackgroundClick} />
       <div className={styles.modalContainer}>
-        <div className={styles.modalContent}>
+        <div
+          className={cx(styles.modalContent, {
+            contrast: props.variant === "contrast",
+          })}
+        >
           <div className="title">
             <Text t="h4" uppercase={true}>
               {props.title}
