@@ -1334,20 +1334,43 @@ msgstr "Retirement Totals By Asset"
 msgid "shared.404"
 msgstr "404 - Page Not Found"
 
+#: components/Navigation/index.tsx:75
+#: components/Navigation/index.tsx:246
+msgid "shared.about"
+msgstr "About"
+
+#: components/Navigation/index.tsx:107
+#: components/Navigation/index.tsx:281
+msgid "shared.app"
+msgstr "App"
+
 #: components/Footer/index.tsx:54
+#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:252
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Blog"
 
 #: components/Footer/index.tsx:47
+#: components/Navigation/index.tsx:126
+#: components/Navigation/index.tsx:300
 msgid "shared.bond"
-msgstr "App"
+msgstr "BOND KLIMA"
 
 #: components/Footer/index.tsx:40
+#: components/Navigation/index.tsx:110
+#: components/Navigation/index.tsx:287
 msgid "shared.buy"
-msgstr "Buy"
+msgstr "BUY KLIMA"
 
+#: components/Navigation/index.tsx:212
+#: components/Navigation/index.tsx:393
+msgid "shared.carbon_dashboards"
+msgstr "CARBON DASHBOARDS"
+
+#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:261
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1359,16 +1382,18 @@ msgid "shared.connect"
 msgstr "Connect"
 
 #: components/Footer/index.tsx:59
+#: components/Navigation/index.tsx:270
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Contact"
 
-#: components/Navigation/index.tsx:49
+#: components/Navigation/index.tsx:63
 #: components/pages/Infinity/index.tsx:112
 #: components/pages/Infinity/index.tsx:678
 msgid "shared.contact_sales"
 msgstr "Contact Sales"
 
+#: components/Navigation/index.tsx:96
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1376,14 +1401,18 @@ msgid "shared.contact_us"
 msgstr "Contact Us"
 
 #: components/Footer/index.tsx:64
+#: components/Navigation/index.tsx:220
+#: components/Navigation/index.tsx:401
 msgid "shared.disclaimer"
-msgstr "Disclaimer"
+msgstr "DISCLAIMER"
 
 #: components/Footer/index.tsx:50
+#: components/Navigation/index.tsx:229
+#: components/Navigation/index.tsx:410
 msgid "shared.docs"
-msgstr "Docs"
+msgstr "DOCS"
 
-#: components/Navigation/index.tsx:42
+#: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:110
 msgid "shared.enter_app"
 msgstr "Enter App"
@@ -1401,7 +1430,13 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:92
+#: components/Navigation/index.tsx:203
+#: components/Navigation/index.tsx:384
+msgid "shared.how_to_buy"
+msgstr "HOW TO BUY KLIMA"
+
+#: components/Navigation/index.tsx:160
+#: components/Navigation/index.tsx:334
 msgid "shared.infinity"
 msgstr "Infinity"
 
@@ -1411,9 +1446,10 @@ msgstr "Infinity"
 msgid "shared.infinity.get_started"
 msgstr "Get Started"
 
-#: components/Navigation/index.tsx:66
-msgid "shared.infity"
-msgstr "Infinity"
+#: components/Navigation/index.tsx:150
+#: components/Navigation/index.tsx:324
+msgid "shared.info"
+msgstr "INFO"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
@@ -1421,33 +1457,40 @@ msgstr "Infinity"
 msgid "shared.loading"
 msgstr "Loading..."
 
-#: components/Navigation/index.tsx:71
-#: components/Navigation/index.tsx:96
+#: components/Navigation/index.tsx:196
+#: components/Navigation/index.tsx:371
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:62
-#: components/Navigation/index.tsx:88
+#: components/Navigation/index.tsx:142
+#: components/Navigation/index.tsx:316
 msgid "shared.offset"
-msgstr "Offset"
+msgstr "OFFSET"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "Podcast"
 
-#: components/Navigation/index.tsx:75
-#: components/Navigation/index.tsx:100
+#: components/Navigation/index.tsx:199
+#: components/Navigation/index.tsx:378
 msgid "shared.resources"
 msgstr "Resources"
 
 #: components/Footer/index.tsx:44
+#: components/Navigation/index.tsx:118
+#: components/Navigation/index.tsx:292
 msgid "shared.stake"
-msgstr "Stake"
+msgstr "STAKE KLIMA"
 
 #: components/pages/Infinity/index.tsx:492
 msgid "shared.visit_klimadao_blog"
 msgstr "Visit the KlimaDAO Blog"
+
+#: components/Navigation/index.tsx:134
+#: components/Navigation/index.tsx:308
+msgid "shared.wrap"
+msgstr "WRAP SKLIMA"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"

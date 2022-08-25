@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-25 15:41+0000\n"
+"POT-Creation-Date: 2022-08-25 22:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1338,20 +1338,43 @@ msgstr "Итого выведено"
 msgid "shared.404"
 msgstr "404 Страница не найдена"
 
+#: components/Navigation/index.tsx:75
+#: components/Navigation/index.tsx:246
+msgid "shared.about"
+msgstr ""
+
+#: components/Navigation/index.tsx:107
+#: components/Navigation/index.tsx:281
+msgid "shared.app"
+msgstr "Приложение"
+
 #: components/Footer/index.tsx:54
+#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:252
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Блог"
 
 #: components/Footer/index.tsx:47
+#: components/Navigation/index.tsx:126
+#: components/Navigation/index.tsx:300
 msgid "shared.bond"
-msgstr "Приложение"
+msgstr ""
 
 #: components/Footer/index.tsx:40
+#: components/Navigation/index.tsx:110
+#: components/Navigation/index.tsx:287
 msgid "shared.buy"
-msgstr "Купить"
+msgstr ""
 
+#: components/Navigation/index.tsx:212
+#: components/Navigation/index.tsx:393
+msgid "shared.carbon_dashboards"
+msgstr ""
+
+#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:261
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1363,16 +1386,18 @@ msgid "shared.connect"
 msgstr "Соединить"
 
 #: components/Footer/index.tsx:59
+#: components/Navigation/index.tsx:270
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Связаться"
 
-#: components/Navigation/index.tsx:49
+#: components/Navigation/index.tsx:63
 #: components/pages/Infinity/index.tsx:112
 #: components/pages/Infinity/index.tsx:678
 msgid "shared.contact_sales"
 msgstr "Связаться с отделом продаж"
 
+#: components/Navigation/index.tsx:96
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1380,14 +1405,18 @@ msgid "shared.contact_us"
 msgstr "Связаться с нами"
 
 #: components/Footer/index.tsx:64
+#: components/Navigation/index.tsx:220
+#: components/Navigation/index.tsx:401
 msgid "shared.disclaimer"
-msgstr "Отказ от ответственности"
+msgstr ""
 
 #: components/Footer/index.tsx:50
+#: components/Navigation/index.tsx:229
+#: components/Navigation/index.tsx:410
 msgid "shared.docs"
-msgstr "Документы"
+msgstr ""
 
-#: components/Navigation/index.tsx:42
+#: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:110
 msgid "shared.enter_app"
 msgstr "Войдите в приложение"
@@ -1407,7 +1436,13 @@ msgstr ""
 msgid "shared.home"
 msgstr "Домашняя страница"
 
-#: components/Navigation/index.tsx:92
+#: components/Navigation/index.tsx:203
+#: components/Navigation/index.tsx:384
+msgid "shared.how_to_buy"
+msgstr ""
+
+#: components/Navigation/index.tsx:160
+#: components/Navigation/index.tsx:334
 msgid "shared.infinity"
 msgstr "Infinity"
 
@@ -1417,9 +1452,10 @@ msgstr "Infinity"
 msgid "shared.infinity.get_started"
 msgstr "С чего начать"
 
-#: components/Navigation/index.tsx:66
-msgid "shared.infity"
-msgstr "Infinity"
+#: components/Navigation/index.tsx:150
+#: components/Navigation/index.tsx:324
+msgid "shared.info"
+msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
@@ -1427,33 +1463,40 @@ msgstr "Infinity"
 msgid "shared.loading"
 msgstr "Загрузка..."
 
-#: components/Navigation/index.tsx:71
-#: components/Navigation/index.tsx:96
+#: components/Navigation/index.tsx:196
+#: components/Navigation/index.tsx:371
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:62
-#: components/Navigation/index.tsx:88
+#: components/Navigation/index.tsx:142
+#: components/Navigation/index.tsx:316
 msgid "shared.offset"
-msgstr "Офсет"
+msgstr ""
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "Подкаст"
 
-#: components/Navigation/index.tsx:75
-#: components/Navigation/index.tsx:100
+#: components/Navigation/index.tsx:199
+#: components/Navigation/index.tsx:378
 msgid "shared.resources"
 msgstr "Источники"
 
 #: components/Footer/index.tsx:44
+#: components/Navigation/index.tsx:118
+#: components/Navigation/index.tsx:292
 msgid "shared.stake"
-msgstr "Стейкинг"
+msgstr ""
 
 #: components/pages/Infinity/index.tsx:492
 msgid "shared.visit_klimadao_blog"
 msgstr "Посетите блог KlimaDAO"
+
+#: components/Navigation/index.tsx:134
+#: components/Navigation/index.tsx:308
+msgid "shared.wrap"
+msgstr ""
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
