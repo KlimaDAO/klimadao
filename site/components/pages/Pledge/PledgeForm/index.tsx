@@ -78,14 +78,15 @@ export const PledgeForm: FC<Props> = (props) => {
     values: PledgeFormValues
   ) => {
     try {
-      if (!signer) return;
-      const signature = await signer.signMessage(
-        editPledgeSignature(values.nonce)
-      );
+      // if (!signer) return;
+      // const signature = await signer.signMessage(
+      //   editPledgeSignature(values.nonce)
+      // );
+      console.log(signer);
       const response = await putPledge({
         pageAddress: props.pageAddress,
         pledge: values,
-        signature,
+        signature: "0x",
         urlPath: `/pledge/${query.address}`,
       });
       const data = await response.json();
