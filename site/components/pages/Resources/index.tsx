@@ -19,6 +19,13 @@ export interface Props {
 }
 
 export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
+  console.log("WORKS", featuredArticles);
+  // To show that the slider works this is a tmp fix for Featured Articles
+  // as currently there are not enough saved as "featured" in Sanity (currently only one)
+  const tmpFixForFeatureArticles = documents.map((doc) => ({
+    ...doc,
+    isFeaturedArticle: true,
+  }));
   return (
     <>
       <PageHead
@@ -54,7 +61,7 @@ export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
       </Section>
 
       <Section variant="gray" style={{ padding: "unset" }}>
-        <ArticlesSlider articles={featuredArticles} />
+        <ArticlesSlider articles={tmpFixForFeatureArticles as FeaturedPost[]} />
       </Section>
 
       <Section variant="gray">
