@@ -188,6 +188,15 @@ export const allowancesContracts = {
   staking: ["sklima"],
   wsklima: ["sklima"],
   pklima_exercise: ["bct", "pklima"],
+  bond_klimaMco2Lp: ["klimaMco2Lp"],
+  bond_klimaBctLp: ["klimaBctLp"],
+  bond_klimaUsdcLp: ["klimaUsdcLp"],
+  bond_bct: ["bct"],
+  bond_bctUsdcLp: ["bctUsdcLp"],
+  bond_mco2: ["mco2"],
+  bond_nbo: ["nbo"],
+  bond_ubo: ["ubo"],
+  klimaProV2: ["klima"],
 } as const;
 
 export const EPOCH_INTERVAL = 11520;

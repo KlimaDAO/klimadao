@@ -12,6 +12,7 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { Image } from "components/Image";
+import { getIsInverse } from "actions/bonds";
 
 // put inverse into bonds array and add to useBond
 
@@ -35,11 +36,11 @@ export const useBond = (bond: Bond) => {
     inverse_usdc: false,
   };
 
-  if (bond === "inverse_usdc" && Number(bondState?.capacity) < 1) {
+  if (getIsInverse(bond) && Number(bondState?.capacity) < 1) {
     // set to sold out if capacity reaches zero
     disabledBonds[bond] = true;
   } else if (
-    bond !== "inverse_usdc" &&
+    !getIsInverse(bond) &&
     bondPrice &&
     bondFee &&
     parseFloat(bondPrice) < 1 + bondFee

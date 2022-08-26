@@ -61,9 +61,9 @@ export const NotificationModal: FC = () => {
     dispatch(setAppState({ notificationStatus: null }));
   });
 
-  // temp fix to not show this modal on specific routes until this component can be removed completely
-  if (pathname === "/stake" || pathname === "/offset" || pathname === "/wrap")
-    return null;
+  // all views do have the Transaction Modal, except of pklima which is not maintained no more
+  // if pklima view is removed, you can also remove this Component here
+  if (pathname !== "/pklima") return null;
 
   if (!status) return null;
 

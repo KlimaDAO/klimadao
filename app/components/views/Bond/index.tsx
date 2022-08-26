@@ -1,17 +1,22 @@
 import React, { useState, useEffect, FC } from "react";
 import { useSelector } from "react-redux";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
+import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { Link } from "react-router-dom";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
 import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { TippyProps } from "@tippyjs/react";
 import {
-  changeApprovalTransaction,
   bondTransaction,
   redeemTransaction,
   calcBondDetails,
   calculateUserBondDetails,
+  bondMapToBondName,
+  bondMapToTokenName,
+  getIsInverse,
 } from "actions/bonds";
+
+import { changeApprovalTransaction } from "actions/utils";
 
 import { Trans, t } from "@lingui/macro";
 import { prettifySeconds } from "@klimadao/lib/utils";
@@ -25,6 +30,7 @@ import {
   TextInfoTooltip,
   useTooltipSingleton,
 } from "@klimadao/lib/components";
+import { TransactionModal } from "components/TransactionModal";
 import {
   useDebounce,
   trimWithPlaceholder,
@@ -129,6 +135,7 @@ export const Bond: FC<Props> = (props) => {
   const [quantity, setQuantity] = useState("");
   const [shouldAutostake, setShouldAutostake] = useState(false);
   const debouncedQuantity = useDebounce(quantity, 500);
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
 
   const { currentBlock, blockRate } = useSelector(selectAppState);
   const bondState = useSelector((state: RootState) => state.bonds[props.bond]);
@@ -143,6 +150,20 @@ export const Bond: FC<Props> = (props) => {
     (status === "userConfirmation" ||
       status === "networkConfirmation" ||
       isLoading);
+
+  const viewIsBond = view === "bond";
+  const viewIsReedem = view === "redeem";
+
+  const isDisabled = viewIsBond && bondInfo.disabled;
+
+  const isBondDiscountNegative =
+    !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
+
+  const closeModal = () => {
+    setStatus(null);
+    setShowTransactionModal(false);
+  };
+
   const vestingPeriod = () => {
     if (!bondState || !currentBlock || !bondState.vestingTerm) return;
     const vestingBlock = currentBlock + bondState.vestingTerm;
@@ -196,7 +217,7 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const getBondMax = (): string => {
-    if (bondState?.bond === "inverse_usdc") {
+    if (!!bondState && getIsInverse(bondState.bond)) {
       return getInverseBondMax();
     }
     return getBondV1Max();
@@ -204,7 +225,7 @@ export const Bond: FC<Props> = (props) => {
 
   const setMax = () => {
     setStatus(null);
-    if (view === "bond") {
+    if (viewIsBond) {
       setQuantity(getBondMax());
     } else {
       setQuantity(bondState?.pendingPayout ?? "0");
@@ -238,16 +259,20 @@ export const Bond: FC<Props> = (props) => {
   const handleAllowance = async () => {
     try {
       if (!props.provider) return;
+
+      const token = bondMapToTokenName[props.bond];
+      const spender = bondMapToBondName[props.bond];
+
       setStatus(null);
-      await changeApprovalTransaction({
+
+      const approvedValue = await changeApprovalTransaction({
+        value: quantity.toString(),
         provider: props.provider,
-        bond: props.bond,
+        token,
+        spender,
         onStatus: setStatus,
-        isInverse: bondState && bondState.bond === "inverse_usdc",
       });
-      // added toNumber for inverse bc its a bignumber
-      // TODO: this should reflect the actually approved value
-      dispatch(setBondAllowance({ [props.bond]: "1000000000" }));
+      dispatch(setBondAllowance({ [props.bond]: approvedValue }));
     } catch (e) {
       return;
     }
@@ -332,7 +357,7 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const handleBond = () => {
-    if (props.bond === "inverse_usdc") {
+    if (getIsInverse(props.bond)) {
       return handleInverseBond();
     }
     return handleV1Bond();
@@ -362,12 +387,18 @@ export const Bond: FC<Props> = (props) => {
     }
   };
 
-  const hasAllowance = () => !!allowance && !!Number(allowance[props.bond]);
+  const hasApproval = () => {
+    return (
+      !!allowance &&
+      !!Number(allowance[props.bond]) &&
+      Number(quantity) <= Number(allowance[props.bond]) // Caution: Number trims values down to 17 decimal places of precision
+    );
+  };
 
-  const isDisabled = view === "bond" && bondInfo.disabled;
   const getButtonProps = (): ButtonProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
+
     if (isDisabled) {
       return {
         label: <Trans id="shared.sold_out">Sold Out</Trans>,
@@ -386,13 +417,13 @@ export const Bond: FC<Props> = (props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (view === "bond" && !value) {
+    } else if (viewIsBond && !value) {
       return {
         label: <Trans id="shared.enter_quantity">Enter Quantity</Trans>,
         onClick: undefined,
         disabled: true,
       };
-    } else if (view === "redeem" && !Number(bondState?.pendingPayout)) {
+    } else if (viewIsReedem && !Number(bondState?.pendingPayout)) {
       return {
         label: <Trans id="bond.not_redeemable">Not Redeemable</Trans>,
         onClick: undefined,
@@ -423,23 +454,23 @@ export const Bond: FC<Props> = (props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (!hasAllowance()) {
+    } else if (!hasApproval()) {
       return {
         label: <Trans id="shared.approve">Approve</Trans>,
         disabled: false,
-        onClick: handleAllowance,
+        onClick: () => setShowTransactionModal(true),
         variant: "blueRounded",
       };
-    } else if (view === "bond") {
+    } else if (viewIsBond) {
       return {
         label: <Trans id="bond.bond">Bond</Trans>,
-        onClick: handleBond,
+        onClick: () => setShowTransactionModal(true),
         disabled: !value || !bondMax,
       };
-    } else if (view === "redeem") {
+    } else if (viewIsReedem) {
       return {
         label: <Trans id="bond.redeem">Redeem</Trans>,
-        onClick: handleRedeem,
+        onClick: () => setShowTransactionModal(true),
         disabled: !Number(bondState?.pendingPayout),
       };
     } else {
@@ -453,12 +484,12 @@ export const Bond: FC<Props> = (props) => {
   };
 
   const getInputPlaceholder = (): string => {
-    if (view === "bond") {
+    if (viewIsBond) {
       return t({
         id: "bond.inputplaceholder.amount_to_bond",
         message: "Amount to bond",
       });
-    } else if (view === "redeem") {
+    } else if (viewIsReedem) {
       return t({
         id: "bond.inputplaceholder.amount_to_redeem",
         message: "Amount to redeem",
@@ -472,7 +503,7 @@ export const Bond: FC<Props> = (props) => {
     if (!props.isConnected) {
       return 0;
     }
-    if (props.bond === "inverse_usdc") {
+    if (getIsInverse(props.bond)) {
       return trimWithPlaceholder(
         userState?.balance?.klima,
         Number(userState?.balance?.klima) < 1 ? 18 : 2,
@@ -490,18 +521,15 @@ export const Bond: FC<Props> = (props) => {
     if (!props.isConnected) {
       return false;
     }
-    if (props.bond === "inverse_usdc") {
+    if (getIsInverse(props.bond)) {
       return Number(quantity) > Number(userState?.balance?.klima);
     }
     return Number(quantity) > Number(bondState?.balance);
   };
 
-  const isBondDiscountNegative =
-    !!bondState?.bondDiscount && bondState?.bondDiscount < 0;
-
   return (
     <>
-      {props.bond !== "inverse_usdc" && <BondBalancesCard bond={props.bond} />}
+      {getIsInverse(props.bond) && <BondBalancesCard bond={props.bond} />}
       <div className={styles.bondCard}>
         <div className={styles.bondCard_header}>
           <Link to="/bonds" className={styles.backButton}>
@@ -533,7 +561,7 @@ export const Bond: FC<Props> = (props) => {
         </div>
         <div className={styles.bondCard_ui}>
           <div className={styles.inputsContainer}>
-            {props.bond !== "inverse_usdc" && (
+            {!getIsInverse(props.bond) && (
               <div className={styles.stakeSwitch}>
                 <button
                   className={styles.switchButton}
@@ -541,7 +569,7 @@ export const Bond: FC<Props> = (props) => {
                   onClick={() => {
                     setView("bond");
                   }}
-                  data-active={view === "bond"}
+                  data-active={viewIsBond}
                 >
                   <Trans id="bond.bond">Bond</Trans>
                 </button>
@@ -551,7 +579,7 @@ export const Bond: FC<Props> = (props) => {
                   onClick={() => {
                     setView("redeem");
                   }}
-                  data-active={view === "redeem"}
+                  data-active={viewIsReedem}
                 >
                   <Trans id="bond.redeem">Redeem</Trans>
                 </button>
@@ -561,26 +589,22 @@ export const Bond: FC<Props> = (props) => {
               <input
                 className={styles.stakeInput_input}
                 value={
-                  view === "bond"
-                    ? quantity || ""
-                    : bondState?.pendingPayout || ""
+                  viewIsBond ? quantity || "" : bondState?.pendingPayout || ""
                 }
                 onChange={(e) => setQuantity(e.target.value)}
                 type="number"
                 placeholder={getInputPlaceholder()}
                 min="0"
                 step={
-                  view === "bond" && bondInfo.balanceUnit === "SLP"
-                    ? "0.0001"
-                    : "1"
+                  viewIsBond && bondInfo.balanceUnit === "SLP" ? "0.0001" : "1"
                 }
-                disabled={view === "redeem"}
+                disabled={viewIsReedem}
               />
               <button
                 className={styles.stakeInput_max}
                 type="button"
                 onClick={setMax}
-                disabled={view === "redeem"}
+                disabled={viewIsReedem}
               >
                 <Trans id="shared.max">Max</Trans>
               </button>
@@ -592,7 +616,7 @@ export const Bond: FC<Props> = (props) => {
             )}
             <div className="hr" />
           </div>
-          {view === "bond" && (
+          {viewIsBond && (
             <ul className={styles.dataContainer}>
               {sourceSingleton}
               <DataRow
@@ -610,7 +634,7 @@ export const Bond: FC<Props> = (props) => {
                 value={getBalance()}
                 warning={getBalanceExceeded()}
               />
-              {props.bond === "inverse_usdc" ? (
+              {getIsInverse(props.bond) ? (
                 /**
                  *
                  * INVERSE BONDS
@@ -893,7 +917,7 @@ export const Bond: FC<Props> = (props) => {
               )}
             </ul>
           )}
-          {view === "redeem" && (
+          {viewIsReedem && (
             <ul className={styles.dataContainer}>
               {sourceSingleton}
               <li className={styles.dataContainer_row}>
@@ -987,7 +1011,7 @@ export const Bond: FC<Props> = (props) => {
               </li>
             </ul>
           )}
-          {isBondDiscountNegative && view === "bond" && (
+          {isBondDiscountNegative && viewIsBond && (
             <Text t="caption" align="center">
               <Trans
                 id="bond.this_bond_price_is_inflated"
@@ -1022,7 +1046,7 @@ export const Bond: FC<Props> = (props) => {
                   {...getButtonProps()}
                   className={styles.submitButton}
                 />
-                {view === "redeem" && !showSpinner && (
+                {viewIsReedem && !showSpinner && (
                   <div className={styles.checkboxContainer}>
                     <Checkbox
                       checked={shouldAutostake}
@@ -1044,6 +1068,40 @@ export const Bond: FC<Props> = (props) => {
           </div>
         </div>
       </div>
+
+      {showTransactionModal && (
+        <TransactionModal
+          title={
+            <Text t="h4" className={styles.transaction_modal_header_title}>
+              <SpaOutlined />
+              {viewIsBond ? (
+                <Trans
+                  id="bond.transaction_modal.bond.title"
+                  comment="Bond {0}"
+                >
+                  Bond {bondInfo.name}
+                </Trans>
+              ) : (
+                <Trans id="bond.transaction_modal.redeem.title">
+                  Redeem Klima
+                </Trans>
+              )}
+            </Text>
+          }
+          onCloseModal={closeModal}
+          token={viewIsBond ? bondMapToTokenName[props.bond] : "klima"}
+          spender={bondMapToBondName[props.bond]}
+          value={
+            viewIsBond ? quantity.toString() : bondState?.pendingPayout || "0"
+          }
+          status={fullStatus}
+          onResetStatus={() => setStatus(null)}
+          onApproval={handleAllowance} // skipped if is Reedem
+          hasApproval={viewIsBond ? hasApproval() : true} // Redeem needs no approval
+          onSubmit={viewIsBond ? handleBond : handleRedeem}
+        />
+      )}
+
       <ImageCard />
     </>
   );
