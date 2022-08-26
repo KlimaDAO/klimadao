@@ -36,6 +36,20 @@ export const queries = {
       "imageUrl": mainImage.asset->url
     }
   `,
+
+  /** fetch all blog posts with isFeaturedArticle == true, limit to 20, sorted by publishedAt */
+  allFeaturedPosts: /* groq */ `
+    *[_type == "post" && ${queryFilter} && isFeaturedArticle == true][0...20] | order(publishedAt desc) {
+      summary, 
+      "slug": slug.current, 
+      title, 
+      publishedAt, 
+      author->, 
+      "imageUrl": mainImage.asset->url,
+      isFeaturedArticle
+    }
+  `,
+
   /** fetch the last published post slug and title */
   latestPost: /* groq */ `
     *[_type == "post" && ${queryFilter}] | order(publishedAt desc) {
@@ -94,6 +108,8 @@ export type PostDetails = {
   imageUrl?: string;
 };
 export type AllPosts = PostDetails[];
+export type FeaturedPost = PostDetails & { isFeaturedArticle: true };
+
 export type PodcastDetails = {
   slug: string;
   publishedAt: string;
@@ -129,6 +145,7 @@ export type Document = {
 export interface QueryContent {
   allDocuments: Document[];
   allPosts: AllPosts;
+  allFeaturedPosts: FeaturedPost[];
   latestPost: LatestPost;
   post: Post;
   allPodcasts: AllPodcasts;

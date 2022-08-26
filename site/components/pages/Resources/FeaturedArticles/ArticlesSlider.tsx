@@ -4,12 +4,12 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { Article } from "./Article";
 
 import { useElementWidth } from "hooks/useElementWidth";
-import { Document } from "lib/queries";
+import { FeaturedPost } from "lib/queries";
 
 import * as styles from "./styles";
 
 type Props = {
-  articles: Document[];
+  articles: FeaturedPost[];
 };
 
 export const ArticlesSlider: FC<Props> = (props) => {

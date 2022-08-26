@@ -11,13 +11,14 @@ import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
 import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";
 
-import { Document } from "lib/queries";
+import { Document, FeaturedPost } from "lib/queries";
 
 export interface Props {
   documents: Document[];
+  featuredArticles: FeaturedPost[];
 }
 
-export const Resources: NextPage<Props> = ({ documents }) => {
+export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
   return (
     <>
       <PageHead
@@ -53,9 +54,7 @@ export const Resources: NextPage<Props> = ({ documents }) => {
       </Section>
 
       <Section variant="gray" style={{ padding: "unset" }}>
-        <ArticlesSlider
-          articles={documents.filter((doc) => doc.type === "post")} // here it should be all posts with flag "featured_article"
-        />
+        <ArticlesSlider articles={featuredArticles} />
       </Section>
 
       <Section variant="gray">

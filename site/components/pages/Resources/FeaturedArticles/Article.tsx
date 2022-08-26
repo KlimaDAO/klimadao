@@ -5,14 +5,14 @@ import { useRouter } from "next/router";
 
 import { Text } from "@klimadao/lib/components";
 
-import { Document } from "lib/queries";
+import { FeaturedPost } from "lib/queries";
 
 import defaultImage from "public/cover-default.png";
 
 import * as styles from "./styles";
 
 type Props = {
-  article: Document;
+  article: FeaturedPost;
 };
 
 export const Article: FC<Props> = (props) => {
