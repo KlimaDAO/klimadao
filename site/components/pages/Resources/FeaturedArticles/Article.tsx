@@ -25,7 +25,7 @@ export const Article: FC<Props> = (props) => {
   return (
     <div className={styles.article}>
       <Image
-        alt="Green Hill"
+        alt={`${props.article.title} Image`}
         src={props.article.imageUrl || defaultImage}
         layout="fill"
         objectFit="cover"
