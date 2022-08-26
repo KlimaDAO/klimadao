@@ -49,7 +49,7 @@ export const controlButtonRight = css`
   bottom: 20%;
 `;
 
-export const rereouselItem = css`
+export const sliderItem = css`
   display: flex;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -81,7 +81,7 @@ export const article = css`
   position: relative;
   overflow: hidden;
   height: 50rem;
-  width: 100vw;
+  width: 90vw;
   max-width: 70rem;
   border-radius: 1.2rem;
 

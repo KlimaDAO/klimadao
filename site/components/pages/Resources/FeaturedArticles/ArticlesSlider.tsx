@@ -91,11 +91,7 @@ export const ArticlesSlider: FC<Props> = (props) => {
           onTouchStart={stopAutoSlide}
         >
           {props.articles.map((article) => (
-            <div
-              key={article.slug}
-              ref={cardRef}
-              className={styles.rereouselItem}
-            >
+            <div key={article.slug} ref={cardRef} className={styles.sliderItem}>
               <Article article={article} />
             </div>
           ))}

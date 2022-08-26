@@ -46,7 +46,7 @@ export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
 
       <Navigation activePage="Resources" />
 
-      <Section variant="gray">
+      <Section variant="gray" className={styles.sectionHead}>
         <div className={styles.header}>
           <Text t="h1" align="center">
             <Trans id="resources.page.header.title">Featured Articles</Trans>
