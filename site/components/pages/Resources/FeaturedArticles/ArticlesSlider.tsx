@@ -13,22 +13,22 @@ type Props = {
 };
 
 export const ArticlesSlider: FC<Props> = (props) => {
-  const cardRef = useRef(null);
+  const articleRef = useRef(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const [cardWidth] = useElementWidth(cardRef);
+  const [articleWidth] = useElementWidth(articleRef);
   const [sliderWidth] = useElementWidth(sliderRef);
   const [, setScrollInterval] = useState<NodeJS.Timeout>();
   const [currentScrollLeft, setCurrentScrollLeft] = useState<number>(0);
-  const cardsLength = props.articles.length;
+  const articlesLength = props.articles.length;
 
   const hasReachedEnd = () => {
-    if (!!cardWidth && !!sliderWidth) {
-      const visibleCards = Math.floor(sliderWidth / cardWidth);
-      const maxIndex = cardsLength - visibleCards;
+    if (!!articleWidth && !!sliderWidth) {
+      const visibleArticles = Math.floor(sliderWidth / articleWidth);
+      const maxIndex = articlesLength - visibleArticles;
       return currentScrollLeft > maxIndex;
     }
-    return currentScrollLeft > cardsLength - 1;
+    return currentScrollLeft > articlesLength - 1;
   };
 
   useEffect(() => {
@@ -44,13 +44,13 @@ export const ArticlesSlider: FC<Props> = (props) => {
     }
 
     // trigger scrolling
-    if (cardWidth != undefined) {
+    if (articleWidth != undefined) {
       sliderRef.current?.scrollTo({
-        left: cardWidth * currentScrollLeft,
+        left: articleWidth * currentScrollLeft,
         behavior: "smooth",
       });
     }
-  }, [currentScrollLeft, cardWidth]);
+  }, [currentScrollLeft, articleWidth]);
 
   useEffect(() => {
     const i = setInterval(() => {
@@ -91,7 +91,11 @@ export const ArticlesSlider: FC<Props> = (props) => {
           onTouchStart={stopAutoSlide}
         >
           {props.articles.map((article) => (
-            <div key={article.slug} ref={cardRef} className={styles.sliderItem}>
+            <div
+              key={article.slug}
+              ref={articleRef}
+              className={styles.sliderItem}
+            >
               <Article article={article} />
             </div>
           ))}
