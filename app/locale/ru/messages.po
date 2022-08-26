@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ru\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Bond/index.tsx:701
 msgid "Capacity"
@@ -259,68 +265,64 @@ msgstr "<0>app.klimadao.finance</0> является единственным о
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ Проверьте URL и добавьте эту страницу в закладки!"
 
-#: components/views/ChooseBond/index.tsx:92
+#: components/views/ChooseBond/index.tsx:89
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan Базовая тонна углерода"
 
-#: components/views/ChooseBond/index.tsx:197
+#: components/views/ChooseBond/index.tsx:184
 msgid "choose_bond.bond_carbon"
 msgstr "Бонд Карбон"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:200
+#: components/views/ChooseBond/index.tsx:187
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "Лучший способ купить KLIMA. Вложите углерод в нашу казну и получите KLIMA со скидкой. Все облигации (кроме обратных облигаций) имеют обязательный 5-дневный период наделения правами."
 
-#: components/views/ChooseBond/index.tsx:224
+#: components/views/ChooseBond/index.tsx:211
 msgid "choose_bond.choose_bond"
 msgstr "Выберите бонд"
 
-#: components/views/ChooseBond/index.tsx:112
+#: components/views/ChooseBond/index.tsx:105
 msgid "choose_bond.inverse_usdc"
 msgstr "Предоставьте KLIMA, получите USDC"
 
-#: components/views/ChooseBond/index.tsx:100
+#: components/views/ChooseBond/index.tsx:97
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "KLIMA/BCT Sushiswap ликвидность"
 
-#: components/views/ChooseBond/index.tsx:96
+#: components/views/ChooseBond/index.tsx:93
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/BCT Sushiswap ликвидность"
 
-#: components/views/ChooseBond/index.tsx:88
+#: components/views/ChooseBond/index.tsx:85
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "MOSS Carbon Credit Token"
 
-#: components/views/ChooseBond/index.tsx:108
+#: components/views/ChooseBond/index.tsx:101
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "KLIMA/MCO2 Quickswap ликвидность"
 
-#: components/views/ChooseBond/index.tsx:84
+#: components/views/ChooseBond/index.tsx:81
 msgid "choose_bond.nbo.description"
 msgstr "СЗ Природный офсет"
 
-#: components/views/ChooseBond/index.tsx:227
+#: components/views/ChooseBond/index.tsx:214
 msgid "choose_bond.percent_discount"
 msgstr ""
 "% Дисконт\n"
 ""
 
-#: components/views/ChooseBond/index.tsx:253
+#: components/views/ChooseBond/index.tsx:240
 msgid "choose_bond.sold_out"
 msgstr "РАСПРОДАННЫЙ"
 
-#: components/views/ChooseBond/index.tsx:214
+#: components/views/ChooseBond/index.tsx:201
 msgid "choose_bond.treasury_balance"
 msgstr "Баланс казначейства"
 
-#: components/views/ChooseBond/index.tsx:80
+#: components/views/ChooseBond/index.tsx:77
 msgid "choose_bond.ubo.description"
 msgstr "C3 Универсальный базовый офсет"
-
-#: components/views/ChooseBond/index.tsx:104
-msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
-msgstr "BCT/USDC Sushiswap ликвидность"
 
 #: components/ImageCard/index.tsx:16
 msgid "imagecard.how_to_get_started"
@@ -331,47 +333,47 @@ msgid "imagecard.new_to_klima"
 msgstr "Впервые на KLIMA?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:149
+#: components/views/Info/index.tsx:140
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Откройте Metamask и переключитесь на сеть Ethereum Mainnet."
 
 #. Long sentence
-#: components/views/Info/index.tsx:156
+#: components/views/Info/index.tsx:147
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr ""
 "2. Перейдите в Настройки/Сети/Polygon и нажмите «Удалить».\n"
 ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:163
+#: components/views/Info/index.tsx:154
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. Вернитесь на app.klimadao.finance и нажмите «переключиться на основную сеть»."
 
 #. Long sentence
-#: components/views/Info/index.tsx:141
+#: components/views/Info/index.tsx:132
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "Если приложение показывает сообщение \"загрузка...\", это, скорее всего, проблема с конфигурацией сети в Metamask. Чтобы исправить это:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:170
+#: components/views/Info/index.tsx:161
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask должен предложить вам добавить Polygon с правильной конфигурацией RPC."
 
 #. Long sentence
-#: components/views/Info/index.tsx:136
+#: components/views/Info/index.tsx:127
 msgid "info.app_not_loading.title"
 msgstr "Почему у меня не загружается приложение?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:124
+#: components/views/Info/index.tsx:115
 msgid "info.common_app_related_questions"
 msgstr "Общие вопросы, связанные с приложением, и полезные ссылки. Подробную информацию о KlimaDAO см. в нашей <0>официальной документации.</0> ."
 
-#: components/views/Info/index.tsx:121
+#: components/views/Info/index.tsx:112
 msgid "info.info_and_faq"
 msgstr "Информация и часто задаваемые вопросы"
 
-#: components/views/Info/index.tsx:184
+#: components/views/Info/index.tsx:175
 msgid "info.official_contract_addresses"
 msgstr "Официальные адреса контрактов"
 

@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: hi\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Bond/index.tsx:701
 msgid "Capacity"
@@ -257,66 +263,62 @@ msgstr "<0>app.klimadao.finance</0> एकमात्र आधिकारि�
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "️ ⚠️ URL (यूआरएल) सत्यापित करें और इस पृष्ठ को बुकमार्क कर लें!"
 
-#: components/views/ChooseBond/index.tsx:92
+#: components/views/ChooseBond/index.tsx:89
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan (टूकन) Base Carbon Tonne (बेस कार्बन टन)"
 
-#: components/views/ChooseBond/index.tsx:197
+#: components/views/ChooseBond/index.tsx:184
 msgid "choose_bond.bond_carbon"
 msgstr "कार्बन बांधें"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:200
+#: components/views/ChooseBond/index.tsx:187
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "KLIMA ख़रीदने का सबसे बढ़िया तरीक़ा। हमारी ट्रेज़री में कार्बन जमा करें, और छूट के साथ KLIMA प्राप्त करें। सभी बॉन्ड्स (इनवर्स बॉन्ड्स के अलावा) में 5 दिनों की अनिवार्य निहित अवधि होती है।"
 
-#: components/views/ChooseBond/index.tsx:224
+#: components/views/ChooseBond/index.tsx:211
 msgid "choose_bond.choose_bond"
 msgstr "एक बंधन चुनें"
 
-#: components/views/ChooseBond/index.tsx:112
+#: components/views/ChooseBond/index.tsx:105
 msgid "choose_bond.inverse_usdc"
 msgstr "KLIMA प्रदान करें, USDC (यूएसडीसी) प्राप्त करें"
 
-#: components/views/ChooseBond/index.tsx:100
+#: components/views/ChooseBond/index.tsx:97
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "KLIMA/BCT (बीसीटी) Sushiswap (सुशीस्वैप) लिक्विडिटी"
 
-#: components/views/ChooseBond/index.tsx:96
+#: components/views/ChooseBond/index.tsx:93
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "KLIMA/USDC (यूएसडीसी) Sushiswap (सुशीस्वैप) लिक्विडिटी"
 
-#: components/views/ChooseBond/index.tsx:88
+#: components/views/ChooseBond/index.tsx:85
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "MOSS (मॉस) कार्बन क्रेडिट टोकन"
 
-#: components/views/ChooseBond/index.tsx:108
+#: components/views/ChooseBond/index.tsx:101
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "KLIMA/MCO2 (एमसीओ2) Quickswap (क्विकस्वैप) लिक्विडिटी"
 
-#: components/views/ChooseBond/index.tsx:84
+#: components/views/ChooseBond/index.tsx:81
 msgid "choose_bond.nbo.description"
 msgstr "C3 प्रकृति आधारित ऑफ़सेट"
 
-#: components/views/ChooseBond/index.tsx:227
+#: components/views/ChooseBond/index.tsx:214
 msgid "choose_bond.percent_discount"
 msgstr "% छूट"
 
-#: components/views/ChooseBond/index.tsx:253
+#: components/views/ChooseBond/index.tsx:240
 msgid "choose_bond.sold_out"
 msgstr "बिक चुका है"
 
-#: components/views/ChooseBond/index.tsx:214
+#: components/views/ChooseBond/index.tsx:201
 msgid "choose_bond.treasury_balance"
 msgstr "ट्रेज़री बैलेंस"
 
-#: components/views/ChooseBond/index.tsx:80
+#: components/views/ChooseBond/index.tsx:77
 msgid "choose_bond.ubo.description"
 msgstr "C3 यूनिवर्सल बेसिक ऑफ़सेट"
-
-#: components/views/ChooseBond/index.tsx:104
-msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
-msgstr "BCT(बीसीटी)/USDC(यूएसडीसी) Sushiswap (सुशीस्वैप) लिक्विडिटी"
 
 #: components/ImageCard/index.tsx:16
 msgid "imagecard.how_to_get_started"
@@ -327,45 +329,45 @@ msgid "imagecard.new_to_klima"
 msgstr "KLIMA में नए हैं?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:149
+#: components/views/Info/index.tsx:140
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Metamask (मेटामास्क) खोलें और Ethereum Mainnet पर स्विच करें"
 
 #. Long sentence
-#: components/views/Info/index.tsx:156
+#: components/views/Info/index.tsx:147
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr "2. Settings/Network/Polygon पर जाएँ और 'delete' पर क्लिक करें"
 
 #. Long sentence
-#: components/views/Info/index.tsx:163
+#: components/views/Info/index.tsx:154
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. app.klimadao.finance पर लौटें और 'switch to mainnet' पर क्लिक करें।"
 
 #. Long sentence
-#: components/views/Info/index.tsx:141
+#: components/views/Info/index.tsx:132
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "यदि ऐप में 'loading...' दिखाए तो संभवतः Metamask (मेटामास्क) में आपकी नेटवर्क कॉन्फ़िगरेशन में कोई समस्या है। इसे ठीक करने के लिए:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:170
+#: components/views/Info/index.tsx:161
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask (मेटामास्क) आपको सही RPC (आरपीसी) कॉन्फ़िगरेशन के साथ Polygon (पॉलिगॉन) जोड़ने के लिए प्रेरित करेगा।"
 
 #. Long sentence
-#: components/views/Info/index.tsx:136
+#: components/views/Info/index.tsx:127
 msgid "info.app_not_loading.title"
 msgstr "मेरा ऐप लोड क्यों नहीं होता?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:124
+#: components/views/Info/index.tsx:115
 msgid "info.common_app_related_questions"
 msgstr "ऐप से संबंधित सामान्य प्रश्न और उपयोगी लिंक। KlimaDAO पर विस्तारपूर्वक पढ़ने के लिए, हमारा <0>आधिकारिक दस्तावेज़ीकरण</0> देखें।"
 
-#: components/views/Info/index.tsx:121
+#: components/views/Info/index.tsx:112
 msgid "info.info_and_faq"
 msgstr "जानकारी और FAQ (अक्सर पूछे जाने वाले प्रश्न)"
 
-#: components/views/Info/index.tsx:184
+#: components/views/Info/index.tsx:175
 msgid "info.official_contract_addresses"
 msgstr "आधिकारिक अनुबंध पते"
 

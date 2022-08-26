@@ -25,7 +25,6 @@ const initialState: BondState = {
   bct: undefined,
   klima_bct_lp: undefined,
   klima_usdc_lp: undefined,
-  bct_usdc_lp: undefined,
   mco2: undefined,
 };
 
