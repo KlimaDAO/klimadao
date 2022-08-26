@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 
-export const cardsSliderContainer = css`
+export const container = css`
   grid-column: full;
   display: grid;
   grid-template-columns: inherit;
@@ -28,7 +28,7 @@ export const sliderArrow = css`
   }
 `;
 
-export const rerouselContainer = css`
+export const sliderContainerOuter = css`
   width: 100%;
   margin: 0 auto;
   grid-column: full;
@@ -38,12 +38,14 @@ export const rerouselContainer = css`
 export const controlButtonLeft = css`
   position: absolute;
   left: 1rem;
+  z-index: 2;
   bottom: 20%;
 `;
 
 export const controlButtonRight = css`
   position: absolute;
   right: 1rem;
+  z-index: 2;
   bottom: 20%;
 `;
 
@@ -55,7 +57,7 @@ export const rereouselItem = css`
   overflow: hidden;
 `;
 
-export const sliderWrapper = css`
+export const sliderContainerInner = css`
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
@@ -79,7 +81,7 @@ export const article = css`
   position: relative;
   overflow: hidden;
   height: 50rem;
-  min-width: calc(100vw - 4rem);
+  width: 100vw;
   max-width: 70rem;
   border-radius: 1.2rem;
 

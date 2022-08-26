@@ -83,10 +83,10 @@ export const ArticlesSlider: FC<Props> = (props) => {
   };
 
   return (
-    <div className={styles.cardsSliderContainer}>
-      <div className={styles.rerouselContainer}>
+    <div className={styles.container}>
+      <div className={styles.sliderContainerOuter}>
         <div
-          className={styles.sliderWrapper}
+          className={styles.sliderContainerInner}
           ref={sliderRef}
           onTouchStart={stopAutoSlide}
         >
