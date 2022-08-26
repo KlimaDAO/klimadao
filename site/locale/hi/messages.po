@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-25 22:06+0000\n"
+"POT-Creation-Date: 2022-08-26 06:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,9 +60,7 @@ msgstr "ब्लॉग"
 #: components/pages/Blog/index.tsx:17
 #: components/pages/Blog/index.tsx:24
 msgid "blog.head.title"
-msgstr ""
-"KlimaDAO (क्लीमाडाओ)\n"
-" ब्लॉग"
+msgstr "KlimaDAO (क्लीमाडाओ) ब्लॉग"
 
 #: components/pages/Retirements/CopyURLButton/index.tsx:22
 msgid "button.copyURL.copied"
@@ -88,7 +86,7 @@ msgstr "<0>Metamask</0> (मेटामास्क) एथेरियम औ�
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:10
 msgid "buy.beginner_01.title"
-msgstr ""
+msgstr "Metamask (मेटामास्क) इंस्टॉल करें"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:29
 msgid "buy.beginner_02.description_01"
@@ -174,7 +172,7 @@ msgstr "यदि आपके पास पहले से ही MATIC (म�
 
 #: components/pages/Buy/index.tsx:217
 msgid "buy.dex.summary_02"
-msgstr ""
+msgstr "KLIMA <0>Sushi Swap</0> (सुशी स्वैप) पर खोजा जा सकता है, लेकिन हमारी सलाह में आप Zapper (ज़ैपर) नामक DEX (डेक्स) एग्रीगेटर का उपयोग करें। बस अपने वॉलेट को Zapper (ज़ैपर) से कनेक्ट करें, और यह आपके ट्रेड को सर्वोत्तम उपलब्ध DEX के माध्यम से रूट कर देगा।"
 
 #: components/pages/Buy/index.tsx:142
 msgid "buy.disclaimer"
@@ -277,7 +275,7 @@ msgstr "Etc Group (ईटीसी ग्रुप) लोगो"
 
 #: components/pages/Resources/Community/index.tsx:392
 msgid "community.get_in_touch"
-msgstr "संपर्क में रहो?"
+msgstr "संपर्क में रहें?"
 
 #: components/pages/Resources/Community/index.tsx:203
 msgid "community.gitcoin_logo"
@@ -307,11 +305,11 @@ msgstr "यदि आपके पास प्रश्न, विचार, �
 
 #: components/pages/Resources/Community/index.tsx:347
 msgid "community.join_our_discord"
-msgstr ""
+msgstr "हमारे Discord (डिस्कॉर्ड) से जुड़ें"
 
 #: components/pages/Resources/Community/index.tsx:334
 msgid "community.join_the_klima_community"
-msgstr ""
+msgstr "Klima (क्लीमा) समुदाय में शामिल हों"
 
 #: components/pages/Resources/Community/index.tsx:310
 msgid "community.landx_logo"
@@ -432,12 +430,12 @@ msgstr "प्रश्न और समर्थन"
 #. Join our <0>community</0>
 #: components/pages/Resources/Contact/index.tsx:38
 msgid "contact.quest_and_support.join_our_community"
-msgstr "हमारे <0>समुदाय में शामिल हों</0>"
+msgstr "हमारे <0>समुदाय</0> में शामिल हों"
 
 #. Long sentence
 #: components/pages/Resources/Contact/index.tsx:46
 msgid "contact.quest_and_support.join_our_discord_server"
-msgstr ""
+msgstr "हमारे Discord (डिस्कॉर्ड) सर्वर से जुड़ें और #questions चैनल में प्रश्न करें। हमारे पास हजारों मित्रवत, जानकार समुदाय सदस्य हैं जो आपकी मदद् करने के लिए इच्छुक और तैयार हैं।"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:67
@@ -488,7 +486,7 @@ msgstr "KlimaDAO (क्लीमाडाओ) अस्वीकरण"
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:105
 msgid "disclaimer.klimadao_and_its_suppliers"
-msgstr ""
+msgstr "KlimaDAO और उसके आपूर्त्तिकर्ता इस बात की कोई वारंटी नहीं देते हैं कि प्लैटफ़ॉर्म:"
 
 #. Long sentence
 #: components/pages/Disclaimer/index.tsx:46
@@ -586,7 +584,7 @@ msgstr "हेक्टेयरों जंगल"
 #. Long sentence
 #: components/pages/Home/index.tsx:148
 msgid "home.klima_defies_climate_change"
-msgstr ""
+msgstr "KlimaDAO, DeFi (डीफ़ाई) है जो जलवायु परिवर्तन की उपेक्षा करता है"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:158
@@ -596,7 +594,7 @@ msgstr ""
 #. Long sentence
 #: components/pages/Home/index.tsx:417
 msgid "home.klima_tokens_are_minted"
-msgstr ""
+msgstr "KLIMA टोकन मिंट किए जाते हैं और हर ~ 7 घंटे में स्वचालित रूप से KLIMA धारकों को वितरित किए जाते हैं। हमारे एक साथ अधिक टिकाऊ भविष्य की शुरुआत करने के साथ अपनी KLIMA होल्डिंग्स को बढ़ाऍं।"
 
 #: components/pages/Home/index.tsx:78
 msgid "home.latest_news"
@@ -814,7 +812,7 @@ msgstr "आपके संगठन के लिए अगली पीढ़�
 
 #: components/pages/Infinity/index.tsx:62
 msgid "infinity.head.metaTitle"
-msgstr ""
+msgstr "Klima Infinity (क्लिमा इन्फिनिटी) - गो कार्बन न्यूट्रल"
 
 #: components/pages/Infinity/index.tsx:58
 msgid "infinity.head.title"
@@ -842,7 +840,7 @@ msgstr "KlimaDAO द्वारा होल्ड की गयी कार�
 
 #: components/pages/Infinity/index.tsx:453
 msgid "infinity.mission_card2_number"
-msgstr ""
+msgstr "$10m+"
 
 #: components/pages/Infinity/index.tsx:476
 msgid "infinity.mission_card3_description"
@@ -884,7 +882,7 @@ msgstr "ब्लॉकचेन पर अपरिवर्तनीय रू
 
 #: components/pages/Infinity/index.tsx:95
 msgid "infinity.welcome_subtitle"
-msgstr ""
+msgstr "Klima Infinity (क्लिमा इन्फिनिटी) आपके संगठन के लिए अगली पीढ़ी का कार्बन टूलकिट है"
 
 #: components/pages/Infinity/index.tsx:90
 msgid "infinity.welcome_title"
@@ -904,7 +902,7 @@ msgstr ""
 
 #: components/pages/Home/index.tsx:361
 msgid "invest_in_the_future"
-msgstr ""
+msgstr "भविष्य में निवेश करें।"
 
 #: components/pages/Infinity/index.tsx:425
 msgid "mission.header"
@@ -1108,7 +1106,7 @@ msgstr "जलवायु कार्रवाई करें और एक �
 
 #: components/pages/Pledge/index.tsx:44
 msgid "pledges.head.metaTitle"
-msgstr ""
+msgstr "Klima Infinity (क्लिमा इन्फिनिटी) - आज ही दुनिया के लिए कोई संकल्प खोजें अथवा शुरू करें"
 
 #: components/pages/Pledge/index.tsx:40
 msgid "pledges.head.title"
@@ -1141,7 +1139,7 @@ msgstr ""
 
 #: components/pages/Resources/index.tsx:27
 msgid "resources.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO (क्लीमाडाओ) संसाधन - कार्बन न्यूट्रल से भी आगे की सोचें"
 
 #: components/pages/Resources/index.tsx:23
 msgid "resources.head.title"
@@ -1161,7 +1159,7 @@ msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:36
 msgid "retirement.footer.aboutKlima.right"
-msgstr ""
+msgstr "KLIMA टोकन एक बढ़ती ऑन-चेन कार्बन अर्थव्यवस्था के केंद्र में हैं। KLIMA,कार्बन ऑफ़सेटिंग, कार्बन मार्केट और अंतर्निहित कार्बन परिसंपत्तियों के बारे में अधिक जानने के लिए हमारे <0>knowledge base</0> (नॉलेज बेस) पर जाएँ।"
 
 #: components/pages/Retirements/Footer/index.tsx:21
 msgid "retirement.footer.aboutKlima.title"
@@ -1289,11 +1287,11 @@ msgstr ""
 
 #: components/pages/Retirements/index.tsx:53
 msgid "retirement.totals.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO - लाभार्थी हेतु कार्बन रिटायरमेंट्स {0}"
 
 #: components/pages/Retirements/index.tsx:47
 msgid "retirement.totals.head.title"
-msgstr ""
+msgstr "KlimaDAO - लाभार्थी हेतु कार्बन रिटायरमेंट्स {0}"
 
 #: components/pages/Retirements/index.tsx:72
 msgid "retirement.totals.page_headline"
@@ -1333,7 +1331,7 @@ msgstr "404 - पृष्ठ नहीं मिला"
 #: components/Navigation/index.tsx:75
 #: components/Navigation/index.tsx:246
 msgid "shared.about"
-msgstr ""
+msgstr "के बारे में"
 
 #: components/Navigation/index.tsx:107
 #: components/Navigation/index.tsx:281
@@ -1352,18 +1350,18 @@ msgstr "ब्लॉग"
 #: components/Navigation/index.tsx:126
 #: components/Navigation/index.tsx:300
 msgid "shared.bond"
-msgstr ""
+msgstr "KLIMA बॉन्ड करें"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:110
 #: components/Navigation/index.tsx:287
 msgid "shared.buy"
-msgstr ""
+msgstr "KLIMA ख़रीदें"
 
 #: components/Navigation/index.tsx:212
 #: components/Navigation/index.tsx:393
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "कार्बन डैशबोर्ड"
 
 #: components/Navigation/index.tsx:87
 #: components/Navigation/index.tsx:261
@@ -1400,13 +1398,13 @@ msgstr "संपर्क करें"
 #: components/Navigation/index.tsx:220
 #: components/Navigation/index.tsx:401
 msgid "shared.disclaimer"
-msgstr ""
+msgstr "अस्वीकरण"
 
 #: components/Footer/index.tsx:50
 #: components/Navigation/index.tsx:229
 #: components/Navigation/index.tsx:410
 msgid "shared.docs"
-msgstr ""
+msgstr "डॉक्स"
 
 #: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:110
@@ -1429,12 +1427,12 @@ msgstr "घर"
 #: components/Navigation/index.tsx:203
 #: components/Navigation/index.tsx:384
 msgid "shared.how_to_buy"
-msgstr ""
+msgstr "KLIMA कैसे ख़रीदें?"
 
 #: components/Navigation/index.tsx:160
 #: components/Navigation/index.tsx:334
 msgid "shared.infinity"
-msgstr ""
+msgstr "अनंतता"
 
 #: components/pages/Infinity/index.tsx:104
 #: components/pages/Infinity/index.tsx:297
@@ -1445,7 +1443,7 @@ msgstr "शुरुआत करें"
 #: components/Navigation/index.tsx:150
 #: components/Navigation/index.tsx:324
 msgid "shared.info"
-msgstr ""
+msgstr "जानकारी"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
