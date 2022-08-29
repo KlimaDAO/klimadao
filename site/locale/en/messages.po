@@ -712,7 +712,7 @@ msgstr "Read in-depth FAQs for KI Clients"
 msgid "infinity.button.read_blog_polygon"
 msgstr "Read Polygon's Story"
 
-#: components/pages/Infinity/Cards/CardsSlider.tsx:137
+#: components/pages/Infinity/Cards/CardsSlider.tsx:89
 msgid "infinity.cards_slider.title"
 msgstr "Dozens of organizations have offset over 150,000 carbon tonnes with Klima Infinity"
 
@@ -1139,23 +1139,23 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "KlimaDAO Podcast"
 
-#: components/pages/Resources/index.tsx:31
+#: components/pages/Resources/index.tsx:33
 msgid "resources.head.metaDescription"
 msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
 
-#: components/pages/Resources/index.tsx:27
+#: components/pages/Resources/index.tsx:29
 msgid "resources.head.metaTitle"
 msgstr "KlimaDAO Resources - Go beyond Carbon neutral"
 
-#: components/pages/Resources/index.tsx:23
+#: components/pages/Resources/index.tsx:25
 msgid "resources.head.title"
 msgstr "KlimaDAO | Resources"
 
-#: components/pages/Resources/index.tsx:46
+#: components/pages/Resources/index.tsx:48
 msgid "resources.page.header.subline"
 msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
 
-#: components/pages/Resources/index.tsx:43
+#: components/pages/Resources/index.tsx:45
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
 

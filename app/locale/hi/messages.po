@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-26 06:03+0000\n"
+"POT-Creation-Date: 2022-08-29 14:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,16 +48,16 @@ msgstr "बॉन्डिंग के लिए उपलब्ध बैल�
 #: components/views/Bond/index.tsx:466
 #: components/views/Bond/index.tsx:574
 msgid "bond.bond"
-msgstr "बंधन"
+msgstr "बॉन्ड"
 
 #: components/views/Bond/index.tsx:781
 msgid "bond.bond_price"
-msgstr "बंधन क़ीमत"
+msgstr "बॉन्ड क़ीमत"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:785
 msgid "bond.bond_price.tooltip"
-msgstr "रियायती मूल्य। बंधन की कुल राशि 1 पूर्ण KLIMA (आंशिक बंधन की अनुमति भी है)"
+msgstr "रियायती मूल्य। बॉन्ड की कुल राशि 1 पूर्ण KLIMA (आंशिक बॉन्ड्स की अनुमति भी है)"
 
 #: components/views/Bond/index.tsx:650
 msgid "bond.bond_price.tooltip.inverse"
@@ -66,7 +66,7 @@ msgstr "बाज़ार में KLIMA का वर्तमान ट्र�
 #. Bond {0}
 #: components/views/Bond/index.tsx:553
 msgid "bond.bond_token"
-msgstr "बंधन {0}"
+msgstr "बॉन्ड {0}"
 
 #: components/views/Bond/index.tsx:453
 msgid "bond.capacity_exceeded"
@@ -78,7 +78,7 @@ msgstr "पूर्ण निहित होने की तिथि"
 
 #: components/views/Bond/index.tsx:992
 msgid "bond.date_of_full_vesting.tooltip"
-msgstr "दिनांक जब संपूर्ण बंधन मूल्य को भुनाया जा सकता है"
+msgstr "दिनांक जब संपूर्ण बॉन्ड मूल्य को भुनाया जा सकता है"
 
 #: components/views/Bond/index.tsx:817
 msgid "bond.debt_ratio"
@@ -91,7 +91,7 @@ msgstr " प्रोटोकॉल का बकाया बॉन्ड्�
 
 #: components/views/Bond/index.tsx:852
 msgid "bond.discount"
-msgstr "बंधन छूट"
+msgstr "बॉन्ड छूट"
 
 #: components/views/Bond/index.tsx:856
 msgid "bond.discount.description_tooltip"
@@ -121,7 +121,7 @@ msgstr "बाज़ार क़ीमत"
 #. Long sentence
 #: components/views/Bond/index.tsx:801
 msgid "bond.market_price.tooltip"
-msgstr "KLIMA का वर्तमान ट्रेडिंग मूल्य, बिना बंधन छूट के"
+msgstr "KLIMA का वर्तमान ट्रेडिंग मूल्य, बिना बॉन्ड छूट के"
 
 #: components/views/Bond/index.tsx:443
 msgid "bond.max_exceeded"
@@ -147,7 +147,7 @@ msgstr "भुगतान प्रति KLIMA"
 
 #: components/views/Bond/index.tsx:668
 msgid "bond.payout_per_klima.description_inverse"
-msgstr "यदि आप 1 KLIMA को बंधित करते हैं, तो आपको यह राशि USDC (यूएसडीसी) में प्राप्त होगी।"
+msgstr "यदि आप 1 KLIMA को बॉन्ड करते हैं, तो आपको यह राशि USDC (यूएसडीसी) में प्राप्त होगी।"
 
 #: components/views/Bond/index.tsx:472
 #: components/views/Bond/index.tsx:584
@@ -176,11 +176,11 @@ msgstr "⚠️️ चेतावनी: इस बॉन्ड की क़ीम
 #. Bond {0}
 #: components/views/Bond/index.tsx:1078
 msgid "bond.transaction_modal.bond.title"
-msgstr "बंधन {0}"
+msgstr "बॉन्ड {0}"
 
 #: components/views/Bond/index.tsx:1085
 msgid "bond.transaction_modal.redeem.title"
-msgstr ""
+msgstr "Klima रिडीम करें"
 
 #: components/views/Bond/index.tsx:925
 msgid "bond.unredeemed"
@@ -197,7 +197,7 @@ msgstr "निधान अवधि की समाप्ति "
 
 #: components/views/Bond/index.tsx:841
 msgid "bond.vesting_term_end.tooltip"
-msgstr "यदि आप अभी बंधित करते हैं, तो आपकी निहित अवधि इस तिथि पर समाप्त हो जाती है। इस अवधि के दौरान Klima ऋणमोचन के लिए धीरे-धीरे अनलॉक हो जाता है।"
+msgstr "यदि आप अभी बॉन्ड करते हैं, तो आपकी निहित अवधि इस तिथि पर समाप्त हो जाती है। इस अवधि के दौरान Klima ऋणमोचन के लिए धीरे-धीरे अनलॉक हो जाता है।"
 
 #: components/views/Bond/index.tsx:750
 #: components/views/Bond/index.tsx:894
@@ -272,7 +272,7 @@ msgstr "KLIMA ख़रीदने का सबसे बढ़िया तरी�
 
 #: components/views/ChooseBond/index.tsx:224
 msgid "choose_bond.choose_bond"
-msgstr "एक बंधन चुनें"
+msgstr "एक बॉन्ड चुनें"
 
 #: components/views/ChooseBond/index.tsx:112
 msgid "choose_bond.inverse_usdc"
@@ -599,11 +599,11 @@ msgstr "आपने अपनी आपूर्त्ति-शेयर स�
 
 #: components/views/PKlima/index.tsx:207
 msgid "pklima.redeem_pklima"
-msgstr "pKLIMA भुनाएँ"
+msgstr "pKLIMA रिडीम करें"
 
 #: components/views/PKlima/index.tsx:266
 msgid "pklima.redeemed"
-msgstr "भुनाया गया"
+msgstr "रिडीम किया गया"
 
 #. Long sentence
 #: components/views/PKlima/index.tsx:269

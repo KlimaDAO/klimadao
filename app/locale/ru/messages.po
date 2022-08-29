@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-26 06:03+0000\n"
+"POT-Creation-Date: 2022-08-29 14:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,7 +34,7 @@ msgstr "Продвинутый"
 #. Long sentence
 #: components/views/Bond/index.tsx:1027
 msgid "bond.all_demand_has_been_filled"
-msgstr "РАСПРОДАНО. Весь спрос на эту облигацию был удовлетворен. Спасибо, Климатес!"
+msgstr "РАСПРОДАНО. Весь спрос на эту облигацию был удовлетворен. Спасибо, Klimates!"
 
 #: components/views/Bond/index.tsx:624
 msgid "bond.balance"
@@ -181,6 +181,8 @@ msgstr "Бонд{0}"
 #: components/views/Bond/index.tsx:1085
 msgid "bond.transaction_modal.redeem.title"
 msgstr ""
+"Выкупить Klima\n"
+""
 
 #: components/views/Bond/index.tsx:925
 msgid "bond.unredeemed"
@@ -197,7 +199,7 @@ msgstr "Дата полного вестинга"
 
 #: components/views/Bond/index.tsx:841
 msgid "bond.vesting_term_end.tooltip"
-msgstr "Если вы разместите бонд сейчас, срок наделения правами закончится в эту дату. Клима постепенно разблокируется для погашения в течение этого срока."
+msgstr "Если вы разместите бонд сейчас, срок наделения правами закончится в эту дату. Klima постепенно разблокируется для погашения в течение этого срока."
 
 #: components/views/Bond/index.tsx:750
 #: components/views/Bond/index.tsx:894
@@ -244,7 +246,7 @@ msgstr "Это сумма USDC в контракте, доступная для 
 
 #: components/CheckURLBanner/index.tsx:47
 msgid "checkurlbanner.dont_remind_me"
-msgstr "Не напоминайте мне"
+msgstr "Больше не напоминать"
 
 #: components/CheckURLBanner/index.tsx:50
 msgid "checkurlbanner.got_it"
@@ -457,11 +459,11 @@ msgstr "По умолчанию используется адрес подклю
 
 #: components/views/Offset/index.tsx:495
 msgid "offset.dropdown_payWith.label"
-msgstr "Заплатить с"
+msgstr "Оплатить с помощью"
 
 #: components/views/Offset/index.tsx:510
 msgid "offset.dropdown_retire.label"
-msgstr "Выберите углеродный офсет, чтобы выбить его"
+msgstr "Выберите токен компенсации выбросов углекислого газа, чтобы удалить его"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:53
 msgid "offset.empty"
@@ -474,7 +476,7 @@ msgstr "Введите 0x-адрес"
 
 #: components/views/Offset/index.tsx:449
 msgid "offset.go_carbon_neutral"
-msgstr "Станьте углеродно-нейтральным, отказавшись от углерода и заявив об основных экологических преимуществах компенсации выбросов углерода. Узнайте больше о углеродных токенах в нашей <0>документации.</0> ."
+msgstr "Станьте углеродно-нейтральным,выведя углерод из оборота и получив экологическую выгоду от компенсации углерода. Узнайте больше об углеродных токенах в наших <0>документах</0>."
 
 #: components/views/Offset/index.tsx:428
 msgid "offset.incompatible"
@@ -482,7 +484,7 @@ msgstr "ТОКЕН ВВОДА НЕСОВМЕСТИМ"
 
 #: components/views/Offset/index.tsx:457
 msgid "offset.lifi"
-msgstr "Компенсация между сетями теперь доступна через<0>LI.FI.</0> , с поддержкой десятков токенов!"
+msgstr "Межсетевой взаимозачет теперь доступен через<0> LI.FI.</0> , с поддержкой десятков токенов!"
 
 #: components/views/Offset/index.tsx:496
 msgid "offset.modal_payWith.title"
@@ -498,7 +500,7 @@ msgstr "Итого выведено "
 
 #: components/views/Offset/index.tsx:486
 msgid "offset.offset_quantity"
-msgstr "Введите количество для офсета"
+msgstr "Введите количество для компенсации"
 
 #: components/views/Offset/index.tsx:446
 #: components/views/Offset/index.tsx:647
@@ -519,7 +521,7 @@ msgstr "Имя или организация"
 
 #: components/views/Offset/index.tsx:531
 msgid "offset.retirement_credit"
-msgstr "Кому будет приписано это выбивание?"
+msgstr "Кому будет зачислено это выбивание?"
 
 #: components/views/Offset/index.tsx:568
 msgid "offset.retirement_message"
@@ -563,7 +565,7 @@ msgstr "Стоимость"
 
 #: components/views/Offset/index.tsx:620
 msgid "offset_disclaimer"
-msgstr "Будьте осторожны и не раскрывайте конфиденциальную личную информацию. Ваше сообщение не может быть отредактировано и будет постоянно существовать в публичном блокчейне."
+msgstr "Будьте осторожны и не раскрывайте конфиденциальную личную информацию. Ваше сообщение не может быть отредактировано и будет постоянно существовать в блокчейне."
 
 #: components/views/PKlima/index.tsx:176
 msgid "pklima.approve_bct"
@@ -798,7 +800,7 @@ msgstr "Стейкинг"
 
 #: components/views/Stake/index.tsx:321
 msgid "stake.stake_hold_earn"
-msgstr "Стейкайте, держите и зарабатывайте на sKLIMA."
+msgstr "Стейкайте, сохраняйте и зарабатывайте на sKLIMA."
 
 #: components/views/Stake/index.tsx:268
 #: components/views/Stake/index.tsx:318

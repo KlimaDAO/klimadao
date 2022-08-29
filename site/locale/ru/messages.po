@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-26 06:03+0000\n"
+"POT-Creation-Date: 2022-08-29 14:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -291,7 +291,7 @@ msgstr "Узнайте о нашем сообществе увлеченных K
 
 #: components/pages/Resources/Community/index.tsx:77
 msgid "community.head.subline"
-msgstr "KlimaDAO — это децентрализованная автономная организация перемен. Мы управляемся и создаемся сообществом увлеченных климатов."
+msgstr "KlimaDAO — это децентрализованная автономная организация перемен. Мы управляемся и создаемся сообществом увлеченных Klimates."
 
 #: components/pages/Resources/Community/index.tsx:75
 #: components/pages/Resources/Community/index.tsx:82
@@ -398,7 +398,7 @@ msgstr "Вопросы, проблемы, идеи? Вот несколько с
 #: components/pages/Resources/Contact/index.tsx:17
 #: components/pages/Resources/Contact/index.tsx:24
 msgid "contact.head.title"
-msgstr "Связаться с КлимаДАО"
+msgstr "Связаться с KlimaDAO"
 
 #: components/pages/Resources/Contact/index.tsx:105
 msgid "contact.media"
@@ -712,7 +712,7 @@ msgstr "Прочтите подробные ответы на часто зад�
 msgid "infinity.button.read_blog_polygon"
 msgstr "Читайте статью Polygon"
 
-#: components/pages/Infinity/Cards/CardsSlider.tsx:137
+#: components/pages/Infinity/Cards/CardsSlider.tsx:89
 msgid "infinity.cards_slider.title"
 msgstr "Десятки организаций компенсировали более 150 000 тонн углерода с помощью Klima Infinity."
 
@@ -722,7 +722,7 @@ msgstr "Проект ветроэнергетики в Джайбхиме, Ин�
 
 #: components/pages/Infinity/index.tsx:329
 msgid "infinity.carousel_info_subtitle"
-msgstr "Направлять финансирование на проекты, способствующие смягчению последствий изменения климата"
+msgstr "Направляйте финансирование на проекты, способствующие смягчению последствий изменения климата"
 
 #: components/pages/Infinity/index.tsx:324
 msgid "infinity.carousel_info_title"
@@ -1143,25 +1143,27 @@ msgstr "Подкаст"
 msgid "podcast.head.title"
 msgstr "Подкаст KlimaDAO"
 
-#: components/pages/Resources/index.tsx:31
+#: components/pages/Resources/index.tsx:33
 msgid "resources.head.metaDescription"
 msgstr "Свежие новости и аналитические материалы от основателей, участников DAO, консультантов и сообщества."
 
-#: components/pages/Resources/index.tsx:27
+#: components/pages/Resources/index.tsx:29
 msgid "resources.head.metaTitle"
-msgstr ""
+msgstr "Ресурсы KlimaDAO - Выйти за рамки углеродной нейтральности"
 
-#: components/pages/Resources/index.tsx:23
+#: components/pages/Resources/index.tsx:25
 msgid "resources.head.title"
-msgstr ""
+msgstr "KlimaDAO | Ресурсы"
 
-#: components/pages/Resources/index.tsx:46
+#: components/pages/Resources/index.tsx:48
 msgid "resources.page.header.subline"
 msgstr "Свежие новости и аналитические материалы от основателей, участников DAO, консультантов и сообщества."
 
-#: components/pages/Resources/index.tsx:43
+#: components/pages/Resources/index.tsx:45
 msgid "resources.page.header.title"
 msgstr ""
+"Популярные статьи\n"
+""
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1341,7 +1343,7 @@ msgstr "404 Страница не найдена"
 #: components/Navigation/index.tsx:75
 #: components/Navigation/index.tsx:246
 msgid "shared.about"
-msgstr ""
+msgstr "О"
 
 #: components/Navigation/index.tsx:107
 #: components/Navigation/index.tsx:281
@@ -1361,17 +1363,21 @@ msgstr "Блог"
 #: components/Navigation/index.tsx:300
 msgid "shared.bond"
 msgstr ""
+"БОНД KLIMA\n"
+""
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:110
 #: components/Navigation/index.tsx:287
 msgid "shared.buy"
 msgstr ""
+"КУПИТЬ KLIMA\n"
+""
 
 #: components/Navigation/index.tsx:212
 #: components/Navigation/index.tsx:393
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "УГЛЕРОДНЫЕ ПРИБОРНЫЕ ПАНЕЛИ"
 
 #: components/Navigation/index.tsx:87
 #: components/Navigation/index.tsx:261
@@ -1408,13 +1414,13 @@ msgstr "Связаться с нами"
 #: components/Navigation/index.tsx:220
 #: components/Navigation/index.tsx:401
 msgid "shared.disclaimer"
-msgstr ""
+msgstr "ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ"
 
 #: components/Footer/index.tsx:50
 #: components/Navigation/index.tsx:229
 #: components/Navigation/index.tsx:410
 msgid "shared.docs"
-msgstr ""
+msgstr "ДОКУМЕНТЫ"
 
 #: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:110
@@ -1439,7 +1445,7 @@ msgstr "Домашняя страница"
 #: components/Navigation/index.tsx:203
 #: components/Navigation/index.tsx:384
 msgid "shared.how_to_buy"
-msgstr ""
+msgstr "КАК КУПИТЬ KLIMA"
 
 #: components/Navigation/index.tsx:160
 #: components/Navigation/index.tsx:334
@@ -1455,7 +1461,7 @@ msgstr "С чего начать"
 #: components/Navigation/index.tsx:150
 #: components/Navigation/index.tsx:324
 msgid "shared.info"
-msgstr ""
+msgstr "ИНФОРМАЦИЯ"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
@@ -1471,7 +1477,7 @@ msgstr "Love Letters"
 #: components/Navigation/index.tsx:142
 #: components/Navigation/index.tsx:316
 msgid "shared.offset"
-msgstr ""
+msgstr "Офсет"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
@@ -1487,7 +1493,7 @@ msgstr "Источники"
 #: components/Navigation/index.tsx:118
 #: components/Navigation/index.tsx:292
 msgid "shared.stake"
-msgstr ""
+msgstr "Стейкинг KLIMA"
 
 #: components/pages/Infinity/index.tsx:492
 msgid "shared.visit_klimadao_blog"
@@ -1496,7 +1502,7 @@ msgstr "Посетите блог KlimaDAO"
 #: components/Navigation/index.tsx:134
 #: components/Navigation/index.tsx:308
 msgid "shared.wrap"
-msgstr ""
+msgstr "обернуть sKLIMA"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"

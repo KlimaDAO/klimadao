@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-26 06:03+0000\n"
+"POT-Creation-Date: 2022-08-29 14:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -706,7 +706,7 @@ msgstr "阅读为 KI 客户准备的深入问题及解答"
 msgid "infinity.button.read_blog_polygon"
 msgstr "阅读 Polygon 的故事"
 
-#: components/pages/Infinity/Cards/CardsSlider.tsx:137
+#: components/pages/Infinity/Cards/CardsSlider.tsx:89
 msgid "infinity.cards_slider.title"
 msgstr "数十家组织已通过 Klima Infinity 抵消了超过 150,000 吨碳"
 
@@ -1133,25 +1133,25 @@ msgstr "播客"
 msgid "podcast.head.title"
 msgstr "KlimaDAO 播客"
 
-#: components/pages/Resources/index.tsx:31
+#: components/pages/Resources/index.tsx:33
 msgid "resources.head.metaDescription"
 msgstr "来自创始人、DAO 贡献者、顾问和社区的更新和领袖精神。"
 
-#: components/pages/Resources/index.tsx:27
+#: components/pages/Resources/index.tsx:29
 msgid "resources.head.metaTitle"
-msgstr ""
+msgstr "KlimaDAO 资源 - 超越碳中和"
 
-#: components/pages/Resources/index.tsx:23
+#: components/pages/Resources/index.tsx:25
 msgid "resources.head.title"
-msgstr ""
+msgstr "KlimaDAO |资源"
 
-#: components/pages/Resources/index.tsx:46
+#: components/pages/Resources/index.tsx:48
 msgid "resources.page.header.subline"
 msgstr "来自创始人、DAO 贡献者、顾问和社区的更新和领袖精神。"
 
-#: components/pages/Resources/index.tsx:43
+#: components/pages/Resources/index.tsx:45
 msgid "resources.page.header.title"
-msgstr ""
+msgstr "相关文章"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1331,7 +1331,7 @@ msgstr "404 - 页面不存在"
 #: components/Navigation/index.tsx:75
 #: components/Navigation/index.tsx:246
 msgid "shared.about"
-msgstr ""
+msgstr "关于"
 
 #: components/Navigation/index.tsx:107
 #: components/Navigation/index.tsx:281
@@ -1350,18 +1350,18 @@ msgstr "博客"
 #: components/Navigation/index.tsx:126
 #: components/Navigation/index.tsx:300
 msgid "shared.bond"
-msgstr ""
+msgstr "债券化 KLIMA"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:110
 #: components/Navigation/index.tsx:287
 msgid "shared.buy"
-msgstr ""
+msgstr "购买 KLIMA"
 
 #: components/Navigation/index.tsx:212
 #: components/Navigation/index.tsx:393
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "碳仪表板"
 
 #: components/Navigation/index.tsx:87
 #: components/Navigation/index.tsx:261
@@ -1398,13 +1398,13 @@ msgstr "联系我们"
 #: components/Navigation/index.tsx:220
 #: components/Navigation/index.tsx:401
 msgid "shared.disclaimer"
-msgstr ""
+msgstr "免责声明"
 
 #: components/Footer/index.tsx:50
 #: components/Navigation/index.tsx:229
 #: components/Navigation/index.tsx:410
 msgid "shared.docs"
-msgstr ""
+msgstr "文档"
 
 #: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:110
@@ -1427,7 +1427,7 @@ msgstr "主页"
 #: components/Navigation/index.tsx:203
 #: components/Navigation/index.tsx:384
 msgid "shared.how_to_buy"
-msgstr ""
+msgstr "如何购买 KLIMA"
 
 #: components/Navigation/index.tsx:160
 #: components/Navigation/index.tsx:334
@@ -1443,7 +1443,7 @@ msgstr "开始使用"
 #: components/Navigation/index.tsx:150
 #: components/Navigation/index.tsx:324
 msgid "shared.info"
-msgstr ""
+msgstr "信息"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
@@ -1459,7 +1459,7 @@ msgstr "Love Letters"
 #: components/Navigation/index.tsx:142
 #: components/Navigation/index.tsx:316
 msgid "shared.offset"
-msgstr ""
+msgstr "抵消"
 
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
@@ -1475,7 +1475,7 @@ msgstr "资源"
 #: components/Navigation/index.tsx:118
 #: components/Navigation/index.tsx:292
 msgid "shared.stake"
-msgstr ""
+msgstr "质押 KLIMA"
 
 #: components/pages/Infinity/index.tsx:492
 msgid "shared.visit_klimadao_blog"
@@ -1484,7 +1484,7 @@ msgstr "访问 KlimaDAO 博客"
 #: components/Navigation/index.tsx:134
 #: components/Navigation/index.tsx:308
 msgid "shared.wrap"
-msgstr ""
+msgstr "打包 sKLIMA"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
