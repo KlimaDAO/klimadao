@@ -1,15 +1,10 @@
-import React, {
-  useEffect,
-  useCallback,
-  useState,
-  useRef,
-  RefObject,
-} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Trans } from "@lingui/macro";
 
 import { Text } from "@klimadao/lib/components";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useElementWidth } from "hooks/useElementWidth";
 
 import { Card } from "./Card";
 
@@ -17,55 +12,12 @@ import * as styles from "./styles";
 
 import { cards } from "./cards";
 
-// highly inspired by https://github.com/aexol-studio/rerousel/blob/master/src/index.tsx
-
-const useWidth = (elementRef: RefObject<HTMLElement>) => {
-  const [width, setWidth] = useState<number>(0);
-
-  const updateWidth = useCallback(() => {
-    if (elementRef && elementRef.current) {
-      const { width } = elementRef.current.getBoundingClientRect();
-      setWidth(width);
-    }
-  }, [elementRef]);
-
-  const firstUpdateWidth = useCallback(() => {
-    if (elementRef && elementRef.current) {
-      let { width } = elementRef.current.getBoundingClientRect();
-      width =
-        width -
-        parseInt(
-          window
-            .getComputedStyle(elementRef.current)
-            .getPropertyValue("border-left-width")
-        ) -
-        parseInt(
-          window
-            .getComputedStyle(elementRef.current)
-            .getPropertyValue("border-right-width")
-        );
-
-      setWidth(width);
-    }
-  }, [elementRef]);
-
-  useEffect(() => {
-    firstUpdateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => {
-      window.removeEventListener("resize", updateWidth);
-    };
-  }, [updateWidth]);
-
-  return [width];
-};
-
 export const CardsSlider = () => {
   const cardRef = useRef(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const [cardWidth] = useWidth(cardRef);
-  const [sliderWidth] = useWidth(sliderRef);
+  const [cardWidth] = useElementWidth(cardRef);
+  const [sliderWidth] = useElementWidth(sliderRef);
   const [, setScrollInterval] = useState<NodeJS.Timeout>();
   const [currentScrollLeft, setCurrentScrollLeft] = useState<number>(0);
   const cardsLength = cards.length;

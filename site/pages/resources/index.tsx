@@ -6,6 +6,7 @@ import { GetStaticPropsContext } from "next";
 export async function getStaticProps(ctx: GetStaticPropsContext) {
   try {
     const documents = await fetchCMSContent("allDocuments");
+    const featuredArticles = await fetchCMSContent("allFeaturedPosts");
 
     const translation = await loadTranslation(ctx.locale);
     if (!documents) {
@@ -15,6 +16,7 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
     return {
       props: {
         documents,
+        featuredArticles,
         translation,
       },
       revalidate: 240,

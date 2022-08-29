@@ -9,14 +9,16 @@ import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
+import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";
 
-import { Document } from "lib/queries";
+import { Document, FeaturedPost } from "lib/queries";
 
 export interface Props {
   documents: Document[];
+  featuredArticles: FeaturedPost[];
 }
 
-export const Resources: NextPage<Props> = ({ documents }) => {
+export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
   return (
     <>
       <PageHead
@@ -37,7 +39,7 @@ export const Resources: NextPage<Props> = ({ documents }) => {
 
       <Navigation activePage="Resources" />
 
-      <Section variant="gray">
+      <Section variant="gray" className={styles.sectionHead}>
         <div className={styles.header}>
           <Text t="h1" align="center">
             <Trans id="resources.page.header.title">Featured Articles</Trans>
@@ -49,6 +51,13 @@ export const Resources: NextPage<Props> = ({ documents }) => {
             </Trans>
           </Text>
         </div>
+      </Section>
+
+      <Section variant="gray" style={{ padding: "unset" }}>
+        <ArticlesSlider articles={featuredArticles} />
+      </Section>
+
+      <Section variant="gray">
         <div className={styles.list}>
           {documents.map((doc) => {
             if (doc.type === "post") {
