@@ -45,7 +45,7 @@ export {
   isKNSDomain,
   KNSContract,
 } from "./kns";
-export { getTransactionOptions, getGasPrice } from "./getTransactionOptions";
+export { getTransactionOptions } from "./getTransactionOptions";
 
 // ENS
 export {
