@@ -18,8 +18,8 @@ export const ArticlesSlider: FC<Props> = (props) => {
 
   const [articleWidth] = useElementWidth(articleRef);
   const [sliderWidth] = useElementWidth(sliderRef);
-  const [, setScrollInterval] = useState<NodeJS.Timeout>();
   const [currentScrollLeft, setCurrentScrollLeft] = useState<number>(0);
+  const scrollInterval = useRef<NodeJS.Timeout>();
   const articlesLength = props.articles.length;
 
   const hasReachedEnd = () => {
@@ -53,10 +53,12 @@ export const ArticlesSlider: FC<Props> = (props) => {
   }, [currentScrollLeft, articleWidth]);
 
   useEffect(() => {
-    const i = setInterval(() => {
+    // start autoslide on mount
+    const intervalId = setInterval(() => {
       setCurrentScrollLeft((csl) => csl + 1);
     }, 3000);
-    setScrollInterval(i);
+
+    scrollInterval.current = intervalId;
 
     return () => {
       stopAutoSlide();
@@ -64,12 +66,9 @@ export const ArticlesSlider: FC<Props> = (props) => {
   }, []);
 
   const stopAutoSlide = () => {
-    setScrollInterval((i) => {
-      if (i) {
-        clearInterval(i);
-      }
-      return undefined;
-    });
+    if (scrollInterval.current) {
+      clearInterval(scrollInterval.current);
+    }
   };
 
   const onForward = () => {
