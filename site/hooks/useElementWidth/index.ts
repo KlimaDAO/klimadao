@@ -12,9 +12,9 @@ export const useElementWidth = (elementRef: RefObject<HTMLElement>) => {
 
   const firstUpdateWidth = useCallback(() => {
     if (elementRef && elementRef.current) {
-      let { width } = elementRef.current.getBoundingClientRect();
-      width =
-        width -
+      const rect = elementRef.current.getBoundingClientRect();
+      const width =
+        rect.width -
         parseInt(
           window
             .getComputedStyle(elementRef.current)
