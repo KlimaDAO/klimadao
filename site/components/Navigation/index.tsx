@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import dynamic from "next/dynamic";
 import { t } from "@lingui/macro";
 import { ButtonPrimary } from "@klimadao/lib/components";
@@ -40,9 +40,6 @@ export const Navigation: FC<Props> = ({
   activePage,
   showThemeToggle = true,
 }) => {
-  const [toggledNavItemID, setToggledNavItemID] = useState<
-    NavItemMobileID | undefined
-  >(undefined);
   const { locale } = useRouter();
 
   return (
@@ -77,7 +74,7 @@ export const Navigation: FC<Props> = ({
           subMenu={[
             <NavItemDesktop
               name={t({
-                message: "BLOG",
+                message: "Blog",
                 id: "shared.blog",
               })}
               key="blog"
@@ -86,7 +83,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "COMMUNITY",
+                message: "Community",
                 id: "shared.community",
               })}
               key="community"
@@ -95,7 +92,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "CONTACT US",
+                message: "Contact Us",
                 id: "shared.contact_us",
               })}
               key="contact"
@@ -109,7 +106,7 @@ export const Navigation: FC<Props> = ({
           subMenu={[
             <NavItemDesktop
               name={t({
-                message: "BUY KLIMA",
+                message: "Buy Klima",
                 id: "shared.buy",
               })}
               key="buy klima"
@@ -117,7 +114,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "STAKE KLIMA",
+                message: "Stake Klima",
                 id: "shared.stake",
               })}
               key="stake"
@@ -125,7 +122,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "BOND KLIMA",
+                message: "Bond Klima",
                 id: "shared.bond",
               })}
               key="bond"
@@ -133,7 +130,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "WRAP SKLIMA",
+                message: "Wrap sKlima",
                 id: "shared.wrap",
               })}
               key="wrap"
@@ -141,7 +138,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "OFFSET",
+                message: "Offset",
                 id: "shared.offset",
               })}
               key="offset"
@@ -149,7 +146,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "INFO",
+                message: "Info",
                 id: "shared.info",
               })}
               key="info"
@@ -161,36 +158,6 @@ export const Navigation: FC<Props> = ({
           name={t({ message: "Infinity", id: "shared.infinity" })}
           active={activePage === "Infinity"}
           url="/infinity"
-          // subMenu={[
-          //   <NavItemDesktop
-          //     name={t({
-          //       message: "INTRODUCTION",
-          //       id: "shared.intoduction",
-          //     })}
-          //     key="intro"
-          //     url="/infinity"
-          //     active={activePage === "Infinity"}
-          //   />,
-          // these can be uncommented with resources page rework
-          // <NavItemDesktop
-          //   label={t({
-          //     message: "HOW TO PLEDGE",
-          //     id: "shared.how_to_pledge",
-          //   })}
-          //   key="how pledge"
-          //   href="/blog"
-          //   className={styles.navMain_DesktopMenuItem}
-          // />,
-          // <NavItemDesktop
-          // label={t({
-          //   message: "LEADER BOARD",
-          //   id: "shared.leader_board",
-          // })}
-          //   key="leader board"
-          //   href="/blog"
-          //   className={styles.navMain_DesktopMenuItem}
-          // />,
-          // ]}
         />
         <NavItemDesktop
           url={urls.loveletter}
@@ -202,7 +169,7 @@ export const Navigation: FC<Props> = ({
           subMenu={[
             <NavItemDesktop
               name={t({
-                message: "HOW TO BUY KLIMA",
+                message: "How To Buy Klima",
                 id: "shared.how_to_buy",
               })}
               key="how to buy"
@@ -211,7 +178,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "CARBON DASHBOARDS",
+                message: "Carbon Dashboards",
                 id: "shared.carbon_dashboards",
               })}
               key="carbon dashboards"
@@ -219,7 +186,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "DISCLAIMER",
+                message: "Disclaimer",
                 id: "shared.disclaimer",
               })}
               key="disclaimer"
@@ -228,7 +195,7 @@ export const Navigation: FC<Props> = ({
             />,
             <NavItemDesktop
               name={t({
-                message: "DOCS",
+                message: "Docs",
                 id: "shared.docs",
               })}
               key="docs"
@@ -245,13 +212,11 @@ export const Navigation: FC<Props> = ({
           <div className="links">
             <NavItemMobile
               name={t({ message: "About", id: "shared.about" })}
-              toggledNavItemID={toggledNavItemID}
-              setToggledNavItemID={setToggledNavItemID}
               id="About"
               subMenu={[
                 <NavItemMobile
                   name={t({
-                    message: "BLOG",
+                    message: "Blog",
                     id: "shared.blog",
                   })}
                   key="blog"
@@ -260,7 +225,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "COMMUNITY",
+                    message: "Community",
                     id: "shared.community",
                   })}
                   key="community"
@@ -269,7 +234,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "CONTACT US",
+                    message: "Contact Us",
                     id: "shared.contact",
                   })}
                   key="contact"
@@ -280,18 +245,16 @@ export const Navigation: FC<Props> = ({
             />
             <NavItemMobile
               name={t({ message: "App", id: "shared.app" })}
-              toggledNavItemID={toggledNavItemID}
-              setToggledNavItemID={setToggledNavItemID}
               id="App"
               subMenu={[
                 <NavItemMobile
-                  name={t({ message: "BUY KLIMA", id: "shared.buy" })}
+                  name={t({ message: "Buy Klima", id: "shared.buy" })}
                   key="buy klima"
                   url="/buy"
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "STAKE KLIMA",
+                    message: "Stake Klima",
                     id: "shared.stake",
                   })}
                   key="stake"
@@ -299,7 +262,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "BOND KLIMA",
+                    message: "Bond Klima",
                     id: "shared.bond",
                   })}
                   key="bond"
@@ -307,7 +270,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "WRAP SKLIMA",
+                    message: "Wrap sKlima",
                     id: "shared.wrap",
                   })}
                   key="wrap"
@@ -315,7 +278,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "OFFSET",
+                    message: "Offset",
                     id: "shared.offset",
                   })}
                   key="offset"
@@ -323,7 +286,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "INFO",
+                    message: "Info",
                     id: "shared.info",
                   })}
                   key="info"
@@ -333,57 +296,21 @@ export const Navigation: FC<Props> = ({
             />
             <NavItemMobile
               name={t({ message: "Infinity", id: "shared.infinity" })}
-              toggledNavItemID={toggledNavItemID}
-              setToggledNavItemID={setToggledNavItemID}
               url="/infinity"
               id="Infinity"
-              // subMenu={
-              //   [
-              // <NavItemMobile
-              //   name={t({
-              //     message: "INTRODUCTION",
-              //     id: "shared.intoduction",
-              //   })}
-              //   key="intro"
-              //   url="/infinity"
-              //   active={activePage === "Infinity"}
-              // />,
-              // <NavItemMobile
-              //   name={t({
-              //     message: "HOW TO PLEDGE",
-              //     id: "shared.how_to_pledge",
-              //   })}
-              //   key="how pledge"
-              //   // not sure about this url
-              //   url="/blog"
-              // />,
-              // <NavItemMobile
-              //   name={t({
-              //     message: "LEADER BOARD",
-              //     id: "shared.leader_board",
-              //   })}
-              //   key="leader board"
-              //   url="/blog"
-              // />,
-              //   ]
-              // }
             />
             <NavItemMobile
               name={t({ message: "Love Letters", id: "shared.loveletters" })}
-              toggledNavItemID={toggledNavItemID}
-              setToggledNavItemID={setToggledNavItemID}
               id="Love Letters"
               url={urls.loveletter}
             />
             <NavItemMobile
               name={t({ message: "Resources", id: "shared.resources" })}
-              toggledNavItemID={toggledNavItemID}
-              setToggledNavItemID={setToggledNavItemID}
               id="Resources"
               subMenu={[
                 <NavItemMobile
                   name={t({
-                    message: "HOW TO BUY KLIMA",
+                    message: "How To Buy Klima",
                     id: "shared.how_to_buy",
                   })}
                   active={activePage === "Buy"}
@@ -392,7 +319,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "CARBON DASHBOARDS",
+                    message: "Carbon Dashboards",
                     id: "shared.carbon_dashboards",
                   })}
                   key="carbon dashboards"
@@ -400,7 +327,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "DISCLAIMER",
+                    message: "Disclaimer",
                     id: "shared.disclaimer",
                   })}
                   key="disclaimer"
@@ -409,7 +336,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "DOCS",
+                    message: "Docs",
                     id: "shared.docs",
                   })}
                   key="docs"

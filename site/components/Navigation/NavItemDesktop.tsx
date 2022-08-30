@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import * as styles from "./styles";
 import Link from "next/link";
 import { cx } from "@emotion/css";
-
+import Tippy from "@tippyjs/react";
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
   url?: string;
@@ -32,16 +32,24 @@ export const NavItemDesktop: FC<Props> = ({
           </a>
         </Link>
       ) : (
-        <div
-          className={cx(styles.navMain_DesktopLink, {
-            dropdown: subMenu !== undefined,
-          })}
-          data-active={active?.toString()}
+        <Tippy
+          content={
+            subMenu && (
+              <div className={styles.navMain_DesktopSubMenu}>{subMenu}</div>
+            )
+          }
+          interactive={true}
         >
-          {name}
-        </div>
+          <button
+            className={cx(styles.navMain_DesktopLink, {
+              dropdown: subMenu !== undefined,
+            })}
+            data-active={active?.toString()}
+          >
+            {name}
+          </button>
+        </Tippy>
       )}
-      {subMenu && <div className="content">{subMenu}</div>}
     </div>
   );
 };

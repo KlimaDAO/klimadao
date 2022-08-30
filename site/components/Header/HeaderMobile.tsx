@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import * as styles from "./styles";
+import { Global, css } from "@emotion/react";
 
 import { LogoWithClaim } from "@klimadao/lib/components";
 import Link from "next/link";
@@ -12,7 +13,6 @@ interface Props {
 
 export const HeaderMobile: FC<Props> = (props) => {
   const [isToggled, setIsToggled] = useState(false);
-
   return (
     <div
       className={
@@ -35,6 +35,17 @@ export const HeaderMobile: FC<Props> = (props) => {
           onClick={() => setIsToggled(!isToggled)}
         />
       </header>
+      <Global
+        styles={
+          isToggled &&
+          css`
+            body {
+              position: fixed;
+              height: 100vh;
+            }
+          `
+        }
+      />
       <NavMobile isToggled={isToggled}>{props.children}</NavMobile>
     </div>
   );
