@@ -10,7 +10,7 @@ import { Text } from "@klimadao/lib/components";
 import { PageHead } from "components/PageHead";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
-import BlockContentRenderer from "components/BlockContentRenderer";
+import PortableTextRenderer from "components/PortableTextRenderer";
 import { Post } from "lib/queries";
 
 import defaultImage from "public/cover-default.png";
@@ -80,7 +80,7 @@ export const PostPage = (props: PostProps) => {
             <Text t="h5" as="p" className={styles.date}>
               {publishedDate}
             </Text>
-            <BlockContentRenderer blocks={props.post.body} />
+            <PortableTextRenderer value={props.post.body} />
             {props.post.showDisclaimer && (
               <div className={styles.disclaimer}>
                 <Text t="caption" color="lighter">

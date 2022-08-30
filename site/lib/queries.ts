@@ -1,4 +1,5 @@
 import { IS_PRODUCTION } from "./constants";
+import type { PortableTextBlock } from "@portabletext/types";
 
 /* Posts can have a hideFromProduction field that may be set to true if the author
 wants to publish their posts but dont want it to appear in the production environment. 
@@ -124,7 +125,7 @@ export type Post = {
   slug: string;
   title: string;
   author: { name: string };
-  body: { children: { text: string }[] }[];
+  body: PortableTextBlock[];
   imageUrl?: string;
   publishedAt: string;
   summary: string;
