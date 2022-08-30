@@ -24,6 +24,7 @@ export type PageName =
   | "Infinity"
   | "Blog"
   | "Community"
+  | "Podcast"
   | "Contact";
 export type NavItemMobileID =
   | "About"
@@ -80,6 +81,15 @@ export const Navigation: FC<Props> = ({
               key="blog"
               url="/blog"
               active={activePage === "Blog"}
+            />,
+            <NavItemDesktop
+              name={t({
+                message: "Podcast",
+                id: "shared.podcast",
+              })}
+              key="podcast"
+              url="/podcast"
+              active={activePage === "Podcast"}
             />,
             <NavItemDesktop
               name={t({
@@ -225,6 +235,15 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
+                    message: "Podcast",
+                    id: "shared.podcast",
+                  })}
+                  key="podcast"
+                  url="/podcast"
+                  active={activePage === "Podcast"}
+                />,
+                <NavItemMobile
+                  name={t({
                     message: "Community",
                     id: "shared.community",
                   })}
@@ -319,8 +338,8 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "Carbon Dashboards",
-                    id: "shared.carbon_dashboards",
+                    message: "Carbon Dashboard",
+                    id: "shared.carbon_dashboard",
                   })}
                   key="carbon dashboards"
                   url={urls.carbonDashboard}
