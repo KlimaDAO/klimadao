@@ -16,7 +16,7 @@ const verifyGnosisSafeSignature = async (signature, address) => {
   const gnosisSafeContract = new ethers.Contract(
     address,
     GnosisSafe.abi,
-    getJsonRpcProvider().getSigner(address)
+    getJsonRpcProvider()
   );
 
   const _signature = "0x";

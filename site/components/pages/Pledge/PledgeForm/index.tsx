@@ -13,6 +13,9 @@ import {
   SubmitHandler,
 } from "react-hook-form";
 
+import { ethers } from "ethers";
+import GnosisSafe from "@klimadao/lib/abi/GnosisSafe.json";
+
 import { InputField, TextareaField } from "components/Form";
 
 import {
@@ -59,8 +62,7 @@ type Props = {
 
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
-  const { query } = useRouter();
-  const { signer } = useWeb3();
+  const { signer, provider } = useWeb3();
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
@@ -78,26 +80,67 @@ export const PledgeForm: FC<Props> = (props) => {
     values: PledgeFormValues
   ) => {
     try {
-      // if (!signer) return;
+      if (!signer) return;
       // const signature = await signer.signMessage(
       //   editPledgeSignature(values.nonce)
       // );
-      console.log(signer);
-      const response = await putPledge({
-        pageAddress: props.pageAddress,
-        pledge: values,
-        signature: "0x",
-        urlPath: `/pledge/${query.address}`,
-      });
-      const data = await response.json();
 
-      if (data.pledge) {
-        props.onFormSubmit(data.pledge);
-        reset(pledgeFormAdapter(data.pledge));
-        setServerError(false);
-      } else {
-        setServerError(true);
-      }
+      const messageHash = ethers.utils.hashMessage(
+        editPledgeSignature(values.nonce)
+      );
+
+      const gnosisSafeContract = new ethers.Contract(
+        props.pageAddress,
+        GnosisSafe.abi,
+        signer
+      );
+
+      const getMessageHash = await gnosisSafeContract.getMessageHash(
+        messageHash
+      );
+
+      console.log(messageHash);
+      console.log(getMessageHash);
+
+      const signature = await signer.signMessage(
+        editPledgeSignature(values.nonce)
+      );
+
+      gnosisSafeContract.once(
+        gnosisSafeContract.filters.SignMsg(getMessageHash),
+        async () => {
+          // const response = await gnosisSafeContract.isValidSignature(
+          //   messageHash,
+          //   "0x"
+          // );
+
+          console.log("hi");
+        }
+      );
+
+      // const _signature = "0x";
+      // const response = await gnosisSafeContract.isValidSignature(
+      //   messageHash,
+      //   "0x"
+      // );
+
+      // console.log(response);
+      console.log("wheres the response");
+
+      // const response = await putPledge({
+      //   pageAddress: props.pageAddress,
+      //   pledge: values,
+      //   signature: "0x",
+      // });
+      // const data = await response.json();
+
+      // if (data.pledge) {
+      //   props.onFormSubmit(data.pledge);
+      //   reset(pledgeFormAdapter(data.pledge));
+      //   setServerError(false);
+      // } else {
+      //   setServerError(true);
+      // }
     } catch (error) {
       console.log(error);
       setServerError(true);
