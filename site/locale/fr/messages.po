@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-30 15:43+0000\n"
+"POT-Creation-Date: 2022-08-30 22:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,7 +46,7 @@ msgstr "Les informations fournies dans cet article de blog concernant KlimaDAO (
 
 #: components/pages/Blog/Post/index.tsx:87
 msgid "blog.disclaimer.title"
-msgstr "Clause de non-responsabilité"
+msgstr "Avertissement légal"
 
 #: components/pages/Blog/index.tsx:19
 #: components/pages/Blog/index.tsx:25
@@ -474,7 +474,7 @@ msgstr "Toute actions que vous entreprendriez sur la base des informations conte
 
 #: components/pages/Disclaimer/index.tsx:31
 msgid "disclaimer.disclaimer"
-msgstr "Clause de non-responsabilité"
+msgstr "Avertissement légal"
 
 #: components/pages/Disclaimer/index.tsx:20
 msgid "disclaimer.head.description"
@@ -1357,7 +1357,7 @@ msgstr "Blog"
 #: components/Navigation/index.tsx:126
 #: components/Navigation/index.tsx:300
 msgid "shared.bond"
-msgstr "ACHETER DES OBLIGATIONS KLIMA"
+msgstr "OBLIGATIONS KLIMA"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:110
@@ -1405,7 +1405,7 @@ msgstr "Contact"
 #: components/Navigation/index.tsx:220
 #: components/Navigation/index.tsx:401
 msgid "shared.disclaimer"
-msgstr "Avertissement"
+msgstr "AVERTISSEMENT LÉGAL"
 
 #: components/Footer/index.tsx:50
 #: components/Navigation/index.tsx:229
