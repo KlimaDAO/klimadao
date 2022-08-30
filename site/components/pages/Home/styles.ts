@@ -163,13 +163,14 @@ export const ctaButtonContainer = css`
   width: 100%;
   display: none;
   justify-content: center;
-  gap: 4rem;
   height: min-content;
   grid-column: main;
   padding-top: 4.8rem;
   flex-wrap: wrap;
+  display: flex;
+  gap: 1.6rem;
   ${breakpoints.medium} {
-    display: flex;
+    gap: 4rem;
   }
   a {
     color: var(--font-01) !important;
