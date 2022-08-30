@@ -53,9 +53,11 @@ export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
         </div>
       </Section>
 
-      <Section variant="gray" style={{ padding: "unset" }}>
-        <ArticlesSlider articles={featuredArticles} />
-      </Section>
+      {!!featuredArticles?.length && (
+        <Section variant="gray" style={{ padding: "unset" }}>
+          <ArticlesSlider articles={featuredArticles} />
+        </Section>
+      )}
 
       <Section variant="gray">
         <div className={styles.list}>
