@@ -136,9 +136,9 @@ export const urls = {
   loveletter: "https://loveletter.klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
   lifiStake:
-    "https://transferto.xyz/embed/stake-klima?fromChain=eth&fromToken=0x0000000000000000000000000000000000000000&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+    "https://transferto.xyz/showcase/etherspot-klima?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
   lifiOffset:
-    "https://develop.transferto.xyz/embed/carbon-offset?fromChain=eth&fromToken=0x0000000000000000000000000000000000000000&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+    "https://transferto.xyz/showcase/carbon-offset?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
   polyscanGasTracker:
     "https://api.polygonscan.com/api?module=gastracker&action=gasoracle",
 };

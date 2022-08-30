@@ -456,8 +456,8 @@ export const Offset = (props: Props) => {
             <FiberNewRoundedIcon className={styles.newReleasesIcon} />
             <Trans id="offset.lifi">
               Cross-chain offsetting is now available through{" "}
-              <A href={urls.lifiOffset}>LI.FI</A>, with support for dozens of
-              tokens!
+              <A href={urls.lifiOffset}>LI.FI and Etherspot</A>, with support
+              for multiple chains and tokens.
             </Trans>
           </Text>
         </div>
