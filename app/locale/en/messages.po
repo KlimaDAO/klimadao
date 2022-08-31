@@ -482,7 +482,7 @@ msgstr "INPUT TOKEN INCOMPATIBLE"
 
 #: components/views/Offset/index.tsx:457
 msgid "offset.lifi"
-msgstr "Cross-chain offsetting is now available through<0>LI.FI</0>, with support for dozens of tokens!"
+msgstr "Cross-chain offsetting is now available through <0>LI.FI and Etherspot</0>, with support for multiple chains and tokens."
 
 #: components/views/Offset/index.tsx:496
 msgid "offset.modal_payWith.title"
@@ -774,7 +774,7 @@ msgstr "Amount to unstake"
 
 #: components/views/Stake/index.tsx:327
 msgid "stake.lifi"
-msgstr "Cross-chain staking is now available through <0>LI.FI</0>, with support for dozens of tokens like ETH, BNB and DAI."
+msgstr "Cross-chain staking is now available through <0>LI.FI and Etherspot</0>, with support for multiple chains and tokens."
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
