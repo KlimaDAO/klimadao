@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-30 22:32+0000\n"
+"POT-Creation-Date: 2022-08-31 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -180,7 +180,7 @@ msgstr "Bond {0}"
 
 #: components/views/Bond/index.tsx:1085
 msgid "bond.transaction_modal.redeem.title"
-msgstr ""
+msgstr "Klima einlösen"
 
 #: components/views/Bond/index.tsx:925
 msgid "bond.unredeemed"
