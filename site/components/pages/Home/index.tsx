@@ -6,7 +6,12 @@ import Link from "next/link";
 import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { urls } from "@klimadao/lib/constants";
-import { Section, ButtonPrimary, Text } from "@klimadao/lib/components";
+import {
+  Section,
+  ButtonPrimary,
+  ButtonSecondary,
+  Text,
+} from "@klimadao/lib/components";
 
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
@@ -173,6 +178,23 @@ export const Home: NextPage<Props> = (props) => {
               allowFullScreen
             ></iframe>
           </div>
+        </div>
+
+        <div className={styles.ctaButtonContainer}>
+          <ButtonSecondary
+            label={t({
+              id: "shared.infinity_cta",
+              message: "DEFI FOR ORGANIZATIONS",
+            })}
+            href="/infinity"
+          />
+          <ButtonPrimary
+            label={t({
+              id: "shared.loveletter_cta",
+              message: "DEFI FOR INDIVIDUALS",
+            })}
+            href={urls.loveletter}
+          />
         </div>
 
         <div className={styles.socialProofContainer}>

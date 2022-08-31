@@ -159,6 +159,25 @@ export const heroSection = css`
   }
 `;
 
+export const ctaButtonContainer = css`
+  width: 100%;
+  display: none;
+  justify-content: center;
+  height: min-content;
+  grid-column: main;
+  padding-top: 4.8rem;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 1.6rem;
+  ${breakpoints.medium} {
+    gap: 4rem;
+  }
+  a {
+    color: var(--font-01) !important;
+    border: 3px solid var(--klima-green);
+  }
+`;
+
 export const klimaVideoSection = css`
   display: grid;
   row-gap: 3.2rem;
