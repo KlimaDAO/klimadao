@@ -83,7 +83,7 @@ export const Infinity: NextPage<Props> = () => {
         title="Get Started"
       >
         <div className={styles.modalContainer}>
-          <Link href="https://carbon.fyi/" passHref>
+          <Link href={urls.creolBusinessCalculator} passHref>
             <div className={styles.modalButtonContainer}>
               <Image
                 src={building}
@@ -93,14 +93,14 @@ export const Infinity: NextPage<Props> = () => {
                 className="image"
               />
               <Text t="h3" className="text">
-                <Trans id="infinity.modal_iman">I'm a</Trans>
+                <Trans id="infinity.modal_ima">I'm a</Trans>
                 <br />
                 <Trans id="infinity.modal_business">business.</Trans>
                 <Image src={arrow} alt="arrow" layout="intrinsic" />
               </Text>
             </div>
           </Link>
-          <Link href="https://carbon.fyi/" passHref>
+          <Link href={urls.creolIndividualCalculator} passHref>
             <div className={styles.modalButtonContainer}>
               <Image
                 src={hiker}
@@ -117,7 +117,7 @@ export const Infinity: NextPage<Props> = () => {
               </Text>
             </div>
           </Link>
-          <Link href="https://carbon.fyi/" passHref>
+          <Link href={urls.cryptoOffsetCalculator} passHref>
             <div className={styles.modalButtonContainer}>
               <Image
                 src={net}
@@ -134,7 +134,7 @@ export const Infinity: NextPage<Props> = () => {
               </Text>
             </div>
           </Link>
-          <Link href="https://carbon.fyi/" passHref>
+          <Link href={urls.klimaInfinityContactForm} passHref>
             <Text t="body6" className={styles.modalLink}>
               <Trans id="infinity.modal_notSure">
                 I'm not sure which option is for me.
