@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { Trans, t } from "@lingui/macro";
 import {
@@ -30,6 +31,10 @@ import gasPump from "public/gas_pump.png";
 import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
+import hiker from "public/hiker.jpeg";
+import net from "public/net.jpeg";
+import building from "public/building.jpeg";
+import arrow from "public/arrow-white.png";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
@@ -76,9 +81,67 @@ export const Infinity: NextPage<Props> = () => {
         showModal={showModal}
         closeOnBackgroundClick={true}
         title="Get Started"
-        variant="contrast"
       >
-        Some stuff in the modal
+        <div className={styles.modalContainer}>
+          <Link href="https://carbon.fyi/" passHref>
+            <div className={styles.modalButtonContainer}>
+              <Image
+                src={building}
+                layout="fill"
+                objectFit="cover"
+                alt="building windows"
+                className="image"
+              />
+              <Text t="h3" className="text">
+                <Trans id="infinity.modal_iman">I'm a</Trans>
+                <br />
+                <Trans id="infinity.modal_business">business.</Trans>
+                <Image src={arrow} alt="arrow" layout="intrinsic" />
+              </Text>
+            </div>
+          </Link>
+          <Link href="https://carbon.fyi/" passHref>
+            <div className={styles.modalButtonContainer}>
+              <Image
+                src={hiker}
+                layout="fill"
+                objectFit="cover"
+                alt="hiker"
+                className="image"
+              />
+              <Text t="h3" className="text">
+                <Trans id="infinity.modal_iman">I'm an</Trans>
+                <br />
+                <Trans id="infinity.modal_individual">individual.</Trans>
+                <Image src={arrow} alt="arrow" layout="intrinsic" />
+              </Text>
+            </div>
+          </Link>
+          <Link href="https://carbon.fyi/" passHref>
+            <div className={styles.modalButtonContainer}>
+              <Image
+                src={net}
+                layout="fill"
+                objectFit="cover"
+                alt="net"
+                className="image"
+              />
+              <Text t="h3" className="text">
+                <Trans id="infinity.modal_want">I want to</Trans>
+                <br />
+                <Trans id="infinity.modal_offsetCrypto">offset crypto.</Trans>
+                <Image src={arrow} alt="arrow" layout="intrinsic" />
+              </Text>
+            </div>
+          </Link>
+          <Link href="https://carbon.fyi/" passHref>
+            <Text t="body6" className={styles.modalLink}>
+              <Trans id="infinity.modal_notSure">
+                I'm not sure which option is for me.
+              </Trans>
+            </Text>
+          </Link>
+        </div>
       </Modal>
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>

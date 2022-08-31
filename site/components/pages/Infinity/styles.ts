@@ -826,3 +826,54 @@ export const footerContainer = css`
     padding-bottom: 3.2rem;
   }
 `;
+
+export const modalContainer = css`
+  gap: 2rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export const modalButtonContainer = css`
+  position: relative;
+  max-width: 60rem;
+  width: 100%;
+  height: 100%;
+  max-height: 18rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 2rem 2rem 2rem 4.8rem;
+  cursor: pointer;
+  /* ${breakpoints.desktopLarge} {
+    padding: 4.8rem;
+  } */
+  border-radius: 1.6rem;
+  overflow: hidden;
+  .image {
+    z-index: 1;
+  }
+  .text {
+    z-index: 99;
+    img {
+      padding-left: 1.6rem !important;
+    }
+  }
+  .arrow {
+    margin-left: 1.6rem;
+  }
+`;
+
+export const modalLink = css`
+  color: var(--klima-green);
+  text-decoration: underline;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  ${breakpoints.large} {
+    text-align: left;
+    padding-left: 4rem;
+  }
+`;
