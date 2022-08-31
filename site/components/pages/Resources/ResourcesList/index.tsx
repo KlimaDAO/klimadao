@@ -37,6 +37,12 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
     setSearchTerm(values.search);
 
+    // reset list to default documents on empty string
+    if (!values.search) {
+      setVisibleDocuments(documents);
+      return;
+    }
+
     try {
       const searchResult = await fetchCMSContent("searchByText", {
         searchQuery: values.search,
@@ -81,7 +87,7 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
             {...register("search", {
               onChange: () => setNoResult(false),
               required: {
-                value: true,
+                value: false,
                 message: "resources.form.input.search.error.required",
               },
             })}
