@@ -87,6 +87,31 @@ export const queries = {
       showDisclaimer,
     }
   `,
+
+  /** fetch posts and podcasts scored by matching search text */
+  searchByText: /* groq */ `
+  *[_type in ["post", "podcast"] && ${queryFilter}]
+    | score(
+      title match $searchQuery + "*"
+      || summary match $searchQuery + "*"
+      || pt::text(body) match $searchQuery
+      || boost(pt::text(body) match $searchQuery + "*", 0.5)
+    )
+      | order(score desc)
+    {
+      _score,
+      "type": _type,
+      publishedAt, 
+      title, 
+      summary, 
+      "slug": slug.current, 
+      author->,
+      "imageUrl": mainImage.asset->url,
+      "embed": embedCode
+    }
+    [ _score > 0]
+  `,
+
   allPodcasts: /* groq */ `
   *[_type == "podcast" && hideFromProduction != true] | order(publishedAt desc) {
     summary, 
@@ -150,4 +175,5 @@ export interface QueryContent {
   latestPost: LatestPost;
   post: Post;
   allPodcasts: AllPodcasts;
+  searchByText: Document[];
 }
