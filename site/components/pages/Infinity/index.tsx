@@ -45,7 +45,7 @@ export interface Props {
   fixedThemeName: string;
 }
 
-export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
+export const Infinity: NextPage<Props> = () => {
   const [currentOpenQuestions, setCurrentOpenQuestions] = useState({
     1: false,
     2: false,
@@ -69,7 +69,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         })}
       />
 
-      <Navigation activePage="Infinity" showThemeToggle={!fixedThemeName} />
+      <Navigation activePage="Infinity" showThemeToggle={false} />
 
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
