@@ -16,10 +16,3 @@ export const header = css`
   justify-self: center;
   flex-direction: column;
 `;
-
-export const list = css`
-  padding-bottom: 5rem;
-  display: grid;
-  row-gap: 4.8rem;
-  grid-column: main;
-`;
