@@ -1139,25 +1139,41 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "KlimaDAO Podcast"
 
-#: components/pages/Resources/index.tsx:33
+#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:5
+msgid "resources.form.input.search.error.required"
+msgstr "Enter a search term"
+
+#: components/pages/Resources/ResourcesList/index.tsx:59
+msgid "resources.form.input.search.label"
+msgstr "Search"
+
+#: components/pages/Resources/ResourcesList/index.tsx:63
+msgid "resources.form.input.search.placeholder"
+msgstr "Search"
+
+#: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
 msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
 
-#: components/pages/Resources/index.tsx:29
+#: components/pages/Resources/index.tsx:28
 msgid "resources.head.metaTitle"
 msgstr "KlimaDAO Resources - Go beyond Carbon neutral"
 
-#: components/pages/Resources/index.tsx:25
+#: components/pages/Resources/index.tsx:24
 msgid "resources.head.title"
 msgstr "KlimaDAO | Resources"
 
-#: components/pages/Resources/index.tsx:48
+#: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
 msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
 
-#: components/pages/Resources/index.tsx:45
+#: components/pages/Resources/index.tsx:44
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
+
+#: components/pages/Resources/ResourcesList/index.tsx:51
+msgid "resources.page.list.header"
+msgstr "Explore All"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"

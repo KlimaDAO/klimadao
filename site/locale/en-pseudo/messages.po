@@ -1133,24 +1133,40 @@ msgstr ""
 msgid "podcast.head.title"
 msgstr ""
 
-#: components/pages/Resources/index.tsx:33
+#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:5
+msgid "resources.form.input.search.error.required"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:59
+msgid "resources.form.input.search.label"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:63
+msgid "resources.form.input.search.placeholder"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
 msgstr ""
 
-#: components/pages/Resources/index.tsx:29
+#: components/pages/Resources/index.tsx:28
 msgid "resources.head.metaTitle"
 msgstr ""
 
-#: components/pages/Resources/index.tsx:25
+#: components/pages/Resources/index.tsx:24
 msgid "resources.head.title"
 msgstr ""
 
-#: components/pages/Resources/index.tsx:48
+#: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
 msgstr ""
 
-#: components/pages/Resources/index.tsx:45
+#: components/pages/Resources/index.tsx:44
 msgid "resources.page.header.title"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:51
+msgid "resources.page.list.header"
 msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:26
