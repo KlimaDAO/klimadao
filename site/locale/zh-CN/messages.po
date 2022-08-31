@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-31 16:06+0000\n"
+"POT-Creation-Date: 2022-08-31 16:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -543,20 +543,20 @@ msgstr "500 - 页面不存在"
 msgid "error.page.500.title"
 msgstr "500 - 页面不存在"
 
-#: components/pages/Home/index.tsx:213
+#: components/pages/Home/index.tsx:235
 msgid "home.backed_by_carbon"
 msgstr "碳支持。"
 
-#: components/pages/Home/index.tsx:304
+#: components/pages/Home/index.tsx:326
 msgid "home.cars_annual"
 msgstr "汽车（每年）"
 
-#: components/pages/Home/index.tsx:273
+#: components/pages/Home/index.tsx:295
 msgid "home.equivalent_to"
 msgstr "相当于"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:388
+#: components/pages/Home/index.tsx:410
 msgid "home.every_klima_token_is_backed"
 msgstr "每个 KLIMA 代币都由现实世界的碳资产支持。代币用于抵消碳排放、与 DeFi 应用程序交互，并接触快速增长的全球碳市场。"
 
@@ -565,112 +565,112 @@ msgid "home.featured_on"
 msgstr "KlimaDAO 精选于"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:102
+#: components/pages/Home/index.tsx:107
 msgid "home.fight_climate_change"
 msgstr "用真正碳资产支持的数字货币 KLIMA 对抗气候变化并获得奖励。"
 
-#: components/pages/Home/index.tsx:439
+#: components/pages/Home/index.tsx:461
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "了解当今不断增长的碳经济。获取、质押并获得奖励。气候金融行动主义。"
 
-#: components/pages/Home/index.tsx:436
+#: components/pages/Home/index.tsx:458
 msgid "home.get_klima"
 msgstr "获取 KLIMA"
 
-#: components/pages/Home/index.tsx:287
+#: components/pages/Home/index.tsx:309
 msgid "home.hectares_of_forest"
 msgstr "公顷森林"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:148
+#: components/pages/Home/index.tsx:153
 msgid "home.klima_defies_climate_change"
 msgstr "KlimaDAO 是对抗气候变化的 DeFi"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:158
+#: components/pages/Home/index.tsx:163
 msgid "home.klima_is_the_center"
 msgstr "KlimaDAO 是新绿色经济的中心。 KlimaDAO 建立在节能的 Polygon 网络之上，使用一系列技术来减少市场分散化，并加速向全球可持续发展项目提供气候融资。"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:417
+#: components/pages/Home/index.tsx:439
 msgid "home.klima_tokens_are_minted"
 msgstr "KLIMA 代币约每 7 小时完成一次自动铸造，并分发给质押的 KLIMA 的持有者。随着我们共同开创出一个更可持续的未来，您的 KLIMA 持有量亦稳步增长。"
 
-#: components/pages/Home/index.tsx:78
+#: components/pages/Home/index.tsx:83
 msgid "home.latest_news"
 msgstr "📰 最新消息："
 
-#: components/pages/Home/index.tsx:133
+#: components/pages/Home/index.tsx:138
 msgid "home.learn_more"
 msgstr "更多内容"
 
-#: components/pages/Home/index.tsx:319
+#: components/pages/Home/index.tsx:341
 msgid "home.liters_if_gasoline"
 msgstr "升汽油"
 
-#: components/pages/Home/index.tsx:249
+#: components/pages/Home/index.tsx:271
 msgid "home.massive impact"
 msgstr "巨大的影响。"
 
-#: components/pages/Home/index.tsx:187
+#: components/pages/Home/index.tsx:209
 msgid "home.mechanics"
 msgstr "操作"
 
-#: components/pages/Home/index.tsx:468
+#: components/pages/Home/index.tsx:490
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "所有Alpha版，直接发送到您的收件箱"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:476
+#: components/pages/Home/index.tsx:498
 msgid "home.newletter.get_the_latest_updates"
 msgstr "在我们构建碳经济未来的同时，获取有关 KlimaDAO 的最新更新。"
 
-#: components/pages/Home/index.tsx:493
+#: components/pages/Home/index.tsx:515
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "不泄露个人信息。不发送垃圾邮件。"
 
-#: components/pages/Home/index.tsx:487
+#: components/pages/Home/index.tsx:509
 msgid "home.newletter.sign_up"
 msgstr "注册"
 
-#: components/pages/Home/index.tsx:473
+#: components/pages/Home/index.tsx:495
 msgid "home.newsletter"
 msgstr "通讯"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:376
+#: components/pages/Home/index.tsx:398
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr "<0>储备资产</0><1>碳经济的</1>"
 
-#: components/pages/Home/index.tsx:446
+#: components/pages/Home/index.tsx:468
 msgid "home.see_tutorial"
 msgstr "见教程"
 
-#: components/pages/Home/index.tsx:334
+#: components/pages/Home/index.tsx:356
 msgid "home.source"
 msgstr "来源"
 
-#: components/pages/Home/index.tsx:231
+#: components/pages/Home/index.tsx:253
 msgid "home.strong_incentives"
 msgstr "有力的激励政策"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:190
+#: components/pages/Home/index.tsx:212
 msgid "home.the_dao_sell_bonds"
 msgstr "DAO 出售债券并向所有KLIMA 持有者分配所得奖励。我们出售的每一张债券都会为不断增长的绿色国库助力，或提高关键环境资产的流动性。人类和地球的双赢。"
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:260
+#: components/pages/Home/index.tsx:282
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr "吨 <0> 碳吸收 </0>由KLIMADAO"
 
 #. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:405
+#: components/pages/Home/index.tsx:427
 msgid "home.weekly_rewards_for_token_holders"
 msgstr "<0>{0}% 每周奖励</0><1>对代币持有者</1>"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:89
+#: components/pages/Home/index.tsx:94
 msgid "home.welcome_to_klimadao"
 msgstr "<0>欢迎来到</0><1>KlimaDAO</1>"
 
@@ -900,7 +900,7 @@ msgstr "对抗气候变化的 DeFi"
 msgid "infinity.why_title"
 msgstr "为什么选择 KlimaDAO？"
 
-#: components/pages/Home/index.tsx:361
+#: components/pages/Home/index.tsx:383
 msgid "invest_in_the_future"
 msgstr "投资于未来。"
 
@@ -1407,12 +1407,12 @@ msgid "shared.docs"
 msgstr "文档"
 
 #: components/Navigation/index.tsx:57
-#: components/pages/Home/index.tsx:110
+#: components/pages/Home/index.tsx:115
 msgid "shared.enter_app"
 msgstr "进入App"
 
 #: components/pages/Buy/index.tsx:46
-#: components/pages/Home/index.tsx:64
+#: components/pages/Home/index.tsx:69
 #: components/pages/Pledge/PledgeDashboard/index.tsx:59
 #: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
@@ -1440,6 +1440,10 @@ msgstr "无穷"
 msgid "shared.infinity.get_started"
 msgstr "开始使用"
 
+#: components/pages/Home/index.tsx:185
+msgid "shared.infinity_cta"
+msgstr ""
+
 #: components/Navigation/index.tsx:151
 #: components/Navigation/index.tsx:325
 msgid "shared.info"
@@ -1450,6 +1454,10 @@ msgstr "信息"
 #: components/pages/Retirements/SingleRetirement/index.tsx:36
 msgid "shared.loading"
 msgstr "正在加载..."
+
+#: components/pages/Home/index.tsx:192
+msgid "shared.loveletter_cta"
+msgstr ""
 
 #: components/Navigation/index.tsx:197
 #: components/Navigation/index.tsx:372
