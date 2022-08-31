@@ -9,13 +9,21 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   hideLabel?: boolean;
   errors?: { message?: string };
   errorMessageMap: (id: string) => string;
+  className?: string;
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, Props>(
-  ({ errors, id, label, hideLabel, errorMessageMap, ...props }, ref) => {
-    const inputStyles = cx(styles.baseStyles, {
-      [styles.errorStyles]: Boolean(errors),
-    });
+  (
+    { errors, id, label, hideLabel, errorMessageMap, className, ...props },
+    ref
+  ) => {
+    const inputStyles = cx(
+      styles.baseStyles,
+      {
+        [styles.errorStyles]: Boolean(errors),
+      },
+      className
+    );
 
     // for a11y if we don't want visually show labels
     const visuallyHidden = cx({
