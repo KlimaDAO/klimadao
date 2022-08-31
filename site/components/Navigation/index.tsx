@@ -44,6 +44,7 @@ export const Navigation: FC<Props> = ({
     NavItemMobileID | undefined
   >(undefined);
   const { locale } = useRouter();
+
   return (
     <>
       <HeaderDesktop
@@ -423,7 +424,7 @@ export const Navigation: FC<Props> = ({
               href={createLinkWithLocaleQuery(urls.app, locale)}
               className={styles.navMain_MobileButton}
             />
-            <ThemeToggle key="ThemeToggle" />
+            {showThemeToggle && <ThemeToggle />}
           </div>
         </div>
       </HeaderMobile>

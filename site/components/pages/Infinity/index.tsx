@@ -69,7 +69,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         })}
       />
 
-      <Navigation activePage="Infinity" showThemeToggle={!fixedThemeName} />
+      <Navigation activePage="Infinity" showThemeToggle={false} />
 
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
