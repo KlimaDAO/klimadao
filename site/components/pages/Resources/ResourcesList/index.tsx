@@ -25,7 +25,6 @@ type FormValues = {
 export const ResourcesList: FC<Props> = ({ documents }) => {
   const [visibleDocuments, setVisibleDocuments] =
     useState<Document[]>(documents);
-  const [error, setError] = useState("");
 
   const {
     register,
@@ -35,15 +34,12 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
 
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
     try {
-      console.log("DATA", values);
       const searchResult = await fetchCMSContent("searchByText", {
         searchQuery: values.search,
       });
       setVisibleDocuments(searchResult);
-      console.log("searchResult", searchResult);
     } catch (error) {
-      console.log(error);
-      setError("LOOK AT CONSOLE FOR ERROR LOG !");
+      console.error(error);
     }
   };
 
@@ -88,7 +84,6 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
             onClick={handleSubmit(onSubmit)}
           />
         </form>
-        {!!error && <Text>{error}</Text>}
         <div className={styles.list}>
           {visibleDocuments.map((doc) => {
             if (doc.type === "post") {

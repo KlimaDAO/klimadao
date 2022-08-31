@@ -7,12 +7,6 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
   try {
     const documents = await fetchCMSContent("allDocuments");
     const featuredArticles = await fetchCMSContent("allFeaturedPosts");
-    const searchResult = await fetchCMSContent("searchByText", {
-      searchQuery: "Moss",
-    });
-
-    console.log("LENGTH", searchResult.length);
-    console.log("search", searchResult);
 
     const translation = await loadTranslation(ctx.locale);
     if (!documents) {
@@ -23,7 +17,6 @@ export async function getStaticProps(ctx: GetStaticPropsContext) {
       props: {
         documents,
         featuredArticles,
-        searchResult,
         translation,
       },
       revalidate: 240,
