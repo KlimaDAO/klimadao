@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   const translation = await loadTranslation(ctx.locale);
   const blockRate = await fetchBlockRate();
   const weeklyStakingRewards = await getStakingRewards({
-    days: 7,
+    days: 31,
     blockRate,
     providerUrl: infuraURL,
   });

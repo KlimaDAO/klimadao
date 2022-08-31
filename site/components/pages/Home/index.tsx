@@ -60,7 +60,6 @@ export const Home: NextPage<Props> = (props) => {
   const scrollToNextSection = () =>
     scrollToRef.current &&
     scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-
   return (
     <>
       <PageHead
