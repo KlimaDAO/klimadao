@@ -62,7 +62,7 @@ type Props = {
 
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
-  const { signer, provider } = useWeb3();
+  const { signer } = useWeb3();
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
@@ -80,70 +80,29 @@ export const PledgeForm: FC<Props> = (props) => {
     values: PledgeFormValues
   ) => {
     try {
+      console.log(values.nonce);
       if (!signer) return;
-      // const signature = await signer.signMessage(
-      //   editPledgeSignature(values.nonce)
-      // );
-
-      const messageHash = ethers.utils.hashMessage(
-        editPledgeSignature(values.nonce)
-      );
-
-      const gnosisSafeContract = new ethers.Contract(
-        props.pageAddress,
-        GnosisSafe.abi,
-        signer
-      );
-
-      const getMessageHash = await gnosisSafeContract.getMessageHash(
-        messageHash
-      );
-
-      console.log(messageHash);
-      console.log(getMessageHash);
-
       const signature = await signer.signMessage(
         editPledgeSignature(values.nonce)
       );
 
-      gnosisSafeContract.once(
-        gnosisSafeContract.filters.SignMsg(getMessageHash),
-        async () => {
-          // const response = await gnosisSafeContract.isValidSignature(
-          //   messageHash,
-          //   "0x"
-          // );
+      const response = await putPledge({
+        pageAddress: props.pageAddress,
+        pledge: values,
+        signature,
+      });
+      const data = await response.json();
 
-          console.log("hi");
-        }
-      );
-
-      // const _signature = "0x";
-      // const response = await gnosisSafeContract.isValidSignature(
-      //   messageHash,
-      //   "0x"
-      // );
-
-      // console.log(response);
-      console.log("wheres the response");
-
-      // const response = await putPledge({
-      //   pageAddress: props.pageAddress,
-      //   pledge: values,
-      //   signature: "0x",
-      // });
-      // const data = await response.json();
-
-      // if (data.pledge) {
-      //   props.onFormSubmit(data.pledge);
-      //   reset(pledgeFormAdapter(data.pledge));
-      //   setServerError(false);
-      // } else {
-      //   setServerError(true);
-      // }
-    } catch (error) {
+      if (data.pledge) {
+        props.onFormSubmit(data.pledge);
+        reset(pledgeFormAdapter(data.pledge));
+        setServerError(false);
+      } else {
+        setServerError(true);
+      }
+    } catch (error: any) {
       console.log(error);
-      setServerError(true);
+      setServerError(error.message);
     }
   };
 
@@ -151,9 +110,8 @@ export const PledgeForm: FC<Props> = (props) => {
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
       {serverError && (
         <Text className={styles.errorMessage} t="caption">
-          <Trans id="pledges.form.generic_error">
-            Something went wrong. Please try again.
-          </Trans>
+          {serverError}
+          {/* <Trans id="pledges.form.generic_error">{serverError}</Trans> */}
         </Text>
       )}
 
