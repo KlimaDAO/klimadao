@@ -81,7 +81,7 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
             {...register("search", {
               onChange: () => setNoResult(false),
               required: {
-                value: false,
+                value: true,
                 message: "resources.form.input.search.error.required",
               },
             })}

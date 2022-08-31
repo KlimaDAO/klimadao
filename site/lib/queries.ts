@@ -110,6 +110,7 @@ export const queries = {
       "embed": embedCode
     }
     [ _score > 0]
+    [0...20]
   `,
 
   allPodcasts: /* groq */ `
