@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { editPledgeSignature } from ".";
 import { getJsonRpcProvider } from "@klimadao/lib/utils";
-import GnosisSafe from "@klimadao/lib/abi/GnosisSafe.json";
+import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
 
 interface Params {
   address: string;
@@ -17,7 +17,7 @@ const verifyGnosisSafeSignature = async (
 ): Promise<void> => {
   const gnosisSafeContract = new ethers.Contract(
     address,
-    GnosisSafe.abi,
+    GnosisSafeSignMessageLib.abi,
     getJsonRpcProvider()
   );
   const messageHash = ethers.utils.hashMessage(signature);
@@ -29,8 +29,7 @@ const verifyGnosisSafeSignature = async (
       setTimeout(() => {
         gnosisSafeContract.removeListener(signedEvent, () => resolve());
         reject(new Error("Gnosis safe signature verification timed out"));
-        // }, FIVE_MINUTES);
-      }, 1000);
+      }, FIVE_MINUTES);
 
       gnosisSafeContract.once(signedEvent, () => resolve());
     });
