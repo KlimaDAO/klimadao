@@ -9,7 +9,7 @@ interface Params {
   nonce: string;
 }
 
-const FIVE_MINUTES = 5 * 60 * 1000;
+const TEN_MINUTES = 10 * 60 * 1000;
 
 const verifyGnosisSafeSignature = async (
   signature: string,
@@ -29,7 +29,7 @@ const verifyGnosisSafeSignature = async (
       setTimeout(() => {
         gnosisSafeContract.removeListener(signedEvent, () => resolve());
         reject(new Error("Gnosis safe signature verification timed out"));
-      }, FIVE_MINUTES);
+      }, TEN_MINUTES);
 
       gnosisSafeContract.once(signedEvent, () => resolve());
     });
