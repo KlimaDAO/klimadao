@@ -10,6 +10,7 @@ export const headerDesktop = css`
   align-items: center;
   background: var(--surface-02);
   padding-top: 3.6rem;
+  height: var(--header-height);
   z-index: 10; /* so the drop-shadow is visible over next section, 10 to make opened Translation menu flow over main content */
 
   ${breakpoints.desktop} {
