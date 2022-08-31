@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-08-31 15:59+0000\n"
+"POT-Creation-Date: 2022-08-31 16:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -478,7 +478,7 @@ msgstr "INPUT-TOKEN INKOMPATIBEL"
 
 #: components/views/Offset/index.tsx:457
 msgid "offset.lifi"
-msgstr "<0>LI.FI</0> ermöglicht ab sofort Cross-Chain-Staking mit Support für Dutzende von Tokens!"
+msgstr ""
 
 #: components/views/Offset/index.tsx:496
 msgid "offset.modal_payWith.title"
@@ -774,7 +774,7 @@ msgstr "Zu unstakende Menge"
 
 #: components/views/Stake/index.tsx:327
 msgid "stake.lifi"
-msgstr "<0>LI.FI</0> ermöglicht ab sofort Cross-Chain-Staking: ETH, BNB, DAI und viele weitere Tokens werden unterstützt."
+msgstr ""
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
