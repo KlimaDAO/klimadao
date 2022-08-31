@@ -15,9 +15,15 @@ import { Document, FeaturedPost } from "lib/queries";
 export interface Props {
   documents: Document[];
   featuredArticles: FeaturedPost[];
+  searchResult: Document[];
 }
 
-export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
+export const Resources: NextPage<Props> = ({
+  documents,
+  featuredArticles,
+  searchResult,
+}) => {
+  console.log("LOG SEARCH RESULTS from getStaticProps", searchResult);
   return (
     <>
       <PageHead
