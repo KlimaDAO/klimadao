@@ -140,10 +140,10 @@ export const urls = {
   lifiOffset:
     "https://transferto.xyz/showcase/carbon-offset?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
 
-    polyscanGasStation: "https://gasstation-mainnet.matic.network/v2",
-    creolIndividualCalculator: "https://klima.creol.io/#/footprint",
-    creolBusinessCalculator: "https://klima.creol.io/#/office",
-    cryptoOffsetCalculator: "https://carbon.fyi/",
+  polyscanGasStation: "https://gasstation-mainnet.matic.network/v2",
+  creolIndividualCalculator: "https://klima.creol.io/#/footprint",
+  creolBusinessCalculator: "https://klima.creol.io/#/office",
+  cryptoOffsetCalculator: "https://carbon.fyi/",
 };
 
 export const polygonNetworks = {
