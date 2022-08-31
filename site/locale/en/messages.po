@@ -1143,11 +1143,11 @@ msgstr "KlimaDAO Podcast"
 msgid "resources.form.input.search.error.required"
 msgstr "Enter a search term"
 
-#: components/pages/Resources/ResourcesList/index.tsx:59
+#: components/pages/Resources/ResourcesList/index.tsx:67
 msgid "resources.form.input.search.label"
 msgstr "Search"
 
-#: components/pages/Resources/ResourcesList/index.tsx:63
+#: components/pages/Resources/ResourcesList/index.tsx:71
 msgid "resources.form.input.search.placeholder"
 msgstr "Search"
 
@@ -1171,9 +1171,13 @@ msgstr "Updates and thought leadership from the founders, DAO contributors, advi
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
 
-#: components/pages/Resources/ResourcesList/index.tsx:51
+#: components/pages/Resources/ResourcesList/index.tsx:59
 msgid "resources.page.list.header"
 msgstr "Explore All"
+
+#: components/pages/Resources/ResourcesList/index.tsx:99
+msgid "resources.page.list.no_search_results"
+msgstr "Sorry. We coudn't find any matches for: {searchTerm}"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"

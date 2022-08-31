@@ -25,6 +25,8 @@ type FormValues = {
 export const ResourcesList: FC<Props> = ({ documents }) => {
   const [visibleDocuments, setVisibleDocuments] =
     useState<Document[]>(documents);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [noResult, setNoResult] = useState(false);
 
   const {
     register,
@@ -33,11 +35,18 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
+    setSearchTerm(values.search);
+
     try {
       const searchResult = await fetchCMSContent("searchByText", {
         searchQuery: values.search,
       });
-      setVisibleDocuments(searchResult);
+
+      if (searchResult.length) {
+        setVisibleDocuments(searchResult);
+      } else {
+        setNoResult(true);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -70,8 +79,9 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
             errors={errors.search}
             errorMessageMap={getResourcesListErrorMap}
             {...register("search", {
+              onChange: () => setNoResult(false),
               required: {
-                value: true,
+                value: false,
                 message: "resources.form.input.search.error.required",
               },
             })}
@@ -84,6 +94,13 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
             onClick={handleSubmit(onSubmit)}
           />
         </form>
+        {noResult && (
+          <Text t="h4">
+            <Trans id="resources.page.list.no_search_results">
+              Sorry. We coudn't find any matches for: {searchTerm}
+            </Trans>
+          </Text>
+        )}
         <div className={styles.list}>
           {visibleDocuments.map((doc) => {
             if (doc.type === "post") {
