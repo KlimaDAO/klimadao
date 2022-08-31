@@ -27,6 +27,14 @@ export const searchInput = css`
   &:hover {
     border-color: var(--surface-01);
   }
+
+  // remove ugly clear icon
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
 `;
 
 export const searchInputSubmit = css`

@@ -65,6 +65,7 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
               message: "Search",
             })}
             type="search"
+            autoComplete="off"
             hideLabel
             className={styles.searchInput}
             errors={errors.search}
