@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
 import { trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,9 +12,6 @@ import {
   Control,
   SubmitHandler,
 } from "react-hook-form";
-
-import { ethers } from "ethers";
-import GnosisSafe from "@klimadao/lib/abi/GnosisSafe.json";
 
 import { InputField, TextareaField } from "components/Form";
 
@@ -62,6 +59,7 @@ type Props = {
 
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const { signer } = useWeb3();
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
@@ -80,7 +78,9 @@ export const PledgeForm: FC<Props> = (props) => {
     values: PledgeFormValues
   ) => {
     try {
+      setSubmitting(true);
       setServerError(false);
+
       if (!signer) return;
       const signature = await signer.signMessage(
         editPledgeSignature(values.nonce)
@@ -99,11 +99,20 @@ export const PledgeForm: FC<Props> = (props) => {
       } else {
         setServerError(true);
       }
+      setSubmitting(false);
     } catch (error: any) {
       console.log(error);
       setServerError(true);
+      setSubmitting(false);
     }
   };
+
+  const SubmittingLabel = () => (
+    <div className={styles.submittingLabel}>
+      <Spinner />
+      <Trans id="pledges.form.submitting">Submitting...</Trans>
+    </div>
+  );
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
@@ -300,11 +309,17 @@ export const PledgeForm: FC<Props> = (props) => {
 
       {/* better to use an input type=submit */}
       <ButtonPrimary
-        disabled={!isDirty}
-        label={t({
-          id: "pledges.form.submit_button",
-          message: "Save pledge",
-        })}
+        disabled={!isDirty || submitting}
+        label={
+          submitting ? (
+            <SubmittingLabel />
+          ) : (
+            t({
+              id: "pledges.form.submit_button",
+              message: "Save pledge",
+            })
+          )
+        }
         onClick={handleSubmit(onSubmit)}
       />
     </form>
