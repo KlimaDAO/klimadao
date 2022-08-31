@@ -9,9 +9,9 @@ export const headerDesktop = css`
   justify-content: center;
   align-items: center;
   background: var(--surface-02);
-  padding-top: 2.4rem;
-  height: calc(var(--header-height) * 2);
+  padding-top: 3.6rem;
   z-index: 10; /* so the drop-shadow is visible over next section, 10 to make opened Translation menu flow over main content */
+
   ${breakpoints.desktop} {
     display: grid;
   }
@@ -27,8 +27,8 @@ export const menuDesktop = css`
 `;
 
 export const headerInfinityDesktop = css`
-  background: transparent !important;
   ${headerDesktop}
+  background: transparent !important;
 `;
 
 export const headerMobileWrap = css`
