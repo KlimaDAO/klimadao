@@ -14,7 +14,7 @@ const FIVE_MINUTES = 5 * 60 * 1000;
 const verifyGnosisSafeSignature = async (
   signature: string,
   address: string
-) => {
+): Promise<void> => {
   const gnosisSafeContract = new ethers.Contract(
     address,
     GnosisSafe.abi,
@@ -28,15 +28,11 @@ const verifyGnosisSafeSignature = async (
     new Promise((resolve, reject) => {
       setTimeout(() => {
         gnosisSafeContract.removeListener(signedEvent, () => resolve());
-        reject();
-      }, FIVE_MINUTES);
+        reject(new Error("Gnosis safe signature verification timed out"));
+        // }, FIVE_MINUTES);
+      }, 1000);
 
-      console.log("...waiting");
-
-      gnosisSafeContract.once(signedEvent, async () => {
-        console.log("signed messaged with hash event emitted");
-        resolve();
-      });
+      gnosisSafeContract.once(signedEvent, () => resolve());
     });
 
   await waitForSignedEvent();

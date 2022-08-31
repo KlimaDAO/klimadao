@@ -80,29 +80,28 @@ export const PledgeForm: FC<Props> = (props) => {
     values: PledgeFormValues
   ) => {
     try {
-      console.log(values.nonce);
+      setServerError(false);
       if (!signer) return;
-      const signature = await signer.signMessage(
-        editPledgeSignature(values.nonce)
-      );
+      // const signature = await signer.signMessage(
+      //   editPledgeSignature(values.nonce)
+      // );
 
       const response = await putPledge({
         pageAddress: props.pageAddress,
         pledge: values,
-        signature,
+        signature: "0x",
       });
       const data = await response.json();
 
       if (data.pledge) {
         props.onFormSubmit(data.pledge);
         reset(pledgeFormAdapter(data.pledge));
-        setServerError(false);
       } else {
         setServerError(true);
       }
     } catch (error: any) {
       console.log(error);
-      setServerError(error.message);
+      setServerError(true);
     }
   };
 
@@ -110,8 +109,9 @@ export const PledgeForm: FC<Props> = (props) => {
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
       {serverError && (
         <Text className={styles.errorMessage} t="caption">
-          {serverError}
-          {/* <Trans id="pledges.form.generic_error">{serverError}</Trans> */}
+          <Trans id="pledges.form.generic_error">
+            Something went wrong. Please try again.
+          </Trans>
         </Text>
       )}
 
