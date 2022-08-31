@@ -12,6 +12,7 @@ export interface Props {
   target?: string;
   isExternalHref?: boolean;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 interface BaseProps extends Props {
@@ -41,7 +42,7 @@ export const BaseButton: FC<BaseProps> = ({
 
   return (
     <button
-      type="button"
+      type={props.type || "button"}
       className={buttonStyle}
       onClick={props.onClick}
       disabled={props.disabled}
