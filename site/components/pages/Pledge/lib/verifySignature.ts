@@ -9,38 +9,47 @@ interface Params {
   nonce: string;
 }
 
-const EIP_1217_MAGIC_VALUE = "0x1626ba7e";
+const FIVE_MINUTES = 5 * 60 * 1000;
 
-const verifyGnosisSafeSignature = async (signature, address) => {
-  const messageHash = ethers.utils.hashMessage(signature);
+const verifyGnosisSafeSignature = async (
+  signature: string,
+  address: string
+) => {
   const gnosisSafeContract = new ethers.Contract(
     address,
     GnosisSafe.abi,
     getJsonRpcProvider()
   );
+  const messageHash = ethers.utils.hashMessage(signature);
+  const getMessageHash = await gnosisSafeContract.getMessageHash(messageHash);
+  const signedEvent = gnosisSafeContract.filters.SignMsg(getMessageHash);
 
-  const _signature = "0x";
-  const response = await gnosisSafeContract.isValidSignature(
-    messageHash,
-    _signature
-  );
+  const waitForSignedEvent = (): Promise<void> =>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        gnosisSafeContract.removeListener(signedEvent, () => resolve());
+        reject();
+      }, FIVE_MINUTES);
 
-  console.log(response);
+      console.log("...waiting");
 
-  if (response !== EIP_1217_MAGIC_VALUE) {
-    throw new Error("Invalid signature");
-  }
+      gnosisSafeContract.once(signedEvent, async () => {
+        console.log("signed messaged with hash event emitted");
+        resolve();
+      });
+    });
+
+  await waitForSignedEvent();
 };
 
 export const verifySignature = async (params: Params): Promise<void> => {
+  const signature = editPledgeSignature(params.nonce);
+
   if (params.signature === "0x") {
-    await verifyGnosisSafeSignature(
-      editPledgeSignature(params.nonce),
-      params.address
-    );
+    await verifyGnosisSafeSignature(signature, params.address);
   } else {
     const decodedAddress = ethers.utils.verifyMessage(
-      editPledgeSignature(params.nonce),
+      signature,
       params.signature
     );
 
