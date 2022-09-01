@@ -424,8 +424,8 @@ export const Home: NextPage<Props> = (props) => {
               </Text>
               <div className="sprouts_col2_textGroup">
                 <Trans
-                  id="home.weekly_rewards_for_token_holders"
-                  comment="<0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
+                  id="home.monthly_rewards_for_token_holders"
+                  comment="<0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
                 >
                   <Text t="h2" uppercase>
                     {props.monthlyStakingRewards}% MONTHLY REWARDS
