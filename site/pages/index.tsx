@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   const latestPost = await fetchCMSContent("latestPost");
   const translation = await loadTranslation(ctx.locale);
   const blockRate = await fetchBlockRate();
-  const weeklyStakingRewards = await getStakingRewards({
+  const monthlyStakingRewards = await getStakingRewards({
     days: 31,
     blockRate,
     providerUrl: infuraURL,
@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
       latestPost,
       treasuryBalance,
       translation,
-      weeklyStakingRewards,
+      monthlyStakingRewards,
     },
     revalidate: 600,
   };

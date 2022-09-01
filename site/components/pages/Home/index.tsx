@@ -35,7 +35,7 @@ import * as styles from "./styles";
 export interface Props {
   latestPost: LatestPost;
   treasuryBalance: number;
-  weeklyStakingRewards: number;
+  monthlyStakingRewards: number;
 }
 
 const hectaresForestPerTonne = 1 / 200;
@@ -428,7 +428,7 @@ export const Home: NextPage<Props> = (props) => {
                   comment="<0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
                 >
                   <Text t="h2" uppercase>
-                    {props.weeklyStakingRewards}% MONTHLY REWARDS
+                    {props.monthlyStakingRewards}% MONTHLY REWARDS
                   </Text>
                   <Text t="h4" color="lightest" uppercase>
                     FOR TOKEN HOLDERS
