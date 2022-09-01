@@ -8,7 +8,7 @@ jobs:
     name: Compile
     strategy:
       matrix:
-        value: ["bonds", "protocol-metrics", "vesting", "user-carbon", "markets"]
+        value: ["bonds", "protocol-metrics", "vesting", "user-carbon", "pairs"]
     steps:
     - name: Check out source repository
       uses: actions/checkout@v2

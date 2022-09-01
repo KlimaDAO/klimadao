@@ -6,7 +6,7 @@ type Pair @entity {
   totalklimaearnedfees: BigDecimal!
   totalvolume: BigDecimal!
   lastupdate: String!
-  trades: [Trade!]! @derivedFrom(field: "pair")
+  swaps: [Swap!]! @derivedFrom(field: "pair")
 }
 
 type Token @entity {
@@ -16,7 +16,7 @@ type Token @entity {
   decimals: Int!
 }
 
-type Trade @entity {
+type Swap @entity {
   id: ID!     # PAIR_ADDR-TIMESTAMP
   open: BigDecimal!
   high: BigDecimal!

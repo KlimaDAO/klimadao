@@ -15,6 +15,13 @@ export class Pair extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
+
+    this.set("token0", Value.fromString(""));
+    this.set("token1", Value.fromString(""));
+    this.set("currentprice", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalklimaearnedfees", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("totalvolume", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("lastupdate", Value.fromString(""));
   }
 
   save(): void {
@@ -96,13 +103,13 @@ export class Pair extends Entity {
     this.set("lastupdate", Value.fromString(value));
   }
 
-  get trades(): Array<string> {
-    let value = this.get("trades");
+  get swaps(): Array<string> {
+    let value = this.get("swaps");
     return value!.toStringArray();
   }
 
-  set trades(value: Array<string>) {
-    this.set("trades", Value.fromStringArray(value));
+  set swaps(value: Array<string>) {
+    this.set("swaps", Value.fromStringArray(value));
   }
 }
 
@@ -110,6 +117,10 @@ export class Token extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
+
+    this.set("name", Value.fromString(""));
+    this.set("symbol", Value.fromString(""));
+    this.set("decimals", Value.fromI32(0));
   }
 
   save(): void {
@@ -165,26 +176,37 @@ export class Token extends Entity {
   }
 }
 
-export class Trade extends Entity {
+export class Swap extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
+
+    this.set("open", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("high", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("low", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("close", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("volume", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("lpfees", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("klimaearnedfees", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("slippage", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("timestamp", Value.fromString(""));
+    this.set("pair", Value.fromString(""));
   }
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save Trade entity without an ID");
+    assert(id != null, "Cannot save Swap entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        `Entities of type Trade must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+        `Entities of type Swap must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
-      store.set("Trade", id.toString(), this);
+      store.set("Swap", id.toString(), this);
     }
   }
 
-  static load(id: string): Trade | null {
-    return changetype<Trade | null>(store.get("Trade", id));
+  static load(id: string): Swap | null {
+    return changetype<Swap | null>(store.get("Swap", id));
   }
 
   get id(): string {
