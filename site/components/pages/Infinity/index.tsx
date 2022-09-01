@@ -93,9 +93,8 @@ export const Infinity: NextPage<Props> = () => {
                 className="image"
               />
               <Text t="h3" className="text">
-                <Trans id="infinity.modal_ima">I'm a</Trans>
-                <br />
-                <Trans id="infinity.modal_business">business.</Trans>
+                <Trans id="infinity.modal_imaBusiness">I'm a <br />business.</Trans>
+              
                 <Image src={arrow} alt="arrow" layout="intrinsic" />
               </Text>
             </div>
