@@ -872,7 +872,7 @@ msgstr "Polygon offset the network's carbon emissions since inception - roughly 
 msgid "infinity.polygon_story_title"
 msgstr "Polygon chose Klima Infinity to offset their blockchain network"
 
-#: components/pages/Infinity/Cards/Card.tsx:64
+#: components/pages/Infinity/Cards/Card.tsx:66
 #: components/pages/Infinity/index.tsx:393
 #: components/pages/Infinity/index.tsx:407
 msgid "infinity.tonnes"
