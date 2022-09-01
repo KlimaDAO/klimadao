@@ -125,6 +125,11 @@ export const body7 = css`
     line-height: 3.6rem;
   }
 `;
+export const body8 = css`
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+`;
 export const caption = css`
   font-size: 1.4rem;
   line-height: 1.6rem;

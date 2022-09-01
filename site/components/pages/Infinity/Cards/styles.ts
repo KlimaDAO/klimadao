@@ -129,8 +129,6 @@ export const cardContent = css`
 
 export const cardMessage = css`
   padding-top: 1.6rem;
-  font-size: 1.6rem !important;
-  line-height: 2.2rem !important;
 `;
 
 export const cardFooter = css`
