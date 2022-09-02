@@ -23,7 +23,7 @@ export const NavItemDesktop: FC<Props> = ({
         <Link href={url}>
           <a
             className={cx(styles.navMain_DesktopLink, {
-              dropdown: subMenu !== undefined,
+              dropdown: !!subMenu,
             })}
             data-active={active?.toString()}
             {...props}
@@ -42,7 +42,7 @@ export const NavItemDesktop: FC<Props> = ({
         >
           <button
             className={cx(styles.navMain_DesktopLink, {
-              dropdown: subMenu !== undefined,
+              dropdown: !!subMenu,
             })}
             data-active={active?.toString()}
           >
