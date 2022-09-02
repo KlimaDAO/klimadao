@@ -27,5 +27,5 @@ export const getStakingRewards = async (params: {
     1 + stakingRebase,
     params.days * estimatedDailyRebases
   );
-  return Math.floor((stakingRewards - 1) * 100);
+  return Number(((stakingRewards - 1) * 100).toFixed(2));
 };

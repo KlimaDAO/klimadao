@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
@@ -543,20 +549,20 @@ msgstr ""
 msgid "error.page.500.title"
 msgstr ""
 
-#: components/pages/Home/index.tsx:235
+#: components/pages/Home/index.tsx:234
 msgid "home.backed_by_carbon"
 msgstr ""
 
-#: components/pages/Home/index.tsx:326
+#: components/pages/Home/index.tsx:325
 msgid "home.cars_annual"
 msgstr ""
 
-#: components/pages/Home/index.tsx:295
+#: components/pages/Home/index.tsx:294
 msgid "home.equivalent_to"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:410
+#: components/pages/Home/index.tsx:409
 msgid "home.every_klima_token_is_backed"
 msgstr ""
 
@@ -565,112 +571,112 @@ msgid "home.featured_on"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:107
+#: components/pages/Home/index.tsx:106
 msgid "home.fight_climate_change"
 msgstr ""
 
-#: components/pages/Home/index.tsx:461
+#: components/pages/Home/index.tsx:460
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:458
+#: components/pages/Home/index.tsx:457
 msgid "home.get_klima"
 msgstr ""
 
-#: components/pages/Home/index.tsx:309
+#: components/pages/Home/index.tsx:308
 msgid "home.hectares_of_forest"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:153
+#: components/pages/Home/index.tsx:152
 msgid "home.klima_defies_climate_change"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:163
+#: components/pages/Home/index.tsx:162
 msgid "home.klima_is_the_center"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:439
+#: components/pages/Home/index.tsx:438
 msgid "home.klima_tokens_are_minted"
 msgstr ""
 
-#: components/pages/Home/index.tsx:83
+#: components/pages/Home/index.tsx:82
 msgid "home.latest_news"
 msgstr ""
 
-#: components/pages/Home/index.tsx:138
+#: components/pages/Home/index.tsx:137
 msgid "home.learn_more"
 msgstr ""
 
-#: components/pages/Home/index.tsx:341
+#: components/pages/Home/index.tsx:340
 msgid "home.liters_if_gasoline"
 msgstr ""
 
-#: components/pages/Home/index.tsx:271
+#: components/pages/Home/index.tsx:270
 msgid "home.massive impact"
 msgstr ""
 
-#: components/pages/Home/index.tsx:209
+#: components/pages/Home/index.tsx:208
 msgid "home.mechanics"
 msgstr ""
 
-#: components/pages/Home/index.tsx:490
+#. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
+#: components/pages/Home/index.tsx:426
+msgid "home.monthly_rewards_for_token_holders"
+msgstr ""
+
+#: components/pages/Home/index.tsx:489
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:498
+#: components/pages/Home/index.tsx:497
 msgid "home.newletter.get_the_latest_updates"
 msgstr ""
 
-#: components/pages/Home/index.tsx:515
+#: components/pages/Home/index.tsx:514
 msgid "home.newletter.never_shared_never_spammed"
 msgstr ""
 
-#: components/pages/Home/index.tsx:509
+#: components/pages/Home/index.tsx:508
 msgid "home.newletter.sign_up"
 msgstr ""
 
-#: components/pages/Home/index.tsx:495
+#: components/pages/Home/index.tsx:494
 msgid "home.newsletter"
 msgstr ""
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:398
+#: components/pages/Home/index.tsx:397
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr ""
 
-#: components/pages/Home/index.tsx:468
+#: components/pages/Home/index.tsx:467
 msgid "home.see_tutorial"
 msgstr ""
 
-#: components/pages/Home/index.tsx:356
+#: components/pages/Home/index.tsx:355
 msgid "home.source"
 msgstr ""
 
-#: components/pages/Home/index.tsx:253
+#: components/pages/Home/index.tsx:252
 msgid "home.strong_incentives"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Home/index.tsx:212
+#: components/pages/Home/index.tsx:211
 msgid "home.the_dao_sell_bonds"
 msgstr ""
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:282
+#: components/pages/Home/index.tsx:281
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr ""
 
-#. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:427
-msgid "home.weekly_rewards_for_token_holders"
-msgstr ""
-
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:94
+#: components/pages/Home/index.tsx:93
 msgid "home.welcome_to_klimadao"
 msgstr ""
 
@@ -900,7 +906,7 @@ msgstr ""
 msgid "infinity.why_title"
 msgstr ""
 
-#: components/pages/Home/index.tsx:383
+#: components/pages/Home/index.tsx:382
 msgid "invest_in_the_future"
 msgstr ""
 
@@ -1407,12 +1413,12 @@ msgid "shared.docs"
 msgstr ""
 
 #: components/Navigation/index.tsx:57
-#: components/pages/Home/index.tsx:115
+#: components/pages/Home/index.tsx:114
 msgid "shared.enter_app"
 msgstr ""
 
 #: components/pages/Buy/index.tsx:46
-#: components/pages/Home/index.tsx:69
+#: components/pages/Home/index.tsx:68
 #: components/pages/Pledge/PledgeDashboard/index.tsx:59
 #: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
@@ -1440,7 +1446,7 @@ msgstr ""
 msgid "shared.infinity.get_started"
 msgstr ""
 
-#: components/pages/Home/index.tsx:185
+#: components/pages/Home/index.tsx:184
 msgid "shared.infinity_cta"
 msgstr ""
 
@@ -1455,7 +1461,7 @@ msgstr ""
 msgid "shared.loading"
 msgstr ""
 
-#: components/pages/Home/index.tsx:192
+#: components/pages/Home/index.tsx:191
 msgid "shared.loveletter_cta"
 msgstr ""
 

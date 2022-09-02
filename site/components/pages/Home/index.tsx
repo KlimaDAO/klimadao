@@ -35,7 +35,7 @@ import * as styles from "./styles";
 export interface Props {
   latestPost: LatestPost;
   treasuryBalance: number;
-  weeklyStakingRewards: number;
+  monthlyStakingRewards: number;
 }
 
 const hectaresForestPerTonne = 1 / 200;
@@ -60,7 +60,6 @@ export const Home: NextPage<Props> = (props) => {
   const scrollToNextSection = () =>
     scrollToRef.current &&
     scrollToRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-
   return (
     <>
       <PageHead
@@ -425,11 +424,11 @@ export const Home: NextPage<Props> = (props) => {
               </Text>
               <div className="sprouts_col2_textGroup">
                 <Trans
-                  id="home.weekly_rewards_for_token_holders"
-                  comment="<0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
+                  id="home.monthly_rewards_for_token_holders"
+                  comment="<0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>"
                 >
                   <Text t="h2" uppercase>
-                    {props.weeklyStakingRewards}% WEEKLY REWARDS
+                    {props.monthlyStakingRewards}% MONTHLY REWARDS
                   </Text>
                   <Text t="h4" color="lightest" uppercase>
                     FOR TOKEN HOLDERS
