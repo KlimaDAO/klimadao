@@ -17,7 +17,7 @@ export interface Props {
   featuredArticles: FeaturedPost[];
 }
 
-export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
+export const Resources: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
@@ -52,13 +52,13 @@ export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
         </div>
       </Section>
 
-      {!!featuredArticles?.length && (
+      {!!props.featuredArticles?.length && (
         <Section variant="gray" style={{ padding: "unset" }}>
-          <ArticlesSlider articles={featuredArticles} />
+          <ArticlesSlider articles={props.featuredArticles} />
         </Section>
       )}
 
-      <ResourcesList documents={documents} />
+      <ResourcesList documents={props.documents} />
 
       <Footer />
     </>
