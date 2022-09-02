@@ -142,15 +142,17 @@ export const PledgeForm: FC<Props> = (props) => {
       />
 
       <TextareaField
-        id="pledge"
-        rows={2}
+        textareaProps={{
+          id: "pledge",
+          placeholder: t({
+            id: "pledges.form.input.description.placeholder",
+            message: "What is your pledge?",
+          }),
+          rows: 2,
+        }}
         label={t({
           id: "pledges.form.input.description.label",
           message: "Pledge",
-        })}
-        placeholder={t({
-          id: "pledges.form.input.description.placeholder",
-          message: "What is your pledge?",
         })}
         errors={formState.errors.description}
         errorMessageMap={getPledgeFormErrorTranslations}
@@ -158,16 +160,18 @@ export const PledgeForm: FC<Props> = (props) => {
       />
 
       <TextareaField
-        id="methodology"
-        rows={6}
+        textareaProps={{
+          id: "methodology",
+          placeholder: t({
+            id: "pledges.form.input.methodology.placeholder",
+            message:
+              "What tools or methodologies did you use to calculate your carbon footprint?",
+          }),
+          rows: 6,
+        }}
         label={t({
           id: "pledges.form.input.methodology.label",
           message: "Methodology",
-        })}
-        placeholder={t({
-          id: "pledges.form.input.methodology.placeholder",
-          message:
-            "What tools or methodologies did you use to calculate your carbon footprint?",
         })}
         errors={formState.errors.methodology}
         errorMessageMap={getPledgeFormErrorTranslations}
