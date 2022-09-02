@@ -22,11 +22,10 @@ type FormValues = {
   search: string;
 };
 
-export const ResourcesList: FC<Props> = ({ documents }) => {
-  const [visibleDocuments, setVisibleDocuments] =
-    useState<Document[]>(documents);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [noResult, setNoResult] = useState(false);
+export const ResourcesList: FC<Props> = (props) => {
+  const [visibleDocuments, setVisibleDocuments] = useState<Document[] | null>(
+    props.documents
+  );
 
   const {
     register,
@@ -35,11 +34,9 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
   } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
-    setSearchTerm(values.search);
-
     // reset list to default documents on empty string
     if (!values.search) {
-      setVisibleDocuments(documents);
+      setVisibleDocuments(props.documents);
       return;
     }
 
@@ -51,7 +48,7 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
       if (searchResult.length) {
         setVisibleDocuments(searchResult);
       } else {
-        setNoResult(true);
+        setVisibleDocuments(null);
       }
     } catch (error) {
       console.error(error);
@@ -85,7 +82,6 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
             errors={errors.search}
             errorMessageMap={getResourcesListErrorMap}
             {...register("search", {
-              onChange: () => setNoResult(false),
               required: {
                 value: false,
                 message: "resources.form.input.search.error.required",
@@ -100,20 +96,29 @@ export const ResourcesList: FC<Props> = ({ documents }) => {
             onClick={handleSubmit(onSubmit)}
           />
         </form>
-        {noResult && (
-          <Text t="h4">
-            <Trans id="resources.page.list.no_search_results">
-              Sorry. We coudn't find any matches for: {searchTerm}
-            </Trans>
-          </Text>
+        {!visibleDocuments && (
+          <>
+            <Text t="h4">
+              <Trans id="resources.page.list.no_search_results.title">
+                Sorry. We coudn't find any matching results.
+              </Trans>
+            </Text>
+            <Text>
+              <Trans id="resources.page.list.no_search_results.subline">
+                Double check your search for any typos or spelling errors - or
+                try a different search term.
+              </Trans>
+            </Text>
+          </>
         )}
         <div className={styles.list}>
-          {visibleDocuments.map((doc) => {
-            if (doc.type === "post") {
-              return <Card key={doc.slug} post={doc} />;
-            }
-            return <PodcastCard podcast={doc} key={doc.slug} />;
-          })}
+          {!!visibleDocuments?.length &&
+            visibleDocuments.map((doc) => {
+              if (doc.type === "post") {
+                return <Card key={doc.slug} post={doc} />;
+              }
+              return <PodcastCard podcast={doc} key={doc.slug} />;
+            })}
         </div>
       </div>
     </Section>

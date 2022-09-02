@@ -1143,11 +1143,11 @@ msgstr "KlimaDAO Podcast"
 msgid "resources.form.input.search.error.required"
 msgstr "Enter a search term"
 
-#: components/pages/Resources/ResourcesList/index.tsx:73
+#: components/pages/Resources/ResourcesList/index.tsx:70
 msgid "resources.form.input.search.label"
 msgstr "Search"
 
-#: components/pages/Resources/ResourcesList/index.tsx:77
+#: components/pages/Resources/ResourcesList/index.tsx:74
 msgid "resources.form.input.search.placeholder"
 msgstr "Search"
 
@@ -1171,13 +1171,17 @@ msgstr "Updates and thought leadership from the founders, DAO contributors, advi
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
 
-#: components/pages/Resources/ResourcesList/index.tsx:65
+#: components/pages/Resources/ResourcesList/index.tsx:62
 msgid "resources.page.list.header"
 msgstr "Explore All"
 
-#: components/pages/Resources/ResourcesList/index.tsx:105
-msgid "resources.page.list.no_search_results"
-msgstr "Sorry. We coudn't find any matches for: {searchTerm}"
+#: components/pages/Resources/ResourcesList/index.tsx:107
+msgid "resources.page.list.no_search_results.subline"
+msgstr "Double check your search for any typos or spelling errors - or try a different search term."
+
+#: components/pages/Resources/ResourcesList/index.tsx:102
+msgid "resources.page.list.no_search_results.title"
+msgstr "Sorry. We coudn't find any matching results."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
