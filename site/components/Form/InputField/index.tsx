@@ -7,7 +7,7 @@ import * as styles from "./styles";
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   hideLabel?: boolean;
-  errors?: { message?: string };
+  errors?: { message?: string } | false;
   errorMessageMap?: (id: string) => string;
 }
 
