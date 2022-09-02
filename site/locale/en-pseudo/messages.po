@@ -1137,11 +1137,11 @@ msgstr ""
 msgid "resources.form.input.search.error.required"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:67
+#: components/pages/Resources/ResourcesList/index.tsx:73
 msgid "resources.form.input.search.label"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:71
+#: components/pages/Resources/ResourcesList/index.tsx:77
 msgid "resources.form.input.search.placeholder"
 msgstr ""
 
@@ -1165,11 +1165,11 @@ msgstr ""
 msgid "resources.page.header.title"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:59
+#: components/pages/Resources/ResourcesList/index.tsx:65
 msgid "resources.page.list.header"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:99
+#: components/pages/Resources/ResourcesList/index.tsx:105
 msgid "resources.page.list.no_search_results"
 msgstr ""
 
