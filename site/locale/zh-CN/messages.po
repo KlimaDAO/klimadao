@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-01 15:44+0000\n"
+"POT-Creation-Date: 2022-09-02 20:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1442,7 +1442,7 @@ msgstr "开始使用"
 
 #: components/pages/Home/index.tsx:185
 msgid "shared.infinity_cta"
-msgstr ""
+msgstr "面向组织的 DEFI"
 
 #: components/Navigation/index.tsx:151
 #: components/Navigation/index.tsx:325
@@ -1457,7 +1457,7 @@ msgstr "正在加载..."
 
 #: components/pages/Home/index.tsx:192
 msgid "shared.loveletter_cta"
-msgstr ""
+msgstr "面向个人的 DEFI"
 
 #: components/Navigation/index.tsx:197
 #: components/Navigation/index.tsx:372
