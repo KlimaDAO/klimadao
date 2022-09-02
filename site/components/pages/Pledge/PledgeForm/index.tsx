@@ -119,11 +119,11 @@ export const PledgeForm: FC<Props> = (props) => {
             message: "Name or company name",
           }),
           type: "text",
+          ...register("name"),
         }}
         label={t({ id: "pledges.form.input.name.label", message: "Name" })}
         errors={formState.errors.name}
         errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("name")}
       />
 
       <InputField
@@ -131,6 +131,7 @@ export const PledgeForm: FC<Props> = (props) => {
           id: "profileImageUrl",
           placeholder: "https://",
           type: "text",
+          ...register("profileImageUrl"),
         }}
         label={t({
           id: "pledges.form.input.profileImageUrl.label",
@@ -138,7 +139,6 @@ export const PledgeForm: FC<Props> = (props) => {
         })}
         errors={formState.errors.profileImageUrl}
         errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("profileImageUrl")}
       />
 
       <TextareaField
@@ -149,6 +149,7 @@ export const PledgeForm: FC<Props> = (props) => {
             message: "What is your pledge?",
           }),
           rows: 2,
+          ...register("description"),
         }}
         label={t({
           id: "pledges.form.input.description.label",
@@ -156,7 +157,6 @@ export const PledgeForm: FC<Props> = (props) => {
         })}
         errors={formState.errors.description}
         errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("description")}
       />
 
       <TextareaField
@@ -168,6 +168,7 @@ export const PledgeForm: FC<Props> = (props) => {
               "What tools or methodologies did you use to calculate your carbon footprint?",
           }),
           rows: 6,
+          ...register("methodology"),
         }}
         label={t({
           id: "pledges.form.input.methodology.label",
@@ -175,7 +176,6 @@ export const PledgeForm: FC<Props> = (props) => {
         })}
         errors={formState.errors.methodology}
         errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("methodology")}
       />
 
       <div className={styles.categories_section}>
@@ -202,6 +202,7 @@ export const PledgeForm: FC<Props> = (props) => {
                       message: "Category name",
                     }),
                     type: "text",
+                    ...register(`categories.${index}.name` as const),
                   }}
                   hideLabel
                   label={t({
@@ -210,7 +211,6 @@ export const PledgeForm: FC<Props> = (props) => {
                   })}
                   errors={formState.errors.categories?.[index]?.name}
                   errorMessageMap={getPledgeFormErrorTranslations}
-                  {...register(`categories.${index}.name` as const)}
                 />
 
                 <InputField
@@ -220,6 +220,7 @@ export const PledgeForm: FC<Props> = (props) => {
                       message: "Carbon tonnes",
                     }),
                     type: "number",
+                    ...register(`categories.${index}.quantity` as const),
                   }}
                   hideLabel
                   label={t({
@@ -228,7 +229,6 @@ export const PledgeForm: FC<Props> = (props) => {
                   })}
                   errors={formState.errors.categories?.[index]?.quantity}
                   errorMessageMap={getPledgeFormErrorTranslations}
-                  {...register(`categories.${index}.quantity` as const)}
                 />
               </div>
 
@@ -260,6 +260,7 @@ export const PledgeForm: FC<Props> = (props) => {
       <InputField
         inputProps={{
           type: "hidden",
+          ...register("footprint"),
         }}
         hideLabel
         label={t({
@@ -268,7 +269,6 @@ export const PledgeForm: FC<Props> = (props) => {
         })}
         errors={formState.errors.footprint}
         errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("footprint")}
       />
 
       <TotalFootprint control={control} setValue={setValue} />
