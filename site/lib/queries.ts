@@ -1,4 +1,5 @@
 import { IS_PRODUCTION } from "./constants";
+import type { PortableTextBlock } from "@portabletext/types";
 
 /* Posts can have a hideFromProduction field that may be set to true if the author
 wants to publish their posts but dont want it to appear in the production environment. 
@@ -11,6 +12,20 @@ export const queryFilter = IS_PRODUCTION
   : "true";
 
 export const queries = {
+  /** fetch all blog posts and podcasts, sorted by publishedAt, limit to 20 */
+  allDocuments: /* groq */ `
+    *[_type in ["post", "podcast"] && ${queryFilter}][0...20] | order(publishedAt desc) {
+      "type": _type,
+      publishedAt, 
+      title, 
+      summary, 
+      "slug": slug.current, 
+      author->,
+      "imageUrl": mainImage.asset->url,
+      "embed": embedCode
+    }
+  `,
+
   /** fetch all blog posts, sorted by publishedAt */
   allPosts: /* groq */ `
     *[_type == "post" && hideFromProduction != true] | order(publishedAt desc) {
@@ -22,6 +37,20 @@ export const queries = {
       "imageUrl": mainImage.asset->url
     }
   `,
+
+  /** fetch all blog posts with isFeaturedArticle == true, limit to 20, sorted by publishedAt */
+  allFeaturedPosts: /* groq */ `
+    *[_type == "post" && ${queryFilter} && isFeaturedArticle == true][0...20] | order(publishedAt desc) {
+      summary, 
+      "slug": slug.current, 
+      title, 
+      publishedAt, 
+      author->, 
+      "imageUrl": mainImage.asset->url,
+      isFeaturedArticle
+    }
+  `,
+
   /** fetch the last published post slug and title */
   latestPost: /* groq */ `
     *[_type == "post" && ${queryFilter}] | order(publishedAt desc) {
@@ -80,11 +109,12 @@ export type PostDetails = {
   imageUrl?: string;
 };
 export type AllPosts = PostDetails[];
+export type FeaturedPost = PostDetails & { isFeaturedArticle: true };
+
 export type PodcastDetails = {
   slug: string;
   publishedAt: string;
   title: string;
-  host: { name: string };
   summary: string;
   embed?: string;
 };
@@ -95,15 +125,28 @@ export type Post = {
   slug: string;
   title: string;
   author: { name: string };
-  body: { children: { text: string }[] }[];
+  body: PortableTextBlock[];
   imageUrl?: string;
   publishedAt: string;
   summary: string;
   showDisclaimer?: boolean;
 };
 
+export type Document = {
+  type: "post" | "podcast";
+  publishedAt: string;
+  title: string;
+  summary: string;
+  slug: string;
+  author: { name: string };
+  imageUrl?: string;
+  embed?: string;
+};
+
 export interface QueryContent {
+  allDocuments: Document[];
   allPosts: AllPosts;
+  allFeaturedPosts: FeaturedPost[];
   latestPost: LatestPost;
   post: Post;
   allPodcasts: AllPodcasts;

@@ -13,6 +13,12 @@ export {
   submitButton,
 } from "../Stake/styles";
 
+export const transaction_modal_header_title = css`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+`;
+
 export const bondCard = css`
   position: relative;
   display: grid;

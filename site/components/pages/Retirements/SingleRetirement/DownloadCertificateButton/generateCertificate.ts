@@ -101,13 +101,14 @@ export const generateCertificate = (params: Params): void => {
   };
 
   const printRetirementDetails = (): void => {
+    const retirementAmount =
+      Number(params.retirement.amount) < 0.01
+        ? "< 0.01"
+        : trimWithLocale(params.retirement.amount, 2, "en");
+
     doc.setFont("Poppins", "ExtraLight");
     doc.setFontSize(28);
-    doc.text(
-      `${trimWithLocale(params.retirement.amount, 2, "en")} tonnes`,
-      spacing.margin,
-      70
-    );
+    doc.text(`${retirementAmount} tonnes`, spacing.margin, 70);
 
     doc.setFont("Poppins", "Bold");
     doc.setLineHeightFactor(1);
@@ -159,11 +160,14 @@ export const generateCertificate = (params: Params): void => {
       spacing.transactionDetails + 11
     );
     doc.setFont("Poppins", "ExtraLight");
-    const txHashSplit = doc.splitTextToSize(
+    doc.textWithLink(
       params.retirement.transaction.id,
-      spacing.mainTextWidth
+      spacing.margin,
+      spacing.transactionDetails + 16.5,
+      {
+        url: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+      }
     );
-    doc.text(txHashSplit, spacing.margin, spacing.transactionDetails + 16.5);
   };
 
   const printProjectDetails = (): void => {

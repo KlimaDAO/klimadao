@@ -3,17 +3,12 @@ import * as styles from "./styles";
 import Link from "next/link";
 
 import { LogoWithClaim } from "@klimadao/lib/components";
+import { PageName } from "../Navigation";
 
 interface Props {
   buttons?: JSX.Element[];
   href?: string;
-  activePage:
-    | "Home"
-    | "Buy"
-    | "Resources"
-    | "Disclaimer"
-    | "Infinity"
-    | "Pledges";
+  activePage: PageName;
 }
 
 export const HeaderDesktop: FC<Props> = (props) => {

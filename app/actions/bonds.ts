@@ -1,104 +1,108 @@
-import { ContractInterface, ethers, providers } from "ethers";
+import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 import { setBond } from "state/bonds";
 import { OnStatusHandler } from "./utils";
 import { setBondAllowance } from "state/user";
-import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getJsonRpcProvider,
+  getContract,
+} from "@klimadao/lib/utils";
 import { addresses, Bond } from "@klimadao/lib/constants";
-import Depository from "@klimadao/lib/abi/KlimaBondDepository_Regular.json";
 import PairContract from "@klimadao/lib/abi/PairContract.json";
 import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
-import OhmDai from "@klimadao/lib/abi/OhmDai.json";
-import IERC20 from "@klimadao/lib/abi/IERC20.json";
-import KlimaProV2 from "@klimadao/lib/abi/KlimaProV2.json";
+
+// All Bonds mapped to their token name
+export const bondMapToTokenName = {
+  klima_bct_lp: "klimaBctLp",
+  klima_usdc_lp: "klimaUsdcLp",
+  bct_usdc_lp: "bctUsdcLp",
+  klima_mco2_lp: "klimaMco2Lp",
+  mco2: "mco2",
+  bct: "bct",
+  nbo: "nbo",
+  ubo: "ubo",
+  inverse_usdc: "klima",
+} as const;
+export type BondTokens = keyof typeof bondMapToTokenName;
+type BondToken = typeof bondMapToTokenName[BondTokens];
+type NormalBond = Exclude<BondTokens, "inverse_usdc">;
+type InverseBond = Extract<BondTokens, "inverse_usdc">;
+
+export const bondMapToBondName = {
+  klima_bct_lp: "bond_klimaBctLp",
+  klima_usdc_lp: "bond_klimaUsdcLp",
+  bct_usdc_lp: "bond_bctUsdcLp",
+  klima_mco2_lp: "bond_klimaMco2Lp",
+  inverse_usdc: "klimaProV2",
+  mco2: "bond_mco2",
+  bct: "bond_bct",
+  nbo: "bond_nbo",
+  ubo: "bond_ubo",
+} as const;
+type BondCName = keyof typeof bondMapToBondName;
+type BondContractName = typeof bondMapToBondName[BondCName];
+
+type TokensForPairContract =
+  | "klimaBctLp"
+  | "klimaUsdcLp"
+  | "klimaMco2Lp"
+  | "klimaUboLp" // not a Bond token
+  | "klimaNboLp"; // not a Bond token
+
+const getPairContract = (params: {
+  token: TokensForPairContract;
+  provider: providers.JsonRpcProvider;
+}) => {
+  return new ethers.Contract(
+    addresses["mainnet"][params.token],
+    PairContract.abi,
+    params.provider
+  );
+};
 
 const getBondAddress = (params: { bond: Bond }): string => {
-  return {
-    klima_mco2_lp: addresses["mainnet"].bond_klimaMco2Lp,
-    klima_bct_lp: addresses["mainnet"].bond_klimaBctLp,
-    klima_usdc_lp: addresses["mainnet"].bond_klimaUsdcLp,
-    bct: addresses["mainnet"].bond_bct,
-    bct_usdc_lp: addresses["mainnet"].bond_bctUsdcLp,
-    mco2: addresses["mainnet"].bond_mco2,
-    nbo: addresses["mainnet"].bond_nbo,
-    ubo: addresses["mainnet"].bond_ubo,
-    inverse_usdc: addresses["mainnet"].klimaProV2,
-  }[params.bond];
+  const bondName = bondMapToBondName[params.bond];
+  return addresses["mainnet"][bondName as BondContractName];
 };
 
-const getReserveAddress = (params: { bond: Bond }): string => {
-  return {
-    klima_bct_lp: addresses["mainnet"].klimaBctLp,
-    klima_usdc_lp: addresses["mainnet"].klimaUsdcLp,
-    bct: addresses["mainnet"].bct,
-    mco2: addresses["mainnet"].mco2,
-    bct_usdc_lp: addresses["mainnet"].bctUsdcLp,
-    klima_mco2_lp: addresses["mainnet"].klimaMco2Lp,
-    nbo: addresses["mainnet"].nbo,
-    ubo: addresses["mainnet"].ubo,
-    inverse_usdc: addresses["mainnet"].klimaProV2,
-  }[params.bond];
+const getReserveAddress = (params: { bond: NormalBond }): string => {
+  const tokenName = bondMapToTokenName[params.bond];
+  return addresses["mainnet"][tokenName as BondToken];
 };
 
-const getReserveABI = (params: { bond: Bond }): ContractInterface => {
-  return {
-    klima_bct_lp: OhmDai.abi,
-    klima_usdc_lp: OhmDai.abi,
-    bct: IERC20.abi,
-    mco2: IERC20.abi,
-    bct_usdc_lp: OhmDai.abi,
-    klima_mco2_lp: OhmDai.abi,
-    nbo: IERC20.abi,
-    ubo: IERC20.abi,
-    inverse_usdc: KlimaProV2.abi,
-  }[params.bond];
-};
-
-const getIsInverse = (params: { bond: Bond }): boolean => {
-  return {
-    ubo: false,
-    nbo: false,
-    mco2: false,
-    bct: false,
-    klima_usdc_lp: false,
-    klima_bct_lp: false,
-    bct_usdc_lp: false,
-    klima_mco2_lp: false,
-    inverse_usdc: true,
-  }[params.bond];
+export const getIsInverse = (
+  bond: NormalBond | InverseBond
+): bond is InverseBond => {
+  return bond === "inverse_usdc";
 };
 
 export const contractForBond = (params: {
   bond: Bond;
-  provider: providers.JsonRpcProvider;
+  provider: providers.JsonRpcProvider | providers.JsonRpcSigner;
 }) => {
-  const address = getBondAddress({ bond: params.bond });
-  if (getIsInverse({ bond: params.bond })) {
-    return new ethers.Contract(address, KlimaProV2.abi, params.provider);
-  } else {
-    return new ethers.Contract(address, Depository.abi, params.provider);
-  }
+  const token = bondMapToBondName[params.bond];
+  return getContract({ contractName: token, provider: params.provider });
 };
 
 export function contractForReserve(params: {
-  bond: Bond;
+  bond: BondTokens;
   providerOrSigner: providers.JsonRpcProvider | providers.JsonRpcSigner;
 }) {
-  return new ethers.Contract(
-    getReserveAddress({ bond: params.bond }),
-    getReserveABI({ bond: params.bond }),
-    params.providerOrSigner
-  );
+  const token = bondMapToTokenName[params.bond];
+  return getContract({
+    contractName: token,
+    provider: params.providerOrSigner,
+  });
 }
 
 const getBCTMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaBctLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaBctLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [BCT, KLIMA] - KLIMA has 9 decimals, BCT has 18 decimals
   return reserves[0] / (reserves[1] * Math.pow(10, 9));
@@ -107,11 +111,10 @@ const getBCTMarketPrice = async (params: {
 const getUBOMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaUboLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaUboLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [UBO, KLIMA] - UBO has 18 decimals, KLIMA has 9 decimals
   return reserves[0] / (reserves[1] * Math.pow(10, 9));
@@ -120,11 +123,10 @@ const getUBOMarketPrice = async (params: {
 const getNBOMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaNboLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaNboLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [KLIMA, NBO] - KLIMA has 9 decimals, NBO has 18 decimals,
   return reserves[1] / (reserves[0] * Math.pow(10, 9));
@@ -134,11 +136,10 @@ const getNBOMarketPrice = async (params: {
 const getKlimaUSDCMarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaUsdcLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaUsdcLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
   // divide usdc/klima to get klima usdc price
@@ -148,11 +149,10 @@ const getKlimaUSDCMarketPrice = async (params: {
 const getInverseKlimaUSDCPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaUsdcLp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaUsdcLp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [USDC, KLIMA] - USDC has 6 decimals KLIMA has 9 decimals
   // returns klimas per dollar
@@ -163,11 +163,10 @@ const getInverseKlimaUSDCPrice = async (params: {
 const getMCO2MarketPrice = async (params: {
   provider: providers.JsonRpcProvider;
 }) => {
-  const pairContract = new ethers.Contract(
-    addresses["mainnet"].klimaMco2Lp,
-    PairContract.abi,
-    params.provider
-  );
+  const pairContract = getPairContract({
+    token: "klimaMco2Lp",
+    provider: params.provider,
+  });
   const reserves = await pairContract.getReserves();
   // [MCO2, KLIMA] - KLIMA has 9 decimals, MCO2 has 18 decimals
   const MCO2KLIMAPrice = reserves[1] / (reserves[0] * Math.pow(10, 9));
@@ -225,7 +224,7 @@ export const calcBondDetails = (params: {
     let bondPrice;
     let premium = 0;
     let capacity = 0;
-    if (getIsInverse({ bond: params.bond })) {
+    if (getIsInverse(params.bond)) {
       // returns klimas-per-dollar with 6 decimals
       bondPrice = await bondContract.marketPrice(INVERSE_USDC_MARKET_ID);
 
@@ -255,7 +254,7 @@ export const calcBondDetails = (params: {
       params.bond === "ubo"
     ) {
       bondQuote = formatUnits(await bondContract.payoutFor(amountInWei), 18);
-    } else if (params.bond === "inverse_usdc") {
+    } else if (getIsInverse(params.bond)) {
       const quote = Number(params.value) / Number(formatUnits(bondPrice, 6));
       bondQuote = quote.toString();
     } else {
@@ -267,12 +266,12 @@ export const calcBondDetails = (params: {
     }
 
     const decimalAdjustedBondPrice =
-      params.bond === "klima_usdc_lp" || params.bond === "inverse_usdc"
+      params.bond === "klima_usdc_lp" || getIsInverse(params.bond)
         ? bondPrice * Math.pow(10, 12) // need to add decimals because this bond returns USDC (6 dec).
         : bondPrice;
 
     let bondDiscount: number;
-    if (params.bond === "inverse_usdc") {
+    if (getIsInverse(params.bond)) {
       // var name is misleading, in the inverse bond UI we call it premium. multiply by -1 because inverse "discount" is backwards
       bondDiscount = premium;
     } else {
@@ -281,7 +280,7 @@ export const calcBondDetails = (params: {
         decimalAdjustedBondPrice;
     }
 
-    if (getIsInverse({ bond: params.bond })) {
+    if (getIsInverse(params.bond)) {
       dispatch(
         setBond({
           bond: params.bond,
@@ -316,41 +315,6 @@ export const calcBondDetails = (params: {
   };
 };
 
-export const changeApprovalTransaction = async (params: {
-  provider: providers.JsonRpcProvider;
-  bond: Bond;
-  onStatus: OnStatusHandler;
-  isInverse?: boolean;
-}) => {
-  try {
-    const contract = params.isInverse
-      ? new ethers.Contract(
-          addresses["mainnet"].klima,
-          IERC20.abi,
-          params.provider.getSigner()
-        )
-      : contractForReserve({
-          bond: params.bond,
-          providerOrSigner: params.provider.getSigner(),
-        });
-    const approvalAddress = getBondAddress({ bond: params.bond });
-    const value = ethers.utils.parseUnits("1000000000", "ether");
-    params.onStatus("userConfirmation", "");
-    const txn = await contract.approve(approvalAddress, value.toString());
-    params.onStatus("networkConfirmation", "");
-    await txn.wait(1);
-    params.onStatus("done", "Approval was successful");
-    return value;
-  } catch (error: any) {
-    if (error.code === 4001) {
-      params.onStatus("error", "userRejected");
-      throw error;
-    }
-    params.onStatus("error");
-    throw error;
-  }
-};
-
 export const calculateUserBondDetails = (params: {
   address: string;
   bond: Bond;
@@ -358,21 +322,13 @@ export const calculateUserBondDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     if (!params.address) return;
-    const bondContract = contractForBond({
-      bond: params.bond,
-      provider: params.provider,
-    });
-    const reserveContract = contractForReserve({
-      bond: params.bond,
-      providerOrSigner: params.provider,
-    });
-    const klimaContract = new ethers.Contract(
-      addresses["mainnet"].klima,
-      IERC20.abi,
-      params.provider
-    );
     // inverse bonds dont have user details
-    if (getIsInverse({ bond: params.bond })) {
+    if (getIsInverse(params.bond)) {
+      const klimaContract = getContract({
+        contractName: "klima",
+        provider: params.provider,
+      });
+
       const inverseAllowance = await klimaContract.allowance(
         params.address,
         getBondAddress({ bond: params.bond })
@@ -386,6 +342,16 @@ export const calculateUserBondDetails = (params: {
     }
 
     // Calculate bond details.
+    const bondContract = contractForBond({
+      bond: params.bond,
+      provider: params.provider,
+    });
+
+    const reserveContract = contractForReserve({
+      bond: params.bond,
+      providerOrSigner: params.provider,
+    });
+
     const bondDetails = await bondContract.bondInfo(params.address);
     const interestDue = bondDetails[0];
     const bondMaturationBlock = +bondDetails[1] + +bondDetails[2];
@@ -424,16 +390,14 @@ export const bondTransaction = async (params: {
   slippage: number;
   onStatus: OnStatusHandler;
 }) => {
-  if (params.bond === "inverse_usdc") {
+  if (getIsInverse(params.bond)) {
     try {
       const acceptedSlippage = 0.0; // 20% instead of 2% bc 2% not working. 20% also not working lol
       const signer = params.provider.getSigner();
-      const contractAddress = getBondAddress({ bond: params.bond });
-      const contract = new ethers.Contract(
-        contractAddress,
-        KlimaProV2.abi,
-        signer
-      );
+      const contract = contractForBond({
+        bond: params.bond,
+        provider: signer,
+      });
       const bondPrice = await contract.marketPrice(INVERSE_USDC_MARKET_ID);
       // minimum amount to be paid out in usdc. need bondPrice in usdc
       const minAmountOut =
@@ -468,12 +432,10 @@ export const bondTransaction = async (params: {
   } else {
     try {
       const signer = params.provider.getSigner();
-      const contractAddress = getBondAddress({ bond: params.bond });
-      const contract = new ethers.Contract(
-        contractAddress,
-        Depository.abi,
-        signer
-      );
+      const contract = contractForBond({
+        bond: params.bond,
+        provider: signer,
+      });
       const calculatePremium = await contract.bondPrice();
       const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
       const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
@@ -504,12 +466,10 @@ export const redeemTransaction = async (params: {
 }) => {
   try {
     const signer = params.provider.getSigner();
-    const contractAddress = getBondAddress({ bond: params.bond });
-    const contract = new ethers.Contract(
-      contractAddress,
-      Depository.abi,
-      signer
-    );
+    const contract = contractForBond({
+      bond: params.bond,
+      provider: signer,
+    });
     params.onStatus("userConfirmation", "");
     const txn = await contract.redeem(params.address, params.shouldAutostake);
     params.onStatus("networkConfirmation", "");

@@ -97,6 +97,7 @@ export const urls = {
   bonds: "https://app.klimadao.finance/#/bonds",
   offset: "https://app.klimadao.finance/#/offset",
   pledges: "https://app.klimadao.finance/pledge",
+  info: "https://app.klimadao.finance/info",
   resources: "https://www.klimadao.finance/resources",
   siteBlog: "https://www.klimadao.finance/blog",
   retirements: "https://www.klimadao.finance/retirements",
@@ -135,7 +136,9 @@ export const urls = {
   loveletter: "https://loveletter.klimadao.finance",
   mediaImage: "https://www.klimadao.finance/og-media.png",
   lifiStake:
-    "https://transferto.xyz/embed/stake-klima?fromChain=eth&fromToken=0x0000000000000000000000000000000000000000&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+    "https://transferto.xyz/showcase/etherspot-klima?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+  lifiOffset:
+    "https://transferto.xyz/showcase/carbon-offset?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
   polyscanGasTracker:
     "https://api.polygonscan.com/api?module=gastracker&action=gasoracle",
 };
@@ -187,6 +190,15 @@ export const allowancesContracts = {
   staking: ["sklima"],
   wsklima: ["sklima"],
   pklima_exercise: ["bct", "pklima"],
+  bond_klimaMco2Lp: ["klimaMco2Lp"],
+  bond_klimaBctLp: ["klimaBctLp"],
+  bond_klimaUsdcLp: ["klimaUsdcLp"],
+  bond_bct: ["bct"],
+  bond_bctUsdcLp: ["bctUsdcLp"],
+  bond_mco2: ["mco2"],
+  bond_nbo: ["nbo"],
+  bond_ubo: ["ubo"],
+  klimaProV2: ["klima"],
 } as const;
 
 export const EPOCH_INTERVAL = 11520;

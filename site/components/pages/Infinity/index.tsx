@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { cx } from "@emotion/css";
 import { NextPage } from "next";
 import Image from "next/image";
 import { Trans, t } from "@lingui/macro";
-import { urls } from "@klimadao/lib/constants";
 import {
   Section,
   ButtonPrimary,
@@ -35,6 +33,10 @@ import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
 
+import { urls } from "@klimadao/lib/constants";
+import { YoutubeEmbed } from "components/YoutubeEmbed";
+import { cx } from "@emotion/css";
+
 const linkToBlogUserGuide = `${urls.siteBlog}/klima-infinity-user-guide`;
 const linkToBlogFAQ = `${urls.siteBlog}/klima-infinity-faqs`;
 const linkToBlogPolygon = `${urls.siteBlog}/polygon-goes-carbon-neutral-via-klimadao`;
@@ -43,7 +45,7 @@ export interface Props {
   fixedThemeName: string;
 }
 
-export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
+export const Infinity: NextPage<Props> = () => {
   const [currentOpenQuestions, setCurrentOpenQuestions] = useState({
     1: false,
     2: false,
@@ -67,7 +69,7 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
         })}
       />
 
-      <Navigation activePage="Infinity" showThemeToggle={!fixedThemeName} />
+      <Navigation activePage="Infinity" showThemeToggle={false} />
 
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
@@ -216,10 +218,14 @@ export const Infinity: NextPage<Props> = ({ fixedThemeName }) => {
             </Text>
           </div>
           <div className="why_right_container">
-            <Image
-              src={infiniteNightCliffs}
-              alt="flashlight shining on dark cliffs"
-              className="why_right_img"
+            <YoutubeEmbed
+              videoId="eRmmDh1ingU"
+              hideControls
+              hideFullscreen
+              posterImg={{
+                src: infiniteNightCliffs,
+                alt: "flashlight shining on dark cliffs",
+              }}
             />
           </div>
         </div>

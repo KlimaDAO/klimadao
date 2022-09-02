@@ -254,6 +254,14 @@ export const Stake = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
+    } else if (!hasApproval()) {
+      return {
+        label: <Trans id="shared.approve">APPROVE</Trans>,
+        onClick: () => {
+          setShowTransactionModal(true);
+        },
+        disabled: false,
+      };
     } else if (view === "stake") {
       return {
         label: value ? (
@@ -318,8 +326,8 @@ export const Stake = (props: Props) => {
             <FiberNewRoundedIcon className="new-releases-icon" />
             <Trans id="stake.lifi">
               Cross-chain staking is now available through{" "}
-              <Anchor href={urls.lifiStake}>LI.FI</Anchor>, with support for
-              dozens of tokens like ETH, BNB and DAI.
+              <Anchor href={urls.lifiStake}>LI.FI and Etherspot</Anchor>, with
+              support for multiple chains and tokens.
             </Trans>
           </Text>
         </div>
