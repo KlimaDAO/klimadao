@@ -1133,7 +1133,7 @@ msgstr ""
 msgid "podcast.head.title"
 msgstr ""
 
-#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:5
+#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
 msgid "resources.form.input.search.error.required"
 msgstr ""
 
