@@ -23,6 +23,7 @@ export const tokenHoldings = css`
   img {
     width: 4.8rem;
     height: 4.8rem;
+    object-fit: contain;
   }
 
   ${breakpoints.medium} {
