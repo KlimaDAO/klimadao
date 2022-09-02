@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { Trans, t } from "@lingui/macro";
 import {
@@ -15,7 +14,6 @@ import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { SocialProof } from "components/SocialProof";
-import { Modal } from "components/Modal";
 
 import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
@@ -31,10 +29,7 @@ import gasPump from "public/gas_pump.png";
 import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
-import hiker from "public/hiker.jpeg";
-import net from "public/net.jpeg";
-import building from "public/building.jpeg";
-import arrow from "public/arrow-white.png";
+import GetStardedModal from "./GetStartedModal";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
@@ -76,75 +71,7 @@ export const Infinity: NextPage<Props> = () => {
       />
 
       <Navigation activePage="Infinity" showThemeToggle={false} />
-      <Modal
-        onToggleModal={() => setShowModal(false)}
-        showModal={showModal}
-        closeOnBackgroundClick={true}
-        title="Get Started"
-      >
-        <div className={styles.modalContainer}>
-          <Link href={urls.creolBusinessCalculator} passHref>
-            <div className={styles.modalButtonContainer}>
-              <Image
-                src={building}
-                layout="fill"
-                objectFit="cover"
-                alt="building windows"
-                className="image"
-              />
-              <Text t="h3" className="text">
-                <Trans id="infinity.modal_imaBusiness">
-                  I'm a <br />
-                  business.
-                </Trans>
-
-                <Image src={arrow} alt="arrow" layout="intrinsic" />
-              </Text>
-            </div>
-          </Link>
-          <Link href={urls.creolIndividualCalculator} passHref>
-            <div className={styles.modalButtonContainer}>
-              <Image
-                src={hiker}
-                layout="fill"
-                objectFit="cover"
-                alt="hiker"
-                className="image"
-              />
-              <Text t="h3" className="text">
-                <Trans id="infinity.modal_iman">I'm an</Trans>
-                <br />
-                <Trans id="infinity.modal_individual">individual.</Trans>
-                <Image src={arrow} alt="arrow" layout="intrinsic" />
-              </Text>
-            </div>
-          </Link>
-          <Link href={urls.cryptoOffsetCalculator} passHref>
-            <div className={styles.modalButtonContainer}>
-              <Image
-                src={net}
-                layout="fill"
-                objectFit="cover"
-                alt="net"
-                className="image"
-              />
-              <Text t="h3" className="text">
-                <Trans id="infinity.modal_want">I want to</Trans>
-                <br />
-                <Trans id="infinity.modal_offsetCrypto">offset crypto.</Trans>
-                <Image src={arrow} alt="arrow" layout="intrinsic" />
-              </Text>
-            </div>
-          </Link>
-          <Link href={urls.klimaInfinityContactForm} passHref>
-            <Text t="body6" className={styles.modalLink}>
-              <Trans id="infinity.modal_notSure">
-                I'm not sure which option is for me.
-              </Trans>
-            </Text>
-          </Link>
-        </div>
-      </Modal>
+      <GetStardedModal showModal={showModal} setShowModal={setShowModal} />
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
           <div className="hero_container">

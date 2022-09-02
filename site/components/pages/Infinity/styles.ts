@@ -846,9 +846,6 @@ export const modalButtonContainer = css`
   align-items: center;
   padding: 2rem 2rem 2rem 4.8rem;
   cursor: pointer;
-  /* ${breakpoints.desktopLarge} {
-    padding: 4.8rem;
-  } */
   border-radius: 1.6rem;
   overflow: hidden;
   .image {
@@ -856,12 +853,17 @@ export const modalButtonContainer = css`
   }
   .text {
     z-index: 99;
-    img {
-      padding-left: 1.6rem !important;
-    }
   }
   .arrow {
-    margin-left: 1.6rem;
+    margin-left: 1.6rem !important;
+  }
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -874,6 +876,5 @@ export const modalLink = css`
   cursor: pointer;
   ${breakpoints.large} {
     text-align: left;
-    padding-left: 4rem;
   }
 `;

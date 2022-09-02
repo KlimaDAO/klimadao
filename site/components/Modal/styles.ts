@@ -45,9 +45,6 @@ export const modalContent = css`
   }
 
   .title {
-    &.contrast {
-      color: var(--surface-01);
-    }
     display: flex;
     justify-content: space-between;
     align-items: center;
