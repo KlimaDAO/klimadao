@@ -66,27 +66,29 @@ export const ResourcesList: FC<Props> = (props) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <InputField
-            id="search"
+            inputProps={{
+              id: "search",
+              placeholder: t({
+                id: "resources.form.input.search.placeholder",
+                message: "Search",
+              }),
+              type: "search",
+              autoComplete: "off",
+              className: styles.searchInput,
+              ...register("search", {
+                required: {
+                  value: false,
+                  message: "resources.form.input.search.error.required",
+                },
+              }),
+            }}
             label={t({
               id: "resources.form.input.search.label",
               message: "Search",
             })}
-            placeholder={t({
-              id: "resources.form.input.search.placeholder",
-              message: "Search",
-            })}
-            type="search"
-            autoComplete="off"
             hideLabel
-            className={styles.searchInput}
             errors={errors.search}
             errorMessageMap={getResourcesListErrorTranslations}
-            {...register("search", {
-              required: {
-                value: false,
-                message: "resources.form.input.search.error.required",
-              },
-            })}
           />
           <ButtonPrimary
             variant="icon"
