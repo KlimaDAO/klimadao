@@ -15,9 +15,13 @@ interface Props {
 
 export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
   (props, ref) => {
-    const inputStyles = cx(styles.baseStyles, {
-      [styles.errorStyles]: Boolean(props.errors),
-    });
+    const inputStyles = cx(
+      styles.baseStyles,
+      {
+        [styles.errorStyles]: Boolean(props.errors),
+      },
+      props.textareaProps.className
+    );
 
     return (
       <div className={styles.container}>
@@ -28,9 +32,9 @@ export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
         <textarea
           id={props.textareaProps.id}
           ref={ref}
-          className={inputStyles}
           aria-invalid={Boolean(props.errors)}
           {...props.textareaProps}
+          className={inputStyles}
         />
 
         {props.errors && props.errors.message && (

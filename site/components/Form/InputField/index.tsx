@@ -18,9 +18,13 @@ interface Props {
 
 export const InputField = React.forwardRef<HTMLInputElement, Props>(
   (props, ref) => {
-    const inputStyles = cx(styles.baseStyles, {
-      [styles.errorStyles]: Boolean(props.errors),
-    });
+    const inputStyles = cx(
+      styles.baseStyles,
+      {
+        [styles.errorStyles]: Boolean(props.errors),
+      },
+      props.inputProps.className
+    );
     // for a11y if we don't want visually show labels
     const visuallyHidden = cx({
       [styles.visuallyHidden]: Boolean(props.hideLabel),
@@ -34,10 +38,10 @@ export const InputField = React.forwardRef<HTMLInputElement, Props>(
 
         <input
           id={props.inputProps.id}
-          className={inputStyles}
           ref={ref}
           aria-invalid={Boolean(props.errors)}
           {...props.inputProps}
+          className={inputStyles}
         />
 
         {props.errors && props.errors.message && (
