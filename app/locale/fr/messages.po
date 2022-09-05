@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-05 08:56+0000\n"
+"POT-Creation-Date: 2022-09-05 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -478,7 +478,7 @@ msgstr "JETON EN ENTRÉE INCOMPATIBLE"
 
 #: components/views/Offset/index.tsx:457
 msgid "offset.lifi"
-msgstr ""
+msgstr "La compensation inter-chaînes est désormais disponible via <0>LI.FI et Etherspot</0>, avec un support pour plusieurs chaînes et jetons."
 
 #: components/views/Offset/index.tsx:496
 msgid "offset.modal_payWith.title"
@@ -770,7 +770,7 @@ msgstr "Montant à retirer"
 
 #: components/views/Stake/index.tsx:327
 msgid "stake.lifi"
-msgstr ""
+msgstr "Le dépôt inter-chaînes est désormais disponible via <0>LI.FI et Etherspot</0>, avec un support pour plusieurs chaînes et jetons."
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
