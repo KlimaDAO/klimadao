@@ -4,7 +4,8 @@ import { Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface Props {
+  inputProps: InputHTMLAttributes<HTMLInputElement>;
   label: string;
   hideLabel?: boolean;
   errors?: { message?: string };
@@ -13,40 +14,32 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, Props>(
-  (
-    { errors, id, label, hideLabel, errorMessageMap, className, ...props },
-    ref
-  ) => {
-    const inputStyles = cx(
-      styles.baseStyles,
-      {
-        [styles.errorStyles]: Boolean(errors),
-      },
-      className
-    );
-
+  (props, ref) => {
+    const inputStyles = cx(styles.baseStyles, {
+      [styles.errorStyles]: Boolean(props.errors),
+    });
     // for a11y if we don't want visually show labels
     const visuallyHidden = cx({
-      [styles.visuallyHidden]: Boolean(hideLabel),
+      [styles.visuallyHidden]: Boolean(props.hideLabel),
     });
 
     return (
       <div className={styles.container}>
-        <label htmlFor={id} className={visuallyHidden}>
-          <Text t="caption">{label}</Text>
+        <label htmlFor={props.inputProps.id} className={visuallyHidden}>
+          <Text t="caption">{props.label}</Text>
         </label>
 
         <input
-          id={id}
+          id={props.inputProps.id}
           className={inputStyles}
           ref={ref}
-          aria-invalid={Boolean(errors)}
-          {...props}
+          aria-invalid={Boolean(props.errors)}
+          {...props.inputProps}
         />
 
-        {errors && errors.message && (
+        {props.errors && props.errors.message && (
           <Text t="caption" className={styles.errorMessage}>
-            {errorMessageMap(errors.message)}
+            {props.errorMessageMap(props.errors.message)}
           </Text>
         )}
       </div>
