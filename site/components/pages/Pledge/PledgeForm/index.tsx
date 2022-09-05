@@ -250,9 +250,10 @@ export const PledgeForm: FC<Props> = (props) => {
                     message: "Quantity",
                   })}
                   errorMessage={
-                    !!formState.errors?.categories?.[index]?.name?.message &&
+                    !!formState.errors?.categories?.[index]?.quantity
+                      ?.message &&
                     pledgeErrorTranslationsMap[
-                      formState?.errors?.categories?.[index]?.name
+                      formState?.errors?.categories?.[index]?.quantity
                         ?.message as PledgeErrorId
                     ]
                   }
