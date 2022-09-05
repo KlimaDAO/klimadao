@@ -1,55 +1,57 @@
 import { t } from "@lingui/macro";
 import * as yup from "yup";
 
-export const getPledgeFormErrorTranslations = (id: string) => {
-  const ERROR_MAP = {
-    ["pledges.form.errors.name.required"]: t({
-      id: "pledges.form.errors.name.required",
-      message: "Enter a name",
-    }),
-    ["pledges.form.errors.profileImageUrl.url"]: t({
-      id: "pledges.form.errors.profileImageUrl.url",
-      message: "Enter a valid url",
-    }),
-    ["pledges.form.errors.description.required"]: t({
-      id: "pledges.form.errors.description.required",
-      message: "Enter a pledge",
-    }),
-    ["pledges.form.errors.description.max"]: t({
-      id: "pledges.form.errors.description.max",
-      message: "Enter less than 500 characters",
-    }),
-    ["pledges.form.errors.methodology.required"]: t({
-      id: "pledges.form.errors.methodology.required",
-      message: "Enter a methodology",
-    }),
-    ["pledges.form.errors.methodology.max"]: t({
-      id: "pledges.form.errors.methodology.max",
-      message: "Enter less than 1000 characters",
-    }),
-    ["pledges.form.errors.footprint.generic_error"]: t({
-      id: "pledges.form.errors.footprint.generic_error",
-      message: "Enter a carbon tonne estimate",
-    }),
-    ["pledges.form.errors.footprint.min"]: t({
-      id: "pledges.form.errors.footprint.min",
-      message: "Enter a value greater than 0",
-    }),
-    ["pledges.form.errors.categoryName.required"]: t({
-      id: "pledges.form.errors.categoryName.required",
-      message: "Enter a category",
-    }),
-    ["pledges.form.errors.categoryName.max"]: t({
-      id: "pledges.form.errors.categoryName.max",
-      message: "Enter less than 32 characters",
-    }),
-    ["pledges.form.errors.categoryQuantity.min"]: t({
-      id: "pledges.form.errors.categoryQuantity.min",
-      message: "Enter a value greater than 0",
-    }),
-  };
+const ERROR_MAP = {
+  ["pledges.form.errors.name.required"]: t({
+    id: "pledges.form.errors.name.required",
+    message: "Enter a name",
+  }),
+  ["pledges.form.errors.profileImageUrl.url"]: t({
+    id: "pledges.form.errors.profileImageUrl.url",
+    message: "Enter a valid url",
+  }),
+  ["pledges.form.errors.description.required"]: t({
+    id: "pledges.form.errors.description.required",
+    message: "Enter a pledge",
+  }),
+  ["pledges.form.errors.description.max"]: t({
+    id: "pledges.form.errors.description.max",
+    message: "Enter less than 500 characters",
+  }),
+  ["pledges.form.errors.methodology.required"]: t({
+    id: "pledges.form.errors.methodology.required",
+    message: "Enter a methodology",
+  }),
+  ["pledges.form.errors.methodology.max"]: t({
+    id: "pledges.form.errors.methodology.max",
+    message: "Enter less than 1000 characters",
+  }),
+  ["pledges.form.errors.footprint.generic_error"]: t({
+    id: "pledges.form.errors.footprint.generic_error",
+    message: "Enter a carbon tonne estimate",
+  }),
+  ["pledges.form.errors.footprint.min"]: t({
+    id: "pledges.form.errors.footprint.min",
+    message: "Enter a value greater than 0",
+  }),
+  ["pledges.form.errors.categoryName.required"]: t({
+    id: "pledges.form.errors.categoryName.required",
+    message: "Enter a category",
+  }),
+  ["pledges.form.errors.categoryName.max"]: t({
+    id: "pledges.form.errors.categoryName.max",
+    message: "Enter less than 32 characters",
+  }),
+  ["pledges.form.errors.categoryQuantity.min"]: t({
+    id: "pledges.form.errors.categoryQuantity.min",
+    message: "Enter a value greater than 0",
+  }),
+};
 
-  return ERROR_MAP[id as keyof typeof ERROR_MAP];
+export type PledgeErrorId = keyof typeof ERROR_MAP;
+
+export const getPledgeFormErrorTranslations = (id: PledgeErrorId): string => {
+  return ERROR_MAP[id];
 };
 
 export const formSchema = yup
