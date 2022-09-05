@@ -1,19 +1,15 @@
 import React, { InputHTMLAttributes } from "react";
 import { cx } from "@emotion/css";
-import { FieldError } from "react-hook-form";
 
 import { Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 
-import { PledgeErrorId } from "components/pages/Pledge/lib/formSchema";
-
 interface Props {
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   label: string;
   hideLabel?: boolean;
-  errors?: { message?: FieldError["message"] };
-  errorMessageMap: (id: PledgeErrorId) => string;
+  errorMessage: false | string;
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, Props>(
@@ -21,7 +17,7 @@ export const InputField = React.forwardRef<HTMLInputElement, Props>(
     const inputStyles = cx(
       styles.baseStyles,
       {
-        [styles.errorStyles]: Boolean(props.errors),
+        [styles.errorStyles]: !!props.errorMessage,
       },
       props.inputProps.className
     );
@@ -39,14 +35,14 @@ export const InputField = React.forwardRef<HTMLInputElement, Props>(
         <input
           id={props.inputProps.id}
           ref={ref}
-          aria-invalid={Boolean(props.errors)}
+          aria-invalid={Boolean(props.errorMessage)}
           {...props.inputProps}
           className={inputStyles}
         />
 
-        {props.errors && props.errors.message && (
+        {!!props.errorMessage && (
           <Text t="caption" className={styles.errorMessage}>
-            {props.errorMessageMap(props.errors.message as PledgeErrorId)}
+            {props.errorMessage}
           </Text>
         )}
       </div>

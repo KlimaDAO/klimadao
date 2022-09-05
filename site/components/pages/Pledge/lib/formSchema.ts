@@ -1,7 +1,7 @@
 import { t } from "@lingui/macro";
 import * as yup from "yup";
 
-const ERROR_MAP = {
+export const pledgeErrorTranslationsMap = {
   ["pledges.form.errors.name.required"]: t({
     id: "pledges.form.errors.name.required",
     message: "Enter a name",
@@ -46,13 +46,9 @@ const ERROR_MAP = {
     id: "pledges.form.errors.categoryQuantity.min",
     message: "Enter a value greater than 0",
   }),
-};
+} as const;
 
-export type PledgeErrorId = keyof typeof ERROR_MAP;
-
-export const getPledgeFormErrorTranslations = (id: PledgeErrorId): string => {
-  return ERROR_MAP[id];
-};
+export type PledgeErrorId = keyof typeof pledgeErrorTranslationsMap;
 
 export const formSchema = yup
   .object({

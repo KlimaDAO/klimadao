@@ -7,7 +7,10 @@ import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
 import { InputField } from "components/Form";
-import { getResourcesListErrorTranslations } from "../lib/getResourcesListErrorTranslations";
+import {
+  resourcesErrorTranslationsMap,
+  ResourcesErrorId,
+} from "../lib/getResourcesListErrorTranslations";
 
 import { fetchCMSContent } from "lib/fetchCMSContent";
 
@@ -87,8 +90,12 @@ export const ResourcesList: FC<Props> = (props) => {
               message: "Search",
             })}
             hideLabel
-            errors={errors.search}
-            errorMessageMap={getResourcesListErrorTranslations}
+            errorMessage={
+              !!errors.search?.message &&
+              resourcesErrorTranslationsMap[
+                errors.search.message as ResourcesErrorId
+              ]
+            }
           />
           <ButtonPrimary
             variant="icon"

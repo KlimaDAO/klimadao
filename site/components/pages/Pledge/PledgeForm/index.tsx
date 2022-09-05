@@ -18,7 +18,8 @@ import { InputField, TextareaField } from "components/Form";
 import {
   editPledgeSignature,
   formSchema,
-  getPledgeFormErrorTranslations,
+  pledgeErrorTranslationsMap,
+  PledgeErrorId,
   putPledge,
   pledgeFormAdapter,
 } from "../lib";
@@ -122,8 +123,12 @@ export const PledgeForm: FC<Props> = (props) => {
           ...register("name"),
         }}
         label={t({ id: "pledges.form.input.name.label", message: "Name" })}
-        errors={formState.errors.name}
-        errorMessageMap={getPledgeFormErrorTranslations}
+        errorMessage={
+          !!formState.errors.name?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.name.message as PledgeErrorId
+          ]
+        }
       />
 
       <InputField
@@ -137,8 +142,12 @@ export const PledgeForm: FC<Props> = (props) => {
           id: "pledges.form.input.profileImageUrl.label",
           message: "Profile image url (optional)",
         })}
-        errors={formState.errors.profileImageUrl}
-        errorMessageMap={getPledgeFormErrorTranslations}
+        errorMessage={
+          !!formState.errors.profileImageUrl?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.profileImageUrl.message as PledgeErrorId
+          ]
+        }
       />
 
       <TextareaField
@@ -155,8 +164,12 @@ export const PledgeForm: FC<Props> = (props) => {
           id: "pledges.form.input.description.label",
           message: "Pledge",
         })}
-        errors={formState.errors.description}
-        errorMessageMap={getPledgeFormErrorTranslations}
+        errorMessage={
+          !!formState.errors.description?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.description.message as PledgeErrorId
+          ]
+        }
       />
 
       <TextareaField
@@ -174,8 +187,12 @@ export const PledgeForm: FC<Props> = (props) => {
           id: "pledges.form.input.methodology.label",
           message: "Methodology",
         })}
-        errors={formState.errors.methodology}
-        errorMessageMap={getPledgeFormErrorTranslations}
+        errorMessage={
+          !!formState.errors.methodology?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.methodology.message as PledgeErrorId
+          ]
+        }
       />
 
       <div className={styles.categories_section}>
@@ -209,8 +226,13 @@ export const PledgeForm: FC<Props> = (props) => {
                     id: "pledges.form.input.categoryName.label",
                     message: "Category",
                   })}
-                  errors={formState.errors.categories?.[index]?.name}
-                  errorMessageMap={getPledgeFormErrorTranslations}
+                  errorMessage={
+                    !!formState.errors?.categories?.[index]?.name?.message &&
+                    pledgeErrorTranslationsMap[
+                      formState?.errors?.categories?.[index]?.name
+                        ?.message as PledgeErrorId
+                    ]
+                  }
                 />
 
                 <InputField
@@ -227,8 +249,13 @@ export const PledgeForm: FC<Props> = (props) => {
                     id: "pledges.form.input.categoryQuantity.label",
                     message: "Quantity",
                   })}
-                  errors={formState.errors.categories?.[index]?.quantity}
-                  errorMessageMap={getPledgeFormErrorTranslations}
+                  errorMessage={
+                    !!formState.errors?.categories?.[index]?.name?.message &&
+                    pledgeErrorTranslationsMap[
+                      formState?.errors?.categories?.[index]?.name
+                        ?.message as PledgeErrorId
+                    ]
+                  }
                 />
               </div>
 
@@ -267,8 +294,12 @@ export const PledgeForm: FC<Props> = (props) => {
           id: "pledges.form.input.totalFootprint.label",
           message: "Total footprint",
         })}
-        errors={formState.errors.footprint}
-        errorMessageMap={getPledgeFormErrorTranslations}
+        errorMessage={
+          !!formState.errors.footprint?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.footprint.message as PledgeErrorId
+          ]
+        }
       />
 
       <TotalFootprint control={control} setValue={setValue} />
