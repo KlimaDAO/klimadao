@@ -7,7 +7,10 @@ import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
 import { InputField } from "components/Form";
-import { getResourcesListErrorTranslations } from "../lib/getResourcesListErrorTranslations";
+import {
+  resourcesErrorTranslationsMap,
+  ResourcesErrorId,
+} from "../lib/getResourcesListErrorTranslations";
 
 import { fetchCMSContent } from "lib/fetchCMSContent";
 
@@ -66,27 +69,33 @@ export const ResourcesList: FC<Props> = (props) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <InputField
-            id="search"
+            inputProps={{
+              id: "search",
+              placeholder: t({
+                id: "resources.form.input.search.placeholder",
+                message: "Search",
+              }),
+              type: "search",
+              autoComplete: "off",
+              className: styles.searchInput,
+              ...register("search", {
+                required: {
+                  value: false,
+                  message: "resources.form.input.search.error.required",
+                },
+              }),
+            }}
             label={t({
               id: "resources.form.input.search.label",
               message: "Search",
             })}
-            placeholder={t({
-              id: "resources.form.input.search.placeholder",
-              message: "Search",
-            })}
-            type="search"
-            autoComplete="off"
             hideLabel
-            className={styles.searchInput}
-            errors={errors.search}
-            errorMessageMap={getResourcesListErrorTranslations}
-            {...register("search", {
-              required: {
-                value: false,
-                message: "resources.form.input.search.error.required",
-              },
-            })}
+            errorMessage={
+              !!errors.search?.message &&
+              resourcesErrorTranslationsMap[
+                errors.search.message as ResourcesErrorId
+              ]
+            }
           />
           <ButtonPrimary
             variant="icon"
