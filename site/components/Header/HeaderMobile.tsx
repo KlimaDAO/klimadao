@@ -35,17 +35,15 @@ export const HeaderMobile: FC<Props> = (props) => {
           onClick={() => setIsToggled(!isToggled)}
         />
       </header>
-      <Global
-        styles={
-          isToggled &&
-          css`
+      {isToggled && (
+        <Global
+          styles={css`
             body {
-              position: fixed;
-              height: 100vh;
+              overflow-y: hidden;
             }
-          `
-        }
-      />
+          `}
+        />
+      )}
       <NavMobile isToggled={isToggled}>{props.children}</NavMobile>
     </div>
   );

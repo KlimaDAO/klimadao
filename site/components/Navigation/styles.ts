@@ -133,7 +133,7 @@ export const navMain_MobileItemInner = css`
   }
 `;
 
-export const navMain_DesktopSelectContainer = css`
+export const navMain_DesktopItemContainer = css`
   position: relative;
   min-height: fit-content;
   overflow: visible;
