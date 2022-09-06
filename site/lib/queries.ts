@@ -22,7 +22,8 @@ export const queries = {
       "slug": slug.current, 
       author->,
       "imageUrl": mainImage.asset->url,
-      "embed": embedCode
+      "embed": embedCode,
+      "tags": tags[]->label_en
     }
   `,
 
@@ -107,9 +108,40 @@ export const queries = {
       "slug": slug.current, 
       author->,
       "imageUrl": mainImage.asset->url,
-      "embed": embedCode
+      "embed": embedCode,
+      "tags": tags[]->label_en
     }
     [ _score > 0]
+  `,
+
+  /** fetch posts and podcasts filtered by specific tag slugs, types and order */
+  filterDocumentsByTags: /* groq */ `
+    *[_type in $documentTypes && count((tags[]->tag.current)[@ in $referenceTags]) > 0 && ${queryFilter}] | order($orderBy) {
+      "type": _type,
+      publishedAt, 
+      title, 
+      summary, 
+      "slug": slug.current, 
+      author->,
+      "imageUrl": mainImage.asset->url,
+      "embed": embedCode,
+      "tags": tags[]->label_en
+    }
+  `,
+
+  /** fetch posts and podcasts filtered by types and order */
+  filterDocumentsWithoutTags: /* groq */ `
+    *[_type in $documentTypes && ${queryFilter}] | order($orderBy) {
+      "type": _type,
+      publishedAt, 
+      title, 
+      summary, 
+      "slug": slug.current, 
+      author->,
+      "imageUrl": mainImage.asset->url,
+      "embed": embedCode,
+      "tags": tags[]->label_en
+    }
   `,
 
   allPodcasts: /* groq */ `
@@ -176,4 +208,6 @@ export interface QueryContent {
   post: Post;
   allPodcasts: AllPodcasts;
   searchByText: Document[];
+  filterDocumentsByTags: Document[];
+  filterDocumentsWithoutTags: Document[];
 }
