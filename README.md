@@ -1,6 +1,6 @@
-# Klima Subgraph
+# KlimaDAO Protocol Subgraphs
 
-The main subgraph that houses all of the data components indexed by a graph node.
+The main subgraph repo that houses all of the data associated with the KlimaDAO protocol (except the tokenized carbon subgraphs which live [here](https://github.com/klimadao/carbon-subgraph)).
 
 ## Local Installation
 
@@ -28,3 +28,11 @@ npm run deploy-local
 ## Local Navigation and Querying
 
 After the subgraph is deployed, navigate to http://127.0.01:8000/subgraphs/name/name-of-subgraph. You can then create GraphQL queries and view the returned data.
+
+## Deployed Hosted Service Subgraphs
+
+* Protocol Metrics: [Staging](https://thegraph.com/hosted-service/subgraph/klimadao/staging-klimadao-protocol-metrics) | [Production](https://thegraph.com/hosted-service/subgraph/klimadao/klimadao-protocol-metrics)
+* Bonds: [Staging](https://thegraph.com/hosted-service/subgraph/klimadao/staging-klimadao-bonds) | [Production](https://thegraph.com/hosted-service/subgraph/klimadao/klimadao-bonds)
+* Vesting: [Staging](https://thegraph.com/hosted-service/subgraph/klimadao/staging-klimadao-vesting) | [Production](https://thegraph.com/hosted-service/subgraph/klimadao/klimadao-vesting)
+* Carbon Users: [Staging](https://thegraph.com/hosted-service/subgraph/klimadao/staging-klimadao-carbon-users) | [Production](https://thegraph.com/hosted-service/subgraph/klimadao/klimadao-carbon-users)
+* Token Markets: [Staging](https://thegraph.com/hosted-service/subgraph/klimadao/staging-klimadao-markets) | [Production](https://thegraph.com/hosted-service/subgraph/klimadao/klimadao-markets)

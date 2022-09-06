@@ -1,11 +1,15 @@
-name: Continuous Integration
+name: Deployment
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - staging
 
 jobs:
   compile:
     runs-on: ubuntu-latest
-    name: Compile
+    name: Deploy
     strategy:
       matrix:
         value: ["bonds", "protocol-metrics", "vesting", "user-carbon", "markets"]
@@ -39,3 +43,18 @@ jobs:
     # - name: Run Tests
     #   run: npm run test
     #   working-directory: "${{ matrix.value }}"
+
+    - name: Staging or not
+      id: staging_or_not
+      run: |
+        if [ $REF == "refs/heads/staging" ]
+        then
+            echo "::set-output name=subgraph::staging-klimadao-${{ matrix.value }}"
+        else
+            echo "::set-output name=subgraph::klimadao-${{ matrix.value }}"
+        fi
+      env:
+        REF: ${{ github.ref }}
+    - name: Deploy Subgraph
+      run: node_modules/.bin/graph deploy --product hosted-service --deploy-key ${{ secrets.HOSTED_SERVICE_ACCESS_TOKEN }} klimadao/${{ steps.staging_or_not.outputs.subgraph }}
+      working-directory: "${{ matrix.value }}"

@@ -18,7 +18,7 @@
     "deploy-hosted": "graph deploy --product hosted-service $npm_config_path",
     "deploy": "graph deploy --product hosted-service klimadao/klimadao-bonds"
   },
-  "dependencies": {
+  "devDependencies": {
     "@graphprotocol/graph-cli": "^0.29.0",
     "@graphprotocol/graph-ts": "^0.26.0",
     "prettier": "^1.18.2"
