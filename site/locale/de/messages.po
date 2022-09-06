@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-05 15:42+0000\n"
+"POT-Creation-Date: 2022-09-06 09:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -982,115 +982,115 @@ msgstr "CO2-Tonnen insgesamt ausgeglichen"
 msgid "pledges.edit_pledge"
 msgstr "Versprechen bearbeiten"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:238
+#: components/pages/Pledge/PledgeForm/index.tsx:278
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Kategorie hinzufügen"
 
-#: components/pages/Pledge/lib/formSchema.ts:42
+#: components/pages/Pledge/lib/formSchema.ts:41
 msgid "pledges.form.errors.categoryName.max"
 msgstr "Geben Sie weniger als 32 Zeichen ein"
 
-#: components/pages/Pledge/lib/formSchema.ts:38
+#: components/pages/Pledge/lib/formSchema.ts:37
 msgid "pledges.form.errors.categoryName.required"
 msgstr "Geben Sie eine Kategorie an"
 
-#: components/pages/Pledge/lib/formSchema.ts:46
+#: components/pages/Pledge/lib/formSchema.ts:45
 msgid "pledges.form.errors.categoryQuantity.min"
 msgstr "Geben Sie einen Wert größer als 0 ein"
 
-#: components/pages/Pledge/lib/formSchema.ts:18
+#: components/pages/Pledge/lib/formSchema.ts:17
 msgid "pledges.form.errors.description.max"
 msgstr "Geben Sie weniger als 500 Zeichen ein"
 
-#: components/pages/Pledge/lib/formSchema.ts:14
+#: components/pages/Pledge/lib/formSchema.ts:13
 msgid "pledges.form.errors.description.required"
 msgstr "Geben Sie ein Versprechen an"
 
-#: components/pages/Pledge/lib/formSchema.ts:30
+#: components/pages/Pledge/lib/formSchema.ts:29
 msgid "pledges.form.errors.footprint.generic_error"
 msgstr "Geben Sie eine Schätzung an (in CO2-Tonnen)"
 
-#: components/pages/Pledge/lib/formSchema.ts:34
+#: components/pages/Pledge/lib/formSchema.ts:33
 msgid "pledges.form.errors.footprint.min"
 msgstr "Geben Sie einen Wert größer als 0 ein"
 
-#: components/pages/Pledge/lib/formSchema.ts:26
+#: components/pages/Pledge/lib/formSchema.ts:25
 msgid "pledges.form.errors.methodology.max"
 msgstr "Geben Sie weniger als 1.000 Zeichen ein"
 
-#: components/pages/Pledge/lib/formSchema.ts:22
+#: components/pages/Pledge/lib/formSchema.ts:21
 msgid "pledges.form.errors.methodology.required"
 msgstr "Geben Sie eine Methodik an"
 
-#: components/pages/Pledge/lib/formSchema.ts:6
+#: components/pages/Pledge/lib/formSchema.ts:5
 msgid "pledges.form.errors.name.required"
 msgstr "Geben Sie einen Namen ein"
 
-#: components/pages/Pledge/lib/formSchema.ts:10
+#: components/pages/Pledge/lib/formSchema.ts:9
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "Geben Sie eine gültige URL ein"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:175
+#: components/pages/Pledge/PledgeForm/index.tsx:200
 msgid "pledges.form.footprint.label"
 msgstr "Fußabdruck"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:180
+#: components/pages/Pledge/PledgeForm/index.tsx:205
 msgid "pledges.form.footprint.prompt"
 msgstr "Fügen Sie eine Kategorie hinzu und berechnen Sie Ihren CO2-Fußabdruck"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:108
+#: components/pages/Pledge/PledgeForm/index.tsx:109
 msgid "pledges.form.generic_error"
 msgstr "Etwas ist schiefgelaufen. Bitte versuche es erneut."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:192
+#: components/pages/Pledge/PledgeForm/index.tsx:225
 msgid "pledges.form.input.categoryName.label"
 msgstr "Kategorie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:196
+#: components/pages/Pledge/PledgeForm/index.tsx:217
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Kategoriename"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:208
+#: components/pages/Pledge/PledgeForm/index.tsx:248
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Menge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:212
+#: components/pages/Pledge/PledgeForm/index.tsx:240
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "CO2-Tonnen"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:143
+#: components/pages/Pledge/PledgeForm/index.tsx:163
 msgid "pledges.form.input.description.label"
 msgstr "Versprechen"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:147
+#: components/pages/Pledge/PledgeForm/index.tsx:156
 msgid "pledges.form.input.description.placeholder"
 msgstr "Was ist Ihr Versprechen?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:159
+#: components/pages/Pledge/PledgeForm/index.tsx:186
 msgid "pledges.form.input.methodology.label"
 msgstr "Methodik"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:163
+#: components/pages/Pledge/PledgeForm/index.tsx:178
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "Mit welchen Tools oder Methoden haben Sie Ihren CO2-Fußabdruck berechnet?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:116
+#: components/pages/Pledge/PledgeForm/index.tsx:125
 msgid "pledges.form.input.name.label"
 msgstr "Name"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:117
+#: components/pages/Pledge/PledgeForm/index.tsx:118
 msgid "pledges.form.input.name.placeholder"
 msgstr "Name oder Firmenname"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:129
+#: components/pages/Pledge/PledgeForm/index.tsx:141
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "URL zum Profilbild (optional)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:250
+#: components/pages/Pledge/PledgeForm/index.tsx:294
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Gesamtfußabdruck"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:265
+#: components/pages/Pledge/PledgeForm/index.tsx:311
 msgid "pledges.form.submit_button"
 msgstr "Versprechen speichern"
 
@@ -1098,7 +1098,7 @@ msgstr "Versprechen speichern"
 msgid "pledges.form.title"
 msgstr "Ihr Versprechen"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:45
+#: components/pages/Pledge/PledgeForm/index.tsx:46
 msgid "pledges.form.total_footprint_summary"
 msgstr "Gesamtfußabdruck: {0} Tonnen CO2"
 
@@ -1137,15 +1137,15 @@ msgstr "KlimaDAO-Podcast"
 
 #: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
 msgid "resources.form.input.search.error.required"
-msgstr ""
+msgstr "Suchbegriff eingeben"
 
-#: components/pages/Resources/ResourcesList/index.tsx:70
+#: components/pages/Resources/ResourcesList/index.tsx:88
 msgid "resources.form.input.search.label"
-msgstr ""
+msgstr "Suchen"
 
 #: components/pages/Resources/ResourcesList/index.tsx:74
 msgid "resources.form.input.search.placeholder"
-msgstr ""
+msgstr "Suchen"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1167,17 +1167,17 @@ msgstr "Updates und Thought Leadership von den Gründern, DAO-Mitarbeitern, Bera
 msgid "resources.page.header.title"
 msgstr "Ausgewählte Artikel"
 
-#: components/pages/Resources/ResourcesList/index.tsx:62
+#: components/pages/Resources/ResourcesList/index.tsx:65
 msgid "resources.page.list.header"
-msgstr ""
+msgstr "Alles erkunden"
 
-#: components/pages/Resources/ResourcesList/index.tsx:107
+#: components/pages/Resources/ResourcesList/index.tsx:116
 msgid "resources.page.list.no_search_results.subline"
-msgstr ""
+msgstr "Überprüfe deine Sucheingabe auf Fehler oder starte eine Suche mit einem anderen Begriff."
 
-#: components/pages/Resources/ResourcesList/index.tsx:102
+#: components/pages/Resources/ResourcesList/index.tsx:111
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "Wir konnten leider keine Suchergebnisse finden."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
