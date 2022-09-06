@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-06 15:42+0000\n"
+"POT-Creation-Date: 2022-09-06 22:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1387,7 +1387,7 @@ msgstr "KLIMA KAUFEN"
 #: components/Navigation/index.tsx:213
 #: components/Navigation/index.tsx:394
 msgid "shared.carbon_dashboards"
-msgstr "CO2-DASHBOARDS"
+msgstr "CO2-DASHBOARD"
 
 #: components/Navigation/index.tsx:88
 #: components/Navigation/index.tsx:262
@@ -1483,7 +1483,7 @@ msgstr "Lade..."
 
 #: components/pages/Home/index.tsx:191
 msgid "shared.loveletter_cta"
-msgstr "DEFI FÜR EINZELPERSONEN"
+msgstr "DEFI FÜR PRIVATPERSONEN"
 
 #: components/Navigation/index.tsx:197
 #: components/Navigation/index.tsx:372
