@@ -1,6 +1,7 @@
 import { ethers, providers } from "ethers";
 import { Thunk } from "state";
 import { setCarbonRetiredBalances, updateAllowances } from "state/user";
+import { getTransactionOptions } from "@klimadao/lib/utils";
 
 import {
   addresses,
@@ -160,6 +161,7 @@ export const retireCarbonTransaction = async (params: {
     // add + 1 now as this number is only passed on if transaction succeeded
     const formattedTotals = totals.toNumber();
     const retirementTotals = formattedTotals + 1;
+    const transactionOptions = await getTransactionOptions();
 
     // retire transaction
     const retireContract = getContract({
@@ -182,7 +184,8 @@ export const retireCarbonTransaction = async (params: {
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
-        params.specificAddresses
+        params.specificAddresses,
+        transactionOptions
       );
     } else {
       txn = await retireContract.retireCarbon(
@@ -195,7 +198,8 @@ export const retireCarbonTransaction = async (params: {
         params.amountInCarbon,
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
-        params.retirementMessage
+        params.retirementMessage,
+        transactionOptions
       );
     }
 
