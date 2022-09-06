@@ -37,7 +37,7 @@ export const Modal: FC<Props> = (props) => {
     : undefined;
 
   return (
-    <ModalWrapper showModal={props.showModal}>
+    <ModalWrapper showModal={props.showModal} aria-modal={true}>
       <div className={styles.modalBackground} onClick={handleBackgroundClick} />
       <div className={styles.modalContainer}>
         <div className={styles.modalContent}>

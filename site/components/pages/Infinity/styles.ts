@@ -78,6 +78,7 @@ export const heroSection = css`
     gap: 1.8rem;
     grid-auto-flow: column;
     padding-top: 2.4rem;
+    position: relative;
   }
   ${breakpoints.large} {
     .hero_container {
@@ -844,7 +845,10 @@ export const modalButtonContainer = css`
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 2rem 2rem 2rem 4.8rem;
+  padding: 2rem;
+  ${breakpoints.medium} {
+    padding: 2rem 2rem 2rem 4.8rem;
+  }
   cursor: pointer;
   border-radius: 1.6rem;
   overflow: hidden;
@@ -853,9 +857,15 @@ export const modalButtonContainer = css`
   }
   .text {
     z-index: 99;
-  }
-  .arrow {
-    margin-left: 1.6rem !important;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left !important;
+    gap: 1.6rem;
+    ${breakpoints.desktop} {
+      justify-content: flex-start;
+    }
   }
   .overlay {
     position: absolute;
@@ -875,6 +885,6 @@ export const modalLink = css`
   text-align: center;
   cursor: pointer;
   ${breakpoints.large} {
-    text-align: left;
+    text-align: left !important;
   }
 `;

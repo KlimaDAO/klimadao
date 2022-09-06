@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { urls } from "@klimadao/lib/constants";
 import { Text } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
@@ -11,22 +11,25 @@ import building from "public/building.jpg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import * as styles from "./styles";
 
-export interface GetStardedModalProps {
+interface Props {
   showModal: boolean;
   setShowModal: (value: boolean) => void;
 }
 
-const GetStartedModal = (props: GetStardedModalProps) => {
+const GetStartedModal = (props: Props) => {
   return (
     <Modal
       onToggleModal={() => props.setShowModal(false)}
       showModal={props.showModal}
       closeOnBackgroundClick={true}
-      title="Get Started"
+      title={t({
+        id: "shared.get_started",
+        message: "Get Started",
+      })}
     >
       <div className={styles.modalContainer}>
-        <Link href={urls.creolBusinessCalculator} passHref>
-          <div className={styles.modalButtonContainer}>
+        <Link href={urls.creolBusinessCalculator}>
+          <a className={styles.modalButtonContainer}>
             <div className="overlay" />
             <Image
               src={building}
@@ -36,16 +39,16 @@ const GetStartedModal = (props: GetStardedModalProps) => {
               className="image"
             />
             <Text t="h3" className="text">
-              <Trans id="infinity.getStartedModal_imaBusiness">
+              <Trans id="infinity.getStartedModal_business">
                 I'm a <br />
                 business.
               </Trans>
-              <ArrowForwardIcon fontSize="inherit" className="arrow" />
+              <ArrowForwardIcon fontSize="inherit" />
             </Text>
-          </div>
+          </a>
         </Link>
-        <Link href={urls.creolIndividualCalculator} passHref>
-          <div className={styles.modalButtonContainer}>
+        <Link href={urls.creolIndividualCalculator}>
+          <a className={styles.modalButtonContainer}>
             <div className="overlay" />
             <Image
               src={hiker}
@@ -60,12 +63,12 @@ const GetStartedModal = (props: GetStardedModalProps) => {
                 <br />
                 individual.
               </Trans>
-              <ArrowForwardIcon fontSize="inherit" className="arrow" />
+              <ArrowForwardIcon fontSize="inherit" />
             </Text>
-          </div>
+          </a>
         </Link>
-        <Link href={urls.cryptoOffsetCalculator} passHref>
-          <div className={styles.modalButtonContainer}>
+        <Link href={urls.cryptoOffsetCalculator}>
+          <a className={styles.modalButtonContainer}>
             <div className="overlay" />
             <Image
               src={net}
@@ -80,16 +83,18 @@ const GetStartedModal = (props: GetStardedModalProps) => {
                 <br />
                 offset crypto.
               </Trans>
-              <ArrowForwardIcon fontSize="inherit" className="arrow" />
+              <ArrowForwardIcon fontSize="inherit" />
             </Text>
-          </div>
+          </a>
         </Link>
-        <Link href={urls.klimaInfinityContactForm} passHref>
-          <Text t="body6" className={styles.modalLink}>
-            <Trans id="infinity.getStartedModal_notSure">
-              I'm not sure which option is for me.
-            </Trans>
-          </Text>
+        <Link href={urls.klimaInfinityContactForm}>
+          <a>
+            <Text t="body6" className={styles.modalLink}>
+              <Trans id="infinity.getStartedModal_notSure">
+                I'm not sure which option is for me.
+              </Trans>
+            </Text>
+          </a>
         </Link>
       </div>
     </Modal>

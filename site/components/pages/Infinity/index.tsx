@@ -71,7 +71,9 @@ export const Infinity: NextPage<Props> = () => {
       />
 
       <Navigation activePage="Infinity" showThemeToggle={false} />
+
       <GetStardedModal showModal={showModal} setShowModal={setShowModal} />
+
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
           <div className="hero_container">
