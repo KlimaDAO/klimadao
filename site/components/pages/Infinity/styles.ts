@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const gradientBackgroundTop = css`
-  margin-top: -10rem;
+  margin-top: calc(var(--header-height) * -1);
   padding: 0 !important;
   grid-column: full;
   display: grid;
@@ -30,7 +30,8 @@ export const heroKlimaLogo = css`
 `;
 
 export const heroSection = css`
-  margin-top: 10rem;
+  /* Because we use negative margin on the parent (for the gradient), we need to compensate */
+  margin-top: var(--header-height);
   padding: 0.4rem;
   min-height: 100vh;
   width: 100vw;
