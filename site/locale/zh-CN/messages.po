@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-07 15:45+0000\n"
+"POT-Creation-Date: 2022-09-07 22:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1352,43 +1352,46 @@ msgstr "按资产分类的碳停用总额"
 msgid "shared.404"
 msgstr "404 - 页面不存在"
 
-#: components/Navigation/index.tsx:76
-#: components/Navigation/index.tsx:247
+#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:219
 msgid "shared.about"
 msgstr "关于"
 
-#: components/Navigation/index.tsx:108
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:113
+#: components/Navigation/index.tsx:261
 msgid "shared.app"
 msgstr "应用程序"
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:79
-#: components/Navigation/index.tsx:253
+#: components/Navigation/index.tsx:76
+#: components/Navigation/index.tsx:223
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "博客"
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:127
-#: components/Navigation/index.tsx:301
+#: components/Navigation/index.tsx:131
+#: components/Navigation/index.tsx:278
 msgid "shared.bond"
-msgstr "债券化 KLIMA"
+msgstr ""
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:111
-#: components/Navigation/index.tsx:288
+#: components/Navigation/index.tsx:115
+#: components/Navigation/index.tsx:265
 msgid "shared.buy"
-msgstr "购买 KLIMA"
+msgstr ""
 
-#: components/Navigation/index.tsx:213
-#: components/Navigation/index.tsx:394
+#: components/Navigation/index.tsx:335
+msgid "shared.carbon_dashboard"
+msgstr ""
+
+#: components/Navigation/index.tsx:186
 msgid "shared.carbon_dashboards"
-msgstr "碳仪表板"
+msgstr ""
 
-#: components/Navigation/index.tsx:88
-#: components/Navigation/index.tsx:262
+#: components/Navigation/index.tsx:94
+#: components/Navigation/index.tsx:241
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1400,18 +1403,18 @@ msgid "shared.connect"
 msgstr "连接"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:271
+#: components/Navigation/index.tsx:250
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "联系方式"
 
-#: components/Navigation/index.tsx:64
+#: components/Navigation/index.tsx:63
 #: components/pages/Infinity/index.tsx:112
 #: components/pages/Infinity/index.tsx:678
 msgid "shared.contact_sales"
 msgstr "联系销售"
 
-#: components/Navigation/index.tsx:97
+#: components/Navigation/index.tsx:103
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1419,18 +1422,18 @@ msgid "shared.contact_us"
 msgstr "联系我们"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:221
-#: components/Navigation/index.tsx:402
+#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:343
 msgid "shared.disclaimer"
 msgstr "免责声明"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:230
-#: components/Navigation/index.tsx:411
+#: components/Navigation/index.tsx:203
+#: components/Navigation/index.tsx:352
 msgid "shared.docs"
-msgstr "文档"
+msgstr ""
 
-#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:114
 msgid "shared.enter_app"
 msgstr "进入App"
@@ -1448,13 +1451,13 @@ msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 msgid "shared.home"
 msgstr "主页"
 
-#: components/Navigation/index.tsx:204
-#: components/Navigation/index.tsx:385
+#: components/Navigation/index.tsx:177
+#: components/Navigation/index.tsx:326
 msgid "shared.how_to_buy"
-msgstr "如何购买 KLIMA"
+msgstr ""
 
-#: components/Navigation/index.tsx:161
-#: components/Navigation/index.tsx:335
+#: components/Navigation/index.tsx:164
+#: components/Navigation/index.tsx:312
 msgid "shared.infinity"
 msgstr "无穷"
 
@@ -1468,8 +1471,8 @@ msgstr "开始使用"
 msgid "shared.infinity_cta"
 msgstr "面向组织的 DEFI"
 
-#: components/Navigation/index.tsx:151
-#: components/Navigation/index.tsx:325
+#: components/Navigation/index.tsx:155
+#: components/Navigation/index.tsx:302
 msgid "shared.info"
 msgstr "信息"
 
@@ -1483,40 +1486,42 @@ msgstr "正在加载..."
 msgid "shared.loveletter_cta"
 msgstr "面向个人的 DEFI"
 
-#: components/Navigation/index.tsx:197
-#: components/Navigation/index.tsx:372
+#: components/Navigation/index.tsx:170
+#: components/Navigation/index.tsx:317
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:143
-#: components/Navigation/index.tsx:317
+#: components/Navigation/index.tsx:147
+#: components/Navigation/index.tsx:294
 msgid "shared.offset"
 msgstr "抵消"
 
+#: components/Navigation/index.tsx:85
+#: components/Navigation/index.tsx:232
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "播客"
 
-#: components/Navigation/index.tsx:200
-#: components/Navigation/index.tsx:379
+#: components/Navigation/index.tsx:173
+#: components/Navigation/index.tsx:322
 msgid "shared.resources"
 msgstr "资源"
 
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:119
-#: components/Navigation/index.tsx:293
+#: components/Navigation/index.tsx:123
+#: components/Navigation/index.tsx:270
 msgid "shared.stake"
-msgstr "质押 KLIMA"
+msgstr ""
 
 #: components/pages/Infinity/index.tsx:492
 msgid "shared.visit_klimadao_blog"
 msgstr "访问 KlimaDAO 博客"
 
-#: components/Navigation/index.tsx:135
-#: components/Navigation/index.tsx:309
+#: components/Navigation/index.tsx:139
+#: components/Navigation/index.tsx:286
 msgid "shared.wrap"
-msgstr "打包 sKLIMA"
+msgstr ""
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
