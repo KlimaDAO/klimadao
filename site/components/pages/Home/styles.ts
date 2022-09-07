@@ -4,7 +4,7 @@ import * as typography from "@klimadao/lib/theme/typography";
 
 export const heroSection = css`
   min-height: 100vh;
-  padding: 0 !important;
+  padding: 0;
   .tooltip_underline {
     text-decoration: dotted;
   }
@@ -116,6 +116,7 @@ export const heroSection = css`
   }
 
   ${breakpoints.large} {
+    padding: 0;
     min-height: calc(100vh - var(--header-height) * 2);
     .hero_container {
       align-content: center;
@@ -151,6 +152,7 @@ export const heroSection = css`
   }
 
   ${breakpoints.desktopLarge} {
+    padding: 0;
     .hero_whiteCard {
       padding: 6.4rem;
     }
