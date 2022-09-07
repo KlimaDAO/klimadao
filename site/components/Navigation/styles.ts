@@ -5,6 +5,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const navMain_DesktopLink = css`
   ${button};
   text-decoration: none;
+
   display: flex;
   align-items: center;
   text-align: center;
@@ -26,6 +27,7 @@ export const navMain_DesktopLink = css`
     background: var(--klima-green);
   }
   &.dropdown {
+    text-transform: uppercase;
     &:hover,
     &:focus {
       border: 1px solid var(--font-01);
@@ -68,23 +70,28 @@ export const navMain_MobileItemsWrapper = css`
     padding: 0 2.4rem 2rem 2.4rem;
   }
   .links {
-    height: 100%;
+    height: calc(100%-7rem);
     padding: 1.2rem 2.4rem;
     gap: 0.8rem;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow: auto;
+    ::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 `;
 
 export const navMain_MobileExpanded = css`
   display: none;
+  overflow: hidden;
   flex-direction: column;
   padding: 0.8rem;
   padding-left: 1.6rem;
   &[data-show="true"] {
     display: flex;
-    flex-direction: column;
     gap: 0.8rem;
   }
 `;
@@ -96,7 +103,16 @@ export const navMain_MobileLink = css`
   border: none;
   color: var(--font-01) !important;
   font-size: 1.4rem !important;
-  &.active {
+  &:focus {
+    border: 1px solid var(--font-01) !important;
+    border-radius: 0.4rem;
+  }
+  &:active {
+    background: var(--klima-green);
+    border-color: var(--klima-green);
+  }
+  transform: none !important;
+  &.activeItem {
     border: 1px solid var(--font-01) !important;
     border-radius: 0.4rem;
   }
@@ -117,29 +133,25 @@ export const navMain_MobileItemInner = css`
   }
 `;
 
-export const navMain_DesktopSelectContainer = css`
+export const navMain_DesktopItemContainer = css`
   position: relative;
   min-height: fit-content;
   overflow: visible;
   display: flex;
   z-index: 2;
-  .content {
-    display: none;
-    position: absolute;
-    background: var(--surface-02);
-    gap: 0.8rem;
-    top: 5rem;
-    left: -4.6rem;
-    padding: 1rem;
-    min-width: fit-content;
-    z-index: 1;
-    border-radius: 0.8rem;
-    box-shadow: var(--shadow-03);
-  }
-  &:hover .content {
-    display: flex;
-    flex-direction: column;
-  }
+`;
+
+export const navMain_DesktopSubMenu = css`
+  background: var(--surface-02) !important;
+  gap: 0.8rem;
+  top: 5rem;
+  left: -4.6rem;
+  padding: 1rem;
+  min-width: fit-content;
+  z-index: 1;
+  border-radius: 0.8rem;
+  box-shadow: var(--shadow-03);
+  flex-direction: column;
 `;
 
 export const navMain_Mobile = css`
@@ -155,6 +167,7 @@ export const navMain_Mobile = css`
   transition: transform 0.5s ease 0s;
   padding-top: var(--header-height);
   display: flex;
+  overscroll-behavior: contain;
   ${breakpoints.desktop} {
     display: none;
   }
