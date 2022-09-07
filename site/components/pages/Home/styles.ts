@@ -16,10 +16,7 @@ export const heroSection = css`
     row-gap: 2.4rem;
     grid-template-rows: auto 1fr;
     margin-top: 6.4rem;
-    padding-top: 2.4rem;
-    ${breakpoints.large} {
-      padding-top: 0;
-    }
+    padding-top: 3.2rem;
   }
 
   .hero_newsBanner {
@@ -114,6 +111,12 @@ export const heroSection = css`
   .hero_title {
     display: grid;
     gap: 0.4rem;
+  }
+
+  ${breakpoints.large} {
+    .hero_container {
+      padding-top: unset;
+    }
   }
 
   ${breakpoints.large} {
