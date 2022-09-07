@@ -40,8 +40,8 @@ export const heroSection = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${breakpoints.large} {
-    min-height: calc(100vh - var(--header-height) * 2);
+  ${breakpoints.desktop} {
+    min-height: calc(100vh - var(--header-height));
   }
   .hero_container {
     z-index: 4;
@@ -596,7 +596,7 @@ export const missionSection = css`
     display: flex;
     gap: 3.2rem;
     flex-direction: column;
-    ${breakpoints.large} {
+    ${breakpoints.desktop} {
       flex-direction: row;
     }
   }
