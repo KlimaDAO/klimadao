@@ -14,6 +14,10 @@ export const sliderHeader = css`
   align-items: center;
   height: 100%;
   width: 100%;
+  gap: 1.6rem;
+  ${breakpoints.desktop} {
+    gap: 3.2rem;
+  }
 `;
 
 export const sliderTitle = css`
