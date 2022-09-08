@@ -1431,8 +1431,8 @@ msgid "shared.contact"
 msgstr "Contact"
 
 #: components/Navigation/index.tsx:63
-#: components/pages/Infinity/index.tsx:112
-#: components/pages/Infinity/index.tsx:678
+#: components/pages/Infinity/index.tsx:115
+#: components/pages/Infinity/index.tsx:681
 msgid "shared.contact_sales"
 msgstr "Contact Sales"
 

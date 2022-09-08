@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-08 15:45+0000\n"
+"POT-Creation-Date: 2022-09-08 19:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr "ऐप दर्ज करें"
 msgid "Episodes"
 msgstr "एपिसोड"
 
-#: components/pages/Infinity/index.tsx:509
+#: components/pages/Infinity/index.tsx:512
 msgid "Frequently Asked Questions"
 msgstr "अक्सर पूछे जाने वाले प्रश्न"
 
@@ -674,35 +674,35 @@ msgstr "KLIMADAO द्वारा कई टन <0>कार्बन अव�
 msgid "home.welcome_to_klimadao"
 msgstr "<1>KlimaDAO</1><0>में आपका स्वागत है</0>"
 
-#: components/pages/Infinity/index.tsx:155
+#: components/pages/Infinity/index.tsx:158
 msgid "infinity.affordable_subtitle"
 msgstr "वहनयोग्य"
 
-#: components/pages/Infinity/index.tsx:150
+#: components/pages/Infinity/index.tsx:153
 msgid "infinity.affordable_title"
 msgstr "रीयल-टाइम मूल्य निर्धारण, कम लेनदेन लागत"
 
-#: components/pages/Infinity/index.tsx:404
+#: components/pages/Infinity/index.tsx:407
 msgid "infinity.box_amount_104k"
 msgstr "104k"
 
-#: components/pages/Infinity/index.tsx:390
+#: components/pages/Infinity/index.tsx:393
 msgid "infinity.box_amount_11k"
 msgstr "11k"
 
-#: components/pages/Infinity/index.tsx:386
+#: components/pages/Infinity/index.tsx:389
 msgid "infinity.box_title"
 msgstr "अंतिम कार्बन ऑफ़सेट"
 
-#: components/pages/Infinity/index.tsx:400
+#: components/pages/Infinity/index.tsx:403
 msgid "infinity.box_title2"
 msgstr "कुल रिटायर किया गया कार्बन"
 
-#: components/pages/Infinity/index.tsx:643
+#: components/pages/Infinity/index.tsx:646
 msgid "infinity.button.read_blog_faq"
 msgstr "KI ग्राहकों के लिए गहन अधिक पूछे जाने वाले प्रश्न पढ़ें"
 
-#: components/pages/Infinity/index.tsx:354
+#: components/pages/Infinity/index.tsx:357
 msgid "infinity.button.read_blog_polygon"
 msgstr "Polygon (पॉलीगॉन) की कहानी पढ़ें"
 
@@ -710,193 +710,209 @@ msgstr "Polygon (पॉलीगॉन) की कहानी पढ़ें"
 msgid "infinity.cards_slider.title"
 msgstr "दर्जनों संस्थाओं ने Klima Infinity (क्लीमा इन्फिनिटी) के साथ 150,000 कार्बन टन से अधिक ऑफ़सेट किया है"
 
-#: components/pages/Infinity/index.tsx:317
+#: components/pages/Infinity/index.tsx:320
 msgid "infinity.carousel_image_description"
 msgstr "जयभीम, भारत, में पवन ऊर्जा परियोजना"
 
-#: components/pages/Infinity/index.tsx:329
+#: components/pages/Infinity/index.tsx:332
 msgid "infinity.carousel_info_subtitle"
 msgstr "उन परियोजनाओं के लिए वित्त पोषण करें जो जलवायु परिवर्तन शमन में कुछ मदद् करती हैं"
 
-#: components/pages/Infinity/index.tsx:324
+#: components/pages/Infinity/index.tsx:327
 msgid "infinity.carousel_info_title"
 msgstr "उच्च गुणवत्ता वाले प्रॉजेक्ट्स का समर्थन"
 
-#: components/pages/Infinity/index.tsx:663
+#: components/pages/Infinity/index.tsx:666
 msgid "infinity.cta_title"
 msgstr "आपके संगठन के लिए अगली पीढ़ी का कार्बन टूलकिट।"
 
-#: components/pages/Infinity/index.tsx:536
+#: components/pages/Infinity/index.tsx:539
 msgid "infinity.faq_answer1"
 msgstr "एक कार्बन ऑफ़सेट यूनिट का अर्थ वातावरण से एक टन कार्बन डाइऑक्साइड समकक्ष (tCO2e) को हटाना, अथवा एक टन उत्सर्जन से बचना है।"
 
-#: components/pages/Infinity/index.tsx:572
+#: components/pages/Infinity/index.tsx:575
 msgid "infinity.faq_answer2_paragraph1"
 msgstr "कार्बन क्रेडिट एक उच्च-अखंडता तंत्र है जो कार्बन वित्त को, प्रदूषित करने वालों से दुनिया भर की उन परियोजनाओं में प्रवाहित करने की अनुमति देता है जो वातावरण से कार्बन को कम करने या हटाने में मदद् करते हैं। वे ऐसे कठोर उत्सर्जनों को कवर करने के लिए एक मूल्यवान उपकरण हैं जिन्हें आज खत्म करना महँगा या तकनीकी रूप से चुनौतीपूर्ण हो सकता है।"
 
-#: components/pages/Infinity/index.tsx:582
+#: components/pages/Infinity/index.tsx:585
 msgid "infinity.faq_answer2_paragraph2"
 msgstr "जब आप कार्बन क्रेडिट ख़रीदते हैं, तो Klima Infinity (क्लीमा इन्फिनिटी) आपको इस कार्बन क्रेडिट को रिटायर करने में सक्षम बनाता है, इसे स्थायी रूप से प्रचलन से हटा देता है। यह रिटायरमेंट वह बिंदु है जिस पर आप कार्बन ऑफ़सेट के लाभ को क्लेम कर सकते हैं।"
 
-#: components/pages/Infinity/index.tsx:590
+#: components/pages/Infinity/index.tsx:593
 msgid "infinity.faq_answer2_paragraph3"
 msgstr "ख़रीदे गए ऑफ़सेट से अर्थव्यवस्था में कहीं और मापने योग्य और बड़ी मात्रा में उत्सर्जन में कमी आती है, और इसका उपयोग एक अपरिहार्य कार्बन फ़ुटप्रिंट को 'ऑफ़सेट' करने के लिए किया जा सकता है। कार्बन क्रेडिट का व्यापार और रिटायरमेंट एक बाज़ार तंत्र को उभरने में सक्षम बनाता है जो कार्बन पर मूल्य डालता है।"
 
-#: components/pages/Infinity/index.tsx:627
+#: components/pages/Infinity/index.tsx:630
 msgid "infinity.faq_answer3"
 msgstr "कार्बन बाज़ारों का उद्देश्य उत्सर्जन पर सीमा निर्धारित करके और उत्सर्जन इकाइयों के व्यापार को सक्षम करके ग्रीनहाउस गैस (GHG/जीएचजी, या \"कार्बन\") उत्सर्जन को प्रभावी ढंग से कम करना है, जो उत्सर्जन में कमी का प्रतिनिधित्व करने वाले वित्तीय साधन हैं। व्यापार उन संस्थाओं को सक्षम बनाता है जो उच्च लागत वाले उत्सर्जकों द्वारा भुगतान करने के लिए कम लागत पर उत्सर्जन को कम कर सकते हैं, इस प्रकार उत्सर्जन को कम करने की आर्थिक लागत को कम कर सकते हैं।"
 
-#: components/pages/Infinity/index.tsx:522
+#: components/pages/Infinity/index.tsx:525
 msgid "infinity.faq_question1"
 msgstr "1. कार्बन ऑफ़सेट क्या है?"
 
-#: components/pages/Infinity/index.tsx:556
+#: components/pages/Infinity/index.tsx:559
 msgid "infinity.faq_question2"
 msgstr "2. जलवायु परिवर्तन के विरुद्ध लड़ाई में ऑफ़सेटिंग कैसे मदद् करती है?"
 
-#: components/pages/Infinity/index.tsx:613
+#: components/pages/Infinity/index.tsx:616
 msgid "infinity.faq_question3"
 msgstr "3. कार्बन बाज़ार क्या हैं?"
 
-#: components/pages/Infinity/index.tsx:132
+#: components/pages/Infinity/index.tsx:135
 msgid "infinity.fast_subtitle"
 msgstr "बिना किसी परेशानी के, सेकंडों में ऑफ़सेट करें"
 
-#: components/pages/Infinity/index.tsx:137
+#: components/pages/Infinity/index.tsx:140
 msgid "infinity.fast_title"
 msgstr "तेज़"
 
-#: components/pages/Infinity/index.tsx:247
+#: components/pages/Infinity/GetStartedModal.tsx:42
+msgid "infinity.getStartedModal_business"
+msgstr ""
+
+#: components/pages/Infinity/GetStartedModal.tsx:61
+msgid "infinity.getStartedModal_individual"
+msgstr ""
+
+#: components/pages/Infinity/GetStartedModal.tsx:93
+msgid "infinity.getStartedModal_notSure"
+msgstr ""
+
+#: components/pages/Infinity/GetStartedModal.tsx:81
+msgid "infinity.getStartedModal_offsetCrypto"
+msgstr ""
+
+#: components/pages/Infinity/index.tsx:250
 msgid "infinity.getStarted_1"
 msgstr "1"
 
-#: components/pages/Infinity/index.tsx:261
+#: components/pages/Infinity/index.tsx:264
 msgid "infinity.getStarted_2"
 msgstr "2"
 
-#: components/pages/Infinity/index.tsx:250
+#: components/pages/Infinity/index.tsx:253
 msgid "infinity.getStarted_calculate"
 msgstr "गणना करें"
 
-#: components/pages/Infinity/index.tsx:253
+#: components/pages/Infinity/index.tsx:256
 msgid "infinity.getStarted_calculate_subtitle"
 msgstr "अपने संगठन के कार्बन फुटप्रिंट की गणना करें और Klima Infinity (क्लीमा इनफिनिटी) के साथ अपने ऑफ़सेट के दायरे को परिभाषित करें।"
 
-#: components/pages/Infinity/index.tsx:290
+#: components/pages/Infinity/index.tsx:293
 msgid "infinity.getStarted_cta"
 msgstr "कार्बन न्यूट्रल होने - और उससे आगे के लिए अपनी रफ़्तार तेज़ करें"
 
-#: components/pages/Infinity/index.tsx:267
+#: components/pages/Infinity/index.tsx:270
 msgid "infinity.getStarted_second_subtitle"
 msgstr "अपने ऑफ़सेट को कुछ ही क्लिक में और लगभग तत्काल लेन-देन समय के साथ कार्यान्वित करें।"
 
-#: components/pages/Infinity/index.tsx:264
+#: components/pages/Infinity/index.tsx:267
 msgid "infinity.getStarted_second_title"
 msgstr "कार्यान्वित करना"
 
-#: components/pages/Infinity/index.tsx:275
+#: components/pages/Infinity/index.tsx:278
 msgid "infinity.getStarted_third"
 msgstr "3"
 
-#: components/pages/Infinity/index.tsx:281
+#: components/pages/Infinity/index.tsx:284
 msgid "infinity.getStarted_third_subtitle"
 msgstr "अपनी प्रतिबद्धता को ट्रैक करें, और अपने जलवायु सकारात्मक कार्यों के बारे में जागरूकता बढ़ाएँ।"
 
-#: components/pages/Infinity/index.tsx:278
+#: components/pages/Infinity/index.tsx:281
 msgid "infinity.getStarted_third_title"
 msgstr "विस्तार करें"
 
-#: components/pages/Infinity/index.tsx:66
+#: components/pages/Infinity/index.tsx:67
 msgid "infinity.head.metaDescription"
 msgstr "आपके संगठन के लिए अगली पीढ़ी का कार्बन टूलकिट।"
 
-#: components/pages/Infinity/index.tsx:62
+#: components/pages/Infinity/index.tsx:63
 msgid "infinity.head.metaTitle"
 msgstr "Klima Infinity (क्लिमा इन्फिनिटी) - गो कार्बन न्यूट्रल"
 
-#: components/pages/Infinity/index.tsx:58
+#: components/pages/Infinity/index.tsx:59
 msgid "infinity.head.title"
 msgstr "KlimaDAO (क्लीमाडाओ) | Klima Infinity (क्लीमा इन्फिनिटी)"
 
-#: components/pages/Infinity/index.tsx:169
+#: components/pages/Infinity/index.tsx:172
 msgid "infinity.info_subtitle1"
 msgstr "इस ग्रह के अग्रणी संगठनों के लिए"
 
-#: components/pages/Infinity/index.tsx:174
+#: components/pages/Infinity/index.tsx:177
 msgid "infinity.info_subtitle2"
 msgstr "दुनिया का सबसे शक्तिशाली और उपयोग-में-आसान ऑफ़सेटिंग समाधान"
 
-#: components/pages/Infinity/index.tsx:436
+#: components/pages/Infinity/index.tsx:439
 msgid "infinity.mission_card1_subtitle"
 msgstr "KlimaDAO द्वारा होल्ड किए गए कार्बन टन"
 
-#: components/pages/Infinity/index.tsx:433
+#: components/pages/Infinity/index.tsx:436
 msgid "infinity.mission_card1_title"
 msgstr "18.1 मिलियन"
 
-#: components/pages/Infinity/index.tsx:456
+#: components/pages/Infinity/index.tsx:459
 msgid "infinity.mission_card2_description"
 msgstr "KlimaDAO द्वारा होल्ड की गयी कार्बन तरलता"
 
-#: components/pages/Infinity/index.tsx:453
+#: components/pages/Infinity/index.tsx:456
 msgid "infinity.mission_card2_number"
 msgstr "$10m+"
 
-#: components/pages/Infinity/index.tsx:476
+#: components/pages/Infinity/index.tsx:479
 msgid "infinity.mission_card3_description"
 msgstr "KlimaDAO के माध्यम से ऑफ़सेट किए गए कार्बन टन"
 
-#: components/pages/Infinity/index.tsx:473
+#: components/pages/Infinity/index.tsx:476
 msgid "infinity.mission_card3_number"
 msgstr "150,000+"
 
-#: components/pages/Infinity/index.tsx:373
+#: components/pages/Infinity/index.tsx:376
 msgid "infinity.polygon_manifesto_description"
 msgstr "अपने पूरे नेटवर्क के ऐतिहासिक उत्सर्जन को ऑफसेट करके, पॉलीगॉन ने यह सुनिश्चित किया है कि उसके नेटवर्क के भीतर हर आदान-प्रदान - चाहे वह NFT (एनएफटी) मिंट हो या DeFi (डीफ़ाई) लेनदेन - को ध्यान में रखा जाता है। यह एक प्रमुख कारण है कि मेटा ने अपने NFT (एनएफटी) जारी करने के लिए बहुभुज को चुना।"
 
-#: components/pages/Infinity/index.tsx:367
+#: components/pages/Infinity/index.tsx:370
 msgid "infinity.polygon_manifesto_title"
 msgstr "ऑफ़सेट Polygon (पॉलीगॉन) के ग्रीन मैनिफ़ेस्टो का हिस्सा है"
 
-#: components/pages/Infinity/index.tsx:347
+#: components/pages/Infinity/index.tsx:350
 msgid "infinity.polygon_story_description"
 msgstr "Polygon (पॉलीगॉन) ने स्थापना के बाद से नेटवर्क के कार्बन उत्सर्जन को ऑफ़सेट किया - लगभग 90,000 टन - और नेटवर्क के भविष्य के सभी लेनदेन के लिए जलवायु सकारात्मक होने का वचन दिया।"
 
-#: components/pages/Infinity/index.tsx:342
+#: components/pages/Infinity/index.tsx:345
 msgid "infinity.polygon_story_title"
 msgstr "Polygon (पॉलीगॉन) ने अपने ब्लॉकचेन नेटवर्क को ऑफ़सेट करने के लिए Klima Infinity (क्लीमा इन्फिनिटी) को चुना"
 
 #: components/pages/Infinity/Cards/Card.tsx:66
-#: components/pages/Infinity/index.tsx:393
-#: components/pages/Infinity/index.tsx:407
+#: components/pages/Infinity/index.tsx:396
+#: components/pages/Infinity/index.tsx:410
 msgid "infinity.tonnes"
 msgstr "टन"
 
-#: components/pages/Infinity/index.tsx:187
+#: components/pages/Infinity/index.tsx:190
 msgid "infinity.transparent_subtitle"
 msgstr "पारदर्शी"
 
-#: components/pages/Infinity/index.tsx:182
+#: components/pages/Infinity/index.tsx:185
 msgid "infinity.transparent_title"
 msgstr "ब्लॉकचेन पर अपरिवर्तनीय रूप से रिकॉर्ड किया गया"
 
-#: components/pages/Infinity/index.tsx:95
+#: components/pages/Infinity/index.tsx:98
 msgid "infinity.welcome_subtitle"
 msgstr "Klima Infinity (क्लिमा इन्फिनिटी) आपके संगठन के लिए अगली पीढ़ी का कार्बन टूलकिट है"
 
-#: components/pages/Infinity/index.tsx:90
+#: components/pages/Infinity/index.tsx:93
 msgid "infinity.welcome_title"
 msgstr "कार्बन न्यूट्रल होने का सबसे आसान तरीका"
 
-#: components/pages/Infinity/index.tsx:213
+#: components/pages/Infinity/index.tsx:216
 msgid "infinity.why_description"
 msgstr "KlimaDAO बाज़ार के विखंडन को कम करने और दुनिया भर में स्थिरता परियोजनाओं के लिए जलवायु वित्त के वितरण में तेज़ी लाने के लिए कई DeFi प्रौद्योगिकियों का लाभ उठा रहा है।"
 
-#: components/pages/Infinity/index.tsx:208
+#: components/pages/Infinity/index.tsx:211
 msgid "infinity.why_subtitle"
 msgstr "DeFi (डीफ़ाई) जो जलवायु परिवर्तन की उपेक्षा करता है"
 
-#: components/pages/Infinity/index.tsx:205
+#: components/pages/Infinity/index.tsx:208
 msgid "infinity.why_title"
 msgstr "KlimaDAO (क्लीमाडाओ) क्यों?"
 
@@ -904,7 +920,7 @@ msgstr "KlimaDAO (क्लीमाडाओ) क्यों?"
 msgid "invest_in_the_future"
 msgstr "भविष्य में निवेश करें।"
 
-#: components/pages/Infinity/index.tsx:425
+#: components/pages/Infinity/index.tsx:428
 msgid "mission.header"
 msgstr "KlimaDAO का मिशन जलवायु कार्रवाई का लोकतंत्रीकरण करना है"
 
@@ -1409,8 +1425,8 @@ msgid "shared.contact"
 msgstr "संपर्क करें"
 
 #: components/Navigation/index.tsx:63
-#: components/pages/Infinity/index.tsx:112
-#: components/pages/Infinity/index.tsx:678
+#: components/pages/Infinity/index.tsx:115
+#: components/pages/Infinity/index.tsx:681
 msgid "shared.contact_sales"
 msgstr "सेल्स से संपर्क करें"
 
@@ -1438,6 +1454,10 @@ msgstr ""
 msgid "shared.enter_app"
 msgstr "ऐप दर्ज करें"
 
+#: components/pages/Infinity/GetStartedModal.tsx:25
+msgid "shared.get_started"
+msgstr "शुरुआत करें"
+
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
 #: components/pages/Pledge/PledgeDashboard/index.tsx:59
@@ -1461,9 +1481,9 @@ msgstr ""
 msgid "shared.infinity"
 msgstr "अनंतता"
 
-#: components/pages/Infinity/index.tsx:104
-#: components/pages/Infinity/index.tsx:297
-#: components/pages/Infinity/index.tsx:670
+#: components/pages/Infinity/index.tsx:107
+#: components/pages/Infinity/index.tsx:300
+#: components/pages/Infinity/index.tsx:673
 msgid "shared.infinity.get_started"
 msgstr "शुरुआत करें"
 
@@ -1514,7 +1534,7 @@ msgstr "संसाधन"
 msgid "shared.stake"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:492
+#: components/pages/Infinity/index.tsx:495
 msgid "shared.visit_klimadao_blog"
 msgstr "KlimaDAO ब्लॉग पर जाएँ"
 
