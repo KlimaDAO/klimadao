@@ -27,7 +27,8 @@ export const SortyByDropDown: FC<Props> = (props) => {
         interactive={true}
         onClickOutside={onToggle}
         visible={isOpen}
-        placement="bottom"
+        placement="bottom-end"
+        appendTo="parent"
       >
         <button
           onClick={onToggle}

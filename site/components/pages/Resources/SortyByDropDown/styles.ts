@@ -21,13 +21,14 @@ export const dropdownHeader = css`
 
 export const tippyContainer = css`
   .tippy-box {
-    margin-top: -2rem;
+    margin-top: 0rem;
   }
 `;
 
 export const dropDownMenu = css`
   background-color: var(--surface-01);
-  border-radius: 0 0rem 1rem 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
   box-shadow: var(--shadow-03);
 `;
 
