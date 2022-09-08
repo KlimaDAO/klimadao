@@ -39,7 +39,7 @@ export const modalContent = css`
   padding: 1.6rem;
   animation: enter 250ms ease-in-out;
   animation-fill-mode: forwards;
-
+  z-index: 999;
   ${breakpoints.medium} {
     padding: 2.4rem;
   }

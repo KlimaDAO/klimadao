@@ -29,6 +29,7 @@ import gasPump from "public/gas_pump.png";
 import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
+import GetStardedModal from "./GetStartedModal";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
@@ -51,7 +52,7 @@ export const Infinity: NextPage<Props> = () => {
     2: false,
     3: false,
   });
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <PageHead
@@ -70,6 +71,8 @@ export const Infinity: NextPage<Props> = () => {
       />
 
       <Navigation activePage="Infinity" showThemeToggle={false} />
+
+      <GetStardedModal showModal={showModal} setShowModal={setShowModal} />
 
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
@@ -105,7 +108,7 @@ export const Infinity: NextPage<Props> = () => {
                     message: "Get Started",
                     id: "shared.infinity.get_started",
                   })}
-                  href={linkToBlogUserGuide}
+                  onClick={() => setShowModal(true)}
                 />
                 <ButtonSecondary
                   variant="blueRounded"

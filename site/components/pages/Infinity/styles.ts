@@ -78,6 +78,7 @@ export const heroSection = css`
     gap: 1.8rem;
     grid-auto-flow: column;
     padding-top: 2.4rem;
+    position: relative;
   }
   ${breakpoints.large} {
     .hero_container {
@@ -824,5 +825,66 @@ export const footerContainer = css`
 
   ${breakpoints.large} {
     padding-bottom: 3.2rem;
+  }
+`;
+
+export const modalContainer = css`
+  gap: 2rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export const modalButtonContainer = css`
+  position: relative;
+  max-width: 60rem;
+  width: 100%;
+  height: 100%;
+  max-height: 18rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 2rem;
+  ${breakpoints.medium} {
+    padding: 2rem 2rem 2rem 4.8rem;
+  }
+  cursor: pointer;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  .image {
+    z-index: 1;
+  }
+  .text {
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left !important;
+    gap: 1.6rem;
+    ${breakpoints.desktop} {
+      justify-content: flex-start;
+    }
+  }
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const modalLink = css`
+  color: var(--klima-green);
+  text-decoration: underline;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  ${breakpoints.large} {
+    text-align: left !important;
   }
 `;
