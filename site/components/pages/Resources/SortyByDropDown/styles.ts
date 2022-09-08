@@ -6,9 +6,9 @@ export const dropdownHeader = css`
   gap: 0.8rem;
   background-color: var(--surface-01);
   border-radius: 1rem;
-  border: 0.175rem solid var(--surface-01);
   padding: 1rem;
   min-height: 4.8rem;
+  justify-content: center;
 
   &:hover {
     cursor: pointer;
@@ -27,7 +27,6 @@ export const tippyContainer = css`
 
 export const dropDownMenu = css`
   background-color: var(--surface-01);
-  padding: 1rem 2rem 1rem 0rem;
   border-radius: 0 0rem 1rem 1rem;
   box-shadow: var(--shadow-03);
 `;
