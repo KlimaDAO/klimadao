@@ -71,7 +71,7 @@ export const subTags: FilterTag[] = [
     id: "d424ffeb-d0f7-4e1a-83b5-691d122fe5e8",
     label: t({
       id: "resources.list.filter.tag.basics",
-      message: "basics",
+      message: "Basics",
     }),
   },
   {
