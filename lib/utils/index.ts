@@ -55,3 +55,4 @@ export {
   getENSProfile,
 } from "./ens";
 export { useWeb3 } from "./useWeb3";
+export { useTabListener } from "./useTabListener";
