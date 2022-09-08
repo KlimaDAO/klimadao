@@ -26,11 +26,7 @@ type FilterDocumentType = {
   label: string;
 };
 
-export const sortQueryNames = [
-  "score desc",
-  "publishedAt desc",
-  "publishedAt asc",
-] as const;
+export const sortQueryNames = ["publishedAt desc", "publishedAt asc"] as const;
 export type SortQuery = typeof sortQueryNames[number];
 type SortedByQueries = {
   label: string;
@@ -134,14 +130,6 @@ export const documentTypes: FilterDocumentType[] = [
 ];
 
 export const sortedByQueries: SortedByQueries[] = [
-  {
-    label: t({
-      id: "resources.list.sort_by.relevance",
-      message: "Relevance",
-    }),
-    id: "by-relevance",
-    value: "score desc",
-  },
   {
     label: t({
       id: "resources.list.sort_by.latest_first",
