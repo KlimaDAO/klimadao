@@ -63,16 +63,18 @@ export const ResourcesList: FC<Props> = (props) => {
 
   const sortByLabel = getSelectedSortyByLabel(selectedSortedBy);
 
-  const onReset = (fields = defaultValues as Partial<FormValues>) => {
+  const onResetFields = (fields = defaultValues as Partial<FormValues>) => {
     reset({ ...fields });
   };
+
+  const resetDocuments = () => setVisibleDocuments(props.documents);
 
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
     // reset list to default documents on empty string
     if (!values.search) {
-      setVisibleDocuments(props.documents);
+      resetDocuments();
       // remove all field values
-      onReset();
+      onResetFields();
       return;
     }
 
@@ -83,7 +85,7 @@ export const ResourcesList: FC<Props> = (props) => {
 
       // remove all filters and sortBy as search results do not take filters into account and are sorted by relevance
       // but keep current search term
-      onReset({
+      onResetFields({
         tags: [],
         types: [],
         sortedBy: "",
@@ -281,7 +283,10 @@ export const ResourcesList: FC<Props> = (props) => {
                 t="caption"
                 align="center"
                 role="button"
-                onClick={() => onReset()}
+                onClick={() => {
+                  onResetFields();
+                  resetDocuments();
+                }}
                 style={{ cursor: "pointer" }}
               >
                 X{" "}
