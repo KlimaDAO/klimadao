@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-07 22:10+0000\n"
+"POT-Creation-Date: 2022-09-08 15:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1381,21 +1381,21 @@ msgstr "Blog"
 #: components/Navigation/index.tsx:131
 #: components/Navigation/index.tsx:278
 msgid "shared.bond"
-msgstr ""
+msgstr "Obligations Klima"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:115
 #: components/Navigation/index.tsx:265
 msgid "shared.buy"
-msgstr ""
+msgstr "Acheter des Klima"
 
 #: components/Navigation/index.tsx:335
 msgid "shared.carbon_dashboard"
-msgstr ""
+msgstr "Tableau de bord Carbone"
 
 #: components/Navigation/index.tsx:186
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "Tableaux de bord Carbone"
 
 #: components/Navigation/index.tsx:94
 #: components/Navigation/index.tsx:241
@@ -1438,7 +1438,7 @@ msgstr "Avertissement légal"
 #: components/Navigation/index.tsx:203
 #: components/Navigation/index.tsx:352
 msgid "shared.docs"
-msgstr ""
+msgstr "Docs"
 
 #: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:114
@@ -1461,7 +1461,7 @@ msgstr "Accueil"
 #: components/Navigation/index.tsx:177
 #: components/Navigation/index.tsx:326
 msgid "shared.how_to_buy"
-msgstr ""
+msgstr "Comment acheter des Klima"
 
 #: components/Navigation/index.tsx:164
 #: components/Navigation/index.tsx:312
@@ -1519,7 +1519,7 @@ msgstr "Ressources"
 #: components/Navigation/index.tsx:123
 #: components/Navigation/index.tsx:270
 msgid "shared.stake"
-msgstr ""
+msgstr "Déposer Klima"
 
 #: components/pages/Infinity/index.tsx:492
 msgid "shared.visit_klimadao_blog"
@@ -1528,7 +1528,7 @@ msgstr "Visitez le blog KlimaDAO"
 #: components/Navigation/index.tsx:139
 #: components/Navigation/index.tsx:286
 msgid "shared.wrap"
-msgstr ""
+msgstr "Encapsuler sKlima"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
