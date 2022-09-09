@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-08 19:26+0000\n"
+"POT-Creation-Date: 2022-09-09 22:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -770,19 +770,19 @@ msgstr "Schnell"
 
 #: components/pages/Infinity/GetStartedModal.tsx:42
 msgid "infinity.getStartedModal_business"
-msgstr ""
+msgstr "Ich bin ein <0/>Unternehmen."
 
 #: components/pages/Infinity/GetStartedModal.tsx:61
 msgid "infinity.getStartedModal_individual"
-msgstr ""
+msgstr "Ich bin eine <0/>Privatperson."
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
 msgid "infinity.getStartedModal_notSure"
-msgstr ""
+msgstr "Ich bin mir nicht sicher, wofür ich mich entscheiden sollte."
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
-msgstr ""
+msgstr "Ich will<0/>Kryptoaktivitäten kompensieren."
 
 #: components/pages/Infinity/index.tsx:250
 msgid "infinity.getStarted_1"
@@ -1392,21 +1392,21 @@ msgstr "Blog"
 #: components/Navigation/index.tsx:131
 #: components/Navigation/index.tsx:278
 msgid "shared.bond"
-msgstr ""
+msgstr "KLIMA bonden"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:115
 #: components/Navigation/index.tsx:265
 msgid "shared.buy"
-msgstr ""
+msgstr "KLIMA kaufen"
 
 #: components/Navigation/index.tsx:335
 msgid "shared.carbon_dashboard"
-msgstr ""
+msgstr "CO2-Dashboard"
 
 #: components/Navigation/index.tsx:186
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "CO2-Dashboards"
 
 #: components/Navigation/index.tsx:94
 #: components/Navigation/index.tsx:241
@@ -1449,7 +1449,7 @@ msgstr "Haftungsausschluss"
 #: components/Navigation/index.tsx:203
 #: components/Navigation/index.tsx:352
 msgid "shared.docs"
-msgstr ""
+msgstr "Dokumentation"
 
 #: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:114
@@ -1476,7 +1476,7 @@ msgstr "Home"
 #: components/Navigation/index.tsx:177
 #: components/Navigation/index.tsx:326
 msgid "shared.how_to_buy"
-msgstr ""
+msgstr "KLIMA kaufen"
 
 #: components/Navigation/index.tsx:164
 #: components/Navigation/index.tsx:312
@@ -1534,7 +1534,7 @@ msgstr "Ressourcen"
 #: components/Navigation/index.tsx:123
 #: components/Navigation/index.tsx:270
 msgid "shared.stake"
-msgstr ""
+msgstr "Klima staken"
 
 #: components/pages/Infinity/index.tsx:495
 msgid "shared.visit_klimadao_blog"
@@ -1543,7 +1543,7 @@ msgstr "Besuche KlimaDAOs Blog"
 #: components/Navigation/index.tsx:139
 #: components/Navigation/index.tsx:286
 msgid "shared.wrap"
-msgstr ""
+msgstr "sKLIMA wrappen"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"

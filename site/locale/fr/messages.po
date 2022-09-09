@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-08 19:26+0000\n"
+"POT-Creation-Date: 2022-09-09 22:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -773,19 +773,19 @@ msgstr "Rapide"
 
 #: components/pages/Infinity/GetStartedModal.tsx:42
 msgid "infinity.getStartedModal_business"
-msgstr ""
+msgstr "Je suis une entreprise <0/>."
 
 #: components/pages/Infinity/GetStartedModal.tsx:61
 msgid "infinity.getStartedModal_individual"
-msgstr ""
+msgstr "Je suis un particulier <0/>."
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
 msgid "infinity.getStartedModal_notSure"
-msgstr ""
+msgstr "Je ne suis pas sûr de l'option qui me convient le mieux."
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
-msgstr ""
+msgstr "Je veux compenser <0/> de la crypto."
 
 #: components/pages/Infinity/index.tsx:250
 msgid "infinity.getStarted_1"
