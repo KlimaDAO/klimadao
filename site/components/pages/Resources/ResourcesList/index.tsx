@@ -2,7 +2,12 @@ import React, { FC, useEffect, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useForm, SubmitHandler } from "react-hook-form";
 import SearchIcon from "@mui/icons-material/Search";
-import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
+import {
+  Text,
+  Section,
+  ButtonPrimary,
+  Spinner,
+} from "@klimadao/lib/components";
 
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
@@ -44,6 +49,10 @@ export const ResourcesList: FC<Props> = (props) => {
   const [visibleDocuments, setVisibleDocuments] = useState<Document[] | null>(
     props.documents
   );
+  const [isLoading, setIsLoading] = useState(false);
+
+  const hasDocuments = !isLoading && !!visibleDocuments?.length;
+  const hasEmptyDocuments = !isLoading && !visibleDocuments;
 
   const { register, handleSubmit, watch, reset, setValue, control, getValues } =
     useForm<FormValues>({
@@ -70,6 +79,7 @@ export const ResourcesList: FC<Props> = (props) => {
     }
 
     try {
+      setIsLoading(true);
       const searchResult = await fetchCMSContent("searchByText", {
         searchQuery: values.search,
       });
@@ -87,6 +97,7 @@ export const ResourcesList: FC<Props> = (props) => {
       } else {
         setVisibleDocuments(null);
       }
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -97,6 +108,8 @@ export const ResourcesList: FC<Props> = (props) => {
 
     const typesWithFallback = types?.length ? types : ["post", "podcast"];
     const orderWithFallback = sortedBy || "publishedAt desc";
+
+    setIsLoading(true);
 
     // query with selected tags
     if (tags?.length) {
@@ -140,6 +153,8 @@ export const ResourcesList: FC<Props> = (props) => {
     } else {
       resetDocuments();
     }
+
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -291,7 +306,12 @@ export const ResourcesList: FC<Props> = (props) => {
             </div>
           </div>
           <div className={styles.listContainer}>
-            {!visibleDocuments && (
+            {isLoading && (
+              <div className={styles.spinner}>
+                <Spinner />
+              </div>
+            )}
+            {hasEmptyDocuments && (
               <>
                 <Text t="h4">
                   <Trans id="resources.page.list.no_search_results.title">
@@ -314,7 +334,7 @@ export const ResourcesList: FC<Props> = (props) => {
                 )}
               </>
             )}
-            {!!visibleDocuments?.length && (
+            {hasDocuments && (
               <div className={styles.list}>
                 {visibleDocuments.map((doc) => {
                   if (doc.type === "post") {

@@ -99,3 +99,11 @@ export const filtersCheckboxGroup = css`
 export const listContainer = css`
   grid-column: list-view;
 `;
+
+export const spinner = css`
+  padding: 0 0.8rem;
+  display: flex;
+  align-items: center;
+  min-height: 8rem;
+  justify-content: center;
+`;
