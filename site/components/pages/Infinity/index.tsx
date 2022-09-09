@@ -19,7 +19,7 @@ import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
 import fastMountain from "public/green-mountainside.jpg";
 import transparentTrees from "public/trees-and-water.png";
-import infiniteNightCliffs from "public/infinite_night_cliffs.jpg";
+import PartnersThumbnail from "public/bg-partners.jpg";
 import infinityWave from "public/infinity_wave.jpg";
 import hazyWindmills from "public/hazy_windmills.png";
 import forestCanopy from "public/forest_canopy.png";
@@ -226,8 +226,8 @@ export const Infinity: NextPage<Props> = () => {
               hideControls
               hideFullscreen
               posterImg={{
-                src: infiniteNightCliffs,
-                alt: "flashlight shining on dark cliffs",
+                src: PartnersThumbnail,
+                alt: "various klimaDAO partners",
               }}
             />
           </div>
