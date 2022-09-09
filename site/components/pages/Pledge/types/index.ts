@@ -26,6 +26,9 @@ export type Pledge = {
   footprint: Footprint[];
   createdAt?: number;
   updatedAt?: number;
+  wallets?: {
+    [address: string]: boolean;
+  };
 };
 
 export type PledgeFormValues = yup.InferType<typeof formSchema>;

@@ -8,6 +8,7 @@ import {
   putPledgeAttributes,
   verifySignature,
 } from ".";
+import { decodeSignerAddress } from "./verifySignature";
 
 const initFirebaseAdmin = () => {
   if (!FIREBASE_ADMIN_CERT) {
@@ -54,11 +55,22 @@ export const findOrCreatePledge = async (
 
     if (!currentPledge) return null;
 
+    const signerAddress = decodeSignerAddress({
+      nonce: currentPledge.nonce,
+      signature: params.signature,
+    });
+
+    // TODO here is where we handle the different cases
+    // 1. owner address, allow all edits
+    // 2. confirming a secondary wallet address (set to true)
+    // 3. deleting a secondary wallet address (set to false)
+
     verifySignature({
       address: currentPledge.ownerAddress,
       signature: params.signature,
       nonce: currentPledge.nonce.toString(),
     });
+    // we know that it was signed by the owner
 
     const pledgeAttributes = putPledgeAttributes({
       currentPledgeValues: currentPledge,
