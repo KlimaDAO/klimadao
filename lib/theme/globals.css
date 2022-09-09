@@ -8,6 +8,13 @@
   transition: background 0.25s ease-in-out; /* Transition for theme toggle */
 }
 
+@media (min-width: 992px) {
+  :root {
+    /* On desktop views, the header gets extra padding-top, so the total height increases */
+    --header-height: 10rem;
+  }
+}
+
 html {
   font-size: 62.5%; /* Now 1 rem = 10px in most browsers */
 }
