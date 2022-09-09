@@ -8,14 +8,12 @@ import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
 import { InputField, Checkbox } from "components/Form";
 import { SortyByDropDown } from "../SortyByDropDown";
-import { SortyByOption } from "../SortyByDropDown/SortyByOption";
 
 import { fetchCMSContent } from "lib/fetchCMSContent";
 import {
   mainTags,
   subTags,
   documentTypes,
-  sortedByQueries,
   TagSlug,
   DocumentType,
   SortQuery,
@@ -28,7 +26,7 @@ export interface Props {
   documents: Document[];
 }
 
-type FormValues = {
+export type FormValues = {
   search: string;
   tags: TagSlug[] | [];
   types: DocumentType[] | [];
@@ -42,17 +40,12 @@ const defaultValues: FormValues = {
   sortedBy: "",
 };
 
-const getSelectedSortyByLabel = (selectedSortedBy: string) =>
-  (!!selectedSortedBy &&
-    sortedByQueries.find((q) => q.value === selectedSortedBy)?.label) ||
-  t({ id: "resources.form.input.sort_by.select", message: "Select" });
-
 export const ResourcesList: FC<Props> = (props) => {
   const [visibleDocuments, setVisibleDocuments] = useState<Document[] | null>(
     props.documents
   );
 
-  const { register, handleSubmit, watch, reset, setValue } =
+  const { register, handleSubmit, watch, reset, setValue, control } =
     useForm<FormValues>({
       defaultValues,
     });
@@ -60,8 +53,6 @@ export const ResourcesList: FC<Props> = (props) => {
   const selectedTags = watch("tags");
   const selectedTypes = watch("types");
   const selectedSortedBy = watch("sortedBy");
-
-  const sortByLabel = getSelectedSortyByLabel(selectedSortedBy);
 
   const onResetFields = (fields = defaultValues as Partial<FormValues>) => {
     reset({ ...fields });
@@ -201,16 +192,7 @@ export const ResourcesList: FC<Props> = (props) => {
                 message: "Sort by",
               })}
             />
-            <SortyByDropDown label={sortByLabel}>
-              {sortedByQueries.map((option) => (
-                <SortyByOption
-                  key={option.id}
-                  label={option.label}
-                  onClick={() => setValue("sortedBy", option.value)}
-                  active={selectedSortedBy === option.value}
-                />
-              ))}
-            </SortyByDropDown>
+            <SortyByDropDown control={control} setValue={setValue} />
           </div>
         </div>
         <div className={styles.main}>

@@ -1,29 +1,52 @@
 import React, { useState, FC, useEffect } from "react";
 import { t } from "@lingui/macro";
 import Tippy from "@tippyjs/react";
+import { Control, useWatch } from "react-hook-form";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { SortyByOption } from "./SortyByOption";
+import { sortedByQueries, SortQuery } from "../lib/cmsDataMap";
+import { FormValues } from "../ResourcesList";
+
 import * as styles from "./styles";
 
 interface Props {
-  label: string;
-  children: JSX.Element[];
+  control: Control<FormValues>;
+  setValue: (field: "sortedBy", value: SortQuery) => void;
 }
 
+const getSelectedSortyByLabel = (sortBy: string) =>
+  (!!sortBy && sortedByQueries.find((q) => q.value === sortBy)?.label) ||
+  t({ id: "resources.form.input.sort_by.select", message: "Select" });
+
 export const SortyByDropDown: FC<Props> = (props) => {
+  const sortedBy = useWatch({ name: "sortedBy", control: props.control });
   const [isOpen, setIsOpen] = useState(false);
 
   const onToggle = () => setIsOpen((current) => !current);
   const onClose = () => setIsOpen(false);
 
+  const label = getSelectedSortyByLabel(sortedBy);
+
   useEffect(() => {
     // always close dropdown if label changed
     onClose();
-  }, [props.label]);
+  }, [sortedBy]);
 
   return (
     <div className={styles.tippyContainer}>
       <Tippy
-        content={<div className={styles.dropDownMenu}>{props.children}</div>}
+        content={
+          <div className={styles.dropDownMenu}>
+            {sortedByQueries.map((option) => (
+              <SortyByOption
+                key={option.id}
+                label={option.label}
+                onClick={() => props.setValue("sortedBy", option.value)}
+                active={sortedBy === option.value}
+              />
+            ))}
+          </div>
+        }
         interactive={true}
         onClickOutside={onToggle}
         visible={isOpen}
@@ -39,7 +62,7 @@ export const SortyByDropDown: FC<Props> = (props) => {
             message: "Toggle Sorted by menu",
           })}
         >
-          {props.label}
+          {label}
           <ArrowDropDownIcon />
         </button>
       </Tippy>
