@@ -60,7 +60,9 @@ export const ResourcesList: FC<Props> = (props) => {
 
   const resetDocuments = () => setVisibleDocuments(props.documents);
 
-  const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
+  const onSearchSubmit: SubmitHandler<FormValues> = async (
+    values: FormValues
+  ) => {
     // reset list to default documents on empty string
     if (!values.search) {
       resetDocuments();
@@ -147,7 +149,7 @@ export const ResourcesList: FC<Props> = (props) => {
           <Trans id="resources.page.list.header">Explore All</Trans>
         </Text>
         <div className={styles.inputsContainer}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSearchSubmit)}>
             <div className={styles.searchInputContainer}>
               <InputField
                 id="search"
@@ -172,7 +174,7 @@ export const ResourcesList: FC<Props> = (props) => {
                 type="submit"
                 className={styles.searchInputSubmit}
                 label={<SearchIcon fontSize="large" />}
-                onClick={handleSubmit(onSubmit)}
+                onClick={handleSubmit(onSearchSubmit)}
               />
             </div>
           </form>
