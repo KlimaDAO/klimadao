@@ -52,7 +52,7 @@ export const ResourcesList: FC<Props> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const hasDocuments = !isLoading && !!visibleDocuments?.length;
-  const hasEmptyDocuments = !isLoading && !visibleDocuments;
+  const isEmptyResult = !isLoading && !visibleDocuments;
 
   const { register, handleSubmit, watch, reset, setValue, control, getValues } =
     useForm<FormValues>({
@@ -311,7 +311,7 @@ export const ResourcesList: FC<Props> = (props) => {
                 <Spinner />
               </div>
             )}
-            {hasEmptyDocuments && (
+            {isEmptyResult && (
               <>
                 <Text t="h4">
                   <Trans id="resources.page.list.no_search_results.title">
