@@ -148,7 +148,7 @@ export const ResourcesList: FC<Props> = (props) => {
       } catch (error) {
         console.error(error);
       }
-      // all filters and selected have been unchecked
+      // all tags and sortedBy values have been unchecked
       // let's reset the view to initial state
     } else {
       resetDocuments();
