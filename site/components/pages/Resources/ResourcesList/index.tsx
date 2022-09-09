@@ -28,9 +28,9 @@ export interface Props {
 
 export type FormValues = {
   search: string;
-  tags: TagSlug[] | [];
-  types: DocumentType[] | [];
-  sortedBy: SortQuery | string;
+  tags: TagSlug[];
+  types: DocumentType[];
+  sortedBy: SortQuery | "";
 };
 
 const defaultValues: FormValues = {
@@ -49,10 +49,6 @@ export const ResourcesList: FC<Props> = (props) => {
     useForm<FormValues>({
       defaultValues,
     });
-
-  const selectedTags = watch("tags");
-  const selectedTypes = watch("types");
-  const selectedSortedBy = watch("sortedBy");
 
   const onResetFields = (fields = defaultValues as Partial<FormValues>) => {
     reset({ ...fields });
@@ -94,18 +90,21 @@ export const ResourcesList: FC<Props> = (props) => {
     }
   };
 
-  const filterDocuments = async () => {
-    const types = selectedTypes.length ? selectedTypes : ["post", "podcast"];
-    const orderSelect = selectedSortedBy || "publishedAt desc";
+  const filterDocuments = async (values: FormValues) => {
+    const { tags, types, sortedBy } = values;
 
-    if (selectedTags?.length) {
+    const typesWithFallback = types?.length ? types : ["post", "podcast"];
+    const orderWithFallback = sortedBy || "publishedAt desc";
+
+    // query with selected tags
+    if (tags?.length) {
       try {
         const filteredDocuments = await fetchCMSContent(
           "filterDocumentsByTags",
           {
-            documentTypes: types,
-            referenceTags: selectedTags,
-            orderBy: orderSelect,
+            documentTypes: typesWithFallback,
+            referenceTags: tags,
+            orderBy: orderWithFallback,
           }
         );
         if (filteredDocuments.length) {
@@ -116,13 +115,14 @@ export const ResourcesList: FC<Props> = (props) => {
       } catch (error) {
         console.error(error);
       }
-    } else {
+      // if no selected tags, query with selected types and sortyBy only
+    } else if (types?.length || !!sortedBy) {
       try {
         const filteredDocuments = await fetchCMSContent(
           "filterDocumentsWithoutTags",
           {
-            documentTypes: types,
-            orderBy: orderSelect,
+            documentTypes: typesWithFallback,
+            orderBy: orderWithFallback,
           }
         );
         if (filteredDocuments.length) {
@@ -133,14 +133,22 @@ export const ResourcesList: FC<Props> = (props) => {
       } catch (error) {
         console.error(error);
       }
+      // all filters and selected have been unchecked
+      // let's reset the view to initial state
+    } else {
+      resetDocuments();
     }
   };
 
   useEffect(() => {
-    if (selectedTags?.length || selectedTypes?.length || !!selectedSortedBy) {
-      filterDocuments();
-    }
-  }, [selectedTags, selectedTypes, selectedSortedBy]);
+    // https://react-hook-form.com/api/useform/watch
+    const subscription = watch((value, { name }) => {
+      if (name !== "search") {
+        filterDocuments(value as FormValues);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   return (
     <Section variant="gray">
