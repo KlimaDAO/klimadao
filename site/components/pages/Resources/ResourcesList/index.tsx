@@ -16,6 +16,8 @@ import { SortyByDropDown } from "../SortyByDropDown";
 
 import { fetchCMSContent } from "lib/fetchCMSContent";
 import {
+  tagSlugs,
+  documentTypeNames,
   mainTags,
   subTags,
   documentTypes,
@@ -40,8 +42,8 @@ export type FormValues = {
 
 const defaultValues: FormValues = {
   search: "",
-  tags: [],
-  types: [],
+  tags: tagSlugs as unknown as TagSlug[], // Nargh!
+  types: documentTypeNames as unknown as DocumentType[],
   sortedBy: "",
 };
 
@@ -87,9 +89,9 @@ export const ResourcesList: FC<Props> = (props) => {
       // remove all filters and sortBy as search results do not take filters into account and are sorted by relevance
       // but keep current search term
       onResetFields({
-        tags: [],
-        types: [],
-        sortedBy: "",
+        tags: defaultValues.tags,
+        types: defaultValues.types,
+        sortedBy: defaultValues.sortedBy,
       });
 
       if (searchResult.length) {
@@ -300,7 +302,7 @@ export const ResourcesList: FC<Props> = (props) => {
               >
                 X{" "}
                 <Trans id="resources.form.filters.clear_all">
-                  Clear all filters
+                  Reset all filters
                 </Trans>
               </Text>
             </div>
