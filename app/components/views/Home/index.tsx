@@ -122,30 +122,6 @@ export const Home: FC = () => {
     }
   }, [web3.isConnected]);
 
-  /**
-   * Outline manager for a11y
-   * So we can hide outlines when clicking, only show them when tabbing
-   */
-  useEffect(() => {
-    const handleMousedown = () => {
-      document.body.removeEventListener("mousedown", handleMousedown);
-      document.body.classList.remove("user-is-tabbing");
-      document.body.addEventListener("keydown", handleKeydown);
-    };
-    const handleKeydown = (e: KeyboardEvent) => {
-      if (e.keyCode === 9) {
-        document.body.removeEventListener("keydown", handleKeydown);
-        document.body.classList.add("user-is-tabbing");
-        document.body.addEventListener("mousedown", handleMousedown);
-      }
-    };
-    document.body.addEventListener("keydown", handleKeydown);
-    return () => {
-      document.body.removeEventListener("keydown", handleKeydown);
-      document.body.removeEventListener("mousedown", handleMousedown);
-    };
-  }, []);
-
   return (
     <>
       <Global

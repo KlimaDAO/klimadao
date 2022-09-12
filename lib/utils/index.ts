@@ -55,3 +55,5 @@ export {
   getENSProfile,
 } from "./ens";
 export { useWeb3 } from "./useWeb3";
+export { useFocusTrap } from "./useFocusTrap";
+export { useTabListener } from "./useTabListener";
