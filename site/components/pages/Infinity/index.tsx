@@ -675,7 +675,8 @@ export const Infinity: NextPage<Props> = () => {
                 id: "shared.infinity.get_started",
               })}
               variant="blueRounded"
-              href={linkToBlogUserGuide}
+              className="cta_right_button"
+              onClick={() => setShowModal(true)}
             />
             <ButtonSecondary
               label={t({
@@ -684,6 +685,7 @@ export const Infinity: NextPage<Props> = () => {
               })}
               variant="blueRounded"
               href={urls.klimaInfinityContactForm}
+              className="cta_right_button"
               target="_blank"
             />
           </div>
