@@ -1126,7 +1126,7 @@ msgstr "Submitting..."
 msgid "pledges.form.title"
 msgstr "Your Pledge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:46
+#: components/pages/Pledge/PledgeForm/index.tsx:47
 msgid "pledges.form.total_footprint_summary"
 msgstr "Total Footprint: {0} Carbon Tonnes"
 
