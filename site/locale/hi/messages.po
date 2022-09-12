@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-09 22:59+0000\n"
+"POT-Creation-Date: 2022-09-12 15:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -619,7 +619,7 @@ msgstr "यांत्रिकी"
 #. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
 #: components/pages/Home/index.tsx:426
 msgid "home.monthly_rewards_for_token_holders"
-msgstr ""
+msgstr "<0>{0}% मासिक पुरस्कार</0> <1>टोकन धारकों के लिए</1>"
 
 #: components/pages/Home/index.tsx:489
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
@@ -768,19 +768,19 @@ msgstr "तेज़"
 
 #: components/pages/Infinity/GetStartedModal.tsx:42
 msgid "infinity.getStartedModal_business"
-msgstr ""
+msgstr "मैं एक <0/>व्यवसाय हूं।"
 
 #: components/pages/Infinity/GetStartedModal.tsx:61
 msgid "infinity.getStartedModal_individual"
-msgstr ""
+msgstr "मैं एक<0/>व्यक्ति हूं।"
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
 msgid "infinity.getStartedModal_notSure"
-msgstr ""
+msgstr "मुझे यकीन नहीं है कि मेरे लिए कौन सा विकल्प है।"
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
-msgstr ""
+msgstr "मैं क्रिप्टो को ऑफसेट करना चाहता हूं<0/>।"
 
 #: components/pages/Infinity/index.tsx:250
 msgid "infinity.getStarted_1"
@@ -1151,15 +1151,15 @@ msgstr "KlimaDAO (क्लीमाडाओ) पॉडकास्ट"
 
 #: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
 msgid "resources.form.input.search.error.required"
-msgstr ""
+msgstr "एक खोज शब्द दर्ज करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:88
 msgid "resources.form.input.search.label"
-msgstr ""
+msgstr "खोज"
 
 #: components/pages/Resources/ResourcesList/index.tsx:74
 msgid "resources.form.input.search.placeholder"
-msgstr ""
+msgstr "खोज"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1183,15 +1183,15 @@ msgstr "सम्मिलित लेख"
 
 #: components/pages/Resources/ResourcesList/index.tsx:65
 msgid "resources.page.list.header"
-msgstr ""
+msgstr "सभी का अन्वेषण करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:116
 msgid "resources.page.list.no_search_results.subline"
-msgstr ""
+msgstr "किसी भी टाइपो या वर्तनी त्रुटियों के लिए अपनी खोज की दोबारा जांच करें - या एक अलग खोज शब्द का प्रयास करें।"
 
 #: components/pages/Resources/ResourcesList/index.tsx:111
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "माफ़ करना। हमें कोई मेल खाने वाला परिणाम नहीं मिला।"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1390,21 +1390,21 @@ msgstr "ब्लॉग"
 #: components/Navigation/index.tsx:131
 #: components/Navigation/index.tsx:278
 msgid "shared.bond"
-msgstr ""
+msgstr "बॉन्ड क्लीमा"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:115
 #: components/Navigation/index.tsx:265
 msgid "shared.buy"
-msgstr ""
+msgstr "क्लिमा खरीदें"
 
 #: components/Navigation/index.tsx:335
 msgid "shared.carbon_dashboard"
-msgstr ""
+msgstr "कार्बन डैशबोर्ड"
 
 #: components/Navigation/index.tsx:186
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "कार्बन डैशबोर्ड"
 
 #: components/Navigation/index.tsx:94
 #: components/Navigation/index.tsx:241
@@ -1447,7 +1447,7 @@ msgstr "अस्वीकरण"
 #: components/Navigation/index.tsx:203
 #: components/Navigation/index.tsx:352
 msgid "shared.docs"
-msgstr ""
+msgstr "डॉक्स"
 
 #: components/Navigation/index.tsx:56
 #: components/pages/Home/index.tsx:114
@@ -1474,7 +1474,7 @@ msgstr "घर"
 #: components/Navigation/index.tsx:177
 #: components/Navigation/index.tsx:326
 msgid "shared.how_to_buy"
-msgstr ""
+msgstr "क्लिमा कैसे खरीदें?"
 
 #: components/Navigation/index.tsx:164
 #: components/Navigation/index.tsx:312
@@ -1489,7 +1489,7 @@ msgstr "शुरुआत करें"
 
 #: components/pages/Home/index.tsx:184
 msgid "shared.infinity_cta"
-msgstr ""
+msgstr "संगठनों के लिए डेफी"
 
 #: components/Navigation/index.tsx:155
 #: components/Navigation/index.tsx:302
@@ -1504,7 +1504,7 @@ msgstr "लोड हो रहा है..."
 
 #: components/pages/Home/index.tsx:191
 msgid "shared.loveletter_cta"
-msgstr ""
+msgstr "व्यक्तियों के लिए डेफी"
 
 #: components/Navigation/index.tsx:170
 #: components/Navigation/index.tsx:317
@@ -1532,7 +1532,7 @@ msgstr "संसाधन"
 #: components/Navigation/index.tsx:123
 #: components/Navigation/index.tsx:270
 msgid "shared.stake"
-msgstr ""
+msgstr "क्लिमा दाँव पर लगाएँ"
 
 #: components/pages/Infinity/index.tsx:495
 msgid "shared.visit_klimadao_blog"
@@ -1541,7 +1541,7 @@ msgstr "KlimaDAO ब्लॉग पर जाएँ"
 #: components/Navigation/index.tsx:139
 #: components/Navigation/index.tsx:286
 msgid "shared.wrap"
-msgstr ""
+msgstr "sKLIMA (एसक्लिमा) रैप करें"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
