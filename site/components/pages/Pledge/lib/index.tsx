@@ -9,4 +9,5 @@ export {
 export { DEFAULT_VALUES, pledgeFormAdapter } from "./pledgeFormAdapter";
 export { putPledge } from "./putPledge";
 export { verifySignature } from "./verifySignature";
+export { verifyGnosisSafeMultisig } from "./verifyGnosisSafeMultisig";
 export { queryHoldingsByAddress } from "./queryHoldingsByAddress";

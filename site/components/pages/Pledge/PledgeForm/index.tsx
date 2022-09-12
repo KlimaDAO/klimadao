@@ -22,6 +22,7 @@ import {
   PledgeErrorId,
   putPledge,
   pledgeFormAdapter,
+  verifyGnosisSafeMultisig,
 } from "../lib";
 import { Pledge, PledgeFormValues } from "../types";
 import * as styles from "./styles";
@@ -85,6 +86,13 @@ export const PledgeForm: FC<Props> = (props) => {
       const signature = await signer.signMessage(
         editPledgeSignature(values.nonce)
       );
+
+      if (signature === "0x") {
+        await verifyGnosisSafeMultisig({
+          signature: editPledgeSignature(values.nonce),
+          address: props.pageAddress,
+        });
+      }
 
       const response = await putPledge({
         pageAddress: props.pageAddress,
