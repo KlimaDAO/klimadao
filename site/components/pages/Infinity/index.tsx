@@ -38,7 +38,6 @@ import { urls } from "@klimadao/lib/constants";
 import { YoutubeEmbed } from "components/YoutubeEmbed";
 import { cx } from "@emotion/css";
 
-const linkToBlogUserGuide = `${urls.siteBlog}/klima-infinity-user-guide`;
 const linkToBlogFAQ = `${urls.siteBlog}/klima-infinity-faqs`;
 const linkToBlogPolygon = `${urls.siteBlog}/polygon-goes-carbon-neutral-via-klimadao`;
 
@@ -301,7 +300,7 @@ export const Infinity: NextPage<Props> = () => {
                 message: "Get Started",
                 id: "shared.infinity.get_started",
               })}
-              href={linkToBlogUserGuide}
+              onClick={() => setShowModal(true)}
             />
           </div>
         </div>
@@ -675,7 +674,7 @@ export const Infinity: NextPage<Props> = () => {
                 id: "shared.infinity.get_started",
               })}
               variant="blueRounded"
-              href={linkToBlogUserGuide}
+              onClick={() => setShowModal(true)}
             />
             <ButtonSecondary
               label={t({

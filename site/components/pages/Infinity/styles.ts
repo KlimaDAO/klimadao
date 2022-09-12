@@ -790,10 +790,6 @@ export const ctaSection = css`
       width: 50%;
       justify-content: flex-end;
     }
-    button {
-      height: 4rem;
-      min-height: 4rem;
-    }
   }
   .cta_logo {
     width: 100%;
