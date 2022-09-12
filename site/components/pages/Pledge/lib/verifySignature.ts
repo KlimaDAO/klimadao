@@ -1,7 +1,5 @@
 import { ethers } from "ethers";
 import { editPledgeSignature } from ".";
-import { getJsonRpcProvider } from "@klimadao/lib/utils";
-import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
 
 interface Params {
   address: string;
@@ -9,47 +7,17 @@ interface Params {
   nonce: string;
 }
 
-const TEN_MINUTES = 10 * 60 * 1000;
-
-const verifyGnosisSafeSignature = async (
-  signature: string,
-  address: string
-): Promise<void> => {
-  const gnosisSafeContract = new ethers.Contract(
-    address,
-    GnosisSafeSignMessageLib.abi,
-    getJsonRpcProvider()
-  );
-  const messageHash = ethers.utils.hashMessage(signature);
-  const getMessageHash = await gnosisSafeContract.getMessageHash(messageHash);
-  const signedEvent = gnosisSafeContract.filters.SignMsg(getMessageHash);
-
-  const waitForSignedEvent = (): Promise<void> =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        gnosisSafeContract.removeListener(signedEvent, () => resolve());
-        reject(new Error("Gnosis safe signature verification timed out"));
-      }, TEN_MINUTES);
-
-      gnosisSafeContract.once(signedEvent, () => resolve());
-    });
-
-  await waitForSignedEvent();
-};
-
 export const verifySignature = async (params: Params): Promise<void> => {
+  // Gnosis multisig wallets are already validated client side
+  if (params.signature === "0x") return;
+
   const signature = editPledgeSignature(params.nonce);
+  const decodedAddress = ethers.utils.verifyMessage(
+    signature,
+    params.signature
+  );
 
-  if (params.signature === "0x") {
-    await verifyGnosisSafeSignature(signature, params.address);
-  } else {
-    const decodedAddress = ethers.utils.verifyMessage(
-      signature,
-      params.signature
-    );
-
-    if (decodedAddress.toLowerCase() !== params.address.toLowerCase()) {
-      throw new Error("Invalid signature");
-    }
+  if (decodedAddress.toLowerCase() !== params.address.toLowerCase()) {
+    throw new Error("Invalid signature");
   }
 };
