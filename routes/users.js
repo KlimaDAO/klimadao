@@ -62,7 +62,7 @@ module.exports = async function (fastify, opts) {
                         description: { type: 'string', minLength: 2, maxLength: 500 },
                         wallet: { type: 'string', minLength: 26, maxLength: 64 }
                     },
-                    required: ['handle', 'username', 'wallet']
+                    required: ['handle', 'username', 'wallet', 'description']
                 },
                 response: {
                     '2xx': {
