@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-12 19:42+0000\n"
+"POT-Creation-Date: 2022-09-13 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1000,6 +1000,10 @@ msgstr "प्लेज संपादित करें"
 msgid "pledges.form.add_footprint_category_button"
 msgstr "कैटेगरी जोड़ें"
 
+#: components/pages/Pledge/index.tsx:156
+msgid "pledges.form.error"
+msgstr "वॉलेट पता, .klima अथवा .eth डोमेन दर्ज करें"
+
 #: components/pages/Pledge/lib/formSchema.ts:41
 msgid "pledges.form.errors.categoryName.max"
 msgstr "32 से कम अक्षर दर्ज करें"
@@ -1116,25 +1120,45 @@ msgstr "आपकी प्लेज"
 msgid "pledges.form.total_footprint_summary"
 msgstr "कुल फ़ुटप्रिंट: {0} कार्बन टन"
 
-#: components/pages/Pledge/index.tsx:49
+#: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
-msgstr "जलवायु कार्रवाई करें और एक कार्बन-समर्थित डिजिटल मुद्रा के साथ पुरस्कार अर्जित करें।"
+msgstr ""
 
-#: components/pages/Pledge/index.tsx:44
+#: components/pages/Pledge/index.tsx:63
 msgid "pledges.head.metaTitle"
-msgstr "Klima Infinity (क्लिमा इन्फिनिटी) - आज ही दुनिया के लिए कोई प्लेज पता करें अथवा शुरू करें"
+msgstr ""
 
-#: components/pages/Pledge/index.tsx:40
+#: components/pages/Pledge/index.tsx:59
 msgid "pledges.head.title"
 msgstr "KlimaDAO (क्लीमाडाओ) | Pledges (प्लेजेज़)"
 
-#: components/pages/Pledge/index.tsx:70
-msgid "pledges.home.search.error_message"
-msgstr "वॉलेट पता, .klima अथवा .eth डोमेन दर्ज करें"
+#: components/pages/Pledge/index.tsx:308
+msgid "pledges.home.banner.create"
+msgstr ""
 
-#: components/pages/Pledge/index.tsx:59
+#: components/pages/Pledge/index.tsx:287
+msgid "pledges.home.get_started.create"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:106
+msgid "pledges.home.hero.create"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:114
+msgid "pledges.home.hero.learn_more"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:150
+msgid "pledges.home.search.label"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr "वॉलेट पता, .klima अथवा .eth डोमेन दर्ज करें"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:168
+msgid "pledges.home.search.submit"
+msgstr "खोज"
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
@@ -1368,46 +1392,46 @@ msgstr "संपत्ति द्वारा कुल रिटायरम
 msgid "shared.404"
 msgstr "404 - पृष्ठ नहीं मिला"
 
-#: components/Navigation/index.tsx:74
-#: components/Navigation/index.tsx:219
+#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:223
 msgid "shared.about"
 msgstr "के बारे में"
 
-#: components/Navigation/index.tsx:113
-#: components/Navigation/index.tsx:261
+#: components/Navigation/index.tsx:117
+#: components/Navigation/index.tsx:265
 msgid "shared.app"
 msgstr "ऐप"
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:76
-#: components/Navigation/index.tsx:223
+#: components/Navigation/index.tsx:80
+#: components/Navigation/index.tsx:227
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "ब्लॉग"
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:131
-#: components/Navigation/index.tsx:278
+#: components/Navigation/index.tsx:135
+#: components/Navigation/index.tsx:282
 msgid "shared.bond"
 msgstr "बॉन्ड क्लीमा"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:115
-#: components/Navigation/index.tsx:265
+#: components/Navigation/index.tsx:119
+#: components/Navigation/index.tsx:269
 msgid "shared.buy"
 msgstr "क्लिमा खरीदें"
 
-#: components/Navigation/index.tsx:335
+#: components/Navigation/index.tsx:339
 msgid "shared.carbon_dashboard"
 msgstr "कार्बन डैशबोर्ड"
 
-#: components/Navigation/index.tsx:186
+#: components/Navigation/index.tsx:190
 msgid "shared.carbon_dashboards"
 msgstr "कार्बन डैशबोर्ड"
 
-#: components/Navigation/index.tsx:94
-#: components/Navigation/index.tsx:241
+#: components/Navigation/index.tsx:98
+#: components/Navigation/index.tsx:245
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1419,18 +1443,18 @@ msgid "shared.connect"
 msgstr "कनेक्ट करें"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:250
+#: components/Navigation/index.tsx:254
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "संपर्क करें"
 
-#: components/Navigation/index.tsx:63
+#: components/Navigation/index.tsx:67
 #: components/pages/Infinity/index.tsx:114
 #: components/pages/Infinity/index.tsx:680
 msgid "shared.contact_sales"
 msgstr "सेल्स से संपर्क करें"
 
-#: components/Navigation/index.tsx:103
+#: components/Navigation/index.tsx:107
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1438,18 +1462,18 @@ msgid "shared.contact_us"
 msgstr "संपर्क करें"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:194
-#: components/Navigation/index.tsx:343
+#: components/Navigation/index.tsx:198
+#: components/Navigation/index.tsx:347
 msgid "shared.disclaimer"
 msgstr "अस्वीकरण"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:203
-#: components/Navigation/index.tsx:352
+#: components/Navigation/index.tsx:207
+#: components/Navigation/index.tsx:356
 msgid "shared.docs"
 msgstr "डॉक्स"
 
-#: components/Navigation/index.tsx:56
+#: components/Navigation/index.tsx:60
 #: components/pages/Home/index.tsx:114
 msgid "shared.enter_app"
 msgstr "ऐप दर्ज करें"
@@ -1471,13 +1495,13 @@ msgstr "जलवायु कार्रवाई करें और एक �
 msgid "shared.home"
 msgstr "घर"
 
-#: components/Navigation/index.tsx:177
-#: components/Navigation/index.tsx:326
+#: components/Navigation/index.tsx:181
+#: components/Navigation/index.tsx:330
 msgid "shared.how_to_buy"
 msgstr "क्लिमा कैसे खरीदें?"
 
-#: components/Navigation/index.tsx:164
-#: components/Navigation/index.tsx:312
+#: components/Navigation/index.tsx:168
+#: components/Navigation/index.tsx:316
 msgid "shared.infinity"
 msgstr "अनंतता"
 
@@ -1491,8 +1515,8 @@ msgstr "शुरुआत करें"
 msgid "shared.infinity_cta"
 msgstr "संगठनों के लिए डेफी"
 
-#: components/Navigation/index.tsx:155
-#: components/Navigation/index.tsx:302
+#: components/Navigation/index.tsx:159
+#: components/Navigation/index.tsx:306
 msgid "shared.info"
 msgstr "जानकारी"
 
@@ -1506,31 +1530,31 @@ msgstr "लोड हो रहा है..."
 msgid "shared.loveletter_cta"
 msgstr "व्यक्तियों के लिए डेफी"
 
-#: components/Navigation/index.tsx:170
-#: components/Navigation/index.tsx:317
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:321
 msgid "shared.loveletters"
 msgstr "प्रेम पत्र"
 
-#: components/Navigation/index.tsx:147
-#: components/Navigation/index.tsx:294
+#: components/Navigation/index.tsx:151
+#: components/Navigation/index.tsx:298
 msgid "shared.offset"
 msgstr "ऑफ़सेट"
 
-#: components/Navigation/index.tsx:85
-#: components/Navigation/index.tsx:232
+#: components/Navigation/index.tsx:89
+#: components/Navigation/index.tsx:236
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "पॉडकास्ट"
 
-#: components/Navigation/index.tsx:173
-#: components/Navigation/index.tsx:322
+#: components/Navigation/index.tsx:177
+#: components/Navigation/index.tsx:326
 msgid "shared.resources"
 msgstr "संसाधन"
 
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:123
-#: components/Navigation/index.tsx:270
+#: components/Navigation/index.tsx:127
+#: components/Navigation/index.tsx:274
 msgid "shared.stake"
 msgstr "क्लिमा दाँव पर लगाएँ"
 
@@ -1538,8 +1562,8 @@ msgstr "क्लिमा दाँव पर लगाएँ"
 msgid "shared.visit_klimadao_blog"
 msgstr "KlimaDAO ब्लॉग पर जाएँ"
 
-#: components/Navigation/index.tsx:139
-#: components/Navigation/index.tsx:286
+#: components/Navigation/index.tsx:143
+#: components/Navigation/index.tsx:290
 msgid "shared.wrap"
 msgstr "sKLIMA (एसक्लिमा) रैप करें"
 
