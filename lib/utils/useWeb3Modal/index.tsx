@@ -26,7 +26,7 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
   const TypedCoinbaseWallet =
     untypedCoinbase.default as typeof CoinbaseWalletSDK;
   return new TypedWeb3Modal({
-    cacheProvider: true,
+    cacheProvider: false,
     providerOptions: {
       walletconnect: {
         package: WalletConnectProvider, // required
@@ -40,7 +40,6 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
       coinbasewallet: {
         package: TypedCoinbaseWallet, // Required
         options: {
-          infuraId: "",
           appName: "KlimaDAO App", // Required
           rpc: urls.polygonMainnetRpc, // Optional if `infuraId` is provided; otherwise it's required
           chainId: 137, // Optional. It defaults to 1 if not provided
@@ -60,6 +59,9 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
             host: "matic", // optional
             chainId: 137,
             networkName: "Polygon",
+          },
+          config: {
+            buildEnv: "production",
           },
         },
         display: {
@@ -104,11 +106,14 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   const web3Modal = useLocalizedModal(strings);
 
   const disconnect = async () => {
+    if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
+      await (web3state.provider?.provider as any).torus.logout();
+    }
     if (web3Modal) {
       web3Modal.clearCachedProvider();
-      setWeb3State(web3InitialState);
-      window.location.reload();
     }
+    setWeb3State(web3InitialState);
+    window.location.reload();
   };
 
   const connect = async () => {
