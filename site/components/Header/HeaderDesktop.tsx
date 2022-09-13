@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { LogoWithClaim } from "@klimadao/lib/components";
 import { PageName } from "../Navigation";
+
 interface Props {
   buttons?: JSX.Element[];
   href?: string;
@@ -14,8 +15,8 @@ export const HeaderDesktop: FC<Props> = (props) => {
   return (
     <header
       className={
-        props.activePage === "Infinity"
-          ? styles.headerInfinityDesktop
+        props.activePage === "Infinity" || props.activePage === "Pledges"
+          ? styles.headerTransparentDesktop
           : styles.headerDesktop
       }
     >

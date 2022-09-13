@@ -1006,6 +1006,10 @@ msgstr "Edit Pledge"
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Add category"
 
+#: components/pages/Pledge/index.tsx:156
+msgid "pledges.form.error"
+msgstr "Enter a wallet address, .klima or .eth domain"
+
 #: components/pages/Pledge/lib/formSchema.ts:41
 msgid "pledges.form.errors.categoryName.max"
 msgstr "Enter less than 32 characters"
@@ -1122,25 +1126,45 @@ msgstr "Your pledge"
 msgid "pledges.form.total_footprint_summary"
 msgstr "Total Footprint: {0} Carbon Tonnes"
 
-#: components/pages/Pledge/index.tsx:49
+#: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
-msgstr "Drive climate action and earn rewards with a carbon-backed digital currency."
+msgstr "Demonstrate your commitment to climate positivity by claiming your pledge dashboard to highlight all of your carbon offsetting activity"
 
-#: components/pages/Pledge/index.tsx:44
+#: components/pages/Pledge/index.tsx:63
 msgid "pledges.head.metaTitle"
-msgstr "Klima Infinity - Search for or start a pledge to the world today"
+msgstr "Create a carbon pledge and showcase your impact"
 
-#: components/pages/Pledge/index.tsx:40
+#: components/pages/Pledge/index.tsx:59
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Pledges"
 
-#: components/pages/Pledge/index.tsx:70
-msgid "pledges.home.search.error_message"
-msgstr "Enter a wallet address, .klima or .eth domain"
+#: components/pages/Pledge/index.tsx:308
+msgid "pledges.home.banner.create"
+msgstr "Create a pledge"
 
-#: components/pages/Pledge/index.tsx:59
+#: components/pages/Pledge/index.tsx:287
+msgid "pledges.home.get_started.create"
+msgstr "Create a pledge"
+
+#: components/pages/Pledge/index.tsx:106
+msgid "pledges.home.hero.create"
+msgstr "Create a pledge"
+
+#: components/pages/Pledge/index.tsx:114
+msgid "pledges.home.hero.learn_more"
+msgstr "Learn more"
+
+#: components/pages/Pledge/index.tsx:150
+msgid "pledges.home.search.label"
+msgstr "ENS or 0x address"
+
+#: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr "Enter a wallet address, .klima or .eth domain"
+msgstr "Enter ENS or 0x address"
+
+#: components/pages/Pledge/index.tsx:168
+msgid "pledges.home.search.submit"
+msgstr "Search"
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
@@ -1374,46 +1398,46 @@ msgstr "Retirement Totals By Asset"
 msgid "shared.404"
 msgstr "404 - Page Not Found"
 
-#: components/Navigation/index.tsx:74
-#: components/Navigation/index.tsx:219
+#: components/Navigation/index.tsx:78
+#: components/Navigation/index.tsx:223
 msgid "shared.about"
 msgstr "About"
 
-#: components/Navigation/index.tsx:113
-#: components/Navigation/index.tsx:261
+#: components/Navigation/index.tsx:117
+#: components/Navigation/index.tsx:265
 msgid "shared.app"
 msgstr "App"
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:76
-#: components/Navigation/index.tsx:223
+#: components/Navigation/index.tsx:80
+#: components/Navigation/index.tsx:227
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Blog"
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:131
-#: components/Navigation/index.tsx:278
+#: components/Navigation/index.tsx:135
+#: components/Navigation/index.tsx:282
 msgid "shared.bond"
 msgstr "Bond Klima"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:115
-#: components/Navigation/index.tsx:265
+#: components/Navigation/index.tsx:119
+#: components/Navigation/index.tsx:269
 msgid "shared.buy"
 msgstr "Buy Klima"
 
-#: components/Navigation/index.tsx:335
+#: components/Navigation/index.tsx:339
 msgid "shared.carbon_dashboard"
 msgstr "Carbon Dashboard"
 
-#: components/Navigation/index.tsx:186
+#: components/Navigation/index.tsx:190
 msgid "shared.carbon_dashboards"
 msgstr "Carbon Dashboards"
 
-#: components/Navigation/index.tsx:94
-#: components/Navigation/index.tsx:241
+#: components/Navigation/index.tsx:98
+#: components/Navigation/index.tsx:245
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1425,18 +1449,18 @@ msgid "shared.connect"
 msgstr "Connect"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:250
+#: components/Navigation/index.tsx:254
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Contact"
 
-#: components/Navigation/index.tsx:63
+#: components/Navigation/index.tsx:67
 #: components/pages/Infinity/index.tsx:114
 #: components/pages/Infinity/index.tsx:680
 msgid "shared.contact_sales"
 msgstr "Contact Sales"
 
-#: components/Navigation/index.tsx:103
+#: components/Navigation/index.tsx:107
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1444,18 +1468,18 @@ msgid "shared.contact_us"
 msgstr "Contact Us"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:194
-#: components/Navigation/index.tsx:343
+#: components/Navigation/index.tsx:198
+#: components/Navigation/index.tsx:347
 msgid "shared.disclaimer"
 msgstr "Disclaimer"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:203
-#: components/Navigation/index.tsx:352
+#: components/Navigation/index.tsx:207
+#: components/Navigation/index.tsx:356
 msgid "shared.docs"
 msgstr "Docs"
 
-#: components/Navigation/index.tsx:56
+#: components/Navigation/index.tsx:60
 #: components/pages/Home/index.tsx:114
 msgid "shared.enter_app"
 msgstr "Enter App"
@@ -1477,13 +1501,13 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:177
-#: components/Navigation/index.tsx:326
+#: components/Navigation/index.tsx:181
+#: components/Navigation/index.tsx:330
 msgid "shared.how_to_buy"
 msgstr "How To Buy Klima"
 
-#: components/Navigation/index.tsx:164
-#: components/Navigation/index.tsx:312
+#: components/Navigation/index.tsx:168
+#: components/Navigation/index.tsx:316
 msgid "shared.infinity"
 msgstr "Infinity"
 
@@ -1497,8 +1521,8 @@ msgstr "Get Started"
 msgid "shared.infinity_cta"
 msgstr "DEFI FOR ORGANIZATIONS"
 
-#: components/Navigation/index.tsx:155
-#: components/Navigation/index.tsx:302
+#: components/Navigation/index.tsx:159
+#: components/Navigation/index.tsx:306
 msgid "shared.info"
 msgstr "Info"
 
@@ -1512,31 +1536,31 @@ msgstr "Loading..."
 msgid "shared.loveletter_cta"
 msgstr "DEFI FOR INDIVIDUALS"
 
-#: components/Navigation/index.tsx:170
-#: components/Navigation/index.tsx:317
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:321
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:147
-#: components/Navigation/index.tsx:294
+#: components/Navigation/index.tsx:151
+#: components/Navigation/index.tsx:298
 msgid "shared.offset"
 msgstr "Offset"
 
-#: components/Navigation/index.tsx:85
-#: components/Navigation/index.tsx:232
+#: components/Navigation/index.tsx:89
+#: components/Navigation/index.tsx:236
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "Podcast"
 
-#: components/Navigation/index.tsx:173
-#: components/Navigation/index.tsx:322
+#: components/Navigation/index.tsx:177
+#: components/Navigation/index.tsx:326
 msgid "shared.resources"
 msgstr "Resources"
 
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:123
-#: components/Navigation/index.tsx:270
+#: components/Navigation/index.tsx:127
+#: components/Navigation/index.tsx:274
 msgid "shared.stake"
 msgstr "Stake Klima"
 
@@ -1544,8 +1568,8 @@ msgstr "Stake Klima"
 msgid "shared.visit_klimadao_blog"
 msgstr "Visit the KlimaDAO Blog"
 
-#: components/Navigation/index.tsx:139
-#: components/Navigation/index.tsx:286
+#: components/Navigation/index.tsx:143
+#: components/Navigation/index.tsx:290
 msgid "shared.wrap"
 msgstr "Wrap sKlima"
 

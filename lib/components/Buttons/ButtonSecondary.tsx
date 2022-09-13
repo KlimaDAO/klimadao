@@ -8,6 +8,7 @@ export const ButtonSecondary: FC<Props> = (props) => {
     styles.buttonSecondary,
     {
       gray: props.variant === "gray",
+      blue: props.variant === "blue",
       blueRounded: props.variant === "blueRounded",
       icon: props.variant === "icon",
     },

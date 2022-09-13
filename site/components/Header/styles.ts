@@ -27,7 +27,7 @@ export const menuDesktop = css`
   z-index: 99;
 `;
 
-export const headerInfinityDesktop = css`
+export const headerTransparentDesktop = css`
   ${headerDesktop}
   background: transparent !important;
 `;

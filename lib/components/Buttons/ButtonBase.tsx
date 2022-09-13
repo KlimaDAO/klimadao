@@ -6,7 +6,7 @@ export interface Props {
   className?: string;
   onClick?: () => void;
   href?: string;
-  variant?: "gray" | "icon" | "blueRounded" | null;
+  variant?: "gray" | "icon" | "blue" | "blueRounded" | null;
   link?: Link;
   rel?: string;
   target?: string;

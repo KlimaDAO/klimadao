@@ -17,6 +17,7 @@ import * as styles from "./styles";
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
 
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
+
 export type PageName =
   | "Home"
   | "Buy"
@@ -26,13 +27,16 @@ export type PageName =
   | "Blog"
   | "Community"
   | "Podcast"
-  | "Contact";
+  | "Contact"
+  | "Pledges";
+
 export type NavItemMobileID =
   | "About"
   | "App"
   | "Infinity"
   | "Love Letters"
   | "Resources";
+
 export type Props = {
   activePage: PageName;
   showThemeToggle?: boolean;

@@ -24,6 +24,7 @@ export const buttonPrimary = css`
     transform: scale(0.95);
     opacity: 0.6;
   }
+
   &,
   &:hover:not(:disabled),
   &:visited {
@@ -41,7 +42,6 @@ export const buttonPrimary = css`
 
   &.gray {
     background-color: var(--surface-01);
-    color: var(--font-02);
 
     &,
     &:hover,
@@ -51,10 +51,14 @@ export const buttonPrimary = css`
     }
   }
 
+  &.blue,
   &.blueRounded {
     background-color: var(--klima-blue);
-    color: var(--surface-01);
+  }
+
+  &.blueRounded {
     border-radius: 0.8rem;
+
     &,
     &:hover,
     &:hover:not(:disabled),
@@ -77,7 +81,6 @@ export const buttonSecondary = css`
 
   &.gray {
     border-color: var(--surface-01);
-    color: var(--surface-01);
 
     &,
     &:hover,
@@ -87,15 +90,19 @@ export const buttonSecondary = css`
     }
   }
 
+  &.blue,
   &.blueRounded {
     border-color: var(--klima-blue);
-    color: var(--klima-blue);
-    border-radius: 0.8rem;
+
     &,
     &:hover,
     &:hover:not(:disabled),
     &:visited {
       color: var(--klima-blue); /* same in darkmode */
     }
+  }
+
+  &.blueRounded {
+    border-radius: 0.8rem;
   }
 `;
