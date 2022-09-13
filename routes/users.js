@@ -141,7 +141,7 @@ module.exports = async function (fastify, opts) {
                         .collection("users")
                         .doc(request.body.wallet).update({
                             username: request.body.username,
-                            handle: request.body.handle,
+                            description: request.body.description,
                         });
                     return reply.send(request.body);
                 } catch (err) {
