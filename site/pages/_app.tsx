@@ -8,6 +8,7 @@ import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 import { GridContainer, Web3ContextProvider } from "@klimadao/lib/components";
 import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
+import { useTabListener } from "@klimadao/lib/utils";
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
@@ -21,6 +22,8 @@ const loadFallbackOnServer = async () => {
 // TODO: throw if env vars are unset
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  useTabListener();
+
   const firstRender = useRef(true);
   const { translation, fixedThemeName } = pageProps;
 

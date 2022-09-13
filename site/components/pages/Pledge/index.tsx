@@ -137,26 +137,26 @@ export const Pledge: NextPage = () => {
             <form onSubmit={handleFormSubmit}>
               <div>
                 <InputField
+                  inputProps={{
+                    type: "text",
+                    name: "address",
+                    id: "address",
+                    placeholder: t({
+                      id: "pledges.home.search.placeholder",
+                      message: "Enter ENS or 0x address",
+                    }),
+                  }}
                   hideLabel
-                  name="address"
-                  id="address"
                   label={t({
                     id: "pledges.home.search.label",
                     message: "ENS or 0x address",
                   })}
-                  placeholder={t({
-                    id: "pledges.home.search.placeholder",
-                    message: "Enter ENS or 0x address",
-                  })}
-                  type="text"
-                  errors={
-                    error && {
-                      message: t({
-                        id: "pledges.form.error",
-                        message:
-                          "Enter a wallet address, .klima or .eth domain",
-                      }),
-                    }
+                  errorMessage={
+                    error &&
+                    t({
+                      id: "pledges.form.error",
+                      message: "Enter a wallet address, .klima or .eth domain",
+                    })
                   }
                 />
               </div>

@@ -7,9 +7,8 @@ import * as styles from "./styles";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import { Card } from "components/Card";
-import { PodcastCard } from "components/PodcastCard";
 import { ArticlesSlider } from "./FeaturedArticles/ArticlesSlider";
+import { ResourcesList } from "./ResourcesList";
 
 import { Document, FeaturedPost } from "lib/queries";
 
@@ -18,7 +17,7 @@ export interface Props {
   featuredArticles: FeaturedPost[];
 }
 
-export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
+export const Resources: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
@@ -53,20 +52,13 @@ export const Resources: NextPage<Props> = ({ documents, featuredArticles }) => {
         </div>
       </Section>
 
-      <Section variant="gray" style={{ padding: "unset" }}>
-        <ArticlesSlider articles={featuredArticles} />
-      </Section>
+      {!!props.featuredArticles?.length && (
+        <Section variant="gray" style={{ padding: "unset" }}>
+          <ArticlesSlider articles={props.featuredArticles} />
+        </Section>
+      )}
 
-      <Section variant="gray">
-        <div className={styles.list}>
-          {documents.map((doc) => {
-            if (doc.type === "post") {
-              return <Card key={doc.slug} post={doc} />;
-            }
-            return <PodcastCard podcast={doc} key={doc.slug} />;
-          })}
-        </div>
-      </Section>
+      <ResourcesList documents={props.documents} />
 
       <Footer />
     </>

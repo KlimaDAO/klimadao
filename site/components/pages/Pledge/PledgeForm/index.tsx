@@ -18,7 +18,8 @@ import { InputField, TextareaField } from "components/Form";
 import {
   editPledgeSignature,
   formSchema,
-  getPledgeFormErrorTranslations,
+  pledgeErrorTranslationsMap,
+  PledgeErrorId,
   putPledge,
   pledgeFormAdapter,
 } from "../lib";
@@ -112,62 +113,86 @@ export const PledgeForm: FC<Props> = (props) => {
       )}
 
       <InputField
-        id="name"
+        inputProps={{
+          id: "name",
+          placeholder: t({
+            id: "pledges.form.input.name.placeholder",
+            message: "Name or company name",
+          }),
+          type: "text",
+          ...register("name"),
+        }}
         label={t({ id: "pledges.form.input.name.label", message: "Name" })}
-        placeholder={t({
-          id: "pledges.form.input.name.placeholder",
-          message: "Name or company name",
-        })}
-        type="text"
-        errors={formState.errors.name}
-        errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("name")}
+        errorMessage={
+          !!formState.errors.name?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.name.message as PledgeErrorId
+          ]
+        }
       />
 
       <InputField
-        id="profileImageUrl"
+        inputProps={{
+          id: "profileImageUrl",
+          placeholder: "https://",
+          type: "text",
+          ...register("profileImageUrl"),
+        }}
         label={t({
           id: "pledges.form.input.profileImageUrl.label",
           message: "Profile image url (optional)",
         })}
-        placeholder="https://"
-        type="text"
-        errors={formState.errors.profileImageUrl}
-        errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("profileImageUrl")}
+        errorMessage={
+          !!formState.errors.profileImageUrl?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.profileImageUrl.message as PledgeErrorId
+          ]
+        }
       />
 
       <TextareaField
-        id="pledge"
-        rows={2}
+        textareaProps={{
+          id: "pledge",
+          placeholder: t({
+            id: "pledges.form.input.description.placeholder",
+            message: "What is your pledge?",
+          }),
+          rows: 2,
+          ...register("description"),
+        }}
         label={t({
           id: "pledges.form.input.description.label",
           message: "Pledge",
         })}
-        placeholder={t({
-          id: "pledges.form.input.description.placeholder",
-          message: "What is your pledge?",
-        })}
-        errors={formState.errors.description}
-        errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("description")}
+        errorMessage={
+          !!formState.errors.description?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.description.message as PledgeErrorId
+          ]
+        }
       />
 
       <TextareaField
-        id="methodology"
-        rows={6}
+        textareaProps={{
+          id: "methodology",
+          placeholder: t({
+            id: "pledges.form.input.methodology.placeholder",
+            message:
+              "What tools or methodologies did you use to calculate your carbon footprint?",
+          }),
+          rows: 6,
+          ...register("methodology"),
+        }}
         label={t({
           id: "pledges.form.input.methodology.label",
           message: "Methodology",
         })}
-        placeholder={t({
-          id: "pledges.form.input.methodology.placeholder",
-          message:
-            "What tools or methodologies did you use to calculate your carbon footprint?",
-        })}
-        errors={formState.errors.methodology}
-        errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("methodology")}
+        errorMessage={
+          !!formState.errors.methodology?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.methodology.message as PledgeErrorId
+          ]
+        }
       />
 
       <div className={styles.categories_section}>
@@ -188,35 +213,50 @@ export const PledgeForm: FC<Props> = (props) => {
             <div className={styles.categoryRow} key={field.id}>
               <div className={styles.categoryRow_inputs}>
                 <InputField
+                  inputProps={{
+                    placeholder: t({
+                      id: "pledges.form.input.categoryName.placeholder",
+                      message: "Category name",
+                    }),
+                    type: "text",
+                    ...register(`categories.${index}.name` as const),
+                  }}
                   hideLabel
                   label={t({
                     id: "pledges.form.input.categoryName.label",
                     message: "Category",
                   })}
-                  placeholder={t({
-                    id: "pledges.form.input.categoryName.placeholder",
-                    message: "Category name",
-                  })}
-                  type="text"
-                  errors={formState.errors.categories?.[index]?.name}
-                  errorMessageMap={getPledgeFormErrorTranslations}
-                  {...register(`categories.${index}.name` as const)}
+                  errorMessage={
+                    !!formState.errors?.categories?.[index]?.name?.message &&
+                    pledgeErrorTranslationsMap[
+                      formState?.errors?.categories?.[index]?.name
+                        ?.message as PledgeErrorId
+                    ]
+                  }
                 />
 
                 <InputField
+                  inputProps={{
+                    placeholder: t({
+                      id: "pledges.form.input.categoryQuantity.placeholder",
+                      message: "Carbon tonnes",
+                    }),
+                    type: "number",
+                    ...register(`categories.${index}.quantity` as const),
+                  }}
                   hideLabel
                   label={t({
                     id: "pledges.form.input.categoryQuantity.label",
                     message: "Quantity",
                   })}
-                  placeholder={t({
-                    id: "pledges.form.input.categoryQuantity.placeholder",
-                    message: "Carbon tonnes",
-                  })}
-                  type="number"
-                  errors={formState.errors.categories?.[index]?.quantity}
-                  errorMessageMap={getPledgeFormErrorTranslations}
-                  {...register(`categories.${index}.quantity` as const)}
+                  errorMessage={
+                    !!formState.errors?.categories?.[index]?.quantity
+                      ?.message &&
+                    pledgeErrorTranslationsMap[
+                      formState?.errors?.categories?.[index]?.quantity
+                        ?.message as PledgeErrorId
+                    ]
+                  }
                 />
               </div>
 
@@ -246,15 +286,21 @@ export const PledgeForm: FC<Props> = (props) => {
       </div>
 
       <InputField
+        inputProps={{
+          type: "hidden",
+          ...register("footprint"),
+        }}
         hideLabel
         label={t({
           id: "pledges.form.input.totalFootprint.label",
           message: "Total footprint",
         })}
-        type="hidden"
-        errors={formState.errors.footprint}
-        errorMessageMap={getPledgeFormErrorTranslations}
-        {...register("footprint")}
+        errorMessage={
+          !!formState.errors.footprint?.message &&
+          pledgeErrorTranslationsMap[
+            formState.errors.footprint.message as PledgeErrorId
+          ]
+        }
       />
 
       <TotalFootprint control={control} setValue={setValue} />

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-01 15:44+0000\n"
+"POT-Creation-Date: 2022-09-12 19:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -476,7 +476,7 @@ msgstr "不兼容输入的代币"
 
 #: components/views/Offset/index.tsx:457
 msgid "offset.lifi"
-msgstr ""
+msgstr "现在可以通过 <0>LI.FI 和 Etherspot </0>进行跨链抵消，支持多个链和通证。"
 
 #: components/views/Offset/index.tsx:496
 msgid "offset.modal_payWith.title"
@@ -768,7 +768,7 @@ msgstr "取消质押量"
 
 #: components/views/Stake/index.tsx:327
 msgid "stake.lifi"
-msgstr ""
+msgstr "现在可以通过 <0>LI.FI 和 Etherspot </0> 进行跨链质押，支持多个链和通证。"
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"

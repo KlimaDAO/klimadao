@@ -1,18 +1,9 @@
 import React, { useEffect, FC } from "react";
-import styled from "@emotion/styled";
 import Close from "@mui/icons-material/Close";
 
 import * as styles from "./styles";
 import { Text } from "@klimadao/lib/components";
-
-type ModalWrapperProps = {
-  showModal: boolean;
-};
-
-export const ModalWrapper = styled.div`
-  display: ${(props: ModalWrapperProps) =>
-    props.showModal ? "block" : "none"};
-`;
+import { useFocusTrap } from "@klimadao/lib/utils";
 
 export interface Props {
   showModal: boolean;
@@ -23,6 +14,7 @@ export interface Props {
 
 export const Modal: FC<Props> = (props) => {
   const showCloseButton = !!props.onToggleModal;
+  const focusTrapRef = useFocusTrap();
 
   useEffect(() => {
     if (props.showModal) {
@@ -36,11 +28,13 @@ export const Modal: FC<Props> = (props) => {
     ? props.onToggleModal
     : undefined;
 
+  if (!props.showModal) return null;
+
   return (
-    <ModalWrapper showModal={props.showModal}>
+    <div aria-modal={true}>
       <div className={styles.modalBackground} onClick={handleBackgroundClick} />
       <div className={styles.modalContainer}>
-        <div className={styles.modalContent}>
+        <div className={styles.modalContent} ref={focusTrapRef}>
           <div className="title">
             <Text t="h4" uppercase={true}>
               {props.title}
@@ -56,6 +50,6 @@ export const Modal: FC<Props> = (props) => {
           {props.children}
         </div>
       </div>
-    </ModalWrapper>
+    </div>
   );
 };

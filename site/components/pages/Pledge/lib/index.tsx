@@ -1,5 +1,6 @@
 export { editPledgeSignature } from "./editPledgeSignature";
-export { formSchema, getPledgeFormErrorTranslations } from "./formSchema";
+export { formSchema, pledgeErrorTranslationsMap } from "./formSchema";
+export type { PledgeErrorId } from "./formSchema";
 export { DEFAULT_NONCE, generateNonce } from "./generateNonce";
 export {
   createPledgeAttributes,

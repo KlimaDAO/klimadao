@@ -19,7 +19,7 @@ import klimaInfinityBackground from "public/bg-infinity.png";
 import affordableMountain from "public/green-cliff-canyon.png";
 import fastMountain from "public/green-mountainside.jpg";
 import transparentTrees from "public/trees-and-water.png";
-import infiniteNightCliffs from "public/infinite_night_cliffs.jpg";
+import PartnersThumbnail from "public/bg-partners.jpg";
 import infinityWave from "public/infinity_wave.jpg";
 import hazyWindmills from "public/hazy_windmills.png";
 import forestCanopy from "public/forest_canopy.png";
@@ -29,6 +29,7 @@ import gasPump from "public/gas_pump.png";
 import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
+import GetStardedModal from "./GetStartedModal";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
@@ -37,7 +38,6 @@ import { urls } from "@klimadao/lib/constants";
 import { YoutubeEmbed } from "components/YoutubeEmbed";
 import { cx } from "@emotion/css";
 
-const linkToBlogUserGuide = `${urls.siteBlog}/klima-infinity-user-guide`;
 const linkToBlogFAQ = `${urls.siteBlog}/klima-infinity-faqs`;
 const linkToBlogPolygon = `${urls.siteBlog}/polygon-goes-carbon-neutral-via-klimadao`;
 
@@ -51,7 +51,7 @@ export const Infinity: NextPage<Props> = () => {
     2: false,
     3: false,
   });
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <PageHead
@@ -70,6 +70,8 @@ export const Infinity: NextPage<Props> = () => {
       />
 
       <Navigation activePage="Infinity" showThemeToggle={false} />
+
+      <GetStardedModal showModal={showModal} setShowModal={setShowModal} />
 
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>
@@ -105,7 +107,7 @@ export const Infinity: NextPage<Props> = () => {
                     message: "Get Started",
                     id: "shared.infinity.get_started",
                   })}
-                  href={linkToBlogUserGuide}
+                  onClick={() => setShowModal(true)}
                 />
                 <ButtonSecondary
                   variant="blueRounded"
@@ -223,8 +225,8 @@ export const Infinity: NextPage<Props> = () => {
               hideControls
               hideFullscreen
               posterImg={{
-                src: infiniteNightCliffs,
-                alt: "flashlight shining on dark cliffs",
+                src: PartnersThumbnail,
+                alt: "various klimaDAO partners",
               }}
             />
           </div>
@@ -298,7 +300,7 @@ export const Infinity: NextPage<Props> = () => {
                 message: "Get Started",
                 id: "shared.infinity.get_started",
               })}
-              href={linkToBlogUserGuide}
+              onClick={() => setShowModal(true)}
             />
           </div>
         </div>
@@ -672,7 +674,7 @@ export const Infinity: NextPage<Props> = () => {
                 id: "shared.infinity.get_started",
               })}
               variant="blueRounded"
-              href={linkToBlogUserGuide}
+              onClick={() => setShowModal(true)}
             />
             <ButtonSecondary
               label={t({

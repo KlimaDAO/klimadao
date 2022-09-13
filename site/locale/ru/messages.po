@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-01 15:44+0000\n"
+"POT-Creation-Date: 2022-09-12 19:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr "Войдите в приложение"
 msgid "Episodes"
 msgstr "Выпуски"
 
-#: components/pages/Infinity/index.tsx:509
+#: components/pages/Infinity/index.tsx:511
 msgid "Frequently Asked Questions"
 msgstr "Часто задаваемые вопросы"
 
@@ -547,20 +547,20 @@ msgstr "404 Страница не найдена"
 msgid "error.page.500.title"
 msgstr "500 - Страница не найдена"
 
-#: components/pages/Home/index.tsx:235
+#: components/pages/Home/index.tsx:234
 msgid "home.backed_by_carbon"
 msgstr "поддерживается Carbon"
 
-#: components/pages/Home/index.tsx:326
+#: components/pages/Home/index.tsx:325
 msgid "home.cars_annual"
 msgstr "Автомобили (ежегодно)"
 
-#: components/pages/Home/index.tsx:295
+#: components/pages/Home/index.tsx:294
 msgid "home.equivalent_to"
 msgstr "ЭКВИВАЛЕНТ"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:410
+#: components/pages/Home/index.tsx:409
 msgid "home.every_klima_token_is_backed"
 msgstr "Каждый токен KLIMA обеспечен реальным углеродным активом. Токены используются для компенсации выбросов углерода, взаимодействия с приложениями DeFi и получения доступа к быстрорастущему глобальному углеродному рынку."
 
@@ -569,146 +569,146 @@ msgid "home.featured_on"
 msgstr "KlimaDAO представлен на"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:107
+#: components/pages/Home/index.tsx:106
 msgid "home.fight_climate_change"
 msgstr "Боритесь с изменением климата и получайте вознаграждения с помощью KLIMA - цифровой валютой обеспеченной реальными углеродными активами."
 
-#: components/pages/Home/index.tsx:461
+#: components/pages/Home/index.tsx:460
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "Получите возможность участвовать в растущей углеродной экономике уже сегодня. Приобретайте, стекайте и получайте вознаграждение. Финансовая активность в защиту климата."
 
-#: components/pages/Home/index.tsx:458
+#: components/pages/Home/index.tsx:457
 msgid "home.get_klima"
 msgstr "ПОЛУЧИТЬ KLIMA"
 
-#: components/pages/Home/index.tsx:309
+#: components/pages/Home/index.tsx:308
 msgid "home.hectares_of_forest"
 msgstr "Гектары леса"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:153
+#: components/pages/Home/index.tsx:152
 msgid "home.klima_defies_climate_change"
 msgstr "KlimaDAO — это DeFi, который бросает вызов изменению климата"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:163
+#: components/pages/Home/index.tsx:162
 msgid "home.klima_is_the_center"
 msgstr "KlimaDAO — центр новой зеленой экономики. Основанная на энергоэффективной сети Polygon, KlimaDAO использует набор технологий для уменьшения фрагментации рынка и ускорения предоставления климатического финансирования для проектов устойчивого развития по всему миру."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:439
+#: components/pages/Home/index.tsx:438
 msgid "home.klima_tokens_are_minted"
 msgstr "Токены KLIMA майнятся и автоматически распределяются каждые ~7 часов среди держателей акций KLIMA. Приумножайте свои KLIMA, ведь мы вместе создаем более устойчивое будущее."
 
-#: components/pages/Home/index.tsx:83
+#: components/pages/Home/index.tsx:82
 msgid "home.latest_news"
 msgstr "📰 Последние новости:"
 
-#: components/pages/Home/index.tsx:138
+#: components/pages/Home/index.tsx:137
 msgid "home.learn_more"
 msgstr "УЗНАТЬ БОЛЬШЕ"
 
-#: components/pages/Home/index.tsx:341
+#: components/pages/Home/index.tsx:340
 msgid "home.liters_if_gasoline"
 msgstr ""
 "Литры бензина\n"
 ""
 
-#: components/pages/Home/index.tsx:271
+#: components/pages/Home/index.tsx:270
 msgid "home.massive impact"
 msgstr "Массовое влияние."
 
-#: components/pages/Home/index.tsx:209
+#: components/pages/Home/index.tsx:208
 msgid "home.mechanics"
 msgstr "МЕХАНИКА"
 
-#: components/pages/Home/index.tsx:490
+#. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
+#: components/pages/Home/index.tsx:426
+msgid "home.monthly_rewards_for_token_holders"
+msgstr ""
+
+#: components/pages/Home/index.tsx:489
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "Вся Альфа, прямо в ваш почтовый ящик"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:498
+#: components/pages/Home/index.tsx:497
 msgid "home.newletter.get_the_latest_updates"
 msgstr "Получайте последние новости о KlimaDAO, поскольку мы строим будущее углеродной экономики."
 
-#: components/pages/Home/index.tsx:515
+#: components/pages/Home/index.tsx:514
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "Никогда не делились. Никогда не спамили."
 
-#: components/pages/Home/index.tsx:509
+#: components/pages/Home/index.tsx:508
 msgid "home.newletter.sign_up"
 msgstr "Зарегистрироваться"
 
-#: components/pages/Home/index.tsx:495
+#: components/pages/Home/index.tsx:494
 msgid "home.newsletter"
 msgstr "Рассылка новостей"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:398
+#: components/pages/Home/index.tsx:397
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr "<0>Резервный актив</0><1>Углеродная экономика</1>"
 
-#: components/pages/Home/index.tsx:468
+#: components/pages/Home/index.tsx:467
 msgid "home.see_tutorial"
 msgstr "См. инструкции"
 
-#: components/pages/Home/index.tsx:356
+#: components/pages/Home/index.tsx:355
 msgid "home.source"
 msgstr "Источник"
 
-#: components/pages/Home/index.tsx:253
+#: components/pages/Home/index.tsx:252
 msgid "home.strong_incentives"
 msgstr "Сильные стимулы."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:212
+#: components/pages/Home/index.tsx:211
 msgid "home.the_dao_sell_bonds"
 msgstr "DAO продает бонды и распределяет вознаграждение между держателями KLIMA. Каждый проданный бонд пополняет постоянно растущую \"зеленую\" казну или повышает ликвидность ключевых экологических активов. Беспроигрышный вариант для людей и планеты."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:282
+#: components/pages/Home/index.tsx:281
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr "ТОНН <0>ПОГЛОЩЕННОГО УГЛЕРОДА</0> ОТ KLIMADAO"
 
-#. <0>{0}% WEEKLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:427
-msgid "home.weekly_rewards_for_token_holders"
-msgstr "<0>{0}% ЕЖЕНЕДЕЛЬНЫХ ВОЗНАГРАЖДЕНИЙ</0><1>ДЛЯ ДЕРЖАТЕЛЕЙ ТОКЕНОВ</1>"
-
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:94
+#: components/pages/Home/index.tsx:93
 msgid "home.welcome_to_klimadao"
 msgstr "<0>ДОБРО ПОЖАЛОВАТЬ</0> <1>KlimaDAO</1>"
 
-#: components/pages/Infinity/index.tsx:155
+#: components/pages/Infinity/index.tsx:157
 msgid "infinity.affordable_subtitle"
 msgstr "Доступный"
 
-#: components/pages/Infinity/index.tsx:150
+#: components/pages/Infinity/index.tsx:152
 msgid "infinity.affordable_title"
 msgstr "Ценообразование в режиме реального времени, низкие операционные издержки"
 
-#: components/pages/Infinity/index.tsx:404
+#: components/pages/Infinity/index.tsx:406
 msgid "infinity.box_amount_104k"
 msgstr "104k"
 
-#: components/pages/Infinity/index.tsx:390
+#: components/pages/Infinity/index.tsx:392
 msgid "infinity.box_amount_11k"
 msgstr "11к"
 
-#: components/pages/Infinity/index.tsx:386
+#: components/pages/Infinity/index.tsx:388
 msgid "infinity.box_title"
 msgstr "Последняя углеродная компенсация"
 
-#: components/pages/Infinity/index.tsx:400
+#: components/pages/Infinity/index.tsx:402
 msgid "infinity.box_title2"
 msgstr "Общее количество выбывшего углерода"
 
-#: components/pages/Infinity/index.tsx:643
+#: components/pages/Infinity/index.tsx:645
 msgid "infinity.button.read_blog_faq"
 msgstr "Прочтите подробные ответы на часто задаваемые вопросы для клиентов KI"
 
-#: components/pages/Infinity/index.tsx:354
+#: components/pages/Infinity/index.tsx:356
 msgid "infinity.button.read_blog_polygon"
 msgstr "Читайте статью Polygon"
 
@@ -716,99 +716,115 @@ msgstr "Читайте статью Polygon"
 msgid "infinity.cards_slider.title"
 msgstr "Десятки организаций компенсировали более 150 000 тонн углерода с помощью Klima Infinity."
 
-#: components/pages/Infinity/index.tsx:317
+#: components/pages/Infinity/index.tsx:319
 msgid "infinity.carousel_image_description"
 msgstr "Проект ветроэнергетики в Джайбхиме, Индия"
 
-#: components/pages/Infinity/index.tsx:329
+#: components/pages/Infinity/index.tsx:331
 msgid "infinity.carousel_info_subtitle"
 msgstr "Направляйте финансирование на проекты, способствующие смягчению последствий изменения климата"
 
-#: components/pages/Infinity/index.tsx:324
+#: components/pages/Infinity/index.tsx:326
 msgid "infinity.carousel_info_title"
 msgstr "Поддержка высококачественных проектов"
 
-#: components/pages/Infinity/index.tsx:663
+#: components/pages/Infinity/index.tsx:665
 msgid "infinity.cta_title"
 msgstr "Набор инструментов нового поколения по борьбе с выбросами углеродов для вашей организации."
 
-#: components/pages/Infinity/index.tsx:536
+#: components/pages/Infinity/index.tsx:538
 msgid "infinity.faq_answer1"
 msgstr "Единица компенсации углерода представляет собой удаление из атмосферы одной тонны эквивалента углекислого газа (tCO2e) или предотвращение одной тонны выбросов."
 
-#: components/pages/Infinity/index.tsx:572
+#: components/pages/Infinity/index.tsx:574
 msgid "infinity.faq_answer2_paragraph1"
 msgstr "Углеродные кредиты - это высокоинтегрированный механизм, позволяющий направлять углеродное финансирование от тех, кто загрязняет окружающую среду, к проектам по всему миру, которые помогают уменьшить или удалить выбросы углерода из атмосферы. Они являются ценным инструментом для покрытия труднопреодолимых выбросов, ликвидация которых сегодня может оказаться дорогостоящей или технически сложной."
 
-#: components/pages/Infinity/index.tsx:582
+#: components/pages/Infinity/index.tsx:584
 msgid "infinity.faq_answer2_paragraph2"
 msgstr "Когда вы приобретаете углеродный кредит, Klima Infinity позволяет вам вывести этот углеродный кредит из оборота, навсегда изъяв его из обращения. Этот выход из обращения является моментом, когда вы можете претендовать на компенсацию выбросов углерода"
 
-#: components/pages/Infinity/index.tsx:590
+#: components/pages/Infinity/index.tsx:592
 msgid "infinity.faq_answer2_paragraph3"
 msgstr "Приобретенные квоты ведут к измеримому и подотчетному сокращению выбросов в других областях экономики и могут быть использованы для \"компенсации\" неизбежного углеродного следа. Торговля углеродными квотами и их изъятие из обращения позволяют появиться рыночному механизму, который устанавливает цену на углерод."
 
-#: components/pages/Infinity/index.tsx:627
+#: components/pages/Infinity/index.tsx:629
 msgid "infinity.faq_answer3"
 msgstr "Целью углеродных рынков является рентабельное сокращение выбросов парниковых газов (ПГ или «углерод») путем установления ограничений на выбросы и предоставления возможности торговли единицами выбросов, которые являются финансовыми инструментами, отражающими сокращение выбросов. Торговля позволяет организациям, которые могут сократить выбросы с меньшими затратами, получать оплату от источников выбросов с более высокими затратами, тем самым снижая экономические затраты на сокращение выбросов."
 
-#: components/pages/Infinity/index.tsx:522
+#: components/pages/Infinity/index.tsx:524
 msgid "infinity.faq_question1"
 msgstr "1. Что такое углеродная компенсация?"
 
-#: components/pages/Infinity/index.tsx:556
+#: components/pages/Infinity/index.tsx:558
 msgid "infinity.faq_question2"
 msgstr "2. Как компенсация помогает в борьбе с изменением климата?"
 
-#: components/pages/Infinity/index.tsx:613
+#: components/pages/Infinity/index.tsx:615
 msgid "infinity.faq_question3"
 msgstr "3. Что такое углеродные рынки?"
 
-#: components/pages/Infinity/index.tsx:132
+#: components/pages/Infinity/index.tsx:134
 msgid "infinity.fast_subtitle"
 msgstr "Компенсация в считанные секунды, без волокиты"
 
-#: components/pages/Infinity/index.tsx:137
+#: components/pages/Infinity/index.tsx:139
 msgid "infinity.fast_title"
 msgstr "Быстро"
 
-#: components/pages/Infinity/index.tsx:247
+#: components/pages/Infinity/GetStartedModal.tsx:42
+msgid "infinity.getStartedModal_business"
+msgstr ""
+
+#: components/pages/Infinity/GetStartedModal.tsx:61
+msgid "infinity.getStartedModal_individual"
+msgstr ""
+
+#: components/pages/Infinity/GetStartedModal.tsx:93
+msgid "infinity.getStartedModal_notSure"
+msgstr ""
+
+#: components/pages/Infinity/GetStartedModal.tsx:81
+msgid "infinity.getStartedModal_offsetCrypto"
+msgstr ""
+
+#: components/pages/Infinity/index.tsx:249
 msgid "infinity.getStarted_1"
 msgstr "1"
 
-#: components/pages/Infinity/index.tsx:261
+#: components/pages/Infinity/index.tsx:263
 msgid "infinity.getStarted_2"
 msgstr "2"
 
-#: components/pages/Infinity/index.tsx:250
+#: components/pages/Infinity/index.tsx:252
 msgid "infinity.getStarted_calculate"
 msgstr "Рассчитать"
 
-#: components/pages/Infinity/index.tsx:253
+#: components/pages/Infinity/index.tsx:255
 msgid "infinity.getStarted_calculate_subtitle"
 msgstr "Рассчитайте углеродный след вашей организации и определите объем компенсации с помощью Klima Infinity."
 
-#: components/pages/Infinity/index.tsx:290
+#: components/pages/Infinity/index.tsx:292
 msgid "infinity.getStarted_cta"
 msgstr "Ускорьте свой путь к нулевому выбросу углерода — и не только"
 
-#: components/pages/Infinity/index.tsx:267
+#: components/pages/Infinity/index.tsx:269
 msgid "infinity.getStarted_second_subtitle"
 msgstr "Внедряйте свои смещение всего несколькими щелчками мыши и практически мгновенно."
 
-#: components/pages/Infinity/index.tsx:264
+#: components/pages/Infinity/index.tsx:266
 msgid "infinity.getStarted_second_title"
 msgstr "Внедрить"
 
-#: components/pages/Infinity/index.tsx:275
+#: components/pages/Infinity/index.tsx:277
 msgid "infinity.getStarted_third"
 msgstr "3"
 
-#: components/pages/Infinity/index.tsx:281
+#: components/pages/Infinity/index.tsx:283
 msgid "infinity.getStarted_third_subtitle"
 msgstr "Отслеживайте свои обязательства и повышайте осведомленность о своих действиях, направленных на улучшение климата."
 
-#: components/pages/Infinity/index.tsx:278
+#: components/pages/Infinity/index.tsx:280
 msgid "infinity.getStarted_third_title"
 msgstr "Усилить"
 
@@ -826,93 +842,93 @@ msgstr ""
 "KlimaDAO | Klima Infinity\n"
 ""
 
-#: components/pages/Infinity/index.tsx:169
+#: components/pages/Infinity/index.tsx:171
 msgid "infinity.info_subtitle1"
 msgstr "Для новаторских организаций планеты"
 
-#: components/pages/Infinity/index.tsx:174
+#: components/pages/Infinity/index.tsx:176
 msgid "infinity.info_subtitle2"
 msgstr "Самое мощное и простое в использовании компенсационное решение в мире"
 
-#: components/pages/Infinity/index.tsx:436
+#: components/pages/Infinity/index.tsx:438
 msgid "infinity.mission_card1_subtitle"
 msgstr "Тонны углерода, удерживаемые KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:433
+#: components/pages/Infinity/index.tsx:435
 msgid "infinity.mission_card1_title"
 msgstr "18,1 миллиона"
 
-#: components/pages/Infinity/index.tsx:456
+#: components/pages/Infinity/index.tsx:458
 msgid "infinity.mission_card2_description"
 msgstr "Углеродная ликвидность, принадлежащая KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:453
+#: components/pages/Infinity/index.tsx:455
 msgid "infinity.mission_card2_number"
 msgstr "$10 млн+"
 
-#: components/pages/Infinity/index.tsx:476
+#: components/pages/Infinity/index.tsx:478
 msgid "infinity.mission_card3_description"
 msgstr "Тонны углерода компенсированы через KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:473
+#: components/pages/Infinity/index.tsx:475
 msgid "infinity.mission_card3_number"
 msgstr "150 000+"
 
-#: components/pages/Infinity/index.tsx:373
+#: components/pages/Infinity/index.tsx:375
 msgid "infinity.polygon_manifesto_description"
 msgstr "Компенсируя исторические выбросы всей своей сети, Polygon гарантирует, что каждое взаимодействие в сети - будь то майнинг NFT или транзакция DeFi - учитывается. Это ключевая причина, по которой Meta выбрала Polygon для выпуска своих NFT."
 
-#: components/pages/Infinity/index.tsx:367
+#: components/pages/Infinity/index.tsx:369
 msgid "infinity.polygon_manifesto_title"
 msgstr "Смещение является частью \"Зеленого манифеста\" Polygon"
 
-#: components/pages/Infinity/index.tsx:347
+#: components/pages/Infinity/index.tsx:349
 msgid "infinity.polygon_story_description"
 msgstr "Polygon компенсировал выбросы углерода в сети с момента ее создания (примерно 90 000 тонн) и пообещал обеспечить положительное воздействие на климат во всех будущих транзакциях сети."
 
-#: components/pages/Infinity/index.tsx:342
+#: components/pages/Infinity/index.tsx:344
 msgid "infinity.polygon_story_title"
 msgstr "Polygon выбрал Klima Infinity для компенсации своей блокчейн-сети"
 
 #: components/pages/Infinity/Cards/Card.tsx:66
-#: components/pages/Infinity/index.tsx:393
-#: components/pages/Infinity/index.tsx:407
+#: components/pages/Infinity/index.tsx:395
+#: components/pages/Infinity/index.tsx:409
 msgid "infinity.tonnes"
 msgstr "Тонны"
 
-#: components/pages/Infinity/index.tsx:187
+#: components/pages/Infinity/index.tsx:189
 msgid "infinity.transparent_subtitle"
 msgstr "Прозрачный"
 
-#: components/pages/Infinity/index.tsx:182
+#: components/pages/Infinity/index.tsx:184
 msgid "infinity.transparent_title"
 msgstr "Неизменно записывается в блокчейн"
 
-#: components/pages/Infinity/index.tsx:95
+#: components/pages/Infinity/index.tsx:97
 msgid "infinity.welcome_subtitle"
 msgstr "Набор инструментов нового поколения по борьбе с выбросами углеродов для вашей организации."
 
-#: components/pages/Infinity/index.tsx:90
+#: components/pages/Infinity/index.tsx:92
 msgid "infinity.welcome_title"
 msgstr "Самый простой способ стать углеродно-нейтральным"
 
-#: components/pages/Infinity/index.tsx:213
+#: components/pages/Infinity/index.tsx:215
 msgid "infinity.why_description"
 msgstr "KlimaDAO использует стек технологий DeFi для снижения фрагментации рынка и ускорения предоставления климатического финансирования проектам устойчивого развития по всему миру."
 
-#: components/pages/Infinity/index.tsx:208
+#: components/pages/Infinity/index.tsx:210
 msgid "infinity.why_subtitle"
 msgstr "DeFi, который бросает вызов изменению климата"
 
-#: components/pages/Infinity/index.tsx:205
+#: components/pages/Infinity/index.tsx:207
 msgid "infinity.why_title"
 msgstr "Почему KlimaDAO?"
 
-#: components/pages/Home/index.tsx:383
+#: components/pages/Home/index.tsx:382
 msgid "invest_in_the_future"
 msgstr "Инвестируйте в будущее."
 
-#: components/pages/Infinity/index.tsx:425
+#: components/pages/Infinity/index.tsx:427
 msgid "mission.header"
 msgstr "Миссия KlimaDAO — демократизация борьбы с изменением климата"
 
@@ -988,115 +1004,115 @@ msgstr "Всего выбыло тонн углерода"
 msgid "pledges.edit_pledge"
 msgstr "Изменить залог"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:238
+#: components/pages/Pledge/PledgeForm/index.tsx:278
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Добавить категорию"
 
-#: components/pages/Pledge/lib/formSchema.ts:42
+#: components/pages/Pledge/lib/formSchema.ts:41
 msgid "pledges.form.errors.categoryName.max"
 msgstr "Введите менее 32 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:38
+#: components/pages/Pledge/lib/formSchema.ts:37
 msgid "pledges.form.errors.categoryName.required"
 msgstr "Введите категорию"
 
-#: components/pages/Pledge/lib/formSchema.ts:46
+#: components/pages/Pledge/lib/formSchema.ts:45
 msgid "pledges.form.errors.categoryQuantity.min"
 msgstr "Введите значение больше 0"
 
-#: components/pages/Pledge/lib/formSchema.ts:18
+#: components/pages/Pledge/lib/formSchema.ts:17
 msgid "pledges.form.errors.description.max"
 msgstr "Введите менее 500 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:14
+#: components/pages/Pledge/lib/formSchema.ts:13
 msgid "pledges.form.errors.description.required"
 msgstr "Введите залог"
 
-#: components/pages/Pledge/lib/formSchema.ts:30
+#: components/pages/Pledge/lib/formSchema.ts:29
 msgid "pledges.form.errors.footprint.generic_error"
 msgstr "Введите расчетное количество тонн углерода"
 
-#: components/pages/Pledge/lib/formSchema.ts:34
+#: components/pages/Pledge/lib/formSchema.ts:33
 msgid "pledges.form.errors.footprint.min"
 msgstr "Введите значение больше 0"
 
-#: components/pages/Pledge/lib/formSchema.ts:26
+#: components/pages/Pledge/lib/formSchema.ts:25
 msgid "pledges.form.errors.methodology.max"
 msgstr "Введите менее 1000 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:22
+#: components/pages/Pledge/lib/formSchema.ts:21
 msgid "pledges.form.errors.methodology.required"
 msgstr "Введите методологию"
 
-#: components/pages/Pledge/lib/formSchema.ts:6
+#: components/pages/Pledge/lib/formSchema.ts:5
 msgid "pledges.form.errors.name.required"
 msgstr "Введите имя"
 
-#: components/pages/Pledge/lib/formSchema.ts:10
+#: components/pages/Pledge/lib/formSchema.ts:9
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "Введите действительный URL"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:175
+#: components/pages/Pledge/PledgeForm/index.tsx:200
 msgid "pledges.form.footprint.label"
 msgstr "След"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:180
+#: components/pages/Pledge/PledgeForm/index.tsx:205
 msgid "pledges.form.footprint.prompt"
 msgstr "Добавьте категорию и начните рассчитывать свой углеродный след"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:108
+#: components/pages/Pledge/PledgeForm/index.tsx:109
 msgid "pledges.form.generic_error"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:192
+#: components/pages/Pledge/PledgeForm/index.tsx:225
 msgid "pledges.form.input.categoryName.label"
 msgstr "Категория"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:196
+#: components/pages/Pledge/PledgeForm/index.tsx:217
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Название категории"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:208
+#: components/pages/Pledge/PledgeForm/index.tsx:248
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Количество"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:212
+#: components/pages/Pledge/PledgeForm/index.tsx:240
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Тонны углерода"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:143
+#: components/pages/Pledge/PledgeForm/index.tsx:163
 msgid "pledges.form.input.description.label"
 msgstr "Залог"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:147
+#: components/pages/Pledge/PledgeForm/index.tsx:156
 msgid "pledges.form.input.description.placeholder"
 msgstr "Каково ваше обязательство?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:159
+#: components/pages/Pledge/PledgeForm/index.tsx:186
 msgid "pledges.form.input.methodology.label"
 msgstr "Методология"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:163
+#: components/pages/Pledge/PledgeForm/index.tsx:178
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "Какие инструменты или методики вы использовали для расчета своего углеродного следа?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:116
+#: components/pages/Pledge/PledgeForm/index.tsx:125
 msgid "pledges.form.input.name.label"
 msgstr "Имя"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:117
+#: components/pages/Pledge/PledgeForm/index.tsx:118
 msgid "pledges.form.input.name.placeholder"
 msgstr "Имя или название компании"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:129
+#: components/pages/Pledge/PledgeForm/index.tsx:141
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "URL-адрес изображения профиля (необязательно)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:250
+#: components/pages/Pledge/PledgeForm/index.tsx:294
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Общий след"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:265
+#: components/pages/Pledge/PledgeForm/index.tsx:311
 msgid "pledges.form.submit_button"
 msgstr "Сохранить залог"
 
@@ -1106,7 +1122,7 @@ msgstr ""
 "Ваше залог\n"
 ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:45
+#: components/pages/Pledge/PledgeForm/index.tsx:46
 msgid "pledges.form.total_footprint_summary"
 msgstr "Общий след: {0} тонны углерода"
 
@@ -1143,27 +1159,51 @@ msgstr "Подкаст"
 msgid "podcast.head.title"
 msgstr "Подкаст KlimaDAO"
 
-#: components/pages/Resources/index.tsx:33
+#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
+msgid "resources.form.input.search.error.required"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:88
+msgid "resources.form.input.search.label"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:74
+msgid "resources.form.input.search.placeholder"
+msgstr ""
+
+#: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
 msgstr "Свежие новости и аналитические материалы от основателей, участников DAO, консультантов и сообщества."
 
-#: components/pages/Resources/index.tsx:29
+#: components/pages/Resources/index.tsx:28
 msgid "resources.head.metaTitle"
 msgstr "Ресурсы KlimaDAO - Выйти за рамки углеродной нейтральности"
 
-#: components/pages/Resources/index.tsx:25
+#: components/pages/Resources/index.tsx:24
 msgid "resources.head.title"
 msgstr "KlimaDAO | Ресурсы"
 
-#: components/pages/Resources/index.tsx:48
+#: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
 msgstr "Свежие новости и аналитические материалы от основателей, участников DAO, консультантов и сообщества."
 
-#: components/pages/Resources/index.tsx:45
+#: components/pages/Resources/index.tsx:44
 msgid "resources.page.header.title"
 msgstr ""
 "Популярные статьи\n"
 ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:65
+msgid "resources.page.list.header"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:116
+msgid "resources.page.list.no_search_results.subline"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:111
+msgid "resources.page.list.no_search_results.title"
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1340,47 +1380,46 @@ msgstr "Итого выведено"
 msgid "shared.404"
 msgstr "404 Страница не найдена"
 
-#: components/Navigation/index.tsx:76
-#: components/Navigation/index.tsx:247
+#: components/Navigation/index.tsx:74
+#: components/Navigation/index.tsx:219
 msgid "shared.about"
 msgstr "О"
 
-#: components/Navigation/index.tsx:108
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:113
+#: components/Navigation/index.tsx:261
 msgid "shared.app"
 msgstr "Приложение"
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:79
-#: components/Navigation/index.tsx:253
+#: components/Navigation/index.tsx:76
+#: components/Navigation/index.tsx:223
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Блог"
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:127
-#: components/Navigation/index.tsx:301
+#: components/Navigation/index.tsx:131
+#: components/Navigation/index.tsx:278
 msgid "shared.bond"
 msgstr ""
-"БОНД KLIMA\n"
-""
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:111
-#: components/Navigation/index.tsx:288
+#: components/Navigation/index.tsx:115
+#: components/Navigation/index.tsx:265
 msgid "shared.buy"
 msgstr ""
-"КУПИТЬ KLIMA\n"
-""
 
-#: components/Navigation/index.tsx:213
-#: components/Navigation/index.tsx:394
+#: components/Navigation/index.tsx:335
+msgid "shared.carbon_dashboard"
+msgstr ""
+
+#: components/Navigation/index.tsx:186
 msgid "shared.carbon_dashboards"
-msgstr "УГЛЕРОДНЫЕ ПРИБОРНЫЕ ПАНЕЛИ"
+msgstr ""
 
-#: components/Navigation/index.tsx:88
-#: components/Navigation/index.tsx:262
+#: components/Navigation/index.tsx:94
+#: components/Navigation/index.tsx:241
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1392,18 +1431,18 @@ msgid "shared.connect"
 msgstr "Соединить"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:271
+#: components/Navigation/index.tsx:250
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Связаться"
 
-#: components/Navigation/index.tsx:64
-#: components/pages/Infinity/index.tsx:112
-#: components/pages/Infinity/index.tsx:678
+#: components/Navigation/index.tsx:63
+#: components/pages/Infinity/index.tsx:114
+#: components/pages/Infinity/index.tsx:680
 msgid "shared.contact_sales"
 msgstr "Связаться с отделом продаж"
 
-#: components/Navigation/index.tsx:97
+#: components/Navigation/index.tsx:103
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1411,24 +1450,28 @@ msgid "shared.contact_us"
 msgstr "Связаться с нами"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:221
-#: components/Navigation/index.tsx:402
+#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:343
 msgid "shared.disclaimer"
-msgstr "ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ"
+msgstr "Отказ от ответственности"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:230
-#: components/Navigation/index.tsx:411
+#: components/Navigation/index.tsx:203
+#: components/Navigation/index.tsx:352
 msgid "shared.docs"
-msgstr "ДОКУМЕНТЫ"
+msgstr ""
 
-#: components/Navigation/index.tsx:57
-#: components/pages/Home/index.tsx:115
+#: components/Navigation/index.tsx:56
+#: components/pages/Home/index.tsx:114
 msgid "shared.enter_app"
 msgstr "Войдите в приложение"
 
+#: components/pages/Infinity/GetStartedModal.tsx:25
+msgid "shared.get_started"
+msgstr "С чего начать"
+
 #: components/pages/Buy/index.tsx:46
-#: components/pages/Home/index.tsx:69
+#: components/pages/Home/index.tsx:68
 #: components/pages/Pledge/PledgeDashboard/index.tsx:59
 #: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
@@ -1442,30 +1485,30 @@ msgstr ""
 msgid "shared.home"
 msgstr "Домашняя страница"
 
-#: components/Navigation/index.tsx:204
-#: components/Navigation/index.tsx:385
+#: components/Navigation/index.tsx:177
+#: components/Navigation/index.tsx:326
 msgid "shared.how_to_buy"
-msgstr "КАК КУПИТЬ KLIMA"
+msgstr ""
 
-#: components/Navigation/index.tsx:161
-#: components/Navigation/index.tsx:335
+#: components/Navigation/index.tsx:164
+#: components/Navigation/index.tsx:312
 msgid "shared.infinity"
 msgstr "Infinity"
 
-#: components/pages/Infinity/index.tsx:104
-#: components/pages/Infinity/index.tsx:297
-#: components/pages/Infinity/index.tsx:670
+#: components/pages/Infinity/index.tsx:106
+#: components/pages/Infinity/index.tsx:299
+#: components/pages/Infinity/index.tsx:672
 msgid "shared.infinity.get_started"
 msgstr "С чего начать"
 
-#: components/pages/Home/index.tsx:185
+#: components/pages/Home/index.tsx:184
 msgid "shared.infinity_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:151
-#: components/Navigation/index.tsx:325
+#: components/Navigation/index.tsx:155
+#: components/Navigation/index.tsx:302
 msgid "shared.info"
-msgstr "ИНФОРМАЦИЯ"
+msgstr "Информация"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
@@ -1473,44 +1516,46 @@ msgstr "ИНФОРМАЦИЯ"
 msgid "shared.loading"
 msgstr "Загрузка..."
 
-#: components/pages/Home/index.tsx:192
+#: components/pages/Home/index.tsx:191
 msgid "shared.loveletter_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:197
-#: components/Navigation/index.tsx:372
+#: components/Navigation/index.tsx:170
+#: components/Navigation/index.tsx:317
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:143
-#: components/Navigation/index.tsx:317
+#: components/Navigation/index.tsx:147
+#: components/Navigation/index.tsx:294
 msgid "shared.offset"
 msgstr "Офсет"
 
+#: components/Navigation/index.tsx:85
+#: components/Navigation/index.tsx:232
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "Подкаст"
 
-#: components/Navigation/index.tsx:200
-#: components/Navigation/index.tsx:379
+#: components/Navigation/index.tsx:173
+#: components/Navigation/index.tsx:322
 msgid "shared.resources"
 msgstr "Источники"
 
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:119
-#: components/Navigation/index.tsx:293
+#: components/Navigation/index.tsx:123
+#: components/Navigation/index.tsx:270
 msgid "shared.stake"
-msgstr "Стейкинг KLIMA"
+msgstr ""
 
-#: components/pages/Infinity/index.tsx:492
+#: components/pages/Infinity/index.tsx:494
 msgid "shared.visit_klimadao_blog"
 msgstr "Посетите блог KlimaDAO"
 
-#: components/Navigation/index.tsx:135
-#: components/Navigation/index.tsx:309
+#: components/Navigation/index.tsx:139
+#: components/Navigation/index.tsx:286
 msgid "shared.wrap"
-msgstr "обернуть sKLIMA"
+msgstr ""
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"

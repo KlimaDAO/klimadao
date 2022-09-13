@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const gradientBackgroundTop = css`
-  margin-top: -10rem;
+  margin-top: calc(var(--header-height) * -1);
   padding: 0 !important;
   grid-column: full;
   display: grid;
@@ -30,7 +30,8 @@ export const heroKlimaLogo = css`
 `;
 
 export const heroSection = css`
-  margin-top: 10rem;
+  /* Because we use negative margin on the parent (for the gradient), we need to compensate */
+  margin-top: var(--header-height);
   padding: 0.4rem;
   min-height: 100vh;
   width: 100vw;
@@ -40,8 +41,8 @@ export const heroSection = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${breakpoints.large} {
-    min-height: calc(100vh - var(--header-height) * 2);
+  ${breakpoints.desktop} {
+    min-height: calc(100vh - var(--header-height));
   }
   .hero_container {
     z-index: 4;
@@ -78,6 +79,7 @@ export const heroSection = css`
     gap: 1.8rem;
     grid-auto-flow: column;
     padding-top: 2.4rem;
+    position: relative;
   }
   ${breakpoints.large} {
     .hero_container {
@@ -596,7 +598,7 @@ export const missionSection = css`
     display: flex;
     gap: 3.2rem;
     flex-direction: column;
-    ${breakpoints.large} {
+    ${breakpoints.desktop} {
       flex-direction: row;
     }
   }
@@ -788,10 +790,6 @@ export const ctaSection = css`
       width: 50%;
       justify-content: flex-end;
     }
-    button {
-      height: 4rem;
-      min-height: 4rem;
-    }
   }
   .cta_logo {
     width: 100%;
@@ -824,5 +822,66 @@ export const footerContainer = css`
 
   ${breakpoints.large} {
     padding-bottom: 3.2rem;
+  }
+`;
+
+export const modalContainer = css`
+  gap: 2rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
+
+export const modalButtonContainer = css`
+  position: relative;
+  max-width: 60rem;
+  width: 100%;
+  height: 100%;
+  max-height: 18rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 2rem;
+  ${breakpoints.medium} {
+    padding: 2rem 2rem 2rem 4.8rem;
+  }
+  cursor: pointer;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  .image {
+    z-index: 1;
+  }
+  .text {
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left !important;
+    gap: 1.6rem;
+    ${breakpoints.desktop} {
+      justify-content: flex-start;
+    }
+  }
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const modalLink = css`
+  color: var(--klima-green);
+  text-decoration: underline;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  ${breakpoints.large} {
+    text-align: left !important;
   }
 `;

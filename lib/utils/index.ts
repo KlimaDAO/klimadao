@@ -45,7 +45,7 @@ export {
   isKNSDomain,
   KNSContract,
 } from "./kns";
-export { getTransactionOptions, getGasPrice } from "./getTransactionOptions";
+export { getTransactionOptions } from "./getTransactionOptions";
 
 // ENS
 export {
@@ -55,3 +55,5 @@ export {
   getENSProfile,
 } from "./ens";
 export { useWeb3 } from "./useWeb3";
+export { useFocusTrap } from "./useFocusTrap";
+export { useTabListener } from "./useTabListener";

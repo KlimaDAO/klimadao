@@ -3,8 +3,9 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
 
 export const heroSection = css`
+  padding-top: var(--header-height);
   min-height: 100vh;
-  padding: 0 !important;
+  padding: 0;
   .tooltip_underline {
     text-decoration: dotted;
   }
@@ -15,6 +16,7 @@ export const heroSection = css`
     row-gap: 2.4rem;
     grid-template-rows: auto 1fr;
     margin-top: 6.4rem;
+    padding-top: 3.2rem;
   }
 
   .hero_newsBanner {
@@ -112,7 +114,13 @@ export const heroSection = css`
   }
 
   ${breakpoints.large} {
-    min-height: calc(100vh - var(--header-height) * 2);
+    .hero_container {
+      padding-top: unset;
+    }
+  }
+
+  ${breakpoints.large} {
+    padding: 0;
     .hero_container {
       align-content: center;
       margin-top: unset;
@@ -146,7 +154,13 @@ export const heroSection = css`
     }
   }
 
+  ${breakpoints.desktop} {
+    /* On mobile, the header is sticky and not in the flow. On desktop we need to account for it */
+    min-height: calc(100vh - var(--header-height));
+  }
+
   ${breakpoints.desktopLarge} {
+    padding: 0;
     .hero_whiteCard {
       padding: 6.4rem;
     }

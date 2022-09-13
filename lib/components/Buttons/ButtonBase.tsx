@@ -12,7 +12,7 @@ export interface Props {
   target?: string;
   isExternalHref?: boolean;
   disabled?: boolean;
-  type?: "submit" | "reset" | "button";
+  type?: "button" | "submit" | "reset";
 }
 
 interface BaseProps extends Props {
@@ -22,7 +22,6 @@ interface BaseProps extends Props {
 export const BaseButton: FC<BaseProps> = ({
   link: LinkElement,
   buttonStyle,
-  type,
   ...props
 }) => {
   if (props.href) {
@@ -43,7 +42,7 @@ export const BaseButton: FC<BaseProps> = ({
 
   return (
     <button
-      type={type || "button"}
+      type={props.type || "button"}
       className={buttonStyle}
       onClick={props.onClick}
       disabled={props.disabled}
