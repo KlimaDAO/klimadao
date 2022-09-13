@@ -136,7 +136,6 @@ module.exports = async function (fastify, opts) {
             },
             handler: async function (request, reply) {
                 try {
-                    var data = {};
                     await fastify.firebase.firestore()
                         .collection("users")
                         .doc(request.body.wallet).update({
