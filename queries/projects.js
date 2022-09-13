@@ -45,3 +45,4 @@ const GET_PROJECT_BY_ID = gql`
             }
             `
 module.exports.GET_PROJECTS = GET_PROJECTS;
+module.exports.GET_PROJECT_BY_ID = GET_PROJECT_BY_ID;

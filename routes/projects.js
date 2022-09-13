@@ -1,6 +1,6 @@
 'use strict'
 const { client } = require('./apollo-client.js');
-const { GET_PROJECTS } = require('../queries/projects.js');
+const { GET_PROJECTS, GET_PROJECT_BY_ID } = require('../queries/projects.js');
 
 
 module.exports = async function (fastify, opts) {
@@ -24,7 +24,7 @@ module.exports = async function (fastify, opts) {
 
                 var data = await client
                     .query({
-                        query: GET_PROJECTS,
+                        query: GET_PROJECT_BY_ID,
                     });
 
                 if (data.data.projects[0]) {
