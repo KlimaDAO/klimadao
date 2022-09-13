@@ -17,7 +17,8 @@ module.exports = async function (fastify, opts) {
                         username: { type: 'string' },
                         description: { type: 'string' },
                         wallet: { type: 'string' },
-                        listings: { type: 'array' }
+                        listings: { type: 'array' },
+                        activities: { type: 'array' }
                     }
                 }
             }
@@ -35,7 +36,7 @@ module.exports = async function (fastify, opts) {
                 return reply.notFound();
             }
 
-            var listings = await client
+            var data = await client
                 .query({
                     query: GET_USER_DATA,
                     variables: { wallet }
@@ -44,8 +45,13 @@ module.exports = async function (fastify, opts) {
 
             var response = user.data();
             response.wallet = wallet;
-            response.listings = listings.data.user.listings;
-            response.purchases = listings.data.user.purchases;
+            if (data.users.length) {
+                response.listings = data.data.users[0].listings;
+                response.activities = data.data.users[0].activities;
+            } else {
+                response.listings = [];
+                response.activities = [];
+            }
 
             return reply.send(response);
         }

@@ -7,8 +7,25 @@ const GET_USER_DATA = gql`
                     }
                 )
                 {
-                    listings
-                    activities
+                    listings {
+                        id,
+                        seller,
+                        totalAmountToSell,
+                        tokenAddress,
+                        active,
+                        deleted,
+                        batches,
+                        batchPrices,
+                        singleUnitPrice,
+                        projectId,
+                    }
+                    activities {
+                        id,
+                        previousData,
+                        currentData,
+                        activityType,
+                        timeStamp,
+                    }
                 }
             }
             `
