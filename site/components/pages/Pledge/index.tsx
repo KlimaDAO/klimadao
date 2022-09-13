@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
@@ -13,6 +13,7 @@ import { SocialProof } from "components/SocialProof";
 
 import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
+import { useWeb3 } from "@klimadao/lib/utils";
 
 export const Pledge: NextPage = () => {
   const router = useRouter();
@@ -35,6 +36,22 @@ export const Pledge: NextPage = () => {
 
     setSubmitting(false);
   };
+
+  const { address, connect, isConnected } = useWeb3();
+
+  const [shouldRedirect, setShouldRedirect] = useState(false);
+
+  const handleCreatePledge = async () => {
+    setShouldRedirect(true);
+
+    if (!isConnected && connect) connect();
+  };
+
+  useEffect(() => {
+    if (shouldRedirect && address) {
+      router.push(`/pledge/${address}`);
+    }
+  }, [shouldRedirect, address]);
 
   return (
     <>
@@ -84,6 +101,7 @@ export const Pledge: NextPage = () => {
 
               <div className="actions">
                 <ButtonPrimary
+                  onClick={handleCreatePledge}
                   variant="blue"
                   label={t({
                     message: "Create a pledge",
@@ -264,6 +282,7 @@ export const Pledge: NextPage = () => {
             </ol>
 
             <ButtonPrimary
+              onClick={handleCreatePledge}
               variant="blue"
               label={t({
                 id: "pledges.home.get_started.create",
@@ -284,6 +303,7 @@ export const Pledge: NextPage = () => {
               </Text>
 
               <ButtonPrimary
+                onClick={handleCreatePledge}
                 variant="blue"
                 label={t({
                   id: "pledges.home.banner.create",
