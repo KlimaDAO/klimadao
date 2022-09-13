@@ -21,10 +21,13 @@ module.exports = async function (fastify, opts) {
             method: 'GET',
             path: '/projects/:id',
             handler: async function (request, reply) {
-
+                var {id} = (request.params);
+                id = "0"+ id.toString(16);
+             
                 var data = await client
                     .query({
                         query: GET_PROJECT_BY_ID,
+                        variables: { id }
                     });
 
                 if (data.data.projects[0]) {
