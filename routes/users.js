@@ -1,4 +1,7 @@
 'use strict'
+const { ApolloClient, InMemoryCache, gql, useQuery } = require('@apollo/client');
+const { client } = require('./apollo-client.js');
+const { GET_USER_LISTINGS } = require('../queries/users.js');
 
 
 module.exports = async function (fastify, opts) {
@@ -12,12 +15,13 @@ module.exports = async function (fastify, opts) {
                     properties: {
                         handle: { type: 'string' },
                         username: { type: 'string' },
-                        wallet: { type: 'string' }
+                        wallet: { type: 'string' },
+                        listings: { type: 'array' }
                     }
                 }
             }
         },
-        
+
         handler: async function (request, reply) {
             const { wallet } = request.params;
 
@@ -26,11 +30,23 @@ module.exports = async function (fastify, opts) {
                 .doc(wallet)
                 .get();
 
-            if (user.exists) {
-                return reply.send(user.data());
+            if (!user.exists) {
+                return reply.notFound();
             }
-            return reply.notFound();
 
+            var listings = await client
+                .query({
+                    query: GET_USER_LISTINGS,
+                    variables: { wallet }
+                });
+
+
+            var response = user.data();
+            response.wallet = wallet;
+            response.listings = listings.data.listings;
+            console.log(response.listings);
+
+            return reply.send(response);
         }
     }),
         fastify.route({

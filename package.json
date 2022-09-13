@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@fastify/autoload": "^5.4.0",
     "@fastify/response-validation": "^2.1.0",
     "@fastify/sensible": "^5.0.0",
@@ -23,9 +24,12 @@
     "fastify-cli": "^5.4.0",
     "fastify-plugin": "^4.0.0",
     "firebase": "^9.9.4",
-    "gcloud": "^0.37.2"
+    "gcloud": "^0.37.2",
+    "graph-cli": "^0.0.1",
+    "graphql": "^16.6.0"
   },
   "devDependencies": {
+    "@graphprotocol/client-cli": "^2.2.9",
     "tap": "^16.1.0"
   }
 }
