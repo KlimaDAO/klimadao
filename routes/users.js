@@ -1,7 +1,7 @@
 'use strict'
 const { ApolloClient, InMemoryCache, gql, useQuery } = require('@apollo/client');
 const { client } = require('./apollo-client.js');
-const { GET_USER_LISTINGS } = require('../queries/users.js');
+const { GET_USER_DATA } = require('../queries/users.js');
 
 
 module.exports = async function (fastify, opts) {
@@ -37,14 +37,15 @@ module.exports = async function (fastify, opts) {
 
             var listings = await client
                 .query({
-                    query: GET_USER_LISTINGS,
+                    query: GET_USER_DATA,
                     variables: { wallet }
                 });
 
 
             var response = user.data();
             response.wallet = wallet;
-            response.listings = listings.data.listings;
+            response.listings = listings.data.user.listings;
+            response.purchases = listings.data.user.purchases;
 
             return reply.send(response);
         }
