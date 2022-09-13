@@ -40,8 +40,7 @@ module.exports = async function (fastify, opts) {
                     query: GET_USER_DATA,
                     variables: { wallet }
                 });
-
-
+                
             var response = user.data();
             response.wallet = wallet;
             if (data.users.length) {

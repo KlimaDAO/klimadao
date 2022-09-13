@@ -16,5 +16,21 @@ module.exports = async function (fastify, opts) {
 
             return reply.send(JSON.stringify(data.data.projects));
         }
-    })
+    }),
+        fastify.route({
+            method: 'GET',
+            path: '/projects/:id',
+            handler: async function (request, reply) {
+
+                var data = await client
+                    .query({
+                        query: GET_PROJECTS,
+                    });
+
+                if (data.data.projects[0]) {
+                    return reply.send(JSON.stringify(data.data.projects[0]));
+                }
+                return reply.notFound();
+            }
+        })
 }

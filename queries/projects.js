@@ -15,5 +15,33 @@ const GET_PROJECTS = gql`
                 }
             }
             `
-
+            const GET_PROJECT_BY_ID = gql`
+            query projects($id: BigInt!){
+                projects(where: {
+                    id: $id
+                    })
+                {
+                    id
+                    key
+                    projectID
+                    name
+                    methodology
+                    vintage
+                    projectAddress
+                    registry
+                    listings {
+                        id,
+                        seller,
+                        totalAmountToSell,
+                        tokenAddress,
+                        active,
+                        deleted,
+                        batches,
+                        batchPrices,
+                        singleUnitPrice,
+                        projectId,
+                    }
+                }
+            }
+            `
 module.exports.GET_PROJECTS = GET_PROJECTS;
