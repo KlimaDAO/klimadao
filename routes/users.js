@@ -1,5 +1,4 @@
 'use strict'
-const { ApolloClient, InMemoryCache, gql, useQuery } = require('@apollo/client');
 const { client } = require('./apollo-client.js');
 const { GET_USER_DATA } = require('../queries/users.js');
 
