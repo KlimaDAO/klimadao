@@ -15,7 +15,7 @@ const GET_PROJECTS = gql`
                 }
             }
             `
-            const GET_PROJECT_BY_ID = gql`
+const GET_PROJECT_BY_ID = gql`
             query projects($id: BigInt!){
                 projects(where: {
                     id: $id
