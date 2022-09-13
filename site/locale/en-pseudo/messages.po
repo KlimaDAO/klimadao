@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
@@ -984,6 +990,10 @@ msgstr ""
 msgid "pledges.form.add_footprint_category_button"
 msgstr ""
 
+#: components/pages/Pledge/index.tsx:154
+msgid "pledges.form.error"
+msgstr ""
+
 #: components/pages/Pledge/lib/formSchema.ts:42
 msgid "pledges.form.errors.categoryName.max"
 msgstr ""
@@ -1100,24 +1110,44 @@ msgstr ""
 msgid "pledges.form.total_footprint_summary"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:49
+#: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:44
+#: components/pages/Pledge/index.tsx:63
 msgid "pledges.head.metaTitle"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:40
+#: components/pages/Pledge/index.tsx:59
 msgid "pledges.head.title"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:70
-msgid "pledges.home.search.error_message"
+#: components/pages/Pledge/index.tsx:308
+msgid "pledges.home.banner.create"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:59
+#: components/pages/Pledge/index.tsx:287
+msgid "pledges.home.get_started.create"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:106
+msgid "pledges.home.hero.create"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:114
+msgid "pledges.home.hero.learn_more"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:143
+msgid "pledges.home.search.label"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:147
 msgid "pledges.home.search.placeholder"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:168
+msgid "pledges.home.search.submit"
 msgstr ""
 
 #: components/pages/Podcast/index.tsx:21
@@ -1328,43 +1358,43 @@ msgstr ""
 msgid "shared.404"
 msgstr ""
 
-#: components/Navigation/index.tsx:76
-#: components/Navigation/index.tsx:247
+#: components/Navigation/index.tsx:80
+#: components/Navigation/index.tsx:251
 msgid "shared.about"
 msgstr ""
 
-#: components/Navigation/index.tsx:108
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:112
+#: components/Navigation/index.tsx:286
 msgid "shared.app"
 msgstr ""
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:79
-#: components/Navigation/index.tsx:253
+#: components/Navigation/index.tsx:83
+#: components/Navigation/index.tsx:257
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr ""
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:127
-#: components/Navigation/index.tsx:301
+#: components/Navigation/index.tsx:131
+#: components/Navigation/index.tsx:305
 msgid "shared.bond"
 msgstr ""
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:111
-#: components/Navigation/index.tsx:288
+#: components/Navigation/index.tsx:115
+#: components/Navigation/index.tsx:292
 msgid "shared.buy"
 msgstr ""
 
-#: components/Navigation/index.tsx:213
-#: components/Navigation/index.tsx:394
+#: components/Navigation/index.tsx:217
+#: components/Navigation/index.tsx:398
 msgid "shared.carbon_dashboards"
 msgstr ""
 
-#: components/Navigation/index.tsx:88
-#: components/Navigation/index.tsx:262
+#: components/Navigation/index.tsx:92
+#: components/Navigation/index.tsx:266
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1376,18 +1406,18 @@ msgid "shared.connect"
 msgstr ""
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:271
+#: components/Navigation/index.tsx:275
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr ""
 
-#: components/Navigation/index.tsx:64
+#: components/Navigation/index.tsx:68
 #: components/pages/Infinity/index.tsx:112
 #: components/pages/Infinity/index.tsx:678
 msgid "shared.contact_sales"
 msgstr ""
 
-#: components/Navigation/index.tsx:97
+#: components/Navigation/index.tsx:101
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1395,18 +1425,18 @@ msgid "shared.contact_us"
 msgstr ""
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:221
-#: components/Navigation/index.tsx:402
+#: components/Navigation/index.tsx:225
+#: components/Navigation/index.tsx:406
 msgid "shared.disclaimer"
 msgstr ""
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:230
-#: components/Navigation/index.tsx:411
+#: components/Navigation/index.tsx:234
+#: components/Navigation/index.tsx:415
 msgid "shared.docs"
 msgstr ""
 
-#: components/Navigation/index.tsx:57
+#: components/Navigation/index.tsx:61
 #: components/pages/Home/index.tsx:115
 msgid "shared.enter_app"
 msgstr ""
@@ -1424,13 +1454,13 @@ msgstr ""
 msgid "shared.home"
 msgstr ""
 
-#: components/Navigation/index.tsx:204
-#: components/Navigation/index.tsx:385
+#: components/Navigation/index.tsx:208
+#: components/Navigation/index.tsx:389
 msgid "shared.how_to_buy"
 msgstr ""
 
-#: components/Navigation/index.tsx:161
-#: components/Navigation/index.tsx:335
+#: components/Navigation/index.tsx:165
+#: components/Navigation/index.tsx:339
 msgid "shared.infinity"
 msgstr ""
 
@@ -1444,8 +1474,8 @@ msgstr ""
 msgid "shared.infinity_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:151
-#: components/Navigation/index.tsx:325
+#: components/Navigation/index.tsx:155
+#: components/Navigation/index.tsx:329
 msgid "shared.info"
 msgstr ""
 
@@ -1459,13 +1489,13 @@ msgstr ""
 msgid "shared.loveletter_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:197
-#: components/Navigation/index.tsx:372
+#: components/Navigation/index.tsx:201
+#: components/Navigation/index.tsx:376
 msgid "shared.loveletters"
 msgstr ""
 
-#: components/Navigation/index.tsx:143
-#: components/Navigation/index.tsx:317
+#: components/Navigation/index.tsx:147
+#: components/Navigation/index.tsx:321
 msgid "shared.offset"
 msgstr ""
 
@@ -1474,14 +1504,14 @@ msgstr ""
 msgid "shared.podcast"
 msgstr ""
 
-#: components/Navigation/index.tsx:200
-#: components/Navigation/index.tsx:379
+#: components/Navigation/index.tsx:204
+#: components/Navigation/index.tsx:383
 msgid "shared.resources"
 msgstr ""
 
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:119
-#: components/Navigation/index.tsx:293
+#: components/Navigation/index.tsx:123
+#: components/Navigation/index.tsx:297
 msgid "shared.stake"
 msgstr ""
 
@@ -1489,8 +1519,8 @@ msgstr ""
 msgid "shared.visit_klimadao_blog"
 msgstr ""
 
-#: components/Navigation/index.tsx:135
-#: components/Navigation/index.tsx:309
+#: components/Navigation/index.tsx:139
+#: components/Navigation/index.tsx:313
 msgid "shared.wrap"
 msgstr ""
 
