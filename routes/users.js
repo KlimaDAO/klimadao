@@ -15,6 +15,7 @@ module.exports = async function (fastify, opts) {
                     properties: {
                         handle: { type: 'string' },
                         username: { type: 'string' },
+                        description: { type: 'string' },
                         wallet: { type: 'string' },
                         listings: { type: 'array' }
                     }
@@ -44,7 +45,6 @@ module.exports = async function (fastify, opts) {
             var response = user.data();
             response.wallet = wallet;
             response.listings = listings.data.listings;
-            console.log(response.listings);
 
             return reply.send(response);
         }
@@ -58,6 +58,7 @@ module.exports = async function (fastify, opts) {
                     properties: {
                         handle: { type: 'string', minLength: 3 },
                         username: { type: 'string', minLength: 2 },
+                        description: { type: 'string', minLength: 2, maxLength: 500 },
                         wallet: { type: 'string', minLength: 26, maxLength: 64 }
                     },
                     required: ['handle', 'username', 'wallet']
@@ -99,6 +100,7 @@ module.exports = async function (fastify, opts) {
                         .doc(request.body.wallet).set({
                             username: request.body.username,
                             handle: request.body.handle,
+                            description: request.body.description,
                         });
                     return reply.send(request.body);
                 } catch (err) {
@@ -115,8 +117,8 @@ module.exports = async function (fastify, opts) {
                     properties: {
                         handle: { type: 'string', minLength: 3 },
                         username: { type: 'string', minLength: 2 },
+                        description: { type: 'string', minLength: 2, maxLength: 500 },
                     },
-                    required: ['handle', 'username']
                 },
                 response: {
                     '2xx': {
@@ -124,7 +126,8 @@ module.exports = async function (fastify, opts) {
                         properties: {
                             handle: { type: 'string' },
                             username: { type: 'string' },
-                            wallet: { type: 'string' }
+                            wallet: { type: 'string' },
+                            description: { type: 'string' },
                         }
                     },
 
@@ -132,6 +135,7 @@ module.exports = async function (fastify, opts) {
             },
             handler: async function (request, reply) {
                 try {
+                    var data = {};
                     await fastify.firebase.firestore()
                         .collection("users")
                         .doc(request.body.wallet).update({
