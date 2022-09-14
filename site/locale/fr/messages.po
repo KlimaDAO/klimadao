@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-13 15:45+0000\n"
+"POT-Creation-Date: 2022-09-14 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1127,11 +1127,11 @@ msgstr "Empreinte totale : {0} Tonnes de carbone"
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
-msgstr ""
+msgstr "Montrez votre engagement climatique en utilisant votre tableau de bord pour mettre en évidence toutes vos activités de compensation du carbone."
 
 #: components/pages/Pledge/index.tsx:63
 msgid "pledges.head.metaTitle"
-msgstr ""
+msgstr "Créez une promesse carbone et montrez votre impact."
 
 #: components/pages/Pledge/index.tsx:59
 msgid "pledges.head.title"
@@ -1139,27 +1139,27 @@ msgstr "KlimaDAO | Engagements"
 
 #: components/pages/Pledge/index.tsx:308
 msgid "pledges.home.banner.create"
-msgstr ""
+msgstr "Créer une promesse"
 
 #: components/pages/Pledge/index.tsx:287
 msgid "pledges.home.get_started.create"
-msgstr ""
+msgstr "Créer une promesse"
 
 #: components/pages/Pledge/index.tsx:106
 msgid "pledges.home.hero.create"
-msgstr ""
+msgstr "Créer une promesse"
 
 #: components/pages/Pledge/index.tsx:114
 msgid "pledges.home.hero.learn_more"
-msgstr ""
+msgstr "En savoir plus"
 
 #: components/pages/Pledge/index.tsx:150
 msgid "pledges.home.search.label"
-msgstr ""
+msgstr "Adresse ENS ou 0x"
 
 #: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr ""
+msgstr "Entrez une adresse ENS ou 0x"
 
 #: components/pages/Pledge/index.tsx:168
 msgid "pledges.home.search.submit"

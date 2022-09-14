@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-13 15:45+0000\n"
+"POT-Creation-Date: 2022-09-14 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -627,7 +627,7 @@ msgstr "MECÁNICA"
 #. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
 #: components/pages/Home/index.tsx:426
 msgid "home.monthly_rewards_for_token_holders"
-msgstr ""
+msgstr "<0>{0}% RECOMPENSAS MENSUALES</0><1>PARA LOS POSEEDORES DE TOKENS</1>"
 
 #: components/pages/Home/index.tsx:489
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
@@ -779,19 +779,19 @@ msgstr "Rápido"
 
 #: components/pages/Infinity/GetStartedModal.tsx:42
 msgid "infinity.getStartedModal_business"
-msgstr ""
+msgstr "Soy una <0/>empresa."
 
 #: components/pages/Infinity/GetStartedModal.tsx:61
 msgid "infinity.getStartedModal_individual"
-msgstr ""
+msgstr "Soy un<0/>individuo."
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
 msgid "infinity.getStartedModal_notSure"
-msgstr ""
+msgstr "No estoy seguro de qué opción es para mí."
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
-msgstr ""
+msgstr "Quiero <0/>compensar crypto."
 
 #: components/pages/Infinity/index.tsx:249
 msgid "infinity.getStarted_1"
@@ -1133,11 +1133,11 @@ msgstr "Huella total: {0} Toneladas de carbono"
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
-msgstr ""
+msgstr "Demuestre su compromiso con el clima solicitando su panel de compromisos para destacar toda su actividad de compensación de carbono"
 
 #: components/pages/Pledge/index.tsx:63
 msgid "pledges.head.metaTitle"
-msgstr ""
+msgstr "Cree un compromiso de carbono y muestre su impacto"
 
 #: components/pages/Pledge/index.tsx:59
 msgid "pledges.head.title"
@@ -1145,31 +1145,31 @@ msgstr "KlimaDAO | Compromisos"
 
 #: components/pages/Pledge/index.tsx:308
 msgid "pledges.home.banner.create"
-msgstr ""
+msgstr "Crear un compromiso"
 
 #: components/pages/Pledge/index.tsx:287
 msgid "pledges.home.get_started.create"
-msgstr ""
+msgstr "Crear un compromiso"
 
 #: components/pages/Pledge/index.tsx:106
 msgid "pledges.home.hero.create"
-msgstr ""
+msgstr "Crear un compromiso"
 
 #: components/pages/Pledge/index.tsx:114
 msgid "pledges.home.hero.learn_more"
-msgstr ""
+msgstr "Aprende más"
 
 #: components/pages/Pledge/index.tsx:150
 msgid "pledges.home.search.label"
-msgstr ""
+msgstr "Dirección ENS o 0x"
 
 #: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr ""
+msgstr "Introduzca la dirección ENS o 0x"
 
 #: components/pages/Pledge/index.tsx:168
 msgid "pledges.home.search.submit"
-msgstr ""
+msgstr "Buscar"
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
@@ -1186,15 +1186,15 @@ msgstr "KlimaDAO Podcast"
 
 #: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
 msgid "resources.form.input.search.error.required"
-msgstr ""
+msgstr "Introduzca un término de búsqueda"
 
 #: components/pages/Resources/ResourcesList/index.tsx:88
 msgid "resources.form.input.search.label"
-msgstr ""
+msgstr "Buscar"
 
 #: components/pages/Resources/ResourcesList/index.tsx:74
 msgid "resources.form.input.search.placeholder"
-msgstr ""
+msgstr "Buscar"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1218,15 +1218,15 @@ msgstr "Artículos destacados"
 
 #: components/pages/Resources/ResourcesList/index.tsx:65
 msgid "resources.page.list.header"
-msgstr ""
+msgstr "Explorar todo"
 
 #: components/pages/Resources/ResourcesList/index.tsx:116
 msgid "resources.page.list.no_search_results.subline"
-msgstr ""
+msgstr "Compruebe su búsqueda para ver si hay errores tipográficos u ortográficos, o pruebe con otro término de búsqueda."
 
 #: components/pages/Resources/ResourcesList/index.tsx:111
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "Lo sentimos. No hemos podido encontrar ningún resultado que coincida."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1425,21 +1425,21 @@ msgstr "Blog"
 #: components/Navigation/index.tsx:135
 #: components/Navigation/index.tsx:282
 msgid "shared.bond"
-msgstr ""
+msgstr "Bond Klima"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:119
 #: components/Navigation/index.tsx:269
 msgid "shared.buy"
-msgstr ""
+msgstr "Comprar Klima"
 
 #: components/Navigation/index.tsx:339
 msgid "shared.carbon_dashboard"
-msgstr ""
+msgstr "Dashboard de carbono"
 
 #: components/Navigation/index.tsx:190
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "Dashboard de carbono"
 
 #: components/Navigation/index.tsx:98
 #: components/Navigation/index.tsx:245
@@ -1482,7 +1482,7 @@ msgstr "Aviso legal"
 #: components/Navigation/index.tsx:207
 #: components/Navigation/index.tsx:356
 msgid "shared.docs"
-msgstr ""
+msgstr "Documentos"
 
 #: components/Navigation/index.tsx:60
 #: components/pages/Home/index.tsx:114
@@ -1509,7 +1509,7 @@ msgstr "Casa"
 #: components/Navigation/index.tsx:181
 #: components/Navigation/index.tsx:330
 msgid "shared.how_to_buy"
-msgstr ""
+msgstr "Cómo comprar Klima"
 
 #: components/Navigation/index.tsx:168
 #: components/Navigation/index.tsx:316
@@ -1567,7 +1567,7 @@ msgstr "Recursos"
 #: components/Navigation/index.tsx:127
 #: components/Navigation/index.tsx:274
 msgid "shared.stake"
-msgstr ""
+msgstr "Stake KLIMA"
 
 #: components/pages/Infinity/index.tsx:494
 msgid "shared.visit_klimadao_blog"
@@ -1576,7 +1576,7 @@ msgstr "Visite el blog de KlimaDAO"
 #: components/Navigation/index.tsx:143
 #: components/Navigation/index.tsx:290
 msgid "shared.wrap"
-msgstr ""
+msgstr "Empaquetar sKLIMA"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
