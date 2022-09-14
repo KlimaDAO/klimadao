@@ -1,11 +1,12 @@
 import React, { FC, useEffect, useState } from "react";
-import { useAppDispatch } from "../../state";
-import { AppState, setAppState } from "../../state/app";
-import * as styles from "./styles";
-import { Text, Spinner } from "@klimadao/lib/components";
-import CloseIcon from "@mui/icons-material/Close";
-import { useSelector } from "react-redux";
-import { selectAppState } from "../../state/selectors";
+import { useAppDispatch }                 from "../../state";
+import { AppState, setAppState }          from "../../state/app";
+import * as styles                        from "./styles";
+import { Text, Spinner }                  from "@klimadao/lib/components";
+import CloseIcon                          from "@mui/icons-material/Close";
+import { useSelector }                    from "react-redux";
+import { selectAppState }                 from "../../state/selectors";
+import { useWeb3 } from "@klimadao/lib/utils";
 
 type Props = {
   address?: string;
@@ -16,6 +17,8 @@ export const BuyModal: FC<Props> = (props) => {
   const { buyModalService }: AppState = useSelector(selectAppState);
 
   const [isLoadingMobilumWidget, setIsLoadingMobilumWidget] = useState(false);
+
+  const web3 = useWeb3();
 
   useEffect(() => {
     if (buyModalService && buyModalService.length > 0) {
@@ -39,6 +42,8 @@ export const BuyModal: FC<Props> = (props) => {
             script.async = true;
             script.src = json.scriptUrl;
             element.appendChild(script);
+
+
           }
         };
 
@@ -80,7 +85,7 @@ export const BuyModal: FC<Props> = (props) => {
           <iframe
             height="700"
             title="Transak On/Off Ramp Widget"
-            src={`https://global.transak.com?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&cryptoCurrencyCode=KLIMA`}
+            src={`https://global.transak.com?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&cryptoCurrencyCode=KLIMA&fiatCurrency=EUR&walletAddress=${web3.address}&fiatAmount=100`}
             allowTransparency
             allowFullScreen
             style={{

@@ -22,7 +22,6 @@
     "@reduxjs/toolkit": "^1.7.0",
     "@tippyjs/react": "^4.2.6",
     "@toruslabs/torus-embed": "^1.22.6",
-    "@transak/transak-sdk": "^1.0.31",
     "@translation/lingui": "^1.0.0",
     "ethers": "^5.7.0",
     "next": "^12.1.0",

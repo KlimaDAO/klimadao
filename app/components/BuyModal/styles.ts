@@ -167,6 +167,29 @@ export const card_iframe_container = css`
     margin-left: 0;
     margin-top: 6.2rem;
   }
+  
+  .MBMWidget_Exchange_Swap_Input .MBMWidget_Phaze_Select_Country_Dropdown {
+    pointer-events: none;
+  }
+  
+  .MBMWidget_Exchange_Swap_Input .select .btn-select .buttonLabel .caret {
+    display: none !important;
+  }
+  
+  .MBMWidget_Exchange_Swap_Input .MBMWidget_Exchange_fiat_selector_slot {
+    display: none;
+  }
+  
+  .MBMWidget_Exchange_General .MBMWidget_Exchange_Swap_Token {
+    border-right: none !important;
+    margin-right: 0;
+    padding-right: 0;
+    margin-top: 0;
+  }
+  
+  .MBMWidget_Exchange_General .MBMWidget_Exchange_Swap_Input .select .btn-select {
+    bottom: 10px !important;
+  }
 `;
 
 export const buyCard_iframeStack = css`
