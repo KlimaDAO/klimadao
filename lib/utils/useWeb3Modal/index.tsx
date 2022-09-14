@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import WalletLink from "walletlink";
+import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import Torus from "@toruslabs/torus-embed";
 
 import { urls } from "../../constants";
@@ -17,14 +17,16 @@ import {
 
 /** NOTE: only invoke client-side */
 const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
-  // BUG: @klimadao/lib transpilation does not properly re-export the Web3Modal library, probably because we don't use babel in here.
+  // BUG: @klimadao/lib transpilation does not properly re-export the Web3Modal or coinbase libraries, probably because we don't use babel in here.
   // Babel automatically adds a default export for interoperability reasons, which is why this isn't a problem in /site and /app (nextjs uses babel)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const untypedImport = Web3Modal as any;
-  const TypedWeb3Modal = untypedImport.default as typeof Web3Modal;
-
+  const untypedWeb3Modal = Web3Modal as any;
+  const untypedCoinbase = CoinbaseWalletSDK as any;
+  const TypedWeb3Modal = untypedWeb3Modal.default as typeof Web3Modal;
+  const TypedCoinbaseWallet =
+    untypedCoinbase.default as typeof CoinbaseWalletSDK;
   return new TypedWeb3Modal({
-    cacheProvider: true,
+    cacheProvider: false,
     providerOptions: {
       walletconnect: {
         package: WalletConnectProvider, // required
@@ -35,17 +37,13 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
           description: strings.walletconnect_desc,
         },
       },
-      walletlink: {
-        package: WalletLink,
+      coinbasewallet: {
+        package: TypedCoinbaseWallet, // Required
         options: {
-          appName: "KlimaDAO App",
-          rpc: urls.polygonMainnetRpc,
+          appName: "KlimaDAO App", // Required
+          rpc: urls.polygonMainnetRpc, // Optional if `infuraId` is provided; otherwise it's required
           chainId: 137, // Optional. It defaults to 1 if not provided
-          appLogoUrl: null, // Optional. Application logo image URL. favicon is used if unspecified
           darkMode: false, // Optional. Use dark theme, defaults to false
-        },
-        display: {
-          description: strings.coinbase_desc,
         },
       },
       injected: {
@@ -59,6 +57,11 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
         options: {
           networkParams: {
             host: "matic", // optional
+            chainId: 137,
+            networkName: "Polygon",
+          },
+          config: {
+            buildEnv: "production",
           },
         },
         display: {
@@ -103,11 +106,14 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   const web3Modal = useLocalizedModal(strings);
 
   const disconnect = async () => {
+    if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
+      await (web3state.provider?.provider as any).torus.logout();
+    }
     if (web3Modal) {
       web3Modal.clearCachedProvider();
-      setWeb3State(web3InitialState);
-      window.location.reload();
     }
+    setWeb3State(web3InitialState);
+    window.location.reload();
   };
 
   const connect = async () => {
@@ -115,7 +121,7 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
     const wrappedProvider = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(
       wrappedProvider
-    ) as TypedProvider; // assert for better typings, see event handlers below
+    ) as unknown as TypedProvider; // assert for better typings, see event handlers below
     const signer = provider.getSigner();
     const address = await signer.getAddress();
     const network = await provider.getNetwork();
