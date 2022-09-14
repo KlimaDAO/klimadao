@@ -17,9 +17,10 @@ const GET_PROJECTS = gql`
             }
             `
 const GET_PROJECT_BY_ID = gql`
-            query projects($id: BigInt!){
+            query projects($projectID: String!, $vintage: BigInt!){
                 projects(where: {
-                    id: $id
+                    projectID: $projectID
+                    vintage: $vintage
                     })
                 {
                     id
@@ -31,16 +32,15 @@ const GET_PROJECT_BY_ID = gql`
                     projectAddress
                     registry
                     listings {
-                        id,
-                        seller,
-                        totalAmountToSell,
-                        tokenAddress,
-                        active,
-                        deleted,
-                        batches,
-                        batchPrices,
-                        singleUnitPrice,
-                        projectId,
+                        id
+                        seller
+                        totalAmountToSell
+                        tokenAddress
+                        active
+                        deleted
+                        batches
+                        batchPrices
+                        singleUnitPrice
                     }
                     activities {
                         id

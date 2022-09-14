@@ -22,12 +22,14 @@ module.exports = async function (fastify, opts) {
             path: '/projects/:id',
             handler: async function (request, reply) {
                 var {id} = (request.params);
-                id = "0"+ id.toString(16);
+                id = id.split("-")
+                var projectID = `${id[0]}-${id[1]}`;
+                var vintage = (new Date( id[2]).getTime()) / 1000;
                 
                 var data = await client(process.env.GRAPH_API_URL)
                     .query({
                         query: GET_PROJECT_BY_ID,
-                        variables: { id }
+                        variables: { projectID, vintage }
                     });
 
                 if (data.data.projects[0]) {
