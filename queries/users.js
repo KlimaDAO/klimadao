@@ -20,11 +20,25 @@ const GET_USER_DATA = gql`
                         projectId,
                     }
                     activities {
-                        id,
-                        previousData,
-                        currentData,
-                        activityType,
-                        timeStamp,
+                        id
+                        amount
+                        previousAmount
+                        price 
+                        previousPrice
+                        timeStamp
+                        activityType
+                        project {
+                            key
+                        }
+                        seller {
+                            id
+                        }
+                        buyer {
+                            id
+                        }
+                    }
+                    purchases {
+                        id
                     }
                 }
             }
