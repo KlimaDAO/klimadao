@@ -35,7 +35,7 @@ module.exports = async function (fastify, opts) {
                 return reply.notFound();
             }
 
-            var data = await client
+            var data = await client(process.env.GRAPH_API_URL)
                 .query({
                     query: GET_USER_DATA,
                     variables: { wallet }

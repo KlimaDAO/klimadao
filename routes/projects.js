@@ -9,7 +9,7 @@ module.exports = async function (fastify, opts) {
         path: '/projects',
         handler: async function (request, reply) {
 
-            var data = await client
+            var data = await client(process.env.GRAPH_API_URL)
                 .query({
                     query: GET_PROJECTS,
                 });
@@ -23,15 +23,24 @@ module.exports = async function (fastify, opts) {
             handler: async function (request, reply) {
                 var {id} = (request.params);
                 id = "0"+ id.toString(16);
-
-                var data = await client
+                
+                var data = await client(process.env.GRAPH_API_URL)
                     .query({
                         query: GET_PROJECT_BY_ID,
                         variables: { id }
                     });
 
                 if (data.data.projects[0]) {
-                    return reply.send(JSON.stringify(data.data.projects[0]));
+                    // this comes from https://thegraph.com/hosted-service/subgraph/klimadao/polygon-bridged-carbon
+                    let pools = await client(process.env.CARBON_OFFSETS_GRAPH_API_URL)
+                    .query({
+                        query: GET_PROJECT_BY_ID,
+                        variables: { id }
+                    });
+
+                    var projects = data.data.projects[0];
+                    projects.pools = pools.data.carbonOffsets;
+                    return reply.send(JSON.stringify(projects));
                 }
                 return reply.notFound();
             }

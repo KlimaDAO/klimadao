@@ -2,10 +2,13 @@ const { ApolloClient, InMemoryCache } = require('@apollo/client');
 
 
 // Setup our client
-const client = new ApolloClient({
-    uri: process.env.GRAPH_API_URL,
-    cache: new InMemoryCache(),
-})
+function client(subgraphUrl) {
+    const client = new ApolloClient({
+        uri: subgraphUrl,
+        cache: new InMemoryCache(),
+    });
 
+    return client;
+}
 
 module.exports.client = client;
