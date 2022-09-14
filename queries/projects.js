@@ -31,6 +31,12 @@ const GET_PROJECT_BY_ID = gql`
                     vintage
                     projectAddress
                     registry
+                    category {
+                        id
+                    }
+                    country {
+                        id
+                    }
                     listings {
                         id
                         seller

@@ -1,5 +1,5 @@
 'use strict'
-const { client } = require('./apollo-client.js');
+const { client } = require('../apollo-client.js');
 const { GET_USER_DATA } = require('../queries/users.js');
 
 
