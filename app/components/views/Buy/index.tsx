@@ -39,8 +39,8 @@ export const Buy = (props: Props) => {
           <Text t="caption" color="lightest">
             <Trans id="buy.how_to_buy" comment="Long sentence">
               Buy KLIMA directly using our partners,{" "}
-              <Anchor href="https://mobilum.com/">Mobilum</Anchor> and <Anchor
-              href="https://transak.com/">Transak</Anchor>. Double check
+              <Anchor href="https://mobilum.com/">Mobilum</Anchor> and{" "}
+              <Anchor href="https://transak.com/">Transak</Anchor>. Double check
               that you are connected with your own secure wallet, and that the
               provided address is correct.
             </Trans>
