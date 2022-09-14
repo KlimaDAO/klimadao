@@ -9,13 +9,14 @@ const GET_USER_DATA = gql`
                 {
                     listings {
                         id,
-                        totalAmountToSell,
-                        tokenAddress,
-                        active,
-                        deleted,
-                        batches,
-                        batchPrices,
-                        singleUnitPrice,
+                        totalAmountToSell
+                        leftToSell
+                        tokenAddress
+                        active
+                        deleted
+                        batches
+                        batchPrices
+                        singleUnitPrice
                         project {
                             name
                             category
