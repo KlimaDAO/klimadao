@@ -12,6 +12,7 @@ const GET_PROJECTS = gql`
                     vintage
                     projectAddress
                     registry
+                    
                 }
             }
             `
@@ -40,6 +41,24 @@ const GET_PROJECT_BY_ID = gql`
                         batchPrices,
                         singleUnitPrice,
                         projectId,
+                    }
+                    activities {
+                        id
+                        amount
+                        previousAmount
+                        price 
+                        previousPrice
+                        timeStamp
+                        activityType
+                        project {
+                            key
+                        }
+                        seller {
+                            id
+                        }
+                        buyer {
+                            id
+                        }
                     }
                 }
             }
