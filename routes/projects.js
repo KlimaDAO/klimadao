@@ -35,7 +35,7 @@ module.exports = async function (fastify, opts) {
                     let pools = await client(process.env.CARBON_OFFSETS_GRAPH_API_URL)
                     .query({
                         query: GET_PROJECT_BY_ID,
-                        variables: { id }
+                        variables: { projectID, vintage }
                     });
 
                     var projects = data.data.projects[0];
