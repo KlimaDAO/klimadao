@@ -8,6 +8,7 @@ module.exports = async function (fastify, opts) {
         method: 'GET',
         path: '/users/:wallet',
         schema: {
+            tags: ["user"],
             response: {
                 '2xx': {
                     type: 'object',
@@ -40,7 +41,7 @@ module.exports = async function (fastify, opts) {
                     query: GET_USER_DATA,
                     variables: { wallet }
                 });
-                
+
             var response = user.data();
             response.wallet = wallet;
             if (data.users.length) {
@@ -58,6 +59,7 @@ module.exports = async function (fastify, opts) {
             method: 'POST',
             path: '/users',
             schema: {
+                tags: ["user"],
                 body: {
                     type: 'object',
                     properties: {
@@ -117,6 +119,7 @@ module.exports = async function (fastify, opts) {
             method: 'PUT',
             path: '/users/:wallet',
             schema: {
+                tags: ["user"],
                 body: {
                     type: 'object',
                     properties: {

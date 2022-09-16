@@ -7,6 +7,22 @@ module.exports = async function (fastify, opts) {
     fastify.route({
         method: 'GET',
         path: '/projects',
+        schema: {
+            tags: ["project"],
+            response: {
+                '2xx': {
+                    type: 'object',
+                    properties: {
+                        handle: { type: 'string' },
+                        username: { type: 'string' },
+                        description: { type: 'string' },
+                        wallet: { type: 'string' },
+                        listings: { type: 'array' },
+                        activities: { type: 'array' }
+                    }
+                }
+            }
+        },
         handler: async function (request, reply) {
 
             var data = await client(process.env.GRAPH_API_URL)
@@ -20,6 +36,22 @@ module.exports = async function (fastify, opts) {
         fastify.route({
             method: 'GET',
             path: '/projects/:id',
+            schema: {
+                tags: ["project"],
+                response: {
+                    '2xx': {
+                        type: 'object',
+                        properties: {
+                            handle: { type: 'string' },
+                            username: { type: 'string' },
+                            description: { type: 'string' },
+                            wallet: { type: 'string' },
+                            listings: { type: 'array' },
+                            activities: { type: 'array' }
+                        }
+                    }
+                }
+            },
             handler: async function (request, reply) {
                 var {id} = (request.params);
                 id = id.split("-")

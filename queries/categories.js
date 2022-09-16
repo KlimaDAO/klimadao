@@ -2,10 +2,9 @@ const { gql } = require('@apollo/client');
 
 const GET_CATEGORIES = gql`
             query categories{
-                categories(
+                categories {
                     id
-                )
-                
+                }
             }
             `
 

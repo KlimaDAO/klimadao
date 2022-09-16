@@ -7,6 +7,17 @@ module.exports = async function (fastify, opts) {
     fastify.route({
         method: 'GET',
         path: '/categories',
+        schema: {
+            tags: ["category"],
+            response: {
+                '2xx': {
+                    type: 'object',
+                    properties: {
+                        name: { type: 'string' },
+                    }
+                }
+            }
+        },
         handler: async function (request, reply) {
 
             var data = await client(process.env.GRAPH_API_URL)
@@ -16,5 +27,5 @@ module.exports = async function (fastify, opts) {
 
             return reply.send(JSON.stringify(data.data.categories));
         }
-    }),
+    })
 }
