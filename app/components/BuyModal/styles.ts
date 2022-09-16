@@ -32,6 +32,7 @@ export const card_header = css`
   justify-content: space-between;
   align-items: center;
   height: 3.2rem;
+  padding: 3rem 1.8rem 2rem;
 
   p {
     font-size: 2rem;
