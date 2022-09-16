@@ -17,11 +17,15 @@ const GET_PROJECTS = gql`
             }
             `
 const GET_PROJECT_BY_ID = gql`
-            query projects($projectID: String!, $vintage: BigInt!){
+            query projects($projectID: String!, $vintage: BigInt!, $country: String!, $category: String!, $search: String!){
                 projects(where: {
                     projectID: $projectID
                     vintage: $vintage
-                    })
+                    },
+                    filter: {
+                        name_contains: $search
+                    }
+                    )
                 {
                     id
                     key
@@ -31,10 +35,14 @@ const GET_PROJECT_BY_ID = gql`
                     vintage
                     projectAddress
                     registry
-                    category {
+                    category(filter: {
+                        id: $category
+                    }) {
                         id
                     }
-                    country {
+                    country(filter: {
+                        id: $country
+                    }) {
                         id
                     }
                     listings {
