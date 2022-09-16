@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: zh-CN\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:664
 msgid "Beneficiary 0x address (optional)"
@@ -225,26 +231,26 @@ msgstr "在提供输入数量的情况下，您将获得的金额"
 msgid "bond.you_will_get.tooltip"
 msgstr "在提供输入量的情况下，您将获得的债券化KLIMA数量"
 
-#: components/views/Buy/index.tsx:44
+#: components/views/Buy/index.tsx:37
 msgid "buy.buy_klima"
 msgstr "购买 KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:108
+#: components/views/Buy/index.tsx:69
 msgid "buy.connect_wallet"
 msgstr "必须连接钱包才能购买 KLIMA。"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:55
+#: components/views/Buy/index.tsx:49
 msgid "buy.data_disclaimer"
 msgstr "KlimaDAO 不会以任何理由收集任何人的个人数据。查看 Mobilum <0>隐私政策</0>和<1>条款和条件</1>."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:47
+#: components/views/Buy/index.tsx:40
 msgid "buy.how_to_buy"
 msgstr "通过我们的合作伙伴 <0>Mobilum 直接购买 KLIMA</0> .仔细确认您是否已安全地连接到自己的钱包，及提供的地址是否正确。"
 
-#: components/views/Buy/index.tsx:105
+#: components/views/Buy/index.tsx:66
 msgid "buy.not_connected"
 msgstr "未连接"
 
@@ -664,10 +670,6 @@ msgstr "确认中"
 msgid "shared.connect_wallet"
 msgstr "连接钱包"
 
-#: components/views/Buy/index.tsx:76
-msgid "shared.copy_wallet_address"
-msgstr "复制地址 {0}"
-
 #: components/views/Stake/index.tsx:270
 #: components/views/Stake/index.tsx:280
 msgid "shared.enter_amount"
@@ -747,10 +749,6 @@ msgstr "停用碳"
 msgid "shared.sold_out"
 msgstr "售罄"
 
-#: components/views/Buy/index.tsx:83
-msgid "shared.wallet_address_copied"
-msgstr "已复制！"
-
 #: components/views/Stake/index.tsx:397
 msgid "stake.5_day_rewards"
 msgstr "5天奖励"
@@ -771,7 +769,7 @@ msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能�
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:124
+#: components/views/Buy/index.tsx:152
 #: components/views/Stake/index.tsx:306
 msgid "stake.balancescard.tooltip"
 msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将按给定的百分比增加。"

@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ru\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:664
 msgid "Beneficiary 0x address (optional)"
@@ -227,28 +233,28 @@ msgstr "Сумма, которую вы получите при заданном
 msgid "bond.you_will_get.tooltip"
 msgstr "Количество бондированого KLIMA, которое вы получите, при указанном количестве входных данных"
 
-#: components/views/Buy/index.tsx:44
+#: components/views/Buy/index.tsx:37
 msgid "buy.buy_klima"
 msgstr "Купить KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:108
+#: components/views/Buy/index.tsx:69
 msgid "buy.connect_wallet"
 msgstr "Вы должны подключить кошелек, чтобы купить KLIMA."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:55
+#: components/views/Buy/index.tsx:49
 msgid "buy.data_disclaimer"
 msgstr ""
 "KlimaDAO не получает никаких персональных данных.Ознакомьтесь с Mobilum \n"
 "<0>Политикой конфиденциальности</0> и <1>Правилами и условиями</1> "
 
 #. Long sentence
-#: components/views/Buy/index.tsx:47
+#: components/views/Buy/index.tsx:40
 msgid "buy.how_to_buy"
 msgstr "Покупайте KLIMA напрямую, используя нашего партнера, <0>Mobilum</0>. Дважды проверьте, что вы подключены к собственному защищенному кошельку, и что предоставленный адрес верен."
 
-#: components/views/Buy/index.tsx:105
+#: components/views/Buy/index.tsx:66
 msgid "buy.not_connected"
 msgstr "НЕ ПОДКЛЮЧЕН"
 
@@ -674,10 +680,6 @@ msgstr "Подтверждение"
 msgid "shared.connect_wallet"
 msgstr "Подключить кошелек"
 
-#: components/views/Buy/index.tsx:76
-msgid "shared.copy_wallet_address"
-msgstr "Копировать адрес {0}"
-
 #: components/views/Stake/index.tsx:270
 #: components/views/Stake/index.tsx:280
 msgid "shared.enter_amount"
@@ -757,10 +759,6 @@ msgstr "Вывод карбона"
 msgid "shared.sold_out"
 msgstr "РАСПРОДАННЫЙ"
 
-#: components/views/Buy/index.tsx:83
-msgid "shared.wallet_address_copied"
-msgstr "Скопировано!"
-
 #: components/views/Stake/index.tsx:397
 msgid "stake.5_day_rewards"
 msgstr "5-дневные награды"
@@ -781,7 +779,7 @@ msgstr "Годовые вознаграждения KLIMA, включая нач
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:124
+#: components/views/Buy/index.tsx:152
 #: components/views/Stake/index.tsx:306
 msgid "stake.balancescard.tooltip"
 msgstr "Стейкайте ваши KLIMA, чтобы получить sKLIMA. После каждого пополнения ваш баланс sKLIMA будет увеличиваться на указанный процент."

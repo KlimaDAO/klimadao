@@ -21,8 +21,10 @@ export const card = css`
   min-height: 24rem;
   background-color: #ffffff;
   border-radius: 1rem;
-  padding: 2rem 1.8rem 3rem;
   margin: 2.5rem;
+  @media (max-width: 32.5rem) {
+    margin: 1.2rem;
+  }
 `;
 
 export const card_header = css`
@@ -52,7 +54,7 @@ export const card_connected = css`
   }
 `;
 
-export const closeButton = css`
+export const close_button = css`
   composes: textButton;
   min-height: 0;
   padding: 0.6rem;
@@ -62,27 +64,14 @@ export const closeButton = css`
   border-radius: 0.4rem;
 `;
 
-export const copyAddress = css`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: #e7e7e7;
-  color: #313131;
-  padding: 1rem 1.6rem 1rem 2rem;
-  font-size: 1.6rem;
-  border-radius: 0.4rem;
-  flex-shrink: 0;
-
-  span {
-    margin-right: 1.2rem;
-  }
-`;
-
 export const card_iframe_container = css`
   width: 42.4rem;
   margin-top: 2.4rem;
   margin-left: auto;
   margin-right: auto;
+  @media (max-width: 32.5rem) {
+    max-width: 24rem;
+  }
 
   .MBMWidget_General {
     border: none;
@@ -195,40 +184,17 @@ export const card_iframe_container = css`
   }
 `;
 
-export const buyCard_iframeStack = css`
-  display: grid;
-  gap: 1.6rem;
-`;
-
-export const buyCard_iframeContainer = css`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  .spinner_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    padding: 2.4rem;
-  }
-`;
-
-export const buyCard_iframe = css`
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 1.2rem;
-  border: none;
-  width: 100%;
-  height: 73rem;
-  z-index: 2;
-  overflow-y: auto;
-`;
-
 export const spinner_container = css`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 1.2rem;
+`;
+
+export const iframe_wrapper = css`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;

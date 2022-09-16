@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import { useAppDispatch } from "../../state";
 import { AppState, setAppState } from "../../state/app";
 import * as styles from "./styles";
@@ -17,6 +17,7 @@ export const BuyModal: FC<Props> = (props) => {
   const { buyModalService }: AppState = useSelector(selectAppState);
 
   const [isLoadingMobilumWidget, setIsLoadingMobilumWidget] = useState(false);
+  const [modalHeight, setModalHeight] = useState<number | null>(null);
 
   const web3 = useWeb3();
 
@@ -50,6 +51,27 @@ export const BuyModal: FC<Props> = (props) => {
     }
   }, [buyModalService]);
 
+  const resizeHandler = useCallback(() => {
+    if (window.innerHeight < 800) {
+      console.log(window.innerHeight);
+      setModalHeight(window.innerHeight - 200);
+    }
+  }, []);
+
+  // On mount
+  useEffect(() => {
+    if (window && typeof window !== "undefined") {
+      window.addEventListener("resize", resizeHandler, true);
+    }
+
+    return () => {
+      // On unmount
+      if (window && typeof window !== "undefined") {
+        window.removeEventListener("resize", resizeHandler);
+      }
+    };
+  }, []);
+
   if (!buyModalService || buyModalService.length === 0) return null;
 
   const closeModal = function (): void {
@@ -61,7 +83,7 @@ export const BuyModal: FC<Props> = (props) => {
       <div className={styles.card}>
         <div className={styles.card_header}>
           <Text>{buyModalService}</Text>
-          <button onClick={closeModal} className={styles.closeButton}>
+          <button onClick={closeModal} className={styles.close_button}>
             <CloseIcon />
           </button>
         </div>
@@ -80,20 +102,23 @@ export const BuyModal: FC<Props> = (props) => {
           </>
         )}
         {buyModalService === "transak" && (
-          <iframe
-            height="700"
-            title="Transak On/Off Ramp Widget"
-            src={`https://global.transak.com?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&cryptoCurrencyCode=KLIMA&fiatCurrency=EUR&walletAddress=${web3.address}&fiatAmount=100`}
-            allowTransparency
-            allowFullScreen
-            style={{
-              display: "block",
-              width: "100%",
-              maxHeight: "700px",
-              maxWidth: "500px",
-              border: "none",
-            }}
-          ></iframe>
+          <div className={styles.iframe_wrapper}>
+            <iframe
+              id={"transakIframe"}
+              height="700"
+              title="Transak On/Off Ramp Widget"
+              src={`https://global.transak.com?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&cryptoCurrencyCode=KLIMA&fiatCurrency=EUR&walletAddress=${web3.address}&fiatAmount=100`}
+              allowTransparency
+              allowFullScreen
+              style={{
+                display: "block",
+                width: "100%",
+                maxHeight: modalHeight || "700px",
+                maxWidth: "500px",
+                border: "none",
+              }}
+            ></iframe>
+          </div>
         )}
       </div>
     </div>

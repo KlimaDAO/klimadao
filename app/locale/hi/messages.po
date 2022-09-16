@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: hi\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:664
 msgid "Beneficiary 0x address (optional)"
@@ -225,26 +231,26 @@ msgstr "प्रदान की गई इनपुट मात्रा प�
 msgid "bond.you_will_get.tooltip"
 msgstr "प्रदान की गई इनपुट मात्रा पर आपको बंधित KLIMA की राशि मिलेगी"
 
-#: components/views/Buy/index.tsx:44
+#: components/views/Buy/index.tsx:37
 msgid "buy.buy_klima"
 msgstr "KLIMA ख़रीदें"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:108
+#: components/views/Buy/index.tsx:69
 msgid "buy.connect_wallet"
 msgstr "KLIMA ख़रीदने के क्रम में आपको किसी वॉलेट को जोड़ना पड़ेगा।"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:55
+#: components/views/Buy/index.tsx:49
 msgid "buy.data_disclaimer"
 msgstr "KlimaDAO कोई भी व्यक्तिगत जानकारी प्राप्त नहीं करता है। Mobilum (मोबिलम) की <0>गोपनीयता नीति</0> और <1>नियम व शर्तों</1> की समीक्षा करें।"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:47
+#: components/views/Buy/index.tsx:40
 msgid "buy.how_to_buy"
 msgstr "हमारे पार्टनर <0>Mobilum</0> का उपयोग करके सीधे KLIMA ख़रीदें। दोबारा जांचें कि आप अपने स्वयं के सुरक्षित वॉलेट से जुड़े हैं, और प्रदान किया गया पता सही है।"
 
-#: components/views/Buy/index.tsx:105
+#: components/views/Buy/index.tsx:66
 msgid "buy.not_connected"
 msgstr "कनेक्ट नहीं हैं"
 
@@ -664,10 +670,6 @@ msgstr "पुष्टि"
 msgid "shared.connect_wallet"
 msgstr "वॉलेट कनेक्ट करें"
 
-#: components/views/Buy/index.tsx:76
-msgid "shared.copy_wallet_address"
-msgstr "कॉपी पता {0}"
-
 #: components/views/Stake/index.tsx:270
 #: components/views/Stake/index.tsx:280
 msgid "shared.enter_amount"
@@ -747,10 +749,6 @@ msgstr "कार्बन रिटायर करें"
 msgid "shared.sold_out"
 msgstr "बिक चुका है"
 
-#: components/views/Buy/index.tsx:83
-msgid "shared.wallet_address_copied"
-msgstr "कॉपी किया गया!"
-
 #: components/views/Stake/index.tsx:397
 msgid "stake.5_day_rewards"
 msgstr "5 दिन के पुरस्कार"
@@ -771,7 +769,7 @@ msgstr "कंपाउंडिंग सहित वार्षिक KLIMA 
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:124
+#: components/views/Buy/index.tsx:152
 #: components/views/Stake/index.tsx:306
 msgid "stake.balancescard.tooltip"
 msgstr "sKLIMA प्राप्त करने के लिए अपने KLIMA टोकन को दाँव पर लगाएँ। हर रिबेस के बाद, आपका sKLIMA बैलेंस दिए गए प्रतिशत के हिसाब से बढ़ जाएगा।"

@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: de\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:664
 msgid "Beneficiary 0x address (optional)"
@@ -225,26 +231,26 @@ msgstr "Menge, die du für die eingegebene Eingangssumme erhältst"
 msgid "bond.you_will_get.tooltip"
 msgstr "Menge an gebondetem KLIMA, die du für die angegebene Eingangsmenge bekommst"
 
-#: components/views/Buy/index.tsx:44
+#: components/views/Buy/index.tsx:37
 msgid "buy.buy_klima"
 msgstr "KLIMA kaufen"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:108
+#: components/views/Buy/index.tsx:69
 msgid "buy.connect_wallet"
 msgstr "Du musst deine Wallet verbinden, um KLIMA zu kaufen."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:55
+#: components/views/Buy/index.tsx:49
 msgid "buy.data_disclaimer"
 msgstr "KlimaDAO erhebt keinerlei persönliche Daten. Prüfe hier die <0>Datenschutzerklärung</0> von Mobilum und die <1>Allgemeinen Geschäftsbedingungen</1>."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:47
+#: components/views/Buy/index.tsx:40
 msgid "buy.how_to_buy"
 msgstr "Kaufe KLIMA direkt über unseren Partner <0>Mobilum</0>. Überprüfe, dass du mit mit einer eigenen, sicheren Wallet verbunden bist und die angegebene Adresse korrekt ist."
 
-#: components/views/Buy/index.tsx:105
+#: components/views/Buy/index.tsx:66
 msgid "buy.not_connected"
 msgstr "Nicht verbunden"
 
@@ -670,10 +676,6 @@ msgstr "Bestätigen..."
 msgid "shared.connect_wallet"
 msgstr "Wallet verbinden"
 
-#: components/views/Buy/index.tsx:76
-msgid "shared.copy_wallet_address"
-msgstr "Adresse kopieren {0}"
-
 #: components/views/Stake/index.tsx:270
 #: components/views/Stake/index.tsx:280
 msgid "shared.enter_amount"
@@ -753,10 +755,6 @@ msgstr ""
 msgid "shared.sold_out"
 msgstr "Ausverkauft"
 
-#: components/views/Buy/index.tsx:83
-msgid "shared.wallet_address_copied"
-msgstr "Kopiert!"
-
 #: components/views/Stake/index.tsx:397
 msgid "stake.5_day_rewards"
 msgstr "ROI über fünf Tage"
@@ -777,7 +775,7 @@ msgstr "Jährliche KLIMA-Belohnungen, Zinseszinseffekte inbegriffen, sofern die 
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:124
+#: components/views/Buy/index.tsx:152
 #: components/views/Stake/index.tsx:306
 msgid "stake.balancescard.tooltip"
 msgstr "Stake deine KLIMA-Tokens, um sKLIMA zu erhalten. Nach jedem Rebase wird dein sKLIMA um die angegebene Prozentwahl wachsen."
