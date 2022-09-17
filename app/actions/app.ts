@@ -55,10 +55,8 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
       const stakingRebase = stakingReward / circSupply;
       const fiveDayRate =
         Math.pow(1 + stakingRebase, 5 * estimatedDailyRebases) - 1;
-      const stakingAnnualPercent = Math.pow(
-        1 + stakingRebase,
-        365 * estimatedDailyRebases
-      );
+      const stakingAnnualPercent =
+        Math.pow(1 + stakingRebase, 365 * estimatedDailyRebases) - 1;
 
       dispatch(
         setAppState({
