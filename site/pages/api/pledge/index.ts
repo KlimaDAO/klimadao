@@ -26,6 +26,7 @@ export default async function handler(
           );
         }
 
+        res.unstable_revalidate(`/pledge/${req.body.pageAddress}`);
         res.status(200).json({ pledge });
       } catch ({ message }) {
         console.error("Request failed:", message);
