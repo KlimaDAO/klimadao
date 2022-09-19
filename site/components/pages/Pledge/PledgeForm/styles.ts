@@ -26,6 +26,16 @@ export const categories_section = css`
   row-gap: 1rem;
 `;
 
+export const wallets_section = css`
+  display: flex;
+  flex-direction: column;
+  .pledge-wallet-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+`;
+
 export const categories = css`
   display: grid;
   row-gap: 1.6rem;
