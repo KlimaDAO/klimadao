@@ -3,7 +3,7 @@ import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
-import { trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
+import { trimWithLocale, useWeb3, concatAddress } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   useForm,
@@ -114,6 +114,12 @@ export const PledgeForm: FC<Props> = (props) => {
       setSubmitting(false);
     }
   };
+  const secondaryWallets = [
+    {
+    address: "0xdeb8c24AD9640d62334da6F30C191e9CfD180e5B",
+    verified: false,
+  }
+];
 
   const SubmittingLabel = () => (
     <div className={styles.submittingLabel}>
@@ -204,7 +210,28 @@ export const PledgeForm: FC<Props> = (props) => {
           ]
         }
       />
-
+      {/* Wallets section */}
+      <div className={styles.wallets_section}>
+        <Text t="caption">
+          <Trans id="pledges.form.wallets.label">Secondary Wallet(s)</Trans>
+        </Text>
+        {Object.keys(secondaryWallets).length ? (
+          <div>
+            {Object.entries(secondaryWallets).map((wallet) => (
+              <Text t="caption" className="pledge-wallet-row" key={wallet[0]}>
+                {concatAddress(wallet[0])}
+                <span>X</span>
+              </Text>
+            ))}
+          </div>
+        ) : (
+          <Text>
+            <Trans id="pledges.form.wallets.empty">
+              No secondary wallets right meow
+            </Trans>
+          </Text>
+        )}
+      </div>
       <TextareaField
         id="methodology"
         textareaProps={{
