@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-15 15:45+0000\n"
+"POT-Creation-Date: 2022-09-19 15:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -625,7 +625,7 @@ msgstr "МЕХАНИКА"
 #. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
 #: components/pages/Home/index.tsx:426
 msgid "home.monthly_rewards_for_token_holders"
-msgstr ""
+msgstr "<0>{0}% ЕЖЕМЕСЯЧНЫХ ВОЗНАГРАЖДЕНИЙ</0><1>ДЛЯ ДЕРЖАТЕЛЕЙ ТОКЕНОВ</1>"
 
 #: components/pages/Home/index.tsx:489
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
@@ -774,19 +774,19 @@ msgstr "Быстро"
 
 #: components/pages/Infinity/GetStartedModal.tsx:42
 msgid "infinity.getStartedModal_business"
-msgstr ""
+msgstr "Я <0/>предприниматель."
 
 #: components/pages/Infinity/GetStartedModal.tsx:61
 msgid "infinity.getStartedModal_individual"
-msgstr ""
+msgstr "Я<0/>частное лицо."
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
 msgid "infinity.getStartedModal_notSure"
-msgstr ""
+msgstr "Я не уверен, какой вариант подходит мне."
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
-msgstr ""
+msgstr "Я хочу<0/>компенсировать криптовалюту."
 
 #: components/pages/Infinity/index.tsx:249
 msgid "infinity.getStarted_1"
@@ -1132,11 +1132,11 @@ msgstr "Общий след: {0} тонны углерода"
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
-msgstr ""
+msgstr "Продемонстрируйте свою приверженность позитивному отношению к климату, заявив, что ваша панель инструментов обещаний отображает всю вашу деятельность по компенсации выбросов углерода."
 
 #: components/pages/Pledge/index.tsx:63
 msgid "pledges.head.metaTitle"
-msgstr ""
+msgstr "Создайте обязательство по выбросам углерода и продемонстрируйте свое влияние"
 
 #: components/pages/Pledge/index.tsx:59
 msgid "pledges.head.title"
@@ -1144,31 +1144,31 @@ msgstr "KlimaDAO | Залоги"
 
 #: components/pages/Pledge/index.tsx:308
 msgid "pledges.home.banner.create"
-msgstr ""
+msgstr "Создать обязательство"
 
 #: components/pages/Pledge/index.tsx:287
 msgid "pledges.home.get_started.create"
-msgstr ""
+msgstr "Создать обязательство"
 
 #: components/pages/Pledge/index.tsx:106
 msgid "pledges.home.hero.create"
-msgstr ""
+msgstr "Создать обязательство"
 
 #: components/pages/Pledge/index.tsx:114
 msgid "pledges.home.hero.learn_more"
-msgstr ""
+msgstr "Подробнее"
 
 #: components/pages/Pledge/index.tsx:150
 msgid "pledges.home.search.label"
-msgstr ""
+msgstr "ENS или 0x адрес"
 
 #: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr ""
+msgstr "Введите ENS или 0x-адрес"
 
 #: components/pages/Pledge/index.tsx:168
 msgid "pledges.home.search.submit"
-msgstr ""
+msgstr "Поиск"
 
 #: components/pages/Podcast/index.tsx:21
 msgid "podcast.head.description"
@@ -1185,15 +1185,15 @@ msgstr "Подкаст KlimaDAO"
 
 #: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
 msgid "resources.form.input.search.error.required"
-msgstr ""
+msgstr "Введите поисковый запрос"
 
 #: components/pages/Resources/ResourcesList/index.tsx:88
 msgid "resources.form.input.search.label"
-msgstr ""
+msgstr "Поиск"
 
 #: components/pages/Resources/ResourcesList/index.tsx:74
 msgid "resources.form.input.search.placeholder"
-msgstr ""
+msgstr "Поиск"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1219,15 +1219,15 @@ msgstr ""
 
 #: components/pages/Resources/ResourcesList/index.tsx:65
 msgid "resources.page.list.header"
-msgstr ""
+msgstr "Просмотреть все"
 
 #: components/pages/Resources/ResourcesList/index.tsx:116
 msgid "resources.page.list.no_search_results.subline"
-msgstr ""
+msgstr "Дважды проверьте свой поиск на наличие опечаток или орфографических ошибок - или попробуйте использовать другой поисковый запрос."
 
 #: components/pages/Resources/ResourcesList/index.tsx:111
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "Извините. Мы не нашли ни одного подходящего результата."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1426,21 +1426,21 @@ msgstr "Блог"
 #: components/Navigation/index.tsx:135
 #: components/Navigation/index.tsx:282
 msgid "shared.bond"
-msgstr ""
+msgstr "Облигация Klima"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:119
 #: components/Navigation/index.tsx:269
 msgid "shared.buy"
-msgstr ""
+msgstr "Купить Klima"
 
 #: components/Navigation/index.tsx:339
 msgid "shared.carbon_dashboard"
-msgstr ""
+msgstr "Приборные панели по углероду"
 
 #: components/Navigation/index.tsx:190
 msgid "shared.carbon_dashboards"
-msgstr ""
+msgstr "Приборные панели по углероду"
 
 #: components/Navigation/index.tsx:98
 #: components/Navigation/index.tsx:245
@@ -1483,7 +1483,7 @@ msgstr "Отказ от ответственности"
 #: components/Navigation/index.tsx:207
 #: components/Navigation/index.tsx:356
 msgid "shared.docs"
-msgstr ""
+msgstr "Документы"
 
 #: components/Navigation/index.tsx:60
 #: components/pages/Home/index.tsx:114
@@ -1512,7 +1512,7 @@ msgstr "Домашняя страница"
 #: components/Navigation/index.tsx:181
 #: components/Navigation/index.tsx:330
 msgid "shared.how_to_buy"
-msgstr ""
+msgstr "Как купить Klima"
 
 #: components/Navigation/index.tsx:168
 #: components/Navigation/index.tsx:316
@@ -1527,7 +1527,7 @@ msgstr "С чего начать"
 
 #: components/pages/Home/index.tsx:184
 msgid "shared.infinity_cta"
-msgstr ""
+msgstr "ДЕФИ ДЛЯ ОРГАНИЗАЦИЙ"
 
 #: components/Navigation/index.tsx:159
 #: components/Navigation/index.tsx:306
@@ -1542,7 +1542,7 @@ msgstr "Загрузка..."
 
 #: components/pages/Home/index.tsx:191
 msgid "shared.loveletter_cta"
-msgstr ""
+msgstr "DEFI ДЛЯ ФИЗИЧЕСКИХ ЛИЦ"
 
 #: components/Navigation/index.tsx:174
 #: components/Navigation/index.tsx:321
@@ -1570,7 +1570,7 @@ msgstr "Источники"
 #: components/Navigation/index.tsx:127
 #: components/Navigation/index.tsx:274
 msgid "shared.stake"
-msgstr ""
+msgstr "Стейкинг Klima"
 
 #: components/pages/Infinity/index.tsx:494
 msgid "shared.visit_klimadao_blog"
@@ -1579,7 +1579,7 @@ msgstr "Посетите блог KlimaDAO"
 #: components/Navigation/index.tsx:143
 #: components/Navigation/index.tsx:290
 msgid "shared.wrap"
-msgstr ""
+msgstr "обернуть sKLIMA"
 
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
