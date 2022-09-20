@@ -66,7 +66,7 @@ export const PledgeForm: FC<Props> = (props) => {
       defaultValues: pledgeFormAdapter(props.pledge),
       resolver: yupResolver(formSchema),
     });
-  const { isDirty } = formState;
+  const { isDirty, errors } = formState;
 
   const { fields, append, remove } = useFieldArray({
     name: "categories",
@@ -124,10 +124,7 @@ export const PledgeForm: FC<Props> = (props) => {
         }}
         label={t({ id: "pledges.form.input.name.label", message: "Name" })}
         errorMessage={
-          !!formState.errors.name?.message &&
-          pledgeErrorTranslationsMap[
-            formState.errors.name.message as PledgeErrorId
-          ]
+          pledgeErrorTranslationsMap[errors.name?.message as PledgeErrorId]
         }
       />
 
@@ -143,9 +140,8 @@ export const PledgeForm: FC<Props> = (props) => {
           message: "Profile image url (optional)",
         })}
         errorMessage={
-          !!formState.errors.profileImageUrl?.message &&
           pledgeErrorTranslationsMap[
-            formState.errors.profileImageUrl.message as PledgeErrorId
+            errors.profileImageUrl?.message as PledgeErrorId
           ]
         }
       />
@@ -165,9 +161,8 @@ export const PledgeForm: FC<Props> = (props) => {
           message: "Pledge",
         })}
         errorMessage={
-          !!formState.errors.description?.message &&
           pledgeErrorTranslationsMap[
-            formState.errors.description.message as PledgeErrorId
+            errors.description?.message as PledgeErrorId
           ]
         }
       />
@@ -188,9 +183,8 @@ export const PledgeForm: FC<Props> = (props) => {
           message: "Methodology",
         })}
         errorMessage={
-          !!formState.errors.methodology?.message &&
           pledgeErrorTranslationsMap[
-            formState.errors.methodology.message as PledgeErrorId
+            errors.methodology?.message as PledgeErrorId
           ]
         }
       />
@@ -227,10 +221,8 @@ export const PledgeForm: FC<Props> = (props) => {
                     message: "Category",
                   })}
                   errorMessage={
-                    !!formState.errors?.categories?.[index]?.name?.message &&
                     pledgeErrorTranslationsMap[
-                      formState?.errors?.categories?.[index]?.name
-                        ?.message as PledgeErrorId
+                      errors.categories?.[index]?.name?.message as PledgeErrorId
                     ]
                   }
                 />
@@ -250,10 +242,8 @@ export const PledgeForm: FC<Props> = (props) => {
                     message: "Quantity",
                   })}
                   errorMessage={
-                    !!formState.errors?.categories?.[index]?.quantity
-                      ?.message &&
                     pledgeErrorTranslationsMap[
-                      formState?.errors?.categories?.[index]?.quantity
+                      errors.categories?.[index]?.quantity
                         ?.message as PledgeErrorId
                     ]
                   }
@@ -296,10 +286,7 @@ export const PledgeForm: FC<Props> = (props) => {
           message: "Total footprint",
         })}
         errorMessage={
-          !!formState.errors.footprint?.message &&
-          pledgeErrorTranslationsMap[
-            formState.errors.footprint.message as PledgeErrorId
-          ]
+          pledgeErrorTranslationsMap[errors.footprint?.message as PledgeErrorId]
         }
       />
 
