@@ -3,7 +3,8 @@ import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
-import { trimWithLocale, useWeb3, concatAddress } from "@klimadao/lib/utils";
+import { trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
+// import { trimWithLocale, useWeb3, concatAddress } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   useForm,
@@ -68,8 +69,21 @@ export const PledgeForm: FC<Props> = (props) => {
     });
   const { isDirty, errors } = formState;
 
-  const { fields, append, remove } = useFieldArray({
+  const {
+    fields: categoriesFields,
+    append: categoriesAppend,
+    remove: categoriesRemove,
+  } = useFieldArray({
     name: "categories",
+    control,
+  });
+
+  const {
+    fields: walletsFields,
+    append: walletsAppend,
+    remove: walletsRemove,
+  } = useFieldArray({
+    name: "wallets",
     control,
   });
 
@@ -101,13 +115,8 @@ export const PledgeForm: FC<Props> = (props) => {
       setServerError(true);
     }
   };
-  const secondaryWallets = [
-    {
-    address: "0xdeb8c24AD9640d62334da6F30C191e9CfD180e5B",
-    verified: false,
-  }
-];
 
+  console.log(props.pledge, walletsFields, categoriesFields);
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
       {serverError && (
@@ -177,22 +186,52 @@ export const PledgeForm: FC<Props> = (props) => {
         <Text t="caption">
           <Trans id="pledges.form.wallets.label">Secondary Wallet(s)</Trans>
         </Text>
-        {Object.keys(secondaryWallets).length ? (
-          <div>
-            {Object.entries(secondaryWallets).map((wallet) => (
-              <Text t="caption" className="pledge-wallet-row" key={wallet[0]}>
-                {concatAddress(wallet[0])}
-                <span>X</span>
-              </Text>
-            ))}
-          </div>
-        ) : (
-          <Text>
-            <Trans id="pledges.form.wallets.empty">
-              No secondary wallets right meow
-            </Trans>
-          </Text>
-        )}
+        <div>
+          {walletsFields.map((wallet, index) => {
+            return (
+            <Text t="caption" className="pledge-wallet-row" key={wallet.id}>
+              {/* {concatAddress(wallet.address)} */}
+              {console.log("wallet", wallet)}
+              <InputField
+                inputProps={{
+                  placeholder: t({
+                    id: "pledges.form.input.walletAddress.placeholder",
+                    message: "0x...",
+                  }),
+                  type: "text",
+                  ...register(`wallets.${index}.address` as const),
+                }}
+                hideLabel
+                label={t({
+                  id: "pledges.form.input.walletAddress.label",
+                  message: "Address",
+                })}
+                errorMessage={
+                  !!formState.errors?.wallets?.[index]?.address?.message &&
+                  pledgeErrorTranslationsMap[
+                    formState?.errors?.wallets?.[index]?.address
+                      ?.message as PledgeErrorId
+                  ]
+                }
+              />
+              <ButtonPrimary
+                variant="icon"
+                className={styles.categoryRow_removeButton}
+                label={<ClearIcon fontSize="large" />}
+                onClick={() => walletsRemove(index)}
+              />
+            </Text>
+          )})}
+        </div>
+        <ButtonPrimary
+          className={styles.categories_appendButton}
+          variant="gray"
+          label={t({
+            id: "pledges.form.add_wallet_button",
+            message: "Add wallet",
+          })}
+          onClick={() => walletsAppend({ address: "", verified: false })}
+        />
       </div>
       <TextareaField
         textareaProps={{
@@ -221,7 +260,7 @@ export const PledgeForm: FC<Props> = (props) => {
           <Trans id="pledges.form.footprint.label">Footprint</Trans>
         </Text>
 
-        {fields.length === 0 && (
+        {categoriesFields.length === 0 && (
           <Text t="caption" style={{ textAlign: "center", marginTop: "1rem" }}>
             <Trans id="pledges.form.footprint.prompt">
               Add a category and start calculating your carbon footprint
@@ -230,7 +269,7 @@ export const PledgeForm: FC<Props> = (props) => {
         )}
 
         <div className={styles.categories}>
-          {fields.map((field, index) => (
+          {categoriesFields.map((field, index) => (
             <div className={styles.categoryRow} key={field.id}>
               <div className={styles.categoryRow_inputs}>
                 <InputField
@@ -281,13 +320,13 @@ export const PledgeForm: FC<Props> = (props) => {
                 variant="icon"
                 className={styles.categoryRow_removeButton}
                 label={<ClearIcon fontSize="large" />}
-                onClick={() => remove(index)}
+                onClick={() => categoriesRemove(index)}
               />
             </div>
           ))}
         </div>
 
-        {fields.length < 10 && (
+        {categoriesFields.length < 10 && (
           <div className={styles.categories_appendRow}>
             <ButtonPrimary
               className={styles.categories_appendButton}
@@ -296,7 +335,7 @@ export const PledgeForm: FC<Props> = (props) => {
                 id: "pledges.form.add_footprint_category_button",
                 message: "Add category",
               })}
-              onClick={() => append({ name: "", quantity: 0 })}
+              onClick={() => categoriesAppend({ name: "", quantity: 0 })}
             />
           </div>
         )}
