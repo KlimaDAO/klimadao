@@ -14,9 +14,7 @@ export const BaseCard: React.FC<CardProps> = (props) => (
     <div className={styles.cardHeader}>
       <div className={styles.title}>
         {props.icon}
-        <Text t="h3" uppercase>
-          {props.title}
-        </Text>
+        <Text t="h3">{props.title}</Text>
       </div>
 
       {props.action && <div>{props.action}</div>}
