@@ -16,6 +16,7 @@ export const DEFAULT_VALUES: Pledge = {
       categories: [{ name: "", quantity: 0 }],
     },
   ],
+  wallets: [{ address: "", verified: false }],
 };
 
 export const pledgeFormAdapter = (pledge: Pledge): PledgeFormValues => {
@@ -31,5 +32,6 @@ export const pledgeFormAdapter = (pledge: Pledge): PledgeFormValues => {
     methodology: pledge.methodology,
     footprint: currentFootprint.total,
     categories: currentFootprint.categories,
+    wallets: pledge.wallets,
   };
 };
