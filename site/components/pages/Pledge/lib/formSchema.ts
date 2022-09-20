@@ -89,18 +89,14 @@ export const formSchema = yup
       .required("pledges.form.errors.description.required")
       .max(500, "pledges.form.errors.description.max")
       .trim(),
-    secondaryWallets: yup
-    .array()
-    .of(
+    wallets: yup.array().of(
       yup.object({
         address: yup
           .string()
-          .required("pledges.form.errors.categoryName.required")
-          .min(40, "pledges.form.errors.categoryName.max")
+          .required("pledges.form.errors.secondaryWalletAddress.required")
+          .min(40, "pledges.form.errors.secondaryWalletAddress.min")
           .trim(),
-        verified: yup
-          .boolean()
-          .required()
+        verified: yup.boolean().required(),
       })
     ),
     methodology: yup
