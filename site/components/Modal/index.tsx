@@ -36,9 +36,7 @@ export const Modal: FC<Props> = (props) => {
       <div className={styles.modalContainer}>
         <div className={styles.modalContent} ref={focusTrapRef}>
           <div className="title">
-            <Text t="h4" uppercase={true}>
-              {props.title}
-            </Text>
+            <Text t="h4">{props.title}</Text>
 
             {showCloseButton && (
               <button onClick={props.onToggleModal}>
