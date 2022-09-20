@@ -89,9 +89,9 @@ const GetStartedModal = (props: Props) => {
         </Link>
         <Link href={urls.klimaInfinityContactForm}>
           <a>
-            <Text t="body6" className={styles.modalLink}>
-              <Trans id="infinity.getStartedModal_notSure">
-                I'm not sure which option is for me.
+            <Text t="caption" className={styles.modalLink}>
+              <Trans id="infinity.getStartedModal_needAssistance">
+                I'd like assistance with my organization's carbon footprint.
               </Trans>
             </Text>
           </a>
