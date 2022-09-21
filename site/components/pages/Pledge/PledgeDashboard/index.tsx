@@ -66,7 +66,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       <Modal
         title={t({
           id: "pledges.form.title",
-          message: "Your pledge",
+          message: "Your Pledge",
         })}
         showModal={showModal}
         onToggleModal={() => setShowModal(!showModal)}
