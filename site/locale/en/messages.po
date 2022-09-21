@@ -781,8 +781,8 @@ msgid "infinity.getStartedModal_individual"
 msgstr "I'm an<0/>individual."
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
-msgid "infinity.getStartedModal_notSure"
-msgstr "I'm not sure which option is for me."
+msgid "infinity.getStartedModal_needAssistance"
+msgstr "I'd like assistance with my organization's carbon footprint."
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
