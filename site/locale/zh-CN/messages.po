@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-21 23:08+0000\n"
+"POT-Creation-Date: 2022-09-21 23:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -996,7 +996,7 @@ msgstr "已停用的总碳吨"
 msgid "pledges.edit_pledge"
 msgstr "编辑承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:278
+#: components/pages/Pledge/PledgeForm/index.tsx:268
 msgid "pledges.form.add_footprint_category_button"
 msgstr "添加类别"
 
@@ -1048,11 +1048,11 @@ msgstr "输入名称"
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "输入有效的网址"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:200
+#: components/pages/Pledge/PledgeForm/index.tsx:194
 msgid "pledges.form.footprint.label"
 msgstr "足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:205
+#: components/pages/Pledge/PledgeForm/index.tsx:199
 msgid "pledges.form.footprint.prompt"
 msgstr "添加一个类别并开始计算您的碳足迹"
 
@@ -1060,35 +1060,35 @@ msgstr "添加一个类别并开始计算您的碳足迹"
 msgid "pledges.form.generic_error"
 msgstr "出问题了。请再试一次。"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:225
+#: components/pages/Pledge/PledgeForm/index.tsx:219
 msgid "pledges.form.input.categoryName.label"
 msgstr "类别"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:217
+#: components/pages/Pledge/PledgeForm/index.tsx:211
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "分类名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:248
+#: components/pages/Pledge/PledgeForm/index.tsx:240
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "数量"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:240
+#: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "碳吨"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:163
+#: components/pages/Pledge/PledgeForm/index.tsx:159
 msgid "pledges.form.input.description.label"
 msgstr "承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:156
+#: components/pages/Pledge/PledgeForm/index.tsx:152
 msgid "pledges.form.input.description.placeholder"
 msgstr "你的承诺是什么？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:186
+#: components/pages/Pledge/PledgeForm/index.tsx:181
 msgid "pledges.form.input.methodology.label"
 msgstr "方法"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:178
+#: components/pages/Pledge/PledgeForm/index.tsx:173
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "您使用什么工具或方法来计算您的碳足迹？"
 
@@ -1100,21 +1100,21 @@ msgstr "名称"
 msgid "pledges.form.input.name.placeholder"
 msgstr "姓名或公司名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:141
+#: components/pages/Pledge/PledgeForm/index.tsx:138
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "个人资料图片网址（可选）"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:294
+#: components/pages/Pledge/PledgeForm/index.tsx:284
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "总碳足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:311
+#: components/pages/Pledge/PledgeForm/index.tsx:298
 msgid "pledges.form.submit_button"
 msgstr "承诺"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:67
 msgid "pledges.form.title"
-msgstr "你的承诺"
+msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:46
 msgid "pledges.form.total_footprint_summary"

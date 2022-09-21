@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-21 23:08+0000\n"
+"POT-Creation-Date: 2022-09-21 23:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -996,7 +996,7 @@ msgstr ""
 msgid "pledges.edit_pledge"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:278
+#: components/pages/Pledge/PledgeForm/index.tsx:268
 msgid "pledges.form.add_footprint_category_button"
 msgstr ""
 
@@ -1048,11 +1048,11 @@ msgstr ""
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:200
+#: components/pages/Pledge/PledgeForm/index.tsx:194
 msgid "pledges.form.footprint.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:205
+#: components/pages/Pledge/PledgeForm/index.tsx:199
 msgid "pledges.form.footprint.prompt"
 msgstr ""
 
@@ -1060,35 +1060,35 @@ msgstr ""
 msgid "pledges.form.generic_error"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:225
+#: components/pages/Pledge/PledgeForm/index.tsx:219
 msgid "pledges.form.input.categoryName.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:217
+#: components/pages/Pledge/PledgeForm/index.tsx:211
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:248
+#: components/pages/Pledge/PledgeForm/index.tsx:240
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:240
+#: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:163
+#: components/pages/Pledge/PledgeForm/index.tsx:159
 msgid "pledges.form.input.description.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:156
+#: components/pages/Pledge/PledgeForm/index.tsx:152
 msgid "pledges.form.input.description.placeholder"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:186
+#: components/pages/Pledge/PledgeForm/index.tsx:181
 msgid "pledges.form.input.methodology.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:178
+#: components/pages/Pledge/PledgeForm/index.tsx:173
 msgid "pledges.form.input.methodology.placeholder"
 msgstr ""
 
@@ -1100,15 +1100,15 @@ msgstr ""
 msgid "pledges.form.input.name.placeholder"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:141
+#: components/pages/Pledge/PledgeForm/index.tsx:138
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:294
+#: components/pages/Pledge/PledgeForm/index.tsx:284
 msgid "pledges.form.input.totalFootprint.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:311
+#: components/pages/Pledge/PledgeForm/index.tsx:298
 msgid "pledges.form.submit_button"
 msgstr ""
 
