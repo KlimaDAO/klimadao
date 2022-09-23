@@ -30,7 +30,7 @@ import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 import GetStartedModal from "./GetStartedModal";
-import { getImageSizes, NoSSR } from "@klimadao/lib/utils";
+import { getImageSizes } from "@klimadao/lib/utils";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
@@ -140,15 +140,13 @@ export const Infinity: NextPage<Props> = () => {
                   <Trans id="infinity.fast_title">Fast</Trans>
                 </Text>
               </div>
-              <NoSSR>
-                <Image
-                  src={fastMountain}
-                  alt="Fast: Offset in seconds, with no red tape"
-                  layout="fill"
-                  objectFit="cover"
-                  sizes={getImageSizes(404)}
-                />
-              </NoSSR>
+              <Image
+                src={fastMountain}
+                alt="Fast: Offset in seconds, with no red tape"
+                layout="fill"
+                objectFit="cover"
+                sizes={getImageSizes(404)}
+              />
             </div>
             <div className="info_image_box">
               <div className="info_image_description">
