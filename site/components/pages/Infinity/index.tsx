@@ -30,6 +30,7 @@ import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 import GetStartedModal from "./GetStartedModal";
+import { getImageSizes, NoSSR } from "@klimadao/lib/utils";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
@@ -139,12 +140,15 @@ export const Infinity: NextPage<Props> = () => {
                   <Trans id="infinity.fast_title">Fast</Trans>
                 </Text>
               </div>
-              <Image
-                src={fastMountain}
-                alt="Fast: Offset in seconds, with no red tape"
-                layout="fill"
-                objectFit="cover"
-              />
+              <NoSSR>
+                <Image
+                  src={fastMountain}
+                  alt="Fast: Offset in seconds, with no red tape"
+                  layout="fill"
+                  objectFit="cover"
+                  sizes={getImageSizes(404)}
+                />
+              </NoSSR>
             </div>
             <div className="info_image_box">
               <div className="info_image_description">
@@ -162,6 +166,7 @@ export const Infinity: NextPage<Props> = () => {
                 alt="Affordable: Real time pricing, saving 30% or more"
                 layout="fill"
                 objectFit="cover"
+                sizes={getImageSizes(504)}
               />
             </div>
           </div>
@@ -194,6 +199,7 @@ export const Infinity: NextPage<Props> = () => {
                 alt="Tranparent: Immutably recorded on the blockchain"
                 layout="fill"
                 objectFit="cover"
+                sizes={getImageSizes(504)}
               />
             </div>
           </div>
@@ -314,6 +320,7 @@ export const Infinity: NextPage<Props> = () => {
               alt="hazy air and windmills"
               layout="responsive"
               className="carousel_image"
+              sizes={getImageSizes(616)}
             />
             <Text t="body3" className="carousel_image_description">
               <Trans id="infinity.carousel_image_description">
@@ -446,6 +453,7 @@ export const Infinity: NextPage<Props> = () => {
                   alt="forest canopy from above"
                   layout="fill"
                   objectFit="cover"
+                  sizes={getImageSizes(350)}
                 />
               </div>
             </div>
@@ -466,6 +474,7 @@ export const Infinity: NextPage<Props> = () => {
                   alt="heavy traffic in a city"
                   layout="fill"
                   objectFit="cover"
+                  sizes={getImageSizes(350)}
                 />
               </div>
             </div>
@@ -486,6 +495,7 @@ export const Infinity: NextPage<Props> = () => {
                   alt="gas pump handle"
                   layout="fill"
                   objectFit="cover"
+                  sizes={getImageSizes(350)}
                 />
               </div>
             </div>
