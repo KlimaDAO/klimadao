@@ -15,8 +15,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Footer } from "components/Footer";
 import { Modal } from "components/Modal";
 
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
-
 import * as styles from "./styles";
 import Link from "next/link";
 import { urls } from "@klimadao/lib/constants";
@@ -195,10 +193,7 @@ export const EventDemo = () => {
           )}
           {isView("error") && (
             <>
-              <Text t="h2">
-                <InfoOutlined />
-                Offset Unsuccessful
-              </Text>
+              <Text t="h2">Offset Unsuccessful</Text>
               <Text t="body2" align="center">
                 We were unable to process your transaction. Please refresh the
                 page and try again.
