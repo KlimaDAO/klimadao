@@ -30,7 +30,7 @@ const LiveOffsetContract = new Contract(
 export interface APIDefaultResponse {
   message: string;
 }
-
+const USE_DUMMY_DATA = true;
 /**
  * Unauthorized endpoint for validating inputs and generating a checkout link.
  */
@@ -45,7 +45,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
     // throws if invalid
     const formData = formSchema.validateSync(req.body);
 
-    if (process.env.NODE_ENV === "development") {
+    if (USE_DUMMY_DATA) {
       // TEMPORARY DEMO MODE, DELETE ME
       const response = retirementDataSchema.validateSync({
         index: "3",
