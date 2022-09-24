@@ -122,7 +122,7 @@ export const EventDemo = () => {
       <div className={styles.backgroundContainer}>
         <BackgroundDecor className={styles.backgroundDecor} />
         <section className={styles.formSection}>
-          {!view && (
+          {(!view || isView("pending")) && (
             <>
               <Text t="h2" align="center">
                 Live Offset Demo

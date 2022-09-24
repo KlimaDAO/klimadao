@@ -54,7 +54,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
         transactionHash: "0x456",
       });
       await new Promise((resolve) =>
-        setTimeout(() => resolve(undefined), 4000)
+        setTimeout(() => resolve(undefined), 3000)
       );
       res.status(200).json(response);
       return;
