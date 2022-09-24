@@ -2,6 +2,8 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const backgroundContainer = css`
+  min-height: calc(100vh - var(--header-height) - 10rem);
+  align-content: start;
   grid-column: full;
   display: grid;
   grid-template-columns: inherit;
@@ -25,11 +27,15 @@ export const backgroundDecor = css`
 `;
 
 export const formSection = css`
-  padding: 6.4rem 0rem;
+  padding: 4.8rem 0rem;
   grid-column: main;
   display: grid;
-  gap: 5.4rem;
+  gap: 2.4rem;
   justify-items: center;
+  ${breakpoints.large} {
+    padding: 7.4rem;
+    gap: 5.4rem;
+  }
   p {
     max-width: 52rem;
   }
