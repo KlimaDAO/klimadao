@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Anchor as A,
   ButtonPrimary,
@@ -72,6 +72,14 @@ export const EventDemo = () => {
   const [retirement, setRetirement] = useState<RetirementData | undefined>(
     loadFromLocalStorage(EVENT_NAME)
   );
+
+  useEffect(() => {
+    const pastData = loadFromLocalStorage(EVENT_NAME);
+    if (pastData) {
+      setRetirement(pastData);
+      setView("success");
+    }
+  }, []);
 
   const { handleSubmit, register, formState } = useForm({
     mode: "onSubmit",
