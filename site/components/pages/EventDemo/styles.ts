@@ -12,6 +12,7 @@ export const backgroundContainer = css`
   position: relative;
   z-index: 0;
   ${breakpoints.desktop} {
+    min-height: calc(100vh - 10rem);
     margin-top: calc(var(--header-height) * -1);
     padding-top: var(--header-height);
   }
