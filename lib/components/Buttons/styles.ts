@@ -9,6 +9,7 @@ const buttonBase = css`
   justify-content: center;
   appearance: none;
   text-decoration: none;
+  text-align: center;
   /* min-height to conform with Lighthouse min tap-target */
   min-height: 4.8rem;
   cursor: pointer;

@@ -3,11 +3,12 @@ import {
   Anchor as A,
   ButtonPrimary,
   ButtonSecondary,
+  KlimaInfinityLogo,
   Spinner,
   Text,
 } from "@klimadao/lib/components";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { InputField } from "components/Form";
+import { InputField, TextareaField } from "components/Form";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -24,6 +25,7 @@ import {
   RetirementData,
   retirementDataSchema,
 } from "./lib/retirementDataSchema";
+import { BackgroundDecor } from "./BackgroundDecor";
 
 type View = undefined | "pending" | "success" | "error";
 
@@ -110,99 +112,123 @@ export const EventDemo = () => {
         metaDescription="Offset carbon and write a love letter for the planet. Your message will live forever on the Polygon blockchain!"
         doNotIndex={true}
       />
-      <Navigation activePage="Home" />
+      <Navigation activePage="EventDemo" transparent showThemeToggle={false} />
       <Modal title="" showModal={isView("pending")}>
         <div className={styles.pendingModalContent}>
           <Text t="h4">Processing your offset...</Text>
           <Spinner />
         </div>
       </Modal>
-      <div className={styles.container}>
-        {!view && (
-          <>
-            <Text t="h2" align="center">
-              Live Offset Demo
-            </Text>
-            <Text t="body2" align="center">
-              Help us offset the emissions associated with this event, and write
-              a Love Letter to the planet! Your name and Love Letter will be
-              permanently etched into the blockchain.
-            </Text>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <InputField
-                label="Name"
-                errorMessage={formState?.errors?.name?.message || false}
-                inputProps={{
-                  type: "text",
-                  ...register("name"),
-                }}
-              />
-              <InputField
-                label="Love Letter to the Planet"
-                errorMessage={formState?.errors?.loveLetter?.message || false}
-                inputProps={{
-                  type: "text",
-                  ...register("loveLetter"),
-                }}
-              />
-              <ButtonPrimary label="SUBMIT" onClick={handleSubmit(onSubmit)} />
-            </form>
-          </>
-        )}
-        {isView("success") && !!retirement && (
-          <>
-            <Text t="h2" align="center">
-              Success!
-            </Text>
-            <Text t="body2" align="center">
-              <b>{retirement.quantity} tonne</b> of carbon has been offset on
-              your behalf.
-            </Text>
-            <Text t="body2" align="center">
-              Check out your unique shareable{" "}
-              <Link
+      <div className={styles.backgroundContainer}>
+        <BackgroundDecor className={styles.backgroundDecor} />
+        <section className={styles.formSection}>
+          {!view && (
+            <>
+              <Text t="h2" align="center">
+                Live Offset Demo
+              </Text>
+              <Text t="body2" align="center">
+                Help us offset the emissions associated with this event, and
+                write a Love Letter to the planet! Your name and Love Letter
+                will be permanently etched into the blockchain.
+              </Text>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <InputField
+                  label="Name"
+                  errorMessage={formState?.errors?.name?.message || false}
+                  inputProps={{
+                    type: "text",
+                    ...register("name"),
+                  }}
+                />
+                <TextareaField
+                  label="Love Letter to the Planet"
+                  errorMessage={formState?.errors?.loveLetter?.message || false}
+                  textareaProps={{
+                    rows: 4,
+                    ...register("loveLetter"),
+                  }}
+                />
+                <ButtonPrimary
+                  label="SUBMIT"
+                  onClick={handleSubmit(onSubmit)}
+                />
+              </form>
+            </>
+          )}
+          {isView("success") && !!retirement && (
+            <>
+              <Text t="h2" align="center">
+                Success!
+              </Text>
+              <Text t="body2" align="center">
+                <b>{retirement.quantity} tonne</b> of carbon has been offset on
+                your behalf.
+              </Text>
+              <Text t="body2" align="center">
+                Check out your unique shareable{" "}
+                <Link
+                  href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
+                >
+                  <a>retirement certificate</a>
+                </Link>{" "}
+                or view the raw{" "}
+                <A href={urls.polygonscan}>blockchain transaction</A> data. See
+                how the event's{" "}
+                <Link href={`/pledge/${retirement.beneficiaryAddress}`}>
+                  <a>pledge</a>
+                </Link>{" "}
+                is doing so far (it may take a few seconds for your retirement
+                to appear on the pledge).
+              </Text>
+              <ButtonSecondary
+                label="View Retirement Receipt"
                 href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
-              >
-                <a>retirement certificate</a>
-              </Link>{" "}
-              or view the raw{" "}
-              <A href={urls.polygonscan}>blockchain transaction</A> data. See
-              how the event's{" "}
-              <Link href={`/pledge/${retirement.beneficiaryAddress}`}>
-                <a>pledge</a>
-              </Link>{" "}
-              is doing so far (it may take a few seconds for your retirement to
-              appear on the pledge).
+                link={Link}
+              />
+              <ButtonPrimary
+                label="See Event Progress"
+                href={`/pledge/${retirement.beneficiaryAddress}`}
+                link={Link}
+              />
+            </>
+          )}
+          {isView("error") && (
+            <>
+              <Text t="h2">
+                <InfoOutlined />
+                Offset Unsuccessful
+              </Text>
+              <Text t="body2" align="center">
+                We were unable to process your transaction. Please refresh the
+                page and try again.
+              </Text>
+            </>
+          )}
+        </section>
+        <section className={styles.ctaSection}>
+          <div className="infinityStack">
+            <KlimaInfinityLogo className="infinityLogo" />
+            <Text>
+              The next-generation carbon toolkit for your organization
             </Text>
-            <ButtonSecondary
-              label="View Retirement Receipt"
-              href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
-              link={Link}
-            />
+          </div>
+          <div className="buttonStack">
             <ButtonPrimary
-              label="See Event Progress"
-              href={`/pledge/${retirement.beneficiaryAddress}`}
+              className="hero_button_primary"
+              variant="blueRounded"
+              label={"Get Started"}
+              href="/infinity"
               link={Link}
             />
-          </>
-        )}
-        {isView("error") && (
-          <>
-            <Text t="h2">
-              <InfoOutlined />
-              Offset Unsuccessful
-            </Text>
-            <Text t="body2" align="center">
-              We were unable to process your transaction. Please refresh the
-              page and try again.
-            </Text>
-          </>
-        )}
-
-        <Text>Klima Infinity</Text>
-        <Text>The next-generation carbon toolkit for your organization</Text>
-        <ButtonPrimary label="Get Started" />
-        <ButtonPrimary label="Contact Sales" />
+            <ButtonSecondary
+              variant="blueRounded"
+              label={"Contact Sales"}
+              href={urls.klimaInfinityContactForm}
+              target="_blank"
+            />
+          </div>
+        </section>
       </div>
       <Footer />
     </>

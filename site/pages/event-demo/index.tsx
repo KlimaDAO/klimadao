@@ -12,6 +12,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     return {
       props: {
         translation,
+        fixedThemeName: "theme-dark",
       },
     };
   } catch (e) {
