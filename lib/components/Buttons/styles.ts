@@ -71,8 +71,10 @@ export const buttonPrimary = css`
 export const buttonSecondary = css`
   ${buttonBase}
   border: 1px solid var(--klima-green);
+  color: var(--klima-green);
   border-radius: 0.4rem;
   background-color: transparent;
+  text-decoration: none;
   &,
   &:hover:not(:disabled),
   &:visited {

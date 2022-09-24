@@ -1,30 +1,78 @@
-import * as yup from "yup";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { useState } from "react";
+import {
+  Anchor as A,
+  ButtonPrimary,
+  ButtonSecondary,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { InputField } from "components/Form";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Footer } from "components/Footer";
+import { Modal } from "components/Modal";
+
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+
 import * as styles from "./styles";
-import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
+import { urls } from "@klimadao/lib/constants";
+import { formSchema, FormSchema } from "./lib/formSchema";
+import {
+  RetirementData,
+  retirementDataSchema,
+} from "./lib/retirementDataSchema";
 
-export const formSchema = yup
-  .object({
-    name: yup
-      .string()
-      .required("A name is required")
-      .max(50, "Name must be less than 50 chars")
-      .trim(),
-    loveLetter: yup
-      .string()
-      .required("A message is required")
-      .max(280, "Message must be less than 280 chars")
-      .trim(),
-  })
-  .noUnknown();
+type View = undefined | "pending" | "success" | "error";
 
-type FormSchema = yup.InferType<typeof formSchema>;
+const EVENT_NAME = "event-demo-v1";
+
+const singleOffsetTransaction = async (
+  body: FormSchema
+): Promise<RetirementData> => {
+  try {
+    const res = await fetch("/api/event-demo", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) {
+      const json = await res.json();
+      throw new Error("Server error: " + json.message);
+    }
+    const retirementData = retirementDataSchema.validateSync(await res.json());
+    saveToLocalStorage(EVENT_NAME, retirementData);
+    return retirementData;
+  } catch (e: unknown) {
+    console.error(e);
+    throw e;
+  }
+};
+
+const loadFromLocalStorage = (
+  eventName: string
+): RetirementData | undefined => {
+  if (typeof window === "undefined") return undefined;
+  const stringData = window.localStorage.getItem(eventName);
+  if (!stringData) return undefined;
+  return JSON.parse(stringData) as RetirementData;
+};
+
+const saveToLocalStorage = (eventName: string, data: RetirementData) => {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(eventName, JSON.stringify(data));
+};
 
 export const EventDemo = () => {
+  const [view, setView] = useState<View>();
+  const isView = (v: View) => view === v;
+
+  const [retirement, setRetirement] = useState<RetirementData | undefined>(
+    loadFromLocalStorage(EVENT_NAME)
+  );
+
   const { handleSubmit, register, formState } = useForm({
     mode: "onSubmit",
     defaultValues: {
@@ -35,7 +83,15 @@ export const EventDemo = () => {
   });
 
   const onSubmit: SubmitHandler<FormSchema> = async (values) => {
-    console.log(values);
+    setView("pending");
+    try {
+      const retirementData = await singleOffsetTransaction(values);
+      saveToLocalStorage(EVENT_NAME, retirementData);
+      setRetirement(retirementData);
+      setView("success");
+    } catch (e: unknown) {
+      setView("error");
+    }
   };
 
   return (
@@ -47,33 +103,100 @@ export const EventDemo = () => {
         doNotIndex={true}
       />
       <Navigation activePage="Home" />
+      <Modal title="" showModal={isView("pending")}>
+        <div className={styles.pendingModalContent}>
+          <Text t="h4">Processing your offset...</Text>
+          <Spinner />
+        </div>
+      </Modal>
       <div className={styles.container}>
-        <Text t="h2">Live Offset Demo</Text>
-        <Text t="body2" align="center">
-          Help us offset the emissions associated with this event, and write a
-          Love Letter to the planet! Your name and Love Letter will be
-          permanently etched into the blockchain.
-        </Text>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <InputField
-            label="Name"
-            errorMessage={formState?.errors?.name?.message || false}
-            inputProps={{
-              type: "text",
-              ...register("name"),
-            }}
-          />
-          <InputField
-            label="Love Letter"
-            errorMessage={formState?.errors?.loveLetter?.message || false}
-            inputProps={{
-              type: "text",
-              ...register("loveLetter"),
-            }}
-          />
-          <ButtonPrimary label="SUBMIT" onClick={handleSubmit(onSubmit)} />
-        </form>
+        {!view && (
+          <>
+            <Text t="h2" align="center">
+              Live Offset Demo
+            </Text>
+            <Text t="body2" align="center">
+              Help us offset the emissions associated with this event, and write
+              a Love Letter to the planet! Your name and Love Letter will be
+              permanently etched into the blockchain.
+            </Text>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <InputField
+                label="Name"
+                errorMessage={formState?.errors?.name?.message || false}
+                inputProps={{
+                  type: "text",
+                  ...register("name"),
+                }}
+              />
+              <InputField
+                label="Love Letter to the Planet"
+                errorMessage={formState?.errors?.loveLetter?.message || false}
+                inputProps={{
+                  type: "text",
+                  ...register("loveLetter"),
+                }}
+              />
+              <ButtonPrimary label="SUBMIT" onClick={handleSubmit(onSubmit)} />
+            </form>
+          </>
+        )}
+        {isView("success") && !!retirement && (
+          <>
+            <Text t="h2" align="center">
+              Success!
+            </Text>
+            <Text t="body2" align="center">
+              <b>{retirement.quantity} tonne</b> of carbon has been offset on
+              your behalf.
+            </Text>
+            <Text t="body2" align="center">
+              Check out your unique shareable{" "}
+              <Link
+                href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
+              >
+                <a>retirement certificate</a>
+              </Link>{" "}
+              or view the raw{" "}
+              <A href={urls.polygonscan}>blockchain transaction</A> data. See
+              how the event's{" "}
+              <Link href={`/pledge/${retirement.beneficiaryAddress}`}>
+                <a>pledge</a>
+              </Link>{" "}
+              is doing so far (it may take a few seconds for your retirement to
+              appear on the pledge).
+            </Text>
+            <ButtonSecondary
+              label="View Retirement Receipt"
+              href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
+              link={Link}
+            />
+            <ButtonPrimary
+              label="See Event Progress"
+              href={`/pledge/${retirement.beneficiaryAddress}`}
+              link={Link}
+            />
+          </>
+        )}
+        {isView("error") && (
+          <>
+            <Text t="h2">
+              <InfoOutlined />
+              Offset Unsuccessful
+            </Text>
+            <Text t="body2" align="center">
+              We were unable to process your transaction. Please refresh the
+              page and try again.
+            </Text>
+          </>
+        )}
+
+        <Text>Klima Infinity</Text>
+        <Text>The next-generation carbon toolkit for your organization</Text>
+        <ButtonPrimary label="Get Started" />
+        <ButtonPrimary label="Contact Sales" />
       </div>
+      <Footer />
     </>
   );
 };
