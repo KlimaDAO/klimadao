@@ -143,7 +143,7 @@ export const Pledge: NextPage = () => {
                     id: "address",
                     placeholder: t({
                       id: "pledges.home.search.placeholder",
-                      message: "Enter ENS or 0x address",
+                      message: "Enter ENS, KNS or 0x address",
                     }),
                   }}
                   hideLabel

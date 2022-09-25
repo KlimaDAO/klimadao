@@ -1160,7 +1160,7 @@ msgstr "ENS or 0x address"
 
 #: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr "Enter ENS or 0x address"
+msgstr "Enter ENS, KNS or 0x address"
 
 #: components/pages/Pledge/index.tsx:168
 msgid "pledges.home.search.submit"
