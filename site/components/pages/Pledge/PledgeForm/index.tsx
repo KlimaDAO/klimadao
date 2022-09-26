@@ -59,7 +59,7 @@ type Props = {
 
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
-  const { asPath } = useRouter();
+  const { pathname } = useRouter();
   const { signer } = useWeb3();
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
@@ -87,7 +87,7 @@ export const PledgeForm: FC<Props> = (props) => {
         pageAddress: props.pageAddress,
         pledge: values,
         signature,
-        urlPath: asPath,
+        urlPath: pathname,
       });
       const data = await response.json();
 
