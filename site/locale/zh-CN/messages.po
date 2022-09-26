@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-22 18:06+0000\n"
+"POT-Creation-Date: 2022-09-26 15:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -776,7 +776,7 @@ msgstr "我是一个<0/>个人。"
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
 msgid "infinity.getStartedModal_needAssistance"
-msgstr ""
+msgstr "我愿意在抵消碳足迹上协助我所在组织。"
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
@@ -1114,7 +1114,7 @@ msgstr "承诺"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:67
 msgid "pledges.form.title"
-msgstr ""
+msgstr "您的承诺"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:46
 msgid "pledges.form.total_footprint_summary"

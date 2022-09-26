@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-22 18:06+0000\n"
+"POT-Creation-Date: 2022-09-26 15:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -776,7 +776,7 @@ msgstr "मैं एक<0/>व्यक्ति हूं।"
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
 msgid "infinity.getStartedModal_needAssistance"
-msgstr ""
+msgstr "मुझे अपने संगठन के कार्बन फुटप्रिंट में सहायता चाहिए."
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
@@ -1114,7 +1114,7 @@ msgstr "प्लेज सेव करें"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:67
 msgid "pledges.form.title"
-msgstr ""
+msgstr "आपकी प्रतिज्ञा"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:46
 msgid "pledges.form.total_footprint_summary"
@@ -1122,11 +1122,11 @@ msgstr "कुल फ़ुटप्रिंट: {0} कार्बन टन"
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
-msgstr ""
+msgstr "अपनी सभी कार्बन ऑफसेटिंग गतिविधि को उजागर करने के लिए अपने प्रतिज्ञा डैशबोर्ड का दावा करके जलवायु सकारात्मकता के प्रति अपनी प्रतिबद्धता प्रदर्शित करें"
 
 #: components/pages/Pledge/index.tsx:63
 msgid "pledges.head.metaTitle"
-msgstr ""
+msgstr "कार्बन प्रतिज्ञा बनाएं और अपना प्रभाव दिखाएं"
 
 #: components/pages/Pledge/index.tsx:59
 msgid "pledges.head.title"
@@ -1134,27 +1134,27 @@ msgstr "KlimaDAO (क्लीमाडाओ) | Pledges (प्लेजेज़)
 
 #: components/pages/Pledge/index.tsx:308
 msgid "pledges.home.banner.create"
-msgstr ""
+msgstr "एक प्रतिज्ञा बनाएँ"
 
 #: components/pages/Pledge/index.tsx:287
 msgid "pledges.home.get_started.create"
-msgstr ""
+msgstr "एक प्रतिज्ञा बनाएँ"
 
 #: components/pages/Pledge/index.tsx:106
 msgid "pledges.home.hero.create"
-msgstr ""
+msgstr "एक प्रतिज्ञा बनाएँ"
 
 #: components/pages/Pledge/index.tsx:114
 msgid "pledges.home.hero.learn_more"
-msgstr ""
+msgstr "और जानें"
 
 #: components/pages/Pledge/index.tsx:150
 msgid "pledges.home.search.label"
-msgstr ""
+msgstr "ENS या 0x पता दर्ज करें"
 
 #: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr ""
+msgstr "ENS या 0x पता दर्ज करें"
 
 #: components/pages/Pledge/index.tsx:168
 msgid "pledges.home.search.submit"
