@@ -175,8 +175,12 @@ export const EventDemo = () => {
                   <a>retirement certificate</a>
                 </Link>{" "}
                 or view the raw{" "}
-                <A href={urls.polygonscan}>blockchain transaction</A> data. See
-                how the event's{" "}
+                <A
+                  href={`${urls.polygonscan}/tx/${retirement.transactionHash}`}
+                >
+                  blockchain transaction
+                </A>{" "}
+                data. See how the event's{" "}
                 <Link href={`/pledge/${retirement.beneficiaryAddress}`}>
                   <a>pledge</a>
                 </Link>{" "}
