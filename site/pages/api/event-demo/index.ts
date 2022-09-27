@@ -1,6 +1,6 @@
 import { addresses } from "@klimadao/lib/constants";
 import { formSchema } from "components/pages/EventDemo/lib/formSchema";
-import { Contract, ContractTransaction, providers, Wallet } from "ethers";
+import { Contract, ContractTransaction, ethers, utils, Wallet } from "ethers";
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { NextApiHandler } from "next";
 import { LIVE_OFFSET_WALLET_MNEMONIC } from "@klimadao/site/lib/secrets";
@@ -9,7 +9,7 @@ import {
   RetirementData,
   retirementDataSchema,
 } from "components/pages/EventDemo/lib/retirementDataSchema";
-import { getRetirementIndexFromReceipt } from "components/pages/EventDemo/lib/getRetirementIndexFromReceipt";
+import { getJsonRpcProvider } from "@klimadao/lib/utils";
 
 if (!LIVE_OFFSET_WALLET_MNEMONIC) {
   throw new Error(
@@ -17,7 +17,7 @@ if (!LIVE_OFFSET_WALLET_MNEMONIC) {
   );
 }
 
-const provider = new providers.JsonRpcProvider(getInfuraUrlPolygon());
+const provider = getJsonRpcProvider(getInfuraUrlPolygon());
 const wallet = Wallet.fromMnemonic(LIVE_OFFSET_WALLET_MNEMONIC).connect(
   provider
 );
@@ -60,22 +60,27 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
     // get event-specific data for constructing urls and UI messaging
     const [beneficiaryAddress, quantity] =
       await LiveOffsetContract.getEventData();
-    console.log("got event data: ", beneficiaryAddress, quantity);
+
     // create retirement
     const txn: ContractTransaction = await LiveOffsetContract.singleOffset(
       formData.name,
-      formData.loveLetter
+      formData.loveLetter,
+      {
+        maxFeePerGas: utils.parseUnits("60", 9),
+        maxPriorityFeePerGas: utils.parseUnits("60", 9),
+      }
     );
     const receipt = await txn.wait(1);
 
-    // parse event logs to get the new retirement's index for constructing url
-    const index = getRetirementIndexFromReceipt(receipt);
-    console.log("parsed index: ", index);
+    const index = LiveOffsetContract.interface
+      .parseLog(receipt.logs[receipt.logs.length - 2])
+      .args.index.toNumber();
+
     // validate data against our expected schema, and make typescript happy
     const response = retirementDataSchema.validateSync({
       index,
       beneficiaryAddress,
-      quantity: quantity.toNumber(),
+      quantity: ethers.utils.formatUnits(quantity, 18),
       transactionHash: receipt.transactionHash,
     });
 
@@ -84,6 +89,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
     console.log(e);
     if (e instanceof Error) {
       res.status(500).json({ message: e.message });
+      return;
     }
     res.status(500).json({ message: "Unknown error, check server logs" });
   }

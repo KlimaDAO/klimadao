@@ -161,8 +161,11 @@ export const EventDemo = () => {
                 Success!
               </Text>
               <Text t="body2" align="center">
-                <b>{retirement.quantity} tonne</b> of carbon has been offset on
-                your behalf.
+                <b>
+                  {retirement.quantity}{" "}
+                  {retirement.quantity === "1" ? "Tonne" : "Tonnes"}
+                </b>{" "}
+                of carbon has been offset on your behalf.
               </Text>
               <Text t="body2" align="center">
                 Check out your unique shareable{" "}
