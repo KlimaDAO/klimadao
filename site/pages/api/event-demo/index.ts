@@ -75,7 +75,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
     const response = retirementDataSchema.validateSync({
       index,
       beneficiaryAddress,
-      quantity,
+      quantity: quantity.toNumber(),
       transactionHash: receipt.transactionHash,
     });
 
