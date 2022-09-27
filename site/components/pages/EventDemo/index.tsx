@@ -156,7 +156,7 @@ export const EventDemo = () => {
             </>
           )}
           {isView("success") && !!retirement && (
-            <>
+            <div className={styles.animatedSuccessContainer}>
               <Text t="h2" align="center">
                 Success!
               </Text>
@@ -183,17 +183,19 @@ export const EventDemo = () => {
                 is doing so far (it may take a few seconds for your retirement
                 to appear on the pledge).
               </Text>
-              <ButtonSecondary
-                label="View Retirement Receipt"
-                href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
-                link={Link}
-              />
-              <ButtonPrimary
-                label="See Event Progress"
-                href={`/pledge/${retirement.beneficiaryAddress}`}
-                link={Link}
-              />
-            </>
+              <div className={styles.buttonLinks}>
+                <ButtonSecondary
+                  label="View Retirement Receipt"
+                  href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
+                  link={Link}
+                />
+                <ButtonPrimary
+                  label="See Event Progress"
+                  href={`/pledge/${retirement.beneficiaryAddress}`}
+                  link={Link}
+                />
+              </div>
+            </div>
           )}
           {isView("error") && (
             <>

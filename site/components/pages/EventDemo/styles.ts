@@ -125,3 +125,25 @@ export const ctaSection = css`
     }
   }
 `;
+
+const fadeIn = keyframes`
+    0% {
+      opacity: 0;
+      transform: translateY(0.8rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+`;
+export const animatedSuccessContainer = css`
+  display: inherit;
+  gap: inherit;
+  justify-items: center;
+  grid-template-columns: inherit;
+  animation: ${fadeIn} 2s ease-in-out normal;
+`;
+export const buttonLinks = css`
+  display: grid;
+  gap: 1.6rem;
+`;
