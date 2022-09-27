@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import { css, keyframes } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const backgroundContainer = css`
@@ -18,6 +18,18 @@ export const backgroundContainer = css`
   }
 `;
 
+const float = keyframes`
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(4deg) scale(1.5);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+`;
+
 export const backgroundDecor = css`
   position: absolute;
   top: -50%;
@@ -25,6 +37,20 @@ export const backgroundDecor = css`
   right: 32%;
   rotate: 45deg;
   opacity: 0.3;
+  animation: ${float} 90s linear infinite;
+`;
+
+export const radialGradient = css`
+  z-index: -1;
+  grid-column: main;
+  opacity: 0.8;
+  width: 50rem;
+  height: 50rem;
+  position: absolute;
+  top: 16rem;
+  left: 8rem;
+  background: #0ba1ff;
+  filter: blur(40rem);
 `;
 
 export const formSection = css`

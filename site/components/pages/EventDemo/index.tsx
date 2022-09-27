@@ -118,6 +118,7 @@ export const EventDemo = () => {
         </div>
       </Modal>
       <div className={styles.backgroundContainer}>
+        <div className={styles.radialGradient} />
         <BackgroundDecor className={styles.backgroundDecor} />
         <section className={styles.formSection}>
           {(!view || isView("pending")) && (
