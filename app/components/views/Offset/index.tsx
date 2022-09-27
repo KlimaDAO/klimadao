@@ -2,37 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
-
-import ParkOutlined from "@mui/icons-material/ParkOutlined";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
-import Add from "@mui/icons-material/Add";
-import CancelIcon from "@mui/icons-material/Cancel";
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-
-import { Modal } from "components/Modal";
-
-import { useAppDispatch } from "state";
-import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
-import { setAllowance, updateRetirement } from "state/user";
-import {
-  selectNotificationStatus,
-  selectBalances,
-  selectAllowancesWithParams,
-  selectLocale,
-} from "state/selectors";
-
-import { useTypedSelector } from "lib/hooks/useTypedSelector";
-
-import {
-  getOffsetConsumptionCost,
-  getRetiredOffsetBalances,
-  getRetirementAllowances,
-  retireCarbonTransaction,
-} from "actions/offset";
-import { changeApprovalTransaction } from "actions/utils";
-
+import { cx } from "@emotion/css";
 import {
   Anchor as A,
   Text,
@@ -48,23 +18,49 @@ import {
   retirementTokens,
   urls,
 } from "@klimadao/lib/constants";
-
 import { getTokenDecimals } from "@klimadao/lib/utils";
 
-import { tokenInfo } from "lib/getTokenInfo";
+import Add from "@mui/icons-material/Add";
+import CancelIcon from "@mui/icons-material/Cancel";
+import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
+import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import ParkOutlined from "@mui/icons-material/ParkOutlined";
+import SendRounded from "@mui/icons-material/SendRounded";
 
+import { useAppDispatch } from "state";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
+import { setAllowance, updateRetirement } from "state/user";
+import {
+  selectNotificationStatus,
+  selectBalances,
+  selectAllowancesWithParams,
+  selectLocale,
+} from "state/selectors";
+
+import {
+  getOffsetConsumptionCost,
+  getRetiredOffsetBalances,
+  getRetirementAllowances,
+  retireCarbonTransaction,
+} from "actions/offset";
+import { changeApprovalTransaction } from "actions/utils";
+
+import { createLinkWithLocaleSubPath } from "lib/i18n";
+import { useOffsetParams } from "lib/hooks/useOffsetParams";
+import { tokenInfo } from "lib/getTokenInfo";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
+
+import { Modal } from "components/Modal";
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
-import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import { TransactionModal } from "components/TransactionModal";
 
 import * as styles from "./styles";
-import { cx } from "@emotion/css";
-import { useOffsetParams } from "lib/hooks/useOffsetParams";
-import { createLinkWithLocaleSubPath } from "lib/i18n";
-import SendRounded from "@mui/icons-material/SendRounded";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
