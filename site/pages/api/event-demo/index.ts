@@ -31,9 +31,7 @@ export interface APIDefaultResponse {
   message: string;
 }
 const USE_DUMMY_DATA = true;
-/**
- * Unauthorized endpoint for validating inputs and generating a checkout link.
- */
+
 const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
   req,
   res
