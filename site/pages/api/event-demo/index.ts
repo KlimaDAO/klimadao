@@ -60,7 +60,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
     // get event-specific data for constructing urls and UI messaging
     const [beneficiaryAddress, quantity] =
       await LiveOffsetContract.getEventData();
-
+    console.log("got event data: ", beneficiaryAddress, quantity);
     // create retirement
     const txn: ContractTransaction = await LiveOffsetContract.singleOffset(
       formData.name,
@@ -70,7 +70,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
 
     // parse event logs to get the new retirement's index for constructing url
     const index = getRetirementIndexFromReceipt(receipt);
-
+    console.log("parsed index: ", index);
     // validate data against our expected schema, and make typescript happy
     const response = retirementDataSchema.validateSync({
       index,

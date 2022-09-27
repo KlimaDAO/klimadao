@@ -78,6 +78,26 @@
       "type": "event"
     },
     {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "SingleOffsetIndex",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "KlimaCarbonRetirements",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [],
       "name": "KlimaRetirementAggregator",
       "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
@@ -107,6 +127,16 @@
       "name": "changeEventParams",
       "outputs": [],
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getEventData",
+      "outputs": [
+        { "internalType": "address", "name": "", "type": "address" },
+        { "internalType": "uint256", "name": "", "type": "uint256" }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
