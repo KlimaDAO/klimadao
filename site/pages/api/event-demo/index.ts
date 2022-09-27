@@ -30,7 +30,7 @@ const LiveOffsetContract = new Contract(
 export interface APIDefaultResponse {
   message: string;
 }
-const USE_DUMMY_DATA = true;
+const USE_DUMMY_DATA = false;
 
 const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
   req,
@@ -54,7 +54,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
       await new Promise((resolve) =>
         setTimeout(() => resolve(undefined), 3000)
       );
-      res.status(200).json(response);
+      res.status(400).json(response);
       return;
     }
     // get event-specific data for constructing urls and UI messaging
