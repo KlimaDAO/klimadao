@@ -231,26 +231,25 @@ export const Offset = (props: Props) => {
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
-      console.log(projectAddress);
 
-      // const token = selectedInputToken;
-      // const spender = "retirementAggregator";
+      const token = selectedInputToken;
+      const spender = "retirementAggregator";
 
-      // const approvedValue = await changeApprovalTransaction({
-      //   value: getApprovalValue(),
-      //   provider: props.provider,
-      //   token,
-      //   spender,
-      //   onStatus: setStatus,
-      // });
+      const approvedValue = await changeApprovalTransaction({
+        value: getApprovalValue(),
+        provider: props.provider,
+        token,
+        spender,
+        onStatus: setStatus,
+      });
 
-      // dispatch(
-      //   setAllowance({
-      //     token,
-      //     spender,
-      //     value: approvedValue,
-      //   })
-      // );
+      dispatch(
+        setAllowance({
+          token,
+          spender,
+          value: approvedValue,
+        })
+      );
     } catch (e) {
       return;
     }
