@@ -416,7 +416,10 @@ export const PledgeForm: FC<Props> = (props) => {
           </div>
 
           <InputField
+<<<<<<< HEAD
             id="footprint"
+=======
+>>>>>>> working branch for multi wallet pledges
             inputProps={{
               type: "hidden",
               ...register("footprint"),
