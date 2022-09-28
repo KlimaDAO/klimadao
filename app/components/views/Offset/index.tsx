@@ -1,8 +1,7 @@
-import React, { ChangeEvent, FC, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
-import { cx } from "@emotion/css";
 import {
   Anchor as A,
   Text,
@@ -24,7 +23,6 @@ import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
-import SendRounded from "@mui/icons-material/SendRounded";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
@@ -49,7 +47,6 @@ import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { tokenInfo } from "lib/getTokenInfo";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
-import { Modal } from "components/Modal";
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
@@ -57,6 +54,7 @@ import { DropdownWithModal } from "components/DropdownWithModal";
 import { TransactionModal } from "components/TransactionModal";
 
 import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
+import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import * as styles from "./styles";
 
 // We need to approve a little bit extra (here 1%)
@@ -671,53 +669,5 @@ export const Offset = (props: Props) => {
         />
       )}
     </>
-  );
-};
-
-interface RetirementSuccessModalProps {
-  onSuccessModalClose: () => void;
-  url: string;
-}
-
-const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
-  return (
-    <Modal
-      title={
-        <Trans id="offset.successModal.title">Retirement Successful!</Trans>
-      }
-      onToggleModal={props.onSuccessModalClose}
-    >
-      <div className={styles.modalContent}>
-        <div className="stack">
-          <Text t="caption">
-            <Trans id="offset.successModal.body1">
-              Thank you. By participating in the voluntary carbon market, you
-              are making conservation more profitable and climate mitigation
-              more impactful
-            </Trans>
-          </Text>
-        </div>
-        <div className="stack">
-          <Text t="caption">
-            <Trans id="offset.successModal.body2">
-              Click the button below to view your retirement. Consider sharing
-              the page to support us on our journey towards a more transparent,
-              accessible and rewarding carbon market!
-            </Trans>
-          </Text>
-        </div>
-        <ButtonPrimary
-          variant="icon"
-          href={props.url}
-          target="_blank"
-          label={
-            <>
-              <SendRounded />
-              <Trans id="offset.successModal.cta">VIEW RETIREMENT</Trans>
-            </>
-          }
-        />
-      </div>
-    </Modal>
   );
 };
