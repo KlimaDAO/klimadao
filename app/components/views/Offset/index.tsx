@@ -107,7 +107,7 @@ export const Offset = (props: Props) => {
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
   const [retirementMessage, setRetirementMessage] = useState("");
   // for selective retirement
-  const [specificAddress, setSpecificAddress] = useState("");
+  const [projectAddress, setProjectAddress] = useState("");
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
@@ -137,7 +137,7 @@ export const Offset = (props: Props) => {
       setBeneficiaryAddress(params.beneficiaryAddress);
     }
     if (params.projectTokens) {
-      setSpecificAddress(params.projectTokens);
+      setProjectAddress(params.projectTokens);
     }
     if (params.quantity) {
       setQuantity(params.quantity);
@@ -191,7 +191,7 @@ export const Offset = (props: Props) => {
         quantity: debouncedQuantity,
         amountInCarbon: true,
         provider: props.provider,
-        getSpecific: !!specificAddress,
+        getSpecific: !!projectAddress,
       });
 
       setCost(consumptionCost);
@@ -199,7 +199,7 @@ export const Offset = (props: Props) => {
     awaitGetOffsetConsumptionCost();
   }, [
     debouncedQuantity,
-    specificAddress,
+    projectAddress,
     selectedInputToken,
     selectedRetirementToken,
   ]);
@@ -234,7 +234,7 @@ export const Offset = (props: Props) => {
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
-      console.log(specificAddress);
+      console.log(projectAddress);
 
       // const token = selectedInputToken;
       // const spender = "retirementAggregator";
@@ -273,7 +273,7 @@ export const Offset = (props: Props) => {
         beneficiaryName: beneficiary,
         retirementMessage,
         onStatus: setStatus,
-        specificAddresses: [specificAddress],
+        specificAddresses: [projectAddress],
       });
       dispatch(
         updateRetirement({
@@ -327,7 +327,7 @@ export const Offset = (props: Props) => {
       };
     } else if (
       (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) ||
-      (!!specificAddress && !utils.isAddress(specificAddress))
+      (!!projectAddress && !utils.isAddress(projectAddress))
     ) {
       return {
         label: <Trans id="shared.invalid_inputs">INVALID INPUTS</Trans>,
@@ -518,8 +518,8 @@ export const Offset = (props: Props) => {
           />
 
           <SelectiveRetirementInput
-            projectAddress={specificAddress}
-            onChange={setSpecificAddress}
+            projectAddress={projectAddress}
+            onChange={setProjectAddress}
           />
 
           <div className={styles.beneficiary}>
