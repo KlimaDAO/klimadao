@@ -65,7 +65,7 @@ const saveToLocalStorage = (eventName: string, data: RetirementData) => {
   window.localStorage.setItem(eventName, JSON.stringify(data));
 };
 
-export const EventDemo = () => {
+export const EventDemo = (props: { eventTitle: string }) => {
   const [view, setView] = useState<View>();
   const isView = (v: View) => view === v;
 
@@ -124,7 +124,7 @@ export const EventDemo = () => {
           {(!view || isView("pending")) && (
             <>
               <Text t="h2" align="center">
-                Live Offset Demo
+                {props.eventTitle || "Live Offset Demo"}
               </Text>
               <Text t="body2" align="center">
                 Help us offset the emissions associated with this event, and
