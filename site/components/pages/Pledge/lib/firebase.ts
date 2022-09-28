@@ -1,7 +1,7 @@
 import * as admin from "firebase-admin";
 
 import { FIREBASE_ADMIN_CERT } from "lib/secrets";
-import { Pledge, putPledgeParams } from "../types";
+import { Pledge, PledgeFormValues } from "../types";
 import {
   DEFAULT_NONCE,
   createPledgeAttributes,
@@ -40,8 +40,14 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
   return pledgeRef.data();
 };
 
+export interface findOrCreatePledgeParams {
+  pledge: PledgeFormValues;
+  pageAddress: string;
+  signature: string;
+}
+
 export const findOrCreatePledge = async (
-  params: putPledgeParams
+  params: findOrCreatePledgeParams
 ): Promise<Pledge | null> => {
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection(
