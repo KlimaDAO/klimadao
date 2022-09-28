@@ -109,6 +109,8 @@ export const ctaSection = css`
   }
   .infinityLogo {
     max-width: 36rem;
+    height: 100%;
+    width: 100%;
   }
   .buttonStack {
     display: flex;
