@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-27 15:49+0000\n"
+"POT-Creation-Date: 2022-09-28 15:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -782,7 +782,7 @@ msgstr "Я<0/>частное лицо."
 
 #: components/pages/Infinity/GetStartedModal.tsx:93
 msgid "infinity.getStartedModal_needAssistance"
-msgstr ""
+msgstr "Я хотел бы получить помощь по вопросам углеродного следа моей организации."
 
 #: components/pages/Infinity/GetStartedModal.tsx:81
 msgid "infinity.getStartedModal_offsetCrypto"
@@ -1122,7 +1122,7 @@ msgstr "Сохранить залог"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:67
 msgid "pledges.form.title"
-msgstr ""
+msgstr "Ваш залог"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:46
 msgid "pledges.form.total_footprint_summary"
