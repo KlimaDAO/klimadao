@@ -338,7 +338,8 @@ export const PledgeForm: FC<Props> = (props) => {
                       })}
                       errorMessage={
                         pledgeErrorTranslationsMap[
-                          errors.categories?.[index]?.name?.message as PledgeErrorId
+                          errors.categories?.[index]?.name
+                            ?.message as PledgeErrorId
                         ]
                       }
                     />
@@ -385,27 +386,28 @@ export const PledgeForm: FC<Props> = (props) => {
                     id: "pledges.form.add_footprint_category_button",
                     message: "Add category",
                   })}
-   
                   onClick={() => categoriesAppend({ name: "", quantity: 0 })}
                 />
               </div>
             )}
           </div>
 
-      <InputField
-        inputProps={{
-          type: "hidden",
-          ...register("footprint"),
-        }}
-        hideLabel
-        label={t({
-          id: "pledges.form.input.totalFootprint.label",
-          message: "Total footprint",
-        })}
-        errorMessage={
-          pledgeErrorTranslationsMap[errors.footprint?.message as PledgeErrorId]
-        }
-      />
+          <InputField
+            inputProps={{
+              type: "hidden",
+              ...register("footprint"),
+            }}
+            hideLabel
+            label={t({
+              id: "pledges.form.input.totalFootprint.label",
+              message: "Total footprint",
+            })}
+            errorMessage={
+              pledgeErrorTranslationsMap[
+                errors.footprint?.message as PledgeErrorId
+              ]
+            }
+          />
 
           <TotalFootprint control={control} setValue={setValue} />
 
