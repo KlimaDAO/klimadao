@@ -23,8 +23,6 @@ import { getTokenDecimals } from "@klimadao/lib/utils";
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import SendRounded from "@mui/icons-material/SendRounded";
 
@@ -58,6 +56,7 @@ import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { TransactionModal } from "components/TransactionModal";
 
+import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import * as styles from "./styles";
 
 // We need to approve a little bit extra (here 1%)
@@ -720,76 +719,5 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
         />
       </div>
     </Modal>
-  );
-};
-
-const SelectiveRetirementInput: FC<{
-  projectAddress: string;
-  onChange: (val: string) => void;
-}> = (props: any) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  /** when query params are loaded we force the toggle open */
-  useEffect(() => {
-    if (!isOpen && !!props.projectAddress) {
-      setIsOpen(true);
-    }
-  }, [props.projectAddress]);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
-    props.onChange(e.target.value);
-
-  return (
-    <>
-      <button
-        onClick={() => setIsOpen((prev) => !prev)}
-        className={styles.advancedButton}
-      >
-        {isOpen ? <KeyboardArrowDown /> : <KeyboardArrowRight />}
-        <Text t="caption" className="advancedButton_label" uppercase>
-          <Trans id="advanced">ADVANCED</Trans>
-        </Text>
-      </button>
-
-      {isOpen && (
-        <div className={styles.input}>
-          <label>
-            <Text t="caption" color="lighter">
-              <Trans id="offset.retire_specific">
-                Retire specific project tokens
-              </Trans>
-            </Text>
-            <TextInfoTooltip
-              content={
-                <Trans id="offset.retire_specific_tooltip">
-                  Subject to additional fee, determined by the selected pool and
-                  paid to the bridge provider.
-                </Trans>
-              }
-            >
-              <InfoOutlined />
-            </TextInfoTooltip>
-          </label>
-
-          <div className={styles.advancedButtonInput}>
-            <div className={"advancedButtonInput_iconAligner"}>
-              <input
-                value={props.projectAddress}
-                onChange={handleChange}
-                placeholder={t({
-                  id: "offset.enter_address",
-                  message: "Enter 0x address",
-                })}
-                data-error={
-                  !!props.projectAddress &&
-                  !utils.isAddress(props.projectAddress)
-                }
-                pattern="^0x[a-fA-F0-9]{40}$"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </>
   );
 };
