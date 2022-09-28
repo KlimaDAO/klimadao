@@ -24,7 +24,7 @@ interface OffsetParams {
   beneficiary?: string;
   beneficiaryAddress?: string;
   message?: string;
-  projectTokens?: string[];
+  projectTokens?: string;
 }
 
 /** Type guard to correctly infer the typed string e.g. "mco2" | "bct" */
@@ -40,9 +40,9 @@ const isValidToken = <T extends readonly string[]>(
  *   &inputToken=klima
  *   &retirementToken=mco2
  *   &projectTokens=0x1234
- *   &projectTokens=0x5678
  *   &beneficiary=The%20Devs
- *   &beneficiaryAddress=0x123&message=Thanks%20devs!
+ *   &beneficiaryAddress=0x123
+ *   &message=Thanks%20devs!
  * */
 export const useOffsetParams = (): OffsetParams => {
   const [params, setParams] = useSearchParams();
@@ -52,8 +52,8 @@ export const useOffsetParams = (): OffsetParams => {
     const data: OffsetParams = {};
     inputParams.forEach((param) => {
       if (param === "projectTokens") {
-        const arr = params.getAll("projectTokens");
-        data.projectTokens = arr.length ? arr : undefined;
+        const projectTokens = params.get("projectTokens");
+        data.projectTokens = projectTokens ? projectTokens : undefined;
       } else if (param === "inputToken") {
         const tkn = params.get("inputToken")?.toLowerCase() || undefined;
         data[param] =
