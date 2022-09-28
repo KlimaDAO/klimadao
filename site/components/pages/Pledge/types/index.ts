@@ -18,6 +18,7 @@ export type Footprint = {
 export type Wallet = {
   address: string;
   verified: boolean;
+  saved: boolean;
 };
 
 export type Pledge = {
