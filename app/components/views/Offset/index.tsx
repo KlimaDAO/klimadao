@@ -20,8 +20,6 @@ import {
 } from "@klimadao/lib/constants";
 import { getTokenDecimals } from "@klimadao/lib/utils";
 
-import Add from "@mui/icons-material/Add";
-import CancelIcon from "@mui/icons-material/Cancel";
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
@@ -109,10 +107,7 @@ export const Offset = (props: Props) => {
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
   const [retirementMessage, setRetirementMessage] = useState("");
   // for selective retirement
-  const [specificAddresses, setSpecificAddresses] = useState([""]);
-  const validSpecificAddresses = specificAddresses.filter((addr) =>
-    utils.isAddress(addr)
-  );
+  const [specificAddress, setSpecificAddress] = useState("");
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
@@ -142,7 +137,7 @@ export const Offset = (props: Props) => {
       setBeneficiaryAddress(params.beneficiaryAddress);
     }
     if (params.projectTokens) {
-      setSpecificAddresses(params.projectTokens);
+      setSpecificAddress(params.projectTokens);
     }
     if (params.quantity) {
       setQuantity(params.quantity);
@@ -196,7 +191,7 @@ export const Offset = (props: Props) => {
         quantity: debouncedQuantity,
         amountInCarbon: true,
         provider: props.provider,
-        getSpecific: !!validSpecificAddresses.length,
+        getSpecific: !!specificAddress,
       });
 
       setCost(consumptionCost);
@@ -204,7 +199,7 @@ export const Offset = (props: Props) => {
     awaitGetOffsetConsumptionCost();
   }, [
     debouncedQuantity,
-    validSpecificAddresses.length,
+    specificAddress,
     selectedInputToken,
     selectedRetirementToken,
   ]);
@@ -239,25 +234,26 @@ export const Offset = (props: Props) => {
   const handleApprove = async () => {
     try {
       if (!props.provider) return;
+      console.log(specificAddress);
 
-      const token = selectedInputToken;
-      const spender = "retirementAggregator";
+      // const token = selectedInputToken;
+      // const spender = "retirementAggregator";
 
-      const approvedValue = await changeApprovalTransaction({
-        value: getApprovalValue(),
-        provider: props.provider,
-        token,
-        spender,
-        onStatus: setStatus,
-      });
+      // const approvedValue = await changeApprovalTransaction({
+      //   value: getApprovalValue(),
+      //   provider: props.provider,
+      //   token,
+      //   spender,
+      //   onStatus: setStatus,
+      // });
 
-      dispatch(
-        setAllowance({
-          token,
-          spender,
-          value: approvedValue,
-        })
-      );
+      // dispatch(
+      //   setAllowance({
+      //     token,
+      //     spender,
+      //     value: approvedValue,
+      //   })
+      // );
     } catch (e) {
       return;
     }
@@ -277,7 +273,7 @@ export const Offset = (props: Props) => {
         beneficiaryName: beneficiary,
         retirementMessage,
         onStatus: setStatus,
-        specificAddresses: validSpecificAddresses,
+        specificAddresses: [specificAddress],
       });
       dispatch(
         updateRetirement({
@@ -331,7 +327,7 @@ export const Offset = (props: Props) => {
       };
     } else if (
       (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) ||
-      specificAddresses.find((addr) => !!addr && !utils.isAddress(addr))
+      (!!specificAddress && !utils.isAddress(specificAddress))
     ) {
       return {
         label: <Trans id="shared.invalid_inputs">INVALID INPUTS</Trans>,
@@ -486,9 +482,13 @@ export const Offset = (props: Props) => {
               />
             </div>
           </div>
+
           {/* Input Token */}
           <DropdownWithModal
-            label={<Trans id="offset.dropdown_payWith.label">Pay with</Trans>}
+            label={t({
+              id: "offset.dropdown_payWith.label",
+              message: "Pay with",
+            })}
             modalTitle={t({
               id: "offset.modal_payWith.title",
               message: "Select Token",
@@ -502,11 +502,10 @@ export const Offset = (props: Props) => {
 
           {/* Retire Token  */}
           <DropdownWithModal
-            label={
-              <Trans id="offset.dropdown_retire.label">
-                Select carbon offset token to retire
-              </Trans>
-            }
+            label={t({
+              id: "offset.dropdown_retire.label",
+              message: "Select carbon offset token to retire",
+            })}
             modalTitle={t({
               id: "offset.modal_retire.title",
               message: "Select Carbon Type",
@@ -517,9 +516,10 @@ export const Offset = (props: Props) => {
             onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectRetirementToken}
           />
-          <AdvancedTextInput
-            addressArray={specificAddresses}
-            onChange={setSpecificAddresses}
+
+          <SelectiveRetirementInput
+            projectAddress={specificAddress}
+            onChange={setSpecificAddress}
           />
 
           <div className={styles.beneficiary}>
@@ -558,6 +558,7 @@ export const Offset = (props: Props) => {
               </Text>
             </div>
           </div>
+
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -576,6 +577,7 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
+
           <MiniTokenDisplay
             label={
               <div className="mini_token_label">
@@ -610,6 +612,7 @@ export const Offset = (props: Props) => {
             name={selectedRetirementToken}
             labelAlignment="start"
           />
+
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
@@ -620,6 +623,7 @@ export const Offset = (props: Props) => {
               </Trans>
             </Text>
           </div>
+
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>
@@ -719,47 +723,26 @@ const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
   );
 };
 
-const AdvancedTextInput: FC<{
-  addressArray: string[];
-  onChange: (val: string[]) => void;
+const SelectiveRetirementInput: FC<{
+  projectAddress: string;
+  onChange: (val: string) => void;
 }> = (props: any) => {
   const [isOpen, setIsOpen] = useState(false);
-  const concatValue = props.addressArray.join("");
 
   /** when query params are loaded we force the toggle open */
   useEffect(() => {
-    if (!isOpen && concatValue.length > 1) {
+    if (!isOpen && !!props.projectAddress) {
       setIsOpen(true);
     }
-  }, [concatValue]);
+  }, [props.projectAddress]);
 
-  const handleEdit = (i: number) => (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = [
-      ...props.addressArray.slice(0, i),
-      e.target.value,
-      ...props.addressArray.slice(i + 1),
-    ];
-    props.onChange(newValue);
-  };
-
-  const handleAddInput = () => {
-    props.onChange([...props.addressArray, ""]);
-  };
-
-  const handleDelete = (i: number) => () => {
-    const newValue = [
-      ...props.addressArray.slice(0, i),
-      ...props.addressArray.slice(i + 1),
-    ];
-    props.onChange(newValue);
-  };
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
+    props.onChange(e.target.value);
 
   return (
     <>
       <button
-        onClick={() => {
-          setIsOpen((prev) => !prev);
-        }}
+        onClick={() => setIsOpen((prev) => !prev)}
         className={styles.advancedButton}
       >
         {isOpen ? <KeyboardArrowDown /> : <KeyboardArrowRight />}
@@ -767,6 +750,7 @@ const AdvancedTextInput: FC<{
           <Trans id="advanced">ADVANCED</Trans>
         </Text>
       </button>
+
       {isOpen && (
         <div className={styles.input}>
           <label>
@@ -786,37 +770,24 @@ const AdvancedTextInput: FC<{
               <InfoOutlined />
             </TextInfoTooltip>
           </label>
-          {props.addressArray.map((address: string, i: number) => {
-            return (
-              <div key={i} className={styles.advancedButtonInput}>
-                <div className={"advancedButtonInput_iconAligner"}>
-                  <input
-                    value={address}
-                    onChange={handleEdit(i)}
-                    placeholder={t({
-                      id: "offset.enter_address",
-                      message: "Enter 0x address",
-                    })}
-                    data-error={!!address && !utils.isAddress(address)}
-                    pattern="^0x[a-fA-F0-9]{40}$"
-                  />
-                  {props.addressArray.length > 1 && (
-                    <button onClick={handleDelete(i)} className="deletebutton">
-                      <CancelIcon />
-                    </button>
-                  )}
-                </div>
-                <button
-                  onClick={handleAddInput}
-                  className={cx("plusbutton", {
-                    hidden: i !== props.addressArray.length - 1,
-                  })}
-                >
-                  <Add />
-                </button>
-              </div>
-            );
-          })}
+
+          <div className={styles.advancedButtonInput}>
+            <div className={"advancedButtonInput_iconAligner"}>
+              <input
+                value={props.projectAddress}
+                onChange={handleChange}
+                placeholder={t({
+                  id: "offset.enter_address",
+                  message: "Enter 0x address",
+                })}
+                data-error={
+                  !!props.projectAddress &&
+                  !utils.isAddress(props.projectAddress)
+                }
+                pattern="^0x[a-fA-F0-9]{40}$"
+              />
+            </div>
+          </div>
         </div>
       )}
     </>
