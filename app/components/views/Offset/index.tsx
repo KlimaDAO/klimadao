@@ -659,7 +659,7 @@ export const Offset = (props: Props) => {
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}
-          url={createLinkWithLocaleSubPath(
+          retirementUrl={createLinkWithLocaleSubPath(
             `${urls.retirements}/${
               beneficiaryAddress || props.address
             }/${retirementTotals}`,

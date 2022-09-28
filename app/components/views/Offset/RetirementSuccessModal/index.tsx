@@ -7,7 +7,7 @@ import { Modal } from "components/Modal";
 import * as styles from "./styles";
 
 type Props = {
-  url: string;
+  retirementUrl: string;
   onSuccessModalClose: () => void;
 };
 
@@ -42,7 +42,7 @@ export const RetirementSuccessModal: FC<Props> = (props) => (
 
       <ButtonPrimary
         variant="icon"
-        href={props.url}
+        href={props.retirementUrl}
         target="_blank"
         label={
           <>
