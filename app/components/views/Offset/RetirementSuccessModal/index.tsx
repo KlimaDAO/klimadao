@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import SendRounded from "@mui/icons-material/SendRounded";
 import { Trans, t } from "@lingui/macro";
-import { Anchor as A, Text, ButtonPrimary } from "@klimadao/lib/components";
+import { Text, ButtonPrimary } from "@klimadao/lib/components";
 
 import { Modal } from "components/Modal";
 import * as styles from "./styles";
