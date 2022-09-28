@@ -1,6 +1,5 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
-import { Global, css } from "@emotion/react";
 
 import { LogoWithClaim } from "@klimadao/lib/components";
 import Link from "next/link";
@@ -13,6 +12,13 @@ interface Props {
 
 export const HeaderMobile: FC<Props> = (props) => {
   const [isToggled, setIsToggled] = useState(false);
+
+  useEffect(() => {
+    isToggled
+      ? document.body.classList.add("scrollLock")
+      : document.body.classList.remove("scrollLock");
+  }, [isToggled]);
+
   return (
     <div
       className={
@@ -35,15 +41,6 @@ export const HeaderMobile: FC<Props> = (props) => {
           onClick={() => setIsToggled(!isToggled)}
         />
       </header>
-      {isToggled && (
-        <Global
-          styles={css`
-            body {
-              overflow-y: hidden;
-            }
-          `}
-        />
-      )}
       <NavMobile isToggled={isToggled}>{props.children}</NavMobile>
     </div>
   );
