@@ -3,8 +3,8 @@ import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
-import { trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
-// import { trimWithLocale, useWeb3, concatAddress } from "@klimadao/lib/utils";
+import SaveIcon from "@mui/icons-material/Save";
+import { trimWithLocale, useWeb3, concatAddress } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   useForm,
@@ -56,14 +56,26 @@ type Props = {
   pageAddress: string;
   pledge: Pledge;
   onFormSubmit: (data: Pledge) => void;
+  isDeleteMode: boolean;
+  setIsDeleteMode: (value: boolean) => void;
+};
+
+type Wallet = {
+  address: string;
+  verified: boolean;
+  saved: boolean;
+  id?: string;
 };
 
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
+  const [selectedAddress, setSelectedAddress] =
+    useState<{ address: string; index: number }>();
   const { signer } = useWeb3();
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
+      shouldUnregister: false,
       defaultValues: pledgeFormAdapter(props.pledge),
       resolver: yupResolver(formSchema),
     });
@@ -82,10 +94,13 @@ export const PledgeForm: FC<Props> = (props) => {
     fields: walletsFields,
     append: walletsAppend,
     remove: walletsRemove,
+    update: walletsUpdate,
   } = useFieldArray({
     name: "wallets",
     control,
   });
+
+  const wallets = useWatch({ name: "wallets", control: control });
 
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
@@ -116,7 +131,6 @@ export const PledgeForm: FC<Props> = (props) => {
     }
   };
 
-  console.log(props.pledge, walletsFields, categoriesFields);
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
       {serverError && (
@@ -127,219 +141,256 @@ export const PledgeForm: FC<Props> = (props) => {
         </Text>
       )}
 
-      <InputField
-        inputProps={{
-          id: "name",
-          placeholder: t({
-            id: "pledges.form.input.name.placeholder",
-            message: "Name or company name",
-          }),
-          type: "text",
-          ...register("name"),
-        }}
-        label={t({ id: "pledges.form.input.name.label", message: "Name" })}
-        errorMessage={
-          pledgeErrorTranslationsMap[errors.name?.message as PledgeErrorId]
-        }
-      />
+      {!props.isDeleteMode && (
+        <>
+          <InputField
+            inputProps={{
+              id: "name",
+              placeholder: t({
+                id: "pledges.form.input.name.placeholder",
+                message: "Name or company name",
+              }),
+              type: "text",
+              ...register("name"),
+            }}
+            label={t({ id: "pledges.form.input.name.label", message: "Name" })}
+            errorMessage={
+              pledgeErrorTranslationsMap[errors.name?.message as PledgeErrorId]
+            }
+          />
 
-      <InputField
-        inputProps={{
-          id: "profileImageUrl",
-          placeholder: "https://",
-          type: "text",
-          ...register("profileImageUrl"),
-        }}
-        label={t({
-          id: "pledges.form.input.profileImageUrl.label",
-          message: "Profile image url (optional)",
-        })}
-        errorMessage={
-          pledgeErrorTranslationsMap[
-            errors.profileImageUrl?.message as PledgeErrorId
-          ]
-        }
-      />
+          <InputField
+            inputProps={{
+              id: "profileImageUrl",
+              placeholder: "https://",
+              type: "text",
+              ...register("profileImageUrl"),
+            }}
+            label={t({
+              id: "pledges.form.input.profileImageUrl.label",
+              message: "Profile image url (optional)",
+            })}
+            errorMessage={
+              pledgeErrorTranslationsMap[
+                errors.profileImageUrl?.message as PledgeErrorId
+              ]
+            }
+          />
 
-      <TextareaField
-        textareaProps={{
-          id: "pledge",
-          placeholder: t({
-            id: "pledges.form.input.description.placeholder",
-            message: "What is your pledge?",
-          }),
-          rows: 2,
-          ...register("description"),
-        }}
-        label={t({
-          id: "pledges.form.input.description.label",
-          message: "Pledge",
-        })}
-        errorMessage={
-          pledgeErrorTranslationsMap[
-            errors.description?.message as PledgeErrorId
-          ]
-        }
-      />
-      {/* Wallets section */}
-      <div className={styles.wallets_section}>
-        <Text t="caption">
-          <Trans id="pledges.form.wallets.label">Secondary Wallet(s)</Trans>
-        </Text>
-        <div>
-          {walletsFields.map((wallet, index) => {
-            return (
-            <Text t="caption" className="pledge-wallet-row" key={wallet.id}>
-              {/* {concatAddress(wallet.address)} */}
-              {console.log("wallet", wallet)}
-              <InputField
-                inputProps={{
-                  placeholder: t({
-                    id: "pledges.form.input.walletAddress.placeholder",
-                    message: "0x...",
-                  }),
-                  type: "text",
-                  ...register(`wallets.${index}.address` as const),
-                }}
-                hideLabel
+          <TextareaField
+            textareaProps={{
+              id: "pledge",
+              placeholder: t({
+                id: "pledges.form.input.description.placeholder",
+                message: "What is your pledge?",
+              }),
+              rows: 2,
+              ...register("description"),
+            }}
+            label={t({
+              id: "pledges.form.input.description.label",
+              message: "Pledge",
+            })}
+            errorMessage={
+              pledgeErrorTranslationsMap[
+                errors.description?.message as PledgeErrorId
+              ]
+            }
+          />
+          {/* Wallets section */}
+          <div className={styles.wallets_section}>
+            <Text t="caption">
+              <Trans id="pledges.form.wallets.label">Secondary Wallet(s)</Trans>
+            </Text>
+
+            {walletsFields.map((wallet: Wallet, index: number) => {
+              return (
+                <div className="pledge-wallet-row" key={wallet.id}>
+                  {!wallet.saved && (
+                    <>
+                      <InputField
+                        inputProps={{
+                          placeholder: t({
+                            id: "pledges.form.input.walletAddress.placeholder",
+                            message: "0x...",
+                          }),
+                          type: "text",
+                          ...register(`wallets.${index}.address` as const),
+                        }}
+                        hideLabel
+                        label={t({
+                          id: "pledges.form.input.walletAddress.label",
+                          message: "Address",
+                        })}
+                        errorMessage={
+                          !!formState.errors?.wallets?.[index]?.address
+                            ?.message &&
+                          pledgeErrorTranslationsMap[
+                            formState?.errors?.wallets?.[index]?.address
+                              ?.message as PledgeErrorId
+                          ]
+                        }
+                      />
+                      <ButtonPrimary
+                        variant="icon"
+                        className={styles.categoryRow_removeButton}
+                        label={<SaveIcon fontSize="large" />}
+                        onClick={() =>
+                          walletsUpdate(index, {
+                            address: wallets![index].address,
+                            verified: wallets![index].verified,
+                            saved: true,
+                          })
+                        }
+                      />
+                    </>
+                  )}
+                  {wallet.saved && (
+                    <Text t="caption" className="" key={wallet.id}>
+                      {concatAddress(wallet.address)}
+                    </Text>
+                  )}
+                  <ButtonPrimary
+                    variant="icon"
+                    className={styles.categoryRow_removeButton}
+                    label={<ClearIcon fontSize="large" />}
+                    onClick={() => {
+                      props.setIsDeleteMode(true);
+                      setSelectedAddress({
+                        address: wallet.address,
+                        index: index,
+                      });
+                    }}
+                  />
+                </div>
+              );
+            })}
+            <div>
+              <ButtonPrimary
+                className={styles.categories_appendButton}
+                variant="gray"
                 label={t({
-                  id: "pledges.form.input.walletAddress.label",
-                  message: "Address",
+                  id: "pledges.form.add_wallet_button",
+                  message: "Add wallet",
                 })}
-                errorMessage={
-                  !!formState.errors?.wallets?.[index]?.address?.message &&
-                  pledgeErrorTranslationsMap[
-                    formState?.errors?.wallets?.[index]?.address
-                      ?.message as PledgeErrorId
-                  ]
+                onClick={() =>
+                  walletsAppend({ address: "", verified: false, saved: false })
                 }
               />
-              <ButtonPrimary
-                variant="icon"
-                className={styles.categoryRow_removeButton}
-                label={<ClearIcon fontSize="large" />}
-                onClick={() => walletsRemove(index)}
-              />
+            </div>
+          </div>
+          <TextareaField
+            textareaProps={{
+              id: "methodology",
+              placeholder: t({
+                id: "pledges.form.input.methodology.placeholder",
+                message:
+                  "What tools or methodologies did you use to calculate your carbon footprint?",
+              }),
+              rows: 6,
+              ...register("methodology"),
+            }}
+            label={t({
+              id: "pledges.form.input.methodology.label",
+              message: "Methodology",
+            })}
+            errorMessage={
+              !!formState.errors.methodology?.message &&
+              pledgeErrorTranslationsMap[
+                formState.errors.methodology.message as PledgeErrorId
+              ]
+            }
+          />
+
+          <div className={styles.categories_section}>
+            <Text t="caption">
+              <Trans id="pledges.form.footprint.label">Footprint</Trans>
             </Text>
-          )})}
-        </div>
-        <ButtonPrimary
-          className={styles.categories_appendButton}
-          variant="gray"
-          label={t({
-            id: "pledges.form.add_wallet_button",
-            message: "Add wallet",
-          })}
-          onClick={() => walletsAppend({ address: "", verified: false })}
-        />
-      </div>
-      <TextareaField
-        textareaProps={{
-          id: "methodology",
-          placeholder: t({
-            id: "pledges.form.input.methodology.placeholder",
-            message:
-              "What tools or methodologies did you use to calculate your carbon footprint?",
-          }),
-          rows: 6,
-          ...register("methodology"),
-        }}
-        label={t({
-          id: "pledges.form.input.methodology.label",
-          message: "Methodology",
-        })}
-        errorMessage={
-          pledgeErrorTranslationsMap[
-            errors.methodology?.message as PledgeErrorId
-          ]
-        }
-      />
 
-      <div className={styles.categories_section}>
-        <Text t="caption">
-          <Trans id="pledges.form.footprint.label">Footprint</Trans>
-        </Text>
+            {categoriesFields.length === 0 && (
+              <Text
+                t="caption"
+                style={{ textAlign: "center", marginTop: "1rem" }}
+              >
+                <Trans id="pledges.form.footprint.prompt">
+                  Add a category and start calculating your carbon footprint
+                </Trans>
+              </Text>
+            )}
 
-        {categoriesFields.length === 0 && (
-          <Text t="caption" style={{ textAlign: "center", marginTop: "1rem" }}>
-            <Trans id="pledges.form.footprint.prompt">
-              Add a category and start calculating your carbon footprint
-            </Trans>
-          </Text>
-        )}
+            <div className={styles.categories}>
+              {categoriesFields.map((field, index) => (
+                <div className={styles.categoryRow} key={field.id}>
+                  <div className={styles.categoryRow_inputs}>
+                    <InputField
+                      inputProps={{
+                        placeholder: t({
+                          id: "pledges.form.input.categoryName.placeholder",
+                          message: "Category name",
+                        }),
+                        type: "text",
+                        ...register(`categories.${index}.name` as const),
+                      }}
+                      hideLabel
+                      label={t({
+                        id: "pledges.form.input.categoryName.label",
+                        message: "Category",
+                      })}
+                      errorMessage={
+                        pledgeErrorTranslationsMap[
+                          errors.categories?.[index]?.name?.message as PledgeErrorId
+                        ]
+                      }
+                    />
 
-        <div className={styles.categories}>
-          {categoriesFields.map((field, index) => (
-            <div className={styles.categoryRow} key={field.id}>
-              <div className={styles.categoryRow_inputs}>
-                <InputField
-                  inputProps={{
-                    placeholder: t({
-                      id: "pledges.form.input.categoryName.placeholder",
-                      message: "Category name",
-                    }),
-                    type: "text",
-                    ...register(`categories.${index}.name` as const),
-                  }}
-                  hideLabel
+                    <InputField
+                      inputProps={{
+                        placeholder: t({
+                          id: "pledges.form.input.categoryQuantity.placeholder",
+                          message: "Carbon tonnes",
+                        }),
+                        type: "number",
+                        ...register(`categories.${index}.quantity` as const),
+                      }}
+                      hideLabel
+                      label={t({
+                        id: "pledges.form.input.categoryQuantity.label",
+                        message: "Quantity",
+                      })}
+                      errorMessage={
+                        pledgeErrorTranslationsMap[
+                          errors.categories?.[index]?.quantity
+                            ?.message as PledgeErrorId
+                        ]
+                      }
+                    />
+                  </div>
+
+                  <ButtonPrimary
+                    variant="icon"
+                    className={styles.categoryRow_removeButton}
+                    label={<ClearIcon fontSize="large" />}
+                    onClick={() => categoriesRemove(index)}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {categoriesFields.length < 10 && (
+              <div className={styles.categories_appendRow}>
+                <ButtonPrimary
+                  className={styles.categories_appendButton}
+                  variant="gray"
                   label={t({
-                    id: "pledges.form.input.categoryName.label",
-                    message: "Category",
+                    id: "pledges.form.add_footprint_category_button",
+                    message: "Add category",
                   })}
-                  errorMessage={
-                    pledgeErrorTranslationsMap[
-                      errors.categories?.[index]?.name?.message as PledgeErrorId
-                    ]
-                  }
-                />
-
-                <InputField
-                  inputProps={{
-                    placeholder: t({
-                      id: "pledges.form.input.categoryQuantity.placeholder",
-                      message: "Carbon tonnes",
-                    }),
-                    type: "number",
-                    ...register(`categories.${index}.quantity` as const),
-                  }}
-                  hideLabel
-                  label={t({
-                    id: "pledges.form.input.categoryQuantity.label",
-                    message: "Quantity",
-                  })}
-                  errorMessage={
-                    pledgeErrorTranslationsMap[
-                      errors.categories?.[index]?.quantity
-                        ?.message as PledgeErrorId
-                    ]
-                  }
+   
+                  onClick={() => categoriesAppend({ name: "", quantity: 0 })}
                 />
               </div>
-
-              <ButtonPrimary
-                variant="icon"
-                className={styles.categoryRow_removeButton}
-                label={<ClearIcon fontSize="large" />}
-                onClick={() => categoriesRemove(index)}
-              />
-            </div>
-          ))}
-        </div>
-
-        {categoriesFields.length < 10 && (
-          <div className={styles.categories_appendRow}>
-            <ButtonPrimary
-              className={styles.categories_appendButton}
-              variant="gray"
-              label={t({
-                id: "pledges.form.add_footprint_category_button",
-                message: "Add category",
-              })}
-              onClick={() => categoriesAppend({ name: "", quantity: 0 })}
-            />
+            )}
           </div>
-        )}
-      </div>
 
       <InputField
         inputProps={{
@@ -356,17 +407,40 @@ export const PledgeForm: FC<Props> = (props) => {
         }
       />
 
-      <TotalFootprint control={control} setValue={setValue} />
+          <TotalFootprint control={control} setValue={setValue} />
 
-      {/* better to use an input type=submit */}
-      <ButtonPrimary
-        disabled={!isDirty}
-        label={t({
-          id: "pledges.form.submit_button",
-          message: "Save pledge",
-        })}
-        onClick={handleSubmit(onSubmit)}
-      />
+          {/* better to use an input type=submit */}
+          <ButtonPrimary
+            disabled={!isDirty}
+            label={t({
+              id: "pledges.form.submit_button",
+              message: "Save pledge",
+            })}
+            onClick={handleSubmit(onSubmit)}
+          />
+        </>
+      )}
+      {props.isDeleteMode && (
+        <div>
+          <Text>
+            Are you sure you want to remove{" "}
+            {selectedAddress && selectedAddress.address} from your pleadge?
+          </Text>
+          <ButtonPrimary
+            label="remove"
+            onClick={() => {
+              walletsRemove(
+                selectedAddress ? selectedAddress.index : undefined
+              );
+              props.setIsDeleteMode(false);
+            }}
+          />
+          <ButtonPrimary
+            label="cancel"
+            onClick={() => props.setIsDeleteMode(false)}
+          />
+        </div>
+      )}
     </form>
   );
 };

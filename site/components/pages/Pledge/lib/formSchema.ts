@@ -71,9 +71,10 @@ export const formSchema = yup
         address: yup
           .string()
           .required("pledges.form.errors.secondaryWalletAddress.required")
-          .min(40, "pledges.form.errors.secondaryWalletAddress.min")
+          .min(1, "pledges.form.errors.secondaryWalletAddress.min")
           .trim(),
         verified: yup.boolean().required(),
+        saved: yup.boolean().required(),
       })
     ),
     methodology: yup

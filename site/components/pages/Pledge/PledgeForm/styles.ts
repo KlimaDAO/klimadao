@@ -36,6 +36,8 @@ export const wallets_section = css`
   }
 `;
 
+export const wallet_table = css``;
+
 export const categories = css`
   display: grid;
   row-gap: 1.6rem;
