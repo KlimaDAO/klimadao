@@ -69,7 +69,7 @@ export const Infinity: NextPage<Props> = () => {
         })}
       />
 
-      <Navigation activePage="Infinity" showThemeToggle={false} />
+      <Navigation activePage="Infinity" showThemeToggle={false} transparent />
 
       <GetStardedModal showModal={showModal} setShowModal={setShowModal} />
 

@@ -3,6 +3,7 @@ import breakpoints from "../../theme/breakpoints";
 
 export const gridContainer = css`
   display: grid;
+  overflow: hidden;
   grid-template-columns:
     [full-start] minmax(1.6rem, 1fr)
     [main-start] minmax(0, 107.2rem)

@@ -28,7 +28,8 @@ export type PageName =
   | "Community"
   | "Podcast"
   | "Contact"
-  | "Pledges";
+  | "Pledges"
+  | "EventDemo";
 
 export type NavItemMobileID =
   | "About"
@@ -40,10 +41,12 @@ export type NavItemMobileID =
 export type Props = {
   activePage: PageName;
   showThemeToggle?: boolean;
+  transparent?: boolean;
 };
 
 export const Navigation: FC<Props> = ({
   activePage,
+  transparent,
   showThemeToggle = true,
 }) => {
   const { locale } = useRouter();
@@ -51,6 +54,7 @@ export const Navigation: FC<Props> = ({
   return (
     <>
       <HeaderDesktop
+        transparent={transparent}
         buttons={[
           <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),

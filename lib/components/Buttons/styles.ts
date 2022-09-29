@@ -9,6 +9,7 @@ const buttonBase = css`
   justify-content: center;
   appearance: none;
   text-decoration: none;
+  text-align: center;
   /* min-height to conform with Lighthouse min tap-target */
   min-height: 4.8rem;
   cursor: pointer;
@@ -71,8 +72,10 @@ export const buttonPrimary = css`
 export const buttonSecondary = css`
   ${buttonBase}
   border: 1px solid var(--klima-green);
+  color: var(--klima-green);
   border-radius: 0.4rem;
   background-color: transparent;
+  text-decoration: none;
   &,
   &:hover:not(:disabled),
   &:visited {
