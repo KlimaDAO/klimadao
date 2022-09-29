@@ -53,7 +53,7 @@ export const calculateSafeMessageHash = (
 
 /**
  * Check if given message string has been signed by the multisig
- * Throws if no signature was found, or multiple were found
+ * Throws if no signature was found
  */
 export const verifyGnosisSignature = async (params: {
   /** Plain un-hashed string with expected nonce */
