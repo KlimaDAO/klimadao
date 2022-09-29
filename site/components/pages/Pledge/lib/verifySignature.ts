@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import { editPledgeSignature } from ".";
+import { verifyGnosisSignature } from "./verifyGnosisSafeMultisig";
 
 interface Params {
   address: string;
@@ -8,8 +9,14 @@ interface Params {
 }
 
 export const verifySignature = async (params: Params): Promise<void> => {
-  // Gnosis multisig wallets are already validated client side
-  if (params.signature === "0x") return;
+  if (params.signature === "0x") {
+    await verifyGnosisSignature({
+      address: params.address,
+      // todo rename this util to getEditPledgeMessage()
+      message: editPledgeSignature(params.nonce),
+    });
+    return;
+  }
 
   const signature = editPledgeSignature(params.nonce);
   const decodedAddress = ethers.utils.verifyMessage(
