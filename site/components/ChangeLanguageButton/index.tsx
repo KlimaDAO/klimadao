@@ -16,6 +16,7 @@ export const ChangeLanguageButton: FC = () => {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
 
+  // Hint: ensure that this is in sync with locales in 'lib/i18n'
   const labels: { [key: string]: string } = {
     en: "English",
     fr: "Français",

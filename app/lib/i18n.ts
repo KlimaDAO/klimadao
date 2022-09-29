@@ -22,11 +22,11 @@ const locales: ILocales = {
   ru: { plurals: ru, time: "ru-RU" },
   "zh-CN": { plurals: zh, time: "zh-CN" },
   es: { plurals: es, time: "es-ES" },
+  hi: { plurals: hi, time: "hi-IN" },
 };
 
 // Add pseudo locale only in development
 if (!IS_PRODUCTION) {
-  locales["hi"] = { plurals: hi, time: "hi-IN" };
   locales["ko"] = { plurals: ko, time: "ko-KR" };
   locales["en-pseudo"] = { plurals: en, time: "en-US" };
 }

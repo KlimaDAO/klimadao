@@ -27,6 +27,7 @@ export const ChangeLanguageButton: FC = () => {
     setShowMenu(false);
   };
 
+  // Hint: ensure that this is in sync with locales in 'lib/i18n'
   const labels: { [key: string]: string } = {
     en: "English",
     fr: "Français",
