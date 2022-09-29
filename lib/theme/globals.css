@@ -25,6 +25,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body.scrollLock {
+  overflow-y: hidden;
+}
+
 svg {
   display: block;
 }
