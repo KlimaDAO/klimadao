@@ -14,7 +14,6 @@ import {
   Control,
   SubmitHandler,
 } from "react-hook-form";
-import ethers from "ethers";
 
 import { InputField, TextareaField } from "components/Form";
 
@@ -207,7 +206,9 @@ export const PledgeForm: FC<Props> = (props) => {
             {walletsFields.map((wallet: Wallet, index: number) => {
               return (
                 <div className={styles.pledge_wallet_row} key={wallet.id}>
-                  {!wallet.saved && (
+                  {(!wallet.saved ||
+                    (wallet.saved &&
+                      errors.wallets?.[index]?.address?.message)) && (
                     <div className={styles.pledge_wallet_address_cell}>
                       <InputField
                         inputProps={{
@@ -216,10 +217,7 @@ export const PledgeForm: FC<Props> = (props) => {
                             message: "0x...",
                           }),
                           type: "text",
-                          ...register(`wallets.${index}.address` as const, {
-                            validate: (address) =>
-                              ethers.utils.isAddress(address),
-                          }),
+                          ...register(`wallets.${index}.address` as const),
                         }}
                         hideLabel
                         label={t({
@@ -227,10 +225,8 @@ export const PledgeForm: FC<Props> = (props) => {
                           message: "Address",
                         })}
                         errorMessage={
-                          !!formState.errors?.wallets?.[index]?.address
-                            ?.message &&
                           pledgeErrorTranslationsMap[
-                            formState?.errors?.wallets?.[index]?.address
+                            errors.wallets?.[index]?.address
                               ?.message as PledgeErrorId
                           ]
                         }
@@ -249,7 +245,7 @@ export const PledgeForm: FC<Props> = (props) => {
                       />
                     </div>
                   )}
-                  {wallet.saved && (
+                  {wallet.saved && !errors.wallets?.[index]?.address?.message && (
                     <div className={styles.pledge_wallet_address_cell}>
                       <Text t="caption">{concatAddress(wallet.address)}</Text>
                       {!wallet.verified && (
