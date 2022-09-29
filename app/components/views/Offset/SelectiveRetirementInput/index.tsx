@@ -14,7 +14,7 @@ type Props = {
   onChange: (val: string) => void;
 };
 
-export const SelectiveRetirementInput: FC<Props> = (props: any) => {
+export const SelectiveRetirementInput: FC<Props> = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   /** when query params are loaded we force the toggle open */
