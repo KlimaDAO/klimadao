@@ -96,6 +96,7 @@ export const ctaSection = css`
   }
   .infinityLogo {
     max-width: 36rem;
+    min-height: 5.2rem; /** ios safari fix */
     height: 100%;
     width: 100%;
   }
