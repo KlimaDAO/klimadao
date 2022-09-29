@@ -40,19 +40,6 @@ export const backgroundDecor = css`
   animation: ${float} 90s linear infinite;
 `;
 
-export const radialGradient = css`
-  z-index: -1;
-  grid-column: main;
-  opacity: 0.8;
-  width: 50rem;
-  height: 50rem;
-  position: absolute;
-  top: 16rem;
-  left: 8rem;
-  background: #0ba1ff;
-  filter: blur(40rem);
-`;
-
 export const formSection = css`
   padding: 4.8rem 0rem;
   grid-column: main;
