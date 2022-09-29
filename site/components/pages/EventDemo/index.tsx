@@ -212,7 +212,9 @@ export const EventDemo = (props: { eventTitle: string }) => {
         </section>
         <section className={styles.ctaSection}>
           <div className="infinityStack">
-            <KlimaInfinityLogo className="infinityLogo" />
+            <div className="infinityLogo">
+              <KlimaInfinityLogo />
+            </div>
             <Text>
               The next-generation carbon toolkit for your organization
             </Text>
