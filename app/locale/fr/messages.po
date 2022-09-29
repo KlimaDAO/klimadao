@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-29 15:52+0000\n"
+"POT-Creation-Date: 2022-09-29 15:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -637,7 +637,7 @@ msgstr "APPROUVER"
 msgid "shared.balances"
 msgstr "Soldes"
 
-#: components/ChangeLanguageButton/index.tsx:73
+#: components/ChangeLanguageButton/index.tsx:74
 msgid "shared.change_language"
 msgstr "Changer de langue"
 

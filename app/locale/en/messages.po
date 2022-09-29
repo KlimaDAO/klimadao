@@ -641,7 +641,7 @@ msgstr "APPROVE"
 msgid "shared.balances"
 msgstr "Balances"
 
-#: components/ChangeLanguageButton/index.tsx:73
+#: components/ChangeLanguageButton/index.tsx:74
 msgid "shared.change_language"
 msgstr "Change language"
 
