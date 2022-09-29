@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
 import SaveIcon from "@mui/icons-material/Save";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import { trimWithLocale, useWeb3, concatAddress } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
@@ -13,6 +14,7 @@ import {
   Control,
   SubmitHandler,
 } from "react-hook-form";
+import ethers from "ethers";
 
 import { InputField, TextareaField } from "components/Form";
 
@@ -197,7 +199,6 @@ export const PledgeForm: FC<Props> = (props) => {
               ]
             }
           />
-          {/* Wallets section */}
           <div className={styles.wallets_section}>
             <Text t="caption">
               <Trans id="pledges.form.wallets.label">Secondary Wallet(s)</Trans>
@@ -205,9 +206,9 @@ export const PledgeForm: FC<Props> = (props) => {
 
             {walletsFields.map((wallet: Wallet, index: number) => {
               return (
-                <div className="pledge-wallet-row" key={wallet.id}>
+                <div className={styles.pledge_wallet_row} key={wallet.id}>
                   {!wallet.saved && (
-                    <>
+                    <div className={styles.pledge_wallet_address_cell}>
                       <InputField
                         inputProps={{
                           placeholder: t({
@@ -215,7 +216,10 @@ export const PledgeForm: FC<Props> = (props) => {
                             message: "0x...",
                           }),
                           type: "text",
-                          ...register(`wallets.${index}.address` as const),
+                          ...register(`wallets.${index}.address` as const, {
+                            validate: (address) =>
+                              ethers.utils.isAddress(address),
+                          }),
                         }}
                         hideLabel
                         label={t({
@@ -233,8 +237,8 @@ export const PledgeForm: FC<Props> = (props) => {
                       />
                       <ButtonPrimary
                         variant="icon"
-                        className={styles.categoryRow_removeButton}
                         label={<SaveIcon fontSize="large" />}
+                        className={styles.pledge_wallet_save}
                         onClick={() =>
                           walletsUpdate(index, {
                             address: wallets![index].address,
@@ -243,17 +247,22 @@ export const PledgeForm: FC<Props> = (props) => {
                           })
                         }
                       />
-                    </>
+                    </div>
                   )}
                   {wallet.saved && (
-                    <Text t="caption" className="" key={wallet.id}>
-                      {concatAddress(wallet.address)}
-                    </Text>
+                    <div className={styles.pledge_wallet_address_cell}>
+                      <Text t="caption">{concatAddress(wallet.address)}</Text>
+                      {!wallet.verified && (
+                        <span className={styles.pledge_wallet_pending}>
+                          <Text t="caption">Pending</Text>
+                        </span>
+                      )}
+                    </div>
                   )}
                   <ButtonPrimary
                     variant="icon"
-                    className={styles.categoryRow_removeButton}
-                    label={<ClearIcon fontSize="large" />}
+                    label={<DeleteOutlineOutlinedIcon fontSize="large" />}
+                    className={styles.pledge_wallet_delete}
                     onClick={() => {
                       props.setIsDeleteMode(true);
                       setSelectedAddress({
@@ -265,7 +274,7 @@ export const PledgeForm: FC<Props> = (props) => {
                 </div>
               );
             })}
-            <div>
+            <div className={styles.pledge_wallet_add}>
               <ButtonPrimary
                 className={styles.categories_appendButton}
                 variant="gray"

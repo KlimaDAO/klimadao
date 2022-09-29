@@ -29,14 +29,78 @@ export const categories_section = css`
 export const wallets_section = css`
   display: flex;
   flex-direction: column;
-  .pledge-wallet-row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+`;
+
+export const pledge_wallet_address_cell = css`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding-right: 1.6rem;
+`;
+
+export const pledge_wallet_pending = css`
+  background: var(--font-01);
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  p {
+    font-size: 1rem;
+    line-height: 1rem;
+    color: var(--surface-02) !important;
+    text-transform: uppercase;
   }
 `;
 
-export const wallet_table = css``;
+export const pledge_wallet_row = css`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0.4rem 0;
+`;
+export const pledge_wallet_icon = css`
+  padding: 0rem;
+  min-height: 3.6rem;
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 1rem;
+  transition: border-color 0.2s ease-in;
+`;
+
+export const pledge_wallet_save = css`
+  ${pledge_wallet_icon};
+  border: 0.175rem solid var(--surface-03);
+  background-color: var(--surface-02);
+  svg {
+    fill: var(--klima-green);
+  }
+  &:focus,
+  &:hover {
+    border-color: var(--klima-green);
+  }
+`;
+export const pledge_wallet_delete = css`
+  ${pledge_wallet_icon};
+  border: 0.175rem solid var(--surface-03);
+  background-color: var(--surface-02);
+
+  svg {
+    fill: var(--warn);
+  }
+
+  &:focus,
+  &:hover {
+    border-color: var(--warn);
+  }
+`;
+
+export const pledge_wallet_add = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 1.6rem;
+`;
 
 export const categories = css`
   display: grid;
@@ -69,15 +133,10 @@ export const categoryRow_inputs = css`
 `;
 
 export const categoryRow_removeButton = css`
-  padding: 0rem;
+  ${pledge_wallet_icon};
   margin-top: 3.2rem;
-  min-height: 3.6rem;
-  height: 3.6rem;
-  width: 3.6rem;
-  border-radius: 1rem;
   border: 0.175rem solid var(--surface-03);
   background-color: var(--surface-02);
-  transition: border-color 0.2s ease-in;
 
   svg {
     fill: var(--font-02);
