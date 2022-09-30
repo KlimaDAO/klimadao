@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-29 18:16+0000\n"
+"POT-Creation-Date: 2022-09-30 22:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,7 @@ msgstr "Débutant"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:14
 msgid "buy.beginner_01.description_01"
-msgstr "<0>Métamask</0> est le portefeuille le plus populaire pour Ethereum et Polygon. Vous pouvez l'utiliser pour vous connecter à notre application et ordonner des transactions. Assurez-vous que l'extension est installée sur votre navigateur Web."
+msgstr "<0>Metamask</0> est le portefeuille le plus populaire pour Ethereum et Polygon. Vous pouvez l'utiliser pour vous connecter à notre application et envoyer des transactions. Assurez-vous que l'extension est installée sur votre navigateur Web."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:10
 msgid "buy.beginner_01.title"
@@ -152,7 +152,7 @@ msgstr "Carte de crédit"
 
 #: components/pages/Buy/index.tsx:178
 msgid "buy.credit_card.summary"
-msgstr "Vous pouvez maintenant utiliser votre carte de crédit pour acheter des jetons KLIMA directement dans votre portefeuille ! Nos partenaires se chargeant de la transaction  prennent en charge la plupart des devises courantes."
+msgstr "Vous pouvez désormais utiliser votre carte de crédit pour acheter des jetons KLIMA directement dans votre portefeuille ! Nos partenaires de paiement prennent en charge les principales devises."
 
 #: components/pages/Buy/index.tsx:104
 msgid "buy.decentralized_exchange"
@@ -564,7 +564,7 @@ msgstr "Chaque jeton KLIMA est collatéralisé par un actif carbone réel. Les j
 
 #: components/SocialProof/index.tsx:19
 msgid "home.featured_on"
-msgstr "KlimaDAO présenté sur"
+msgstr "Ils parlent de KlimaDAO"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:106
@@ -573,7 +573,7 @@ msgstr "Combattez le changement climatique et soyez récompensé avec KLIMA, une
 
 #: components/pages/Home/index.tsx:460
 msgid "home.get_exposure_to_the_growing_carbon_economy"
-msgstr "Prenez part à l'économie carbone actuellement en plein essort. Achetez, déposez et soyez obtenez du rendement. Activisme financier pour le climat."
+msgstr "Prenez part dès aujourd'hui à l'économie croissante du carbone. Acquérir, participer et être récompensé. L'activisme financier au service du climat."
 
 #: components/pages/Home/index.tsx:457
 msgid "home.get_klima"
@@ -625,7 +625,7 @@ msgstr "<0>{0} % DE RÉCOMPENSES MENSUELLES</0> <1>POUR LES DÉTENTEURS DE JETO
 
 #: components/pages/Home/index.tsx:489
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
-msgstr "Tout l'Alpha, directement dans votre boîte de réception"
+msgstr "Toute l'Alpha, directement dans votre boîte de réception"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:497
@@ -895,7 +895,7 @@ msgstr "Tonnes"
 
 #: components/pages/Infinity/index.tsx:189
 msgid "infinity.transparent_subtitle"
-msgstr "Transparent"
+msgstr "Transparente"
 
 #: components/pages/Infinity/index.tsx:184
 msgid "infinity.transparent_title"
@@ -1459,7 +1459,7 @@ msgstr "Contact"
 #: components/pages/Infinity/index.tsx:114
 #: components/pages/Infinity/index.tsx:680
 msgid "shared.contact_sales"
-msgstr "Contacter le service commercial"
+msgstr "Nous contacter"
 
 #: components/Navigation/index.tsx:111
 #: components/pages/Resources/Community/index.tsx:110

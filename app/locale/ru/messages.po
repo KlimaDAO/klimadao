@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-29 18:16+0000\n"
+"POT-Creation-Date: 2022-09-30 22:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +27,7 @@ msgstr "Это приложение работает только в Polygon Mai
 msgid "Wrong Network"
 msgstr "Неверная сеть"
 
-#: components/views/Offset/index.tsx:771
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:38
 msgid "advanced"
 msgstr "Продвинутый"
 
@@ -441,11 +441,11 @@ msgstr "ПОДТВЕРЖДЕНИЕ"
 msgid "nav.back"
 msgstr "НАЗАД"
 
-#: components/views/Offset/index.tsx:591
+#: components/views/Offset/index.tsx:585
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Эта стоимость включает проскальзывание и комиссию за агрегацию в размере 1%."
 
-#: components/views/Offset/index.tsx:469
+#: components/views/Offset/index.tsx:457
 msgid "offset.amount_in_tonnes"
 msgstr "Сколько тонн углерода вы хотели бы компенсировать?"
 
@@ -453,15 +453,15 @@ msgstr "Сколько тонн углерода вы хотели бы комп
 msgid "offset.breakdown"
 msgstr "Распределение"
 
-#: components/views/Offset/index.tsx:559
+#: components/views/Offset/index.tsx:551
 msgid "offset.default_retirement_address"
 msgstr "По умолчанию используется адрес подключенного кошелька"
 
-#: components/views/Offset/index.tsx:495
+#: components/views/Offset/index.tsx:484
 msgid "offset.dropdown_payWith.label"
 msgstr "Оплатить с помощью"
 
-#: components/views/Offset/index.tsx:510
+#: components/views/Offset/index.tsx:501
 msgid "offset.dropdown_retire.label"
 msgstr "Выберите токен компенсации выбросов углекислого газа, чтобы удалить его"
 
@@ -469,28 +469,28 @@ msgstr "Выберите токен компенсации выбросов уг
 msgid "offset.empty"
 msgstr "Этот адрес не завершил ни одного вывода."
 
-#: components/views/Offset/index.tsx:553
-#: components/views/Offset/index.tsx:800
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:65
+#: components/views/Offset/index.tsx:545
 msgid "offset.enter_address"
 msgstr "Введите 0x-адрес"
 
-#: components/views/Offset/index.tsx:449
+#: components/views/Offset/index.tsx:437
 msgid "offset.go_carbon_neutral"
 msgstr "Станьте углеродно-нейтральным,выведя углерод из оборота и получив экологическую выгоду от компенсации углерода. Узнайте больше об углеродных токенах в наших <0>документах</0>."
 
-#: components/views/Offset/index.tsx:428
+#: components/views/Offset/index.tsx:416
 msgid "offset.incompatible"
 msgstr "ТОКЕН ВВОДА НЕСОВМЕСТИМ"
 
-#: components/views/Offset/index.tsx:457
+#: components/views/Offset/index.tsx:445
 msgid "offset.lifi"
 msgstr "Компенсация между сетями теперь доступна через <0>LI.FI и Etherspot.</0> , с поддержкой нескольких цепочек и токенов."
 
-#: components/views/Offset/index.tsx:496
+#: components/views/Offset/index.tsx:488
 msgid "offset.modal_payWith.title"
 msgstr "Выберите токен"
 
-#: components/views/Offset/index.tsx:514
+#: components/views/Offset/index.tsx:505
 msgid "offset.modal_retire.title"
 msgstr "Выберите тип углерода"
 
@@ -498,56 +498,56 @@ msgstr "Выберите тип углерода"
 msgid "offset.number_of_retirements"
 msgstr "Итого выведено "
 
-#: components/views/Offset/index.tsx:486
+#: components/views/Offset/index.tsx:474
 msgid "offset.offset_quantity"
 msgstr "Введите количество для компенсации"
 
-#: components/views/Offset/index.tsx:446
-#: components/views/Offset/index.tsx:647
+#: components/views/Offset/index.tsx:434
+#: components/views/Offset/index.tsx:643
 msgid "offset.retire_carbon"
 msgstr "Вывод карбона"
 
-#: components/views/Offset/index.tsx:778
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:46
 msgid "offset.retire_specific"
 msgstr "Вывести из обращения токены конкретного проекта"
 
-#: components/views/Offset/index.tsx:784
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:52
 msgid "offset.retire_specific_tooltip"
 msgstr "За дополнительную плату, определяемую выбранным пулом и выплачиваемую поставщику бриджа."
 
-#: components/views/Offset/index.tsx:539
+#: components/views/Offset/index.tsx:531
 msgid "offset.retirement_beneficiary"
 msgstr "Имя или организация"
 
-#: components/views/Offset/index.tsx:531
+#: components/views/Offset/index.tsx:523
 msgid "offset.retirement_credit"
 msgstr "Кому будет зачислено это выбивание?"
 
-#: components/views/Offset/index.tsx:568
+#: components/views/Offset/index.tsx:561
 msgid "offset.retirement_message"
 msgstr "Сообщение о выводе"
 
-#: components/views/Offset/index.tsx:577
+#: components/views/Offset/index.tsx:570
 msgid "offset.retirement_purpose"
 msgstr "Опишите цель этого вывода"
 
-#: components/views/Offset/index.tsx:609
+#: components/views/Offset/index.tsx:603
 msgid "offset.retiring"
 msgstr "Вывод"
 
-#: components/views/Offset/index.tsx:694
+#: components/views/Offset/RetirementSuccessModal/index.tsx:25
 msgid "offset.successModal.body1"
 msgstr "Спасибо. Участвуя в добровольном углеродном рынке, вы делаете сохранение природы более выгодным, а смягчение последствий изменения климата - более эффективным"
 
-#: components/views/Offset/index.tsx:703
+#: components/views/Offset/RetirementSuccessModal/index.tsx:35
 msgid "offset.successModal.body2"
 msgstr "Нажмите на кнопку ниже, чтобы просмотреть ваше употребление. Поделитесь этой страницей, чтобы поддержать нас на пути к созданию более прозрачного, доступного и выгодного углеродного рынка!"
 
-#: components/views/Offset/index.tsx:717
+#: components/views/Offset/RetirementSuccessModal/index.tsx:50
 msgid "offset.successModal.cta"
 msgstr "Посмотреть употребление"
 
-#: components/views/Offset/index.tsx:687
+#: components/views/Offset/RetirementSuccessModal/index.tsx:16
 msgid "offset.successModal.title"
 msgstr "Использование успешно!"
 
@@ -559,11 +559,11 @@ msgstr "Тонны углерода"
 msgid "offset.you_have_retired"
 msgstr "Вы выбили"
 
-#: components/views/Offset/index.tsx:587
+#: components/views/Offset/index.tsx:581
 msgid "offset_cost"
 msgstr "Стоимость"
 
-#: components/views/Offset/index.tsx:620
+#: components/views/Offset/index.tsx:615
 msgid "offset_disclaimer"
 msgstr "Будьте осторожны и не раскрывайте конфиденциальную личную информацию. Ваше сообщение не может быть отредактировано и будет постоянно существовать в блокчейне."
 
@@ -633,7 +633,7 @@ msgstr "Обновленный контракт теперь предполаг�
 
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:459
-#: components/views/Offset/index.tsx:355
+#: components/views/Offset/index.tsx:343
 #: components/views/Stake/index.tsx:259
 #: components/views/Wrap/index.tsx:227
 msgid "shared.approve"
@@ -654,7 +654,7 @@ msgstr "Подтверждение"
 
 #: components/views/Bond/index.tsx:410
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:320
+#: components/views/Offset/index.tsx:308
 #: components/views/PKlima/index.tsx:150
 #: components/views/Stake/index.tsx:233
 #: components/views/Wrap/index.tsx:196
@@ -671,7 +671,7 @@ msgid "shared.enter_amount"
 msgstr "Введите сумму"
 
 #: components/views/Bond/index.tsx:422
-#: components/views/Offset/index.tsx:332
+#: components/views/Offset/index.tsx:320
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:208
 msgid "shared.enter_quantity"
@@ -683,13 +683,13 @@ msgstr "ВВЕДИТЕ КОЛИЧЕСТВО"
 msgid "shared.error"
 msgstr "ОШИБКА"
 
-#: components/views/Offset/index.tsx:348
+#: components/views/Offset/index.tsx:336
 #: components/views/Stake/index.tsx:252
 #: components/views/Wrap/index.tsx:220
 msgid "shared.insufficient_balance"
 msgstr "НЕДОСТАТОЧНЫЙ БАЛАНС"
 
-#: components/views/Offset/index.tsx:341
+#: components/views/Offset/index.tsx:329
 msgid "shared.invalid_inputs"
 msgstr "НЕДЕЙСТВИТЕЛЬНЫЕ ВВОДЫ"
 
@@ -698,8 +698,8 @@ msgstr "НЕДЕЙСТВИТЕЛЬНЫЕ ВВОДЫ"
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:416
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:326
-#: components/views/Offset/index.tsx:414
+#: components/views/Offset/index.tsx:314
+#: components/views/Offset/index.tsx:402
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:239
 #: components/views/Stake/index.tsx:443
@@ -716,7 +716,7 @@ msgstr "Загрузка..."
 msgid "shared.max"
 msgstr "Максимум"
 
-#: components/views/Offset/index.tsx:363
+#: components/views/Offset/index.tsx:351
 msgid "shared.retire"
 msgstr "Вывод карбона"
 
