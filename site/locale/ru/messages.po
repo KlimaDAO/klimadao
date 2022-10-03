@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-30 22:55+0000\n"
+"POT-Creation-Date: 2022-10-03 15:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1162,7 +1162,7 @@ msgstr "ENS или 0x адрес"
 
 #: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr ""
+msgstr "Введите адрес ENS, KNS или 0x"
 
 #: components/pages/Pledge/index.tsx:168
 msgid "pledges.home.search.submit"
