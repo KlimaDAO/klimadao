@@ -40,7 +40,7 @@ export const pledge_wallet_address_cell = css`
 `;
 
 export const pledge_wallet_pending = css`
-  background: var(--font-01);
+  background: var(--font-02);
   border-radius: 0.4rem;
   padding: 0.8rem;
   p {
@@ -48,7 +48,19 @@ export const pledge_wallet_pending = css`
     line-height: 1rem;
     color: var(--surface-02) !important;
     text-transform: uppercase;
+    font-weight: 600;
   }
+`;
+
+export const pledge_form_remove_container = css`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 1.2rem;
+`;
+
+export const pledge_form_remove_button = css`
+  width: 100%;
 `;
 
 export const pledge_wallet_row = css`
@@ -58,6 +70,7 @@ export const pledge_wallet_row = css`
   align-items: center;
   padding: 0.4rem 0;
 `;
+
 export const pledge_wallet_icon = css`
   padding: 0rem;
   min-height: 3.6rem;
@@ -65,6 +78,12 @@ export const pledge_wallet_icon = css`
   width: 3.6rem;
   border-radius: 1rem;
   transition: border-color 0.2s ease-in;
+`;
+
+export const pledge_form_wallets_title = css`
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 `;
 
 export const pledge_wallet_save = css`
@@ -79,6 +98,28 @@ export const pledge_wallet_save = css`
     border-color: var(--klima-green);
   }
 `;
+
+export const pledge_tooltip_arrow = css`
+  position: absolute;
+  bottom: -1.2rem;
+  color: var(--font-01);
+  left: calc(50% - 1rem);
+`;
+
+export const pledge_form_wallet_info = css`
+  color: var(--font-02);
+  cursor: pointer;
+`;
+
+export const pledge_form_wallet_info_content = css`
+  p {
+    color: var(--surface-01);
+  }
+  background: var(--font-01);
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+`;
+
 export const pledge_wallet_delete = css`
   ${pledge_wallet_icon};
   border: 0.175rem solid var(--surface-03);

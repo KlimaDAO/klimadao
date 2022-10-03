@@ -9,6 +9,7 @@ export const ButtonPrimary: FC<Props> = (props) => {
     {
       gray: props.variant === "gray",
       blue: props.variant === "blue",
+      red: props.variant === "red",
       blueRounded: props.variant === "blueRounded",
       icon: props.variant === "icon",
     },

@@ -1,12 +1,16 @@
 import React, { FC, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
 import SaveIcon from "@mui/icons-material/Save";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { trimWithLocale, useWeb3, concatAddress } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Tippy from "@tippyjs/react";
+
 import {
   useForm,
   useFieldArray,
@@ -14,7 +18,6 @@ import {
   Control,
   SubmitHandler,
 } from "react-hook-form";
-
 import { InputField, TextareaField } from "components/Form";
 
 import {
@@ -199,9 +202,38 @@ export const PledgeForm: FC<Props> = (props) => {
             }
           />
           <div className={styles.wallets_section}>
-            <Text t="caption">
-              <Trans id="pledges.form.wallets.label">Secondary Wallet(s)</Trans>
-            </Text>
+            <div className={styles.pledge_form_wallets_title}>
+              <Text t="caption">
+                <Trans id="pledges.form.wallets.label">
+                  Secondary Wallet(s)
+                </Trans>
+              </Text>
+              <Tippy
+                content={
+                  <div className={styles.pledge_form_wallet_info_content}>
+                    <Text t="caption">
+                      <Trans id="pledge.form.wallets.tooltip">
+                        Add other wallets to contribute to your pledge. If the
+                        owner of the wallet accepts your invitation, their
+                        wallet will appear on your pledge dashboard. Any
+                        retirments made by a secondary wallet will contribute
+                        toward your pledge. You'll retain sole ownership and
+                        editing access to this pledge.
+                      </Trans>
+                    </Text>
+                    <ArrowDropDownIcon
+                      className={styles.pledge_tooltip_arrow}
+                      fontSize="large"
+                    />
+                  </div>
+                }
+              >
+                <InfoOutlinedIcon
+                  fontSize="large"
+                  className={styles.pledge_form_wallet_info}
+                />
+              </Tippy>
+            </div>
 
             {walletsFields.map((wallet: Wallet, index: number) => {
               return (
@@ -428,13 +460,19 @@ export const PledgeForm: FC<Props> = (props) => {
         </>
       )}
       {props.isDeleteMode && (
-        <div>
-          <Text>
-            Are you sure you want to remove{" "}
-            {selectedAddress && selectedAddress.address} from your pleadge?
+        <div className={styles.pledge_form_remove_container}>
+          <Text t="caption">
+            <Trans id="pledge.form.wallets.confirm_remove_wallet">
+              Are you sure you want to remove {selectedAddress?.address} from
+              your pledge?
+            </Trans>
           </Text>
           <ButtonPrimary
-            label="remove"
+            label={t({
+              id: "pledges.form.confirm_remove",
+              message: "remove",
+            })}
+            variant="red"
             onClick={() => {
               walletsRemove(
                 selectedAddress ? selectedAddress.index : undefined
@@ -442,8 +480,12 @@ export const PledgeForm: FC<Props> = (props) => {
               props.setIsDeleteMode(false);
             }}
           />
-          <ButtonPrimary
-            label="cancel"
+          <ButtonSecondary
+            label={t({
+              id: "pledges.form.confirm_remove_cancel",
+              message: "cancel",
+            })}
+            variant="gray"
             onClick={() => props.setIsDeleteMode(false)}
           />
         </div>
