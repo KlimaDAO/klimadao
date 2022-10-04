@@ -23,7 +23,6 @@ const verifyWalletSignature = (params: {
 };
 
 export const verifySignature = async (params: Params): Promise<void> => {
-  // Expected signature generated server-side
   const message = editPledgeMessage(params.nonce);
 
   // Gnosis
