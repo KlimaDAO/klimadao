@@ -4,8 +4,8 @@ import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib
 
 const ONE_HOUR = 60 * 60 * 1000;
 
-export const verifyGnosisSafeMultisig = async (params: {
-  signature: string;
+export const waitForGnosisSignature = async (params: {
+  message: string;
   address: string;
 }): Promise<void> => {
   const provider = getJsonRpcProvider();
@@ -14,7 +14,7 @@ export const verifyGnosisSafeMultisig = async (params: {
     GnosisSafeSignMessageLib.abi,
     provider
   );
-  const messageHash = ethers.utils.hashMessage(params.signature);
+  const messageHash = ethers.utils.hashMessage(params.message);
   const getMessageHash = await gnosisSafeContract.getMessageHash(messageHash);
   const signedEvent = gnosisSafeContract.filters.SignMsg(getMessageHash);
 
@@ -29,4 +29,29 @@ export const verifyGnosisSafeMultisig = async (params: {
     });
 
   await waitForSignedEvent();
+};
+
+export const verifyGnosisSignature = async (params: {
+  /** Plain un-hashed string with expected nonce */
+  message: string;
+  /** Address of the multisig contract */
+  address: string;
+}) => {
+  const provider = getJsonRpcProvider();
+  const gnosisSafeContract = new ethers.Contract(
+    params.address,
+    GnosisSafeSignMessageLib.abi,
+    provider
+  );
+  const messageHash = ethers.utils.hashMessage(params.message);
+  const getMessageHash = await gnosisSafeContract.getMessageHash(messageHash);
+
+  const filter = gnosisSafeContract.filters.SignMsg(getMessageHash);
+  // signature event must be in the last 5 blocks (10 seconds)
+  const currentBlock = await provider.getBlockNumber();
+  const events = await gnosisSafeContract.queryFilter(filter, currentBlock - 5);
+
+  if (events.length < 1) {
+    throw new Error("Gnosis signature not found");
+  }
 };

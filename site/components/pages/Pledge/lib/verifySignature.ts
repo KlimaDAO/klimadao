@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { editPledgeSignature } from ".";
+import { editPledgeMessage, verifyGnosisSignature } from ".";
 
 interface Params {
   address: string;
@@ -7,17 +7,36 @@ interface Params {
   nonce: string;
 }
 
-export const verifySignature = async (params: Params): Promise<void> => {
-  // Gnosis multisig wallets are already validated client side
-  if (params.signature === "0x") return;
-
-  const signature = editPledgeSignature(params.nonce);
+const verifyWalletSignature = (params: {
+  address: string;
+  signature: string;
+  message: string;
+}) => {
   const decodedAddress = ethers.utils.verifyMessage(
-    signature,
+    params.message,
     params.signature
   );
 
   if (decodedAddress.toLowerCase() !== params.address.toLowerCase()) {
     throw new Error("Invalid signature");
+  }
+};
+
+export const verifySignature = async (params: Params): Promise<void> => {
+  // Expected signature generated server-side
+  const message = editPledgeMessage(params.nonce);
+
+  // Gnosis
+  if (params.signature === "0x") {
+    await verifyGnosisSignature({
+      address: params.address,
+      message,
+    });
+  } else {
+    verifyWalletSignature({
+      address: params.address,
+      signature: params.signature,
+      message,
+    });
   }
 };

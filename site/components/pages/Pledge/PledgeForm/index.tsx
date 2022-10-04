@@ -16,13 +16,13 @@ import {
 import { InputField, TextareaField } from "components/Form";
 
 import {
-  editPledgeSignature,
+  editPledgeMessage,
   formSchema,
   pledgeErrorTranslationsMap,
   PledgeErrorId,
   putPledge,
   pledgeFormAdapter,
-  verifyGnosisSafeMultisig,
+  waitForGnosisSignature,
 } from "../lib";
 import { Pledge, PledgeFormValues } from "../types";
 import * as styles from "./styles";
@@ -85,12 +85,12 @@ export const PledgeForm: FC<Props> = (props) => {
 
       if (!signer) return;
       const signature = await signer.signMessage(
-        editPledgeSignature(values.nonce)
+        editPledgeMessage(values.nonce)
       );
 
       if (signature === "0x") {
-        await verifyGnosisSafeMultisig({
-          signature: editPledgeSignature(values.nonce),
+        await waitForGnosisSignature({
+          message: editPledgeMessage(values.nonce),
           address: props.pageAddress,
         });
       }
