@@ -46,10 +46,13 @@ export const verifyGnosisSignature = async (params: {
   const messageHash = ethers.utils.hashMessage(params.message);
   const getMessageHash = await gnosisSafeContract.getMessageHash(messageHash);
 
-  const filter = gnosisSafeContract.filters.SignMsg(getMessageHash);
+  const signedEvent = gnosisSafeContract.filters.SignMsg(getMessageHash);
   // signature event must be in the last 5 blocks (10 seconds)
   const currentBlock = await provider.getBlockNumber();
-  const events = await gnosisSafeContract.queryFilter(filter, currentBlock - 5);
+  const events = await gnosisSafeContract.queryFilter(
+    signedEvent,
+    currentBlock - 5
+  );
 
   if (events.length < 1) {
     throw new Error("Gnosis signature not found");
