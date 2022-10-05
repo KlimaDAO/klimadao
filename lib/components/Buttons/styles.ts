@@ -103,10 +103,13 @@ export const buttonPrimary = css`
     }
   }
 
+  &.red {
+    background-color: var(--warn);
+    color: #fff;
+  }
+
   &.blue {
     background-color: var(--klima-blue);
-
-    // @note these styles were previously only applied when blue and rounded...
     &:hover,
     &:hover:not(:disabled),
     &:visited {
@@ -139,13 +142,17 @@ export const buttonSecondary = css`
 
   &.lightGray {
     background-color: var(--surface-01);
-
     &,
     &:hover,
     &:hover:not(:disabled),
     &:visited {
       color: var(--font-02); /* same in darkmode */
     }
+  }
+
+  &.red {
+    border-color: var(--warn);
+    color: var(--warn);
   }
 
   &.blue {
@@ -159,5 +166,3 @@ export const buttonSecondary = css`
     }
   }
 `;
-
-export const buttonLink = css``;

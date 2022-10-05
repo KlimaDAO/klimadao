@@ -13,6 +13,14 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/pages/Pledge/PledgeDashboard/index.tsx:162
+msgid ""
+msgstr "Are you sure?"
+
+#: components/pages/Blog/index.tsx:35
+msgid "Articles"
+msgstr "Articles"
+
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "Change language"
@@ -924,15 +932,11 @@ msgstr "{0}% of footprint"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Carbon Tonne(s)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:73
-msgid "pledges.dashboard.head.metaDescription"
-msgstr "{pledgeOwnerTitle} pledges to Offset {currentTotalFootprint} Carbon Tonnes. View their carbon offset history and read more about their commitment."
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:69
+#: components/pages/Pledge/PledgeDashboard/index.tsx:79
 msgid "pledges.dashboard.head.metaTitle"
-msgstr "{pledgeOwnerTitle}'s Pledge"
+msgstr "{pledgeOwnerTitle}'s pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:65
+#: components/pages/Pledge/PledgeDashboard/index.tsx:75
 msgid "pledges.dashboard.head.title"
 msgstr "{pledgeOwnerTitle}'s Pledge | KlimaDAO"
 
@@ -964,7 +968,7 @@ msgstr "{0}% of Pledge Met"
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Pledged to Offset <0>{0}</0> Carbon Tonnes"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:41
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:106
 msgid "pledges.dashboard.retirements.title"
 msgstr "Retirements"
 
@@ -972,7 +976,7 @@ msgstr "Retirements"
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
 msgstr "{0} Carbon Tonne(s) Retired"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:60
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:125
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "Total Carbon Tonnes Retired"
 
@@ -1108,9 +1112,9 @@ msgstr "Total footprint"
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:80
+#: components/pages/Pledge/PledgeDashboard/index.tsx:94
 msgid "pledges.form.title"
-msgstr "Your Pledge"
+msgstr "Your pledge"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:47
 msgid "pledges.form.total_footprint_summary"

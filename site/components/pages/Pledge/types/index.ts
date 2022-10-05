@@ -31,7 +31,7 @@ export type Pledge = {
   description: string;
   methodology: string;
   footprint: Footprint[];
-  wallets: Wallet[];
+  wallets?: Wallet[];
   createdAt?: number;
   updatedAt?: number;
 };

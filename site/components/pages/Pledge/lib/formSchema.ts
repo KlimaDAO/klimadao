@@ -64,6 +64,10 @@ export const pledgeErrorTranslationsMap = {
     id: "pledges.form.errors.categoryQuantity.min",
     message: "Enter a value greater than 0",
   }),
+  ["pledges.form.errors.walletAddress.required"]: t({
+    id: "pledges.form.errors.walletAddress.required",
+    message: "Address required",
+  }),
 } as const;
 
 export type PledgeErrorId = keyof typeof pledgeErrorTranslationsMap;
@@ -93,8 +97,7 @@ export const formSchema = yup
       yup.object({
         address: yup
           .string()
-          .required("pledges.form.errors.secondaryWalletAddress.required")
-          .min(1, "pledges.form.errors.secondaryWalletAddress.min")
+          .required("pledges.form.errors.walletAddress.required")
           .trim(),
         verified: yup.boolean().required(),
         saved: yup.boolean().required(),

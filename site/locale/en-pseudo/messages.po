@@ -13,6 +13,14 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/pages/Pledge/PledgeDashboard/index.tsx:162
+msgid ""
+msgstr ""
+
+#: components/pages/Blog/index.tsx:35
+msgid "Articles"
+msgstr ""
+
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr ""
@@ -924,15 +932,11 @@ msgstr ""
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:73
-msgid "pledges.dashboard.head.metaDescription"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:69
+#: components/pages/Pledge/PledgeDashboard/index.tsx:79
 msgid "pledges.dashboard.head.metaTitle"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:65
+#: components/pages/Pledge/PledgeDashboard/index.tsx:75
 msgid "pledges.dashboard.head.title"
 msgstr ""
 
@@ -964,7 +968,7 @@ msgstr ""
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:41
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:106
 msgid "pledges.dashboard.retirements.title"
 msgstr ""
 
@@ -972,7 +976,7 @@ msgstr ""
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:60
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:125
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr ""
 
@@ -1108,7 +1112,7 @@ msgstr ""
 msgid "pledges.form.submit_button"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:80
+#: components/pages/Pledge/PledgeDashboard/index.tsx:94
 msgid "pledges.form.title"
 msgstr ""
 
