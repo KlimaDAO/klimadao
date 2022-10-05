@@ -53,6 +53,11 @@ export const buttonPrimary = css`
     }
   }
 
+  &.red {
+    background-color: var(--warn);
+    color: #fff;
+  }
+
   &.blue,
   &.blueRounded {
     background-color: var(--klima-blue);
@@ -92,6 +97,11 @@ export const buttonSecondary = css`
     &:visited {
       color: var(--font-01); /* same in darkmode */
     }
+  }
+
+  &.red {
+    border-color: var(--warn);
+    color: var(--warn);
   }
 
   &.blue,

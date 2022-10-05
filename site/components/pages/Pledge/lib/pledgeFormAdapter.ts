@@ -16,7 +16,7 @@ export const DEFAULT_VALUES: Pledge = {
       categories: [{ name: "", quantity: 0 }],
     },
   ],
-  wallets: [{ address: "", verified: false }],
+  wallets: [{ address: "", verified: false, saved: false }],
 };
 
 export const pledgeFormAdapter = (pledge: Pledge): PledgeFormValues => {
