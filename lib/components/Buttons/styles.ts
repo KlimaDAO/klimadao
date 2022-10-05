@@ -95,6 +95,11 @@ export const buttonSecondary = css`
     }
   }
 
+  &.red {
+    border-color: var(--warn);
+    color: var(--warn);
+  }
+
   &.blue,
   &.blueRounded {
     border-color: var(--klima-blue);
