@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
@@ -19,7 +21,7 @@ import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import { Holding, Pledge } from "../types";
 import * as styles from "./styles";
-import { ButtonPrimary, ButtonSecondary } from "@klimadao/lib/components";
+import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
 
 type Props = {
   canonicalUrl: string;
@@ -35,9 +37,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const [showFormModal, setShowFormModal] = useState(false);
   const [isDeleteMode, setIsDeleteMode] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(props.pledge);
-  const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
+  const [showRemoveConfirmModal, setShowRemoveConfirmModal] = useState(false);
   const [showAcceptModal, setShowAcceptModal] = useState(false);
+  const [showAcceptConfirmModal, setShowAcceptConfirmModal] = useState(false);
 
   const isUnverifiedSecondaryWallet = props.pledge.wallets?.some(
     (wallet) => wallet.address === address && wallet.verified === false
@@ -117,48 +120,134 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         showModal={showAcceptModal}
         onToggleModal={() => setShowAcceptModal(false)}
       >
-        Pledge Creator has invited you to add your wallet to this pledge. If you
-        accept, then your carbon retirements will count toward Pledge Creator's
-        pledge. You may remove your wallet from this pledge at any time.
-        <ButtonPrimary
-          label="Accept Invitation"
-          onClick={() => {
-            setShowConfirmModal(true);
-            setShowAcceptModal(false);
-          }}
-        />
-        <ButtonSecondary
-          label="Reject Invitation"
-          onClick={() => setShowAcceptModal(false)}
-        />
-        <ButtonSecondary
-          label="Remind me later"
-          onClick={() => setShowAcceptModal(false)}
-        />
+        <Text className={styles.modalMessage} t="body2">
+          <Trans id="pledge.invitation.join_message">
+            {concatAddress(props.pledge.ownerAddress)} has invited you to add
+            your wallet to this pledge. If you accept, then your carbon
+            retirements will count toward{" "}
+            {concatAddress(props.pledge.ownerAddress)}'s pledge. You may remove
+            your wallet from this pledge at any time.
+          </Trans>
+        </Text>
+        <div className={styles.modalButtons}>
+          <ButtonPrimary
+            label={t({
+              id: "pledge.invitation.accept",
+              message: "Accept Invitation",
+            })}
+            onClick={() => {
+              setShowAcceptConfirmModal(true);
+              setShowAcceptModal(false);
+            }}
+          />
+          <ButtonSecondary
+            label={t({
+              id: "pledge.invitation.reject",
+              message: "Reject Invitation",
+            })}
+            onClick={() => setShowAcceptModal(false)}
+            variant="red"
+          />
+          <ButtonSecondary
+            label={t({
+              id: "pledge.invitation.later",
+              message: "Remind me later",
+            })}
+            onClick={() => setShowAcceptModal(false)}
+            variant="gray"
+          />
+        </div>
       </Modal>
       <Modal
-        title="Are you sure?"
-        showModal={showConfirmModal}
-        onToggleModal={() => setShowConfirmModal(false)}
+        title={t({ id: "", message: "Are you sure?" })}
+        showModal={showAcceptConfirmModal}
+        onToggleModal={() => setShowAcceptConfirmModal(false)}
       >
-        Adding your wallet to this pledge will remove your wallet from any
-        existing pledges under your wallet address. Those pledges will be
-        redirected to this new pledge.
-        <ButtonPrimary label="Confirm" />
-        <ButtonSecondary
-          label="Cancel"
-          onClick={() => {
-            setShowConfirmModal(false);
-            setShowAcceptModal(true);
-          }}
-        />
+        <Text t="body2" className={styles.modalMessage}>
+          <Trans id="pledge.modal.wallet_add_confirm">
+            Adding your wallet to this pledge will remove your wallet from any
+            existing pledges under your wallet address. Those pledges will be
+            redirected to this new pledge.
+          </Trans>
+        </Text>
+        <div className={styles.modalButtons}>
+          <ButtonPrimary
+            label={t({ id: "pledge.modal.confirm", message: "Confirm" })}
+          />
+          <ButtonSecondary
+            label={t({ id: "shared.cancel", message: "Cancel" })}
+            onClick={() => {
+              setShowAcceptConfirmModal(false);
+              setShowAcceptModal(true);
+            }}
+            variant="gray"
+          />
+        </div>
       </Modal>
       <Modal
-        title="Edit pledge"
+        title={t({ id: "pledge.modal.edit_pledge", message: "Edit pledge" })}
         showModal={showRemoveModal}
         onToggleModal={() => setShowRemoveModal(false)}
       >
-        verified in here
+        <div className={styles.removeTitleContainer}>
+          <span className={styles.lockIcon}>
+            <LockOutlinedIcon fontSize="large" />
+          </span>
+          <Text t="body2">
+            <Trans id="pledge.modal.unable_to_edit">
+              Only Primary Wallet holders can edit the content of this pledge.
+            </Trans>
+          </Text>
+        </div>
+        <div className={styles.modalButtons}>
+          <ButtonSecondary
+            label={t({
+              id: "pledge.modal.unpin_wallet",
+              message: "unpin my wallet",
+            })}
+            variant="red"
+            onClick={() => {
+              setShowRemoveConfirmModal(true);
+              setShowRemoveModal(false);
+            }}
+          />
+          <ButtonSecondary
+            label={t({ id: "shared.cancel", message: "Cancel" })}
+            onClick={() => setShowRemoveModal(false)}
+            variant="gray"
+          />
+        </div>
+      </Modal>
+      <Modal
+        title={t({
+          id: "pledge.modal.confirm_remove",
+          message: "Confirm Removal",
+        })}
+        showModal={showRemoveConfirmModal}
+        onToggleModal={() => setShowRemoveConfirmModal(false)}
+      >
+        <Text t="body2" className={styles.modalMessage}>
+          <Trans id="pledge.modal.are_you_sure">
+            Are you sure you want to remove your wallet from this pledge?
+          </Trans>
+        </Text>
+        <div className={styles.modalButtons}>
+          <ButtonPrimary
+            label={t({
+              id: "shared.remove",
+              message: "remove",
+            })}
+            onClick={() => {
+              setShowRemoveConfirmModal(false);
+            }}
+            variant="red"
+          />
+          <ButtonSecondary
+            label={t({ id: "shared.cancel", message: "Cancel" })}
+            onClick={() => setShowRemoveModal(false)}
+            variant="gray"
+          />
+        </div>
       </Modal>
 
       <div className={styles.contentContainer}>
@@ -182,6 +271,8 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           <RetirementsCard
             retirements={props.retirements}
             pageAddress={props.pageAddress}
+            secondaryWallets={pledge.wallets ?? undefined}
+            isPledgeOwner={isPledgeOwner}
           />
         </div>
       </div>
