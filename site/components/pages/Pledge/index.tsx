@@ -152,11 +152,13 @@ export const Pledge: NextPage = () => {
                     message: "ENS or 0x address",
                   })}
                   errorMessage={
-                    error &&
-                    t({
-                      id: "pledges.form.error",
-                      message: "Enter a wallet address, .klima or .eth domain",
-                    })
+                    error
+                      ? t({
+                          id: "pledges.form.error",
+                          message:
+                            "Enter a wallet address, .klima or .eth domain",
+                        })
+                      : undefined
                   }
                 />
               </div>
