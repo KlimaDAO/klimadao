@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useForm, SubmitHandler } from "react-hook-form";
 import SearchIcon from "@mui/icons-material/Search";
@@ -56,7 +56,7 @@ export const ResourcesList: FC<Props> = (props) => {
   const hasDocuments = !isLoading && !!visibleDocuments?.length;
   const isEmptyResult = !isLoading && !visibleDocuments;
 
-  const { register, handleSubmit, reset, setValue, control, getValues } =
+  const { register, handleSubmit, watch, reset, setValue, control, getValues } =
     useForm<FormValues>({
       defaultValues,
     });
