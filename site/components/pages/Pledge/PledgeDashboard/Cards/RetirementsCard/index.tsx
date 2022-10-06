@@ -12,6 +12,7 @@ import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import { BaseCard } from "../BaseCard";
 import { RetirementsChartProps } from "./RetirementsChart";
+import {Wallet} from '../../../types';
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
 
@@ -23,8 +24,8 @@ const RetirementsChart: React.ComponentType<RetirementsChartProps> = dynamic(
 type Props = {
   pageAddress: string;
   retirements: RetirementsTotalsAndBalances | null;
-  secondaryWallets: any;
   isPledgeOwner: boolean;
+  secondaryWallets?: Wallet[];
 };
 
 export const RetirementsCard: FC<Props> = (props) => {
