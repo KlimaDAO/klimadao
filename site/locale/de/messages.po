@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-05 19:07+0000\n"
+"POT-Creation-Date: 2022-10-06 17:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -998,7 +998,7 @@ msgstr "CO2-Tonnen insgesamt ausgeglichen"
 msgid "pledges.edit_pledge"
 msgstr "Versprechen bearbeiten"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:269
+#: components/pages/Pledge/PledgeForm/index.tsx:271
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Kategorie hinzufügen"
 
@@ -1062,19 +1062,19 @@ msgstr "Fügen Sie eine Kategorie hinzu und berechnen Sie Ihren CO2-Fußabdruck"
 msgid "pledges.form.generic_error"
 msgstr "Etwas ist schiefgelaufen. Bitte versuche es erneut."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:220
+#: components/pages/Pledge/PledgeForm/index.tsx:221
 msgid "pledges.form.input.categoryName.label"
 msgstr "Kategorie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:212
+#: components/pages/Pledge/PledgeForm/index.tsx:213
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Kategoriename"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:241
+#: components/pages/Pledge/PledgeForm/index.tsx:243
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Menge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:233
+#: components/pages/Pledge/PledgeForm/index.tsx:235
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "CO2-Tonnen"
 
@@ -1106,11 +1106,11 @@ msgstr "Name oder Firmenname"
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "URL zum Profilbild (optional)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:285
+#: components/pages/Pledge/PledgeForm/index.tsx:288
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Gesamtfußabdruck"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:299
+#: components/pages/Pledge/PledgeForm/index.tsx:302
 msgid "pledges.form.submit_button"
 msgstr "Versprechen speichern"
 
@@ -1134,11 +1134,11 @@ msgstr "Geben Sie eine CO2-Ausgleichszusicherung ab und zeigen Sie deren Wirkung
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Versprechen"
 
-#: components/pages/Pledge/index.tsx:308
+#: components/pages/Pledge/index.tsx:310
 msgid "pledges.home.banner.create"
 msgstr "Zusicherung erstellen"
 
-#: components/pages/Pledge/index.tsx:287
+#: components/pages/Pledge/index.tsx:289
 msgid "pledges.home.get_started.create"
 msgstr "Zusicherung erstellen"
 
@@ -1158,7 +1158,7 @@ msgstr "ENS- oder 0x-Adresse"
 msgid "pledges.home.search.placeholder"
 msgstr "ENS-, KNS- oder 0x-Adresse eingeben"
 
-#: components/pages/Pledge/index.tsx:168
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.search.submit"
 msgstr "Suchen"
 
@@ -1175,15 +1175,11 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "KlimaDAO-Podcast"
 
-#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
-msgid "resources.form.input.search.error.required"
-msgstr "Suchbegriff eingeben"
-
-#: components/pages/Resources/ResourcesList/index.tsx:88
+#: components/pages/Resources/ResourcesList/index.tsx:80
 msgid "resources.form.input.search.label"
 msgstr "Suchen"
 
-#: components/pages/Resources/ResourcesList/index.tsx:74
+#: components/pages/Resources/ResourcesList/index.tsx:66
 msgid "resources.form.input.search.placeholder"
 msgstr "Suchen"
 
@@ -1207,15 +1203,15 @@ msgstr "Updates und Thought Leadership von den Gründern, DAO-Mitarbeitern, Bera
 msgid "resources.page.header.title"
 msgstr "Ausgewählte Artikel"
 
-#: components/pages/Resources/ResourcesList/index.tsx:65
+#: components/pages/Resources/ResourcesList/index.tsx:57
 msgid "resources.page.list.header"
 msgstr "Alles erkunden"
 
-#: components/pages/Resources/ResourcesList/index.tsx:116
+#: components/pages/Resources/ResourcesList/index.tsx:102
 msgid "resources.page.list.no_search_results.subline"
 msgstr "Überprüfe deine Sucheingabe auf Fehler oder starte eine Suche mit einem anderen Begriff."
 
-#: components/pages/Resources/ResourcesList/index.tsx:111
+#: components/pages/Resources/ResourcesList/index.tsx:97
 msgid "resources.page.list.no_search_results.title"
 msgstr "Wir konnten leider keine Suchergebnisse finden."
 

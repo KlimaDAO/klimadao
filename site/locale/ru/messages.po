@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-05 19:07+0000\n"
+"POT-Creation-Date: 2022-10-06 17:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1004,7 +1004,7 @@ msgstr "Всего выбыло тонн углерода"
 msgid "pledges.edit_pledge"
 msgstr "Изменить залог"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:269
+#: components/pages/Pledge/PledgeForm/index.tsx:271
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Добавить категорию"
 
@@ -1068,19 +1068,19 @@ msgstr "Добавьте категорию и начните рассчитыв
 msgid "pledges.form.generic_error"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:220
+#: components/pages/Pledge/PledgeForm/index.tsx:221
 msgid "pledges.form.input.categoryName.label"
 msgstr "Категория"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:212
+#: components/pages/Pledge/PledgeForm/index.tsx:213
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Название категории"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:241
+#: components/pages/Pledge/PledgeForm/index.tsx:243
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Количество"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:233
+#: components/pages/Pledge/PledgeForm/index.tsx:235
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Тонны углерода"
 
@@ -1112,11 +1112,11 @@ msgstr "Имя или название компании"
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "URL-адрес изображения профиля (необязательно)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:285
+#: components/pages/Pledge/PledgeForm/index.tsx:288
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Общий след"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:299
+#: components/pages/Pledge/PledgeForm/index.tsx:302
 msgid "pledges.form.submit_button"
 msgstr "Сохранить залог"
 
@@ -1140,11 +1140,11 @@ msgstr "Создайте обязательство по выбросам угл
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Залоги"
 
-#: components/pages/Pledge/index.tsx:308
+#: components/pages/Pledge/index.tsx:310
 msgid "pledges.home.banner.create"
 msgstr "Создать обязательство"
 
-#: components/pages/Pledge/index.tsx:287
+#: components/pages/Pledge/index.tsx:289
 msgid "pledges.home.get_started.create"
 msgstr "Создать обязательство"
 
@@ -1164,7 +1164,7 @@ msgstr "ENS или 0x адрес"
 msgid "pledges.home.search.placeholder"
 msgstr "Введите адрес ENS, KNS или 0x"
 
-#: components/pages/Pledge/index.tsx:168
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.search.submit"
 msgstr "Поиск"
 
@@ -1181,15 +1181,11 @@ msgstr "Подкаст"
 msgid "podcast.head.title"
 msgstr "Подкаст KlimaDAO"
 
-#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
-msgid "resources.form.input.search.error.required"
-msgstr "Введите поисковый запрос"
-
-#: components/pages/Resources/ResourcesList/index.tsx:88
+#: components/pages/Resources/ResourcesList/index.tsx:80
 msgid "resources.form.input.search.label"
 msgstr "Поиск"
 
-#: components/pages/Resources/ResourcesList/index.tsx:74
+#: components/pages/Resources/ResourcesList/index.tsx:66
 msgid "resources.form.input.search.placeholder"
 msgstr "Поиск"
 
@@ -1215,15 +1211,15 @@ msgstr ""
 "Популярные статьи\n"
 ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:65
+#: components/pages/Resources/ResourcesList/index.tsx:57
 msgid "resources.page.list.header"
 msgstr "Просмотреть все"
 
-#: components/pages/Resources/ResourcesList/index.tsx:116
+#: components/pages/Resources/ResourcesList/index.tsx:102
 msgid "resources.page.list.no_search_results.subline"
 msgstr "Дважды проверьте свой поиск на наличие опечаток или орфографических ошибок - или попробуйте использовать другой поисковый запрос."
 
-#: components/pages/Resources/ResourcesList/index.tsx:111
+#: components/pages/Resources/ResourcesList/index.tsx:97
 msgid "resources.page.list.no_search_results.title"
 msgstr "Извините. Мы не нашли ни одного подходящего результата."
 

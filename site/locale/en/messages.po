@@ -1002,7 +1002,7 @@ msgstr "Total Carbon Tonnes Retired"
 msgid "pledges.edit_pledge"
 msgstr "Edit Pledge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:269
+#: components/pages/Pledge/PledgeForm/index.tsx:271
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Add category"
 
@@ -1066,19 +1066,19 @@ msgstr "Add a category and start calculating your carbon footprint"
 msgid "pledges.form.generic_error"
 msgstr "Something went wrong. Please try again."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:220
+#: components/pages/Pledge/PledgeForm/index.tsx:221
 msgid "pledges.form.input.categoryName.label"
 msgstr "Category"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:212
+#: components/pages/Pledge/PledgeForm/index.tsx:213
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Category name"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:241
+#: components/pages/Pledge/PledgeForm/index.tsx:243
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Quantity"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:233
+#: components/pages/Pledge/PledgeForm/index.tsx:235
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Carbon tonnes"
 
@@ -1110,11 +1110,11 @@ msgstr "Name or company name"
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "Profile image url (optional)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:285
+#: components/pages/Pledge/PledgeForm/index.tsx:288
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Total footprint"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:299
+#: components/pages/Pledge/PledgeForm/index.tsx:302
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
@@ -1138,11 +1138,11 @@ msgstr "Create a carbon pledge and showcase your impact"
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Pledges"
 
-#: components/pages/Pledge/index.tsx:308
+#: components/pages/Pledge/index.tsx:310
 msgid "pledges.home.banner.create"
 msgstr "Create a pledge"
 
-#: components/pages/Pledge/index.tsx:287
+#: components/pages/Pledge/index.tsx:289
 msgid "pledges.home.get_started.create"
 msgstr "Create a pledge"
 
@@ -1162,7 +1162,7 @@ msgstr "ENS or 0x address"
 msgid "pledges.home.search.placeholder"
 msgstr "Enter ENS, KNS or 0x address"
 
-#: components/pages/Pledge/index.tsx:168
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.search.submit"
 msgstr "Search"
 
@@ -1179,15 +1179,11 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "KlimaDAO Podcast"
 
-#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
-msgid "resources.form.input.search.error.required"
-msgstr "Enter a search term"
-
-#: components/pages/Resources/ResourcesList/index.tsx:88
+#: components/pages/Resources/ResourcesList/index.tsx:80
 msgid "resources.form.input.search.label"
 msgstr "Search"
 
-#: components/pages/Resources/ResourcesList/index.tsx:74
+#: components/pages/Resources/ResourcesList/index.tsx:66
 msgid "resources.form.input.search.placeholder"
 msgstr "Search"
 
@@ -1211,15 +1207,15 @@ msgstr "Updates and thought leadership from the founders, DAO contributors, advi
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
 
-#: components/pages/Resources/ResourcesList/index.tsx:65
+#: components/pages/Resources/ResourcesList/index.tsx:57
 msgid "resources.page.list.header"
 msgstr "Explore All"
 
-#: components/pages/Resources/ResourcesList/index.tsx:116
+#: components/pages/Resources/ResourcesList/index.tsx:102
 msgid "resources.page.list.no_search_results.subline"
 msgstr "Double check your search for any typos or spelling errors - or try a different search term."
 
-#: components/pages/Resources/ResourcesList/index.tsx:111
+#: components/pages/Resources/ResourcesList/index.tsx:97
 msgid "resources.page.list.no_search_results.title"
 msgstr "Sorry. We coudn't find any matching results."
 
