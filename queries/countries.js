@@ -2,7 +2,7 @@ const { gql } = require('@apollo/client');
 
 const GET_COUNTRIES = gql`
             query countries{
-                countries{
+                countries {
                     id
                 }
             }

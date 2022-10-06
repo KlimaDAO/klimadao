@@ -24,7 +24,7 @@ module.exports = async function (fastify, opts) {
                 .query({
                     query: GET_COUNTRIES,
                 });
-
+console.log(data)
             return reply.send(JSON.stringify(data.data.countries));
         }
     })

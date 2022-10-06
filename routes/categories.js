@@ -24,7 +24,7 @@ module.exports = async function (fastify, opts) {
                 .query({
                     query: GET_CATEGORIES,
                 });
-
+                console.log(data.data.categories)
             return reply.send(JSON.stringify(data.data.categories));
         }
     })

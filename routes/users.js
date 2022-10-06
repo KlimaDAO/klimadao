@@ -1,60 +1,142 @@
 'use strict'
 const { client } = require('../apollo-client.js');
 const { GET_USER_DATA } = require('../queries/users.js');
+const ethers = require('ethers');
+const jwt = require('jsonwebtoken');
+
+const generateNounce = () => (Math.random() + 1).toString(36).substring(2);
+const users = {};
 
 
 module.exports = async function (fastify, opts) {
     fastify.route({
-        method: 'GET',
-        path: '/users/:wallet',
+        method: 'POST',
+        path: '/users/login',
         schema: {
             tags: ["user"],
+            body: {
+                type: 'object',
+                properties: {
+                    wallet: { type: 'string', minLength: 26, maxLength: 64 }
+                },
+                required: ['wallet']
+            },
             response: {
                 '2xx': {
                     type: 'object',
                     properties: {
-                        handle: { type: 'string' },
-                        username: { type: 'string' },
-                        description: { type: 'string' },
-                        wallet: { type: 'string' },
-                        listings: { type: 'array' },
-                        activities: { type: 'array' }
+                        nonce: { type: 'string' },
                     }
                 }
             }
         },
 
         handler: async function (request, reply) {
-            const { wallet } = request.params;
-
-            const user = await fastify.firebase.firestore()
-                .collection("users")
-                .doc(wallet)
-                .get();
-
-            if (!user.exists) {
-                return reply.notFound();
+            const walletAddress = request.body.wallet;
+            if (!walletAddress) {
+                reply.code(400);
+                reply.send('Bad Request');
+                return;
             }
-
-            var data = await client(process.env.GRAPH_API_URL)
-                .query({
-                    query: GET_USER_DATA,
-                    variables: { wallet }
-                });
-
-            var response = user.data();
-            response.wallet = wallet;
-            if (data.users.length) {
-                response.listings = data.data.users[0].listings;
-                response.activities = data.data.users[0].activities;
-            } else {
-                response.listings = [];
-                response.activities = [];
+            if (!!users[walletAddress]) {
+                reply.send({ nonce: users[walletAddress].nonce });
+                return;
             }
-
-            return reply.send(response);
+            const nonce = generateNounce();
+            users[walletAddress] = { walletAddress, nonce };
+            reply.send({ nonce });
         }
     }),
+    fastify.route({
+        method: 'POST',
+        path: '/users/login/verify',
+        schema: {
+            tags: ["user"],
+            body: {
+                type: 'object',
+                properties: {
+                    wallet: { type: 'string', minLength: 26, maxLength: 64 },
+                    signature: {  type: 'string' }
+                },
+                required: ['wallet', 'signature']
+            },
+            response: {
+                '2xx': {
+                    type: 'object',
+                    properties: {
+                        nonce: { type: 'string' },
+                    }
+                }
+            }
+        },
+
+        handler: async function (request, reply) {
+            const {signature, wallet} = request.body;
+            const dbUser = users[walletAddress];
+            const signerWalletAddress = ethers.utils.verifyMessage(dbUser.nonce, signature);
+            
+            if (signerWalletAddress !== dbUser.wallet) {
+                reply.statusCode = 401;
+               reply.send('Bad Creds');
+               return;
+            }
+            
+            const token = jwt.sign({wallet}, 'jwtSecretKey');
+            reply.send({token});
+            users[wallet].nonce = generateNounce();
+        }
+    }),
+        fastify.route({
+            method: 'GET',
+            path: '/users/:wallet',
+            schema: {
+                tags: ["user"],
+                response: {
+                    '2xx': {
+                        type: 'object',
+                        properties: {
+                            handle: { type: 'string' },
+                            username: { type: 'string' },
+                            description: { type: 'string' },
+                            wallet: { type: 'string' },
+                            listings: { type: 'array' },
+                            activities: { type: 'array' }
+                        }
+                    }
+                }
+            },
+
+            handler: async function (request, reply) {
+                const { wallet } = request.params;
+
+                const user = await fastify.firebase.firestore()
+                    .collection("users")
+                    .doc(wallet)
+                    .get();
+
+                if (!user.exists) {
+                    return reply.notFound();
+                }
+
+                var data = await client(process.env.GRAPH_API_URL)
+                    .query({
+                        query: GET_USER_DATA,
+                        variables: { wallet }
+                    });
+
+                var response = user.data();
+                response.wallet = wallet;
+                if (data.users.length) {
+                    response.listings = data.data.users[0].listings;
+                    response.activities = data.data.users[0].activities;
+                } else {
+                    response.listings = [];
+                    response.activities = [];
+                }
+
+                return reply.send(response);
+            }
+        }),
         fastify.route({
             method: 'POST',
             path: '/users',

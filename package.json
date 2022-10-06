@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tap \"test/**/*.test.js\"",
-    "start": "fastify start -l info app.js",
-    "dev": "fastify start -w -l info -P app.js"
+    "local:test": "tap \"test/**/*.test.js\"",
+    "local:start": "fastify start -l info app.js",
+    "local:dev": "fastify start -w -l info -P app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,15 +21,17 @@
     "@fastify/sensible": "^5.0.0",
     "@fastify/swagger": "^7.5.1",
     "@now-ims/fastify-firebase": "^1.1.3",
+    "cross-fetch": "^3.1.5",
+    "ethers": "^5.7.1",
     "fastify": "^4.0.0",
     "fastify-cli": "^5.4.0",
     "fastify-openapi-docs": "^2.0.1",
     "fastify-plugin": "^4.0.0",
     "fastify-swagger": "^5.2.0",
     "firebase": "^9.9.4",
-    "gcloud": "^0.37.2",
     "graph-cli": "^0.0.1",
-    "graphql": "^16.6.0"
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "@graphprotocol/client-cli": "^2.2.9",
