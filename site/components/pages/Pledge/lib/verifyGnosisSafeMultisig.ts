@@ -1,6 +1,7 @@
-import { ethers } from "ethers";
-import { getJsonRpcProvider } from "@klimadao/lib/utils";
+import { Contract, ethers, utils } from "ethers";
+import { polygonNetworks } from "@klimadao/lib/constants";
 import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
+import { getJsonRpcProvider } from "@klimadao/lib/utils";
 
 const ONE_HOUR = 60 * 60 * 1000;
 
@@ -31,6 +32,24 @@ export const waitForGnosisSignature = async (params: {
   await waitForSignedEvent();
 };
 
+// https://github.com/safe-global/safe-contracts/blob/ee92957307653ae6cf7312bbcb1a13c6884ea6ea/src/utils/execution.ts
+const EIP712_SAFE_MESSAGE_TYPE = {
+  // "SafeMessage(bytes message)"
+  SafeMessage: [{ type: "bytes", name: "message" }],
+};
+
+// https://github.com/safe-global/safe-contracts/blob/ee92957307653ae6cf7312bbcb1a13c6884ea6ea/src/utils/execution.ts
+const calculateSafeMessageHash = (safe: Contract, message: string): string => {
+  return utils._TypedDataEncoder.hash(
+    {
+      verifyingContract: safe.address,
+      chainId: polygonNetworks.mainnet.chainId,
+    },
+    EIP712_SAFE_MESSAGE_TYPE,
+    { message: ethers.utils.hashMessage(message) }
+  );
+};
+
 export const verifyGnosisSignature = async (params: {
   /** Plain un-hashed string with expected nonce */
   message: string;
@@ -43,8 +62,10 @@ export const verifyGnosisSignature = async (params: {
     GnosisSafeSignMessageLib.abi,
     provider
   );
-  const messageHash = ethers.utils.hashMessage(params.message);
-  const getMessageHash = await gnosisSafeContract.getMessageHash(messageHash);
+  const getMessageHash = calculateSafeMessageHash(
+    gnosisSafeContract,
+    params.message
+  );
 
   const signedEvent = gnosisSafeContract.filters.SignMsg(getMessageHash);
   // signature event must be in the last 5 blocks (10 seconds)
