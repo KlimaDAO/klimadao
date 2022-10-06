@@ -54,7 +54,9 @@ import { DropdownWithModal } from "components/DropdownWithModal";
 import { TransactionModal } from "components/TransactionModal";
 
 import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
+import { SelectiveRetirement } from "./SelectiveRetirement";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
+
 import * as styles from "./styles";
 
 // We need to approve a little bit extra (here 1%)
@@ -517,6 +519,8 @@ export const Offset = (props: Props) => {
             projectAddress={projectAddress}
             onChange={setProjectAddress}
           />
+
+          <SelectiveRetirement />
 
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
