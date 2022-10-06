@@ -45,20 +45,49 @@ const defaultValues: FormValues = {
   sortedBy: "",
 };
 
+const queryCMSWithParams = async (values: FormValues): Promise<Document[]> => {
+  const { tags, types, sortedBy } = values;
+
+  // groq queries don´t understand undefined values, make sure to always pass values to the query params
+  const typesWithFallback = types?.length ? types : ["post", "podcast"];
+  const orderWithFallback = sortedBy || "publishedAt desc";
+
+  // query with selected tags
+  if (tags?.length) {
+    const filteredDocuments = await fetchCMSContent("filterDocumentsByTags", {
+      documentTypes: typesWithFallback,
+      referenceTags: tags,
+      orderBy: orderWithFallback,
+    });
+
+    return filteredDocuments;
+  }
+
+  // if no selected tags, query with selected types and sortyBy only
+  const filteredDocuments = await fetchCMSContent(
+    "filterDocumentsWithoutTags",
+    {
+      documentTypes: typesWithFallback,
+      orderBy: orderWithFallback,
+    }
+  );
+
+  return filteredDocuments;
+};
+
 export const ResourcesList: FC<Props> = (props) => {
   const [visibleDocuments, setVisibleDocuments] = useState<Document[] | null>(
     props.documents
   );
   const [isLoading, setIsLoading] = useState(false);
 
-  const hasDocuments = !isLoading && !!visibleDocuments?.length;
-  const isEmptyResult = !isLoading && !visibleDocuments;
-
   const { register, handleSubmit, watch, reset, setValue, control, getValues } =
     useForm<FormValues>({
       defaultValues,
     });
 
+  const hasDocuments = !isLoading && !!visibleDocuments?.length;
+  const isEmptyResult = !isLoading && !visibleDocuments;
   const wasTextSearch = !!getValues().search;
 
   const onResetFields = (fields = defaultValues as Partial<FormValues>) => {
@@ -85,11 +114,11 @@ export const ResourcesList: FC<Props> = (props) => {
       });
 
       // remove all filters and sortBy as search results do not take filters into account and are sorted by relevance
-      // but keep current search term
+      // but don't delete current search term in input field
       onResetFields({
-        tags: [],
-        types: [],
-        sortedBy: "",
+        tags: defaultValues.tags,
+        types: defaultValues.types,
+        sortedBy: defaultValues.sortedBy,
       });
 
       if (searchResult.length) {
@@ -106,52 +135,27 @@ export const ResourcesList: FC<Props> = (props) => {
   const filterDocuments = async (values: FormValues) => {
     const { tags, types, sortedBy } = values;
 
-    const typesWithFallback = types?.length ? types : ["post", "podcast"];
-    const orderWithFallback = sortedBy || "publishedAt desc";
+    const isInputReset = !tags?.length && !types?.length && !sortedBy;
+
+    // all tags and sortedBy values have been unchecked
+    // let's reset the view to initial state
+    if (isInputReset) {
+      resetDocuments();
+      return;
+    }
 
     setIsLoading(true);
 
-    // query with selected tags
-    if (tags?.length) {
-      try {
-        const filteredDocuments = await fetchCMSContent(
-          "filterDocumentsByTags",
-          {
-            documentTypes: typesWithFallback,
-            referenceTags: tags,
-            orderBy: orderWithFallback,
-          }
-        );
-        if (filteredDocuments.length) {
-          setVisibleDocuments(filteredDocuments);
-        } else {
-          setVisibleDocuments(null);
-        }
-      } catch (error) {
-        console.error(error);
+    // query with input values
+    try {
+      const filteredDocuments = await queryCMSWithParams(values);
+      if (filteredDocuments.length) {
+        setVisibleDocuments(filteredDocuments);
+      } else {
+        setVisibleDocuments(null);
       }
-      // if no selected tags, query with selected types and sortyBy only
-    } else if (types?.length || !!sortedBy) {
-      try {
-        const filteredDocuments = await fetchCMSContent(
-          "filterDocumentsWithoutTags",
-          {
-            documentTypes: typesWithFallback,
-            orderBy: orderWithFallback,
-          }
-        );
-        if (filteredDocuments.length) {
-          setVisibleDocuments(filteredDocuments);
-        } else {
-          setVisibleDocuments(null);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-      // all tags and sortedBy values have been unchecked
-      // let's reset the view to initial state
-    } else {
-      resetDocuments();
+    } catch (error) {
+      console.error(error);
     }
 
     setIsLoading(false);
