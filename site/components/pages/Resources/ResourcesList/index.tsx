@@ -45,10 +45,12 @@ export const ResourcesList: FC<Props> = (props) => {
     props.documents
   );
 
-  const { register, handleSubmit, watch, reset, setValue, control } =
+  const { register, handleSubmit, watch, reset, setValue, control, getValues } =
     useForm<FormValues>({
       defaultValues,
     });
+
+  const wasTextSearch = !!getValues().search;
 
   const onResetFields = (fields = defaultValues as Partial<FormValues>) => {
     reset({ ...fields });
@@ -296,12 +298,20 @@ export const ResourcesList: FC<Props> = (props) => {
                     Sorry. We coudn't find any matching results.
                   </Trans>
                 </Text>
-                <Text>
-                  <Trans id="resources.page.list.no_search_results.subline">
-                    Double check your search for any typos or spelling errors -
-                    or try a different search term.
-                  </Trans>
-                </Text>
+                {wasTextSearch ? (
+                  <Text>
+                    <Trans id="resources.page.list.search_submit.no_search_results">
+                      Double check your search for any typos or spelling errors
+                      - or try a different search term.
+                    </Trans>
+                  </Text>
+                ) : (
+                  <Text>
+                    <Trans id="resources.page.list.search_submit.no_filter_results">
+                      Please use a different filter combination.
+                    </Trans>
+                  </Text>
+                )}
               </>
             )}
             {!!visibleDocuments?.length && (
