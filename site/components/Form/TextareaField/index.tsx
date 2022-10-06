@@ -7,7 +7,7 @@ import * as styles from "./styles";
 interface Props {
   textareaProps: TextareaHTMLAttributes<HTMLTextAreaElement>;
   label: string;
-  errorMessage: false | string;
+  errorMessage?: string;
 }
 
 export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(

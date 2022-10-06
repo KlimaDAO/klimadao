@@ -9,7 +9,7 @@ interface Props {
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   label: string;
   hideLabel?: boolean;
-  errorMessage: false | string;
+  errorMessage?: string;
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, Props>(
