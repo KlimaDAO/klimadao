@@ -3,11 +3,32 @@ import { t } from "@lingui/macro";
 import Tippy from "@tippyjs/react";
 import { Control, useWatch } from "react-hook-form";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { SortyByOption } from "./SortyByOption";
 import { sortedByQueries, SortQuery } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
 
 import * as styles from "./styles";
+
+interface SortyByOptionProps {
+  label: string;
+  onClick: () => void;
+  active: boolean;
+}
+
+const SortyByOption: FC<SortyByOptionProps> = (props) => {
+  return (
+    <div>
+      <button
+        onClick={props.onClick}
+        role="button"
+        className={styles.dropDownOption}
+        aria-label={props.label}
+        data-active={props.active}
+      >
+        {props.label}
+      </button>
+    </div>
+  );
+};
 
 interface Props {
   control: Control<FormValues>;
