@@ -114,8 +114,8 @@ export const PledgeForm: FC<Props> = (props) => {
       )}
 
       <InputField
+        id="name"
         inputProps={{
-          id: "name",
           placeholder: t({
             id: "pledges.form.input.name.placeholder",
             message: "Name or company name",
@@ -130,8 +130,8 @@ export const PledgeForm: FC<Props> = (props) => {
       />
 
       <InputField
+        id="profileImageUrl"
         inputProps={{
-          id: "profileImageUrl",
           placeholder: "https://",
           type: "text",
           ...register("profileImageUrl"),
@@ -148,8 +148,8 @@ export const PledgeForm: FC<Props> = (props) => {
       />
 
       <TextareaField
+        id="pledge"
         textareaProps={{
-          id: "pledge",
           placeholder: t({
             id: "pledges.form.input.description.placeholder",
             message: "What is your pledge?",
@@ -169,8 +169,8 @@ export const PledgeForm: FC<Props> = (props) => {
       />
 
       <TextareaField
+        id="methodology"
         textareaProps={{
-          id: "methodology",
           placeholder: t({
             id: "pledges.form.input.methodology.placeholder",
             message:
@@ -208,6 +208,7 @@ export const PledgeForm: FC<Props> = (props) => {
             <div className={styles.categoryRow} key={field.id}>
               <div className={styles.categoryRow_inputs}>
                 <InputField
+                  id={field.id}
                   inputProps={{
                     placeholder: t({
                       id: "pledges.form.input.categoryName.placeholder",
@@ -229,6 +230,7 @@ export const PledgeForm: FC<Props> = (props) => {
                 />
 
                 <InputField
+                  id={`categories.${index}.quantity`}
                   inputProps={{
                     placeholder: t({
                       id: "pledges.form.input.categoryQuantity.placeholder",
@@ -277,6 +279,7 @@ export const PledgeForm: FC<Props> = (props) => {
       </div>
 
       <InputField
+        id="footprint"
         inputProps={{
           type: "hidden",
           ...register("footprint"),

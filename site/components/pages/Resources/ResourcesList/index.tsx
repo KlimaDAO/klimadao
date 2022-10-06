@@ -61,8 +61,8 @@ export const ResourcesList: FC<Props> = (props) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <InputField
+            id="search"
             inputProps={{
-              id: "search",
               placeholder: t({
                 id: "resources.form.input.search.placeholder",
                 message: "Search",

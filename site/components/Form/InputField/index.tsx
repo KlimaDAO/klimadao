@@ -6,6 +6,7 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
 interface Props {
+  id: string;
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   label: string;
   hideLabel?: boolean;
@@ -28,12 +29,12 @@ export const InputField = React.forwardRef<HTMLInputElement, Props>(
 
     return (
       <div className={styles.container}>
-        <label htmlFor={props.inputProps.id} className={visuallyHidden}>
+        <label htmlFor={props.id} className={visuallyHidden}>
           <Text t="caption">{props.label}</Text>
         </label>
 
         <input
-          id={props.inputProps.id}
+          id={props.id}
           ref={ref}
           aria-invalid={Boolean(props.errorMessage)}
           {...props.inputProps}

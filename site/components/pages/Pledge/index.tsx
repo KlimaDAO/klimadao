@@ -137,10 +137,10 @@ export const Pledge: NextPage = () => {
             <form onSubmit={handleFormSubmit}>
               <div>
                 <InputField
+                  id="address"
                   inputProps={{
                     type: "text",
                     name: "address",
-                    id: "address",
                     placeholder: t({
                       id: "pledges.home.search.placeholder",
                       message: "Enter ENS, KNS or 0x address",
