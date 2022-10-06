@@ -105,8 +105,8 @@ export const ResourcesList: FC<Props> = (props) => {
     }
   };
 
-  const filterDocuments = async () => {
-    const { tags, types, sortedBy } = getValues();
+  const filterDocuments = async (values: FormValues) => {
+    const { tags, types, sortedBy } = values;
 
     const typesWithFallback = types?.length ? types : ["post", "podcast"];
     const orderWithFallback = sortedBy || "publishedAt desc";
@@ -158,6 +158,16 @@ export const ResourcesList: FC<Props> = (props) => {
 
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    // https://react-hook-form.com/api/useform/watch
+    const subscription = watch((value, { name }) => {
+      if (name !== "search") {
+        filterDocuments(value as FormValues);
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   return (
     <Section variant="gray">
@@ -237,9 +247,7 @@ export const ResourcesList: FC<Props> = (props) => {
                     inputProps={{
                       id: tag.id,
                       value: tag.slug,
-                      ...register("tags", {
-                        onChange: filterDocuments,
-                      }),
+                      ...register("tags"),
                     }}
                   />
                 ))}
@@ -259,9 +267,7 @@ export const ResourcesList: FC<Props> = (props) => {
                     inputProps={{
                       id: tag.id,
                       value: tag.slug,
-                      ...register("tags", {
-                        onChange: filterDocuments,
-                      }),
+                      ...register("tags"),
                     }}
                   />
                 ))}
@@ -279,9 +285,7 @@ export const ResourcesList: FC<Props> = (props) => {
                     inputProps={{
                       id: type.type,
                       value: type.type,
-                      ...register("types", {
-                        onChange: filterDocuments,
-                      }),
+                      ...register("types"),
                     }}
                   />
                 ))}
