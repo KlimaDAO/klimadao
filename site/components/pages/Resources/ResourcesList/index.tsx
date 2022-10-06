@@ -7,10 +7,6 @@ import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
 import { InputField } from "components/Form";
-import {
-  resourcesErrorTranslationsMap,
-  ResourcesErrorId,
-} from "../lib/getResourcesListErrorTranslations";
 
 import { fetchCMSContent } from "lib/fetchCMSContent";
 
@@ -30,11 +26,7 @@ export const ResourcesList: FC<Props> = (props) => {
     props.documents
   );
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>();
+  const { register, handleSubmit } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
     // reset list to default documents on empty string
@@ -69,8 +61,8 @@ export const ResourcesList: FC<Props> = (props) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <InputField
+            id="search"
             inputProps={{
-              id: "search",
               placeholder: t({
                 id: "resources.form.input.search.placeholder",
                 message: "Search",
@@ -90,12 +82,6 @@ export const ResourcesList: FC<Props> = (props) => {
               message: "Search",
             })}
             hideLabel
-            errorMessage={
-              !!errors.search?.message &&
-              resourcesErrorTranslationsMap[
-                errors.search.message as ResourcesErrorId
-              ]
-            }
           />
           <ButtonPrimary
             variant="icon"

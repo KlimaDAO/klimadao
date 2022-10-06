@@ -132,16 +132,18 @@ export const EventDemo = (props: { eventTitle: string }) => {
               </Text>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <InputField
+                  id="name"
                   label="Name"
-                  errorMessage={formState?.errors?.name?.message || false}
+                  errorMessage={formState?.errors?.name?.message}
                   inputProps={{
                     type: "text",
                     ...register("name"),
                   }}
                 />
                 <TextareaField
+                  id="loveletter"
                   label="Love Letter to the Planet"
-                  errorMessage={formState?.errors?.loveLetter?.message || false}
+                  errorMessage={formState?.errors?.loveLetter?.message}
                   textareaProps={{
                     rows: 4,
                     ...register("loveLetter"),
