@@ -93,109 +93,98 @@ const Dropdown: React.FC = (props) => {
       </div>
 
       {props.isOpen && (
-        <form>
-          <div className={styles.selectOptions}>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("1")}
-                  value="1"
-                />{" "}
-                Uno
-              </label>
-            </div>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("2")}
-                  value="2"
-                />{" "}
-                Dos
-              </label>
-            </div>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("3")}
-                  value="3"
-                />{" "}
-                Tres
-              </label>
-            </div>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("4")}
-                  value="4"
-                />{" "}
-                Tres Tres Tres Tres Tres Tres Tres Tres Tres Tres Tres Tres
-              </label>
-            </div>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("5")}
-                  value="5"
-                />{" "}
-                Tres
-              </label>
-            </div>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("6")}
-                  value="6"
-                />{" "}
-                Tres
-              </label>
-            </div>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("7")}
-                  value="7"
-                />{" "}
-                Tres
-              </label>
-            </div>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("8")}
-                  value="8"
-                />{" "}
-                Tres
-              </label>
-            </div>
-            <div className={styles.checkboxGroup}>
-              <label>
-                <Checkbox
-                  onChange={handleCheck}
-                  checked={isChecked("9")}
-                  value="9"
-                />{" "}
-                Tres
-              </label>
-            </div>
+        <div className={styles.selectOptions}>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("1")}
+                value="1"
+              />{" "}
+              Uno
+            </label>
           </div>
-
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              console.log(checked);
-            }}
-          >
-            Submit
-          </button>
-        </form>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("2")}
+                value="2"
+              />{" "}
+              Dos
+            </label>
+          </div>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("3")}
+                value="3"
+              />{" "}
+              Tres
+            </label>
+          </div>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("4")}
+                value="4"
+              />{" "}
+              Tres Tres Tres Tres Tres Tres Tres Tres Tres Tres Tres Tres
+            </label>
+          </div>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("5")}
+                value="5"
+              />{" "}
+              Tres
+            </label>
+          </div>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("6")}
+                value="6"
+              />{" "}
+              Tres
+            </label>
+          </div>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("7")}
+                value="7"
+              />{" "}
+              Tres
+            </label>
+          </div>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("8")}
+                value="8"
+              />{" "}
+              Tres
+            </label>
+          </div>
+          <div className={styles.checkboxGroup}>
+            <label>
+              <Checkbox
+                onChange={handleCheck}
+                checked={isChecked("9")}
+                value="9"
+              />{" "}
+              Tres
+            </label>
+          </div>
+        </div>
       )}
     </div>
   );
