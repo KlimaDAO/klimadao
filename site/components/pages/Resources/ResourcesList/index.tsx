@@ -43,7 +43,7 @@ export type FormValues = {
 const defaultValues: FormValues = {
   search: "",
   tags: tagSlugs as unknown as TagSlug[], // Nargh!
-  types: documentTypeNames as unknown as DocumentType[], // Nargh!
+  types: documentTypeNames as unknown as DocumentType[],
   sortedBy: "",
 };
 
@@ -290,6 +290,21 @@ export const ResourcesList: FC<Props> = (props) => {
                   />
                 ))}
               </div>
+              <Text
+                t="caption"
+                align="center"
+                role="button"
+                onClick={() => {
+                  onResetFields();
+                  resetDocuments();
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                X{" "}
+                <Trans id="resources.form.filters.clear_all">
+                  Reset all filters
+                </Trans>
+              </Text>
             </div>
           </div>
           <div className={styles.listContainer}>
