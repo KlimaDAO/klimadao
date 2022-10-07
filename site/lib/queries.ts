@@ -7,14 +7,14 @@ wants to publish their posts but dont want it to appear in the production enviro
 NOTE: When constructing a new query for posts, please add the hideFromProduction filter to the prodQuery
 so the query wont reveal any hidden posts in the production environment */
 
-export const queryFilter = IS_PRODUCTION
+export const hideFromProduction = IS_PRODUCTION
   ? "hideFromProduction != true"
   : "true";
 
 export const queries = {
   /** fetch all blog posts and podcasts, sorted by publishedAt, limit to 20 */
   allDocuments: /* groq */ `
-    *[_type in ["post", "podcast"] && ${queryFilter}][0...20] | order(publishedAt desc) {
+    *[_type in ["post", "podcast"] && ${hideFromProduction}][0...20] | order(publishedAt desc) {
       "type": _type,
       publishedAt, 
       title, 
@@ -41,7 +41,7 @@ export const queries = {
 
   /** fetch all blog posts with isFeaturedArticle == true, limit to 20, sorted by publishedAt */
   allFeaturedPosts: /* groq */ `
-    *[_type == "post" && ${queryFilter} && isFeaturedArticle == true][0...20] | order(publishedAt desc) {
+    *[_type == "post" && ${hideFromProduction} && isFeaturedArticle == true][0...20] | order(publishedAt desc) {
       summary, 
       "slug": slug.current, 
       title, 
@@ -54,14 +54,14 @@ export const queries = {
 
   /** fetch the last published post slug and title */
   latestPost: /* groq */ `
-    *[_type == "post" && ${queryFilter}] | order(publishedAt desc) {
+    *[_type == "post" && ${hideFromProduction}] | order(publishedAt desc) {
       "slug": slug.current, 
       title
     }[0]
   `,
   /** fetch a blog post based on slug */
   post: /* groq */ `
-    *[_type == "post" && slug.current == $slug && ${queryFilter}][0] {
+    *[_type == "post" && slug.current == $slug && ${hideFromProduction}][0] {
       body[] {
         ...,
         markDefs[]{
