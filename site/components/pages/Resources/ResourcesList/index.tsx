@@ -14,7 +14,6 @@ import { PodcastCard } from "components/PodcastCard";
 import { InputField, Checkbox } from "components/Form";
 import { SortyByDropDown } from "../SortyByDropDown";
 
-import { fetchCMSContent } from "lib/fetchCMSContent";
 import {
   mainTags,
   subTags,
@@ -23,6 +22,7 @@ import {
   DocumentType,
   SortQuery,
 } from "../lib/cmsDataMap";
+import { searchDocumentsByText, queryFilteredDocuments } from "../lib/queries";
 
 import * as styles from "./styles";
 import { Document } from "lib/queries";
@@ -45,48 +45,20 @@ const defaultValues: FormValues = {
   sortedBy: "",
 };
 
-const queryCMSWithParams = async (values: FormValues): Promise<Document[]> => {
-  const { tags, types, sortedBy } = values;
-
-  // groq queries don´t understand undefined values, make sure to always pass values to the query params
-  const typesWithFallback = types?.length ? types : ["post", "podcast"];
-  const orderWithFallback = sortedBy || "publishedAt desc";
-
-  // query with selected tags
-  if (tags?.length) {
-    const filteredDocuments = await fetchCMSContent("filterDocumentsByTags", {
-      documentTypes: typesWithFallback,
-      referenceTags: tags,
-      orderBy: orderWithFallback,
-    });
-
-    return filteredDocuments;
-  }
-
-  // if no selected tags, query with selected types and sortyBy only
-  const filteredDocuments = await fetchCMSContent(
-    "filterDocumentsWithoutTags",
-    {
-      documentTypes: typesWithFallback,
-      orderBy: orderWithFallback,
-    }
-  );
-
-  return filteredDocuments;
-};
-
 export const ResourcesList: FC<Props> = (props) => {
   const [visibleDocuments, setVisibleDocuments] = useState<Document[] | null>(
     props.documents
   );
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const { register, handleSubmit, watch, reset, setValue, control, getValues } =
     useForm<FormValues>({
       defaultValues,
     });
 
-  const hasDocuments = !isLoading && !!visibleDocuments?.length;
+  const hasError = !isLoading && isError;
+  const hasDocuments = !isLoading && !hasError && !!visibleDocuments?.length;
   const isEmptyResult = !isLoading && !visibleDocuments;
   const wasTextSearch = !!getValues().search;
 
@@ -109,9 +81,8 @@ export const ResourcesList: FC<Props> = (props) => {
 
     try {
       setIsLoading(true);
-      const searchResult = await fetchCMSContent("searchByText", {
-        searchQuery: values.search,
-      });
+
+      const searchResult = await searchDocumentsByText(values.search);
 
       // remove all filters and sortBy as search results do not take filters into account and are sorted by relevance
       // but don't delete current search term in input field
@@ -126,10 +97,12 @@ export const ResourcesList: FC<Props> = (props) => {
       } else {
         setVisibleDocuments(null);
       }
-      setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setIsError(true);
     }
+
+    setIsLoading(false);
   };
 
   const filterDocuments = async (values: FormValues) => {
@@ -148,7 +121,7 @@ export const ResourcesList: FC<Props> = (props) => {
 
     // query with input values
     try {
-      const filteredDocuments = await queryCMSWithParams(values);
+      const filteredDocuments = await queryFilteredDocuments(values);
       if (filteredDocuments.length) {
         setVisibleDocuments(filteredDocuments);
       } else {
@@ -156,6 +129,7 @@ export const ResourcesList: FC<Props> = (props) => {
       }
     } catch (error) {
       console.error(error);
+      setIsError(true);
     }
 
     setIsLoading(false);
@@ -164,6 +138,8 @@ export const ResourcesList: FC<Props> = (props) => {
   useEffect(() => {
     // https://react-hook-form.com/api/useform/watch
     const subscription = watch((value, { name }) => {
+      setIsError(false);
+
       if (name !== "search") {
         filterDocuments(value as FormValues);
       }
@@ -314,6 +290,13 @@ export const ResourcesList: FC<Props> = (props) => {
               <div className={styles.spinner}>
                 <Spinner />
               </div>
+            )}
+            {hasError && (
+              <Text t="h4">
+                <Trans id="resources.page.list.on_fetch_error">
+                  Sorry! Something went wrong.
+                </Trans>
+              </Text>
             )}
             {isEmptyResult && (
               <>

@@ -7,7 +7,7 @@ import {
   SANITY_STUDIO_API_DATASET,
 } from "@klimadao/lib/constants";
 
-const getSanityClient = () => {
+export const getSanityClient = () => {
   return sanityClient({
     projectId: SANITY_STUDIO_API_PROJECT_ID,
     dataset: SANITY_STUDIO_API_DATASET,

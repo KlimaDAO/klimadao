@@ -89,61 +89,6 @@ export const queries = {
     }
   `,
 
-  /** fetch posts and podcasts scored by matching search text */
-  searchByText: /* groq */ `
-  *[_type in ["post", "podcast"] && ${queryFilter}]
-    | score(
-      title match $searchQuery + "*"
-      || summary match $searchQuery + "*"
-      || pt::text(body) match $searchQuery
-      || boost(pt::text(body) match $searchQuery + "*", 0.5)
-    )
-      | order(score desc)
-    {
-      _score,
-      "type": _type,
-      publishedAt, 
-      title, 
-      summary, 
-      "slug": slug.current, 
-      author->,
-      "imageUrl": mainImage.asset->url,
-      "embed": embedCode,
-      "tags": tags[]->label_en
-    }
-    [ _score > 0]
-  `,
-
-  /** fetch posts and podcasts filtered by specific tag slugs, types and order */
-  filterDocumentsByTags: /* groq */ `
-    *[_type in $documentTypes && count((tags[]->tag.current)[@ in $referenceTags]) > 0 && ${queryFilter}] | order($orderBy) {
-      "type": _type,
-      publishedAt, 
-      title, 
-      summary, 
-      "slug": slug.current, 
-      author->,
-      "imageUrl": mainImage.asset->url,
-      "embed": embedCode,
-      "tags": tags[]->label_en
-    }
-  `,
-
-  /** fetch posts and podcasts filtered by types and order */
-  filterDocumentsWithoutTags: /* groq */ `
-    *[_type in $documentTypes && ${queryFilter}] | order($orderBy) {
-      "type": _type,
-      publishedAt, 
-      title, 
-      summary, 
-      "slug": slug.current, 
-      author->,
-      "imageUrl": mainImage.asset->url,
-      "embed": embedCode,
-      "tags": tags[]->label_en
-    }
-  `,
-
   allPodcasts: /* groq */ `
   *[_type == "podcast" && hideFromProduction != true] | order(publishedAt desc) {
     summary, 
@@ -207,7 +152,4 @@ export interface QueryContent {
   latestPost: LatestPost;
   post: Post;
   allPodcasts: AllPodcasts;
-  searchByText: Document[];
-  filterDocumentsByTags: Document[];
-  filterDocumentsWithoutTags: Document[];
 }
