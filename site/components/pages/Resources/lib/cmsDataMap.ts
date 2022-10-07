@@ -26,7 +26,14 @@ type FilterDocumentType = {
   label: string;
 };
 
-export const sortQueryNames = ["publishedAt desc", "publishedAt asc"] as const;
+// need to match the sanity GROQ order API
+// https://www.sanity.io/docs/query-cheat-sheet#b5aec96cf56c
+export const sortQueryNames = [
+  "publishedAt desc",
+  "publishedAt asc",
+  "lower(title) desc",
+  "lower(title) asc",
+] as const;
 export type SortQuery = typeof sortQueryNames[number];
 type SortedByQueries = {
   label: string;
@@ -145,5 +152,21 @@ export const sortedByQueries: SortedByQueries[] = [
     }),
     id: "oldest-first",
     value: "publishedAt asc",
+  },
+  {
+    label: t({
+      id: "resources.list.sort_by.a-z",
+      message: "A-Z",
+    }),
+    id: "a-z",
+    value: "lower(title) asc",
+  },
+  {
+    label: t({
+      id: "resources.list.sort_by.z-a",
+      message: "Z-A",
+    }),
+    id: "z-a",
+    value: "lower(title) desc",
   },
 ];

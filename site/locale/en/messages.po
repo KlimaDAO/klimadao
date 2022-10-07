@@ -1231,47 +1231,47 @@ msgstr "KlimaDAO Resources - Go beyond Carbon neutral"
 msgid "resources.head.title"
 msgstr "KlimaDAO | Resources"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:68
+#: components/pages/Resources/lib/cmsDataMap.ts:73
 msgid "resources.list.filter.tag.basics"
 msgstr "Basics"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:108
+#: components/pages/Resources/lib/cmsDataMap.ts:113
 msgid "resources.list.filter.tag.carbon_footprint"
 msgstr "Carbon Footprint"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:76
+#: components/pages/Resources/lib/cmsDataMap.ts:81
 msgid "resources.list.filter.tag.deep_dives"
 msgstr "Deep Dives"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:49
+#: components/pages/Resources/lib/cmsDataMap.ts:54
 msgid "resources.list.filter.tag.klima_infinity"
 msgstr "Klima Infinity"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:41
+#: components/pages/Resources/lib/cmsDataMap.ts:46
 msgid "resources.list.filter.tag.klima_overview"
 msgstr "Klima Overview"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:57
+#: components/pages/Resources/lib/cmsDataMap.ts:62
 msgid "resources.list.filter.tag.partnerships"
 msgstr "Partnerships"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:100
+#: components/pages/Resources/lib/cmsDataMap.ts:105
 msgid "resources.list.filter.tag.policy"
 msgstr "Policy"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:92
+#: components/pages/Resources/lib/cmsDataMap.ts:97
 msgid "resources.list.filter.tag.press_releases"
 msgstr "Press Releases"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:84
+#: components/pages/Resources/lib/cmsDataMap.ts:89
 msgid "resources.list.filter.tag.user_guides"
 msgstr "User Guides"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:118
+#: components/pages/Resources/lib/cmsDataMap.ts:123
 msgid "resources.list.filter.type.blog"
 msgstr "Blog"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:125
+#: components/pages/Resources/lib/cmsDataMap.ts:130
 msgid "resources.list.filter.type.podcast"
 msgstr "Podcast"
 
@@ -1279,13 +1279,21 @@ msgstr "Podcast"
 msgid "resources.list.select.sort_by.toggle"
 msgstr "Toggle Sorted by menu"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:134
+#: components/pages/Resources/lib/cmsDataMap.ts:155
+msgid "resources.list.sort_by.a-z"
+msgstr "A-Z"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:139
 msgid "resources.list.sort_by.latest_first"
 msgstr "Latest First"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:142
+#: components/pages/Resources/lib/cmsDataMap.ts:147
 msgid "resources.list.sort_by.oldest_first"
 msgstr "Oldest First"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:163
+msgid "resources.list.sort_by.z-a"
+msgstr "Z-A"
 
 #: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
