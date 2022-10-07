@@ -1,9 +1,9 @@
 import { i18n } from "@lingui/core";
-import { IS_LOCAL_DEVELOPMENT } from "lib/constants";
+import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 import { getLocales } from "@klimadao/lib/utils";
 
-export const locales = getLocales();
+export const locales = getLocales(IS_PRODUCTION);
 
 // Validate locale language tag
 export const localeExists = (locale: string) =>
