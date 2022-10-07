@@ -50,7 +50,6 @@ export const queryFilteredDocuments = async (
 
   const withTags = !!tags?.length;
 
-  // groq queries don´t understand undefined values, make sure to always pass values to the query params
   const valuesWithFallback = {
     tags: JSON.stringify(values.tags),
     types: JSON.stringify(
