@@ -73,7 +73,7 @@ export const selectOptions = css`
   padding-bottom: 1.4rem;
   gap: 1rem;
   min-height: 15rem;
-  max-height: 20rem;
+  max-height: 22rem;
   overflow-y: scroll;
 
   ::-webkit-scrollbar {
