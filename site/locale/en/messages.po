@@ -1179,31 +1179,31 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "KlimaDAO Podcast"
 
-#: components/pages/Resources/ResourcesList/index.tsx:234
+#: components/pages/Resources/ResourcesList/index.tsx:210
 msgid "resources.form.categories.header"
 msgstr "Categories"
 
-#: components/pages/Resources/ResourcesList/index.tsx:239
+#: components/pages/Resources/ResourcesList/index.tsx:215
 msgid "resources.form.categories.subheader"
 msgstr "Select one or more"
 
-#: components/pages/Resources/ResourcesList/index.tsx:306
+#: components/pages/Resources/ResourcesList/index.tsx:282
 msgid "resources.form.filters.clear_all"
 msgstr "Clear all filters"
 
-#: components/pages/Resources/ResourcesList/index.tsx:195
+#: components/pages/Resources/ResourcesList/index.tsx:171
 msgid "resources.form.input.search.label"
 msgstr "Search"
 
-#: components/pages/Resources/ResourcesList/index.tsx:186
+#: components/pages/Resources/ResourcesList/index.tsx:162
 msgid "resources.form.input.search.placeholder"
 msgstr "Search"
 
-#: components/pages/Resources/ResourcesList/index.tsx:212
+#: components/pages/Resources/ResourcesList/index.tsx:188
 msgid "resources.form.input.sort_by.header"
 msgstr "Sort by:"
 
-#: components/pages/Resources/ResourcesList/index.tsx:221
+#: components/pages/Resources/ResourcesList/index.tsx:197
 msgid "resources.form.input.sort_by.label"
 msgstr "Sort by"
 
@@ -1211,11 +1211,11 @@ msgstr "Sort by"
 msgid "resources.form.input.sort_by.select"
 msgstr "Select"
 
-#: components/pages/Resources/ResourcesList/index.tsx:279
+#: components/pages/Resources/ResourcesList/index.tsx:255
 msgid "resources.form.medium.header"
 msgstr "Medium"
 
-#: components/pages/Resources/ResourcesList/index.tsx:259
+#: components/pages/Resources/ResourcesList/index.tsx:235
 msgid "resources.form.sub_topics.header"
 msgstr "Sub-topics"
 
@@ -1295,19 +1295,23 @@ msgstr "Updates and thought leadership from the founders, DAO contributors, advi
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
 
-#: components/pages/Resources/ResourcesList/index.tsx:178
+#: components/pages/Resources/ResourcesList/index.tsx:154
 msgid "resources.page.list.header"
 msgstr "Explore All"
 
-#: components/pages/Resources/ResourcesList/index.tsx:321
+#: components/pages/Resources/ResourcesList/index.tsx:304
 msgid "resources.page.list.no_search_results.title"
 msgstr "Sorry. We coudn't find any matching results."
 
-#: components/pages/Resources/ResourcesList/index.tsx:334
+#: components/pages/Resources/ResourcesList/index.tsx:296
+msgid "resources.page.list.on_fetch_error"
+msgstr "Sorry! Something went wrong."
+
+#: components/pages/Resources/ResourcesList/index.tsx:317
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "Please use a different filter combination."
 
-#: components/pages/Resources/ResourcesList/index.tsx:327
+#: components/pages/Resources/ResourcesList/index.tsx:310
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Double check your search for any typos or spelling errors - or try a different search term."
 
