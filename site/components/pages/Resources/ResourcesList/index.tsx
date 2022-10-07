@@ -7,12 +7,15 @@ import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
 import { InputField, Checkbox } from "components/Form";
+import { SortyByDropDown } from "../SortyByDropDown";
+import { SortyByOption } from "../SortyByDropDown/SortyByOption";
 
 import { fetchCMSContent } from "lib/fetchCMSContent";
 import {
   mainTags,
   subTags,
   documentTypes,
+  sortedByQueries,
   TagSlug,
   DocumentType,
   SortQuery,
@@ -39,18 +42,26 @@ const defaultValues: FormValues = {
   sortedBy: "",
 };
 
+const getSelectedSortyByLabel = (selectedSortedBy: string) =>
+  (!!selectedSortedBy &&
+    sortedByQueries.find((q) => q.value === selectedSortedBy)?.label) ||
+  t({ id: "resources.form.input.sort_by.select", message: "Select" });
+
 export const ResourcesList: FC<Props> = (props) => {
   const [visibleDocuments, setVisibleDocuments] = useState<Document[] | null>(
     props.documents
   );
 
-  const { register, handleSubmit, watch, reset } = useForm<FormValues>({
-    defaultValues,
-  });
+  const { register, handleSubmit, watch, reset, setValue } =
+    useForm<FormValues>({
+      defaultValues,
+    });
 
   const selectedTags = watch("tags");
   const selectedTypes = watch("types");
   const selectedSortedBy = watch("sortedBy");
+
+  const sortByLabel = getSelectedSortyByLabel(selectedSortedBy);
 
   const onReset = (fields = defaultValues as Partial<FormValues>) => {
     reset({ ...fields });
@@ -131,7 +142,7 @@ export const ResourcesList: FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    if (selectedTags?.length || selectedTypes?.length || selectedSortedBy) {
+    if (selectedTags?.length || selectedTypes?.length || !!selectedSortedBy) {
       filterDocuments();
     }
   }, [selectedTags, selectedTypes, selectedSortedBy]);
@@ -172,6 +183,33 @@ export const ResourcesList: FC<Props> = (props) => {
               />
             </div>
           </form>
+          <div className={styles.sortbyContainer}>
+            <Text>
+              <Trans id="resources.form.input.sort_by.header">Sort by:</Trans>
+            </Text>
+            <InputField
+              id="sortedBy"
+              inputProps={{
+                type: "hidden",
+                ...register("sortedBy"),
+              }}
+              hideLabel
+              label={t({
+                id: "resources.form.input.sort_by.label",
+                message: "Sort by",
+              })}
+            />
+            <SortyByDropDown label={sortByLabel}>
+              {sortedByQueries.map((option) => (
+                <SortyByOption
+                  key={option.id}
+                  label={option.label}
+                  onClick={() => setValue("sortedBy", option.value)}
+                  active={selectedSortedBy === option.value}
+                />
+              ))}
+            </SortyByDropDown>
+          </div>
         </div>
         <div className={styles.main}>
           <div className={styles.filtersContainer}>

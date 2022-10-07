@@ -48,6 +48,13 @@ export const searchInputSubmit = css`
   }
 `;
 
+export const sortbyContainer = css`
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  align-items: center;
+`;
+
 export const main = css`
   display: grid;
   grid-column: main;
