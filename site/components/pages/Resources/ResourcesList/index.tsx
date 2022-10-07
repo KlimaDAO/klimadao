@@ -244,10 +244,10 @@ export const ResourcesList: FC<Props> = (props) => {
               <div className={styles.filtersCheckboxGroup}>
                 {mainTags.map((tag) => (
                   <Checkbox
+                    id={tag.id}
                     key={tag.id}
                     label={tag.label}
                     inputProps={{
-                      id: tag.id,
                       value: tag.slug,
                       ...register("tags"),
                     }}
@@ -264,10 +264,10 @@ export const ResourcesList: FC<Props> = (props) => {
               <div className={styles.filtersCheckboxGroup}>
                 {subTags.map((tag) => (
                   <Checkbox
+                    id={tag.id}
                     key={tag.id}
                     label={tag.label}
                     inputProps={{
-                      id: tag.id,
                       value: tag.slug,
                       ...register("tags"),
                     }}
@@ -282,10 +282,10 @@ export const ResourcesList: FC<Props> = (props) => {
               <div className={styles.filtersCheckboxGroup}>
                 {documentTypes.map((type) => (
                   <Checkbox
+                    id={type.type}
                     key={type.type}
                     label={type.label}
                     inputProps={{
-                      id: type.type,
                       value: type.type,
                       ...register("types"),
                     }}

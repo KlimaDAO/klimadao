@@ -6,6 +6,7 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
 interface Props {
+  id: string;
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   label: string;
   errorMessage?: string;
@@ -24,14 +25,14 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
     return (
       <div className={styles.checkboxContainer}>
         <input
-          id={props.inputProps.id}
+          id={props.id}
           ref={ref}
           aria-invalid={!!props.errorMessage}
           {...props.inputProps}
           type="checkbox"
           className={inputStyles}
         />
-        <label htmlFor={props.inputProps.id} className={styles.label}>
+        <label htmlFor={props.id} className={styles.label}>
           <Text t="caption">{props.label}</Text>
         </label>
       </div>
