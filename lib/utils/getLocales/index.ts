@@ -25,7 +25,6 @@ const productionLocales: ILocales = {
   },
   es: { plurals: es, time: "es-ES", label: "Español" },
   hi: { plurals: hi, time: "hi-IN", label: "हिन्दी" },
-  ko: { plurals: ko, time: "ko-KR", label: "한국어" },
 };
 
 const stagingLocales: ILocales = Object.assign({}, productionLocales, {
