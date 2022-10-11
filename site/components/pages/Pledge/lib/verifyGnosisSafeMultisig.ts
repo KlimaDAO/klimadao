@@ -69,10 +69,7 @@ export const verifyGnosisSignature = async (params: {
 
   const signedEvent = gnosisSafeContract.filters.SignMsg(getMessageHash);
   // signature event must be in the last 5 blocks (10 seconds)
-  const events = await gnosisSafeContract.queryFilter(
-    signedEvent,
-    -10
-  );
+  const events = await gnosisSafeContract.queryFilter(signedEvent, -10);
 
   if (events.length < 1) {
     throw new Error("Gnosis signature not found");
