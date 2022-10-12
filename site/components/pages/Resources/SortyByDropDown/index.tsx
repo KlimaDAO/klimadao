@@ -6,29 +6,9 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { sortedByQueries, SortQuery } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
 
+import { SortByButton } from "../SortByButton";
+
 import * as styles from "./styles";
-
-interface SortyByOptionProps {
-  label: string;
-  onClick: () => void;
-  active: boolean;
-}
-
-const SortyByOption: FC<SortyByOptionProps> = (props) => {
-  return (
-    <div>
-      <button
-        onClick={props.onClick}
-        role="button"
-        className={styles.dropDownOption}
-        aria-label={props.label}
-        data-active={props.active}
-      >
-        {props.label}
-      </button>
-    </div>
-  );
-};
 
 interface Props {
   control: Control<FormValues>;
@@ -59,7 +39,7 @@ export const SortyByDropDown: FC<Props> = (props) => {
         content={
           <div className={styles.dropDownMenu}>
             {sortedByQueries.map((option) => (
-              <SortyByOption
+              <SortByButton
                 key={option.id}
                 label={option.label}
                 onClick={() => props.setValue("sortedBy", option.value)}

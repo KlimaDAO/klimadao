@@ -31,16 +31,3 @@ export const dropDownMenu = css`
   padding: 1rem;
   box-shadow: var(--shadow-03);
 `;
-
-export const dropDownOption = css`
-  ${dropdownHeader}
-
-  &:hover {
-    cursor: pointer;
-    color: var(--klima-green);
-  }
-
-  &[data-active="true"] {
-    color: var(--klima-green);
-  }
-`;
