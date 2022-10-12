@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useForm, SubmitHandler } from "react-hook-form";
 import SearchIcon from "@mui/icons-material/Search";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import {
   Text,
   Section,
@@ -12,10 +13,17 @@ import {
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
 import { InputField } from "components/Form";
+import { Modal } from "components/Modal";
 import { SortyByDropDown } from "../SortyByDropDown";
 import { ResourcesFilters } from "../ResourcesFilters";
+import { SortByButton } from "../SortByButton";
 
-import { TagSlug, DocumentType, SortQuery } from "../lib/cmsDataMap";
+import {
+  TagSlug,
+  DocumentType,
+  SortQuery,
+  sortedByQueries,
+} from "../lib/cmsDataMap";
 import { searchDocumentsByText, queryFilteredDocuments } from "../lib/queries";
 
 import * as styles from "./styles";
@@ -45,6 +53,7 @@ export const ResourcesList: FC<Props> = (props) => {
   );
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [showMobileMobile, setShowMobileModal] = useState(false);
 
   const { register, handleSubmit, watch, reset, setValue, control, getValues } =
     useForm<FormValues>({
@@ -180,22 +189,32 @@ export const ResourcesList: FC<Props> = (props) => {
             </div>
           </form>
           <div className={styles.sortbyContainer}>
-            <Text>
-              <Trans id="resources.form.input.sort_by.header">Sort by:</Trans>
-            </Text>
-            <InputField
-              id="sortedBy"
-              inputProps={{
-                type: "hidden",
-                ...register("sortedBy"),
-              }}
-              hideLabel
-              label={t({
-                id: "resources.form.input.sort_by.label",
-                message: "Sort by",
-              })}
+            <ButtonPrimary
+              variant="icon"
+              type="submit"
+              className={styles.toggleMobileModalButton}
+              label={<FormatListBulletedIcon fontSize="large" />}
+              onClick={() => setShowMobileModal(true)}
             />
-            <SortyByDropDown control={control} setValue={setValue} />
+
+            <div className={styles.sortBySelectContainer}>
+              <InputField
+                id="sortedBy"
+                inputProps={{
+                  type: "hidden",
+                  ...register("sortedBy"),
+                }}
+                hideLabel
+                label={t({
+                  id: "resources.form.input.sort_by.label",
+                  message: "Sort by",
+                })}
+              />
+              <Text>
+                <Trans id="shared.resources.sort_by.header">Sort by:</Trans>
+              </Text>
+              <SortyByDropDown control={control} setValue={setValue} />
+            </div>
           </div>
         </div>
         <div className={styles.main}>
@@ -257,6 +276,42 @@ export const ResourcesList: FC<Props> = (props) => {
           </div>
         </div>
       </div>
+
+      <Modal
+        title={t({
+          id: "resources.mobile_modal.title",
+          message: "Sort By",
+        })}
+        showModal={showMobileMobile}
+        onToggleModal={() => setShowMobileModal((prev) => !prev)}
+      >
+        <div className={styles.sortByButtons}>
+          {sortedByQueries.map((option) => (
+            <SortByButton
+              key={option.id}
+              label={option.label}
+              onClick={() => setValue("sortedBy", option.value)}
+              active={getValues().sortedBy === option.value}
+            />
+          ))}
+        </div>
+        <ResourcesFilters
+          register={register}
+          onResetFilters={() => {
+            resetDocuments();
+            onResetFields();
+          }}
+        />
+        <ButtonPrimary
+          className={styles.showResultsButton}
+          label={
+            <Trans id="resources.mobile_modal.button.show_results">
+              Show Results
+            </Trans>
+          }
+          onClick={() => setShowMobileModal(false)}
+        />
+      </Modal>
     </Section>
   );
 };

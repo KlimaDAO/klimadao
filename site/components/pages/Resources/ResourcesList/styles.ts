@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const resourcesListContainer = css`
   grid-column: main;
@@ -48,6 +49,19 @@ export const searchInputSubmit = css`
   }
 `;
 
+export const showOnSmallScreens = css`
+  ${breakpoints.large} {
+    display: none;
+  }
+`;
+
+export const showOnBigScreens = css`
+  display: none;
+  ${breakpoints.large} {
+    display: block;
+  }
+`;
+
 export const sortbyContainer = css`
   display: flex;
   flex-direction: row;
@@ -55,13 +69,55 @@ export const sortbyContainer = css`
   align-items: center;
 `;
 
+export const toggleMobileModalButton = css`
+  background-color: var(--surface-01);
+
+  svg {
+    fill: var(--font-01);
+  }
+
+  ${showOnSmallScreens}
+`;
+
+export const sortBySelectContainer = css`
+  display: none;
+
+  ${breakpoints.large} {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    align-items: center;
+  }
+`;
+
+export const sortByButtons = css`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+`;
+
 export const main = css`
   display: grid;
   grid-column: main;
   gap: 2.4rem;
-  grid-template-columns:
-    [sidebar] 1fr
-    [list-view] 2fr;
+
+  ${breakpoints.large} {
+    grid-template-columns:
+      [sidebar] 1fr
+      [list-view] 2fr;
+  }
+`;
+
+export const filtersContainer = css`
+  grid-column: sidebar;
+  ${showOnBigScreens}
+`;
+
+export const listContainer = css`
+  ${breakpoints.large} {
+    grid-column: list-view;
+  }
 `;
 
 export const list = css`
@@ -71,18 +127,14 @@ export const list = css`
   grid-column: list-view;
 `;
 
-export const filtersContainer = css`
-  grid-column: sidebar;
-`;
-
-export const listContainer = css`
-  grid-column: list-view;
-`;
-
 export const spinner = css`
   padding: 0 0.8rem;
   display: flex;
   align-items: center;
   min-height: 8rem;
   justify-content: center;
+`;
+
+export const showResultsButton = css`
+  width: 100%;
 `;

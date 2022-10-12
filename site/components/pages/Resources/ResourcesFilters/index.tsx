@@ -16,6 +16,8 @@ export interface Props {
 }
 
 export const ResourcesFilters: FC<Props> = (props) => {
+  const randomNumber = () => Math.floor(Math.random() * 1000);
+
   return (
     <div className={styles.filtersContainerInner}>
       <div className={styles.filtersHeader}>
@@ -31,7 +33,7 @@ export const ResourcesFilters: FC<Props> = (props) => {
       <div className={styles.filtersCheckboxGroup}>
         {mainTags.map((tag) => (
           <Checkbox
-            id={tag.id}
+            id={`${tag.id}-${randomNumber()}`} // this component is rendered twice, make sure that the ID is always different
             key={tag.id}
             label={tag.label}
             inputProps={{
@@ -49,7 +51,7 @@ export const ResourcesFilters: FC<Props> = (props) => {
       <div className={styles.filtersCheckboxGroup}>
         {subTags.map((tag) => (
           <Checkbox
-            id={tag.id}
+            id={`${tag.id}-${randomNumber()}`}
             key={tag.id}
             label={tag.label}
             inputProps={{
@@ -67,7 +69,7 @@ export const ResourcesFilters: FC<Props> = (props) => {
       <div className={styles.filtersCheckboxGroup}>
         {documentTypes.map((type) => (
           <Checkbox
-            id={type.type}
+            id={`${type.type}-${randomNumber()}`}
             key={type.type}
             label={type.label}
             inputProps={{
