@@ -1173,43 +1173,39 @@ msgstr ""
 msgid "podcast.head.title"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:210
+#: components/pages/Resources/ResourcesFilters/index.tsx:25
 msgid "resources.form.categories.header"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:215
+#: components/pages/Resources/ResourcesFilters/index.tsx:28
 msgid "resources.form.categories.subheader"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:282
+#: components/pages/Resources/ResourcesFilters/index.tsx:89
 msgid "resources.form.filters.clear_all"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:171
+#: components/pages/Resources/ResourcesList/index.tsx:176
 msgid "resources.form.input.search.label"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:162
+#: components/pages/Resources/ResourcesList/index.tsx:167
 msgid "resources.form.input.search.placeholder"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:188
-msgid "resources.form.input.sort_by.header"
-msgstr ""
-
-#: components/pages/Resources/ResourcesList/index.tsx:197
+#: components/pages/Resources/ResourcesList/index.tsx:208
 msgid "resources.form.input.sort_by.label"
 msgstr ""
 
-#: components/pages/Resources/SortyByDropDown/index.tsx:40
+#: components/pages/Resources/SortyByDropDown/index.tsx:20
 msgid "resources.form.input.sort_by.select"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:255
+#: components/pages/Resources/ResourcesFilters/index.tsx:66
 msgid "resources.form.medium.header"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:235
+#: components/pages/Resources/ResourcesFilters/index.tsx:48
 msgid "resources.form.sub_topics.header"
 msgstr ""
 
@@ -1225,68 +1221,76 @@ msgstr ""
 msgid "resources.head.title"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:73
+#: components/pages/Resources/lib/cmsDataMap.ts:75
 msgid "resources.list.filter.tag.basics"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:113
+#: components/pages/Resources/lib/cmsDataMap.ts:115
 msgid "resources.list.filter.tag.carbon_footprint"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:81
+#: components/pages/Resources/lib/cmsDataMap.ts:83
 msgid "resources.list.filter.tag.deep_dives"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:54
+#: components/pages/Resources/lib/cmsDataMap.ts:56
 msgid "resources.list.filter.tag.klima_infinity"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:46
+#: components/pages/Resources/lib/cmsDataMap.ts:48
 msgid "resources.list.filter.tag.klima_overview"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:62
+#: components/pages/Resources/lib/cmsDataMap.ts:64
 msgid "resources.list.filter.tag.partnerships"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:105
+#: components/pages/Resources/lib/cmsDataMap.ts:107
 msgid "resources.list.filter.tag.policy"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:97
+#: components/pages/Resources/lib/cmsDataMap.ts:99
 msgid "resources.list.filter.tag.press_releases"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:89
+#: components/pages/Resources/lib/cmsDataMap.ts:91
 msgid "resources.list.filter.tag.user_guides"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:123
+#: components/pages/Resources/lib/cmsDataMap.ts:125
 msgid "resources.list.filter.type.blog"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:130
+#: components/pages/Resources/lib/cmsDataMap.ts:132
 msgid "resources.list.filter.type.podcast"
 msgstr ""
 
-#: components/pages/Resources/SortyByDropDown/index.tsx:81
+#: components/pages/Resources/SortyByDropDown/index.tsx:61
 msgid "resources.list.select.sort_by.toggle"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:155
+#: components/pages/Resources/lib/cmsDataMap.ts:157
 msgid "resources.list.sort_by.a-z"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:139
+#: components/pages/Resources/lib/cmsDataMap.ts:141
 msgid "resources.list.sort_by.latest_first"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:147
+#: components/pages/Resources/lib/cmsDataMap.ts:149
 msgid "resources.list.sort_by.oldest_first"
 msgstr ""
 
-#: components/pages/Resources/lib/cmsDataMap.ts:163
+#: components/pages/Resources/lib/cmsDataMap.ts:165
 msgid "resources.list.sort_by.z-a"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:308
+msgid "resources.mobile_modal.button.show_results"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:281
+msgid "resources.mobile_modal.title"
 msgstr ""
 
 #: components/pages/Resources/index.tsx:47
@@ -1297,23 +1301,23 @@ msgstr ""
 msgid "resources.page.header.title"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:154
+#: components/pages/Resources/ResourcesList/index.tsx:159
 msgid "resources.page.list.header"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:304
+#: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:296
+#: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:317
+#: components/pages/Resources/ResourcesList/index.tsx:259
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:310
+#: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
@@ -1660,6 +1664,10 @@ msgstr ""
 #: components/Navigation/index.tsx:190
 #: components/Navigation/index.tsx:353
 msgid "shared.resources"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:214
+msgid "shared.resources.sort_by.header"
 msgstr ""
 
 #: components/Footer/index.tsx:44
