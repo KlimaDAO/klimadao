@@ -140,7 +140,9 @@ export const ResourcesList: FC<Props> = (props) => {
     const subscription = watch((value, { name }) => {
       setIsError(false);
 
-      if (name !== "search") {
+      if (!!name && name !== "search") {
+        // reset text in search input as it is not taken into account for filterable documents
+        !!value.search && reset({ search: defaultValues.search });
         filterDocuments(value as FormValues);
       }
     });
