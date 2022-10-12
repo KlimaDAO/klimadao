@@ -147,7 +147,7 @@ export const retireCarbonTransaction = async (params: {
   beneficiaryName: string;
   retirementMessage: string;
   onStatus: OnStatusHandler;
-  specificAddresses: string[];
+  projectAddress: string;
 }): Promise<RetireCarbonTransactionResult> => {
   try {
     // get all current retirement totals
@@ -172,7 +172,7 @@ export const retireCarbonTransaction = async (params: {
     params.onStatus("userConfirmation");
 
     let txn;
-    if (!!params.specificAddresses.length) {
+    if (!!params.projectAddress) {
       txn = await retireContract.retireCarbonSpecific(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
@@ -184,7 +184,7 @@ export const retireCarbonTransaction = async (params: {
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
-        params.specificAddresses,
+        params.projectAddress,
         transactionOptions
       );
     } else {
