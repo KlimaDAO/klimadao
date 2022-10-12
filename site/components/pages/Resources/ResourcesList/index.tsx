@@ -11,17 +11,11 @@ import {
 
 import { Card } from "components/Card";
 import { PodcastCard } from "components/PodcastCard";
-import { InputField, Checkbox } from "components/Form";
+import { InputField } from "components/Form";
 import { SortyByDropDown } from "../SortyByDropDown";
+import { ResourcesFilters } from "../ResourcesFilters";
 
-import {
-  mainTags,
-  subTags,
-  documentTypes,
-  TagSlug,
-  DocumentType,
-  SortQuery,
-} from "../lib/cmsDataMap";
+import { TagSlug, DocumentType, SortQuery } from "../lib/cmsDataMap";
 import { searchDocumentsByText, queryFilteredDocuments } from "../lib/queries";
 
 import * as styles from "./styles";
@@ -206,86 +200,13 @@ export const ResourcesList: FC<Props> = (props) => {
         </div>
         <div className={styles.main}>
           <div className={styles.filtersContainer}>
-            <div className={styles.filtersContainerInner}>
-              <div className={styles.filtersHeader}>
-                <Text t="h3">
-                  <Trans id="resources.form.categories.header">
-                    Categories
-                  </Trans>
-                </Text>
-                <Text t="caption">
-                  <Trans id="resources.form.categories.subheader">
-                    Select one or more
-                  </Trans>
-                </Text>
-              </div>
-              <div className={styles.filtersCheckboxGroup}>
-                {mainTags.map((tag) => (
-                  <Checkbox
-                    id={tag.id}
-                    key={tag.id}
-                    label={tag.label}
-                    inputProps={{
-                      value: tag.slug,
-                      ...register("tags"),
-                    }}
-                  />
-                ))}
-              </div>
-              <div>
-                <Text t="h4">
-                  <Trans id="resources.form.sub_topics.header">
-                    Sub-topics
-                  </Trans>
-                </Text>
-              </div>
-              <div className={styles.filtersCheckboxGroup}>
-                {subTags.map((tag) => (
-                  <Checkbox
-                    id={tag.id}
-                    key={tag.id}
-                    label={tag.label}
-                    inputProps={{
-                      value: tag.slug,
-                      ...register("tags"),
-                    }}
-                  />
-                ))}
-              </div>
-              <div>
-                <Text t="h4">
-                  <Trans id="resources.form.medium.header">Medium</Trans>
-                </Text>
-              </div>
-              <div className={styles.filtersCheckboxGroup}>
-                {documentTypes.map((type) => (
-                  <Checkbox
-                    id={type.type}
-                    key={type.type}
-                    label={type.label}
-                    inputProps={{
-                      value: type.type,
-                      ...register("types"),
-                    }}
-                  />
-                ))}
-              </div>
-              <Text
-                t="caption"
-                align="center"
-                role="button"
-                onClick={() => {
-                  onResetFields();
-                  resetDocuments();
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                X{" "}
-                <Trans id="resources.form.filters.clear_all">
-                  Clear all filters
-                </Trans>
-              </Text>
-            </div>
+            <ResourcesFilters
+              register={register}
+              onResetFilters={() => {
+                resetDocuments();
+                onResetFields();
+              }}
+            />
           </div>
           <div className={styles.listContainer}>
             {isLoading && (
