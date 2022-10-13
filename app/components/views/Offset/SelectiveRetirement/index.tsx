@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Trans } from "@lingui/macro";
 import { ButtonPrimary, Text, TextInfoTooltip } from "@klimadao/lib/components";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -14,9 +14,13 @@ import { Checkbox } from "../Checkbox";
 import { types, countries, vintages } from "./filterOptions";
 import * as styles from "./styles";
 
-export const SelectiveRetirement = () => {
+type Props = {
+  projectAddress: string;
+  setProjectAddress: (val: string) => void;
+};
+export const SelectiveRetirement: FC<Props> = (props) => {
   const [inputMode, setInputMode] = useState("project");
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -38,25 +42,36 @@ export const SelectiveRetirement = () => {
         </TextInfoTooltip>
       </div>
 
-      <div className={styles.options}>
-        {loading && <LoadingOverlay />}
+      <div className={styles.secondaryContainer}>
+        <div className={styles.options}>
+          {isLoading && <LoadingOverlay />}
 
-        <RetirementTypeButton
-          label="From project"
-          active={inputMode === "project"}
-          onClick={() => setInputMode("project")}
-        />
-        <RetirementTypeButton
-          label="From 0x address"
-          active={inputMode === "address"}
-          onClick={() => setInputMode("address")}
-        />
+          <RetirementTypeButton
+            label="From project"
+            active={inputMode === "project"}
+            onClick={() => setInputMode("project")}
+          />
+          <RetirementTypeButton
+            label="From 0x address"
+            active={inputMode === "address"}
+            onClick={() => setInputMode("address")}
+          />
+        </div>
+
+        {inputMode === "project" && (
+          <OffsetProjectSearch
+            setIsLoading={setIsLoading}
+            setProjectAddress={props.setProjectAddress}
+          />
+        )}
+
+        {inputMode === "address" && (
+          <SelectiveRetirementInput
+            projectAddress={props.projectAddress}
+            setProjectAddress={props.setProjectAddress}
+          />
+        )}
       </div>
-
-      {inputMode === "project" && (
-        <OffsetProjectSearch setLoading={setLoading} />
-      )}
-      {inputMode === "address" && <SelectiveRetirementInput />}
     </div>
   );
 };
@@ -68,13 +83,17 @@ const OffsetProjectSearch = (props) => {
   const [type, setType] = useState(null);
   const [region, setRegion] = useState(null);
   const [vintage, setVintage] = useState(null);
+  const [projects, setProjects] = useState(null);
 
   const handleSubmit = () => {
     console.log([type, region, vintage]);
-    props.setLoading(true);
+    props.setIsLoading(true);
 
-    setTimeout(() => props.setLoading(false), 5000);
+    setTimeout(() => {
+      props.setIsLoading(false);
+    }, 5000);
   };
+
   return (
     <>
       {step === "search" && (

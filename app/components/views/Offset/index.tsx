@@ -515,12 +515,10 @@ export const Offset = (props: Props) => {
             onItemSelect={handleSelectRetirementToken}
           />
 
-          <SelectiveRetirementInput
+          <SelectiveRetirement
             projectAddress={projectAddress}
-            onChange={setProjectAddress}
+            setProjectAddress={setProjectAddress}
           />
-
-          <SelectiveRetirement />
 
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
