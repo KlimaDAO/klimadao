@@ -16,6 +16,7 @@ import { Holding } from "components/pages/Pledge/types";
 import { BaseCard } from "../BaseCard";
 import { TokenRow } from "./TokenRow";
 import * as styles from "./styles";
+import { toNumber } from "lodash";
 
 type Props = {
   pageAddress: string;
@@ -86,20 +87,24 @@ export const AssetBalanceCard: FC<Props> = (props) => {
       icon={<CloudQueueIcon fontSize="large" />}
     >
       <div className={styles.tokenCardContainer}>
-        {map(tokenHoldingAndBalances, (token, index) => (
-          <div className={styles.tokenRowContainer} key={index}>
-            <TokenRow
-              label={token.label}
-              icon={token.icon}
-              balance={token.balance}
-              holdings={token.holdings}
-            />
+        {tokenHoldingAndBalances
+          /** Hide tokens with no balance
+           * @todo hide token with no transaction history*/
+          .filter(({ balance }) => !!toNumber(balance))
+          .map((token, index) => (
+            <div className={styles.tokenRowContainer} key={index}>
+              <TokenRow
+                label={token.label}
+                icon={token.icon}
+                balance={token.balance}
+                holdings={token.holdings}
+              />
 
-            {tokenHoldingAndBalances.length - 1 !== index && (
-              <div className={styles.divider} />
-            )}
-          </div>
-        ))}
+              {tokenHoldingAndBalances.length - 1 !== index && (
+                <div className={styles.divider} />
+              )}
+            </div>
+          ))}
       </div>
     </BaseCard>
   );

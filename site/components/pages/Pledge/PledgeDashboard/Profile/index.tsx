@@ -76,18 +76,12 @@ export const Profile: FC<Props> = (props) => {
 
   return (
     <div className={styles.profile}>
-      {hasProfileImage ? (
-        <>
-          <img
-            className="profileImage"
-            src={props.pledge.profileImageUrl || profileData?.imageUrl}
-            alt="Profile image"
-          />
-        </>
-      ) : (
-        <Text t="h3" className="profileImage" align="center">
-          -
-        </Text>
+      {hasProfileImage && (
+        <img
+          className="profileImage"
+          src={props.pledge.profileImageUrl || profileData?.imageUrl}
+          alt="Profile image"
+        />
       )}
 
       <Text t="h2">

@@ -92,12 +92,12 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.column}>
-          <AssetBalanceCard
-            holdings={props.holdings}
-            pageAddress={props.pageAddress}
-          />
           <RetirementsCard
             retirements={props.retirements}
+            pageAddress={props.pageAddress}
+          />
+          <AssetBalanceCard
+            holdings={props.holdings}
             pageAddress={props.pageAddress}
           />
         </div>
