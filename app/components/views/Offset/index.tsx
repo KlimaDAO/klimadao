@@ -453,6 +453,29 @@ export const Offset = (props: Props) => {
         </div>
 
         <div className={styles.offsetCard_ui}>
+          {/* attr: inputToken  */}
+          <DropdownWithModal
+            label={t({
+              id: "offset.dropdown_payWith.label",
+              message: "Pay with",
+            })}
+            modalTitle={t({
+              id: "offset.modal_payWith.title",
+              message: "Select Token",
+            })}
+            currentItem={selectedInputToken}
+            items={inputTokenItems}
+            isModalOpen={isInputTokenModalOpen}
+            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
+            onItemSelect={handleSelectInputToken}
+          />
+
+          {/* attr: projectAddress  */}
+          <SelectiveRetirement
+            projectAddress={projectAddress}
+            setProjectAddress={setProjectAddress}
+          />
+
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -481,45 +504,7 @@ export const Offset = (props: Props) => {
             </div>
           </div>
 
-          {/* Input Token */}
-          <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_payWith.label",
-              message: "Pay with",
-            })}
-            modalTitle={t({
-              id: "offset.modal_payWith.title",
-              message: "Select Token",
-            })}
-            currentItem={selectedInputToken}
-            items={inputTokenItems}
-            isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-            onItemSelect={handleSelectInputToken}
-          />
-
-          {/* Retire Token  */}
-          <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_retire.label",
-              message: "Select carbon offset token to retire",
-            })}
-            modalTitle={t({
-              id: "offset.modal_retire.title",
-              message: "Select Carbon Type",
-            })}
-            currentItem={selectedRetirementToken}
-            items={retirementTokenItems}
-            isModalOpen={isRetireTokenModalOpen}
-            onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
-            onItemSelect={handleSelectRetirementToken}
-          />
-
-          <SelectiveRetirement
-            projectAddress={projectAddress}
-            setProjectAddress={setProjectAddress}
-          />
-
+          {/* attr: beneficiary  */}
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
               <Trans id="offset.retirement_credit">
@@ -537,6 +522,7 @@ export const Offset = (props: Props) => {
               />
             </div>
 
+            {/* attr: beneficiaryAddress  */}
             <div className={styles.input}>
               <input
                 value={beneficiaryAddress}
@@ -557,6 +543,7 @@ export const Offset = (props: Props) => {
             </div>
           </div>
 
+          {/* attr: retirementMessage  */}
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -599,6 +586,7 @@ export const Offset = (props: Props) => {
             loading={cost === "loading"}
             warn={insufficientBalance}
           />
+
           <MiniTokenDisplay
             label={
               <Text t="caption" color="lighter">
@@ -609,6 +597,23 @@ export const Offset = (props: Props) => {
             icon={tokenInfo[selectedRetirementToken].icon}
             name={selectedRetirementToken}
             labelAlignment="start"
+          />
+
+          {/* attr: retirementToken  */}
+          <DropdownWithModal
+            label={t({
+              id: "offset.dropdown_retire.label",
+              message: "Select carbon offset token to retire",
+            })}
+            modalTitle={t({
+              id: "offset.modal_retire.title",
+              message: "Select Carbon Type",
+            })}
+            currentItem={selectedRetirementToken}
+            items={retirementTokenItems}
+            isModalOpen={isRetireTokenModalOpen}
+            onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
+            onItemSelect={handleSelectRetirementToken}
           />
 
           <div className="disclaimer">
