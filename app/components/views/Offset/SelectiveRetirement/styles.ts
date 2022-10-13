@@ -1,5 +1,18 @@
 import { css } from "@emotion/css";
 
+export const container = css`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+`;
+
+export const label = css`
+  display: flex;
+  gap: 0.8rem;
+  color: white;
+  align-items: center;
+`;
+
 export const options = css`
   width: 100%;
   display: flex;

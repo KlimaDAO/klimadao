@@ -29,7 +29,7 @@ export const SelectiveRetirementInput: FC<Props> = (props) => {
 
   return (
     <>
-      <button
+      {/* <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={styles.advancedButton}
       >
@@ -37,42 +37,40 @@ export const SelectiveRetirementInput: FC<Props> = (props) => {
         <Text t="caption" color="lightest" uppercase>
           <Trans id="advanced">ADVANCED</Trans>
         </Text>
-      </button>
+      </button> */}
 
-      {isOpen && (
-        <div className={styles.input}>
-          <label>
-            <Text t="caption" color="lighter">
-              <Trans id="offset.retire_specific">
-                Retire specific project tokens
+      <div className={styles.input}>
+        <label>
+          <Text t="caption" color="lighter">
+            <Trans id="offset.retire_specific">
+              Retire specific project tokens
+            </Trans>
+          </Text>
+          <TextInfoTooltip
+            content={
+              <Trans id="offset.retire_specific_tooltip">
+                Subject to additional fee, determined by the selected pool and
+                paid to the bridge provider.
               </Trans>
-            </Text>
-            <TextInfoTooltip
-              content={
-                <Trans id="offset.retire_specific_tooltip">
-                  Subject to additional fee, determined by the selected pool and
-                  paid to the bridge provider.
-                </Trans>
-              }
-            >
-              <InfoOutlined />
-            </TextInfoTooltip>
-          </label>
-
-          <input
-            value={props.projectAddress}
-            onChange={handleChange}
-            placeholder={t({
-              id: "offset.enter_address",
-              message: "Enter 0x address",
-            })}
-            data-error={
-              !!props.projectAddress && !utils.isAddress(props.projectAddress)
             }
-            pattern="^0x[a-fA-F0-9]{40}$"
-          />
-        </div>
-      )}
+          >
+            <InfoOutlined />
+          </TextInfoTooltip>
+        </label>
+
+        <input
+          value={props.projectAddress}
+          onChange={handleChange}
+          placeholder={t({
+            id: "offset.enter_address",
+            message: "Enter 0x address",
+          })}
+          data-error={
+            !!props.projectAddress && !utils.isAddress(props.projectAddress)
+          }
+          pattern="^0x[a-fA-F0-9]{40}$"
+        />
+      </div>
     </>
   );
 };

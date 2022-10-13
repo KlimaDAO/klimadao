@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
+import { ButtonPrimary, Text, TextInfoTooltip } from "@klimadao/lib/components";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import capitalize from "lodash/capitalize";
 
 import { SelectiveRetirementInput } from "../SelectiveRetirementInput";
@@ -12,8 +14,27 @@ import { types, countries, vintages } from "./filterOptions";
 
 export const SelectiveRetirement = () => {
   const [inputMode, setInputMode] = useState("project");
+
   return (
-    <>
+    <div className={styles.container}>
+      <div className={styles.label}>
+        <Text t="caption" color="lighter">
+          <Trans id="offset.retire_specific">
+            Retire specific project tokens
+          </Trans>
+        </Text>
+        <TextInfoTooltip
+          content={
+            <Trans id="offset.retire_specific_tooltip">
+              Subject to additional fee, determined by the selected pool and
+              paid to the bridge provider.
+            </Trans>
+          }
+        >
+          <InfoOutlined />
+        </TextInfoTooltip>
+      </div>
+
       <div className={styles.options}>
         <ButtonPrimary
           label="From project"
@@ -27,7 +48,7 @@ export const SelectiveRetirement = () => {
 
       {inputMode === "project" && <OffsetProjectSearch />}
       {inputMode === "address" && <SelectiveRetirementInput />}
-    </>
+    </div>
   );
 };
 
