@@ -1,4 +1,5 @@
 export const types = [
+  { label: "All", value: "" },
   { label: "Agriculture", value: "Agriculture" },
   { label: "Energy Efficiency", value: "Energy Efficiency" },
   { label: "Forestry", value: "Forestry" },
@@ -9,6 +10,7 @@ export const types = [
 ];
 
 export const countries = [
+  { label: "All", value: "" },
   { label: "Asia", value: "Asia" },
   { label: "Bolivia", value: "Bolivia" },
   { label: "Brazil", value: "Brazil" },
@@ -135,13 +137,16 @@ const vintageList = [
   "1592179200",
 ];
 
-export const vintages = vintageList.map((vintage) => {
-  const date = new Date(Number(vintage) * 1000);
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
+export const vintages = [
+  { label: "All", value: "" },
+  ...vintageList.map((vintage) => {
+    const date = new Date(Number(vintage) * 1000);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
 
-  return {
-    label: `${month}-${year}`,
-    value: vintage,
-  };
-});
+    return {
+      label: `${month}-${year}`,
+      value: vintage,
+    };
+  }),
+];
