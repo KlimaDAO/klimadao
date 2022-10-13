@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 
 export const container = css`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;

@@ -8,13 +8,15 @@ import capitalize from "lodash/capitalize";
 
 import { SelectiveRetirementInput } from "../SelectiveRetirementInput";
 import { RetirementTypeButton } from "../RetirementTypeButton";
+import { LoadingOverlay } from "../LoadingOverlay";
 import { Checkbox } from "../Checkbox";
-import * as styles from "./styles";
 
 import { types, countries, vintages } from "./filterOptions";
+import * as styles from "./styles";
 
 export const SelectiveRetirement = () => {
   const [inputMode, setInputMode] = useState("project");
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -37,6 +39,8 @@ export const SelectiveRetirement = () => {
       </div>
 
       <div className={styles.options}>
+        {loading && <LoadingOverlay />}
+
         <RetirementTypeButton
           label="From project"
           active={inputMode === "project"}
@@ -49,13 +53,17 @@ export const SelectiveRetirement = () => {
         />
       </div>
 
-      {inputMode === "project" && <OffsetProjectSearch />}
+      {inputMode === "project" && (
+        <OffsetProjectSearch setLoading={setLoading} />
+      )}
       {inputMode === "address" && <SelectiveRetirementInput />}
     </div>
   );
 };
 
-const OffsetProjectSearch = () => {
+const OffsetProjectSearch = (props) => {
+  const [step, setStep] = useState("search");
+
   const [currentFilter, setCurrentFilter] = useState(null);
   const [type, setType] = useState(null);
   const [region, setRegion] = useState(null);
@@ -63,34 +71,41 @@ const OffsetProjectSearch = () => {
 
   const handleSubmit = () => {
     console.log([type, region, vintage]);
+    props.setLoading(true);
+
+    setTimeout(() => props.setLoading(false), 5000);
   };
   return (
     <>
-      <div>
-        <ProjectFilter
-          name="type"
-          options={types}
-          isOpen={currentFilter === "type"}
-          onClick={setCurrentFilter}
-          onChange={setType}
-        />
-        <ProjectFilter
-          name="region"
-          options={countries}
-          isOpen={currentFilter === "region"}
-          onClick={setCurrentFilter}
-          onChange={setRegion}
-        />
-        <ProjectFilter
-          name="vintage"
-          options={vintages}
-          isOpen={currentFilter === "vintage"}
-          onClick={setCurrentFilter}
-          onChange={setVintage}
-        />
-      </div>
+      {step === "search" && (
+        <>
+          <div>
+            <ProjectFilter
+              name="type"
+              options={types}
+              isOpen={currentFilter === "type"}
+              onClick={setCurrentFilter}
+              onChange={setType}
+            />
+            <ProjectFilter
+              name="region"
+              options={countries}
+              isOpen={currentFilter === "region"}
+              onClick={setCurrentFilter}
+              onChange={setRegion}
+            />
+            <ProjectFilter
+              name="vintage"
+              options={vintages}
+              isOpen={currentFilter === "vintage"}
+              onClick={setCurrentFilter}
+              onChange={setVintage}
+            />
+          </div>
 
-      <ButtonPrimary label="Find project" onClick={handleSubmit} />
+          <ButtonPrimary label="Find project" onClick={handleSubmit} />
+        </>
+      )}
     </>
   );
 };
