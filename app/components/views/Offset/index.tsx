@@ -109,6 +109,7 @@ export const Offset = (props: Props) => {
   const [projectAddress, setProjectAddress] = useState("");
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
+
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
 

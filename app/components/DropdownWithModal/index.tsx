@@ -42,10 +42,10 @@ export const DropdownWithModal: FC<Props> = (props) => {
           <Image
             alt={currentItem.label}
             src={currentItem.icon}
-            width={48}
-            height={48}
+            width={42}
+            height={42}
           />
-          <Text t="body2">{currentItem.label}</Text>
+          <Text t="body1">{currentItem.label}</Text>
         </div>
         <div className="end_content">
           {currentItem.description && (

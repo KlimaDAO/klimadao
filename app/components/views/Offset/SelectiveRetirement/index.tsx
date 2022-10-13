@@ -173,13 +173,13 @@ const SelectProjectButton = (props) => (
     data-active={props.active}
   >
     <div className={styles.header}>
-      <Text t="body6">{props.methodologyCategory}</Text>
+      <Text t="caption">{props.methodologyCategory}</Text>
       <div className={styles.checkedIcon} data-active={props.active}>
         <CheckIcon />
       </div>
     </div>
 
-    <Text t="body3">
+    <Text t="body4">
       {props.name} {"->"}
     </Text>
     <Text t="badge" className={styles.regionLabel}>
