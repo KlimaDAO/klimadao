@@ -57,37 +57,45 @@ export const SelectiveRetirement = () => {
 
 const OffsetProjectSearch = () => {
   const [currentFilter, setCurrentFilter] = useState(null);
+  const [type, setType] = useState(null);
+  const [region, setRegion] = useState(null);
+  const [vintage, setVintage] = useState(null);
 
+  const handleSubmit = () => {
+    console.log([type, region, vintage]);
+  };
   return (
     <>
       <div>
-        <Dropdown
+        <ProjectFilter
           name="type"
           options={types}
           isOpen={currentFilter === "type"}
           onClick={setCurrentFilter}
+          onChange={setType}
         />
-        <Dropdown
+        <ProjectFilter
           name="region"
           options={countries}
           isOpen={currentFilter === "region"}
           onClick={setCurrentFilter}
+          onChange={setRegion}
         />
-        <Dropdown
+        <ProjectFilter
           name="vintage"
           options={vintages}
           isOpen={currentFilter === "vintage"}
           onClick={setCurrentFilter}
+          onChange={setVintage}
         />
       </div>
-      <ButtonPrimary label="Find project" />
+
+      <ButtonPrimary label="Find project" onClick={handleSubmit} />
     </>
   );
 };
 
-const OffsetProjectFilters = () => {};
-
-const Dropdown: React.FC = (props) => {
+const ProjectFilter: React.FC = (props) => {
   const [parent] = useAutoAnimate();
   const [checked, setChecked] = useState([]);
 
@@ -100,6 +108,7 @@ const Dropdown: React.FC = (props) => {
     }
     console.log(updatedList);
     setChecked(updatedList);
+    props.onChange(updatedList);
   };
 
   const isChecked = (item) => checked.includes(item);
@@ -129,10 +138,10 @@ const Dropdown: React.FC = (props) => {
               <label>
                 <Checkbox
                   onChange={handleCheck}
-                  checked={isChecked(option)}
-                  value={option}
+                  checked={isChecked(option.value)}
+                  value={option.value}
                 />{" "}
-                {option}
+                {option.label}
               </label>
             </div>
           ))}
