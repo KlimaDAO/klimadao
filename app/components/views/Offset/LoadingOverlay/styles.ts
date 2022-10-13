@@ -3,13 +3,14 @@ import { css } from "@emotion/css";
 export const loadingOverlay = css`
   position: absolute;
   cursor: default;
-  height: 95%;
+  height: 100%;
   width: 102%;
-  top: 3rem;
-  left: -0.4rem;
+  top: 0rem;
+  left: -0.6rem;
   border-radius: 0.8rem;
   z-index: 3;
   display: flex;
+  gap: 1.6rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;

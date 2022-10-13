@@ -11,13 +11,19 @@ import { RetirementTypeButton } from "../RetirementTypeButton";
 import { LoadingOverlay } from "../LoadingOverlay";
 import { Checkbox } from "../Checkbox";
 
-import { types, countries, vintages } from "./filterOptions";
+import {
+  types,
+  countries,
+  vintages,
+  mockProjectDetails,
+} from "./filterOptions";
 import * as styles from "./styles";
 
 type Props = {
   projectAddress: string;
-  setProjectAddress: (val: string) => void;
+  setProjectAddress: (address: string) => void;
 };
+
 export const SelectiveRetirement: FC<Props> = (props) => {
   const [inputMode, setInputMode] = useState("project");
   const [isLoading, setIsLoading] = useState(false);
@@ -84,12 +90,15 @@ const OffsetProjectSearch = (props) => {
   const [region, setRegion] = useState(null);
   const [vintage, setVintage] = useState(null);
   const [projects, setProjects] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const handleSubmit = () => {
     console.log([type, region, vintage]);
     props.setIsLoading(true);
 
     setTimeout(() => {
+      setStep("selectProject");
+      setProjects(mockProjectDetails);
       props.setIsLoading(false);
     }, 5000);
   };
@@ -125,9 +134,59 @@ const OffsetProjectSearch = (props) => {
           <ButtonPrimary label="Find project" onClick={handleSubmit} />
         </>
       )}
+
+      {step === "selectProject" && projects && (
+        <>
+          <div className={styles.projectList}>
+            {projects.map((project, index) => (
+              <SelectProjectButton
+                key={index}
+                {...project}
+                setSelectedProject={setSelectedProject}
+                active={selectedProject === project.tokenAddress}
+              />
+            ))}
+          </div>
+
+          <div className={styles.projectActionButtons}>
+            <ButtonPrimary
+              label="Back to filters"
+              onClick={() => setStep("search")}
+            />
+            <ButtonPrimary
+              label="Select project"
+              onClick={() => setSelectedProject("something")}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 };
+
+import CheckIcon from "@mui/icons-material/Check";
+
+const SelectProjectButton = (props) => (
+  <button
+    className={styles.selectProjectButton}
+    onClick={() => props.setSelectedProject(props.tokenAddress)}
+    data-active={props.active}
+  >
+    <div className={styles.header}>
+      <Text t="body6">{props.methodologyCategory}</Text>
+      <div className={styles.checkedIcon} data-active={props.active}>
+        <CheckIcon />
+      </div>
+    </div>
+
+    <Text t="body3">
+      {props.name} {"->"}
+    </Text>
+    <Text t="badge" className={styles.regionLabel}>
+      {props.region}
+    </Text>
+  </button>
+);
 
 const ProjectFilter: React.FC = (props) => {
   const [parent] = useAutoAnimate();

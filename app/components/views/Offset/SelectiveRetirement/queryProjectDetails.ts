@@ -3,8 +3,8 @@ import { subgraphs } from "@klimadao/lib/constants";
 export interface CarbonProject {
   id: string;
   tokenAddress: string;
-  totalRetired: string; // "0" if bridge is "Moss"
   projectID: string; // starts with 'VCS-' if registry is "Verra"
+  name: string;
   country: string;
   region: string;
   vintage: string;
@@ -33,8 +33,8 @@ export const queryCarbonProjectDetails = async (
             carbonProjects(text: "${searchQuery}") {
               id
               tokenAddress
-              totalRetired
               projectID
+              name
               country
               region 
               vintage
