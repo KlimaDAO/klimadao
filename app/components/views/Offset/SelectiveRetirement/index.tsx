@@ -7,6 +7,7 @@ import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import capitalize from "lodash/capitalize";
 
 import { SelectiveRetirementInput } from "../SelectiveRetirementInput";
+import { RetirementTypeButton } from "../RetirementTypeButton";
 import { Checkbox } from "../Checkbox";
 import * as styles from "./styles";
 
@@ -36,12 +37,14 @@ export const SelectiveRetirement = () => {
       </div>
 
       <div className={styles.options}>
-        <ButtonPrimary
+        <RetirementTypeButton
           label="From project"
+          active={inputMode === "project"}
           onClick={() => setInputMode("project")}
         />
-        <ButtonPrimary
+        <RetirementTypeButton
           label="From 0x address"
+          active={inputMode === "address"}
           onClick={() => setInputMode("address")}
         />
       </div>

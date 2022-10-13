@@ -19,20 +19,6 @@ export const options = css`
   justify-content: space-between;
   gap: 1.6rem;
   cursor: pointer;
-
-  button {
-    width: 100%;
-    background-color: var(--surface-02);
-    text-transform: none;
-    border-radius: 0.8rem;
-    border: 0.175rem solid var(--surface-03);
-
-    &:focus,
-    &:hover,
-    &:active {
-      border-color: var(--klima-green);
-    }
-  }
 `;
 
 // dropdown
