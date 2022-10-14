@@ -4,6 +4,7 @@ export interface putPledgeParams {
   pledge: PledgeFormValues;
   pageAddress: string;
   signature: string;
+  secondaryWalletAddress?: string;
 }
 
 export const putPledge = (params: putPledgeParams): Promise<Response> =>
@@ -16,5 +17,6 @@ export const putPledge = (params: putPledgeParams): Promise<Response> =>
     body: JSON.stringify({
       pageAddress: params.pageAddress,
       pledge: params.pledge,
+      secondaryWalletAddress: params.secondaryWalletAddress,
     }),
   });

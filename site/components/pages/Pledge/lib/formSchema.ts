@@ -76,7 +76,7 @@ export const formSchema = yup
           .string()
           .required("pledges.form.errors.walletAddress.required")
           .trim(),
-        verified: yup.boolean().required(),
+        status: yup.string().required(),
         saved: yup.boolean().required(),
       })
     ),

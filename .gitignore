@@ -2,6 +2,7 @@
 
 /app/package-lock.json
 /site/package-lock.json
+.prettierrc
 
 # dependencies
 /.pnp
