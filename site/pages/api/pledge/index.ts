@@ -28,7 +28,7 @@ export default async function handler(
         }
 
         res.status(200).json({ pledge });
-      } catch (e: { message: string; name: string }) {
+      } catch (e: any) {
         console.error("Request failed:", e.message);
         if (e instanceof Error) {
           return res
