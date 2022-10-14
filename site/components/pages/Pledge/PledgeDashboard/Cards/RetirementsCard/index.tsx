@@ -47,39 +47,37 @@ export const RetirementsCard: FC<Props> = (props) => {
         </Link>
       </span>
       {props.secondaryWallets &&
-        Object.values(props.secondaryWallets)?.map(
-          (wallet: { address: string; verified: boolean }) => {
-            if (wallet.verified) {
-              return (
-                <span
-                  key={wallet.address}
-                  className={styles.pledge_retirements_wallet}
-                >
-                  <Text>{concatAddress(wallet.address)}</Text>
-                  <Link href={`/retirements/${wallet.address}`} passHref>
-                    <a title="View retirements">
-                      <div className={styles.retirementsLink}>
-                        <LaunchIcon />
-                      </div>
-                    </a>
-                  </Link>
+        Object.values(props.secondaryWallets)?.map((wallet: Wallet) => {
+          if (wallet.status === "verified") {
+            return (
+              <span
+                key={wallet.address}
+                className={styles.pledge_retirements_wallet}
+              >
+                <Text>{concatAddress(wallet.address)}</Text>
+                <Link href={`/retirements/${wallet.address}`} passHref>
+                  <a title="View retirements">
+                    <div className={styles.retirementsLink}>
+                      <LaunchIcon />
+                    </div>
+                  </a>
+                </Link>
+              </span>
+            );
+          } else if (props.isPledgeOwner && wallet.status === "pending") {
+            return (
+              <span
+                key={wallet.address}
+                className={styles.pledge_retirements_wallet}
+              >
+                <Text>{concatAddress(wallet.address)}</Text>
+                <span className={styles.pledge_wallet_pending}>
+                  <Text t="caption">Pending</Text>
                 </span>
-              );
-            } else if (props.isPledgeOwner && wallet.verified === false) {
-              return (
-                <span
-                  key={wallet.address}
-                  className={styles.pledge_retirements_wallet}
-                >
-                  <Text>{concatAddress(wallet.address)}</Text>
-                  <span className={styles.pledge_wallet_pending}>
-                    <Text t="caption">Pending</Text>
-                  </span>
-                </span>
-              );
-            }
+              </span>
+            );
           }
-        )}
+        })}
     </div>
   );
   const linkToRetirements = (
