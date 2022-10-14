@@ -18,6 +18,7 @@ export default async function handler(
           pageAddress: req.body.pageAddress,
           pledge: req.body.pledge,
           signature,
+          secondaryWalletAddress: req.body.secondaryWalletAddress,
         });
 
         if (!pledge) {
@@ -28,9 +29,16 @@ export default async function handler(
 
         await res.unstable_revalidate(req.body.urlPath);
         res.status(200).json({ pledge });
-      } catch ({ message }) {
-        console.error("Request failed:", message);
-        res.status(500).json({ message: "Internal server error" });
+      } catch (e: { message: string; name: string }) {
+        console.error("Request failed:", e.message);
+        if (e instanceof Error) {
+          return res
+            .status(500)
+            .json({ message: e.message, name: e.name || null });
+        }
+        return res
+          .status(500)
+          .json({ message: "Unknown error, check server logs" });
       }
       break;
     default:
