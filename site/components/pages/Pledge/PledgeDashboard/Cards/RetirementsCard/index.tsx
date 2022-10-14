@@ -12,7 +12,7 @@ import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import { BaseCard } from "../BaseCard";
 import { RetirementsChartProps } from "./RetirementsChart";
-import {Wallet} from '../../../types';
+import { Wallet } from "../../../types";
 import * as styles from "./styles";
 import { cx } from "@emotion/css";
 
@@ -46,39 +46,40 @@ export const RetirementsCard: FC<Props> = (props) => {
           </a>
         </Link>
       </span>
-      {props.secondaryWallets?.map(
-        (wallet: { address: string; verified: boolean }) => {
-          if (wallet.verified) {
-            return (
-              <span
-                key={wallet.address}
-                className={styles.pledge_retirements_wallet}
-              >
-                <Text>{concatAddress(wallet.address)}</Text>
-                <Link href={`/retirements/${wallet.address}`} passHref>
-                  <a title="View retirements">
-                    <div className={styles.retirementsLink}>
-                      <LaunchIcon />
-                    </div>
-                  </a>
-                </Link>
-              </span>
-            );
-          } else if (props.isPledgeOwner && wallet.verified === false) {
-            return (
-              <span
-                key={wallet.address}
-                className={styles.pledge_retirements_wallet}
-              >
-                <Text>{concatAddress(wallet.address)}</Text>
-                <span className={styles.pledge_wallet_pending}>
-                  <Text t="caption">Pending</Text>
+      {props.secondaryWallets &&
+        Object.values(props.secondaryWallets)?.map(
+          (wallet: { address: string; verified: boolean }) => {
+            if (wallet.verified) {
+              return (
+                <span
+                  key={wallet.address}
+                  className={styles.pledge_retirements_wallet}
+                >
+                  <Text>{concatAddress(wallet.address)}</Text>
+                  <Link href={`/retirements/${wallet.address}`} passHref>
+                    <a title="View retirements">
+                      <div className={styles.retirementsLink}>
+                        <LaunchIcon />
+                      </div>
+                    </a>
+                  </Link>
                 </span>
-              </span>
-            );
+              );
+            } else if (props.isPledgeOwner && wallet.verified === false) {
+              return (
+                <span
+                  key={wallet.address}
+                  className={styles.pledge_retirements_wallet}
+                >
+                  <Text>{concatAddress(wallet.address)}</Text>
+                  <span className={styles.pledge_wallet_pending}>
+                    <Text t="caption">Pending</Text>
+                  </span>
+                </span>
+              );
+            }
           }
-        }
-      )}
+        )}
     </div>
   );
   const linkToRetirements = (

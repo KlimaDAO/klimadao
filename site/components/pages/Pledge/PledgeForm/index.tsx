@@ -30,7 +30,7 @@ import {
   pledgeFormAdapter,
   waitForGnosisSignature,
 } from "../lib";
-import { Pledge, PledgeFormValues } from "../types";
+import { Pledge, PledgeFormValues, Wallet } from "../types";
 import * as styles from "./styles";
 
 type TotalFootprintProps = {
@@ -66,13 +66,6 @@ type Props = {
   setIsDeleteMode: (value: boolean) => void;
 };
 
-type Wallet = {
-  address: string;
-  verified: boolean;
-  saved: boolean;
-  id?: string;
-};
-
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState<{
@@ -82,10 +75,17 @@ export const PledgeForm: FC<Props> = (props) => {
   const [submitting, setSubmitting] = useState(false);
   const { query } = useRouter();
   const { signer } = useWeb3();
-  const { control, register, handleSubmit, formState, setValue } =
+
+  const formattedPledge: any = { ...props.pledge };
+  if (props.pledge.wallets) {
+    formattedPledge.wallets = Object.values(props.pledge.wallets) as Wallet[];
+  }
+
+  const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
-      defaultValues: pledgeFormAdapter(props.pledge),
+      shouldUnregister: false,
+      defaultValues: pledgeFormAdapter(formattedPledge),
       resolver: yupResolver(formSchema),
     });
   const { isDirty, errors } = formState;
@@ -109,8 +109,7 @@ export const PledgeForm: FC<Props> = (props) => {
     control,
   });
 
-  const wallets = useWatch({ name: "wallets", control: control });
-
+  const wallets = useWatch({ name: "wallets", control });
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
@@ -258,7 +257,7 @@ export const PledgeForm: FC<Props> = (props) => {
               </Tippy>
             </div>
 
-            {walletsFields.map((wallet: Wallet, index: number) => {
+            {walletsFields.map((wallet, index) => {
               return (
                 <div className={styles.pledge_wallet_row} key={wallet.id}>
                   {(!wallet.saved ||
@@ -291,9 +290,10 @@ export const PledgeForm: FC<Props> = (props) => {
                         label={<SaveIcon fontSize="large" />}
                         className={styles.pledge_wallet_save}
                         onClick={() =>
+                          wallets &&
                           walletsUpdate(index, {
-                            address: wallets![index].address,
-                            verified: wallets![index].verified,
+                            address: wallets[index].address,
+                            status: wallets[index].status,
                             saved: true,
                           })
                         }
@@ -303,7 +303,7 @@ export const PledgeForm: FC<Props> = (props) => {
                   {wallet.saved && !errors.wallets?.[index]?.address?.message && (
                     <div className={styles.pledge_wallet_address_cell}>
                       <Text t="caption">{concatAddress(wallet.address)}</Text>
-                      {!wallet.verified && (
+                      {wallet.status === "pending" && (
                         <span className={styles.pledge_wallet_pending}>
                           <Text t="caption">Pending</Text>
                         </span>
@@ -334,7 +334,11 @@ export const PledgeForm: FC<Props> = (props) => {
                   message: "Add wallet",
                 })}
                 onClick={() =>
-                  walletsAppend({ address: "", verified: false, saved: false })
+                  walletsAppend({
+                    address: "",
+                    status: "pending",
+                    saved: false,
+                  })
                 }
               />
             </div>

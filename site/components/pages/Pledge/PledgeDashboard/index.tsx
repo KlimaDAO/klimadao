@@ -16,10 +16,15 @@ import {
   PledgeCard,
   RetirementsCard,
 } from "./Cards";
+import { putPledge, pledgeFormAdapter } from "../lib";
 import { Profile } from "./Profile";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import { Holding, Pledge } from "../types";
+import {
+  approveSecondaryWallet,
+  removeSecondaryWallet,
+} from "../lib/editPledgeSignature";
 import * as styles from "./styles";
 import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
 
@@ -41,13 +46,17 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const [showRemoveConfirmModal, setShowRemoveConfirmModal] = useState(false);
   const [showAcceptModal, setShowAcceptModal] = useState(false);
   const [showAcceptConfirmModal, setShowAcceptConfirmModal] = useState(false);
-
-  const isUnverifiedSecondaryWallet = props.pledge.wallets?.some(
-    (wallet) => wallet.address === address && wallet.verified === false
-  );
-  const isVerifiedSecondaryWallet = props.pledge.wallets?.some(
-    (wallet) => wallet.address === address && wallet.verified === true
-  );
+  const { signer } = useWeb3();
+  const isUnverifiedSecondaryWallet =
+    props.pledge.wallets &&
+    Object.values(props.pledge.wallets)?.some(
+      (wallet) => wallet.address === address && wallet.status === "pending"
+    );
+  const isVerifiedSecondaryWallet =
+    props.pledge.wallets &&
+    Object.values(props.pledge.wallets)?.some(
+      (wallet) => wallet.address === address && wallet.status === "verified"
+    );
   const isPledgeOwner =
     address?.toLowerCase() === props.pageAddress && isConnected;
   const canEditPledge =
@@ -75,6 +84,23 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     return () => window.removeEventListener("keydown", escListener);
   }, []);
 
+  const handleSecondaryWalletSubmit = async (params: {
+    message: (nonce: string) => string;
+  }) => {
+    try {
+      if (!signer) return;
+      const address = await signer.getAddress();
+      const signature = await signer.signMessage(params.message(pledge.nonce));
+      await putPledge({
+        pageAddress: props.pageAddress,
+        secondaryWalletAddress: address,
+        pledge: pledgeFormAdapter(pledge), // need pledgeFormValues
+        signature,
+      });
+    } catch {
+      console.log("uh ohhh");
+    }
+  };
   const pledgeOwnerTitle =
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
   const currentTotalFootprint =
@@ -186,6 +212,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         <div className={styles.modalButtons}>
           <ButtonPrimary
             label={t({ id: "pledge.modal.confirm", message: "Confirm" })}
+            onClick={() => {
+              handleSecondaryWalletSubmit({ message: approveSecondaryWallet });
+              setShowAcceptConfirmModal(false);
+            }}
           />
           <ButtonSecondary
             label={t({ id: "shared.cancel", message: "Cancel" })}
@@ -251,6 +281,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               message: "remove",
             })}
             onClick={() => {
+              handleSecondaryWalletSubmit({ message: removeSecondaryWallet });
               setShowRemoveConfirmModal(false);
             }}
             variant="red"
@@ -280,7 +311,9 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           <RetirementsCard
             retirements={props.retirements}
             pageAddress={props.pageAddress}
-            secondaryWallets={pledge.wallets ?? undefined}
+            secondaryWallets={
+              props.pledge.wallets && Object.values(props.pledge.wallets)
+            }
             isPledgeOwner={isPledgeOwner}
           />
           <AssetBalanceCard
