@@ -89,7 +89,6 @@ export const findOrCreatePledge = async (
         expectedAddress: params.secondaryWalletAddress,
         signature: params.signature,
       });
-      console.log("isVerifying", isVerifying);
       if (isVerifying) {
         await admin
           .firestore()
