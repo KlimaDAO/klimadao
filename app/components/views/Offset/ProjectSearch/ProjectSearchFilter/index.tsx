@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from "react";
+import React, { ChangeEvent, FC, LegacyRef, useState } from "react";
 import { Text } from "@klimadao/lib/components";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -26,7 +26,6 @@ export const ProjectSearchFilter: FC<Props> = (props) => {
     } else {
       updatedList.splice(checked.indexOf(event.target.value), 1);
     }
-    console.log(updatedList);
     setChecked(updatedList);
     props.onChange(updatedList);
   };
@@ -37,7 +36,10 @@ export const ProjectSearchFilter: FC<Props> = (props) => {
     props.onClick(() => (props.isOpen ? null : props.name));
 
   return (
-    <div className={styles.dropdownContainer} ref={parent}>
+    <div
+      className={styles.dropdownContainer}
+      ref={parent as LegacyRef<HTMLDivElement>} // TODO - get correct types
+    >
       <div className={styles.titleContainer} onClick={handleClick}>
         <div className={styles.title}>
           <Text t="body8">{capitalize(props.name)}</Text>

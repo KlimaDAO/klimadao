@@ -23,6 +23,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
   const [region, setRegion] = useState<string[]>([]);
   const [vintage, setVintage] = useState<string[]>([]);
 
+  // TODO - serialize query params
   const handleSubmit = () => {
     console.log([type, region, vintage]);
     props.setIsLoading(true);
@@ -30,7 +31,6 @@ export const ProjectSearchForm: FC<Props> = (props) => {
     setTimeout(() => {
       props.setStep("selectProject");
       props.setProjects(mockProjectDetails);
-      props.setProjects([]);
       props.setIsLoading(false);
     }, 1500);
   };
