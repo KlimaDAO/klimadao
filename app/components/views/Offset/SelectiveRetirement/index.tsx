@@ -16,7 +16,7 @@ type Props = {
 };
 
 export const SelectiveRetirement: FC<Props> = (props) => {
-  const [inputMode, setInputMode] = useState("project");
+  const [inputMode, setInputMode] = useState("search");
   const [isLoading, setIsLoading] = useState(false);
 
   return (
@@ -45,8 +45,8 @@ export const SelectiveRetirement: FC<Props> = (props) => {
 
           <RetirementTypeButton
             label="From project"
-            active={inputMode === "project"}
-            onClick={() => setInputMode("project")}
+            active={inputMode === "search"}
+            onClick={() => setInputMode("search")}
           />
           <RetirementTypeButton
             label="From 0x address"
@@ -55,7 +55,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
           />
         </div>
 
-        {inputMode === "project" && (
+        {inputMode === "search" && (
           <ProjectSearch
             setIsLoading={setIsLoading}
             setProjectAddress={props.setProjectAddress}

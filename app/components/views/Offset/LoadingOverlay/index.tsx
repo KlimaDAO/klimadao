@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Text } from "@klimadao/lib/components";
 
-import { LeafIcon } from "../LeafIcon";
+import { LeafIcon } from "components/LeafIcon";
 import * as styles from "./styles";
 
 export const LoadingOverlay: FC = () => (

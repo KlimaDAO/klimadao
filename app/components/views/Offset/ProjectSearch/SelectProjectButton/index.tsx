@@ -2,20 +2,19 @@ import React, { FC } from "react";
 import { Text } from "@klimadao/lib/components";
 import CheckIcon from "@mui/icons-material/Check";
 
+import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import * as styles from "./styles";
 
 type Props = {
   active: boolean;
-  setSelectedProject: (project: string) => void;
+  project: CarbonProject;
+  setSelectedProject: (project: CarbonProject) => void;
 };
 
 export const SelectProjectButton: FC<Props> = (props) => (
   <button
     className={styles.selectProjectButton}
-    onClick={() => {
-      console.log(props.project);
-      props.setSelectedProject(props.project);
-    }}
+    onClick={() => props.setSelectedProject(props.project)}
     data-active={props.active}
   >
     <div className={styles.header}>

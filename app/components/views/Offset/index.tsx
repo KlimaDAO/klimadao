@@ -53,7 +53,6 @@ import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { TransactionModal } from "components/TransactionModal";
 
-import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import { SelectiveRetirement } from "./SelectiveRetirement";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 

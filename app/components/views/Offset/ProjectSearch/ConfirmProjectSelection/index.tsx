@@ -7,7 +7,9 @@ import * as styles from "./styles";
 
 type Props = {
   projectName: string;
+  projectAddress: string;
   setStep: (step: string) => void;
+  setProjectAddress: (address: string) => void;
 };
 
 export const ConfirmProjectSelection: FC<Props> = (props) => (
@@ -23,7 +25,7 @@ export const ConfirmProjectSelection: FC<Props> = (props) => (
     <div className={styles.buttons}>
       <ButtonPrimary
         label="Confirm selection"
-        // onClick={() => setSelectedProject("something")}
+        onClick={() => props.setProjectAddress(props.projectAddress)}
       />
       <ButtonPrimary
         label="Back"

@@ -1,12 +1,5 @@
 import { css } from "@emotion/css";
 
-export const selectProjectContainer = css`
-  position: relative;
-  display: inherit;
-  flex-direction: inherit;
-  gap: inherit;
-`;
-
 export const confirmSelection = css`
   height: 48rem;
   padding: 2rem;
