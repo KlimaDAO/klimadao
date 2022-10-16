@@ -1,9 +1,15 @@
 import React, { FC, useState } from "react";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import isEmpty from "lodash/isEmpty";
+
+import ErrorIcon from "@mui/icons-material/Error";
 
 import { CarbonProject } from "../SelectiveRetirement/queryProjectDetails";
 import { ProjectSearchForm } from "./ProjectSearchForm";
 import { ProjectSelection } from "./ProjectSelection";
 import { ConfirmProjectSelection } from "./ConfirmProjectSelection";
+
+import * as styles from "./styles";
 
 type Props = {
   setIsLoading: (boolean: boolean) => void;
@@ -27,7 +33,7 @@ export const ProjectSearch: FC<Props> = (props) => {
         />
       )}
 
-      {step === "selectProject" && projects && (
+      {step === "selectProject" && !isEmpty(projects) && (
         <ProjectSelection
           projects={projects}
           selectedProject={selectedProject}
@@ -35,6 +41,23 @@ export const ProjectSearch: FC<Props> = (props) => {
           setSelectedProject={setSelectedProject}
           setStep={setStep}
         />
+      )}
+
+      {step === "selectProject" && isEmpty(projects) && (
+        <>
+          <div className={styles.noResultsContainer}>
+            <ErrorIcon />
+            <Text t="body8" align="center">
+              We could not find any projects releated to your search. Please
+              modify the filters and try again.
+            </Text>
+          </div>
+
+          <ButtonPrimary
+            label="Back to filters"
+            onClick={() => setStep("search")}
+          />
+        </>
       )}
 
       {step === "confirmProject" && selectedProject && (
@@ -45,6 +68,8 @@ export const ProjectSearch: FC<Props> = (props) => {
           setProjectAddress={props.setProjectAddress}
         />
       )}
+
+      {/* {step === "selected" && selectedProject && <ProjectDetailCard />} */}
     </>
   );
 };

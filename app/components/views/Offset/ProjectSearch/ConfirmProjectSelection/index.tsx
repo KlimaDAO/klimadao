@@ -25,7 +25,10 @@ export const ConfirmProjectSelection: FC<Props> = (props) => (
     <div className={styles.buttons}>
       <ButtonPrimary
         label="Confirm selection"
-        onClick={() => props.setProjectAddress(props.projectAddress)}
+        onClick={() => {
+          props.setProjectAddress(props.projectAddress);
+          props.setStep("confirmed");
+        }}
       />
       <ButtonPrimary
         label="Back"

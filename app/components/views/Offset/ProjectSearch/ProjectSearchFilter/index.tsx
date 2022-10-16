@@ -17,7 +17,7 @@ type Props = {
 
 export const ProjectSearchFilter: FC<Props> = (props) => {
   const [parent] = useAutoAnimate();
-  const [checked, setChecked] = useState([]);
+  const [checked, setChecked] = useState<string[]>([]);
 
   const handleCheck = (event: ChangeEvent<HTMLInputElement>) => {
     let updatedList = [...checked];

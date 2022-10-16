@@ -18,10 +18,10 @@ type Props = {
 };
 
 export const ProjectSearchForm: FC<Props> = (props) => {
-  const [currentFilter, setCurrentFilter] = useState(null);
-  const [type, setType] = useState(null);
-  const [region, setRegion] = useState(null);
-  const [vintage, setVintage] = useState(null);
+  const [currentFilter, setCurrentFilter] = useState<string | null>(null);
+  const [type, setType] = useState<string[]>([]);
+  const [region, setRegion] = useState<string[]>([]);
+  const [vintage, setVintage] = useState<string[]>([]);
 
   const handleSubmit = () => {
     console.log([type, region, vintage]);
@@ -30,6 +30,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
     setTimeout(() => {
       props.setStep("selectProject");
       props.setProjects(mockProjectDetails);
+      props.setProjects([]);
       props.setIsLoading(false);
     }, 1500);
   };
