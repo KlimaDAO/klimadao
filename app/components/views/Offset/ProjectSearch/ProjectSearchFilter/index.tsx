@@ -12,7 +12,7 @@ type Props = {
   name: string;
   options: { value: string; label: string }[];
   onChange: (values: string[]) => void;
-  onClick: () => void;
+  onClick: (fn: () => string | null) => void;
 };
 
 export const ProjectSearchFilter: FC<Props> = (props) => {

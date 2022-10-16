@@ -4,6 +4,7 @@ import { ButtonPrimary } from "@klimadao/lib/components";
 
 import { ProjectSearchFilter } from "./ProjectSearchFilter";
 import { SelectProjectButton } from "./SelectProjectButton";
+import { ConfirmProjectSelection } from "./ConfirmProjectSelection";
 
 import {
   types,
@@ -72,7 +73,7 @@ export const ProjectSearch: FC<Props> = (props) => {
       )}
 
       {step === "selectProject" && projects && (
-        <>
+        <div className={styles.selectProjectContainer}>
           <Text t="caption" color="lighter">
             Select a project to continue
           </Text>
@@ -80,10 +81,10 @@ export const ProjectSearch: FC<Props> = (props) => {
             {projects.map((project, index) => (
               <SelectProjectButton
                 key={index}
-                {...project}
+                project={project}
                 setSelectedProject={setSelectedProject}
                 selected={true}
-                active={selectedProject === project.tokenAddress}
+                active={selectedProject?.tokenAddress === project.tokenAddress}
               />
             ))}
           </div>
@@ -95,10 +96,18 @@ export const ProjectSearch: FC<Props> = (props) => {
             />
             <ButtonPrimary
               label="Select project"
-              onClick={() => setSelectedProject("something")}
+              onClick={() => setStep("confirmProject")}
+              disabled={!selectedProject}
             />
           </div>
-        </>
+        </div>
+      )}
+
+      {step === "confirmProject" && selectedProject && (
+        <ConfirmProjectSelection
+          setStep={setStep}
+          projectName={selectedProject.name}
+        />
       )}
     </>
   );
