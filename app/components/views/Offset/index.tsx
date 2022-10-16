@@ -505,7 +505,7 @@ export const Offset = (props: Props) => {
             </div>
           </div>
 
-          {/* attr: beneficiary  */}
+          {/* attr: beneficiaryName  */}
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
               <Trans id="offset.retirement_credit">

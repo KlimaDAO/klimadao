@@ -156,11 +156,12 @@ export const vintages = [
   { label: "All", value: "" },
   ...vintageList.map((vintage) => {
     const date = new Date(Number(vintage) * 1000);
+    const day = date.getDay();
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
 
     return {
-      label: `${month}-${year}`,
+      label: `${day}-${month}-${year}`,
       value: vintage,
     };
   }),

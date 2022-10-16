@@ -1,0 +1,28 @@
+import { css } from "@emotion/css";
+
+export const projectList = css`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-height: 38rem;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const projectActionButtons = css`
+  display: flex;
+  gap: 0.8rem;
+  justify-content: space-around;
+  width: inherit;
+
+  button {
+    width: 100%;
+
+    :first-of-type {
+      background-color: var(--surface-01);
+    }
+  }
+`;
