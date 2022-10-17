@@ -8,13 +8,13 @@ import * as styles from "./styles";
 type Props = {
   active: boolean;
   project: CarbonProject;
-  setSelectedProject: (project: CarbonProject) => void;
+  setSelectedProject?: (project: CarbonProject) => void;
 };
 
 export const SelectProjectButton: FC<Props> = (props) => (
   <button
     className={styles.selectProjectButton}
-    onClick={() => props.setSelectedProject(props.project)}
+    onClick={() => props.setSelectedProject?.(props.project)}
     data-active={props.active}
   >
     <div className={styles.header}>

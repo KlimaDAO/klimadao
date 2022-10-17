@@ -12,9 +12,12 @@ export const selectProjectButton = css`
 
   &:focus,
   &:hover,
-  &[data-active="true"],
-  &[data-selected="true"] {
+  &[data-active="true"] {
     border-color: var(--klima-green);
+  }
+
+  &[data-active="true"] {
+    cursor: default;
   }
 `;
 

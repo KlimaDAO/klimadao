@@ -8,6 +8,7 @@ import { CarbonProject } from "../SelectiveRetirement/queryProjectDetails";
 import { ProjectSearchForm } from "./ProjectSearchForm";
 import { ProjectSelection } from "./ProjectSelection";
 import { ConfirmProjectSelection } from "./ConfirmProjectSelection";
+import { SelectProjectButton } from "./SelectProjectButton";
 
 import * as styles from "./styles";
 
@@ -69,7 +70,19 @@ export const ProjectSearch: FC<Props> = (props) => {
         />
       )}
 
-      {/* {step === "selected" && selectedProject && <ProjectDetailCard />} */}
+      {step === "confirmed" && selectedProject && (
+        <>
+          <SelectProjectButton active={true} project={selectedProject} />
+          <ButtonPrimary
+            label="Clear selection"
+            variant="gray"
+            onClick={() => {
+              props.setProjectAddress("");
+              setStep("search");
+            }}
+          />
+        </>
+      )}
     </>
   );
 };
