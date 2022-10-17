@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import isEmpty from "lodash/isEmpty";
 import ErrorIcon from "@mui/icons-material/Error";
@@ -12,16 +12,32 @@ import { SelectProjectButton } from "./SelectProjectButton";
 import * as styles from "./styles";
 
 type Props = {
+  projectAddress: string;
+  selectedProject: CarbonProject | null;
   setIsLoading: (boolean: boolean) => void;
   setProjectAddress: (address: string) => void;
+  setSelectedProject: (project: CarbonProject | null) => void;
 };
 
+export type ProjectSearchSteps =
+  | ""
+  | "search"
+  | "selectProject"
+  | "confirmProject"
+  | "confirmed";
+
 export const ProjectSearch: FC<Props> = (props) => {
-  const [step, setStep] = useState("search");
+  const [step, setStep] = useState<ProjectSearchSteps>("");
   const [projects, setProjects] = useState<CarbonProject[]>([]);
-  const [selectedProject, setSelectedProject] = useState<CarbonProject | null>(
-    null
-  );
+
+  // skip to confirmed step if project has been selected
+  useEffect(() => {
+    if (props.selectedProject && props.projectAddress) {
+      return setStep("confirmed");
+    }
+
+    setStep("search");
+  }, [props.projectAddress]);
 
   return (
     <>
@@ -36,9 +52,9 @@ export const ProjectSearch: FC<Props> = (props) => {
       {step === "selectProject" && !isEmpty(projects) && (
         <ProjectSelection
           projects={projects}
-          selectedProject={selectedProject}
+          selectedProject={props.selectedProject}
           setProjects={setProjects}
-          setSelectedProject={setSelectedProject}
+          setSelectedProject={props.setSelectedProject}
           setStep={setStep}
         />
       )}
@@ -60,23 +76,23 @@ export const ProjectSearch: FC<Props> = (props) => {
         </>
       )}
 
-      {step === "confirmProject" && selectedProject && (
+      {step === "confirmProject" && props.selectedProject && (
         <ConfirmProjectSelection
-          projectName={selectedProject.name}
-          projectAddress={selectedProject.tokenAddress}
+          project={props.selectedProject}
           setStep={setStep}
           setProjectAddress={props.setProjectAddress}
         />
       )}
 
-      {step === "confirmed" && selectedProject && (
+      {step === "confirmed" && props.selectedProject && (
         <>
-          <SelectProjectButton active={true} project={selectedProject} />
+          <SelectProjectButton active={true} project={props.selectedProject} />
           <ButtonPrimary
             label="Clear selection"
             variant="gray"
             onClick={() => {
               props.setProjectAddress("");
+              props.setSelectedProject(null);
               setStep("search");
             }}
           />

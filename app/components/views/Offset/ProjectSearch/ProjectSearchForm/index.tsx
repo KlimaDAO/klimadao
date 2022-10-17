@@ -10,9 +10,10 @@ import {
   vintages,
   mockProjectDetails,
 } from "../filterOptions";
+import { ProjectSearchSteps } from "../";
 
 type Props = {
-  setStep: (step: string) => void;
+  setStep: (step: ProjectSearchSteps) => void;
   setProjects: (projects: CarbonProject[]) => void;
   setIsLoading: (boolean: boolean) => void;
 };

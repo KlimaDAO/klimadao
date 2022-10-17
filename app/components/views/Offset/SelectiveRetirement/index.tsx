@@ -8,6 +8,7 @@ import { RetirementTypeButton } from "../RetirementTypeButton";
 import { LoadingOverlay } from "../LoadingOverlay";
 import { ProjectSearch } from "../ProjectSearch";
 
+import { CarbonProject } from "./queryProjectDetails";
 import * as styles from "./styles";
 
 type Props = {
@@ -18,10 +19,13 @@ type Props = {
 export const SelectiveRetirement: FC<Props> = (props) => {
   const [inputMode, setInputMode] = useState<"search" | "address">("search");
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<CarbonProject | null>(
+    null
+  );
 
   /** toggle input via address when query params are loaded */
   useEffect(() => {
-    if (!!props.projectAddress) {
+    if (!selectedProject && !!props.projectAddress) {
       setInputMode("address");
     }
   }, [props.projectAddress]);
@@ -64,6 +68,9 @@ export const SelectiveRetirement: FC<Props> = (props) => {
 
         {inputMode === "search" && (
           <ProjectSearch
+            projectAddress={props.projectAddress}
+            selectedProject={selectedProject}
+            setSelectedProject={setSelectedProject}
             setIsLoading={setIsLoading}
             setProjectAddress={props.setProjectAddress}
           />
