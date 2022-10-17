@@ -219,6 +219,8 @@ export const offsetInputTokens = allowancesContracts[
   "retirementAggregator"
 ] as unknown as OffsetInputToken[];
 
+export type OffsetPaymentMethod = OffsetInputToken | "fiat";
+
 /** Retireable tokens for the offset aggregator /#/offset */
 export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 export type RetirementToken = typeof retirementTokens[number];

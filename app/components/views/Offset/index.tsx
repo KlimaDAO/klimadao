@@ -56,6 +56,7 @@ import { TransactionModal } from "components/TransactionModal";
 import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import * as styles from "./styles";
+import Fiat from "public/icons/Fiat.png";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
@@ -90,7 +91,7 @@ export const Offset = (props: Props) => {
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
-  const [selectedInputToken, setSelectedInputToken] =
+  const [paymentMethod, setSelectedPaymentMethod] =
     useState<OffsetInputToken>("bct");
   const [selectedRetirementToken, setSelectedRetirementToken] =
     useState<RetirementToken>("bct");
@@ -119,7 +120,7 @@ export const Offset = (props: Props) => {
   /** Initialize input from params after they are extracted, validated & stripped */
   useEffect(() => {
     if (params.inputToken) {
-      setSelectedInputToken(params.inputToken);
+      setSelectedPaymentMethod(params.inputToken);
     }
     if (params.retirementToken) {
       setSelectedRetirementToken(params.retirementToken);
@@ -395,7 +396,7 @@ export const Offset = (props: Props) => {
     props.isConnected &&
     (status === "userConfirmation" || status === "networkConfirmation");
 
-  const inputTokenItems = offsetInputTokens
+  const paymentMethodItems = offsetInputTokens
     .map((tkn) => ({
       ...tokenInfo[tkn],
       description: (function () {
@@ -406,6 +407,13 @@ export const Offset = (props: Props) => {
       disabled: !balances?.[tkn] || !Number(balances[tkn]),
     }))
     .sort((a, b) => Number(b.description ?? 0) - Number(a.description ?? 0));
+  paymentMethodItems.unshift({
+    description: "",
+    disabled: false,
+    icon: Fiat,
+    key: "fiat",
+    label: "Credit Card",
+  });
 
   const retirementTokenItems = retirementTokens.map((tkn) => {
     const disabled = !offsetCompatibility[selectedInputToken]?.includes(tkn);
@@ -490,7 +498,7 @@ export const Offset = (props: Props) => {
               message: "Select Token",
             })}
             currentItem={selectedInputToken}
-            items={inputTokenItems}
+            items={paymentMethodItems}
             isModalOpen={isInputTokenModalOpen}
             onToggleModal={() => setInputTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectInputToken}
@@ -592,8 +600,8 @@ export const Offset = (props: Props) => {
               </div>
             }
             amount={cost}
-            icon={tokenInfo[selectedInputToken].icon}
-            name={selectedInputToken}
+            icon={paymentMethodItems[selectedPaymentMethod].icon}
+            name={selectedPaymentMethod}
             loading={cost === "loading"}
             warn={insufficientBalance}
           />
