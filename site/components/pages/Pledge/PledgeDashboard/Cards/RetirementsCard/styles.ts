@@ -71,10 +71,11 @@ export const pledge_retirements_wallet = css`
 export const arrow_down = css`
   transform: rotate(0deg);
   transition: transform 0.2s linear;
-  fill: var(--font-01);
-
+  &.MuiSvgIcon-root {
+    fill: var(--font-01);
+  }
   &.open {
-    transform: rotate(180deg) !important;
+    transform: rotate(180deg);
   }
 `;
 
@@ -85,7 +86,7 @@ export const pledge_wallet_pending = css`
   p {
     font-size: 1rem;
     line-height: 1rem;
-    color: var(--surface-02) !important;
+    color: var(--surface-02);
     text-transform: uppercase;
     font-weight: 600;
   }
