@@ -305,7 +305,9 @@ export const PledgeForm: FC<Props> = (props) => {
                       <Text t="caption">{concatAddress(wallet.address)}</Text>
                       {wallet.status === "pending" && (
                         <span className={styles.pledge_wallet_pending}>
-                          <Text t="caption">Pending</Text>
+                          <Text t="caption">
+                            <Trans id="shared.pending">Pending</Trans>
+                          </Text>
                         </span>
                       )}
                     </div>
