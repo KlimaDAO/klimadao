@@ -10,12 +10,12 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
-  OffsetInputToken,
   offsetInputTokens,
   offsetCompatibility,
   RetirementToken,
   retirementTokens,
   urls,
+  OffsetPaymentMethod,
 } from "@klimadao/lib/constants";
 import { getTokenDecimals } from "@klimadao/lib/utils";
 
@@ -91,8 +91,8 @@ export const Offset = (props: Props) => {
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
-  const [paymentMethod, setSelectedPaymentMethod] =
-    useState<OffsetInputToken>("bct");
+  const [paymentMethod, setPaymentMethod] =
+    useState<OffsetPaymentMethod>("fiat");
   const [selectedRetirementToken, setSelectedRetirementToken] =
     useState<RetirementToken>("bct");
 
@@ -120,7 +120,7 @@ export const Offset = (props: Props) => {
   /** Initialize input from params after they are extracted, validated & stripped */
   useEffect(() => {
     if (params.inputToken) {
-      setSelectedPaymentMethod(params.inputToken);
+      setPaymentMethod(params.inputToken);
     }
     if (params.retirementToken) {
       setSelectedRetirementToken(params.retirementToken);
@@ -166,14 +166,12 @@ export const Offset = (props: Props) => {
   useEffect(() => {
     // if input token changes, force a compatible retirement token
     if (
-      !offsetCompatibility[selectedInputToken]?.includes(
-        selectedRetirementToken
-      )
+      !offsetCompatibility[paymentMethod]?.includes(selectedRetirementToken)
     ) {
       // never undefined, because universal tokens
-      setSelectedRetirementToken(offsetCompatibility[selectedInputToken][0]);
+      setSelectedRetirementToken(offsetCompatibility[paymentMethod][0]);
     }
-  }, [selectedInputToken]);
+  }, [paymentMethod]);
 
   useEffect(() => {
     if (debouncedQuantity === "" || !Number(debouncedQuantity)) {
@@ -184,7 +182,7 @@ export const Offset = (props: Props) => {
       if (!props.provider) return;
       setCost("loading");
       const [consumptionCost] = await getOffsetConsumptionCost({
-        inputToken: selectedInputToken,
+        inputToken: paymentMethod === "fiat" ? "usdc" : paymentMethod,
         retirementToken: selectedRetirementToken,
         quantity: debouncedQuantity,
         amountInCarbon: true,
@@ -198,7 +196,7 @@ export const Offset = (props: Props) => {
   }, [
     debouncedQuantity,
     projectAddress,
-    selectedInputToken,
+    paymentMethod,
     selectedRetirementToken,
   ]);
 
@@ -225,15 +223,15 @@ export const Offset = (props: Props) => {
   const getApprovalValue = (): string => {
     const costAsNumber = Number(cost);
     const costPlusOnePercent = costAsNumber + costAsNumber * APPROVAL_SLIPPAGE;
-    const decimals = getTokenDecimals(selectedInputToken);
+    const decimals = getTokenDecimals(paymentMethod);
     return costPlusOnePercent.toFixed(decimals); // ethers throws with "underflow" if decimals exceeds
   };
 
   const handleApprove = async () => {
     try {
-      if (!props.provider) return;
+      if (!props.provider || paymentMethod === "fiat") return;
 
-      const token = selectedInputToken;
+      const token = paymentMethod;
       const spender = "retirementAggregator";
 
       const approvedValue = await changeApprovalTransaction({
@@ -259,10 +257,14 @@ export const Offset = (props: Props) => {
   const handleRetire = async () => {
     try {
       if (!props.isConnected || !props.address || !props.provider) return;
+      if (paymentMethod === "fiat") {
+        // do retire redirect
+        return;
+      }
       const { receipt, retirementTotals } = await retireCarbonTransaction({
         address: props.address,
         provider: props.provider,
-        inputToken: selectedInputToken,
+        inputToken: paymentMethod,
         retirementToken: selectedRetirementToken,
         quantity,
         amountInCarbon: true,
@@ -274,7 +276,7 @@ export const Offset = (props: Props) => {
       });
       dispatch(
         updateRetirement({
-          inputToken: selectedInputToken,
+          inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
           cost,
           quantity,
@@ -293,13 +295,15 @@ export const Offset = (props: Props) => {
   const insufficientBalance =
     props.isConnected &&
     !isLoading &&
-    Number(cost) > Number(balances?.[selectedInputToken] ?? "0");
+    paymentMethod !== "fiat" &&
+    Number(cost) > Number(balances?.[paymentMethod] ?? "0");
 
   const hasApproval = () => {
     return (
-      !!allowances?.[selectedInputToken] &&
-      !!Number(allowances?.[selectedInputToken]) &&
-      Number(cost) <= Number(allowances?.[selectedInputToken]) // Caution: Number trims values down to 17 decimal places of precision
+      paymentMethod !== "fiat" &&
+      !!allowances?.[paymentMethod] &&
+      !!Number(allowances?.[paymentMethod]) &&
+      Number(cost) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
     );
   };
 
@@ -357,8 +361,8 @@ export const Offset = (props: Props) => {
     };
   };
 
-  const handleSelectInputToken = (tkn: string) => {
-    setSelectedInputToken(tkn as OffsetInputToken);
+  const handleSelectInputToken = (tkn: OffsetPaymentMethod) => {
+    setPaymentMethod(tkn);
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
@@ -416,7 +420,7 @@ export const Offset = (props: Props) => {
   });
 
   const retirementTokenItems = retirementTokens.map((tkn) => {
-    const disabled = !offsetCompatibility[selectedInputToken]?.includes(tkn);
+    const disabled = !offsetCompatibility[paymentMethod]?.includes(tkn);
     return {
       ...tokenInfo[tkn],
       disabled,
@@ -427,6 +431,9 @@ export const Offset = (props: Props) => {
       ),
     };
   });
+
+  const costIcon =
+    tokenInfo[paymentMethod === "fiat" ? "usdc" : paymentMethod].icon;
 
   return (
     <>
@@ -497,11 +504,13 @@ export const Offset = (props: Props) => {
               id: "offset.modal_payWith.title",
               message: "Select Token",
             })}
-            currentItem={selectedInputToken}
+            currentItem={paymentMethod}
             items={paymentMethodItems}
             isModalOpen={isInputTokenModalOpen}
             onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-            onItemSelect={handleSelectInputToken}
+            onItemSelect={(str) =>
+              handleSelectInputToken(str as OffsetPaymentMethod)
+            }
           />
 
           {/* Retire Token  */}
@@ -600,8 +609,8 @@ export const Offset = (props: Props) => {
               </div>
             }
             amount={cost}
-            icon={paymentMethodItems[selectedPaymentMethod].icon}
-            name={selectedPaymentMethod}
+            icon={costIcon}
+            name={paymentMethod}
             loading={cost === "loading"}
             warn={insufficientBalance}
           />
@@ -643,7 +652,7 @@ export const Offset = (props: Props) => {
         </div>
       </div>
 
-      {showTransactionModal && (
+      {showTransactionModal && paymentMethod !== "fiat" && (
         <TransactionModal
           title={
             <Text t="h4" className={styles.offsetCard_header_title}>
@@ -652,7 +661,7 @@ export const Offset = (props: Props) => {
             </Text>
           }
           onCloseModal={closeTransactionModal}
-          token={selectedInputToken}
+          token={paymentMethod}
           spender={"retirementAggregator"}
           value={cost.toString()}
           approvalValue={getApprovalValue()}
