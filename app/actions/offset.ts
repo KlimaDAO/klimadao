@@ -184,7 +184,7 @@ export const retireCarbonTransaction = async (params: {
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
-        params.projectAddress,
+        [params.projectAddress],
         transactionOptions
       );
     } else {
@@ -206,7 +206,6 @@ export const retireCarbonTransaction = async (params: {
     params.onStatus("networkConfirmation");
 
     const receipt: RetirementReceipt = await txn.wait(1);
-
     return { receipt, retirementTotals };
   } catch (e: any) {
     if (e.code === 4001) {
