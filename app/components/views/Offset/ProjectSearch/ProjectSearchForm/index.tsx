@@ -30,7 +30,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
 
     setTimeout(() => {
       props.setStep("selectProject");
-      props.setProjects(mockProjectDetails);
+      props.setProjects(mockProjectDetails as any[]);
       props.setIsLoading(false);
     }, 1500);
   };

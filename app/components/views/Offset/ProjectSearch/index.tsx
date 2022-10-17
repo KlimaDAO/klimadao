@@ -18,7 +18,7 @@ type Props = {
 
 export const ProjectSearch: FC<Props> = (props) => {
   const [step, setStep] = useState("search");
-  const [projects, setProjects] = useState<CarbonProject[] | null>(null);
+  const [projects, setProjects] = useState<CarbonProject[]>([]);
   const [selectedProject, setSelectedProject] = useState<CarbonProject | null>(
     null
   );
