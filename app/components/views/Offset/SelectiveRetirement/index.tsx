@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Trans } from "@lingui/macro";
 import { Text, TextInfoTooltip } from "@klimadao/lib/components";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
@@ -16,8 +16,15 @@ type Props = {
 };
 
 export const SelectiveRetirement: FC<Props> = (props) => {
-  const [inputMode, setInputMode] = useState("search");
+  const [inputMode, setInputMode] = useState<"search" | "address">("search");
   const [isLoading, setIsLoading] = useState(false);
+
+  /** toggle input via address when query params are loaded */
+  useEffect(() => {
+    if (!!props.projectAddress) {
+      setInputMode("address");
+    }
+  }, [props.projectAddress]);
 
   return (
     <div className={styles.container}>

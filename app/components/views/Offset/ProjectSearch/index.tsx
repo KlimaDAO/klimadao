@@ -1,7 +1,6 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import isEmpty from "lodash/isEmpty";
-
 import ErrorIcon from "@mui/icons-material/Error";
 
 import { CarbonProject } from "../SelectiveRetirement/queryProjectDetails";
