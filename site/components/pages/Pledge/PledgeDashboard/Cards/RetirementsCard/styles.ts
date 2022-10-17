@@ -57,8 +57,8 @@ export const pledge_retirements_wallets = css`
   gap: 0.8rem;
   flex-direction: column;
   background: var(--surface-01);
-  box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.26);
-  border-radius: 8px;
+  box-shadow: 0 0.4rem 2.8rem rgba(0, 0, 0, 0.26);
+  border-radius: 0.8rem;
 `;
 export const pledge_retirements_wallet = css`
   display: flex;
@@ -71,6 +71,8 @@ export const pledge_retirements_wallet = css`
 export const arrow_down = css`
   transform: rotate(0deg);
   transition: transform 0.2s linear;
+  fill: var(--font-01);
+
   &.open {
     transform: rotate(180deg) !important;
   }
