@@ -85,8 +85,8 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         pledge: pledgeFormAdapter(pledge), // need pledgeFormValues
         signature,
       });
-    } catch {
-      console.log("uh ohhh");
+    } catch (e: any) {
+      console.log("error in dashboard", e.message, e.name);
     }
   };
   const pledgeOwnerTitle =

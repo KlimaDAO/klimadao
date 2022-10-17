@@ -31,9 +31,8 @@ export default async function handler(
       } catch (e: any) {
         console.error("Request failed:", e.message);
         if (e instanceof Error) {
-          return res
-            .status(500)
-            .json({ message: e.message, name: e.name || null });
+          console.log(e);
+          return res.status(500).json({ message: e.message, name: e.name });
         }
         return res
           .status(500)

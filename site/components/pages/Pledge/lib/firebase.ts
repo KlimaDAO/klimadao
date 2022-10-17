@@ -48,6 +48,9 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
 export const findOrCreatePledge = async (
   params: putPledgeParams
 ): Promise<Pledge | null> => {
+  const e = new Error("This wallet is already pinned to another pledge");
+  e.name = "WalletAlreadyPinned";
+  throw e;
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection(
     "pledges"
@@ -80,7 +83,6 @@ export const findOrCreatePledge = async (
         "verified"
       )
       .get();
-    // if its already add it then un add from other pledge?
     const isNotAlreadyAdded = snapshot.empty;
     // check if secondary wallet is signing to accept
     if (invitedAddress && isNotAlreadyAdded && params.secondaryWalletAddress) {
@@ -107,7 +109,9 @@ export const findOrCreatePledge = async (
     if (!isNotAlreadyAdded) {
       // do error message "please remove yourself from XXX pledge"
       // respond with error message here and check in pages/api/pledge
-      // in follow up PR handle errors
+      const e = new Error("This wallet is already pinned to another pledge");
+      e.name = "WalletAlreadyPinned";
+      throw e;
     }
     // check if secondary wallet is signing to reject or remove
     if ((invitedAddress || verifiedAddress) && params.secondaryWalletAddress) {
