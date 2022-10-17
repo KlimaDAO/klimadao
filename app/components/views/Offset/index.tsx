@@ -57,6 +57,7 @@ import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import * as styles from "./styles";
 import Fiat from "public/icons/Fiat.png";
+import { FIAT_RETIREMENT_API_URL } from "lib/constants";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
@@ -256,11 +257,13 @@ export const Offset = (props: Props) => {
 
   const handleRetire = async () => {
     try {
-      if (!props.isConnected || !props.address || !props.provider) return;
-      if (paymentMethod === "fiat") {
-        // do retire redirect
+      if (
+        !props.isConnected ||
+        !props.address ||
+        !props.provider ||
+        paymentMethod === "fiat"
+      )
         return;
-      }
       const { receipt, retirementTotals } = await retireCarbonTransaction({
         address: props.address,
         provider: props.provider,
@@ -290,6 +293,38 @@ export const Offset = (props: Props) => {
     } catch (e) {
       return;
     }
+  };
+
+  const handleFiat = async () => {
+    if (
+      !props.isConnected ||
+      !props.address ||
+      !props.provider ||
+      paymentMethod !== "fiat"
+    ) {
+      return;
+    }
+    const params = {
+      beneficiary_address: beneficiaryAddress || props.address, // don't pass empty string
+      beneficiary_name: beneficiary,
+      retirement_message: retirementMessage,
+      quantity,
+      project_address: projectAddress || null,
+      retirement_token: selectedRetirementToken,
+      cancel_url: "https://app.klimadao.finance/#/offset",
+      referrer: "klimadao",
+    };
+    const res = await fetch(FIAT_RETIREMENT_API_URL, {
+      body: JSON.stringify(params),
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    const { url } = await res.json();
+    window.location.href = url;
+    // do retire redirect
+    return;
   };
 
   const insufficientBalance =
@@ -326,16 +361,23 @@ export const Offset = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (
-      (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) ||
-      (!!projectAddress && !utils.isAddress(projectAddress))
-    ) {
+    } else if (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) {
       return {
-        label: <Trans id="shared.invalid_inputs">INVALID INPUTS</Trans>,
+        label: (
+          <Trans id="shared.invalid_beneficiary_addr">
+            INVALID BENEFICIARY ADDRESS
+          </Trans>
+        ),
         onClick: undefined,
         disabled: true,
       };
-    } else if (insufficientBalance) {
+    } else if (!!projectAddress && !utils.isAddress(projectAddress)) {
+      return {
+        label: <Trans>INVALID PROJECT ADDRESS</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (paymentMethod !== "fiat" && insufficientBalance) {
       return {
         label: (
           <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
@@ -343,12 +385,18 @@ export const Offset = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (!hasApproval()) {
+    } else if (paymentMethod !== "fiat" && !hasApproval()) {
       return {
         label: <Trans id="shared.approve">APPROVE</Trans>,
         onClick: () => {
           setShowTransactionModal(true);
         },
+        disabled: false,
+      };
+    } else if (paymentMethod === "fiat") {
+      return {
+        label: <Trans>CHECKOUT</Trans>,
+        onClick: handleFiat,
         disabled: false,
       };
     }
@@ -545,10 +593,7 @@ export const Offset = (props: Props) => {
               <input
                 value={beneficiary}
                 onChange={(e) => setBeneficiary(e.target.value)}
-                placeholder={t({
-                  id: "offset.retirement_beneficiary",
-                  message: "Name or organisation",
-                })}
+                placeholder={t`Beneficiary name`}
               />
             </div>
 
@@ -559,10 +604,7 @@ export const Offset = (props: Props) => {
                   !!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)
                 }
                 onChange={(e) => handleBeneficiaryAddressChange(e.target.value)}
-                placeholder={t({
-                  id: "offset.enter_address",
-                  message: "Enter 0x address",
-                })}
+                placeholder={t`Beneficiary 0x address (optional)`}
               />
               <Text t="caption" color="lightest" className="defaultAddress">
                 <Trans id="offset.default_retirement_address">

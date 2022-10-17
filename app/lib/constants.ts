@@ -11,3 +11,7 @@ export const BASE_URL = process.env.NEXT_PUBLIC_VERCEL_URL
 
 /** Set first in package.json then passed to javascript bundle in next.config.js */
 export const IS_STATIC_EXPORT = process.env.IS_STATIC_EXPORT;
+
+export const FIAT_RETIREMENT_API_URL = IS_PRODUCTION
+  ? "https://checkout.offsetra.com/api/checkout"
+  : "https://staging-checkout.offsetra.com/api/checkout";
