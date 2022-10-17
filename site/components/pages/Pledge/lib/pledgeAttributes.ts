@@ -65,7 +65,6 @@ interface putPledgeParams {
 
 export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
   const { categories, ...rest } = params.newPledgeValues;
-  // format wallets in here instead of form
   const formatWalletsForApi = (wallets: Wallet[] | undefined) => {
     if (!wallets) return undefined;
     const formattedWallets: {
