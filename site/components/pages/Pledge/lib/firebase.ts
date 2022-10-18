@@ -48,9 +48,9 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
 export const findOrCreatePledge = async (
   params: putPledgeParams
 ): Promise<Pledge | null> => {
-  const e = new Error("This wallet is already pinned to another pledge");
-  e.name = "WalletAlreadyPinned";
-  throw e;
+  // const e = new Error("This wallet is already pinned to another pledge");
+  // e.name = "WalletAlreadyPinned";
+  // throw e;
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection(
     "pledges"
@@ -107,8 +107,7 @@ export const findOrCreatePledge = async (
       }
     }
     if (!isNotAlreadyAdded) {
-      // do error message "please remove yourself from XXX pledge"
-      // respond with error message here and check in pages/api/pledge
+      // respond with error message here and check error name in pages/api/pledge
       const e = new Error("This wallet is already pinned to another pledge");
       e.name = "WalletAlreadyPinned";
       throw e;

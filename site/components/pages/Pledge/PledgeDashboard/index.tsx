@@ -46,6 +46,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const [showRemoveConfirmModal, setShowRemoveConfirmModal] = useState(false);
   const [showAcceptModal, setShowAcceptModal] = useState(false);
   const [showAcceptConfirmModal, setShowAcceptConfirmModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const { signer } = useWeb3();
   const isUnverifiedSecondaryWallet =
     props.pledge.wallets &&
@@ -79,12 +80,22 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       if (!signer) return;
       const address = await signer.getAddress();
       const signature = await signer.signMessage(params.message(pledge.nonce));
-      await putPledge({
+      const response = await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
-        pledge: pledgeFormAdapter(pledge), // need pledgeFormValues
+        pledge: pledgeFormAdapter(pledge),
         signature,
       });
+      const data = await response.json();
+      if (data.pledge) {
+        setPledge(data.pledge);
+      } else {
+        setErrorMessage(
+          data.message ??
+            "Something went wrong on our end. Please try again in a few minutes"
+        );
+      }
+      console.log("data in dashboard submit", data);
     } catch (e: any) {
       console.log("error in dashboard", e.message, e.name);
     }
@@ -171,7 +182,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               id: "pledge.invitation.reject",
               message: "Reject Invitation",
             })}
-            onClick={() => setShowAcceptModal(false)}
+            onClick={() => {
+              handleSecondaryWalletSubmit({ message: removeSecondaryWallet });
+              setShowAcceptModal(false);
+            }}
             variant="red"
           />
           <ButtonSecondary
