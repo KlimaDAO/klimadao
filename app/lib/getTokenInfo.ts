@@ -10,7 +10,6 @@ import UBO from "public/icons/UBO.png";
 import NBO from "public/icons/NBO.png";
 import KlimaBCTLP from "public/icons/BCT-KLIMA-LP.png";
 import KlimaUsdcLP from "public/icons/KLIMA-USDC-LP.png";
-import BCTUSDCLP from "public/icons/BCT-USDC-LP.png";
 import KlimaMCO2LP from "public/icons/KLIMA-MCO2-LP.png";
 
 type TokenInfoMap = {
@@ -32,7 +31,6 @@ export const tokenInfo: TokenInfoMap = {
   sklima: { key: "sklima", icon: KLIMA, label: "sKLIMA" },
   wsklima: { key: "wsklima", icon: KLIMA, label: "wsKLIMA" },
   pklima: { key: "pklima", icon: KLIMA, label: "pklima" },
-  bctUsdcLp: { key: "bctUsdcLp", icon: BCTUSDCLP, label: "KLIMA/BCT LP" },
   klimaUsdcLp: {
     key: "klimaUsdcLp",
     icon: KlimaUsdcLP,

@@ -5,7 +5,7 @@ import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getContract } from "../getContract";
 
 const getOwnedBCTFromSLP = async (params: {
-  adr: "bctUsdcLp" | "klimaBctLp";
+  adr: "klimaBctLp";
   provider: providers.JsonRpcProvider;
 }) => {
   const contract = getContract({
@@ -36,7 +36,7 @@ const getOwnedBCTFromSLP = async (params: {
 
 /**
  * Return the balance in BCT of the klima treasury.
- * NakedBCT + (klimaBctReserve * klimaBctTreasuryPercent) + (bctUsdcReserve * bctUsdcTreasuryPercent)
+ * NakedBCT + (klimaBctReserve * klimaBctTreasuryPercent)
  */
 export const getTreasuryBalance = async (
   providerUrl?: string
@@ -48,9 +48,8 @@ export const getTreasuryBalance = async (
     const nakedBCT = getInteger(
       await bctContract.balanceOf(addresses.mainnet.treasury)
     );
-    const bctUSDC = await getOwnedBCTFromSLP({ adr: "bctUsdcLp", provider });
     const bctKLIMA = await getOwnedBCTFromSLP({ adr: "klimaBctLp", provider });
-    const sum = nakedBCT + bctUSDC + bctKLIMA;
+    const sum = nakedBCT + bctKLIMA;
     return sum;
   } catch (e) {
     console.error(e);
