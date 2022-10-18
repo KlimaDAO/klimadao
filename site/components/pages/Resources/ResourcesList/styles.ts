@@ -93,9 +93,14 @@ export const sortBySelectContainer = css`
 
 export const sortByButtons = css`
   display: flex;
-  justify-content: space-between;
   padding-top: 2rem;
   padding-bottom: 4rem;
+  justify-content: start;
+  gap: 1.6rem;
+
+  ${breakpoints.large} {
+    justify-content: space-between;
+  }
 `;
 
 export const main = css`

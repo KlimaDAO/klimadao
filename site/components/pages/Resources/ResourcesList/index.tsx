@@ -53,7 +53,7 @@ export const ResourcesList: FC<Props> = (props) => {
   );
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [showMobileMobile, setShowMobileModal] = useState(false);
+  const [showMobileModal, setShowMobileModal] = useState(false);
 
   const { register, handleSubmit, watch, reset, setValue, control, getValues } =
     useForm<FormValues>({
@@ -282,7 +282,7 @@ export const ResourcesList: FC<Props> = (props) => {
           id: "resources.mobile_modal.title",
           message: "Sort By",
         })}
-        showModal={showMobileMobile}
+        showModal={showMobileModal}
         onToggleModal={() => setShowMobileModal((prev) => !prev)}
       >
         <div className={styles.sortByButtons}>

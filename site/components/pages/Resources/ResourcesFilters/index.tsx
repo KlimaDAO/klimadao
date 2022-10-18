@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { Trans } from "@lingui/macro";
-import { Text } from "@klimadao/lib/components";
+import { Text, ButtonPrimary } from "@klimadao/lib/components";
 import { Control } from "react-hook-form";
+import ClearIcon from "@mui/icons-material/ClearRounded";
 
 import { CheckboxGroup } from "./CheckboxGroup";
 
@@ -59,15 +60,18 @@ export const ResourcesFilters: FC<Props> = (props) => {
           control={props.control}
         />
       </div>
-      <Text
-        t="caption"
-        align="center"
-        role="button"
+
+      <ButtonPrimary
+        variant="icon"
+        label={
+          <>
+            <ClearIcon />
+            <Trans id="resources.form.filters.clear_all">Clear All</Trans>
+          </>
+        }
         onClick={props.onResetFilters}
-        style={{ cursor: "pointer" }}
-      >
-        X <Trans id="resources.form.filters.clear_all">Clear all filters</Trans>
-      </Text>
+        className={styles.clearAllButton}
+      />
     </div>
   );
 };
