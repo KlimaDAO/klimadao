@@ -1179,17 +1179,17 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "KlimaDAO Podcast"
 
-#: components/pages/Resources/ResourcesFilters/index.tsx:25
+#: components/pages/Resources/ResourcesFilters/index.tsx:24
 msgid "resources.form.categories.header"
 msgstr "Categories"
 
-#: components/pages/Resources/ResourcesFilters/index.tsx:28
+#: components/pages/Resources/ResourcesFilters/index.tsx:27
 msgid "resources.form.categories.subheader"
 msgstr "Select one or more"
 
-#: components/pages/Resources/ResourcesFilters/index.tsx:89
+#: components/pages/Resources/ResourcesFilters/index.tsx:69
 msgid "resources.form.filters.clear_all"
-msgstr "Clear all filters"
+msgstr "Clear All"
 
 #: components/pages/Resources/ResourcesList/index.tsx:176
 msgid "resources.form.input.search.label"
@@ -1207,11 +1207,11 @@ msgstr "Sort by"
 msgid "resources.form.input.sort_by.select"
 msgstr "Select"
 
-#: components/pages/Resources/ResourcesFilters/index.tsx:66
+#: components/pages/Resources/ResourcesFilters/index.tsx:53
 msgid "resources.form.medium.header"
 msgstr "Medium"
 
-#: components/pages/Resources/ResourcesFilters/index.tsx:48
+#: components/pages/Resources/ResourcesFilters/index.tsx:41
 msgid "resources.form.sub_topics.header"
 msgstr "Sub-topics"
 
@@ -1227,47 +1227,47 @@ msgstr "KlimaDAO Resources - Go beyond Carbon neutral"
 msgid "resources.head.title"
 msgstr "KlimaDAO | Resources"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:75
+#: components/pages/Resources/lib/cmsDataMap.ts:71
 msgid "resources.list.filter.tag.basics"
 msgstr "Basics"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:115
+#: components/pages/Resources/lib/cmsDataMap.ts:111
 msgid "resources.list.filter.tag.carbon_footprint"
 msgstr "Carbon Footprint"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:83
+#: components/pages/Resources/lib/cmsDataMap.ts:79
 msgid "resources.list.filter.tag.deep_dives"
 msgstr "Deep Dives"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:56
+#: components/pages/Resources/lib/cmsDataMap.ts:52
 msgid "resources.list.filter.tag.klima_infinity"
 msgstr "Klima Infinity"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:48
+#: components/pages/Resources/lib/cmsDataMap.ts:44
 msgid "resources.list.filter.tag.klima_overview"
 msgstr "Klima Overview"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:64
+#: components/pages/Resources/lib/cmsDataMap.ts:60
 msgid "resources.list.filter.tag.partnerships"
 msgstr "Partnerships"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:107
+#: components/pages/Resources/lib/cmsDataMap.ts:103
 msgid "resources.list.filter.tag.policy"
 msgstr "Policy"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:99
+#: components/pages/Resources/lib/cmsDataMap.ts:95
 msgid "resources.list.filter.tag.press_releases"
 msgstr "Press Releases"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:91
+#: components/pages/Resources/lib/cmsDataMap.ts:87
 msgid "resources.list.filter.tag.user_guides"
 msgstr "User Guides"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:125
+#: components/pages/Resources/lib/cmsDataMap.ts:121
 msgid "resources.list.filter.type.blog"
 msgstr "Blog"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:132
+#: components/pages/Resources/lib/cmsDataMap.ts:129
 msgid "resources.list.filter.type.podcast"
 msgstr "Podcast"
 
@@ -1275,19 +1275,19 @@ msgstr "Podcast"
 msgid "resources.list.select.sort_by.toggle"
 msgstr "Toggle Sorted by menu"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:157
+#: components/pages/Resources/lib/cmsDataMap.ts:155
 msgid "resources.list.sort_by.a-z"
 msgstr "A-Z"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:141
+#: components/pages/Resources/lib/cmsDataMap.ts:139
 msgid "resources.list.sort_by.latest_first"
 msgstr "Latest First"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:149
+#: components/pages/Resources/lib/cmsDataMap.ts:147
 msgid "resources.list.sort_by.oldest_first"
 msgstr "Oldest First"
 
-#: components/pages/Resources/lib/cmsDataMap.ts:165
+#: components/pages/Resources/lib/cmsDataMap.ts:163
 msgid "resources.list.sort_by.z-a"
 msgstr "Z-A"
 
