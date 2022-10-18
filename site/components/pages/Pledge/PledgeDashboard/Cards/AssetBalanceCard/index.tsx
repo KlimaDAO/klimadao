@@ -3,6 +3,7 @@ import { t } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import map from "lodash/map";
 import groupBy from "lodash/groupBy";
+import toNumber from "lodash/toNumber";
 
 import BCTIcon from "public/icons/BCT.png";
 import KLIMAIcon from "public/icons/KLIMA.png";
@@ -16,7 +17,6 @@ import { Holding } from "components/pages/Pledge/types";
 import { BaseCard } from "../BaseCard";
 import { TokenRow } from "./TokenRow";
 import * as styles from "./styles";
-import { toNumber } from "lodash";
 
 type Props = {
   pageAddress: string;

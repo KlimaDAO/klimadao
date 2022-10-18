@@ -22,8 +22,19 @@ const PlaceholderFootprintChart: React.ComponentType = dynamic(
   { ssr: false }
 );
 
-/** This palette is defined at https://www.figma.com/file/moDUIfGjQaISUGDjLxyko4/Multi-Wallet-Pledge?node-id=7%3A161 */
-const COLOR_PALETTE = ["#0BA1FF", "#E081EB", "#FF6F88", "#FFA600"].reverse();
+/** This palette is defined at https://www.figma.com/file/moDUIfGjQaISUGDjLxyko4?node-id=1:3#286886177 */
+const COLOR_PALETTE = [
+  "#0BA1FF",
+  "#8997FF",
+  "#CE87F4",
+  "#FF76D4",
+  "#FF6CA8",
+  "#FF7377",
+  "#FF8A46",
+  "#FFA600",
+  "#1B4659",
+  "#00CC33",
+];
 
 type Props = {
   footprint: Footprint[];
@@ -38,15 +49,18 @@ const calculateFootprintPercent = (
   total: number,
   categories: Category[]
 ): CategoryWithPercent[] =>
-  categories.map((category, index) => {
-    /** compute the color index based on the categories index */
-    const paletteIndex = Math.ceil(index % 4);
-    return {
-      ...category,
-      percent: (category.quantity / total) * 100,
-      fill: COLOR_PALETTE[paletteIndex],
-    };
-  });
+  categories
+    /**Sort the categories from largest to smallest for the correct color order */
+    .sort((cat1, cat2) => cat2.quantity - cat1.quantity)
+    .map((category, index) => {
+      /** compute the color index based on the categories index */
+      const paletteIndex = Math.ceil(index % COLOR_PALETTE.length);
+      return {
+        ...category,
+        percent: (category.quantity / total) * 100,
+        fill: COLOR_PALETTE[paletteIndex],
+      };
+    });
 
 export const FootprintCard: FC<Props> = (props) => {
   const { locale } = useRouter();
