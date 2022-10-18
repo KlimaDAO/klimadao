@@ -1179,13 +1179,41 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "KlimaDAO Podcast"
 
-#: components/pages/Resources/ResourcesList/index.tsx:80
+#: components/pages/Resources/ResourcesFilters/index.tsx:25
+msgid "resources.form.categories.header"
+msgstr "Categories"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:28
+msgid "resources.form.categories.subheader"
+msgstr "Select one or more"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:89
+msgid "resources.form.filters.clear_all"
+msgstr "Clear all filters"
+
+#: components/pages/Resources/ResourcesList/index.tsx:176
 msgid "resources.form.input.search.label"
 msgstr "Search"
 
-#: components/pages/Resources/ResourcesList/index.tsx:66
+#: components/pages/Resources/ResourcesList/index.tsx:167
 msgid "resources.form.input.search.placeholder"
 msgstr "Search"
+
+#: components/pages/Resources/ResourcesList/index.tsx:208
+msgid "resources.form.input.sort_by.label"
+msgstr "Sort by"
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:20
+msgid "resources.form.input.sort_by.select"
+msgstr "Select"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:66
+msgid "resources.form.medium.header"
+msgstr "Medium"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:48
+msgid "resources.form.sub_topics.header"
+msgstr "Sub-topics"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1199,6 +1227,78 @@ msgstr "KlimaDAO Resources - Go beyond Carbon neutral"
 msgid "resources.head.title"
 msgstr "KlimaDAO | Resources"
 
+#: components/pages/Resources/lib/cmsDataMap.ts:75
+msgid "resources.list.filter.tag.basics"
+msgstr "Basics"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:115
+msgid "resources.list.filter.tag.carbon_footprint"
+msgstr "Carbon Footprint"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:83
+msgid "resources.list.filter.tag.deep_dives"
+msgstr "Deep Dives"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:56
+msgid "resources.list.filter.tag.klima_infinity"
+msgstr "Klima Infinity"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:48
+msgid "resources.list.filter.tag.klima_overview"
+msgstr "Klima Overview"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:64
+msgid "resources.list.filter.tag.partnerships"
+msgstr "Partnerships"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:107
+msgid "resources.list.filter.tag.policy"
+msgstr "Policy"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:99
+msgid "resources.list.filter.tag.press_releases"
+msgstr "Press Releases"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:91
+msgid "resources.list.filter.tag.user_guides"
+msgstr "User Guides"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:125
+msgid "resources.list.filter.type.blog"
+msgstr "Blog"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:132
+msgid "resources.list.filter.type.podcast"
+msgstr "Podcast"
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:61
+msgid "resources.list.select.sort_by.toggle"
+msgstr "Toggle Sorted by menu"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:157
+msgid "resources.list.sort_by.a-z"
+msgstr "A-Z"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:141
+msgid "resources.list.sort_by.latest_first"
+msgstr "Latest First"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:149
+msgid "resources.list.sort_by.oldest_first"
+msgstr "Oldest First"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:165
+msgid "resources.list.sort_by.z-a"
+msgstr "Z-A"
+
+#: components/pages/Resources/ResourcesList/index.tsx:308
+msgid "resources.mobile_modal.button.show_results"
+msgstr "Show Results"
+
+#: components/pages/Resources/ResourcesList/index.tsx:281
+msgid "resources.mobile_modal.title"
+msgstr "Sort By"
+
 #: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
 msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
@@ -1207,17 +1307,25 @@ msgstr "Updates and thought leadership from the founders, DAO contributors, advi
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
 
-#: components/pages/Resources/ResourcesList/index.tsx:57
+#: components/pages/Resources/ResourcesList/index.tsx:159
 msgid "resources.page.list.header"
 msgstr "Explore All"
 
-#: components/pages/Resources/ResourcesList/index.tsx:102
-msgid "resources.page.list.no_search_results.subline"
-msgstr "Double check your search for any typos or spelling errors - or try a different search term."
-
-#: components/pages/Resources/ResourcesList/index.tsx:97
+#: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
 msgstr "Sorry. We coudn't find any matching results."
+
+#: components/pages/Resources/ResourcesList/index.tsx:238
+msgid "resources.page.list.on_fetch_error"
+msgstr "Sorry! Something went wrong."
+
+#: components/pages/Resources/ResourcesList/index.tsx:259
+msgid "resources.page.list.search_submit.no_filter_results"
+msgstr "Please use a different filter combination."
+
+#: components/pages/Resources/ResourcesList/index.tsx:252
+msgid "resources.page.list.search_submit.no_search_results"
+msgstr "Double check your search for any typos or spelling errors - or try a different search term."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1563,6 +1671,10 @@ msgstr "Podcast"
 #: components/Navigation/index.tsx:353
 msgid "shared.resources"
 msgstr "Resources"
+
+#: components/pages/Resources/ResourcesList/index.tsx:214
+msgid "shared.resources.sort_by.header"
+msgstr "Sort by:"
 
 #: components/Footer/index.tsx:44
 #: components/Navigation/index.tsx:131
