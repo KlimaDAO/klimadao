@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
-import { UseFormRegister } from "react-hook-form";
+import { Control } from "react-hook-form";
 
-import { Checkbox } from "components/Form";
+import { CheckboxGroup } from "./CheckboxGroup";
 
 import { mainTags, subTags, documentTypes } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
@@ -11,13 +11,11 @@ import { FormValues } from "../ResourcesList";
 import * as styles from "./styles";
 
 export interface Props {
-  register: UseFormRegister<FormValues>;
+  control: Control<FormValues>;
   onResetFilters: () => void;
 }
 
 export const ResourcesFilters: FC<Props> = (props) => {
-  const randomNumber = () => Math.floor(Math.random() * 1000);
-
   return (
     <div className={styles.filtersContainerInner}>
       <div className={styles.filtersHeader}>
@@ -31,17 +29,11 @@ export const ResourcesFilters: FC<Props> = (props) => {
         </Text>
       </div>
       <div className={styles.filtersCheckboxGroup}>
-        {mainTags.map((tag) => (
-          <Checkbox
-            id={`${tag.id}-${randomNumber()}`} // this component is rendered twice, make sure that the ID is always different
-            key={tag.id}
-            label={tag.label}
-            inputProps={{
-              value: tag.slug,
-              ...props.register("tags"),
-            }}
-          />
-        ))}
+        <CheckboxGroup
+          options={mainTags}
+          formName="tags"
+          control={props.control}
+        />
       </div>
       <div>
         <Text t="h4">
@@ -49,17 +41,11 @@ export const ResourcesFilters: FC<Props> = (props) => {
         </Text>
       </div>
       <div className={styles.filtersCheckboxGroup}>
-        {subTags.map((tag) => (
-          <Checkbox
-            id={`${tag.id}-${randomNumber()}`}
-            key={tag.id}
-            label={tag.label}
-            inputProps={{
-              value: tag.slug,
-              ...props.register("tags"),
-            }}
-          />
-        ))}
+        <CheckboxGroup
+          options={subTags}
+          formName="tags"
+          control={props.control}
+        />
       </div>
       <div>
         <Text t="h4">
@@ -67,17 +53,11 @@ export const ResourcesFilters: FC<Props> = (props) => {
         </Text>
       </div>
       <div className={styles.filtersCheckboxGroup}>
-        {documentTypes.map((type) => (
-          <Checkbox
-            id={`${type.type}-${randomNumber()}`}
-            key={type.type}
-            label={type.label}
-            inputProps={{
-              value: type.type,
-              ...props.register("types"),
-            }}
-          />
-        ))}
+        <CheckboxGroup
+          options={documentTypes}
+          formName="types"
+          control={props.control}
+        />
       </div>
       <Text
         t="caption"

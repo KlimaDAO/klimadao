@@ -220,7 +220,7 @@ export const ResourcesList: FC<Props> = (props) => {
         <div className={styles.main}>
           <div className={styles.filtersContainer}>
             <ResourcesFilters
-              register={register}
+              control={control}
               onResetFilters={() => {
                 resetDocuments();
                 onResetFields();
@@ -296,7 +296,7 @@ export const ResourcesList: FC<Props> = (props) => {
           ))}
         </div>
         <ResourcesFilters
-          register={register}
+          control={control}
           onResetFilters={() => {
             resetDocuments();
             onResetFields();
