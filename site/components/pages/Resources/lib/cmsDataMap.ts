@@ -13,17 +13,13 @@ export const tagSlugs = [
 ] as const;
 
 export type TagSlug = typeof tagSlugs[number];
-type FilterTag = {
-  slug: TagSlug; // slug value from CMS
-  id: string; // ID from CMS
-  label: string;
-};
 
 export const documentTypeNames = ["post", "podcast"] as const;
 export type DocumentType = typeof documentTypeNames[number];
-type FilterDocumentType = {
-  type: DocumentType; // document type in CMS
+export type CheckboxOption = {
+  value: DocumentType | TagSlug; // document type in CMS or slug value from CMS
   label: string;
+  id: string;
 };
 
 // need to match the sanity GROQ order API
@@ -41,9 +37,9 @@ type SortedByQueries = {
   value: SortQuery;
 };
 
-export const mainTags: FilterTag[] = [
+export const mainTags: CheckboxOption[] = [
   {
-    slug: "klima-overview",
+    value: "klima-overview",
     id: "e448b05c-86e1-4354-946b-e4f54f246c48",
     label: t({
       id: "resources.list.filter.tag.klima_overview",
@@ -51,7 +47,7 @@ export const mainTags: FilterTag[] = [
     }),
   },
   {
-    slug: "klima-infinity",
+    value: "klima-infinity",
     id: "266fd446-34e6-46c6-bb5d-26425e667423",
     label: t({
       id: "resources.list.filter.tag.klima_infinity",
@@ -59,7 +55,7 @@ export const mainTags: FilterTag[] = [
     }),
   },
   {
-    slug: "partnerships",
+    value: "partnerships",
     id: "c3f29fc2-b763-4db3-a529-70fae8bd0d36",
     label: t({
       id: "resources.list.filter.tag.partnerships",
@@ -68,9 +64,9 @@ export const mainTags: FilterTag[] = [
   },
 ];
 
-export const subTags: FilterTag[] = [
+export const subTags: CheckboxOption[] = [
   {
-    slug: "basics",
+    value: "basics",
     id: "d424ffeb-d0f7-4e1a-83b5-691d122fe5e8",
     label: t({
       id: "resources.list.filter.tag.basics",
@@ -78,7 +74,7 @@ export const subTags: FilterTag[] = [
     }),
   },
   {
-    slug: "deep-dives",
+    value: "deep-dives",
     id: "e1211d9a-7bb8-46b5-ac36-1bcea905a529",
     label: t({
       id: "resources.list.filter.tag.deep_dives",
@@ -86,7 +82,7 @@ export const subTags: FilterTag[] = [
     }),
   },
   {
-    slug: "user-guides",
+    value: "user-guides",
     id: "42507335-b1b7-434c-871e-b83ec43295c6",
     label: t({
       id: "resources.list.filter.tag.user_guides",
@@ -94,7 +90,7 @@ export const subTags: FilterTag[] = [
     }),
   },
   {
-    slug: "press-releases",
+    value: "press-releases",
     id: "70cc04d9-e4e0-4957-b1e1-b1f3c183b398",
     label: t({
       id: "resources.list.filter.tag.press_releases",
@@ -102,7 +98,7 @@ export const subTags: FilterTag[] = [
     }),
   },
   {
-    slug: "policy",
+    value: "policy",
     id: "ebad9808-941a-42ef-b459-9bd1dad442ec",
     label: t({
       id: "resources.list.filter.tag.policy",
@@ -110,7 +106,7 @@ export const subTags: FilterTag[] = [
     }),
   },
   {
-    slug: "carbon-footprint",
+    value: "carbon-footprint",
     id: "e047189f-e11f-4777-ac59-58162ee4c8c2",
     label: t({
       id: "resources.list.filter.tag.carbon_footprint",
@@ -119,20 +115,22 @@ export const subTags: FilterTag[] = [
   },
 ];
 
-export const documentTypes: FilterDocumentType[] = [
+export const documentTypes: CheckboxOption[] = [
   {
-    type: "post",
+    value: "post",
     label: t({
       id: "resources.list.filter.type.blog",
       message: "Blog",
     }),
+    id: "dc8d7ce2-d60a-4cee-a6fa-36b2c79f77de",
   },
   {
-    type: "podcast",
+    value: "podcast",
     label: t({
       id: "resources.list.filter.type.podcast",
       message: "Podcast",
     }),
+    id: "9b0c4d2b-7eb2-469d-b84a-f88dcaaf8ced",
   },
 ];
 
