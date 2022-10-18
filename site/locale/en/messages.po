@@ -1395,18 +1395,18 @@ msgid "shared.404"
 msgstr "404 - Page Not Found"
 
 #: components/Navigation/index.tsx:82
-#: components/Navigation/index.tsx:227
+#: components/Navigation/index.tsx:236
 msgid "shared.about"
 msgstr "About"
 
 #: components/Navigation/index.tsx:121
-#: components/Navigation/index.tsx:269
+#: components/Navigation/index.tsx:278
 msgid "shared.app"
 msgstr "App"
 
 #: components/Footer/index.tsx:54
 #: components/Navigation/index.tsx:84
-#: components/Navigation/index.tsx:231
+#: components/Navigation/index.tsx:240
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
@@ -1414,26 +1414,26 @@ msgstr "Blog"
 
 #: components/Footer/index.tsx:47
 #: components/Navigation/index.tsx:139
-#: components/Navigation/index.tsx:286
+#: components/Navigation/index.tsx:295
 msgid "shared.bond"
 msgstr "Bond Klima"
 
 #: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:123
-#: components/Navigation/index.tsx:273
+#: components/Navigation/index.tsx:282
 msgid "shared.buy"
 msgstr "Buy Klima"
 
-#: components/Navigation/index.tsx:343
+#: components/Navigation/index.tsx:366
 msgid "shared.carbon_dashboard"
 msgstr "Carbon Dashboard"
 
-#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:203
 msgid "shared.carbon_dashboards"
 msgstr "Carbon Dashboards"
 
 #: components/Navigation/index.tsx:102
-#: components/Navigation/index.tsx:249
+#: components/Navigation/index.tsx:258
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1445,7 +1445,7 @@ msgid "shared.connect"
 msgstr "Connect"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:258
+#: components/Navigation/index.tsx:267
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Contact"
@@ -1464,14 +1464,14 @@ msgid "shared.contact_us"
 msgstr "Contact Us"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:202
-#: components/Navigation/index.tsx:351
+#: components/Navigation/index.tsx:211
+#: components/Navigation/index.tsx:374
 msgid "shared.disclaimer"
 msgstr "Disclaimer"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:211
-#: components/Navigation/index.tsx:360
+#: components/Navigation/index.tsx:220
+#: components/Navigation/index.tsx:383
 msgid "shared.docs"
 msgstr "Docs"
 
@@ -1497,13 +1497,13 @@ msgstr "Drive climate action and earn rewards with a carbon-backed digital curre
 msgid "shared.home"
 msgstr "Home"
 
-#: components/Navigation/index.tsx:185
-#: components/Navigation/index.tsx:334
+#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:357
 msgid "shared.how_to_buy"
 msgstr "How To Buy Klima"
 
 #: components/Navigation/index.tsx:172
-#: components/Navigation/index.tsx:320
+#: components/Navigation/index.tsx:330
 msgid "shared.infinity"
 msgstr "Infinity"
 
@@ -1517,8 +1517,13 @@ msgstr "Get Started"
 msgid "shared.infinity_cta"
 msgstr "DEFI FOR ORGANIZATIONS"
 
+#: components/Navigation/index.tsx:175
+#: components/Navigation/index.tsx:333
+msgid "shared.infinity_intro"
+msgstr "Introduction"
+
 #: components/Navigation/index.tsx:163
-#: components/Navigation/index.tsx:310
+#: components/Navigation/index.tsx:319
 msgid "shared.info"
 msgstr "Info"
 
@@ -1532,31 +1537,36 @@ msgstr "Loading..."
 msgid "shared.loveletter_cta"
 msgstr "DEFI FOR INDIVIDUALS"
 
-#: components/Navigation/index.tsx:178
-#: components/Navigation/index.tsx:325
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:348
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
 #: components/Navigation/index.tsx:155
-#: components/Navigation/index.tsx:302
+#: components/Navigation/index.tsx:311
 msgid "shared.offset"
 msgstr "Offset"
 
+#: components/Navigation/index.tsx:180
+#: components/Navigation/index.tsx:341
+msgid "shared.pledge"
+msgstr "How to pledge"
+
 #: components/Navigation/index.tsx:93
-#: components/Navigation/index.tsx:240
+#: components/Navigation/index.tsx:249
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "Podcast"
 
-#: components/Navigation/index.tsx:181
-#: components/Navigation/index.tsx:330
+#: components/Navigation/index.tsx:190
+#: components/Navigation/index.tsx:353
 msgid "shared.resources"
 msgstr "Resources"
 
 #: components/Footer/index.tsx:44
 #: components/Navigation/index.tsx:131
-#: components/Navigation/index.tsx:278
+#: components/Navigation/index.tsx:287
 msgid "shared.stake"
 msgstr "Stake Klima"
 
@@ -1565,7 +1575,7 @@ msgid "shared.visit_klimadao_blog"
 msgstr "Visit the KlimaDAO Blog"
 
 #: components/Navigation/index.tsx:147
-#: components/Navigation/index.tsx:294
+#: components/Navigation/index.tsx:303
 msgid "shared.wrap"
 msgstr "Wrap sKlima"
 
