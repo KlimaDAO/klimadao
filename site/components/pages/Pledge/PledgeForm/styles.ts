@@ -46,7 +46,7 @@ export const pledge_wallet_pending = css`
   p {
     font-size: 1rem;
     line-height: 1rem;
-    color: var(--surface-02) !important;
+    color: var(--surface-02);
     text-transform: uppercase;
     font-weight: 600;
   }
