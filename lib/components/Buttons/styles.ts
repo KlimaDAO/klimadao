@@ -105,7 +105,7 @@ export const buttonPrimary = css`
 
   &.red {
     background-color: var(--warn);
-    color: #fff;
+    color: var(--white);
   }
 
   &.blue {
