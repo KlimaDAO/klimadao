@@ -127,7 +127,7 @@ export const urls = {
   twitter: "https://twitter.com/KlimaDAO",
   youtube: "https://www.youtube.com/c/klimadaofinance",
   mediaRequestForm:
-    "https://docs.google.com/forms/d/e/1FAIpQLSdIVolbOvbuw1LHGwT8ec9HHZTWxSluErInZ_TaiqKzAvG30w/viewform",
+    "https://share-eu1.hsforms.com/1ILV2ALyPSqqUAeLdstfZZgfhhlr",
   partnerShipsContactForm:
     "https://share-eu1.hsforms.com/1fEb0LUdcRlKGTzNCVYz6igfhhlr",
   klimaInfinityContactForm:
