@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-19 15:50+0000\n"
+"POT-Creation-Date: 2022-10-19 22:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1177,7 +1177,7 @@ msgstr "KlimaDAO-Podcast"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:24
 msgid "resources.form.categories.header"
-msgstr ""
+msgstr "Kategorien"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:27
 msgid "resources.form.categories.subheader"
@@ -1197,7 +1197,7 @@ msgstr "Suchen"
 
 #: components/pages/Resources/ResourcesList/index.tsx:208
 msgid "resources.form.input.sort_by.label"
-msgstr ""
+msgstr "Sortieren nach"
 
 #: components/pages/Resources/SortyByDropDown/index.tsx:20
 msgid "resources.form.input.sort_by.select"
@@ -1229,7 +1229,7 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:111
 msgid "resources.list.filter.tag.carbon_footprint"
-msgstr ""
+msgstr "CO2-Fußabdruck"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:79
 msgid "resources.list.filter.tag.deep_dives"
@@ -1237,11 +1237,11 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:52
 msgid "resources.list.filter.tag.klima_infinity"
-msgstr ""
+msgstr "Klima Infinity"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:44
 msgid "resources.list.filter.tag.klima_overview"
-msgstr ""
+msgstr "Klima-Übersicht"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:60
 msgid "resources.list.filter.tag.partnerships"
@@ -1253,7 +1253,7 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:95
 msgid "resources.list.filter.tag.press_releases"
-msgstr ""
+msgstr "Pressemeldungen"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:87
 msgid "resources.list.filter.tag.user_guides"
@@ -1273,7 +1273,7 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:155
 msgid "resources.list.sort_by.a-z"
-msgstr ""
+msgstr "A-Z"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:139
 msgid "resources.list.sort_by.latest_first"
@@ -1285,7 +1285,7 @@ msgstr ""
 
 #: components/pages/Resources/lib/cmsDataMap.ts:163
 msgid "resources.list.sort_by.z-a"
-msgstr ""
+msgstr "Z-A"
 
 #: components/pages/Resources/ResourcesList/index.tsx:308
 msgid "resources.mobile_modal.button.show_results"
@@ -1293,7 +1293,7 @@ msgstr ""
 
 #: components/pages/Resources/ResourcesList/index.tsx:281
 msgid "resources.mobile_modal.title"
-msgstr ""
+msgstr "Sortieren nach"
 
 #: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
@@ -1624,7 +1624,7 @@ msgstr "DEFI FÜR ORGANISATIONEN"
 #: components/Navigation/index.tsx:175
 #: components/Navigation/index.tsx:333
 msgid "shared.infinity_intro"
-msgstr ""
+msgstr "Einführung"
 
 #: components/Navigation/index.tsx:163
 #: components/Navigation/index.tsx:319
@@ -1670,7 +1670,7 @@ msgstr "Ressourcen"
 
 #: components/pages/Resources/ResourcesList/index.tsx:214
 msgid "shared.resources.sort_by.header"
-msgstr ""
+msgstr "Sortieren nach:"
 
 #: components/Footer/index.tsx:44
 #: components/Navigation/index.tsx:131
