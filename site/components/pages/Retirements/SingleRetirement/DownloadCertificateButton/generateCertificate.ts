@@ -173,7 +173,9 @@ export const generateCertificate = (params: Params): void => {
   const printProjectDetails = (): void => {
     const project = params.projectDetails?.value[0];
     const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
-    const formattedRetirementDate = `${retirementDate.getDate()}/${retirementDate.getMonth()}/${retirementDate.getFullYear()}`;
+    const formattedRetirementDate = `${retirementDate.getDate()}/${
+      retirementDate.getMonth() + 1
+    }/${retirementDate.getFullYear()}`;
     let projectDetails = [
       {
         label: "Project",
