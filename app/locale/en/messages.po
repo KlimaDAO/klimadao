@@ -254,6 +254,14 @@ msgstr "Buy KLIMA directly using our partners, <0>Mobilum</0> and <1>Transak</1>
 msgid "buy.not_connected"
 msgstr "Not Connected"
 
+#: components/BuyModal/index.tsx:58
+msgid "buymodal.mobilume.fetch.error"
+msgstr "Failed to fetch data"
+
+#: components/BuyModal/index.tsx:134
+msgid "buymodal.transak.iframe.title"
+msgstr "Transak On/Off Ramp Widget"
+
 #: components/views/Bond/index.tsx:704
 msgid "capacity.description_inverse"
 msgstr "This is the amount of USDC in the contract available for bonds."

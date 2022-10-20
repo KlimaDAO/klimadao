@@ -254,6 +254,14 @@ msgstr "Compre KLIMA directamente usando nuestro socio, <0>Mobilum</0>. Comprueb
 msgid "buy.not_connected"
 msgstr "No conectado"
 
+#: components/BuyModal/index.tsx:58
+msgid "buymodal.mobilume.fetch.error"
+msgstr ""
+
+#: components/BuyModal/index.tsx:134
+msgid "buymodal.transak.iframe.title"
+msgstr ""
+
 #: components/views/Bond/index.tsx:704
 msgid "capacity.description_inverse"
 msgstr "Esta es la cantidad de USDC en el contrato disponible para bonos."

@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useAppDispatch } from "../../state";
 import { AppState, setAppState } from "../../state/app";
 import * as styles from "./styles";
@@ -7,17 +7,33 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useSelector } from "react-redux";
 import { selectAppState } from "../../state/selectors";
 import { useWeb3 } from "@klimadao/lib/utils";
+import { urls } from "@klimadao/lib/constants";
+import { t } from "@lingui/macro";
 
-type Props = {
-  address?: string;
+type MobilumResponse = {
+  result: {
+    widgetBase64Html: string;
+    widgetBase64ScriptUrl: string;
+  };
 };
 
-export const BuyModal: FC<Props> = (props) => {
+const isValidMobilumResponse = (
+  body: Record<string, unknown> | string | null | undefined | MobilumResponse
+): body is MobilumResponse => {
+  return !!(
+    !!body &&
+    (body as MobilumResponse).result &&
+    (body as MobilumResponse).result.widgetBase64ScriptUrl &&
+    (body as MobilumResponse).result.widgetBase64Html
+  );
+};
+
+export const BuyModal: FC = () => {
   const dispatch = useAppDispatch();
   const { buyModalService }: AppState = useSelector(selectAppState);
 
-  const [isLoadingMobilumWidget, setIsLoadingMobilumWidget] = useState(false);
-  const [modalHeight, setModalHeight] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [didLoad, setDidLoad] = useState(false);
 
   const web3 = useWeb3();
 
@@ -25,24 +41,50 @@ export const BuyModal: FC<Props> = (props) => {
     if (buyModalService && buyModalService.length > 0) {
       if (buyModalService === "mobilum") {
         const _getWidget = async (): Promise<void> => {
-          setIsLoadingMobilumWidget(true);
-          const res = await fetch("/api/buy", {
+          setIsLoading(true);
+          const res = await fetch(urls.getMobilumWidget, {
             method: "POST",
-            body: JSON.stringify({
-              address: props.address,
-            }),
+            headers: {
+              ApiKey: process.env.NEXT_PUBLIC_MOBILUM_API_KEY as string,
+              "Content-Type": "application/json",
+            },
           });
 
           const json = await res.json();
 
+          if (!isValidMobilumResponse(json)) {
+            setIsLoading(false);
+            throw new Error(
+              t({
+                id: "buymodal.mobilume.fetch.error",
+                message: "Failed to fetch data",
+              })
+            );
+          }
+
+          const htmlBuffer = Buffer.from(
+            json.result.widgetBase64Html,
+            "base64"
+          );
+          const html = htmlBuffer.toString();
+
+          const scriptUrlBuffer = Buffer.from(
+            json.result.widgetBase64ScriptUrl,
+            "base64"
+          );
+          const scriptUrl = scriptUrlBuffer.toString();
+
           const element = document.getElementById("mobilumWidgetContainer");
           if (element) {
-            setIsLoadingMobilumWidget(false);
-            element.innerHTML = json.html;
+            element.innerHTML = html;
             const script = document.createElement("script");
             script.async = true;
-            script.src = json.scriptUrl;
+            script.src = scriptUrl;
             element.appendChild(script);
+            script.addEventListener("load", () => {
+              setDidLoad(true);
+              setIsLoading(false);
+            });
           }
         };
 
@@ -51,26 +93,11 @@ export const BuyModal: FC<Props> = (props) => {
     }
   }, [buyModalService]);
 
-  const resizeHandler = useCallback(() => {
-    if (window.innerHeight < 800) {
-      console.log(window.innerHeight);
-      setModalHeight(window.innerHeight - 200);
-    }
-  }, []);
-
-  // On mount
   useEffect(() => {
-    if (window && typeof window !== "undefined") {
-      window.addEventListener("resize", resizeHandler, true);
+    if (!didLoad && !isLoading && buyModalService === "transak") {
+      setIsLoading(true);
     }
-
-    return () => {
-      // On unmount
-      if (window && typeof window !== "undefined") {
-        window.removeEventListener("resize", resizeHandler);
-      }
-    };
-  }, []);
+  }, [buyModalService]);
 
   if (!buyModalService || buyModalService.length === 0) return null;
 
@@ -88,34 +115,38 @@ export const BuyModal: FC<Props> = (props) => {
           </button>
         </div>
         <div className={styles.card_connected}></div>
+        {isLoading && (
+          <div className={styles.spinner_container}>
+            <Spinner />
+          </div>
+        )}
         {buyModalService === "mobilum" && (
-          <>
-            {isLoadingMobilumWidget && (
-              <div className={styles.spinner_container}>
-                <Spinner />
-              </div>
-            )}
-            <div
-              id={"mobilumWidgetContainer"}
-              className={styles.card_iframe_container}
-            ></div>
-          </>
+          <div
+            id={"mobilumWidgetContainer"}
+            className={styles.card_iframe_container}
+          ></div>
         )}
         {buyModalService === "transak" && (
           <div className={styles.iframe_wrapper}>
             <iframe
               id={"transakIframe"}
               height="700"
-              title="Transak On/Off Ramp Widget"
+              title={t({
+                id: "buymodal.transak.iframe.title",
+                message: "Transak On/Off Ramp Widget",
+              })}
               src={`https://global.transak.com?apiKey=${process.env.NEXT_PUBLIC_TRANSAK_API_KEY}&cryptoCurrencyCode=KLIMA&fiatCurrency=EUR&walletAddress=${web3.address}&fiatAmount=100`}
               allowTransparency
               allowFullScreen
               style={{
                 display: "block",
                 width: "100%",
-                maxHeight: modalHeight || "700px",
                 maxWidth: "500px",
                 border: "none",
+              }}
+              onLoad={() => {
+                setDidLoad(true);
+                setIsLoading(false);
               }}
             ></iframe>
           </div>

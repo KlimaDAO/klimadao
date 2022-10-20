@@ -145,6 +145,7 @@ export const urls = {
   creolIndividualCalculator: "https://klima.creol.io/#/footprint",
   creolBusinessCalculator: "https://klima.creol.io/#/office",
   cryptoOffsetCalculator: "https://carbon.fyi/",
+  getMobilumWidget: "https://api.mobilum.com/widget/GetWidget",
 };
 
 export const polygonNetworks = {

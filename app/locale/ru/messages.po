@@ -258,6 +258,14 @@ msgstr "Покупайте KLIMA напрямую, используя нашег
 msgid "buy.not_connected"
 msgstr "НЕ ПОДКЛЮЧЕН"
 
+#: components/BuyModal/index.tsx:58
+msgid "buymodal.mobilume.fetch.error"
+msgstr ""
+
+#: components/BuyModal/index.tsx:134
+msgid "buymodal.transak.iframe.title"
+msgstr ""
+
 #: components/views/Bond/index.tsx:704
 msgid "capacity.description_inverse"
 msgstr "Это сумма USDC в контракте, доступная для бондирования."

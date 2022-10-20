@@ -71,7 +71,7 @@ export const card_iframe_container = css`
   margin-left: auto;
   margin-right: auto;
   @media (max-width: 32.5rem) {
-    max-width: 24rem;
+    max-width: 36rem;
   }
 
   .MBMWidget_General {
@@ -198,4 +198,8 @@ export const iframe_wrapper = css`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  iframe {
+    max-height: calc(100vh - 20rem);
+  }
 `;

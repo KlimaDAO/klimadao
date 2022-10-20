@@ -245,7 +245,7 @@ export const Home: FC = () => {
 
       <InvalidNetworkModal />
       <NotificationModal />
-      <BuyModal address={web3.address} />
+      <BuyModal />
 
       {showRPCModal && (
         <InvalidRPCModal onHide={() => setShowRPCModal(false)} />
