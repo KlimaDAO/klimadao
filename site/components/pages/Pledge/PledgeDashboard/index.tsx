@@ -40,7 +40,8 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const [showRemoveModal, setShowRemoveModal] = useState(false);
   const { signer } = useWeb3();
 
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   const isUnverifiedSecondaryWallet =
     props.pledge.wallets &&
@@ -80,14 +81,14 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       if (data.pledge) {
         setPledge(data.pledge);
       } else {
+        setShowErrorModal(true);
         setErrorMessage(
           data.message ??
             "Something went wrong on our end. Please try again in a few minutes"
         );
       }
-      console.log("data in dashboard submit", data);
     } catch (e: any) {
-      console.log("error in dashboard", e.message, e.name);
+      console.log("error:", e.message, e.name);
     }
   };
   const pledgeOwnerTitle =
@@ -120,6 +121,9 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         isUnverifiedSecondaryWallet={isUnverifiedSecondaryWallet || false}
         showRemoveModal={showRemoveModal}
         setShowRemoveModal={setShowRemoveModal}
+        setShowErrorModal={setShowErrorModal}
+        showErrorModal={showErrorModal}
+        errorMessage={errorMessage}
       />
       {/* conditional props are used here because unmounting the modal will clear form state when `isDeleteMode` is changed */}
       <Modal

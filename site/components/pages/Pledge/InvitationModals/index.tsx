@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Pledge } from "../types";
 import { RemoveModal } from "./RemoveModal";
 import { AcceptModal } from "./AcceptModal";
+import { ErrorModal } from "./ErrorModal";
 
 type Props = {
   pledge: Pledge;
@@ -9,6 +10,9 @@ type Props = {
   handleSubmit: (params: { message: (nonce: string) => string }) => void;
   setShowRemoveModal: (value: boolean) => void;
   showRemoveModal: boolean;
+  setShowErrorModal: (value: boolean) => void;
+  showErrorModal: boolean;
+  errorMessage: string;
 };
 
 export const InvitationModals = (props: Props) => {
@@ -30,6 +34,11 @@ export const InvitationModals = (props: Props) => {
         showRemoveModal={props.showRemoveModal}
         setShowRemoveModal={props.setShowRemoveModal}
         handleSubmit={props.handleSubmit}
+      />
+      <ErrorModal
+        showModal={props.showErrorModal}
+        setShowModal={props.setShowErrorModal}
+        message={props.errorMessage}
       />
     </>
   );

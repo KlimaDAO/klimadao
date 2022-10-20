@@ -39,7 +39,11 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
   const pledgeRef = pledgeSnapshot.docs[0];
 
   if (!pledgeRef) {
-    throw new Error("Bad request");
+    const e = new Error(
+      "Something went wrong on our end. Please try again in a few minutes"
+    );
+    e.name = "BadRequest";
+    throw e;
   }
 
   return pledgeRef.data();
@@ -48,9 +52,6 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
 export const findOrCreatePledge = async (
   params: putPledgeParams
 ): Promise<Pledge | null> => {
-  // const e = new Error("This wallet is already pinned to another pledge");
-  // e.name = "WalletAlreadyPinned";
-  // throw e;
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection(
     "pledges"
@@ -108,7 +109,9 @@ export const findOrCreatePledge = async (
     }
     if (!isNotAlreadyAdded) {
       // respond with error message here and check error name in pages/api/pledge
-      const e = new Error("This wallet is already pinned to another pledge");
+      const e = new Error(
+        "This wallet is already pinned to another pledge. Please unpin your wallet and try again."
+      );
       e.name = "WalletAlreadyPinned";
       throw e;
     }
