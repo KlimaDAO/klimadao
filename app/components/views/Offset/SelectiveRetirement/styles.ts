@@ -28,3 +28,20 @@ export const options = css`
   gap: 1.6rem;
   cursor: pointer;
 `;
+
+export const defaultText = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 2.8rem;
+  border: 0.175rem solid var(--surface-03);
+  border-radius: 0.8rem;
+
+  svg {
+    min-height: 4rem;
+    min-width: 4rem;
+    fill: var(--font-02);
+  }
+`;
