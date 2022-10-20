@@ -2,7 +2,7 @@ import React from "react";
 
 import { ButtonSecondary, Text } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
-import * as styles from "../../PledgeDashboard/styles";
+import * as styles from "../styles";
 import { t } from "@lingui/macro";
 
 type Props = {

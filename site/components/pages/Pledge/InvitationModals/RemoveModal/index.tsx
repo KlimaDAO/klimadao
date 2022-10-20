@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
-import * as styles from "../../PledgeDashboard/styles";
+import * as styles from "../styles";
 import { t, Trans } from "@lingui/macro";
 import { removeSecondaryWallet } from "../../lib/editPledgeSignature";
 
