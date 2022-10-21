@@ -33,7 +33,7 @@ export const Home: NextPage<Props> = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
-          <Text>Coming never.</Text>
+          <Text>Coming never...</Text>
         </div>
         <div className={styles.stack}></div>
       </Section>
