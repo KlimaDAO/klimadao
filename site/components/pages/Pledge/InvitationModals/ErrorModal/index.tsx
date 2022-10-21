@@ -23,7 +23,7 @@ export const ErrorModal = (props: Props) => {
       </Text>
       <div className={styles.modalButtons}>
         <ButtonSecondary
-          label={t({ id: "shared.cancel", message: "Cancel" })}
+          label={t({ id: "shared.okay", message: "Okay" })}
           onClick={() => {
             props.setShowModal(false);
           }}
