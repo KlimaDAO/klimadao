@@ -17,6 +17,7 @@ import { Holding } from "components/pages/Pledge/types";
 import { BaseCard } from "../BaseCard";
 import { TokenRow } from "./TokenRow";
 import * as styles from "./styles";
+import { Text } from "@klimadao/lib/components";
 
 type Props = {
   pageAddress: string;
@@ -65,11 +66,19 @@ export const AssetBalanceCard: FC<Props> = (props) => {
   const [balances, setBalances] = useState<Balances | null>(null);
 
   const holdingsByToken = groupBy(props.holdings, "token");
+
+  const emptyBalanceText = t({
+    id: "pledges.dashboard.assets.emptyBalance",
+    message: "No carbon assets to show.",
+  });
+
+  /** Hide tokens with no balance
+   * @todo hide token with no transaction history*/
   const tokenHoldingAndBalances = map(TOKEN_MAP, (token, key) => ({
     ...token,
     balance: balances && balances[key as BalanceToken],
     holdings: holdingsByToken[token.label],
-  }));
+  })).filter(({ balance }) => !!toNumber(balance));
 
   useEffect(() => {
     (async () => {
@@ -87,24 +96,24 @@ export const AssetBalanceCard: FC<Props> = (props) => {
       icon={<CloudQueueIcon fontSize="large" />}
     >
       <div className={styles.tokenCardContainer}>
-        {tokenHoldingAndBalances
-          /** Hide tokens with no balance
-           * @todo hide token with no transaction history*/
-          .filter(({ balance }) => !!toNumber(balance))
-          .map((token, index) => (
-            <div className={styles.tokenRowContainer} key={index}>
-              <TokenRow
-                label={token.label}
-                icon={token.icon}
-                balance={token.balance}
-                holdings={token.holdings}
-              />
+        {tokenHoldingAndBalances.map((token, index) => (
+          <div className={styles.tokenRowContainer} key={index}>
+            <TokenRow
+              label={token.label}
+              icon={token.icon}
+              balance={token.balance}
+              holdings={token.holdings}
+            />
 
-              {tokenHoldingAndBalances.length - 1 !== index && (
-                <div className={styles.divider} />
-              )}
-            </div>
-          ))}
+            {tokenHoldingAndBalances.length - 1 !== index && (
+              <div className={styles.divider} />
+            )}
+          </div>
+        ))}
+
+        {tokenHoldingAndBalances.length === 0 ? (
+          <Text t="body2">{emptyBalanceText}</Text>
+        ) : null}
       </div>
     </BaseCard>
   );
