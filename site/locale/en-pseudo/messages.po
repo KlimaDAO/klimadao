@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
@@ -924,15 +930,19 @@ msgstr ""
 msgid "mission.header"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:82
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:70
+msgid "pledges.dashboard.assets.emptyBalance"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:92
 msgid "pledges.dashboard.assets.title"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:73
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:77
 msgid "pledges.dashboard.footprint.title"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:90
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:94
 msgid "pledges.dashboard.footprint.tonnes"
 msgstr ""
 
@@ -976,7 +986,7 @@ msgstr ""
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:101
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:95
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr ""
 
