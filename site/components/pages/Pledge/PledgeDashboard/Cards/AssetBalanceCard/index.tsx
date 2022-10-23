@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import map from "lodash/map";
 import groupBy from "lodash/groupBy";
@@ -67,11 +67,6 @@ export const AssetBalanceCard: FC<Props> = (props) => {
 
   const holdingsByToken = groupBy(props.holdings, "token");
 
-  const emptyBalanceText = t({
-    id: "pledges.dashboard.assets.emptyBalance",
-    message: "No carbon assets to show.",
-  });
-
   /** Hide tokens with no balance
    * @todo hide token with no transaction history*/
   const tokenHoldingAndBalances = map(TOKEN_MAP, (token, key) => ({
@@ -110,10 +105,13 @@ export const AssetBalanceCard: FC<Props> = (props) => {
             )}
           </div>
         ))}
-
-        {tokenHoldingAndBalances.length === 0 ? (
-          <Text t="body2">{emptyBalanceText}</Text>
-        ) : null}
+        {tokenHoldingAndBalances.length === 0 && (
+          <Text t="body2">
+            <Trans id="pledges.dashboard.assets.emptyBalance">
+              No carbon assets to show.
+            </Trans>
+          </Text>
+        )}
       </div>
     </BaseCard>
   );
