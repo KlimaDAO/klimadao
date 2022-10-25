@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-25 00:22+0000\n"
+"POT-Creation-Date: 2022-10-25 15:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1175,15 +1175,15 @@ msgstr "KlimaDAO (क्लीमाडाओ) पॉडकास्ट"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:24
 msgid "resources.form.categories.header"
-msgstr ""
+msgstr "श्रेणियाँ"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:27
 msgid "resources.form.categories.subheader"
-msgstr ""
+msgstr "एक या अधिक चुनें"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:69
 msgid "resources.form.filters.clear_all"
-msgstr ""
+msgstr "सभी साफ करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:176
 msgid "resources.form.input.search.label"
@@ -1195,19 +1195,19 @@ msgstr "खोज"
 
 #: components/pages/Resources/ResourcesList/index.tsx:208
 msgid "resources.form.input.sort_by.label"
-msgstr ""
+msgstr "इसके अनुसार क्रमबद्ध करें"
 
 #: components/pages/Resources/SortyByDropDown/index.tsx:20
 msgid "resources.form.input.sort_by.select"
-msgstr ""
+msgstr "चुने"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:53
 msgid "resources.form.medium.header"
-msgstr ""
+msgstr "मध्यम"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:41
 msgid "resources.form.sub_topics.header"
-msgstr ""
+msgstr "उप-विषय"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1223,23 +1223,23 @@ msgstr "KlimaDAO (क्लीमाडाओ) | Resources (रिसोर्�
 
 #: components/pages/Resources/lib/cmsDataMap.ts:71
 msgid "resources.list.filter.tag.basics"
-msgstr ""
+msgstr "बेसिक्स "
 
 #: components/pages/Resources/lib/cmsDataMap.ts:111
 msgid "resources.list.filter.tag.carbon_footprint"
-msgstr ""
+msgstr "कार्बन पदचिह्न"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:79
 msgid "resources.list.filter.tag.deep_dives"
-msgstr ""
+msgstr "डीप डाइव्स"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:52
 msgid "resources.list.filter.tag.klima_infinity"
-msgstr ""
+msgstr "क्लिमा इन्फिनिटी"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:44
 msgid "resources.list.filter.tag.klima_overview"
-msgstr ""
+msgstr "क्लिमा अवलोकन"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:60
 msgid "resources.list.filter.tag.partnerships"
@@ -1247,15 +1247,15 @@ msgstr "भागीदारियाँ"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:103
 msgid "resources.list.filter.tag.policy"
-msgstr ""
+msgstr "नीति"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:95
 msgid "resources.list.filter.tag.press_releases"
-msgstr ""
+msgstr "प्रेस प्रकाशनी"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:87
 msgid "resources.list.filter.tag.user_guides"
-msgstr ""
+msgstr "उपयोगकर्ता मार्गदर्शक"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:121
 msgid "resources.list.filter.type.blog"
@@ -1267,31 +1267,31 @@ msgstr "पॉडकास्ट"
 
 #: components/pages/Resources/SortyByDropDown/index.tsx:61
 msgid "resources.list.select.sort_by.toggle"
-msgstr ""
+msgstr "मेनू द्वारा क्रमबद्ध टॉगल करें"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:155
 msgid "resources.list.sort_by.a-z"
-msgstr ""
+msgstr "ए तू ज़ेड "
 
 #: components/pages/Resources/lib/cmsDataMap.ts:139
 msgid "resources.list.sort_by.latest_first"
-msgstr ""
+msgstr "नवीनतम पहले"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:147
 msgid "resources.list.sort_by.oldest_first"
-msgstr ""
+msgstr "सबसे पुराना पहले"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:163
 msgid "resources.list.sort_by.z-a"
-msgstr ""
+msgstr "ज़ेड तू ए"
 
 #: components/pages/Resources/ResourcesList/index.tsx:308
 msgid "resources.mobile_modal.button.show_results"
-msgstr ""
+msgstr "परिणाम दिखाओ"
 
 #: components/pages/Resources/ResourcesList/index.tsx:281
 msgid "resources.mobile_modal.title"
-msgstr ""
+msgstr "इसके अनुसार क्रमबद्ध करें"
 
 #: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
@@ -1311,11 +1311,11 @@ msgstr "माफ़ करना। हमें कोई मेल खान�
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
-msgstr ""
+msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें।"
 
 #: components/pages/Resources/ResourcesList/index.tsx:259
 msgid "resources.page.list.search_submit.no_filter_results"
-msgstr ""
+msgstr "कृपया किसी भिन्न फ़िल्टर संयोजन का उपयोग करें।"
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
@@ -1622,7 +1622,7 @@ msgstr "संगठनों के लिए डेफी"
 #: components/Navigation/index.tsx:175
 #: components/Navigation/index.tsx:333
 msgid "shared.infinity_intro"
-msgstr ""
+msgstr "परिचय"
 
 #: components/Navigation/index.tsx:163
 #: components/Navigation/index.tsx:319
@@ -1652,7 +1652,7 @@ msgstr "ऑफ़सेट"
 #: components/Navigation/index.tsx:180
 #: components/Navigation/index.tsx:341
 msgid "shared.pledge"
-msgstr ""
+msgstr "प्रतिज्ञा कैसे करें"
 
 #: components/Navigation/index.tsx:93
 #: components/Navigation/index.tsx:249
@@ -1668,7 +1668,7 @@ msgstr "संसाधन"
 
 #: components/pages/Resources/ResourcesList/index.tsx:214
 msgid "shared.resources.sort_by.header"
-msgstr ""
+msgstr "इसके अनुसार क्रमबद्ध करें"
 
 #: components/Footer/index.tsx:44
 #: components/Navigation/index.tsx:131
