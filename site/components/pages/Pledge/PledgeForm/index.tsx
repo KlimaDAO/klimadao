@@ -63,7 +63,7 @@ export const PledgeForm: FC<Props> = (props) => {
   const [submitting, setSubmitting] = useState(false);
   const { query } = useRouter();
   const { signer } = useWeb3();
-  const { control, register, handleSubmit, formState, reset, setValue } =
+  const { control, register, handleSubmit, formState, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
       defaultValues: pledgeFormAdapter(props.pledge),
@@ -102,10 +102,8 @@ export const PledgeForm: FC<Props> = (props) => {
         urlPath: `/pledge/${query.address}`,
       });
       const data = await response.json();
-
       if (data.pledge) {
         props.onFormSubmit(data.pledge);
-        reset(pledgeFormAdapter(data.pledge));
       } else {
         setServerError(true);
       }
