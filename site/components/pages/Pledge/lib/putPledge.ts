@@ -7,8 +7,8 @@ export interface putPledgeParams {
   secondaryWalletAddress?: string;
 }
 
-export const putPledge = (params: putPledgeParams): Promise<Response> =>
-  fetch("/api/pledge", {
+export const putPledge = async (params: putPledgeParams) => {
+  const res: any = await fetch("/api/pledge", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -20,3 +20,11 @@ export const putPledge = (params: putPledgeParams): Promise<Response> =>
       secondaryWalletAddress: params.secondaryWalletAddress,
     }),
   });
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.message);
+  } else {
+    const data = await res.json();
+    return data;
+  }
+};

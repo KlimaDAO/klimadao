@@ -77,18 +77,14 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         pledge: pledgeFormAdapter(pledge),
         signature,
       });
-      const data = await response.json();
-      if (data.pledge) {
-        setPledge(data.pledge);
-      } else {
-        setShowErrorModal(true);
-        setErrorMessage(
-          data.message ??
-            "Something went wrong on our end. Please try again in a few minutes"
-        );
-      }
+      setPledge(response.pledge);
     } catch (e: any) {
-      console.log("error:", e.message, e.name);
+      setShowErrorModal(true);
+      setErrorMessage(
+        e.message ??
+          "Something went wrong on our end. Please try again in a few minutes"
+      );
+      console.log("error:", e);
     }
   };
   const pledgeOwnerTitle =

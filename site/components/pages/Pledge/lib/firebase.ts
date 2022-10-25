@@ -40,7 +40,7 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
 
   if (!pledgeRef) {
     const e = new Error(
-      "Something went wrong on our end. Please try again in a few minutes"
+      `We were unable to find a pledge for address: ${address}`
     );
     e.name = "BadRequest";
     throw e;

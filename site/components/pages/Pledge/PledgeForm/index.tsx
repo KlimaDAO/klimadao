@@ -124,7 +124,6 @@ export const PledgeForm: FC<Props> = (props) => {
         reset(pledgeFormAdapter(data.pledge));
         setServerError(false);
       } else {
-        console.log("data", data);
         setServerError(true);
       }
     } catch (error) {
