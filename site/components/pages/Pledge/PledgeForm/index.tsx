@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
 import { trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -16,12 +16,13 @@ import {
 import { InputField, TextareaField } from "components/Form";
 
 import {
-  editPledgeSignature,
+  editPledgeMessage,
   formSchema,
   pledgeErrorTranslationsMap,
   PledgeErrorId,
   putPledge,
   pledgeFormAdapter,
+  waitForGnosisSignature,
 } from "../lib";
 import { Pledge, PledgeFormValues } from "../types";
 import * as styles from "./styles";
@@ -59,9 +60,10 @@ type Props = {
 
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const { query } = useRouter();
   const { signer } = useWeb3();
-  const { control, register, handleSubmit, formState, reset, setValue } =
+  const { control, register, handleSubmit, formState, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
       defaultValues: pledgeFormAdapter(props.pledge),
@@ -78,10 +80,21 @@ export const PledgeForm: FC<Props> = (props) => {
     values: PledgeFormValues
   ) => {
     try {
+      setSubmitting(true);
+      setServerError(false);
+
       if (!signer) return;
       const signature = await signer.signMessage(
-        editPledgeSignature(values.nonce)
+        editPledgeMessage(values.nonce)
       );
+
+      if (signature === "0x") {
+        await waitForGnosisSignature({
+          message: editPledgeMessage(values.nonce),
+          address: props.pageAddress,
+        });
+      }
+
       const response = await putPledge({
         pageAddress: props.pageAddress,
         pledge: values,
@@ -89,19 +102,25 @@ export const PledgeForm: FC<Props> = (props) => {
         urlPath: `/pledge/${query.address}`,
       });
       const data = await response.json();
-
       if (data.pledge) {
         props.onFormSubmit(data.pledge);
-        reset(pledgeFormAdapter(data.pledge));
-        setServerError(false);
       } else {
         setServerError(true);
       }
-    } catch (error) {
+      setSubmitting(false);
+    } catch (error: any) {
       console.log(error);
       setServerError(true);
+      setSubmitting(false);
     }
   };
+
+  const SubmittingLabel = () => (
+    <div className={styles.submittingLabel}>
+      <Spinner />
+      <Trans id="pledges.form.awaiting_signature">Awaiting signature...</Trans>
+    </div>
+  );
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
@@ -298,13 +317,26 @@ export const PledgeForm: FC<Props> = (props) => {
 
       {/* better to use an input type=submit */}
       <ButtonPrimary
-        disabled={!isDirty}
-        label={t({
-          id: "pledges.form.submit_button",
-          message: "Save pledge",
-        })}
+        disabled={!isDirty || submitting}
+        label={
+          submitting ? (
+            <SubmittingLabel />
+          ) : (
+            t({
+              id: "pledges.form.submit_button",
+              message: "Save pledge",
+            })
+          )
+        }
         onClick={handleSubmit(onSubmit)}
       />
+      {submitting && (
+        <Text t="caption" color="lighter" align="center">
+          <Trans id="pledges.form.use_your_wallet">
+            Use your wallet to sign and confirm this edit.
+          </Trans>
+        </Text>
+      )}
     </form>
   );
 };

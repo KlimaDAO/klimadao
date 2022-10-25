@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { editPledgeSignature } from ".";
+import { editPledgeMessage, verifyGnosisSignature } from ".";
 
 interface Params {
   address: string;
@@ -7,13 +7,35 @@ interface Params {
   nonce: string;
 }
 
-export const verifySignature = (params: Params): void => {
+const verifyWalletSignature = (params: {
+  address: string;
+  signature: string;
+  message: string;
+}) => {
   const decodedAddress = ethers.utils.verifyMessage(
-    editPledgeSignature(params.nonce),
+    params.message,
     params.signature
   );
 
   if (decodedAddress.toLowerCase() !== params.address.toLowerCase()) {
     throw new Error("Invalid signature");
+  }
+};
+
+export const verifySignature = async (params: Params): Promise<void> => {
+  const message = editPledgeMessage(params.nonce);
+
+  // Gnosis
+  if (params.signature === "0x") {
+    await verifyGnosisSignature({
+      address: params.address,
+      message,
+    });
+  } else {
+    verifyWalletSignature({
+      address: params.address,
+      signature: params.signature,
+      message,
+    });
   }
 };

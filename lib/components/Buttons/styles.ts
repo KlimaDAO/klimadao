@@ -34,6 +34,7 @@ export const buttonPrimary = css`
 
   &:disabled {
     background-color: var(--surface-03);
+    color: var(--font-03);
     cursor: not-allowed;
   }
 
