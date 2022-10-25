@@ -3,7 +3,6 @@ import { t, Trans } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import map from "lodash/map";
 import groupBy from "lodash/groupBy";
-import toNumber from "lodash/toNumber";
 
 import BCTIcon from "public/icons/BCT.png";
 import KLIMAIcon from "public/icons/KLIMA.png";
@@ -73,7 +72,7 @@ export const AssetBalanceCard: FC<Props> = (props) => {
     ...token,
     balance: balances && balances[key as BalanceToken],
     holdings: holdingsByToken[token.label],
-  })).filter(({ balance }) => !!toNumber(balance));
+  })).filter(({ balance }) => !!Number(balance));
 
   useEffect(() => {
     (async () => {
