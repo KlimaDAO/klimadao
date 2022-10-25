@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
 
+const withBundleAnalyzer = require("@next/bundle-analyzer");
+
 const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 
 module.exports = async (phase, { defaultConfig }) => {
   const getLocales = (await import("../lib/out/utils/getLocales/index.js"))
     .getLocales;
 
-  return {
+  const nextConfig = {
     reactStrictMode: true,
     async redirects() {
       if (IS_PRODUCTION) {
@@ -102,4 +104,7 @@ module.exports = async (phase, { defaultConfig }) => {
       domains: ["cdn.sanity.io"],
     },
   };
+  return withBundleAnalyzer({
+    enabled: process.env.ANALYZE === "true",
+  })(nextConfig);
 };
