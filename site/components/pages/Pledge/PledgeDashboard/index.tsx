@@ -73,7 +73,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       >
         <PledgeForm
           pageAddress={props.pageAddress}
-          pledge={props.pledge}
+          pledge={pledge}
           onFormSubmit={handleFormSubmit}
         />
       </Modal>
