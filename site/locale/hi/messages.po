@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-25 15:53+0000\n"
+"POT-Creation-Date: 2022-10-25 23:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -996,9 +996,13 @@ msgstr "कुल रिटायर किए गए कार्बन टन"
 msgid "pledges.edit_pledge"
 msgstr "प्लेज संपादित करें"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:271
+#: components/pages/Pledge/PledgeForm/index.tsx:290
 msgid "pledges.form.add_footprint_category_button"
 msgstr "कैटेगरी जोड़ें"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:121
+msgid "pledges.form.awaiting_signature"
+msgstr ""
 
 #: components/pages/Pledge/index.tsx:156
 msgid "pledges.form.error"
@@ -1048,67 +1052,67 @@ msgstr "नाम डालें"
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "एक मान्य यूआरएल दर्ज करें"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:195
+#: components/pages/Pledge/PledgeForm/index.tsx:214
 msgid "pledges.form.footprint.label"
 msgstr "फ़ुटप्रिंट"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:200
+#: components/pages/Pledge/PledgeForm/index.tsx:219
 msgid "pledges.form.footprint.prompt"
 msgstr "एक कैटेगरी जोड़ें और अपने कार्बन फुटप्रिंट की गणना शुरू करें"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:110
+#: components/pages/Pledge/PledgeForm/index.tsx:129
 msgid "pledges.form.generic_error"
 msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें।"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:221
+#: components/pages/Pledge/PledgeForm/index.tsx:240
 msgid "pledges.form.input.categoryName.label"
 msgstr "कैटेगरी"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:213
+#: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "कैटेगरी नाम"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:243
+#: components/pages/Pledge/PledgeForm/index.tsx:262
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "मात्रा"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:235
+#: components/pages/Pledge/PledgeForm/index.tsx:254
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "कार्बन टन"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:160
+#: components/pages/Pledge/PledgeForm/index.tsx:179
 msgid "pledges.form.input.description.label"
 msgstr "प्लेज"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:153
+#: components/pages/Pledge/PledgeForm/index.tsx:172
 msgid "pledges.form.input.description.placeholder"
 msgstr "आपने क्या प्लेज ली है?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:182
+#: components/pages/Pledge/PledgeForm/index.tsx:201
 msgid "pledges.form.input.methodology.label"
 msgstr "कार्यप्रणाली"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:174
+#: components/pages/Pledge/PledgeForm/index.tsx:193
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "आपने अपने कार्बन फ़ुटप्रिंट की गणना के लिए किन उपकरणों या विधियों का उपयोग किया?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:126
+#: components/pages/Pledge/PledgeForm/index.tsx:145
 msgid "pledges.form.input.name.label"
 msgstr "नाम"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:119
+#: components/pages/Pledge/PledgeForm/index.tsx:138
 msgid "pledges.form.input.name.placeholder"
 msgstr "नाम या कंपनी का नाम"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:139
+#: components/pages/Pledge/PledgeForm/index.tsx:158
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "प्रोफ़ाइल इमेज यूआरएल (वैकल्पिक)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:288
+#: components/pages/Pledge/PledgeForm/index.tsx:307
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "कुल फ़ुटप्रिंट"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:302
+#: components/pages/Pledge/PledgeForm/index.tsx:325
 msgid "pledges.form.submit_button"
 msgstr "प्लेज सेव करें"
 
@@ -1116,9 +1120,13 @@ msgstr "प्लेज सेव करें"
 msgid "pledges.form.title"
 msgstr "आपकी प्रतिज्ञा"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:46
+#: components/pages/Pledge/PledgeForm/index.tsx:47
 msgid "pledges.form.total_footprint_summary"
 msgstr "कुल फ़ुटप्रिंट: {0} कार्बन टन"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:335
+msgid "pledges.form.use_your_wallet"
+msgstr ""
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
