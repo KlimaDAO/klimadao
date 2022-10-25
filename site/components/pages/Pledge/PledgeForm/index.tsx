@@ -120,7 +120,7 @@ export const PledgeForm: FC<Props> = (props) => {
   const SubmittingLabel = () => (
     <div className={styles.submittingLabel}>
       <Spinner />
-      <Trans id="pledges.form.submitting">Submitting...</Trans>
+      <Trans id="pledges.form.awaiting_signature">Awaiting signature...</Trans>
     </div>
   );
 
@@ -332,6 +332,13 @@ export const PledgeForm: FC<Props> = (props) => {
         }
         onClick={handleSubmit(onSubmit)}
       />
+      {submitting && (
+        <Text t="caption" color="lighter" align="center">
+          <Trans id="pledges.form.use_your_wallet">
+            Use your wallet to sign and confirm this edit.
+          </Trans>
+        </Text>
+      )}
     </form>
   );
 };
