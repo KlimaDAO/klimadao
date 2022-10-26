@@ -1,38 +1,7 @@
-import React, { ChangeEvent, FC, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
-
-import ParkOutlined from "@mui/icons-material/ParkOutlined";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
-import Add from "@mui/icons-material/Add";
-import CancelIcon from "@mui/icons-material/Cancel";
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-
-import { Modal } from "components/Modal";
-
-import { useAppDispatch } from "state";
-import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
-import { setAllowance, updateRetirement } from "state/user";
-import {
-  selectNotificationStatus,
-  selectBalances,
-  selectAllowancesWithParams,
-  selectLocale,
-} from "state/selectors";
-
-import { useTypedSelector } from "lib/hooks/useTypedSelector";
-
-import {
-  getOffsetConsumptionCost,
-  getRetiredOffsetBalances,
-  getRetirementAllowances,
-  retireCarbonTransaction,
-} from "actions/offset";
-import { changeApprovalTransaction } from "actions/utils";
-
 import {
   Anchor as A,
   Text,
@@ -48,23 +17,45 @@ import {
   retirementTokens,
   urls,
 } from "@klimadao/lib/constants";
-
 import { getTokenDecimals } from "@klimadao/lib/utils";
 
+import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
+import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import ParkOutlined from "@mui/icons-material/ParkOutlined";
+
+import { useAppDispatch } from "state";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
+import { setAllowance, updateRetirement } from "state/user";
+import {
+  selectNotificationStatus,
+  selectBalances,
+  selectAllowancesWithParams,
+  selectLocale,
+} from "state/selectors";
+
+import {
+  getOffsetConsumptionCost,
+  getRetiredOffsetBalances,
+  getRetirementAllowances,
+  retireCarbonTransaction,
+} from "actions/offset";
+import { changeApprovalTransaction } from "actions/utils";
+
+import { createLinkWithLocaleSubPath } from "lib/i18n";
+import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { tokenInfo } from "lib/getTokenInfo";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
 
 import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
-import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import { TransactionModal } from "components/TransactionModal";
 
+import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
+import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import * as styles from "./styles";
-import { cx } from "@emotion/css";
-import { useOffsetParams } from "lib/hooks/useOffsetParams";
-import { createLinkWithLocaleSubPath } from "lib/i18n";
-import SendRounded from "@mui/icons-material/SendRounded";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
@@ -113,10 +104,7 @@ export const Offset = (props: Props) => {
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");
   const [retirementMessage, setRetirementMessage] = useState("");
   // for selective retirement
-  const [specificAddresses, setSpecificAddresses] = useState([""]);
-  const validSpecificAddresses = specificAddresses.filter((addr) =>
-    utils.isAddress(addr)
-  );
+  const [projectAddress, setProjectAddress] = useState("");
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
@@ -146,7 +134,7 @@ export const Offset = (props: Props) => {
       setBeneficiaryAddress(params.beneficiaryAddress);
     }
     if (params.projectTokens) {
-      setSpecificAddresses(params.projectTokens);
+      setProjectAddress(params.projectTokens);
     }
     if (params.quantity) {
       setQuantity(params.quantity);
@@ -200,7 +188,7 @@ export const Offset = (props: Props) => {
         quantity: debouncedQuantity,
         amountInCarbon: true,
         provider: props.provider,
-        getSpecific: !!validSpecificAddresses.length,
+        getSpecific: !!projectAddress,
       });
 
       setCost(consumptionCost);
@@ -208,7 +196,7 @@ export const Offset = (props: Props) => {
     awaitGetOffsetConsumptionCost();
   }, [
     debouncedQuantity,
-    validSpecificAddresses.length,
+    projectAddress,
     selectedInputToken,
     selectedRetirementToken,
   ]);
@@ -281,7 +269,7 @@ export const Offset = (props: Props) => {
         beneficiaryName: beneficiary,
         retirementMessage,
         onStatus: setStatus,
-        specificAddresses: validSpecificAddresses,
+        projectAddress,
       });
       dispatch(
         updateRetirement({
@@ -335,7 +323,7 @@ export const Offset = (props: Props) => {
       };
     } else if (
       (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) ||
-      specificAddresses.find((addr) => !!addr && !utils.isAddress(addr))
+      (!!projectAddress && !utils.isAddress(projectAddress))
     ) {
       return {
         label: <Trans id="shared.invalid_inputs">INVALID INPUTS</Trans>,
@@ -490,9 +478,13 @@ export const Offset = (props: Props) => {
               />
             </div>
           </div>
+
           {/* Input Token */}
           <DropdownWithModal
-            label={<Trans id="offset.dropdown_payWith.label">Pay with</Trans>}
+            label={t({
+              id: "offset.dropdown_payWith.label",
+              message: "Pay with",
+            })}
             modalTitle={t({
               id: "offset.modal_payWith.title",
               message: "Select Token",
@@ -506,11 +498,10 @@ export const Offset = (props: Props) => {
 
           {/* Retire Token  */}
           <DropdownWithModal
-            label={
-              <Trans id="offset.dropdown_retire.label">
-                Select carbon offset token to retire
-              </Trans>
-            }
+            label={t({
+              id: "offset.dropdown_retire.label",
+              message: "Select carbon offset token to retire",
+            })}
             modalTitle={t({
               id: "offset.modal_retire.title",
               message: "Select Carbon Type",
@@ -521,9 +512,10 @@ export const Offset = (props: Props) => {
             onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
             onItemSelect={handleSelectRetirementToken}
           />
-          <AdvancedTextInput
-            addressArray={specificAddresses}
-            onChange={setSpecificAddresses}
+
+          <SelectiveRetirementInput
+            projectAddress={projectAddress}
+            onChange={setProjectAddress}
           />
 
           <div className={styles.beneficiary}>
@@ -562,6 +554,7 @@ export const Offset = (props: Props) => {
               </Text>
             </div>
           </div>
+
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -580,6 +573,7 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
+
           <MiniTokenDisplay
             label={
               <div className="mini_token_label">
@@ -614,6 +608,7 @@ export const Offset = (props: Props) => {
             name={selectedRetirementToken}
             labelAlignment="start"
           />
+
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
@@ -624,6 +619,7 @@ export const Offset = (props: Props) => {
               </Trans>
             </Text>
           </div>
+
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>
@@ -663,165 +659,13 @@ export const Offset = (props: Props) => {
       {retirementTransactionHash && (
         <RetirementSuccessModal
           onSuccessModalClose={handleOnSuccessModalClose}
-          url={createLinkWithLocaleSubPath(
+          retirementUrl={createLinkWithLocaleSubPath(
             `${urls.retirements}/${
               beneficiaryAddress || props.address
             }/${retirementTotals}`,
             locale
           )}
         />
-      )}
-    </>
-  );
-};
-
-interface RetirementSuccessModalProps {
-  onSuccessModalClose: () => void;
-  url: string;
-}
-
-const RetirementSuccessModal = (props: RetirementSuccessModalProps) => {
-  return (
-    <Modal
-      title={
-        <Trans id="offset.successModal.title">Retirement Successful!</Trans>
-      }
-      onToggleModal={props.onSuccessModalClose}
-    >
-      <div className={styles.modalContent}>
-        <div className="stack">
-          <Text t="caption">
-            <Trans id="offset.successModal.body1">
-              Thank you. By participating in the voluntary carbon market, you
-              are making conservation more profitable and climate mitigation
-              more impactful
-            </Trans>
-          </Text>
-        </div>
-        <div className="stack">
-          <Text t="caption">
-            <Trans id="offset.successModal.body2">
-              Click the button below to view your retirement. Consider sharing
-              the page to support us on our journey towards a more transparent,
-              accessible and rewarding carbon market!
-            </Trans>
-          </Text>
-        </div>
-        <ButtonPrimary
-          variant="icon"
-          href={props.url}
-          target="_blank"
-          label={
-            <>
-              <SendRounded />
-              <Trans id="offset.successModal.cta">VIEW RETIREMENT</Trans>
-            </>
-          }
-        />
-      </div>
-    </Modal>
-  );
-};
-
-const AdvancedTextInput: FC<{
-  addressArray: string[];
-  onChange: (val: string[]) => void;
-}> = (props: any) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const concatValue = props.addressArray.join("");
-
-  /** when query params are loaded we force the toggle open */
-  useEffect(() => {
-    if (!isOpen && concatValue.length > 1) {
-      setIsOpen(true);
-    }
-  }, [concatValue]);
-
-  const handleEdit = (i: number) => (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = [
-      ...props.addressArray.slice(0, i),
-      e.target.value,
-      ...props.addressArray.slice(i + 1),
-    ];
-    props.onChange(newValue);
-  };
-
-  const handleAddInput = () => {
-    props.onChange([...props.addressArray, ""]);
-  };
-
-  const handleDelete = (i: number) => () => {
-    const newValue = [
-      ...props.addressArray.slice(0, i),
-      ...props.addressArray.slice(i + 1),
-    ];
-    props.onChange(newValue);
-  };
-
-  return (
-    <>
-      <button
-        onClick={() => {
-          setIsOpen((prev) => !prev);
-        }}
-        className={styles.advancedButton}
-      >
-        {isOpen ? <KeyboardArrowDown /> : <KeyboardArrowRight />}
-        <Text t="caption" className="advancedButton_label" uppercase>
-          <Trans id="advanced">ADVANCED</Trans>
-        </Text>
-      </button>
-      {isOpen && (
-        <div className={styles.input}>
-          <label>
-            <Text t="caption" color="lighter">
-              <Trans id="offset.retire_specific">
-                Retire specific project tokens
-              </Trans>
-            </Text>
-            <TextInfoTooltip
-              content={
-                <Trans id="offset.retire_specific_tooltip">
-                  Subject to additional fee, determined by the selected pool and
-                  paid to the bridge provider.
-                </Trans>
-              }
-            >
-              <InfoOutlined />
-            </TextInfoTooltip>
-          </label>
-          {props.addressArray.map((address: string, i: number) => {
-            return (
-              <div key={i} className={styles.advancedButtonInput}>
-                <div className={"advancedButtonInput_iconAligner"}>
-                  <input
-                    value={address}
-                    onChange={handleEdit(i)}
-                    placeholder={t({
-                      id: "offset.enter_address",
-                      message: "Enter 0x address",
-                    })}
-                    data-error={!!address && !utils.isAddress(address)}
-                    pattern="^0x[a-fA-F0-9]{40}$"
-                  />
-                  {props.addressArray.length > 1 && (
-                    <button onClick={handleDelete(i)} className="deletebutton">
-                      <CancelIcon />
-                    </button>
-                  )}
-                </div>
-                <button
-                  onClick={handleAddInput}
-                  className={cx("plusbutton", {
-                    hidden: i !== props.addressArray.length - 1,
-                  })}
-                >
-                  <Add />
-                </button>
-              </div>
-            );
-          })}
-        </div>
       )}
     </>
   );

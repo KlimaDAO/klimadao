@@ -26,7 +26,7 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
   const TypedCoinbaseWallet =
     untypedCoinbase.default as typeof CoinbaseWalletSDK;
   return new TypedWeb3Modal({
-    cacheProvider: false,
+    cacheProvider: true,
     providerOptions: {
       walletconnect: {
         package: WalletConnectProvider, // required
@@ -62,6 +62,7 @@ const createWeb3Modal = (strings: Web3ModalStrings): Web3Modal => {
           },
           config: {
             buildEnv: "production",
+            showTorusButton: false,
           },
         },
         display: {
@@ -106,14 +107,16 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   const web3Modal = useLocalizedModal(strings);
 
   const disconnect = async () => {
-    if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
-      await (web3state.provider?.provider as any).torus.logout();
-    }
-    if (web3Modal) {
+    if (web3Modal?.cachedProvider) {
       web3Modal.clearCachedProvider();
     }
-    setWeb3State(web3InitialState);
-    window.location.reload();
+    // setWeb3State(web3InitialState);
+    if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
+      await (web3state.provider?.provider as any).torus.cleanUp();
+      // triggers reload via accountsChanged
+    } else {
+      window.location.reload();
+    }
   };
 
   const connect = async () => {
@@ -145,9 +148,14 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   // EIP-1193 events
   useEffect(() => {
     if (!web3state.provider) return;
-    // https://docs.ethers.io/v5/concepts/best-practices/#best-practices--network-changes
-    const handleDisconnect = () => disconnect();
-    const handleReload = () => window.location.reload();
+    const handleDisconnect = () => {
+      // when force-disconnecting via metamask ui, prevent an infinite reconnect loop
+      web3Modal?.clearCachedProvider();
+      window.location.reload();
+    };
+    const handleReload = () => {
+      window.location.reload();
+    };
 
     /** There is a bug where ethers doesn't respond to web3modal events for these two, so we use the nested provider
      * https://github.com/ethers-io/ethers.js/issues/2988 */
@@ -161,7 +169,7 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
         handleReload
       );
       web3state.provider.provider.removeListener("chainChanged", handleReload);
-      web3state.provider.removeListener("disconnect", handleDisconnect);
+      web3state.provider.removeListener("disconnect", handleReload);
     };
   }, [web3state.provider]);
 

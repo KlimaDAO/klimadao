@@ -5,6 +5,7 @@ export interface putPledgeParams {
   pageAddress: string;
   signature: string;
   secondaryWalletAddress?: string;
+  urlPath: string;
 }
 
 export const putPledge = (params: putPledgeParams): Promise<Response> =>
@@ -18,5 +19,6 @@ export const putPledge = (params: putPledgeParams): Promise<Response> =>
       pageAddress: params.pageAddress,
       pledge: params.pledge,
       secondaryWalletAddress: params.secondaryWalletAddress,
+      urlPath: params.urlPath,
     }),
   });

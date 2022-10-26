@@ -9,13 +9,14 @@ interface Props {
   buttons?: JSX.Element[];
   href?: string;
   activePage: PageName;
+  transparent?: boolean;
 }
 
 export const HeaderDesktop: FC<Props> = (props) => {
   return (
     <header
       className={
-        props.activePage === "Infinity" || props.activePage === "Pledges"
+        props.transparent
           ? styles.headerTransparentDesktop
           : styles.headerDesktop
       }

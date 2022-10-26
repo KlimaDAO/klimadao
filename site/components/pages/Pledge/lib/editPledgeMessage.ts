@@ -1,4 +1,4 @@
-export const editPledgeSignature = (nonce: string): string =>
+export const editPledgeMessage = (nonce: string): string =>
   `Sign to authenticate ownership and edit your Klima Infinity pledge 💚\n\nSignature nonce: ${nonce}`;
 
 export const approveSecondaryWallet = (nonce: string): string =>

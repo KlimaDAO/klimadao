@@ -92,15 +92,6 @@ const addressInfo: AddressInfo[] = [
   },
 
   {
-    name: "BCT/USDC LP",
-    address: addresses["mainnet"].bctUsdcLp,
-    ariaLabel: "Copy BCT USDC LP address.",
-    metamaskAriaLabel: "Add BCT USDC LP to wallet.",
-    ticker: "BCT/USDC",
-    image: `${BASE_URL}/icons/BCT-USDC-LP.png`,
-    decimals: 18,
-  },
-  {
     name: "KLIMA/BCT LP",
     address: addresses["mainnet"].klimaBctLp,
     ariaLabel: "Copy KLIMA BCT LP address.",

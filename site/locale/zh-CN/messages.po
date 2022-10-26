@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-27 15:49+0000\n"
+"POT-Creation-Date: 2022-10-26 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Articles"
 msgstr "文章"
 
-#: components/ChangeLanguageButton/index.tsx:65
+#: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "变更语言"
 
@@ -118,7 +118,7 @@ msgstr "为了用 KLIMA 进行质押、交换或抵消碳排放，您需要在 P
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:79
 msgid "buy.beginner_04.description_02"
-msgstr "1 对于大多数用户来说, MATIC应该足够了。您可以连接到官方 Polygon 应用程序并使用他们的 <0>Gas Swap 工具</0>. 该工具可让您免费将各种资产用于MATIC交易。"
+msgstr "对于大多数用户来说, 1个MATIC就足够了。您可以连接到官方 Polygon 应用程序并使用他们的 <0>Gas Swap 工具</0>. 该工具可让您免费将各种资产用于MATIC交易。"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:68
 msgid "buy.beginner_04.title"
@@ -996,9 +996,13 @@ msgstr "已停用的总碳吨"
 msgid "pledges.edit_pledge"
 msgstr "编辑承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:268
+#: components/pages/Pledge/PledgeForm/index.tsx:290
 msgid "pledges.form.add_footprint_category_button"
 msgstr "添加类别"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:121
+msgid "pledges.form.awaiting_signature"
+msgstr ""
 
 #: components/pages/Pledge/index.tsx:156
 msgid "pledges.form.error"
@@ -1048,67 +1052,67 @@ msgstr "输入名称"
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "输入有效的网址"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:194
+#: components/pages/Pledge/PledgeForm/index.tsx:214
 msgid "pledges.form.footprint.label"
 msgstr "足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:199
+#: components/pages/Pledge/PledgeForm/index.tsx:219
 msgid "pledges.form.footprint.prompt"
 msgstr "添加一个类别并开始计算您的碳足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:109
+#: components/pages/Pledge/PledgeForm/index.tsx:129
 msgid "pledges.form.generic_error"
 msgstr "出问题了。请再试一次。"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:219
+#: components/pages/Pledge/PledgeForm/index.tsx:240
 msgid "pledges.form.input.categoryName.label"
 msgstr "类别"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:211
+#: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "分类名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:240
+#: components/pages/Pledge/PledgeForm/index.tsx:262
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "数量"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:232
+#: components/pages/Pledge/PledgeForm/index.tsx:254
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "碳吨"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:159
+#: components/pages/Pledge/PledgeForm/index.tsx:179
 msgid "pledges.form.input.description.label"
 msgstr "承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:152
+#: components/pages/Pledge/PledgeForm/index.tsx:172
 msgid "pledges.form.input.description.placeholder"
 msgstr "你的承诺是什么？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:181
+#: components/pages/Pledge/PledgeForm/index.tsx:201
 msgid "pledges.form.input.methodology.label"
 msgstr "方法"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:173
+#: components/pages/Pledge/PledgeForm/index.tsx:193
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "您使用什么工具或方法来计算您的碳足迹？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:125
+#: components/pages/Pledge/PledgeForm/index.tsx:145
 msgid "pledges.form.input.name.label"
 msgstr "名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:118
+#: components/pages/Pledge/PledgeForm/index.tsx:138
 msgid "pledges.form.input.name.placeholder"
 msgstr "姓名或公司名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:138
+#: components/pages/Pledge/PledgeForm/index.tsx:158
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "个人资料图片网址（可选）"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:284
+#: components/pages/Pledge/PledgeForm/index.tsx:307
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "总碳足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:298
+#: components/pages/Pledge/PledgeForm/index.tsx:325
 msgid "pledges.form.submit_button"
 msgstr "承诺"
 
@@ -1116,9 +1120,13 @@ msgstr "承诺"
 msgid "pledges.form.title"
 msgstr "您的承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:46
+#: components/pages/Pledge/PledgeForm/index.tsx:47
 msgid "pledges.form.total_footprint_summary"
 msgstr "总碳足迹：{0} 碳吨"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:335
+msgid "pledges.form.use_your_wallet"
+msgstr ""
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
@@ -1132,11 +1140,11 @@ msgstr "创建碳承诺并展示您的影响力"
 msgid "pledges.head.title"
 msgstr "KlimaDAO |承诺"
 
-#: components/pages/Pledge/index.tsx:308
+#: components/pages/Pledge/index.tsx:310
 msgid "pledges.home.banner.create"
 msgstr "创建承诺"
 
-#: components/pages/Pledge/index.tsx:287
+#: components/pages/Pledge/index.tsx:289
 msgid "pledges.home.get_started.create"
 msgstr "创建承诺"
 
@@ -1154,9 +1162,9 @@ msgstr "ENS 或 0x 地址"
 
 #: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr "输入 ENS 或 0x 地址"
+msgstr "输入 ENS, KNS 或 0x 地址"
 
-#: components/pages/Pledge/index.tsx:168
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.search.submit"
 msgstr "搜索"
 
@@ -1173,17 +1181,41 @@ msgstr "播客"
 msgid "podcast.head.title"
 msgstr "KlimaDAO 播客"
 
-#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
-msgid "resources.form.input.search.error.required"
-msgstr "输入搜索词"
+#: components/pages/Resources/ResourcesFilters/index.tsx:24
+msgid "resources.form.categories.header"
+msgstr "类别"
 
-#: components/pages/Resources/ResourcesList/index.tsx:88
+#: components/pages/Resources/ResourcesFilters/index.tsx:27
+msgid "resources.form.categories.subheader"
+msgstr "选择一个或多个"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:69
+msgid "resources.form.filters.clear_all"
+msgstr "全部清除"
+
+#: components/pages/Resources/ResourcesList/index.tsx:176
 msgid "resources.form.input.search.label"
 msgstr "搜索"
 
-#: components/pages/Resources/ResourcesList/index.tsx:74
+#: components/pages/Resources/ResourcesList/index.tsx:167
 msgid "resources.form.input.search.placeholder"
 msgstr "搜索"
+
+#: components/pages/Resources/ResourcesList/index.tsx:208
+msgid "resources.form.input.sort_by.label"
+msgstr "排序方式"
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:20
+msgid "resources.form.input.sort_by.select"
+msgstr "选择"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:53
+msgid "resources.form.medium.header"
+msgstr "媒体"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:41
+msgid "resources.form.sub_topics.header"
+msgstr "子主题"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1197,6 +1229,78 @@ msgstr "KlimaDAO 资源 - 超越碳中和"
 msgid "resources.head.title"
 msgstr "KlimaDAO |资源"
 
+#: components/pages/Resources/lib/cmsDataMap.ts:71
+msgid "resources.list.filter.tag.basics"
+msgstr "基本信息"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:111
+msgid "resources.list.filter.tag.carbon_footprint"
+msgstr "碳足迹"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:79
+msgid "resources.list.filter.tag.deep_dives"
+msgstr "深入了解"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:52
+msgid "resources.list.filter.tag.klima_infinity"
+msgstr "Klima Infinity"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:44
+msgid "resources.list.filter.tag.klima_overview"
+msgstr "Klima 概述"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:60
+msgid "resources.list.filter.tag.partnerships"
+msgstr "伙伴关系"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:103
+msgid "resources.list.filter.tag.policy"
+msgstr "政策"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:95
+msgid "resources.list.filter.tag.press_releases"
+msgstr "新闻稿"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:87
+msgid "resources.list.filter.tag.user_guides"
+msgstr "用户指南"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:121
+msgid "resources.list.filter.type.blog"
+msgstr "博客"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:129
+msgid "resources.list.filter.type.podcast"
+msgstr "播客"
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:61
+msgid "resources.list.select.sort_by.toggle"
+msgstr "切换按菜单排序"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:155
+msgid "resources.list.sort_by.a-z"
+msgstr "A - Z"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:139
+msgid "resources.list.sort_by.latest_first"
+msgstr "最新优先"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:147
+msgid "resources.list.sort_by.oldest_first"
+msgstr "最早优先"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:163
+msgid "resources.list.sort_by.z-a"
+msgstr "Z - A"
+
+#: components/pages/Resources/ResourcesList/index.tsx:308
+msgid "resources.mobile_modal.button.show_results"
+msgstr "显示结果"
+
+#: components/pages/Resources/ResourcesList/index.tsx:281
+msgid "resources.mobile_modal.title"
+msgstr "排序方式"
+
 #: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
 msgstr "来自创始人、DAO 贡献者、顾问和社区的更新和领袖精神。"
@@ -1205,17 +1309,25 @@ msgstr "来自创始人、DAO 贡献者、顾问和社区的更新和领袖精�
 msgid "resources.page.header.title"
 msgstr "相关文章"
 
-#: components/pages/Resources/ResourcesList/index.tsx:65
+#: components/pages/Resources/ResourcesList/index.tsx:159
 msgid "resources.page.list.header"
 msgstr "探索全部"
 
-#: components/pages/Resources/ResourcesList/index.tsx:116
-msgid "resources.page.list.no_search_results.subline"
-msgstr "仔细检查您的搜索是否有任何输入错误或拼写错误 - 或尝试不同的搜索词条。"
-
-#: components/pages/Resources/ResourcesList/index.tsx:111
+#: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
 msgstr "对不起。我们找不到任何匹配的结果。"
+
+#: components/pages/Resources/ResourcesList/index.tsx:238
+msgid "resources.page.list.on_fetch_error"
+msgstr "对不起！出问题了。"
+
+#: components/pages/Resources/ResourcesList/index.tsx:259
+msgid "resources.page.list.search_submit.no_filter_results"
+msgstr "请组合使用不同的过滤器。"
+
+#: components/pages/Resources/ResourcesList/index.tsx:252
+msgid "resources.page.list.search_submit.no_search_results"
+msgstr "仔细检查您的搜索是否有任何输入错误或拼写错误 - 或尝试不同的搜索词条。"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1392,46 +1504,46 @@ msgstr "按资产分类的碳停用总额"
 msgid "shared.404"
 msgstr "404 - 页面不存在"
 
-#: components/Navigation/index.tsx:78
-#: components/Navigation/index.tsx:223
+#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:236
 msgid "shared.about"
 msgstr "关于"
 
-#: components/Navigation/index.tsx:117
-#: components/Navigation/index.tsx:265
+#: components/Navigation/index.tsx:121
+#: components/Navigation/index.tsx:278
 msgid "shared.app"
 msgstr "应用程序"
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:80
-#: components/Navigation/index.tsx:227
+#: components/Navigation/index.tsx:84
+#: components/Navigation/index.tsx:240
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "博客"
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:135
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:139
+#: components/Navigation/index.tsx:295
 msgid "shared.bond"
 msgstr "债券化 Klima"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:119
-#: components/Navigation/index.tsx:269
+#: components/Navigation/index.tsx:123
+#: components/Navigation/index.tsx:282
 msgid "shared.buy"
 msgstr "购买 Klima"
 
-#: components/Navigation/index.tsx:339
+#: components/Navigation/index.tsx:366
 msgid "shared.carbon_dashboard"
 msgstr "碳仪表板"
 
-#: components/Navigation/index.tsx:190
+#: components/Navigation/index.tsx:203
 msgid "shared.carbon_dashboards"
 msgstr "碳仪表板"
 
-#: components/Navigation/index.tsx:98
-#: components/Navigation/index.tsx:245
+#: components/Navigation/index.tsx:102
+#: components/Navigation/index.tsx:258
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1443,18 +1555,18 @@ msgid "shared.connect"
 msgstr "连接"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:254
+#: components/Navigation/index.tsx:267
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "联系方式"
 
-#: components/Navigation/index.tsx:67
+#: components/Navigation/index.tsx:71
 #: components/pages/Infinity/index.tsx:114
 #: components/pages/Infinity/index.tsx:680
 msgid "shared.contact_sales"
 msgstr "联系销售"
 
-#: components/Navigation/index.tsx:107
+#: components/Navigation/index.tsx:111
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1462,18 +1574,18 @@ msgid "shared.contact_us"
 msgstr "联系我们"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:198
-#: components/Navigation/index.tsx:347
+#: components/Navigation/index.tsx:211
+#: components/Navigation/index.tsx:374
 msgid "shared.disclaimer"
 msgstr "免责声明"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:207
-#: components/Navigation/index.tsx:356
+#: components/Navigation/index.tsx:220
+#: components/Navigation/index.tsx:383
 msgid "shared.docs"
 msgstr "文档"
 
-#: components/Navigation/index.tsx:60
+#: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
 msgid "shared.enter_app"
 msgstr "进入App"
@@ -1495,13 +1607,13 @@ msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 msgid "shared.home"
 msgstr "主页"
 
-#: components/Navigation/index.tsx:181
-#: components/Navigation/index.tsx:330
+#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:357
 msgid "shared.how_to_buy"
 msgstr "如何购买 Klima"
 
-#: components/Navigation/index.tsx:168
-#: components/Navigation/index.tsx:316
+#: components/Navigation/index.tsx:172
+#: components/Navigation/index.tsx:330
 msgid "shared.infinity"
 msgstr "无穷"
 
@@ -1515,8 +1627,13 @@ msgstr "开始使用"
 msgid "shared.infinity_cta"
 msgstr "面向组织的 DEFI"
 
-#: components/Navigation/index.tsx:159
-#: components/Navigation/index.tsx:306
+#: components/Navigation/index.tsx:175
+#: components/Navigation/index.tsx:333
+msgid "shared.infinity_intro"
+msgstr "介绍"
+
+#: components/Navigation/index.tsx:163
+#: components/Navigation/index.tsx:319
 msgid "shared.info"
 msgstr "信息"
 
@@ -1530,31 +1647,40 @@ msgstr "正在加载..."
 msgid "shared.loveletter_cta"
 msgstr "面向个人的 DEFI"
 
-#: components/Navigation/index.tsx:174
-#: components/Navigation/index.tsx:321
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:348
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:151
-#: components/Navigation/index.tsx:298
+#: components/Navigation/index.tsx:155
+#: components/Navigation/index.tsx:311
 msgid "shared.offset"
 msgstr "抵消"
 
-#: components/Navigation/index.tsx:89
-#: components/Navigation/index.tsx:236
+#: components/Navigation/index.tsx:180
+#: components/Navigation/index.tsx:341
+msgid "shared.pledge"
+msgstr "如何承诺"
+
+#: components/Navigation/index.tsx:93
+#: components/Navigation/index.tsx:249
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "播客"
 
-#: components/Navigation/index.tsx:177
-#: components/Navigation/index.tsx:326
+#: components/Navigation/index.tsx:190
+#: components/Navigation/index.tsx:353
 msgid "shared.resources"
 msgstr "资源"
 
+#: components/pages/Resources/ResourcesList/index.tsx:214
+msgid "shared.resources.sort_by.header"
+msgstr "排序方式："
+
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:127
-#: components/Navigation/index.tsx:274
+#: components/Navigation/index.tsx:131
+#: components/Navigation/index.tsx:287
 msgid "shared.stake"
 msgstr "质押 Klima"
 
@@ -1562,8 +1688,8 @@ msgstr "质押 Klima"
 msgid "shared.visit_klimadao_blog"
 msgstr "访问 KlimaDAO 博客"
 
-#: components/Navigation/index.tsx:143
-#: components/Navigation/index.tsx:290
+#: components/Navigation/index.tsx:147
+#: components/Navigation/index.tsx:303
 msgid "shared.wrap"
 msgstr "打包 sKlima"
 

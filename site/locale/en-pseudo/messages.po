@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-27 15:49+0000\n"
+"POT-Creation-Date: 2022-10-26 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Articles"
 msgstr ""
 
-#: components/ChangeLanguageButton/index.tsx:65
+#: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr ""
 
@@ -1058,6 +1058,7 @@ msgstr ""
 msgid "pledges.edit_pledge"
 msgstr ""
 
+<<<<<<< HEAD
 #: components/pages/Pledge/PledgeForm/index.tsx:422
 msgid "pledges.form.add_footprint_category_button"
 msgstr ""
@@ -1076,6 +1077,14 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:484
 msgid "pledges.form.confirm_remove_cancel"
+=======
+#: components/pages/Pledge/PledgeForm/index.tsx:290
+msgid "pledges.form.add_footprint_category_button"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:121
+msgid "pledges.form.awaiting_signature"
+>>>>>>> 1c7cd028230df93ad570e7bf575578fd01f4c450
 msgstr ""
 
 #: components/pages/Pledge/index.tsx:156
@@ -1126,6 +1135,7 @@ msgstr ""
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr ""
 
+<<<<<<< HEAD
 #: components/pages/Pledge/lib/formSchema.ts:49
 msgid "pledges.form.errors.walletAddress.required"
 msgstr ""
@@ -1199,6 +1209,69 @@ msgid "pledges.form.input.walletAddress.placeholder"
 msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:454
+=======
+#: components/pages/Pledge/PledgeForm/index.tsx:214
+msgid "pledges.form.footprint.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:219
+msgid "pledges.form.footprint.prompt"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:129
+msgid "pledges.form.generic_error"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:240
+msgid "pledges.form.input.categoryName.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:232
+msgid "pledges.form.input.categoryName.placeholder"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:262
+msgid "pledges.form.input.categoryQuantity.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:254
+msgid "pledges.form.input.categoryQuantity.placeholder"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:179
+msgid "pledges.form.input.description.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:172
+msgid "pledges.form.input.description.placeholder"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:201
+msgid "pledges.form.input.methodology.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:193
+msgid "pledges.form.input.methodology.placeholder"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:145
+msgid "pledges.form.input.name.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:138
+msgid "pledges.form.input.name.placeholder"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:158
+msgid "pledges.form.input.profileImageUrl.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:307
+msgid "pledges.form.input.totalFootprint.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:325
+>>>>>>> 1c7cd028230df93ad570e7bf575578fd01f4c450
 msgid "pledges.form.submit_button"
 msgstr ""
 
@@ -1206,12 +1279,21 @@ msgstr ""
 msgid "pledges.form.title"
 msgstr ""
 
+<<<<<<< HEAD
 #: components/pages/Pledge/PledgeForm/index.tsx:51
 msgid "pledges.form.total_footprint_summary"
 msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:207
 msgid "pledges.form.wallets.label"
+=======
+#: components/pages/Pledge/PledgeForm/index.tsx:47
+msgid "pledges.form.total_footprint_summary"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:335
+msgid "pledges.form.use_your_wallet"
+>>>>>>> 1c7cd028230df93ad570e7bf575578fd01f4c450
 msgstr ""
 
 #: components/pages/Pledge/index.tsx:67
@@ -1226,11 +1308,11 @@ msgstr ""
 msgid "pledges.head.title"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:308
+#: components/pages/Pledge/index.tsx:310
 msgid "pledges.home.banner.create"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:287
+#: components/pages/Pledge/index.tsx:289
 msgid "pledges.home.get_started.create"
 msgstr ""
 
@@ -1250,7 +1332,7 @@ msgstr ""
 msgid "pledges.home.search.placeholder"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:168
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.search.submit"
 msgstr ""
 
@@ -1267,16 +1349,40 @@ msgstr ""
 msgid "podcast.head.title"
 msgstr ""
 
-#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
-msgid "resources.form.input.search.error.required"
+#: components/pages/Resources/ResourcesFilters/index.tsx:24
+msgid "resources.form.categories.header"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:88
+#: components/pages/Resources/ResourcesFilters/index.tsx:27
+msgid "resources.form.categories.subheader"
+msgstr ""
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:69
+msgid "resources.form.filters.clear_all"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:176
 msgid "resources.form.input.search.label"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:74
+#: components/pages/Resources/ResourcesList/index.tsx:167
 msgid "resources.form.input.search.placeholder"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:208
+msgid "resources.form.input.sort_by.label"
+msgstr ""
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:20
+msgid "resources.form.input.sort_by.select"
+msgstr ""
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:53
+msgid "resources.form.medium.header"
+msgstr ""
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:41
+msgid "resources.form.sub_topics.header"
 msgstr ""
 
 #: components/pages/Resources/index.tsx:32
@@ -1291,6 +1397,78 @@ msgstr ""
 msgid "resources.head.title"
 msgstr ""
 
+#: components/pages/Resources/lib/cmsDataMap.ts:71
+msgid "resources.list.filter.tag.basics"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:111
+msgid "resources.list.filter.tag.carbon_footprint"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:79
+msgid "resources.list.filter.tag.deep_dives"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:52
+msgid "resources.list.filter.tag.klima_infinity"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:44
+msgid "resources.list.filter.tag.klima_overview"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:60
+msgid "resources.list.filter.tag.partnerships"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:103
+msgid "resources.list.filter.tag.policy"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:95
+msgid "resources.list.filter.tag.press_releases"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:87
+msgid "resources.list.filter.tag.user_guides"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:121
+msgid "resources.list.filter.type.blog"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:129
+msgid "resources.list.filter.type.podcast"
+msgstr ""
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:61
+msgid "resources.list.select.sort_by.toggle"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:155
+msgid "resources.list.sort_by.a-z"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:139
+msgid "resources.list.sort_by.latest_first"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:147
+msgid "resources.list.sort_by.oldest_first"
+msgstr ""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:163
+msgid "resources.list.sort_by.z-a"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:308
+msgid "resources.mobile_modal.button.show_results"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:281
+msgid "resources.mobile_modal.title"
+msgstr ""
+
 #: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
 msgstr ""
@@ -1299,16 +1477,24 @@ msgstr ""
 msgid "resources.page.header.title"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:65
+#: components/pages/Resources/ResourcesList/index.tsx:159
 msgid "resources.page.list.header"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:116
-msgid "resources.page.list.no_search_results.subline"
+#: components/pages/Resources/ResourcesList/index.tsx:246
+msgid "resources.page.list.no_search_results.title"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:111
-msgid "resources.page.list.no_search_results.title"
+#: components/pages/Resources/ResourcesList/index.tsx:238
+msgid "resources.page.list.on_fetch_error"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:259
+msgid "resources.page.list.search_submit.no_filter_results"
+msgstr ""
+
+#: components/pages/Resources/ResourcesList/index.tsx:252
+msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:26
@@ -1486,36 +1672,37 @@ msgstr ""
 msgid "shared.404"
 msgstr ""
 
-#: components/Navigation/index.tsx:78
-#: components/Navigation/index.tsx:223
+#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:236
 msgid "shared.about"
 msgstr ""
 
-#: components/Navigation/index.tsx:117
-#: components/Navigation/index.tsx:265
+#: components/Navigation/index.tsx:121
+#: components/Navigation/index.tsx:278
 msgid "shared.app"
 msgstr ""
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:80
-#: components/Navigation/index.tsx:227
+#: components/Navigation/index.tsx:84
+#: components/Navigation/index.tsx:240
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr ""
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:135
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:139
+#: components/Navigation/index.tsx:295
 msgid "shared.bond"
 msgstr ""
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:119
-#: components/Navigation/index.tsx:269
+#: components/Navigation/index.tsx:123
+#: components/Navigation/index.tsx:282
 msgid "shared.buy"
 msgstr ""
 
+<<<<<<< HEAD
 #: components/pages/Pledge/PledgeDashboard/index.tsx:178
 #: components/pages/Pledge/PledgeDashboard/index.tsx:215
 #: components/pages/Pledge/PledgeDashboard/index.tsx:246
@@ -1523,15 +1710,18 @@ msgid "shared.cancel"
 msgstr ""
 
 #: components/Navigation/index.tsx:339
+=======
+#: components/Navigation/index.tsx:366
+>>>>>>> 1c7cd028230df93ad570e7bf575578fd01f4c450
 msgid "shared.carbon_dashboard"
 msgstr ""
 
-#: components/Navigation/index.tsx:190
+#: components/Navigation/index.tsx:203
 msgid "shared.carbon_dashboards"
 msgstr ""
 
-#: components/Navigation/index.tsx:98
-#: components/Navigation/index.tsx:245
+#: components/Navigation/index.tsx:102
+#: components/Navigation/index.tsx:258
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1543,18 +1733,18 @@ msgid "shared.connect"
 msgstr ""
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:254
+#: components/Navigation/index.tsx:267
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr ""
 
-#: components/Navigation/index.tsx:67
+#: components/Navigation/index.tsx:71
 #: components/pages/Infinity/index.tsx:114
 #: components/pages/Infinity/index.tsx:680
 msgid "shared.contact_sales"
 msgstr ""
 
-#: components/Navigation/index.tsx:107
+#: components/Navigation/index.tsx:111
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1562,18 +1752,18 @@ msgid "shared.contact_us"
 msgstr ""
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:198
-#: components/Navigation/index.tsx:347
+#: components/Navigation/index.tsx:211
+#: components/Navigation/index.tsx:374
 msgid "shared.disclaimer"
 msgstr ""
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:207
-#: components/Navigation/index.tsx:356
+#: components/Navigation/index.tsx:220
+#: components/Navigation/index.tsx:383
 msgid "shared.docs"
 msgstr ""
 
-#: components/Navigation/index.tsx:60
+#: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
 msgid "shared.enter_app"
 msgstr ""
@@ -1595,13 +1785,13 @@ msgstr ""
 msgid "shared.home"
 msgstr ""
 
-#: components/Navigation/index.tsx:181
-#: components/Navigation/index.tsx:330
+#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:357
 msgid "shared.how_to_buy"
 msgstr ""
 
-#: components/Navigation/index.tsx:168
-#: components/Navigation/index.tsx:316
+#: components/Navigation/index.tsx:172
+#: components/Navigation/index.tsx:330
 msgid "shared.infinity"
 msgstr ""
 
@@ -1615,8 +1805,13 @@ msgstr ""
 msgid "shared.infinity_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:159
-#: components/Navigation/index.tsx:306
+#: components/Navigation/index.tsx:175
+#: components/Navigation/index.tsx:333
+msgid "shared.infinity_intro"
+msgstr ""
+
+#: components/Navigation/index.tsx:163
+#: components/Navigation/index.tsx:319
 msgid "shared.info"
 msgstr ""
 
@@ -1630,35 +1825,49 @@ msgstr ""
 msgid "shared.loveletter_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:174
-#: components/Navigation/index.tsx:321
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:348
 msgid "shared.loveletters"
 msgstr ""
 
-#: components/Navigation/index.tsx:151
-#: components/Navigation/index.tsx:298
+#: components/Navigation/index.tsx:155
+#: components/Navigation/index.tsx:311
 msgid "shared.offset"
 msgstr ""
 
-#: components/Navigation/index.tsx:89
-#: components/Navigation/index.tsx:236
+#: components/Navigation/index.tsx:180
+#: components/Navigation/index.tsx:341
+msgid "shared.pledge"
+msgstr ""
+
+#: components/Navigation/index.tsx:93
+#: components/Navigation/index.tsx:249
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr ""
 
+<<<<<<< HEAD
 #: components/pages/Pledge/PledgeDashboard/index.tsx:236
 msgid "shared.remove"
 msgstr ""
 
 #: components/Navigation/index.tsx:177
 #: components/Navigation/index.tsx:326
+=======
+#: components/Navigation/index.tsx:190
+#: components/Navigation/index.tsx:353
+>>>>>>> 1c7cd028230df93ad570e7bf575578fd01f4c450
 msgid "shared.resources"
 msgstr ""
 
+#: components/pages/Resources/ResourcesList/index.tsx:214
+msgid "shared.resources.sort_by.header"
+msgstr ""
+
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:127
-#: components/Navigation/index.tsx:274
+#: components/Navigation/index.tsx:131
+#: components/Navigation/index.tsx:287
 msgid "shared.stake"
 msgstr ""
 
@@ -1666,8 +1875,8 @@ msgstr ""
 msgid "shared.visit_klimadao_blog"
 msgstr ""
 
-#: components/Navigation/index.tsx:143
-#: components/Navigation/index.tsx:290
+#: components/Navigation/index.tsx:147
+#: components/Navigation/index.tsx:303
 msgid "shared.wrap"
 msgstr ""
 

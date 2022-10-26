@@ -16,7 +16,6 @@ import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
 export const bondMapToTokenName = {
   klima_bct_lp: "klimaBctLp",
   klima_usdc_lp: "klimaUsdcLp",
-  bct_usdc_lp: "bctUsdcLp",
   klima_mco2_lp: "klimaMco2Lp",
   mco2: "mco2",
   bct: "bct",
@@ -32,7 +31,6 @@ type InverseBond = Extract<BondTokens, "inverse_usdc">;
 export const bondMapToBondName = {
   klima_bct_lp: "bond_klimaBctLp",
   klima_usdc_lp: "bond_klimaUsdcLp",
-  bct_usdc_lp: "bond_bctUsdcLp",
   klima_mco2_lp: "bond_klimaMco2Lp",
   inverse_usdc: "klimaProV2",
   mco2: "bond_mco2",
@@ -207,7 +205,6 @@ export const calcBondDetails = (params: {
       klima_mco2_lp: getMCO2MarketPrice,
       klima_usdc_lp: getKlimaUSDCMarketPrice,
       klima_bct_lp: getBCTMarketPrice,
-      bct_usdc_lp: getBCTMarketPrice,
       bct: getBCTMarketPrice,
       ubo: getUBOMarketPrice,
       nbo: getNBOMarketPrice,

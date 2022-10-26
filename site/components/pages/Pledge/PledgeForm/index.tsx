@@ -1,7 +1,12 @@
 import React, { FC, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
+import {
+  ButtonPrimary,
+  Spinner,
+  ButtonSecondary,
+  Text,
+} from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
 import SaveIcon from "@mui/icons-material/Save";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -21,12 +26,13 @@ import {
 import { InputField, TextareaField } from "components/Form";
 
 import {
-  editPledgeSignature,
+  editPledgeMessage,
   formSchema,
   pledgeErrorTranslationsMap,
   PledgeErrorId,
   putPledge,
   pledgeFormAdapter,
+  waitForGnosisSignature,
 } from "../lib";
 import { Pledge, PledgeFormValues, Wallet } from "../types";
 import * as styles from "./styles";
@@ -68,6 +74,8 @@ export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState(false);
   const [selectedAddress, setSelectedAddress] =
     useState<{ address: string; index: number }>();
+  const [submitting, setSubmitting] = useState(false);
+  const { query } = useRouter();
   const { signer } = useWeb3();
 
   const formattedPledge: any = { ...props.pledge };
@@ -75,7 +83,7 @@ export const PledgeForm: FC<Props> = (props) => {
     formattedPledge.wallets = Object.values(props.pledge.wallets) as Wallet[];
   }
 
-  const { control, register, handleSubmit, formState, reset, setValue } =
+  const { control, register, handleSubmit, formState, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
       shouldUnregister: false,
@@ -108,29 +116,47 @@ export const PledgeForm: FC<Props> = (props) => {
     values: PledgeFormValues
   ) => {
     try {
+      setSubmitting(true);
+      setServerError(false);
+
       if (!signer) return;
       const signature = await signer.signMessage(
-        editPledgeSignature(values.nonce)
+        editPledgeMessage(values.nonce)
       );
+
+      if (signature === "0x") {
+        await waitForGnosisSignature({
+          message: editPledgeMessage(values.nonce),
+          address: props.pageAddress,
+        });
+      }
+
       const response = await putPledge({
         pageAddress: props.pageAddress,
         pledge: values,
         signature,
+        urlPath: `/pledge/${query.address}`,
       });
       const data = await response.json();
-
       if (data.pledge) {
         props.onFormSubmit(data.pledge);
-        reset(pledgeFormAdapter(data.pledge));
-        setServerError(false);
       } else {
         setServerError(true);
       }
-    } catch (error) {
+      setSubmitting(false);
+    } catch (error: any) {
       console.log(error);
       setServerError(true);
+      setSubmitting(false);
     }
   };
+
+  const SubmittingLabel = () => (
+    <div className={styles.submittingLabel}>
+      <Spinner />
+      <Trans id="pledges.form.awaiting_signature">Awaiting signature...</Trans>
+    </div>
+  );
 
   return (
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
@@ -364,6 +390,7 @@ export const PledgeForm: FC<Props> = (props) => {
                 <div className={styles.categoryRow} key={field.id}>
                   <div className={styles.categoryRow_inputs}>
                     <InputField
+                      id={field.id}
                       inputProps={{
                         placeholder: t({
                           id: "pledges.form.input.categoryName.placeholder",
@@ -386,6 +413,7 @@ export const PledgeForm: FC<Props> = (props) => {
                     />
 
                     <InputField
+                      id={`categories.${index}.quantity`}
                       inputProps={{
                         placeholder: t({
                           id: "pledges.form.input.categoryQuantity.placeholder",
@@ -434,6 +462,7 @@ export const PledgeForm: FC<Props> = (props) => {
           </div>
 
           <InputField
+            id="footprint"
             inputProps={{
               type: "hidden",
               ...register("footprint"),
@@ -454,13 +483,26 @@ export const PledgeForm: FC<Props> = (props) => {
 
           {/* better to use an input type=submit */}
           <ButtonPrimary
-            disabled={!isDirty}
-            label={t({
-              id: "pledges.form.submit_button",
-              message: "Save pledge",
-            })}
+            disabled={!isDirty || submitting}
+            label={
+              submitting ? (
+                <SubmittingLabel />
+              ) : (
+                t({
+                  id: "pledges.form.submit_button",
+                  message: "Save pledge",
+                })
+              )
+            }
             onClick={handleSubmit(onSubmit)}
           />
+          {submitting && (
+            <Text t="caption" color="lighter" align="center">
+              <Trans id="pledges.form.use_your_wallet">
+                Use your wallet to sign and confirm this edit.
+              </Trans>
+            </Text>
+          )}
         </>
       )}
       {props.isDeleteMode && (
