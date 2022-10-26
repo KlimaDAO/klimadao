@@ -99,9 +99,11 @@ export const NavMenu: FC<Props> = (props) => {
 
   return (
     <nav className={styles.container}>
-      <a href="/">
-        <LogoWithClaim />
-      </a>
+      <Link href="/" passHref>
+        <a>
+          <LogoWithClaim />
+        </a>
+      </Link>
       <div className={styles.addressContainer}>
         <div className="hr" />
         <Address domains={props.domains} address={props.address} />
