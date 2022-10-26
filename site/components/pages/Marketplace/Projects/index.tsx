@@ -1,11 +1,10 @@
-import { NextPage } from "next";
-import Link from "next/link";
-
-import { Text, Section } from "@klimadao/lib/components";
-import { Navigation } from "components/Navigation";
+import { Text, ButtonPrimary } from "@klimadao/lib/components";
 import { PageHead } from "components/PageHead";
-import { Footer } from "components/Footer";
+import { MarketplaceLayout } from "../Layout";
 import { Project } from "@klimadao/lib/types/marketplace";
+
+import type { NextPageWithLayout } from "../../../../pages/_app";
+import type { ReactElement } from "react";
 
 import * as styles from "./styles";
 
@@ -13,7 +12,7 @@ type Props = {
   projects: Project[];
 };
 
-export const MarketPlaceProjects: NextPage<Props> = (props) => {
+export const MarketPlaceProjects: NextPageWithLayout<Props> = (props) => {
   const hasProjects = !!props.projects.length;
   return (
     <>
@@ -23,39 +22,36 @@ export const MarketPlaceProjects: NextPage<Props> = (props) => {
         metaDescription="KlimaDao - Marketplace Projects"
       />
 
-      <Navigation activePage="Home" />
+      <div className={styles.fullWidth}>
+        <Text t="h1">All Projects</Text>
+      </div>
 
-      <Section variant="gray">
-        <div className={styles.stack}>
-          <Text t="h1">All Projects</Text>
-        </div>
-      </Section>
-      <Section variant="gray" style={{ padding: "unset" }}>
-        {hasProjects &&
-          props.projects.map((project) => (
-            <div className={styles.stack} key={project.key}>
-              <Text t="h3">Name: {project.name}</Text>
-              <Text t="caption">ID: {project.id}</Text>
-              <Text t="caption">ProjectAddress: {project.projectAddress}</Text>
-              <Text t="caption">ProjectID: {project.projectID}</Text>
-              <Text t="caption">Registry: {project.registry}</Text>
-              <Text t="caption">Vintage: {project.vintage}</Text>
-              <Text t="caption">Methodology: {project.methodology}</Text>
-              <Link
-                href={`/marketplace/projects/${project.registry}-${project.projectID}-${project.vintage}`}
-                passHref
-              >
-                <a className="address">Link to Project</a>
-              </Link>
-            </div>
-          ))}
-        {!hasProjects && (
-          <div className={styles.stack}>
-            <Text>No projects found from Marketplace API</Text>
+      {hasProjects &&
+        props.projects.map((project) => (
+          <div className={styles.fullWidth} key={project.key}>
+            <Text t="h3">Name: {project.name}</Text>
+            <Text t="caption">ID: {project.id}</Text>
+            <Text t="caption">ProjectAddress: {project.projectAddress}</Text>
+            <Text t="caption">ProjectID: {project.projectID}</Text>
+            <Text t="caption">Registry: {project.registry}</Text>
+            <Text t="caption">Vintage: {project.vintage}</Text>
+            <Text t="caption">Methodology: {project.methodology}</Text>
+            <ButtonPrimary
+              href={`/marketplace/projects/${project.registry}-${project.projectID}-${project.vintage}`}
+              label="Link to Project"
+              className={styles.projectLink}
+            ></ButtonPrimary>
           </div>
-        )}
-      </Section>
-      <Footer />
+        ))}
+      {!hasProjects && (
+        <div className={styles.fullWidth}>
+          <Text>No projects found from Marketplace API</Text>
+        </div>
+      )}
     </>
   );
+};
+
+MarketPlaceProjects.getLayout = function getLayout(page: ReactElement) {
+  return <MarketplaceLayout>{page}</MarketplaceLayout>;
 };
