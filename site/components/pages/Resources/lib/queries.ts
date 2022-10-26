@@ -9,13 +9,14 @@ const defaultParams = {
 
 type QueryParams = {
   tags: string;
+  tagsLength: number;
   types: string;
   sortedBy: string;
 };
 
 /** fetch posts and podcasts filtered by specific tag slugs, types and order */
 const filterDocumentsByTags = (params: QueryParams) => /* groq */ `
-    *[_type in ${params.types} && count((tags[]->tag.current)[@ in ${params.tags} ]) > 0 && ${hideFromProduction}] | order(${params.sortedBy}) {
+    *[_type in ${params.types} && count((tags[]->tag.current)[@ in ${params.tags} ]) == ${params.tagsLength} && ${hideFromProduction}] | order(${params.sortedBy}) {
       "type": _type,
       publishedAt, 
       title, 
@@ -52,6 +53,7 @@ export const queryFilteredDocuments = async (
 
   const valuesWithFallback = {
     tags: JSON.stringify(values.tags),
+    tagsLength: values.tags.length,
     types: JSON.stringify(
       values.types?.length ? values.types : defaultParams.types
     ),
