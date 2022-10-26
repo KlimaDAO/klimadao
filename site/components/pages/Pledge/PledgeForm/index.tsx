@@ -84,7 +84,6 @@ export const PledgeForm: FC<Props> = (props) => {
   const { control, register, handleSubmit, formState, reset, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
-      shouldUnregister: false,
       defaultValues: pledgeFormAdapter(formattedPledge),
       resolver: yupResolver(formSchema),
     });

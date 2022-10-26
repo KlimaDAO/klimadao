@@ -11,7 +11,7 @@ import {
 import {
   approveSecondaryWallet,
   removeSecondaryWallet,
-} from "./editPledgeSignature";
+} from "./editPledgeMessage";
 import { verifySignedMessage } from "./verifySignature";
 
 const initFirebaseAdmin = () => {
@@ -49,6 +49,7 @@ export interface findOrCreatePledgeParams {
   pledge: PledgeFormValues;
   pageAddress: string;
   signature: string;
+  secondaryWalletAddress: string;
 }
 
 export const findOrCreatePledge = async (
@@ -95,6 +96,7 @@ export const findOrCreatePledge = async (
         expectedAddress: params.secondaryWalletAddress,
         signature: params.signature,
       });
+      // accepting or rejecting
       if (isVerifying) {
         await admin
           .firestore()
@@ -115,7 +117,7 @@ export const findOrCreatePledge = async (
       // respond with error message here and check in pages/api/pledge
       // in follow up PR handle errors
     }
-    // check if secondary wallet is signing to reject or remove
+    // check if secondary wallet is signing to remove
     if ((invitedAddress || verifiedAddress) && params.secondaryWalletAddress) {
       const isRejecting = verifySignedMessage({
         expectedMessage: removeSecondaryWallet(currentPledge.nonce.toString()),
@@ -142,7 +144,7 @@ export const findOrCreatePledge = async (
         },
       });
     } else {
-      verifySignature({
+      await verifySignature({
         address: currentPledge.ownerAddress,
         signature: params.signature,
         nonce: currentPledge.nonce.toString(),

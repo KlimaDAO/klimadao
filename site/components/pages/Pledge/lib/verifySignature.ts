@@ -21,11 +21,19 @@ export const decodeSignerAddress = (params: {
   return decodedAddress;
 };
 
-export const verifySignature = (params: Params): void => {
+export const verifySignature = async (params: Params) => {
   const decodedAddress = decodeSignerAddress({
     nonce: params.nonce,
     signature: params.signature,
   });
+
+  // Gnosis
+  if (params.signature === "0x") {
+    await verifyGnosisSignature({
+      address: params.address,
+      message: editPledgeMessage(params.nonce),
+    });
+  }
   if (decodedAddress?.toLowerCase() !== params.address.toLowerCase()) {
     throw new Error("Invalid signature");
   }
