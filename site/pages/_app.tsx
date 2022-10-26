@@ -4,11 +4,25 @@ import "@klimadao/lib/theme/variables.css";
 import { useTabListener } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
+import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Script from "next/script";
-import { useEffect, useRef } from "react";
+import { ReactElement, ReactNode, useEffect, useRef } from "react";
+
 // keep globals on new line so that it is imported after variables.css
 import "@klimadao/lib/theme/globals.css";
+
+//nextjs.org/docs/basic-features/layouts
+export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<
+  P,
+  IP
+> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
 
 const loadFallbackOnServer = async () => {
   if (typeof window === "undefined") {
@@ -21,7 +35,7 @@ const loadFallbackOnServer = async () => {
 
 // TODO: throw if env vars are unset
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppPropsWithLayout) {
   useTabListener();
 
   const firstRender = useRef(true);
@@ -57,13 +71,15 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     }
   });
 
+  // Use the layout defined at the page level, if available
+  const getLayout =
+    Component.getLayout || ((page) => <GridContainer>{page}</GridContainer>);
+
   return (
     <>
       <Web3ContextProvider>
         <I18nProvider i18n={i18n}>
-          <GridContainer>
-            <Component {...pageProps} />
-          </GridContainer>
+          {getLayout(<Component {...pageProps} />)}
         </I18nProvider>
       </Web3ContextProvider>
       <Script
