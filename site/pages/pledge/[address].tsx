@@ -15,7 +15,6 @@ import {
   queryHoldingsByAddress,
 } from "components/pages/Pledge/lib";
 import { Pledge, Holding } from "components/pages/Pledge/types";
-import { redirect } from "next/dist/server/api-utils";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
