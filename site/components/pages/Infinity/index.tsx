@@ -29,7 +29,7 @@ import gasPump from "public/gas_pump.png";
 import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
-import GetStardedModal from "./GetStartedModal";
+import GetStartedModal from "./GetStartedModal";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
@@ -69,9 +69,9 @@ export const Infinity: NextPage<Props> = () => {
         })}
       />
 
-      <Navigation activePage="Infinity" showThemeToggle={false} />
+      <Navigation activePage="Infinity" showThemeToggle={false} transparent />
 
-      <GetStardedModal showModal={showModal} setShowModal={setShowModal} />
+      <GetStartedModal showModal={showModal} setShowModal={setShowModal} />
 
       <Section variant="black" className={styles.gradientBackgroundTop}>
         <div className={styles.heroSection}>

@@ -3,7 +3,6 @@ import { Route, useLocation } from "react-router-dom";
 import { useAppDispatch } from "state";
 import { bonds } from "@klimadao/lib/constants";
 import { useSelector } from "react-redux";
-import { Global, css } from "@emotion/react";
 
 import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
 import { selectAppState } from "state/selectors";
@@ -124,15 +123,6 @@ export const Home: FC = () => {
 
   return (
     <>
-      <Global
-        styles={css`
-          .MuiSvgIcon-root {
-            font-size: 2.4rem;
-            width: 2.4rem;
-            height: 2.4rem;
-          }
-        `}
-      />
       <div className={styles.container} data-scrolllock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
           <NavMenu address={web3.address} />

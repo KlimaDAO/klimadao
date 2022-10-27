@@ -218,3 +218,9 @@ export const categories_appendButton = css`
     width: 22rem;
   }
 `;
+
+export const submittingLabel = css`
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+`;

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-27 15:49+0000\n"
+"POT-Creation-Date: 2022-10-26 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Articles"
 msgstr "Articles"
 
-#: components/ChangeLanguageButton/index.tsx:65
+#: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "Changer de langue"
 
@@ -82,7 +82,7 @@ msgstr "Débutant"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:14
 msgid "buy.beginner_01.description_01"
-msgstr "<0>Métamask</0> est le portefeuille le plus populaire pour Ethereum et Polygon. Vous pouvez l'utiliser pour vous connecter à notre application et ordonner des transactions. Assurez-vous que l'extension est installée sur votre navigateur Web."
+msgstr "<0>Metamask</0> est le portefeuille le plus populaire pour Ethereum et Polygon. Vous pouvez l'utiliser pour vous connecter à notre application et envoyer des transactions. Assurez-vous que l'extension est installée sur votre navigateur Web."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:10
 msgid "buy.beginner_01.title"
@@ -152,7 +152,7 @@ msgstr "Carte de crédit"
 
 #: components/pages/Buy/index.tsx:178
 msgid "buy.credit_card.summary"
-msgstr "Vous pouvez maintenant utiliser votre carte de crédit pour acheter des jetons KLIMA directement dans votre portefeuille ! Nos partenaires se chargeant de la transaction  prennent en charge la plupart des devises courantes."
+msgstr "Vous pouvez désormais utiliser votre carte de crédit pour acheter des jetons KLIMA directement dans votre portefeuille ! Nos partenaires de paiement prennent en charge les principales devises."
 
 #: components/pages/Buy/index.tsx:104
 msgid "buy.decentralized_exchange"
@@ -564,7 +564,7 @@ msgstr "Chaque jeton KLIMA est collatéralisé par un actif carbone réel. Les j
 
 #: components/SocialProof/index.tsx:19
 msgid "home.featured_on"
-msgstr "KlimaDAO présenté sur"
+msgstr "Ils parlent de KlimaDAO"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:106
@@ -573,7 +573,7 @@ msgstr "Combattez le changement climatique et soyez récompensé avec KLIMA, une
 
 #: components/pages/Home/index.tsx:460
 msgid "home.get_exposure_to_the_growing_carbon_economy"
-msgstr "Prenez part à l'économie carbone actuellement en plein essort. Achetez, déposez et soyez obtenez du rendement. Activisme financier pour le climat."
+msgstr "Prenez part dès aujourd'hui à l'économie croissante du carbone. Acquérir, participer et être récompensé. L'activisme financier au service du climat."
 
 #: components/pages/Home/index.tsx:457
 msgid "home.get_klima"
@@ -625,7 +625,7 @@ msgstr "<0>{0} % DE RÉCOMPENSES MENSUELLES</0> <1>POUR LES DÉTENTEURS DE JETO
 
 #: components/pages/Home/index.tsx:489
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
-msgstr "Tout l'Alpha, directement dans votre boîte de réception"
+msgstr "Toute l'Alpha, directement dans votre boîte de réception"
 
 #. Long sentence
 #: components/pages/Home/index.tsx:497
@@ -895,7 +895,7 @@ msgstr "Tonnes"
 
 #: components/pages/Infinity/index.tsx:189
 msgid "infinity.transparent_subtitle"
-msgstr "Transparent"
+msgstr "Transparente"
 
 #: components/pages/Infinity/index.tsx:184
 msgid "infinity.transparent_title"
@@ -1001,9 +1001,13 @@ msgstr "Total des tonnes de Carbone compensées"
 msgid "pledges.edit_pledge"
 msgstr "Modifier l'engagement"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:268
+#: components/pages/Pledge/PledgeForm/index.tsx:290
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Ajouter une catégorie"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:121
+msgid "pledges.form.awaiting_signature"
+msgstr "En attente de signature..."
 
 #: components/pages/Pledge/index.tsx:156
 msgid "pledges.form.error"
@@ -1053,67 +1057,67 @@ msgstr "Saisir un nom"
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "Saisir une URL valide"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:194
+#: components/pages/Pledge/PledgeForm/index.tsx:214
 msgid "pledges.form.footprint.label"
 msgstr "Empreinte"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:199
+#: components/pages/Pledge/PledgeForm/index.tsx:219
 msgid "pledges.form.footprint.prompt"
 msgstr "Ajoutez une catégorie et commencez à calculer votre empreinte carbone"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:109
+#: components/pages/Pledge/PledgeForm/index.tsx:129
 msgid "pledges.form.generic_error"
 msgstr "Un problème est survenu. Veuillez réessayer."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:219
+#: components/pages/Pledge/PledgeForm/index.tsx:240
 msgid "pledges.form.input.categoryName.label"
 msgstr "Catégorie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:211
+#: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Nom de catégorie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:240
+#: components/pages/Pledge/PledgeForm/index.tsx:262
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Quantité"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:232
+#: components/pages/Pledge/PledgeForm/index.tsx:254
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Tonnes de carbone"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:159
+#: components/pages/Pledge/PledgeForm/index.tsx:179
 msgid "pledges.form.input.description.label"
 msgstr "Engagement"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:152
+#: components/pages/Pledge/PledgeForm/index.tsx:172
 msgid "pledges.form.input.description.placeholder"
 msgstr "Quel est votre engagement ?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:181
+#: components/pages/Pledge/PledgeForm/index.tsx:201
 msgid "pledges.form.input.methodology.label"
 msgstr "Méthodologie"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:173
+#: components/pages/Pledge/PledgeForm/index.tsx:193
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "Quels outils ou méthodologies avez-vous utilisés pour calculer votre empreinte carbone ?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:125
+#: components/pages/Pledge/PledgeForm/index.tsx:145
 msgid "pledges.form.input.name.label"
 msgstr "Nom"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:118
+#: components/pages/Pledge/PledgeForm/index.tsx:138
 msgid "pledges.form.input.name.placeholder"
 msgstr "Nom ou nom de l'entreprise"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:138
+#: components/pages/Pledge/PledgeForm/index.tsx:158
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "URL de l'image de profil (facultatif)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:284
+#: components/pages/Pledge/PledgeForm/index.tsx:307
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Empreinte totale"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:298
+#: components/pages/Pledge/PledgeForm/index.tsx:325
 msgid "pledges.form.submit_button"
 msgstr "Sauvegarder l'engagement"
 
@@ -1121,9 +1125,13 @@ msgstr "Sauvegarder l'engagement"
 msgid "pledges.form.title"
 msgstr "Votre Engagement"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:46
+#: components/pages/Pledge/PledgeForm/index.tsx:47
 msgid "pledges.form.total_footprint_summary"
 msgstr "Empreinte totale : {0} Tonnes de carbone"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:335
+msgid "pledges.form.use_your_wallet"
+msgstr "Utilisez votre portefeuille pour signer et confirmer cette modification."
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
@@ -1131,23 +1139,23 @@ msgstr "Montrez votre engagement climatique en utilisant votre tableau de bord p
 
 #: components/pages/Pledge/index.tsx:63
 msgid "pledges.head.metaTitle"
-msgstr "Créez une promesse carbone et montrez votre impact."
+msgstr "Créez un engagement carbone et montrez votre impact."
 
 #: components/pages/Pledge/index.tsx:59
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Engagements"
 
-#: components/pages/Pledge/index.tsx:308
+#: components/pages/Pledge/index.tsx:310
 msgid "pledges.home.banner.create"
-msgstr "Créer une promesse"
+msgstr "Créer un engagement"
 
-#: components/pages/Pledge/index.tsx:287
+#: components/pages/Pledge/index.tsx:289
 msgid "pledges.home.get_started.create"
-msgstr "Créer une promesse"
+msgstr "Créer un engagement"
 
 #: components/pages/Pledge/index.tsx:106
 msgid "pledges.home.hero.create"
-msgstr "Créer une promesse"
+msgstr "Créer un engagement"
 
 #: components/pages/Pledge/index.tsx:114
 msgid "pledges.home.hero.learn_more"
@@ -1159,9 +1167,9 @@ msgstr "Adresse ENS ou 0x"
 
 #: components/pages/Pledge/index.tsx:144
 msgid "pledges.home.search.placeholder"
-msgstr "Entrez une adresse ENS ou 0x"
+msgstr "Entrez une adresse ENS, KNS ou 0x"
 
-#: components/pages/Pledge/index.tsx:168
+#: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.search.submit"
 msgstr "Recherche"
 
@@ -1178,17 +1186,41 @@ msgstr "Podcast"
 msgid "podcast.head.title"
 msgstr "Podcast KlimaDAO"
 
-#: components/pages/Resources/lib/getResourcesListErrorTranslations.ts:4
-msgid "resources.form.input.search.error.required"
-msgstr "Saisissez votre recherche"
+#: components/pages/Resources/ResourcesFilters/index.tsx:24
+msgid "resources.form.categories.header"
+msgstr "Catégories"
 
-#: components/pages/Resources/ResourcesList/index.tsx:88
+#: components/pages/Resources/ResourcesFilters/index.tsx:27
+msgid "resources.form.categories.subheader"
+msgstr "Sélectionner un ou plusieurs"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:69
+msgid "resources.form.filters.clear_all"
+msgstr "Tout effacer"
+
+#: components/pages/Resources/ResourcesList/index.tsx:176
 msgid "resources.form.input.search.label"
 msgstr "Recherche"
 
-#: components/pages/Resources/ResourcesList/index.tsx:74
+#: components/pages/Resources/ResourcesList/index.tsx:167
 msgid "resources.form.input.search.placeholder"
 msgstr "Recherche"
+
+#: components/pages/Resources/ResourcesList/index.tsx:208
+msgid "resources.form.input.sort_by.label"
+msgstr "Trier par"
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:20
+msgid "resources.form.input.sort_by.select"
+msgstr "Sélectionner"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:53
+msgid "resources.form.medium.header"
+msgstr "Média"
+
+#: components/pages/Resources/ResourcesFilters/index.tsx:41
+msgid "resources.form.sub_topics.header"
+msgstr "Sous-thèmes"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1202,6 +1234,78 @@ msgstr "Ressources KlimaDAO - Aller au-delà de la neutralité carbone"
 msgid "resources.head.title"
 msgstr "KlimaDAO | Ressources"
 
+#: components/pages/Resources/lib/cmsDataMap.ts:71
+msgid "resources.list.filter.tag.basics"
+msgstr "Bases"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:111
+msgid "resources.list.filter.tag.carbon_footprint"
+msgstr "Empreinte carbone"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:79
+msgid "resources.list.filter.tag.deep_dives"
+msgstr "Dossiers approfondis"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:52
+msgid "resources.list.filter.tag.klima_infinity"
+msgstr "Klima Infinity"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:44
+msgid "resources.list.filter.tag.klima_overview"
+msgstr "Vue d'ensemble de Klima"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:60
+msgid "resources.list.filter.tag.partnerships"
+msgstr "Partenariats"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:103
+msgid "resources.list.filter.tag.policy"
+msgstr "Politique"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:95
+msgid "resources.list.filter.tag.press_releases"
+msgstr "Communiqués de presse"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:87
+msgid "resources.list.filter.tag.user_guides"
+msgstr "Guide de l'utilisateur"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:121
+msgid "resources.list.filter.type.blog"
+msgstr "Blog"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:129
+msgid "resources.list.filter.type.podcast"
+msgstr "Podcast"
+
+#: components/pages/Resources/SortyByDropDown/index.tsx:61
+msgid "resources.list.select.sort_by.toggle"
+msgstr "Basculer vers le menu \"Trié par\""
+
+#: components/pages/Resources/lib/cmsDataMap.ts:155
+msgid "resources.list.sort_by.a-z"
+msgstr "A-Z"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:139
+msgid "resources.list.sort_by.latest_first"
+msgstr "Le plus récent en premier"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:147
+msgid "resources.list.sort_by.oldest_first"
+msgstr "Le plus ancien en premier"
+
+#: components/pages/Resources/lib/cmsDataMap.ts:163
+msgid "resources.list.sort_by.z-a"
+msgstr "Z-A"
+
+#: components/pages/Resources/ResourcesList/index.tsx:308
+msgid "resources.mobile_modal.button.show_results"
+msgstr "Afficher les résultats"
+
+#: components/pages/Resources/ResourcesList/index.tsx:281
+msgid "resources.mobile_modal.title"
+msgstr "Trier par"
+
 #: components/pages/Resources/index.tsx:47
 msgid "resources.page.header.subline"
 msgstr "Nouvelles et opinions des fondateurs, des contributeurs de la DAO, des conseillers et des membres de la communauté."
@@ -1210,17 +1314,25 @@ msgstr "Nouvelles et opinions des fondateurs, des contributeurs de la DAO, des c
 msgid "resources.page.header.title"
 msgstr "Articles en vedette"
 
-#: components/pages/Resources/ResourcesList/index.tsx:65
+#: components/pages/Resources/ResourcesList/index.tsx:159
 msgid "resources.page.list.header"
 msgstr "Tout explorer"
 
-#: components/pages/Resources/ResourcesList/index.tsx:116
-msgid "resources.page.list.no_search_results.subline"
-msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou d'orthographe - ou essayez un autre terme de recherche."
-
-#: components/pages/Resources/ResourcesList/index.tsx:111
+#: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
 msgstr "Désolé. Nous n'avons pas trouvé de résultats correspondants."
+
+#: components/pages/Resources/ResourcesList/index.tsx:238
+msgid "resources.page.list.on_fetch_error"
+msgstr "Désolé ! Un problème est survenu."
+
+#: components/pages/Resources/ResourcesList/index.tsx:259
+msgid "resources.page.list.search_submit.no_filter_results"
+msgstr "Veuillez utiliser une autre combinaison de filtres."
+
+#: components/pages/Resources/ResourcesList/index.tsx:252
+msgid "resources.page.list.search_submit.no_search_results"
+msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou d'orthographe - ou essayez un autre terme de recherche."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1399,46 +1511,46 @@ msgstr "Compensations Totales Par Actif"
 msgid "shared.404"
 msgstr "404 Page non trouvée"
 
-#: components/Navigation/index.tsx:78
-#: components/Navigation/index.tsx:223
+#: components/Navigation/index.tsx:82
+#: components/Navigation/index.tsx:236
 msgid "shared.about"
 msgstr "À propos"
 
-#: components/Navigation/index.tsx:117
-#: components/Navigation/index.tsx:265
+#: components/Navigation/index.tsx:121
+#: components/Navigation/index.tsx:278
 msgid "shared.app"
 msgstr "App"
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:80
-#: components/Navigation/index.tsx:227
+#: components/Navigation/index.tsx:84
+#: components/Navigation/index.tsx:240
 #: components/pages/Resources/ResourcesHeader/index.tsx:29
 #: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Blog"
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:135
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:139
+#: components/Navigation/index.tsx:295
 msgid "shared.bond"
 msgstr "Obligations Klima"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:119
-#: components/Navigation/index.tsx:269
+#: components/Navigation/index.tsx:123
+#: components/Navigation/index.tsx:282
 msgid "shared.buy"
 msgstr "Acheter des Klima"
 
-#: components/Navigation/index.tsx:339
+#: components/Navigation/index.tsx:366
 msgid "shared.carbon_dashboard"
 msgstr "Tableau de bord Carbone"
 
-#: components/Navigation/index.tsx:190
+#: components/Navigation/index.tsx:203
 msgid "shared.carbon_dashboards"
 msgstr "Tableaux de bord Carbone"
 
-#: components/Navigation/index.tsx:98
-#: components/Navigation/index.tsx:245
+#: components/Navigation/index.tsx:102
+#: components/Navigation/index.tsx:258
 #: components/pages/Resources/ResourcesHeader/index.tsx:51
 #: components/pages/Resources/ResourcesHeader/index.tsx:81
 msgid "shared.community"
@@ -1450,18 +1562,18 @@ msgid "shared.connect"
 msgstr "Connexion"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:254
+#: components/Navigation/index.tsx:267
 #: components/pages/Resources/ResourcesHeader/index.tsx:87
 msgid "shared.contact"
 msgstr "Contact"
 
-#: components/Navigation/index.tsx:67
+#: components/Navigation/index.tsx:71
 #: components/pages/Infinity/index.tsx:114
 #: components/pages/Infinity/index.tsx:680
 msgid "shared.contact_sales"
-msgstr "Contacter le service commercial"
+msgstr "Nous contacter"
 
-#: components/Navigation/index.tsx:107
+#: components/Navigation/index.tsx:111
 #: components/pages/Resources/Community/index.tsx:110
 #: components/pages/Resources/Community/index.tsx:405
 #: components/pages/Resources/ResourcesHeader/index.tsx:62
@@ -1469,18 +1581,18 @@ msgid "shared.contact_us"
 msgstr "Contact"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:198
-#: components/Navigation/index.tsx:347
+#: components/Navigation/index.tsx:211
+#: components/Navigation/index.tsx:374
 msgid "shared.disclaimer"
 msgstr "Avertissement légal"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:207
-#: components/Navigation/index.tsx:356
+#: components/Navigation/index.tsx:220
+#: components/Navigation/index.tsx:383
 msgid "shared.docs"
 msgstr "Docs"
 
-#: components/Navigation/index.tsx:60
+#: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
 msgid "shared.enter_app"
 msgstr "Visitez l'application"
@@ -1502,13 +1614,13 @@ msgstr "Influez sur l'action climatique et soyez récompensés avec une monnaie 
 msgid "shared.home"
 msgstr "Accueil"
 
-#: components/Navigation/index.tsx:181
-#: components/Navigation/index.tsx:330
+#: components/Navigation/index.tsx:194
+#: components/Navigation/index.tsx:357
 msgid "shared.how_to_buy"
 msgstr "Comment acheter des Klima"
 
-#: components/Navigation/index.tsx:168
-#: components/Navigation/index.tsx:316
+#: components/Navigation/index.tsx:172
+#: components/Navigation/index.tsx:330
 msgid "shared.infinity"
 msgstr "Infinity"
 
@@ -1522,8 +1634,13 @@ msgstr "Commencer"
 msgid "shared.infinity_cta"
 msgstr "DEFI POUR LES ENTREPRISES"
 
-#: components/Navigation/index.tsx:159
-#: components/Navigation/index.tsx:306
+#: components/Navigation/index.tsx:175
+#: components/Navigation/index.tsx:333
+msgid "shared.infinity_intro"
+msgstr "Introduction"
+
+#: components/Navigation/index.tsx:163
+#: components/Navigation/index.tsx:319
 msgid "shared.info"
 msgstr "Informations"
 
@@ -1537,31 +1654,40 @@ msgstr "Chargement..."
 msgid "shared.loveletter_cta"
 msgstr "DEFI POUR LES PARTICULIERS"
 
-#: components/Navigation/index.tsx:174
-#: components/Navigation/index.tsx:321
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:348
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:151
-#: components/Navigation/index.tsx:298
+#: components/Navigation/index.tsx:155
+#: components/Navigation/index.tsx:311
 msgid "shared.offset"
 msgstr "Compensation"
 
-#: components/Navigation/index.tsx:89
-#: components/Navigation/index.tsx:236
+#: components/Navigation/index.tsx:180
+#: components/Navigation/index.tsx:341
+msgid "shared.pledge"
+msgstr "Comment s'engager"
+
+#: components/Navigation/index.tsx:93
+#: components/Navigation/index.tsx:249
 #: components/pages/Resources/ResourcesHeader/index.tsx:40
 #: components/pages/Resources/ResourcesHeader/index.tsx:93
 msgid "shared.podcast"
 msgstr "Podcast"
 
-#: components/Navigation/index.tsx:177
-#: components/Navigation/index.tsx:326
+#: components/Navigation/index.tsx:190
+#: components/Navigation/index.tsx:353
 msgid "shared.resources"
 msgstr "Ressources"
 
+#: components/pages/Resources/ResourcesList/index.tsx:214
+msgid "shared.resources.sort_by.header"
+msgstr "Trier par :"
+
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:127
-#: components/Navigation/index.tsx:274
+#: components/Navigation/index.tsx:131
+#: components/Navigation/index.tsx:287
 msgid "shared.stake"
 msgstr "Déposer Klima"
 
@@ -1569,8 +1695,8 @@ msgstr "Déposer Klima"
 msgid "shared.visit_klimadao_blog"
 msgstr "Visitez le blog KlimaDAO"
 
-#: components/Navigation/index.tsx:143
-#: components/Navigation/index.tsx:290
+#: components/Navigation/index.tsx:147
+#: components/Navigation/index.tsx:303
 msgid "shared.wrap"
 msgstr "Encapsuler sKlima"
 

@@ -51,7 +51,6 @@ const contractMap = {
   // Bonds Contracts
   bond_klimaBctLp: Depository.abi,
   bond_klimaUsdcLp: Depository.abi,
-  bond_bctUsdcLp: Depository.abi,
   bond_klimaMco2Lp: Depository.abi,
   bond_mco2: Depository.abi,
   bond_bct: Depository.abi,

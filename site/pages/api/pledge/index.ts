@@ -27,6 +27,7 @@ export default async function handler(
           );
         }
 
+        await res.unstable_revalidate(req.body.urlPath);
         res.status(200).json({ pledge });
       } catch (e: any) {
         console.error("Request failed:", e.message);

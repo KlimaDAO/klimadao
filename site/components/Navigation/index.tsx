@@ -28,7 +28,8 @@ export type PageName =
   | "Community"
   | "Podcast"
   | "Contact"
-  | "Pledges";
+  | "Pledges"
+  | "EventDemo";
 
 export type NavItemMobileID =
   | "About"
@@ -40,10 +41,12 @@ export type NavItemMobileID =
 export type Props = {
   activePage: PageName;
   showThemeToggle?: boolean;
+  transparent?: boolean;
 };
 
 export const Navigation: FC<Props> = ({
   activePage,
+  transparent,
   showThemeToggle = true,
 }) => {
   const { locale } = useRouter();
@@ -51,6 +54,7 @@ export const Navigation: FC<Props> = ({
   return (
     <>
       <HeaderDesktop
+        transparent={transparent}
         buttons={[
           <ChangeLanguageButton key="ChangeLanguageButton" />,
           ...(showThemeToggle ? [<ThemeToggle key="ThemeToggle" />] : []),
@@ -164,11 +168,20 @@ export const Navigation: FC<Props> = ({
             url={createLinkWithLocaleQuery(urls.info, locale)}
           />
         </DropdownItemDesktop>
-        <LinkItemDesktop
+        <DropdownItemDesktop
           name={t({ message: "Infinity", id: "shared.infinity" })}
-          active={activePage === "Infinity"}
-          url="/infinity"
-        />
+        >
+          <LinkItemDesktop
+            name={t({ message: "Introduction", id: "shared.infinity_intro" })}
+            active={activePage === "Infinity"}
+            url="/infinity"
+          />
+          <LinkItemDesktop
+            name={t({ message: "How to pledge", id: "shared.pledge" })}
+            active={activePage === "Pledges"}
+            url="/pledge"
+          />
+        </DropdownItemDesktop>
         <LinkItemDesktop
           url={urls.loveletter}
           name={t({ message: "Love Letters", id: "shared.loveletters" })}
@@ -312,10 +325,24 @@ export const Navigation: FC<Props> = ({
                 />,
               ]}
             />
+
             <NavItemMobile
               name={t({ message: "Infinity", id: "shared.infinity" })}
-              url="/infinity"
-              id="Infinity"
+              subMenu={[
+                <NavItemMobile
+                  name={t({
+                    message: "Introduction",
+                    id: "shared.infinity_intro",
+                  })}
+                  key="infinity"
+                  url="/infinity"
+                />,
+                <NavItemMobile
+                  name={t({ message: "How to pledge", id: "shared.pledge" })}
+                  key="pledges"
+                  url="/pledge"
+                />,
+              ]}
             />
             <NavItemMobile
               name={t({ message: "Love Letters", id: "shared.loveletters" })}

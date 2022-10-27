@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NextPage } from "next";
 import { t } from "@lingui/macro";
 
@@ -15,12 +15,11 @@ import {
   PledgeCard,
   RetirementsCard,
 } from "./Cards";
-import { putPledge, pledgeFormAdapter } from "../lib";
 import { Profile } from "./Profile";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import { Holding, Pledge } from "../types";
-import { InvitationModals } from "../InvitationModals";
+import { AcceptModal, RemoveModal } from "../InvitationModals";
 import * as styles from "./styles";
 
 type Props = {
@@ -38,10 +37,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const [isDeleteMode, setIsDeleteMode] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(props.pledge);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
-  const { signer } = useWeb3();
-
-  const [errorMessage, setErrorMessage] = useState("");
-  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showAcceptModal, setShowAcceptModal] = useState(false);
 
   const isUnverifiedSecondaryWallet =
     props.pledge.wallets &&
@@ -53,6 +49,9 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     Object.values(props.pledge.wallets)?.some(
       (wallet) => wallet.address === address && wallet.status === "verified"
     );
+  useEffect(() => {
+    isUnverifiedSecondaryWallet && setShowAcceptModal(true);
+  }, [isUnverifiedSecondaryWallet]);
   const isPledgeOwner =
     address?.toLowerCase() === props.pageAddress && isConnected;
   const canEditPledge =
@@ -64,29 +63,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     setShowFormModal(false);
   };
 
-  const handleSecondaryWalletSubmit = async (params: {
-    message: (nonce: string) => string;
-  }) => {
-    try {
-      if (!signer) return;
-      const address = await signer.getAddress();
-      const signature = await signer.signMessage(params.message(pledge.nonce));
-      const response = await putPledge({
-        pageAddress: props.pageAddress,
-        secondaryWalletAddress: address,
-        pledge: pledgeFormAdapter(pledge),
-        signature,
-      });
-      setPledge(response.pledge);
-    } catch (e: any) {
-      setShowErrorModal(true);
-      setErrorMessage(
-        e.message ??
-          "Something went wrong on our end. Please try again in a few minutes"
-      );
-      console.log("error:", e);
-    }
-  };
   const pledgeOwnerTitle =
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
 
@@ -111,15 +87,17 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         })}
         canonicalUrl={props.canonicalUrl}
       />
-      <InvitationModals
+      <AcceptModal
         pledge={props.pledge}
-        handleSubmit={handleSecondaryWalletSubmit}
-        isUnverifiedSecondaryWallet={isUnverifiedSecondaryWallet || false}
+        pageAddress={props.pageAddress}
+        showAcceptModal={showAcceptModal}
+        setShowAcceptModal={setShowAcceptModal}
+      />
+      <RemoveModal
+        pledge={props.pledge}
+        pageAddress={props.pageAddress}
         showRemoveModal={showRemoveModal}
         setShowRemoveModal={setShowRemoveModal}
-        setShowErrorModal={setShowErrorModal}
-        showErrorModal={showErrorModal}
-        errorMessage={errorMessage}
       />
       {/* conditional props are used here because unmounting the modal will clear form state when `isDeleteMode` is changed */}
       <Modal
@@ -143,7 +121,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       >
         <PledgeForm
           pageAddress={props.pageAddress}
-          pledge={props.pledge}
+          pledge={pledge}
           onFormSubmit={handleFormSubmit}
           setIsDeleteMode={setIsDeleteMode}
           isDeleteMode={isDeleteMode}

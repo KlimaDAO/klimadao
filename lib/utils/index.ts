@@ -46,7 +46,7 @@ export {
   KNSContract,
 } from "./kns";
 export { getTransactionOptions } from "./getTransactionOptions";
-
+export { getLocales } from "./getLocales";
 // ENS
 export {
   isENSDomain,

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-09-27 15:49+0000\n"
+"POT-Creation-Date: 2022-10-26 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +27,7 @@ msgstr "Cette application fonctionne uniquement sur le réseau Polygon principal
 msgid "Wrong Network"
 msgstr "Mauvais réseau"
 
-#: components/views/Offset/index.tsx:771
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:38
 msgid "advanced"
 msgstr "AVANCÉ"
 
@@ -257,68 +257,62 @@ msgstr "<0>app.klimadao.finance</0> est le seul domaine officiel."
 msgid "checkurlbanner.verify_url_and_bookmark_this_page"
 msgstr "⚠️ Vérifiez l'URL et mettez cette page en signet !"
 
-#: components/views/ChooseBond/index.tsx:92
+#: components/views/ChooseBond/index.tsx:89
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Tonne de Carbone de base Toucan"
 
-#: components/views/ChooseBond/index.tsx:197
+#: components/views/ChooseBond/index.tsx:184
 msgid "choose_bond.bond_carbon"
 msgstr "Obligation carbone"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:200
+#: components/views/ChooseBond/index.tsx:187
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "La meilleure façon d'acheter des KLIMA. Déposez des équivalents carbone dans notre trésorerie et recevez des KLIMA à prix réduit. Toutes les obligations (sauf celles à taux variable inversé) ont une période de maturation obligatoire de 5 jours."
 
-#: components/views/ChooseBond/index.tsx:224
+#: components/views/ChooseBond/index.tsx:211
 msgid "choose_bond.choose_bond"
 msgstr "Choisissez une obligation"
 
-#: components/views/ChooseBond/index.tsx:112
+#: components/views/ChooseBond/index.tsx:105
 msgid "choose_bond.inverse_usdc"
 msgstr "Fournissez des KLIMA, recevez des USDC"
 
-#: components/views/ChooseBond/index.tsx:100
+#: components/views/ChooseBond/index.tsx:97
 msgid "choose_bond.klima_bct_lp.klima_bct_sushiswap_liquidity"
 msgstr "Liquidité Sushiswap KLIMA/BCT"
 
-#: components/views/ChooseBond/index.tsx:96
+#: components/views/ChooseBond/index.tsx:93
 msgid "choose_bond.klima_usdc_lp.klima_usdc_sushiswap_liquidity"
 msgstr "Liquidité Sushiswap KLIMA/USDC"
 
-#: components/views/ChooseBond/index.tsx:88
+#: components/views/ChooseBond/index.tsx:85
 msgid "choose_bond.mco2.moss_carbon_credit_token"
 msgstr "Jeton de crédit carbone MOSS"
 
-#: components/views/ChooseBond/index.tsx:108
+#: components/views/ChooseBond/index.tsx:101
 msgid "choose_bond.mco2_lp.klima_mco2_quickswap_liquidity"
 msgstr "Liquidité Quickswap KLIMA/MCO2"
 
-#: components/views/ChooseBond/index.tsx:84
+#: components/views/ChooseBond/index.tsx:81
 msgid "choose_bond.nbo.description"
 msgstr "Compensation C3 basée sur la nature"
 
-#: components/views/ChooseBond/index.tsx:227
+#: components/views/ChooseBond/index.tsx:214
 msgid "choose_bond.percent_discount"
 msgstr "% Remise"
 
-#: components/views/ChooseBond/index.tsx:253
+#: components/views/ChooseBond/index.tsx:240
 msgid "choose_bond.sold_out"
 msgstr "ÉPUISÉ"
 
-#: components/views/ChooseBond/index.tsx:214
+#: components/views/ChooseBond/index.tsx:201
 msgid "choose_bond.treasury_balance"
 msgstr "Solde de la trésorerie"
 
-#: components/views/ChooseBond/index.tsx:80
+#: components/views/ChooseBond/index.tsx:77
 msgid "choose_bond.ubo.description"
 msgstr "Compensation C3 standard"
-
-#: components/views/ChooseBond/index.tsx:104
-msgid "choose_bond.usdc_lp.bct_usdc_sushiswap_liquidity"
-msgstr ""
-"Liquidité Sushiswap BCT/USDC \n"
-""
 
 #: components/ImageCard/index.tsx:16
 msgid "imagecard.how_to_get_started"
@@ -329,45 +323,45 @@ msgid "imagecard.new_to_klima"
 msgstr "Nouveau sur KLIMA ?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:149
+#: components/views/Info/index.tsx:140
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Ouvrez Metamask et choisissez le réseau Ethereum Mainnet"
 
 #. Long sentence
-#: components/views/Info/index.tsx:156
+#: components/views/Info/index.tsx:147
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr "2. Allez dans Paramètres/Réseaux/Polygon et cliquez sur 'supprimer'"
 
 #. Long sentence
-#: components/views/Info/index.tsx:163
+#: components/views/Info/index.tsx:154
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. Retournez sur app.klimadao.finance et choisissez le réseau principal"
 
 #. Long sentence
-#: components/views/Info/index.tsx:141
+#: components/views/Info/index.tsx:132
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "Si l'application indique \"chargement...\", il s'agit probablement d'un problème lié à la configuration de votre réseau dans Metamask. Pour résoudre ce problème :"
 
 #. Long sentence
-#: components/views/Info/index.tsx:170
+#: components/views/Info/index.tsx:161
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask devrait vous inviter à ajouter le réseau Polygon, avec la configuration RPC qui convient."
 
 #. Long sentence
-#: components/views/Info/index.tsx:136
+#: components/views/Info/index.tsx:127
 msgid "info.app_not_loading.title"
 msgstr "Pourquoi l'application ne charge-t-elle pas ?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:124
+#: components/views/Info/index.tsx:115
 msgid "info.common_app_related_questions"
 msgstr "Questions courantes concernant l'application et liens utiles. Pour des informations plus complètes sur KlimaDAO, veuillez consulter notre <0>documentation officielle</0> ."
 
-#: components/views/Info/index.tsx:121
+#: components/views/Info/index.tsx:112
 msgid "info.info_and_faq"
 msgstr "Informations et FAQ"
 
-#: components/views/Info/index.tsx:184
+#: components/views/Info/index.tsx:175
 msgid "info.official_contract_addresses"
 msgstr "Adresses officielles des contrats"
 
@@ -435,11 +429,11 @@ msgstr "CONFIRMATION"
 msgid "nav.back"
 msgstr "RETOUR"
 
-#: components/views/Offset/index.tsx:591
+#: components/views/Offset/index.tsx:585
 msgid "offset.aggregation_fee_tooltip"
 msgstr "Ce coût comprend le glissement et les frais d'agrégation de 1 %."
 
-#: components/views/Offset/index.tsx:469
+#: components/views/Offset/index.tsx:457
 msgid "offset.amount_in_tonnes"
 msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 
@@ -447,15 +441,15 @@ msgstr "Combien de tonnes de carbone souhaitez-vous compenser ?"
 msgid "offset.breakdown"
 msgstr "Ventilation"
 
-#: components/views/Offset/index.tsx:559
+#: components/views/Offset/index.tsx:551
 msgid "offset.default_retirement_address"
 msgstr "Par défaut, l'adresse du portefeuille connecté"
 
-#: components/views/Offset/index.tsx:495
+#: components/views/Offset/index.tsx:484
 msgid "offset.dropdown_payWith.label"
 msgstr "Payer avec"
 
-#: components/views/Offset/index.tsx:510
+#: components/views/Offset/index.tsx:501
 msgid "offset.dropdown_retire.label"
 msgstr "Sélectionnez l'actif carbone à compenser"
 
@@ -463,28 +457,28 @@ msgstr "Sélectionnez l'actif carbone à compenser"
 msgid "offset.empty"
 msgstr "Cette adresse n'a encore réalisée aucune compensation carbone."
 
-#: components/views/Offset/index.tsx:553
-#: components/views/Offset/index.tsx:800
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:65
+#: components/views/Offset/index.tsx:545
 msgid "offset.enter_address"
 msgstr "Entrez l'adresse commençant par 0x"
 
-#: components/views/Offset/index.tsx:449
+#: components/views/Offset/index.tsx:437
 msgid "offset.go_carbon_neutral"
 msgstr "Devenez neutre en carbone en retirant du carbone et en réclamant le bénéfice environnemental sous-jacent de la compensation carbone. Pour en savoir plus sur les jetons de carbone, consultez nos <0>documents</0>."
 
-#: components/views/Offset/index.tsx:428
+#: components/views/Offset/index.tsx:416
 msgid "offset.incompatible"
-msgstr "JETON EN ENTRÉE INCOMPATIBLE"
+msgstr "JETON INCOMPATIBLE"
 
-#: components/views/Offset/index.tsx:457
+#: components/views/Offset/index.tsx:445
 msgid "offset.lifi"
 msgstr "La compensation inter-chaînes est désormais disponible via <0>LI.FI et Etherspot</0>, avec un support pour plusieurs chaînes et jetons."
 
-#: components/views/Offset/index.tsx:496
+#: components/views/Offset/index.tsx:488
 msgid "offset.modal_payWith.title"
 msgstr "Sélectionnez l'actif"
 
-#: components/views/Offset/index.tsx:514
+#: components/views/Offset/index.tsx:505
 msgid "offset.modal_retire.title"
 msgstr "Sélectionnez le type de carbone"
 
@@ -492,56 +486,56 @@ msgstr "Sélectionnez le type de carbone"
 msgid "offset.number_of_retirements"
 msgstr "Retraits totaux"
 
-#: components/views/Offset/index.tsx:486
+#: components/views/Offset/index.tsx:474
 msgid "offset.offset_quantity"
 msgstr "Entrez la quantité à compenser"
 
-#: components/views/Offset/index.tsx:446
-#: components/views/Offset/index.tsx:647
+#: components/views/Offset/index.tsx:434
+#: components/views/Offset/index.tsx:643
 msgid "offset.retire_carbon"
 msgstr "Compenser des émissions Carbone"
 
-#: components/views/Offset/index.tsx:778
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:46
 msgid "offset.retire_specific"
 msgstr "Compenser des actifs de projet spécifiques"
 
-#: components/views/Offset/index.tsx:784
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:52
 msgid "offset.retire_specific_tooltip"
 msgstr "Soumis à des frais supplémentaires, fonctions du pool sélectionné et payés à l'opérateur du pont."
 
-#: components/views/Offset/index.tsx:539
+#: components/views/Offset/index.tsx:531
 msgid "offset.retirement_beneficiary"
 msgstr "Nom ou organisation"
 
-#: components/views/Offset/index.tsx:531
+#: components/views/Offset/index.tsx:523
 msgid "offset.retirement_credit"
 msgstr "A qui cette compensation carbone sera-t-elle créditée ?"
 
-#: components/views/Offset/index.tsx:568
+#: components/views/Offset/index.tsx:561
 msgid "offset.retirement_message"
 msgstr "Message de compensation carbone"
 
-#: components/views/Offset/index.tsx:577
+#: components/views/Offset/index.tsx:570
 msgid "offset.retirement_purpose"
 msgstr "Décrivez le but de ce retrait"
 
-#: components/views/Offset/index.tsx:609
+#: components/views/Offset/index.tsx:603
 msgid "offset.retiring"
 msgstr "Compensation en cours"
 
-#: components/views/Offset/index.tsx:694
+#: components/views/Offset/RetirementSuccessModal/index.tsx:25
 msgid "offset.successModal.body1"
 msgstr "Un grand merci. En participant au marché volontaire du carbone, vous rendez la conservation plus rentable et l'atténuation du climat plus efficace."
 
-#: components/views/Offset/index.tsx:703
+#: components/views/Offset/RetirementSuccessModal/index.tsx:35
 msgid "offset.successModal.body2"
 msgstr "Cliquez sur le bouton ci-dessous pour afficher votre retrait. Pensez à partager la page pour nous soutenir dans notre cheminement vers un marché du carbone plus transparent, plus accessible et plus rémunérateur !"
 
-#: components/views/Offset/index.tsx:717
+#: components/views/Offset/RetirementSuccessModal/index.tsx:50
 msgid "offset.successModal.cta"
 msgstr "VOIR MON RETRAIT"
 
-#: components/views/Offset/index.tsx:687
+#: components/views/Offset/RetirementSuccessModal/index.tsx:16
 msgid "offset.successModal.title"
 msgstr "Compensation réussi !"
 
@@ -553,11 +547,11 @@ msgstr "Tonnes de carbone"
 msgid "offset.you_have_retired"
 msgstr "Vous avez compensé"
 
-#: components/views/Offset/index.tsx:587
+#: components/views/Offset/index.tsx:581
 msgid "offset_cost"
 msgstr "Coût"
 
-#: components/views/Offset/index.tsx:620
+#: components/views/Offset/index.tsx:615
 msgid "offset_disclaimer"
 msgstr "Veillez à ne pas divulguer d'informations personnelles sensibles. Votre message ne pourrra pas être modifié et sera enregistré définitivement sur une blockchain publique."
 
@@ -627,7 +621,7 @@ msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont gagné 
 
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:459
-#: components/views/Offset/index.tsx:355
+#: components/views/Offset/index.tsx:343
 #: components/views/Stake/index.tsx:259
 #: components/views/Wrap/index.tsx:227
 msgid "shared.approve"
@@ -637,7 +631,7 @@ msgstr "APPROUVER"
 msgid "shared.balances"
 msgstr "Soldes"
 
-#: components/ChangeLanguageButton/index.tsx:73
+#: components/ChangeLanguageButton/index.tsx:56
 msgid "shared.change_language"
 msgstr "Changer de langue"
 
@@ -648,7 +642,7 @@ msgstr "Confirmation en cours"
 
 #: components/views/Bond/index.tsx:410
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:320
+#: components/views/Offset/index.tsx:308
 #: components/views/PKlima/index.tsx:150
 #: components/views/Stake/index.tsx:233
 #: components/views/Wrap/index.tsx:196
@@ -665,7 +659,7 @@ msgid "shared.enter_amount"
 msgstr "Entrez le montant"
 
 #: components/views/Bond/index.tsx:422
-#: components/views/Offset/index.tsx:332
+#: components/views/Offset/index.tsx:320
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:208
 msgid "shared.enter_quantity"
@@ -677,13 +671,13 @@ msgstr "ENTRER LE MONTANT"
 msgid "shared.error"
 msgstr "ERREUR"
 
-#: components/views/Offset/index.tsx:348
+#: components/views/Offset/index.tsx:336
 #: components/views/Stake/index.tsx:252
 #: components/views/Wrap/index.tsx:220
 msgid "shared.insufficient_balance"
 msgstr "SOLDE INSUFFISANT"
 
-#: components/views/Offset/index.tsx:341
+#: components/views/Offset/index.tsx:329
 msgid "shared.invalid_inputs"
 msgstr "ENTRÉES INCORRECTES"
 
@@ -692,8 +686,8 @@ msgstr "ENTRÉES INCORRECTES"
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:416
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:326
-#: components/views/Offset/index.tsx:414
+#: components/views/Offset/index.tsx:314
+#: components/views/Offset/index.tsx:402
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:239
 #: components/views/Stake/index.tsx:443
@@ -710,7 +704,7 @@ msgstr "Chargement..."
 msgid "shared.max"
 msgstr "Max"
 
-#: components/views/Offset/index.tsx:363
+#: components/views/Offset/index.tsx:351
 msgid "shared.retire"
 msgstr "RETRAIT CARBONE"
 

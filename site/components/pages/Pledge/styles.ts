@@ -86,6 +86,7 @@ export const hero = css`
     display: flex;
     justify-content: center;
     gap: 1.6rem;
+    flex-wrap: wrap;
   }
 
   h1,
