@@ -75,7 +75,7 @@ export const PledgeForm: FC<Props> = (props) => {
   const [submitting, setSubmitting] = useState(false);
   const { query } = useRouter();
   const { signer } = useWeb3();
-
+  // any type is used here because the pledge will only be this shape once before we format the wallets so it is not a type of Pledge or PledgeFormValues
   const formattedPledge: any = { ...props.pledge };
   if (props.pledge.wallets) {
     formattedPledge.wallets = Object.values(props.pledge.wallets) as Wallet[];
@@ -203,6 +203,7 @@ export const PledgeForm: FC<Props> = (props) => {
           />
 
           <TextareaField
+            id="pledge"
             textareaProps={{
               id: "pledge",
               placeholder: t({
@@ -264,6 +265,7 @@ export const PledgeForm: FC<Props> = (props) => {
                       errors.wallets?.[index]?.address?.message)) && (
                     <div className={styles.pledge_wallet_address_cell}>
                       <InputField
+                        id="pledges.form.input.walletAddress.placeholder"
                         inputProps={{
                           placeholder: t({
                             id: "pledges.form.input.walletAddress.placeholder",
@@ -345,6 +347,7 @@ export const PledgeForm: FC<Props> = (props) => {
             </div>
           </div>
           <TextareaField
+            id="methodology"
             textareaProps={{
               id: "methodology",
               placeholder: t({
@@ -360,10 +363,11 @@ export const PledgeForm: FC<Props> = (props) => {
               message: "Methodology",
             })}
             errorMessage={
-              !!formState.errors.methodology?.message &&
-              pledgeErrorTranslationsMap[
-                formState.errors.methodology.message as PledgeErrorId
-              ]
+              !!formState.errors.methodology?.message
+                ? pledgeErrorTranslationsMap[
+                    formState.errors.methodology.message as PledgeErrorId
+                  ]
+                : undefined
             }
           />
 

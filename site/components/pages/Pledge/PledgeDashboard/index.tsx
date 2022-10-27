@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NextPage } from "next";
 import { t } from "@lingui/macro";
 
@@ -15,12 +15,11 @@ import {
   PledgeCard,
   RetirementsCard,
 } from "./Cards";
-import { putPledge, pledgeFormAdapter } from "../lib";
 import { Profile } from "./Profile";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import { Holding, Pledge } from "../types";
-import { InvitationModals } from "../InvitationModals";
+import { AcceptModal, RemoveModal } from "../InvitationModals";
 import * as styles from "./styles";
 
 type Props = {
@@ -38,8 +37,8 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const [isDeleteMode, setIsDeleteMode] = useState(false);
   const [pledge, setPledge] = useState<Pledge>(props.pledge);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
+  const [showAcceptModal, setShowAcceptModal] = useState(false);
 
-  const { signer } = useWeb3();
   const isUnverifiedSecondaryWallet =
     props.pledge.wallets &&
     Object.values(props.pledge.wallets)?.some(
@@ -50,6 +49,9 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     Object.values(props.pledge.wallets)?.some(
       (wallet) => wallet.address === address && wallet.status === "verified"
     );
+  useEffect(() => {
+    isUnverifiedSecondaryWallet && setShowAcceptModal(true);
+  }, [isUnverifiedSecondaryWallet]);
   const isPledgeOwner =
     address?.toLowerCase() === props.pageAddress && isConnected;
   const canEditPledge =
@@ -61,35 +63,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     setShowFormModal(false);
   };
 
-  /**
-   * Close the modal on escape press
-   * @todo extract as generic modal behaviour
-   */
-  useEffect(() => {
-    const escListener = (e: KeyboardEvent) =>
-      e.key === "Escape" && showModal && setShowModal(false);
-
-    window.addEventListener("keydown", escListener);
-    return () => window.removeEventListener("keydown", escListener);
-  }, []);
-
-  const handleSecondaryWalletSubmit = async (params: {
-    message: (nonce: string) => string;
-  }) => {
-    try {
-      if (!signer) return;
-      const address = await signer.getAddress();
-      const signature = await signer.signMessage(params.message(pledge.nonce));
-      await putPledge({
-        pageAddress: props.pageAddress,
-        secondaryWalletAddress: address,
-        pledge: pledgeFormAdapter(pledge),
-        signature,
-      });
-    } catch {
-      console.log("uh ohhh");
-    }
-  };
   const pledgeOwnerTitle =
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
   const currentTotalFootprint =
@@ -115,10 +88,15 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         })}
         canonicalUrl={props.canonicalUrl}
       />
-      <InvitationModals
+      <AcceptModal
         pledge={props.pledge}
-        handleSubmit={handleSecondaryWalletSubmit}
-        isUnverifiedSecondaryWallet={isUnverifiedSecondaryWallet || false}
+        pageAddress={props.pageAddress}
+        showAcceptModal={showAcceptModal}
+        setShowAcceptModal={setShowAcceptModal}
+      />
+      <RemoveModal
+        pledge={props.pledge}
+        pageAddress={props.pageAddress}
         showRemoveModal={showRemoveModal}
         setShowRemoveModal={setShowRemoveModal}
       />
