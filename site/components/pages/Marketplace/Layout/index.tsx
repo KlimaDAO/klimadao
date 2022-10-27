@@ -17,7 +17,11 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
   ssr: false,
 });
 
-export const MarketplaceLayout: FC = (props) => {
+type Props = {
+  user?: string;
+};
+
+export const MarketplaceLayout: FC<Props> = (props) => {
   const { address, connect, disconnect, isConnected } = useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -25,7 +29,7 @@ export const MarketplaceLayout: FC = (props) => {
     <>
       <div className={styles.container} data-scrolllock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
-          <NavMenu address={address} />
+          <NavMenu address={address} user={props.user} />
         </div>
         <div className={styles.cardGrid}>
           <div className={styles.controls}>
@@ -44,6 +48,7 @@ export const MarketplaceLayout: FC = (props) => {
             <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
               <NavMenu
                 address={address}
+                user={props.user}
                 onHide={() => setShowMobileMenu(false)}
               />
             </div>
@@ -63,6 +68,7 @@ export const MarketplaceLayout: FC = (props) => {
               />
             )}
           </div>
+
           {props.children}
 
           <Footer className={styles.fullWidthFooter} />
