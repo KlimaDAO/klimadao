@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-26 15:44+0000\n"
+"POT-Creation-Date: 2022-10-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -166,7 +166,7 @@ msgstr "Montant de KLIMA déjà disponible et pouvant être réclamés"
 #. should autostake?
 #: components/views/Bond/index.tsx:1057
 msgid "bond.should_autostake"
-msgstr "Déposer automatiquement sKLIMA"
+msgstr "Mettre en jeu automatiquement contre des sKLIMA"
 
 #. Long sentence
 #: components/views/Bond/index.tsx:1016
@@ -399,7 +399,7 @@ msgstr "Compenser"
 
 #: components/NavMenu/index.tsx:168
 msgid "menu.stake_klima"
-msgstr "Déposer KLIMA"
+msgstr "Mettre en jeu des KLIMA"
 
 #: components/NavMenu/index.tsx:51
 msgid "menu.wallet_address"
@@ -566,7 +566,7 @@ msgstr "1. Approuver pKLIMA"
 #. Long sentence
 #: components/views/PKlima/index.tsx:194
 msgid "pklima.balances_card.make_sure_to_stake"
-msgstr "Assurez-vous de mettre en dépôt le pKLIMA réclamé et de conserver votre dépôt jusqu'à ce que les émissions mondiales de GHG aient atteint un plateau."
+msgstr "Assurez-vous de mettre en jeu le pKLIMA réclamé et de conserver votre mise jusqu'à ce que les émissions mondiales de GHG aient atteint un plateau."
 
 #: components/views/PKlima/index.tsx:181
 msgid "pklima.exercise"
@@ -583,7 +583,7 @@ msgstr "Indice ajusté"
 #. Long sentence
 #: components/views/PKlima/index.tsx:281
 msgid "pklima.index_adjusted.tooltip"
-msgstr "Équivalent sKLIMA réclamé, en supposant que vous avez mis en dépôt tous vos KLIMA jusqu'à aujourd'hui."
+msgstr "Équivalent sKLIMA réclamé, en supposant que vous avez mis en jeu tous vos KLIMA jusqu'à aujourd'hui."
 
 #: components/views/PKlima/index.tsx:226
 msgid "pklima.klima_to_exercise"
@@ -617,7 +617,7 @@ msgstr "Un pourcentage de l'offre totale de jetons. Votre créance ajustée par 
 
 #: components/views/PKlima/ClaimExceededModal/index.tsx:22
 msgid "pklima.update"
-msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont gagné des récompenses provenant d'actifs réclamés au préalable. Avant le correctif de novembre, le rendement des dépôts n'étaient pas pris en compte dans votre limite d'approvisionnement. De fait votre approvisionnement total en KLIMA pouvait dépasser la limite définie dans vos conditions."
+msgstr "Le nouveau contrat présuppose que les détenteurs de pKLIMA ont mis en jeu et gagné des récompenses provenant d'actifs réclamés au préalable. Avant le correctif de novembre, le rendement des dépôts n'étaient pas pris en compte dans votre limite d'approvisionnement. De fait votre approvisionnement total en KLIMA pouvait dépasser la limite définie dans vos conditions."
 
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:459
@@ -723,7 +723,7 @@ msgstr "Récompenses sur 5 jours"
 #. Long sentence
 #: components/views/Stake/index.tsx:400
 msgid "stake.5_day_rewards.tooltip"
-msgstr "Plus value approximative, comprenant les intérêts composés, si vous laissez votre dépôt pendant 5 jours."
+msgstr "Récompenses approximatives, comprenant les intérêts composés, si vous laissez votre mise pendant 5 jours."
 
 #: components/views/Stake/index.tsx:413
 msgid "stake.akr"
@@ -739,7 +739,7 @@ msgstr "Rendement en KLIMA annualisé, y compris les intérêts composés, si le
 #: components/views/Buy/index.tsx:124
 #: components/views/Stake/index.tsx:306
 msgid "stake.balancescard.tooltip"
-msgstr "Mettez vos jetons KLIMA en dépôt pour recevoir sKLIMA. Après chaque rebasement, votre solde sKLIMA augmentera du pourcentage indiqué."
+msgstr "Mettez en jeu vos jetons KLIMA pour recevoir des sKLIMA. Après chaque rebasement, votre solde sKLIMA augmentera du pourcentage indiqué."
 
 #: components/RebaseCard/index.tsx:82
 msgid "stake.estimated_payout"
@@ -752,11 +752,11 @@ msgstr "Indice"
 #. Long sentence
 #: components/views/Stake/index.tsx:430
 msgid "stake.index.tooltip"
-msgstr "Montant de KLIMA que vous auriez aujourd'hui si vous aviez mis en dépôt 1 KLIMA le jour du lancement. Utile à des fins comptables."
+msgstr "Montant de KLIMA que vous auriez aujourd'hui si vous aviez mis en jeu 1 KLIMA le jour du lancement. Utile à des fins comptables."
 
 #: components/views/Stake/index.tsx:59
 msgid "stake.inputplaceholder.stake"
-msgstr "Montant à déposer"
+msgstr "Montant à mettre en jeu"
 
 #: components/views/Stake/index.tsx:63
 msgid "stake.inputplaceholder.unstake"
@@ -764,7 +764,7 @@ msgstr "Montant à retirer"
 
 #: components/views/Stake/index.tsx:327
 msgid "stake.lifi"
-msgstr "Le dépôt inter-chaînes est désormais disponible via <0>LI.FI et Etherspot</0>, avec un support pour plusieurs chaînes et jetons."
+msgstr "La mise en jeu inter-chaînes est désormais disponible via <0>LI.FI et Etherspot</0>, avec un support pour plusieurs chaînes et jetons."
 
 #: components/RebaseCard/index.tsx:61
 msgid "stake.next_rebase"
@@ -784,17 +784,17 @@ msgstr "Le protocole génère et distribue automatiquement les intérêts. Vous 
 
 #: components/views/Stake/index.tsx:347
 msgid "stake.stake"
-msgstr "Déposer"
+msgstr "Mettre en jeu"
 
 #: components/views/Stake/index.tsx:321
 msgid "stake.stake_hold_earn"
-msgstr "Misez, accumulez et gagnez des sKLIMA via les intérêts composés."
+msgstr "Mettez en jeu, accumulez et gagnez des sKLIMA via les intérêts composés."
 
 #: components/views/Stake/index.tsx:268
 #: components/views/Stake/index.tsx:318
 #: components/views/Stake/index.tsx:483
 msgid "stake.stake_klima"
-msgstr "Déposer KLIMA"
+msgstr "Mettre en jeu des KLIMA"
 
 #: components/views/Stake/index.tsx:359
 msgid "stake.unstake"
@@ -907,7 +907,7 @@ msgstr "Solde"
 
 #: components/views/Wrap/index.tsx:265
 msgid "wrap.balances_tooltip"
-msgstr "Encapsulez sKLIMA pour recevoir un KLIMA ajusté à l'indice, encapsulé et mis en dépôt"
+msgstr "Encapsulez sKLIMA pour recevoir un KLIMA ajusté à l'indice, encapsulé et mis en jeu"
 
 #: components/views/Wrap/index.tsx:357
 msgid "wrap.index"
@@ -915,7 +915,7 @@ msgstr "Indice"
 
 #: components/views/Wrap/index.tsx:360
 msgid "wrap.index.tooltip"
-msgstr "Montant de KLIMA que vous posséderiez aujourd'hui si vous aviez mis en dépôt 1 KLIMA le jour du lancement. Utilisé pour calculer la valeur wsKLIMA."
+msgstr "Montant de KLIMA que vous posséderiez aujourd'hui si vous aviez mis en jeu 1 KLIMA le jour du lancement. Utilisé pour calculer la valeur wsKLIMA."
 
 #: components/views/Wrap/index.tsx:48
 msgid "wrap.sklima_to_wrap"

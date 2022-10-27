@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-26 15:44+0000\n"
+"POT-Creation-Date: 2022-10-27 15:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1002,7 +1002,7 @@ msgstr "添加类别"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:121
 msgid "pledges.form.awaiting_signature"
-msgstr ""
+msgstr "等待签名..."
 
 #: components/pages/Pledge/index.tsx:156
 msgid "pledges.form.error"
@@ -1126,7 +1126,7 @@ msgstr "总碳足迹：{0} 碳吨"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:335
 msgid "pledges.form.use_your_wallet"
-msgstr ""
+msgstr "使用您的钱包签名并确认此编辑。"
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
