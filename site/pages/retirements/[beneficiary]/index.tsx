@@ -42,6 +42,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No params found");
     }
 
+    // enforces lowercase urls
+    if (params.beneficiary !== params.beneficiary.toLowerCase()) {
+      return {
+        redirect: {
+          destination: `/retirements/${params.beneficiary.toLowerCase()}`,
+          permanent: false,
+        },
+      };
+    }
+
     const beneficiaryInUrl = params.beneficiary;
     const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
     const isValidAddress =
