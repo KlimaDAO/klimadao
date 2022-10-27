@@ -4,7 +4,6 @@ import "@klimadao/lib/theme/variables.css";
 import { useTabListener } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
-import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { ReactElement, ReactNode, useEffect, useRef } from "react";
@@ -35,7 +34,7 @@ const loadFallbackOnServer = async () => {
 
 // TODO: throw if env vars are unset
 
-function MyApp({ Component, pageProps, router }: AppPropsWithLayout) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   useTabListener();
 
   const firstRender = useRef(true);
@@ -71,15 +70,13 @@ function MyApp({ Component, pageProps, router }: AppPropsWithLayout) {
     }
   });
 
-  // Use the layout defined at the page level, if available
-  const getLayout =
-    Component.getLayout || ((page) => <GridContainer>{page}</GridContainer>);
-
   return (
     <>
       <Web3ContextProvider>
         <I18nProvider i18n={i18n}>
-          {getLayout(<Component {...pageProps} />)}
+          <GridContainer>
+            <Component {...pageProps} />
+          </GridContainer>
         </I18nProvider>
       </Web3ContextProvider>
       <Script

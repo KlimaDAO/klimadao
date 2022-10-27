@@ -2,6 +2,8 @@ import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
+  grid-column: full;
+
   position: relative; /* new stacking context */
   z-index: 0;
   overflow-x: hidden;
