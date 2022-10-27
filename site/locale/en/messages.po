@@ -930,11 +930,11 @@ msgstr "Invest in the future."
 msgid "mission.header"
 msgstr "KlimaDAO's mission is to democratize climate action"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:70
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
 msgid "pledges.dashboard.assets.emptyBalance"
 msgstr "No carbon assets to show."
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:92
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
 msgid "pledges.dashboard.assets.title"
 msgstr "Carbon Assets"
 

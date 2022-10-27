@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-27 15:43+0000\n"
+"POT-Creation-Date: 2022-10-27 23:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -924,15 +924,19 @@ msgstr "投资于未来。"
 msgid "mission.header"
 msgstr "KlimaDAO 的使命是使气候行动民主化"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:82
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
+msgid "pledges.dashboard.assets.emptyBalance"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
 msgid "pledges.dashboard.assets.title"
 msgstr "碳资产"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:73
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:77
 msgid "pledges.dashboard.footprint.title"
 msgstr "足迹"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:90
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:94
 msgid "pledges.dashboard.footprint.tonnes"
 msgstr "吨"
 
@@ -976,7 +980,7 @@ msgstr "≥ 100% 兑现承诺"
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr "{0}% 的承诺兑现"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:101
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:95
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "承诺抵消<0>{0}</0>碳吨"
 
