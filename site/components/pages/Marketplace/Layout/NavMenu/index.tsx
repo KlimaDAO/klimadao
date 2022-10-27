@@ -86,6 +86,7 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
 
 interface Props {
   address?: string;
+  user?: string;
   onHide?: () => void;
   domains?: {
     knsDomain: Domain;
@@ -94,12 +95,27 @@ interface Props {
 }
 
 export const NavMenu: FC<Props> = (props) => {
-  const isConnected = !!props.address || !!props.domains;
-  const { pathname } = useRouter();
+  const { pathname, query } = useRouter();
+
+  const domain = props.domains?.knsDomain || props.domains?.ensDomain;
+  const isConnected = !!props.address || !!domain;
+
+  const hasUserInURL = !!query?.user;
+  const hasConnectedUserParams =
+    (hasUserInURL && query.user === props.address) ||
+    (hasUserInURL && query.user === domain?.name);
+
+  const isConnectedUserProfile = isConnected && hasConnectedUserParams;
+  const isUnconnectedUserProfile =
+    !isConnected && hasUserInURL && query.user === props.user;
+
+  const profileLink = isConnected
+    ? `/marketplace/users/${domain?.name || props.address}`
+    : `/marketplace/users/login`;
 
   return (
     <nav className={styles.container}>
-      <Link href="/" passHref>
+      <Link href="/marketplace" passHref>
         <a>
           <LogoWithClaim />
         </a>
@@ -110,15 +126,21 @@ export const NavMenu: FC<Props> = (props) => {
         <div className="hr" />
       </div>
       <MenuButton
-        isActive={pathname.startsWith("/marketplace/projects")}
+        isActive={
+          pathname.startsWith("/marketplace/projects") ||
+          isUnconnectedUserProfile
+        }
         href={"/marketplace/projects"}
         icon={<StoreIcon />}
       >
         <Trans id="marketplace.menu.marketplace">Marketplace</Trans>
       </MenuButton>
       <MenuButton
-        isActive={pathname.startsWith("/marketplace/users")}
-        href="/marketplace/users"
+        isActive={
+          pathname.startsWith(`/marketplace/users/login`) ||
+          isConnectedUserProfile
+        }
+        href={profileLink}
         icon={<PermIdentityIcon />}
       >
         <Trans id="marketplace.menu.profile">Profile</Trans>

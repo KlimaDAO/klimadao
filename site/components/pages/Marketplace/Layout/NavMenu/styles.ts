@@ -134,6 +134,12 @@ export const sidebarButton = css`
     width: 3.8rem;
     background-color: var(--surface-02);
     border-radius: 0.6rem;
+
+    svg {
+      font-size: 2.4rem;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   }
 
   &:hover,

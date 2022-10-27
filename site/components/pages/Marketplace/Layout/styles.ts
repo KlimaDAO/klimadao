@@ -13,11 +13,7 @@ export const container = css`
   align-content: flex-start;
   min-height: 100vh;
   grid-template-rows: 1fr;
-  .MuiSvgIcon-root {
-    font-size: 2.4rem;
-    width: 2.4rem;
-    height: 2.4rem;
-  }
+
   &[data-scrolllock="true"] {
     overflow-y: hidden;
     max-height: 100vh;
