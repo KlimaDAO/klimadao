@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import map from "lodash/map";
 import groupBy from "lodash/groupBy";
@@ -16,6 +16,7 @@ import { Holding } from "components/pages/Pledge/types";
 import { BaseCard } from "../BaseCard";
 import { TokenRow } from "./TokenRow";
 import * as styles from "./styles";
+import { Text } from "@klimadao/lib/components";
 
 type Props = {
   pageAddress: string;
@@ -64,11 +65,14 @@ export const AssetBalanceCard: FC<Props> = (props) => {
   const [balances, setBalances] = useState<Balances | null>(null);
 
   const holdingsByToken = groupBy(props.holdings, "token");
+
+  /** Hide tokens with no balance
+   * @todo hide token with no transaction history*/
   const tokenHoldingAndBalances = map(TOKEN_MAP, (token, key) => ({
     ...token,
     balance: balances && balances[key as BalanceToken],
     holdings: holdingsByToken[token.label],
-  }));
+  })).filter(({ balance }) => !!Number(balance));
 
   useEffect(() => {
     (async () => {
@@ -86,7 +90,7 @@ export const AssetBalanceCard: FC<Props> = (props) => {
       icon={<CloudQueueIcon fontSize="large" />}
     >
       <div className={styles.tokenCardContainer}>
-        {map(tokenHoldingAndBalances, (token, index) => (
+        {tokenHoldingAndBalances.map((token, index) => (
           <div className={styles.tokenRowContainer} key={index}>
             <TokenRow
               label={token.label}
@@ -100,6 +104,13 @@ export const AssetBalanceCard: FC<Props> = (props) => {
             )}
           </div>
         ))}
+        {tokenHoldingAndBalances.length === 0 && (
+          <Text t="body2">
+            <Trans id="pledges.dashboard.assets.emptyBalance">
+              No carbon assets to show.
+            </Trans>
+          </Text>
+        )}
       </div>
     </BaseCard>
   );
