@@ -10,6 +10,9 @@ type Props = {
   projects: Project[];
 };
 
+const createProjectLink = (project: Project) =>
+  `/marketplace/projects/${project.key}-${project.vintage}`;
+
 export const MarketPlaceProjects: NextPage<Props> = (props) => {
   const hasProjects = !!props.projects.length;
   return (
@@ -36,7 +39,7 @@ export const MarketPlaceProjects: NextPage<Props> = (props) => {
               <Text t="caption">Vintage: {project.vintage}</Text>
               <Text t="caption">Methodology: {project.methodology}</Text>
               <ButtonPrimary
-                href={`/marketplace/projects/${project.registry}-${project.projectID}-${project.vintage}`}
+                href={createProjectLink(project)}
                 label="Link to Project"
                 className={styles.projectLink}
               ></ButtonPrimary>
