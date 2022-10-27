@@ -126,7 +126,7 @@ export const findOrCreatePledge = async (
         },
       });
     }
-    if (!isNotAlreadyAdded) {
+    if (!isNotAlreadyAdded && isAccepting) {
       // respond with error message here and check error name in pages/api/pledge
       const e = new Error(
         "This wallet is already pinned to another pledge. Please unpin your wallet and try again."

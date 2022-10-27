@@ -21,12 +21,17 @@ export const RemoveModal = (props: Props) => {
   const [status, setStatus] = useState<"remove" | "confirm" | "error">(
     "remove"
   );
+  const [errorMessage, setErrorMessage] = useState(null);
   const getTitle = (status: string) =>
     ({
       remove: t({ id: "pledge.modal.edit_pledge", message: "Edit pledge" }),
       confirm: t({
         id: "pledge.modal.confirm_remove",
         message: "Confirm Removal",
+      }),
+      error: t({
+        id: "pledge.invitation.error_title",
+        message: "Server Error",
       }),
     }[status]);
   const { signer } = useWeb3();
@@ -47,14 +52,17 @@ export const RemoveModal = (props: Props) => {
         urlPath: `/pledge/${props.pageAddress}`,
       });
       props.setShowRemoveModal(false);
-    } catch {
+    } catch (e: any) {
       setStatus("error");
       setErrorMessage(
         e.message ??
-          "Something went wrong on our end. Please try again in a few minutes"
+          t({
+            id: "pledge.modal.default_error_message",
+            message:
+              "Something went wrong on our end. Please try again in a few minutes",
+          })
       );
       console.log("error:", e);
-      console.log("uh ohhh");
     }
   };
   return (
@@ -118,6 +126,21 @@ export const RemoveModal = (props: Props) => {
               label={t({ id: "shared.cancel", message: "Cancel" })}
               onClick={() => props.setShowRemoveModal(false)}
               variant="gray"
+            />
+          </div>
+        </>
+      )}
+      {status === "error" && (
+        <>
+          <Text t="body2" className={styles.modalMessage}>
+            {errorMessage ?? "Error"}
+          </Text>
+          <div className={styles.modalButtons}>
+            <ButtonSecondary
+              label={t({ id: "shared.okay", message: "Okay" })}
+              onClick={() => {
+                props.setShowRemoveModal(false);
+              }}
             />
           </div>
         </>

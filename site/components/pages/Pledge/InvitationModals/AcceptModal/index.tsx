@@ -23,6 +23,8 @@ export const AcceptModal = (props: Props) => {
   const [status, setStatus] = useState<"accept" | "confirm" | "error">(
     "accept"
   );
+  const [errorMessage, setErrorMessage] = useState(null);
+
   const getTitle = (status: string) =>
     ({
       accept: t({
@@ -32,6 +34,10 @@ export const AcceptModal = (props: Props) => {
       confirm: t({
         id: "shared.confirm",
         message: "Confirm",
+      }),
+      error: t({
+        id: "pledge.invitation.error_title",
+        message: "Server Error",
       }),
     }[status]);
   const { signer } = useWeb3();
@@ -53,12 +59,16 @@ export const AcceptModal = (props: Props) => {
         urlPath: `/pledge/${props.pageAddress}`,
       });
       props.setShowAcceptModal(false);
-    } catch (e) {
-      console.log("uh ohhh", e);
+    } catch (e: any) {
+      console.log("error:", e);
       setStatus("error");
       setErrorMessage(
         e.message ??
-          "Something went wrong on our end. Please try again in a few minutes"
+          t({
+            id: "pledge.modal.default_error_message",
+            message:
+              "Something went wrong on our end. Please try again in a few minutes",
+          })
       );
       console.log("error:", e);
     }
@@ -137,6 +147,21 @@ export const AcceptModal = (props: Props) => {
                 setStatus("accept");
               }}
               variant="gray"
+            />
+          </div>
+        </>
+      )}
+      {status === "error" && (
+        <>
+          <Text t="body2" className={styles.modalMessage}>
+            {errorMessage ?? "Error"}
+          </Text>
+          <div className={styles.modalButtons}>
+            <ButtonSecondary
+              label={t({ id: "shared.okay", message: "Okay" })}
+              onClick={() => {
+                props.setShowAcceptModal(false);
+              }}
             />
           </div>
         </>
