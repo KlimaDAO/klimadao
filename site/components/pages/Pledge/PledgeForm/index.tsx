@@ -301,18 +301,20 @@ export const PledgeForm: FC<Props> = (props) => {
                       />
                     </div>
                   )}
-                  {wallet.saved && !errors.wallets?.[index]?.address?.message && (
-                    <div className={styles.pledge_wallet_address_cell}>
-                      <Text t="caption">{concatAddress(wallet.address)}</Text>
-                      {wallet.status === "pending" && (
-                        <span className={styles.pledge_wallet_pending}>
-                          <Text t="caption">
-                            <Trans id="shared.pending">Pending</Trans>
-                          </Text>
-                        </span>
-                      )}
-                    </div>
-                  )}
+                  {wallet.saved &&
+                    !errors.wallets?.[index]?.address?.message &&
+                    wallet.status !== "rejected" && (
+                      <div className={styles.pledge_wallet_address_cell}>
+                        <Text t="caption">{concatAddress(wallet.address)}</Text>
+                        {wallet.status === "pending" && (
+                          <span className={styles.pledge_wallet_pending}>
+                            <Text t="caption">
+                              <Trans id="shared.pending">Pending</Trans>
+                            </Text>
+                          </span>
+                        )}
+                      </div>
+                    )}
                   <ButtonPrimary
                     variant="icon"
                     label={<DeleteOutlineOutlinedIcon fontSize="large" />}
