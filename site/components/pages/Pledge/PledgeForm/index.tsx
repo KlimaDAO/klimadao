@@ -107,8 +107,8 @@ export const PledgeForm: FC<Props> = (props) => {
     name: "wallets",
     control,
   });
-
   const wallets = useWatch({ name: "wallets", control });
+
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
