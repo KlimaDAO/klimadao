@@ -1,12 +1,14 @@
 import dynamic from "next/dynamic";
-import { FC, useState } from "react";
-import { useWeb3 } from "@klimadao/lib/utils";
+import { FC, useState, useEffect } from "react";
+import { useWeb3, getENSProfile, getKNSProfile } from "@klimadao/lib/utils";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { Footer } from "components/Footer";
 import { NavMenu } from "./NavMenu";
 import Menu from "@mui/icons-material/Menu";
 import { t } from "@lingui/macro";
+import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
+import { Domain } from "@klimadao/lib/types/domains";
 
 import * as styles from "./styles";
 
@@ -18,18 +20,38 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 });
 
 type Props = {
-  user?: string;
+  userDomain?: string | null;
 };
 
 export const MarketplaceLayout: FC<Props> = (props) => {
   const { address, connect, disconnect, isConnected } = useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [profileData, setProfileData] = useState<Domain>();
+
+  // collect nameserviceDomain Data if connected and domain is in URL
+  useEffect(() => {
+    if (!props.userDomain || !address) return;
+
+    const setProfile = async () => {
+      const kns = await getKNSProfile({
+        address: address,
+        providerUrl: getInfuraUrlPolygon(),
+      });
+
+      if (kns) return setProfileData(kns);
+
+      const ens = await getENSProfile({ address: address });
+      if (ens) return setProfileData(ens);
+    };
+
+    setProfile();
+  }, [props.userDomain, address]);
 
   return (
     <>
       <div className={styles.container} data-scrolllock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
-          <NavMenu address={address} user={props.user} />
+          <NavMenu connectedAddress={address} connectedDomain={profileData} />
         </div>
         <div className={styles.cardGrid}>
           <div className={styles.controls}>
@@ -47,8 +69,8 @@ export const MarketplaceLayout: FC<Props> = (props) => {
             />
             <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
               <NavMenu
-                address={address}
-                user={props.user}
+                connectedAddress={address}
+                connectedDomain={profileData}
                 onHide={() => setShowMobileMenu(false)}
               />
             </div>

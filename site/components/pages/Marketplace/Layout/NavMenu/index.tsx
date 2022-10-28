@@ -8,36 +8,31 @@ import { concatAddress } from "@klimadao/lib/utils";
 import StoreIcon from "@mui/icons-material/Store";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import ViewQuiltOutlinedIcon from "@mui/icons-material/ViewQuiltOutlined";
+import { Domain } from "@klimadao/lib/types/domains";
 
 import * as styles from "./styles";
 
-export interface Domain {
-  name: string;
-  imageUrl: string;
-}
-
 interface AddressProps {
-  address: string | undefined;
-  domains?: {
-    knsDomain: Domain;
-    ensDomain: Domain;
-  };
+  address?: string;
+  domain?: Domain;
 }
 
 const Address: FC<AddressProps> = (props) => {
-  const domain = props.domains?.knsDomain || props.domains?.ensDomain;
-
   return (
     <div className={styles.address}>
       <Text t="caption">
         <Trans id="marketplace.menu.wallet_address">Your Wallet Address</Trans>:
       </Text>
 
-      {domain ? (
+      {props.domain ? (
         <div className="domain-wrapper">
-          <img src={domain.imageUrl} alt="profile avatar" className="avatar" />
+          <img
+            src={props.domain.imageUrl}
+            alt="profile avatar"
+            className="avatar"
+          />
           <Text t="caption" color="lightest" className={"domain-name"}>
-            {domain.name}
+            {props.domain.name}
           </Text>
         </div>
       ) : (
@@ -85,32 +80,28 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
 };
 
 interface Props {
-  address?: string;
-  user?: string;
+  connectedAddress?: string;
+  connectedDomain?: Domain;
   onHide?: () => void;
-  domains?: {
-    knsDomain: Domain;
-    ensDomain: Domain;
-  };
 }
 
 export const NavMenu: FC<Props> = (props) => {
   const { pathname, query } = useRouter();
 
-  const domain = props.domains?.knsDomain || props.domains?.ensDomain;
-  const isConnected = !!props.address || !!domain;
+  const isConnected = !!props.connectedAddress || !!props.connectedDomain;
 
   const hasUserInURL = !!query?.user;
   const hasConnectedUserParams =
-    (hasUserInURL && query.user === props.address) ||
-    (hasUserInURL && query.user === domain?.name);
+    (hasUserInURL && query.user === props.connectedAddress) ||
+    (hasUserInURL && query.user === props.connectedDomain?.name);
 
   const isConnectedUserProfile = isConnected && hasConnectedUserParams;
-  const isUnconnectedUserProfile =
-    !isConnected && hasUserInURL && query.user === props.user;
+  const isUnconnectedUserProfile = hasUserInURL && !hasConnectedUserParams;
 
   const profileLink = isConnected
-    ? `/marketplace/users/${domain?.name || props.address}`
+    ? `/marketplace/users/${
+        props.connectedDomain?.name || props.connectedAddress
+      }`
     : `/marketplace/users/login`;
 
   return (
@@ -122,7 +113,10 @@ export const NavMenu: FC<Props> = (props) => {
       </Link>
       <div className={styles.addressContainer}>
         <div className="hr" />
-        <Address domains={props.domains} address={props.address} />
+        <Address
+          domain={props.connectedDomain}
+          address={props.connectedAddress}
+        />
         <div className="hr" />
       </div>
       <MenuButton

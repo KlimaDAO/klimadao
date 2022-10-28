@@ -20,7 +20,7 @@ export const Users: NextPage<Props> = (props) => {
         metaDescription="KlimaDao - Marketplace Profile"
       />
 
-      <MarketplaceLayout user={props.user}>
+      <MarketplaceLayout userDomain={props.userDomain}>
         <div className={styles.fullWidth}>
           <Text t="h1">User</Text>
           <Text>User: {props.userDomain || props.userAddress}</Text>
