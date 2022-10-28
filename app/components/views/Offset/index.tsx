@@ -57,7 +57,8 @@ import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import * as styles from "./styles";
 import Fiat from "public/icons/Fiat.png";
-import { FIAT_RETIREMENT_API_URL } from "lib/constants";
+import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
+import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
@@ -111,7 +112,7 @@ export const Offset = (props: Props) => {
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
-
+  const [isRedirecting, setIsRedirecting] = useState(false);
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
@@ -180,18 +181,28 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
-      if (!props.provider) return;
       setCost("loading");
-      const [consumptionCost] = await getOffsetConsumptionCost({
-        inputToken: paymentMethod === "fiat" ? "usdc" : paymentMethod,
-        retirementToken: selectedRetirementToken,
-        quantity: debouncedQuantity,
-        amountInCarbon: true,
-        provider: props.provider,
-        getSpecific: !!projectAddress,
-      });
-
-      setCost(consumptionCost);
+      if (paymentMethod !== "fiat") {
+        const [consumptionCost] = await getOffsetConsumptionCost({
+          inputToken: paymentMethod,
+          retirementToken: selectedRetirementToken,
+          quantity: debouncedQuantity,
+          amountInCarbon: true,
+          getSpecific: !!projectAddress,
+        });
+        setCost(consumptionCost);
+      } else {
+        const reqParams = {
+          beneficiary_address: beneficiaryAddress || props.address || null,
+          beneficiary_name: beneficiary || "placeholder",
+          retirement_message: retirementMessage || "placeholder",
+          quantity,
+          project_address: projectAddress || null,
+          retirement_token: selectedRetirementToken,
+        };
+        const cost = await getFiatRetirementCost(reqParams);
+        setCost(cost);
+      }
     };
     awaitGetOffsetConsumptionCost();
   }, [
@@ -257,13 +268,7 @@ export const Offset = (props: Props) => {
 
   const handleRetire = async () => {
     try {
-      if (
-        !props.isConnected ||
-        !props.address ||
-        !props.provider ||
-        paymentMethod === "fiat"
-      )
-        return;
+      if (!props.address || !props.provider || paymentMethod === "fiat") return;
       const { receipt, retirementTotals } = await retireCarbonTransaction({
         address: props.address,
         provider: props.provider,
@@ -296,33 +301,18 @@ export const Offset = (props: Props) => {
   };
 
   const handleFiat = async () => {
-    if (
-      !props.isConnected ||
-      !props.address ||
-      !props.provider ||
-      paymentMethod !== "fiat"
-    ) {
-      return;
-    }
-    const params = {
+    if (!props.address || !props.provider || paymentMethod !== "fiat") return;
+
+    const reqParams = {
       beneficiary_address: beneficiaryAddress || props.address, // don't pass empty string
       beneficiary_name: beneficiary,
       retirement_message: retirementMessage,
       quantity,
       project_address: projectAddress || null,
       retirement_token: selectedRetirementToken,
-      cancel_url: "https://app.klimadao.finance/#/offset",
-      referrer: "klimadao",
     };
-    const res = await fetch(FIAT_RETIREMENT_API_URL, {
-      body: JSON.stringify(params),
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-    });
-    const { url } = await res.json();
-    window.location.href = url;
+    setIsRedirecting(true);
+    await redirectFiatCheckout(reqParams);
     // do retire redirect
     return;
   };
@@ -349,15 +339,43 @@ export const Offset = (props: Props) => {
         onClick: props.loadWeb3Modal,
         disabled: false,
       };
-    } else if (isLoading) {
+    } else if (isLoading || cost === "loading") {
       return {
         label: <Trans id="shared.loading">Loading...</Trans>,
         onClick: undefined,
         disabled: true,
       };
+    } else if (isRedirecting) {
+      return {
+        label: (
+          <Trans id="shared.redirecting_checkout">
+            Redirecting to checkout...
+          </Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
     } else if (!quantity || !Number(quantity)) {
       return {
-        label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
+        label: <Trans id="shared.enter_quantity">Enter quantity</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!beneficiary) {
+      return {
+        label: (
+          <Trans id="shared.enter_beneficiary">Enter beneficiary name</Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!retirementMessage) {
+      return {
+        label: (
+          <Trans id="shared.enter_retirement_message">
+            Enter retirement message
+          </Trans>
+        ),
         onClick: undefined,
         disabled: true,
       };
@@ -365,7 +383,7 @@ export const Offset = (props: Props) => {
       return {
         label: (
           <Trans id="shared.invalid_beneficiary_addr">
-            INVALID BENEFICIARY ADDRESS
+            Invalid beneficiary address
           </Trans>
         ),
         onClick: undefined,
@@ -373,21 +391,25 @@ export const Offset = (props: Props) => {
       };
     } else if (!!projectAddress && !utils.isAddress(projectAddress)) {
       return {
-        label: <Trans>INVALID PROJECT ADDRESS</Trans>,
+        label: (
+          <Trans id="shared.invalid_project_address">
+            Invalid project address
+          </Trans>
+        ),
         onClick: undefined,
         disabled: true,
       };
     } else if (paymentMethod !== "fiat" && insufficientBalance) {
       return {
         label: (
-          <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
+          <Trans id="shared.insufficient_balance">Insufficient balance</Trans>
         ),
         onClick: undefined,
         disabled: true,
       };
     } else if (paymentMethod !== "fiat" && !hasApproval()) {
       return {
-        label: <Trans id="shared.approve">APPROVE</Trans>,
+        label: <Trans id="shared.approve">Approve</Trans>,
         onClick: () => {
           setShowTransactionModal(true);
         },
@@ -395,13 +417,13 @@ export const Offset = (props: Props) => {
       };
     } else if (paymentMethod === "fiat") {
       return {
-        label: <Trans>CHECKOUT</Trans>,
+        label: <Trans>Checkout</Trans>,
         onClick: handleFiat,
         disabled: false,
       };
     }
     return {
-      label: <Trans id="shared.retire">RETIRE CARBON</Trans>,
+      label: <Trans id="shared.retire">Retire carbon</Trans>,
       onClick: () => {
         setShowTransactionModal(true);
       },
@@ -421,7 +443,13 @@ export const Offset = (props: Props) => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
-    if (Number(e.target.value) > 0 && Number(e.target.value) < 0.0001) {
+    if (paymentMethod === "fiat" && Number(e.target.value) < 1) {
+      setQuantity("1");
+    } else if (
+      paymentMethod !== "fiat" &&
+      Number(e.target.value) > 0 &&
+      Number(e.target.value) < 0.0001
+    ) {
       setQuantity("0.0001");
     } else {
       setQuantity(e.target.value);
@@ -525,7 +553,7 @@ export const Offset = (props: Props) => {
             <div className="number_input_container">
               <input
                 type="number"
-                min="0"
+                min={paymentMethod === "fiat" ? "1" : "0"}
                 value={quantity}
                 onKeyDown={(e) => {
                   // dont let user enter these special characters into the number input
@@ -540,6 +568,13 @@ export const Offset = (props: Props) => {
                 })}
               />
             </div>
+            {paymentMethod === "fiat" && (
+              <Text t="body8" color="lightest">
+                <Trans id="offset.min_quantity_fiat">
+                  Minimum 1-tonne purchase for credit cards
+                </Trans>
+              </Text>
+            )}
           </div>
 
           {/* Input Token */}
@@ -606,7 +641,7 @@ export const Offset = (props: Props) => {
                 onChange={(e) => handleBeneficiaryAddressChange(e.target.value)}
                 placeholder={t`Beneficiary 0x address (optional)`}
               />
-              <Text t="caption" color="lightest" className="defaultAddress">
+              <Text t="body8" color="lightest">
                 <Trans id="offset.default_retirement_address">
                   Defaults to the connected wallet address
                 </Trans>
