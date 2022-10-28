@@ -7,7 +7,8 @@ import { MarketplaceLayout } from "../Layout";
 import * as styles from "./styles";
 
 type Props = {
-  user: string;
+  userAddress: string;
+  userDomain: string | null;
 };
 
 export const Users: NextPage<Props> = (props) => {
@@ -22,7 +23,7 @@ export const Users: NextPage<Props> = (props) => {
       <MarketplaceLayout user={props.user}>
         <div className={styles.fullWidth}>
           <Text t="h1">User</Text>
-          <Text>User: {props.user}</Text>
+          <Text>User: {props.userDomain || props.userAddress}</Text>
           <Text>LISTING</Text>
         </div>
       </MarketplaceLayout>
