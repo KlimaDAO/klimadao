@@ -32,15 +32,11 @@ export const RemoveModal = (props: Props) => {
   const { signer } = useWeb3();
   const [step, setStep] = useState<Steps>("remove");
 
-  const handleSubmit = async (params: {
-    message: (nonce: string) => string;
-  }) => {
+  const handleSubmit = async (params: { message: string }) => {
     try {
       if (!signer) return;
       const address = await signer.getAddress();
-      const signature = await signer.signMessage(
-        params.message(props.pledge.nonce)
-      );
+      const signature = await signer.signMessage(params.message);
 
       await putPledge({
         pageAddress: props.pageAddress,
@@ -60,8 +56,7 @@ export const RemoveModal = (props: Props) => {
   return (
     <Modal
       title={getTitle(step)}
-      showModal={true}
-      // showModal={props.showRemoveModal}
+      showModal={props.showRemoveModal}
       onToggleModal={() => props.setShowRemoveModal(false)}
     >
       {step === "remove" && (
@@ -109,7 +104,7 @@ export const RemoveModal = (props: Props) => {
               })}
               onClick={() =>
                 handleSubmit({
-                  message: removeSecondaryWallet,
+                  message: removeSecondaryWallet(props.pledge.nonce),
                 })
               }
               variant="red"

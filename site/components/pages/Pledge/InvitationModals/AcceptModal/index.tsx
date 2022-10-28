@@ -36,15 +36,11 @@ export const AcceptModal = (props: Props) => {
 
   const shortenedAddress = concatAddress(props.pledge.ownerAddress);
 
-  const handleSubmit = async (params: {
-    message: (nonce: string) => string;
-  }) => {
+  const handleSubmit = async (params: { message: string }) => {
     try {
       if (!signer) return;
       const address = await signer.getAddress();
-      const signature = await signer.signMessage(
-        params.message(props.pledge.nonce)
-      );
+      const signature = await signer.signMessage(params.message);
 
       await putPledge({
         pageAddress: props.pageAddress,
@@ -91,7 +87,11 @@ export const AcceptModal = (props: Props) => {
                 id: "pledge.invitation.reject",
                 message: "Reject Invitation",
               })}
-              onClick={() => handleSubmit({ message: removeSecondaryWallet })}
+              onClick={() =>
+                handleSubmit({
+                  message: removeSecondaryWallet(props.pledge.nonce),
+                })
+              }
               variant="red"
             />
             <ButtonSecondary
@@ -120,7 +120,7 @@ export const AcceptModal = (props: Props) => {
               label={t({ id: "pledge.modal.confirm", message: "Confirm" })}
               onClick={() =>
                 handleSubmit({
-                  message: approveSecondaryWallet,
+                  message: approveSecondaryWallet(props.pledge.nonce),
                 })
               }
             />
