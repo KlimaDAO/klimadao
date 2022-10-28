@@ -1,35 +1,37 @@
 import React, { useState } from "react";
-
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
-import { Modal } from "components/Modal";
-import * as styles from "../../PledgeDashboard/styles";
 import { t, Trans } from "@lingui/macro";
-import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
-import { Pledge } from "../../types";
+import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+
+import { Modal } from "components/Modal";
+import { Pledge } from "../../types";
+import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
 import { putPledge, pledgeFormAdapter } from "../../lib";
+import * as styles from "../../PledgeDashboard/styles";
 
 type Props = {
+  pageAddress: string;
+  pledge: Pledge;
   setShowRemoveModal: (value: boolean) => void;
   showRemoveModal: boolean;
-  pledge: Pledge;
-  pageAddress: string;
 };
 
+const getTitle = (step: string) =>
+  ({
+    remove: t({ id: "pledge.modal.edit_pledge", message: "Edit pledge" }),
+    confirm: t({
+      id: "pledge.modal.confirm_remove",
+      message: "Confirm Removal",
+    }),
+  }[step]);
+
+type Steps = "remove" | "confirm" | "error";
+
 export const RemoveModal = (props: Props) => {
-  const [status, setStatus] = useState<"remove" | "confirm" | "error">(
-    "remove"
-  );
-  const getTitle = (status: string) =>
-    ({
-      remove: t({ id: "pledge.modal.edit_pledge", message: "Edit pledge" }),
-      confirm: t({
-        id: "pledge.modal.confirm_remove",
-        message: "Confirm Removal",
-      }),
-    }[status]);
   const { signer } = useWeb3();
+  const [step, setStep] = useState<Steps>("remove");
+
   const handleSubmit = async (params: {
     message: (nonce: string) => string;
   }) => {
@@ -39,6 +41,7 @@ export const RemoveModal = (props: Props) => {
       const signature = await signer.signMessage(
         params.message(props.pledge.nonce)
       );
+
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -46,19 +49,22 @@ export const RemoveModal = (props: Props) => {
         signature,
         urlPath: `/pledge/${props.pageAddress}`,
       });
+
       props.setShowRemoveModal(false);
     } catch {
-      setStatus("error");
       console.log("uh ohhh");
+      setStep("error");
     }
   };
+
   return (
     <Modal
-      title={getTitle(status)}
-      showModal={props.showRemoveModal}
+      title={getTitle(step)}
+      showModal={true}
+      // showModal={props.showRemoveModal}
       onToggleModal={() => props.setShowRemoveModal(false)}
     >
-      {status === "remove" && (
+      {step === "remove" && (
         <>
           <div className={styles.removeTitleContainer}>
             <span className={styles.lockIcon}>
@@ -77,9 +83,7 @@ export const RemoveModal = (props: Props) => {
                 message: "unpin my wallet",
               })}
               variant="red"
-              onClick={() => {
-                setStatus("confirm");
-              }}
+              onClick={() => setStep("confirm")}
             />
             <ButtonSecondary
               label={t({ id: "shared.cancel", message: "Cancel" })}
@@ -89,7 +93,8 @@ export const RemoveModal = (props: Props) => {
           </div>
         </>
       )}
-      {status === "confirm" && (
+
+      {step === "confirm" && (
         <>
           <Text t="body2" className={styles.modalMessage}>
             <Trans id="pledge.modal.are_you_sure">
@@ -102,11 +107,11 @@ export const RemoveModal = (props: Props) => {
                 id: "shared.remove",
                 message: "remove",
               })}
-              onClick={() => {
+              onClick={() =>
                 handleSubmit({
                   message: removeSecondaryWallet,
-                });
-              }}
+                })
+              }
               variant="red"
             />
             <ButtonSecondary
@@ -116,6 +121,11 @@ export const RemoveModal = (props: Props) => {
             />
           </div>
         </>
+      )}
+
+      {step === "error" && (
+        // show error
+        <>Error</>
       )}
     </Modal>
   );
