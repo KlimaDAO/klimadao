@@ -118,17 +118,15 @@ export const AcceptModal = (props: Props) => {
           <div className={styles.modalButtons}>
             <ButtonPrimary
               label={t({ id: "pledge.modal.confirm", message: "Confirm" })}
-              onClick={() => {
+              onClick={() =>
                 handleSubmit({
                   message: approveSecondaryWallet,
-                });
-              }}
+                })
+              }
             />
             <ButtonSecondary
               label={t({ id: "shared.cancel", message: "Cancel" })}
-              onClick={() => {
-                setStep("accept");
-              }}
+              onClick={() => setStep("accept")}
               variant="gray"
             />
           </div>
