@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { t, Trans } from "@lingui/macro";
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
+import {
+  ButtonPrimary,
+  ButtonSecondary,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 
 import { Modal } from "components/Modal";
@@ -18,7 +23,7 @@ type Props = {
   pledge: Pledge;
   pageAddress: string;
 };
-type Steps = "accept" | "confirm" | "error";
+type Steps = "accept" | "confirm" | "error" | "loading";
 
 export const AcceptModal = (props: Props) => {
   const [step, setStep] = useState<Steps>("accept");
@@ -39,6 +44,10 @@ export const AcceptModal = (props: Props) => {
         id: "pledge.invitation.error_title",
         message: "Server Error",
       }),
+      loading: t({
+        id: "shared.loading",
+        message: "Loading",
+      }),
     }[step]);
   const { signer } = useWeb3();
 
@@ -47,6 +56,7 @@ export const AcceptModal = (props: Props) => {
       if (!signer) return;
       const address = await signer.getAddress();
       const signature = await signer.signMessage(params.message);
+      setStep("loading");
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -157,6 +167,11 @@ export const AcceptModal = (props: Props) => {
             />
           </div>
         </>
+      )}
+      {step === "loading" && (
+        <div className={styles.spinnerContainer}>
+          <Spinner />
+        </div>
       )}
     </Modal>
   );

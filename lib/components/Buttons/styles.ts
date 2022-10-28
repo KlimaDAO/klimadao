@@ -102,6 +102,12 @@ export const buttonSecondary = css`
   &.red {
     border-color: var(--warn);
     color: var(--warn);
+    &,
+    &:hover,
+    &:hover:not(:disabled),
+    &:visited {
+      color: var(--warn);
+    }
   }
 
   &.blue,

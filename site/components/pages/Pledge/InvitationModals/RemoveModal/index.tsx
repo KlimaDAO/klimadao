@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
+import {
+  ButtonPrimary,
+  ButtonSecondary,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
 import * as styles from "../styles";
 import { t, Trans } from "@lingui/macro";
@@ -17,6 +22,8 @@ type Props = {
   pageAddress: string;
 };
 
+type Steps = "remove" | "confirm" | "error" | "loading";
+
 export const RemoveModal = (props: Props) => {
   const [step, setStep] = useState<Steps>("remove");
   const [errorMessage, setErrorMessage] = useState(null);
@@ -31,9 +38,11 @@ export const RemoveModal = (props: Props) => {
         id: "pledge.invitation.error_title",
         message: "Server Error",
       }),
+      loading: t({
+        id: "shared.loading",
+        message: "Loading",
+      }),
     }[step]);
-
-  type Steps = "remove" | "confirm" | "error";
 
   const { signer } = useWeb3();
   const handleSubmit = async (params: { message: string }) => {
@@ -41,6 +50,7 @@ export const RemoveModal = (props: Props) => {
       if (!signer) return;
       const address = await signer.getAddress();
       const signature = await signer.signMessage(params.message);
+      setStep("loading");
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -129,7 +139,7 @@ export const RemoveModal = (props: Props) => {
       {step === "error" && (
         <>
           <Text t="body2" className={styles.modalMessage}>
-            {errorMessage ?? "Error"}
+            {errorMessage ?? t({ message: "Error", id: "shared.error" })}
           </Text>
           <div className={styles.modalButtons}>
             <ButtonSecondary
@@ -140,6 +150,11 @@ export const RemoveModal = (props: Props) => {
             />
           </div>
         </>
+      )}
+      {step === "loading" && (
+        <div className={styles.spinnerContainer}>
+          <Spinner />
+        </div>
       )}
     </Modal>
   );
