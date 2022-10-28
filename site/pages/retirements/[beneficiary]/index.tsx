@@ -42,16 +42,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No params found");
     }
 
-    // enforces lowercase urls
-    if (params.beneficiary !== params.beneficiary.toLowerCase()) {
-      return {
-        redirect: {
-          destination: `/retirements/${params.beneficiary.toLowerCase()}`,
-          permanent: false,
-        },
-      };
-    }
-
     const beneficiaryInUrl = params.beneficiary;
     const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
     const isValidAddress =
@@ -70,6 +60,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         redirect: {
           destination: `/retirements/${nameserviceDomain}`,
           statusCode: 301,
+        },
+      };
+    }
+
+    // enforces lowercase urls
+    if (!isDomainInURL && beneficiaryInUrl !== beneficiaryInUrl.toLowerCase()) {
+      return {
+        redirect: {
+          destination: `/retirements/${beneficiaryInUrl.toLowerCase()}`,
+          permanent: true,
         },
       };
     }

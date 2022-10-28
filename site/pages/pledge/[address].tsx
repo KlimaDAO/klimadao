@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       return {
         redirect: {
           destination: `/pledge/${address.toLowerCase()}`,
-          permanent: false,
+          permanent: true,
         },
       };
     }
