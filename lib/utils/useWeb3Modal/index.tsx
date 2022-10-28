@@ -169,7 +169,7 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
         handleReload
       );
       web3state.provider.provider.removeListener("chainChanged", handleReload);
-      web3state.provider.removeListener("disconnect", handleReload);
+      web3state.provider.removeListener("disconnect", handleDisconnect);
     };
   }, [web3state.provider]);
 
