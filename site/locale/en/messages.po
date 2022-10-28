@@ -13,10 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:162
-msgid ""
-msgstr "Are you sure?"
-
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
 msgstr "Articles"
@@ -932,11 +928,11 @@ msgstr "{0}% of footprint"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Carbon Tonne(s)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:79
+#: components/pages/Pledge/PledgeDashboard/index.tsx:80
 msgid "pledges.dashboard.head.metaTitle"
 msgstr "{pledgeOwnerTitle}'s pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:75
+#: components/pages/Pledge/PledgeDashboard/index.tsx:76
 msgid "pledges.dashboard.head.title"
 msgstr "{pledgeOwnerTitle}'s Pledge | KlimaDAO"
 
@@ -1112,7 +1108,7 @@ msgstr "Total footprint"
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:94
+#: components/pages/Pledge/PledgeDashboard/index.tsx:107
 msgid "pledges.form.title"
 msgstr "Your pledge"
 
@@ -1532,8 +1528,12 @@ msgstr "Carbon Dashboards"
 msgid "shared.community"
 msgstr "Community"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
-#: components/pages/Pledge/HeaderMobile/index.tsx:54
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:28
+msgid "shared.confirm"
+msgstr "Confirm"
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:50
+#: components/pages/Pledge/HeaderMobile/index.tsx:57
 msgid "shared.connect"
 msgstr "Connect"
 
