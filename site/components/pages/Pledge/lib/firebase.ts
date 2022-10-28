@@ -156,6 +156,7 @@ export const findOrCreatePledge = async (
         },
       });
     } else {
+      // update existing pledge document
       await verifySignature({
         address: currentPledge.ownerAddress,
         signature: params.signature,
@@ -172,6 +173,7 @@ export const findOrCreatePledge = async (
       return pledgeAttributes;
     }
   } else {
+    // create new pledge document
     await verifySignature({
       address: params.pageAddress,
       signature: params.signature,
