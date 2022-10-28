@@ -13,9 +13,21 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/views/Offset/index.tsx:642
+msgid "Beneficiary 0x address (optional)"
+msgstr "Beneficiary 0x address (optional)"
+
+#: components/views/Offset/index.tsx:631
+msgid "Beneficiary name"
+msgstr "Beneficiary name"
+
 #: components/views/Bond/index.tsx:701
 msgid "Capacity"
 msgstr "Capacity"
+
+#: components/views/Offset/index.tsx:420
+msgid "Checkout"
+msgstr "Checkout"
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
@@ -435,11 +447,11 @@ msgstr "CONFIRMATION"
 msgid "nav.back"
 msgstr "BACK"
 
-#: components/views/Offset/index.tsx:585
+#: components/views/Offset/index.tsx:679
 msgid "offset.aggregation_fee_tooltip"
 msgstr "This cost includes slippage and the aggregation fee of 1%."
 
-#: components/views/Offset/index.tsx:457
+#: components/views/Offset/index.tsx:548
 msgid "offset.amount_in_tonnes"
 msgstr "How many tonnes of carbon would you like to offset?"
 
@@ -447,15 +459,15 @@ msgstr "How many tonnes of carbon would you like to offset?"
 msgid "offset.breakdown"
 msgstr "Breakdown"
 
-#: components/views/Offset/index.tsx:551
+#: components/views/Offset/index.tsx:645
 msgid "offset.default_retirement_address"
 msgstr "Defaults to the connected wallet address"
 
-#: components/views/Offset/index.tsx:484
+#: components/views/Offset/index.tsx:582
 msgid "offset.dropdown_payWith.label"
 msgstr "Pay with"
 
-#: components/views/Offset/index.tsx:501
+#: components/views/Offset/index.tsx:601
 msgid "offset.dropdown_retire.label"
 msgstr "Select carbon offset token to retire"
 
@@ -464,27 +476,30 @@ msgid "offset.empty"
 msgstr "This address has not completed any retirements."
 
 #: components/views/Offset/SelectiveRetirementInput/index.tsx:65
-#: components/views/Offset/index.tsx:545
 msgid "offset.enter_address"
 msgstr "Enter 0x address"
 
-#: components/views/Offset/index.tsx:437
+#: components/views/Offset/index.tsx:528
 msgid "offset.go_carbon_neutral"
 msgstr "Go carbon neutral by retiring carbon and claiming the underlying environmental benefit of the carbon offset. Learn more about carbon tokens in our <0>docs</0>."
 
-#: components/views/Offset/index.tsx:416
+#: components/views/Offset/index.tsx:504
 msgid "offset.incompatible"
 msgstr "INPUT TOKEN INCOMPATIBLE"
 
-#: components/views/Offset/index.tsx:445
+#: components/views/Offset/index.tsx:536
 msgid "offset.lifi"
 msgstr "Cross-chain offsetting is now available through <0>LI.FI and Etherspot</0>, with support for multiple chains and tokens."
 
-#: components/views/Offset/index.tsx:488
+#: components/views/Offset/index.tsx:573
+msgid "offset.min_quantity_fiat"
+msgstr "Minimum 1-tonne purchase for credit cards"
+
+#: components/views/Offset/index.tsx:586
 msgid "offset.modal_payWith.title"
 msgstr "Select Token"
 
-#: components/views/Offset/index.tsx:505
+#: components/views/Offset/index.tsx:605
 msgid "offset.modal_retire.title"
 msgstr "Select Carbon Type"
 
@@ -492,12 +507,12 @@ msgstr "Select Carbon Type"
 msgid "offset.number_of_retirements"
 msgstr "Total retirements"
 
-#: components/views/Offset/index.tsx:474
+#: components/views/Offset/index.tsx:565
 msgid "offset.offset_quantity"
 msgstr "Enter quantity to offset"
 
-#: components/views/Offset/index.tsx:434
-#: components/views/Offset/index.tsx:643
+#: components/views/Offset/index.tsx:525
+#: components/views/Offset/index.tsx:737
 msgid "offset.retire_carbon"
 msgstr "Retire Carbon"
 
@@ -509,23 +524,19 @@ msgstr "Retire specific project tokens"
 msgid "offset.retire_specific_tooltip"
 msgstr "Subject to additional fee, determined by the selected pool and paid to the bridge provider."
 
-#: components/views/Offset/index.tsx:531
-msgid "offset.retirement_beneficiary"
-msgstr "Name or organisation"
-
-#: components/views/Offset/index.tsx:523
+#: components/views/Offset/index.tsx:623
 msgid "offset.retirement_credit"
 msgstr "Who will this retirement be credited to?"
 
-#: components/views/Offset/index.tsx:561
+#: components/views/Offset/index.tsx:655
 msgid "offset.retirement_message"
 msgstr "Retirement message"
 
-#: components/views/Offset/index.tsx:570
+#: components/views/Offset/index.tsx:664
 msgid "offset.retirement_purpose"
 msgstr "Describe the purpose of this retirement"
 
-#: components/views/Offset/index.tsx:603
+#: components/views/Offset/index.tsx:697
 msgid "offset.retiring"
 msgstr "Retiring"
 
@@ -553,11 +564,11 @@ msgstr "Tonnes of carbon"
 msgid "offset.you_have_retired"
 msgstr "You've Retired"
 
-#: components/views/Offset/index.tsx:581
+#: components/views/Offset/index.tsx:675
 msgid "offset_cost"
 msgstr "Cost"
 
-#: components/views/Offset/index.tsx:615
+#: components/views/Offset/index.tsx:709
 msgid "offset_disclaimer"
 msgstr "Be careful not to expose any sensitive personal information. Your message can not be edited and will permanently exist on a public blockchain."
 
@@ -627,7 +638,7 @@ msgstr "The updated contract now assumes pKLIMA holders have staked and earned r
 
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:459
-#: components/views/Offset/index.tsx:343
+#: components/views/Offset/index.tsx:412
 #: components/views/Stake/index.tsx:259
 #: components/views/Wrap/index.tsx:227
 msgid "shared.approve"
@@ -648,7 +659,7 @@ msgstr "Confirming"
 
 #: components/views/Bond/index.tsx:410
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:308
+#: components/views/Offset/index.tsx:338
 #: components/views/PKlima/index.tsx:150
 #: components/views/Stake/index.tsx:233
 #: components/views/Wrap/index.tsx:196
@@ -664,12 +675,20 @@ msgstr "Copy Address {0}"
 msgid "shared.enter_amount"
 msgstr "Enter Amount"
 
+#: components/views/Offset/index.tsx:367
+msgid "shared.enter_beneficiary"
+msgstr "Enter beneficiary name"
+
 #: components/views/Bond/index.tsx:422
-#: components/views/Offset/index.tsx:320
+#: components/views/Offset/index.tsx:360
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:208
 msgid "shared.enter_quantity"
 msgstr "ENTER QUANTITY"
+
+#: components/views/Offset/index.tsx:375
+msgid "shared.enter_retirement_message"
+msgstr "Enter retirement message"
 
 #: components/views/Bond/index.tsx:479
 #: components/views/Bond/index.tsx:498
@@ -677,23 +696,27 @@ msgstr "ENTER QUANTITY"
 msgid "shared.error"
 msgstr "ERROR"
 
-#: components/views/Offset/index.tsx:336
+#: components/views/Offset/index.tsx:405
 #: components/views/Stake/index.tsx:252
 #: components/views/Wrap/index.tsx:220
 msgid "shared.insufficient_balance"
 msgstr "INSUFFICIENT BALANCE"
 
-#: components/views/Offset/index.tsx:329
-msgid "shared.invalid_inputs"
-msgstr "INVALID INPUTS"
+#: components/views/Offset/index.tsx:385
+msgid "shared.invalid_beneficiary_addr"
+msgstr "Invalid beneficiary address"
+
+#: components/views/Offset/index.tsx:395
+msgid "shared.invalid_project_address"
+msgstr "Invalid project address"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:48
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:416
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:314
-#: components/views/Offset/index.tsx:402
+#: components/views/Offset/index.tsx:344
+#: components/views/Offset/index.tsx:483
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:239
 #: components/views/Stake/index.tsx:443
@@ -711,8 +734,12 @@ msgid "shared.max"
 msgstr "Max"
 
 #: components/views/Offset/index.tsx:351
+msgid "shared.redirecting_checkout"
+msgstr "Redirecting to checkout..."
+
+#: components/views/Offset/index.tsx:426
 msgid "shared.retire"
-msgstr "RETIRE CARBON"
+msgstr "Retire carbon"
 
 #: components/views/Bond/index.tsx:404
 msgid "shared.sold_out"
