@@ -66,7 +66,9 @@ export const findOrCreatePledge = async (
     const currentPledge = pledgeRef.data();
 
     if (!currentPledge) return null;
+    const currentNonce = currentPledge.nonce.toString();
     // check current pledge here which will still be an object. always check currentPledge for pending, etc bc currentPledge is source of truth
+
     const invitedAddress =
       params.secondaryWalletAddress &&
       currentPledge.wallets &&
@@ -100,10 +102,9 @@ export const findOrCreatePledge = async (
     // check if secondary wallet is signing to accept (could also be true if the user is rejecting so this is problem)
     if (invitedAddress && isNotAlreadyAdded && isAccepting) {
       await verifySignature({
-        expectedMessage: approveSecondaryWallet,
+        expectedMessage: approveSecondaryWallet(currentNonce),
         address: params.secondaryWalletAddress,
         signature: params.signature,
-        nonce: currentPledge.nonce.toString(),
       });
       // accepting
       await admin
@@ -122,27 +123,31 @@ export const findOrCreatePledge = async (
         },
       });
     }
+
     if (!isNotAlreadyAdded) {
       // do error message "please remove yourself from XXX pledge"
       // respond with error message here and check in pages/api/pledge
       // in follow up PR handle errors
     }
+
     // remove wallet from pledge
     if ((invitedAddress || verifiedAddress) && params.secondaryWalletAddress) {
       await verifySignature({
-        expectedMessage: removeSecondaryWallet,
+        expectedMessage: removeSecondaryWallet(currentNonce),
         address: params.secondaryWalletAddress,
         signature: params.signature,
-        nonce: currentPledge.nonce.toString(),
       });
+
       await admin
         .firestore()
         .collection("pledges")
         .doc(params.pledge.id)
         .update(`wallets.${params.secondaryWalletAddress}.status`, "rejected");
+
       // modify the status then update newWallets to send to putPledgeAttributes
       const newWallets = { ...currentPledge.wallets };
       newWallets[params.secondaryWalletAddress].status = "rejected";
+
       return putPledgeAttributes({
         currentPledgeValues: currentPledge,
         newPledgeValues: {
@@ -154,8 +159,7 @@ export const findOrCreatePledge = async (
       await verifySignature({
         address: currentPledge.ownerAddress,
         signature: params.signature,
-        nonce: currentPledge.nonce.toString(),
-        expectedMessage: editPledgeMessage,
+        expectedMessage: editPledgeMessage(currentNonce),
       });
 
       const pledgeAttributes = putPledgeAttributes({
@@ -171,8 +175,7 @@ export const findOrCreatePledge = async (
     await verifySignature({
       address: params.pageAddress,
       signature: params.signature,
-      nonce: DEFAULT_NONCE,
-      expectedMessage: editPledgeMessage,
+      expectedMessage: editPledgeMessage(DEFAULT_NONCE),
     });
 
     const newPledgeRef = pledgeCollectionRef.doc();

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { t, Trans } from "@lingui/macro";
 import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
-import { Modal } from "components/Modal";
 
+import { Modal } from "components/Modal";
 import {
   approveSecondaryWallet,
   removeSecondaryWallet,
