@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-26 15:44+0000\n"
+"POT-Creation-Date: 2022-10-27 23:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,10 +12,6 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "Plural-Forms: \n"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:162
-msgid ""
-msgstr ""
 
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
@@ -934,67 +930,19 @@ msgstr ""
 msgid "mission.header"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:465
-msgid "pledge.form.wallets.confirm_remove_wallet"
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
+msgid "pledges.dashboard.assets.emptyBalance"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:215
-msgid "pledge.form.wallets.tooltip"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:134
-msgid "pledge.invitation.accept"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:124
-msgid "pledge.invitation.join_message"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:152
-msgid "pledge.invitation.later"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:144
-msgid "pledge.invitation.reject"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:230
-msgid "pledge.modal.are_you_sure"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-msgid "pledge.modal.confirm"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:222
-msgid "pledge.modal.confirm_remove"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:188
-msgid "pledge.modal.edit_pledge"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:197
-msgid "pledge.modal.unable_to_edit"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:204
-msgid "pledge.modal.unpin_wallet"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:167
-msgid "pledge.modal.wallet_add_confirm"
-msgstr ""
-
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:82
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
 msgid "pledges.dashboard.assets.title"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:73
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:77
 msgid "pledges.dashboard.footprint.title"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:90
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:94
 msgid "pledges.dashboard.footprint.tonnes"
 msgstr ""
 
@@ -1006,11 +954,11 @@ msgstr ""
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:79
+#: components/pages/Pledge/PledgeDashboard/index.tsx:80
 msgid "pledges.dashboard.head.metaTitle"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:75
+#: components/pages/Pledge/PledgeDashboard/index.tsx:76
 msgid "pledges.dashboard.head.title"
 msgstr ""
 
@@ -1038,7 +986,7 @@ msgstr ""
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:101
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:95
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr ""
 
@@ -1202,7 +1150,7 @@ msgstr ""
 msgid "pledges.form.submit_button"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:94
+#: components/pages/Pledge/PledgeDashboard/index.tsx:107
 msgid "pledges.form.title"
 msgstr ""
 
@@ -1641,6 +1589,10 @@ msgstr ""
 msgid "shared.community"
 msgstr ""
 
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:28
+msgid "shared.confirm"
+msgstr ""
+
 #: components/pages/Pledge/HeaderDesktop/index.tsx:50
 #: components/pages/Pledge/HeaderMobile/index.tsx:57
 msgid "shared.connect"
@@ -1688,7 +1640,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
-#: components/pages/Pledge/PledgeDashboard/index.tsx:83
+#: components/pages/Pledge/PledgeDashboard/index.tsx:84
 #: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
@@ -1747,6 +1699,10 @@ msgstr ""
 #: components/Navigation/index.tsx:155
 #: components/Navigation/index.tsx:311
 msgid "shared.offset"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:315
+msgid "shared.pending"
 msgstr ""
 
 #: components/Navigation/index.tsx:180

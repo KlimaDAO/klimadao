@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
-import { Modal } from "components/Modal";
-import * as styles from "../styles";
 import { t, Trans } from "@lingui/macro";
+import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+
+import { Modal } from "components/Modal";
 import {
   approveSecondaryWallet,
   removeSecondaryWallet,
 } from "../../lib/editPledgeMessage";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { Pledge } from "../../types";
 import { putPledge, pledgeFormAdapter } from "../../lib";
+import * as styles from "../styles";
 
 type Props = {
   setShowAcceptModal: (value: boolean) => void;
@@ -18,12 +18,12 @@ type Props = {
   pledge: Pledge;
   pageAddress: string;
 };
+type Steps = "accept" | "confirm" | "error";
 
 export const AcceptModal = (props: Props) => {
-  const [status, setStatus] = useState<"accept" | "confirm" | "error">(
-    "accept"
-  );
+  const [step, setStep] = useState<Steps>("accept");
   const [errorMessage, setErrorMessage] = useState(null);
+  const shortenedAddress = concatAddress(props.pledge.ownerAddress);
 
   const getTitle = (status: string) =>
     ({
@@ -42,15 +42,11 @@ export const AcceptModal = (props: Props) => {
     }[status]);
   const { signer } = useWeb3();
 
-  const handleSubmit = async (params: {
-    message: (nonce: string) => string;
-  }) => {
+  const handleSubmit = async (params: { message: string }) => {
     try {
       if (!signer) return;
       const address = await signer.getAddress();
-      const signature = await signer.signMessage(
-        params.message(props.pledge.nonce)
-      );
+      const signature = await signer.signMessage(params.message);
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -61,7 +57,7 @@ export const AcceptModal = (props: Props) => {
       props.setShowAcceptModal(false);
     } catch (e: any) {
       console.log("error:", e);
-      setStatus("error");
+      setStep("error");
       setErrorMessage(
         e.message ??
           t({
@@ -83,11 +79,10 @@ export const AcceptModal = (props: Props) => {
         <>
           <Text className={styles.modalMessage} t="body2">
             <Trans id="pledge.invitation.join_message">
-              {concatAddress(props.pledge.ownerAddress)} has invited you to add
-              your wallet to this pledge. If you accept, then your carbon
-              retirements will count toward{" "}
-              {concatAddress(props.pledge.ownerAddress)}'s pledge. You may
-              remove your wallet from this pledge at any time.
+              {shortenedAddress} has invited you to add your wallet to this
+              pledge. If you accept, then your carbon retirements will count
+              toward {shortenedAddress}'s pledge. You may remove your wallet
+              from this pledge at any time.
             </Trans>
           </Text>
           <div className={styles.modalButtons}>
@@ -96,20 +91,18 @@ export const AcceptModal = (props: Props) => {
                 id: "pledge.invitation.accept",
                 message: "Accept Invitation",
               })}
-              onClick={() => {
-                setStatus("confirm");
-              }}
+              onClick={() => setStep("confirm")}
             />
             <ButtonSecondary
               label={t({
                 id: "pledge.invitation.reject",
                 message: "Reject Invitation",
               })}
-              onClick={() => {
+              onClick={() =>
                 handleSubmit({
-                  message: removeSecondaryWallet,
-                });
-              }}
+                  message: removeSecondaryWallet(props.pledge.nonce),
+                })
+              }
               variant="red"
             />
             <ButtonSecondary
@@ -123,7 +116,8 @@ export const AcceptModal = (props: Props) => {
           </div>
         </>
       )}
-      {status === "confirm" && (
+
+      {step === "confirm" && (
         <>
           <Text t="body2" className={styles.modalMessage}>
             <Trans id="pledge.modal.wallet_add_confirm">
@@ -135,17 +129,15 @@ export const AcceptModal = (props: Props) => {
           <div className={styles.modalButtons}>
             <ButtonPrimary
               label={t({ id: "pledge.modal.confirm", message: "Confirm" })}
-              onClick={() => {
+              onClick={() =>
                 handleSubmit({
-                  message: approveSecondaryWallet,
-                });
-              }}
+                  message: approveSecondaryWallet(props.pledge.nonce),
+                })
+              }
             />
             <ButtonSecondary
               label={t({ id: "shared.cancel", message: "Cancel" })}
-              onClick={() => {
-                setStatus("accept");
-              }}
+              onClick={() => setStep("accept")}
               variant="gray"
             />
           </div>

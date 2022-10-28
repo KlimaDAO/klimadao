@@ -20,6 +20,7 @@ export const putPledge = async (params: putPledgeParams) => {
       pledge: params.pledge,
       secondaryWalletAddress: params.secondaryWalletAddress,
       urlPath: params.urlPath,
+      secondaryWalletAddress: params.secondaryWalletAddress,
     }),
   });
   if (!res.ok) {

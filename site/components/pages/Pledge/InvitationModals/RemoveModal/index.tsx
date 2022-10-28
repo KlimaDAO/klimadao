@@ -18,9 +18,7 @@ type Props = {
 };
 
 export const RemoveModal = (props: Props) => {
-  const [status, setStatus] = useState<"remove" | "confirm" | "error">(
-    "remove"
-  );
+  const [step, setStep] = useState<Steps>("remove");
   const [errorMessage, setErrorMessage] = useState(null);
   const getTitle = (status: string) =>
     ({
@@ -34,16 +32,15 @@ export const RemoveModal = (props: Props) => {
         message: "Server Error",
       }),
     }[status]);
+
+  type Steps = "remove" | "confirm" | "error";
+
   const { signer } = useWeb3();
-  const handleSubmit = async (params: {
-    message: (nonce: string) => string;
-  }) => {
+  const handleSubmit = async (params: { message: string }) => {
     try {
       if (!signer) return;
       const address = await signer.getAddress();
-      const signature = await signer.signMessage(
-        params.message(props.pledge.nonce)
-      );
+      const signature = await signer.signMessage(params.message);
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -53,7 +50,7 @@ export const RemoveModal = (props: Props) => {
       });
       props.setShowRemoveModal(false);
     } catch (e: any) {
-      setStatus("error");
+      setStep("error");
       setErrorMessage(
         e.message ??
           t({
@@ -71,7 +68,7 @@ export const RemoveModal = (props: Props) => {
       showModal={props.showRemoveModal}
       onToggleModal={() => props.setShowRemoveModal(false)}
     >
-      {status === "remove" && (
+      {step === "remove" && (
         <>
           <div className={styles.removeTitleContainer}>
             <span className={styles.lockIcon}>
@@ -90,9 +87,7 @@ export const RemoveModal = (props: Props) => {
                 message: "unpin my wallet",
               })}
               variant="red"
-              onClick={() => {
-                setStatus("confirm");
-              }}
+              onClick={() => setStep("confirm")}
             />
             <ButtonSecondary
               label={t({ id: "shared.cancel", message: "Cancel" })}
@@ -102,7 +97,8 @@ export const RemoveModal = (props: Props) => {
           </div>
         </>
       )}
-      {status === "confirm" && (
+
+      {step === "confirm" && (
         <>
           <Text t="body2" className={styles.modalMessage}>
             <Trans id="pledge.modal.are_you_sure">
@@ -115,11 +111,11 @@ export const RemoveModal = (props: Props) => {
                 id: "shared.remove",
                 message: "remove",
               })}
-              onClick={() => {
+              onClick={() =>
                 handleSubmit({
-                  message: removeSecondaryWallet,
-                });
-              }}
+                  message: removeSecondaryWallet(props.pledge.nonce),
+                })
+              }
               variant="red"
             />
             <ButtonSecondary
@@ -130,7 +126,7 @@ export const RemoveModal = (props: Props) => {
           </div>
         </>
       )}
-      {status === "error" && (
+      {step === "error" && (
         <>
           <Text t="body2" className={styles.modalMessage}>
             {errorMessage ?? "Error"}

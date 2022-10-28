@@ -934,67 +934,19 @@ msgstr "Invest in the future."
 msgid "mission.header"
 msgstr "KlimaDAO's mission is to democratize climate action"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:465
-msgid "pledge.form.wallets.confirm_remove_wallet"
-msgstr "Are you sure you want to remove {0} from your pledge?"
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
+msgid "pledges.dashboard.assets.emptyBalance"
+msgstr "No carbon assets to show."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:215
-msgid "pledge.form.wallets.tooltip"
-msgstr "Add other wallets to contribute to your pledge. If the owner of the wallet accepts your invitation, their wallet will appear on your pledge dashboard. Any retirments made by a secondary wallet will contribute toward your pledge. You'll retain sole ownership and editing access to this pledge."
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:134
-msgid "pledge.invitation.accept"
-msgstr "Accept Invitation"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:124
-msgid "pledge.invitation.join_message"
-msgstr "{0} has invited you to add your wallet to this pledge. If you accept, then your carbon retirements will count toward {1}'s pledge. You may remove your wallet from this pledge at any time."
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:152
-msgid "pledge.invitation.later"
-msgstr "Remind me later"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:144
-msgid "pledge.invitation.reject"
-msgstr "Reject Invitation"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:230
-msgid "pledge.modal.are_you_sure"
-msgstr "Are you sure you want to remove your wallet from this pledge?"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:175
-msgid "pledge.modal.confirm"
-msgstr "Confirm"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:222
-msgid "pledge.modal.confirm_remove"
-msgstr "Confirm Removal"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:188
-msgid "pledge.modal.edit_pledge"
-msgstr "Edit pledge"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:197
-msgid "pledge.modal.unable_to_edit"
-msgstr "Only Primary Wallet holders can edit the content of this pledge."
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:204
-msgid "pledge.modal.unpin_wallet"
-msgstr "unpin my wallet"
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:167
-msgid "pledge.modal.wallet_add_confirm"
-msgstr "Adding your wallet to this pledge will remove your wallet from any existing pledges under your wallet address. Those pledges will be redirected to this new pledge."
-
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:82
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
 msgid "pledges.dashboard.assets.title"
 msgstr "Carbon Assets"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:73
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:77
 msgid "pledges.dashboard.footprint.title"
 msgstr "Footprint"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:90
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:94
 msgid "pledges.dashboard.footprint.tonnes"
 msgstr "Tonnes"
 
@@ -1006,11 +958,11 @@ msgstr "{0}% of footprint"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Carbon Tonne(s)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:79
+#: components/pages/Pledge/PledgeDashboard/index.tsx:80
 msgid "pledges.dashboard.head.metaTitle"
 msgstr "{pledgeOwnerTitle}'s pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:75
+#: components/pages/Pledge/PledgeDashboard/index.tsx:76
 msgid "pledges.dashboard.head.title"
 msgstr "KlimaDAO | Pledges"
 
@@ -1038,7 +990,7 @@ msgstr "≥ 100% of Pledge Met"
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr "{0}% of Pledge Met"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:101
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:95
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Pledged to Offset <0>{0}</0> Carbon Tonnes"
 
@@ -1202,7 +1154,7 @@ msgstr "0x..."
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:94
+#: components/pages/Pledge/PledgeDashboard/index.tsx:107
 msgid "pledges.form.title"
 msgstr "Your pledge"
 
@@ -1641,6 +1593,10 @@ msgstr "Carbon Dashboards"
 msgid "shared.community"
 msgstr "Community"
 
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:28
+msgid "shared.confirm"
+msgstr "Confirm"
+
 #: components/pages/Pledge/HeaderDesktop/index.tsx:50
 #: components/pages/Pledge/HeaderMobile/index.tsx:57
 msgid "shared.connect"
@@ -1688,7 +1644,7 @@ msgstr "Get Started"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
-#: components/pages/Pledge/PledgeDashboard/index.tsx:83
+#: components/pages/Pledge/PledgeDashboard/index.tsx:84
 #: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
@@ -1748,6 +1704,10 @@ msgstr "Love Letters"
 #: components/Navigation/index.tsx:311
 msgid "shared.offset"
 msgstr "Offset"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:315
+msgid "shared.pending"
+msgstr "Pending"
 
 #: components/Navigation/index.tsx:180
 #: components/Navigation/index.tsx:341

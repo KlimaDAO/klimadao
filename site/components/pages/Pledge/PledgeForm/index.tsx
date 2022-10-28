@@ -3,9 +3,9 @@ import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
 import {
   ButtonPrimary,
-  Spinner,
   ButtonSecondary,
   Text,
+  Spinner,
 } from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
 import SaveIcon from "@mui/icons-material/Save";
@@ -109,8 +109,8 @@ export const PledgeForm: FC<Props> = (props) => {
     name: "wallets",
     control,
   });
-
   const wallets = useWatch({ name: "wallets", control });
+
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
@@ -189,7 +189,6 @@ export const PledgeForm: FC<Props> = (props) => {
           <InputField
             id="profileImageUrl"
             inputProps={{
-              id: "profileImageUrl",
               placeholder: "https://",
               type: "text",
               ...register("profileImageUrl"),
@@ -304,30 +303,36 @@ export const PledgeForm: FC<Props> = (props) => {
                       />
                     </div>
                   )}
-                  {wallet.saved && !errors.wallets?.[index]?.address?.message && (
-                    <div className={styles.pledge_wallet_address_cell}>
-                      <Text t="caption">{concatAddress(wallet.address)}</Text>
-                      {wallet.status === "pending" && (
-                        <span className={styles.pledge_wallet_pending}>
+                  {wallet.saved &&
+                    !errors.wallets?.[index]?.address?.message &&
+                    wallet.status !== "rejected" && (
+                      <>
+                        <div className={styles.pledge_wallet_address_cell}>
                           <Text t="caption">
-                            <Trans id="shared.pending">Pending</Trans>
+                            {concatAddress(wallet.address)}
                           </Text>
-                        </span>
-                      )}
-                    </div>
-                  )}
-                  <ButtonPrimary
-                    variant="icon"
-                    label={<DeleteOutlineOutlinedIcon fontSize="large" />}
-                    className={styles.pledge_wallet_delete}
-                    onClick={() => {
-                      props.setIsDeleteMode(true);
-                      setSelectedAddress({
-                        address: wallet.address,
-                        index: index,
-                      });
-                    }}
-                  />
+                          {wallet.status === "pending" && (
+                            <span className={styles.pledge_wallet_pending}>
+                              <Text t="caption">
+                                <Trans id="shared.pending">Pending</Trans>
+                              </Text>
+                            </span>
+                          )}
+                        </div>
+                        <ButtonPrimary
+                          variant="icon"
+                          label={<DeleteOutlineOutlinedIcon fontSize="large" />}
+                          className={styles.pledge_wallet_delete}
+                          onClick={() => {
+                            props.setIsDeleteMode(true);
+                            setSelectedAddress({
+                              address: wallet.address,
+                              index: index,
+                            });
+                          }}
+                        />
+                      </>
+                    )}
                 </div>
               );
             })}
@@ -488,7 +493,7 @@ export const PledgeForm: FC<Props> = (props) => {
 
           {/* better to use an input type=submit */}
           <ButtonPrimary
-            disabled={!isDirty || submitting}
+            disabled={!isDirty}
             label={
               submitting ? (
                 <SubmittingLabel />
@@ -501,15 +506,16 @@ export const PledgeForm: FC<Props> = (props) => {
             }
             onClick={handleSubmit(onSubmit)}
           />
-          {submitting && (
-            <Text t="caption" color="lighter" align="center">
-              <Trans id="pledges.form.use_your_wallet">
-                Use your wallet to sign and confirm this edit.
-              </Trans>
-            </Text>
-          )}
         </>
       )}
+      {submitting && (
+        <Text t="caption" color="lighter" align="center">
+          <Trans id="pledges.form.use_your_wallet">
+            Use your wallet to sign and confirm this edit.
+          </Trans>
+        </Text>
+      )}
+
       {props.isDeleteMode && (
         <div className={styles.pledge_form_remove_container}>
           <Text t="caption">

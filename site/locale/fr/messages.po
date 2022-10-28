@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-26 15:44+0000\n"
+"POT-Creation-Date: 2022-10-27 23:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -114,7 +114,7 @@ msgstr "Acheter KLIMA"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:72
 msgid "buy.beginner_04.description_01"
-msgstr "Afin d'utiliser KLIMA pour effectuer un dépôt, réaliser un échanger ou compenser des émissions de carbone, vous devrez exécuter des transactions sur le réseau Polygon. Chaque transaction entraîne des frais de réseau payés en MATIC."
+msgstr "Afin d'utiliser KLIMA pour mettre en jeu, échanger ou compenser des émissions carbone, vous devrez exécuter des transactions sur le réseau Polygon. Chaque transaction nécessite des frais de réseau payés en MATIC."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:79
 msgid "buy.beginner_04.description_02"
@@ -126,11 +126,11 @@ msgstr "Acheter MATIC (pour les nouveaux utilisateurs)"
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:97
 msgid "buy.beginner_05.description_01"
-msgstr "Maintenant que vous possédez des jetons KLIMA et MATIC dans votre portefeuille, vous devrez <0> effectuer un dépôt</0> afin que vos jetons sKLIMA produise du rendement. Vous pourrez également les utiliser pour compenser les émissions de carbone. De plus, en tant que possesseur de jeton KLIMA et sKLIMA, vous pourrez également les utiliser pour participer à la gouvernance du DAO ! Alors gardez un œil sur les propositions sur notre <1>forum</1> ."
+msgstr "Maintenant que vous possédez des jetons KLIMA et MATIC dans votre portefeuille, vous devriez les <0>mettre en jeu</0> contre des sKLIMA pour commencer à accumuler des récompenses. Vous pouvez également les utiliser pour compenser des émissions carbone. De plus, en tant que possesseur de jeton KLIMA et sKLIMA, vous pouvez participer à la gouvernance de la DAO ! Gardez un œil sur les propositions sur notre <1>forum</1> ."
 
 #: components/pages/Buy/CreditCardTimeline/index.tsx:93
 msgid "buy.beginner_05.title"
-msgstr "Déposer, Compenser, Gouverner!"
+msgstr "Mettre en jeu, Compenser, Gouverner!"
 
 #: components/pages/Buy/index.tsx:128
 #: components/pages/Buy/index.tsx:253
@@ -573,7 +573,7 @@ msgstr "Combattez le changement climatique et soyez récompensé avec KLIMA, une
 
 #: components/pages/Home/index.tsx:460
 msgid "home.get_exposure_to_the_growing_carbon_economy"
-msgstr "Prenez part dès aujourd'hui à l'économie croissante du carbone. Acquérir, participer et être récompensé. L'activisme financier au service du climat."
+msgstr "Prenez part dès aujourd'hui à l'économie croissante du carbone. Achetez, mettez en jeu et soyez récompensé. L'activisme financier au service du climat."
 
 #: components/pages/Home/index.tsx:457
 msgid "home.get_klima"
@@ -596,7 +596,7 @@ msgstr "KlimaDAO est le centre d'une nouvelle économie verte. Construit sur le 
 #. Long sentence
 #: components/pages/Home/index.tsx:438
 msgid "home.klima_tokens_are_minted"
-msgstr "Les jetons KLIMA sont créés et distribués automatiquement toutes les ~7 heures aux déposants KLIMA. Développez votre capital KLIMA  et participons ensemble à la construction d'un avenir plus durable."
+msgstr "Les jetons KLIMA sont créés et distribués automatiquement toutes les ~7 heures aux détenteurs de KLIMA mis en jeu. Développez votre capital KLIMA  et participons ensemble à la construction d'un avenir plus durable."
 
 #: components/pages/Home/index.tsx:82
 msgid "home.latest_news"
@@ -929,15 +929,19 @@ msgstr "Investissez dans l'avenir."
 msgid "mission.header"
 msgstr "La mission de KlimaDAO est de démocratiser l'action climatique."
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:82
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
+msgid "pledges.dashboard.assets.emptyBalance"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
 msgid "pledges.dashboard.assets.title"
 msgstr "Actifs Carbone"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:73
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:77
 msgid "pledges.dashboard.footprint.title"
 msgstr "Empreinte"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:90
+#: components/pages/Pledge/PledgeDashboard/Cards/FootprintCard/index.tsx:94
 msgid "pledges.dashboard.footprint.tonnes"
 msgstr "Tonnes"
 
@@ -981,7 +985,7 @@ msgstr "≥ 100% de l'engagement atteint"
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr "{0}% de l'engagement atteint"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:101
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:95
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Engagé à compenser <0>{0}</0> tonnes de carbone"
 
@@ -1360,7 +1364,7 @@ msgstr "Utilisez des jetons KLIMA collatéralisés par du au carbone pour gouver
 
 #: components/pages/Retirements/Footer/index.tsx:56
 msgid "retirement.footer.buy_klima.title"
-msgstr "Obtenir, déposer et être récompensé."
+msgstr "Achetez, mettez en jeu et soyez récompensé."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.metaDescription"
@@ -1689,7 +1693,7 @@ msgstr "Trier par :"
 #: components/Navigation/index.tsx:131
 #: components/Navigation/index.tsx:287
 msgid "shared.stake"
-msgstr "Déposer Klima"
+msgstr "Mettre en jeu vos Klima"
 
 #: components/pages/Infinity/index.tsx:494
 msgid "shared.visit_klimadao_blog"

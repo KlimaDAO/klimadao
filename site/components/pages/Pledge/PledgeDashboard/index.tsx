@@ -49,9 +49,11 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     Object.values(props.pledge.wallets)?.some(
       (wallet) => wallet.address === address && wallet.status === "verified"
     );
+
   useEffect(() => {
     isUnverifiedSecondaryWallet && setShowAcceptModal(true);
   }, [isUnverifiedSecondaryWallet]);
+
   const isPledgeOwner =
     address?.toLowerCase() === props.pageAddress && isConnected;
   const canEditPledge =
@@ -142,10 +144,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         </div>
 
         <div className={styles.column}>
-          <AssetBalanceCard
-            holdings={props.holdings}
-            pageAddress={props.pageAddress}
-          />
           <RetirementsCard
             retirements={props.retirements}
             pageAddress={props.pageAddress}
@@ -153,6 +151,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               props.pledge.wallets && Object.values(props.pledge.wallets)
             }
             isPledgeOwner={isPledgeOwner}
+          />
+          <AssetBalanceCard
+            holdings={props.holdings}
+            pageAddress={props.pageAddress}
           />
         </div>
       </div>
