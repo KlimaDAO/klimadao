@@ -8,6 +8,9 @@ import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getDomainByAddress } from "lib/getDomainByAddress";
 
+import { getMarketplaceUser } from "@klimadao/lib/utils";
+import { User } from "@klimadao/lib/types/marketplace";
+
 interface Params extends ParsedUrlQuery {
   user: string;
 }
@@ -15,6 +18,7 @@ interface Params extends ParsedUrlQuery {
 interface PageProps {
   userAddress: string;
   userDomain: string | null;
+  marketplaceUser: User | null;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -61,10 +65,19 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       userAddress = userInUrl;
     }
 
+    let marketplaceUser: User | null = null;
+
+    const userData = await getMarketplaceUser(userAddress);
+    // API returns object on 404 not found
+    if (userData?.handle) {
+      marketplaceUser = userData;
+    }
+
     return {
       props: {
         userAddress,
         userDomain: isDomainInURL ? userInUrl : null,
+        marketplaceUser,
         translation,
       },
       revalidate: 240,
