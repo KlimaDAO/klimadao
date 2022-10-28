@@ -278,4 +278,5 @@ const MARKETPLACE = "https://marketplace-r13akvg3k-najada.vercel.app";
 const MARKETPLACE_API = `${MARKETPLACE}/api`;
 export const marketplace = {
   projects: `${MARKETPLACE_API}/projects`,
+  users: `${MARKETPLACE_API}/users`,
 };
