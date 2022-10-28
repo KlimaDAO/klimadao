@@ -20,7 +20,7 @@ type Props = {
 export const RemoveModal = (props: Props) => {
   const [step, setStep] = useState<Steps>("remove");
   const [errorMessage, setErrorMessage] = useState(null);
-  const getTitle = (status: string) =>
+  const getTitle = (step: string) =>
     ({
       remove: t({ id: "pledge.modal.edit_pledge", message: "Edit pledge" }),
       confirm: t({
@@ -31,7 +31,7 @@ export const RemoveModal = (props: Props) => {
         id: "pledge.invitation.error_title",
         message: "Server Error",
       }),
-    }[status]);
+    }[step]);
 
   type Steps = "remove" | "confirm" | "error";
 
@@ -64,7 +64,7 @@ export const RemoveModal = (props: Props) => {
   };
   return (
     <Modal
-      title={getTitle(status)}
+      title={getTitle(step)}
       showModal={props.showRemoveModal}
       onToggleModal={() => props.setShowRemoveModal(false)}
     >

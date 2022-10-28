@@ -25,7 +25,7 @@ export const AcceptModal = (props: Props) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const shortenedAddress = concatAddress(props.pledge.ownerAddress);
 
-  const getTitle = (status: string) =>
+  const getTitle = (step: string) =>
     ({
       accept: t({
         id: "pledge.invitation.accept",
@@ -39,7 +39,7 @@ export const AcceptModal = (props: Props) => {
         id: "pledge.invitation.error_title",
         message: "Server Error",
       }),
-    }[status]);
+    }[step]);
   const { signer } = useWeb3();
 
   const handleSubmit = async (params: { message: string }) => {
@@ -71,11 +71,11 @@ export const AcceptModal = (props: Props) => {
   };
   return (
     <Modal
-      title={getTitle(status)}
+      title={getTitle(step)}
       showModal={props.showAcceptModal}
       onToggleModal={() => props.setShowAcceptModal(false)}
     >
-      {status === "accept" && (
+      {step === "accept" && (
         <>
           <Text className={styles.modalMessage} t="body2">
             <Trans id="pledge.invitation.join_message">
@@ -143,7 +143,7 @@ export const AcceptModal = (props: Props) => {
           </div>
         </>
       )}
-      {status === "error" && (
+      {step === "error" && (
         <>
           <Text t="body2" className={styles.modalMessage}>
             {errorMessage ?? "Error"}
