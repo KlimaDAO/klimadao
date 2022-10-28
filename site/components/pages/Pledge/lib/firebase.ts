@@ -43,7 +43,7 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
     const e = new Error(
       `We were unable to find a pledge for address: ${address}`
     );
-    e.name = "BadRequest";
+    e.name = "PledgeNotFound";
     throw e;
   }
 
