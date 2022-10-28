@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
-import { Modal } from "components/Modal";
-import * as styles from "../../PledgeDashboard/styles";
 import { t, Trans } from "@lingui/macro";
+import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { Modal } from "components/Modal";
+
 import {
   approveSecondaryWallet,
   removeSecondaryWallet,
 } from "../../lib/editPledgeMessage";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { Pledge } from "../../types";
+import * as styles from "../../PledgeDashboard/styles";
 import { putPledge, pledgeFormAdapter } from "../../lib";
 
 type Props = {
   pageAddress: string;
   pledge: Pledge;
-  setShowAcceptModal: (value: boolean) => void;
   showAcceptModal: boolean;
+  setShowAcceptModal: (value: boolean) => void;
 };
 
 const getTitle = (step: string) =>
@@ -64,8 +64,7 @@ export const AcceptModal = (props: Props) => {
   return (
     <Modal
       title={getTitle(step)}
-      showModal={true}
-      // showModal={props.showAcceptModal}
+      showModal={props.showAcceptModal}
       onToggleModal={() => props.setShowAcceptModal(false)}
     >
       {step === "accept" && (
