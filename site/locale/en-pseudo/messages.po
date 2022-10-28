@@ -13,10 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:162
-msgid ""
-msgstr ""
-
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
 msgstr ""
@@ -958,11 +954,11 @@ msgstr ""
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:79
+#: components/pages/Pledge/PledgeDashboard/index.tsx:80
 msgid "pledges.dashboard.head.metaTitle"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:75
+#: components/pages/Pledge/PledgeDashboard/index.tsx:76
 msgid "pledges.dashboard.head.title"
 msgstr ""
 
@@ -1130,7 +1126,7 @@ msgstr ""
 msgid "pledges.form.submit_button"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:94
+#: components/pages/Pledge/PledgeDashboard/index.tsx:107
 msgid "pledges.form.title"
 msgstr ""
 
@@ -1563,6 +1559,10 @@ msgstr ""
 msgid "shared.community"
 msgstr ""
 
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:28
+msgid "shared.confirm"
+msgstr ""
+
 #: components/pages/Pledge/HeaderDesktop/index.tsx:50
 #: components/pages/Pledge/HeaderMobile/index.tsx:57
 msgid "shared.connect"
@@ -1610,7 +1610,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
-#: components/pages/Pledge/PledgeDashboard/index.tsx:83
+#: components/pages/Pledge/PledgeDashboard/index.tsx:84
 #: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
@@ -1669,6 +1669,10 @@ msgstr ""
 #: components/Navigation/index.tsx:155
 #: components/Navigation/index.tsx:311
 msgid "shared.offset"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:315
+msgid "shared.pending"
 msgstr ""
 
 #: components/Navigation/index.tsx:180

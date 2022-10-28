@@ -13,10 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:162
-msgid ""
-msgstr "Are you sure?"
-
 #: components/pages/Blog/index.tsx:35
 msgid "Articles"
 msgstr "Articles"
@@ -958,11 +954,11 @@ msgstr "{0}% of footprint"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Carbon Tonne(s)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:79
+#: components/pages/Pledge/PledgeDashboard/index.tsx:80
 msgid "pledges.dashboard.head.metaTitle"
 msgstr "{pledgeOwnerTitle}'s pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:75
+#: components/pages/Pledge/PledgeDashboard/index.tsx:76
 msgid "pledges.dashboard.head.title"
 msgstr "KlimaDAO | Pledges"
 
@@ -1130,7 +1126,7 @@ msgstr "Total footprint"
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:94
+#: components/pages/Pledge/PledgeDashboard/index.tsx:107
 msgid "pledges.form.title"
 msgstr "Your pledge"
 
@@ -1563,6 +1559,10 @@ msgstr "Carbon Dashboards"
 msgid "shared.community"
 msgstr "Community"
 
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:28
+msgid "shared.confirm"
+msgstr "Confirm"
+
 #: components/pages/Pledge/HeaderDesktop/index.tsx:50
 #: components/pages/Pledge/HeaderMobile/index.tsx:57
 msgid "shared.connect"
@@ -1610,7 +1610,7 @@ msgstr "Get Started"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
-#: components/pages/Pledge/PledgeDashboard/index.tsx:83
+#: components/pages/Pledge/PledgeDashboard/index.tsx:84
 #: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
@@ -1670,6 +1670,10 @@ msgstr "Love Letters"
 #: components/Navigation/index.tsx:311
 msgid "shared.offset"
 msgstr "Offset"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:315
+msgid "shared.pending"
+msgstr "Pending"
 
 #: components/Navigation/index.tsx:180
 #: components/Navigation/index.tsx:341
