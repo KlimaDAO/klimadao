@@ -1,8 +1,12 @@
 import React, { FC, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useRouter } from "next/router";
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
+import {
+  ButtonPrimary,
+  ButtonSecondary,
+  Text,
+  Spinner,
+} from "@klimadao/lib/components";
 import ClearIcon from "@mui/icons-material/Clear";
 import SaveIcon from "@mui/icons-material/Save";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -79,7 +83,7 @@ export const PledgeForm: FC<Props> = (props) => {
     formattedPledge.wallets = Object.values(props.pledge.wallets) as Wallet[];
   }
 
-  const { control, register, handleSubmit, formState, reset, setValue } =
+  const { control, register, handleSubmit, formState, setValue } =
     useForm<PledgeFormValues>({
       mode: "onChange",
       defaultValues: pledgeFormAdapter(formattedPledge),
@@ -302,29 +306,33 @@ export const PledgeForm: FC<Props> = (props) => {
                   {wallet.saved &&
                     !errors.wallets?.[index]?.address?.message &&
                     wallet.status !== "rejected" && (
-                      <div className={styles.pledge_wallet_address_cell}>
-                        <Text t="caption">{concatAddress(wallet.address)}</Text>
-                        {wallet.status === "pending" && (
-                          <span className={styles.pledge_wallet_pending}>
-                            <Text t="caption">
-                              <Trans id="shared.pending">Pending</Trans>
-                            </Text>
-                          </span>
-                        )}
-                      </div>
+                      <>
+                        <div className={styles.pledge_wallet_address_cell}>
+                          <Text t="caption">
+                            {concatAddress(wallet.address)}
+                          </Text>
+                          {wallet.status === "pending" && (
+                            <span className={styles.pledge_wallet_pending}>
+                              <Text t="caption">
+                                <Trans id="shared.pending">Pending</Trans>
+                              </Text>
+                            </span>
+                          )}
+                        </div>
+                        <ButtonPrimary
+                          variant="icon"
+                          label={<DeleteOutlineOutlinedIcon fontSize="large" />}
+                          className={styles.pledge_wallet_delete}
+                          onClick={() => {
+                            props.setIsDeleteMode(true);
+                            setSelectedAddress({
+                              address: wallet.address,
+                              index: index,
+                            });
+                          }}
+                        />
+                      </>
                     )}
-                  <ButtonPrimary
-                    variant="icon"
-                    label={<DeleteOutlineOutlinedIcon fontSize="large" />}
-                    className={styles.pledge_wallet_delete}
-                    onClick={() => {
-                      props.setIsDeleteMode(true);
-                      setSelectedAddress({
-                        address: wallet.address,
-                        index: index,
-                      });
-                    }}
-                  />
                 </div>
               );
             })}
