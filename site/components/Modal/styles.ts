@@ -74,4 +74,16 @@ export const modalContent = css`
       transform: scale(1);
     }
   }
+
+  //Resolve border radius issues by enforcing rounded corners on scroll bars
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--surface-04);
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
 `;
