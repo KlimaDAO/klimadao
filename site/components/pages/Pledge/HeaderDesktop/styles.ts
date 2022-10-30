@@ -24,13 +24,6 @@ export const logo = css`
   max-width: 26rem;
 `;
 
-export const betaBadge = css`
-  color: var(--klima-green);
-  padding: 0.4rem;
-  border: 0.1rem solid var(--klima-green);
-  border-radius: var(--border-radius);
-`;
-
 export const themeToggle = css`
   background-color: var(--surface-02);
 `;

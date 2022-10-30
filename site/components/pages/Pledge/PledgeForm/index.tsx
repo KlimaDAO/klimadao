@@ -166,6 +166,24 @@ export const PledgeForm: FC<Props> = (props) => {
         }
       />
 
+      <InputField
+        id="profileWebsiteUrl"
+        inputProps={{
+          placeholder: "https://",
+          type: "text",
+          ...register("profileWebsiteUrl"),
+        }}
+        label={t({
+          id: "pledges.form.input.profileWebsiteUrl.label",
+          message: "Website (Optional)",
+        })}
+        errorMessage={
+          pledgeErrorTranslationsMap[
+            errors.profileWebsiteUrl?.message as PledgeErrorId
+          ]
+        }
+      />
+
       <TextareaField
         id="pledge"
         textareaProps={{

@@ -29,7 +29,6 @@ export const HeaderDesktop: FC<Props> = (props) => {
             </a>
           </Link>
         </div>
-        <div className={styles.betaBadge}>Beta</div>
       </div>
 
       <div className={styles.rightGroup}>

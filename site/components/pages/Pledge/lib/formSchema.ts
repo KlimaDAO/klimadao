@@ -10,6 +10,10 @@ export const pledgeErrorTranslationsMap = {
     id: "pledges.form.errors.profileImageUrl.url",
     message: "Enter a valid url",
   }),
+  ["pledges.form.errors.profileWebsiteUrl.url"]: t({
+    id: "pledges.form.errors.profileWebsiteUrl.url",
+    message: "Enter a valid url",
+  }),
   ["pledges.form.errors.description.required"]: t({
     id: "pledges.form.errors.description.required",
     message: "Enter a pledge",
@@ -59,6 +63,11 @@ export const formSchema = yup
     profileImageUrl: yup
       .string()
       .url("pledges.form.errors.profileImageUrl.url")
+      .trim()
+      .ensure(),
+    profileWebsiteUrl: yup
+      .string()
+      .url("pledges.form.errors.profileWebsiteUrl.url")
       .trim()
       .ensure(),
     description: yup
