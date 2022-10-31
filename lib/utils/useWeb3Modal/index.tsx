@@ -153,23 +153,21 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
       web3Modal?.clearCachedProvider();
       window.location.reload();
     };
-    const handleReload = () => {
+    const handleAccountsChanged = () => {
       window.location.reload();
     };
 
     /** There is a bug where ethers doesn't respond to web3modal events for these two, so we use the nested provider
      * https://github.com/ethers-io/ethers.js/issues/2988 */
-    web3state.provider.provider.on("accountsChanged", handleReload);
-    web3state.provider.provider.on("chainChanged", handleReload);
+    web3state.provider.provider.on("accountsChanged", handleAccountsChanged);
     web3state.provider.on("disconnect", handleDisconnect);
 
     return () => {
       web3state.provider.provider.removeListener(
         "accountsChanged",
-        handleReload
+        handleAccountsChanged
       );
-      web3state.provider.provider.removeListener("chainChanged", handleReload);
-      web3state.provider.removeListener("disconnect", handleReload);
+      web3state.provider.removeListener("disconnect", handleDisconnect);
     };
   }, [web3state.provider]);
 
