@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-27 23:41+0000\n"
+"POT-Creation-Date: 2022-10-31 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -926,7 +926,7 @@ msgstr "KlimaDAO का मिशन जलवायु कार्रवाई
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
 msgid "pledges.dashboard.assets.emptyBalance"
-msgstr ""
+msgstr "दिखाने के लिए कोई कार्बन संपत्ति नहीं है।"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
 msgid "pledges.dashboard.assets.title"
@@ -1006,7 +1006,7 @@ msgstr "कैटेगरी जोड़ें"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:121
 msgid "pledges.form.awaiting_signature"
-msgstr ""
+msgstr "हस्ताक्षर की प्रतीक्षा में..."
 
 #: components/pages/Pledge/index.tsx:156
 msgid "pledges.form.error"
@@ -1130,7 +1130,7 @@ msgstr "कुल फ़ुटप्रिंट: {0} कार्बन टन"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:335
 msgid "pledges.form.use_your_wallet"
-msgstr ""
+msgstr "इस संपादन पर हस्ताक्षर करने और पुष्टि करने के लिए अपने वॉलेट का उपयोग करें।"
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"

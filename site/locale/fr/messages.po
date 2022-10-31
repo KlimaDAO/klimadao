@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-27 23:41+0000\n"
+"POT-Creation-Date: 2022-10-31 15:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -931,7 +931,7 @@ msgstr "La mission de KlimaDAO est de démocratiser l'action climatique."
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
 msgid "pledges.dashboard.assets.emptyBalance"
-msgstr ""
+msgstr "Aucun actif carbone à afficher."
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
 msgid "pledges.dashboard.assets.title"
