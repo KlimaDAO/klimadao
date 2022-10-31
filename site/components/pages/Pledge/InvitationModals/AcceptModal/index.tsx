@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { t, Trans } from "@lingui/macro";
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
+import {
+  ButtonPrimary,
+  ButtonSecondary,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 
 import { Modal } from "components/Modal";
@@ -9,39 +14,49 @@ import {
   removeSecondaryWallet,
 } from "../../lib/editPledgeMessage";
 import { Pledge } from "../../types";
-import * as styles from "../../PledgeDashboard/styles";
 import { putPledge, pledgeFormAdapter } from "../../lib";
+import * as styles from "../styles";
 
 type Props = {
-  pageAddress: string;
-  pledge: Pledge;
-  showAcceptModal: boolean;
   setShowAcceptModal: (value: boolean) => void;
+  showAcceptModal: boolean;
+  pledge: Pledge;
+  pageAddress: string;
 };
-
-const getTitle = (step: string) =>
-  ({
-    accept: t({
-      id: "pledge.invitation.accept",
-      message: "Accept Invitation",
-    }),
-    confirm: t({ id: "shared.confirm", message: "Confirm" }),
-  }[step]);
-
-type Steps = "accept" | "confirm" | "error";
+type Steps = "accept" | "confirm" | "error" | "loading";
 
 export const AcceptModal = (props: Props) => {
-  const { signer } = useWeb3();
   const [step, setStep] = useState<Steps>("accept");
-
+  const [errorMessage, setErrorMessage] = useState(null);
   const shortenedAddress = concatAddress(props.pledge.ownerAddress);
+
+  const getTitle = (step: string) =>
+    ({
+      accept: t({
+        id: "pledge.invitation.accept",
+        message: "Accept Invitation",
+      }),
+      confirm: t({
+        id: "shared.confirm",
+        message: "Confirm",
+      }),
+      error: t({
+        id: "pledge.invitation.error_title",
+        message: "Server Error",
+      }),
+      loading: t({
+        id: "shared.loading",
+        message: "Loading",
+      }),
+    }[step]);
+  const { signer } = useWeb3();
 
   const handleSubmit = async (params: { message: string }) => {
     try {
       if (!signer) return;
       const address = await signer.getAddress();
       const signature = await signer.signMessage(params.message);
-
+      setStep("loading");
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -49,14 +64,21 @@ export const AcceptModal = (props: Props) => {
         signature,
         urlPath: `/pledge/${props.pageAddress}`,
       });
-
       props.setShowAcceptModal(false);
-    } catch {
-      console.log("uh ohhh");
+    } catch (e: any) {
+      console.log("error:", e);
       setStep("error");
+      setErrorMessage(
+        e.message ??
+          t({
+            id: "pledge.modal.default_error_message",
+            message:
+              "Something went wrong on our end. Please try again in a few minutes",
+          })
+      );
+      console.log("error:", e);
     }
   };
-
   return (
     <Modal
       title={getTitle(step)}
@@ -73,7 +95,6 @@ export const AcceptModal = (props: Props) => {
               from this pledge at any time.
             </Trans>
           </Text>
-
           <div className={styles.modalButtons}>
             <ButtonPrimary
               label={t({
@@ -132,10 +153,25 @@ export const AcceptModal = (props: Props) => {
           </div>
         </>
       )}
-
       {step === "error" && (
-        // show error
-        <>Error</>
+        <>
+          <Text t="body2" className={styles.modalMessage}>
+            {errorMessage ?? "Error"}
+          </Text>
+          <div className={styles.modalButtons}>
+            <ButtonSecondary
+              label={t({ id: "shared.okay", message: "Okay" })}
+              onClick={() => {
+                props.setShowAcceptModal(false);
+              }}
+            />
+          </div>
+        </>
+      )}
+      {step === "loading" && (
+        <div className={styles.spinnerContainer}>
+          <Spinner />
+        </div>
       )}
     </Modal>
   );

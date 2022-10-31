@@ -40,7 +40,11 @@ export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
   const pledgeRef = pledgeSnapshot.docs[0];
 
   if (!pledgeRef) {
-    throw new Error("Bad request");
+    const e = new Error(
+      `We were unable to find a pledge for address: ${address}`
+    );
+    e.name = "PledgeNotFound";
+    throw e;
   }
 
   return pledgeRef.data();
@@ -123,13 +127,14 @@ export const findOrCreatePledge = async (
         },
       });
     }
-
-    if (!isNotAlreadyAdded) {
-      // do error message "please remove yourself from XXX pledge"
-      // respond with error message here and check in pages/api/pledge
-      // in follow up PR handle errors
+    if (!isNotAlreadyAdded && isAccepting) {
+      // respond with error message here and check error name in pages/api/pledge
+      const e = new Error(
+        "This wallet is already pinned to another pledge. Please unpin your wallet and try again."
+      );
+      e.name = "WalletAlreadyPinned";
+      throw e;
     }
-
     // remove wallet from pledge
     if ((invitedAddress || verifiedAddress) && params.secondaryWalletAddress) {
       await verifySignature({
@@ -137,17 +142,14 @@ export const findOrCreatePledge = async (
         address: params.secondaryWalletAddress,
         signature: params.signature,
       });
-
       await admin
         .firestore()
         .collection("pledges")
         .doc(params.pledge.id)
         .update(`wallets.${params.secondaryWalletAddress}.status`, "rejected");
-
       // modify the status then update newWallets to send to putPledgeAttributes
       const newWallets = { ...currentPledge.wallets };
       newWallets[params.secondaryWalletAddress].status = "rejected";
-
       return putPledgeAttributes({
         currentPledgeValues: currentPledge,
         newPledgeValues: {

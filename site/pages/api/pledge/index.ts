@@ -32,13 +32,16 @@ export default async function handler(
       } catch (e: any) {
         console.error("Request failed:", e.message);
         if (e instanceof Error) {
+          if (e.name === "WalletAlreadyPinned") {
+            return res.status(403).json({ message: e.message, name: e.name });
+          } else {
+            return res.status(500).json({ message: e.message, name: e.name });
+          }
+        } else {
           return res
             .status(500)
-            .json({ message: e.message, name: e.name || null });
+            .json({ message: "Unknown error, check server logs" });
         }
-        return res
-          .status(500)
-          .json({ message: "Unknown error, check server logs" });
       }
       break;
     default:

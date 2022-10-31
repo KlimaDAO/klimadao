@@ -1,43 +1,56 @@
 import React, { useState } from "react";
-import { t, Trans } from "@lingui/macro";
-import { ButtonPrimary, ButtonSecondary, Text } from "@klimadao/lib/components";
-import { useWeb3 } from "@klimadao/lib/utils";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import {
+  ButtonPrimary,
+  ButtonSecondary,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
-import { Pledge } from "../../types";
+import * as styles from "../styles";
+import { t, Trans } from "@lingui/macro";
 import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
+import { Pledge } from "../../types";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { putPledge, pledgeFormAdapter } from "../../lib";
-import * as styles from "../../PledgeDashboard/styles";
 
 type Props = {
-  pageAddress: string;
-  pledge: Pledge;
   setShowRemoveModal: (value: boolean) => void;
   showRemoveModal: boolean;
+  pledge: Pledge;
+  pageAddress: string;
 };
 
-const getTitle = (step: string) =>
-  ({
-    remove: t({ id: "pledge.modal.edit_pledge", message: "Edit pledge" }),
-    confirm: t({
-      id: "pledge.modal.confirm_remove",
-      message: "Confirm Removal",
-    }),
-  }[step]);
-
-type Steps = "remove" | "confirm" | "error";
+type Steps = "remove" | "confirm" | "error" | "loading";
 
 export const RemoveModal = (props: Props) => {
-  const { signer } = useWeb3();
   const [step, setStep] = useState<Steps>("remove");
+  const [errorMessage, setErrorMessage] = useState(null);
+  const getTitle = (step: string) =>
+    ({
+      remove: t({ id: "pledge.modal.edit_pledge", message: "Edit pledge" }),
+      confirm: t({
+        id: "pledge.modal.confirm_remove",
+        message: "Confirm Removal",
+      }),
+      error: t({
+        id: "pledge.invitation.error_title",
+        message: "Server Error",
+      }),
+      loading: t({
+        id: "shared.loading",
+        message: "Loading",
+      }),
+    }[step]);
 
+  const { signer } = useWeb3();
   const handleSubmit = async (params: { message: string }) => {
     try {
       if (!signer) return;
       const address = await signer.getAddress();
       const signature = await signer.signMessage(params.message);
-
+      setStep("loading");
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -45,14 +58,20 @@ export const RemoveModal = (props: Props) => {
         signature,
         urlPath: `/pledge/${props.pageAddress}`,
       });
-
       props.setShowRemoveModal(false);
-    } catch {
-      console.log("uh ohhh");
+    } catch (e: any) {
       setStep("error");
+      setErrorMessage(
+        e.message ??
+          t({
+            id: "pledge.modal.default_error_message",
+            message:
+              "Something went wrong on our end. Please try again in a few minutes",
+          })
+      );
+      console.log("error:", e);
     }
   };
-
   return (
     <Modal
       title={getTitle(step)}
@@ -117,10 +136,25 @@ export const RemoveModal = (props: Props) => {
           </div>
         </>
       )}
-
       {step === "error" && (
-        // show error
-        <>Error</>
+        <>
+          <Text t="body2" className={styles.modalMessage}>
+            {errorMessage ?? t({ message: "Error", id: "shared.error" })}
+          </Text>
+          <div className={styles.modalButtons}>
+            <ButtonSecondary
+              label={t({ id: "shared.okay", message: "Okay" })}
+              onClick={() => {
+                props.setShowRemoveModal(false);
+              }}
+            />
+          </div>
+        </>
+      )}
+      {step === "loading" && (
+        <div className={styles.spinnerContainer}>
+          <Spinner />
+        </div>
       )}
     </Modal>
   );

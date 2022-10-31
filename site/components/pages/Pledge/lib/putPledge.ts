@@ -4,12 +4,12 @@ export interface putPledgeParams {
   pledge: PledgeFormValues;
   pageAddress: string;
   signature: string;
-  urlPath: string;
   secondaryWalletAddress?: string;
+  urlPath: string;
 }
 
-export const putPledge = (params: putPledgeParams): Promise<Response> =>
-  fetch("/api/pledge", {
+export const putPledge = async (params: putPledgeParams) => {
+  const res: any = await fetch("/api/pledge", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,15 @@ export const putPledge = (params: putPledgeParams): Promise<Response> =>
     body: JSON.stringify({
       pageAddress: params.pageAddress,
       pledge: params.pledge,
-      urlPath: params.urlPath,
       secondaryWalletAddress: params.secondaryWalletAddress,
+      urlPath: params.urlPath,
     }),
   });
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.message);
+  } else {
+    const data = await res.json();
+    return data;
+  }
+};
