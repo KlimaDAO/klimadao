@@ -48,7 +48,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
    */
   useEffect(() => {
     const escListener = (e: KeyboardEvent) =>
-      e.key === "Escape" && setShowModal(false);
+      e.key === "Escape" && showModal && setShowModal(false);
 
     window.addEventListener("keydown", escListener);
     return () => window.removeEventListener("keydown", escListener);
