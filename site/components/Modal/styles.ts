@@ -78,12 +78,12 @@ export const modalContent = css`
   //Resolve border radius issues by enforcing rounded corners on scroll bars
   &::-webkit-scrollbar-thumb {
     background-color: var(--surface-04);
-    border: 4px solid transparent;
-    border-radius: 8px;
+    border: 0.4rem solid transparent;
+    border-radius: 0.8rem;
     background-clip: padding-box;
   }
 
   &::-webkit-scrollbar {
-    width: 16px;
+    width: 1.6rem;
   }
 `;
