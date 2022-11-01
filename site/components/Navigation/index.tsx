@@ -116,6 +116,15 @@ export const Navigation: FC<Props> = ({
             active={activePage === "Contact"}
             url="/contact"
           />
+          <LinkItemDesktop
+            name={t({
+              message: "Disclaimer",
+              id: "shared.disclaimer",
+            })}
+            key="disclaimer"
+            active={activePage === "Disclaimer"}
+            url="/disclaimer"
+          />
         </DropdownItemDesktop>
 
         <DropdownItemDesktop name={t({ message: "App", id: "shared.app" })}>
@@ -271,6 +280,15 @@ export const Navigation: FC<Props> = ({
                   key="contact"
                   active={activePage === "Contact"}
                   url="/contact"
+                />,
+                <NavItemMobile
+                  name={t({
+                    message: "Disclaimer",
+                    id: "shared.disclaimer",
+                  })}
+                  key="disclaimer"
+                  active={activePage === "Disclaimer"}
+                  url="/disclaimer"
                 />,
               ]}
             />

@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { Disclaimer } from "components/pages/Disclaimer";
+import { Disclaimer } from "components/pages/About/Disclaimer";
 import { loadTranslation } from "lib/i18n";
 
 type Props = Record<string, unknown>;
