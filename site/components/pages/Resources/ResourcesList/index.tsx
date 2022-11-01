@@ -244,14 +244,14 @@ export const ResourcesList: FC<Props> = (props) => {
               <>
                 <Text t="h4">
                   <Trans id="resources.page.list.no_search_results.title">
-                    Sorry. We coudn't find any matching results.
+                    Sorry. We couldn't find any matching results.
                   </Trans>
                 </Text>
                 {wasTextSearch ? (
                   <Text>
                     <Trans id="resources.page.list.search_submit.no_search_results">
-                      Double check your search for any typos or spelling errors
-                      - or try a different search term.
+                      Check your search for typos or try a different search
+                      term.
                     </Trans>
                   </Text>
                 ) : (
