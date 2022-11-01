@@ -24,12 +24,11 @@ export type PageName =
   | "Resources"
   | "Disclaimer"
   | "Infinity"
-  | "Blog"
   | "Community"
-  | "Podcast"
   | "Contact"
   | "Pledges"
-  | "EventDemo";
+  | "EventDemo"
+  | "Updates";
 
 export type NavItemMobileID =
   | "About"
@@ -80,24 +79,6 @@ export const Navigation: FC<Props> = ({
         activePage={activePage}
       >
         <DropdownItemDesktop name={t({ message: "About", id: "shared.about" })}>
-          <LinkItemDesktop
-            name={t({
-              message: "Blog",
-              id: "shared.blog",
-            })}
-            key="blog"
-            url="/blog"
-            active={activePage === "Blog"}
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Podcast",
-              id: "shared.podcast",
-            })}
-            key="podcast"
-            url="/podcast"
-            active={activePage === "Podcast"}
-          />
           <LinkItemDesktop
             name={t({
               message: "Community",
@@ -201,6 +182,15 @@ export const Navigation: FC<Props> = ({
         >
           <LinkItemDesktop
             name={t({
+              message: "Updates",
+              id: "shared.updates",
+            })}
+            key="updates"
+            url="/resources"
+            active={activePage === "Updates"}
+          />
+          <LinkItemDesktop
+            name={t({
               message: "How To Buy Klima",
               id: "shared.how_to_buy",
             })}
@@ -218,16 +208,7 @@ export const Navigation: FC<Props> = ({
           />
           <LinkItemDesktop
             name={t({
-              message: "Disclaimer",
-              id: "shared.disclaimer",
-            })}
-            key="disclaimer"
-            active={activePage === "Disclaimer"}
-            url="/disclaimer"
-          />
-          <LinkItemDesktop
-            name={t({
-              message: "Docs",
+              message: "Official Docs",
               id: "shared.docs",
             })}
             key="docs"
@@ -245,24 +226,6 @@ export const Navigation: FC<Props> = ({
               name={t({ message: "About", id: "shared.about" })}
               id="About"
               subMenu={[
-                <NavItemMobile
-                  name={t({
-                    message: "Blog",
-                    id: "shared.blog",
-                  })}
-                  key="blog"
-                  url="/blog"
-                  active={activePage === "Blog"}
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Podcast",
-                    id: "shared.podcast",
-                  })}
-                  key="podcast"
-                  url="/podcast"
-                  active={activePage === "Podcast"}
-                />,
                 <NavItemMobile
                   name={t({
                     message: "Community",
@@ -373,6 +336,15 @@ export const Navigation: FC<Props> = ({
               subMenu={[
                 <NavItemMobile
                   name={t({
+                    message: "Updates",
+                    id: "shared.updates",
+                  })}
+                  key="updates"
+                  url="/resources"
+                  active={activePage === "Updates"}
+                />,
+                <NavItemMobile
+                  name={t({
                     message: "How To Buy Klima",
                     id: "shared.how_to_buy",
                   })}
@@ -390,16 +362,7 @@ export const Navigation: FC<Props> = ({
                 />,
                 <NavItemMobile
                   name={t({
-                    message: "Disclaimer",
-                    id: "shared.disclaimer",
-                  })}
-                  key="disclaimer"
-                  active={activePage === "Disclaimer"}
-                  url="/disclaimer"
-                />,
-                <NavItemMobile
-                  name={t({
-                    message: "Docs",
+                    message: "Official Docs",
                     id: "shared.docs",
                   })}
                   key="docs"
