@@ -28,7 +28,7 @@ export const Container: FC<Props> = (props) => {
         mediaImageSrc={props.mediaImageSrc}
       />
 
-      <Navigation activePage="Resources" />
+      <Navigation activePage="About" />
 
       <AboutHeader
         activePage={props.activePage}

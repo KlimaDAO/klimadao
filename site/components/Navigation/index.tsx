@@ -28,7 +28,8 @@ export type PageName =
   | "Contact"
   | "Pledges"
   | "EventDemo"
-  | "Updates";
+  | "Updates"
+  | "About";
 
 export type NavItemMobileID =
   | "About"
@@ -78,7 +79,10 @@ export const Navigation: FC<Props> = ({
         ]}
         activePage={activePage}
       >
-        <DropdownItemDesktop name={t({ message: "About", id: "shared.about" })}>
+        <DropdownItemDesktop
+          name={t({ message: "About", id: "shared.about" })}
+          active={activePage === "About"}
+        >
           <LinkItemDesktop
             name={t({
               message: "Community",
@@ -178,7 +182,6 @@ export const Navigation: FC<Props> = ({
         />
         <DropdownItemDesktop
           name={t({ message: "Resources", id: "shared.resources" })}
-          active={activePage === "Resources"}
         >
           <LinkItemDesktop
             name={t({
@@ -224,6 +227,7 @@ export const Navigation: FC<Props> = ({
           <div className="links">
             <NavItemMobile
               name={t({ message: "About", id: "shared.about" })}
+              active={activePage === "About"}
               id="About"
               subMenu={[
                 <NavItemMobile
