@@ -1,15 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-01 15:45+0000\n"
+"POT-Creation-Date: 2022-11-02 15:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: zh-CN\n"
-
-#: components/pages/Blog/index.tsx:35
-msgid "Articles"
-msgstr "文章"
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
@@ -18,10 +14,6 @@ msgstr "变更语言"
 #: components/pages/Buy/index.tsx:272
 msgid "Enter App"
 msgstr "进入App"
-
-#: components/pages/Podcast/index.tsx:44
-msgid "Episodes"
-msgstr "集"
 
 #: components/pages/Infinity/index.tsx:511
 msgid "Frequently Asked Questions"
@@ -47,20 +39,6 @@ msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资�
 #: components/pages/Blog/Post/index.tsx:87
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
-
-#: components/pages/Blog/index.tsx:19
-#: components/pages/Blog/index.tsx:25
-msgid "blog.head.description"
-msgstr "来自创始人、DAO 贡献者、顾问和社区的更新和领袖精神。"
-
-#: components/pages/Blog/index.tsx:18
-msgid "blog.head.headline"
-msgstr "博客"
-
-#: components/pages/Blog/index.tsx:17
-#: components/pages/Blog/index.tsx:24
-msgid "blog.head.title"
-msgstr "KlimaDAO 博客"
 
 #: components/pages/Retirements/CopyURLButton/index.tsx:22
 msgid "button.copyURL.copied"
@@ -232,294 +210,294 @@ msgstr "用 Zapper 的“兑换”界面设置您的交易。如果您遇到问�
 msgid "buy.zapper_03.title"
 msgstr "兑换"
 
-#: components/pages/Resources/Community/index.tsx:97
+#: components/pages/About/Community/index.tsx:97
 msgid "community.become_a_partner"
 msgstr "成为合作伙伴"
 
-#: components/pages/Resources/Community/index.tsx:170
+#: components/pages/About/Community/index.tsx:170
 msgid "community.bigcowg_logo"
 msgstr "BICOWG标识"
 
-#: components/pages/Resources/Community/index.tsx:159
+#: components/pages/About/Community/index.tsx:159
 msgid "community.blockchainforclimatefondation_logo"
 msgstr "气候基金会区块链标识"
 
-#: components/pages/Resources/Community/index.tsx:344
+#: components/pages/About/Community/index.tsx:344
 msgid "community.come_on_in"
 msgstr "由此进入"
 
-#: components/pages/Resources/Community/index.tsx:236
+#: components/pages/About/Community/index.tsx:236
 msgid "community.deltawave_logo"
 msgstr "Delta Wave 标识"
 
-#: components/pages/Resources/Community/index.tsx:288
+#: components/pages/About/Community/index.tsx:288
 msgid "community.digitalcharityart_logo"
 msgstr "数字慈善艺术标识"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:359
+#: components/pages/About/Community/index.tsx:359
 msgid "community.discord_is_where_we_share"
 msgstr "Discord 是我们分享重要公告、安排办公时间、回答问题和交易表情包的地方。我们的 Discord 服务器非常活跃，并且全天候运行。我们拥有从买卖交易到可持续发展的所有渠道和各类碳市场。"
 
-#: components/pages/Resources/Community/index.tsx:258
+#: components/pages/About/Community/index.tsx:258
 msgid "community.dovu_logo"
 msgstr "Dovu 标识"
 
-#: components/pages/Resources/Community/index.tsx:266
+#: components/pages/About/Community/index.tsx:266
 msgid "community.eco_logo"
 msgstr "生态标识"
 
-#: components/pages/Resources/Community/index.tsx:247
+#: components/pages/About/Community/index.tsx:247
 msgid "community.etcgroup_logo"
 msgstr "等等集体标识"
 
-#: components/pages/Resources/Community/index.tsx:392
+#: components/pages/About/Community/index.tsx:392
 msgid "community.get_in_touch"
 msgstr "取得联系？"
 
-#: components/pages/Resources/Community/index.tsx:203
+#: components/pages/About/Community/index.tsx:203
 msgid "community.gitcoin_logo"
 msgstr "Gitcoin 标识"
 
-#: components/pages/Resources/Community/index.tsx:76
+#: components/pages/About/Community/index.tsx:76
 msgid "community.head.headline"
 msgstr "社区"
 
-#: components/pages/Resources/Community/index.tsx:83
+#: components/pages/About/Community/index.tsx:83
 msgid "community.head.metadescription"
 msgstr "了解我们充满激情的 Klimates 社区"
 
-#: components/pages/Resources/Community/index.tsx:77
+#: components/pages/About/Community/index.tsx:77
 msgid "community.head.subline"
 msgstr "KlimaDAO 是一个有变革的去中心化自治组织。由充满激情的社区 Klimates来建立和治理。"
 
-#: components/pages/Resources/Community/index.tsx:75
-#: components/pages/Resources/Community/index.tsx:82
+#: components/pages/About/Community/index.tsx:75
+#: components/pages/About/Community/index.tsx:82
 msgid "community.head.title"
 msgstr "KlimaDAO 社区"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:395
+#: components/pages/About/Community/index.tsx:395
 msgid "community.if_you_ve_got_questions"
 msgstr "如果您有问题、想法、建议或其他任何事情：我们可以帮您找到合适的人来对接。"
 
-#: components/pages/Resources/Community/index.tsx:347
+#: components/pages/About/Community/index.tsx:347
 msgid "community.join_our_discord"
 msgstr "加入我们的 Discord"
 
-#: components/pages/Resources/Community/index.tsx:334
+#: components/pages/About/Community/index.tsx:334
 msgid "community.join_the_klima_community"
 msgstr "加入Klima社区"
 
-#: components/pages/Resources/Community/index.tsx:310
+#: components/pages/About/Community/index.tsx:310
 msgid "community.landx_logo"
 msgstr "LandX 标识"
 
-#: components/pages/Resources/Community/index.tsx:94
-#: components/pages/Resources/Community/index.tsx:389
+#: components/pages/About/Community/index.tsx:94
+#: components/pages/About/Community/index.tsx:389
 msgid "community.lets_work_together"
 msgstr "我们一起努力吧"
 
-#: components/pages/Resources/Community/index.tsx:137
+#: components/pages/About/Community/index.tsx:137
 msgid "community.moss_logo"
 msgstr "Moss 标识"
 
-#: components/pages/Resources/Community/index.tsx:192
+#: components/pages/About/Community/index.tsx:192
 msgid "community.oceandrop_logo"
 msgstr "Oceandrop 标识"
 
-#: components/pages/Resources/Community/index.tsx:277
+#: components/pages/About/Community/index.tsx:277
 msgid "community.offsetra_logo"
 msgstr "Offsetra 标识"
 
-#: components/pages/Resources/Community/index.tsx:214
+#: components/pages/About/Community/index.tsx:214
 msgid "community.olympusdao_logo"
 msgstr "OlympusDAO 标识"
 
-#: components/pages/Resources/Community/index.tsx:225
+#: components/pages/About/Community/index.tsx:225
 msgid "community.openearth_logo"
 msgstr "开放地球标识"
 
-#: components/pages/Resources/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:130
 msgid "community.our_partners"
 msgstr "我们的伙伴"
 
-#: components/pages/Resources/Community/index.tsx:181
+#: components/pages/About/Community/index.tsx:181
 msgid "community.polygon_logo"
 msgstr "Polygon 标识"
 
-#: components/pages/Resources/Community/index.tsx:148
+#: components/pages/About/Community/index.tsx:148
 msgid "community.toucan_logo"
 msgstr "Toucan 标识"
 
-#: components/pages/Resources/Community/index.tsx:299
+#: components/pages/About/Community/index.tsx:299
 msgid "community.toughtforfood_logo"
 msgstr "考虑食物标识"
 
-#: components/pages/Resources/Community/index.tsx:113
+#: components/pages/About/Community/index.tsx:113
 msgid "community.tree_grove"
 msgstr "树林"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:100
+#: components/pages/About/Community/index.tsx:100
 msgid "community.we_work_with_traditionnal"
 msgstr "我们与传统的碳市场参与者、加密平台、公司以及介于两者之间的所有人合作。"
 
-#: components/pages/Resources/Contact/index.tsx:63
+#: components/pages/About/Contact/index.tsx:63
 msgid "concat.careers"
 msgstr "职业生涯"
 
-#: components/pages/Resources/Contact/index.tsx:140
+#: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
 msgstr "错误报告"
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
-#: components/pages/Resources/Contact/index.tsx:143
+#: components/pages/About/Contact/index.tsx:143
 msgid "contact.bug_reports.to_file_a_bug_report"
 msgstr "要提交错误报告，请加入我们的社区 Discord 服务器并在 # 错误报告频道中提问。我们<0> 社区 </0>很乐意为您调查并找到解决方案。"
 
 #. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
-#: components/pages/Resources/Contact/index.tsx:66
+#: components/pages/About/Contact/index.tsx:66
 msgid "contact.careers.we_re_hiring"
 msgstr "我们招聘的团队成员都是跨时区的远程协作的。我们会定期在 <0>Community Discord Server 中发布角色和奖励</0>。如果你是一个有动力有目标的 DAO 的自我创业者，我们很乐意收到你的来信！"
 
-#: components/pages/Resources/Contact/index.tsx:25
+#: components/pages/About/Contact/index.tsx:25
 msgid "contact.head.description"
 msgstr "与 KlimaDAO 的工作人员取得联系。"
 
-#: components/pages/Resources/Contact/index.tsx:18
+#: components/pages/About/Contact/index.tsx:18
 msgid "contact.head.headline"
 msgstr "联系方式"
 
-#: components/pages/Resources/Contact/index.tsx:19
+#: components/pages/About/Contact/index.tsx:19
 msgid "contact.head.subline"
 msgstr "问题、疑虑、想法？您可以通过以下几种方式与我们取得联系。欢迎机构和个人的洽谈与会晤。"
 
-#: components/pages/Resources/Contact/index.tsx:17
-#: components/pages/Resources/Contact/index.tsx:24
+#: components/pages/About/Contact/index.tsx:17
+#: components/pages/About/Contact/index.tsx:24
 msgid "contact.head.title"
 msgstr "联系 KlimaDAO"
 
-#: components/pages/Resources/Contact/index.tsx:105
+#: components/pages/About/Contact/index.tsx:105
 msgid "contact.media"
 msgstr "媒体"
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:108
+#: components/pages/About/Contact/index.tsx:108
 msgid "contact.media.if_you_are_a_journalist"
 msgstr "如果您是记者或内容创作者，我们的营销团队很乐意与您会面。"
 
 #. Use this <0>Media Request Form</0>.
-#: components/pages/Resources/Contact/index.tsx:117
+#: components/pages/About/Contact/index.tsx:117
 msgid "contact.media.use_this_media_request_form"
 msgstr "使用此<0>媒体申请表</0>或发送电子邮件至 <1>press@klimadao.finance</1>"
 
-#: components/pages/Resources/Contact/index.tsx:85
+#: components/pages/About/Contact/index.tsx:85
 msgid "contact.partnerships"
 msgstr "伙伴关系"
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
-#: components/pages/Resources/Contact/index.tsx:88
+#: components/pages/About/Contact/index.tsx:88
 msgid "contact.partnerships.until_we_finish_building"
 msgstr "在完成构建我们的合作伙伴页面之前，我们会将潜在的合作伙伴和合作查询发送至<0>此联系表</0>."
 
-#: components/pages/Resources/Contact/index.tsx:35
+#: components/pages/About/Contact/index.tsx:35
 msgid "contact.quest_and_support"
 msgstr "问题与支持"
 
 #. Join our <0>community</0>
-#: components/pages/Resources/Contact/index.tsx:38
+#: components/pages/About/Contact/index.tsx:38
 msgid "contact.quest_and_support.join_our_community"
 msgstr "加入我们的<0> 社区 </0>"
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:46
+#: components/pages/About/Contact/index.tsx:46
 msgid "contact.quest_and_support.join_our_discord_server"
 msgstr "加入我们的 Discord 服务器并在 # 问题频道中提问。我们有众多友好的、知识渊博的社区成员随时准备，并乐意为您提供帮助。"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:67
+#: components/pages/About/Disclaimer/index.tsx:64
 msgid "disclaimer.1_an_offer_or_sollicitation"
 msgstr "1. 持有或控制与无形利益相关的任何证券、其他资产或服务的要约或要约邀请；"
 
-#: components/pages/Disclaimer/index.tsx:114
+#: components/pages/About/Disclaimer/index.tsx:111
 msgid "disclaimer.1_meet_your_requirements"
 msgstr "1. 满足您的要求;"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:119
+#: components/pages/About/Disclaimer/index.tsx:116
 msgid "disclaimer.2_be_available_on_an_uninterrupted"
 msgstr "2. 在不间断、及时、安全或无错误的基础上提供服务；"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:77
+#: components/pages/About/Disclaimer/index.tsx:74
 msgid "disclaimer.2_financial_investment_or_trading_advice"
 msgstr "2. 财务上，投资或交易咨询或提供此类建议和/或服务的要约。"
 
-#: components/pages/Disclaimer/index.tsx:128
+#: components/pages/About/Disclaimer/index.tsx:125
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
 msgstr "3. 可靠、完整、合法或安全。"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:35
+#: components/pages/About/Disclaimer/index.tsx:32
 msgid "disclaimer.all_information_on_this_website"
 msgstr "本网站上的所有信息均出于善意发布，仅供一般参考之用。 KlimaDAO 基于其有用性的基础发布，并且仅在上述网站描述的理由和限制范围内提供服务。"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:162
+#: components/pages/About/Disclaimer/index.tsx:159
 msgid "disclaimer.any_action_you_take_upon_the_information"
 msgstr "您对在本网站上找到的信息及采取的任何行动均由您自行承担风险。根据本网站所载信息作出的决定由访问者全权负责。 KlimaDAO 对使用本网站后发生以下情况所造成的损失不承担责任：丢失密码/助记词、不良交易、将资产发送到错误地址、资产丢失和与诈骗相关事件。 KlimaDAO 不承担与市场变化及其波动有关的任何责任或义务。您必须自行研究，根据自身情况去了解、熟悉和认识本平台提供的信息或服务。"
 
-#: components/pages/Disclaimer/index.tsx:31
+#: components/pages/About/Disclaimer/index.tsx:19
 msgid "disclaimer.disclaimer"
 msgstr "免责声明"
 
-#: components/pages/Disclaimer/index.tsx:20
+#: components/pages/About/Disclaimer/index.tsx:21
 msgid "disclaimer.head.description"
 msgstr "KlimaDAO 法务团队的重要免责声明。"
 
-#: components/pages/Disclaimer/index.tsx:16
-#: components/pages/Disclaimer/index.tsx:24
+#: components/pages/About/Disclaimer/index.tsx:15
+#: components/pages/About/Disclaimer/index.tsx:25
 msgid "disclaimer.head.title"
 msgstr "KlimaDAO 免责声明"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:105
+#: components/pages/About/Disclaimer/index.tsx:102
 msgid "disclaimer.klimadao_and_its_suppliers"
 msgstr "KlimaDAO 及其供应商不保证该平台将："
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:46
+#: components/pages/About/Disclaimer/index.tsx:43
 msgid "disclaimer.klimadao_is_a_platform"
 msgstr "KlimaDAO 是一个平台。不是经纪人、金融机构或债权人。本网站提供的服务不包括在任何司法管辖区持有或控制您的证券、期权、资产、期货或其他与证券相关的衍生品的要约，其内容不受证券法的约束。"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:133
+#: components/pages/About/Disclaimer/index.tsx:130
 msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
 msgstr "KlimaDAO 及其任何代表，均不对因依赖服务中包含的材料或信息，采用或采取任何行动而造成的任何形式的任何损失承担责任。 KlimaDAO 确保服务和内容的使用安全，但不代表或保证平台上的服务和内容没受病毒攻击或夹杂其他有害成分。"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:181
+#: components/pages/About/Disclaimer/index.tsx:178
 msgid "disclaimer.nothing_in_this_disclaimer"
 msgstr "本免责声明中的任何信息内容或材料，均不得或不得被用来构建我们与您之间的任何法律关系，也不授予双方中任何一方任何权利或义务。"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:59
+#: components/pages/About/Disclaimer/index.tsx:56
 msgid "disclaimer.nothing_in_this_platform"
 msgstr "本平台中的任何内容均不构成或被解释为："
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:86
+#: components/pages/About/Disclaimer/index.tsx:83
 msgid "disclaimer.the_service_available"
 msgstr "服务中可用或可通过服务访问的服务按“原样”提供，并在适用法律允许的最大范围内提供。 KlimaDAO 及其代理、顾问、董事、管理人员、员工和股东否认所有明示或暗示的保证，包括但不限于对适销性、特定用途的适用性和不侵权的暗示保证，以及课程中暗示的保证表现或交易过程。 KlimaDAO 不对这些信息的完整性、可靠性和准确性、适销性或特定用途适用性的保证作出任何保证。本平台不对这些信息的完整性和准确性做出任何保证。"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:192
+#: components/pages/About/Disclaimer/index.tsx:189
 msgid "disclaimer.we_recommend_that_you_visit"
 msgstr "我们建议您在使用网站之前访问我们的 Crypto Security 101 页面以获取安全说明。请注意：切勿与任何人分享您的私钥或助记词——我们的会员和我们的应用程序都不会向您询问和索取。"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:147
+#: components/pages/About/Disclaimer/index.tsx:144
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "您对提供私人信息、验证身份和合法性承担全部责任。尽管有提供私人信息和验证的指标和消息，KlimaDAO 对平台上的身份不作任何声明。我们不能保证任何在线披露的数据安全性，以及由于漏洞或任何类型的故障、软件异常行为而导致的持续人员伤亡。"
 
@@ -1172,19 +1150,6 @@ msgstr "输入 ENS, KNS 或 0x 地址"
 msgid "pledges.home.search.submit"
 msgstr "搜索"
 
-#: components/pages/Podcast/index.tsx:21
-msgid "podcast.head.description"
-msgstr "Planet of the Klimates 是一个社区驱动的播客，内容包括与 Klima 合作伙伴和思想领袖在气候科学、区块链等方面的对话。您可以直接在下方探索最新剧集和完整的节目存档，还可以在您最喜欢的播客平台上找到 PotK，包括 <0>RSS</0>和 <1>Apple Podcasts</1>"
-
-#: components/pages/Podcast/index.tsx:19
-msgid "podcast.head.headline"
-msgstr "播客"
-
-#: components/pages/Podcast/index.tsx:18
-#: components/pages/Podcast/index.tsx:33
-msgid "podcast.head.title"
-msgstr "KlimaDAO 播客"
-
 #: components/pages/Resources/ResourcesFilters/index.tsx:24
 msgid "resources.form.categories.header"
 msgstr "类别"
@@ -1319,7 +1284,7 @@ msgstr "探索全部"
 
 #: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
-msgstr "对不起。我们找不到任何匹配的结果。"
+msgstr ""
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
@@ -1331,7 +1296,7 @@ msgstr "请组合使用不同的过滤器。"
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr "仔细检查您的搜索是否有任何输入错误或拼写错误 - 或尝试不同的搜索词条。"
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1508,48 +1473,44 @@ msgstr "按资产分类的碳停用总额"
 msgid "shared.404"
 msgstr "404 - 页面不存在"
 
-#: components/Navigation/index.tsx:82
-#: components/Navigation/index.tsx:236
+#: components/Navigation/index.tsx:83
+#: components/Navigation/index.tsx:229
 msgid "shared.about"
 msgstr "关于"
 
-#: components/Navigation/index.tsx:121
-#: components/Navigation/index.tsx:278
+#: components/Navigation/index.tsx:115
+#: components/Navigation/index.tsx:263
 msgid "shared.app"
 msgstr "应用程序"
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:84
-#: components/Navigation/index.tsx:240
-#: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "博客"
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:139
-#: components/Navigation/index.tsx:295
+#: components/Navigation/index.tsx:133
+#: components/Navigation/index.tsx:280
 msgid "shared.bond"
 msgstr "债券化 Klima"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:123
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:117
+#: components/Navigation/index.tsx:267
 msgid "shared.buy"
 msgstr "购买 Klima"
 
-#: components/Navigation/index.tsx:366
+#: components/Navigation/index.tsx:360
 msgid "shared.carbon_dashboard"
 msgstr "碳仪表板"
 
-#: components/Navigation/index.tsx:203
+#: components/Navigation/index.tsx:205
 msgid "shared.carbon_dashboards"
 msgstr "碳仪表板"
 
-#: components/Navigation/index.tsx:102
-#: components/Navigation/index.tsx:258
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
-#: components/pages/Resources/ResourcesHeader/index.tsx:81
+#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:234
+#: components/pages/About/AboutHeader/index.tsx:32
+#: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.community"
 msgstr "社区"
 
@@ -1559,8 +1520,8 @@ msgid "shared.connect"
 msgstr "连接"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:267
-#: components/pages/Resources/ResourcesHeader/index.tsx:87
+#: components/Navigation/index.tsx:243
+#: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.contact"
 msgstr "联系方式"
 
@@ -1570,24 +1531,26 @@ msgstr "联系方式"
 msgid "shared.contact_sales"
 msgstr "联系销售"
 
-#: components/Navigation/index.tsx:111
-#: components/pages/Resources/Community/index.tsx:110
-#: components/pages/Resources/Community/index.tsx:405
-#: components/pages/Resources/ResourcesHeader/index.tsx:62
+#: components/Navigation/index.tsx:96
+#: components/pages/About/AboutHeader/index.tsx:43
+#: components/pages/About/Community/index.tsx:110
+#: components/pages/About/Community/index.tsx:405
 msgid "shared.contact_us"
 msgstr "联系我们"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:211
-#: components/Navigation/index.tsx:374
+#: components/Navigation/index.tsx:105
+#: components/Navigation/index.tsx:252
+#: components/pages/About/AboutHeader/index.tsx:54
+#: components/pages/About/AboutHeader/index.tsx:79
 msgid "shared.disclaimer"
 msgstr "免责声明"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:220
-#: components/Navigation/index.tsx:383
+#: components/Navigation/index.tsx:213
+#: components/Navigation/index.tsx:368
 msgid "shared.docs"
-msgstr "文档"
+msgstr ""
 
 #: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
@@ -1601,7 +1564,6 @@ msgstr "开始使用"
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
 #: components/pages/Pledge/PledgeDashboard/index.tsx:59
-#: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -1611,13 +1573,13 @@ msgstr "通过碳支持的数字货币推动气候行动并获得奖励。"
 msgid "shared.home"
 msgstr "主页"
 
-#: components/Navigation/index.tsx:194
-#: components/Navigation/index.tsx:357
+#: components/Navigation/index.tsx:196
+#: components/Navigation/index.tsx:351
 msgid "shared.how_to_buy"
 msgstr "如何购买 Klima"
 
-#: components/Navigation/index.tsx:172
-#: components/Navigation/index.tsx:330
+#: components/Navigation/index.tsx:166
+#: components/Navigation/index.tsx:315
 msgid "shared.infinity"
 msgstr "无穷"
 
@@ -1631,13 +1593,13 @@ msgstr "开始使用"
 msgid "shared.infinity_cta"
 msgstr "面向组织的 DEFI"
 
-#: components/Navigation/index.tsx:175
-#: components/Navigation/index.tsx:333
+#: components/Navigation/index.tsx:169
+#: components/Navigation/index.tsx:318
 msgid "shared.infinity_intro"
 msgstr "介绍"
 
-#: components/Navigation/index.tsx:163
-#: components/Navigation/index.tsx:319
+#: components/Navigation/index.tsx:157
+#: components/Navigation/index.tsx:304
 msgid "shared.info"
 msgstr "信息"
 
@@ -1651,30 +1613,23 @@ msgstr "正在加载..."
 msgid "shared.loveletter_cta"
 msgstr "面向个人的 DEFI"
 
-#: components/Navigation/index.tsx:187
-#: components/Navigation/index.tsx:348
+#: components/Navigation/index.tsx:181
+#: components/Navigation/index.tsx:333
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:155
-#: components/Navigation/index.tsx:311
+#: components/Navigation/index.tsx:149
+#: components/Navigation/index.tsx:296
 msgid "shared.offset"
 msgstr "抵消"
 
-#: components/Navigation/index.tsx:180
-#: components/Navigation/index.tsx:341
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:326
 msgid "shared.pledge"
 msgstr "如何承诺"
 
-#: components/Navigation/index.tsx:93
-#: components/Navigation/index.tsx:249
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:93
-msgid "shared.podcast"
-msgstr "播客"
-
-#: components/Navigation/index.tsx:190
-#: components/Navigation/index.tsx:353
+#: components/Navigation/index.tsx:184
+#: components/Navigation/index.tsx:338
 msgid "shared.resources"
 msgstr "资源"
 
@@ -1683,17 +1638,23 @@ msgid "shared.resources.sort_by.header"
 msgstr "排序方式："
 
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:131
-#: components/Navigation/index.tsx:287
+#: components/Navigation/index.tsx:125
+#: components/Navigation/index.tsx:272
 msgid "shared.stake"
 msgstr "质押 Klima"
+
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:342
+#: components/pages/Blog/Post/index.tsx:72
+msgid "shared.updates"
+msgstr ""
 
 #: components/pages/Infinity/index.tsx:494
 msgid "shared.visit_klimadao_blog"
 msgstr "访问 KlimaDAO 博客"
 
-#: components/Navigation/index.tsx:147
-#: components/Navigation/index.tsx:303
+#: components/Navigation/index.tsx:141
+#: components/Navigation/index.tsx:288
 msgid "shared.wrap"
 msgstr "打包 sKlima"
 
