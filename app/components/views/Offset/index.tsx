@@ -10,12 +10,12 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
-  OffsetInputToken,
   offsetInputTokens,
   offsetCompatibility,
   RetirementToken,
   retirementTokens,
   urls,
+  OffsetPaymentMethod,
 } from "@klimadao/lib/constants";
 import { getTokenDecimals } from "@klimadao/lib/utils";
 
@@ -56,10 +56,14 @@ import { TransactionModal } from "components/TransactionModal";
 import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import * as styles from "./styles";
+import Fiat from "public/icons/Fiat.png";
+import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
+import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
 const APPROVAL_SLIPPAGE = 0.01;
+const MAX_FIAT_COST = 2000; // usdc
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -90,8 +94,8 @@ export const Offset = (props: Props) => {
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
-  const [selectedInputToken, setSelectedInputToken] =
-    useState<OffsetInputToken>("bct");
+  const [paymentMethod, setPaymentMethod] =
+    useState<OffsetPaymentMethod>("fiat");
   const [selectedRetirementToken, setSelectedRetirementToken] =
     useState<RetirementToken>("bct");
 
@@ -109,7 +113,7 @@ export const Offset = (props: Props) => {
     useState("");
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
-
+  const [isRedirecting, setIsRedirecting] = useState(false);
   const isLoading = props.isConnected && (!balances?.bct || !allowances?.bct);
   const setStatus = (statusType: TxnStatus | null, message?: string) => {
     if (!statusType) return dispatch(setAppState({ notificationStatus: null }));
@@ -119,7 +123,7 @@ export const Offset = (props: Props) => {
   /** Initialize input from params after they are extracted, validated & stripped */
   useEffect(() => {
     if (params.inputToken) {
-      setSelectedInputToken(params.inputToken);
+      setPaymentMethod(params.inputToken);
     }
     if (params.retirementToken) {
       setSelectedRetirementToken(params.retirementToken);
@@ -165,14 +169,12 @@ export const Offset = (props: Props) => {
   useEffect(() => {
     // if input token changes, force a compatible retirement token
     if (
-      !offsetCompatibility[selectedInputToken]?.includes(
-        selectedRetirementToken
-      )
+      !offsetCompatibility[paymentMethod]?.includes(selectedRetirementToken)
     ) {
       // never undefined, because universal tokens
-      setSelectedRetirementToken(offsetCompatibility[selectedInputToken][0]);
+      setSelectedRetirementToken(offsetCompatibility[paymentMethod][0]);
     }
-  }, [selectedInputToken]);
+  }, [paymentMethod]);
 
   useEffect(() => {
     if (debouncedQuantity === "" || !Number(debouncedQuantity)) {
@@ -180,24 +182,43 @@ export const Offset = (props: Props) => {
       return;
     }
     const awaitGetOffsetConsumptionCost = async () => {
-      if (!props.provider) return;
       setCost("loading");
-      const [consumptionCost] = await getOffsetConsumptionCost({
-        inputToken: selectedInputToken,
-        retirementToken: selectedRetirementToken,
-        quantity: debouncedQuantity,
-        amountInCarbon: true,
-        provider: props.provider,
-        getSpecific: !!projectAddress,
-      });
-
-      setCost(consumptionCost);
+      if (paymentMethod !== "fiat") {
+        const [consumptionCost] = await getOffsetConsumptionCost({
+          inputToken: paymentMethod,
+          retirementToken: selectedRetirementToken,
+          quantity: debouncedQuantity,
+          amountInCarbon: true,
+          getSpecific: !!projectAddress,
+        });
+        setCost(consumptionCost);
+      } else {
+        const floorQuantity =
+          Number(debouncedQuantity) && Number(debouncedQuantity) < 1
+            ? "1"
+            : debouncedQuantity;
+        const reqParams = {
+          beneficiary_address: beneficiaryAddress || props.address || null,
+          beneficiary_name: beneficiary || "placeholder",
+          retirement_message: retirementMessage || "placeholder",
+          quantity: floorQuantity,
+          project_address: projectAddress || null,
+          retirement_token: selectedRetirementToken,
+        };
+        // edge case where you can type 0.5 for ubo then switch it to fiat
+        if (debouncedQuantity !== floorQuantity) {
+          setQuantity(floorQuantity);
+          setDebouncedQuantity(floorQuantity);
+        }
+        const cost = await getFiatRetirementCost(reqParams);
+        setCost(cost);
+      }
     };
     awaitGetOffsetConsumptionCost();
   }, [
     debouncedQuantity,
     projectAddress,
-    selectedInputToken,
+    paymentMethod,
     selectedRetirementToken,
   ]);
 
@@ -224,15 +245,15 @@ export const Offset = (props: Props) => {
   const getApprovalValue = (): string => {
     const costAsNumber = Number(cost);
     const costPlusOnePercent = costAsNumber + costAsNumber * APPROVAL_SLIPPAGE;
-    const decimals = getTokenDecimals(selectedInputToken);
+    const decimals = getTokenDecimals(paymentMethod);
     return costPlusOnePercent.toFixed(decimals); // ethers throws with "underflow" if decimals exceeds
   };
 
   const handleApprove = async () => {
     try {
-      if (!props.provider) return;
+      if (!props.provider || paymentMethod === "fiat") return;
 
-      const token = selectedInputToken;
+      const token = paymentMethod;
       const spender = "retirementAggregator";
 
       const approvedValue = await changeApprovalTransaction({
@@ -257,11 +278,11 @@ export const Offset = (props: Props) => {
 
   const handleRetire = async () => {
     try {
-      if (!props.isConnected || !props.address || !props.provider) return;
+      if (!props.address || !props.provider || paymentMethod === "fiat") return;
       const { receipt, retirementTotals } = await retireCarbonTransaction({
         address: props.address,
         provider: props.provider,
-        inputToken: selectedInputToken,
+        inputToken: paymentMethod,
         retirementToken: selectedRetirementToken,
         quantity,
         amountInCarbon: true,
@@ -273,7 +294,7 @@ export const Offset = (props: Props) => {
       });
       dispatch(
         updateRetirement({
-          inputToken: selectedInputToken,
+          inputToken: paymentMethod,
           retirementToken: selectedRetirementToken,
           cost,
           quantity,
@@ -289,16 +310,37 @@ export const Offset = (props: Props) => {
     }
   };
 
+  const handleFiat = async () => {
+    if (!props.address || !props.provider || paymentMethod !== "fiat") return;
+
+    const reqParams = {
+      beneficiary_address: beneficiaryAddress || props.address, // don't pass empty string
+      beneficiary_name: beneficiary,
+      retirement_message: retirementMessage,
+      quantity,
+      project_address: projectAddress || null,
+      retirement_token: selectedRetirementToken,
+    };
+    setIsRedirecting(true);
+    await redirectFiatCheckout(reqParams);
+    // do retire redirect
+    return;
+  };
+
   const insufficientBalance =
     props.isConnected &&
     !isLoading &&
-    Number(cost) > Number(balances?.[selectedInputToken] ?? "0");
+    paymentMethod !== "fiat" &&
+    Number(cost) > Number(balances?.[paymentMethod] ?? "0");
+
+  const invalidQuantity = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
 
   const hasApproval = () => {
     return (
-      !!allowances?.[selectedInputToken] &&
-      !!Number(allowances?.[selectedInputToken]) &&
-      Number(cost) <= Number(allowances?.[selectedInputToken]) // Caution: Number trims values down to 17 decimal places of precision
+      paymentMethod !== "fiat" &&
+      !!allowances?.[paymentMethod] &&
+      !!Number(allowances?.[paymentMethod]) &&
+      Number(cost) <= Number(allowances?.[paymentMethod]) // Caution: Number trims values down to 17 decimal places of precision
     );
   };
 
@@ -309,46 +351,97 @@ export const Offset = (props: Props) => {
         onClick: props.loadWeb3Modal,
         disabled: false,
       };
-    } else if (isLoading) {
+    } else if (isLoading || cost === "loading") {
       return {
         label: <Trans id="shared.loading">Loading...</Trans>,
         onClick: undefined,
         disabled: true,
       };
-    } else if (!quantity || !Number(quantity)) {
-      return {
-        label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
-    } else if (
-      (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) ||
-      (!!projectAddress && !utils.isAddress(projectAddress))
-    ) {
-      return {
-        label: <Trans id="shared.invalid_inputs">INVALID INPUTS</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
-    } else if (insufficientBalance) {
+    } else if (isRedirecting) {
       return {
         label: (
-          <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
+          <Trans id="shared.redirecting_checkout">
+            Redirecting to checkout...
+          </Trans>
         ),
         onClick: undefined,
         disabled: true,
       };
-    } else if (!hasApproval()) {
+    } else if (!quantity || !Number(quantity)) {
       return {
-        label: <Trans id="shared.approve">APPROVE</Trans>,
+        label: <Trans id="shared.enter_quantity">Enter quantity</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!beneficiary) {
+      return {
+        label: (
+          <Trans id="shared.enter_beneficiary">Enter beneficiary name</Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!retirementMessage) {
+      return {
+        label: (
+          <Trans id="shared.enter_retirement_message">
+            Enter retirement message
+          </Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) {
+      return {
+        label: (
+          <Trans id="shared.invalid_beneficiary_addr">
+            Invalid beneficiary address
+          </Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (invalidQuantity) {
+      return {
+        label: <Trans id="shared.invalid_quantity">Invalid quantity</Trans>,
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (!!projectAddress && !utils.isAddress(projectAddress)) {
+      return {
+        label: (
+          <Trans id="shared.invalid_project_address">
+            Invalid project address
+          </Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (paymentMethod !== "fiat" && insufficientBalance) {
+      return {
+        label: (
+          <Trans id="shared.insufficient_balance">Insufficient balance</Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (paymentMethod !== "fiat" && !hasApproval()) {
+      return {
+        label: <Trans id="shared.approve">Approve</Trans>,
         onClick: () => {
           setShowTransactionModal(true);
         },
         disabled: false,
       };
+    } else if (paymentMethod === "fiat") {
+      return {
+        label: <Trans>Checkout</Trans>,
+        onClick: handleFiat,
+        disabled: false,
+      };
     }
     return {
-      label: <Trans id="shared.retire">RETIRE CARBON</Trans>,
+      label: <Trans id="shared.retire">Retire carbon</Trans>,
       onClick: () => {
         setShowTransactionModal(true);
       },
@@ -356,8 +449,8 @@ export const Offset = (props: Props) => {
     };
   };
 
-  const handleSelectInputToken = (tkn: string) => {
-    setSelectedInputToken(tkn as OffsetInputToken);
+  const handleSelectInputToken = (tkn: OffsetPaymentMethod) => {
+    setPaymentMethod(tkn);
   };
 
   const handleSelectRetirementToken = (tkn: string) => {
@@ -368,7 +461,17 @@ export const Offset = (props: Props) => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
-    if (Number(e.target.value) > 0 && Number(e.target.value) < 0.0001) {
+    if (
+      paymentMethod === "fiat" &&
+      Number(e.target.value) &&
+      Number(e.target.value) < 1
+    ) {
+      setQuantity("1");
+    } else if (
+      paymentMethod !== "fiat" &&
+      Number(e.target.value) > 0 &&
+      Number(e.target.value) < 0.0001
+    ) {
       setQuantity("0.0001");
     } else {
       setQuantity(e.target.value);
@@ -395,7 +498,7 @@ export const Offset = (props: Props) => {
     props.isConnected &&
     (status === "userConfirmation" || status === "networkConfirmation");
 
-  const inputTokenItems = offsetInputTokens
+  const paymentMethodItems = offsetInputTokens
     .map((tkn) => ({
       ...tokenInfo[tkn],
       description: (function () {
@@ -406,9 +509,16 @@ export const Offset = (props: Props) => {
       disabled: !balances?.[tkn] || !Number(balances[tkn]),
     }))
     .sort((a, b) => Number(b.description ?? 0) - Number(a.description ?? 0));
+  paymentMethodItems.unshift({
+    description: "",
+    disabled: false,
+    icon: Fiat,
+    key: "fiat",
+    label: "Credit Card",
+  });
 
   const retirementTokenItems = retirementTokens.map((tkn) => {
-    const disabled = !offsetCompatibility[selectedInputToken]?.includes(tkn);
+    const disabled = !offsetCompatibility[paymentMethod]?.includes(tkn);
     return {
       ...tokenInfo[tkn],
       disabled,
@@ -419,6 +529,9 @@ export const Offset = (props: Props) => {
       ),
     };
   });
+
+  const costIcon =
+    tokenInfo[paymentMethod === "fiat" ? "usdc" : paymentMethod].icon;
 
   return (
     <>
@@ -462,7 +575,7 @@ export const Offset = (props: Props) => {
             <div className="number_input_container">
               <input
                 type="number"
-                min="0"
+                min={paymentMethod === "fiat" ? "1" : "0"}
                 value={quantity}
                 onKeyDown={(e) => {
                   // dont let user enter these special characters into the number input
@@ -477,6 +590,13 @@ export const Offset = (props: Props) => {
                 })}
               />
             </div>
+            {paymentMethod === "fiat" && (
+              <Text t="body8" color="lightest">
+                <Trans id="offset.min_quantity_fiat">
+                  Minimum 1-tonne purchase for credit cards
+                </Trans>
+              </Text>
+            )}
           </div>
 
           {/* Input Token */}
@@ -489,11 +609,13 @@ export const Offset = (props: Props) => {
               id: "offset.modal_payWith.title",
               message: "Select Token",
             })}
-            currentItem={selectedInputToken}
-            items={inputTokenItems}
+            currentItem={paymentMethod}
+            items={paymentMethodItems}
             isModalOpen={isInputTokenModalOpen}
             onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-            onItemSelect={handleSelectInputToken}
+            onItemSelect={(str) =>
+              handleSelectInputToken(str as OffsetPaymentMethod)
+            }
           />
 
           {/* Retire Token  */}
@@ -528,10 +650,7 @@ export const Offset = (props: Props) => {
               <input
                 value={beneficiary}
                 onChange={(e) => setBeneficiary(e.target.value)}
-                placeholder={t({
-                  id: "offset.retirement_beneficiary",
-                  message: "Name or organisation",
-                })}
+                placeholder={t`Beneficiary name`}
               />
             </div>
 
@@ -542,12 +661,9 @@ export const Offset = (props: Props) => {
                   !!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)
                 }
                 onChange={(e) => handleBeneficiaryAddressChange(e.target.value)}
-                placeholder={t({
-                  id: "offset.enter_address",
-                  message: "Enter 0x address",
-                })}
+                placeholder={t`Beneficiary 0x address (optional)`}
               />
-              <Text t="caption" color="lightest" className="defaultAddress">
+              <Text t="body8" color="lightest">
                 <Trans id="offset.default_retirement_address">
                   Defaults to the connected wallet address
                 </Trans>
@@ -591,11 +707,21 @@ export const Offset = (props: Props) => {
                 </TextInfoTooltip>
               </div>
             }
-            amount={cost}
-            icon={tokenInfo[selectedInputToken].icon}
-            name={selectedInputToken}
+            amount={Number(cost)?.toLocaleString(locale)}
+            icon={costIcon}
+            name={paymentMethod}
             loading={cost === "loading"}
-            warn={insufficientBalance}
+            warn={insufficientBalance || invalidQuantity}
+            helperText={
+              paymentMethod === "fiat"
+                ? t({
+                    id: "fiat.max_quantity",
+                    message: `$${MAX_FIAT_COST.toLocaleString(
+                      locale
+                    )} maximum for credit cards`,
+                  })
+                : undefined
+            }
           />
           <MiniTokenDisplay
             label={
@@ -603,7 +729,7 @@ export const Offset = (props: Props) => {
                 <Trans id="offset.retiring">Retiring</Trans>
               </Text>
             }
-            amount={quantity}
+            amount={Number(quantity)?.toLocaleString(locale)}
             icon={tokenInfo[selectedRetirementToken].icon}
             name={selectedRetirementToken}
             labelAlignment="start"
@@ -635,7 +761,7 @@ export const Offset = (props: Props) => {
         </div>
       </div>
 
-      {showTransactionModal && (
+      {showTransactionModal && paymentMethod !== "fiat" && (
         <TransactionModal
           title={
             <Text t="h4" className={styles.offsetCard_header_title}>
@@ -644,7 +770,7 @@ export const Offset = (props: Props) => {
             </Text>
           }
           onCloseModal={closeTransactionModal}
-          token={selectedInputToken}
+          token={paymentMethod}
           spender={"retirementAggregator"}
           value={cost.toString()}
           approvalValue={getApprovalValue()}

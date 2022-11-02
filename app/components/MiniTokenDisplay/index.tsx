@@ -15,6 +15,7 @@ interface Props {
   labelAlignment?: "start" | "end";
   loading?: boolean;
   warn?: boolean;
+  helperText?: string;
 }
 
 export const MiniTokenDisplay: FC<Props> = (props) => (
@@ -53,5 +54,10 @@ export const MiniTokenDisplay: FC<Props> = (props) => (
         </Text>
       )}
     </div>
+    {!!props.helperText && (
+      <Text t="body8" color="lightest">
+        {props.helperText}
+      </Text>
+    )}
   </div>
 );
