@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
+import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { LogoWithClaim, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
@@ -9,6 +9,8 @@ import StoreIcon from "@mui/icons-material/Store";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import ViewQuiltOutlinedIcon from "@mui/icons-material/ViewQuiltOutlined";
 import { Domain } from "@klimadao/lib/types/domains";
+
+import { useIsMarketplaceProfile } from "hooks/useIsMarketplaceProfile";
 
 import * as styles from "./styles";
 
@@ -86,17 +88,11 @@ interface Props {
 }
 
 export const NavMenu: FC<Props> = (props) => {
-  const { pathname, query } = useRouter();
+  const { pathname } = useRouter();
+  const { isConnectedUserProfile, isUnconnectedUserProfile } =
+    useIsMarketplaceProfile(props.connectedDomain?.name || null);
 
   const isConnected = !!props.connectedAddress || !!props.connectedDomain;
-
-  const hasUserInURL = !!query?.user;
-  const hasConnectedUserParams =
-    (hasUserInURL && query.user === props.connectedAddress) ||
-    (hasUserInURL && query.user === props.connectedDomain?.name);
-
-  const isConnectedUserProfile = isConnected && hasConnectedUserParams;
-  const isUnconnectedUserProfile = hasUserInURL && !hasConnectedUserParams;
 
   const profileLink = isConnected
     ? `/marketplace/users/${

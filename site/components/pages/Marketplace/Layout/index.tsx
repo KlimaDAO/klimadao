@@ -21,6 +21,7 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 
 type Props = {
   userDomain?: string | null;
+  profileButton?: JSX.Element;
 };
 
 export const MarketplaceLayout: FC<Props> = (props) => {
@@ -77,6 +78,8 @@ export const MarketplaceLayout: FC<Props> = (props) => {
 
             <ChangeLanguageButton />
             <ThemeToggle />
+
+            {props.profileButton}
 
             {isConnected && address ? (
               <ButtonPrimary

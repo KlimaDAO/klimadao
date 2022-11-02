@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import { Text } from "@klimadao/lib/components";
+import { useIsMarketplaceProfile } from "hooks/useIsMarketplaceProfile";
 
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../Layout";
@@ -14,6 +15,7 @@ type Props = {
 };
 
 export const Users: NextPage<Props> = (props) => {
+  const { isConnectedUserProfile } = useIsMarketplaceProfile(props.userDomain);
   return (
     <>
       <PageHead
@@ -22,14 +24,30 @@ export const Users: NextPage<Props> = (props) => {
         metaDescription="KlimaDao - Marketplace Profile"
       />
 
-      <MarketplaceLayout userDomain={props.userDomain}>
+      <MarketplaceLayout
+        userDomain={props.userDomain}
+        profileButton={
+          isConnectedUserProfile ? (
+            <ButtonPrimary
+              label={t({
+                id: "marketplace.edit_profile",
+                message: "Edit Profile",
+              })}
+              onClick={() => setShowModal(true)}
+            />
+          ) : undefined
+        }
+      >
         <div className={styles.fullWidth}>
           <Text t="h1">User</Text>
           <Text>User: {props.userDomain || props.userAddress}</Text>
-          {!props.marketplaceUser && (
+          {!props.marketplaceUser && !isConnectedUserProfile && (
             <Text>
               Sorry, we couldn't find any marketplace data for this user.
             </Text>
+          )}
+          {!props.marketplaceUser && isConnectedUserProfile && (
+            <Text>Edit your profile</Text>
           )}
           {props.marketplaceUser && (
             <>
