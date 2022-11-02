@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-02 15:44+0000\n"
+"POT-Creation-Date: 2022-11-02 16:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr "Changer de langue"
 msgid "Enter App"
 msgstr "Visitez l'application"
 
-#: components/pages/Infinity/index.tsx:511
+#: components/pages/Infinity/index.tsx:526
 msgid "Frequently Asked Questions"
 msgstr "Foire Aux Questions"
 
@@ -654,35 +654,35 @@ msgstr "TONNES DE <0>CARBONE ABSORBÉES</0> PAR KLIMADAO"
 msgid "home.welcome_to_klimadao"
 msgstr "<0>BIENVENUE CHEZ</0> <1>KlimaDAO</1>"
 
-#: components/pages/Infinity/index.tsx:157
+#: components/pages/Infinity/index.tsx:160
 msgid "infinity.affordable_subtitle"
 msgstr "Abordable"
 
-#: components/pages/Infinity/index.tsx:152
+#: components/pages/Infinity/index.tsx:155
 msgid "infinity.affordable_title"
 msgstr "Prix en temps réel, faibles coûts de transaction"
 
-#: components/pages/Infinity/index.tsx:406
+#: components/pages/Infinity/index.tsx:415
 msgid "infinity.box_amount_104k"
 msgstr "104k"
 
-#: components/pages/Infinity/index.tsx:392
+#: components/pages/Infinity/index.tsx:401
 msgid "infinity.box_amount_11k"
 msgstr "11k"
 
-#: components/pages/Infinity/index.tsx:388
+#: components/pages/Infinity/index.tsx:397
 msgid "infinity.box_title"
 msgstr "Dernière compensation carbone"
 
-#: components/pages/Infinity/index.tsx:402
+#: components/pages/Infinity/index.tsx:411
 msgid "infinity.box_title2"
 msgstr "Total du carbone compensé"
 
-#: components/pages/Infinity/index.tsx:645
+#: components/pages/Infinity/index.tsx:660
 msgid "infinity.button.read_blog_faq"
 msgstr "Lire les FAQs détaillées pour les clients KI"
 
-#: components/pages/Infinity/index.tsx:356
+#: components/pages/Infinity/index.tsx:365
 msgid "infinity.button.read_blog_polygon"
 msgstr "Lire l'article sur Polygon"
 
@@ -690,62 +690,62 @@ msgstr "Lire l'article sur Polygon"
 msgid "infinity.cards_slider.title"
 msgstr "Des dizaines d'organisations ont compensé plus de 150 000 tonnes de carbone avec Klima Infinity."
 
-#: components/pages/Infinity/index.tsx:319
+#: components/pages/Infinity/index.tsx:328
 msgid "infinity.carousel_image_description"
 msgstr "Projet d'énergie éolienne à Jaibhim, Inde"
 
-#: components/pages/Infinity/index.tsx:331
+#: components/pages/Infinity/index.tsx:340
 msgid "infinity.carousel_info_subtitle"
 msgstr "Promouvoir le financement de projets qui contribuent à l'atténuation du changement climatique."
 
-#: components/pages/Infinity/index.tsx:326
+#: components/pages/Infinity/index.tsx:335
 msgid "infinity.carousel_info_title"
 msgstr "Soutenir des projets de haute qualité"
 
-#: components/pages/Infinity/index.tsx:665
+#: components/pages/Infinity/index.tsx:680
 msgid "infinity.cta_title"
 msgstr "La boîte à outils carbone de prochaine génération pour votre organisation"
 
-#: components/pages/Infinity/index.tsx:538
+#: components/pages/Infinity/index.tsx:553
 msgid "infinity.faq_answer1"
 msgstr "Une unité de compensation carbone représente la suppression d'une tonne d'équivalent dioxyde de carbone (tCO2e) de l'atmosphère, ou l'évitement d'une tonne d'émissions."
 
-#: components/pages/Infinity/index.tsx:574
+#: components/pages/Infinity/index.tsx:589
 msgid "infinity.faq_answer2_paragraph1"
 msgstr "Les crédits carbone sont un mécanisme à haute intégrité qui permet au financement du carbone de passer de ceux qui polluent à des projets dans le monde entier qui contribuent à atténuer ou à éliminer le carbone de l'atmosphère. Ils constituent un outil précieux pour couvrir les émissions difficiles à éliminer qui peuvent être coûteuses ou techniquement difficiles à éliminer aujourd'hui."
 
-#: components/pages/Infinity/index.tsx:584
+#: components/pages/Infinity/index.tsx:599
 msgid "infinity.faq_answer2_paragraph2"
 msgstr "Lorsque vous achetez un crédit carbone, Klima Infinity vous permet de retirer ce crédit carbone, le retirant définitivement de la circulation. C'est à partir de ce retrait que vous pouvez réclamer le bénéfice de la compensation carbone."
 
-#: components/pages/Infinity/index.tsx:592
+#: components/pages/Infinity/index.tsx:607
 msgid "infinity.faq_answer2_paragraph3"
 msgstr "Les compensations achetées entraînent des réductions d'émissions mesurables et responsables dans d'autres secteurs de l'économie et peuvent être utilisées pour \"compenser\" une empreinte carbone inévitable. Le commerce et le retrait des crédits de carbone permettent l'émergence d'un mécanisme de marché qui fixe un prix au carbone."
 
-#: components/pages/Infinity/index.tsx:629
+#: components/pages/Infinity/index.tsx:644
 msgid "infinity.faq_answer3"
 msgstr ""
 "L'objectif des marchés du carbone est de réduire les émissions de gaz à effet de serre (GES, ou \"carbone\") de manière rentable en fixant des limites aux émissions et en permettant l'échange d'unités d'émission, qui sont des instruments financiers représentant les réductions d'émissions. L'échange permet aux entités qui peuvent réduire leurs émissions à moindre coût d'être payées pour le faire par les émetteurs dont les coûts sont plus élevés, ce qui réduit le coût économique de la réduction des émissions.\n"
 "\n"
 "Traduit avec www.DeepL.com/Translator (version gratuite)"
 
-#: components/pages/Infinity/index.tsx:524
+#: components/pages/Infinity/index.tsx:539
 msgid "infinity.faq_question1"
 msgstr "1. Qu'est-ce qu'une compensation carbone ?"
 
-#: components/pages/Infinity/index.tsx:558
+#: components/pages/Infinity/index.tsx:573
 msgid "infinity.faq_question2"
 msgstr "2. Comment la compensation contribue-t-elle à la lutte contre le changement climatique ?"
 
-#: components/pages/Infinity/index.tsx:615
+#: components/pages/Infinity/index.tsx:630
 msgid "infinity.faq_question3"
 msgstr "3. Que sont les marchés du carbone ?"
 
-#: components/pages/Infinity/index.tsx:134
+#: components/pages/Infinity/index.tsx:135
 msgid "infinity.fast_subtitle"
 msgstr "Compensation en quelques secondes, sans paperasserie"
 
-#: components/pages/Infinity/index.tsx:139
+#: components/pages/Infinity/index.tsx:140
 msgid "infinity.fast_title"
 msgstr "Rapide"
 
@@ -765,137 +765,137 @@ msgstr "J'aimerais qu'on m'aide à évaluer l'empreinte carbone de mon entrepris
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr "Je veux compenser <0/> de la crypto."
 
-#: components/pages/Infinity/index.tsx:249
+#: components/pages/Infinity/index.tsx:256
 msgid "infinity.getStarted_1"
 msgstr "1"
 
-#: components/pages/Infinity/index.tsx:263
+#: components/pages/Infinity/index.tsx:270
 msgid "infinity.getStarted_2"
 msgstr "2"
 
-#: components/pages/Infinity/index.tsx:252
+#: components/pages/Infinity/index.tsx:259
 msgid "infinity.getStarted_calculate"
 msgstr "Calculer"
 
-#: components/pages/Infinity/index.tsx:255
+#: components/pages/Infinity/index.tsx:262
 msgid "infinity.getStarted_calculate_subtitle"
 msgstr "Calculez l'empreinte carbone de votre organisation et définissez la portée de votre compensation avec Klima Infinity."
 
-#: components/pages/Infinity/index.tsx:292
+#: components/pages/Infinity/index.tsx:299
 msgid "infinity.getStarted_cta"
 msgstr "Accélérez votre démarche vers la neutralité carbone - et au-delà"
 
-#: components/pages/Infinity/index.tsx:269
+#: components/pages/Infinity/index.tsx:276
 msgid "infinity.getStarted_second_subtitle"
 msgstr "Mettez en œuvre votre compensation en quelques clics seulement, et avec un temps de transaction quasi instantané."
 
-#: components/pages/Infinity/index.tsx:266
+#: components/pages/Infinity/index.tsx:273
 msgid "infinity.getStarted_second_title"
 msgstr "Mettre en œuvre"
 
-#: components/pages/Infinity/index.tsx:277
+#: components/pages/Infinity/index.tsx:284
 msgid "infinity.getStarted_third"
 msgstr "3"
 
-#: components/pages/Infinity/index.tsx:283
+#: components/pages/Infinity/index.tsx:290
 msgid "infinity.getStarted_third_subtitle"
 msgstr "Suivez votre engagement et renforcez la sensibilisation à vos actions en faveur du climat."
 
-#: components/pages/Infinity/index.tsx:280
+#: components/pages/Infinity/index.tsx:287
 msgid "infinity.getStarted_third_title"
 msgstr "Amplifier"
 
-#: components/pages/Infinity/index.tsx:66
+#: components/pages/Infinity/index.tsx:67
 msgid "infinity.head.metaDescription"
 msgstr "Une boîte à outils carbone de prochaine génération pour votre organisation."
 
-#: components/pages/Infinity/index.tsx:62
+#: components/pages/Infinity/index.tsx:63
 msgid "infinity.head.metaTitle"
 msgstr "Klima Infinity - Devenez neutre en carbon"
 
-#: components/pages/Infinity/index.tsx:58
+#: components/pages/Infinity/index.tsx:59
 msgid "infinity.head.title"
 msgstr "KlimaDAO | Klima Infinity"
 
-#: components/pages/Infinity/index.tsx:171
+#: components/pages/Infinity/index.tsx:176
 msgid "infinity.info_subtitle1"
 msgstr "Pour les organisations pionnières de la planète"
 
-#: components/pages/Infinity/index.tsx:176
+#: components/pages/Infinity/index.tsx:181
 msgid "infinity.info_subtitle2"
 msgstr "La solution de compensation la plus puissante et la plus facile à utiliser au monde"
 
-#: components/pages/Infinity/index.tsx:438
+#: components/pages/Infinity/index.tsx:447
 msgid "infinity.mission_card1_subtitle"
 msgstr "Tonnes de carbone détenues par KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:435
+#: components/pages/Infinity/index.tsx:444
 msgid "infinity.mission_card1_title"
 msgstr "18,1 millions"
 
-#: components/pages/Infinity/index.tsx:458
+#: components/pages/Infinity/index.tsx:469
 msgid "infinity.mission_card2_description"
 msgstr "Liquidité carbone détenue par KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:455
+#: components/pages/Infinity/index.tsx:466
 msgid "infinity.mission_card2_number"
 msgstr "$10m+"
 
-#: components/pages/Infinity/index.tsx:478
+#: components/pages/Infinity/index.tsx:491
 msgid "infinity.mission_card3_description"
 msgstr "Tonnes de carbone compensées via KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:475
+#: components/pages/Infinity/index.tsx:488
 msgid "infinity.mission_card3_number"
 msgstr "150 000+"
 
-#: components/pages/Infinity/index.tsx:375
+#: components/pages/Infinity/index.tsx:384
 msgid "infinity.polygon_manifesto_description"
 msgstr "En compensant les émissions historiques de l'ensemble de son réseau, Polygon s'est assuré que chaque interaction au sein de son réseau - qu'il s'agisse d'une frappe de NFT ou d'une transaction DeFi - est prise en compte. C'est l'une des principales raisons pour lesquelles Meta a choisi Polygon pour émettre ses NFT."
 
-#: components/pages/Infinity/index.tsx:369
+#: components/pages/Infinity/index.tsx:378
 msgid "infinity.polygon_manifesto_title"
 msgstr "La compensation fait partie du Manifeste Vert de Polygon."
 
-#: components/pages/Infinity/index.tsx:349
+#: components/pages/Infinity/index.tsx:358
 msgid "infinity.polygon_story_description"
 msgstr "Polygon a compensé les émissions de carbone du réseau depuis sa création - environ 90 000 tonnes - et s'est engagé à adopter une approche climatiquement positive pour toutes les transactions futures du réseau."
 
-#: components/pages/Infinity/index.tsx:344
+#: components/pages/Infinity/index.tsx:353
 msgid "infinity.polygon_story_title"
 msgstr "Polygon a choisi Klima Infinity pour compenser son réseau de blockchain."
 
 #: components/pages/Infinity/Cards/Card.tsx:66
-#: components/pages/Infinity/index.tsx:395
-#: components/pages/Infinity/index.tsx:409
+#: components/pages/Infinity/index.tsx:404
+#: components/pages/Infinity/index.tsx:418
 msgid "infinity.tonnes"
 msgstr "Tonnes"
 
-#: components/pages/Infinity/index.tsx:189
+#: components/pages/Infinity/index.tsx:194
 msgid "infinity.transparent_subtitle"
 msgstr "Transparente"
 
-#: components/pages/Infinity/index.tsx:184
+#: components/pages/Infinity/index.tsx:189
 msgid "infinity.transparent_title"
 msgstr "Immuablement enregistré sur la blockchain"
 
-#: components/pages/Infinity/index.tsx:97
+#: components/pages/Infinity/index.tsx:98
 msgid "infinity.welcome_subtitle"
 msgstr "Klima Infinity est une boîte à outils carbone de prochaine génération pour votre organisation."
 
-#: components/pages/Infinity/index.tsx:92
+#: components/pages/Infinity/index.tsx:93
 msgid "infinity.welcome_title"
 msgstr "Le moyen le plus simple de devenir neutre en carbone"
 
-#: components/pages/Infinity/index.tsx:215
+#: components/pages/Infinity/index.tsx:222
 msgid "infinity.why_description"
 msgstr "KlimaDAO s'appuie sur une pile de technologies DeFi pour réduire la fragmentation du marché et accélérer la fourniture de financements climatiques à des projets de développement durable dans le monde entier."
 
-#: components/pages/Infinity/index.tsx:210
+#: components/pages/Infinity/index.tsx:217
 msgid "infinity.why_subtitle"
 msgstr "La DeFi qui défie le changement climatique"
 
-#: components/pages/Infinity/index.tsx:207
+#: components/pages/Infinity/index.tsx:214
 msgid "infinity.why_title"
 msgstr "Pourquoi KlimaDAO ?"
 
@@ -903,7 +903,7 @@ msgstr "Pourquoi KlimaDAO ?"
 msgid "invest_in_the_future"
 msgstr "Investissez dans l'avenir."
 
-#: components/pages/Infinity/index.tsx:427
+#: components/pages/Infinity/index.tsx:436
 msgid "mission.header"
 msgstr "La mission de KlimaDAO est de démocratiser l'action climatique."
 
@@ -1533,8 +1533,8 @@ msgid "shared.contact"
 msgstr "Contact"
 
 #: components/Navigation/index.tsx:71
-#: components/pages/Infinity/index.tsx:114
-#: components/pages/Infinity/index.tsx:680
+#: components/pages/Infinity/index.tsx:115
+#: components/pages/Infinity/index.tsx:695
 msgid "shared.contact_sales"
 msgstr "Nous contacter"
 
@@ -1590,9 +1590,9 @@ msgstr "Comment acheter des Klima"
 msgid "shared.infinity"
 msgstr "Infinity"
 
-#: components/pages/Infinity/index.tsx:106
-#: components/pages/Infinity/index.tsx:299
-#: components/pages/Infinity/index.tsx:672
+#: components/pages/Infinity/index.tsx:107
+#: components/pages/Infinity/index.tsx:306
+#: components/pages/Infinity/index.tsx:687
 msgid "shared.infinity.get_started"
 msgstr "Commencer"
 
@@ -1656,7 +1656,7 @@ msgstr "Mettre en jeu vos Klima"
 msgid "shared.updates"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:494
+#: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
 msgstr "Visitez le blog KlimaDAO"
 
