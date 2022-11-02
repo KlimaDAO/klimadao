@@ -42,7 +42,7 @@ export type Web3State = ConnectedWeb3State | DisconnectedWeb3State;
 
 /** Union of two interfaces because connect() and disconnect() logic is only available after the modal is instantiated, at runtime */
 export type Web3ModalState = Web3State & {
-  connect?: () => Promise<void>;
+  connect?: (wallet?: string) => Promise<void>;
   disconnect?: () => Promise<void>;
 };
 

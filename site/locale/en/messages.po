@@ -980,7 +980,7 @@ msgstr "{0} Carbon Tonne(s) Retired"
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "Total Carbon Tonnes Retired"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:38
+#: components/pages/Pledge/HeaderDesktop/index.tsx:42
 msgid "pledges.edit_pledge"
 msgstr "Edit Pledge"
 

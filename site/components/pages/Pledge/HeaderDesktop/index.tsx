@@ -2,9 +2,8 @@ import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { t } from "@lingui/macro";
 import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import Link from "next/link";
-
+import { ConnectModal } from "components/ConnectModal";
 import * as styles from "./styles";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
@@ -17,8 +16,6 @@ type Props = {
 };
 
 export const HeaderDesktop: FC<Props> = (props) => {
-  const { address, connect, disconnect, isConnected } = useWeb3();
-
   return (
     <div className={styles.headerDesktop}>
       <div className={styles.mainHeader}>
@@ -39,15 +36,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
             onClick={() => props.toggleEditModal?.(true)}
           />
         )}
-
-        {isConnected && address ? (
-          <ButtonPrimary label={concatAddress(address)} onClick={disconnect} />
-        ) : (
-          <ButtonPrimary
-            label={t({ id: "shared.connect", message: "Connect" })}
-            onClick={connect}
-          />
-        )}
+        <ConnectModal />
       </div>
     </div>
   );
