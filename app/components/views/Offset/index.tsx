@@ -443,7 +443,11 @@ export const Offset = (props: Props) => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
-    if (paymentMethod === "fiat" && Number(e.target.value) < 1) {
+    if (
+      paymentMethod === "fiat" &&
+      Number(e.target.value) &&
+      Number(e.target.value) < 1
+    ) {
       setQuantity("1");
     } else if (
       paymentMethod !== "fiat" &&
