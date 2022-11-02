@@ -6,7 +6,7 @@ import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
-type PageName = "blog" | "community" | "contact" | "podcast";
+type PageName = "community" | "contact" | "disclaimer";
 
 export type Props = {
   activePage: PageName;
@@ -15,7 +15,7 @@ export type Props = {
   headerElements?: FC;
 };
 
-export const ResourcesHeader: FC<Props> = (props) => {
+export const AboutHeader: FC<Props> = (props) => {
   const isPageActive = (pageName: PageName) => props.activePage === pageName;
 
   return (
@@ -23,25 +23,6 @@ export const ResourcesHeader: FC<Props> = (props) => {
       <div className={styles.navigationDesktopWrapper}>
         <div className={styles.navigationDesktop}>
           <ul className={styles.list}>
-            <li className={styles.listItem} data-active={isPageActive("blog")}>
-              <Link href="/blog">
-                <a>
-                  <Trans id="shared.blog">Blog</Trans>
-                  <ArrowBack className="arrow" />
-                </a>
-              </Link>
-            </li>
-            <li
-              className={styles.listItem}
-              data-active={isPageActive("podcast")}
-            >
-              <Link href="/podcast">
-                <a>
-                  <Trans id="shared.podcast">Podcast</Trans>
-                  <ArrowBack className="arrow" />
-                </a>
-              </Link>
-            </li>
             <li
               className={styles.listItem}
               data-active={isPageActive("community")}
@@ -64,6 +45,17 @@ export const ResourcesHeader: FC<Props> = (props) => {
                 </a>
               </Link>
             </li>
+            <li
+              className={styles.listItem}
+              data-active={isPageActive("disclaimer")}
+            >
+              <Link href="/disclaimer">
+                <a>
+                  <Trans id="shared.disclaimer">Disclaimer</Trans>
+                  <ArrowBack className="arrow" />
+                </a>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -71,12 +63,6 @@ export const ResourcesHeader: FC<Props> = (props) => {
       <Section variant="gray" style={{ padding: "unset" }}>
         <div className={styles.resourcesHeader}>
           <div className={styles.navigationMobile}>
-            <ButtonPrimary
-              label={t({ id: "shared.blog", message: "Blog" })}
-              href={"/blog"}
-              variant={isPageActive("blog") ? null : "gray"}
-              link={Link}
-            />
             <ButtonPrimary
               label={t({ id: "shared.community", message: "Community" })}
               href={"/community"}
@@ -90,9 +76,9 @@ export const ResourcesHeader: FC<Props> = (props) => {
               link={Link}
             />
             <ButtonPrimary
-              label={t({ id: "shared.podcast", message: "Podcast" })}
-              href={"/podcast"}
-              variant={isPageActive("podcast") ? null : "gray"}
+              label={t({ id: "shared.disclaimer", message: "Disclaimer" })}
+              href={"/resources"}
+              variant={isPageActive("disclaimer") ? null : "gray"}
               link={Link}
             />
           </div>

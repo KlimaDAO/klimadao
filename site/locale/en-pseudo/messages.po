@@ -48,20 +48,6 @@ msgstr ""
 msgid "blog.disclaimer.title"
 msgstr ""
 
-#: components/pages/Blog/index.tsx:19
-#: components/pages/Blog/index.tsx:25
-msgid "blog.head.description"
-msgstr ""
-
-#: components/pages/Blog/index.tsx:18
-msgid "blog.head.headline"
-msgstr ""
-
-#: components/pages/Blog/index.tsx:17
-#: components/pages/Blog/index.tsx:24
-msgid "blog.head.title"
-msgstr ""
-
 #: components/pages/Retirements/CopyURLButton/index.tsx:22
 msgid "button.copyURL.copied"
 msgstr ""
@@ -232,294 +218,294 @@ msgstr ""
 msgid "buy.zapper_03.title"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:97
+#: components/pages/About/Community/index.tsx:97
 msgid "community.become_a_partner"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:170
+#: components/pages/About/Community/index.tsx:170
 msgid "community.bigcowg_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:159
+#: components/pages/About/Community/index.tsx:159
 msgid "community.blockchainforclimatefondation_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:344
+#: components/pages/About/Community/index.tsx:344
 msgid "community.come_on_in"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:236
+#: components/pages/About/Community/index.tsx:236
 msgid "community.deltawave_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:288
+#: components/pages/About/Community/index.tsx:288
 msgid "community.digitalcharityart_logo"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:359
+#: components/pages/About/Community/index.tsx:359
 msgid "community.discord_is_where_we_share"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:258
+#: components/pages/About/Community/index.tsx:258
 msgid "community.dovu_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:266
+#: components/pages/About/Community/index.tsx:266
 msgid "community.eco_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:247
+#: components/pages/About/Community/index.tsx:247
 msgid "community.etcgroup_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:392
+#: components/pages/About/Community/index.tsx:392
 msgid "community.get_in_touch"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:203
+#: components/pages/About/Community/index.tsx:203
 msgid "community.gitcoin_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:76
+#: components/pages/About/Community/index.tsx:76
 msgid "community.head.headline"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:83
+#: components/pages/About/Community/index.tsx:83
 msgid "community.head.metadescription"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:77
+#: components/pages/About/Community/index.tsx:77
 msgid "community.head.subline"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:75
-#: components/pages/Resources/Community/index.tsx:82
+#: components/pages/About/Community/index.tsx:75
+#: components/pages/About/Community/index.tsx:82
 msgid "community.head.title"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:395
+#: components/pages/About/Community/index.tsx:395
 msgid "community.if_you_ve_got_questions"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:347
+#: components/pages/About/Community/index.tsx:347
 msgid "community.join_our_discord"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:334
+#: components/pages/About/Community/index.tsx:334
 msgid "community.join_the_klima_community"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:310
+#: components/pages/About/Community/index.tsx:310
 msgid "community.landx_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:94
-#: components/pages/Resources/Community/index.tsx:389
+#: components/pages/About/Community/index.tsx:94
+#: components/pages/About/Community/index.tsx:389
 msgid "community.lets_work_together"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:137
+#: components/pages/About/Community/index.tsx:137
 msgid "community.moss_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:192
+#: components/pages/About/Community/index.tsx:192
 msgid "community.oceandrop_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:277
+#: components/pages/About/Community/index.tsx:277
 msgid "community.offsetra_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:214
+#: components/pages/About/Community/index.tsx:214
 msgid "community.olympusdao_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:225
+#: components/pages/About/Community/index.tsx:225
 msgid "community.openearth_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:130
 msgid "community.our_partners"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:181
+#: components/pages/About/Community/index.tsx:181
 msgid "community.polygon_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:148
+#: components/pages/About/Community/index.tsx:148
 msgid "community.toucan_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:299
+#: components/pages/About/Community/index.tsx:299
 msgid "community.toughtforfood_logo"
 msgstr ""
 
-#: components/pages/Resources/Community/index.tsx:113
+#: components/pages/About/Community/index.tsx:113
 msgid "community.tree_grove"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:100
+#: components/pages/About/Community/index.tsx:100
 msgid "community.we_work_with_traditionnal"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:63
+#: components/pages/About/Contact/index.tsx:63
 msgid "concat.careers"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:140
+#: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
 msgstr ""
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
-#: components/pages/Resources/Contact/index.tsx:143
+#: components/pages/About/Contact/index.tsx:143
 msgid "contact.bug_reports.to_file_a_bug_report"
 msgstr ""
 
 #. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
-#: components/pages/Resources/Contact/index.tsx:66
+#: components/pages/About/Contact/index.tsx:66
 msgid "contact.careers.we_re_hiring"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:25
+#: components/pages/About/Contact/index.tsx:25
 msgid "contact.head.description"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:18
+#: components/pages/About/Contact/index.tsx:18
 msgid "contact.head.headline"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:19
+#: components/pages/About/Contact/index.tsx:19
 msgid "contact.head.subline"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:17
-#: components/pages/Resources/Contact/index.tsx:24
+#: components/pages/About/Contact/index.tsx:17
+#: components/pages/About/Contact/index.tsx:24
 msgid "contact.head.title"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:105
+#: components/pages/About/Contact/index.tsx:105
 msgid "contact.media"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:108
+#: components/pages/About/Contact/index.tsx:108
 msgid "contact.media.if_you_are_a_journalist"
 msgstr ""
 
 #. Use this <0>Media Request Form</0>.
-#: components/pages/Resources/Contact/index.tsx:117
+#: components/pages/About/Contact/index.tsx:117
 msgid "contact.media.use_this_media_request_form"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:85
+#: components/pages/About/Contact/index.tsx:85
 msgid "contact.partnerships"
 msgstr ""
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
-#: components/pages/Resources/Contact/index.tsx:88
+#: components/pages/About/Contact/index.tsx:88
 msgid "contact.partnerships.until_we_finish_building"
 msgstr ""
 
-#: components/pages/Resources/Contact/index.tsx:35
+#: components/pages/About/Contact/index.tsx:35
 msgid "contact.quest_and_support"
 msgstr ""
 
 #. Join our <0>community</0>
-#: components/pages/Resources/Contact/index.tsx:38
+#: components/pages/About/Contact/index.tsx:38
 msgid "contact.quest_and_support.join_our_community"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:46
+#: components/pages/About/Contact/index.tsx:46
 msgid "contact.quest_and_support.join_our_discord_server"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:67
+#: components/pages/About/Disclaimer/index.tsx:64
 msgid "disclaimer.1_an_offer_or_sollicitation"
 msgstr ""
 
-#: components/pages/Disclaimer/index.tsx:114
+#: components/pages/About/Disclaimer/index.tsx:111
 msgid "disclaimer.1_meet_your_requirements"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:119
+#: components/pages/About/Disclaimer/index.tsx:116
 msgid "disclaimer.2_be_available_on_an_uninterrupted"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:77
+#: components/pages/About/Disclaimer/index.tsx:74
 msgid "disclaimer.2_financial_investment_or_trading_advice"
 msgstr ""
 
-#: components/pages/Disclaimer/index.tsx:128
+#: components/pages/About/Disclaimer/index.tsx:125
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:35
+#: components/pages/About/Disclaimer/index.tsx:32
 msgid "disclaimer.all_information_on_this_website"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:162
+#: components/pages/About/Disclaimer/index.tsx:159
 msgid "disclaimer.any_action_you_take_upon_the_information"
 msgstr ""
 
-#: components/pages/Disclaimer/index.tsx:31
+#: components/pages/About/Disclaimer/index.tsx:19
 msgid "disclaimer.disclaimer"
 msgstr ""
 
-#: components/pages/Disclaimer/index.tsx:20
+#: components/pages/About/Disclaimer/index.tsx:21
 msgid "disclaimer.head.description"
 msgstr ""
 
-#: components/pages/Disclaimer/index.tsx:16
-#: components/pages/Disclaimer/index.tsx:24
+#: components/pages/About/Disclaimer/index.tsx:15
+#: components/pages/About/Disclaimer/index.tsx:25
 msgid "disclaimer.head.title"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:105
+#: components/pages/About/Disclaimer/index.tsx:102
 msgid "disclaimer.klimadao_and_its_suppliers"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:46
+#: components/pages/About/Disclaimer/index.tsx:43
 msgid "disclaimer.klimadao_is_a_platform"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:133
+#: components/pages/About/Disclaimer/index.tsx:130
 msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:181
+#: components/pages/About/Disclaimer/index.tsx:178
 msgid "disclaimer.nothing_in_this_disclaimer"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:59
+#: components/pages/About/Disclaimer/index.tsx:56
 msgid "disclaimer.nothing_in_this_platform"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:86
+#: components/pages/About/Disclaimer/index.tsx:83
 msgid "disclaimer.the_service_available"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:192
+#: components/pages/About/Disclaimer/index.tsx:189
 msgid "disclaimer.we_recommend_that_you_visit"
 msgstr ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:147
+#: components/pages/About/Disclaimer/index.tsx:144
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr ""
 
@@ -1172,19 +1158,6 @@ msgstr ""
 msgid "pledges.home.search.submit"
 msgstr ""
 
-#: components/pages/Podcast/index.tsx:21
-msgid "podcast.head.description"
-msgstr ""
-
-#: components/pages/Podcast/index.tsx:19
-msgid "podcast.head.headline"
-msgstr ""
-
-#: components/pages/Podcast/index.tsx:18
-#: components/pages/Podcast/index.tsx:33
-msgid "podcast.head.title"
-msgstr ""
-
 #: components/pages/Resources/ResourcesFilters/index.tsx:24
 msgid "resources.form.categories.header"
 msgstr ""
@@ -1508,48 +1481,44 @@ msgstr ""
 msgid "shared.404"
 msgstr ""
 
-#: components/Navigation/index.tsx:82
-#: components/Navigation/index.tsx:236
+#: components/Navigation/index.tsx:83
+#: components/Navigation/index.tsx:229
 msgid "shared.about"
 msgstr ""
 
-#: components/Navigation/index.tsx:121
-#: components/Navigation/index.tsx:278
+#: components/Navigation/index.tsx:115
+#: components/Navigation/index.tsx:263
 msgid "shared.app"
 msgstr ""
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:84
-#: components/Navigation/index.tsx:240
-#: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr ""
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:139
-#: components/Navigation/index.tsx:295
+#: components/Navigation/index.tsx:133
+#: components/Navigation/index.tsx:280
 msgid "shared.bond"
 msgstr ""
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:123
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:117
+#: components/Navigation/index.tsx:267
 msgid "shared.buy"
 msgstr ""
 
-#: components/Navigation/index.tsx:366
+#: components/Navigation/index.tsx:360
 msgid "shared.carbon_dashboard"
 msgstr ""
 
-#: components/Navigation/index.tsx:203
+#: components/Navigation/index.tsx:205
 msgid "shared.carbon_dashboards"
 msgstr ""
 
-#: components/Navigation/index.tsx:102
-#: components/Navigation/index.tsx:258
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
-#: components/pages/Resources/ResourcesHeader/index.tsx:81
+#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:234
+#: components/pages/About/AboutHeader/index.tsx:32
+#: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.community"
 msgstr ""
 
@@ -1559,8 +1528,8 @@ msgid "shared.connect"
 msgstr ""
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:267
-#: components/pages/Resources/ResourcesHeader/index.tsx:87
+#: components/Navigation/index.tsx:243
+#: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.contact"
 msgstr ""
 
@@ -1570,22 +1539,24 @@ msgstr ""
 msgid "shared.contact_sales"
 msgstr ""
 
-#: components/Navigation/index.tsx:111
-#: components/pages/Resources/Community/index.tsx:110
-#: components/pages/Resources/Community/index.tsx:405
-#: components/pages/Resources/ResourcesHeader/index.tsx:62
+#: components/Navigation/index.tsx:96
+#: components/pages/About/AboutHeader/index.tsx:43
+#: components/pages/About/Community/index.tsx:110
+#: components/pages/About/Community/index.tsx:405
 msgid "shared.contact_us"
 msgstr ""
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:211
-#: components/Navigation/index.tsx:374
+#: components/Navigation/index.tsx:105
+#: components/Navigation/index.tsx:252
+#: components/pages/About/AboutHeader/index.tsx:54
+#: components/pages/About/AboutHeader/index.tsx:79
 msgid "shared.disclaimer"
 msgstr ""
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:220
-#: components/Navigation/index.tsx:383
+#: components/Navigation/index.tsx:213
+#: components/Navigation/index.tsx:368
 msgid "shared.docs"
 msgstr ""
 
@@ -1601,7 +1572,6 @@ msgstr ""
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
 #: components/pages/Pledge/PledgeDashboard/index.tsx:59
-#: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -1611,13 +1581,13 @@ msgstr ""
 msgid "shared.home"
 msgstr ""
 
-#: components/Navigation/index.tsx:194
-#: components/Navigation/index.tsx:357
+#: components/Navigation/index.tsx:196
+#: components/Navigation/index.tsx:351
 msgid "shared.how_to_buy"
 msgstr ""
 
-#: components/Navigation/index.tsx:172
-#: components/Navigation/index.tsx:330
+#: components/Navigation/index.tsx:166
+#: components/Navigation/index.tsx:315
 msgid "shared.infinity"
 msgstr ""
 
@@ -1631,13 +1601,13 @@ msgstr ""
 msgid "shared.infinity_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:175
-#: components/Navigation/index.tsx:333
+#: components/Navigation/index.tsx:169
+#: components/Navigation/index.tsx:318
 msgid "shared.infinity_intro"
 msgstr ""
 
-#: components/Navigation/index.tsx:163
-#: components/Navigation/index.tsx:319
+#: components/Navigation/index.tsx:157
+#: components/Navigation/index.tsx:304
 msgid "shared.info"
 msgstr ""
 
@@ -1651,30 +1621,23 @@ msgstr ""
 msgid "shared.loveletter_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:187
-#: components/Navigation/index.tsx:348
+#: components/Navigation/index.tsx:181
+#: components/Navigation/index.tsx:333
 msgid "shared.loveletters"
 msgstr ""
 
-#: components/Navigation/index.tsx:155
-#: components/Navigation/index.tsx:311
+#: components/Navigation/index.tsx:149
+#: components/Navigation/index.tsx:296
 msgid "shared.offset"
 msgstr ""
 
-#: components/Navigation/index.tsx:180
-#: components/Navigation/index.tsx:341
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:326
 msgid "shared.pledge"
 msgstr ""
 
-#: components/Navigation/index.tsx:93
-#: components/Navigation/index.tsx:249
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:93
-msgid "shared.podcast"
-msgstr ""
-
-#: components/Navigation/index.tsx:190
-#: components/Navigation/index.tsx:353
+#: components/Navigation/index.tsx:184
+#: components/Navigation/index.tsx:338
 msgid "shared.resources"
 msgstr ""
 
@@ -1683,17 +1646,23 @@ msgid "shared.resources.sort_by.header"
 msgstr ""
 
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:131
-#: components/Navigation/index.tsx:287
+#: components/Navigation/index.tsx:125
+#: components/Navigation/index.tsx:272
 msgid "shared.stake"
+msgstr ""
+
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:342
+#: components/pages/Blog/Post/index.tsx:72
+msgid "shared.updates"
 msgstr ""
 
 #: components/pages/Infinity/index.tsx:494
 msgid "shared.visit_klimadao_blog"
 msgstr ""
 
-#: components/Navigation/index.tsx:147
-#: components/Navigation/index.tsx:303
+#: components/Navigation/index.tsx:141
+#: components/Navigation/index.tsx:288
 msgid "shared.wrap"
 msgstr ""
 
