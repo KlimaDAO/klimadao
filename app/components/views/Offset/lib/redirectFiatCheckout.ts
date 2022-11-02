@@ -38,8 +38,9 @@ export const redirectFiatCheckout = async (params: Params): Promise<void> => {
       },
     });
     if (!res.ok) {
-      const { message } = await res.json();
-      throw new Error(message);
+      const { message, name } = await res.json();
+      const e = new Error(message);
+      e.name = name; // see checkout api documentation for list of named errors
     }
     const { url }: CheckoutResponse = await res.json();
     if (url) {

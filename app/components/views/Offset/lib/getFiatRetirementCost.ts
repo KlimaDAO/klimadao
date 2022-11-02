@@ -32,8 +32,9 @@ export const getFiatRetirementCost = async (
       },
     });
     if (!res.ok) {
-      const { message } = await res.json();
-      throw new Error(message);
+      const { message, name } = await res.json();
+      const e = new Error(message);
+      e.name = name;
     }
     const quote: QuoteResponse = await res.json();
     return (Number(quote.totalPriceCents) / 100).toString();
