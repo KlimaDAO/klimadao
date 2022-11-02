@@ -2,7 +2,6 @@
 
 /app/package-lock.json
 /site/package-lock.json
-.prettierrc
 
 # dependencies
 /.pnp
@@ -35,6 +34,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 .linguirc
+.prettierrc
 
 # vercel
 .vercel
