@@ -563,12 +563,9 @@ export const Offset = (props: Props) => {
             </label>
             <textarea
               value={retirementMessage}
+              maxLength={280}
               onChange={(e) => {
-                setRetirementMessage(
-                  e.target.value.length >= 280
-                    ? e.target.value.slice(0, 280)
-                    : e.target.value
-                );
+                setRetirementMessage(e.target.value);
               }}
               placeholder={t({
                 id: "offset.retirement_purpose",
