@@ -564,8 +564,11 @@ export const Offset = (props: Props) => {
             <textarea
               value={retirementMessage}
               onChange={(e) => {
-                if (e.target.value.length >= 280) return;
-                setRetirementMessage(e.target.value);
+                setRetirementMessage(
+                  e.target.value.length >= 280
+                    ? e.target.value.slice(0, 280)
+                    : e.target.value
+                );
               }}
               placeholder={t({
                 id: "offset.retirement_purpose",
