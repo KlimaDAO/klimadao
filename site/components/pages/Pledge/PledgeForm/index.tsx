@@ -36,7 +36,6 @@ import {
 } from "../lib";
 import { Pledge, PledgeFormValues, Wallet } from "../types";
 import * as styles from "./styles";
-import ethers from "ethers";
 
 type TotalFootprintProps = {
   control: Control<PledgeFormValues>;
@@ -277,10 +276,7 @@ export const PledgeForm: FC<Props> = (props) => {
                             message: "0x...",
                           }),
                           type: "text",
-                          ...register(`wallets.${index}.address` as const, {
-                            validate: (address) =>
-                              ethers.utils.isAddress(address),
-                          }),
+                          ...register(`wallets.${index}.address` as const),
                         }}
                         hideLabel
                         label={t({
