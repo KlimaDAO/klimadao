@@ -28,3 +28,16 @@ export const spinnerContainer = css`
   justify-content: center;
   align-items: center;
 `;
+
+export const signingContainer = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const signatureTitle = css`
+  color: var(--font-02);
+  padding-left: 1.6rem;
+  text-transform: uppercase;
+`;

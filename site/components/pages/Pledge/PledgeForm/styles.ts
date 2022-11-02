@@ -35,7 +35,6 @@ export const pledge_wallet_address_cell = css`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  align-items: center;
   padding-right: 1.6rem;
 `;
 
@@ -90,6 +89,7 @@ export const pledge_wallet_save = css`
   ${pledge_wallet_icon};
   border: 0.175rem solid var(--surface-03);
   background-color: var(--surface-02);
+  padding-top: 0.8rem;
   svg {
     fill: var(--klima-green);
   }

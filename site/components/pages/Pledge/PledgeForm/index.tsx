@@ -36,6 +36,7 @@ import {
 } from "../lib";
 import { Pledge, PledgeFormValues, Wallet } from "../types";
 import * as styles from "./styles";
+import ethers from "ethers";
 
 type TotalFootprintProps = {
   control: Control<PledgeFormValues>;
@@ -276,7 +277,10 @@ export const PledgeForm: FC<Props> = (props) => {
                             message: "0x...",
                           }),
                           type: "text",
-                          ...register(`wallets.${index}.address` as const),
+                          ...register(`wallets.${index}.address` as const, {
+                            validate: (address) =>
+                              ethers.utils.isAddress(address),
+                          }),
                         }}
                         hideLabel
                         label={t({
@@ -346,6 +350,9 @@ export const PledgeForm: FC<Props> = (props) => {
                   id: "pledges.form.add_wallet_button",
                   message: "Add wallet",
                 })}
+                disabled={
+                  walletsFields[walletsFields.length - 1].saved === false
+                }
                 onClick={() =>
                   walletsAppend({
                     address: "",

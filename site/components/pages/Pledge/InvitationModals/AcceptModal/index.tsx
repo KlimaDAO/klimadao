@@ -11,10 +11,15 @@ import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { Modal } from "components/Modal";
 import {
   approveSecondaryWallet,
+  editPledgeMessage,
   removeSecondaryWallet,
 } from "../../lib/editPledgeMessage";
 import { Pledge } from "../../types";
-import { putPledge, pledgeFormAdapter } from "../../lib";
+import {
+  putPledge,
+  pledgeFormAdapter,
+  waitForGnosisSignature,
+} from "../../lib";
 import * as styles from "../styles";
 
 type Props = {
@@ -23,10 +28,10 @@ type Props = {
   pledge: Pledge;
   pageAddress: string;
 };
-type Steps = "accept" | "confirm" | "error" | "loading";
+type Step = "accept" | "confirm" | "error" | "loading" | "signing";
 
 export const AcceptModal = (props: Props) => {
-  const [step, setStep] = useState<Steps>("accept");
+  const [step, setStep] = useState<Step>("accept");
   const [errorMessage, setErrorMessage] = useState(null);
   const shortenedAddress = concatAddress(props.pledge.ownerAddress);
 
@@ -48,15 +53,25 @@ export const AcceptModal = (props: Props) => {
         id: "shared.loading",
         message: "Loading",
       }),
+      signing: t({
+        id: "pledge.invitation.signing",
+        message: "Signing",
+      }),
     }[step]);
-  const { signer } = useWeb3();
+  const { signer, address } = useWeb3();
 
   const handleSubmit = async (params: { message: string }) => {
     try {
       if (!signer) return;
-      const address = await signer.getAddress();
+      setStep("signing");
       const signature = await signer.signMessage(params.message);
       setStep("loading");
+      if (signature === "0x") {
+        await waitForGnosisSignature({
+          message: editPledgeMessage(props.pledge.nonce),
+          address: props.pageAddress,
+        });
+      }
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -171,6 +186,23 @@ export const AcceptModal = (props: Props) => {
       {step === "loading" && (
         <div className={styles.spinnerContainer}>
           <Spinner />
+        </div>
+      )}
+      {step === "signing" && (
+        <div className={styles.signingContainer}>
+          <div className={styles.spinnerContainer}>
+            <Spinner />
+            <Text t="caption" className={styles.signatureTitle}>
+              <Trans id="pledge.invitations.awaiting_signature">
+                Awaiting Signature...
+              </Trans>
+            </Text>
+          </div>
+          <Text t="caption">
+            <Trans id="pledge.invitations.signature_instructions">
+              Use your wallet to sign and confirm this edit.
+            </Trans>
+          </Text>
         </div>
       )}
     </Modal>

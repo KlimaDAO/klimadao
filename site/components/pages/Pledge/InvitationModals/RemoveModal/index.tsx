@@ -10,10 +10,17 @@ import {
 import { Modal } from "components/Modal";
 import * as styles from "../styles";
 import { t, Trans } from "@lingui/macro";
-import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
+import {
+  editPledgeMessage,
+  removeSecondaryWallet,
+} from "../../lib/editPledgeMessage";
 import { Pledge } from "../../types";
 import { useWeb3 } from "@klimadao/lib/utils";
-import { putPledge, pledgeFormAdapter } from "../../lib";
+import {
+  putPledge,
+  pledgeFormAdapter,
+  waitForGnosisSignature,
+} from "../../lib";
 
 type Props = {
   setShowRemoveModal: (value: boolean) => void;
@@ -22,10 +29,10 @@ type Props = {
   pageAddress: string;
 };
 
-type Steps = "remove" | "confirm" | "error" | "loading";
+type Step = "remove" | "confirm" | "error" | "loading" | "signing";
 
 export const RemoveModal = (props: Props) => {
-  const [step, setStep] = useState<Steps>("remove");
+  const [step, setStep] = useState<Step>("remove");
   const [errorMessage, setErrorMessage] = useState(null);
   const getTitle = (step: string) =>
     ({
@@ -42,15 +49,25 @@ export const RemoveModal = (props: Props) => {
         id: "shared.loading",
         message: "Loading",
       }),
+      signing: t({
+        id: "pledge.invitation.signing",
+        message: "Signing",
+      }),
     }[step]);
 
-  const { signer } = useWeb3();
+  const { signer, address } = useWeb3();
   const handleSubmit = async (params: { message: string }) => {
     try {
       if (!signer) return;
-      const address = await signer.getAddress();
+      setStep("signing");
       const signature = await signer.signMessage(params.message);
       setStep("loading");
+      if (signature === "0x") {
+        await waitForGnosisSignature({
+          message: editPledgeMessage(props.pledge.nonce),
+          address: props.pageAddress,
+        });
+      }
       await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
@@ -154,6 +171,23 @@ export const RemoveModal = (props: Props) => {
       {step === "loading" && (
         <div className={styles.spinnerContainer}>
           <Spinner />
+        </div>
+      )}
+      {step === "signing" && (
+        <div className={styles.signingContainer}>
+          <div className={styles.spinnerContainer}>
+            <Spinner />
+            <Text t="caption" className={styles.signatureTitle}>
+              <Trans id="pledge.invitations.awaiting_signature">
+                Awaiting Signature...
+              </Trans>
+            </Text>
+          </div>
+          <Text t="caption">
+            <Trans id="pledge.invitations.signature_instructions">
+              Use your wallet to sign and confirm this edit.
+            </Trans>
+          </Text>
         </div>
       )}
     </Modal>
