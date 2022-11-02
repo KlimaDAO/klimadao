@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
@@ -978,7 +984,7 @@ msgstr ""
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:38
+#: components/pages/Pledge/HeaderDesktop/index.tsx:42
 msgid "pledges.edit_pledge"
 msgstr ""
 
@@ -1526,8 +1532,7 @@ msgstr ""
 msgid "shared.community"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
-#: components/pages/Pledge/HeaderMobile/index.tsx:54
+#: components/pages/Pledge/HeaderMobile/index.tsx:57
 msgid "shared.connect"
 msgstr ""
 

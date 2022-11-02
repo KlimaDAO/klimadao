@@ -11,7 +11,7 @@ interface Props {
 }
 /** Init the web3Modal and expose via react context  */
 export const Web3ContextProvider: FC<Props> = (props) => {
-  const web3ProviderState = useWeb3Modal(props.strings);
+  const web3ProviderState = useWeb3Modal();
 
   return (
     <Web3Context.Provider value={web3ProviderState}>
