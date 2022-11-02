@@ -63,6 +63,7 @@ import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction
 const APPROVAL_SLIPPAGE = 0.01;
+const MAX_FIAT_COST = 2000; // usdc
 
 interface ButtonProps {
   label: React.ReactElement | string;
@@ -192,14 +193,23 @@ export const Offset = (props: Props) => {
         });
         setCost(consumptionCost);
       } else {
+        const floorQuantity =
+          Number(debouncedQuantity) && Number(debouncedQuantity) < 1
+            ? "1"
+            : debouncedQuantity;
         const reqParams = {
           beneficiary_address: beneficiaryAddress || props.address || null,
           beneficiary_name: beneficiary || "placeholder",
           retirement_message: retirementMessage || "placeholder",
-          quantity,
+          quantity: floorQuantity,
           project_address: projectAddress || null,
           retirement_token: selectedRetirementToken,
         };
+        // edge case where you can type 0.5 for ubo then switch it to fiat
+        if (debouncedQuantity !== floorQuantity) {
+          setQuantity(floorQuantity);
+          setDebouncedQuantity(floorQuantity);
+        }
         const cost = await getFiatRetirementCost(reqParams);
         setCost(cost);
       }
@@ -323,6 +333,8 @@ export const Offset = (props: Props) => {
     paymentMethod !== "fiat" &&
     Number(cost) > Number(balances?.[paymentMethod] ?? "0");
 
+  const invalidQuantity = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
+
   const hasApproval = () => {
     return (
       paymentMethod !== "fiat" &&
@@ -386,6 +398,12 @@ export const Offset = (props: Props) => {
             Invalid beneficiary address
           </Trans>
         ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (invalidQuantity) {
+      return {
+        label: <Trans id="shared.invalid_quantity">Invalid quantity</Trans>,
         onClick: undefined,
         disabled: true,
       };
@@ -689,11 +707,21 @@ export const Offset = (props: Props) => {
                 </TextInfoTooltip>
               </div>
             }
-            amount={cost}
+            amount={Number(cost)?.toLocaleString(locale)}
             icon={costIcon}
             name={paymentMethod}
             loading={cost === "loading"}
-            warn={insufficientBalance}
+            warn={insufficientBalance || invalidQuantity}
+            helperText={
+              paymentMethod === "fiat"
+                ? t({
+                    id: "fiat.max_quantity",
+                    message: `$${MAX_FIAT_COST.toLocaleString(
+                      locale
+                    )} maximum for credit cards`,
+                  })
+                : undefined
+            }
           />
           <MiniTokenDisplay
             label={
@@ -701,7 +729,7 @@ export const Offset = (props: Props) => {
                 <Trans id="offset.retiring">Retiring</Trans>
               </Text>
             }
-            amount={quantity}
+            amount={Number(quantity)?.toLocaleString(locale)}
             icon={tokenInfo[selectedRetirementToken].icon}
             name={selectedRetirementToken}
             labelAlignment="start"
