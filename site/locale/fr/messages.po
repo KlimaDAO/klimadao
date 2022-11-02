@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-02 16:14+0000\n"
+"POT-Creation-Date: 2022-11-02 22:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1289,7 +1289,7 @@ msgstr "Tout explorer"
 
 #: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "Désolé. Nous n'avons pas trouvé de résultats correspondants."
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
@@ -1301,7 +1301,7 @@ msgstr "Veuillez utiliser une autre combinaison de filtres."
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr ""
+msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou essayez un autre terme de recherche."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1557,7 +1557,7 @@ msgstr "Avertissement légal"
 #: components/Navigation/index.tsx:213
 #: components/Navigation/index.tsx:368
 msgid "shared.docs"
-msgstr ""
+msgstr "Docs officielles"
 
 #: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
@@ -1654,7 +1654,7 @@ msgstr "Mettre en jeu vos Klima"
 #: components/Navigation/index.tsx:342
 #: components/pages/Blog/Post/index.tsx:72
 msgid "shared.updates"
-msgstr ""
+msgstr "Mises à jour"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
