@@ -41,12 +41,23 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     const isDomainInURL = getIsDomainInURL(userInUrl);
     const isValidAddress = !isDomainInURL && ethers.utils.isAddress(userInUrl);
 
+    let marketplaceUser: User | null = null;
+
     if (!isDomainInURL && !isValidAddress) {
-      throw new Error("Not a valid user address");
+      const userData = await getMarketplaceUser({
+        user: params.user,
+        type: "handle",
+      });
+      // API returns object on 404 not found
+      if (userData?.handle) {
+        marketplaceUser = userData;
+      } else {
+        throw new Error("Not a valid user address");
+      }
     }
 
     const nameserviceDomain =
-      !isDomainInURL && (await getDomainByAddress(userInUrl));
+      !isDomainInURL && isValidAddress && (await getDomainByAddress(userInUrl));
 
     // redirect now to this page again with nameserviceDomain in URL
     if (nameserviceDomain) {
@@ -62,15 +73,19 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     if (isDomainInURL) {
       userAddress = await getAddressByDomain(userInUrl); // this fn should throw if it fails to resolve
     } else {
-      userAddress = userInUrl;
+      userAddress = marketplaceUser?.wallet || userInUrl;
     }
 
-    let marketplaceUser: User | null = null;
-
-    const userData = await getMarketplaceUser(userAddress);
-    // API returns object on 404 not found
-    if (userData?.handle) {
-      marketplaceUser = userData;
+    // Haven't fetched marketplace API yet?
+    if (!marketplaceUser) {
+      const userData = await getMarketplaceUser({
+        user: userAddress,
+        type: "wallet",
+      });
+      // API returns object on 404 not found
+      if (userData?.handle) {
+        marketplaceUser = userData;
+      }
     }
 
     return {

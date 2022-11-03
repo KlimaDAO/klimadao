@@ -26,9 +26,14 @@ export const getMarketplaceProject = async (
   }
 };
 
-export const getMarketplaceUser = async (wallet: string): Promise<User> => {
+export const getMarketplaceUser = async (params: {
+  user: string;
+  type: "wallet" | "handle";
+}): Promise<User> => {
   try {
-    const result = await fetch(`${marketplace.users}/${wallet}`);
+    const result = await fetch(
+      `${marketplace.users}/${params.user}?type=${params.type}`
+    );
     const json = await result.json();
     return json;
   } catch (e) {
