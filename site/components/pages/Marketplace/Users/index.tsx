@@ -1,9 +1,14 @@
+import React, { useState } from "react";
 import { NextPage } from "next";
-import { Text } from "@klimadao/lib/components";
+import { t } from "@lingui/macro";
+
 import { useIsMarketplaceProfile } from "hooks/useIsMarketplaceProfile";
+import { Text, ButtonPrimary } from "@klimadao/lib/components";
+import { Modal } from "components/Modal";
 
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../Layout";
+import { EditProfile } from "./Edit";
 import { User } from "@klimadao/lib/types/marketplace";
 
 import * as styles from "./styles";
@@ -18,8 +23,16 @@ export const Users: NextPage<Props> = (props) => {
   const { isConnectedProfile, isUnconnectedProfile } = useIsMarketplaceProfile(
     props.userAddress
   );
+  const [user, setUser] = useState(props.marketplaceUser);
+  const [showModal, setShowModal] = useState(false);
 
   const userName = props.userDomain || props.userAddress;
+
+  const onSubmit = (values: User) => {
+    setShowModal(false);
+    setUser(values);
+  };
+
   return (
     <>
       <PageHead
@@ -65,6 +78,17 @@ export const Users: NextPage<Props> = (props) => {
             </>
           )}
         </div>
+
+        <Modal
+          title={t({
+            id: "marketplace.profile.edit_modal.title",
+            message: "Your Profile",
+          })}
+          showModal={showModal}
+          onToggleModal={() => setShowModal((prev) => !prev)}
+        >
+          <EditProfile user={user} onSubmit={onSubmit} />
+        </Modal>
       </MarketplaceLayout>
     </>
   );
