@@ -71,12 +71,13 @@ type Props = {
 };
 
 export const PledgeForm: FC<Props> = (props) => {
-  const [serverError, setServerError] = useState(false);
+  const [serverError, setServerError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [selectedAddress, setSelectedAddress] = useState<{
     address: string;
     index: number;
   }>();
-  const [submitting, setSubmitting] = useState(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const { query } = useRouter();
   const { signer } = useWeb3();
   // any type is used here because the pledge will only be this shape once before we format the wallets so it is not a type of Pledge or PledgeFormValues
@@ -113,13 +114,34 @@ export const PledgeForm: FC<Props> = (props) => {
   });
   const wallets = useWatch({ name: "wallets", control });
 
+  const checkDuplicateWallets = (wallets: Wallet[]): boolean => {
+    let isDuplicate = false;
+    wallets.map((wallet) => {
+      for (let i = 0; i < wallets.length; i++) {
+        if (
+          wallets[i].address === wallet.address &&
+          wallet.status === "pending" &&
+          wallets[i].status === "pending"
+        ) {
+          isDuplicate = true;
+        }
+      }
+    });
+    return isDuplicate;
+  };
+
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
     values: PledgeFormValues
   ) => {
     try {
       setSubmitting(true);
       setServerError(false);
-
+      if (checkDuplicateWallets(values.wallets as Wallet[])) {
+        setSubmitting(false);
+        setServerError(true);
+        setErrorMessage("Please remove the duplicate wallet(s)");
+        return;
+      }
       if (!signer) return;
       const signature = await signer.signMessage(
         editPledgeMessage(values.nonce)
@@ -163,9 +185,13 @@ export const PledgeForm: FC<Props> = (props) => {
     <form className={styles.container} onSubmit={handleSubmit(onSubmit)}>
       {serverError && (
         <Text className={styles.errorMessage} t="caption">
-          <Trans id="pledges.form.generic_error">
-            Something went wrong. Please try again.
-          </Trans>
+          {errorMessage ? (
+            errorMessage
+          ) : (
+            <Trans id="pledges.form.generic_error">
+              Something went wrong. Please try again.
+            </Trans>
+          )}
         </Text>
       )}
 
