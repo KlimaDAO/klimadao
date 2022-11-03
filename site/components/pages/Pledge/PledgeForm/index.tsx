@@ -157,7 +157,7 @@ export const PledgeForm: FC<Props> = (props) => {
         }}
         label={t({
           id: "pledges.form.input.profileImageUrl.label",
-          message: "Profile image url (optional)",
+          message: "Profile image url (Optional)",
         })}
         errorMessage={
           pledgeErrorTranslationsMap[
