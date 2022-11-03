@@ -20,10 +20,6 @@ export const pledgeErrorTranslationsMap = {
     id: "pledges.form.errors.name.required",
     message: "Enter a name",
   }),
-  ["pledges.form.errors.name.isAddress"]: t({
-    id: "pledges.form.errors.name.isAddress",
-    message: "Enter a valid address",
-  }),
   ["pledges.form.errors.profileImageUrl.url"]: t({
     id: "pledges.form.errors.profileImageUrl.url",
     message: "Enter a valid url",
