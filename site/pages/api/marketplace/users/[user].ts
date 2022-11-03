@@ -11,7 +11,7 @@ const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
   res
 ) => {
   switch (req.method) {
-    case "POST":
+    case "PUT":
       try {
         console.log("API UPDATE body", req.body);
         const signature = req.headers.authorization?.split(" ")[1];
@@ -35,7 +35,7 @@ const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
       }
       break;
     default:
-      res.setHeader("Allow", ["POST"]);
+      res.setHeader("Allow", ["PUT"]);
       res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 };

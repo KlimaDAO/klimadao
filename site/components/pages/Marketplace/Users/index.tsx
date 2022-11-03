@@ -28,6 +28,7 @@ export const Users: NextPage<Props> = (props) => {
   const [showModal, setShowModal] = useState(false);
 
   const userName = props.userDomain || props.userAddress;
+  const userData = user || props.marketplaceUser;
 
   useEffect(() => {
     if (isConnectedProfile || isUnconnectedProfile) {
@@ -69,22 +70,20 @@ export const Users: NextPage<Props> = (props) => {
           <Text>User: {userName}</Text>
           {isLoading && <Spinner />}
 
-          {!props.marketplaceUser && isUnconnectedProfile && (
+          {!userData && isUnconnectedProfile && (
             <Text>
               Sorry, we couldn't find any marketplace data for this user.
             </Text>
           )}
-          {!props.marketplaceUser && isConnectedProfile && (
-            <Text>Edit your profile</Text>
-          )}
-          {props.marketplaceUser && (
+          {!userData && isConnectedProfile && <Text>Edit your profile</Text>}
+          {userData && (
             <>
-              <Text>Handle: {props.marketplaceUser.handle}</Text>
-              <Text>Username: {props.marketplaceUser.username}</Text>
-              <Text>Description: {props.marketplaceUser.description}</Text>
-              <Text>Wallet: {props.marketplaceUser.wallet}</Text>
-              <Text>Listing: {props.marketplaceUser.listings.length}</Text>
-              <Text>Activities: {props.marketplaceUser.activities.length}</Text>
+              <Text>Handle: {userData.handle}</Text>
+              <Text>Username: {userData.username}</Text>
+              <Text>Description: {userData.description}</Text>
+              <Text>Wallet: {userData.wallet}</Text>
+              <Text>Listing: {userData.listings?.length || 0}</Text>
+              <Text>Activities: {userData.activities?.length || 0}</Text>
             </>
           )}
         </div>

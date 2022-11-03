@@ -6,7 +6,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 
 import { InputField, TextareaField } from "components/Form";
-import { loginUser, verifyUser, postUser, putUser } from "../lib/api";
+import { loginUser, postUser, putUser } from "../lib/api";
 import { User } from "@klimadao/lib/types/marketplace";
 
 import * as styles from "./styles";
@@ -56,7 +56,7 @@ export const EditProfile: FC<Props> = (props) => {
         editSignMessage(loginRes.nonce)
       );
 
-      await verifyUser({ address, signature });
+      // await verifyUser({ address, signature });
 
       let response;
       if (isExistingUser) {
