@@ -8,6 +8,7 @@ export const MockPledge = (resolvedAddress: string): Pledge => ({
   name: "Senkusha",
   nonce: DEFAULT_NONCE,
   profileImageUrl: "https://i.pravatar.cc/300",
+  profileWebsiteUrl: "https://www.klimadao.finance/",
   description:
     "“The team over at Senkusha loves the initiative behind Klima! We can’t wait to be a part of this journey for years to come.”",
   methodology:

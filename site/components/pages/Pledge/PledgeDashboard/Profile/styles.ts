@@ -20,6 +20,10 @@ export const profile = css`
     border: 0.1rem solid var(--surface-01);
   }
 
+  .profileUrl {
+    color: var(--klima-blue);
+  }
+
   ${breakpoints.desktop} {
     gap: 2rem;
   }

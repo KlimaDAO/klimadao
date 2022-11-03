@@ -6,6 +6,7 @@ import {
   concatAddress,
   getENSProfile,
   getKNSProfile,
+  prettifyUrl,
 } from "@klimadao/lib/utils";
 import { Domain } from "@klimadao/lib/types/domains";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
@@ -43,6 +44,7 @@ export const Profile: FC<Props> = (props) => {
   }, [props.domain]);
 
   const hasProfileImage = props.pledge.profileImageUrl || profileData;
+  const profileUrl = props.pledge.profileWebsiteUrl;
 
   const currentFootprint =
     props.pledge.footprint[props.pledge.footprint.length - 1];
@@ -89,6 +91,14 @@ export const Profile: FC<Props> = (props) => {
           props.domain ||
           concatAddress(props.pledge.ownerAddress)}
       </Text>
+
+      {!!profileUrl && (
+        <Text t="body1">
+          <a className="profileUrl" href={profileUrl}>
+            {prettifyUrl(profileUrl)}
+          </a>
+        </Text>
+      )}
 
       <div className={styles.progressContainer}>
         <Text t="h4" color="lightest" align="center">
