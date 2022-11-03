@@ -82,6 +82,7 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
 };
 
 interface Props {
+  userAdress: string;
   connectedAddress?: string;
   connectedDomain?: Domain;
   onHide?: () => void;
@@ -89,8 +90,9 @@ interface Props {
 
 export const NavMenu: FC<Props> = (props) => {
   const { pathname } = useRouter();
-  const { isConnectedUserProfile, isUnconnectedUserProfile } =
-    useIsMarketplaceProfile(props.connectedDomain?.name || null);
+  const { isConnectedProfile, isUnconnectedProfile } = useIsMarketplaceProfile(
+    props.userAdress
+  );
 
   const isConnected = !!props.connectedAddress || !!props.connectedDomain;
 
@@ -117,8 +119,7 @@ export const NavMenu: FC<Props> = (props) => {
       </div>
       <MenuButton
         isActive={
-          pathname.startsWith("/marketplace/projects") ||
-          isUnconnectedUserProfile
+          pathname.startsWith("/marketplace/projects") || isUnconnectedProfile
         }
         href={"/marketplace/projects"}
         icon={<StoreIcon />}
@@ -127,8 +128,7 @@ export const NavMenu: FC<Props> = (props) => {
       </MenuButton>
       <MenuButton
         isActive={
-          pathname.startsWith(`/marketplace/users/login`) ||
-          isConnectedUserProfile
+          pathname.startsWith(`/marketplace/users/login`) || isConnectedProfile
         }
         href={profileLink}
         icon={<PermIdentityIcon />}

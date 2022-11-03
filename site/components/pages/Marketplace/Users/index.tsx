@@ -15,19 +15,24 @@ type Props = {
 };
 
 export const Users: NextPage<Props> = (props) => {
-  const { isConnectedUserProfile } = useIsMarketplaceProfile(props.userDomain);
+  const { isConnectedProfile, isUnconnectedProfile } = useIsMarketplaceProfile(
+    props.userAddress
+  );
+
+  const userName = props.userDomain || props.userAddress;
   return (
     <>
       <PageHead
-        title="KlimaDao - Marketplace Profile"
-        mediaTitle="KlimaDao - Marketplace Profile"
-        metaDescription="KlimaDao - Marketplace Profile"
+        title={`KlimaDao - Marketplace Profile for ${userName}`}
+        mediaTitle={`KlimaDao - Marketplace Profile for ${userName}`}
+        metaDescription={`KlimaDao - Marketplace Profile for ${userName}`}
       />
 
       <MarketplaceLayout
+        userAddress={props.userAddress}
         userDomain={props.userDomain}
         profileButton={
-          isConnectedUserProfile ? (
+          isConnectedProfile ? (
             <ButtonPrimary
               label={t({
                 id: "marketplace.edit_profile",
@@ -40,13 +45,13 @@ export const Users: NextPage<Props> = (props) => {
       >
         <div className={styles.fullWidth}>
           <Text t="h1">User</Text>
-          <Text>User: {props.userDomain || props.userAddress}</Text>
-          {!props.marketplaceUser && !isConnectedUserProfile && (
+          <Text>User: {userName}</Text>
+          {!props.marketplaceUser && isUnconnectedProfile && (
             <Text>
               Sorry, we couldn't find any marketplace data for this user.
             </Text>
           )}
-          {!props.marketplaceUser && isConnectedUserProfile && (
+          {!props.marketplaceUser && isConnectedProfile && (
             <Text>Edit your profile</Text>
           )}
           {props.marketplaceUser && (

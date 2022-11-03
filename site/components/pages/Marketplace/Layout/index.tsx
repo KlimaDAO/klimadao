@@ -20,7 +20,8 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 });
 
 type Props = {
-  userDomain?: string | null;
+  userAddress: string;
+  userDomain: string | null;
   profileButton?: JSX.Element;
 };
 
@@ -52,7 +53,11 @@ export const MarketplaceLayout: FC<Props> = (props) => {
     <>
       <div className={styles.container} data-scrolllock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
-          <NavMenu connectedAddress={address} connectedDomain={profileData} />
+          <NavMenu
+            userAdress={props.userAddress}
+            connectedAddress={address}
+            connectedDomain={profileData}
+          />
         </div>
         <div className={styles.cardGrid}>
           <div className={styles.controls}>
@@ -70,6 +75,7 @@ export const MarketplaceLayout: FC<Props> = (props) => {
             />
             <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
               <NavMenu
+                userAdress={props.userAddress}
                 connectedAddress={address}
                 connectedDomain={profileData}
                 onHide={() => setShowMobileMenu(false)}
