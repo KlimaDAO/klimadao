@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NextPage } from "next";
 import { t } from "@lingui/macro";
 
 import { useIsMarketplaceProfile } from "hooks/useIsMarketplaceProfile";
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
+import { Text, ButtonPrimary, Spinner } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
 
 import { PageHead } from "components/PageHead";
@@ -23,10 +23,18 @@ export const Users: NextPage<Props> = (props) => {
   const { isConnectedProfile, isUnconnectedProfile } = useIsMarketplaceProfile(
     props.userAddress
   );
-  const [user, setUser] = useState(props.marketplaceUser);
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const userName = props.userDomain || props.userAddress;
+
+  useEffect(() => {
+    if (isConnectedProfile || isUnconnectedProfile) {
+      setIsLoading(false);
+    }
+    isConnectedProfile && setUser(props.marketplaceUser);
+  }, [isConnectedProfile, isUnconnectedProfile]);
 
   const onSubmit = (values: User) => {
     setShowModal(false);
@@ -59,6 +67,8 @@ export const Users: NextPage<Props> = (props) => {
         <div className={styles.fullWidth}>
           <Text t="h1">User</Text>
           <Text>User: {userName}</Text>
+          {isLoading && <Spinner />}
+
           {!props.marketplaceUser && isUnconnectedProfile && (
             <Text>
               Sorry, we couldn't find any marketplace data for this user.
