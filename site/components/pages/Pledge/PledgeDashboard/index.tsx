@@ -44,6 +44,8 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
 
   const pledgeOwnerTitle =
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
+  const currentTotalFootprint =
+    pledge.footprint[pledge.footprint.length - 1].total;
 
   return (
     <PledgeLayout canEditPledge={canEditPledge} toggleEditModal={setShowModal}>
@@ -58,7 +60,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         })}
         metaDescription={t({
           id: "pledges.dashboard.head.metaDescription",
-          message: `${pledgeOwnerTitle} pledges to Offset ${pledge.footprint} Carbon Tonnes. View their carbon offset history and read more about their commitment.`,
+          message: `${pledgeOwnerTitle} pledges to Offset ${currentTotalFootprint} Carbon Tonnes. View their carbon offset history and read more about their commitment.`,
         })}
         canonicalUrl={props.canonicalUrl}
       />
