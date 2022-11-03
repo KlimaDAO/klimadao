@@ -14,6 +14,11 @@ const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
     case "POST":
       try {
         console.log("API UPDATE body", req.body);
+        const signature = req.headers.authorization?.split(" ")[1];
+
+        if (!signature) {
+          return res.status(400).json({ message: "Bad request" });
+        }
 
         if (!req.body.handle && !req.body.wallet) {
           return res

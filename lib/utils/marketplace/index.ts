@@ -61,7 +61,10 @@ export const verifyMarketplaceUser = async (params: {
   try {
     const result = await fetch(`${marketplace.users}/login/verify`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${params.signature}`,
+      },
       body: JSON.stringify(params),
     });
     const json = await result.json();

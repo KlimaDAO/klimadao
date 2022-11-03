@@ -15,6 +15,12 @@ const createUser: NextApiHandler<User | APIDefaultResponse> = async (
       try {
         console.log("API CREATE body", req.body);
 
+        const signature = req.headers.authorization?.split(" ")[1];
+
+        if (!signature) {
+          return res.status(400).json({ message: "Bad request" });
+        }
+
         if (!req.body.handle && !req.body.wallet) {
           return res
             .status(400)
