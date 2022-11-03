@@ -73,11 +73,7 @@ export const formSchema = yup
     id: yup.string().nullable(),
     ownerAddress: yup.string().required().trim(),
     nonce: yup.string().required().trim(),
-    name: yup
-      .string()
-      .required("pledges.form.errors.name.required")
-      .isAddress("pledges.form.errors.name.isAddress")
-      .trim(),
+    name: yup.string().required("pledges.form.errors.name.required").trim(),
     profileImageUrl: yup
       .string()
       .url("pledges.form.errors.profileImageUrl.url")
