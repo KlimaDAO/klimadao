@@ -77,7 +77,7 @@ export const modalContent = css`
     }
   }
 
-  //Resolve border radius issues by enforcing rounded corners on scroll bars
+  /* Resolve border radius issues by enforcing rounded corners on scroll bars */
   &::-webkit-scrollbar-thumb {
     background-color: var(--surface-04);
     border: 4px solid transparent;
