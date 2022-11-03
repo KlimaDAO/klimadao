@@ -274,7 +274,8 @@ const GOLD_STANDARD_REGISTRY = "https://registry.goldstandard.org";
 export const goldStandard = {
   projectDetailPage: `${GOLD_STANDARD_REGISTRY}/projects/details`,
 };
-const MARKETPLACE = "https://marketplace-r13akvg3k-najada.vercel.app";
+
+const MARKETPLACE = "https://marketplace-api-najada.vercel.app/";
 const MARKETPLACE_API = `${MARKETPLACE}/api`;
 export const marketplace = {
   projects: `${MARKETPLACE_API}/projects`,
