@@ -82,7 +82,7 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
 };
 
 interface Props {
-  userAdress: string;
+  userAdress?: string;
   connectedAddress?: string;
   connectedDomain?: Domain;
   onHide?: () => void;

@@ -20,8 +20,8 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 });
 
 type Props = {
-  userAddress: string;
-  userDomain: string | null;
+  userAddress?: string;
+  userDomain?: string | null;
   profileButton?: JSX.Element;
 };
 

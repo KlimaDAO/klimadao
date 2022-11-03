@@ -56,7 +56,7 @@ export const EditProfile: FC<Props> = (props) => {
         editSignMessage(loginRes.nonce)
       );
 
-      const verify = await verifyUser({ address, signature });
+      await verifyUser({ address, signature });
 
       let response;
       if (isExistingUser) {
