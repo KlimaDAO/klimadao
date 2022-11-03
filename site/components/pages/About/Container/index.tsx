@@ -3,9 +3,9 @@ import { PageHead } from "components/PageHead";
 import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
 
-import { ResourcesHeader } from "../ResourcesHeader";
+import { AboutHeader } from "../AboutHeader";
 
-type PageName = "blog" | "community" | "contact" | "podcast";
+type PageName = "community" | "contact" | "disclaimer";
 
 export type Props = PropsWithChildren<ReactNode> & {
   activePage: PageName;
@@ -28,9 +28,9 @@ export const Container: FC<Props> = (props) => {
         mediaImageSrc={props.mediaImageSrc}
       />
 
-      <Navigation activePage="Resources" />
+      <Navigation activePage="About" />
 
-      <ResourcesHeader
+      <AboutHeader
         activePage={props.activePage}
         title={props.headline}
         subline={props.subline}

@@ -30,6 +30,7 @@ export { getTokenDecimals } from "./getTokenDecimals";
 export { getIsValidAddress } from "./getIsValidAddress";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export { getOgImageSrc } from "./getOgImageSrc";
+export { getImageSizes } from "./getImageSizes";
 export {
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,

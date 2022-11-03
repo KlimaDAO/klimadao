@@ -11,27 +11,17 @@ module.exports = async (phase, { defaultConfig }) => {
   const nextConfig = {
     reactStrictMode: true,
     async redirects() {
-      if (IS_PRODUCTION) {
-        return [
-          {
-            source: "/resources",
-            destination: "/blog",
-            permanent: true,
-          },
-          {
-            source: "/cms",
-            destination: "https://klimadao.sanity.studio/desk",
-            permanent: true,
-          },
-        ];
-      }
       return [
-        // Enable this as soon as the Resources page is live
-        // {
-        //   source: "/blog",
-        //   destination: "/resources",
-        //   permanent: true,
-        // },
+        {
+          source: "/blog",
+          destination: "/resources",
+          permanent: true,
+        },
+        {
+          source: "/podcast",
+          destination: "/resources",
+          permanent: true,
+        },
         {
           source: "/cms",
           destination: "https://klimadao.sanity.studio/desk",

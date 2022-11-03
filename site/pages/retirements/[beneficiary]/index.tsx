@@ -64,6 +64,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       };
     }
 
+    // enforces lowercase urls
+    if (!isDomainInURL && beneficiaryInUrl !== beneficiaryInUrl.toLowerCase()) {
+      return {
+        redirect: {
+          destination: `/retirements/${beneficiaryInUrl.toLowerCase()}`,
+          permanent: true,
+        },
+      };
+    }
+
     let beneficiaryAddress: string;
     if (isDomainInURL) {
       beneficiaryAddress = await getAddressByDomain(beneficiaryInUrl); // this fn should throw if it fails to resolve

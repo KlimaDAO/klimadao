@@ -219,11 +219,13 @@ export const offsetInputTokens = allowancesContracts[
   "retirementAggregator"
 ] as unknown as OffsetInputToken[];
 
+export type OffsetPaymentMethod = OffsetInputToken | "fiat";
+
 /** Retireable tokens for the offset aggregator /#/offset */
 export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
 export type RetirementToken = typeof retirementTokens[number];
 
-type CompatMap = { [token in OffsetInputToken]: RetirementToken[] };
+type CompatMap = { [token in OffsetPaymentMethod]: RetirementToken[] };
 export const offsetCompatibility: CompatMap = {
   ubo: ["ubo"],
   nbo: ["nbo"],
@@ -234,6 +236,7 @@ export const offsetCompatibility: CompatMap = {
   klima: ["bct", "mco2"],
   sklima: ["bct", "mco2"],
   wsklima: ["bct", "mco2"],
+  fiat: ["bct", "nct", "mco2", "ubo", "nbo"],
 };
 
 const SUBGRAPH_URL = "https://api.thegraph.com/subgraphs/name/klimadao";

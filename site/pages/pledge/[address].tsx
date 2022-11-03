@@ -15,10 +15,12 @@ import {
   queryHoldingsByAddress,
 } from "components/pages/Pledge/lib";
 import { Pledge, Holding } from "components/pages/Pledge/types";
+
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   address: string;
 }
+
 interface PageProps {
   canonicalUrl: string;
   domain: string | null;
@@ -38,6 +40,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     let resolvedAddress;
     const isDomainInURL = getIsDomainInURL(address);
     const domain = isDomainInURL ? address : null;
+
+    // enforces lowercase urls
+    if (address !== address.toLowerCase()) {
+      return {
+        redirect: {
+          destination: `/pledge/${address.toLowerCase()}`,
+          permanent: true,
+        },
+      };
+    }
 
     try {
       if (!isDomainInURL && !ethers.utils.isAddress(address))
