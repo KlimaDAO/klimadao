@@ -50,24 +50,20 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       <PageHead
         title={t({
           id: "pledges.dashboard.head.title",
-          message: "KlimaDAO | Pledges",
+          message: "`${pledgeOwnerTitle}'s Pledge | KlimaDAO`",
         })}
         mediaTitle={t({
           id: "pledges.dashboard.head.metaTitle",
-          message: `${pledgeOwnerTitle}'s pledge`,
+          message: `${pledgeOwnerTitle}'s Pledge`,
         })}
         metaDescription={t({
-          id: "shared.head.description",
-          message:
-            "Drive climate action and earn rewards with a carbon-backed digital currency.", // Do we need a better metadescription??
+          id: "pledges.dashboard.head.metaDescription",
+          message: `${pledgeOwnerTitle} pledges to Offset ${pledge.footprint} Carbon Tonnes. View their carbon offset history and read more about their commitment.`,
         })}
         canonicalUrl={props.canonicalUrl}
       />
       <Modal
-        title={t({
-          id: "pledges.form.title",
-          message: "Your Pledge",
-        })}
+        title={t({ id: "pledges.form.title", message: "Your Pledge" })}
         showModal={showModal}
         onToggleModal={() => setShowModal(!showModal)}
       >
