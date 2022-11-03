@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-02 22:02+0000\n"
+"POT-Creation-Date: 2022-11-03 15:54+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,11 +9,11 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:664
 msgid "Beneficiary 0x address (optional)"
-msgstr ""
+msgstr "Adresse du bénéficiaire 0x (facultatif)"
 
 #: components/views/Offset/index.tsx:653
 msgid "Beneficiary name"
-msgstr ""
+msgstr "Nom du bénéficiaire"
 
 #: components/views/Bond/index.tsx:701
 msgid "Capacity"
@@ -21,7 +21,7 @@ msgstr "Capacité"
 
 #: components/views/Offset/index.tsx:438
 msgid "Checkout"
-msgstr ""
+msgstr "Paiement"
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
@@ -328,7 +328,7 @@ msgstr "Compensation C3 standard"
 
 #: components/views/Offset/index.tsx:717
 msgid "fiat.max_quantity"
-msgstr ""
+msgstr "${0} maximum pour les cartes de crédit"
 
 #: components/ImageCard/index.tsx:16
 msgid "imagecard.how_to_get_started"
@@ -491,7 +491,7 @@ msgstr "La compensation inter-chaînes est désormais disponible via <0>LI.FI et
 
 #: components/views/Offset/index.tsx:595
 msgid "offset.min_quantity_fiat"
-msgstr ""
+msgstr "Achat minimum d'une tonne pour les cartes de crédit"
 
 #: components/views/Offset/index.tsx:608
 msgid "offset.modal_payWith.title"
@@ -572,7 +572,7 @@ msgstr "Veillez à ne pas divulguer d'informations personnelles sensibles. Votre
 
 #: components/views/PKlima/index.tsx:176
 msgid "pklima.approve_bct"
-msgstr "2. Approuver BCT"
+msgstr "2. Approuvez BCT"
 
 #: components/views/PKlima/index.tsx:171
 msgid "pklima.approve_pklima"
@@ -675,7 +675,7 @@ msgstr "Entrez le montant"
 
 #: components/views/Offset/index.tsx:379
 msgid "shared.enter_beneficiary"
-msgstr ""
+msgstr "Entrez le nom du bénéficiaire"
 
 #: components/views/Bond/index.tsx:422
 #: components/views/Offset/index.tsx:372
@@ -686,7 +686,7 @@ msgstr "ENTRER LE MONTANT"
 
 #: components/views/Offset/index.tsx:387
 msgid "shared.enter_retirement_message"
-msgstr ""
+msgstr "Entrez le message de compensation"
 
 #: components/views/Bond/index.tsx:479
 #: components/views/Bond/index.tsx:498
@@ -702,15 +702,15 @@ msgstr "SOLDE INSUFFISANT"
 
 #: components/views/Offset/index.tsx:397
 msgid "shared.invalid_beneficiary_addr"
-msgstr ""
+msgstr "Adresse bénéficiaire invalide"
 
 #: components/views/Offset/index.tsx:413
 msgid "shared.invalid_project_address"
-msgstr ""
+msgstr "Adresse de projet invalide"
 
 #: components/views/Offset/index.tsx:406
 msgid "shared.invalid_quantity"
-msgstr ""
+msgstr "Quantité invalide"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:48
 #: components/RebaseCard/index.tsx:58
@@ -737,11 +737,11 @@ msgstr "Max"
 
 #: components/views/Offset/index.tsx:363
 msgid "shared.redirecting_checkout"
-msgstr ""
+msgstr "Redirection vers la paiement..."
 
 #: components/views/Offset/index.tsx:444
 msgid "shared.retire"
-msgstr ""
+msgstr "Compenser des émissions carbone"
 
 #: components/views/Bond/index.tsx:404
 msgid "shared.sold_out"
@@ -906,7 +906,7 @@ msgstr "1. Approuver"
 
 #: components/TransactionModal/index.tsx:62
 msgid "transaction_modal.view.submit.title"
-msgstr "2. Envoyer"
+msgstr "2. Envoyez"
 
 #: components/ConnectButton/index.tsx:20
 msgid "wallet.connect"
