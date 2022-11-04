@@ -71,6 +71,7 @@ export const verifyMarketplaceUser = async (params: {
       },
       body: JSON.stringify(params),
     });
+    console.log("result", result);
     const json = await result.json();
     return json;
   } catch (e) {

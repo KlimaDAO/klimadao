@@ -24,6 +24,8 @@ const verifyUser: NextApiHandler<
           signature: req.body.signature,
         });
 
+        console.log("response", response);
+
         return res.status(200).json(response);
       } catch ({ message }) {
         console.error("Request failed:", message);

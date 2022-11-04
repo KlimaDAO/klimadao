@@ -38,6 +38,7 @@ export const Users: NextPage<Props> = (props) => {
   }, [isConnectedProfile, isUnconnectedProfile]);
 
   const onSubmit = (values: User) => {
+    console.log("VALUES", values);
     setShowModal(false);
     setUser(values);
   };
