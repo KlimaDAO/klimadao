@@ -45,7 +45,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const pledgeOwnerTitle =
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
   const currentTotalFootprint =
-    pledge.footprint[pledge.footprint.length - 1].total;
+    pledge.footprint[pledge.footprint.length - 1].total.toString();
 
   return (
     <PledgeLayout canEditPledge={canEditPledge} toggleEditModal={setShowModal}>
