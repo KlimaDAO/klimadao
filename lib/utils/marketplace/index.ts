@@ -68,7 +68,6 @@ export const verifyMarketplaceUser = async (params: {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${params.signature}`,
       },
       body: JSON.stringify(params),
     });
