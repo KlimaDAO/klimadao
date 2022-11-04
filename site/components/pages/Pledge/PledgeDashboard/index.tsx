@@ -52,7 +52,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       <PageHead
         title={t({
           id: "pledges.dashboard.head.title",
-          message: "`${pledgeOwnerTitle}'s Pledge | KlimaDAO`",
+          message: `${pledgeOwnerTitle}'s Pledge | KlimaDAO`,
         })}
         mediaTitle={t({
           id: "pledges.dashboard.head.metaTitle",
