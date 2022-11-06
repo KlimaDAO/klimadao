@@ -25,15 +25,15 @@ export const profile = css`
   }
 
   ${breakpoints.desktop} {
-    gap: 2rem;
+    gap: 2.4rem;
   }
 `;
 
-export const progressContainer = css`
+export const grouped = css`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 1.6rem;
+  align-items: center;
+  gap: 1rem;
 `;
 
 export const pledgeProgress = css`

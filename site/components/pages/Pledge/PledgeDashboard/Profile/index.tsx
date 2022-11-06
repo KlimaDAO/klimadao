@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
-import { Text } from "@klimadao/lib/components";
+import { Anchor, Text } from "@klimadao/lib/components";
 import {
   concatAddress,
   getENSProfile,
@@ -85,32 +85,31 @@ export const Profile: FC<Props> = (props) => {
           alt="Profile image"
         />
       )}
+      <div className={styles.grouped}>
+        <Text t="h2">
+          {props.pledge.name ||
+            props.domain ||
+            concatAddress(props.pledge.ownerAddress)}
+        </Text>
 
-      <Text t="h2">
-        {props.pledge.name ||
-          props.domain ||
-          concatAddress(props.pledge.ownerAddress)}
+        {!!profileUrl && (
+          <Text t="body1">
+            <Anchor className="profileUrl" href={profileUrl}>
+              {prettifyUrl(profileUrl)}
+            </Anchor>
+          </Text>
+        )}
+      </div>
+
+      <Text t="h4" color="lightest" align="center">
+        <Trans id="pledges.dashboard.profile.pledged_to_offset">
+          Pledged to Offset{" "}
+          <strong>{trimWithLocale(currentFootprint.total, 2, locale)}</strong>{" "}
+          Carbon Tonnes
+        </Trans>
       </Text>
 
-      {!!profileUrl && (
-        <Text t="body1">
-          <a className="profileUrl" href={profileUrl}>
-            {prettifyUrl(profileUrl)}
-          </a>
-        </Text>
-      )}
-
-      <div className={styles.progressContainer}>
-        <Text t="h4" color="lightest" align="center">
-          <Trans id="pledges.dashboard.profile.pledged_to_offset">
-            Pledged to Offset{" "}
-            <strong>{trimWithLocale(currentFootprint.total, 2, locale)}</strong>{" "}
-            Carbon Tonnes
-          </Trans>
-        </Text>
-
-        {renderPledgeProgress()}
-      </div>
+      {renderPledgeProgress()}
     </div>
   );
 };
