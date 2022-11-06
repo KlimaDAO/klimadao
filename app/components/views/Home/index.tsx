@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
 import { selectAppState } from "state/selectors";
 import { loadAppDetails } from "actions/app";
-import { calcBondDetails } from "actions/bonds";
 import { loadAccountDetails } from "actions/user";
 
 import { Stake } from "components/views/Stake";
@@ -96,13 +95,6 @@ export const Home: FC = () => {
         onRPCError: handleRPCError,
       })
     );
-    bonds.forEach((bond) => {
-      dispatch(
-        calcBondDetails({
-          bond,
-        })
-      );
-    });
   };
 
   useEffect(() => {

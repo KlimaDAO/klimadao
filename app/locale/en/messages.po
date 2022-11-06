@@ -279,16 +279,16 @@ msgstr "⚠️ Verify the URL and bookmark this page!"
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan Base Carbon Tonne"
 
-#: components/views/ChooseBond/index.tsx:184
+#: components/views/ChooseBond/index.tsx:198
 msgid "choose_bond.bond_carbon"
 msgstr "Bond Carbon"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:187
+#: components/views/ChooseBond/index.tsx:201
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "The best way to buy KLIMA. Commit carbon to our treasury, and receive KLIMA at a discount. All bonds (except inverse bonds) have a mandatory 5 day vesting period."
 
-#: components/views/ChooseBond/index.tsx:211
+#: components/views/ChooseBond/index.tsx:225
 msgid "choose_bond.choose_bond"
 msgstr "Choose a bond"
 
@@ -316,15 +316,15 @@ msgstr "KLIMA/MCO2 Quickswap Liquidity"
 msgid "choose_bond.nbo.description"
 msgstr "C3 Nature Based Offset"
 
-#: components/views/ChooseBond/index.tsx:214
+#: components/views/ChooseBond/index.tsx:228
 msgid "choose_bond.percent_discount"
 msgstr "% Discount"
 
-#: components/views/ChooseBond/index.tsx:240
+#: components/views/ChooseBond/index.tsx:254
 msgid "choose_bond.sold_out"
 msgstr "SOLD OUT"
 
-#: components/views/ChooseBond/index.tsx:201
+#: components/views/ChooseBond/index.tsx:215
 msgid "choose_bond.treasury_balance"
 msgstr "Treasury Balance"
 

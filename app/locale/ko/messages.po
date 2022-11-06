@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ko\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: components/views/Offset/index.tsx:664
 msgid "Beneficiary 0x address (optional)"
@@ -273,16 +279,16 @@ msgstr ""
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:184
+#: components/views/ChooseBond/index.tsx:198
 msgid "choose_bond.bond_carbon"
 msgstr ""
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:187
+#: components/views/ChooseBond/index.tsx:201
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:211
+#: components/views/ChooseBond/index.tsx:225
 msgid "choose_bond.choose_bond"
 msgstr ""
 
@@ -310,15 +316,15 @@ msgstr ""
 msgid "choose_bond.nbo.description"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:214
+#: components/views/ChooseBond/index.tsx:228
 msgid "choose_bond.percent_discount"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:240
+#: components/views/ChooseBond/index.tsx:254
 msgid "choose_bond.sold_out"
 msgstr ""
 
-#: components/views/ChooseBond/index.tsx:201
+#: components/views/ChooseBond/index.tsx:215
 msgid "choose_bond.treasury_balance"
 msgstr ""
 
