@@ -932,17 +932,17 @@ msgstr "{0}% of footprint"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Carbon Tonne(s)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:59
+#: components/pages/Pledge/PledgeDashboard/index.tsx:61
 msgid "pledges.dashboard.head.metaDescription"
-msgstr "{pledgeOwnerTitle} pledges to Offset {0} Carbon Tonnes. View their carbon offset history and read more about their commitment."
+msgstr "{pledgeOwnerTitle} pledges to Offset {currentTotalFootprint} Carbon Tonnes. View their carbon offset history and read more about their commitment."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:55
+#: components/pages/Pledge/PledgeDashboard/index.tsx:57
 msgid "pledges.dashboard.head.metaTitle"
 msgstr "{pledgeOwnerTitle}'s Pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:51
+#: components/pages/Pledge/PledgeDashboard/index.tsx:53
 msgid "pledges.dashboard.head.title"
-msgstr "`${pledgeOwnerTitle}'s Pledge | KlimaDAO`"
+msgstr "{pledgeOwnerTitle}'s Pledge | KlimaDAO"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
@@ -1108,7 +1108,7 @@ msgstr "Total footprint"
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:66
+#: components/pages/Pledge/PledgeDashboard/index.tsx:68
 msgid "pledges.form.title"
 msgstr "Your Pledge"
 
