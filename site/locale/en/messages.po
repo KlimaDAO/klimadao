@@ -934,11 +934,11 @@ msgstr "{0} Carbon Tonne(s)"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:67
 msgid "pledges.dashboard.head.metaTitle"
-msgstr "{pledgeOwnerTitle}'s pledge"
+msgstr "{pledgeOwnerTitle}'s Pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:63
+#: components/pages/Pledge/PledgeDashboard/index.tsx:53
 msgid "pledges.dashboard.head.title"
-msgstr "KlimaDAO | Pledges"
+msgstr "{pledgeOwnerTitle}'s Pledge | KlimaDAO"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"

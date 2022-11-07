@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-03 17:58+0000\n"
+"POT-Creation-Date: 2022-11-07 18:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -273,16 +273,16 @@ msgstr "⚠️ Vérifiez l'URL et mettez cette page en signet !"
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Tonne de Carbone de base Toucan"
 
-#: components/views/ChooseBond/index.tsx:184
+#: components/views/ChooseBond/index.tsx:198
 msgid "choose_bond.bond_carbon"
 msgstr "Obligation carbone"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:187
+#: components/views/ChooseBond/index.tsx:201
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "La meilleure façon d'acheter des KLIMA. Déposez des équivalents carbone dans notre trésorerie et recevez des KLIMA à prix réduit. Toutes les obligations (sauf celles à taux variable inversé) ont une période de maturation obligatoire de 5 jours."
 
-#: components/views/ChooseBond/index.tsx:211
+#: components/views/ChooseBond/index.tsx:225
 msgid "choose_bond.choose_bond"
 msgstr "Choisissez une obligation"
 
@@ -310,15 +310,15 @@ msgstr "Liquidité Quickswap KLIMA/MCO2"
 msgid "choose_bond.nbo.description"
 msgstr "Compensation C3 basée sur la nature"
 
-#: components/views/ChooseBond/index.tsx:214
+#: components/views/ChooseBond/index.tsx:228
 msgid "choose_bond.percent_discount"
 msgstr "% Remise"
 
-#: components/views/ChooseBond/index.tsx:240
+#: components/views/ChooseBond/index.tsx:254
 msgid "choose_bond.sold_out"
 msgstr "ÉPUISÉ"
 
-#: components/views/ChooseBond/index.tsx:201
+#: components/views/ChooseBond/index.tsx:215
 msgid "choose_bond.treasury_balance"
 msgstr "Solde de la trésorerie"
 

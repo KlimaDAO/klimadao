@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-03 17:58+0000\n"
+"POT-Creation-Date: 2022-11-07 18:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -273,16 +273,16 @@ msgstr "⚠️ ¡Verifica la URL y marca esta página!"
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan Base Carbon Tonne"
 
-#: components/views/ChooseBond/index.tsx:184
+#: components/views/ChooseBond/index.tsx:198
 msgid "choose_bond.bond_carbon"
 msgstr "Vincular bono de carbono"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:187
+#: components/views/ChooseBond/index.tsx:201
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "La mejor manera de comprar KLIMA. Deposite carbono en nuestra tesorería y reciba KLIMA con descuento. Todos los bonos (excepto los bonos inversos) tienen un periodo de concesión obligatorio de 5 días."
 
-#: components/views/ChooseBond/index.tsx:211
+#: components/views/ChooseBond/index.tsx:225
 msgid "choose_bond.choose_bond"
 msgstr "Elige un bono"
 
@@ -310,15 +310,15 @@ msgstr "Liquidez BCT/USDC Sushiswap"
 msgid "choose_bond.nbo.description"
 msgstr "Compensación basada en la naturaleza C3"
 
-#: components/views/ChooseBond/index.tsx:214
+#: components/views/ChooseBond/index.tsx:228
 msgid "choose_bond.percent_discount"
 msgstr "% Descuento"
 
-#: components/views/ChooseBond/index.tsx:240
+#: components/views/ChooseBond/index.tsx:254
 msgid "choose_bond.sold_out"
 msgstr "AGOTADO"
 
-#: components/views/ChooseBond/index.tsx:201
+#: components/views/ChooseBond/index.tsx:215
 msgid "choose_bond.treasury_balance"
 msgstr "Saldo de la Tesorería"
 

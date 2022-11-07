@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-03 17:58+0000\n"
+"POT-Creation-Date: 2022-11-07 18:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -277,16 +277,16 @@ msgstr "⚠️ Проверьте URL и добавьте эту страниц�
 msgid "choose_bond.bct.toucan_base_carbon_tonne"
 msgstr "Toucan Базовая тонна углерода"
 
-#: components/views/ChooseBond/index.tsx:184
+#: components/views/ChooseBond/index.tsx:198
 msgid "choose_bond.bond_carbon"
 msgstr "Бонд Карбон"
 
 #. Long sentence
-#: components/views/ChooseBond/index.tsx:187
+#: components/views/ChooseBond/index.tsx:201
 msgid "choose_bond.bond_carbon.the_best_way_to_buy_klima"
 msgstr "Лучший способ купить KLIMA. Вложите углерод в нашу казну и получите KLIMA со скидкой. Все облигации (кроме обратных облигаций) имеют обязательный 5-дневный период наделения правами."
 
-#: components/views/ChooseBond/index.tsx:211
+#: components/views/ChooseBond/index.tsx:225
 msgid "choose_bond.choose_bond"
 msgstr "Выберите бонд"
 
@@ -314,17 +314,17 @@ msgstr "KLIMA/MCO2 Quickswap ликвидность"
 msgid "choose_bond.nbo.description"
 msgstr "СЗ Природный офсет"
 
-#: components/views/ChooseBond/index.tsx:214
+#: components/views/ChooseBond/index.tsx:228
 msgid "choose_bond.percent_discount"
 msgstr ""
 "% Дисконт\n"
 ""
 
-#: components/views/ChooseBond/index.tsx:240
+#: components/views/ChooseBond/index.tsx:254
 msgid "choose_bond.sold_out"
 msgstr "РАСПРОДАННЫЙ"
 
-#: components/views/ChooseBond/index.tsx:201
+#: components/views/ChooseBond/index.tsx:215
 msgid "choose_bond.treasury_balance"
 msgstr "Баланс казначейства"
 

@@ -1,8 +1,8 @@
 import { cx } from "@emotion/css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import React from "react";
-import { RootState } from "state";
+import React, { useEffect } from "react";
+import { RootState, useAppDispatch } from "state";
 import { selectAppState, selectLocale } from "state/selectors";
 import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
@@ -12,7 +12,7 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { Image } from "components/Image";
-import { getIsInverse } from "actions/bonds";
+import { calcBondDetails, getIsInverse } from "actions/bonds";
 
 // put inverse into bonds array and add to useBond
 
@@ -32,7 +32,7 @@ export const useBond = (bond: Bond) => {
     klima_mco2_lp: true,
     ubo: true,
     nbo: true,
-    inverse_usdc: false,
+    inverse_usdc: true,
   };
 
   if (getIsInverse(bond) && Number(bondState?.capacity) < 1) {
@@ -72,7 +72,7 @@ export const useBond = (bond: Bond) => {
       klima_mco2_lp: "KLIMA/MCO2 LP",
       inverse_usdc: "KLIMA (inverse)",
       // future bond names go here
-    }[bond],
+    }[bond] as Bond,
     description: {
       ubo: t({
         id: "choose_bond.ubo.description",
@@ -153,6 +153,7 @@ export const useBond = (bond: Bond) => {
 };
 
 export function ChooseBond() {
+  const dispatch = useAppDispatch();
   const locale = useSelector(selectLocale);
   const inverse_usdc = useBond("inverse_usdc");
   const klimaBctLp = useBond("klima_bct_lp");
@@ -175,6 +176,19 @@ export function ChooseBond() {
     klimaMco2Lp,
     klimaUsdcLp,
   ];
+
+  useEffect(() => {
+    bonds.forEach((bond) => {
+      if (bond && !bond.disabled) {
+        dispatch(
+          calcBondDetails({
+            bond: bond.name,
+          })
+        );
+      }
+    });
+  }, []);
+
   return (
     <>
       <div className={styles.chooseBondCard}>

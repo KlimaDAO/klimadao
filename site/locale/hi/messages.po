@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-03 17:58+0000\n"
+"POT-Creation-Date: 2022-11-07 18:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -926,13 +926,17 @@ msgstr "{0}% फ़ुटप्रिंट"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} कार्बन टन"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:55
-msgid "pledges.dashboard.head.metaTitle"
-msgstr "{pledgeOwnerTitle} की प्लेज"
+#: components/pages/Pledge/PledgeDashboard/index.tsx:61
+msgid "pledges.dashboard.head.metaDescription"
+msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:51
+#: components/pages/Pledge/PledgeDashboard/index.tsx:57
+msgid "pledges.dashboard.head.metaTitle"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:53
 msgid "pledges.dashboard.head.title"
-msgstr "KlimaDAO (क्लीमाडाओ) | Pledges (प्लेजेज़)"
+msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
@@ -1098,7 +1102,7 @@ msgstr "कुल फ़ुटप्रिंट"
 msgid "pledges.form.submit_button"
 msgstr "प्लेज सेव करें"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:67
+#: components/pages/Pledge/PledgeDashboard/index.tsx:68
 msgid "pledges.form.title"
 msgstr "आपकी प्रतिज्ञा"
 
@@ -1284,7 +1288,7 @@ msgstr "सभी का अन्वेषण करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "माफ़ करना। हमें कोई मेल खाने वाला परिणाम नहीं मिला।"
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
@@ -1296,7 +1300,7 @@ msgstr "कृपया किसी भिन्न फ़िल्टर स�
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr ""
+msgstr "टाइपो के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज शब्द आज़माएँ।"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1550,7 +1554,7 @@ msgstr "अस्वीकरण"
 #: components/Navigation/index.tsx:213
 #: components/Navigation/index.tsx:368
 msgid "shared.docs"
-msgstr ""
+msgstr "आधिकारिक डॉक्स"
 
 #: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
@@ -1563,7 +1567,6 @@ msgstr "शुरुआत करें"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
-#: components/pages/Pledge/PledgeDashboard/index.tsx:59
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -1647,7 +1650,7 @@ msgstr "क्लिमा दाँव पर लगाएँ"
 #: components/Navigation/index.tsx:342
 #: components/pages/Blog/Post/index.tsx:72
 msgid "shared.updates"
-msgstr ""
+msgstr "अपडेट"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
