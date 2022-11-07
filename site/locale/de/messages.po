@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-07 16:15+0000\n"
+"POT-Creation-Date: 2022-11-07 18:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -928,13 +928,17 @@ msgstr "{0}% des Fußabdrucks"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Tonnen CO2"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:55
-msgid "pledges.dashboard.head.metaTitle"
-msgstr "{pledgeOwnerTitle}s Versprechen"
+#: components/pages/Pledge/PledgeDashboard/index.tsx:61
+msgid "pledges.dashboard.head.metaDescription"
+msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:51
+#: components/pages/Pledge/PledgeDashboard/index.tsx:57
+msgid "pledges.dashboard.head.metaTitle"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:53
 msgid "pledges.dashboard.head.title"
-msgstr "KlimaDAO | Versprechen"
+msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
@@ -1100,7 +1104,7 @@ msgstr "Gesamtfußabdruck"
 msgid "pledges.form.submit_button"
 msgstr "Versprechen speichern"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:67
+#: components/pages/Pledge/PledgeDashboard/index.tsx:68
 msgid "pledges.form.title"
 msgstr "Ihre Zusicherung"
 
@@ -1565,7 +1569,6 @@ msgstr "Jetzt starten"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
-#: components/pages/Pledge/PledgeDashboard/index.tsx:59
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
