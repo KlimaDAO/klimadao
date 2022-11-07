@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-03 17:58+0000\n"
+"POT-Creation-Date: 2022-11-07 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1284,7 +1284,7 @@ msgstr "सभी का अन्वेषण करें"
 
 #: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "माफ़ करना। हमें कोई मेल खाने वाला परिणाम नहीं मिला।"
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
@@ -1296,7 +1296,7 @@ msgstr "कृपया किसी भिन्न फ़िल्टर स�
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr ""
+msgstr "टाइपो के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज शब्द आज़माएँ।"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1550,7 +1550,7 @@ msgstr "अस्वीकरण"
 #: components/Navigation/index.tsx:213
 #: components/Navigation/index.tsx:368
 msgid "shared.docs"
-msgstr ""
+msgstr "आधिकारिक डॉक्स"
 
 #: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
@@ -1647,7 +1647,7 @@ msgstr "क्लिमा दाँव पर लगाएँ"
 #: components/Navigation/index.tsx:342
 #: components/pages/Blog/Post/index.tsx:72
 msgid "shared.updates"
-msgstr ""
+msgstr "अपडेट"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
