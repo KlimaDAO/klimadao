@@ -3,33 +3,30 @@ import { NextPage } from "next";
 import { Text, Section } from "@klimadao/lib/components";
 import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
-import { Navigation } from "components/Navigation";
-import { PageHead } from "components/PageHead";
-import { Footer } from "components/Footer";
+import { Container } from "../Container";
+import { urls } from "@klimadao/lib/constants";
 
 export type Props = HTMLHtmlElement;
 
 export const Disclaimer: NextPage<Props> = ({}) => {
   return (
-    <>
-      <PageHead
-        title={t({
-          id: "disclaimer.head.title",
-          message: "KlimaDAO Disclaimer",
-        })}
-        metaDescription={t({
-          id: "disclaimer.head.description",
-          message: "An important disclaimer from the KlimaDAO legal team.",
-        })}
-        mediaTitle={t({ id: "disclaimer.head.title" })}
-      />
-      <Navigation activePage="Disclaimer" />
-
-      <Section variant="gray">
+    <Container
+      activePage={"disclaimer"}
+      title={t({
+        id: "disclaimer.head.title",
+        message: "KlimaDAO Disclaimer",
+      })}
+      headline={t({ id: "disclaimer.disclaimer", message: "Disclaimer" })}
+      subline={""}
+      metaDescription={t({
+        id: "disclaimer.head.description",
+        message: "An important disclaimer from the KlimaDAO legal team.",
+      })}
+      mediaTitle={t({ id: "disclaimer.head.title" })}
+      mediaImageSrc={urls.mediaImage}
+    >
+      <Section variant="gray" style={{ paddingTop: "unset" }}>
         <div className={styles.text}>
-          <Text t="h2" as="h2" align="center">
-            <Trans id="disclaimer.disclaimer">Disclaimer</Trans>
-          </Text>
           <div className={styles.textGroup}>
             <Text t="body3" color="lighter">
               <Trans
@@ -203,7 +200,6 @@ export const Disclaimer: NextPage<Props> = ({}) => {
           </div>
         </div>
       </Section>
-      <Footer />
-    </>
+    </Container>
   );
 };

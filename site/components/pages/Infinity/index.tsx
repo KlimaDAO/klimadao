@@ -30,6 +30,7 @@ import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
 import GetStartedModal from "./GetStartedModal";
+import { getImageSizes } from "@klimadao/lib/utils";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
@@ -144,6 +145,8 @@ export const Infinity: NextPage<Props> = () => {
                 alt="Fast: Offset in seconds, with no red tape"
                 layout="fill"
                 objectFit="cover"
+                sizes={getImageSizes({ large: "404px" })}
+                placeholder="blur"
               />
             </div>
             <div className="info_image_box">
@@ -162,6 +165,8 @@ export const Infinity: NextPage<Props> = () => {
                 alt="Affordable: Real time pricing, saving 30% or more"
                 layout="fill"
                 objectFit="cover"
+                sizes={getImageSizes({ large: "504px" })}
+                placeholder="blur"
               />
             </div>
           </div>
@@ -194,6 +199,8 @@ export const Infinity: NextPage<Props> = () => {
                 alt="Tranparent: Immutably recorded on the blockchain"
                 layout="fill"
                 objectFit="cover"
+                sizes={getImageSizes({ large: "504px" })}
+                placeholder="blur"
               />
             </div>
           </div>
@@ -314,6 +321,8 @@ export const Infinity: NextPage<Props> = () => {
               alt="hazy air and windmills"
               layout="responsive"
               className="carousel_image"
+              sizes={getImageSizes({ large: "616px" })}
+              placeholder="blur"
             />
             <Text t="body3" className="carousel_image_description">
               <Trans id="infinity.carousel_image_description">
@@ -446,6 +455,8 @@ export const Infinity: NextPage<Props> = () => {
                   alt="forest canopy from above"
                   layout="fill"
                   objectFit="cover"
+                  sizes={getImageSizes({ desktop: "350px" })}
+                  placeholder="blur"
                 />
               </div>
             </div>
@@ -466,6 +477,8 @@ export const Infinity: NextPage<Props> = () => {
                   alt="heavy traffic in a city"
                   layout="fill"
                   objectFit="cover"
+                  sizes={getImageSizes({ desktop: "350px" })}
+                  placeholder="blur"
                 />
               </div>
             </div>
@@ -486,6 +499,8 @@ export const Infinity: NextPage<Props> = () => {
                   alt="gas pump handle"
                   layout="fill"
                   objectFit="cover"
+                  sizes={getImageSizes({ desktop: "350px" })}
+                  placeholder="blur"
                 />
               </div>
             </div>

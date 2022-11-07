@@ -1,15 +1,11 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-10-27 23:41+0000\n"
+"POT-Creation-Date: 2022-11-07 18:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ru\n"
-
-#: components/pages/Blog/index.tsx:35
-msgid "Articles"
-msgstr "Статьи"
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
@@ -19,11 +15,7 @@ msgstr "измененить язык"
 msgid "Enter App"
 msgstr "Войдите в приложение"
 
-#: components/pages/Podcast/index.tsx:44
-msgid "Episodes"
-msgstr "Выпуски"
-
-#: components/pages/Infinity/index.tsx:511
+#: components/pages/Infinity/index.tsx:526
 msgid "Frequently Asked Questions"
 msgstr "Часто задаваемые вопросы"
 
@@ -47,20 +39,6 @@ msgstr "Информация, представленная в данном бл�
 #: components/pages/Blog/Post/index.tsx:87
 msgid "blog.disclaimer.title"
 msgstr "Отказ от ответственности"
-
-#: components/pages/Blog/index.tsx:19
-#: components/pages/Blog/index.tsx:25
-msgid "blog.head.description"
-msgstr "Свежие новости и аналитические материалы от основателей, участников DAO, консультантов и сообщества."
-
-#: components/pages/Blog/index.tsx:18
-msgid "blog.head.headline"
-msgstr "Блог"
-
-#: components/pages/Blog/index.tsx:17
-#: components/pages/Blog/index.tsx:24
-msgid "blog.head.title"
-msgstr "Блог KlimaDAO"
 
 #: components/pages/Retirements/CopyURLButton/index.tsx:22
 msgid "button.copyURL.copied"
@@ -232,296 +210,296 @@ msgstr "Используйте интерфейс \"Swap\" в Zapper для на
 msgid "buy.zapper_03.title"
 msgstr "Обмен"
 
-#: components/pages/Resources/Community/index.tsx:97
+#: components/pages/About/Community/index.tsx:97
 msgid "community.become_a_partner"
 msgstr "СТАТЬ ПАРТНЕРОМ"
 
-#: components/pages/Resources/Community/index.tsx:170
+#: components/pages/About/Community/index.tsx:170
 msgid "community.bigcowg_logo"
 msgstr "Логотип BICOWG"
 
-#: components/pages/Resources/Community/index.tsx:159
+#: components/pages/About/Community/index.tsx:159
 msgid "community.blockchainforclimatefondation_logo"
 msgstr "Логотип Blockchain for Climate Foundation"
 
-#: components/pages/Resources/Community/index.tsx:344
+#: components/pages/About/Community/index.tsx:344
 msgid "community.come_on_in"
 msgstr "Войдите"
 
-#: components/pages/Resources/Community/index.tsx:236
+#: components/pages/About/Community/index.tsx:236
 msgid "community.deltawave_logo"
 msgstr "Delta Wave логотип"
 
-#: components/pages/Resources/Community/index.tsx:288
+#: components/pages/About/Community/index.tsx:288
 msgid "community.digitalcharityart_logo"
 msgstr "Digital Charity Art логотип"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:359
+#: components/pages/About/Community/index.tsx:359
 msgid "community.discord_is_where_we_share"
 msgstr "Discord - это место, где мы делимся важными объявлениями, проводим  рабочее время, отвечаем на вопросы и обмениваемся мемами. Наш сервер Discord очень активен и круглосуточно модерируется. У нас есть каналы для всего, начиная от торговли и заканчивая устойчивостью и углеродными рынками."
 
-#: components/pages/Resources/Community/index.tsx:258
+#: components/pages/About/Community/index.tsx:258
 msgid "community.dovu_logo"
 msgstr "Dovu логотип "
 
-#: components/pages/Resources/Community/index.tsx:266
+#: components/pages/About/Community/index.tsx:266
 msgid "community.eco_logo"
 msgstr "Есо логотип"
 
-#: components/pages/Resources/Community/index.tsx:247
+#: components/pages/About/Community/index.tsx:247
 msgid "community.etcgroup_logo"
 msgstr "Etc Group логотип"
 
-#: components/pages/Resources/Community/index.tsx:392
+#: components/pages/About/Community/index.tsx:392
 msgid "community.get_in_touch"
 msgstr "Связаться?"
 
-#: components/pages/Resources/Community/index.tsx:203
+#: components/pages/About/Community/index.tsx:203
 msgid "community.gitcoin_logo"
 msgstr "Gitcoin логотип"
 
-#: components/pages/Resources/Community/index.tsx:76
+#: components/pages/About/Community/index.tsx:76
 msgid "community.head.headline"
 msgstr "Сообщество"
 
-#: components/pages/Resources/Community/index.tsx:83
+#: components/pages/About/Community/index.tsx:83
 msgid "community.head.metadescription"
 msgstr "Узнайте о нашем сообществе увлеченных Klimates"
 
-#: components/pages/Resources/Community/index.tsx:77
+#: components/pages/About/Community/index.tsx:77
 msgid "community.head.subline"
 msgstr "KlimaDAO — это децентрализованная автономная организация перемен. Мы управляемся и создаемся сообществом увлеченных Klimates."
 
-#: components/pages/Resources/Community/index.tsx:75
-#: components/pages/Resources/Community/index.tsx:82
+#: components/pages/About/Community/index.tsx:75
+#: components/pages/About/Community/index.tsx:82
 msgid "community.head.title"
 msgstr "KlimaDAO Сообщество"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:395
+#: components/pages/About/Community/index.tsx:395
 msgid "community.if_you_ve_got_questions"
 msgstr "Если у вас есть вопросы, идеи, советы или что-то еще: мы поможем вам найти нужного человека, с которым можно это обсудить."
 
-#: components/pages/Resources/Community/index.tsx:347
+#: components/pages/About/Community/index.tsx:347
 msgid "community.join_our_discord"
 msgstr "Присоединяйтесь к нашему Discord"
 
-#: components/pages/Resources/Community/index.tsx:334
+#: components/pages/About/Community/index.tsx:334
 msgid "community.join_the_klima_community"
 msgstr "Присоединяйтесь к сообществу Klima "
 
-#: components/pages/Resources/Community/index.tsx:310
+#: components/pages/About/Community/index.tsx:310
 msgid "community.landx_logo"
 msgstr "Логотип LandX"
 
-#: components/pages/Resources/Community/index.tsx:94
-#: components/pages/Resources/Community/index.tsx:389
+#: components/pages/About/Community/index.tsx:94
+#: components/pages/About/Community/index.tsx:389
 msgid "community.lets_work_together"
 msgstr "Давайте работать вместе"
 
-#: components/pages/Resources/Community/index.tsx:137
+#: components/pages/About/Community/index.tsx:137
 msgid "community.moss_logo"
 msgstr "Moss логотип"
 
-#: components/pages/Resources/Community/index.tsx:192
+#: components/pages/About/Community/index.tsx:192
 msgid "community.oceandrop_logo"
 msgstr "Oceandrop логотип "
 
-#: components/pages/Resources/Community/index.tsx:277
+#: components/pages/About/Community/index.tsx:277
 msgid "community.offsetra_logo"
 msgstr "Offsetra Логотип "
 
-#: components/pages/Resources/Community/index.tsx:214
+#: components/pages/About/Community/index.tsx:214
 msgid "community.olympusdao_logo"
 msgstr "Логотип OlympusDAO"
 
-#: components/pages/Resources/Community/index.tsx:225
+#: components/pages/About/Community/index.tsx:225
 msgid "community.openearth_logo"
 msgstr "Логотип Открытой Земли"
 
-#: components/pages/Resources/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:130
 msgid "community.our_partners"
 msgstr "НАШИ ПАРТНЕРЫ"
 
-#: components/pages/Resources/Community/index.tsx:181
+#: components/pages/About/Community/index.tsx:181
 msgid "community.polygon_logo"
 msgstr "Логотип Polygon "
 
-#: components/pages/Resources/Community/index.tsx:148
+#: components/pages/About/Community/index.tsx:148
 msgid "community.toucan_logo"
 msgstr "Toucan логотип"
 
-#: components/pages/Resources/Community/index.tsx:299
+#: components/pages/About/Community/index.tsx:299
 msgid "community.toughtforfood_logo"
 msgstr "Thought for Food логотип"
 
-#: components/pages/Resources/Community/index.tsx:113
+#: components/pages/About/Community/index.tsx:113
 msgid "community.tree_grove"
 msgstr "Роща деревьев"
 
 #. Long sentence
-#: components/pages/Resources/Community/index.tsx:100
+#: components/pages/About/Community/index.tsx:100
 msgid "community.we_work_with_traditionnal"
 msgstr "Мы работаем с традиционными участниками углеродного рынка, криптовалютными платформами, корпорациями и всеми, кто находится между ними."
 
-#: components/pages/Resources/Contact/index.tsx:63
+#: components/pages/About/Contact/index.tsx:63
 msgid "concat.careers"
 msgstr "Карьера"
 
-#: components/pages/Resources/Contact/index.tsx:140
+#: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
 msgstr "Отчет об ошибках"
 
 #. To file a bug report, join our community Discord server and ask your question in the #bug-reports channel. Someone in our <0>community</0> will be happy to investigate and find a solution for you.
-#: components/pages/Resources/Contact/index.tsx:143
+#: components/pages/About/Contact/index.tsx:143
 msgid "contact.bug_reports.to_file_a_bug_report"
 msgstr "Чтобы отправить сообщение об ошибке, присоединитесь к нашему сообществу на сервере Discord и задайте свой вопрос в канале #bug-reports. Кто-то из нашего <0>сообщества</0> будет рад разобраться и найти решение для вас."
 
 #. Long We're a fully remote team hiring across all time zones. We regularly post roles and bounties in our <0>Community Discord Server</0>. If you’re a self-starter who's motivated to join a purpose driven DAO, we'd love to hear from you!
-#: components/pages/Resources/Contact/index.tsx:66
+#: components/pages/About/Contact/index.tsx:66
 msgid "contact.careers.we_re_hiring"
 msgstr "Мы полностью удаленная команда, нанимающая сотрудников во всех часовых поясах. Мы регулярно публикуем роли и предложения в нашем <0>Community Discord Server</0>. Если вы самостоятельный человек, стремящийся присоединиться к целеустремленной DAO, мы будем рады услышать вас!"
 
-#: components/pages/Resources/Contact/index.tsx:25
+#: components/pages/About/Contact/index.tsx:25
 msgid "contact.head.description"
 msgstr "Свяжитесь с кем-нибудь из KlimaDAO."
 
-#: components/pages/Resources/Contact/index.tsx:18
+#: components/pages/About/Contact/index.tsx:18
 msgid "contact.head.headline"
 msgstr "Связаться"
 
-#: components/pages/Resources/Contact/index.tsx:19
+#: components/pages/About/Contact/index.tsx:19
 msgid "contact.head.subline"
 msgstr "Вопросы, проблемы, идеи? Вот несколько способов связаться с нами. Мы любим встречаться как с компаниями, так и с частными лицами."
 
-#: components/pages/Resources/Contact/index.tsx:17
-#: components/pages/Resources/Contact/index.tsx:24
+#: components/pages/About/Contact/index.tsx:17
+#: components/pages/About/Contact/index.tsx:24
 msgid "contact.head.title"
 msgstr "Связаться с KlimaDAO"
 
-#: components/pages/Resources/Contact/index.tsx:105
+#: components/pages/About/Contact/index.tsx:105
 msgid "contact.media"
 msgstr "Медиа"
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:108
+#: components/pages/About/Contact/index.tsx:108
 msgid "contact.media.if_you_are_a_journalist"
 msgstr "Если вы журналист или создатель контента, наша маркетинговая команда будет рада познакомиться с вами."
 
 #. Use this <0>Media Request Form</0>.
-#: components/pages/Resources/Contact/index.tsx:117
+#: components/pages/About/Contact/index.tsx:117
 msgid "contact.media.use_this_media_request_form"
 msgstr "Используйте эту <0>форму запроса СМИ</0> или отправьте электронное письмо по адресу <1>press@klimadao.finance</1>"
 
-#: components/pages/Resources/Contact/index.tsx:85
+#: components/pages/About/Contact/index.tsx:85
 msgid "contact.partnerships"
 msgstr "Партнерство"
 
 #. Until we finish building out our partnerships page, we are directing potential partnership and collaboration inquiries to <0>this contact form</0>.
-#: components/pages/Resources/Contact/index.tsx:88
+#: components/pages/About/Contact/index.tsx:88
 msgid "contact.partnerships.until_we_finish_building"
 msgstr "Пока мы не закончим создание страницы партнерства, мы направляем запросы о потенциальном партнерстве и сотрудничестве в <0>эту контактную форму</0>."
 
-#: components/pages/Resources/Contact/index.tsx:35
+#: components/pages/About/Contact/index.tsx:35
 msgid "contact.quest_and_support"
 msgstr "Вопросы и поддержка"
 
 #. Join our <0>community</0>
-#: components/pages/Resources/Contact/index.tsx:38
+#: components/pages/About/Contact/index.tsx:38
 msgid "contact.quest_and_support.join_our_community"
 msgstr "Присоединяйтесь к нашему <0>сообществу</0>"
 
 #. Long sentence
-#: components/pages/Resources/Contact/index.tsx:46
+#: components/pages/About/Contact/index.tsx:46
 msgid "contact.quest_and_support.join_our_discord_server"
 msgstr "Присоединяйтесь к нашему серверу Discord и задавайте вопросы в канале #questions. У нас тысячи дружелюбных и знающих членов сообщества, готовых помочь вам."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:67
+#: components/pages/About/Disclaimer/index.tsx:64
 msgid "disclaimer.1_an_offer_or_sollicitation"
 msgstr "1. Предложение или просьба о предложении владеть или контролировать какую-либо ценную бумагу, другой актив или услугу, которые связаны с нематериальными выгодами;"
 
-#: components/pages/Disclaimer/index.tsx:114
+#: components/pages/About/Disclaimer/index.tsx:111
 msgid "disclaimer.1_meet_your_requirements"
 msgstr "1. Удовлетворяют ваши требования;"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:119
+#: components/pages/About/Disclaimer/index.tsx:116
 msgid "disclaimer.2_be_available_on_an_uninterrupted"
 msgstr "2. Быть доступным на бесперебойной, своевременной, безопасной или безошибочной основе;"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:77
+#: components/pages/About/Disclaimer/index.tsx:74
 msgid "disclaimer.2_financial_investment_or_trading_advice"
 msgstr "2. Финансовые, инвестиционные или торговые консультации или предложение о предоставлении таких консультаций и/или услуг."
 
-#: components/pages/Disclaimer/index.tsx:128
+#: components/pages/About/Disclaimer/index.tsx:125
 msgid "disclaimer.3_be_reliable_complete_legal_or_safe"
 msgstr "3. Быть надежным, полным, законным или безопасным."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:35
+#: components/pages/About/Disclaimer/index.tsx:32
 msgid "disclaimer.all_information_on_this_website"
 msgstr "Вся информация на этом сайте публикуется добросовестно и только для общего ознакомления. KlimaDAO распространяет эту информацию на основании того, что она будет полезна и будет служить только в рамках оснований и ограничений, описанных на вышеупомянутом сайте."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:162
+#: components/pages/About/Disclaimer/index.tsx:159
 msgid "disclaimer.any_action_you_take_upon_the_information"
 msgstr "Любые действия, которые вы предпринимаете на основании информации, найденной на этом сайте, осуществляются строго на ваш страх и риск. Решения, основанные на информации, содержащейся на этом веб-сайте, являются исключительной ответственностью посетителя. KlimaDAO не несет ответственности за любые убытки и/или ущерб, связанные с использованием веб-сайта, потерей вашего пароля/начальной фразы, неудачной сделкой, отправкой актива по неправильному адресу, потерей вашего актива и событиями, связанными с ущербом. по вине мошенников. KlimaDAO не может нести никакой ответственности или обязательств, связанных с изменением рынка и его волатильностью. Вы должны сами изучить информацию и убедиться в своей ситуации, осведомленности и знании информации или услуг, предоставляемых этой платформой."
 
-#: components/pages/Disclaimer/index.tsx:31
+#: components/pages/About/Disclaimer/index.tsx:19
 msgid "disclaimer.disclaimer"
 msgstr "Отказ от ответственности"
 
-#: components/pages/Disclaimer/index.tsx:20
+#: components/pages/About/Disclaimer/index.tsx:21
 msgid "disclaimer.head.description"
 msgstr "Важная оговорка от команды юристов KlimaDAO."
 
-#: components/pages/Disclaimer/index.tsx:16
-#: components/pages/Disclaimer/index.tsx:24
+#: components/pages/About/Disclaimer/index.tsx:15
+#: components/pages/About/Disclaimer/index.tsx:25
 msgid "disclaimer.head.title"
 msgstr "Отказ от ответственности KlimaDAO"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:105
+#: components/pages/About/Disclaimer/index.tsx:102
 msgid "disclaimer.klimadao_and_its_suppliers"
 msgstr "KlimaDAO и его поставщики не дают никаких гарантий, что платформа:"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:46
+#: components/pages/About/Disclaimer/index.tsx:43
 msgid "disclaimer.klimadao_is_a_platform"
 msgstr "limaDAO - это платформа. Мы не являемся брокером, финансовым учреждением или кредитором. Услуги, предоставляемые на этом сайте, не включают предложение держать или контролировать ваши ценные бумаги, опционы, активы, фьючерсы или другие производные, связанные с ценными бумагами в любой юрисдикции, и их содержание не регулируется законами о ценных бумагах."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:133
+#: components/pages/About/Disclaimer/index.tsx:130
 msgid "disclaimer.neither_klimadao_nor_any_of_its_representatives"
 msgstr "Ни KlimaDAO, ни ее представители не несут ответственности за убытки любого рода от любых действий, предпринятых или сделанных в расчете на материалы или информацию, содержащуюся на сервисе. KlimaDAO обеспечивает безопасность использования сервиса и контента, однако не заявляет и не гарантирует, что сервис и контент на нашей платформе не содержат вирусов или других вредных компонентов."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:181
+#: components/pages/About/Disclaimer/index.tsx:178
 msgid "disclaimer.nothing_in_this_disclaimer"
 msgstr "Ничто в этом отказе от ответственности, любой информационный контент или материал не должны быть использованы для создания каких-либо правовых отношений между нами и вами, а также для предоставления каких-либо прав или обязательств кому-либо из нас."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:59
+#: components/pages/About/Disclaimer/index.tsx:56
 msgid "disclaimer.nothing_in_this_platform"
 msgstr "Ничто в этой платформе не является и не может быть истолковано как:"
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:86
+#: components/pages/About/Disclaimer/index.tsx:83
 msgid "disclaimer.the_service_available"
 msgstr ""
 "Услуги, имеющиеся в сервисе или доступные через сервис, предоставляются \"Как есть\" и в максимально допустимой степени в соответствии с действующим законодательством. KlimaDAO и ее агенты, консультанты, директора, должностные лица, сотрудники и акционеры отказываются от всех гарантий, явных или подразумеваемых, включая, но не ограничиваясь, подразумеваемыми гарантиями товарного состояния, пригодности для определенной цели и ненарушения, а также гарантиями, вытекающими из хода выполнения или ведения дел. KlimaDAO не дает никаких гарантий относительно полноты, достоверности и точности этой информации, гарантий товарного состояния или пригодности для конкретной цели. Данная платформа не дает никаких гарантий относительно полноты и точности этой информации.\n"
 ""
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:192
+#: components/pages/About/Disclaimer/index.tsx:189
 msgid "disclaimer.we_recommend_that_you_visit"
 msgstr "Мы рекомендуем вам посетить нашу страницу Crypto Security 101 для получения инструкций по безопасности перед использованием сайта. Пожалуйста,имейте в виду: никогда и никому не сообщайте свой закрытый ключ или сид фразу - ни наши пользователи, ни наше приложение никогда не будут запрашивать или требовать этого от вас."
 
 #. Long sentence
-#: components/pages/Disclaimer/index.tsx:147
+#: components/pages/About/Disclaimer/index.tsx:144
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr ""
 "Вы несете полную ответственность за предоставление частной информации, проверку личности и легитимности. Несмотря на индикаторы и сообщения, предлагающие предоставить частную информацию и проверить ее, KlimaDAO не публикует персональных данных на платформе. Мы не можем гарантировать безопасность любых данных, которые раскрываются онлайн, и за возможные потери из-за уязвимости или любого вида сбоя, аномального поведения программного обеспечения.\n"
@@ -680,35 +658,35 @@ msgstr "ТОНН <0>ПОГЛОЩЕННОГО УГЛЕРОДА</0> ОТ KLIMADAO"
 msgid "home.welcome_to_klimadao"
 msgstr "<0>ДОБРО ПОЖАЛОВАТЬ</0> <1>KlimaDAO</1>"
 
-#: components/pages/Infinity/index.tsx:157
+#: components/pages/Infinity/index.tsx:160
 msgid "infinity.affordable_subtitle"
 msgstr "Доступный"
 
-#: components/pages/Infinity/index.tsx:152
+#: components/pages/Infinity/index.tsx:155
 msgid "infinity.affordable_title"
 msgstr "Ценообразование в режиме реального времени, низкие операционные издержки"
 
-#: components/pages/Infinity/index.tsx:406
+#: components/pages/Infinity/index.tsx:415
 msgid "infinity.box_amount_104k"
 msgstr "104k"
 
-#: components/pages/Infinity/index.tsx:392
+#: components/pages/Infinity/index.tsx:401
 msgid "infinity.box_amount_11k"
 msgstr "11к"
 
-#: components/pages/Infinity/index.tsx:388
+#: components/pages/Infinity/index.tsx:397
 msgid "infinity.box_title"
 msgstr "Последняя углеродная компенсация"
 
-#: components/pages/Infinity/index.tsx:402
+#: components/pages/Infinity/index.tsx:411
 msgid "infinity.box_title2"
 msgstr "Общее количество выбывшего углерода"
 
-#: components/pages/Infinity/index.tsx:645
+#: components/pages/Infinity/index.tsx:660
 msgid "infinity.button.read_blog_faq"
 msgstr "Прочтите подробные ответы на часто задаваемые вопросы для клиентов KI"
 
-#: components/pages/Infinity/index.tsx:356
+#: components/pages/Infinity/index.tsx:365
 msgid "infinity.button.read_blog_polygon"
 msgstr "Читайте статью Polygon"
 
@@ -716,59 +694,59 @@ msgstr "Читайте статью Polygon"
 msgid "infinity.cards_slider.title"
 msgstr "Десятки организаций компенсировали более 150 000 тонн углерода с помощью Klima Infinity."
 
-#: components/pages/Infinity/index.tsx:319
+#: components/pages/Infinity/index.tsx:328
 msgid "infinity.carousel_image_description"
 msgstr "Проект ветроэнергетики в Джайбхиме, Индия"
 
-#: components/pages/Infinity/index.tsx:331
+#: components/pages/Infinity/index.tsx:340
 msgid "infinity.carousel_info_subtitle"
 msgstr "Направляйте финансирование на проекты, способствующие смягчению последствий изменения климата"
 
-#: components/pages/Infinity/index.tsx:326
+#: components/pages/Infinity/index.tsx:335
 msgid "infinity.carousel_info_title"
 msgstr "Поддержка высококачественных проектов"
 
-#: components/pages/Infinity/index.tsx:665
+#: components/pages/Infinity/index.tsx:680
 msgid "infinity.cta_title"
 msgstr "Набор инструментов нового поколения по борьбе с выбросами углеродов для вашей организации."
 
-#: components/pages/Infinity/index.tsx:538
+#: components/pages/Infinity/index.tsx:553
 msgid "infinity.faq_answer1"
 msgstr "Единица компенсации углерода представляет собой удаление из атмосферы одной тонны эквивалента углекислого газа (tCO2e) или предотвращение одной тонны выбросов."
 
-#: components/pages/Infinity/index.tsx:574
+#: components/pages/Infinity/index.tsx:589
 msgid "infinity.faq_answer2_paragraph1"
 msgstr "Углеродные кредиты - это высокоинтегрированный механизм, позволяющий направлять углеродное финансирование от тех, кто загрязняет окружающую среду, к проектам по всему миру, которые помогают уменьшить или удалить выбросы углерода из атмосферы. Они являются ценным инструментом для покрытия труднопреодолимых выбросов, ликвидация которых сегодня может оказаться дорогостоящей или технически сложной."
 
-#: components/pages/Infinity/index.tsx:584
+#: components/pages/Infinity/index.tsx:599
 msgid "infinity.faq_answer2_paragraph2"
 msgstr "Когда вы приобретаете углеродный кредит, Klima Infinity позволяет вам вывести этот углеродный кредит из оборота, навсегда изъяв его из обращения. Этот выход из обращения является моментом, когда вы можете претендовать на компенсацию выбросов углерода"
 
-#: components/pages/Infinity/index.tsx:592
+#: components/pages/Infinity/index.tsx:607
 msgid "infinity.faq_answer2_paragraph3"
 msgstr "Приобретенные квоты ведут к измеримому и подотчетному сокращению выбросов в других областях экономики и могут быть использованы для \"компенсации\" неизбежного углеродного следа. Торговля углеродными квотами и их изъятие из обращения позволяют появиться рыночному механизму, который устанавливает цену на углерод."
 
-#: components/pages/Infinity/index.tsx:629
+#: components/pages/Infinity/index.tsx:644
 msgid "infinity.faq_answer3"
 msgstr "Целью углеродных рынков является рентабельное сокращение выбросов парниковых газов (ПГ или «углерод») путем установления ограничений на выбросы и предоставления возможности торговли единицами выбросов, которые являются финансовыми инструментами, отражающими сокращение выбросов. Торговля позволяет организациям, которые могут сократить выбросы с меньшими затратами, получать оплату от источников выбросов с более высокими затратами, тем самым снижая экономические затраты на сокращение выбросов."
 
-#: components/pages/Infinity/index.tsx:524
+#: components/pages/Infinity/index.tsx:539
 msgid "infinity.faq_question1"
 msgstr "1. Что такое углеродная компенсация?"
 
-#: components/pages/Infinity/index.tsx:558
+#: components/pages/Infinity/index.tsx:573
 msgid "infinity.faq_question2"
 msgstr "2. Как компенсация помогает в борьбе с изменением климата?"
 
-#: components/pages/Infinity/index.tsx:615
+#: components/pages/Infinity/index.tsx:630
 msgid "infinity.faq_question3"
 msgstr "3. Что такое углеродные рынки?"
 
-#: components/pages/Infinity/index.tsx:134
+#: components/pages/Infinity/index.tsx:135
 msgid "infinity.fast_subtitle"
 msgstr "Компенсация в считанные секунды, без волокиты"
 
-#: components/pages/Infinity/index.tsx:139
+#: components/pages/Infinity/index.tsx:140
 msgid "infinity.fast_title"
 msgstr "Быстро"
 
@@ -788,139 +766,139 @@ msgstr "Я хотел бы получить помощь по вопросам �
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr "Я хочу<0/>компенсировать криптовалюту."
 
-#: components/pages/Infinity/index.tsx:249
+#: components/pages/Infinity/index.tsx:256
 msgid "infinity.getStarted_1"
 msgstr "1"
 
-#: components/pages/Infinity/index.tsx:263
+#: components/pages/Infinity/index.tsx:270
 msgid "infinity.getStarted_2"
 msgstr "2"
 
-#: components/pages/Infinity/index.tsx:252
+#: components/pages/Infinity/index.tsx:259
 msgid "infinity.getStarted_calculate"
 msgstr "Рассчитать"
 
-#: components/pages/Infinity/index.tsx:255
+#: components/pages/Infinity/index.tsx:262
 msgid "infinity.getStarted_calculate_subtitle"
 msgstr "Рассчитайте углеродный след вашей организации и определите объем компенсации с помощью Klima Infinity."
 
-#: components/pages/Infinity/index.tsx:292
+#: components/pages/Infinity/index.tsx:299
 msgid "infinity.getStarted_cta"
 msgstr "Ускорьте свой путь к нулевому выбросу углерода — и не только"
 
-#: components/pages/Infinity/index.tsx:269
+#: components/pages/Infinity/index.tsx:276
 msgid "infinity.getStarted_second_subtitle"
 msgstr "Внедряйте свои смещение всего несколькими щелчками мыши и практически мгновенно."
 
-#: components/pages/Infinity/index.tsx:266
+#: components/pages/Infinity/index.tsx:273
 msgid "infinity.getStarted_second_title"
 msgstr "Внедрить"
 
-#: components/pages/Infinity/index.tsx:277
+#: components/pages/Infinity/index.tsx:284
 msgid "infinity.getStarted_third"
 msgstr "3"
 
-#: components/pages/Infinity/index.tsx:283
+#: components/pages/Infinity/index.tsx:290
 msgid "infinity.getStarted_third_subtitle"
 msgstr "Отслеживайте свои обязательства и повышайте осведомленность о своих действиях, направленных на улучшение климата."
 
-#: components/pages/Infinity/index.tsx:280
+#: components/pages/Infinity/index.tsx:287
 msgid "infinity.getStarted_third_title"
 msgstr "Усилить"
 
-#: components/pages/Infinity/index.tsx:66
+#: components/pages/Infinity/index.tsx:67
 msgid "infinity.head.metaDescription"
 msgstr "Набор инструментов нового поколения по борьбе с выбросами углеродов для вашей организации."
 
-#: components/pages/Infinity/index.tsx:62
+#: components/pages/Infinity/index.tsx:63
 msgid "infinity.head.metaTitle"
 msgstr "Klima Infinity — станьте углеродно-нейтральным"
 
-#: components/pages/Infinity/index.tsx:58
+#: components/pages/Infinity/index.tsx:59
 msgid "infinity.head.title"
 msgstr ""
 "KlimaDAO | Klima Infinity\n"
 ""
 
-#: components/pages/Infinity/index.tsx:171
+#: components/pages/Infinity/index.tsx:176
 msgid "infinity.info_subtitle1"
 msgstr "Для новаторских организаций планеты"
 
-#: components/pages/Infinity/index.tsx:176
+#: components/pages/Infinity/index.tsx:181
 msgid "infinity.info_subtitle2"
 msgstr "Самое мощное и простое в использовании компенсационное решение в мире"
 
-#: components/pages/Infinity/index.tsx:438
+#: components/pages/Infinity/index.tsx:447
 msgid "infinity.mission_card1_subtitle"
 msgstr "Тонны углерода, удерживаемые KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:435
+#: components/pages/Infinity/index.tsx:444
 msgid "infinity.mission_card1_title"
 msgstr "18,1 миллиона"
 
-#: components/pages/Infinity/index.tsx:458
+#: components/pages/Infinity/index.tsx:469
 msgid "infinity.mission_card2_description"
 msgstr "Углеродная ликвидность, принадлежащая KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:455
+#: components/pages/Infinity/index.tsx:466
 msgid "infinity.mission_card2_number"
 msgstr "$10 млн+"
 
-#: components/pages/Infinity/index.tsx:478
+#: components/pages/Infinity/index.tsx:491
 msgid "infinity.mission_card3_description"
 msgstr "Тонны углерода компенсированы через KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:475
+#: components/pages/Infinity/index.tsx:488
 msgid "infinity.mission_card3_number"
 msgstr "150 000+"
 
-#: components/pages/Infinity/index.tsx:375
+#: components/pages/Infinity/index.tsx:384
 msgid "infinity.polygon_manifesto_description"
 msgstr "Компенсируя исторические выбросы всей своей сети, Polygon гарантирует, что каждое взаимодействие в сети - будь то майнинг NFT или транзакция DeFi - учитывается. Это ключевая причина, по которой Meta выбрала Polygon для выпуска своих NFT."
 
-#: components/pages/Infinity/index.tsx:369
+#: components/pages/Infinity/index.tsx:378
 msgid "infinity.polygon_manifesto_title"
 msgstr "Смещение является частью \"Зеленого манифеста\" Polygon"
 
-#: components/pages/Infinity/index.tsx:349
+#: components/pages/Infinity/index.tsx:358
 msgid "infinity.polygon_story_description"
 msgstr "Polygon компенсировал выбросы углерода в сети с момента ее создания (примерно 90 000 тонн) и пообещал обеспечить положительное воздействие на климат во всех будущих транзакциях сети."
 
-#: components/pages/Infinity/index.tsx:344
+#: components/pages/Infinity/index.tsx:353
 msgid "infinity.polygon_story_title"
 msgstr "Polygon выбрал Klima Infinity для компенсации своей блокчейн-сети"
 
 #: components/pages/Infinity/Cards/Card.tsx:66
-#: components/pages/Infinity/index.tsx:395
-#: components/pages/Infinity/index.tsx:409
+#: components/pages/Infinity/index.tsx:404
+#: components/pages/Infinity/index.tsx:418
 msgid "infinity.tonnes"
 msgstr "Тонны"
 
-#: components/pages/Infinity/index.tsx:189
+#: components/pages/Infinity/index.tsx:194
 msgid "infinity.transparent_subtitle"
 msgstr "Прозрачный"
 
-#: components/pages/Infinity/index.tsx:184
+#: components/pages/Infinity/index.tsx:189
 msgid "infinity.transparent_title"
 msgstr "Неизменно записывается в блокчейн"
 
-#: components/pages/Infinity/index.tsx:97
+#: components/pages/Infinity/index.tsx:98
 msgid "infinity.welcome_subtitle"
 msgstr "Набор инструментов нового поколения по борьбе с выбросами углеродов для вашей организации."
 
-#: components/pages/Infinity/index.tsx:92
+#: components/pages/Infinity/index.tsx:93
 msgid "infinity.welcome_title"
 msgstr "Самый простой способ стать углеродно-нейтральным"
 
-#: components/pages/Infinity/index.tsx:215
+#: components/pages/Infinity/index.tsx:222
 msgid "infinity.why_description"
 msgstr "KlimaDAO использует стек технологий DeFi для снижения фрагментации рынка и ускорения предоставления климатического финансирования проектам устойчивого развития по всему миру."
 
-#: components/pages/Infinity/index.tsx:210
+#: components/pages/Infinity/index.tsx:217
 msgid "infinity.why_subtitle"
 msgstr "DeFi, который бросает вызов изменению климата"
 
-#: components/pages/Infinity/index.tsx:207
+#: components/pages/Infinity/index.tsx:214
 msgid "infinity.why_title"
 msgstr "Почему KlimaDAO?"
 
@@ -928,13 +906,13 @@ msgstr "Почему KlimaDAO?"
 msgid "invest_in_the_future"
 msgstr "Инвестируйте в будущее."
 
-#: components/pages/Infinity/index.tsx:427
+#: components/pages/Infinity/index.tsx:436
 msgid "mission.header"
 msgstr "Миссия KlimaDAO — демократизация борьбы с изменением климата"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
 msgid "pledges.dashboard.assets.emptyBalance"
-msgstr ""
+msgstr "Нет углеродных активов для отображения."
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
 msgid "pledges.dashboard.assets.title"
@@ -956,13 +934,17 @@ msgstr "{0}% от следа"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Углеродная тонна(ы)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:55
-msgid "pledges.dashboard.head.metaTitle"
-msgstr "{pledgeOwnerTitle}'s обязательство"
+#: components/pages/Pledge/PledgeDashboard/index.tsx:73
+msgid "pledges.dashboard.head.metaDescription"
+msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:51
+#: components/pages/Pledge/PledgeDashboard/index.tsx:69
+msgid "pledges.dashboard.head.metaTitle"
+msgstr ""
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:65
 msgid "pledges.dashboard.head.title"
-msgstr "KlimaDAO | Залоги"
+msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
@@ -1020,47 +1002,47 @@ msgstr "Ожидание подписи..."
 msgid "pledges.form.error"
 msgstr "Введите адрес кошелька, домен .klima или .eth"
 
-#: components/pages/Pledge/lib/formSchema.ts:41
+#: components/pages/Pledge/lib/formSchema.ts:55
 msgid "pledges.form.errors.categoryName.max"
 msgstr "Введите менее 32 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:37
+#: components/pages/Pledge/lib/formSchema.ts:51
 msgid "pledges.form.errors.categoryName.required"
 msgstr "Введите категорию"
 
-#: components/pages/Pledge/lib/formSchema.ts:45
+#: components/pages/Pledge/lib/formSchema.ts:59
 msgid "pledges.form.errors.categoryQuantity.min"
 msgstr "Введите значение больше 0"
 
-#: components/pages/Pledge/lib/formSchema.ts:17
+#: components/pages/Pledge/lib/formSchema.ts:31
 msgid "pledges.form.errors.description.max"
 msgstr "Введите менее 500 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:13
+#: components/pages/Pledge/lib/formSchema.ts:27
 msgid "pledges.form.errors.description.required"
 msgstr "Введите залог"
 
-#: components/pages/Pledge/lib/formSchema.ts:29
+#: components/pages/Pledge/lib/formSchema.ts:43
 msgid "pledges.form.errors.footprint.generic_error"
 msgstr "Введите расчетное количество тонн углерода"
 
-#: components/pages/Pledge/lib/formSchema.ts:33
+#: components/pages/Pledge/lib/formSchema.ts:47
 msgid "pledges.form.errors.footprint.min"
 msgstr "Введите значение больше 0"
 
-#: components/pages/Pledge/lib/formSchema.ts:25
+#: components/pages/Pledge/lib/formSchema.ts:39
 msgid "pledges.form.errors.methodology.max"
 msgstr "Введите менее 1000 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:21
+#: components/pages/Pledge/lib/formSchema.ts:35
 msgid "pledges.form.errors.methodology.required"
 msgstr "Введите методологию"
 
-#: components/pages/Pledge/lib/formSchema.ts:5
+#: components/pages/Pledge/lib/formSchema.ts:19
 msgid "pledges.form.errors.name.required"
 msgstr "Введите имя"
 
-#: components/pages/Pledge/lib/formSchema.ts:9
+#: components/pages/Pledge/lib/formSchema.ts:23
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "Введите действительный URL"
 
@@ -1128,7 +1110,7 @@ msgstr "Общий след"
 msgid "pledges.form.submit_button"
 msgstr "Сохранить залог"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:67
+#: components/pages/Pledge/PledgeDashboard/index.tsx:80
 msgid "pledges.form.title"
 msgstr "Ваш залог"
 
@@ -1181,19 +1163,6 @@ msgstr "Введите адрес ENS, KNS или 0x"
 #: components/pages/Pledge/index.tsx:170
 msgid "pledges.home.search.submit"
 msgstr "Поиск"
-
-#: components/pages/Podcast/index.tsx:21
-msgid "podcast.head.description"
-msgstr "Planet of the Klimates - это подкаст, управляемый сообществом, в котором ведутся беседы с партнерами Klima и идейными лидерами по вопросам климатологии, блокчейна и многого другого. Вы можете ознакомиться с последними выпусками и полным архивом передач непосредственно ниже, а также найти PotK на вашей любимой платформе подкастов, включая <0>RSS</0> и <1>Apple Podcasts</1>."
-
-#: components/pages/Podcast/index.tsx:19
-msgid "podcast.head.headline"
-msgstr "Подкаст"
-
-#: components/pages/Podcast/index.tsx:18
-#: components/pages/Podcast/index.tsx:33
-msgid "podcast.head.title"
-msgstr "Подкаст KlimaDAO"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:24
 msgid "resources.form.categories.header"
@@ -1331,7 +1300,7 @@ msgstr "Просмотреть все"
 
 #: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
-msgstr "Извините. Мы не нашли ни одного подходящего результата."
+msgstr ""
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
@@ -1343,7 +1312,7 @@ msgstr "Пожалуйста, используйте другую комбина
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr "Дважды проверьте свой поиск на наличие опечаток или орфографических ошибок - или попробуйте использовать другой поисковый запрос."
+msgstr ""
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1520,48 +1489,44 @@ msgstr "Итого выведено"
 msgid "shared.404"
 msgstr "404 Страница не найдена"
 
-#: components/Navigation/index.tsx:82
-#: components/Navigation/index.tsx:236
+#: components/Navigation/index.tsx:83
+#: components/Navigation/index.tsx:229
 msgid "shared.about"
 msgstr "О"
 
-#: components/Navigation/index.tsx:121
-#: components/Navigation/index.tsx:278
+#: components/Navigation/index.tsx:115
+#: components/Navigation/index.tsx:263
 msgid "shared.app"
 msgstr "Приложение"
 
 #: components/Footer/index.tsx:54
-#: components/Navigation/index.tsx:84
-#: components/Navigation/index.tsx:240
-#: components/pages/Resources/ResourcesHeader/index.tsx:29
-#: components/pages/Resources/ResourcesHeader/index.tsx:75
 msgid "shared.blog"
 msgstr "Блог"
 
 #: components/Footer/index.tsx:47
-#: components/Navigation/index.tsx:139
-#: components/Navigation/index.tsx:295
+#: components/Navigation/index.tsx:133
+#: components/Navigation/index.tsx:280
 msgid "shared.bond"
 msgstr "Облигация Klima"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:123
-#: components/Navigation/index.tsx:282
+#: components/Navigation/index.tsx:117
+#: components/Navigation/index.tsx:267
 msgid "shared.buy"
 msgstr "Купить Klima"
 
-#: components/Navigation/index.tsx:366
+#: components/Navigation/index.tsx:360
 msgid "shared.carbon_dashboard"
 msgstr "Приборные панели по углероду"
 
-#: components/Navigation/index.tsx:203
+#: components/Navigation/index.tsx:205
 msgid "shared.carbon_dashboards"
 msgstr "Приборные панели по углероду"
 
-#: components/Navigation/index.tsx:102
-#: components/Navigation/index.tsx:258
-#: components/pages/Resources/ResourcesHeader/index.tsx:51
-#: components/pages/Resources/ResourcesHeader/index.tsx:81
+#: components/Navigation/index.tsx:87
+#: components/Navigation/index.tsx:234
+#: components/pages/About/AboutHeader/index.tsx:32
+#: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.community"
 msgstr "Сообщество"
 
@@ -1571,35 +1536,37 @@ msgid "shared.connect"
 msgstr "Соединить"
 
 #: components/Footer/index.tsx:59
-#: components/Navigation/index.tsx:267
-#: components/pages/Resources/ResourcesHeader/index.tsx:87
+#: components/Navigation/index.tsx:243
+#: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.contact"
 msgstr "Связаться"
 
 #: components/Navigation/index.tsx:71
-#: components/pages/Infinity/index.tsx:114
-#: components/pages/Infinity/index.tsx:680
+#: components/pages/Infinity/index.tsx:115
+#: components/pages/Infinity/index.tsx:695
 msgid "shared.contact_sales"
 msgstr "Связаться с отделом продаж"
 
-#: components/Navigation/index.tsx:111
-#: components/pages/Resources/Community/index.tsx:110
-#: components/pages/Resources/Community/index.tsx:405
-#: components/pages/Resources/ResourcesHeader/index.tsx:62
+#: components/Navigation/index.tsx:96
+#: components/pages/About/AboutHeader/index.tsx:43
+#: components/pages/About/Community/index.tsx:110
+#: components/pages/About/Community/index.tsx:405
 msgid "shared.contact_us"
 msgstr "Связаться с нами"
 
 #: components/Footer/index.tsx:64
-#: components/Navigation/index.tsx:211
-#: components/Navigation/index.tsx:374
+#: components/Navigation/index.tsx:105
+#: components/Navigation/index.tsx:252
+#: components/pages/About/AboutHeader/index.tsx:54
+#: components/pages/About/AboutHeader/index.tsx:79
 msgid "shared.disclaimer"
 msgstr "Отказ от ответственности"
 
 #: components/Footer/index.tsx:50
-#: components/Navigation/index.tsx:220
-#: components/Navigation/index.tsx:383
+#: components/Navigation/index.tsx:213
+#: components/Navigation/index.tsx:368
 msgid "shared.docs"
-msgstr "Документы"
+msgstr ""
 
 #: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
@@ -1612,8 +1579,6 @@ msgstr "С чего начать"
 
 #: components/pages/Buy/index.tsx:46
 #: components/pages/Home/index.tsx:68
-#: components/pages/Pledge/PledgeDashboard/index.tsx:59
-#: components/pages/Podcast/index.tsx:34
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -1625,19 +1590,19 @@ msgstr ""
 msgid "shared.home"
 msgstr "Домашняя страница"
 
-#: components/Navigation/index.tsx:194
-#: components/Navigation/index.tsx:357
+#: components/Navigation/index.tsx:196
+#: components/Navigation/index.tsx:351
 msgid "shared.how_to_buy"
 msgstr "Как купить Klima"
 
-#: components/Navigation/index.tsx:172
-#: components/Navigation/index.tsx:330
+#: components/Navigation/index.tsx:166
+#: components/Navigation/index.tsx:315
 msgid "shared.infinity"
 msgstr "Infinity"
 
-#: components/pages/Infinity/index.tsx:106
-#: components/pages/Infinity/index.tsx:299
-#: components/pages/Infinity/index.tsx:672
+#: components/pages/Infinity/index.tsx:107
+#: components/pages/Infinity/index.tsx:306
+#: components/pages/Infinity/index.tsx:687
 msgid "shared.infinity.get_started"
 msgstr "С чего начать"
 
@@ -1645,13 +1610,13 @@ msgstr "С чего начать"
 msgid "shared.infinity_cta"
 msgstr "ДЕФИ ДЛЯ ОРГАНИЗАЦИЙ"
 
-#: components/Navigation/index.tsx:175
-#: components/Navigation/index.tsx:333
+#: components/Navigation/index.tsx:169
+#: components/Navigation/index.tsx:318
 msgid "shared.infinity_intro"
 msgstr "Введение"
 
-#: components/Navigation/index.tsx:163
-#: components/Navigation/index.tsx:319
+#: components/Navigation/index.tsx:157
+#: components/Navigation/index.tsx:304
 msgid "shared.info"
 msgstr "Информация"
 
@@ -1665,32 +1630,25 @@ msgstr "Загрузка..."
 msgid "shared.loveletter_cta"
 msgstr "DEFI ДЛЯ ФИЗИЧЕСКИХ ЛИЦ"
 
-#: components/Navigation/index.tsx:187
-#: components/Navigation/index.tsx:348
+#: components/Navigation/index.tsx:181
+#: components/Navigation/index.tsx:333
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:155
-#: components/Navigation/index.tsx:311
+#: components/Navigation/index.tsx:149
+#: components/Navigation/index.tsx:296
 msgid "shared.offset"
 msgstr "Офсет"
 
-#: components/Navigation/index.tsx:180
-#: components/Navigation/index.tsx:341
+#: components/Navigation/index.tsx:174
+#: components/Navigation/index.tsx:326
 msgid "shared.pledge"
 msgstr ""
 "Как внести залог\n"
 ""
 
-#: components/Navigation/index.tsx:93
-#: components/Navigation/index.tsx:249
-#: components/pages/Resources/ResourcesHeader/index.tsx:40
-#: components/pages/Resources/ResourcesHeader/index.tsx:93
-msgid "shared.podcast"
-msgstr "Подкаст"
-
-#: components/Navigation/index.tsx:190
-#: components/Navigation/index.tsx:353
+#: components/Navigation/index.tsx:184
+#: components/Navigation/index.tsx:338
 msgid "shared.resources"
 msgstr "Источники"
 
@@ -1699,17 +1657,23 @@ msgid "shared.resources.sort_by.header"
 msgstr "Сортировать по"
 
 #: components/Footer/index.tsx:44
-#: components/Navigation/index.tsx:131
-#: components/Navigation/index.tsx:287
+#: components/Navigation/index.tsx:125
+#: components/Navigation/index.tsx:272
 msgid "shared.stake"
 msgstr "Стейкинг Klima"
 
-#: components/pages/Infinity/index.tsx:494
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:342
+#: components/pages/Blog/Post/index.tsx:72
+msgid "shared.updates"
+msgstr ""
+
+#: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
 msgstr "Посетите блог KlimaDAO"
 
-#: components/Navigation/index.tsx:147
-#: components/Navigation/index.tsx:303
+#: components/Navigation/index.tsx:141
+#: components/Navigation/index.tsx:288
 msgid "shared.wrap"
 msgstr "обернуть sKLIMA"
 

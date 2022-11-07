@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { Contact } from "components/pages/Resources/Contact";
+import { Contact } from "components/pages/About/Contact";
 import { loadTranslation } from "lib/i18n";
 
 type Props = Record<string, unknown>;

@@ -18,11 +18,6 @@ export const beneficiary = css`
   display: grid;
   gap: 0.8rem;
   align-content: start;
-
-  .defaultAddress {
-    font-size: 1.3rem;
-    margin-top: -0.2rem;
-  }
 `;
 
 export const offsetCard = css`

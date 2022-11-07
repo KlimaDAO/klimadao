@@ -1,5 +1,19 @@
 import { t } from "@lingui/macro";
+import { utils } from "ethers";
 import * as yup from "yup";
+
+// extends yup.string schema with custom validation methods
+yup.addMethod<yup.StringSchema>(
+  yup.string,
+  "isAddress",
+  function (errorMessage: string) {
+    return this.test("is-address", errorMessage, function (value: any) {
+      if (utils.isAddress(value)) return true;
+
+      return this.createError({ message: errorMessage });
+    });
+  }
+);
 
 export const pledgeErrorTranslationsMap = {
   ["pledges.form.errors.name.required"]: t({
