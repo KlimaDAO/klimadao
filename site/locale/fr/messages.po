@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-07 18:13+0000\n"
+"POT-Creation-Date: 2022-11-07 18:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -931,15 +931,15 @@ msgstr "{0}% de l'empreinte"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Tonnes de carbone"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:61
+#: components/pages/Pledge/PledgeDashboard/index.tsx:73
 msgid "pledges.dashboard.head.metaDescription"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:57
+#: components/pages/Pledge/PledgeDashboard/index.tsx:69
 msgid "pledges.dashboard.head.metaTitle"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:53
+#: components/pages/Pledge/PledgeDashboard/index.tsx:65
 msgid "pledges.dashboard.head.title"
 msgstr ""
 
@@ -999,47 +999,47 @@ msgstr "En attente de signature..."
 msgid "pledges.form.error"
 msgstr "Entrez une adresse de portefeuille, un domaine .klima ou .eth"
 
-#: components/pages/Pledge/lib/formSchema.ts:41
+#: components/pages/Pledge/lib/formSchema.ts:55
 msgid "pledges.form.errors.categoryName.max"
 msgstr "Saisir moins de 32 caractères"
 
-#: components/pages/Pledge/lib/formSchema.ts:37
+#: components/pages/Pledge/lib/formSchema.ts:51
 msgid "pledges.form.errors.categoryName.required"
 msgstr "Saisir une catégorie"
 
-#: components/pages/Pledge/lib/formSchema.ts:45
+#: components/pages/Pledge/lib/formSchema.ts:59
 msgid "pledges.form.errors.categoryQuantity.min"
 msgstr "Saisir une valeur supérieure à 0"
 
-#: components/pages/Pledge/lib/formSchema.ts:17
+#: components/pages/Pledge/lib/formSchema.ts:31
 msgid "pledges.form.errors.description.max"
 msgstr "Saisir moins de 500 caractères"
 
-#: components/pages/Pledge/lib/formSchema.ts:13
+#: components/pages/Pledge/lib/formSchema.ts:27
 msgid "pledges.form.errors.description.required"
 msgstr "Saisir un engagement"
 
-#: components/pages/Pledge/lib/formSchema.ts:29
+#: components/pages/Pledge/lib/formSchema.ts:43
 msgid "pledges.form.errors.footprint.generic_error"
 msgstr "Saisir une estimation de tonne de carbone"
 
-#: components/pages/Pledge/lib/formSchema.ts:33
+#: components/pages/Pledge/lib/formSchema.ts:47
 msgid "pledges.form.errors.footprint.min"
 msgstr "Saisir une valeur supérieure à 0"
 
-#: components/pages/Pledge/lib/formSchema.ts:25
+#: components/pages/Pledge/lib/formSchema.ts:39
 msgid "pledges.form.errors.methodology.max"
 msgstr "Saisir moins de 1000 caractères"
 
-#: components/pages/Pledge/lib/formSchema.ts:21
+#: components/pages/Pledge/lib/formSchema.ts:35
 msgid "pledges.form.errors.methodology.required"
 msgstr "Saisir une méthodologie"
 
-#: components/pages/Pledge/lib/formSchema.ts:5
+#: components/pages/Pledge/lib/formSchema.ts:19
 msgid "pledges.form.errors.name.required"
 msgstr "Saisir un nom"
 
-#: components/pages/Pledge/lib/formSchema.ts:9
+#: components/pages/Pledge/lib/formSchema.ts:23
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "Saisir une URL valide"
 
@@ -1107,7 +1107,7 @@ msgstr "Empreinte totale"
 msgid "pledges.form.submit_button"
 msgstr "Sauvegarder l'engagement"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:68
+#: components/pages/Pledge/PledgeDashboard/index.tsx:80
 msgid "pledges.form.title"
 msgstr "Votre Engagement"
 
