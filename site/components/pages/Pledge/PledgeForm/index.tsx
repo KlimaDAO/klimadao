@@ -116,15 +116,16 @@ export const PledgeForm: FC<Props> = (props) => {
 
   const checkDuplicateWallets = (wallets: Wallet[]): boolean => {
     let isDuplicate = false;
+    // TODO: make this work
     wallets.map((wallet) => {
-      for (let i = 0; i < wallets.length; i++) {
-        if (
-          wallets[i].address === wallet.address &&
-          wallet.status === "pending" &&
-          wallets[i].status === "pending"
-        ) {
-          isDuplicate = true;
-        }
+      if (
+        wallets.filter(
+          (w) =>
+            (w.status === "pending" || w.status === "verified") &&
+            wallet.address === w.address
+        ).length > 1
+      ) {
+        isDuplicate = true;
       }
     });
     console.log(isDuplicate, "rememeber to fix isDuplicateWallet");

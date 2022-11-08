@@ -28,6 +28,19 @@ const initFirebaseAdmin = () => {
   return admin.firestore();
 };
 
+export const getParentPledges = async (props: { address: string }) => {
+  const db = await initFirebaseAdmin();
+  const data = await db
+    .collection("pledges")
+    .where(`wallets.${props.address}.status`, "==", "verified")
+    .get();
+
+  // where status is verified OR ownerAddress = address
+  // array of 0, 1, 2
+  // redirect to verified || load pledge || placeholder
+  return data;
+};
+
 export const getPledgeByAddress = async (address: string): Promise<Pledge> => {
   const db = initFirebaseAdmin();
   const pledgeCollectionRef = db.collection(

@@ -9,47 +9,20 @@ import { loadTranslation } from "lib/i18n";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
-import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
+import {
+  getPledgeByAddress,
+  getParentPledges,
+} from "components/pages/Pledge/lib/firebase";
 import {
   DEFAULT_VALUES,
   queryHoldingsByAddress,
 } from "components/pages/Pledge/lib";
 import { Pledge, Holding } from "components/pages/Pledge/types";
-import * as admin from "firebase-admin";
-import { FIREBASE_ADMIN_CERT } from "lib/secrets";
+
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   address: string;
 }
-
-// TODO: export this from firebase and import it
-const initFirebaseAdmin = async () => {
-  if (!FIREBASE_ADMIN_CERT) {
-    throw new Error("Firebase env not set");
-  }
-
-  if (!admin.apps.length) {
-    admin.initializeApp({
-      credential: admin.credential.cert(JSON.parse(FIREBASE_ADMIN_CERT)),
-    });
-  }
-
-  const db = await admin.firestore();
-  return db;
-};
-
-const getParentPledges = async (props: { address: string }) => {
-  const db = await initFirebaseAdmin();
-  const data = await db
-    .collection("pledges")
-    .where(`wallets.${props.address}.status`, "==", "verified")
-    .get();
-
-  // where status is verified OR ownerAddress = address
-  // array of 0, 1, 2
-  // redirect to verified || load pledge || placeholder
-  return data;
-};
 
 interface PageProps {
   canonicalUrl: string;
@@ -60,8 +33,8 @@ interface PageProps {
   retirements: RetirementsTotalsAndBalances;
 }
 
-export const getStaticProps: any | GetStaticProps<PageProps, Params> = async (
-  ctx: any
+export const getStaticProps: GetStaticProps<PageProps, Params> = async (
+  ctx
 ) => {
   try {
     const translation = await loadTranslation(ctx.locale);
@@ -124,7 +97,7 @@ export const getStaticProps: any | GetStaticProps<PageProps, Params> = async (
     }
 
     // add up retirements here
-    let retirements;
+    let retirements: RetirementsTotalsAndBalances;
     if (pledge.wallets && Object.values(pledge.wallets).length) {
       const verifiedWallets = Object.values(pledge.wallets).filter(
         (wallet) => wallet.status === "verified"
@@ -134,11 +107,11 @@ export const getStaticProps: any | GetStaticProps<PageProps, Params> = async (
           address: wallet.address,
         })
       );
-      // promises.push(
-      //   getRetirementTotalsAndBalances({
-      //     address: resolvedAddress,
-      //   })
-      // );
+      promises.push(
+        getRetirementTotalsAndBalances({
+          address: resolvedAddress,
+        })
+      );
       const values: RetirementsTotalsAndBalances[] = await Promise.all(
         promises
       );
@@ -164,11 +137,11 @@ export const getStaticProps: any | GetStaticProps<PageProps, Params> = async (
         } else {
           return curr;
         }
-      }, retirements);
+      });
       if (values.length) {
         retirements = values[0];
       } else {
-        retirements = values;
+        retirements = values as unknown as RetirementsTotalsAndBalances;
       }
     } else {
       retirements = await getRetirementTotalsAndBalances({
