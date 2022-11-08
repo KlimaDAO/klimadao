@@ -3,9 +3,9 @@ import {
   BCT_USDC_PAIR_BLOCK, KLIMA_BCT_PAIR_BLOCK
 } from '../../lib/utils/Constants'
 import { BigInt, BigDecimal, log } from '@graphprotocol/graph-ts'
-import { Pair, Token, Trade } from '../generated/schema'
+import { Pair, Token, Swap } from '../generated/schema'
 import {
-  Swap,
+  Swap as SwapEvent,
   Pair as PairContract,
 } from "../generated/KLIMA_USDC/Pair"
 import { ERC20 as ERC20Contract } from '../generated/KLIMA_USDC/ERC20'
@@ -62,7 +62,7 @@ export function getCreateToken(address: Address): Token {
 
 export function getCreatePair(address: Address): Pair {
   let pair = Pair.load(address.toHexString())
-  
+
   if (pair == null) {
     let contract = PairContract.bind(address)
 
@@ -85,7 +85,7 @@ function toUnits(x: BigInt, decimals: number): BigDecimal {
 }
 
 
-export function handleSwap(event: Swap): void {
+export function handleSwap(event: SwapEvent): void {
   let treasury_address = Address.fromString(TREASURY_ADDRESS)
   let klima_usdc_address = Address.fromString(KLIMA_USDC_PAIR)
   let bct_usdc_address = Address.fromString(BCT_USDC_PAIR)
@@ -100,9 +100,6 @@ export function handleSwap(event: Swap): void {
   // let hourlyId = event.address.toHexString() + hour_timestamp
   let hourlyId = event.transaction.hash.toHexString()
   // let hourlyId = event.address.toHexString() + event.block.timestamp.toString()
-  // if (event.block.number.gt(BigInt.fromString(KLIMA_BCT_PAIR_BLOCK))){
-  //   let klimausdrate =  getKLIMAUSDRate()  
-  // }
   let price = BigDecimalZero
   let volume = BigDecimalZero
   let token0qty = BigDecimalZero
@@ -117,115 +114,74 @@ export function handleSwap(event: Swap): void {
   let klimaearnedfees = BigDecimalZero
   let slippage = BigDecimalZero
 
-  if (event.params.amount1In == BigIntZero && event.params.amount1Out == BigIntZero) {
-    token0qty = toUnits(event.params.amount0In, token0_decimals)
-    lpfees = (lprate).times(token0qty)
+  if (event.params.amount0In == BigIntZero && event.params.amount0Out == BigIntZero) {
+    token1qty = toUnits(event.params.amount1In, token1_decimals)
+    lpfees = (lprate).times(token1qty)
     klimaearnedfees = ownedLP.times(lpfees)
-    volume = token0qty
+    volume = token1qty
   }
 
-  if (event.params.amount0In == BigIntZero && event.params.amount0Out != BigIntZero) {
-    price = toUnits(event.params.amount0Out, token0_decimals).div(toUnits(event.params.amount1In, token1_decimals))
-    token0qty = toUnits(event.params.amount0Out, token0_decimals)
-    token1qty = toUnits(event.params.amount1In, token1_decimals)
-    lastreserves0 = toUnits(contract.getReserves().value0, token0_decimals).plus(token0qty)
-    lastreserves1= toUnits(contract.getReserves().value1, token1_decimals).minus(token1qty)
-    expectedrate = lastreserves0.div(lastreserves1)
-    lpfees = (lprate).times(token0qty) 
-    slippage = ((expectedrate.minus(price)).times(token1qty)).minus(lpfees)
-    klimaearnedfees = ownedLP.times(lpfees)
-    volume = token0qty
-  }
-  if (event.params.amount0Out == BigIntZero && event.params.amount0In != BigIntZero) { 
-    price = toUnits(event.params.amount0In, token0_decimals).div(toUnits(event.params.amount1Out, token1_decimals))
+  if (event.params.amount1In == BigIntZero && event.params.amount1Out != BigIntZero) {
+    price = toUnits(event.params.amount1Out, token1_decimals).div(toUnits(event.params.amount0In, token0_decimals))
     token0qty = toUnits(event.params.amount0In, token0_decimals)
     token1qty = toUnits(event.params.amount1Out, token1_decimals)
     lastreserves0 = toUnits(contract.getReserves().value0, token0_decimals).minus(token0qty)
     lastreserves1= toUnits(contract.getReserves().value1, token1_decimals).plus(token1qty)
-    expectedrate = lastreserves0.div(lastreserves1)
-    lpfees = (lprate).times(token0qty) 
+    expectedrate = lastreserves1.div(lastreserves0)
+    lpfees = (lprate).times(token1qty)
+    slippage = ((expectedrate.minus(price)).times(token1qty)).minus(lpfees)
+    klimaearnedfees = ownedLP.times(lpfees)
+    volume = token1qty
+  }
+  if (event.params.amount1Out == BigIntZero && event.params.amount1In != BigIntZero) {
+    price = toUnits(event.params.amount1In, token1_decimals).div(toUnits(event.params.amount0Out, token0_decimals))
+    token0qty = toUnits(event.params.amount0Out, token0_decimals)
+    token1qty = toUnits(event.params.amount1In, token1_decimals)
+    lastreserves0 = toUnits(contract.getReserves().value0, token0_decimals).plus(token0qty)
+    lastreserves1= toUnits(contract.getReserves().value1, token1_decimals).minus(token1qty)
+    expectedrate = lastreserves1.div(lastreserves0)
+    lpfees = (lprate).times(token1qty)
     slippage = ((price.minus(expectedrate)).times(token1qty)).minus(lpfees)
     klimaearnedfees = ownedLP.times(lpfees)
-    volume = token0qty
+    volume = token1qty
   }
-
-  if (event.address ==  bct_usdc_address || event.address ==  klima_usdc_address || event.address ==  nct_usdc_address){
-    let trade = Trade.load(hourlyId)
-    if (trade == null) {
-      
-      trade = new Trade(hourlyId)
-      trade.lpfees = lpfees
-      trade.slippage = slippage
-      trade.klimaearnedfees = klimaearnedfees
-      trade.open = price
-      trade.high = price
-      trade.low = price
-      trade.close = price
-      trade.volume = volume
-      trade.timestamp = hour_timestamp
-      trade.pair = pair.id
-      trade.save()
-    }
-    else {
-      if (trade.high < price && price != BigDecimalZero) {
-        trade.high = price
-      }
-  
-      if (trade.low > price && price != BigDecimalZero) {
-        trade.low = price
-      }
-  
-      if (price != BigDecimalZero){
-        trade.close = price
-      }
-      trade.volume = trade.volume.plus(volume)
-      trade.save()
-    }
-    pair.currentprice = trade.close
-    pair.totalvolume = pair.totalvolume.plus(trade.volume)
-    pair.totalklimaearnedfees = pair.totalklimaearnedfees.plus(trade.klimaearnedfees)
-    pair.lastupdate = hour_timestamp
-    pair.save()
+  let swap = Swap.load(hourlyId)
+  let usdprice = getKLIMAUSDRate().div(price)
+  if (swap == null) {
+    swap = new Swap(hourlyId)
+    swap.lpfees = lpfees.times(usdprice)
+    swap.slippage = slippage.times(usdprice)
+    swap.klimaearnedfees = klimaearnedfees.times(usdprice)
+    swap.open = usdprice
+    swap.high = usdprice
+    swap.low = usdprice
+    swap.close = usdprice
+    swap.volume = volume.times(usdprice)
+    swap.timestamp = hour_timestamp
+    swap.pair = pair.id
+    swap.save()
   }
   else {
-    let trade = Trade.load(hourlyId)
-    let usdprice = getKLIMAUSDRate().div(price)
-    if (trade == null) {
-      trade = new Trade(hourlyId)
-      trade.lpfees = lpfees.times(usdprice)
-      trade.slippage = slippage.times(usdprice)
-      trade.klimaearnedfees = klimaearnedfees.times(usdprice)
-      trade.open = usdprice
-      trade.high = usdprice
-      trade.low = usdprice
-      trade.close = usdprice
-      trade.volume = volume.times(usdprice)
-      trade.timestamp = hour_timestamp
-      trade.pair = pair.id
-      trade.save()    
+    if (swap.high < usdprice && usdprice != BigDecimalZero) {
+      swap.high = usdprice
     }
-    else {
-      if (trade.high < usdprice && usdprice != BigDecimalZero) {
-        trade.high = usdprice
-      }
 
-      if (trade.low > usdprice && usdprice != BigDecimalZero) {
-        trade.low = usdprice
-      }
-
-      if (usdprice != BigDecimalZero){
-        trade.close = usdprice
-      }
-      trade.volume = trade.volume.plus((volume.times(usdprice)))
-      trade.lpfees = trade.lpfees.plus((lpfees.times(usdprice)))
-      trade.klimaearnedfees = trade.klimaearnedfees.plus((klimaearnedfees.times(usdprice)))
-      trade.slippage = trade.slippage.plus((slippage.times(usdprice)))
-      trade.save()
+    if (swap.low > usdprice && usdprice != BigDecimalZero) {
+      swap.low = usdprice
     }
-    pair.currentprice = trade.close
-    pair.totalvolume = pair.totalvolume.plus(trade.volume)
-    pair.totalklimaearnedfees = pair.totalklimaearnedfees.plus(trade.klimaearnedfees)
-    pair.lastupdate = hour_timestamp
-    pair.save()
+
+    if (usdprice != BigDecimalZero){
+      swap.close = usdprice
+    }
+    swap.volume = swap.volume.plus((volume.times(usdprice)))
+    swap.lpfees = swap.lpfees.plus((lpfees.times(usdprice)))
+    swap.klimaearnedfees = swap.klimaearnedfees.plus((klimaearnedfees.times(usdprice)))
+    swap.slippage = swap.slippage.plus((slippage.times(usdprice)))
+    swap.save()
   }
+  pair.currentprice = swap.close
+  pair.totalvolume = pair.totalvolume.plus(swap.volume)
+  pair.totalklimaearnedfees = pair.totalklimaearnedfees.plus(swap.klimaearnedfees)
+  pair.lastupdate = hour_timestamp
+  pair.save()
 }

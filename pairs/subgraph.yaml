@@ -8,7 +8,7 @@ dataSources:
     source:
       address: "0x5786b267d35f9d011c4750e0b0ba584e1fdbead1"
       abi: Pair
-      startBlock: 20358666 
+      startBlock: 20358666
       # startBlock : 28550000
     mapping:
       kind: ethereum/events
@@ -17,7 +17,7 @@ dataSources:
       entities:
         - Pair
         - Token
-        - Trade
+        - Swap
       abis:
         - name: Pair
           file: ../lib/abis/Pair.json
@@ -42,7 +42,7 @@ dataSources:
       entities:
         - Pair
         - Token
-        - Trade
+        - Swap
       abis:
         - name: Pair
           file: ../lib/abis/Pair.json
@@ -58,7 +58,7 @@ dataSources:
     source:
       address: "0x1E67124681b402064CD0ABE8ed1B5c79D2e02f64"
       abi: Pair
-      startBlock: 20294523 
+      startBlock: 20294523
       # startBlock : 28550000
     mapping:
       kind: ethereum/events
@@ -67,7 +67,7 @@ dataSources:
       entities:
         - Pair
         - Token
-        - Trade
+        - Swap
       abis:
         - name: Pair
           file: ../lib/abis/Pair.json
@@ -83,7 +83,7 @@ dataSources:
     source:
       address: "0xDb995F975F1Bfc3B2157495c47E4efB31196B2CA"
       abi: Pair
-      startBlock: 24782864 
+      startBlock: 24782864
       # startBlock : 28550000
     mapping:
       kind: ethereum/events
@@ -92,7 +92,7 @@ dataSources:
       entities:
         - Pair
         - Token
-        - Trade
+        - Swap
       abis:
         - name: Pair
           file: ../lib/abis/Pair.json
@@ -108,7 +108,7 @@ dataSources:
     source:
       address: "0x64a3b8ca5a7e406a78e660ae10c7563d9153a739"
       abi: Pair
-      startBlock: 23688190 
+      startBlock: 23688190
       # startBlock : 28550000
     mapping:
       kind: ethereum/events
@@ -117,7 +117,7 @@ dataSources:
       entities:
         - Pair
         - Token
-        - Trade
+        - Swap
       abis:
         - name: Pair
           file: ../lib/abis/Pair.json
@@ -134,7 +134,7 @@ dataSources:
       address: "0x5400A05B8B45EaF9105315B4F2e31F806AB706dE"
       abi: TridentPair
       startBlock: 26470811
-      # startBlock : 28550000 
+      # startBlock : 28550000
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -142,7 +142,7 @@ dataSources:
       entities:
         - Pair
         - Token
-        - Trade
+        - Swap
       abis:
         - name: Pair
           file: ../lib/abis/Pair.json
@@ -160,7 +160,7 @@ dataSources:
     source:
       address: "0x251cA6A70cbd93Ccd7039B6b708D4cb9683c266C"
       abi: TridentPair
-      startBlock: 26470990 
+      startBlock: 26470990
       # startBlock : 28550000
     mapping:
       kind: ethereum/events
@@ -169,7 +169,7 @@ dataSources:
       entities:
         - Pair
         - Token
-        - Trade
+        - Swap
       abis:
         - name: Pair
           file: ../lib/abis/Pair.json
