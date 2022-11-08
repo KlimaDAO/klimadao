@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-07 18:40+0000\n"
+"POT-Creation-Date: 2022-11-08 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,11 +9,11 @@ msgstr ""
 
 #: components/views/Offset/index.tsx:664
 msgid "Beneficiary 0x address (optional)"
-msgstr ""
+msgstr "收款人 0x 地址（可选）"
 
 #: components/views/Offset/index.tsx:653
 msgid "Beneficiary name"
-msgstr ""
+msgstr "受益人姓名"
 
 #: components/views/Bond/index.tsx:701
 msgid "Capacity"
@@ -21,7 +21,7 @@ msgstr "容量"
 
 #: components/views/Offset/index.tsx:438
 msgid "Checkout"
-msgstr ""
+msgstr "结账"
 
 #: components/CheckURLBanner/index.tsx:39
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
@@ -328,7 +328,7 @@ msgstr "C3 基本通用抵消"
 
 #: components/views/Offset/index.tsx:717
 msgid "fiat.max_quantity"
-msgstr ""
+msgstr "信用卡最高金额 ${0}"
 
 #: components/ImageCard/index.tsx:16
 msgid "imagecard.how_to_get_started"
@@ -491,7 +491,7 @@ msgstr "现在可以通过 <0>LI.FI 和 Etherspot </0>进行跨链抵消，支�
 
 #: components/views/Offset/index.tsx:595
 msgid "offset.min_quantity_fiat"
-msgstr ""
+msgstr "信用卡的最低购买量为 1 吨"
 
 #: components/views/Offset/index.tsx:608
 msgid "offset.modal_payWith.title"
@@ -675,7 +675,7 @@ msgstr "输入金额"
 
 #: components/views/Offset/index.tsx:379
 msgid "shared.enter_beneficiary"
-msgstr ""
+msgstr "输入收款人姓名"
 
 #: components/views/Bond/index.tsx:422
 #: components/views/Offset/index.tsx:372
@@ -686,7 +686,7 @@ msgstr "输入数量"
 
 #: components/views/Offset/index.tsx:387
 msgid "shared.enter_retirement_message"
-msgstr ""
+msgstr "输入碳停用信息"
 
 #: components/views/Bond/index.tsx:479
 #: components/views/Bond/index.tsx:498
@@ -702,15 +702,15 @@ msgstr "余额不足"
 
 #: components/views/Offset/index.tsx:397
 msgid "shared.invalid_beneficiary_addr"
-msgstr ""
+msgstr "无效收款人地址"
 
 #: components/views/Offset/index.tsx:413
 msgid "shared.invalid_project_address"
-msgstr ""
+msgstr "无效项目地址"
 
 #: components/views/Offset/index.tsx:406
 msgid "shared.invalid_quantity"
-msgstr ""
+msgstr "无效数量"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:48
 #: components/RebaseCard/index.tsx:58
@@ -737,11 +737,11 @@ msgstr "最大额度"
 
 #: components/views/Offset/index.tsx:363
 msgid "shared.redirecting_checkout"
-msgstr ""
+msgstr "转到结帐..."
 
 #: components/views/Offset/index.tsx:444
 msgid "shared.retire"
-msgstr ""
+msgstr "停用碳"
 
 #: components/views/Bond/index.tsx:404
 msgid "shared.sold_out"

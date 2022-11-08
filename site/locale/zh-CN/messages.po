@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-07 18:40+0000\n"
+"POT-Creation-Date: 2022-11-08 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -928,15 +928,15 @@ msgstr "{0} 碳吨"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:73
 msgid "pledges.dashboard.head.metaDescription"
-msgstr ""
+msgstr "{pledgeOwnerTitle} 承诺抵消 {currentTotalFootprint} 吨碳。查看他们的碳补偿历史记录并阅读更多关于他们的承诺。"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:69
 msgid "pledges.dashboard.head.metaTitle"
-msgstr ""
+msgstr "{pledgeOwnerTitle}的承诺"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:65
 msgid "pledges.dashboard.head.title"
-msgstr ""
+msgstr "{pledgeOwnerTitle}的承诺 | KlimaDAO"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
@@ -1288,7 +1288,7 @@ msgstr "探索全部"
 
 #: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "对不起。我们找不到任何匹配的结果。"
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
@@ -1300,7 +1300,7 @@ msgstr "请组合使用不同的过滤器。"
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr ""
+msgstr "检查您的搜索是否有错别字或尝试不同的搜索词。"
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1554,7 +1554,7 @@ msgstr "免责声明"
 #: components/Navigation/index.tsx:213
 #: components/Navigation/index.tsx:368
 msgid "shared.docs"
-msgstr ""
+msgstr "官方文档"
 
 #: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
@@ -1650,7 +1650,7 @@ msgstr "质押 Klima"
 #: components/Navigation/index.tsx:342
 #: components/pages/Blog/Post/index.tsx:72
 msgid "shared.updates"
-msgstr ""
+msgstr "更新"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"

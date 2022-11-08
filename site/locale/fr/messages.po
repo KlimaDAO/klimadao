@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-07 18:40+0000\n"
+"POT-Creation-Date: 2022-11-08 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -933,15 +933,15 @@ msgstr "{0} Tonnes de carbone"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:73
 msgid "pledges.dashboard.head.metaDescription"
-msgstr ""
+msgstr "Engagements de {pledgeOwnerTitle} à compenser {currentTotalFootprint} Tonnes de carbone. Consultez l'historique de leur compensation carbone et lisez plus sur leur implication."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:69
 msgid "pledges.dashboard.head.metaTitle"
-msgstr ""
+msgstr "Engagement de {pledgeOwnerTitle}"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:65
 msgid "pledges.dashboard.head.title"
-msgstr ""
+msgstr "Engagement de {pledgeOwnerTitle} | KlimaDAO"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
