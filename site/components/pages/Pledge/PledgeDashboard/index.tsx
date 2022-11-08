@@ -65,11 +65,22 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     setShowFormModal(false);
   };
 
+  /**
+   * Close the modal on escape press
+   * @todo extract as generic modal behaviour
+   */
+  useEffect(() => {
+    const escListener = (e: KeyboardEvent) =>
+      e.key === "Escape" && showFormModal && setShowFormModal(false);
+
+    window.addEventListener("keydown", escListener);
+    return () => window.removeEventListener("keydown", escListener);
+  }, []);
+
   const pledgeOwnerTitle =
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
   const currentTotalFootprint =
     pledge.footprint[pledge.footprint.length - 1].total.toString();
-
   return (
     <PledgeLayout
       canEditPledge={canEditPledge}

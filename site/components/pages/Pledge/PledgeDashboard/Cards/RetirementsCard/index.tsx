@@ -100,7 +100,6 @@ export const RetirementsCard: FC<Props> = (props) => {
       </span>
     </Tippy>
   );
-
   return (
     <BaseCard
       title={t({

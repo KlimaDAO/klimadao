@@ -127,7 +127,8 @@ export const PledgeForm: FC<Props> = (props) => {
         }
       }
     });
-    return isDuplicate;
+    console.log(isDuplicate, "rememeber to fix isDuplicateWallet");
+    return false;
   };
 
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
@@ -169,6 +170,7 @@ export const PledgeForm: FC<Props> = (props) => {
       setSubmitting(false);
     } catch (error: unknown) {
       console.log(error);
+      setErrorMessage(error.message);
       setServerError(true);
       setSubmitting(false);
     }
@@ -373,6 +375,7 @@ export const PledgeForm: FC<Props> = (props) => {
                   message: "Add wallet",
                 })}
                 disabled={
+                  walletsFields.length > 0 &&
                   walletsFields[walletsFields.length - 1].saved === false
                 }
                 onClick={() =>

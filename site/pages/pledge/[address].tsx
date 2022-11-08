@@ -15,11 +15,41 @@ import {
   queryHoldingsByAddress,
 } from "components/pages/Pledge/lib";
 import { Pledge, Holding } from "components/pages/Pledge/types";
-
+import * as admin from "firebase-admin";
+import { FIREBASE_ADMIN_CERT } from "lib/secrets";
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   address: string;
 }
+
+// TODO: export this from firebase and import it
+const initFirebaseAdmin = async () => {
+  if (!FIREBASE_ADMIN_CERT) {
+    throw new Error("Firebase env not set");
+  }
+
+  if (!admin.apps.length) {
+    admin.initializeApp({
+      credential: admin.credential.cert(JSON.parse(FIREBASE_ADMIN_CERT)),
+    });
+  }
+
+  const db = await admin.firestore();
+  return db;
+};
+
+const getParentPledges = async (props: { address: string }) => {
+  const db = await initFirebaseAdmin();
+  const data = await db
+    .collection("pledges")
+    .where(`wallets.${props.address}.status`, "==", "verified")
+    .get();
+
+  // where status is verified OR ownerAddress = address
+  // array of 0, 1, 2
+  // redirect to verified || load pledge || placeholder
+  return data;
+};
 
 interface PageProps {
   canonicalUrl: string;
@@ -30,8 +60,8 @@ interface PageProps {
   retirements: RetirementsTotalsAndBalances;
 }
 
-export const getStaticProps: GetStaticProps<PageProps, Params> = async (
-  ctx
+export const getStaticProps: any | GetStaticProps<PageProps, Params> = async (
+  ctx: any
 ) => {
   try {
     const translation = await loadTranslation(ctx.locale);
@@ -40,7 +70,20 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     let resolvedAddress;
     const isDomainInURL = getIsDomainInURL(address);
     const domain = isDomainInURL ? address : null;
+    const parentPledges = await getParentPledges({
+      address: address,
+    });
 
+    if (parentPledges.docs.length) {
+      return {
+        redirect: {
+          destination: `/pledge/${parentPledges.docs[0]
+            .data()
+            .ownerAddress.toLowerCase()}`,
+          permanent: true,
+        },
+      };
+    }
     // enforces lowercase urls
     if (address !== address.toLowerCase()) {
       return {
@@ -70,9 +113,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     }
 
     const holdings = await queryHoldingsByAddress(resolvedAddress);
-    const retirements = await getRetirementTotalsAndBalances({
-      address: resolvedAddress,
-    });
 
     try {
       const data = await getPledgeByAddress(resolvedAddress);
@@ -82,6 +122,62 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     } catch (error) {
       pledge = { ...DEFAULT_VALUES, ownerAddress: resolvedAddress };
     }
+
+    // add up retirements here
+    let retirements;
+    if (pledge.wallets && Object.values(pledge.wallets).length) {
+      const verifiedWallets = Object.values(pledge.wallets).filter(
+        (wallet) => wallet.status === "verified"
+      );
+      const promises = verifiedWallets.map((wallet) =>
+        getRetirementTotalsAndBalances({
+          address: wallet.address,
+        })
+      );
+      // promises.push(
+      //   getRetirementTotalsAndBalances({
+      //     address: resolvedAddress,
+      //   })
+      // );
+      const values: RetirementsTotalsAndBalances[] = await Promise.all(
+        promises
+      );
+      values.reduce((prev: any, curr) => {
+        if (prev) {
+          prev.totalRetirements = (
+            Number(prev.totalRetirements) + Number(curr.totalRetirements)
+          ).toString();
+          prev.totalTonnesRetired = (
+            Number(prev.totalTonnesRetired) + Number(curr.totalTonnesRetired)
+          ).toString();
+          prev.totalTonnesClaimedForNFTS = (
+            Number(prev.totalTonnesClaimedForNFTS) +
+            Number(curr.totalTonnesClaimedForNFTS)
+          ).toString();
+          prev.bct = (Number(prev.bct) + Number(curr.bct)).toString();
+          prev.mco2 = (Number(prev.mco2) + Number(curr.mco2)).toString();
+          prev.nct = (Number(prev.nct) + Number(curr.nct)).toString();
+          prev.ubo = (Number(prev.ubo) + Number(curr.ubo)).toString();
+          prev.nbo = (Number(prev.nbo) + Number(curr.nbo)).toString();
+
+          return prev;
+        } else {
+          return curr;
+        }
+      }, retirements);
+      if (values.length) {
+        retirements = values[0];
+      } else {
+        retirements = values;
+      }
+    } else {
+      retirements = await getRetirementTotalsAndBalances({
+        address: resolvedAddress,
+      });
+    }
+    // const retirements = await getRetirementTotalsAndBalances({
+    //   address: resolvedAddress,
+    // });
 
     return {
       props: {
