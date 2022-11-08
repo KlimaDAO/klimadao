@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
-import { ethers } from "ethers";
+import { providers } from "ethers";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 
@@ -38,7 +38,7 @@ import * as styles from "components/views/Stake/styles";
 import { Trans, defineMessage } from "@lingui/macro";
 
 interface Props {
-  provider?: ethers.providers.Web3Provider;
+  provider?: providers.Web3Provider;
   address?: string;
   isConnected?: boolean;
   loadWeb3Modal: () => Promise<void>;

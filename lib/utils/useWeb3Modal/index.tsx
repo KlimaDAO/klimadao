@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ethers } from "ethers";
+import { providers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
@@ -122,7 +122,7 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   const connect = async () => {
     if (!web3Modal) return;
     const wrappedProvider = await web3Modal.connect();
-    const provider = new ethers.providers.Web3Provider(
+    const provider = new providers.Web3Provider(
       wrappedProvider
     ) as unknown as TypedProvider; // assert for better typings, see event handlers below
     const signer = provider.getSigner();

@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { utils } from "ethers";
 import { editPledgeMessage, verifyGnosisSignature } from ".";
 
 interface Params {
@@ -12,10 +12,7 @@ const verifyWalletSignature = (params: {
   signature: string;
   message: string;
 }) => {
-  const decodedAddress = ethers.utils.verifyMessage(
-    params.message,
-    params.signature
-  );
+  const decodedAddress = utils.verifyMessage(params.message, params.signature);
 
   if (decodedAddress.toLowerCase() !== params.address.toLowerCase()) {
     throw new Error("Invalid signature");

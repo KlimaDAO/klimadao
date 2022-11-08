@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ethers } from "ethers";
+import { utils } from "ethers";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
 import { t } from "@lingui/macro";
@@ -28,7 +28,7 @@ export const Pledge: NextPage = () => {
 
     const address = event.currentTarget.address.value;
 
-    if (ethers.utils.isAddress(address) || getIsDomainInURL(address)) {
+    if (utils.isAddress(address) || getIsDomainInURL(address)) {
       await router.push(`/pledge/${address}`);
     } else {
       setError(true);

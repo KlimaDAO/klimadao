@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { utils, providers } from "ethers";
 import { Thunk } from "state";
 import { setCarbonRetiredBalances, updateAllowances } from "state/user";
 import { getJsonRpcProvider, getTransactionOptions } from "@klimadao/lib/utils";
@@ -103,7 +103,7 @@ export const getOffsetConsumptionCost = async (params: {
     contractName: "retirementAggregator",
     provider: getJsonRpcProvider(),
   });
-  const parsed = ethers.utils.parseUnits(
+  const parsed = utils.parseUnits(
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
@@ -175,7 +175,7 @@ export const retireCarbonTransaction = async (params: {
       txn = await retireContract.retireCarbonSpecific(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
-        ethers.utils.parseUnits(
+        utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
@@ -190,7 +190,7 @@ export const retireCarbonTransaction = async (params: {
       txn = await retireContract.retireCarbon(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
-        ethers.utils.parseUnits(
+        utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),

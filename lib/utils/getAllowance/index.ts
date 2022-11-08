@@ -1,4 +1,4 @@
-import { BigNumber, ethers } from "ethers";
+import { BigNumber, Contract } from "ethers";
 import { addresses, allowancesContracts } from "../../constants";
 import { getTokenDecimals, formatUnits } from "../";
 import {
@@ -15,7 +15,7 @@ export const isSpenderInAddresses = (spender: string): boolean => {
 };
 
 export const getAllowance = async (params: {
-  contract: ethers.Contract;
+  contract: Contract;
   address: string;
   spender: AllowancesSpender;
   token: AllowancesToken;
