@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import { verifyMarketplaceUser } from "@klimadao/lib/utils";
+import { marketplace } from "@klimadao/lib/constants";
 
 export interface APIDefaultResponse {
   message: string;
@@ -11,22 +11,23 @@ const verifyUser: NextApiHandler<
   switch (req.method) {
     case "POST":
       try {
-        console.log("API VERIFY body", req.body);
-
         if (!req.body.wallet && !req.body.signature) {
           return res
             .status(400)
             .json({ message: "Bad request! Wallet or Signature is missing" });
         }
 
-        const response = await verifyMarketplaceUser({
-          wallet: req.body.wallet,
-          signature: req.body.signature,
+        const result = await fetch(`${marketplace.users}/login/verify`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(req.body),
         });
 
-        console.log("response", response);
+        const json = await result.json();
 
-        return res.status(200).json(response);
+        return res.status(200).json(json);
       } catch ({ message }) {
         console.error("Request failed:", message);
         res.status(500).json({ message: "Internal server error" });

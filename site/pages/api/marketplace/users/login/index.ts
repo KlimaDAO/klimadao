@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import { loginMarketplaceUser } from "@klimadao/lib/utils";
+import { marketplace } from "@klimadao/lib/constants";
 
 export interface APIDefaultResponse {
   message: string;
@@ -11,19 +11,21 @@ const loginUser: NextApiHandler<
   switch (req.method) {
     case "POST":
       try {
-        console.log("API LOGIN body", req.body);
-
         if (!req.body.wallet) {
           return res
             .status(400)
             .json({ message: "Bad request! Wallet is missing" });
         }
 
-        const response = await loginMarketplaceUser({
-          wallet: req.body.wallet,
+        const result = await fetch(`${marketplace.users}/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(req.body),
         });
 
-        return res.status(200).json(response);
+        const json = await result.json();
+
+        return res.status(200).json(json);
       } catch ({ message }) {
         console.error("Request failed:", message);
         res.status(500).json({ message: "Internal server error" });

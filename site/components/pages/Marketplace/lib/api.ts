@@ -34,12 +34,10 @@ export const verifyUser = async (params: {
     }),
   });
 
-  console.log("verifyUser", res);
-
   try {
     const data = await res.json();
+
     if (res.status !== 200 || !data.token) {
-      console.log("data", data);
       throw new Error(data.message);
     }
     return data;

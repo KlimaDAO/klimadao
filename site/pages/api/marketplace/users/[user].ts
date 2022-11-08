@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import { updateMarketplaceUser } from "@klimadao/lib/utils";
+import { marketplace } from "@klimadao/lib/constants";
 import { User } from "@klimadao/lib/types/marketplace";
 
 export interface APIDefaultResponse {
@@ -13,7 +13,6 @@ const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
   switch (req.method) {
     case "PUT":
       try {
-        console.log("API UPDATE body", req.body);
         const token = req.headers.authorization?.split(" ")[1];
 
         if (!token) {
@@ -26,9 +25,18 @@ const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Bad request! Handle or Wallet is missing" });
         }
 
-        const response = await updateMarketplaceUser(req.body, req.headers);
+        const result = await fetch(`${marketplace.users}/${req.body.wallet}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(req.body),
+        });
 
-        return res.status(200).json(response);
+        const json = await result.json();
+
+        return res.status(200).json(json);
       } catch ({ message }) {
         console.error("Request failed:", message);
         res.status(500).json({ message: "Internal server error" });

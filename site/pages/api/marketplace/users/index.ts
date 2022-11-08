@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import { createMarketplaceUser } from "@klimadao/lib/utils";
+import { marketplace } from "@klimadao/lib/constants";
 import { User } from "@klimadao/lib/types/marketplace";
 
 export interface APIDefaultResponse {
@@ -13,11 +13,9 @@ const createUser: NextApiHandler<User | APIDefaultResponse> = async (
   switch (req.method) {
     case "POST":
       try {
-        console.log("API CREATE body", req.body);
+        const token = req.headers.authorization?.split(" ")[1];
 
-        const signature = req.headers.authorization?.split(" ")[1];
-
-        if (!signature) {
+        if (!token) {
           return res.status(400).json({ message: "Bad request" });
         }
 
@@ -27,9 +25,18 @@ const createUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Bad request! Handle or Wallet is missing" });
         }
 
-        const response = await createMarketplaceUser(req.body, req.headers);
+        const result = await fetch(`${marketplace.users}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(req.body),
+        });
 
-        return res.status(200).json(response);
+        const json = await result.json();
+
+        return res.status(200).json(json);
       } catch ({ message }) {
         console.error("Request failed:", message);
         res.status(500).json({ message: "Internal server error" });
