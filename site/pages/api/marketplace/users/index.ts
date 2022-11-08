@@ -27,7 +27,7 @@ const createUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Bad request! Handle or Wallet is missing" });
         }
 
-        const response = await createMarketplaceUser(req.body);
+        const response = await createMarketplaceUser(req.body, req.headers);
 
         return res.status(200).json(response);
       } catch ({ message }) {

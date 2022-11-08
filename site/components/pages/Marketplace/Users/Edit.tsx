@@ -52,19 +52,29 @@ export const EditProfile: FC<Props> = (props) => {
       const loginRes = await loginUser(address);
 
       if (!signer) return;
-      const signature = await signer.signMessage(
-        editSignMessage(loginRes.nonce)
-      );
+      const signature = await signer.signMessage(loginRes.nonce); // TODO: add string and give to API developers
 
-      const token = await verifyUser({ address, signature: signature });
+      console.log("signature", signature);
 
-      console.log("token", token);
+      const verifyResponse = await verifyUser({
+        address,
+        signature: signature,
+      });
+
+      console.log("token", verifyResponse.token);
 
       let response;
+      console.log("isExistingUser", isExistingUser);
       if (isExistingUser) {
-        response = await putUser({ user: values, signature });
+        response = await putUser({
+          user: values,
+          token: verifyResponse.token,
+        });
       } else {
-        response = await postUser({ user: values, signature });
+        response = await postUser({
+          user: values,
+          token: verifyResponse.token,
+        });
       }
 
       if (response) {

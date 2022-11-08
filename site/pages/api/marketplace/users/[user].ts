@@ -14,9 +14,9 @@ const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
     case "PUT":
       try {
         console.log("API UPDATE body", req.body);
-        const signature = req.headers.authorization?.split(" ")[1];
+        const token = req.headers.authorization?.split(" ")[1];
 
-        if (!signature) {
+        if (!token) {
           return res.status(400).json({ message: "Bad request" });
         }
 
@@ -26,7 +26,7 @@ const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Bad request! Handle or Wallet is missing" });
         }
 
-        const response = await updateMarketplaceUser(req.body);
+        const response = await updateMarketplaceUser(req.body, req.headers);
 
         return res.status(200).json(response);
       } catch ({ message }) {

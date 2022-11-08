@@ -22,7 +22,7 @@ export const loginUser = async (wallet: string): Promise<{ nonce: string }> => {
 export const verifyUser = async (params: {
   address: string;
   signature: string;
-}): Promise<{ nonce: string }> => {
+}): Promise<{ token: string }> => {
   const res = await fetch("/api/marketplace/users/login/verify", {
     method: "POST",
     headers: {
@@ -38,26 +38,26 @@ export const verifyUser = async (params: {
 
   try {
     const data = await res.json();
-    if (res.status !== 200 || !data.handle) {
+    if (res.status !== 200 || !data.token) {
       console.log("data", data);
       throw new Error(data.message);
     }
     return data;
   } catch (e) {
-    console.error("Erro verifyUser", e);
-    throw new Error("Erro verifyUser");
+    console.error("Error verifyUser", e);
+    throw new Error("Error verifyUser");
   }
 };
 
 export const putUser = async (params: {
   user: User;
-  signature: string;
+  token: string;
 }): Promise<User> => {
   const res = await fetch(`/api/marketplace/users/${params.user.wallet}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${params.signature}`,
+      Authorization: `Bearer ${params.token}`,
     },
     body: JSON.stringify(params.user),
   });
@@ -72,13 +72,13 @@ export const putUser = async (params: {
 
 export const postUser = async (params: {
   user: User;
-  signature: string;
+  token: string;
 }): Promise<User> => {
   const res = await fetch(`/api/marketplace/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${params.signature}`,
+      Authorization: `Bearer ${params.token}`,
     },
     body: JSON.stringify(params.user),
   });

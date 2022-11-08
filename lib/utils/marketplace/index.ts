@@ -80,16 +80,22 @@ export const verifyMarketplaceUser = async (params: {
   }
 };
 
-export const createMarketplaceUser = async (params: {
-  handle: string;
-  username: string;
-  description?: string;
-  wallet: string;
-}): Promise<User> => {
+export const createMarketplaceUser = async (
+  params: {
+    handle: string;
+    username: string;
+    description?: string;
+    wallet: string;
+  },
+  headers: Record<string, unknown>
+): Promise<User> => {
   try {
     const result = await fetch(`${marketplace.users}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...headers,
+      },
       body: JSON.stringify(params),
     });
     const json = await result.json();
@@ -100,16 +106,22 @@ export const createMarketplaceUser = async (params: {
   }
 };
 
-export const updateMarketplaceUser = async (params: {
-  handle: string;
-  username: string;
-  description?: string;
-  wallet: string;
-}): Promise<User> => {
+export const updateMarketplaceUser = async (
+  params: {
+    handle: string;
+    username: string;
+    description?: string;
+    wallet: string;
+  },
+  headers: Record<string, unknown>
+): Promise<User> => {
   try {
     const result = await fetch(`${marketplace.users}/${params.wallet}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...headers,
+      },
       body: JSON.stringify(params),
     });
     const json = await result.json();
