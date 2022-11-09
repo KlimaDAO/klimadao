@@ -118,18 +118,16 @@ export const PledgeForm: FC<Props> = (props) => {
     let isDuplicate = false;
     // TODO: make this work
     wallets.map((wallet) => {
-      if (
-        wallets.filter(
-          (w) =>
-            (w.status === "pending" || w.status === "verified") &&
-            wallet.address === w.address
-        ).length > 1
-      ) {
+      const duplicates = wallets.filter(
+        (w) =>
+          (w.status === "pending" || w.status === "verified") &&
+          wallet.address === w.address
+      );
+      if (duplicates.length > 1) {
         isDuplicate = true;
       }
     });
-    console.log(isDuplicate, "rememeber to fix isDuplicateWallet");
-    return false;
+    return isDuplicate;
   };
 
   const onSubmit: SubmitHandler<PledgeFormValues> = async (
@@ -141,7 +139,12 @@ export const PledgeForm: FC<Props> = (props) => {
       if (checkDuplicateWallets(values.wallets as Wallet[])) {
         setSubmitting(false);
         setServerError(true);
-        setErrorMessage("Please remove the duplicate wallet(s)");
+        setErrorMessage(
+          t({
+            id: "pledge.form.error.duplicate_wallets",
+            message: "Please remove the duplicate wallet(s)",
+          })
+        );
         return;
       }
       if (!signer) return;
@@ -156,22 +159,31 @@ export const PledgeForm: FC<Props> = (props) => {
         });
       }
 
-      const response = await putPledge({
+      const data = await putPledge({
         pageAddress: props.pageAddress,
         pledge: values,
         signature,
         urlPath: `/pledge/${query.address}`,
       });
-      const data = await response.json();
       if (data.pledge) {
         props.onFormSubmit(data.pledge);
       } else {
         setServerError(true);
       }
       setSubmitting(false);
-    } catch (error: unknown) {
-      console.log(error);
-      setErrorMessage(error.message);
+    } catch (error: any) {
+      // metamask throws very unreadable errors that are uint arrays so we check that the error message is a string first
+      if (error.message instanceof String) {
+        setErrorMessage(error.message);
+      } else {
+        setErrorMessage(
+          t({
+            id: "pledge.form.error.default_error_message",
+            message: "Something went wrong. Please try again shortly.",
+          })
+        );
+      }
+
       setServerError(true);
       setSubmitting(false);
     }
@@ -335,6 +347,7 @@ export const PledgeForm: FC<Props> = (props) => {
                     </div>
                   )}
                   {wallet.saved &&
+                    wallet.address &&
                     !errors.wallets?.[index]?.address?.message &&
                     wallet.status !== "rejected" && (
                       <>
@@ -357,7 +370,7 @@ export const PledgeForm: FC<Props> = (props) => {
                           onClick={() => {
                             props.setIsDeleteMode(true);
                             setSelectedAddress({
-                              address: wallet.address,
+                              address: wallet.address as string,
                               index: index,
                             });
                           }}

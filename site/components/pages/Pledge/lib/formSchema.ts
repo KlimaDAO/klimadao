@@ -98,7 +98,8 @@ export const formSchema = yup
         address: yup
           .string()
           .required("pledges.form.errors.walletAddress.required")
-          .trim(),
+          .trim()
+          .isAddress("pledges.form.errors.walletAddress.isAddress"),
         status: yup.string().required(),
         saved: yup.boolean().required(),
       })
