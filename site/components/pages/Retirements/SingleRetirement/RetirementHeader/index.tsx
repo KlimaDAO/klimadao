@@ -5,6 +5,7 @@ import { FC, ReactNode } from "react";
 
 import leafImage from "public/leaf.svg";
 import greenHills from "public/green_hills.png";
+import { getImageSizes } from "@klimadao/lib/utils";
 
 type Props = {
   overline: ReactNode;
@@ -20,6 +21,8 @@ export const RetirementHeader: FC<Props> = (props) => {
         src={greenHills}
         layout="fill"
         objectFit="cover"
+        sizes={getImageSizes({ large: "1072px" })}
+        placeholder="blur"
       />
       <div className={styles.imageGradient}></div>
       <div className="stack">
