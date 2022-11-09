@@ -87,6 +87,8 @@ export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
       categories,
       params.newPledgeValues.footprint
     ),
-    wallets: formatWalletsForApi(params.newPledgeValues.wallets),
+    wallets: formatWalletsForApi(
+      params.newPledgeValues.wallets as unknown as Wallet[]
+    ),
   };
 };
