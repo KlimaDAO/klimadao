@@ -151,6 +151,7 @@ export const useWeb3Modal = (): Web3ModalState => {
       console.log(provider);
 
       await provider.enable();
+      await provider.send("eth_requestAccounts", []);
       const signer = await provider.getSigner();
       const address = await signer.getAddress();
       const network = await provider.provider.getNetwork();
