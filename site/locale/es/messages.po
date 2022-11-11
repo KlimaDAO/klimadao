@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-10 15:41+0000\n"
+"POT-Creation-Date: 2022-11-11 18:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -939,15 +939,15 @@ msgstr "{0} Toneladas de carbono"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:73
 msgid "pledges.dashboard.head.metaDescription"
-msgstr ""
+msgstr "{pledgeOwnerTitle} se compromete a compensar {currentTotalFootprint} toneladas de carbono. Vea su historial de compensación de carbono y lea más sobre su compromiso."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:69
 msgid "pledges.dashboard.head.metaTitle"
-msgstr ""
+msgstr "Compromiso de {pledgeOwnerTitle}"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:65
 msgid "pledges.dashboard.head.title"
-msgstr ""
+msgstr "Compromiso de {pledgeOwnerTitle} | KlimaDAO"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
@@ -1259,7 +1259,7 @@ msgstr "Podcast"
 
 #: components/pages/Resources/SortyByDropDown/index.tsx:61
 msgid "resources.list.select.sort_by.toggle"
-msgstr ""
+msgstr "Activar la clasificación por menú"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:155
 msgid "resources.list.sort_by.a-z"
@@ -1299,7 +1299,7 @@ msgstr "Explorar todo"
 
 #: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "Lo sentimos. No hemos podido encontrar ningún resultado que coincida."
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
@@ -1311,7 +1311,7 @@ msgstr "Por favor, utilice una combinación de filtros diferente."
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr ""
+msgstr "Compruebe si hay errores tipográficos en su búsqueda o pruebe con otro término de búsqueda."
 
 #: components/pages/Retirements/Footer/index.tsx:26
 msgid "retirement.footer.aboutKlima.left"
@@ -1565,7 +1565,7 @@ msgstr "Aviso legal"
 #: components/Navigation/index.tsx:213
 #: components/Navigation/index.tsx:368
 msgid "shared.docs"
-msgstr ""
+msgstr "Documentos oficiales"
 
 #: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:114
@@ -1661,7 +1661,7 @@ msgstr "Stake KLIMA"
 #: components/Navigation/index.tsx:342
 #: components/pages/Blog/Post/index.tsx:72
 msgid "shared.updates"
-msgstr ""
+msgstr "Actualizaciones"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
