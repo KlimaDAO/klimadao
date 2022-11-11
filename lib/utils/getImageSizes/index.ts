@@ -1,4 +1,4 @@
-import { breakpointsInEm } from "@klimadao/lib/theme/breakpoints";
+import { breakpoints } from "@klimadao/lib/theme/breakpoints";
 
 type BreakpointName = "small" | "medium" | "large" | "desktop" | "desktopLarge";
 
@@ -17,7 +17,7 @@ export const getImageSizes = (
   return breakpointNames.reduce((prevStr, breakpointName) => {
     if (params[breakpointName]) {
       // if an override exists, prepend it to the size query
-      return `(min-width: ${breakpointsInEm[breakpointName]}em) ${params[breakpointName]}, ${prevStr}`;
+      return `(min-width: ${breakpoints[breakpointName]}px) ${params[breakpointName]}, ${prevStr}`;
     } else {
       return prevStr;
     }

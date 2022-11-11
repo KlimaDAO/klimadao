@@ -7,6 +7,8 @@ const IS_PRODUCTION = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 module.exports = async (phase, { defaultConfig }) => {
   const getLocales = (await import("../lib/out/utils/getLocales/index.js"))
     .getLocales;
+  const deviceSizes = (await import("../lib/out/theme/breakpoints.js"))
+    .deviceSizes;
 
   const nextConfig = {
     reactStrictMode: true,
@@ -92,6 +94,7 @@ module.exports = async (phase, { defaultConfig }) => {
     },
     images: {
       domains: ["cdn.sanity.io"],
+      deviceSizes,
     },
   };
   return withBundleAnalyzer({

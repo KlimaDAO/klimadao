@@ -1,16 +1,16 @@
 /* em units inside media queries take browser default (16px) */
 
-export const breakpointsInEm = {
+export const breakpoints = {
   /** 23.5em, 376px */
-  small: 23.5,
+  small: 376,
   /** 36em, 576px */
-  medium: 36,
+  medium: 576,
   /**  48em, 768px */
-  large: 48,
+  large: 768,
   /** 62em, 992px */
-  desktop: 62,
+  desktop: 992,
   /** 75em, 1200px */
-  desktopLarge: 75,
+  desktopLarge: 1200,
 };
 
 export default {
