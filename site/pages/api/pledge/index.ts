@@ -22,9 +22,11 @@ export default async function handler(
         });
 
         if (!pledge) {
-          throw new Error(
+          const e = new Error(
             `Failed put pledge request (address: ${req.body.pageAddress})`
           );
+          e.name = "FailedRequest";
+          throw e;
         }
 
         await res.revalidate(req.body.urlPath);
@@ -38,14 +40,20 @@ export default async function handler(
             return res.status(500).json({ message: e.message, name: e.name });
           }
         } else {
-          return res
-            .status(500)
-            .json({ message: "Unknown error, check server logs" });
+          return res.status(500).json({
+            message: "Unknown error, check server logs",
+            name: "UnknownError",
+          });
         }
       }
       break;
     default:
       res.setHeader("Allow", ["PUT"]);
-      res.status(405).end(`Method ${req.method} Not Allowed`);
+      res
+        .status(405)
+        .end({
+          message: `Method ${req.method} Not Allowed`,
+          name: "MethodNotAllowed",
+        });
   }
 }

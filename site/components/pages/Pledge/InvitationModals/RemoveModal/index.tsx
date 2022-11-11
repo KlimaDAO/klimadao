@@ -10,10 +10,7 @@ import {
 import { Modal } from "components/Modal";
 import * as styles from "../styles";
 import { t, Trans } from "@lingui/macro";
-import {
-  editPledgeMessage,
-  removeSecondaryWallet,
-} from "../../lib/editPledgeMessage";
+import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
 import { Pledge } from "../../types";
 import { useWeb3 } from "@klimadao/lib/utils";
 import {
@@ -21,6 +18,7 @@ import {
   pledgeFormAdapter,
   waitForGnosisSignature,
 } from "../../lib";
+import { getErrorMessage } from "../../PledgeForm";
 
 type Props = {
   setShowRemoveModal: (value: boolean) => void;
@@ -33,7 +31,7 @@ type Step = "remove" | "confirm" | "error" | "loading" | "signing";
 
 export const RemoveModal = (props: Props) => {
   const [step, setStep] = useState<Step>("remove");
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const getTitle = (step: string) =>
     ({
       remove: t({ id: "pledge.modal.edit_pledge", message: "Edit pledge" }),
@@ -64,7 +62,7 @@ export const RemoveModal = (props: Props) => {
       setStep("loading");
       if (signature === "0x") {
         await waitForGnosisSignature({
-          message: editPledgeMessage(props.pledge.nonce),
+          message: params.message,
           address: props.pageAddress,
         });
       }
@@ -78,15 +76,8 @@ export const RemoveModal = (props: Props) => {
       props.setShowRemoveModal(false);
     } catch (e: any) {
       setStep("error");
-      setErrorMessage(
-        e.message ??
-          t({
-            id: "pledge.modal.default_error_message",
-            message:
-              "Something went wrong on our end. Please try again in a few minutes",
-          })
-      );
       console.log("error:", e);
+      setErrorMessage(getErrorMessage(e.name));
     }
   };
   return (

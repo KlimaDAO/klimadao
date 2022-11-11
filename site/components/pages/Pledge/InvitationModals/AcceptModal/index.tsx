@@ -11,7 +11,6 @@ import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { Modal } from "components/Modal";
 import {
   approveSecondaryWallet,
-  editPledgeMessage,
   removeSecondaryWallet,
 } from "../../lib/editPledgeMessage";
 import { Pledge } from "../../types";
@@ -21,7 +20,7 @@ import {
   waitForGnosisSignature,
 } from "../../lib";
 import * as styles from "../styles";
-
+import { getErrorMessage } from "../../PledgeForm";
 type Props = {
   setShowAcceptModal: (value: boolean) => void;
   showAcceptModal: boolean;
@@ -32,7 +31,7 @@ type Step = "accept" | "confirm" | "error" | "loading" | "signing";
 
 export const AcceptModal = (props: Props) => {
   const [step, setStep] = useState<Step>("accept");
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const shortenedAddress = concatAddress(props.pledge.ownerAddress);
 
   const getTitle = (step: string) =>
@@ -68,7 +67,7 @@ export const AcceptModal = (props: Props) => {
       setStep("loading");
       if (signature === "0x") {
         await waitForGnosisSignature({
-          message: editPledgeMessage(props.pledge.nonce),
+          message: params.message,
           address: props.pageAddress,
         });
       }
@@ -81,16 +80,8 @@ export const AcceptModal = (props: Props) => {
       });
       props.setShowAcceptModal(false);
     } catch (e: any) {
-      console.log("error:", e);
       setStep("error");
-      setErrorMessage(
-        e.message ??
-          t({
-            id: "pledge.modal.default_error_message",
-            message:
-              "Something went wrong on our end. Please try again in a few minutes",
-          })
-      );
+      setErrorMessage(getErrorMessage(e.name));
       console.log("error:", e);
     }
   };

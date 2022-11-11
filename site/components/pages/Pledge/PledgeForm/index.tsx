@@ -70,6 +70,44 @@ type Props = {
   setIsDeleteMode: (value: boolean) => void;
 };
 
+export const getErrorMessage = (errorName: string) => {
+  const errorMessage = {
+    WalletAlreadyPinned: t({
+      id: "pledge.invitation.error.wallet_already_pinned",
+      message:
+        "This wallet is already pinned to another pledge. Please unpin your wallet and try again.",
+    }),
+    PledgeNotFound: t({
+      id: "pledge.errors.pledge_not_found",
+      message: "A pledge was not found for this address.",
+    }),
+    Default: t({
+      id: "pledge.errors.default",
+      message: "An error has occured",
+    }),
+    FailedRequest: t({
+      id: "pledge.errors.default",
+      message: "An error has occured",
+    }),
+    UnknownError: t({
+      id: "pledge.errors.unknown_error",
+      message: "An unknown error has occured.",
+    }),
+    MethodNotAllowed: t({
+      id: "pledge.errors.method_not_allowed",
+      message: "Method not allowed.",
+    }),
+  }[errorName];
+
+  return (
+    errorMessage ??
+    t({
+      id: "pledge.errors.default",
+      message: "An error has occured",
+    })
+  );
+};
+
 export const PledgeForm: FC<Props> = (props) => {
   const [serverError, setServerError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -172,9 +210,8 @@ export const PledgeForm: FC<Props> = (props) => {
       }
       setSubmitting(false);
     } catch (error: any) {
-      // metamask throws very unreadable errors that are uint arrays so we check that the error message is a string first
-      if (error.message instanceof String) {
-        setErrorMessage(error.message);
+      if (error instanceof Error) {
+        setErrorMessage(getErrorMessage(error.name));
       } else {
         setErrorMessage(
           t({

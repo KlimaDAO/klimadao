@@ -1,4 +1,4 @@
-import { PledgeFormValues } from "../types";
+import { Pledge, PledgeFormValues } from "../types";
 
 export interface putPledgeParams {
   pledge: PledgeFormValues;
@@ -8,8 +8,14 @@ export interface putPledgeParams {
   urlPath: string;
 }
 
-export const putPledge = async (params: putPledgeParams) => {
-  const res: any = await fetch("/api/pledge", {
+export type PutPledgeResponse = {
+  pledge: Pledge;
+};
+
+export const putPledge = async (
+  params: putPledgeParams
+): Promise<PutPledgeResponse> => {
+  const res = await fetch("/api/pledge", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -27,6 +33,7 @@ export const putPledge = async (params: putPledgeParams) => {
     throw new Error(error.message);
   } else {
     const data = await res.json();
+    console.log("data", data, typeof data);
     return data;
   }
 };
