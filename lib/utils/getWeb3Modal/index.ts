@@ -1,23 +1,21 @@
-import Web3Modal from "web3modal";
+import web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
+import coinbaseWalletSDK from "@coinbase/wallet-sdk";
 import Torus from "@toruslabs/torus-embed";
 import { urls } from "../../constants";
 import { Web3ModalStrings } from "../../components/Web3Context/types";
 
+// BUG: @klimadao/lib transpilation does not properly re-export the Web3Modal or coinbase libraries, probably because we don't use babel in here.
+// Babel automatically adds a default export for interoperability reasons, which is why this isn't a problem in /site and /app (nextjs uses babel)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Web3Modal: typeof web3Modal = (web3Modal as any).default;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const CoinbaseWallet: typeof coinbaseWalletSDK = (coinbaseWalletSDK as any)
+  .default;
+
 /** NOTE: only invoke client-side */
-const createLazyWeb3Modal = async (
-  strings: Web3ModalStrings
-): Promise<Web3Modal> => {
-  // BUG: @klimadao/lib transpilation does not properly re-export the Web3Modal or coinbase libraries, probably because we don't use babel in here.
-  // Babel automatically adds a default export for interoperability reasons, which is why this isn't a problem in /site and /app (nextjs uses babel)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const untypedWeb3Modal = Web3Modal as any;
-  const untypedCoinbase = CoinbaseWalletSDK as any;
-  const TypedWeb3Modal = untypedWeb3Modal.default as typeof Web3Modal;
-  const TypedCoinbaseWallet =
-    untypedCoinbase.default as typeof CoinbaseWalletSDK;
-  return new TypedWeb3Modal({
+export const getWeb3Modal = (strings: Web3ModalStrings) =>
+  new Web3Modal({
     cacheProvider: true,
     providerOptions: {
       walletconnect: {
@@ -30,7 +28,7 @@ const createLazyWeb3Modal = async (
         },
       },
       coinbasewallet: {
-        package: TypedCoinbaseWallet, // Required
+        package: CoinbaseWallet, // Required
         options: {
           appName: "KlimaDAO App", // Required
           rpc: urls.polygonMainnetRpc, // Optional if `infuraId` is provided; otherwise it's required
@@ -66,6 +64,3 @@ const createLazyWeb3Modal = async (
       },
     },
   });
-};
-
-export default createLazyWeb3Modal;

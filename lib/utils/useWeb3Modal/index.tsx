@@ -30,9 +30,7 @@ export const useWeb3Modal = (strings: Web3ModalStrings): Web3ModalState => {
   };
 
   const downloadModal = async () => {
-    const createLazyWeb3Modal = (await import("../createLazyWeb3Modal"))
-      .default;
-    const newModal = await createLazyWeb3Modal(strings);
+    const newModal = (await import("../getWeb3Modal")).getWeb3Modal(strings);
     setPrevStrings(strings);
     return newModal;
   };
