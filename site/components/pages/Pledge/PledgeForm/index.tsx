@@ -184,6 +184,22 @@ export const PledgeForm: FC<Props> = (props) => {
         );
         return;
       }
+      if (
+        values.wallets &&
+        values.wallets?.filter(
+          (wallet) => wallet.address === values.ownerAddress
+        ).length > 0
+      ) {
+        setSubmitting(false);
+        setServerError(true);
+        setErrorMessage(
+          t({
+            id: "pledge.form.error.cannot_add_yourself",
+            message: "You cannot add your own wallet as a secondary wallet",
+          })
+        );
+        return;
+      }
       if (!signer) return;
       const signature = await signer.signMessage(
         editPledgeMessage(values.nonce)
