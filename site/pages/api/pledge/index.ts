@@ -49,11 +49,9 @@ export default async function handler(
       break;
     default:
       res.setHeader("Allow", ["PUT"]);
-      res
-        .status(405)
-        .end({
-          message: `Method ${req.method} Not Allowed`,
-          name: "MethodNotAllowed",
-        });
+      res.status(405).end({
+        message: `Method ${req.method} Not Allowed`,
+        name: "MethodNotAllowed",
+      });
   }
 }
