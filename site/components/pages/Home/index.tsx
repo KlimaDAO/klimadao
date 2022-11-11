@@ -12,6 +12,7 @@ import {
   ButtonSecondary,
   Text,
 } from "@klimadao/lib/components";
+import { getImageSizes } from "@klimadao/lib/utils";
 
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
@@ -123,6 +124,7 @@ export const Home: NextPage<Props> = (props) => {
                 layout="fill"
                 objectFit="cover"
                 placeholder="blur"
+                sizes={getImageSizes({ large: "524px" })}
               />
             </div>
           </div>

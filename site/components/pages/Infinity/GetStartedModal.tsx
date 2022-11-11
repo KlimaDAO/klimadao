@@ -10,6 +10,7 @@ import net from "public/net.jpg";
 import building from "public/building.jpg";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import * as styles from "./styles";
+import { getImageSizes } from "@klimadao/lib/utils";
 
 interface Props {
   showModal: boolean;
@@ -37,6 +38,8 @@ const GetStartedModal = (props: Props) => {
               objectFit="cover"
               alt="building windows"
               className="image"
+              sizes={getImageSizes({ large: "486px" })}
+              placeholder="blur"
             />
             <Text t="h3" className="text">
               <Trans id="infinity.getStartedModal_business">
@@ -56,6 +59,8 @@ const GetStartedModal = (props: Props) => {
               objectFit="cover"
               alt="hiker"
               className="image"
+              sizes={getImageSizes({ large: "486px" })}
+              placeholder="blur"
             />
             <Text t="h3" className="text">
               <Trans id="infinity.getStartedModal_individual">
@@ -76,6 +81,8 @@ const GetStartedModal = (props: Props) => {
               objectFit="cover"
               alt="net"
               className="image"
+              sizes={getImageSizes({ large: "486px" })}
+              placeholder="blur"
             />
             <Text t="h3" className="text">
               <Trans id="infinity.getStartedModal_offsetCrypto">
