@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-11 18:16+0000\n"
+"POT-Creation-Date: 2022-11-11 23:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Change language"
 msgstr "Sprache wechseln"
 
-#: components/pages/Buy/index.tsx:272
+#: components/pages/Buy/index.tsx:275
 msgid "Enter App"
 msgstr "App öffnen"
 
@@ -48,13 +48,13 @@ msgstr "Kopiert"
 msgid "button.copyURL.copy"
 msgstr "URL kopieren"
 
-#: components/pages/Buy/index.tsx:131
-#: components/pages/Buy/index.tsx:250
+#: components/pages/Buy/index.tsx:132
+#: components/pages/Buy/index.tsx:253
 msgid "buy.advanced"
 msgstr "Experten"
 
-#: components/pages/Buy/index.tsx:86
-#: components/pages/Buy/index.tsx:172
+#: components/pages/Buy/index.tsx:87
+#: components/pages/Buy/index.tsx:173
 msgid "buy.beginner"
 msgstr "Anfänger"
 
@@ -110,75 +110,75 @@ msgstr "Da du jetzt sowohl KLIMA als auch MATIC in deiner Wallet hast, kannst du
 msgid "buy.beginner_05.title"
 msgstr "Staken, ausgleichen, mitmachen!"
 
-#: components/pages/Buy/index.tsx:128
-#: components/pages/Buy/index.tsx:253
+#: components/pages/Buy/index.tsx:129
+#: components/pages/Buy/index.tsx:256
 msgid "buy.bonding"
 msgstr "Bonding"
 
-#: components/pages/Buy/index.tsx:256
+#: components/pages/Buy/index.tsx:259
 msgid "buy.bonding.description_01"
 msgstr "Durch Bonding verkaufst du CO2-Assets an die Schatzkammer und erhältst dafür KLIMA-Tokens. Dadurch absorbiert die Klima-Schatzkammer CO2-Zertifikate und beeinflusst den Klimawandel positiv. Durch Bonding wird außerdem das KLIMA-Token gedeckt."
 
-#: components/pages/Buy/index.tsx:264
+#: components/pages/Buy/index.tsx:267
 msgid "buy.bonding.description_02"
 msgstr "Der Rabatt variiert je nach aktueller Marktlage. Die Schatzkammer akzeptiert CO2 in Form von CO2-Tokens (wie UBO, BCT oder MCO2) oder Liquidity-Pool-Tokens (LP-Tokens) wie KLIMA/BCT und KLIMA/MCO2."
 
-#: components/pages/Buy/index.tsx:83
-#: components/pages/Buy/index.tsx:175
+#: components/pages/Buy/index.tsx:84
+#: components/pages/Buy/index.tsx:176
 msgid "buy.credit_card"
 msgstr "Kreditkarte"
 
-#: components/pages/Buy/index.tsx:178
+#: components/pages/Buy/index.tsx:179
 msgid "buy.credit_card.summary"
 msgstr "Du kannst jetzt deine Kreditkarte nutzen, um KLIMA zu kaufen und direkt in deine Wallet zu transferieren! Unsere Zahlungspartner unterstützen die meisten großen Währungen."
 
-#: components/pages/Buy/index.tsx:104
+#: components/pages/Buy/index.tsx:105
 msgid "buy.decentralized_exchange"
 msgstr "Dezentralisierte Börse"
 
-#: components/pages/Buy/index.tsx:206
+#: components/pages/Buy/index.tsx:208
 msgid "buy.dex"
 msgstr "Dezentralisierte Börsen (DEXs)"
 
-#: components/pages/Buy/index.tsx:237
+#: components/pages/Buy/index.tsx:240
 msgid "buy.dex.how_zapper"
 msgstr "Wie kaufe ich KLIMA via Zapper?"
 
-#: components/pages/Buy/index.tsx:210
+#: components/pages/Buy/index.tsx:212
 msgid "buy.dex.summary_01"
 msgstr "Solltest du bereits eine Polygon-Wallet und MATIC-Tokens haben, kannst du eine dezentralisierte Börse nutzen, um KLIMA zu kaufen. Dies verringert die Gebühren beim Kauf im Vergleich zu einer Kreditkarte und du bezahlst den bestmöglichen Preis."
 
-#: components/pages/Buy/index.tsx:217
+#: components/pages/Buy/index.tsx:219
 msgid "buy.dex.summary_02"
 msgstr "Du kannst KLIMA zwar bei <0>Sushi Swap</0> kaufen, aber wir empfehlen einen sogenannten DEX-Aggregator namens Zapper. Verbindest du deine Wallet mit Zapper, wird dein Kauf automatisch auf der günstigsten Börse abgewickelt."
 
-#: components/pages/Buy/index.tsx:142
+#: components/pages/Buy/index.tsx:143
 msgid "buy.disclaimer"
 msgstr "Sicherheitstipps & Haftungsausschluss"
 
-#: components/pages/Buy/index.tsx:147
+#: components/pages/Buy/index.tsx:148
 msgid "buy.disclaimer_01"
 msgstr "Teile deine Private Keys oder Seed Phrases niemals mit anderen. Wir empfehlen dir, einen Blick auf unsere Seite über <0>allgemeine Kryptosicherheit</0> (Englisch) zu werfen, bevor du loslegst."
 
-#: components/pages/Buy/index.tsx:157
+#: components/pages/Buy/index.tsx:158
 msgid "buy.disclaimer_02"
 msgstr "Blockchain-Transaktionen können nicht rückgängig gemacht werden. Unser Team kann verlorene oder gestohlene Assets nicht wiederherstellen. KlimaDAO übernimmt in diesen Fällen keine Verantwortung oder Haftung und bietet keine Garantien an. Alle Märkte und Börsen arbeiten unabhängig und mit hoher Volatilität."
 
-#: components/pages/Buy/index.tsx:44
 #: components/pages/Buy/index.tsx:45
+#: components/pages/Buy/index.tsx:46
 msgid "buy.head.title"
 msgstr "So kaufst du KLIMA"
 
-#: components/pages/Buy/index.tsx:109
-#: components/pages/Buy/index.tsx:203
+#: components/pages/Buy/index.tsx:110
+#: components/pages/Buy/index.tsx:205
 msgid "buy.intermediate"
 msgstr "Fortgeschrittene"
 
-#: components/pages/Buy/index.tsx:61
+#: components/pages/Buy/index.tsx:62
 msgid "buy.subtitle"
 msgstr "Du kannst dir Klima auf drei Arten holen: mit einer Kreditkarte, über eine dezentralisierte Börse (DEX) oder indem du CO2-Assets bondest."
 
-#: components/pages/Buy/index.tsx:58
+#: components/pages/Buy/index.tsx:59
 msgid "buy.title"
 msgstr "So kaufst du KLIMA"
 
@@ -521,20 +521,20 @@ msgstr "500 - Seite nicht gefunden"
 msgid "error.page.500.title"
 msgstr "500 - Seite nicht gefunden"
 
-#: components/pages/Home/index.tsx:234
+#: components/pages/Home/index.tsx:236
 msgid "home.backed_by_carbon"
 msgstr "Gedeckt durch CO2."
 
-#: components/pages/Home/index.tsx:325
+#: components/pages/Home/index.tsx:327
 msgid "home.cars_annual"
 msgstr "Autos (jährlich)"
 
-#: components/pages/Home/index.tsx:294
+#: components/pages/Home/index.tsx:296
 msgid "home.equivalent_to"
 msgstr "ENTSPRICHT"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:409
+#: components/pages/Home/index.tsx:411
 msgid "home.every_klima_token_is_backed"
 msgstr "Jedes KLIMA-Token ist von einem echten CO2-Zertifikat gedeckt. Diese Tokens werden genutzt, um CO2-Emissionen auszugleichen, mit DeFi-Applikationen zu interagieren und Zugang zum rasant wachsenden weltweiten CO2-Markt zu erhalten."
 
@@ -543,112 +543,112 @@ msgid "home.featured_on"
 msgstr "KlimaDAO in den Medien"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:106
+#: components/pages/Home/index.tsx:107
 msgid "home.fight_climate_change"
 msgstr "Bekämpfe den Klimawandel und erhalte Belohnungen durch KLIMA: eine digitale, durch reale CO2-Zertifikate gedeckte Währung."
 
-#: components/pages/Home/index.tsx:460
+#: components/pages/Home/index.tsx:462
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "Steige jetzt in die wachsende CO2-Wirtschaft ein. Kaufe, stake, und werde belohnt. Finanzieller Aktivismus für unseren Planeten."
 
-#: components/pages/Home/index.tsx:457
+#: components/pages/Home/index.tsx:459
 msgid "home.get_klima"
 msgstr "KLIMA KAUFEN"
 
-#: components/pages/Home/index.tsx:308
+#: components/pages/Home/index.tsx:310
 msgid "home.hectares_of_forest"
 msgstr "Hektar Wald"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:152
+#: components/pages/Home/index.tsx:154
 msgid "home.klima_defies_climate_change"
 msgstr "KlimaDAO ist DeFi gegen den Klimawandel"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:162
+#: components/pages/Home/index.tsx:164
 msgid "home.klima_is_the_center"
 msgstr "KlimaDAO ist das Zentrum einer neuen grünen Wirtschaft. Dafür nutzen wir das energieeffiziente Polygon-Netzwerk und viele neue Technologien, um Marktfragmentierung zu verringern und Nachhaltigkeitsprojekten schneller finanzielle Mittel bereitzustellen - weltweit."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:438
+#: components/pages/Home/index.tsx:440
 msgid "home.klima_tokens_are_minted"
 msgstr "KLIMA-Tokens werden ungefähr alle sieben Stunden neu generiert und an aktuelle sKLIMA-Besitzer verteilt. Gemeinsam errichten wir eine neue, nachhaltige Zukunft, während dein KLIMA-Vorrat wächst."
 
-#: components/pages/Home/index.tsx:82
+#: components/pages/Home/index.tsx:83
 msgid "home.latest_news"
 msgstr "📰 Aktuelle Blog-Posts (Englisch):"
 
-#: components/pages/Home/index.tsx:137
+#: components/pages/Home/index.tsx:139
 msgid "home.learn_more"
 msgstr "MEHR ERFAHREN"
 
-#: components/pages/Home/index.tsx:340
+#: components/pages/Home/index.tsx:342
 msgid "home.liters_if_gasoline"
 msgstr "Liter Benzin"
 
-#: components/pages/Home/index.tsx:270
+#: components/pages/Home/index.tsx:272
 msgid "home.massive impact"
 msgstr "Massive Auswirkung."
 
-#: components/pages/Home/index.tsx:208
+#: components/pages/Home/index.tsx:210
 msgid "home.mechanics"
 msgstr "MECHANISMUS"
 
 #. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:426
+#: components/pages/Home/index.tsx:428
 msgid "home.monthly_rewards_for_token_holders"
 msgstr "<0>{0} % MONATLICHE BELOHNUNGEN</0><1>FÜR TOKEN-BESITZER</1>"
 
-#: components/pages/Home/index.tsx:489
+#: components/pages/Home/index.tsx:491
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "Alle Neuigkeiten, direkt in deinen Posteingang"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:497
+#: components/pages/Home/index.tsx:499
 msgid "home.newletter.get_the_latest_updates"
 msgstr "Hole dir die neuesten Updates über KlimaDAO, während wir gemeinsam die Zukunft der CO2-Wirtschaft aufbauen."
 
-#: components/pages/Home/index.tsx:514
+#: components/pages/Home/index.tsx:516
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "Garantiert spamfrei."
 
-#: components/pages/Home/index.tsx:508
+#: components/pages/Home/index.tsx:510
 msgid "home.newletter.sign_up"
 msgstr "Anmelden"
 
-#: components/pages/Home/index.tsx:494
+#: components/pages/Home/index.tsx:496
 msgid "home.newsletter"
 msgstr "Newsletter"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:397
+#: components/pages/Home/index.tsx:399
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr "<0>Die Reservewährung</0><1>der CO2-Wirtschaft</1>"
 
-#: components/pages/Home/index.tsx:467
+#: components/pages/Home/index.tsx:469
 msgid "home.see_tutorial"
 msgstr "Tutorial ansehen"
 
-#: components/pages/Home/index.tsx:355
+#: components/pages/Home/index.tsx:357
 msgid "home.source"
 msgstr "Quelle"
 
-#: components/pages/Home/index.tsx:252
+#: components/pages/Home/index.tsx:254
 msgid "home.strong_incentives"
 msgstr "Überzeugende Anreize."
 
 #. Long sentence
-#: components/pages/Home/index.tsx:211
+#: components/pages/Home/index.tsx:213
 msgid "home.the_dao_sell_bonds"
 msgstr "Die DAO verkauft Anleihen und verteilt den Gewinn an KLIMA-Besitzer. Jede verkaufte Anleihe wird unserer Schatzkammer hinzugefügt oder verbessert die Liquidität grüner Schlüsselassets. Eine Win-Win-Situation für Mensch und Planet."
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:281
+#: components/pages/Home/index.tsx:283
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr "<0>CO2-TONNEN IM BESITZ</0> VON KLIMADAO"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:93
+#: components/pages/Home/index.tsx:94
 msgid "home.welcome_to_klimadao"
 msgstr ""
 "<0>WILLKOMMEN BEI</0><1>KlimaDAO</1>\n"
@@ -746,19 +746,19 @@ msgstr "CO2-Ausgleich in Sekunden - ohne Papierkram"
 msgid "infinity.fast_title"
 msgstr "Schnell"
 
-#: components/pages/Infinity/GetStartedModal.tsx:42
+#: components/pages/Infinity/GetStartedModal.tsx:45
 msgid "infinity.getStartedModal_business"
 msgstr "Ich bin ein <0/>Unternehmen."
 
-#: components/pages/Infinity/GetStartedModal.tsx:61
+#: components/pages/Infinity/GetStartedModal.tsx:66
 msgid "infinity.getStartedModal_individual"
 msgstr "Ich bin eine <0/>Privatperson."
 
-#: components/pages/Infinity/GetStartedModal.tsx:93
+#: components/pages/Infinity/GetStartedModal.tsx:100
 msgid "infinity.getStartedModal_needAssistance"
 msgstr "Ich benötige Unterstützung, um den CO2-Fußabdruck meines Unternehmens zu berechnen."
 
-#: components/pages/Infinity/GetStartedModal.tsx:81
+#: components/pages/Infinity/GetStartedModal.tsx:88
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr "Ich will<0/>Kryptoaktivitäten kompensieren."
 
@@ -896,7 +896,7 @@ msgstr "DeFi gegen den Klimawandel"
 msgid "infinity.why_title"
 msgstr "Warum KlimaDAO?"
 
-#: components/pages/Home/index.tsx:382
+#: components/pages/Home/index.tsx:384
 msgid "invest_in_the_future"
 msgstr "Investiere in die Zukunft."
 
@@ -1304,31 +1304,31 @@ msgstr ""
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:26
+#: components/pages/Retirements/Footer/index.tsx:27
 msgid "retirement.footer.aboutKlima.left"
 msgstr "KlimaDAO fördert Nachhaltigkeit und ist der Initiator für einen transparenteren, liquideren CO2-Markt. Durch unsere Tools können Privatpersonen und Unternehmen jeder Anzahl oder Größe hochwertige CO2-Zertifikate über die Blockchain handeln und ausgleichen."
 
-#: components/pages/Retirements/Footer/index.tsx:36
+#: components/pages/Retirements/Footer/index.tsx:37
 msgid "retirement.footer.aboutKlima.right"
 msgstr "KLIMA-Tokens stehen im Mittelpunkt der aufkeimenden, blockchainbasierten CO2-Wirtschaft. Mehr über KLIMA, CO2-Offsets und -Märkte und die zugrundeliegenden CO-Zertifikate erfährst du in unserer <0>Wissensdatenbank</0>."
 
-#: components/pages/Retirements/Footer/index.tsx:21
+#: components/pages/Retirements/Footer/index.tsx:22
 msgid "retirement.footer.aboutKlima.title"
 msgstr "Über Klima"
 
-#: components/pages/Retirements/Footer/index.tsx:68
+#: components/pages/Retirements/Footer/index.tsx:71
 msgid "retirement.footer.buy_klima.button.buy"
 msgstr "Kaufen"
 
-#: components/pages/Retirements/Footer/index.tsx:75
+#: components/pages/Retirements/Footer/index.tsx:78
 msgid "retirement.footer.buy_klima.button.offset"
 msgstr "Ausgleichen"
 
-#: components/pages/Retirements/Footer/index.tsx:61
+#: components/pages/Retirements/Footer/index.tsx:64
 msgid "retirement.footer.buy_klima.text"
 msgstr "Mit CO2-gedeckten KLIMA-Tokens kannst du handeln, Staking-Belohnungen erhalten und mitmachen - und deine Belohnungen nutzen, um deine Emissionen auszugleichen!"
 
-#: components/pages/Retirements/Footer/index.tsx:56
+#: components/pages/Retirements/Footer/index.tsx:59
 msgid "retirement.footer.buy_klima.title"
 msgstr "Kaufen, staken und belohnt werden."
 
@@ -1559,16 +1559,16 @@ msgid "shared.docs"
 msgstr ""
 
 #: components/Navigation/index.tsx:64
-#: components/pages/Home/index.tsx:114
+#: components/pages/Home/index.tsx:115
 msgid "shared.enter_app"
 msgstr "App öffnen"
 
-#: components/pages/Infinity/GetStartedModal.tsx:25
+#: components/pages/Infinity/GetStartedModal.tsx:26
 msgid "shared.get_started"
 msgstr "Jetzt starten"
 
-#: components/pages/Buy/index.tsx:46
-#: components/pages/Home/index.tsx:68
+#: components/pages/Buy/index.tsx:47
+#: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -1594,7 +1594,7 @@ msgstr "Infinity"
 msgid "shared.infinity.get_started"
 msgstr "Jetzt starten"
 
-#: components/pages/Home/index.tsx:184
+#: components/pages/Home/index.tsx:186
 msgid "shared.infinity_cta"
 msgstr "DEFI FÜR ORGANISATIONEN"
 
@@ -1614,7 +1614,7 @@ msgstr "Info"
 msgid "shared.loading"
 msgstr "Lade..."
 
-#: components/pages/Home/index.tsx:191
+#: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
 msgstr "DEFI FÜR PRIVATPERSONEN"
 

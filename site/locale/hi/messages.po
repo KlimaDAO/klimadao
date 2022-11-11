@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-11 18:16+0000\n"
+"POT-Creation-Date: 2022-11-11 23:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 msgid "Change language"
 msgstr "भाषा बदलें"
 
-#: components/pages/Buy/index.tsx:272
+#: components/pages/Buy/index.tsx:275
 msgid "Enter App"
 msgstr "ऐप दर्ज करें"
 
@@ -48,13 +48,13 @@ msgstr "कॉपी किया गया!"
 msgid "button.copyURL.copy"
 msgstr "यूआरएल कॉपी करें"
 
-#: components/pages/Buy/index.tsx:131
-#: components/pages/Buy/index.tsx:250
+#: components/pages/Buy/index.tsx:132
+#: components/pages/Buy/index.tsx:253
 msgid "buy.advanced"
 msgstr "विकसित"
 
-#: components/pages/Buy/index.tsx:86
-#: components/pages/Buy/index.tsx:172
+#: components/pages/Buy/index.tsx:87
+#: components/pages/Buy/index.tsx:173
 msgid "buy.beginner"
 msgstr "बिगिनर"
 
@@ -110,75 +110,75 @@ msgstr "अब जब आपके वॉलेट में कुछ KLIMA औ
 msgid "buy.beginner_05.title"
 msgstr "दाँव लगाएँ, ऑफ़सेट करें, शासन करें!"
 
-#: components/pages/Buy/index.tsx:128
-#: components/pages/Buy/index.tsx:253
+#: components/pages/Buy/index.tsx:129
+#: components/pages/Buy/index.tsx:256
 msgid "buy.bonding"
 msgstr "बॉन्डिंग"
 
-#: components/pages/Buy/index.tsx:256
+#: components/pages/Buy/index.tsx:259
 msgid "buy.bonding.description_01"
 msgstr "बॉन्डिंग रियायती KLIMA के बदले कार्बन संपत्ति जमा करने की प्रक्रिया है। यह एक तरीक़ा है जिससे KLIMA ट्रेज़री सकारात्मक जलवायु प्रभाव के लिए कार्बन क्रेडिट को अवशोषित करता है। बॉन्डिंग प्रत्येक नए KLIMA टोकन के लिए समर्थन भी प्रदान करती है।"
 
-#: components/pages/Buy/index.tsx:264
+#: components/pages/Buy/index.tsx:267
 msgid "buy.bonding.description_02"
 msgstr "बाज़ार के हालात के आधार पर छूट में उतार-चढ़ाव होता है। ट्रेज़री कार्बन टोकन (जैसे UBO (यूबीओ), BCT(बीसीटी), या MCO2(एमसीओटू)) या लिक्विडिटी पूल (LP) टोकन (जैसे KLIMA(क्लीमा)/BCT(बीसीटी), KLIMA(क्लीमा)/MCO2(एमसीओटू)) के रूप में कार्बन स्वीकार करती है।"
 
-#: components/pages/Buy/index.tsx:83
-#: components/pages/Buy/index.tsx:175
+#: components/pages/Buy/index.tsx:84
+#: components/pages/Buy/index.tsx:176
 msgid "buy.credit_card"
 msgstr "क्रेडिट कार्ड"
 
-#: components/pages/Buy/index.tsx:178
+#: components/pages/Buy/index.tsx:179
 msgid "buy.credit_card.summary"
 msgstr "अब आप अपने क्रेडिट कार्ड का उपयोग करके सीधे अपने वॉलेट में KLIMA टोकन ख़रीद सकते हैं! हमारे भुगतान भागीदार (पेमेंट पार्टनर्स) अधिकांश प्रमुख मुद्राओं का समर्थन करते हैं।"
 
-#: components/pages/Buy/index.tsx:104
+#: components/pages/Buy/index.tsx:105
 msgid "buy.decentralized_exchange"
 msgstr "विकेंद्रीकृत एक्सचेंज"
 
-#: components/pages/Buy/index.tsx:206
+#: components/pages/Buy/index.tsx:208
 msgid "buy.dex"
 msgstr "विकेंद्रीकृत एक्सचेंजेज़ (DEXs)"
 
-#: components/pages/Buy/index.tsx:237
+#: components/pages/Buy/index.tsx:240
 msgid "buy.dex.how_zapper"
 msgstr "Zapper (ज़ैपर) पर मैं KLIMA कैसे ख़रीद सकता हूँ?"
 
-#: components/pages/Buy/index.tsx:210
+#: components/pages/Buy/index.tsx:212
 msgid "buy.dex.summary_01"
 msgstr "यदि आपके पास पहले से ही MATIC (मैटिक) के साथ Polygon (पॉलीगॉन) वॉलेट है, तो आप KLIMA के लिए स्वैप करने के लिए विकेन्द्रीकृत एक्सचेंजों का उपयोग कर सकते हैं। यह आपको अतिरिक्त शुल्क का भुगतान करने से बचने में मदद् करता है, और उचित बाज़ार मूल्य का प्रतिनिधित्व करता है।"
 
-#: components/pages/Buy/index.tsx:217
+#: components/pages/Buy/index.tsx:219
 msgid "buy.dex.summary_02"
 msgstr "KLIMA <0>Sushi Swap</0> (सुशी स्वैप) पर खोजा जा सकता है, लेकिन हमारी सलाह में आप Zapper (ज़ैपर) नामक DEX (डेक्स) एग्रीगेटर का उपयोग करें। बस अपने वॉलेट को Zapper (ज़ैपर) से कनेक्ट करें, और यह आपके ट्रेड को सर्वोत्तम उपलब्ध DEX के माध्यम से रूट कर देगा।"
 
-#: components/pages/Buy/index.tsx:142
+#: components/pages/Buy/index.tsx:143
 msgid "buy.disclaimer"
 msgstr "सुरक्षा युक्तियाँ और महत्वपूर्ण अस्वीकरण"
 
-#: components/pages/Buy/index.tsx:147
+#: components/pages/Buy/index.tsx:148
 msgid "buy.disclaimer_01"
 msgstr "अपनी private key (प्राइवेट की) या seed phrase (सीड फ़्रेज़) को कभी भी किसी के साथ साझा न करें। हम सलाह देते हैं कि आप आरंभ करने से पहले सुरक्षा युक्तियों के लिए हमारे <0>Crypto Security 101</0> पृष्ठ पर जाएँ।"
 
-#: components/pages/Buy/index.tsx:157
+#: components/pages/Buy/index.tsx:158
 msgid "buy.disclaimer_02"
 msgstr "ब्लॉकचेन लेनदेन स्थायी और अपरिवर्तनीय हैं। हमारी टीम खोई हुई या चोरी हुई संपत्ति को पुनः प्राप्त करने में सक्षम नहीं है। KlimaDAO कोई ज़िम्मेदारी, दायित्व नहीं लेता है और न ही कोई गारंटी प्रदान करता है। सभी बाज़ार और एक्सचेंज स्वतंत्र रूप से और उच्च अस्थिरता के साथ काम करते हैं।"
 
-#: components/pages/Buy/index.tsx:44
 #: components/pages/Buy/index.tsx:45
+#: components/pages/Buy/index.tsx:46
 msgid "buy.head.title"
 msgstr "KLIMA कैसे ख़रीदें?"
 
-#: components/pages/Buy/index.tsx:109
-#: components/pages/Buy/index.tsx:203
+#: components/pages/Buy/index.tsx:110
+#: components/pages/Buy/index.tsx:205
 msgid "buy.intermediate"
 msgstr "मध्यवर्ती"
 
-#: components/pages/Buy/index.tsx:61
+#: components/pages/Buy/index.tsx:62
 msgid "buy.subtitle"
 msgstr "आप KLIMA को तीन तरीक़ों से प्राप्त कर सकते हैं: क्रेडिट कार्ड का उपयोग करके, विकेंद्रीकृत एक्सचेंजों (DEXs/डेक्सेज़) से, या कार्बन परिसंपत्तियों को बॉन्ड करके।"
 
-#: components/pages/Buy/index.tsx:58
+#: components/pages/Buy/index.tsx:59
 msgid "buy.title"
 msgstr "KLIMA कैसे ख़रीदें?"
 
@@ -521,20 +521,20 @@ msgstr "500 - पृष्ठ नहीं मिला"
 msgid "error.page.500.title"
 msgstr "500 - पृष्ठ नहीं मिला"
 
-#: components/pages/Home/index.tsx:234
+#: components/pages/Home/index.tsx:236
 msgid "home.backed_by_carbon"
 msgstr "Carbon (कार्बन) द्वारा समर्थित।"
 
-#: components/pages/Home/index.tsx:325
+#: components/pages/Home/index.tsx:327
 msgid "home.cars_annual"
 msgstr "कारें (वार्षिक)"
 
-#: components/pages/Home/index.tsx:294
+#: components/pages/Home/index.tsx:296
 msgid "home.equivalent_to"
 msgstr "के बराबर"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:409
+#: components/pages/Home/index.tsx:411
 msgid "home.every_klima_token_is_backed"
 msgstr "प्रत्येक KLIMA टोकन वास्तविक दुनिया की एक कार्बन संपत्ति द्वारा समर्थित है। टोकन का उपयोग कार्बन उत्सर्जन को ऑफ़सेट करने, DeFi (डीफ़ाई) ऐप्लिकेशंस से आदान-प्रदान करने और तेज़ी से बढ़ते वैश्विक कार्बन बाज़ार के संपर्क में आने के लिए किया जाता है।"
 
@@ -543,112 +543,112 @@ msgid "home.featured_on"
 msgstr "KlimaDAO (क्लीमाडाओ) को यहाँ जगह दी गयी"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:106
+#: components/pages/Home/index.tsx:107
 msgid "home.fight_climate_change"
 msgstr "जलवायु परिवर्तन से लड़ें और वास्तविक कार्बन परिसंपत्तियों द्वारा समर्थित डिजिटल मुद्रा KLIMA के साथ पुरस्कार अर्जित करें।"
 
-#: components/pages/Home/index.tsx:460
+#: components/pages/Home/index.tsx:462
 msgid "home.get_exposure_to_the_growing_carbon_economy"
 msgstr "आज ही बढ़ती कार्बन अर्थव्यवस्था से रूबरू हों। प्राप्त करें, दाँव लगाएँ, और पुरस्कृत हों। जलवायु के लिए वित्तीय सक्रियता।"
 
-#: components/pages/Home/index.tsx:457
+#: components/pages/Home/index.tsx:459
 msgid "home.get_klima"
 msgstr "KLIMA (क्लीमा) प्राप्त करें"
 
-#: components/pages/Home/index.tsx:308
+#: components/pages/Home/index.tsx:310
 msgid "home.hectares_of_forest"
 msgstr "हेक्टेयरों जंगल"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:152
+#: components/pages/Home/index.tsx:154
 msgid "home.klima_defies_climate_change"
 msgstr "KlimaDAO, DeFi (डीफ़ाई) है जो जलवायु परिवर्तन की उपेक्षा करता है"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:162
+#: components/pages/Home/index.tsx:164
 msgid "home.klima_is_the_center"
 msgstr "KlimaDAO एक नई हरित अर्थव्यवस्था का केंद्र है। ऊर्जा कुशल Polygon (पॉलीगॉन) नेटवर्क पर निर्मित, KlimaDAO वैश्विक स्तर पर स्थिरता परियोजनाओं के लिए बाज़ार के विखंडन को कम करने और जलवायु वित्त के वितरण में तेज़ी लाने के लिए कई प्रौद्योगिकियों का उपयोग करता है।"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:438
+#: components/pages/Home/index.tsx:440
 msgid "home.klima_tokens_are_minted"
 msgstr "KLIMA टोकन मिंट किए जाते हैं और हर ~ 7 घंटे में स्वचालित रूप से KLIMA धारकों को वितरित किए जाते हैं। हमारे एक साथ अधिक टिकाऊ भविष्य की शुरुआत करने के साथ अपनी KLIMA होल्डिंग्स को बढ़ाऍं।"
 
-#: components/pages/Home/index.tsx:82
+#: components/pages/Home/index.tsx:83
 msgid "home.latest_news"
 msgstr "📰 ताजा खबर:"
 
-#: components/pages/Home/index.tsx:137
+#: components/pages/Home/index.tsx:139
 msgid "home.learn_more"
 msgstr "और जानें"
 
-#: components/pages/Home/index.tsx:340
+#: components/pages/Home/index.tsx:342
 msgid "home.liters_if_gasoline"
 msgstr "लीटर पेट्रोल"
 
-#: components/pages/Home/index.tsx:270
+#: components/pages/Home/index.tsx:272
 msgid "home.massive impact"
 msgstr "भारी प्रभाव।"
 
-#: components/pages/Home/index.tsx:208
+#: components/pages/Home/index.tsx:210
 msgid "home.mechanics"
 msgstr "यांत्रिकी"
 
 #. <0>{0}% MONTHLY REWARDS</0><1>FOR TOKEN HOLDERS</1>
-#: components/pages/Home/index.tsx:426
+#: components/pages/Home/index.tsx:428
 msgid "home.monthly_rewards_for_token_holders"
 msgstr "<0>{0}% मासिक पुरस्कार</0> <1>टोकन धारकों के लिए</1>"
 
-#: components/pages/Home/index.tsx:489
+#: components/pages/Home/index.tsx:491
 msgid "home.newletter.all_the_alpha_straight_to_your_inbox"
 msgstr "सभी अल्फ़ा साथियों, सीधे आपके इनबॉक्स में"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:497
+#: components/pages/Home/index.tsx:499
 msgid "home.newletter.get_the_latest_updates"
 msgstr "KlimaDAO पर नवीनतम अपडेट प्राप्त करें, जैसे-जैसे हम कार्बन अर्थव्यवस्था के भविष्य का निर्माण कर रहे हैं।"
 
-#: components/pages/Home/index.tsx:514
+#: components/pages/Home/index.tsx:516
 msgid "home.newletter.never_shared_never_spammed"
 msgstr "न कभी साझा किया जाता है। न स्पैम।"
 
-#: components/pages/Home/index.tsx:508
+#: components/pages/Home/index.tsx:510
 msgid "home.newletter.sign_up"
 msgstr "साइन अप करें"
 
-#: components/pages/Home/index.tsx:494
+#: components/pages/Home/index.tsx:496
 msgid "home.newsletter"
 msgstr "न्यूज़लेटर"
 
 #. <0>Reserve Asset</0><1>Of the carbon economy</1>
-#: components/pages/Home/index.tsx:397
+#: components/pages/Home/index.tsx:399
 msgid "home.reserve_asset_of_the_carbon_economy"
 msgstr "<1>कार्बन अर्थव्यवस्था की</1><0>आरक्षित संपत्ति</0>"
 
-#: components/pages/Home/index.tsx:467
+#: components/pages/Home/index.tsx:469
 msgid "home.see_tutorial"
 msgstr "ट्यूटॉरियल देखें"
 
-#: components/pages/Home/index.tsx:355
+#: components/pages/Home/index.tsx:357
 msgid "home.source"
 msgstr "स्रोत"
 
-#: components/pages/Home/index.tsx:252
+#: components/pages/Home/index.tsx:254
 msgid "home.strong_incentives"
 msgstr "बढ़िया इंसेंटिव्ज़।"
 
 #. Long sentence
-#: components/pages/Home/index.tsx:211
+#: components/pages/Home/index.tsx:213
 msgid "home.the_dao_sell_bonds"
 msgstr "DAO (डाओ) बॉन्ड बेचता है और KLIMA धारकों को पुरस्कार वितरित करता है। हमारे द्वारा बेचा जाने वाला प्रत्येक बॉन्ड एक सतत बढ़ते हरे खजाने में जुड़ता है, या प्रमुख पर्यावरणीय संपत्तियों के लिए लिक्विडिटी में सुधार करता है। लोगों और ग्रह के लिए एक जीत वाली स्थिति।"
 
 #. TONS OF <0>CARBON ABSORBED</0> BY KLIMADAO
-#: components/pages/Home/index.tsx:281
+#: components/pages/Home/index.tsx:283
 msgid "home.tons_of_carbon_absorbed_by_klimadao"
 msgstr "KLIMADAO द्वारा कई टन <0>कार्बन अवशोषित</0>"
 
 #. <0>WELCOME TO</0><1>KlimaDAO</1>
-#: components/pages/Home/index.tsx:93
+#: components/pages/Home/index.tsx:94
 msgid "home.welcome_to_klimadao"
 msgstr "<1>KlimaDAO</1><0>में आपका स्वागत है</0>"
 
@@ -744,19 +744,19 @@ msgstr "बिना किसी परेशानी के, सेकंड�
 msgid "infinity.fast_title"
 msgstr "तेज़"
 
-#: components/pages/Infinity/GetStartedModal.tsx:42
+#: components/pages/Infinity/GetStartedModal.tsx:45
 msgid "infinity.getStartedModal_business"
 msgstr "मैं एक <0/>व्यवसाय हूं।"
 
-#: components/pages/Infinity/GetStartedModal.tsx:61
+#: components/pages/Infinity/GetStartedModal.tsx:66
 msgid "infinity.getStartedModal_individual"
 msgstr "मैं एक<0/>व्यक्ति हूं।"
 
-#: components/pages/Infinity/GetStartedModal.tsx:93
+#: components/pages/Infinity/GetStartedModal.tsx:100
 msgid "infinity.getStartedModal_needAssistance"
 msgstr "मुझे अपने संगठन के कार्बन फुटप्रिंट में सहायता चाहिए."
 
-#: components/pages/Infinity/GetStartedModal.tsx:81
+#: components/pages/Infinity/GetStartedModal.tsx:88
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr "मैं क्रिप्टो को ऑफसेट करना चाहता हूं<0/>।"
 
@@ -894,7 +894,7 @@ msgstr "DeFi (डीफ़ाई) जो जलवायु परिवर्त�
 msgid "infinity.why_title"
 msgstr "KlimaDAO (क्लीमाडाओ) क्यों?"
 
-#: components/pages/Home/index.tsx:382
+#: components/pages/Home/index.tsx:384
 msgid "invest_in_the_future"
 msgstr "भविष्य में निवेश करें।"
 
@@ -1302,31 +1302,31 @@ msgstr "कृपया किसी भिन्न फ़िल्टर स�
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "टाइपो के लिए अपनी खोज की जाँच करें या कोई भिन्न खोज शब्द आज़माएँ।"
 
-#: components/pages/Retirements/Footer/index.tsx:26
+#: components/pages/Retirements/Footer/index.tsx:27
 msgid "retirement.footer.aboutKlima.left"
 msgstr "KlimaDAO स्थिरता को प्रोत्साहित कर रहा है और अधिक पारदर्शी और लिक्विड कार्बन बाज़ार को उत्प्रेरित कर रहा है। हमारे टूल्स किसी भी व्यक्ति या व्यवसायों के लिए ब्लॉकचेन पर गुणवत्तापूर्ण कार्बन परिसंपत्तियों का व्यापार और उनको रिटायर करना संभव बनाते हैं।"
 
-#: components/pages/Retirements/Footer/index.tsx:36
+#: components/pages/Retirements/Footer/index.tsx:37
 msgid "retirement.footer.aboutKlima.right"
 msgstr "KLIMA टोकन एक बढ़ती ऑन-चेन कार्बन अर्थव्यवस्था के केंद्र में हैं। KLIMA,कार्बन ऑफ़सेटिंग, कार्बन मार्केट और अंतर्निहित कार्बन परिसंपत्तियों के बारे में अधिक जानने के लिए हमारे <0>knowledge base</0> (नॉलेज बेस) पर जाएँ।"
 
-#: components/pages/Retirements/Footer/index.tsx:21
+#: components/pages/Retirements/Footer/index.tsx:22
 msgid "retirement.footer.aboutKlima.title"
 msgstr "Klima के बारे में"
 
-#: components/pages/Retirements/Footer/index.tsx:68
+#: components/pages/Retirements/Footer/index.tsx:71
 msgid "retirement.footer.buy_klima.button.buy"
 msgstr "ख़रीदें"
 
-#: components/pages/Retirements/Footer/index.tsx:75
+#: components/pages/Retirements/Footer/index.tsx:78
 msgid "retirement.footer.buy_klima.button.offset"
 msgstr "ऑफ़सेट"
 
-#: components/pages/Retirements/Footer/index.tsx:61
+#: components/pages/Retirements/Footer/index.tsx:64
 msgid "retirement.footer.buy_klima.text"
 msgstr "कार्बन-समर्थित KLIMA टोकन का उपयोग शासन चलाने, अदला-बदली करने और दाँव पुरस्कार अर्जित करने के लिए करें- फिर अपने उत्सर्जन को ऑफ़सेट करने के लिए उन पुरस्कारों का उपयोग करें!"
 
-#: components/pages/Retirements/Footer/index.tsx:56
+#: components/pages/Retirements/Footer/index.tsx:59
 msgid "retirement.footer.buy_klima.title"
 msgstr "खरीदें, दाँव पर लगाएँ, और पुरस्कृत हों।"
 
@@ -1557,16 +1557,16 @@ msgid "shared.docs"
 msgstr "आधिकारिक डॉक्स"
 
 #: components/Navigation/index.tsx:64
-#: components/pages/Home/index.tsx:114
+#: components/pages/Home/index.tsx:115
 msgid "shared.enter_app"
 msgstr "ऐप दर्ज करें"
 
-#: components/pages/Infinity/GetStartedModal.tsx:25
+#: components/pages/Infinity/GetStartedModal.tsx:26
 msgid "shared.get_started"
 msgstr "शुरुआत करें"
 
-#: components/pages/Buy/index.tsx:46
-#: components/pages/Home/index.tsx:68
+#: components/pages/Buy/index.tsx:47
+#: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:59
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
@@ -1592,7 +1592,7 @@ msgstr "अनंतता"
 msgid "shared.infinity.get_started"
 msgstr "शुरुआत करें"
 
-#: components/pages/Home/index.tsx:184
+#: components/pages/Home/index.tsx:186
 msgid "shared.infinity_cta"
 msgstr "संगठनों के लिए डेफी"
 
@@ -1612,7 +1612,7 @@ msgstr "जानकारी"
 msgid "shared.loading"
 msgstr "लोड हो रहा है..."
 
-#: components/pages/Home/index.tsx:191
+#: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
 msgstr "व्यक्तियों के लिए डेफी"
 
