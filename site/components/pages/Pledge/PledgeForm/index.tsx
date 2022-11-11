@@ -342,8 +342,7 @@ export const PledgeForm: FC<Props> = (props) => {
               return (
                 <div className={styles.pledge_wallet_row} key={wallet.id}>
                   {(!wallet.saved ||
-                    (wallet.saved &&
-                      errors.wallets?.[index]?.address?.message)) && (
+                    errors.wallets?.[index]?.address?.message) && (
                     <div className={styles.pledge_wallet_address_cell}>
                       <InputField
                         id="pledges.form.input.walletAddress.placeholder"

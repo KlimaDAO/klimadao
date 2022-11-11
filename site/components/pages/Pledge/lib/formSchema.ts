@@ -68,6 +68,10 @@ export const pledgeErrorTranslationsMap = {
     id: "pledges.form.errors.walletAddress.required",
     message: "Address required",
   }),
+  ["pledges.form.errors.walletAddress.isAddress"]: t({
+    id: "pledges.form.errors.walletAddress.isAddress",
+    message: "Please enter a valid address",
+  }),
 } as const;
 
 export type PledgeErrorId = keyof typeof pledgeErrorTranslationsMap;
@@ -98,8 +102,8 @@ export const formSchema = yup
         address: yup
           .string()
           .required("pledges.form.errors.walletAddress.required")
-          .trim()
-          .isAddress("pledges.form.errors.walletAddress.isAddress"),
+          .isAddress("pledges.form.errors.walletAddress.isAddress")
+          .trim(),
         status: yup.string().required(),
         saved: yup.boolean().required(),
       })
