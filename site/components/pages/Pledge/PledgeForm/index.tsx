@@ -154,7 +154,6 @@ export const PledgeForm: FC<Props> = (props) => {
 
   const checkDuplicateWallets = (wallets: Wallet[]): boolean => {
     let isDuplicate = false;
-    // TODO: make this work
     wallets.map((wallet) => {
       const duplicates = wallets.filter(
         (w) =>
