@@ -1,4 +1,4 @@
-import { Contract, ethers, utils } from "ethers";
+import { Contract, utils } from "ethers";
 import { polygonNetworks } from "@klimadao/lib/constants";
 import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
 import { getJsonRpcProvider } from "@klimadao/lib/utils";
@@ -10,12 +10,12 @@ export const waitForGnosisSignature = async (params: {
   address: string;
 }): Promise<void> => {
   const provider = getJsonRpcProvider();
-  const gnosisSafeContract = new ethers.Contract(
+  const gnosisSafeContract = new Contract(
     params.address,
     GnosisSafeSignMessageLib.abi,
     provider
   );
-  const messageHash = ethers.utils.hashMessage(params.message);
+  const messageHash = utils.hashMessage(params.message);
   const getMessageHash = await gnosisSafeContract.getMessageHash(messageHash);
   const signedEvent = gnosisSafeContract.filters.SignMsg(getMessageHash);
 
@@ -46,7 +46,7 @@ const calculateSafeMessageHash = (safe: Contract, message: string): string => {
       chainId: polygonNetworks.mainnet.chainId,
     },
     EIP712_SAFE_MESSAGE_TYPE,
-    { message: ethers.utils.hashMessage(message) }
+    { message: utils.hashMessage(message) }
   );
 };
 
@@ -57,7 +57,7 @@ export const verifyGnosisSignature = async (params: {
   address: string;
 }) => {
   const provider = getJsonRpcProvider();
-  const gnosisSafeContract = new ethers.Contract(
+  const gnosisSafeContract = new Contract(
     params.address,
     GnosisSafeSignMessageLib.abi,
     provider

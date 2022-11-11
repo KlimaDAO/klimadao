@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { utils } from "ethers";
 
 import { Thunk } from "state";
 import { setAppState } from "state/app";
@@ -60,7 +60,7 @@ export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
 
       dispatch(
         setAppState({
-          currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
+          currentIndex: utils.formatUnits(currentIndex, "gwei"),
           currentBlock,
           fiveDayRate,
           stakingAnnualPercent,

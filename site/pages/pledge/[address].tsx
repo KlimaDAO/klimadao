@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { ethers } from "ethers";
+import { utils } from "ethers";
 import { ParsedUrlQuery } from "querystring";
 import { urls } from "@klimadao/lib/constants";
 import { getRetirementTotalsAndBalances } from "@klimadao/lib/utils";
@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     }
 
     try {
-      if (!isDomainInURL && !ethers.utils.isAddress(address))
+      if (!isDomainInURL && !utils.isAddress(address))
         throw new Error("Invalid address");
 
       if (isDomainInURL) {

@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { utils, providers } from "ethers";
 import { OnStatusHandler } from "./utils";
 import { getContract, getTokenDecimals } from "@klimadao/lib/utils";
 
@@ -17,7 +17,7 @@ export const wrapTransaction = async (params: {
     params.onStatus("userConfirmation", "");
     const decimal = getTokenDecimals(params.token);
     const txn = await contract[params.action](
-      ethers.utils.parseUnits(params.value, decimal)
+      utils.parseUnits(params.value, decimal)
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);

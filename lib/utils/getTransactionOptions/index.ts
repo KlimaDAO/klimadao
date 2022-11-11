@@ -1,8 +1,8 @@
-import { ethers } from "ethers";
+import { utils } from "ethers";
 import { urls } from "../../constants";
 
 const convertGasInfoFromPolyscan = (value: string) =>
-  ethers.utils.parseUnits((parseFloat(value) * 1.1).toFixed(2).toString(), 9);
+  utils.parseUnits((parseFloat(value) * 1.1).toFixed(2).toString(), 9);
 
 /** Returns gas info from polygonscan plus 10 percent*/
 const getGasInfo = async () => {
@@ -19,7 +19,7 @@ const getGasInfo = async () => {
     console.error(error);
   }
   console.error("Error contacting Polyscan API for Gas estimation");
-  const fallbackFee = ethers.utils.parseUnits("60", 9); // 60 gwei
+  const fallbackFee = utils.parseUnits("60", 9); // 60 gwei
   return { maxFeePerGas: fallbackFee, maxPriorityFeePerGas: fallbackFee };
 };
 

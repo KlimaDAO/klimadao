@@ -7,7 +7,7 @@
     "@coinbase/wallet-sdk": "^3.5.2",
     "@emotion/css": "^11.5.0",
     "@tippyjs/react": "^4.2.6",
-    "@toruslabs/torus-embed": "^1.35.6",
+    "@toruslabs/torus-embed": "^1.37.0",
     "@walletconnect/web3-provider": "^1.8.0",
     "ethers": "^5.7.0",
     "make-plural": "^7.1.0",

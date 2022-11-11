@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { ethers } from "ethers";
+import { utils } from "ethers";
 
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 
@@ -44,8 +44,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     const beneficiaryInUrl = params.beneficiary;
     const isDomainInURL = getIsDomainInURL(beneficiaryInUrl);
-    const isValidAddress =
-      !isDomainInURL && ethers.utils.isAddress(beneficiaryInUrl);
+    const isValidAddress = !isDomainInURL && utils.isAddress(beneficiaryInUrl);
 
     if (!isDomainInURL && !isValidAddress) {
       throw new Error("Not a valid beneficiary address");

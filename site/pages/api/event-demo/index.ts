@@ -1,6 +1,6 @@
 import { addresses } from "@klimadao/lib/constants";
 import { formSchema } from "components/pages/EventDemo/lib/formSchema";
-import { Contract, ContractTransaction, ethers, utils, Wallet } from "ethers";
+import { Contract, ContractTransaction, utils, Wallet } from "ethers";
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { NextApiHandler } from "next";
 import { LIVE_OFFSET_WALLET_MNEMONIC } from "@klimadao/site/lib/secrets";
@@ -80,7 +80,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
     const response = retirementDataSchema.validateSync({
       index,
       beneficiaryAddress,
-      quantity: ethers.utils.formatUnits(quantity, 18),
+      quantity: utils.formatUnits(quantity, 18),
       transactionHash: receipt.transactionHash,
     });
 

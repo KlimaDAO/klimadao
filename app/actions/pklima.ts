@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { utils, providers } from "ethers";
 
 import { OnStatusHandler } from "./utils";
 import { Thunk } from "state";
@@ -62,7 +62,7 @@ export const exerciseTransaction = async (params: {
     });
     params.onStatus("userConfirmation", "");
     const txn = await contract.exercise(
-      ethers.utils.parseUnits(params.value, "ether")
+      utils.parseUnits(params.value, "ether")
     );
     params.onStatus("networkConfirmation", "");
     await txn.wait(1);

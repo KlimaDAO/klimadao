@@ -1,4 +1,4 @@
-import { providers, ethers } from "ethers";
+import { providers, Contract } from "ethers";
 import { Thunk } from "state";
 
 import {
@@ -40,7 +40,7 @@ type TokenValueFormatted = {
 
 const getBalance = async (params: {
   token: Asset;
-  contract: ethers.Contract;
+  contract: Contract;
   address: string;
 }): Promise<string> => {
   try {
@@ -54,7 +54,7 @@ const getBalance = async (params: {
 };
 
 type ContractsObject = {
-  [key in Asset]: ethers.Contract;
+  [key in Asset]: Contract;
 };
 
 export const loadAccountDetails = (params: {
