@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-11 23:35+0000\n"
+"POT-Creation-Date: 2022-11-14 15:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -928,15 +928,15 @@ msgstr "{0} कार्बन टन"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:73
 msgid "pledges.dashboard.head.metaDescription"
-msgstr ""
+msgstr "{pledgeOwnerTitle} ऑफसेट {currentTotalFootprint} कार्बन टन का वचन देता है। उनका कार्बन ऑफसेट इतिहास देखें और उनकी प्रतिबद्धता के बारे में और पढ़ें।"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:69
 msgid "pledges.dashboard.head.metaTitle"
-msgstr ""
+msgstr "{pledgeOwnerTitle} की प्रतिज्ञा"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:65
 msgid "pledges.dashboard.head.title"
-msgstr ""
+msgstr "{pledgeOwnerTitle} की प्रतिज्ञा | क्लीमाडाओ"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
