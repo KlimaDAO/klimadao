@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-14 15:41+0000\n"
+"POT-Creation-Date: 2022-11-14 20:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -210,136 +210,136 @@ msgstr "अपना व्यापार स्थापित करने �
 msgid "buy.zapper_03.title"
 msgstr "स्वैप"
 
-#: components/pages/About/Community/index.tsx:97
+#: components/pages/About/Community/index.tsx:117
 msgid "community.become_a_partner"
 msgstr "भागीदार बनें"
 
-#: components/pages/About/Community/index.tsx:170
+#: components/pages/About/Community/index.tsx:181
 msgid "community.bigcowg_logo"
 msgstr "BICOWG लोगो"
 
-#: components/pages/About/Community/index.tsx:159
+#: components/pages/About/Community/index.tsx:173
 msgid "community.blockchainforclimatefondation_logo"
 msgstr "Climate Foundation (क्लाइमेट फाउंडेशन) लोगो के लिए ब्लॉकचेन"
 
-#: components/pages/About/Community/index.tsx:344
+#: components/pages/About/Community/index.tsx:315
 msgid "community.come_on_in"
 msgstr "अंदर आ जाइए"
 
-#: components/pages/About/Community/index.tsx:236
+#: components/pages/About/Community/index.tsx:229
 msgid "community.deltawave_logo"
 msgstr "Delta (डेल्टा वेव) लोगो"
 
-#: components/pages/About/Community/index.tsx:288
+#: components/pages/About/Community/index.tsx:266
 msgid "community.digitalcharityart_logo"
 msgstr "Delta Charity Art (डेल्टा चैरिटी आर्ट) लोगो"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:359
+#: components/pages/About/Community/index.tsx:330
 msgid "community.discord_is_where_we_share"
 msgstr "Discord (डिस्कॉर्ड) वह स्थान है जहाँ हम महत्वपूर्ण घोषणाएँ साझा करते हैं, ऑफ़िस-आवर्स होल्ड करते हैं, सवालों के जवाब देते हैं, और मीम्स साझा करते हैं। हमारा डिस्कॉर्ड सर्वर बेहद सक्रिय है और चौबीसों घंटे संचालित किया जाता है। हमारे पास ट्रेडिंग से लेकर सस्टेनेबिलिटी और कार्बन मार्केट तक हर चीज़ के लिए चैनल मौजूद हैं।"
 
-#: components/pages/About/Community/index.tsx:258
+#: components/pages/About/Community/index.tsx:245
 msgid "community.dovu_logo"
 msgstr "Dovu (दोवू) लोगो"
 
-#: components/pages/About/Community/index.tsx:266
+#: components/pages/About/Community/index.tsx:250
 msgid "community.eco_logo"
 msgstr "Eco (इको) लोगो"
 
-#: components/pages/About/Community/index.tsx:247
+#: components/pages/About/Community/index.tsx:237
 msgid "community.etcgroup_logo"
 msgstr "Etc Group (ईटीसी ग्रुप) लोगो"
 
-#: components/pages/About/Community/index.tsx:392
+#: components/pages/About/Community/index.tsx:362
 msgid "community.get_in_touch"
 msgstr "संपर्क में रहें?"
 
-#: components/pages/About/Community/index.tsx:203
+#: components/pages/About/Community/index.tsx:205
 msgid "community.gitcoin_logo"
 msgstr "Gitcoin (गिटकॉइन) लोगो"
 
-#: components/pages/About/Community/index.tsx:76
+#: components/pages/About/Community/index.tsx:96
 msgid "community.head.headline"
 msgstr "समुदाय"
 
-#: components/pages/About/Community/index.tsx:83
+#: components/pages/About/Community/index.tsx:103
 msgid "community.head.metadescription"
 msgstr "जोशीले क्लीमेट्स वाले हमारे समुदाय के बारे में जानें"
 
-#: components/pages/About/Community/index.tsx:77
+#: components/pages/About/Community/index.tsx:97
 msgid "community.head.subline"
 msgstr "KlimaDAO (क्लीमाडाओ) परिवर्तन लाने वाला एक विकेन्द्रीकृत स्वायत्त संगठन है। हम जोशीले क्लीमेट्स के समुदाय द्वारा शासित और निर्मित हैं।"
 
-#: components/pages/About/Community/index.tsx:75
-#: components/pages/About/Community/index.tsx:82
+#: components/pages/About/Community/index.tsx:95
+#: components/pages/About/Community/index.tsx:102
 msgid "community.head.title"
 msgstr "KlimaDAO (क्लीमाडाओ) समुदाय"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:395
+#: components/pages/About/Community/index.tsx:365
 msgid "community.if_you_ve_got_questions"
 msgstr "यदि आपके पास प्रश्न, विचार, सलाह या और कुछ है: हम बात करने के लिए सही व्यक्ति खोजने में आपकी सहायता कर सकते हैं।"
 
-#: components/pages/About/Community/index.tsx:347
+#: components/pages/About/Community/index.tsx:318
 msgid "community.join_our_discord"
 msgstr "हमारे Discord (डिस्कॉर्ड) से जुड़ें"
 
-#: components/pages/About/Community/index.tsx:334
+#: components/pages/About/Community/index.tsx:305
 msgid "community.join_the_klima_community"
 msgstr "Klima (क्लीमा) समुदाय में शामिल हों"
 
-#: components/pages/About/Community/index.tsx:310
+#: components/pages/About/Community/index.tsx:282
 msgid "community.landx_logo"
 msgstr "LandX (लैंडएक्स) लोगो"
 
-#: components/pages/About/Community/index.tsx:94
-#: components/pages/About/Community/index.tsx:389
+#: components/pages/About/Community/index.tsx:114
+#: components/pages/About/Community/index.tsx:359
 msgid "community.lets_work_together"
 msgstr "आइए साथ काम करें"
 
-#: components/pages/About/Community/index.tsx:137
+#: components/pages/About/Community/index.tsx:157
 msgid "community.moss_logo"
 msgstr "Moss (मॉस) लोगो"
 
-#: components/pages/About/Community/index.tsx:192
+#: components/pages/About/Community/index.tsx:197
 msgid "community.oceandrop_logo"
 msgstr "Oceandrop (ओशनड्रॉप) लोगो"
 
-#: components/pages/About/Community/index.tsx:277
+#: components/pages/About/Community/index.tsx:258
 msgid "community.offsetra_logo"
 msgstr "Offsetra (ऑफसेट्रा) लोगो"
 
-#: components/pages/About/Community/index.tsx:214
+#: components/pages/About/Community/index.tsx:213
 msgid "community.olympusdao_logo"
 msgstr "OlympusDAO (ओलंपसडाओ) लोगो"
 
-#: components/pages/About/Community/index.tsx:225
+#: components/pages/About/Community/index.tsx:221
 msgid "community.openearth_logo"
 msgstr "Open Earth (ओपन अर्थ) लोगो"
 
-#: components/pages/About/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:152
 msgid "community.our_partners"
 msgstr "हमारे सहयोगी"
 
-#: components/pages/About/Community/index.tsx:181
+#: components/pages/About/Community/index.tsx:189
 msgid "community.polygon_logo"
 msgstr "Polygon (पॉलीगॉन) लोगो"
 
-#: components/pages/About/Community/index.tsx:148
+#: components/pages/About/Community/index.tsx:165
 msgid "community.toucan_logo"
 msgstr "Toucan (टूकन) लोगो"
 
-#: components/pages/About/Community/index.tsx:299
+#: components/pages/About/Community/index.tsx:274
 msgid "community.toughtforfood_logo"
 msgstr "Thought for Food (थॉट फ़ॉर फ़ूड) लोगो"
 
-#: components/pages/About/Community/index.tsx:113
+#: components/pages/About/Community/index.tsx:133
 msgid "community.tree_grove"
 msgstr "ट्री ग्रोव"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:100
+#: components/pages/About/Community/index.tsx:120
 msgid "community.we_work_with_traditionnal"
 msgstr "हम पारंपरिक कार्बन बाज़ार के धुरंधरों, क्रिप्टो प्लैटफ़ॉर्म्स, बड़ी कंपनियों और उनसे सम्बंधित अन्य सभी लोगों के साथ काम करते हैं।"
 
@@ -1537,8 +1537,8 @@ msgstr "सेल्स से संपर्क करें"
 
 #: components/Navigation/index.tsx:96
 #: components/pages/About/AboutHeader/index.tsx:43
-#: components/pages/About/Community/index.tsx:110
-#: components/pages/About/Community/index.tsx:405
+#: components/pages/About/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:375
 msgid "shared.contact_us"
 msgstr "संपर्क करें"
 

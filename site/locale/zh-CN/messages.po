@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-14 15:41+0000\n"
+"POT-Creation-Date: 2022-11-14 20:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -210,136 +210,136 @@ msgstr "用 Zapper 的“兑换”界面设置您的交易。如果您遇到问�
 msgid "buy.zapper_03.title"
 msgstr "兑换"
 
-#: components/pages/About/Community/index.tsx:97
+#: components/pages/About/Community/index.tsx:117
 msgid "community.become_a_partner"
 msgstr "成为合作伙伴"
 
-#: components/pages/About/Community/index.tsx:170
+#: components/pages/About/Community/index.tsx:181
 msgid "community.bigcowg_logo"
 msgstr "BICOWG标识"
 
-#: components/pages/About/Community/index.tsx:159
+#: components/pages/About/Community/index.tsx:173
 msgid "community.blockchainforclimatefondation_logo"
 msgstr "气候基金会区块链标识"
 
-#: components/pages/About/Community/index.tsx:344
+#: components/pages/About/Community/index.tsx:315
 msgid "community.come_on_in"
 msgstr "由此进入"
 
-#: components/pages/About/Community/index.tsx:236
+#: components/pages/About/Community/index.tsx:229
 msgid "community.deltawave_logo"
 msgstr "Delta Wave 标识"
 
-#: components/pages/About/Community/index.tsx:288
+#: components/pages/About/Community/index.tsx:266
 msgid "community.digitalcharityart_logo"
 msgstr "数字慈善艺术标识"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:359
+#: components/pages/About/Community/index.tsx:330
 msgid "community.discord_is_where_we_share"
 msgstr "Discord 是我们分享重要公告、安排办公时间、回答问题和交易表情包的地方。我们的 Discord 服务器非常活跃，并且全天候运行。我们拥有从买卖交易到可持续发展的所有渠道和各类碳市场。"
 
-#: components/pages/About/Community/index.tsx:258
+#: components/pages/About/Community/index.tsx:245
 msgid "community.dovu_logo"
 msgstr "Dovu 标识"
 
-#: components/pages/About/Community/index.tsx:266
+#: components/pages/About/Community/index.tsx:250
 msgid "community.eco_logo"
 msgstr "生态标识"
 
-#: components/pages/About/Community/index.tsx:247
+#: components/pages/About/Community/index.tsx:237
 msgid "community.etcgroup_logo"
 msgstr "等等集体标识"
 
-#: components/pages/About/Community/index.tsx:392
+#: components/pages/About/Community/index.tsx:362
 msgid "community.get_in_touch"
 msgstr "取得联系？"
 
-#: components/pages/About/Community/index.tsx:203
+#: components/pages/About/Community/index.tsx:205
 msgid "community.gitcoin_logo"
 msgstr "Gitcoin 标识"
 
-#: components/pages/About/Community/index.tsx:76
+#: components/pages/About/Community/index.tsx:96
 msgid "community.head.headline"
 msgstr "社区"
 
-#: components/pages/About/Community/index.tsx:83
+#: components/pages/About/Community/index.tsx:103
 msgid "community.head.metadescription"
 msgstr "了解我们充满激情的 Klimates 社区"
 
-#: components/pages/About/Community/index.tsx:77
+#: components/pages/About/Community/index.tsx:97
 msgid "community.head.subline"
 msgstr "KlimaDAO 是一个有变革的去中心化自治组织。由充满激情的社区 Klimates来建立和治理。"
 
-#: components/pages/About/Community/index.tsx:75
-#: components/pages/About/Community/index.tsx:82
+#: components/pages/About/Community/index.tsx:95
+#: components/pages/About/Community/index.tsx:102
 msgid "community.head.title"
 msgstr "KlimaDAO 社区"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:395
+#: components/pages/About/Community/index.tsx:365
 msgid "community.if_you_ve_got_questions"
 msgstr "如果您有问题、想法、建议或其他任何事情：我们可以帮您找到合适的人来对接。"
 
-#: components/pages/About/Community/index.tsx:347
+#: components/pages/About/Community/index.tsx:318
 msgid "community.join_our_discord"
 msgstr "加入我们的 Discord"
 
-#: components/pages/About/Community/index.tsx:334
+#: components/pages/About/Community/index.tsx:305
 msgid "community.join_the_klima_community"
 msgstr "加入Klima社区"
 
-#: components/pages/About/Community/index.tsx:310
+#: components/pages/About/Community/index.tsx:282
 msgid "community.landx_logo"
 msgstr "LandX 标识"
 
-#: components/pages/About/Community/index.tsx:94
-#: components/pages/About/Community/index.tsx:389
+#: components/pages/About/Community/index.tsx:114
+#: components/pages/About/Community/index.tsx:359
 msgid "community.lets_work_together"
 msgstr "我们一起努力吧"
 
-#: components/pages/About/Community/index.tsx:137
+#: components/pages/About/Community/index.tsx:157
 msgid "community.moss_logo"
 msgstr "Moss 标识"
 
-#: components/pages/About/Community/index.tsx:192
+#: components/pages/About/Community/index.tsx:197
 msgid "community.oceandrop_logo"
 msgstr "Oceandrop 标识"
 
-#: components/pages/About/Community/index.tsx:277
+#: components/pages/About/Community/index.tsx:258
 msgid "community.offsetra_logo"
 msgstr "Offsetra 标识"
 
-#: components/pages/About/Community/index.tsx:214
+#: components/pages/About/Community/index.tsx:213
 msgid "community.olympusdao_logo"
 msgstr "OlympusDAO 标识"
 
-#: components/pages/About/Community/index.tsx:225
+#: components/pages/About/Community/index.tsx:221
 msgid "community.openearth_logo"
 msgstr "开放地球标识"
 
-#: components/pages/About/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:152
 msgid "community.our_partners"
 msgstr "我们的伙伴"
 
-#: components/pages/About/Community/index.tsx:181
+#: components/pages/About/Community/index.tsx:189
 msgid "community.polygon_logo"
 msgstr "Polygon 标识"
 
-#: components/pages/About/Community/index.tsx:148
+#: components/pages/About/Community/index.tsx:165
 msgid "community.toucan_logo"
 msgstr "Toucan 标识"
 
-#: components/pages/About/Community/index.tsx:299
+#: components/pages/About/Community/index.tsx:274
 msgid "community.toughtforfood_logo"
 msgstr "考虑食物标识"
 
-#: components/pages/About/Community/index.tsx:113
+#: components/pages/About/Community/index.tsx:133
 msgid "community.tree_grove"
 msgstr "树林"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:100
+#: components/pages/About/Community/index.tsx:120
 msgid "community.we_work_with_traditionnal"
 msgstr "我们与传统的碳市场参与者、加密平台、公司以及介于两者之间的所有人合作。"
 
@@ -1537,8 +1537,8 @@ msgstr "联系销售"
 
 #: components/Navigation/index.tsx:96
 #: components/pages/About/AboutHeader/index.tsx:43
-#: components/pages/About/Community/index.tsx:110
-#: components/pages/About/Community/index.tsx:405
+#: components/pages/About/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:375
 msgid "shared.contact_us"
 msgstr "联系我们"
 

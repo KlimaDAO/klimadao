@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-14 15:41+0000\n"
+"POT-Creation-Date: 2022-11-14 20:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -210,136 +210,136 @@ msgstr ""
 msgid "buy.zapper_03.title"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:97
+#: components/pages/About/Community/index.tsx:117
 msgid "community.become_a_partner"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:170
+#: components/pages/About/Community/index.tsx:181
 msgid "community.bigcowg_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:159
+#: components/pages/About/Community/index.tsx:173
 msgid "community.blockchainforclimatefondation_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:344
+#: components/pages/About/Community/index.tsx:315
 msgid "community.come_on_in"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:236
+#: components/pages/About/Community/index.tsx:229
 msgid "community.deltawave_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:288
+#: components/pages/About/Community/index.tsx:266
 msgid "community.digitalcharityart_logo"
 msgstr ""
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:359
+#: components/pages/About/Community/index.tsx:330
 msgid "community.discord_is_where_we_share"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:258
+#: components/pages/About/Community/index.tsx:245
 msgid "community.dovu_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:266
+#: components/pages/About/Community/index.tsx:250
 msgid "community.eco_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:247
+#: components/pages/About/Community/index.tsx:237
 msgid "community.etcgroup_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:392
+#: components/pages/About/Community/index.tsx:362
 msgid "community.get_in_touch"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:203
+#: components/pages/About/Community/index.tsx:205
 msgid "community.gitcoin_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:76
+#: components/pages/About/Community/index.tsx:96
 msgid "community.head.headline"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:83
+#: components/pages/About/Community/index.tsx:103
 msgid "community.head.metadescription"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:77
+#: components/pages/About/Community/index.tsx:97
 msgid "community.head.subline"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:75
-#: components/pages/About/Community/index.tsx:82
+#: components/pages/About/Community/index.tsx:95
+#: components/pages/About/Community/index.tsx:102
 msgid "community.head.title"
 msgstr ""
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:395
+#: components/pages/About/Community/index.tsx:365
 msgid "community.if_you_ve_got_questions"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:347
+#: components/pages/About/Community/index.tsx:318
 msgid "community.join_our_discord"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:334
+#: components/pages/About/Community/index.tsx:305
 msgid "community.join_the_klima_community"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:310
+#: components/pages/About/Community/index.tsx:282
 msgid "community.landx_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:94
-#: components/pages/About/Community/index.tsx:389
+#: components/pages/About/Community/index.tsx:114
+#: components/pages/About/Community/index.tsx:359
 msgid "community.lets_work_together"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:137
+#: components/pages/About/Community/index.tsx:157
 msgid "community.moss_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:192
+#: components/pages/About/Community/index.tsx:197
 msgid "community.oceandrop_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:277
+#: components/pages/About/Community/index.tsx:258
 msgid "community.offsetra_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:214
+#: components/pages/About/Community/index.tsx:213
 msgid "community.olympusdao_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:225
+#: components/pages/About/Community/index.tsx:221
 msgid "community.openearth_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:152
 msgid "community.our_partners"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:181
+#: components/pages/About/Community/index.tsx:189
 msgid "community.polygon_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:148
+#: components/pages/About/Community/index.tsx:165
 msgid "community.toucan_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:299
+#: components/pages/About/Community/index.tsx:274
 msgid "community.toughtforfood_logo"
 msgstr ""
 
-#: components/pages/About/Community/index.tsx:113
+#: components/pages/About/Community/index.tsx:133
 msgid "community.tree_grove"
 msgstr ""
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:100
+#: components/pages/About/Community/index.tsx:120
 msgid "community.we_work_with_traditionnal"
 msgstr ""
 
@@ -1537,8 +1537,8 @@ msgstr ""
 
 #: components/Navigation/index.tsx:96
 #: components/pages/About/AboutHeader/index.tsx:43
-#: components/pages/About/Community/index.tsx:110
-#: components/pages/About/Community/index.tsx:405
+#: components/pages/About/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:375
 msgid "shared.contact_us"
 msgstr ""
 

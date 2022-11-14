@@ -216,136 +216,136 @@ msgstr "Use the “Swap” interface in Zapper to set up your trade. If you are 
 msgid "buy.zapper_03.title"
 msgstr "SWAP"
 
-#: components/pages/About/Community/index.tsx:97
+#: components/pages/About/Community/index.tsx:117
 msgid "community.become_a_partner"
 msgstr "BECOME A PARTNER"
 
-#: components/pages/About/Community/index.tsx:170
+#: components/pages/About/Community/index.tsx:181
 msgid "community.bigcowg_logo"
 msgstr "BICOWG logo"
 
-#: components/pages/About/Community/index.tsx:159
+#: components/pages/About/Community/index.tsx:173
 msgid "community.blockchainforclimatefondation_logo"
 msgstr "Blockchain for Climate Foundation logo"
 
-#: components/pages/About/Community/index.tsx:344
+#: components/pages/About/Community/index.tsx:315
 msgid "community.come_on_in"
 msgstr "Come On In"
 
-#: components/pages/About/Community/index.tsx:236
+#: components/pages/About/Community/index.tsx:229
 msgid "community.deltawave_logo"
 msgstr "Delta Wave logo"
 
-#: components/pages/About/Community/index.tsx:288
+#: components/pages/About/Community/index.tsx:266
 msgid "community.digitalcharityart_logo"
 msgstr "Digital Charity Art logo"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:359
+#: components/pages/About/Community/index.tsx:330
 msgid "community.discord_is_where_we_share"
 msgstr "Discord is where we share important announcements, hold office-hours, answer questions, and trade memes. Our Discord server is extremely active and moderated around-the-clock. We've got channels for everything from trading to sustainability and carbon markets."
 
-#: components/pages/About/Community/index.tsx:258
+#: components/pages/About/Community/index.tsx:245
 msgid "community.dovu_logo"
 msgstr "Dovu logo"
 
-#: components/pages/About/Community/index.tsx:266
+#: components/pages/About/Community/index.tsx:250
 msgid "community.eco_logo"
 msgstr "Eco logo"
 
-#: components/pages/About/Community/index.tsx:247
+#: components/pages/About/Community/index.tsx:237
 msgid "community.etcgroup_logo"
 msgstr "Etc Group logo"
 
-#: components/pages/About/Community/index.tsx:392
+#: components/pages/About/Community/index.tsx:362
 msgid "community.get_in_touch"
 msgstr "Get in touch?"
 
-#: components/pages/About/Community/index.tsx:203
+#: components/pages/About/Community/index.tsx:205
 msgid "community.gitcoin_logo"
 msgstr "Gitcoin logo"
 
-#: components/pages/About/Community/index.tsx:76
+#: components/pages/About/Community/index.tsx:96
 msgid "community.head.headline"
 msgstr "Community"
 
-#: components/pages/About/Community/index.tsx:83
+#: components/pages/About/Community/index.tsx:103
 msgid "community.head.metadescription"
 msgstr "Learn about our community of passionate Klimates"
 
-#: components/pages/About/Community/index.tsx:77
+#: components/pages/About/Community/index.tsx:97
 msgid "community.head.subline"
 msgstr "KlimaDAO is a Decentralized Autonomous Organization for Change. We are governed and built by a community of passionate Klimates."
 
-#: components/pages/About/Community/index.tsx:75
-#: components/pages/About/Community/index.tsx:82
+#: components/pages/About/Community/index.tsx:95
+#: components/pages/About/Community/index.tsx:102
 msgid "community.head.title"
 msgstr "KlimaDAO Community"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:395
+#: components/pages/About/Community/index.tsx:365
 msgid "community.if_you_ve_got_questions"
 msgstr "If you've got questions, ideas, advice or anything else: we can help you find the right person to talk to."
 
-#: components/pages/About/Community/index.tsx:347
+#: components/pages/About/Community/index.tsx:318
 msgid "community.join_our_discord"
 msgstr "Join Our Discord"
 
-#: components/pages/About/Community/index.tsx:334
+#: components/pages/About/Community/index.tsx:305
 msgid "community.join_the_klima_community"
 msgstr "Join the Klima Community"
 
-#: components/pages/About/Community/index.tsx:310
+#: components/pages/About/Community/index.tsx:282
 msgid "community.landx_logo"
 msgstr "LandX logo"
 
-#: components/pages/About/Community/index.tsx:94
-#: components/pages/About/Community/index.tsx:389
+#: components/pages/About/Community/index.tsx:114
+#: components/pages/About/Community/index.tsx:359
 msgid "community.lets_work_together"
 msgstr "Let's Work Together"
 
-#: components/pages/About/Community/index.tsx:137
+#: components/pages/About/Community/index.tsx:157
 msgid "community.moss_logo"
 msgstr "Moss logo"
 
-#: components/pages/About/Community/index.tsx:192
+#: components/pages/About/Community/index.tsx:197
 msgid "community.oceandrop_logo"
 msgstr "Oceandrop logo"
 
-#: components/pages/About/Community/index.tsx:277
+#: components/pages/About/Community/index.tsx:258
 msgid "community.offsetra_logo"
 msgstr "Offsetra logo"
 
-#: components/pages/About/Community/index.tsx:214
+#: components/pages/About/Community/index.tsx:213
 msgid "community.olympusdao_logo"
 msgstr "OlympusDAO logo"
 
-#: components/pages/About/Community/index.tsx:225
+#: components/pages/About/Community/index.tsx:221
 msgid "community.openearth_logo"
 msgstr "Open Earth logo"
 
-#: components/pages/About/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:152
 msgid "community.our_partners"
 msgstr "OUR PARTNERS"
 
-#: components/pages/About/Community/index.tsx:181
+#: components/pages/About/Community/index.tsx:189
 msgid "community.polygon_logo"
 msgstr "Polygon logo"
 
-#: components/pages/About/Community/index.tsx:148
+#: components/pages/About/Community/index.tsx:165
 msgid "community.toucan_logo"
 msgstr "Toucan logo"
 
-#: components/pages/About/Community/index.tsx:299
+#: components/pages/About/Community/index.tsx:274
 msgid "community.toughtforfood_logo"
 msgstr "Thought for Food logo"
 
-#: components/pages/About/Community/index.tsx:113
+#: components/pages/About/Community/index.tsx:133
 msgid "community.tree_grove"
 msgstr "Tree grove"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:100
+#: components/pages/About/Community/index.tsx:120
 msgid "community.we_work_with_traditionnal"
 msgstr "We work with traditional carbon market players, crypto platforms, corporations and everyone in-between."
 
@@ -1543,8 +1543,8 @@ msgstr "Contact Sales"
 
 #: components/Navigation/index.tsx:96
 #: components/pages/About/AboutHeader/index.tsx:43
-#: components/pages/About/Community/index.tsx:110
-#: components/pages/About/Community/index.tsx:405
+#: components/pages/About/Community/index.tsx:130
+#: components/pages/About/Community/index.tsx:375
 msgid "shared.contact_us"
 msgstr "Contact Us"
 
