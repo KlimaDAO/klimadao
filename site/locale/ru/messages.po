@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-14 20:21+0000\n"
+"POT-Creation-Date: 2022-11-14 20:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -962,15 +962,15 @@ msgstr "Напишите свое обязательство сегодня!"
 msgid "pledges.dashboard.pledge.title"
 msgstr "Залог"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:61
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:63
 msgid "pledges.dashboard.profile.pledge_met"
 msgstr "≥ 100% обязательств выполнено"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:70
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:72
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr "{0}% обязательства выполнено"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:95
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:105
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Обязательство компенсировать <0>{0}</0> Углеродные тонны"
 
@@ -986,11 +986,11 @@ msgstr "{retiree} выбито {0} Тонны углерода"
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "Всего выбыло тонн углерода"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:41
+#: components/pages/Pledge/HeaderDesktop/index.tsx:40
 msgid "pledges.edit_pledge"
 msgstr "Изменить залог"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:290
+#: components/pages/Pledge/PledgeForm/index.tsx:308
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Добавить категорию"
 
@@ -1002,39 +1002,39 @@ msgstr "Ожидание подписи..."
 msgid "pledges.form.error"
 msgstr "Введите адрес кошелька, домен .klima или .eth"
 
-#: components/pages/Pledge/lib/formSchema.ts:55
+#: components/pages/Pledge/lib/formSchema.ts:59
 msgid "pledges.form.errors.categoryName.max"
 msgstr "Введите менее 32 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:51
+#: components/pages/Pledge/lib/formSchema.ts:55
 msgid "pledges.form.errors.categoryName.required"
 msgstr "Введите категорию"
 
-#: components/pages/Pledge/lib/formSchema.ts:59
+#: components/pages/Pledge/lib/formSchema.ts:63
 msgid "pledges.form.errors.categoryQuantity.min"
 msgstr "Введите значение больше 0"
 
-#: components/pages/Pledge/lib/formSchema.ts:31
+#: components/pages/Pledge/lib/formSchema.ts:35
 msgid "pledges.form.errors.description.max"
 msgstr "Введите менее 500 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:27
+#: components/pages/Pledge/lib/formSchema.ts:31
 msgid "pledges.form.errors.description.required"
 msgstr "Введите залог"
 
-#: components/pages/Pledge/lib/formSchema.ts:43
+#: components/pages/Pledge/lib/formSchema.ts:47
 msgid "pledges.form.errors.footprint.generic_error"
 msgstr "Введите расчетное количество тонн углерода"
 
-#: components/pages/Pledge/lib/formSchema.ts:47
+#: components/pages/Pledge/lib/formSchema.ts:51
 msgid "pledges.form.errors.footprint.min"
 msgstr "Введите значение больше 0"
 
-#: components/pages/Pledge/lib/formSchema.ts:39
+#: components/pages/Pledge/lib/formSchema.ts:43
 msgid "pledges.form.errors.methodology.max"
 msgstr "Введите менее 1000 символов"
 
-#: components/pages/Pledge/lib/formSchema.ts:35
+#: components/pages/Pledge/lib/formSchema.ts:39
 msgid "pledges.form.errors.methodology.required"
 msgstr "Введите методологию"
 
@@ -1046,11 +1046,15 @@ msgstr "Введите имя"
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "Введите действительный URL"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:214
+#: components/pages/Pledge/lib/formSchema.ts:27
+msgid "pledges.form.errors.profileWebsiteUrl.url"
+msgstr "Введите действительный URL"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledges.form.footprint.label"
 msgstr "След"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:219
+#: components/pages/Pledge/PledgeForm/index.tsx:237
 msgid "pledges.form.footprint.prompt"
 msgstr "Добавьте категорию и начните рассчитывать свой углеродный след"
 
@@ -1058,35 +1062,35 @@ msgstr "Добавьте категорию и начните рассчитыв
 msgid "pledges.form.generic_error"
 msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:240
+#: components/pages/Pledge/PledgeForm/index.tsx:258
 msgid "pledges.form.input.categoryName.label"
 msgstr "Категория"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:232
+#: components/pages/Pledge/PledgeForm/index.tsx:250
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Название категории"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:262
+#: components/pages/Pledge/PledgeForm/index.tsx:280
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Количество"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:254
+#: components/pages/Pledge/PledgeForm/index.tsx:272
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Тонны углерода"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:179
+#: components/pages/Pledge/PledgeForm/index.tsx:197
 msgid "pledges.form.input.description.label"
 msgstr "Залог"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:172
+#: components/pages/Pledge/PledgeForm/index.tsx:190
 msgid "pledges.form.input.description.placeholder"
 msgstr "Каково ваше обязательство?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:201
+#: components/pages/Pledge/PledgeForm/index.tsx:219
 msgid "pledges.form.input.methodology.label"
 msgstr "Методология"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:193
+#: components/pages/Pledge/PledgeForm/index.tsx:211
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "Какие инструменты или методики вы использовали для расчета своего углеродного следа?"
 
@@ -1100,13 +1104,17 @@ msgstr "Имя или название компании"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:158
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr "URL-адрес изображения профиля (необязательно)"
+msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:307
+#: components/pages/Pledge/PledgeForm/index.tsx:176
+msgid "pledges.form.input.profileWebsiteUrl.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:325
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Общий след"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:325
+#: components/pages/Pledge/PledgeForm/index.tsx:343
 msgid "pledges.form.submit_button"
 msgstr "Сохранить залог"
 
@@ -1118,7 +1126,7 @@ msgstr "Ваш залог"
 msgid "pledges.form.total_footprint_summary"
 msgstr "Общий след: {0} тонны углерода"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:335
+#: components/pages/Pledge/PledgeForm/index.tsx:353
 msgid "pledges.form.use_your_wallet"
 msgstr ""
 "Используйте свой кошелек, чтобы подписать и подтвердить эти изменения\n"
@@ -1530,8 +1538,8 @@ msgstr "Приборные панели по углероду"
 msgid "shared.community"
 msgstr "Сообщество"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:50
-#: components/pages/Pledge/HeaderMobile/index.tsx:57
+#: components/pages/Pledge/HeaderDesktop/index.tsx:49
+#: components/pages/Pledge/HeaderMobile/index.tsx:56
 msgid "shared.connect"
 msgstr "Соединить"
 

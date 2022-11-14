@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-14 20:21+0000\n"
+"POT-Creation-Date: 2022-11-14 20:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -954,15 +954,15 @@ msgstr "今天写下你的承诺！"
 msgid "pledges.dashboard.pledge.title"
 msgstr "承诺"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:61
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:63
 msgid "pledges.dashboard.profile.pledge_met"
 msgstr "≥ 100% 兑现承诺"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:70
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:72
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr "{0}% 的承诺兑现"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:95
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:105
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "承诺抵消<0>{0}</0>碳吨"
 
@@ -978,11 +978,11 @@ msgstr "{0} 停用的碳吨"
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "已停用的总碳吨"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:41
+#: components/pages/Pledge/HeaderDesktop/index.tsx:40
 msgid "pledges.edit_pledge"
 msgstr "编辑承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:290
+#: components/pages/Pledge/PledgeForm/index.tsx:308
 msgid "pledges.form.add_footprint_category_button"
 msgstr "添加类别"
 
@@ -994,39 +994,39 @@ msgstr "等待签名..."
 msgid "pledges.form.error"
 msgstr "输入钱包地址, .klima 或 .eth 域"
 
-#: components/pages/Pledge/lib/formSchema.ts:55
+#: components/pages/Pledge/lib/formSchema.ts:59
 msgid "pledges.form.errors.categoryName.max"
 msgstr "输入字符少于 32 个"
 
-#: components/pages/Pledge/lib/formSchema.ts:51
+#: components/pages/Pledge/lib/formSchema.ts:55
 msgid "pledges.form.errors.categoryName.required"
 msgstr "输入一个类别"
 
-#: components/pages/Pledge/lib/formSchema.ts:59
+#: components/pages/Pledge/lib/formSchema.ts:63
 msgid "pledges.form.errors.categoryQuantity.min"
 msgstr "输入一个大于 0 的值"
 
-#: components/pages/Pledge/lib/formSchema.ts:31
+#: components/pages/Pledge/lib/formSchema.ts:35
 msgid "pledges.form.errors.description.max"
 msgstr "输入字符少于 500 个"
 
-#: components/pages/Pledge/lib/formSchema.ts:27
+#: components/pages/Pledge/lib/formSchema.ts:31
 msgid "pledges.form.errors.description.required"
 msgstr "输入承诺"
 
-#: components/pages/Pledge/lib/formSchema.ts:43
+#: components/pages/Pledge/lib/formSchema.ts:47
 msgid "pledges.form.errors.footprint.generic_error"
 msgstr "输入估算值碳吨"
 
-#: components/pages/Pledge/lib/formSchema.ts:47
+#: components/pages/Pledge/lib/formSchema.ts:51
 msgid "pledges.form.errors.footprint.min"
 msgstr "输入一个大于 0 的值"
 
-#: components/pages/Pledge/lib/formSchema.ts:39
+#: components/pages/Pledge/lib/formSchema.ts:43
 msgid "pledges.form.errors.methodology.max"
 msgstr "输入字符少于 1000 个"
 
-#: components/pages/Pledge/lib/formSchema.ts:35
+#: components/pages/Pledge/lib/formSchema.ts:39
 msgid "pledges.form.errors.methodology.required"
 msgstr "输入方法"
 
@@ -1038,11 +1038,15 @@ msgstr "输入名称"
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "输入有效的网址"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:214
+#: components/pages/Pledge/lib/formSchema.ts:27
+msgid "pledges.form.errors.profileWebsiteUrl.url"
+msgstr "输入有效的网址"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledges.form.footprint.label"
 msgstr "足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:219
+#: components/pages/Pledge/PledgeForm/index.tsx:237
 msgid "pledges.form.footprint.prompt"
 msgstr "添加一个类别并开始计算您的碳足迹"
 
@@ -1050,35 +1054,35 @@ msgstr "添加一个类别并开始计算您的碳足迹"
 msgid "pledges.form.generic_error"
 msgstr "出问题了。请再试一次。"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:240
+#: components/pages/Pledge/PledgeForm/index.tsx:258
 msgid "pledges.form.input.categoryName.label"
 msgstr "类别"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:232
+#: components/pages/Pledge/PledgeForm/index.tsx:250
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "分类名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:262
+#: components/pages/Pledge/PledgeForm/index.tsx:280
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "数量"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:254
+#: components/pages/Pledge/PledgeForm/index.tsx:272
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "碳吨"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:179
+#: components/pages/Pledge/PledgeForm/index.tsx:197
 msgid "pledges.form.input.description.label"
 msgstr "承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:172
+#: components/pages/Pledge/PledgeForm/index.tsx:190
 msgid "pledges.form.input.description.placeholder"
 msgstr "你的承诺是什么？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:201
+#: components/pages/Pledge/PledgeForm/index.tsx:219
 msgid "pledges.form.input.methodology.label"
 msgstr "方法"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:193
+#: components/pages/Pledge/PledgeForm/index.tsx:211
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "您使用什么工具或方法来计算您的碳足迹？"
 
@@ -1092,13 +1096,17 @@ msgstr "姓名或公司名称"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:158
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr "个人资料图片网址（可选）"
+msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:307
+#: components/pages/Pledge/PledgeForm/index.tsx:176
+msgid "pledges.form.input.profileWebsiteUrl.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:325
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "总碳足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:325
+#: components/pages/Pledge/PledgeForm/index.tsx:343
 msgid "pledges.form.submit_button"
 msgstr "承诺"
 
@@ -1110,7 +1118,7 @@ msgstr "您的承诺"
 msgid "pledges.form.total_footprint_summary"
 msgstr "总碳足迹：{0} 碳吨"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:335
+#: components/pages/Pledge/PledgeForm/index.tsx:353
 msgid "pledges.form.use_your_wallet"
 msgstr "使用您的钱包签名并确认此编辑。"
 
@@ -1518,8 +1526,8 @@ msgstr "碳仪表板"
 msgid "shared.community"
 msgstr "社区"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:50
-#: components/pages/Pledge/HeaderMobile/index.tsx:57
+#: components/pages/Pledge/HeaderDesktop/index.tsx:49
+#: components/pages/Pledge/HeaderMobile/index.tsx:56
 msgid "shared.connect"
 msgstr "连接"
 
