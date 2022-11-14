@@ -19,6 +19,8 @@ export const community_textGroup = css`
     max-width: 64rem;
   }
 `;
+export const logos_max_width = "150px";
+export const logos_max_height = "50px";
 
 export const partner_logos = css`
   display: flex;
@@ -34,7 +36,8 @@ export const partner_logos = css`
   justify-self: center;
   align-self: center;
   .partner_logo {
-    max-width: 15rem;
+    max-width: ${logos_max_width};
+    max-height: ${logos_max_height};
   }
   ${breakpoints.desktop} {
     margin-top: 4.8rem;
