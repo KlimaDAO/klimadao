@@ -36,6 +36,7 @@ import treeGroveImage from "public/bg-tree-grove.jpg";
 
 import * as styles from "./styles";
 import { Container } from "../Container";
+import { getImageSizes } from "@klimadao/lib/utils";
 
 const DiscordButton: FC = () => (
   <A className={styles.page_discordButton} href={urls.discordInvite}>
@@ -66,6 +67,25 @@ const HeaderElements: FC = () => (
     <DiscordButton />
     <SnapshotButton />
     <ForumButton />
+  </div>
+);
+
+type LogoProps = {
+  alt: string;
+  href: string;
+  src: StaticImageData;
+};
+const Logo: FC<LogoProps> = (props: LogoProps) => (
+  <div className="partner_logo">
+    <A href={props.href}>
+      <Image
+        alt={props.alt}
+        src={props.src}
+        width={styles.logos_max_width}
+        height={styles.logos_max_height}
+        objectFit={"contain"}
+      />
+    </A>
   </div>
 );
 
@@ -118,6 +138,8 @@ export const Community: NextPage = () => (
             width={700}
             height={300}
             objectFit="cover"
+            placeholder="blur"
+            sizes={getImageSizes({ large: "700px" })}
           />
         </div>
       </div>
@@ -131,190 +153,139 @@ export const Community: NextPage = () => (
           </Text>
         </div>
         <div className={styles.partner_logos}>
-          <div className="partner_logo">
-            <A href="https://moss.earth">
-              <Image
-                alt={t({
-                  id: "community.moss_logo",
-                  message: `Moss logo`,
-                })}
-                src={mossLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://toucan.earth">
-              <Image
-                alt={t({
-                  id: "community.toucan_logo",
-                  message: `Toucan logo`,
-                })}
-                src={toucanLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://www.blockchainforclimate.org">
-              <Image
-                alt={t({
-                  id: "community.blockchainforclimatefondation_logo",
-                  message: `Blockchain for Climate Foundation logo`,
-                })}
-                src={bcfcLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://twitter.com/BICOWG">
-              <Image
-                alt={t({
-                  id: "community.bigcowg_logo",
-                  message: `BICOWG logo`,
-                })}
-                src={bicoWgLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://polygon.technology">
-              <Image
-                alt={t({
-                  id: "community.polygon_logo",
-                  message: `Polygon logo`,
-                })}
-                src={polygonLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://oceandrop.art">
-              <Image
-                alt={t({
-                  id: "community.oceandrop_logo",
-                  message: `Oceandrop logo`,
-                })}
-                src={oceandropLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://gitcoin.co">
-              <Image
-                alt={t({
-                  id: "community.gitcoin_logo",
-                  message: `Gitcoin logo`,
-                })}
-                src={gitcoinLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://www.olympusdao.finance">
-              <Image
-                alt={t({
-                  id: "community.olympusdao_logo",
-                  message: `OlympusDAO logo`,
-                })}
-                src={olympusLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://openearth.org">
-              <Image
-                alt={t({
-                  id: "community.openearth_logo",
-                  message: `Open Earth logo`,
-                })}
-                src={openEarthLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://www.deltawave.energy">
-              <Image
-                alt={t({
-                  id: "community.deltawave_logo",
-                  message: `Delta Wave logo`,
-                })}
-                src={deltaWaveLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://etc-group.com">
-              <Image
-                alt={t({
-                  id: "community.etcgroup_logo",
-                  message: `Etc Group logo`,
-                })}
-                src={etcGroupLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://dovu.earth">
-              <Image
-                alt={t({ id: "community.dovu_logo", message: `Dovu logo` })}
-                src={dovuLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://eco.com">
-              <Image
-                alt={t({
-                  id: "community.eco_logo",
-                  message: `Eco logo`,
-                })}
-                src={ecoLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://offsetra.com">
-              <Image
-                alt={t({
-                  id: "community.offsetra_logo",
-                  message: `Offsetra logo`,
-                })}
-                src={offsetraLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://www.digitalcharityart.co.nz">
-              <Image
-                alt={t({
-                  id: "community.digitalcharityart_logo",
-                  message: `Digital Charity Art logo`,
-                })}
-                src={digitalCharityArtLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://thoughtforfood.org">
-              <Image
-                alt={t({
-                  id: "community.toughtforfood_logo",
-                  message: `Thought for Food logo`,
-                })}
-                src={thoughtForFoodLogo}
-              />
-            </A>
-          </div>
-          <div className="partner_logo">
-            <A href="https://landx.fi">
-              <Image
-                alt={t({
-                  id: "community.landx_logo",
-                  message: `LandX logo`,
-                })}
-                src={landxLogo}
-              />
-            </A>
-          </div>
+          <Logo
+            alt={t({
+              id: "community.moss_logo",
+              message: `Moss logo`,
+            })}
+            href="https://moss.earth"
+            src={mossLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.toucan_logo",
+              message: `Toucan logo`,
+            })}
+            href="https://toucan.earth"
+            src={toucanLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.blockchainforclimatefondation_logo",
+              message: `Blockchain for Climate Foundation logo`,
+            })}
+            href="https://www.blockchainforclimate.org"
+            src={bcfcLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.bigcowg_logo",
+              message: `BICOWG logo`,
+            })}
+            href="https://twitter.com/BICOWG"
+            src={bicoWgLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.polygon_logo",
+              message: `Polygon logo`,
+            })}
+            href="https://polygon.technology"
+            src={polygonLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.oceandrop_logo",
+              message: `Oceandrop logo`,
+            })}
+            href="https://oceandrop.art"
+            src={oceandropLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.gitcoin_logo",
+              message: `Gitcoin logo`,
+            })}
+            href="https://gitcoin.co"
+            src={gitcoinLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.olympusdao_logo",
+              message: `OlympusDAO logo`,
+            })}
+            href="https://www.olympusdao.finance"
+            src={olympusLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.openearth_logo",
+              message: `Open Earth logo`,
+            })}
+            href="https://openearth.org"
+            src={openEarthLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.deltawave_logo",
+              message: `Delta Wave logo`,
+            })}
+            href="https://www.deltawave.energy"
+            src={deltaWaveLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.etcgroup_logo",
+              message: `Etc Group logo`,
+            })}
+            href="https://etc-group.com"
+            src={etcGroupLogo}
+          />
+          <Logo
+            alt={t({ id: "community.dovu_logo", message: `Dovu logo` })}
+            href="https://dovu.earth"
+            src={dovuLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.eco_logo",
+              message: `Eco logo`,
+            })}
+            href="https://eco.com"
+            src={ecoLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.offsetra_logo",
+              message: `Offsetra logo`,
+            })}
+            href="https://offsetra.com"
+            src={offsetraLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.digitalcharityart_logo",
+              message: `Digital Charity Art logo`,
+            })}
+            href="https://www.digitalcharityart.co.nz"
+            src={digitalCharityArtLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.toughtforfood_logo",
+              message: `Thought for Food logo`,
+            })}
+            href="https://thoughtforfood.org"
+            src={thoughtForFoodLogo}
+          />
+          <Logo
+            alt={t({
+              id: "community.landx_logo",
+              message: `LandX logo`,
+            })}
+            href="https://landx.fi"
+            src={landxLogo}
+          />
         </div>
       </div>
     </Section>
@@ -372,10 +343,9 @@ export const Community: NextPage = () => (
           <div className="joinDiscord_dummy">
             <Image
               src={discordImage}
-              width={600}
-              height={307}
               alt="Screenshot of Discord"
               placeholder="blur"
+              sizes={getImageSizes({ large: "576px" })}
             />
           </div>
         </div>
