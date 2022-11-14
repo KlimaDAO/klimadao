@@ -157,11 +157,29 @@ export const PledgeForm: FC<Props> = (props) => {
         }}
         label={t({
           id: "pledges.form.input.profileImageUrl.label",
-          message: "Profile image url (optional)",
+          message: "Profile image url (Optional)",
         })}
         errorMessage={
           pledgeErrorTranslationsMap[
             errors.profileImageUrl?.message as PledgeErrorId
+          ]
+        }
+      />
+
+      <InputField
+        id="profileWebsiteUrl"
+        inputProps={{
+          placeholder: "https://",
+          type: "text",
+          ...register("profileWebsiteUrl"),
+        }}
+        label={t({
+          id: "pledges.form.input.profileWebsiteUrl.label",
+          message: "Website (Optional)",
+        })}
+        errorMessage={
+          pledgeErrorTranslationsMap[
+            errors.profileWebsiteUrl?.message as PledgeErrorId
           ]
         }
       />

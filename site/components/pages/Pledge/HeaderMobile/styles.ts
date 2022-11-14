@@ -60,14 +60,6 @@ export const themeToggle = css`
   background-color: var(--surface-02);
 `;
 
-export const betaBadge = css`
-  color: var(--klima-green);
-  padding: 0.4rem;
-  border: 0.1rem solid var(--klima-green);
-  border-radius: var(--border-radius);
-  font-size: 1.4rem;
-`;
-
 export const editButton = css`
   display: flex;
   align-items: center;

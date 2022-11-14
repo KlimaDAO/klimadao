@@ -21,6 +21,7 @@ export type Pledge = {
   name: string;
   nonce: string;
   profileImageUrl: string;
+  profileWebsiteUrl: string;
   description: string;
   methodology: string;
   footprint: Footprint[];

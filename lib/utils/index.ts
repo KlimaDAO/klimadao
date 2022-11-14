@@ -11,6 +11,7 @@ export {
 export { trimStringDecimals } from "./trimStringDecimals";
 export { secondsUntilBlock } from "./secondsUntilBlock";
 export { prettifySeconds } from "./prettifySeconds";
+export { prettifyUrl } from "./prettifyUrl";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
 export { trimWithLocale } from "./trimWithLocale";
 export { concatAddress } from "./concatAddress";

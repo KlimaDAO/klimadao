@@ -30,7 +30,6 @@ export const HeaderMobile: FC<Props> = (props) => {
               <KlimaInfinityLogoOnly />
             </a>
           </Link>
-          <div className={styles.betaBadge}>Beta</div>
         </div>
 
         <div className={styles.navMain_Buttons}>
