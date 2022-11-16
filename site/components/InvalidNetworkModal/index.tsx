@@ -76,7 +76,6 @@ export const InvalidNetworkModal: FC = () => {
 
       <div className={styles.switchButtonContainer}>
         <ButtonPrimary
-          className={styles.switchButton}
           label={<Trans>Switch to Polygon</Trans>}
           onClick={handleChangeNetwork("mainnet")}
         />
