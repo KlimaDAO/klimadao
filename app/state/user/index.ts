@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  ActionReducerMapBuilder,
+  createSlice,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
 import {
@@ -204,12 +208,12 @@ export const userSlice = createSlice({
       s.pklimaTerms.claimed = safeAdd(s.pklimaTerms.claimed, a.payload);
     },
   },
-  extraReducers: (builder) => {
+  // coax the types to fix a ts inference bug https://github.com/reduxjs/redux-toolkit/issues/2862
+  extraReducers: (builder: ActionReducerMapBuilder<UserState>) => {
     builder.addCase(redeemBond, (s, a) => {
-      if (!s.balance) return;
-      if (a.payload.autostake) {
+      if (s?.balance && a.payload.autostake) {
         s.balance.sklima = safeAdd(s.balance.sklima, a.payload.value);
-      } else {
+      } else if (s?.balance) {
         s.balance.klima = safeAdd(s.balance.klima, a.payload.value);
       }
     });
