@@ -9,7 +9,7 @@ import Marketplace from "@klimadao/lib/abi/Marketplace.json";
 import { ethers } from "ethers";
 import { useWeb3 } from "@klimadao/lib/utils";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
-
+import { changeApprovalTransaction } from "./utils";
 import * as styles from "./styles";
 
 export type FormValues = {
@@ -33,10 +33,14 @@ const defaultValues = {
   batchPrices: "",
 };
 
+const c3token = "0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4";
+const marketplace = "0xa29bcC5434d21b44b00a6Df9Eda6F16436295B80";
+
 export const AddListing: FC<Props> = (props) => {
-  const { signer } = useWeb3();
+  const { provider, address } = useWeb3();
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
+  const [statusMessage, setStatusMessage] = useState<null | string>(null);
 
   const { register, handleSubmit, formState, control, setValue } =
     useForm<FormValues>({
@@ -48,39 +52,57 @@ export const AddListing: FC<Props> = (props) => {
 
   const hasError = !isLoading && !!errorMessage;
 
+  const logStatus = (m: string) => setStatusMessage(m);
+
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
     setErrorMessage(null);
 
-    if (!signer) return;
-
-    const tokenContract = new ethers.Contract(
-      "0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4",
-      C3ProjectToken.abi,
-      signer
-    );
-
-    const paredValueToSell = ethers.utils.parseUnits(values.totalAmountToSell);
-
-    await tokenContract.approve(
-      "0xa29bcC5434d21b44b00a6Df9Eda6F16436295B80",
-      paredValueToSell.toString()
-    );
-
-    const marketPlaceContract = new ethers.Contract(
-      "0xa29bcC5434d21b44b00a6Df9Eda6F16436295B80",
-      Marketplace.abi,
-      signer
-    );
-
     try {
       setIsLoading(true);
-      await marketPlaceContract.addListing(
+
+      if (!provider) return;
+
+      const tokenContract = new ethers.Contract(
+        c3token,
+        C3ProjectToken.abi,
+        provider
+      );
+
+      const allowance = await tokenContract.allowance(address, marketplace);
+
+      logStatus(`Your allowance value: ${ethers.utils.formatUnits(allowance)}`);
+
+      const approvedValue = await changeApprovalTransaction({
+        tokenAddress: c3token,
+        spenderAddress: marketplace,
+        provider: provider,
+        value: values.totalAmountToSell,
+        onStatus: logStatus,
+      });
+
+      logStatus(`Done! Approved Value: ${approvedValue}`);
+
+      const marketPlaceContract = new ethers.Contract(
+        marketplace,
+        Marketplace.abi,
+        provider.getSigner()
+      );
+
+      logStatus(`Start Add Listing`);
+
+      const listingTxn = await marketPlaceContract.addListing(
         values.tokenAddress,
-        paredValueToSell,
+        ethers.utils.parseUnits(values.totalAmountToSell),
         ethers.utils.parseUnits(values.singleUnitPrice),
         [ethers.utils.parseUnits("1"), ethers.utils.parseUnits("1")], // what is this?
         [ethers.utils.parseUnits("1"), ethers.utils.parseUnits("1")] // what is this?
       );
+
+      logStatus(`Wait for Network Approval`);
+      await listingTxn.wait(1);
+      console.log("listing", listingTxn);
+      setIsLoading(false);
+      props.onSubmit();
     } catch (error) {
       setIsLoading(false);
       console.error(error);
@@ -169,6 +191,9 @@ export const AddListing: FC<Props> = (props) => {
             <Text t="caption" className="error">
               There was an error with the API. Please try again
             </Text>
+          )}
+          {!hasError && !!statusMessage && (
+            <Text t="caption">{statusMessage}</Text>
           )}
           {!isLoading && (
             <ButtonPrimary
