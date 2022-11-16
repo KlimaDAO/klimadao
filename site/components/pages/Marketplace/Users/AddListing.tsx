@@ -94,8 +94,8 @@ export const AddListing: FC<Props> = (props) => {
         values.tokenAddress,
         ethers.utils.parseUnits(values.totalAmountToSell),
         ethers.utils.parseUnits(values.singleUnitPrice),
-        [ethers.utils.parseUnits("1"), ethers.utils.parseUnits("1")], // what is this?
-        [ethers.utils.parseUnits("1"), ethers.utils.parseUnits("1")] // what is this?
+        [],
+        []
       );
 
       logStatus(`Wait for Network Approval`);
