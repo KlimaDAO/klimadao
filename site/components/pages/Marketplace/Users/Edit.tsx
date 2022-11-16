@@ -50,7 +50,10 @@ export const EditProfile: FC<Props> = (props) => {
       const loginRes = await loginUser(address);
 
       if (!signer) return;
-      const signature = await signer.signMessage(loginRes.nonce); // TODO: add string and give to API developers
+      const signature = await signer.signMessage(
+        editSignMessage(loginRes.nonce)
+      );
+
       const verifyResponse = await verifyUser({
         address,
         signature: signature,
