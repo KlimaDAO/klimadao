@@ -1,13 +1,16 @@
-import React, { FC, ReactNode } from "react";
-import { Link } from "../types";
+import React, { FC, ReactElement, ReactNode } from "react";
 
+interface RenderLinkProps {
+  href: string;
+  children: ReactElement;
+}
 export interface Props {
   label: ReactNode;
   className?: string;
   onClick?: () => void;
   href?: string;
   variant?: "gray" | "icon" | "blue" | "blueRounded" | null;
-  link?: Link;
+  renderLink?: (p: RenderLinkProps) => ReactElement;
   rel?: string;
   target?: string;
   isExternalHref?: boolean;
@@ -19,26 +22,19 @@ interface BaseProps extends Props {
   buttonStyle: string;
 }
 
-export const BaseButton: FC<BaseProps> = ({
-  link: LinkElement,
-  buttonStyle,
-  ...props
-}) => {
-  if (props.href) {
-    if (LinkElement) {
-      return (
-        <LinkElement href={props.href}>
-          <a className={buttonStyle}>{props.label}</a>
-        </LinkElement>
-      );
-    }
+export const BaseButton: FC<BaseProps> = ({ buttonStyle, ...props }) => {
+  if (props.href && props.renderLink)
+    return props.renderLink({
+      href: props.href,
+      children: <a className={buttonStyle}>{props.label}</a>,
+    });
 
+  if (props.href)
     return (
       <a {...props} className={buttonStyle} href={props.href}>
         {props.label}
       </a>
     );
-  }
 
   return (
     <button

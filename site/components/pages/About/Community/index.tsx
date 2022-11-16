@@ -1,6 +1,5 @@
-import { FC } from "react";
 import { NextPage } from "next";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import ForumIcon from "@mui/icons-material/Forum";
 import { Trans, t } from "@lingui/macro";
 import { urls } from "@klimadao/lib/constants";
@@ -38,7 +37,7 @@ import * as styles from "./styles";
 import { Container } from "../Container";
 import { getImageSizes } from "@klimadao/lib/utils";
 
-const DiscordButton: FC = () => (
+const DiscordButton = () => (
   <A className={styles.page_discordButton} href={urls.discordInvite}>
     <DiscordIcon className={styles.page_discordIcon} />
     <span>|</span>
@@ -46,7 +45,7 @@ const DiscordButton: FC = () => (
   </A>
 );
 
-const SnapshotButton: FC = () => (
+const SnapshotButton = () => (
   <A className={styles.page_baseHeaderButtons} href={urls.snapshot}>
     <SnapshotIcon className={styles.page_snapshotIcon} />
     <span>|</span>
@@ -54,7 +53,7 @@ const SnapshotButton: FC = () => (
   </A>
 );
 
-const ForumButton: FC = () => (
+const ForumButton = () => (
   <A className={styles.page_baseHeaderButtons} href={urls.forum}>
     <ForumIcon fontSize="large" className={styles.page_forumIcon} />
     <span>|</span>
@@ -62,7 +61,7 @@ const ForumButton: FC = () => (
   </A>
 );
 
-const HeaderElements: FC = () => (
+const HeaderElements = () => (
   <div className={styles.headerElements}>
     <DiscordButton />
     <SnapshotButton />
@@ -75,14 +74,14 @@ type LogoProps = {
   href: string;
   src: StaticImageData;
 };
-const Logo: FC<LogoProps> = (props: LogoProps) => (
+const Logo = (props: LogoProps) => (
   <div className="partner_logo">
     <A href={props.href}>
       <Image
         alt={props.alt}
         src={props.src}
-        width={styles.logos_max_width}
-        height={styles.logos_max_height}
+        width={150}
+        height={50}
         objectFit={"contain"}
       />
     </A>
@@ -105,7 +104,7 @@ export const Community: NextPage = () => (
       message: "Learn about our community of passionate Klimates",
     })}
     mediaImageSrc={urls.mediaImage}
-    headerElements={HeaderElements}
+    headerElements={<HeaderElements />}
   >
     <Section style={{ paddingBottom: "unset" }}>
       <div className={styles.communityContainer}>

@@ -1,4 +1,4 @@
-import { StaticImageData } from "components/Image";
+import { StaticImageData } from "next/image";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
 
 import BCT from "public/icons/BCT.png";

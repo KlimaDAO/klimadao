@@ -4,6 +4,7 @@ import { cx } from "@emotion/css";
 import Link from "next/link";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { NavItemMobileID } from "./index";
+
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;
   id?: NavItemMobileID;
@@ -24,7 +25,7 @@ export const NavItemMobile: FC<Props> = (props) => {
         })}
         label={props.name}
         onClick={() => setIsToggled(!isToggled)}
-        link={Link}
+        renderLink={(linkProps) => <Link {...linkProps} />}
       />
       {props.subMenu && (
         <div

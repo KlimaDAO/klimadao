@@ -192,12 +192,12 @@ export const EventDemo = (props: { eventTitle: string }) => {
                 <ButtonSecondary
                   label="View Retirement Receipt"
                   href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
-                  link={Link}
+                  renderLink={(linkProps) => <Link {...linkProps} />}
                 />
                 <ButtonPrimary
                   label="See Event Progress"
                   href={`/pledge/${retirement.beneficiaryAddress}`}
-                  link={Link}
+                  renderLink={(linkProps) => <Link {...linkProps} />}
                 />
               </div>
             </div>
@@ -227,7 +227,7 @@ export const EventDemo = (props: { eventTitle: string }) => {
               variant="blueRounded"
               label={"Get Started"}
               href="/infinity"
-              link={Link}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
             <ButtonSecondary
               variant="blueRounded"

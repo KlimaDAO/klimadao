@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import { StaticImageData } from "next/image";
 import { cx } from "@emotion/css";
 
 import { Image } from "components/Image";
@@ -26,7 +27,7 @@ export const HighlightValue: FC<HighlightValueProps> = (props) => {
             src={props.icon}
             width={48}
             height={48}
-            alt={props.iconName}
+            alt={props.iconName || ""}
           />
         )}
 

@@ -468,7 +468,7 @@ export const Home: NextPage<Props> = (props) => {
               key="See Tutorial"
               label={t({ id: "home.see_tutorial", message: "See Tutorial" })}
               href="/buy"
-              link={Link}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
           </div>
           <div className="buy_col2">

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState, ReactElement, useRef } from "react";
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
@@ -66,7 +66,7 @@ const APPROVAL_SLIPPAGE = 0.01;
 const MAX_FIAT_COST = 2000; // usdc
 
 interface ButtonProps {
-  label: React.ReactElement | string;
+  label: ReactElement | string;
   onClick: undefined | (() => void);
   disabled: boolean;
 }
@@ -102,7 +102,7 @@ export const Offset = (props: Props) => {
   // form state
   const [quantity, setQuantity] = useState("");
   const [debouncedQuantity, setDebouncedQuantity] = useState("");
-  const debounceTimerRef = React.useRef<NodeJS.Timeout | undefined>();
+  const debounceTimerRef = useRef<NodeJS.Timeout | undefined>();
   const [cost, setCost] = useState("");
   const [beneficiary, setBeneficiary] = useState("");
   const [beneficiaryAddress, setBeneficiaryAddress] = useState("");

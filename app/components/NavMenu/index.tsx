@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, useEffect, useState } from "react";
+import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectBalances, selectLocale, selectDomain } from "state/selectors";
 import { Trans } from "@lingui/macro";
@@ -77,6 +77,7 @@ interface MenuButtonProps {
   isActive?: boolean;
   disabled?: boolean;
   onClick?: () => void;
+  children: ReactNode;
 }
 
 const MenuButton: FC<MenuButtonProps> = (props) => {

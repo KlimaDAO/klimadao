@@ -7,6 +7,7 @@ export const Web3Context = createContext<Web3ModalState>(web3InitialState);
 
 interface Props {
   strings: Web3ModalStrings;
+  children: React.ReactNode;
 }
 /** Init the web3Modal and expose via react context  */
 export const Web3ContextProvider: FC<Props> = (props) => {

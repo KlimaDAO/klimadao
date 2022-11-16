@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import Link from "next/link";
 import * as styles from "./styles";
 
@@ -12,7 +12,7 @@ export type Props = {
   activePage: PageName;
   title: string;
   subline: JSX.Element | string;
-  headerElements?: FC;
+  headerElements?: ReactNode;
 };
 
 export const AboutHeader: FC<Props> = (props) => {
@@ -67,19 +67,19 @@ export const AboutHeader: FC<Props> = (props) => {
               label={t({ id: "shared.community", message: "Community" })}
               href={"/community"}
               variant={isPageActive("community") ? null : "gray"}
-              link={Link}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
             <ButtonPrimary
               label={t({ id: "shared.contact", message: "Contact" })}
               href={"/contact"}
               variant={isPageActive("contact") ? null : "gray"}
-              link={Link}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
             <ButtonPrimary
               label={t({ id: "shared.disclaimer", message: "Disclaimer" })}
               href={"/resources"}
               variant={isPageActive("disclaimer") ? null : "gray"}
-              link={Link}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
           </div>
 
@@ -90,7 +90,7 @@ export const AboutHeader: FC<Props> = (props) => {
             <Text align="center" t="body3" color="lighter">
               {props.subline}
             </Text>
-            {props.headerElements && <props.headerElements />}
+            {props.headerElements}
           </div>
         </div>
       </Section>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { redeemBond } from "state/bonds";
 import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
@@ -66,7 +67,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    setBalance: (s, a: Setter<"balance">) => {
+    setBalance: (s, a) => {
       s.balance = { ...s.balance!, ...a.payload };
     },
     setDomains: (s, a: Setter<"nameServiceDomains">) => {

@@ -7,8 +7,8 @@ yup.addMethod<yup.StringSchema>(
   yup.string,
   "isAddress",
   function (errorMessage: string) {
-    return this.test("is-address", errorMessage, function (value: any) {
-      if (utils.isAddress(value)) return true;
+    return this.test("is-address", errorMessage, function (value) {
+      if (utils.isAddress(value || "")) return true;
 
       return this.createError({ message: errorMessage });
     });

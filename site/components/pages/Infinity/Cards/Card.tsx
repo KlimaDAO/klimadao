@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Trans } from "@lingui/macro";
 import { useRouter } from "next/router";
 

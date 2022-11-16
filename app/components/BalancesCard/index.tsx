@@ -1,3 +1,4 @@
+import { FC, ReactNode } from "react";
 import { Text } from "@klimadao/lib/components";
 import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
@@ -5,7 +6,6 @@ import { useSelector } from "react-redux";
 import { InfoButton } from "components/InfoButton";
 import { selectAppState, selectBalances, selectLocale } from "state/selectors";
 import * as styles from "./styles";
-import { FC } from "react";
 import { RootState } from "state";
 import { t, Trans } from "@lingui/macro";
 
@@ -14,7 +14,7 @@ type AssetLabels = { [key in Asset]: string };
 
 interface Props {
   assets: Asset[];
-  tooltip: React.ReactNode;
+  tooltip: ReactNode;
 }
 
 export const BalancesCard: FC<Props> = (props) => {

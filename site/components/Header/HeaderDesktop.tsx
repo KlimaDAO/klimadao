@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import * as styles from "./styles";
 import Link from "next/link";
 
@@ -10,6 +10,7 @@ interface Props {
   href?: string;
   activePage: PageName;
   transparent?: boolean;
+  children: ReactNode;
 }
 
 export const HeaderDesktop: FC<Props> = (props) => {
