@@ -2,9 +2,7 @@ import React, { FC, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useWeb3 } from "@klimadao/lib/utils";
-
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-
 import { InputField, TextareaField } from "components/Form";
 import { loginUser, verifyUser, postUser, putUser } from "../lib/api";
 import { User } from "@klimadao/lib/types/marketplace";
@@ -34,16 +32,16 @@ export const EditProfile: FC<Props> = (props) => {
   const { address, signer } = useWeb3();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
   const { register, handleSubmit, formState } = useForm<User>({
     defaultValues: { ...defaultValues, ...props.user, wallet: address },
   });
 
-  const hasError = !isLoading && isError;
+  const hasError = !isLoading && !!errorMessage;
 
   const onSubmit: SubmitHandler<User> = async (values: User) => {
-    setIsError(false);
+    setErrorMessage(null);
 
     try {
       setIsLoading(true);
@@ -53,7 +51,6 @@ export const EditProfile: FC<Props> = (props) => {
 
       if (!signer) return;
       const signature = await signer.signMessage(loginRes.nonce); // TODO: add string and give to API developers
-
       const verifyResponse = await verifyUser({
         address,
         signature: signature,
@@ -76,19 +73,39 @@ export const EditProfile: FC<Props> = (props) => {
       if (response) {
         props.onSubmit(response);
       } else {
-        setIsError(true);
+        setIsLoading(false);
+        setErrorMessage(
+          t({
+            id: "marketplace.user.edit.form.error.api_error",
+            message:
+              "There was an error with the Request API. Please try again",
+          })
+        );
       }
-    } catch (error) {
+    } catch (error: any) {
+      setIsLoading(false);
       console.error(error);
-      setIsError(true);
+      if (error.code === 4001) {
+        setErrorMessage(
+          t({
+            id: "marketplace.user.edit.form.error.user_rejected",
+            message: "You chose to reject the transaction",
+          })
+        );
+      } else {
+        setErrorMessage(
+          t({
+            id: "marketplace.user.edit.form.error.general_error",
+            message: "Something went wrong. Please try again",
+          })
+        );
+      }
     }
-
-    setIsLoading(false);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.editForm}>
+      <div className={styles.formContainer}>
         <InputField
           id="wallet"
           inputProps={{
@@ -161,6 +178,7 @@ export const EditProfile: FC<Props> = (props) => {
               </Trans>
             }
             onClick={handleSubmit(onSubmit)}
+            disabled={!formState.isDirty}
           />
         )}
       </div>

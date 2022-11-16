@@ -1,3 +1,5 @@
+import { BigNumber } from "ethers";
+
 export interface Project {
   id: string;
   key: string;
@@ -18,7 +20,7 @@ export interface User {
   activities: Activity[];
 }
 
-type Listing = {
+export type Listing = {
   id: number;
   totalAmountToSell: number;
   tokenAddress: string;
@@ -51,4 +53,24 @@ type Activity = {
   buyer: {
     id: string;
   };
+};
+
+export type ProjectInfo = {
+  active: boolean;
+  country: string;
+  methodology: string;
+  name: string;
+  period_end: BigNumber;
+  period_start: BigNumber;
+  project_id: string;
+  region: string | "";
+  registry: "GS";
+  uri: string;
+};
+
+export type Asset = {
+  tokenAddress: string;
+  tokenName: string;
+  projectName: string;
+  balance: string;
 };

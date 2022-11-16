@@ -9,7 +9,14 @@ import { Modal } from "components/Modal";
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../Layout";
 import { EditProfile } from "./Edit";
-import { User } from "@klimadao/lib/types/marketplace";
+import { AddListing } from "./AddListing";
+import { User, Asset } from "@klimadao/lib/types/marketplace";
+
+import { ethers } from "ethers";
+import { formatUnits } from "@klimadao/lib/utils";
+import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
+import { urls } from "@klimadao/lib/constants";
+import { getJsonRpcProvider } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 
@@ -24,8 +31,10 @@ export const Users: NextPage<Props> = (props) => {
     props.userAddress
   );
   const [user, setUser] = useState<User | null>(null);
+  const [assets, setAssets] = useState<Asset[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showListingModal, setShowListingModal] = useState(false);
 
   const userName = props.userDomain || props.userAddress;
   const userData = user || props.marketplaceUser;
@@ -37,9 +46,51 @@ export const Users: NextPage<Props> = (props) => {
     isConnectedProfile && setUser(props.marketplaceUser);
   }, [isConnectedProfile, isUnconnectedProfile]);
 
-  const onSubmit = (values: User) => {
-    setShowModal(false);
+  // load Listings on Mount, will be in API data later !
+  // hard coded for one specific C3token for now
+  useEffect(() => {
+    if (isConnectedProfile && !!userData) {
+      const getAssets = async () => {
+        const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
+
+        const contract = new ethers.Contract(
+          "0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4",
+          C3ProjectToken.abi,
+          provider
+        );
+
+        const c3TokenBalance = await contract.balanceOf(props.userAddress);
+        const balance = formatUnits(c3TokenBalance);
+        const projectInfo = await contract.getProjectInfo();
+
+        setAssets((prev) => [
+          ...prev,
+          {
+            tokenAddress: "0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4",
+            tokenName: "C3T-GS-500",
+            projectName: projectInfo.name,
+            balance,
+          },
+          {
+            tokenAddress: "some-string",
+            tokenName: "A token name",
+            projectName: "projectInfo.name",
+            balance: "20",
+          },
+        ]);
+      };
+      getAssets();
+    }
+  }, [isConnectedProfile, userData]);
+
+  const onEditSubmit = (values: User) => {
+    setShowEditModal(false);
     setUser(values);
+  };
+
+  const onAddListingSubmit = () => {
+    setShowListingModal(false);
+    console.log("LOAD USER AGAIN");
   };
 
   return (
@@ -60,7 +111,7 @@ export const Users: NextPage<Props> = (props) => {
                 id: "marketplace.edit_profile",
                 message: "Edit Profile",
               })}
-              onClick={() => setShowModal(true)}
+              onClick={() => setShowEditModal(true)}
             />
           ) : undefined
         }
@@ -93,11 +144,33 @@ export const Users: NextPage<Props> = (props) => {
             id: "marketplace.profile.edit_modal.title",
             message: "Your Profile",
           })}
-          showModal={showModal}
-          onToggleModal={() => setShowModal((prev) => !prev)}
+          showModal={showEditModal}
+          onToggleModal={() => setShowEditModal((prev) => !prev)}
         >
-          <EditProfile user={user} onSubmit={onSubmit} />
+          <EditProfile user={user} onSubmit={onEditSubmit} />
         </Modal>
+
+        {!!assets.length && (
+          <>
+            <ButtonPrimary
+              label={t({
+                id: "marketplace.add_listing",
+                message: "Create Listing",
+              })}
+              onClick={() => setShowListingModal(true)}
+            />
+            <Modal
+              title={t({
+                id: "marketplace.profile.listings_modal.title",
+                message: "Add Listing",
+              })}
+              showModal={showListingModal}
+              onToggleModal={() => setShowListingModal((prev) => !prev)}
+            >
+              <AddListing assets={assets} onSubmit={onAddListingSubmit} />
+            </Modal>
+          </>
+        )}
       </MarketplaceLayout>
     </>
   );
