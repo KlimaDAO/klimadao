@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import { Text } from "@klimadao/lib/components";
 
@@ -41,31 +41,29 @@ export const RetirementItem: FC<Props> = (props) => {
   }/${retirementNumber}`;
 
   return (
-    <Link href={url} passHref>
-      <a className={styles.allRetirementsListItem}>
-        {tokenData ? (
-          <Image
-            alt={tokenData.label}
-            src={tokenData.icon}
-            width={48}
-            height={48}
-          />
-        ) : (
-          <LeafIcon />
-        )}
-        <div className="content">
-          <div className="amount">
-            <Text>{trimWithLocale(retirement.amount, 5, locale)}</Text>
-            <Text color="lightest">
-              {(tokenData && tokenData.label) || concatAddress(retirement.pool)}
-            </Text>
-          </div>
-          <Text color="lightest" className="time">
-            {formattedDate}
+    <Link href={url} passHref className={styles.allRetirementsListItem}>
+      {tokenData ? (
+        <Image
+          alt={tokenData.label}
+          src={tokenData.icon}
+          width={48}
+          height={48}
+        />
+      ) : (
+        <LeafIcon />
+      )}
+      <div className="content">
+        <div className="amount">
+          <Text>{trimWithLocale(retirement.amount, 5, locale)}</Text>
+          <Text color="lightest">
+            {(tokenData && tokenData.label) || concatAddress(retirement.pool)}
           </Text>
         </div>
-        <ArrowForwardIcon className="arrow-icon" />
-      </a>
+        <Text color="lightest" className="time">
+          {formattedDate}
+        </Text>
+      </div>
+      <ArrowForwardIcon className="arrow-icon" />
     </Link>
   );
 };

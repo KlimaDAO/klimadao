@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import * as styles from "./styles";
 import Link from "next/link";
 
@@ -10,6 +10,7 @@ interface Props {
   href?: string;
   activePage: PageName;
   transparent?: boolean;
+  children: ReactNode;
 }
 
 export const HeaderDesktop: FC<Props> = (props) => {
@@ -24,9 +25,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
       <nav className={styles.menuDesktop}>
         <div>
           <Link href={"/"}>
-            <a>
-              <LogoWithClaim />
-            </a>
+            <LogoWithClaim />
           </Link>
         </div>
         <div className={styles.navMain_Desktop}>{props.children}</div>

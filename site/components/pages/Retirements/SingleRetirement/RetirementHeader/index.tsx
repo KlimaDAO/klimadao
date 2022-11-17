@@ -1,5 +1,5 @@
 import { Text } from "@klimadao/lib/components";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import * as styles from "./styles";
 import { FC, ReactNode } from "react";
 

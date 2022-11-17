@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { HeaderDesktop } from "../HeaderDesktop";
@@ -8,6 +8,7 @@ import * as styles from "./styles";
 type Props = {
   canEditPledge?: boolean;
   toggleEditModal?: (bool: boolean) => void;
+  children: ReactNode;
 };
 
 export const PledgeLayout: FC<Props> = (props) => {

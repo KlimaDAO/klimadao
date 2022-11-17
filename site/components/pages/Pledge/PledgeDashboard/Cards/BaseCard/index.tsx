@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Text } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
@@ -7,6 +7,7 @@ type CardProps = {
   title: string;
   icon: JSX.Element;
   action?: JSX.Element;
+  children: ReactNode;
 };
 
 export const BaseCard: React.FC<CardProps> = (props) => (

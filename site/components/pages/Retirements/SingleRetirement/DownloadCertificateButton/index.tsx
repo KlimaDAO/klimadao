@@ -7,6 +7,7 @@ import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { RetirementToken } from "@klimadao/lib/constants";
 
 import { generateCertificate } from "./generateCertificate";
+import { StaticImageData } from "next/legacy/image";
 export interface DownloadCertificateButtonProps {
   beneficiaryName: string;
   beneficiaryAddress: string;

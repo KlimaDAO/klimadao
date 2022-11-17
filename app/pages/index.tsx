@@ -9,9 +9,9 @@ import { messages as default_messages } from "../locale/en/messages";
 import { i18n } from "@lingui/core";
 import { Web3ContextProvider } from "@klimadao/lib/components";
 import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
-import { FC } from "react";
 import { useSelector } from "react-redux";
 import { selectLocale } from "state/selectors";
+import { ReactNode } from "react";
 
 export async function getStaticProps() {
   i18n.load("en", default_messages);
@@ -22,7 +22,7 @@ export async function getStaticProps() {
 }
 
 /** Wrap in component so we can render as child of WithRedux and invoke useSelector */
-const LocalizedWeb3ContextProvider: FC = (props) => {
+const LocalizedWeb3ContextProvider = (props: { children: ReactNode }) => {
   useSelector(selectLocale); // trigger re-render
   return (
     <Web3ContextProvider strings={getWeb3ModalStrings()}>

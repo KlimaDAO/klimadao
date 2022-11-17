@@ -5,6 +5,7 @@ import NCT from "public/icons/NCT.png";
 import MCO2 from "public/icons/MCO2.png";
 import UBO from "public/icons/UBO.png";
 import NBO from "public/icons/NBO.png";
+import { StaticImageData } from "next/legacy/image";
 
 type RetirementTokenInfoMap = {
   [key in RetirementToken]: {

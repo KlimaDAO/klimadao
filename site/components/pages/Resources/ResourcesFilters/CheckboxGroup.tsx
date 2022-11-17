@@ -7,6 +7,7 @@ import { FormValues } from "../ResourcesList";
 
 type Props = {
   options: CheckboxOption[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   formName: any; //  "tags" | "types"
   control: Control<FormValues>;
 };

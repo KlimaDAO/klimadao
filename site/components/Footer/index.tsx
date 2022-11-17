@@ -31,14 +31,10 @@ export const Footer: FC<Props> = (props) => {
       <div className={cx(styles.footer_content, "footer_content")}>
         <nav className={cx(styles.footer_nav, "footer_nav")}>
           <Link href="/">
-            <a>
-              <Trans id="shared.home">Home</Trans>
-            </a>
+            <Trans id="shared.home">Home</Trans>
           </Link>
           <Link href="/buy">
-            <a>
-              <Trans id="shared.buy">Buy</Trans>
-            </a>
+            <Trans id="shared.buy">Buy</Trans>
           </Link>
           <a href={createLinkWithLocaleQuery(urls.stake, locale)}>
             <Trans id="shared.stake">Stake</Trans>
@@ -50,19 +46,13 @@ export const Footer: FC<Props> = (props) => {
             <Trans id="shared.docs">Docs</Trans>
           </A>
           <Link href="/blog">
-            <a>
-              <Trans id="shared.blog">Blog</Trans>
-            </a>
+            <Trans id="shared.blog">Blog</Trans>
           </Link>
           <Link href="/contact">
-            <a>
-              <Trans id="shared.contact">Contact</Trans>
-            </a>
+            <Trans id="shared.contact">Contact</Trans>
           </Link>
           <Link href="/disclaimer">
-            <a>
-              <Trans id="shared.disclaimer">Disclaimer</Trans>
-            </a>
+            <Trans id="shared.disclaimer">Disclaimer</Trans>
           </Link>
         </nav>
 

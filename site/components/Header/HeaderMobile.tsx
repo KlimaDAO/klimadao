@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, ReactNode, useEffect, useState } from "react";
 import * as styles from "./styles";
 
 import { LogoWithClaim } from "@klimadao/lib/components";
@@ -8,6 +8,7 @@ import { NavMobile } from "../Navigation/NavMobile";
 
 interface Props {
   buttons?: JSX.Element[];
+  children: ReactNode;
 }
 
 export const HeaderMobile: FC<Props> = (props) => {
@@ -28,9 +29,7 @@ export const HeaderMobile: FC<Props> = (props) => {
       <header className={styles.headerMobile}>
         <div className={styles.mainLogoMobile}>
           <Link href={"/"}>
-            <a>
-              <LogoWithClaim />
-            </a>
+            <LogoWithClaim />
           </Link>
         </div>
         {props.buttons && (

@@ -108,7 +108,7 @@ export const PledgeForm: FC<Props> = (props) => {
         setServerError(true);
       }
       setSubmitting(false);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.log(error);
       setServerError(true);
       setSubmitting(false);

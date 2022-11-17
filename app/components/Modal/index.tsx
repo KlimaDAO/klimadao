@@ -9,6 +9,7 @@ interface Props {
   title: ReactNode;
   onToggleModal?: () => void;
   className?: string;
+  children: ReactNode;
 }
 
 export const Modal: FC<Props> = (props) => {

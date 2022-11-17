@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import { PageHead } from "components/PageHead";
 import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
@@ -7,7 +7,7 @@ import { AboutHeader } from "../AboutHeader";
 
 type PageName = "community" | "contact" | "disclaimer";
 
-export type Props = PropsWithChildren<ReactNode> & {
+export type Props = {
   activePage: PageName;
   title: string;
   headline: string;
@@ -15,7 +15,8 @@ export type Props = PropsWithChildren<ReactNode> & {
   mediaTitle: string;
   metaDescription: string;
   mediaImageSrc: string;
-  headerElements?: FC<PropsWithChildren<ReactNode>>;
+  headerElements?: ReactNode;
+  children: ReactNode;
 };
 
 export const Container: FC<Props> = (props) => {

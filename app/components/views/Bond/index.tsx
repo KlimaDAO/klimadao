@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FC } from "react";
+import { useState, useEffect, FC, ReactElement, ReactNode } from "react";
 import { useSelector } from "react-redux";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
@@ -101,7 +101,7 @@ export const DataRow: FC<DataRowProps> = (props) => {
 };
 
 interface ButtonProps {
-  label: React.ReactElement | string;
+  label: ReactElement | string;
   onClick: undefined | (() => void);
   disabled: boolean;
   variant?: "blueRounded";
@@ -1112,6 +1112,7 @@ export default Bond;
 const WithPlaceholder: FC<{
   condition: boolean;
   placeholder: string;
+  children: ReactNode;
 }> = (props) => {
   if (props.condition) {
     return <>{props.placeholder}</>;

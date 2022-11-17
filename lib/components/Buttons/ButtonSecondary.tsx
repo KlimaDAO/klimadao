@@ -4,7 +4,7 @@ import * as styles from "./styles";
 import { cx } from "@emotion/css";
 
 export const ButtonSecondary: FC<Props> = (props) => {
-  const buttonStyle = cx(
+  const className = cx(
     styles.buttonSecondary,
     {
       gray: props.variant === "gray",
@@ -14,5 +14,5 @@ export const ButtonSecondary: FC<Props> = (props) => {
     },
     props.className
   );
-  return <BaseButton {...props} buttonStyle={buttonStyle} />;
+  return <BaseButton {...props} className={className} />;
 };

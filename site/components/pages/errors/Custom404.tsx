@@ -7,6 +7,7 @@ import { Footer } from "components/Footer";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
 import * as styles from "./styles";
+import Link from "next/link";
 
 export const Custom404 = () => {
   return (
@@ -39,7 +40,7 @@ export const Custom404 = () => {
             </Trans>
           </Text>
           <Text>
-            <a href={urls.home}>{urls.home}</a>
+            <Link href={urls.home}>{urls.home}</Link>
           </Text>
         </div>
       </Section>

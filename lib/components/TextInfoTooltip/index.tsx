@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import Tippy, { TippyProps, useSingleton } from "@tippyjs/react";
 import styles from "./styles";
 
 interface Props extends TippyProps {
   /** String to be displayed in the tooltip. */
-  content: React.ReactNode;
+  content: ReactNode;
   /** Must be a focusable plain JSX element. Wrap with <span tabindex="0"> if needed. */
   children: JSX.Element;
 }

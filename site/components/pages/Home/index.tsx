@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -83,7 +83,7 @@ export const Home: NextPage<Props> = (props) => {
                 <Trans id="home.latest_news">📰 Latest News: </Trans>
               </Text>
               <Link href={`/blog/${props.latestPost.slug}`}>
-                <a>{props.latestPost.title}</a>
+                {props.latestPost.title}
               </Link>
             </div>
           )}
@@ -468,7 +468,7 @@ export const Home: NextPage<Props> = (props) => {
               key="See Tutorial"
               label={t({ id: "home.see_tutorial", message: "See Tutorial" })}
               href="/buy"
-              link={Link}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
           </div>
           <div className="buy_col2">
