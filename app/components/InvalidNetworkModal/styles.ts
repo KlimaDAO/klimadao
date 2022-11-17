@@ -6,8 +6,3 @@ export const switchButtonContainer = css`
   gap: 0.8rem;
   margin-top: 1.6rem;
 `;
-
-export const switchButton = css`
-  border: 2px solid var(--klima-green);
-  background-color: transparent !important;
-`;
