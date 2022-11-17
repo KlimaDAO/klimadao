@@ -25,9 +25,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
       <nav className={styles.menuDesktop}>
         <div>
           <Link href={"/"}>
-            <a>
-              <LogoWithClaim />
-            </a>
+            <LogoWithClaim />
           </Link>
         </div>
         <div className={styles.navMain_Desktop}>{props.children}</div>

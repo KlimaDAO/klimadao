@@ -30,11 +30,9 @@ export const RetirementsCard: FC<Props> = (props) => {
 
   const linkToRetirements = (
     <Link href={`/retirements/${props.pageAddress}`} passHref>
-      <a title="View retirements">
-        <div className={styles.retirementsLink}>
-          <LaunchIcon />
-        </div>
-      </a>
+      <div className={styles.retirementsLink}>
+        <LaunchIcon />
+      </div>
     </Link>
   );
 

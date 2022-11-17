@@ -167,11 +167,9 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                     href={`/retirements/${
                       nameserviceDomain || beneficiaryAddress
                     }`}
-                    passHref
+                    className="address"
                   >
-                    <a className="address">
-                      {nameserviceDomain || concatAddress(beneficiaryAddress)}
-                    </a>
+                    {nameserviceDomain || concatAddress(beneficiaryAddress)}
                   </Link>
                 }
               />

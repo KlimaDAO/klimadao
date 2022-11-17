@@ -12,13 +12,12 @@ interface Props {
 export const LinkItemDesktop: FC<Props> = (props) => {
   return (
     <div className={cx(styles.navMain_DesktopItemContainer)}>
-      <Link href={props.url}>
-        <a
-          className={styles.navMain_DesktopLink}
-          data-active={props.active?.toString()}
-        >
-          {props.name}
-        </a>
+      <Link
+        href={props.url}
+        className={styles.navMain_DesktopLink}
+        data-active={props.active?.toString()}
+      >
+        {props.name}
       </Link>
     </div>
   );

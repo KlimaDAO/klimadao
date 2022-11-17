@@ -28,10 +28,8 @@ export const AboutHeader: FC<Props> = (props) => {
               data-active={isPageActive("community")}
             >
               <Link href="/community">
-                <a>
-                  <Trans id="shared.community">Community</Trans>
-                  <ArrowBack className="arrow" />
-                </a>
+                <Trans id="shared.community">Community</Trans>
+                <ArrowBack className="arrow" />
               </Link>
             </li>
             <li
@@ -39,10 +37,8 @@ export const AboutHeader: FC<Props> = (props) => {
               data-active={isPageActive("contact")}
             >
               <Link href="/contact">
-                <a>
-                  <Trans id="shared.contact_us">Contact Us</Trans>
-                  <ArrowBack className="arrow" />
-                </a>
+                <Trans id="shared.contact_us">Contact Us</Trans>
+                <ArrowBack className="arrow" />
               </Link>
             </li>
             <li
@@ -50,10 +46,8 @@ export const AboutHeader: FC<Props> = (props) => {
               data-active={isPageActive("disclaimer")}
             >
               <Link href="/disclaimer">
-                <a>
-                  <Trans id="shared.disclaimer">Disclaimer</Trans>
-                  <ArrowBack className="arrow" />
-                </a>
+                <Trans id="shared.disclaimer">Disclaimer</Trans>
+                <ArrowBack className="arrow" />
               </Link>
             </li>
           </ul>

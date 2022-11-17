@@ -173,7 +173,7 @@ export const EventDemo = (props: { eventTitle: string }) => {
                 <Link
                   href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
                 >
-                  <a>retirement certificate</a>
+                  retirement certificate
                 </Link>{" "}
                 or view the raw{" "}
                 <A
@@ -183,7 +183,7 @@ export const EventDemo = (props: { eventTitle: string }) => {
                 </A>{" "}
                 data. See how the event's{" "}
                 <Link href={`/pledge/${retirement.beneficiaryAddress}`}>
-                  <a>pledge</a>
+                  pledge
                 </Link>{" "}
                 is doing so far (it may take a few seconds for your retirement
                 to appear on the pledge).

@@ -29,9 +29,7 @@ export const HeaderMobile: FC<Props> = (props) => {
       <header className={styles.headerMobile}>
         <div className={styles.mainLogoMobile}>
           <Link href={"/"}>
-            <a>
-              <LogoWithClaim />
-            </a>
+            <LogoWithClaim />
           </Link>
         </div>
         {props.buttons && (

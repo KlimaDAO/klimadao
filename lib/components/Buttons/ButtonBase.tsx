@@ -3,6 +3,7 @@ import React, { FC, ReactElement, ReactNode } from "react";
 interface RenderLinkProps {
   href: string;
   children: ReactElement;
+  className?: string;
 }
 export interface Props {
   label: ReactNode;
@@ -19,19 +20,20 @@ export interface Props {
 }
 
 interface BaseProps extends Props {
-  buttonStyle: string;
+  className: string;
 }
 
-export const BaseButton: FC<BaseProps> = ({ buttonStyle, ...props }) => {
+export const BaseButton: FC<BaseProps> = (props) => {
   if (props.href && props.renderLink)
     return props.renderLink({
       href: props.href,
-      children: <a className={buttonStyle}>{props.label}</a>,
+      className: props.className,
+      children: <>{props.label}</>,
     });
 
   if (props.href)
     return (
-      <a {...props} className={buttonStyle} href={props.href}>
+      <a {...props} className={props.className} href={props.href}>
         {props.label}
       </a>
     );
@@ -39,7 +41,7 @@ export const BaseButton: FC<BaseProps> = ({ buttonStyle, ...props }) => {
   return (
     <button
       type={props.type || "button"}
-      className={buttonStyle}
+      className={props.className}
       onClick={props.onClick}
       disabled={props.disabled}
     >

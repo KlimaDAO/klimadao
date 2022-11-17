@@ -66,11 +66,9 @@ export const PostPage = (props: PostProps) => {
 
         <section className={styles.blogContainer}>
           <div className={styles.content}>
-            <Link href="/resources" passHref={true}>
-              <a className={styles.backNavLink}>
-                <ChevronLeftIcon fontSize="medium" />
-                <Trans id="shared.updates">Updates</Trans>
-              </a>
+            <Link href="/resources" passHref className={styles.backNavLink}>
+              <ChevronLeftIcon fontSize="medium" />
+              <Trans id="shared.updates">Updates</Trans>
             </Link>
 
             <Text t="h2" as="h1">
