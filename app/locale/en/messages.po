@@ -33,7 +33,7 @@ msgstr "Checkout"
 msgid "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 msgstr "On April 12, 2022 we migrated from \"dapp\" to \"app\". Please update your bookmarks."
 
-#: components/InvalidNetworkModal/index.tsx:73
+#: components/InvalidNetworkModal/index.tsx:72
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
 

@@ -25,7 +25,7 @@ msgstr "Enter App"
 msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
 
-#: components/InvalidNetworkModal/index.tsx:80
+#: components/InvalidNetworkModal/index.tsx:79
 msgid "Switch to Polygon"
 msgstr "Switch to Polygon"
 

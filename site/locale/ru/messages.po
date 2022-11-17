@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-16 20:30+0000\n"
+"POT-Creation-Date: 2022-11-17 10:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr "Войдите в приложение"
 msgid "Frequently Asked Questions"
 msgstr "Часто задаваемые вопросы"
 
-#: components/InvalidNetworkModal/index.tsx:80
+#: components/InvalidNetworkModal/index.tsx:79
 msgid "Switch to Polygon"
 msgstr "Переключиться на Polygon"
 
