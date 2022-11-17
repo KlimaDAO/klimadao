@@ -5,7 +5,7 @@ import { ButtonPrimary } from "@klimadao/lib/components";
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import { SelectProjectButton } from "../SelectProjectButton";
 
-import { ProjectSearchSteps } from "../";
+import { ProjectSearchStep } from "../";
 import * as styles from "./styles";
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
   selectedProject: CarbonProject | null;
   setProjects: (projects: CarbonProject[]) => void;
   setSelectedProject: (project: CarbonProject) => void;
-  setStep: (step: ProjectSearchSteps) => void;
+  setStep: (step: ProjectSearchStep) => void;
 };
 
 export const ProjectSelection: FC<Props> = (props) => (

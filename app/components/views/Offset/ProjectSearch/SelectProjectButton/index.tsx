@@ -24,7 +24,7 @@ export const SelectProjectButton: FC<Props> = (props) => (
       </div>
     </div>
 
-    <Text t="body4">{props.project.name} →</Text>
+    <Text t="body4">{props.project.name || props.project.projectID} →</Text>
 
     <Text t="badge" className={styles.regionLabel}>
       {props.project.region}

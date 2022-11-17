@@ -40,16 +40,20 @@ export const ProjectSearchForm: FC<Props> = (props) => {
   };
 
   const handleSubmit = async () => {
-    props.setIsLoading(true);
-    const query = createQuery();
-    const projects = await queryCarbonProjectDetails(query);
-    console.log(projects)
-
-    // setTimeout(() => {
-    //   props.setStep("selectProject");
-    //   props.setProjects(mockProjectDetails as any[]);
-    props.setIsLoading(false);
-    // }, 1500);
+    try {
+      props.setIsLoading(true);
+      const query = createQuery();
+      const projects = await queryCarbonProjectDetails(query);
+      props.setProjects(projects);
+      props.setStep("selectProject");
+      props.setIsLoading(false);
+    } catch (error) {
+      // should render an unable to search state
+      // rendering no results component for now
+      props.setStep("selectProject");
+      props.setProjects([]);
+      props.setIsLoading(false);
+    }
   };
 
   return (

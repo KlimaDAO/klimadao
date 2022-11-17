@@ -4,12 +4,12 @@ import { ButtonPrimary } from "@klimadao/lib/components";
 import HelpIcon from "@mui/icons-material/Help";
 
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
-import { ProjectSearchSteps } from "..";
+import { ProjectSearchStep } from "..";
 import * as styles from "./styles";
 
 type Props = {
   project: CarbonProject;
-  setStep: (step: ProjectSearchSteps) => void;
+  setStep: (step: ProjectSearchStep) => void;
   setProjectAddress: (address: string) => void;
 };
 
@@ -19,8 +19,8 @@ export const ConfirmProjectSelection: FC<Props> = (props) => (
     <Text t="h5" align="center">
       Are you sure you want to select the following project:
     </Text>
-    <Text t="body6" align="center">
-      {props.project.name}
+    <Text t="body3" align="center">
+      {props.project.name || props.project.projectID}
     </Text>
 
     <div className={styles.buttons}>
