@@ -1,22 +1,30 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
-
-import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
-import { ProjectSearchFilter } from "../ProjectSearchFilter";
+import isEmpty from "lodash/isEmpty";
+import filter from "lodash/filter";
 
 import {
-  types,
-  countries,
-  vintages,
-  mockProjectDetails,
-} from "../filterOptions";
-import { ProjectSearchSteps } from "../";
+  queryCarbonProjectDetails,
+  CarbonProject,
+} from "../../SelectiveRetirement/queryProjectDetails";
+import { ProjectSearchFilter } from "../ProjectSearchFilter";
+
+import { types, countries, vintages } from "../filterOptions";
+import { ProjectSearchStep } from "../";
 
 type Props = {
-  setStep: (step: ProjectSearchSteps) => void;
+  setStep: (step: ProjectSearchStep) => void;
   setProjects: (projects: CarbonProject[]) => void;
   setIsLoading: (boolean: boolean) => void;
 };
+
+const stringifyQuery = (values: string[]) =>
+  values
+    .map((value) => {
+      if (value.split(" ").length > 1) return `'${value}'`;
+      return value;
+    })
+    .join(" | ");
 
 export const ProjectSearchForm: FC<Props> = (props) => {
   const [currentFilter, setCurrentFilter] = useState<string | null>(null);
@@ -24,16 +32,24 @@ export const ProjectSearchForm: FC<Props> = (props) => {
   const [region, setRegion] = useState<string[]>([]);
   const [vintage, setVintage] = useState<string[]>([]);
 
-  // TODO - serialize query params
-  const handleSubmit = () => {
-    console.log([type, region, vintage]);
-    props.setIsLoading(true);
+  const createQuery = () => {
+    const query = filter([type, region, vintage], (array) => !isEmpty(array));
+    return query
+      .map((queryAttribute) => `(${stringifyQuery(queryAttribute)})`)
+      .join(" & ");
+  };
 
-    setTimeout(() => {
-      props.setStep("selectProject");
-      props.setProjects(mockProjectDetails as any[]);
-      props.setIsLoading(false);
-    }, 1500);
+  const handleSubmit = async () => {
+    props.setIsLoading(true);
+    const query = createQuery();
+    const projects = await queryCarbonProjectDetails(query);
+    console.log(projects)
+
+    // setTimeout(() => {
+    //   props.setStep("selectProject");
+    //   props.setProjects(mockProjectDetails as any[]);
+    props.setIsLoading(false);
+    // }, 1500);
   };
 
   return (

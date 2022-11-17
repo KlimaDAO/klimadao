@@ -19,7 +19,7 @@ type Props = {
   setSelectedProject: (project: CarbonProject | null) => void;
 };
 
-export type ProjectSearchSteps =
+export type ProjectSearchStep =
   | ""
   | "search"
   | "selectProject"
@@ -27,7 +27,7 @@ export type ProjectSearchSteps =
   | "confirmed";
 
 export const ProjectSearch: FC<Props> = (props) => {
-  const [step, setStep] = useState<ProjectSearchSteps>("");
+  const [step, setStep] = useState<ProjectSearchStep>("");
   const [projects, setProjects] = useState<CarbonProject[]>([]);
 
   // skip to confirmed step if project has been selected

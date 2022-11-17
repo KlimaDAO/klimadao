@@ -16,21 +16,22 @@ export interface CarbonProject {
 
 export interface QueryCarbonProjectDetails {
   data: {
-    carbonProjects: CarbonProject[];
+    carbonOffsetSearch: CarbonProject[];
   };
 }
 
 export const queryCarbonProjectDetails = async (
   searchQuery: string
-): Promise<CarbonProject | false> => {
+): Promise<CarbonProject[]> => {
   try {
+    console.log(searchQuery);
     const result = await fetch(subgraphs.polygonBridgedCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         query: `
           query {
-            carbonProjects(text: "${searchQuery}") {
+            carbonOffsetSearch(text: "${searchQuery}") {
               id
               tokenAddress
               projectID
@@ -48,7 +49,7 @@ export const queryCarbonProjectDetails = async (
       }),
     });
     const json: QueryCarbonProjectDetails = await result.json();
-    return !!json.data.carbonProjects.length && json.data.carbonProjects[0];
+    return json.data.carbonOffsetSearch;
   } catch (e) {
     console.error("Failed to query QueryCarbonProjectDetails", e);
     return Promise.reject(e);
