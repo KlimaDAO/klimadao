@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-17 15:40+0000\n"
+"POT-Creation-Date: 2022-11-17 19:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -389,19 +389,19 @@ msgstr "No se ha podido acceder a la red. Esto es probablemente causado por una 
 msgid "invalid_rpc.modal.title"
 msgstr "Compruebe la configuración de su red"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:177
 msgid "menu.bond_carbon"
 msgstr "Vincular bono de carbono"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:161
 msgid "menu.buy_klima"
 msgstr "Comprar KLIMA"
 
-#: components/NavMenu/index.tsx:200
+#: components/NavMenu/index.tsx:201
 msgid "menu.info"
 msgstr "Información"
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:206
 msgid "menu.just_for_you"
 msgstr "SOLO PARA TI"
 
@@ -409,11 +409,11 @@ msgstr "SOLO PARA TI"
 msgid "menu.not_connected"
 msgstr "NO CONECTADO"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:193
 msgid "menu.offset"
 msgstr "Compensación"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:169
 msgid "menu.stake_klima"
 msgstr "Stake KLIMA"
 
@@ -421,7 +421,7 @@ msgstr "Stake KLIMA"
 msgid "menu.wallet_address"
 msgstr "La dirección de su monedero"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:185
 msgid "menu.wrap_klima"
 msgstr "Empaquetar sKLIMA"
 
@@ -453,7 +453,7 @@ msgstr "Este coste incluye el slippage y la tasa de agregación del 1%."
 msgid "offset.amount_in_tonnes"
 msgstr "¿Cuántas toneladas de carbono le gustaría compensar?"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:41
+#: components/CarbonTonnesBreakdownCard/index.tsx:42
 msgid "offset.breakdown"
 msgstr "Desglose"
 
@@ -469,7 +469,7 @@ msgstr "Pagar con"
 msgid "offset.dropdown_retire.label"
 msgstr "Seleccione el token de compensación de carbono para retirar"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:53
+#: components/CarbonTonnesBreakdownCard/index.tsx:54
 msgid "offset.empty"
 msgstr "Esta dirección no ha completado ninguna retirada."
 
@@ -712,7 +712,7 @@ msgstr "Dirección del proyecto no válida"
 msgid "shared.invalid_quantity"
 msgstr "Cantidad inválida"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:48
+#: components/CarbonTonnesBreakdownCard/index.tsx:49
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:416
@@ -860,7 +860,7 @@ msgstr "Por favor, haga clic en \"confirmar\" en su cartera para continuar."
 msgid "status.user_rejected"
 msgstr "Usted eligió rechazar la transacción"
 
-#: components/NavMenu/index.tsx:212
+#: components/NavMenu/index.tsx:213
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

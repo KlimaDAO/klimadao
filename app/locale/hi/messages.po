@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-17 15:40+0000\n"
+"POT-Creation-Date: 2022-11-17 19:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -389,19 +389,19 @@ msgstr "नेटवर्क पहुँच से बाहर है। ब�
 msgid "invalid_rpc.modal.title"
 msgstr "अपनी नेटवर्क सेटिंग बदलें"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:177
 msgid "menu.bond_carbon"
 msgstr "कार्बन बांधें"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:161
 msgid "menu.buy_klima"
 msgstr "KLIMA ख़रीदें"
 
-#: components/NavMenu/index.tsx:200
+#: components/NavMenu/index.tsx:201
 msgid "menu.info"
 msgstr "जानकारी"
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:206
 msgid "menu.just_for_you"
 msgstr "सिर्फ आपके लिए"
 
@@ -409,11 +409,11 @@ msgstr "सिर्फ आपके लिए"
 msgid "menu.not_connected"
 msgstr "कनेक्ट नहीं हैं"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:193
 msgid "menu.offset"
 msgstr "ऑफ़सेट"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:169
 msgid "menu.stake_klima"
 msgstr "KLIMA दाँव पर लगाएँ"
 
@@ -421,7 +421,7 @@ msgstr "KLIMA दाँव पर लगाएँ"
 msgid "menu.wallet_address"
 msgstr "आपका वॉलेट पता"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:185
 msgid "menu.wrap_klima"
 msgstr "sKLIMA रैप करें"
 
@@ -453,7 +453,7 @@ msgstr "इस लागत में स्लिपेज शुल्क औ�
 msgid "offset.amount_in_tonnes"
 msgstr "आप कितने टन कार्बन को ऑफ़सेट करना चाहेंगे?"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:41
+#: components/CarbonTonnesBreakdownCard/index.tsx:42
 msgid "offset.breakdown"
 msgstr "नष्टीकरण"
 
@@ -469,7 +469,7 @@ msgstr "के साथ भुगतान करें"
 msgid "offset.dropdown_retire.label"
 msgstr "कार्बन ऑफ़सेट टोकन चुनें जो रिटायर करना है"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:53
+#: components/CarbonTonnesBreakdownCard/index.tsx:54
 msgid "offset.empty"
 msgstr "इस एड्रेस द्वारा एक भी रिटायरमेंट पूरी नहीं की गयी है।"
 
@@ -712,7 +712,7 @@ msgstr "अमान्य परियोजना पता"
 msgid "shared.invalid_quantity"
 msgstr "अमान्य मात्रा"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:48
+#: components/CarbonTonnesBreakdownCard/index.tsx:49
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:416
@@ -860,7 +860,7 @@ msgstr "जारी रखने के लिए कृपया अपने 
 msgid "status.user_rejected"
 msgstr "आपने लेन-देन को अस्वीकार करना चयनित किया"
 
-#: components/NavMenu/index.tsx:212
+#: components/NavMenu/index.tsx:213
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

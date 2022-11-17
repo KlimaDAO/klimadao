@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-17 15:40+0000\n"
+"POT-Creation-Date: 2022-11-17 19:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,24 +19,24 @@ msgstr "App öffnen"
 msgid "Frequently Asked Questions"
 msgstr "Häufig gestellte Fragen"
 
-#: components/InvalidNetworkModal/index.tsx:79
+#: components/InvalidNetworkModal/index.tsx:80
 msgid "Switch to Polygon"
 msgstr "Zu Polygon wechseln"
 
-#: components/InvalidNetworkModal/index.tsx:74
+#: components/InvalidNetworkModal/index.tsx:75
 msgid "This app only works on Polygon Mainnet."
 msgstr "Die App funktioniert nur im Polygon-Mainnet."
 
-#: components/InvalidNetworkModal/index.tsx:64
+#: components/InvalidNetworkModal/index.tsx:65
 msgid "Wrong Network"
 msgstr "Falsches Netzwerk"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:90
+#: components/pages/Blog/Post/index.tsx:88
 msgid "blog.disclaimer.description"
 msgstr "Die in diesem Blogbeitrag bereitgestellten Informationen zu KlimaDAO („KlimaDAO“), seinen Krypto-Assets, Geschäftsvermögen, Strategie und Betrieb dienen nur allgemeinen Informationszwecken und sind kein formelles Verkaufsangebot oder eine Aufforderung zur Abgabe eines Angebots von Wertpapieren, Optionen, Futures oder andere Derivaten im Zusammenhang mit Wertpapieren in jeglicher Rechtsordnung, und der Inhalt ist nicht durch Wertpapiergesetze vorgeschrieben. Die in diesem Blogbeitrag enthaltenen Informationen sollten nicht als Empfehlung zum Kauf oder Verkauf oder Halten solcher Wertpapiere oder als Angebot zum Verkauf solcher Wertpapiere angesehen werden. Dieser Blog-Beitrag berücksichtigt weder Steuer-, Rechts- oder Anlageberatung noch gibt er eine Stellungnahme zu den spezifischen Anlagezielen oder der finanziellen Situation einer Person ab. KlimaDAO und seine Vertreter, Berater, Direktoren, leitenden Angestellten, Mitarbeiter und Aktionäre geben keine ausdrücklichen oder stillschweigenden Zusicherungen oder Gewährleistungen hinsichtlich der Richtigkeit dieser Informationen ab, und KlimaDAO lehnt ausdrücklich jegliche Haftung ab, die auf solchen Informationen oder Fehlern oder Auslassungen beruhen könnte. KlimaDAO behält sich das Recht vor, die hierin enthaltenen Informationen ganz oder teilweise jederzeit zu ändern oder zu ersetzen, und übernimmt keine Verpflichtung, dem Empfänger die geänderten Informationen zugänglich zu machen oder den Empfänger hiervon in Kenntnis zu setzen. Die in diesem Blog-Beitrag enthaltenen Informationen ersetzen alle in früheren Blog-Beiträge oder Konversationen ähnlichen oder verwandten Informationen. Auf Informationen, Darstellungen oder Aussagen, die hier nicht enthalten sind, darf für keinen Zweck vertraut werden. Weder KlimaDAO noch einer seiner Vertreter haften Ihnen oder einer anderen Person gegenüber aus jeglichen Gründen, die sich aus der Verwendung oder Nichtverwendung der Informationen in diesem Blog-Beitrag durch Sie oder einen Ihrer Vertreter ergibt. Darüber hinaus übernimmt KlimaDAO keine Verpflichtung, die Erwartungen oder Aussagen Dritter in Bezug auf die in diesem Blogbeitrag erörterten Angelegenheiten zu kommentieren."
 
-#: components/pages/Blog/Post/index.tsx:87
+#: components/pages/Blog/Post/index.tsx:85
 msgid "blog.disclaimer.title"
 msgstr "Haftungsausschluss:"
 
@@ -210,136 +210,136 @@ msgstr "Nutze das \"Tausch\"-Interface von Zapper, um deinen Kauf vorzubereiten.
 msgid "buy.zapper_03.title"
 msgstr "TAUSCHEN"
 
-#: components/pages/About/Community/index.tsx:117
+#: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
 msgstr "PARTNER WERDEN"
 
-#: components/pages/About/Community/index.tsx:181
+#: components/pages/About/Community/index.tsx:180
 msgid "community.bigcowg_logo"
 msgstr "BICOWG-Logo"
 
-#: components/pages/About/Community/index.tsx:173
+#: components/pages/About/Community/index.tsx:172
 msgid "community.blockchainforclimatefondation_logo"
 msgstr "Blockchain for Climate Foundation-Logo"
 
-#: components/pages/About/Community/index.tsx:315
+#: components/pages/About/Community/index.tsx:314
 msgid "community.come_on_in"
 msgstr "Betreten"
 
-#: components/pages/About/Community/index.tsx:229
+#: components/pages/About/Community/index.tsx:228
 msgid "community.deltawave_logo"
 msgstr "Delta Wave-Logo"
 
-#: components/pages/About/Community/index.tsx:266
+#: components/pages/About/Community/index.tsx:265
 msgid "community.digitalcharityart_logo"
 msgstr "Digital Charity Art-Logo"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:330
+#: components/pages/About/Community/index.tsx:329
 msgid "community.discord_is_where_we_share"
 msgstr "Wir nutzen Discord, um wichtige Ankündigungen mitzuteilen, Fragen zu beantworten, wöchentliche Voice-Meetings abzuhalten - und Memes zu tauschen. Auf unserem permanent moderierten Discord-Server ist immer etwas los. Wir haben separate Kanäle für alles: vom Tokenhandel über Nachhaltigkeit bis zu CO2-Märkten."
 
-#: components/pages/About/Community/index.tsx:245
+#: components/pages/About/Community/index.tsx:244
 msgid "community.dovu_logo"
 msgstr "Dovu-Logo"
 
-#: components/pages/About/Community/index.tsx:250
+#: components/pages/About/Community/index.tsx:249
 msgid "community.eco_logo"
 msgstr "Eco-Logo"
 
-#: components/pages/About/Community/index.tsx:237
+#: components/pages/About/Community/index.tsx:236
 msgid "community.etcgroup_logo"
 msgstr "ETC Group-Logo"
 
-#: components/pages/About/Community/index.tsx:362
+#: components/pages/About/Community/index.tsx:361
 msgid "community.get_in_touch"
 msgstr "Willst du uns etwas mitteilen?"
 
-#: components/pages/About/Community/index.tsx:205
+#: components/pages/About/Community/index.tsx:204
 msgid "community.gitcoin_logo"
 msgstr "Gitcoin-Logo"
 
-#: components/pages/About/Community/index.tsx:96
+#: components/pages/About/Community/index.tsx:95
 msgid "community.head.headline"
 msgstr "Community"
 
-#: components/pages/About/Community/index.tsx:103
+#: components/pages/About/Community/index.tsx:102
 msgid "community.head.metadescription"
 msgstr "Erfahre mehr über unsere Community leidenschaftlicher Klimates"
 
-#: components/pages/About/Community/index.tsx:97
+#: components/pages/About/Community/index.tsx:96
 msgid "community.head.subline"
 msgstr "KlimaDAO ist eine dezentralisierte, autonome Organisation für positiven Wandel. Wir werden von einer leidenschaftlichen Community aus Klimates aufgebaut und verwaltet."
 
-#: components/pages/About/Community/index.tsx:95
-#: components/pages/About/Community/index.tsx:102
+#: components/pages/About/Community/index.tsx:94
+#: components/pages/About/Community/index.tsx:101
 msgid "community.head.title"
 msgstr "KlimaDAO-Community"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:365
+#: components/pages/About/Community/index.tsx:364
 msgid "community.if_you_ve_got_questions"
 msgstr "Falls du Fragen, Ideen oder Anregungen hast: Wir helfen dir dabei, den richtigen Ansprechpartner zu finden."
 
-#: components/pages/About/Community/index.tsx:318
+#: components/pages/About/Community/index.tsx:317
 msgid "community.join_our_discord"
 msgstr "Unserem Discord beitreten"
 
-#: components/pages/About/Community/index.tsx:305
+#: components/pages/About/Community/index.tsx:304
 msgid "community.join_the_klima_community"
 msgstr "Tritt der Klima-Community bei"
 
-#: components/pages/About/Community/index.tsx:282
+#: components/pages/About/Community/index.tsx:281
 msgid "community.landx_logo"
 msgstr "LandX-Logo"
 
-#: components/pages/About/Community/index.tsx:114
-#: components/pages/About/Community/index.tsx:359
+#: components/pages/About/Community/index.tsx:113
+#: components/pages/About/Community/index.tsx:358
 msgid "community.lets_work_together"
 msgstr "Lass uns zusammenarbeiten!"
 
-#: components/pages/About/Community/index.tsx:157
+#: components/pages/About/Community/index.tsx:156
 msgid "community.moss_logo"
 msgstr "Moss-Logo"
 
-#: components/pages/About/Community/index.tsx:197
+#: components/pages/About/Community/index.tsx:196
 msgid "community.oceandrop_logo"
 msgstr "Oceandrop-Logo"
 
-#: components/pages/About/Community/index.tsx:258
+#: components/pages/About/Community/index.tsx:257
 msgid "community.offsetra_logo"
 msgstr "Offsetra-Logo"
 
-#: components/pages/About/Community/index.tsx:213
+#: components/pages/About/Community/index.tsx:212
 msgid "community.olympusdao_logo"
 msgstr "OlympusDAO-Logo"
 
-#: components/pages/About/Community/index.tsx:221
+#: components/pages/About/Community/index.tsx:220
 msgid "community.openearth_logo"
 msgstr "Open Earth-Logo"
 
-#: components/pages/About/Community/index.tsx:152
+#: components/pages/About/Community/index.tsx:151
 msgid "community.our_partners"
 msgstr "UNSERE PARTNER"
 
-#: components/pages/About/Community/index.tsx:189
+#: components/pages/About/Community/index.tsx:188
 msgid "community.polygon_logo"
 msgstr "Polygon-Logo"
 
-#: components/pages/About/Community/index.tsx:165
+#: components/pages/About/Community/index.tsx:164
 msgid "community.toucan_logo"
 msgstr "Toucan-Logo"
 
-#: components/pages/About/Community/index.tsx:274
+#: components/pages/About/Community/index.tsx:273
 msgid "community.toughtforfood_logo"
 msgstr "Thought for Food-Logo"
 
-#: components/pages/About/Community/index.tsx:133
+#: components/pages/About/Community/index.tsx:132
 msgid "community.tree_grove"
 msgstr "Baumgruppe"
 
 #. Long sentence
-#: components/pages/About/Community/index.tsx:120
+#: components/pages/About/Community/index.tsx:119
 msgid "community.we_work_with_traditionnal"
 msgstr "Wir arbeiten eng mit traditionellen Akteuren auf dem CO2-Markt, Kryptoplattformen und Unternehmen zusammen - und allem dazwischen."
 
@@ -501,7 +501,7 @@ msgstr "Aus Sicherheitsgründen empfehlen wir dir, unsere allgemeine Krypto-Sich
 msgid "disclaimer.you_bear_full_responsibility"
 msgstr "Du trägst die volle Verantwortung für die Bereitstellung privater Daten, die Verifizierung der Identität und die Legimität."
 
-#: components/pages/errors/Custom404.tsx:36
+#: components/pages/errors/Custom404.tsx:37
 msgid "error.404.page.text"
 msgstr "Sorry, wir haben dich wohl in eine Sackgasse geschickt. <0/>Zurück zur Startseite geht es hier lang:"
 
@@ -746,19 +746,19 @@ msgstr "CO2-Ausgleich in Sekunden - ohne Papierkram"
 msgid "infinity.fast_title"
 msgstr "Schnell"
 
-#: components/pages/Infinity/GetStartedModal.tsx:45
+#: components/pages/Infinity/GetStartedModal.tsx:47
 msgid "infinity.getStartedModal_business"
 msgstr "Ich bin ein <0/>Unternehmen."
 
-#: components/pages/Infinity/GetStartedModal.tsx:66
+#: components/pages/Infinity/GetStartedModal.tsx:69
 msgid "infinity.getStartedModal_individual"
 msgstr "Ich bin eine <0/>Privatperson."
 
-#: components/pages/Infinity/GetStartedModal.tsx:100
+#: components/pages/Infinity/GetStartedModal.tsx:102
 msgid "infinity.getStartedModal_needAssistance"
 msgstr "Ich benötige Unterstützung, um den CO2-Fußabdruck meines Unternehmens zu berechnen."
 
-#: components/pages/Infinity/GetStartedModal.tsx:88
+#: components/pages/Infinity/GetStartedModal.tsx:92
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr "Ich will<0/>Kryptoaktivitäten kompensieren."
 
@@ -904,11 +904,11 @@ msgstr "Investiere in die Zukunft."
 msgid "mission.header"
 msgstr "KlimaDAOs Mission ist die Demokratisierung des Klimaschutzes"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:109
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
 msgstr ""
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:86
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:87
 msgid "pledges.dashboard.assets.title"
 msgstr "CO2-Assets"
 
@@ -968,7 +968,7 @@ msgstr "{0}% des Versprechens erfüllt"
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Ausgleich von <0>{0}</0> Tonnen CO2 zugesichert"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:43
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:41
 msgid "pledges.dashboard.retirements.title"
 msgstr "CO2-Ausgleiche"
 
@@ -976,11 +976,11 @@ msgstr "CO2-Ausgleiche"
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
 msgstr "{0} Tonnen CO2 ausgeglichen"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:62
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:60
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "CO2-Tonnen insgesamt ausgeglichen"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:40
+#: components/pages/Pledge/HeaderDesktop/index.tsx:38
 msgid "pledges.edit_pledge"
 msgstr "Versprechen bearbeiten"
 
@@ -1364,11 +1364,11 @@ msgstr "Empfänger"
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Empfängeradresse"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:207
+#: components/pages/Retirements/SingleRetirement/index.tsx:205
 msgid "retirement.single.disclaimer"
 msgstr "Hier siehst du den bisherigen, permanenten Emissionsausgleich durch tokenisierte CO2-Zertifikate auf der Polygon-Blockchain. Jeder Emissionsausgleich und die damit verbundenen Daten sind unveränderlich und öffentlich einsehbar."
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:33
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:34
 msgid "retirement.single.download_certificate_button"
 msgstr "PFD herunterladen"
 
@@ -1412,7 +1412,7 @@ msgstr "Auf Polygonscan ansehen"
 msgid "retirement.single.quantity"
 msgstr "AUSGEGLICHENE MENGE"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:183
+#: components/pages/Retirements/SingleRetirement/index.tsx:181
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Zertifikat"
 
@@ -1428,7 +1428,7 @@ msgstr "Keine Ausgleichsnachricht angegeben"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Kein Ausgleichszeitpunkt angegeben"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:236
+#: components/pages/Retirements/SingleRetirement/index.tsx:234
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Auf Polygonscan ansehen"
 
@@ -1480,10 +1480,10 @@ msgstr "Summe der Ausgleichstransaktionen"
 msgid "retirement.totals_by_assets.headline"
 msgstr "Kompletter CO2-Ausgleich nach Assettyp."
 
-#: components/pages/errors/Custom404.tsx:15
-#: components/pages/errors/Custom404.tsx:19
-#: components/pages/errors/Custom404.tsx:23
-#: components/pages/errors/Custom404.tsx:33
+#: components/pages/errors/Custom404.tsx:16
+#: components/pages/errors/Custom404.tsx:20
+#: components/pages/errors/Custom404.tsx:24
+#: components/pages/errors/Custom404.tsx:34
 msgid "shared.404"
 msgstr "404 - Seite nicht gefunden"
 
@@ -1497,17 +1497,17 @@ msgstr "Über Klima"
 msgid "shared.app"
 msgstr "App"
 
-#: components/Footer/index.tsx:54
+#: components/Footer/index.tsx:49
 msgid "shared.blog"
 msgstr "Blog"
 
-#: components/Footer/index.tsx:47
+#: components/Footer/index.tsx:43
 #: components/Navigation/index.tsx:133
 #: components/Navigation/index.tsx:280
 msgid "shared.bond"
 msgstr "KLIMA bonden"
 
-#: components/Footer/index.tsx:40
+#: components/Footer/index.tsx:37
 #: components/Navigation/index.tsx:117
 #: components/Navigation/index.tsx:267
 msgid "shared.buy"
@@ -1523,19 +1523,19 @@ msgstr "CO2-Dashboards"
 
 #: components/Navigation/index.tsx:87
 #: components/Navigation/index.tsx:234
-#: components/pages/About/AboutHeader/index.tsx:32
-#: components/pages/About/AboutHeader/index.tsx:67
+#: components/pages/About/AboutHeader/index.tsx:31
+#: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
 msgstr "Community"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:49
-#: components/pages/Pledge/HeaderMobile/index.tsx:56
+#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderMobile/index.tsx:54
 msgid "shared.connect"
 msgstr "Verbinden"
 
-#: components/Footer/index.tsx:59
+#: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:243
-#: components/pages/About/AboutHeader/index.tsx:73
+#: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.contact"
 msgstr "Kontakt"
 
@@ -1546,21 +1546,21 @@ msgid "shared.contact_sales"
 msgstr "Vertrieb kontaktieren"
 
 #: components/Navigation/index.tsx:96
-#: components/pages/About/AboutHeader/index.tsx:43
-#: components/pages/About/Community/index.tsx:130
-#: components/pages/About/Community/index.tsx:375
+#: components/pages/About/AboutHeader/index.tsx:40
+#: components/pages/About/Community/index.tsx:129
+#: components/pages/About/Community/index.tsx:374
 msgid "shared.contact_us"
 msgstr "Kontaktiere uns"
 
-#: components/Footer/index.tsx:64
+#: components/Footer/index.tsx:55
 #: components/Navigation/index.tsx:105
 #: components/Navigation/index.tsx:252
-#: components/pages/About/AboutHeader/index.tsx:54
-#: components/pages/About/AboutHeader/index.tsx:79
+#: components/pages/About/AboutHeader/index.tsx:49
+#: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.disclaimer"
 msgstr "Haftungsausschluss"
 
-#: components/Footer/index.tsx:50
+#: components/Footer/index.tsx:46
 #: components/Navigation/index.tsx:213
 #: components/Navigation/index.tsx:368
 msgid "shared.docs"
@@ -1582,7 +1582,7 @@ msgstr "Jetzt starten"
 msgid "shared.head.description"
 msgstr "Fördere Klimaschutzmaßnahmen und erhalte Belohnungen durch eine CO2-gedeckte, digitale Währung."
 
-#: components/Footer/index.tsx:35
+#: components/Footer/index.tsx:34
 msgid "shared.home"
 msgstr "Home"
 
@@ -1616,8 +1616,8 @@ msgstr "Einführung"
 msgid "shared.info"
 msgstr "Info"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:40
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:57
+#: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:55
 #: components/pages/Retirements/SingleRetirement/index.tsx:36
 msgid "shared.loading"
 msgstr "Lade..."
@@ -1650,7 +1650,7 @@ msgstr "Ressourcen"
 msgid "shared.resources.sort_by.header"
 msgstr "Sortieren nach:"
 
-#: components/Footer/index.tsx:44
+#: components/Footer/index.tsx:40
 #: components/Navigation/index.tsx:125
 #: components/Navigation/index.tsx:272
 msgid "shared.stake"
@@ -1658,7 +1658,7 @@ msgstr "Klima staken"
 
 #: components/Navigation/index.tsx:187
 #: components/Navigation/index.tsx:342
-#: components/pages/Blog/Post/index.tsx:72
+#: components/pages/Blog/Post/index.tsx:71
 msgid "shared.updates"
 msgstr ""
 

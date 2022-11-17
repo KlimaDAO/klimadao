@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-17 15:40+0000\n"
+"POT-Creation-Date: 2022-11-17 19:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -399,19 +399,19 @@ msgstr "Не удалось связаться с сетью. Скорее вс�
 msgid "invalid_rpc.modal.title"
 msgstr "Проверьте настройки сети"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:177
 msgid "menu.bond_carbon"
 msgstr "Бонд Карбон"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:161
 msgid "menu.buy_klima"
 msgstr "Купить KLIMA"
 
-#: components/NavMenu/index.tsx:200
+#: components/NavMenu/index.tsx:201
 msgid "menu.info"
 msgstr "Информация"
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:206
 msgid "menu.just_for_you"
 msgstr "ТОЛЬКО ДЛЯ ВАС"
 
@@ -419,11 +419,11 @@ msgstr "ТОЛЬКО ДЛЯ ВАС"
 msgid "menu.not_connected"
 msgstr "НЕ ПОДКЛЮЧЕН"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:193
 msgid "menu.offset"
 msgstr "Офсет"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:169
 msgid "menu.stake_klima"
 msgstr "Стейкинг KLIMA"
 
@@ -431,7 +431,7 @@ msgstr "Стейкинг KLIMA"
 msgid "menu.wallet_address"
 msgstr "Адрес вашего кошелька"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:185
 msgid "menu.wrap_klima"
 msgstr "обернуть sKLIMA"
 
@@ -463,7 +463,7 @@ msgstr "Эта стоимость включает проскальзывани�
 msgid "offset.amount_in_tonnes"
 msgstr "Сколько тонн углерода вы хотели бы компенсировать?"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:41
+#: components/CarbonTonnesBreakdownCard/index.tsx:42
 msgid "offset.breakdown"
 msgstr "Распределение"
 
@@ -479,7 +479,7 @@ msgstr "Оплатить с помощью"
 msgid "offset.dropdown_retire.label"
 msgstr "Выберите токен компенсации выбросов углекислого газа, чтобы удалить его"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:53
+#: components/CarbonTonnesBreakdownCard/index.tsx:54
 msgid "offset.empty"
 msgstr "Этот адрес не завершил ни одного вывода."
 
@@ -722,7 +722,7 @@ msgstr "Неверный адрес проекта"
 msgid "shared.invalid_quantity"
 msgstr "Неверное количество"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:48
+#: components/CarbonTonnesBreakdownCard/index.tsx:49
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:416
@@ -870,7 +870,7 @@ msgstr "Пожалуйста, нажмите \"подтвердить\" в ва�
 msgid "status.user_rejected"
 msgstr "Вы решили отклонить транзакцию"
 
-#: components/NavMenu/index.tsx:212
+#: components/NavMenu/index.tsx:213
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 

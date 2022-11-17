@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-17 15:40+0000\n"
+"POT-Creation-Date: 2022-11-17 19:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -389,19 +389,19 @@ msgstr "无法访问网络。这很可能是由您钱包中的旧 Polygon RPC �
 msgid "invalid_rpc.modal.title"
 msgstr "检查您的网络设置"
 
-#: components/NavMenu/index.tsx:176
+#: components/NavMenu/index.tsx:177
 msgid "menu.bond_carbon"
 msgstr "碳债券"
 
-#: components/NavMenu/index.tsx:160
+#: components/NavMenu/index.tsx:161
 msgid "menu.buy_klima"
 msgstr "购买 KLIMA"
 
-#: components/NavMenu/index.tsx:200
+#: components/NavMenu/index.tsx:201
 msgid "menu.info"
 msgstr "信息"
 
-#: components/NavMenu/index.tsx:205
+#: components/NavMenu/index.tsx:206
 msgid "menu.just_for_you"
 msgstr "只为您服务"
 
@@ -409,11 +409,11 @@ msgstr "只为您服务"
 msgid "menu.not_connected"
 msgstr "未连接"
 
-#: components/NavMenu/index.tsx:192
+#: components/NavMenu/index.tsx:193
 msgid "menu.offset"
 msgstr "抵消"
 
-#: components/NavMenu/index.tsx:168
+#: components/NavMenu/index.tsx:169
 msgid "menu.stake_klima"
 msgstr "质押 KLIMA"
 
@@ -421,7 +421,7 @@ msgstr "质押 KLIMA"
 msgid "menu.wallet_address"
 msgstr "您的钱包地址"
 
-#: components/NavMenu/index.tsx:184
+#: components/NavMenu/index.tsx:185
 msgid "menu.wrap_klima"
 msgstr "打包 sKLIMA"
 
@@ -453,7 +453,7 @@ msgstr "该成本包括1%的滑点和聚合费用。"
 msgid "offset.amount_in_tonnes"
 msgstr "您要抵消多少吨碳？"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:41
+#: components/CarbonTonnesBreakdownCard/index.tsx:42
 msgid "offset.breakdown"
 msgstr "分解"
 
@@ -469,7 +469,7 @@ msgstr "使用...支付"
 msgid "offset.dropdown_retire.label"
 msgstr "选择碳抵消代币来停用碳"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:53
+#: components/CarbonTonnesBreakdownCard/index.tsx:54
 msgid "offset.empty"
 msgstr "此地址尚未完成任何碳停用。"
 
@@ -712,7 +712,7 @@ msgstr "无效项目地址"
 msgid "shared.invalid_quantity"
 msgstr "无效数量"
 
-#: components/CarbonTonnesBreakdownCard/index.tsx:48
+#: components/CarbonTonnesBreakdownCard/index.tsx:49
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:416
@@ -860,7 +860,7 @@ msgstr "请点击您钱包中的 \"确认\" 以继续。"
 msgid "status.user_rejected"
 msgstr "您已选择拒绝交易"
 
-#: components/NavMenu/index.tsx:212
+#: components/NavMenu/index.tsx:213
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
