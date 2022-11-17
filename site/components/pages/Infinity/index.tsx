@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Trans, t } from "@lingui/macro";
 import {
   Section,

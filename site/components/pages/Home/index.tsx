@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { Trans, t } from "@lingui/macro";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";

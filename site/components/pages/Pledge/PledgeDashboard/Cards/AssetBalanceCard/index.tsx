@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { StaticImageData } from "next/image";
+import { StaticImageData } from "next/legacy/image";
 import { t, Trans } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import map from "lodash/map";

@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { toNumber } from "lodash";
 import * as styles from "./styles";
-import Image, { ImageProps } from "next/image";
+import Image, { ImageProps } from "next/legacy/image";
 import { cx } from "@emotion/css";
 
 /**

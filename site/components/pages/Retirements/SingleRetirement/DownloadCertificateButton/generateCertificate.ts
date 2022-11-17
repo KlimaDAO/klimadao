@@ -15,7 +15,7 @@ import mco2Background from "public/bg_mco2.jpeg";
 
 import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 import { PoppinsBold } from "./poppinsBoldbase64";
-import { StaticImageData } from "next/image";
+import { StaticImageData } from "next/legacy/image";
 
 type Params = {
   beneficiaryName: string;

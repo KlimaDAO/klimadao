@@ -8,7 +8,7 @@ import { Holding } from "components/pages/Pledge/types";
 import { PlaceholderHoldingsChart } from "../PlaceholderHoldingsChart";
 import { HoldingsChart } from "../HoldingsChart";
 import * as styles from "./styles";
-import { StaticImageData } from "next/image";
+import { StaticImageData } from "next/legacy/image";
 
 interface TokenRowProps {
   label: string;

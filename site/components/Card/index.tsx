@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import { Text } from "@klimadao/lib/components";
 import defaultImage from "public/cover-default.png";

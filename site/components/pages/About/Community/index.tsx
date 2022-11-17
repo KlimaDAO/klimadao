@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import Image, { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/legacy/image";
 import ForumIcon from "@mui/icons-material/Forum";
 import { Trans, t } from "@lingui/macro";
 import { urls } from "@klimadao/lib/constants";

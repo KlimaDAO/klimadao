@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Trans, t } from "@lingui/macro";
 import { urls } from "@klimadao/lib/constants";
 import { Text } from "@klimadao/lib/components";
