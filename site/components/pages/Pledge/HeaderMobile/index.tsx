@@ -19,7 +19,7 @@ interface Props {
 }
 
 export const HeaderMobile: FC<Props> = (props) => {
-  const { address, connect, disconnect, isConnected } = useWeb3();
+  const { address, disconnect, isConnected } = useWeb3();
 
   return (
     <div className={styles.headerMobileWrap}>
@@ -52,7 +52,7 @@ export const HeaderMobile: FC<Props> = (props) => {
             <ButtonPrimary
               className={styles.authButton}
               label={t({ id: "shared.connect", message: "Connect" })}
-              onClick={connect}
+              // onClick={connect}
             />
           )}
         </div>

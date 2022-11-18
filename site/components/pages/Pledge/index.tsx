@@ -43,8 +43,8 @@ export const Pledge: NextPage = () => {
 
   const handleCreatePledge = async () => {
     setShouldRedirect(true);
-
-    if (!isConnected && connect) connect();
+    console.log("the other connect!");
+    if (!isConnected && connect) console.log("maybe", connect);
   };
 
   useEffect(() => {
