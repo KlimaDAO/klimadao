@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Text } from "@klimadao/lib/components";
+import { trimWithLocale } from "@klimadao/lib/utils";
 import CheckIcon from "@mui/icons-material/Check";
 
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
@@ -30,6 +31,10 @@ export const SelectProjectButton: FC<Props> = (props) => (
       {props.project.region}
     </Text>
 
-    <Text t="badge">Available tonnes: {props.project.currentSupply}</Text>
+    <Text t="badge">
+      Available tonnes:
+      {/* adds delimiters */}
+      {trimWithLocale(props.project.currentSupply.toString(), 2, "en")}{" "}
+    </Text>
   </button>
 );
