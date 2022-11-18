@@ -13,10 +13,9 @@ import { AddListing } from "./AddListing";
 import { User, Asset } from "@klimadao/lib/types/marketplace";
 
 import { ethers } from "ethers";
-import { formatUnits } from "@klimadao/lib/utils";
+import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { urls } from "@klimadao/lib/constants";
-import { getJsonRpcProvider } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 
@@ -46,38 +45,37 @@ export const Users: NextPage<Props> = (props) => {
     isConnectedProfile && setUser(props.marketplaceUser);
   }, [isConnectedProfile, isUnconnectedProfile]);
 
-  // load Listings on Mount, will be in API data later !
-  // hard coded for one specific C3token for now
+  // load Assets on Mount
   useEffect(() => {
-    if (isConnectedProfile && !!userData) {
+    if (isConnectedProfile && !!userData && userData.assets.length) {
       const getAssets = async () => {
         const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
 
-        const contract = new ethers.Contract(
-          "0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4",
-          C3ProjectToken.abi,
-          provider
+        const assetsData = await userData.assets.reduce<Promise<Asset[]>>(
+          async (resultPromise, asset) => {
+            const resolvedAssets = await resultPromise;
+            const contract = new ethers.Contract(
+              asset,
+              C3ProjectToken.abi,
+              provider
+            );
+
+            const tokenName = await contract.symbol();
+            const c3TokenBalance = await contract.balanceOf(props.userAddress);
+            const balance = formatUnits(c3TokenBalance);
+            const projectInfo = await contract.getProjectInfo();
+            resolvedAssets.push({
+              tokenAddress: asset,
+              tokenName,
+              projectName: projectInfo.name,
+              balance,
+            });
+            return resolvedAssets;
+          },
+          Promise.resolve([])
         );
 
-        const c3TokenBalance = await contract.balanceOf(props.userAddress);
-        const balance = formatUnits(c3TokenBalance);
-        const projectInfo = await contract.getProjectInfo();
-
-        setAssets((prev) => [
-          ...prev,
-          {
-            tokenAddress: "0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4",
-            tokenName: "C3T-GS-500",
-            projectName: projectInfo.name,
-            balance,
-          },
-          {
-            tokenAddress: "some-string",
-            tokenName: "A token name",
-            projectName: "projectInfo.name",
-            balance: "20",
-          },
-        ]);
+        setAssets((prev) => [...prev, ...assetsData]);
       };
       getAssets();
     }
@@ -88,9 +86,15 @@ export const Users: NextPage<Props> = (props) => {
     setUser(values);
   };
 
-  const onAddListingSubmit = () => {
+  const onAddListingSubmit = async () => {
     setShowListingModal(false);
-    console.log("LOAD USER AGAIN");
+    try {
+      setIsLoading(true);
+      console.log("LOAD USER AGAIN");
+      setIsLoading(false);
+    } catch (e) {
+      console.error("LOAD USER AGAIN error", e);
+    }
   };
 
   return (

@@ -18,6 +18,7 @@ export interface User {
   wallet: string;
   listings: Listing[];
   activities: Activity[];
+  assets: string[]; // token addresses
 }
 
 export type Listing = {
