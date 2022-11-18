@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, ReactNode } from "react";
 import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
 import Link from "next/link";
@@ -55,6 +55,7 @@ interface MenuButtonProps {
   href: string;
   isActive: boolean;
   disabled?: boolean;
+  children: ReactNode;
 }
 
 const MenuButton: FC<MenuButtonProps> = (props) => {

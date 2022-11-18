@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, ReactNode } from "react";
 import { useWeb3, getENSProfile, getKNSProfile } from "@klimadao/lib/utils";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
@@ -23,9 +23,10 @@ type Props = {
   userAddress?: string;
   userDomain?: string | null;
   profileButton?: JSX.Element;
+  children: ReactNode;
 };
 
-export const MarketplaceLayout: FC<Props> = (props) => {
+export const MarketplaceLayout: FC<Props> = (props: Props) => {
   const { address, connect, disconnect, isConnected } = useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [profileData, setProfileData] = useState<Domain>();
