@@ -38,6 +38,7 @@ export const Users: NextPage<Props> = (props) => {
   const userName = props.userDomain || props.userAddress;
   const userData = user || props.marketplaceUser;
 
+  // FIX: should happen only once!
   useEffect(() => {
     if (isConnectedProfile || isUnconnectedProfile) {
       setIsLoading(false);
@@ -46,8 +47,9 @@ export const Users: NextPage<Props> = (props) => {
   }, [isConnectedProfile, isUnconnectedProfile]);
 
   // load Assets on Mount
+  // FIX: should happen only once!
   useEffect(() => {
-    if (isConnectedProfile && !!userData && userData.assets.length) {
+    if (isConnectedProfile && !!userData && !!userData.assets?.length) {
       const getAssets = async () => {
         const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
 
@@ -83,7 +85,7 @@ export const Users: NextPage<Props> = (props) => {
 
   const onEditSubmit = (values: User) => {
     setShowEditModal(false);
-    setUser(values);
+    setUser((prev) => ({ ...prev, ...values }));
   };
 
   const onAddListingSubmit = async () => {
