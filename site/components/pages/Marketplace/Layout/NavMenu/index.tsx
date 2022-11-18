@@ -74,10 +74,10 @@ const MenuButton: FC<MenuButtonProps> = (props) => {
 
   return (
     <Link href={props.href} passHref>
-      <a className={styles.sidebarButton} data-active={props.isActive}>
+      <div className={styles.sidebarButton} data-active={props.isActive}>
         <div className="iconContainer">{props.icon}</div>
         <span>{props.children}</span>
-      </a>
+      </div>
     </Link>
   );
 };
@@ -105,10 +105,8 @@ export const NavMenu: FC<Props> = (props) => {
 
   return (
     <nav className={styles.container}>
-      <Link href="/marketplace" passHref>
-        <a>
-          <LogoWithClaim />
-        </a>
+      <Link href="/marketplace">
+        <LogoWithClaim />
       </Link>
       <div className={styles.addressContainer}>
         <div className="hr" />
