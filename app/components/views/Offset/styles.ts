@@ -30,7 +30,7 @@ export const offsetCard = css`
   background-color: var(--surface-02);
   align-content: start;
   border-radius: 1.2rem;
-  padding: 2.4rem;
+  padding: 1.6rem;
   gap: 2.4rem;
   grid-column: 1 / 3;
 
@@ -59,7 +59,7 @@ export const newReleasesIcon = css`
 
 export const offsetCard_ui = css`
   display: grid;
-  gap: 2.5rem;
+  gap: 2.4rem;
 
   ${breakpoints.medium} {
     border: 2px solid var(--surface-03);
