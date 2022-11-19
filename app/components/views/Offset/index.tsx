@@ -453,21 +453,21 @@ export const Offset = (props: Props) => {
         </div>
 
         <div className={styles.offsetCard_ui}>
-          {/* attr: inputToken  */}
+          {/* attr: retirementToken  */}
           <DropdownWithModal
             label={t({
-              id: "offset.dropdown_payWith.label",
-              message: "Pay with",
+              id: "offset.dropdown_retire.label",
+              message: "Select carbon offset token to retire",
             })}
             modalTitle={t({
-              id: "offset.modal_payWith.title",
-              message: "Select Token",
+              id: "offset.modal_retire.title",
+              message: "Select Carbon Type",
             })}
-            currentItem={selectedInputToken}
-            items={inputTokenItems}
-            isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-            onItemSelect={handleSelectInputToken}
+            currentItem={selectedRetirementToken}
+            items={retirementTokenItems}
+            isModalOpen={isRetireTokenModalOpen}
+            onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
+            onItemSelect={handleSelectRetirementToken}
           />
 
           {/* attr: projectAddress  */}
@@ -475,7 +475,6 @@ export const Offset = (props: Props) => {
             projectAddress={projectAddress}
             setProjectAddress={setProjectAddress}
           />
-
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -503,7 +502,6 @@ export const Offset = (props: Props) => {
               />
             </div>
           </div>
-
           {/* attr: beneficiaryName  */}
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
@@ -542,7 +540,6 @@ export const Offset = (props: Props) => {
               </Text>
             </div>
           </div>
-
           {/* attr: retirementMessage  */}
           <div className={styles.input}>
             <label>
@@ -562,7 +559,6 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-
           <MiniTokenDisplay
             label={
               <div className="mini_token_label">
@@ -586,7 +582,6 @@ export const Offset = (props: Props) => {
             loading={cost === "loading"}
             warn={insufficientBalance}
           />
-
           <MiniTokenDisplay
             label={
               <Text t="caption" color="lighter">
@@ -599,21 +594,21 @@ export const Offset = (props: Props) => {
             labelAlignment="start"
           />
 
-          {/* attr: retirementToken  */}
+          {/* attr: inputToken  */}
           <DropdownWithModal
             label={t({
-              id: "offset.dropdown_retire.label",
-              message: "Select carbon offset token to retire",
+              id: "offset.dropdown_payWith.label",
+              message: "Pay with",
             })}
             modalTitle={t({
-              id: "offset.modal_retire.title",
-              message: "Select Carbon Type",
+              id: "offset.modal_payWith.title",
+              message: "Select Token",
             })}
-            currentItem={selectedRetirementToken}
-            items={retirementTokenItems}
-            isModalOpen={isRetireTokenModalOpen}
-            onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
-            onItemSelect={handleSelectRetirementToken}
+            currentItem={selectedInputToken}
+            items={inputTokenItems}
+            isModalOpen={isInputTokenModalOpen}
+            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
+            onItemSelect={handleSelectInputToken}
           />
 
           <div className="disclaimer">
@@ -626,7 +621,6 @@ export const Offset = (props: Props) => {
               </Trans>
             </Text>
           </div>
-
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>
