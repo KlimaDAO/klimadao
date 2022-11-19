@@ -26,7 +26,6 @@ export const queryCarbonProjectDetails = async (
   searchQuery: string
 ): Promise<CarbonProject[]> => {
   try {
-    console.log(searchQuery);
     const result = await fetch(subgraphs.polygonBridgedCarbon, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

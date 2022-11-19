@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
   position: relative;
@@ -25,8 +26,13 @@ export const options = css`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 1.6rem;
+  flex-direction: column;
+  gap: 0.8rem;
   cursor: pointer;
+
+  ${breakpoints.large} {
+    flex-direction: row;
+  }
 `;
 
 export const defaultText = css`

@@ -82,7 +82,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
             <LeafIcon />
             <Text t="body8" align="center">
               Allow KlimaDAO to choose tokens from a project to retire on your
-              behalf.
+              behalf. This option avoids paying extra fees.
             </Text>
           </div>
         )}
