@@ -44,6 +44,8 @@ export const ProjectSearchForm: FC<Props> = (props) => {
       props.setIsLoading(true);
       const query = createQuery();
       const projects = await queryCarbonProjectDetails(query);
+
+      console.log(projects);
       props.setProjects(projects);
       props.setStep("selectProject");
       props.setIsLoading(false);

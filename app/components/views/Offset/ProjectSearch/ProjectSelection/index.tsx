@@ -21,6 +21,7 @@ export const ProjectSelection: FC<Props> = (props) => (
     <Text t="caption" color="lighter">
       Select a project to continue:
     </Text>
+
     <div className={styles.projectList}>
       {props.projects.map((project, index) => (
         <SelectProjectButton

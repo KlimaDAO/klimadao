@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import { Text } from "@klimadao/lib/components";
+import { Anchor, Text } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import CheckIcon from "@mui/icons-material/Check";
+import { verra } from "@klimadao/lib/constants";
 
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import * as styles from "./styles";
@@ -12,29 +13,52 @@ type Props = {
   setSelectedProject?: (project: CarbonProject) => void;
 };
 
-export const SelectProjectButton: FC<Props> = (props) => (
-  <button
-    className={styles.selectProjectButton}
-    onClick={() => props.setSelectedProject?.(props.project)}
-    data-active={props.active}
-  >
-    <div className={styles.header}>
-      <Text t="caption">{props.project.methodologyCategory}</Text>
-      <div className={styles.checkedIcon} data-active={props.active}>
-        <CheckIcon />
+export const SelectProjectButton: FC<Props> = (props) => {
+  /**
+   * Assumes following data format from respective bridges
+   *   Toucan:
+   *     projectID = "VCS-123"
+   *   C3:
+   *     projectID = "123"
+   */
+  const linkToProjectDetails = () => {
+    if (props.project.bridge === "C3") {
+      return `${verra.projectDetailPage}/${props.project.projectID}`;
+    }
+
+    if (props.project.bridge === "Toucan") {
+      const projectId = props.project.projectID.replace("VCS-", "");
+      return `${verra.projectDetailPage}/${projectId}`;
+    }
+
+    return "#";
+  };
+
+  return (
+    <button
+      className={styles.selectProjectButton}
+      onClick={() => props.setSelectedProject?.(props.project)}
+      data-active={props.active}
+    >
+      <div className={styles.header}>
+        <Text t="caption">{props.project.methodologyCategory}</Text>
+        <div className={styles.checkedIcon} data-active={props.active}>
+          <CheckIcon />
+        </div>
       </div>
-    </div>
 
-    <Text t="body4">{props.project.name || props.project.projectID} →</Text>
+      <Anchor href={linkToProjectDetails()}>
+        <Text t="body4">{props.project.name || props.project.projectID} →</Text>
+      </Anchor>
 
-    <Text t="badge" className={styles.regionLabel}>
-      {props.project.region}
-    </Text>
+      <Text t="badge" className={styles.regionLabel}>
+        {props.project.country || props.project.region}
+      </Text>
 
-    <Text t="badge">
-      Available tonnes:
-      {/* adds delimiters */}
-      {trimWithLocale(props.project.currentSupply.toString(), 2, "en")}{" "}
-    </Text>
-  </button>
-);
+      <Text t="badge">
+        Available tonnes:{" "}
+        {trimWithLocale(props.project.currentSupply.toString(), 2, "en")}
+      </Text>
+    </button>
+  );
+};

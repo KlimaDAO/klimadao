@@ -8,10 +8,12 @@ export interface CarbonProject {
   country: string;
   region: string;
   vintage: string;
+  vintageYear: string;
   methodology: string;
   methodologyCategory: string;
   category: string;
   currentSupply: number;
+  bridge: string;
 }
 
 export interface QueryCarbonProjectDetails {
@@ -45,7 +47,6 @@ export const queryCarbonProjectDetails = async (
               category
               currentSupply
               bridge
-              registry
             }
           }
           `,
