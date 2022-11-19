@@ -5,9 +5,10 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
 interface Props {
+  id: string;
   textareaProps: TextareaHTMLAttributes<HTMLTextAreaElement>;
   label: string;
-  errorMessage: false | string;
+  errorMessage?: string;
 }
 
 export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
@@ -22,12 +23,12 @@ export const TextareaField = React.forwardRef<HTMLTextAreaElement, Props>(
 
     return (
       <div className={styles.container}>
-        <label htmlFor={props.textareaProps.id}>
+        <label htmlFor={props.id}>
           <Text t="caption">{props.label}</Text>
         </label>
 
         <textarea
-          id={props.textareaProps.id}
+          id={props.id}
           ref={ref}
           aria-invalid={!!props.errorMessage}
           {...props.textareaProps}

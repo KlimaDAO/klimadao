@@ -9,6 +9,8 @@ export const modalBackground = css`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(42, 42, 42, 0.4);
+  backdrop-filter: blur(2px);
 `;
 
 export const modalContainer = css`
@@ -73,5 +75,17 @@ export const modalContent = css`
       -webkit-transform: scale(1);
       transform: scale(1);
     }
+  }
+
+  //Resolve border radius issues by enforcing rounded corners on scroll bars
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--surface-04);
+    border: 0.4rem solid transparent;
+    border-radius: 0.8rem;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar {
+    width: 1.6rem;
   }
 `;

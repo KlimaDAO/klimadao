@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ethers } from "ethers";
+import { utils } from "ethers";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
 import { t } from "@lingui/macro";
@@ -28,7 +28,7 @@ export const Pledge: NextPage = () => {
 
     const address = event.currentTarget.address.value;
 
-    if (ethers.utils.isAddress(address) || getIsDomainInURL(address)) {
+    if (utils.isAddress(address) || getIsDomainInURL(address)) {
       await router.push(`/pledge/${address}`);
     } else {
       setError(true);
@@ -137,10 +137,10 @@ export const Pledge: NextPage = () => {
             <form onSubmit={handleFormSubmit}>
               <div>
                 <InputField
+                  id="address"
                   inputProps={{
                     type: "text",
                     name: "address",
-                    id: "address",
                     placeholder: t({
                       id: "pledges.home.search.placeholder",
                       message: "Enter ENS, KNS or 0x address",
@@ -152,11 +152,13 @@ export const Pledge: NextPage = () => {
                     message: "ENS or 0x address",
                   })}
                   errorMessage={
-                    error &&
-                    t({
-                      id: "pledges.form.error",
-                      message: "Enter a wallet address, .klima or .eth domain",
-                    })
+                    error
+                      ? t({
+                          id: "pledges.form.error",
+                          message:
+                            "Enter a wallet address, .klima or .eth domain",
+                        })
+                      : undefined
                   }
                 />
               </div>

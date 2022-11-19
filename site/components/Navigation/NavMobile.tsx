@@ -1,7 +1,8 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import * as styles from "./styles";
 interface Props {
   isToggled: boolean;
+  children: ReactNode;
 }
 
 export const NavMobile: FC<Props> = (props) => (

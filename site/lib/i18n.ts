@@ -1,32 +1,8 @@
 import { i18n } from "@lingui/core";
-import { en, fr, de, ru, zh, ko, es, hi } from "make-plural/plurals";
 import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
+import { getLocales } from "@klimadao/lib/utils";
 
-// TODO: remove NODE_ENV=test hack from package.json https://github.com/lingui/js-lingui/issues/433
-// Define locales
-interface ILocales {
-  [locale: string]: {
-    plurals: (
-      n: number | string,
-      ord?: boolean
-    ) => "zero" | "one" | "two" | "few" | "many" | "other";
-    time: string;
-  };
-}
-const locales: ILocales = {
-  en: { plurals: en, time: "en-US" },
-  fr: { plurals: fr, time: "fr-FR" },
-  de: { plurals: de, time: "de-DE" },
-  ru: { plurals: ru, time: "ru-RU" },
-  "zh-CN": { plurals: zh, time: "zh-CN" },
-  es: { plurals: es, time: "es-ES" },
-  hi: { plurals: hi, time: "hi-IN" },
-};
-// Add pseudo locale only in development
-if (!IS_PRODUCTION) {
-  locales["ko"] = { plurals: ko, time: "ko-KR" };
-  locales["en-pseudo"] = { plurals: en, time: "en-US" };
-}
+export const locales = getLocales(IS_PRODUCTION);
 
 for (const key in locales) {
   const locale = locales[key];
@@ -49,4 +25,4 @@ async function loadTranslation(locale = "en") {
 export const createLinkWithLocaleQuery = (url: string, locale = "en"): string =>
   `${url}?locale=${locale}`;
 
-export { locales, loadTranslation };
+export { loadTranslation };

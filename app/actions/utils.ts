@@ -1,6 +1,6 @@
 import { AppNotificationStatus, TxnStatus } from "state/app";
 import { t } from "@lingui/macro";
-import { ethers, providers } from "ethers";
+import { utils, providers } from "ethers";
 import {
   formatUnits,
   getTokenDecimals,
@@ -57,7 +57,7 @@ export const changeApprovalTransaction = async (params: {
       provider: params.provider.getSigner(),
     });
     const decimals = getTokenDecimals(params.token);
-    const parsedValue = ethers.utils.parseUnits(params.value, decimals);
+    const parsedValue = utils.parseUnits(params.value, decimals);
     params.onStatus("userConfirmation", "");
     const txn = await contract.approve(
       addresses["mainnet"][params.spender],

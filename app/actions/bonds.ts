@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { providers, Contract, utils, BigNumber } from "ethers";
 import { Thunk } from "state";
 import { setBond } from "state/bonds";
 import { OnStatusHandler } from "./utils";
@@ -16,7 +16,6 @@ import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
 export const bondMapToTokenName = {
   klima_bct_lp: "klimaBctLp",
   klima_usdc_lp: "klimaUsdcLp",
-  bct_usdc_lp: "bctUsdcLp",
   klima_mco2_lp: "klimaMco2Lp",
   mco2: "mco2",
   bct: "bct",
@@ -32,7 +31,6 @@ type InverseBond = Extract<BondTokens, "inverse_usdc">;
 export const bondMapToBondName = {
   klima_bct_lp: "bond_klimaBctLp",
   klima_usdc_lp: "bond_klimaUsdcLp",
-  bct_usdc_lp: "bond_bctUsdcLp",
   klima_mco2_lp: "bond_klimaMco2Lp",
   inverse_usdc: "klimaProV2",
   mco2: "bond_mco2",
@@ -54,7 +52,7 @@ const getPairContract = (params: {
   token: TokensForPairContract;
   provider: providers.JsonRpcProvider;
 }) => {
-  return new ethers.Contract(
+  return new Contract(
     addresses["mainnet"][params.token],
     PairContract.abi,
     params.provider
@@ -185,9 +183,9 @@ export const calcBondDetails = (params: {
     const provider = getJsonRpcProvider();
     let amountInWei;
     if (!params.value || params.value === "") {
-      amountInWei = ethers.utils.parseEther("0");
+      amountInWei = utils.parseEther("0");
     } else {
-      amountInWei = ethers.utils.parseEther(params.value);
+      amountInWei = utils.parseEther(params.value);
     }
 
     const bondContract = contractForBond({
@@ -195,7 +193,7 @@ export const calcBondDetails = (params: {
       provider: provider,
     });
     // for SLP bonds
-    const bondCalcContract = new ethers.Contract(
+    const bondCalcContract = new Contract(
       params.bond === "klima_usdc_lp"
         ? addresses["mainnet"].bond_calc_klimaUsdc
         : addresses["mainnet"].bond_calc,
@@ -207,7 +205,6 @@ export const calcBondDetails = (params: {
       klima_mco2_lp: getMCO2MarketPrice,
       klima_usdc_lp: getKlimaUSDCMarketPrice,
       klima_bct_lp: getBCTMarketPrice,
-      bct_usdc_lp: getBCTMarketPrice,
       bct: getBCTMarketPrice,
       ubo: getUBOMarketPrice,
       nbo: getNBOMarketPrice,
@@ -361,7 +358,7 @@ export const calculateUserBondDetails = (params: {
       getBondAddress({ bond: params.bond })
     );
     // TODO: we can just use the state.user.balance for these values and eliminate this code.
-    const balance = ethers.utils.formatUnits(
+    const balance = utils.formatUnits(
       await reserveContract.balanceOf(params.address),
       "ether"
     );
@@ -375,9 +372,9 @@ export const calculateUserBondDetails = (params: {
       setBond({
         bond: params.bond,
         balance,
-        interestDue: ethers.utils.formatUnits(interestDue, "gwei"),
+        interestDue: utils.formatUnits(interestDue, "gwei"),
         bondMaturationBlock,
-        pendingPayout: ethers.utils.formatUnits(pendingPayout, "gwei"),
+        pendingPayout: utils.formatUnits(pendingPayout, "gwei"),
       })
     );
   };
@@ -405,15 +402,15 @@ export const bondTransaction = async (params: {
         (1 / Number(formatUnits(bondPrice, 6))) *
           Number(params.value) *
           acceptedSlippage;
-      const formattedMinAmountOut = ethers.utils.parseUnits(
+      const formattedMinAmountOut = utils.parseUnits(
         Number(minAmountOut.toFixed(6)).toString(),
         "mwei"
       );
       params.onStatus("userConfirmation", "");
       const address = await signer.getAddress();
-      const formattedValue = ethers.utils.parseUnits(params.value, "gwei");
+      const formattedValue = utils.parseUnits(params.value, "gwei");
       const txn = await contract.deposit(
-        ethers.BigNumber.from(INVERSE_USDC_MARKET_ID),
+        BigNumber.from(INVERSE_USDC_MARKET_ID),
         [formattedValue, formattedMinAmountOut],
         [address, addresses.mainnet.daoMultiSig]
       );
@@ -439,7 +436,7 @@ export const bondTransaction = async (params: {
       const calculatePremium = await contract.bondPrice();
       const acceptedSlippage = params.slippage / 100 || 0.02; // 2%
       const maxPremium = Math.round(calculatePremium * (1 + acceptedSlippage));
-      const valueInWei = ethers.utils.parseUnits(params.value, "ether");
+      const valueInWei = utils.parseUnits(params.value, "ether");
       const address = await signer.getAddress();
       params.onStatus("userConfirmation", "");
       const txn = await contract.deposit(valueInWei, maxPremium, address);

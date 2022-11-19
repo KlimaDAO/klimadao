@@ -7,6 +7,7 @@ export const DEFAULT_VALUES: Pledge = {
   name: "",
   nonce: DEFAULT_NONCE,
   profileImageUrl: "",
+  profileWebsiteUrl: "",
   description: "",
   methodology: "",
   footprint: [
@@ -26,6 +27,7 @@ export const pledgeFormAdapter = (pledge: Pledge): PledgeFormValues => {
     ownerAddress: pledge.ownerAddress,
     name: pledge.name,
     profileImageUrl: pledge.profileImageUrl,
+    profileWebsiteUrl: pledge.profileWebsiteUrl,
     nonce: pledge.nonce,
     description: pledge.description,
     methodology: pledge.methodology,

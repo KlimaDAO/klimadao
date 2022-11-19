@@ -1,7 +1,7 @@
-import { ethers, providers } from "ethers";
+import { utils, providers } from "ethers";
 import { Thunk } from "state";
 import { setCarbonRetiredBalances, updateAllowances } from "state/user";
-import { getTransactionOptions } from "@klimadao/lib/utils";
+import { getJsonRpcProvider, getTransactionOptions } from "@klimadao/lib/utils";
 
 import {
   addresses,
@@ -93,7 +93,6 @@ export const getRetirementAllowances = (params: {
 };
 
 export const getOffsetConsumptionCost = async (params: {
-  provider: providers.JsonRpcProvider;
   inputToken: OffsetInputToken;
   retirementToken: RetirementToken;
   quantity: string;
@@ -102,9 +101,9 @@ export const getOffsetConsumptionCost = async (params: {
 }): Promise<[string, string]> => {
   const retirementAggregatorContract = getContract({
     contractName: "retirementAggregator",
-    provider: params.provider,
+    provider: getJsonRpcProvider(),
   });
-  const parsed = ethers.utils.parseUnits(
+  const parsed = utils.parseUnits(
     params.quantity,
     getTokenDecimals(params.retirementToken)
   );
@@ -147,7 +146,7 @@ export const retireCarbonTransaction = async (params: {
   beneficiaryName: string;
   retirementMessage: string;
   onStatus: OnStatusHandler;
-  specificAddresses: string[];
+  projectAddress: string;
 }): Promise<RetireCarbonTransactionResult> => {
   try {
     // get all current retirement totals
@@ -172,11 +171,11 @@ export const retireCarbonTransaction = async (params: {
     params.onStatus("userConfirmation");
 
     let txn;
-    if (!!params.specificAddresses.length) {
+    if (!!params.projectAddress) {
       txn = await retireContract.retireCarbonSpecific(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
-        ethers.utils.parseUnits(
+        utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
@@ -184,14 +183,14 @@ export const retireCarbonTransaction = async (params: {
         params.beneficiaryAddress || params.address,
         params.beneficiaryName,
         params.retirementMessage,
-        params.specificAddresses,
+        [params.projectAddress],
         transactionOptions
       );
     } else {
       txn = await retireContract.retireCarbon(
         addresses["mainnet"][params.inputToken],
         addresses["mainnet"][params.retirementToken],
-        ethers.utils.parseUnits(
+        utils.parseUnits(
           params.quantity,
           getTokenDecimals(params.retirementToken)
         ),
@@ -206,7 +205,6 @@ export const retireCarbonTransaction = async (params: {
     params.onStatus("networkConfirmation");
 
     const receipt: RetirementReceipt = await txn.wait(1);
-
     return { receipt, retirementTotals };
   } catch (e: any) {
     if (e.code === 4001) {

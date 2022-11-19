@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import { useRouter } from "next/router";
 import { createLinkWithLocaleQuery } from "lib/i18n";
@@ -10,6 +10,7 @@ import {
   Section,
   ButtonPrimary,
 } from "@klimadao/lib/components";
+import { getImageSizes } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 import { Navigation } from "components/Navigation";
@@ -189,6 +190,7 @@ export const Buy: NextPage = () => {
                 layout="fill"
                 objectFit="cover"
                 className="image"
+                sizes={getImageSizes({ large: "1072px" })}
               />
             </div>
           </div>
@@ -231,6 +233,7 @@ export const Buy: NextPage = () => {
                 layout="fill"
                 objectFit="cover"
                 className="image"
+                sizes={getImageSizes({ large: "1072px" })}
               />
             </div>
             <Text t="h3" as="h3" align="center">
@@ -282,6 +285,7 @@ export const Buy: NextPage = () => {
                 layout="fill"
                 objectFit="contain"
                 className="image"
+                sizes={getImageSizes({ large: "1072px" })}
               />
             </div>
           </div>

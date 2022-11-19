@@ -2,7 +2,7 @@ import { Text } from "@klimadao/lib/components";
 import * as styles from "./styles";
 import { FC } from "react";
 import { RetirementToken } from "@klimadao/lib/constants";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/legacy/image";
 import { Trans } from "@lingui/macro";
 
 type Props = {
@@ -18,7 +18,13 @@ export const RetirementValue: FC<Props> = ({ value, label, icon }) => {
         <Trans id="retirement.single.quantity">QUANTITY RETIRED</Trans>
       </Text>
       <div className={styles.tokenInfo}>
-        <Image alt={label} src={icon} width={48} height={48} />
+        <Image
+          alt={label}
+          src={icon}
+          width={48}
+          height={48}
+          objectFit="contain"
+        />
         <Text t="h3" as="h2" align="center" className="amount">
           {value} {label}
         </Text>

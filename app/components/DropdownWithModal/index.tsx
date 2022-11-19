@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { StaticImageData } from "components/Image";
+import { FC, ReactNode } from "react";
+import { StaticImageData } from "next/image";
 import { Image } from "components/Image";
 
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
@@ -12,14 +12,14 @@ import * as styles from "./styles";
 interface Item {
   key: string;
   label: string;
-  description?: React.ReactNode;
+  description?: ReactNode;
   icon: StaticImageData;
   disabled?: boolean;
 }
 
 interface Props {
   modalTitle: string;
-  label: React.ReactNode;
+  label: ReactNode;
   currentItem: string;
   items: Item[];
   isModalOpen: boolean;

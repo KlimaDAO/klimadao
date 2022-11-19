@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
@@ -43,7 +43,7 @@ import * as styles from "./styles";
 import { urls } from "@klimadao/lib/constants";
 
 interface ButtonProps {
-  label: React.ReactElement | string;
+  label: ReactElement | string;
   onClick: undefined | (() => void);
   disabled: boolean;
 }

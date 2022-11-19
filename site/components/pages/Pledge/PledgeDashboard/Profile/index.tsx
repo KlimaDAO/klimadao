@@ -1,11 +1,12 @@
 import React, { FC, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
-import { Text } from "@klimadao/lib/components";
+import { Anchor, Text } from "@klimadao/lib/components";
 import {
   concatAddress,
   getENSProfile,
   getKNSProfile,
+  prettifyUrl,
 } from "@klimadao/lib/utils";
 import { Domain } from "@klimadao/lib/types/domains";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
@@ -43,6 +44,7 @@ export const Profile: FC<Props> = (props) => {
   }, [props.domain]);
 
   const hasProfileImage = props.pledge.profileImageUrl || profileData;
+  const profileUrl = props.pledge.profileWebsiteUrl;
 
   const currentFootprint =
     props.pledge.footprint[props.pledge.footprint.length - 1];
@@ -76,37 +78,38 @@ export const Profile: FC<Props> = (props) => {
 
   return (
     <div className={styles.profile}>
-      {hasProfileImage ? (
-        <>
-          <img
-            className="profileImage"
-            src={props.pledge.profileImageUrl || profileData?.imageUrl}
-            alt="Profile image"
-          />
-        </>
-      ) : (
-        <Text t="h3" className="profileImage" align="center">
-          -
-        </Text>
+      {hasProfileImage && (
+        <img
+          className="profileImage"
+          src={props.pledge.profileImageUrl || profileData?.imageUrl}
+          alt="Profile image"
+        />
       )}
+      <div className={styles.grouped}>
+        <Text t="h2">
+          {props.pledge.name ||
+            props.domain ||
+            concatAddress(props.pledge.ownerAddress)}
+        </Text>
 
-      <Text t="h2">
-        {props.pledge.name ||
-          props.domain ||
-          concatAddress(props.pledge.ownerAddress)}
+        {!!profileUrl && (
+          <Text t="body1">
+            <Anchor className="profileUrl" href={profileUrl}>
+              {prettifyUrl(profileUrl)}
+            </Anchor>
+          </Text>
+        )}
+      </div>
+
+      <Text t="h4" color="lightest" align="center">
+        <Trans id="pledges.dashboard.profile.pledged_to_offset">
+          Pledged to Offset{" "}
+          <strong>{trimWithLocale(currentFootprint.total, 2, locale)}</strong>{" "}
+          Carbon Tonnes
+        </Trans>
       </Text>
 
-      <div className={styles.progressContainer}>
-        <Text t="h4" color="lightest" align="center">
-          <Trans id="pledges.dashboard.profile.pledged_to_offset">
-            Pledged to Offset{" "}
-            <strong>{trimWithLocale(currentFootprint.total, 2, locale)}</strong>{" "}
-            Carbon Tonnes
-          </Trans>
-        </Text>
-
-        {renderPledgeProgress()}
-      </div>
+      {renderPledgeProgress()}
     </div>
   );
 };

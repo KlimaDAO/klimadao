@@ -34,6 +34,7 @@ export const InvalidNetworkModal: FC = () => {
     const { hexChainId, rpcUrls, blockExplorerUrls, chainName } =
       polygonNetworks[net];
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const typedProvider = (provider as any)?.provider;
     if (typedProvider && typeof typedProvider.request === "function") {
       await typedProvider.request({
@@ -76,7 +77,6 @@ export const InvalidNetworkModal: FC = () => {
 
       <div className={styles.switchButtonContainer}>
         <ButtonPrimary
-          className={styles.switchButton}
           label={<Trans>Switch to Polygon</Trans>}
           onClick={handleChangeNetwork("mainnet")}
         />

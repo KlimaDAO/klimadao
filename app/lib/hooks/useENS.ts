@@ -1,4 +1,4 @@
-import { getDefaultProvider } from "@ethersproject/providers";
+import { getDefaultProvider } from "ethers";
 import { useEffect, useState } from "react";
 
 const useENS = (address: string | null | undefined) => {

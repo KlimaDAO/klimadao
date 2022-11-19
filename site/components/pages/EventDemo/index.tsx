@@ -132,16 +132,18 @@ export const EventDemo = (props: { eventTitle: string }) => {
               </Text>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <InputField
+                  id="name"
                   label="Name"
-                  errorMessage={formState?.errors?.name?.message || false}
+                  errorMessage={formState?.errors?.name?.message}
                   inputProps={{
                     type: "text",
                     ...register("name"),
                   }}
                 />
                 <TextareaField
+                  id="loveletter"
                   label="Love Letter to the Planet"
-                  errorMessage={formState?.errors?.loveLetter?.message || false}
+                  errorMessage={formState?.errors?.loveLetter?.message}
                   textareaProps={{
                     rows: 4,
                     ...register("loveLetter"),
@@ -171,7 +173,7 @@ export const EventDemo = (props: { eventTitle: string }) => {
                 <Link
                   href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
                 >
-                  <a>retirement certificate</a>
+                  retirement certificate
                 </Link>{" "}
                 or view the raw{" "}
                 <A
@@ -181,7 +183,7 @@ export const EventDemo = (props: { eventTitle: string }) => {
                 </A>{" "}
                 data. See how the event's{" "}
                 <Link href={`/pledge/${retirement.beneficiaryAddress}`}>
-                  <a>pledge</a>
+                  pledge
                 </Link>{" "}
                 is doing so far (it may take a few seconds for your retirement
                 to appear on the pledge).
@@ -190,12 +192,12 @@ export const EventDemo = (props: { eventTitle: string }) => {
                 <ButtonSecondary
                   label="View Retirement Receipt"
                   href={`/retirements/${retirement.beneficiaryAddress}/${retirement.index}`}
-                  link={Link}
+                  renderLink={(linkProps) => <Link {...linkProps} />}
                 />
                 <ButtonPrimary
                   label="See Event Progress"
                   href={`/pledge/${retirement.beneficiaryAddress}`}
-                  link={Link}
+                  renderLink={(linkProps) => <Link {...linkProps} />}
                 />
               </div>
             </div>
@@ -225,7 +227,7 @@ export const EventDemo = (props: { eventTitle: string }) => {
               variant="blueRounded"
               label={"Get Started"}
               href="/infinity"
-              link={Link}
+              renderLink={(linkProps) => <Link {...linkProps} />}
             />
             <ButtonSecondary
               variant="blueRounded"

@@ -1,10 +1,11 @@
 import { FC } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { Trans, t } from "@lingui/macro";
+import { getImageSizes } from "@klimadao/lib/utils";
 
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import * as styles from "./styles";
@@ -50,6 +51,8 @@ export const RetirementFooter: FC = () => {
           src={droneView}
           layout="fill"
           objectFit="cover"
+          sizes={getImageSizes({ large: "1072px" })}
+          placeholder="blur"
         />
         <div className={styles.buyKlimaImageGradient}></div>
         <Text t="h2" as="h2" className={styles.footerBuyKlimaText}>

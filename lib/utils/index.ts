@@ -11,6 +11,7 @@ export {
 export { trimStringDecimals } from "./trimStringDecimals";
 export { secondsUntilBlock } from "./secondsUntilBlock";
 export { prettifySeconds } from "./prettifySeconds";
+export { prettifyUrl } from "./prettifyUrl";
 export { trimWithPlaceholder } from "./trimWithPlaceholder";
 export { trimWithLocale } from "./trimWithLocale";
 export { concatAddress } from "./concatAddress";
@@ -30,6 +31,7 @@ export { getTokenDecimals } from "./getTokenDecimals";
 export { getIsValidAddress } from "./getIsValidAddress";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export { getOgImageSrc } from "./getOgImageSrc";
+export { getImageSizes } from "./getImageSizes";
 export {
   queryKlimaRetireByIndex,
   queryKlimaRetiresByAddress,
@@ -46,7 +48,7 @@ export {
   KNSContract,
 } from "./kns";
 export { getTransactionOptions } from "./getTransactionOptions";
-
+export { getLocales } from "./getLocales";
 // ENS
 export {
   isENSDomain,

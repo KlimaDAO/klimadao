@@ -2,8 +2,8 @@ import "@klimadao/lib/theme/variables.css";
 import "@klimadao/lib/theme/normalize.css";
 import "@klimadao/lib/theme/globals.css";
 import type { AppProps } from "next/app";
+import Script from "next/script";
 import { useEffect, useRef } from "react";
-
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 import { GridContainer, Web3ContextProvider } from "@klimadao/lib/components";
@@ -58,13 +58,28 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   });
 
   return (
-    <Web3ContextProvider strings={getWeb3ModalStrings()}>
-      <I18nProvider i18n={i18n}>
-        <GridContainer>
-          <Component {...pageProps} />
-        </GridContainer>
-      </I18nProvider>
-    </Web3ContextProvider>
+    <>
+      <Web3ContextProvider strings={getWeb3ModalStrings()}>
+        <I18nProvider i18n={i18n}>
+          <GridContainer>
+            <Component {...pageProps} />
+          </GridContainer>
+        </I18nProvider>
+      </Web3ContextProvider>
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KWFJ9R2');
+            `,
+        }}
+      />
+    </>
   );
 }
 

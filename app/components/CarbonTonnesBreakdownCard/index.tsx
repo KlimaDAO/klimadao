@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Image, StaticImageData } from "components/Image";
+import { Image } from "components/Image";
 import { Trans } from "@lingui/macro";
 import CloudOutlined from "@mui/icons-material/CloudOutlined";
 
@@ -15,6 +15,7 @@ import * as styles from "./styles";
 import { useSelector } from "react-redux";
 import { selectCarbonRetired } from "state/selectors";
 import { RetirementToken, retirementTokens } from "@klimadao/lib/constants";
+import { StaticImageData } from "next/image";
 
 type IconMap = { [key in RetirementToken]: StaticImageData };
 

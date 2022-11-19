@@ -60,7 +60,7 @@ export const findOrCreatePledge = async (
 
     if (!currentPledge) return null;
 
-    verifySignature({
+    await verifySignature({
       address: currentPledge.ownerAddress,
       signature: params.signature,
       nonce: currentPledge.nonce.toString(),
@@ -75,7 +75,7 @@ export const findOrCreatePledge = async (
 
     return pledgeAttributes;
   } else {
-    verifySignature({
+    await verifySignature({
       address: params.pageAddress,
       signature: params.signature,
       nonce: DEFAULT_NONCE,

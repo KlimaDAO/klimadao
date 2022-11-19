@@ -1,5 +1,19 @@
 import { t } from "@lingui/macro";
+import { utils } from "ethers";
 import * as yup from "yup";
+
+// extends yup.string schema with custom validation methods
+yup.addMethod<yup.StringSchema>(
+  yup.string,
+  "isAddress",
+  function (errorMessage: string) {
+    return this.test("is-address", errorMessage, function (value) {
+      if (utils.isAddress(value || "")) return true;
+
+      return this.createError({ message: errorMessage });
+    });
+  }
+);
 
 export const pledgeErrorTranslationsMap = {
   ["pledges.form.errors.name.required"]: t({
@@ -8,6 +22,10 @@ export const pledgeErrorTranslationsMap = {
   }),
   ["pledges.form.errors.profileImageUrl.url"]: t({
     id: "pledges.form.errors.profileImageUrl.url",
+    message: "Enter a valid url",
+  }),
+  ["pledges.form.errors.profileWebsiteUrl.url"]: t({
+    id: "pledges.form.errors.profileWebsiteUrl.url",
     message: "Enter a valid url",
   }),
   ["pledges.form.errors.description.required"]: t({
@@ -59,6 +77,11 @@ export const formSchema = yup
     profileImageUrl: yup
       .string()
       .url("pledges.form.errors.profileImageUrl.url")
+      .trim()
+      .ensure(),
+    profileWebsiteUrl: yup
+      .string()
+      .url("pledges.form.errors.profileWebsiteUrl.url")
       .trim()
       .ensure(),
     description: yup

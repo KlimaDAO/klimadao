@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import { ethers } from "ethers";
+import { utils } from "ethers";
 import { ParsedUrlQuery } from "querystring";
 import { urls } from "@klimadao/lib/constants";
 import { getRetirementTotalsAndBalances } from "@klimadao/lib/utils";
@@ -15,10 +15,12 @@ import {
   queryHoldingsByAddress,
 } from "components/pages/Pledge/lib";
 import { Pledge, Holding } from "components/pages/Pledge/types";
+
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
   address: string;
 }
+
 interface PageProps {
   canonicalUrl: string;
   domain: string | null;
@@ -39,8 +41,18 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     const isDomainInURL = getIsDomainInURL(address);
     const domain = isDomainInURL ? address : null;
 
+    // enforces lowercase urls
+    if (address !== address.toLowerCase()) {
+      return {
+        redirect: {
+          destination: `/pledge/${address.toLowerCase()}`,
+          permanent: true,
+        },
+      };
+    }
+
     try {
-      if (!isDomainInURL && !ethers.utils.isAddress(address))
+      if (!isDomainInURL && !utils.isAddress(address))
         throw new Error("Invalid address");
 
       if (isDomainInURL) {

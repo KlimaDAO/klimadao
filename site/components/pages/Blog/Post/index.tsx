@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { Trans } from "@lingui/macro";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -25,7 +25,7 @@ export const PostPage = (props: PostProps) => {
   if (!props.post) {
     return (
       <>
-        <Navigation activePage="Resources" />
+        <Navigation activePage="Updates" />
         <div className={styles.fallbackContainer}>
           {/* TODO: worth restyling this */}
           <Text className={styles.loadingArticle}>Loading article...</Text>
@@ -49,7 +49,7 @@ export const PostPage = (props: PostProps) => {
         isArticle={true}
       />
 
-      <Navigation activePage="Resources" />
+      <Navigation activePage="Updates" />
 
       <div className={styles.container}>
         <div className={styles.banner}>
@@ -66,11 +66,9 @@ export const PostPage = (props: PostProps) => {
 
         <section className={styles.blogContainer}>
           <div className={styles.content}>
-            <Link href="/blog" passHref={true}>
-              <a className={styles.backNavLink}>
-                <ChevronLeftIcon fontSize="medium" />
-                Blog
-              </a>
+            <Link href="/resources" passHref className={styles.backNavLink}>
+              <ChevronLeftIcon fontSize="medium" />
+              <Trans id="shared.updates">Updates</Trans>
             </Link>
 
             <Text t="h2" as="h1">

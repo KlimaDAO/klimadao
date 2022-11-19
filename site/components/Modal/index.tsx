@@ -1,4 +1,4 @@
-import React, { useEffect, FC } from "react";
+import { useEffect, FC, ReactNode } from "react";
 import Close from "@mui/icons-material/Close";
 
 import * as styles from "./styles";
@@ -8,8 +8,9 @@ import { useFocusTrap } from "@klimadao/lib/utils";
 export interface Props {
   showModal: boolean;
   closeOnBackgroundClick?: boolean;
-  title: React.ReactNode;
+  title: ReactNode;
   onToggleModal?: () => void;
+  children: ReactNode;
 }
 
 export const Modal: FC<Props> = (props) => {

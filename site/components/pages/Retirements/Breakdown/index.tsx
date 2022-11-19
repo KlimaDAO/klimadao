@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Text } from "@klimadao/lib/components";
 import { useRouter } from "next/router";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";

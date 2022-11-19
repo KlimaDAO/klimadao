@@ -1,10 +1,10 @@
+import { FC, ReactNode } from "react";
 import HelpOutlineRounded from "@mui/icons-material/HelpOutlineRounded";
-import React, { FC } from "react";
 import * as styles from "./styles";
 import { TextInfoTooltip } from "@klimadao/lib/components";
 
 interface Props {
-  content: React.ReactNode;
+  content: ReactNode;
 }
 
 export const InfoButton: FC<Props> = (props) => {
