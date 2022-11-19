@@ -39,10 +39,13 @@ export const queryCarbonProjectDetails = async (
               country
               region 
               vintage
+              vintageYear
               methodology
               methodologyCategory
               category
               currentSupply
+              bridge
+              registry
             }
           }
           `,
