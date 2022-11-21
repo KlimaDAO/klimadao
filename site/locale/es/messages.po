@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-18 19:07+0000\n"
+"POT-Creation-Date: 2022-11-21 15:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1107,11 +1107,11 @@ msgstr "Nombre o denominación de la empresa"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:158
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "URL de imagen de perfil (Opcional)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:176
 msgid "pledges.form.input.profileWebsiteUrl.label"
-msgstr ""
+msgstr "Sitio web (opcional)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:325
 msgid "pledges.form.input.totalFootprint.label"
