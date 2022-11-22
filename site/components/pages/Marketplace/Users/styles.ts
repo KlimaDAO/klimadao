@@ -4,6 +4,13 @@ export const fullWidth = css`
   grid-column: 1 / 3;
 `;
 
+export const card = css`
+  background-color: var(--surface-01);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-01);
+  padding: 1.6rem;
+`;
+
 export const projectLink = css`
   display: inline-flex;
   margin: 1rem 0;

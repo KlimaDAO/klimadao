@@ -36,8 +36,9 @@ export type Listing = {
   };
 };
 
-type Activity = {
+export type Activity = {
   id: number;
+  activityType: string; // CreatedListing, ...
   amount: number;
   previousAmount: number;
   price: number;
@@ -74,4 +75,10 @@ export type Asset = {
   tokenName: string;
   projectName: string;
   balance: string;
+};
+
+export type Stats = {
+  tonnesSold: number;
+  tonnesOwned: number;
+  activeListings: number;
 };

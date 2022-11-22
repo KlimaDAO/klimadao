@@ -30,7 +30,7 @@ export const Users: NextPage<Props> = (props) => {
     props.userAddress
   );
   const [user, setUser] = useState<User | null>(null);
-  const [assets, setAssets] = useState<Asset[]>([]);
+  const [assets, setAssets] = useState<Asset[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showListingModal, setShowListingModal] = useState(false);
@@ -46,10 +46,9 @@ export const Users: NextPage<Props> = (props) => {
     isConnectedProfile && setUser(props.marketplaceUser);
   }, [isConnectedProfile, isUnconnectedProfile]);
 
-  // load Assets on Mount
-  // FIX: should happen only once!
+  // load Assets once
   useEffect(() => {
-    if (isConnectedProfile && !!userData && !!userData.assets?.length) {
+    if (isConnectedProfile && !!userData?.assets?.length && !assets) {
       const getAssets = async () => {
         const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
 
@@ -77,11 +76,11 @@ export const Users: NextPage<Props> = (props) => {
           Promise.resolve([])
         );
 
-        setAssets((prev) => [...prev, ...assetsData]);
+        setAssets(assetsData);
       };
       getAssets();
     }
-  }, [isConnectedProfile, userData]);
+  }, [isConnectedProfile, userData, assets]);
 
   const onEditSubmit = (values: User) => {
     setShowEditModal(false);
@@ -156,7 +155,7 @@ export const Users: NextPage<Props> = (props) => {
           <EditProfile user={user} onSubmit={onEditSubmit} />
         </Modal>
 
-        {!!assets.length && (
+        {!!assets?.length && (
           <>
             <ButtonPrimary
               label={t({
