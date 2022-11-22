@@ -103,7 +103,8 @@ export const Infinity: NextPage<Props> = () => {
               <div className="hero_buttons">
                 <ButtonPrimary
                   className="hero_button_primary"
-                  variant="blueRounded"
+                  variant="blue"
+                  rounded
                   label={t({
                     message: "Get Started",
                     id: "shared.infinity.get_started",
@@ -111,7 +112,8 @@ export const Infinity: NextPage<Props> = () => {
                   onClick={() => setShowModal(true)}
                 />
                 <ButtonSecondary
-                  variant="blueRounded"
+                  variant="blue"
+                  rounded
                   label={t({
                     message: "Contact Sales",
                     id: "shared.contact_sales",
@@ -302,7 +304,8 @@ export const Infinity: NextPage<Props> = () => {
             </Text>
             <ButtonPrimary
               className="getStarted_button"
-              variant="blueRounded"
+              variant="blue"
+              rounded
               label={t({
                 message: "Get Started",
                 id: "shared.infinity.get_started",
@@ -510,7 +513,8 @@ export const Infinity: NextPage<Props> = () => {
               message: "Visit the KlimaDAO Blog",
               id: "shared.visit_klimadao_blog",
             })}
-            variant="blueRounded"
+            variant="blue"
+            rounded
             href={urls.siteBlog}
           />
         </div>
@@ -656,7 +660,8 @@ export const Infinity: NextPage<Props> = () => {
           <div className="faq_button_container">
             <ButtonPrimary
               className="faq_button"
-              variant="blueRounded"
+              variant="blue"
+              rounded
               label={t({
                 id: "infinity.button.read_blog_faq",
                 message: "Read in-depth FAQs for KI Clients",
@@ -688,7 +693,8 @@ export const Infinity: NextPage<Props> = () => {
                 message: "Get Started",
                 id: "shared.infinity.get_started",
               })}
-              variant="blueRounded"
+              variant="blue"
+              rounded
               onClick={() => setShowModal(true)}
             />
             <ButtonSecondary
@@ -696,7 +702,8 @@ export const Infinity: NextPage<Props> = () => {
                 message: "Contact Sales",
                 id: "shared.contact_sales",
               })}
-              variant="blueRounded"
+              variant="blue"
+              rounded
               href={urls.klimaInfinityContactForm}
               target="_blank"
             />

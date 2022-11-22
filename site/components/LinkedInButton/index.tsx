@@ -1,6 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import { ButtonPrimary, LinkedInIcon } from "@klimadao/lib/components";
 import * as styles from "./styles";
+import { ButtonBaseProps } from "@klimadao/lib/components/Buttons/ButtonBase";
 
 export const FACEBOOK_SHARE_URL =
   "https://www.linkedin.com/sharing/share-offsite/?url={url}";
@@ -23,9 +24,9 @@ export const getLinkedInHref = ({ url }: LinkedInHref) => {
 
 type Props = {
   url?: string;
-};
+} & Omit<ButtonBaseProps, "label">;
 
-export const LinkedInButton: FC<Props> = ({ url }) => {
+export const LinkedInButton: FC<Props> = ({ url, ...baseProps }) => {
   const [shareURL, setShareUrl] = useState<string>();
 
   // get parameters on the client because
@@ -44,13 +45,9 @@ export const LinkedInButton: FC<Props> = ({ url }) => {
       href={shareURL}
       target="_blank"
       disabled={!shareURL}
-      label={
-        <>
-          <LinkedInIcon />
-          LinkedIn
-        </>
-      }
-      variant="gray"
+      icon={<LinkedInIcon />}
+      variant="lightGray"
+      {...baseProps}
     />
   );
 };

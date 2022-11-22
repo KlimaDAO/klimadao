@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Text, Section } from "@klimadao/lib/components";
+import { Text, Section, CopyAddressButton } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { Navigation } from "components/Navigation";
@@ -16,8 +16,6 @@ import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { Breakdown } from "./Breakdown";
 import { AllRetirements } from "./List";
 import { RetirementFooter } from "./Footer";
-import { CopyURLButton } from "./CopyURLButton";
-import { CopyAddressButton } from "./CopyAddressButton";
 
 import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
@@ -81,6 +79,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
                 <CopyAddressButton
                   address={nameserviceDomain || beneficiaryAddress}
                   label={nameserviceDomain || concattedAddress}
+                  className={styles.largeCopyButton}
                 />
               </Text>
               {nameserviceDomain && (
@@ -88,7 +87,6 @@ export const RetirementPage: NextPage<Props> = (props) => {
                   <CopyAddressButton
                     address={beneficiaryAddress}
                     label={concattedAddress}
-                    size="small"
                   />
                 </Text>
               )}
@@ -137,7 +135,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
-          <CopyURLButton />
+          <CopyAddressButton label="Copy Link" variant="lightGray" />
         </div>
       </Section>
       <RetirementFooter />

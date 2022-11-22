@@ -15,6 +15,45 @@ const buttonBase = css`
   cursor: pointer;
   border-radius: 0.4rem;
   transition: opacity 0.3s ease 0s;
+
+  &.rounded {
+    border-radius: 0.8rem;
+  }
+
+  &.circle {
+    border-radius: 100%;
+    padding: 1.5rem;
+  }
+
+  &.icon {
+    gap: 0.8rem;
+    // @note overriding the styles defined in:
+    // app/components/views/Home/styles.ts
+    svg.MuiSvgIcon-root {
+      width: 1em;
+      height: 1em;
+    }
+    svg,
+    svg path {
+      font-size: inherit !important;
+      fill: currentColor;
+    }
+  }
+
+  &.transparent {
+    background: none;
+    padding: 0;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &,
+    &:hover:not(:disabled),
+    &:visited {
+      color: inherit; /* override force to white */
+    }
+  }
 `;
 
 export const buttonPrimary = css`
@@ -38,10 +77,6 @@ export const buttonPrimary = css`
     cursor: not-allowed;
   }
 
-  &.icon {
-    gap: 0.8rem;
-  }
-
   &.gray {
     background-color: var(--surface-01);
 
@@ -53,15 +88,21 @@ export const buttonPrimary = css`
     }
   }
 
-  &.blue,
-  &.blueRounded {
-    background-color: var(--klima-blue);
-  }
-
-  &.blueRounded {
-    border-radius: 0.8rem;
+  &.lightGray {
+    background-color: var(--surface-01);
 
     &,
+    &:hover,
+    &:hover:not(:disabled),
+    &:visited {
+      color: var(--font-02); /* same in darkmode */
+    }
+  }
+
+  &.blue {
+    background-color: var(--klima-blue);
+
+    // @note these styles were previously only applied when blue and rounded...
     &:hover,
     &:hover:not(:disabled),
     &:visited {
@@ -71,13 +112,11 @@ export const buttonPrimary = css`
 `;
 
 export const buttonSecondary = css`
-  ${buttonBase}
+  ${buttonBase};
   border: 1px solid var(--klima-green);
   color: var(--klima-green);
-  border-radius: 0.4rem;
   background-color: transparent;
-  text-decoration: none;
-  &,
+
   &:hover:not(:disabled),
   &:visited {
     color: var(--klima-green); /* same in darkmode */
@@ -94,8 +133,18 @@ export const buttonSecondary = css`
     }
   }
 
-  &.blue,
-  &.blueRounded {
+  &.lightGray {
+    background-color: var(--surface-01);
+
+    &,
+    &:hover,
+    &:hover:not(:disabled),
+    &:visited {
+      color: var(--font-02); /* same in darkmode */
+    }
+  }
+
+  &.blue {
     border-color: var(--klima-blue);
 
     &,
@@ -105,8 +154,6 @@ export const buttonSecondary = css`
       color: var(--klima-blue); /* same in darkmode */
     }
   }
-
-  &.blueRounded {
-    border-radius: 0.8rem;
-  }
 `;
+
+export const buttonLink = css``;

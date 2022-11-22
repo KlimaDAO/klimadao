@@ -70,6 +70,8 @@ export const sectionButtonsWrap = css`
 `;
 
 export const buttonViewOnPolygon = css`
+  //Not sure where the uppercase is being defined so we need to force override it here
+  text-transform: none;
   &:hover {
     opacity: 0.7; // same styles as of for CopyButton
   }

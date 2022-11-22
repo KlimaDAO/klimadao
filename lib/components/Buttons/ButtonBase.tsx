@@ -1,39 +1,52 @@
-import React, { FC, ReactElement, ReactNode } from "react";
+import { cx } from "@emotion/css";
+import React, { FC, HTMLAttributes, ReactElement, ReactNode } from "react";
 
 interface RenderLinkProps {
   href: string;
   children: ReactElement;
   className?: string;
 }
-export interface Props {
-  label: ReactNode;
+export type ButtonBaseProps = {
+  label?: ReactNode;
   className?: string;
   onClick?: () => void;
   href?: string;
-  variant?: "gray" | "icon" | "blue" | "blueRounded" | null;
+  variant?: "lightGray" | "gray" | "blue" | "transparent" | null;
+  icon?: JSX.Element;
   renderLink?: (p: RenderLinkProps) => ReactElement;
   rel?: string;
   target?: string;
   isExternalHref?: boolean;
   disabled?: boolean;
+  /** Apply rounded corners */
+  rounded?: boolean;
   type?: "button" | "submit" | "reset";
-}
+} & HTMLAttributes<HTMLButtonElement> &
+  HTMLAttributes<HTMLAnchorElement>;
 
-interface BaseProps extends Props {
+interface BaseProps extends ButtonBaseProps {
   className: string;
 }
 
 export const BaseButton: FC<BaseProps> = (props) => {
+  const icon = !!props.icon;
+  const circle = !props.label && icon;
+  const rounded = !!props.rounded;
+
+  /** Conditional styling */
+  const buttonStyle = cx({ rounded, icon, circle }, props.className);
+
   if (props.href && props.renderLink)
     return props.renderLink({
       href: props.href,
-      className: props.className,
+      className: buttonStyle,
       children: <>{props.label}</>,
     });
 
   if (props.href)
     return (
-      <a {...props} className={props.className} href={props.href}>
+      <a {...props} className={buttonStyle} href={props.href}>
+        {props.icon}
         {props.label}
       </a>
     );
@@ -41,10 +54,11 @@ export const BaseButton: FC<BaseProps> = (props) => {
   return (
     <button
       type={props.type || "button"}
-      className={props.className}
+      className={buttonStyle}
       onClick={props.onClick}
       disabled={props.disabled}
     >
+      {props.icon}
       {props.label}
     </button>
   );

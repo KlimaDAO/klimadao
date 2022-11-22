@@ -27,8 +27,8 @@ import { RetirementDate } from "./RetirementDate";
 import { TextGroup } from "./TextGroup";
 import { ProjectDetails } from "./ProjectDetails";
 import { RetirementFooter } from "../Footer";
-import { CopyURLButton } from "../CopyURLButton";
 import * as styles from "./styles";
+import { CopyAddressButton } from "@klimadao/lib/components";
 
 const LoadingCertificateButton: React.FC = () => (
   <ButtonPrimary
@@ -224,7 +224,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
 
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
-          <CopyURLButton />
+          <CopyAddressButton label="Copy Link" variant="lightGray" />
           {retireData.transactionID && (
             <ButtonPrimary
               variant="gray"
