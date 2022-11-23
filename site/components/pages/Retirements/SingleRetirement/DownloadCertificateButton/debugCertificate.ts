@@ -32,7 +32,7 @@ type Params = {
   };
 };
 
-const KLIMA_GREEN = "#00cc33";
+// const KLIMA_GREEN = "#00cc33";
 // const PRIMARY_FONT_COLOR = "#313131";
 // const SECONDARY_FONT_COLOR = "#767676";
 const spacing = {
@@ -79,11 +79,11 @@ export const debugCertificate = (params: Params): void => {
 
     // doc.setFont("Poppins", "Bold");
     doc.setFontSize(24);
-    doc.text("Certificate for On-chain", spacing.margin, 36);
-    doc.text("Carbon Retirement", spacing.margin, 46);
-    doc.setLineWidth(1.05);
-    doc.setDrawColor(KLIMA_GREEN);
-    doc.line(spacing.margin, 52, 173, 52);
+    doc.text("Certificate for On-chain", 1, 1);
+    doc.text("Carbon Retirement", 1, 1);
+    // doc.setLineWidth(1.05);
+    // doc.setDrawColor(KLIMA_GREEN);
+    // doc.line(spacing.margin, 52, 173, 52);
   };
 
   // const printFeatureImage = (): void => {
