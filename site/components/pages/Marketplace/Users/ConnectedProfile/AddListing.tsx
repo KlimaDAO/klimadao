@@ -9,7 +9,7 @@ import Marketplace from "@klimadao/lib/abi/Marketplace.json";
 import { ethers } from "ethers";
 import { useWeb3 } from "@klimadao/lib/utils";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
-import { changeApprovalTransaction } from "./utils";
+import { changeApprovalTransaction } from "../utils";
 import * as styles from "./styles";
 
 export type FormValues = {
