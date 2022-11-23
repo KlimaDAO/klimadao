@@ -114,8 +114,8 @@ export const ConnectedProfile: FC<Props> = (props) => {
       </div>
 
       <div className={styles.main}>
+        {errorMessage && <Text>{errorMessage}</Text>}
         Listings
-        {<Text>{errorMessage}</Text>}
       </div>
 
       <div className={styles.aside}>
@@ -153,6 +153,10 @@ export const ConnectedProfile: FC<Props> = (props) => {
             tonnesOwned: 0,
             activeListings: user?.listings.filter((l) => l.active).length || 0,
           }}
+          description={t({
+            id: "marketplace.user.stats.your_seller_data.description",
+            message: "Your seller data",
+          })}
         />
         <Activities
           activities={user?.activities || []}

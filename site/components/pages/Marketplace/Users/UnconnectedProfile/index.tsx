@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-
 import { User } from "@klimadao/lib/types/marketplace";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";

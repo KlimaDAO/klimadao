@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Text } from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
@@ -10,6 +10,7 @@ import * as styles from "./styles";
 
 interface Props {
   stats?: StatsType;
+  description?: string;
 }
 
 export const Stats: FC<Props> = (props) => {
@@ -19,7 +20,11 @@ export const Stats: FC<Props> = (props) => {
         <Trans id="marketplace.user.stats.title">Stats</Trans>
       </Text>
       <Text t="caption" color="lighter">
-        <Trans id="marketplace.user.stats.description">Your seller data</Trans>
+        {props.description ||
+          t({
+            id: "marketplace.user.stats.seller.description",
+            message: "Data for this seller",
+          })}
       </Text>
       <div className={styles.list}>
         <div className={styles.listItem}>
