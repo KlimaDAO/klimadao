@@ -102,7 +102,7 @@ export const debugCertificate = async (params: Params): Promise<void> => {
     const klimaLogo = new Image();
     klimaLogo.src = KlimaLogo.src;
     doc.addImage(klimaLogo, "JPEG", spacing.margin, spacing.margin, 60, 10);
-    doc.setFont("PoppinsSemiBold", "normal");
+    // doc.setFont("PoppinsSemiBold", "normal");
     doc.setFontSize(24);
     doc.text("Certificate for On-chain", spacing.margin, 36);
     doc.text("Carbon Retirement", spacing.margin, 46);
