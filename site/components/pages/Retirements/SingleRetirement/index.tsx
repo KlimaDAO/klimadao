@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { Trans, t } from "@lingui/macro";
 
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
@@ -19,7 +19,6 @@ import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
 
-import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
@@ -29,6 +28,7 @@ import { ProjectDetails } from "./ProjectDetails";
 import { RetirementFooter } from "../Footer";
 import { CopyURLButton } from "../CopyURLButton";
 import * as styles from "./styles";
+import { DownloadCertificateButton } from "./DownloadCertificateButton";
 
 const LoadingCertificateButton: React.FC = () => (
   <ButtonPrimary
@@ -40,17 +40,17 @@ const LoadingCertificateButton: React.FC = () => (
   />
 );
 
-const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
-  dynamic(
-    () =>
-      import("./DownloadCertificateButton").then(
-        (mod) => mod.DownloadCertificateButton
-      ),
-    {
-      ssr: false,
-      loading: () => <LoadingCertificateButton />,
-    }
-  );
+// const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
+//   dynamic(
+//     () =>
+//       import("./DownloadCertificateButton").then(
+//         (mod) => mod.DownloadCertificateButton
+//       ),
+//     {
+//       ssr: false,
+//       loading: () => <LoadingCertificateButton />,
+//     }
+//   );
 
 type Props = {
   beneficiaryAddress: string;
