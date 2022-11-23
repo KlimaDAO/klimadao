@@ -14,7 +14,7 @@ import KlimaLogo from "public/logo-klima.png";
 // import mco2Background from "public/bg_mco2.jpeg";
 
 // import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
-// import { PoppinsBold } from "./poppinsBoldbase64";
+import { PoppinsBold } from "./poppinsBoldbase64";
 import { StaticImageData } from "next/legacy/image";
 
 type Params = {
@@ -76,10 +76,11 @@ export const debugCertificate = (params: Params): void => {
     const klimaLogo = new Image();
     klimaLogo.src = KlimaLogo.src;
     doc.addImage(klimaLogo, "JPEG", spacing.margin, spacing.margin, 60, 10);
-
-    // doc.setFont("Poppins", "Bold");
+    doc.addFileToVFS("Poppins-SemiBold-normal.ttf", PoppinsBold);
+    doc.addFont("Poppins-SemiBold-normal.ttf", "Poppins", "Bold");
+    doc.setFont("Poppins", "Bold");
     doc.setFontSize(24);
-    // doc.text("Certificate for On-chain", spacing.margin, 36);
+    doc.text("Certificate for On-chain", spacing.margin, 36);
     doc.text("Carbon Retirement", spacing.margin, 46);
     doc.setLineWidth(1.05);
     doc.setDrawColor(KLIMA_GREEN);
