@@ -55,18 +55,18 @@ const spacing = {
 // };
 
 /** Download the static .ttf file hosted via site/public/fonts */
-// const loadFontString = async (
-//   fontName: "Poppins-SemiBold" | "Poppins-ExtraLight"
-// ) => {
-//   const res = await fetch(`/fonts/${fontName}.ttf`, {
-//     headers: {
-//       "Content-Type": "font/ttf",
-//     },
-//   });
-//   const arrBuff = await res.arrayBuffer();
-//   const uintArr = new Uint8Array(arrBuff);
-//   return uintArr.reduce((str, num) => str + String.fromCharCode(num), "");
-// };
+const loadFontString = async (
+  fontName: "Poppins-SemiBold" | "Poppins-ExtraLight"
+) => {
+  const res = await fetch(`/fonts/${fontName}.ttf`, {
+    headers: {
+      "Content-Type": "font/ttf",
+    },
+  });
+  const arrBuff = await res.arrayBuffer();
+  const uintArr = new Uint8Array(arrBuff);
+  return uintArr.reduce((str, num) => str + String.fromCharCode(num), "");
+};
 
 export const debugCertificate = async (params: Params): Promise<void> => {
   // const isMossRetirement = params.retirement.offset.bridge === "Moss";
@@ -75,20 +75,21 @@ export const debugCertificate = async (params: Params): Promise<void> => {
   const doc = new jsPDF({
     orientation: "landscape",
     format: "letter",
-    putOnlyUsedFonts: true,
-    compress: true,
+    // putOnlyUsedFonts: true,
+    // compress: true,
   });
 
-  // const downloadFonts = async () => {
-  //   const [PoppinsSemiBold, PoppinsExtraLight] = await Promise.all([
-  //     loadFontString("Poppins-SemiBold"),
-  //     loadFontString("Poppins-ExtraLight"),
-  //   ]);
-  //   doc.addFileToVFS("Poppins-SemiBold.ttf", PoppinsSemiBold);
-  //   doc.addFileToVFS("Poppins-ExtraLight.ttf", PoppinsExtraLight);
-  //   doc.addFont("Poppins-SemiBold.ttf", "Poppins", "SemiBold");
-  //   doc.addFont("Poppins-ExtraLight.ttf", "Poppins", "ExtraLight");
-  // };
+  const downloadFonts = async () => {
+    const [PoppinsSemiBold, PoppinsExtraLight] = await Promise.all([
+      loadFontString("Poppins-SemiBold"),
+      loadFontString("Poppins-ExtraLight"),
+    ]);
+    doc.addFileToVFS("Poppins-SemiBold.ttf", PoppinsSemiBold);
+    doc.addFileToVFS("Poppins-ExtraLight.ttf", PoppinsExtraLight);
+    doc.addFont("Poppins-SemiBold.ttf", "PoppinsSemiBold", "normal");
+    doc.addFont("Poppins-ExtraLight.ttf", "PoppinsExtraLight", "normal");
+    console.log("loaded fonts");
+  };
 
   // const setupFonts = (): void => {
   //   doc.addFileToVFS("Poppins-ExtraLight-normal.ttf", PoppinsExtraLight);
@@ -101,10 +102,10 @@ export const debugCertificate = async (params: Params): Promise<void> => {
     const klimaLogo = new Image();
     klimaLogo.src = KlimaLogo.src;
     doc.addImage(klimaLogo, "JPEG", spacing.margin, spacing.margin, 60, 10);
-    // doc.setFont("Poppins", "SemiBold");
+    doc.setFont("PoppinsSemiBold", "normal");
     doc.setFontSize(24);
     doc.text("Certificate for On-chain", spacing.margin, 36);
-    doc.text("Carbon Retirement", spacing.margin, 56);
+    doc.text("Carbon Retirement", spacing.margin, 46);
     doc.setLineWidth(1.05);
     doc.setDrawColor(KLIMA_GREEN);
     doc.line(spacing.margin, 52, 173, 52);
@@ -305,7 +306,7 @@ export const debugCertificate = async (params: Params): Promise<void> => {
   //   doc.setTextColor(PRIMARY_FONT_COLOR);
   // };
 
-  // await downloadFonts();
+  await downloadFonts();
   printHeader();
   // printFeatureImage();
   // printRetirementDetails();
