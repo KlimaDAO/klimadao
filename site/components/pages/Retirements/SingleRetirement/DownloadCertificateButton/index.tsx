@@ -5,9 +5,8 @@ import { t } from "@lingui/macro";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { RetirementToken } from "@klimadao/lib/constants";
-
-import { generateCertificate } from "./generateCertificate";
 import { StaticImageData } from "next/legacy/image";
+import { debugCertificate } from "./debugCertificate";
 export interface DownloadCertificateButtonProps {
   beneficiaryName: string;
   beneficiaryAddress: string;
@@ -26,7 +25,7 @@ export interface DownloadCertificateButtonProps {
 export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
   props
 ) => {
-  const handleClick = () => generateCertificate(props);
+  const handleClick = () => debugCertificate(props);
 
   return (
     <ButtonPrimary
