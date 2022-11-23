@@ -104,7 +104,7 @@ export const debugCertificate = async (params: Params): Promise<void> => {
     // doc.setFont("Poppins", "SemiBold");
     doc.setFontSize(24);
     doc.text("Certificate for On-chain", spacing.margin, 36);
-    doc.text("Carbon Retirement", spacing.margin, 46);
+    doc.text("Carbon Retirement", spacing.margin, 56);
     doc.setLineWidth(1.05);
     doc.setDrawColor(KLIMA_GREEN);
     doc.line(spacing.margin, 52, 173, 52);
