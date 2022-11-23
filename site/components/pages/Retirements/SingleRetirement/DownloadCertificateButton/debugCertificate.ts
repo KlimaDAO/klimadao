@@ -14,7 +14,7 @@ import KlimaLogo from "public/logo-klima.png";
 // import mco2Background from "public/bg_mco2.jpeg";
 
 // import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
-import { PoppinsBold } from "./poppinsBoldbase64";
+// import { PoppinsBold } from "./poppinsBoldbase64";
 import { StaticImageData } from "next/legacy/image";
 
 type Params = {
@@ -54,7 +54,21 @@ const spacing = {
 //   mco2: mco2Background,
 // };
 
-export const debugCertificate = (params: Params): void => {
+/** Download the static .ttf file hosted via site/public/fonts */
+const loadFontString = async (
+  fontName: "Poppins-SemiBold" | "Poppins-ExtraLight"
+) => {
+  const res = await fetch(`/fonts/${fontName}.ttf`, {
+    headers: {
+      "Content-Type": "font/ttf",
+    },
+  });
+  const arrBuff = await res.arrayBuffer();
+  const uintArr = new Uint8Array(arrBuff);
+  return uintArr.reduce((str, num) => str + String.fromCharCode(num), "");
+};
+
+export const debugCertificate = async (params: Params): Promise<void> => {
   // const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
 
@@ -64,6 +78,17 @@ export const debugCertificate = (params: Params): void => {
     putOnlyUsedFonts: true,
     compress: true,
   });
+
+  const downloadFonts = async () => {
+    const [PoppinsSemiBold, PoppinsExtraLight] = await Promise.all([
+      loadFontString("Poppins-SemiBold"),
+      loadFontString("Poppins-ExtraLight"),
+    ]);
+    doc.addFileToVFS("Poppins-SemiBold.ttf", PoppinsSemiBold);
+    doc.addFileToVFS("Poppins-ExtraLight.ttf", PoppinsExtraLight);
+    doc.addFont("Poppins-SemiBold.ttf", "Poppins", "SemiBold");
+    doc.addFont("Poppins-ExtraLight.ttf", "Poppins", "ExtraLight");
+  };
 
   // const setupFonts = (): void => {
   //   doc.addFileToVFS("Poppins-ExtraLight-normal.ttf", PoppinsExtraLight);
@@ -76,9 +101,7 @@ export const debugCertificate = (params: Params): void => {
     const klimaLogo = new Image();
     klimaLogo.src = KlimaLogo.src;
     doc.addImage(klimaLogo, "JPEG", spacing.margin, spacing.margin, 60, 10);
-    doc.addFileToVFS("Poppins-SemiBold-normal.ttf", PoppinsBold);
-    doc.addFont("Poppins-SemiBold-normal.ttf", "Poppins", "Bold");
-    doc.setFont("Poppins", "Bold");
+    doc.setFont("Poppins", "SemiBold");
     doc.setFontSize(24);
     doc.text("Certificate for On-chain", spacing.margin, 36);
     doc.text("Carbon Retirement", spacing.margin, 46);
@@ -282,7 +305,7 @@ export const debugCertificate = (params: Params): void => {
   //   doc.setTextColor(PRIMARY_FONT_COLOR);
   // };
 
-  // setupFonts();
+  await downloadFonts();
   printHeader();
   // printFeatureImage();
   // printRetirementDetails();
