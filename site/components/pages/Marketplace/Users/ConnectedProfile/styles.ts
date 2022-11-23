@@ -39,3 +39,8 @@ export const inputsContainer = css`
   gap: 1.6rem;
   overflow: hidden;
 `;
+
+export const createListingButton = css`
+  border-color: var(--font-01);
+  color: var(--font-01) !important;
+`;

@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from "react";
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 
-import { Text, ButtonPrimary, Spinner } from "@klimadao/lib/components";
+import { Text, ButtonSecondary, Spinner } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
 
 import { EditProfile } from "./Edit";
@@ -115,32 +115,38 @@ export const ConnectedProfile: FC<Props> = (props) => {
 
       <div className={styles.main}>
         Listings
-        {isLoading && <Spinner />}
         {<Text>{errorMessage}</Text>}
       </div>
 
       <div className={styles.aside}>
+        <ButtonSecondary
+          label={
+            isLoading ? (
+              <Spinner />
+            ) : (
+              <Trans id="marketplace.profile.create_new_listing">
+                Create New Listing
+              </Trans>
+            )
+          }
+          disabled={isLoading}
+          onClick={() => setShowListingModal(true)}
+          className={styles.createListingButton}
+        />
+
         {!!assets?.length && (
-          <>
-            <ButtonPrimary
-              label={t({
-                id: "marketplace.add_listing",
-                message: "Create Listing",
-              })}
-              onClick={() => setShowListingModal(true)}
-            />
-            <Modal
-              title={t({
-                id: "marketplace.profile.listings_modal.title",
-                message: "Add Listing",
-              })}
-              showModal={showListingModal}
-              onToggleModal={() => setShowListingModal((prev) => !prev)}
-            >
-              <AddListing assets={assets} onSubmit={onAddListingSubmit} />
-            </Modal>
-          </>
+          <Modal
+            title={t({
+              id: "marketplace.profile.listings_modal.title",
+              message: "Add Listing",
+            })}
+            showModal={showListingModal}
+            onToggleModal={() => setShowListingModal((prev) => !prev)}
+          >
+            <AddListing assets={assets} onSubmit={onAddListingSubmit} />
+          </Modal>
         )}
+
         <Stats
           stats={{
             tonnesSold: 0,
