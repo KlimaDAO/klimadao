@@ -61,8 +61,8 @@ export const generateCertificate = (params: Params): void => {
   const doc = new jsPDF({
     orientation: "landscape",
     format: "letter",
-    putOnlyUsedFonts: true,
-    compress: true,
+    // putOnlyUsedFonts: true,
+    // compress: true,
   });
 
   const setupFonts = (): void => {
