@@ -6,12 +6,14 @@ import { Modal } from "components/Modal";
 
 import { EditProfile } from "./Edit";
 import { AddListing } from "./AddListing";
-import { User, Asset } from "@klimadao/lib/types/marketplace";
+import { Activities } from "../Activities";
+import { Stats } from "../Stats";
 
 import { ethers } from "ethers";
 import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { urls } from "@klimadao/lib/constants";
+import { User, Asset } from "@klimadao/lib/types/marketplace";
 
 import * as styles from "./styles";
 
@@ -113,30 +115,46 @@ export const ConnectedProfile: FC<Props> = (props) => {
         )}
       </div>
 
-      {isLoading && <Spinner />}
-      {<Text>{errorMessage}</Text>}
+      <div className={styles.main}>
+        Listings
+        {isLoading && <Spinner />}
+        {<Text>{errorMessage}</Text>}
+      </div>
 
-      {!!assets?.length && (
-        <>
-          <ButtonPrimary
-            label={t({
-              id: "marketplace.add_listing",
-              message: "Create Listing",
-            })}
-            onClick={() => setShowListingModal(true)}
-          />
-          <Modal
-            title={t({
-              id: "marketplace.profile.listings_modal.title",
-              message: "Add Listing",
-            })}
-            showModal={showListingModal}
-            onToggleModal={() => setShowListingModal((prev) => !prev)}
-          >
-            <AddListing assets={assets} onSubmit={onAddListingSubmit} />
-          </Modal>
-        </>
-      )}
+      <div className={styles.aside}>
+        {!!assets?.length && (
+          <>
+            <ButtonPrimary
+              label={t({
+                id: "marketplace.add_listing",
+                message: "Create Listing",
+              })}
+              onClick={() => setShowListingModal(true)}
+            />
+            <Modal
+              title={t({
+                id: "marketplace.profile.listings_modal.title",
+                message: "Add Listing",
+              })}
+              showModal={showListingModal}
+              onToggleModal={() => setShowListingModal((prev) => !prev)}
+            >
+              <AddListing assets={assets} onSubmit={onAddListingSubmit} />
+            </Modal>
+          </>
+        )}
+        <Stats
+          stats={{
+            tonnesSold: 0,
+            tonnesOwned: 0,
+            activeListings: user?.listings.filter((l) => l.active).length || 0,
+          }}
+        />
+        <Activities
+          activities={user?.activities || []}
+          connectedAddress={props.userAddress}
+        />
+      </div>
 
       <Modal
         title={t({

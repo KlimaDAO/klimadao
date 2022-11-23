@@ -50,7 +50,7 @@ export const Users: NextPage<Props> = (props) => {
           isConnectedProfile ? (
             <ButtonPrimary
               label={t({
-                id: "marketplace.edit_profile",
+                id: "marketplace.button.edit_profile",
                 message: "Edit Profile",
               })}
               onClick={() => setShowEditModal(true)}
@@ -61,23 +61,23 @@ export const Users: NextPage<Props> = (props) => {
         <div className={styles.fullWidth}>
           <Text t="h1">User</Text>
           <Text>User: {userName}</Text>
-
-          {isLoading && <Spinner />}
-
-          {isConnectedProfile && (
-            <ConnectedProfile
-              userAddress={props.userAddress}
-              userName={userName}
-              marketplaceUser={props.marketplaceUser}
-              showEditModal={showEditModal}
-              onToggleModal={() => setShowEditModal((prev) => !prev)}
-            />
-          )}
-
-          {isUnconnectedProfile && (
-            <UnconnectedProfile marketplaceUser={props.marketplaceUser} />
-          )}
         </div>
+
+        {isLoading && <Spinner />}
+
+        {isConnectedProfile && (
+          <ConnectedProfile
+            userAddress={props.userAddress}
+            userName={userName}
+            marketplaceUser={props.marketplaceUser}
+            showEditModal={showEditModal}
+            onToggleModal={() => setShowEditModal((prev) => !prev)}
+          />
+        )}
+
+        {isUnconnectedProfile && (
+          <UnconnectedProfile marketplaceUser={props.marketplaceUser} />
+        )}
       </MarketplaceLayout>
     </>
   );
