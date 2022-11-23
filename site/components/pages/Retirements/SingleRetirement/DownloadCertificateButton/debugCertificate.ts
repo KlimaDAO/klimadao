@@ -1,17 +1,17 @@
 import { jsPDF } from "jspdf";
-import { trimWithLocale } from "@klimadao/lib/utils";
+// import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { RetirementToken } from "@klimadao/lib/constants";
-import { urls } from "@klimadao/lib/constants";
+// import { urls } from "@klimadao/lib/constants";
 
 import KlimaLogo from "public/logo-klima.png";
-import bctBackground from "public/bg_bct.jpeg";
-import nctBackground from "public/bg_nct.jpeg";
-import nboBackground from "public/bg_nbo.jpeg";
-import uboBackground from "public/bg_ubo.jpeg";
-import mco2Background from "public/bg_mco2.jpeg";
+// import bctBackground from "public/bg_bct.jpeg";
+// import nctBackground from "public/bg_nct.jpeg";
+// import nboBackground from "public/bg_nbo.jpeg";
+// import uboBackground from "public/bg_ubo.jpeg";
+// import mco2Background from "public/bg_mco2.jpeg";
 
 // import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 // import { PoppinsBold } from "./poppinsBoldbase64";
@@ -33,8 +33,8 @@ type Params = {
 };
 
 const KLIMA_GREEN = "#00cc33";
-const PRIMARY_FONT_COLOR = "#313131";
-const SECONDARY_FONT_COLOR = "#767676";
+// const PRIMARY_FONT_COLOR = "#313131";
+// const SECONDARY_FONT_COLOR = "#767676";
 const spacing = {
   margin: 15,
   mainTextWidth: 160,
@@ -45,17 +45,17 @@ const spacing = {
   retirementLink: 200,
 };
 
-type FeatureImageMappingKey = keyof typeof featureImageMap;
-const featureImageMap = {
-  bct: bctBackground,
-  nct: nctBackground,
-  ubo: uboBackground,
-  nbo: nboBackground,
-  mco2: mco2Background,
-};
+// type FeatureImageMappingKey = keyof typeof featureImageMap;
+// const featureImageMap = {
+//   bct: bctBackground,
+//   nct: nctBackground,
+//   ubo: uboBackground,
+//   nbo: nboBackground,
+//   mco2: mco2Background,
+// };
 
 export const debugCertificate = (params: Params): void => {
-  const isMossRetirement = params.retirement.offset.bridge === "Moss";
+  // const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}.pdf`;
 
   const doc = new jsPDF({
@@ -86,209 +86,209 @@ export const debugCertificate = (params: Params): void => {
     doc.line(spacing.margin, 52, 173, 52);
   };
 
-  const printFeatureImage = (): void => {
-    const featureImage = new Image();
-    featureImage.src =
-      featureImageMap[params.tokenData.key as FeatureImageMappingKey].src;
+  // const printFeatureImage = (): void => {
+  //   const featureImage = new Image();
+  //   featureImage.src =
+  //     featureImageMap[params.tokenData.key as FeatureImageMappingKey].src;
 
-    doc.addImage(
-      featureImage,
-      "JPEG",
-      spacing.margin + 173,
-      0,
-      doc.internal.pageSize.width / 3,
-      doc.internal.pageSize.height
-    );
-  };
+  //   doc.addImage(
+  //     featureImage,
+  //     "JPEG",
+  //     spacing.margin + 173,
+  //     0,
+  //     doc.internal.pageSize.width / 3,
+  //     doc.internal.pageSize.height
+  //   );
+  // };
 
-  const printRetirementDetails = (): void => {
-    const retirementAmount =
-      Number(params.retirement.amount) < 0.01
-        ? "< 0.01"
-        : trimWithLocale(params.retirement.amount, 2, "en");
+  // const printRetirementDetails = (): void => {
+  //   const retirementAmount =
+  //     Number(params.retirement.amount) < 0.01
+  //       ? "< 0.01"
+  //       : trimWithLocale(params.retirement.amount, 2, "en");
 
-    // doc.setFont("Poppins", "ExtraLight");
-    doc.setFontSize(28);
-    doc.text(`${retirementAmount} tonnes`, spacing.margin, 70);
+  //   // doc.setFont("Poppins", "ExtraLight");
+  //   doc.setFontSize(28);
+  //   doc.text(`${retirementAmount} tonnes`, spacing.margin, 70);
 
-    // doc.setFont("Poppins", "Bold");
-    doc.setLineHeightFactor(1);
-    const beneficaryText = params.beneficiaryName || params.beneficiaryAddress;
-    const beneficiaryName = doc.splitTextToSize(
-      beneficaryText,
-      spacing.mainTextWidth
-    );
+  //   // doc.setFont("Poppins", "Bold");
+  //   doc.setLineHeightFactor(1);
+  //   const beneficaryText = params.beneficiaryName || params.beneficiaryAddress;
+  //   const beneficiaryName = doc.splitTextToSize(
+  //     beneficaryText,
+  //     spacing.mainTextWidth
+  //   );
 
-    const lineHeight = doc.getLineHeight() / doc.internal.scaleFactor;
-    const lines = beneficiaryName.length;
-    const beneficiaryNameBlockHeight = lineHeight * lines;
+  //   const lineHeight = doc.getLineHeight() / doc.internal.scaleFactor;
+  //   const lines = beneficiaryName.length;
+  //   const beneficiaryNameBlockHeight = lineHeight * lines;
 
-    doc.text(beneficiaryName, spacing.margin, spacing.beneficiaryName);
+  //   doc.text(beneficiaryName, spacing.margin, spacing.beneficiaryName);
 
-    // doc.setFont("Poppins", "ExtraLight");
-    doc.setFontSize(12);
-    doc.setLineHeightFactor(1.2);
-    const retirementMessage = doc.splitTextToSize(
-      params.retirementMessage,
-      spacing.mainTextWidth
-    );
-    doc.text(
-      retirementMessage,
-      spacing.margin,
-      spacing.beneficiaryName + beneficiaryNameBlockHeight
-    );
-  };
+  //   // doc.setFont("Poppins", "ExtraLight");
+  //   doc.setFontSize(12);
+  //   doc.setLineHeightFactor(1.2);
+  //   const retirementMessage = doc.splitTextToSize(
+  //     params.retirementMessage,
+  //     spacing.mainTextWidth
+  //   );
+  //   doc.text(
+  //     retirementMessage,
+  //     spacing.margin,
+  //     spacing.beneficiaryName + beneficiaryNameBlockHeight
+  //   );
+  // };
 
-  const printTransactionDetails = (): void => {
-    doc.setFontSize(11);
-    // doc.setFont("Poppins", "Bold");
-    doc.text(
-      "Beneficiary Address:",
-      spacing.margin,
-      spacing.transactionDetails
-    );
-    // doc.setFont("Poppins", "ExtraLight");
-    doc.text(
-      params.beneficiaryAddress,
-      spacing.margin,
-      spacing.transactionDetails + 5.5
-    );
+  // const printTransactionDetails = (): void => {
+  //   doc.setFontSize(11);
+  //   // doc.setFont("Poppins", "Bold");
+  //   doc.text(
+  //     "Beneficiary Address:",
+  //     spacing.margin,
+  //     spacing.transactionDetails
+  //   );
+  //   // doc.setFont("Poppins", "ExtraLight");
+  //   doc.text(
+  //     params.beneficiaryAddress,
+  //     spacing.margin,
+  //     spacing.transactionDetails + 5.5
+  //   );
 
-    // doc.setFont("Poppins", "Bold");
-    doc.text(
-      "Transaction ID:",
-      spacing.margin,
-      spacing.transactionDetails + 11
-    );
-    // doc.setFont("Poppins", "ExtraLight");
-    doc.textWithLink(
-      params.retirement.transaction.id,
-      spacing.margin,
-      spacing.transactionDetails + 16.5,
-      {
-        url: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
-      }
-    );
-  };
+  //   // doc.setFont("Poppins", "Bold");
+  //   doc.text(
+  //     "Transaction ID:",
+  //     spacing.margin,
+  //     spacing.transactionDetails + 11
+  //   );
+  //   // doc.setFont("Poppins", "ExtraLight");
+  //   doc.textWithLink(
+  //     params.retirement.transaction.id,
+  //     spacing.margin,
+  //     spacing.transactionDetails + 16.5,
+  //     {
+  //       url: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+  //     }
+  //   );
+  // };
 
-  const printProjectDetails = (): void => {
-    const project = params.projectDetails?.value[0];
-    const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
-    const formattedRetirementDate = `${retirementDate.getDate()}/${
-      retirementDate.getMonth() + 1
-    }/${retirementDate.getFullYear()}`;
-    let projectDetails = [
-      {
-        label: "Project",
-        value: project?.resourceName,
-      },
-      {
-        label: "Asset Retired",
-        value: params.tokenData.label,
-      },
-      {
-        label: "Retired on",
-        value: formattedRetirementDate,
-      },
-      {
-        label: "Methodology",
-        value: params.retirement.offset.methodology,
-      },
-      {
-        label: "Type",
-        value: params.retirement.offset.methodologyCategory,
-      },
-      {
-        label: "Country/Region",
-        value:
-          params.retirement.offset.country || params.retirement.offset.region,
-      },
-      {
-        label: "Vintage",
-        value: new Date(Number(params.retirement.offset.vintage) * 1000)
-          .getFullYear()
-          .toString(),
-      },
-    ];
+  // const printProjectDetails = (): void => {
+  //   const project = params.projectDetails?.value[0];
+  //   const retirementDate = new Date(Number(params.retirement.timestamp) * 1000);
+  //   const formattedRetirementDate = `${retirementDate.getDate()}/${
+  //     retirementDate.getMonth() + 1
+  //   }/${retirementDate.getFullYear()}`;
+  //   let projectDetails = [
+  //     {
+  //       label: "Project",
+  //       value: project?.resourceName,
+  //     },
+  //     {
+  //       label: "Asset Retired",
+  //       value: params.tokenData.label,
+  //     },
+  //     {
+  //       label: "Retired on",
+  //       value: formattedRetirementDate,
+  //     },
+  //     {
+  //       label: "Methodology",
+  //       value: params.retirement.offset.methodology,
+  //     },
+  //     {
+  //       label: "Type",
+  //       value: params.retirement.offset.methodologyCategory,
+  //     },
+  //     {
+  //       label: "Country/Region",
+  //       value:
+  //         params.retirement.offset.country || params.retirement.offset.region,
+  //     },
+  //     {
+  //       label: "Vintage",
+  //       value: new Date(Number(params.retirement.offset.vintage) * 1000)
+  //         .getFullYear()
+  //         .toString(),
+  //     },
+  //   ];
 
-    if (isMossRetirement) {
-      projectDetails = [
-        {
-          label: "Asset Retired",
-          value: params.tokenData.label,
-        },
-        {
-          label: "Retired on",
-          value: formattedRetirementDate,
-        },
-      ];
-    }
+  //   if (isMossRetirement) {
+  //     projectDetails = [
+  //       {
+  //         label: "Asset Retired",
+  //         value: params.tokenData.label,
+  //       },
+  //       {
+  //         label: "Retired on",
+  //         value: formattedRetirementDate,
+  //       },
+  //     ];
+  //   }
 
-    const tokenImage = new Image();
-    tokenImage.src = params.tokenData.icon.src;
-    doc.addImage(
-      tokenImage,
-      "JPEG",
-      spacing.tokenImage.x,
-      spacing.tokenImage.y,
-      28,
-      28
-    );
+  //   const tokenImage = new Image();
+  //   tokenImage.src = params.tokenData.icon.src;
+  //   doc.addImage(
+  //     tokenImage,
+  //     "JPEG",
+  //     spacing.tokenImage.x,
+  //     spacing.tokenImage.y,
+  //     28,
+  //     28
+  //   );
 
-    let startPosition = spacing.projectDetails;
-    projectDetails.forEach((detail) => {
-      const label = `${detail.label}:`;
-      // doc.setFont("Poppins", "Bold");
-      doc.text(label, spacing.margin, startPosition);
+  //   let startPosition = spacing.projectDetails;
+  //   projectDetails.forEach((detail) => {
+  //     const label = `${detail.label}:`;
+  //     // doc.setFont("Poppins", "Bold");
+  //     doc.text(label, spacing.margin, startPosition);
 
-      // doc.setFont("Poppins", "ExtraLight");
-      doc.text(
-        `${detail.value}`,
-        spacing.margin + doc.getTextWidth(label) + 3,
-        startPosition
-      );
+  //     // doc.setFont("Poppins", "ExtraLight");
+  //     doc.text(
+  //       `${detail.value}`,
+  //       spacing.margin + doc.getTextWidth(label) + 3,
+  //       startPosition
+  //     );
 
-      startPosition += 5.5;
-    });
-  };
+  //     startPosition += 5.5;
+  //   });
+  // };
 
-  const printMossProjectDetails = () => {
-    const linkText = "Learn more ";
-    // doc.setFont("Poppins", "Bold");
-    doc.setTextColor(SECONDARY_FONT_COLOR);
-    doc.textWithLink(linkText, spacing.margin, spacing.projectDetails + 11, {
-      url: `${urls.carbonDashboard}/MCO2`,
-    });
-    doc.setTextColor(PRIMARY_FONT_COLOR);
-    doc.text(
-      "about the projects that back the MCO2 pools",
-      spacing.margin + doc.getTextWidth(linkText),
-      spacing.projectDetails + 11
-    );
-  };
+  // const printMossProjectDetails = () => {
+  //   const linkText = "Learn more ";
+  //   // doc.setFont("Poppins", "Bold");
+  //   doc.setTextColor(SECONDARY_FONT_COLOR);
+  //   doc.textWithLink(linkText, spacing.margin, spacing.projectDetails + 11, {
+  //     url: `${urls.carbonDashboard}/MCO2`,
+  //   });
+  //   doc.setTextColor(PRIMARY_FONT_COLOR);
+  //   doc.text(
+  //     "about the projects that back the MCO2 pools",
+  //     spacing.margin + doc.getTextWidth(linkText),
+  //     spacing.projectDetails + 11
+  //   );
+  // };
 
-  const printRetirementLink = (): void => {
-    const text = "View this retirement on ";
-    // doc.setFont("Poppins", "Bold");
-    doc.text(text, spacing.margin, spacing.retirementLink);
-    doc.setTextColor(KLIMA_GREEN);
-    doc.textWithLink(
-      "klimadao.finance",
-      spacing.margin + doc.getTextWidth(text),
-      spacing.retirementLink,
-      { url: params.retirementUrl }
-    );
-    doc.setTextColor(PRIMARY_FONT_COLOR);
-  };
+  // const printRetirementLink = (): void => {
+  //   const text = "View this retirement on ";
+  //   // doc.setFont("Poppins", "Bold");
+  //   doc.text(text, spacing.margin, spacing.retirementLink);
+  //   doc.setTextColor(KLIMA_GREEN);
+  //   doc.textWithLink(
+  //     "klimadao.finance",
+  //     spacing.margin + doc.getTextWidth(text),
+  //     spacing.retirementLink,
+  //     { url: params.retirementUrl }
+  //   );
+  //   doc.setTextColor(PRIMARY_FONT_COLOR);
+  // };
 
   // setupFonts();
   printHeader();
-  printFeatureImage();
-  printRetirementDetails();
-  printTransactionDetails();
-  printProjectDetails();
-  if (isMossRetirement) printMossProjectDetails();
-  printRetirementLink();
+  // printFeatureImage();
+  // printRetirementDetails();
+  // printTransactionDetails();
+  // printProjectDetails();
+  // if (isMossRetirement) printMossProjectDetails();
+  // printRetirementLink();
 
   doc.save(fileName);
 };
