@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NextPage } from "next";
 import { t } from "@lingui/macro";
-import { Text, ButtonPrimary, Spinner } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
 import { useIsMarketplaceProfile } from "hooks/useIsMarketplaceProfile";
 
 import { PageHead } from "components/PageHead";
@@ -9,8 +9,6 @@ import { MarketplaceLayout } from "../Layout";
 import { ConnectedProfile } from "./ConnectedProfile";
 import { UnconnectedProfile } from "./UnconnectedProfile";
 import { User } from "@klimadao/lib/types/marketplace";
-
-import * as styles from "./styles";
 
 type Props = {
   userAddress: string;
@@ -26,7 +24,8 @@ export const Users: NextPage<Props> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
-  const userName = props.userDomain || props.userAddress;
+  const userName =
+    props.userDomain || props.marketplaceUser?.handle || props.userAddress;
 
   // Wait until web3 is ready
   useEffect(() => {
@@ -58,11 +57,6 @@ export const Users: NextPage<Props> = (props) => {
           ) : undefined
         }
       >
-        <div className={styles.fullWidth}>
-          <Text t="h1">User</Text>
-          <Text>User: {userName}</Text>
-        </div>
-
         {isLoading && <Spinner />}
 
         {isConnectedProfile && (
@@ -76,7 +70,10 @@ export const Users: NextPage<Props> = (props) => {
         )}
 
         {isUnconnectedProfile && (
-          <UnconnectedProfile marketplaceUser={props.marketplaceUser} />
+          <UnconnectedProfile
+            marketplaceUser={props.marketplaceUser}
+            userName={userName}
+          />
         )}
       </MarketplaceLayout>
     </>

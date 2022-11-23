@@ -1,15 +1,15 @@
 import React, { FC } from "react";
 
-import { Text } from "@klimadao/lib/components";
-
 import { User } from "@klimadao/lib/types/marketplace";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
+import { ProfileHeader } from "../ProfileHeader";
 
 import * as styles from "./styles";
 
 type Props = {
   marketplaceUser: User | null;
+  userName: string;
 };
 
 export const UnconnectedProfile: FC<Props> = (props) => {
@@ -18,21 +18,11 @@ export const UnconnectedProfile: FC<Props> = (props) => {
   return (
     <>
       <div className={styles.fullWidth}>
-        {!userData && (
-          <Text>
-            Sorry, we couldn't find any marketplace data for this user.
-          </Text>
-        )}
-        {userData && (
-          <>
-            <Text>Handle: {userData.handle}</Text>
-            <Text>Username: {userData.username}</Text>
-            <Text>Description: {userData.description}</Text>
-            <Text>Wallet: {userData.wallet}</Text>
-            <Text>Listing: {userData.listings?.length || 0}</Text>
-            <Text>Activities: {userData.activities?.length || 0}</Text>
-          </>
-        )}
+        <ProfileHeader
+          userName={props.userName}
+          isMarketplaceUser={!!userData}
+          description={userData?.description}
+        />
       </div>
       <div className={styles.main}>Listings</div>
       <div className={styles.aside}>

@@ -8,6 +8,7 @@ import { EditProfile } from "./Edit";
 import { AddListing } from "./AddListing";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
+import { ProfileHeader } from "../ProfileHeader";
 
 import { ethers } from "ethers";
 import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
@@ -102,17 +103,14 @@ export const ConnectedProfile: FC<Props> = (props) => {
   return (
     <>
       <div className={styles.fullWidth}>
-        {!user && <Text>Edit your profile</Text>}
-        {user && (
-          <>
-            <Text>Handle: {user.handle}</Text>
-            <Text>Username: {user.username}</Text>
-            <Text>Description: {user.description}</Text>
-            <Text>Wallet: {user.wallet}</Text>
-            <Text>Listing: {user.listings?.length || 0}</Text>
-            <Text>Activities: {user.activities?.length || 0}</Text>
-          </>
-        )}
+        <ProfileHeader
+          userName={props.userName}
+          isMarketplaceUser={!!user}
+          description={
+            user?.description ||
+            t({ id: "marketplace.profile.edit_your_profile" })
+          }
+        />
       </div>
 
       <div className={styles.main}>
