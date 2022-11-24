@@ -93,10 +93,10 @@ export const ConnectedProfile: FC<Props> = (props) => {
     setShowListingModal(false);
     try {
       setIsLoading(true);
-      console.log("LOAD USER AGAIN");
+      console.log("LOAD USER LISTINGAGAIN");
       setIsLoading(false);
     } catch (e) {
-      console.error("LOAD USER AGAIN error", e);
+      console.error("LOAD USER LISTING AGAIN error", e);
     }
   };
 

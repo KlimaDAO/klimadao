@@ -94,13 +94,13 @@ export const AddListing: FC<Props> = (props) => {
         values.tokenAddress,
         ethers.utils.parseUnits(values.totalAmountToSell),
         ethers.utils.parseUnits(values.singleUnitPrice),
-        [],
-        []
+        [], // TODO batches
+        [] // TODO batches price
       );
 
       logStatus(`Wait for Network Approval`);
       await listingTxn.wait(1);
-      console.log("listing", listingTxn);
+
       setIsLoading(false);
       props.onSubmit();
     } catch (error) {
@@ -170,21 +170,6 @@ export const AddListing: FC<Props> = (props) => {
             errorMessage={
               formState.errors.singleUnitPrice && "Single Price is required"
             }
-          />
-          <InputField
-            id="batches"
-            inputProps={{
-              placeholder: t({
-                id: "marketplace.user.edit.form.input.batches.placeholder",
-                message: "Batches ???",
-              }),
-              type: "text",
-              ...register("batches", { required: false }),
-            }}
-            label={t({
-              id: "marketplace.user.edit.form.input.batches.label",
-              message: "Batches ??",
-            })}
           />
           {isLoading && <Spinner />}
           {hasError && (
