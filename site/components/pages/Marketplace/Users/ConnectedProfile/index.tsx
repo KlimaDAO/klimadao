@@ -34,17 +34,27 @@ type Props = {
 
 export const ConnectedProfile: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.marketplaceUser);
-  const [assets, setAssets] = useState<Asset[] | null>(null);
+  const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [showListingModal, setShowListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const hasListings = !!user?.listings?.length;
+  const hasAssets = !!user?.assets?.length;
 
   // load Assets once
   useEffect(() => {
-    if (!!user?.assets?.length && !assets) {
-      const getAssets = async () => {
+    if (!hasAssets) {
+      setErrorMessage(
+        t({
+          id: "marketplace.profile.missing_assets",
+          message: "You do not have any c3 tokens... :(",
+        })
+      );
+    }
+
+    if (hasAssets && !assetsData) {
+      const getAssetsData = async () => {
         try {
           setIsLoading(true);
           const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
@@ -75,7 +85,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
             },
             Promise.resolve([])
           );
-          setAssets(assetsData);
+          setAssetsData(assetsData);
         } catch (e) {
           console.error(e);
           setErrorMessage(
@@ -88,9 +98,9 @@ export const ConnectedProfile: FC<Props> = (props) => {
           setIsLoading(false);
         }
       };
-      getAssets();
+      getAssetsData();
     }
-  }, [user, assets]);
+  }, [user, assetsData]);
 
   const onEditUser = (data: User) => {
     setUser((prev) => ({ ...prev, ...data }));
@@ -159,7 +169,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
               </>
             )
           }
-          disabled={isLoading}
+          disabled={isLoading || !hasAssets}
           onClick={() => setShowListingModal(true)}
           className={styles.createListingButton}
         />
@@ -204,7 +214,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
         <EditProfile user={user} onSubmit={onEditUser} />
       </Modal>
 
-      {!!assets?.length && (
+      {!!assetsData?.length && (
         <Modal
           title={t({
             id: "marketplace.profile.listings_modal.title",
@@ -213,7 +223,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
           showModal={showListingModal}
           onToggleModal={() => setShowListingModal((prev) => !prev)}
         >
-          <AddListing assets={assets} onSubmit={onAddListingSubmit} />
+          <AddListing assets={assetsData} onSubmit={onAddListingSubmit} />
         </Modal>
       )}
     </>
