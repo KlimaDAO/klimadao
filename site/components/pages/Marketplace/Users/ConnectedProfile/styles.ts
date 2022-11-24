@@ -16,21 +16,6 @@ export const listingsHeader = css`
   gap: 1.2rem;
 `;
 
-export const main = css`
-  display: grid;
-  gap: 2.4rem;
-  grid-column: 1;
-`;
-
-export const aside = css`
-  display: grid;
-  gap: 2.4rem;
-  grid-column: 1 / 3;
-  ${breakpoints.desktop} {
-    grid-column: 2 / 3;
-  }
-`;
-
 export const formContainer = css`
   margin-top: 2rem;
   overflow: hidden;

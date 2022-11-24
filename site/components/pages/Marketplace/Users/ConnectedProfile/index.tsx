@@ -10,6 +10,11 @@ import { AddListing } from "./AddListing";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
 import { ProfileHeader } from "../ProfileHeader";
+import { Listing } from "../Listing";
+import {
+  TwoColLayout,
+  Col,
+} from "components/pages/Marketplace/shared/TwoColLayout";
 
 import { ethers } from "ethers";
 import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
@@ -158,28 +163,33 @@ export const ConnectedProfile: FC<Props> = (props) => {
         />
       </div>
 
-      <div className={styles.main}>
-        {errorMessage && <Text>{errorMessage}</Text>}
-        Listings
-      </div>
+      <TwoColLayout>
+        <Col>
+          {hasListings &&
+            user.listings.map((listing) => (
+              <Listing key={listing.id} listing={listing} />
+            ))}
+        </Col>
 
-      <div className={styles.aside}>
-        <Stats
-          stats={{
-            tonnesSold: 0,
-            tonnesOwned: 0,
-            activeListings: user?.listings.filter((l) => l.active).length || 0,
-          }}
-          description={t({
-            id: "marketplace.user.stats.your_seller_data.description",
-            message: "Your seller data",
-          })}
-        />
-        <Activities
-          activities={user?.activities || []}
-          connectedAddress={props.userAddress}
-        />
-      </div>
+        <Col>
+          <Stats
+            stats={{
+              tonnesSold: 0,
+              tonnesOwned: 0,
+              activeListings:
+                user?.listings.filter((l) => l.active).length || 0,
+            }}
+            description={t({
+              id: "marketplace.user.stats.your_seller_data.description",
+              message: "Your seller data",
+            })}
+          />
+          <Activities
+            activities={user?.activities || []}
+            connectedAddress={props.userAddress}
+          />
+        </Col>
+      </TwoColLayout>
 
       <Modal
         title={t({

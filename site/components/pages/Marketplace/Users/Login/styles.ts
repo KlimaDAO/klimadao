@@ -6,31 +6,6 @@ export const fullWidth = css`
   gap: 2rem;
 `;
 
-export const main = css`
-  display: grid;
-  gap: 2.4rem;
-  grid-column: 1 / 3;
-  ${breakpoints.desktop} {
-    grid-area: 2;
-  }
-`;
-
-export const aside = css`
-  display: grid;
-  gap: 2.4rem;
-  grid-column: 1 / 3;
-  ${breakpoints.desktop} {
-    grid-column: 2 / 3;
-  }
-`;
-
-export const card = css`
-  background-color: var(--surface-01);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-01);
-  padding: 1.6rem;
-`;
-
 export const login = css`
   display: flex;
   gap: 1.6rem;

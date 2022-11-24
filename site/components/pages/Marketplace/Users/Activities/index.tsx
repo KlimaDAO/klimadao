@@ -6,6 +6,8 @@ import { Activity } from "@klimadao/lib/types/marketplace";
 import { useRouter } from "next/router";
 import { concatAddress, formatUnits } from "@klimadao/lib/utils";
 
+import { Card } from "components/pages/Marketplace/shared/Card";
+
 import * as styles from "./styles";
 
 interface Props {
@@ -56,7 +58,7 @@ export const Activities: FC<Props> = (props) => {
     [];
 
   return (
-    <div className={styles.card}>
+    <Card>
       <Text t="h4">
         <Trans id="marketplace.user.activities.title">Activities</Trans>
       </Text>
@@ -98,6 +100,6 @@ export const Activities: FC<Props> = (props) => {
             </Text>
           </div>
         ))}
-    </div>
+    </Card>
   );
 };

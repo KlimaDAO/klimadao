@@ -7,6 +7,11 @@ import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../../Layout";
+import { Card } from "components/pages/Marketplace/shared/Card";
+import {
+  TwoColLayout,
+  Col,
+} from "components/pages/Marketplace/shared/TwoColLayout";
 
 import * as styles from "./styles";
 import { useEffect, useState } from "react";
@@ -38,50 +43,52 @@ export const Login: NextPage = () => {
       />
 
       <MarketplaceLayout>
-        <div className={styles.main}>
-          <div className={styles.card}>
-            <div className={styles.login}>
-              <Text t="h3" className={styles.title}>
-                <LoginOutlinedIcon />
-                <Trans id="marketplace.user.login.title">
-                  Please login or connect your wallet
-                </Trans>
-              </Text>
-              <Text t="caption">
-                <Trans id="marketplace.user.login.description">
-                  This feature is available only to users who are logged in. You
-                  can log in or create an account via the button below.
-                </Trans>
-              </Text>
-              {isLoading && (
-                <div className={styles.fullWidth}>
-                  <Spinner />
-                  <Text className={styles.redirecting}>
-                    {isRedirecting ? (
-                      <Trans id="shared.loading" />
-                    ) : (
-                      <Trans id="shared.connecting">Connecting...</Trans>
-                    )}
-                  </Text>
-                </div>
-              )}
-              {!isLoading && !isRedirecting && (
-                <ButtonPrimary
-                  label={t({
-                    id: "shared.login_connect",
-                    message: "Login / Connect",
-                  })}
-                  className={styles.loginButton}
-                  onClick={onConnect}
-                />
-              )}
-            </div>
-          </div>
-        </div>
-        <div className={styles.aside}>
-          <Activities activities={[]} />
-          <Stats />
-        </div>
+        <TwoColLayout>
+          <Col>
+            <Card>
+              <div className={styles.login}>
+                <Text t="h3" className={styles.title}>
+                  <LoginOutlinedIcon />
+                  <Trans id="marketplace.user.login.title">
+                    Please login or connect your wallet
+                  </Trans>
+                </Text>
+                <Text t="caption">
+                  <Trans id="marketplace.user.login.description">
+                    This feature is available only to users who are logged in.
+                    You can log in or create an account via the button below.
+                  </Trans>
+                </Text>
+                {isLoading && (
+                  <div className={styles.fullWidth}>
+                    <Spinner />
+                    <Text className={styles.redirecting}>
+                      {isRedirecting ? (
+                        <Trans id="shared.loading" />
+                      ) : (
+                        <Trans id="shared.connecting">Connecting...</Trans>
+                      )}
+                    </Text>
+                  </div>
+                )}
+                {!isLoading && !isRedirecting && (
+                  <ButtonPrimary
+                    label={t({
+                      id: "shared.login_connect",
+                      message: "Login / Connect",
+                    })}
+                    className={styles.loginButton}
+                    onClick={onConnect}
+                  />
+                )}
+              </div>
+            </Card>
+          </Col>
+          <Col>
+            <Activities activities={[]} />
+            <Stats />
+          </Col>
+        </TwoColLayout>
       </MarketplaceLayout>
     </>
   );
