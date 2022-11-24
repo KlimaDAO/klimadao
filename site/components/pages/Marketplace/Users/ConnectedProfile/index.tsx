@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from "react";
 import { t, Trans } from "@lingui/macro";
 
 import { Text, ButtonSecondary, Spinner } from "@klimadao/lib/components";
+import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "components/Modal";
 
 import { EditProfile } from "./Edit";
@@ -113,40 +114,56 @@ export const ConnectedProfile: FC<Props> = (props) => {
         />
       </div>
 
-      <div className={styles.main}>
-        {errorMessage && <Text>{errorMessage}</Text>}
-        Listings
-      </div>
+      <div className={styles.listings}>
+        <div className={styles.listingsHeader}>
+          <Text t="h3">
+            <Trans id="marketplace.profile.listings.title">Listings</Trans>
+          </Text>
 
-      <div className={styles.aside}>
+          {errorMessage && (
+            <Text className={styles.errorMessage}>{errorMessage}</Text>
+          )}
+
+          {!user?.listings?.length && (
+            <Text t="caption" color="lighter">
+              <i>
+                <Trans id="marketplace.profile.listings.empty_state">
+                  No listings to show.
+                </Trans>
+              </i>
+            </Text>
+          )}
+        </div>
+
         <ButtonSecondary
           label={
             isLoading ? (
               <Spinner />
             ) : (
-              <Trans id="marketplace.profile.create_new_listing">
-                Create New Listing
-              </Trans>
+              <>
+                <span className={styles.addListingButtonText}>
+                  <Trans id="marketplace.profile.create_new_listing">
+                    Create New Listing
+                  </Trans>
+                </span>
+                <span className={styles.addListingButtonIcon}>
+                  <AddIcon />
+                </span>
+              </>
             )
           }
           disabled={isLoading}
           onClick={() => setShowListingModal(true)}
           className={styles.createListingButton}
         />
+      </div>
 
-        {!!assets?.length && (
-          <Modal
-            title={t({
-              id: "marketplace.profile.listings_modal.title",
-              message: "Add Listing",
-            })}
-            showModal={showListingModal}
-            onToggleModal={() => setShowListingModal((prev) => !prev)}
-          >
-            <AddListing assets={assets} onSubmit={onAddListingSubmit} />
-          </Modal>
-        )}
+      <div className={styles.main}>
+        {errorMessage && <Text>{errorMessage}</Text>}
+        Listings
+      </div>
 
+      <div className={styles.aside}>
         <Stats
           stats={{
             tonnesSold: 0,
@@ -174,6 +191,19 @@ export const ConnectedProfile: FC<Props> = (props) => {
       >
         <EditProfile user={user} onSubmit={onEditUser} />
       </Modal>
+
+      {!!assets?.length && (
+        <Modal
+          title={t({
+            id: "marketplace.profile.listings_modal.title",
+            message: "Add Listing",
+          })}
+          showModal={showListingModal}
+          onToggleModal={() => setShowListingModal((prev) => !prev)}
+        >
+          <AddListing assets={assets} onSubmit={onAddListingSubmit} />
+        </Modal>
+      )}
     </>
   );
 };
