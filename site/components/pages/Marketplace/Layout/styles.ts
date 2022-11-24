@@ -79,10 +79,6 @@ export const cardGrid = css`
     overflow-y: auto;
     display: grid;
     grid-column: full;
-    grid-template-columns:
-      [cardsleft] minmax(38rem, auto)
-      [cardsright] minmax(auto, 38rem);
-    grid-template-rows: min-content 1fr 1fr 1fr;
   }
 `;
 
@@ -91,9 +87,6 @@ export const controls = css`
   justify-content: flex-end;
   gap: 1.6rem;
   grid-column: 1 / 3;
-  ${breakpoints.desktop} {
-    grid-column: cardsright;
-  }
 `;
 
 export const menuButton = css`
