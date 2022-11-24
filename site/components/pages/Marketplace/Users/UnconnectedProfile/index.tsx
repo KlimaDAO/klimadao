@@ -1,8 +1,11 @@
 import React, { FC } from "react";
 import { User } from "@klimadao/lib/types/marketplace";
+import { Trans } from "@lingui/macro";
+import { Text } from "@klimadao/lib/components";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
 import { ProfileHeader } from "../ProfileHeader";
+import { Listing } from "../Listing";
 import {
   TwoColLayout,
   Col,
@@ -18,6 +21,8 @@ type Props = {
 export const UnconnectedProfile: FC<Props> = (props) => {
   const userData = props.marketplaceUser;
 
+  const hasListings = !!userData?.listings?.length;
+
   return (
     <>
       <div className={styles.fullWidth}>
@@ -27,8 +32,31 @@ export const UnconnectedProfile: FC<Props> = (props) => {
           description={userData?.description}
         />
       </div>
+      <div className={styles.listings}>
+        <div className={styles.listingsHeader}>
+          <Text t="h3">
+            <Trans>Listings</Trans>
+          </Text>
+
+          {!hasListings && (
+            <Text t="caption" color="lighter">
+              <i>
+                <Trans id="marketplace.profile.listings.empty_state">
+                  No listings to show.
+                </Trans>
+              </i>
+            </Text>
+          )}
+        </div>
+      </div>
+
       <TwoColLayout>
-        <Col>Listings</Col>
+        <Col>
+          {hasListings &&
+            userData.listings.map((listing) => (
+              <Listing key={listing.id} listing={listing} />
+            ))}
+        </Col>
         <Col>
           <Stats
             stats={{

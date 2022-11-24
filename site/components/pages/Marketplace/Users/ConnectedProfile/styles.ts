@@ -14,6 +14,7 @@ export const listings = css`
 export const listingsHeader = css`
   display: grid;
   gap: 1.2rem;
+  grid-auto-rows: min-content;
 `;
 
 export const formContainer = css`

@@ -124,7 +124,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
       <div className={styles.listings}>
         <div className={styles.listingsHeader}>
           <Text t="h3">
-            <Trans id="marketplace.profile.listings.title">Listings</Trans>
+            <Trans>Listings</Trans>
           </Text>
 
           {errorMessage && (
