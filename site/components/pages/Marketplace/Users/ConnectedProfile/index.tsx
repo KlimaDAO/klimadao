@@ -39,6 +39,8 @@ export const ConnectedProfile: FC<Props> = (props) => {
   const [showListingModal, setShowListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const hasListings = !!user?.listings?.length;
+
   // load Assets once
   useEffect(() => {
     if (!!user?.assets?.length && !assets) {
@@ -129,7 +131,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
             <Text className={styles.errorMessage}>{errorMessage}</Text>
           )}
 
-          {!user?.listings?.length && (
+          {!hasListings && (
             <Text t="caption" color="lighter">
               <i>
                 <Trans id="marketplace.profile.listings.empty_state">

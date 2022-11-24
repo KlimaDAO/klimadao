@@ -9,6 +9,7 @@ export interface Project {
   vintage: string;
   projectAddress: string;
   registry: string;
+  category: Category;
 }
 
 export interface User {
@@ -32,7 +33,7 @@ export type Listing = {
   singleUnitPrice: number;
   project: {
     name: string;
-    category: string;
+    category: Category;
   };
 };
 
@@ -82,3 +83,5 @@ export type Stats = {
   tonnesOwned: number;
   activeListings: number;
 };
+
+export type Category = "AM0052"; // TODO: what are the others?
