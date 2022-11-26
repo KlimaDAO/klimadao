@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Anchor, Text } from "@klimadao/lib/components";
+import { RetirementToken } from "@klimadao/lib/constants";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import CheckIcon from "@mui/icons-material/Check";
 import { verra } from "@klimadao/lib/constants";
@@ -7,9 +8,12 @@ import { verra } from "@klimadao/lib/constants";
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import * as styles from "./styles";
 
+type Foobar = "balanceBCT" | "balanceNCT" | "balanceUBO" | "balanceNBO";
+
 type Props = {
   active: boolean;
   project: CarbonProject;
+  selectedRetirementToken: RetirementToken;
   setSelectedProject?: (project: CarbonProject) => void;
 };
 
@@ -34,6 +38,11 @@ export const SelectProjectButton: FC<Props> = (props) => {
     return "#";
   };
 
+  const availableTonnes =
+    props.project[
+      `balance${props.selectedRetirementToken.toUpperCase()}` as Foobar
+    ];
+
   return (
     <button
       className={styles.selectProjectButton}
@@ -56,8 +65,7 @@ export const SelectProjectButton: FC<Props> = (props) => {
       </Text>
 
       <Text t="badge">
-        Available tonnes:{" "}
-        {trimWithLocale(props.project.currentSupply.toString(), 2, "en")}
+        Available tonnes: {trimWithLocale(availableTonnes.toString(), 2, "en")}
       </Text>
     </button>
   );

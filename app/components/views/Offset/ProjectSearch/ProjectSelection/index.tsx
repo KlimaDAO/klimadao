@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { Text } from "@klimadao/lib/components";
-import { ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { RetirementToken } from "@klimadao/lib/constants";
 
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import { SelectProjectButton } from "../SelectProjectButton";
@@ -11,6 +11,7 @@ import * as styles from "./styles";
 type Props = {
   projects: CarbonProject[];
   selectedProject: CarbonProject | null;
+  selectedRetirementToken: RetirementToken;
   setProjects: (projects: CarbonProject[]) => void;
   setSelectedProject: (project: CarbonProject) => void;
   setStep: (step: ProjectSearchStep) => void;
@@ -28,6 +29,7 @@ export const ProjectSelection: FC<Props> = (props) => (
           key={index}
           project={project}
           setSelectedProject={props.setSelectedProject}
+          selectedRetirementToken={props.selectedRetirementToken}
           active={props.selectedProject?.tokenAddress === project.tokenAddress}
         />
       ))}

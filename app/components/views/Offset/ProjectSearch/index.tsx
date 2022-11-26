@@ -56,6 +56,7 @@ export const ProjectSearch: FC<Props> = (props) => {
         <ProjectSelection
           projects={projects}
           selectedProject={props.selectedProject}
+          selectedRetirementToken={props.selectedRetirementToken}
           setProjects={setProjects}
           setSelectedProject={props.setSelectedProject}
           setStep={setStep}
@@ -89,7 +90,11 @@ export const ProjectSearch: FC<Props> = (props) => {
 
       {step === "confirmed" && props.selectedProject && (
         <>
-          <SelectProjectButton active={true} project={props.selectedProject} />
+          <SelectProjectButton
+            active={true}
+            project={props.selectedProject}
+            selectedRetirementToken={props.selectedRetirementToken}
+          />
           <ButtonPrimary
             label="Clear selection"
             variant="gray"
