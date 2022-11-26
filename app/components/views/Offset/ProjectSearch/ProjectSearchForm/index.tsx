@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
+import { RetirementToken } from "@klimadao/lib/constants";
 import isEmpty from "lodash/isEmpty";
 import filter from "lodash/filter";
 
@@ -16,6 +17,7 @@ type Props = {
   setStep: (step: ProjectSearchStep) => void;
   setProjects: (projects: CarbonProject[]) => void;
   setIsLoading: (boolean: boolean) => void;
+  selectedRetirementToken: RetirementToken;
 };
 
 const stringifyQuery = (values: string[]) =>
@@ -32,6 +34,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
   const [region, setRegion] = useState<string[]>([]);
   const [vintage, setVintage] = useState<string[]>([]);
 
+  // https://thegraph.com/docs/en/querying/graphql-api/#fulltext-search-queries
   const createQuery = () => {
     const query = filter([type, region, vintage], (array) => !isEmpty(array));
     return query

@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { Trans } from "@lingui/macro";
 import { Text, TextInfoTooltip } from "@klimadao/lib/components";
+import { RetirementToken } from "@klimadao/lib/constants";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 
 import { LeafIcon } from "components/LeafIcon";
@@ -14,6 +15,7 @@ import * as styles from "./styles";
 
 type Props = {
   projectAddress: string;
+  selectedRetirementToken: RetirementToken;
   setProjectAddress: (address: string) => void;
 };
 
@@ -91,6 +93,7 @@ export const SelectiveRetirement: FC<Props> = (props) => {
           <ProjectSearch
             projectAddress={props.projectAddress}
             selectedProject={selectedProject}
+            selectedRetirementToken={props.selectedRetirementToken}
             setSelectedProject={setSelectedProject}
             setIsLoading={setIsLoading}
             setProjectAddress={props.setProjectAddress}

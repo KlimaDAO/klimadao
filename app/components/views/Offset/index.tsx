@@ -457,6 +457,7 @@ export const Offset = (props: Props) => {
 
   const handleSelectRetirementToken = (tkn: string) => {
     setSelectedRetirementToken(tkn as RetirementToken);
+    console.log(tkn);
   };
 
   const handleChangeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
@@ -586,6 +587,7 @@ export const Offset = (props: Props) => {
           {/* attr: projectAddress  */}
           <SelectiveRetirement
             projectAddress={projectAddress}
+            selectedRetirementToken={selectedRetirementToken}
             setProjectAddress={setProjectAddress}
           />
 

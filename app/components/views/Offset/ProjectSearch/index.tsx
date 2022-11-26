@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { RetirementToken } from "@klimadao/lib/constants";
 import isEmpty from "lodash/isEmpty";
 import ErrorIcon from "@mui/icons-material/Error";
 
@@ -14,6 +15,7 @@ import * as styles from "./styles";
 type Props = {
   projectAddress: string;
   selectedProject: CarbonProject | null;
+  selectedRetirementToken: RetirementToken;
   setIsLoading: (boolean: boolean) => void;
   setProjectAddress: (address: string) => void;
   setSelectedProject: (project: CarbonProject | null) => void;
@@ -46,6 +48,7 @@ export const ProjectSearch: FC<Props> = (props) => {
           setStep={setStep}
           setProjects={setProjects}
           setIsLoading={props.setIsLoading}
+          selectedRetirementToken={props.selectedRetirementToken}
         />
       )}
 
