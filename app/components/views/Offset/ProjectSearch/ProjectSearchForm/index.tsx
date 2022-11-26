@@ -20,6 +20,8 @@ type Props = {
   selectedRetirementToken: RetirementToken;
 };
 
+type Foobar = "balanceBCT" | "balanceNCT" | "balanceUBO" | "balanceNBO";
+
 const stringifyQuery = (values: string[]) =>
   values
     .map((value) => {
@@ -42,14 +44,27 @@ export const ProjectSearchForm: FC<Props> = (props) => {
       .join(" & ");
   };
 
+  const filterProjectsByToken = (
+    projects: CarbonProject[]
+  ): CarbonProject[] => {
+    const selectedRetirementToken = props.selectedRetirementToken.toUpperCase();
+    console.log(selectedRetirementToken);
+
+    return filter(
+      projects,
+      (project) =>
+        Number(project[`balance${selectedRetirementToken}` as Foobar]) > 0
+    );
+  };
+
   const handleSubmit = async () => {
     try {
       props.setIsLoading(true);
       const query = createQuery();
       const projects = await queryCarbonProjectDetails(query);
 
-      console.log(projects);
-      props.setProjects(projects);
+      console.log(filterProjectsByToken(projects));
+      props.setProjects(filterProjectsByToken(projects));
       props.setStep("selectProject");
       props.setIsLoading(false);
     } catch (error) {

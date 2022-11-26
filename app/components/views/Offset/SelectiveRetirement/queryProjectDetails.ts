@@ -14,6 +14,10 @@ export interface CarbonProject {
   category: string;
   currentSupply: number;
   bridge: string;
+  balanceBCT: string;
+  balanceNCT: string;
+  balanceUBO: string;
+  balanceNBO: string;
 }
 
 export interface QueryCarbonProjectDetails {
@@ -46,6 +50,10 @@ export const queryCarbonProjectDetails = async (
               category
               currentSupply
               bridge
+              balanceBCT
+              balanceNCT
+              balanceUBO
+              balanceNBO
             }
           }
           `,
