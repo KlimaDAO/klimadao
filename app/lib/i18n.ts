@@ -1,7 +1,7 @@
-import { i18n } from "@lingui/core";
-import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
 import { urls } from "@klimadao/lib/constants";
 import { getLocales } from "@klimadao/lib/utils";
+import { i18n } from "@lingui/core";
+import { IS_LOCAL_DEVELOPMENT, IS_PRODUCTION } from "lib/constants";
 
 export const locales = getLocales(IS_PRODUCTION);
 

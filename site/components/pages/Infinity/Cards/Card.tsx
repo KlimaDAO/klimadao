@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import Image, { StaticImageData } from "next/legacy/image";
 import { Trans } from "@lingui/macro";
+import Image, { StaticImageData } from "next/legacy/image";
 import { useRouter } from "next/router";
+import { FC } from "react";
 
-import { Text, Anchor } from "@klimadao/lib/components";
+import { Anchor, Text } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
 
 import LaunchIcon from "@mui/icons-material/Launch";

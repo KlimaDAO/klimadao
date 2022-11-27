@@ -1,16 +1,16 @@
-import React, { FC, useState } from "react";
-import { Trans, t } from "@lingui/macro";
-import { useRouter } from "next/router";
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import ClearIcon from "@mui/icons-material/Clear";
-import { trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import ClearIcon from "@mui/icons-material/Clear";
+import { useRouter } from "next/router";
+import { FC, useState } from "react";
 import {
-  useForm,
-  useFieldArray,
-  useWatch,
   Control,
   SubmitHandler,
+  useFieldArray,
+  useForm,
+  useWatch,
 } from "react-hook-form";
 
 import { InputField, TextareaField } from "components/Form";
@@ -18,10 +18,10 @@ import { InputField, TextareaField } from "components/Form";
 import {
   editPledgeMessage,
   formSchema,
-  pledgeErrorTranslationsMap,
   PledgeErrorId,
-  putPledge,
+  pledgeErrorTranslationsMap,
   pledgeFormAdapter,
+  putPledge,
   waitForGnosisSignature,
 } from "../lib";
 import { Pledge, PledgeFormValues } from "../types";

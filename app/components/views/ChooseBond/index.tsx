@@ -1,18 +1,18 @@
 import { cx } from "@emotion/css";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import React, { useEffect } from "react";
-import { RootState, useAppDispatch } from "state";
-import { selectAppState, selectLocale } from "state/selectors";
+import { Text } from "@klimadao/lib/components";
 import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
-import { ImageCard } from "components/ImageCard";
-import { Trans, t } from "@lingui/macro";
-import { Text } from "@klimadao/lib/components";
-import * as styles from "./styles";
+import { t, Trans } from "@lingui/macro";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
-import { Image } from "components/Image";
 import { calcBondDetails, getIsInverse } from "actions/bonds";
+import { Image } from "components/Image";
+import { ImageCard } from "components/ImageCard";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { RootState, useAppDispatch } from "state";
+import { selectAppState, selectLocale } from "state/selectors";
+import * as styles from "./styles";
 
 // put inverse into bonds array and add to useBond
 

@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { providers } from "ethers";
+import { FC } from "react";
 import * as styles from "./styles";
 
 import { AddressInfo } from "..";

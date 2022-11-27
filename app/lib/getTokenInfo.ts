@@ -1,16 +1,16 @@
-import { StaticImageData } from "next/image";
 import { AllowancesToken } from "@klimadao/lib/types/allowances";
+import { StaticImageData } from "next/image";
 
-import BCT from "public/icons/BCT.png";
-import NCT from "public/icons/NCT.png";
-import MCO2 from "public/icons/MCO2.png";
-import KLIMA from "public/icons/KLIMA.png";
-import USDC from "public/icons/USDC.png";
-import UBO from "public/icons/UBO.png";
-import NBO from "public/icons/NBO.png";
 import KlimaBCTLP from "public/icons/BCT-KLIMA-LP.png";
-import KlimaUsdcLP from "public/icons/KLIMA-USDC-LP.png";
+import BCT from "public/icons/BCT.png";
 import KlimaMCO2LP from "public/icons/KLIMA-MCO2-LP.png";
+import KlimaUsdcLP from "public/icons/KLIMA-USDC-LP.png";
+import KLIMA from "public/icons/KLIMA.png";
+import MCO2 from "public/icons/MCO2.png";
+import NBO from "public/icons/NBO.png";
+import NCT from "public/icons/NCT.png";
+import UBO from "public/icons/UBO.png";
+import USDC from "public/icons/USDC.png";
 
 type TokenInfoMap = {
   [key in AllowancesToken]: {

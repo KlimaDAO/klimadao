@@ -1,16 +1,16 @@
-import { AppNotificationStatus, TxnStatus } from "state/app";
-import { t } from "@lingui/macro";
-import { utils, providers } from "ethers";
-import {
-  formatUnits,
-  getTokenDecimals,
-  getContract,
-} from "@klimadao/lib/utils";
+import { addresses } from "@klimadao/lib/constants";
 import {
   AllowancesSpender,
   AllowancesToken,
 } from "@klimadao/lib/types/allowances";
-import { addresses } from "@klimadao/lib/constants";
+import {
+  formatUnits,
+  getContract,
+  getTokenDecimals,
+} from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import { providers, utils } from "ethers";
+import { AppNotificationStatus, TxnStatus } from "state/app";
 
 export type OnStatusHandler = (status: TxnStatus, message?: string) => void;
 

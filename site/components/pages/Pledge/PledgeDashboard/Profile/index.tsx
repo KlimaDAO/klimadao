@@ -1,16 +1,16 @@
-import React, { FC, useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { Trans } from "@lingui/macro";
 import { Anchor, Text } from "@klimadao/lib/components";
+import { Domain } from "@klimadao/lib/types/domains";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import {
   concatAddress,
   getENSProfile,
   getKNSProfile,
   prettifyUrl,
+  trimWithLocale,
 } from "@klimadao/lib/utils";
-import { Domain } from "@klimadao/lib/types/domains";
-import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
-import { trimWithLocale } from "@klimadao/lib/utils";
+import { Trans } from "@lingui/macro";
+import { useRouter } from "next/router";
+import { FC, useEffect, useState } from "react";
 
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { Pledge } from "../../types";

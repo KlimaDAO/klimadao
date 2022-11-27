@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import dynamic from "next/dynamic";
-import { t } from "@lingui/macro";
-import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, KlimaInfinityLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import dynamic from "next/dynamic";
 import Link from "next/link";
+import { FC } from "react";
 
 import * as styles from "./styles";
 

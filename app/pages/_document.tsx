@@ -1,8 +1,8 @@
-import React from "react";
-import { WebFonts } from "@klimadao/lib/components";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import createEmotionServer from "@emotion/server/create-instance";
 import { cache } from "@emotion/css";
+import createEmotionServer from "@emotion/server/create-instance";
+import { WebFonts } from "@klimadao/lib/components";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import React from "react";
 
 class MyDocument extends Document {
   render() {

@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from "react";
 import { Anchor as A, Text } from "@klimadao/lib/components";
+import { FC, ReactNode } from "react";
 
-import * as styles from "./styles";
-import { Trans } from "@lingui/macro";
 import { urls } from "@klimadao/lib/constants";
+import { Trans } from "@lingui/macro";
+import * as styles from "./styles";
 
 const creditCardContent: CardContent[] = [
   {

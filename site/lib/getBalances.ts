@@ -1,5 +1,8 @@
-import { getJsonRpcProvider, getContract } from "@klimadao/lib/utils";
-import { formatUnits } from "@klimadao/lib/utils";
+import {
+  formatUnits,
+  getContract,
+  getJsonRpcProvider,
+} from "@klimadao/lib/utils";
 
 type Params = {
   address: string;

@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import dynamic from "next/dynamic";
-import { t } from "@lingui/macro";
 import { ButtonPrimary, KlimaInfinityLogoOnly } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import dynamic from "next/dynamic";
+import { FC } from "react";
 
 import EditIcon from "@mui/icons-material/Edit";
 

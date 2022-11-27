@@ -1,13 +1,13 @@
-import React, { FC, useState } from "react";
-import { useSelector } from "react-redux";
-import { providers } from "ethers";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { providers } from "ethers";
+import { FC, useState } from "react";
+import { useSelector } from "react-redux";
 
-import { wrapTransaction } from "actions/wrap";
 import { changeApprovalTransaction } from "actions/utils";
-import { selectNotificationStatus, selectLocale } from "state/selectors";
-import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
+import { wrapTransaction } from "actions/wrap";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
+import { selectLocale, selectNotificationStatus } from "state/selectors";
 
 import {
   ButtonPrimary,
@@ -16,26 +16,26 @@ import {
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
+import { BalancesCard } from "components/BalancesCard";
+import { ImageCard } from "components/ImageCard";
+import { TransactionModal } from "components/TransactionModal";
 import {
+  selectAllowancesWithParams,
   selectAppState,
   selectBalances,
-  selectAllowancesWithParams,
 } from "state/selectors";
 import {
+  decrementAllowance,
   decrementWrap,
   incrementWrap,
   setAllowance,
-  decrementAllowance,
 } from "state/user";
-import { ImageCard } from "components/ImageCard";
-import { BalancesCard } from "components/BalancesCard";
-import { TransactionModal } from "components/TransactionModal";
 
-import { useAppDispatch } from "state";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
+import { useAppDispatch } from "state";
 
+import { defineMessage, Trans } from "@lingui/macro";
 import * as styles from "components/views/Stake/styles";
-import { Trans, defineMessage } from "@lingui/macro";
 
 interface Props {
   provider?: providers.Web3Provider;

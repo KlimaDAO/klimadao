@@ -1,6 +1,6 @@
-import React, { FC, ReactNode } from "react";
-import * as styles from "./styles";
 import Link from "next/link";
+import { FC, ReactNode } from "react";
+import * as styles from "./styles";
 
 import { LogoWithClaim } from "@klimadao/lib/components";
 import { PageName } from "../Navigation";

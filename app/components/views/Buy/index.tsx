@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { providers } from "ethers";
 import { Trans } from "@lingui/macro";
-import Payment from "@mui/icons-material/Payment";
 import Check from "@mui/icons-material/Check";
 import ContentCopy from "@mui/icons-material/ContentCopy";
+import Payment from "@mui/icons-material/Payment";
+import { providers } from "ethers";
+import { useState } from "react";
 
 import { Anchor, ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";

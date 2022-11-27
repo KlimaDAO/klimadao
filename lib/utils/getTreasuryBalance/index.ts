@@ -1,8 +1,8 @@
 import { providers } from "ethers";
-import { getInteger } from "../getInteger";
 import { addresses } from "../../constants";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { getContract } from "../getContract";
+import { getInteger } from "../getInteger";
+import { getJsonRpcProvider } from "../getJsonRpcProvider";
 
 const getOwnedBCTFromSLP = async (params: {
   adr: "klimaBctLp";

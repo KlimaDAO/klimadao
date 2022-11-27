@@ -1,12 +1,12 @@
 import { Text } from "@klimadao/lib/components";
+import { secondsUntilBlock, trimWithPlaceholder } from "@klimadao/lib/utils";
+import { Trans } from "@lingui/macro";
 import Sync from "@mui/icons-material/Sync";
-import { useSelector } from "react-redux";
 import { InfoButton } from "components/InfoButton";
+import { FC } from "react";
+import { useSelector } from "react-redux";
 import { selectAppState, selectBalances, selectLocale } from "state/selectors";
 import * as styles from "./styles";
-import { secondsUntilBlock, trimWithPlaceholder } from "@klimadao/lib/utils";
-import { FC } from "react";
-import { Trans } from "@lingui/macro";
 
 interface Props {
   isConnected?: boolean;

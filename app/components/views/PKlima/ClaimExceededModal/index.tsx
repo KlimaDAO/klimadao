@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import * as styles from "./styles";
-import { Trans } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
+import * as styles from "./styles";
 
 export const ClaimExceededModal: FC = () => {
   return (

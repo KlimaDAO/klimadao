@@ -1,9 +1,3 @@
-import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectBalances, selectLocale, selectDomain } from "state/selectors";
-import { Trans } from "@lingui/macro";
-import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
 import {
   Anchor as A,
   DiscordIcon,
@@ -19,18 +13,24 @@ import {
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
-import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
+import { Trans } from "@lingui/macro";
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
+import MenuBookOutlined from "@mui/icons-material/MenuBookOutlined";
 import ParkOutlined from "@mui/icons-material/ParkOutlined";
 import Payment from "@mui/icons-material/Payment";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
+import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
+import { selectBalances, selectDomain, selectLocale } from "state/selectors";
 
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 
-import * as styles from "./styles";
 import { Domain } from "state/user";
+import * as styles from "./styles";
 
 interface AddressProps {
   address: string | undefined;

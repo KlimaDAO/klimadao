@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { HeaderDesktop } from "../HeaderDesktop";

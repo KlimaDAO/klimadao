@@ -1,6 +1,6 @@
-import { FC } from "react";
 import { Trans } from "@lingui/macro";
 import { useRouter } from "next/router";
+import { FC } from "react";
 import { TextGroup } from "../TextGroup";
 
 type Props = {

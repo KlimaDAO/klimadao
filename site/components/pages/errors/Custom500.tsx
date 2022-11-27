@@ -1,8 +1,8 @@
-import { Text, Section } from "@klimadao/lib/components";
+import { Section, Text } from "@klimadao/lib/components";
 
+import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import { Footer } from "components/Footer";
 
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";

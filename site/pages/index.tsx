@@ -1,13 +1,13 @@
-import { GetStaticProps } from "next";
 import {
   fetchBlockRate,
-  getTreasuryBalance,
   getStakingRewards,
+  getTreasuryBalance,
 } from "@klimadao/lib/utils";
 import { Home, Props } from "components/pages/Home";
 import { fetchCMSContent } from "lib/fetchCMSContent";
-import { loadTranslation } from "lib/i18n";
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
+import { loadTranslation } from "lib/i18n";
+import { GetStaticProps } from "next";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   const infuraURL = getInfuraUrlPolygon();

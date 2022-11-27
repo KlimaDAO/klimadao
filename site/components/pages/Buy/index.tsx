@@ -1,33 +1,33 @@
 import { NextPage } from "next";
 import Image from "next/legacy/image";
 
-import { useRouter } from "next/router";
 import { createLinkWithLocaleQuery } from "lib/i18n";
+import { useRouter } from "next/router";
 
 import {
   Anchor as A,
-  Text,
-  Section,
   ButtonPrimary,
+  Section,
+  Text,
 } from "@klimadao/lib/components";
 import { getImageSizes } from "@klimadao/lib/utils";
 
-import * as styles from "./styles";
+import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import { Footer } from "components/Footer";
-import { ZapperTimeline } from "components/pages/Buy/ZapperTimeline";
 import { CreditCardTimeline } from "components/pages/Buy/CreditCardTimeline";
-import mastercard from "public/mastercard.jpg";
+import { ZapperTimeline } from "components/pages/Buy/ZapperTimeline";
 import mastercardSmall from "public/mastercard-small.jpg";
-import zapper from "public/zapper.jpg";
+import mastercard from "public/mastercard.jpg";
 import zapperSmall from "public/zapper-small.jpg";
+import zapper from "public/zapper.jpg";
+import * as styles from "./styles";
 
 import bondCarbon from "public/bond-carbon.jpg";
 
-import { MutableRefObject, useRef } from "react";
 import { urls } from "@klimadao/lib/constants";
 import { t, Trans } from "@lingui/macro";
+import { MutableRefObject, useRef } from "react";
 
 export const Buy: NextPage = () => {
   const { locale } = useRouter();

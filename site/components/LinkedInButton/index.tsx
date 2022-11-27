@@ -1,5 +1,5 @@
-import { FC, useState, useEffect } from "react";
 import { ButtonPrimary, LinkedInIcon } from "@klimadao/lib/components";
+import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
 
 export const FACEBOOK_SHARE_URL =

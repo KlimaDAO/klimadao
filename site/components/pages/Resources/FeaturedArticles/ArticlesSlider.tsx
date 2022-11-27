@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useState, useRef } from "react";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { FC, useEffect, useRef, useState } from "react";
 import { Article } from "./Article";
 
 import { useElementWidth } from "hooks/useElementWidth";

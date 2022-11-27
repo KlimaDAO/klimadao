@@ -1,9 +1,9 @@
-import { FC } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
-import { useCopyToClipboard } from "hooks/useCopyToClipboard";
-import ContentCopy from "@mui/icons-material/ContentCopy";
 import Check from "@mui/icons-material/Check";
+import ContentCopy from "@mui/icons-material/ContentCopy";
+import { useCopyToClipboard } from "hooks/useCopyToClipboard";
+import { FC } from "react";
 import * as styles from "./styles";
 
 export const CopyURLButton: FC = () => {

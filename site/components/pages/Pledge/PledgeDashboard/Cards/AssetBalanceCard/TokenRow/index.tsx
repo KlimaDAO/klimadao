@@ -1,14 +1,14 @@
-import React, { FC } from "react";
-import { useRouter } from "next/router";
-import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
+import { Trans } from "@lingui/macro";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
 import { Holding } from "components/pages/Pledge/types";
-import { PlaceholderHoldingsChart } from "../PlaceholderHoldingsChart";
-import { HoldingsChart } from "../HoldingsChart";
-import * as styles from "./styles";
 import { StaticImageData } from "next/legacy/image";
+import { HoldingsChart } from "../HoldingsChart";
+import { PlaceholderHoldingsChart } from "../PlaceholderHoldingsChart";
+import * as styles from "./styles";
 
 interface TokenRowProps {
   label: string;

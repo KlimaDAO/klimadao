@@ -3,14 +3,14 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
 export {
   address,
-  stakeSwitch,
-  switchButton,
+  buttonRow,
+  buttonRow_spinner,
   stakeInput,
   stakeInput_input,
   stakeInput_max,
-  buttonRow,
-  buttonRow_spinner,
+  stakeSwitch,
   submitButton,
+  switchButton,
 } from "../Stake/styles";
 
 export const transaction_modal_header_title = css`

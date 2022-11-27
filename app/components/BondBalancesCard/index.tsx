@@ -1,13 +1,13 @@
 import { Text } from "@klimadao/lib/components";
-import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
+import { Bond } from "@klimadao/lib/constants";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
+import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
+import { useBond } from "components/views/ChooseBond";
+import { FC } from "react";
 import { useSelector } from "react-redux";
+import { RootState } from "state";
 import { selectLocale } from "state/selectors";
 import * as styles from "./styles";
-import { FC } from "react";
-import { RootState } from "state";
-import { Bond } from "@klimadao/lib/constants";
-import { useBond } from "components/views/ChooseBond";
 
 interface Props {
   bond: Bond;

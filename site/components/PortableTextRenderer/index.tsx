@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import Image from "next/legacy/image";
+import { FC } from "react";
 
 import { Anchor as A, Text } from "@klimadao/lib/components";
 import {

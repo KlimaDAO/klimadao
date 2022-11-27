@@ -1,5 +1,5 @@
-import React, { FC, HTMLAttributes } from "react";
 import { cx } from "@emotion/css";
+import React, { FC, HTMLAttributes } from "react";
 import * as typography from "../../theme/typography";
 import * as styles from "./styles";
 

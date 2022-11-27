@@ -1,5 +1,5 @@
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
 import { formatUnits, getContract } from "..";
+import { getJsonRpcProvider } from "../getJsonRpcProvider";
 
 export const getKlimaSupply = async (providerUrl?: string): Promise<string> => {
   const provider = getJsonRpcProvider(providerUrl);

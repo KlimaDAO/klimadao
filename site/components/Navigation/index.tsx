@@ -1,17 +1,17 @@
-import { FC } from "react";
-import dynamic from "next/dynamic";
-import { t } from "@lingui/macro";
 import { ButtonPrimary } from "@klimadao/lib/components";
-import { useRouter } from "next/router";
+import { t } from "@lingui/macro";
 import { createLinkWithLocaleQuery } from "lib/i18n";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
 import { urls } from "@klimadao/lib/constants";
-import { HeaderDesktop } from "components/Header/HeaderDesktop";
-import { LinkItemDesktop } from "./LinkItemDesktop";
-import { DropdownItemDesktop } from "./DropdownItemDesktop";
-import { NavItemMobile } from "./NavItemMobile";
-import { HeaderMobile } from "../Header/HeaderMobile";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
+import { HeaderDesktop } from "components/Header/HeaderDesktop";
+import { HeaderMobile } from "../Header/HeaderMobile";
+import { DropdownItemDesktop } from "./DropdownItemDesktop";
+import { LinkItemDesktop } from "./LinkItemDesktop";
+import { NavItemMobile } from "./NavItemMobile";
 import * as styles from "./styles";
 // dynamic import for ThemeToggle as its reads the document and localStorage of Browser
 // see https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr

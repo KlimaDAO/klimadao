@@ -1,7 +1,7 @@
-import { providers, getDefaultProvider } from "ethers";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
-import { getIsValidAddress } from "../getIsValidAddress";
+import { getDefaultProvider, providers } from "ethers";
 import { Domain } from "../../types/domains";
+import { getIsValidAddress } from "../getIsValidAddress";
+import { getJsonRpcProvider } from "../getJsonRpcProvider";
 
 export const isENSDomain = (domain: string) =>
   !!domain && domain.includes(".eth");

@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
-import * as typography from "@klimadao/lib/theme/typography";
 import { textButton } from "@klimadao/lib/theme/common";
+import * as typography from "@klimadao/lib/theme/typography";
 
 export const container = css`
   position: fixed;

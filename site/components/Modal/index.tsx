@@ -1,9 +1,9 @@
-import { useEffect, FC, ReactNode } from "react";
 import Close from "@mui/icons-material/Close";
+import { FC, ReactNode, useEffect } from "react";
 
-import * as styles from "./styles";
 import { Text } from "@klimadao/lib/components";
 import { useFocusTrap } from "@klimadao/lib/utils";
+import * as styles from "./styles";
 
 export interface Props {
   showModal: boolean;

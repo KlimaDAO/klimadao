@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { Modal } from "components/Modal";
-import { Trans } from "@lingui/macro";
 import { Anchor as A } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import { Trans } from "@lingui/macro";
+import { Modal } from "components/Modal";
+import { FC } from "react";
 
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 
 interface Props {
   onHide: () => void;

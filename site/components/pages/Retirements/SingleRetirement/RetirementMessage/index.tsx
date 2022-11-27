@@ -1,7 +1,7 @@
 import { Text } from "@klimadao/lib/components";
-import * as styles from "./styles";
-import { FC } from "react";
 import { Trans } from "@lingui/macro";
+import { FC } from "react";
+import * as styles from "./styles";
 
 type Props = {
   message: string;

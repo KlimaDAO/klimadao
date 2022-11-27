@@ -1,9 +1,9 @@
-import { createSelector } from "@reduxjs/toolkit";
-import { RootState } from "state";
 import {
   AllowancesSpender,
   AllowancesToken,
 } from "@klimadao/lib/types/allowances";
+import { createSelector } from "@reduxjs/toolkit";
+import { RootState } from "state";
 
 export const selectBalances = (state: RootState) => state.user.balance;
 export const selectAppState = (state: RootState) => state.app;

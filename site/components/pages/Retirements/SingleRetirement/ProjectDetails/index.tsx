@@ -1,12 +1,12 @@
-import { FC } from "react";
-import { Text, Section } from "@klimadao/lib/components";
+import { Section, Text } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
+import { FC } from "react";
 
-import { Trans, t } from "@lingui/macro";
+import { urls, verra } from "@klimadao/lib/constants";
+import { t, Trans } from "@lingui/macro";
 import { ProjectDetail } from "./List";
 import * as styles from "./styles";
-import { verra, urls } from "@klimadao/lib/constants";
 
 type Props = {
   offset: KlimaRetire["offset"];

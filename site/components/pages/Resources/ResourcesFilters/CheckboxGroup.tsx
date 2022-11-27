@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { useController, Control } from "react-hook-form";
 import { Checkbox } from "components/Form";
-import { CheckboxOption, TagSlug, DocumentType } from "../lib/cmsDataMap";
+import { FC } from "react";
+import { Control, useController } from "react-hook-form";
+import { CheckboxOption, DocumentType, TagSlug } from "../lib/cmsDataMap";
 
 import { FormValues } from "../ResourcesList";
 

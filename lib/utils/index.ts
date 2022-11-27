@@ -1,43 +1,37 @@
+export { concatAddress } from "./concatAddress";
+// ENS
+export {
+  getAddressByENS,
+  getENSByAddress,
+  getENSProfile,
+  isENSDomain,
+} from "./ens";
+export { fetchBlockRate } from "./fetchBlockRate";
+export { formatUnits } from "./formatUnits";
+export {
+  getAllowance,
+  getSpenderAddress,
+  getTokensFromSpender,
+} from "./getAllowance";
+export { getContract } from "./getContract";
+export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
+export { getImageSizes } from "./getImageSizes";
 export { getInteger } from "./getInteger";
-export { getKlimaSupply } from "./getKlimaSupply";
+export { getIsValidAddress } from "./getIsValidAddress";
 export { getJsonRpcProvider } from "./getJsonRpcProvider";
-export { getTreasuryBalance } from "./getTreasuryBalance";
-export { getStakingRewards } from "./getStakingRewards";
+export { getKlimaSupply } from "./getKlimaSupply";
+export { getLocales } from "./getLocales";
+export { getOgImageSrc } from "./getOgImageSrc";
 export {
   createRetirementStorageContract,
   getRetirementIndexInfo,
   getRetirementTotalsAndBalances,
 } from "./getRetirement";
-export { trimStringDecimals } from "./trimStringDecimals";
-export { secondsUntilBlock } from "./secondsUntilBlock";
-export { prettifySeconds } from "./prettifySeconds";
-export { prettifyUrl } from "./prettifyUrl";
-export { trimWithPlaceholder } from "./trimWithPlaceholder";
-export { trimWithLocale } from "./trimWithLocale";
-export { concatAddress } from "./concatAddress";
-export { formatUnits } from "./formatUnits";
-export { useDebounce } from "./useDebounce";
-export { safeAdd } from "./safeAdd";
-export { safeSub } from "./safeSub";
-export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
-export { fetchBlockRate } from "./fetchBlockRate";
-export { getContract } from "./getContract";
-export {
-  getAllowance,
-  getTokensFromSpender,
-  getSpenderAddress,
-} from "./getAllowance";
-export { getTokenDecimals } from "./getTokenDecimals";
-export { getIsValidAddress } from "./getIsValidAddress";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
-export { getOgImageSrc } from "./getOgImageSrc";
-export { getImageSizes } from "./getImageSizes";
-export {
-  queryKlimaRetireByIndex,
-  queryKlimaRetiresByAddress,
-} from "./subgraph/queryPolygonBridgedCarbon";
-export { getVerraProjectByID } from "./verra/getVerraProjects";
-
+export { getStakingRewards } from "./getStakingRewards";
+export { getTokenDecimals } from "./getTokenDecimals";
+export { getTransactionOptions } from "./getTransactionOptions";
+export { getTreasuryBalance } from "./getTreasuryBalance";
 // KNS
 export {
   createKNSDomainFromName,
@@ -47,15 +41,20 @@ export {
   isKNSDomain,
   KNSContract,
 } from "./kns";
-export { getTransactionOptions } from "./getTransactionOptions";
-export { getLocales } from "./getLocales";
-// ENS
+export { prettifySeconds } from "./prettifySeconds";
+export { prettifyUrl } from "./prettifyUrl";
+export { safeAdd } from "./safeAdd";
+export { safeSub } from "./safeSub";
+export { secondsUntilBlock } from "./secondsUntilBlock";
 export {
-  isENSDomain,
-  getAddressByENS,
-  getENSByAddress,
-  getENSProfile,
-} from "./ens";
-export { useWeb3 } from "./useWeb3";
+  queryKlimaRetireByIndex,
+  queryKlimaRetiresByAddress,
+} from "./subgraph/queryPolygonBridgedCarbon";
+export { trimStringDecimals } from "./trimStringDecimals";
+export { trimWithLocale } from "./trimWithLocale";
+export { trimWithPlaceholder } from "./trimWithPlaceholder";
+export { useDebounce } from "./useDebounce";
 export { useFocusTrap } from "./useFocusTrap";
 export { useTabListener } from "./useTabListener";
+export { useWeb3 } from "./useWeb3";
+export { getVerraProjectByID } from "./verra/getVerraProjects";

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const BackgroundDecor = (props: { className?: string }) => {
   return (
     <svg

@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import {
   OffsetInputToken,
   offsetInputTokens,
   RetirementToken,
   retirementTokens,
 } from "@klimadao/lib/constants";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const inputParams = [
   "quantity",

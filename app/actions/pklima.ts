@@ -1,13 +1,13 @@
-import { utils, providers } from "ethers";
+import { providers, utils } from "ethers";
 
-import { OnStatusHandler } from "./utils";
-import { Thunk } from "state";
-import { setPklimaTerms } from "state/user";
 import {
   formatUnits,
-  trimStringDecimals,
   getContract,
+  trimStringDecimals,
 } from "@klimadao/lib/utils";
+import { Thunk } from "state";
+import { setPklimaTerms } from "state/user";
+import { OnStatusHandler } from "./utils";
 
 export const loadTerms = (params: {
   address: string;

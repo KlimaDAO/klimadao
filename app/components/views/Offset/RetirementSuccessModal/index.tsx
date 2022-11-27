@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { t, Trans } from "@lingui/macro";
 import SendRounded from "@mui/icons-material/SendRounded";
-import { Trans, t } from "@lingui/macro";
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
+import { FC } from "react";
 
 import { Modal } from "components/Modal";
 import * as styles from "./styles";

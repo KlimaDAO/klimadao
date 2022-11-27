@@ -1,7 +1,7 @@
 import {
-  getKNSByAddress,
   createKNSDomainFromName,
   getENSByAddress,
+  getKNSByAddress,
 } from "@klimadao/lib/utils";
 import { getInfuraUrlEther } from "lib/getInfuraUrl";
 

@@ -1,7 +1,7 @@
 import isEqual from "lodash/isEqual";
 import sortBy from "lodash/sortBy";
-import { Footprint, Pledge, Category, PledgeFormValues } from "../types";
 import { generateNonce } from ".";
+import { Category, Footprint, Pledge, PledgeFormValues } from "../types";
 
 const buildFootprint = (
   currentFootprint: Footprint[],

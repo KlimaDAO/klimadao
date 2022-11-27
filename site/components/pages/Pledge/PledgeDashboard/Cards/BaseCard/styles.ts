@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
-import * as common from "@klimadao/lib/theme/common";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
+import * as common from "@klimadao/lib/theme/common";
 
 export const cardHeader = css`
   display: flex;

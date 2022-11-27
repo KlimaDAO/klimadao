@@ -1,17 +1,17 @@
+import { Web3ContextProvider } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
+import { i18n } from "@lingui/core";
+import { PageHead } from "components/PageHead";
 import { Home } from "components/views/Home";
 import { WithIsomorphicRouter } from "components/WithIsomorphicRouter";
 import { WithRedux } from "components/WithRedux";
-import { NextPage } from "next";
-import { PageHead } from "components/PageHead";
 import { IS_PRODUCTION } from "lib/constants";
-import { urls } from "@klimadao/lib/constants";
-import { messages as default_messages } from "../locale/en/messages";
-import { i18n } from "@lingui/core";
-import { Web3ContextProvider } from "@klimadao/lib/components";
 import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
+import { NextPage } from "next";
+import { ReactNode } from "react";
 import { useSelector } from "react-redux";
 import { selectLocale } from "state/selectors";
-import { ReactNode } from "react";
+import { messages as default_messages } from "../locale/en/messages";
 
 export async function getStaticProps() {
   i18n.load("en", default_messages);

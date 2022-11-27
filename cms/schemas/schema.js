@@ -5,11 +5,11 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // We import object and document schemas
-import blockContent from "./blockContent";
-import post from "./post";
 import author from "./author";
+import blockContent from "./blockContent";
 import fileUpload from "./fileUpload";
 import podcast from "./podcast";
+import post from "./post";
 import tag from "./tag";
 
 // Then we give our schema to the builder and provide the result to Sanity

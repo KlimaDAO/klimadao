@@ -1,5 +1,8 @@
-import React, { FC } from "react";
+import { Text } from "@klimadao/lib/components";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { Trans } from "@lingui/macro";
+import keys from "lodash/keys";
+import { FC } from "react";
 import {
   Bar,
   BarChart,
@@ -10,14 +13,11 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import keys from "lodash/keys";
-import { Text } from "@klimadao/lib/components";
-import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 
 import BCTIcon from "public/icons/BCT.png";
-import NCTIcon from "public/icons/NCT.png";
 import MCO2Icon from "public/icons/MCO2.png";
 import NBOIcon from "public/icons/NBO.png";
+import NCTIcon from "public/icons/NCT.png";
 import UBOIcon from "public/icons/UBO.png";
 import * as styles from "./styles";
 

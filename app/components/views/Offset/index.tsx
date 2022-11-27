@@ -1,23 +1,23 @@
-import { ChangeEvent, useEffect, useState, ReactElement, useRef } from "react";
-import { useSelector } from "react-redux";
-import { utils, providers } from "ethers";
-import { Trans, t } from "@lingui/macro";
 import {
   Anchor as A,
-  Text,
-  Spinner,
   ButtonPrimary,
+  Spinner,
+  Text,
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
-  offsetInputTokens,
   offsetCompatibility,
+  offsetInputTokens,
+  OffsetPaymentMethod,
   RetirementToken,
   retirementTokens,
   urls,
-  OffsetPaymentMethod,
 } from "@klimadao/lib/constants";
 import { getTokenDecimals } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import { providers, utils } from "ethers";
+import { ChangeEvent, ReactElement, useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
 import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import GppMaybeOutlined from "@mui/icons-material/GppMaybeOutlined";
@@ -26,13 +26,13 @@ import ParkOutlined from "@mui/icons-material/ParkOutlined";
 
 import { useAppDispatch } from "state";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
-import { setAllowance, updateRetirement } from "state/user";
 import {
-  selectNotificationStatus,
-  selectBalances,
   selectAllowancesWithParams,
+  selectBalances,
   selectLocale,
+  selectNotificationStatus,
 } from "state/selectors";
+import { setAllowance, updateRetirement } from "state/user";
 
 import {
   getOffsetConsumptionCost,
@@ -42,23 +42,23 @@ import {
 } from "actions/offset";
 import { changeApprovalTransaction } from "actions/utils";
 
-import { createLinkWithLocaleSubPath } from "lib/i18n";
-import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { tokenInfo } from "lib/getTokenInfo";
+import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
+import { createLinkWithLocaleSubPath } from "lib/i18n";
 
-import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { CarbonTonnesBreakdownCard } from "components/CarbonTonnesBreakdownCard";
-import { MiniTokenDisplay } from "components/MiniTokenDisplay";
+import { CarbonTonnesRetiredCard } from "components/CarbonTonnesRetiredCard";
 import { DropdownWithModal } from "components/DropdownWithModal";
+import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { TransactionModal } from "components/TransactionModal";
 
-import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
-import { RetirementSuccessModal } from "./RetirementSuccessModal";
-import * as styles from "./styles";
 import Fiat from "public/icons/Fiat.png";
 import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
 import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
+import { RetirementSuccessModal } from "./RetirementSuccessModal";
+import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
+import * as styles from "./styles";
 
 // We need to approve a little bit extra (here 1%)
 // It's possible that the price can slip upward between approval and final transaction

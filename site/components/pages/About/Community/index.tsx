@@ -1,24 +1,25 @@
-import { NextPage } from "next";
-import Image, { StaticImageData } from "next/legacy/image";
-import ForumIcon from "@mui/icons-material/Forum";
-import { Trans, t } from "@lingui/macro";
-import { urls } from "@klimadao/lib/constants";
 import {
   Anchor as A,
   ButtonPrimary,
-  Text,
-  Section,
   DiscordIcon,
+  Section,
   SnapshotIcon,
+  Text,
 } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
+import { t, Trans } from "@lingui/macro";
+import ForumIcon from "@mui/icons-material/Forum";
+import { NextPage } from "next";
+import Image, { StaticImageData } from "next/legacy/image";
 
-import bcfcLogo from "public/logo-bcfc.png";
 import beachImage from "public/bg-beach.jpg";
+import discordImage from "public/bg-discord.png";
+import treeGroveImage from "public/bg-tree-grove.jpg";
+import bcfcLogo from "public/logo-bcfc.png";
 import bicoWgLogo from "public/logo-bicowg.png";
 import deltaWaveLogo from "public/logo-delta-wave.svg";
-import discordImage from "public/bg-discord.png";
-import dovuLogo from "public/logo-dovu.png";
 import digitalCharityArtLogo from "public/logo-digital-charity-art.png";
+import dovuLogo from "public/logo-dovu.png";
 import ecoLogo from "public/logo-eco.png";
 import etcGroupLogo from "public/logo-etc-group.png";
 import gitcoinLogo from "public/logo-gitcoin.png";
@@ -31,11 +32,10 @@ import openEarthLogo from "public/logo-open-earth.png";
 import polygonLogo from "public/logo-polygon.svg";
 import thoughtForFoodLogo from "public/logo-thought-for-food.png";
 import toucanLogo from "public/logo-toucan.png";
-import treeGroveImage from "public/bg-tree-grove.jpg";
 
-import * as styles from "./styles";
-import { Container } from "../Container";
 import { getImageSizes } from "@klimadao/lib/utils";
+import { Container } from "../Container";
+import * as styles from "./styles";
 
 const DiscordButton = () => (
   <A className={styles.page_discordButton} href={urls.discordInvite}>

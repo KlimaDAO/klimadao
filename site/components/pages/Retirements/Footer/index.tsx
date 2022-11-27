@@ -1,11 +1,11 @@
-import { FC } from "react";
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
+import { FC } from "react";
 
-import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { Trans, t } from "@lingui/macro";
 import { getImageSizes } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import * as styles from "./styles";

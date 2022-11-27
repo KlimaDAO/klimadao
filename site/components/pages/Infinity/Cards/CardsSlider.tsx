@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
 import { Trans } from "@lingui/macro";
+import { useEffect, useRef, useState } from "react";
 
 import { Text } from "@klimadao/lib/components";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useElementWidth } from "hooks/useElementWidth";
 
 import { Card } from "./Card";

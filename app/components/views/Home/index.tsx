@@ -1,37 +1,37 @@
-import { FC, useState, useEffect } from "react";
+import { bonds } from "@klimadao/lib/constants";
+import { FC, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Route, useLocation } from "react-router-dom";
 import { useAppDispatch } from "state";
-import { bonds } from "@klimadao/lib/constants";
-import { useSelector } from "react-redux";
 
-import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
-import { selectAppState } from "state/selectors";
 import { loadAppDetails } from "actions/app";
 import { loadAccountDetails } from "actions/user";
+import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
+import { selectAppState } from "state/selectors";
 
-import { Stake } from "components/views/Stake";
-import { PKlima } from "components/views/PKlima";
-import { Info } from "components/views/Info";
-import { ChooseBond } from "components/views/ChooseBond";
-import { Bond } from "components/views/Bond";
-import { Wrap } from "components/views/Wrap";
-import { Offset } from "components/views/Offset";
+import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
-import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
 import { NotificationModal } from "components/NotificationModal";
+import { Bond } from "components/views/Bond";
+import { ChooseBond } from "components/views/ChooseBond";
+import { Info } from "components/views/Info";
+import { Offset } from "components/views/Offset";
+import { PKlima } from "components/views/PKlima";
+import { Stake } from "components/views/Stake";
+import { Wrap } from "components/views/Wrap";
 
 import { initLocale } from "lib/i18n";
 
-import * as styles from "./styles";
-import { setAppState } from "state/app";
-import { ChangeLanguageButton } from "components/ChangeLanguageButton";
-import { ConnectButton } from "../../ConnectButton";
-import { NavMenu } from "components/NavMenu";
-import Menu from "@mui/icons-material/Menu";
-import { IsomorphicRoutes } from "components/IsomorphicRoutes";
-import { Buy } from "../Buy";
 import { useWeb3 } from "@klimadao/lib/utils";
+import Menu from "@mui/icons-material/Menu";
+import { ChangeLanguageButton } from "components/ChangeLanguageButton";
+import { IsomorphicRoutes } from "components/IsomorphicRoutes";
+import { NavMenu } from "components/NavMenu";
+import { setAppState } from "state/app";
+import { ConnectButton } from "../../ConnectButton";
+import { Buy } from "../Buy";
+import * as styles from "./styles";
 
 export const Home: FC = () => {
   const dispatch = useAppDispatch();

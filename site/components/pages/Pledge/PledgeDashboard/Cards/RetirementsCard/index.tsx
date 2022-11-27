@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import { Trans, t } from "@lingui/macro";
+import { Text } from "@klimadao/lib/components";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { trimStringDecimals } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import LaunchIcon from "@mui/icons-material/Launch";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
-import LaunchIcon from "@mui/icons-material/Launch";
-import { Text } from "@klimadao/lib/components";
-import { trimStringDecimals } from "@klimadao/lib/utils";
-import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import React, { FC } from "react";
 
 import { BaseCard } from "../BaseCard";
 import { RetirementsChartProps } from "./RetirementsChart";

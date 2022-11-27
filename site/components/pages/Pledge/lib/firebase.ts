@@ -1,13 +1,13 @@
 import * as admin from "firebase-admin";
 
 import { FIREBASE_ADMIN_CERT } from "lib/secrets";
-import { Pledge, PledgeFormValues } from "../types";
 import {
-  DEFAULT_NONCE,
   createPledgeAttributes,
+  DEFAULT_NONCE,
   putPledgeAttributes,
   verifySignature,
 } from ".";
+import { Pledge, PledgeFormValues } from "../types";
 
 const initFirebaseAdmin = () => {
   if (!FIREBASE_ADMIN_CERT) {

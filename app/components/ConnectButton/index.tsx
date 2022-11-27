@@ -1,6 +1,6 @@
+import { Trans } from "@lingui/macro";
 import { FC } from "react";
 import * as styles from "./styles";
-import { Trans } from "@lingui/macro";
 
 export interface Props {
   address?: string;

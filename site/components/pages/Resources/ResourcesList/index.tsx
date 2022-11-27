@@ -1,33 +1,33 @@
-import React, { FC, useEffect, useState } from "react";
-import { Trans, t } from "@lingui/macro";
-import { useForm, SubmitHandler } from "react-hook-form";
-import SearchIcon from "@mui/icons-material/Search";
-import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import {
-  Text,
-  Section,
   ButtonPrimary,
+  Section,
   Spinner,
+  Text,
 } from "@klimadao/lib/components";
+import { t, Trans } from "@lingui/macro";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import SearchIcon from "@mui/icons-material/Search";
+import { FC, useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 import { Card } from "components/Card";
-import { PodcastCard } from "components/PodcastCard";
 import { InputField } from "components/Form";
 import { Modal } from "components/Modal";
-import { SortyByDropDown } from "../SortyByDropDown";
+import { PodcastCard } from "components/PodcastCard";
 import { ResourcesFilters } from "../ResourcesFilters";
 import { SortByButton } from "../SortByButton";
+import { SortyByDropDown } from "../SortyByDropDown";
 
 import {
-  TagSlug,
   DocumentType,
-  SortQuery,
   sortedByQueries,
+  SortQuery,
+  TagSlug,
 } from "../lib/cmsDataMap";
-import { searchDocumentsByText, queryFilteredDocuments } from "../lib/queries";
+import { queryFilteredDocuments, searchDocumentsByText } from "../lib/queries";
 
-import * as styles from "./styles";
 import { Document } from "lib/queries";
+import * as styles from "./styles";
 
 export interface Props {
   documents: Document[];

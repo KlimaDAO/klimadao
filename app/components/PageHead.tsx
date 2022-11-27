@@ -1,9 +1,8 @@
 import Head from "next/head";
-import React from "react";
 
+import { getOgImageSrc } from "@klimadao/lib/utils";
 import { useSelector } from "react-redux";
 import { selectLocale } from "state/selectors";
-import { getOgImageSrc } from "@klimadao/lib/utils";
 export interface PageHeadProps {
   production: boolean;
   /** <title> tag */

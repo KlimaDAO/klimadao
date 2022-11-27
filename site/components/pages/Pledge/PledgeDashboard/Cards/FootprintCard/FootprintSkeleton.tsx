@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { css } from "@emotion/css";
+import { FC } from "react";
 
 import * as styles from "./styles";
 

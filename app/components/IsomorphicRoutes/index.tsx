@@ -1,6 +1,6 @@
 import { Loading } from "components/views/Loading";
 import React, { ReactElement, useEffect, useState } from "react";
-import { RoutesProps, Routes, Route, RouteProps } from "react-router-dom";
+import { Route, RouteProps, Routes, RoutesProps } from "react-router-dom";
 
 interface Props extends RoutesProps {
   children: (ReactElement<RouteProps> | ReactElement<RouteProps>[])[];

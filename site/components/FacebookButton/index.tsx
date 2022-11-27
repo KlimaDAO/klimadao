@@ -1,5 +1,5 @@
-import { FC, useState, useEffect } from "react";
 import { ButtonPrimary, FacebookIcon } from "@klimadao/lib/components";
+import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
 
 export const FACEBOOK_SHARE_URL = "https://www.facebook.com/sharer/sharer.php";

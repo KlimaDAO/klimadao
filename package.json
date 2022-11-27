@@ -11,6 +11,8 @@
     "node": ">=16.0.0"
   },
   "scripts": {
+    "dev-all": "concurrently --kill-others-on-fail \"npm:dev-lib\" \"npm:dev-site\" \"npm:dev-app\"",
+    "build-all": "concurrently --kill-others-on-fail \"npm:build-lib\" \"npm:build-site\" \"npm:build-app\"",
     "build-lib": "npm run build --workspace=lib",
     "build-site": "npm run build-lib && npm run build --workspace=site",
     "build-site-vercel": "cd ./lib && npm run build && cd ../site && npm run build",
@@ -26,5 +28,8 @@
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract",
     "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile",
     "extract-strings:dev": "npm run -w site lingui:extract:dev && npm run -w app lingui:extract:dev"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }

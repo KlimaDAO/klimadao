@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import Image from "next/legacy/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
 import { Text } from "@klimadao/lib/components";
 
@@ -12,8 +12,8 @@ import {
   trimWithLocale,
 } from "@klimadao/lib/utils";
 
-import { retirementTokenInfoMap } from "lib/getTokenInfo";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForwardOutlined";
+import { retirementTokenInfoMap } from "lib/getTokenInfo";
 import { LeafIcon } from "./Leaf";
 
 import * as styles from "./styles";

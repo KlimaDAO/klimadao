@@ -1,9 +1,9 @@
 import { Text } from "@klimadao/lib/components";
-import * as styles from "./styles";
-import { FC } from "react";
 import { RetirementToken } from "@klimadao/lib/constants";
-import Image, { StaticImageData } from "next/legacy/image";
 import { Trans } from "@lingui/macro";
+import Image, { StaticImageData } from "next/legacy/image";
+import { FC } from "react";
+import * as styles from "./styles";
 
 type Props = {
   value: string;

@@ -1,5 +1,5 @@
-import React, { InputHTMLAttributes } from "react";
 import { cx } from "@emotion/css";
+import React, { InputHTMLAttributes } from "react";
 
 import { Text } from "@klimadao/lib/components";
 

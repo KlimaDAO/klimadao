@@ -1,12 +1,12 @@
 import { NextPage } from "next";
 import Link from "next/link";
 
-import { Text, Section } from "@klimadao/lib/components";
-import { Trans, t } from "@lingui/macro";
+import { Section, Text } from "@klimadao/lib/components";
+import { t, Trans } from "@lingui/macro";
 
 import { urls } from "@klimadao/lib/constants";
-import * as styles from "./styles";
 import { Container } from "../Container";
+import * as styles from "./styles";
 
 export type Props = HTMLHtmlElement;
 

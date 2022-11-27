@@ -1,5 +1,5 @@
-import { FC, ReactNode } from "react";
 import { Text } from "@klimadao/lib/components";
+import { FC, ReactNode } from "react";
 import * as styles from "./styles";
 
 type Props = {

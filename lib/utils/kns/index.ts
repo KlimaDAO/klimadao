@@ -1,7 +1,7 @@
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
-import { getIsValidAddress } from "../getIsValidAddress";
-import { getContract } from "../getContract";
 import { Domain } from "../../types/domains";
+import { getContract } from "../getContract";
+import { getIsValidAddress } from "../getIsValidAddress";
+import { getJsonRpcProvider } from "../getJsonRpcProvider";
 
 // https://www.kns.earth/#/
 export const isKNSDomain = (domain: string): boolean =>

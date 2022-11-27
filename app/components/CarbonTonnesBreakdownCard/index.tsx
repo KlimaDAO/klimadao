@@ -1,21 +1,21 @@
-import { FC } from "react";
-import { Image } from "components/Image";
 import { Trans } from "@lingui/macro";
 import CloudOutlined from "@mui/icons-material/CloudOutlined";
+import { Image } from "components/Image";
+import { FC } from "react";
 
 import { Text } from "@klimadao/lib/components";
 
 import BCT from "public/icons/BCT.png";
 import MCO2 from "public/icons/MCO2.png";
+import NBO from "public/icons/NBO.png";
 import NCT from "public/icons/NCT.png";
 import UBO from "public/icons/UBO.png";
-import NBO from "public/icons/NBO.png";
 
-import * as styles from "./styles";
-import { useSelector } from "react-redux";
-import { selectCarbonRetired } from "state/selectors";
 import { RetirementToken, retirementTokens } from "@klimadao/lib/constants";
 import { StaticImageData } from "next/image";
+import { useSelector } from "react-redux";
+import { selectCarbonRetired } from "state/selectors";
+import * as styles from "./styles";
 
 type IconMap = { [key in RetirementToken]: StaticImageData };
 

@@ -1,7 +1,7 @@
-import { FC } from "react";
 import { cx } from "@emotion/css";
-import ContentCopy from "@mui/icons-material/ContentCopy";
 import Check from "@mui/icons-material/Check";
+import ContentCopy from "@mui/icons-material/ContentCopy";
+import { FC } from "react";
 
 import { useCopyToClipboard } from "hooks/useCopyToClipboard";
 import * as styles from "./styles";

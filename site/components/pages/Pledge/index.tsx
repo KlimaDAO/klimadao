@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { utils } from "ethers";
-import { useRouter } from "next/router";
-import { NextPage } from "next";
-import { t } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { t } from "@lingui/macro";
+import { utils } from "ethers";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
-import { PageHead } from "components/PageHead";
-import * as styles from "./styles";
 import { InputField } from "components/Form";
+import { PageHead } from "components/PageHead";
 import { SocialProof } from "components/SocialProof";
+import * as styles from "./styles";
 
-import { Navigation } from "components/Navigation";
-import { Footer } from "components/Footer";
 import { useWeb3 } from "@klimadao/lib/utils";
+import { Footer } from "components/Footer";
+import { Navigation } from "components/Navigation";
 
 export const Pledge: NextPage = () => {
   const router = useRouter();

@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { ThemeToggle } from "@klimadao/lib/components";
+import { FC } from "react";
 
 // To prevent loading errors need to wrap external ESM again
 // as it is loaded dynamically later in Navigation

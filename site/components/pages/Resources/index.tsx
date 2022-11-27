@@ -1,7 +1,6 @@
-import React from "react";
+import { Section, Text } from "@klimadao/lib/components";
+import { t, Trans } from "@lingui/macro";
 import { NextPage } from "next";
-import { Trans, t } from "@lingui/macro";
-import { Text, Section } from "@klimadao/lib/components";
 import * as styles from "./styles";
 
 import { Footer } from "components/Footer";

@@ -1,34 +1,34 @@
+import { t, Trans } from "@lingui/macro";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Trans, t } from "@lingui/macro";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
-import { KlimaRetire } from "@klimadao/lib/types/subgraph";
+import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
+import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
-import { urls } from "@klimadao/lib/constants";
 
+import { FacebookButton } from "components/FacebookButton";
+import { Footer } from "components/Footer";
+import { LinkedInButton } from "components/LinkedInButton";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import { Footer } from "components/Footer";
 import { TweetButton } from "components/TweetButton";
-import { FacebookButton } from "components/FacebookButton";
-import { LinkedInButton } from "components/LinkedInButton";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
 
+import { CopyURLButton } from "../CopyURLButton";
+import { RetirementFooter } from "../Footer";
 import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
+import { ProjectDetails } from "./ProjectDetails";
+import { RetirementDate } from "./RetirementDate";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
-import { RetirementDate } from "./RetirementDate";
-import { TextGroup } from "./TextGroup";
-import { ProjectDetails } from "./ProjectDetails";
-import { RetirementFooter } from "../Footer";
-import { CopyURLButton } from "../CopyURLButton";
 import * as styles from "./styles";
+import { TextGroup } from "./TextGroup";
 
 const LoadingCertificateButton: React.FC = () => (
   <ButtonPrimary

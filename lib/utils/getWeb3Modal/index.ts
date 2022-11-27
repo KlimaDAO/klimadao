@@ -1,9 +1,9 @@
-import web3Modal from "web3modal";
-import WalletConnectProvider from "@walletconnect/web3-provider";
 import coinbaseWalletSDK from "@coinbase/wallet-sdk";
 import Torus from "@toruslabs/torus-embed";
-import { urls } from "../../constants";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import web3Modal from "web3modal";
 import { Web3ModalStrings } from "../../components/Web3Context/types";
+import { urls } from "../../constants";
 
 // BUG: @klimadao/lib transpilation does not properly re-export the Web3Modal or coinbase libraries, probably because we don't use babel in here.
 // Babel automatically adds a default export for interoperability reasons, which is why this isn't a problem in /site and /app (nextjs uses babel)

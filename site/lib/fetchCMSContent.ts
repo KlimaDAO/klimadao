@@ -1,10 +1,10 @@
 import sanityClient from "@sanity/client";
-import { queries, QueryContent } from "./queries";
 import { IS_PRODUCTION } from "./constants";
+import { queries, QueryContent } from "./queries";
 
 import {
-  SANITY_STUDIO_API_PROJECT_ID,
   SANITY_STUDIO_API_DATASET,
+  SANITY_STUDIO_API_PROJECT_ID,
 } from "@klimadao/lib/constants";
 
 export const getSanityClient = () => {

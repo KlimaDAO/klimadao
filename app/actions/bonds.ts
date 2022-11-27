@@ -1,16 +1,16 @@
-import { providers, Contract, utils, BigNumber } from "ethers";
-import { Thunk } from "state";
-import { setBond } from "state/bonds";
-import { OnStatusHandler } from "./utils";
-import { setBondAllowance } from "state/user";
+import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
+import PairContract from "@klimadao/lib/abi/PairContract.json";
+import { addresses, Bond } from "@klimadao/lib/constants";
 import {
   formatUnits,
-  getJsonRpcProvider,
   getContract,
+  getJsonRpcProvider,
 } from "@klimadao/lib/utils";
-import { addresses, Bond } from "@klimadao/lib/constants";
-import PairContract from "@klimadao/lib/abi/PairContract.json";
-import BondCalcContract from "@klimadao/lib/abi/BondCalcContract.json";
+import { BigNumber, Contract, providers, utils } from "ethers";
+import { Thunk } from "state";
+import { setBond } from "state/bonds";
+import { setBondAllowance } from "state/user";
+import { OnStatusHandler } from "./utils";
 
 // All Bonds mapped to their token name
 export const bondMapToTokenName = {

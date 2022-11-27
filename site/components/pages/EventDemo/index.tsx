@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
 import {
   Anchor as A,
   ButtonPrimary,
@@ -7,23 +7,23 @@ import {
   Spinner,
   Text,
 } from "@klimadao/lib/components";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { Footer } from "components/Footer";
 import { InputField, TextareaField } from "components/Form";
+import { Modal } from "components/Modal";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Footer } from "components/Footer";
-import { Modal } from "components/Modal";
 
-import * as styles from "./styles";
-import Link from "next/link";
 import { urls } from "@klimadao/lib/constants";
+import Link from "next/link";
+import { BackgroundDecor } from "./BackgroundDecor";
 import { formSchema, FormSchema } from "./lib/formSchema";
 import {
   RetirementData,
   retirementDataSchema,
 } from "./lib/retirementDataSchema";
-import { BackgroundDecor } from "./BackgroundDecor";
+import * as styles from "./styles";
 
 type View = undefined | "pending" | "success" | "error";
 

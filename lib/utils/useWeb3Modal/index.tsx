@@ -1,13 +1,13 @@
+import { providers } from "ethers";
 import { useEffect, useRef, useState } from "react";
 import type Web3Modal from "web3modal";
-import { providers } from "ethers";
 import {
-  web3InitialState,
   ConnectedWeb3State,
+  TypedProvider,
+  web3InitialState,
   Web3ModalState,
   Web3ModalStrings,
   Web3State,
-  TypedProvider,
 } from "../../components/Web3Context/types";
 
 /** React Hook to create and manage the web3Modal lifecycle */
