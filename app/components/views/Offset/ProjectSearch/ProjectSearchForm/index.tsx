@@ -47,9 +47,9 @@ export const ProjectSearchForm: FC<Props> = (props) => {
   const filterProjectsByToken = (
     projects: CarbonProject[]
   ): CarbonProject[] => {
-    const selectedRetirementToken = props.selectedRetirementToken.toUpperCase();
-    console.log(selectedRetirementToken);
+    if (props.selectedRetirementToken === "mco2") return [];
 
+    const selectedRetirementToken = props.selectedRetirementToken.toUpperCase();
     return filter(
       projects,
       (project) =>

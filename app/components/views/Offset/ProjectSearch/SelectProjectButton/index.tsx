@@ -64,9 +64,12 @@ export const SelectProjectButton: FC<Props> = (props) => {
         {props.project.country || props.project.region}
       </Text>
 
-      <Text t="badge">
-        Available tonnes: {trimWithLocale(availableTonnes.toString(), 2, "en")}
-      </Text>
+      {props.selectedRetirementToken !== "mco2" && (
+        <Text t="badge">
+          Available tonnes:{" "}
+          {trimWithLocale(availableTonnes.toString(), 2, "en")}
+        </Text>
+      )}
     </button>
   );
 };
