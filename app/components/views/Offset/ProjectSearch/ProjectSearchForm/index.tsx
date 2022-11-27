@@ -44,7 +44,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
       .join(" & ");
   };
 
-  const filterProjectsByToken = (
+  const filterProjectsByTokenPool = (
     projects: CarbonProject[]
   ): CarbonProject[] => {
     if (props.selectedRetirementToken === "mco2") return [];
@@ -63,8 +63,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
       const query = createQuery();
       const projects = await queryCarbonProjectDetails(query);
 
-      console.log(filterProjectsByToken(projects));
-      props.setProjects(filterProjectsByToken(projects));
+      props.setProjects(filterProjectsByTokenPool(projects));
       props.setStep("selectProject");
       props.setIsLoading(false);
     } catch (error) {
