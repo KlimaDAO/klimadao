@@ -8,7 +8,11 @@ import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
-import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
+import {
+  concatAddress,
+  getImageSizes,
+  trimWithLocale,
+} from "@klimadao/lib/utils";
 import { urls } from "@klimadao/lib/constants";
 
 import { Navigation } from "components/Navigation";
@@ -29,6 +33,11 @@ import { ProjectDetails } from "./ProjectDetails";
 import { RetirementFooter } from "../Footer";
 import * as styles from "./styles";
 import { CopyAddressButton } from "@klimadao/lib/components";
+import sunsetMountains from "public/sunset-mountains.jpg";
+import Image from "next/image";
+import { cx } from "@emotion/css";
+import droneView from "public/drone_view.png";
+import { createLinkWithLocaleQuery } from "lib/i18n";
 
 const LoadingCertificateButton: React.FC = () => (
   <ButtonPrimary
@@ -211,26 +220,19 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         </div>
       </Section>
 
-      <Section variant="gray" className={styles.sectionButtons}>
-        <div className={styles.sectionButtonsWrap}>
-          <TweetButton
-            title={`${retiree} retired ${retireData.amount} Tonnes of carbon`}
-            tags={["klimadao", "Offset"]}
-          />
-          <FacebookButton />
-          <LinkedInButton />
-        </div>
-      </Section>
-
-      <Section variant="gray" className={styles.sectionButtons}>
+      <Section
+        variant="gray"
+        className={cx(styles.section, styles.sectionButtons)}
+      >
         <div className={styles.sectionButtonsWrap}>
           <CopyAddressButton label="Copy Link" variant="lightGray" />
           {retireData.transactionID && (
             <ButtonPrimary
-              variant="gray"
               href={`https://polygonscan.com/tx/${retireData.transactionID}`}
               target="_blank"
+              variant="gray"
               rel="noopener noreferrer"
+              // variant="lightGray"
               label={t({
                 id: "retirement.single.view_on_polygon_scan",
                 message: "View on Polygonscan",
@@ -241,14 +243,86 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         </div>
       </Section>
 
-      {props.retirement?.offset && (
-        <ProjectDetails
-          projectDetails={props.projectDetails}
-          offset={props.retirement.offset}
-        />
-      )}
+      <Section variant="gray" className={styles.section}>
+        <div className={styles.share_content}>
+          <Image
+            alt="Sunset Mountains"
+            src={sunsetMountains}
+            layout="fill"
+            objectFit="cover"
+            sizes={getImageSizes({ large: "1072px" })}
+            placeholder="blur"
+            className="image"
+          />
+          <Text className="title" t="h3">
+            <Trans id="retirement.share.title">Share your impact</Trans>
+          </Text>
+          <div className="buttons">
+            <TweetButton
+              title={`${retiree} retired ${retireData.amount} Tonnes of carbon`}
+              tags={["klimadao", "Offset"]}
+            />
+            <FacebookButton />
+            <LinkedInButton />
+            <CopyAddressButton variant="lightGray" />
+          </div>
+        </div>
+      </Section>
 
-      <RetirementFooter />
+      {props.retirement?.offset && (
+        <Section variant="gray" className={styles.section}>
+          <ProjectDetails
+            projectDetails={props.projectDetails}
+            offset={props.retirement.offset}
+          />
+        </Section>
+      )}
+      <Section variant="gray" className={styles.section}>
+        <RetirementFooter />
+      </Section>
+
+      <Section variant="gray" className={styles.section}>
+        <div className={styles.footerBuyKlima}>
+          <Image
+            alt="Drone View"
+            src={droneView}
+            layout="fill"
+            objectFit="cover"
+            sizes={getImageSizes({ large: "1072px" })}
+            placeholder="blur"
+          />
+          <div className={styles.buyKlimaImageGradient}></div>
+          <Text t="h2" as="h2" className={styles.footerBuyKlimaText}>
+            <Trans id="retirement.footer.buy_klima.title">
+              Acquire, stake, and get rewarded.
+            </Trans>
+          </Text>
+          <Text className={styles.footerBuyKlimaText}>
+            <Trans id="retirement.footer.buy_klima.text">
+              Use carbon-backed KLIMA tokens to govern, swap, and earn staking
+              rewards— then use those rewards to offset your emissions!
+            </Trans>
+          </Text>
+          <div className={styles.footerButtons}>
+            <ButtonPrimary
+              label={t({
+                id: "retirement.footer.buy_klima.button.buy",
+                message: "Buy",
+              })}
+              href={urls.buy}
+            />
+            <ButtonPrimary
+              label={t({
+                id: "retirement.footer.buy_klima.button.offset",
+                message: "Offset",
+              })}
+              href={createLinkWithLocaleQuery(urls.offset, locale)}
+              variant="gray"
+            />
+          </div>
+        </div>
+      </Section>
+
       <Footer />
     </>
   );

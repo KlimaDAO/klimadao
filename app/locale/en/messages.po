@@ -552,7 +552,7 @@ msgstr "Thank you. By participating in the voluntary carbon market, you are maki
 msgid "offset.successModal.body2"
 msgstr "Click the button below to view your retirement. Consider sharing the page to support us on our journey towards a more transparent, accessible and rewarding carbon market!"
 
-#: components/views/Offset/RetirementSuccessModal/index.tsx:50
+#: components/views/Offset/RetirementSuccessModal/index.tsx:47
 msgid "offset.successModal.cta"
 msgstr "VIEW RETIREMENT"
 
@@ -640,7 +640,7 @@ msgstr "A percent of total token supply. Your index-adjusted claim may not excee
 msgid "pklima.update"
 msgstr "The updated contract now assumes pKLIMA holders have staked and earned rewards on previously claimed tokens. Prior to the November fix, these staking rewards were not counted against your supply share limit, which meant your share of the total KLIMA supply could surpass the limit defined in your terms."
 
-#: components/TransactionModal/Approve.tsx:100
+#: components/TransactionModal/Approve.tsx:97
 #: components/views/Bond/index.tsx:453
 #: components/views/Offset/index.tsx:430
 #: components/views/Stake/index.tsx:259
@@ -882,11 +882,11 @@ msgstr "Contract address"
 msgid "transaction_modal.approve_quantity.quantity"
 msgstr "Quantity to approve"
 
-#: components/TransactionModal/Submit.tsx:106
+#: components/TransactionModal/Submit.tsx:101
 msgid "transaction_modal.close"
 msgstr "Close"
 
-#: components/TransactionModal/Approve.tsx:113
+#: components/TransactionModal/Approve.tsx:105
 msgid "transaction_modal.next"
 msgstr "Next"
 
@@ -894,7 +894,7 @@ msgstr "Next"
 msgid "transaction_modal.submit.amount"
 msgstr "Confirm amount"
 
-#: components/TransactionModal/Submit.tsx:96
+#: components/TransactionModal/Submit.tsx:93
 msgid "transaction_modal.submit.button"
 msgstr "Submit"
 

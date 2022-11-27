@@ -552,7 +552,7 @@ msgstr ""
 msgid "offset.successModal.body2"
 msgstr ""
 
-#: components/views/Offset/RetirementSuccessModal/index.tsx:50
+#: components/views/Offset/RetirementSuccessModal/index.tsx:47
 msgid "offset.successModal.cta"
 msgstr ""
 
@@ -640,7 +640,7 @@ msgstr ""
 msgid "pklima.update"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:100
+#: components/TransactionModal/Approve.tsx:97
 #: components/views/Bond/index.tsx:453
 #: components/views/Offset/index.tsx:430
 #: components/views/Stake/index.tsx:259
@@ -882,11 +882,11 @@ msgstr ""
 msgid "transaction_modal.approve_quantity.quantity"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:106
+#: components/TransactionModal/Submit.tsx:101
 msgid "transaction_modal.close"
 msgstr ""
 
-#: components/TransactionModal/Approve.tsx:113
+#: components/TransactionModal/Approve.tsx:105
 msgid "transaction_modal.next"
 msgstr ""
 
@@ -894,7 +894,7 @@ msgstr ""
 msgid "transaction_modal.submit.amount"
 msgstr ""
 
-#: components/TransactionModal/Submit.tsx:96
+#: components/TransactionModal/Submit.tsx:93
 msgid "transaction_modal.submit.button"
 msgstr ""
 
