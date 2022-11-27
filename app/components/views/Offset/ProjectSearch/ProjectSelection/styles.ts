@@ -11,7 +11,7 @@ export const projectList = css`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  max-height: 38rem;
+  max-height: 36rem;
   overflow-y: scroll;
 
   ::-webkit-scrollbar {

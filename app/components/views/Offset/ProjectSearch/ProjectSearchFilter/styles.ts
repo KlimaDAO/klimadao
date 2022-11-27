@@ -51,10 +51,6 @@ export const selectOptions = css`
   min-height: 15rem;
   max-height: 22rem;
   overflow-y: scroll;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const checkboxGroup = css`
