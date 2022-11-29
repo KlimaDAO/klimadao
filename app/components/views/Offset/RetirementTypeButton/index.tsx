@@ -4,6 +4,7 @@ import * as styles from "./styles";
 
 interface Props {
   active: boolean;
+  disabled: boolean;
   label: string;
   onClick: () => void;
 }
@@ -15,6 +16,7 @@ export const RetirementTypeButton: FC<Props> = (props) => (
     className={styles.retirementTypeButton}
     aria-label={props.label}
     data-active={props.active}
+    disabled={props.disabled}
   >
     {props.label}
   </button>

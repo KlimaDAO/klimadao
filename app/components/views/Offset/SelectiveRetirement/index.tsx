@@ -28,6 +28,8 @@ export const SelectiveRetirement: FC<Props> = (props) => {
     null
   );
 
+  const disableSelectiveRetirement = props.selectedRetirementToken === "mco2";
+
   /** toggle input via address when query params are loaded */
   useEffect(() => {
     if (!selectedProject && !!props.projectAddress) {
@@ -77,11 +79,13 @@ export const SelectiveRetirement: FC<Props> = (props) => {
           <RetirementTypeButton
             label="Find project"
             active={inputMode === "search"}
+            disabled={disableSelectiveRetirement}
             onClick={() => setInputMode("search")}
           />
           <RetirementTypeButton
             label="0x Address"
             active={inputMode === "address"}
+            disabled={disableSelectiveRetirement}
             onClick={() => setInputMode("address")}
           />
         </div>

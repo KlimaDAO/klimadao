@@ -12,9 +12,9 @@ export const retirementTypeButton = css`
   min-height: 4.8rem;
   justify-content: center;
 
-  &:focus,
-  &:hover {
-    cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
   }
 
   &[data-active="true"] {
