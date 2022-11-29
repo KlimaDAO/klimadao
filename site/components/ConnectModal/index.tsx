@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
-
-const DynamicContent = dynamic(
-  () => import("./ConnectContent").then((mod) => mod.ConnectContent),
-  {
-    ssr: false,
-  }
-);
+import { ConnectContent } from "./ConnectContent";
 
 export const ConnectModal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -53,7 +46,7 @@ export const ConnectModal = () => {
           }}
         />
       )}
-      <DynamicContent
+      <ConnectContent
         showModal={showModal}
         handleConnect={handleConnect}
         setShowModal={setShowModal}

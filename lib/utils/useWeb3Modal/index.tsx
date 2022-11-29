@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { CoinbaseWalletSDK } from "@coinbase/wallet-sdk";
-import Torus from "@toruslabs/torus-embed";
-import WalletConnectProvider from "@walletconnect/web3-provider";
 import { urls } from "../../constants";
 import {
   web3InitialState,
   ConnectedWeb3State,
   Web3ModalState,
   Web3State,
-  // TypedProvider,
+  TypedProvider,
 } from "../../components/Web3Context/types";
 
 /** React Hook to create and manage the web3Modal lifecycle */
@@ -55,6 +52,8 @@ export const useWeb3Modal = (): Web3ModalState => {
         setWeb3State(newState);
         localStorage.setItem("web3-wallet", "injected");
       } else if (wallet === "coinbase" || connectedWallet === "coinbase") {
+        const CoinbaseWalletSDK = (await import("@coinbase/wallet-sdk"))
+          .CoinbaseWalletSDK;
         const coinbaseWallet = new CoinbaseWalletSDK({
           appName: "KlimaDAO App",
           darkMode: false,
@@ -81,6 +80,9 @@ export const useWeb3Modal = (): Web3ModalState => {
         wallet === "walletConnect" ||
         connectedWallet === "walletConnect"
       ) {
+        const WalletConnectProvider = (
+          await import("@walletconnect/web3-provider")
+        ).default;
         const walletConnectProvider = new WalletConnectProvider({
           rpc: { 137: urls.polygonMainnetRpc },
         });
@@ -101,6 +103,7 @@ export const useWeb3Modal = (): Web3ModalState => {
         setWeb3State(newState);
         localStorage.setItem("web3-wallet", "walletConnect");
       } else if (wallet === "torus" || connectedWallet === "torus") {
+        const Torus = (await import("@toruslabs/torus-embed")).default;
         const torus = new Torus();
         await torus.init({
           network: {
@@ -108,6 +111,7 @@ export const useWeb3Modal = (): Web3ModalState => {
             chainId: 137,
             networkName: "Polygon",
           },
+          showTorusButton: false,
         });
         await torus.login();
         const provider = new ethers.providers.Web3Provider(
@@ -146,8 +150,6 @@ export const useWeb3Modal = (): Web3ModalState => {
   useEffect(() => {
     if (!web3state.provider) return;
     const handleDisconnect = () => {
-      // when force-disconnecting via metamask ui, prevent an infinite reconnect loop
-      // web3Modal?.clearCachedProvider();
       window.location.reload();
     };
     const handleAccountsChanged = () => {
