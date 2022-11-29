@@ -19,6 +19,8 @@ export default async function handler(
           pledge: req.body.pledge,
           signature,
           secondaryWalletAddress: req.body.secondaryWalletAddress,
+          action: req.body.action,
+          // url in here?
         });
 
         if (!pledge) {

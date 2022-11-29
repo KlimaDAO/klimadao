@@ -68,6 +68,7 @@ export interface findOrCreatePledgeParams {
   pageAddress: string;
   signature: string;
   secondaryWalletAddress: string;
+  action: string;
 }
 
 export const findOrCreatePledge = async (
@@ -82,9 +83,8 @@ export const findOrCreatePledge = async (
     const pledgeRef = await pledgeCollectionRef.doc(params.pledge.id).get();
     const currentPledge = pledgeRef.data();
 
-    if (!currentPledge) return null;
-    const currentNonce = currentPledge.nonce.toString();
     // check current pledge here which will still be an object. always check currentPledge for pending, etc bc currentPledge is source of truth
+    if (!currentPledge) return null;
 
     const invitedAddress =
       params.secondaryWalletAddress &&
@@ -97,7 +97,7 @@ export const findOrCreatePledge = async (
       currentPledge.wallets[params.secondaryWalletAddress] &&
       currentPledge.wallets[params.secondaryWalletAddress].status ===
         "verified";
-
+    // check if user is verified on another pledge
     const snapshot = await admin
       .firestore()
       .collection("pledges")
@@ -108,18 +108,11 @@ export const findOrCreatePledge = async (
       )
       .get();
     const isNotAlreadyAdded = snapshot.empty;
-    // if a user is invited they can either remove or confirm so this checks
-    // if they are confirming
-    const isAccepting =
-      params.secondaryWalletAddress &&
-      ethers.utils.verifyMessage(
-        approveSecondaryWallet(currentPledge.nonce.toString()),
-        params.signature
-      ) === params.secondaryWalletAddress;
+
     // check if secondary wallet is signing to accept (could also be true if the user is rejecting so this is problem)
-    if (invitedAddress && isNotAlreadyAdded && isAccepting) {
+    if (invitedAddress && isNotAlreadyAdded && params.action === "accepting") {
       await verifySignature({
-        expectedMessage: approveSecondaryWallet(currentNonce),
+        expectedMessage: approveSecondaryWallet(currentPledge.nonce.toString()),
         address: params.secondaryWalletAddress,
         signature: params.signature,
       });
@@ -140,7 +133,7 @@ export const findOrCreatePledge = async (
         },
       });
     }
-    if (!isNotAlreadyAdded && isAccepting) {
+    if (!isNotAlreadyAdded && params.action === "accepting") {
       // respond with error message here and check error name in pages/api/pledge
       const e = new Error(
         "This wallet is already pinned to another pledge. Please unpin your wallet and try again."
@@ -148,10 +141,14 @@ export const findOrCreatePledge = async (
       e.name = "WalletAlreadyPinned";
       throw e;
     }
-    // remove wallet from pledge
-    if ((invitedAddress || verifiedAddress) && params.secondaryWalletAddress) {
+    // remove/reject wallet from pledge
+    if (
+      (invitedAddress || verifiedAddress) &&
+      params.secondaryWalletAddress &&
+      params.action === "rejecting"
+    ) {
       await verifySignature({
-        expectedMessage: removeSecondaryWallet(currentNonce),
+        expectedMessage: removeSecondaryWallet(currentPledge.nonce.toString()),
         address: params.secondaryWalletAddress,
         signature: params.signature,
       });
@@ -170,23 +167,21 @@ export const findOrCreatePledge = async (
           wallets: Object.values(newWallets),
         },
       });
-    } else {
-      // update existing pledge document
-      await verifySignature({
-        address: currentPledge.ownerAddress,
-        signature: params.signature,
-        expectedMessage: editPledgeMessage(currentNonce),
-      });
-
-      const pledgeAttributes = putPledgeAttributes({
-        currentPledgeValues: currentPledge,
-        newPledgeValues: params.pledge,
-      });
-
-      await pledgeRef.ref.update(pledgeAttributes);
-
-      return pledgeAttributes;
     }
+    // update existing pledge document
+    await verifySignature({
+      address: currentPledge.ownerAddress,
+      signature: params.signature,
+      expectedMessage: editPledgeMessage(currentPledge.nonce.toString()),
+    });
+
+    const pledgeAttributes = putPledgeAttributes({
+      currentPledgeValues: currentPledge,
+      newPledgeValues: params.pledge,
+    });
+
+    await pledgeRef.ref.update(pledgeAttributes);
+    return pledgeAttributes;
   } else {
     // create new pledge document
     await verifySignature({
