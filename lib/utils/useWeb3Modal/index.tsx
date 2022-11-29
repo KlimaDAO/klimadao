@@ -15,10 +15,10 @@ import {
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useWeb3Modal = (): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
-  // const web3Modal = useLocalizedModal(strings);
-
+  // TODO make no torus button
   const disconnect = async () => {
     setWeb3State(web3InitialState);
+    localStorage.removeItem("web3-wallet");
     if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
       await (web3state.provider?.provider as any).torus.cleanUp();
       // triggers reload via accountsChanged
@@ -28,13 +28,18 @@ export const useWeb3Modal = (): Web3ModalState => {
   };
 
   const connect = async (wallet?: string): Promise<void> => {
+    const connectedWallet = localStorage.getItem("web3-wallet");
     try {
-      if (wallet === "metamask" || wallet === "brave" || window.ethereum) {
-        console.log(window.ethereum);
+      if (
+        wallet === "metamask" ||
+        wallet === "brave" ||
+        connectedWallet === "injected"
+      ) {
         const provider = new ethers.providers.Web3Provider(
           window.ethereum as any,
           137
         ) as any;
+        // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
         console.log("mm provider", provider);
         const signer = provider.getSigner();
@@ -48,8 +53,8 @@ export const useWeb3Modal = (): Web3ModalState => {
           isConnected: true,
         };
         setWeb3State(newState);
-        console.log("newState", newState);
-      } else if (wallet === "coinbase") {
+        localStorage.setItem("web3-wallet", "injected");
+      } else if (wallet === "coinbase" || connectedWallet === "coinbase") {
         const coinbaseWallet = new CoinbaseWalletSDK({
           appName: "KlimaDAO App",
           darkMode: false,
@@ -57,7 +62,8 @@ export const useWeb3Modal = (): Web3ModalState => {
 
         const provider = new ethers.providers.Web3Provider(
           coinbaseWallet.makeWeb3Provider(urls.polygonMainnetRpc, 137) as any
-        ) as any;
+        ) as unknown as TypedProvider;
+        // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
         const signer = await provider.getSigner();
         const address = await signer.getAddress();
@@ -70,8 +76,11 @@ export const useWeb3Modal = (): Web3ModalState => {
           isConnected: true,
         };
         setWeb3State(newState);
-        console.log("newState", newState);
-      } else if (wallet === "walletConnect") {
+        localStorage.setItem("web3-wallet", "coinbase");
+      } else if (
+        wallet === "walletConnect" ||
+        connectedWallet === "walletConnect"
+      ) {
         const walletConnectProvider = new WalletConnectProvider({
           rpc: { 137: urls.polygonMainnetRpc },
         });
@@ -90,8 +99,8 @@ export const useWeb3Modal = (): Web3ModalState => {
           isConnected: true,
         };
         setWeb3State(newState);
-        console.log("newState", newState);
-      } else if (wallet === "torus") {
+        localStorage.setItem("web3-wallet", "walletConnect");
+      } else if (wallet === "torus" || connectedWallet === "torus") {
         const torus = new Torus();
         await torus.init({
           network: {
@@ -115,20 +124,20 @@ export const useWeb3Modal = (): Web3ModalState => {
           isConnected: true,
         };
         setWeb3State(newState);
-        console.log("newState", newState);
+        localStorage.setItem("web3-wallet", "torus");
       } else {
         console.log("else here");
       }
     } catch (e: any) {
       console.log("error connecting:", e);
-      return e;
+      throw new Error(e);
     }
   };
 
-  // Auto connect to the cached provider if its metamask
-  // brave injects window.ethereum as well
+  // Auto connect to the cached provider if web3-wallet has a value
   useEffect(() => {
-    if (window.ethereum) {
+    const wallet = localStorage.getItem("web3-wallet");
+    if (wallet) {
       connect();
     }
   }, []);

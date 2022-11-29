@@ -1,6 +1,13 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 
+export const showModal = css`
+  /* display: none;
+  &[data-show="true"] {
+    display: block;
+  } */
+`;
+
 export const modalBackground = css`
   width: 100vw;
   height: 100vh;
@@ -82,6 +89,27 @@ export const twitter = css`
 `;
 export const discord = css`
   fill: #5865f2;
+`;
+
+export const spinner = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem;
+`;
+
+export const errorContent = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  padding-top: 2.4rem;
+  button {
+    width: 100%;
+  }
+  p {
+    color: var(--white);
+  }
 `;
 
 export const buttonBackground = css`
