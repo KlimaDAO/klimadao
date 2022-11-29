@@ -11,6 +11,9 @@ import { Activities } from "../Activities";
 import { Stats } from "../Stats";
 import { ProfileHeader } from "../ProfileHeader";
 import { Listing } from "../Listing";
+import { getUser } from "../../lib/api";
+import { pollUntil } from "../utils";
+
 import {
   TwoColLayout,
   Col,
@@ -108,13 +111,30 @@ export const ConnectedProfile: FC<Props> = (props) => {
   };
 
   const onAddListingSubmit = async () => {
+    if (!user) return; // TS typeguard
+
     setShowListingModal(false);
     try {
       setIsLoading(true);
-      console.log("LOAD USER LISTINGAGAIN");
-      setIsLoading(false);
+
+      const fetchUser = () =>
+        getUser({
+          user: props.userAddress,
+          type: "wallet",
+        });
+
+      const validate = (newUser: User) => {
+        const newListingsLength = newUser.listings.length;
+        const currentListingsLength = user.listings.length;
+        return newListingsLength > currentListingsLength;
+      };
+
+      const updatedUser = await pollUntil(fetchUser, validate, 1000);
+      setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
       console.error("LOAD USER LISTING AGAIN error", e);
+    } finally {
+      setIsLoading(false);
     }
   };
 

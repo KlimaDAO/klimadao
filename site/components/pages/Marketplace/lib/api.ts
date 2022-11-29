@@ -88,3 +88,20 @@ export const postUser = async (params: {
   }
   return data;
 };
+
+export const getUser = async (params: {
+  user: string;
+  type: "wallet" | "handle";
+}): Promise<User> => {
+  try {
+    const result = await fetch(
+      `/api/marketplace/users/${params.user}?type=${params.type}`
+    );
+
+    const json = await result.json();
+    return json;
+  } catch (e) {
+    console.error("Failed to getUser", e);
+    return Promise.reject(e);
+  }
+};

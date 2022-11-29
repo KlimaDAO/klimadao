@@ -6,11 +6,31 @@ export interface APIDefaultResponse {
   message: string;
 }
 
-const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
+const singleUser: NextApiHandler<User | APIDefaultResponse> = async (
   req,
   res
 ) => {
   switch (req.method) {
+    case "GET":
+      try {
+        const { type, user } = req.query;
+
+        if (!type || !user) {
+          return res
+            .status(400)
+            .json({ message: "Not found! Queries are not correct" });
+        }
+
+        const result = await fetch(`${marketplace.users}/${user}?type=${type}`);
+
+        const json = await result.json();
+
+        return res.status(200).json(json);
+      } catch ({ message }) {
+        console.error("Request failed:", message);
+        res.status(500).json({ message: "Internal server error" });
+      }
+      break;
     case "PUT":
       try {
         const token = req.headers.authorization?.split(" ")[1];
@@ -43,9 +63,9 @@ const updateUser: NextApiHandler<User | APIDefaultResponse> = async (
       }
       break;
     default:
-      res.setHeader("Allow", ["PUT"]);
+      res.setHeader("Allow", ["PUT", "GET"]);
       res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 };
 
-export default updateUser;
+export default singleUser;
