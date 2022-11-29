@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { Text } from "@klimadao/lib/components";
-import { ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { Trans, t } from "@lingui/macro";
 import HelpIcon from "@mui/icons-material/Help";
 
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
@@ -17,7 +17,9 @@ export const ConfirmProjectSelection: FC<Props> = (props) => (
   <div className={styles.confirmSelection}>
     <HelpIcon className={styles.icon} />
     <Text t="h5" align="center">
-      Are you sure you want to select the following project:
+      <Trans id="offset.selectiveRetirement.confirmation_message">
+        Are you sure you want to select the following project:
+      </Trans>
     </Text>
     <Text t="body3" align="center">
       {props.project.name || props.project.projectID}
@@ -25,14 +27,17 @@ export const ConfirmProjectSelection: FC<Props> = (props) => (
 
     <div className={styles.buttons}>
       <ButtonPrimary
-        label="Confirm selection"
+        label={t({
+          id: "offset.selectiveRetirement.confirm_selection",
+          message: "Confirm selection",
+        })}
         onClick={() => {
           props.setProjectAddress(props.project.tokenAddress);
           props.setStep("confirmed");
         }}
       />
       <ButtonPrimary
-        label="Back"
+        label={t({ id: "shared.back", message: "Back" })}
         onClick={() => props.setStep("selectProject")}
       />
     </div>

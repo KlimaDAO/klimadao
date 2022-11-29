@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
 
@@ -20,7 +21,9 @@ type Props = {
 export const ProjectSelection: FC<Props> = (props) => (
   <div className={styles.selectProjectContainer}>
     <Text t="caption" color="lighter">
-      Select a project to continue:
+      <Trans id="offset.selectiveRetirement.selectProject.label">
+        Select a project to continue:
+      </Trans>
     </Text>
 
     <div className={styles.projectList}>
@@ -37,11 +40,17 @@ export const ProjectSelection: FC<Props> = (props) => (
 
     <div className={styles.projectActionButtons}>
       <ButtonPrimary
-        label="Back to filters"
+        label={t({
+          id: "offset.selectiveRetirement.selectProject.back",
+          message: "Back to filters",
+        })}
         onClick={() => props.setStep("search")}
       />
       <ButtonPrimary
-        label="Select project"
+        label={t({
+          id: "offset.selectiveRetirement.selectProject.select",
+          message: "Select project",
+        })}
         onClick={() => props.setStep("confirmProject")}
         disabled={!props.selectedProject}
       />

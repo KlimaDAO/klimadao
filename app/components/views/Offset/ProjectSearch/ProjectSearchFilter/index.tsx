@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FC, LegacyRef, useState } from "react";
+import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -46,7 +47,9 @@ export const ProjectSearchFilter: FC<Props> = (props) => {
 
           {checked.length > 0 && (
             <Text t="body8" className={styles.selectedCount}>
-              {checked.length} selected
+              <Trans id="offset.selectiveRetirement.filter.options_selected">
+                {checked.length} selected
+              </Trans>
             </Text>
           )}
         </div>

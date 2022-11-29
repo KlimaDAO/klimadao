@@ -8,7 +8,7 @@ export const types = [
   { label: "Other", value: "Other" },
 ];
 
-export const countries = [
+export const regions = [
   { label: "Asia", value: "Asia" },
   { label: "Bolivia", value: "Bolivia" },
   { label: "Brazil", value: "Brazil" },
@@ -57,50 +57,3 @@ export const vintages = [
   label: vintage,
   value: vintage,
 }));
-
-export const mockProjectDetails = [
-  {
-    id: "0x262174c66306cf03025cb324a31c1eef8e8be9c2",
-    tokenAddress: "0x262174c66306cf03025cb324a31c1eef8e8be9c2",
-    name: "Renewable Energy Project by LNB Group",
-    country: "India",
-    region: "Asia",
-    vintage: 1577836800,
-    methodologyCategory: "Renewable Energy",
-    category: "Energy industries (renewable/non-renewable sources)",
-    currentSupply: 333,
-  },
-  {
-    id: "0x8a28aed48cbf8d2dad6bb1d173940203d151a1c6",
-    tokenAddress: "0x8a28aed48cbf8d2dad6bb1d173940203d151a1c6",
-    name: "Hebei Guyuan County Dongxinying 199.5 MW Wind Power Project",
-    country: "China",
-    region: "Asia",
-    vintage: 1546300800,
-    methodologyCategory: "Renewable Energy",
-    category: "Energy industries (renewable/non-renewable sources)",
-    currentSupply: 2,
-  },
-  {
-    id: "0x7dbeebf8c2356ff8c53e41928c9575054a6f331b",
-    tokenAddress: "0x7dbeebf8c2356ff8c53e41928c9575054a6f331b",
-    name: "Pacajai REDD+ Project",
-    country: "Brazil",
-    region: "Latin America",
-    vintage: 1483228800,
-    methodologyCategory: "Forestry",
-    category: "Agriculture Forestry and Other Land Use",
-    currentSupply: 28903,
-  },
-  {
-    id: "0x4e9b0757b1783384d1d089b00543f324f3a6688c",
-    tokenAddress: "0x4e9b0757b1783384d1d089b00543f324f3a6688c",
-    name: "Shandong Taipingshan Wind Farm Project",
-    country: "China",
-    region: "Asia",
-    vintage: 1388534400,
-    methodologyCategory: "Renewable Energy",
-    category: "Energy industries (renewable/non-renewable sources)",
-    currentSupply: 16993,
-  },
-];

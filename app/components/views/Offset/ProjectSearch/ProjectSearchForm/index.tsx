@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { t } from "@lingui/macro";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
 import isEmpty from "lodash/isEmpty";
@@ -9,8 +10,7 @@ import {
   CarbonProject,
 } from "../../SelectiveRetirement/queryProjectDetails";
 import { ProjectSearchFilter } from "../ProjectSearchFilter";
-
-import { types, countries, vintages } from "../filterOptions";
+import * as filterOptions from "../filterOptions";
 import { ProjectSearchStep } from "../";
 
 type Props = {
@@ -79,29 +79,44 @@ export const ProjectSearchForm: FC<Props> = (props) => {
     <>
       <div>
         <ProjectSearchFilter
-          name="type"
-          options={types}
+          name={t({
+            id: "offset.selectiveRetirement.filters.type",
+            message: "type",
+          })}
+          options={filterOptions.types}
           isOpen={currentFilter === "type"}
           onClick={setCurrentFilter}
           onChange={setType}
         />
         <ProjectSearchFilter
-          name="region"
-          options={countries}
+          name={t({
+            id: "offset.selectiveRetirement.filters.region",
+            message: "region",
+          })}
+          options={filterOptions.regions}
           isOpen={currentFilter === "region"}
           onClick={setCurrentFilter}
           onChange={setRegion}
         />
         <ProjectSearchFilter
-          name="vintage"
-          options={vintages}
+          name={t({
+            id: "offset.selectiveRetirement.filters.vintage",
+            message: "vintage",
+          })}
+          options={filterOptions.vintages}
           isOpen={currentFilter === "vintage"}
           onClick={setCurrentFilter}
           onChange={setVintage}
         />
       </div>
 
-      <ButtonPrimary label="Find project" onClick={handleSubmit} />
+      <ButtonPrimary
+        label={t({
+          id: "offset.selectiveRetirement.filters.find_project",
+          message: "Find project",
+        })}
+        onClick={handleSubmit}
+      />
     </>
   );
 };

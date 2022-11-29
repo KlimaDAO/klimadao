@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
 import isEmpty from "lodash/isEmpty";
@@ -68,13 +69,18 @@ export const ProjectSearch: FC<Props> = (props) => {
           <div className={styles.noResultsContainer}>
             <ErrorIcon />
             <Text t="body8" align="center">
-              We could not find any projects releated to your search. Please
-              modify the filters and try again.
+              <Trans id="offset.selectiveRetirement.empty_search_results">
+                We could not find any projects related to your search. Please
+                modify the filters and try again.
+              </Trans>
             </Text>
           </div>
 
           <ButtonPrimary
-            label="Back to filters"
+            label={t({
+              id: "offset.selectiveRetirement.back_to_filters",
+              message: "Back to filters",
+            })}
             onClick={() => setStep("search")}
           />
         </>
@@ -96,7 +102,10 @@ export const ProjectSearch: FC<Props> = (props) => {
             selectedRetirementToken={props.selectedRetirementToken}
           />
           <ButtonPrimary
-            label="Clear selection"
+            label={t({
+              id: "offset.selectiveRetirement.clear_selection",
+              message: "Clear selection",
+            })}
             variant="gray"
             onClick={() => {
               props.setProjectAddress("");

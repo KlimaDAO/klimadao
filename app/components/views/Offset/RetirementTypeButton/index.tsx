@@ -4,7 +4,7 @@ import * as styles from "./styles";
 
 interface Props {
   active: boolean;
-  disabled: boolean;
+  disabled?: boolean;
   label: string;
   onClick: () => void;
 }

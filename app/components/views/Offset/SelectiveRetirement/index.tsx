@@ -94,8 +94,10 @@ export const SelectiveRetirement: FC<Props> = (props) => {
           <div className={styles.defaultText}>
             <LeafIcon />
             <Text t="body8" align="center">
-              Allow the default project in the pool to be retired. This option
-              avoids paying extra fees.
+              <Trans id="offset.selectiveRetirement.retire_from_default_pool">
+                Allow the default project in the pool to be retired. This option
+                avoids paying extra fees.
+              </Trans>
             </Text>
           </div>
         )}

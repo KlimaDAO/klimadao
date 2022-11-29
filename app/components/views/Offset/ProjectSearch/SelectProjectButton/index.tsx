@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Trans } from "@lingui/macro";
 import { Anchor, Text } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
 import { trimWithLocale } from "@klimadao/lib/utils";
@@ -66,8 +67,10 @@ export const SelectProjectButton: FC<Props> = (props) => {
 
       {props.selectedRetirementToken !== "mco2" && (
         <Text t="badge">
-          Available tonnes:{" "}
-          {trimWithLocale(availableTonnes.toString(), 2, "en")}
+          <Trans id="offset.selectiveRetirement.project.available_tonnes">
+            Available tonnes:{" "}
+            {trimWithLocale(availableTonnes.toString(), 2, "en")}
+          </Trans>
         </Text>
       )}
     </button>
