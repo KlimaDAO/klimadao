@@ -19,6 +19,7 @@ import { RetirementFooter } from "./Footer";
 
 import { Trans, t } from "@lingui/macro";
 import * as styles from "./styles";
+import { BuyKlima } from "./SingleRetirement/BuyKlima";
 
 type Props = {
   totalsAndBalances: RetirementsTotalsAndBalances;
@@ -138,7 +139,12 @@ export const RetirementPage: NextPage<Props> = (props) => {
           <CopyAddressButton label="Copy Link" variant="lightGray" />
         </div>
       </Section>
-      <RetirementFooter />
+      <Section variant="gray" className={styles.section}>
+        <RetirementFooter />
+      </Section>
+      <Section variant="gray" className={styles.section}>
+        <BuyKlima />
+      </Section>
       <Footer />
     </>
   );
