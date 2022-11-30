@@ -69,18 +69,31 @@ export const AddListing: FC<Props> = (props) => {
       );
 
       const allowance = await tokenContract.allowance(address, marketplace);
+      console.log(
+        "allowance 1",
+        !!allowance && ethers.utils.formatUnits(allowance)
+      );
 
-      logStatus(`Your allowance value: ${ethers.utils.formatUnits(allowance)}`);
+      const hasApproval = () => {
+        const allowanceValue =
+          !!allowance && ethers.utils.formatUnits(allowance);
+        return (
+          !!allowanceValue &&
+          Number(allowanceValue) >= Number(values.totalAmountToSell)
+        );
+      };
 
-      const approvedValue = await changeApprovalTransaction({
-        tokenAddress: c3token,
-        spenderAddress: marketplace,
-        provider: provider,
-        value: values.totalAmountToSell,
-        onStatus: logStatus,
-      });
+      if (!hasApproval()) {
+        const approvedValue = await changeApprovalTransaction({
+          tokenAddress: c3token,
+          spenderAddress: marketplace,
+          provider: provider,
+          value: values.totalAmountToSell,
+          onStatus: logStatus,
+        });
 
-      logStatus(`Done! Approved Value: ${approvedValue}`);
+        logStatus(`Done! Approved Value: ${approvedValue}`);
+      }
 
       const marketPlaceContract = new ethers.Contract(
         marketplace,
@@ -88,7 +101,12 @@ export const AddListing: FC<Props> = (props) => {
         provider.getSigner()
       );
 
-      logStatus(`Start Add Listing`);
+      logStatus(
+        t({
+          id: "marketplace.profile.add_listing.start_add_listing",
+          message: "Confirm creating a listing in your wallet",
+        })
+      );
 
       const listingTxn = await marketPlaceContract.addListing(
         values.tokenAddress,
@@ -98,15 +116,35 @@ export const AddListing: FC<Props> = (props) => {
         [] // TODO batches price
       );
 
-      logStatus(`Wait for Network Approval`);
+      logStatus(
+        t({
+          id: "marketplace.profile.add_listing.wait_for_network_approval",
+          message: "Waiting for network approval ...",
+        })
+      );
       await listingTxn.wait(1);
 
       setIsLoading(false);
       props.onSubmit();
-    } catch (error) {
+    } catch (error: any) {
       setIsLoading(false);
       console.error(error);
-      setErrorMessage("UUPS");
+
+      if (error.message?.includes("ACTION_REJECTED")) {
+        setErrorMessage(
+          t({
+            id: "marketplace.profile.add_listing.rejected",
+            message: "You chose to cancel this transaction.",
+          })
+        );
+      } else {
+        setErrorMessage(
+          t({
+            id: "marketplace.profile.add_listing.error",
+            message: "There was an error creating a new listing.",
+          })
+        );
+      }
     }
   };
 
@@ -171,15 +209,21 @@ export const AddListing: FC<Props> = (props) => {
               formState.errors.singleUnitPrice && "Single Price is required"
             }
           />
-          {isLoading && <Spinner />}
           {hasError && (
-            <Text t="caption" className="error">
-              There was an error with the API. Please try again
+            <Text t="caption" className={styles.errorMessage}>
+              {errorMessage}
             </Text>
           )}
-          {!hasError && !!statusMessage && (
-            <Text t="caption">{statusMessage}</Text>
+
+          {isLoading && (
+            <div className={styles.statusMessage}>
+              <Text t="caption" align="center" className={styles.loadingText}>
+                <Spinner />
+                {statusMessage && <i>{statusMessage}</i>}
+              </Text>
+            </div>
           )}
+
           {!isLoading && (
             <ButtonPrimary
               label={

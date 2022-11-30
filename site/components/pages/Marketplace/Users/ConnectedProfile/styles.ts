@@ -77,3 +77,8 @@ export const loadingText = css`
   color: var(--klima-green);
   align-items: center;
 `;
+
+export const statusMessage = css`
+  display: flex;
+  justify-content: center;
+`;

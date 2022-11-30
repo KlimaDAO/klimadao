@@ -40,7 +40,7 @@ type Props = {
 export const ConnectedProfile: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.marketplaceUser);
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
-  const [isLoadingAssets, setIsLoadingAssets] = useState(false);
+  const [isLoadingAssets, setIsLoadingAssets] = useState(true);
   const [isLoadingNewListing, setIsLoadingNewListing] = useState(false);
   const [showListingModal, setShowListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -51,6 +51,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
   // load Assets once
   useEffect(() => {
     if (!hasAssets) {
+      setIsLoadingAssets(false);
       setErrorMessage(
         t({
           id: "marketplace.profile.missing_assets",
@@ -62,7 +63,6 @@ export const ConnectedProfile: FC<Props> = (props) => {
     if (hasAssets && !assetsData) {
       const getAssetsData = async () => {
         try {
-          setIsLoadingAssets(true);
           const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
 
           const assetsData = await user.assets.reduce<Promise<Asset[]>>(
