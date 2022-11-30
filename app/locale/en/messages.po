@@ -516,11 +516,11 @@ msgstr "Enter quantity to offset"
 msgid "offset.retire_carbon"
 msgstr "Retire Carbon"
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:51
+#: components/views/Offset/SelectiveRetirement/index.tsx:52
 msgid "offset.retire_specific"
 msgstr "Retire specific project tokens (optional)"
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:57
+#: components/views/Offset/SelectiveRetirement/index.tsx:58
 msgid "offset.retire_specific_tooltip"
 msgstr "Subject to additional fee, determined by the selected pool and paid to the bridge provider."
 
@@ -540,6 +540,10 @@ msgstr "Describe the purpose of this retirement"
 msgid "offset.retiring"
 msgstr "Retiring"
 
+#: components/views/Offset/SelectiveRetirement/index.tsx:93
+msgid "offset.selectiveRetirement.address_input_type"
+msgstr "0x Address"
+
 #: components/views/Offset/ProjectSearch/index.tsx:80
 msgid "offset.selectiveRetirement.back_to_filters"
 msgstr "Back to filters"
@@ -556,6 +560,10 @@ msgstr "Confirm selection"
 msgid "offset.selectiveRetirement.confirmation_message"
 msgstr "Are you sure you want to select the following project:"
 
+#: components/views/Offset/SelectiveRetirement/index.tsx:73
+msgid "offset.selectiveRetirement.default_input_type"
+msgstr "Default"
+
 #: components/views/Offset/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
 msgstr "We could not find any projects related to your search. Please modify the filters and try again."
@@ -564,19 +572,19 @@ msgstr "We could not find any projects related to your search. Please modify the
 msgid "offset.selectiveRetirement.filter.options_selected"
 msgstr "{0} selected"
 
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:114
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:121
 msgid "offset.selectiveRetirement.filters.find_project"
 msgstr "Find project"
 
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:92
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:99
 msgid "offset.selectiveRetirement.filters.region"
 msgstr "region"
 
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:82
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:89
 msgid "offset.selectiveRetirement.filters.type"
 msgstr "type"
 
-#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:102
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:109
 msgid "offset.selectiveRetirement.filters.vintage"
 msgstr "vintage"
 
@@ -588,9 +596,13 @@ msgstr "Finding projects..."
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr "Available tonnes: {0}"
 
-#: components/views/Offset/SelectiveRetirement/index.tsx:97
+#: components/views/Offset/SelectiveRetirement/index.tsx:107
 msgid "offset.selectiveRetirement.retire_from_default_pool"
 msgstr "Allow the default project in the pool to be retired. This option avoids paying extra fees."
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:84
+msgid "offset.selectiveRetirement.search_input_type"
+msgstr "Find project"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
 msgid "offset.selectiveRetirement.selectProject.back"

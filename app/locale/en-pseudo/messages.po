@@ -6,12 +6,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en-pseudo\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: components/views/Offset/index.tsx:664
+#: components/views/Offset/index.tsx:651
 msgid "Beneficiary 0x address (optional)"
 msgstr ""
 
-#: components/views/Offset/index.tsx:653
+#: components/views/Offset/index.tsx:639
 msgid "Beneficiary name"
 msgstr ""
 
@@ -19,7 +25,7 @@ msgstr ""
 msgid "Capacity"
 msgstr ""
 
-#: components/views/Offset/index.tsx:438
+#: components/views/Offset/index.tsx:440
 msgid "Checkout"
 msgstr ""
 
@@ -37,10 +43,6 @@ msgstr ""
 
 #: components/InvalidNetworkModal/index.tsx:63
 msgid "Wrong Network"
-msgstr ""
-
-#: components/views/Offset/SelectiveRetirementInput/index.tsx:38
-msgid "advanced"
 msgstr ""
 
 #. Long sentence
@@ -326,7 +328,7 @@ msgstr ""
 msgid "choose_bond.ubo.description"
 msgstr ""
 
-#: components/views/Offset/index.tsx:717
+#: components/views/Offset/index.tsx:704
 msgid "fiat.max_quantity"
 msgstr ""
 
@@ -445,11 +447,11 @@ msgstr ""
 msgid "nav.back"
 msgstr ""
 
-#: components/views/Offset/index.tsx:701
+#: components/views/Offset/index.tsx:688
 msgid "offset.aggregation_fee_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:570
+#: components/views/Offset/index.tsx:596
 msgid "offset.amount_in_tonnes"
 msgstr ""
 
@@ -457,15 +459,15 @@ msgstr ""
 msgid "offset.breakdown"
 msgstr ""
 
-#: components/views/Offset/index.tsx:667
+#: components/views/Offset/index.tsx:654
 msgid "offset.default_retirement_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:604
+#: components/views/Offset/index.tsx:726
 msgid "offset.dropdown_payWith.label"
 msgstr ""
 
-#: components/views/Offset/index.tsx:623
+#: components/views/Offset/index.tsx:571
 msgid "offset.dropdown_retire.label"
 msgstr ""
 
@@ -473,31 +475,31 @@ msgstr ""
 msgid "offset.empty"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirementInput/index.tsx:65
+#: components/views/Offset/SelectiveRetirementInput/index.tsx:21
 msgid "offset.enter_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:550
+#: components/views/Offset/index.tsx:552
 msgid "offset.go_carbon_neutral"
 msgstr ""
 
-#: components/views/Offset/index.tsx:526
+#: components/views/Offset/index.tsx:528
 msgid "offset.incompatible"
 msgstr ""
 
-#: components/views/Offset/index.tsx:558
+#: components/views/Offset/index.tsx:560
 msgid "offset.lifi"
 msgstr ""
 
-#: components/views/Offset/index.tsx:595
+#: components/views/Offset/index.tsx:621
 msgid "offset.min_quantity_fiat"
 msgstr ""
 
-#: components/views/Offset/index.tsx:608
+#: components/views/Offset/index.tsx:730
 msgid "offset.modal_payWith.title"
 msgstr ""
 
-#: components/views/Offset/index.tsx:627
+#: components/views/Offset/index.tsx:575
 msgid "offset.modal_retire.title"
 msgstr ""
 
@@ -505,37 +507,113 @@ msgstr ""
 msgid "offset.number_of_retirements"
 msgstr ""
 
-#: components/views/Offset/index.tsx:587
+#: components/views/Offset/index.tsx:613
 msgid "offset.offset_quantity"
 msgstr ""
 
-#: components/views/Offset/index.tsx:547
-#: components/views/Offset/index.tsx:769
+#: components/views/Offset/index.tsx:549
+#: components/views/Offset/index.tsx:773
 msgid "offset.retire_carbon"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirementInput/index.tsx:46
+#: components/views/Offset/SelectiveRetirement/index.tsx:52
 msgid "offset.retire_specific"
 msgstr ""
 
-#: components/views/Offset/SelectiveRetirementInput/index.tsx:52
+#: components/views/Offset/SelectiveRetirement/index.tsx:58
 msgid "offset.retire_specific_tooltip"
 msgstr ""
 
-#: components/views/Offset/index.tsx:645
+#: components/views/Offset/index.tsx:631
 msgid "offset.retirement_credit"
 msgstr ""
 
-#: components/views/Offset/index.tsx:677
+#: components/views/Offset/index.tsx:665
 msgid "offset.retirement_message"
 msgstr ""
 
-#: components/views/Offset/index.tsx:686
+#: components/views/Offset/index.tsx:674
 msgid "offset.retirement_purpose"
 msgstr ""
 
-#: components/views/Offset/index.tsx:729
+#: components/views/Offset/index.tsx:716
 msgid "offset.retiring"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:93
+msgid "offset.selectiveRetirement.address_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:80
+msgid "offset.selectiveRetirement.back_to_filters"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:105
+msgid "offset.selectiveRetirement.clear_selection"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
+msgid "offset.selectiveRetirement.confirm_selection"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
+msgid "offset.selectiveRetirement.confirmation_message"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:73
+msgid "offset.selectiveRetirement.default_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/index.tsx:72
+msgid "offset.selectiveRetirement.empty_search_results"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:50
+msgid "offset.selectiveRetirement.filter.options_selected"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:121
+msgid "offset.selectiveRetirement.filters.find_project"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:99
+msgid "offset.selectiveRetirement.filters.region"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:89
+msgid "offset.selectiveRetirement.filters.type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:109
+msgid "offset.selectiveRetirement.filters.vintage"
+msgstr ""
+
+#: components/views/Offset/LoadingOverlay/index.tsx:12
+msgid "offset.selectiveRetirement.finding_projects"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:70
+msgid "offset.selectiveRetirement.project.available_tonnes"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:107
+msgid "offset.selectiveRetirement.retire_from_default_pool"
+msgstr ""
+
+#: components/views/Offset/SelectiveRetirement/index.tsx:84
+msgid "offset.selectiveRetirement.search_input_type"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
+msgid "offset.selectiveRetirement.selectProject.back"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
+msgid "offset.selectiveRetirement.selectProject.label"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
+msgid "offset.selectiveRetirement.selectProject.select"
 msgstr ""
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:25
@@ -562,11 +640,11 @@ msgstr ""
 msgid "offset.you_have_retired"
 msgstr ""
 
-#: components/views/Offset/index.tsx:697
+#: components/views/Offset/index.tsx:684
 msgid "offset_cost"
 msgstr ""
 
-#: components/views/Offset/index.tsx:741
+#: components/views/Offset/index.tsx:746
 msgid "offset_disclaimer"
 msgstr ""
 
@@ -636,10 +714,14 @@ msgstr ""
 
 #: components/TransactionModal/Approve.tsx:100
 #: components/views/Bond/index.tsx:459
-#: components/views/Offset/index.tsx:430
+#: components/views/Offset/index.tsx:432
 #: components/views/Stake/index.tsx:259
 #: components/views/Wrap/index.tsx:227
 msgid "shared.approve"
+msgstr ""
+
+#: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
+msgid "shared.back"
 msgstr ""
 
 #: components/BalancesCard/index.tsx:47
@@ -657,7 +739,7 @@ msgstr ""
 
 #: components/views/Bond/index.tsx:410
 #: components/views/Buy/index.tsx:113
-#: components/views/Offset/index.tsx:350
+#: components/views/Offset/index.tsx:352
 #: components/views/PKlima/index.tsx:150
 #: components/views/Stake/index.tsx:233
 #: components/views/Wrap/index.tsx:196
@@ -673,18 +755,18 @@ msgstr ""
 msgid "shared.enter_amount"
 msgstr ""
 
-#: components/views/Offset/index.tsx:379
+#: components/views/Offset/index.tsx:381
 msgid "shared.enter_beneficiary"
 msgstr ""
 
 #: components/views/Bond/index.tsx:422
-#: components/views/Offset/index.tsx:372
+#: components/views/Offset/index.tsx:374
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:208
 msgid "shared.enter_quantity"
 msgstr ""
 
-#: components/views/Offset/index.tsx:387
+#: components/views/Offset/index.tsx:389
 msgid "shared.enter_retirement_message"
 msgstr ""
 
@@ -694,21 +776,21 @@ msgstr ""
 msgid "shared.error"
 msgstr ""
 
-#: components/views/Offset/index.tsx:423
+#: components/views/Offset/index.tsx:425
 #: components/views/Stake/index.tsx:252
 #: components/views/Wrap/index.tsx:220
 msgid "shared.insufficient_balance"
 msgstr ""
 
-#: components/views/Offset/index.tsx:397
+#: components/views/Offset/index.tsx:399
 msgid "shared.invalid_beneficiary_addr"
 msgstr ""
 
-#: components/views/Offset/index.tsx:413
+#: components/views/Offset/index.tsx:415
 msgid "shared.invalid_project_address"
 msgstr ""
 
-#: components/views/Offset/index.tsx:406
+#: components/views/Offset/index.tsx:408
 msgid "shared.invalid_quantity"
 msgstr ""
 
@@ -717,8 +799,8 @@ msgstr ""
 #: components/RebaseCard/index.tsx:69
 #: components/views/Bond/index.tsx:416
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:356
-#: components/views/Offset/index.tsx:505
+#: components/views/Offset/index.tsx:358
+#: components/views/Offset/index.tsx:507
 #: components/views/PKlima/index.tsx:156
 #: components/views/Stake/index.tsx:239
 #: components/views/Stake/index.tsx:443
@@ -735,11 +817,11 @@ msgstr ""
 msgid "shared.max"
 msgstr ""
 
-#: components/views/Offset/index.tsx:363
+#: components/views/Offset/index.tsx:365
 msgid "shared.redirecting_checkout"
 msgstr ""
 
-#: components/views/Offset/index.tsx:444
+#: components/views/Offset/index.tsx:446
 msgid "shared.retire"
 msgstr ""
 

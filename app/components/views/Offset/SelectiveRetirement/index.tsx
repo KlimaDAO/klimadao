@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import { Text, TextInfoTooltip } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
@@ -12,6 +12,7 @@ import { LoadingOverlay } from "../LoadingOverlay";
 import { ProjectSearch } from "../ProjectSearch";
 import { CarbonProject } from "./queryProjectDetails";
 import * as styles from "./styles";
+import { offsetCard } from "../styles";
 
 type Props = {
   projectAddress: string;
@@ -69,7 +70,10 @@ export const SelectiveRetirement: FC<Props> = (props) => {
           {isLoading && <LoadingOverlay />}
 
           <RetirementTypeButton
-            label="Default"
+            label={t({
+              id: "offset.selectiveRetirement.default_input_type",
+              message: "Default",
+            })}
             active={inputMode === "default"}
             onClick={() => {
               props.setProjectAddress("");
@@ -77,13 +81,19 @@ export const SelectiveRetirement: FC<Props> = (props) => {
             }}
           />
           <RetirementTypeButton
-            label="Find project"
+            label={t({
+              id: "offset.selectiveRetirement.search_input_type",
+              message: "Find project",
+            })}
             active={inputMode === "search"}
             disabled={disableSelectiveRetirement}
             onClick={() => setInputMode("search")}
           />
           <RetirementTypeButton
-            label="0x Address"
+            label={t({
+              id: "offset.selectiveRetirement.address_input_type",
+              message: "0x Address",
+            })}
             active={inputMode === "address"}
             disabled={disableSelectiveRetirement}
             onClick={() => setInputMode("address")}
