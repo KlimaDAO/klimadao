@@ -12,7 +12,6 @@ import { LoadingOverlay } from "../LoadingOverlay";
 import { ProjectSearch } from "../ProjectSearch";
 import { CarbonProject } from "./queryProjectDetails";
 import * as styles from "./styles";
-import { offsetCard } from "../styles";
 
 type Props = {
   projectAddress: string;
