@@ -27,7 +27,7 @@ export const UnconnectedProfile: FC<Props> = (props) => {
     <>
       <div className={styles.fullWidth}>
         <ProfileHeader
-          userName={props.userName}
+          userName={userData?.username || props.userName}
           isMarketplaceUser={!!userData}
           description={userData?.description}
         />

@@ -145,7 +145,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
     <>
       <div className={styles.fullWidth}>
         <ProfileHeader
-          userName={props.userName}
+          userName={user?.username || props.userName}
           isMarketplaceUser={!!user}
           description={
             user?.description ||
