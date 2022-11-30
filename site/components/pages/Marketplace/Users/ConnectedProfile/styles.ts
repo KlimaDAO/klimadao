@@ -40,6 +40,12 @@ export const inputsContainer = css`
 export const createListingButton = css`
   border-color: var(--font-01);
   color: var(--font-01) !important;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 50%;
+    cursor: not-allowed;
+  }
 `;
 
 export const addListingButtonText = css`
@@ -60,16 +66,14 @@ export const addListingButtonIcon = css`
 `;
 
 export const errorMessage = css`
-  font-size: 1.2rem;
-  line-height: 1.4rem;
-  font-weight: 400;
   color: var(--warn);
   margin-bottom: 0.2rem;
   word-break: break-word;
+`;
 
-  ${breakpoints.large} {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    margin-bottom: 0.8rem;
-  }
+export const loadingText = css`
+  display: flex;
+  gap: 1.2rem;
+  color: var(--klima-green);
+  align-items: center;
 `;

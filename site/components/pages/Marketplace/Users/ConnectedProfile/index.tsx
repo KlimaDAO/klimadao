@@ -11,6 +11,8 @@ import { Activities } from "../Activities";
 import { Stats } from "../Stats";
 import { ProfileHeader } from "../ProfileHeader";
 import { Listing } from "../Listing";
+import { Card } from "components/pages/Marketplace/shared/Card";
+
 import { getUser } from "../../lib/api";
 import { pollUntil } from "../utils";
 
@@ -38,7 +40,8 @@ type Props = {
 export const ConnectedProfile: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.marketplaceUser);
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingAssets, setIsLoadingAssets] = useState(false);
+  const [isLoadingNewListing, setIsLoadingNewListing] = useState(false);
   const [showListingModal, setShowListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -51,7 +54,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
       setErrorMessage(
         t({
           id: "marketplace.profile.missing_assets",
-          message: "You do not have any c3 tokens... :(",
+          message: "You do not have any c3 tokens to create a listing :(",
         })
       );
     }
@@ -59,7 +62,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
     if (hasAssets && !assetsData) {
       const getAssetsData = async () => {
         try {
-          setIsLoading(true);
+          setIsLoadingAssets(true);
           const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
 
           const assetsData = await user.assets.reduce<Promise<Asset[]>>(
@@ -98,7 +101,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
             })
           );
         } finally {
-          setIsLoading(false);
+          setIsLoadingAssets(false);
         }
       };
       getAssetsData();
@@ -115,7 +118,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
 
     setShowListingModal(false);
     try {
-      setIsLoading(true);
+      setIsLoadingNewListing(true);
 
       const fetchUser = () =>
         getUser({
@@ -123,18 +126,18 @@ export const ConnectedProfile: FC<Props> = (props) => {
           type: "wallet",
         });
 
-      const validate = (newUser: User) => {
+      const listingIsAdded = (newUser: User) => {
         const newListingsLength = newUser.listings.length;
         const currentListingsLength = user.listings.length;
         return newListingsLength > currentListingsLength;
       };
 
-      const updatedUser = await pollUntil(fetchUser, validate, 1000);
+      const updatedUser = await pollUntil(fetchUser, listingIsAdded, 1000);
       setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
       console.error("LOAD USER LISTING AGAIN error", e);
     } finally {
-      setIsLoading(false);
+      setIsLoadingNewListing(false);
     }
   };
 
@@ -158,7 +161,9 @@ export const ConnectedProfile: FC<Props> = (props) => {
           </Text>
 
           {errorMessage && (
-            <Text className={styles.errorMessage}>{errorMessage}</Text>
+            <Text t="h5" className={styles.errorMessage}>
+              <Trans>Error: </Trans> {errorMessage}
+            </Text>
           )}
 
           {!hasListings && (
@@ -174,7 +179,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
 
         <ButtonSecondary
           label={
-            isLoading ? (
+            isLoadingAssets ? (
               <Spinner />
             ) : (
               <>
@@ -189,7 +194,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
               </>
             )
           }
-          disabled={isLoading || !hasAssets}
+          disabled={isLoadingAssets || !hasAssets || isLoadingNewListing}
           onClick={() => setShowListingModal(true)}
           className={styles.createListingButton}
         />
@@ -197,6 +202,16 @@ export const ConnectedProfile: FC<Props> = (props) => {
 
       <TwoColLayout>
         <Col>
+          {isLoadingNewListing && (
+            <Card>
+              <Text t="caption" className={styles.loadingText}>
+                <Spinner />
+                <i>
+                  <Trans>Loading new Listing...</Trans>
+                </i>
+              </Text>
+            </Card>
+          )}
           {hasListings &&
             user.listings.map((listing) => (
               <Listing key={listing.id} listing={listing} />
