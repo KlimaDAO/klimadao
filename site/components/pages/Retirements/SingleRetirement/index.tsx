@@ -231,7 +231,6 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
               target="_blank"
               variant="gray"
               rel="noopener noreferrer"
-              // variant="lightGray"
               label={t({
                 id: "retirement.single.view_on_polygon_scan",
                 message: "View on Polygonscan",

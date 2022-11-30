@@ -43,17 +43,11 @@ export const ProjectDetail: FC<Props> = (props) => {
         </Text>
       )}
       <div className="button_link">
-        <ButtonPrimary
-          className="gray_button"
-          variant="gray"
-          href={`https://polygonscan.com/address/${tokenAddress}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          label={t({
-            id: "retirement.single.project_details.view_on_polygon_scan",
-            message: "View on Polygonscan",
-          })}
-        />
+        <a href={`https://polygonscan.com/address/${tokenAddress}`}>
+          <Trans id="retirement.single.project_details.view_on_polygon_scan">
+            View on Polygonscan
+          </Trans>
+        </a>
       </div>
     </div>
   );
