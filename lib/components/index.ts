@@ -33,6 +33,7 @@ export { ThemeToggle } from "./ThemeToggle";
 export { InitializeTheme } from "./InitializeTheme";
 export { Web3ContextProvider } from "./Web3Context";
 export { CopyAddressButton } from "./CopyAddressButton";
+export { ConnectModal } from "./ConnectModal";
 
 /** Types */
 export type { ButtonBaseProps } from "./Buttons/ButtonBase";
