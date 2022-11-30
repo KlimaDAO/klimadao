@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Close from "@mui/icons-material/Close";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import CloseDefault from "@mui/icons-material/Close";
+import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
 import * as styles from "./styles";
 import {
   Text,
@@ -14,18 +14,27 @@ import {
   DiscordColorIcon,
   BraveIcon,
   Spinner,
-} from "@klimadao/lib/components";
-import { useFocusTrap } from "@klimadao/lib/utils";
-import { Trans, t } from "@lingui/macro";
+} from "../.";
+import { useFocusTrap } from "../../utils";
+// ems modules and javascript are strange so we import like this
+const Close = (CloseDefault as any).default as any;
+const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
 
 export const ConnectContent = (props: {
   showModal: boolean;
-  handleConnect: (props: {
-    wallet?: "coinbase" | "torus" | "walletConnect" | "metamask" | "brave";
+  handleConnect: (params: {
+    wallet: "coinbase" | "torus" | "walletConnect" | "metamask" | "brave";
   }) => void;
   setShowModal: (value: boolean) => void;
-  step: string;
-  setStep: Dispatch<SetStateAction<string>>;
+  step: "connect" | "error" | "loading";
+  setStep: Dispatch<SetStateAction<"connect" | "error" | "loading">>;
+  errorMessage: string;
+  torusText: string;
+  titles: {
+    connect: string;
+    loading: string;
+    error: string;
+  };
 }) => {
   const focusTrapRef = useFocusTrap();
   const [showMetamask, setShowMetamask] = useState(false);
@@ -39,15 +48,8 @@ export const ConnectContent = (props: {
     }
   }, []);
 
-  const getTitle = (step: string) =>
-    ({
-      connect: t({ id: "connect_modal.sign_in", message: "Sign In / Connect" }),
-      loading: t({ id: "connect_modal.connecting", message: "Connecting..." }),
-      error: t({
-        id: "connect_modal.error_title",
-        message: "Connection Error",
-      }),
-    }[step]);
+  const getTitle = (step: "connect" | "error" | "loading") =>
+    !props.titles ? "loading" : props.titles[step];
 
   return props.showModal ? (
     <div aria-modal={true}>
@@ -104,7 +106,7 @@ export const ConnectContent = (props: {
               <span className={styles.continueBox}>
                 <div className={styles.leftLine} />
                 <Text className={styles.continueText} t="badge">
-                  <Trans id="connectModal.continue">or continue with</Trans>
+                  {props.torusText}
                 </Text>
                 <div className={styles.rightLine} />
               </span>
@@ -137,11 +139,7 @@ export const ConnectContent = (props: {
           )}
           {props.step === "error" && (
             <div className={styles.errorContent}>
-              <Text t="body2">
-                <Trans id="connect_modal.error_message">
-                  We had some trouble connecting. Please try again.
-                </Trans>
-              </Text>
+              <Text t="body2">{props.errorMessage}</Text>
               <ButtonPrimary
                 label="OK"
                 onClick={() => props.setStep("connect")}

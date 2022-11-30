@@ -353,6 +353,31 @@ msgstr "We work with traditional carbon market players, crypto platforms, corpor
 msgid "concat.careers"
 msgstr "Careers"
 
+#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderMobile/index.tsx:47
+msgid "connectModal.continue"
+msgstr "or continue with"
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:56
+#: components/pages/Pledge/HeaderMobile/index.tsx:56
+msgid "connect_modal.connecting"
+msgstr "Connecting..."
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:43
+#: components/pages/Pledge/HeaderMobile/index.tsx:43
+msgid "connect_modal.error_message"
+msgstr "We had some trouble connecting. Please try again."
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:60
+#: components/pages/Pledge/HeaderMobile/index.tsx:60
+msgid "connect_modal.error_title"
+msgstr "Connection Error"
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:52
+#: components/pages/Pledge/HeaderMobile/index.tsx:52
+msgid "connect_modal.sign_in"
+msgstr "Sign In / Connect"
+
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
 msgstr "Bug Reports"
@@ -1532,7 +1557,12 @@ msgstr "Carbon Dashboards"
 msgid "shared.community"
 msgstr "Community"
 
+<<<<<<< HEAD
 #: components/pages/Pledge/HeaderMobile/index.tsx:57
+=======
+#: components/pages/Pledge/HeaderDesktop/index.tsx:65
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+>>>>>>> pr feedback complete and modal in lib
 msgid "shared.connect"
 msgstr "Connect"
 

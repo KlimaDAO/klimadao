@@ -353,6 +353,31 @@ msgstr ""
 msgid "concat.careers"
 msgstr ""
 
+#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderMobile/index.tsx:47
+msgid "connectModal.continue"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:56
+#: components/pages/Pledge/HeaderMobile/index.tsx:56
+msgid "connect_modal.connecting"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:43
+#: components/pages/Pledge/HeaderMobile/index.tsx:43
+msgid "connect_modal.error_message"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:60
+#: components/pages/Pledge/HeaderMobile/index.tsx:60
+msgid "connect_modal.error_title"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:52
+#: components/pages/Pledge/HeaderMobile/index.tsx:52
+msgid "connect_modal.sign_in"
+msgstr ""
+
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
 msgstr ""
@@ -1532,7 +1557,8 @@ msgstr ""
 msgid "shared.community"
 msgstr ""
 
-#: components/pages/Pledge/HeaderMobile/index.tsx:57
+#: components/pages/Pledge/HeaderDesktop/index.tsx:65
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
 msgid "shared.connect"
 msgstr ""
 

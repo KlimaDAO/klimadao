@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
+import breakpoints from "../../theme/breakpoints";
 
 export const showModal = css`
   /* display: none;

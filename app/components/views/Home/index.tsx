@@ -2,6 +2,7 @@ import { FC, useState, useEffect } from "react";
 import { Route, useLocation } from "react-router-dom";
 import { useAppDispatch } from "state";
 import { bonds } from "@klimadao/lib/constants";
+import { ConnectModal } from "@klimadao/lib/components";
 import { useSelector } from "react-redux";
 
 import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
@@ -26,12 +27,12 @@ import { initLocale } from "lib/i18n";
 import * as styles from "./styles";
 import { setAppState } from "state/app";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
-import { ConnectButton } from "../../ConnectButton";
 import { NavMenu } from "components/NavMenu";
 import Menu from "@mui/icons-material/Menu";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { Buy } from "../Buy";
 import { useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
 
 export const Home: FC = () => {
   const dispatch = useAppDispatch();
@@ -140,14 +141,30 @@ export const Home: FC = () => {
               />
             </div>
             <ChangeLanguageButton />
-            <ConnectButton
-              isConnected={web3.isConnected}
-              loadWeb3Modal={async () => {
-                await web3.connect?.();
+            <ConnectModal
+              errorMessage={t({
+                message: "We had some trouble connecting. Please try again.",
+                id: "connect_modal.error_message",
+              })}
+              torusText={t({
+                message: "or continue with",
+                id: "connectModal.continue",
+              })}
+              titles={{
+                connect: t({
+                  id: "connect_modal.sign_in",
+                  message: "Sign In / Connect",
+                }),
+                loading: t({
+                  id: "connect_modal.connecting",
+                  message: "Connecting...",
+                }),
+                error: t({
+                  id: "connect_modal.error_title",
+                  message: "Connection Error",
+                }),
               }}
-              disconnect={async () => {
-                await web3.disconnect?.();
-              }}
+              buttonText={t({ id: "shared.connect", message: "Connect" })}
             />
           </div>
           <IsomorphicRoutes>

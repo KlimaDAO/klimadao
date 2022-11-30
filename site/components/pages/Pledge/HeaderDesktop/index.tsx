@@ -1,9 +1,12 @@
 import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { t } from "@lingui/macro";
-import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
+import {
+  KlimaInfinityLogo,
+  ButtonPrimary,
+  ConnectModal,
+} from "@klimadao/lib/components";
 import Link from "next/link";
-import { ConnectModal } from "components/ConnectModal";
 import * as styles from "./styles";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
@@ -36,7 +39,31 @@ export const HeaderDesktop: FC<Props> = (props) => {
             onClick={() => props.toggleEditModal?.(true)}
           />
         )}
-        <ConnectModal />
+        <ConnectModal
+          errorMessage={t({
+            message: "We had some trouble connecting. Please try again.",
+            id: "connect_modal.error_message",
+          })}
+          torusText={t({
+            message: "or continue with",
+            id: "connectModal.continue",
+          })}
+          titles={{
+            connect: t({
+              id: "connect_modal.sign_in",
+              message: "Sign In / Connect",
+            }),
+            loading: t({
+              id: "connect_modal.connecting",
+              message: "Connecting...",
+            }),
+            error: t({
+              id: "connect_modal.error_title",
+              message: "Connection Error",
+            }),
+          }}
+          buttonText={t({ id: "shared.connect", message: "Connect" })}
+        />
       </div>
     </div>
   );
