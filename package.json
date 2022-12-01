@@ -22,6 +22,7 @@
     "dev-app": "npm run build-lib && npm run dev --workspace=app",
     "dev-cms": "cd ./cms && npm run start",
     "deploy-cms": "cd ./cms && npm run deploy",
+    "prettier-check": "prettier --check ./",
     "format-all": "prettier --write ./",
     "extract-strings": "npm run -w site lingui:extract && npm run -w app lingui:extract",
     "compile-strings": "npm run extract-strings && npm run -w site lingui:compile && npm run -w app lingui:compile",

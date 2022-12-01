@@ -20,11 +20,3 @@ Resolves #<issue-number>
 |img here |img here|
 
 -->
-
-## Checklist
-
-<!-- Check completed item: [X] -->
-
-- [ ] Building the site with `npm run build-site` works without errors
-- [ ] Building the app with `npm run build-app` works without errors
-- [ ] I formatted JS and TS files with running `npm run format-all`
