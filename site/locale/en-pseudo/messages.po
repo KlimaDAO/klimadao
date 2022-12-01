@@ -1009,7 +1009,7 @@ msgstr ""
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:42
+#: components/pages/Pledge/HeaderDesktop/index.tsx:38
 msgid "pledges.edit_pledge"
 msgstr ""
 

@@ -18,13 +18,11 @@ interface Props {
 }
 
 export const HeaderMobile: FC<Props> = (props) => {
-  const { address, disconnect, isConnected } = useWeb3();
-
   return (
     <div className={styles.headerMobileWrap}>
       <header className={styles.headerMobile}>
         <div className={styles.mainLogoMobile}>
-          <Link href={"/pledge"}>
+          <Link href={"/pledge"} passHref>
             <KlimaInfinityLogoOnly />
           </Link>
         </div>
