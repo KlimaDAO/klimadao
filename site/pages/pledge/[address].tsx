@@ -115,8 +115,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       const values: RetirementsTotalsAndBalances[] = await Promise.all(
         promises
       );
-      values.reduce((prev: any, curr) => {
-        if (prev) {
+      values.reduce((prev, curr) => {
           prev.totalRetirements = (
             Number(prev.totalRetirements) + Number(curr.totalRetirements)
           ).toString();
@@ -134,10 +133,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
           prev.nbo = (Number(prev.nbo) + Number(curr.nbo)).toString();
 
           return prev;
-        } else {
-          return curr;
-        }
-      });
+      }, {} as RetirementsTotalsAndBalances);
       if (values.length) {
         retirements = values[0];
       } else {
@@ -148,9 +144,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         address: resolvedAddress,
       });
     }
-    // const retirements = await getRetirementTotalsAndBalances({
-    //   address: resolvedAddress,
-    // });
 
     return {
       props: {

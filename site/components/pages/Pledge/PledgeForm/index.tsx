@@ -47,7 +47,7 @@ const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
   const categories = useWatch({ name: "categories", control });
 
   const totalFootprint: number = categories.reduce(
-    (acc, current) => Number(acc) + Number(current.quantity || 0),
+    (acc, currfretirments ent) => Number(acc) + Number(current.quantity || 0),
     0
   );
   setValue("footprint", totalFootprint);
@@ -335,7 +335,7 @@ export const PledgeForm: FC<Props> = (props) => {
                         Add other wallets to contribute to your pledge. If the
                         owner of the wallet accepts your invitation, their
                         wallet will appear on your pledge dashboard. Any
-                        retirments made by a secondary wallet will contribute
+                        retirements made by a secondary wallet will contribute
                         toward your pledge. You'll retain sole ownership and
                         editing access to this pledge.
                       </Trans>

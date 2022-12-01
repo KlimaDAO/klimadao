@@ -12,7 +12,7 @@ import * as styles from "../styles";
 import { t, Trans } from "@lingui/macro";
 import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
 import { Pledge } from "../../types";
-import { useWeb3 } from "@klimadao/lib/utils";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import {
   putPledge,
   pledgeFormAdapter,
@@ -76,7 +76,6 @@ export const RemoveModal = (props: Props) => {
       props.setShowRemoveModal(false);
     } catch (e: any) {
       setStep("error");
-      console.log("error:", e);
       setErrorMessage(getErrorMessage(e.name));
     }
   };
@@ -94,7 +93,9 @@ export const RemoveModal = (props: Props) => {
             </span>
             <Text t="body2">
               <Trans id="pledge.modal.unable_to_edit">
-                Only Primary Wallet holders can edit the content of this pledge.
+              This wallet does not have permission to edit this pledge. 
+              To edit, you must reconnect with the original 
+              author wallet ({concatAddress(props.pageAddress)}).
               </Trans>
             </Text>
           </div>

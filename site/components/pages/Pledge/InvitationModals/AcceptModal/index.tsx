@@ -82,7 +82,6 @@ export const AcceptModal = (props: Props) => {
     } catch (e: any) {
       setStep("error");
       setErrorMessage(getErrorMessage(e.name));
-      console.log("error:", e);
     }
   };
   return (

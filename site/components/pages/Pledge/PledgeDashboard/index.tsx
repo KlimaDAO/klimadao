@@ -42,12 +42,12 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const isUnverifiedSecondaryWallet =
     props.pledge.wallets &&
     Object.values(props.pledge.wallets)?.some(
-      (wallet) => wallet.address === address && wallet.status === "pending"
+      (wallet) => wallet.address?.toLowerCase() === address?.toLowerCase() && wallet.status === "pending"
     );
   const isVerifiedSecondaryWallet =
     props.pledge.wallets &&
     Object.values(props.pledge.wallets)?.some(
-      (wallet) => wallet.address === address && wallet.status === "verified"
+      (wallet) => wallet.address?.toLowerCase() === address?.toLowerCase() && wallet.status === "verified"
     );
 
   useEffect(() => {
@@ -55,9 +55,9 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   }, [isUnverifiedSecondaryWallet]);
 
   const isPledgeOwner =
-    address?.toLowerCase() === props.pageAddress && isConnected;
+    address?.toLowerCase() === props.pageAddress?.toLowerCase() && isConnected;
   const canEditPledge =
-    (address?.toLowerCase() === props.pageAddress && isConnected) ||
+    (address?.toLowerCase() === props.pageAddress?.toLowerCase() && isConnected) ||
     isVerifiedSecondaryWallet;
 
   const handleFormSubmit = async (data: Pledge) => {
