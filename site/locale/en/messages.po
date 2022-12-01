@@ -1005,7 +1005,7 @@ msgstr "{0} Carbon Tonne(s) Retired"
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "Total Carbon Tonnes Retired"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:42
+#: components/pages/Pledge/HeaderDesktop/index.tsx:38
 msgid "pledges.edit_pledge"
 msgstr "Edit Pledge"
 
@@ -1568,10 +1568,6 @@ msgstr "Carbon Dashboards"
 #: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
 msgstr "Community"
-
-#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:28
-msgid "shared.confirm"
-msgstr "Confirm"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:65
 #: components/pages/Pledge/HeaderMobile/index.tsx:65

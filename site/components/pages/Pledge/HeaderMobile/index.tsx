@@ -18,8 +18,6 @@ interface Props {
 }
 
 export const HeaderMobile: FC<Props> = (props) => {
-  const { address, disconnect, isConnected } = useWeb3();
-
   return (
     <div className={styles.headerMobileWrap}>
       <header className={styles.headerMobile}>
