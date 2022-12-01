@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { useRouter } from "next/router";
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
 
 import LaunchIcon from "@mui/icons-material/Launch";
-import { Trans, t } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import * as styles from "./styles";
 
 type Props = {
