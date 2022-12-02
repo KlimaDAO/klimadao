@@ -59,6 +59,11 @@ export const queryCarbonProjectDetails = async (
           `,
       }),
     });
+    if (!result.ok) {
+      const { message, name } = await result.json();
+      const e = new Error(message);
+      e.name = name;
+    }
     const json: QueryCarbonProjectDetails = await result.json();
     return json.data.carbonOffsetSearch;
   } catch (e) {
