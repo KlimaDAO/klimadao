@@ -11,9 +11,12 @@ import { t } from "@lingui/macro";
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
   ssr: false,
 });
-// const ConnectModal = dynamic(() => import("@klimadao/lib/components").then(mod => mod.ConnectModal), {
-//   ssr: false,
-// });
+const ConnectModal = dynamic(
+  () => import("@klimadao/lib/components").then((mod) => mod.ConnectModal),
+  {
+    ssr: false,
+  }
+);
 
 interface Props {
   canEditPledge?: boolean;
@@ -41,7 +44,7 @@ export const HeaderMobile: FC<Props> = (props) => {
               <EditIcon />
             </button>
           )}
-          {/* 
+
           <ConnectModal
             errorMessage={t({
               message: "We had some trouble connecting. Please try again.",
@@ -66,7 +69,7 @@ export const HeaderMobile: FC<Props> = (props) => {
               }),
             }}
             buttonText={t({ id: "shared.connect", message: "Connect" })}
-          /> */}
+          />
         </div>
       </header>
     </div>

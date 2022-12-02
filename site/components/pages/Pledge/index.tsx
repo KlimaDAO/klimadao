@@ -37,14 +37,12 @@ export const Pledge: NextPage = () => {
     setSubmitting(false);
   };
 
-  const { address, connect, isConnected } = useWeb3();
+  const { address } = useWeb3();
 
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const handleCreatePledge = async () => {
     setShouldRedirect(true);
-    console.log("the other connect!");
-    if (!isConnected && connect) console.log("maybe", connect);
   };
 
   useEffect(() => {
