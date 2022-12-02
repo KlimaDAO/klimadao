@@ -128,11 +128,9 @@ export const useWeb3Modal = (): Web3ModalState => {
         setWeb3State(newState);
         localStorage.setItem("web3-wallet", "torus");
       } else {
-        console.log("error connecting 1");
         throw new Error("Error onnecting");
       }
     } catch (e: any) {
-      console.log("error connecting:", e);
       throw new Error(e);
     }
   };

@@ -1,13 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "../../theme/breakpoints";
 
-export const showModal = css`
-  /* display: none;
-  &[data-show="true"] {
-    display: block;
-  } */
-`;
-
 export const modalBackground = css`
   width: 100vw;
   height: 100vh;
