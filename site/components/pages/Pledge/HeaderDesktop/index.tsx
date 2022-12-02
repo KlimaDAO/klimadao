@@ -9,9 +9,12 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
   ssr: false,
 });
 
-// const ConnectModal = dynamic(() => import("@klimadao/lib/components").then(mod => mod.ConnectModal), {
-//   ssr: false,
-// });
+const ConnectModal = dynamic(
+  () => import("@klimadao/lib/components").then((mod) => mod.ConnectModal),
+  {
+    ssr: false,
+  }
+);
 
 type Props = {
   canEditPledge?: boolean;
@@ -39,7 +42,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
             onClick={() => props.toggleEditModal?.(true)}
           />
         )}
-        {/* <ConnectModal
+        <ConnectModal
           errorMessage={t({
             message: "We had some trouble connecting. Please try again.",
             id: "connect_modal.error_message",
@@ -63,7 +66,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
-        /> */}
+        />
       </div>
     </div>
   );
