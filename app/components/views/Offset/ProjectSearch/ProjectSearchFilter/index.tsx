@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, LegacyRef, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { Trans } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const ProjectSearchFilter: FC<Props> = (props) => {
-  const [parent] = useAutoAnimate();
+  const [parent] = useAutoAnimate<HTMLDivElement>();
   const [checked, setChecked] = useState<string[]>([]);
 
   const handleCheck = (event: ChangeEvent<HTMLInputElement>) => {
@@ -37,10 +37,7 @@ export const ProjectSearchFilter: FC<Props> = (props) => {
     props.onClick(() => (props.isOpen ? null : props.name));
 
   return (
-    <div
-      className={styles.dropdownContainer}
-      ref={parent as LegacyRef<HTMLDivElement>} // TODO - get correct types
-    >
+    <div className={styles.dropdownContainer} ref={parent}>
       <div className={styles.titleContainer} onClick={handleClick}>
         <div className={styles.title}>
           <Text t="body8">{capitalize(props.name)}</Text>

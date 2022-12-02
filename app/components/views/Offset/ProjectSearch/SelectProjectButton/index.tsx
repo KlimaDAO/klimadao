@@ -9,7 +9,11 @@ import { verra } from "@klimadao/lib/constants";
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import * as styles from "./styles";
 
-type Foobar = "balanceBCT" | "balanceNCT" | "balanceUBO" | "balanceNBO";
+type BalanceAttribute =
+  | "balanceBCT"
+  | "balanceNCT"
+  | "balanceUBO"
+  | "balanceNBO";
 
 type Props = {
   active: boolean;
@@ -41,7 +45,7 @@ export const SelectProjectButton: FC<Props> = (props) => {
 
   const availableTonnes =
     props.project[
-      `balance${props.selectedRetirementToken.toUpperCase()}` as Foobar
+      `balance${props.selectedRetirementToken.toUpperCase()}` as BalanceAttribute
     ];
 
   return (

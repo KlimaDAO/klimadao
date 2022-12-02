@@ -20,7 +20,11 @@ type Props = {
   selectedRetirementToken: RetirementToken;
 };
 
-type Foobar = "balanceBCT" | "balanceNCT" | "balanceUBO" | "balanceNBO";
+type BalanceAttribute =
+  | "balanceBCT"
+  | "balanceNCT"
+  | "balanceUBO"
+  | "balanceNBO";
 
 const stringifyQuery = (values: string[]) =>
   values
@@ -53,7 +57,9 @@ export const ProjectSearchForm: FC<Props> = (props) => {
     return filter(
       projects,
       (project) =>
-        Number(project[`balance${selectedRetirementToken}` as Foobar]) > 0
+        Number(
+          project[`balance${selectedRetirementToken}` as BalanceAttribute]
+        ) > 0
     );
   };
 
