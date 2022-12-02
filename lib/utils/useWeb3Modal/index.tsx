@@ -12,7 +12,6 @@ import {
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useWeb3Modal = (): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
-  // TODO make no torus button
   const disconnect = async () => {
     setWeb3State(web3InitialState);
     localStorage.removeItem("web3-wallet");
@@ -38,7 +37,6 @@ export const useWeb3Modal = (): Web3ModalState => {
         ) as any;
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
-        console.log("mm provider", provider);
         const signer = provider.getSigner();
         const address = await signer.getAddress();
         const network = await provider.getNetwork();
@@ -130,7 +128,8 @@ export const useWeb3Modal = (): Web3ModalState => {
         setWeb3State(newState);
         localStorage.setItem("web3-wallet", "torus");
       } else {
-        console.log("else here");
+        console.log("error connecting 1");
+        throw new Error("Error onnecting");
       }
     } catch (e: any) {
       console.log("error connecting:", e);

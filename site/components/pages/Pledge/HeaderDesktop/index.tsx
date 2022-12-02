@@ -1,17 +1,17 @@
 import React, { FC } from "react";
 import dynamic from "next/dynamic";
 import { t } from "@lingui/macro";
-import {
-  KlimaInfinityLogo,
-  ButtonPrimary,
-  ConnectModal,
-} from "@klimadao/lib/components";
+import { KlimaInfinityLogo, ButtonPrimary } from "@klimadao/lib/components";
 import Link from "next/link";
 import * as styles from "./styles";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
   ssr: false,
 });
+
+// const ConnectModal = dynamic(() => import("@klimadao/lib/components").then(mod => mod.ConnectModal), {
+//   ssr: false,
+// });
 
 type Props = {
   canEditPledge?: boolean;
@@ -23,7 +23,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
     <div className={styles.headerDesktop}>
       <div className={styles.mainHeader}>
         <div className={styles.logo}>
-          <Link href={"/pledge"}>
+          <Link passHref href={"/pledge"}>
             <KlimaInfinityLogo />
           </Link>
         </div>
@@ -39,7 +39,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
             onClick={() => props.toggleEditModal?.(true)}
           />
         )}
-        <ConnectModal
+        {/* <ConnectModal
           errorMessage={t({
             message: "We had some trouble connecting. Please try again.",
             id: "connect_modal.error_message",
@@ -63,7 +63,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
-        />
+        /> */}
       </div>
     </div>
   );

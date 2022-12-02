@@ -15,7 +15,6 @@ export const ConnectModal = (props: {
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
-  const { address, connect, disconnect, isConnected } = useWeb3();
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = "hidden";
@@ -23,6 +22,7 @@ export const ConnectModal = (props: {
       document.body.style.overflow = "";
     }
   }, [showModal]);
+  const { address, connect, disconnect, isConnected } = useWeb3();
 
   const handleConnect = async (params: {
     wallet: "coinbase" | "torus" | "walletConnect" | "metamask" | "brave";
@@ -57,7 +57,6 @@ export const ConnectModal = (props: {
         <ButtonPrimary
           label={props.buttonText}
           onClick={() => {
-            console.log("clicked");
             setShowModal(true);
           }}
         />
