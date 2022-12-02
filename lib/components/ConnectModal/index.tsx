@@ -16,7 +16,6 @@ export const ConnectModal = (props: {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
   const { address, connect, disconnect, isConnected } = useWeb3();
-  console.log(showModal);
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = "hidden";
