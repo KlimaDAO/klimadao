@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import dynamic from "next/dynamic";
-import { KlimaInfinityLogoOnly } from "@klimadao/lib/components";
-
+import { KlimaInfinityLogoOnly, ConnectModal } from "@klimadao/lib/components";
 import EditIcon from "@mui/icons-material/Edit";
 
 import Link from "next/link";
@@ -11,12 +10,6 @@ import { t } from "@lingui/macro";
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
   ssr: false,
 });
-const ConnectModal = dynamic(
-  () => import("@klimadao/lib/components").then((mod) => mod.ConnectModal),
-  {
-    ssr: false,
-  }
-);
 
 interface Props {
   canEditPledge?: boolean;

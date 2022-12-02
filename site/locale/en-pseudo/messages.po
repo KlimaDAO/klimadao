@@ -350,27 +350,27 @@ msgid "concat.careers"
 msgstr ""
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:47
-#: components/pages/Pledge/HeaderMobile/index.tsx:47
+#: components/pages/Pledge/HeaderMobile/index.tsx:46
 msgid "connectModal.continue"
 msgstr ""
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:56
-#: components/pages/Pledge/HeaderMobile/index.tsx:56
+#: components/pages/Pledge/HeaderMobile/index.tsx:55
 msgid "connect_modal.connecting"
 msgstr ""
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
-#: components/pages/Pledge/HeaderMobile/index.tsx:43
+#: components/pages/Pledge/HeaderMobile/index.tsx:42
 msgid "connect_modal.error_message"
 msgstr ""
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:60
-#: components/pages/Pledge/HeaderMobile/index.tsx:60
+#: components/pages/Pledge/HeaderMobile/index.tsx:59
 msgid "connect_modal.error_title"
 msgstr ""
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:52
-#: components/pages/Pledge/HeaderMobile/index.tsx:52
+#: components/pages/Pledge/HeaderMobile/index.tsx:51
 msgid "connect_modal.sign_in"
 msgstr ""
 
@@ -1025,7 +1025,7 @@ msgstr ""
 msgid "pledges.form.confirm_remove_cancel"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:156
+#: components/pages/Pledge/index.tsx:154
 msgid "pledges.form.error"
 msgstr ""
 
@@ -1161,43 +1161,43 @@ msgstr ""
 msgid "pledges.form.use_your_wallet"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:67
+#: components/pages/Pledge/index.tsx:65
 msgid "pledges.head.metaDescription"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:63
+#: components/pages/Pledge/index.tsx:61
 msgid "pledges.head.metaTitle"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:59
+#: components/pages/Pledge/index.tsx:57
 msgid "pledges.head.title"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:310
+#: components/pages/Pledge/index.tsx:308
 msgid "pledges.home.banner.create"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:289
+#: components/pages/Pledge/index.tsx:287
 msgid "pledges.home.get_started.create"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:106
+#: components/pages/Pledge/index.tsx:104
 msgid "pledges.home.hero.create"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/index.tsx:112
 msgid "pledges.home.hero.learn_more"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:150
+#: components/pages/Pledge/index.tsx:148
 msgid "pledges.home.search.label"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:144
+#: components/pages/Pledge/index.tsx:142
 msgid "pledges.home.search.placeholder"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:170
+#: components/pages/Pledge/index.tsx:168
 msgid "pledges.home.search.submit"
 msgstr ""
 
@@ -1569,12 +1569,8 @@ msgstr ""
 msgid "shared.community"
 msgstr ""
 
-#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:28
-msgid "shared.confirm"
-msgstr ""
-
-#: components/pages/Pledge/HeaderDesktop/index.tsx:50
-#: components/pages/Pledge/HeaderMobile/index.tsx:57
+#: components/pages/Pledge/HeaderDesktop/index.tsx:65
+#: components/pages/Pledge/HeaderMobile/index.tsx:64
 msgid "shared.connect"
 msgstr ""
 
