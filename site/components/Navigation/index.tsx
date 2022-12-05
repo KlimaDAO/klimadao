@@ -28,7 +28,7 @@ export type PageName =
   | "Contact"
   | "Pledges"
   | "EventDemo"
-  | "Updates"
+  | "Resource Center"
   | "About";
 
 export type NavItemMobileID =
@@ -185,12 +185,12 @@ export const Navigation: FC<Props> = ({
         >
           <LinkItemDesktop
             name={t({
-              message: "Updates",
-              id: "shared.updates",
+              message: "Resource Center",
+              id: "shared.resourcecenter",
             })}
-            key="updates"
+            key="resourcecenter"
             url="/resources"
-            active={activePage === "Updates"}
+            active={activePage === "Resource Center"}
           />
           <LinkItemDesktop
             name={t({
@@ -340,12 +340,12 @@ export const Navigation: FC<Props> = ({
               subMenu={[
                 <NavItemMobile
                   name={t({
-                    message: "Updates",
-                    id: "shared.updates",
+                    message: "Resource Center",
+                    id: "shared.resourcecenter",
                   })}
-                  key="updates"
+                  key="resourcecenter"
                   url="/resources"
-                  active={activePage === "Updates"}
+                  active={activePage === "Resource Center"}
                 />,
                 <NavItemMobile
                   name={t({
