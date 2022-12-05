@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-01 15:38+0000\n"
+"POT-Creation-Date: 2022-12-05 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -906,7 +906,7 @@ msgstr "KlimaDAOs Mission ist die Demokratisierung des Klimaschutzes"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
-msgstr ""
+msgstr "Keine CO2-Assets zum Anzeigen."
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:87
 msgid "pledges.dashboard.assets.title"
@@ -930,15 +930,17 @@ msgstr "{0} Tonnen CO2"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:73
 msgid "pledges.dashboard.head.metaDescription"
-msgstr ""
+msgstr "{pledgeOwnerTitle} verspricht, {currentTotalFootprint} Tonnen CO2 auszugleichen. Sehen Sie sich ihren Ausgleichsverlauf an und lesen Sie mehr über ihr Engagement."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:69
 msgid "pledges.dashboard.head.metaTitle"
-msgstr ""
+msgstr "{pledgeOwnerTitle}'s Pledge"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:65
 msgid "pledges.dashboard.head.title"
 msgstr ""
+"{pledgeOwnerTitle}s Pledge | KlimaDAO\n"
+""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/MethodologyCard/index.tsx:14
 msgid "pledges.dashboard.metholodogy.default_text"
@@ -1098,7 +1100,7 @@ msgstr "Name oder Firmenname"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:158
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "URL des Profilbilds (optional)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:176
 msgid "pledges.form.input.profileWebsiteUrl.label"
@@ -1122,7 +1124,7 @@ msgstr "Gesamtfußabdruck: {0} Tonnen CO2"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:353
 msgid "pledges.form.use_your_wallet"
-msgstr ""
+msgstr "Nutzen Sie Ihre Wallet, um diese Änderung zu unterschreiben und zu bestätigen."
 
 #: components/pages/Pledge/index.tsx:67
 msgid "pledges.head.metaDescription"
@@ -1170,11 +1172,11 @@ msgstr "Kategorien"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:27
 msgid "resources.form.categories.subheader"
-msgstr ""
+msgstr "Wähle eine oder mehrere aus"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:69
 msgid "resources.form.filters.clear_all"
-msgstr ""
+msgstr "Alles löschen"
 
 #: components/pages/Resources/ResourcesList/index.tsx:176
 msgid "resources.form.input.search.label"
@@ -1198,7 +1200,7 @@ msgstr "Medium"
 
 #: components/pages/Resources/ResourcesFilters/index.tsx:41
 msgid "resources.form.sub_topics.header"
-msgstr ""
+msgstr "Unterthemen"
 
 #: components/pages/Resources/index.tsx:32
 msgid "resources.head.metaDescription"
@@ -1214,7 +1216,7 @@ msgstr "KlimaDAO | Ressourcen"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:71
 msgid "resources.list.filter.tag.basics"
-msgstr ""
+msgstr "Grundlagen"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:111
 msgid "resources.list.filter.tag.carbon_footprint"
@@ -1222,7 +1224,7 @@ msgstr "CO2-Fußabdruck"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:79
 msgid "resources.list.filter.tag.deep_dives"
-msgstr ""
+msgstr "Vertiefendes Wissen"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:52
 msgid "resources.list.filter.tag.klima_infinity"
@@ -1238,7 +1240,7 @@ msgstr "Partnerschaften"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:103
 msgid "resources.list.filter.tag.policy"
-msgstr ""
+msgstr "Regelwerk"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:95
 msgid "resources.list.filter.tag.press_releases"
@@ -1246,7 +1248,7 @@ msgstr "Pressemeldungen"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:87
 msgid "resources.list.filter.tag.user_guides"
-msgstr ""
+msgstr "Nutzerguides"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:121
 msgid "resources.list.filter.type.blog"
@@ -1258,7 +1260,7 @@ msgstr "Podcast"
 
 #: components/pages/Resources/SortyByDropDown/index.tsx:61
 msgid "resources.list.select.sort_by.toggle"
-msgstr ""
+msgstr "\"Sortiere nach\" anzeigen"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:155
 msgid "resources.list.sort_by.a-z"
@@ -1266,11 +1268,11 @@ msgstr "A-Z"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:139
 msgid "resources.list.sort_by.latest_first"
-msgstr ""
+msgstr "Neueste Einträge zuerst"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:147
 msgid "resources.list.sort_by.oldest_first"
-msgstr ""
+msgstr "Älteste Einträge zuerst"
 
 #: components/pages/Resources/lib/cmsDataMap.ts:163
 msgid "resources.list.sort_by.z-a"
@@ -1278,7 +1280,7 @@ msgstr "Z-A"
 
 #: components/pages/Resources/ResourcesList/index.tsx:308
 msgid "resources.mobile_modal.button.show_results"
-msgstr ""
+msgstr "Ergebnisse anzeigen"
 
 #: components/pages/Resources/ResourcesList/index.tsx:281
 msgid "resources.mobile_modal.title"
@@ -1298,7 +1300,7 @@ msgstr "Alles erkunden"
 
 #: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.no_search_results.title"
-msgstr ""
+msgstr "Tut uns leid. Wir konnten keine passenden Ergebnisse finden."
 
 #: components/pages/Resources/ResourcesList/index.tsx:238
 msgid "resources.page.list.on_fetch_error"
@@ -1306,11 +1308,11 @@ msgstr "Sorry! Etwas ist schief gelaufen."
 
 #: components/pages/Resources/ResourcesList/index.tsx:259
 msgid "resources.page.list.search_submit.no_filter_results"
-msgstr ""
+msgstr "Bitte verwenden Sie eine andere Filterkombination."
 
 #: components/pages/Resources/ResourcesList/index.tsx:252
 msgid "resources.page.list.search_submit.no_search_results"
-msgstr ""
+msgstr "Überprüfe deine Suche auf Tippfehler oder versuche es mit einem anderen Suchbegriff."
 
 #: components/pages/Retirements/Footer/index.tsx:27
 msgid "retirement.footer.aboutKlima.left"
@@ -1564,7 +1566,7 @@ msgstr "Haftungsausschluss"
 #: components/Navigation/index.tsx:213
 #: components/Navigation/index.tsx:368
 msgid "shared.docs"
-msgstr ""
+msgstr "Offizielle Dokumentation"
 
 #: components/Navigation/index.tsx:64
 #: components/pages/Home/index.tsx:115
@@ -1639,7 +1641,7 @@ msgstr "Ausgleichen"
 #: components/Navigation/index.tsx:174
 #: components/Navigation/index.tsx:326
 msgid "shared.pledge"
-msgstr ""
+msgstr "Wie Sie Pledges erstellen"
 
 #: components/Navigation/index.tsx:184
 #: components/Navigation/index.tsx:338
@@ -1660,7 +1662,7 @@ msgstr "Klima staken"
 #: components/Navigation/index.tsx:342
 #: components/pages/Blog/Post/index.tsx:71
 msgid "shared.updates"
-msgstr ""
+msgstr "Updates"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
