@@ -24,15 +24,15 @@ export const CopyAddressButton: FC<Props> = (props) => {
     if (!props.address) setAddress(window.location.href);
   }, []);
 
-  const className = cx(styles.copyButton);
+  const className = cx(styles.copyButton, props.className);
 
   return (
     <ButtonPrimary
+      {...props}
       className={className}
       icon={copied ? <Check /> : <ContentCopy />}
       onClick={() => cachedAddress && doCopy(cachedAddress)}
       variant={"transparent"}
-      {...props}
     />
   );
 };

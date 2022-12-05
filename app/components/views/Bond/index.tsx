@@ -51,7 +51,7 @@ import * as styles from "./styles";
 import { BondBalancesCard } from "components/BondBalancesCard";
 import { Image } from "components/Image";
 import { ImageCard } from "components/ImageCard";
-import { ButtonBaseProps } from "@klimadao/lib/components/Buttons/ButtonBase";
+import { ButtonBaseProps } from "@klimadao/lib/components";
 
 export function prettyVestingPeriod(
   locale = "en",
