@@ -9,6 +9,7 @@ export const types = [
 ];
 
 export const regions = [
+  { label: "Africa", value: "Africa" },
   { label: "Asia", value: "Asia" },
   { label: "Bolivia", value: "Bolivia" },
   { label: "Brazil", value: "Brazil" },
@@ -25,6 +26,7 @@ export const regions = [
   { label: "Kenya", value: "Kenya" },
   { label: "Latin America", value: "Latin America" },
   { label: "Madagascar", value: "Madagascar" },
+  { label: "Malawi", value: "Malawi" },
   { label: "Myanmar", value: "Myanmar" },
   { label: "Netherlands", value: "Netherlands" },
   { label: "Oceania", value: "Oceania" },
@@ -38,8 +40,8 @@ export const regions = [
 ];
 
 export const vintages = [
-  "1970",
   "2006",
+  "2007",
   "2008",
   "2009",
   "2010",

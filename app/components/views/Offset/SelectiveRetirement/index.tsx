@@ -3,6 +3,7 @@ import { Trans, t } from "@lingui/macro";
 import { Text, TextInfoTooltip } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { uniq, sortBy } from "lodash";
 
 import { LeafIcon } from "components/LeafIcon";
 
@@ -29,6 +30,73 @@ export const SelectiveRetirement: FC<Props> = (props) => {
   );
 
   const disableSelectiveRetirement = props.selectedRetirementToken === "mco2";
+  console.log(
+    sortBy(
+      uniq([
+        "Africa",
+        "Asia",
+        "Bolivia",
+        "Brazil",
+        "Bulgaria",
+        "Cambodia",
+        "Canada",
+        "Chile",
+        "China",
+        "Congo",
+        "Ecuador",
+        "Guatemala",
+        "India",
+        "Indonesia",
+        "Kenya",
+        "Latin America",
+        "Madagascar",
+        "Malawi",
+        "Myanmar",
+        "Netherlands",
+        "Oceania",
+        "Pakistan",
+        "South Korea",
+        "Thailand",
+        "Turkey",
+        "Uganda",
+        "Uruguay",
+        "Viet Nam",
+      ])
+    )
+  );
+
+  console.log(
+    [
+      "Africa",
+      "Asia",
+      "Bolivia",
+      "Brazil",
+      "Bulgaria",
+      "Cambodia",
+      "Canada",
+      "Chile",
+      "China",
+      "Congo",
+      "Ecuador",
+      "Guatemala",
+      "India",
+      "Indonesia",
+      "Kenya",
+      "Latin America",
+      "Madagascar",
+      "Malawi",
+      "Myanmar",
+      "Netherlands",
+      "Oceania",
+      "Pakistan",
+      "South Korea",
+      "Thailand",
+      "Turkey",
+      "Uganda",
+      "Uruguay",
+      "Viet Nam",
+    ].length
+  );
 
   /** toggle input via address when query params are loaded */
   useEffect(() => {
