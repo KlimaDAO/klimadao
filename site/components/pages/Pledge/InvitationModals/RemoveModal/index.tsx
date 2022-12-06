@@ -25,6 +25,8 @@ type Props = {
   showRemoveModal: boolean;
   pledge: Pledge;
   pageAddress: string;
+  handleModalFormSubmit: () => void;
+  address?: string;
 };
 
 type Step = "remove" | "confirm" | "error" | "loading" | "signing";
@@ -63,16 +65,21 @@ export const RemoveModal = (props: Props) => {
       if (signature === "0x") {
         await waitForGnosisSignature({
           message: params.message,
-          address: props.pageAddress,
+          address: props.address,
         });
       }
-      await putPledge({
+      const data = await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
         pledge: pledgeFormAdapter(props.pledge),
         signature,
         urlPath: `/pledge/${props.pageAddress}`,
+        action: "rejecting",
       });
+      console.log();
+      if (data.pledge) {
+        props.handleModalFormSubmit();
+      }
       props.setShowRemoveModal(false);
     } catch (e: any) {
       setStep("error");
@@ -93,9 +100,9 @@ export const RemoveModal = (props: Props) => {
             </span>
             <Text t="body2">
               <Trans id="pledge.modal.unable_to_edit">
-              This wallet does not have permission to edit this pledge. 
-              To edit, you must reconnect with the original 
-              author wallet ({concatAddress(props.pageAddress)}).
+                This wallet does not have permission to edit this pledge. To
+                edit, you must reconnect with the original author wallet (
+                {concatAddress(props.pageAddress)}).
               </Trans>
             </Text>
           </div>

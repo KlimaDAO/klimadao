@@ -47,7 +47,7 @@ const TotalFootprint = ({ control, setValue }: TotalFootprintProps) => {
   const categories = useWatch({ name: "categories", control });
 
   const totalFootprint: number = categories.reduce(
-    (acc, currfretirments ent) => Number(acc) + Number(current.quantity || 0),
+    (acc, current) => Number(acc) + Number(current.quantity || 0),
     0
   );
   setValue("footprint", totalFootprint);

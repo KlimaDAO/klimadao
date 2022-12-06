@@ -6,6 +6,7 @@ export interface putPledgeParams {
   signature: string;
   secondaryWalletAddress?: string;
   urlPath: string;
+  action?: "accepting" | "rejecting";
 }
 
 export type PutPledgeResponse = {
@@ -26,14 +27,15 @@ export const putPledge = async (
       pledge: params.pledge,
       secondaryWalletAddress: params.secondaryWalletAddress,
       urlPath: params.urlPath,
+      action: params.action,
     }),
   });
   if (!res.ok) {
     const error = await res.json();
+    console.error("putPledge failed: ", error);
     throw new Error(error.message);
   } else {
     const data = await res.json();
-    console.log("data", data, typeof data);
     return data;
   }
 };

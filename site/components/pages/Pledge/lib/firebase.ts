@@ -13,7 +13,6 @@ import {
   removeSecondaryWallet,
   editPledgeMessage,
 } from "./editPledgeMessage";
-import { ethers } from "ethers";
 
 const initFirebaseAdmin = () => {
   if (!FIREBASE_ADMIN_CERT) {
@@ -34,10 +33,6 @@ export const getParentPledges = async (props: { address: string }) => {
     .collection("pledges")
     .where(`wallets.${props.address}.status`, "==", "verified")
     .get();
-
-  // where status is verified OR ownerAddress = address
-  // array of 0, 1, 2
-  // redirect to verified || load pledge || placeholder
   return data;
 };
 
@@ -134,7 +129,6 @@ export const findOrCreatePledge = async (
       });
     }
     if (!isNotAlreadyAdded && params.action === "accepting") {
-      // respond with error message here and check error name in pages/api/pledge
       const e = new Error(
         "This wallet is already pinned to another pledge. Please unpin your wallet and try again."
       );

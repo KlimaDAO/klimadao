@@ -26,6 +26,8 @@ type Props = {
   showAcceptModal: boolean;
   pledge: Pledge;
   pageAddress: string;
+  handleModalFormSubmit: () => void;
+  address?: string;
 };
 type Step = "accept" | "confirm" | "error" | "loading" | "signing";
 
@@ -68,16 +70,20 @@ export const AcceptModal = (props: Props) => {
       if (signature === "0x") {
         await waitForGnosisSignature({
           message: params.message,
-          address: props.pageAddress,
+          address: props.address,
         });
       }
-      await putPledge({
+      const data = await putPledge({
         pageAddress: props.pageAddress,
         secondaryWalletAddress: address,
         pledge: pledgeFormAdapter(props.pledge),
         signature,
         urlPath: `/pledge/${props.pageAddress}`,
+        action: "accepting",
       });
+      if (data.pledge) {
+        props.handleModalFormSubmit();
+      }
       props.setShowAcceptModal(false);
     } catch (e: any) {
       setStep("error");
@@ -136,9 +142,10 @@ export const AcceptModal = (props: Props) => {
         <>
           <Text t="body2" className={styles.modalMessage}>
             <Trans id="pledge.modal.wallet_add_confirm">
-              Adding your wallet to this pledge will remove your wallet from any
-              existing pledges under your wallet address. Those pledges will be
-              redirected to this new pledge.
+              You may only have one pledge page per wallet address. If you have
+              already created a pledge page with this wallet, visitors will be
+              redirected to this pledge instead. You can remove this wallet at
+              any time.
             </Trans>
           </Text>
           <div className={styles.modalButtons}>

@@ -35,20 +35,50 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
   const { address, isConnected } = useWeb3();
   const [showFormModal, setShowFormModal] = useState(false);
   const [isDeleteMode, setIsDeleteMode] = useState(false);
-  const [pledge, setPledge] = useState<Pledge>(props.pledge);
+  const [pledge, setPledge] = useState<Pledge>();
   const [showRemoveModal, setShowRemoveModal] = useState(false);
   const [showAcceptModal, setShowAcceptModal] = useState(false);
+  const [canEditPledge, setCanEditPledge] = useState<boolean | undefined>(
+    false
+  );
+  const [isUnverifiedSecondaryWallet, setIsUnverifiedSecondaryWallet] =
+    useState<boolean | undefined>();
+  const [isVerifiedSecondaryWallet, setIsVerifiedSecondaryWallet] = useState<
+    boolean | undefined
+  >();
+  useEffect(() => {
+    props.pledge &&
+      setIsUnverifiedSecondaryWallet(
+        props.pledge.wallets &&
+          Object.values(props.pledge.wallets)?.some(
+            (wallet) =>
+              wallet.address?.toLowerCase() === address?.toLowerCase() &&
+              wallet.status === "pending"
+          )
+      );
+  }, [props.pledge]);
+  useEffect(() => {
+    props.pledge &&
+      setIsVerifiedSecondaryWallet(
+        props.pledge.wallets &&
+          Object.values(props.pledge.wallets)?.some(
+            (wallet) =>
+              wallet.address?.toLowerCase() === address?.toLowerCase() &&
+              wallet.status === "verified"
+          )
+      );
+  }, [props.pledge]);
+  useEffect(() => {
+    setPledge(props.pledge);
+  }, [props.pledge]);
 
-  const isUnverifiedSecondaryWallet =
-    props.pledge.wallets &&
-    Object.values(props.pledge.wallets)?.some(
-      (wallet) => wallet.address?.toLowerCase() === address?.toLowerCase() && wallet.status === "pending"
+  useEffect(() => {
+    setCanEditPledge(
+      (address?.toLowerCase() === props.pageAddress?.toLowerCase() &&
+        isConnected) ||
+        isVerifiedSecondaryWallet
     );
-  const isVerifiedSecondaryWallet =
-    props.pledge.wallets &&
-    Object.values(props.pledge.wallets)?.some(
-      (wallet) => wallet.address?.toLowerCase() === address?.toLowerCase() && wallet.status === "verified"
-    );
+  }, [isVerifiedSecondaryWallet, props.pageAddress, address]);
 
   useEffect(() => {
     isUnverifiedSecondaryWallet && setShowAcceptModal(true);
@@ -56,13 +86,21 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
 
   const isPledgeOwner =
     address?.toLowerCase() === props.pageAddress?.toLowerCase() && isConnected;
-  const canEditPledge =
-    (address?.toLowerCase() === props.pageAddress?.toLowerCase() && isConnected) ||
-    isVerifiedSecondaryWallet;
 
   const handleFormSubmit = async (data: Pledge) => {
     setPledge(data);
     setShowFormModal(false);
+  };
+
+  const handleRemove = () => {
+    setCanEditPledge(false);
+    setIsVerifiedSecondaryWallet(false);
+    setIsUnverifiedSecondaryWallet(false);
+  };
+  const handleAccept = () => {
+    setCanEditPledge(true);
+    setIsVerifiedSecondaryWallet(true);
+    setIsUnverifiedSecondaryWallet(false);
   };
 
   /**
@@ -76,11 +114,12 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     window.addEventListener("keydown", escListener);
     return () => window.removeEventListener("keydown", escListener);
   }, []);
-
+  if (!pledge) return null;
   const pledgeOwnerTitle =
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
   const currentTotalFootprint =
     pledge.footprint[pledge.footprint.length - 1].total.toString();
+
   return (
     <PledgeLayout
       canEditPledge={canEditPledge}
@@ -106,12 +145,16 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         pageAddress={props.pageAddress}
         showAcceptModal={showAcceptModal}
         setShowAcceptModal={setShowAcceptModal}
+        handleModalFormSubmit={handleAccept}
+        address={address}
       />
       <RemoveModal
         pledge={props.pledge}
         pageAddress={props.pageAddress}
         showRemoveModal={showRemoveModal}
         setShowRemoveModal={setShowRemoveModal}
+        handleModalFormSubmit={handleRemove}
+        address={address}
       />
       {/* conditional props are used here because unmounting the modal will clear form state when `isDeleteMode` is changed */}
       <Modal
