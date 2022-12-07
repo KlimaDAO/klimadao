@@ -37,7 +37,7 @@ export const inputsContainer = css`
   overflow: hidden;
 `;
 
-export const createListingButton = css`
+export const marketplaceButtonGray = css`
   border-color: var(--font-01);
   color: var(--font-01) !important;
   cursor: pointer;

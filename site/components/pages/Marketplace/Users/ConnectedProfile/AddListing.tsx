@@ -1,7 +1,12 @@
 import React, { FC, useState } from "react";
 import { Trans, t } from "@lingui/macro";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import {
+  ButtonPrimary,
+  ButtonSecondary,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
 import { InputField } from "components/Form";
 import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
 import { Asset } from "@klimadao/lib/types/marketplace";
@@ -23,6 +28,7 @@ export type FormValues = {
 type Props = {
   assets: Asset[];
   onSubmit: () => void;
+  onCancel: () => void;
 };
 
 const defaultValues = {
@@ -53,9 +59,10 @@ export const AddListing: FC<Props> = (props) => {
   const hasError = !isLoading && !!errorMessage;
 
   const logStatus = (m: string) => setStatusMessage(m);
+  const resetError = () => !!errorMessage && setErrorMessage(null);
 
   const onSubmit: SubmitHandler<FormValues> = async (values: FormValues) => {
-    setErrorMessage(null);
+    resetError();
 
     try {
       setIsLoading(true);
@@ -133,7 +140,7 @@ export const AddListing: FC<Props> = (props) => {
       if (error.message?.includes("ACTION_REJECTED")) {
         setErrorMessage(
           t({
-            id: "marketplace.profile.add_listing.rejected",
+            id: "marketplace.profile.add_listing.user_rejected",
             message: "You chose to cancel this transaction.",
           })
         );
@@ -181,7 +188,11 @@ export const AddListing: FC<Props> = (props) => {
                 message: "How many do you want to sell",
               }),
               type: "number",
-              ...register("totalAmountToSell", { required: true }),
+              ...register("totalAmountToSell", {
+                required: true,
+                disabled: isLoading,
+                onBlur: resetError,
+              }),
             }}
             label={t({
               id: "marketplace.user.edit.form.input.totalAmountToSell.label",
@@ -199,7 +210,11 @@ export const AddListing: FC<Props> = (props) => {
                 message: "Single Unit Price",
               }),
               type: "number",
-              ...register("singleUnitPrice", { required: true }),
+              ...register("singleUnitPrice", {
+                required: true,
+                disabled: isLoading,
+                onBlur: resetError,
+              }),
             }}
             label={t({
               id: "marketplace.user.edit.form.input.singleUnitPrice.label",
@@ -234,6 +249,12 @@ export const AddListing: FC<Props> = (props) => {
               onClick={handleSubmit(onSubmit)}
             />
           )}
+          <ButtonSecondary
+            className={styles.marketplaceButtonGray}
+            disabled={isLoading}
+            label={<Trans id="shared.cancel">Cancel</Trans>}
+            onClick={props.onCancel}
+          />
         </div>
       </form>
     </div>

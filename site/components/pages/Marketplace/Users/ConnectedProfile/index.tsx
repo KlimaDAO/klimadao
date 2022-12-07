@@ -208,7 +208,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
           }
           disabled={isLoadingAssets || !hasAssets || isLoadingNewListing}
           onClick={() => setShowListingModal(true)}
-          className={styles.createListingButton}
+          className={styles.marketplaceButtonGray}
         />
       </div>
 
@@ -268,9 +268,12 @@ export const ConnectedProfile: FC<Props> = (props) => {
             message: "Add Listing",
           })}
           showModal={showListingModal}
-          onToggleModal={() => setShowListingModal((prev) => !prev)}
         >
-          <AddListing assets={assetsData} onSubmit={onAddListingSubmit} />
+          <AddListing
+            assets={assetsData}
+            onSubmit={onAddListingSubmit}
+            onCancel={() => setShowListingModal((prev) => !prev)}
+          />
         </Modal>
       )}
     </>
