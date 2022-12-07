@@ -35,7 +35,6 @@ interface Props {
   provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected?: boolean;
-  loadWeb3Modal: () => Promise<void>;
 }
 
 export const PKlima: FC<Props> = (props) => {

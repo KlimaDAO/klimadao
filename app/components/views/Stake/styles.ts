@@ -215,6 +215,7 @@ export const buttonRow_spinner = css`
 
 export const submitButton = css`
   width: 100%;
+  text-transform: uppercase;
 `;
 
 export const columnRight = css`

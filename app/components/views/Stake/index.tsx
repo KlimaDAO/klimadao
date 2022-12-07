@@ -28,12 +28,13 @@ import {
 import {
   Anchor,
   ButtonPrimary,
+  ConnectModal,
   Spinner,
   Text,
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
-import { Trans, defineMessage } from "@lingui/macro";
+import { Trans, defineMessage, t } from "@lingui/macro";
 import { BalancesCard } from "components/BalancesCard";
 import { RebaseCard } from "components/RebaseCard";
 import { ImageCard } from "components/ImageCard";
@@ -52,7 +53,6 @@ interface Props {
   provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
-  loadWeb3Modal: () => void;
 }
 
 const inputPlaceholderMessage = {
@@ -226,69 +226,110 @@ export const Stake = (props: Props) => {
     );
   };
 
-  const getButtonProps = (): ButtonProps => {
+  const getButton = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return {
-        label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
-        onClick: props.loadWeb3Modal,
-        disabled: false,
-      };
+      return (
+        <ConnectModal
+          errorMessage={t({
+            message: "We had some trouble connecting. Please try again.",
+            id: "connect_modal.error_message",
+          })}
+          torusText={t({
+            message: "or continue with",
+            id: "connectModal.continue",
+          })}
+          titles={{
+            connect: t({
+              id: "connect_modal.sign_in",
+              message: "Sign In / Connect",
+            }),
+            loading: t({
+              id: "connect_modal.connecting",
+              message: "Connecting...",
+            }),
+            error: t({
+              id: "connect_modal.error_title",
+              message: "Connection Error",
+            }),
+          }}
+          buttonText={t({ id: "shared.connect", message: "Connect" })}
+        />
+      );
     } else if (isLoading) {
-      return {
-        label: <Trans id="shared.loading">Loading...</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({ message: "Loading...", id: "shared.connect_wallet" })}
+          disabled={true}
+        />
+      );
     } else if (!value) {
-      return {
-        label: <Trans id="shared.enter_quantity">ENTER QUANTITY</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({ id: "shared.enter_quantity", message: "ENTER QUANTITY" })}
+          disabled={true}
+        />
+      );
     } else if (value && insufficientBalance()) {
-      return {
-        label: (
-          <Trans id="shared.insufficient_balance">INSUFFICIENT BALANCE</Trans>
-        ),
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({
+            id: "shared.insufficient_balance",
+            message: "INSUFFICIENT BALANCE",
+          })}
+          disabled={true}
+        />
+      );
     } else if (!hasApproval()) {
-      return {
-        label: <Trans id="shared.approve">APPROVE</Trans>,
-        onClick: () => {
-          setShowTransactionModal(true);
-        },
-        disabled: false,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({ id: "shared.approve", message: "APPROVE" })}
+          onClick={() => setShowTransactionModal(true)}
+          disabled={false}
+        />
+      );
     } else if (view === "stake") {
-      return {
-        label: value ? (
-          <Trans id="stake.stake_klima">Stake KLIMA</Trans>
-        ) : (
-          <Trans id="shared.enter_amount">Enter Amount</Trans>
-        ),
-        onClick: () => setShowTransactionModal(true),
-        disabled: !balances?.klima || !value || value > Number(balances.klima),
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={
+            value
+              ? t({ id: "stake.stake_klima", message: "Stake KLIMA" })
+              : t({ id: "shared.enter_amount", message: "Enter Amount" })
+          }
+          onClick={() => setShowTransactionModal(true)}
+          disabled={
+            !balances?.klima || !value || value > Number(balances.klima)
+          }
+        />
+      );
     } else if (view === "unstake") {
-      return {
-        label: value ? (
-          <Trans id="stake.unstake_klima">Unstake KLIMA</Trans>
-        ) : (
-          <Trans id="shared.enter_amount">Enter Amount</Trans>
-        ),
-        onClick: () => setShowTransactionModal(true),
-        disabled:
-          !balances?.sklima || !value || value > Number(balances.sklima),
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={
+            value
+              ? t({ id: "stake.unstake_klima", message: "Unstake KLIMA" })
+              : t({ id: "shared.enter_amount", message: "Enter Amount" })
+          }
+          onClick={() => setShowTransactionModal(true)}
+          disabled={
+            !balances?.sklima || !value || value > Number(balances.sklima)
+          }
+        />
+      );
     } else {
-      return {
-        label: <Trans id="shared.error">ERROR</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({ id: "shared.error", message: "ERROR" })}
+          disabled={true}
+        />
+      );
     }
   };
 
@@ -460,16 +501,14 @@ export const Stake = (props: Props) => {
           </div>
 
           <div className={styles.buttonRow}>
-            {showSpinner ? (
-              <div className={styles.buttonRow_spinner}>
-                <Spinner />
-              </div>
-            ) : (
-              <ButtonPrimary
-                {...getButtonProps()}
-                className={styles.submitButton}
-              />
-            )}
+            {
+              showSpinner ? (
+                <div className={styles.buttonRow_spinner}>
+                  <Spinner />
+                </div>
+              ) : null
+              // put the button back here
+            }
           </div>
         </div>
       </div>

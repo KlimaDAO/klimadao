@@ -175,9 +175,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                 />
               }
             />
@@ -188,9 +185,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                 />
               }
             />
@@ -201,9 +195,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                 />
               }
             />
