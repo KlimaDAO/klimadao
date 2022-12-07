@@ -35,7 +35,7 @@ export const Resources: NextPage<Props> = (props) => {
         })}
       />
 
-      <Navigation activePage="Updates" />
+      <Navigation activePage="Resource Center" />
 
       <Section variant="gray" className={styles.sectionHead}>
         <div className={styles.header}>

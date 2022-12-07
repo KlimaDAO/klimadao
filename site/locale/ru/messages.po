@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-11-24 15:36+0000\n"
+"POT-Creation-Date: 2022-12-07 17:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1657,6 +1657,12 @@ msgstr ""
 "Как внести залог\n"
 ""
 
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:342
+#: components/pages/Blog/Post/index.tsx:71
+msgid "shared.resourcecenter"
+msgstr ""
+
 #: components/Navigation/index.tsx:184
 #: components/Navigation/index.tsx:338
 msgid "shared.resources"
@@ -1671,12 +1677,6 @@ msgstr "Сортировать по"
 #: components/Navigation/index.tsx:272
 msgid "shared.stake"
 msgstr "Стейкинг Klima"
-
-#: components/Navigation/index.tsx:187
-#: components/Navigation/index.tsx:342
-#: components/pages/Blog/Post/index.tsx:71
-msgid "shared.updates"
-msgstr "Обновления"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
