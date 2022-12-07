@@ -30,6 +30,11 @@ module.exports = async (phase, { defaultConfig }) => {
           destination: "https://klimadao.sanity.studio/desk",
           permanent: true,
         },
+        {
+          source: "/marketplace/users",
+          destination: "/marketplace/users/login",
+          permanent: true,
+        },
       ];
     },
     async headers() {
