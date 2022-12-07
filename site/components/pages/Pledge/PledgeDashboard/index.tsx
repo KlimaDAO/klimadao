@@ -119,7 +119,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
   const currentTotalFootprint =
     pledge.footprint[pledge.footprint.length - 1].total.toString();
-  console.log(isUnverifiedSecondaryWallet);
   return (
     <PledgeLayout
       canEditPledge={canEditPledge}
