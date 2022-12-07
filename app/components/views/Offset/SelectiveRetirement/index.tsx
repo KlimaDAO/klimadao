@@ -3,7 +3,6 @@ import { Trans, t } from "@lingui/macro";
 import { Text, TextInfoTooltip } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { uniq, sortBy } from "lodash";
 
 import { LeafIcon } from "components/LeafIcon";
 
