@@ -39,11 +39,9 @@ export const RetirementsCard: FC<Props> = (props) => {
       <span className={styles.pledge_retirements_wallet}>
         <Text>{concatAddress(props.pageAddress)}</Text>
         <Link href={`/retirements/${props.pageAddress}`} passHref>
-          <a title="View retirements">
-            <div className={styles.retirementsLink}>
-              <LaunchIcon />
-            </div>
-          </a>
+          <div className={styles.retirementsLink}>
+            <LaunchIcon />
+          </div>
         </Link>
       </span>
       {props.secondaryWallets &&
@@ -55,12 +53,14 @@ export const RetirementsCard: FC<Props> = (props) => {
                 className={styles.pledge_retirements_wallet}
               >
                 <Text>{concatAddress(wallet.address)}</Text>
-                <Link href={`/retirements/${wallet.address}`} passHref>
-                  <a title="View retirements">
-                    <div className={styles.retirementsLink}>
-                      <LaunchIcon />
-                    </div>
-                  </a>
+                <Link
+                  href={`/retirements/${wallet.address}`}
+                  passHref
+                  id="view_retirements"
+                >
+                  <div className={styles.retirementsLink}>
+                    <LaunchIcon />
+                  </div>
                 </Link>
               </span>
             );
@@ -127,12 +127,11 @@ export const RetirementsCard: FC<Props> = (props) => {
         </Text>
       </div>
 
-      {props.retirements &&
-        Number(props.retirements.totalTonnesRetired) > 0 && (
-          <div className={styles.chartContainer}>
-            <RetirementsChart retirements={props.retirements} />
-          </div>
-        )}
+      {props.retirements && Number(props.retirements.totalTonnesRetired) > 0 && (
+        <div className={styles.chartContainer}>
+          <RetirementsChart retirements={props.retirements} />
+        </div>
+      )}
     </BaseCard>
   );
 };

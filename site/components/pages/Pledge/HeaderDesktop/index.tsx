@@ -23,7 +23,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
     <div className={styles.headerDesktop}>
       <div className={styles.mainHeader}>
         <div className={styles.logo}>
-          <Link href={"/pledge"}>
+          <Link href={"/pledge"} passHref>
             <KlimaInfinityLogo />
           </Link>
         </div>
