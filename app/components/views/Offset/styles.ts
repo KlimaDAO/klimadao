@@ -170,3 +170,7 @@ export const input = css`
     border: 0.2rem solid red;
   }
 `;
+
+export const connect_button = css`
+  width: 100%;
+`;

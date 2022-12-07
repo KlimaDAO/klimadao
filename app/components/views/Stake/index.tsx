@@ -43,12 +43,6 @@ import { TransactionModal } from "components/TransactionModal";
 import * as styles from "./styles";
 import { urls } from "@klimadao/lib/constants";
 
-interface ButtonProps {
-  label: ReactElement | string;
-  onClick: undefined | (() => void);
-  disabled: boolean;
-}
-
 interface Props {
   provider?: providers.JsonRpcProvider;
   address?: string;
@@ -254,6 +248,7 @@ export const Stake = (props: Props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonClassName={styles.connect_button}
         />
       );
     } else if (isLoading) {
@@ -501,14 +496,13 @@ export const Stake = (props: Props) => {
           </div>
 
           <div className={styles.buttonRow}>
-            {
-              showSpinner ? (
-                <div className={styles.buttonRow_spinner}>
-                  <Spinner />
-                </div>
-              ) : null
-              // put the button back here
-            }
+            {showSpinner ? (
+              <div className={styles.buttonRow_spinner}>
+                <Spinner />
+              </div>
+            ) : (
+              getButton()
+            )}
           </div>
         </div>
       </div>

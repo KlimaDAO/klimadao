@@ -12,6 +12,7 @@ export const ConnectModal = (props: {
     error: string;
   };
   buttonText: string;
+  buttonClassName?: string;
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
@@ -55,6 +56,7 @@ export const ConnectModal = (props: {
         <ButtonPrimary label={concatAddress(address)} onClick={disconnect} />
       ) : (
         <ButtonPrimary
+          className={props.buttonClassName}
           label={props.buttonText}
           onClick={() => {
             setShowModal(true);

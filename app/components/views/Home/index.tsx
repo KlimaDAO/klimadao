@@ -205,9 +205,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                 />
               }
             />
@@ -218,9 +215,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                   onRPCError={handleRPCError}
                 />
               }
@@ -234,9 +228,6 @@ export const Home: FC = () => {
                   path={`/bonds/${bond}`}
                   element={
                     <Bond
-                      loadWeb3Modal={async () => {
-                        await web3.connect?.();
-                      }}
                       provider={web3.provider}
                       address={web3.address}
                       bond={bond}

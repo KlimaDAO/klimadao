@@ -228,3 +228,7 @@ export const columnRight = css`
     grid-column: 2 / 3;
   }
 `;
+
+export const connect_button = css`
+  min-width: 100%;
+`;
