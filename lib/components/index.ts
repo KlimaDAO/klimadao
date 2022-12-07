@@ -29,4 +29,4 @@ export { Web3ContextProvider } from "./Web3Context";
 export { CopyAddressButton } from "./CopyAddressButton";
 
 /** Types */
-export { ButtonBaseProps } from "./Buttons/ButtonBase";
+export type { ButtonBaseProps } from "./Buttons/ButtonBase";
