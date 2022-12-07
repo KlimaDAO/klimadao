@@ -207,7 +207,7 @@ export const AddListing: FC<Props> = (props) => {
             inputProps={{
               placeholder: t({
                 id: "marketplace.user.edit.form.input.singleUnitPrice.placeholder",
-                message: "Single Unit Price",
+                message: "USDC per ton",
               }),
               type: "number",
               ...register("singleUnitPrice", {
