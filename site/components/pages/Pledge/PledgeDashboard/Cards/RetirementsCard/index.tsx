@@ -127,11 +127,12 @@ export const RetirementsCard: FC<Props> = (props) => {
         </Text>
       </div>
 
-      {props.retirements && Number(props.retirements.totalTonnesRetired) > 0 && (
-        <div className={styles.chartContainer}>
-          <RetirementsChart retirements={props.retirements} />
-        </div>
-      )}
+      {props.retirements &&
+        Number(props.retirements.totalTonnesRetired) > 0 && (
+          <div className={styles.chartContainer}>
+            <RetirementsChart retirements={props.retirements} />
+          </div>
+        )}
     </BaseCard>
   );
 };

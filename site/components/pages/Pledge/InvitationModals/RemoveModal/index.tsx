@@ -62,7 +62,7 @@ export const RemoveModal = (props: Props) => {
       setStep("signing");
       const signature = await signer.signMessage(params.message);
       setStep("loading");
-      if (signature === "0x") {
+      if (signature === "0x" && props.address) {
         await waitForGnosisSignature({
           message: params.message,
           address: props.address,

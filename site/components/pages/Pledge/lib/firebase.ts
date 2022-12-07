@@ -173,8 +173,8 @@ export const findOrCreatePledge = async (
       currentPledgeValues: currentPledge,
       newPledgeValues: params.pledge,
     });
-
-    await pledgeRef.ref.update(pledgeAttributes);
+    // using as unknown as any type here because typescript is throwing errors
+    await pledgeRef.ref.update(pledgeAttributes as unknown as any);
     return pledgeAttributes;
   } else {
     // create new pledge document

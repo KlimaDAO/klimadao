@@ -1,5 +1,4 @@
 import { utils } from "ethers";
-import { editPledgeMessage, verifyGnosisSignature } from ".";
 import { verifyGnosisSignature } from ".";
 
 interface Params {
