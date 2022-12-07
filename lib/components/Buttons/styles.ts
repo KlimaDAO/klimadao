@@ -40,6 +40,10 @@ const buttonBase = css`
     }
   }
 
+  &.suffix {
+    flex-direction: row-reverse;
+  }
+
   &.transparent {
     background: none;
     padding: 0;

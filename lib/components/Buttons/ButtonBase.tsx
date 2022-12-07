@@ -13,6 +13,8 @@ export type ButtonBaseProps = {
   href?: string;
   variant?: "lightGray" | "gray" | "blue" | "transparent" | null;
   icon?: JSX.Element;
+  /** Show icon as suffix, prefix by default */
+  iconPos?: "suffix" | "prefix";
   renderLink?: (p: RenderLinkProps) => ReactElement;
   rel?: string;
   target?: string;
@@ -32,9 +34,10 @@ export const BaseButton: FC<BaseProps> = (props) => {
   const icon = !!props.icon;
   const circle = !props.label && icon;
   const rounded = !!props.rounded;
+  const suffix = props.iconPos === "suffix";
 
   /** Conditional styling */
-  const buttonStyle = cx({ rounded, icon, circle }, props.className);
+  const buttonStyle = cx({ rounded, icon, circle, suffix }, props.className);
 
   if (props.href && props.renderLink)
     return props.renderLink({
