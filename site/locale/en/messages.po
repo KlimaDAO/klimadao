@@ -1645,6 +1645,12 @@ msgstr "Offset"
 msgid "shared.pledge"
 msgstr "How to pledge"
 
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:342
+#: components/pages/Blog/Post/index.tsx:71
+msgid "shared.resourcecenter"
+msgstr "Resource Center"
+
 #: components/Navigation/index.tsx:184
 #: components/Navigation/index.tsx:338
 msgid "shared.resources"
@@ -1659,12 +1665,6 @@ msgstr "Sort by:"
 #: components/Navigation/index.tsx:272
 msgid "shared.stake"
 msgstr "Stake Klima"
-
-#: components/Navigation/index.tsx:187
-#: components/Navigation/index.tsx:342
-#: components/pages/Blog/Post/index.tsx:71
-msgid "shared.updates"
-msgstr "Updates"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"

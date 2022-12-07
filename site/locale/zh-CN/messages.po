@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-07 15:35+0000\n"
+"POT-Creation-Date: 2022-12-07 17:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1639,6 +1639,12 @@ msgstr "抵消"
 msgid "shared.pledge"
 msgstr "如何承诺"
 
+#: components/Navigation/index.tsx:187
+#: components/Navigation/index.tsx:342
+#: components/pages/Blog/Post/index.tsx:71
+msgid "shared.resourcecenter"
+msgstr ""
+
 #: components/Navigation/index.tsx:184
 #: components/Navigation/index.tsx:338
 msgid "shared.resources"
@@ -1653,12 +1659,6 @@ msgstr "排序方式："
 #: components/Navigation/index.tsx:272
 msgid "shared.stake"
 msgstr "质押 Klima"
-
-#: components/Navigation/index.tsx:187
-#: components/Navigation/index.tsx:342
-#: components/pages/Blog/Post/index.tsx:71
-msgid "shared.updates"
-msgstr "更新"
 
 #: components/pages/Infinity/index.tsx:509
 msgid "shared.visit_klimadao_blog"
