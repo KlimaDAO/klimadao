@@ -15,13 +15,6 @@ export class Pair extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("token0", Value.fromString(""));
-    this.set("token1", Value.fromString(""));
-    this.set("currentprice", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("totalklimaearnedfees", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("totalvolume", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("lastupdate", Value.fromString(""));
   }
 
   save(): void {
@@ -117,10 +110,6 @@ export class Token extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("name", Value.fromString(""));
-    this.set("symbol", Value.fromString(""));
-    this.set("decimals", Value.fromI32(0));
   }
 
   save(): void {
@@ -180,17 +169,6 @@ export class Swap extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
-    this.set("open", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("high", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("low", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("close", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("volume", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("lpfees", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("klimaearnedfees", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("slippage", Value.fromBigDecimal(BigDecimal.zero()));
-    this.set("timestamp", Value.fromString(""));
-    this.set("pair", Value.fromString(""));
   }
 
   save(): void {
