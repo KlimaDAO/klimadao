@@ -284,7 +284,6 @@ export const Stake = (props: Props) => {
           className={styles.submitButton}
           label={t({ id: "shared.approve", message: "APPROVE" })}
           onClick={() => setShowTransactionModal(true)}
-          disabled={false}
         />
       );
     } else if (view === "stake") {

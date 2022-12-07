@@ -90,7 +90,6 @@ export const Buy = (props: Props) => {
                 )
               }
               onClick={handleCopyAddressClick}
-              disabled={false}
               className={styles.copyButton}
             />
             <div className={styles.buyCard_iframeContainer}>

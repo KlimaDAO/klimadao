@@ -263,7 +263,6 @@ export const Wrap: FC<Props> = (props) => {
         <ButtonPrimary
           className={styles.submitButton}
           label={t({ id: "shared.approve", message: "APPROVE" })}
-          disabled={false}
           onClick={() => {
             setShowTransactionModal(true);
           }}
