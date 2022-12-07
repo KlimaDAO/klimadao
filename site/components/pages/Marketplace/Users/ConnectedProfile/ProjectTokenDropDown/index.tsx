@@ -50,7 +50,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
                 aria-label={asset.tokenName}
                 data-active={selectedTokenAddress === asset.tokenAddress}
               >
-                {asset.tokenName}
+                {asset.projectName}
               </button>
             ))}
           </div>
@@ -70,7 +70,7 @@ export const ProjectTokenDropDown: FC<Props> = (props) => {
             message: "Toggle Select Project",
           })}
         >
-          {selectedAsset?.tokenName || "not found"}
+          <span>{selectedAsset?.projectName || "not found"}</span>
           <ArrowDropDownIcon />
         </button>
       </Tippy>

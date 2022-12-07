@@ -9,14 +9,16 @@ export const dropdownHeader = css`
   padding: 1rem;
   min-height: 4.8rem;
   justify-content: center;
-  border: 1px solid var(--klima-green);
+  border: 1px solid var(--font-03);
+  width: 100%;
+  justify-content: space-between;
 
   &:hover {
     cursor: pointer;
   }
 
   svg {
-    fill: var(--klima-green);
+    fill: var(--font-03);
   }
 `;
 
