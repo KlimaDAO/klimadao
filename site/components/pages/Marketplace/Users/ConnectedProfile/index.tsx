@@ -126,16 +126,28 @@ export const ConnectedProfile: FC<Props> = (props) => {
           type: "wallet",
         });
 
-      const listingIsAdded = (newUser: User) => {
-        const newListingsLength = newUser.listings.length;
+      const listingIsAdded = (value: User) => {
+        const newListingsLength = value.listings.length;
         const currentListingsLength = user.listings.length;
         return newListingsLength > currentListingsLength;
       };
 
-      const updatedUser = await pollUntil(fetchUser, listingIsAdded, 1000);
+      const updatedUser = await pollUntil({
+        fn: fetchUser,
+        validate: listingIsAdded,
+        ms: 1000,
+        maxAttempts: 20,
+      });
+
       setUser((prev) => ({ ...prev, ...updatedUser }));
     } catch (e) {
-      console.error("LOAD USER LISTING AGAIN error", e);
+      console.error("LOAD USER LISTING error", e);
+      setErrorMessage(
+        t({
+          id: "marketplace.profile.add_listing.error",
+          message: `There was an error adding your listing: ${e}`,
+        })
+      );
     } finally {
       setIsLoadingNewListing(false);
     }

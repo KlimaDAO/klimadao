@@ -44,20 +44,29 @@ export const changeApprovalTransaction = async (params: {
   return formatUnits(parsedValue);
 };
 
-export const pollUntil = async function (
-  fn: () => Promise<any>,
-  fnCondition: (result: any) => boolean,
-  ms: number
-) {
-  let result = await fn();
-  while (!fnCondition(result)) {
-    await wait(ms);
-    result = await fn();
+export const pollUntil = async <T>(params: {
+  fn: () => Promise<T>;
+  validate: (value: T) => boolean;
+  ms: number;
+  maxAttempts: number;
+}) => {
+  let attempts = 0;
+  let result = await params.fn();
+  attempts++;
+
+  while (!params.validate(result)) {
+    await wait(params.ms);
+    result = await params.fn();
   }
+
+  if (params.maxAttempts && attempts === params.maxAttempts) {
+    return Promise.reject(new Error("Exceeded max attempts"));
+  }
+
   return result;
 };
 
-const wait = function (ms = 1000) {
+const wait = (ms: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
