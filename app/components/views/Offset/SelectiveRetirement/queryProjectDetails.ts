@@ -36,24 +36,26 @@ export const queryCarbonProjectDetails = async (
       body: JSON.stringify({
         query: `
           query {
-            carbonOffsetSearch(text: "${searchQuery}") {
-              id
-              tokenAddress
-              projectID
-              name
-              country
-              region 
-              vintage
-              vintageYear
-              methodology
-              methodologyCategory
-              category
-              currentSupply
-              bridge
-              balanceBCT
-              balanceNCT
-              balanceUBO
-              balanceNBO
+            carbonOffsetSearch(
+              first: 1000,
+              text: "${searchQuery}") {
+                id
+                tokenAddress
+                projectID
+                name
+                country
+                region 
+                vintage
+                vintageYear
+                methodology
+                methodologyCategory
+                category
+                currentSupply
+                bridge
+                balanceBCT
+                balanceNCT
+                balanceUBO
+                balanceNBO
             }
           }
           `,
