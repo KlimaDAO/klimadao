@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState, ReactElement, useRef } from "react";
+import { ChangeEvent, useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import { utils, providers } from "ethers";
 import { Trans, t } from "@lingui/macro";
@@ -7,6 +7,7 @@ import {
   Text,
   Spinner,
   ButtonPrimary,
+  ConnectModal,
   TextInfoTooltip,
 } from "@klimadao/lib/components";
 import {
@@ -70,17 +71,10 @@ import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
 const APPROVAL_SLIPPAGE = 0.01;
 const MAX_FIAT_COST = 2000; // usdc
 
-interface ButtonProps {
-  label: ReactElement | string;
-  onClick: undefined | (() => void);
-  disabled: boolean;
-}
-
 interface Props {
   provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
-  loadWeb3Modal: () => void;
   onRPCError: () => void;
 }
 
@@ -361,53 +355,85 @@ export const Offset = (props: Props) => {
     );
   };
 
-  const getButtonProps = (): ButtonProps => {
+  const getButton = () => {
     if (!props.isConnected) {
-      return {
-        label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
-        onClick: props.loadWeb3Modal,
-        disabled: false,
-      };
+      return (
+        <ConnectModal
+          errorMessage={t({
+            message: "We had some trouble connecting. Please try again.",
+            id: "connect_modal.error_message",
+          })}
+          torusText={t({
+            message: "or continue with",
+            id: "connectModal.continue",
+          })}
+          titles={{
+            connect: t({
+              id: "connect_modal.sign_in",
+              message: "Sign In / Connect",
+            }),
+            loading: t({
+              id: "connect_modal.connecting",
+              message: "Connecting...",
+            }),
+            error: t({
+              id: "connect_modal.error_title",
+              message: "Connection Error",
+            }),
+          }}
+          buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonClassName={styles.connect_button}
+        />
+      );
     } else if (isLoading || cost === "loading") {
-      return {
-        label: <Trans id="shared.loading">Loading...</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({ id: "shared.loading", message: "Loading..." })}
+          disabled={true}
+        />
+      );
     } else if (isRedirecting) {
-      return {
-        label: (
-          <Trans id="shared.redirecting_checkout">
-            Redirecting to checkout...
-          </Trans>
-        ),
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({
+            id: "shared.redirecting_checkout",
+            message: "Redirecting to checkout...",
+          })}
+          disabled={true}
+        />
+      );
     } else if (!quantity || !Number(quantity)) {
-      return {
-        label: <Trans id="shared.enter_quantity">Enter quantity</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({ id: "shared.enter_quantity", message: "Enter quantity" })}
+          disabled={true}
+        />
+      );
     } else if (!beneficiary) {
-      return {
-        label: (
-          <Trans id="shared.enter_beneficiary">Enter beneficiary name</Trans>
-        ),
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({
+            id: "shared.enter_beneficiary",
+            message: "Enter beneficiary name",
+          })}
+          disabled={true}
+        />
+      );
     } else if (!retirementMessage) {
-      return {
-        label: (
-          <Trans id="shared.enter_retirement_message">
-            Enter retirement message
-          </Trans>
-        ),
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({
+            id: "shared.enter_retirement_message",
+            message: "Enter retirement message",
+          })}
+          disabled={true}
+        />
+      );
     } else if (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) {
       return {
         label: (
@@ -435,45 +461,53 @@ export const Offset = (props: Props) => {
         disabled: true,
       };
     } else if (!!projectAddress && !utils.isAddress(projectAddress)) {
-      return {
-        label: (
-          <Trans id="shared.invalid_project_address">
-            Invalid project address
-          </Trans>
-        ),
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({
+            id: "shared.invalid_project_address",
+            message: "Invalid project address",
+          })}
+          disabled={true}
+        />
+      );
     } else if (paymentMethod !== "fiat" && insufficientBalance) {
-      return {
-        label: (
-          <Trans id="shared.insufficient_balance">Insufficient balance</Trans>
-        ),
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({
+            id: "shared.insufficient_balance",
+            message: "Insufficient balance",
+          })}
+          disabled={true}
+        />
+      );
     } else if (paymentMethod !== "fiat" && !hasApproval()) {
-      return {
-        label: <Trans id="shared.approve">Approve</Trans>,
-        onClick: () => {
-          setShowTransactionModal(true);
-        },
-        disabled: false,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({ id: "shared.approve", message: "Approve" })}
+          onClick={() => {
+            setShowTransactionModal(true);
+          }}
+        />
+      );
     } else if (paymentMethod === "fiat") {
-      return {
-        label: <Trans>Checkout</Trans>,
-        onClick: handleFiat,
-        disabled: false,
-      };
+      return (
+        <ButtonPrimary
+          className={styles.submitButton}
+          label={t({ id: "offset.checkout", message: "Checkout" })}
+          onClick={handleFiat}
+        />
+      );
     }
-    return {
-      label: <Trans id="shared.retire">Retire carbon</Trans>,
-      onClick: () => {
-        setShowTransactionModal(true);
-      },
-      disabled: false,
-    };
+    return (
+      <ButtonPrimary
+        className={styles.submitButton}
+        label={t({ id: "shared.retire", message: "Retire carbon" })}
+        onClick={() => setShowTransactionModal(true)}
+      />
+    );
   };
 
   const handleSelectInputToken = (tkn: OffsetPaymentMethod) => {
@@ -795,10 +829,7 @@ export const Offset = (props: Props) => {
                 <Spinner />
               </div>
             ) : (
-              <ButtonPrimary
-                {...getButtonProps()}
-                className={styles.submitButton}
-              />
+              getButton()
             )}
           </div>
         </div>

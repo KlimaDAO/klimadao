@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { providers } from "ethers";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
 import Check from "@mui/icons-material/Check";
 import ContentCopy from "@mui/icons-material/ContentCopy";
 
-import { Anchor, ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import {
+  Anchor,
+  ButtonPrimary,
+  Spinner,
+  Text,
+  ConnectModal,
+} from "@klimadao/lib/components";
 import { concatAddress } from "@klimadao/lib/utils";
 
 import { BalancesCard } from "components/BalancesCard";
@@ -16,7 +22,6 @@ interface Props {
   provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
-  loadWeb3Modal: () => void;
 }
 
 export const Buy = (props: Props) => {
@@ -85,7 +90,6 @@ export const Buy = (props: Props) => {
                 )
               }
               onClick={handleCopyAddressClick}
-              disabled={false}
               className={styles.copyButton}
             />
             <div className={styles.buyCard_iframeContainer}>
@@ -109,11 +113,30 @@ export const Buy = (props: Props) => {
                 You must connect a wallet in order to purchase KLIMA.
               </Trans>
             </Text>
-            <ButtonPrimary
-              label={<Trans id="shared.connect_wallet">Connect wallet</Trans>}
-              onClick={props.loadWeb3Modal}
-              disabled={false}
-              className={styles.submitButton}
+            <ConnectModal
+              errorMessage={t({
+                message: "We had some trouble connecting. Please try again.",
+                id: "connect_modal.error_message",
+              })}
+              torusText={t({
+                message: "or continue with",
+                id: "connectModal.continue",
+              })}
+              titles={{
+                connect: t({
+                  id: "connect_modal.sign_in",
+                  message: "Sign In / Connect",
+                }),
+                loading: t({
+                  id: "connect_modal.connecting",
+                  message: "Connecting...",
+                }),
+                error: t({
+                  id: "connect_modal.error_title",
+                  message: "Connection Error",
+                }),
+              }}
+              buttonText={t({ id: "shared.connect", message: "Connect" })}
             />
           </div>
         )}

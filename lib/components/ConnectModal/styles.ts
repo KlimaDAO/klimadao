@@ -36,6 +36,7 @@ export const walletButton = css`
   cursor: pointer;
   p {
     text-transform: uppercase;
+    color: #000;
   }
 `;
 
@@ -76,6 +77,7 @@ export const torusButtons = css`
   justify-content: center;
   display: flex;
   gap: 1.6rem;
+  cursor: pointer;
 `;
 export const twitter = css`
   fill: #1d9bf0;

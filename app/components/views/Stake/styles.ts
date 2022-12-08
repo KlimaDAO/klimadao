@@ -215,6 +215,7 @@ export const buttonRow_spinner = css`
 
 export const submitButton = css`
   width: 100%;
+  text-transform: uppercase;
 `;
 
 export const columnRight = css`
@@ -226,4 +227,8 @@ export const columnRight = css`
   ${breakpoints.desktop} {
     grid-column: 2 / 3;
   }
+`;
+
+export const connect_button = css`
+  min-width: 100%;
 `;

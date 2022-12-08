@@ -227,26 +227,26 @@ msgstr "Amount you will get, at the provided input quantity"
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
-#: components/views/Buy/index.tsx:44
+#: components/views/Buy/index.tsx:49
 msgid "buy.buy_klima"
 msgstr "Buy KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:108
+#: components/views/Buy/index.tsx:113
 msgid "buy.connect_wallet"
 msgstr "You must connect a wallet in order to purchase KLIMA."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:55
+#: components/views/Buy/index.tsx:60
 msgid "buy.data_disclaimer"
 msgstr "KlimaDAO does not receive any personal data whatsoever. Review the Mobilum <0>Privacy Policy</0> and <1>Terms and Conditions</1>."
 
 #. Long sentence
-#: components/views/Buy/index.tsx:47
+#: components/views/Buy/index.tsx:52
 msgid "buy.how_to_buy"
 msgstr "Buy KLIMA directly using our partner, <0>Mobilum</0>. Double check that you are connected with your own secure wallet, and that the provided address is correct."
 
-#: components/views/Buy/index.tsx:105
+#: components/views/Buy/index.tsx:110
 msgid "buy.not_connected"
 msgstr "Not Connected"
 
@@ -656,37 +656,37 @@ msgstr "Cost"
 msgid "offset_disclaimer"
 msgstr "Be careful not to expose any sensitive personal information. Your message can not be edited and will permanently exist on a public blockchain."
 
-#: components/views/PKlima/index.tsx:176
+#: components/views/PKlima/index.tsx:211
 msgid "pklima.approve_bct"
 msgstr "2. Approve BCT"
 
-#: components/views/PKlima/index.tsx:171
+#: components/views/PKlima/index.tsx:199
 msgid "pklima.approve_pklima"
 msgstr "1. Approve pKLIMA"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:194
+#: components/views/PKlima/index.tsx:233
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "Make sure to stake your redeemed pKLIMA, and stay staked, until global GHG emissions have plateaued."
 
-#: components/views/PKlima/index.tsx:181
+#: components/views/PKlima/index.tsx:219
 msgid "pklima.exercise"
 msgstr "EXERCISE"
 
-#: components/views/PKlima/index.tsx:210
+#: components/views/PKlima/index.tsx:249
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
 
-#: components/views/PKlima/index.tsx:278
+#: components/views/PKlima/index.tsx:317
 msgid "pklima.index_adjusted"
 msgstr "Index adjusted"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:281
+#: components/views/PKlima/index.tsx:320
 msgid "pklima.index_adjusted.tooltip"
 msgstr "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIMA until today."
 
-#: components/views/PKlima/index.tsx:226
+#: components/views/PKlima/index.tsx:265
 msgid "pklima.klima_to_exercise"
 msgstr "pKLIMA to exercise"
 
@@ -694,25 +694,25 @@ msgstr "pKLIMA to exercise"
 msgid "pklima.overclaim"
 msgstr "You've claimed more KLIMA than your supply-share limit. This is likely due to a fix implemented on November 24th, 2021 to the pKLIMA redemption contract."
 
-#: components/views/PKlima/index.tsx:207
+#: components/views/PKlima/index.tsx:246
 msgid "pklima.redeem_pklima"
 msgstr "Redeem pKLIMA"
 
-#: components/views/PKlima/index.tsx:266
+#: components/views/PKlima/index.tsx:305
 msgid "pklima.redeemed"
 msgstr "Redeemed"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:269
+#: components/views/PKlima/index.tsx:308
 msgid "pklima.redeemed.tooltip"
 msgstr "Total KLIMA you have redeemed so far."
 
-#: components/views/PKlima/index.tsx:250
+#: components/views/PKlima/index.tsx:289
 msgid "pklima.supply_limit"
 msgstr "Supply limit"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:253
+#: components/views/PKlima/index.tsx:292
 msgid "pklima.supply_limit.tooltip"
 msgstr "A percent of total token supply. Your index-adjusted claim may not exceed this value."
 
@@ -752,14 +752,14 @@ msgstr "Confirming"
 #: components/views/Stake/index.tsx:233
 #: components/views/Wrap/index.tsx:196
 msgid "shared.connect_wallet"
-msgstr "Connect wallet"
+msgstr "Loading..."
 
-#: components/views/Buy/index.tsx:76
+#: components/views/Buy/index.tsx:81
 msgid "shared.copy_wallet_address"
 msgstr "Copy Address {0}"
 
-#: components/views/Stake/index.tsx:270
-#: components/views/Stake/index.tsx:280
+#: components/views/Stake/index.tsx:302
+#: components/views/Stake/index.tsx:317
 msgid "shared.enter_amount"
 msgstr "Enter Amount"
 
@@ -837,32 +837,32 @@ msgstr "Retire carbon"
 msgid "shared.sold_out"
 msgstr "Sold Out"
 
-#: components/views/Buy/index.tsx:83
+#: components/views/Buy/index.tsx:88
 msgid "shared.wallet_address_copied"
 msgstr "Copied!"
 
-#: components/views/Stake/index.tsx:397
+#: components/views/Stake/index.tsx:438
 msgid "stake.5_day_rewards"
 msgstr "5 Day Rewards"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:400
+#: components/views/Stake/index.tsx:441
 msgid "stake.5_day_rewards.tooltip"
 msgstr "Approximate rewards, including compounding, should you remain staked for 5 days."
 
-#: components/views/Stake/index.tsx:413
+#: components/views/Stake/index.tsx:454
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:416
+#: components/views/Stake/index.tsx:457
 msgid "stake.akr.tooltip"
 msgstr "Annualized KLIMA Rewards, including compounding, should the current reward rate remain unchanged for 12 months (reward rate may be subject to change)."
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:124
-#: components/views/Stake/index.tsx:306
+#: components/views/Buy/index.tsx:148
+#: components/views/Stake/index.tsx:347
 msgid "stake.balancescard.tooltip"
 msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."
 
@@ -870,12 +870,12 @@ msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLI
 msgid "stake.estimated_payout"
 msgstr "Est. payout (sKLIMA)"
 
-#: components/views/Stake/index.tsx:427
+#: components/views/Stake/index.tsx:468
 msgid "stake.index"
 msgstr "Index"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:430
+#: components/views/Stake/index.tsx:471
 msgid "stake.index.tooltip"
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Useful for accounting purposes."
 
@@ -887,7 +887,7 @@ msgstr "Amount to stake"
 msgid "stake.inputplaceholder.unstake"
 msgstr "Amount to unstake"
 
-#: components/views/Stake/index.tsx:327
+#: components/views/Stake/index.tsx:368
 msgid "stake.lifi"
 msgstr "Cross-chain staking is now available through <0>LI.FI and Etherspot</0>, with support for multiple chains and tokens."
 
@@ -907,26 +907,26 @@ msgstr "Rebase"
 msgid "stake.rebase.info"
 msgstr "The protocol automatically mints and distributes rewards. Your payout is a percentage of your sKLIMA balance"
 
-#: components/views/Stake/index.tsx:347
+#: components/views/Stake/index.tsx:388
 msgid "stake.stake"
 msgstr "Stake"
 
-#: components/views/Stake/index.tsx:321
+#: components/views/Stake/index.tsx:362
 msgid "stake.stake_hold_earn"
 msgstr "Stake, hold, and earn compounding sKLIMA."
 
-#: components/views/Stake/index.tsx:268
-#: components/views/Stake/index.tsx:318
-#: components/views/Stake/index.tsx:483
+#: components/views/Stake/index.tsx:301
+#: components/views/Stake/index.tsx:359
+#: components/views/Stake/index.tsx:522
 msgid "stake.stake_klima"
 msgstr "Stake KLIMA"
 
-#: components/views/Stake/index.tsx:359
+#: components/views/Stake/index.tsx:400
 msgid "stake.unstake"
 msgstr "Unstake"
 
-#: components/views/Stake/index.tsx:278
-#: components/views/Stake/index.tsx:485
+#: components/views/Stake/index.tsx:316
+#: components/views/Stake/index.tsx:524
 msgid "stake.unstake_klima"
 msgstr "Unstake KLIMA"
 
@@ -998,14 +998,6 @@ msgstr "1. Approve"
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Submit"
 
-#: components/ConnectButton/index.tsx:20
-msgid "wallet.connect"
-msgstr "Connect"
-
-#: components/ConnectButton/index.tsx:24
-msgid "wallet.disconnect"
-msgstr "Disconnect"
-
 #: lib/getWeb3ModalStrings.ts:13
 msgid "web3modal.injected.des"
 msgstr "Connect with your browser web3 provider"
@@ -1026,19 +1018,19 @@ msgstr "Scan with WalletConnect to connect"
 msgid "web3modal.walletlink.desc"
 msgstr "Scan with Coinbase to connect"
 
-#: components/views/Wrap/index.tsx:370
+#: components/views/Wrap/index.tsx:420
 msgid "wrap.balance"
 msgstr "Balance"
 
-#: components/views/Wrap/index.tsx:265
+#: components/views/Wrap/index.tsx:315
 msgid "wrap.balances_tooltip"
 msgstr "Wrap sKLIMA to receive index-adjusted wrapped-staked-KLIMA"
 
-#: components/views/Wrap/index.tsx:357
+#: components/views/Wrap/index.tsx:407
 msgid "wrap.index"
 msgstr "Index"
 
-#: components/views/Wrap/index.tsx:360
+#: components/views/Wrap/index.tsx:410
 msgid "wrap.index.tooltip"
 msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day. Used to calculate wsKLIMA value."
 
@@ -1046,25 +1038,25 @@ msgstr "Amount of KLIMA you would have today if you staked 1 KLIMA on launch day
 msgid "wrap.sklima_to_wrap"
 msgstr "sKLIMA to wrap"
 
-#: components/views/Wrap/index.tsx:320
+#: components/views/Wrap/index.tsx:370
 msgid "wrap.unwrap"
 msgstr "Unwrap"
 
-#: components/views/Wrap/index.tsx:309
+#: components/views/Wrap/index.tsx:359
 msgid "wrap.wrap"
 msgstr "Wrap"
 
-#: components/views/Wrap/index.tsx:275
+#: components/views/Wrap/index.tsx:325
 msgid "wrap.wrap_sklima"
 msgstr "Wrap sKLIMA"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:287
+#: components/views/Wrap/index.tsx:337
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "Some find this useful for accounting purposes, but the rewards are exactly the same. Wrap and unwrap values are calculated based on the current index."
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:278
+#: components/views/Wrap/index.tsx:328
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will not increase over time."
 
@@ -1072,7 +1064,7 @@ msgstr "Wrap sKLIMA to receive wsKLIMA. Unlike sKLIMA, your wsKLIMA balance will
 msgid "wrap.wsklima_to_unwrap"
 msgstr "wsKLIMA to unwrap"
 
-#: components/views/Wrap/index.tsx:373
+#: components/views/Wrap/index.tsx:423
 msgid "wrap.you_will_get"
 msgstr "You Will Get"
 
