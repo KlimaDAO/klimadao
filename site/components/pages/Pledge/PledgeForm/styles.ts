@@ -36,7 +36,6 @@ export const pledge_wallet_address_cell = css`
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  padding-right: 1.6rem;
 `;
 
 export const pledge_wallet_pending = css`
@@ -63,12 +62,19 @@ export const pledge_form_remove_button = css`
   width: 100%;
 `;
 
+export const pledge_wallet_edit_buttons = css`
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.6rem;
+`;
+
 export const pledge_wallet_row = css`
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
   padding: 0.4rem 0;
+  gap: 1.6rem;
 `;
 
 export const pledge_wallet_icon = css`
@@ -97,6 +103,19 @@ export const pledge_wallet_save = css`
   &:focus,
   &:hover {
     border-color: var(--klima-green);
+  }
+`;
+export const pledge_wallet_delete_icon = css`
+  ${pledge_wallet_icon};
+  border: 0.175rem solid var(--surface-03);
+  background-color: var(--surface-02);
+
+  svg {
+    fill: var(--warn);
+  }
+  &:focus,
+  &:hover {
+    border-color: var(--warn);
   }
 `;
 

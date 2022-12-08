@@ -382,19 +382,27 @@ export const PledgeForm: FC<Props> = (props) => {
                           ]
                         }
                       />
-                      <ButtonPrimary
-                        variant="icon"
-                        label={<SaveIcon fontSize="large" />}
-                        className={styles.pledge_wallet_save}
-                        onClick={() =>
-                          wallets &&
-                          walletsUpdate(index, {
-                            address: wallets[index].address,
-                            status: wallets[index].status,
-                            saved: true,
-                          })
-                        }
-                      />
+                      <div className={styles.pledge_wallet_edit_buttons}>
+                        <ButtonPrimary
+                          variant="icon"
+                          label={<SaveIcon fontSize="large" />}
+                          className={styles.pledge_wallet_save}
+                          onClick={() =>
+                            wallets &&
+                            walletsUpdate(index, {
+                              address: wallets[index].address,
+                              status: wallets[index].status,
+                              saved: true,
+                            })
+                          }
+                        />
+                        <ButtonPrimary
+                          variant="icon"
+                          label={<DeleteOutlineOutlinedIcon fontSize="large" />}
+                          className={styles.pledge_wallet_delete_icon}
+                          onClick={() => wallets && walletsRemove(index)}
+                        />
+                      </div>
                     </div>
                   )}
                   {wallet.saved &&

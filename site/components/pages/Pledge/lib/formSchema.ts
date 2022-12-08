@@ -14,6 +14,21 @@ yup.addMethod<yup.StringSchema>(
     });
   }
 );
+yup.addMethod<yup.StringSchema>(
+  yup.string,
+  "isOwner",
+  function (errorMessage: string) {
+    return this.test("is-owner", errorMessage, function (value) {
+      const ownerAddress = window.location.pathname
+        .split("")
+        .splice(8)
+        .join("")
+        .toLowerCase();
+      if (value?.toLowerCase() !== ownerAddress) return true;
+      return this.createError({ message: errorMessage });
+    });
+  }
+);
 
 export const pledgeErrorTranslationsMap = {
   ["pledges.form.errors.name.required"]: t({
@@ -72,6 +87,10 @@ export const pledgeErrorTranslationsMap = {
     id: "pledges.form.errors.walletAddress.isAddress",
     message: "Please enter a valid address",
   }),
+  ["pledges.form.errors.walletAddress.isOwner"]: t({
+    id: "pledges.form.errors.walletAddress.isOwner",
+    message: "You cannot add the pledge owner",
+  }),
 } as const;
 
 export type PledgeErrorId = keyof typeof pledgeErrorTranslationsMap;
@@ -103,6 +122,7 @@ export const formSchema = yup
           .string()
           .required("pledges.form.errors.walletAddress.required")
           .isAddress("pledges.form.errors.walletAddress.isAddress")
+          .isOwner("pledges.form.errors.walletAddress.isOwner")
           .trim(),
         status: yup.string().required(),
         saved: yup.boolean().required(),
