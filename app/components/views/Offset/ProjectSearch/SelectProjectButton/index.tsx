@@ -6,14 +6,11 @@ import { trimWithLocale } from "@klimadao/lib/utils";
 import CheckIcon from "@mui/icons-material/Check";
 import { verra } from "@klimadao/lib/constants";
 
-import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
+import {
+  BalanceAttribute,
+  CarbonProject,
+} from "../../SelectiveRetirement/queryProjectDetails";
 import * as styles from "./styles";
-
-type BalanceAttribute =
-  | "balanceBCT"
-  | "balanceNCT"
-  | "balanceUBO"
-  | "balanceNBO";
 
 type Props = {
   active: boolean;

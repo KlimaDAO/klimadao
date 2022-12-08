@@ -6,8 +6,9 @@ import isEmpty from "lodash/isEmpty";
 import filter from "lodash/filter";
 
 import {
-  queryCarbonProjectDetails,
+  BalanceAttribute,
   CarbonProject,
+  queryCarbonProjectDetails,
 } from "../../SelectiveRetirement/queryProjectDetails";
 import { ProjectSearchFilter } from "../ProjectSearchFilter";
 import * as filterOptions from "../filterOptions";
@@ -19,12 +20,6 @@ type Props = {
   setIsLoading: (boolean: boolean) => void;
   selectedRetirementToken: RetirementToken;
 };
-
-type BalanceAttribute =
-  | "balanceBCT"
-  | "balanceNCT"
-  | "balanceUBO"
-  | "balanceNBO";
 
 const stringifyQuery = (values: string[]) =>
   values

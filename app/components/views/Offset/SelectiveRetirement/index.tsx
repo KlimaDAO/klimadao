@@ -17,6 +17,8 @@ type Props = {
   projectAddress: string;
   selectedRetirementToken: RetirementToken;
   setProjectAddress: (address: string) => void;
+  selectedProject: CarbonProject | null;
+  setSelectedProject: (project: CarbonProject | null) => void;
 };
 
 type InputMode = "default" | "search" | "address";
@@ -24,22 +26,19 @@ type InputMode = "default" | "search" | "address";
 export const SelectiveRetirement: FC<Props> = (props) => {
   const [inputMode, setInputMode] = useState<InputMode>("default");
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<CarbonProject | null>(
-    null
-  );
 
   const disableSelectiveRetirement = props.selectedRetirementToken === "mco2";
 
   /** toggle input via address when query params are loaded */
   useEffect(() => {
-    if (!selectedProject && !!props.projectAddress) {
+    if (!props.selectedProject && !!props.projectAddress) {
       setInputMode("address");
     }
   }, [props.projectAddress]);
 
   /** clear selection when different retirement token is selected */
   useEffect(() => {
-    setSelectedProject(null);
+    props.setSelectedProject(null);
     props.setProjectAddress("");
     setInputMode("default");
   }, [props.selectedRetirementToken]);
@@ -114,9 +113,9 @@ export const SelectiveRetirement: FC<Props> = (props) => {
         {inputMode === "search" && (
           <ProjectSearch
             projectAddress={props.projectAddress}
-            selectedProject={selectedProject}
+            selectedProject={props.selectedProject}
             selectedRetirementToken={props.selectedRetirementToken}
-            setSelectedProject={setSelectedProject}
+            setSelectedProject={props.setSelectedProject}
             setIsLoading={setIsLoading}
             setProjectAddress={props.setProjectAddress}
           />

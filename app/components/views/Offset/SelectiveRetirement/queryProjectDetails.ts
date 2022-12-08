@@ -1,5 +1,11 @@
 import { subgraphs } from "@klimadao/lib/constants";
 
+export type BalanceAttribute =
+  | "balanceBCT"
+  | "balanceNCT"
+  | "balanceUBO"
+  | "balanceNBO";
+
 export interface CarbonProject {
   id: string;
   tokenAddress: string;

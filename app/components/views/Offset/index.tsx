@@ -54,6 +54,10 @@ import { DropdownWithModal } from "components/DropdownWithModal";
 import { TransactionModal } from "components/TransactionModal";
 
 import { SelectiveRetirement } from "./SelectiveRetirement";
+import {
+  BalanceAttribute,
+  CarbonProject,
+} from "./SelectiveRetirement/queryProjectDetails";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
 
 import * as styles from "./styles";
@@ -110,6 +114,9 @@ export const Offset = (props: Props) => {
   const [retirementMessage, setRetirementMessage] = useState("");
   // for selective retirement
   const [projectAddress, setProjectAddress] = useState("");
+  const [selectedProject, setSelectedProject] = useState<CarbonProject | null>(
+    null
+  );
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
 
@@ -335,7 +342,15 @@ export const Offset = (props: Props) => {
     paymentMethod !== "fiat" &&
     Number(cost) > Number(balances?.[paymentMethod] ?? "0");
 
-  const invalidQuantity = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
+  const invalidCost = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
+  const invalidRetirementQuantity =
+    selectedProject &&
+    Number(debouncedQuantity) >
+      Number(
+        selectedProject[
+          `balance${selectedRetirementToken.toUpperCase()}` as BalanceAttribute
+        ]
+      );
 
   const hasApproval = () => {
     return (
@@ -403,7 +418,17 @@ export const Offset = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (invalidQuantity) {
+    } else if (invalidRetirementQuantity) {
+      return {
+        label: (
+          <Trans id="offset.insufficient_project_tonnage">
+            Insufficient project tonnage
+          </Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (invalidCost) {
       return {
         label: <Trans id="shared.invalid_quantity">Invalid quantity</Trans>,
         onClick: undefined,
@@ -588,6 +613,8 @@ export const Offset = (props: Props) => {
             projectAddress={projectAddress}
             selectedRetirementToken={selectedRetirementToken}
             setProjectAddress={setProjectAddress}
+            selectedProject={selectedProject}
+            setSelectedProject={setSelectedProject}
           />
 
           <div className={styles.input}>
@@ -609,6 +636,7 @@ export const Offset = (props: Props) => {
                     e.preventDefault();
                   }
                 }}
+                data-error={invalidCost || invalidRetirementQuantity}
                 onChange={handleChangeQuantity}
                 placeholder={t({
                   id: "offset.offset_quantity",
@@ -616,7 +644,18 @@ export const Offset = (props: Props) => {
                 })}
               />
             </div>
-            {paymentMethod === "fiat" && (
+            {invalidRetirementQuantity && (
+              <Text
+                t="caption"
+                color="lightest"
+                className="invalid_project_tonnage"
+              >
+                <Trans id="offset.invalid_project_tonnage">
+                  Cannot exceed available tonnage of the project selected
+                </Trans>
+              </Text>
+            )}
+            {!invalidRetirementQuantity && paymentMethod === "fiat" && (
               <Text t="body8" color="lightest">
                 <Trans id="offset.min_quantity_fiat">
                   Minimum 1-tonne purchase for credit cards
@@ -698,7 +737,7 @@ export const Offset = (props: Props) => {
             icon={costIcon}
             name={paymentMethod}
             loading={cost === "loading"}
-            warn={insufficientBalance || invalidQuantity}
+            warn={insufficientBalance || invalidCost}
             helperText={
               paymentMethod === "fiat"
                 ? t({

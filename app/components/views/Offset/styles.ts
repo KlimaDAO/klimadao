@@ -151,6 +151,10 @@ export const input = css`
     display: grid;
     grid-template-columns: 1fr min-content;
     z-index: 1; /* cover advanced-settings border */
+
+    input[data-error="true"] {
+      border: 0.175rem solid var(--warn);
+    }
   }
 
   .button_max {
@@ -166,7 +170,13 @@ export const input = css`
       cursor: default;
     }
   }
+
   input[data-error="true"] {
-    border: 0.2rem solid red;
+    border: 0.175rem solid var(--warn);
+  }
+
+  .invalid_project_tonnage {
+    font-size: 1.4rem;
+    color: var(--warn);
   }
 `;
