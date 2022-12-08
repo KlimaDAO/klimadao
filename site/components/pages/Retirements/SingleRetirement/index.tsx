@@ -224,7 +224,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         className={cx(styles.section, styles.sectionButtons)}
       >
         <div className={styles.sectionButtonsWrap}>
-          <CopyAddressButton label="Copy Link" variant="lightGray" />
+          <CopyAddressButton label="Copy Link" variant="gray" />
           {retireData.transactionID && (
             <ButtonPrimary
               href={`https://polygonscan.com/tx/${retireData.transactionID}`}
