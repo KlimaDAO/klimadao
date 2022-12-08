@@ -70,6 +70,13 @@ export const ProjectSearchForm: FC<Props> = (props) => {
       const projects = await queryCarbonProjectDetails(query);
 
       props.setProjects(filterProjectsByTokenPool(projects));
+      // temp
+      console.log({
+        query,
+        results: projects,
+        filtered: filterProjectsByTokenPool(projects),
+      });
+
       props.setStep("selectProject");
       props.setIsLoading(false);
     } catch (error) {
