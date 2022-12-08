@@ -1,6 +1,5 @@
 import {
-  TREASURY_ADDRESS, KLIMA_USDC_PAIR, KLIMA_BCT_PAIR, BCT_USDC_PAIR, NCT_USDC_PAIR,
-  BCT_USDC_PAIR_BLOCK, KLIMA_BCT_PAIR_BLOCK
+  TREASURY_ADDRESS, KLIMA_USDC_PAIR, BCT_USDC_PAIR, NCT_USDC_PAIR
 } from '../../lib/utils/Constants'
 import { BigInt, BigDecimal, log } from '@graphprotocol/graph-ts'
 import { Pair, Token, Swap } from '../generated/schema'
@@ -12,37 +11,8 @@ import { ERC20 as ERC20Contract } from '../generated/KLIMA_USDC/ERC20'
 import { Address } from '@graphprotocol/graph-ts'
 import { BigDecimalZero, BigIntZero } from './utils'
 import { hourFromTimestamp } from '../../lib/utils/Dates'
+import { PriceUtil } from "../../lib/utils/Price";
 
-let BIG_DECIMAL_1E9 = BigDecimal.fromString('1e9')
-let BIG_DECIMAL_1E12 = BigDecimal.fromString('1e12')
-
-export function getKLIMAUSDRate(): BigDecimal {
-  let pair = PairContract.bind(Address.fromString(KLIMA_BCT_PAIR))
-
-  let reserves = pair.getReserves()
-  let reserve0 = reserves.value0.toBigDecimal()
-  let reserve1 = reserves.value1.toBigDecimal()
-
-  let bctRate = getBCTUSDRate()
-
-  let klimaRate = reserve0.div(reserve1).div(BIG_DECIMAL_1E9).times(bctRate)
-  log.debug("KLIMA rate {}", [klimaRate.toString()])
-
-  return klimaRate
-}
-  export function getBCTUSDRate(): BigDecimal {
-
-    let pair = PairContract.bind(Address.fromString(BCT_USDC_PAIR))
-
-    let reserves = pair.getReserves()
-    let reserve0 = reserves.value0.toBigDecimal()
-    let reserve1 = reserves.value1.toBigDecimal()
-
-    let bctRate = reserve0.div(reserve1).times(BIG_DECIMAL_1E12)
-    log.debug("BCT rate {}", [bctRate.toString()])
-
-    return bctRate
-}
 
 export function getCreateToken(address: Address): Token {
   let token = Token.load(address.toHexString())
@@ -87,9 +57,6 @@ function toUnits(x: BigInt, decimals: number): BigDecimal {
 
 export function handleSwap(event: SwapEvent): void {
   let treasury_address = Address.fromString(TREASURY_ADDRESS)
-  let klima_usdc_address = Address.fromString(KLIMA_USDC_PAIR)
-  let bct_usdc_address = Address.fromString(BCT_USDC_PAIR)
-  let nct_usdc_address = Address.fromString(NCT_USDC_PAIR)
   let pair = getCreatePair(event.address)
   let contract = PairContract.bind(event.address)
   let total_lp = toUnits(contract.totalSupply(), 18)
@@ -97,9 +64,8 @@ export function handleSwap(event: SwapEvent): void {
   let ownedLP = tokenBalance.div(total_lp)
 
   let hour_timestamp = hourFromTimestamp(event.block.timestamp)
-  // let hourlyId = event.address.toHexString() + hour_timestamp
-  let hourlyId = event.transaction.hash.toHexString()
-  // let hourlyId = event.address.toHexString() + event.block.timestamp.toString()
+  let hourlyId = event.address.toHexString() + hour_timestamp
+
   let price = BigDecimalZero
   let volume = BigDecimalZero
   let token0qty = BigDecimalZero
@@ -146,7 +112,7 @@ export function handleSwap(event: SwapEvent): void {
     volume = token1qty
   }
   let swap = Swap.load(hourlyId)
-  let usdprice = getKLIMAUSDRate().div(price)
+  let usdprice = PriceUtil.getKLIMA_USDRate().div(price)
   if (swap == null) {
     swap = new Swap(hourlyId)
     swap.lpfees = lpfees.times(usdprice)

@@ -178,7 +178,7 @@ export class Transfer__Params {
   }
 }
 
-export class Pair__burnResult {
+export class UniswapV2Pair__burnResult {
   value0: BigInt;
   value1: BigInt;
 
@@ -203,7 +203,7 @@ export class Pair__burnResult {
   }
 }
 
-export class Pair__getReservesResult {
+export class UniswapV2Pair__getReservesResult {
   value0: BigInt;
   value1: BigInt;
   value2: BigInt;
@@ -235,9 +235,9 @@ export class Pair__getReservesResult {
   }
 }
 
-export class Pair extends ethereum.SmartContract {
-  static bind(address: Address): Pair {
-    return new Pair("Pair", address);
+export class UniswapV2Pair extends ethereum.SmartContract {
+  static bind(address: Address): UniswapV2Pair {
+    return new UniswapV2Pair("UniswapV2Pair", address);
   }
 
   DOMAIN_SEPARATOR(): Bytes {
@@ -372,15 +372,18 @@ export class Pair extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toBigInt());
   }
 
-  burn(to: Address): Pair__burnResult {
+  burn(to: Address): UniswapV2Pair__burnResult {
     let result = super.call("burn", "burn(address):(uint256,uint256)", [
       ethereum.Value.fromAddress(to)
     ]);
 
-    return new Pair__burnResult(result[0].toBigInt(), result[1].toBigInt());
+    return new UniswapV2Pair__burnResult(
+      result[0].toBigInt(),
+      result[1].toBigInt()
+    );
   }
 
-  try_burn(to: Address): ethereum.CallResult<Pair__burnResult> {
+  try_burn(to: Address): ethereum.CallResult<UniswapV2Pair__burnResult> {
     let result = super.tryCall("burn", "burn(address):(uint256,uint256)", [
       ethereum.Value.fromAddress(to)
     ]);
@@ -389,7 +392,7 @@ export class Pair extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new Pair__burnResult(value[0].toBigInt(), value[1].toBigInt())
+      new UniswapV2Pair__burnResult(value[0].toBigInt(), value[1].toBigInt())
     );
   }
 
@@ -423,21 +426,21 @@ export class Pair extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toAddress());
   }
 
-  getReserves(): Pair__getReservesResult {
+  getReserves(): UniswapV2Pair__getReservesResult {
     let result = super.call(
       "getReserves",
       "getReserves():(uint112,uint112,uint32)",
       []
     );
 
-    return new Pair__getReservesResult(
+    return new UniswapV2Pair__getReservesResult(
       result[0].toBigInt(),
       result[1].toBigInt(),
       result[2].toBigInt()
     );
   }
 
-  try_getReserves(): ethereum.CallResult<Pair__getReservesResult> {
+  try_getReserves(): ethereum.CallResult<UniswapV2Pair__getReservesResult> {
     let result = super.tryCall(
       "getReserves",
       "getReserves():(uint112,uint112,uint32)",
@@ -448,7 +451,7 @@ export class Pair extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      new Pair__getReservesResult(
+      new UniswapV2Pair__getReservesResult(
         value[0].toBigInt(),
         value[1].toBigInt(),
         value[2].toBigInt()
