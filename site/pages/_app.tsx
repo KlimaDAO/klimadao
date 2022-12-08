@@ -7,7 +7,6 @@ import { useEffect, useRef } from "react";
 import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 import { GridContainer, Web3ContextProvider } from "@klimadao/lib/components";
-import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
 import { useTabListener } from "@klimadao/lib/utils";
 
 const loadFallbackOnServer = async () => {
@@ -59,7 +58,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <Web3ContextProvider strings={getWeb3ModalStrings()}>
+      <Web3ContextProvider>
         <I18nProvider i18n={i18n}>
           <GridContainer>
             <Component {...pageProps} />

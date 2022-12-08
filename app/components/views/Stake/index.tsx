@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { providers } from "ethers";
 import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
