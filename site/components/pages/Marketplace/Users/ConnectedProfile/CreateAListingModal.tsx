@@ -15,6 +15,7 @@ import {
 import { createListingTransaction } from "../utils";
 import { Modal } from "components/Modal";
 import { Spinner } from "@klimadao/lib/components";
+import * as styles from "./styles";
 
 type Props = {
   assets: Asset[];
@@ -123,7 +124,11 @@ export const CreateAListingModal: FC<Props> = (props) => {
         />
       )}
 
-      {isLoading && <Spinner />}
+      {isLoading && (
+        <div className={styles.spinnerContainer}>
+          <Spinner />
+        </div>
+      )}
 
       {showTransactionView && !isLoading && (
         <Transaction

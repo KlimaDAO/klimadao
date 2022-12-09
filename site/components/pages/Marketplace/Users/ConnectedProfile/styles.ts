@@ -78,13 +78,15 @@ export const loadingText = css`
   align-items: center;
 `;
 
-export const statusMessage = css`
-  display: flex;
-  justify-content: center;
-`;
-
 export const availableAmount = css`
   margin-top: -1rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
+`;
+
+export const spinnerContainer = css`
+  min-height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
