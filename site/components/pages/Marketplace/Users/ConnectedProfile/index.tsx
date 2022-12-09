@@ -6,7 +6,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "components/Modal";
 
 import { EditProfile } from "./Edit";
-import { AddListing } from "./AddListing";
+import { CreateAListingModal } from "./CreateAListingModal";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
 import { ProfileHeader } from "../ProfileHeader";
@@ -42,7 +42,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(true);
   const [isLoadingNewListing, setIsLoadingNewListing] = useState(false);
-  const [showListingModal, setShowListingModal] = useState(false);
+  const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const hasListings = !!user?.listings?.length;
@@ -116,7 +116,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
   const onAddListingSubmit = async () => {
     if (!user) return; // TS typeguard
 
-    setShowListingModal(false);
+    setShowCreateListingModal(false);
     try {
       setIsLoadingNewListing(true);
 
@@ -207,7 +207,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
             )
           }
           disabled={isLoadingAssets || !hasAssets || isLoadingNewListing}
-          onClick={() => setShowListingModal(true)}
+          onClick={() => setShowCreateListingModal(true)}
           className={styles.marketplaceButtonGray}
         />
       </div>
@@ -262,19 +262,12 @@ export const ConnectedProfile: FC<Props> = (props) => {
       </Modal>
 
       {!!assetsData?.length && (
-        <Modal
-          title={t({
-            id: "marketplace.profile.listings_modal.title",
-            message: "Add Listing",
-          })}
-          showModal={showListingModal}
-        >
-          <AddListing
-            assets={assetsData}
-            onSubmit={onAddListingSubmit}
-            onCancel={() => setShowListingModal((prev) => !prev)}
-          />
-        </Modal>
+        <CreateAListingModal
+          onCancel={() => setShowCreateListingModal(false)}
+          onSubmit={onAddListingSubmit}
+          assets={assetsData}
+          showModal={showCreateListingModal}
+        />
       )}
     </>
   );

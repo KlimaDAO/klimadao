@@ -1,49 +1,42 @@
-import { Contract, utils, providers } from "ethers";
-import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
-import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
+import { utils, providers } from "ethers";
+import { getContract } from "@klimadao/lib/utils";
+import { OnStatusHandler } from "components/pages/Marketplace/shared/Transaction/lib";
 
-export const changeApprovalTransaction = async (params: {
-  value: string;
-  provider: providers.JsonRpcProvider;
-  token: string;
+export const createListingTransaction = async (params: {
   tokenAddress: string;
-  spenderAddress: string;
-  onStatus: (m: string) => void;
-}): Promise<string> => {
-  const tokenContract = new Contract(
-    params.tokenAddress,
-    C3ProjectToken.abi,
-    params.provider.getSigner()
-  );
+  totalAmountToSell: string;
+  singleUnitPrice: string;
+  provider: providers.JsonRpcProvider;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const marketPlaceContract = getContract({
+      contractName: "marketplace",
+      provider: params.provider.getSigner(),
+    });
 
-  const decimals = getTokenDecimals(params.token);
-  const parsedValue = utils.parseUnits(params.value, decimals);
+    params.onStatus("userConfirmation", "");
 
-  params.onStatus(
-    t({
-      id: "marketplace.profile.add_listing.approve_value",
-      message: "Approve access to your tokens in your wallet first",
-    })
-  );
-  const txn = await tokenContract.approve(
-    params.spenderAddress,
-    parsedValue.toString()
-  );
-  params.onStatus(
-    t({
-      id: "marketplace.profile.add_listing.waiting_network",
-      message: "Waiting for network confirmation",
-    })
-  );
-  await txn.wait(1);
-  params.onStatus(
-    t({
-      id: "marketplace.profile.add_listing.approval_success",
-      message: "Approval was successful",
-    })
-  );
-  return formatUnits(parsedValue);
+    const listingTxn = await marketPlaceContract.addListing(
+      params.tokenAddress,
+      utils.parseUnits(params.totalAmountToSell, 18), // C3 token
+      utils.parseUnits(params.singleUnitPrice, 18), // Thought this needs to be 6 because of USDC, but this doesn't seem to work
+      [], // TODO batches
+      [] // TODO batches price
+    );
+
+    params.onStatus("networkConfirmation", "");
+    await listingTxn.wait(1);
+    params.onStatus("done", "Transaction confirmed");
+    return;
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("error", "userRejected");
+      throw error;
+    }
+    params.onStatus("error");
+    throw error;
+  }
 };
 
 export const pollUntil = async <T>(params: {
