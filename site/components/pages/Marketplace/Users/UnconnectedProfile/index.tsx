@@ -10,6 +10,7 @@ import {
   TwoColLayout,
   Col,
 } from "components/pages/Marketplace/shared/TwoColLayout";
+import { getTotalAmountSold, getTotalAmountToSell } from "../utils";
 
 import * as styles from "./styles";
 
@@ -60,10 +61,12 @@ export const UnconnectedProfile: FC<Props> = (props) => {
         <Col>
           <Stats
             stats={{
-              tonnesSold: 0,
-              tonnesOwned: 0,
+              tonnesSold:
+                (hasListings && getTotalAmountSold(userData.listings)) || 0,
+              tonnesOwned:
+                (hasListings && getTotalAmountToSell(userData.listings)) || 0,
               activeListings:
-                userData?.listings?.filter((l) => l.active).length || 0,
+                userData?.listings.filter((l) => l.active).length || 0,
             }}
           />
           <Activities activities={userData?.activities || []} />

@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
 import { t, Trans } from "@lingui/macro";
-
 import { Text, ButtonSecondary, Spinner } from "@klimadao/lib/components";
 import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "components/Modal";
@@ -14,7 +13,7 @@ import { Listing } from "../Listing";
 import { Card } from "components/pages/Marketplace/shared/Card";
 
 import { getUser } from "../../lib/api";
-import { pollUntil } from "../utils";
+import { pollUntil, getTotalAmountSold, getTotalAmountToSell } from "../utils";
 
 import {
   TwoColLayout,
@@ -233,8 +232,10 @@ export const ConnectedProfile: FC<Props> = (props) => {
         <Col>
           <Stats
             stats={{
-              tonnesSold: 0,
-              tonnesOwned: 0,
+              tonnesSold:
+                (hasListings && getTotalAmountSold(user.listings)) || 0,
+              tonnesOwned:
+                (hasListings && getTotalAmountToSell(user.listings)) || 0,
               activeListings:
                 user?.listings.filter((l) => l.active).length || 0,
             }}

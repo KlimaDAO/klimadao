@@ -1,3 +1,6 @@
+import { formatUnits } from "@klimadao/lib/utils";
+import { Listing } from "@klimadao/lib/types/marketplace";
+
 export const pollUntil = async <T>(params: {
   fn: () => Promise<T>;
   validate: (value: T) => boolean;
@@ -24,4 +27,19 @@ const wait = (ms: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
+};
+
+export const getTotalAmountToSell = (listings: Listing[]) =>
+  listings.reduce((acc, curr) => {
+    const totalAmountTo = acc + Number(formatUnits(curr.totalAmountToSell));
+    return totalAmountTo;
+  }, 0);
+
+export const getTotalAmountSold = (listings: Listing[]) => {
+  const totalAmount = getTotalAmountToSell(listings);
+  const leftToSell = listings.reduce((acc, curr) => {
+    const leftToSellTotal = acc + Number(formatUnits(curr.leftToSell));
+    return leftToSellTotal;
+  }, 0);
+  return totalAmount - leftToSell;
 };

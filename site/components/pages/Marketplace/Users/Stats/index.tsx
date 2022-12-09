@@ -1,12 +1,14 @@
 import { FC } from "react";
 import { Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
+import { useRouter } from "next/router";
 
 import { Card } from "components/pages/Marketplace/shared/Card";
 import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { Stats as StatsType } from "@klimadao/lib/types/marketplace";
+import { trimWithLocale } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 
@@ -16,6 +18,7 @@ interface Props {
 }
 
 export const Stats: FC<Props> = (props) => {
+  const { locale } = useRouter();
   return (
     <Card>
       <Text t="h4">
@@ -34,14 +37,19 @@ export const Stats: FC<Props> = (props) => {
             <StoreOutlinedIcon />
             <Trans>Tonnes sold:</Trans>
           </Text>
-          <Text t="caption">{props.stats?.tonnesSold || "-"}</Text>
+          <Text t="caption">
+            {trimWithLocale(props.stats?.tonnesSold || 0, 2, locale)}
+          </Text>
         </div>
         <div className={styles.listItem}>
           <Text t="caption" className={styles.itemWithIcon}>
             <SavingsOutlinedIcon />
             <Trans>Tonnes owned:</Trans>
           </Text>
-          <Text t="caption">{props.stats?.tonnesOwned || "-"}</Text>
+          <Text t="caption">
+            {" "}
+            {trimWithLocale(props.stats?.tonnesOwned || 0, 2, locale)}
+          </Text>
         </div>
         <div className={styles.listItem}>
           <Text t="caption" className={styles.itemWithIcon}>

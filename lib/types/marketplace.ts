@@ -23,14 +23,15 @@ export interface User {
 }
 
 export type Listing = {
-  id: number;
-  totalAmountToSell: number;
+  id: string;
+  totalAmountToSell: BigNumber;
+  leftToSell: BigNumber;
   tokenAddress: string;
   active: boolean;
   deleted: boolean;
   batches: [];
   batchPrices: [];
-  singleUnitPrice: number;
+  singleUnitPrice: BigNumber;
   project: {
     name: string;
     category: Category;
