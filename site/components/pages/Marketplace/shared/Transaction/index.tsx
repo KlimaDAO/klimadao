@@ -3,11 +3,9 @@ import { Trans } from "@lingui/macro";
 
 import { Approve } from "./Approve";
 import { Submit } from "./Submit";
-import {
-  TransactionStatusMessage,
-  getMarketplaceAddress,
-  MarketplaceToken,
-} from "./lib";
+import { getMarketplaceAddress } from "components/pages/Marketplace/lib/getAddresses";
+import { TransactionStatusMessage } from "components/pages/Marketplace/lib/statusMessage";
+import { MarketplaceToken } from "components/pages/Marketplace/lib/getTokenInfo";
 
 import * as styles from "./styles";
 
