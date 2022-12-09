@@ -7,12 +7,14 @@ import { Asset } from "@klimadao/lib/types/marketplace";
 import { AddListing, FormValues } from "./AddListing";
 import { Transaction } from "components/pages/Marketplace/shared/Transaction";
 import {
-  getC3tokenToMarketplaceAllowance,
   TransactionStatusMessage,
   TxnStatus,
+} from "components/pages/Marketplace/lib/statusMessage";
+import {
+  getC3tokenToMarketplaceAllowance,
   onApproveMarketplaceTransaction,
-} from "components/pages/Marketplace/shared/Transaction/lib";
-import { createListingTransaction } from "../utils";
+  createListingTransaction,
+} from "components/pages/Marketplace/lib/actions";
 import { Modal } from "components/Modal";
 import { Spinner } from "@klimadao/lib/components";
 import * as styles from "./styles";

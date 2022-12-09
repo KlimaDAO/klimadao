@@ -1,7 +1,6 @@
 import { ethers, Contract, utils, providers } from "ethers";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
-import { formatUnits } from "@klimadao/lib/utils";
-
+import { formatUnits, getContract } from "@klimadao/lib/utils";
 import { getMarketplaceAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
 
@@ -58,6 +57,43 @@ export const onApproveMarketplaceTransaction = async (params: {
     }
     params.onStatus("error");
     console.error(error);
+    throw error;
+  }
+};
+
+export const createListingTransaction = async (params: {
+  tokenAddress: string;
+  totalAmountToSell: string;
+  singleUnitPrice: string;
+  provider: providers.JsonRpcProvider;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const marketPlaceContract = getContract({
+      contractName: "marketplace",
+      provider: params.provider.getSigner(),
+    });
+
+    params.onStatus("userConfirmation", "");
+
+    const listingTxn = await marketPlaceContract.addListing(
+      params.tokenAddress,
+      utils.parseUnits(params.totalAmountToSell, 18), // C3 token
+      utils.parseUnits(params.singleUnitPrice, 18), // Thought this needs to be 6 because of USDC, but this doesn't seem to work
+      [], // TODO batches
+      [] // TODO batches price
+    );
+
+    params.onStatus("networkConfirmation", "");
+    await listingTxn.wait(1);
+    params.onStatus("done", "Transaction confirmed");
+    return;
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("error", "userRejected");
+      throw error;
+    }
+    params.onStatus("error");
     throw error;
   }
 };
