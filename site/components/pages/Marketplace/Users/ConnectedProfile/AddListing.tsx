@@ -89,13 +89,13 @@ export const AddListing: FC<Props> = (props) => {
                     message: "Total Amount to Sell is required",
                   }),
                 },
-                // min: {
-                //   value: 1,
-                //   message: t({
-                //     id: "marketplace.user.listing.form.input.totalAmountToSell.minimum",
-                //     message: "The minimum amount to sell is 1 Tonne",
-                //   }),
-                // },
+                min: {
+                  value: 1,
+                  message: t({
+                    id: "marketplace.user.listing.form.input.totalAmountToSell.minimum",
+                    message: "The minimum amount to sell is 1 Tonne",
+                  }),
+                },
                 max: {
                   value: Number(selectedAsset.balance),
                   message: t({
