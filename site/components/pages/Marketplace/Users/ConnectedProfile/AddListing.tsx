@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Trans, t } from "@lingui/macro";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, useWatch } from "react-hook-form";
 import {
   ButtonPrimary,
   ButtonSecondary,
@@ -10,9 +10,9 @@ import {
 import { InputField } from "components/Form";
 import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
 import { Asset } from "@klimadao/lib/types/marketplace";
-import Marketplace from "@klimadao/lib/abi/Marketplace.json";
 import { ethers } from "ethers";
-import { useWeb3 } from "@klimadao/lib/utils";
+import { useWeb3, getContract } from "@klimadao/lib/utils";
+import { addresses } from "@klimadao/lib/constants";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { changeApprovalTransaction } from "../utils";
 import * as styles from "./styles";
@@ -35,12 +35,7 @@ const defaultValues = {
   tokenAddress: "",
   totalAmountToSell: "",
   singleUnitPrice: "",
-  batches: "",
-  batchPrices: "",
 };
-
-const c3token = "0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4";
-const marketplace = "0xa29bcC5434d21b44b00a6Df9Eda6F16436295B80";
 
 export const AddListing: FC<Props> = (props) => {
   const { provider, address } = useWeb3();
@@ -58,6 +53,14 @@ export const AddListing: FC<Props> = (props) => {
 
   const hasError = !isLoading && !!errorMessage;
 
+  const selectedTokenAddress = useWatch({
+    name: "tokenAddress",
+    control,
+  });
+  const selectedAsset =
+    props.assets.find((t) => t.tokenAddress === selectedTokenAddress) ||
+    props.assets[0];
+
   const logStatus = (m: string) => setStatusMessage(m);
   const resetError = () => !!errorMessage && setErrorMessage(null);
 
@@ -70,12 +73,15 @@ export const AddListing: FC<Props> = (props) => {
       if (!provider) return;
 
       const tokenContract = new ethers.Contract(
-        c3token,
+        values.tokenAddress,
         C3ProjectToken.abi,
         provider
       );
 
-      const allowance = await tokenContract.allowance(address, marketplace);
+      const allowance = await tokenContract.allowance(
+        address,
+        addresses["mainnet"].marketplace // testnet and mainnet have the same address, change mainnet address for GO LIVE
+      );
       console.log(
         "allowance 1",
         !!allowance && ethers.utils.formatUnits(allowance)
@@ -90,10 +96,13 @@ export const AddListing: FC<Props> = (props) => {
         );
       };
 
+      console.log("hasApproval", hasApproval());
+
       if (!hasApproval()) {
         const approvedValue = await changeApprovalTransaction({
-          tokenAddress: c3token,
-          spenderAddress: marketplace,
+          tokenAddress: values.tokenAddress,
+          token: selectedAsset?.tokenName,
+          spenderAddress: addresses["mainnet"].marketplace,
           provider: provider,
           value: values.totalAmountToSell,
           onStatus: logStatus,
@@ -102,11 +111,10 @@ export const AddListing: FC<Props> = (props) => {
         logStatus(`Done! Approved Value: ${approvedValue}`);
       }
 
-      const marketPlaceContract = new ethers.Contract(
-        marketplace,
-        Marketplace.abi,
-        provider.getSigner()
-      );
+      const marketPlaceContract = getContract({
+        contractName: "marketplace",
+        provider: provider.getSigner(),
+      });
 
       logStatus(
         t({
@@ -117,8 +125,8 @@ export const AddListing: FC<Props> = (props) => {
 
       const listingTxn = await marketPlaceContract.addListing(
         values.tokenAddress,
-        ethers.utils.parseUnits(values.totalAmountToSell),
-        ethers.utils.parseUnits(values.singleUnitPrice),
+        ethers.utils.parseUnits(values.totalAmountToSell, 18), // C3 token
+        ethers.utils.parseUnits(values.singleUnitPrice, 6), // USDC
         [], // TODO batches
         [] // TODO batches price
       );
@@ -164,9 +172,9 @@ export const AddListing: FC<Props> = (props) => {
           </Trans>
         </Text>
         <ProjectTokenDropDown
-          control={control}
           setValue={setValue}
           assets={props.assets}
+          selectedAsset={selectedAsset}
         />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -189,18 +197,36 @@ export const AddListing: FC<Props> = (props) => {
               }),
               type: "number",
               ...register("totalAmountToSell", {
-                required: true,
+                required: {
+                  value: true,
+                  message: t({
+                    id: "marketplace.user.listing.form.input.totalAmountToSell.required",
+                    message: "Total Amount to Sell is required",
+                  }),
+                },
                 disabled: isLoading,
                 onBlur: resetError,
+                min: {
+                  value: 1,
+                  message: t({
+                    id: "marketplace.user.listing.form.input.totalAmountToSell.minimum",
+                    message: "The minimum amount to sell is 1 Tonne",
+                  }),
+                },
+                max: {
+                  value: Number(selectedAsset.balance),
+                  message: t({
+                    id: "marketplace.user.listing.form.input.totalAmountToSell.maxAmount",
+                    message: "You exceeded your available amount",
+                  }),
+                },
               }),
             }}
             label={t({
               id: "marketplace.user.edit.form.input.totalAmountToSell.label",
               message: `Total Amount`,
             })}
-            errorMessage={
-              formState.errors.totalAmountToSell && "Total amount is required"
-            }
+            errorMessage={formState.errors.totalAmountToSell?.message}
           />
           <InputField
             id="singleUnitPrice"

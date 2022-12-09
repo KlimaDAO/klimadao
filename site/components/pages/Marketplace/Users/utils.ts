@@ -1,11 +1,12 @@
 import { Contract, utils, providers } from "ethers";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
-import { formatUnits } from "@klimadao/lib/utils";
+import { formatUnits, getTokenDecimals } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 
 export const changeApprovalTransaction = async (params: {
   value: string;
   provider: providers.JsonRpcProvider;
+  token: string;
   tokenAddress: string;
   spenderAddress: string;
   onStatus: (m: string) => void;
@@ -16,7 +17,8 @@ export const changeApprovalTransaction = async (params: {
     params.provider.getSigner()
   );
 
-  const parsedValue = utils.parseUnits(params.value);
+  const decimals = getTokenDecimals(params.token);
+  const parsedValue = utils.parseUnits(params.value, decimals);
 
   params.onStatus(
     t({
