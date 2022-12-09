@@ -5,7 +5,10 @@ import { cx } from "@emotion/css";
 import { concatAddress } from "@klimadao/lib/utils";
 import SendRounded from "@mui/icons-material/SendRounded";
 import CheckIcon from "@mui/icons-material/Check";
-import { getStatusMessage, TransactionStatusMessage } from "./lib";
+import {
+  getStatusMessage,
+  TransactionStatusMessage,
+} from "components/pages/Marketplace/lib/statusMessage";
 import {
   marketplaceTokenInfoMap,
   MarketplaceToken,
