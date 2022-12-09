@@ -5,9 +5,6 @@ import { ethers, Contract, utils, providers } from "ethers";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { formatUnits } from "@klimadao/lib/utils";
 
-import USDC from "public/icons/USDC.png";
-import { StaticImageData } from "next/legacy/image";
-
 export type TxnStatus =
   | "userConfirmation"
   | "networkConfirmation"
@@ -54,22 +51,8 @@ export const getStatusMessage = (status: TransactionStatusMessage) => {
   return null;
 };
 
-export type MarketplaceToken = "usdc"; // what are the others?
-
 export const getMarketplaceAddress = (): string =>
   addresses["mainnet"].marketplace; // testnet and mainnet have the same address, change mainnet address for GO LIVE
-
-type MarketplaceTokenMap = {
-  [key in MarketplaceToken]: {
-    key: string;
-    icon: StaticImageData;
-    label: Uppercase<MarketplaceToken>;
-  };
-};
-
-export const marketplaceTokenInfoMap: MarketplaceTokenMap = {
-  usdc: { key: "usdc", icon: USDC, label: "USDC" },
-};
 
 export const getC3tokenToMarketplaceAllowance = async (params: {
   userAdress: string;

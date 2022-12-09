@@ -5,12 +5,11 @@ import { cx } from "@emotion/css";
 import { concatAddress } from "@klimadao/lib/utils";
 import SendRounded from "@mui/icons-material/SendRounded";
 import CheckIcon from "@mui/icons-material/Check";
+import { getStatusMessage, TransactionStatusMessage } from "./lib";
 import {
-  getStatusMessage,
-  TransactionStatusMessage,
   marketplaceTokenInfoMap,
   MarketplaceToken,
-} from "./lib";
+} from "components/pages/Marketplace/lib/getTokenInfo";
 
 import { HighlightValue } from "./HighlightValue";
 
