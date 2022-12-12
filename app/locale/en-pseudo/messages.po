@@ -722,7 +722,7 @@ msgstr ""
 
 #: components/TransactionModal/Approve.tsx:97
 #: components/views/Bond/index.tsx:453
-#: components/views/Offset/index.tsx:457
+#: components/views/Offset/index.tsx:430
 #: components/views/Stake/index.tsx:259
 #: components/views/Wrap/index.tsx:227
 msgid "shared.approve"
