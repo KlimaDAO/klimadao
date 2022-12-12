@@ -53,8 +53,13 @@ import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { DropdownWithModal } from "components/DropdownWithModal";
 import { TransactionModal } from "components/TransactionModal";
 
-import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
+import { SelectiveRetirement } from "./SelectiveRetirement";
+import {
+  BalanceAttribute,
+  CarbonProject,
+} from "./SelectiveRetirement/queryProjectDetails";
 import { RetirementSuccessModal } from "./RetirementSuccessModal";
+
 import * as styles from "./styles";
 import Fiat from "public/icons/Fiat.png";
 import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
@@ -109,8 +114,12 @@ export const Offset = (props: Props) => {
   const [retirementMessage, setRetirementMessage] = useState("");
   // for selective retirement
   const [projectAddress, setProjectAddress] = useState("");
+  const [selectedProject, setSelectedProject] = useState<CarbonProject | null>(
+    null
+  );
   const [retirementTransactionHash, setRetirementTransactionHash] =
     useState("");
+
   const [retirementTotals, setRetirementTotals] = useState<number | null>(null);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
@@ -317,7 +326,7 @@ export const Offset = (props: Props) => {
       beneficiary_address: beneficiaryAddress || props.address, // don't pass empty string
       beneficiary_name: beneficiary,
       retirement_message: retirementMessage,
-      quantity,
+      quantity: Math.ceil(Number(quantity)).toString(), // temp fix: increment to next largest whole tonne
       project_address: projectAddress || null,
       retirement_token: selectedRetirementToken,
     };
@@ -333,7 +342,15 @@ export const Offset = (props: Props) => {
     paymentMethod !== "fiat" &&
     Number(cost) > Number(balances?.[paymentMethod] ?? "0");
 
-  const invalidQuantity = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
+  const invalidCost = !!Number(cost) && Number(cost) > MAX_FIAT_COST;
+  const invalidRetirementQuantity =
+    selectedProject &&
+    Number(debouncedQuantity) >
+      Number(
+        selectedProject[
+          `balance${selectedRetirementToken.toUpperCase()}` as BalanceAttribute
+        ]
+      );
 
   const hasApproval = () => {
     return (
@@ -401,7 +418,17 @@ export const Offset = (props: Props) => {
         onClick: undefined,
         disabled: true,
       };
-    } else if (invalidQuantity) {
+    } else if (invalidRetirementQuantity) {
+      return {
+        label: (
+          <Trans id="offset.insufficient_project_tonnage">
+            Insufficient project tonnage
+          </Trans>
+        ),
+        onClick: undefined,
+        disabled: true,
+      };
+    } else if (invalidCost) {
       return {
         label: <Trans id="shared.invalid_quantity">Invalid quantity</Trans>,
         onClick: undefined,
@@ -564,6 +591,32 @@ export const Offset = (props: Props) => {
         </div>
 
         <div className={styles.offsetCard_ui}>
+          {/* attr: retirementToken  */}
+          <DropdownWithModal
+            label={t({
+              id: "offset.dropdown_retire.label",
+              message: "Select carbon offset token to retire",
+            })}
+            modalTitle={t({
+              id: "offset.modal_retire.title",
+              message: "Select Carbon Type",
+            })}
+            currentItem={selectedRetirementToken}
+            items={retirementTokenItems}
+            isModalOpen={isRetireTokenModalOpen}
+            onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
+            onItemSelect={handleSelectRetirementToken}
+          />
+
+          {/* attr: projectAddress  */}
+          <SelectiveRetirement
+            projectAddress={projectAddress}
+            selectedRetirementToken={selectedRetirementToken}
+            setProjectAddress={setProjectAddress}
+            selectedProject={selectedProject}
+            setSelectedProject={setSelectedProject}
+          />
+
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -583,6 +636,7 @@ export const Offset = (props: Props) => {
                     e.preventDefault();
                   }
                 }}
+                data-error={invalidCost || invalidRetirementQuantity}
                 onChange={handleChangeQuantity}
                 placeholder={t({
                   id: "offset.offset_quantity",
@@ -590,7 +644,18 @@ export const Offset = (props: Props) => {
                 })}
               />
             </div>
-            {paymentMethod === "fiat" && (
+            {invalidRetirementQuantity && (
+              <Text
+                t="caption"
+                color="lightest"
+                className="invalid_project_tonnage"
+              >
+                <Trans id="offset.invalid_project_tonnage">
+                  Cannot exceed available tonnage of the project selected
+                </Trans>
+              </Text>
+            )}
+            {!invalidRetirementQuantity && paymentMethod === "fiat" && (
               <Text t="body8" color="lightest">
                 <Trans id="offset.min_quantity_fiat">
                   Minimum 1-tonne purchase for credit cards
@@ -599,47 +664,7 @@ export const Offset = (props: Props) => {
             )}
           </div>
 
-          {/* Input Token */}
-          <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_payWith.label",
-              message: "Pay with",
-            })}
-            modalTitle={t({
-              id: "offset.modal_payWith.title",
-              message: "Select Token",
-            })}
-            currentItem={paymentMethod}
-            items={paymentMethodItems}
-            isModalOpen={isInputTokenModalOpen}
-            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
-            onItemSelect={(str) =>
-              handleSelectInputToken(str as OffsetPaymentMethod)
-            }
-          />
-
-          {/* Retire Token  */}
-          <DropdownWithModal
-            label={t({
-              id: "offset.dropdown_retire.label",
-              message: "Select carbon offset token to retire",
-            })}
-            modalTitle={t({
-              id: "offset.modal_retire.title",
-              message: "Select Carbon Type",
-            })}
-            currentItem={selectedRetirementToken}
-            items={retirementTokenItems}
-            isModalOpen={isRetireTokenModalOpen}
-            onToggleModal={() => setRetireTokenModalOpen((s) => !s)}
-            onItemSelect={handleSelectRetirementToken}
-          />
-
-          <SelectiveRetirementInput
-            projectAddress={projectAddress}
-            onChange={setProjectAddress}
-          />
-
+          {/* attr: beneficiaryName  */}
           <div className={styles.beneficiary}>
             <Text t="caption" color="lighter">
               <Trans id="offset.retirement_credit">
@@ -654,6 +679,7 @@ export const Offset = (props: Props) => {
               />
             </div>
 
+            {/* attr: beneficiaryAddress  */}
             <div className={styles.input}>
               <input
                 value={beneficiaryAddress}
@@ -671,6 +697,7 @@ export const Offset = (props: Props) => {
             </div>
           </div>
 
+          {/* attr: retirementMessage  */}
           <div className={styles.input}>
             <label>
               <Text t="caption" color="lighter">
@@ -689,7 +716,6 @@ export const Offset = (props: Props) => {
               })}
             />
           </div>
-
           <MiniTokenDisplay
             label={
               <div className="mini_token_label">
@@ -711,7 +737,7 @@ export const Offset = (props: Props) => {
             icon={costIcon}
             name={paymentMethod}
             loading={cost === "loading"}
-            warn={insufficientBalance || invalidQuantity}
+            warn={insufficientBalance || invalidCost}
             helperText={
               paymentMethod === "fiat"
                 ? t({
@@ -735,6 +761,24 @@ export const Offset = (props: Props) => {
             labelAlignment="start"
           />
 
+          <DropdownWithModal
+            label={t({
+              id: "offset.dropdown_payWith.label",
+              message: "Pay with",
+            })}
+            modalTitle={t({
+              id: "offset.modal_payWith.title",
+              message: "Select Token",
+            })}
+            currentItem={paymentMethod}
+            items={paymentMethodItems}
+            isModalOpen={isInputTokenModalOpen}
+            onToggleModal={() => setInputTokenModalOpen((s) => !s)}
+            onItemSelect={(str) =>
+              handleSelectInputToken(str as OffsetPaymentMethod)
+            }
+          />
+
           <div className="disclaimer">
             <GppMaybeOutlined />
             <Text t="caption">
@@ -745,7 +789,6 @@ export const Offset = (props: Props) => {
               </Trans>
             </Text>
           </div>
-
           <div className={styles.buttonRow}>
             {showSpinner ? (
               <div className={styles.buttonRow_spinner}>

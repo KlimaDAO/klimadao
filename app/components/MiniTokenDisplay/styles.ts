@@ -33,6 +33,7 @@ export const card = css`
   .icon {
     min-width: 4.8rem;
     align-self: center;
+    object-fit: contain;
   }
 
   p {
