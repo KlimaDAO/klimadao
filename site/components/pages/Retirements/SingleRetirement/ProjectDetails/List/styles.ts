@@ -23,17 +23,9 @@ export const listItem = css`
   .button_link {
     align-items: flex-start;
     display: flex;
-  }
-
-  .gray_button {
-    background-color: var(--dark-gray);
-    &:hover {
-      opacity: 0.8;
-    }
-
-    [data-theme="theme-light"] & {
-      background-color: var(--gray);
-      color: white;
+    a,
+    a:hover:not(:disabled) {
+      color: var(--klima-green);
     }
   }
 `;

@@ -291,9 +291,8 @@ export const PledgeForm: FC<Props> = (props) => {
               </div>
 
               <ButtonPrimary
-                variant="icon"
                 className={styles.categoryRow_removeButton}
-                label={<ClearIcon fontSize="large" />}
+                icon={<ClearIcon fontSize="large" />}
                 onClick={() => remove(index)}
               />
             </div>

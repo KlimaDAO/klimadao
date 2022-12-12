@@ -180,20 +180,18 @@ export const ResourcesList: FC<Props> = (props) => {
                 hideLabel
               />
               <ButtonPrimary
-                variant="icon"
+                icon={<SearchIcon fontSize="large" />}
                 type="submit"
                 className={styles.searchInputSubmit}
-                label={<SearchIcon fontSize="large" />}
                 onClick={handleSubmit(onSearchSubmit)}
               />
             </div>
           </form>
           <div className={styles.sortbyContainer}>
             <ButtonPrimary
-              variant="icon"
               type="submit"
               className={styles.toggleMobileModalButton}
-              label={<FormatListBulletedIcon fontSize="large" />}
+              icon={<FormatListBulletedIcon fontSize="large" />}
               onClick={() => setShowMobileModal(true)}
             />
 
