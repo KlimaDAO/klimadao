@@ -326,7 +326,7 @@ export const Offset = (props: Props) => {
       beneficiary_address: beneficiaryAddress || props.address, // don't pass empty string
       beneficiary_name: beneficiary,
       retirement_message: retirementMessage,
-      quantity,
+      quantity: Math.ceil(Number(quantity)).toString(), // temp fix: increment to next largest whole tonne
       project_address: projectAddress || null,
       retirement_token: selectedRetirementToken,
     };
