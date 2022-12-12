@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-12 15:36+0000\n"
+"POT-Creation-Date: 2022-12-12 17:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr "0x-Adresse des Begünstigten"
 msgid "Beneficiary name"
 msgstr "Name des Begünstigten"
 
-#: components/views/Bond/index.tsx:701
+#: components/views/Bond/index.tsx:696
 msgid "Capacity"
 msgstr "Kapazität"
 
@@ -44,184 +44,184 @@ msgid "advanced"
 msgstr "FORTGESCHRITTEN"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:1027
+#: components/views/Bond/index.tsx:1022
 msgid "bond.all_demand_has_been_filled"
 msgstr "AUSVERKAUFT! Der Bedarf nach diesen Bonds ist aktuell erschöpft. Vielen Dank!"
 
-#: components/views/Bond/index.tsx:624
+#: components/views/Bond/index.tsx:619
 msgid "bond.balance"
 msgstr "Guthaben"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:628
+#: components/views/Bond/index.tsx:623
 msgid "bond.balance.tooltip"
 msgstr "Für Bonds bereitstehendes Guthaben"
 
-#: components/views/Bond/index.tsx:466
-#: components/views/Bond/index.tsx:574
+#: components/views/Bond/index.tsx:461
+#: components/views/Bond/index.tsx:569
 msgid "bond.bond"
 msgstr "Bond"
 
-#: components/views/Bond/index.tsx:781
+#: components/views/Bond/index.tsx:776
 msgid "bond.bond_price"
 msgstr "Bondpreis"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:785
+#: components/views/Bond/index.tsx:780
 msgid "bond.bond_price.tooltip"
 msgstr "Reduzierter Preis. Komplette Menge, um 1 KLIMA durch Bonds zu erhalten (kleinere Bondmengen sind möglich)"
 
-#: components/views/Bond/index.tsx:650
+#: components/views/Bond/index.tsx:645
 msgid "bond.bond_price.tooltip.inverse"
 msgstr "Aktueller Marktpreis von KLIMA"
 
 #. Bond {0}
-#: components/views/Bond/index.tsx:553
+#: components/views/Bond/index.tsx:548
 msgid "bond.bond_token"
 msgstr "Bond {0}"
 
-#: components/views/Bond/index.tsx:453
+#: components/views/Bond/index.tsx:447
 msgid "bond.capacity_exceeded"
 msgstr "KAPAZITÄT ERSCHÖPFT"
 
-#: components/views/Bond/index.tsx:987
+#: components/views/Bond/index.tsx:982
 msgid "bond.date_of_full_vesting"
 msgstr "Ende der vollständigen Wartefrist"
 
-#: components/views/Bond/index.tsx:992
+#: components/views/Bond/index.tsx:987
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr "Zeitpunkt, an dem der gesamte Bondwert ausgezahlt werden kann"
 
-#: components/views/Bond/index.tsx:817
+#: components/views/Bond/index.tsx:812
 msgid "bond.debt_ratio"
 msgstr "Schuldenquote"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:821
+#: components/views/Bond/index.tsx:816
 msgid "bond.debt_ratio.tooltip"
 msgstr "Aktuelles Verhältnis zwischen Angebot und ausstehenden Bonds"
 
-#: components/views/Bond/index.tsx:852
+#: components/views/Bond/index.tsx:847
 msgid "bond.discount"
 msgstr "Bonding-Rabatt"
 
-#: components/views/Bond/index.tsx:856
+#: components/views/Bond/index.tsx:851
 msgid "bond.discount.description_tooltip"
 msgstr "Prozentualer Rabatt (oder Aufschlag, falls negativ) relativ zum aktuellen Marktpreis von KLIMA."
 
-#: components/views/Bond/index.tsx:488
+#: components/views/Bond/index.tsx:483
 msgid "bond.inputplaceholder.amount_to_bond"
 msgstr "Zu bondende Menge"
 
-#: components/views/Bond/index.tsx:493
+#: components/views/Bond/index.tsx:488
 msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr "Einzulösende Menge"
 
-#: components/views/Bond/index.tsx:683
+#: components/views/Bond/index.tsx:678
 msgid "bond.inverse.premium"
 msgstr "Preisaufschlag"
 
-#: components/views/Bond/index.tsx:687
+#: components/views/Bond/index.tsx:682
 msgid "bond.inverse.premium.description"
 msgstr "Preisaufschlag relativ zum aktuellen Marktpreis von KLIMA."
 
-#: components/views/Bond/index.tsx:646
-#: components/views/Bond/index.tsx:797
+#: components/views/Bond/index.tsx:641
+#: components/views/Bond/index.tsx:792
 msgid "bond.market_price"
 msgstr "Marktpreis"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:801
+#: components/views/Bond/index.tsx:796
 msgid "bond.market_price.tooltip"
 msgstr "Aktueller Marktpreis von KLIMA ohne Bondingrabatt"
 
-#: components/views/Bond/index.tsx:443
+#: components/views/Bond/index.tsx:437
 msgid "bond.max_exceeded"
 msgstr "MAXIMUM ÜBERSCHRITTEN"
 
-#: components/views/Bond/index.tsx:719
-#: components/views/Bond/index.tsx:871
+#: components/views/Bond/index.tsx:714
+#: components/views/Bond/index.tsx:866
 msgid "bond.maximum"
 msgstr "Maximum"
 
-#: components/views/Bond/index.tsx:723
-#: components/views/Bond/index.tsx:875
+#: components/views/Bond/index.tsx:718
+#: components/views/Bond/index.tsx:870
 msgid "bond.maximum.tooltip"
 msgstr "Maximale durch Bonding erhaltbare Menge"
 
-#: components/views/Bond/index.tsx:428
+#: components/views/Bond/index.tsx:422
 msgid "bond.not_redeemable"
 msgstr "Nicht einlösbar"
 
-#: components/views/Bond/index.tsx:664
+#: components/views/Bond/index.tsx:659
 msgid "bond.payout_per_klima"
 msgstr "Auszahlung pro KLIMA"
 
-#: components/views/Bond/index.tsx:668
+#: components/views/Bond/index.tsx:663
 msgid "bond.payout_per_klima.description_inverse"
 msgstr "Wenn du 1 KLIMA bondest, bekommst du diese Menge USDC."
 
-#: components/views/Bond/index.tsx:472
-#: components/views/Bond/index.tsx:584
+#: components/views/Bond/index.tsx:467
+#: components/views/Bond/index.tsx:579
 msgid "bond.redeem"
 msgstr "Einlösen"
 
-#: components/views/Bond/index.tsx:954
+#: components/views/Bond/index.tsx:949
 msgid "bond.redeemable"
 msgstr "Einlösbar"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:957
+#: components/views/Bond/index.tsx:952
 msgid "bond.redeemable.tooltip"
 msgstr "Menge an KLIMA, die bereits garantiert ist und eingelöst werden kann."
 
 #. should autostake?
-#: components/views/Bond/index.tsx:1057
+#: components/views/Bond/index.tsx:1052
 msgid "bond.should_autostake"
 msgstr "Automatisch für sKLIMA staken"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:1016
+#: components/views/Bond/index.tsx:1011
 msgid "bond.this_bond_price_is_inflated"
 msgstr "⚠️ Achtung: Dieser Bondpreis ist überhöht, da die Rabattrate negativ ist."
 
 #. Bond {0}
-#: components/views/Bond/index.tsx:1078
+#: components/views/Bond/index.tsx:1073
 msgid "bond.transaction_modal.bond.title"
 msgstr "Bond {0}"
 
-#: components/views/Bond/index.tsx:1085
+#: components/views/Bond/index.tsx:1080
 msgid "bond.transaction_modal.redeem.title"
 msgstr "Klima einlösen"
 
-#: components/views/Bond/index.tsx:925
+#: components/views/Bond/index.tsx:920
 msgid "bond.unredeemed"
 msgstr "Nicht eingelöst"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:928
+#: components/views/Bond/index.tsx:923
 msgid "bond.unredeemed.tooltip"
 msgstr "Verbleibender, einlösbarer Wert (zugesichert und noch nicht zugesichert)"
 
-#: components/views/Bond/index.tsx:837
+#: components/views/Bond/index.tsx:832
 msgid "bond.vesting_term_end"
 msgstr "Ende der Wartefrist"
 
-#: components/views/Bond/index.tsx:841
+#: components/views/Bond/index.tsx:836
 msgid "bond.vesting_term_end.tooltip"
 msgstr "Wenn du jetzt CO2 bondest, endet die Wartefrist zu diesem Zeitpunkt. KLIMA-Tokens werden während dieses Zeitraums langsam für dich freigestellt."
 
-#: components/views/Bond/index.tsx:750
-#: components/views/Bond/index.tsx:894
+#: components/views/Bond/index.tsx:745
+#: components/views/Bond/index.tsx:889
 msgid "bond.you_will_get"
 msgstr "Du erhältst"
 
-#: components/views/Bond/index.tsx:754
+#: components/views/Bond/index.tsx:749
 msgid "bond.you_will_get.description_inverse"
 msgstr "Menge, die du für die eingegebene Eingangssumme erhältst"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:898
+#: components/views/Bond/index.tsx:893
 msgid "bond.you_will_get.tooltip"
 msgstr "Menge an gebondetem KLIMA, die du für die angegebene Eingangsmenge bekommst"
 
@@ -248,7 +248,7 @@ msgstr "Kaufe KLIMA direkt über unseren Partner <0>Mobilum</0>. Überprüfe, da
 msgid "buy.not_connected"
 msgstr "Nicht verbunden"
 
-#: components/views/Bond/index.tsx:704
+#: components/views/Bond/index.tsx:699
 msgid "capacity.description_inverse"
 msgstr "Diese Menge USDC steht im Smart-Contract für Bonds bereit."
 
@@ -443,7 +443,7 @@ msgstr "AUSSTEHEND"
 msgid "modal.user_confirmation"
 msgstr "BESTÄTIGUNG"
 
-#: components/views/Bond/index.tsx:538
+#: components/views/Bond/index.tsx:533
 msgid "nav.back"
 msgstr "ZURÜCK"
 
@@ -550,7 +550,7 @@ msgstr "Danke! Durch deine Teilnahme am freiwilligen CO2-Markt machst du Umwelts
 msgid "offset.successModal.body2"
 msgstr "Klicke auf den Button, um deinen CO2-Ausgleich anzusehen. Indem du diese Seite teilst, unterstützt du uns auf unserem gemeinsamen Weg in Richtung eines transparenteren, offeneren und einträglicheren CO2-Marktes!"
 
-#: components/views/Offset/RetirementSuccessModal/index.tsx:50
+#: components/views/Offset/RetirementSuccessModal/index.tsx:47
 msgid "offset.successModal.cta"
 msgstr "AUSGLEICH ANSEHEN"
 
@@ -640,8 +640,8 @@ msgstr "Ein Prozentwert des gesamten Tokenangebotes. Deine indexbereinigte Anfor
 msgid "pklima.update"
 msgstr "Der aktualisierte Vertrag geht davon aus, dass pKLIMA-Besitzer ehemals beanspruchte Tokens gestakt und Belohnungen dafür erhalten haben. Vor dem November-Fix wurden diese Staking-Belohnungen nicht gegen dein Supply-Share-Limit aufgerechnet, was bedeutet, dass dein Anteil am totalen KLIMA-Supply das in deinen Bedingungen angegebene Limit überschreiten konnte."
 
-#: components/TransactionModal/Approve.tsx:100
-#: components/views/Bond/index.tsx:459
+#: components/TransactionModal/Approve.tsx:97
+#: components/views/Bond/index.tsx:453
 #: components/views/Offset/index.tsx:430
 #: components/views/Stake/index.tsx:259
 #: components/views/Wrap/index.tsx:227
@@ -656,12 +656,12 @@ msgstr "Guthaben"
 msgid "shared.change_language"
 msgstr "Sprache wechseln"
 
-#: components/views/Bond/index.tsx:437
+#: components/views/Bond/index.tsx:431
 #: components/views/PKlima/index.tsx:165
 msgid "shared.confirming"
 msgstr "Bestätigen..."
 
-#: components/views/Bond/index.tsx:410
+#: components/views/Bond/index.tsx:404
 #: components/views/Buy/index.tsx:113
 #: components/views/Offset/index.tsx:350
 #: components/views/PKlima/index.tsx:150
@@ -683,7 +683,7 @@ msgstr "Menge eingeben"
 msgid "shared.enter_beneficiary"
 msgstr "Name des Begünstigten eingeben"
 
-#: components/views/Bond/index.tsx:422
+#: components/views/Bond/index.tsx:416
 #: components/views/Offset/index.tsx:372
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:208
@@ -694,8 +694,8 @@ msgstr "MENGE EINGEBEN"
 msgid "shared.enter_retirement_message"
 msgstr "Ausgleichs-Message angeben"
 
-#: components/views/Bond/index.tsx:479
-#: components/views/Bond/index.tsx:498
+#: components/views/Bond/index.tsx:474
+#: components/views/Bond/index.tsx:493
 #: components/views/Stake/index.tsx:288
 msgid "shared.error"
 msgstr "FEHLER"
@@ -721,7 +721,7 @@ msgstr "Ungültige Menge"
 #: components/CarbonTonnesBreakdownCard/index.tsx:49
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
-#: components/views/Bond/index.tsx:416
+#: components/views/Bond/index.tsx:410
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:356
 #: components/views/Offset/index.tsx:505
@@ -734,7 +734,7 @@ msgstr "Ungültige Menge"
 msgid "shared.loading"
 msgstr "Lade..."
 
-#: components/views/Bond/index.tsx:609
+#: components/views/Bond/index.tsx:604
 #: components/views/PKlima/index.tsx:237
 #: components/views/Stake/index.tsx:384
 #: components/views/Wrap/index.tsx:342
@@ -749,7 +749,7 @@ msgstr "Weiterleitung zur Kasse..."
 msgid "shared.retire"
 msgstr "CO2-Fußabdruck ausgleichen"
 
-#: components/views/Bond/index.tsx:404
+#: components/views/Bond/index.tsx:398
 msgid "shared.sold_out"
 msgstr "Ausverkauft"
 
@@ -882,11 +882,11 @@ msgstr "Vertragsadresse"
 msgid "transaction_modal.approve_quantity.quantity"
 msgstr "Zu genehmigende Menge"
 
-#: components/TransactionModal/Submit.tsx:106
+#: components/TransactionModal/Submit.tsx:101
 msgid "transaction_modal.close"
 msgstr "Schließen"
 
-#: components/TransactionModal/Approve.tsx:113
+#: components/TransactionModal/Approve.tsx:105
 msgid "transaction_modal.next"
 msgstr "Weiter"
 
@@ -894,7 +894,7 @@ msgstr "Weiter"
 msgid "transaction_modal.submit.amount"
 msgstr "Menge bestätigen"
 
-#: components/TransactionModal/Submit.tsx:96
+#: components/TransactionModal/Submit.tsx:93
 msgid "transaction_modal.submit.button"
 msgstr "Absenden"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-12 15:36+0000\n"
+"POT-Creation-Date: 2022-12-12 17:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr "Cambiar idioma"
 msgid "Enter App"
 msgstr "Entrar a la aplicación"
 
-#: components/pages/Infinity/index.tsx:526
+#: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
 msgstr "Preguntas frecuentes"
 
@@ -41,14 +41,6 @@ msgstr ""
 #: components/pages/Blog/Post/index.tsx:85
 msgid "blog.disclaimer.title"
 msgstr "Aviso legal:"
-
-#: components/pages/Retirements/CopyURLButton/index.tsx:22
-msgid "button.copyURL.copied"
-msgstr "copiado"
-
-#: components/pages/Retirements/CopyURLButton/index.tsx:27
-msgid "button.copyURL.copy"
-msgstr "Copiar URL"
 
 #: components/pages/Buy/index.tsx:132
 #: components/pages/Buy/index.tsx:253
@@ -660,35 +652,35 @@ msgstr "TONELADAS DE <0>CARBONO ABSORBIDO</0> POR KLIMADAO"
 msgid "home.welcome_to_klimadao"
 msgstr "<0>BIENVENIDO A</0> <1>KlimaDAO</1>"
 
-#: components/pages/Infinity/index.tsx:160
+#: components/pages/Infinity/index.tsx:162
 msgid "infinity.affordable_subtitle"
 msgstr "Asequible"
 
-#: components/pages/Infinity/index.tsx:155
+#: components/pages/Infinity/index.tsx:157
 msgid "infinity.affordable_title"
 msgstr "Precios en tiempo real, bajos costes de transacción"
 
-#: components/pages/Infinity/index.tsx:415
+#: components/pages/Infinity/index.tsx:418
 msgid "infinity.box_amount_104k"
 msgstr "104k"
 
-#: components/pages/Infinity/index.tsx:401
+#: components/pages/Infinity/index.tsx:404
 msgid "infinity.box_amount_11k"
 msgstr "11k"
 
-#: components/pages/Infinity/index.tsx:397
+#: components/pages/Infinity/index.tsx:400
 msgid "infinity.box_title"
 msgstr "Última compensación de carbono"
 
-#: components/pages/Infinity/index.tsx:411
+#: components/pages/Infinity/index.tsx:414
 msgid "infinity.box_title2"
 msgstr "Carbono total retirado"
 
-#: components/pages/Infinity/index.tsx:660
+#: components/pages/Infinity/index.tsx:665
 msgid "infinity.button.read_blog_faq"
 msgstr "Lea en profundidad las preguntas frecuentes de los clientes de KI"
 
-#: components/pages/Infinity/index.tsx:365
+#: components/pages/Infinity/index.tsx:368
 msgid "infinity.button.read_blog_polygon"
 msgstr "Lea la historia de Polygon"
 
@@ -696,62 +688,62 @@ msgstr "Lea la historia de Polygon"
 msgid "infinity.cards_slider.title"
 msgstr "Decenas de organizaciones han compensado más de 150.000 toneladas de carbono con Klima Infinity"
 
-#: components/pages/Infinity/index.tsx:328
+#: components/pages/Infinity/index.tsx:331
 msgid "infinity.carousel_image_description"
 msgstr "Proyecto de energía eólica en Jaibhim, India"
 
-#: components/pages/Infinity/index.tsx:340
+#: components/pages/Infinity/index.tsx:343
 msgid "infinity.carousel_info_subtitle"
 msgstr "Impulsar la financiación de proyectos que muevan la aguja de la mitigación del cambio climático"
 
-#: components/pages/Infinity/index.tsx:335
+#: components/pages/Infinity/index.tsx:338
 msgid "infinity.carousel_info_title"
 msgstr "Apoyar proyectos de alta calidad"
 
-#: components/pages/Infinity/index.tsx:680
+#: components/pages/Infinity/index.tsx:685
 msgid "infinity.cta_title"
 msgstr "El kit de herramientas de carbono de próxima generación para su organización"
 
-#: components/pages/Infinity/index.tsx:553
+#: components/pages/Infinity/index.tsx:557
 msgid "infinity.faq_answer1"
 msgstr "Una unidad de compensación de carbono representa la eliminación de una tonelada de dióxido de carbono equivalente (tCO2e) de la atmósfera, o la evitación de una tonelada de emisiones."
 
-#: components/pages/Infinity/index.tsx:589
+#: components/pages/Infinity/index.tsx:593
 msgid "infinity.faq_answer2_paragraph1"
 msgstr "Los créditos de carbono son un mecanismo de alta integridad que permite que la financiación del carbono fluya desde quienes contaminan hacia proyectos de todo el mundo que ayudan a mitigar o eliminar el carbono de la atmósfera. Son una herramienta valiosa para cubrir las emisiones difíciles de eliminar que pueden ser costosas o técnicamente difíciles de eliminar hoy en día."
 
-#: components/pages/Infinity/index.tsx:599
+#: components/pages/Infinity/index.tsx:603
 msgid "infinity.faq_answer2_paragraph2"
 msgstr "Cuando usted compra un crédito de carbono, Klima Infinity le permite retirar este crédito de carbono, retirándolo permanentemente de la circulación. Esta retirada es el momento en el que puede reclamar el beneficio de una compensación"
 
-#: components/pages/Infinity/index.tsx:607
+#: components/pages/Infinity/index.tsx:611
 msgid "infinity.faq_answer2_paragraph3"
 msgstr "Las compensaciones compradas conducen a reducciones de emisiones medibles y responsables en otros sectores de la economía, y pueden utilizarse para \"compensar\" una huella de carbono inevitable. El comercio y la retirada de los créditos de carbono permiten la aparición de un mecanismo de mercado que pone precio al carbono."
 
-#: components/pages/Infinity/index.tsx:644
+#: components/pages/Infinity/index.tsx:648
 msgid "infinity.faq_answer3"
 msgstr ""
 "El objetivo de los mercados de carbono es reducir las emisiones de gases de efecto invernadero (GEI, o \"carbono\") de forma rentable estableciendo límites a las emisiones y permitiendo el comercio de unidades de emisión, que son instrumentos financieros que representan reducciones de emisiones. El comercio permite que las entidades que pueden reducir las emisiones a un coste menor sean pagadas por los emisores de mayor coste, reduciendo así el coste económico de la reducción de las emisiones.\n"
 "\n"
 "Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator"
 
-#: components/pages/Infinity/index.tsx:539
+#: components/pages/Infinity/index.tsx:543
 msgid "infinity.faq_question1"
 msgstr "1. ¿Qué es una compensación de carbono?"
 
-#: components/pages/Infinity/index.tsx:573
+#: components/pages/Infinity/index.tsx:577
 msgid "infinity.faq_question2"
 msgstr "2. ¿Cómo ayuda la compensación a la lucha contra el cambio climático?"
 
-#: components/pages/Infinity/index.tsx:630
+#: components/pages/Infinity/index.tsx:634
 msgid "infinity.faq_question3"
 msgstr "3. ¿Qué son los mercados de carbono?"
 
-#: components/pages/Infinity/index.tsx:135
+#: components/pages/Infinity/index.tsx:137
 msgid "infinity.fast_subtitle"
 msgstr "Compensación en segundos, sin trámites burocráticos"
 
-#: components/pages/Infinity/index.tsx:140
+#: components/pages/Infinity/index.tsx:142
 msgid "infinity.fast_title"
 msgstr "Rápido"
 
@@ -771,43 +763,43 @@ msgstr "Me gustaría recibir ayuda con la huella de carbono de mi organización.
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr "Quiero <0/>compensar crypto."
 
-#: components/pages/Infinity/index.tsx:256
+#: components/pages/Infinity/index.tsx:258
 msgid "infinity.getStarted_1"
 msgstr "1"
 
-#: components/pages/Infinity/index.tsx:270
+#: components/pages/Infinity/index.tsx:272
 msgid "infinity.getStarted_2"
 msgstr "2"
 
-#: components/pages/Infinity/index.tsx:259
+#: components/pages/Infinity/index.tsx:261
 msgid "infinity.getStarted_calculate"
 msgstr "Calcular"
 
-#: components/pages/Infinity/index.tsx:262
+#: components/pages/Infinity/index.tsx:264
 msgid "infinity.getStarted_calculate_subtitle"
 msgstr "Calcule la huella de carbono de su organización y defina el alcance de su compensación con Klima Infinity."
 
-#: components/pages/Infinity/index.tsx:299
+#: components/pages/Infinity/index.tsx:301
 msgid "infinity.getStarted_cta"
 msgstr "Acelere su camino hacia la neutralidad de carbono - y más allá"
 
-#: components/pages/Infinity/index.tsx:276
+#: components/pages/Infinity/index.tsx:278
 msgid "infinity.getStarted_second_subtitle"
 msgstr "Implante su compensación con unos pocos clics y con un tiempo de transacción casi instantáneo."
 
-#: components/pages/Infinity/index.tsx:273
+#: components/pages/Infinity/index.tsx:275
 msgid "infinity.getStarted_second_title"
 msgstr "Implementar"
 
-#: components/pages/Infinity/index.tsx:284
+#: components/pages/Infinity/index.tsx:286
 msgid "infinity.getStarted_third"
 msgstr "3"
 
-#: components/pages/Infinity/index.tsx:290
+#: components/pages/Infinity/index.tsx:292
 msgid "infinity.getStarted_third_subtitle"
 msgstr "Haga un seguimiento de su compromiso y amplíe la concienciación en torno a sus acciones de Clima Positivo."
 
-#: components/pages/Infinity/index.tsx:287
+#: components/pages/Infinity/index.tsx:289
 msgid "infinity.getStarted_third_title"
 msgstr "Amplificar"
 
@@ -823,65 +815,65 @@ msgstr "Klima Infinity - Sea neutro en carbono"
 msgid "infinity.head.title"
 msgstr "KlimaDAO | Klima Infinity"
 
-#: components/pages/Infinity/index.tsx:176
+#: components/pages/Infinity/index.tsx:178
 msgid "infinity.info_subtitle1"
 msgstr "Para las organizaciones pioneras del planeta"
 
-#: components/pages/Infinity/index.tsx:181
+#: components/pages/Infinity/index.tsx:183
 msgid "infinity.info_subtitle2"
 msgstr "La solución de compensación más potente y fácil de usar del mundo"
 
-#: components/pages/Infinity/index.tsx:447
+#: components/pages/Infinity/index.tsx:450
 msgid "infinity.mission_card1_subtitle"
 msgstr "Toneladas de carbono en poder de KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:444
+#: components/pages/Infinity/index.tsx:447
 msgid "infinity.mission_card1_title"
 msgstr "18,1 millones"
 
-#: components/pages/Infinity/index.tsx:469
+#: components/pages/Infinity/index.tsx:472
 msgid "infinity.mission_card2_description"
 msgstr "Liquidez de carbono en manos de KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:466
+#: components/pages/Infinity/index.tsx:469
 msgid "infinity.mission_card2_number"
 msgstr "$10 millones+"
 
-#: components/pages/Infinity/index.tsx:491
+#: components/pages/Infinity/index.tsx:494
 msgid "infinity.mission_card3_description"
 msgstr "Toneladas de carbono compensadas vía KlimaDAO"
 
-#: components/pages/Infinity/index.tsx:488
+#: components/pages/Infinity/index.tsx:491
 msgid "infinity.mission_card3_number"
 msgstr "150,000+"
 
-#: components/pages/Infinity/index.tsx:384
+#: components/pages/Infinity/index.tsx:387
 msgid "infinity.polygon_manifesto_description"
 msgstr "Al compensar las emisiones históricas de toda su red, Polygon se ha asegurado de que se tenga en cuenta cada interacción dentro de su red, ya sea una acuñación de NFT o una transacción de DeFi. Esta es una razón clave por la que Meta eligió a Polygon para emitir sus NFT."
 
-#: components/pages/Infinity/index.tsx:378
+#: components/pages/Infinity/index.tsx:381
 msgid "infinity.polygon_manifesto_title"
 msgstr "La compensación forma parte del Manifiesto Verde de Polygon"
 
-#: components/pages/Infinity/index.tsx:358
+#: components/pages/Infinity/index.tsx:361
 msgid "infinity.polygon_story_description"
 msgstr "Polygon ha compensado las emisiones de carbono de la red desde su creación -aproximadamente 90.000 toneladas- y se ha comprometido a ser climáticamente positivo en todas las transacciones futuras de la red."
 
-#: components/pages/Infinity/index.tsx:353
+#: components/pages/Infinity/index.tsx:356
 msgid "infinity.polygon_story_title"
 msgstr "Polygon eligió a Klima Infinity para compensar su red de blockchain"
 
 #: components/pages/Infinity/Cards/Card.tsx:66
-#: components/pages/Infinity/index.tsx:404
-#: components/pages/Infinity/index.tsx:418
+#: components/pages/Infinity/index.tsx:407
+#: components/pages/Infinity/index.tsx:421
 msgid "infinity.tonnes"
 msgstr "Toneladas"
 
-#: components/pages/Infinity/index.tsx:194
+#: components/pages/Infinity/index.tsx:196
 msgid "infinity.transparent_subtitle"
 msgstr "Transparente"
 
-#: components/pages/Infinity/index.tsx:189
+#: components/pages/Infinity/index.tsx:191
 msgid "infinity.transparent_title"
 msgstr "Registrado inmutablemente en el blockchain"
 
@@ -893,15 +885,15 @@ msgstr "Klima Infinity es un conjunto de herramientas de carbono de última gene
 msgid "infinity.welcome_title"
 msgstr "La forma más fácil de ser neutro en carbono"
 
-#: components/pages/Infinity/index.tsx:222
+#: components/pages/Infinity/index.tsx:224
 msgid "infinity.why_description"
 msgstr "KlimaDAO aprovecha una serie de tecnologías DeFi para reducir la fragmentación del mercado y acelerar la entrega de financiación climática a proyectos de sostenibilidad en todo el mundo."
 
-#: components/pages/Infinity/index.tsx:217
+#: components/pages/Infinity/index.tsx:219
 msgid "infinity.why_subtitle"
 msgstr "DeFi que desafía el cambio climático"
 
-#: components/pages/Infinity/index.tsx:214
+#: components/pages/Infinity/index.tsx:216
 msgid "infinity.why_title"
 msgstr "¿Por qué KlimaDAO?"
 
@@ -909,7 +901,7 @@ msgstr "¿Por qué KlimaDAO?"
 msgid "invest_in_the_future"
 msgstr "Invierte en el futuro."
 
-#: components/pages/Infinity/index.tsx:436
+#: components/pages/Infinity/index.tsx:439
 msgid "mission.header"
 msgstr "La misión de KlimaDAO es democratizar la acción climática"
 
@@ -993,7 +985,7 @@ msgstr "Total de toneladas de carbono retiradas"
 msgid "pledges.edit_pledge"
 msgstr "Editar la promesa"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:308
+#: components/pages/Pledge/PledgeForm/index.tsx:307
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Añadir categoría"
 
@@ -1113,11 +1105,11 @@ msgstr "URL de imagen de perfil (Opcional)"
 msgid "pledges.form.input.profileWebsiteUrl.label"
 msgstr "Sitio web (opcional)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:325
+#: components/pages/Pledge/PledgeForm/index.tsx:324
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Huella total"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:343
+#: components/pages/Pledge/PledgeForm/index.tsx:342
 msgid "pledges.form.submit_button"
 msgstr "Guardar el compromiso"
 
@@ -1129,7 +1121,7 @@ msgstr "Tu compromiso"
 msgid "pledges.form.total_footprint_summary"
 msgstr "Huella total: {0} Toneladas de carbono"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:353
+#: components/pages/Pledge/PledgeForm/index.tsx:352
 msgid "pledges.form.use_your_wallet"
 msgstr "Utilice su cartera para firmar y confirmar esta modificación."
 
@@ -1181,7 +1173,7 @@ msgstr "Categorías"
 msgid "resources.form.categories.subheader"
 msgstr "Seleccione uno o más"
 
-#: components/pages/Resources/ResourcesFilters/index.tsx:69
+#: components/pages/Resources/ResourcesFilters/index.tsx:66
 msgid "resources.form.filters.clear_all"
 msgstr "Borrar todo"
 
@@ -1193,7 +1185,7 @@ msgstr "Buscar"
 msgid "resources.form.input.search.placeholder"
 msgstr "Buscar"
 
-#: components/pages/Resources/ResourcesList/index.tsx:208
+#: components/pages/Resources/ResourcesList/index.tsx:206
 msgid "resources.form.input.sort_by.label"
 msgstr "Ordenar por"
 
@@ -1285,11 +1277,11 @@ msgstr "Los más viejos primero"
 msgid "resources.list.sort_by.z-a"
 msgstr "Z-A"
 
-#: components/pages/Resources/ResourcesList/index.tsx:308
+#: components/pages/Resources/ResourcesList/index.tsx:306
 msgid "resources.mobile_modal.button.show_results"
 msgstr "Mostrar resultados"
 
-#: components/pages/Resources/ResourcesList/index.tsx:281
+#: components/pages/Resources/ResourcesList/index.tsx:279
 msgid "resources.mobile_modal.title"
 msgstr "Ordenar por"
 
@@ -1305,75 +1297,79 @@ msgstr "Artículos destacados"
 msgid "resources.page.list.header"
 msgstr "Explorar todo"
 
-#: components/pages/Resources/ResourcesList/index.tsx:246
+#: components/pages/Resources/ResourcesList/index.tsx:244
 msgid "resources.page.list.no_search_results.title"
 msgstr "Lo sentimos. No hemos podido encontrar ningún resultado que coincida."
 
-#: components/pages/Resources/ResourcesList/index.tsx:238
+#: components/pages/Resources/ResourcesList/index.tsx:236
 msgid "resources.page.list.on_fetch_error"
 msgstr "¡Lo siento! Algo salió mal."
 
-#: components/pages/Resources/ResourcesList/index.tsx:259
+#: components/pages/Resources/ResourcesList/index.tsx:257
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "Por favor, utilice una combinación de filtros diferente."
 
-#: components/pages/Resources/ResourcesList/index.tsx:252
+#: components/pages/Resources/ResourcesList/index.tsx:250
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Compruebe si hay errores tipográficos en su búsqueda o pruebe con otro término de búsqueda."
 
-#: components/pages/Retirements/Footer/index.tsx:27
+#: components/pages/Retirements/Footer/index.tsx:18
 msgid "retirement.footer.aboutKlima.left"
 msgstr "KlimaDAO está incentivando la sostenibilidad y catalizando un mercado de carbono más transparente y líquido. Nuestras herramientas hacen posible que cualquier persona o empresa comercie y retire activos de carbono de calidad en el Blockchain."
 
-#: components/pages/Retirements/Footer/index.tsx:37
+#: components/pages/Retirements/Footer/index.tsx:28
 msgid "retirement.footer.aboutKlima.right"
 msgstr "Los tokens KLIMA están en el centro de una floreciente economía del carbono en el blockchain. Visite nuestra <0>base de conocimientos</0> para obtener más información sobre KLIMA, la compensación de carbono, los mercados de carbono y los activos de carbono subyacentes."
 
-#: components/pages/Retirements/Footer/index.tsx:22
+#: components/pages/Retirements/Footer/index.tsx:13
 msgid "retirement.footer.aboutKlima.title"
 msgstr "Acerca de Klima"
 
-#: components/pages/Retirements/Footer/index.tsx:71
+#: components/pages/Retirements/SingleRetirement/BuyKlima/index.tsx:37
 msgid "retirement.footer.buy_klima.button.buy"
 msgstr "Comprar"
 
-#: components/pages/Retirements/Footer/index.tsx:78
+#: components/pages/Retirements/SingleRetirement/BuyKlima/index.tsx:44
 msgid "retirement.footer.buy_klima.button.offset"
 msgstr "Compensación"
 
-#: components/pages/Retirements/Footer/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/BuyKlima/index.tsx:30
 msgid "retirement.footer.buy_klima.text"
 msgstr "Utiliza tokens KLIMA respaldados por carbono para gobernar, intercambiar y ganar recompensas de staking, ¡y luego utiliza esas recompensas para compensar tus emisiones!"
 
-#: components/pages/Retirements/Footer/index.tsx:59
+#: components/pages/Retirements/SingleRetirement/BuyKlima/index.tsx:25
 msgid "retirement.footer.buy_klima.title"
 msgstr "Adquirir, hacer staking y ser recompensado."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:115
 msgid "retirement.head.metaDescription"
 msgstr "Compensaciones transparentes en el blockchain con la ayuda de KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/index.tsx:111
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} retired {0} Tonnes of carbon"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:99
+#: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Recibo de Retiro de Carbono"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:153
+#: components/pages/Retirements/SingleRetirement/index.tsx:256
+msgid "retirement.share.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "No se ha facilitado el nombre del beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:147
+#: components/pages/Retirements/SingleRetirement/index.tsx:155
 msgid "retirement.single.beneficiary.title"
 msgstr "Beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:169
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Dirección del beneficiario"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:205
+#: components/pages/Retirements/SingleRetirement/index.tsx:213
 msgid "retirement.single.disclaimer"
 msgstr "Esto representa la retirada permanente de los activos de carbono tokenizados en la blockchain de Polygon. Esta retirada y los datos asociados son registros públicos inmutables."
 
@@ -1381,11 +1377,11 @@ msgstr "Esto representa la retirada permanente de los activos de carbono tokeniz
 msgid "retirement.single.download_certificate_button"
 msgstr "Descargar PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/index.tsx:126
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:131
 msgid "retirement.single.header.subline"
 msgstr "Compensación de emisiones de CO2 equivalente (toneladas métricas)"
 
@@ -1393,19 +1389,19 @@ msgstr "Compensación de emisiones de CO2 equivalente (toneladas métricas)"
 msgid "retirement.single.message.title"
 msgstr "Mensaje de Retiro"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
 msgid "retirement.single.project_details.click_on_project"
 msgstr "Haga clic en el título del proyecto para obtener más información."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:56
 msgid "retirement.single.project_details.moss_headline"
 msgstr "Conoce más sobre los proyectos que respaldan las piscinas MCO2"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
 msgid "retirement.single.project_details.subline"
 msgstr "La(s) tonelada(s) retirada(s) procedía(n) del(de los) siguiente(s) proyecto(s)."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
 msgid "retirement.single.project_details.title"
 msgstr "Detalles del proyecto"
 
@@ -1413,7 +1409,7 @@ msgstr "Detalles del proyecto"
 msgid "retirement.single.project_details.tonnes"
 msgstr "Toneladas"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
 msgid "retirement.single.project_details.view_on_polygon_scan"
 msgstr "Ver en Polygonscan"
 
@@ -1421,7 +1417,7 @@ msgstr "Ver en Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "CANTIDAD RETIRADA"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:181
+#: components/pages/Retirements/SingleRetirement/index.tsx:189
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificado"
 
@@ -1429,7 +1425,7 @@ msgstr "Certificado"
 msgid "retirement.single.retirementDate.title"
 msgstr "Fecha"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:132
+#: components/pages/Retirements/SingleRetirement/index.tsx:140
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "No se proporcionó ningún mensaje de retiro"
 
@@ -1453,35 +1449,35 @@ msgstr "Todos los retiros"
 msgid "retirement.totals.breakdown_token_assets.empty"
 msgstr "No se han encontrado retiros"
 
-#: components/pages/Retirements/index.tsx:53
+#: components/pages/Retirements/index.tsx:52
 msgid "retirement.totals.head.metaTitle"
 msgstr "KlimaDAO - Retiradas de carbono para el beneficiario {0}"
 
-#: components/pages/Retirements/index.tsx:47
+#: components/pages/Retirements/index.tsx:46
 msgid "retirement.totals.head.title"
 msgstr "KlimaDAO - Retiradas de carbono para el beneficiario {0}"
 
-#: components/pages/Retirements/index.tsx:72
+#: components/pages/Retirements/index.tsx:71
 msgid "retirement.totals.page_headline"
 msgstr "Retiradas de carbono"
 
-#: components/pages/Retirements/index.tsx:78
+#: components/pages/Retirements/index.tsx:77
 msgid "retirement.totals.page_subline"
 msgstr "para el beneficiario"
 
-#: components/pages/Retirements/index.tsx:102
+#: components/pages/Retirements/index.tsx:101
 msgid "retirement.totals.retired_assets"
 msgstr "Activos retirados"
 
-#: components/pages/Retirements/index.tsx:118
+#: components/pages/Retirements/index.tsx:117
 msgid "retirement.totals.retirements"
 msgstr "Retiros"
 
-#: components/pages/Retirements/index.tsx:110
+#: components/pages/Retirements/index.tsx:109
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr "Total de toneladas de carbono retiradas"
 
-#: components/pages/Retirements/index.tsx:124
+#: components/pages/Retirements/index.tsx:123
 msgid "retirement.totals.total_retirement_transactions"
 msgstr "Total de transacciones de retirada"
 
@@ -1496,13 +1492,13 @@ msgstr "Totales de retiro por activo"
 msgid "shared.404"
 msgstr "404 Pagina no encontrada"
 
-#: components/Navigation/index.tsx:83
-#: components/Navigation/index.tsx:229
+#: components/Navigation/index.tsx:84
+#: components/Navigation/index.tsx:230
 msgid "shared.about"
 msgstr "Acerca de"
 
-#: components/Navigation/index.tsx:115
-#: components/Navigation/index.tsx:263
+#: components/Navigation/index.tsx:116
+#: components/Navigation/index.tsx:264
 msgid "shared.app"
 msgstr "Aplicación"
 
@@ -1511,27 +1507,27 @@ msgid "shared.blog"
 msgstr "Blog"
 
 #: components/Footer/index.tsx:43
-#: components/Navigation/index.tsx:133
-#: components/Navigation/index.tsx:280
+#: components/Navigation/index.tsx:134
+#: components/Navigation/index.tsx:281
 msgid "shared.bond"
 msgstr "Bond Klima"
 
 #: components/Footer/index.tsx:37
-#: components/Navigation/index.tsx:117
-#: components/Navigation/index.tsx:267
+#: components/Navigation/index.tsx:118
+#: components/Navigation/index.tsx:268
 msgid "shared.buy"
 msgstr "Comprar Klima"
 
-#: components/Navigation/index.tsx:360
+#: components/Navigation/index.tsx:361
 msgid "shared.carbon_dashboard"
 msgstr "Dashboard de carbono"
 
-#: components/Navigation/index.tsx:205
+#: components/Navigation/index.tsx:206
 msgid "shared.carbon_dashboards"
 msgstr "Dashboard de carbono"
 
-#: components/Navigation/index.tsx:87
-#: components/Navigation/index.tsx:234
+#: components/Navigation/index.tsx:88
+#: components/Navigation/index.tsx:235
 #: components/pages/About/AboutHeader/index.tsx:31
 #: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
@@ -1543,18 +1539,18 @@ msgid "shared.connect"
 msgstr "Conectar"
 
 #: components/Footer/index.tsx:52
-#: components/Navigation/index.tsx:243
+#: components/Navigation/index.tsx:244
 #: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.contact"
 msgstr "Contacto"
 
-#: components/Navigation/index.tsx:71
-#: components/pages/Infinity/index.tsx:115
-#: components/pages/Infinity/index.tsx:695
+#: components/Navigation/index.tsx:72
+#: components/pages/Infinity/index.tsx:117
+#: components/pages/Infinity/index.tsx:701
 msgid "shared.contact_sales"
 msgstr "Contactar con Ventas"
 
-#: components/Navigation/index.tsx:96
+#: components/Navigation/index.tsx:97
 #: components/pages/About/AboutHeader/index.tsx:40
 #: components/pages/About/Community/index.tsx:129
 #: components/pages/About/Community/index.tsx:374
@@ -1562,16 +1558,16 @@ msgid "shared.contact_us"
 msgstr "Contáctenos"
 
 #: components/Footer/index.tsx:55
-#: components/Navigation/index.tsx:105
-#: components/Navigation/index.tsx:252
+#: components/Navigation/index.tsx:106
+#: components/Navigation/index.tsx:253
 #: components/pages/About/AboutHeader/index.tsx:49
 #: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.disclaimer"
 msgstr "Aviso legal"
 
 #: components/Footer/index.tsx:46
-#: components/Navigation/index.tsx:213
-#: components/Navigation/index.tsx:368
+#: components/Navigation/index.tsx:214
+#: components/Navigation/index.tsx:369
 msgid "shared.docs"
 msgstr "Documentos oficiales"
 
@@ -1586,7 +1582,7 @@ msgstr "Cómo empezar"
 
 #: components/pages/Buy/index.tsx:47
 #: components/pages/Home/index.tsx:69
-#: components/pages/Retirements/index.tsx:59
+#: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
 msgstr "Impulsa la acción climática y gana recompensas con una moneda digital respaldada por carbono."
@@ -1595,19 +1591,19 @@ msgstr "Impulsa la acción climática y gana recompensas con una moneda digital 
 msgid "shared.home"
 msgstr "Casa"
 
-#: components/Navigation/index.tsx:196
-#: components/Navigation/index.tsx:351
+#: components/Navigation/index.tsx:197
+#: components/Navigation/index.tsx:352
 msgid "shared.how_to_buy"
 msgstr "Cómo comprar Klima"
 
-#: components/Navigation/index.tsx:166
-#: components/Navigation/index.tsx:315
+#: components/Navigation/index.tsx:167
+#: components/Navigation/index.tsx:316
 msgid "shared.infinity"
 msgstr "Infinity"
 
-#: components/pages/Infinity/index.tsx:107
-#: components/pages/Infinity/index.tsx:306
-#: components/pages/Infinity/index.tsx:687
+#: components/pages/Infinity/index.tsx:108
+#: components/pages/Infinity/index.tsx:309
+#: components/pages/Infinity/index.tsx:692
 msgid "shared.infinity.get_started"
 msgstr "Cómo empezar"
 
@@ -1615,19 +1611,19 @@ msgstr "Cómo empezar"
 msgid "shared.infinity_cta"
 msgstr "DEFI PARA ORGANIZACIONES"
 
-#: components/Navigation/index.tsx:169
-#: components/Navigation/index.tsx:318
+#: components/Navigation/index.tsx:170
+#: components/Navigation/index.tsx:319
 msgid "shared.infinity_intro"
 msgstr "Introducción"
 
-#: components/Navigation/index.tsx:157
-#: components/Navigation/index.tsx:304
+#: components/Navigation/index.tsx:158
+#: components/Navigation/index.tsx:305
 msgid "shared.info"
 msgstr "Información"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:55
-#: components/pages/Retirements/SingleRetirement/index.tsx:36
+#: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr "Cargando..."
 
@@ -1635,48 +1631,48 @@ msgstr "Cargando..."
 msgid "shared.loveletter_cta"
 msgstr "DEFI PARA PARTICULARES"
 
-#: components/Navigation/index.tsx:181
-#: components/Navigation/index.tsx:333
+#: components/Navigation/index.tsx:182
+#: components/Navigation/index.tsx:334
 msgid "shared.loveletters"
 msgstr "Love Letters"
 
-#: components/Navigation/index.tsx:149
-#: components/Navigation/index.tsx:296
+#: components/Navigation/index.tsx:150
+#: components/Navigation/index.tsx:297
 msgid "shared.offset"
 msgstr "Compensación"
 
-#: components/Navigation/index.tsx:174
-#: components/Navigation/index.tsx:326
+#: components/Navigation/index.tsx:175
+#: components/Navigation/index.tsx:327
 msgid "shared.pledge"
 msgstr "¿Cómo se puede comprometer?"
 
-#: components/Navigation/index.tsx:187
-#: components/Navigation/index.tsx:342
+#: components/Navigation/index.tsx:188
+#: components/Navigation/index.tsx:343
 #: components/pages/Blog/Post/index.tsx:71
 msgid "shared.resourcecenter"
 msgstr ""
 
-#: components/Navigation/index.tsx:184
-#: components/Navigation/index.tsx:338
+#: components/Navigation/index.tsx:185
+#: components/Navigation/index.tsx:339
 msgid "shared.resources"
 msgstr "Recursos"
 
-#: components/pages/Resources/ResourcesList/index.tsx:214
+#: components/pages/Resources/ResourcesList/index.tsx:212
 msgid "shared.resources.sort_by.header"
 msgstr "Ordenar por:"
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:125
-#: components/Navigation/index.tsx:272
+#: components/Navigation/index.tsx:126
+#: components/Navigation/index.tsx:273
 msgid "shared.stake"
 msgstr "Stake KLIMA"
 
-#: components/pages/Infinity/index.tsx:509
+#: components/pages/Infinity/index.tsx:512
 msgid "shared.visit_klimadao_blog"
 msgstr "Visite el blog de KlimaDAO"
 
-#: components/Navigation/index.tsx:141
-#: components/Navigation/index.tsx:288
+#: components/Navigation/index.tsx:142
+#: components/Navigation/index.tsx:289
 msgid "shared.wrap"
 msgstr "Empaquetar sKLIMA"
 
