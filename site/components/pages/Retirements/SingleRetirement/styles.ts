@@ -4,8 +4,9 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 export const section = css`
   padding-bottom: 4rem;
   ${breakpoints.medium} {
-    padding-top: 9rem;
-    padding-bottom: 4rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
   }
 `;
 
@@ -70,7 +71,99 @@ export const sectionButtonsWrap = css`
 `;
 
 export const buttonViewOnPolygon = css`
+  //Not sure where the uppercase is being defined so we need to force override it here
+  text-transform: none;
   &:hover {
     opacity: 0.7; // same styles as of for CopyButton
+  }
+`;
+
+export const share_content = css`
+  display: grid;
+  gap: 2.4rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 7rem;
+  grid-column: main;
+
+  .title {
+    text-align: center;
+    position: relative;
+    line-height: initial;
+    color: var(--white);
+  }
+
+  .buttons {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    button {
+      font-size: 2rem;
+    }
+    svg {
+      color: var(--font-01);
+    }
+  }
+
+  .image {
+    border-radius: 1.2rem;
+    // Simulate a rgba(0,0,0,0.4) overlay
+    filter: grayscale(20%) brightness(0.7);
+  }
+`;
+
+export const footerBuyKlima = css`
+  position: relative;
+  overflow: hidden;
+
+  grid-column: main;
+  padding: 8rem 2.4rem 6rem;
+  border-radius: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  ${breakpoints.medium} {
+    padding: 8rem 5.2rem 6rem;
+    justify-content: start;
+    align-items: start;
+  }
+`;
+
+export const buyKlimaImageGradient = css`
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
+export const footerBuyKlimaText = css`
+  z-index: 2;
+  color: var(--white);
+  ${breakpoints.large} {
+    max-width: 70%;
+  }
+`;
+
+export const footerButtons = css`
+  z-index: 2;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  ${breakpoints.medium} {
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
   }
 `;

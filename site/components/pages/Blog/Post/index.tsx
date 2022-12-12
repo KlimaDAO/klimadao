@@ -25,7 +25,7 @@ export const PostPage = (props: PostProps) => {
   if (!props.post) {
     return (
       <>
-        <Navigation activePage="Updates" />
+        <Navigation activePage="Resource Center" />
         <div className={styles.fallbackContainer}>
           {/* TODO: worth restyling this */}
           <Text className={styles.loadingArticle}>Loading article...</Text>
@@ -49,7 +49,7 @@ export const PostPage = (props: PostProps) => {
         isArticle={true}
       />
 
-      <Navigation activePage="Updates" />
+      <Navigation activePage="Resource Center" />
 
       <div className={styles.container}>
         <div className={styles.banner}>
@@ -68,7 +68,7 @@ export const PostPage = (props: PostProps) => {
           <div className={styles.content}>
             <Link href="/resources" passHref className={styles.backNavLink}>
               <ChevronLeftIcon fontSize="medium" />
-              <Trans id="shared.updates">Updates</Trans>
+              <Trans id="shared.resourcecenter">Resource Center</Trans>
             </Link>
 
             <Text t="h2" as="h1">

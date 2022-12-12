@@ -41,15 +41,10 @@ export const RetirementSuccessModal: FC<Props> = (props) => (
       </div>
 
       <ButtonPrimary
-        variant="icon"
         href={props.retirementUrl}
         target="_blank"
-        label={
-          <>
-            <SendRounded />
-            <Trans id="offset.successModal.cta">VIEW RETIREMENT</Trans>
-          </>
-        }
+        icon={<SendRounded />}
+        label={<Trans id="offset.successModal.cta">VIEW RETIREMENT</Trans>}
       />
     </div>
   </Modal>
