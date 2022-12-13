@@ -135,14 +135,27 @@ export const CreateAListingModal: FC<Props> = (props) => {
       {showTransactionView && !isLoading && (
         <Transaction
           hasApproval={hasApproval()}
-          value={inputValues.singleUnitPrice}
-          approvalValue={inputValues.totalAmountToSell}
-          token={"usdc"}
+          amount={{
+            value: `${inputValues.totalAmountToSell} tonnes`,
+          }}
+          price={{
+            value: inputValues.singleUnitPrice,
+            token: "usdc",
+          }}
+          approvalText={t({
+            id: "marketplace.transaction.create_listing.approval_description",
+            message:
+              "You are about to transfer ownership of this asset from your wallet to the KlimaDAO marketplace. You can remove your listing at any time until it has been sold.",
+          })}
           onApproval={handleApproval}
           onSubmit={onAddListing}
           onCancel={props.onCancel}
           status={status}
           onResetStatus={() => setStatus(null)}
+          onGoBack={() => {
+            setStatus(null);
+            setAllowanceValue(null); // this will hide the Transaction View and re-checks the allowance again
+          }}
         />
       )}
     </Modal>

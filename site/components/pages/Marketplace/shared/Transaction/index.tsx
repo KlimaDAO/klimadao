@@ -5,20 +5,24 @@ import { Approve } from "./Approve";
 import { Submit } from "./Submit";
 import { getMarketplaceAddress } from "components/pages/Marketplace/lib/getAddresses";
 import { TransactionStatusMessage } from "components/pages/Marketplace/lib/statusMessage";
-import { MarketplaceToken } from "components/pages/Marketplace/lib/getTokenInfo";
+import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
+
+import { Value } from "./types";
 
 import * as styles from "./styles";
 
 interface Props {
-  value: string;
-  approvalValue?: string;
-  token: MarketplaceToken;
+  hasApproval: boolean;
+  amount: Value;
+  price?: Value;
   onApproval: () => void;
   onSubmit: () => void;
   onCancel: () => void;
   status: TransactionStatusMessage | null;
   onResetStatus: () => void;
-  hasApproval: boolean;
+  approvalText?: string;
+  submitText?: string;
+  onGoBack?: () => void;
 }
 
 export const Transaction: FC<Props> = (props) => {
@@ -60,8 +64,9 @@ export const Transaction: FC<Props> = (props) => {
       </div>
       {view === "approve" && (
         <Approve
-          value={props.approvalValue || props.value}
-          token={props.token}
+          amount={props.amount}
+          price={props.price}
+          description={props.approvalText}
           spenderAddress={getMarketplaceAddress()}
           onApproval={props.onApproval}
           onSuccess={() => {
@@ -73,12 +78,24 @@ export const Transaction: FC<Props> = (props) => {
       )}
       {view === "submit" && (
         <Submit
-          value={props.value}
-          token={props.token}
+          amount={props.amount}
+          price={props.price}
+          description={props.submitText}
           spenderAddress={getMarketplaceAddress()}
           onSubmit={props.onSubmit}
           onClose={props.onCancel}
           status={props.status}
+        />
+      )}
+      {!!props.onGoBack && (
+        <MarketplaceButton
+          label={
+            <Trans id="marketplace.transaction_modal.button.go_back">
+              Go back
+            </Trans>
+          }
+          disabled={isPending}
+          onClick={props.onGoBack}
         />
       )}
     </div>

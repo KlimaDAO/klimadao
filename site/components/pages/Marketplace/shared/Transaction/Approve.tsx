@@ -9,24 +9,23 @@ import {
   getStatusMessage,
   TransactionStatusMessage,
 } from "components/pages/Marketplace/lib/statusMessage";
-import {
-  marketplaceTokenInfoMap,
-  MarketplaceToken,
-} from "components/pages/Marketplace/lib/getTokenInfo";
+import { marketplaceTokenInfoMap } from "components/pages/Marketplace/lib/getTokenInfo";
 
 import { HighlightValue } from "./HighlightValue";
 
 import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
+import { Value } from "./types";
 
 import * as styles from "./styles";
 
 interface Props {
-  value: string;
-  token: MarketplaceToken;
+  amount: Value;
+  price?: Value;
   spenderAddress: string;
   onApproval: () => void;
   onSuccess: () => void;
   status: TransactionStatusMessage | null;
+  description?: string;
 }
 
 export const Approve: FC<Props> = (props) => {
@@ -48,15 +47,15 @@ export const Approve: FC<Props> = (props) => {
         })}
       >
         <Text>
-          <Trans id="marketplace.transaction_modal.approve.allow_amount">
-            You must first give permission to our smart contract to transfer
-            tokens on your behalf.
+          <Trans id="marketplace.transaction_modal.approve.title">
+            Please confirm the transaction
           </Trans>
         </Text>
+        {!!props.description && <Text t="caption">{props.description}</Text>}
         <HighlightValue
           label={
             <Text t="caption" color="lighter">
-              <Trans id="marketplace.transaction_modal.approve.approve_quantity.contract_address">
+              <Trans id="marketplace.transaction_modal.approve.contract_address">
                 Contract address
               </Trans>
             </Text>
@@ -66,15 +65,35 @@ export const Approve: FC<Props> = (props) => {
         <HighlightValue
           label={
             <Text t="caption" color="lighter">
-              <Trans id="marketplace.transaction_modal.approve_quantity.quantity">
-                Quantity to approve
+              <Trans id="marketplace.transaction_modal.approve.amount">
+                Confirm amount
               </Trans>
             </Text>
           }
-          value={props.value || "0"}
-          icon={marketplaceTokenInfoMap[props.token].icon}
-          iconName={props.token}
+          value={props.amount.value}
+          icon={
+            props.amount.token &&
+            marketplaceTokenInfoMap[props.amount.token].icon
+          }
+          iconName={props.amount.token}
         />
+        {!!props.price && (
+          <HighlightValue
+            label={
+              <Text t="caption" color="lighter">
+                <Trans id="marketplace.transaction_modal.approve.price">
+                  Confirm price per tonne
+                </Trans>
+              </Text>
+            }
+            value={props.price.value}
+            icon={
+              props.price.token &&
+              marketplaceTokenInfoMap[props.price.token].icon
+            }
+            iconName={props.price.token}
+          />
+        )}
       </div>
       {!!props.status && (
         <div className={styles.statusMessage}>

@@ -9,23 +9,22 @@ import {
   getStatusMessage,
   TransactionStatusMessage,
 } from "components/pages/Marketplace/lib/statusMessage";
-import {
-  marketplaceTokenInfoMap,
-  MarketplaceToken,
-} from "components/pages/Marketplace/lib/getTokenInfo";
+import { marketplaceTokenInfoMap } from "components/pages/Marketplace/lib/getTokenInfo";
 
 import { HighlightValue } from "./HighlightValue";
 import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
+import { Value } from "./types";
 
 import * as styles from "./styles";
 
 interface Props {
-  value: string;
-  token: MarketplaceToken;
+  amount: Value;
+  price?: Value;
   spenderAddress: string;
   onSubmit: () => void;
   onClose: () => void;
   status: TransactionStatusMessage | null;
+  description?: string;
 }
 
 export const Submit: FC<Props> = (props) => {
@@ -47,10 +46,11 @@ export const Submit: FC<Props> = (props) => {
         })}
       >
         <Text>
-          <Trans id="marketplace.transaction_modal.submit.confirm_transaction">
-            Please submit the transaction.
+          <Trans id="marketplace.transaction_modal.submit.title">
+            Please submit the transaction
           </Trans>
         </Text>
+        {!!props.description && <Text>{props.description}</Text>}
         <HighlightValue
           label={
             <Text t="caption" color="lighter">
@@ -65,14 +65,34 @@ export const Submit: FC<Props> = (props) => {
           label={
             <Text t="caption" color="lighter">
               <Trans id="marketplace.transaction_modal.submit.amount">
-                Confirm amount
+                Submit amount
               </Trans>
             </Text>
           }
-          value={props.value || "0"}
-          icon={marketplaceTokenInfoMap[props.token].icon}
-          iconName={props.token}
+          value={props.amount.value}
+          icon={
+            props.amount.token &&
+            marketplaceTokenInfoMap[props.amount.token].icon
+          }
+          iconName={props.amount.token}
         />
+        {!!props.price && (
+          <HighlightValue
+            label={
+              <Text t="caption" color="lighter">
+                <Trans id="marketplace.transaction_modal.submit.price">
+                  Submit price per tonne
+                </Trans>
+              </Text>
+            }
+            value={props.price.value}
+            icon={
+              props.price.token &&
+              marketplaceTokenInfoMap[props.price.token].icon
+            }
+            iconName={props.price.token}
+          />
+        )}
       </div>
       {!!props.status && (
         <div className={styles.statusMessage}>
