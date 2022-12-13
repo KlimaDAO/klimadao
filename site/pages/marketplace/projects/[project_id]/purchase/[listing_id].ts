@@ -26,8 +26,11 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   try {
     // TODO: read listingID and seller data from queries
     const project = await getMarketplaceProject(params.project_id);
-    console.log("project", project);
-    const listing = project.listings.find(params?.listing_id);
+
+    // check if listing ID is correct here? Or on client with nicer error state?
+    const listing = project.listings.find(
+      (listing) => listing.id === params?.listing_id
+    );
 
     if (!listing) {
       throw new Error("No matching listing found");

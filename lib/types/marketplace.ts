@@ -10,6 +10,7 @@ export interface Project {
   projectAddress: string;
   registry: string;
   category: Category;
+  listings: Listing[];
 }
 
 export interface User {
