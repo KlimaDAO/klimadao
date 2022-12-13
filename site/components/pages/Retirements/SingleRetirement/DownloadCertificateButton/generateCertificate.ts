@@ -114,6 +114,7 @@ export const generateCertificate = (params: Params): void => {
     doc.setFont("Poppins", "Bold");
     doc.setLineHeightFactor(1);
     const beneficaryText = params.beneficiaryName || params.beneficiaryAddress;
+    // const beneficaryText = "Mark Cubano Companiessssss Worldwide Corporation";
     const beneficiaryName = doc.splitTextToSize(
       beneficaryText,
       spacing.mainTextWidth

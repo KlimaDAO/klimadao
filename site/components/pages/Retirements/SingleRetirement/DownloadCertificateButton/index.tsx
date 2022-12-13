@@ -8,6 +8,7 @@ import { RetirementToken } from "@klimadao/lib/constants";
 
 import { generateCertificate } from "./generateCertificate";
 import { StaticImageData } from "next/legacy/image";
+
 export interface DownloadCertificateButtonProps {
   beneficiaryName: string;
   beneficiaryAddress: string;
@@ -28,9 +29,26 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
 ) => {
   const handleClick = () => generateCertificate(props);
 
+  console.log(props);
+
+  const getCertificate = (): Promise<Response> =>
+    fetch("/api/certificates", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(props),
+    });
+
+  // try download first and then assign a name
+  const generatePDF = async () => {
+    const response = await getCertificate();
+    const certificate = await response.blob();
+    window.open(URL.createObjectURL(certificate), "_blank");
+  };
+
   return (
     <ButtonPrimary
-      onClick={handleClick}
+      onClick={generatePDF}
+      // onClick={handleClick}
       label={t({
         id: "retirement.single.download_certificate_button",
         message: "Download PDF",
