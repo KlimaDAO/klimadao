@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 
-export const year = css`
+export const vintage = css`
   display: flex;
   gap: 0.4rem;
   flex-direction: column;
