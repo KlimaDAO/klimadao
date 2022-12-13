@@ -4,7 +4,7 @@ import { Text, Spinner } from "@klimadao/lib/components";
 import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "components/Modal";
 
-import { EditProfile } from "./Edit";
+import { EditProfile } from "./EditProfile";
 import { CreateAListingModal } from "./CreateAListingModal";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
@@ -33,8 +33,8 @@ type Props = {
   marketplaceUser: User | null;
   userName: string;
   userAddress: string;
-  showEditModal: boolean;
-  onToggleModal: () => void;
+  showEditProfileModal: boolean;
+  onToggleEditProfileModal: () => void;
 };
 
 export const SellerConnected: FC<Props> = (props) => {
@@ -108,9 +108,9 @@ export const SellerConnected: FC<Props> = (props) => {
     }
   }, [user, assetsData]);
 
-  const onEditUser = (data: User) => {
+  const onEditProfile = (data: User) => {
     setUser((prev) => ({ ...prev, ...data }));
-    props.onToggleModal();
+    props.onToggleEditProfileModal();
   };
 
   const onAddListingSubmit = async () => {
@@ -260,13 +260,13 @@ export const SellerConnected: FC<Props> = (props) => {
 
       <Modal
         title={t({
-          id: "marketplace.profile.edit_modal.title",
+          id: "marketplace.profile.edit_profile.title",
           message: "Your Profile",
         })}
-        showModal={props.showEditModal}
-        onToggleModal={props.onToggleModal}
+        showModal={props.showEditProfileModal}
+        onToggleModal={props.onToggleEditProfileModal}
       >
-        <EditProfile user={user} onSubmit={onEditUser} />
+        <EditProfile user={user} onSubmit={onEditProfile} />
       </Modal>
 
       {!!assetsData?.length && (

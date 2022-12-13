@@ -64,8 +64,8 @@ export const Users: NextPage<Props> = (props) => {
             userAddress={props.userAddress}
             userName={userName}
             marketplaceUser={props.marketplaceUser}
-            showEditModal={showEditModal}
-            onToggleModal={() => setShowEditModal((prev) => !prev)}
+            showEditProfileModal={showEditModal}
+            onToggleEditProfileModal={() => setShowEditModal((prev) => !prev)}
           />
         )}
 
