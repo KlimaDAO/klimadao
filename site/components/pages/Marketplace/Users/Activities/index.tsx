@@ -1,10 +1,13 @@
 import { FC } from "react";
-import { BigNumber } from "ethers";
 import { Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import { Activity } from "@klimadao/lib/types/marketplace";
 import { useRouter } from "next/router";
-import { concatAddress, formatUnits } from "@klimadao/lib/utils";
+import { concatAddress } from "@klimadao/lib/utils";
+import {
+  formatPrice,
+  formatTonnes,
+} from "components/pages/Marketplace/lib/formatNumbers";
 
 import { Card } from "components/pages/Marketplace/shared/Card";
 
@@ -91,11 +94,12 @@ export const Activities: FC<Props> = (props) => {
             </Text>
             <Text t="caption">
               <span className="number">
-                {formatUnits(BigNumber.from(activity.amount))}t
+                {formatTonnes(activity.amount, locale)}
+                <Trans id="marketplace.tonnes.short">t</Trans>
               </span>{" "}
               at
               <span className="number">
-                {formatUnits(BigNumber.from(activity.price))}$
+                {formatPrice(activity.price, locale)}
               </span>
             </Text>
           </div>
