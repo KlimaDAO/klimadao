@@ -10,7 +10,7 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import ViewQuiltOutlinedIcon from "@mui/icons-material/ViewQuiltOutlined";
 import { Domain } from "@klimadao/lib/types/domains";
 
-import { useIsMarketplaceProfile } from "hooks/useIsMarketplaceProfile";
+import { useConnectedMarketplaceUser } from "hooks/useConnectedMarketplaceUser";
 
 import * as styles from "./styles";
 
@@ -91,7 +91,7 @@ interface Props {
 
 export const NavMenu: FC<Props> = (props) => {
   const { pathname } = useRouter();
-  const { isConnectedProfile, isUnconnectedProfile } = useIsMarketplaceProfile(
+  const { isConnectedUser, isUnconnectedUser } = useConnectedMarketplaceUser(
     props.userAdress
   );
 
@@ -118,7 +118,7 @@ export const NavMenu: FC<Props> = (props) => {
       </div>
       <MenuButton
         isActive={
-          pathname.startsWith("/marketplace/projects") || isUnconnectedProfile
+          pathname.startsWith("/marketplace/projects") || isUnconnectedUser
         }
         href={"/marketplace/projects"}
         icon={<StoreIcon />}
@@ -127,7 +127,7 @@ export const NavMenu: FC<Props> = (props) => {
       </MenuButton>
       <MenuButton
         isActive={
-          pathname.startsWith(`/marketplace/users/login`) || isConnectedProfile
+          pathname.startsWith(`/marketplace/users/login`) || isConnectedUser
         }
         href={profileLink}
         icon={<PermIdentityIcon />}

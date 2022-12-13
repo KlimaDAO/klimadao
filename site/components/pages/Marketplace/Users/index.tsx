@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { NextPage } from "next";
 import { t } from "@lingui/macro";
 import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
-import { useIsMarketplaceProfile } from "hooks/useIsMarketplaceProfile";
+import { useConnectedMarketplaceUser } from "hooks/useConnectedMarketplaceUser";
 
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../Layout";
-import { ConnectedProfile } from "./ConnectedProfile";
-import { UnconnectedProfile } from "./UnconnectedProfile";
+import { SellerConnected } from "./SellerConnected";
+import { SellerUnconnected } from "./SellerUnconnected";
 import { User } from "@klimadao/lib/types/marketplace";
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const Users: NextPage<Props> = (props) => {
-  const { isConnectedProfile, isUnconnectedProfile } = useIsMarketplaceProfile(
+  const { isConnectedUser, isUnconnectedUser } = useConnectedMarketplaceUser(
     props.userAddress
   );
 
@@ -29,10 +29,10 @@ export const Users: NextPage<Props> = (props) => {
 
   // Wait until web3 is ready
   useEffect(() => {
-    if (isConnectedProfile || isUnconnectedProfile) {
+    if (isConnectedUser || isUnconnectedUser) {
       setIsLoading(false);
     }
-  }, [isConnectedProfile, isUnconnectedProfile]);
+  }, [isConnectedUser, isUnconnectedUser]);
 
   return (
     <>
@@ -46,7 +46,7 @@ export const Users: NextPage<Props> = (props) => {
         userAddress={props.userAddress}
         userDomain={props.userDomain}
         profileButton={
-          isConnectedProfile ? (
+          isConnectedUser ? (
             <ButtonPrimary
               label={t({
                 id: "marketplace.button.edit_profile",
@@ -59,8 +59,8 @@ export const Users: NextPage<Props> = (props) => {
       >
         {isLoading && <Spinner />}
 
-        {isConnectedProfile && (
-          <ConnectedProfile
+        {isConnectedUser && (
+          <SellerConnected
             userAddress={props.userAddress}
             userName={userName}
             marketplaceUser={props.marketplaceUser}
@@ -69,8 +69,8 @@ export const Users: NextPage<Props> = (props) => {
           />
         )}
 
-        {isUnconnectedProfile && (
-          <UnconnectedProfile
+        {isUnconnectedUser && (
+          <SellerUnconnected
             marketplaceUser={props.marketplaceUser}
             userName={userName}
           />

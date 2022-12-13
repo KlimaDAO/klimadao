@@ -19,7 +19,7 @@ type Props = {
   userName: string;
 };
 
-export const UnconnectedProfile: FC<Props> = (props) => {
+export const SellerUnconnected: FC<Props> = (props) => {
   const userData = props.marketplaceUser;
 
   const hasListings = !!userData?.listings?.length;

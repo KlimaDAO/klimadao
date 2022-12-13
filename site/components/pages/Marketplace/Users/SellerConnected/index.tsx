@@ -37,7 +37,7 @@ type Props = {
   onToggleModal: () => void;
 };
 
-export const ConnectedProfile: FC<Props> = (props) => {
+export const SellerConnected: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.marketplaceUser);
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(true);

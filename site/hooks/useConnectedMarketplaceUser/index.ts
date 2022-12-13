@@ -1,27 +1,27 @@
 import { useRouter } from "next/router";
 import { useWeb3 } from "@klimadao/lib/utils";
 
-export const useIsMarketplaceProfile = (
+export const useConnectedMarketplaceUser = (
   userAddress?: string
-): { isConnectedProfile: boolean; isUnconnectedProfile: boolean } => {
+): { isConnectedUser: boolean; isUnconnectedUser: boolean } => {
   const { address, isConnected } = useWeb3();
   const { query } = useRouter();
 
   if (!userAddress) {
     return {
-      isConnectedProfile: false,
-      isUnconnectedProfile: false,
+      isConnectedUser: false,
+      isUnconnectedUser: false,
     };
   }
 
   const hasUserInURL = !!query?.user;
   const connectedUser = isConnected && !!address;
-  const isConnectedProfile =
+  const isConnectedUser =
     connectedUser && hasUserInURL && address === userAddress;
-  const isUnconnectedProfile = hasUserInURL && !isConnectedProfile;
+  const isUnconnectedUser = hasUserInURL && !isConnectedUser;
 
   return {
-    isConnectedProfile,
-    isUnconnectedProfile,
+    isConnectedUser,
+    isUnconnectedUser,
   };
 };
