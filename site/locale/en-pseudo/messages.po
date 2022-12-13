@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-07 17:02+0000\n"
+"POT-Creation-Date: 2022-12-13 15:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +15,7 @@ msgstr ""
 msgid "Enter App"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:526
+#: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
 msgstr ""
 
@@ -38,14 +38,6 @@ msgstr ""
 
 #: components/pages/Blog/Post/index.tsx:85
 msgid "blog.disclaimer.title"
-msgstr ""
-
-#: components/pages/Retirements/CopyURLButton/index.tsx:22
-msgid "button.copyURL.copied"
-msgstr ""
-
-#: components/pages/Retirements/CopyURLButton/index.tsx:27
-msgid "button.copyURL.copy"
 msgstr ""
 
 #: components/pages/Buy/index.tsx:132
@@ -652,35 +644,35 @@ msgstr ""
 msgid "home.welcome_to_klimadao"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:160
+#: components/pages/Infinity/index.tsx:162
 msgid "infinity.affordable_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:155
+#: components/pages/Infinity/index.tsx:157
 msgid "infinity.affordable_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:415
+#: components/pages/Infinity/index.tsx:418
 msgid "infinity.box_amount_104k"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:401
+#: components/pages/Infinity/index.tsx:404
 msgid "infinity.box_amount_11k"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:397
+#: components/pages/Infinity/index.tsx:400
 msgid "infinity.box_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:411
+#: components/pages/Infinity/index.tsx:414
 msgid "infinity.box_title2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:660
+#: components/pages/Infinity/index.tsx:665
 msgid "infinity.button.read_blog_faq"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:365
+#: components/pages/Infinity/index.tsx:368
 msgid "infinity.button.read_blog_polygon"
 msgstr ""
 
@@ -688,59 +680,59 @@ msgstr ""
 msgid "infinity.cards_slider.title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:328
+#: components/pages/Infinity/index.tsx:331
 msgid "infinity.carousel_image_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:340
+#: components/pages/Infinity/index.tsx:343
 msgid "infinity.carousel_info_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:335
+#: components/pages/Infinity/index.tsx:338
 msgid "infinity.carousel_info_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:680
+#: components/pages/Infinity/index.tsx:685
 msgid "infinity.cta_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:553
+#: components/pages/Infinity/index.tsx:557
 msgid "infinity.faq_answer1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:589
+#: components/pages/Infinity/index.tsx:593
 msgid "infinity.faq_answer2_paragraph1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:599
+#: components/pages/Infinity/index.tsx:603
 msgid "infinity.faq_answer2_paragraph2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:607
+#: components/pages/Infinity/index.tsx:611
 msgid "infinity.faq_answer2_paragraph3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:644
+#: components/pages/Infinity/index.tsx:648
 msgid "infinity.faq_answer3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:539
+#: components/pages/Infinity/index.tsx:543
 msgid "infinity.faq_question1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:573
+#: components/pages/Infinity/index.tsx:577
 msgid "infinity.faq_question2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:630
+#: components/pages/Infinity/index.tsx:634
 msgid "infinity.faq_question3"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:135
+#: components/pages/Infinity/index.tsx:137
 msgid "infinity.fast_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:140
+#: components/pages/Infinity/index.tsx:142
 msgid "infinity.fast_title"
 msgstr ""
 
@@ -760,43 +752,43 @@ msgstr ""
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:256
+#: components/pages/Infinity/index.tsx:258
 msgid "infinity.getStarted_1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:270
+#: components/pages/Infinity/index.tsx:272
 msgid "infinity.getStarted_2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:259
+#: components/pages/Infinity/index.tsx:261
 msgid "infinity.getStarted_calculate"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:262
+#: components/pages/Infinity/index.tsx:264
 msgid "infinity.getStarted_calculate_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:299
+#: components/pages/Infinity/index.tsx:301
 msgid "infinity.getStarted_cta"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:276
+#: components/pages/Infinity/index.tsx:278
 msgid "infinity.getStarted_second_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:273
+#: components/pages/Infinity/index.tsx:275
 msgid "infinity.getStarted_second_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:284
+#: components/pages/Infinity/index.tsx:286
 msgid "infinity.getStarted_third"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:290
+#: components/pages/Infinity/index.tsx:292
 msgid "infinity.getStarted_third_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:287
+#: components/pages/Infinity/index.tsx:289
 msgid "infinity.getStarted_third_title"
 msgstr ""
 
@@ -812,65 +804,65 @@ msgstr ""
 msgid "infinity.head.title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:176
+#: components/pages/Infinity/index.tsx:178
 msgid "infinity.info_subtitle1"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:181
+#: components/pages/Infinity/index.tsx:183
 msgid "infinity.info_subtitle2"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:447
+#: components/pages/Infinity/index.tsx:450
 msgid "infinity.mission_card1_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:444
+#: components/pages/Infinity/index.tsx:447
 msgid "infinity.mission_card1_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:469
+#: components/pages/Infinity/index.tsx:472
 msgid "infinity.mission_card2_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:466
+#: components/pages/Infinity/index.tsx:469
 msgid "infinity.mission_card2_number"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:491
+#: components/pages/Infinity/index.tsx:494
 msgid "infinity.mission_card3_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:488
+#: components/pages/Infinity/index.tsx:491
 msgid "infinity.mission_card3_number"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:384
+#: components/pages/Infinity/index.tsx:387
 msgid "infinity.polygon_manifesto_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:378
+#: components/pages/Infinity/index.tsx:381
 msgid "infinity.polygon_manifesto_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:358
+#: components/pages/Infinity/index.tsx:361
 msgid "infinity.polygon_story_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:353
+#: components/pages/Infinity/index.tsx:356
 msgid "infinity.polygon_story_title"
 msgstr ""
 
 #: components/pages/Infinity/Cards/Card.tsx:66
-#: components/pages/Infinity/index.tsx:404
-#: components/pages/Infinity/index.tsx:418
+#: components/pages/Infinity/index.tsx:407
+#: components/pages/Infinity/index.tsx:421
 msgid "infinity.tonnes"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:194
+#: components/pages/Infinity/index.tsx:196
 msgid "infinity.transparent_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:189
+#: components/pages/Infinity/index.tsx:191
 msgid "infinity.transparent_title"
 msgstr ""
 
@@ -882,15 +874,15 @@ msgstr ""
 msgid "infinity.welcome_title"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:222
+#: components/pages/Infinity/index.tsx:224
 msgid "infinity.why_description"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:217
+#: components/pages/Infinity/index.tsx:219
 msgid "infinity.why_subtitle"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:214
+#: components/pages/Infinity/index.tsx:216
 msgid "infinity.why_title"
 msgstr ""
 
@@ -898,7 +890,7 @@ msgstr ""
 msgid "invest_in_the_future"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:436
+#: components/pages/Infinity/index.tsx:439
 msgid "mission.header"
 msgstr ""
 
@@ -982,7 +974,7 @@ msgstr ""
 msgid "pledges.edit_pledge"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:308
+#: components/pages/Pledge/PledgeForm/index.tsx:307
 msgid "pledges.form.add_footprint_category_button"
 msgstr ""
 
@@ -1102,11 +1094,11 @@ msgstr ""
 msgid "pledges.form.input.profileWebsiteUrl.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:325
+#: components/pages/Pledge/PledgeForm/index.tsx:324
 msgid "pledges.form.input.totalFootprint.label"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:343
+#: components/pages/Pledge/PledgeForm/index.tsx:342
 msgid "pledges.form.submit_button"
 msgstr ""
 
@@ -1118,7 +1110,7 @@ msgstr ""
 msgid "pledges.form.total_footprint_summary"
 msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:353
+#: components/pages/Pledge/PledgeForm/index.tsx:352
 msgid "pledges.form.use_your_wallet"
 msgstr ""
 
@@ -1170,7 +1162,7 @@ msgstr ""
 msgid "resources.form.categories.subheader"
 msgstr ""
 
-#: components/pages/Resources/ResourcesFilters/index.tsx:69
+#: components/pages/Resources/ResourcesFilters/index.tsx:66
 msgid "resources.form.filters.clear_all"
 msgstr ""
 
@@ -1182,7 +1174,7 @@ msgstr ""
 msgid "resources.form.input.search.placeholder"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:208
+#: components/pages/Resources/ResourcesList/index.tsx:206
 msgid "resources.form.input.sort_by.label"
 msgstr ""
 
@@ -1274,11 +1266,11 @@ msgstr ""
 msgid "resources.list.sort_by.z-a"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:308
+#: components/pages/Resources/ResourcesList/index.tsx:306
 msgid "resources.mobile_modal.button.show_results"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:281
+#: components/pages/Resources/ResourcesList/index.tsx:279
 msgid "resources.mobile_modal.title"
 msgstr ""
 
@@ -1294,75 +1286,79 @@ msgstr ""
 msgid "resources.page.list.header"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:246
+#: components/pages/Resources/ResourcesList/index.tsx:244
 msgid "resources.page.list.no_search_results.title"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:238
+#: components/pages/Resources/ResourcesList/index.tsx:236
 msgid "resources.page.list.on_fetch_error"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:259
+#: components/pages/Resources/ResourcesList/index.tsx:257
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:252
+#: components/pages/Resources/ResourcesList/index.tsx:250
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:27
+#: components/pages/Retirements/Footer/index.tsx:18
 msgid "retirement.footer.aboutKlima.left"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:37
+#: components/pages/Retirements/Footer/index.tsx:28
 msgid "retirement.footer.aboutKlima.right"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:22
+#: components/pages/Retirements/Footer/index.tsx:13
 msgid "retirement.footer.aboutKlima.title"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:71
+#: components/pages/Retirements/SingleRetirement/BuyKlima/index.tsx:37
 msgid "retirement.footer.buy_klima.button.buy"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:78
+#: components/pages/Retirements/SingleRetirement/BuyKlima/index.tsx:44
 msgid "retirement.footer.buy_klima.button.offset"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:64
+#: components/pages/Retirements/SingleRetirement/BuyKlima/index.tsx:30
 msgid "retirement.footer.buy_klima.text"
 msgstr ""
 
-#: components/pages/Retirements/Footer/index.tsx:59
+#: components/pages/Retirements/SingleRetirement/BuyKlima/index.tsx:25
 msgid "retirement.footer.buy_klima.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:115
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:103
+#: components/pages/Retirements/SingleRetirement/index.tsx:111
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:99
+#: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:153
-msgid "retirement.single.beneficiary.placeholder"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:147
-msgid "retirement.single.beneficiary.title"
+#: components/pages/Retirements/SingleRetirement/index.tsx:256
+msgid "retirement.share.title"
 msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:161
+msgid "retirement.single.beneficiary.placeholder"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:155
+msgid "retirement.single.beneficiary.title"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:169
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:205
+#: components/pages/Retirements/SingleRetirement/index.tsx:213
 msgid "retirement.single.disclaimer"
 msgstr ""
 
@@ -1370,11 +1366,11 @@ msgstr ""
 msgid "retirement.single.download_certificate_button"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:118
+#: components/pages/Retirements/SingleRetirement/index.tsx:126
 msgid "retirement.single.header.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:123
+#: components/pages/Retirements/SingleRetirement/index.tsx:131
 msgid "retirement.single.header.subline"
 msgstr ""
 
@@ -1382,19 +1378,19 @@ msgstr ""
 msgid "retirement.single.message.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
 msgid "retirement.single.project_details.click_on_project"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:57
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:56
 msgid "retirement.single.project_details.moss_headline"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
 msgid "retirement.single.project_details.subline"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:27
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:26
 msgid "retirement.single.project_details.title"
 msgstr ""
 
@@ -1402,7 +1398,7 @@ msgstr ""
 msgid "retirement.single.project_details.tonnes"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:52
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
 msgid "retirement.single.project_details.view_on_polygon_scan"
 msgstr ""
 
@@ -1410,7 +1406,7 @@ msgstr ""
 msgid "retirement.single.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:181
+#: components/pages/Retirements/SingleRetirement/index.tsx:189
 msgid "retirement.single.retirementCertificate.title"
 msgstr ""
 
@@ -1418,7 +1414,7 @@ msgstr ""
 msgid "retirement.single.retirementDate.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:132
+#: components/pages/Retirements/SingleRetirement/index.tsx:140
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr ""
 
@@ -1442,35 +1438,35 @@ msgstr ""
 msgid "retirement.totals.breakdown_token_assets.empty"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:53
+#: components/pages/Retirements/index.tsx:52
 msgid "retirement.totals.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:47
+#: components/pages/Retirements/index.tsx:46
 msgid "retirement.totals.head.title"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:72
+#: components/pages/Retirements/index.tsx:71
 msgid "retirement.totals.page_headline"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:78
+#: components/pages/Retirements/index.tsx:77
 msgid "retirement.totals.page_subline"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:102
+#: components/pages/Retirements/index.tsx:101
 msgid "retirement.totals.retired_assets"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:118
+#: components/pages/Retirements/index.tsx:117
 msgid "retirement.totals.retirements"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:110
+#: components/pages/Retirements/index.tsx:109
 msgid "retirement.totals.total_carbon_tonnes"
 msgstr ""
 
-#: components/pages/Retirements/index.tsx:124
+#: components/pages/Retirements/index.tsx:123
 msgid "retirement.totals.total_retirement_transactions"
 msgstr ""
 
@@ -1485,13 +1481,13 @@ msgstr ""
 msgid "shared.404"
 msgstr ""
 
-#: components/Navigation/index.tsx:83
-#: components/Navigation/index.tsx:229
+#: components/Navigation/index.tsx:84
+#: components/Navigation/index.tsx:230
 msgid "shared.about"
 msgstr ""
 
-#: components/Navigation/index.tsx:115
-#: components/Navigation/index.tsx:263
+#: components/Navigation/index.tsx:116
+#: components/Navigation/index.tsx:264
 msgid "shared.app"
 msgstr ""
 
@@ -1500,27 +1496,27 @@ msgid "shared.blog"
 msgstr ""
 
 #: components/Footer/index.tsx:43
-#: components/Navigation/index.tsx:133
-#: components/Navigation/index.tsx:280
+#: components/Navigation/index.tsx:134
+#: components/Navigation/index.tsx:281
 msgid "shared.bond"
 msgstr ""
 
 #: components/Footer/index.tsx:37
-#: components/Navigation/index.tsx:117
-#: components/Navigation/index.tsx:267
+#: components/Navigation/index.tsx:118
+#: components/Navigation/index.tsx:268
 msgid "shared.buy"
 msgstr ""
 
-#: components/Navigation/index.tsx:360
+#: components/Navigation/index.tsx:361
 msgid "shared.carbon_dashboard"
 msgstr ""
 
-#: components/Navigation/index.tsx:205
+#: components/Navigation/index.tsx:206
 msgid "shared.carbon_dashboards"
 msgstr ""
 
-#: components/Navigation/index.tsx:87
-#: components/Navigation/index.tsx:234
+#: components/Navigation/index.tsx:88
+#: components/Navigation/index.tsx:235
 #: components/pages/About/AboutHeader/index.tsx:31
 #: components/pages/About/AboutHeader/index.tsx:61
 msgid "shared.community"
@@ -1532,18 +1528,18 @@ msgid "shared.connect"
 msgstr ""
 
 #: components/Footer/index.tsx:52
-#: components/Navigation/index.tsx:243
+#: components/Navigation/index.tsx:244
 #: components/pages/About/AboutHeader/index.tsx:67
 msgid "shared.contact"
 msgstr ""
 
-#: components/Navigation/index.tsx:71
-#: components/pages/Infinity/index.tsx:115
-#: components/pages/Infinity/index.tsx:695
+#: components/Navigation/index.tsx:72
+#: components/pages/Infinity/index.tsx:117
+#: components/pages/Infinity/index.tsx:701
 msgid "shared.contact_sales"
 msgstr ""
 
-#: components/Navigation/index.tsx:96
+#: components/Navigation/index.tsx:97
 #: components/pages/About/AboutHeader/index.tsx:40
 #: components/pages/About/Community/index.tsx:129
 #: components/pages/About/Community/index.tsx:374
@@ -1551,16 +1547,16 @@ msgid "shared.contact_us"
 msgstr ""
 
 #: components/Footer/index.tsx:55
-#: components/Navigation/index.tsx:105
-#: components/Navigation/index.tsx:252
+#: components/Navigation/index.tsx:106
+#: components/Navigation/index.tsx:253
 #: components/pages/About/AboutHeader/index.tsx:49
 #: components/pages/About/AboutHeader/index.tsx:73
 msgid "shared.disclaimer"
 msgstr ""
 
 #: components/Footer/index.tsx:46
-#: components/Navigation/index.tsx:213
-#: components/Navigation/index.tsx:368
+#: components/Navigation/index.tsx:214
+#: components/Navigation/index.tsx:369
 msgid "shared.docs"
 msgstr ""
 
@@ -1575,7 +1571,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:47
 #: components/pages/Home/index.tsx:69
-#: components/pages/Retirements/index.tsx:59
+#: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
 msgid "shared.head.description"
 msgstr ""
@@ -1584,19 +1580,19 @@ msgstr ""
 msgid "shared.home"
 msgstr ""
 
-#: components/Navigation/index.tsx:196
-#: components/Navigation/index.tsx:351
+#: components/Navigation/index.tsx:197
+#: components/Navigation/index.tsx:352
 msgid "shared.how_to_buy"
 msgstr ""
 
-#: components/Navigation/index.tsx:166
-#: components/Navigation/index.tsx:315
+#: components/Navigation/index.tsx:167
+#: components/Navigation/index.tsx:316
 msgid "shared.infinity"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:107
-#: components/pages/Infinity/index.tsx:306
-#: components/pages/Infinity/index.tsx:687
+#: components/pages/Infinity/index.tsx:108
+#: components/pages/Infinity/index.tsx:309
+#: components/pages/Infinity/index.tsx:692
 msgid "shared.infinity.get_started"
 msgstr ""
 
@@ -1604,19 +1600,19 @@ msgstr ""
 msgid "shared.infinity_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:169
-#: components/Navigation/index.tsx:318
+#: components/Navigation/index.tsx:170
+#: components/Navigation/index.tsx:319
 msgid "shared.infinity_intro"
 msgstr ""
 
-#: components/Navigation/index.tsx:157
-#: components/Navigation/index.tsx:304
+#: components/Navigation/index.tsx:158
+#: components/Navigation/index.tsx:305
 msgid "shared.info"
 msgstr ""
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:55
-#: components/pages/Retirements/SingleRetirement/index.tsx:36
+#: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr ""
 
@@ -1624,48 +1620,48 @@ msgstr ""
 msgid "shared.loveletter_cta"
 msgstr ""
 
-#: components/Navigation/index.tsx:181
-#: components/Navigation/index.tsx:333
+#: components/Navigation/index.tsx:182
+#: components/Navigation/index.tsx:334
 msgid "shared.loveletters"
 msgstr ""
 
-#: components/Navigation/index.tsx:149
-#: components/Navigation/index.tsx:296
+#: components/Navigation/index.tsx:150
+#: components/Navigation/index.tsx:297
 msgid "shared.offset"
 msgstr ""
 
-#: components/Navigation/index.tsx:174
-#: components/Navigation/index.tsx:326
+#: components/Navigation/index.tsx:175
+#: components/Navigation/index.tsx:327
 msgid "shared.pledge"
 msgstr ""
 
-#: components/Navigation/index.tsx:187
-#: components/Navigation/index.tsx:342
+#: components/Navigation/index.tsx:188
+#: components/Navigation/index.tsx:343
 #: components/pages/Blog/Post/index.tsx:71
 msgid "shared.resourcecenter"
 msgstr ""
 
-#: components/Navigation/index.tsx:184
-#: components/Navigation/index.tsx:338
+#: components/Navigation/index.tsx:185
+#: components/Navigation/index.tsx:339
 msgid "shared.resources"
 msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:214
+#: components/pages/Resources/ResourcesList/index.tsx:212
 msgid "shared.resources.sort_by.header"
 msgstr ""
 
 #: components/Footer/index.tsx:40
-#: components/Navigation/index.tsx:125
-#: components/Navigation/index.tsx:272
+#: components/Navigation/index.tsx:126
+#: components/Navigation/index.tsx:273
 msgid "shared.stake"
 msgstr ""
 
-#: components/pages/Infinity/index.tsx:509
+#: components/pages/Infinity/index.tsx:512
 msgid "shared.visit_klimadao_blog"
 msgstr ""
 
-#: components/Navigation/index.tsx:141
-#: components/Navigation/index.tsx:288
+#: components/Navigation/index.tsx:142
+#: components/Navigation/index.tsx:289
 msgid "shared.wrap"
 msgstr ""
 

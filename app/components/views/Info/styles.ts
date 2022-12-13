@@ -16,7 +16,7 @@ export const container = css`
   .addressRow {
     display: grid;
     grid-template-columns: repeat(3, max-content);
-    column-gap: 0.4rem;
+    column-gap: 1rem;
     align-items: center;
   }
   .addressRow a {

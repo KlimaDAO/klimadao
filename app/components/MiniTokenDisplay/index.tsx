@@ -31,8 +31,8 @@ export const MiniTokenDisplay: FC<Props> = (props) => (
       <Image
         className="icon"
         src={props.icon}
-        width={48}
-        height={48}
+        width={42}
+        height={42}
         alt={props.name}
       />
 
@@ -40,7 +40,7 @@ export const MiniTokenDisplay: FC<Props> = (props) => (
         <Spinner />
       ) : (
         <Text
-          t="body3"
+          t="body1"
           className={cx("value", {
             alignEnd: props.labelAlignment === "end",
             warn: !!props.warn,

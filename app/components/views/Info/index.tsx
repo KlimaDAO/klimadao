@@ -11,6 +11,11 @@ import { BASE_URL } from "lib/constants";
 import AddToMetaMaskButton from "./AddToMetaMaskButton";
 import CopyAddressButton from "./CopyAddressButton";
 import * as styles from "./styles";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { Trans } from "@lingui/macro";
+import { Anchor as A, Text } from "@klimadao/lib/components";
+import { ImageCard } from "components/ImageCard";
+import { CopyAddressButton } from "@klimadao/lib/components";
 
 export interface AddressInfo {
   name: string;
@@ -187,7 +192,7 @@ export const Info: FC<Props> = (props) => (
                 </A>
 
                 <CopyAddressButton
-                  ariaLabel={info.ariaLabel}
+                  aria-label={info.ariaLabel}
                   address={info.address}
                 />
 

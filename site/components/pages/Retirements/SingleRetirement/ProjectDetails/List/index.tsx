@@ -1,10 +1,14 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { FC } from "react";
+import { useRouter } from "next/router";
+import { Text } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
 import { t, Trans } from "@lingui/macro";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { Trans } from "@lingui/macro";
 import * as styles from "./styles";
 
 type Props = {
@@ -43,17 +47,11 @@ export const ProjectDetail: FC<Props> = (props) => {
         </Text>
       )}
       <div className="button_link">
-        <ButtonPrimary
-          className="gray_button"
-          variant="gray"
-          href={`https://polygonscan.com/address/${tokenAddress}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          label={t({
-            id: "retirement.single.project_details.view_on_polygon_scan",
-            message: "View on Polygonscan",
-          })}
-        />
+        <a href={`https://polygonscan.com/address/${tokenAddress}`}>
+          <Trans id="retirement.single.project_details.view_on_polygon_scan">
+            View on Polygonscan
+          </Trans>
+        </a>
       </div>
     </div>
   );

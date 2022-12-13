@@ -25,7 +25,7 @@ export const offsetCard = css`
   background-color: var(--surface-02);
   align-content: start;
   border-radius: 1.2rem;
-  padding: 2.4rem;
+  padding: 1.6rem;
   gap: 2.4rem;
   grid-column: 1 / 3;
 
@@ -54,7 +54,7 @@ export const newReleasesIcon = css`
 
 export const offsetCard_ui = css`
   display: grid;
-  gap: 2.5rem;
+  gap: 2.4rem;
 
   ${breakpoints.medium} {
     border: 2px solid var(--surface-03);
@@ -151,6 +151,10 @@ export const input = css`
     display: grid;
     grid-template-columns: 1fr min-content;
     z-index: 1; /* cover advanced-settings border */
+
+    input[data-error="true"] {
+      border: 0.175rem solid var(--warn);
+    }
   }
 
   .button_max {
@@ -166,7 +170,13 @@ export const input = css`
       cursor: default;
     }
   }
+
   input[data-error="true"] {
-    border: 0.2rem solid red;
+    border: 0.175rem solid var(--warn);
+  }
+
+  .invalid_project_tonnage {
+    font-size: 1.4rem;
+    color: var(--warn);
   }
 `;

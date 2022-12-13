@@ -67,7 +67,8 @@ export const Navigation: FC<Props> = ({
           ) : (
             <ButtonPrimary
               key="Contact Sales"
-              variant="blueRounded"
+              variant="blue"
+              rounded
               label={t({
                 message: "Contact Sales",
                 id: "shared.contact_sales",

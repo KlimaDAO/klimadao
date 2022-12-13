@@ -1,3 +1,5 @@
+import { useState, useEffect, FC, ReactNode } from "react";
+import { useSelector } from "react-redux";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { TippyProps } from "@tippyjs/react";
@@ -51,6 +53,7 @@ import { selectAppState, selectBondAllowance } from "state/selectors";
 import { setBondAllowance } from "state/user";
 import { useBond } from "../ChooseBond";
 import * as styles from "./styles";
+import { ButtonBaseProps } from "@klimadao/lib/components";
 
 export function prettyVestingPeriod(
   locale = "en",
@@ -99,13 +102,6 @@ export const DataRow: FC<DataRowProps> = (props) => {
     </li>
   );
 };
-
-interface ButtonProps {
-  label: ReactElement | string;
-  onClick: undefined | (() => void);
-  disabled: boolean;
-  variant?: "blueRounded";
-}
 
 interface Props {
   provider?: providers.JsonRpcProvider;
@@ -395,7 +391,7 @@ export const Bond: FC<Props> = (props) => {
     );
   };
 
-  const getButtonProps = (): ButtonProps => {
+  const getButtonProps = (): ButtonBaseProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
 
@@ -459,7 +455,8 @@ export const Bond: FC<Props> = (props) => {
         label: <Trans id="shared.approve">Approve</Trans>,
         disabled: false,
         onClick: () => setShowTransactionModal(true),
-        variant: "blueRounded",
+        variant: "blue",
+        rounded: true,
       };
     } else if (viewIsBond) {
       return {

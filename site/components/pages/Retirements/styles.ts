@@ -106,3 +106,8 @@ export const sectionButtonsWrap = css`
     flex-direction: row;
   }
 `;
+
+export const largeCopyButton = css`
+  font-size: inherit !important;
+  text-transform: none;
+`;

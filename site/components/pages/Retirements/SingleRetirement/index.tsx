@@ -10,6 +10,12 @@ import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
+import {
+  concatAddress,
+  getImageSizes,
+  trimWithLocale,
+} from "@klimadao/lib/utils";
+import { urls } from "@klimadao/lib/constants";
 
 import { FacebookButton } from "components/FacebookButton";
 import { Footer } from "components/Footer";
@@ -29,6 +35,16 @@ import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
 import * as styles from "./styles";
 import { TextGroup } from "./TextGroup";
+import { RetirementDate } from "./RetirementDate";
+import { TextGroup } from "./TextGroup";
+import { ProjectDetails } from "./ProjectDetails";
+import { RetirementFooter } from "../Footer";
+import * as styles from "./styles";
+import { CopyAddressButton } from "@klimadao/lib/components";
+import sunsetMountains from "public/sunset-mountains.jpg";
+import Image from "next/image";
+import { cx } from "@emotion/css";
+import { BuyKlima } from "./BuyKlima";
 
 const LoadingCertificateButton: React.FC = () => (
   <ButtonPrimary
@@ -211,25 +227,17 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         </div>
       </Section>
 
-      <Section variant="gray" className={styles.sectionButtons}>
+      <Section
+        variant="gray"
+        className={cx(styles.section, styles.sectionButtons)}
+      >
         <div className={styles.sectionButtonsWrap}>
-          <TweetButton
-            title={`${retiree} retired ${retireData.amount} Tonnes of carbon`}
-            tags={["klimadao", "Offset"]}
-          />
-          <FacebookButton />
-          <LinkedInButton />
-        </div>
-      </Section>
-
-      <Section variant="gray" className={styles.sectionButtons}>
-        <div className={styles.sectionButtonsWrap}>
-          <CopyURLButton />
+          <CopyAddressButton label="Copy Link" variant="gray" />
           {retireData.transactionID && (
             <ButtonPrimary
-              variant="gray"
               href={`https://polygonscan.com/tx/${retireData.transactionID}`}
               target="_blank"
+              variant="gray"
               rel="noopener noreferrer"
               label={t({
                 id: "retirement.single.view_on_polygon_scan",
@@ -241,14 +249,48 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
         </div>
       </Section>
 
-      {props.retirement?.offset && (
-        <ProjectDetails
-          projectDetails={props.projectDetails}
-          offset={props.retirement.offset}
-        />
-      )}
+      <Section variant="gray" className={styles.section}>
+        <div className={styles.share_content}>
+          <Image
+            alt="Sunset Mountains"
+            src={sunsetMountains}
+            layout="fill"
+            objectFit="cover"
+            sizes={getImageSizes({ large: "1072px" })}
+            placeholder="blur"
+            className="image"
+          />
+          <Text className="title" t="h3">
+            <Trans id="retirement.share.title">Share your impact</Trans>
+          </Text>
+          <div className="buttons">
+            <TweetButton
+              title={`${retiree} retired ${retireData.amount} Tonnes of carbon`}
+              tags={["klimadao", "Offset"]}
+            />
+            <FacebookButton />
+            <LinkedInButton />
+            <CopyAddressButton variant="lightGray" />
+          </div>
+        </div>
+      </Section>
 
-      <RetirementFooter />
+      {props.retirement?.offset && (
+        <Section variant="gray" className={styles.section}>
+          <ProjectDetails
+            projectDetails={props.projectDetails}
+            offset={props.retirement.offset}
+          />
+        </Section>
+      )}
+      <Section variant="gray" className={styles.section}>
+        <RetirementFooter />
+      </Section>
+
+      <Section variant="gray" className={styles.section}>
+        <BuyKlima />
+      </Section>
+
       <Footer />
     </>
   );

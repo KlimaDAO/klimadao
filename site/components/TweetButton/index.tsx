@@ -1,6 +1,7 @@
 import { ButtonPrimary, TwitterIcon } from "@klimadao/lib/components";
 import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
+import { ButtonBaseProps } from "@klimadao/lib/components";
 
 export const TWITTER_INTENT_URL = "https://twitter.com/intent/tweet";
 const TWITTER_HANDLE = "klimadao";
@@ -28,9 +29,9 @@ type Props = {
   title: string;
   url?: string;
   tags: string[];
-};
+} & Omit<ButtonBaseProps, "label">;
 
-export const TweetButton: FC<Props> = ({ title, url, tags }) => {
+export const TweetButton: FC<Props> = ({ title, url, tags, ...props }) => {
   const [shareURL, setShareUrl] = useState<string>();
 
   // get parameters on the client because
@@ -50,13 +51,9 @@ export const TweetButton: FC<Props> = ({ title, url, tags }) => {
       href={shareURL}
       target="_blank"
       disabled={!shareURL}
-      label={
-        <>
-          <TwitterIcon />
-          Twitter
-        </>
-      }
-      variant="gray"
+      icon={<TwitterIcon />}
+      variant="lightGray"
+      {...props}
     />
   );
 };

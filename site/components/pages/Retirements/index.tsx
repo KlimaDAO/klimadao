@@ -2,6 +2,8 @@ import { Section, Text } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import { Text, Section, CopyAddressButton } from "@klimadao/lib/components";
+import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
@@ -18,9 +20,12 @@ import { CopyAddressButton } from "./CopyAddressButton";
 import { CopyURLButton } from "./CopyURLButton";
 import { RetirementFooter } from "./Footer";
 import { AllRetirements } from "./List";
+import { AllRetirements } from "./List";
+import { RetirementFooter } from "./Footer";
 
 import { t, Trans } from "@lingui/macro";
 import * as styles from "./styles";
+import { BuyKlima } from "./SingleRetirement/BuyKlima";
 
 type Props = {
   totalsAndBalances: RetirementsTotalsAndBalances;
@@ -81,6 +86,7 @@ export const RetirementPage: NextPage<Props> = (props) => {
                 <CopyAddressButton
                   address={nameserviceDomain || beneficiaryAddress}
                   label={nameserviceDomain || concattedAddress}
+                  className={styles.largeCopyButton}
                 />
               </Text>
               {nameserviceDomain && (
@@ -88,7 +94,6 @@ export const RetirementPage: NextPage<Props> = (props) => {
                   <CopyAddressButton
                     address={beneficiaryAddress}
                     label={concattedAddress}
-                    size="small"
                   />
                 </Text>
               )}
@@ -137,10 +142,15 @@ export const RetirementPage: NextPage<Props> = (props) => {
       </Section>
       <Section variant="gray" className={styles.sectionButtons}>
         <div className={styles.sectionButtonsWrap}>
-          <CopyURLButton />
+          <CopyAddressButton label="Copy Link" variant="lightGray" />
         </div>
       </Section>
-      <RetirementFooter />
+      <Section variant="gray" className={styles.section}>
+        <RetirementFooter />
+      </Section>
+      <Section variant="gray" className={styles.section}>
+        <BuyKlima />
+      </Section>
       <Footer />
     </>
   );

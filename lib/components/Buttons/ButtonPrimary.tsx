@@ -1,16 +1,16 @@
 import { cx } from "@emotion/css";
+import { BaseButton, ButtonBaseProps } from "./ButtonBase";
 import React, { FC } from "react";
-import { BaseButton, Props } from "./ButtonBase";
 import * as styles from "./styles";
 
-export const ButtonPrimary: FC<Props> = (props) => {
+export const ButtonPrimary: FC<ButtonBaseProps> = (props) => {
   const className = cx(
     styles.buttonPrimary,
     {
+      lightGray: props.variant === "lightGray",
       gray: props.variant === "gray",
       blue: props.variant === "blue",
-      blueRounded: props.variant === "blueRounded",
-      icon: props.variant === "icon",
+      transparent: props.variant === "transparent",
     },
     props.className
   );

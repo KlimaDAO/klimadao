@@ -89,13 +89,8 @@ export const Submit: FC<Props> = (props) => {
         )}
         {showSubmitButton && (
           <ButtonPrimary
-            variant="icon"
-            label={
-              <>
-                <SendRounded />
-                <Trans id="transaction_modal.submit.button">Submit</Trans>
-              </>
-            }
+            icon={<SendRounded />}
+            label={<Trans id="transaction_modal.submit.button">Submit</Trans>}
             onClick={() => props.onSubmit()}
             className={styles.submitButton}
           />
