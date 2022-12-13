@@ -1,5 +1,4 @@
-import { getKlimaSupply } from "@klimadao/lib/utils";
-import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
+import { getInfuraUrlPolygon, getKlimaSupply } from "@klimadao/lib/utils";
 import { NextApiRequest, NextApiResponse } from "next/types";
 
 /** CORS is set in next.config.js */

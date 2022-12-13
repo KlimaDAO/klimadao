@@ -2,12 +2,11 @@ import { utils } from "ethers";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
-import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
-
 import { urls } from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
+  getInfuraUrlPolygon,
   getRetirementTotalsAndBalances,
   queryKlimaRetiresByAddress,
 } from "@klimadao/lib/utils";

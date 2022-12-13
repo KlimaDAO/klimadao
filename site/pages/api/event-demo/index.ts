@@ -1,6 +1,6 @@
 import LiveOffset from "@klimadao/lib/abi/LiveOffset.json";
 import { addresses } from "@klimadao/lib/constants";
-import { getJsonRpcProvider } from "@klimadao/lib/utils";
+import { getInfuraUrlPolygon, getJsonRpcProvider } from "@klimadao/lib/utils";
 import { LIVE_OFFSET_WALLET_MNEMONIC } from "@klimadao/site/lib/secrets";
 import { formSchema } from "components/pages/EventDemo/lib/formSchema";
 import {
@@ -8,7 +8,6 @@ import {
   retirementDataSchema,
 } from "components/pages/EventDemo/lib/retirementDataSchema";
 import { Contract, ContractTransaction, utils, Wallet } from "ethers";
-import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { NextApiHandler } from "next";
 
 if (!LIVE_OFFSET_WALLET_MNEMONIC) {

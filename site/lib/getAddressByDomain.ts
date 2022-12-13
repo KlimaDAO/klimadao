@@ -1,6 +1,7 @@
 import {
   getAddressByENS,
   getAddressByKNS,
+  getInfuraUrl,
   isENSDomain,
   isKNSDomain,
 } from "@klimadao/lib/utils";
@@ -10,8 +11,7 @@ export const getAddressByDomain = async (domain: string): Promise<string> => {
   try {
     const kns = isKNSDomain(domain) && (await getAddressByKNS(domain));
     const ens =
-      isENSDomain(domain) &&
-      (await getAddressByENS(domain, getInfuraUrlEther())); // Caution: needs to be InfuraUrl for Ether here
+      isENSDomain(domain) && (await getAddressByENS(domain, getInfuraUrl())); // Caution: needs to be InfuraUrl for Ether here
     const address = kns || ens;
 
     if (!address || !utils.isAddress(address)) {

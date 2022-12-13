@@ -7,6 +7,7 @@ import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import {
+  getInfuraUrlPolygon,
   getRetirementIndexInfo,
   getVerraProjectByID,
   queryKlimaRetireByIndex,
@@ -15,7 +16,6 @@ import {
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getDomainByAddress } from "lib/getDomainByAddress";
-import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
 

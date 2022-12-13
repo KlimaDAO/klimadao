@@ -1,9 +1,9 @@
 import {
   createKNSDomainFromName,
   getENSByAddress,
+  getInfuraUrlEther,
   getKNSByAddress,
 } from "@klimadao/lib/utils";
-import { getInfuraUrlEther } from "lib/getInfuraUrl";
 
 export const getDomainByAddress = async (
   address: string

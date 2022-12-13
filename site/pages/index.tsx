@@ -1,11 +1,11 @@
 import {
   fetchBlockRate,
+  getInfuraUrlPolygon,
   getStakingRewards,
   getTreasuryBalance,
 } from "@klimadao/lib/utils";
 import { Home, Props } from "components/pages/Home";
 import { fetchCMSContent } from "lib/fetchCMSContent";
-import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 
