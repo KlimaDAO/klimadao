@@ -36,7 +36,7 @@ export const onApproveMarketplaceTransaction = async (params: {
       params.provider.getSigner()
     );
 
-    const parsedValue = utils.parseUnits(params.value, 18); // always 18 for C3 tokens ?
+    const parsedValue = utils.parseUnits(params.value, 18); // always 18 for C3 tokens
 
     params.onStatus("userConfirmation");
 
@@ -79,7 +79,7 @@ export const createListingTransaction = async (params: {
     const listingTxn = await marketPlaceContract.addListing(
       params.tokenAddress,
       utils.parseUnits(params.totalAmountToSell, 18), // C3 token
-      utils.parseUnits(params.singleUnitPrice, 18), // Thought this needs to be 6 because of USDC, but this doesn't seem to work
+      utils.parseUnits(params.singleUnitPrice, 18), // Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
       [], // TODO batches
       [] // TODO batches price
     );
