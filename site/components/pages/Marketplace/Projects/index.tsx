@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { Text, ButtonPrimary } from "@klimadao/lib/components";
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../Layout";
+import { createProjectLink } from "components/pages/Marketplace/lib/createUrls";
 import { Project } from "@klimadao/lib/types/marketplace";
 
 import * as styles from "./styles";
@@ -9,9 +10,6 @@ import * as styles from "./styles";
 type Props = {
   projects: Project[];
 };
-
-const createProjectLink = (project: Project) =>
-  `/marketplace/projects/${project.key}-${project.vintage}`;
 
 export const MarketPlaceProjects: NextPage<Props> = (props) => {
   const hasProjects = !!props.projects.length;
