@@ -79,3 +79,9 @@ export const spinnerContainer = css`
   justify-content: center;
   align-items: center;
 `;
+
+export const spinner = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

@@ -88,11 +88,11 @@ export const EditProfile: FC<Props> = (props) => {
     } catch (error: any) {
       setIsLoading(false);
       console.error(error);
-      if (error.code === 4001) {
+      if (error.code === "ACTION_REJECTED") {
         setErrorMessage(
           t({
             id: "marketplace.user.edit.form.error.user_rejected",
-            message: "You chose to reject the transaction",
+            message: "You chose to reject the transaction.",
           })
         );
       } else {
@@ -167,10 +167,14 @@ export const EditProfile: FC<Props> = (props) => {
             message: "About",
           })}
         />
-        {isLoading && <Spinner />}
+        {isLoading && (
+          <div className={styles.spinner}>
+            <Spinner />
+          </div>
+        )}
         {hasError && (
           <Text t="caption" className="error">
-            There was an error with the API. Please try again
+            {errorMessage}
           </Text>
         )}
         {!isLoading && (
