@@ -11,7 +11,14 @@ export type ButtonBaseProps = {
   className?: string;
   onClick?: () => void;
   href?: string;
-  variant?: "lightGray" | "gray" | "blue" | "red" | "transparent" | null;
+  variant?:
+    | "lightGray"
+    | "gray"
+    | "blue"
+    | "red"
+    | "transparent"
+    | "link"
+    | null;
   icon?: JSX.Element;
   /** Show icon as suffix, prefix by default */
   iconPos?: "suffix" | "prefix";

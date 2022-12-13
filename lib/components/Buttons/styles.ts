@@ -1,5 +1,6 @@
 import { css } from "@emotion/css";
 import { button } from "../../theme/typography";
+import { transparent } from "./mixins";
 
 const buttonBase = css`
   ${button};
@@ -45,18 +46,12 @@ const buttonBase = css`
   }
 
   &.transparent {
-    background: none;
-    padding: 0;
+    ${transparent}
+  }
 
-    &:hover {
-      opacity: 0.7;
-    }
-
-    &,
-    &:hover:not(:disabled),
-    &:visited {
-      color: inherit; /* override force to white */
-    }
+  &.link {
+    ${transparent}
+    text-decoration:underline;
   }
 `;
 

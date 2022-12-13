@@ -1,11 +1,11 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
-import { t } from "@lingui/macro";
 import { FC } from "react";
 
 import { RetirementToken } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
+import { prettifyUrl } from "@klimadao/lib/utils";
 import { StaticImageData } from "next/legacy/image";
 import { generateCertificate } from "./generateCertificate";
 export interface DownloadCertificateButtonProps {
@@ -30,11 +30,9 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
 
   return (
     <ButtonPrimary
+      variant="link"
       onClick={handleClick}
-      label={t({
-        id: "retirement.single.download_certificate_button",
-        message: "Download PDF",
-      })}
+      label={prettifyUrl(props.retirementUrl)}
     />
   );
 };

@@ -12,6 +12,7 @@ export const ButtonPrimary: FC<ButtonBaseProps> = (props) => {
       blue: props.variant === "blue",
       red: props.variant === "red",
       transparent: props.variant === "transparent",
+      link: props.variant === "link",
     },
     props.className
   );
