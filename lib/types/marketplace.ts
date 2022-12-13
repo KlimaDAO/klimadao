@@ -56,7 +56,15 @@ export type Activity = {
   batchPrices: [];
   singleUnitPrice: number;
   project: {
+    id: string;
     key: string;
+    name: string;
+    // category: Category; // still missing
+    methodology: string;
+    projectAddress: string;
+    projectID: string;
+    registry: string;
+    vintage: string;
   };
   seller: {
     id: string;
