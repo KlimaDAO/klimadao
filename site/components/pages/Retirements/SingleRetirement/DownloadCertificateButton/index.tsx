@@ -6,7 +6,7 @@ import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { RetirementToken } from "@klimadao/lib/constants";
 
-import { generateCertificate } from "./generateCertificate";
+// import { generateCertificate } from "./generateCertificate";
 import { StaticImageData } from "next/legacy/image";
 
 export interface DownloadCertificateButtonProps {
@@ -27,7 +27,7 @@ export interface DownloadCertificateButtonProps {
 export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
   props
 ) => {
-  const handleClick = () => generateCertificate(props);
+  // const handleClick = () => generateCertificate(props);
 
   console.log(props);
 
