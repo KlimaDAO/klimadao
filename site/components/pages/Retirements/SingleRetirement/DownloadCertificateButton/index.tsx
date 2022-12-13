@@ -8,6 +8,7 @@ import { RetirementToken } from "@klimadao/lib/constants";
 
 // import { generateCertificate } from "./generateCertificate";
 import { StaticImageData } from "next/legacy/image";
+import { IS_PRODUCTION } from "lib/constants";
 
 export interface DownloadCertificateButtonProps {
   beneficiaryName: string;
@@ -29,7 +30,7 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
 ) => {
   // const handleClick = () => generateCertificate(props);
 
-  console.log(props);
+  console.log({ production: IS_PRODUCTION });
 
   const getCertificate = (): Promise<Response> =>
     fetch("/api/certificates", {
