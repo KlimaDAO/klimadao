@@ -36,7 +36,7 @@ const spacing = {
   margin: 42.5,
   mainTextWidth: 160,
   beneficiaryName: 81,
-  transactionDetails: 130,
+  transactionDetails: 358,
   projectDetails: 152,
   tokenImage: { x: 145, y: 158 },
   retirementLink: 200,
@@ -62,10 +62,10 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   // TODO need more spacing between header text
   const printHeader = (): void => {
-    doc.image("public/logo-klima.png", spacing.margin, spacing.margin, {
-      width: 170,
-      height: 28,
-    });
+    // doc.image("public/logo-klima.png", spacing.margin, spacing.margin, {
+    //   width: 170,
+    //   height: 28,
+    // });
 
     doc.font("Header");
     doc.fontSize(24);
@@ -122,23 +122,47 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       200 + beneficiaryNameBlockHeight + 16,
       { width: 450 }
     );
-    // const retirementMessage = doc.splitTextToSize(
-    //   params.retirementMessage,
-    //   spacing.mainTextWidth
-    // );
-    // doc.text(
-    //   retirementMessage,
-    //   spacing.margin,
-    //   spacing.beneficiaryName + beneficiaryNameBlockHeight
-    // );
+  };
+
+  const printTransactionDetails = (): void => {
+    doc.fontSize(11);
+    doc.font("Header");
+    doc.text(
+      "Beneficiary Address:",
+      spacing.margin,
+      spacing.transactionDetails
+    );
+    doc.font("Body");
+    doc.text(
+      params.beneficiaryAddress,
+      spacing.margin,
+      spacing.transactionDetails + 15
+    );
+
+    doc.font("Header");
+    doc.text(
+      "Transaction ID:",
+      spacing.margin,
+      spacing.transactionDetails + 30
+    );
+    doc.font("Body");
+    doc.text(
+      params.retirement.transaction.id,
+      spacing.margin,
+      spacing.transactionDetails + 45,
+      {
+        link: `https://polygonscan.com/tx/${params.retirement.transaction.id}`,
+      }
+    );
   };
 
   // doc.widthOfString;
 
   setupFonts();
   printHeader();
-  printFeatureImage();
+  // printFeatureImage();
   printRetirementDetails();
+  printTransactionDetails();
 
   return doc;
 };
