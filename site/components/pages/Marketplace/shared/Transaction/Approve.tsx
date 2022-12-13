@@ -92,26 +92,16 @@ export const Approve: FC<Props> = (props) => {
         )}
         {showApproveButton && (
           <ButtonPrimary
-            variant="icon"
-            label={
-              <>
-                <SendRounded />
-                <Trans id="shared.approve">Approve</Trans>
-              </>
-            }
+            icon={<SendRounded />}
+            label={<Trans id="shared.approve">Approve</Trans>}
             onClick={() => props.onApproval()}
             className={styles.submitButton}
           />
         )}
         {showNextButton && (
           <ButtonPrimary
-            variant="icon"
-            label={
-              <>
-                <SendRounded />
-                <Trans id="marketplace.transaction_modal.next">Next</Trans>
-              </>
-            }
+            icon={<SendRounded />}
+            label={<Trans id="marketplace.transaction_modal.next">Next</Trans>}
             onClick={() => props.onSuccess()}
             className={styles.submitButton}
           />
