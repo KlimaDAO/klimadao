@@ -1,7 +1,10 @@
-import { ButtonPrimary, TwitterIcon } from "@klimadao/lib/components";
+import {
+  ButtonBaseProps,
+  ButtonPrimary,
+  TwitterIcon,
+} from "@klimadao/lib/components";
 import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
-import { ButtonBaseProps } from "@klimadao/lib/components";
 
 export const TWITTER_INTENT_URL = "https://twitter.com/intent/tweet";
 const TWITTER_HANDLE = "klimadao";

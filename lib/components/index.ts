@@ -1,6 +1,9 @@
 export { Anchor } from "./Anchor";
+/** Types */
+export type { ButtonBaseProps } from "./Buttons/ButtonBase";
 export { ButtonPrimary } from "./Buttons/ButtonPrimary";
 export { ButtonSecondary } from "./Buttons/ButtonSecondary";
+export { CopyAddressButton } from "./CopyAddressButton";
 export { DiscordIcon } from "./Icons/DiscordIcon";
 export { FacebookIcon } from "./Icons/FacebookIcon";
 export { GithubIcon } from "./Icons/GithubIcon";
@@ -26,7 +29,3 @@ export { TextInfoTooltip, useTooltipSingleton } from "./TextInfoTooltip";
 export { ThemeToggle } from "./ThemeToggle";
 export { Web3ContextProvider } from "./Web3Context";
 export { WebFonts } from "./WebFonts";
-export { CopyAddressButton } from "./CopyAddressButton";
-
-/** Types */
-export type { ButtonBaseProps } from "./Buttons/ButtonBase";

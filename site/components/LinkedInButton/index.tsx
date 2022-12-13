@@ -1,7 +1,10 @@
-import { ButtonPrimary, LinkedInIcon } from "@klimadao/lib/components";
+import {
+  ButtonBaseProps,
+  ButtonPrimary,
+  LinkedInIcon,
+} from "@klimadao/lib/components";
 import { FC, useEffect, useState } from "react";
 import * as styles from "./styles";
-import { ButtonBaseProps } from "@klimadao/lib/components";
 
 export const FACEBOOK_SHARE_URL =
   "https://www.linkedin.com/sharing/share-offsite/?url={url}";

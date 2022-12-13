@@ -1,10 +1,10 @@
-import React, { FC } from "react";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import HelpIcon from "@mui/icons-material/Help";
+import { FC } from "react";
 
-import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import { ProjectSearchStep } from "..";
+import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import * as styles from "./styles";
 
 type Props = {

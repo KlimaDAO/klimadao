@@ -1,5 +1,3 @@
-import { useState, useEffect, FC, ReactNode } from "react";
-import { useSelector } from "react-redux";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
 import { TippyProps } from "@tippyjs/react";
@@ -12,7 +10,7 @@ import {
   getIsInverse,
   redeemTransaction,
 } from "actions/bonds";
-import { FC, ReactElement, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
@@ -24,6 +22,7 @@ import { prettifySeconds } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 
 import {
+  ButtonBaseProps,
   ButtonPrimary,
   Spinner,
   Text,
@@ -53,7 +52,6 @@ import { selectAppState, selectBondAllowance } from "state/selectors";
 import { setBondAllowance } from "state/user";
 import { useBond } from "../ChooseBond";
 import * as styles from "./styles";
-import { ButtonBaseProps } from "@klimadao/lib/components";
 
 export function prettyVestingPeriod(
   locale = "en",

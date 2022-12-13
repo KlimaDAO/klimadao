@@ -1,15 +1,15 @@
-import React, { FC, useEffect, useState } from "react";
-import { Trans, t } from "@lingui/macro";
 import { Text, TextInfoTooltip } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
+import { t, Trans } from "@lingui/macro";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import { FC, useEffect, useState } from "react";
 
 import { LeafIcon } from "components/LeafIcon";
 
-import { SelectiveRetirementInput } from "../SelectiveRetirementInput";
-import { RetirementTypeButton } from "../RetirementTypeButton";
 import { LoadingOverlay } from "../LoadingOverlay";
 import { ProjectSearch } from "../ProjectSearch";
+import { RetirementTypeButton } from "../RetirementTypeButton";
+import { SelectiveRetirementInput } from "../SelectiveRetirementInput";
 import { CarbonProject } from "./queryProjectDetails";
 import * as styles from "./styles";
 

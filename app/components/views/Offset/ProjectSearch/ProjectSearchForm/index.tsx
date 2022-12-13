@@ -1,18 +1,18 @@
-import React, { FC, useState } from "react";
-import { t } from "@lingui/macro";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
-import isEmpty from "lodash/isEmpty";
+import { t } from "@lingui/macro";
 import filter from "lodash/filter";
+import isEmpty from "lodash/isEmpty";
+import { FC, useState } from "react";
 
+import { ProjectSearchStep } from "../";
 import {
   BalanceAttribute,
   CarbonProject,
   queryCarbonProjectDetails,
 } from "../../SelectiveRetirement/queryProjectDetails";
-import { ProjectSearchFilter } from "../ProjectSearchFilter";
 import * as filterOptions from "../filterOptions";
-import { ProjectSearchStep } from "../";
+import { ProjectSearchFilter } from "../ProjectSearchFilter";
 
 type Props = {
   setStep: (step: ProjectSearchStep) => void;

@@ -1,9 +1,7 @@
-import { Section, Text } from "@klimadao/lib/components";
+import { CopyAddressButton, Section, Text } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Text, Section, CopyAddressButton } from "@klimadao/lib/components";
-import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
@@ -16,16 +14,12 @@ import ForestOutlinedIcon from "@mui/icons-material/ForestOutlined";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 
 import { Breakdown } from "./Breakdown";
-import { CopyAddressButton } from "./CopyAddressButton";
-import { CopyURLButton } from "./CopyURLButton";
 import { RetirementFooter } from "./Footer";
 import { AllRetirements } from "./List";
-import { AllRetirements } from "./List";
-import { RetirementFooter } from "./Footer";
 
 import { t, Trans } from "@lingui/macro";
-import * as styles from "./styles";
 import { BuyKlima } from "./SingleRetirement/BuyKlima";
+import * as styles from "./styles";
 
 type Props = {
   totalsAndBalances: RetirementsTotalsAndBalances;

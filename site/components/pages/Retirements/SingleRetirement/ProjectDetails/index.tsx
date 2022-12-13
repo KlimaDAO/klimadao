@@ -1,5 +1,3 @@
-import { Section, Text } from "@klimadao/lib/components";
-import { FC } from "react";
 import { Text } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";

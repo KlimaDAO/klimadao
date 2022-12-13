@@ -9,13 +9,11 @@ import { urls } from "@klimadao/lib/constants";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
-import { concatAddress, trimWithLocale } from "@klimadao/lib/utils";
 import {
   concatAddress,
   getImageSizes,
   trimWithLocale,
 } from "@klimadao/lib/utils";
-import { urls } from "@klimadao/lib/constants";
 
 import { FacebookButton } from "components/FacebookButton";
 import { Footer } from "components/Footer";
@@ -25,8 +23,12 @@ import { PageHead } from "components/PageHead";
 import { TweetButton } from "components/TweetButton";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
 
-import { CopyURLButton } from "../CopyURLButton";
+import { cx } from "@emotion/css";
+import { CopyAddressButton } from "@klimadao/lib/components";
+import Image from "next/image";
+import sunsetMountains from "public/sunset-mountains.jpg";
 import { RetirementFooter } from "../Footer";
+import { BuyKlima } from "./BuyKlima";
 import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
 import { ProjectDetails } from "./ProjectDetails";
 import { RetirementDate } from "./RetirementDate";
@@ -35,16 +37,6 @@ import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
 import * as styles from "./styles";
 import { TextGroup } from "./TextGroup";
-import { RetirementDate } from "./RetirementDate";
-import { TextGroup } from "./TextGroup";
-import { ProjectDetails } from "./ProjectDetails";
-import { RetirementFooter } from "../Footer";
-import * as styles from "./styles";
-import { CopyAddressButton } from "@klimadao/lib/components";
-import sunsetMountains from "public/sunset-mountains.jpg";
-import Image from "next/image";
-import { cx } from "@emotion/css";
-import { BuyKlima } from "./BuyKlima";
 
 const LoadingCertificateButton: React.FC = () => (
   <ButtonPrimary

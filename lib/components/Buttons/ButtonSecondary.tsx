@@ -1,7 +1,6 @@
 import { cx } from "@emotion/css";
-import { BaseButton, ButtonBaseProps } from "./ButtonBase";
 import React, { FC } from "react";
-import { BaseButton, Props } from "./ButtonBase";
+import { BaseButton, ButtonBaseProps } from "./ButtonBase";
 import * as styles from "./styles";
 
 export const ButtonSecondary: FC<ButtonBaseProps> = (props) => {

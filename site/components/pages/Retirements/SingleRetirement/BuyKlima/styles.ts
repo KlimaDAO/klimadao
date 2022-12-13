@@ -1,5 +1,5 @@
-import breakpoints from "@klimadao/lib/theme/breakpoints";
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const footerBuyKlima = css`
   position: relative;

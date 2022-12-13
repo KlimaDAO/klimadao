@@ -1,9 +1,9 @@
-import React, { ChangeEvent, FC, useState } from "react";
-import { Trans } from "@lingui/macro";
-import { Text } from "@klimadao/lib/components";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { Text } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import capitalize from "lodash/capitalize";
+import { ChangeEvent, FC, useState } from "react";
 
 import { Checkbox } from "../Checkbox";
 import * as styles from "./styles";

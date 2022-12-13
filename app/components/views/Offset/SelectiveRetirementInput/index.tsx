@@ -1,14 +1,6 @@
-import { Text, TextInfoTooltip } from "@klimadao/lib/components";
-import { t, Trans } from "@lingui/macro";
-import { utils } from "ethers";
-import { ChangeEvent, FC, useEffect, useState } from "react";
-
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import React, { ChangeEvent, FC } from "react";
-import { utils } from "ethers";
 import { t } from "@lingui/macro";
+import { utils } from "ethers";
+import { ChangeEvent, FC } from "react";
 
 import * as styles from "./styles";
 

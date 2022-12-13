@@ -1,7 +1,7 @@
 import { providers } from "ethers";
 import { FC } from "react";
 
-import { Anchor as A, Text } from "@klimadao/lib/components";
+import { Anchor as A, CopyAddressButton, Text } from "@klimadao/lib/components";
 import { addresses, urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
@@ -9,13 +9,7 @@ import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import { ImageCard } from "components/ImageCard";
 import { BASE_URL } from "lib/constants";
 import AddToMetaMaskButton from "./AddToMetaMaskButton";
-import CopyAddressButton from "./CopyAddressButton";
 import * as styles from "./styles";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import { Trans } from "@lingui/macro";
-import { Anchor as A, Text } from "@klimadao/lib/components";
-import { ImageCard } from "components/ImageCard";
-import { CopyAddressButton } from "@klimadao/lib/components";
 
 export interface AddressInfo {
   name: string;

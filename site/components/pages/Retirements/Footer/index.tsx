@@ -1,11 +1,3 @@
-import Image from "next/legacy/image";
-import { useRouter } from "next/router";
-import { FC } from "react";
-
-import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
-import { urls } from "@klimadao/lib/constants";
-import { getImageSizes } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
 import { FC } from "react";
 
 import { Text } from "@klimadao/lib/components";

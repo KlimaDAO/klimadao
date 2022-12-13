@@ -53,19 +53,16 @@ import { DropdownWithModal } from "components/DropdownWithModal";
 import { MiniTokenDisplay } from "components/MiniTokenDisplay";
 import { TransactionModal } from "components/TransactionModal";
 
+import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import { SelectiveRetirement } from "./SelectiveRetirement";
 import {
   BalanceAttribute,
   CarbonProject,
 } from "./SelectiveRetirement/queryProjectDetails";
-import { RetirementSuccessModal } from "./RetirementSuccessModal";
 
-import * as styles from "./styles";
 import Fiat from "public/icons/Fiat.png";
 import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
 import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
-import { RetirementSuccessModal } from "./RetirementSuccessModal";
-import { SelectiveRetirementInput } from "./SelectiveRetirementInput";
 import * as styles from "./styles";
 
 // We need to approve a little bit extra (here 1%)
