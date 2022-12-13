@@ -39,7 +39,14 @@ export const CreateAListingModal: FC<Props> = (props) => {
 
   const showTransactionView = !!inputValues && !!allowanceValue;
 
-  const onModalClose = !isPending ? props.onCancel : undefined;
+  const resetStateAndCancel = () => {
+    setInputValues(null);
+    setAllowanceValue(null);
+    setStatus(null);
+    props.onCancel();
+  };
+
+  const onModalClose = !isPending ? resetStateAndCancel : undefined;
 
   const onUpdateStatus = (status: TxnStatus, message?: string) => {
     setStatus({ statusType: status, message: message });
@@ -123,6 +130,7 @@ export const CreateAListingModal: FC<Props> = (props) => {
           assets={props.assets}
           onSubmit={onAddListingFormSubmit}
           onCancel={onCancel}
+          values={inputValues}
         />
       )}
 

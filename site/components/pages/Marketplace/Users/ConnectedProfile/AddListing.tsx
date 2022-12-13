@@ -19,6 +19,7 @@ type Props = {
   assets: Asset[];
   onSubmit: (values: FormValues) => void;
   onCancel: () => void;
+  values: null | FormValues;
 };
 
 const defaultValues = {
@@ -32,7 +33,9 @@ export const AddListing: FC<Props> = (props) => {
     useForm<FormValues>({
       defaultValues: {
         ...defaultValues,
-        tokenAddress: props.assets[0].tokenAddress,
+        ...props.values,
+        tokenAddress:
+          props.values?.tokenAddress || props.assets[0].tokenAddress,
       },
     });
 
