@@ -7,7 +7,7 @@ import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { RetirementToken } from "@klimadao/lib/constants";
 // import { urls } from "@klimadao/lib/constants";
 
-import KlimaLogo from "public/logo-klima.png";
+// import KlimaLogo from "public/logo-klima.png";
 // import bctBackground from "public/bg_bct.jpeg";
 // import nctBackground from "public/bg_nct.jpeg";
 // import nboBackground from "public/bg_nbo.jpeg";
@@ -46,8 +46,8 @@ const spacing = {
 const KLIMA_GREEN = "#00cc33";
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
-  const filePath = (path: string) => (IS_PRODUCTION ? path : `public${path}`);
-  console.log(filePath("/logo-klima.png"));
+  const assetPath = (path: string) => (IS_PRODUCTION ? path : `public/${path}`);
+  console.log(assetPath("logo-klima.png"));
   // const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}`;
 
@@ -65,7 +65,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   // TODO need more spacing between header text
   const printHeader = (): void => {
-    doc.image(filePath("/logo-klima.png"), spacing.margin, spacing.margin, {
+    doc.image(assetPath("logo-klima.png"), spacing.margin, spacing.margin, {
       width: 170,
       height: 28,
     });
