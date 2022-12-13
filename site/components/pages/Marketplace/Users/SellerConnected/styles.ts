@@ -85,3 +85,9 @@ export const spinner = css`
   align-items: center;
   justify-content: center;
 `;
+
+export const editListingButton = css`
+  ${breakpoints.large} {
+    align-self: flex-start;
+  }
+`;

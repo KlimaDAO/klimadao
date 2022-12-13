@@ -20,7 +20,3 @@ export const amounts = css`
   flex-direction: row;
   justify-content: space-between;
 `;
-
-export const editButton = css`
-  align-self: flex-start;
-`;

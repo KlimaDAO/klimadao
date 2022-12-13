@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const fullWidth = css`
   grid-column: 1/3;
@@ -14,4 +15,10 @@ export const listingsHeader = css`
   display: grid;
   gap: 1.2rem;
   grid-auto-rows: min-content;
+`;
+
+export const buyButton = css`
+  ${breakpoints.large} {
+    align-self: flex-start;
+  }
 `;

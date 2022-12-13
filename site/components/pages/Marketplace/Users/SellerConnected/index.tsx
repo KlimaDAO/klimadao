@@ -225,7 +225,14 @@ export const SellerConnected: FC<Props> = (props) => {
           )}
           {hasListings &&
             user.listings.map((listing) => (
-              <Listing key={listing.id} listing={listing} />
+              <Listing key={listing.id} listing={listing}>
+                <MarketplaceButton
+                  label={
+                    <Trans id="marketplace.profile.listing.edit">Edit</Trans>
+                  }
+                  className={styles.editListingButton}
+                />
+              </Listing>
             ))}
         </Col>
 

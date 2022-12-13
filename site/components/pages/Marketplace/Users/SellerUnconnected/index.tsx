@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { User } from "@klimadao/lib/types/marketplace";
 import { Trans } from "@lingui/macro";
-import { Text } from "@klimadao/lib/components";
+import { Text, ButtonPrimary } from "@klimadao/lib/components";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
 import { ProfileHeader } from "../ProfileHeader";
@@ -55,7 +55,12 @@ export const SellerUnconnected: FC<Props> = (props) => {
         <Col>
           {hasListings &&
             userData.listings.map((listing) => (
-              <Listing key={listing.id} listing={listing} />
+              <Listing key={listing.id} listing={listing}>
+                <ButtonPrimary
+                  label={<Trans id="marketplace.seller.listing.buy">Buy</Trans>}
+                  className={styles.buyButton}
+                />
+              </Listing>
             ))}
         </Col>
         <Col>

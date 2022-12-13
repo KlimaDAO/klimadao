@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
 
@@ -9,6 +9,7 @@ import { Card } from "components/pages/Marketplace/shared/Card";
 import { Category } from "components/pages/Marketplace/shared/Category";
 import { ProjectImage } from "components/pages/Marketplace/shared/ProjectImage";
 import { Vintage } from "components/pages/Marketplace/shared/Vintage";
+
 import {
   formatPrice,
   formatTonnes,
@@ -18,6 +19,7 @@ import * as styles from "./styles";
 
 type Props = {
   listing: ListingType;
+  children: ReactNode;
 };
 
 export const Listing: FC<Props> = (props) => {
@@ -41,6 +43,7 @@ export const Listing: FC<Props> = (props) => {
           {formatTonnes(props.listing.leftToSell, locale)}
         </Text>
       </div>
+      {props.children}
     </Card>
   );
 };
