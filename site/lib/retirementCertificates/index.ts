@@ -16,7 +16,6 @@ import { RetirementToken } from "@klimadao/lib/constants";
 
 import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 import { PoppinsBold } from "./poppinsBoldbase64";
-import { IS_PRODUCTION } from "lib/constants";
 
 type Params = {
   beneficiaryName: string;
@@ -46,7 +45,11 @@ const spacing = {
 const KLIMA_GREEN = "#00cc33";
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
-  const assetPath = (path: string) => (IS_PRODUCTION ? path : `public/${path}`);
+  const assetPath = (path: string) =>
+    process.env.VERCEL_ENV === "production" ||
+    process.env.VERCEL_ENV === "preview"
+      ? path
+      : `public/${path}`;
   console.log(assetPath("logo-klima.png"));
   // const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}`;
