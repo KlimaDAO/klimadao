@@ -17,11 +17,11 @@ export const Listing: FC<Props> = (props) => {
   return (
     <Card>
       <div className={styles.tags}>
-        <Category category={props.listing.project.category || "AM0052"} />
+        <Category category={"AM0052"} />
         <Vintage vintage={props.listing.project.vintage} />
       </div>
       <Text>{props.listing.project.name}</Text>
-      <ProjectImage category={props.listing.project.category || "AM0052"} />
+      <ProjectImage category={"AM0052"} />
     </Card>
   );
 };
