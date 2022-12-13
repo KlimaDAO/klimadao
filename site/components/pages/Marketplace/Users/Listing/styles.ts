@@ -13,3 +13,14 @@ export const category = css`
   border-radius: var(--border-radius);
   padding: 0.4rem 0.8rem;
 `;
+
+export const amounts = css`
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const editButton = css`
+  align-self: flex-start;
+`;
