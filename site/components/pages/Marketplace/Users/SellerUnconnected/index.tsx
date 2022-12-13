@@ -10,6 +10,7 @@ import {
   TwoColLayout,
   Col,
 } from "components/pages/Marketplace/shared/TwoColLayout";
+import { createProjectPurchaseLink } from "components/pages/Marketplace/lib/createUrls";
 import { getTotalAmountSold, getTotalAmountToSell } from "../utils";
 
 import * as styles from "./styles";
@@ -59,6 +60,10 @@ export const SellerUnconnected: FC<Props> = (props) => {
                 <ButtonPrimary
                   label={<Trans id="marketplace.seller.listing.buy">Buy</Trans>}
                   className={styles.buyButton}
+                  href={createProjectPurchaseLink(
+                    listing.project as any, // category is still missing
+                    listing.id
+                  )}
                 />
               </Listing>
             ))}
