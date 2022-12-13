@@ -3,6 +3,8 @@ import { Thunk } from "state";
 
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 import {
+  getInfuraUrlPolygon,
+  getInfuraUrlEther,
   formatUnits,
   getAllowance,
   getContract,
@@ -75,8 +77,14 @@ export const loadAccountDetails = (params: {
 
       // domains
       const domains = [
-        getKNSProfile({ address: params.address }),
-        getENSProfile({ address: params.address }),
+        getKNSProfile({
+          providerUrl: getInfuraUrlPolygon(),
+          address: params.address,
+        }),
+        getENSProfile({
+          providerUrl: getInfuraUrlEther(),
+          address: params.address,
+        }),
       ];
 
       const [knsDomain, ensDomain] = await Promise.all(domains);

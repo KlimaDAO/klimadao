@@ -1,4 +1,4 @@
-import { urls } from "@klimadao/lib/constants";
+import { urls } from "../../constants";
 
 // For stable builds on the server we pass the Infura URL endpoint to the providers
 // This provider URL is only needed on the server side, not on the client

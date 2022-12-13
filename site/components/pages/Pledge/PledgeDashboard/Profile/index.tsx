@@ -12,7 +12,6 @@ import { Trans } from "@lingui/macro";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 
-import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import { Pledge } from "../../types";
 import * as styles from "./styles";
 
@@ -36,7 +35,10 @@ export const Profile: FC<Props> = (props) => {
       });
       if (kns) return setProfileData(kns);
 
-      const ens = await getENSProfile({ address: props.pledge.ownerAddress });
+      const ens = await getENSProfile({
+        address: props.pledge.ownerAddress,
+        providerUrl: getInfuraUrlEther(),
+      });
       setProfileData(ens);
     };
 

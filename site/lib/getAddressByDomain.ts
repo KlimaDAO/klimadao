@@ -5,7 +5,6 @@ import {
   isKNSDomain,
 } from "@klimadao/lib/utils";
 import { utils } from "ethers";
-import { getInfuraUrlEther } from "lib/getInfuraUrl";
 
 export const getAddressByDomain = async (domain: string): Promise<string> => {
   try {
