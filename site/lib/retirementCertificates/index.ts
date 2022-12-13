@@ -79,16 +79,16 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.stroke();
   };
 
-  const printFeatureImage = (): void => {
-    // const featureImage = Buffer.from(public/bg_mco2.jpeg);
-    // const featureImage = new Image();
-    // featureImage.src = mco2Background.src;
+  // const printFeatureImage = (): void => {
+  //   // const featureImage = Buffer.from(public/bg_mco2.jpeg);
+  //   // const featureImage = new Image();
+  //   // featureImage.src = mco2Background.src;
 
-    doc.image("public/bg_bct.jpeg", spacing.margin + 490, 0, {
-      width: doc.page.width / 3,
-      height: doc.page.height,
-    });
-  };
+  //   doc.image("public/bg_bct.jpeg", spacing.margin + 490, 0, {
+  //     width: doc.page.width / 3,
+  //     height: doc.page.height,
+  //   });
+  // };
 
   const printRetirementDetails = (): void => {
     const retirementAmount =
