@@ -37,17 +37,6 @@ export const inputsContainer = css`
   overflow: hidden;
 `;
 
-export const marketplaceButtonGray = css`
-  border-color: var(--font-01);
-  color: var(--font-01) !important;
-  cursor: pointer;
-
-  &:disabled {
-    opacity: 50%;
-    cursor: not-allowed;
-  }
-`;
-
 export const addListingButtonText = css`
   display: none;
   ${breakpoints.medium} {

@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import { t, Trans } from "@lingui/macro";
-import { Text, ButtonSecondary, Spinner } from "@klimadao/lib/components";
+import { Text, Spinner } from "@klimadao/lib/components";
 import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "components/Modal";
 
@@ -19,6 +19,7 @@ import {
   TwoColLayout,
   Col,
 } from "components/pages/Marketplace/shared/TwoColLayout";
+import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
 
 import { ethers } from "ethers";
 import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
@@ -188,7 +189,7 @@ export const ConnectedProfile: FC<Props> = (props) => {
           )}
         </div>
 
-        <ButtonSecondary
+        <MarketplaceButton
           label={
             isLoadingAssets ? (
               <Spinner />
@@ -207,7 +208,6 @@ export const ConnectedProfile: FC<Props> = (props) => {
           }
           disabled={isLoadingAssets || !hasAssets || isLoadingNewListing}
           onClick={() => setShowCreateListingModal(true)}
-          className={styles.marketplaceButtonGray}
         />
       </div>
 
