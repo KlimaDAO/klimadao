@@ -29,7 +29,7 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
 ) => {
   // const handleClick = () => generateCertificate(props);
 
-  console.log(process.env.VERCEL_ENV);
+  console.log(process.env.NEXT_PUBLIC_VERCEL_ENV);
 
   const getCertificate = (): Promise<Response> =>
     fetch("/api/certificates", {

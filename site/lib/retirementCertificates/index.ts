@@ -46,10 +46,11 @@ const KLIMA_GREEN = "#00cc33";
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const assetPath = (path: string) =>
-    process.env.VERCEL_ENV === "production" ||
-    process.env.VERCEL_ENV === "preview"
+    process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ||
+    process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
       ? path
       : `public/${path}`;
+
   console.log(assetPath("logo-klima.png"));
   // const isMossRetirement = params.retirement.offset.bridge === "Moss";
   const fileName = `retirement_${params.retirementIndex}_${params.beneficiaryAddress}`;
