@@ -15,12 +15,7 @@ export const useWeb3Modal = (): Web3ModalState => {
   const disconnect = async () => {
     setWeb3State(web3InitialState);
     localStorage.removeItem("web3-wallet");
-    if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
-      await (web3state.provider?.provider as any).torus.cleanUp();
-      window.location.reload();
-    } else {
-      window.location.reload();
-    }
+    window.location.reload();
   };
 
   const connect = async (wallet?: string): Promise<void> => {
