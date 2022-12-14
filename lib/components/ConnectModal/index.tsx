@@ -13,6 +13,8 @@ export const ConnectModal = (props: {
   };
   buttonText: string;
   buttonClassName?: string;
+  onClose?: () => void;
+  buttonVariant?: "gray" | "icon" | "blue" | "blueRounded" | null | undefined;
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
@@ -44,6 +46,7 @@ export const ConnectModal = (props: {
       }
       setShowModal(false);
       setStep("connect");
+      props.onClose && props.onClose();
     } catch (e: any) {
       console.log(e);
       setStep("error");
@@ -53,7 +56,11 @@ export const ConnectModal = (props: {
   return (
     <>
       {isConnected && address ? (
-        <ButtonPrimary label={concatAddress(address)} onClick={disconnect} />
+        <ButtonPrimary
+          label={concatAddress(address)}
+          onClick={disconnect}
+          variant={props.buttonVariant}
+        />
       ) : (
         <ButtonPrimary
           className={props.buttonClassName}
@@ -61,6 +68,7 @@ export const ConnectModal = (props: {
           onClick={() => {
             setShowModal(true);
           }}
+          variant={props.buttonVariant}
         />
       )}
       <ConnectContent
