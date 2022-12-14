@@ -384,8 +384,7 @@ export const PledgeForm: FC<Props> = (props) => {
                       />
                       <div className={styles.pledge_wallet_edit_buttons}>
                         <ButtonPrimary
-                          variant="icon"
-                          label={<SaveIcon fontSize="large" />}
+                          icon={<SaveIcon fontSize="large" />}
                           className={styles.pledge_wallet_save}
                           onClick={() =>
                             wallets &&
@@ -397,8 +396,7 @@ export const PledgeForm: FC<Props> = (props) => {
                           }
                         />
                         <ButtonPrimary
-                          variant="icon"
-                          label={<DeleteOutlineOutlinedIcon fontSize="large" />}
+                          icon={<DeleteOutlineOutlinedIcon fontSize="large" />}
                           className={styles.pledge_wallet_delete_icon}
                           onClick={() => wallets && walletsRemove(index)}
                         />
@@ -423,8 +421,7 @@ export const PledgeForm: FC<Props> = (props) => {
                           )}
                         </div>
                         <ButtonPrimary
-                          variant="icon"
-                          label={<DeleteOutlineOutlinedIcon fontSize="large" />}
+                          icon={<DeleteOutlineOutlinedIcon fontSize="large" />}
                           className={styles.pledge_wallet_delete}
                           onClick={() => {
                             props.setIsDeleteMode(true);
