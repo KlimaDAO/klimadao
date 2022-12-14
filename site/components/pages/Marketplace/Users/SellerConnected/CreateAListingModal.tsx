@@ -144,7 +144,10 @@ export const CreateAListingModal: FC<Props> = (props) => {
         <Transaction
           hasApproval={hasApproval()}
           amount={{
-            value: `${inputValues.totalAmountToSell} tonnes`,
+            value: `${inputValues.totalAmountToSell}  ${t({
+              id: "marketplace.tonnes.long",
+              message: "tonnes",
+            })}`,
           }}
           price={{
             value: inputValues.singleUnitPrice,
