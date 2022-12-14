@@ -17,7 +17,10 @@ import {
   getC3tokenToMarketplaceAllowance,
   onApproveMarketplaceTransaction,
   updateListingTransaction,
+  deleteListingTransaction,
 } from "components/pages/Marketplace/lib/actions";
+import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
+
 import { Listing as ListingType } from "@klimadao/lib/types/marketplace";
 
 import * as styles from "./styles";
@@ -132,6 +135,30 @@ export const ListingEditModal: FC<Props> = (props) => {
     }
   };
 
+  const onDeleteListing = async () => {
+    setIsLoading(true);
+    if (!provider || !listingToEdit) return; // typeguards
+
+    try {
+      await deleteListingTransaction({
+        listingId: listingToEdit.id,
+        provider,
+        onStatus: onUpdateStatus,
+      });
+
+      const withoutUpdatedListing = listings.filter(
+        (l) => l.id !== listingToEdit.id
+      );
+
+      setListings(withoutUpdatedListing);
+      setListingToEdit(null);
+    } catch (e) {
+      console.error("Error in onDeleteListing", e);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       {listings.map((listing) => (
@@ -159,6 +186,15 @@ export const ListingEditModal: FC<Props> = (props) => {
               onSubmit={onEditListing}
               onCancel={() => setListingToEdit(null)}
               values={inputValues}
+            />
+            <MarketplaceButton
+              label={
+                <Trans id="marketplace.profile.listing.edit.delete_listing">
+                  Delete Listing
+                </Trans>
+              }
+              onClick={onDeleteListing}
+              className={styles.deleteListingButton}
             />
           </>
         )}

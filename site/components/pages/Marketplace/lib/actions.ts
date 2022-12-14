@@ -136,3 +136,34 @@ export const updateListingTransaction = async (params: {
     throw error;
   }
 };
+
+export const deleteListingTransaction = async (params: {
+  listingId: string;
+  provider: providers.JsonRpcProvider;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const marketPlaceContract = getContract({
+      contractName: "marketplace",
+      provider: params.provider.getSigner(),
+    });
+
+    params.onStatus("userConfirmation", "");
+
+    const listingTxn = await marketPlaceContract.deleteListing(
+      params.listingId
+    );
+
+    params.onStatus("networkConfirmation", "");
+    await listingTxn.wait(1);
+    params.onStatus("done", "Transaction confirmed");
+    return;
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("error", "userRejected");
+      throw error;
+    }
+    params.onStatus("error");
+    throw error;
+  }
+};

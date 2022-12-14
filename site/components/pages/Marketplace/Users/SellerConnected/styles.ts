@@ -91,3 +91,17 @@ export const editListingButton = css`
     align-self: flex-start;
   }
 `;
+
+export const deleteListingButton = css`
+  border-color: var(--warn);
+  color: var(--warn) !important;
+  width: 100%;
+  margin-top: 1.6rem;
+`;
+
+export const editLabelProjectName = css`
+  background: var(--surface-04);
+  border-radius: 1rem;
+  padding: 1.4rem 1rem;
+  min-height: 4.8rem;
+`;
