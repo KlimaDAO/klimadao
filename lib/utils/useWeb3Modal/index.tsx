@@ -13,6 +13,7 @@ import {
 export const useWeb3Modal = (): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
   const disconnect = async () => {
+    localStorage.removeItem("web3-wallet");
     if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
       await (web3state.provider?.provider as any).torus.cleanUp(); // this will trigger reload via accountsChanged
     } else {
