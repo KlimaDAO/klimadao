@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-13 15:39+0000\n"
+"POT-Creation-Date: 2022-12-14 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -483,11 +483,11 @@ msgstr "JETON INCOMPATIBLE"
 
 #: components/views/Offset/index.tsx:424
 msgid "offset.insufficient_project_tonnage"
-msgstr ""
+msgstr "Tonnage de projet insuffisant"
 
 #: components/views/Offset/index.tsx:653
 msgid "offset.invalid_project_tonnage"
-msgstr ""
+msgstr "Impossible de dépasser le tonnage disponible du projet sélectionné."
 
 #: components/views/Offset/index.tsx:585
 msgid "offset.lifi"
@@ -520,7 +520,7 @@ msgstr "Compenser des émissions Carbone"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:50
 msgid "offset.retire_specific"
-msgstr ""
+msgstr "Compenser spécifiquement les jetons d'un projet (facultatif)"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific_tooltip"
@@ -536,7 +536,7 @@ msgstr "Message de compensation carbone"
 
 #: components/views/Offset/index.tsx:713
 msgid "offset.retirement_purpose"
-msgstr "Décrivez le but de ce retrait"
+msgstr "Décrivez le but de cette compensation"
 
 #: components/views/Offset/index.tsx:755
 msgid "offset.retiring"
@@ -544,79 +544,79 @@ msgstr "Compensation en cours"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:91
 msgid "offset.selectiveRetirement.address_input_type"
-msgstr ""
+msgstr "Adresse 0x"
 
 #: components/views/Offset/ProjectSearch/index.tsx:80
 msgid "offset.selectiveRetirement.back_to_filters"
-msgstr ""
+msgstr "Retour aux filtres"
 
 #: components/views/Offset/ProjectSearch/index.tsx:105
 msgid "offset.selectiveRetirement.clear_selection"
-msgstr ""
+msgstr "Effacer la sélection"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
 msgid "offset.selectiveRetirement.confirm_selection"
-msgstr ""
+msgstr "Confirmer la sélection"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
 msgid "offset.selectiveRetirement.confirmation_message"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir sélectionner le projet suivant :"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:71
 msgid "offset.selectiveRetirement.default_input_type"
-msgstr ""
+msgstr "Par défaut"
 
 #: components/views/Offset/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
-msgstr ""
+msgstr "Nous n'avons pas trouvé de projets correspondant à votre recherche. Veuillez modifier les filtres et réessayer."
 
 #: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
 msgid "offset.selectiveRetirement.filter.options_selected"
-msgstr ""
+msgstr "{0} sélectionné"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
 msgid "offset.selectiveRetirement.filters.find_project"
-msgstr ""
+msgstr "Rechercher un projet"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
 msgid "offset.selectiveRetirement.filters.region"
-msgstr ""
+msgstr "région"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
 msgid "offset.selectiveRetirement.filters.type"
-msgstr ""
+msgstr "type"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
 msgid "offset.selectiveRetirement.filters.vintage"
-msgstr ""
+msgstr "année"
 
 #: components/views/Offset/LoadingOverlay/index.tsx:12
 msgid "offset.selectiveRetirement.finding_projects"
-msgstr ""
+msgstr "Recherche de projets en cours..."
 
 #: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:71
 msgid "offset.selectiveRetirement.project.available_tonnes"
-msgstr ""
+msgstr "Tonnes disponibles : {0}"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:105
 msgid "offset.selectiveRetirement.retire_from_default_pool"
-msgstr ""
+msgstr "Autoriser le projet par défaut du pool à être compensé. Cette option permet d'éviter de payer des frais supplémentaires."
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:82
 msgid "offset.selectiveRetirement.search_input_type"
-msgstr ""
+msgstr "Rechercher un projet"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
 msgid "offset.selectiveRetirement.selectProject.back"
-msgstr ""
+msgstr "Retour aux filtres"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
 msgid "offset.selectiveRetirement.selectProject.label"
-msgstr ""
+msgstr "Sélectionner un projet pour continuer :"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
 msgid "offset.selectiveRetirement.selectProject.select"
-msgstr ""
+msgstr "Sélectionner un projet"
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:25
 msgid "offset.successModal.body1"
@@ -724,7 +724,7 @@ msgstr "APPROUVER"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
 msgid "shared.back"
-msgstr ""
+msgstr "Retour"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
