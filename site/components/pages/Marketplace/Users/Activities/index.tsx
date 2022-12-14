@@ -77,7 +77,7 @@ export const Activities: FC<Props> = (props) => {
       {!!sortedActivities.length &&
         sortedActivities.map((activity) => (
           <div key={activity.id} className={styles.activity}>
-            <Text t="caption">{activity.project.name}</Text>
+            <Text t="caption">{activity.project?.name || "unknown"}</Text>
             <Text t="caption" color="lighter">
               <i>
                 {activityTime({
