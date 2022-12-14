@@ -97,3 +97,42 @@ export const createListingTransaction = async (params: {
     throw error;
   }
 };
+
+export const updateListingTransaction = async (params: {
+  listingId: string;
+  tokenAddress: string;
+  totalAmountToSell: string;
+  singleUnitPrice: string;
+  provider: providers.JsonRpcProvider;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const marketPlaceContract = getContract({
+      contractName: "marketplace",
+      provider: params.provider.getSigner(),
+    });
+
+    params.onStatus("userConfirmation", "");
+
+    const listingTxn = await marketPlaceContract.updateListing(
+      params.listingId,
+      params.tokenAddress,
+      utils.parseUnits(params.totalAmountToSell, 18), // C3 token
+      utils.parseUnits(params.singleUnitPrice, 18), // Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
+      [], // TODO batches
+      [] // TODO batches price
+    );
+
+    params.onStatus("networkConfirmation", "");
+    await listingTxn.wait(1);
+    params.onStatus("done", "Transaction confirmed");
+    return;
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("error", "userRejected");
+      throw error;
+    }
+    params.onStatus("error");
+    throw error;
+  }
+};

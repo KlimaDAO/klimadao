@@ -9,7 +9,7 @@ import { CreateAListingModal } from "./CreateAListingModal";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
 import { ProfileHeader } from "../ProfileHeader";
-import { Listing } from "../Listing";
+import { ListingEditModal } from "./ListingEditModal";
 import { Card } from "components/pages/Marketplace/shared/Card";
 
 import { getUser } from "../../lib/api";
@@ -223,17 +223,7 @@ export const SellerConnected: FC<Props> = (props) => {
               </Text>
             </Card>
           )}
-          {hasListings &&
-            user.listings.map((listing) => (
-              <Listing key={listing.id} listing={listing}>
-                <MarketplaceButton
-                  label={
-                    <Trans id="marketplace.profile.listing.edit">Edit</Trans>
-                  }
-                  className={styles.editListingButton}
-                />
-              </Listing>
-            ))}
+          {hasListings && <ListingEditModal listings={user.listings} />}
         </Col>
 
         <Col>
