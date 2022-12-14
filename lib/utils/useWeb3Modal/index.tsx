@@ -17,7 +17,7 @@ export const useWeb3Modal = (): Web3ModalState => {
     localStorage.removeItem("web3-wallet");
     if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
       await (web3state.provider?.provider as any).torus.cleanUp();
-      // triggers reload via accountsChanged
+      window.location.reload();
     } else {
       window.location.reload();
     }
