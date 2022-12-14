@@ -98,37 +98,48 @@ export const Pledge: NextPage = () => {
               </Text>
 
               <div className="actions">
-                <ConnectModal
-                  errorMessage={t({
-                    message:
-                      "We had some trouble connecting. Please try again.",
-                    id: "connect_modal.error_message",
-                  })}
-                  torusText={t({
-                    message: "or continue with",
-                    id: "connectModal.continue",
-                  })}
-                  titles={{
-                    connect: t({
-                      id: "connect_modal.sign_in",
-                      message: "Sign In / Connect",
-                    }),
-                    loading: t({
-                      id: "connect_modal.connecting",
-                      message: "Connecting...",
-                    }),
-                    error: t({
-                      id: "connect_modal.error_title",
-                      message: "Connection Error",
-                    }),
-                  }}
-                  buttonText={t({
-                    message: "Create a pledge",
-                    id: "pledges.home.hero.create",
-                  })}
-                  onClose={handleCreatePledge}
-                  buttonVariant="blue"
-                />
+                {address ? (
+                  <ButtonPrimary
+                    onClick={handleCreatePledge}
+                    variant="blue"
+                    label={t({
+                      message: "Create a pledge",
+                      id: "pledges.home.hero.create",
+                    })}
+                  />
+                ) : (
+                  <ConnectModal
+                    errorMessage={t({
+                      message:
+                        "We had some trouble connecting. Please try again.",
+                      id: "connect_modal.error_message",
+                    })}
+                    torusText={t({
+                      message: "or continue with",
+                      id: "connectModal.continue",
+                    })}
+                    titles={{
+                      connect: t({
+                        id: "connect_modal.sign_in",
+                        message: "Sign In / Connect",
+                      }),
+                      loading: t({
+                        id: "connect_modal.connecting",
+                        message: "Connecting...",
+                      }),
+                      error: t({
+                        id: "connect_modal.error_title",
+                        message: "Connection Error",
+                      }),
+                    }}
+                    buttonText={t({
+                      message: "Create a pledge",
+                      id: "pledges.home.hero.create",
+                    })}
+                    onClose={handleCreatePledge}
+                    buttonVariant="blue"
+                  />
+                )}
 
                 <ButtonPrimary
                   variant="gray"
@@ -305,49 +316,16 @@ export const Pledge: NextPage = () => {
               </li>
             </ol>
 
-            <ConnectModal
-              errorMessage={t({
-                message: "We had some trouble connecting. Please try again.",
-                id: "connect_modal.error_message",
-              })}
-              torusText={t({
-                message: "or continue with",
-                id: "connectModal.continue",
-              })}
-              titles={{
-                connect: t({
-                  id: "connect_modal.sign_in",
-                  message: "Sign In / Connect",
-                }),
-                loading: t({
-                  id: "connect_modal.connecting",
-                  message: "Connecting...",
-                }),
-                error: t({
-                  id: "connect_modal.error_title",
-                  message: "Connection Error",
-                }),
-              }}
-              buttonText={t({
-                message: "Create a pledge",
-                id: "pledges.home.hero.create",
-              })}
-              onClose={handleCreatePledge}
-              buttonVariant="blue"
-            />
-          </section>
-
-          <section className={styles.banner}>
-            <div className="inner">
-              <Text
-                t="h4"
-                as="h2"
-                align="center"
-                id="pledges.home.banner.title"
-              >
-                Create your pledge and go climate positive
-              </Text>
-
+            {address ? (
+              <ButtonPrimary
+                onClick={handleCreatePledge}
+                variant="blue"
+                label={t({
+                  message: "Create a pledge",
+                  id: "pledges.home.hero.create",
+                })}
+              />
+            ) : (
               <ConnectModal
                 errorMessage={t({
                   message: "We had some trouble connecting. Please try again.",
@@ -378,6 +356,62 @@ export const Pledge: NextPage = () => {
                 onClose={handleCreatePledge}
                 buttonVariant="blue"
               />
+            )}
+          </section>
+
+          <section className={styles.banner}>
+            <div className="inner">
+              <Text
+                t="h4"
+                as="h2"
+                align="center"
+                id="pledges.home.banner.title"
+              >
+                Create your pledge and go climate positive
+              </Text>
+
+              {address ? (
+                <ButtonPrimary
+                  onClick={handleCreatePledge}
+                  variant="blue"
+                  label={t({
+                    message: "Create a pledge",
+                    id: "pledges.home.hero.create",
+                  })}
+                />
+              ) : (
+                <ConnectModal
+                  errorMessage={t({
+                    message:
+                      "We had some trouble connecting. Please try again.",
+                    id: "connect_modal.error_message",
+                  })}
+                  torusText={t({
+                    message: "or continue with",
+                    id: "connectModal.continue",
+                  })}
+                  titles={{
+                    connect: t({
+                      id: "connect_modal.sign_in",
+                      message: "Sign In / Connect",
+                    }),
+                    loading: t({
+                      id: "connect_modal.connecting",
+                      message: "Connecting...",
+                    }),
+                    error: t({
+                      id: "connect_modal.error_title",
+                      message: "Connection Error",
+                    }),
+                  }}
+                  buttonText={t({
+                    message: "Create a pledge",
+                    id: "pledges.home.hero.create",
+                  })}
+                  onClose={handleCreatePledge}
+                  buttonVariant="blue"
+                />
+              )}
             </div>
           </section>
         </div>
