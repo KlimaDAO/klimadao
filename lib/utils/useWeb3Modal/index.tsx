@@ -13,9 +13,11 @@ import {
 export const useWeb3Modal = (): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
   const disconnect = async () => {
-    setWeb3State(web3InitialState);
-    localStorage.removeItem("web3-wallet");
-    window.location.reload();
+    if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
+      await (web3state.provider?.provider as any).torus.cleanUp(); // this will trigger reload via accountsChanged
+    } else {
+      window.location.reload();
+    }
   };
 
   const connect = async (wallet?: string): Promise<void> => {
@@ -110,6 +112,7 @@ export const useWeb3Modal = (): Web3ModalState => {
         const provider = new ethers.providers.Web3Provider(
           torus.provider
         ) as any;
+        provider.provider.torus = torus;
         const signer = await provider.getSigner();
         const address = await signer.getAddress();
         const network = await provider.getNetwork();

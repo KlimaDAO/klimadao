@@ -232,7 +232,7 @@ msgid "buy.buy_klima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Buy/index.tsx:113
+#: components/views/Buy/index.tsx:112
 msgid "buy.connect_wallet"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgstr ""
 msgid "buy.how_to_buy"
 msgstr ""
 
-#: components/views/Buy/index.tsx:110
+#: components/views/Buy/index.tsx:109
 msgid "buy.not_connected"
 msgstr ""
 
@@ -758,8 +758,8 @@ msgstr ""
 msgid "shared.copy_wallet_address"
 msgstr ""
 
-#: components/views/Stake/index.tsx:302
-#: components/views/Stake/index.tsx:317
+#: components/views/Stake/index.tsx:296
+#: components/views/Stake/index.tsx:311
 msgid "shared.enter_amount"
 msgstr ""
 
@@ -841,28 +841,28 @@ msgstr ""
 msgid "shared.wallet_address_copied"
 msgstr ""
 
-#: components/views/Stake/index.tsx:438
+#: components/views/Stake/index.tsx:432
 msgid "stake.5_day_rewards"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:441
+#: components/views/Stake/index.tsx:435
 msgid "stake.5_day_rewards.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:454
+#: components/views/Stake/index.tsx:448
 msgid "stake.akr"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:457
+#: components/views/Stake/index.tsx:451
 msgid "stake.akr.tooltip"
 msgstr ""
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:148
-#: components/views/Stake/index.tsx:347
+#: components/views/Buy/index.tsx:147
+#: components/views/Stake/index.tsx:341
 msgid "stake.balancescard.tooltip"
 msgstr ""
 
@@ -870,24 +870,24 @@ msgstr ""
 msgid "stake.estimated_payout"
 msgstr ""
 
-#: components/views/Stake/index.tsx:468
+#: components/views/Stake/index.tsx:462
 msgid "stake.index"
 msgstr ""
 
 #. Long sentence
-#: components/views/Stake/index.tsx:471
+#: components/views/Stake/index.tsx:465
 msgid "stake.index.tooltip"
 msgstr ""
 
-#: components/views/Stake/index.tsx:59
+#: components/views/Stake/index.tsx:53
 msgid "stake.inputplaceholder.stake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:63
+#: components/views/Stake/index.tsx:57
 msgid "stake.inputplaceholder.unstake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:368
+#: components/views/Stake/index.tsx:362
 msgid "stake.lifi"
 msgstr ""
 
@@ -907,26 +907,26 @@ msgstr ""
 msgid "stake.rebase.info"
 msgstr ""
 
-#: components/views/Stake/index.tsx:388
+#: components/views/Stake/index.tsx:382
 msgid "stake.stake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:362
+#: components/views/Stake/index.tsx:356
 msgid "stake.stake_hold_earn"
 msgstr ""
 
-#: components/views/Stake/index.tsx:301
-#: components/views/Stake/index.tsx:359
-#: components/views/Stake/index.tsx:522
+#: components/views/Stake/index.tsx:295
+#: components/views/Stake/index.tsx:353
+#: components/views/Stake/index.tsx:515
 msgid "stake.stake_klima"
 msgstr ""
 
-#: components/views/Stake/index.tsx:400
+#: components/views/Stake/index.tsx:394
 msgid "stake.unstake"
 msgstr ""
 
-#: components/views/Stake/index.tsx:316
-#: components/views/Stake/index.tsx:524
+#: components/views/Stake/index.tsx:310
+#: components/views/Stake/index.tsx:517
 msgid "stake.unstake_klima"
 msgstr ""
 
