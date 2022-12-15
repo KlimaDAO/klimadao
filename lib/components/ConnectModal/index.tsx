@@ -46,7 +46,7 @@ export const ConnectModal = (props: {
       setStep("connect");
       props.onClose && props.onClose();
     } catch (e: any) {
-      console.log(e);
+      console.error(e);
       setStep("error");
     }
   };

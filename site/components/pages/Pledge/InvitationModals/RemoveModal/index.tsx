@@ -76,7 +76,6 @@ export const RemoveModal = (props: Props) => {
         urlPath: `/pledge/${props.pageAddress}`,
         action: "rejecting",
       });
-      console.log();
       if (data.pledge) {
         props.handleModalFormSubmit();
       }

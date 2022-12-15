@@ -143,7 +143,7 @@ export const loadAccountDetails = (params: {
       dispatch(setBalance(balances));
       dispatch(updateAllowances(allowances));
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       if (error.message && error.message.includes("Non-200 status code")) {
         params.onRPCError();
       }
