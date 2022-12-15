@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-14 15:36+0000\n"
+"POT-Creation-Date: 2022-12-15 15:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -493,11 +493,11 @@ msgstr "ТОКЕН ВВОДА НЕСОВМЕСТИМ"
 
 #: components/views/Offset/index.tsx:424
 msgid "offset.insufficient_project_tonnage"
-msgstr ""
+msgstr "Недостаточный тоннаж по проекту"
 
 #: components/views/Offset/index.tsx:653
 msgid "offset.invalid_project_tonnage"
-msgstr ""
+msgstr "Не может превышать доступный тоннаж выбранного проекта"
 
 #: components/views/Offset/index.tsx:585
 msgid "offset.lifi"
@@ -530,7 +530,7 @@ msgstr "Вывод карбона"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:50
 msgid "offset.retire_specific"
-msgstr ""
+msgstr "Убрать выбранные токены проекта (необязательно)"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific_tooltip"
@@ -554,79 +554,79 @@ msgstr "Вывод"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:91
 msgid "offset.selectiveRetirement.address_input_type"
-msgstr ""
+msgstr "0x адрес"
 
 #: components/views/Offset/ProjectSearch/index.tsx:80
 msgid "offset.selectiveRetirement.back_to_filters"
-msgstr ""
+msgstr "Назад к фильтрам"
 
 #: components/views/Offset/ProjectSearch/index.tsx:105
 msgid "offset.selectiveRetirement.clear_selection"
-msgstr ""
+msgstr "Очистить выбор"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
 msgid "offset.selectiveRetirement.confirm_selection"
-msgstr ""
+msgstr "Подтвердить выбор"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
 msgid "offset.selectiveRetirement.confirmation_message"
-msgstr ""
+msgstr "Вы уверены, что хотите выбрать следующий проект:"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:71
 msgid "offset.selectiveRetirement.default_input_type"
-msgstr ""
+msgstr "По умолчанию"
 
 #: components/views/Offset/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
-msgstr ""
+msgstr "Мы не смогли найти ни одного проекта, связанного с вашим поиском. Пожалуйста, измените фильтры и повторите попытку."
 
 #: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
 msgid "offset.selectiveRetirement.filter.options_selected"
-msgstr ""
+msgstr "{0} выбран"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
 msgid "offset.selectiveRetirement.filters.find_project"
-msgstr ""
+msgstr "Найти проект"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
 msgid "offset.selectiveRetirement.filters.region"
-msgstr ""
+msgstr "регион"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
 msgid "offset.selectiveRetirement.filters.type"
-msgstr ""
+msgstr "тип"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
 msgid "offset.selectiveRetirement.filters.vintage"
-msgstr ""
+msgstr "старинный"
 
 #: components/views/Offset/LoadingOverlay/index.tsx:12
 msgid "offset.selectiveRetirement.finding_projects"
-msgstr ""
+msgstr "Поиск проектов..."
 
 #: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:71
 msgid "offset.selectiveRetirement.project.available_tonnes"
-msgstr ""
+msgstr "Доступные тонны: {0}"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:105
 msgid "offset.selectiveRetirement.retire_from_default_pool"
-msgstr ""
+msgstr "Разрешить удаление проекта по умолчанию в пуле. Этот вариант позволяет избежать дополнительных комиссий."
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:82
 msgid "offset.selectiveRetirement.search_input_type"
-msgstr ""
+msgstr "Найти проект"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
 msgid "offset.selectiveRetirement.selectProject.back"
-msgstr ""
+msgstr "Назад к фильтрам"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
 msgid "offset.selectiveRetirement.selectProject.label"
-msgstr ""
+msgstr "Выберите проект, чтобы продолжить:"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
 msgid "offset.selectiveRetirement.selectProject.select"
-msgstr ""
+msgstr "Выберите проект"
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:25
 msgid "offset.successModal.body1"
@@ -734,7 +734,7 @@ msgstr "ОДОБРИТЬ"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
 msgid "shared.back"
-msgstr ""
+msgstr "Назад"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
