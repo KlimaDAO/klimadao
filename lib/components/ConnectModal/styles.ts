@@ -36,7 +36,7 @@ export const walletButton = css`
   cursor: pointer;
   p {
     text-transform: uppercase;
-    color: #000;
+    color: #000 !important; // using important bc this is over-ridden when compiled
   }
 `;
 

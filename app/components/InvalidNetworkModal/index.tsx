@@ -15,6 +15,7 @@ export const InvalidNetworkModal: FC = () => {
 
     // TODO: remove hardcoded chainId
     const network = await provider.getNetwork();
+    console.log("network", network);
     if (!network) return;
 
     if (

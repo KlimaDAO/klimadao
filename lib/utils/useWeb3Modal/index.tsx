@@ -12,11 +12,18 @@ import {
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useWeb3Modal = (): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
+
   const disconnect = async () => {
     localStorage.removeItem("web3-wallet");
     if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
       await (web3state.provider?.provider as any).torus.cleanUp(); // this will trigger reload via accountsChanged
+    } else if (
+      web3state &&
+      web3state.provider?.connection?.url === "metamask"
+    ) {
+      window.location.reload();
     } else {
+      (web3state.provider?.provider as any).close();
       window.location.reload();
     }
   };
@@ -30,8 +37,7 @@ export const useWeb3Modal = (): Web3ModalState => {
         connectedWallet === "injected"
       ) {
         const provider = new ethers.providers.Web3Provider(
-          window.ethereum as any,
-          137
+          window.ethereum as any
         ) as any;
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
@@ -79,9 +85,8 @@ export const useWeb3Modal = (): Web3ModalState => {
         const WalletConnectProvider = (
           await import("@walletconnect/web3-provider")
         ).default;
-        const walletConnectProvider = new WalletConnectProvider({
-          rpc: { 137: urls.polygonMainnetRpc },
-        });
+        const walletConnectProvider = new WalletConnectProvider({});
+
         await walletConnectProvider.enable();
         const provider = new ethers.providers.Web3Provider(
           walletConnectProvider
@@ -145,24 +150,31 @@ export const useWeb3Modal = (): Web3ModalState => {
   // EIP-1193 events
   useEffect(() => {
     if (!web3state.provider) return;
-    const handleDisconnect = () => {
-      window.location.reload();
+    const handleAccountsChanged = (value: any) => {
+      if (value.length > 0) {
+        window.location.reload();
+      } else {
+        localStorage.removeItem("web3-wallet");
+        window.location.reload();
+      }
     };
-    const handleAccountsChanged = () => {
+    const handleChainChanged = () => {
       window.location.reload();
     };
 
     /** There is a bug where ethers doesn't respond to web3modal events for these two, so we use the nested provider
      * https://github.com/ethers-io/ethers.js/issues/2988 */
-    web3state.provider.provider.on("accountsChanged", handleAccountsChanged);
-    web3state.provider.on("disconnect", handleDisconnect);
+    web3state.provider.provider.on(
+      "accountsChanged",
+      handleAccountsChanged as any
+    );
+    web3state.provider.provider.on("chainChanged", handleChainChanged as any);
 
     return () => {
       web3state.provider.provider.removeListener(
         "accountsChanged",
-        handleAccountsChanged
+        handleAccountsChanged as any
       );
-      web3state.provider.removeListener("disconnect", handleDisconnect);
     };
   }, [web3state.provider]);
 
