@@ -382,7 +382,6 @@ export const Offset = (props: Props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
-          buttonClassName={styles.connect_button}
         />
       );
     } else if (isLoading || cost === "loading") {

@@ -137,7 +137,6 @@ export const Pledge: NextPage = () => {
                       id: "pledges.home.hero.create",
                     })}
                     onClose={handleCreatePledge}
-                    buttonVariant="blue"
                   />
                 )}
 
@@ -354,7 +353,6 @@ export const Pledge: NextPage = () => {
                   id: "pledges.home.hero.create",
                 })}
                 onClose={handleCreatePledge}
-                buttonVariant="blue"
               />
             )}
           </section>
@@ -409,7 +407,6 @@ export const Pledge: NextPage = () => {
                     id: "pledges.home.hero.create",
                   })}
                   onClose={handleCreatePledge}
-                  buttonVariant="blue"
                 />
               )}
             </div>

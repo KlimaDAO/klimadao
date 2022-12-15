@@ -12,9 +12,7 @@ export const ConnectModal = (props: {
     error: string;
   };
   buttonText: string;
-  buttonClassName?: string;
   onClose?: () => void;
-  buttonVariant?: "gray" | "icon" | "blue" | "blueRounded" | null | undefined;
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
@@ -59,16 +57,15 @@ export const ConnectModal = (props: {
         <ButtonPrimary
           label={concatAddress(address)}
           onClick={disconnect}
-          variant={props.buttonVariant}
+          variant="blue"
         />
       ) : (
         <ButtonPrimary
-          className={props.buttonClassName}
           label={props.buttonText}
           onClick={() => {
             setShowModal(true);
           }}
-          variant={props.buttonVariant}
+          variant="blue"
         />
       )}
       <ConnectContent
