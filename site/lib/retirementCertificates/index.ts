@@ -42,8 +42,6 @@ const PRIMARY_FONT_COLOR = "#313131";
 const SECONDARY_FONT_COLOR = "#767676";
 const spacing = {
   margin: 42.5,
-  mainTextWidth: 160,
-  beneficiaryName: 81,
   transactionDetails: 358,
   projectDetails: 419,
   tokenImage: { x: 411, y: 448 },
@@ -136,19 +134,16 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.font("Normal");
     doc.text(`${retirementAmount} tonnes`, spacing.margin, 169);
 
-    doc.font("Bold");
     const beneficaryText = params.beneficiaryName || params.beneficiaryAddress;
+    doc.font("Bold");
     doc.lineGap(-13);
-    // const beneficaryText = "Mark Cubano Companiessssss Worldwide Corporation";
     doc.text(beneficaryText, spacing.margin, 200, { width: 450 });
 
     const beneficiaryNameBlockHeight = doc.heightOfString(beneficaryText, {
       width: 450,
     });
 
-    // const retirementMessage = params.retirementMessage;
-    const retirementMessage =
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat mas";
+    const retirementMessage = params.retirementMessage;
     doc.font("Normal");
     doc.fontSize(12);
     doc.lineGap(-1.5);
