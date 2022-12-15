@@ -33,7 +33,7 @@ export const putPledge = async (
   if (!res.ok) {
     const error = await res.json();
     console.error("putPledge failed: ", error);
-    throw new Error(error.message);
+    throw new Error(error);
   } else {
     const data = await res.json();
     return data;

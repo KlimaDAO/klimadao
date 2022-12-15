@@ -98,24 +98,14 @@ export const pledge_wallet_save = css`
   background-color: var(--surface-02);
 
   svg {
-    fill: var(--klima-green);
+    fill: var(--klima-green) !important;
+  }
+  path {
+    fill: var(--klima-green) !important;
   }
   &:focus,
   &:hover {
     border-color: var(--klima-green);
-  }
-`;
-export const pledge_wallet_delete_icon = css`
-  ${pledge_wallet_icon};
-  border: 0.175rem solid var(--surface-03);
-  background-color: var(--surface-02);
-
-  svg {
-    fill: var(--warn);
-  }
-  &:focus,
-  &:hover {
-    border-color: var(--warn);
   }
 `;
 
@@ -144,11 +134,12 @@ export const pledge_wallet_delete = css`
   ${pledge_wallet_icon};
   border: 0.175rem solid var(--surface-03);
   background-color: var(--surface-02);
-
-  svg {
-    fill: var(--warn);
+  path {
+    fill: var(--warn) !important;
   }
-
+  svg {
+    fill: var(--warn) !important;
+  }
   &:focus,
   &:hover {
     border-color: var(--warn);
