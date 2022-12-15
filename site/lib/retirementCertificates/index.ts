@@ -86,10 +86,10 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   // TODO need more spacing between header text
   const printHeader = (): void => {
-    doc.image("public/logo-klima.png", spacing.margin, spacing.margin, {
-      width: 170,
-      height: 28,
-    });
+    // doc.image("public/logo-klima.png", spacing.margin, spacing.margin, {
+    //   width: 170,
+    //   height: 28,
+    // });
 
     doc.font("Bold");
     doc.fontSize(24);
