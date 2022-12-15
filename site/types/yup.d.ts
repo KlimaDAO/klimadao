@@ -11,6 +11,7 @@ declare module "yup" {
     TOut extends TType = TType
   > extends yup.BaseSchema<TType, TContext, TOut> {
     isAddress(errorMessage: string): StringSchema<TType, TContext>;
+    isOwner(errorMessage: string): StringSchema<TType, TContext>;
   }
 }
 

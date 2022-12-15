@@ -50,3 +50,44 @@ export const chart_tooltip = css`
   border-radius: 0.6rem;
   border: 0.1rem solid var(--font-03);
 `;
+
+export const pledge_retirements_wallets = css`
+  display: flex;
+  padding: 1.2rem 2.4rem;
+  gap: 0.8rem;
+  flex-direction: column;
+  background: var(--surface-01);
+  box-shadow: 0 0.4rem 2.8rem rgba(0, 0, 0, 0.26);
+  border-radius: 0.8rem;
+`;
+export const pledge_retirements_wallet = css`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  gap: 4.8rem;
+`;
+
+export const arrow_down = css`
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+  &.MuiSvgIcon-root {
+    fill: var(--font-01);
+  }
+  &.open {
+    transform: rotate(180deg);
+  }
+`;
+
+export const pledge_wallet_pending = css`
+  background: var(--font-02);
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  p {
+    font-size: 1rem;
+    line-height: 1rem;
+    color: var(--surface-02);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+`;

@@ -82,7 +82,7 @@ export const Home: NextPage<Props> = (props) => {
               <Text t="button" align="end">
                 <Trans id="home.latest_news">📰 Latest News: </Trans>
               </Text>
-              <Link href={`/blog/${props.latestPost.slug}`}>
+              <Link href={`/blog/${props.latestPost.slug}`} passHref>
                 {props.latestPost.title}
               </Link>
             </div>

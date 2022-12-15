@@ -9,7 +9,10 @@ import { loadTranslation } from "lib/i18n";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
-import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
+import {
+  getPledgeByAddress,
+  getParentPledges,
+} from "components/pages/Pledge/lib/firebase";
 import {
   DEFAULT_VALUES,
   queryHoldingsByAddress,
@@ -40,7 +43,20 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     let resolvedAddress;
     const isDomainInURL = getIsDomainInURL(address);
     const domain = isDomainInURL ? address : null;
+    const parentPledges = await getParentPledges({
+      address: address,
+    });
 
+    if (parentPledges.docs.length) {
+      return {
+        redirect: {
+          destination: `/pledge/${parentPledges.docs[0]
+            .data()
+            .ownerAddress.toLowerCase()}`,
+          permanent: true,
+        },
+      };
+    }
     // enforces lowercase urls
     if (address !== address.toLowerCase()) {
       return {
@@ -70,9 +86,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     }
 
     const holdings = await queryHoldingsByAddress(resolvedAddress);
-    const retirements = await getRetirementTotalsAndBalances({
-      address: resolvedAddress,
-    });
 
     try {
       const data = await getPledgeByAddress(resolvedAddress);
@@ -81,6 +94,55 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       pledge = data;
     } catch (error) {
       pledge = { ...DEFAULT_VALUES, ownerAddress: resolvedAddress };
+    }
+
+    // add up retirements here
+    let retirements: RetirementsTotalsAndBalances;
+    if (pledge.wallets && Object.values(pledge.wallets).length) {
+      const verifiedWallets = Object.values(pledge.wallets).filter(
+        (wallet) => wallet.status === "verified"
+      );
+      const promises = verifiedWallets.map((wallet) =>
+        getRetirementTotalsAndBalances({
+          address: wallet.address,
+        })
+      );
+      promises.push(
+        getRetirementTotalsAndBalances({
+          address: resolvedAddress,
+        })
+      );
+      const values: RetirementsTotalsAndBalances[] = await Promise.all(
+        promises
+      );
+      values.reduce<RetirementsTotalsAndBalances>((prev, curr) => {
+        prev.totalRetirements = (
+          Number(prev.totalRetirements) + Number(curr.totalRetirements)
+        ).toString();
+        prev.totalTonnesRetired = (
+          Number(prev.totalTonnesRetired) + Number(curr.totalTonnesRetired)
+        ).toString();
+        prev.totalTonnesClaimedForNFTS = (
+          Number(prev.totalTonnesClaimedForNFTS) +
+          Number(curr.totalTonnesClaimedForNFTS)
+        ).toString();
+        prev.bct = (Number(prev.bct) + Number(curr.bct)).toString();
+        prev.mco2 = (Number(prev.mco2) + Number(curr.mco2)).toString();
+        prev.nct = (Number(prev.nct) + Number(curr.nct)).toString();
+        prev.ubo = (Number(prev.ubo) + Number(curr.ubo)).toString();
+        prev.nbo = (Number(prev.nbo) + Number(curr.nbo)).toString();
+
+        return prev;
+      }, {} as RetirementsTotalsAndBalances);
+      if (values.length) {
+        retirements = values[0];
+      } else {
+        retirements = values as unknown as RetirementsTotalsAndBalances;
+      }
+    } else {
+      retirements = await getRetirementTotalsAndBalances({
+        address: resolvedAddress,
+      });
     }
 
     return {

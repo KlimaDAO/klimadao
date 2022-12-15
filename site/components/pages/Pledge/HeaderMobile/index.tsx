@@ -25,7 +25,7 @@ export const HeaderMobile: FC<Props> = (props) => {
     <div className={styles.headerMobileWrap}>
       <header className={styles.headerMobile}>
         <div className={styles.mainLogoMobile}>
-          <Link href={"/pledge"}>
+          <Link href={"/pledge"} passHref>
             <KlimaInfinityLogoOnly />
           </Link>
         </div>

@@ -13,6 +13,14 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/pages/Pledge/PledgeDashboard/index.tsx:162
+msgid ""
+msgstr "Are you sure?"
+
+#: components/pages/Blog/index.tsx:35
+msgid "Articles"
+msgstr "Articles"
+
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "Change language"
@@ -924,15 +932,11 @@ msgstr "{0}% of footprint"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Carbon Tonne(s)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:73
-msgid "pledges.dashboard.head.metaDescription"
-msgstr "{pledgeOwnerTitle} pledges to Offset {currentTotalFootprint} Carbon Tonnes. View their carbon offset history and read more about their commitment."
-
-#: components/pages/Pledge/PledgeDashboard/index.tsx:69
+#: components/pages/Pledge/PledgeDashboard/index.tsx:80
 msgid "pledges.dashboard.head.metaTitle"
-msgstr "{pledgeOwnerTitle}'s Pledge"
+msgstr "{pledgeOwnerTitle}'s pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:65
+#: components/pages/Pledge/PledgeDashboard/index.tsx:76
 msgid "pledges.dashboard.head.title"
 msgstr "{pledgeOwnerTitle}'s Pledge | KlimaDAO"
 
@@ -964,7 +968,7 @@ msgstr "{0}% of Pledge Met"
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Pledged to Offset <0>{0}</0> Carbon Tonnes"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:41
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:106
 msgid "pledges.dashboard.retirements.title"
 msgstr "Retirements"
 
@@ -972,7 +976,7 @@ msgstr "Retirements"
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
 msgstr "{0} Carbon Tonne(s) Retired"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:60
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:125
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "Total Carbon Tonnes Retired"
 
@@ -984,9 +988,21 @@ msgstr "Edit Pledge"
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Add category"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:121
-msgid "pledges.form.awaiting_signature"
-msgstr "Awaiting signature..."
+#: components/pages/Pledge/PledgeForm/index.tsx:309
+msgid "pledges.form.add_wallet_button"
+msgstr "Add wallet"
+
+#: components/pages/Pledge/PledgeDashboard/index.tsx:98
+msgid "pledges.form.confirm_delete"
+msgstr "confirm removal"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:471
+msgid "pledges.form.confirm_remove"
+msgstr "remove"
+
+#: components/pages/Pledge/PledgeForm/index.tsx:484
+msgid "pledges.form.confirm_remove_cancel"
+msgstr "cancel"
 
 #: components/pages/Pledge/index.tsx:156
 msgid "pledges.form.error"
@@ -1036,63 +1052,63 @@ msgstr "Enter a name"
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "Enter a valid url"
 
-#: components/pages/Pledge/lib/formSchema.ts:27
-msgid "pledges.form.errors.profileWebsiteUrl.url"
-msgstr "Enter a valid url"
+#: components/pages/Pledge/lib/formSchema.ts:49
+msgid "pledges.form.errors.walletAddress.required"
+msgstr "Address required"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:232
+#: components/pages/Pledge/PledgeForm/index.tsx:344
 msgid "pledges.form.footprint.label"
 msgstr "Footprint"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:237
+#: components/pages/Pledge/PledgeForm/index.tsx:352
 msgid "pledges.form.footprint.prompt"
 msgstr "Add a category and start calculating your carbon footprint"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:129
+#: components/pages/Pledge/PledgeForm/index.tsx:142
 msgid "pledges.form.generic_error"
 msgstr "Something went wrong. Please try again."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:258
+#: components/pages/Pledge/PledgeForm/index.tsx:372
 msgid "pledges.form.input.categoryName.label"
 msgstr "Category"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:250
+#: components/pages/Pledge/PledgeForm/index.tsx:364
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Category name"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:280
+#: components/pages/Pledge/PledgeForm/index.tsx:394
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Quantity"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:272
+#: components/pages/Pledge/PledgeForm/index.tsx:386
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Carbon tonnes"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:197
+#: components/pages/Pledge/PledgeForm/index.tsx:194
 msgid "pledges.form.input.description.label"
 msgstr "Pledge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:190
+#: components/pages/Pledge/PledgeForm/index.tsx:187
 msgid "pledges.form.input.description.placeholder"
 msgstr "What is your pledge?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:219
+#: components/pages/Pledge/PledgeForm/index.tsx:330
 msgid "pledges.form.input.methodology.label"
 msgstr "Methodology"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:211
+#: components/pages/Pledge/PledgeForm/index.tsx:322
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "What tools or methodologies did you use to calculate your carbon footprint?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:145
+#: components/pages/Pledge/PledgeForm/index.tsx:160
 msgid "pledges.form.input.name.label"
 msgstr "Name"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:138
+#: components/pages/Pledge/PledgeForm/index.tsx:153
 msgid "pledges.form.input.name.placeholder"
 msgstr "Name or company name"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:158
+#: components/pages/Pledge/PledgeForm/index.tsx:173
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "Profile image url (Optional)"
 
@@ -1108,11 +1124,11 @@ msgstr "Total footprint"
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:80
+#: components/pages/Pledge/PledgeDashboard/index.tsx:107
 msgid "pledges.form.title"
-msgstr "Your Pledge"
+msgstr "Your pledge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:47
+#: components/pages/Pledge/PledgeForm/index.tsx:51
 msgid "pledges.form.total_footprint_summary"
 msgstr "Total Footprint: {0} Carbon Tonnes"
 
@@ -1528,8 +1544,12 @@ msgstr "Carbon Dashboards"
 msgid "shared.community"
 msgstr "Community"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
-#: components/pages/Pledge/HeaderMobile/index.tsx:54
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:28
+msgid "shared.confirm"
+msgstr "Confirm"
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:50
+#: components/pages/Pledge/HeaderMobile/index.tsx:57
 msgid "shared.connect"
 msgstr "Connect"
 

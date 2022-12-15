@@ -26,6 +26,134 @@ export const categories_section = css`
   row-gap: 1rem;
 `;
 
+export const wallets_section = css`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const pledge_wallet_address_cell = css`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+`;
+
+export const pledge_wallet_pending = css`
+  background: var(--font-02);
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  p {
+    font-size: 1rem;
+    line-height: 1rem;
+    color: var(--surface-02);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+`;
+
+export const pledge_form_remove_container = css`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 1.2rem;
+`;
+
+export const pledge_form_remove_button = css`
+  width: 100%;
+`;
+
+export const pledge_wallet_edit_buttons = css`
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.6rem;
+`;
+
+export const pledge_wallet_row = css`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0.4rem 0;
+  gap: 1.6rem;
+`;
+
+export const pledge_wallet_icon = css`
+  padding: 0rem;
+  min-height: 3.6rem;
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 1rem;
+  transition: border-color 0.2s ease-in;
+`;
+
+export const pledge_form_wallets_title = css`
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+`;
+
+export const pledge_wallet_save = css`
+  ${pledge_wallet_icon};
+  border: 0.175rem solid var(--surface-03);
+  background-color: var(--surface-02);
+
+  svg {
+    fill: var(--klima-green) !important;
+  }
+  path {
+    fill: var(--klima-green) !important;
+  }
+  &:focus,
+  &:hover {
+    border-color: var(--klima-green);
+  }
+`;
+
+export const pledge_tooltip_arrow = css`
+  position: absolute;
+  bottom: -1.2rem;
+  color: var(--font-01);
+  left: calc(50% - 1rem);
+`;
+
+export const pledge_form_wallet_info = css`
+  color: var(--font-02);
+  cursor: pointer;
+`;
+
+export const pledge_form_wallet_info_content = css`
+  p {
+    color: var(--surface-01);
+  }
+  background: var(--font-01);
+  padding: 1.2rem;
+  border-radius: 0.4rem;
+`;
+
+export const pledge_wallet_delete = css`
+  ${pledge_wallet_icon};
+  border: 0.175rem solid var(--surface-03);
+  background-color: var(--surface-02);
+  path {
+    fill: var(--warn) !important;
+  }
+  svg {
+    fill: var(--warn) !important;
+  }
+  &:focus,
+  &:hover {
+    border-color: var(--warn);
+  }
+`;
+
+export const pledge_wallet_add = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 1.6rem;
+`;
+
 export const categories = css`
   display: grid;
   row-gap: 1.6rem;
@@ -57,15 +185,10 @@ export const categoryRow_inputs = css`
 `;
 
 export const categoryRow_removeButton = css`
-  padding: 0rem;
+  ${pledge_wallet_icon};
   margin-top: 3.2rem;
-  min-height: 3.6rem;
-  height: 3.6rem;
-  width: 3.6rem;
-  border-radius: 1rem;
   border: 0.175rem solid var(--surface-03);
   background-color: var(--surface-02);
-  transition: border-color 0.2s ease-in;
 
   svg {
     fill: var(--font-02);

@@ -10,6 +10,7 @@ export const ButtonPrimary: FC<ButtonBaseProps> = (props) => {
       lightGray: props.variant === "lightGray",
       gray: props.variant === "gray",
       blue: props.variant === "blue",
+      red: props.variant === "red",
       transparent: props.variant === "transparent",
     },
     props.className
