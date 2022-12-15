@@ -416,6 +416,7 @@ export const Bond: FC<Props> = (props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonClassName={styles.connect_button}
         />
       );
     }

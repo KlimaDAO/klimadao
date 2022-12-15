@@ -171,6 +171,7 @@ export const PKlima: FC<Props> = (props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonClassName={styles.connect_button}
         />
       );
     } else if (isLoading) {

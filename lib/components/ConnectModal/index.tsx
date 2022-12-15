@@ -12,6 +12,7 @@ export const ConnectModal = (props: {
     error: string;
   };
   buttonText: string;
+  buttonClassName?: string;
   onClose?: () => void;
 }) => {
   const [showModal, setShowModal] = useState(false);
@@ -66,6 +67,7 @@ export const ConnectModal = (props: {
             setShowModal(true);
           }}
           variant="blue"
+          className={props.buttonClassName}
         />
       )}
       <ConnectContent

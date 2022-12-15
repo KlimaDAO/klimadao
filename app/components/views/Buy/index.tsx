@@ -137,6 +137,7 @@ export const Buy = (props: Props) => {
                 }),
               }}
               buttonText={t({ id: "shared.connect", message: "Connect" })}
+              buttonClassName={styles.connect_button}
             />
           </div>
         )}

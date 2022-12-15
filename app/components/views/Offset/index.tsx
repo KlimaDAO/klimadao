@@ -382,6 +382,7 @@ export const Offset = (props: Props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonClassName={styles.connect_button}
         />
       );
     } else if (isLoading || cost === "loading") {
@@ -434,31 +435,35 @@ export const Offset = (props: Props) => {
         />
       );
     } else if (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) {
-      return {
-        label: (
-          <Trans id="shared.invalid_beneficiary_addr">
-            Invalid beneficiary address
-          </Trans>
-        ),
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          label={t({
+            id: "shared.invalid_beneficiary_addr",
+            message: "Invalid beneficiary address",
+          })}
+          disabled={true}
+        />
+      );
     } else if (invalidRetirementQuantity) {
-      return {
-        label: (
-          <Trans id="offset.insufficient_project_tonnage">
-            Insufficient project tonnage
-          </Trans>
-        ),
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          label={t({
+            id: "offset.insufficient_project_tonnage",
+            message: "Insufficient project tonnage",
+          })}
+          disabled={true}
+        />
+      );
     } else if (invalidCost) {
-      return {
-        label: <Trans id="shared.invalid_quantity">Invalid quantity</Trans>,
-        onClick: undefined,
-        disabled: true,
-      };
+      return (
+        <ButtonPrimary
+          label={t({
+            id: "shared.invalid_quantity",
+            message: "Invalid quantity",
+          })}
+          disabled={true}
+        />
+      );
     } else if (!!projectAddress && !utils.isAddress(projectAddress)) {
       return (
         <ButtonPrimary
