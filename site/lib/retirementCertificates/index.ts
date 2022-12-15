@@ -1,20 +1,23 @@
 import PDFKit from "pdfkit";
 import { StaticImageData } from "next/legacy/image";
 import { trimWithLocale } from "@klimadao/lib/utils";
-
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import { RetirementToken } from "@klimadao/lib/constants";
-// import { urls } from "@klimadao/lib/constants";
+import { urls } from "@klimadao/lib/constants";
 
-// import KlimaLogo from "public/logo-klima.png";
-import { bgImageNCT } from "./images/bgImageNCT";
+import { bgBCT } from "./images/bgBCT";
+import { bgNCT } from "./images/bgNCT";
+import { bgMCO2 } from "./images/bgMCO2";
+import { bgUBO } from "./images/bgUBO";
+import { bgNBO } from "./images/bgNBO";
 
-// import bctBackground from "public/bg_bct.jpeg";
-// import nctBackground from "public/bg_nct.jpeg";
-// import nboBackground from "public/bg_nbo.jpeg";
-// import uboBackground from "public/bg_ubo.jpeg";
-// import mco2Background from "public/bg_mco2.jpeg";
+import { logoKlima } from "./images/logoKlima";
+import { logoBCT } from "./images/logoBCT";
+import { logoNCT } from "./images/logoNCT";
+import { logoMCO2 } from "./images/logoMCO2";
+import { logoUBO } from "./images/logoUBO";
+import { logoNBO } from "./images/logoNBO";
 
 import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 import { PoppinsBold } from "./poppinsBoldbase64";
@@ -36,25 +39,34 @@ type Params = {
 
 const KLIMA_GREEN = "#00cc33";
 const PRIMARY_FONT_COLOR = "#313131";
-// const SECONDARY_FONT_COLOR = "#767676";
+const SECONDARY_FONT_COLOR = "#767676";
 const spacing = {
   margin: 42.5,
   mainTextWidth: 160,
   beneficiaryName: 81,
   transactionDetails: 358,
   projectDetails: 419,
-  tokenImage: { x: 145, y: 158 },
+  tokenImage: { x: 411, y: 448 },
   retirementLink: 555,
 };
 
-// type FeatureImageMappingKey = keyof typeof featureImageMap;
-// const featureImageMap = {
-//   bct: bctBackground,
-//   nct: nctBackground,
-//   ubo: uboBackground,
-//   nbo: nboBackground,
-//   mco2: mco2Background,
-// };
+type FeatureImageMappingKey = keyof typeof featureImageMap;
+const featureImageMap = {
+  bct: bgBCT,
+  nct: bgNCT,
+  ubo: bgUBO,
+  nbo: bgNBO,
+  mco2: bgMCO2,
+};
+
+type TokenImageMappingKey = keyof typeof tokenImageMap;
+const tokenImageMap = {
+  bct: logoBCT,
+  nct: logoNCT,
+  ubo: logoUBO,
+  nbo: logoNBO,
+  mco2: logoMCO2,
+};
 
 // const getImageDataURI = async (url: string) => {
 //   const response = await fetch(url);
@@ -84,12 +96,12 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     doc.registerFont("Normal", Buffer.from(PoppinsExtraLight, "base64"));
   };
 
-  // TODO need more spacing between header text
   const printHeader = (): void => {
-    // doc.image("public/logo-klima.png", spacing.margin, spacing.margin, {
-    //   width: 170,
-    //   height: 28,
-    // });
+    const klimaLogoBuffer = Buffer.from(logoKlima, "base64");
+    doc.image(klimaLogoBuffer, spacing.margin, spacing.margin, {
+      width: 170,
+      height: 28,
+    });
 
     doc.font("Bold");
     doc.fontSize(24);
@@ -98,32 +110,20 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
     doc.lineWidth(3);
     doc.moveTo(spacing.margin, 148);
-    doc.lineTo(490, 148);
+    doc.lineTo(491, 148);
     doc.strokeColor(KLIMA_GREEN);
     doc.stroke();
   };
 
   const printFeatureImage = async (): Promise<void> => {
-    try {
-      // const featureImagePath =
-      //   featureImageMap[params.tokenData.key as FeatureImageMappingKey].src;
+    const featureImage =
+      featureImageMap[params.tokenData.key as FeatureImageMappingKey];
+    const featureImageBuffer = Buffer.from(featureImage, "base64");
 
-      // const featureImageArrayBuffer = await getImageDataURI(
-      //   "http://www.klimadao.finance/bg_nct.jpeg"
-      // );
-
-      const image = Buffer.from(bgImageNCT, "base64");
-      doc.image(image, spacing.margin, 0, {
-        width: doc.page.width / 3,
-        height: doc.page.height,
-      });
-      // doc.image("public/bg_mco2.jpeg", spacing.margin + 490, 0, {
-      //   width: doc.page.width / 3,
-      //   height: doc.page.height,
-      // });
-    } catch (error) {
-      console.log(error);
-    }
+    doc.image(featureImageBuffer, spacing.margin + 490, 0, {
+      width: doc.page.width / 3,
+      height: doc.page.height,
+    });
   };
 
   const printRetirementDetails = (): void => {
@@ -151,7 +151,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat mas";
     doc.font("Normal");
     doc.fontSize(12);
-    doc.lineGap(-1);
+    doc.lineGap(-1.5);
     doc.text(
       retirementMessage,
       spacing.margin,
@@ -198,6 +198,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     const formattedRetirementDate = `${retirementDate.getDate()}/${
       retirementDate.getMonth() + 1
     }/${retirementDate.getFullYear()}`;
+
     let projectDetails = [
       {
         label: "Project",
@@ -245,16 +246,13 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       ];
     }
 
-    // const tokenImage = new Image();
-    // tokenImage.src = params.tokenData.icon.src;
-    // doc.addImage(
-    //   tokenImage,
-    //   "JPEG",
-    //   spacing.tokenImage.x,
-    //   spacing.tokenImage.y,
-    //   28,
-    //   28
-    // );
+    const tokenImage =
+      tokenImageMap[params.tokenData.key as TokenImageMappingKey];
+    const tokenImageBuffer = Buffer.from(tokenImage, "base64");
+    doc.image(tokenImageBuffer, spacing.tokenImage.x, spacing.tokenImage.y, {
+      width: 80,
+      height: 80,
+    });
 
     let startPosition = spacing.projectDetails;
     projectDetails.forEach((detail) => {
@@ -271,6 +269,21 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
       startPosition += 16;
     });
+  };
+
+  const printMossProjectDetails = () => {
+    const linkText = "Learn more ";
+    doc.font("Bold");
+    doc.fillColor(SECONDARY_FONT_COLOR);
+    doc.text(linkText, spacing.margin, spacing.projectDetails + 30, {
+      link: `${urls.carbonDashboard}/MCO2`,
+    });
+    doc.fillColor(PRIMARY_FONT_COLOR);
+    doc.text(
+      "about the projects that back the MCO2 pools",
+      spacing.margin + doc.widthOfString(linkText),
+      spacing.projectDetails + 30
+    );
   };
 
   const printRetirementLink = (): void => {
@@ -293,6 +306,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   printRetirementDetails();
   printTransactionDetails();
   printProjectDetails();
+  if (isMossRetirement) printMossProjectDetails();
   printRetirementLink();
 
   return doc;
