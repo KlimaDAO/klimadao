@@ -421,12 +421,7 @@ export const PledgeForm: FC<Props> = (props) => {
                           )}
                         </div>
                         <ButtonPrimary
-                          icon={
-                            <DeleteOutlineOutlinedIcon
-                              fontSize="large"
-                              className={styles.icon_delete}
-                            />
-                          }
+                          icon={<DeleteOutlineOutlinedIcon fontSize="large" />}
                           className={styles.pledge_wallet_delete}
                           onClick={() => {
                             props.setIsDeleteMode(true);
