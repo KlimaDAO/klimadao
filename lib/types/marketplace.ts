@@ -25,6 +25,8 @@ export interface User {
 
 export type Listing = {
   id: string;
+  createdAt: string;
+  updatedAt: string;
   totalAmountToSell: BigNumber;
   leftToSell: BigNumber;
   tokenAddress: string;
@@ -53,7 +55,7 @@ export type Activity = {
   previousAmount: BigNumber | null;
   price: BigNumber | null;
   previousPrice: BigNumber | null;
-  timeStamp: number;
+  timeStamp: string;
   batchPrices: [];
   singleUnitPrice: BigNumber | null;
   project: {

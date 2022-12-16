@@ -57,7 +57,9 @@ export const Activities: FC<Props> = (props) => {
   const hasActivities = !!props.activities?.length;
   const sortedActivities =
     (hasActivities &&
-      props.activities.sort((a, b) => b.timeStamp - a.timeStamp)) ||
+      props.activities.sort(
+        (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
+      )) ||
     [];
 
   return (
@@ -82,7 +84,7 @@ export const Activities: FC<Props> = (props) => {
               <i>
                 {activityTime({
                   locale: locale || "en",
-                  timeStamp: activity.timeStamp,
+                  timeStamp: Number(activity.timeStamp),
                 })}
               </i>
             </Text>

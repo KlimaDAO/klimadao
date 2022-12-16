@@ -45,7 +45,9 @@ export const SellerConnected: FC<Props> = (props) => {
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const hasListings = !!user?.listings?.length;
+  const sortedListings =
+    !!user?.listings?.length &&
+    user.listings.sort((a, b) => Number(b.createdAt) - Number(a.createdAt));
   const hasAssets = !!user?.assets?.length;
 
   // load Assets once
@@ -178,7 +180,7 @@ export const SellerConnected: FC<Props> = (props) => {
             </Text>
           )}
 
-          {!hasListings && (
+          {!sortedListings && (
             <Text t="caption" color="lighter">
               <i>
                 <Trans id="marketplace.profile.listings.empty_state">
@@ -223,16 +225,16 @@ export const SellerConnected: FC<Props> = (props) => {
               </Text>
             </Card>
           )}
-          {hasListings && <ListingEditModal listings={user.listings} />}
+          {!!sortedListings && <ListingEditModal listings={sortedListings} />}
         </Col>
 
         <Col>
           <Stats
             stats={{
               tonnesSold:
-                (hasListings && getTotalAmountSold(user.listings)) || 0,
+                (!!sortedListings && getTotalAmountSold(sortedListings)) || 0,
               tonnesOwned:
-                (hasListings && getTotalAmountToSell(user.listings)) || 0,
+                (!!sortedListings && getTotalAmountToSell(sortedListings)) || 0,
               activeListings:
                 user?.listings.filter((l) => l.active).length || 0,
             }}

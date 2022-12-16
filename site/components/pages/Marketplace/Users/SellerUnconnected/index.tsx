@@ -23,7 +23,9 @@ type Props = {
 export const SellerUnconnected: FC<Props> = (props) => {
   const userData = props.marketplaceUser;
 
-  const hasListings = !!userData?.listings?.length;
+  const sortedListings =
+    !!userData?.listings?.length &&
+    userData.listings.sort((a, b) => Number(b.createdAt) - Number(a.createdAt));
 
   return (
     <>
@@ -40,7 +42,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
             <Trans>Listings</Trans>
           </Text>
 
-          {!hasListings && (
+          {!sortedListings && (
             <Text t="caption" color="lighter">
               <i>
                 <Trans id="marketplace.profile.listings.empty_state">
@@ -54,8 +56,8 @@ export const SellerUnconnected: FC<Props> = (props) => {
 
       <TwoColLayout>
         <Col>
-          {hasListings &&
-            userData.listings.map((listing) => (
+          {!!sortedListings &&
+            sortedListings.map((listing) => (
               <Listing key={listing.id} listing={listing}>
                 <ButtonPrimary
                   label={<Trans id="marketplace.seller.listing.buy">Buy</Trans>}
@@ -72,9 +74,9 @@ export const SellerUnconnected: FC<Props> = (props) => {
           <Stats
             stats={{
               tonnesSold:
-                (hasListings && getTotalAmountSold(userData.listings)) || 0,
+                (!!sortedListings && getTotalAmountSold(sortedListings)) || 0,
               tonnesOwned:
-                (hasListings && getTotalAmountToSell(userData.listings)) || 0,
+                (!!sortedListings && getTotalAmountToSell(sortedListings)) || 0,
               activeListings:
                 userData?.listings.filter((l) => l.active).length || 0,
             }}
