@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { FC, useState, useEffect, ReactNode } from "react";
 import { useWeb3, getENSProfile, getKNSProfile } from "@klimadao/lib/utils";
-import { ButtonPrimary } from "@klimadao/lib/components";
+import { ConnectModal } from "@klimadao/lib/components";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { Footer } from "components/Footer";
 import { NavMenu } from "./NavMenu";
@@ -27,7 +27,7 @@ type Props = {
 };
 
 export const MarketplaceLayout: FC<Props> = (props: Props) => {
-  const { address, connect, disconnect, isConnected } = useWeb3();
+  const { address } = useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [profileData, setProfileData] = useState<Domain>();
 
@@ -88,17 +88,31 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
 
             {props.profileButton}
 
-            {isConnected && address ? (
-              <ButtonPrimary
-                label={t({ id: "shared.disconnect", message: "Disconnect" })}
-                onClick={disconnect}
-              />
-            ) : (
-              <ButtonPrimary
-                label={t({ id: "shared.connect", message: "Connect" })}
-                onClick={connect}
-              />
-            )}
+            <ConnectModal
+              errorMessage={t({
+                message: "We had some trouble connecting. Please try again.",
+                id: "connect_modal.error_message",
+              })}
+              torusText={t({
+                message: "or continue with",
+                id: "connectModal.continue",
+              })}
+              titles={{
+                connect: t({
+                  id: "connect_modal.sign_in",
+                  message: "Sign In / Connect",
+                }),
+                loading: t({
+                  id: "connect_modal.connecting",
+                  message: "Connecting...",
+                }),
+                error: t({
+                  id: "connect_modal.error_title",
+                  message: "Connection Error",
+                }),
+              }}
+              buttonText={t({ id: "shared.connect", message: "Connect" })}
+            />
           </div>
 
           {props.children}

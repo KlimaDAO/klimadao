@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Text, ButtonPrimary, Spinner } from "@klimadao/lib/components";
+import { Text, Spinner, ConnectModal } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
@@ -20,18 +20,16 @@ import { Stats } from "../Stats";
 
 export const Login: NextPage = () => {
   const router = useRouter();
-  const { address, isConnected, connect } = useWeb3();
-  const [isLoading, setIsLoading] = useState(false);
+  const { address, isConnected } = useWeb3();
   const [isRedirecting, setIsRedirecting] = useState(false);
 
-  const onConnect = async () => {
-    setIsLoading(true);
-    !!connect && (await connect());
-    setIsRedirecting(true);
-  };
-
   useEffect(() => {
-    isConnected && router.push(`/marketplace/users/${address}`);
+    if (isConnected) {
+      setIsRedirecting(true);
+      router.push(`/marketplace/users/${address}`);
+    } else {
+      setIsRedirecting(false);
+    }
   }, [isConnected]);
 
   return (
@@ -59,26 +57,40 @@ export const Login: NextPage = () => {
                     You can log in or create an account via the button below.
                   </Trans>
                 </Text>
-                {isLoading && (
+                {isRedirecting && (
                   <div className={styles.fullWidth}>
                     <Spinner />
                     <Text className={styles.redirecting}>
-                      {isRedirecting ? (
-                        <Trans id="shared.loading" />
-                      ) : (
-                        <Trans id="shared.connecting">Connecting...</Trans>
-                      )}
+                      <Trans id="shared.loading" />
                     </Text>
                   </div>
                 )}
-                {!isLoading && !isRedirecting && (
-                  <ButtonPrimary
-                    label={t({
-                      id: "shared.login_connect",
-                      message: "Login / Connect",
+                {!isRedirecting && (
+                  <ConnectModal
+                    errorMessage={t({
+                      message:
+                        "We had some trouble connecting. Please try again.",
+                      id: "connect_modal.error_message",
                     })}
-                    className={styles.loginButton}
-                    onClick={onConnect}
+                    torusText={t({
+                      message: "or continue with",
+                      id: "connectModal.continue",
+                    })}
+                    titles={{
+                      connect: t({
+                        id: "connect_modal.sign_in",
+                        message: "Sign In / Connect",
+                      }),
+                      loading: t({
+                        id: "connect_modal.connecting",
+                        message: "Connecting...",
+                      }),
+                      error: t({
+                        id: "connect_modal.error_title",
+                        message: "Connection Error",
+                      }),
+                    }}
+                    buttonText={t({ id: "shared.connect", message: "Connect" })}
                   />
                 )}
               </div>
