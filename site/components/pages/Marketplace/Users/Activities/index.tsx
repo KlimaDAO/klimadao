@@ -92,16 +92,18 @@ export const Activities: FC<Props> = (props) => {
               </span>
               {activity.activityType}
             </Text>
-            <Text t="caption">
-              <span className="number">
-                {formatTonnes(activity.amount, locale)}
-                <Trans id="marketplace.tonnes.short">t</Trans>
-              </span>{" "}
-              at
-              <span className="number">
-                {formatPrice(activity.price, locale)}
-              </span>
-            </Text>
+            {!!activity.amount && activity.price && (
+              <Text t="caption">
+                <span className="number">
+                  {formatTonnes(activity.amount, locale)}
+                  <Trans id="marketplace.tonnes.short">t</Trans>
+                </span>{" "}
+                at
+                <span className="number">
+                  {formatPrice(activity.price, locale)}
+                </span>
+              </Text>
+            )}
           </div>
         ))}
     </Card>

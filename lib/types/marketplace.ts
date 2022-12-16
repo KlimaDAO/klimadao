@@ -48,14 +48,14 @@ export type Listing = {
 
 export type Activity = {
   id: number;
-  activityType: string; // CreatedListing, ...
-  amount: BigNumber;
-  previousAmount: BigNumber;
-  price: BigNumber;
-  previousPrice: BigNumber;
+  activityType: string; // CreatedListing, DeletedListing, UpdatedPrice ...
+  amount: BigNumber | null;
+  previousAmount: BigNumber | null;
+  price: BigNumber | null;
+  previousPrice: BigNumber | null;
   timeStamp: number;
   batchPrices: [];
-  singleUnitPrice: BigNumber;
+  singleUnitPrice: BigNumber | null;
   project: {
     id: string;
     key: string;
