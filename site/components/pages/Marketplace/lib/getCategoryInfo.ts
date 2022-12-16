@@ -14,7 +14,7 @@ import BatterySaverIcon from "@mui/icons-material/BatterySaver";
 // import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 // import AgricultureOutlinedIcon from "@mui/icons-material/AgricultureOutlined";
 // import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionManufacturingOutlined";
-import { SvgIconProps } from "@mui/material/SvgIcon";
+import SvgIcon from "@mui/material/SvgIcon";
 
 import { StaticImageData } from "next/legacy/image";
 
@@ -23,7 +23,7 @@ type CategoryInfoMap = {
     key: Category;
     imageSrc: StaticImageData;
     label: string;
-    icon: (props: SvgIconProps) => JSX.Element;
+    icon: typeof SvgIcon;
     color: string;
   };
 };
