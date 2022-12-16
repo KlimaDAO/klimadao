@@ -3,7 +3,7 @@ import { utils } from "ethers";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
 import { t } from "@lingui/macro";
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Text, ConnectModal } from "@klimadao/lib/components";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 
 import { PageHead } from "components/PageHead";
@@ -37,14 +37,12 @@ export const Pledge: NextPage = () => {
     setSubmitting(false);
   };
 
-  const { address, connect, isConnected } = useWeb3();
+  const { address } = useWeb3();
 
   const [shouldRedirect, setShouldRedirect] = useState(false);
 
   const handleCreatePledge = async () => {
     setShouldRedirect(true);
-
-    if (!isConnected && connect) connect();
   };
 
   useEffect(() => {
@@ -100,14 +98,48 @@ export const Pledge: NextPage = () => {
               </Text>
 
               <div className="actions">
-                <ButtonPrimary
-                  onClick={handleCreatePledge}
-                  variant="blue"
-                  label={t({
-                    message: "Create a pledge",
-                    id: "pledges.home.hero.create",
-                  })}
-                />
+                {address ? (
+                  <ButtonPrimary
+                    onClick={handleCreatePledge}
+                    variant="blue"
+                    label={t({
+                      message: "Create a pledge",
+                      id: "pledges.home.hero.create",
+                    })}
+                  />
+                ) : (
+                  <ConnectModal
+                    errorMessage={t({
+                      message:
+                        "We had some trouble connecting. Please try again.",
+                      id: "connect_modal.error_message",
+                    })}
+                    torusText={t({
+                      message: "or continue with",
+                      id: "connectModal.continue",
+                    })}
+                    titles={{
+                      connect: t({
+                        id: "connect_modal.sign_in",
+                        message: "Sign In / Connect",
+                      }),
+                      loading: t({
+                        id: "connect_modal.connecting",
+                        message: "Connecting...",
+                      }),
+                      error: t({
+                        id: "connect_modal.error_title",
+                        message: "Connection Error",
+                      }),
+                    }}
+                    buttonText={t({
+                      message: "Create a pledge",
+                      id: "pledges.home.hero.create",
+                    })}
+                    onClose={handleCreatePledge}
+                  />
+                )}
+
                 <ButtonPrimary
                   variant="gray"
                   href="/blog/klima-infinity-user-guide/"
@@ -283,14 +315,46 @@ export const Pledge: NextPage = () => {
               </li>
             </ol>
 
-            <ButtonPrimary
-              onClick={handleCreatePledge}
-              variant="blue"
-              label={t({
-                id: "pledges.home.get_started.create",
-                message: "Create a pledge",
-              })}
-            />
+            {address ? (
+              <ButtonPrimary
+                onClick={handleCreatePledge}
+                variant="blue"
+                label={t({
+                  message: "Create a pledge",
+                  id: "pledges.home.hero.create",
+                })}
+              />
+            ) : (
+              <ConnectModal
+                errorMessage={t({
+                  message: "We had some trouble connecting. Please try again.",
+                  id: "connect_modal.error_message",
+                })}
+                torusText={t({
+                  message: "or continue with",
+                  id: "connectModal.continue",
+                })}
+                titles={{
+                  connect: t({
+                    id: "connect_modal.sign_in",
+                    message: "Sign In / Connect",
+                  }),
+                  loading: t({
+                    id: "connect_modal.connecting",
+                    message: "Connecting...",
+                  }),
+                  error: t({
+                    id: "connect_modal.error_title",
+                    message: "Connection Error",
+                  }),
+                }}
+                buttonText={t({
+                  message: "Create a pledge",
+                  id: "pledges.home.hero.create",
+                })}
+                onClose={handleCreatePledge}
+              />
+            )}
           </section>
 
           <section className={styles.banner}>
@@ -304,14 +368,47 @@ export const Pledge: NextPage = () => {
                 Create your pledge and go climate positive
               </Text>
 
-              <ButtonPrimary
-                onClick={handleCreatePledge}
-                variant="blue"
-                label={t({
-                  id: "pledges.home.banner.create",
-                  message: "Create a pledge",
-                })}
-              />
+              {address ? (
+                <ButtonPrimary
+                  onClick={handleCreatePledge}
+                  variant="blue"
+                  label={t({
+                    message: "Create a pledge",
+                    id: "pledges.home.hero.create",
+                  })}
+                />
+              ) : (
+                <ConnectModal
+                  errorMessage={t({
+                    message:
+                      "We had some trouble connecting. Please try again.",
+                    id: "connect_modal.error_message",
+                  })}
+                  torusText={t({
+                    message: "or continue with",
+                    id: "connectModal.continue",
+                  })}
+                  titles={{
+                    connect: t({
+                      id: "connect_modal.sign_in",
+                      message: "Sign In / Connect",
+                    }),
+                    loading: t({
+                      id: "connect_modal.connecting",
+                      message: "Connecting...",
+                    }),
+                    error: t({
+                      id: "connect_modal.error_title",
+                      message: "Connection Error",
+                    }),
+                  }}
+                  buttonText={t({
+                    message: "Create a pledge",
+                    id: "pledges.home.hero.create",
+                  })}
+                  onClose={handleCreatePledge}
+                />
+              )}
             </div>
           </section>
         </div>

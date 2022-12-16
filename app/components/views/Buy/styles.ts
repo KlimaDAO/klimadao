@@ -121,3 +121,7 @@ export const address = css`
   text-align: center;
   color: var(--gray);
 `;
+
+export const connect_button = css`
+  width: 100%;
+`;

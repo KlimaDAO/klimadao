@@ -172,3 +172,7 @@ export const checkboxContainer = css`
 export const checkbox = css`
   color: var(--font-01);
 `;
+
+export const connect_button = css`
+  width: 100%;
+`;

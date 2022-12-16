@@ -180,3 +180,7 @@ export const input = css`
     color: var(--warn);
   }
 `;
+
+export const connect_button = css`
+  width: 100%;
+`;
