@@ -15,6 +15,13 @@ export type Footprint = {
   categories: Category[];
 };
 
+export type Wallet = {
+  address: string;
+  status: string;
+  saved: boolean;
+  id?: string;
+};
+
 export type Pledge = {
   id: string;
   ownerAddress: string;
@@ -25,6 +32,7 @@ export type Pledge = {
   description: string;
   methodology: string;
   footprint: Footprint[];
+  wallets?: { [address: string]: Wallet };
   createdAt?: number;
   updatedAt?: number;
 };

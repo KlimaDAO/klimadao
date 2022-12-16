@@ -31,6 +31,7 @@ const GetStartedModal = (props: Props) => {
         <Link
           href={urls.creolBusinessCalculator}
           className={styles.modalButtonContainer}
+          passHref
         >
           <div className="overlay" />
           <Image
@@ -53,6 +54,7 @@ const GetStartedModal = (props: Props) => {
         <Link
           href={urls.creolIndividualCalculator}
           className={styles.modalButtonContainer}
+          passHref
         >
           <div className="overlay" />
           <Image
@@ -76,6 +78,7 @@ const GetStartedModal = (props: Props) => {
         <Link
           href={urls.cryptoOffsetCalculator}
           className={styles.modalButtonContainer}
+          passHref
         >
           <div className="overlay" />
           <Image
@@ -96,7 +99,7 @@ const GetStartedModal = (props: Props) => {
             <ArrowForwardIcon fontSize="inherit" />
           </Text>
         </Link>
-        <Link href={urls.klimaInfinityContactForm}>
+        <Link href={urls.klimaInfinityContactForm} passHref>
           <Text t="caption" className={styles.modalLink}>
             <Trans id="infinity.getStartedModal_needAssistance">
               I'd like assistance with my organization's carbon footprint.

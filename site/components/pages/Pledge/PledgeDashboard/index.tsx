@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "components/Modal";
 import { PageHead } from "components/PageHead";
 
+import { AcceptModal, RemoveModal } from "../InvitationModals";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
 import { Holding, Pledge } from "../types";
@@ -31,15 +32,74 @@ type Props = {
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
   const { address, isConnected } = useWeb3();
-  const [showModal, setShowModal] = useState(false);
-  const [pledge, setPledge] = useState<Pledge>(props.pledge);
+  const [showFormModal, setShowFormModal] = useState(false);
+  const [isDeleteMode, setIsDeleteMode] = useState(false);
+  const [pledge, setPledge] = useState<Pledge>();
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
+  const [showAcceptModal, setShowAcceptModal] = useState(false);
+  const [canEditPledge, setCanEditPledge] = useState<boolean | undefined>(
+    false
+  );
+  const [isUnverifiedSecondaryWallet, setIsUnverifiedSecondaryWallet] =
+    useState<boolean | undefined>();
+  const [isVerifiedSecondaryWallet, setIsVerifiedSecondaryWallet] = useState<
+    boolean | undefined
+  >();
+  useEffect(() => {
+    props.pledge &&
+      setIsUnverifiedSecondaryWallet(
+        props.pledge.wallets &&
+          Object.values(props.pledge.wallets)?.some(
+            (wallet) =>
+              wallet.address?.toLowerCase() === address?.toLowerCase() &&
+              wallet.status === "pending"
+          )
+      );
+  }, [props.pledge, address]);
+  useEffect(() => {
+    props.pledge &&
+      setIsVerifiedSecondaryWallet(
+        props.pledge.wallets &&
+          Object.values(props.pledge.wallets)?.some(
+            (wallet) =>
+              wallet.address?.toLowerCase() === address?.toLowerCase() &&
+              wallet.status === "verified"
+          )
+      );
+  }, [props.pledge, address]);
+  useEffect(() => {
+    setPledge(props.pledge);
+  }, [props.pledge]);
 
-  const canEditPledge =
-    address?.toLowerCase() === props.pageAddress && isConnected;
+  useEffect(() => {
+    setCanEditPledge(
+      (address?.toLowerCase() === props.pageAddress?.toLowerCase() &&
+        isConnected) ||
+        isVerifiedSecondaryWallet
+    );
+  }, [isVerifiedSecondaryWallet, props.pageAddress, address]);
+
+  useEffect(() => {
+    isUnverifiedSecondaryWallet && setShowAcceptModal(true);
+  }, [isUnverifiedSecondaryWallet]);
+
+  const isPledgeOwner =
+    address?.toLowerCase() === props.pageAddress?.toLowerCase() && isConnected;
 
   const handleFormSubmit = async (data: Pledge) => {
     setPledge(data);
-    setShowModal(false);
+    setShowFormModal(false);
+  };
+
+  const handleRemove = () => {
+    setCanEditPledge(false);
+    setIsVerifiedSecondaryWallet(false);
+    setIsUnverifiedSecondaryWallet(false);
+  };
+  const handleAccept = () => {
+    setCanEditPledge(true);
+    setIsVerifiedSecondaryWallet(true);
+    setIsUnverifiedSecondaryWallet(false);
   };
 
   /**
@@ -48,19 +108,21 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
    */
   useEffect(() => {
     const escListener = (e: KeyboardEvent) =>
-      e.key === "Escape" && showModal && setShowModal(false);
+      e.key === "Escape" && showFormModal && setShowFormModal(false);
 
     window.addEventListener("keydown", escListener);
     return () => window.removeEventListener("keydown", escListener);
   }, []);
-
+  if (!pledge) return null;
   const pledgeOwnerTitle =
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
   const currentTotalFootprint =
     pledge.footprint[pledge.footprint.length - 1].total.toString();
-
   return (
-    <PledgeLayout canEditPledge={canEditPledge} toggleEditModal={setShowModal}>
+    <PledgeLayout
+      canEditPledge={canEditPledge}
+      toggleEditModal={isPledgeOwner ? setShowFormModal : setShowRemoveModal}
+    >
       <PageHead
         title={t({
           id: "pledges.dashboard.head.title",
@@ -76,15 +138,48 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         })}
         canonicalUrl={props.canonicalUrl}
       />
+      <AcceptModal
+        pledge={props.pledge}
+        pageAddress={props.pageAddress}
+        showAcceptModal={showAcceptModal}
+        setShowAcceptModal={setShowAcceptModal}
+        handleModalFormSubmit={handleAccept}
+        address={address}
+      />
+      <RemoveModal
+        pledge={props.pledge}
+        pageAddress={props.pageAddress}
+        showRemoveModal={showRemoveModal}
+        setShowRemoveModal={setShowRemoveModal}
+        handleModalFormSubmit={handleRemove}
+        address={address}
+      />
+      {/* conditional props are used here because unmounting the modal will clear form state when `isDeleteMode` is changed */}
       <Modal
-        title={t({ id: "pledges.form.title", message: "Your Pledge" })}
-        showModal={showModal}
-        onToggleModal={() => setShowModal(!showModal)}
+        title={
+          !isDeleteMode
+            ? t({
+                id: "pledges.form.title",
+                message: "Your pledge",
+              })
+            : t({
+                id: "pledges.form.confirm_delete",
+                message: "confirm removal",
+              })
+        }
+        showModal={showFormModal}
+        onToggleModal={() =>
+          isDeleteMode
+            ? setIsDeleteMode(false)
+            : setShowFormModal(!showFormModal)
+        }
       >
         <PledgeForm
           pageAddress={props.pageAddress}
           pledge={pledge}
           onFormSubmit={handleFormSubmit}
+          setIsDeleteMode={setIsDeleteMode}
+          isDeleteMode={isDeleteMode}
         />
       </Modal>
 
@@ -105,6 +200,10 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
           <RetirementsCard
             retirements={props.retirements}
             pageAddress={props.pageAddress}
+            secondaryWallets={
+              props.pledge.wallets && Object.values(props.pledge.wallets)
+            }
+            isPledgeOwner={isPledgeOwner}
           />
           <AssetBalanceCard
             holdings={props.holdings}

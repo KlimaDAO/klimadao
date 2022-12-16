@@ -18,23 +18,42 @@ export default async function handler(
           pageAddress: req.body.pageAddress,
           pledge: req.body.pledge,
           signature,
+          secondaryWalletAddress: req.body.secondaryWalletAddress,
+          action: req.body.action,
+          // url in here?
         });
 
         if (!pledge) {
-          throw new Error(
+          const e = new Error(
             `Failed put pledge request (address: ${req.body.pageAddress})`
           );
+          e.name = "FailedRequest";
+          throw e;
         }
 
         await res.revalidate(req.body.urlPath);
         res.status(200).json({ pledge });
-      } catch ({ message }) {
-        console.error("Request failed:", message);
-        res.status(500).json({ message: "Internal server error" });
+      } catch (e: any) {
+        console.error("Request failed:", e.message);
+        if (e instanceof Error) {
+          if (e.name === "WalletAlreadyPinned") {
+            return res.status(403).json({ message: e.message, name: e.name });
+          } else {
+            return res.status(500).json({ message: e.message, name: e.name });
+          }
+        } else {
+          return res.status(500).json({
+            message: "Unknown error, check server logs",
+            name: "UnknownError",
+          });
+        }
       }
       break;
     default:
       res.setHeader("Allow", ["PUT"]);
-      res.status(405).end(`Method ${req.method} Not Allowed`);
+      res.status(405).end({
+        message: `Method ${req.method} Not Allowed`,
+        name: "MethodNotAllowed",
+      });
   }
 }

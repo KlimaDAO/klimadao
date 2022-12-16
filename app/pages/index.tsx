@@ -6,7 +6,6 @@ import { Home } from "components/views/Home";
 import { WithIsomorphicRouter } from "components/WithIsomorphicRouter";
 import { WithRedux } from "components/WithRedux";
 import { IS_PRODUCTION } from "lib/constants";
-import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
 import { NextPage } from "next";
 import { ReactNode } from "react";
 import { useSelector } from "react-redux";
@@ -24,11 +23,7 @@ export async function getStaticProps() {
 /** Wrap in component so we can render as child of WithRedux and invoke useSelector */
 const LocalizedWeb3ContextProvider = (props: { children: ReactNode }) => {
   useSelector(selectLocale); // trigger re-render
-  return (
-    <Web3ContextProvider strings={getWeb3ModalStrings()}>
-      {props.children}
-    </Web3ContextProvider>
-  );
+  return <Web3ContextProvider>{props.children}</Web3ContextProvider>;
 };
 
 const HomePage: NextPage = () => {

@@ -58,7 +58,7 @@ export const getENSProfile = async (params: {
 
     return null;
   } catch (error) {
-    console.log("getENS error", error);
+    console.error("getENS error", error);
     return Promise.reject(error);
   }
 };

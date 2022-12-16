@@ -1,5 +1,4 @@
-import { ButtonPrimary, KlimaInfinityLogoOnly } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { ConnectModal, KlimaInfinityLogoOnly } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import dynamic from "next/dynamic";
 import { FC } from "react";
@@ -19,13 +18,11 @@ interface Props {
 }
 
 export const HeaderMobile: FC<Props> = (props) => {
-  const { address, connect, disconnect, isConnected } = useWeb3();
-
   return (
     <div className={styles.headerMobileWrap}>
       <header className={styles.headerMobile}>
         <div className={styles.mainLogoMobile}>
-          <Link href={"/pledge"}>
+          <Link href={"/pledge"} passHref>
             <KlimaInfinityLogoOnly />
           </Link>
         </div>
@@ -42,19 +39,31 @@ export const HeaderMobile: FC<Props> = (props) => {
             </button>
           )}
 
-          {isConnected && address ? (
-            <ButtonPrimary
-              className={styles.authButton}
-              label={concatAddress(address)}
-              onClick={disconnect}
-            />
-          ) : (
-            <ButtonPrimary
-              className={styles.authButton}
-              label={t({ id: "shared.connect", message: "Connect" })}
-              onClick={connect}
-            />
-          )}
+          <ConnectModal
+            errorMessage={t({
+              message: "We had some trouble connecting. Please try again.",
+              id: "connect_modal.error_message",
+            })}
+            torusText={t({
+              message: "or continue with",
+              id: "connectModal.continue",
+            })}
+            titles={{
+              connect: t({
+                id: "connect_modal.sign_in",
+                message: "Sign In / Connect",
+              }),
+              loading: t({
+                id: "connect_modal.connecting",
+                message: "Connecting...",
+              }),
+              error: t({
+                id: "connect_modal.error_title",
+                message: "Connection Error",
+              }),
+            }}
+            buttonText={t({ id: "shared.connect", message: "Connect" })}
+          />
         </div>
       </header>
     </div>

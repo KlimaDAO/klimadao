@@ -418,7 +418,7 @@ export const bondTransaction = async (params: {
       await txn.wait(1);
       params.onStatus("done", "Bond acquired successfully");
     } catch (error: any) {
-      console.log(error);
+      console.error(error);
       if (error.code === 4001) {
         params.onStatus("error", "userRejected");
         throw error;

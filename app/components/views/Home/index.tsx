@@ -23,13 +23,14 @@ import { Wrap } from "components/views/Wrap";
 
 import { initLocale } from "lib/i18n";
 
+import { ConnectModal } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { NavMenu } from "components/NavMenu";
 import { setAppState } from "state/app";
-import { ConnectButton } from "../../ConnectButton";
 import { Buy } from "../Buy";
 import * as styles from "./styles";
 
@@ -140,14 +141,30 @@ export const Home: FC = () => {
               />
             </div>
             <ChangeLanguageButton />
-            <ConnectButton
-              isConnected={web3.isConnected}
-              loadWeb3Modal={async () => {
-                await web3.connect?.();
+            <ConnectModal
+              errorMessage={t({
+                message: "We had some trouble connecting. Please try again.",
+                id: "connect_modal.error_message",
+              })}
+              torusText={t({
+                message: "or continue with",
+                id: "connectModal.continue",
+              })}
+              titles={{
+                connect: t({
+                  id: "connect_modal.sign_in",
+                  message: "Sign In / Connect",
+                }),
+                loading: t({
+                  id: "connect_modal.connecting",
+                  message: "Connecting...",
+                }),
+                error: t({
+                  id: "connect_modal.error_title",
+                  message: "Connection Error",
+                }),
               }}
-              disconnect={async () => {
-                await web3.disconnect?.();
-              }}
+              buttonText={t({ id: "shared.connect", message: "Connect" })}
             />
           </div>
           <IsomorphicRoutes>
@@ -158,9 +175,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                 />
               }
             />
@@ -171,9 +185,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                 />
               }
             />
@@ -184,9 +195,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                 />
               }
             />
@@ -197,9 +205,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                 />
               }
             />
@@ -210,9 +215,6 @@ export const Home: FC = () => {
                   address={web3.address}
                   provider={web3.provider}
                   isConnected={web3.isConnected}
-                  loadWeb3Modal={async () => {
-                    await web3.connect?.();
-                  }}
                   onRPCError={handleRPCError}
                 />
               }
@@ -226,9 +228,6 @@ export const Home: FC = () => {
                   path={`/bonds/${bond}`}
                   element={
                     <Bond
-                      loadWeb3Modal={async () => {
-                        await web3.connect?.();
-                      }}
                       provider={web3.provider}
                       address={web3.address}
                       bond={bond}

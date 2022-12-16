@@ -1,7 +1,13 @@
 import isEqual from "lodash/isEqual";
 import sortBy from "lodash/sortBy";
 import { generateNonce } from ".";
-import { Category, Footprint, Pledge, PledgeFormValues } from "../types";
+import {
+  Category,
+  Footprint,
+  Pledge,
+  PledgeFormValues,
+  Wallet,
+} from "../types";
 
 const buildFootprint = (
   currentFootprint: Footprint[],
@@ -48,6 +54,7 @@ export const createPledgeAttributes = (params: createPledgeParams): Pledge => {
     ],
     createdAt: Date.now(),
     updatedAt: Date.now(),
+    wallets: {},
   };
 };
 
@@ -58,7 +65,17 @@ interface putPledgeParams {
 
 export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
   const { categories, ...rest } = params.newPledgeValues;
-
+  const formatWalletsForApi = (wallets: Wallet[] | undefined) => {
+    if (!wallets) return undefined;
+    const formattedWallets: {
+      [address: string]: { address: string; saved: boolean; status: string };
+    } = {};
+    wallets.map(
+      (wallet: { address: string; status: string; saved: boolean }) =>
+        (formattedWallets[wallet.address] = wallet)
+    );
+    return formattedWallets;
+  };
   return {
     ...params.currentPledgeValues,
     ...rest,
@@ -69,6 +86,9 @@ export const putPledgeAttributes = (params: putPledgeParams): Pledge => {
       params.currentPledgeValues.footprint,
       categories,
       params.newPledgeValues.footprint
+    ),
+    wallets: formatWalletsForApi(
+      params.newPledgeValues.wallets as unknown as Wallet[]
     ),
   };
 };

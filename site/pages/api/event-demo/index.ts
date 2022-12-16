@@ -86,7 +86,7 @@ const eventDemo: NextApiHandler<RetirementData | APIDefaultResponse> = async (
 
     res.status(200).json(response);
   } catch (e) {
-    console.log(e);
+    console.error(e);
     if (e instanceof Error) {
       res.status(500).json({ message: e.message });
       return;

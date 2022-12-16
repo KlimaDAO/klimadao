@@ -1,5 +1,8 @@
-import { ButtonPrimary, KlimaInfinityLogo } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import {
+  ButtonPrimary,
+  ConnectModal,
+  KlimaInfinityLogo,
+} from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -17,13 +20,11 @@ type Props = {
 };
 
 export const HeaderDesktop: FC<Props> = (props) => {
-  const { address, connect, disconnect, isConnected } = useWeb3();
-
   return (
     <div className={styles.headerDesktop}>
       <div className={styles.mainHeader}>
         <div className={styles.logo}>
-          <Link href={"/pledge"}>
+          <Link href={"/pledge"} passHref>
             <KlimaInfinityLogo />
           </Link>
         </div>
@@ -39,15 +40,31 @@ export const HeaderDesktop: FC<Props> = (props) => {
             onClick={() => props.toggleEditModal?.(true)}
           />
         )}
-
-        {isConnected && address ? (
-          <ButtonPrimary label={concatAddress(address)} onClick={disconnect} />
-        ) : (
-          <ButtonPrimary
-            label={t({ id: "shared.connect", message: "Connect" })}
-            onClick={connect}
-          />
-        )}
+        <ConnectModal
+          errorMessage={t({
+            message: "We had some trouble connecting. Please try again.",
+            id: "connect_modal.error_message",
+          })}
+          torusText={t({
+            message: "or continue with",
+            id: "connectModal.continue",
+          })}
+          titles={{
+            connect: t({
+              id: "connect_modal.sign_in",
+              message: "Sign In / Connect",
+            }),
+            loading: t({
+              id: "connect_modal.connecting",
+              message: "Connecting...",
+            }),
+            error: t({
+              id: "connect_modal.error_title",
+              message: "Connection Error",
+            }),
+          }}
+          buttonText={t({ id: "shared.connect", message: "Connect" })}
+        />
       </div>
     </div>
   );

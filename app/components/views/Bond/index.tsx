@@ -24,6 +24,7 @@ import { t, Trans } from "@lingui/macro";
 import {
   ButtonBaseProps,
   ButtonPrimary,
+  ConnectModal,
   Spinner,
   Text,
   TextInfoTooltip,
@@ -106,7 +107,6 @@ interface Props {
   address?: string;
   bond: BondType;
   isConnected?: boolean;
-  loadWeb3Modal: () => void;
 }
 
 export const Bond: FC<Props> = (props) => {
@@ -389,6 +389,42 @@ export const Bond: FC<Props> = (props) => {
     );
   };
 
+  const getButton = () => {
+    if (!props.isConnected || !props.address) {
+      return (
+        <ConnectModal
+          errorMessage={t({
+            message: "We had some trouble connecting. Please try again.",
+            id: "connect_modal.error_message",
+          })}
+          torusText={t({
+            message: "or continue with",
+            id: "connectModal.continue",
+          })}
+          titles={{
+            connect: t({
+              id: "connect_modal.sign_in",
+              message: "Sign In / Connect",
+            }),
+            loading: t({
+              id: "connect_modal.connecting",
+              message: "Connecting...",
+            }),
+            error: t({
+              id: "connect_modal.error_title",
+              message: "Connection Error",
+            }),
+          }}
+          buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonClassName={styles.connect_button}
+        />
+      );
+    }
+    return (
+      <ButtonPrimary {...getButtonProps()} className={styles.submitButton} />
+    );
+  };
+
   const getButtonProps = (): ButtonBaseProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
@@ -398,12 +434,6 @@ export const Bond: FC<Props> = (props) => {
         label: <Trans id="shared.sold_out">Sold Out</Trans>,
         onClick: undefined,
         disabled: true,
-      };
-    } else if (!props.isConnected || !props.address) {
-      return {
-        label: <Trans id="shared.connect_wallet">Connect wallet</Trans>,
-        onClick: props.loadWeb3Modal,
-        disabled: false,
       };
     } else if (isLoading) {
       return {
@@ -1037,10 +1067,7 @@ export const Bond: FC<Props> = (props) => {
               <Box
                 sx={{ display: "flex", flexDirection: "column", width: "100%" }}
               >
-                <ButtonPrimary
-                  {...getButtonProps()}
-                  className={styles.submitButton}
-                />
+                {getButton()}
                 {viewIsReedem && !showSpinner && (
                   <div className={styles.checkboxContainer}>
                     <Checkbox

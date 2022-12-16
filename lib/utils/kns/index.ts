@@ -71,7 +71,7 @@ export const getKNSProfile = async (params: {
 
     return await getDefaultKNSProfile(domainName);
   } catch (error) {
-    console.log("Error in getKNSProfile", error);
+    console.error("Error in getKNSProfile", error);
     return Promise.reject(error);
   }
 };

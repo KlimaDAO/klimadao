@@ -5,7 +5,6 @@ import "@klimadao/lib/theme/variables.css";
 import { useTabListener } from "@klimadao/lib/utils";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
-import { getWeb3ModalStrings } from "lib/getWeb3ModalStrings";
 import type { AppProps } from "next/app";
 import Script from "next/script";
 import { useEffect, useRef } from "react";
@@ -59,7 +58,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <Web3ContextProvider strings={getWeb3ModalStrings()}>
+      <Web3ContextProvider>
         <I18nProvider i18n={i18n}>
           <GridContainer>
             <Component {...pageProps} />

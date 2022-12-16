@@ -1,12 +1,17 @@
 export { Anchor } from "./Anchor";
-/** Types */
 export type { ButtonBaseProps } from "./Buttons/ButtonBase";
 export { ButtonPrimary } from "./Buttons/ButtonPrimary";
 export { ButtonSecondary } from "./Buttons/ButtonSecondary";
+export { ConnectModal } from "./ConnectModal";
 export { CopyAddressButton } from "./CopyAddressButton";
+export { BraveIcon } from "./Icons/BraveIcon";
+export { CoinbaseWalletIcon } from "./Icons/CoinbaseWalletIcon";
+export { DiscordColorIcon } from "./Icons/DiscordColorIcon";
 export { DiscordIcon } from "./Icons/DiscordIcon";
+export { FacebookColorIcon } from "./Icons/FacebookColorIcon";
 export { FacebookIcon } from "./Icons/FacebookIcon";
 export { GithubIcon } from "./Icons/GithubIcon";
+export { GoogleIcon } from "./Icons/GoogleIcon";
 export { LinkedInIcon } from "./Icons/LinkedInIcon";
 export { MetaMaskFoxIcon } from "./Icons/MetaMaskFoxIcon";
 export { RedditIcon } from "./Icons/RedditIcon";
@@ -16,6 +21,7 @@ export { TelegramIcon } from "./Icons/TelegramIcon";
 export { ThemeMoonIcon } from "./Icons/ThemeMoonIcon";
 export { ThemeSunIcon } from "./Icons/ThemeSunIcon";
 export { TwitterIcon } from "./Icons/TwitterIcon";
+export { WalletConnectIcon } from "./Icons/WalletConnectIcon";
 export { YoutubeIcon } from "./Icons/YoutubeIcon";
 export { InitializeTheme } from "./InitializeTheme";
 export { GridContainer } from "./Layout/GridContainer";

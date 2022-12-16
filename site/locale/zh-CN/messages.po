@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-13 15:39+0000\n"
+"POT-Creation-Date: 2022-12-16 00:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -338,6 +338,46 @@ msgstr "我们与传统的碳市场参与者、加密平台、公司以及介于
 #: components/pages/About/Contact/index.tsx:63
 msgid "concat.careers"
 msgstr "职业生涯"
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderMobile/index.tsx:46
+#: components/pages/Pledge/index.tsx:117
+#: components/pages/Pledge/index.tsx:333
+#: components/pages/Pledge/index.tsx:387
+msgid "connectModal.continue"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:56
+#: components/pages/Pledge/HeaderMobile/index.tsx:55
+#: components/pages/Pledge/index.tsx:126
+#: components/pages/Pledge/index.tsx:342
+#: components/pages/Pledge/index.tsx:396
+msgid "connect_modal.connecting"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:43
+#: components/pages/Pledge/HeaderMobile/index.tsx:42
+#: components/pages/Pledge/index.tsx:112
+#: components/pages/Pledge/index.tsx:329
+#: components/pages/Pledge/index.tsx:382
+msgid "connect_modal.error_message"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:60
+#: components/pages/Pledge/HeaderMobile/index.tsx:59
+#: components/pages/Pledge/index.tsx:130
+#: components/pages/Pledge/index.tsx:346
+#: components/pages/Pledge/index.tsx:400
+msgid "connect_modal.error_title"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:52
+#: components/pages/Pledge/HeaderMobile/index.tsx:51
+#: components/pages/Pledge/index.tsx:122
+#: components/pages/Pledge/index.tsx:338
+#: components/pages/Pledge/index.tsx:392
+msgid "connect_modal.sign_in"
+msgstr ""
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -736,19 +776,19 @@ msgstr "在几秒钟内抵消，没有繁文缛节"
 msgid "infinity.fast_title"
 msgstr "快速地"
 
-#: components/pages/Infinity/GetStartedModal.tsx:47
+#: components/pages/Infinity/GetStartedModal.tsx:48
 msgid "infinity.getStartedModal_business"
 msgstr "我是一个<0/>企业。"
 
-#: components/pages/Infinity/GetStartedModal.tsx:69
+#: components/pages/Infinity/GetStartedModal.tsx:71
 msgid "infinity.getStartedModal_individual"
 msgstr "我是一个<0/>个人。"
 
-#: components/pages/Infinity/GetStartedModal.tsx:102
+#: components/pages/Infinity/GetStartedModal.tsx:105
 msgid "infinity.getStartedModal_needAssistance"
 msgstr "我愿意在抵消碳足迹上协助我所在组织。"
 
-#: components/pages/Infinity/GetStartedModal.tsx:92
+#: components/pages/Infinity/GetStartedModal.tsx:95
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr "我想<0/>抵消加密货币。"
 
@@ -894,6 +934,113 @@ msgstr "投资于未来。"
 msgid "mission.header"
 msgstr "KlimaDAO 的使命是使气候行动民主化"
 
+#: components/pages/Pledge/PledgeForm/index.tsx:84
+#: components/pages/Pledge/PledgeForm/index.tsx:88
+#: components/pages/Pledge/PledgeForm/index.tsx:104
+msgid "pledge.errors.default"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:96
+msgid "pledge.errors.method_not_allowed"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:80
+msgid "pledge.errors.pledge_not_found"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:92
+msgid "pledge.errors.unknown_error"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:196
+msgid "pledge.form.error.cannot_add_yourself"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:232
+msgid "pledge.form.error.default_error_message"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:180
+msgid "pledge.form.error.duplicate_wallets"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:625
+msgid "pledge.form.wallets.confirm_remove_wallet"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:334
+msgid "pledge.form.wallets.tooltip"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:41
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:111
+msgid "pledge.invitation.accept"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:75
+msgid "pledge.invitation.error.wallet_already_pinned"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:49
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:44
+msgid "pledge.invitation.error_title"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:102
+msgid "pledge.invitation.join_message"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:130
+msgid "pledge.invitation.later"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:118
+msgid "pledge.invitation.reject"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:57
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:52
+msgid "pledge.invitation.signing"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:193
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:179
+msgid "pledge.invitations.awaiting_signature"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:199
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:185
+msgid "pledge.invitations.signature_instructions"
+msgstr "使用您的钱包签名并确认此编辑。"
+
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:129
+msgid "pledge.modal.are_you_sure"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:153
+msgid "pledge.modal.confirm"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:40
+msgid "pledge.modal.confirm_remove"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:39
+msgid "pledge.modal.edit_pledge"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:101
+msgid "pledge.modal.unable_to_edit"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:110
+msgid "pledge.modal.unpin_wallet"
+msgstr ""
+
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:144
+msgid "pledge.modal.wallet_add_confirm"
+msgstr ""
+
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
 msgstr "无碳资产可显示。"
@@ -918,15 +1065,15 @@ msgstr "{0}% 的足迹"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} 碳吨"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:73
+#: components/pages/Pledge/PledgeDashboard/index.tsx:136
 msgid "pledges.dashboard.head.metaDescription"
 msgstr "{pledgeOwnerTitle} 承诺抵消 {currentTotalFootprint} 吨碳。查看他们的碳补偿历史记录并阅读更多关于他们的承诺。"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:69
+#: components/pages/Pledge/PledgeDashboard/index.tsx:132
 msgid "pledges.dashboard.head.metaTitle"
 msgstr "{pledgeOwnerTitle}的承诺"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:65
+#: components/pages/Pledge/PledgeDashboard/index.tsx:128
 msgid "pledges.dashboard.head.title"
 msgstr "{pledgeOwnerTitle}的承诺 | KlimaDAO"
 
@@ -958,7 +1105,7 @@ msgstr "{0}% 的承诺兑现"
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "承诺抵消<0>{0}</0>碳吨"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:41
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:105
 msgid "pledges.dashboard.retirements.title"
 msgstr "碳停用"
 
@@ -966,7 +1113,7 @@ msgstr "碳停用"
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
 msgstr "{0} 停用的碳吨"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:60
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:124
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "已停用的总碳吨"
 
@@ -974,183 +1121,216 @@ msgstr "已停用的总碳吨"
 msgid "pledges.edit_pledge"
 msgstr "编辑承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:307
+#: components/pages/Pledge/PledgeForm/index.tsx:567
 msgid "pledges.form.add_footprint_category_button"
 msgstr "添加类别"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:121
+#: components/pages/Pledge/PledgeForm/index.tsx:443
+msgid "pledges.form.add_wallet_button"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:247
 msgid "pledges.form.awaiting_signature"
 msgstr "等待签名..."
 
-#: components/pages/Pledge/index.tsx:156
+#: components/pages/Pledge/PledgeDashboard/index.tsx:166
+msgid "pledges.form.confirm_delete"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:631
+msgid "pledges.form.confirm_remove"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:644
+msgid "pledges.form.confirm_remove_cancel"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:188
 msgid "pledges.form.error"
 msgstr "输入钱包地址, .klima 或 .eth 域"
 
-#: components/pages/Pledge/lib/formSchema.ts:59
+#: components/pages/Pledge/lib/formSchema.ts:74
 msgid "pledges.form.errors.categoryName.max"
 msgstr "输入字符少于 32 个"
 
-#: components/pages/Pledge/lib/formSchema.ts:55
+#: components/pages/Pledge/lib/formSchema.ts:70
 msgid "pledges.form.errors.categoryName.required"
 msgstr "输入一个类别"
 
-#: components/pages/Pledge/lib/formSchema.ts:63
+#: components/pages/Pledge/lib/formSchema.ts:78
 msgid "pledges.form.errors.categoryQuantity.min"
 msgstr "输入一个大于 0 的值"
 
-#: components/pages/Pledge/lib/formSchema.ts:35
+#: components/pages/Pledge/lib/formSchema.ts:50
 msgid "pledges.form.errors.description.max"
 msgstr "输入字符少于 500 个"
 
-#: components/pages/Pledge/lib/formSchema.ts:31
+#: components/pages/Pledge/lib/formSchema.ts:46
 msgid "pledges.form.errors.description.required"
 msgstr "输入承诺"
 
-#: components/pages/Pledge/lib/formSchema.ts:47
+#: components/pages/Pledge/lib/formSchema.ts:62
 msgid "pledges.form.errors.footprint.generic_error"
 msgstr "输入估算值碳吨"
 
-#: components/pages/Pledge/lib/formSchema.ts:51
+#: components/pages/Pledge/lib/formSchema.ts:66
 msgid "pledges.form.errors.footprint.min"
 msgstr "输入一个大于 0 的值"
 
-#: components/pages/Pledge/lib/formSchema.ts:43
+#: components/pages/Pledge/lib/formSchema.ts:58
 msgid "pledges.form.errors.methodology.max"
 msgstr "输入字符少于 1000 个"
 
-#: components/pages/Pledge/lib/formSchema.ts:39
+#: components/pages/Pledge/lib/formSchema.ts:54
 msgid "pledges.form.errors.methodology.required"
 msgstr "输入方法"
 
-#: components/pages/Pledge/lib/formSchema.ts:19
+#: components/pages/Pledge/lib/formSchema.ts:34
 msgid "pledges.form.errors.name.required"
 msgstr "输入名称"
 
-#: components/pages/Pledge/lib/formSchema.ts:23
+#: components/pages/Pledge/lib/formSchema.ts:38
 msgid "pledges.form.errors.profileImageUrl.url"
 msgstr "输入有效的网址"
 
-#: components/pages/Pledge/lib/formSchema.ts:27
+#: components/pages/Pledge/lib/formSchema.ts:42
 msgid "pledges.form.errors.profileWebsiteUrl.url"
 msgstr "输入有效的网址"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:232
+#: components/pages/Pledge/lib/formSchema.ts:86
+msgid "pledges.form.errors.walletAddress.isAddress"
+msgstr ""
+
+#: components/pages/Pledge/lib/formSchema.ts:90
+msgid "pledges.form.errors.walletAddress.isOwner"
+msgstr ""
+
+#: components/pages/Pledge/lib/formSchema.ts:82
+msgid "pledges.form.errors.walletAddress.required"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:488
 msgid "pledges.form.footprint.label"
 msgstr "足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:237
+#: components/pages/Pledge/PledgeForm/index.tsx:496
 msgid "pledges.form.footprint.prompt"
 msgstr "添加一个类别并开始计算您的碳足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:129
+#: components/pages/Pledge/PledgeForm/index.tsx:258
 msgid "pledges.form.generic_error"
 msgstr "出问题了。请再试一次。"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:258
+#: components/pages/Pledge/PledgeForm/index.tsx:517
 msgid "pledges.form.input.categoryName.label"
 msgstr "类别"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:250
+#: components/pages/Pledge/PledgeForm/index.tsx:509
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "分类名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:280
+#: components/pages/Pledge/PledgeForm/index.tsx:540
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "数量"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:272
+#: components/pages/Pledge/PledgeForm/index.tsx:532
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "碳吨"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:197
+#: components/pages/Pledge/PledgeForm/index.tsx:313
 msgid "pledges.form.input.description.label"
 msgstr "承诺"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:190
+#: components/pages/Pledge/PledgeForm/index.tsx:306
 msgid "pledges.form.input.description.placeholder"
 msgstr "你的承诺是什么？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:219
+#: components/pages/Pledge/PledgeForm/index.tsx:473
 msgid "pledges.form.input.methodology.label"
 msgstr "方法"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:211
+#: components/pages/Pledge/PledgeForm/index.tsx:465
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "您使用什么工具或方法来计算您的碳足迹？"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:145
+#: components/pages/Pledge/PledgeForm/index.tsx:278
 msgid "pledges.form.input.name.label"
 msgstr "名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:138
+#: components/pages/Pledge/PledgeForm/index.tsx:271
 msgid "pledges.form.input.name.placeholder"
 msgstr "姓名或公司名称"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:158
+#: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr "个人资料图片网址（可选）"
+msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:176
-msgid "pledges.form.input.profileWebsiteUrl.label"
-msgstr "网站（可选）"
-
-#: components/pages/Pledge/PledgeForm/index.tsx:324
+#: components/pages/Pledge/PledgeForm/index.tsx:584
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "总碳足迹"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:342
+#: components/pages/Pledge/PledgeForm/index.tsx:374
+msgid "pledges.form.input.walletAddress.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:366
+msgid "pledges.form.input.walletAddress.placeholder"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:604
 msgid "pledges.form.submit_button"
 msgstr "承诺"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:80
+#: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "pledges.form.title"
-msgstr "您的承诺"
+msgstr ""
 
-#: components/pages/Pledge/PledgeForm/index.tsx:47
+#: components/pages/Pledge/PledgeForm/index.tsx:57
 msgid "pledges.form.total_footprint_summary"
 msgstr "总碳足迹：{0} 碳吨"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:352
+#: components/pages/Pledge/PledgeForm/index.tsx:616
 msgid "pledges.form.use_your_wallet"
 msgstr "使用您的钱包签名并确认此编辑。"
 
-#: components/pages/Pledge/index.tsx:67
+#: components/pages/Pledge/PledgeForm/index.tsx:326
+msgid "pledges.form.wallets.label"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:65
 msgid "pledges.head.metaDescription"
 msgstr "通过您认领的仪表板来突出您的所有碳抵消活动，展示您对气候改善积极性的承诺"
 
-#: components/pages/Pledge/index.tsx:63
+#: components/pages/Pledge/index.tsx:61
 msgid "pledges.head.metaTitle"
 msgstr "创建碳承诺并展示您的影响力"
 
-#: components/pages/Pledge/index.tsx:59
+#: components/pages/Pledge/index.tsx:57
 msgid "pledges.head.title"
 msgstr "KlimaDAO |承诺"
 
-#: components/pages/Pledge/index.tsx:310
-msgid "pledges.home.banner.create"
-msgstr "创建承诺"
-
-#: components/pages/Pledge/index.tsx:289
-msgid "pledges.home.get_started.create"
-msgstr "创建承诺"
-
-#: components/pages/Pledge/index.tsx:106
+#: components/pages/Pledge/index.tsx:105
+#: components/pages/Pledge/index.tsx:135
+#: components/pages/Pledge/index.tsx:322
+#: components/pages/Pledge/index.tsx:351
+#: components/pages/Pledge/index.tsx:375
+#: components/pages/Pledge/index.tsx:405
 msgid "pledges.home.hero.create"
 msgstr "创建承诺"
 
-#: components/pages/Pledge/index.tsx:114
+#: components/pages/Pledge/index.tsx:146
 msgid "pledges.home.hero.learn_more"
 msgstr "更多内容"
 
-#: components/pages/Pledge/index.tsx:150
+#: components/pages/Pledge/index.tsx:182
 msgid "pledges.home.search.label"
 msgstr "ENS 或 0x 地址"
 
-#: components/pages/Pledge/index.tsx:144
+#: components/pages/Pledge/index.tsx:176
 msgid "pledges.home.search.placeholder"
 msgstr "输入 ENS, KNS 或 0x 地址"
 
-#: components/pages/Pledge/index.tsx:170
+#: components/pages/Pledge/index.tsx:202
 msgid "pledges.home.search.submit"
 msgstr "搜索"
 
@@ -1507,6 +1687,12 @@ msgstr "债券化 Klima"
 msgid "shared.buy"
 msgstr "购买 Klima"
 
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:161
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:118
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:147
+msgid "shared.cancel"
+msgstr ""
+
 #: components/Navigation/index.tsx:361
 msgid "shared.carbon_dashboard"
 msgstr "碳仪表板"
@@ -1522,8 +1708,12 @@ msgstr "碳仪表板"
 msgid "shared.community"
 msgstr "社区"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
-#: components/pages/Pledge/HeaderMobile/index.tsx:54
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:45
+msgid "shared.confirm"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:65
+#: components/pages/Pledge/HeaderMobile/index.tsx:64
 msgid "shared.connect"
 msgstr "连接"
 
@@ -1564,6 +1754,10 @@ msgstr "官方文档"
 #: components/pages/Home/index.tsx:115
 msgid "shared.enter_app"
 msgstr "进入App"
+
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:157
+msgid "shared.error"
+msgstr ""
 
 #: components/pages/Infinity/GetStartedModal.tsx:26
 msgid "shared.get_started"
@@ -1610,8 +1804,10 @@ msgstr "介绍"
 msgid "shared.info"
 msgstr "信息"
 
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:53
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:55
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:119
 #: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr "正在加载..."
@@ -1630,10 +1826,23 @@ msgstr "Love Letters"
 msgid "shared.offset"
 msgstr "抵消"
 
+#: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:175
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:161
+msgid "shared.okay"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:418
+msgid "shared.pending"
+msgstr ""
+
 #: components/Navigation/index.tsx:175
 #: components/Navigation/index.tsx:327
 msgid "shared.pledge"
 msgstr "如何承诺"
+
+#: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:135
+msgid "shared.remove"
+msgstr ""
 
 #: components/Navigation/index.tsx:188
 #: components/Navigation/index.tsx:343
