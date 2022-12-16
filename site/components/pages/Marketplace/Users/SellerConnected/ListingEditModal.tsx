@@ -117,17 +117,13 @@ export const ListingEditModal: FC<Props> = (props) => {
       );
       const singleUnitPrice = utils.parseUnits(inputValues.singleUnitPrice, 18);
 
-      const updatedListing = {
-        ...listingToEdit,
-        totalAmountToSell,
-        singleUnitPrice,
-      };
-
-      const withoutUpdatedListing = listings.filter(
-        (l) => l.id !== updatedListing.id
+      const newListings = listings.map((l) =>
+        l.id === listingToEdit.id
+          ? { ...l, totalAmountToSell, singleUnitPrice }
+          : l
       );
 
-      setListings([updatedListing, ...withoutUpdatedListing]); // ensure updated listing comes first until we can sort by timestamps
+      setListings(newListings);
       setListingToEdit(null);
     } catch (e) {
       console.error("Error in onUpdateListing", e);
