@@ -52,6 +52,11 @@ const buttonBase = css`
   &.link {
     ${transparent}
     text-decoration:underline;
+    text-transform: none;
+    line-height: 3.2rem;
+    font-size: inherit;
+    text-align: left;
+    font-weight: unset;
   }
 `;
 

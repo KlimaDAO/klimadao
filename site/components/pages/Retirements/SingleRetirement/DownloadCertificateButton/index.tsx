@@ -5,7 +5,6 @@ import { RetirementToken } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
-import { prettifyUrl } from "@klimadao/lib/utils";
 import { StaticImageData } from "next/legacy/image";
 import { generateCertificate } from "./generateCertificate";
 export interface DownloadCertificateButtonProps {
@@ -32,7 +31,11 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
     <ButtonPrimary
       variant="link"
       onClick={handleClick}
-      label={prettifyUrl(props.retirementUrl)}
+      // Replace occurrences of "\" with ZERO WIDTH SPACE (U+200B) to allow word break
+      label={props.retirementUrl
+        .replace("https://", "")
+        .replace("//", "/")
+        .replace(/\//g, "/\u200B")}
     />
   );
 };
