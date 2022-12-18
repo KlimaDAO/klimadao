@@ -11,7 +11,7 @@ export const retirementHeader = css`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 0.8rem;
 
   .stack {
     display: grid;
@@ -19,8 +19,12 @@ export const retirementHeader = css`
   }
 
   ${breakpoints.medium} {
-    padding: 10rem 0;
+    padding: 7.2rem 0;
   }
+`;
+
+export const overline = css`
+  font-weight: bold;
 `;
 
 export const retirementHeaderText = css`

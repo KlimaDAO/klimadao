@@ -3,6 +3,7 @@ import Image from "next/legacy/image";
 import { FC, ReactNode } from "react";
 import * as styles from "./styles";
 
+import { cx } from "@emotion/css";
 import { getImageSizes } from "@klimadao/lib/utils";
 import greenHills from "public/green_hills.png";
 import leafImage from "public/leaf.svg";
@@ -28,17 +29,21 @@ export const RetirementHeader: FC<Props> = (props) => {
       <div className="stack">
         <Image
           alt="Leaf Picture"
-          width={44}
-          height={44}
+          width={32}
+          height={32}
           src={leafImage}
           className={styles.leafImage}
         />
-        <Text t="h4" align="center" className={styles.retirementHeaderText}>
+        <Text
+          t="h5"
+          align="center"
+          className={cx(styles.retirementHeaderText, styles.overline)}
+        >
           {props.overline}
         </Text>
       </div>
       <div className="stack">
-        <Text t="h2" align="center" className={styles.retirementHeaderText}>
+        <Text t="h3" align="center" className={styles.retirementHeaderText}>
           {props.title}
         </Text>
         <Text t="badge" align="center" className={styles.retirementHeaderText}>

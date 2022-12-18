@@ -6,7 +6,7 @@ import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 import {
-  DEFAULT_VALUES,
+  DEFAULT_PLEDGE_VALUES,
   queryHoldingsByAddress,
 } from "components/pages/Pledge/lib";
 import {
@@ -93,7 +93,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
       pledge = data;
     } catch (error) {
-      pledge = { ...DEFAULT_VALUES, ownerAddress: resolvedAddress };
+      pledge = { ...DEFAULT_PLEDGE_VALUES, ownerAddress: resolvedAddress };
     }
 
     // add up retirements here
