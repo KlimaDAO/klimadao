@@ -9,7 +9,7 @@ export interface Props {
 
 export const DownloadCertificateButton: FC<Props> = (props) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
   const fileName = `retirement_${props.retirementIndex}_${props.beneficiaryAddress}.pdf`;
 
   const getCertificate = (): Promise<Response> =>
@@ -52,7 +52,7 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     return (
       <Text>
         <Trans id="retirement.single.download_certificate_error">
-          Error generating certificate.
+          Error generating certificate
         </Trans>
       </Text>
     );
