@@ -1,5 +1,4 @@
 import PDFKit from "pdfkit";
-import { StaticImageData } from "next/legacy/image";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
@@ -30,11 +29,7 @@ type Params = {
   retirementIndex: string;
   retirementMessage: string;
   retirementUrl: string;
-  tokenData: {
-    key: string;
-    icon: StaticImageData;
-    label: Uppercase<RetirementToken>;
-  };
+  retiredToken: RetirementToken;
 };
 
 const KLIMA_GREEN = "#00cc33";
@@ -115,7 +110,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
 
   const printFeatureImage = async (): Promise<void> => {
     const featureImage =
-      featureImageMap[params.tokenData.key as FeatureImageMappingKey];
+      featureImageMap[params.retiredToken as FeatureImageMappingKey];
     const featureImageBuffer = Buffer.from(featureImage, "base64");
 
     doc.image(featureImageBuffer, spacing.margin + 490, 0, {
@@ -201,7 +196,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       },
       {
         label: "Asset Retired",
-        value: params.tokenData.label,
+        value: params.retiredToken.toUpperCase(),
       },
       {
         label: "Retired on",
@@ -232,7 +227,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
       projectDetails = [
         {
           label: "Asset Retired",
-          value: params.tokenData.label,
+          value: params.retiredToken.toUpperCase(),
         },
         {
           label: "Retired on",
@@ -242,7 +237,7 @@ export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
     }
 
     const tokenImage =
-      tokenImageMap[params.tokenData.key as TokenImageMappingKey];
+      tokenImageMap[params.retiredToken as TokenImageMappingKey];
     const tokenImageBuffer = Buffer.from(tokenImage, "base64");
     doc.image(tokenImageBuffer, spacing.tokenImage.x, spacing.tokenImage.y, {
       width: 80,
