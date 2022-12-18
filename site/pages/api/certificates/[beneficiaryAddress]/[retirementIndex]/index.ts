@@ -76,7 +76,7 @@ export default async function handler(
       retirement,
       retirementIndex,
       retirementMessage: retirementIndexInfo.retirementMessage,
-      retirementUrl: `${urls.home}/${beneficiaryAddress}/${retirementIndex}`,
+      retirementUrl: `${urls.home}/retirements/${beneficiaryAddress}/${retirementIndex}`,
       projectDetails,
       retiredToken: retirementIndexInfo.typeOfToken,
     };
