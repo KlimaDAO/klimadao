@@ -58,6 +58,7 @@ export const create_pledge = css`
   a {
     margin-left: 0.5rem;
   }
+  margin-bottom: 2.4rem;
 `;
 
 export const pledge_button = css`
