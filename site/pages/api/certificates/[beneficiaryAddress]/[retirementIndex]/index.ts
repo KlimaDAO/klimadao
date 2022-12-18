@@ -79,6 +79,7 @@ export default async function handler(
     };
 
     res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Cache-Control", "max-age=86400");
     const certificate = generateCertificate(certificateParams);
     certificate.pipe(res);
     certificate.end();
