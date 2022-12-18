@@ -23,7 +23,7 @@ import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
 
-import { DownloadCertificateButtonProps } from "./DownloadCertificateButton";
+import { DownloadCertificateButton } from "./DownloadCertificateButton";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
 import { RetirementValue } from "./RetirementValue";
@@ -47,18 +47,6 @@ const LoadingCertificateButton: React.FC = () => (
     })}
   />
 );
-
-const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
-  dynamic(
-    () =>
-      import("./DownloadCertificateButton").then(
-        (mod) => mod.DownloadCertificateButton
-      ),
-    {
-      ssr: false,
-      loading: () => <LoadingCertificateButton />,
-    }
-  );
 
 type Props = {
   beneficiaryAddress: string;
