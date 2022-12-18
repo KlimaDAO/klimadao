@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
-import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
-import { t } from "@lingui/macro";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { t, Trans } from "@lingui/macro";
 
 export interface Props {
   beneficiaryAddress: string;
@@ -9,6 +9,7 @@ export interface Props {
 
 export const DownloadCertificateButton: FC<Props> = (props) => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const fileName = `retirement_${props.retirementIndex}_${props.beneficiaryAddress}.pdf`;
 
   const getCertificate = (): Promise<Response> =>
@@ -24,8 +25,8 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
     return await response.blob();
   };
 
-  const downloadCertificate = (blob: Blob) => {
-    const url = URL.createObjectURL(blob);
+  const downloadCertificate = (certificate: Blob) => {
+    const url = URL.createObjectURL(certificate);
     const a = document.createElement("a");
     document.body.appendChild(a);
     a.href = url;
@@ -41,11 +42,20 @@ export const DownloadCertificateButton: FC<Props> = (props) => {
       downloadCertificate(certificate);
       setLoading(false);
     } catch (error) {
+      setError(true);
       console.log(error);
     }
   };
 
   if (loading) return <Spinner />;
+  if (error)
+    return (
+      <Text>
+        <Trans id="retirement.single.download_certificate_error">
+          Error generating certificate.
+        </Trans>
+      </Text>
+    );
 
   return (
     <ButtonPrimary
