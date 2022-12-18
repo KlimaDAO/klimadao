@@ -1,32 +1,15 @@
 import React, { FC, useState } from "react";
+import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 
-import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
-import { RetirementToken } from "@klimadao/lib/constants";
-import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { VerraProjectDetails } from "@klimadao/lib/types/verra";
-
-import { StaticImageData } from "next/legacy/image";
-export interface DownloadCertificateButtonProps {
-  beneficiaryName: string;
+export interface Props {
   beneficiaryAddress: string;
-  projectDetails?: VerraProjectDetails;
-  retirement: KlimaRetire;
   retirementIndex: string;
-  retirementMessage: string;
-  retirementUrl: string;
-  tokenData: {
-    key: string;
-    icon: StaticImageData;
-    label: Uppercase<RetirementToken>;
-  };
 }
 
-export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
-  props
-) => {
+export const DownloadCertificateButton: FC<Props> = (props) => {
   const [loading, setLoading] = useState(false);
-  // const fileName = `retirement_${props.retirementIndex}_${props.beneficiaryAddress}.pdf`;
+  const fileName = `retirement_${props.retirementIndex}_${props.beneficiaryAddress}.pdf`;
 
   const getCertificate = (): Promise<Response> =>
     fetch(
@@ -42,14 +25,13 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
   };
 
   const downloadCertificate = (blob: Blob) => {
-    window.open(URL.createObjectURL(blob));
-    // const url = URL.createObjectURL(blob);
-    // const a = document.createElement("a");
-    // document.body.appendChild(a);
-    // a.href = url;
-    // a.download = fileName;
-    // a.click();
-    // URL.revokeObjectURL(url);
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    document.body.appendChild(a);
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const handleClick = async () => {

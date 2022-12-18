@@ -40,7 +40,7 @@ export default async function handler(
       return res.status(400).send("Invalid beneficiary address");
     }
 
-    /** Customer facing index starts from 1 */
+    /** Retirement indexes start from 0 starts from 1 */
     const index = Number(retirementIndex) - 1;
     const promises: [
       Promise<KlimaRetire | false>,
