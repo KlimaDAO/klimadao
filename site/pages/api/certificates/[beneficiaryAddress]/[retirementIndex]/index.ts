@@ -27,6 +27,7 @@ export default async function handler(
   try {
     const { beneficiaryAddress, retirementIndex } = req.query as Query;
 
+    /** Validate address params */
     if (
       !beneficiaryAddress ||
       !retirementIndex ||
@@ -39,7 +40,8 @@ export default async function handler(
       return res.status(400).send("Invalid beneficiary address");
     }
 
-    const index = Number(retirementIndex) - 1; // totals does not include index 0
+    /** Customer facing index starts from 1 */
+    const index = Number(retirementIndex) - 1;
     const promises: [
       Promise<KlimaRetire | false>,
       Promise<RetirementIndexInfoResult>
@@ -51,9 +53,9 @@ export default async function handler(
         providerUrl: getInfuraUrlPolygon(),
       }),
     ];
-
     const [retirement, retirementIndexInfo] = await Promise.all(promises);
 
+    /** Validate fetched data */
     if (!retirement || !retirementIndexInfo) {
       return res.status(404).send("Not found");
     }
@@ -63,12 +65,7 @@ export default async function handler(
       projectDetails = await getVerraProjectByID(
         retirement.offset.projectID.replace("VCS-", "")
       );
-
-      console.log(projectDetails);
     }
-
-    console.log(retirement);
-    console.log(retirementIndexInfo);
 
     const certificateParams = {
       beneficiaryName: retirementIndexInfo.beneficiaryName,
@@ -76,7 +73,7 @@ export default async function handler(
       retirement,
       retirementIndex,
       retirementMessage: retirementIndexInfo.retirementMessage,
-      retirementUrl: `${urls.home}/retirements/${beneficiaryAddress}/${retirementIndex}`,
+      retirementUrl: `${urls.retirements}/${beneficiaryAddress}/${retirementIndex}`,
       projectDetails,
       retiredToken: retirementIndexInfo.typeOfToken,
     };
