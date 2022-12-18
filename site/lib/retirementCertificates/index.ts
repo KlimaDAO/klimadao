@@ -19,8 +19,8 @@ import { logoMCO2 } from "./images/logoMCO2";
 import { logoUBO } from "./images/logoUBO";
 import { logoNBO } from "./images/logoNBO";
 
-import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
-import { PoppinsBold } from "./poppinsBoldbase64";
+import { PoppinsExtraLight } from "./fonts/poppinsExtraLightbase64";
+import { PoppinsBold } from "./fonts/poppinsBoldbase64";
 
 type Params = {
   beneficiaryName: string;

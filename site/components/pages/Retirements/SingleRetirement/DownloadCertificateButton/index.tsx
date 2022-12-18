@@ -25,6 +25,7 @@ export interface DownloadCertificateButtonProps {
 export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
   props
 ) => {
+  const fileName = `retirement_${props.retirementIndex}_${props.beneficiaryAddress}.pdf`;
   const getCertificate = (): Promise<Response> =>
     fetch("/api/certificates", {
       method: "POST",
@@ -32,11 +33,17 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
       body: JSON.stringify(props),
     });
 
-  // try download first and then assign a name
   const generatePDF = async () => {
     const response = await getCertificate();
     const certificate = await response.blob();
-    window.open(URL.createObjectURL(certificate), "_blank");
+
+    const url = URL.createObjectURL(certificate);
+    const a = document.createElement("a");
+    document.body.appendChild(a);
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   return (

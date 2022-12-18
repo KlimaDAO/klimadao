@@ -7,17 +7,11 @@ export default async function handler(
   res: NextApiResponse<string>
 ) {
   try {
-    const certificate = generateCertificate(req.body);
-
     res.setHeader("Content-Type", "application/pdf");
-
-    // doc.font("./Poppins-SemiBold.ttf").text("Certificate for On-chain");
-    // doc.font("Header").text("Certificate for On-chain");
-    // doc.font("Body").text("Carbon Retirement");
-
+    const certificate = generateCertificate(req.body);
     certificate.pipe(res);
     certificate.end();
   } catch (err) {
-    res.status(500).send("failed to fetch data");
+    res.status(500).send("Failed to generate retirement certificate");
   }
 }
