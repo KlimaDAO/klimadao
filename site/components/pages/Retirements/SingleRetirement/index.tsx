@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { Trans, t } from "@lingui/macro";
 
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";

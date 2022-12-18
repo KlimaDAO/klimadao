@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { ButtonPrimary } from "@klimadao/lib/components";
+import React, { FC, useState } from "react";
 import { t } from "@lingui/macro";
 
+import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
+import { RetirementToken } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
-import { RetirementToken } from "@klimadao/lib/constants";
 
 import { StaticImageData } from "next/legacy/image";
 export interface DownloadCertificateButtonProps {
@@ -25,19 +25,25 @@ export interface DownloadCertificateButtonProps {
 export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
   props
 ) => {
+  const [loading, setLoading] = useState(false);
   // const fileName = `retirement_${props.retirementIndex}_${props.beneficiaryAddress}.pdf`;
+
   const getCertificate = (): Promise<Response> =>
     fetch(
       `/api/certificates/${props.beneficiaryAddress}/${props.retirementIndex}`,
       { method: "GET" }
     );
 
-  const generatePDF = async () => {
+  const generateCertificate = async (): Promise<Blob> => {
     const response = await getCertificate();
-    const certificate = await response.blob();
+    if (!response.ok) throw new Error("Could not generate certificate");
 
-    window.open(URL.createObjectURL(certificate));
-    // const url = URL.createObjectURL(certificate);
+    return await response.blob();
+  };
+
+  const downloadCertificate = (blob: Blob) => {
+    window.open(URL.createObjectURL(blob));
+    // const url = URL.createObjectURL(blob);
     // const a = document.createElement("a");
     // document.body.appendChild(a);
     // a.href = url;
@@ -46,9 +52,23 @@ export const DownloadCertificateButton: FC<DownloadCertificateButtonProps> = (
     // URL.revokeObjectURL(url);
   };
 
+  const handleClick = async () => {
+    try {
+      setLoading(true);
+      const certificate = await generateCertificate();
+      downloadCertificate(certificate);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (loading) return <Spinner />;
+
   return (
     <ButtonPrimary
-      onClick={generatePDF}
+      onClick={handleClick}
+      disabled={loading}
       label={t({
         id: "retirement.single.download_certificate_button",
         message: "Download PDF",
