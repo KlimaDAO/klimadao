@@ -1,8 +1,11 @@
+import { cx } from "@emotion/css";
 import { NextPage } from "next";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Trans, t } from "@lingui/macro";
 
+import { CopyAddressButton } from "@klimadao/lib/components";
 import { Text, Section, ButtonPrimary } from "@klimadao/lib/components";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
@@ -12,7 +15,6 @@ import {
   getImageSizes,
   trimWithLocale,
 } from "@klimadao/lib/utils";
-import { urls } from "@klimadao/lib/constants";
 
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -21,7 +23,9 @@ import { TweetButton } from "components/TweetButton";
 import { FacebookButton } from "components/FacebookButton";
 import { LinkedInButton } from "components/LinkedInButton";
 import { retirementTokenInfoMap } from "lib/getTokenInfo";
+import sunsetMountains from "public/sunset-mountains.jpg";
 
+import { BuyKlima } from "./BuyKlima";
 import { DownloadCertificateButton } from "./DownloadCertificateButton";
 import { RetirementHeader } from "./RetirementHeader";
 import { RetirementMessage } from "./RetirementMessage";
@@ -31,11 +35,6 @@ import { TextGroup } from "./TextGroup";
 import { ProjectDetails } from "./ProjectDetails";
 import { RetirementFooter } from "../Footer";
 import * as styles from "./styles";
-import { CopyAddressButton } from "@klimadao/lib/components";
-import sunsetMountains from "public/sunset-mountains.jpg";
-import Image from "next/image";
-import { cx } from "@emotion/css";
-import { BuyKlima } from "./BuyKlima";
 
 const LoadingCertificateButton: React.FC = () => (
   <ButtonPrimary
@@ -64,7 +63,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
     retirementIndexInfo,
     nameserviceDomain,
   } = props;
-  const { locale, asPath } = useRouter();
+  const { locale } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
 
   const amountWithoutWhiteSpace = retirementIndexInfo.amount.replace(
@@ -180,14 +179,8 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                 text={
                   retirement ? (
                     <DownloadCertificateButton
-                      beneficiaryName={retireData.beneficiaryName}
                       beneficiaryAddress={beneficiaryAddress}
-                      retirement={retirement}
                       retirementIndex={props.retirementIndex}
-                      retirementMessage={retireData.retirementMessage}
-                      retirementUrl={`${urls.home}/${asPath}`}
-                      projectDetails={props.projectDetails}
-                      tokenData={tokenData}
                     />
                   ) : (
                     <LoadingCertificateButton />
