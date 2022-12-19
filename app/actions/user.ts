@@ -3,8 +3,7 @@ import { Thunk } from "state";
 
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 import {
-  getInfuraUrlPolygon,
-  getInfuraUrlEther,
+  getInfuraUrl,
   formatUnits,
   getAllowance,
   getContract,
@@ -78,11 +77,17 @@ export const loadAccountDetails = (params: {
       // domains
       const domains = [
         getKNSProfile({
-          providerUrl: getInfuraUrlPolygon(),
+          providerUrl: getInfuraUrl({
+            chain: "polygon",
+            infuraId: process.env.INFURA_ID!,
+          }),
           address: params.address,
         }),
         getENSProfile({
-          providerUrl: getInfuraUrlEther(),
+          providerUrl: getInfuraUrl({
+            chain: "eth",
+            infuraId: process.env.INFURA_ID!,
+          }),
           address: params.address,
         }),
       ];

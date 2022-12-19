@@ -7,7 +7,7 @@ import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import {
-  getInfuraUrlPolygon,
+  getInfuraUrl,
   getRetirementIndexInfo,
   getVerraProjectByID,
   queryKlimaRetireByIndex,
@@ -95,7 +95,10 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       getRetirementIndexInfo({
         beneficiaryAddress: beneficiaryAddress,
         index: retirementIndex,
-        providerUrl: getInfuraUrlPolygon(),
+        providerUrl: getInfuraUrl({
+          chain: "polygon",
+          infuraId: process.env.INFURA_ID!,
+        }),
       }),
       loadTranslation(locale),
     ];

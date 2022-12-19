@@ -4,6 +4,7 @@ import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import {
   concatAddress,
   getENSProfile,
+  getInfuraUrl,
   getKNSProfile,
   prettifyUrl,
   trimWithLocale,
@@ -31,14 +32,21 @@ export const Profile: FC<Props> = (props) => {
     const setProfile = async () => {
       const kns = await getKNSProfile({
         address: props.pledge.ownerAddress,
-        providerUrl: getInfuraUrlPolygon(),
+        providerUrl: getInfuraUrl({
+          chain: "polygon",
+          infuraId: process.env.INFURA_ID!,
+        }),
       });
       if (kns) return setProfileData(kns);
 
       const ens = await getENSProfile({
         address: props.pledge.ownerAddress,
-        providerUrl: getInfuraUrlEther(),
+        providerUrl: getInfuraUrl({
+          chain: "eth",
+          infuraId: process.env.INFURA_ID!,
+        }),
       });
+
       setProfileData(ens);
     };
 

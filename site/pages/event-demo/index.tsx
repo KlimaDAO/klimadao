@@ -5,7 +5,11 @@ import { addresses } from "@klimadao/lib/constants";
 import { getInfuraUrlPolygon, getJsonRpcProvider } from "@klimadao/lib/utils";
 import { EventDemo } from "components/pages/EventDemo";
 import { Contract } from "ethers";
+<<<<<<< HEAD
 import { loadTranslation } from "lib/i18n";
+=======
+import { getJsonRpcProvider, getInfuraUrl } from "@klimadao/lib/utils";
+>>>>>>> bb810074 (infura id required and get url functions combined)
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
@@ -13,7 +17,12 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     if (!translation) {
       throw new Error("No translation found");
     }
-    const provider = getJsonRpcProvider(getInfuraUrlPolygon());
+    const provider = getJsonRpcProvider(
+      getInfuraUrl({
+        chain: "polygon",
+        infuraId: process.env.INFURA_ID!,
+      })
+    );
     const LiveOffsetContract = new Contract(
       addresses["mainnet"].liveOffsetContract,
       LiveOffset.abi,

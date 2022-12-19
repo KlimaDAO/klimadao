@@ -11,7 +11,11 @@ export const getAddressByDomain = async (domain: string): Promise<string> => {
   try {
     const kns = isKNSDomain(domain) && (await getAddressByKNS(domain));
     const ens =
-      isENSDomain(domain) && (await getAddressByENS(domain, getInfuraUrl())); // Caution: needs to be InfuraUrl for Ether here
+      isENSDomain(domain) &&
+      (await getAddressByENS(
+        domain,
+        getInfuraUrl({ chain: "eth", infuraId: process.env.INFURA_ID! })
+      )); // Caution: needs to be InfuraUrl for Ether here
     const address = kns || ens;
 
     if (!address || !utils.isAddress(address)) {
