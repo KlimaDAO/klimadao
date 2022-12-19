@@ -60,7 +60,6 @@ const tokenImageMap = {
   nbo: logoNBO,
   mco2: logoMCO2,
 };
-
 // const getImageDataURI = async (url: string) => {
 //   const response = await fetch(url);
 //   const arrayBuffer = await response.arrayBuffer();
