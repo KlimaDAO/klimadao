@@ -9,7 +9,7 @@ export interface Props {
 
 export const DownloadCertificateButton: FC<Props> = (props) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
   const fileName = `retirement_${props.retirementIndex}_${props.beneficiaryAddress}.pdf`;
 
   const getCertificate = (): Promise<Response> =>
