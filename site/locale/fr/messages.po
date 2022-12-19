@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-16 00:30+0000\n"
+"POT-Creation-Date: 2022-12-19 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -347,7 +347,7 @@ msgstr "Carrières"
 #: components/pages/Pledge/index.tsx:333
 #: components/pages/Pledge/index.tsx:387
 msgid "connectModal.continue"
-msgstr ""
+msgstr "ou continuer avec"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:56
 #: components/pages/Pledge/HeaderMobile/index.tsx:55
@@ -355,7 +355,7 @@ msgstr ""
 #: components/pages/Pledge/index.tsx:342
 #: components/pages/Pledge/index.tsx:396
 msgid "connect_modal.connecting"
-msgstr ""
+msgstr "Connexion en cours..."
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
 #: components/pages/Pledge/HeaderMobile/index.tsx:42
@@ -363,7 +363,7 @@ msgstr ""
 #: components/pages/Pledge/index.tsx:329
 #: components/pages/Pledge/index.tsx:382
 msgid "connect_modal.error_message"
-msgstr ""
+msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:60
 #: components/pages/Pledge/HeaderMobile/index.tsx:59
@@ -371,7 +371,7 @@ msgstr ""
 #: components/pages/Pledge/index.tsx:346
 #: components/pages/Pledge/index.tsx:400
 msgid "connect_modal.error_title"
-msgstr ""
+msgstr "Erreur de connexion"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:52
 #: components/pages/Pledge/HeaderMobile/index.tsx:51
@@ -379,7 +379,7 @@ msgstr ""
 #: components/pages/Pledge/index.tsx:338
 #: components/pages/Pledge/index.tsx:392
 msgid "connect_modal.sign_in"
-msgstr ""
+msgstr "S'identifier / Se connecter"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -943,75 +943,75 @@ msgstr "La mission de KlimaDAO est de démocratiser l'action climatique."
 #: components/pages/Pledge/PledgeForm/index.tsx:88
 #: components/pages/Pledge/PledgeForm/index.tsx:104
 msgid "pledge.errors.default"
-msgstr ""
+msgstr "Une erreur est survenue"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:96
 msgid "pledge.errors.method_not_allowed"
-msgstr ""
+msgstr "Méthode non autorisée."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:80
 msgid "pledge.errors.pledge_not_found"
-msgstr ""
+msgstr "Aucun engagement n'a été trouvé pour cette adresse."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:92
 msgid "pledge.errors.unknown_error"
-msgstr ""
+msgstr "Une erreur inconnue est survenue."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:196
 msgid "pledge.form.error.cannot_add_yourself"
-msgstr ""
+msgstr "Vous ne pouvez pas ajouter votre propre portefeuille comme portefeuille secondaire."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledge.form.error.default_error_message"
-msgstr ""
+msgstr "Un problème est survenu. Veuillez réessayer sous peu."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:180
 msgid "pledge.form.error.duplicate_wallets"
-msgstr ""
+msgstr "Veuillez supprimer le(s) portefeuille(s) en double"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:625
 msgid "pledge.form.wallets.confirm_remove_wallet"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer {0} de votre engagement ?"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:334
 msgid "pledge.form.wallets.tooltip"
-msgstr ""
+msgstr "Ajoutez d'autres portefeuilles pour contribuer à votre engagement. Si le propriétaire du portefeuille accepte votre invitation, son portefeuille apparaîtra sur le tableau de bord de votre engagement. Tous les retraits effectués par un portefeuille secondaire contribueront à votre engagement. Vous resterez le seul propriétaire et le seul éditeur de cet engagement."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:41
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:111
 msgid "pledge.invitation.accept"
-msgstr ""
+msgstr "Accepter l'invitation"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:75
 msgid "pledge.invitation.error.wallet_already_pinned"
-msgstr ""
+msgstr "Ce portefeuille est déjà associé à un autre engagement. Veuillez désépingler votre portefeuille et réessayer."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:49
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:44
 msgid "pledge.invitation.error_title"
-msgstr ""
+msgstr "Erreur du serveur"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:102
 msgid "pledge.invitation.join_message"
-msgstr ""
+msgstr "{shortenedAddress} vous a invité à ajouter votre portefeuille à cet engagement. Si vous acceptez, vos retraits de carbone seront comptabilisés dans l'engagement de {shortenedAddress}. Vous pouvez retirer votre porte-monnaie de cet engagement à tout moment."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:130
 msgid "pledge.invitation.later"
-msgstr ""
+msgstr "Rappelez-moi plus tard"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:118
 msgid "pledge.invitation.reject"
-msgstr ""
+msgstr "Rejeter l'invitation"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:57
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:52
 msgid "pledge.invitation.signing"
-msgstr ""
+msgstr "Signature en cours"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:193
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:179
 msgid "pledge.invitations.awaiting_signature"
-msgstr ""
+msgstr "En attente de signature..."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:199
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:185
@@ -1020,31 +1020,31 @@ msgstr "Utilisez votre portefeuille pour signer et confirmer cette modification.
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:129
 msgid "pledge.modal.are_you_sure"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir retirer votre portefeuille de cette engagement ?"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:153
 msgid "pledge.modal.confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:40
 msgid "pledge.modal.confirm_remove"
-msgstr ""
+msgstr "Confirmer la compensation"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:39
 msgid "pledge.modal.edit_pledge"
-msgstr ""
+msgstr "Modifier l'engagement"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:101
 msgid "pledge.modal.unable_to_edit"
-msgstr ""
+msgstr "Ce portefeuille n'a pas la permission de modifier cet engagement. Pour le modifier, vous devez vous reconnecter avec le portefeuille de l'auteur original ({0})."
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:110
 msgid "pledge.modal.unpin_wallet"
-msgstr ""
+msgstr "désépingler mon portefeuille"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:144
 msgid "pledge.modal.wallet_add_confirm"
-msgstr ""
+msgstr "Vous ne pouvez avoir qu'une seule page d'engagement par adresse de portefeuille. Si vous avez déjà créé une page d'engagement avec ce portefeuille, les visiteurs seront redirigés vers cet engagement. Vous pouvez supprimer ce portefeuille à tout moment."
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
@@ -1132,7 +1132,7 @@ msgstr "Ajouter une catégorie"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:443
 msgid "pledges.form.add_wallet_button"
-msgstr ""
+msgstr "Ajouter un portefeuille"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:247
 msgid "pledges.form.awaiting_signature"
@@ -1140,15 +1140,15 @@ msgstr "En attente de signature..."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:166
 msgid "pledges.form.confirm_delete"
-msgstr ""
+msgstr "Confirmer la compensation"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:631
 msgid "pledges.form.confirm_remove"
-msgstr ""
+msgstr "supprimer"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:644
 msgid "pledges.form.confirm_remove_cancel"
-msgstr ""
+msgstr "annuler"
 
 #: components/pages/Pledge/index.tsx:188
 msgid "pledges.form.error"
@@ -1204,15 +1204,15 @@ msgstr "Saisir une URL valide"
 
 #: components/pages/Pledge/lib/formSchema.ts:86
 msgid "pledges.form.errors.walletAddress.isAddress"
-msgstr ""
+msgstr "Veuillez saisir une adresse valide"
 
 #: components/pages/Pledge/lib/formSchema.ts:90
 msgid "pledges.form.errors.walletAddress.isOwner"
-msgstr ""
+msgstr "Vous ne pouvez pas ajouter le propriétaire de l'engagement"
 
 #: components/pages/Pledge/lib/formSchema.ts:82
 msgid "pledges.form.errors.walletAddress.required"
-msgstr ""
+msgstr "Adresse requise"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:488
 msgid "pledges.form.footprint.label"
@@ -1268,7 +1268,7 @@ msgstr "Nom ou nom de l'entreprise"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "URL de l'image de profil (facultatif)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:584
 msgid "pledges.form.input.totalFootprint.label"
@@ -1276,11 +1276,11 @@ msgstr "Empreinte totale"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:374
 msgid "pledges.form.input.walletAddress.label"
-msgstr ""
+msgstr "Adresse"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:366
 msgid "pledges.form.input.walletAddress.placeholder"
-msgstr ""
+msgstr "0x..."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:604
 msgid "pledges.form.submit_button"
@@ -1288,7 +1288,7 @@ msgstr "Sauvegarder l'engagement"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "pledges.form.title"
-msgstr ""
+msgstr "Votre engagement"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:57
 msgid "pledges.form.total_footprint_summary"
@@ -1300,7 +1300,7 @@ msgstr "Utilisez votre portefeuille pour signer et confirmer cette modification.
 
 #: components/pages/Pledge/PledgeForm/index.tsx:326
 msgid "pledges.form.wallets.label"
-msgstr ""
+msgstr "Portefeuille(s) secondaire(s)"
 
 #: components/pages/Pledge/index.tsx:65
 msgid "pledges.head.metaDescription"
@@ -1698,7 +1698,7 @@ msgstr "Acheter des Klima"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:118
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:147
 msgid "shared.cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: components/Navigation/index.tsx:361
 msgid "shared.carbon_dashboard"
@@ -1717,7 +1717,7 @@ msgstr "Communauté"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:45
 msgid "shared.confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:65
 #: components/pages/Pledge/HeaderMobile/index.tsx:64
@@ -1764,7 +1764,7 @@ msgstr "Visitez l'application"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:157
 msgid "shared.error"
-msgstr ""
+msgstr "Erreur"
 
 #: components/pages/Infinity/GetStartedModal.tsx:26
 msgid "shared.get_started"
@@ -1836,11 +1836,11 @@ msgstr "Compensation"
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:175
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:161
 msgid "shared.okay"
-msgstr ""
+msgstr "Ok"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:418
 msgid "shared.pending"
-msgstr ""
+msgstr "En attente"
 
 #: components/Navigation/index.tsx:175
 #: components/Navigation/index.tsx:327
@@ -1849,7 +1849,7 @@ msgstr "Comment s'engager"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:135
 msgid "shared.remove"
-msgstr ""
+msgstr "supprimer"
 
 #: components/Navigation/index.tsx:188
 #: components/Navigation/index.tsx:343

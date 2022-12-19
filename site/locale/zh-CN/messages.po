@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-16 00:30+0000\n"
+"POT-Creation-Date: 2022-12-19 15:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -345,7 +345,7 @@ msgstr "职业生涯"
 #: components/pages/Pledge/index.tsx:333
 #: components/pages/Pledge/index.tsx:387
 msgid "connectModal.continue"
-msgstr ""
+msgstr "或继续"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:56
 #: components/pages/Pledge/HeaderMobile/index.tsx:55
@@ -353,7 +353,7 @@ msgstr ""
 #: components/pages/Pledge/index.tsx:342
 #: components/pages/Pledge/index.tsx:396
 msgid "connect_modal.connecting"
-msgstr ""
+msgstr "正在连接..."
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:43
 #: components/pages/Pledge/HeaderMobile/index.tsx:42
@@ -361,7 +361,7 @@ msgstr ""
 #: components/pages/Pledge/index.tsx:329
 #: components/pages/Pledge/index.tsx:382
 msgid "connect_modal.error_message"
-msgstr ""
+msgstr "我们在连接时遇到了一些问题，请重试。"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:60
 #: components/pages/Pledge/HeaderMobile/index.tsx:59
@@ -369,7 +369,7 @@ msgstr ""
 #: components/pages/Pledge/index.tsx:346
 #: components/pages/Pledge/index.tsx:400
 msgid "connect_modal.error_title"
-msgstr ""
+msgstr "连接错误"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:52
 #: components/pages/Pledge/HeaderMobile/index.tsx:51
@@ -377,7 +377,7 @@ msgstr ""
 #: components/pages/Pledge/index.tsx:338
 #: components/pages/Pledge/index.tsx:392
 msgid "connect_modal.sign_in"
-msgstr ""
+msgstr "登录/连接"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -938,75 +938,75 @@ msgstr "KlimaDAO 的使命是使气候行动民主化"
 #: components/pages/Pledge/PledgeForm/index.tsx:88
 #: components/pages/Pledge/PledgeForm/index.tsx:104
 msgid "pledge.errors.default"
-msgstr ""
+msgstr "发生错误"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:96
 msgid "pledge.errors.method_not_allowed"
-msgstr ""
+msgstr "方法不允许。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:80
 msgid "pledge.errors.pledge_not_found"
-msgstr ""
+msgstr "找不到此地址的承诺。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:92
 msgid "pledge.errors.unknown_error"
-msgstr ""
+msgstr "发生未知错误。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:196
 msgid "pledge.form.error.cannot_add_yourself"
-msgstr ""
+msgstr "您不能将自己的钱包添加为二级钱包"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledge.form.error.default_error_message"
-msgstr ""
+msgstr "出问题了，请稍后重试。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:180
 msgid "pledge.form.error.duplicate_wallets"
-msgstr ""
+msgstr "请删除重复的钱包"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:625
 msgid "pledge.form.wallets.confirm_remove_wallet"
-msgstr ""
+msgstr "您确定要从承诺中删除 {0} 吗？"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:334
 msgid "pledge.form.wallets.tooltip"
-msgstr ""
+msgstr "添加其他钱包来为您的承诺做出贡献。如果钱包的所有者接受了您的邀请，他们的钱包将出现在您的质押仪表板上。所有二级钱包的任何碳停用都将有助于您的承诺。您将保留对此承诺的唯一所有权和编辑权限。"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:41
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:111
 msgid "pledge.invitation.accept"
-msgstr ""
+msgstr "接受邀请"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:75
 msgid "pledge.invitation.error.wallet_already_pinned"
-msgstr ""
+msgstr "此钱包已绑定到另一个承诺。请取消您的钱包绑定，然后重试。"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:49
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:44
 msgid "pledge.invitation.error_title"
-msgstr ""
+msgstr "服务器错误"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:102
 msgid "pledge.invitation.join_message"
-msgstr ""
+msgstr "{shortenedAddress} 已邀请您将您的钱包添加到此承诺中。如果您接受，那么您的碳排放量将计入 {shortenedAddress} 的承诺。您可以随时从此承诺中删除您的钱包。"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:130
 msgid "pledge.invitation.later"
-msgstr ""
+msgstr "稍后提醒"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:118
 msgid "pledge.invitation.reject"
-msgstr ""
+msgstr "拒绝邀请"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:57
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:52
 msgid "pledge.invitation.signing"
-msgstr ""
+msgstr "签约中"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:193
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:179
 msgid "pledge.invitations.awaiting_signature"
-msgstr ""
+msgstr "等待签名..."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:199
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:185
@@ -1015,31 +1015,31 @@ msgstr "使用您的钱包签名并确认此编辑。"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:129
 msgid "pledge.modal.are_you_sure"
-msgstr ""
+msgstr "您确定要从此承诺中删除您的钱包吗？"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:153
 msgid "pledge.modal.confirm"
-msgstr ""
+msgstr "确认"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:40
 msgid "pledge.modal.confirm_remove"
-msgstr ""
+msgstr "确认移除"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:39
 msgid "pledge.modal.edit_pledge"
-msgstr ""
+msgstr "修改承诺"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:101
 msgid "pledge.modal.unable_to_edit"
-msgstr ""
+msgstr "此钱包无权修改此承诺。如需修改，您必须重新连接原授权钱包（{0}）。"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:110
 msgid "pledge.modal.unpin_wallet"
-msgstr ""
+msgstr "解绑我的钱包"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:144
 msgid "pledge.modal.wallet_add_confirm"
-msgstr ""
+msgstr "每个钱包地址只能有一个承诺页面。如果您已经用这个钱包创建了一个承诺页面，访问者将被重定向到该承诺页面。您可以随时移除此钱包。"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
@@ -1127,7 +1127,7 @@ msgstr "添加类别"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:443
 msgid "pledges.form.add_wallet_button"
-msgstr ""
+msgstr "添加钱包"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:247
 msgid "pledges.form.awaiting_signature"
@@ -1135,15 +1135,15 @@ msgstr "等待签名..."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:166
 msgid "pledges.form.confirm_delete"
-msgstr ""
+msgstr "确认移除"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:631
 msgid "pledges.form.confirm_remove"
-msgstr ""
+msgstr "移除"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:644
 msgid "pledges.form.confirm_remove_cancel"
-msgstr ""
+msgstr "取消"
 
 #: components/pages/Pledge/index.tsx:188
 msgid "pledges.form.error"
@@ -1199,15 +1199,15 @@ msgstr "输入有效的网址"
 
 #: components/pages/Pledge/lib/formSchema.ts:86
 msgid "pledges.form.errors.walletAddress.isAddress"
-msgstr ""
+msgstr "请输入有效地址"
 
 #: components/pages/Pledge/lib/formSchema.ts:90
 msgid "pledges.form.errors.walletAddress.isOwner"
-msgstr ""
+msgstr "您不能添加承诺所有者"
 
 #: components/pages/Pledge/lib/formSchema.ts:82
 msgid "pledges.form.errors.walletAddress.required"
-msgstr ""
+msgstr "需要地址"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:488
 msgid "pledges.form.footprint.label"
@@ -1263,7 +1263,7 @@ msgstr "姓名或公司名称"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "资料图片网址（可选）"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:584
 msgid "pledges.form.input.totalFootprint.label"
@@ -1271,11 +1271,11 @@ msgstr "总碳足迹"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:374
 msgid "pledges.form.input.walletAddress.label"
-msgstr ""
+msgstr "地址"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:366
 msgid "pledges.form.input.walletAddress.placeholder"
-msgstr ""
+msgstr "0x..."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:604
 msgid "pledges.form.submit_button"
@@ -1283,7 +1283,7 @@ msgstr "承诺"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "pledges.form.title"
-msgstr ""
+msgstr "你的承诺"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:57
 msgid "pledges.form.total_footprint_summary"
@@ -1295,7 +1295,7 @@ msgstr "使用您的钱包签名并确认此编辑。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:326
 msgid "pledges.form.wallets.label"
-msgstr ""
+msgstr "二级钱包"
 
 #: components/pages/Pledge/index.tsx:65
 msgid "pledges.head.metaDescription"
@@ -1524,7 +1524,7 @@ msgstr "KlimaDAO |碳停用收据"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:256
 msgid "retirement.share.title"
-msgstr ""
+msgstr "分享您的影响"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.beneficiary.placeholder"
@@ -1691,7 +1691,7 @@ msgstr "购买 Klima"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:118
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:147
 msgid "shared.cancel"
-msgstr ""
+msgstr "取消"
 
 #: components/Navigation/index.tsx:361
 msgid "shared.carbon_dashboard"
@@ -1710,7 +1710,7 @@ msgstr "社区"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:45
 msgid "shared.confirm"
-msgstr ""
+msgstr "确认"
 
 #: components/pages/Pledge/HeaderDesktop/index.tsx:65
 #: components/pages/Pledge/HeaderMobile/index.tsx:64
@@ -1757,7 +1757,7 @@ msgstr "进入App"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:157
 msgid "shared.error"
-msgstr ""
+msgstr "错误"
 
 #: components/pages/Infinity/GetStartedModal.tsx:26
 msgid "shared.get_started"
@@ -1829,11 +1829,11 @@ msgstr "抵消"
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:175
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:161
 msgid "shared.okay"
-msgstr ""
+msgstr "好的"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:418
 msgid "shared.pending"
-msgstr ""
+msgstr "等待中"
 
 #: components/Navigation/index.tsx:175
 #: components/Navigation/index.tsx:327
@@ -1842,13 +1842,13 @@ msgstr "如何承诺"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:135
 msgid "shared.remove"
-msgstr ""
+msgstr "移除"
 
 #: components/Navigation/index.tsx:188
 #: components/Navigation/index.tsx:343
 #: components/pages/Blog/Post/index.tsx:71
 msgid "shared.resourcecenter"
-msgstr ""
+msgstr "资源中心"
 
 #: components/Navigation/index.tsx:185
 #: components/Navigation/index.tsx:339
