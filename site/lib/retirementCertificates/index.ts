@@ -60,16 +60,6 @@ const tokenImageMap = {
   nbo: logoNBO,
   mco2: logoMCO2,
 };
-// const getImageDataURI = async (url: string) => {
-//   const response = await fetch(url);
-//   const arrayBuffer = await response.arrayBuffer();
-//   // const base64 = Buffer.from(new Uint8Array(arrayBuffer)).toString("base64");
-//   // console.log(arrayBuffer);
-
-//   const image = await axios.get(url, { responseType: "arraybuffer" });
-//   // console.log(image.data);
-//   return image.data;
-// };
 
 export const generateCertificate = (params: Params): PDFKit.PDFDocument => {
   const isMossRetirement = params.retirement.offset.bridge === "Moss";
