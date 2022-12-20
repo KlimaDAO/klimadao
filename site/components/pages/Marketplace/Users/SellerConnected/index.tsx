@@ -13,6 +13,7 @@ import { ListingEditModal } from "./ListingEditModal";
 import { Card } from "components/pages/Marketplace/shared/Card";
 
 import { getUser } from "../../lib/api";
+import { getUserAssetsData } from "../../lib/actions";
 import { pollUntil, getTotalAmountSold, getTotalAmountToSell } from "../utils";
 
 import {
@@ -21,9 +22,7 @@ import {
 } from "components/pages/Marketplace/shared/TwoColLayout";
 import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
 
-import { ethers } from "ethers";
-import { formatUnits, getJsonRpcProvider } from "@klimadao/lib/utils";
-import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
+import { getJsonRpcProvider } from "@klimadao/lib/utils";
 import { urls } from "@klimadao/lib/constants";
 import { User, Asset } from "@klimadao/lib/types/marketplace";
 
@@ -67,32 +66,12 @@ export const SellerConnected: FC<Props> = (props) => {
         try {
           const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
 
-          const assetsData = await user.assets.reduce<Promise<Asset[]>>(
-            async (resultPromise, asset) => {
-              const resolvedAssets = await resultPromise;
-              const contract = new ethers.Contract(
-                asset,
-                C3ProjectToken.abi,
-                provider
-              );
+          const assetsData = await getUserAssetsData({
+            assets: user.assets,
+            provider,
+            userAddress: props.userAddress,
+          });
 
-              const tokenName = await contract.symbol();
-              const c3TokenBalance = await contract.balanceOf(
-                props.userAddress
-              );
-              const balance = formatUnits(c3TokenBalance);
-              const projectInfo = await contract.getProjectInfo();
-
-              resolvedAssets.push({
-                tokenAddress: asset,
-                tokenName,
-                projectName: projectInfo.name,
-                balance,
-              });
-              return resolvedAssets;
-            },
-            Promise.resolve([])
-          );
           setAssetsData(assetsData);
         } catch (e) {
           console.error(e);
@@ -106,6 +85,7 @@ export const SellerConnected: FC<Props> = (props) => {
           setIsLoadingAssets(false);
         }
       };
+
       getAssetsData();
     }
   }, [user, assetsData]);

@@ -3,6 +3,7 @@ import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
 import { getMarketplaceAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
+import { Asset } from "@klimadao/lib/types/marketplace";
 
 export const getC3tokenToMarketplaceAllowance = async (params: {
   userAdress: string;
@@ -165,5 +166,41 @@ export const deleteListingTransaction = async (params: {
     }
     params.onStatus("error");
     throw error;
+  }
+};
+
+export const getUserAssetsData = async (params: {
+  assets: string[];
+  provider: providers.JsonRpcProvider;
+  userAddress: string;
+}): Promise<Asset[]> => {
+  try {
+    const assetsData = await params.assets.reduce<Promise<Asset[]>>(
+      async (resultPromise, asset) => {
+        const resolvedAssets = await resultPromise;
+        const contract = new ethers.Contract(
+          asset,
+          C3ProjectToken.abi,
+          params.provider
+        );
+
+        const tokenName = await contract.symbol();
+        const c3TokenBalance = await contract.balanceOf(params.userAddress);
+        const balance = formatUnits(c3TokenBalance);
+        const projectInfo = await contract.getProjectInfo();
+
+        resolvedAssets.push({
+          tokenAddress: asset,
+          tokenName,
+          projectName: projectInfo.name,
+          balance,
+        });
+        return resolvedAssets;
+      },
+      Promise.resolve([])
+    );
+    return assetsData;
+  } catch (e) {
+    throw e;
   }
 };
