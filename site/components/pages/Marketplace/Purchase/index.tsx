@@ -4,7 +4,7 @@ import { MarketplaceLayout } from "../Layout";
 
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "components/pages/Marketplace/lib/createUrls";
-import { Project } from "@klimadao/lib/types/marketplace";
+import { Project, Listing } from "@klimadao/lib/types/marketplace";
 
 import * as styles from "./styles";
 
