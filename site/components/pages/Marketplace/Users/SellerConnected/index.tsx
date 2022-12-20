@@ -9,7 +9,7 @@ import { CreateAListingModal } from "./CreateAListingModal";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
 import { ProfileHeader } from "../ProfileHeader";
-import { ListingEditModal } from "./ListingEditModal";
+import { ListingWithEditModal } from "./ListingsWithEditModal";
 import { Card } from "components/pages/Marketplace/shared/Card";
 
 import { getUser } from "../../lib/api";
@@ -208,7 +208,9 @@ export const SellerConnected: FC<Props> = (props) => {
               </Text>
             </Card>
           )}
-          {!!sortedListings && <ListingEditModal listings={sortedListings} />}
+          {!!sortedListings && (
+            <ListingWithEditModal listings={sortedListings} />
+          )}
         </Col>
 
         <Col>

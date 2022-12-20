@@ -29,7 +29,7 @@ type Props = {
   listings: ListingType[];
 };
 
-export const ListingEditModal: FC<Props> = (props) => {
+export const ListingWithEditModal: FC<Props> = (props) => {
   const { provider, address } = useWeb3();
   const [listings, setListings] = useState<ListingType[]>(props.listings);
   const [listingToEdit, setListingToEdit] = useState<ListingType | null>(null);
