@@ -96,7 +96,7 @@ export const urls = {
   wrap: "https://app.klimadao.finance/#/wrap",
   bonds: "https://app.klimadao.finance/#/bonds",
   offset: "https://app.klimadao.finance/#/offset",
-  pledges: "https://app.klimadao.finance/pledge",
+  pledges: "https://www.klimadao.finance/pledge",
   info: "https://app.klimadao.finance/info",
   resources: "https://www.klimadao.finance/resources",
   siteBlog: "https://www.klimadao.finance/blog",
