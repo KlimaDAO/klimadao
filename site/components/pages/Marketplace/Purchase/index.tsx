@@ -10,6 +10,7 @@ import * as styles from "./styles";
 
 type Props = {
   project: Project;
+  listing: Listing;
 };
 
 export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {

@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import { MarketPlaceProjectPurchase } from "components/pages/Marketplace/Purchase";
 import { getMarketplaceProject } from "@klimadao/lib/utils";
 import { loadTranslation } from "lib/i18n";
-import { Project } from "@klimadao/lib/types/marketplace";
+import { Project, Listing } from "@klimadao/lib/types/marketplace";
 
 interface Params extends ParsedUrlQuery {
   project_id: string;
@@ -11,6 +11,7 @@ interface Params extends ParsedUrlQuery {
 
 interface PageProps {
   project: Project;
+  listing: Listing;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -27,7 +28,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     // TODO: read listingID and seller data from queries
     const project = await getMarketplaceProject(params.project_id);
 
-    // check if listing ID is correct here? Or on client with nicer error state?
+    // check if listing ID is correct here on server? Or rather on client with nicer error state?
     const listing = project.listings.find(
       (listing) => listing.id === params?.listing_id
     );
@@ -45,6 +46,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     return {
       props: {
         project,
+        listing,
         translation,
       },
       revalidate: 240,
