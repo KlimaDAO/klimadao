@@ -31,7 +31,9 @@ export const Listing: FC<Props> = (props) => {
         <Vintage vintage={props.listing.project.vintage} />
       </div>
       <Text>{props.listing.project.name}</Text>
-      <ProjectImage category={"AM0052"} />
+      <div className={styles.image}>
+        <ProjectImage category={"AM0052"} />
+      </div>
       <div className={styles.amounts}>
         <Text t="body4">
           {formatPrice(props.listing.singleUnitPrice, locale)}
