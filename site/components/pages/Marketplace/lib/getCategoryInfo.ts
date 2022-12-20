@@ -7,6 +7,7 @@ import RenewableEnergy from "public/marketplace/Renewable_Energy.jpeg";
 // import EnergyEfficiency from "public/marketplace/Energy_Efficiency.jpeg";
 // import Agriculture from "public/marketplace/Agriculture.png";
 // import IndustrialProcessing from "public/marketplace/Industrial_Processing.jpeg";
+// import Others from "public/marketplace/Others.png";
 
 import BatterySaverIcon from "@mui/icons-material/BatterySaver";
 // import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
@@ -14,6 +15,7 @@ import BatterySaverIcon from "@mui/icons-material/BatterySaver";
 // import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 // import AgricultureOutlinedIcon from "@mui/icons-material/AgricultureOutlined";
 // import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionManufacturingOutlined";
+// import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 import SvgIcon from "@mui/material/SvgIcon";
 
 import { StaticImageData } from "next/legacy/image";
@@ -59,6 +61,16 @@ export const categoryInfoMap: CategoryInfoMap = {
   //   }),
   //   color: "#CEC2FF",
   //   icon: TerrainOutlinedIcon,
+  // },
+  // Other: {
+  //   key: "Other",
+  //   imageSrc: Others,
+  //   label: t({
+  //     id: "marketplace.project.category.other",
+  //     message: "Other",
+  //   }),
+  //   color: "#4F5555",
+  //   icon: EmojiNatureIcon,
   // },
   // EnergyEfficiency: {
   //   key: "EnergyEfficiency",
