@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-20 16:27+0000\n"
+"POT-Creation-Date: 2022-12-20 16:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -431,39 +431,39 @@ msgstr "无法访问网络。这很可能是由您钱包中的旧 Polygon RPC �
 msgid "invalid_rpc.modal.title"
 msgstr "检查您的网络设置"
 
-#: components/NavMenu/index.tsx:177
+#: components/NavMenu/index.tsx:181
 msgid "menu.bond_carbon"
 msgstr "碳债券"
 
-#: components/NavMenu/index.tsx:161
+#: components/NavMenu/index.tsx:165
 msgid "menu.buy_klima"
 msgstr "购买 KLIMA"
 
-#: components/NavMenu/index.tsx:201
+#: components/NavMenu/index.tsx:205
 msgid "menu.info"
 msgstr "信息"
 
-#: components/NavMenu/index.tsx:206
+#: components/NavMenu/index.tsx:210
 msgid "menu.just_for_you"
 msgstr "只为您服务"
 
-#: components/NavMenu/index.tsx:66
+#: components/NavMenu/index.tsx:70
 msgid "menu.not_connected"
 msgstr "未连接"
 
-#: components/NavMenu/index.tsx:193
+#: components/NavMenu/index.tsx:197
 msgid "menu.offset"
 msgstr "抵消"
 
-#: components/NavMenu/index.tsx:169
+#: components/NavMenu/index.tsx:173
 msgid "menu.stake_klima"
 msgstr "质押 KLIMA"
 
-#: components/NavMenu/index.tsx:51
+#: components/NavMenu/index.tsx:52
 msgid "menu.wallet_address"
 msgstr "您的钱包地址"
 
-#: components/NavMenu/index.tsx:185
+#: components/NavMenu/index.tsx:189
 msgid "menu.wrap_klima"
 msgstr "打包 sKLIMA"
 
@@ -1000,7 +1000,7 @@ msgstr "请点击您钱包中的 \"确认\" 以继续。"
 msgid "status.user_rejected"
 msgstr "您已选择拒绝交易"
 
-#: components/NavMenu/index.tsx:213
+#: components/NavMenu/index.tsx:217
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
