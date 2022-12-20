@@ -163,7 +163,10 @@ export const SellerConnected: FC<Props> = (props) => {
           isMarketplaceUser={!!user}
           description={
             user?.description ||
-            t({ id: "marketplace.profile.edit_your_profile" })
+            t({
+              id: "marketplace.profile.edit_your_profile",
+              message: "Edit your profile to add a description",
+            })
           }
         />
       </div>
