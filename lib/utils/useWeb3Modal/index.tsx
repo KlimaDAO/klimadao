@@ -85,7 +85,9 @@ export const useWeb3Modal = (): Web3ModalState => {
         const WalletConnectProvider = (
           await import("@walletconnect/web3-provider")
         ).default;
-        const walletConnectProvider = new WalletConnectProvider({});
+        const walletConnectProvider = new WalletConnectProvider({
+          rpc: urls.polygonMainnetRpc,
+        });
 
         await walletConnectProvider.enable();
         const provider = new ethers.providers.Web3Provider(
