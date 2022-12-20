@@ -46,7 +46,9 @@ export const SellerConnected: FC<Props> = (props) => {
 
   const sortedListings =
     !!user?.listings?.length &&
-    user.listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+    user.listings
+      .filter((l) => l.deleted === false)
+      .sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
   const hasAssets = !!user?.assets?.length;
 
   // load Assets once

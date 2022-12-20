@@ -25,7 +25,9 @@ export const SellerUnconnected: FC<Props> = (props) => {
 
   const sortedListings =
     !!userData?.listings?.length &&
-    userData.listings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+    userData.listings
+      .filter((l) => l.deleted === false)
+      .sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
 
   return (
     <>
