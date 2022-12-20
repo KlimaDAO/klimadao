@@ -54,6 +54,13 @@ export const addListingButtonIcon = css`
   }
 `;
 
+export const errorMessageWrap = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.8rem;
+`;
+
 export const errorMessage = css`
   color: var(--warn);
   margin-bottom: 0.2rem;

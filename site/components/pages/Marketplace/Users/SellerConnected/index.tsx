@@ -41,6 +41,7 @@ export const SellerConnected: FC<Props> = (props) => {
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(true);
   const [isLoadingNewListing, setIsLoadingNewListing] = useState(false);
+  const [isLoadingNewActivity, setIsLoadingNewActivity] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -137,6 +138,45 @@ export const SellerConnected: FC<Props> = (props) => {
     }
   };
 
+  const onUpdateActivity = async () => {
+    if (!user) return; // TS typeguard
+
+    try {
+      setIsLoadingNewActivity(true);
+
+      const fetchUser = () =>
+        getUser({
+          user: props.userAddress,
+          type: "wallet",
+        });
+
+      const activityIsAdded = (value: User) => {
+        const newActivityLength = value.activities.length;
+        const currentActivityLength = user.activities.length;
+        return newActivityLength > currentActivityLength;
+      };
+
+      const updatedUser = await pollUntil({
+        fn: fetchUser,
+        validate: activityIsAdded,
+        ms: 1000,
+        maxAttempts: 20,
+      });
+
+      setUser((prev) => ({ ...prev, ...updatedUser }));
+    } catch (e) {
+      console.error("LOAD USER ACTIVITY error", e);
+      setErrorMessage(
+        t({
+          id: "marketplace.profile.update_activity.error",
+          message: `There was an error updating your activity: ${e}`,
+        })
+      );
+    } finally {
+      setIsLoadingNewActivity(false);
+    }
+  };
+
   return (
     <>
       <div className={styles.fullWidth}>
@@ -211,7 +251,10 @@ export const SellerConnected: FC<Props> = (props) => {
             </Card>
           )}
           {!!sortedListings && (
-            <ListingWithEditModal listings={sortedListings} />
+            <ListingWithEditModal
+              listings={sortedListings}
+              onUpdateUserActivity={onUpdateActivity}
+            />
           )}
         </Col>
 
@@ -233,6 +276,7 @@ export const SellerConnected: FC<Props> = (props) => {
           <Activities
             activities={user?.activities || []}
             connectedAddress={props.userAddress}
+            isLoading={isLoadingNewActivity}
           />
         </Col>
       </TwoColLayout>

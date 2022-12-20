@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { utils } from "ethers";
 import { t, Trans } from "@lingui/macro";
-import { Spinner } from "@klimadao/lib/components";
+import { Spinner, Text } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
 import { useWeb3 } from "@klimadao/lib/utils";
 
@@ -27,6 +27,7 @@ import * as styles from "./styles";
 
 type Props = {
   listings: ListingType[];
+  onUpdateUserActivity: () => void;
 };
 
 export const ListingWithEditModal: FC<Props> = (props) => {
@@ -37,6 +38,7 @@ export const ListingWithEditModal: FC<Props> = (props) => {
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
   const [status, setStatus] = useState<TransactionStatusMessage | null>(null);
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const isPending =
     status?.statusType === "userConfirmation" ||
@@ -125,6 +127,7 @@ export const ListingWithEditModal: FC<Props> = (props) => {
 
       setListings(newListings);
       setListingToEdit(null);
+      props.onUpdateUserActivity();
     } catch (e) {
       console.error("Error in onUpdateListing", e);
       return;
@@ -148,8 +151,15 @@ export const ListingWithEditModal: FC<Props> = (props) => {
 
       setListings(withoutUpdatedListing);
       setListingToEdit(null);
+      props.onUpdateUserActivity();
     } catch (e) {
       console.error("Error in onDeleteListing", e);
+      setErrorMessage(
+        t({
+          id: "marketplace.profile.listing.delete.error",
+          message: "Could not delete listing. Please try again.",
+        })
+      );
     } finally {
       setIsLoading(false);
     }
@@ -192,6 +202,13 @@ export const ListingWithEditModal: FC<Props> = (props) => {
               onClick={onDeleteListing}
               className={styles.deleteListingButton}
             />
+            {errorMessage && (
+              <div className={styles.errorMessageWrap}>
+                <Text t="caption" className={styles.errorMessage}>
+                  {errorMessage}
+                </Text>
+              </div>
+            )}
           </>
         )}
 

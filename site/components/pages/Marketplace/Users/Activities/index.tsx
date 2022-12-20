@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Text } from "@klimadao/lib/components";
+import { Text, Spinner } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import { Activity } from "@klimadao/lib/types/marketplace";
 import { useRouter } from "next/router";
@@ -16,6 +16,7 @@ import * as styles from "./styles";
 interface Props {
   activities: Activity[];
   connectedAddress?: string;
+  isLoading?: boolean;
 }
 
 const getSeller = (sellerID: string, connectedAddress?: string) => {
@@ -75,6 +76,11 @@ export const Activities: FC<Props> = (props) => {
             </Trans>
           </i>
         </Text>
+      )}
+      {props.isLoading && (
+        <div className={styles.activity}>
+          <Spinner />
+        </div>
       )}
       {!!sortedActivities.length &&
         sortedActivities.map((activity) => (

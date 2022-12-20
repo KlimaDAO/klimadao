@@ -128,6 +128,7 @@ export const EditListing: FC<Props> = (props) => {
               </Trans>
             }
             onClick={handleSubmit(onSubmit)}
+            disabled={!formState.isDirty}
           />
         </div>
       </form>
