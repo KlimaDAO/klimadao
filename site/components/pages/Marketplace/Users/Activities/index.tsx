@@ -5,7 +5,7 @@ import { Activity } from "@klimadao/lib/types/marketplace";
 import { useRouter } from "next/router";
 import { concatAddress } from "@klimadao/lib/utils";
 import {
-  formatPrice,
+  formatBigToPrice,
   formatTonnes,
 } from "components/pages/Marketplace/lib/formatNumbers";
 
@@ -108,7 +108,7 @@ export const Activities: FC<Props> = (props) => {
                 </span>{" "}
                 at
                 <span className="number">
-                  {formatPrice(activity.price, locale)}
+                  {formatBigToPrice(activity.price, locale)}
                 </span>
               </Text>
             )}

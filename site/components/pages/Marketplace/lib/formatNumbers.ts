@@ -2,8 +2,13 @@ import { formatUnits, trimWithLocale } from "@klimadao/lib/utils";
 import { BigNumber } from "ethers";
 
 // price is always only USDC??
-export const formatPrice = (value: BigNumber, locale = "en") => {
-  const toNumber = Number(formatUnits(value, 18)); // ensure to change this later to 6 decimals for USDC !!
+export const formatBigToPrice = (value: BigNumber, locale = "en") => {
+  const toNumber = Number(formatUnits(value, 18)); // TODO: ensure to change this later to 6 decimals for USDC !!
+  return formatToPrice(toNumber, locale);
+};
+
+export const formatToPrice = (value: string | number, locale = "en") => {
+  const toNumber = Number(value);
   return new Intl.NumberFormat(locale, {
     style: "currency",
     currency: "USD",

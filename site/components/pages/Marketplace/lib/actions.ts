@@ -5,6 +5,10 @@ import { getMarketplaceAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
 import { Asset } from "@klimadao/lib/types/marketplace";
 
+// TODO: Before GO-LIVE replace with getContract("usdc")
+// Currently, the USDC token is pointing to a fake one on Mumbai
+import IERC20 from "@klimadao/lib/abi/IERC20.json";
+
 export const getC3tokenToMarketplaceAllowance = async (params: {
   userAdress: string;
   tokenAddress: string;
@@ -22,6 +26,25 @@ export const getC3tokenToMarketplaceAllowance = async (params: {
   );
 
   return ethers.utils.formatUnits(allowance);
+};
+
+export const getUSDCtokenToMarketplaceAllowance = async (params: {
+  userAdress: string;
+  tokenAddress: string;
+  provider: ethers.providers.Provider;
+}): Promise<string> => {
+  const tokenContract = new Contract(
+    params.tokenAddress, // TODO: replace this contract getter with getContract("usdc") later
+    IERC20.abi,
+    params.provider
+  );
+
+  const allowance = await tokenContract.allowance(
+    params.userAdress,
+    getMarketplaceAddress()
+  );
+
+  return ethers.utils.formatUnits(allowance); // TODO: ensure to pass 6 later for USDC
 };
 
 export const onApproveMarketplaceTransaction = async (params: {
@@ -126,6 +149,44 @@ export const updateListingTransaction = async (params: {
 
     params.onStatus("networkConfirmation", "");
     await listingTxn.wait(1);
+    params.onStatus("done", "Transaction confirmed");
+    return;
+  } catch (error: any) {
+    if (error.code === 4001) {
+      params.onStatus("error", "userRejected");
+      throw error;
+    }
+    params.onStatus("error");
+    throw error;
+  }
+};
+
+export const makePurchase = async (params: {
+  listingId: string;
+  amount: string;
+  price: string;
+  provider: providers.JsonRpcProvider;
+  onStatus: OnStatusHandler;
+}) => {
+  try {
+    const marketPlaceContract = getContract({
+      contractName: "marketplace",
+      provider: params.provider.getSigner(),
+    });
+
+    console.log("marketPlaceContract", marketPlaceContract);
+
+    params.onStatus("userConfirmation", "");
+
+    console.log("makePurchase", params);
+    const purchaseTxn = await marketPlaceContract.purchase(
+      params.listingId,
+      utils.parseUnits(params.amount, 18), // C3 token
+      utils.parseUnits(params.price, 18) // TODO: Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
+    );
+
+    params.onStatus("networkConfirmation", "");
+    await purchaseTxn.wait(1);
     params.onStatus("done", "Transaction confirmed");
     return;
   } catch (error: any) {

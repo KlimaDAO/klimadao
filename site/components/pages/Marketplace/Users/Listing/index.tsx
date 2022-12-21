@@ -11,7 +11,7 @@ import { ProjectImage } from "components/pages/Marketplace/shared/ProjectImage";
 import { Vintage } from "components/pages/Marketplace/shared/Vintage";
 
 import {
-  formatPrice,
+  formatBigToPrice,
   formatTonnes,
 } from "components/pages/Marketplace/lib/formatNumbers";
 
@@ -36,7 +36,7 @@ export const Listing: FC<Props> = (props) => {
       </div>
       <div className={styles.amounts}>
         <Text t="body4">
-          {formatPrice(props.listing.singleUnitPrice, locale)}
+          {formatBigToPrice(props.listing.singleUnitPrice, locale)}
         </Text>
         <Text t="body6">
           <Trans id="marketplace.seller.listing.quantity_available">
