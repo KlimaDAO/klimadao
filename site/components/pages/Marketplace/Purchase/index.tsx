@@ -210,7 +210,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
 
         <Modal
           title={t({
-            id: "marketplace.seller.edit_listing.title",
+            id: "marketplace.purchase.transaction.modal.title",
             message: "Confirm Purchase",
           })}
           showModal={showTransactionView}
