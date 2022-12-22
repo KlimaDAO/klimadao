@@ -3,29 +3,22 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const buyCard = css`
   position: relative;
-  display: grid;
-  align-content: start;
-  grid-column: 1 / 3;
-  grid-template-rows: min-content 1fr;
+  display: flex;
+  justify-content: center;
   background-color: var(--surface-02);
   border-radius: 1.2rem;
+  grid-column: 1 / 3;
   padding-top: 2.4rem;
-  gap: 2.4rem;
-
   .hr {
     height: 2px;
     background-color: var(--surface-01);
   }
 
-  ${breakpoints.medium} {
-    gap: 3.2rem;
-  }
-
   ${breakpoints.desktop} {
+    padding: 0;
     grid-column: cardsleft;
     grid-row: 2 / span 3;
     grid-template-rows: 1fr 1fr 1fr;
-    align-items: start;
   }
 
   ${breakpoints.desktopLarge} {
@@ -34,53 +27,31 @@ export const buyCard = css`
   }
 `;
 
-export const buyCard_iframeStack = css`
-  display: grid;
-  gap: 1.6rem;
-`;
-
-export const buyCard_iframeContainer = css`
+export const buyCard_header = css`
   display: flex;
   flex-direction: column;
-  position: relative;
-  .spinner_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    padding: 2.4rem;
-  }
-`;
-
-export const buyCard_iframe = css`
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 1.2rem;
-  border: none;
-  width: 100%;
-  height: 73rem;
-  z-index: 2;
-  overflow-y: auto;
-`;
-
-export const buyCard_header = css`
-  display: grid;
   gap: 0.8rem;
-  max-width: 38rem;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
-
-  ${breakpoints.desktopLarge} {
-    padding-left: 0;
-    padding-right: 0;
+  padding: 0 2.4rem 2.4rem 2.4rem;
+  max-width: 50rem;
+  width: 100%;
+  gap: 3.2rem;
+  ${breakpoints.desktop} {
+    padding-top: 3.2rem;
   }
 `;
 
 export const buyCard_header_title = css`
   display: flex;
+  width: 100%;
+  text-align: left;
   align-items: center;
   gap: 0.8rem;
+`;
+
+export const buyCard_header_subtitle = css`
+  width: 100%;
+  text-align: left;
+  padding-top: 0.8rem;
 `;
 
 export const buyCard_ui = css`

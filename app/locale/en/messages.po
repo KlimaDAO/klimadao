@@ -223,28 +223,18 @@ msgstr "Amount you will get, at the provided input quantity"
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
-#: components/views/Buy/index.tsx:49
+#: components/views/Buy/index.tsx:50
 msgid "buy.buy_klima"
 msgstr "Buy KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:112
-msgid "buy.connect_wallet"
-msgstr "You must connect a wallet in order to purchase KLIMA."
-
-#. Long sentence
 #: components/views/Buy/index.tsx:60
-msgid "buy.data_disclaimer"
-msgstr "KlimaDAO does not receive any personal data whatsoever. Review the Mobilum <0>Privacy Policy</0> and <1>Terms and Conditions</1>."
+msgid "buy.connect_wallet"
+msgstr "This feature is available only to users who are logged in. You can log in or create an account via the button below."
 
-#. Long sentence
-#: components/views/Buy/index.tsx:52
-msgid "buy.how_to_buy"
-msgstr "Buy KLIMA directly using our partner, <0>Mobilum</0>. Double check that you are connected with your own secure wallet, and that the provided address is correct."
-
-#: components/views/Buy/index.tsx:109
+#: components/views/Buy/index.tsx:55
 msgid "buy.not_connected"
-msgstr "Not Connected"
+msgstr "Please Log In Or Connect A Wallet"
 
 #: components/views/Bond/index.tsx:729
 msgid "capacity.description_inverse"
@@ -325,7 +315,7 @@ msgid "choose_bond.ubo.description"
 msgstr "C3 Universal Basic Offset"
 
 #: components/views/Bond/index.tsx:400
-#: components/views/Buy/index.tsx:121
+#: components/views/Buy/index.tsx:70
 #: components/views/Home/index.tsx:149
 #: components/views/Offset/index.tsx:366
 #: components/views/PKlima/index.tsx:155
@@ -335,7 +325,7 @@ msgid "connectModal.continue"
 msgstr "or continue with"
 
 #: components/views/Bond/index.tsx:409
-#: components/views/Buy/index.tsx:130
+#: components/views/Buy/index.tsx:79
 #: components/views/Home/index.tsx:158
 #: components/views/Offset/index.tsx:375
 #: components/views/PKlima/index.tsx:164
@@ -345,7 +335,7 @@ msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #: components/views/Bond/index.tsx:396
-#: components/views/Buy/index.tsx:117
+#: components/views/Buy/index.tsx:66
 #: components/views/Home/index.tsx:145
 #: components/views/Offset/index.tsx:362
 #: components/views/PKlima/index.tsx:151
@@ -355,7 +345,7 @@ msgid "connect_modal.error_message"
 msgstr "We had some trouble connecting. Please try again."
 
 #: components/views/Bond/index.tsx:413
-#: components/views/Buy/index.tsx:134
+#: components/views/Buy/index.tsx:83
 #: components/views/Home/index.tsx:162
 #: components/views/Offset/index.tsx:379
 #: components/views/PKlima/index.tsx:168
@@ -365,7 +355,7 @@ msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
 #: components/views/Bond/index.tsx:405
-#: components/views/Buy/index.tsx:126
+#: components/views/Buy/index.tsx:75
 #: components/views/Home/index.tsx:154
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:160
@@ -797,7 +787,6 @@ msgid "shared.confirming"
 msgstr "Confirming"
 
 #: components/views/Bond/index.tsx:418
-#: components/views/Buy/index.tsx:139
 #: components/views/Home/index.tsx:167
 #: components/views/Offset/index.tsx:384
 #: components/views/PKlima/index.tsx:173
@@ -809,10 +798,6 @@ msgstr "Connect"
 #: components/views/Stake/index.tsx:258
 msgid "shared.connect_wallet"
 msgstr "Loading..."
-
-#: components/views/Buy/index.tsx:81
-msgid "shared.copy_wallet_address"
-msgstr "Copy Address {0}"
 
 #: components/views/Stake/index.tsx:296
 #: components/views/Stake/index.tsx:311
@@ -874,6 +859,10 @@ msgstr "Invalid quantity"
 msgid "shared.loading"
 msgstr "Loading..."
 
+#: components/views/Buy/index.tsx:88
+msgid "shared.login_connect"
+msgstr "Login / Connect"
+
 #: components/views/Bond/index.tsx:634
 #: components/views/PKlima/index.tsx:277
 #: components/views/Stake/index.tsx:419
@@ -892,10 +881,6 @@ msgstr "Retire carbon"
 #: components/views/Bond/index.tsx:434
 msgid "shared.sold_out"
 msgstr "Sold Out"
-
-#: components/views/Buy/index.tsx:88
-msgid "shared.wallet_address_copied"
-msgstr "Copied!"
 
 #: components/views/Stake/index.tsx:432
 msgid "stake.5_day_rewards"
@@ -917,7 +902,7 @@ msgstr "Annualized KLIMA Rewards, including compounding, should the current rewa
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:148
+#: components/views/Buy/index.tsx:101
 #: components/views/Stake/index.tsx:341
 msgid "stake.balancescard.tooltip"
 msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."
