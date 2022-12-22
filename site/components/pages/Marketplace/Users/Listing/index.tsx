@@ -27,12 +27,12 @@ export const Listing: FC<Props> = (props) => {
   return (
     <Card>
       <div className={styles.tags}>
-        <Category category={"AM0052"} />
+        <Category category={props.listing.project.category.id} />
         <Vintage vintage={props.listing.project.vintage} />
       </div>
       <Text>{props.listing.project.name}</Text>
       <div className={styles.image}>
-        <ProjectImage category={"AM0052"} />
+        <ProjectImage category={props.listing.project.category.id} />
       </div>
       <div className={styles.amounts}>
         <Text t="body4">

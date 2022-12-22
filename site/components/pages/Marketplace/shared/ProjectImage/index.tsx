@@ -1,11 +1,11 @@
 import { FC } from "react";
 import Image from "next/legacy/image";
-import { Category as CategoryType } from "@klimadao/lib/types/marketplace";
+import { CategoryName } from "@klimadao/lib/types/marketplace";
 
 import { categoryInfoMap } from "components/pages/Marketplace/lib/getCategoryInfo";
 
 type Props = {
-  category: CategoryType;
+  category: CategoryName;
 };
 
 export const ProjectImage: FC<Props> = (props) => {

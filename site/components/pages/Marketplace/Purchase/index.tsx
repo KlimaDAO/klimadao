@@ -170,7 +170,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
         <div className={styles.fullWidth}>
           <Card>
             <div className={styles.projectHeader}>
-              <ProjectImage category={"AM0052"} />
+              <ProjectImage category={props.project.category.id} />
               <div className={styles.imageGradient}></div>
               <div className="stack">
                 <Text

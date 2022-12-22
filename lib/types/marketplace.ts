@@ -39,7 +39,7 @@ export type Listing = {
     id: string;
     key: string;
     name: string;
-    // category: Category; // still missing
+    category: Category;
     methodology: string;
     projectAddress: string;
     projectID: string;
@@ -62,7 +62,7 @@ export type Activity = {
     id: string;
     key: string;
     name: string;
-    // category: Category; // still missing
+    category: Category;
     methodology: string;
     projectAddress: string;
     projectID: string;
@@ -88,6 +88,7 @@ export type ProjectInfo = {
   region: string | "";
   registry: "GS";
   uri: string;
+  category: Category;
 };
 
 export type Asset = {
@@ -103,4 +104,15 @@ export type Stats = {
   activeListings: number;
 };
 
-export type Category = "AM0052"; // TODO: what are the others?
+export type Category = {
+  id: CategoryName;
+};
+
+export type CategoryName =
+  | "Agriculture"
+  | "Energy Efficiency"
+  | "Forestry"
+  | "Industrial Processing"
+  | "Renewable Energy"
+  | "Other"
+  | "Other Nature-based";

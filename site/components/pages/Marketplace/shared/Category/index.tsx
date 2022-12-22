@@ -1,11 +1,11 @@
 import { FC } from "react";
-import { Category as CategoryType } from "@klimadao/lib/types/marketplace";
-
+import { CategoryName } from "@klimadao/lib/types/marketplace";
+import { cx } from "@emotion/css";
 import { categoryInfoMap } from "components/pages/Marketplace/lib/getCategoryInfo";
 import * as styles from "./styles";
 
 type Props = {
-  category: CategoryType;
+  category: CategoryName;
 };
 
 export const Category: FC<Props> = (props) => {
@@ -17,9 +17,11 @@ export const Category: FC<Props> = (props) => {
 
   const Icon = category.icon;
 
+  const other = category.key === "Other";
+
   return (
     <div
-      className={styles.category}
+      className={cx(styles.category, { other })}
       style={{ backgroundColor: category.color }}
     >
       <Icon /> {category.label}

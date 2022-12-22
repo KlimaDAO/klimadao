@@ -13,4 +13,8 @@ export const category = css`
 
   font-size: 1.4rem;
   color: var(--font-01);
+
+  &.other {
+    color: white;
+  }
 `;
