@@ -19,21 +19,6 @@ interface Props {
 }
 
 export const Buy = (props: Props) => {
-  // const [isAddressCopied, setIsAddressCopied] = useState(false);
-
-  // const handleCopyAddressClick = (): void => {
-  //   if (props.address) {
-  //     setIsAddressCopied(true);
-  //     navigator.clipboard.writeText(props.address);
-  //     if (document.activeElement) {
-  //       (document.activeElement as HTMLElement).blur();
-  //     }
-  //     setTimeout(() => {
-  //       setIsAddressCopied(false);
-  //     }, 3000);
-  //   }
-  // };
-
   return (
     <>
       <div className={styles.buyCard}>
