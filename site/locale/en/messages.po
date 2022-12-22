@@ -1718,11 +1718,6 @@ msgstr "Community"
 msgid "shared.confirm"
 msgstr "Confirm"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:66
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr "Connect"
-
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
 #: components/pages/About/AboutHeader/index.tsx:67
@@ -1817,6 +1812,11 @@ msgstr "Info"
 #: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr "Loading..."
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:65
+#: components/pages/Pledge/HeaderMobile/index.tsx:64
+msgid "shared.login_connect"
+msgstr "Login / Connect"
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
