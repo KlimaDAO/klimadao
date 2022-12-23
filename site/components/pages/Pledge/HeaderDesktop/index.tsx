@@ -63,6 +63,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonVariant="blue"
         />
       </div>
     </div>
