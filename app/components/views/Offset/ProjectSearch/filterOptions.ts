@@ -18,7 +18,7 @@ export const filterOptions = {
       { label: "South Korea", value: "South Korea" },
       { label: "Turkey", value: "Turkey" },
       { label: "Uganda", value: "Uganda" },
-      { label: "Viet Nam", value: "Viet Nam" },
+      { label: "Vietnam", value: "Viet Nam" },
     ],
     vintages: [
       { label: "2007", value: "2007" },
