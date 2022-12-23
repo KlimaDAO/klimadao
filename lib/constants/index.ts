@@ -142,9 +142,14 @@ export const urls = {
 
   polyscanGasStation: "https://gasstation-mainnet.matic.network/v2",
   polygonscan: "https://polygonscan.com",
+  polygonBridge: "https://wallet.polygon.technology/polygon/bridge/deposit",
+  polygonTor: "https://polygon.tor.us/",
   creolIndividualCalculator: "https://klima.creol.io/#/footprint",
   creolBusinessCalculator: "https://klima.creol.io/#/office",
   cryptoOffsetCalculator: "https://carbon.fyi/",
+  sushi: "https://www.sushi.com/",
+  coinbase: "https://www.coinbase.com/",
+  moonpay: "https://www.moonpay.com/",
 };
 
 export const polygonNetworks = {
