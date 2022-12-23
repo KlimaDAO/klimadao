@@ -36,6 +36,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
           <ButtonPrimary
             key="toggleModal"
             label={t({ id: "pledges.edit_pledge", message: "Edit Pledge" })}
+            variant="blue"
             onClick={() => props.toggleEditModal?.(true)}
           />
         )}
@@ -63,6 +64,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
             }),
           }}
           buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonVariant="blue"
         />
       </div>
     </div>

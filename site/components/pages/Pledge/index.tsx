@@ -136,6 +136,7 @@ export const Pledge: NextPage = () => {
                       message: "Create a pledge",
                       id: "pledges.home.hero.create",
                     })}
+                    buttonVariant="blue"
                     onClose={handleCreatePledge}
                   />
                 )}
@@ -352,6 +353,7 @@ export const Pledge: NextPage = () => {
                   message: "Create a pledge",
                   id: "pledges.home.hero.create",
                 })}
+                buttonVariant="blue"
                 onClose={handleCreatePledge}
               />
             )}
@@ -406,6 +408,7 @@ export const Pledge: NextPage = () => {
                     message: "Create a pledge",
                     id: "pledges.home.hero.create",
                   })}
+                  buttonVariant="blue"
                   onClose={handleCreatePledge}
                 />
               )}
