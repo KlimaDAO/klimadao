@@ -3,7 +3,7 @@ import { ButtonPrimary } from "../Buttons/ButtonPrimary";
 import { concatAddress, useWeb3 } from "../../utils";
 import { ConnectContent } from "./ConnectContent";
 
-export const ConnectModal = (props: {
+interface Props {
   errorMessage: string;
   torusText: string;
   titles: {
@@ -13,10 +13,17 @@ export const ConnectModal = (props: {
   };
   buttonText: string;
   buttonClassName?: string;
+  buttonVariant?: "lightGray" | "gray" | "blue" | "red" | "transparent" | null;
   onClose?: () => void;
-}) => {
+}
+
+export const ConnectModal = (props: Props) => {
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
+  const { address, connect, disconnect, isConnected } = useWeb3();
+
+  const buttonVariant = props.buttonVariant ?? null;
+
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = "hidden";
@@ -24,7 +31,6 @@ export const ConnectModal = (props: {
       document.body.style.overflow = "";
     }
   }, [showModal]);
-  const { address, connect, disconnect, isConnected } = useWeb3();
 
   const handleConnect = async (params: {
     wallet: "coinbase" | "torus" | "walletConnect" | "metamask" | "brave";
@@ -58,7 +64,7 @@ export const ConnectModal = (props: {
         <ButtonPrimary
           label={concatAddress(address)}
           onClick={disconnect}
-          variant="blue"
+          variant={buttonVariant}
         />
       ) : (
         <ButtonPrimary
@@ -66,10 +72,11 @@ export const ConnectModal = (props: {
           onClick={() => {
             setShowModal(true);
           }}
-          variant="blue"
+          variant={buttonVariant}
           className={props.buttonClassName}
         />
       )}
+
       <ConnectContent
         showModal={showModal}
         handleConnect={handleConnect}
