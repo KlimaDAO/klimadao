@@ -27,18 +27,20 @@ export const ProjectDetails: FC<Props> = (props) => {
             Project Details
           </Trans>
         </Text>
-        <Text t="body2">
-          <Trans id="retirement.single.project_details.subline">
-            The tonne(s) retired originated from the following project(s).
-          </Trans>
-        </Text>
-        {isVerraProject && (
+        <div>
           <Text t="body2">
-            <Trans id="retirement.single.project_details.click_on_project">
-              Click on the project title to learn more.
+            <Trans id="retirement.single.project_details.subline">
+              The tonne(s) retired originated from the following project(s).
             </Trans>
           </Text>
-        )}
+          {isVerraProject && (
+            <Text t="body2">
+              <Trans id="retirement.single.project_details.click_on_project">
+                Click on the project title to learn more.
+              </Trans>
+            </Text>
+          )}
+        </div>
       </div>
       {isVerraProject &&
         projectDetails.value.map((value) => (
