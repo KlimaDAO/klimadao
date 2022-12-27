@@ -22,7 +22,6 @@ export const buyCard = css`
 
   ${breakpoints.desktopLarge} {
     padding: 3.2rem;
-    min-height: 107rem; /* gross overflow hack */
   }
 `;
 

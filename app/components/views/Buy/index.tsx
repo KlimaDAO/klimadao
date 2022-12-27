@@ -31,7 +31,7 @@ export const Buy = (props: Props) => {
               <Text t="caption" className={styles.buyCard_header_subtitle}>
                 <Trans id="buy.cta_1">
                   If you are a beginner, we recommend following our step-by-step
-                  tutorial: <Anchor href={urls.buy}>How to Buy KLIMA.</Anchor>
+                  tutorial: <Anchor href={urls.buy}>How to Buy KLIMA</Anchor>.
                 </Trans>
               </Text>
               <Text t="caption" className={styles.buyCard_header_subtitle}>
