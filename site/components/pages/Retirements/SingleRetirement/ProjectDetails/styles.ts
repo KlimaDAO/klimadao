@@ -19,7 +19,7 @@ export const projectDetails = css`
   padding: 2.8rem 1.5rem;
 
   ${breakpoints.medium} {
-    gap: 5.2rem;
+    gap: 3.2rem;
     padding: 5.2rem;
   }
 `;

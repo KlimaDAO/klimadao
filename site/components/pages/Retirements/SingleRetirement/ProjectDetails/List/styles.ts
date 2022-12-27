@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 
 export const listItem = css`
   display: grid;
-  gap: 1.2rem;
+  gap: 1.4rem;
 
   .link {
     color: var(--font-01);

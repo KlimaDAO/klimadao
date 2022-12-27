@@ -1,12 +1,12 @@
 import { FC } from "react";
+import { Trans, t } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
+import { verra } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 
-import { Trans, t } from "@lingui/macro";
 import { ProjectDetail } from "./List";
 import * as styles from "./styles";
-import { verra, urls } from "@klimadao/lib/constants";
 
 type Props = {
   offset: KlimaRetire["offset"];
@@ -27,18 +27,20 @@ export const ProjectDetails: FC<Props> = (props) => {
             Project Details
           </Trans>
         </Text>
-        <Text t="body2">
-          <Trans id="retirement.single.project_details.subline">
-            The tonne(s) retired originated from the following project(s).
-          </Trans>
-        </Text>
-        {isVerraProject && (
+        <div>
           <Text t="body2">
-            <Trans id="retirement.single.project_details.click_on_project">
-              Click on the project title to learn more.
+            <Trans id="retirement.single.project_details.subline">
+              The tonne(s) retired originated from the following project(s).
             </Trans>
           </Text>
-        )}
+          {isVerraProject && (
+            <Text t="body2">
+              <Trans id="retirement.single.project_details.click_on_project">
+                Click on the project title to learn more.
+              </Trans>
+            </Text>
+          )}
+        </div>
       </div>
       {isVerraProject &&
         projectDetails.value.map((value) => (
@@ -52,12 +54,13 @@ export const ProjectDetails: FC<Props> = (props) => {
         ))}
       {isMossOffset && (
         <ProjectDetail
-          projectLink={`${urls.carbonDashboard}/MCO2`}
+          projectLink="https://mco2token.moss.earth/"
           headline={t({
             id: "retirement.single.project_details.moss_headline",
             message: "Learn more about the projects that back the MCO2 pools",
           })}
           tokenAddress={offset.tokenAddress}
+          isMossOffset={true}
         />
       )}
     </div>
