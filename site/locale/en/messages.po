@@ -42,59 +42,59 @@ msgstr "The information provided in this blog post pertaining to KlimaDAO (“Kl
 msgid "blog.disclaimer.title"
 msgstr "Disclaimer:"
 
-#: components/pages/Buy/index.tsx:435
+#: components/pages/Buy/index.tsx:439
 msgid "buy.answer_exchange"
-msgstr "Advanced users can use the <0>Polygon Bridge</0> from Ethereum, and/or the <1>Polygon Gas Swap</1> to swap other assets for MATIC."
+msgstr "Advanced users can use the <0>Polygon Bridge</0> to move any asset from Ethereum to Polygon, and/or the <1>Polygon Gas Swap</1> to swap assets like USDC for MATIC."
 
-#: components/pages/Buy/index.tsx:394
+#: components/pages/Buy/index.tsx:396
 msgid "buy.bond_answer_cedit_card"
-msgstr "Yes, some on-ramp providers like Transak and Mobilum allow you to buy KLIMA directly with a credit card, for a fee. However, if your wallet doesn't have MATIC, you won't be able to transfer or perform other actions. For this reason, and to guarantee the best market rate, we recommend buying MATIC directly instead, and swapping that MATIC for KLIMA on Sushi.com."
+msgstr "Yes, some on-ramp providers like <0>Transak</0> allow you to buy KLIMA directly with a credit card, for a fee. However, if your wallet doesn't have MATIC, you won't be able to transfer or perform other actions. For this reason, and to guarantee the best market rate, we recommend buying MATIC directly instead, and swapping your MATIC for KLIMA on Sushi.com."
 
-#: components/pages/Buy/index.tsx:411
+#: components/pages/Buy/index.tsx:414
 msgid "buy.bond_answer_cex1"
-msgstr "KLIMA is not traded on a centralized exchange like Coinbase, Binance, or Crypto.com as these exchanges typically charge very high listing fees and require expensive market makers."
+msgstr "KLIMA is not traded on a centralized exchange like Coinbase, Binance, or Crypto.com as these exchanges typically charge very high listing fees and require financing from expensive market makers."
 
-#: components/pages/Buy/index.tsx:418
+#: components/pages/Buy/index.tsx:422
 msgid "buy.bond_answer_cex2"
 msgstr "Instead, KLIMA tokens are traded on a \"Decentralized Exchange\" (DEX) that is powered by smart contracts and runs directly on the blockchain. DEXs have some major advantages. DEXs made it possible for the DAO to own the majority of liquidity, so it can maintain full autonomy and generate revenue to pay contributors. We chose to use Sushi's DEX technology as it already facilitates tens of millions of dollars in transactions per day."
 
-#: components/pages/Buy/index.tsx:375
+#: components/pages/Buy/index.tsx:377
 msgid "buy.bond_description1"
 msgstr "Experienced crypto users can buy KLIMA directly from the protocol via bonds. To acquire KLIMA via bonds, you provide a carbon token or liquidity token and get discounted KLIMA tokens in return. This is the mechanism that the DAO uses to grow its treasury of digital carbon."
 
-#: components/pages/Buy/index.tsx:384
+#: components/pages/Buy/index.tsx:386
 msgid "buy.bond_description_capacity"
-msgstr "Bond capacity is limited and bonds re not always available."
+msgstr "Bond capacity is limited and bonds are not always available."
 
-#: components/pages/Buy/index.tsx:404
+#: components/pages/Buy/index.tsx:407
 msgid "buy.bond_question_cex"
 msgstr "Why can't I find KLIMA on Coinbase or other centralized exchanges? Why do I have to use <0>Sushi.com</0>?"
 
-#: components/pages/Buy/index.tsx:389
+#: components/pages/Buy/index.tsx:391
 msgid "buy.bond_question_credit_card"
 msgstr "Can I buy KLIMA directly with a credit card?"
 
-#: components/pages/Buy/index.tsx:194
+#: components/pages/Buy/index.tsx:196
 msgid "buy.connect_advanced"
 msgstr "Note: these instructions are for Torus wallet users only. Sushi supports a variety of different wallets."
 
-#: components/pages/Buy/index.tsx:189
+#: components/pages/Buy/index.tsx:191
 msgid "buy.connect_torus_sushi"
 msgstr "3A. Connect Torus to Sushi.com using WalletConnect"
 
-#: components/pages/Buy/index.tsx:216
+#: components/pages/Buy/index.tsx:218
 msgid "buy.connect_torus_sushi_description2"
 msgstr "In a separate browser tab, visit <0>Sushi.com</0> and click \"Connect\" at the top-right corner. You will be presented with a few wallet options. Choose WalletConnect. After you choose WalletConnect you will see a QR code—click \"Copy to Clipboard\"."
 
-#: components/pages/Buy/index.tsx:233
+#: components/pages/Buy/index.tsx:235
 msgid "buy.connect_torus_sushi_description3"
 msgstr "Return to the Torus wallet app and paste this code into the WalletConnect widget. This will create a temporary connection between your wallet and <0>Sushi.com</0>."
 
-#: components/pages/Buy/index.tsx:241
+#: components/pages/Buy/index.tsx:243
 msgid "buy.connect_torus_sushi_description4"
 msgstr "When you return to the Sushi tab in your browser, you should see that your Torus address is now visible in the top-right corner."
 
-#: components/pages/Buy/index.tsx:247
+#: components/pages/Buy/index.tsx:249
 msgid "buy.connect_torus_sushi_description5"
 msgstr "Finally, use the drop-down menu on <0>Sushi.com</0> to switch to the Polygon network."
 
@@ -122,7 +122,7 @@ msgstr "Advanced: if you don't want to use Torus, feel free to use any Polygon-c
 msgid "buy.create_wallet_item"
 msgstr "1. Create a Wallet"
 
-#: components/pages/Buy/index.tsx:323
+#: components/pages/Buy/index.tsx:325
 msgid "buy.faq_title"
 msgstr "FAQ"
 
@@ -153,57 +153,57 @@ msgstr "<0>Load your new wallet with MATIC tokens.</0> MATIC is the gas that pow
 
 #: components/pages/Buy/index.tsx:154
 msgid "buy.load_wallet_description1"
-msgstr "Use a service like <0>MoonPay</0> or a centralized exchange like<1>Coinbase</1> to buy Polygon MATIC and send it to your newly created wallet."
+msgstr "Use a service like <0>MoonPay</0> or <1>Transak</1> or a centralized exchange like <2>Coinbase</2> to buy Polygon MATIC and send it to your newly created wallet."
 
-#: components/pages/Buy/index.tsx:162
+#: components/pages/Buy/index.tsx:164
 msgid "buy.load_wallet_description2"
 msgstr "<0>Be sure that the MATIC tokens are sent to your new wallet address!</0> You can copy the address to your clipboard by connecting to our app and clicking the address in the navigation menu."
 
-#: components/pages/Buy/index.tsx:172
+#: components/pages/Buy/index.tsx:174
 msgid "buy.load_wallet_description3"
 msgstr "<0>Be sure to buy and send the MATIC through the Polygon network!</0> Some exchanges like Coinbase will ask you which network to send the MATIC tokens on. Make sure to always choose Polygon."
 
-#: components/pages/Buy/index.tsx:429
+#: components/pages/Buy/index.tsx:433
 msgid "buy.question_exchange"
 msgstr "What if I want to use a different exchange, but they don't sell Polygon MATIC?"
 
-#: components/pages/Buy/index.tsx:326
+#: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic"
 msgstr "Why do I have to buy MATIC first?"
 
-#: components/pages/Buy/index.tsx:331
+#: components/pages/Buy/index.tsx:333
 msgid "buy.question_why_matic_answer"
 msgstr "The KLIMA token and protocol lives on the Polygon blockchain. MATIC is the “gas” that powers every transaction on Polygon. It is not possible to execute a transaction without paying the transaction fee. This means you will need to pay a few cents worth of MATIC for the following actions:"
 
-#: components/pages/Buy/index.tsx:342
+#: components/pages/Buy/index.tsx:344
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr "Staking KLIMA for sKLIMA"
 
-#: components/pages/Buy/index.tsx:349
+#: components/pages/Buy/index.tsx:351
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr "Swapping between different tokens"
 
-#: components/pages/Buy/index.tsx:356
+#: components/pages/Buy/index.tsx:358
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr "Sending tokens to another wallet"
 
-#: components/pages/Buy/index.tsx:363
+#: components/pages/Buy/index.tsx:365
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr "Using KLIMA or other tokens to offset carbon"
 
-#: components/pages/Buy/index.tsx:296
+#: components/pages/Buy/index.tsx:298
 msgid "buy.staking_cta"
 msgstr "Stake, earn, vote, and offset!"
 
-#: components/pages/Buy/index.tsx:299
+#: components/pages/Buy/index.tsx:301
 msgid "buy.staking_description1"
 msgstr "Congrats! Now that you have some KLIMA in your wallet, we highly recommend <0>staking</0> that KLIMA for sKLIMA, which accrues rewards over time as the protocol grows."
 
-#: components/pages/Buy/index.tsx:307
+#: components/pages/Buy/index.tsx:309
 msgid "buy.staking_description2"
 msgstr "You can also use the app to spend KLIMA and <0>retire digital carbon</0> on the blockchain."
 
-#: components/pages/Buy/index.tsx:314
+#: components/pages/Buy/index.tsx:316
 msgid "buy.staking_description3"
 msgstr "Finally, keep an eye out for <0>ongoing votes</0> and help guide the protocol in the right direction."
 
@@ -227,19 +227,19 @@ msgstr "The best and easiest way to get KLIMA is to follow these three steps:"
 msgid "buy.summary_title"
 msgstr "Summary"
 
-#: components/pages/Buy/index.tsx:257
+#: components/pages/Buy/index.tsx:259
 msgid "buy.swap_description1"
 msgstr "After connecting your wallet and switching to the Polygon network, you should now be able to swap from MATIC to KLIMA."
 
-#: components/pages/Buy/index.tsx:263
+#: components/pages/Buy/index.tsx:265
 msgid "buy.swap_description2"
 msgstr "<0>Important note: don't swap all your MATIC for KLIMA!</0> Save at least 0.5 MATIC to pay for future transaction fees."
 
-#: components/pages/Buy/index.tsx:279
+#: components/pages/Buy/index.tsx:281
 msgid "buy.swap_description3"
 msgstr "If you are using Torus, keep the browser tab with the Torus app open. You will need to return to your wallet to approve and authorize the transactions."
 
-#: components/pages/Buy/index.tsx:286
+#: components/pages/Buy/index.tsx:288
 msgid "buy.swap_description4"
 msgstr "Optional: If you'd like your Sushi transactions themselves to be climate positive, you should enable the Sushi 'Green Fee', powered by KlimaDAO. This will spend 0.02 MATIC per transaction to purchase and retire digital carbon automatically!"
 
@@ -247,28 +247,28 @@ msgstr "Optional: If you'd like your Sushi transactions themselves to be climate
 msgid "buy.swap_for_klima_description"
 msgstr "<0>Swap for KLIMA.</0> Sushi is a Decentralized Exchange where you can instantly trade some of your MATIC tokens for KLIMA tokens at the lowest possible price."
 
-#: components/pages/Buy/index.tsx:254
+#: components/pages/Buy/index.tsx:256
 msgid "buy.swap_subtitle"
 msgstr "3B. Swap MATIC for KLIMA"
 
-#: components/pages/Buy/index.tsx:183
+#: components/pages/Buy/index.tsx:185
 msgid "buy.swap_wallet"
 msgstr "3. Swap for KLIMA on <0>Sushi.com</0>"
 
-#: components/pages/Buy/index.tsx:200
+#: components/pages/Buy/index.tsx:202
 msgid "buy.torus_login_description"
-msgstr "In a new browser tab, go to <0>https://polygon.tor.us/</0> and log in with your new Torus account. When you log in, you should see a WalletConnect widget."
+msgstr "In a new browser tab, go to the <0>Torus Polygon webapp</0> and log in with your new Torus account. When you log in, you should see a WalletConnect widget."
 
-#: components/pages/Buy/index.tsx:209
+#: components/pages/Buy/index.tsx:211
 msgid "buy.wallet_connect_example"
 msgstr "wallet connect input example"
 
-#: components/pages/Buy/index.tsx:226
-#: components/pages/Buy/index.tsx:272
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
 msgid "buy.wallet_connect_example_qr_code"
 msgstr "wallet connect qr code example"
 
-#: components/pages/Buy/index.tsx:370
+#: components/pages/Buy/index.tsx:372
 msgid "buy.what_are_bonds"
 msgstr "Are there other ways to get KLIMA? What are bonds?"
 

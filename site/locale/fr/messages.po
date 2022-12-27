@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-27 15:33+0000\n"
+"POT-Creation-Date: 2022-12-27 18:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,10 +10,6 @@ msgstr ""
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "Changer de langue"
-
-#: components/pages/Buy/index.tsx:275
-msgid "Enter App"
-msgstr "Visitez l'application"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
@@ -40,167 +36,235 @@ msgstr "Les informations fournies dans cet article de blog concernant KlimaDAO (
 msgid "blog.disclaimer.title"
 msgstr "Avertissement légal"
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:253
-msgid "buy.advanced"
-msgstr "Avancé"
+#: components/pages/Buy/index.tsx:439
+msgid "buy.answer_exchange"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:173
-msgid "buy.beginner"
-msgstr "Débutant"
+#: components/pages/Buy/index.tsx:396
+msgid "buy.bond_answer_cedit_card"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:14
-msgid "buy.beginner_01.description_01"
-msgstr "<0>Metamask</0> est le portefeuille le plus populaire pour Ethereum et Polygon. Vous pouvez l'utiliser pour vous connecter à notre application et envoyer des transactions. Assurez-vous que l'extension est installée sur votre navigateur Web."
+#: components/pages/Buy/index.tsx:414
+msgid "buy.bond_answer_cex1"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:10
-msgid "buy.beginner_01.title"
-msgstr "Installer Metamask"
+#: components/pages/Buy/index.tsx:422
+msgid "buy.bond_answer_cex2"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:29
-msgid "buy.beginner_02.description_01"
-msgstr "Une fois l'extension de navigateur Metamask installée et votre nouveau portefeuille configuré, rendez-vous sur <0>app.klimadao.finance/#/buy</0> et cliquez sur \"Connection\"."
+#: components/pages/Buy/index.tsx:377
+msgid "buy.bond_description1"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:37
-msgid "buy.beginner_02.description_02"
-msgstr "Une fois connecté, l'application KlimaDAO vous invitera à basculer vers le réseau Polygon. Metamask vous demandera par ailleurs de confirmer cette action."
+#: components/pages/Buy/index.tsx:386
+msgid "buy.bond_description_capacity"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:25
-msgid "buy.beginner_02.title"
-msgstr "Se connecter à notre application"
+#: components/pages/Buy/index.tsx:407
+msgid "buy.bond_question_cex"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:51
-msgid "buy.beginner_03.description_01"
-msgstr "Une fois connecté, vous devrez suivre les étapes présentées par notre application pour finaliser votre achat."
+#: components/pages/Buy/index.tsx:391
+msgid "buy.bond_question_credit_card"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:57
-msgid "buy.beginner_03.description_2"
-msgstr "Vous devrez fournir un e-mail, un mode de paiement et vérifier votre identité. Le DAO ne reçoit ni ne stocke aucune information personnelle de quelque nature que ce soit. Ces informations ne sont utilisées par nos partenaires, fournisseurs de solutions de paiement, qu'à des fins de conformité légale."
+#: components/pages/Buy/index.tsx:196
+msgid "buy.connect_advanced"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:47
-msgid "buy.beginner_03.title"
-msgstr "Acheter KLIMA"
+#: components/pages/Buy/index.tsx:191
+msgid "buy.connect_torus_sushi"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:72
-msgid "buy.beginner_04.description_01"
-msgstr "Afin d'utiliser KLIMA pour mettre en jeu, échanger ou compenser des émissions carbone, vous devrez exécuter des transactions sur le réseau Polygon. Chaque transaction nécessite des frais de réseau payés en MATIC."
+#: components/pages/Buy/index.tsx:218
+msgid "buy.connect_torus_sushi_description2"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:79
-msgid "buy.beginner_04.description_02"
-msgstr "1 MATIC devrait suffire à la plupart des utilisateurs. Vous pouvez utiliser l'outil <0>Gas Swap</0> de l'application Polygon officielle. Cet outil vous permet d'acquérir gratuitement une variété d'actifs en échange de jetons MATIC."
+#: components/pages/Buy/index.tsx:235
+msgid "buy.connect_torus_sushi_description3"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:68
-msgid "buy.beginner_04.title"
-msgstr "Acheter MATIC (pour les nouveaux utilisateurs)"
+#: components/pages/Buy/index.tsx:243
+msgid "buy.connect_torus_sushi_description4"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:97
-msgid "buy.beginner_05.description_01"
-msgstr "Maintenant que vous possédez des jetons KLIMA et MATIC dans votre portefeuille, vous devriez les <0>mettre en jeu</0> contre des sKLIMA pour commencer à accumuler des récompenses. Vous pouvez également les utiliser pour compenser des émissions carbone. De plus, en tant que possesseur de jeton KLIMA et sKLIMA, vous pouvez participer à la gouvernance de la DAO ! Gardez un œil sur les propositions sur notre <1>forum</1> ."
+#: components/pages/Buy/index.tsx:249
+msgid "buy.connect_torus_sushi_description5"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:93
-msgid "buy.beginner_05.title"
-msgstr "Mettre en jeu, Compenser, Gouverner!"
+#: components/pages/Buy/index.tsx:78
+msgid "buy.create_wallet_description"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:129
-#: components/pages/Buy/index.tsx:256
-msgid "buy.bonding"
-msgstr "Achat d'obligation"
+#: components/pages/Buy/index.tsx:120
+msgid "buy.create_wallet_description1"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:259
-msgid "buy.bonding.description_01"
-msgstr "Le processus d'achat d'obligation consiste en un dépôt d'actifs carbone en échange de KLIMA à prix réduit. C'est l'un des leviers permettant d'injecter des crédits carbone dans la trésorerie Klima afin d'impacter positivement celui-ci. Ce processus permet également d'augmenter le collatéral pour chaque nouveau jeton KLIMA."
+#: components/pages/Buy/index.tsx:126
+msgid "buy.create_wallet_description2"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:267
-msgid "buy.bonding.description_02"
-msgstr "La remise fluctue en fonction des conditions du marché. La trésorerie accepte le carbone sous forme de jetons carbone (tels que UBO, BCT ou MCO2) ou de jetons de réservoirs de liquidité (LP) (tels que KLIMA/BCT, KLIMA/MCO2)."
+#: components/pages/Buy/index.tsx:135
+msgid "buy.create_wallet_description3"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:84
-#: components/pages/Buy/index.tsx:176
-msgid "buy.credit_card"
-msgstr "Carte de crédit"
+#: components/pages/Buy/index.tsx:141
+msgid "buy.create_wallet_description4"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:179
-msgid "buy.credit_card.summary"
-msgstr "Vous pouvez désormais utiliser votre carte de crédit pour acheter des jetons KLIMA directement dans votre portefeuille ! Nos partenaires de paiement prennent en charge les principales devises."
+#: components/pages/Buy/index.tsx:117
+msgid "buy.create_wallet_item"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:105
-msgid "buy.decentralized_exchange"
-msgstr "Échange décentralisé"
+#: components/pages/Buy/index.tsx:325
+msgid "buy.faq_title"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:208
-msgid "buy.dex"
-msgstr "Échanges décentralisés (DEXs)"
-
-#: components/pages/Buy/index.tsx:240
-msgid "buy.dex.how_zapper"
-msgstr "Comment acheter KLIMA sur Zapper ?"
-
-#: components/pages/Buy/index.tsx:212
-msgid "buy.dex.summary_01"
-msgstr "Si vous avez déjà un portefeuille Polygon contenant des jetons MATIC, vous pouvez utiliser une plateforme d'échange décentralisée pour les échanger contre des jetons KLIMA. Ceci vous permet d'éviter le paiement des frais supplémentaires et de les obtenir au prix de marché."
-
-#: components/pages/Buy/index.tsx:219
-msgid "buy.dex.summary_02"
-msgstr "Les jetons KLIMA peuvent être échangés sur <0>Sushi Swap</0> , mais nous vous recommandons d'utiliser un agrégateur DEX appelé Zapper. Connectez simplement votre portefeuille à Zapper, et il acheminera votre échange via le meilleur DEX disponible."
-
-#: components/pages/Buy/index.tsx:143
-msgid "buy.disclaimer"
-msgstr "Conseils de sécurité et clauses de non-responsabilité importantes"
-
-#: components/pages/Buy/index.tsx:148
-msgid "buy.disclaimer_01"
-msgstr "Ne partagez jamais et avec personne votre clé privée ou votre phrase mnémotechnique. Nous vous recommandons de consulter notre page <0>Crypto Security 101</0> pour vous instruire au sujet des problématiques de sécurité avant de continuer."
-
-#: components/pages/Buy/index.tsx:158
-msgid "buy.disclaimer_02"
-msgstr "Les transactions sur la blockchain sont permanentes et irréversibles. Notre équipe n'est pas en mesure de récupérer des actifs perdus ou volés. KlimaDAO n'assume aucune responsabilité, obligation et n'offre aucune garantie. Tous les marchés et services d'échange fonctionnent de manière indépendante et sont sujets à une forte volatilité."
-
-#: components/pages/Buy/index.tsx:45
-#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:33
+#: components/pages/Buy/index.tsx:34
 msgid "buy.head.title"
 msgstr "Comment acheter des jetons KLIMA"
 
-#: components/pages/Buy/index.tsx:110
-#: components/pages/Buy/index.tsx:205
-msgid "buy.intermediate"
-msgstr "Intermédiaire"
-
-#: components/pages/Buy/index.tsx:62
-msgid "buy.subtitle"
-msgstr "Vous pouvez obtenir des jetons KLIMA de trois façons : en utilisant une carte de crédit, à partir de plateformes d'échange décentralisées (DEX) ou en achetant des obligations carbone."
-
-#: components/pages/Buy/index.tsx:59
-msgid "buy.title"
+#: components/pages/Buy/index.tsx:47
+msgid "buy.how_to_buy"
 msgstr "Comment acheter des jetons KLIMA"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:13
-msgid "buy.zapper_01.description_01"
-msgstr "Assurez-vous d'avoir un portefeuille tel que Metamask contenant des jetons MATIC installé, et connecté au réseau Polygon."
+#: components/pages/Buy/index.tsx:50
+msgid "buy.how_to_paragraph_part_1"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:19
-msgid "buy.zapper_01.description_02"
-msgstr "Vous pouvez abonder votre portefeuille Polygon directement via des services tels que <0>Transak</0> ou notre partenaire <1>Mobilum</1>. Vous pouvez également le faire via des actifs sur Ethereum que vous transférerez sur le réseau Polygon via un <2>pont</2>."
+#: components/pages/Buy/index.tsx:57
+msgid "buy.how_to_paragraph_part_2"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:9
-msgid "buy.zapper_01.title"
-msgstr "Ouvrez votre portefeuille Polygon"
+#: components/pages/Buy/index.tsx:149
+msgid "buy.load_wallet"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:36
-msgid "buy.zapper_02.description_02"
-msgstr "Rendez-vous sur <0>zapper.fi</0> et cliquez sur Connecter."
+#: components/pages/Buy/index.tsx:91
+msgid "buy.load_wallet_description"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:32
-msgid "buy.zapper_02.title"
-msgstr "Se connecter à Zapper.fi"
+#: components/pages/Buy/index.tsx:154
+msgid "buy.load_wallet_description1"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:49
-msgid "buy.zapper_03.description_01"
-msgstr "Utilisez l'interface \"Swap\" dans Zapper pour paramétrer votre transaction. En cas de problème, consultez les ressources et les didacticiels rédigés par l'équipe Zapper."
+#: components/pages/Buy/index.tsx:164
+msgid "buy.load_wallet_description2"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:45
-msgid "buy.zapper_03.title"
-msgstr "ÉCHANGER"
+#: components/pages/Buy/index.tsx:174
+msgid "buy.load_wallet_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:433
+msgid "buy.question_exchange"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:328
+msgid "buy.question_why_matic"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:333
+msgid "buy.question_why_matic_answer"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:344
+msgid "buy.question_why_matic_answer_bullet1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:351
+msgid "buy.question_why_matic_answer_bullet2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:358
+msgid "buy.question_why_matic_answer_bullet3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:365
+msgid "buy.question_why_matic_answer_bullet4"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:298
+msgid "buy.staking_cta"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:301
+msgid "buy.staking_description1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:309
+msgid "buy.staking_description2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:316
+msgid "buy.staking_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:75
+msgid "buy.step_1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:88
+msgid "buy.step_2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:103
+msgid "buy.step_3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:68
+msgid "buy.summary_steps_title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.summary_title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:259
+msgid "buy.swap_description1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:265
+msgid "buy.swap_description2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:281
+msgid "buy.swap_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:288
+msgid "buy.swap_description4"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:106
+msgid "buy.swap_for_klima_description"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:256
+msgid "buy.swap_subtitle"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:185
+msgid "buy.swap_wallet"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:202
+msgid "buy.torus_login_description"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.wallet_connect_example"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
+msgid "buy.wallet_connect_example_qr_code"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:372
+msgid "buy.what_are_bonds"
+msgstr ""
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
@@ -1719,11 +1783,6 @@ msgstr "Communauté"
 msgid "shared.confirm"
 msgstr "Confirmer"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:66
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr "Connexion"
-
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
 #: components/pages/About/AboutHeader/index.tsx:67
@@ -1770,7 +1829,7 @@ msgstr "Erreur"
 msgid "shared.get_started"
 msgstr "Commencer"
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:35
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1818,6 +1877,11 @@ msgstr "Informations"
 #: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr "Chargement..."
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+msgid "shared.login_connect"
+msgstr ""
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"

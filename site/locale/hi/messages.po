@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-27 15:33+0000\n"
+"POT-Creation-Date: 2022-12-27 18:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,10 +10,6 @@ msgstr ""
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "भाषा बदलें"
-
-#: components/pages/Buy/index.tsx:275
-msgid "Enter App"
-msgstr "ऐप दर्ज करें"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
@@ -40,167 +36,235 @@ msgstr "KlimaDAO (“KlimaDAO”), इसकी क्रिप्टो-सं�
 msgid "blog.disclaimer.title"
 msgstr "अस्वीकरण:"
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:253
-msgid "buy.advanced"
-msgstr "विकसित"
+#: components/pages/Buy/index.tsx:439
+msgid "buy.answer_exchange"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:173
-msgid "buy.beginner"
-msgstr "बिगिनर"
+#: components/pages/Buy/index.tsx:396
+msgid "buy.bond_answer_cedit_card"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:14
-msgid "buy.beginner_01.description_01"
-msgstr "<0>Metamask</0> (मेटामास्क) एथेरियम और पॉलीगॉन के लिए सबसे लोकप्रिय वॉलेट है। यही वह है जिसका उपयोग आप हमारे ऐप से जुड़ने और लेनदेन भेजने के लिए करते हैं। अपने वेब ब्राउज़र में एक्सटेंशन इंस्टॉल करना सुनिश्चित करें।"
+#: components/pages/Buy/index.tsx:414
+msgid "buy.bond_answer_cex1"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:10
-msgid "buy.beginner_01.title"
-msgstr "Metamask (मेटामास्क) इंस्टॉल करें"
+#: components/pages/Buy/index.tsx:422
+msgid "buy.bond_answer_cex2"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:29
-msgid "buy.beginner_02.description_01"
-msgstr "Metamask (मेटामास्क) ब्राउज़र एक्सटेंशन इंस्टॉल करके और अपना नया वॉलेट सेट अप करके, <0>app.klimadao.finance/#/buy</0> पर जाएँ और \"connect\" (कनेक्ट) पर क्लिक करें।"
+#: components/pages/Buy/index.tsx:377
+msgid "buy.bond_description1"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:37
-msgid "buy.beginner_02.description_02"
-msgstr "आपके कनेक्ट होने के बाद, KlimaDAO ऐप अपने आप आपको पॉलीगॉन नेटवर्क पर स्विच करने के लिए संकेत करेगा। Metamask (मेटामास्क) आपसे इस क्रिया की पुष्टि करने के लिए कहेगा।"
+#: components/pages/Buy/index.tsx:386
+msgid "buy.bond_description_capacity"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:25
-msgid "buy.beginner_02.title"
-msgstr "Zapper.fi से जुड़ें"
+#: components/pages/Buy/index.tsx:407
+msgid "buy.bond_question_cex"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:51
-msgid "buy.beginner_03.description_01"
-msgstr "एक बार कनेक्ट होने के बाद, आप अपनी ख़रीदारी पूरी करने के लिए हमारे ऐप में दिए गए चरणों का पालन कर पाएंगे।"
+#: components/pages/Buy/index.tsx:391
+msgid "buy.bond_question_credit_card"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:57
-msgid "buy.beginner_03.description_2"
-msgstr "आपको एक ईमेल, एक भुगतान विधि प्रदान करने और अपनी पहचान सत्यापित करने के लिए कहा जाएगा। DAO कोई भी व्यक्तिगत जानकारी प्राप्त या संग्रहीत नहीं करता है। यह जानकारी केवल हमारे भुगतान प्रदाताओं द्वारा क़ानूनी अनुपालन के लिए उपयोग की जाती है।"
+#: components/pages/Buy/index.tsx:196
+msgid "buy.connect_advanced"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:47
-msgid "buy.beginner_03.title"
-msgstr "KLIMA ख़रीदें"
+#: components/pages/Buy/index.tsx:191
+msgid "buy.connect_torus_sushi"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:72
-msgid "buy.beginner_04.description_01"
-msgstr "कार्बन उत्सर्जन को दाँव पर लगाने, स्वैप करने या ऑफ़सेट करने के लिए KLIMA का उपयोग करने के लिए, आपको Polygon (पॉलीगॉन) नेटवर्क पर लेनदेन निष्पादित करने की आवश्यकता होगी। प्रत्येक लेनदेन के लिए MATIC (मैटिक) में भुगतान किए गए नेटवर्क शुल्क की आवश्यकता होती है।"
+#: components/pages/Buy/index.tsx:218
+msgid "buy.connect_torus_sushi_description2"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:79
-msgid "buy.beginner_04.description_02"
-msgstr "1 MATIC अधिकांश उपयोगकर्ताओं के लिए पर्याप्त होना चाहिए। आप आधिकारिक Polygon (पॉलीगॉन) ऐप से जुड़ सकते हैं और उनके <0>गैस स्वैप टूल</0> का उपयोग कर सकते हैं। यह उपकरण आपको MATIC के लिए विभिन्न प्रकार की संपत्तियों का मुफ़्त में व्यापार करने की अनुमति देता है।"
+#: components/pages/Buy/index.tsx:235
+msgid "buy.connect_torus_sushi_description3"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:68
-msgid "buy.beginner_04.title"
-msgstr "MATIC ख़रीदें (नए उपयोगकर्ताओं के लिए)"
+#: components/pages/Buy/index.tsx:243
+msgid "buy.connect_torus_sushi_description4"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:97
-msgid "buy.beginner_05.description_01"
-msgstr "अब जब आपके वॉलेट में कुछ KLIMA और कुछ MATIC (मैटिक) मौजूद हैं, तो आपको इन्हें sKLIMA के लिए पुरस्कार अर्जित करना शुरू करने के लिए <0>स्टेक</0> करना चाहिए। आप इसका उपयोग कार्बन उत्सर्जन को ऑफ़सेट करने के लिए भी कर सकते हैं। और एक टोकन धारक के रूप में, आप DAO (डाओ) के शासन में भाग लेने के लिए अपने KLIMA और sKLIMA का उपयोग कर सकते हैं! इसलिए हमारे <1>फ़ोरम</1> पर प्रस्तावों पर नज़र रखे रहें।"
+#: components/pages/Buy/index.tsx:249
+msgid "buy.connect_torus_sushi_description5"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:93
-msgid "buy.beginner_05.title"
-msgstr "दाँव लगाएँ, ऑफ़सेट करें, शासन करें!"
+#: components/pages/Buy/index.tsx:78
+msgid "buy.create_wallet_description"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:129
-#: components/pages/Buy/index.tsx:256
-msgid "buy.bonding"
-msgstr "बॉन्डिंग"
+#: components/pages/Buy/index.tsx:120
+msgid "buy.create_wallet_description1"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:259
-msgid "buy.bonding.description_01"
-msgstr "बॉन्डिंग रियायती KLIMA के बदले कार्बन संपत्ति जमा करने की प्रक्रिया है। यह एक तरीक़ा है जिससे KLIMA ट्रेज़री सकारात्मक जलवायु प्रभाव के लिए कार्बन क्रेडिट को अवशोषित करता है। बॉन्डिंग प्रत्येक नए KLIMA टोकन के लिए समर्थन भी प्रदान करती है।"
+#: components/pages/Buy/index.tsx:126
+msgid "buy.create_wallet_description2"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:267
-msgid "buy.bonding.description_02"
-msgstr "बाज़ार के हालात के आधार पर छूट में उतार-चढ़ाव होता है। ट्रेज़री कार्बन टोकन (जैसे UBO (यूबीओ), BCT(बीसीटी), या MCO2(एमसीओटू)) या लिक्विडिटी पूल (LP) टोकन (जैसे KLIMA(क्लीमा)/BCT(बीसीटी), KLIMA(क्लीमा)/MCO2(एमसीओटू)) के रूप में कार्बन स्वीकार करती है।"
+#: components/pages/Buy/index.tsx:135
+msgid "buy.create_wallet_description3"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:84
-#: components/pages/Buy/index.tsx:176
-msgid "buy.credit_card"
-msgstr "क्रेडिट कार्ड"
+#: components/pages/Buy/index.tsx:141
+msgid "buy.create_wallet_description4"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:179
-msgid "buy.credit_card.summary"
-msgstr "अब आप अपने क्रेडिट कार्ड का उपयोग करके सीधे अपने वॉलेट में KLIMA टोकन ख़रीद सकते हैं! हमारे भुगतान भागीदार (पेमेंट पार्टनर्स) अधिकांश प्रमुख मुद्राओं का समर्थन करते हैं।"
+#: components/pages/Buy/index.tsx:117
+msgid "buy.create_wallet_item"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:105
-msgid "buy.decentralized_exchange"
-msgstr "विकेंद्रीकृत एक्सचेंज"
+#: components/pages/Buy/index.tsx:325
+msgid "buy.faq_title"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:208
-msgid "buy.dex"
-msgstr "विकेंद्रीकृत एक्सचेंजेज़ (DEXs)"
-
-#: components/pages/Buy/index.tsx:240
-msgid "buy.dex.how_zapper"
-msgstr "Zapper (ज़ैपर) पर मैं KLIMA कैसे ख़रीद सकता हूँ?"
-
-#: components/pages/Buy/index.tsx:212
-msgid "buy.dex.summary_01"
-msgstr "यदि आपके पास पहले से ही MATIC (मैटिक) के साथ Polygon (पॉलीगॉन) वॉलेट है, तो आप KLIMA के लिए स्वैप करने के लिए विकेन्द्रीकृत एक्सचेंजों का उपयोग कर सकते हैं। यह आपको अतिरिक्त शुल्क का भुगतान करने से बचने में मदद् करता है, और उचित बाज़ार मूल्य का प्रतिनिधित्व करता है।"
-
-#: components/pages/Buy/index.tsx:219
-msgid "buy.dex.summary_02"
-msgstr "KLIMA <0>Sushi Swap</0> (सुशी स्वैप) पर खोजा जा सकता है, लेकिन हमारी सलाह में आप Zapper (ज़ैपर) नामक DEX (डेक्स) एग्रीगेटर का उपयोग करें। बस अपने वॉलेट को Zapper (ज़ैपर) से कनेक्ट करें, और यह आपके ट्रेड को सर्वोत्तम उपलब्ध DEX के माध्यम से रूट कर देगा।"
-
-#: components/pages/Buy/index.tsx:143
-msgid "buy.disclaimer"
-msgstr "सुरक्षा युक्तियाँ और महत्वपूर्ण अस्वीकरण"
-
-#: components/pages/Buy/index.tsx:148
-msgid "buy.disclaimer_01"
-msgstr "अपनी private key (प्राइवेट की) या seed phrase (सीड फ़्रेज़) को कभी भी किसी के साथ साझा न करें। हम सलाह देते हैं कि आप आरंभ करने से पहले सुरक्षा युक्तियों के लिए हमारे <0>Crypto Security 101</0> पृष्ठ पर जाएँ।"
-
-#: components/pages/Buy/index.tsx:158
-msgid "buy.disclaimer_02"
-msgstr "ब्लॉकचेन लेनदेन स्थायी और अपरिवर्तनीय हैं। हमारी टीम खोई हुई या चोरी हुई संपत्ति को पुनः प्राप्त करने में सक्षम नहीं है। KlimaDAO कोई ज़िम्मेदारी, दायित्व नहीं लेता है और न ही कोई गारंटी प्रदान करता है। सभी बाज़ार और एक्सचेंज स्वतंत्र रूप से और उच्च अस्थिरता के साथ काम करते हैं।"
-
-#: components/pages/Buy/index.tsx:45
-#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:33
+#: components/pages/Buy/index.tsx:34
 msgid "buy.head.title"
 msgstr "KLIMA कैसे ख़रीदें?"
 
-#: components/pages/Buy/index.tsx:110
-#: components/pages/Buy/index.tsx:205
-msgid "buy.intermediate"
-msgstr "मध्यवर्ती"
-
-#: components/pages/Buy/index.tsx:62
-msgid "buy.subtitle"
-msgstr "आप KLIMA को तीन तरीक़ों से प्राप्त कर सकते हैं: क्रेडिट कार्ड का उपयोग करके, विकेंद्रीकृत एक्सचेंजों (DEXs/डेक्सेज़) से, या कार्बन परिसंपत्तियों को बॉन्ड करके।"
-
-#: components/pages/Buy/index.tsx:59
-msgid "buy.title"
+#: components/pages/Buy/index.tsx:47
+msgid "buy.how_to_buy"
 msgstr "KLIMA कैसे ख़रीदें?"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:13
-msgid "buy.zapper_01.description_01"
-msgstr "सुनिश्चित करें कि आपके पास Metamask (मेटामास्क) जैसा वॉलेट इंस्टॉल्ड हो, जो Polygon (पॉलीगॉन) नेटवर्क से जुड़ा हो, और उसमें कुछ MATIC भी मौजूद हो।"
+#: components/pages/Buy/index.tsx:50
+msgid "buy.how_to_paragraph_part_1"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:19
-msgid "buy.zapper_01.description_02"
-msgstr "आप <0>Transak</0> (ट्रांज़ैक) या हमारे साथी <1>Mobilum</1> (मोबिलम) जैसी लोकप्रिय ऑन-रैंप सेवाओं का उपयोग करके अपने पॉलीगॉन वॉलेट को सीधे लोड कर सकते हैं। वैकल्पिक रूप से, आप Ethereum (एथेरियम) पर अपने वॉलेट को संपत्तियों से लोड कर सकते हैं और उन्हें Polygon (पॉलीगॉन) नेटवर्क पर <2>bridge</2> (ब्रिज) कर सकते हैं।"
+#: components/pages/Buy/index.tsx:57
+msgid "buy.how_to_paragraph_part_2"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:9
-msgid "buy.zapper_01.title"
-msgstr "अपना Polygon (पॉलीगॉन) वॉलेट लोड करें"
+#: components/pages/Buy/index.tsx:149
+msgid "buy.load_wallet"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:36
-msgid "buy.zapper_02.description_02"
-msgstr "<0>zapper.fi</0> पर जाएँ और Connect (कनेक्ट) पर क्लिक करें।"
+#: components/pages/Buy/index.tsx:91
+msgid "buy.load_wallet_description"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:32
-msgid "buy.zapper_02.title"
-msgstr "Zapper.fi से जुड़ें"
+#: components/pages/Buy/index.tsx:154
+msgid "buy.load_wallet_description1"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:49
-msgid "buy.zapper_03.description_01"
-msgstr "अपना व्यापार स्थापित करने के लिए Zapper (ज़ैपर) में \"स्वैप\" इंटरफ़ेस का उपयोग करें। यदि आपको परेशानी हो, तो Zapper (ज़ैपर) टीम द्वारा उपलब्ध कराए गए संसाधन और ट्यूटॉरियल्स देखें।"
+#: components/pages/Buy/index.tsx:164
+msgid "buy.load_wallet_description2"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:45
-msgid "buy.zapper_03.title"
-msgstr "स्वैप"
+#: components/pages/Buy/index.tsx:174
+msgid "buy.load_wallet_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:433
+msgid "buy.question_exchange"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:328
+msgid "buy.question_why_matic"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:333
+msgid "buy.question_why_matic_answer"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:344
+msgid "buy.question_why_matic_answer_bullet1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:351
+msgid "buy.question_why_matic_answer_bullet2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:358
+msgid "buy.question_why_matic_answer_bullet3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:365
+msgid "buy.question_why_matic_answer_bullet4"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:298
+msgid "buy.staking_cta"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:301
+msgid "buy.staking_description1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:309
+msgid "buy.staking_description2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:316
+msgid "buy.staking_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:75
+msgid "buy.step_1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:88
+msgid "buy.step_2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:103
+msgid "buy.step_3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:68
+msgid "buy.summary_steps_title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.summary_title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:259
+msgid "buy.swap_description1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:265
+msgid "buy.swap_description2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:281
+msgid "buy.swap_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:288
+msgid "buy.swap_description4"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:106
+msgid "buy.swap_for_klima_description"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:256
+msgid "buy.swap_subtitle"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:185
+msgid "buy.swap_wallet"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:202
+msgid "buy.torus_login_description"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.wallet_connect_example"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
+msgid "buy.wallet_connect_example_qr_code"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:372
+msgid "buy.what_are_bonds"
+msgstr ""
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
@@ -1712,11 +1776,6 @@ msgstr "समुदाय"
 msgid "shared.confirm"
 msgstr "पुष्टि करें"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:66
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr "कनेक्ट करें"
-
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
 #: components/pages/About/AboutHeader/index.tsx:67
@@ -1763,7 +1822,7 @@ msgstr "ग़लती"
 msgid "shared.get_started"
 msgstr "शुरुआत करें"
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:35
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1811,6 +1870,11 @@ msgstr "जानकारी"
 #: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr "लोड हो रहा है..."
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+msgid "shared.login_connect"
+msgstr ""
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"

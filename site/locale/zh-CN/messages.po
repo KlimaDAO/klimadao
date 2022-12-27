@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-27 15:33+0000\n"
+"POT-Creation-Date: 2022-12-27 18:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,10 +10,6 @@ msgstr ""
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "变更语言"
-
-#: components/pages/Buy/index.tsx:275
-msgid "Enter App"
-msgstr "进入App"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
@@ -40,167 +36,235 @@ msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资�
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:253
-msgid "buy.advanced"
-msgstr "专家用户"
+#: components/pages/Buy/index.tsx:439
+msgid "buy.answer_exchange"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:173
-msgid "buy.beginner"
-msgstr "新手用户"
+#: components/pages/Buy/index.tsx:396
+msgid "buy.bond_answer_cedit_card"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:14
-msgid "buy.beginner_01.description_01"
-msgstr "<0>Metamask</0>是 Ethereum 和 Polygon 最受欢迎的钱包。这是来连接我们应用程序并发送交易的工具。请务必在您的网络浏览器上安装扩展程序。"
+#: components/pages/Buy/index.tsx:414
+msgid "buy.bond_answer_cex1"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:10
-msgid "buy.beginner_01.title"
-msgstr "安装 Metamask"
+#: components/pages/Buy/index.tsx:422
+msgid "buy.bond_answer_cex2"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:29
-msgid "buy.beginner_02.description_01"
-msgstr "安装 Metamask 扩展浏览器并设置新钱包后，前往<0>app.klimadao.finance/#/buy</0> 并点击“连接”。"
+#: components/pages/Buy/index.tsx:377
+msgid "buy.bond_description1"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:37
-msgid "buy.beginner_02.description_02"
-msgstr "连接钱包后，KlimaDAO 应用程序会自动提示您切换到 Polygon 网络。 Metamask 将要求您确认此操作。"
+#: components/pages/Buy/index.tsx:386
+msgid "buy.bond_description_capacity"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:25
-msgid "buy.beginner_02.title"
-msgstr "连接我们的应用程序"
+#: components/pages/Buy/index.tsx:407
+msgid "buy.bond_question_cex"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:51
-msgid "buy.beginner_03.description_01"
-msgstr "连接后，您就可以按照我们应用程序中的步骤提示来完成购买。"
+#: components/pages/Buy/index.tsx:391
+msgid "buy.bond_question_credit_card"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:57
-msgid "buy.beginner_03.description_2"
-msgstr "我们会要求您提供电子邮件、付款方式并验证您的身份。 DAO 不会接收或存储任何个人信息。此信息仅用作我们的支付提供商的法律合规需求。"
+#: components/pages/Buy/index.tsx:196
+msgid "buy.connect_advanced"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:47
-msgid "buy.beginner_03.title"
-msgstr "购买 KLIMA"
+#: components/pages/Buy/index.tsx:191
+msgid "buy.connect_torus_sushi"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:72
-msgid "buy.beginner_04.description_01"
-msgstr "为了用 KLIMA 进行质押、交换或抵消碳排放，您需要在 Polygon 网络上执行所有交易。每笔交易的网络费用都需用 MATIC 结算。"
+#: components/pages/Buy/index.tsx:218
+msgid "buy.connect_torus_sushi_description2"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:79
-msgid "buy.beginner_04.description_02"
-msgstr "对于大多数用户来说, 1个MATIC就足够了。您可以连接到官方 Polygon 应用程序并使用他们的 <0>Gas Swap 工具</0>. 该工具可让您免费将各种资产用于MATIC交易。"
+#: components/pages/Buy/index.tsx:235
+msgid "buy.connect_torus_sushi_description3"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:68
-msgid "buy.beginner_04.title"
-msgstr "购买 MATIC（新用户）"
+#: components/pages/Buy/index.tsx:243
+msgid "buy.connect_torus_sushi_description4"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:97
-msgid "buy.beginner_05.description_01"
-msgstr "现在您的钱包里已经有一些 KLIMA 和一些 MATIC 了，您应该 <0>质押KLIMA</0> 来换得 sKLIMA 开始累积奖励。您也可以用它来抵消碳排放。作为代币持有者，您可以使用 KLIMA 和 sKLIMA 参与 DAO 的治理！所以请留意我们<1>论坛</1>上的提案。"
+#: components/pages/Buy/index.tsx:249
+msgid "buy.connect_torus_sushi_description5"
+msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:93
-msgid "buy.beginner_05.title"
-msgstr "股权，抵消，治理！"
+#: components/pages/Buy/index.tsx:78
+msgid "buy.create_wallet_description"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:129
-#: components/pages/Buy/index.tsx:256
-msgid "buy.bonding"
-msgstr "债券化"
+#: components/pages/Buy/index.tsx:120
+msgid "buy.create_wallet_description1"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:259
-msgid "buy.bonding.description_01"
-msgstr "债券化是存入碳资产以换取 KLIMA 折扣的过程。这是 Klima 财政部吸收碳信用以对气候产生积极影响的方式之一。债券化还为每个新的 KLIMA 代币提供支持。"
+#: components/pages/Buy/index.tsx:126
+msgid "buy.create_wallet_description2"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:267
-msgid "buy.bonding.description_02"
-msgstr "折扣会根据市场情况而波动。财政部接受碳代币形式的碳（如 UBO、BCT 或 MCO2）或流动性池（LP）代币形式的碳（如 KLIMA/BCT、KLIMA/MCO2）。"
+#: components/pages/Buy/index.tsx:135
+msgid "buy.create_wallet_description3"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:84
-#: components/pages/Buy/index.tsx:176
-msgid "buy.credit_card"
-msgstr "信用卡"
+#: components/pages/Buy/index.tsx:141
+msgid "buy.create_wallet_description4"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:179
-msgid "buy.credit_card.summary"
-msgstr "您现在可以使用信用卡直接购买 KLIMA 代币到您的钱包中！我们的支付合作伙伴支持多种主流货币。"
+#: components/pages/Buy/index.tsx:117
+msgid "buy.create_wallet_item"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:105
-msgid "buy.decentralized_exchange"
-msgstr "去中心化交易所"
+#: components/pages/Buy/index.tsx:325
+msgid "buy.faq_title"
+msgstr ""
 
-#: components/pages/Buy/index.tsx:208
-msgid "buy.dex"
-msgstr "去中心化交易所（DEX）"
-
-#: components/pages/Buy/index.tsx:240
-msgid "buy.dex.how_zapper"
-msgstr "我要如何在 Zapper 上购买 KLIMA ？"
-
-#: components/pages/Buy/index.tsx:212
-msgid "buy.dex.summary_01"
-msgstr "如果您的 Polygon 钱包中已经有 MATIC，您可以使用去中心化交易所兑换 KLIMA。这能帮您避免支付额外费用，也代表了公平的市场价格。"
-
-#: components/pages/Buy/index.tsx:219
-msgid "buy.dex.summary_02"
-msgstr "您可以在 <0>Sushi Swap</0> 上找到 KLIMA，但我们建议您使用 DEX 聚合器 Zapper 。只需将您的钱包连接到 Zapper，聚合器 DEX 就能帮你找到最佳的交易路径。"
-
-#: components/pages/Buy/index.tsx:143
-msgid "buy.disclaimer"
-msgstr "安全提示和重要免责声明"
-
-#: components/pages/Buy/index.tsx:148
-msgid "buy.disclaimer_01"
-msgstr "请注意：切勿与任何人分享您的私钥或助记词。我们建议您在开始任何操作之前, 访问我们的 <0> Crypto Security 101 </0>页面, 了解获取安全提示。"
-
-#: components/pages/Buy/index.tsx:158
-msgid "buy.disclaimer_02"
-msgstr "区块链交易是永久且不可逆的。我们的团队无法找回丢失或被盗的资产。 KlimaDAO 不承担任何责任或义务，也不提供任何保证。所有市场和交易所都独立运作，具有极大的波动性。"
-
-#: components/pages/Buy/index.tsx:45
-#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:33
+#: components/pages/Buy/index.tsx:34
 msgid "buy.head.title"
 msgstr "如何购买 KLIMA"
 
-#: components/pages/Buy/index.tsx:110
-#: components/pages/Buy/index.tsx:205
-msgid "buy.intermediate"
-msgstr "中间用户"
-
-#: components/pages/Buy/index.tsx:62
-msgid "buy.subtitle"
-msgstr "您有三种方式可获得 KLIMA：使用信用卡购买、在去中心化交易所 (DEXs) 上兑换，或 债券化碳资产。"
-
-#: components/pages/Buy/index.tsx:59
-msgid "buy.title"
+#: components/pages/Buy/index.tsx:47
+msgid "buy.how_to_buy"
 msgstr "如何购买 KLIMA"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:13
-msgid "buy.zapper_01.description_01"
-msgstr "确保您已经安装了像 Metamask 这样的钱包，连接到 Polygon 网络，并已兑换了一些 MATIC。"
+#: components/pages/Buy/index.tsx:50
+msgid "buy.how_to_paragraph_part_1"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:19
-msgid "buy.zapper_01.description_02"
-msgstr "使用像<0>Transak</0>或我们的合作伙伴 <1>Mobilum</1> 这样的常用入口服务直接加载您的 Polygon 钱包。或者，也可以使用 Ethereum 和 <2>bridge</2> 上的资产在Polygon 网络上加载您的钱包。"
+#: components/pages/Buy/index.tsx:57
+msgid "buy.how_to_paragraph_part_2"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:9
-msgid "buy.zapper_01.title"
-msgstr "加载你的 Polygon 钱包"
+#: components/pages/Buy/index.tsx:149
+msgid "buy.load_wallet"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:36
-msgid "buy.zapper_02.description_02"
-msgstr "前往 <0>zapper.fi</0>并点击连接。"
+#: components/pages/Buy/index.tsx:91
+msgid "buy.load_wallet_description"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:32
-msgid "buy.zapper_02.title"
-msgstr "连接 Zapper.fi"
+#: components/pages/Buy/index.tsx:154
+msgid "buy.load_wallet_description1"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:49
-msgid "buy.zapper_03.description_01"
-msgstr "用 Zapper 的“兑换”界面设置您的交易。如果您遇到问题，请查看 Zapper 团队提供的资源和教程。"
+#: components/pages/Buy/index.tsx:164
+msgid "buy.load_wallet_description2"
+msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:45
-msgid "buy.zapper_03.title"
-msgstr "兑换"
+#: components/pages/Buy/index.tsx:174
+msgid "buy.load_wallet_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:433
+msgid "buy.question_exchange"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:328
+msgid "buy.question_why_matic"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:333
+msgid "buy.question_why_matic_answer"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:344
+msgid "buy.question_why_matic_answer_bullet1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:351
+msgid "buy.question_why_matic_answer_bullet2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:358
+msgid "buy.question_why_matic_answer_bullet3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:365
+msgid "buy.question_why_matic_answer_bullet4"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:298
+msgid "buy.staking_cta"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:301
+msgid "buy.staking_description1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:309
+msgid "buy.staking_description2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:316
+msgid "buy.staking_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:75
+msgid "buy.step_1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:88
+msgid "buy.step_2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:103
+msgid "buy.step_3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:68
+msgid "buy.summary_steps_title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.summary_title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:259
+msgid "buy.swap_description1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:265
+msgid "buy.swap_description2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:281
+msgid "buy.swap_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:288
+msgid "buy.swap_description4"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:106
+msgid "buy.swap_for_klima_description"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:256
+msgid "buy.swap_subtitle"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:185
+msgid "buy.swap_wallet"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:202
+msgid "buy.torus_login_description"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.wallet_connect_example"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
+msgid "buy.wallet_connect_example_qr_code"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:372
+msgid "buy.what_are_bonds"
+msgstr ""
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
@@ -1712,11 +1776,6 @@ msgstr "社区"
 msgid "shared.confirm"
 msgstr "确认"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:66
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr "连接"
-
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
 #: components/pages/About/AboutHeader/index.tsx:67
@@ -1763,7 +1822,7 @@ msgstr "错误"
 msgid "shared.get_started"
 msgstr "开始使用"
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:35
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1811,6 +1870,11 @@ msgstr "信息"
 #: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr "正在加载..."
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+msgid "shared.login_connect"
+msgstr ""
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
