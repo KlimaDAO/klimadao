@@ -1,106 +1,54 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
-import { button } from "@klimadao/lib/theme/typography";
+// import breakpoints from "@klimadao/lib/theme/breakpoints";
 
 export const section = css`
-  ${breakpoints.medium} {
-    padding-top: 9.6rem;
-    padding-bottom: 10rem;
-  }
+  padding-top: 8rem !important;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 `;
 
 export const buyContainer = css`
   grid-column: main;
-  display: grid;
-  gap: 2.8rem;
-  ${breakpoints.medium} {
-    gap: 5.2rem;
-  }
-`;
-
-export const buy_textGroup = css`
   display: flex;
-  align-items: center;
+  gap: 8rem;
   flex-direction: column;
-  gap: 2.8rem;
-  p {
-    max-width: 57rem;
-  }
-`;
-
-export const cardGroup = css`
-  display: grid;
-  justify-items: center;
-  gap: 1.6rem;
-  .cardGroup_stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3.2rem;
-    justify-content: center;
-  }
-  .card {
-    display: grid;
-    background-color: var(--surface-01);
-    border-radius: 0.8rem;
-    overflow: hidden;
-  }
-  .card .bondCarbon {
-    background-color: #000;
-  }
-  .card_label {
-    display: grid;
-    gap: 0.4rem;
-    padding: 2rem 2.8rem;
-  }
-`;
-
-export const comingSoonButton = css`
-  ${button};
-  background-color: var(--surface-02);
-  border-radius: 0.8rem;
-  min-height: 5.2rem;
-  padding: 0 2.4rem;
-  color: var(--font-01);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const decentralizedExchangeText = css`
-  display: grid;
-  gap: 3rem;
-  ${breakpoints.medium} {
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-  }
-`;
-
-export const br = css`
-  border-top: 0.1rem solid var(--font-03);
-  width: 100%;
-  height: 6rem;
-  grid-column: main;
-`;
-
-export const cryptoSafteyTips = css`
-  grid-column: main;
-  display: grid;
-  row-gap: 1.6rem;
   max-width: 72rem;
-  justify-self: center;
-
-  ul {
-    display: grid;
-    gap: 0.8rem;
-  }
+  width: 100%;
+  padding: 0 2.4rem;
 `;
 
-export const hero = css`
-  position: relative;
+export const textGroup1 = css`
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
   width: 100%;
-  height: 32rem;
-  .image {
-    border-radius: 1.2rem;
-    background-color: #000;
-  }
+`;
+
+export const textGroup2 = css`
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const textGroup3 = css``;
+
+export const numberedItem = css`
+  display: flex;
+  gap: 2rem;
+`;
+
+export const bold = css`
+  font-weight: 700;
+`;
+
+export const advanced_text = css`
+  background: var(--surface-02);
+  padding: 0.8rem 1.6rem;
+  font-style: italic;
+`;
+
+export const image = css`
+  object-fit: contain;
 `;
