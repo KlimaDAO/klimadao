@@ -1416,15 +1416,15 @@ msgstr "Select one or more"
 msgid "resources.form.filters.clear_all"
 msgstr "Clear All"
 
-#: components/pages/Resources/ResourcesList/index.tsx:176
+#: components/pages/Resources/ResourcesList/index.tsx:177
 msgid "resources.form.input.search.label"
 msgstr "Search"
 
-#: components/pages/Resources/ResourcesList/index.tsx:167
+#: components/pages/Resources/ResourcesList/index.tsx:168
 msgid "resources.form.input.search.placeholder"
-msgstr "Search"
+msgstr "Search..."
 
-#: components/pages/Resources/ResourcesList/index.tsx:206
+#: components/pages/Resources/ResourcesList/index.tsx:207
 msgid "resources.form.input.sort_by.label"
 msgstr "Sort by"
 
@@ -1516,11 +1516,11 @@ msgstr "Oldest First"
 msgid "resources.list.sort_by.z-a"
 msgstr "Z-A"
 
-#: components/pages/Resources/ResourcesList/index.tsx:306
+#: components/pages/Resources/ResourcesList/index.tsx:307
 msgid "resources.mobile_modal.button.show_results"
 msgstr "Show Results"
 
-#: components/pages/Resources/ResourcesList/index.tsx:279
+#: components/pages/Resources/ResourcesList/index.tsx:280
 msgid "resources.mobile_modal.title"
 msgstr "Sort By"
 
@@ -1536,19 +1536,19 @@ msgstr "Featured Articles"
 msgid "resources.page.list.header"
 msgstr "Explore All"
 
-#: components/pages/Resources/ResourcesList/index.tsx:244
+#: components/pages/Resources/ResourcesList/index.tsx:245
 msgid "resources.page.list.no_search_results.title"
 msgstr "Sorry. We couldn't find any matching results."
 
-#: components/pages/Resources/ResourcesList/index.tsx:236
+#: components/pages/Resources/ResourcesList/index.tsx:237
 msgid "resources.page.list.on_fetch_error"
 msgstr "Sorry! Something went wrong."
 
-#: components/pages/Resources/ResourcesList/index.tsx:257
+#: components/pages/Resources/ResourcesList/index.tsx:258
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "Please use a different filter combination."
 
-#: components/pages/Resources/ResourcesList/index.tsx:250
+#: components/pages/Resources/ResourcesList/index.tsx:251
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Check your search for typos or try a different search term."
 
@@ -1929,7 +1929,7 @@ msgstr "Resource Center"
 msgid "shared.resources"
 msgstr "Resources"
 
-#: components/pages/Resources/ResourcesList/index.tsx:212
+#: components/pages/Resources/ResourcesList/index.tsx:213
 msgid "shared.resources.sort_by.header"
 msgstr "Sort by:"
 

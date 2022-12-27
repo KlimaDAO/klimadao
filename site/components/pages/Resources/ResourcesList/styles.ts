@@ -23,7 +23,7 @@ export const searchInputContainer = css`
 export const searchInput = css`
   background-color: var(--surface-01);
   -webkit-appearance: none; // remove default border radius for iOS
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 1rem;
   border: 0.175rem solid var(--surface-01);
 
   &:focus,
