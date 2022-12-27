@@ -4,12 +4,11 @@ import { Trans, t } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
 import LoginIcon from "@mui/icons-material/Login";
 
-import { Text, ConnectModal } from "@klimadao/lib/components";
+import { Text, ConnectModal, Anchor } from "@klimadao/lib/components";
 
 import { BalancesCard } from "components/BalancesCard";
 import { ImageCard } from "components/ImageCard";
 import * as styles from "./styles";
-import Link from "next/link";
 import { urls } from "@klimadao/lib/constants";
 
 interface Props {
@@ -30,12 +29,20 @@ export const Buy = (props: Props) => {
                 <Trans id="buy.buy_klima">Buy KLIMA</Trans>
               </Text>
               <Text t="caption" className={styles.buyCard_header_subtitle}>
-                <Trans id="buy.buy_link_description">
-                  To buy Klima, follow the 3 simple steps outlined in
-                </Trans>{" "}
-                <Link href={urls.buy}>
-                  <Trans id="buy.in_article">this article.</Trans>
-                </Link>
+                <Trans id="buy.cta_1">
+                  If you are a beginner, we recommend following our step-by-step
+                  tutorial: <Anchor href={urls.buy}>How to Buy KLIMA.</Anchor>
+                </Trans>
+              </Text>
+              <Text t="caption" className={styles.buyCard_header_subtitle}>
+                <Trans id="buy.cta_2">
+                  Otherwise, if you already have a wallet with MATIC on Polygon,
+                  the best way to get KLIMA is to swap on{" "}
+                  <Anchor href={urls.sushiSwap}>Sushi.com</Anchor>. If you
+                  prefer to pay with a credit card instead, you can use{" "}
+                  <Anchor href={urls.transakMatic}>Transak</Anchor> to buy KLIMA
+                  directly.
+                </Trans>
               </Text>
             </div>
           ) : (

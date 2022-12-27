@@ -17,8 +17,7 @@ export const buyCard = css`
   ${breakpoints.desktop} {
     padding: 0;
     grid-column: cardsleft;
-    grid-row: 2 / span 3;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-row: 2 / span 2;
   }
 
   ${breakpoints.desktopLarge} {
