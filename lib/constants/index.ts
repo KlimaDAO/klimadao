@@ -149,7 +149,9 @@ export const urls = {
   cryptoOffsetCalculator: "https://carbon.fyi/",
   sushi: "https://www.sushi.com/",
   coinbase: "https://www.coinbase.com/",
-  moonpay: "https://www.moonpay.com/",
+  moonpayMatic: "https://www.moonpay.com/buy/matic",
+  transakMatic:
+    "https://global.transak.com/?fiatCurrency=EUR&network=polygon&cryptoCurrencyCode=MATIC",
 };
 
 export const polygonNetworks = {

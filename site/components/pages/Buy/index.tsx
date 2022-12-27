@@ -152,8 +152,10 @@ export const Buy: NextPage = () => {
             </Text>
             <Text t="body2">
               <Trans id="buy.load_wallet_description1">
-                Use a service like <Anchor href={urls.moonpay}>MoonPay</Anchor>{" "}
-                or a centralized exchange like{" "}
+                Use a service like{" "}
+                <Anchor href={urls.moonpayMatic}>MoonPay</Anchor> or{" "}
+                <Anchor href={urls.transakMatic}>Transak</Anchor> or a
+                centralized exchange like{" "}
                 <Anchor href={urls.coinbase}>Coinbase</Anchor> to buy Polygon
                 MATIC and send it to your newly created wallet.
               </Trans>
