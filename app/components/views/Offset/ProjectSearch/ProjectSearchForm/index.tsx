@@ -54,7 +54,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
       (project) =>
         Number(
           project[`balance${selectedRetirementToken}` as BalanceAttribute]
-        ) > 0
+        ) > 1
     );
   };
 
