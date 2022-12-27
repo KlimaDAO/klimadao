@@ -203,7 +203,7 @@ export const ResourcesList: FC<Props> = (props) => {
                   message: "Sort by",
                 })}
               />
-              <Text>
+              <Text t="body4">
                 <Trans id="shared.resources.sort_by.header">Sort by:</Trans>
               </Text>
               <SortyByDropDown control={control} setValue={setValue} />

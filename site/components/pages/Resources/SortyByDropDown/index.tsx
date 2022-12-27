@@ -1,11 +1,12 @@
 import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import Tippy from "@tippyjs/react";
 import { FC, useEffect, useState } from "react";
 import { Control, useWatch } from "react-hook-form";
+
 import { sortedByQueries, SortQuery } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
-
 import { SortByButton } from "../SortByButton";
 
 import * as styles from "./styles";
@@ -64,7 +65,11 @@ export const SortyByDropDown: FC<Props> = (props) => {
           })}
         >
           {label}
-          <ArrowDropDownIcon />
+          {isOpen ? (
+            <ArrowDropUpIcon fontSize="large" />
+          ) : (
+            <ArrowDropDownIcon fontSize="large" />
+          )}
         </button>
       </Tippy>
     </div>
