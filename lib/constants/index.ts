@@ -147,7 +147,7 @@ export const urls = {
   creolIndividualCalculator: "https://klima.creol.io/#/footprint",
   creolBusinessCalculator: "https://klima.creol.io/#/office",
   cryptoOffsetCalculator: "https://carbon.fyi/",
-  sushi: "https://www.sushi.com/",
+  sushiSwap: "https://www.sushi.com/swap",
   coinbase: "https://www.coinbase.com/",
   moonpayMatic: "https://www.moonpay.com/buy/matic",
   transakMatic:
