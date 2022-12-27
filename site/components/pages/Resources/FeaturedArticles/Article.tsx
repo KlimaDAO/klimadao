@@ -41,9 +41,9 @@ export const Article: FC<Props> = (props) => {
           <Text className={styles.articleText}>{props.article.summary}</Text>
         </div>
         <div className={styles.stackContent}>
-          <Text t="h4" className={styles.articleText}>
+          <Text t="h5" className={styles.articleText}>
             <Link href={`/blog/${props.article.slug}`} passHref>
-              Read more
+              Read more...
             </Link>
           </Text>
         </div>
