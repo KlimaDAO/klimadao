@@ -3,6 +3,7 @@ import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as typography from "@klimadao/lib/theme/typography";
 
 export const container = css`
+  position: relative;
   display: grid;
   align-content: start;
   gap: 0.75rem;
@@ -69,4 +70,18 @@ export const errorMessage = css`
     line-height: 1.6rem;
     margin-bottom: 0.8rem;
   }
+`;
+
+export const icon = css`
+  position: absolute;
+  top: 1.3rem;
+  left: 1rem;
+
+  svg {
+    fill: var(--font-03);
+  }
+`;
+
+export const withIcon = css`
+  padding-left: 3.4rem;
 `;
