@@ -28,7 +28,7 @@ export const searchInput = css`
 
   &:focus,
   &:hover {
-    border-color: var(--surface-01);
+    border-color: var(--klima-green);
   }
 
   // remove ugly clear icon
@@ -37,16 +37,6 @@ export const searchInput = css`
   &::-webkit-search-results-button,
   &::-webkit-search-results-decoration {
     -webkit-appearance: none;
-  }
-`;
-
-export const searchInputSubmit = css`
-  border-radius: 0 1rem 1rem 0;
-  background-color: var(--surface-01);
-  padding: 0rem 1.6rem;
-
-  svg {
-    fill: var(--font-03);
   }
 `;
 
