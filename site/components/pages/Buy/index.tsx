@@ -184,7 +184,7 @@ export const Buy: NextPage = () => {
             <Text t="h3">
               <Trans id="buy.swap_wallet">
                 3. Swap for KLIMA on{" "}
-                <Anchor href={urls.sushi}>Sushi.com</Anchor>
+                <Anchor href={urls.sushiSwap}>Sushi.com</Anchor>
               </Trans>
             </Text>
             <Text t="h4">
@@ -200,10 +200,10 @@ export const Buy: NextPage = () => {
             </Text>
             <Text t="body2">
               <Trans id="buy.torus_login_description">
-                In a new browser tab, go to{" "}
-                <Anchor href={urls.polygonTor}>https://polygon.tor.us/</Anchor>{" "}
-                and log in with your new Torus account. When you log in, you
-                should see a WalletConnect widget.
+                In a new browser tab, go to the{" "}
+                <Anchor href={urls.polygonTor}>Torus Polygon webapp</Anchor> and
+                log in with your new Torus account. When you log in, you should
+                see a WalletConnect widget.
               </Trans>
             </Text>
             <Image
@@ -217,10 +217,10 @@ export const Buy: NextPage = () => {
             <Text t="body2">
               <Trans id="buy.connect_torus_sushi_description2">
                 In a separate browser tab, visit{" "}
-                <Anchor href={urls.sushi}>Sushi.com</Anchor> and click "Connect"
-                at the top-right corner. You will be presented with a few wallet
-                options. Choose WalletConnect. After you choose WalletConnect
-                you will see a QR code—click "Copy to Clipboard".
+                <Anchor href={urls.sushiSwap}>Sushi.com</Anchor> and click
+                "Connect" at the top-right corner. You will be presented with a
+                few wallet options. Choose WalletConnect. After you choose
+                WalletConnect you will see a QR code—click "Copy to Clipboard".
               </Trans>
             </Text>
             <Image
@@ -236,7 +236,7 @@ export const Buy: NextPage = () => {
                 Return to the Torus wallet app and paste this code into the
                 WalletConnect widget. This will create a temporary connection
                 between your wallet and{" "}
-                <Anchor href={urls.sushi}>Sushi.com</Anchor>.
+                <Anchor href={urls.sushiSwap}>Sushi.com</Anchor>.
               </Trans>
             </Text>
             <Text t="body2">
@@ -248,8 +248,8 @@ export const Buy: NextPage = () => {
             <Text t="body2">
               <Trans id="buy.connect_torus_sushi_description5">
                 Finally, use the drop-down menu on{" "}
-                <Anchor href={urls.sushi}>Sushi.com</Anchor> to switch to the
-                Polygon network.
+                <Anchor href={urls.sushiSwap}>Sushi.com</Anchor> to switch to
+                the Polygon network.
               </Trans>
             </Text>
             <Text t="h4">
@@ -384,7 +384,7 @@ export const Buy: NextPage = () => {
             </Text>
             <Text t="body2">
               <Trans id="buy.bond_description_capacity">
-                Bond capacity is limited and bonds re not always available.
+                Bond capacity is limited and bonds are not always available.
               </Trans>
             </Text>
             <Text t="h4">
@@ -394,26 +394,28 @@ export const Buy: NextPage = () => {
             </Text>
             <Text t="body2">
               <Trans id="buy.bond_answer_cedit_card">
-                Yes, some on-ramp providers like Transak and Mobilum allow you
-                to buy KLIMA directly with a credit card, for a fee. However, if
+                Yes, some on-ramp providers like{" "}
+                <Anchor href={urls.transakMatic}>Transak</Anchor> allow you to
+                buy KLIMA directly with a credit card, for a fee. However, if
                 your wallet doesn't have MATIC, you won't be able to transfer or
                 perform other actions. For this reason, and to guarantee the
                 best market rate, we recommend buying MATIC directly instead,
-                and swapping that MATIC for KLIMA on Sushi.com.
+                and swapping your MATIC for KLIMA on Sushi.com.
               </Trans>
             </Text>
             <Text t="h4">
               <Trans id="buy.bond_question_cex">
                 Why can't I find KLIMA on Coinbase or other centralized
                 exchanges? Why do I have to use{" "}
-                <Anchor href={urls.sushi}>Sushi.com</Anchor>?
+                <Anchor href={urls.sushiSwap}>Sushi.com</Anchor>?
               </Trans>
             </Text>
             <Text t="body2">
               <Trans id="buy.bond_answer_cex1">
                 KLIMA is not traded on a centralized exchange like Coinbase,
                 Binance, or Crypto.com as these exchanges typically charge very
-                high listing fees and require expensive market makers.
+                high listing fees and require financing from expensive market
+                makers.
               </Trans>
             </Text>
             <Text t="body2">
@@ -436,10 +438,10 @@ export const Buy: NextPage = () => {
             <Text t="body2">
               <Trans id="buy.answer_exchange">
                 Advanced users can use the{" "}
-                <Anchor href={urls.polygonBridge}>Polygon Bridge</Anchor> from
-                Ethereum, and/or the{" "}
+                <Anchor href={urls.polygonBridge}>Polygon Bridge</Anchor> to
+                move any asset from Ethereum to Polygon, and/or the{" "}
                 <Anchor href={urls.polyscanGasStation}>Polygon Gas Swap</Anchor>{" "}
-                to swap other assets for MATIC.
+                to swap assets like USDC for MATIC.
               </Trans>
             </Text>
           </div>
