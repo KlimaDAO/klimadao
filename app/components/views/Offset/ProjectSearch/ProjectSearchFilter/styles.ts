@@ -48,7 +48,6 @@ export const selectOptions = css`
   flex-direction: column;
   padding-bottom: 1.4rem;
   gap: 1rem;
-  min-height: 15rem;
   max-height: 22rem;
   overflow-y: scroll;
 `;
