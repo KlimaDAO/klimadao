@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-27 21:02+0000\n"
+"POT-Creation-Date: 2022-12-28 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -226,19 +226,19 @@ msgstr "Купить KLIMA"
 #. Long sentence
 #: components/views/Buy/index.tsx:57
 msgid "buy.connect_to_buy"
-msgstr ""
+msgstr "Эта функция доступна только для пользователей, которые вошли в систему. Вы можете войти или создать учетную запись с помощью кнопки ниже."
 
 #: components/views/Buy/index.tsx:32
 msgid "buy.cta_1"
-msgstr ""
+msgstr "Если вы новичок, мы рекомендуем следовать нашему пошаговому руководству: <0>Как купить KLIMA.</0> ."
 
 #: components/views/Buy/index.tsx:38
 msgid "buy.cta_2"
-msgstr ""
+msgstr "В противном случае, если у вас уже есть кошелек с MATIC на Polygon, лучшим способом получить KLIMA будет обмен на <0>Sushi.com</0>. Если вы предпочитаете платить кредитной картой, вы можете использовать <1>Transak</1>, чтобы купить KLIMA напрямую."
 
 #: components/views/Buy/index.tsx:52
 msgid "buy.please_log_in"
-msgstr ""
+msgstr "Пожалуйста, войдите или подключите кошелек"
 
 #: components/views/Bond/index.tsx:732
 msgid "capacity.description_inverse"
@@ -868,7 +868,7 @@ msgstr "Загрузка..."
 #: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:219
 msgid "shared.login_connect"
-msgstr ""
+msgstr "Войти / Подключиться"
 
 #: components/views/Bond/index.tsx:637
 #: components/views/PKlima/index.tsx:280

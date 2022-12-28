@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-27 21:02+0000\n"
+"POT-Creation-Date: 2022-12-28 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,87 +38,87 @@ msgstr "Отказ от ответственности"
 
 #: components/pages/Buy/index.tsx:439
 msgid "buy.answer_exchange"
-msgstr ""
+msgstr "Продвинутые пользователи могут использовать <0>Polygon Bridge</0> для перевода любого актива из Ethereum в Polygon, и/или <1>Polygon Gas Swap</1> для обмена таких активов, как USDC на MATIC."
 
 #: components/pages/Buy/index.tsx:396
 msgid "buy.bond_answer_cedit_card"
-msgstr ""
+msgstr "Да, некоторые провайдеры, например <0>Transak</0>, позволяют покупать KLIMA напрямую с помощью кредитной карты за определенную плату. Однако, если в вашем кошельке нет MATIC, вы не сможете осуществить перевод или другие действия. По этой причине, а также для обеспечения наилучшего рыночного курса, мы рекомендуем покупать MATIC напрямую и обменивать MATIC на KLIMA на Sushi.com."
 
 #: components/pages/Buy/index.tsx:414
 msgid "buy.bond_answer_cex1"
-msgstr ""
+msgstr "KLIMA не торгуется на централизованных биржах, таких как Coinbase, Binance или Crypto.com, поскольку эти биржи обычно взимают очень высокие комиссии за листинг и требуют финансирования со стороны дорогих маркет-мейкеров."
 
 #: components/pages/Buy/index.tsx:422
 msgid "buy.bond_answer_cex2"
-msgstr ""
+msgstr "Вместо этого токены KLIMA торгуются на «децентрализованной бирже» (DEX), которая работает на основе смарт-контрактов и работает непосредственно на блокчейне. У DEX есть несколько важных преимуществ. DEX позволили DAO владеть большей частью ликвидности, поэтому он может сохранять полную автономию и получать доход для выплаты вкладчикам. Мы решили использовать технологию DEX от Sushi, поскольку она уже обеспечивает транзакции на десятки миллионов долларов в день."
 
 #: components/pages/Buy/index.tsx:377
 msgid "buy.bond_description1"
-msgstr ""
+msgstr "Опытные пользователи криптовалют могут купить KLIMA прямо из протокола через облигации. Чтобы приобрести KLIMA через облигации, вы предоставляете токен углерода или токен ликвидности и получаете взамен токены KLIMA со скидкой. Это механизм, который DAO использует для увеличения своей сокровищницы цифрового углерода."
 
 #: components/pages/Buy/index.tsx:386
 msgid "buy.bond_description_capacity"
-msgstr ""
+msgstr "Возможности облигаций ограничены, и облигации не всегда доступны."
 
 #: components/pages/Buy/index.tsx:407
 msgid "buy.bond_question_cex"
-msgstr ""
+msgstr "Почему я не могу найти KLIMA на Coinbase или других централизованных биржах? Почему я должен использовать <0>Sushi.com</0> ?"
 
 #: components/pages/Buy/index.tsx:391
 msgid "buy.bond_question_credit_card"
-msgstr ""
+msgstr "Могу ли я купить KLIMA напрямую с помощью кредитной карты?"
 
 #: components/pages/Buy/index.tsx:196
 msgid "buy.connect_advanced"
-msgstr ""
+msgstr "Примечание: эти инструкции предназначены только для пользователей кошелька Torus. Sushi поддерживает множество различных кошельков."
 
 #: components/pages/Buy/index.tsx:191
 msgid "buy.connect_torus_sushi"
-msgstr ""
+msgstr "3А. Подключите Torus к Sushi.com с помощью WalletConnect"
 
 #: components/pages/Buy/index.tsx:218
 msgid "buy.connect_torus_sushi_description2"
-msgstr ""
+msgstr "В отдельной вкладке браузера зайдите на сайт <0>Sushi.com</0> и нажмите кнопку \"Подключиться\" в правом верхнем углу. Вам будет предложено несколько вариантов кошельков. Выберите WalletConnect. После выбора WalletConnect вы увидите QR-код - нажмите \"Скопировать в буфер обмена\"."
 
 #: components/pages/Buy/index.tsx:235
 msgid "buy.connect_torus_sushi_description3"
-msgstr ""
+msgstr "Вернитесь в приложение кошелька Torus и вставьте этот код в виджет WalletConnect. Это создаст временное соединение между вашим кошельком и <0>Sushi.com.</0> ."
 
 #: components/pages/Buy/index.tsx:243
 msgid "buy.connect_torus_sushi_description4"
-msgstr ""
+msgstr "Когда вы вернетесь на вкладку Sushi в своем браузере, вы должны увидеть, что ваш адрес Torus теперь виден в правом верхнем углу."
 
 #: components/pages/Buy/index.tsx:249
 msgid "buy.connect_torus_sushi_description5"
-msgstr ""
+msgstr "Наконец, используйте выпадающее меню на <0>Sushi.com</0>, чтобы переключиться на сеть Polygon."
 
 #: components/pages/Buy/index.tsx:78
 msgid "buy.create_wallet_description"
-msgstr ""
+msgstr "<0>Создайте кошелек.</0> Мы рекомендуем Torus Wallet, но наше приложение поддерживает большинство Web3-кошельков (Metamask, Coinbase Wallet, Brave, MyEtherWallet и многие другие)."
 
 #: components/pages/Buy/index.tsx:120
 msgid "buy.create_wallet_description1"
-msgstr ""
+msgstr "Зайдите на сайт <0>app.klimadao.finance</0> и нажмите кнопку \"Подключиться\" в правом верхнем углу."
 
 #: components/pages/Buy/index.tsx:126
 msgid "buy.create_wallet_description2"
-msgstr ""
+msgstr "Выберите вариант входа «Электронная почта или социальная сеть», после чего вам будет предложено войти в систему с помощью Torus. Torus — это технология, которая создает безопасный кошелек, используя вашу существующую электронную почту или социальный логин. Вы сможете использовать этот новый кошелек Torus в сотнях других приложений Web3 и DeFi."
 
 #: components/pages/Buy/index.tsx:135
 msgid "buy.create_wallet_description3"
-msgstr ""
+msgstr "После подключения вы должны увидеть адрес своего нового кошелька в левом верхнем углу приложения."
 
 #: components/pages/Buy/index.tsx:141
 msgid "buy.create_wallet_description4"
-msgstr ""
+msgstr "Дополнительно: если вы не хотите использовать Torus, смело используйте любой Web3-кошелек, совместимый с Polygon."
 
 #: components/pages/Buy/index.tsx:117
 msgid "buy.create_wallet_item"
-msgstr ""
+msgstr "1. Создайте кошелек"
 
 #: components/pages/Buy/index.tsx:325
 msgid "buy.faq_title"
-msgstr ""
+msgstr "Часто задаваемые вопросы"
 
 #: components/pages/Buy/index.tsx:33
 #: components/pages/Buy/index.tsx:34
@@ -131,140 +131,140 @@ msgstr "Как купить KLIMA"
 
 #: components/pages/Buy/index.tsx:50
 msgid "buy.how_to_paragraph_part_1"
-msgstr ""
+msgstr "KLIMA - это цифровой актив, обеспеченный углеродом, который можно заложить для получения вознаграждения или использовать для компенсации цифрового углерода. Владение KLIMA также дает вам право голосовать и участвовать в управлении цифровым рынком углерода."
 
 #: components/pages/Buy/index.tsx:57
 msgid "buy.how_to_paragraph_part_2"
-msgstr ""
+msgstr "Это краткое руководство для новичков, которые только начинают знакомиться с Web3 и DeFi"
 
 #: components/pages/Buy/index.tsx:149
 msgid "buy.load_wallet"
-msgstr ""
+msgstr "2. Пополните свой кошелек токенами MATIC"
 
 #: components/pages/Buy/index.tsx:91
 msgid "buy.load_wallet_description"
-msgstr ""
+msgstr "<0> Пополните свой новый кошелек токенами MATIC.</0> MATIC - это газ, на котором работает сеть Polygon. Каждая транзакция, которую вы совершаете в Polygon, требует несколько центов MATIC для оплаты сетевого сбора."
 
 #: components/pages/Buy/index.tsx:154
 msgid "buy.load_wallet_description1"
-msgstr ""
+msgstr "Используйте такой сервис, как <0>MoonPay</0> или <1>Transak</1> или централизованную биржу, например <2>Coinbase</2>, чтобы купить Polygon MATIC и отправить его на ваш вновь созданный кошелек. "
 
 #: components/pages/Buy/index.tsx:164
 msgid "buy.load_wallet_description2"
-msgstr ""
+msgstr "<0>Убедитесь, что токены MATIC отправлены на ваш новый адрес кошелька!</0> Вы можете скопировать адрес в буфер обмена, подключившись к нашему приложению и щелкнув адрес в меню навигации."
 
 #: components/pages/Buy/index.tsx:174
 msgid "buy.load_wallet_description3"
-msgstr ""
+msgstr "<0>Обязательно купите и отправьте MATIC через сеть Polygon!</0> Некоторые биржи, такие как Coinbase, спросят вас, в какую сеть отправлять токены MATIC. Обязательно всегда выбирайте Polygon."
 
 #: components/pages/Buy/index.tsx:433
 msgid "buy.question_exchange"
-msgstr ""
+msgstr "Что делать, если я хочу использовать другую биржу, а они не продают Polygon MATIC?"
 
 #: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic"
-msgstr ""
+msgstr "Почему я должен сначала купить MATIC?"
 
 #: components/pages/Buy/index.tsx:333
 msgid "buy.question_why_matic_answer"
-msgstr ""
+msgstr "Токен и протокол KLIMA находятся в блокчейне Polygon. MATIC - это \"газ\", который питает каждую транзакцию на Polygon. Невозможно выполнить транзакцию, не заплатив комиссию за транзакцию. Это означает, что вам придется заплатить несколько центов MATIC за следующие действия:"
 
 #: components/pages/Buy/index.tsx:344
 msgid "buy.question_why_matic_answer_bullet1"
-msgstr ""
+msgstr "Стейкинг KLIMA для sKLIMA"
 
 #: components/pages/Buy/index.tsx:351
 msgid "buy.question_why_matic_answer_bullet2"
-msgstr ""
+msgstr "Обмен между разными токенами"
 
 #: components/pages/Buy/index.tsx:358
 msgid "buy.question_why_matic_answer_bullet3"
-msgstr ""
+msgstr "Отправка токенов на другой кошелек"
 
 #: components/pages/Buy/index.tsx:365
 msgid "buy.question_why_matic_answer_bullet4"
-msgstr ""
+msgstr "Использование KLIMA или других токенов для компенсации выбросов углерода"
 
 #: components/pages/Buy/index.tsx:298
 msgid "buy.staking_cta"
-msgstr ""
+msgstr "Ставьте, зарабатывайте, голосуйте и компенсируйте!"
 
 #: components/pages/Buy/index.tsx:301
 msgid "buy.staking_description1"
-msgstr ""
+msgstr "Поздравляем! Теперь, когда в вашем кошельке есть немного KLIMA, мы настоятельно рекомендуем <0>разместить</0> эти KLIMA на sKLIMA, который со временем начисляет вознаграждение по мере роста протокола."
 
 #: components/pages/Buy/index.tsx:309
 msgid "buy.staking_description2"
-msgstr ""
+msgstr "Вы также можете использовать приложение, чтобы тратить KLIMA и <0>восстанавливать цифровой углерод</0> на блокчейне."
 
 #: components/pages/Buy/index.tsx:316
 msgid "buy.staking_description3"
-msgstr ""
+msgstr "Наконец, следите за <0>продолжающимися голосованиями</0> и помогайте направлять протокол в правильном направлении."
 
 #: components/pages/Buy/index.tsx:75
 msgid "buy.step_1"
-msgstr ""
+msgstr "1."
 
 #: components/pages/Buy/index.tsx:88
 msgid "buy.step_2"
-msgstr ""
+msgstr "2."
 
 #: components/pages/Buy/index.tsx:103
 msgid "buy.step_3"
-msgstr ""
+msgstr "3."
 
 #: components/pages/Buy/index.tsx:68
 msgid "buy.summary_steps_title"
-msgstr ""
+msgstr "Лучший и самый простой способ получить KLIMA — это выполнить следующие три шага:"
 
 #: components/pages/Buy/index.tsx:65
 msgid "buy.summary_title"
-msgstr ""
+msgstr "Резюме"
 
 #: components/pages/Buy/index.tsx:259
 msgid "buy.swap_description1"
-msgstr ""
+msgstr "После подключения кошелька и переключения на сеть Polygon вы сможете обменять MATIC на KLIMA."
 
 #: components/pages/Buy/index.tsx:265
 msgid "buy.swap_description2"
-msgstr ""
+msgstr "<0> Важное замечание: не меняйте все свои MATIC на KLIMA! </0> Оставьте хотя бы 0,5 MATIC для оплаты комиссий за будущие транзакции."
 
 #: components/pages/Buy/index.tsx:281
 msgid "buy.swap_description3"
-msgstr ""
+msgstr "Если вы используете Torus, держите открытой вкладку браузера с приложением Torus. Вам нужно будет вернуться в кошелек, чтобы одобрить и авторизовать транзакции."
 
 #: components/pages/Buy/index.tsx:288
 msgid "buy.swap_description4"
-msgstr ""
+msgstr "Дополнительно: Если вы хотите, чтобы ваши транзакции в Sushi были положительными для климата, включите \"Зеленый сбор\" Sushi, разработанный KlimaDAO. Это позволит тратить 0,02 MATIC за транзакцию на приобретение и автоматическое удаление цифрового углерода!"
 
 #: components/pages/Buy/index.tsx:106
 msgid "buy.swap_for_klima_description"
-msgstr ""
+msgstr "<0>Обменять на KLIMA.</0> Sushi — это децентрализованная биржа, на которой вы можете мгновенно обменять часть ваших токенов MATIC на токены KLIMA по минимально возможной цене."
 
 #: components/pages/Buy/index.tsx:256
 msgid "buy.swap_subtitle"
-msgstr ""
+msgstr "3Б. Обмен MATIC на KLIMA"
 
 #: components/pages/Buy/index.tsx:185
 msgid "buy.swap_wallet"
-msgstr ""
+msgstr "3. Обмен на KLIMA на <0>Sushi.com</0>"
 
 #: components/pages/Buy/index.tsx:202
 msgid "buy.torus_login_description"
-msgstr ""
+msgstr "В новой вкладке браузера перейдите на веб-приложение <0>Torus Polygon</0> и войдите в систему, используя свою новую учетную запись Torus. Когда вы войдете в систему, вы должны увидеть виджет WalletConnect."
 
 #: components/pages/Buy/index.tsx:211
 msgid "buy.wallet_connect_example"
-msgstr ""
+msgstr "пример ввода подключения кошелька"
 
 #: components/pages/Buy/index.tsx:228
 #: components/pages/Buy/index.tsx:274
 msgid "buy.wallet_connect_example_qr_code"
-msgstr ""
+msgstr "пример qr кода для подключения кошелька"
 
 #: components/pages/Buy/index.tsx:372
 msgid "buy.what_are_bonds"
-msgstr ""
+msgstr "Есть ли другие способы получить KLIMA? Что такое облигации?"
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
@@ -1658,11 +1658,11 @@ msgstr "Тонны"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:46
 msgid "retirement.single.project_details.view_mco2_pool"
-msgstr ""
+msgstr "Просмотр активности пула MCO2"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:55
 msgid "retirement.single.project_details.view_on_polygon_scan"
-msgstr ""
+msgstr "Посмотреть транзакцию на Polygonscan"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
@@ -1894,7 +1894,7 @@ msgstr "Загрузка..."
 #: components/pages/Pledge/HeaderDesktop/index.tsx:67
 #: components/pages/Pledge/HeaderMobile/index.tsx:65
 msgid "shared.login_connect"
-msgstr ""
+msgstr "Войти / Подключиться"
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
