@@ -17,9 +17,23 @@ const GET_USER_DATA = gql`
                         batches
                         batchPrices
                         singleUnitPrice
+                        createdAt
+                        updatedAt
                         project {
                             name
-                            category
+                            category {
+                                id
+                            }
+                            id
+                            key
+                            projectID
+                            methodology
+                            vintage
+                            projectAddress
+                            registry
+                        }
+                        seller {
+                            id
                         }
                     }
                     activities {
@@ -31,7 +45,17 @@ const GET_USER_DATA = gql`
                         timeStamp
                         activityType
                         project {
+                            name
+                            category {
+                                id
+                            }
+                            id
                             key
+                            projectID
+                            methodology
+                            vintage
+                            projectAddress
+                            registry
                         }
                         seller {
                             id
@@ -46,5 +70,4 @@ const GET_USER_DATA = gql`
                 }
             }
             `
-
 module.exports.GET_USER_DATA = GET_USER_DATA;

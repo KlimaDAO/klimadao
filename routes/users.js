@@ -33,6 +33,7 @@ module.exports = async function (fastify, opts) {
 
         handler: async function (request, reply) {
             const walletAddress = request.body.wallet;
+            console.log(walletAddress);
             if (!walletAddress) {
                 reply.code(400);
                 reply.send('Bad Request');
@@ -47,49 +48,61 @@ module.exports = async function (fastify, opts) {
             reply.send({ nonce });
         }
     }),
-    fastify.route({
-        method: 'POST',
-        path: '/users/login/verify',
-        schema: {
-            tags: ["user"],
-            body: {
-                type: 'object',
-                properties: {
-                    wallet: { type: 'string', minLength: 26, maxLength: 64 },
-                    signature: {  type: 'string' }
-                },
-                required: ['wallet', 'signature']
-            },
-            response: {
-                '2xx': {
+        fastify.route({
+            method: 'POST',
+            path: '/users/login/verify',
+            schema: {
+                tags: ["user"],
+                body: {
                     type: 'object',
                     properties: {
-                        nonce: { type: 'string' },
+                        wallet: { type: 'string', minLength: 26, maxLength: 64 },
+                        signature: { type: 'string' }
+                    },
+                    required: ['wallet', 'signature']
+                },
+                response: {
+                    '2xx': {
+                        type: 'object',
+                        properties: {
+                            token: { type: 'string' },
+                        }
                     }
                 }
-            }
-        },
+            },
 
-        handler: async function (request, reply) {
-            const {signature, wallet} = request.body;
-            const dbUser = users[walletAddress];
-            const signerWalletAddress = ethers.utils.verifyMessage(dbUser.nonce, signature);
-            
-            if (signerWalletAddress !== dbUser.wallet) {
-                reply.statusCode = 401;
-               reply.send('Bad Creds');
-               return;
+            handler: async function (request, reply) {
+                const { signature, wallet } = request.body;
+                const dbUser = users[wallet];
+
+                const signedMessage = `Sign to authenticate ownership and edit your Klima Marketplace Profile 💚\n\nSignature nonce: ${dbUser.nonce}`;
+                const signerWalletAddress = ethers.utils.verifyMessage(signedMessage, signature);
+
+                if (signerWalletAddress.toLowerCase() !== dbUser.walletAddress.toLowerCase()) {
+                    reply.statusCode = 401;
+                    reply.send('Bad Creds');
+                    return;
+                }
+
+                const token = fastify.jwt.sign({ wallet })
+                console.log(token);
+                request.session.token = token;
+                users[wallet].nonce = generateNounce();
+                reply.send({token});
             }
-            
-            const token = jwt.sign({wallet}, 'jwtSecretKey');
-            reply.send({token});
-            users[wallet].nonce = generateNounce();
-        }
-    }),
+        }),
         fastify.route({
             method: 'GET',
-            path: '/users/:wallet',
+            path: '/users/:userIdentifier',
             schema: {
+                querystring: {
+                    type: 'object',
+                    properties: {
+                        name: {
+                            type: 'string'
+                        },
+                    }
+                },
                 tags: ["user"],
                 response: {
                     '2xx': {
@@ -100,23 +113,42 @@ module.exports = async function (fastify, opts) {
                             description: { type: 'string' },
                             wallet: { type: 'string' },
                             listings: { type: 'array' },
-                            activities: { type: 'array' }
+                            activities: { type: 'array' },
+                            assets: { type: 'array' }
                         }
                     }
                 }
             },
 
             handler: async function (request, reply) {
-                const { wallet } = request.params;
+                const { userIdentifier } = request.params;
+                var { type } = (request.query);
 
-                const user = await fastify.firebase.firestore()
-                    .collection("users")
-                    .doc(wallet)
-                    .get();
+                var user;
+                if (type == "wallet") {
+                    user = await fastify.firebase.firestore()
+                        .collection("users")
+                        .doc(userIdentifier)
+                        .get();
 
-                if (!user.exists) {
-                    return reply.notFound();
+                    if (!user.exists) {
+                        return reply.notFound();
+                    }
+                } else {
+                    let usersRef = fastify.firebase.firestore().collection("users");
+                    const users = await usersRef.where('handle', '==', userIdentifier).get();
+
+
+                    if (users.empty) {
+                        return reply.notFound();
+                    }
+
+                    users.forEach(doc => {
+                        user = doc;
+                    });
                 }
+                var response = user.data();
+                var wallet = user.id;
 
                 var data = await client(process.env.GRAPH_API_URL)
                     .query({
@@ -124,22 +156,46 @@ module.exports = async function (fastify, opts) {
                         variables: { wallet }
                     });
 
-                var response = user.data();
+                // @todo -> merge with other graph
                 response.wallet = wallet;
-                if (data.users.length) {
+                if (data.data.users.length) {
                     response.listings = data.data.users[0].listings;
+
+                    // console.log( data.data.users[0].listings.length);
+                    // console.log( " ======== ")
+                    for (let i = 0; i < data.data.users[0].listings.length ; i++) {
+                        var seller = await fastify.firebase.firestore()
+                        .collection("users")
+                        .doc(data.data.users[0].listings[i].seller.id)
+                        .get();
+                       
+                        if (seller.empty) {
+                           console.log('seller is empty');
+                        }
+    
+                        users.forEach(doc => {
+                            user = doc;
+                        });
+                       console.log(data.data.users[0].listings[i].seller.id, seller.data());
+                    }
+                  
                     response.activities = data.data.users[0].activities;
+                    response.assets = [
+                        '0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4'
+                    ]
+                    //console.log(response);
                 } else {
                     response.listings = [];
                     response.activities = [];
                 }
-
                 return reply.send(response);
             }
+
         }),
         fastify.route({
             method: 'POST',
             path: '/users',
+            onRequest: [fastify.authenticate],
             schema: {
                 tags: ["user"],
                 body: {
@@ -199,6 +255,7 @@ module.exports = async function (fastify, opts) {
         }),
         fastify.route({
             method: 'PUT',
+            onRequest: [fastify.authenticate],
             path: '/users/:wallet',
             schema: {
                 tags: ["user"],

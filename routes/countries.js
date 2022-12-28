@@ -1,6 +1,6 @@
 'use strict'
 const { client } = require('../apollo-client.js');
-const { GET_COUNTRIES } = require('../queries/categories');
+const { GET_COUNTRIES } = require('../queries/countries');
 
 
 module.exports = async function (fastify, opts) {
@@ -20,11 +20,12 @@ module.exports = async function (fastify, opts) {
         },
         handler: async function (request, reply) {
 
+           
             var data = await client(process.env.GRAPH_API_URL)
                 .query({
                     query: GET_COUNTRIES,
                 });
-console.log(data)
+
             return reply.send(JSON.stringify(data.data.countries));
         }
     })

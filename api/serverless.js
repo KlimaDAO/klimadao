@@ -5,6 +5,7 @@
 const Fastify = require('fastify')
 require('dotenv').config()
 // Instantiate Fastify with some config
+
 const app = Fastify({
   logger: true
 })
