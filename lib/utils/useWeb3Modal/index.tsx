@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ethers } from "ethers";
+import { providers } from "ethers";
 import { urls } from "../../constants";
 import {
   web3InitialState,
@@ -28,23 +28,22 @@ const isCoinbaseProvider = (p?: WrappedProvider): p is CoinbaseProvider =>
 const getWeb3Provider = (p: any): TypedProvider => {
   return new providers.Web3Provider(p) as TypedProvider;
 };
+
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useWeb3Modal = (): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
 
   const disconnect = async () => {
     localStorage.removeItem("web3-wallet");
-    if (web3state && (web3state.provider?.provider as any)?.isTorus === true) {
-      await (web3state.provider?.provider as any).torus.cleanUp(); // this will trigger reload via accountsChanged
+    if (isTorusProvider(web3state.provider?.provider)) {
+      await web3state.provider?.provider?.torus?.cleanUp();
     } else if (
-      web3state &&
-      web3state.provider?.connection?.url === "metamask"
+      isWalletConnectProvider(web3state.provider?.provider) ||
+      isCoinbaseProvider(web3state.provider?.provider)
     ) {
-      window.location.reload();
-    } else {
-      (web3state.provider?.provider as any).close();
-      window.location.reload();
+      await web3state.provider?.provider?.close();
     }
+    window.location.reload();
   };
 
   const connect = async (wallet?: string): Promise<void> => {
@@ -55,9 +54,7 @@ export const useWeb3Modal = (): Web3ModalState => {
         wallet === "brave" ||
         connectedWallet === "injected"
       ) {
-        const provider = new ethers.providers.Web3Provider(
-          window.ethereum as any
-        ) as any;
+        const provider = getWeb3Provider(window.ethereum);
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
         const signer = provider.getSigner();
@@ -73,19 +70,19 @@ export const useWeb3Modal = (): Web3ModalState => {
         setWeb3State(newState);
         localStorage.setItem("web3-wallet", "injected");
       } else if (wallet === "coinbase" || connectedWallet === "coinbase") {
-        const CoinbaseWalletSDK = (await import("@coinbase/wallet-sdk"))
-          .CoinbaseWalletSDK;
-        const coinbaseWallet = new CoinbaseWalletSDK({
+        const { default: CoinbaseWalletSDK } = await import(
+          "@coinbase/wallet-sdk"
+        );
+        const { makeWeb3Provider } = new CoinbaseWalletSDK({
           appName: "KlimaDAO App",
-          darkMode: false,
+          darkMode: false, // TODO: get theme from body/localstorage
         });
-
-        const provider = new ethers.providers.Web3Provider(
-          coinbaseWallet.makeWeb3Provider(urls.polygonMainnetRpc, 137) as any
-        ) as unknown as TypedProvider;
+        const provider = getWeb3Provider(
+          makeWeb3Provider(urls.polygonMainnetRpc, 137)
+        );
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
-        const signer = await provider.getSigner();
+        const signer = provider.getSigner();
         const address = await signer.getAddress();
         const network = await provider.getNetwork();
         const newState: ConnectedWeb3State = {
@@ -101,20 +98,17 @@ export const useWeb3Modal = (): Web3ModalState => {
         wallet === "walletConnect" ||
         connectedWallet === "walletConnect"
       ) {
-        const WalletConnectProvider = (
-          await import("@walletconnect/web3-provider")
-        ).default;
+        const { default: WalletConnectProvider } = await import(
+          "@walletconnect/web3-provider"
+        );
         const walletConnectProvider = new WalletConnectProvider({
           rpc: {
             137: urls.polygonMainnetRpc,
           },
         });
-
         await walletConnectProvider.enable();
-        const provider = new ethers.providers.Web3Provider(
-          walletConnectProvider
-        ) as TypedProvider;
-        const signer = await provider.getSigner();
+        const provider = getWeb3Provider(walletConnectProvider);
+        const signer = provider.getSigner();
         const address = await signer.getAddress();
         const network = await provider.getNetwork();
         const newState: ConnectedWeb3State = {
@@ -127,22 +121,20 @@ export const useWeb3Modal = (): Web3ModalState => {
         setWeb3State(newState);
         localStorage.setItem("web3-wallet", "walletConnect");
       } else if (wallet === "torus" || connectedWallet === "torus") {
-        const Torus = (await import("@toruslabs/torus-embed")).default;
+        const { default: Torus } = await import("@toruslabs/torus-embed");
         const torus = new Torus();
         await torus.init({
           network: {
-            host: "matic",
+            host: urls.polygonMainnetRpc,
             chainId: 137,
             networkName: "Polygon",
           },
           showTorusButton: false,
         });
         await torus.login();
-        const provider = new ethers.providers.Web3Provider(
-          torus.provider
-        ) as any;
-        provider.provider.torus = torus;
-        const signer = await provider.getSigner();
+        const provider = getWeb3Provider(torus.provider);
+        (provider.provider as TorusProvider).torus = torus; // inject so we can access this later (on disconnect)
+        const signer = provider.getSigner();
         const address = await signer.getAddress();
         const network = await provider.getNetwork();
         const newState: ConnectedWeb3State = {
@@ -155,7 +147,7 @@ export const useWeb3Modal = (): Web3ModalState => {
         setWeb3State(newState);
         localStorage.setItem("web3-wallet", "torus");
       } else {
-        throw new Error("Error onnecting");
+        throw new Error("Error connecting");
       }
     } catch (e: any) {
       throw new Error(e);
@@ -176,6 +168,8 @@ export const useWeb3Modal = (): Web3ModalState => {
       // no need to listen to torus events. They do not have any external control
       return;
     }
+    const handleAccountsChanged = (accts: string[]) => {
+      if (accts.length > 0) {
         window.location.reload();
       } else {
         localStorage.removeItem("web3-wallet");
@@ -192,18 +186,15 @@ export const useWeb3Modal = (): Web3ModalState => {
 
     /** There is a bug where ethers doesn't respond to web3modal events for these two, so we use the nested provider
      * https://github.com/ethers-io/ethers.js/issues/2988 */
-    web3state.provider.provider.on(
-      "accountsChanged",
-      handleAccountsChanged as any
-    );
+    web3state.provider.provider.on("accountsChanged", handleAccountsChanged);
     web3state.provider.provider.on("chainChanged", handleChainChanged);
-    /** For WalletConnect disconnections */
+    /** For WalletConnect and Coinbase disconnections */
     web3state.provider.provider.on("disconnect", handleDisconnect);
 
     return () => {
       web3state.provider.provider.removeListener(
         "accountsChanged",
-        handleAccountsChanged as any
+        handleAccountsChanged
       );
       web3state.provider.provider.removeListener(
         "chainChanged",
