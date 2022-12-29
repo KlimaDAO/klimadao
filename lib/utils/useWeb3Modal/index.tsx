@@ -49,25 +49,17 @@ export const useWeb3Modal = (): Web3ModalState => {
   const connect = async (wallet?: string): Promise<void> => {
     const connectedWallet = localStorage.getItem("web3-wallet");
     try {
+      let provider: TypedProvider;
+
+      /** HANDLE METAMASK / INJECTED */
       if (
         wallet === "metamask" ||
         wallet === "brave" ||
         connectedWallet === "injected"
       ) {
-        const provider = getWeb3Provider(window.ethereum);
+        provider = getWeb3Provider(window.ethereum);
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        const network = await provider.getNetwork();
-        const newState: ConnectedWeb3State = {
-          provider,
-          signer,
-          address,
-          network,
-          isConnected: true,
-        };
-        setWeb3State(newState);
         localStorage.setItem("web3-wallet", "injected");
       } else if (wallet === "coinbase" || connectedWallet === "coinbase") {
         const { default: CoinbaseWalletSDK } = await import(
@@ -77,23 +69,14 @@ export const useWeb3Modal = (): Web3ModalState => {
           appName: "KlimaDAO App",
           darkMode: false, // TODO: get theme from body/localstorage
         });
-        const provider = getWeb3Provider(
+        provider = getWeb3Provider(
           makeWeb3Provider(urls.polygonMainnetRpc, 137)
         );
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        const network = await provider.getNetwork();
-        const newState: ConnectedWeb3State = {
-          provider,
-          signer,
-          address,
-          network,
-          isConnected: true,
-        };
-        setWeb3State(newState);
         localStorage.setItem("web3-wallet", "coinbase");
+
+        /** HANDLE WALLETCONNECT */
       } else if (
         wallet === "walletConnect" ||
         connectedWallet === "walletConnect"
@@ -107,19 +90,10 @@ export const useWeb3Modal = (): Web3ModalState => {
           },
         });
         await walletConnectProvider.enable();
-        const provider = getWeb3Provider(walletConnectProvider);
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        const network = await provider.getNetwork();
-        const newState: ConnectedWeb3State = {
-          provider,
-          signer,
-          address,
-          network,
-          isConnected: true,
-        };
-        setWeb3State(newState);
+        provider = getWeb3Provider(walletConnectProvider);
         localStorage.setItem("web3-wallet", "walletConnect");
+
+        /** HANDLE TORUS */
       } else if (wallet === "torus" || connectedWallet === "torus") {
         const { default: Torus } = await import("@toruslabs/torus-embed");
         const torus = new Torus();
@@ -132,23 +106,24 @@ export const useWeb3Modal = (): Web3ModalState => {
           showTorusButton: false,
         });
         await torus.login();
-        const provider = getWeb3Provider(torus.provider);
+        provider = getWeb3Provider(torus.provider);
         (provider.provider as TorusProvider).torus = torus; // inject so we can access this later (on disconnect)
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        const network = await provider.getNetwork();
-        const newState: ConnectedWeb3State = {
-          provider,
-          signer,
-          address,
-          network,
-          isConnected: true,
-        };
-        setWeb3State(newState);
         localStorage.setItem("web3-wallet", "torus");
       } else {
         throw new Error("Error connecting");
       }
+
+      const signer = provider.getSigner();
+      const address = await signer.getAddress();
+      const network = await provider.getNetwork();
+      const newState: ConnectedWeb3State = {
+        provider,
+        signer,
+        address,
+        network,
+        isConnected: true,
+      };
+      setWeb3State(newState);
     } catch (e: any) {
       throw new Error(e);
     }
