@@ -3,8 +3,8 @@
 import type { providers } from "ethers";
 import type Web3Provider from "@walletconnect/web3-provider";
 import type { TorusInpageProvider } from "@toruslabs/torus-embed";
-import Torus from "@toruslabs/torus-embed";
-import { CoinbaseWalletProvider } from "@coinbase/wallet-sdk";
+import type Torus from "@toruslabs/torus-embed";
+import type { CoinbaseWalletProvider } from "@coinbase/wallet-sdk";
 
 declare function ProviderEventHandler(
   evt: "accountsChanged",
