@@ -172,9 +172,10 @@ export const useWeb3Modal = (): Web3ModalState => {
 
   // EIP-1193 events
   useEffect(() => {
-    if (!web3state.provider) return;
-    const handleAccountsChanged = (value: any[]) => {
-      if (value.length > 0) {
+    if (!web3state.provider || isTorusProvider(web3state.provider.provider)) {
+      // no need to listen to torus events. They do not have any external control
+      return;
+    }
         window.location.reload();
       } else {
         localStorage.removeItem("web3-wallet");
