@@ -210,6 +210,7 @@ export const ResourcesList: FC<Props> = (props) => {
             </div>
           </div>
         </div>
+
         <div className={styles.main}>
           <div className={styles.filtersContainer}>
             <ResourcesFilters
