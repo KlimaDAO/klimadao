@@ -154,7 +154,7 @@ export const useWeb3Modal = (): Web3ModalState => {
   // EIP-1193 events
   useEffect(() => {
     if (!web3state.provider) return;
-    const handleAccountsChanged = (value: any) => {
+    const handleAccountsChanged = (value: any[]) => {
       if (value.length > 0) {
         window.location.reload();
       } else {
@@ -165,6 +165,10 @@ export const useWeb3Modal = (): Web3ModalState => {
     const handleChainChanged = () => {
       window.location.reload();
     };
+    const handleDisconnect = () => {
+      localStorage.removeItem("web3-wallet");
+      window.location.reload();
+    };
 
     /** There is a bug where ethers doesn't respond to web3modal events for these two, so we use the nested provider
      * https://github.com/ethers-io/ethers.js/issues/2988 */
@@ -172,12 +176,22 @@ export const useWeb3Modal = (): Web3ModalState => {
       "accountsChanged",
       handleAccountsChanged as any
     );
-    web3state.provider.provider.on("chainChanged", handleChainChanged as any);
+    web3state.provider.provider.on("chainChanged", handleChainChanged);
+    /** For WalletConnect disconnections */
+    web3state.provider.provider.on("disconnect", handleDisconnect);
 
     return () => {
       web3state.provider.provider.removeListener(
         "accountsChanged",
         handleAccountsChanged as any
+      );
+      web3state.provider.provider.removeListener(
+        "chainChanged",
+        handleChainChanged
+      );
+      web3state.provider.provider.removeListener(
+        "disconnect",
+        handleDisconnect
       );
     };
   }, [web3state.provider]);
