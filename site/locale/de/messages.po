@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-28 15:33+0000\n"
+"POT-Creation-Date: 2022-12-29 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:407
 msgid "buy.bond_question_cex"
-msgstr ""
+msgstr "Warum kann ich KLIMA nicht bei Coinbase oder anderen zentralisierten Börsen finden? Warum muss ich <0>Sushi.com</0> nutzen?"
 
 #: components/pages/Buy/index.tsx:391
 msgid "buy.bond_question_credit_card"
@@ -163,11 +163,11 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:328
 msgid "buy.question_why_matic"
-msgstr ""
+msgstr "Warum muss ich zuerst MATIC kaufen?"
 
 #: components/pages/Buy/index.tsx:333
 msgid "buy.question_why_matic_answer"
-msgstr ""
+msgstr "KLIMAs Token und das Protokoll verwenden die Polygon-Blockchain. MATIC ist der \"Treibstoff\", der jede Transaktion über Polygon befeuert. Eine Transaktion kann nicht ausgeführt werden, ohne die Transaktionsgebühr zu bezahlen. Das heißt, dass du MATIC im Wert von Centbruchteilen entrichten musst, um die folgenden Aktionen auszuführen:"
 
 #: components/pages/Buy/index.tsx:344
 msgid "buy.question_why_matic_answer_bullet1"
@@ -1882,7 +1882,7 @@ msgstr "Lade..."
 #: components/pages/Pledge/HeaderDesktop/index.tsx:67
 #: components/pages/Pledge/HeaderMobile/index.tsx:65
 msgid "shared.login_connect"
-msgstr ""
+msgstr "Anmelden / Verbinden"
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
