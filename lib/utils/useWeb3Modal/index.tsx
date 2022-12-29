@@ -99,7 +99,7 @@ export const useWeb3Modal = (): Web3ModalState => {
         const torus = new Torus();
         await torus.init({
           network: {
-            host: "matic",
+            host: urls.polygonMainnetRpc,
             chainId: 137,
             networkName: "Polygon",
           },
