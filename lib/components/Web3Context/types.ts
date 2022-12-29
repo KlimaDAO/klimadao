@@ -6,6 +6,8 @@ import type { TorusInpageProvider } from "@toruslabs/torus-embed";
 import type Torus from "@toruslabs/torus-embed";
 import type { CoinbaseWalletProvider } from "@coinbase/wallet-sdk";
 
+// Function overloads because "accountsChanged" returns an array of strings, but the others don't.
+// Ethers did not have these properly typed.
 declare function ProviderEventHandler(
   evt: "accountsChanged",
   cb: (accts: string[]) => void
