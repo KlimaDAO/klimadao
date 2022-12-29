@@ -7,8 +7,27 @@ import {
   Web3ModalState,
   Web3State,
   TypedProvider,
+  WrappedProvider,
+  TorusProvider,
+  CoinbaseProvider,
+  WalletConnectProvider,
 } from "../../components/Web3Context/types";
 
+/** Type guards for convenience and readability */
+const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>
+  !!p && "isTorus" in p && p.isTorus;
+
+const isWalletConnectProvider = (
+  p?: WrappedProvider
+): p is WalletConnectProvider =>
+  !!p && "isWalletConnect" in p && p.isWalletConnect;
+
+const isCoinbaseProvider = (p?: WrappedProvider): p is CoinbaseProvider =>
+  !!p && "isCoinbaseWallet" in p && p.isCoinbaseWallet;
+
+const getWeb3Provider = (p: any): TypedProvider => {
+  return new providers.Web3Provider(p) as TypedProvider;
+};
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useWeb3Modal = (): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);

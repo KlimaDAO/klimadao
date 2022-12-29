@@ -1,14 +1,39 @@
 /** Separate file to avoid circular deps between Web3Context and useWeb3Modal */
 
-import { providers } from "ethers";
+import type { providers } from "ethers";
+import type Web3Provider from "@walletconnect/web3-provider";
+import type { TorusInpageProvider } from "@toruslabs/torus-embed";
+import Torus from "@toruslabs/torus-embed";
+import { CoinbaseWalletProvider } from "@coinbase/wallet-sdk";
 
-type ProviderEvent = "accountsChanged" | "chainChanged" | "disconnect";
-type ProviderEventHandler = (evt: ProviderEvent, cb: () => void) => void;
-interface WrappedProvider extends providers.ExternalProvider {
-  on: ProviderEventHandler;
-  removeListener: ProviderEventHandler;
+declare function ProviderEventHandler(
+  evt: "accountsChanged",
+  cb: (accts: string[]) => void
+): void;
+declare function ProviderEventHandler(
+  evt: "chainChanged",
+  cb: () => void
+): void;
+declare function ProviderEventHandler(evt: "disconnect", cb: () => void): void;
+
+interface WrappedWeb3Provider extends providers.ExternalProvider {
+  on: typeof ProviderEventHandler;
+  removeListener: typeof ProviderEventHandler;
 }
-/** Ethers doesn't type the wrapped provider (metamask), so we have to type it to support `provider.provider.on('accountsChanged')` */
+export type TorusProvider = TorusInpageProvider & { torus: Torus };
+export type WalletConnectProvider = Web3Provider;
+/** Coinbase has these methods, but the types are wrong. */
+export type CoinbaseProvider = CoinbaseWalletProvider & {
+  sendAsync: providers.ExternalProvider["sendAsync"];
+  send: providers.ExternalProvider["sendAsync"];
+};
+export type WrappedProvider =
+  | WrappedWeb3Provider
+  | WalletConnectProvider
+  | CoinbaseProvider
+  | TorusProvider;
+
+/** Ethers doesn't type the wrapped provider, so we have to type it to support `provider.provider.on('accountsChanged')` and isTorus, etc. */
 export interface TypedProvider extends providers.Web3Provider {
   provider: WrappedProvider;
 }
