@@ -7,3 +7,6 @@ export const createProjectPurchaseLink = (
   project: Project,
   listingId: string
 ) => `${createProjectLink(project)}/purchase/${listingId}`;
+
+export const createSellerLink = (handle: string) =>
+  `/marketplace/users/${handle}`;

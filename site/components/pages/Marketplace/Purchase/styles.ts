@@ -24,7 +24,7 @@ export const projectHeader = css`
   padding: 2.4rem 1.6rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   gap: 2.5rem;
 
@@ -34,7 +34,7 @@ export const projectHeader = css`
   }
 
   ${breakpoints.medium} {
-    padding: 10rem 0;
+    padding: 10rem 2rem;
   }
 `;
 
@@ -54,6 +54,10 @@ export const projectHeaderText = css`
   font-size: 1.4rem;
   font-weight: 600;
   z-index: 1;
+
+  a {
+    color: var(--klima-blue);
+  }
 `;
 
 export const price = css`
@@ -72,16 +76,7 @@ export const price = css`
 `;
 
 export const formContainer = css`
-  margin-top: 2rem;
-  overflow: hidden;
-  display: grid;
-  align-content: start;
-  gap: 1.6rem;
-  overflow: hidden;
-
-  .error {
-    color: var(--warn);
-  }
+  max-width: 42rem;
 `;
 
 export const inputsContainer = css`

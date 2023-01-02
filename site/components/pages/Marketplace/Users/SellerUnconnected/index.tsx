@@ -64,10 +64,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
                 <ButtonPrimary
                   label={<Trans id="marketplace.seller.listing.buy">Buy</Trans>}
                   className={styles.buyButton}
-                  href={createProjectPurchaseLink(
-                    listing.project as any, // category is still missing
-                    listing.id
-                  )}
+                  href={createProjectPurchaseLink(listing.project, listing.id)}
                 />
               </Listing>
             ))}

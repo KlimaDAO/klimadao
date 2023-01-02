@@ -15,6 +15,7 @@ import { PurchaseForm, FormValues } from "./PurchaseForm";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "components/pages/Marketplace/lib/createUrls";
 import { Project, Listing } from "@klimadao/lib/types/marketplace";
+import { createSellerLink } from "components/pages/Marketplace/lib/createUrls";
 
 import { formatBigToPrice } from "components/pages/Marketplace/lib/formatNumbers";
 
@@ -187,7 +188,15 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
                   align="center"
                   className={styles.projectHeaderText}
                 >
-                  Seller
+                  <Trans id="marketplace.project.single.header.seller">
+                    Seller:
+                  </Trans>{" "}
+                  <Link href={createSellerLink(props.listing.seller.handle)}>
+                    @
+                    {props.listing.seller.username ||
+                      props.listing.seller.handle ||
+                      props.listing.seller.id}
+                  </Link>
                 </Text>
               </div>
             </div>
@@ -197,13 +206,16 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
                 <Trans id="marketplace.purchase.price_each">each</Trans>
               </Text>
             </div>
-            <PurchaseForm
-              onSubmit={onContinue}
-              onCancel={onCancel}
-              listing={props.listing}
-              values={inputValues}
-              isLoading={isLoadingAllowance}
-            />
+            <div className={styles.formContainer}>
+              <PurchaseForm
+                onSubmit={onContinue}
+                onCancel={onCancel}
+                listing={props.listing}
+                values={inputValues}
+                isLoading={isLoadingAllowance}
+              />
+            </div>
+
             {errorMessage && <Text>{errorMessage}</Text>}
           </Card>
         </div>
