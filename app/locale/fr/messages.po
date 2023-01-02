@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-30 00:20+0000\n"
+"POT-Creation-Date: 2023-01-02 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -224,19 +224,19 @@ msgstr "Acheter KLIMA"
 #. Long sentence
 #: components/views/Buy/index.tsx:57
 msgid "buy.connect_to_buy"
-msgstr ""
+msgstr "Cette fonction n'est disponible que pour les utilisateurs qui sont connectés. Vous pouvez vous connecter ou créer un compte en cliquant sur le bouton ci-dessous."
 
 #: components/views/Buy/index.tsx:32
 msgid "buy.cta_1"
-msgstr ""
+msgstr "Si vous êtes un débutant, nous vous recommandons de suivre notre tutoriel étape par étape : <0>Comment acheter des KLIMA</0>."
 
 #: components/views/Buy/index.tsx:38
 msgid "buy.cta_2"
-msgstr ""
+msgstr "Autrement, si vous avez déjà un portefeuille avec des MATIC sur Polygon, la meilleure façon d'obtenir KLIMA est de faire un échange sur <0>Sushi.com</0>. Si vous préférez plutôt payer avec une carte de crédit, vous pouvez utiliser <1>Transak</1> pour acheter KLIMA directement."
 
 #: components/views/Buy/index.tsx:52
 msgid "buy.please_log_in"
-msgstr ""
+msgstr "Veuillez Vous Identifier ou Connecter Un Portefeuille"
 
 #: components/views/Bond/index.tsx:732
 msgid "capacity.description_inverse"
@@ -860,7 +860,7 @@ msgstr "Chargement..."
 #: components/views/Stake/index.tsx:250
 #: components/views/Wrap/index.tsx:219
 msgid "shared.login_connect"
-msgstr ""
+msgstr "S'identifier / Se connecter"
 
 #: components/views/Bond/index.tsx:637
 #: components/views/PKlima/index.tsx:280
