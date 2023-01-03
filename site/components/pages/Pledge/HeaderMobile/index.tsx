@@ -62,7 +62,11 @@ export const HeaderMobile: FC<Props> = (props) => {
                 message: "Connection Error",
               }),
             }}
-            buttonText={t({ id: "shared.connect", message: "Connect" })}
+            buttonVariant="blue"
+            buttonText={t({
+              id: "shared.login_connect",
+              message: "Login / Connect",
+            })}
           />
         </div>
       </header>

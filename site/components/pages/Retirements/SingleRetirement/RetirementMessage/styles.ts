@@ -8,5 +8,6 @@ export const retirementMessage_textGroup = css`
 
   .message {
     font-weight: 400;
+    word-break: break-word;
   }
 `;

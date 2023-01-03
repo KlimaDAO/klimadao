@@ -247,7 +247,10 @@ export const Stake = (props: Props) => {
               message: "Connection Error",
             }),
           }}
-          buttonText={t({ id: "shared.connect", message: "Connect" })}
+          buttonText={t({
+            id: "shared.login_connect",
+            message: "Login / Connect",
+          })}
           buttonClassName={styles.connect_button}
         />
       );

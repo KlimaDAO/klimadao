@@ -17,10 +17,6 @@ msgstr ""
 msgid "Change language"
 msgstr "Change language"
 
-#: components/pages/Buy/index.tsx:275
-msgid "Enter App"
-msgstr "Enter App"
-
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
 msgstr "Frequently Asked Questions"
@@ -46,167 +42,235 @@ msgstr "The information provided in this blog post pertaining to KlimaDAO (“Kl
 msgid "blog.disclaimer.title"
 msgstr "Disclaimer:"
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:253
-msgid "buy.advanced"
-msgstr "Advanced"
+#: components/pages/Buy/index.tsx:439
+msgid "buy.answer_exchange"
+msgstr "Advanced users can use the <0>Polygon Bridge</0> to move any asset from Ethereum to Polygon, and/or the <1>Polygon Gas Swap</1> to swap assets like USDC for MATIC."
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:173
-msgid "buy.beginner"
-msgstr "Beginner"
+#: components/pages/Buy/index.tsx:396
+msgid "buy.bond_answer_cedit_card"
+msgstr "Yes, some on-ramp providers like <0>Transak</0> allow you to buy KLIMA directly with a credit card, for a fee. However, if your wallet doesn't have MATIC, you won't be able to transfer or perform other actions. For this reason, and to guarantee the best market rate, we recommend buying MATIC directly instead, and swapping your MATIC for KLIMA on Sushi.com."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:14
-msgid "buy.beginner_01.description_01"
-msgstr "<0>Metamask</0> is the most popular wallet for Ethereum and Polygon. This is what you use to connect to our app and send transactions. Be sure to install the extension for your web browser."
+#: components/pages/Buy/index.tsx:414
+msgid "buy.bond_answer_cex1"
+msgstr "KLIMA is not traded on a centralized exchange like Coinbase, Binance, or Crypto.com as these exchanges typically charge very high listing fees and require financing from expensive market makers."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:10
-msgid "buy.beginner_01.title"
-msgstr "Install Metamask"
+#: components/pages/Buy/index.tsx:422
+msgid "buy.bond_answer_cex2"
+msgstr "Instead, KLIMA tokens are traded on a \"Decentralized Exchange\" (DEX) that is powered by smart contracts and runs directly on the blockchain. DEXs have some major advantages. DEXs made it possible for the DAO to own the majority of liquidity, so it can maintain full autonomy and generate revenue to pay contributors. We chose to use Sushi's DEX technology as it already facilitates tens of millions of dollars in transactions per day."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:29
-msgid "buy.beginner_02.description_01"
-msgstr "With the Metamask browser extension installed and your new wallet set up, head to <0>app.klimadao.finance/#/buy</0> and click \"connect\"."
+#: components/pages/Buy/index.tsx:377
+msgid "buy.bond_description1"
+msgstr "Experienced crypto users can buy KLIMA directly from the protocol via bonds. To acquire KLIMA via bonds, you provide a carbon token or liquidity token and get discounted KLIMA tokens in return. This is the mechanism that the DAO uses to grow its treasury of digital carbon."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:37
-msgid "buy.beginner_02.description_02"
-msgstr "After you connect, the KlimaDAO app should prompt you to switch to the Polygon network automatically. Metamask will ask you to confirm this action."
+#: components/pages/Buy/index.tsx:386
+msgid "buy.bond_description_capacity"
+msgstr "Bond capacity is limited and bonds are not always available."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:25
-msgid "buy.beginner_02.title"
-msgstr "Connect to our app"
+#: components/pages/Buy/index.tsx:407
+msgid "buy.bond_question_cex"
+msgstr "Why can't I find KLIMA on Coinbase or other centralized exchanges? Why do I have to use <0>Sushi.com</0>?"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:51
-msgid "buy.beginner_03.description_01"
-msgstr "Once connected, you should be able to follow the steps in our app to complete your purchase."
+#: components/pages/Buy/index.tsx:391
+msgid "buy.bond_question_credit_card"
+msgstr "Can I buy KLIMA directly with a credit card?"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:57
-msgid "buy.beginner_03.description_2"
-msgstr "You will be asked to provide an email, a payment method, and to verify your identity. The DAO does not receive or store any personal information whatsoever. This information is only used by our payment providers for legal compliance."
+#: components/pages/Buy/index.tsx:196
+msgid "buy.connect_advanced"
+msgstr "Note: these instructions are for Torus wallet users only. Sushi supports a variety of different wallets."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:47
-msgid "buy.beginner_03.title"
-msgstr "Buy KLIMA"
+#: components/pages/Buy/index.tsx:191
+msgid "buy.connect_torus_sushi"
+msgstr "3A. Connect Torus to Sushi.com using WalletConnect"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:72
-msgid "buy.beginner_04.description_01"
-msgstr "In order to use KLIMA to stake, swap, or offset carbon emissions, you will need to execute transactions on the Polygon network. Every transaction requires a network fee paid in MATIC."
+#: components/pages/Buy/index.tsx:218
+msgid "buy.connect_torus_sushi_description2"
+msgstr "In a separate browser tab, visit <0>Sushi.com</0> and click \"Connect\" at the top-right corner. You will be presented with a few wallet options. Choose WalletConnect. After you choose WalletConnect you will see a QR code—click \"Copy to Clipboard\"."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:79
-msgid "buy.beginner_04.description_02"
-msgstr "1 MATIC should be plenty for most users. You can connect to the official Polygon app and use their <0>Gas Swap tool</0>. This tool allows you to trade a variety of assets for MATIC for free."
+#: components/pages/Buy/index.tsx:235
+msgid "buy.connect_torus_sushi_description3"
+msgstr "Return to the Torus wallet app and paste this code into the WalletConnect widget. This will create a temporary connection between your wallet and <0>Sushi.com</0>."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:68
-msgid "buy.beginner_04.title"
-msgstr "Buy MATIC (for new users)"
+#: components/pages/Buy/index.tsx:243
+msgid "buy.connect_torus_sushi_description4"
+msgstr "When you return to the Sushi tab in your browser, you should see that your Torus address is now visible in the top-right corner."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:97
-msgid "buy.beginner_05.description_01"
-msgstr "Now that you have some KLIMA and some MATIC in your wallet, you should <0>stake</0> it for sKLIMA to start accruing rewards. You can also use it to offset carbon emissions. And as a token holder, you can use your KLIMA and sKLIMA to participate in the governance of the DAO! So keep an eye out for proposals on our <1>forum</1>."
+#: components/pages/Buy/index.tsx:249
+msgid "buy.connect_torus_sushi_description5"
+msgstr "Finally, use the drop-down menu on <0>Sushi.com</0> to switch to the Polygon network."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:93
-msgid "buy.beginner_05.title"
-msgstr "Stake, offset, govern!"
+#: components/pages/Buy/index.tsx:78
+msgid "buy.create_wallet_description"
+msgstr "<0>Create a wallet.</0> We recommend Torus Wallet, but our app supports most Web3 wallets (Metamask, Coinbase Wallet, Brave, MyEtherWallet, and many more)."
 
-#: components/pages/Buy/index.tsx:129
-#: components/pages/Buy/index.tsx:256
-msgid "buy.bonding"
-msgstr "Bonding"
+#: components/pages/Buy/index.tsx:120
+msgid "buy.create_wallet_description1"
+msgstr "Head to <0>app.klimadao.finance</0> and click \"Connect\" at the top-right corner."
 
-#: components/pages/Buy/index.tsx:259
-msgid "buy.bonding.description_01"
-msgstr "Bonding is the process of depositing carbon assets in exchange for discounted KLIMA. This is one of the ways the Klima Treasury absorbs carbon credits for positive climate impact. Bonding also provides the backing for each new KLIMA token."
+#: components/pages/Buy/index.tsx:126
+msgid "buy.create_wallet_description2"
+msgstr "Choose the “Email or Social” sign-in option, which will direct you to log in with Torus. Torus is a technology that generates a secure wallet using your existing email or social login. You will be able to use this new Torus wallet across hundreds of other Web3 and DeFi apps."
 
-#: components/pages/Buy/index.tsx:267
-msgid "buy.bonding.description_02"
-msgstr "The discount fluctuates depending on market conditions. The Treasury accepts carbon in the form of carbon tokens (such as UBO, BCT, or MCO2) or Liquidity Pool (LP) tokens (such as KLIMA/BCT, KLIMA/MCO2)."
+#: components/pages/Buy/index.tsx:135
+msgid "buy.create_wallet_description3"
+msgstr "When you are connected, you should see your new wallet address in the top left corner of the app."
 
-#: components/pages/Buy/index.tsx:84
-#: components/pages/Buy/index.tsx:176
-msgid "buy.credit_card"
-msgstr "Credit Card"
+#: components/pages/Buy/index.tsx:141
+msgid "buy.create_wallet_description4"
+msgstr "Advanced: if you don't want to use Torus, feel free to use any Polygon-compatible Web3 wallet."
 
-#: components/pages/Buy/index.tsx:179
-msgid "buy.credit_card.summary"
-msgstr "You can now use your credit card to purchase KLIMA tokens directly to your wallet! Our payment partners support most major currencies."
+#: components/pages/Buy/index.tsx:117
+msgid "buy.create_wallet_item"
+msgstr "1. Create a Wallet"
 
-#: components/pages/Buy/index.tsx:105
-msgid "buy.decentralized_exchange"
-msgstr "Decentralized Exchange"
+#: components/pages/Buy/index.tsx:325
+msgid "buy.faq_title"
+msgstr "FAQ"
 
-#: components/pages/Buy/index.tsx:208
-msgid "buy.dex"
-msgstr "Decentralized exchanges (DEXs)"
-
-#: components/pages/Buy/index.tsx:240
-msgid "buy.dex.how_zapper"
-msgstr "How do I buy KLIMA on Zapper?"
-
-#: components/pages/Buy/index.tsx:212
-msgid "buy.dex.summary_01"
-msgstr "If you already have a Polygon wallet with MATIC, you can use decentralized exchanges to swap for KLIMA. This helps you to avoid paying extra fees, and represents the fair market price."
-
-#: components/pages/Buy/index.tsx:219
-msgid "buy.dex.summary_02"
-msgstr "KLIMA can be found on <0>Sushi Swap</0>, but we recommend that you use a DEX aggregator called Zapper. Just connect your wallet to Zapper, and it will route your trade through the best DEX available."
-
-#: components/pages/Buy/index.tsx:143
-msgid "buy.disclaimer"
-msgstr "Safety Tips & Important Disclaimer"
-
-#: components/pages/Buy/index.tsx:148
-msgid "buy.disclaimer_01"
-msgstr "Never share your private key or seed phrase with anyone, ever. We recommend that you visit our <0>Crypto Security 101</0> page for safety tips before you get started."
-
-#: components/pages/Buy/index.tsx:158
-msgid "buy.disclaimer_02"
-msgstr "Blockchain transactions are permanent and irreversible. Our team is not able to retrieve lost or stolen assets. KlimaDAO does not assume any responsibility, liability, nor offer any guarantees. All markets and exchanges operate independently and with high volatility."
-
-#: components/pages/Buy/index.tsx:45
-#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:33
+#: components/pages/Buy/index.tsx:34
 msgid "buy.head.title"
 msgstr "How to buy KLIMA"
 
-#: components/pages/Buy/index.tsx:110
-#: components/pages/Buy/index.tsx:205
-msgid "buy.intermediate"
-msgstr "Intermediate"
-
-#: components/pages/Buy/index.tsx:62
-msgid "buy.subtitle"
-msgstr "You can get KLIMA in three ways: using a credit card, from decentralized exchanges (DEXs), or by bonding carbon assets."
-
-#: components/pages/Buy/index.tsx:59
-msgid "buy.title"
+#: components/pages/Buy/index.tsx:47
+msgid "buy.how_to_buy"
 msgstr "How to buy KLIMA"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:13
-msgid "buy.zapper_01.description_01"
-msgstr "Make sure you have a wallet like Metamask installed, connected to Polygon network, and loaded with some MATIC."
+#: components/pages/Buy/index.tsx:50
+msgid "buy.how_to_paragraph_part_1"
+msgstr "KLIMA is a carbon-backed digital asset and can be staked for rewards or used to offset digital carbon. Holding KLIMA also empowers you to vote and help govern the Digital Carbon Market."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:19
-msgid "buy.zapper_01.description_02"
-msgstr "You can load your Polygon wallet directly using popular on-ramp services like <0>Transak</0> or our partner <1>Mobilum</1>. Alternatively, you can load your wallet with assets on Ethereum and <2>bridge</2> them to the Polygon network"
+#: components/pages/Buy/index.tsx:57
+msgid "buy.how_to_paragraph_part_2"
+msgstr "This is a short tutorial for beginners who are new to Web3 and DeFi"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:9
-msgid "buy.zapper_01.title"
-msgstr "Load your Polygon wallet"
+#: components/pages/Buy/index.tsx:149
+msgid "buy.load_wallet"
+msgstr "2. Load your wallet with MATIC tokens"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:36
-msgid "buy.zapper_02.description_02"
-msgstr "Head to <0>zapper.fi</0> and click Connect."
+#: components/pages/Buy/index.tsx:91
+msgid "buy.load_wallet_description"
+msgstr "<0>Load your new wallet with MATIC tokens.</0> MATIC is the gas that powers the Polygon network. Every transaction you execute on Polygon will require a few cents worth of MATIC to pay the network fee."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:32
-msgid "buy.zapper_02.title"
-msgstr "Connect to Zapper.fi"
+#: components/pages/Buy/index.tsx:154
+msgid "buy.load_wallet_description1"
+msgstr "Use a service like <0>MoonPay</0> or <1>Transak</1> or a centralized exchange like <2>Coinbase</2> to buy Polygon MATIC and send it to your newly created wallet."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:49
-msgid "buy.zapper_03.description_01"
-msgstr "Use the “Swap” interface in Zapper to set up your trade. If you are having trouble, check out the resources and tutorials provided by the Zapper team."
+#: components/pages/Buy/index.tsx:164
+msgid "buy.load_wallet_description2"
+msgstr "<0>Be sure that the MATIC tokens are sent to your new wallet address!</0> You can copy the address to your clipboard by connecting to our app and clicking the address in the navigation menu."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:45
-msgid "buy.zapper_03.title"
-msgstr "SWAP"
+#: components/pages/Buy/index.tsx:174
+msgid "buy.load_wallet_description3"
+msgstr "<0>Be sure to buy and send the MATIC through the Polygon network!</0> Some exchanges like Coinbase will ask you which network to send the MATIC tokens on. Make sure to always choose Polygon."
+
+#: components/pages/Buy/index.tsx:433
+msgid "buy.question_exchange"
+msgstr "What if I want to use a different exchange, but they don't sell Polygon MATIC?"
+
+#: components/pages/Buy/index.tsx:328
+msgid "buy.question_why_matic"
+msgstr "Why do I have to buy MATIC first?"
+
+#: components/pages/Buy/index.tsx:333
+msgid "buy.question_why_matic_answer"
+msgstr "The KLIMA token and protocol lives on the Polygon blockchain. MATIC is the “gas” that powers every transaction on Polygon. It is not possible to execute a transaction without paying the transaction fee. This means you will need to pay a few cents worth of MATIC for the following actions:"
+
+#: components/pages/Buy/index.tsx:344
+msgid "buy.question_why_matic_answer_bullet1"
+msgstr "Staking KLIMA for sKLIMA"
+
+#: components/pages/Buy/index.tsx:351
+msgid "buy.question_why_matic_answer_bullet2"
+msgstr "Swapping between different tokens"
+
+#: components/pages/Buy/index.tsx:358
+msgid "buy.question_why_matic_answer_bullet3"
+msgstr "Sending tokens to another wallet"
+
+#: components/pages/Buy/index.tsx:365
+msgid "buy.question_why_matic_answer_bullet4"
+msgstr "Using KLIMA or other tokens to offset carbon"
+
+#: components/pages/Buy/index.tsx:298
+msgid "buy.staking_cta"
+msgstr "Stake, earn, vote, and offset!"
+
+#: components/pages/Buy/index.tsx:301
+msgid "buy.staking_description1"
+msgstr "Congrats! Now that you have some KLIMA in your wallet, we highly recommend <0>staking</0> that KLIMA for sKLIMA, which accrues rewards over time as the protocol grows."
+
+#: components/pages/Buy/index.tsx:309
+msgid "buy.staking_description2"
+msgstr "You can also use the app to spend KLIMA and <0>retire digital carbon</0> on the blockchain."
+
+#: components/pages/Buy/index.tsx:316
+msgid "buy.staking_description3"
+msgstr "Finally, keep an eye out for <0>ongoing votes</0> and help guide the protocol in the right direction."
+
+#: components/pages/Buy/index.tsx:75
+msgid "buy.step_1"
+msgstr "1."
+
+#: components/pages/Buy/index.tsx:88
+msgid "buy.step_2"
+msgstr "2."
+
+#: components/pages/Buy/index.tsx:103
+msgid "buy.step_3"
+msgstr "3."
+
+#: components/pages/Buy/index.tsx:68
+msgid "buy.summary_steps_title"
+msgstr "The best and easiest way to get KLIMA is to follow these three steps:"
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.summary_title"
+msgstr "Summary"
+
+#: components/pages/Buy/index.tsx:259
+msgid "buy.swap_description1"
+msgstr "After connecting your wallet and switching to the Polygon network, you should now be able to swap from MATIC to KLIMA."
+
+#: components/pages/Buy/index.tsx:265
+msgid "buy.swap_description2"
+msgstr "<0>Important note: don't swap all your MATIC for KLIMA!</0> Save at least 0.5 MATIC to pay for future transaction fees."
+
+#: components/pages/Buy/index.tsx:281
+msgid "buy.swap_description3"
+msgstr "If you are using Torus, keep the browser tab with the Torus app open. You will need to return to your wallet to approve and authorize the transactions."
+
+#: components/pages/Buy/index.tsx:288
+msgid "buy.swap_description4"
+msgstr "Optional: If you'd like your Sushi transactions themselves to be climate positive, you should enable the Sushi 'Green Fee', powered by KlimaDAO. This will spend 0.02 MATIC per transaction to purchase and retire digital carbon automatically!"
+
+#: components/pages/Buy/index.tsx:106
+msgid "buy.swap_for_klima_description"
+msgstr "<0>Swap for KLIMA.</0> Sushi is a Decentralized Exchange where you can instantly trade some of your MATIC tokens for KLIMA tokens at the lowest possible price."
+
+#: components/pages/Buy/index.tsx:256
+msgid "buy.swap_subtitle"
+msgstr "3B. Swap MATIC for KLIMA"
+
+#: components/pages/Buy/index.tsx:185
+msgid "buy.swap_wallet"
+msgstr "3. Swap for KLIMA on <0>Sushi.com</0>"
+
+#: components/pages/Buy/index.tsx:202
+msgid "buy.torus_login_description"
+msgstr "In a new browser tab, go to the <0>Torus Polygon webapp</0> and log in with your new Torus account. When you log in, you should see a WalletConnect widget."
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.wallet_connect_example"
+msgstr "wallet connect input example"
+
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
+msgid "buy.wallet_connect_example_qr_code"
+msgstr "wallet connect qr code example"
+
+#: components/pages/Buy/index.tsx:372
+msgid "buy.what_are_bonds"
+msgstr "Are there other ways to get KLIMA? What are bonds?"
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
@@ -345,43 +409,43 @@ msgstr "We work with traditional carbon market players, crypto platforms, corpor
 msgid "concat.careers"
 msgstr "Careers"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderDesktop/index.tsx:48
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
 #: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/index.tsx:333
-#: components/pages/Pledge/index.tsx:387
+#: components/pages/Pledge/index.tsx:334
+#: components/pages/Pledge/index.tsx:389
 msgid "connectModal.continue"
 msgstr "or continue with"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:56
+#: components/pages/Pledge/HeaderDesktop/index.tsx:57
 #: components/pages/Pledge/HeaderMobile/index.tsx:55
 #: components/pages/Pledge/index.tsx:126
-#: components/pages/Pledge/index.tsx:342
-#: components/pages/Pledge/index.tsx:396
+#: components/pages/Pledge/index.tsx:343
+#: components/pages/Pledge/index.tsx:398
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:43
+#: components/pages/Pledge/HeaderDesktop/index.tsx:44
 #: components/pages/Pledge/HeaderMobile/index.tsx:42
 #: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/index.tsx:329
-#: components/pages/Pledge/index.tsx:382
+#: components/pages/Pledge/index.tsx:330
+#: components/pages/Pledge/index.tsx:384
 msgid "connect_modal.error_message"
 msgstr "We had some trouble connecting. Please try again."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:60
+#: components/pages/Pledge/HeaderDesktop/index.tsx:61
 #: components/pages/Pledge/HeaderMobile/index.tsx:59
 #: components/pages/Pledge/index.tsx:130
-#: components/pages/Pledge/index.tsx:346
-#: components/pages/Pledge/index.tsx:400
+#: components/pages/Pledge/index.tsx:347
+#: components/pages/Pledge/index.tsx:402
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:52
+#: components/pages/Pledge/HeaderDesktop/index.tsx:53
 #: components/pages/Pledge/HeaderMobile/index.tsx:51
 #: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/index.tsx:338
-#: components/pages/Pledge/index.tsx:392
+#: components/pages/Pledge/index.tsx:339
+#: components/pages/Pledge/index.tsx:394
 msgid "connect_modal.sign_in"
 msgstr "Sign In / Connect"
 
@@ -1151,7 +1215,7 @@ msgstr "remove"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "cancel"
 
-#: components/pages/Pledge/index.tsx:188
+#: components/pages/Pledge/index.tsx:189
 msgid "pledges.form.error"
 msgstr "Enter a wallet address, .klima or .eth domain"
 
@@ -1317,26 +1381,26 @@ msgstr "KlimaDAO | Pledges"
 
 #: components/pages/Pledge/index.tsx:105
 #: components/pages/Pledge/index.tsx:135
-#: components/pages/Pledge/index.tsx:322
-#: components/pages/Pledge/index.tsx:351
-#: components/pages/Pledge/index.tsx:375
-#: components/pages/Pledge/index.tsx:405
+#: components/pages/Pledge/index.tsx:323
+#: components/pages/Pledge/index.tsx:352
+#: components/pages/Pledge/index.tsx:377
+#: components/pages/Pledge/index.tsx:407
 msgid "pledges.home.hero.create"
 msgstr "Create a pledge"
 
-#: components/pages/Pledge/index.tsx:146
+#: components/pages/Pledge/index.tsx:147
 msgid "pledges.home.hero.learn_more"
 msgstr "Learn more"
 
-#: components/pages/Pledge/index.tsx:182
+#: components/pages/Pledge/index.tsx:183
 msgid "pledges.home.search.label"
 msgstr "ENS or 0x address"
 
-#: components/pages/Pledge/index.tsx:176
+#: components/pages/Pledge/index.tsx:177
 msgid "pledges.home.search.placeholder"
 msgstr "Enter ENS, KNS or 0x address"
 
-#: components/pages/Pledge/index.tsx:202
+#: components/pages/Pledge/index.tsx:203
 msgid "pledges.home.search.submit"
 msgstr "Search"
 
@@ -1564,15 +1628,15 @@ msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
 msgstr "Click on the project title to learn more."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:58
 msgid "retirement.single.project_details.moss_headline"
 msgstr "Learn more about the projects that back the MCO2 pools"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
 msgstr "The tonne(s) retired originated from the following project(s)."
 
@@ -1580,13 +1644,17 @@ msgstr "The tonne(s) retired originated from the following project(s)."
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:39
 msgid "retirement.single.project_details.tonnes"
 msgstr "Tonnes"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:46
+msgid "retirement.single.project_details.view_mco2_pool"
+msgstr "View MCO2 pool activity"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:55
 msgid "retirement.single.project_details.view_on_polygon_scan"
-msgstr "View on Polygonscan"
+msgstr "View transaction on Polygonscan"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
@@ -1718,11 +1786,6 @@ msgstr "Community"
 msgid "shared.confirm"
 msgstr "Confirm"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:65
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr "Connect"
-
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
 #: components/pages/About/AboutHeader/index.tsx:67
@@ -1769,7 +1832,7 @@ msgstr "Error"
 msgid "shared.get_started"
 msgstr "Get Started"
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:35
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1817,6 +1880,11 @@ msgstr "Info"
 #: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr "Loading..."
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+msgid "shared.login_connect"
+msgstr "Login / Connect"
 
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-16 00:30+0000\n"
+"POT-Creation-Date: 2023-01-02 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,10 +10,6 @@ msgstr ""
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "变更语言"
-
-#: components/pages/Buy/index.tsx:275
-msgid "Enter App"
-msgstr "进入App"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
@@ -40,167 +36,235 @@ msgstr "本博文中提供的有关 KlimaDAO（“KlimaDAO”）、其加密资�
 msgid "blog.disclaimer.title"
 msgstr "免责声明："
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:253
-msgid "buy.advanced"
-msgstr "专家用户"
+#: components/pages/Buy/index.tsx:439
+msgid "buy.answer_exchange"
+msgstr "高级用户可以使用<0>Polygon Bridge</0>将任何资产从以太坊转移到 Polygon，和/或 通过<1>Polygon Gas Swap</1>将 USDC 等资产换成 MATIC。"
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:173
-msgid "buy.beginner"
-msgstr "新手用户"
+#: components/pages/Buy/index.tsx:396
+msgid "buy.bond_answer_cedit_card"
+msgstr "是的，一些端口供应商，例如 <0>Transak</0>允许您直接使用信用卡付费购买 KLIMA。但是，如果您的钱包没有 MATIC，您将无法转账或执行其他操作。出于这个原因，并为了保证最佳市场汇率，我们建议直接购买 MATIC，并在 Sushi.com 上将您的 MATIC 换成 KLIMA。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:14
-msgid "buy.beginner_01.description_01"
-msgstr "<0>Metamask</0>是 Ethereum 和 Polygon 最受欢迎的钱包。这是来连接我们应用程序并发送交易的工具。请务必在您的网络浏览器上安装扩展程序。"
+#: components/pages/Buy/index.tsx:414
+msgid "buy.bond_answer_cex1"
+msgstr "KLIMA 不在像 Coinbase、Binance 或 Crypto.com 这样的中心化交易所进行交易，因为这些交易所通常收取非常高的上市费用，并且需要来自昂贵的做市商的融资。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:10
-msgid "buy.beginner_01.title"
-msgstr "安装 Metamask"
+#: components/pages/Buy/index.tsx:422
+msgid "buy.bond_answer_cex2"
+msgstr "相反，KLIMA 代币在“去中心化交易所”（DEX）上交易，该交易所由智能合约提供支持并直接在区块链上运行。 DEX 有一些主要优势，DEX 使 DAO 拥有大部分流动性成为可能，因此它可以保持完全的自主权并产生收入来支付贡献者。我们选择使用 Sushi 的 DEX 技术，因为它已经促进了每天数千万美元的交易。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:29
-msgid "buy.beginner_02.description_01"
-msgstr "安装 Metamask 扩展浏览器并设置新钱包后，前往<0>app.klimadao.finance/#/buy</0> 并点击“连接”。"
+#: components/pages/Buy/index.tsx:377
+msgid "buy.bond_description1"
+msgstr "有经验的加密用户可以通过债券直接从协议购买 KLIMA。要通过债券获得 KLIMA，您需要提供碳代币或流动性代币，并获得打折的 KLIMA 代币作为回报。这是 DAO 用来增加其数字碳库的机制。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:37
-msgid "buy.beginner_02.description_02"
-msgstr "连接钱包后，KlimaDAO 应用程序会自动提示您切换到 Polygon 网络。 Metamask 将要求您确认此操作。"
+#: components/pages/Buy/index.tsx:386
+msgid "buy.bond_description_capacity"
+msgstr "债券量有限，且债券并不总是可用的。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:25
-msgid "buy.beginner_02.title"
-msgstr "连接我们的应用程序"
+#: components/pages/Buy/index.tsx:407
+msgid "buy.bond_question_cex"
+msgstr "为什么我在 Coinbase 或其他中心化交易所找不到 KLIMA？为什么我必须使用 <0>Sushi.com</0> ？"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:51
-msgid "buy.beginner_03.description_01"
-msgstr "连接后，您就可以按照我们应用程序中的步骤提示来完成购买。"
+#: components/pages/Buy/index.tsx:391
+msgid "buy.bond_question_credit_card"
+msgstr "我可以直接用信用卡购买 KLIMA 吗？"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:57
-msgid "buy.beginner_03.description_2"
-msgstr "我们会要求您提供电子邮件、付款方式并验证您的身份。 DAO 不会接收或存储任何个人信息。此信息仅用作我们的支付提供商的法律合规需求。"
+#: components/pages/Buy/index.tsx:196
+msgid "buy.connect_advanced"
+msgstr "注意：这些说明仅适用于 Torus 钱包用户, Sushi 支持多种不同的钱包。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:47
-msgid "buy.beginner_03.title"
-msgstr "购买 KLIMA"
+#: components/pages/Buy/index.tsx:191
+msgid "buy.connect_torus_sushi"
+msgstr "3A.使用 WalletConnect 将 Torus 连接到 Sushi.com"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:72
-msgid "buy.beginner_04.description_01"
-msgstr "为了用 KLIMA 进行质押、交换或抵消碳排放，您需要在 Polygon 网络上执行所有交易。每笔交易的网络费用都需用 MATIC 结算。"
+#: components/pages/Buy/index.tsx:218
+msgid "buy.connect_torus_sushi_description2"
+msgstr "在单独的浏览器选项栏中，访问 <0>Sushi.com</0>然后点击右上角的“连接”。您将看到几个钱包选项，选择 WalletConnect，然后您将看到一个二维码——单击“复制到剪贴板”。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:79
-msgid "buy.beginner_04.description_02"
-msgstr "对于大多数用户来说, 1个MATIC就足够了。您可以连接到官方 Polygon 应用程序并使用他们的 <0>Gas Swap 工具</0>. 该工具可让您免费将各种资产用于MATIC交易。"
+#: components/pages/Buy/index.tsx:235
+msgid "buy.connect_torus_sushi_description3"
+msgstr "返回 Torus 钱包应用并将此代码粘贴到 WalletConnect 小部件中。这将在您的钱包和 <0>Sushi.com</0> 之间创建一个临时连接."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:68
-msgid "buy.beginner_04.title"
-msgstr "购买 MATIC（新用户）"
+#: components/pages/Buy/index.tsx:243
+msgid "buy.connect_torus_sushi_description4"
+msgstr "当您返回浏览器中的 Sushi 选项栏时，您应该会看到您的 Torus 地址现在显示在右上角。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:97
-msgid "buy.beginner_05.description_01"
-msgstr "现在您的钱包里已经有一些 KLIMA 和一些 MATIC 了，您应该 <0>质押KLIMA</0> 来换得 sKLIMA 开始累积奖励。您也可以用它来抵消碳排放。作为代币持有者，您可以使用 KLIMA 和 sKLIMA 参与 DAO 的治理！所以请留意我们<1>论坛</1>上的提案。"
+#: components/pages/Buy/index.tsx:249
+msgid "buy.connect_torus_sushi_description5"
+msgstr "最后，使用 <0>Sushi.com</0>上的下拉菜单，切换到Polygon网络。"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:93
-msgid "buy.beginner_05.title"
-msgstr "股权，抵消，治理！"
+#: components/pages/Buy/index.tsx:78
+msgid "buy.create_wallet_description"
+msgstr "<0>创建一个钱包。</0>我们推荐 Torus Wallet，但我们的应用程序支持大多数 Web3 钱包（Metamask、Coinbase Wallet、Brave、MyEtherWallet 等）。"
 
-#: components/pages/Buy/index.tsx:129
-#: components/pages/Buy/index.tsx:256
-msgid "buy.bonding"
-msgstr "债券化"
+#: components/pages/Buy/index.tsx:120
+msgid "buy.create_wallet_description1"
+msgstr "前往 <0>app.klimadao.finance</0>然后点击右上角的“连接”。"
 
-#: components/pages/Buy/index.tsx:259
-msgid "buy.bonding.description_01"
-msgstr "债券化是存入碳资产以换取 KLIMA 折扣的过程。这是 Klima 财政部吸收碳信用以对气候产生积极影响的方式之一。债券化还为每个新的 KLIMA 代币提供支持。"
+#: components/pages/Buy/index.tsx:126
+msgid "buy.create_wallet_description2"
+msgstr "选择“电子邮件或社交”登录选项，这将引导您使用 Torus 登录。 Torus 是一种使用您现有的电子邮件或社交登录名生成安全钱包的技术。您将能够在数百个其他 Web3 和 DeFi 应用程序中使用这个新的 Torus 钱包。"
 
-#: components/pages/Buy/index.tsx:267
-msgid "buy.bonding.description_02"
-msgstr "折扣会根据市场情况而波动。财政部接受碳代币形式的碳（如 UBO、BCT 或 MCO2）或流动性池（LP）代币形式的碳（如 KLIMA/BCT、KLIMA/MCO2）。"
+#: components/pages/Buy/index.tsx:135
+msgid "buy.create_wallet_description3"
+msgstr "连接后，您应该会在应用程序的左上角看到您的新钱包地址。"
 
-#: components/pages/Buy/index.tsx:84
-#: components/pages/Buy/index.tsx:176
-msgid "buy.credit_card"
-msgstr "信用卡"
+#: components/pages/Buy/index.tsx:141
+msgid "buy.create_wallet_description4"
+msgstr "高级：如果你不想使用 Torus，请随意使用任何兼容 Polygon 的 Web3 钱包。"
 
-#: components/pages/Buy/index.tsx:179
-msgid "buy.credit_card.summary"
-msgstr "您现在可以使用信用卡直接购买 KLIMA 代币到您的钱包中！我们的支付合作伙伴支持多种主流货币。"
+#: components/pages/Buy/index.tsx:117
+msgid "buy.create_wallet_item"
+msgstr "1.创建钱包"
 
-#: components/pages/Buy/index.tsx:105
-msgid "buy.decentralized_exchange"
-msgstr "去中心化交易所"
+#: components/pages/Buy/index.tsx:325
+msgid "buy.faq_title"
+msgstr "常问问题"
 
-#: components/pages/Buy/index.tsx:208
-msgid "buy.dex"
-msgstr "去中心化交易所（DEX）"
-
-#: components/pages/Buy/index.tsx:240
-msgid "buy.dex.how_zapper"
-msgstr "我要如何在 Zapper 上购买 KLIMA ？"
-
-#: components/pages/Buy/index.tsx:212
-msgid "buy.dex.summary_01"
-msgstr "如果您的 Polygon 钱包中已经有 MATIC，您可以使用去中心化交易所兑换 KLIMA。这能帮您避免支付额外费用，也代表了公平的市场价格。"
-
-#: components/pages/Buy/index.tsx:219
-msgid "buy.dex.summary_02"
-msgstr "您可以在 <0>Sushi Swap</0> 上找到 KLIMA，但我们建议您使用 DEX 聚合器 Zapper 。只需将您的钱包连接到 Zapper，聚合器 DEX 就能帮你找到最佳的交易路径。"
-
-#: components/pages/Buy/index.tsx:143
-msgid "buy.disclaimer"
-msgstr "安全提示和重要免责声明"
-
-#: components/pages/Buy/index.tsx:148
-msgid "buy.disclaimer_01"
-msgstr "请注意：切勿与任何人分享您的私钥或助记词。我们建议您在开始任何操作之前, 访问我们的 <0> Crypto Security 101 </0>页面, 了解获取安全提示。"
-
-#: components/pages/Buy/index.tsx:158
-msgid "buy.disclaimer_02"
-msgstr "区块链交易是永久且不可逆的。我们的团队无法找回丢失或被盗的资产。 KlimaDAO 不承担任何责任或义务，也不提供任何保证。所有市场和交易所都独立运作，具有极大的波动性。"
-
-#: components/pages/Buy/index.tsx:45
-#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:33
+#: components/pages/Buy/index.tsx:34
 msgid "buy.head.title"
 msgstr "如何购买 KLIMA"
 
-#: components/pages/Buy/index.tsx:110
-#: components/pages/Buy/index.tsx:205
-msgid "buy.intermediate"
-msgstr "中间用户"
-
-#: components/pages/Buy/index.tsx:62
-msgid "buy.subtitle"
-msgstr "您有三种方式可获得 KLIMA：使用信用卡购买、在去中心化交易所 (DEXs) 上兑换，或 债券化碳资产。"
-
-#: components/pages/Buy/index.tsx:59
-msgid "buy.title"
+#: components/pages/Buy/index.tsx:47
+msgid "buy.how_to_buy"
 msgstr "如何购买 KLIMA"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:13
-msgid "buy.zapper_01.description_01"
-msgstr "确保您已经安装了像 Metamask 这样的钱包，连接到 Polygon 网络，并已兑换了一些 MATIC。"
+#: components/pages/Buy/index.tsx:50
+msgid "buy.how_to_paragraph_part_1"
+msgstr "KLIMA 是一种碳支持的数字资产，可以抵押以获得奖励或用于抵消数字碳。持有 KLIMA 还可以让您投票并帮助管理数字碳市场。"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:19
-msgid "buy.zapper_01.description_02"
-msgstr "使用像<0>Transak</0>或我们的合作伙伴 <1>Mobilum</1> 这样的常用入口服务直接加载您的 Polygon 钱包。或者，也可以使用 Ethereum 和 <2>bridge</2> 上的资产在Polygon 网络上加载您的钱包。"
+#: components/pages/Buy/index.tsx:57
+msgid "buy.how_to_paragraph_part_2"
+msgstr "这是一个针对 Web3 和 DeFi 新手的简短教程"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:9
-msgid "buy.zapper_01.title"
-msgstr "加载你的 Polygon 钱包"
+#: components/pages/Buy/index.tsx:149
+msgid "buy.load_wallet"
+msgstr "2. 加载 MATIC 代币到你的钱包"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:36
-msgid "buy.zapper_02.description_02"
-msgstr "前往 <0>zapper.fi</0>并点击连接。"
+#: components/pages/Buy/index.tsx:91
+msgid "buy.load_wallet_description"
+msgstr "<0> 加载 MATIC 代币到您的新钱包。</0> MATIC 是Polygon网络供能的gas。您在 Polygon 上执行的每笔交易都需要价值几美分的 MATIC 来支付网络费用。"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:32
-msgid "buy.zapper_02.title"
-msgstr "连接 Zapper.fi"
+#: components/pages/Buy/index.tsx:154
+msgid "buy.load_wallet_description1"
+msgstr "使用像 <0>MoonPay</0>这样的服务，或 <1>交易</1>或用像 <2>Coinbase </2>这样的中心化交易所购买 Polygon MATIC 并将其发送到您新创建的钱包。"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:49
-msgid "buy.zapper_03.description_01"
-msgstr "用 Zapper 的“兑换”界面设置您的交易。如果您遇到问题，请查看 Zapper 团队提供的资源和教程。"
+#: components/pages/Buy/index.tsx:164
+msgid "buy.load_wallet_description2"
+msgstr "<0>确保将 MATIC 代币发送到您的新钱包地址！</0>您可以通过连接到我们的应用程序并单击导航菜单中的地址，将地址复制到剪贴板。"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:45
-msgid "buy.zapper_03.title"
-msgstr "兑换"
+#: components/pages/Buy/index.tsx:174
+msgid "buy.load_wallet_description3"
+msgstr "<0>请务必通过 Polygon 网络购买和发送 MATIC！</0> Coinbase 等一些交易所会询问您在哪个网络上发送 MATIC 代币。确保始终选择Polygon。"
+
+#: components/pages/Buy/index.tsx:433
+msgid "buy.question_exchange"
+msgstr "如果我想使用不同的交易所，但他们不出售 Polygon MATIC 怎么办？"
+
+#: components/pages/Buy/index.tsx:328
+msgid "buy.question_why_matic"
+msgstr "为什么我必须先购买 MATIC？"
+
+#: components/pages/Buy/index.tsx:333
+msgid "buy.question_why_matic_answer"
+msgstr "KLIMA 代币和协议存在于 Polygon 区块链上。 MATIC 是为 Polygon 上的每笔交易提供动力的“气体”。如果不支付交易费用，则无法执行交易。这意味着您需要为以下操作支付价值几美分的 MATIC："
+
+#: components/pages/Buy/index.tsx:344
+msgid "buy.question_why_matic_answer_bullet1"
+msgstr "质押KLIMA以获得sKLIMA"
+
+#: components/pages/Buy/index.tsx:351
+msgid "buy.question_why_matic_answer_bullet2"
+msgstr "在不同的代币间置换"
+
+#: components/pages/Buy/index.tsx:358
+msgid "buy.question_why_matic_answer_bullet3"
+msgstr "将代币发送到另一个钱包"
+
+#: components/pages/Buy/index.tsx:365
+msgid "buy.question_why_matic_answer_bullet4"
+msgstr "使用 KLIMA 或其他代币抵消碳足迹"
+
+#: components/pages/Buy/index.tsx:298
+msgid "buy.staking_cta"
+msgstr "质押、赚取、投票和抵消！"
+
+#: components/pages/Buy/index.tsx:301
+msgid "buy.staking_description1"
+msgstr "恭喜！既然您的钱包里有一些 KLIMA，我们强烈建议您<0>质押</0>KLIMA以取得sKLIMA，随着协议的发展，它会随着时间的推移而累积奖励。"
+
+#: components/pages/Buy/index.tsx:309
+msgid "buy.staking_description2"
+msgstr "您还可以使用该app 来花出 KLIMA 和在区块链上<0>停用数字碳</0>。"
+
+#: components/pages/Buy/index.tsx:316
+msgid "buy.staking_description3"
+msgstr "最后，请留意<0>正在进行的投票</0>并帮助指导协议朝着正确的方向发展。"
+
+#: components/pages/Buy/index.tsx:75
+msgid "buy.step_1"
+msgstr "1."
+
+#: components/pages/Buy/index.tsx:88
+msgid "buy.step_2"
+msgstr "2."
+
+#: components/pages/Buy/index.tsx:103
+msgid "buy.step_3"
+msgstr "3."
+
+#: components/pages/Buy/index.tsx:68
+msgid "buy.summary_steps_title"
+msgstr "获得 KLIMA 最好和最简单的方法是遵循以下三个步骤："
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.summary_title"
+msgstr "总结"
+
+#: components/pages/Buy/index.tsx:259
+msgid "buy.swap_description1"
+msgstr "连接你的钱包并切换到 Polygon 网络后，你现在应该可以用 MATIC 置换 KLIMA了。"
+
+#: components/pages/Buy/index.tsx:265
+msgid "buy.swap_description2"
+msgstr "<0>重要提示：不要将所有 MATIC 都换成 KLIMA！</0>至少节省 0.5 MATIC 以支付未来其他交易费用。"
+
+#: components/pages/Buy/index.tsx:281
+msgid "buy.swap_description3"
+msgstr "如果您使用的是 Torus，请在浏览器选项卡中打开 Torus 应用程序。您将需要返回您的钱包以批准和授权交易。"
+
+#: components/pages/Buy/index.tsx:288
+msgid "buy.swap_description4"
+msgstr "可选：如果您希望您的Sushi交易本身对气候有利，您应该启用由 KlimaDAO 提供支持的Sushi“绿色费用”。这将在每笔交易中花费 0.02 MATIC 来自动购买和停用数字碳！"
+
+#: components/pages/Buy/index.tsx:106
+msgid "buy.swap_for_klima_description"
+msgstr "<0>置换 KLIMA.</0> Sushi 是一个去中心化交易所，您可以在其中以尽可能低的价格立即将您的一些 MATIC 代币交易为 KLIMA 代币。"
+
+#: components/pages/Buy/index.tsx:256
+msgid "buy.swap_subtitle"
+msgstr "3B. 将 MATIC 换成 KLIMA"
+
+#: components/pages/Buy/index.tsx:185
+msgid "buy.swap_wallet"
+msgstr "3. 在 <0>Sushi.com </0> 上换取 KLIMA"
+
+#: components/pages/Buy/index.tsx:202
+msgid "buy.torus_login_description"
+msgstr "在新的浏览器选项栏中，转到 <0>Torus Polygon webapp</0>并使用您的新 Torus 帐户登录。当您登录时，您应该会看到一个 WalletConnect 小部件。"
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.wallet_connect_example"
+msgstr "钱包连接输入示例"
+
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
+msgid "buy.wallet_connect_example_qr_code"
+msgstr "钱包连接二维码示例"
+
+#: components/pages/Buy/index.tsx:372
+msgid "buy.what_are_bonds"
+msgstr "还有其他方法可以获得 KLIMA 吗？什么是债券？"
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
@@ -339,45 +403,45 @@ msgstr "我们与传统的碳市场参与者、加密平台、公司以及介于
 msgid "concat.careers"
 msgstr "职业生涯"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderDesktop/index.tsx:48
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
 #: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/index.tsx:333
-#: components/pages/Pledge/index.tsx:387
+#: components/pages/Pledge/index.tsx:334
+#: components/pages/Pledge/index.tsx:389
 msgid "connectModal.continue"
-msgstr ""
+msgstr "或继续"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:56
+#: components/pages/Pledge/HeaderDesktop/index.tsx:57
 #: components/pages/Pledge/HeaderMobile/index.tsx:55
 #: components/pages/Pledge/index.tsx:126
-#: components/pages/Pledge/index.tsx:342
-#: components/pages/Pledge/index.tsx:396
+#: components/pages/Pledge/index.tsx:343
+#: components/pages/Pledge/index.tsx:398
 msgid "connect_modal.connecting"
-msgstr ""
+msgstr "正在连接..."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:43
+#: components/pages/Pledge/HeaderDesktop/index.tsx:44
 #: components/pages/Pledge/HeaderMobile/index.tsx:42
 #: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/index.tsx:329
-#: components/pages/Pledge/index.tsx:382
+#: components/pages/Pledge/index.tsx:330
+#: components/pages/Pledge/index.tsx:384
 msgid "connect_modal.error_message"
-msgstr ""
+msgstr "我们在连接时遇到了一些问题，请重试。"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:60
+#: components/pages/Pledge/HeaderDesktop/index.tsx:61
 #: components/pages/Pledge/HeaderMobile/index.tsx:59
 #: components/pages/Pledge/index.tsx:130
-#: components/pages/Pledge/index.tsx:346
-#: components/pages/Pledge/index.tsx:400
+#: components/pages/Pledge/index.tsx:347
+#: components/pages/Pledge/index.tsx:402
 msgid "connect_modal.error_title"
-msgstr ""
+msgstr "连接错误"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:52
+#: components/pages/Pledge/HeaderDesktop/index.tsx:53
 #: components/pages/Pledge/HeaderMobile/index.tsx:51
 #: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/index.tsx:338
-#: components/pages/Pledge/index.tsx:392
+#: components/pages/Pledge/index.tsx:339
+#: components/pages/Pledge/index.tsx:394
 msgid "connect_modal.sign_in"
-msgstr ""
+msgstr "登录/连接"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -938,75 +1002,75 @@ msgstr "KlimaDAO 的使命是使气候行动民主化"
 #: components/pages/Pledge/PledgeForm/index.tsx:88
 #: components/pages/Pledge/PledgeForm/index.tsx:104
 msgid "pledge.errors.default"
-msgstr ""
+msgstr "发生错误"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:96
 msgid "pledge.errors.method_not_allowed"
-msgstr ""
+msgstr "方法不允许。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:80
 msgid "pledge.errors.pledge_not_found"
-msgstr ""
+msgstr "找不到此地址的承诺。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:92
 msgid "pledge.errors.unknown_error"
-msgstr ""
+msgstr "发生未知错误。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:196
 msgid "pledge.form.error.cannot_add_yourself"
-msgstr ""
+msgstr "您不能将自己的钱包添加为二级钱包"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledge.form.error.default_error_message"
-msgstr ""
+msgstr "出问题了，请稍后重试。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:180
 msgid "pledge.form.error.duplicate_wallets"
-msgstr ""
+msgstr "请删除重复的钱包"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:625
 msgid "pledge.form.wallets.confirm_remove_wallet"
-msgstr ""
+msgstr "您确定要从承诺中删除 {0} 吗？"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:334
 msgid "pledge.form.wallets.tooltip"
-msgstr ""
+msgstr "添加其他钱包来为您的承诺做出贡献。如果钱包的所有者接受了您的邀请，他们的钱包将出现在您的质押仪表板上。所有二级钱包的任何碳停用都将有助于您的承诺。您将保留对此承诺的唯一所有权和编辑权限。"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:41
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:111
 msgid "pledge.invitation.accept"
-msgstr ""
+msgstr "接受邀请"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:75
 msgid "pledge.invitation.error.wallet_already_pinned"
-msgstr ""
+msgstr "此钱包已绑定到另一个承诺。请取消您的钱包绑定，然后重试。"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:49
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:44
 msgid "pledge.invitation.error_title"
-msgstr ""
+msgstr "服务器错误"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:102
 msgid "pledge.invitation.join_message"
-msgstr ""
+msgstr "{shortenedAddress} 已邀请您将您的钱包添加到此承诺中。如果您接受，那么您的碳排放量将计入 {shortenedAddress} 的承诺。您可以随时从此承诺中删除您的钱包。"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:130
 msgid "pledge.invitation.later"
-msgstr ""
+msgstr "稍后提醒"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:118
 msgid "pledge.invitation.reject"
-msgstr ""
+msgstr "拒绝邀请"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:57
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:52
 msgid "pledge.invitation.signing"
-msgstr ""
+msgstr "签约中"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:193
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:179
 msgid "pledge.invitations.awaiting_signature"
-msgstr ""
+msgstr "等待签名..."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:199
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:185
@@ -1015,31 +1079,31 @@ msgstr "使用您的钱包签名并确认此编辑。"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:129
 msgid "pledge.modal.are_you_sure"
-msgstr ""
+msgstr "您确定要从此承诺中删除您的钱包吗？"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:153
 msgid "pledge.modal.confirm"
-msgstr ""
+msgstr "确认"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:40
 msgid "pledge.modal.confirm_remove"
-msgstr ""
+msgstr "确认移除"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:39
 msgid "pledge.modal.edit_pledge"
-msgstr ""
+msgstr "修改承诺"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:101
 msgid "pledge.modal.unable_to_edit"
-msgstr ""
+msgstr "此钱包无权修改此承诺。如需修改，您必须重新连接原授权钱包（{0}）。"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:110
 msgid "pledge.modal.unpin_wallet"
-msgstr ""
+msgstr "解绑我的钱包"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:144
 msgid "pledge.modal.wallet_add_confirm"
-msgstr ""
+msgstr "每个钱包地址只能有一个承诺页面。如果您已经用这个钱包创建了一个承诺页面，访问者将被重定向到该承诺页面。您可以随时移除此钱包。"
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
@@ -1127,7 +1191,7 @@ msgstr "添加类别"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:443
 msgid "pledges.form.add_wallet_button"
-msgstr ""
+msgstr "添加钱包"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:247
 msgid "pledges.form.awaiting_signature"
@@ -1135,17 +1199,17 @@ msgstr "等待签名..."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:166
 msgid "pledges.form.confirm_delete"
-msgstr ""
+msgstr "确认移除"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:631
 msgid "pledges.form.confirm_remove"
-msgstr ""
+msgstr "移除"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:644
 msgid "pledges.form.confirm_remove_cancel"
-msgstr ""
+msgstr "取消"
 
-#: components/pages/Pledge/index.tsx:188
+#: components/pages/Pledge/index.tsx:189
 msgid "pledges.form.error"
 msgstr "输入钱包地址, .klima 或 .eth 域"
 
@@ -1199,15 +1263,15 @@ msgstr "输入有效的网址"
 
 #: components/pages/Pledge/lib/formSchema.ts:86
 msgid "pledges.form.errors.walletAddress.isAddress"
-msgstr ""
+msgstr "请输入有效地址"
 
 #: components/pages/Pledge/lib/formSchema.ts:90
 msgid "pledges.form.errors.walletAddress.isOwner"
-msgstr ""
+msgstr "您不能添加承诺所有者"
 
 #: components/pages/Pledge/lib/formSchema.ts:82
 msgid "pledges.form.errors.walletAddress.required"
-msgstr ""
+msgstr "需要地址"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:488
 msgid "pledges.form.footprint.label"
@@ -1263,7 +1327,7 @@ msgstr "姓名或公司名称"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "资料图片网址（可选）"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:584
 msgid "pledges.form.input.totalFootprint.label"
@@ -1271,11 +1335,11 @@ msgstr "总碳足迹"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:374
 msgid "pledges.form.input.walletAddress.label"
-msgstr ""
+msgstr "地址"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:366
 msgid "pledges.form.input.walletAddress.placeholder"
-msgstr ""
+msgstr "0x..."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:604
 msgid "pledges.form.submit_button"
@@ -1283,7 +1347,7 @@ msgstr "承诺"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "pledges.form.title"
-msgstr ""
+msgstr "你的承诺"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:57
 msgid "pledges.form.total_footprint_summary"
@@ -1295,7 +1359,7 @@ msgstr "使用您的钱包签名并确认此编辑。"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:326
 msgid "pledges.form.wallets.label"
-msgstr ""
+msgstr "二级钱包"
 
 #: components/pages/Pledge/index.tsx:65
 msgid "pledges.head.metaDescription"
@@ -1311,26 +1375,26 @@ msgstr "KlimaDAO |承诺"
 
 #: components/pages/Pledge/index.tsx:105
 #: components/pages/Pledge/index.tsx:135
-#: components/pages/Pledge/index.tsx:322
-#: components/pages/Pledge/index.tsx:351
-#: components/pages/Pledge/index.tsx:375
-#: components/pages/Pledge/index.tsx:405
+#: components/pages/Pledge/index.tsx:323
+#: components/pages/Pledge/index.tsx:352
+#: components/pages/Pledge/index.tsx:377
+#: components/pages/Pledge/index.tsx:407
 msgid "pledges.home.hero.create"
 msgstr "创建承诺"
 
-#: components/pages/Pledge/index.tsx:146
+#: components/pages/Pledge/index.tsx:147
 msgid "pledges.home.hero.learn_more"
 msgstr "更多内容"
 
-#: components/pages/Pledge/index.tsx:182
+#: components/pages/Pledge/index.tsx:183
 msgid "pledges.home.search.label"
 msgstr "ENS 或 0x 地址"
 
-#: components/pages/Pledge/index.tsx:176
+#: components/pages/Pledge/index.tsx:177
 msgid "pledges.home.search.placeholder"
 msgstr "输入 ENS, KNS 或 0x 地址"
 
-#: components/pages/Pledge/index.tsx:202
+#: components/pages/Pledge/index.tsx:203
 msgid "pledges.home.search.submit"
 msgstr "搜索"
 
@@ -1524,7 +1588,7 @@ msgstr "KlimaDAO |碳停用收据"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:256
 msgid "retirement.share.title"
-msgstr ""
+msgstr "分享您的影响"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.beneficiary.placeholder"
@@ -1558,15 +1622,15 @@ msgstr "二氧化碳当量排放抵消（公吨）"
 msgid "retirement.single.message.title"
 msgstr "停用消息"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
 msgstr "单击项目标题以了解更多信息。"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:58
 msgid "retirement.single.project_details.moss_headline"
 msgstr "了解更多由 MCO2 池支持的项目"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
 msgstr "停用的碳吨数来自以下项目。"
 
@@ -1574,13 +1638,17 @@ msgstr "停用的碳吨数来自以下项目。"
 msgid "retirement.single.project_details.title"
 msgstr "项目详情"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:39
 msgid "retirement.single.project_details.tonnes"
 msgstr "吨"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:46
+msgid "retirement.single.project_details.view_mco2_pool"
+msgstr "查看 MCO2 池活动"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:55
 msgid "retirement.single.project_details.view_on_polygon_scan"
-msgstr "在 Polygonscan 上查看"
+msgstr "查看 Polygonscan 上的交易"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
@@ -1691,7 +1759,7 @@ msgstr "购买 Klima"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:118
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:147
 msgid "shared.cancel"
-msgstr ""
+msgstr "取消"
 
 #: components/Navigation/index.tsx:361
 msgid "shared.carbon_dashboard"
@@ -1710,12 +1778,7 @@ msgstr "社区"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:45
 msgid "shared.confirm"
-msgstr ""
-
-#: components/pages/Pledge/HeaderDesktop/index.tsx:65
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr "连接"
+msgstr "确认"
 
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
@@ -1757,13 +1820,13 @@ msgstr "进入App"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:157
 msgid "shared.error"
-msgstr ""
+msgstr "错误"
 
 #: components/pages/Infinity/GetStartedModal.tsx:26
 msgid "shared.get_started"
 msgstr "开始使用"
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:35
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1812,6 +1875,11 @@ msgstr "信息"
 msgid "shared.loading"
 msgstr "正在加载..."
 
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+msgid "shared.login_connect"
+msgstr "登录/连接"
+
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
 msgstr "面向个人的 DEFI"
@@ -1829,11 +1897,11 @@ msgstr "抵消"
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:175
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:161
 msgid "shared.okay"
-msgstr ""
+msgstr "好的"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:418
 msgid "shared.pending"
-msgstr ""
+msgstr "等待中"
 
 #: components/Navigation/index.tsx:175
 #: components/Navigation/index.tsx:327
@@ -1842,13 +1910,13 @@ msgstr "如何承诺"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:135
 msgid "shared.remove"
-msgstr ""
+msgstr "移除"
 
 #: components/Navigation/index.tsx:188
 #: components/Navigation/index.tsx:343
 #: components/pages/Blog/Post/index.tsx:71
 msgid "shared.resourcecenter"
-msgstr ""
+msgstr "资源中心"
 
 #: components/Navigation/index.tsx:185
 #: components/Navigation/index.tsx:339

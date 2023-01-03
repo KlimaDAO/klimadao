@@ -1,21 +1,21 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-16 00:30+0000\n"
+"POT-Creation-Date: 2023-01-02 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: hi\n"
 
-#: components/views/Offset/index.tsx:728
+#: components/views/Offset/index.tsx:731
 msgid "Beneficiary 0x address (optional)"
 msgstr "लाभार्थी का 0x पता (वैकल्पिक)"
 
-#: components/views/Offset/index.tsx:716
+#: components/views/Offset/index.tsx:719
 msgid "Beneficiary name"
 msgstr "लाभार्थी का नाम"
 
-#: components/views/Bond/index.tsx:726
+#: components/views/Bond/index.tsx:729
 msgid "Capacity"
 msgstr "क्षमता"
 
@@ -36,211 +36,209 @@ msgid "Wrong Network"
 msgstr "ग़लत नेटवर्क"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:1052
+#: components/views/Bond/index.tsx:1055
 msgid "bond.all_demand_has_been_filled"
 msgstr "बिक चुका है। इस बॉन्ड की संपूर्ण माँग पूरी कर दी गई है। धन्यवाद, क्लीमेट्स!"
 
-#: components/views/Bond/index.tsx:649
+#: components/views/Bond/index.tsx:652
 msgid "bond.balance"
 msgstr "बैलेंस"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:653
+#: components/views/Bond/index.tsx:656
 msgid "bond.balance.tooltip"
 msgstr "बॉन्डिंग के लिए उपलब्ध बैलेंस"
 
-#: components/views/Bond/index.tsx:491
-#: components/views/Bond/index.tsx:599
+#: components/views/Bond/index.tsx:494
+#: components/views/Bond/index.tsx:602
 msgid "bond.bond"
 msgstr "बॉन्ड"
 
-#: components/views/Bond/index.tsx:806
+#: components/views/Bond/index.tsx:809
 msgid "bond.bond_price"
 msgstr "बॉन्ड क़ीमत"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:810
+#: components/views/Bond/index.tsx:813
 msgid "bond.bond_price.tooltip"
 msgstr "रियायती मूल्य। बॉन्ड की कुल राशि 1 पूर्ण KLIMA (आंशिक बॉन्ड्स की अनुमति भी है)"
 
-#: components/views/Bond/index.tsx:675
+#: components/views/Bond/index.tsx:678
 msgid "bond.bond_price.tooltip.inverse"
 msgstr "बाज़ार में KLIMA का वर्तमान ट्रेडिंग मूल्य"
 
 #. Bond {0}
-#: components/views/Bond/index.tsx:578
+#: components/views/Bond/index.tsx:581
 msgid "bond.bond_token"
 msgstr "बॉन्ड {0}"
 
-#: components/views/Bond/index.tsx:477
+#: components/views/Bond/index.tsx:480
 msgid "bond.capacity_exceeded"
 msgstr "क्षमता से अधिक"
 
-#: components/views/Bond/index.tsx:1012
+#: components/views/Bond/index.tsx:1015
 msgid "bond.date_of_full_vesting"
 msgstr "पूर्ण निहित होने की तिथि"
 
-#: components/views/Bond/index.tsx:1017
+#: components/views/Bond/index.tsx:1020
 msgid "bond.date_of_full_vesting.tooltip"
 msgstr "दिनांक जब संपूर्ण बॉन्ड मूल्य को भुनाया जा सकता है"
 
-#: components/views/Bond/index.tsx:842
+#: components/views/Bond/index.tsx:845
 msgid "bond.debt_ratio"
 msgstr "ऋण अनुपात"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:846
+#: components/views/Bond/index.tsx:849
 msgid "bond.debt_ratio.tooltip"
 msgstr " प्रोटोकॉल का बकाया बॉन्ड्स के प्रति वर्तमान आपूर्त्ति अनुपात"
 
-#: components/views/Bond/index.tsx:877
+#: components/views/Bond/index.tsx:880
 msgid "bond.discount"
 msgstr "बॉन्ड छूट"
 
-#: components/views/Bond/index.tsx:881
+#: components/views/Bond/index.tsx:884
 msgid "bond.discount.description_tooltip"
 msgstr "KLIMA के बाज़ार मूल्य के सापेक्ष प्रतिशत छूट (या नकारात्मक होने पर प्रीमियम)।"
 
-#: components/views/Bond/index.tsx:513
+#: components/views/Bond/index.tsx:516
 msgid "bond.inputplaceholder.amount_to_bond"
 msgstr "बंधित राशि"
 
-#: components/views/Bond/index.tsx:518
+#: components/views/Bond/index.tsx:521
 msgid "bond.inputplaceholder.amount_to_redeem"
 msgstr "रिडीम राशि"
 
-#: components/views/Bond/index.tsx:708
+#: components/views/Bond/index.tsx:711
 msgid "bond.inverse.premium"
 msgstr "प्रीमियम"
 
-#: components/views/Bond/index.tsx:712
+#: components/views/Bond/index.tsx:715
 msgid "bond.inverse.premium.description"
 msgstr "KLIMA के बाज़ार मूल्य के सापेक्ष प्रीमियम।"
 
-#: components/views/Bond/index.tsx:671
-#: components/views/Bond/index.tsx:822
+#: components/views/Bond/index.tsx:674
+#: components/views/Bond/index.tsx:825
 msgid "bond.market_price"
 msgstr "बाज़ार क़ीमत"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:826
+#: components/views/Bond/index.tsx:829
 msgid "bond.market_price.tooltip"
 msgstr "KLIMA का वर्तमान ट्रेडिंग मूल्य, बिना बॉन्ड छूट के"
 
-#: components/views/Bond/index.tsx:467
+#: components/views/Bond/index.tsx:470
 msgid "bond.max_exceeded"
 msgstr "अधिकतम सीमा पार हो गयी"
 
-#: components/views/Bond/index.tsx:744
-#: components/views/Bond/index.tsx:896
+#: components/views/Bond/index.tsx:747
+#: components/views/Bond/index.tsx:899
 msgid "bond.maximum"
 msgstr "ज़्यादा से ज़्यादा"
 
-#: components/views/Bond/index.tsx:748
-#: components/views/Bond/index.tsx:900
+#: components/views/Bond/index.tsx:751
+#: components/views/Bond/index.tsx:903
 msgid "bond.maximum.tooltip"
 msgstr "अधिकतम राशि जो बॉन्डिंग द्वारा आप प्राप्त कर सकते हैं"
 
-#: components/views/Bond/index.tsx:452
+#: components/views/Bond/index.tsx:455
 msgid "bond.not_redeemable"
 msgstr "प्रतिदेय नहीं"
 
-#: components/views/Bond/index.tsx:689
+#: components/views/Bond/index.tsx:692
 msgid "bond.payout_per_klima"
 msgstr "भुगतान प्रति KLIMA"
 
-#: components/views/Bond/index.tsx:693
+#: components/views/Bond/index.tsx:696
 msgid "bond.payout_per_klima.description_inverse"
 msgstr "यदि आप 1 KLIMA को बॉन्ड करते हैं, तो आपको यह राशि USDC (यूएसडीसी) में प्राप्त होगी।"
 
-#: components/views/Bond/index.tsx:497
-#: components/views/Bond/index.tsx:609
+#: components/views/Bond/index.tsx:500
+#: components/views/Bond/index.tsx:612
 msgid "bond.redeem"
 msgstr "भुनाना"
 
-#: components/views/Bond/index.tsx:979
+#: components/views/Bond/index.tsx:982
 msgid "bond.redeemable"
 msgstr "प्रतिदेय"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:982
+#: components/views/Bond/index.tsx:985
 msgid "bond.redeemable.tooltip"
 msgstr "KLIMA की राशि जो पहले से ही निहित है और जिसे भुनाया जा सकता है"
 
 #. should autostake?
-#: components/views/Bond/index.tsx:1079
+#: components/views/Bond/index.tsx:1082
 msgid "bond.should_autostake"
 msgstr "sKLIMA के लिए स्वचालित रूप से स्टेकिंग"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:1041
+#: components/views/Bond/index.tsx:1044
 msgid "bond.this_bond_price_is_inflated"
 msgstr "⚠️️ चेतावनी: इस बॉन्ड की क़ीमत बढ़ गयी है क्योंकि वर्तमान छूट दर नकारात्मक है।"
 
 #. Bond {0}
-#: components/views/Bond/index.tsx:1100
+#: components/views/Bond/index.tsx:1103
 msgid "bond.transaction_modal.bond.title"
 msgstr "बॉन्ड {0}"
 
-#: components/views/Bond/index.tsx:1107
+#: components/views/Bond/index.tsx:1110
 msgid "bond.transaction_modal.redeem.title"
 msgstr "Klima रिडीम करें"
 
-#: components/views/Bond/index.tsx:950
+#: components/views/Bond/index.tsx:953
 msgid "bond.unredeemed"
 msgstr "अनरिडीम्ड"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:953
+#: components/views/Bond/index.tsx:956
 msgid "bond.unredeemed.tooltip"
 msgstr "शेष अविमोचित राशि (निहित और अनिहित)"
 
-#: components/views/Bond/index.tsx:862
+#: components/views/Bond/index.tsx:865
 msgid "bond.vesting_term_end"
 msgstr "निधान अवधि की समाप्ति "
 
-#: components/views/Bond/index.tsx:866
+#: components/views/Bond/index.tsx:869
 msgid "bond.vesting_term_end.tooltip"
 msgstr "यदि आप अभी बॉन्ड करते हैं, तो आपकी निहित अवधि इस तिथि पर समाप्त हो जाती है। इस अवधि के दौरान Klima ऋणमोचन के लिए धीरे-धीरे अनलॉक हो जाता है।"
 
-#: components/views/Bond/index.tsx:775
-#: components/views/Bond/index.tsx:919
+#: components/views/Bond/index.tsx:778
+#: components/views/Bond/index.tsx:922
 msgid "bond.you_will_get"
 msgstr "आपको मिलेगा"
 
-#: components/views/Bond/index.tsx:779
+#: components/views/Bond/index.tsx:782
 msgid "bond.you_will_get.description_inverse"
 msgstr "प्रदान की गई इनपुट मात्रा पर आपको यह राशि मिलेगी"
 
 #. Long sentence
-#: components/views/Bond/index.tsx:923
+#: components/views/Bond/index.tsx:926
 msgid "bond.you_will_get.tooltip"
 msgstr "प्रदान की गई इनपुट मात्रा पर आपको बंधित KLIMA की राशि मिलेगी"
 
-#: components/views/Buy/index.tsx:49
+#: components/views/Buy/index.tsx:29
 msgid "buy.buy_klima"
 msgstr "KLIMA ख़रीदें"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:112
-msgid "buy.connect_wallet"
-msgstr "KLIMA ख़रीदने के क्रम में आपको किसी वॉलेट को जोड़ना पड़ेगा।"
+#: components/views/Buy/index.tsx:57
+msgid "buy.connect_to_buy"
+msgstr ""
 
-#. Long sentence
-#: components/views/Buy/index.tsx:60
-msgid "buy.data_disclaimer"
-msgstr "KlimaDAO कोई भी व्यक्तिगत जानकारी प्राप्त नहीं करता है। Mobilum (मोबिलम) की <0>गोपनीयता नीति</0> और <1>नियम व शर्तों</1> की समीक्षा करें।"
+#: components/views/Buy/index.tsx:32
+msgid "buy.cta_1"
+msgstr ""
 
-#. Long sentence
+#: components/views/Buy/index.tsx:38
+msgid "buy.cta_2"
+msgstr ""
+
 #: components/views/Buy/index.tsx:52
-msgid "buy.how_to_buy"
-msgstr "हमारे पार्टनर <0>Mobilum</0> का उपयोग करके सीधे KLIMA ख़रीदें। दोबारा जांचें कि आप अपने स्वयं के सुरक्षित वॉलेट से जुड़े हैं, और प्रदान किया गया पता सही है।"
+msgid "buy.please_log_in"
+msgstr ""
 
-#: components/views/Buy/index.tsx:109
-msgid "buy.not_connected"
-msgstr "कनेक्ट नहीं हैं"
-
-#: components/views/Bond/index.tsx:729
+#: components/views/Bond/index.tsx:732
 msgid "capacity.description_inverse"
 msgstr "यह बॉन्ड के लिए उपलब्ध अनुबंध में USDC (यूएसडीसी) की राशि है।"
 
@@ -319,56 +317,56 @@ msgid "choose_bond.ubo.description"
 msgstr "C3 यूनिवर्सल बेसिक ऑफ़सेट"
 
 #: components/views/Bond/index.tsx:400
-#: components/views/Buy/index.tsx:121
+#: components/views/Buy/index.tsx:67
 #: components/views/Home/index.tsx:149
 #: components/views/Offset/index.tsx:366
 #: components/views/PKlima/index.tsx:155
 #: components/views/Stake/index.tsx:232
 #: components/views/Wrap/index.tsx:201
 msgid "connectModal.continue"
-msgstr ""
+msgstr "या साथ जारी रखें"
 
 #: components/views/Bond/index.tsx:409
-#: components/views/Buy/index.tsx:130
+#: components/views/Buy/index.tsx:76
 #: components/views/Home/index.tsx:158
 #: components/views/Offset/index.tsx:375
 #: components/views/PKlima/index.tsx:164
 #: components/views/Stake/index.tsx:241
 #: components/views/Wrap/index.tsx:210
 msgid "connect_modal.connecting"
-msgstr ""
+msgstr "कनेक्ट हो रहा है..."
 
 #: components/views/Bond/index.tsx:396
-#: components/views/Buy/index.tsx:117
+#: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:145
 #: components/views/Offset/index.tsx:362
 #: components/views/PKlima/index.tsx:151
 #: components/views/Stake/index.tsx:228
 #: components/views/Wrap/index.tsx:197
 msgid "connect_modal.error_message"
-msgstr ""
+msgstr "कुछ गड़बड़ हो गयी। कृपया पुन: प्रयास करें।"
 
 #: components/views/Bond/index.tsx:413
-#: components/views/Buy/index.tsx:134
+#: components/views/Buy/index.tsx:80
 #: components/views/Home/index.tsx:162
 #: components/views/Offset/index.tsx:379
 #: components/views/PKlima/index.tsx:168
 #: components/views/Stake/index.tsx:245
 #: components/views/Wrap/index.tsx:214
 msgid "connect_modal.error_title"
-msgstr ""
+msgstr "संपर्क त्रुटि"
 
 #: components/views/Bond/index.tsx:405
-#: components/views/Buy/index.tsx:126
+#: components/views/Buy/index.tsx:72
 #: components/views/Home/index.tsx:154
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:160
 #: components/views/Stake/index.tsx:237
 #: components/views/Wrap/index.tsx:206
 msgid "connect_modal.sign_in"
-msgstr ""
+msgstr "साइन इन / कनेक्ट करें"
 
-#: components/views/Offset/index.tsx:781
+#: components/views/Offset/index.tsx:784
 msgid "fiat.max_quantity"
 msgstr "${0} क्रेडिट कार्ड के लिए अधिकतम"
 
@@ -431,39 +429,39 @@ msgstr "नेटवर्क पहुँच से बाहर है। ब�
 msgid "invalid_rpc.modal.title"
 msgstr "अपनी नेटवर्क सेटिंग बदलें"
 
-#: components/NavMenu/index.tsx:177
+#: components/NavMenu/index.tsx:181
 msgid "menu.bond_carbon"
 msgstr "कार्बन बांधें"
 
-#: components/NavMenu/index.tsx:161
+#: components/NavMenu/index.tsx:165
 msgid "menu.buy_klima"
 msgstr "KLIMA ख़रीदें"
 
-#: components/NavMenu/index.tsx:201
+#: components/NavMenu/index.tsx:205
 msgid "menu.info"
 msgstr "जानकारी"
 
-#: components/NavMenu/index.tsx:206
+#: components/NavMenu/index.tsx:210
 msgid "menu.just_for_you"
 msgstr "सिर्फ आपके लिए"
 
-#: components/NavMenu/index.tsx:66
+#: components/NavMenu/index.tsx:70
 msgid "menu.not_connected"
 msgstr "कनेक्ट नहीं हैं"
 
-#: components/NavMenu/index.tsx:193
+#: components/NavMenu/index.tsx:197
 msgid "menu.offset"
 msgstr "ऑफ़सेट"
 
-#: components/NavMenu/index.tsx:169
+#: components/NavMenu/index.tsx:173
 msgid "menu.stake_klima"
 msgstr "KLIMA दाँव पर लगाएँ"
 
-#: components/NavMenu/index.tsx:51
+#: components/NavMenu/index.tsx:52
 msgid "menu.wallet_address"
 msgstr "आपका वॉलेट पता"
 
-#: components/NavMenu/index.tsx:185
+#: components/NavMenu/index.tsx:189
 msgid "menu.wrap_klima"
 msgstr "sKLIMA रैप करें"
 
@@ -483,15 +481,15 @@ msgstr "लंबित"
 msgid "modal.user_confirmation"
 msgstr "पुष्टिकरण"
 
-#: components/views/Bond/index.tsx:563
+#: components/views/Bond/index.tsx:566
 msgid "nav.back"
 msgstr "पीछे"
 
-#: components/views/Offset/index.tsx:765
+#: components/views/Offset/index.tsx:768
 msgid "offset.aggregation_fee_tooltip"
 msgstr "इस लागत में स्लिपेज शुल्क और 1% का एकत्रीकरण शुल्क शामिल है।"
 
-#: components/views/Offset/index.tsx:661
+#: components/views/Offset/index.tsx:664
 msgid "offset.amount_in_tonnes"
 msgstr "आप कितने टन कार्बन को ऑफ़सेट करना चाहेंगे?"
 
@@ -499,19 +497,19 @@ msgstr "आप कितने टन कार्बन को ऑफ़सेट 
 msgid "offset.breakdown"
 msgstr "नष्टीकरण"
 
-#: components/views/Offset/index.tsx:503
+#: components/views/Offset/index.tsx:506
 msgid "offset.checkout"
 msgstr "चेक आउट"
 
-#: components/views/Offset/index.tsx:731
+#: components/views/Offset/index.tsx:734
 msgid "offset.default_retirement_address"
 msgstr "कनेक्टेड वॉलेट का पते पर किए गए डिफ़ॉल्ट"
 
-#: components/views/Offset/index.tsx:803
+#: components/views/Offset/index.tsx:806
 msgid "offset.dropdown_payWith.label"
 msgstr "के साथ भुगतान करें"
 
-#: components/views/Offset/index.tsx:634
+#: components/views/Offset/index.tsx:637
 msgid "offset.dropdown_retire.label"
 msgstr "कार्बन ऑफ़सेट टोकन चुनें जो रिटायर करना है"
 
@@ -523,35 +521,35 @@ msgstr "इस एड्रेस द्वारा एक भी रिटा�
 msgid "offset.enter_address"
 msgstr "0x पता दर्ज करें"
 
-#: components/views/Offset/index.tsx:615
+#: components/views/Offset/index.tsx:618
 msgid "offset.go_carbon_neutral"
 msgstr "कार्बन को त्यागकर और कार्बन ऑफ़सेट के अंतर्निहित पर्यावरणीय लाभ प्राप्त करके कार्बन तटस्थ हो जाएँ। हमारे <0>docs</0> में कार्बन टोकन के बारे में अधिक जानें।"
 
-#: components/views/Offset/index.tsx:591
+#: components/views/Offset/index.tsx:594
 msgid "offset.incompatible"
 msgstr "अयोग्य टोकन दर्ज करें"
 
-#: components/views/Offset/index.tsx:450
+#: components/views/Offset/index.tsx:453
 msgid "offset.insufficient_project_tonnage"
-msgstr ""
+msgstr "अपर्याप्त परियोजना टन भार"
 
-#: components/views/Offset/index.tsx:691
+#: components/views/Offset/index.tsx:694
 msgid "offset.invalid_project_tonnage"
-msgstr ""
+msgstr "चयनित परियोजना के उपलब्ध टन भार से अधिक नहीं हो सकता"
 
-#: components/views/Offset/index.tsx:623
+#: components/views/Offset/index.tsx:626
 msgid "offset.lifi"
 msgstr "क्रॉस-चेन ऑफ़सेटिंग अब <0> LI.FI और एथेरसपोट के माध्यम से उपलब्ध है </0>  कई श्रृंखलाओं और टोकन के समर्थन के साथ।"
 
-#: components/views/Offset/index.tsx:698
+#: components/views/Offset/index.tsx:701
 msgid "offset.min_quantity_fiat"
 msgstr "क्रेडिट कार्ड के लिए न्यूनतम 1 टन खरीदारी"
 
-#: components/views/Offset/index.tsx:807
+#: components/views/Offset/index.tsx:810
 msgid "offset.modal_payWith.title"
 msgstr "टोकन चुनें"
 
-#: components/views/Offset/index.tsx:638
+#: components/views/Offset/index.tsx:641
 msgid "offset.modal_retire.title"
 msgstr "कार्बन प्रकार चुनें"
 
@@ -559,58 +557,58 @@ msgstr "कार्बन प्रकार चुनें"
 msgid "offset.number_of_retirements"
 msgstr "कुल रिटायरमेंट्स"
 
-#: components/views/Offset/index.tsx:679
+#: components/views/Offset/index.tsx:682
 msgid "offset.offset_quantity"
 msgstr "ऑफ़सेट करने के लिए मात्रा दर्ज करें"
 
-#: components/views/Offset/index.tsx:612
-#: components/views/Offset/index.tsx:847
+#: components/views/Offset/index.tsx:615
+#: components/views/Offset/index.tsx:850
 msgid "offset.retire_carbon"
 msgstr "कार्बन रिटायर करें"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:50
 msgid "offset.retire_specific"
-msgstr ""
+msgstr "विशिष्ट परियोजना टोकन सेवानिवृत्त करें (वैकल्पिक)"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:56
 msgid "offset.retire_specific_tooltip"
 msgstr "अतिरिक्त शुल्क के अधीन, चयनित पूल द्वारा निर्धारित और ब्रिज प्रदाता को भुगतान किया जाता है।"
 
-#: components/views/Offset/index.tsx:708
+#: components/views/Offset/index.tsx:711
 msgid "offset.retirement_credit"
 msgstr "यह रिटायरमेंट किसके खाते में जाएगी?"
 
-#: components/views/Offset/index.tsx:742
+#: components/views/Offset/index.tsx:745
 msgid "offset.retirement_message"
 msgstr "रिटायरमेंट संदेश"
 
-#: components/views/Offset/index.tsx:751
+#: components/views/Offset/index.tsx:754
 msgid "offset.retirement_purpose"
 msgstr "इस रिटायरमेंट के उद्देश्य का वर्णन करें"
 
-#: components/views/Offset/index.tsx:793
+#: components/views/Offset/index.tsx:796
 msgid "offset.retiring"
 msgstr "रिटायर करना"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:91
 msgid "offset.selectiveRetirement.address_input_type"
-msgstr ""
+msgstr "0x पता"
 
 #: components/views/Offset/ProjectSearch/index.tsx:80
 msgid "offset.selectiveRetirement.back_to_filters"
-msgstr ""
+msgstr "फिल्टर पर वापस"
 
 #: components/views/Offset/ProjectSearch/index.tsx:105
 msgid "offset.selectiveRetirement.clear_selection"
-msgstr ""
+msgstr "चयन साफ़ करें"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:30
 msgid "offset.selectiveRetirement.confirm_selection"
-msgstr ""
+msgstr "चयन की पुष्टि करें"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:20
 msgid "offset.selectiveRetirement.confirmation_message"
-msgstr ""
+msgstr "क्या आप सुनिश्चित हैं कि आप निम्नलिखित परियोजना का चयन करना चाहते हैं:"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:71
 msgid "offset.selectiveRetirement.default_input_type"
@@ -618,31 +616,31 @@ msgstr ""
 
 #: components/views/Offset/ProjectSearch/index.tsx:72
 msgid "offset.selectiveRetirement.empty_search_results"
-msgstr ""
+msgstr "हमें आपकी खोज से संबंधित कोई प्रोजेक्ट नहीं मिला। कृपया फ़िल्टर संशोधित करें और पुनः प्रयास करें।"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchFilter/index.tsx:47
 msgid "offset.selectiveRetirement.filter.options_selected"
-msgstr ""
+msgstr "{0} चयनित"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:115
 msgid "offset.selectiveRetirement.filters.find_project"
-msgstr ""
+msgstr "प्रोजेक्ट खोजें"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:93
 msgid "offset.selectiveRetirement.filters.region"
-msgstr ""
+msgstr "क्षेत्र"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:83
 msgid "offset.selectiveRetirement.filters.type"
-msgstr ""
+msgstr "प्रकार"
 
 #: components/views/Offset/ProjectSearch/ProjectSearchForm/index.tsx:103
 msgid "offset.selectiveRetirement.filters.vintage"
-msgstr ""
+msgstr "बढ़िया शराब"
 
 #: components/views/Offset/LoadingOverlay/index.tsx:12
 msgid "offset.selectiveRetirement.finding_projects"
-msgstr ""
+msgstr "प्रोजेक्ट ढूंढे जा रहे हैं..."
 
 #: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:71
 msgid "offset.selectiveRetirement.project.available_tonnes"
@@ -650,23 +648,23 @@ msgstr ""
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:105
 msgid "offset.selectiveRetirement.retire_from_default_pool"
-msgstr ""
+msgstr "पूल में डिफ़ॉल्ट प्रोजेक्ट को सेवानिवृत्त होने दें। यह विकल्प अतिरिक्त शुल्क देने से बचता है।"
 
 #: components/views/Offset/SelectiveRetirement/index.tsx:82
 msgid "offset.selectiveRetirement.search_input_type"
-msgstr ""
+msgstr "प्रोजेक्ट खोजें"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:43
 msgid "offset.selectiveRetirement.selectProject.back"
-msgstr ""
+msgstr "फिल्टर पर वापस"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:24
 msgid "offset.selectiveRetirement.selectProject.label"
-msgstr ""
+msgstr "जारी रखने के लिए एक परियोजना का चयन करें:"
 
 #: components/views/Offset/ProjectSearch/ProjectSelection/index.tsx:50
 msgid "offset.selectiveRetirement.selectProject.select"
-msgstr ""
+msgstr "प्रोजेक्ट चुनें"
 
 #: components/views/Offset/RetirementSuccessModal/index.tsx:25
 msgid "offset.successModal.body1"
@@ -692,45 +690,45 @@ msgstr "टन कार्बन"
 msgid "offset.you_have_retired"
 msgstr "अपने रिटायर किया"
 
-#: components/views/Offset/index.tsx:761
+#: components/views/Offset/index.tsx:764
 msgid "offset_cost"
 msgstr "लागत"
 
-#: components/views/Offset/index.tsx:823
+#: components/views/Offset/index.tsx:826
 msgid "offset_disclaimer"
 msgstr "सावधान रहें कि किसी भी संवेदनशील व्यक्तिगत जानकारी को उजागर न करें। आपका संदेश संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
-#: components/views/PKlima/index.tsx:212
+#: components/views/PKlima/index.tsx:215
 msgid "pklima.approve_bct"
 msgstr "2. BCT(बीसीटी) को मंज़ूरी दें"
 
-#: components/views/PKlima/index.tsx:200
+#: components/views/PKlima/index.tsx:203
 msgid "pklima.approve_pklima"
 msgstr "1. pKLIMA को मंज़ूरी दें"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:234
+#: components/views/PKlima/index.tsx:237
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "अपने भुनाए गए pKLIMA को दाँव पर लगाना सुनिश्चित करें, और जब तक वैश्विक GHG (जीएचजी) उत्सर्जन स्थिर न हो जाए, तब तक दाँव पर लगाए रहें।"
 
-#: components/views/PKlima/index.tsx:220
+#: components/views/PKlima/index.tsx:223
 msgid "pklima.exercise"
 msgstr "अभ्यास"
 
-#: components/views/PKlima/index.tsx:250
+#: components/views/PKlima/index.tsx:253
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "1 KLIMA प्राप्त करने के लिए 1 pKLIMA और 1 BCT को प्रयोग करें।"
 
-#: components/views/PKlima/index.tsx:318
+#: components/views/PKlima/index.tsx:321
 msgid "pklima.index_adjusted"
 msgstr "समायोजित इंडेक्स"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:321
+#: components/views/PKlima/index.tsx:324
 msgid "pklima.index_adjusted.tooltip"
 msgstr "बराबर मूल्य का sKLIMA क्लेम किया गया, यह मानते हुए कि आपने आज तक अपने द्वारा भुनाया गया संपूर्ण KLIMA दाँव पर लगा दिया।"
 
-#: components/views/PKlima/index.tsx:266
+#: components/views/PKlima/index.tsx:269
 msgid "pklima.klima_to_exercise"
 msgstr "प्रयुक्त pKLIMA"
 
@@ -738,25 +736,25 @@ msgstr "प्रयुक्त pKLIMA"
 msgid "pklima.overclaim"
 msgstr "आपने अपनी आपूर्त्ति-शेयर सीमा से अधिक KLIMA क्लेम किया है। ऐसा शायद 24 नवंबर, 2021 को pKLIMA मोचन अनुबंध के लिए लागू किए गए सुधार के कारण हुआ है।"
 
-#: components/views/PKlima/index.tsx:247
+#: components/views/PKlima/index.tsx:250
 msgid "pklima.redeem_pklima"
 msgstr "pKLIMA रिडीम करें"
 
-#: components/views/PKlima/index.tsx:306
+#: components/views/PKlima/index.tsx:309
 msgid "pklima.redeemed"
 msgstr "रिडीम किया गया"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:309
+#: components/views/PKlima/index.tsx:312
 msgid "pklima.redeemed.tooltip"
 msgstr "कुल KLIMA जिसे आपने अब तक रिडीम किया है।"
 
-#: components/views/PKlima/index.tsx:290
+#: components/views/PKlima/index.tsx:293
 msgid "pklima.supply_limit"
 msgstr "आपूर्त्ति सीमा"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:293
+#: components/views/PKlima/index.tsx:296
 msgid "pklima.supply_limit.tooltip"
 msgstr "कुल टोकन आपूर्त्ति का एक प्रतिशत। आपका अनुक्रमणिका-समायोजित दावा इस मान से अधिक नहीं हो सकता है।"
 
@@ -765,16 +763,16 @@ msgid "pklima.update"
 msgstr "अपडेटेड अनुबंध अब मानता है कि pKLIMA धारकों ने पहले दावा किए गए टोकनों पर दाँव लगाया और पुरस्कार अर्जित किया। नवंबर फिक्स से पहले, इन दाँव पुरस्कारों को आपकी आपूर्त्ति शेयर सीमा के मुक़ाबले नहीं गिना जाता था, जिसका अर्थ था कि कुल KLIMA आपूर्त्ति का आपका हिस्सा आपकी शर्तों में परिभाषित सीमा को पार कर सकता है।"
 
 #: components/TransactionModal/Approve.tsx:97
-#: components/views/Bond/index.tsx:483
-#: components/views/Offset/index.tsx:493
-#: components/views/Stake/index.tsx:285
-#: components/views/Wrap/index.tsx:265
+#: components/views/Bond/index.tsx:486
+#: components/views/Offset/index.tsx:496
+#: components/views/Stake/index.tsx:288
+#: components/views/Wrap/index.tsx:268
 msgid "shared.approve"
 msgstr "मंज़ूरी"
 
 #: components/views/Offset/ProjectSearch/ConfirmProjectSelection/index.tsx:40
 msgid "shared.back"
-msgstr ""
+msgstr "पीछे"
 
 #: components/BalancesCard/index.tsx:47
 msgid "shared.balances"
@@ -784,135 +782,127 @@ msgstr "बैलेंस"
 msgid "shared.change_language"
 msgstr "भाषा बदलें"
 
-#: components/views/Bond/index.tsx:461
-#: components/views/PKlima/index.tsx:192
-#: components/views/Wrap/index.tsx:246
+#: components/views/Bond/index.tsx:464
+#: components/views/PKlima/index.tsx:195
+#: components/views/Wrap/index.tsx:249
 msgid "shared.confirming"
 msgstr "पुष्टि"
 
-#: components/views/Bond/index.tsx:418
-#: components/views/Buy/index.tsx:139
-#: components/views/Home/index.tsx:167
-#: components/views/Offset/index.tsx:384
-#: components/views/PKlima/index.tsx:173
-#: components/views/Stake/index.tsx:250
-#: components/views/Wrap/index.tsx:219
-msgid "shared.connect"
-msgstr "कनेक्ट करें"
-
-#: components/views/Stake/index.tsx:258
+#: components/views/Stake/index.tsx:261
 msgid "shared.connect_wallet"
 msgstr "लोड हो रहा है..."
 
-#: components/views/Buy/index.tsx:81
-msgid "shared.copy_wallet_address"
-msgstr "कॉपी पता {0}"
-
-#: components/views/Stake/index.tsx:296
-#: components/views/Stake/index.tsx:311
+#: components/views/Stake/index.tsx:299
+#: components/views/Stake/index.tsx:314
 msgid "shared.enter_amount"
 msgstr "राशि डालें"
 
-#: components/views/Offset/index.tsx:419
+#: components/views/Offset/index.tsx:422
 msgid "shared.enter_beneficiary"
 msgstr "लाभार्थी का नाम दर्ज करें"
 
-#: components/views/Bond/index.tsx:446
-#: components/views/Offset/index.tsx:411
-#: components/views/Stake/index.tsx:266
-#: components/views/Wrap/index.tsx:235
+#: components/views/Bond/index.tsx:449
+#: components/views/Offset/index.tsx:414
+#: components/views/Stake/index.tsx:269
+#: components/views/Wrap/index.tsx:238
 msgid "shared.enter_quantity"
 msgstr "मात्रा दर्ज करें"
 
-#: components/views/Offset/index.tsx:430
+#: components/views/Offset/index.tsx:433
 msgid "shared.enter_retirement_message"
 msgstr "सेवानिवृत्ति संदेश दर्ज करें"
 
-#: components/views/Bond/index.tsx:504
-#: components/views/Bond/index.tsx:523
-#: components/views/Stake/index.tsx:323
-#: components/views/Wrap/index.tsx:293
+#: components/views/Bond/index.tsx:507
+#: components/views/Bond/index.tsx:526
+#: components/views/Stake/index.tsx:326
+#: components/views/Wrap/index.tsx:296
 msgid "shared.error"
 msgstr "ग़लती"
 
-#: components/views/Offset/index.tsx:482
-#: components/views/Stake/index.tsx:274
-#: components/views/Wrap/index.tsx:254
+#: components/views/Offset/index.tsx:485
+#: components/views/Stake/index.tsx:277
+#: components/views/Wrap/index.tsx:257
 msgid "shared.insufficient_balance"
 msgstr "बैलेंस अपर्याप्त"
 
-#: components/views/Offset/index.tsx:440
+#: components/views/Offset/index.tsx:443
 msgid "shared.invalid_beneficiary_addr"
 msgstr "अमान्य लाभार्थी का पता"
 
-#: components/views/Offset/index.tsx:471
+#: components/views/Offset/index.tsx:474
 msgid "shared.invalid_project_address"
 msgstr "अमान्य परियोजना पता"
 
-#: components/views/Offset/index.tsx:460
+#: components/views/Offset/index.tsx:463
 msgid "shared.invalid_quantity"
 msgstr "अमान्य मात्रा"
 
 #: components/CarbonTonnesBreakdownCard/index.tsx:49
 #: components/RebaseCard/index.tsx:58
 #: components/RebaseCard/index.tsx:69
-#: components/views/Bond/index.tsx:440
+#: components/views/Bond/index.tsx:443
 #: components/views/Loading/index.tsx:11
-#: components/views/Offset/index.tsx:392
-#: components/views/Offset/index.tsx:570
-#: components/views/PKlima/index.tsx:181
-#: components/views/Stake/index.tsx:478
-#: components/views/Stake/index.tsx:485
-#: components/views/Stake/index.tsx:492
-#: components/views/Wrap/index.tsx:227
+#: components/views/Offset/index.tsx:395
+#: components/views/Offset/index.tsx:573
+#: components/views/PKlima/index.tsx:184
+#: components/views/Stake/index.tsx:481
+#: components/views/Stake/index.tsx:488
+#: components/views/Stake/index.tsx:495
+#: components/views/Wrap/index.tsx:230
 msgid "shared.loading"
 msgstr "लोड हो रहा है..."
 
-#: components/views/Bond/index.tsx:634
-#: components/views/PKlima/index.tsx:277
-#: components/views/Stake/index.tsx:419
-#: components/views/Wrap/index.tsx:392
+#: components/views/Bond/index.tsx:418
+#: components/views/Buy/index.tsx:85
+#: components/views/Home/index.tsx:167
+#: components/views/Offset/index.tsx:384
+#: components/views/PKlima/index.tsx:173
+#: components/views/Stake/index.tsx:250
+#: components/views/Wrap/index.tsx:219
+msgid "shared.login_connect"
+msgstr ""
+
+#: components/views/Bond/index.tsx:637
+#: components/views/PKlima/index.tsx:280
+#: components/views/Stake/index.tsx:422
+#: components/views/Wrap/index.tsx:395
 msgid "shared.max"
 msgstr "अधिकतम"
 
-#: components/views/Offset/index.tsx:400
+#: components/views/Offset/index.tsx:403
 msgid "shared.redirecting_checkout"
 msgstr "चेकआउट पर रीडायरेक्ट किया जा रहा है..."
 
-#: components/views/Offset/index.tsx:511
+#: components/views/Offset/index.tsx:514
 msgid "shared.retire"
 msgstr "कार्बन रिटायर करें"
 
-#: components/views/Bond/index.tsx:434
+#: components/views/Bond/index.tsx:437
 msgid "shared.sold_out"
 msgstr "बिक चुका है"
 
-#: components/views/Buy/index.tsx:88
-msgid "shared.wallet_address_copied"
-msgstr "कॉपी किया गया!"
-
-#: components/views/Stake/index.tsx:432
+#: components/views/Stake/index.tsx:435
 msgid "stake.5_day_rewards"
 msgstr "5 दिन के पुरस्कार"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:435
+#: components/views/Stake/index.tsx:438
 msgid "stake.5_day_rewards.tooltip"
 msgstr "कंपाउंडिंग सहित अनुमानित पुरस्कार, यदि आप 5 दिनों तक दाँव पर लगाते हैं।"
 
-#: components/views/Stake/index.tsx:448
+#: components/views/Stake/index.tsx:451
 msgid "stake.akr"
 msgstr "AKR"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:451
+#: components/views/Stake/index.tsx:454
 msgid "stake.akr.tooltip"
 msgstr "कंपाउंडिंग सहित वार्षिक KLIMA पुरस्कार, यदि वर्तमान इनाम दर 12 महीनों के लिए अपरिवर्तित रहे (इनाम दर परिवर्तन के अधीन हो सकती है)।"
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:148
-#: components/views/Stake/index.tsx:341
+#: components/views/Buy/index.tsx:98
+#: components/views/Stake/index.tsx:344
 msgid "stake.balancescard.tooltip"
 msgstr "sKLIMA प्राप्त करने के लिए अपने KLIMA टोकन को दाँव पर लगाएँ। हर रिबेस के बाद, आपका sKLIMA बैलेंस दिए गए प्रतिशत के हिसाब से बढ़ जाएगा।"
 
@@ -920,12 +910,12 @@ msgstr "sKLIMA प्राप्त करने के लिए अपने 
 msgid "stake.estimated_payout"
 msgstr "अनुमानित भुगतान (sKLIMA)"
 
-#: components/views/Stake/index.tsx:462
+#: components/views/Stake/index.tsx:465
 msgid "stake.index"
 msgstr "इंडेक्स"
 
 #. Long sentence
-#: components/views/Stake/index.tsx:465
+#: components/views/Stake/index.tsx:468
 msgid "stake.index.tooltip"
 msgstr "यदि आप लॉन्च के दिन 1 KLIMA दाँव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। लेखांकन के लिए उपयोगी।"
 
@@ -937,7 +927,7 @@ msgstr "स्टेक राशि"
 msgid "stake.inputplaceholder.unstake"
 msgstr "अनस्टेक राशि"
 
-#: components/views/Stake/index.tsx:362
+#: components/views/Stake/index.tsx:365
 msgid "stake.lifi"
 msgstr "क्रॉस-चेन ऑफ़सेटिंग अब <0> LI.FI और एथेरसपोट के माध्यम से उपलब्ध है </0>  कई श्रृंखलाओं और टोकन के समर्थन के साथ।"
 
@@ -957,26 +947,26 @@ msgstr "रिबेस करना"
 msgid "stake.rebase.info"
 msgstr "प्रोटोकॉल स्वचालित रूप से पुरस्कार बनाता और वितरित करता है। आपका भुगतान आपके sKLIMA बैलेंस का कुछेक प्रतिशत है"
 
-#: components/views/Stake/index.tsx:382
+#: components/views/Stake/index.tsx:385
 msgid "stake.stake"
 msgstr "दाँव लगाना"
 
-#: components/views/Stake/index.tsx:356
+#: components/views/Stake/index.tsx:359
 msgid "stake.stake_hold_earn"
 msgstr "दाँव पर लगाएँ, होल्ड करें, और कंपाउंडिंग sKLIMA अर्जित करें"
 
-#: components/views/Stake/index.tsx:295
-#: components/views/Stake/index.tsx:353
-#: components/views/Stake/index.tsx:515
+#: components/views/Stake/index.tsx:298
+#: components/views/Stake/index.tsx:356
+#: components/views/Stake/index.tsx:518
 msgid "stake.stake_klima"
 msgstr "KLIMA दाँव पर लगाएँ"
 
-#: components/views/Stake/index.tsx:394
+#: components/views/Stake/index.tsx:397
 msgid "stake.unstake"
 msgstr "अनस्टेक करना"
 
-#: components/views/Stake/index.tsx:310
-#: components/views/Stake/index.tsx:517
+#: components/views/Stake/index.tsx:313
+#: components/views/Stake/index.tsx:520
 msgid "stake.unstake_klima"
 msgstr "KLIMA अनस्टेक करें"
 
@@ -1000,7 +990,7 @@ msgstr "जारी रखने के लिए कृपया अपने 
 msgid "status.user_rejected"
 msgstr "आपने लेन-देन को अस्वीकार करना चयनित किया"
 
-#: components/NavMenu/index.tsx:213
+#: components/NavMenu/index.tsx:217
 msgid "token.pKLIMA"
 msgstr "pKLIMA"
 
@@ -1068,19 +1058,19 @@ msgstr "जुड़ने के लिए WalletConnect (वॉलेटकने
 msgid "web3modal.walletlink.desc"
 msgstr "जुड़ने के लिए Coinbase (कॉइनबेस) के साथ स्कैन करें"
 
-#: components/views/Wrap/index.tsx:420
+#: components/views/Wrap/index.tsx:423
 msgid "wrap.balance"
 msgstr "बैलेंस"
 
-#: components/views/Wrap/index.tsx:315
+#: components/views/Wrap/index.tsx:318
 msgid "wrap.balances_tooltip"
 msgstr "इंडेक्स-समायोजित रैप्ड-स्टैक्ड-KLIMA प्राप्त करने के लिए sKLIMA रैप करें"
 
-#: components/views/Wrap/index.tsx:407
+#: components/views/Wrap/index.tsx:410
 msgid "wrap.index"
 msgstr "इंडेक्स"
 
-#: components/views/Wrap/index.tsx:410
+#: components/views/Wrap/index.tsx:413
 msgid "wrap.index.tooltip"
 msgstr "यदि आप लॉन्च के दिन 1 KLIMA दाँव पर लगाते तो आज आपके पास KLIMA की यह राशि होती। wsKLIMA मूल्य की गणना करने के लिए उपयोग किया जाता है।"
 
@@ -1088,25 +1078,25 @@ msgstr "यदि आप लॉन्च के दिन 1 KLIMA दाँव �
 msgid "wrap.sklima_to_wrap"
 msgstr "रैप किया जाने वाला sKLIMA"
 
-#: components/views/Wrap/index.tsx:370
+#: components/views/Wrap/index.tsx:373
 msgid "wrap.unwrap"
 msgstr "अनरैप करना"
 
-#: components/views/Wrap/index.tsx:359
+#: components/views/Wrap/index.tsx:362
 msgid "wrap.wrap"
 msgstr "रैप करना"
 
-#: components/views/Wrap/index.tsx:325
+#: components/views/Wrap/index.tsx:328
 msgid "wrap.wrap_sklima"
 msgstr "sKLIMA  रैप करें"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:337
+#: components/views/Wrap/index.tsx:340
 msgid "wrap.wrap_sklima.some_find_this_useful"
 msgstr "कुछ इसे लेखांकन उद्देश्यों के लिए उपयोगी पाते हैं, लेकिन पुरस्कार बिल्कुल समान हैं। रैप और अनरैप मानों की गणना वर्तमान इंडेक्स के आधार पर की जाती है।"
 
 #. Long sentence
-#: components/views/Wrap/index.tsx:328
+#: components/views/Wrap/index.tsx:331
 msgid "wrap.wrap_sklima.wrap_sklima_to_receive_sklima"
 msgstr "WsKLIMA प्राप्त करने के लिए sKLIMA रैप करें। sKLIMA के विपरीत, आपका wsKLIMA बैलेंस समय के साथ नहीं बढ़ेगा।"
 
@@ -1114,7 +1104,7 @@ msgstr "WsKLIMA प्राप्त करने के लिए sKLIMA र�
 msgid "wrap.wsklima_to_unwrap"
 msgstr "अनरैप किया जाने वाला wsKLIMA"
 
-#: components/views/Wrap/index.tsx:423
+#: components/views/Wrap/index.tsx:426
 msgid "wrap.you_will_get"
 msgstr "आपको मिलेगा"
 

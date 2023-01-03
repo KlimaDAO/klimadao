@@ -164,7 +164,10 @@ export const Home: FC = () => {
                   message: "Connection Error",
                 }),
               }}
-              buttonText={t({ id: "shared.connect", message: "Connect" })}
+              buttonText={t({
+                id: "shared.login_connect",
+                message: "Login / Connect",
+              })}
             />
           </div>
           <IsomorphicRoutes>

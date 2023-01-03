@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-16 00:30+0000\n"
+"POT-Creation-Date: 2023-01-02 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -9,10 +9,6 @@ msgstr ""
 
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:275
-msgid "Enter App"
 msgstr ""
 
 #: components/pages/Infinity/index.tsx:530
@@ -40,166 +36,234 @@ msgstr ""
 msgid "blog.disclaimer.title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:253
-msgid "buy.advanced"
+#: components/pages/Buy/index.tsx:439
+msgid "buy.answer_exchange"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:173
-msgid "buy.beginner"
+#: components/pages/Buy/index.tsx:396
+msgid "buy.bond_answer_cedit_card"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:14
-msgid "buy.beginner_01.description_01"
+#: components/pages/Buy/index.tsx:414
+msgid "buy.bond_answer_cex1"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:10
-msgid "buy.beginner_01.title"
+#: components/pages/Buy/index.tsx:422
+msgid "buy.bond_answer_cex2"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:29
-msgid "buy.beginner_02.description_01"
+#: components/pages/Buy/index.tsx:377
+msgid "buy.bond_description1"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:37
-msgid "buy.beginner_02.description_02"
+#: components/pages/Buy/index.tsx:386
+msgid "buy.bond_description_capacity"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:25
-msgid "buy.beginner_02.title"
+#: components/pages/Buy/index.tsx:407
+msgid "buy.bond_question_cex"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:51
-msgid "buy.beginner_03.description_01"
+#: components/pages/Buy/index.tsx:391
+msgid "buy.bond_question_credit_card"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:57
-msgid "buy.beginner_03.description_2"
+#: components/pages/Buy/index.tsx:196
+msgid "buy.connect_advanced"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:47
-msgid "buy.beginner_03.title"
+#: components/pages/Buy/index.tsx:191
+msgid "buy.connect_torus_sushi"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:72
-msgid "buy.beginner_04.description_01"
+#: components/pages/Buy/index.tsx:218
+msgid "buy.connect_torus_sushi_description2"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:79
-msgid "buy.beginner_04.description_02"
+#: components/pages/Buy/index.tsx:235
+msgid "buy.connect_torus_sushi_description3"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:68
-msgid "buy.beginner_04.title"
+#: components/pages/Buy/index.tsx:243
+msgid "buy.connect_torus_sushi_description4"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:97
-msgid "buy.beginner_05.description_01"
+#: components/pages/Buy/index.tsx:249
+msgid "buy.connect_torus_sushi_description5"
 msgstr ""
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:93
-msgid "buy.beginner_05.title"
+#: components/pages/Buy/index.tsx:78
+msgid "buy.create_wallet_description"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:129
-#: components/pages/Buy/index.tsx:256
-msgid "buy.bonding"
+#: components/pages/Buy/index.tsx:120
+msgid "buy.create_wallet_description1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:259
-msgid "buy.bonding.description_01"
+#: components/pages/Buy/index.tsx:126
+msgid "buy.create_wallet_description2"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:267
-msgid "buy.bonding.description_02"
+#: components/pages/Buy/index.tsx:135
+msgid "buy.create_wallet_description3"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:84
-#: components/pages/Buy/index.tsx:176
-msgid "buy.credit_card"
+#: components/pages/Buy/index.tsx:141
+msgid "buy.create_wallet_description4"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:179
-msgid "buy.credit_card.summary"
+#: components/pages/Buy/index.tsx:117
+msgid "buy.create_wallet_item"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:105
-msgid "buy.decentralized_exchange"
+#: components/pages/Buy/index.tsx:325
+msgid "buy.faq_title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:208
-msgid "buy.dex"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:240
-msgid "buy.dex.how_zapper"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:212
-msgid "buy.dex.summary_01"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:219
-msgid "buy.dex.summary_02"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:143
-msgid "buy.disclaimer"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:148
-msgid "buy.disclaimer_01"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:158
-msgid "buy.disclaimer_02"
-msgstr ""
-
-#: components/pages/Buy/index.tsx:45
-#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:33
+#: components/pages/Buy/index.tsx:34
 msgid "buy.head.title"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:110
-#: components/pages/Buy/index.tsx:205
-msgid "buy.intermediate"
+#: components/pages/Buy/index.tsx:47
+msgid "buy.how_to_buy"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:62
-msgid "buy.subtitle"
+#: components/pages/Buy/index.tsx:50
+msgid "buy.how_to_paragraph_part_1"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:59
-msgid "buy.title"
+#: components/pages/Buy/index.tsx:57
+msgid "buy.how_to_paragraph_part_2"
 msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:13
-msgid "buy.zapper_01.description_01"
+#: components/pages/Buy/index.tsx:149
+msgid "buy.load_wallet"
 msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:19
-msgid "buy.zapper_01.description_02"
+#: components/pages/Buy/index.tsx:91
+msgid "buy.load_wallet_description"
 msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:9
-msgid "buy.zapper_01.title"
+#: components/pages/Buy/index.tsx:154
+msgid "buy.load_wallet_description1"
 msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:36
-msgid "buy.zapper_02.description_02"
+#: components/pages/Buy/index.tsx:164
+msgid "buy.load_wallet_description2"
 msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:32
-msgid "buy.zapper_02.title"
+#: components/pages/Buy/index.tsx:174
+msgid "buy.load_wallet_description3"
 msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:49
-msgid "buy.zapper_03.description_01"
+#: components/pages/Buy/index.tsx:433
+msgid "buy.question_exchange"
 msgstr ""
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:45
-msgid "buy.zapper_03.title"
+#: components/pages/Buy/index.tsx:328
+msgid "buy.question_why_matic"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:333
+msgid "buy.question_why_matic_answer"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:344
+msgid "buy.question_why_matic_answer_bullet1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:351
+msgid "buy.question_why_matic_answer_bullet2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:358
+msgid "buy.question_why_matic_answer_bullet3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:365
+msgid "buy.question_why_matic_answer_bullet4"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:298
+msgid "buy.staking_cta"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:301
+msgid "buy.staking_description1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:309
+msgid "buy.staking_description2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:316
+msgid "buy.staking_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:75
+msgid "buy.step_1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:88
+msgid "buy.step_2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:103
+msgid "buy.step_3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:68
+msgid "buy.summary_steps_title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.summary_title"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:259
+msgid "buy.swap_description1"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:265
+msgid "buy.swap_description2"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:281
+msgid "buy.swap_description3"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:288
+msgid "buy.swap_description4"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:106
+msgid "buy.swap_for_klima_description"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:256
+msgid "buy.swap_subtitle"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:185
+msgid "buy.swap_wallet"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:202
+msgid "buy.torus_login_description"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.wallet_connect_example"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
+msgid "buy.wallet_connect_example_qr_code"
+msgstr ""
+
+#: components/pages/Buy/index.tsx:372
+msgid "buy.what_are_bonds"
 msgstr ""
 
 #: components/pages/About/Community/index.tsx:116
@@ -339,43 +403,43 @@ msgstr ""
 msgid "concat.careers"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderDesktop/index.tsx:48
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
 #: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/index.tsx:333
-#: components/pages/Pledge/index.tsx:387
+#: components/pages/Pledge/index.tsx:334
+#: components/pages/Pledge/index.tsx:389
 msgid "connectModal.continue"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:56
+#: components/pages/Pledge/HeaderDesktop/index.tsx:57
 #: components/pages/Pledge/HeaderMobile/index.tsx:55
 #: components/pages/Pledge/index.tsx:126
-#: components/pages/Pledge/index.tsx:342
-#: components/pages/Pledge/index.tsx:396
+#: components/pages/Pledge/index.tsx:343
+#: components/pages/Pledge/index.tsx:398
 msgid "connect_modal.connecting"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:43
+#: components/pages/Pledge/HeaderDesktop/index.tsx:44
 #: components/pages/Pledge/HeaderMobile/index.tsx:42
 #: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/index.tsx:329
-#: components/pages/Pledge/index.tsx:382
+#: components/pages/Pledge/index.tsx:330
+#: components/pages/Pledge/index.tsx:384
 msgid "connect_modal.error_message"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:60
+#: components/pages/Pledge/HeaderDesktop/index.tsx:61
 #: components/pages/Pledge/HeaderMobile/index.tsx:59
 #: components/pages/Pledge/index.tsx:130
-#: components/pages/Pledge/index.tsx:346
-#: components/pages/Pledge/index.tsx:400
+#: components/pages/Pledge/index.tsx:347
+#: components/pages/Pledge/index.tsx:402
 msgid "connect_modal.error_title"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:52
+#: components/pages/Pledge/HeaderDesktop/index.tsx:53
 #: components/pages/Pledge/HeaderMobile/index.tsx:51
 #: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/index.tsx:338
-#: components/pages/Pledge/index.tsx:392
+#: components/pages/Pledge/index.tsx:339
+#: components/pages/Pledge/index.tsx:394
 msgid "connect_modal.sign_in"
 msgstr ""
 
@@ -1145,7 +1209,7 @@ msgstr ""
 msgid "pledges.form.confirm_remove_cancel"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:188
+#: components/pages/Pledge/index.tsx:189
 msgid "pledges.form.error"
 msgstr ""
 
@@ -1311,26 +1375,26 @@ msgstr ""
 
 #: components/pages/Pledge/index.tsx:105
 #: components/pages/Pledge/index.tsx:135
-#: components/pages/Pledge/index.tsx:322
-#: components/pages/Pledge/index.tsx:351
-#: components/pages/Pledge/index.tsx:375
-#: components/pages/Pledge/index.tsx:405
+#: components/pages/Pledge/index.tsx:323
+#: components/pages/Pledge/index.tsx:352
+#: components/pages/Pledge/index.tsx:377
+#: components/pages/Pledge/index.tsx:407
 msgid "pledges.home.hero.create"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:146
+#: components/pages/Pledge/index.tsx:147
 msgid "pledges.home.hero.learn_more"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:182
+#: components/pages/Pledge/index.tsx:183
 msgid "pledges.home.search.label"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:176
+#: components/pages/Pledge/index.tsx:177
 msgid "pledges.home.search.placeholder"
 msgstr ""
 
-#: components/pages/Pledge/index.tsx:202
+#: components/pages/Pledge/index.tsx:203
 msgid "pledges.home.search.submit"
 msgstr ""
 
@@ -1558,15 +1622,15 @@ msgstr ""
 msgid "retirement.single.message.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:58
 msgid "retirement.single.project_details.moss_headline"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
 msgstr ""
 
@@ -1574,11 +1638,15 @@ msgstr ""
 msgid "retirement.single.project_details.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:39
 msgid "retirement.single.project_details.tonnes"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:46
+msgid "retirement.single.project_details.view_mco2_pool"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:55
 msgid "retirement.single.project_details.view_on_polygon_scan"
 msgstr ""
 
@@ -1712,11 +1780,6 @@ msgstr ""
 msgid "shared.confirm"
 msgstr ""
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:65
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr ""
-
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
 #: components/pages/About/AboutHeader/index.tsx:67
@@ -1763,7 +1826,7 @@ msgstr ""
 msgid "shared.get_started"
 msgstr ""
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:35
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1810,6 +1873,11 @@ msgstr ""
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:119
 #: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
+msgstr ""
+
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+msgid "shared.login_connect"
 msgstr ""
 
 #: components/pages/Home/index.tsx:193

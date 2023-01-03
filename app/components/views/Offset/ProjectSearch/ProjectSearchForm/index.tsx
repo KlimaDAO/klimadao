@@ -11,7 +11,7 @@ import {
   CarbonProject,
   queryCarbonProjectDetails,
 } from "../../SelectiveRetirement/queryProjectDetails";
-import * as filterOptions from "../filterOptions";
+import { filterOptions } from "../filterOptions";
 import { ProjectSearchFilter } from "../ProjectSearchFilter";
 
 type Props = {
@@ -54,7 +54,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
       (project) =>
         Number(
           project[`balance${selectedRetirementToken}` as BalanceAttribute]
-        ) > 0
+        ) > 1
     );
   };
 
@@ -84,7 +84,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
             id: "offset.selectiveRetirement.filters.type",
             message: "type",
           })}
-          options={filterOptions.types}
+          options={filterOptions[props.selectedRetirementToken].types}
           isOpen={currentFilter === "type"}
           onClick={setCurrentFilter}
           onChange={setType}
@@ -94,7 +94,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
             id: "offset.selectiveRetirement.filters.region",
             message: "region",
           })}
-          options={filterOptions.regions}
+          options={filterOptions[props.selectedRetirementToken].regions}
           isOpen={currentFilter === "region"}
           onClick={setCurrentFilter}
           onChange={setRegion}
@@ -104,7 +104,7 @@ export const ProjectSearchForm: FC<Props> = (props) => {
             id: "offset.selectiveRetirement.filters.vintage",
             message: "vintage",
           })}
-          options={filterOptions.vintages}
+          options={filterOptions[props.selectedRetirementToken].vintages}
           isOpen={currentFilter === "vintage"}
           onClick={setCurrentFilter}
           onChange={setVintage}

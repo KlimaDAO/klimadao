@@ -96,7 +96,7 @@ export const urls = {
   wrap: "https://app.klimadao.finance/#/wrap",
   bonds: "https://app.klimadao.finance/#/bonds",
   offset: "https://app.klimadao.finance/#/offset",
-  pledges: "https://app.klimadao.finance/pledge",
+  pledges: "https://www.klimadao.finance/pledge",
   info: "https://app.klimadao.finance/info",
   resources: "https://www.klimadao.finance/resources",
   siteBlog: "https://www.klimadao.finance/blog",
@@ -105,7 +105,6 @@ export const urls = {
   community: "https://www.klimadao.finance/community",
   buy: "https://www.klimadao.finance/buy",
   infinity: "https://www.klimadao.finance/infinity",
-  buy_dapp: "https://app.klimadao.finance/#/buy",
   carbonDashboard: "https://carbon.klimadao.finance",
   forum: "https://forum.klimadao.finance",
   snapshot: "https://snapshot.org/#/klimadao.eth",
@@ -113,8 +112,6 @@ export const urls = {
   polygonTestnetRpc: "https://rpc-mumbai.matic.today",
   infuraRpc: "https://polygon-mainnet.infura.io/v3",
   infuraEth: "https://mainnet.infura.io/v3",
-  sushiUSDCBCT: `https://app.sushi.com/swap?inputCurrency=0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&outputCurrency=${addresses["mainnet"].bct}`,
-  sushiKLIMABCT: `https://app.sushi.com/swap?inputCurrency=${addresses["mainnet"].klima}&outputCurrency=${addresses["mainnet"].bct}`,
   communityHub: "https://klimadao.notion.site",
   tutorial:
     "https://klimadao.notion.site/I-m-new-to-Klima-How-do-I-participate-c28426c5100244788f791f62e375ffcc",
@@ -139,12 +136,18 @@ export const urls = {
     "https://transferto.xyz/showcase/etherspot-klima?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
   lifiOffset:
     "https://transferto.xyz/showcase/carbon-offset?fromChain=eth&toChain=pol&toToken=0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-
   polyscanGasStation: "https://gasstation-mainnet.matic.network/v2",
   polygonscan: "https://polygonscan.com",
+  polygonBridge: "https://wallet.polygon.technology/polygon/bridge/deposit",
+  polygonTor: "https://polygon.tor.us/",
   creolIndividualCalculator: "https://klima.creol.io/#/footprint",
   creolBusinessCalculator: "https://klima.creol.io/#/office",
   cryptoOffsetCalculator: "https://carbon.fyi/",
+  sushiSwap: "https://www.sushi.com/swap",
+  coinbase: "https://www.coinbase.com/",
+  moonpayMatic: "https://www.moonpay.com/buy/matic",
+  transakMatic:
+    "https://global.transak.com/?fiatCurrency=EUR&network=polygon&cryptoCurrencyCode=MATIC",
 };
 
 export const polygonNetworks = {

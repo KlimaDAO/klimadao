@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-16 00:30+0000\n"
+"POT-Creation-Date: 2023-01-02 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,10 +10,6 @@ msgstr ""
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "измененить язык"
-
-#: components/pages/Buy/index.tsx:275
-msgid "Enter App"
-msgstr "Войдите в приложение"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
@@ -40,167 +36,235 @@ msgstr "Информация, представленная в данном бл�
 msgid "blog.disclaimer.title"
 msgstr "Отказ от ответственности"
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:253
-msgid "buy.advanced"
-msgstr "Продвинутый"
+#: components/pages/Buy/index.tsx:439
+msgid "buy.answer_exchange"
+msgstr "Продвинутые пользователи могут использовать <0>Polygon Bridge</0> для перевода любого актива из Ethereum в Polygon, и/или <1>Polygon Gas Swap</1> для обмена таких активов, как USDC на MATIC."
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:173
-msgid "buy.beginner"
-msgstr "Начинающим"
+#: components/pages/Buy/index.tsx:396
+msgid "buy.bond_answer_cedit_card"
+msgstr "Да, некоторые провайдеры, например <0>Transak</0>, позволяют покупать KLIMA напрямую с помощью кредитной карты за определенную плату. Однако, если в вашем кошельке нет MATIC, вы не сможете осуществить перевод или другие действия. По этой причине, а также для обеспечения наилучшего рыночного курса, мы рекомендуем покупать MATIC напрямую и обменивать MATIC на KLIMA на Sushi.com."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:14
-msgid "buy.beginner_01.description_01"
-msgstr "<0>Metamask</0> - самый популярный кошелек для Ethereum и Polygon. Именно его используйте для подключения к нашему приложению и проведения транзакций. Обязательно установите расширение для вашего веб-браузера."
+#: components/pages/Buy/index.tsx:414
+msgid "buy.bond_answer_cex1"
+msgstr "KLIMA не торгуется на централизованных биржах, таких как Coinbase, Binance или Crypto.com, поскольку эти биржи обычно взимают очень высокие комиссии за листинг и требуют финансирования со стороны дорогих маркет-мейкеров."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:10
-msgid "buy.beginner_01.title"
-msgstr "установите Metamask"
+#: components/pages/Buy/index.tsx:422
+msgid "buy.bond_answer_cex2"
+msgstr "Вместо этого токены KLIMA торгуются на «децентрализованной бирже» (DEX), которая работает на основе смарт-контрактов и работает непосредственно на блокчейне. У DEX есть несколько важных преимуществ. DEX позволили DAO владеть большей частью ликвидности, поэтому он может сохранять полную автономию и получать доход для выплаты вкладчикам. Мы решили использовать технологию DEX от Sushi, поскольку она уже обеспечивает транзакции на десятки миллионов долларов в день."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:29
-msgid "buy.beginner_02.description_01"
-msgstr "Установив расширение Metamask и настроив новый кошелек, зайдите на сайт <0>app.klimadao.finance/#/buy</0> и нажмите кнопку \"подключиться\"."
+#: components/pages/Buy/index.tsx:377
+msgid "buy.bond_description1"
+msgstr "Опытные пользователи криптовалют могут купить KLIMA прямо из протокола через облигации. Чтобы приобрести KLIMA через облигации, вы предоставляете токен углерода или токен ликвидности и получаете взамен токены KLIMA со скидкой. Это механизм, который DAO использует для увеличения своей сокровищницы цифрового углерода."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:37
-msgid "buy.beginner_02.description_02"
-msgstr "После подключения приложение KlimaDAO должно предложить вам автоматически переключиться на сеть Polygon. Metamask попросит вас подтвердить это действие."
+#: components/pages/Buy/index.tsx:386
+msgid "buy.bond_description_capacity"
+msgstr "Возможности облигаций ограничены, и облигации не всегда доступны."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:25
-msgid "buy.beginner_02.title"
-msgstr "Подключитесь к нашему приложению"
+#: components/pages/Buy/index.tsx:407
+msgid "buy.bond_question_cex"
+msgstr "Почему я не могу найти KLIMA на Coinbase или других централизованных биржах? Почему я должен использовать <0>Sushi.com</0> ?"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:51
-msgid "buy.beginner_03.description_01"
-msgstr "После подключения вы сможете выполнить шаги в нашем приложении, чтобы завершить покупку."
+#: components/pages/Buy/index.tsx:391
+msgid "buy.bond_question_credit_card"
+msgstr "Могу ли я купить KLIMA напрямую с помощью кредитной карты?"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:57
-msgid "buy.beginner_03.description_2"
-msgstr "Вам будет предложено указать электронную почту, способ оплаты и подтвердить свою личность. DAO не получает и не хранит никакой личной информации. Эта информация используется только нашими поставщиками платежей для соблюдения правовых норм."
+#: components/pages/Buy/index.tsx:196
+msgid "buy.connect_advanced"
+msgstr "Примечание: эти инструкции предназначены только для пользователей кошелька Torus. Sushi поддерживает множество различных кошельков."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:47
-msgid "buy.beginner_03.title"
-msgstr "Купить KLIMA"
+#: components/pages/Buy/index.tsx:191
+msgid "buy.connect_torus_sushi"
+msgstr "3А. Подключите Torus к Sushi.com с помощью WalletConnect"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:72
-msgid "buy.beginner_04.description_01"
-msgstr "Чтобы использовать KLIMA для стейкинга, обмена или компенсации выбросов углерода, вам необходимо совершать транзакции в сети Polygon. Каждая транзакция требует оплаты сетевого сбора в MATIC."
+#: components/pages/Buy/index.tsx:218
+msgid "buy.connect_torus_sushi_description2"
+msgstr "В отдельной вкладке браузера зайдите на сайт <0>Sushi.com</0> и нажмите кнопку \"Подключиться\" в правом верхнем углу. Вам будет предложено несколько вариантов кошельков. Выберите WalletConnect. После выбора WalletConnect вы увидите QR-код - нажмите \"Скопировать в буфер обмена\"."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:79
-msgid "buy.beginner_04.description_02"
-msgstr "1 MATIC доступно для большинства пользователей. Вы можете подключиться к официальному приложению Polygon и воспользоваться их инструментом <0>Gas Swap</0>. Этот инструмент позволяет бесплатно обменивать различные активы на MATIC."
+#: components/pages/Buy/index.tsx:235
+msgid "buy.connect_torus_sushi_description3"
+msgstr "Вернитесь в приложение кошелька Torus и вставьте этот код в виджет WalletConnect. Это создаст временное соединение между вашим кошельком и <0>Sushi.com.</0> ."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:68
-msgid "buy.beginner_04.title"
-msgstr "Купить MATIC (для новых пользователей)"
+#: components/pages/Buy/index.tsx:243
+msgid "buy.connect_torus_sushi_description4"
+msgstr "Когда вы вернетесь на вкладку Sushi в своем браузере, вы должны увидеть, что ваш адрес Torus теперь виден в правом верхнем углу."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:97
-msgid "buy.beginner_05.description_01"
-msgstr "Теперь, когда у вас есть немного KLIMA и немного MATIC в вашем кошельке, вы должны <0>стейкать</0> это для sKLIMA, чтобы начать накапливать вознаграждения. Вы также можете использовать их для компенсации выбросов углерода. А как держатель токена вы можете использовать свои KLIMA и sKLIMA для участия в управлении DAO! Следите за предложениями на нашем <1>форуме.</1> ."
+#: components/pages/Buy/index.tsx:249
+msgid "buy.connect_torus_sushi_description5"
+msgstr "Наконец, используйте выпадающее меню на <0>Sushi.com</0>, чтобы переключиться на сеть Polygon."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:93
-msgid "buy.beginner_05.title"
-msgstr "Стейкайте, компенсируйте, управляйте!"
+#: components/pages/Buy/index.tsx:78
+msgid "buy.create_wallet_description"
+msgstr "<0>Создайте кошелек.</0> Мы рекомендуем Torus Wallet, но наше приложение поддерживает большинство Web3-кошельков (Metamask, Coinbase Wallet, Brave, MyEtherWallet и многие другие)."
 
-#: components/pages/Buy/index.tsx:129
-#: components/pages/Buy/index.tsx:256
-msgid "buy.bonding"
-msgstr "Бондинг"
+#: components/pages/Buy/index.tsx:120
+msgid "buy.create_wallet_description1"
+msgstr "Зайдите на сайт <0>app.klimadao.finance</0> и нажмите кнопку \"Подключиться\" в правом верхнем углу."
 
-#: components/pages/Buy/index.tsx:259
-msgid "buy.bonding.description_01"
-msgstr "Бондинг — это процесс внесения углеродных активов в обмен на KLIMA со скидкой. Это один из способов, которым Klima Treasury поглощает углеродные кредиты для положительного воздействия на климат. Бондинг также обеспечивает основу каждого нового токена KLIMA."
+#: components/pages/Buy/index.tsx:126
+msgid "buy.create_wallet_description2"
+msgstr "Выберите вариант входа «Электронная почта или социальная сеть», после чего вам будет предложено войти в систему с помощью Torus. Torus — это технология, которая создает безопасный кошелек, используя вашу существующую электронную почту или социальный логин. Вы сможете использовать этот новый кошелек Torus в сотнях других приложений Web3 и DeFi."
 
-#: components/pages/Buy/index.tsx:267
-msgid "buy.bonding.description_02"
-msgstr "Скидка колеблется в зависимости от рыночных условий. Казначейство принимает углерод в виде углеродных токенов (таких как UBO, BCT или MCO2) или токенов пула ликвидности (LP) (таких как KLIMA/BCT, KLIMA/MCO2)."
+#: components/pages/Buy/index.tsx:135
+msgid "buy.create_wallet_description3"
+msgstr "После подключения вы должны увидеть адрес своего нового кошелька в левом верхнем углу приложения."
 
-#: components/pages/Buy/index.tsx:84
-#: components/pages/Buy/index.tsx:176
-msgid "buy.credit_card"
-msgstr "Кредитная карта"
+#: components/pages/Buy/index.tsx:141
+msgid "buy.create_wallet_description4"
+msgstr "Дополнительно: если вы не хотите использовать Torus, смело используйте любой Web3-кошелек, совместимый с Polygon."
 
-#: components/pages/Buy/index.tsx:179
-msgid "buy.credit_card.summary"
-msgstr "Теперь вы можете использовать свою кредитную карту для покупки токенов KLIMA прямо на свой кошелек! Наши платежные партнеры поддерживают большинство основных валют."
+#: components/pages/Buy/index.tsx:117
+msgid "buy.create_wallet_item"
+msgstr "1. Создайте кошелек"
 
-#: components/pages/Buy/index.tsx:105
-msgid "buy.decentralized_exchange"
-msgstr "Децентрализованная биржа"
+#: components/pages/Buy/index.tsx:325
+msgid "buy.faq_title"
+msgstr "Часто задаваемые вопросы"
 
-#: components/pages/Buy/index.tsx:208
-msgid "buy.dex"
-msgstr "Децентрализованные биржи (DEXs)"
-
-#: components/pages/Buy/index.tsx:240
-msgid "buy.dex.how_zapper"
-msgstr "Как купить KLIMA на Zapper?"
-
-#: components/pages/Buy/index.tsx:212
-msgid "buy.dex.summary_01"
-msgstr "Если у вас уже есть кошелек Polygon с MATIC, вы можете использовать децентрализованные биржи для обмена на KLIMA. Это поможет вам избежать дополнительных комиссий и предоставит справедливую рыночную цену."
-
-#: components/pages/Buy/index.tsx:219
-msgid "buy.dex.summary_02"
-msgstr "KLIMA можно найти на <0>Sushi Swap</0>, но мы рекомендуем вам использовать агрегатор DEX под названием Zapper. Просто подключите свой кошелек к Zapper, и он направит вашу сделку через лучший из доступных DEX."
-
-#: components/pages/Buy/index.tsx:143
-msgid "buy.disclaimer"
-msgstr "Советы по безопасности и важный отказ от ответственности"
-
-#: components/pages/Buy/index.tsx:148
-msgid "buy.disclaimer_01"
-msgstr "Никогда и никому не сообщайте свой закрытый ключ или сид фразу. Мы рекомендуем вам посетить нашу страницу <0>Crypto Security 101</0> для получения советов по безопасности, прежде чем вы начнете работу."
-
-#: components/pages/Buy/index.tsx:158
-msgid "buy.disclaimer_02"
-msgstr "Транзакции блокчейн являются непрерывные и необратимыми. Наша команда не в состоянии вернуть потерянные или украденные активы. KlimaDAO не берет на себя никакой ответственности, не несет обязательств и не предлагает никаких гарантий. Все рынки и биржи работают независимо и с высокой волатильностью."
-
-#: components/pages/Buy/index.tsx:45
-#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:33
+#: components/pages/Buy/index.tsx:34
 msgid "buy.head.title"
 msgstr "Как купить KLIMA"
 
-#: components/pages/Buy/index.tsx:110
-#: components/pages/Buy/index.tsx:205
-msgid "buy.intermediate"
-msgstr "Промежуточный"
-
-#: components/pages/Buy/index.tsx:62
-msgid "buy.subtitle"
-msgstr "Вы можете получить KLIMA тремя способами: с помощью кредитной карты, на децентрализованных биржах (DEX) или путем бондинга углеродных активов."
-
-#: components/pages/Buy/index.tsx:59
-msgid "buy.title"
+#: components/pages/Buy/index.tsx:47
+msgid "buy.how_to_buy"
 msgstr "Как купить KLIMA"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:13
-msgid "buy.zapper_01.description_01"
-msgstr "Убедитесь, что у вас установлен кошелек типа Metamask, подключен к сети Polygon и на балансе есть MATIC."
+#: components/pages/Buy/index.tsx:50
+msgid "buy.how_to_paragraph_part_1"
+msgstr "KLIMA - это цифровой актив, обеспеченный углеродом, который можно заложить для получения вознаграждения или использовать для компенсации цифрового углерода. Владение KLIMA также дает вам право голосовать и участвовать в управлении цифровым рынком углерода."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:19
-msgid "buy.zapper_01.description_02"
-msgstr "Вы можете загрузить свой кошелек Polygon напрямую, используя популярные сервисы on-ramp, такие как <0>Transak</0> или наш партнер <1>Mobilum</1>. Кроме того, вы можете пополнить свой кошелек активами на Ethereum и <2> подключить</2> их к сети Polygon"
+#: components/pages/Buy/index.tsx:57
+msgid "buy.how_to_paragraph_part_2"
+msgstr "Это краткое руководство для новичков, которые только начинают знакомиться с Web3 и DeFi"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:9
-msgid "buy.zapper_01.title"
-msgstr "пополните свой кошелек Polygon"
+#: components/pages/Buy/index.tsx:149
+msgid "buy.load_wallet"
+msgstr "2. Пополните свой кошелек токенами MATIC"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:36
-msgid "buy.zapper_02.description_02"
-msgstr "Перейдите по адресу <0>zapper.fi</0> и нажмите кнопку Подключиться."
+#: components/pages/Buy/index.tsx:91
+msgid "buy.load_wallet_description"
+msgstr "<0> Пополните свой новый кошелек токенами MATIC.</0> MATIC - это газ, на котором работает сеть Polygon. Каждая транзакция, которую вы совершаете в Polygon, требует несколько центов MATIC для оплаты сетевого сбора."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:32
-msgid "buy.zapper_02.title"
-msgstr "Подключиться к Zapper.fi"
+#: components/pages/Buy/index.tsx:154
+msgid "buy.load_wallet_description1"
+msgstr "Используйте такой сервис, как <0>MoonPay</0> или <1>Transak</1> или централизованную биржу, например <2>Coinbase</2>, чтобы купить Polygon MATIC и отправить его на ваш вновь созданный кошелек. "
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:49
-msgid "buy.zapper_03.description_01"
-msgstr "Используйте интерфейс \"Swap\" в Zapper для настройки торговли. Если у вас возникли трудности, ознакомьтесь с инструкциями и учебным материалом, предоставленными командой Zapper."
+#: components/pages/Buy/index.tsx:164
+msgid "buy.load_wallet_description2"
+msgstr "<0>Убедитесь, что токены MATIC отправлены на ваш новый адрес кошелька!</0> Вы можете скопировать адрес в буфер обмена, подключившись к нашему приложению и щелкнув адрес в меню навигации."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:45
-msgid "buy.zapper_03.title"
-msgstr "Обмен"
+#: components/pages/Buy/index.tsx:174
+msgid "buy.load_wallet_description3"
+msgstr "<0>Обязательно купите и отправьте MATIC через сеть Polygon!</0> Некоторые биржи, такие как Coinbase, спросят вас, в какую сеть отправлять токены MATIC. Обязательно всегда выбирайте Polygon."
+
+#: components/pages/Buy/index.tsx:433
+msgid "buy.question_exchange"
+msgstr "Что делать, если я хочу использовать другую биржу, а они не продают Polygon MATIC?"
+
+#: components/pages/Buy/index.tsx:328
+msgid "buy.question_why_matic"
+msgstr "Почему я должен сначала купить MATIC?"
+
+#: components/pages/Buy/index.tsx:333
+msgid "buy.question_why_matic_answer"
+msgstr "Токен и протокол KLIMA находятся в блокчейне Polygon. MATIC - это \"газ\", который питает каждую транзакцию на Polygon. Невозможно выполнить транзакцию, не заплатив комиссию за транзакцию. Это означает, что вам придется заплатить несколько центов MATIC за следующие действия:"
+
+#: components/pages/Buy/index.tsx:344
+msgid "buy.question_why_matic_answer_bullet1"
+msgstr "Стейкинг KLIMA для sKLIMA"
+
+#: components/pages/Buy/index.tsx:351
+msgid "buy.question_why_matic_answer_bullet2"
+msgstr "Обмен между разными токенами"
+
+#: components/pages/Buy/index.tsx:358
+msgid "buy.question_why_matic_answer_bullet3"
+msgstr "Отправка токенов на другой кошелек"
+
+#: components/pages/Buy/index.tsx:365
+msgid "buy.question_why_matic_answer_bullet4"
+msgstr "Использование KLIMA или других токенов для компенсации выбросов углерода"
+
+#: components/pages/Buy/index.tsx:298
+msgid "buy.staking_cta"
+msgstr "Ставьте, зарабатывайте, голосуйте и компенсируйте!"
+
+#: components/pages/Buy/index.tsx:301
+msgid "buy.staking_description1"
+msgstr "Поздравляем! Теперь, когда в вашем кошельке есть немного KLIMA, мы настоятельно рекомендуем <0>разместить</0> эти KLIMA на sKLIMA, который со временем начисляет вознаграждение по мере роста протокола."
+
+#: components/pages/Buy/index.tsx:309
+msgid "buy.staking_description2"
+msgstr "Вы также можете использовать приложение, чтобы тратить KLIMA и <0>восстанавливать цифровой углерод</0> на блокчейне."
+
+#: components/pages/Buy/index.tsx:316
+msgid "buy.staking_description3"
+msgstr "Наконец, следите за <0>продолжающимися голосованиями</0> и помогайте направлять протокол в правильном направлении."
+
+#: components/pages/Buy/index.tsx:75
+msgid "buy.step_1"
+msgstr "1."
+
+#: components/pages/Buy/index.tsx:88
+msgid "buy.step_2"
+msgstr "2."
+
+#: components/pages/Buy/index.tsx:103
+msgid "buy.step_3"
+msgstr "3."
+
+#: components/pages/Buy/index.tsx:68
+msgid "buy.summary_steps_title"
+msgstr "Лучший и самый простой способ получить KLIMA — это выполнить следующие три шага:"
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.summary_title"
+msgstr "Резюме"
+
+#: components/pages/Buy/index.tsx:259
+msgid "buy.swap_description1"
+msgstr "После подключения кошелька и переключения на сеть Polygon вы сможете обменять MATIC на KLIMA."
+
+#: components/pages/Buy/index.tsx:265
+msgid "buy.swap_description2"
+msgstr "<0> Важное замечание: не меняйте все свои MATIC на KLIMA! </0> Оставьте хотя бы 0,5 MATIC для оплаты комиссий за будущие транзакции."
+
+#: components/pages/Buy/index.tsx:281
+msgid "buy.swap_description3"
+msgstr "Если вы используете Torus, держите открытой вкладку браузера с приложением Torus. Вам нужно будет вернуться в кошелек, чтобы одобрить и авторизовать транзакции."
+
+#: components/pages/Buy/index.tsx:288
+msgid "buy.swap_description4"
+msgstr "Дополнительно: Если вы хотите, чтобы ваши транзакции в Sushi были положительными для климата, включите \"Зеленый сбор\" Sushi, разработанный KlimaDAO. Это позволит тратить 0,02 MATIC за транзакцию на приобретение и автоматическое удаление цифрового углерода!"
+
+#: components/pages/Buy/index.tsx:106
+msgid "buy.swap_for_klima_description"
+msgstr "<0>Обменять на KLIMA.</0> Sushi — это децентрализованная биржа, на которой вы можете мгновенно обменять часть ваших токенов MATIC на токены KLIMA по минимально возможной цене."
+
+#: components/pages/Buy/index.tsx:256
+msgid "buy.swap_subtitle"
+msgstr "3Б. Обмен MATIC на KLIMA"
+
+#: components/pages/Buy/index.tsx:185
+msgid "buy.swap_wallet"
+msgstr "3. Обмен на KLIMA на <0>Sushi.com</0>"
+
+#: components/pages/Buy/index.tsx:202
+msgid "buy.torus_login_description"
+msgstr "В новой вкладке браузера перейдите на веб-приложение <0>Torus Polygon</0> и войдите в систему, используя свою новую учетную запись Torus. Когда вы войдете в систему, вы должны увидеть виджет WalletConnect."
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.wallet_connect_example"
+msgstr "пример ввода подключения кошелька"
+
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
+msgid "buy.wallet_connect_example_qr_code"
+msgstr "пример qr кода для подключения кошелька"
+
+#: components/pages/Buy/index.tsx:372
+msgid "buy.what_are_bonds"
+msgstr "Есть ли другие способы получить KLIMA? Что такое облигации?"
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
@@ -339,45 +403,45 @@ msgstr "Мы работаем с традиционными участникам
 msgid "concat.careers"
 msgstr "Карьера"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderDesktop/index.tsx:48
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
 #: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/index.tsx:333
-#: components/pages/Pledge/index.tsx:387
+#: components/pages/Pledge/index.tsx:334
+#: components/pages/Pledge/index.tsx:389
 msgid "connectModal.continue"
-msgstr ""
+msgstr "или продолжить с"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:56
+#: components/pages/Pledge/HeaderDesktop/index.tsx:57
 #: components/pages/Pledge/HeaderMobile/index.tsx:55
 #: components/pages/Pledge/index.tsx:126
-#: components/pages/Pledge/index.tsx:342
-#: components/pages/Pledge/index.tsx:396
+#: components/pages/Pledge/index.tsx:343
+#: components/pages/Pledge/index.tsx:398
 msgid "connect_modal.connecting"
-msgstr ""
+msgstr "Подключение..."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:43
+#: components/pages/Pledge/HeaderDesktop/index.tsx:44
 #: components/pages/Pledge/HeaderMobile/index.tsx:42
 #: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/index.tsx:329
-#: components/pages/Pledge/index.tsx:382
+#: components/pages/Pledge/index.tsx:330
+#: components/pages/Pledge/index.tsx:384
 msgid "connect_modal.error_message"
-msgstr ""
+msgstr "У нас возникли проблемы с подключением. Пожалуйста, попробуйте еще раз."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:60
+#: components/pages/Pledge/HeaderDesktop/index.tsx:61
 #: components/pages/Pledge/HeaderMobile/index.tsx:59
 #: components/pages/Pledge/index.tsx:130
-#: components/pages/Pledge/index.tsx:346
-#: components/pages/Pledge/index.tsx:400
+#: components/pages/Pledge/index.tsx:347
+#: components/pages/Pledge/index.tsx:402
 msgid "connect_modal.error_title"
-msgstr ""
+msgstr "Ошибка подключения"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:52
+#: components/pages/Pledge/HeaderDesktop/index.tsx:53
 #: components/pages/Pledge/HeaderMobile/index.tsx:51
 #: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/index.tsx:338
-#: components/pages/Pledge/index.tsx:392
+#: components/pages/Pledge/index.tsx:339
+#: components/pages/Pledge/index.tsx:394
 msgid "connect_modal.sign_in"
-msgstr ""
+msgstr "Войти / Подключиться"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -946,75 +1010,75 @@ msgstr "Миссия KlimaDAO — демократизация борьбы с �
 #: components/pages/Pledge/PledgeForm/index.tsx:88
 #: components/pages/Pledge/PledgeForm/index.tsx:104
 msgid "pledge.errors.default"
-msgstr ""
+msgstr "Произошла ошибка"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:96
 msgid "pledge.errors.method_not_allowed"
-msgstr ""
+msgstr "Метод не доступен"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:80
 msgid "pledge.errors.pledge_not_found"
-msgstr ""
+msgstr "Залог по этому адресу не найден."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:92
 msgid "pledge.errors.unknown_error"
-msgstr ""
+msgstr "Произошла неизвестная ошибка."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:196
 msgid "pledge.form.error.cannot_add_yourself"
-msgstr ""
+msgstr "Вы не можете добавить свой собственный кошелек в качестве дополнительного кошелька"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledge.form.error.default_error_message"
-msgstr ""
+msgstr "Что-то пошло не так. Пожалуйста, попробуйте еще раз."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:180
 msgid "pledge.form.error.duplicate_wallets"
-msgstr ""
+msgstr "Пожалуйста, удалите дубликат(ы) кошелька(ов)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:625
 msgid "pledge.form.wallets.confirm_remove_wallet"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить {0} из своего залога?"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:334
 msgid "pledge.form.wallets.tooltip"
-msgstr ""
+msgstr "Добавьте другие кошельки для внесения обеспечения. Если владелец кошелька примет ваше приглашение, его кошелек появится на панели управления залогом. Любые списания, сделанные вторичным кошельком, пойдут в счет вашего залога. Вы сохраните единоличное право собственности и доступ к редактированию этого залога."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:41
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:111
 msgid "pledge.invitation.accept"
-msgstr ""
+msgstr "Принять приглашение"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:75
 msgid "pledge.invitation.error.wallet_already_pinned"
-msgstr ""
+msgstr "Этот кошелек уже привязан к другому залогу. Пожалуйста, открепите кошелек и повторите попытку."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:49
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:44
 msgid "pledge.invitation.error_title"
-msgstr ""
+msgstr "Ошибка сервера"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:102
 msgid "pledge.invitation.join_message"
-msgstr ""
+msgstr "{shortenedAddress} предлагает вам добавить свой кошелек к этому обязательству. Если вы согласитесь,  то ваши углеродные отчисления будут учитываться при выполнении обязательства  {shortenedAddress}. Вы можете удалить свой кошелек из этого залога в любое время."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:130
 msgid "pledge.invitation.later"
-msgstr ""
+msgstr "Напомни мне позже"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:118
 msgid "pledge.invitation.reject"
-msgstr ""
+msgstr "Отклонить приглашение"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:57
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:52
 msgid "pledge.invitation.signing"
-msgstr ""
+msgstr "Подписание"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:193
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:179
 msgid "pledge.invitations.awaiting_signature"
-msgstr ""
+msgstr "Ожидание подписи..."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:199
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:185
@@ -1023,31 +1087,31 @@ msgstr "Используйте свой кошелек, чтобы подпис�
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:129
 msgid "pledge.modal.are_you_sure"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить свой кошелек из этого залога?"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:153
 msgid "pledge.modal.confirm"
-msgstr ""
+msgstr "Подтвердить"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:40
 msgid "pledge.modal.confirm_remove"
-msgstr ""
+msgstr "подтвердить удаление"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:39
 msgid "pledge.modal.edit_pledge"
-msgstr ""
+msgstr "Изменить залог"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:101
 msgid "pledge.modal.unable_to_edit"
-msgstr ""
+msgstr "Этот кошелек не имеет права редактировать этот залог. Чтобы отредактировать, вы должны снова соединиться с кошельком автора ({0})."
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:110
 msgid "pledge.modal.unpin_wallet"
-msgstr ""
+msgstr "открепить мой кошелек"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:144
 msgid "pledge.modal.wallet_add_confirm"
-msgstr ""
+msgstr "У вас может быть только один залог на адрес кошелька. Если вы уже создали страницу залога с этим кошельком, посетители будут перенаправлены на этот залог. Вы можете удалить этот кошелек в любое время."
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
@@ -1137,7 +1201,7 @@ msgstr "Добавить категорию"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:443
 msgid "pledges.form.add_wallet_button"
-msgstr ""
+msgstr "Добавить кошелек"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:247
 msgid "pledges.form.awaiting_signature"
@@ -1145,17 +1209,17 @@ msgstr "Ожидание подписи..."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:166
 msgid "pledges.form.confirm_delete"
-msgstr ""
+msgstr "подтвердить удаление"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:631
 msgid "pledges.form.confirm_remove"
-msgstr ""
+msgstr "Удалить"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:644
 msgid "pledges.form.confirm_remove_cancel"
-msgstr ""
+msgstr "Отмена"
 
-#: components/pages/Pledge/index.tsx:188
+#: components/pages/Pledge/index.tsx:189
 msgid "pledges.form.error"
 msgstr "Введите адрес кошелька, домен .klima или .eth"
 
@@ -1209,15 +1273,15 @@ msgstr "Введите действительный URL"
 
 #: components/pages/Pledge/lib/formSchema.ts:86
 msgid "pledges.form.errors.walletAddress.isAddress"
-msgstr ""
+msgstr "Пожалуйста, введите правильный адрес"
 
 #: components/pages/Pledge/lib/formSchema.ts:90
 msgid "pledges.form.errors.walletAddress.isOwner"
-msgstr ""
+msgstr "Вы не можете добавить владельца залога"
 
 #: components/pages/Pledge/lib/formSchema.ts:82
 msgid "pledges.form.errors.walletAddress.required"
-msgstr ""
+msgstr "Требуется адрес"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:488
 msgid "pledges.form.footprint.label"
@@ -1273,7 +1337,7 @@ msgstr "Имя или название компании"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "URL - изображения профиля (необязательно)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:584
 msgid "pledges.form.input.totalFootprint.label"
@@ -1281,11 +1345,11 @@ msgstr "Общий след"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:374
 msgid "pledges.form.input.walletAddress.label"
-msgstr ""
+msgstr "Адрес"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:366
 msgid "pledges.form.input.walletAddress.placeholder"
-msgstr ""
+msgstr "0х..."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:604
 msgid "pledges.form.submit_button"
@@ -1293,7 +1357,7 @@ msgstr "Сохранить залог"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "pledges.form.title"
-msgstr ""
+msgstr "Ваш залог"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:57
 msgid "pledges.form.total_footprint_summary"
@@ -1307,7 +1371,7 @@ msgstr ""
 
 #: components/pages/Pledge/PledgeForm/index.tsx:326
 msgid "pledges.form.wallets.label"
-msgstr ""
+msgstr "Дополнительный(е) кошелек(и)"
 
 #: components/pages/Pledge/index.tsx:65
 msgid "pledges.head.metaDescription"
@@ -1323,26 +1387,26 @@ msgstr "KlimaDAO | Залоги"
 
 #: components/pages/Pledge/index.tsx:105
 #: components/pages/Pledge/index.tsx:135
-#: components/pages/Pledge/index.tsx:322
-#: components/pages/Pledge/index.tsx:351
-#: components/pages/Pledge/index.tsx:375
-#: components/pages/Pledge/index.tsx:405
+#: components/pages/Pledge/index.tsx:323
+#: components/pages/Pledge/index.tsx:352
+#: components/pages/Pledge/index.tsx:377
+#: components/pages/Pledge/index.tsx:407
 msgid "pledges.home.hero.create"
 msgstr "Создать обязательство"
 
-#: components/pages/Pledge/index.tsx:146
+#: components/pages/Pledge/index.tsx:147
 msgid "pledges.home.hero.learn_more"
 msgstr "Подробнее"
 
-#: components/pages/Pledge/index.tsx:182
+#: components/pages/Pledge/index.tsx:183
 msgid "pledges.home.search.label"
 msgstr "ENS или 0x адрес"
 
-#: components/pages/Pledge/index.tsx:176
+#: components/pages/Pledge/index.tsx:177
 msgid "pledges.home.search.placeholder"
 msgstr "Введите адрес ENS, KNS или 0x"
 
-#: components/pages/Pledge/index.tsx:202
+#: components/pages/Pledge/index.tsx:203
 msgid "pledges.home.search.submit"
 msgstr "Поиск"
 
@@ -1572,15 +1636,15 @@ msgstr "Коррекция выбросов в CO2-эквиваленте (ме�
 msgid "retirement.single.message.title"
 msgstr "Сообщение о использовании"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
 msgstr "Нажмите на название проекта, чтобы узнать больше."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:58
 msgid "retirement.single.project_details.moss_headline"
 msgstr "Узнайте больше о проектах, которые поддерживают пулы MCO2"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
 msgstr "Тонна(ы), использованные, была(и) получена(ы) из следующего(их) проекта(ов)."
 
@@ -1588,13 +1652,17 @@ msgstr "Тонна(ы), использованные, была(и) получе�
 msgid "retirement.single.project_details.title"
 msgstr "Детали проекта"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:39
 msgid "retirement.single.project_details.tonnes"
 msgstr "Тонны"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:46
+msgid "retirement.single.project_details.view_mco2_pool"
+msgstr "Просмотр активности пула MCO2"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:55
 msgid "retirement.single.project_details.view_on_polygon_scan"
-msgstr "Посмотреть на Polygonscan"
+msgstr "Посмотреть транзакцию на Polygonscan"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
@@ -1705,7 +1773,7 @@ msgstr "Купить Klima"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:118
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:147
 msgid "shared.cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: components/Navigation/index.tsx:361
 msgid "shared.carbon_dashboard"
@@ -1724,12 +1792,7 @@ msgstr "Сообщество"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:45
 msgid "shared.confirm"
-msgstr ""
-
-#: components/pages/Pledge/HeaderDesktop/index.tsx:65
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr "Соединить"
+msgstr "Подтвердить"
 
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
@@ -1771,13 +1834,13 @@ msgstr "Войдите в приложение"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:157
 msgid "shared.error"
-msgstr ""
+msgstr "Ошибка"
 
 #: components/pages/Infinity/GetStartedModal.tsx:26
 msgid "shared.get_started"
 msgstr "С чего начать"
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:35
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1828,6 +1891,11 @@ msgstr "Информация"
 msgid "shared.loading"
 msgstr "Загрузка..."
 
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+msgid "shared.login_connect"
+msgstr "Войти / Подключиться"
+
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
 msgstr "DEFI ДЛЯ ФИЗИЧЕСКИХ ЛИЦ"
@@ -1845,11 +1913,11 @@ msgstr "Офсет"
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:175
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:161
 msgid "shared.okay"
-msgstr ""
+msgstr "Хорошо"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:418
 msgid "shared.pending"
-msgstr ""
+msgstr "В ожидании"
 
 #: components/Navigation/index.tsx:175
 #: components/Navigation/index.tsx:327
@@ -1860,7 +1928,7 @@ msgstr ""
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:135
 msgid "shared.remove"
-msgstr ""
+msgstr "Удалить"
 
 #: components/Navigation/index.tsx:188
 #: components/Navigation/index.tsx:343

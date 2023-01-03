@@ -1,5 +1,6 @@
 import {
   Anchor as A,
+  CopyAddressButton,
   DiscordIcon,
   GithubIcon,
   LinkedInIcon,
@@ -61,7 +62,10 @@ const Address: FC<AddressProps> = (props) => {
       ) : (
         <Text t="caption" color="lightest">
           {props.address ? (
-            concatAddress(props.address)
+            <CopyAddressButton
+              label={concatAddress(props.address)}
+              address={props.address}
+            />
           ) : (
             <Trans id="menu.not_connected">NOT CONNECTED</Trans>
           )}

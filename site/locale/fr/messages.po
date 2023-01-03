@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2022-12-16 00:30+0000\n"
+"POT-Creation-Date: 2023-01-02 15:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,10 +10,6 @@ msgstr ""
 #: components/ChangeLanguageButton/index.tsx:48
 msgid "Change language"
 msgstr "Changer de langue"
-
-#: components/pages/Buy/index.tsx:275
-msgid "Enter App"
-msgstr "Visitez l'application"
 
 #: components/pages/Infinity/index.tsx:530
 msgid "Frequently Asked Questions"
@@ -40,167 +36,235 @@ msgstr "Les informations fournies dans cet article de blog concernant KlimaDAO (
 msgid "blog.disclaimer.title"
 msgstr "Avertissement légal"
 
-#: components/pages/Buy/index.tsx:132
-#: components/pages/Buy/index.tsx:253
-msgid "buy.advanced"
-msgstr "Avancé"
+#: components/pages/Buy/index.tsx:439
+msgid "buy.answer_exchange"
+msgstr "Les utilisateurs avancés peuvent utiliser le <0>Polygon Bridge</0> pour déplacer n'importe quel actif d'Ethereum vers Polygon, et/ou le <1>Polygon Gas Swap</1> pour échanger des actifs comme USDC contre MATIC."
 
-#: components/pages/Buy/index.tsx:87
-#: components/pages/Buy/index.tsx:173
-msgid "buy.beginner"
-msgstr "Débutant"
+#: components/pages/Buy/index.tsx:396
+msgid "buy.bond_answer_cedit_card"
+msgstr "Oui, certains fournisseurs \"on-ramp\" comme <0>Transak</0> vous permettent d'acheter des KLIMA directement avec une carte de crédit, moyennant des frais. Cependant, si votre portefeuille n'a pas de MATIC, vous ne pourrez pas effectuer de transfert ou d'autres actions. Pour cette raison, et pour garantir le meilleur taux du marché, nous vous recommandons d'acheter directement des MATIC et d'échanger vos MATIC contre des KLIMA sur Sushi.com."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:14
-msgid "buy.beginner_01.description_01"
-msgstr "<0>Metamask</0> est le portefeuille le plus populaire pour Ethereum et Polygon. Vous pouvez l'utiliser pour vous connecter à notre application et envoyer des transactions. Assurez-vous que l'extension est installée sur votre navigateur Web."
+#: components/pages/Buy/index.tsx:414
+msgid "buy.bond_answer_cex1"
+msgstr "KLIMA n'est pas négocié sur une bourse centralisée comme Coinbase, Binance ou Crypto.com, car ces bourses facturent généralement des frais de cotation très élevés et nécessitent le financement de teneurs de marché coûteux."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:10
-msgid "buy.beginner_01.title"
-msgstr "Installer Metamask"
+#: components/pages/Buy/index.tsx:422
+msgid "buy.bond_answer_cex2"
+msgstr "Au lieu de cela, les jetons KLIMA sont échangés sur un \"échange décentralisé\" (DEX) qui est alimenté par des contrats intelligents (smart contrats) et fonctionne directement sur la blockchain. Les DEX présentent des avantages majeurs. Les DEX ont permis à la DAO de détenir la majorité des liquidités, ce qui lui permet de conserver une autonomie totale et de générer des revenus pour rémunérer les contributeurs. Nous avons choisi d'utiliser la technologie DEX de Sushi car elle facilite déjà des dizaines de millions de dollars de transactions par jour."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:29
-msgid "buy.beginner_02.description_01"
-msgstr "Une fois l'extension de navigateur Metamask installée et votre nouveau portefeuille configuré, rendez-vous sur <0>app.klimadao.finance/#/buy</0> et cliquez sur \"Connection\"."
+#: components/pages/Buy/index.tsx:377
+msgid "buy.bond_description1"
+msgstr "Les utilisateurs de crypto expérimentés peuvent acheter des KLIMA directement à partir du protocole via des obligations. Pour acquérir des KLIMA par le biais d'obligations, vous fournissez un jeton carbone ou un jeton de liquidité et obtenez en retour des jetons KLIMA à prix réduit. C'est le mécanisme que la DAO utilise pour accroître sa réserve de carbone numérique."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:37
-msgid "buy.beginner_02.description_02"
-msgstr "Une fois connecté, l'application KlimaDAO vous invitera à basculer vers le réseau Polygon. Metamask vous demandera par ailleurs de confirmer cette action."
+#: components/pages/Buy/index.tsx:386
+msgid "buy.bond_description_capacity"
+msgstr "La capacité de financement est limitée et les obligations ne sont pas toujours disponibles."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:25
-msgid "buy.beginner_02.title"
-msgstr "Se connecter à notre application"
+#: components/pages/Buy/index.tsx:407
+msgid "buy.bond_question_cex"
+msgstr "Pourquoi ne puis-je pas trouver KLIMA sur Coinbase ou d'autres échanges centralisés ? Pourquoi dois-je utiliser <0>Sushi.com</0> ?"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:51
-msgid "buy.beginner_03.description_01"
-msgstr "Une fois connecté, vous devrez suivre les étapes présentées par notre application pour finaliser votre achat."
+#: components/pages/Buy/index.tsx:391
+msgid "buy.bond_question_credit_card"
+msgstr "Puis-je acheter des KLIMA directement avec une carte de crédit ?"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:57
-msgid "buy.beginner_03.description_2"
-msgstr "Vous devrez fournir un e-mail, un mode de paiement et vérifier votre identité. Le DAO ne reçoit ni ne stocke aucune information personnelle de quelque nature que ce soit. Ces informations ne sont utilisées par nos partenaires, fournisseurs de solutions de paiement, qu'à des fins de conformité légale."
+#: components/pages/Buy/index.tsx:196
+msgid "buy.connect_advanced"
+msgstr "Remarque : ces instructions sont destinées aux utilisateurs de portefeuilles Torus uniquement. Sushi supporte une variété de portefeuilles différents."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:47
-msgid "buy.beginner_03.title"
-msgstr "Acheter KLIMA"
+#: components/pages/Buy/index.tsx:191
+msgid "buy.connect_torus_sushi"
+msgstr "3A. Connecter Torus à Sushi.com en utilisant WalletConnect"
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:72
-msgid "buy.beginner_04.description_01"
-msgstr "Afin d'utiliser KLIMA pour mettre en jeu, échanger ou compenser des émissions carbone, vous devrez exécuter des transactions sur le réseau Polygon. Chaque transaction nécessite des frais de réseau payés en MATIC."
+#: components/pages/Buy/index.tsx:218
+msgid "buy.connect_torus_sushi_description2"
+msgstr "Dans un autre onglet du navigateur, visitez <0>Sushi.com</0> et cliquez sur \"Connecter\" dans le coin supérieur droit. Quelques options de portefeuille vous seront présentées. Choisissez WalletConnect. Après avoir choisi WalletConnect, vous verrez un code QR - cliquez sur \"Copier dans le presse-papiers\"."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:79
-msgid "buy.beginner_04.description_02"
-msgstr "1 MATIC devrait suffire à la plupart des utilisateurs. Vous pouvez utiliser l'outil <0>Gas Swap</0> de l'application Polygon officielle. Cet outil vous permet d'acquérir gratuitement une variété d'actifs en échange de jetons MATIC."
+#: components/pages/Buy/index.tsx:235
+msgid "buy.connect_torus_sushi_description3"
+msgstr "Retournez à l'application du portefeuille Torus et collez ce code dans le widget WalletConnect. Cela créera une connexion temporaire entre votre portefeuille et <0>Sushi.com</0>."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:68
-msgid "buy.beginner_04.title"
-msgstr "Acheter MATIC (pour les nouveaux utilisateurs)"
+#: components/pages/Buy/index.tsx:243
+msgid "buy.connect_torus_sushi_description4"
+msgstr "Lorsque vous revenez à l'onglet Sushi de votre navigateur, vous devriez voir que votre adresse Torus est maintenant visible dans le coin supérieur droit."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:97
-msgid "buy.beginner_05.description_01"
-msgstr "Maintenant que vous possédez des jetons KLIMA et MATIC dans votre portefeuille, vous devriez les <0>mettre en jeu</0> contre des sKLIMA pour commencer à accumuler des récompenses. Vous pouvez également les utiliser pour compenser des émissions carbone. De plus, en tant que possesseur de jeton KLIMA et sKLIMA, vous pouvez participer à la gouvernance de la DAO ! Gardez un œil sur les propositions sur notre <1>forum</1> ."
+#: components/pages/Buy/index.tsx:249
+msgid "buy.connect_torus_sushi_description5"
+msgstr "Enfin, utilisez le menu déroulant sur <0>Sushi.com</0> pour passer au réseau Polygon."
 
-#: components/pages/Buy/CreditCardTimeline/index.tsx:93
-msgid "buy.beginner_05.title"
-msgstr "Mettre en jeu, Compenser, Gouverner!"
+#: components/pages/Buy/index.tsx:78
+msgid "buy.create_wallet_description"
+msgstr "<0>Créer un portefeuille.</0> Nous recommandons Torus Wallet, mais notre application supporte la plupart des portefeuilles Web3 (Metamask, Coinbase Wallet, Brave, MyEtherWallet, et bien d'autres)."
 
-#: components/pages/Buy/index.tsx:129
-#: components/pages/Buy/index.tsx:256
-msgid "buy.bonding"
-msgstr "Achat d'obligation"
+#: components/pages/Buy/index.tsx:120
+msgid "buy.create_wallet_description1"
+msgstr "Rendez-vous sur <0>app.klimadao.finance</0> et cliquez sur \"Connecter\" dans le coin supérieur droit."
 
-#: components/pages/Buy/index.tsx:259
-msgid "buy.bonding.description_01"
-msgstr "Le processus d'achat d'obligation consiste en un dépôt d'actifs carbone en échange de KLIMA à prix réduit. C'est l'un des leviers permettant d'injecter des crédits carbone dans la trésorerie Klima afin d'impacter positivement celui-ci. Ce processus permet également d'augmenter le collatéral pour chaque nouveau jeton KLIMA."
+#: components/pages/Buy/index.tsx:126
+msgid "buy.create_wallet_description2"
+msgstr "Choisissez l'option de connexion \"Email ou social\", qui vous conduira à vous connecter avec Torus. Torus est une technologie qui génère un porte-monnaie sécurisé en utilisant votre email ou votre identifiant social existant. Vous pourrez utiliser ce nouveau porte-monnaie Torus dans des centaines d'autres applications Web3 et DeFi."
 
-#: components/pages/Buy/index.tsx:267
-msgid "buy.bonding.description_02"
-msgstr "La remise fluctue en fonction des conditions du marché. La trésorerie accepte le carbone sous forme de jetons carbone (tels que UBO, BCT ou MCO2) ou de jetons de réservoirs de liquidité (LP) (tels que KLIMA/BCT, KLIMA/MCO2)."
+#: components/pages/Buy/index.tsx:135
+msgid "buy.create_wallet_description3"
+msgstr "Lorsque vous êtes connecté, vous devriez voir l'adresse de votre nouveau portefeuille dans le coin supérieur gauche de l'application."
 
-#: components/pages/Buy/index.tsx:84
-#: components/pages/Buy/index.tsx:176
-msgid "buy.credit_card"
-msgstr "Carte de crédit"
+#: components/pages/Buy/index.tsx:141
+msgid "buy.create_wallet_description4"
+msgstr "Avancé : si vous ne voulez pas utiliser Torus, n'hésitez pas à utiliser n'importe quel porte-monnaie Web3 compatible avec Polygon."
 
-#: components/pages/Buy/index.tsx:179
-msgid "buy.credit_card.summary"
-msgstr "Vous pouvez désormais utiliser votre carte de crédit pour acheter des jetons KLIMA directement dans votre portefeuille ! Nos partenaires de paiement prennent en charge les principales devises."
+#: components/pages/Buy/index.tsx:117
+msgid "buy.create_wallet_item"
+msgstr "1. Créer un portefeuille"
 
-#: components/pages/Buy/index.tsx:105
-msgid "buy.decentralized_exchange"
-msgstr "Échange décentralisé"
+#: components/pages/Buy/index.tsx:325
+msgid "buy.faq_title"
+msgstr "FAQ"
 
-#: components/pages/Buy/index.tsx:208
-msgid "buy.dex"
-msgstr "Échanges décentralisés (DEXs)"
-
-#: components/pages/Buy/index.tsx:240
-msgid "buy.dex.how_zapper"
-msgstr "Comment acheter KLIMA sur Zapper ?"
-
-#: components/pages/Buy/index.tsx:212
-msgid "buy.dex.summary_01"
-msgstr "Si vous avez déjà un portefeuille Polygon contenant des jetons MATIC, vous pouvez utiliser une plateforme d'échange décentralisée pour les échanger contre des jetons KLIMA. Ceci vous permet d'éviter le paiement des frais supplémentaires et de les obtenir au prix de marché."
-
-#: components/pages/Buy/index.tsx:219
-msgid "buy.dex.summary_02"
-msgstr "Les jetons KLIMA peuvent être échangés sur <0>Sushi Swap</0> , mais nous vous recommandons d'utiliser un agrégateur DEX appelé Zapper. Connectez simplement votre portefeuille à Zapper, et il acheminera votre échange via le meilleur DEX disponible."
-
-#: components/pages/Buy/index.tsx:143
-msgid "buy.disclaimer"
-msgstr "Conseils de sécurité et clauses de non-responsabilité importantes"
-
-#: components/pages/Buy/index.tsx:148
-msgid "buy.disclaimer_01"
-msgstr "Ne partagez jamais et avec personne votre clé privée ou votre phrase mnémotechnique. Nous vous recommandons de consulter notre page <0>Crypto Security 101</0> pour vous instruire au sujet des problématiques de sécurité avant de continuer."
-
-#: components/pages/Buy/index.tsx:158
-msgid "buy.disclaimer_02"
-msgstr "Les transactions sur la blockchain sont permanentes et irréversibles. Notre équipe n'est pas en mesure de récupérer des actifs perdus ou volés. KlimaDAO n'assume aucune responsabilité, obligation et n'offre aucune garantie. Tous les marchés et services d'échange fonctionnent de manière indépendante et sont sujets à une forte volatilité."
-
-#: components/pages/Buy/index.tsx:45
-#: components/pages/Buy/index.tsx:46
+#: components/pages/Buy/index.tsx:33
+#: components/pages/Buy/index.tsx:34
 msgid "buy.head.title"
 msgstr "Comment acheter des jetons KLIMA"
 
-#: components/pages/Buy/index.tsx:110
-#: components/pages/Buy/index.tsx:205
-msgid "buy.intermediate"
-msgstr "Intermédiaire"
-
-#: components/pages/Buy/index.tsx:62
-msgid "buy.subtitle"
-msgstr "Vous pouvez obtenir des jetons KLIMA de trois façons : en utilisant une carte de crédit, à partir de plateformes d'échange décentralisées (DEX) ou en achetant des obligations carbone."
-
-#: components/pages/Buy/index.tsx:59
-msgid "buy.title"
+#: components/pages/Buy/index.tsx:47
+msgid "buy.how_to_buy"
 msgstr "Comment acheter des jetons KLIMA"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:13
-msgid "buy.zapper_01.description_01"
-msgstr "Assurez-vous d'avoir un portefeuille tel que Metamask contenant des jetons MATIC installé, et connecté au réseau Polygon."
+#: components/pages/Buy/index.tsx:50
+msgid "buy.how_to_paragraph_part_1"
+msgstr "Le KLIMA est un actif numérique adossé au carbone et peut être misé pour obtenir des récompenses ou être utilisé pour compenser des émissions de carbone numérique. La détention d'un KLIMA vous donne également le droit de voter et de participer à la gouvernance du marché du carbone numérique."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:19
-msgid "buy.zapper_01.description_02"
-msgstr "Vous pouvez abonder votre portefeuille Polygon directement via des services tels que <0>Transak</0> ou notre partenaire <1>Mobilum</1>. Vous pouvez également le faire via des actifs sur Ethereum que vous transférerez sur le réseau Polygon via un <2>pont</2>."
+#: components/pages/Buy/index.tsx:57
+msgid "buy.how_to_paragraph_part_2"
+msgstr "Voici un court tutoriel pour les débutants qui ne connaissent pas le Web3 et la DeFi."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:9
-msgid "buy.zapper_01.title"
-msgstr "Ouvrez votre portefeuille Polygon"
+#: components/pages/Buy/index.tsx:149
+msgid "buy.load_wallet"
+msgstr "2. Charger votre portefeuille avec des jetons MATIC"
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:36
-msgid "buy.zapper_02.description_02"
-msgstr "Rendez-vous sur <0>zapper.fi</0> et cliquez sur Connecter."
+#: components/pages/Buy/index.tsx:91
+msgid "buy.load_wallet_description"
+msgstr "<0>Chargez votre nouveau portefeuille avec des jetons MATIC.</0> MATIC est le gaz qui permet au réseau Polygon de fonctionner. Chaque transaction que vous exécutez sur Polygon nécessitera quelques centimes de MATIC pour payer les frais de réseau."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:32
-msgid "buy.zapper_02.title"
-msgstr "Se connecter à Zapper.fi"
+#: components/pages/Buy/index.tsx:154
+msgid "buy.load_wallet_description1"
+msgstr "Utilisez un service comme <0>MoonPay</0> ou <1>Transak</1> ou un échange centralisé comme <2>Coinbase</2> pour acheter des jetons MATIC de Polygon et l'envoyer dans votre portefeuille nouvellement créé."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:49
-msgid "buy.zapper_03.description_01"
-msgstr "Utilisez l'interface \"Swap\" dans Zapper pour paramétrer votre transaction. En cas de problème, consultez les ressources et les didacticiels rédigés par l'équipe Zapper."
+#: components/pages/Buy/index.tsx:164
+msgid "buy.load_wallet_description2"
+msgstr "<0>Assurez-vous que les jetons MATIC sont bien envoyés à votre nouvelle adresse de portefeuille !</0> Vous pouvez copier l'adresse dans votre presse-papiers en vous connectant à notre app et en cliquant sur l'adresse dans le menu de navigation."
 
-#: components/pages/Buy/ZapperTimeline/index.tsx:45
-msgid "buy.zapper_03.title"
-msgstr "ÉCHANGER"
+#: components/pages/Buy/index.tsx:174
+msgid "buy.load_wallet_description3"
+msgstr "<0>Assurez-vous d'acheter et d'envoyer des MATIC par le réseau Polygon !</0> Certains échanges comme Coinbase vous demanderont sur quel réseau envoyer les jetons MATIC. Vérifiez que vous choisissez toujours Polygon."
+
+#: components/pages/Buy/index.tsx:433
+msgid "buy.question_exchange"
+msgstr "Que se passe-t-il si je veux utiliser un autre échange, mais qu'il ne vend pas de jetons MATIC de Polygon ?"
+
+#: components/pages/Buy/index.tsx:328
+msgid "buy.question_why_matic"
+msgstr "Pourquoi dois-je d'abord acheter des jetons MATIC ?"
+
+#: components/pages/Buy/index.tsx:333
+msgid "buy.question_why_matic_answer"
+msgstr "Le jeton et le protocole KLIMA vivent sur la blockchain Polygon. Le MATIC est le \"gaz\" qui fait fonctionner chaque transaction sur Polygon. Il n'est pas possible d'exécuter une transaction sans payer les frais de transaction. Cela signifie que vous devrez payer quelques centimes de MATIC pour les actions suivantes :"
+
+#: components/pages/Buy/index.tsx:344
+msgid "buy.question_why_matic_answer_bullet1"
+msgstr "Mettre en jeu des KLIMA pour des sKLIMA"
+
+#: components/pages/Buy/index.tsx:351
+msgid "buy.question_why_matic_answer_bullet2"
+msgstr "Échange entre différents jetons"
+
+#: components/pages/Buy/index.tsx:358
+msgid "buy.question_why_matic_answer_bullet3"
+msgstr "Envoi de jetons vers un autre portefeuille"
+
+#: components/pages/Buy/index.tsx:365
+msgid "buy.question_why_matic_answer_bullet4"
+msgstr "Utilisation de jetons KLIMA ou autres pour compenser les émissions carbone"
+
+#: components/pages/Buy/index.tsx:298
+msgid "buy.staking_cta"
+msgstr "Misez, récoltez, votez et compensez !"
+
+#: components/pages/Buy/index.tsx:301
+msgid "buy.staking_description1"
+msgstr "Félicitations ! Maintenant que vous avez un peu de KLIMA dans votre portefeuille, nous vous recommandons vivement de <0>mettre en jeu</0> ce KLIMA pour sKLIMA, qui accumule des récompenses au fil du temps à mesure que le protocole se développe."
+
+#: components/pages/Buy/index.tsx:309
+msgid "buy.staking_description2"
+msgstr "Vous pouvez également utiliser l'application pour dépenser des KLIMA et <0> compenser des émissions de carbone numérique</0> sur la blockchain."
+
+#: components/pages/Buy/index.tsx:316
+msgid "buy.staking_description3"
+msgstr "Enfin, gardez un œil sur les <0>votes en cours</0> et contribuez à faire évoluer le protocole dans la bonne direction."
+
+#: components/pages/Buy/index.tsx:75
+msgid "buy.step_1"
+msgstr "1."
+
+#: components/pages/Buy/index.tsx:88
+msgid "buy.step_2"
+msgstr "2."
+
+#: components/pages/Buy/index.tsx:103
+msgid "buy.step_3"
+msgstr "3."
+
+#: components/pages/Buy/index.tsx:68
+msgid "buy.summary_steps_title"
+msgstr "Le moyen le plus simple et le plus efficace d'obtenir KLIMA est de suivre ces trois étapes :"
+
+#: components/pages/Buy/index.tsx:65
+msgid "buy.summary_title"
+msgstr "Sommaire"
+
+#: components/pages/Buy/index.tsx:259
+msgid "buy.swap_description1"
+msgstr "Après avoir connecté votre portefeuille et être passé sur le réseau du Polygon, vous devriez maintenant être en mesure d'échanger des MATIC contre des KLIMA."
+
+#: components/pages/Buy/index.tsx:265
+msgid "buy.swap_description2"
+msgstr "<0>Note importante : n'échangez pas tous vos MATIC contre des KLIMA !</0> Gardez au moins 0,5 MATIC pour payer les frais de transaction futurs."
+
+#: components/pages/Buy/index.tsx:281
+msgid "buy.swap_description3"
+msgstr "Si vous utilisez Torus, gardez l'onglet du navigateur avec l'application Torus ouvert. Vous devrez revenir à votre portefeuille pour approuver et autoriser les transactions."
+
+#: components/pages/Buy/index.tsx:288
+msgid "buy.swap_description4"
+msgstr "Facultatif : Si vous souhaitez que vos transactions de Sushi soient positives pour le climat, vous devriez activer le \"Green Fee\" de Sushi, développé par KlimaDAO. Vous dépenserez ainsi 0,02 MATIC par transaction pour acheter et compenser automatiquement avec du carbone numérique !"
+
+#: components/pages/Buy/index.tsx:106
+msgid "buy.swap_for_klima_description"
+msgstr "<0>Échanger contre des KLIMA.</0> Sushi est un échange décentralisé où vous pouvez échanger instantanément certains de vos jetons MATIC contre des jetons KLIMA au prix le plus bas possible."
+
+#: components/pages/Buy/index.tsx:256
+msgid "buy.swap_subtitle"
+msgstr "3B. Echanger des MATIC contre des KLIMA"
+
+#: components/pages/Buy/index.tsx:185
+msgid "buy.swap_wallet"
+msgstr "3. Échangez sur <0>Sushi.com</0> contre des KLIMA"
+
+#: components/pages/Buy/index.tsx:202
+msgid "buy.torus_login_description"
+msgstr "Dans un nouvel onglet du navigateur, allez sur la <0>Torus Polygon webapp</0> et connectez-vous avec votre nouveau compte Torus. Lorsque vous vous connectez, vous devriez voir un widget WalletConnect."
+
+#: components/pages/Buy/index.tsx:211
+msgid "buy.wallet_connect_example"
+msgstr "exemple d'entrée wallet connect"
+
+#: components/pages/Buy/index.tsx:228
+#: components/pages/Buy/index.tsx:274
+msgid "buy.wallet_connect_example_qr_code"
+msgstr "exemple de QR code wallet connect"
+
+#: components/pages/Buy/index.tsx:372
+msgid "buy.what_are_bonds"
+msgstr "Y a-t-il d'autres moyens d'obtenir KLIMA ? Que sont les obligations ?"
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
@@ -341,45 +405,45 @@ msgstr "Nous travaillons avec des acteurs traditionnels du marché du carbone, d
 msgid "concat.careers"
 msgstr "Carrières"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:47
+#: components/pages/Pledge/HeaderDesktop/index.tsx:48
 #: components/pages/Pledge/HeaderMobile/index.tsx:46
 #: components/pages/Pledge/index.tsx:117
-#: components/pages/Pledge/index.tsx:333
-#: components/pages/Pledge/index.tsx:387
+#: components/pages/Pledge/index.tsx:334
+#: components/pages/Pledge/index.tsx:389
 msgid "connectModal.continue"
-msgstr ""
+msgstr "ou continuer avec"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:56
+#: components/pages/Pledge/HeaderDesktop/index.tsx:57
 #: components/pages/Pledge/HeaderMobile/index.tsx:55
 #: components/pages/Pledge/index.tsx:126
-#: components/pages/Pledge/index.tsx:342
-#: components/pages/Pledge/index.tsx:396
+#: components/pages/Pledge/index.tsx:343
+#: components/pages/Pledge/index.tsx:398
 msgid "connect_modal.connecting"
-msgstr ""
+msgstr "Connexion en cours..."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:43
+#: components/pages/Pledge/HeaderDesktop/index.tsx:44
 #: components/pages/Pledge/HeaderMobile/index.tsx:42
 #: components/pages/Pledge/index.tsx:112
-#: components/pages/Pledge/index.tsx:329
-#: components/pages/Pledge/index.tsx:382
+#: components/pages/Pledge/index.tsx:330
+#: components/pages/Pledge/index.tsx:384
 msgid "connect_modal.error_message"
-msgstr ""
+msgstr "Nous avons eu des problèmes de connexion. Veuillez réessayer."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:60
+#: components/pages/Pledge/HeaderDesktop/index.tsx:61
 #: components/pages/Pledge/HeaderMobile/index.tsx:59
 #: components/pages/Pledge/index.tsx:130
-#: components/pages/Pledge/index.tsx:346
-#: components/pages/Pledge/index.tsx:400
+#: components/pages/Pledge/index.tsx:347
+#: components/pages/Pledge/index.tsx:402
 msgid "connect_modal.error_title"
-msgstr ""
+msgstr "Erreur de connexion"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:52
+#: components/pages/Pledge/HeaderDesktop/index.tsx:53
 #: components/pages/Pledge/HeaderMobile/index.tsx:51
 #: components/pages/Pledge/index.tsx:122
-#: components/pages/Pledge/index.tsx:338
-#: components/pages/Pledge/index.tsx:392
+#: components/pages/Pledge/index.tsx:339
+#: components/pages/Pledge/index.tsx:394
 msgid "connect_modal.sign_in"
-msgstr ""
+msgstr "S'identifier / Se connecter"
 
 #: components/pages/About/Contact/index.tsx:140
 msgid "contact.bug_reports"
@@ -943,75 +1007,75 @@ msgstr "La mission de KlimaDAO est de démocratiser l'action climatique."
 #: components/pages/Pledge/PledgeForm/index.tsx:88
 #: components/pages/Pledge/PledgeForm/index.tsx:104
 msgid "pledge.errors.default"
-msgstr ""
+msgstr "Une erreur est survenue"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:96
 msgid "pledge.errors.method_not_allowed"
-msgstr ""
+msgstr "Méthode non autorisée."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:80
 msgid "pledge.errors.pledge_not_found"
-msgstr ""
+msgstr "Aucun engagement n'a été trouvé pour cette adresse."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:92
 msgid "pledge.errors.unknown_error"
-msgstr ""
+msgstr "Une erreur inconnue est survenue."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:196
 msgid "pledge.form.error.cannot_add_yourself"
-msgstr ""
+msgstr "Vous ne pouvez pas ajouter votre propre portefeuille comme portefeuille secondaire."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:232
 msgid "pledge.form.error.default_error_message"
-msgstr ""
+msgstr "Un problème est survenu. Veuillez réessayer sous peu."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:180
 msgid "pledge.form.error.duplicate_wallets"
-msgstr ""
+msgstr "Veuillez supprimer le(s) portefeuille(s) en double"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:625
 msgid "pledge.form.wallets.confirm_remove_wallet"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer {0} de votre engagement ?"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:334
 msgid "pledge.form.wallets.tooltip"
-msgstr ""
+msgstr "Ajoutez d'autres portefeuilles pour contribuer à votre engagement. Si le propriétaire du portefeuille accepte votre invitation, son portefeuille apparaîtra sur le tableau de bord de votre engagement. Tous les retraits effectués par un portefeuille secondaire contribueront à votre engagement. Vous resterez le seul propriétaire et le seul éditeur de cet engagement."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:41
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:111
 msgid "pledge.invitation.accept"
-msgstr ""
+msgstr "Accepter l'invitation"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:75
 msgid "pledge.invitation.error.wallet_already_pinned"
-msgstr ""
+msgstr "Ce portefeuille est déjà associé à un autre engagement. Veuillez désépingler votre portefeuille et réessayer."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:49
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:44
 msgid "pledge.invitation.error_title"
-msgstr ""
+msgstr "Erreur du serveur"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:102
 msgid "pledge.invitation.join_message"
-msgstr ""
+msgstr "{shortenedAddress} vous a invité à ajouter votre portefeuille à cet engagement. Si vous acceptez, vos retraits de carbone seront comptabilisés dans l'engagement de {shortenedAddress}. Vous pouvez retirer votre porte-monnaie de cet engagement à tout moment."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:130
 msgid "pledge.invitation.later"
-msgstr ""
+msgstr "Rappelez-moi plus tard"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:118
 msgid "pledge.invitation.reject"
-msgstr ""
+msgstr "Rejeter l'invitation"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:57
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:52
 msgid "pledge.invitation.signing"
-msgstr ""
+msgstr "Signature en cours"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:193
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:179
 msgid "pledge.invitations.awaiting_signature"
-msgstr ""
+msgstr "En attente de signature..."
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:199
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:185
@@ -1020,31 +1084,31 @@ msgstr "Utilisez votre portefeuille pour signer et confirmer cette modification.
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:129
 msgid "pledge.modal.are_you_sure"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir retirer votre portefeuille de cette engagement ?"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:153
 msgid "pledge.modal.confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:40
 msgid "pledge.modal.confirm_remove"
-msgstr ""
+msgstr "Confirmer la compensation"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:39
 msgid "pledge.modal.edit_pledge"
-msgstr ""
+msgstr "Modifier l'engagement"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:101
 msgid "pledge.modal.unable_to_edit"
-msgstr ""
+msgstr "Ce portefeuille n'a pas la permission de modifier cet engagement. Pour le modifier, vous devez vous reconnecter avec le portefeuille de l'auteur original ({0})."
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:110
 msgid "pledge.modal.unpin_wallet"
-msgstr ""
+msgstr "désépingler mon portefeuille"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:144
 msgid "pledge.modal.wallet_add_confirm"
-msgstr ""
+msgstr "Vous ne pouvez avoir qu'une seule page d'engagement par adresse de portefeuille. Si vous avez déjà créé une page d'engagement avec ce portefeuille, les visiteurs seront redirigés vers cet engagement. Vous pouvez supprimer ce portefeuille à tout moment."
 
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/index.tsx:110
 msgid "pledges.dashboard.assets.emptyBalance"
@@ -1132,7 +1196,7 @@ msgstr "Ajouter une catégorie"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:443
 msgid "pledges.form.add_wallet_button"
-msgstr ""
+msgstr "Ajouter un portefeuille"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:247
 msgid "pledges.form.awaiting_signature"
@@ -1140,17 +1204,17 @@ msgstr "En attente de signature..."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:166
 msgid "pledges.form.confirm_delete"
-msgstr ""
+msgstr "Confirmer la compensation"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:631
 msgid "pledges.form.confirm_remove"
-msgstr ""
+msgstr "supprimer"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:644
 msgid "pledges.form.confirm_remove_cancel"
-msgstr ""
+msgstr "annuler"
 
-#: components/pages/Pledge/index.tsx:188
+#: components/pages/Pledge/index.tsx:189
 msgid "pledges.form.error"
 msgstr "Entrez une adresse de portefeuille, un domaine .klima ou .eth"
 
@@ -1204,15 +1268,15 @@ msgstr "Saisir une URL valide"
 
 #: components/pages/Pledge/lib/formSchema.ts:86
 msgid "pledges.form.errors.walletAddress.isAddress"
-msgstr ""
+msgstr "Veuillez saisir une adresse valide"
 
 #: components/pages/Pledge/lib/formSchema.ts:90
 msgid "pledges.form.errors.walletAddress.isOwner"
-msgstr ""
+msgstr "Vous ne pouvez pas ajouter le propriétaire de l'engagement"
 
 #: components/pages/Pledge/lib/formSchema.ts:82
 msgid "pledges.form.errors.walletAddress.required"
-msgstr ""
+msgstr "Adresse requise"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:488
 msgid "pledges.form.footprint.label"
@@ -1268,7 +1332,7 @@ msgstr "Nom ou nom de l'entreprise"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:291
 msgid "pledges.form.input.profileImageUrl.label"
-msgstr ""
+msgstr "URL de l'image de profil (facultatif)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:584
 msgid "pledges.form.input.totalFootprint.label"
@@ -1276,11 +1340,11 @@ msgstr "Empreinte totale"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:374
 msgid "pledges.form.input.walletAddress.label"
-msgstr ""
+msgstr "Adresse"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:366
 msgid "pledges.form.input.walletAddress.placeholder"
-msgstr ""
+msgstr "0x..."
 
 #: components/pages/Pledge/PledgeForm/index.tsx:604
 msgid "pledges.form.submit_button"
@@ -1288,7 +1352,7 @@ msgstr "Sauvegarder l'engagement"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:162
 msgid "pledges.form.title"
-msgstr ""
+msgstr "Votre engagement"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:57
 msgid "pledges.form.total_footprint_summary"
@@ -1300,7 +1364,7 @@ msgstr "Utilisez votre portefeuille pour signer et confirmer cette modification.
 
 #: components/pages/Pledge/PledgeForm/index.tsx:326
 msgid "pledges.form.wallets.label"
-msgstr ""
+msgstr "Portefeuille(s) secondaire(s)"
 
 #: components/pages/Pledge/index.tsx:65
 msgid "pledges.head.metaDescription"
@@ -1316,26 +1380,26 @@ msgstr "KlimaDAO | Engagements"
 
 #: components/pages/Pledge/index.tsx:105
 #: components/pages/Pledge/index.tsx:135
-#: components/pages/Pledge/index.tsx:322
-#: components/pages/Pledge/index.tsx:351
-#: components/pages/Pledge/index.tsx:375
-#: components/pages/Pledge/index.tsx:405
+#: components/pages/Pledge/index.tsx:323
+#: components/pages/Pledge/index.tsx:352
+#: components/pages/Pledge/index.tsx:377
+#: components/pages/Pledge/index.tsx:407
 msgid "pledges.home.hero.create"
 msgstr "Créer un engagement"
 
-#: components/pages/Pledge/index.tsx:146
+#: components/pages/Pledge/index.tsx:147
 msgid "pledges.home.hero.learn_more"
 msgstr "En savoir plus"
 
-#: components/pages/Pledge/index.tsx:182
+#: components/pages/Pledge/index.tsx:183
 msgid "pledges.home.search.label"
 msgstr "Adresse ENS ou 0x"
 
-#: components/pages/Pledge/index.tsx:176
+#: components/pages/Pledge/index.tsx:177
 msgid "pledges.home.search.placeholder"
 msgstr "Entrez une adresse ENS, KNS ou 0x"
 
-#: components/pages/Pledge/index.tsx:202
+#: components/pages/Pledge/index.tsx:203
 msgid "pledges.home.search.submit"
 msgstr "Recherche"
 
@@ -1563,15 +1627,15 @@ msgstr "Compensation d'émissions en équivalent CO2 (en tonnes)"
 msgid "retirement.single.message.title"
 msgstr "Message de compensation"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:37
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
 msgstr "Cliquez sur le titre du projet pour en savoir plus."
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:56
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:58
 msgid "retirement.single.project_details.moss_headline"
 msgstr "En savoir plus sur les projets qui soutiennent les réservoirs de MCO2"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:31
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:32
 msgid "retirement.single.project_details.subline"
 msgstr "La ou les tonne(s) compensée(s) provenaient du ou des projet(s) suivant(s)."
 
@@ -1579,13 +1643,17 @@ msgstr "La ou les tonne(s) compensée(s) provenaient du ou des projet(s) suivant
 msgid "retirement.single.project_details.title"
 msgstr "Détails du projet"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:42
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:39
 msgid "retirement.single.project_details.tonnes"
 msgstr "Tonnes"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:47
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:46
+msgid "retirement.single.project_details.view_mco2_pool"
+msgstr "Voir l'activité du pool MCO2"
+
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:55
 msgid "retirement.single.project_details.view_on_polygon_scan"
-msgstr "Voir sur Polygonscan"
+msgstr "Voir la transaction sur Polygonscan"
 
 #: components/pages/Retirements/SingleRetirement/RetirementValue/index.tsx:18
 msgid "retirement.single.quantity"
@@ -1698,7 +1766,7 @@ msgstr "Acheter des Klima"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:118
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:147
 msgid "shared.cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: components/Navigation/index.tsx:361
 msgid "shared.carbon_dashboard"
@@ -1717,12 +1785,7 @@ msgstr "Communauté"
 
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:45
 msgid "shared.confirm"
-msgstr ""
-
-#: components/pages/Pledge/HeaderDesktop/index.tsx:65
-#: components/pages/Pledge/HeaderMobile/index.tsx:64
-msgid "shared.connect"
-msgstr "Connexion"
+msgstr "Confirmer"
 
 #: components/Footer/index.tsx:52
 #: components/Navigation/index.tsx:244
@@ -1764,13 +1827,13 @@ msgstr "Visitez l'application"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:157
 msgid "shared.error"
-msgstr ""
+msgstr "Erreur"
 
 #: components/pages/Infinity/GetStartedModal.tsx:26
 msgid "shared.get_started"
 msgstr "Commencer"
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:35
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1819,6 +1882,11 @@ msgstr "Informations"
 msgid "shared.loading"
 msgstr "Chargement..."
 
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
+#: components/pages/Pledge/HeaderMobile/index.tsx:65
+msgid "shared.login_connect"
+msgstr "S'identifier / Se connecter"
+
 #: components/pages/Home/index.tsx:193
 msgid "shared.loveletter_cta"
 msgstr "DEFI POUR LES PARTICULIERS"
@@ -1836,11 +1904,11 @@ msgstr "Compensation"
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:175
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:161
 msgid "shared.okay"
-msgstr ""
+msgstr "Ok"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:418
 msgid "shared.pending"
-msgstr ""
+msgstr "En attente"
 
 #: components/Navigation/index.tsx:175
 #: components/Navigation/index.tsx:327
@@ -1849,7 +1917,7 @@ msgstr "Comment s'engager"
 
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:135
 msgid "shared.remove"
-msgstr ""
+msgstr "supprimer"
 
 #: components/Navigation/index.tsx:188
 #: components/Navigation/index.tsx:343
