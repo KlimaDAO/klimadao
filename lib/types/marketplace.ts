@@ -35,7 +35,17 @@ export type Listing = {
   batches: [];
   batchPrices: [];
   singleUnitPrice: BigNumber;
-  project: Project;
+  project: {
+    id: string;
+    key: string;
+    name: string;
+    category: Category;
+    methodology: string;
+    projectAddress: string;
+    projectID: string;
+    registry: string;
+    vintage: string;
+  };
   seller: {
     handle: string;
     username: string;

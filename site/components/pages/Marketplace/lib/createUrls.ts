@@ -1,10 +1,14 @@
 import { Project } from "@klimadao/lib/types/marketplace";
 
-export const createProjectLink = (project: Project) =>
+type ProjectData = {
+  key: Project["key"];
+  vintage: Project["vintage"];
+};
+export const createProjectLink = (project: ProjectData) =>
   `/marketplace/projects/${project.key}-${project.vintage}`;
 
 export const createProjectPurchaseLink = (
-  project: Project,
+  project: ProjectData,
   listingId: string
 ) => `${createProjectLink(project)}/purchase/${listingId}`;
 
