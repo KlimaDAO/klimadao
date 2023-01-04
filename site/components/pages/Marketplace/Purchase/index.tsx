@@ -188,10 +188,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
                     Seller:
                   </Trans>{" "}
                   <Link href={createSellerLink(props.listing.seller.handle)}>
-                    @
-                    {props.listing.seller.username ||
-                      props.listing.seller.handle ||
-                      props.listing.seller.id}
+                    @{props.listing.seller.handle}
                   </Link>
                 </Text>
               </div>
