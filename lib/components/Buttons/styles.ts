@@ -48,16 +48,6 @@ const buttonBase = css`
   &.transparent {
     ${transparent}
   }
-
-  &.link {
-    ${transparent}
-    text-decoration:underline;
-    text-transform: none;
-    line-height: 3.2rem;
-    font-size: inherit;
-    text-align: left;
-    font-weight: unset;
-  }
 `;
 
 export const buttonPrimary = css`

@@ -11,7 +11,6 @@ export const ButtonSecondary: FC<ButtonBaseProps> = (props) => {
       blue: props.variant === "blue",
       transparent: props.variant === "transparent",
       red: props.variant === "red",
-      link: props.variant === "link",
     },
     props.className
   );
