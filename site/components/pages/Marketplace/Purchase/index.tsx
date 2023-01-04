@@ -240,10 +240,6 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
               onCancel={resetStateAndCancel}
               status={status}
               onResetStatus={() => setStatus(null)}
-              onGoBack={() => {
-                setStatus(null);
-                setAllowanceValue(null); // this will hide the Transaction View and re-checks the allowance again
-              }}
             />
           )}
           {isProcessing && <Spinner />}
