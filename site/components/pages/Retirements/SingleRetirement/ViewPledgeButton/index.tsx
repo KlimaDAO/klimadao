@@ -10,27 +10,25 @@ type ViewPledgeButtonProps = {
 
 /** Logic for hiding or showing a link to the users pledge depending on a valid pledge */
 export const ViewPledgeButton: FC<ViewPledgeButtonProps> = (props) => {
-  const hasPledge = props.pledge !== null;
-  const pledgeUrl = hasPledge
-    ? `${urls.pledges}/${props.pledge?.ownerAddress}`
-    : undefined;
-  const label = hasPledge
-    ? t({
-        id: "retirement.single.view_pledge",
-        message: "View Pledge",
-      })
-    : t({
-        id: "retirement.single.no_pledge",
-        message: "This user has not created a pledge",
-      });
+  if (props.pledge) {
+    return (
+      <ButtonPrimary
+        href={`${urls.pledges}/${props.pledge?.ownerAddress}`}
+        label={t({
+          id: "retirement.single.view_pledge",
+          message: "View Pledge",
+        })}
+      />
+    );
+  }
 
   return (
     <ButtonPrimary
-      href={pledgeUrl}
-      disabled={!hasPledge}
-      target="_blank"
-      rel="noopener noreferrer"
-      label={label}
+      disabled={true}
+      label={t({
+        id: "retirement.single.no_pledge",
+        message: "This user has not created a pledge",
+      })}
     />
   );
 };
