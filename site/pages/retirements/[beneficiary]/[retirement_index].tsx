@@ -91,8 +91,7 @@ export const getStaticProps: GetStaticProps<
 
     let pledge: Pledge | null = null;
     try {
-      /** An undefined pledge is valid here */
-      pledge = await getPledgeByAddress(beneficiaryAddress);
+      pledge = await getPledgeByAddress(beneficiaryAddress.toLowerCase());
     } catch (error) {
       console.error(error);
     }
