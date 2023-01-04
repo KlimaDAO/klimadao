@@ -22,7 +22,6 @@ export type FormValues = {
 
 type Props = {
   onSubmit: (values: FormValues) => void;
-  onCancel: () => void;
   listing: Listing;
   values: null | FormValues;
   isLoading: boolean;

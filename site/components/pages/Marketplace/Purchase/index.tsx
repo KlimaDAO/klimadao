@@ -139,10 +139,6 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
     }
   };
 
-  const onCancel = () => {
-    console.log("");
-  };
-
   console.log("status", status);
 
   console.log("hasApproval", hasApproval());
@@ -209,7 +205,6 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
             <div className={styles.formContainer}>
               <PurchaseForm
                 onSubmit={onContinue}
-                onCancel={onCancel}
                 listing={props.listing}
                 values={inputValues}
                 isLoading={isLoadingAllowance}
