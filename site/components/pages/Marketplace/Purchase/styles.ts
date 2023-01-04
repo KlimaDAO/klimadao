@@ -91,3 +91,10 @@ export const availableAmount = css`
   margin-left: 1rem;
   margin-bottom: 1rem;
 `;
+
+export const spinnerWrap = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25rem;
+`;

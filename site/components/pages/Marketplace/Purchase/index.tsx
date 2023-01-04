@@ -216,10 +216,17 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
         </div>
 
         <Modal
-          title={t({
-            id: "marketplace.purchase.transaction.modal.title",
-            message: "Confirm Purchase",
-          })}
+          title={
+            !isProcessing
+              ? t({
+                  id: "marketplace.purchase.transaction.modal.title.confirm",
+                  message: "Confirm Purchase",
+                })
+              : t({
+                  id: "marketplace.purchase.transaction.modal.title.processing",
+                  message: "Processing Purchase",
+                })
+          }
           showModal={showTransactionView}
           onToggleModal={onModalClose}
         >
@@ -237,7 +244,11 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
               onResetStatus={() => setStatus(null)}
             />
           )}
-          {isProcessing && <Spinner />}
+          {isProcessing && (
+            <div className={styles.spinnerWrap}>
+              <Spinner />
+            </div>
+          )}
         </Modal>
       </MarketplaceLayout>
     </>
