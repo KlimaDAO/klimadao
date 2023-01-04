@@ -1,4 +1,5 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import { Pledge } from "components/pages/Pledge/types";
 import { FC } from "react";
@@ -10,9 +11,8 @@ type ViewPledgeButtonProps = {
 /** Logic for hiding or showing a link to the users pledge depending on a valid pledge */
 export const ViewPledgeButton: FC<ViewPledgeButtonProps> = (props) => {
   const hasPledge = props.pledge !== null;
-  /** @todo we need a better way of accessing the pledge url. This will break on any url change */
   const pledgeUrl = hasPledge
-    ? `https://www.klimadao.finance/pledge/${props.pledge?.ownerAddress}`
+    ? `${urls.pledges}/${props.pledge?.ownerAddress}`
     : undefined;
   const label = hasPledge
     ? t({
