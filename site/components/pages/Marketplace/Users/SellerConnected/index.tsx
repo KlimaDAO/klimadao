@@ -14,7 +14,7 @@ import { Card } from "components/pages/Marketplace/shared/Card";
 
 import { getUser } from "../../lib/api";
 import { getUserAssetsData } from "../../lib/actions";
-import { pollUntil, getTotalAmountSold, getTotalAmountToSell } from "../utils";
+import { pollUntil, getTotalAmountSold, getAmountLeftToSell } from "../utils";
 
 import {
   TwoColLayout,
@@ -265,7 +265,7 @@ export const SellerConnected: FC<Props> = (props) => {
               tonnesSold:
                 (!!sortedListings && getTotalAmountSold(sortedListings)) || 0,
               tonnesOwned:
-                (!!sortedListings && getTotalAmountToSell(sortedListings)) || 0,
+                (!!sortedListings && getAmountLeftToSell(sortedListings)) || 0,
               activeListings:
                 user?.listings.filter((l) => l.active).length || 0,
             }}

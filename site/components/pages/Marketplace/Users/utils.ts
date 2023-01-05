@@ -29,6 +29,12 @@ const wait = (ms: number) => {
   });
 };
 
+export const getAmountLeftToSell = (listings: Listing[]) =>
+  listings.reduce((acc, curr) => {
+    const leftToSellTotal = acc + Number(formatUnits(curr.leftToSell));
+    return leftToSellTotal;
+  }, 0);
+
 export const getTotalAmountToSell = (listings: Listing[]) =>
   listings.reduce((acc, curr) => {
     const totalAmountTo = acc + Number(formatUnits(curr.totalAmountToSell));
@@ -37,9 +43,6 @@ export const getTotalAmountToSell = (listings: Listing[]) =>
 
 export const getTotalAmountSold = (listings: Listing[]) => {
   const totalAmount = getTotalAmountToSell(listings);
-  const leftToSell = listings.reduce((acc, curr) => {
-    const leftToSellTotal = acc + Number(formatUnits(curr.leftToSell));
-    return leftToSellTotal;
-  }, 0);
+  const leftToSell = getAmountLeftToSell(listings);
   return totalAmount - leftToSell;
 };

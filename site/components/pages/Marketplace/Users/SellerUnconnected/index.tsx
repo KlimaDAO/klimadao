@@ -11,7 +11,7 @@ import {
   Col,
 } from "components/pages/Marketplace/shared/TwoColLayout";
 import { createProjectPurchaseLink } from "components/pages/Marketplace/lib/createUrls";
-import { getTotalAmountSold, getTotalAmountToSell } from "../utils";
+import { getTotalAmountSold, getAmountLeftToSell } from "../utils";
 
 import * as styles from "./styles";
 
@@ -76,7 +76,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
               tonnesSold:
                 (!!sortedListings && getTotalAmountSold(sortedListings)) || 0,
               tonnesOwned:
-                (!!sortedListings && getTotalAmountToSell(sortedListings)) || 0,
+                (!!sortedListings && getAmountLeftToSell(sortedListings)) || 0,
               activeListings:
                 userData?.listings.filter((l) => l.active).length || 0,
             }}
