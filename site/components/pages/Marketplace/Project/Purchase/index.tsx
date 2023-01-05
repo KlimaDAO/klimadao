@@ -8,7 +8,7 @@ import { Spinner, Text } from "@klimadao/lib/components";
 import { Modal } from "components/Modal";
 
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import { MarketplaceLayout } from "../Layout";
+import { MarketplaceLayout } from "../../Layout";
 import { Card } from "components/pages/Marketplace/shared/Card";
 import { ProjectImage } from "components/pages/Marketplace/shared/ProjectImage";
 import { PurchaseForm, FormValues } from "./PurchaseForm";
@@ -40,7 +40,7 @@ type Props = {
 const FAKE_USDC = "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7"; // TODO: delete me before switch to mainnet
 
 export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
-  const { locale } = useRouter();
+  const { locale, push } = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -132,16 +132,14 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
         onStatus: onUpdateStatus,
       });
       console.log("result", result);
+      if (result.hash) {
+        push(`/marketplace/purchase/${result.hash}`);
+      }
     } catch (e) {
       console.error("makePurchase error", e);
-    } finally {
       setIsProcessing(false);
     }
   };
-
-  console.log("status", status);
-
-  console.log("hasApproval", hasApproval());
 
   return (
     <>
