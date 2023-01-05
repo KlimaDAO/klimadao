@@ -45,6 +45,7 @@ export type Listing = {
     projectID: string;
     registry: string;
     vintage: string;
+    country: Country;
   };
   seller: {
     handle: string;
@@ -114,6 +115,10 @@ export type Category = {
   id: CategoryName;
 };
 
+export type Country = {
+  id: string;
+};
+
 export type CategoryName =
   | "Agriculture"
   | "Energy Efficiency"
@@ -122,3 +127,10 @@ export type CategoryName =
   | "Renewable Energy"
   | "Other"
   | "Other Nature-based";
+
+export type Purchase = {
+  id: string; // TransactionHash
+  amount: BigNumber;
+  price: BigNumber;
+  listing: Listing;
+};
