@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { MarketPlaceProjectPurchase } from "components/pages/Marketplace/Purchase";
+import { MarketPlaceProjectPurchase } from "components/pages/Marketplace/Project/Purchase";
 import { getMarketplaceProject } from "@klimadao/lib/utils";
 import { loadTranslation } from "lib/i18n";
 import { Project, Listing } from "@klimadao/lib/types/marketplace";
@@ -17,7 +17,6 @@ interface PageProps {
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   ctx
 ) => {
-  console.log("CTX", ctx);
   const { params, locale } = ctx;
 
   if (!params || !params?.project_id) {
