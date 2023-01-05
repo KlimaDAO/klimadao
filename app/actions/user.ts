@@ -79,14 +79,14 @@ export const loadAccountDetails = (params: {
         getKNSProfile({
           providerUrl: getInfuraUrl({
             chain: "polygon",
-            infuraId: process.env.INFURA_ID!,
+            infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
           }),
           address: params.address,
         }),
         getENSProfile({
           providerUrl: getInfuraUrl({
             chain: "eth",
-            infuraId: process.env.INFURA_ID!,
+            infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
           }),
           address: params.address,
         }),

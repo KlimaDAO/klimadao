@@ -97,7 +97,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         index: retirementIndex,
         providerUrl: getInfuraUrl({
           chain: "polygon",
-          infuraId: process.env.INFURA_ID!,
+          infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
         }),
       }),
       loadTranslation(locale),

@@ -12,7 +12,7 @@ import { GetStaticProps } from "next";
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
   const infuraURL = getInfuraUrl({
     chain: "polygon",
-    infuraId: process.env.INFURA_ID!,
+    infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
   });
   const treasuryBalance = await getTreasuryBalance(infuraURL);
   const latestPost = await fetchCMSContent("latestPost");

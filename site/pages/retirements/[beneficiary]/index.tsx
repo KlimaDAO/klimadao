@@ -84,7 +84,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         address: beneficiaryAddress,
         providerUrl: getInfuraUrl({
           chain: "polygon",
-          infuraId: process.env.INFURA_ID!,
+          infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
         }),
       }),
       queryKlimaRetiresByAddress(beneficiaryAddress),

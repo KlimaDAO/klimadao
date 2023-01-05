@@ -14,7 +14,7 @@ export default async function handler(
     const supply = await getKlimaSupply(
       getInfuraUrl({
         chain: "polygon",
-        infuraId: process.env.INFURA_ID!,
+        infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
       })
     );
 

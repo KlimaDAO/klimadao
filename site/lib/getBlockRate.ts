@@ -12,7 +12,7 @@ export async function getBlockRate(): Promise<number> {
     const provider = getJsonRpcProvider(
       getInfuraUrl({
         chain: "polygon",
-        infuraId: process.env.INFURA_ID!,
+        infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
       })
     );
     const latestBlock = await provider.getBlock("latest");

@@ -34,7 +34,7 @@ export const Profile: FC<Props> = (props) => {
         address: props.pledge.ownerAddress,
         providerUrl: getInfuraUrl({
           chain: "polygon",
-          infuraId: process.env.INFURA_ID!,
+          infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
         }),
       });
       if (kns) return setProfileData(kns);
@@ -43,7 +43,7 @@ export const Profile: FC<Props> = (props) => {
         address: props.pledge.ownerAddress,
         providerUrl: getInfuraUrl({
           chain: "eth",
-          infuraId: process.env.INFURA_ID!,
+          infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
         }),
       });
 
