@@ -26,6 +26,7 @@ export const ConnectModal = (props: Props) => {
 
   useEffect(() => {
     if (showModal) {
+      setStep("connect");
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
