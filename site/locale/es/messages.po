@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-04 15:40+0000\n"
+"POT-Creation-Date: 2023-01-05 15:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -76,7 +76,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:191
 msgid "buy.connect_torus_sushi"
-msgstr ""
+msgstr "3A. Conectar Torus a Sushi.com usando WalletConnect"
 
 #: components/pages/Buy/index.tsx:218
 msgid "buy.connect_torus_sushi_description2"
@@ -96,7 +96,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:78
 msgid "buy.create_wallet_description"
-msgstr ""
+msgstr "<0>Crea un monedero.</0> Recomendamos Torus Wallet, pero nuestra aplicación soporta la mayoría de monederos Web3 (Metamask, Coinbase Wallet, Brave, MyEtherWallet, y muchos más)."
 
 #: components/pages/Buy/index.tsx:120
 msgid "buy.create_wallet_description1"
@@ -116,7 +116,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:117
 msgid "buy.create_wallet_item"
-msgstr ""
+msgstr "1. Crea un monedero"
 
 #: components/pages/Buy/index.tsx:325
 msgid "buy.faq_title"
@@ -141,11 +141,11 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:149
 msgid "buy.load_wallet"
-msgstr ""
+msgstr "2. Cargue su monedero con tokens MATIC"
 
 #: components/pages/Buy/index.tsx:91
 msgid "buy.load_wallet_description"
-msgstr ""
+msgstr "<0>Carga tu nuevo monedero con tokens MATIC.</0> MATIC es el gas que alimenta la red Polygon. Cada transacción que ejecute en Polygon requerirá unos céntimos de MATIC para pagar la tarifa de red."
 
 #: components/pages/Buy/index.tsx:154
 msgid "buy.load_wallet_description1"
@@ -153,11 +153,11 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:164
 msgid "buy.load_wallet_description2"
-msgstr ""
+msgstr "<0>¡Asegúrate de que los tokens MATIC se envían a la dirección de tu nuevo monedero!</0> Puedes copiar la dirección a tu portapapeles conectándote a nuestra app y haciendo clic en la dirección en el menú de navegación."
 
 #: components/pages/Buy/index.tsx:174
 msgid "buy.load_wallet_description3"
-msgstr ""
+msgstr "<0>¡Asegúrese de comprar y enviar los MATIC a través de la red Polygon!</0> Algunos exchanges como Coinbase le preguntarán a través de qué red enviar los tokens MATIC. Asegúrese de elegir siempre Polygon."
 
 #: components/pages/Buy/index.tsx:433
 msgid "buy.question_exchange"
@@ -205,15 +205,15 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:75
 msgid "buy.step_1"
-msgstr ""
+msgstr "1."
 
 #: components/pages/Buy/index.tsx:88
 msgid "buy.step_2"
-msgstr ""
+msgstr "2."
 
 #: components/pages/Buy/index.tsx:103
 msgid "buy.step_3"
-msgstr ""
+msgstr "3."
 
 #: components/pages/Buy/index.tsx:68
 msgid "buy.summary_steps_title"
@@ -229,7 +229,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:265
 msgid "buy.swap_description2"
-msgstr ""
+msgstr "<0>Nota importante: ¡no cambies todo tu MATIC por KLIMA!</0> Guarda al menos 0,5 MATIC para pagar futuras tasas de transacción."
 
 #: components/pages/Buy/index.tsx:281
 msgid "buy.swap_description3"
@@ -245,11 +245,11 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:256
 msgid "buy.swap_subtitle"
-msgstr ""
+msgstr "3B. Cambiar MATIC por KLIMA"
 
 #: components/pages/Buy/index.tsx:185
 msgid "buy.swap_wallet"
-msgstr ""
+msgstr "3. Cambiar por KLIMA en <0>Sushi.com</0>"
 
 #: components/pages/Buy/index.tsx:202
 msgid "buy.torus_login_description"
