@@ -137,6 +137,7 @@ export function handleSwap(event: SwapEvent): void {
 
   // variables default values
   let price = BigDecimalZero
+  let usdprice = BigDecimalZero
   let volume = BigDecimalZero
   let token0qty = BigDecimalZero
   let token1qty = BigDecimalZero
@@ -241,9 +242,9 @@ export function handleSwap(event: SwapEvent): void {
     
   if (event.address ==  KLIMA_BCT_ADDRESS) {
     let swap = Swap.load(hourlyId)
-    // calculate price in usd
-    let usdprice = PriceUtil.getKLIMA_USDRate().div(price)
-
+    if (price != BigDecimalZero) {
+      usdprice = PriceUtil.getKLIMA_USDRate().div(price)
+    }
     if (swap == null) {
       swap = new Swap(hourlyId)
       swap.lpfees = lpfees.times(usdprice)
