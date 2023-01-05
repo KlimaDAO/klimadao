@@ -1,4 +1,4 @@
-import { ethers, Contract, utils, providers } from "ethers";
+import { ethers, Contract, utils, providers, Transaction } from "ethers";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
 import { getMarketplaceAddress } from "./getAddresses";
@@ -167,14 +167,13 @@ export const makePurchase = async (params: {
   price: string;
   provider: providers.JsonRpcProvider;
   onStatus: OnStatusHandler;
-}) => {
+}): Promise<Transaction> => {
   try {
     const marketPlaceContract = getContract({
       contractName: "marketplace",
       provider: params.provider.getSigner(),
     });
 
-    console.log("marketPlaceContract", marketPlaceContract);
 
     params.onStatus("userConfirmation", "");
 
@@ -188,7 +187,7 @@ export const makePurchase = async (params: {
     params.onStatus("networkConfirmation", "");
     await purchaseTxn.wait(1);
     params.onStatus("done", "Transaction confirmed");
-    return;
+    return purchaseTxn;
   } catch (error: any) {
     if (error.code === 4001) {
       params.onStatus("error", "userRejected");

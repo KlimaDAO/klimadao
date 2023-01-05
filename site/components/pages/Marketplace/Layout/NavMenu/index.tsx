@@ -118,7 +118,9 @@ export const NavMenu: FC<Props> = (props) => {
       </div>
       <MenuButton
         isActive={
-          pathname.startsWith("/marketplace/projects") || isUnconnectedUser
+          pathname.startsWith("/marketplace/projects") ||
+          pathname.startsWith("/marketplace/purchase") ||
+          isUnconnectedUser
         }
         href={"/marketplace/projects"}
         icon={<StoreIcon />}
