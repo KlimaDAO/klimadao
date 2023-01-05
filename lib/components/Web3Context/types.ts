@@ -1,10 +1,10 @@
 /** Separate file to avoid circular deps between Web3Context and useWeb3Modal */
 
-import type { providers } from "ethers";
-import type Web3Provider from "@walletconnect/web3-provider";
-import type { TorusInpageProvider } from "@toruslabs/torus-embed";
-import type Torus from "@toruslabs/torus-embed";
 import type { CoinbaseWalletProvider } from "@coinbase/wallet-sdk";
+import type Torus from "@toruslabs/torus-embed";
+import type { TorusInpageProvider } from "@toruslabs/torus-embed";
+import type Web3Provider from "@walletconnect/web3-provider";
+import type { providers } from "ethers";
 
 // Function overloads because "accountsChanged" returns an array of strings, but the others don't.
 // Ethers did not have these properly typed.

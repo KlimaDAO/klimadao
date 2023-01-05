@@ -1,18 +1,18 @@
-import React, { useRef } from "react";
-import { NextPage } from "next";
-import { useRouter } from "next/router";
-import Image from "next/legacy/image";
-import Link from "next/link";
-import { Trans, t } from "@lingui/macro";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { urls } from "@klimadao/lib/constants";
 import {
-  Section,
   ButtonPrimary,
   ButtonSecondary,
+  Section,
   Text,
 } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { getImageSizes } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { NextPage } from "next";
+import Image from "next/legacy/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useRef } from "react";
 
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
@@ -21,15 +21,15 @@ import { SocialProof } from "components/SocialProof";
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import { LatestPost } from "lib/queries";
 
-import forest from "public/forest.jpg";
-import cars from "public/cars.jpg";
-import gasolina from "public/gasolina.jpg";
-import windmills from "public/windmills.jpg";
-import oceans from "public/oceans.jpg";
-import steams from "public/steams.jpg";
 import burningForest from "public/burning-forest.jpg";
-import sprouts from "public/sprouts.jpg";
+import cars from "public/cars.jpg";
 import dummyswap from "public/dummyswap.png";
+import forest from "public/forest.jpg";
+import gasolina from "public/gasolina.jpg";
+import oceans from "public/oceans.jpg";
+import sprouts from "public/sprouts.jpg";
+import steams from "public/steams.jpg";
+import windmills from "public/windmills.jpg";
 
 import * as styles from "./styles";
 

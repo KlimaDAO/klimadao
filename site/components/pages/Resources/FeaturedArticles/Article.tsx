@@ -1,7 +1,7 @@
-import React, { FC } from "react";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FC } from "react";
 
 import { Text } from "@klimadao/lib/components";
 

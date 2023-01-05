@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect } from "react";
 import { cx } from "@emotion/css";
+import React, { FC, useEffect, useState } from "react";
 import { ThemeMoonIcon, ThemeSunIcon } from "..";
 
 import * as styles from "./styles";

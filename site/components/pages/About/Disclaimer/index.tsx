@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 
-import { Text, Section } from "@klimadao/lib/components";
-import { Trans, t } from "@lingui/macro";
-import * as styles from "./styles";
-import { Container } from "../Container";
+import { Section, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import { t, Trans } from "@lingui/macro";
+import { Container } from "../Container";
+import * as styles from "./styles";
 
 export type Props = HTMLHtmlElement;
 

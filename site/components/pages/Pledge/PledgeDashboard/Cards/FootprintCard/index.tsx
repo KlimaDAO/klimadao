@@ -1,15 +1,15 @@
-import React, { FC } from "react";
-import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-import { Trans, t } from "@lingui/macro";
-import LocalGasStationOutlinedIcon from "@mui/icons-material/LocalGasStationOutlined";
 import { Text } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import LocalGasStationOutlinedIcon from "@mui/icons-material/LocalGasStationOutlined";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import React, { FC } from "react";
 
-import { Footprint, Category } from "../../../types";
+import { Category, Footprint } from "../../../types";
 import { BaseCard } from "../BaseCard";
-import { FootprintSkeleton } from "./FootprintSkeleton";
 import { FootprintChartProps } from "./FootprintCharts";
+import { FootprintSkeleton } from "./FootprintSkeleton";
 import * as styles from "./styles";
 
 const FootprintChart: React.ComponentType<FootprintChartProps> = dynamic(

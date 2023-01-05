@@ -1,9 +1,9 @@
 import { Text } from "@klimadao/lib/components";
-import * as styles from "./styles";
-import { FC } from "react";
-import KeyboardReturnOutlined from "@mui/icons-material/KeyboardReturnOutlined";
 import { urls } from "@klimadao/lib/constants";
 import { Trans } from "@lingui/macro";
+import KeyboardReturnOutlined from "@mui/icons-material/KeyboardReturnOutlined";
+import { FC } from "react";
+import * as styles from "./styles";
 
 export const ImageCard: FC = () => {
   return (

@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next/types";
 import { getKlimaSupply } from "@klimadao/lib/utils";
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
+import { NextApiRequest, NextApiResponse } from "next/types";
 
 /** CORS is set in next.config.js */
 export default async function handler(

@@ -1,20 +1,19 @@
-import React, { FC, useState } from "react";
-import { Trans, t } from "@lingui/macro";
-import dynamic from "next/dynamic";
-import Tippy from "@tippyjs/react";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import Link from "next/link";
-import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
-import LaunchIcon from "@mui/icons-material/Launch";
+import { cx } from "@emotion/css";
 import { Text } from "@klimadao/lib/components";
-import { trimStringDecimals, concatAddress } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
-
+import { concatAddress, trimStringDecimals } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import LaunchIcon from "@mui/icons-material/Launch";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import Tippy from "@tippyjs/react";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import React, { FC, useState } from "react";
+import { Wallet } from "../../../types";
 import { BaseCard } from "../BaseCard";
 import { RetirementsChartProps } from "./RetirementsChart";
-import { Wallet } from "../../../types";
 import * as styles from "./styles";
-import { cx } from "@emotion/css";
 
 const RetirementsChart: React.ComponentType<RetirementsChartProps> = dynamic(
   () => import("./RetirementsChart").then((mod) => mod.RetirementsChart),

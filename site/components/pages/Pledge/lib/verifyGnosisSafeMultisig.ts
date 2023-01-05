@@ -1,7 +1,7 @@
-import { Contract, utils } from "ethers";
-import { polygonNetworks } from "@klimadao/lib/constants";
 import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
+import { polygonNetworks } from "@klimadao/lib/constants";
 import { getJsonRpcProvider } from "@klimadao/lib/utils";
+import { Contract, utils } from "ethers";
 
 const ONE_HOUR = 60 * 60 * 1000;
 

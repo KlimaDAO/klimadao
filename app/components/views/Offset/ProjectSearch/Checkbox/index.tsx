@@ -1,5 +1,5 @@
-import React, { InputHTMLAttributes } from "react";
 import CheckIcon from "@mui/icons-material/Check";
+import React, { InputHTMLAttributes } from "react";
 
 import * as styles from "./styles";
 

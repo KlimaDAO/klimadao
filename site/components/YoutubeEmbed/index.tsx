@@ -1,8 +1,8 @@
-import { FC, useState } from "react";
-import { toNumber } from "lodash";
-import * as styles from "./styles";
-import Image, { ImageProps } from "next/legacy/image";
 import { cx } from "@emotion/css";
+import { toNumber } from "lodash";
+import Image, { ImageProps } from "next/legacy/image";
+import { FC, useState } from "react";
+import * as styles from "./styles";
 
 /**
  * For more information about the available youtube embed parameters see:

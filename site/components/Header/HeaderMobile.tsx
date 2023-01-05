@@ -1,10 +1,10 @@
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import * as styles from "./styles";
 
 import { LogoWithClaim } from "@klimadao/lib/components";
 import Link from "next/link";
-import { ToggleNavButton } from "../Navigation/ToggleNavButton";
 import { NavMobile } from "../Navigation/NavMobile";
+import { ToggleNavButton } from "../Navigation/ToggleNavButton";
 
 interface Props {
   buttons?: JSX.Element[];

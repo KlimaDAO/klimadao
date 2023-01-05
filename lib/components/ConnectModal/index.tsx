@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { ButtonPrimary } from "../Buttons/ButtonPrimary";
 import { concatAddress, useWeb3 } from "../../utils";
+import { ButtonPrimary } from "../Buttons/ButtonPrimary";
 import { ConnectContent } from "./ConnectContent";
 
 interface Props {

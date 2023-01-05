@@ -1,8 +1,8 @@
-import React, { useState, useEffect, FC } from "react";
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { polygonNetworks } from "@klimadao/lib/constants";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import { FC, useEffect, useState } from "react";
 
 import { Modal } from "components/Modal";
 import * as styles from "./styles";

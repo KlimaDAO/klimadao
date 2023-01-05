@@ -1,28 +1,22 @@
 import { NextPage } from "next";
 
+import { Section, Text } from "@klimadao/lib/components";
 // import { useRouter } from "next/router";
 
-import { Section, Text, Anchor } from "@klimadao/lib/components";
+import { Anchor } from "@klimadao/lib/components";
 
-import * as styles from "./styles";
+import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import { Footer } from "components/Footer";
-// import { ZapperTimeline } from "components/pages/Buy/ZapperTimeline";
-// import { CreditCardTimeline } from "components/pages/Buy/CreditCardTimeline";
-// import mastercard from "public/mastercard.jpg";
-// import mastercardSmall from "public/mastercard-small.jpg";
-// import zapper from "public/zapper.jpg";
-// import zapperSmall from "public/zapper-small.jpg";
+import * as styles from "./styles";
 
-// import bondCarbon from "public/bond-carbon.jpg";
-import walletConnectExample from "public/walletconnect-example.jpg";
-import walletConnectQRcodeExample from "public/walletconnect-example-qrcode.jpg";
-import swapExample from "public/swap-example.jpg";
-import { t, Trans } from "@lingui/macro";
 import { cx } from "@emotion/css";
-import Image from "next/legacy/image";
 import { urls } from "@klimadao/lib/constants";
+import { t, Trans } from "@lingui/macro";
+import Image from "next/legacy/image";
+import swapExample from "public/swap-example.jpg";
+import walletConnectQRcodeExample from "public/walletconnect-example-qrcode.jpg";
+import walletConnectExample from "public/walletconnect-example.jpg";
 
 export const Buy: NextPage = () => {
   // const { locale } = useRouter();

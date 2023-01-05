@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
-import { button } from "@klimadao/lib/theme/typography";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
+import { button } from "@klimadao/lib/theme/typography";
 
 export const navMain_DesktopLink = css`
   ${button};

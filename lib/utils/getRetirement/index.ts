@@ -1,19 +1,19 @@
-import { providers, BigNumber } from "ethers";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
+import { BigNumber, providers } from "ethers";
 import { addresses } from "../../constants";
 import {
-  getRetirementTokenByAddress,
   formatUnits,
-  getTokenDecimals,
-  getIsValidAddress,
   getContract,
+  getIsValidAddress,
+  getRetirementTokenByAddress,
+  getTokenDecimals,
 } from "../../utils";
+import { getJsonRpcProvider } from "../getJsonRpcProvider";
 
 import {
-  RetirementTotals,
-  RetirementsTotalsAndBalances,
   RetirementIndexInfo,
   RetirementIndexInfoResult,
+  RetirementsTotalsAndBalances,
+  RetirementTotals,
 } from "../../types/offset";
 
 export const createRetirementStorageContract = (

@@ -1,5 +1,5 @@
+import { getContract, getEstimatedDailyRebases } from "..";
 import { getJsonRpcProvider } from "../getJsonRpcProvider";
-import { getEstimatedDailyRebases, getContract } from "..";
 
 export const getStakingRewards = async (params: {
   days: number;

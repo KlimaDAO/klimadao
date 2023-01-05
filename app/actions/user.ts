@@ -1,17 +1,17 @@
-import { providers, Contract } from "ethers";
+import { Contract, providers } from "ethers";
 import { Thunk } from "state";
 
+import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 import {
   formatUnits,
-  getContract,
-  getKNSProfile,
-  getENSProfile,
   getAllowance,
-  getTokensFromSpender,
+  getContract,
+  getENSProfile,
+  getKNSProfile,
   getTokenDecimals,
+  getTokensFromSpender,
 } from "@klimadao/lib/utils";
-import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
-import { setBalance, updateAllowances, setDomains } from "state/user";
+import { setBalance, setDomains, updateAllowances } from "state/user";
 
 const assets = [
   "bct",

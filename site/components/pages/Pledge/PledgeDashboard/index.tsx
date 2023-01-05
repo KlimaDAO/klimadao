@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { NextPage } from "next";
-import { t } from "@lingui/macro";
-
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import { NextPage } from "next";
+import { useEffect, useState } from "react";
 
-import { PageHead } from "components/PageHead";
 import { Modal } from "components/Modal";
+import { PageHead } from "components/PageHead";
 
+import { AcceptModal, RemoveModal } from "../InvitationModals";
+import { PledgeForm } from "../PledgeForm";
+import { PledgeLayout } from "../PledgeLayout";
+import { Holding, Pledge } from "../types";
 import {
   AssetBalanceCard,
   FootprintCard,
@@ -16,10 +19,6 @@ import {
   RetirementsCard,
 } from "./Cards";
 import { Profile } from "./Profile";
-import { PledgeForm } from "../PledgeForm";
-import { PledgeLayout } from "../PledgeLayout";
-import { Holding, Pledge } from "../types";
-import { AcceptModal, RemoveModal } from "../InvitationModals";
 import * as styles from "./styles";
 
 type Props = {

@@ -1,7 +1,7 @@
-import { FC, ReactNode } from "react";
-import HelpOutlineRounded from "@mui/icons-material/HelpOutlineRounded";
-import * as styles from "./styles";
 import { TextInfoTooltip } from "@klimadao/lib/components";
+import HelpOutlineRounded from "@mui/icons-material/HelpOutlineRounded";
+import { FC, ReactNode } from "react";
+import * as styles from "./styles";
 
 interface Props {
   content: ReactNode;

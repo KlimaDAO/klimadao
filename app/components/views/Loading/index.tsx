@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { Trans } from "@lingui/macro";
+import { FC } from "react";
 
 /**
  * Due to problems with react-router (needed for IPFS) and next.js isomorphic rendering,

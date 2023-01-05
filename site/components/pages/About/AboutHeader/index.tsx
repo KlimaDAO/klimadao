@@ -1,5 +1,5 @@
-import { FC, ReactNode } from "react";
 import Link from "next/link";
+import { FC, ReactNode } from "react";
 import * as styles from "./styles";
 
 import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";

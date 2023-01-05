@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import {
-  ActionReducerMapBuilder,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
-import { redeemBond } from "state/bonds";
-import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
-import {
   Bond,
   OffsetInputToken,
   RetirementToken,
 } from "@klimadao/lib/constants";
-import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import {
   AllowancesFormatted,
   AllowancesSpender,
   AllowancesToken,
 } from "@klimadao/lib/types/allowances";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { safeAdd, safeSub, trimStringDecimals } from "@klimadao/lib/utils";
+import {
+  ActionReducerMapBuilder,
+  createSlice,
+  PayloadAction,
+} from "@reduxjs/toolkit";
+import { redeemBond } from "state/bonds";
 
 export interface UserState {
   balance?: {

@@ -1,12 +1,11 @@
-import React, { FC, useEffect, useState } from "react";
 import { cx } from "@emotion/css";
-import { ContentCopy } from "@mui/icons-material";
-import { Check } from "@mui/icons-material";
+import { Check, ContentCopy } from "@mui/icons-material";
+import React, { FC, useEffect, useState } from "react";
 
-import { useCopyToClipboard } from "../../hooks";
-import * as styles from "./styles";
 import { ButtonPrimary } from "../";
+import { useCopyToClipboard } from "../../hooks";
 import { ButtonBaseProps } from "../Buttons/ButtonBase";
+import * as styles from "./styles";
 
 type Props = {
   address?: string;

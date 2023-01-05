@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next";
 
-import { EventDemo } from "components/pages/EventDemo";
-import { loadTranslation } from "lib/i18n";
 import LiveOffset from "@klimadao/lib/abi/LiveOffset.json";
 import { addresses } from "@klimadao/lib/constants";
-import { Contract } from "ethers";
 import { getJsonRpcProvider } from "@klimadao/lib/utils";
+import { EventDemo } from "components/pages/EventDemo";
+import { Contract } from "ethers";
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
+import { loadTranslation } from "lib/i18n";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {

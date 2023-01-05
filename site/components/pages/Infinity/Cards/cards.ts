@@ -1,15 +1,15 @@
-import olympusLogo from "public/logo-olympus-light.png";
-import polygonLogo from "public/logo-polygon-white.png";
-import markCubanLogo from "public/logo-mark-cuban.png";
-import stadiusLogo from "public/logo-stadius.png";
 import beachPartyLogo from "public/logo-beach-party.png";
 import earthWalletLogo from "public/logo-earth-wallet-white.png";
 import gmStudiosLogo from "public/logo-gm-studios.jpg";
+import markCubanLogo from "public/logo-mark-cuban.png";
 import meritCircleLogo from "public/logo-merit-circle.png";
 import metalCoreLogo from "public/logo-metal-core.png";
 import mossLogo from "public/logo-moss-white.png";
-import scbLogo from "public/logo-scb.png";
 import offsetraLogo from "public/logo-offsetra.png";
+import olympusLogo from "public/logo-olympus-light.png";
+import polygonLogo from "public/logo-polygon-white.png";
+import scbLogo from "public/logo-scb.png";
+import stadiusLogo from "public/logo-stadius.png";
 
 export const cards = [
   {

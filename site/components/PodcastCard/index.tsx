@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Text } from "@klimadao/lib/components";
 import { PodcastDetails } from "lib/queries";
 

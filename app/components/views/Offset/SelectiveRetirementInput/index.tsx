@@ -1,6 +1,6 @@
-import React, { ChangeEvent, FC } from "react";
-import { utils } from "ethers";
 import { t } from "@lingui/macro";
+import { utils } from "ethers";
+import { ChangeEvent, FC } from "react";
 
 import * as styles from "./styles";
 

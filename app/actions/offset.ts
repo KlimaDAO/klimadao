@@ -1,7 +1,7 @@
-import { utils, providers } from "ethers";
+import { getJsonRpcProvider, getTransactionOptions } from "@klimadao/lib/utils";
+import { providers, utils } from "ethers";
 import { Thunk } from "state";
 import { setCarbonRetiredBalances, updateAllowances } from "state/user";
-import { getJsonRpcProvider, getTransactionOptions } from "@klimadao/lib/utils";
 
 import {
   addresses,
@@ -10,12 +10,12 @@ import {
   RetirementToken,
 } from "@klimadao/lib/constants";
 import {
-  formatUnits,
-  getTokenDecimals,
   createRetirementStorageContract,
-  getRetirementTotalsAndBalances,
-  getContract,
+  formatUnits,
   getAllowance,
+  getContract,
+  getRetirementTotalsAndBalances,
+  getTokenDecimals,
 } from "@klimadao/lib/utils";
 import { OnStatusHandler } from "./utils";
 

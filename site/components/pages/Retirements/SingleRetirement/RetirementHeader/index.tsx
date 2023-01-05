@@ -1,11 +1,11 @@
 import { Text } from "@klimadao/lib/components";
 import Image from "next/legacy/image";
-import * as styles from "./styles";
 import { FC, ReactNode } from "react";
+import * as styles from "./styles";
 
-import leafImage from "public/leaf.svg";
-import greenHills from "public/green_hills.png";
 import { getImageSizes } from "@klimadao/lib/utils";
+import greenHills from "public/green_hills.png";
+import leafImage from "public/leaf.svg";
 
 type Props = {
   overline: ReactNode;

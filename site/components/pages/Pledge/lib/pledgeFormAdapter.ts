@@ -1,5 +1,5 @@
-import { Pledge, PledgeFormValues } from "../types";
 import { DEFAULT_NONCE } from ".";
+import { Pledge, PledgeFormValues } from "../types";
 
 export const DEFAULT_VALUES: Pledge = {
   id: "",

@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { providers } from "ethers";
+import { FC, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 
 import {
   ButtonPrimary,
@@ -15,22 +15,22 @@ import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 
 import { t, Trans } from "@lingui/macro";
 
-import {
-  selectNotificationStatus,
-  selectLocale,
-  selectAppState,
-  selectAllowancesWithParams,
-  selectPklimaTerms,
-} from "state/selectors";
-import { redeemPklima, setAllowance, decrementAllowance } from "state/user";
-import { useAppDispatch } from "state";
-import { useTypedSelector } from "lib/hooks/useTypedSelector";
+import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
 import { exerciseTransaction, loadTerms } from "actions/pklima";
 import { changeApprovalTransaction } from "actions/utils";
-import * as styles from "components/views/Stake/styles";
 import { BalancesCard } from "components/BalancesCard";
-import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
-import InfoOutlined from "@mui/icons-material/InfoOutlined";
+import * as styles from "components/views/Stake/styles";
+import { useTypedSelector } from "lib/hooks/useTypedSelector";
+import { useAppDispatch } from "state";
+import {
+  selectAllowancesWithParams,
+  selectAppState,
+  selectLocale,
+  selectNotificationStatus,
+  selectPklimaTerms,
+} from "state/selectors";
+import { decrementAllowance, redeemPklima, setAllowance } from "state/user";
 
 interface Props {
   provider?: providers.JsonRpcProvider;

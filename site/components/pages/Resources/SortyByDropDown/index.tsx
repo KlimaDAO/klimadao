@@ -1,8 +1,8 @@
-import React, { useState, FC, useEffect } from "react";
 import { t } from "@lingui/macro";
-import Tippy from "@tippyjs/react";
-import { Control, useWatch } from "react-hook-form";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Tippy from "@tippyjs/react";
+import { FC, useEffect, useState } from "react";
+import { Control, useWatch } from "react-hook-form";
 import { sortedByQueries, SortQuery } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
 

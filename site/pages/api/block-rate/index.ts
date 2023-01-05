@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next/types";
 import { getBlockRate } from "lib/getBlockRate";
+import { NextApiRequest, NextApiResponse } from "next/types";
 
 type ResponseData = {
   blockRate30Day?: string;

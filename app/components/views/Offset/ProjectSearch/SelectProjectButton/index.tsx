@@ -1,10 +1,9 @@
-import React, { FC } from "react";
-import { Trans } from "@lingui/macro";
 import { Anchor, Text } from "@klimadao/lib/components";
-import { RetirementToken } from "@klimadao/lib/constants";
+import { RetirementToken, verra } from "@klimadao/lib/constants";
 import { trimWithLocale } from "@klimadao/lib/utils";
+import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
-import { verra } from "@klimadao/lib/constants";
+import { FC } from "react";
 
 import {
   BalanceAttribute,

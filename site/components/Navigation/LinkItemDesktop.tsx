@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import * as styles from "./styles";
-import Link from "next/link";
 import { cx } from "@emotion/css";
+import Link from "next/link";
+import { FC } from "react";
+import * as styles from "./styles";
 
 interface Props {
   name: string;

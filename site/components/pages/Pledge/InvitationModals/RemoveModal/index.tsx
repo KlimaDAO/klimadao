@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
   ButtonPrimary,
   ButtonSecondary,
   Spinner,
   Text,
 } from "@klimadao/lib/components";
-import { Modal } from "components/Modal";
-import * as styles from "../styles";
-import { t, Trans } from "@lingui/macro";
-import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
-import { Pledge } from "../../types";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { Modal } from "components/Modal";
 import {
-  putPledge,
   pledgeFormAdapter,
+  putPledge,
   waitForGnosisSignature,
 } from "../../lib";
+import { removeSecondaryWallet } from "../../lib/editPledgeMessage";
 import { getErrorMessage } from "../../PledgeForm";
+import { Pledge } from "../../types";
+import * as styles from "../styles";
 
 type Props = {
   setShowRemoveModal: (value: boolean) => void;

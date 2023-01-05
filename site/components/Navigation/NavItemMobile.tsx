@@ -1,9 +1,9 @@
-import React, { FC, useState } from "react";
-import * as styles from "./styles";
 import { cx } from "@emotion/css";
-import Link from "next/link";
 import { ButtonPrimary } from "@klimadao/lib/components";
+import Link from "next/link";
+import React, { FC, useState } from "react";
 import { NavItemMobileID } from "./index";
+import * as styles from "./styles";
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   name: string;

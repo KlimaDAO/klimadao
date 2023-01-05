@@ -1,10 +1,10 @@
 import { BigNumber, Contract } from "ethers";
+import { formatUnits, getTokenDecimals } from "../";
 import { addresses, allowancesContracts } from "../../constants";
-import { getTokenDecimals, formatUnits } from "../";
 import {
-  AllowancesToken,
-  AllowancesSpender,
   AllowancesFormatted,
+  AllowancesSpender,
+  AllowancesToken,
 } from "../../types/allowances";
 
 export const isSpenderInAddresses = (spender: string): boolean => {

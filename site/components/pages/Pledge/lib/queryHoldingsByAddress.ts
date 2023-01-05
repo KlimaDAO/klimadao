@@ -1,6 +1,6 @@
 import { subgraphs } from "@klimadao/lib/constants";
 
-import { QueryHoldings, Holding } from "../types";
+import { Holding, QueryHoldings } from "../types";
 
 const QUERY_LIMIT = 1000;
 

@@ -1,7 +1,7 @@
-import { FC, ReactNode } from "react";
-import { PageHead } from "components/PageHead";
-import { Navigation } from "components/Navigation";
 import { Footer } from "components/Footer";
+import { Navigation } from "components/Navigation";
+import { PageHead } from "components/PageHead";
+import { FC, ReactNode } from "react";
 
 import { AboutHeader } from "../AboutHeader";
 

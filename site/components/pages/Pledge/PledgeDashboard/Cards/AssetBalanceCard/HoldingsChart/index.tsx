@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import orderBy from "lodash/orderBy";
+import { FC } from "react";
 import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
 import { Holding } from "components/pages/Pledge/types";

@@ -1,7 +1,6 @@
+import { getOgImageSrc } from "@klimadao/lib/utils";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
-import { getOgImageSrc } from "@klimadao/lib/utils";
 
 import { IS_PRODUCTION } from "lib/constants";
 

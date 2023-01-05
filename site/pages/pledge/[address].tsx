@@ -1,23 +1,23 @@
-import { GetStaticProps } from "next";
-import { utils } from "ethers";
-import { ParsedUrlQuery } from "querystring";
 import { urls } from "@klimadao/lib/constants";
-import { getRetirementTotalsAndBalances } from "@klimadao/lib/utils";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { getRetirementTotalsAndBalances } from "@klimadao/lib/utils";
+import { utils } from "ethers";
+import { GetStaticProps } from "next";
+import { ParsedUrlQuery } from "querystring";
 
-import { loadTranslation } from "lib/i18n";
-import { getIsDomainInURL } from "lib/getIsDomainInURL";
-import { getAddressByDomain } from "lib/getAddressByDomain";
-import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
-import {
-  getPledgeByAddress,
-  getParentPledges,
-} from "components/pages/Pledge/lib/firebase";
 import {
   DEFAULT_VALUES,
   queryHoldingsByAddress,
 } from "components/pages/Pledge/lib";
-import { Pledge, Holding } from "components/pages/Pledge/types";
+import {
+  getParentPledges,
+  getPledgeByAddress,
+} from "components/pages/Pledge/lib/firebase";
+import { PledgeDashboard } from "components/pages/Pledge/PledgeDashboard";
+import { Holding, Pledge } from "components/pages/Pledge/types";
+import { getAddressByDomain } from "lib/getAddressByDomain";
+import { getIsDomainInURL } from "lib/getIsDomainInURL";
+import { loadTranslation } from "lib/i18n";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */

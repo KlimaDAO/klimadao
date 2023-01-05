@@ -1,16 +1,15 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/legacy/image";
-import { Trans, t } from "@lingui/macro";
-import { urls } from "@klimadao/lib/constants";
 import { Text } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
+import { getImageSizes } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Modal } from "components/Modal";
+import Image from "next/legacy/image";
+import Link from "next/link";
+import building from "public/building.jpg";
 import hiker from "public/hiker.jpg";
 import net from "public/net.jpg";
-import building from "public/building.jpg";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import * as styles from "./styles";
-import { getImageSizes } from "@klimadao/lib/utils";
 
 interface Props {
   showModal: boolean;

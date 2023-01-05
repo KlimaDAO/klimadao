@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { providers } from "ethers";
-import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
+import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import LibraryAddOutlined from "@mui/icons-material/LibraryAddOutlined";
-import FiberNewRoundedIcon from "@mui/icons-material/FiberNewRounded";
+import { providers } from "ethers";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 
 import { changeStakeTransaction } from "actions/stake";
 import { changeApprovalTransaction } from "actions/utils";
@@ -12,18 +12,18 @@ import { useAppDispatch } from "state";
 
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import {
-  incrementStake,
+  selectAllowancesWithParams,
+  selectAppState,
+  selectBalances,
+  selectLocale,
+  selectNotificationStatus,
+} from "state/selectors";
+import {
   decrementAllowance,
   decrementStake,
+  incrementStake,
   setAllowance,
 } from "state/user";
-import {
-  selectAppState,
-  selectNotificationStatus,
-  selectLocale,
-  selectBalances,
-  selectAllowancesWithParams,
-} from "state/selectors";
 
 import {
   Anchor,
@@ -33,15 +33,15 @@ import {
   Text,
   TextInfoTooltip,
 } from "@klimadao/lib/components";
-import { trimWithPlaceholder, concatAddress } from "@klimadao/lib/utils";
-import { Trans, defineMessage, t } from "@lingui/macro";
+import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
+import { defineMessage, t, Trans } from "@lingui/macro";
 import { BalancesCard } from "components/BalancesCard";
-import { RebaseCard } from "components/RebaseCard";
 import { ImageCard } from "components/ImageCard";
+import { RebaseCard } from "components/RebaseCard";
 import { TransactionModal } from "components/TransactionModal";
 
-import * as styles from "./styles";
 import { urls } from "@klimadao/lib/constants";
+import * as styles from "./styles";
 
 interface Props {
   provider?: providers.JsonRpcProvider;

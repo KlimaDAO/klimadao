@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
 import { subgraphs } from "../../constants";
-import { QueryKlimaRetires, KlimaRetire } from "../../types/subgraph";
+import { KlimaRetire, QueryKlimaRetires } from "../../types/subgraph";
 
 export const queryKlimaRetireByIndex = async (
   beneficiaryAddress: string,

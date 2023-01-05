@@ -1,13 +1,13 @@
-import React, { FC, useState } from "react";
-import { useSelector } from "react-redux";
-import Tippy from "@tippyjs/react";
 import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
+import Tippy from "@tippyjs/react";
+import { FC, useState } from "react";
+import { useSelector } from "react-redux";
 
 import { activate, locales } from "lib/i18n";
-import { selectAppState } from "state/selectors";
 import { useAppDispatch } from "state";
 import { setAppState } from "state/app";
+import { selectAppState } from "state/selectors";
 
 import * as styles from "./styles";
 

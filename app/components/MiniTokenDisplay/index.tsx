@@ -1,11 +1,11 @@
-import React, { FC, ReactNode } from "react";
-import { StaticImageData } from "next/image";
 import { Image } from "components/Image";
+import { StaticImageData } from "next/image";
+import { FC, ReactNode } from "react";
 
+import { cx } from "@emotion/css";
 import { Spinner, Text } from "@klimadao/lib/components";
 import { trimStringDecimals } from "@klimadao/lib/utils";
 import * as styles from "./styles";
-import { cx } from "@emotion/css";
 
 interface Props {
   label: ReactNode;

@@ -1,21 +1,21 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import CloseDefault from "@mui/icons-material/Close";
 import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
-import * as styles from "./styles";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import {
-  Text,
+  BraveIcon,
   ButtonPrimary,
-  MetaMaskFoxIcon,
-  WalletConnectIcon,
   CoinbaseWalletIcon,
-  TwitterIcon,
+  DiscordColorIcon,
   FacebookColorIcon,
   GoogleIcon,
-  DiscordColorIcon,
-  BraveIcon,
+  MetaMaskFoxIcon,
   Spinner,
+  Text,
+  TwitterIcon,
+  WalletConnectIcon,
 } from "../.";
 import { useFocusTrap } from "../../utils";
+import * as styles from "./styles";
 // ems modules and javascript are strange so we import like this
 const Close = (CloseDefault as any).default as any;
 const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;

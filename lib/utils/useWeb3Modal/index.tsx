@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
 import { providers } from "ethers";
-import { urls } from "../../constants";
+import { useEffect, useState } from "react";
 import {
-  web3InitialState,
+  CoinbaseProvider,
   ConnectedWeb3State,
+  TorusProvider,
+  TypedProvider,
+  WalletConnectProvider,
+  web3InitialState,
   Web3ModalState,
   Web3State,
-  TypedProvider,
   WrappedProvider,
-  TorusProvider,
-  CoinbaseProvider,
-  WalletConnectProvider,
 } from "../../components/Web3Context/types";
+import { urls } from "../../constants";
 
 /** Type guards for convenience and readability */
 const isTorusProvider = (p?: WrappedProvider): p is TorusProvider =>

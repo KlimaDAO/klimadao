@@ -1,6 +1,6 @@
 import { BigNumber } from "ethers";
-import { formatUnits } from "../utils";
 import { RetirementToken } from "../constants";
+import { formatUnits } from "../utils";
 interface GasUsed {
   type: string;
   hex: string;

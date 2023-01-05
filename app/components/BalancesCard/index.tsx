@@ -1,13 +1,13 @@
-import { FC, ReactNode } from "react";
 import { Text } from "@klimadao/lib/components";
-import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
 import { trimWithPlaceholder } from "@klimadao/lib/utils";
-import { useSelector } from "react-redux";
+import { t, Trans } from "@lingui/macro";
+import AccountBalanceOutlined from "@mui/icons-material/AccountBalanceOutlined";
 import { InfoButton } from "components/InfoButton";
+import { FC, ReactNode } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "state";
 import { selectAppState, selectBalances, selectLocale } from "state/selectors";
 import * as styles from "./styles";
-import { RootState } from "state";
-import { t, Trans } from "@lingui/macro";
 
 type Asset = keyof NonNullable<RootState["user"]["balance"]>;
 type AssetLabels = { [key in Asset]: string };

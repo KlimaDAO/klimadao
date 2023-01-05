@@ -1,5 +1,5 @@
-import React, { FC, ReactNode } from "react";
 import Tippy, { TippyProps, useSingleton } from "@tippyjs/react";
+import React, { FC, ReactNode } from "react";
 import styles from "./styles";
 
 interface Props extends TippyProps {

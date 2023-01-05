@@ -1,22 +1,22 @@
+import { utils } from "ethers";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { utils } from "ethers";
 
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 
+import { urls } from "@klimadao/lib/constants";
+import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
+import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
   getRetirementTotalsAndBalances,
   queryKlimaRetiresByAddress,
 } from "@klimadao/lib/utils";
-import { urls } from "@klimadao/lib/constants";
-import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
-import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 
 import { RetirementPage } from "components/pages/Retirements";
-import { loadTranslation } from "lib/i18n";
-import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getDomainByAddress } from "lib/getDomainByAddress";
+import { getIsDomainInURL } from "lib/getIsDomainInURL";
+import { loadTranslation } from "lib/i18n";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */

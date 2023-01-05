@@ -1,37 +1,32 @@
-import React, { FC, useState } from "react";
-import { Trans, t } from "@lingui/macro";
-import { useRouter } from "next/router";
-import {
-  ButtonPrimary,
-  ButtonSecondary,
-  Text,
-  Spinner,
-} from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import { concatAddress, trimWithLocale, useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 import ClearIcon from "@mui/icons-material/Clear";
-import SaveIcon from "@mui/icons-material/Save";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { trimWithLocale, useWeb3, concatAddress } from "@klimadao/lib/utils";
-import { yupResolver } from "@hookform/resolvers/yup";
 import Tippy from "@tippyjs/react";
-
+import { InputField, TextareaField } from "components/Form";
+import { useRouter } from "next/router";
+import { FC, useState } from "react";
 import {
-  useForm,
-  useFieldArray,
-  useWatch,
   Control,
   SubmitHandler,
+  useFieldArray,
+  useForm,
+  useWatch,
 } from "react-hook-form";
-import { InputField, TextareaField } from "components/Form";
 
+import { yupResolver } from "@hookform/resolvers/yup";
+import { ButtonSecondary } from "@klimadao/lib/components";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import SaveIcon from "@mui/icons-material/Save";
 import {
   editPledgeMessage,
   formSchema,
-  pledgeErrorTranslationsMap,
   PledgeErrorId,
-  putPledge,
+  pledgeErrorTranslationsMap,
   pledgeFormAdapter,
+  putPledge,
   waitForGnosisSignature,
 } from "../lib";
 import { Pledge, PledgeFormValues, Wallet } from "../types";

@@ -1,4 +1,4 @@
-import { utils, BigNumber } from "ethers";
+import { BigNumber, utils } from "ethers";
 
 // Converts BigNumber to an integer (number) at the given unit
 export const getInteger = (num: BigNumber, unit: string | number = "ether") => {

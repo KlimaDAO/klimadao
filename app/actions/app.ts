@@ -4,11 +4,11 @@ import { Thunk } from "state";
 import { setAppState } from "state/app";
 
 import {
-  getEstimatedDailyRebases,
-  getTreasuryBalance,
   fetchBlockRate,
-  getJsonRpcProvider,
   getContract,
+  getEstimatedDailyRebases,
+  getJsonRpcProvider,
+  getTreasuryBalance,
 } from "@klimadao/lib/utils";
 
 export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {

@@ -1,9 +1,9 @@
-import { FC } from "react";
-import { Trans, t } from "@lingui/macro";
 import { Text } from "@klimadao/lib/components";
 import { verra } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
+import { t, Trans } from "@lingui/macro";
+import { FC } from "react";
 
 import { ProjectDetail } from "./List";
 import * as styles from "./styles";

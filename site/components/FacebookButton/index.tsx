@@ -1,7 +1,10 @@
-import { FC } from "react";
-import { ButtonPrimary, FacebookIcon } from "@klimadao/lib/components";
+import {
+  ButtonBaseProps,
+  ButtonPrimary,
+  FacebookIcon,
+} from "@klimadao/lib/components";
 import { useFacebookShareUrl } from "@klimadao/lib/hooks";
-import { ButtonBaseProps } from "@klimadao/lib/components";
+import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {

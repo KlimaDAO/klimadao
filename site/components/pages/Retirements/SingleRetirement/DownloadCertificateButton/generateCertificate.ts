@@ -1,21 +1,20 @@
-import { jsPDF } from "jspdf";
 import { trimWithLocale } from "@klimadao/lib/utils";
+import { jsPDF } from "jspdf";
 
+import { RetirementToken, urls } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
-import { RetirementToken } from "@klimadao/lib/constants";
-import { urls } from "@klimadao/lib/constants";
 
-import KlimaLogo from "public/logo-klima.png";
 import bctBackground from "public/bg_bct.jpeg";
-import nctBackground from "public/bg_nct.jpeg";
-import nboBackground from "public/bg_nbo.jpeg";
-import uboBackground from "public/bg_ubo.jpeg";
 import mco2Background from "public/bg_mco2.jpeg";
+import nboBackground from "public/bg_nbo.jpeg";
+import nctBackground from "public/bg_nct.jpeg";
+import uboBackground from "public/bg_ubo.jpeg";
+import KlimaLogo from "public/logo-klima.png";
 
-import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
-import { PoppinsBold } from "./poppinsBoldbase64";
 import { StaticImageData } from "next/legacy/image";
+import { PoppinsBold } from "./poppinsBoldbase64";
+import { PoppinsExtraLight } from "./poppinsExtraLightbase64";
 
 type Params = {
   beneficiaryName: string;

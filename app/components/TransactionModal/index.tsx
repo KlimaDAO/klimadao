@@ -1,10 +1,10 @@
-import { FC, ReactNode, useState } from "react";
-import { Trans } from "@lingui/macro";
-import { AppNotificationStatus } from "state/app";
 import {
-  AllowancesToken,
   AllowancesSpender,
+  AllowancesToken,
 } from "@klimadao/lib/types/allowances";
+import { Trans } from "@lingui/macro";
+import { FC, ReactNode, useState } from "react";
+import { AppNotificationStatus } from "state/app";
 
 import { Modal } from "components/Modal";
 import { Approve } from "./Approve";

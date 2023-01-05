@@ -1,20 +1,20 @@
-import { FC } from "react";
-import { Trans } from "@lingui/macro";
 import { cx } from "@emotion/css";
+import { Trans } from "@lingui/macro";
+import { FC } from "react";
 
-import { AppNotificationStatus } from "state/app";
-import { getSpenderAddress, concatAddress } from "@klimadao/lib/utils";
-import { getStatusMessage } from "actions/utils";
 import {
-  AllowancesToken,
   AllowancesSpender,
+  AllowancesToken,
 } from "@klimadao/lib/types/allowances";
-import SendRounded from "@mui/icons-material/SendRounded";
+import { concatAddress, getSpenderAddress } from "@klimadao/lib/utils";
 import CheckIcon from "@mui/icons-material/Check";
+import SendRounded from "@mui/icons-material/SendRounded";
+import { getStatusMessage } from "actions/utils";
 import { tokenInfo } from "lib/getTokenInfo";
+import { AppNotificationStatus } from "state/app";
 
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { HighlightValue } from "./HighlightValue";
-import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
 
 import * as styles from "./styles";
 

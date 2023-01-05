@@ -1,19 +1,19 @@
-import React, { FC, ReactElement, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router";
-import { selectNotificationStatus } from "state/selectors";
-import * as styles from "./styles";
+import { Text } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
 import AlarmIcon from "@mui/icons-material/Alarm";
 import CheckIcon from "@mui/icons-material/Check";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
-import { AppNotificationStatus } from "../../state/app";
-import { setAppState } from "state/app";
-import { useAppDispatch } from "state";
 import { getStatusMessage } from "actions/utils";
-import { ClaimExceededModal } from "components/views/PKlima/ClaimExceededModal";
-import { Text } from "@klimadao/lib/components";
-import { Trans } from "@lingui/macro";
 import { Modal } from "components/Modal";
+import { ClaimExceededModal } from "components/views/PKlima/ClaimExceededModal";
+import { FC, ReactElement, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router";
+import { useAppDispatch } from "state";
+import { setAppState } from "state/app";
+import { selectNotificationStatus } from "state/selectors";
+import { AppNotificationStatus } from "../../state/app";
+import * as styles from "./styles";
 
 interface ModalAssetTypes {
   [key: string]: {

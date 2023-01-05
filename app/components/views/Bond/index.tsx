@@ -1,29 +1,28 @@
-import { useState, useEffect, FC, ReactNode } from "react";
-import { useSelector } from "react-redux";
 import LeftOutlined from "@mui/icons-material/KeyboardArrowLeftRounded";
 import SpaOutlined from "@mui/icons-material/SpaOutlined";
-import { Link } from "react-router-dom";
-import { setAppState, AppNotificationStatus, TxnStatus } from "state/app";
-import { selectNotificationStatus, selectLocale } from "state/selectors";
 import { TippyProps } from "@tippyjs/react";
 import {
-  bondTransaction,
-  redeemTransaction,
-  calcBondDetails,
-  calculateUserBondDetails,
   bondMapToBondName,
   bondMapToTokenName,
+  bondTransaction,
+  calcBondDetails,
+  calculateUserBondDetails,
   getIsInverse,
+  redeemTransaction,
 } from "actions/bonds";
+import { FC, ReactNode, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
+import { selectLocale, selectNotificationStatus } from "state/selectors";
 
 import { changeApprovalTransaction } from "actions/utils";
 
-import { Trans, t } from "@lingui/macro";
 import { prettifySeconds } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 
-import { useBond } from "../ChooseBond";
-import { Bond as BondType } from "@klimadao/lib/constants";
 import {
+  ButtonBaseProps,
   ButtonPrimary,
   ConnectModal,
   Spinner,
@@ -31,28 +30,29 @@ import {
   TextInfoTooltip,
   useTooltipSingleton,
 } from "@klimadao/lib/components";
-import { TransactionModal } from "components/TransactionModal";
+import { Bond as BondType } from "@klimadao/lib/constants";
 import {
-  useDebounce,
-  trimWithPlaceholder,
-  secondsUntilBlock,
   concatAddress,
-  safeSub,
   safeAdd,
+  safeSub,
+  secondsUntilBlock,
+  trimWithPlaceholder,
+  useDebounce,
 } from "@klimadao/lib/utils";
-import { providers } from "ethers";
-import { selectAppState, selectBondAllowance } from "state/selectors";
-import { RootState, useAppDispatch } from "state";
-import { setBondAllowance } from "state/user";
-import { redeemBond, setBond } from "state/bonds";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import Box from "@mui/material/Box";
 import Checkbox from "@mui/material/Checkbox";
-import * as styles from "./styles";
 import { BondBalancesCard } from "components/BondBalancesCard";
 import { Image } from "components/Image";
 import { ImageCard } from "components/ImageCard";
-import { ButtonBaseProps } from "@klimadao/lib/components";
+import { TransactionModal } from "components/TransactionModal";
+import { providers } from "ethers";
+import { RootState, useAppDispatch } from "state";
+import { redeemBond, setBond } from "state/bonds";
+import { selectAppState, selectBondAllowance } from "state/selectors";
+import { setBondAllowance } from "state/user";
+import { useBond } from "../ChooseBond";
+import * as styles from "./styles";
 
 export function prettyVestingPeriod(
   locale = "en",

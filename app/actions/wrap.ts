@@ -1,6 +1,6 @@
-import { utils, providers } from "ethers";
-import { OnStatusHandler } from "./utils";
 import { getContract, getTokenDecimals } from "@klimadao/lib/utils";
+import { providers, utils } from "ethers";
+import { OnStatusHandler } from "./utils";
 
 export const wrapTransaction = async (params: {
   action: "wrap" | "unwrap";

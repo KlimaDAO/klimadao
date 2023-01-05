@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
-import * as styles from "./styles";
 import { Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
+import * as styles from "./styles";
 
 interface Props {
   onHide: () => void;

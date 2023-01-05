@@ -29,15 +29,23 @@ From the `klimadao/` root folder, _not_ from individual packages:
 
 A set of NPM Workspace commands are provided, and can be run from the root folder.
 
-`npm run dev-site`: run the website on localhost:3000
+`npm run dev-all`: run all workspaces with hot reloading enabled.
 
-`npm run dev-app`: run the app on localhost:3001
+> Website can be accessed at [http://localhost:3000](http://localhost:3000)
 
-`npm run dev-lib`: Watch for changes in `@klimadao/lib` and recompile on save. Alternatively, run `npm run build-lib` to compile once (this is already done automatically for the above two commands).
+> App can be accessed at [http://localhost:3001](http://localhost:3001)
+
+To run dev on a specific workspace use:
+
+- `npm run dev-site`
+- `npm run dev-app`
+- `npm run dev-lib`
 
 `npm run format-all`: Format all files with `prettier`.
 
 `npm run extract-strings:dev`: Extract translation files for the source language "en".
+
+`npm run build-all`: build all workspaces.
 
 ## Translations
 

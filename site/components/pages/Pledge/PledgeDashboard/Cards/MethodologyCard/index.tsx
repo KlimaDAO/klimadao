@@ -1,8 +1,8 @@
-import React, { FC } from "react";
 import { css } from "@emotion/css";
+import { Text } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
-import { Text } from "@klimadao/lib/components";
+import { FC } from "react";
 
 import { BaseCard } from "../BaseCard";
 

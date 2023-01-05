@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import * as styles from "./styles";
 import { cx } from "@emotion/css";
 import Tippy from "@tippyjs/react";
+import { FC } from "react";
+import * as styles from "./styles";
 
 interface Props {
   name: string;

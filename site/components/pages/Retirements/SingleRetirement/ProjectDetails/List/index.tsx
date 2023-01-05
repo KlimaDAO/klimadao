@@ -1,10 +1,12 @@
-import { FC } from "react";
-import { useRouter } from "next/router";
-import { Anchor as A, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { trimWithLocale } from "@klimadao/lib/utils";
+import { useRouter } from "next/router";
+import { FC } from "react";
+
+import { Anchor as A } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import LaunchIcon from "@mui/icons-material/Launch";
 import { Trans } from "@lingui/macro";
+import LaunchIcon from "@mui/icons-material/Launch";
 
 import * as styles from "./styles";
 

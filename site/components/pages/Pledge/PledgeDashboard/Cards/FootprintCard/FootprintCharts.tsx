@@ -1,6 +1,8 @@
-import React, { FC, useState } from "react";
-import { useRouter } from "next/router";
+import { Text } from "@klimadao/lib/components";
+import { trimWithLocale } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import { useRouter } from "next/router";
+import { FC, useState } from "react";
 import {
   Cell,
   Pie,
@@ -10,8 +12,6 @@ import {
   Tooltip,
   TooltipProps,
 } from "recharts";
-import { Text } from "@klimadao/lib/components";
-import { trimWithLocale } from "@klimadao/lib/utils";
 
 import { CategoryWithPercent } from ".";
 import * as styles from "./styles";

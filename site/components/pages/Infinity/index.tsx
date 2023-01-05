@@ -1,43 +1,43 @@
-import React, { useState } from "react";
-import { NextPage } from "next";
-import Image from "next/legacy/image";
-import { Trans, t } from "@lingui/macro";
 import {
-  Section,
   ButtonPrimary,
   ButtonSecondary,
-  Text,
   KlimaInfinityLogo,
+  Section,
+  Text,
 } from "@klimadao/lib/components";
+import { t, Trans } from "@lingui/macro";
+import { NextPage } from "next";
+import Image from "next/legacy/image";
+import { useState } from "react";
 
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
 import { SocialProof } from "components/SocialProof";
 
+import { getImageSizes } from "@klimadao/lib/utils";
 import klimaInfinityBackground from "public/bg-infinity.png";
-import affordableMountain from "public/green-cliff-canyon.png";
-import fastMountain from "public/green-mountainside.jpg";
-import transparentTrees from "public/trees-and-water.png";
 import PartnersThumbnail from "public/bg-partners.jpg";
-import infinityWave from "public/infinity_wave.jpg";
-import hazyWindmills from "public/hazy_windmills.png";
-import forestCanopy from "public/forest_canopy.png";
-import cars from "public/cars.jpg";
 import wavyLines from "public/bg_wavy_lines.png";
+import cars from "public/cars.jpg";
+import forestCanopy from "public/forest_canopy.png";
 import gasPump from "public/gas_pump.png";
+import affordableMountain from "public/green-cliff-canyon.png";
 import greenCloud from "public/green-cloud.png";
 import greenFire from "public/green-fire.png";
+import fastMountain from "public/green-mountainside.jpg";
+import hazyWindmills from "public/hazy_windmills.png";
+import infinityWave from "public/infinity_wave.jpg";
 import logoPolygonInfinity from "public/logo-polygon-infinity.png";
+import transparentTrees from "public/trees-and-water.png";
 import GetStartedModal from "./GetStartedModal";
-import { getImageSizes } from "@klimadao/lib/utils";
 
 import { CardsSlider } from "./Cards/CardsSlider";
 import * as styles from "./styles";
 
+import { cx } from "@emotion/css";
 import { urls } from "@klimadao/lib/constants";
 import { YoutubeEmbed } from "components/YoutubeEmbed";
-import { cx } from "@emotion/css";
 
 const linkToBlogFAQ = `${urls.siteBlog}/klima-infinity-faqs`;
 const linkToBlogPolygon = `${urls.siteBlog}/polygon-goes-carbon-neutral-via-klimadao`;

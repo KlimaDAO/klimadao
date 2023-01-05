@@ -1,13 +1,13 @@
-import React, { FC } from "react";
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
+import { FC } from "react";
 
+import { RetirementToken } from "@klimadao/lib/constants";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import { VerraProjectDetails } from "@klimadao/lib/types/verra";
-import { RetirementToken } from "@klimadao/lib/constants";
 
-import { generateCertificate } from "./generateCertificate";
 import { StaticImageData } from "next/legacy/image";
+import { generateCertificate } from "./generateCertificate";
 export interface DownloadCertificateButtonProps {
   beneficiaryName: string;
   beneficiaryAddress: string;

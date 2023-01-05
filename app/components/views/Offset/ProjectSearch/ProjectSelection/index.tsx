@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { Trans, t } from "@lingui/macro";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { RetirementToken } from "@klimadao/lib/constants";
+import { t, Trans } from "@lingui/macro";
+import { FC } from "react";
 
 import { CarbonProject } from "../../SelectiveRetirement/queryProjectDetails";
 import { SelectProjectButton } from "../SelectProjectButton";

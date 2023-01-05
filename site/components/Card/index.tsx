@@ -1,10 +1,9 @@
-import React from "react";
-import Link from "next/link";
 import Image from "next/legacy/image";
+import Link from "next/link";
 
 import { Text } from "@klimadao/lib/components";
-import defaultImage from "public/cover-default.png";
 import { PostDetails } from "lib/queries";
+import defaultImage from "public/cover-default.png";
 
 import * as styles from "./styles";
 

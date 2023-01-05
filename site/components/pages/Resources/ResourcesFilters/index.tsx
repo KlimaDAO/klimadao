@@ -1,12 +1,12 @@
-import React, { FC } from "react";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
-import { Control } from "react-hook-form";
 import ClearIcon from "@mui/icons-material/ClearRounded";
+import { FC } from "react";
+import { Control } from "react-hook-form";
 
 import { CheckboxGroup } from "./CheckboxGroup";
 
-import { mainTags, subTags, documentTypes } from "../lib/cmsDataMap";
+import { documentTypes, mainTags, subTags } from "../lib/cmsDataMap";
 import { FormValues } from "../ResourcesList";
 
 import * as styles from "./styles";

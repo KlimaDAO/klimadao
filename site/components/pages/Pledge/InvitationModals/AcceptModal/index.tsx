@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import { t, Trans } from "@lingui/macro";
 import {
   ButtonPrimary,
   ButtonSecondary,
@@ -7,20 +5,22 @@ import {
   Text,
 } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import { useState } from "react";
 
 import { Modal } from "components/Modal";
+import {
+  pledgeFormAdapter,
+  putPledge,
+  waitForGnosisSignature,
+} from "../../lib";
 import {
   approveSecondaryWallet,
   removeSecondaryWallet,
 } from "../../lib/editPledgeMessage";
-import { Pledge } from "../../types";
-import {
-  putPledge,
-  pledgeFormAdapter,
-  waitForGnosisSignature,
-} from "../../lib";
-import * as styles from "../styles";
 import { getErrorMessage } from "../../PledgeForm";
+import { Pledge } from "../../types";
+import * as styles from "../styles";
 type Props = {
   setShowAcceptModal: (value: boolean) => void;
   showAcceptModal: boolean;

@@ -1,12 +1,12 @@
-import droneView from "public/drone_view.png";
-import { createLinkWithLocaleQuery } from "lib/i18n";
-import * as styles from "./styles";
-import Image from "next/image";
-import { getImageSizes } from "@klimadao/lib/utils";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { Trans, t } from "@lingui/macro";
-import { useRouter } from "next/router";
 import { urls } from "@klimadao/lib/constants";
+import { getImageSizes } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import { createLinkWithLocaleQuery } from "lib/i18n";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import droneView from "public/drone_view.png";
+import * as styles from "./styles";
 
 export const BuyKlima = () => {
   const { locale } = useRouter();

@@ -1,12 +1,13 @@
-import React, { FC } from "react";
-import dynamic from "next/dynamic";
-import { t } from "@lingui/macro";
 import {
-  KlimaInfinityLogo,
   ButtonPrimary,
   ConnectModal,
+  KlimaInfinityLogo,
 } from "@klimadao/lib/components";
+import { t } from "@lingui/macro";
+import dynamic from "next/dynamic";
 import Link from "next/link";
+import { FC } from "react";
+
 import * as styles from "./styles";
 
 const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {

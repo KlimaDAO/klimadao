@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import { Trans } from "@lingui/macro";
 import { cx } from "@emotion/css";
+import { Trans } from "@lingui/macro";
+import { createLinkWithLocaleQuery } from "lib/i18n";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { createLinkWithLocaleQuery } from "lib/i18n";
+import { FC } from "react";
 
 import {
   Anchor as A,

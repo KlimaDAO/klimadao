@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState, RefObject } from "react";
+import { RefObject, useCallback, useEffect, useState } from "react";
 
 export const useElementWidth = (elementRef: RefObject<HTMLElement>) => {
   const [width, setWidth] = useState<number>(0);

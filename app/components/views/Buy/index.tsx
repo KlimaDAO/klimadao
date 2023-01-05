@@ -1,15 +1,14 @@
-import React from "react";
-import { providers } from "ethers";
-import { Trans, t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
+import { providers } from "ethers";
+
+import { Anchor, ConnectModal, Text } from "@klimadao/lib/components";
 import LoginIcon from "@mui/icons-material/Login";
 
-import { Text, ConnectModal, Anchor } from "@klimadao/lib/components";
-
+import { urls } from "@klimadao/lib/constants";
 import { BalancesCard } from "components/BalancesCard";
 import { ImageCard } from "components/ImageCard";
 import * as styles from "./styles";
-import { urls } from "@klimadao/lib/constants";
 
 interface Props {
   provider?: providers.JsonRpcProvider;

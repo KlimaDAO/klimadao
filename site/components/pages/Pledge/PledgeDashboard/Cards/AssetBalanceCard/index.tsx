@@ -1,23 +1,23 @@
-import React, { FC, useEffect, useState } from "react";
-import { StaticImageData } from "next/legacy/image";
 import { t, Trans } from "@lingui/macro";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
-import map from "lodash/map";
 import groupBy from "lodash/groupBy";
+import map from "lodash/map";
+import { StaticImageData } from "next/legacy/image";
+import { FC, useEffect, useState } from "react";
 
+import { Holding } from "components/pages/Pledge/types";
+import { Balances, BalanceToken, getBalances } from "lib/getBalances";
 import BCTIcon from "public/icons/BCT.png";
 import KLIMAIcon from "public/icons/KLIMA.png";
 import MCO2Icon from "public/icons/MCO2.png";
-import NCTIcon from "public/icons/NCT.png";
 import NBOIcon from "public/icons/NBO.png";
+import NCTIcon from "public/icons/NCT.png";
 import UBOIcon from "public/icons/UBO.png";
-import { getBalances, Balances, BalanceToken } from "lib/getBalances";
-import { Holding } from "components/pages/Pledge/types";
 
-import { BaseCard } from "../BaseCard";
-import { TokenRow } from "./TokenRow";
-import * as styles from "./styles";
 import { Text } from "@klimadao/lib/components";
+import { BaseCard } from "../BaseCard";
+import * as styles from "./styles";
+import { TokenRow } from "./TokenRow";
 
 type Props = {
   pageAddress: string;

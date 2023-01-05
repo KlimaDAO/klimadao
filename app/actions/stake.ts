@@ -1,6 +1,6 @@
-import { utils, providers } from "ethers";
-import { OnStatusHandler } from "./utils";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
+import { providers, utils } from "ethers";
+import { OnStatusHandler } from "./utils";
 
 export const changeStakeTransaction = async (params: {
   value: string;

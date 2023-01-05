@@ -1,11 +1,11 @@
-import React, { FC, useState } from "react";
-import Tippy from "@tippyjs/react";
 import { t } from "@lingui/macro";
 import Language from "@mui/icons-material/Language";
+import Tippy from "@tippyjs/react";
 import { locales } from "lib/i18n";
+import { FC, useState } from "react";
 
-import * as styles from "./styles";
 import { useRouter } from "next/router";
+import * as styles from "./styles";
 
 /**
  * Temporary demo component until we have one from design

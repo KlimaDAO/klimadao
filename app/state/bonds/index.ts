@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Bond } from "@klimadao/lib/constants";
 import { safeSub } from "@klimadao/lib/utils";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type BondState = {
   [bond in Bond]?: {
