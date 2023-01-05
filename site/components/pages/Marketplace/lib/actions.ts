@@ -174,10 +174,8 @@ export const makePurchase = async (params: {
       provider: params.provider.getSigner(),
     });
 
-
     params.onStatus("userConfirmation", "");
 
-    console.log("makePurchase", params);
     const purchaseTxn = await marketPlaceContract.purchase(
       params.listingId,
       utils.parseUnits(params.amount, 18), // C3 token
