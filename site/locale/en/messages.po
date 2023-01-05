@@ -34,241 +34,241 @@ msgid "Wrong Network"
 msgstr "Wrong Network"
 
 #. Long sentence
-#: components/pages/Blog/Post/index.tsx:88
+#: components/pages/Blog/Post/index.tsx:87
 msgid "blog.disclaimer.description"
 msgstr "The information provided in this blog post pertaining to KlimaDAO (“KlimaDAO”), its crypto-assets, business assets, strategy, and operations, is for general informational purposes only and is not a formal offer to sell or a solicitation of an offer to buy any securities, options, futures, or other derivatives related to securities in any jurisdiction and its content is not prescribed by securities laws. Information contained in this blog post should not be relied upon as advice to buy or sell or hold such securities or as an offer to sell such securities. This blog post does not take into account nor does it provide any tax, legal or investment advice or opinion regarding the specific investment objectives or financial situation of any person. KlimaDAO and its agents, advisors, directors, officers, employees and shareholders make no representation or warranties, expressed or implied, as to the accuracy of such information and KlimaDAO expressly disclaims any and all liability that may be based on such information or errors or omissions thereof. KlimaDAO reserves the right to amend or replace the information contained herein, in part or entirely, at any time, and undertakes no obligation to provide the recipient with access to the amended information or to notify the recipient thereof. The information contained in this blog post supersedes any prior blog post or conversation concerning the same, similar or related information. Any information, representations or statements not contained herein shall not be relied upon for any purpose. Neither KlimaDAO nor any of its representatives shall have any liability whatsoever, under contract, tort, trust or otherwise, to you or any person resulting from the use of the information in this blog post by you or any of your representatives or for omissions from the information in this blog post. Additionally, KlimaDAO undertakes no obligation to comment on the expectations of, or statements made by, third parties in respect of the matters discussed in this blog post."
 
-#: components/pages/Blog/Post/index.tsx:85
+#: components/pages/Blog/Post/index.tsx:84
 msgid "blog.disclaimer.title"
 msgstr "Disclaimer:"
 
-#: components/pages/Buy/index.tsx:439
+#: components/pages/Buy/index.tsx:433
 msgid "buy.answer_exchange"
 msgstr "Advanced users can use the <0>Polygon Bridge</0> to move any asset from Ethereum to Polygon, and/or the <1>Polygon Gas Swap</1> to swap assets like USDC for MATIC."
 
-#: components/pages/Buy/index.tsx:396
+#: components/pages/Buy/index.tsx:390
 msgid "buy.bond_answer_cedit_card"
 msgstr "Yes, some on-ramp providers like <0>Transak</0> allow you to buy KLIMA directly with a credit card, for a fee. However, if your wallet doesn't have MATIC, you won't be able to transfer or perform other actions. For this reason, and to guarantee the best market rate, we recommend buying MATIC directly instead, and swapping your MATIC for KLIMA on Sushi.com."
 
-#: components/pages/Buy/index.tsx:414
+#: components/pages/Buy/index.tsx:408
 msgid "buy.bond_answer_cex1"
 msgstr "KLIMA is not traded on a centralized exchange like Coinbase, Binance, or Crypto.com as these exchanges typically charge very high listing fees and require financing from expensive market makers."
 
-#: components/pages/Buy/index.tsx:422
+#: components/pages/Buy/index.tsx:416
 msgid "buy.bond_answer_cex2"
 msgstr "Instead, KLIMA tokens are traded on a \"Decentralized Exchange\" (DEX) that is powered by smart contracts and runs directly on the blockchain. DEXs have some major advantages. DEXs made it possible for the DAO to own the majority of liquidity, so it can maintain full autonomy and generate revenue to pay contributors. We chose to use Sushi's DEX technology as it already facilitates tens of millions of dollars in transactions per day."
 
-#: components/pages/Buy/index.tsx:377
+#: components/pages/Buy/index.tsx:371
 msgid "buy.bond_description1"
 msgstr "Experienced crypto users can buy KLIMA directly from the protocol via bonds. To acquire KLIMA via bonds, you provide a carbon token or liquidity token and get discounted KLIMA tokens in return. This is the mechanism that the DAO uses to grow its treasury of digital carbon."
 
-#: components/pages/Buy/index.tsx:386
+#: components/pages/Buy/index.tsx:380
 msgid "buy.bond_description_capacity"
 msgstr "Bond capacity is limited and bonds are not always available."
 
-#: components/pages/Buy/index.tsx:407
+#: components/pages/Buy/index.tsx:401
 msgid "buy.bond_question_cex"
 msgstr "Why can't I find KLIMA on Coinbase or other centralized exchanges? Why do I have to use <0>Sushi.com</0>?"
 
-#: components/pages/Buy/index.tsx:391
+#: components/pages/Buy/index.tsx:385
 msgid "buy.bond_question_credit_card"
 msgstr "Can I buy KLIMA directly with a credit card?"
 
-#: components/pages/Buy/index.tsx:196
+#: components/pages/Buy/index.tsx:190
 msgid "buy.connect_advanced"
 msgstr "Note: these instructions are for Torus wallet users only. Sushi supports a variety of different wallets."
 
-#: components/pages/Buy/index.tsx:191
+#: components/pages/Buy/index.tsx:185
 msgid "buy.connect_torus_sushi"
 msgstr "3A. Connect Torus to Sushi.com using WalletConnect"
 
-#: components/pages/Buy/index.tsx:218
+#: components/pages/Buy/index.tsx:212
 msgid "buy.connect_torus_sushi_description2"
 msgstr "In a separate browser tab, visit <0>Sushi.com</0> and click \"Connect\" at the top-right corner. You will be presented with a few wallet options. Choose WalletConnect. After you choose WalletConnect you will see a QR code—click \"Copy to Clipboard\"."
 
-#: components/pages/Buy/index.tsx:235
+#: components/pages/Buy/index.tsx:229
 msgid "buy.connect_torus_sushi_description3"
 msgstr "Return to the Torus wallet app and paste this code into the WalletConnect widget. This will create a temporary connection between your wallet and <0>Sushi.com</0>."
 
-#: components/pages/Buy/index.tsx:243
+#: components/pages/Buy/index.tsx:237
 msgid "buy.connect_torus_sushi_description4"
 msgstr "When you return to the Sushi tab in your browser, you should see that your Torus address is now visible in the top-right corner."
 
-#: components/pages/Buy/index.tsx:249
+#: components/pages/Buy/index.tsx:243
 msgid "buy.connect_torus_sushi_description5"
 msgstr "Finally, use the drop-down menu on <0>Sushi.com</0> to switch to the Polygon network."
 
-#: components/pages/Buy/index.tsx:78
+#: components/pages/Buy/index.tsx:72
 msgid "buy.create_wallet_description"
 msgstr "<0>Create a wallet.</0> We recommend Torus Wallet, but our app supports most Web3 wallets (Metamask, Coinbase Wallet, Brave, MyEtherWallet, and many more)."
 
-#: components/pages/Buy/index.tsx:120
+#: components/pages/Buy/index.tsx:114
 msgid "buy.create_wallet_description1"
 msgstr "Head to <0>app.klimadao.finance</0> and click \"Connect\" at the top-right corner."
 
-#: components/pages/Buy/index.tsx:126
+#: components/pages/Buy/index.tsx:120
 msgid "buy.create_wallet_description2"
 msgstr "Choose the “Email or Social” sign-in option, which will direct you to log in with Torus. Torus is a technology that generates a secure wallet using your existing email or social login. You will be able to use this new Torus wallet across hundreds of other Web3 and DeFi apps."
 
-#: components/pages/Buy/index.tsx:135
+#: components/pages/Buy/index.tsx:129
 msgid "buy.create_wallet_description3"
 msgstr "When you are connected, you should see your new wallet address in the top left corner of the app."
 
-#: components/pages/Buy/index.tsx:141
+#: components/pages/Buy/index.tsx:135
 msgid "buy.create_wallet_description4"
 msgstr "Advanced: if you don't want to use Torus, feel free to use any Polygon-compatible Web3 wallet."
 
-#: components/pages/Buy/index.tsx:117
+#: components/pages/Buy/index.tsx:111
 msgid "buy.create_wallet_item"
 msgstr "1. Create a Wallet"
 
-#: components/pages/Buy/index.tsx:325
+#: components/pages/Buy/index.tsx:319
 msgid "buy.faq_title"
 msgstr "FAQ"
 
-#: components/pages/Buy/index.tsx:33
-#: components/pages/Buy/index.tsx:34
+#: components/pages/Buy/index.tsx:27
+#: components/pages/Buy/index.tsx:28
 msgid "buy.head.title"
 msgstr "How to buy KLIMA"
 
-#: components/pages/Buy/index.tsx:47
+#: components/pages/Buy/index.tsx:41
 msgid "buy.how_to_buy"
 msgstr "How to buy KLIMA"
 
-#: components/pages/Buy/index.tsx:50
+#: components/pages/Buy/index.tsx:44
 msgid "buy.how_to_paragraph_part_1"
 msgstr "KLIMA is a carbon-backed digital asset and can be staked for rewards or used to offset digital carbon. Holding KLIMA also empowers you to vote and help govern the Digital Carbon Market."
 
-#: components/pages/Buy/index.tsx:57
+#: components/pages/Buy/index.tsx:51
 msgid "buy.how_to_paragraph_part_2"
 msgstr "This is a short tutorial for beginners who are new to Web3 and DeFi"
 
-#: components/pages/Buy/index.tsx:149
+#: components/pages/Buy/index.tsx:143
 msgid "buy.load_wallet"
 msgstr "2. Load your wallet with MATIC tokens"
 
-#: components/pages/Buy/index.tsx:91
+#: components/pages/Buy/index.tsx:85
 msgid "buy.load_wallet_description"
 msgstr "<0>Load your new wallet with MATIC tokens.</0> MATIC is the gas that powers the Polygon network. Every transaction you execute on Polygon will require a few cents worth of MATIC to pay the network fee."
 
-#: components/pages/Buy/index.tsx:154
+#: components/pages/Buy/index.tsx:148
 msgid "buy.load_wallet_description1"
 msgstr "Use a service like <0>MoonPay</0> or <1>Transak</1> or a centralized exchange like <2>Coinbase</2> to buy Polygon MATIC and send it to your newly created wallet."
 
-#: components/pages/Buy/index.tsx:164
+#: components/pages/Buy/index.tsx:158
 msgid "buy.load_wallet_description2"
 msgstr "<0>Be sure that the MATIC tokens are sent to your new wallet address!</0> You can copy the address to your clipboard by connecting to our app and clicking the address in the navigation menu."
 
-#: components/pages/Buy/index.tsx:174
+#: components/pages/Buy/index.tsx:168
 msgid "buy.load_wallet_description3"
 msgstr "<0>Be sure to buy and send the MATIC through the Polygon network!</0> Some exchanges like Coinbase will ask you which network to send the MATIC tokens on. Make sure to always choose Polygon."
 
-#: components/pages/Buy/index.tsx:433
+#: components/pages/Buy/index.tsx:427
 msgid "buy.question_exchange"
 msgstr "What if I want to use a different exchange, but they don't sell Polygon MATIC?"
 
-#: components/pages/Buy/index.tsx:328
+#: components/pages/Buy/index.tsx:322
 msgid "buy.question_why_matic"
 msgstr "Why do I have to buy MATIC first?"
 
-#: components/pages/Buy/index.tsx:333
+#: components/pages/Buy/index.tsx:327
 msgid "buy.question_why_matic_answer"
 msgstr "The KLIMA token and protocol lives on the Polygon blockchain. MATIC is the “gas” that powers every transaction on Polygon. It is not possible to execute a transaction without paying the transaction fee. This means you will need to pay a few cents worth of MATIC for the following actions:"
 
-#: components/pages/Buy/index.tsx:344
+#: components/pages/Buy/index.tsx:338
 msgid "buy.question_why_matic_answer_bullet1"
 msgstr "Staking KLIMA for sKLIMA"
 
-#: components/pages/Buy/index.tsx:351
+#: components/pages/Buy/index.tsx:345
 msgid "buy.question_why_matic_answer_bullet2"
 msgstr "Swapping between different tokens"
 
-#: components/pages/Buy/index.tsx:358
+#: components/pages/Buy/index.tsx:352
 msgid "buy.question_why_matic_answer_bullet3"
 msgstr "Sending tokens to another wallet"
 
-#: components/pages/Buy/index.tsx:365
+#: components/pages/Buy/index.tsx:359
 msgid "buy.question_why_matic_answer_bullet4"
 msgstr "Using KLIMA or other tokens to offset carbon"
 
-#: components/pages/Buy/index.tsx:298
+#: components/pages/Buy/index.tsx:292
 msgid "buy.staking_cta"
 msgstr "Stake, earn, vote, and offset!"
 
-#: components/pages/Buy/index.tsx:301
+#: components/pages/Buy/index.tsx:295
 msgid "buy.staking_description1"
 msgstr "Congrats! Now that you have some KLIMA in your wallet, we highly recommend <0>staking</0> that KLIMA for sKLIMA, which accrues rewards over time as the protocol grows."
 
-#: components/pages/Buy/index.tsx:309
+#: components/pages/Buy/index.tsx:303
 msgid "buy.staking_description2"
 msgstr "You can also use the app to spend KLIMA and <0>retire digital carbon</0> on the blockchain."
 
-#: components/pages/Buy/index.tsx:316
+#: components/pages/Buy/index.tsx:310
 msgid "buy.staking_description3"
 msgstr "Finally, keep an eye out for <0>ongoing votes</0> and help guide the protocol in the right direction."
 
-#: components/pages/Buy/index.tsx:75
+#: components/pages/Buy/index.tsx:69
 msgid "buy.step_1"
 msgstr "1."
 
-#: components/pages/Buy/index.tsx:88
+#: components/pages/Buy/index.tsx:82
 msgid "buy.step_2"
 msgstr "2."
 
-#: components/pages/Buy/index.tsx:103
+#: components/pages/Buy/index.tsx:97
 msgid "buy.step_3"
 msgstr "3."
 
-#: components/pages/Buy/index.tsx:68
+#: components/pages/Buy/index.tsx:62
 msgid "buy.summary_steps_title"
 msgstr "The best and easiest way to get KLIMA is to follow these three steps:"
 
-#: components/pages/Buy/index.tsx:65
+#: components/pages/Buy/index.tsx:59
 msgid "buy.summary_title"
 msgstr "Summary"
 
-#: components/pages/Buy/index.tsx:259
+#: components/pages/Buy/index.tsx:253
 msgid "buy.swap_description1"
 msgstr "After connecting your wallet and switching to the Polygon network, you should now be able to swap from MATIC to KLIMA."
 
-#: components/pages/Buy/index.tsx:265
+#: components/pages/Buy/index.tsx:259
 msgid "buy.swap_description2"
 msgstr "<0>Important note: don't swap all your MATIC for KLIMA!</0> Save at least 0.5 MATIC to pay for future transaction fees."
 
-#: components/pages/Buy/index.tsx:281
+#: components/pages/Buy/index.tsx:275
 msgid "buy.swap_description3"
 msgstr "If you are using Torus, keep the browser tab with the Torus app open. You will need to return to your wallet to approve and authorize the transactions."
 
-#: components/pages/Buy/index.tsx:288
+#: components/pages/Buy/index.tsx:282
 msgid "buy.swap_description4"
 msgstr "Optional: If you'd like your Sushi transactions themselves to be climate positive, you should enable the Sushi 'Green Fee', powered by KlimaDAO. This will spend 0.02 MATIC per transaction to purchase and retire digital carbon automatically!"
 
-#: components/pages/Buy/index.tsx:106
+#: components/pages/Buy/index.tsx:100
 msgid "buy.swap_for_klima_description"
 msgstr "<0>Swap for KLIMA.</0> Sushi is a Decentralized Exchange where you can instantly trade some of your MATIC tokens for KLIMA tokens at the lowest possible price."
 
-#: components/pages/Buy/index.tsx:256
+#: components/pages/Buy/index.tsx:250
 msgid "buy.swap_subtitle"
 msgstr "3B. Swap MATIC for KLIMA"
 
-#: components/pages/Buy/index.tsx:185
+#: components/pages/Buy/index.tsx:179
 msgid "buy.swap_wallet"
 msgstr "3. Swap for KLIMA on <0>Sushi.com</0>"
 
-#: components/pages/Buy/index.tsx:202
+#: components/pages/Buy/index.tsx:196
 msgid "buy.torus_login_description"
 msgstr "In a new browser tab, go to the <0>Torus Polygon webapp</0> and log in with your new Torus account. When you log in, you should see a WalletConnect widget."
 
-#: components/pages/Buy/index.tsx:211
+#: components/pages/Buy/index.tsx:205
 msgid "buy.wallet_connect_example"
 msgstr "wallet connect input example"
 
-#: components/pages/Buy/index.tsx:228
-#: components/pages/Buy/index.tsx:274
+#: components/pages/Buy/index.tsx:222
+#: components/pages/Buy/index.tsx:268
 msgid "buy.wallet_connect_example_qr_code"
 msgstr "wallet connect qr code example"
 
-#: components/pages/Buy/index.tsx:372
+#: components/pages/Buy/index.tsx:366
 msgid "buy.what_are_bonds"
 msgstr "Are there other ways to get KLIMA? What are bonds?"
 
@@ -409,40 +409,40 @@ msgstr "We work with traditional carbon market players, crypto platforms, corpor
 msgid "concat.careers"
 msgstr "Careers"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:48
-#: components/pages/Pledge/HeaderMobile/index.tsx:46
+#: components/pages/Pledge/HeaderDesktop/index.tsx:49
+#: components/pages/Pledge/HeaderMobile/index.tsx:47
 #: components/pages/Pledge/index.tsx:117
 #: components/pages/Pledge/index.tsx:334
 #: components/pages/Pledge/index.tsx:389
 msgid "connectModal.continue"
 msgstr "or continue with"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:57
-#: components/pages/Pledge/HeaderMobile/index.tsx:55
+#: components/pages/Pledge/HeaderDesktop/index.tsx:58
+#: components/pages/Pledge/HeaderMobile/index.tsx:56
 #: components/pages/Pledge/index.tsx:126
 #: components/pages/Pledge/index.tsx:343
 #: components/pages/Pledge/index.tsx:398
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:44
-#: components/pages/Pledge/HeaderMobile/index.tsx:42
+#: components/pages/Pledge/HeaderDesktop/index.tsx:45
+#: components/pages/Pledge/HeaderMobile/index.tsx:43
 #: components/pages/Pledge/index.tsx:112
 #: components/pages/Pledge/index.tsx:330
 #: components/pages/Pledge/index.tsx:384
 msgid "connect_modal.error_message"
 msgstr "We had some trouble connecting. Please try again."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:61
-#: components/pages/Pledge/HeaderMobile/index.tsx:59
+#: components/pages/Pledge/HeaderDesktop/index.tsx:62
+#: components/pages/Pledge/HeaderMobile/index.tsx:60
 #: components/pages/Pledge/index.tsx:130
 #: components/pages/Pledge/index.tsx:347
 #: components/pages/Pledge/index.tsx:402
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:53
-#: components/pages/Pledge/HeaderMobile/index.tsx:51
+#: components/pages/Pledge/HeaderDesktop/index.tsx:54
+#: components/pages/Pledge/HeaderMobile/index.tsx:52
 #: components/pages/Pledge/index.tsx:122
 #: components/pages/Pledge/index.tsx:339
 #: components/pages/Pledge/index.tsx:394
@@ -846,19 +846,19 @@ msgstr "Offset in seconds, with no red tape"
 msgid "infinity.fast_title"
 msgstr "Fast"
 
-#: components/pages/Infinity/GetStartedModal.tsx:48
+#: components/pages/Infinity/GetStartedModal.tsx:47
 msgid "infinity.getStartedModal_business"
 msgstr "I'm a <0/>business."
 
-#: components/pages/Infinity/GetStartedModal.tsx:71
+#: components/pages/Infinity/GetStartedModal.tsx:70
 msgid "infinity.getStartedModal_individual"
 msgstr "I'm an<0/>individual."
 
-#: components/pages/Infinity/GetStartedModal.tsx:105
+#: components/pages/Infinity/GetStartedModal.tsx:104
 msgid "infinity.getStartedModal_needAssistance"
 msgstr "I'd like assistance with my organization's carbon footprint."
 
-#: components/pages/Infinity/GetStartedModal.tsx:95
+#: components/pages/Infinity/GetStartedModal.tsx:94
 msgid "infinity.getStartedModal_offsetCrypto"
 msgstr "I want to<0/>offset crypto."
 
@@ -1004,41 +1004,41 @@ msgstr "Invest in the future."
 msgid "mission.header"
 msgstr "KlimaDAO's mission is to democratize climate action"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:84
-#: components/pages/Pledge/PledgeForm/index.tsx:88
-#: components/pages/Pledge/PledgeForm/index.tsx:104
+#: components/pages/Pledge/PledgeForm/index.tsx:79
+#: components/pages/Pledge/PledgeForm/index.tsx:83
+#: components/pages/Pledge/PledgeForm/index.tsx:99
 msgid "pledge.errors.default"
 msgstr "An error has occured"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:96
+#: components/pages/Pledge/PledgeForm/index.tsx:91
 msgid "pledge.errors.method_not_allowed"
 msgstr "Method not allowed."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:80
+#: components/pages/Pledge/PledgeForm/index.tsx:75
 msgid "pledge.errors.pledge_not_found"
 msgstr "A pledge was not found for this address."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:92
+#: components/pages/Pledge/PledgeForm/index.tsx:87
 msgid "pledge.errors.unknown_error"
 msgstr "An unknown error has occured."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:196
+#: components/pages/Pledge/PledgeForm/index.tsx:191
 msgid "pledge.form.error.cannot_add_yourself"
 msgstr "You cannot add your own wallet as a secondary wallet"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:232
+#: components/pages/Pledge/PledgeForm/index.tsx:227
 msgid "pledge.form.error.default_error_message"
 msgstr "Something went wrong. Please try again shortly."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:180
+#: components/pages/Pledge/PledgeForm/index.tsx:175
 msgid "pledge.form.error.duplicate_wallets"
 msgstr "Please remove the duplicate wallet(s)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:625
+#: components/pages/Pledge/PledgeForm/index.tsx:620
 msgid "pledge.form.wallets.confirm_remove_wallet"
 msgstr "Are you sure you want to remove {0} from your pledge?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:334
+#: components/pages/Pledge/PledgeForm/index.tsx:329
 msgid "pledge.form.wallets.tooltip"
 msgstr "Add other wallets to contribute to your pledge. If the owner of the wallet accepts your invitation, their wallet will appear on your pledge dashboard. Any retirements made by a secondary wallet will contribute toward your pledge. You'll retain sole ownership and editing access to this pledge."
 
@@ -1047,7 +1047,7 @@ msgstr "Add other wallets to contribute to your pledge. If the owner of the wall
 msgid "pledge.invitation.accept"
 msgstr "Accept Invitation"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:75
+#: components/pages/Pledge/PledgeForm/index.tsx:70
 msgid "pledge.invitation.error.wallet_already_pinned"
 msgstr "This wallet is already pinned to another pledge. Please unpin your wallet and try again."
 
@@ -1135,15 +1135,15 @@ msgstr "{0}% of footprint"
 msgid "pledges.dashboard.footprint.tooltip.quantity"
 msgstr "{0} Carbon Tonne(s)"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:136
+#: components/pages/Pledge/PledgeDashboard/index.tsx:135
 msgid "pledges.dashboard.head.metaDescription"
 msgstr "{pledgeOwnerTitle} pledges to Offset {currentTotalFootprint} Carbon Tonnes. View their carbon offset history and read more about their commitment."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:132
+#: components/pages/Pledge/PledgeDashboard/index.tsx:131
 msgid "pledges.dashboard.head.metaTitle"
 msgstr "{pledgeOwnerTitle}'s Pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:128
+#: components/pages/Pledge/PledgeDashboard/index.tsx:127
 msgid "pledges.dashboard.head.title"
 msgstr "{pledgeOwnerTitle}'s Pledge | KlimaDAO"
 
@@ -1175,7 +1175,7 @@ msgstr "{0}% of Pledge Met"
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Pledged to Offset <0>{0}</0> Carbon Tonnes"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:105
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:104
 msgid "pledges.dashboard.retirements.title"
 msgstr "Retirements"
 
@@ -1183,35 +1183,35 @@ msgstr "Retirements"
 msgid "pledges.dashboard.retirements.tooltip.tonnes_retired"
 msgstr "{0} Carbon Tonne(s) Retired"
 
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:124
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:123
 msgid "pledges.dashboard.retirements.total_tonnes_retired"
 msgstr "Total Carbon Tonnes Retired"
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:38
+#: components/pages/Pledge/HeaderDesktop/index.tsx:39
 msgid "pledges.edit_pledge"
 msgstr "Edit Pledge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:567
+#: components/pages/Pledge/PledgeForm/index.tsx:562
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Add category"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:443
+#: components/pages/Pledge/PledgeForm/index.tsx:438
 msgid "pledges.form.add_wallet_button"
 msgstr "Add wallet"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:247
+#: components/pages/Pledge/PledgeForm/index.tsx:242
 msgid "pledges.form.awaiting_signature"
 msgstr "Awaiting signature..."
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:166
+#: components/pages/Pledge/PledgeDashboard/index.tsx:165
 msgid "pledges.form.confirm_delete"
 msgstr "confirm removal"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:631
+#: components/pages/Pledge/PledgeForm/index.tsx:626
 msgid "pledges.form.confirm_remove"
 msgstr "remove"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:644
+#: components/pages/Pledge/PledgeForm/index.tsx:639
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "cancel"
 
@@ -1279,91 +1279,91 @@ msgstr "You cannot add the pledge owner"
 msgid "pledges.form.errors.walletAddress.required"
 msgstr "Address required"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:488
+#: components/pages/Pledge/PledgeForm/index.tsx:483
 msgid "pledges.form.footprint.label"
 msgstr "Footprint"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:496
+#: components/pages/Pledge/PledgeForm/index.tsx:491
 msgid "pledges.form.footprint.prompt"
 msgstr "Add a category and start calculating your carbon footprint"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:258
+#: components/pages/Pledge/PledgeForm/index.tsx:253
 msgid "pledges.form.generic_error"
 msgstr "Something went wrong. Please try again."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:517
+#: components/pages/Pledge/PledgeForm/index.tsx:512
 msgid "pledges.form.input.categoryName.label"
 msgstr "Category"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:509
+#: components/pages/Pledge/PledgeForm/index.tsx:504
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Category name"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:540
+#: components/pages/Pledge/PledgeForm/index.tsx:535
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Quantity"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:532
+#: components/pages/Pledge/PledgeForm/index.tsx:527
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Carbon tonnes"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:313
+#: components/pages/Pledge/PledgeForm/index.tsx:308
 msgid "pledges.form.input.description.label"
 msgstr "Pledge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:306
+#: components/pages/Pledge/PledgeForm/index.tsx:301
 msgid "pledges.form.input.description.placeholder"
 msgstr "What is your pledge?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:473
+#: components/pages/Pledge/PledgeForm/index.tsx:468
 msgid "pledges.form.input.methodology.label"
 msgstr "Methodology"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:465
+#: components/pages/Pledge/PledgeForm/index.tsx:460
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "What tools or methodologies did you use to calculate your carbon footprint?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:278
+#: components/pages/Pledge/PledgeForm/index.tsx:273
 msgid "pledges.form.input.name.label"
 msgstr "Name"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:271
+#: components/pages/Pledge/PledgeForm/index.tsx:266
 msgid "pledges.form.input.name.placeholder"
 msgstr "Name or company name"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:291
+#: components/pages/Pledge/PledgeForm/index.tsx:286
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "Profile image url (optional)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:584
+#: components/pages/Pledge/PledgeForm/index.tsx:579
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Total footprint"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:374
+#: components/pages/Pledge/PledgeForm/index.tsx:369
 msgid "pledges.form.input.walletAddress.label"
 msgstr "Address"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:366
+#: components/pages/Pledge/PledgeForm/index.tsx:361
 msgid "pledges.form.input.walletAddress.placeholder"
 msgstr "0x..."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:604
+#: components/pages/Pledge/PledgeForm/index.tsx:599
 msgid "pledges.form.submit_button"
 msgstr "Save pledge"
 
-#: components/pages/Pledge/PledgeDashboard/index.tsx:162
+#: components/pages/Pledge/PledgeDashboard/index.tsx:161
 msgid "pledges.form.title"
 msgstr "Your pledge"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:57
+#: components/pages/Pledge/PledgeForm/index.tsx:52
 msgid "pledges.form.total_footprint_summary"
 msgstr "Total Footprint: {0} Carbon Tonnes"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:616
+#: components/pages/Pledge/PledgeForm/index.tsx:611
 msgid "pledges.form.use_your_wallet"
 msgstr "Use your wallet to sign and confirm this edit."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:326
+#: components/pages/Pledge/PledgeForm/index.tsx:321
 msgid "pledges.form.wallets.label"
 msgstr "Secondary Wallet(s)"
 
@@ -1440,15 +1440,15 @@ msgstr "Medium"
 msgid "resources.form.sub_topics.header"
 msgstr "Sub-topics"
 
-#: components/pages/Resources/index.tsx:32
+#: components/pages/Resources/index.tsx:31
 msgid "resources.head.metaDescription"
 msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
 
-#: components/pages/Resources/index.tsx:28
+#: components/pages/Resources/index.tsx:27
 msgid "resources.head.metaTitle"
 msgstr "KlimaDAO Resources - Go beyond Carbon neutral"
 
-#: components/pages/Resources/index.tsx:24
+#: components/pages/Resources/index.tsx:23
 msgid "resources.head.title"
 msgstr "KlimaDAO | Resources"
 
@@ -1524,11 +1524,11 @@ msgstr "Show Results"
 msgid "resources.mobile_modal.title"
 msgstr "Sort By"
 
-#: components/pages/Resources/index.tsx:47
+#: components/pages/Resources/index.tsx:46
 msgid "resources.page.header.subline"
 msgstr "Updates and thought leadership from the founders, DAO contributors, advisors and community."
 
-#: components/pages/Resources/index.tsx:44
+#: components/pages/Resources/index.tsx:43
 msgid "resources.page.header.title"
 msgstr "Featured Articles"
 
@@ -1644,15 +1644,15 @@ msgstr "The tonne(s) retired originated from the following project(s)."
 msgid "retirement.single.project_details.title"
 msgstr "Project Details"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:39
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:41
 msgid "retirement.single.project_details.tonnes"
 msgstr "Tonnes"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:46
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:48
 msgid "retirement.single.project_details.view_mco2_pool"
 msgstr "View MCO2 pool activity"
 
-#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:55
+#: components/pages/Retirements/SingleRetirement/ProjectDetails/List/index.tsx:57
 msgid "retirement.single.project_details.view_on_polygon_scan"
 msgstr "View transaction on Polygonscan"
 
@@ -1828,11 +1828,11 @@ msgstr "Enter App"
 msgid "shared.error"
 msgstr "Error"
 
-#: components/pages/Infinity/GetStartedModal.tsx:26
+#: components/pages/Infinity/GetStartedModal.tsx:25
 msgid "shared.get_started"
 msgstr "Get Started"
 
-#: components/pages/Buy/index.tsx:35
+#: components/pages/Buy/index.tsx:29
 #: components/pages/Home/index.tsx:69
 #: components/pages/Retirements/index.tsx:58
 #: components/pages/errors/Custom500.tsx:23
@@ -1876,13 +1876,13 @@ msgstr "Info"
 #: components/pages/Pledge/InvitationModals/AcceptModal/index.tsx:53
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
-#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:119
+#: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
 #: components/pages/Retirements/SingleRetirement/index.tsx:44
 msgid "shared.loading"
 msgstr "Loading..."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:67
-#: components/pages/Pledge/HeaderMobile/index.tsx:65
+#: components/pages/Pledge/HeaderDesktop/index.tsx:68
+#: components/pages/Pledge/HeaderMobile/index.tsx:66
 msgid "shared.login_connect"
 msgstr "Login / Connect"
 
@@ -1905,7 +1905,7 @@ msgstr "Offset"
 msgid "shared.okay"
 msgstr "Okay"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:418
+#: components/pages/Pledge/PledgeForm/index.tsx:413
 msgid "shared.pending"
 msgstr "Pending"
 
@@ -1920,7 +1920,7 @@ msgstr "remove"
 
 #: components/Navigation/index.tsx:188
 #: components/Navigation/index.tsx:343
-#: components/pages/Blog/Post/index.tsx:71
+#: components/pages/Blog/Post/index.tsx:70
 msgid "shared.resourcecenter"
 msgstr "Resource Center"
 

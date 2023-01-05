@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-05 22:58+0000\n"
+"POT-Creation-Date: 2023-01-05 23:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -217,24 +217,24 @@ msgstr "在提供输入数量的情况下，您将获得的金额"
 msgid "bond.you_will_get.tooltip"
 msgstr "在提供输入量的情况下，您将获得的债券化KLIMA数量"
 
-#: components/views/Buy/index.tsx:29
+#: components/views/Buy/index.tsx:28
 msgid "buy.buy_klima"
 msgstr "购买 KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:57
+#: components/views/Buy/index.tsx:56
 msgid "buy.connect_to_buy"
 msgstr "此功能仅对已登录的用户可用。您可以通过下面的按键登录或创建帐户。"
 
-#: components/views/Buy/index.tsx:32
+#: components/views/Buy/index.tsx:31
 msgid "buy.cta_1"
 msgstr "如果您是初学者，我们建议您遵循我们的分步教程：<0>如何购买 KLIMA</0> ."
 
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:37
 msgid "buy.cta_2"
 msgstr "另外，如果您已经在 Polygon 上拥有一个带有 MATIC 的钱包，获得 KLIMA 的最佳方式是在 <0>Sushi.com </0>上交换. 如果您更喜欢用信用卡支付，您可以使用 <1>Transak</1>直接购买 KLIMA。"
 
-#: components/views/Buy/index.tsx:52
+#: components/views/Buy/index.tsx:51
 msgid "buy.please_log_in"
 msgstr "请登录或连接钱包"
 
@@ -317,7 +317,7 @@ msgid "choose_bond.ubo.description"
 msgstr "C3 基本通用抵消"
 
 #: components/views/Bond/index.tsx:400
-#: components/views/Buy/index.tsx:67
+#: components/views/Buy/index.tsx:66
 #: components/views/Home/index.tsx:149
 #: components/views/Offset/index.tsx:366
 #: components/views/PKlima/index.tsx:155
@@ -327,7 +327,7 @@ msgid "connectModal.continue"
 msgstr "或继续"
 
 #: components/views/Bond/index.tsx:409
-#: components/views/Buy/index.tsx:76
+#: components/views/Buy/index.tsx:75
 #: components/views/Home/index.tsx:158
 #: components/views/Offset/index.tsx:375
 #: components/views/PKlima/index.tsx:164
@@ -337,7 +337,7 @@ msgid "connect_modal.connecting"
 msgstr "正在连接..."
 
 #: components/views/Bond/index.tsx:396
-#: components/views/Buy/index.tsx:63
+#: components/views/Buy/index.tsx:62
 #: components/views/Home/index.tsx:145
 #: components/views/Offset/index.tsx:362
 #: components/views/PKlima/index.tsx:151
@@ -347,7 +347,7 @@ msgid "connect_modal.error_message"
 msgstr "我们在连接时遇到了一些问题，请重试。"
 
 #: components/views/Bond/index.tsx:413
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:79
 #: components/views/Home/index.tsx:162
 #: components/views/Offset/index.tsx:379
 #: components/views/PKlima/index.tsx:168
@@ -357,7 +357,7 @@ msgid "connect_modal.error_title"
 msgstr "连接错误"
 
 #: components/views/Bond/index.tsx:405
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:71
 #: components/views/Home/index.tsx:154
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:160
@@ -379,45 +379,45 @@ msgid "imagecard.new_to_klima"
 msgstr "刚接触 KLIMA？"
 
 #. Long sentence
-#: components/views/Info/index.tsx:140
+#: components/views/Info/index.tsx:139
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. 打开 Metamask 并切换到以太坊主网"
 
 #. Long sentence
-#: components/views/Info/index.tsx:147
+#: components/views/Info/index.tsx:146
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr "2. 到 设置 / 网络 / Polygon 并点击“删除”"
 
 #. Long sentence
-#: components/views/Info/index.tsx:154
+#: components/views/Info/index.tsx:153
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. 返回 app.klimadao.finance 并点击“切换到主网”。"
 
 #. Long sentence
-#: components/views/Info/index.tsx:132
+#: components/views/Info/index.tsx:131
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "如果应用程序显示 “正在加载...”，这可能是您的 Metamask 网络配置存在问题。要解决这个问题："
 
 #. Long sentence
-#: components/views/Info/index.tsx:161
+#: components/views/Info/index.tsx:160
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask 会提示您使用正确的 RPC 配置来添加 Polygon。"
 
 #. Long sentence
-#: components/views/Info/index.tsx:127
+#: components/views/Info/index.tsx:126
 msgid "info.app_not_loading.title"
 msgstr "我为什么无法加载应用程序？"
 
 #. Long sentence
-#: components/views/Info/index.tsx:115
+#: components/views/Info/index.tsx:114
 msgid "info.common_app_related_questions"
 msgstr "与应用程序相关的常见问题和一些有用的链接。如需全面了解KlimaDAO，请参阅我们的<0>官方文档</0>."
 
-#: components/views/Info/index.tsx:112
+#: components/views/Info/index.tsx:111
 msgid "info.info_and_faq"
 msgstr "信息和常见问题解答"
 
-#: components/views/Info/index.tsx:175
+#: components/views/Info/index.tsx:174
 msgid "info.official_contract_addresses"
 msgstr "官方合同地址"
 
@@ -642,7 +642,7 @@ msgstr "优质的"
 msgid "offset.selectiveRetirement.finding_projects"
 msgstr "正在查找项目..."
 
-#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:71
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:70
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr "可用吨数：{0}"
 
@@ -853,7 +853,7 @@ msgid "shared.loading"
 msgstr "正在加载..."
 
 #: components/views/Bond/index.tsx:418
-#: components/views/Buy/index.tsx:85
+#: components/views/Buy/index.tsx:84
 #: components/views/Home/index.tsx:167
 #: components/views/Offset/index.tsx:384
 #: components/views/PKlima/index.tsx:173
@@ -901,7 +901,7 @@ msgstr "如果当前奖励利率在12个月内保持不变（奖励利率可能�
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:98
+#: components/views/Buy/index.tsx:97
 #: components/views/Stake/index.tsx:344
 msgid "stake.balancescard.tooltip"
 msgstr "质押代币 KLIMA 即获得 sKLIMA。每次变基后，sKLIMA余额将按给定的百分比增加。"

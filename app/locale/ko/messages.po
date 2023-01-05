@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-05 22:58+0000\n"
+"POT-Creation-Date: 2023-01-05 23:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -217,24 +217,24 @@ msgstr ""
 msgid "bond.you_will_get.tooltip"
 msgstr ""
 
-#: components/views/Buy/index.tsx:29
+#: components/views/Buy/index.tsx:28
 msgid "buy.buy_klima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Buy/index.tsx:57
+#: components/views/Buy/index.tsx:56
 msgid "buy.connect_to_buy"
 msgstr ""
 
-#: components/views/Buy/index.tsx:32
+#: components/views/Buy/index.tsx:31
 msgid "buy.cta_1"
 msgstr ""
 
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:37
 msgid "buy.cta_2"
 msgstr ""
 
-#: components/views/Buy/index.tsx:52
+#: components/views/Buy/index.tsx:51
 msgid "buy.please_log_in"
 msgstr ""
 
@@ -317,7 +317,7 @@ msgid "choose_bond.ubo.description"
 msgstr ""
 
 #: components/views/Bond/index.tsx:400
-#: components/views/Buy/index.tsx:67
+#: components/views/Buy/index.tsx:66
 #: components/views/Home/index.tsx:149
 #: components/views/Offset/index.tsx:366
 #: components/views/PKlima/index.tsx:155
@@ -327,7 +327,7 @@ msgid "connectModal.continue"
 msgstr ""
 
 #: components/views/Bond/index.tsx:409
-#: components/views/Buy/index.tsx:76
+#: components/views/Buy/index.tsx:75
 #: components/views/Home/index.tsx:158
 #: components/views/Offset/index.tsx:375
 #: components/views/PKlima/index.tsx:164
@@ -337,7 +337,7 @@ msgid "connect_modal.connecting"
 msgstr ""
 
 #: components/views/Bond/index.tsx:396
-#: components/views/Buy/index.tsx:63
+#: components/views/Buy/index.tsx:62
 #: components/views/Home/index.tsx:145
 #: components/views/Offset/index.tsx:362
 #: components/views/PKlima/index.tsx:151
@@ -347,7 +347,7 @@ msgid "connect_modal.error_message"
 msgstr ""
 
 #: components/views/Bond/index.tsx:413
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:79
 #: components/views/Home/index.tsx:162
 #: components/views/Offset/index.tsx:379
 #: components/views/PKlima/index.tsx:168
@@ -357,7 +357,7 @@ msgid "connect_modal.error_title"
 msgstr ""
 
 #: components/views/Bond/index.tsx:405
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:71
 #: components/views/Home/index.tsx:154
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:160
@@ -379,45 +379,45 @@ msgid "imagecard.new_to_klima"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:140
+#: components/views/Info/index.tsx:139
 msgid "info.app_not_loading.1_open_metamask"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:147
+#: components/views/Info/index.tsx:146
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:154
+#: components/views/Info/index.tsx:153
 msgid "info.app_not_loading.3_return_to_app"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:132
+#: components/views/Info/index.tsx:131
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:161
+#: components/views/Info/index.tsx:160
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:127
+#: components/views/Info/index.tsx:126
 msgid "info.app_not_loading.title"
 msgstr ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:115
+#: components/views/Info/index.tsx:114
 msgid "info.common_app_related_questions"
 msgstr ""
 
-#: components/views/Info/index.tsx:112
+#: components/views/Info/index.tsx:111
 msgid "info.info_and_faq"
 msgstr ""
 
-#: components/views/Info/index.tsx:175
+#: components/views/Info/index.tsx:174
 msgid "info.official_contract_addresses"
 msgstr ""
 
@@ -642,7 +642,7 @@ msgstr ""
 msgid "offset.selectiveRetirement.finding_projects"
 msgstr ""
 
-#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:71
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:70
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr ""
 
@@ -853,7 +853,7 @@ msgid "shared.loading"
 msgstr ""
 
 #: components/views/Bond/index.tsx:418
-#: components/views/Buy/index.tsx:85
+#: components/views/Buy/index.tsx:84
 #: components/views/Home/index.tsx:167
 #: components/views/Offset/index.tsx:384
 #: components/views/PKlima/index.tsx:173
@@ -901,7 +901,7 @@ msgstr ""
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:98
+#: components/views/Buy/index.tsx:97
 #: components/views/Stake/index.tsx:344
 msgid "stake.balancescard.tooltip"
 msgstr ""

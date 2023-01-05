@@ -223,24 +223,24 @@ msgstr "Amount you will get, at the provided input quantity"
 msgid "bond.you_will_get.tooltip"
 msgstr "Amount of bonded KLIMA you will get, at the provided input quantity"
 
-#: components/views/Buy/index.tsx:29
+#: components/views/Buy/index.tsx:28
 msgid "buy.buy_klima"
 msgstr "Buy KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:57
+#: components/views/Buy/index.tsx:56
 msgid "buy.connect_to_buy"
 msgstr "This feature is available only to users who are logged in. You can log in or create an account via the button below."
 
-#: components/views/Buy/index.tsx:32
+#: components/views/Buy/index.tsx:31
 msgid "buy.cta_1"
 msgstr "If you are a beginner, we recommend following our step-by-step tutorial: <0>How to Buy KLIMA</0>."
 
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:37
 msgid "buy.cta_2"
 msgstr "Otherwise, if you already have a wallet with MATIC on Polygon, the best way to get KLIMA is to swap on <0>Sushi.com</0>. If you prefer to pay with a credit card instead, you can use <1>Transak</1> to buy KLIMA directly."
 
-#: components/views/Buy/index.tsx:52
+#: components/views/Buy/index.tsx:51
 msgid "buy.please_log_in"
 msgstr "Please Log In Or Connect A Wallet"
 
@@ -323,7 +323,7 @@ msgid "choose_bond.ubo.description"
 msgstr "C3 Universal Basic Offset"
 
 #: components/views/Bond/index.tsx:400
-#: components/views/Buy/index.tsx:67
+#: components/views/Buy/index.tsx:66
 #: components/views/Home/index.tsx:149
 #: components/views/Offset/index.tsx:366
 #: components/views/PKlima/index.tsx:155
@@ -333,7 +333,7 @@ msgid "connectModal.continue"
 msgstr "or continue with"
 
 #: components/views/Bond/index.tsx:409
-#: components/views/Buy/index.tsx:76
+#: components/views/Buy/index.tsx:75
 #: components/views/Home/index.tsx:158
 #: components/views/Offset/index.tsx:375
 #: components/views/PKlima/index.tsx:164
@@ -343,7 +343,7 @@ msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #: components/views/Bond/index.tsx:396
-#: components/views/Buy/index.tsx:63
+#: components/views/Buy/index.tsx:62
 #: components/views/Home/index.tsx:145
 #: components/views/Offset/index.tsx:362
 #: components/views/PKlima/index.tsx:151
@@ -353,7 +353,7 @@ msgid "connect_modal.error_message"
 msgstr "We had some trouble connecting. Please try again."
 
 #: components/views/Bond/index.tsx:413
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:79
 #: components/views/Home/index.tsx:162
 #: components/views/Offset/index.tsx:379
 #: components/views/PKlima/index.tsx:168
@@ -363,7 +363,7 @@ msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
 #: components/views/Bond/index.tsx:405
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:71
 #: components/views/Home/index.tsx:154
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:160
@@ -385,45 +385,45 @@ msgid "imagecard.new_to_klima"
 msgstr "New to KLIMA?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:140
+#: components/views/Info/index.tsx:139
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Open Metamask and switch to Ethereum Mainnet"
 
 #. Long sentence
-#: components/views/Info/index.tsx:147
+#: components/views/Info/index.tsx:146
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr "2. Go to Settings/Networks/Polygon and click 'delete'"
 
 #. Long sentence
-#: components/views/Info/index.tsx:154
+#: components/views/Info/index.tsx:153
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. Return to app.klimadao.finance and click 'switch to mainnet'."
 
 #. Long sentence
-#: components/views/Info/index.tsx:132
+#: components/views/Info/index.tsx:131
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "If the app says 'loading...' this is likely a problem with your network configuration in Metamask. To fix this:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:161
+#: components/views/Info/index.tsx:160
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask should prompt you to add Polygon, with the correct RPC configuration."
 
 #. Long sentence
-#: components/views/Info/index.tsx:127
+#: components/views/Info/index.tsx:126
 msgid "info.app_not_loading.title"
 msgstr "Why won't the app load for me?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:115
+#: components/views/Info/index.tsx:114
 msgid "info.common_app_related_questions"
 msgstr "Common app-related questions and useful links. For comprehensive reading on KlimaDAO, see our <0>official documentation</0>."
 
-#: components/views/Info/index.tsx:112
+#: components/views/Info/index.tsx:111
 msgid "info.info_and_faq"
 msgstr "Info & FAQ"
 
-#: components/views/Info/index.tsx:175
+#: components/views/Info/index.tsx:174
 msgid "info.official_contract_addresses"
 msgstr "Official Contract Addresses"
 
@@ -648,7 +648,7 @@ msgstr "vintage"
 msgid "offset.selectiveRetirement.finding_projects"
 msgstr "Finding projects..."
 
-#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:71
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:70
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr "Available tonnes: {0}"
 
@@ -859,7 +859,7 @@ msgid "shared.loading"
 msgstr "Loading..."
 
 #: components/views/Bond/index.tsx:418
-#: components/views/Buy/index.tsx:85
+#: components/views/Buy/index.tsx:84
 #: components/views/Home/index.tsx:167
 #: components/views/Offset/index.tsx:384
 #: components/views/PKlima/index.tsx:173
@@ -907,7 +907,7 @@ msgstr "Annualized KLIMA Rewards, including compounding, should the current rewa
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:98
+#: components/views/Buy/index.tsx:97
 #: components/views/Stake/index.tsx:344
 msgid "stake.balancescard.tooltip"
 msgstr "Stake your KLIMA tokens to receive sKLIMA. After every rebase, your sKLIMA balance will increase by the given percentage."

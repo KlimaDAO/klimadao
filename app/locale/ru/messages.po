@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-05 22:58+0000\n"
+"POT-Creation-Date: 2023-01-05 23:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -219,24 +219,24 @@ msgstr "Сумма, которую вы получите при заданном
 msgid "bond.you_will_get.tooltip"
 msgstr "Количество бондированого KLIMA, которое вы получите, при указанном количестве входных данных"
 
-#: components/views/Buy/index.tsx:29
+#: components/views/Buy/index.tsx:28
 msgid "buy.buy_klima"
 msgstr "Купить KLIMA"
 
 #. Long sentence
-#: components/views/Buy/index.tsx:57
+#: components/views/Buy/index.tsx:56
 msgid "buy.connect_to_buy"
 msgstr "Эта функция доступна только для пользователей, которые вошли в систему. Вы можете войти или создать учетную запись с помощью кнопки ниже."
 
-#: components/views/Buy/index.tsx:32
+#: components/views/Buy/index.tsx:31
 msgid "buy.cta_1"
 msgstr "Если вы новичок, мы рекомендуем следовать нашему пошаговому руководству: <0>Как купить KLIMA.</0> ."
 
-#: components/views/Buy/index.tsx:38
+#: components/views/Buy/index.tsx:37
 msgid "buy.cta_2"
 msgstr "В противном случае, если у вас уже есть кошелек с MATIC на Polygon, лучшим способом получить KLIMA будет обмен на <0>Sushi.com</0>. Если вы предпочитаете платить кредитной картой, вы можете использовать <1>Transak</1>, чтобы купить KLIMA напрямую."
 
-#: components/views/Buy/index.tsx:52
+#: components/views/Buy/index.tsx:51
 msgid "buy.please_log_in"
 msgstr "Пожалуйста, войдите или подключите кошелек"
 
@@ -321,7 +321,7 @@ msgid "choose_bond.ubo.description"
 msgstr "C3 Универсальный базовый офсет"
 
 #: components/views/Bond/index.tsx:400
-#: components/views/Buy/index.tsx:67
+#: components/views/Buy/index.tsx:66
 #: components/views/Home/index.tsx:149
 #: components/views/Offset/index.tsx:366
 #: components/views/PKlima/index.tsx:155
@@ -331,7 +331,7 @@ msgid "connectModal.continue"
 msgstr "или продолжить с"
 
 #: components/views/Bond/index.tsx:409
-#: components/views/Buy/index.tsx:76
+#: components/views/Buy/index.tsx:75
 #: components/views/Home/index.tsx:158
 #: components/views/Offset/index.tsx:375
 #: components/views/PKlima/index.tsx:164
@@ -341,7 +341,7 @@ msgid "connect_modal.connecting"
 msgstr "Подключение..."
 
 #: components/views/Bond/index.tsx:396
-#: components/views/Buy/index.tsx:63
+#: components/views/Buy/index.tsx:62
 #: components/views/Home/index.tsx:145
 #: components/views/Offset/index.tsx:362
 #: components/views/PKlima/index.tsx:151
@@ -351,7 +351,7 @@ msgid "connect_modal.error_message"
 msgstr "У нас возникли проблемы с подключением. Пожалуйста, попробуйте еще раз."
 
 #: components/views/Bond/index.tsx:413
-#: components/views/Buy/index.tsx:80
+#: components/views/Buy/index.tsx:79
 #: components/views/Home/index.tsx:162
 #: components/views/Offset/index.tsx:379
 #: components/views/PKlima/index.tsx:168
@@ -361,7 +361,7 @@ msgid "connect_modal.error_title"
 msgstr "Ошибка подключения"
 
 #: components/views/Bond/index.tsx:405
-#: components/views/Buy/index.tsx:72
+#: components/views/Buy/index.tsx:71
 #: components/views/Home/index.tsx:154
 #: components/views/Offset/index.tsx:371
 #: components/views/PKlima/index.tsx:160
@@ -385,47 +385,47 @@ msgid "imagecard.new_to_klima"
 msgstr "Впервые на KLIMA?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:140
+#: components/views/Info/index.tsx:139
 msgid "info.app_not_loading.1_open_metamask"
 msgstr "1. Откройте Metamask и переключитесь на сеть Ethereum Mainnet."
 
 #. Long sentence
-#: components/views/Info/index.tsx:147
+#: components/views/Info/index.tsx:146
 msgid "info.app_not_loading.2_go_to_settings"
 msgstr ""
 "2. Перейдите в Настройки/Сети/Polygon и нажмите «Удалить».\n"
 ""
 
 #. Long sentence
-#: components/views/Info/index.tsx:154
+#: components/views/Info/index.tsx:153
 msgid "info.app_not_loading.3_return_to_app"
 msgstr "3. Вернитесь на app.klimadao.finance и нажмите «переключиться на основную сеть»."
 
 #. Long sentence
-#: components/views/Info/index.tsx:132
+#: components/views/Info/index.tsx:131
 msgid "info.app_not_loading.if_app_says_loading"
 msgstr "Если приложение показывает сообщение \"загрузка...\", это, скорее всего, проблема с конфигурацией сети в Metamask. Чтобы исправить это:"
 
 #. Long sentence
-#: components/views/Info/index.tsx:161
+#: components/views/Info/index.tsx:160
 msgid "info.app_not_loading.metamask_should_prompt"
 msgstr "Metamask должен предложить вам добавить Polygon с правильной конфигурацией RPC."
 
 #. Long sentence
-#: components/views/Info/index.tsx:127
+#: components/views/Info/index.tsx:126
 msgid "info.app_not_loading.title"
 msgstr "Почему у меня не загружается приложение?"
 
 #. Long sentence
-#: components/views/Info/index.tsx:115
+#: components/views/Info/index.tsx:114
 msgid "info.common_app_related_questions"
 msgstr "Общие вопросы, связанные с приложением, и полезные ссылки. Подробную информацию о KlimaDAO см. в нашей <0>официальной документации.</0> ."
 
-#: components/views/Info/index.tsx:112
+#: components/views/Info/index.tsx:111
 msgid "info.info_and_faq"
 msgstr "Информация и часто задаваемые вопросы"
 
-#: components/views/Info/index.tsx:175
+#: components/views/Info/index.tsx:174
 msgid "info.official_contract_addresses"
 msgstr "Официальные адреса контрактов"
 
@@ -650,7 +650,7 @@ msgstr "старинный"
 msgid "offset.selectiveRetirement.finding_projects"
 msgstr "Поиск проектов..."
 
-#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:71
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:70
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr "Доступные тонны: {0}"
 
@@ -861,7 +861,7 @@ msgid "shared.loading"
 msgstr "Загрузка..."
 
 #: components/views/Bond/index.tsx:418
-#: components/views/Buy/index.tsx:85
+#: components/views/Buy/index.tsx:84
 #: components/views/Home/index.tsx:167
 #: components/views/Offset/index.tsx:384
 #: components/views/PKlima/index.tsx:173
@@ -909,7 +909,7 @@ msgstr "Годовые вознаграждения KLIMA, включая нач
 
 #. Long sentence
 #. Long sentence
-#: components/views/Buy/index.tsx:98
+#: components/views/Buy/index.tsx:97
 #: components/views/Stake/index.tsx:344
 msgid "stake.balancescard.tooltip"
 msgstr "Стейкайте ваши KLIMA, чтобы получить sKLIMA. После каждого пополнения ваш баланс sKLIMA будет увеличиваться на указанный процент."
