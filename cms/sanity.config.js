@@ -10,7 +10,7 @@ export default defineConfig({
   dataset: "production",
   plugins: [deskTool(), visionTool()],
   schema: {
-    types: [schemas],
+    types: schemas,
   },
   tools: (prev) => {
     if (process.env.NODE_ENV === "development") {
