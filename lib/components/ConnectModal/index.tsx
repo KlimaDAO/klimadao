@@ -31,15 +31,6 @@ export const ConnectModal = (props: Props) => {
       document.body.style.overflow = "";
     }
   }, [showModal]);
-<<<<<<< HEAD
-=======
-  useEffect(() => {
-    if (showModal) {
-      setStep("connect");
-    }
-  }, [showModal]);
-  const { address, connect, disconnect, isConnected } = useWeb3();
->>>>>>> 6f1b03ce (reset modal to connect state when opening)
 
   const handleConnect = async (params: {
     wallet: "coinbase" | "torus" | "walletConnect" | "metamask" | "brave";
