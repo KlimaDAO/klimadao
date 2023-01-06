@@ -51,7 +51,8 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
 
   const isPending =
     status?.statusType === "userConfirmation" ||
-    status?.statusType === "networkConfirmation";
+    status?.statusType === "networkConfirmation" ||
+    isProcessing;
 
   const showTransactionView = !!inputValues && !!allowanceValue;
 
@@ -78,8 +79,6 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
         userAdress: address,
         provider,
       });
-
-      console.log("allowance", allowance);
 
       setAllowanceValue(allowance);
       setInputValues(values);
