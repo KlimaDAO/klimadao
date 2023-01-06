@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     const provider = getJsonRpcProvider(
       getInfuraUrl({
         chain: "polygon",
-        infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
+        infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
       })
     );
     const LiveOffsetContract = new Contract(

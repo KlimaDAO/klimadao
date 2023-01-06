@@ -16,7 +16,7 @@ export const getAddressByDomain = async (domain: string): Promise<string> => {
         domain,
         getInfuraUrl({
           chain: "eth",
-          infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
+          infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
         })
       )); // Caution: needs to be InfuraUrl for Ether here
     const address = kns || ens;

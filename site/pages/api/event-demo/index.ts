@@ -19,7 +19,7 @@ if (!LIVE_OFFSET_WALLET_MNEMONIC) {
 const provider = getJsonRpcProvider(
   getInfuraUrl({
     chain: "polygon",
-    infuraId: process.env.NEXT_PUBLIC_INFURA_ID!,
+    infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
   })
 );
 const wallet = Wallet.fromMnemonic(LIVE_OFFSET_WALLET_MNEMONIC).connect(
