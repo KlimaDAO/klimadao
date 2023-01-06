@@ -30,7 +30,7 @@ type Props = {
   onUpdateUserActivity: () => void;
 };
 
-export const ListingWithEditModal: FC<Props> = (props) => {
+export const ListingEditable: FC<Props> = (props) => {
   const { provider, address } = useWeb3();
   const [listings, setListings] = useState<ListingType[]>(props.listings);
   const [listingToEdit, setListingToEdit] = useState<ListingType | null>(null);
@@ -46,14 +46,14 @@ export const ListingWithEditModal: FC<Props> = (props) => {
 
   const showTransactionView = !!inputValues && !!allowanceValue;
 
-  const resetStateAndCancel = () => {
+  const resetLocalState = () => {
     setInputValues(null);
     setAllowanceValue(null);
     setStatus(null);
     setListingToEdit(null);
   };
 
-  const onModalClose = !isPending ? resetStateAndCancel : undefined;
+  const onModalClose = !isPending ? resetLocalState : undefined;
 
   const onUpdateStatus = (status: TxnStatus, message?: string) => {
     setStatus({ statusType: status, message: message });
@@ -126,7 +126,7 @@ export const ListingWithEditModal: FC<Props> = (props) => {
       );
 
       setListings(newListings);
-      setListingToEdit(null);
+      resetLocalState();
       props.onUpdateUserActivity();
     } catch (e) {
       console.error("Error in onUpdateListing", e);
@@ -238,7 +238,7 @@ export const ListingWithEditModal: FC<Props> = (props) => {
             })}
             onApproval={handleApproval}
             onSubmit={onUpdateListing}
-            onCancel={resetStateAndCancel}
+            onCancel={resetLocalState}
             status={status}
             onResetStatus={() => setStatus(null)}
             onGoBack={() => {
