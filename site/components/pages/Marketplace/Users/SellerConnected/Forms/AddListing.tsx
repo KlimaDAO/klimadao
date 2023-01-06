@@ -18,7 +18,6 @@ export type FormValues = {
 type Props = {
   assets: Asset[];
   onSubmit: (values: FormValues) => void;
-  onCancel: () => void;
   values: null | FormValues;
 };
 

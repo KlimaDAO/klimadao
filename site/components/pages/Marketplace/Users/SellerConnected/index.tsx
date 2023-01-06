@@ -277,7 +277,7 @@ export const SellerConnected: FC<Props> = (props) => {
 
       {!!assetsData?.length && (
         <CreateAListingModal
-          onCancel={() => setShowCreateListingModal(false)}
+          onModalClose={() => setShowCreateListingModal(false)}
           onSubmit={onUpdateUser}
           assets={assetsData}
           showModal={showCreateListingModal}

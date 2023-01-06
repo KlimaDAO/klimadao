@@ -22,7 +22,7 @@ import * as styles from "./styles";
 type Props = {
   assets: Asset[];
   showModal: boolean;
-  onCancel: () => void;
+  onModalClose: () => void;
   onSubmit: () => void;
 };
 
@@ -39,22 +39,17 @@ export const CreateAListingModal: FC<Props> = (props) => {
 
   const showTransactionView = !!inputValues && !!allowanceValue;
 
-  const resetStateAndCancel = () => {
+  const resetStateAndCloseModal = () => {
     setInputValues(null);
     setAllowanceValue(null);
     setStatus(null);
-    props.onCancel();
+    props.onModalClose();
   };
 
-  const onModalClose = !isPending ? resetStateAndCancel : undefined;
+  const onModalClose = !isPending ? resetStateAndCloseModal : undefined;
 
   const onUpdateStatus = (status: TxnStatus, message?: string) => {
     setStatus({ statusType: status, message: message });
-  };
-
-  const onCancel = () => {
-    setStatus(null);
-    props.onCancel();
   };
 
   const onAddListingFormSubmit = async (values: FormValues) => {
@@ -110,6 +105,7 @@ export const CreateAListingModal: FC<Props> = (props) => {
       });
 
       props.onSubmit();
+      resetStateAndCloseModal();
     } catch (e) {
       console.error("Error in onAddListing", e);
       return;
@@ -129,7 +125,6 @@ export const CreateAListingModal: FC<Props> = (props) => {
         <AddListing
           assets={props.assets}
           onSubmit={onAddListingFormSubmit}
-          onCancel={onCancel}
           values={inputValues}
         />
       )}
@@ -160,7 +155,7 @@ export const CreateAListingModal: FC<Props> = (props) => {
           })}
           onApproval={handleApproval}
           onSubmit={onAddListing}
-          onCancel={props.onCancel}
+          onCancel={resetStateAndCloseModal}
           status={status}
           onResetStatus={() => setStatus(null)}
           onGoBack={() => {

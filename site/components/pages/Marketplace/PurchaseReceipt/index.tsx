@@ -27,7 +27,6 @@ type Props = {
 export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
   const { locale } = useRouter();
 
-  console.log("project", props.purchase.listing.project);
   return (
     <>
       <PageHead
