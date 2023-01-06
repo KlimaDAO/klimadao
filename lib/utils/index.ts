@@ -16,11 +16,7 @@ export {
 export { getContract } from "./getContract";
 export { getEstimatedDailyRebases } from "./getEstimatedDailyRebases";
 export { getImageSizes } from "./getImageSizes";
-export {
-  getInfuraUrl,
-  getInfuraUrlEther,
-  getInfuraUrlPolygon,
-} from "./getInfuraUrl";
+export { getInfuraUrl } from "./getInfuraUrl";
 export { getInteger } from "./getInteger";
 export { getIsValidAddress } from "./getIsValidAddress";
 export { getJsonRpcProvider } from "./getJsonRpcProvider";
