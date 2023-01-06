@@ -76,7 +76,14 @@ export const SellerConnected: FC<Props> = (props) => {
             userAddress: props.userAddress,
           });
 
-          setAssetsData(assetsData);
+          // TODO: filter assets with balance > 0
+          // this will be unnecessary as soon as bezos switched to mainnet
+
+          const assetsWithBalance = assetsData.filter(
+            (a) => Number(a.balance) > 0
+          );
+
+          setAssetsData(assetsWithBalance);
         } catch (e) {
           console.error(e);
           setErrorMessage(
