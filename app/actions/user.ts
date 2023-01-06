@@ -3,11 +3,11 @@ import { Thunk } from "state";
 
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 import {
-  getInfuraUrl,
   formatUnits,
   getAllowance,
   getContract,
   getENSProfile,
+  getInfuraUrl,
   getKNSProfile,
   getTokenDecimals,
   getTokensFromSpender,
