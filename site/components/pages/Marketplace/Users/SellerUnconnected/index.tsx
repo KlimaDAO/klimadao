@@ -11,7 +11,12 @@ import { Activities } from "../Activities";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";
 import { Stats } from "../Stats";
-import { getAmountLeftToSell, getTotalAmountSold } from "../utils";
+import {
+  getActiveListings,
+  getAllListings,
+  getAmountLeftToSell,
+  getTotalAmountSold,
+} from "../utils";
 
 import * as styles from "./styles";
 
@@ -23,12 +28,14 @@ type Props = {
 export const SellerUnconnected: FC<Props> = (props) => {
   const userData = props.marketplaceUser;
 
+  const hasListings = !!userData?.listings?.length;
+  const allListings = hasListings && getAllListings(userData.listings);
+  const activeListings = hasListings && getActiveListings(userData.listings);
+
   const sortedListings =
-    !!userData?.listings?.length &&
-    userData.listings
-      .filter((l) => l.deleted === false)
-      .filter((l) => l.active === true)
-      .sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+    !!activeListings &&
+    !!activeListings.length &&
+    activeListings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
 
   return (
     <>
@@ -49,7 +56,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
             <Text t="caption" color="lighter">
               <i>
                 <Trans id="marketplace.profile.listings.empty_state">
-                  No listings to show.
+                  No active listings to show.
                 </Trans>
               </i>
             </Text>
@@ -74,11 +81,10 @@ export const SellerUnconnected: FC<Props> = (props) => {
           <Stats
             stats={{
               tonnesSold:
-                (!!sortedListings && getTotalAmountSold(sortedListings)) || 0,
+                (!!allListings && getTotalAmountSold(allListings)) || 0,
               tonnesOwned:
-                (!!sortedListings && getAmountLeftToSell(sortedListings)) || 0,
-              activeListings:
-                userData?.listings.filter((l) => l.active).length || 0,
+                (!!activeListings && getAmountLeftToSell(activeListings)) || 0,
+              activeListings: (!!activeListings && activeListings.length) || 0,
             }}
           />
           <Activities activities={userData?.activities || []} />

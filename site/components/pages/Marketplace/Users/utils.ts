@@ -46,3 +46,9 @@ export const getTotalAmountSold = (listings: Listing[]) => {
   const leftToSell = getAmountLeftToSell(listings);
   return totalAmount - leftToSell;
 };
+
+export const getActiveListings = (listings: Listing[]) =>
+  listings.filter((l) => l.active && l.deleted === false);
+
+export const getAllListings = (listings: Listing[]) =>
+  listings.filter((l) => l.deleted === false);

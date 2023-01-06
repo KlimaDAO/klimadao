@@ -14,7 +14,13 @@ import { ListingEditable } from "./ListingEditable";
 
 import { getUserAssetsData } from "../../lib/actions";
 import { getUser } from "../../lib/api";
-import { getAmountLeftToSell, getTotalAmountSold, pollUntil } from "../utils";
+import {
+  getActiveListings,
+  getAllListings,
+  getAmountLeftToSell,
+  getTotalAmountSold,
+  pollUntil,
+} from "../utils";
 
 import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
 import {
@@ -45,13 +51,10 @@ export const SellerConnected: FC<Props> = (props) => {
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const sortedListings =
-    !!user?.listings?.length &&
-    user.listings
-      .filter((l) => l.deleted === false)
-      .filter((l) => l.active === true)
-      .sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
   const hasAssets = !!user?.assets?.length;
+  const hasListings = !!user?.listings?.length;
+  const allListings = hasListings && getAllListings(user.listings);
+  const activeListings = hasListings && getActiveListings(user.listings);
 
   // load Assets once
   useEffect(() => {
@@ -154,7 +157,7 @@ export const SellerConnected: FC<Props> = (props) => {
         })
       );
     } finally {
-      setIsLoadingNewActivity(false);
+      setIsUpdatingUser(false);
     }
   };
 
@@ -186,11 +189,11 @@ export const SellerConnected: FC<Props> = (props) => {
             </Text>
           )}
 
-          {!sortedListings && (
+          {!hasListings && (
             <Text t="caption" color="lighter">
               <i>
                 <Trans id="marketplace.profile.listings.empty_state">
-                  No listings to show.
+                  No active listings to show.
                 </Trans>
               </i>
             </Text>
@@ -243,11 +246,10 @@ export const SellerConnected: FC<Props> = (props) => {
           <Stats
             stats={{
               tonnesSold:
-                (!!sortedListings && getTotalAmountSold(sortedListings)) || 0,
+                (!!allListings && getTotalAmountSold(allListings)) || 0,
               tonnesOwned:
-                (!!sortedListings && getAmountLeftToSell(sortedListings)) || 0,
-              activeListings:
-                user?.listings.filter((l) => l.active).length || 0,
+                (!!activeListings && getAmountLeftToSell(activeListings)) || 0,
+              activeListings: (!!activeListings && activeListings.length) || 0,
             }}
             description={t({
               id: "marketplace.user.stats.your_seller_data.description",
