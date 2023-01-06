@@ -11,13 +11,13 @@ export const pollUntil = async <T>(params: {
   let result = await params.fn();
   attempts++;
 
+  if (params.maxAttempts && attempts === params.maxAttempts) {
+    return Promise.reject(new Error("Exceeded max attempts"));
+  }
+
   while (!params.validate(result)) {
     await wait(params.ms);
     result = await params.fn();
-  }
-
-  if (params.maxAttempts && attempts === params.maxAttempts) {
-    return Promise.reject(new Error("Exceeded max attempts"));
   }
 
   return result;

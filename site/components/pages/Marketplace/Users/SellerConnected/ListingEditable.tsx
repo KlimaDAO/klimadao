@@ -2,7 +2,6 @@ import { Spinner, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { Modal } from "components/Modal";
-import { utils } from "ethers";
 import { FC, useState } from "react";
 
 import { Listing } from "../Listing";
@@ -27,12 +26,11 @@ import * as styles from "./styles";
 
 type Props = {
   listings: ListingType[];
-  onUpdateUserActivity: () => void;
+  onFinishEditing: () => void;
 };
 
 export const ListingEditable: FC<Props> = (props) => {
   const { provider, address } = useWeb3();
-  const [listings, setListings] = useState<ListingType[]>(props.listings);
   const [listingToEdit, setListingToEdit] = useState<ListingType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [inputValues, setInputValues] = useState<FormValues | null>(null);
@@ -59,7 +57,7 @@ export const ListingEditable: FC<Props> = (props) => {
     setStatus({ statusType: status, message: message });
   };
 
-  const onEditListing = async (values: FormValues) => {
+  const onFormSubmit = async (values: FormValues) => {
     setIsLoading(true);
     try {
       if (!address || !provider) return;
@@ -113,21 +111,8 @@ export const ListingEditable: FC<Props> = (props) => {
         onStatus: onUpdateStatus,
       });
 
-      const totalAmountToSell = utils.parseUnits(
-        inputValues.totalAmountToSell,
-        18
-      );
-      const singleUnitPrice = utils.parseUnits(inputValues.singleUnitPrice, 18);
-
-      const newListings = listings.map((l) =>
-        l.id === listingToEdit.id
-          ? { ...l, totalAmountToSell, singleUnitPrice }
-          : l
-      );
-
-      setListings(newListings);
       resetLocalState();
-      props.onUpdateUserActivity();
+      props.onFinishEditing();
     } catch (e) {
       console.error("Error in onUpdateListing", e);
       return;
@@ -145,13 +130,8 @@ export const ListingEditable: FC<Props> = (props) => {
         onStatus: onUpdateStatus,
       });
 
-      const withoutUpdatedListing = listings.filter(
-        (l) => l.id !== listingToEdit.id
-      );
-
-      setListings(withoutUpdatedListing);
       setListingToEdit(null);
-      props.onUpdateUserActivity();
+      props.onFinishEditing();
     } catch (e) {
       console.error("Error in onDeleteListing", e);
       setErrorMessage(
@@ -167,7 +147,7 @@ export const ListingEditable: FC<Props> = (props) => {
 
   return (
     <>
-      {listings.map((listing) => (
+      {props.listings.map((listing) => (
         <Listing key={listing.id} listing={listing}>
           <MarketplaceButton
             label={<Trans id="marketplace.profile.listing.edit">Edit</Trans>}
@@ -189,7 +169,7 @@ export const ListingEditable: FC<Props> = (props) => {
           <>
             <EditListing
               listing={listingToEdit}
-              onSubmit={onEditListing}
+              onSubmit={onFormSubmit}
               onCancel={() => setListingToEdit(null)}
               values={inputValues}
             />

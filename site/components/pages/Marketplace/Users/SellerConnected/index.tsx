@@ -23,7 +23,7 @@ import {
 } from "components/pages/Marketplace/shared/TwoColLayout";
 
 import { urls } from "@klimadao/lib/constants";
-import { Asset, User } from "@klimadao/lib/types/marketplace";
+import { Asset, Listing, User } from "@klimadao/lib/types/marketplace";
 import { getJsonRpcProvider } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
@@ -38,10 +38,10 @@ type Props = {
 
 export const SellerConnected: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.marketplaceUser);
+  const [sortedListings, setSortedListings] = useState<Listing[] | null>(null);
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
   const [isLoadingAssets, setIsLoadingAssets] = useState(true);
-  const [isLoadingNewListing, setIsLoadingNewListing] = useState(false);
-  const [isLoadingNewActivity, setIsLoadingNewActivity] = useState(false);
+  const [isUpdatingUser, setIsUpdatingUser] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -101,17 +101,28 @@ export const SellerConnected: FC<Props> = (props) => {
     }
   }, [user, assetsData]);
 
+  // update listings when user changed
+  useEffect(() => {
+    const sortedListings =
+      activeListings &&
+      !!activeListings.length &&
+      activeListings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+
+    sortedListings &&
+      sortedListings.length &&
+      setSortedListings(sortedListings);
+  }, [user]);
+
   const onEditProfile = (data: User) => {
     setUser((prev) => ({ ...prev, ...data }));
     props.onToggleEditProfileModal();
   };
 
-  const onAddListingSubmit = async () => {
+  const onUpdateUser = async () => {
     if (!user) return; // TS typeguard
 
-    setShowCreateListingModal(false);
     try {
-      setIsLoadingNewListing(true);
+      setIsUpdatingUser(true);
 
       const fetchUser = () =>
         getUser({
@@ -119,45 +130,7 @@ export const SellerConnected: FC<Props> = (props) => {
           type: "wallet",
         });
 
-      const listingIsAdded = (value: User) => {
-        const newListingsLength = value.listings.length;
-        const currentListingsLength = user.listings.length;
-        return newListingsLength > currentListingsLength;
-      };
-
-      const updatedUser = await pollUntil({
-        fn: fetchUser,
-        validate: listingIsAdded,
-        ms: 1000,
-        maxAttempts: 20,
-      });
-
-      setUser((prev) => ({ ...prev, ...updatedUser }));
-    } catch (e) {
-      console.error("LOAD USER LISTING error", e);
-      setErrorMessage(
-        t({
-          id: "marketplace.profile.add_listing.error",
-          message: `There was an error adding your listing: ${e}`,
-        })
-      );
-    } finally {
-      setIsLoadingNewListing(false);
-    }
-  };
-
-  const onUpdateActivity = async () => {
-    if (!user) return; // TS typeguard
-
-    try {
-      setIsLoadingNewActivity(true);
-
-      const fetchUser = () =>
-        getUser({
-          user: props.userAddress,
-          type: "wallet",
-        });
-
+      // API is updated when new activity exists
       const activityIsAdded = (value: User) => {
         const newActivityLength = value.activities.length;
         const currentActivityLength = user.activities.length;
@@ -241,19 +214,19 @@ export const SellerConnected: FC<Props> = (props) => {
               </>
             )
           }
-          disabled={isLoadingAssets || !hasAssets || isLoadingNewListing}
+          disabled={isLoadingAssets || !hasAssets || isUpdatingUser}
           onClick={() => setShowCreateListingModal(true)}
         />
       </div>
 
       <TwoColLayout>
         <Col>
-          {isLoadingNewListing && (
+          {isUpdatingUser && (
             <Card>
               <Text t="caption" className={styles.loadingText}>
                 <Spinner />
                 <i>
-                  <Trans>Loading new Listing...</Trans>
+                  <Trans>Updating your data...</Trans>
                 </i>
               </Text>
             </Card>
@@ -261,7 +234,7 @@ export const SellerConnected: FC<Props> = (props) => {
           {!!sortedListings && (
             <ListingEditable
               listings={sortedListings}
-              onUpdateUserActivity={onUpdateActivity}
+              onFinishEditing={onUpdateUser}
             />
           )}
         </Col>
@@ -284,7 +257,7 @@ export const SellerConnected: FC<Props> = (props) => {
           <Activities
             activities={user?.activities || []}
             connectedAddress={props.userAddress}
-            isLoading={isLoadingNewActivity}
+            isLoading={isUpdatingUser}
           />
         </Col>
       </TwoColLayout>
@@ -303,7 +276,7 @@ export const SellerConnected: FC<Props> = (props) => {
       {!!assetsData?.length && (
         <CreateAListingModal
           onCancel={() => setShowCreateListingModal(false)}
-          onSubmit={onAddListingSubmit}
+          onSubmit={onUpdateUser}
           assets={assetsData}
           showModal={showCreateListingModal}
         />
