@@ -1,5 +1,5 @@
-import { NextApiHandler } from "next";
 import { marketplace } from "@klimadao/lib/constants";
+import { NextApiHandler } from "next";
 
 export interface APIDefaultResponse {
   message: string;

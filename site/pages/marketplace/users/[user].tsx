@@ -1,15 +1,15 @@
+import { ethers } from "ethers";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { ethers } from "ethers";
 
 import { Users } from "components/pages/Marketplace/Users";
-import { loadTranslation } from "lib/i18n";
-import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getDomainByAddress } from "lib/getDomainByAddress";
+import { getIsDomainInURL } from "lib/getIsDomainInURL";
+import { loadTranslation } from "lib/i18n";
 
-import { getMarketplaceUser } from "@klimadao/lib/utils";
 import { User } from "@klimadao/lib/types/marketplace";
+import { getMarketplaceUser } from "@klimadao/lib/utils";
 
 interface Params extends ParsedUrlQuery {
   user: string;

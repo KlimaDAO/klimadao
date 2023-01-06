@@ -1,6 +1,6 @@
-import { FC, ReactNode } from "react";
-import { StaticImageData } from "next/image";
 import { cx } from "@emotion/css";
+import { StaticImageData } from "next/image";
+import { FC, ReactNode } from "react";
 
 import Image from "next/legacy/image";
 

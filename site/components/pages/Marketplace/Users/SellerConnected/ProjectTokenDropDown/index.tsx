@@ -1,8 +1,8 @@
-import React, { useState, FC, useEffect } from "react";
-import { t } from "@lingui/macro";
-import Tippy from "@tippyjs/react";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { Asset } from "@klimadao/lib/types/marketplace";
+import { t } from "@lingui/macro";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Tippy from "@tippyjs/react";
+import { FC, useEffect, useState } from "react";
 
 import * as styles from "./styles";
 

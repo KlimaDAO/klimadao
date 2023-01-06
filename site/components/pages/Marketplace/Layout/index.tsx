@@ -1,14 +1,14 @@
-import dynamic from "next/dynamic";
-import { FC, useState, useEffect, ReactNode } from "react";
-import { useWeb3, getENSProfile, getKNSProfile } from "@klimadao/lib/utils";
 import { ConnectModal } from "@klimadao/lib/components";
+import { Domain } from "@klimadao/lib/types/domains";
+import { getENSProfile, getKNSProfile, useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { Footer } from "components/Footer";
-import { NavMenu } from "./NavMenu";
-import Menu from "@mui/icons-material/Menu";
-import { t } from "@lingui/macro";
 import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
-import { Domain } from "@klimadao/lib/types/domains";
+import dynamic from "next/dynamic";
+import { FC, ReactNode, useEffect, useState } from "react";
+import { NavMenu } from "./NavMenu";
 
 import * as styles from "./styles";
 

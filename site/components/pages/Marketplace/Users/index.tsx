@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { NextPage } from "next";
-import { t } from "@lingui/macro";
 import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
+import { t } from "@lingui/macro";
 import { useConnectedMarketplaceUser } from "hooks/useConnectedMarketplaceUser";
+import { NextPage } from "next";
+import { useEffect, useState } from "react";
 
+import { User } from "@klimadao/lib/types/marketplace";
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../Layout";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";
-import { User } from "@klimadao/lib/types/marketplace";
 
 type Props = {
   userAddress: string;

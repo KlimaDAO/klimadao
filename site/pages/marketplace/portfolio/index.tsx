@@ -1,6 +1,6 @@
-import { GetStaticProps } from "next";
 import { Portfolio } from "components/pages/Marketplace/Portfolio";
 import { loadTranslation } from "lib/i18n";
+import { GetStaticProps } from "next";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {

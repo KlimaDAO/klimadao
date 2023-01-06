@@ -1,17 +1,17 @@
-import React, { FC } from "react";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { User } from "@klimadao/lib/types/marketplace";
 import { Trans } from "@lingui/macro";
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
-import { Activities } from "../Activities";
-import { Stats } from "../Stats";
-import { ProfileHeader } from "../ProfileHeader";
-import { Listing } from "../Listing";
-import {
-  TwoColLayout,
-  Col,
-} from "components/pages/Marketplace/shared/TwoColLayout";
 import { createProjectPurchaseLink } from "components/pages/Marketplace/lib/createUrls";
-import { getTotalAmountSold, getAmountLeftToSell } from "../utils";
+import {
+  Col,
+  TwoColLayout,
+} from "components/pages/Marketplace/shared/TwoColLayout";
+import { FC } from "react";
+import { Activities } from "../Activities";
+import { Listing } from "../Listing";
+import { ProfileHeader } from "../ProfileHeader";
+import { Stats } from "../Stats";
+import { getAmountLeftToSell, getTotalAmountSold } from "../utils";
 
 import * as styles from "./styles";
 

@@ -1,21 +1,21 @@
 import { CategoryName } from "@klimadao/lib/types/marketplace";
 import { t } from "@lingui/macro";
 
-import RenewableEnergy from "public/marketplace/Renewable_Energy.jpeg";
-import Forestry from "public/marketplace/Forestry.jpeg";
-import OtherNatureBased from "public/marketplace/Other_Nature_Based.png";
-import EnergyEfficiency from "public/marketplace/Energy_Efficiency.jpeg";
 import Agriculture from "public/marketplace/Agriculture.png";
+import EnergyEfficiency from "public/marketplace/Energy_Efficiency.jpeg";
+import Forestry from "public/marketplace/Forestry.jpeg";
 import IndustrialProcessing from "public/marketplace/Industrial_Processing.jpeg";
 import Others from "public/marketplace/Others.png";
+import OtherNatureBased from "public/marketplace/Other_Nature_Based.png";
+import RenewableEnergy from "public/marketplace/Renewable_Energy.jpeg";
 
-import BatterySaverIcon from "@mui/icons-material/BatterySaver";
-import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
-import TerrainOutlinedIcon from "@mui/icons-material/TerrainOutlined";
-import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import AgricultureOutlinedIcon from "@mui/icons-material/AgricultureOutlined";
-import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionManufacturingOutlined";
+import BatterySaverIcon from "@mui/icons-material/BatterySaver";
+import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import EmojiNatureIcon from "@mui/icons-material/EmojiNature";
+import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
+import PrecisionManufacturingOutlinedIcon from "@mui/icons-material/PrecisionManufacturingOutlined";
+import TerrainOutlinedIcon from "@mui/icons-material/TerrainOutlined";
 import SvgIcon from "@mui/material/SvgIcon";
 
 import { StaticImageData } from "next/legacy/image";

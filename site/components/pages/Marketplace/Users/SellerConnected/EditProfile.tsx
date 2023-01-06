@@ -1,11 +1,11 @@
-import React, { FC, useState } from "react";
-import { Trans, t } from "@lingui/macro";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { useWeb3 } from "@klimadao/lib/utils";
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
-import { InputField, TextareaField } from "components/Form";
-import { loginUser, verifyUser, postUser, putUser } from "../../lib/api";
 import { User } from "@klimadao/lib/types/marketplace";
+import { useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import { InputField, TextareaField } from "components/Form";
+import { FC, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { loginUser, postUser, putUser, verifyUser } from "../../lib/api";
 
 import * as styles from "./styles";
 

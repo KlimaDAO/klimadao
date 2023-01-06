@@ -1,14 +1,14 @@
-import React, { FC } from "react";
-import { Trans, t } from "@lingui/macro";
-import { useForm, SubmitHandler, useWatch } from "react-hook-form";
+import { t, Trans } from "@lingui/macro";
+import { FC } from "react";
+import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 
-import { formatUnits } from "@klimadao/lib/utils";
-import { ButtonPrimary, Text, Spinner } from "@klimadao/lib/components";
-import { InputField } from "components/Form";
-import { HighlightValue } from "components/pages/Marketplace/shared/Transaction/HighlightValue";
-import { formatToPrice } from "components/pages/Marketplace/lib/formatNumbers";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { Listing } from "@klimadao/lib/types/marketplace";
+import { formatUnits } from "@klimadao/lib/utils";
+import { InputField } from "components/Form";
+import { formatToPrice } from "components/pages/Marketplace/lib/formatNumbers";
 import { marketplaceTokenInfoMap } from "components/pages/Marketplace/lib/getTokenInfo";
+import { HighlightValue } from "components/pages/Marketplace/shared/Transaction/HighlightValue";
 
 import * as styles from "./styles";
 

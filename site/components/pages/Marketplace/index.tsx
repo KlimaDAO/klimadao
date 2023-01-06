@@ -1,9 +1,9 @@
 import { NextPage } from "next";
 
-import { Text, Section } from "@klimadao/lib/components";
+import { Section, Text } from "@klimadao/lib/components";
+import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
-import { Footer } from "components/Footer";
 
 import * as styles from "./styles";
 

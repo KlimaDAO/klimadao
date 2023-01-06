@@ -1,9 +1,9 @@
-import { ethers, Contract, utils, providers, Transaction } from "ethers";
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
+import { Asset } from "@klimadao/lib/types/marketplace";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
+import { Contract, ethers, providers, Transaction, utils } from "ethers";
 import { getMarketplaceAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
-import { Asset } from "@klimadao/lib/types/marketplace";
 
 // TODO: Before GO-LIVE replace with getContract("usdc")
 // Currently, the USDC token is pointing to a fake one on Mumbai

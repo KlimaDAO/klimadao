@@ -1,22 +1,22 @@
-import React, { FC, useState } from "react";
-import { t } from "@lingui/macro";
 import { useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import { FC, useState } from "react";
 
 import { Asset } from "@klimadao/lib/types/marketplace";
 
-import { AddListing, FormValues } from "./AddListing";
-import { Transaction } from "components/pages/Marketplace/shared/Transaction";
+import { Spinner } from "@klimadao/lib/components";
+import { Modal } from "components/Modal";
+import {
+  createListingTransaction,
+  getC3tokenToMarketplaceAllowance,
+  onApproveMarketplaceTransaction,
+} from "components/pages/Marketplace/lib/actions";
 import {
   TransactionStatusMessage,
   TxnStatus,
 } from "components/pages/Marketplace/lib/statusMessage";
-import {
-  getC3tokenToMarketplaceAllowance,
-  onApproveMarketplaceTransaction,
-  createListingTransaction,
-} from "components/pages/Marketplace/lib/actions";
-import { Modal } from "components/Modal";
-import { Spinner } from "@klimadao/lib/components";
+import { Transaction } from "components/pages/Marketplace/shared/Transaction";
+import { AddListing, FormValues } from "./AddListing";
 import * as styles from "./styles";
 
 type Props = {

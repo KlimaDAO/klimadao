@@ -1,30 +1,30 @@
-import React, { FC, useState, useEffect } from "react";
+import { Spinner, Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
-import { Text, Spinner } from "@klimadao/lib/components";
 import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "components/Modal";
+import { FC, useEffect, useState } from "react";
 
-import { EditProfile } from "./EditProfile";
-import { CreateAListingModal } from "./CreateAListingModal";
-import { Activities } from "../Activities";
-import { Stats } from "../Stats";
-import { ProfileHeader } from "../ProfileHeader";
-import { ListingEditable } from "./ListingEditable";
 import { Card } from "components/pages/Marketplace/shared/Card";
+import { Activities } from "../Activities";
+import { ProfileHeader } from "../ProfileHeader";
+import { Stats } from "../Stats";
+import { CreateAListingModal } from "./CreateAListingModal";
+import { EditProfile } from "./EditProfile";
+import { ListingEditable } from "./ListingEditable";
 
-import { getUser } from "../../lib/api";
 import { getUserAssetsData } from "../../lib/actions";
-import { pollUntil, getTotalAmountSold, getAmountLeftToSell } from "../utils";
+import { getUser } from "../../lib/api";
+import { getAmountLeftToSell, getTotalAmountSold, pollUntil } from "../utils";
 
-import {
-  TwoColLayout,
-  Col,
-} from "components/pages/Marketplace/shared/TwoColLayout";
 import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
+import {
+  Col,
+  TwoColLayout,
+} from "components/pages/Marketplace/shared/TwoColLayout";
 
-import { getJsonRpcProvider } from "@klimadao/lib/utils";
 import { urls } from "@klimadao/lib/constants";
-import { User, Asset } from "@klimadao/lib/types/marketplace";
+import { Asset, User } from "@klimadao/lib/types/marketplace";
+import { getJsonRpcProvider } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 

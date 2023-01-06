@@ -1,14 +1,14 @@
-import React, { FC, ReactElement, ReactNode } from "react";
-import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { FC, ReactElement, ReactNode } from "react";
 
 import { LogoWithClaim, Text } from "@klimadao/lib/components";
-import { concatAddress } from "@klimadao/lib/utils";
-import StoreIcon from "@mui/icons-material/Store";
-import PermIdentityIcon from "@mui/icons-material/PermIdentity";
-import ViewQuiltOutlinedIcon from "@mui/icons-material/ViewQuiltOutlined";
 import { Domain } from "@klimadao/lib/types/domains";
+import { concatAddress } from "@klimadao/lib/utils";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import StoreIcon from "@mui/icons-material/Store";
+import ViewQuiltOutlinedIcon from "@mui/icons-material/ViewQuiltOutlined";
 
 import { useConnectedMarketplaceUser } from "hooks/useConnectedMarketplaceUser";
 

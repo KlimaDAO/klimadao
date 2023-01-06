@@ -1,13 +1,13 @@
-import { FC } from "react";
-import { Text, Spinner } from "@klimadao/lib/components";
-import { t, Trans } from "@lingui/macro";
+import { Spinner, Text } from "@klimadao/lib/components";
 import { Activity } from "@klimadao/lib/types/marketplace";
-import { useRouter } from "next/router";
 import { concatAddress } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 import {
   formatBigToPrice,
   formatTonnes,
 } from "components/pages/Marketplace/lib/formatNumbers";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
 import { Card } from "components/pages/Marketplace/shared/Card";
 

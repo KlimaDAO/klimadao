@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
 import { useWeb3 } from "@klimadao/lib/utils";
+import { useRouter } from "next/router";
 
 export const useConnectedMarketplaceUser = (
   userAddress?: string

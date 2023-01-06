@@ -1,9 +1,9 @@
+import { Project } from "@klimadao/lib/types/marketplace";
+import { getMarketplaceProject } from "@klimadao/lib/utils";
+import { MarketPlaceProject } from "components/pages/Marketplace/Project";
+import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { MarketPlaceProject } from "components/pages/Marketplace/Project";
-import { getMarketplaceProject } from "@klimadao/lib/utils";
-import { loadTranslation } from "lib/i18n";
-import { Project } from "@klimadao/lib/types/marketplace";
 
 interface Params extends ParsedUrlQuery {
   project_id: string;

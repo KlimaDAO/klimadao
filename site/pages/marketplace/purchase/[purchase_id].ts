@@ -1,9 +1,9 @@
+import { Purchase } from "@klimadao/lib/types/marketplace";
+import { queryMarketplaceByPurchase } from "@klimadao/lib/utils";
+import { MarketPlacePurchaseReceipt } from "components/pages/Marketplace/PurchaseReceipt";
+import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { MarketPlacePurchaseReceipt } from "components/pages/Marketplace/PurchaseReceipt";
-import { queryMarketplaceByPurchase } from "@klimadao/lib/utils";
-import { loadTranslation } from "lib/i18n";
-import { Purchase } from "@klimadao/lib/types/marketplace";
 
 interface Params extends ParsedUrlQuery {
   purchase_id: string;

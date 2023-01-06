@@ -1,22 +1,22 @@
-import { NextPage } from "next";
-import { useRouter } from "next/router";
-import { Text, Spinner, ConnectModal } from "@klimadao/lib/components";
+import { ConnectModal, Spinner, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 import { PageHead } from "components/PageHead";
-import { MarketplaceLayout } from "../../Layout";
 import { Card } from "components/pages/Marketplace/shared/Card";
 import {
-  TwoColLayout,
   Col,
+  TwoColLayout,
 } from "components/pages/Marketplace/shared/TwoColLayout";
+import { MarketplaceLayout } from "../../Layout";
 
-import * as styles from "./styles";
 import { useEffect, useState } from "react";
 import { Activities } from "../Activities";
 import { Stats } from "../Stats";
+import * as styles from "./styles";
 
 export const Login: NextPage = () => {
   const router = useRouter();

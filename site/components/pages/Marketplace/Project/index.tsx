@@ -1,9 +1,9 @@
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { NextPage } from "next";
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
 import { MarketplaceLayout } from "../Layout";
 
-import { PageHead } from "components/PageHead";
 import { Project } from "@klimadao/lib/types/marketplace";
+import { PageHead } from "components/PageHead";
 
 import * as styles from "./styles";
 

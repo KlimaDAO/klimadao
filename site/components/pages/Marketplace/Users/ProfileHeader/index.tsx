@@ -1,8 +1,8 @@
 import { Text } from "@klimadao/lib/components";
-import { FC } from "react";
-import Image from "next/legacy/image";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
+import Image from "next/legacy/image";
 import userLogo from "public/marketplace/marketplace_user.png";
+import { FC } from "react";
 
 import * as styles from "./styles";
 

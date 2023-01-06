@@ -1,34 +1,36 @@
-import React, { useState } from "react";
+import { Spinner, Text } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import { Modal } from "components/Modal";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
-import { Spinner, Text } from "@klimadao/lib/components";
-import { Modal } from "components/Modal";
+import { useState } from "react";
 
+import { Listing, Project } from "@klimadao/lib/types/marketplace";
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import { MarketplaceLayout } from "../../Layout";
+import { PageHead } from "components/PageHead";
+import {
+  createProjectLink,
+  createSellerLink,
+} from "components/pages/Marketplace/lib/createUrls";
 import { Card } from "components/pages/Marketplace/shared/Card";
 import { ProjectImage } from "components/pages/Marketplace/shared/ProjectImage";
-import { PurchaseForm, FormValues } from "./PurchaseForm";
-import { PageHead } from "components/PageHead";
-import { createProjectLink } from "components/pages/Marketplace/lib/createUrls";
-import { Project, Listing } from "@klimadao/lib/types/marketplace";
-import { createSellerLink } from "components/pages/Marketplace/lib/createUrls";
+import { MarketplaceLayout } from "../../Layout";
+import { FormValues, PurchaseForm } from "./PurchaseForm";
 
 import { formatBigToPrice } from "components/pages/Marketplace/lib/formatNumbers";
 
-import { Transaction } from "components/pages/Marketplace/shared/Transaction";
+import {
+  getUSDCtokenToMarketplaceAllowance,
+  makePurchase,
+  onApproveMarketplaceTransaction,
+} from "components/pages/Marketplace/lib/actions";
 import {
   TransactionStatusMessage,
   TxnStatus,
 } from "components/pages/Marketplace/lib/statusMessage";
-import {
-  getUSDCtokenToMarketplaceAllowance,
-  onApproveMarketplaceTransaction,
-  makePurchase,
-} from "components/pages/Marketplace/lib/actions";
+import { Transaction } from "components/pages/Marketplace/shared/Transaction";
 
 import * as styles from "./styles";
 

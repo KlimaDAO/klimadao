@@ -1,25 +1,25 @@
-import React, { FC, useState } from "react";
-import { utils } from "ethers";
-import { t, Trans } from "@lingui/macro";
 import { Spinner, Text } from "@klimadao/lib/components";
-import { Modal } from "components/Modal";
 import { useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
+import { Modal } from "components/Modal";
+import { utils } from "ethers";
+import { FC, useState } from "react";
 
-import { EditListing, FormValues } from "./EditListing";
 import { Listing } from "../Listing";
+import { EditListing, FormValues } from "./EditListing";
 
-import { Transaction } from "components/pages/Marketplace/shared/Transaction";
+import {
+  deleteListingTransaction,
+  getC3tokenToMarketplaceAllowance,
+  onApproveMarketplaceTransaction,
+  updateListingTransaction,
+} from "components/pages/Marketplace/lib/actions";
 import {
   TransactionStatusMessage,
   TxnStatus,
 } from "components/pages/Marketplace/lib/statusMessage";
-import {
-  getC3tokenToMarketplaceAllowance,
-  onApproveMarketplaceTransaction,
-  updateListingTransaction,
-  deleteListingTransaction,
-} from "components/pages/Marketplace/lib/actions";
 import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
+import { Transaction } from "components/pages/Marketplace/shared/Transaction";
 
 import { Listing as ListingType } from "@klimadao/lib/types/marketplace";
 

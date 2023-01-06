@@ -1,8 +1,8 @@
-import { GetStaticProps } from "next";
-import { MarketPlaceProjects } from "components/pages/Marketplace/Projects";
-import { getMarketplaceProjects } from "@klimadao/lib/utils";
-import { loadTranslation } from "lib/i18n";
 import { Project } from "@klimadao/lib/types/marketplace";
+import { getMarketplaceProjects } from "@klimadao/lib/utils";
+import { MarketPlaceProjects } from "components/pages/Marketplace/Projects";
+import { loadTranslation } from "lib/i18n";
+import { GetStaticProps } from "next";
 
 interface PageProps {
   projects: Project[];

@@ -1,9 +1,9 @@
-import { FC, ReactNode } from "react";
-import { useRouter } from "next/router";
 import { Trans } from "@lingui/macro";
+import { useRouter } from "next/router";
+import { FC, ReactNode } from "react";
 
-import { Listing as ListingType } from "@klimadao/lib/types/marketplace";
 import { Text } from "@klimadao/lib/components";
+import { Listing as ListingType } from "@klimadao/lib/types/marketplace";
 
 import { Card } from "components/pages/Marketplace/shared/Card";
 import { Category } from "components/pages/Marketplace/shared/Category";

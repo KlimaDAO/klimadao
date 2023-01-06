@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import { Trans, t } from "@lingui/macro";
-import { useForm, SubmitHandler, useWatch } from "react-hook-form";
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { InputField } from "components/Form";
-import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
 import { Asset } from "@klimadao/lib/types/marketplace";
+import { t, Trans } from "@lingui/macro";
+import { InputField } from "components/Form";
+import { FC } from "react";
+import { SubmitHandler, useForm, useWatch } from "react-hook-form";
+import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
 import * as styles from "./styles";
 
 export type FormValues = {

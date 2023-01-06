@@ -1,6 +1,6 @@
-import { FC } from "react";
-import Image from "next/legacy/image";
 import { CategoryName } from "@klimadao/lib/types/marketplace";
+import Image from "next/legacy/image";
+import { FC } from "react";
 
 import { categoryInfoMap } from "components/pages/Marketplace/lib/getCategoryInfo";
 

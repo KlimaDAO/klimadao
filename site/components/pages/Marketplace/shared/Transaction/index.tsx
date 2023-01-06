@@ -1,11 +1,11 @@
-import { FC, useState } from "react";
 import { Trans } from "@lingui/macro";
+import { FC, useState } from "react";
 
-import { Approve } from "./Approve";
-import { Submit } from "./Submit";
 import { getMarketplaceAddress } from "components/pages/Marketplace/lib/getAddresses";
 import { TransactionStatusMessage } from "components/pages/Marketplace/lib/statusMessage";
 import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
+import { Approve } from "./Approve";
+import { Submit } from "./Submit";
 
 import { Value } from "./types";
 

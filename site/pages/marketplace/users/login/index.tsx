@@ -1,6 +1,6 @@
-import { GetStaticPropsContext } from "next";
 import { Login } from "components/pages/Marketplace/Users/Login";
 import { loadTranslation } from "lib/i18n";
+import { GetStaticPropsContext } from "next";
 
 export const getStaticProps = async (ctx: GetStaticPropsContext) => {
   const { locale } = ctx;

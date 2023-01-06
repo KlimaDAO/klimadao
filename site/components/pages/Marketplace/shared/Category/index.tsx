@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { CategoryName } from "@klimadao/lib/types/marketplace";
 import { cx } from "@emotion/css";
+import { CategoryName } from "@klimadao/lib/types/marketplace";
 import { categoryInfoMap } from "components/pages/Marketplace/lib/getCategoryInfo";
+import { FC } from "react";
 import * as styles from "./styles";
 
 type Props = {

@@ -1,14 +1,14 @@
-import { FC } from "react";
 import { Text } from "@klimadao/lib/components";
 import { t, Trans } from "@lingui/macro";
 import { useRouter } from "next/router";
+import { FC } from "react";
 
-import { Card } from "components/pages/Marketplace/shared/Card";
-import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
-import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
-import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { Stats as StatsType } from "@klimadao/lib/types/marketplace";
 import { trimWithLocale } from "@klimadao/lib/utils";
+import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
+import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
+import StoreOutlinedIcon from "@mui/icons-material/StoreOutlined";
+import { Card } from "components/pages/Marketplace/shared/Card";
 
 import * as styles from "./styles";
 

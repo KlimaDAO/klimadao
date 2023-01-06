@@ -1,13 +1,13 @@
+import { Spinner, Text } from "@klimadao/lib/components";
+import { useWeb3 } from "@klimadao/lib/utils";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Text, Spinner } from "@klimadao/lib/components";
-import { useWeb3 } from "@klimadao/lib/utils";
 
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../Layout";
 
-import * as styles from "./styles";
 import { useEffect, useState } from "react";
+import * as styles from "./styles";
 
 export const Portfolio: NextPage = () => {
   const router = useRouter();

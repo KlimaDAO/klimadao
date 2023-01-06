@@ -1,5 +1,5 @@
-import USDC from "public/icons/USDC.png";
 import { StaticImageData } from "next/legacy/image";
+import USDC from "public/icons/USDC.png";
 
 export type MarketplaceToken = "usdc"; // what are the others?
 

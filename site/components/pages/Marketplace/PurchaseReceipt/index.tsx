@@ -1,18 +1,17 @@
-import React from "react";
-import { NextPage } from "next";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
-import { Text, ButtonPrimary } from "@klimadao/lib/components";
-import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { MarketplaceLayout } from "components/pages/Marketplace/Layout";
 import { Card } from "components/pages/Marketplace/shared/Card";
+import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
+import { NextPage } from "next";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-import { PageHead } from "components/PageHead";
-import { createProjectLink } from "components/pages/Marketplace/lib/createUrls";
 import { Purchase } from "@klimadao/lib/types/marketplace";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
+import { PageHead } from "components/PageHead";
+import { createProjectLink } from "components/pages/Marketplace/lib/createUrls";
 
 import {
   formatBigToPrice,

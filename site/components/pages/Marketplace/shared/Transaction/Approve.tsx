@@ -1,19 +1,19 @@
-import { FC } from "react";
-import { Trans } from "@lingui/macro";
 import { cx } from "@emotion/css";
+import { Trans } from "@lingui/macro";
+import { FC } from "react";
 
 import { concatAddress } from "@klimadao/lib/utils";
-import SendRounded from "@mui/icons-material/SendRounded";
 import CheckIcon from "@mui/icons-material/Check";
+import SendRounded from "@mui/icons-material/SendRounded";
+import { marketplaceTokenInfoMap } from "components/pages/Marketplace/lib/getTokenInfo";
 import {
   getStatusMessage,
   TransactionStatusMessage,
 } from "components/pages/Marketplace/lib/statusMessage";
-import { marketplaceTokenInfoMap } from "components/pages/Marketplace/lib/getTokenInfo";
 
 import { HighlightValue } from "./HighlightValue";
 
-import { Text, Spinner, ButtonPrimary } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { Value } from "./types";
 
 import * as styles from "./styles";
