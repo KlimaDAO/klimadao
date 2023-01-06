@@ -12,7 +12,7 @@ import { Vintage } from "components/pages/Marketplace/shared/Vintage";
 
 import {
   formatBigToPrice,
-  formatTonnes,
+  formatBigToTonnes,
 } from "components/pages/Marketplace/lib/formatNumbers";
 
 import * as styles from "./styles";
@@ -42,7 +42,7 @@ export const Listing: FC<Props> = (props) => {
           <Trans id="marketplace.seller.listing.quantity_available">
             Quantity Available:
           </Trans>{" "}
-          {formatTonnes(props.listing.leftToSell, locale)}
+          {formatBigToTonnes(props.listing.leftToSell, locale)}
         </Text>
       </div>
       {props.children}

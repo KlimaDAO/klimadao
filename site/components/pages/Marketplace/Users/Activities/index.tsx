@@ -4,7 +4,7 @@ import { concatAddress } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import {
   formatBigToPrice,
-  formatTonnes,
+  formatBigToTonnes,
 } from "components/pages/Marketplace/lib/formatNumbers";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -103,7 +103,7 @@ export const Activities: FC<Props> = (props) => {
             {!!activity.amount && activity.price && (
               <Text t="caption">
                 <span className="number">
-                  {formatTonnes(activity.amount, locale)}
+                  {formatBigToTonnes(activity.amount, locale)}
                   <Trans id="marketplace.tonnes.short">t</Trans>
                 </span>{" "}
                 at

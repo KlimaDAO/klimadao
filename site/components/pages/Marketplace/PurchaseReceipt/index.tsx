@@ -15,7 +15,7 @@ import { createProjectLink } from "components/pages/Marketplace/lib/createUrls";
 
 import {
   formatBigToPrice,
-  formatTonnes,
+  formatBigToTonnes,
 } from "components/pages/Marketplace/lib/formatNumbers";
 
 import * as styles from "./styles";
@@ -82,7 +82,7 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
                         <Trans>Quantity purchased:</Trans>
                       </Text>
                       <Text t="caption">
-                        {formatTonnes(props.purchase.amount, locale)}
+                        {formatBigToTonnes(props.purchase.amount, locale)}
                       </Text>
                     </div>
 
