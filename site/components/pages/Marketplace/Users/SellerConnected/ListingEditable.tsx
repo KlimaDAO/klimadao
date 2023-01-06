@@ -6,7 +6,7 @@ import { utils } from "ethers";
 import { FC, useState } from "react";
 
 import { Listing } from "../Listing";
-import { EditListing, FormValues } from "./EditListing";
+import { EditListing, FormValues } from "./Forms/EditListing";
 
 import {
   deleteListingTransaction,

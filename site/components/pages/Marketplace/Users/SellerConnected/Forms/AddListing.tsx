@@ -4,7 +4,7 @@ import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/Form";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";
-import { ProjectTokenDropDown } from "./ProjectTokenDropDown";
+import { ProjectTokenDropDown } from "../ProjectTokenDropDown";
 import * as styles from "./styles";
 
 export type FormValues = {

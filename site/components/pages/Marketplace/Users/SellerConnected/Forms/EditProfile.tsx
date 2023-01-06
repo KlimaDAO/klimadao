@@ -3,9 +3,14 @@ import { User } from "@klimadao/lib/types/marketplace";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField, TextareaField } from "components/Form";
+import {
+  loginUser,
+  postUser,
+  putUser,
+  verifyUser,
+} from "components/pages/Marketplace/lib/api";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { loginUser, postUser, putUser, verifyUser } from "../../lib/api";
 
 import * as styles from "./styles";
 

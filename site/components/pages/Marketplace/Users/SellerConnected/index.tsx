@@ -9,7 +9,7 @@ import { Activities } from "../Activities";
 import { ProfileHeader } from "../ProfileHeader";
 import { Stats } from "../Stats";
 import { CreateAListingModal } from "./CreateAListingModal";
-import { EditProfile } from "./EditProfile";
+import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
 
 import { getUserAssetsData } from "../../lib/actions";

@@ -16,7 +16,7 @@ import {
   TxnStatus,
 } from "components/pages/Marketplace/lib/statusMessage";
 import { Transaction } from "components/pages/Marketplace/shared/Transaction";
-import { AddListing, FormValues } from "./AddListing";
+import { AddListing, FormValues } from "./Forms/AddListing";
 import * as styles from "./styles";
 
 type Props = {
