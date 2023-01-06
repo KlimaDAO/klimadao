@@ -3,6 +3,12 @@ import { User } from "@klimadao/lib/types/marketplace";
 import { Trans } from "@lingui/macro";
 import { createProjectPurchaseLink } from "components/pages/Marketplace/lib/createUrls";
 import {
+  getActiveListings,
+  getAllListings,
+  getAmountLeftToSell,
+  getTotalAmountSold,
+} from "components/pages/Marketplace/lib/listingsGetter";
+import {
   Col,
   TwoColLayout,
 } from "components/pages/Marketplace/shared/TwoColLayout";
@@ -11,12 +17,6 @@ import { Activities } from "../Activities";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";
 import { Stats } from "../Stats";
-import {
-  getActiveListings,
-  getAllListings,
-  getAmountLeftToSell,
-  getTotalAmountSold,
-} from "../utils";
 
 import * as styles from "./styles";
 

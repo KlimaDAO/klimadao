@@ -12,15 +12,16 @@ import { CreateAListingModal } from "./CreateAListingModal";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
 
-import { getUserAssetsData } from "../../lib/actions";
-import { getUser } from "../../lib/api";
+import { getUserAssetsData } from "components/pages/Marketplace/lib/actions";
+import { getUser } from "components/pages/Marketplace/lib/api";
+import { pollUntil } from "../utils";
+
 import {
   getActiveListings,
   getAllListings,
   getAmountLeftToSell,
   getTotalAmountSold,
-  pollUntil,
-} from "../utils";
+} from "components/pages/Marketplace/lib/listingsGetter";
 
 import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
 import {
