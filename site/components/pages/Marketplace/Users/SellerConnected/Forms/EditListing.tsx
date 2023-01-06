@@ -75,13 +75,13 @@ export const EditListing: FC<Props> = (props) => {
                     message: "Quantity is required",
                   }),
                 },
-                // min: {
-                //   value: 1,
-                //   message: t({
-                //     id: "marketplace.user.listing.edit.input.quantity.minimum",
-                //     message: "The minimum quantity to sell is 1 Tonne",
-                //   }),
-                // },
+                min: {
+                  value: 1,
+                  message: t({
+                    id: "marketplace.user.listing.edit.input.quantity.minimum",
+                    message: "The minimum quantity to sell is 1 Tonne",
+                  }),
+                },
                 max: {
                   value: Number(formatUnits(props.listing.leftToSell)),
                   message: t({
