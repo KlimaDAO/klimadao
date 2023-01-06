@@ -132,7 +132,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
         provider,
         onStatus: onUpdateStatus,
       });
-      console.log("result", result);
+
       if (result.hash) {
         push(`/marketplace/purchase/${result.hash}`);
       }

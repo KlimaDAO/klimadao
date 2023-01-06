@@ -4,6 +4,13 @@ import { MarketplaceLayout } from "../Layout";
 
 import { Project } from "@klimadao/lib/types/marketplace";
 import { PageHead } from "components/PageHead";
+import { createProjectPurchaseLink } from "components/pages/Marketplace/lib/createUrls";
+import {
+  formatBigToPrice,
+  formatBigToTonnes,
+} from "components/pages/Marketplace/lib/formatNumbers";
+import { getActiveListings } from "components/pages/Marketplace/lib/listingsGetter";
+import { Card } from "components/pages/Marketplace/shared/Card";
 
 import * as styles from "./styles";
 
@@ -12,6 +19,10 @@ type Props = {
 };
 
 export const MarketPlaceProject: NextPage<Props> = (props) => {
+  const activeListings =
+    !!props.project.listings?.length &&
+    getActiveListings(props.project.listings);
+
   return (
     <>
       <PageHead
@@ -35,6 +46,28 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
           <Text t="caption">Registry: {props.project.registry}</Text>
           <Text t="caption">Vintage: {props.project.vintage}</Text>
           <Text t="caption">Methodology: {props.project.methodology}</Text>
+
+          <div className={styles.listings}>
+            <Text t="h2">Listings:</Text>
+            {!!activeListings &&
+              activeListings.length &&
+              activeListings.map((listing) => (
+                <Card key={listing.id}>
+                  <Text t="caption">
+                    Price: {formatBigToPrice(listing.singleUnitPrice)}
+                  </Text>
+                  <Text t="caption">
+                    Available: {formatBigToTonnes(listing.leftToSell)}
+                  </Text>
+                  <ButtonPrimary
+                    label="Buy"
+                    className={styles.buyButton}
+                    href={createProjectPurchaseLink(props.project, listing.id)}
+                  />
+                </Card>
+              ))}
+          </div>
+
           <ButtonPrimary
             href={`/marketplace/projects`}
             label="Back to results"
