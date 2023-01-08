@@ -2,6 +2,7 @@ import { ButtonPrimary } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { t } from "@lingui/macro";
 import { Pledge } from "components/pages/Pledge/types";
+import Link from "next/link";
 import { FC } from "react";
 
 type ViewPledgeButtonProps = {
@@ -18,6 +19,7 @@ export const ViewPledgeButton: FC<ViewPledgeButtonProps> = (props) => {
           id: "retirement.single.view_pledge",
           message: "View Pledge",
         })}
+        renderLink={(linkProps) => <Link {...linkProps} />}
       />
     );
   }
