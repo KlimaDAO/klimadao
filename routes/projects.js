@@ -1,8 +1,9 @@
 'use strict'
-const { client } = require('../apollo-client.js');
+const { executeGraphQLQuery } = require('../apollo-client.js');
 const { GET_PROJECTS } = require('../queries/projects.js');
 const fetch = require('node-fetch')
-
+const { faker } = require('@faker-js/faker');
+const {fakeProjects} = require('./fake_data')
 const { GET_PROJECT_BY_ID } = require('../queries/project_id.js');
 
 module.exports = async function (fastify, opts) {
@@ -33,19 +34,46 @@ module.exports = async function (fastify, opts) {
             }
         },
         handler: async function (request, reply) {
-            var data = await client(process.env.GRAPH_API_URL)
-                .query({
-                    query: GET_PROJECTS,
-                });
 
-                console.log(data.data.projects);
-            var projects = [];
-            for (let i = 0 ; i < data.data.projects.length ; i++) {
-                projects[i] = {...data.data.projects[i],
-                    price: '10000000'
+            //@todo -> calculate the minimum price
+            const data = await executeGraphQLQuery(GET_PROJECTS);
+
+            // Transform the projects array by adding a property 'price' with a value of '10000000' to each project
+            const projects = data.data.projects.map(project => ({
+                ...project,
+                price: '10000000'
+            }));
+
+            if (process.env.ENV == 'local') {
+                projects.splice(1, 1);
+
+
+                let year = 2014;
+                let startCount = projects.length;
+
+                for (; startCount < 20; startCount++) {
+                    projects.push({
+                        "id": "fake",
+                        "key": "GS-500-FAKE",
+                        "projectID": "500",
+                        "name": 'FAKE ' + faker.lorem.sentence(4) + ' FAKE',
+                        "methodology": faker.lorem.sentence(10),
+                        "vintage": year,
+                        "projectAddress": "0xa1c1ccd8c61fec141aaed6b279fa4400b68101d4",
+                        "registry": startCount % 2 ? "GS" : "VS",
+                        "category": {
+                            "id": "Other"
+                        },
+                        "country": {
+                            "id": "Sudan"
+                        }
+                    });
+                    year++;
                 }
-             
+
             }
+
+            // Send the transformed projects array as a JSON string in the response
             return reply.send(JSON.stringify(projects));
         }
     }),
@@ -90,16 +118,19 @@ module.exports = async function (fastify, opts) {
                 var key = `${id[0]}-${id[1]}`;
                 var vintageStr = id[2];
                 var vintage = (new Date(id[2]).getTime()) / 1000;
-                console.log(key, vintageStr );
 
-                var data = await client(process.env.GRAPH_API_URL)
-                    .query({
-                        query: GET_PROJECT_BY_ID,
-                        variables: { key: key, vintageStr: vintageStr}
-                    });
-                    console.log(data)
+
+
+                if (id.includes("FAKE")) {
+                    return reply.send(JSON.stringify(
+                        fakeProjects
+                    ))
+                }
+                var data = await executeGraphQLQuery(GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
+
                 if (data.data.projects[0]) {
                     // this comes from https://thegraph.com/hosted-service/subgraph/klimadao/polygon-bridged-carbon
+
 
                     if (process.env.ENV != 'local') {
                         let pools = await client(process.env.CARBON_OFFSETS_GRAPH_API_URL)
@@ -108,7 +139,7 @@ module.exports = async function (fastify, opts) {
                                 variables: { projectID, vintage }
                             });
                         var projects = data.data.projects[0];
-                        projects = {...projects}
+                        projects = { ...projects }
                         projects.pools = pools.data.carbonOffsets;
                         if (projects.registry == "VCS") {
                             const results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
@@ -116,9 +147,8 @@ module.exports = async function (fastify, opts) {
                         }
 
                     } else {
-                        var projects = data.data.projects[0];
-                        var projects = {...projects}
-                        projects.pools = [
+                        var project = { ...data.data.projects[0] };
+                        project.pools = [
                             {
                                 "id": "0x004090eef602e024b2a6cb7f0c1edda992382994",
                                 "name": "",
@@ -134,12 +164,28 @@ module.exports = async function (fastify, opts) {
                                 "currentSupply": "32928"
                             },
                         ]
-                        projects.location =   {
+                        project.location = {
                             "latitude": 30.735555,
                             "longitude": 114.544166
                         }
+                        if (project.listings.length) {
+
+
+                            const listings = project.listings.map((item) => ({ ...item, selected: false }));
+
+                            await Promise.all(
+                                listings.map(async (listing) => {
+                                    const seller = await fastify.firebase.firestore()
+                                        .collection("users")
+                                        .doc((listing.seller.id).toUpperCase())
+                                        .get();
+                                    listing.seller = { ...seller.data(), ...listing.seller };
+                                })
+                            );
+                            project.listings = listings;
+                        }
                     }
-                    return reply.send(JSON.stringify(projects));
+                    return reply.send(JSON.stringify(project));
                 }
                 return reply.notFound();
             }

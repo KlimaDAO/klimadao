@@ -1,7 +1,7 @@
 const { gql } = require('@apollo/client');
 
 const GET_USER_DATA = gql`
-            query users($wallet: Bytes!){
+            query users($wallet: Bytes){
                 users( where: {
                     id: $wallet
                     }

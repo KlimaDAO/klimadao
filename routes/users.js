@@ -1,5 +1,5 @@
 'use strict'
-const { client } = require('../apollo-client.js');
+const { executeGraphQLQuery } = require('../apollo-client.js');
 const { GET_USER_DATA } = require('../queries/users.js');
 const ethers = require('ethers');
 const jwt = require('jsonwebtoken');
@@ -32,20 +32,28 @@ module.exports = async function (fastify, opts) {
         },
 
         handler: async function (request, reply) {
+            // Get the wallet address from the request body
             const walletAddress = request.body.wallet;
-            console.log(walletAddress);
+
+            // If the wallet address is not provided, return a 400 Bad Request error
             if (!walletAddress) {
-                reply.code(400);
-                reply.send('Bad Request');
-                return;
+                return reply.code(400).send("Bad Request");
             }
+
+            // Check if the wallet address is already in the users object
             if (!!users[walletAddress]) {
-                reply.send({ nonce: users[walletAddress].nonce });
-                return;
+                // If the wallet address is found, return the nonce associated with it
+                return reply.send({ nonce: users[walletAddress].nonce });
             }
+
+            // Generate a new nonce
             const nonce = generateNounce();
+
+            // Add the wallet address and nonce to the users object
             users[walletAddress] = { walletAddress, nonce };
-            reply.send({ nonce });
+
+            // Return the nonce
+            return reply.send({ nonce });
         }
     }),
         fastify.route({
@@ -72,23 +80,34 @@ module.exports = async function (fastify, opts) {
             },
 
             handler: async function (request, reply) {
+                // Destructure the wallet address and signature from the request body
                 const { signature, wallet } = request.body;
+
+                // Get the user from the users object
                 const dbUser = users[wallet];
 
-                const signedMessage = `Sign to authenticate ownership and edit your Klima Marketplace Profile 💚\n\nSignature nonce: ${dbUser.nonce}`;
+                // Create the signed message to verify
+                const signedMessage = `${process.env.AUTHENTICATION_MESSAGE}${dbUser.nonce}`;
+
+                // Verify the signature
                 const signerWalletAddress = ethers.utils.verifyMessage(signedMessage, signature);
 
+                // If the signature is invalid, send a 401 Unauthorized response
                 if (signerWalletAddress.toLowerCase() !== dbUser.walletAddress.toLowerCase()) {
-                    reply.statusCode = 401;
-                    reply.send('Bad Creds');
-                    return;
+                    return reply.code(401).send('Unauthorized: Invalid signature');
                 }
 
-                const token = fastify.jwt.sign({ wallet })
-                console.log(token);
+                // Create a JWT token for the user
+                const token = fastify.jwt.sign({ wallet });
+
+                // Save the token to the session
                 request.session.token = token;
+
+                // Generate a new nonce for the user
                 users[wallet].nonce = generateNounce();
-                reply.send({token});
+
+                // Send the token back to the client
+                return reply.send({ token });
             }
         }),
         fastify.route({
@@ -121,77 +140,79 @@ module.exports = async function (fastify, opts) {
             },
 
             handler: async function (request, reply) {
+                // Destructure the userIdentifier parameter from the request object
                 const { userIdentifier } = request.params;
+                // Destructure the type query parameter from the request object
                 var { type } = (request.query);
-
+                // Log the type to the console
+                console.log(type)
                 var user;
                 if (type == "wallet") {
+                    // Query the Firestore database for the document with a matching wallet address
                     user = await fastify.firebase.firestore()
                         .collection("users")
-                        .doc(userIdentifier)
+                        .doc(userIdentifier.toUpperCase())
                         .get();
-
+                    // If the document doesn't exist, return a 404 error
                     if (!user.exists) {
                         return reply.notFound();
                     }
                 } else {
+                    // Query the Firestore database for documents with a matching handle
                     let usersRef = fastify.firebase.firestore().collection("users");
-                    const users = await usersRef.where('handle', '==', userIdentifier).get();
-
-
-                    if (users.empty) {
+                    //const users = await usersRef.where('handle', '==', userIdentifier).get();
+                    const userSnapshot = await usersRef.where('handle', '==', userIdentifier).limit(1).get();
+                    // If no documents are found, return a 404 error
+                    if (userSnapshot.empty) {
                         return reply.notFound();
                     }
+                    // Iterate through the documents and assign the first one to the user variable
+                    const user = userSnapshot.docs[0];
 
-                    users.forEach(doc => {
-                        user = doc;
-                    });
                 }
+                // Create a response object with the data from the retrieved user document
                 var response = user.data();
-                var wallet = user.id;
-
-                var data = await client(process.env.GRAPH_API_URL)
-                    .query({
-                        query: GET_USER_DATA,
-                        variables: { wallet }
-                    });
-
-                // @todo -> merge with other graph
+                // Get the wallet address of the user
+                var wallet = user.id.toLowerCase();
+                // Query the GraphQL API with the wallet address to get more user data
+                const data = await executeGraphQLQuery(GET_USER_DATA,  {wallet} );
+                // Add the wallet address to the response object
                 response.wallet = wallet;
+                // If the users array in the data is not empty
                 if (data.data.users.length) {
-                    response.listings = data.data.users[0].listings;
+                    // Create a new listings array with the listings from the data, and add a "selected" property set to false
+                    const listings = data.data.users[0].listings.map((item) => ({ ...item, selected: false }));
 
-                    // console.log( data.data.users[0].listings.length);
-                    // console.log( " ======== ")
-                    for (let i = 0; i < data.data.users[0].listings.length ; i++) {
-                        var seller = await fastify.firebase.firestore()
-                        .collection("users")
-                        .doc(data.data.users[0].listings[i].seller.id)
-                        .get();
-                       
-                        if (seller.empty) {
-                           console.log('seller is empty');
-                        }
-    
-                        users.forEach(doc => {
-                            user = doc;
-                        });
-                       console.log(data.data.users[0].listings[i].seller.id, seller.data());
-                    }
-                  
+                    await Promise.all(
+                        listings.map(async (listing) => {
+                            const seller = await fastify.firebase.firestore()
+                                .collection("users")
+                                .doc((listing.seller.id).toUpperCase())
+                                .get();
+                            listing.seller = { ...seller.data(), ...listing.seller };
+                        })
+                    );
+                    // Add the modified listings array to the response object
+                    response.listings = listings;
+                    // Add the activities array from
+                    // Add the activities array from the data to the response object
                     response.activities = data.data.users[0].activities;
-                    response.assets = [
-                        '0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4'
-                    ]
-                    //console.log(response);
+                    // Add a fixed array of assets to the response object
+                    response.assets = ['0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4', '0xE5d7FEbFf7d73C5a5AfA97047C7863Cd1f6D0748']
                 } else {
+                    // If the users array in the data is empty, add empty arrays for listings and activities to the response object
                     response.listings = [];
                     response.activities = [];
+                    // Add a fixed array of assets to the response object
+                    response.assets = ['0xa1c1cCD8C61FeC141AAed6B279Fa4400b68101d4', '0xE5d7FEbFf7d73C5a5AfA97047C7863Cd1f6D0748']
                 }
+                // Return the response object
                 return reply.send(response);
             }
-
         }),
+
+
+
         fastify.route({
             method: 'POST',
             path: '/users',
@@ -227,28 +248,36 @@ module.exports = async function (fastify, opts) {
                 }
             },
             handler: async function (request, reply) {
-                // @TODO -> check if there is a better way of doing this
+                // Destructure the wallet, username, handle, and description properties from the request body
+                const { wallet, username, handle, description } = request.body;
+
+                // Query the Firestore database for the user document with the specified wallet address
                 const user = await fastify.firebase.firestore()
                     .collection("users")
-                    .doc(request.body.wallet)
+                    .doc(wallet)
                     .get();
+
+                // If the user document exists, return a 403 error with a message
                 if (user.exists) {
                     return reply.code(403).send({
                         "code": 403,
                         "error": "This user is already registered!"
-                    }
-                    );
+                    });
                 }
+
                 try {
+                    // Try creating a new user document with the specified data
                     await fastify.firebase.firestore()
                         .collection("users")
-                        .doc(request.body.wallet).set({
-                            username: request.body.username,
-                            handle: request.body.handle,
-                            description: request.body.description,
+                        .doc(wallet.toUpperCase()).set({
+                            username,
+                            handle,
+                            description,
                         });
+                    // If the document is successfully created, return the request body
                     return reply.send(request.body);
                 } catch (err) {
+                    // If an error occurs, return the error in the response
                     return reply.error({ error: err });
                 }
             }
@@ -281,15 +310,21 @@ module.exports = async function (fastify, opts) {
                 }
             },
             handler: async function (request, reply) {
+                // Destructure the wallet, username, and description properties from the request body
+                const { wallet, username, description } = request.body;
+
                 try {
+                    // Try updating the user document with the specified data
                     await fastify.firebase.firestore()
                         .collection("users")
-                        .doc(request.body.wallet).update({
-                            username: request.body.username,
-                            description: request.body.description,
+                        .doc(wallet.toUpperCase()).update({
+                            username: username,
+                            description: description,
                         });
+                    // If the update is successful, return the request body
                     return reply.send(request.body);
                 } catch (err) {
+                    // If an error occurs, return a 404 error with a message
                     return reply.code(403).send({ code: 404, error: "No document to update" });
                 }
             }

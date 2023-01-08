@@ -15,7 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@apollo/client": "^3.6.9",
+    "@apollo/client": "^3.7.3",
+    "@faker-js/faker": "^7.6.0",
+    "@fakerjs/sentence": "^1.0.0",
     "@fastify/autoload": "^5.4.0",
     "@fastify/bearer-auth": "^8.0.1",
     "@fastify/cookie": "^8.3.0",
@@ -24,6 +26,7 @@
     "@fastify/sensible": "^5.0.0",
     "@fastify/swagger": "^7.5.1",
     "@mgcrea/fastify-session": "^0.16.0",
+    "@mgcrea/fastify-session-sodium-crypto": "^0.8.7",
     "@now-ims/fastify-firebase": "^1.1.3",
     "cross-fetch": "^3.1.5",
     "ethers": "^5.7.1",

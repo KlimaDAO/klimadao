@@ -1,7 +1,7 @@
 const { gql } = require('@apollo/client');
 
 const GET_PROJECT_BY_ID = gql`
-            query projects($key: String!, $vintageStr: String!){
+            query projects($key: String, $vintageStr: String){
                 projects(where: {
                     key: $key
                     vintage: $vintageStr
@@ -35,6 +35,9 @@ const GET_PROJECT_BY_ID = gql`
                         singleUnitPrice
                         createdAt
                         updatedAt
+                        seller {
+                            id
+                        }
                     }
                     activities {
                         id
@@ -44,7 +47,6 @@ const GET_PROJECT_BY_ID = gql`
                         previousPrice
                         timeStamp
                         activityType
-                        
                         seller {
                             id
                         }
