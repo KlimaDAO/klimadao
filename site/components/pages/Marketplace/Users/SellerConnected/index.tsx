@@ -145,7 +145,7 @@ export const SellerConnected: FC<Props> = (props) => {
         fn: fetchUser,
         validate: activityIsAdded,
         ms: 1000,
-        maxAttempts: 30,
+        maxAttempts: 50,
       });
 
       setUser((prev) => ({ ...prev, ...updatedUser }));
