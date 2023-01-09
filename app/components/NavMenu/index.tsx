@@ -7,10 +7,10 @@ import {
   LogoWithClaim,
   RedditIcon,
   RSSIcon,
-  TelegramIcon,
+  // TelegramIcon,
   Text,
   TwitterIcon,
-  YoutubeIcon,
+  YoutubeIcon
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import { concatAddress } from "@klimadao/lib/utils";
@@ -239,9 +239,10 @@ export const NavMenu: FC<Props> = (props) => {
           <A className="navFooter_button" href={urls.linkedIn}>
             <LinkedInIcon />
           </A>
-          <A className="navFooter_button" href={urls.telegram}>
+          {/* Temporarily disabled until ownership of Telegram group is established */}
+          {/* <A className="navFooter_button" href={urls.telegram}>
             <TelegramIcon />
-          </A>
+          </A> */}
           <A className="navFooter_button" href={urls.podcast}>
             <RSSIcon />
           </A>

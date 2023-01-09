@@ -12,9 +12,9 @@ import {
   LinkedInIcon,
   RedditIcon,
   RSSIcon,
-  TelegramIcon,
+  // TelegramIcon,
   TwitterIcon,
-  YoutubeIcon,
+  YoutubeIcon
 } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
 import * as styles from "./styles";
@@ -75,9 +75,10 @@ export const Footer: FC<Props> = (props) => {
           <A href={urls.linkedIn}>
             <LinkedInIcon />
           </A>
-          <A href={urls.telegram}>
+          {/* Temporarily disabled until ownership of Telegram group is established */}
+          {/* <A href={urls.telegram}>
             <TelegramIcon />
-          </A>
+          </A> */}
           <A href={urls.podcast}>
             <RSSIcon />
           </A>
