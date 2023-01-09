@@ -1,10 +1,14 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { NextPage } from "next";
+import Link from "next/link";
 import { MarketplaceLayout } from "../Layout";
 
 import { Project } from "@klimadao/lib/types/marketplace";
 import { PageHead } from "components/PageHead";
-import { createProjectPurchaseLink } from "components/pages/Marketplace/lib/createUrls";
+import {
+  createProjectPurchaseLink,
+  createSellerLink,
+} from "components/pages/Marketplace/lib/createUrls";
 import {
   formatBigToPrice,
   formatBigToTonnes,
@@ -58,6 +62,12 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
                   </Text>
                   <Text t="caption">
                     Available: {formatBigToTonnes(listing.leftToSell)}
+                  </Text>
+                  <Text t="caption">
+                    Seller:{" "}
+                    <Link href={createSellerLink(listing.seller.handle)}>
+                      {listing.seller.handle}
+                    </Link>
                   </Text>
                   <ButtonPrimary
                     label="Buy"

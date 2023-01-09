@@ -24,7 +24,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   }
 
   try {
-    // TODO: read listingID and seller data from queries
     const project = await getMarketplaceProject(params.project_id);
 
     // check if listing ID is correct here on server? Or rather on client with nicer error state?

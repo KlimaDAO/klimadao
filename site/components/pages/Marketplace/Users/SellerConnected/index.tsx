@@ -72,7 +72,7 @@ export const SellerConnected: FC<Props> = (props) => {
     if (hasAssets && !assetsData) {
       const getAssetsData = async () => {
         try {
-          const provider = getJsonRpcProvider(urls.polygonTestnetRpc);
+          const provider = getJsonRpcProvider(urls.polygonTestnetRpc); // TODO: Replace with getJsonRpcProvider() after switch to Main Net
 
           const assetsData = await getUserAssetsData({
             assets: user.assets,
