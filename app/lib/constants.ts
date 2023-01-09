@@ -1,4 +1,5 @@
 import { urls } from "@klimadao/lib/constants";
+import { t } from "@lingui/macro";
 
 /** True if actually deployed on the production domain (not a preview/staging domain, not local dev) */
 export const IS_PRODUCTION =
@@ -23,3 +24,14 @@ export const IS_STATIC_EXPORT = process.env.IS_STATIC_EXPORT;
 export const FIAT_RETIREMENT_API_URL = IS_PRODUCTION
   ? "https://checkout.offsetra.com/api/checkout"
   : "https://staging-checkout.offsetra.com/api/checkout";
+
+export const connectErrorStrings = {
+  default: t({
+    message: "We had some trouble connecting. Please try again.",
+    id: "connect_modal.error_message_default",
+  }),
+  rejected: t({
+    message: "User refused connection. Dont do that. Bad user.",
+    id: "connect_modal.error_message_refused",
+  }),
+};

@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 import { ButtonPrimary, KlimaInfinityLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+=======
+import {
+  ButtonPrimary,
+  ConnectModal,
+  KlimaInfinityLogo
+} from "@klimadao/lib/components";
+>>>>>>> 6ddadb1a (errors)
 import { t } from "@lingui/macro";
 import dynamic from "next/dynamic";
 import Link from "next/link";

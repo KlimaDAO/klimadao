@@ -31,6 +31,7 @@ import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { NavMenu } from "components/NavMenu";
 import { setAppState } from "state/app";
+import { connectErrorStrings } from "../../../lib/constants";
 import { Buy } from "../Buy";
 import * as styles from "./styles";
 
@@ -168,6 +169,7 @@ export const Home: FC = () => {
                 message: "We had some trouble connecting. Please try again.",
                 id: "connect_modal.error_message",
               }),
+              errors: connectErrorStrings,
               torusText: t({
                 message: "or continue with",
                 id: "connectModal.continue",

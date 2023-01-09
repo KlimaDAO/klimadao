@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "components/Modal";
 import { PageHead } from "components/PageHead";
 
+import { connectErrorStrings } from "lib/constants";
 import { AcceptModal, RemoveModal } from "../InvitationModals";
 import { PledgeForm } from "../PledgeForm";
 import { PledgeLayout } from "../PledgeLayout";
@@ -161,6 +162,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
             message: "We had some trouble connecting. Please try again.",
             id: "connect_modal.error_message",
           }),
+          errors: connectErrorStrings,
           torusText: t({
             message: "or continue with",
             id: "connectModal.continue",

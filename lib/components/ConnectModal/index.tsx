@@ -33,6 +33,10 @@ interface ConnectModalProps {
     error: string;
   };
   buttonClassName?: string;
+  errors: {
+    default: string;
+    rejected: string;
+  };
   /** Callback invoked when the modal is closed by X or click-off, NOT invoked on successful connection */
   onClose?: () => void;
   showModal: boolean;
@@ -48,6 +52,9 @@ export const ConnectModal = (props: ConnectModalProps) => {
   const { connect, toggleModal } = useWeb3();
   const focusTrapRef = useFocusTrap();
   const [eth, setEth] = useState<WindowEthereum | undefined>(undefined);
+  const [errorName, setErrorName] = useState<
+    "default" | "rejected" | undefined
+  >();
 
   useEffect(() => {
     if (window) setEth((window as any).ethereum as WindowEthereum);
@@ -88,6 +95,11 @@ export const ConnectModal = (props: ConnectModalProps) => {
       setStep("connect");
     } catch (e: any) {
       console.error(e);
+      if (e.name === "rejected") {
+        setErrorName(e.name);
+      } else {
+        setErrorName("default");
+      }
       setStep("error");
     }
   };
@@ -196,7 +208,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
           )}
           {step === "error" && (
             <div className={styles.errorContent}>
-              <Text t="body2">{props.errorMessage}</Text>
+              <Text t="body2">{props.errors[errorName ?? "default"]}</Text>
               <ButtonPrimary label="OK" onClick={() => setStep("connect")} />
             </div>
           )}
