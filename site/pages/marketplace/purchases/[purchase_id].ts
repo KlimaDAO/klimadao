@@ -1,6 +1,7 @@
+import { urls } from "@klimadao/lib/constants";
 import { Purchase } from "@klimadao/lib/types/marketplace";
-import { queryMarketplaceByPurchase } from "@klimadao/lib/utils";
-import { MarketPlacePurchaseReceipt } from "components/pages/Marketplace/PurchaseReceipt";
+import { getJsonRpcProvider, getPurchase } from "@klimadao/lib/utils";
+import { MarketPlacePurchaseReceipt } from "components/pages/Marketplace/Purchases";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -10,7 +11,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 interface PageProps {
-  purchase: Purchase;
+  purchase: Purchase | null;
 }
 
 const isValidTransactionHash = (hash: string) => {
@@ -31,10 +32,15 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No matching params found");
     }
 
-    const purchase = await queryMarketplaceByPurchase(params.purchase_id);
+    const provider = getJsonRpcProvider(urls.polygonTestnetRpc); // TODO: Change this to simply getJsonRpcProvider() after switch to mainnet
+    const transactionReceipt = await provider.getTransactionReceipt(
+      params.purchase_id
+    );
 
-    if (!purchase) {
-      throw new Error("No purchase found");
+    if (!transactionReceipt) {
+      throw new Error(
+        "No transactionReceipt found. Not a valid transaction on chain."
+      );
     }
 
     const translation = await loadTranslation(locale);
@@ -43,12 +49,22 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No translation found");
     }
 
+    let purchase = null;
+    try {
+      purchase = await getPurchase({ id: params.purchase_id });
+    } catch (e) {
+      // Only log the error on server,
+      // Render page with default data because transaction was valid on chain
+      console.error("Failed to get Purchase from Marketplace API", e);
+    }
+
     return {
       props: {
         purchase,
         translation,
+        transaction: params.purchase_id,
       },
-      revalidate: 240,
+      revalidate: 10,
     };
   } catch (e) {
     console.error("Failed to generate Marketplace Purchase Receipt Page", e);

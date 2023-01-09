@@ -134,7 +134,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
       });
 
       if (result.hash) {
-        push(`/marketplace/purchase/${result.hash}`);
+        push(`/marketplace/purchases/${result.hash}`);
       }
     } catch (e) {
       console.error("makePurchase error", e);
