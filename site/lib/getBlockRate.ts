@@ -1,5 +1,6 @@
 import { getInfuraUrl, getJsonRpcProvider } from "@klimadao/lib/utils";
-import { MONTH_IN_SECONDS, POLYGONSCAN_API_KEY } from "lib/constants";
+import { MONTH_IN_SECONDS } from "lib/constants";
+import { INFURA_ID, POLYGONSCAN_API_KEY } from "lib/secrets";
 
 /** Calculates block rate by dividing one month in seconds by number of blocks that got created during that month */
 export async function getBlockRate(): Promise<number> {
@@ -12,7 +13,7 @@ export async function getBlockRate(): Promise<number> {
     const provider = getJsonRpcProvider(
       getInfuraUrl({
         chain: "polygon",
-        infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
+        infuraId: INFURA_ID,
       })
     );
     const latestBlock = await provider.getBlock("latest");

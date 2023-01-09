@@ -6,6 +6,7 @@ import { getInfuraUrl, getJsonRpcProvider } from "@klimadao/lib/utils";
 import { EventDemo } from "components/pages/EventDemo";
 import { Contract } from "ethers";
 import { loadTranslation } from "lib/i18n";
+import { INFURA_ID } from "lib/secrets";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
@@ -16,7 +17,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     const provider = getJsonRpcProvider(
       getInfuraUrl({
         chain: "polygon",
-        infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
+        infuraId: INFURA_ID,
       })
     );
     const LiveOffsetContract = new Contract(

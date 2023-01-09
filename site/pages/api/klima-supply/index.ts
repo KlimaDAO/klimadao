@@ -1,4 +1,5 @@
 import { getInfuraUrl, getKlimaSupply } from "@klimadao/lib/utils";
+import { INFURA_ID } from "lib/secrets";
 import { NextApiRequest, NextApiResponse } from "next/types";
 
 /** CORS is set in next.config.js */
@@ -10,7 +11,7 @@ export default async function handler(
     const supply = await getKlimaSupply(
       getInfuraUrl({
         chain: "polygon",
-        infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
+        infuraId: INFURA_ID,
       })
     );
 

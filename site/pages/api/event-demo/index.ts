@@ -1,7 +1,10 @@
 import LiveOffset from "@klimadao/lib/abi/LiveOffset.json";
 import { addresses } from "@klimadao/lib/constants";
 import { getInfuraUrl, getJsonRpcProvider } from "@klimadao/lib/utils";
-import { LIVE_OFFSET_WALLET_MNEMONIC } from "@klimadao/site/lib/secrets";
+import {
+  INFURA_ID,
+  LIVE_OFFSET_WALLET_MNEMONIC,
+} from "@klimadao/site/lib/secrets";
 import { formSchema } from "components/pages/EventDemo/lib/formSchema";
 import {
   RetirementData,
@@ -19,7 +22,7 @@ if (!LIVE_OFFSET_WALLET_MNEMONIC) {
 const provider = getJsonRpcProvider(
   getInfuraUrl({
     chain: "polygon",
-    infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
+    infuraId: INFURA_ID,
   })
 );
 const wallet = Wallet.fromMnemonic(LIVE_OFFSET_WALLET_MNEMONIC).connect(

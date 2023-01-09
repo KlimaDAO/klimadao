@@ -6,7 +6,9 @@ import {
   isKNSDomain,
 } from "@klimadao/lib/utils";
 import { utils } from "ethers";
+import { INFURA_ID } from "./secrets";
 
+/** Server-side only util */
 export const getAddressByDomain = async (domain: string): Promise<string> => {
   try {
     const kns = isKNSDomain(domain) && (await getAddressByKNS(domain));
@@ -16,7 +18,7 @@ export const getAddressByDomain = async (domain: string): Promise<string> => {
         domain,
         getInfuraUrl({
           chain: "eth",
-          infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
+          infuraId: INFURA_ID,
         })
       )); // Caution: needs to be InfuraUrl for Ether here
     const address = kns || ens;

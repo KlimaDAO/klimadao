@@ -1,4 +1,5 @@
 import { Anchor, Text } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { Domain } from "@klimadao/lib/types/domains";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import {
@@ -10,6 +11,7 @@ import {
   trimWithLocale,
 } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
+import { NEXT_PUBLIC_INFURA_ID } from "lib/constants";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 
@@ -32,10 +34,7 @@ export const Profile: FC<Props> = (props) => {
     const setProfile = async () => {
       const kns = await getKNSProfile({
         address: props.pledge.ownerAddress,
-        providerUrl: getInfuraUrl({
-          chain: "polygon",
-          infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
-        }),
+        providerUrl: urls.polygonMainnetRpc,
       });
       if (kns) return setProfileData(kns);
 
@@ -43,7 +42,7 @@ export const Profile: FC<Props> = (props) => {
         address: props.pledge.ownerAddress,
         providerUrl: getInfuraUrl({
           chain: "eth",
-          infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
+          infuraId: NEXT_PUBLIC_INFURA_ID,
         }),
       });
 

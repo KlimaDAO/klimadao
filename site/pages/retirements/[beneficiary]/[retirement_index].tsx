@@ -18,6 +18,7 @@ import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getDomainByAddress } from "lib/getDomainByAddress";
 import { getIsDomainInURL } from "lib/getIsDomainInURL";
 import { loadTranslation } from "lib/i18n";
+import { INFURA_ID } from "lib/secrets";
 
 interface Params extends ParsedUrlQuery {
   /** Either an 0x or a nameservice domain like atmosfearful.klima */
@@ -97,7 +98,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         index: retirementIndex,
         providerUrl: getInfuraUrl({
           chain: "polygon",
-          infuraId: process.env.NEXT_PUBLIC_INFURA_ID as string,
+          infuraId: INFURA_ID,
         }),
       }),
       loadTranslation(locale),
