@@ -1,8 +1,25 @@
+import CloseDefault from "@mui/icons-material/Close";
+import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
 import React, { useEffect, useState } from "react";
-import { concatAddress, useWeb3 } from "../../utils";
-import { ButtonPrimary } from "../Buttons/ButtonPrimary";
-import { ConnectContent } from "./ConnectContent";
+import {
+  BraveIcon,
+  ButtonPrimary,
+  CoinbaseWalletIcon,
+  DiscordColorIcon,
+  FacebookColorIcon,
+  GoogleIcon,
+  MetaMaskFoxIcon,
+  Spinner,
+  Text,
+  TwitterIcon,
+  WalletConnectIcon,
+} from "../.";
+import { useFocusTrap, useWeb3 } from "../../utils";
+import * as styles from "./styles";
 
+// ems modules and javascript are strange so we import like this
+const Close = (CloseDefault as any).default as any;
+const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
 interface Props {
   errorMessage: string;
   torusText: string;
@@ -13,17 +30,27 @@ interface Props {
   };
   buttonText: string;
   buttonClassName?: string;
-  buttonVariant?: "lightGray" | "gray" | "blue" | "red" | "transparent" | null;
   onClose?: () => void;
 }
 
 export const ConnectModal = (props: Props) => {
-  const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
-  const { address, connect, disconnect, isConnected } = useWeb3();
+  const { connect, showModal, setShowModal } = useWeb3();
+  console.log("showModal in connect modal", showModal);
+  const focusTrapRef = useFocusTrap();
+  const [showMetamask, setShowMetamask] = useState(false);
+  const [showBrave, setShowBrave] = useState(false);
 
-  const buttonVariant = props.buttonVariant ?? null;
+  useEffect(() => {
+    if (window.ethereum && (window.ethereum as any).isBraveWallet) {
+      setShowBrave(true);
+    } else if (window.ethereum) {
+      setShowMetamask(true);
+    }
+  }, []);
 
+  const getTitle = (step: "connect" | "error" | "loading") =>
+    !props.titles ? "loading" : props.titles[step];
   useEffect(() => {
     if (showModal) {
       setStep("connect");
@@ -32,7 +59,6 @@ export const ConnectModal = (props: Props) => {
       document.body.style.overflow = "";
     }
   }, [showModal]);
-
   const handleConnect = async (params: {
     wallet: "coinbase" | "torus" | "walletConnect" | "metamask" | "brave";
   }) => {
@@ -50,7 +76,7 @@ export const ConnectModal = (props: Props) => {
       } else if (params.wallet === "brave" && connect) {
         await connect("brave");
       }
-      setShowModal(false);
+      setShowModal && setShowModal(false);
       setStep("connect");
       props.onClose && props.onClose();
     } catch (e: any) {
@@ -58,36 +84,100 @@ export const ConnectModal = (props: Props) => {
       setStep("error");
     }
   };
-
-  return (
-    <>
-      {isConnected && address ? (
-        <ButtonPrimary
-          label={concatAddress(address)}
-          onClick={disconnect}
-          variant={buttonVariant}
-        />
-      ) : (
-        <ButtonPrimary
-          label={props.buttonText}
-          onClick={() => {
-            setShowModal(true);
-          }}
-          variant={buttonVariant}
-          className={props.buttonClassName}
-        />
-      )}
-
-      <ConnectContent
-        showModal={showModal}
-        handleConnect={handleConnect}
-        setShowModal={setShowModal}
-        step={step}
-        setStep={setStep}
-        errorMessage={props.errorMessage}
-        torusText={props.torusText}
-        titles={props.titles}
+  showModal ? (
+    <div aria-modal={true}>
+      <div
+        className={styles.modalBackground}
+        onClick={() => setShowModal && setShowModal(false)}
       />
-    </>
+      <div className={styles.modalContainer}>
+        <div className={styles.modalContent} ref={focusTrapRef}>
+          <span className="title">
+            <Text t="h4">{getTitle(step)}</Text>
+            <button onClick={() => setShowModal && setShowModal(false)}>
+              <Close fontSize="large" />
+            </button>
+          </span>
+          {step === "connect" && (
+            <>
+              <div className={styles.buttonsContainer}>
+                {showMetamask && (
+                  <span
+                    className={styles.walletButton}
+                    onClick={() => handleConnect({ wallet: "metamask" })}
+                  >
+                    <MetaMaskFoxIcon />
+                    <Text t="button">Metamask</Text>
+                  </span>
+                )}
+                {showBrave && (
+                  <span
+                    className={styles.walletButton}
+                    onClick={() => handleConnect({ wallet: "metamask" })}
+                  >
+                    <BraveIcon />
+                    <Text t="button">Brave</Text>
+                  </span>
+                )}
+                <span
+                  className={styles.walletButton}
+                  onClick={() => handleConnect({ wallet: "coinbase" })}
+                >
+                  <CoinbaseWalletIcon />
+                  <Text t="button">Coinbase</Text>
+                </span>
+                <span
+                  className={styles.walletButton}
+                  onClick={() => handleConnect({ wallet: "walletConnect" })}
+                >
+                  <WalletConnectIcon />
+                  <Text t="button">walletconnect</Text>
+                </span>
+              </div>
+              <span className={styles.continueBox}>
+                <div className={styles.leftLine} />
+                <Text className={styles.continueText} t="badge">
+                  {props.torusText}
+                </Text>
+                <div className={styles.rightLine} />
+              </span>
+              <div
+                className={styles.torusButtons}
+                onClick={() => handleConnect({ wallet: "torus" })}
+              >
+                <span className={styles.buttonBackground}>
+                  <TwitterIcon className={styles.twitter} />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <FacebookColorIcon />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <GoogleIcon />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <DiscordColorIcon className={styles.discord} />
+                </span>
+                <span className={styles.buttonBackground}>
+                  <MailOutlineIcon fontSize="large" />
+                </span>
+              </div>
+            </>
+          )}
+          {step === "loading" && (
+            <div className={styles.spinner}>
+              <Spinner />
+            </div>
+          )}
+          {step === "error" && (
+            <div className={styles.errorContent}>
+              <Text t="body2">{props.errorMessage}</Text>
+              <ButtonPrimary label="OK" onClick={() => setStep("connect")} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  ) : (
+    <></>
   );
 };

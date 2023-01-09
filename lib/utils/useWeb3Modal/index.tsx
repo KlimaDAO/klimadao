@@ -32,7 +32,9 @@ const getWeb3Provider = (p: any): TypedProvider => {
 /** React Hook to create and manage the web3Modal lifecycle */
 export const useWeb3Modal = (): Web3ModalState => {
   const [web3state, setWeb3State] = useState<Web3State>(web3InitialState);
-
+  const [showModal, setShowModal] = useState(false);
+  console.log("in use web3", showModal);
+  const showConnect = () => setShowModal(true);
   const disconnect = async () => {
     localStorage.removeItem("web3-wallet");
     if (isTorusProvider(web3state.provider?.provider)) {
@@ -186,5 +188,8 @@ export const useWeb3Modal = (): Web3ModalState => {
     ...web3state,
     connect,
     disconnect,
+    showModal,
+    setShowModal,
+    showConnect,
   };
 };

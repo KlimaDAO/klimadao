@@ -71,6 +71,9 @@ export type Web3State = ConnectedWeb3State | DisconnectedWeb3State;
 export type Web3ModalState = Web3State & {
   connect?: (wallet?: string) => Promise<void>;
   disconnect?: () => Promise<void>;
+  showModal?: boolean;
+  setShowModal?: (value: boolean) => void;
+  showConnect?: () => void;
 };
 
 export const web3InitialState: Web3ModalState = {

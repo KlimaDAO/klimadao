@@ -23,7 +23,7 @@ import { Wrap } from "components/views/Wrap";
 
 import { initLocale } from "lib/i18n";
 
-import { ConnectModal } from "@klimadao/lib/components";
+import { ButtonPrimary, ConnectModal } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
@@ -141,6 +141,13 @@ export const Home: FC = () => {
               />
             </div>
             <ChangeLanguageButton />
+            <ButtonPrimary
+              label={t({
+                id: "shared.login_connect",
+                message: "Login / Connect",
+              })}
+              onClick={web3.showConnect}
+            />
             <ConnectModal
               errorMessage={t({
                 message: "We had some trouble connecting. Please try again.",
