@@ -145,7 +145,7 @@ export const SellerConnected: FC<Props> = (props) => {
         fn: fetchUser,
         validate: activityIsAdded,
         ms: 1000,
-        maxAttempts: 20,
+        maxAttempts: 30,
       });
 
       setUser((prev) => ({ ...prev, ...updatedUser }));
@@ -154,7 +154,7 @@ export const SellerConnected: FC<Props> = (props) => {
       setErrorMessage(
         t({
           id: "marketplace.profile.update_activity.error",
-          message: `There was an error updating your activity: ${e}`,
+          message: `There was an error updating your data: ${e}`,
         })
       );
     } finally {
