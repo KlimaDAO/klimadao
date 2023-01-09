@@ -1,4 +1,4 @@
-import { Project, User } from "../../types/marketplace";
+import { Project, Purchase, User } from "../../types/marketplace";
 
 import { marketplace } from "../../constants";
 
@@ -38,6 +38,20 @@ export const getMarketplaceUser = async (params: {
     return json;
   } catch (e) {
     console.error("Failed to getMarketplaceUser", e);
+    return Promise.reject(e);
+  }
+};
+
+export const getPurchase = async (params: {
+  id: string;
+}): Promise<Purchase | null> => {
+  try {
+    const result = await fetch(`${marketplace.purchases}/${params.id}`);
+
+    const json = await result.json();
+    return json;
+  } catch (e) {
+    console.error("Failed to getPurchase", e);
     return Promise.reject(e);
   }
 };

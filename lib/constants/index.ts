@@ -283,4 +283,5 @@ const MARKETPLACE_API = `${MARKETPLACE}/api`;
 export const marketplace = {
   projects: `${MARKETPLACE_API}/projects`,
   users: `${MARKETPLACE_API}/users`,
+  purchases: `${MARKETPLACE_API}/purchases`,
 };
