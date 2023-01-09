@@ -95,7 +95,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         marketplaceUser,
         translation,
       },
-      revalidate: 240,
+      revalidate: 10,
     };
   } catch (e) {
     console.error("Failed to generate Marketplace Users Page", e);
