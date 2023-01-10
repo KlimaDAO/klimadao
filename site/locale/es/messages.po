@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-10 02:46+0000\n"
+"POT-Creation-Date: 2023-01-10 15:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,7 +40,7 @@ msgstr "Aviso legal:"
 
 #: components/pages/Buy/index.tsx:433
 msgid "buy.answer_exchange"
-msgstr ""
+msgstr "Los usuarios avanzados pueden utilizar el <0>Polygon Bridge</0> para mover cualquier activo de Ethereum a Polygon, y/o el <1>Polygon Gas Swap</1> para intercambiar activos como USDC por MATIC."
 
 #: components/pages/Buy/index.tsx:390
 msgid "buy.bond_answer_cedit_card"
@@ -56,11 +56,11 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:371
 msgid "buy.bond_description1"
-msgstr ""
+msgstr "Los criptousuarios experimentados pueden comprar KLIMA directamente desde el protocolo a través de bonos. Para adquirir KLIMA a través de bonos, usted proporciona un token de carbono o un token de liquidez y obtiene a cambio tokens de KLIMA con descuento. Este es el mecanismo que utiliza la DAO para hacer crecer su tesorería de carbono digital."
 
 #: components/pages/Buy/index.tsx:380
 msgid "buy.bond_description_capacity"
-msgstr ""
+msgstr "La capacidad de los bonos es limitada y no siempre están disponibles."
 
 #: components/pages/Buy/index.tsx:401
 msgid "buy.bond_question_cex"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:385
 msgid "buy.bond_question_credit_card"
-msgstr ""
+msgstr "¿Puedo comprar KLIMA directamente con tarjeta de crédito?"
 
 #: components/pages/Buy/index.tsx:190
 msgid "buy.connect_advanced"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:243
 msgid "buy.connect_torus_sushi_description5"
-msgstr ""
+msgstr "Por último, utilice el menú desplegable de <0>Sushi.com</0> para cambiar a la red Polygon."
 
 #: components/pages/Buy/index.tsx:72
 msgid "buy.create_wallet_description"
@@ -100,11 +100,11 @@ msgstr "<0>Crea un monedero.</0> Recomendamos Torus Wallet, pero nuestra aplicac
 
 #: components/pages/Buy/index.tsx:114
 msgid "buy.create_wallet_description1"
-msgstr ""
+msgstr "Dirígete a <0>app.klimadao.finance</0> y haz clic en \"Conectar\" en la esquina superior derecha."
 
 #: components/pages/Buy/index.tsx:120
 msgid "buy.create_wallet_description2"
-msgstr ""
+msgstr "Elija la opción de inicio de sesión \"Email o Social\", que le dirigirá a iniciar sesión con Torus. Torus es una tecnología que genera un monedero seguro utilizando su correo electrónico existente o login de su perfil social. Podrá utilizar este nuevo monedero Torus en cientos de otras aplicaciones Web3 y DeFi."
 
 #: components/pages/Buy/index.tsx:129
 msgid "buy.create_wallet_description3"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:135
 msgid "buy.create_wallet_description4"
-msgstr ""
+msgstr "Avanzado: si no desea utilizar Torus, puede utilizar cualquier monedero Web3 compatible con Polygon."
 
 #: components/pages/Buy/index.tsx:111
 msgid "buy.create_wallet_item"
@@ -120,7 +120,7 @@ msgstr "1. Crea un monedero"
 
 #: components/pages/Buy/index.tsx:319
 msgid "buy.faq_title"
-msgstr ""
+msgstr "Preguntas más frecuentes"
 
 #: components/pages/Buy/index.tsx:27
 #: components/pages/Buy/index.tsx:28
@@ -193,7 +193,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:295
 msgid "buy.staking_description1"
-msgstr ""
+msgstr "¡Enhorabuena! Ahora que tienes algo de KLIMA en tu cartera, te recomendamos fervientemente <0>staking</0> ese KLIMA por sKLIMA, que acumula recompensas con el tiempo a medida que crece el protocolo."
 
 #: components/pages/Buy/index.tsx:303
 msgid "buy.staking_description2"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:310
 msgid "buy.staking_description3"
-msgstr ""
+msgstr "Por último, mantente atento a las <0>votaciones en curso</0> y ayuda a guiar el protocolo en la dirección correcta."
 
 #: components/pages/Buy/index.tsx:69
 msgid "buy.step_1"
@@ -225,7 +225,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:253
 msgid "buy.swap_description1"
-msgstr ""
+msgstr "Después de conectar su monedero y cambiar a la red Polygon, ahora debería poder cambiar de MATIC a KLIMA."
 
 #: components/pages/Buy/index.tsx:259
 msgid "buy.swap_description2"
@@ -233,7 +233,7 @@ msgstr "<0>Nota importante: ¡no cambies todo tu MATIC por KLIMA!</0> Guarda al 
 
 #: components/pages/Buy/index.tsx:275
 msgid "buy.swap_description3"
-msgstr ""
+msgstr "Si está utilizando Torus, mantenga abierta la pestaña del navegador con la aplicación Torus. Tendrá que volver a su monedero para aprobar y autorizar las transacciones."
 
 #: components/pages/Buy/index.tsx:282
 msgid "buy.swap_description4"
@@ -241,7 +241,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:100
 msgid "buy.swap_for_klima_description"
-msgstr ""
+msgstr "<0>Swap por KLIMA.</0> Sushi es un Exchange descentralizado donde puedes intercambiar instantáneamente algunos de tus tokens MATIC por tokens KLIMA al precio más bajo posible."
 
 #: components/pages/Buy/index.tsx:250
 msgid "buy.swap_subtitle"
@@ -253,7 +253,7 @@ msgstr "3. Cambiar por KLIMA en <0>Sushi.com</0>"
 
 #: components/pages/Buy/index.tsx:196
 msgid "buy.torus_login_description"
-msgstr ""
+msgstr "En una nueva pestaña del navegador, vaya a la aplicación web <0>Torus Polygon</0> e inicie sesión con su nueva cuenta Torus. Cuando inicie sesión, debería ver un widget WalletConnect."
 
 #: components/pages/Buy/index.tsx:205
 msgid "buy.wallet_connect_example"
@@ -266,7 +266,7 @@ msgstr ""
 
 #: components/pages/Buy/index.tsx:366
 msgid "buy.what_are_bonds"
-msgstr ""
+msgstr "¿Hay otras formas de conseguir KLIMA? ¿Qué son los bonos?"
 
 #: components/pages/About/Community/index.tsx:116
 msgid "community.become_a_partner"
