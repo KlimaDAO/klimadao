@@ -75,7 +75,7 @@ interface Props {
   address?: string;
   isConnected: boolean;
   onRPCError: () => void;
-  toggleModal: () => void;
+  toggleModal?: () => void;
 }
 
 export const Offset = (props: Props) => {

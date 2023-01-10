@@ -8,7 +8,7 @@ import {
   calcBondDetails,
   calculateUserBondDetails,
   getIsInverse,
-  redeemTransaction
+  redeemTransaction,
 } from "actions/bonds";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -27,7 +27,7 @@ import {
   Spinner,
   Text,
   TextInfoTooltip,
-  useTooltipSingleton
+  useTooltipSingleton,
 } from "@klimadao/lib/components";
 import { Bond as BondType } from "@klimadao/lib/constants";
 import {
@@ -36,7 +36,7 @@ import {
   safeSub,
   secondsUntilBlock,
   trimWithPlaceholder,
-  useDebounce
+  useDebounce,
 } from "@klimadao/lib/utils";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import Box from "@mui/material/Box";
