@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-09 19:23+0000\n"
+"POT-Creation-Date: 2023-01-10 02:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1167,15 +1167,15 @@ msgstr "Напишите свое обязательство сегодня!"
 msgid "pledges.dashboard.pledge.title"
 msgstr "Залог"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:63
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:72
 msgid "pledges.dashboard.profile.pledge_met"
 msgstr "≥ 100% обязательств выполнено"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:72
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:81
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr "{0}% обязательства выполнено"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:105
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:114
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Обязательство компенсировать <0>{0}</0> Углеродные тонны"
 
