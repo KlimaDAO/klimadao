@@ -8,7 +8,7 @@ import {
   calcBondDetails,
   calculateUserBondDetails,
   getIsInverse,
-  redeemTransaction,
+  redeemTransaction
 } from "actions/bonds";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -24,11 +24,10 @@ import { t, Trans } from "@lingui/macro";
 import {
   ButtonBaseProps,
   ButtonPrimary,
-  ConnectModal,
   Spinner,
   Text,
   TextInfoTooltip,
-  useTooltipSingleton,
+  useTooltipSingleton
 } from "@klimadao/lib/components";
 import { Bond as BondType } from "@klimadao/lib/constants";
 import {
@@ -37,7 +36,7 @@ import {
   safeSub,
   secondsUntilBlock,
   trimWithPlaceholder,
-  useDebounce,
+  useDebounce
 } from "@klimadao/lib/utils";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import Box from "@mui/material/Box";
@@ -107,6 +106,7 @@ interface Props {
   address?: string;
   bond: BondType;
   isConnected?: boolean;
+  toggleModal?: () => void;
 }
 
 export const Bond: FC<Props> = (props) => {
@@ -389,50 +389,18 @@ export const Bond: FC<Props> = (props) => {
     );
   };
 
-  const getButton = () => {
-    if (!props.isConnected || !props.address) {
-      return (
-        <ConnectModal
-          errorMessage={t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          })}
-          torusText={t({
-            message: "or continue with",
-            id: "connectModal.continue",
-          })}
-          titles={{
-            connect: t({
-              id: "connect_modal.sign_in",
-              message: "Sign In / Connect",
-            }),
-            loading: t({
-              id: "connect_modal.connecting",
-              message: "Connecting...",
-            }),
-            error: t({
-              id: "connect_modal.error_title",
-              message: "Connection Error",
-            }),
-          }}
-          buttonText={t({
-            id: "shared.login_connect",
-            message: "Login / Connect",
-          })}
-          buttonClassName={styles.connect_button}
-        />
-      );
-    }
-    return (
-      <ButtonPrimary {...getButtonProps()} className={styles.submitButton} />
-    );
-  };
-
   const getButtonProps = (): ButtonBaseProps => {
     const value = Number(quantity || "0");
     const bondMax = Number(getBondMax());
-
-    if (isDisabled) {
+    if (!props.isConnected || !props.address) {
+      return {
+        label: t({
+          id: "shared.login_connect",
+          message: "Login / Connect",
+        }),
+        onClick: props.toggleModal,
+      };
+    } else if (isDisabled) {
       return {
         label: <Trans id="shared.sold_out">Sold Out</Trans>,
         onClick: undefined,
@@ -1070,7 +1038,10 @@ export const Bond: FC<Props> = (props) => {
               <Box
                 sx={{ display: "flex", flexDirection: "column", width: "100%" }}
               >
-                {getButton()}
+                <ButtonPrimary
+                  {...getButtonProps()}
+                  className={styles.submitButton}
+                />
                 {viewIsReedem && !showSpinner && (
                   <div className={styles.checkboxContainer}>
                     <Checkbox

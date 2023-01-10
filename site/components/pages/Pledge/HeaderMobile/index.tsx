@@ -1,10 +1,11 @@
-import { ConnectModal, KlimaInfinityLogoOnly } from "@klimadao/lib/components";
+import { ButtonPrimary, KlimaInfinityLogoOnly } from "@klimadao/lib/components";
 import { t } from "@lingui/macro";
 import dynamic from "next/dynamic";
 import { FC } from "react";
 
 import EditIcon from "@mui/icons-material/Edit";
 
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import Link from "next/link";
 import * as styles from "./styles";
 
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export const HeaderMobile: FC<Props> = (props) => {
+  const { address, isConnected, toggleModal, disconnect } = useWeb3();
   return (
     <div className={styles.headerMobileWrap}>
       <header className={styles.headerMobile}>
@@ -39,35 +41,21 @@ export const HeaderMobile: FC<Props> = (props) => {
             </button>
           )}
 
-          <ConnectModal
-            errorMessage={t({
-              message: "We had some trouble connecting. Please try again.",
-              id: "connect_modal.error_message",
-            })}
-            torusText={t({
-              message: "or continue with",
-              id: "connectModal.continue",
-            })}
-            titles={{
-              connect: t({
-                id: "connect_modal.sign_in",
-                message: "Sign In / Connect",
-              }),
-              loading: t({
-                id: "connect_modal.connecting",
-                message: "Connecting...",
-              }),
-              error: t({
-                id: "connect_modal.error_title",
-                message: "Connection Error",
-              }),
-            }}
-            buttonVariant="blue"
-            buttonText={t({
-              id: "shared.login_connect",
-              message: "Login / Connect",
-            })}
-          />
+          {!address && !isConnected && (
+            <ButtonPrimary
+              label={t({
+                id: "shared.login_connect",
+                message: "Login / Connect",
+              })}
+              onClick={toggleModal}
+            />
+          )}
+          {address && isConnected && (
+            <ButtonPrimary
+              label={concatAddress(address)}
+              onClick={disconnect}
+            />
+          )}
         </div>
       </header>
     </div>

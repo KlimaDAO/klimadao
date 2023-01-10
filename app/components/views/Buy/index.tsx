@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const Buy = (props: Props) => {
-  const { setShowModal } = useWeb3();
+  const { toggleModal } = useWeb3();
   return (
     <>
       <div className={styles.buyCard}>
@@ -64,7 +64,7 @@ export const Buy = (props: Props) => {
                   id: "shared.login_connect",
                   message: "Login / Connect",
                 })}
-                onClick={() => setShowModal && setShowModal(true)}
+                onClick={toggleModal && toggleModal}
               />
             </>
           )}

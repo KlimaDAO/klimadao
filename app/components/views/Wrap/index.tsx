@@ -11,7 +11,6 @@ import { selectLocale, selectNotificationStatus } from "state/selectors";
 
 import {
   ButtonPrimary,
-  ConnectModal,
   Spinner,
   Text,
   TextInfoTooltip,
@@ -42,6 +41,7 @@ interface Props {
   provider?: providers.Web3Provider;
   address?: string;
   isConnected?: boolean;
+  toggleModal?: () => void;
 }
 
 const inputPlaceholderMessage = {
@@ -189,114 +189,64 @@ export const Wrap: FC<Props> = (props) => {
     );
   };
 
-  const getButton = () => {
+  const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return (
-        <ConnectModal
-          errorMessage={t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          })}
-          torusText={t({
-            message: "or continue with",
-            id: "connectModal.continue",
-          })}
-          titles={{
-            connect: t({
-              id: "connect_modal.sign_in",
-              message: "Sign In / Connect",
-            }),
-            loading: t({
-              id: "connect_modal.connecting",
-              message: "Connecting...",
-            }),
-            error: t({
-              id: "connect_modal.error_title",
-              message: "Connection Error",
-            }),
-          }}
-          buttonText={t({
-            id: "shared.login_connect",
-            message: "Login / Connect",
-          })}
-          buttonClassName={styles.connect_button}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.login_connect",
+          message: "Login / Connect",
+        }),
+        onClick: props.toggleModal,
+      };
     } else if (isLoading) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.loading", message: "Loading..." })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.loading", message: "Loading..." }),
+        disabled: true,
+      };
     } else if (!value) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.enter_quantity", message: "ENTER QUANTITY" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.enter_quantity", message: "ENTER QUANTITY" }),
+        disabled: true,
+      };
     } else if (
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.confirming", message: "Confirming" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.confirming", message: "Confirming" }),
+        disabled: true,
+      };
     } else if (value && insufficientBalance()) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({
-            id: "shared.insufficient_balance",
-            message: "INSUFFICIENT BALANCE",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.insufficient_balance",
+          message: "INSUFFICIENT BALANCE",
+        }),
+        disabled: true,
+      };
     } else if (!hasApproval()) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.approve", message: "APPROVE" })}
-          onClick={() => {
-            setShowTransactionModal(true);
-          }}
-        />
-      );
+      return {
+        label: t({ id: "shared.approve", message: "APPROVE" }),
+        onClick: () => setShowTransactionModal(true),
+      };
     } else if (view === WRAP) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={WRAP}
-          disabled={!value || !balances || value > Number(balances.sklima)}
-          onClick={() => setShowTransactionModal(true)}
-        />
-      );
+      return {
+        label: WRAP,
+        disabled: !value || !balances || value > Number(balances.sklima),
+        onClick: () => setShowTransactionModal(true),
+      };
     } else if (view === UNWRAP) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={UNWRAP}
-          disabled={!value || !balances || value > Number(balances.wsklima)}
-          onClick={() => setShowTransactionModal(true)}
-        />
-      );
+      return {
+        label: UNWRAP,
+        disabled: !value || !balances || value > Number(balances.wsklima),
+        onClick: () => setShowTransactionModal(true),
+      };
     } else {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.error", message: "ERROR" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.error", message: "ERROR" }),
+        disabled: true,
+      };
     }
   };
 
@@ -446,7 +396,10 @@ export const Wrap: FC<Props> = (props) => {
                 <Spinner />
               </div>
             ) : (
-              getButton()
+              <ButtonPrimary
+                className={styles.submitButton}
+                {...getButtonProps()}
+              />
             )}
           </div>
         </div>

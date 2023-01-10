@@ -28,7 +28,6 @@ import {
 import {
   Anchor,
   ButtonPrimary,
-  ConnectModal,
   Spinner,
   Text,
   TextInfoTooltip,
@@ -47,6 +46,7 @@ interface Props {
   provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected: boolean;
+  toggleModal: () => void;
 }
 
 const inputPlaceholderMessage = {
@@ -220,113 +220,63 @@ export const Stake = (props: Props) => {
     );
   };
 
-  const getButton = () => {
+  const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!props.isConnected || !props.address) {
-      return (
-        <ConnectModal
-          errorMessage={t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          })}
-          torusText={t({
-            message: "or continue with",
-            id: "connectModal.continue",
-          })}
-          titles={{
-            connect: t({
-              id: "connect_modal.sign_in",
-              message: "Sign In / Connect",
-            }),
-            loading: t({
-              id: "connect_modal.connecting",
-              message: "Connecting...",
-            }),
-            error: t({
-              id: "connect_modal.error_title",
-              message: "Connection Error",
-            }),
-          }}
-          buttonText={t({
-            id: "shared.login_connect",
-            message: "Login / Connect",
-          })}
-          buttonClassName={styles.connect_button}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.login_connect",
+          message: "Login / Connect",
+        }),
+        onClick: props.toggleModal,
+      };
     } else if (isLoading) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ message: "Loading...", id: "shared.connect_wallet" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ message: "Loading...", id: "shared.connect_wallet" }),
+        disabled: true,
+      };
     } else if (!value) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.enter_quantity", message: "ENTER QUANTITY" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.enter_quantity", message: "ENTER QUANTITY" }),
+        disabled: true,
+      };
     } else if (value && insufficientBalance()) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({
-            id: "shared.insufficient_balance",
-            message: "INSUFFICIENT BALANCE",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.insufficient_balance",
+          message: "INSUFFICIENT BALANCE",
+        }),
+        disabled: true,
+      };
     } else if (!hasApproval()) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.approve", message: "APPROVE" })}
-          onClick={() => setShowTransactionModal(true)}
-        />
-      );
+      return {
+        label: t({ id: "shared.approve", message: "APPROVE" }),
+        onClick: () => setShowTransactionModal(true),
+      };
     } else if (view === "stake") {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={
-            value
-              ? t({ id: "stake.stake_klima", message: "Stake KLIMA" })
-              : t({ id: "shared.enter_amount", message: "Enter Amount" })
-          }
-          onClick={() => setShowTransactionModal(true)}
-          disabled={
-            !balances?.klima || !value || value > Number(balances.klima)
-          }
-        />
-      );
+      return {
+        label: value
+          ? t({ id: "stake.stake_klima", message: "Stake KLIMA" })
+          : t({ id: "shared.enter_amount", message: "Enter Amount" }),
+
+        onClick: () => setShowTransactionModal(true),
+        disabled: !balances?.klima || !value || value > Number(balances.klima),
+      };
     } else if (view === "unstake") {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={
-            value
-              ? t({ id: "stake.unstake_klima", message: "Unstake KLIMA" })
-              : t({ id: "shared.enter_amount", message: "Enter Amount" })
-          }
-          onClick={() => setShowTransactionModal(true)}
-          disabled={
-            !balances?.sklima || !value || value > Number(balances.sklima)
-          }
-        />
-      );
+      return {
+        label: value
+          ? t({ id: "stake.unstake_klima", message: "Unstake KLIMA" })
+          : t({ id: "shared.enter_amount", message: "Enter Amount" }),
+
+        onClick: () => setShowTransactionModal(true),
+        disabled:
+          !balances?.sklima || !value || value > Number(balances.sklima),
+      };
     } else {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.error", message: "ERROR" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.error", message: "ERROR" }),
+        disabled: true,
+      };
     }
   };
 
@@ -503,7 +453,10 @@ export const Stake = (props: Props) => {
                 <Spinner />
               </div>
             ) : (
-              getButton()
+              <ButtonPrimary
+                className={styles.submitButton}
+                {...getButtonProps()}
+              />
             )}
           </div>
         </div>

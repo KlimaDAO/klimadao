@@ -31,7 +31,7 @@ type Props = {
 };
 
 export const PledgeDashboard: NextPage<Props> = (props) => {
-  const { address, isConnected } = useWeb3();
+  const { address, isConnected, renderModal } = useWeb3();
   const [showFormModal, setShowFormModal] = useState(false);
   const [isDeleteMode, setIsDeleteMode] = useState(false);
   const [pledge, setPledge] = useState<Pledge>();
@@ -118,6 +118,7 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
     pledge.name || props.domain || concatAddress(pledge.ownerAddress);
   const currentTotalFootprint =
     pledge.footprint[pledge.footprint.length - 1].total.toString();
+
   return (
     <PledgeLayout
       canEditPledge={canEditPledge}
@@ -154,6 +155,32 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
         handleModalFormSubmit={handleRemove}
         address={address}
       />
+      {renderModal &&
+        renderModal({
+          errorMessage: t({
+            message: "We had some trouble connecting. Please try again.",
+            id: "connect_modal.error_message",
+          }),
+          torusText: t({
+            message: "or continue with",
+            id: "connectModal.continue",
+          }),
+          titles: {
+            connect: t({
+              id: "connect_modal.sign_in",
+              message: "Sign In / Connect",
+            }),
+            loading: t({
+              id: "connect_modal.connecting",
+              message: "Connecting...",
+            }),
+            error: t({
+              id: "connect_modal.error_title",
+              message: "Connection Error",
+            }),
+          },
+          buttonVariant: "blue",
+        })}
       {/* conditional props are used here because unmounting the modal will clear form state when `isDeleteMode` is changed */}
       <Modal
         title={

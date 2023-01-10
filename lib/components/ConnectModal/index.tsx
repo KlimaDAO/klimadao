@@ -31,12 +31,12 @@ interface Props {
   buttonText: string;
   buttonClassName?: string;
   onClose?: () => void;
+  showModal: boolean;
 }
 
 export const ConnectModal = (props: Props) => {
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
-  const { connect, showModal, setShowModal } = useWeb3();
-  console.log("showModal in connect modal", showModal);
+  const { connect, toggleModal } = useWeb3();
   const focusTrapRef = useFocusTrap();
   const [showMetamask, setShowMetamask] = useState(false);
   const [showBrave, setShowBrave] = useState(false);
@@ -52,13 +52,13 @@ export const ConnectModal = (props: Props) => {
   const getTitle = (step: "connect" | "error" | "loading") =>
     !props.titles ? "loading" : props.titles[step];
   useEffect(() => {
-    if (showModal) {
+    if (props.showModal) {
       setStep("connect");
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
-  }, [showModal]);
+  }, [props.showModal]);
   const handleConnect = async (params: {
     wallet: "coinbase" | "torus" | "walletConnect" | "metamask" | "brave";
   }) => {
@@ -76,7 +76,7 @@ export const ConnectModal = (props: Props) => {
       } else if (params.wallet === "brave" && connect) {
         await connect("brave");
       }
-      setShowModal && setShowModal(false);
+      toggleModal && toggleModal();
       setStep("connect");
       props.onClose && props.onClose();
     } catch (e: any) {
@@ -84,17 +84,17 @@ export const ConnectModal = (props: Props) => {
       setStep("error");
     }
   };
-  showModal ? (
+  return props.showModal ? (
     <div aria-modal={true}>
       <div
         className={styles.modalBackground}
-        onClick={() => setShowModal && setShowModal(false)}
+        onClick={() => toggleModal && toggleModal()}
       />
       <div className={styles.modalContainer}>
         <div className={styles.modalContent} ref={focusTrapRef}>
           <span className="title">
             <Text t="h4">{getTitle(step)}</Text>
-            <button onClick={() => setShowModal && setShowModal(false)}>
+            <button onClick={() => toggleModal && toggleModal()}>
               <Close fontSize="large" />
             </button>
           </span>

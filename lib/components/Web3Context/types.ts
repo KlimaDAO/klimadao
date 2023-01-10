@@ -5,6 +5,7 @@ import type Torus from "@toruslabs/torus-embed";
 import type { TorusInpageProvider } from "@toruslabs/torus-embed";
 import type Web3Provider from "@walletconnect/web3-provider";
 import type { providers } from "ethers";
+import { FC } from "react";
 
 // Function overloads because "accountsChanged" returns an array of strings, but the others don't.
 // Ethers did not have these properly typed.
@@ -72,8 +73,8 @@ export type Web3ModalState = Web3State & {
   connect?: (wallet?: string) => Promise<void>;
   disconnect?: () => Promise<void>;
   showModal?: boolean;
-  setShowModal?: (value: boolean) => void;
-  showConnect?: () => void;
+  renderModal?: FC;
+  toggleModal?: () => void;
 };
 
 export const web3InitialState: Web3ModalState = {
