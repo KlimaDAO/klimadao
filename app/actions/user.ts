@@ -1,16 +1,19 @@
 import { Contract, providers } from "ethers";
 import { Thunk } from "state";
 
+import { urls } from "@klimadao/lib/constants";
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 import {
   formatUnits,
   getAllowance,
   getContract,
   getENSProfile,
+  getInfuraUrl,
   getKNSProfile,
   getTokenDecimals,
   getTokensFromSpender,
 } from "@klimadao/lib/utils";
+import { NEXT_PUBLIC_INFURA_ID } from "lib/constants";
 import { setBalance, setDomains, updateAllowances } from "state/user";
 
 const assets = [
@@ -75,8 +78,17 @@ export const loadAccountDetails = (params: {
 
       // domains
       const domains = [
-        getKNSProfile({ address: params.address }),
-        getENSProfile({ address: params.address }),
+        getKNSProfile({
+          providerUrl: urls.polygonMainnetRpc,
+          address: params.address,
+        }),
+        getENSProfile({
+          providerUrl: getInfuraUrl({
+            chain: "eth",
+            infuraId: NEXT_PUBLIC_INFURA_ID,
+          }),
+          address: params.address,
+        }),
       ];
 
       const [knsDomain, ensDomain] = await Promise.all(domains);

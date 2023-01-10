@@ -8,7 +8,9 @@ export const isENSDomain = (domain: string) =>
 
 export const getAddressByENS = async (domain: string, providerUrl?: string) => {
   try {
-    const provider = getJsonRpcProvider(providerUrl);
+    const provider = providerUrl
+      ? getJsonRpcProvider(providerUrl)
+      : getDefaultProvider(1);
     const address = await provider.resolveName(domain);
     if (!address || !getIsValidAddress(address)) {
       throw new Error("Not a valid ENS address");
@@ -43,11 +45,14 @@ const DEFAULT_ENS_PROFILE =
 
 export const getENSProfile = async (params: {
   address: string;
+  providerUrl?: string;
 }): Promise<Domain | null> => {
   try {
-    const ethProvider = getDefaultProvider(1);
-    const ensDomain = await ethProvider.lookupAddress(params.address);
-    const imageUrl = ensDomain ? await ethProvider.getAvatar(ensDomain) : null;
+    const provider = params.providerUrl
+      ? getJsonRpcProvider(params.providerUrl)
+      : providers.getDefaultProvider(1);
+    const ensDomain = await provider.lookupAddress(params.address);
+    const imageUrl = ensDomain ? await provider.getAvatar(ensDomain) : null;
 
     if (ensDomain) {
       return {

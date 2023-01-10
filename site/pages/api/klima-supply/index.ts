@@ -1,5 +1,5 @@
-import { getKlimaSupply } from "@klimadao/lib/utils";
-import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
+import { getInfuraUrl, getKlimaSupply } from "@klimadao/lib/utils";
+import { INFURA_ID } from "lib/secrets";
 import { NextApiRequest, NextApiResponse } from "next/types";
 
 /** CORS is set in next.config.js */
@@ -8,7 +8,12 @@ export default async function handler(
   res: NextApiResponse<string>
 ) {
   try {
-    const supply = await getKlimaSupply(getInfuraUrlPolygon());
+    const supply = await getKlimaSupply(
+      getInfuraUrl({
+        chain: "polygon",
+        infuraId: INFURA_ID,
+      })
+    );
 
     // share-cache after last cached request:
     // 0-1 minutes -> fresh, return from cache
