@@ -34,7 +34,7 @@ export const sellerBadge = css`
 
 export const dates = css`
   display: flex;
-  gap: 0.8rem;
+  gap: 2.4rem;
   flex-direction: row;
 
   span {

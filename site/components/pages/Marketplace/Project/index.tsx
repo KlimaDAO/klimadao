@@ -37,6 +37,11 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
   const activeListings =
     hasListings && getActiveListings(props.project.listings);
 
+  const sortedListings =
+    !!activeListings &&
+    !!activeListings.length &&
+    activeListings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+
   return (
     <>
       <PageHead
@@ -76,7 +81,7 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
 
         <div className={styles.meta}>
           <div className="best-price">
-            {activeListings && (
+            {sortedListings && (
               <>
                 <Text t="h5" color="lighter">
                   <span className="badge">
@@ -105,7 +110,7 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
 
         <div className={styles.listingsHeader}>
           <Text t="h5">Listings</Text>
-          {!!activeListings && (
+          {sortedListings && (
             <Text t="caption">
               We found <strong>{activeListings.length}</strong> prices for this
               project:
@@ -116,9 +121,8 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
         <TwoColLayout>
           <Col>
             <div className={styles.listings}>
-              {!!activeListings &&
-                activeListings.length &&
-                activeListings.map((listing) => (
+              {sortedListings &&
+                sortedListings.map((listing) => (
                   <ProjectListing
                     key={listing.id}
                     listing={listing}
