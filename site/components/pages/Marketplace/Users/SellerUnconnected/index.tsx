@@ -1,6 +1,7 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, ConnectModal, Text } from "@klimadao/lib/components";
 import { User } from "@klimadao/lib/types/marketplace";
-import { Trans } from "@lingui/macro";
+import { useWeb3 } from "@klimadao/lib/utils";
+import { t, Trans } from "@lingui/macro";
 import { createProjectPurchaseLink } from "components/pages/Marketplace/lib/createUrls";
 import {
   getActiveListings,
@@ -26,6 +27,7 @@ type Props = {
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
+  const { address } = useWeb3();
   const userData = props.marketplaceUser;
 
   const hasListings = !!userData?.listings?.length;
@@ -69,11 +71,49 @@ export const SellerUnconnected: FC<Props> = (props) => {
           {!!sortedListings &&
             sortedListings.map((listing) => (
               <Listing key={listing.id} listing={listing}>
-                <ButtonPrimary
-                  label={<Trans id="marketplace.seller.listing.buy">Buy</Trans>}
-                  className={styles.buyButton}
-                  href={createProjectPurchaseLink(listing.project, listing.id)}
-                />
+                {address ? (
+                  <ButtonPrimary
+                    label={
+                      <Trans id="marketplace.seller.listing.buy">Buy</Trans>
+                    }
+                    className={styles.buyButton}
+                    href={createProjectPurchaseLink(
+                      listing.project,
+                      listing.id
+                    )}
+                  />
+                ) : (
+                  <ConnectModal
+                    buttonClassName={styles.buyButton}
+                    errorMessage={t({
+                      message:
+                        "We had some trouble connecting. Please try again.",
+                      id: "connect_modal.error_message",
+                    })}
+                    torusText={t({
+                      message: "or continue with",
+                      id: "connectModal.continue",
+                    })}
+                    titles={{
+                      connect: t({
+                        id: "connect_modal.sign_in",
+                        message: "Sign In / Connect",
+                      }),
+                      loading: t({
+                        id: "connect_modal.connecting",
+                        message: "Connecting...",
+                      }),
+                      error: t({
+                        id: "connect_modal.error_title",
+                        message: "Connection Error",
+                      }),
+                    }}
+                    buttonText={t({
+                      id: "marketplace.project.single.connect_to_buy",
+                      message: "Sign In / Connect To Buy",
+                    })}
+                  />
+                )}
               </Listing>
             ))}
         </Col>
