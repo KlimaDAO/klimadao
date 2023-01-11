@@ -57,7 +57,7 @@ export const SellerConnected: FC<Props> = (props) => {
   const allListings = hasListings && getAllListings(user.listings);
   const activeListings = hasListings && getActiveListings(user.listings);
 
-  // load Assets once
+  // load Assets every time user changed
   useEffect(() => {
     if (!hasAssets) {
       setIsLoadingAssets(false);
@@ -69,7 +69,7 @@ export const SellerConnected: FC<Props> = (props) => {
       );
     }
 
-    if (hasAssets && !assetsData) {
+    if (hasAssets) {
       const getAssetsData = async () => {
         try {
           const provider = getJsonRpcProvider(urls.polygonTestnetRpc); // TODO: Replace with getJsonRpcProvider() after switch to Main Net
@@ -103,7 +103,7 @@ export const SellerConnected: FC<Props> = (props) => {
 
       getAssetsData();
     }
-  }, [user, assetsData]);
+  }, [user]);
 
   // update listings when user changed
   useEffect(() => {
@@ -239,6 +239,7 @@ export const SellerConnected: FC<Props> = (props) => {
             <ListingEditable
               listings={sortedListings}
               onFinishEditing={onUpdateUser}
+              assets={assetsData || []}
             />
           )}
         </Col>

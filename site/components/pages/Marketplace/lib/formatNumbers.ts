@@ -18,5 +18,9 @@ export const formatToPrice = (value: string | number, locale = "en") => {
 
 export const formatBigToTonnes = (value: BigNumber, locale = "en") => {
   const toNumber = formatUnits(value, 18);
-  return trimWithLocale(toNumber, 4, locale);
+  return formatToTonnes(toNumber, locale);
+};
+
+export const formatToTonnes = (value: string | number, locale = "en") => {
+  return trimWithLocale(value, 4, locale);
 };

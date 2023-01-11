@@ -13,6 +13,7 @@ import {
   onApproveMarketplaceTransaction,
   updateListingTransaction,
 } from "components/pages/Marketplace/lib/actions";
+import { formatToTonnes } from "components/pages/Marketplace/lib/formatNumbers";
 import {
   TransactionStatusMessage,
   TxnStatus,
@@ -20,13 +21,24 @@ import {
 import { MarketplaceButton } from "components/pages/Marketplace/shared/MarketplaceButton";
 import { Transaction } from "components/pages/Marketplace/shared/Transaction";
 
-import { Listing as ListingType } from "@klimadao/lib/types/marketplace";
+import { Asset, Listing as ListingType } from "@klimadao/lib/types/marketplace";
 
 import * as styles from "./styles";
 
 type Props = {
   listings: ListingType[];
+  assets: Asset[];
   onFinishEditing: () => void;
+};
+
+const getBalanceForListing = (
+  listing: ListingType,
+  assets: Asset[]
+): number => {
+  const matchingBalance = assets.find(
+    (a) => a.tokenAddress.toLowerCase() === listing.tokenAddress.toLowerCase()
+  )?.balance;
+  return Number(matchingBalance ?? 0);
 };
 
 export const ListingEditable: FC<Props> = (props) => {
@@ -172,6 +184,9 @@ export const ListingEditable: FC<Props> = (props) => {
               onSubmit={onFormSubmit}
               onCancel={() => setListingToEdit(null)}
               values={inputValues}
+              assetBalance={formatToTonnes(
+                getBalanceForListing(listingToEdit, props.assets)
+              )}
             />
             <MarketplaceButton
               label={

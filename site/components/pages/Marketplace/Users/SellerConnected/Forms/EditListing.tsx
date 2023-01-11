@@ -20,6 +20,7 @@ type Props = {
   onCancel: () => void;
   listing: Listing;
   values: null | FormValues;
+  assetBalance: string;
 };
 
 export const EditListing: FC<Props> = (props) => {
@@ -83,7 +84,7 @@ export const EditListing: FC<Props> = (props) => {
                   }),
                 },
                 max: {
-                  value: Number(formatUnits(props.listing.leftToSell)),
+                  value: Number(props.assetBalance),
                   message: t({
                     id: "marketplace.user.listing.edit.input.quantity.maxAmount",
                     message: "You exceeded your available quantity",
@@ -98,7 +99,7 @@ export const EditListing: FC<Props> = (props) => {
             errorMessage={formState.errors.totalAmountToSell?.message}
           />
           <Text t="badge" className={styles.availableAmount}>
-            Available: {formatUnits(props.listing.leftToSell)}
+            Available: {props.assetBalance}
           </Text>
           <InputField
             id="price"
