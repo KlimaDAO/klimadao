@@ -1881,7 +1881,7 @@ msgstr "Info"
 msgid "shared.loading"
 msgstr "Loading..."
 
-#: components/pages/Pledge/HeaderDesktop/index.tsx:68
+#: components/pages/Pledge/HeaderDesktop/index.tsx:67
 #: components/pages/Pledge/HeaderMobile/index.tsx:66
 msgid "shared.login_connect"
 msgstr "Login / Connect"
