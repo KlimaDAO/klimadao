@@ -1,19 +1,9 @@
-import { ButtonPrimary, ConnectModal, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { Project } from "@klimadao/lib/types/marketplace";
-import { useWeb3 } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { PageHead } from "components/PageHead";
-import {
-  createProjectPurchaseLink,
-  createSellerLink,
-} from "components/pages/Marketplace/lib/createUrls";
-import {
-  formatBigToPrice,
-  formatBigToTonnes,
-  formatToPrice,
-} from "components/pages/Marketplace/lib/formatNumbers";
+import { formatToPrice } from "components/pages/Marketplace/lib/formatNumbers";
 import {
   getActiveListings,
   getAllListings,
@@ -21,9 +11,7 @@ import {
   getLowestPriceFromListings,
   getTotalAmountSold,
 } from "components/pages/Marketplace/lib/listingsGetter";
-import { getIsConnectedSeller } from "components/pages/Marketplace/lib/sellerGetter";
 import { Activities } from "components/pages/Marketplace/shared/Activities";
-import { Card } from "components/pages/Marketplace/shared/Card";
 import { Category } from "components/pages/Marketplace/shared/Category";
 import { ProjectImage } from "components/pages/Marketplace/shared/ProjectImage";
 import { Stats } from "components/pages/Marketplace/shared/Stats";
@@ -35,6 +23,7 @@ import { Vintage } from "components/pages/Marketplace/shared/Vintage";
 import { NextPage } from "next";
 import Link from "next/link";
 import { MarketplaceLayout } from "../Layout";
+import { ProjectListing } from "./ProjectListing";
 
 import * as styles from "./styles";
 
@@ -47,8 +36,6 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
   const allListings = hasListings && getAllListings(props.project.listings);
   const activeListings =
     hasListings && getActiveListings(props.project.listings);
-
-  const { address } = useWeb3();
 
   return (
     <>
@@ -132,78 +119,11 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
               {!!activeListings &&
                 activeListings.length &&
                 activeListings.map((listing) => (
-                  <Card key={listing.id}>
-                    {listing.seller && (
-                      <div className={styles.sellerInfo}>
-                        <SellOutlinedIcon />
-                        <div className={styles.sellerBadge}>
-                          <Trans>Seller Listing</Trans>
-                        </div>
-                        <Text t="caption">
-                          <Link href={createSellerLink(listing.seller.handle)}>
-                            {getIsConnectedSeller(listing.seller.id, address)
-                              ? "You"
-                              : "@" + listing.seller.handle}
-                          </Link>
-                        </Text>
-                      </div>
-                    )}
-                    <Text t="h5">
-                      {formatBigToPrice(listing.singleUnitPrice)}
-                    </Text>
-                    <Text t="caption">
-                      Quantity Available:{" "}
-                      {formatBigToTonnes(listing.leftToSell)}
-                    </Text>
-                    {address ? (
-                      <ButtonPrimary
-                        label="Buy"
-                        className={styles.buyButton}
-                        href={
-                          getIsConnectedSeller(listing.seller.id, address)
-                            ? undefined
-                            : createProjectPurchaseLink(
-                                props.project,
-                                listing.id
-                              )
-                        }
-                        disabled={getIsConnectedSeller(
-                          listing.seller.id,
-                          address
-                        )}
-                      />
-                    ) : (
-                      <ConnectModal
-                        errorMessage={t({
-                          message:
-                            "We had some trouble connecting. Please try again.",
-                          id: "connect_modal.error_message",
-                        })}
-                        torusText={t({
-                          message: "or continue with",
-                          id: "connectModal.continue",
-                        })}
-                        titles={{
-                          connect: t({
-                            id: "connect_modal.sign_in",
-                            message: "Sign In / Connect",
-                          }),
-                          loading: t({
-                            id: "connect_modal.connecting",
-                            message: "Connecting...",
-                          }),
-                          error: t({
-                            id: "connect_modal.error_title",
-                            message: "Connection Error",
-                          }),
-                        }}
-                        buttonText={t({
-                          id: "marketplace.project.single.connect_to_buy",
-                          message: "Sign In / Connect To Buy",
-                        })}
-                      />
-                    )}
-                  </Card>
+                  <ProjectListing
+                    key={listing.id}
+                    listing={listing}
+                    project={props.project}
+                  />
                 ))}
             </div>
           </Col>

@@ -25,10 +25,6 @@ export const listings = css`
   grid-column: 1 / 3;
 `;
 
-export const buyButton = css`
-  align-self: flex-start;
-`;
-
 export const projectHeader = css`
   position: relative;
   overflow: hidden;
@@ -101,28 +97,4 @@ export const meta = css`
     border-radius: var(--border-radius);
     color: white;
   }
-`;
-
-export const sellerInfo = css`
-  display: flex;
-  gap: 0.8rem;
-  flex-direction: row;
-  align-items: center;
-
-  svg {
-    fill: var(--klima-blue);
-  }
-
-  a {
-    color: var(--klima-blue);
-  }
-`;
-
-export const sellerBadge = css`
-  padding: 0.4rem 0.8rem;
-  background-color: var(--surface-02);
-  align-items: center;
-  align-self: flex-start;
-  border-radius: var(--border-radius);
-  color: var(--font-01);
 `;
