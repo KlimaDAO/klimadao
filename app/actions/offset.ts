@@ -1,4 +1,4 @@
-import { getJsonRpcProvider, getTransactionOptions } from "@klimadao/lib/utils";
+import { getStaticProvider, getTransactionOptions } from "@klimadao/lib/utils";
 import { providers, utils } from "ethers";
 import { Thunk } from "state";
 import { setCarbonRetiredBalances, updateAllowances } from "state/user";
@@ -101,7 +101,7 @@ export const getOffsetConsumptionCost = async (params: {
 }): Promise<[string, string]> => {
   const retirementAggregatorContract = getContract({
     contractName: "retirementAggregator",
-    provider: getJsonRpcProvider(),
+    provider: getStaticProvider(),
   });
   const parsed = utils.parseUnits(
     params.quantity,

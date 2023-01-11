@@ -6,7 +6,6 @@ import { urls } from "@klimadao/lib/constants";
 import { RetirementsTotalsAndBalances } from "@klimadao/lib/types/offset";
 import { KlimaRetire } from "@klimadao/lib/types/subgraph";
 import {
-  getInfuraUrl,
   getRetirementTotalsAndBalances,
   queryKlimaRetiresByAddress,
 } from "@klimadao/lib/utils";
@@ -83,10 +82,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     const promises = [
       getRetirementTotalsAndBalances({
         address: beneficiaryAddress,
-        providerUrl: getInfuraUrl({
-          chain: "polygon",
-          infuraId: INFURA_ID,
-        }),
+        infuraId: INFURA_ID,
       }),
       queryKlimaRetiresByAddress(beneficiaryAddress),
       loadTranslation(locale),

@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 
 import LiveOffset from "@klimadao/lib/abi/LiveOffset.json";
 import { addresses } from "@klimadao/lib/constants";
-import { getInfuraUrl, getJsonRpcProvider } from "@klimadao/lib/utils";
+import { getStaticProvider } from "@klimadao/lib/utils";
 import { EventDemo } from "components/pages/EventDemo";
 import { Contract } from "ethers";
 import { loadTranslation } from "lib/i18n";
@@ -14,12 +14,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     if (!translation) {
       throw new Error("No translation found");
     }
-    const provider = getJsonRpcProvider(
-      getInfuraUrl({
-        chain: "polygon",
-        infuraId: INFURA_ID,
-      })
-    );
+    const provider = getStaticProvider({ infuraId: INFURA_ID });
     const LiveOffsetContract = new Contract(
       addresses["mainnet"].liveOffsetContract,
       LiveOffset.abi,

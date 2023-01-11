@@ -7,7 +7,7 @@ import {
   getRetirementTokenByAddress,
   getTokenDecimals,
 } from "../../utils";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
+import { getStaticProvider } from "../getStaticProvider";
 
 import {
   RetirementIndexInfo,
@@ -23,10 +23,10 @@ export const createRetirementStorageContract = (
 export const getRetirementIndexInfo = async (params: {
   beneficiaryAddress: string;
   index: number;
-  providerUrl?: string;
+  infuraId?: string;
 }): Promise<RetirementIndexInfoResult> => {
   try {
-    const provider = getJsonRpcProvider(params.providerUrl);
+    const provider = getStaticProvider({ infuraId: params.infuraId });
     const storageContract = createRetirementStorageContract(provider);
 
     const [
@@ -65,10 +65,10 @@ export const getRetirementIndexInfo = async (params: {
 
 export const getRetirementTotalsAndBalances = async (params: {
   address: string;
-  providerUrl?: string;
+  infuraId?: string;
 }): Promise<RetirementsTotalsAndBalances> => {
   try {
-    const provider = getJsonRpcProvider(params.providerUrl);
+    const provider = getStaticProvider({ infuraId: params.infuraId });
     const retirementStorageContract = createRetirementStorageContract(provider);
 
     const promises: [

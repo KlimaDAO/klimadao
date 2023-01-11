@@ -2,7 +2,7 @@ import { providers } from "ethers";
 import { addresses } from "../../constants";
 import { getContract } from "../getContract";
 import { getInteger } from "../getInteger";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
+import { getStaticProvider } from "../getStaticProvider";
 
 const getOwnedBCTFromSLP = async (params: {
   adr: "klimaBctLp";
@@ -38,11 +38,15 @@ const getOwnedBCTFromSLP = async (params: {
  * Return the balance in BCT of the klima treasury.
  * NakedBCT + (klimaBctReserve * klimaBctTreasuryPercent)
  */
-export const getTreasuryBalance = async (
-  providerUrl?: string
-): Promise<number> => {
+export const getTreasuryBalance = async (params?: {
+  /** When invoked on the server, provide an id for a more stable rpc */
+  infuraId?: string;
+}): Promise<number> => {
   try {
-    const provider = getJsonRpcProvider(providerUrl);
+    const provider = getStaticProvider({
+      chain: "polygon",
+      infuraId: params?.infuraId,
+    });
     const bctContract = getContract({ contractName: "bct", provider });
 
     const nakedBCT = getInteger(

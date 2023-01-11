@@ -1,4 +1,4 @@
-import { getInfuraUrl, getKlimaSupply } from "@klimadao/lib/utils";
+import { getKlimaSupply } from "@klimadao/lib/utils";
 import { INFURA_ID } from "lib/secrets";
 import { NextApiRequest, NextApiResponse } from "next/types";
 
@@ -8,12 +8,7 @@ export default async function handler(
   res: NextApiResponse<string>
 ) {
   try {
-    const supply = await getKlimaSupply(
-      getInfuraUrl({
-        chain: "polygon",
-        infuraId: INFURA_ID,
-      })
-    );
+    const supply = await getKlimaSupply(INFURA_ID);
 
     // share-cache after last cached request:
     // 0-1 minutes -> fresh, return from cache
