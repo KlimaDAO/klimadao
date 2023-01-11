@@ -12,7 +12,7 @@ export const getDomainByAddress = async (
   try {
     const knsName = await getKNSByAddress(address);
     const kns = !!knsName && createKNSDomainFromName(knsName);
-    const ens = !kns && (await getENSByAddress(address, INFURA_ID)); // Caution: needs to be InfuraUrl for Ether here
+    const ens = !kns && (await getENSByAddress(address, INFURA_ID));
     return kns || ens || null;
   } catch (e) {
     console.error("Error in getDomainByAddress", e);
