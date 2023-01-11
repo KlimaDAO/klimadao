@@ -6,7 +6,6 @@ export const getStakingRewards = async (params: {
   infuraId?: string;
 }): Promise<number> => {
   const provider = getStaticProvider({
-    chain: "polygon",
     infuraId: params.infuraId,
   });
   const distributorContract = getContract({

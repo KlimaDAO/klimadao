@@ -11,7 +11,6 @@ export async function getBlockRate(): Promise<number> {
   const timestamp30DaysAgo = currentTimestamp - MONTH_IN_SECONDS;
   try {
     const provider = getStaticProvider({
-      chain: "polygon",
       infuraId: INFURA_ID,
     });
 

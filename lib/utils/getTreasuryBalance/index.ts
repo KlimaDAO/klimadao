@@ -44,7 +44,6 @@ export const getTreasuryBalance = async (params?: {
 }): Promise<number> => {
   try {
     const provider = getStaticProvider({
-      chain: "polygon",
       infuraId: params?.infuraId,
     });
     const bctContract = getContract({ contractName: "bct", provider });
