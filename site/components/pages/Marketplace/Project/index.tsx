@@ -3,6 +3,7 @@ import { Project } from "@klimadao/lib/types/marketplace";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
+import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { PageHead } from "components/PageHead";
 import {
   createProjectLink,
@@ -18,6 +19,7 @@ import {
   getActiveListings,
   getLowestPriceFromListings,
 } from "components/pages/Marketplace/lib/listingsGetter";
+import { getIsConnectedSeller } from "components/pages/Marketplace/lib/sellerGetter";
 import { Activities } from "components/pages/Marketplace/shared/Activities";
 import { Card } from "components/pages/Marketplace/shared/Card";
 import { Category } from "components/pages/Marketplace/shared/Category";
@@ -114,7 +116,7 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
           </div>
         </div>
 
-        <div className={styles.fullWidth}>
+        <div className={styles.listingsHeader}>
           <Text t="h5">Listings</Text>
           {!!activeListings && (
             <Text t="caption">
@@ -131,25 +133,43 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
                 activeListings.length &&
                 activeListings.map((listing) => (
                   <Card key={listing.id}>
-                    <Text t="caption">
-                      Price: {formatBigToPrice(listing.singleUnitPrice)}
+                    {listing.seller && (
+                      <div className={styles.sellerInfo}>
+                        <SellOutlinedIcon />
+                        <div className={styles.sellerBadge}>
+                          <Trans>Seller Listing</Trans>
+                        </div>
+                        <Text t="caption">
+                          <Link href={createSellerLink(listing.seller.handle)}>
+                            {getIsConnectedSeller(listing.seller.id, address)
+                              ? "You"
+                              : "@" + listing.seller.handle}
+                          </Link>
+                        </Text>
+                      </div>
+                    )}
+                    <Text t="h5">
+                      {formatBigToPrice(listing.singleUnitPrice)}
                     </Text>
                     <Text t="caption">
-                      Available: {formatBigToTonnes(listing.leftToSell)}
-                    </Text>
-                    <Text t="caption">
-                      Seller:{" "}
-                      <Link href={createSellerLink(listing.seller.handle)}>
-                        {listing.seller.handle}
-                      </Link>
+                      Quantity Available:{" "}
+                      {formatBigToTonnes(listing.leftToSell)}
                     </Text>
                     {address ? (
                       <ButtonPrimary
                         label="Buy"
                         className={styles.buyButton}
-                        href={createProjectPurchaseLink(
-                          props.project,
-                          listing.id
+                        href={
+                          getIsConnectedSeller(listing.seller.id, address)
+                            ? undefined
+                            : createProjectPurchaseLink(
+                                props.project,
+                                listing.id
+                              )
+                        }
+                        disabled={getIsConnectedSeller(
+                          listing.seller.id,
+                          address
                         )}
                       />
                     ) : (

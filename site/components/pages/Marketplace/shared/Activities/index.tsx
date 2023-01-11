@@ -1,11 +1,11 @@
 import { Spinner, Text } from "@klimadao/lib/components";
 import { Activity } from "@klimadao/lib/types/marketplace";
-import { concatAddress } from "@klimadao/lib/utils";
-import { t, Trans } from "@lingui/macro";
+import { Trans } from "@lingui/macro";
 import {
   formatBigToPrice,
   formatBigToTonnes,
 } from "components/pages/Marketplace/lib/formatNumbers";
+import { getSellerAddress } from "components/pages/Marketplace/lib/sellerGetter";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
@@ -18,17 +18,6 @@ interface Props {
   connectedAddress?: string;
   isLoading?: boolean;
 }
-
-const getSeller = (sellerID: string, connectedAddress?: string) => {
-  if (
-    !!connectedAddress &&
-    sellerID.toLowerCase() === connectedAddress.toLowerCase()
-  ) {
-    return t({ id: "marketplace.activity.you", message: "You" });
-  }
-
-  return concatAddress(sellerID);
-};
 
 const activityTime = (params: { locale: string; timeStamp: number }) => {
   const now = Date.now();
@@ -96,7 +85,7 @@ export const Activities: FC<Props> = (props) => {
             </Text>
             <Text t="caption">
               <span className="seller">
-                {getSeller(activity.seller.id, props.connectedAddress)}
+                {getSellerAddress(activity.seller.id, props.connectedAddress)}
               </span>
               {activity.activityType}
             </Text>

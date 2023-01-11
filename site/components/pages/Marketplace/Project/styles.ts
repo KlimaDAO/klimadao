@@ -13,6 +13,12 @@ export const backToResults = css`
   }
 `;
 
+export const listingsHeader = css`
+  display: grid;
+  gap: 1.2rem;
+  grid-column: 1 / 3;
+`;
+
 export const listings = css`
   display: grid;
   gap: 2rem;
@@ -76,7 +82,6 @@ export const tags = css`
 export const meta = css`
   grid-column: 1 / 3;
   display: flex;
-  margin: 2rem 0;
   justify-content: space-between;
 
   .best-price {
@@ -96,4 +101,28 @@ export const meta = css`
     border-radius: var(--border-radius);
     color: white;
   }
+`;
+
+export const sellerInfo = css`
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: row;
+  align-items: center;
+
+  svg {
+    fill: var(--klima-blue);
+  }
+
+  a {
+    color: var(--klima-blue);
+  }
+`;
+
+export const sellerBadge = css`
+  padding: 0.4rem 0.8rem;
+  background-color: var(--surface-02);
+  align-items: center;
+  align-self: flex-start;
+  border-radius: var(--border-radius);
+  color: var(--font-01);
 `;
