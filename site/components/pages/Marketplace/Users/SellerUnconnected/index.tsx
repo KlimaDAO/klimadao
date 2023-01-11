@@ -8,15 +8,15 @@ import {
   getAmountLeftToSell,
   getTotalAmountSold,
 } from "components/pages/Marketplace/lib/listingsGetter";
+import { Activities } from "components/pages/Marketplace/shared/Activities";
+import { Stats } from "components/pages/Marketplace/shared/Stats";
 import {
   Col,
   TwoColLayout,
 } from "components/pages/Marketplace/shared/TwoColLayout";
 import { FC } from "react";
-import { Activities } from "../Activities";
 import { Listing } from "../Listing";
 import { ProfileHeader } from "../ProfileHeader";
-import { Stats } from "../Stats";
 
 import * as styles from "./styles";
 

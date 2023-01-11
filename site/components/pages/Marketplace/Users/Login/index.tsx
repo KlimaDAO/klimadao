@@ -6,16 +6,16 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 
 import { PageHead } from "components/PageHead";
+import { MarketplaceLayout } from "components/pages/Marketplace/Layout";
 import { Card } from "components/pages/Marketplace/shared/Card";
 import {
   Col,
   TwoColLayout,
 } from "components/pages/Marketplace/shared/TwoColLayout";
-import { MarketplaceLayout } from "../../Layout";
 
+import { Activities } from "components/pages/Marketplace/shared/Activities";
+import { Stats } from "components/pages/Marketplace/shared/Stats";
 import { useEffect, useState } from "react";
-import { Activities } from "../Activities";
-import { Stats } from "../Stats";
 import * as styles from "./styles";
 
 export const Login: NextPage = () => {

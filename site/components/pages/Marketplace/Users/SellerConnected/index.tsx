@@ -4,10 +4,10 @@ import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "components/Modal";
 import { FC, useEffect, useState } from "react";
 
+import { Activities } from "components/pages/Marketplace/shared/Activities";
 import { Card } from "components/pages/Marketplace/shared/Card";
-import { Activities } from "../Activities";
+import { Stats } from "components/pages/Marketplace/shared/Stats";
 import { ProfileHeader } from "../ProfileHeader";
-import { Stats } from "../Stats";
 import { CreateAListingModal } from "./CreateAListingModal";
 import { EditProfile } from "./Forms/EditProfile";
 import { ListingEditable } from "./ListingEditable";
