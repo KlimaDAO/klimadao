@@ -110,6 +110,7 @@ export const urls = {
   snapshot: "https://snapshot.org/#/klimadao.eth",
   polygonMainnetRpc: "https://polygon-rpc.com",
   polygonTestnetRpc: "https://rpc-mumbai.matic.today",
+  defaultEthRpc: "https://cloudflare-eth.com/",
   infuraPolygonRpc: "https://polygon-mainnet.infura.io/v3",
   infuraEthRpc: "https://mainnet.infura.io/v3",
   communityHub: "https://klimadao.notion.site",
