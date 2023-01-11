@@ -157,8 +157,8 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
             className={styles.backToResults}
           >
             <ArrowBack className="arrow" />
-            <Trans id="marketplace.project.single.button.back_to_results">
-              Back to Results
+            <Trans id="marketplace.project.single.button.back_to_project">
+              Back to Project
             </Trans>
           </Link>
         </div>

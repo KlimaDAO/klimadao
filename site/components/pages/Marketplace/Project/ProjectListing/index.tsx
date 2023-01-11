@@ -83,6 +83,7 @@ export const ProjectListing: FC<Props> = (props) => {
         />
       ) : (
         <ConnectModal
+          buttonClassName={styles.buyButton}
           errorMessage={t({
             message: "We had some trouble connecting. Please try again.",
             id: "connect_modal.error_message",
