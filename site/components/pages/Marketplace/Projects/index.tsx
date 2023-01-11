@@ -1,10 +1,13 @@
-import { ButtonPrimary, Text } from "@klimadao/lib/components";
+import { Text } from "@klimadao/lib/components";
 import { Project } from "@klimadao/lib/types/marketplace";
 import { PageHead } from "components/PageHead";
 import { createProjectLink } from "components/pages/Marketplace/lib/createUrls";
+import { Category } from "components/pages/Marketplace/shared/Category";
+import { ProjectImage } from "components/pages/Marketplace/shared/ProjectImage";
+import { Vintage } from "components/pages/Marketplace/shared/Vintage";
 import { NextPage } from "next";
+import Link from "next/link";
 import { MarketplaceLayout } from "../Layout";
-
 import * as styles from "./styles";
 
 type Props = {
@@ -22,32 +25,31 @@ export const MarketPlaceProjects: NextPage<Props> = (props) => {
       />
 
       <MarketplaceLayout>
-        <div className={styles.fullWidth}>
-          <Text t="h1">All Projects</Text>
-        </div>
-
-        {hasProjects &&
-          props.projects.map((project) => (
-            <div className={styles.fullWidth} key={project.key}>
-              <Text t="h3">Name: {project.name}</Text>
-              <Text t="caption">ID: {project.id}</Text>
-              <Text t="caption">ProjectAddress: {project.projectAddress}</Text>
-              <Text t="caption">ProjectID: {project.projectID}</Text>
-              <Text t="caption">Registry: {project.registry}</Text>
-              <Text t="caption">Vintage: {project.vintage}</Text>
-              <Text t="caption">Methodology: {project.methodology}</Text>
-              <ButtonPrimary
+        <div className={styles.list}>
+          {hasProjects &&
+            props.projects.map((project) => (
+              <Link
+                key={project.key}
                 href={createProjectLink(project)}
-                label="Link to Project"
-                className={styles.projectLink}
-              ></ButtonPrimary>
-            </div>
-          ))}
-        {!hasProjects && (
-          <div className={styles.fullWidth}>
-            <Text>No projects found from Marketplace API</Text>
-          </div>
-        )}
+                passHref
+              >
+                <div className={styles.card}>
+                  <div className={styles.cardImage}>
+                    <ProjectImage category={project.category.id} />
+                  </div>
+                  <div className={styles.cardContent}>
+                    <Text t="h4">{project.name}</Text>
+                    <Text t="caption">{project.methodology}</Text>
+                    <div className={styles.tags}>
+                      <Category category={project.category.id} />
+                      <Vintage vintage={project.vintage} />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          {!hasProjects && <Text>No projects found from Marketplace API</Text>}
+        </div>
       </MarketplaceLayout>
     </>
   );

@@ -51,8 +51,8 @@ export const categoryInfoMap: CategoryInfoMap = {
     color: "#6EC6FF",
     icon: ParkOutlinedIcon,
   },
-  "Other Nature-based": {
-    key: "Other Nature-based",
+  "Other Nature-Based": {
+    key: "Other Nature-Based",
     imageSrc: OtherNatureBased,
     label: t({
       id: "marketplace.project.category.other_nature_based",

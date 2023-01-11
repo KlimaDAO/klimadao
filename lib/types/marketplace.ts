@@ -11,6 +11,8 @@ export interface Project {
   registry: string;
   category: Category;
   listings: Listing[];
+  price: BigNumber;
+  country: Country;
 }
 
 export interface User {
@@ -126,7 +128,7 @@ export type CategoryName =
   | "Industrial Processing"
   | "Renewable Energy"
   | "Other"
-  | "Other Nature-based";
+  | "Other Nature-Based";
 
 export type Purchase = {
   id: string; // TransactionHash
