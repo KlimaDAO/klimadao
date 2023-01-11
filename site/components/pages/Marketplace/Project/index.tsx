@@ -6,7 +6,6 @@ import ArrowBack from "@mui/icons-material/ArrowBack";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { PageHead } from "components/PageHead";
 import {
-  createProjectLink,
   createProjectPurchaseLink,
   createSellerLink,
 } from "components/pages/Marketplace/lib/createUrls";
@@ -61,10 +60,7 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
 
       <MarketplaceLayout>
         <div className={styles.fullWidth}>
-          <Link
-            href={createProjectLink(props.project)}
-            className={styles.backToResults}
-          >
+          <Link href={"/marketplace/projects"} className={styles.backToResults}>
             <ArrowBack className="arrow" />
             <Trans id="marketplace.project.single.button.back_to_results">
               Back to Results
