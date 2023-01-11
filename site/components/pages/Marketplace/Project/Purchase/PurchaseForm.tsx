@@ -2,14 +2,18 @@ import { t, Trans } from "@lingui/macro";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 
-import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
+import {
+  ButtonPrimary,
+  ConnectModal,
+  Spinner,
+  Text,
+} from "@klimadao/lib/components";
 import { Listing } from "@klimadao/lib/types/marketplace";
-import { formatUnits } from "@klimadao/lib/utils";
+import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { InputField } from "components/Form";
 import { formatToPrice } from "components/pages/Marketplace/lib/formatNumbers";
 import { marketplaceTokenInfoMap } from "components/pages/Marketplace/lib/getTokenInfo";
 import { HighlightValue } from "components/pages/Marketplace/shared/Transaction/HighlightValue";
-
 import * as styles from "./styles";
 
 const MARKETPLACE_FEE = 0.03; // 3%
@@ -28,6 +32,7 @@ type Props = {
 };
 
 export const PurchaseForm: FC<Props> = (props) => {
+  const { address } = useWeb3();
   const singleUnitPrice = formatUnits(props.listing.singleUnitPrice);
 
   const { register, handleSubmit, formState, control, setValue } =
@@ -119,16 +124,49 @@ export const PurchaseForm: FC<Props> = (props) => {
           icon={marketplaceTokenInfoMap["usdc"].icon}
         />
 
-        <ButtonPrimary
-          label={
-            props.isLoading ? (
-              <Spinner />
-            ) : (
-              <Trans id="marketplace.purchase.button.continue">Continue</Trans>
-            )
-          }
-          onClick={handleSubmit(onSubmit)}
-        />
+        {address ? (
+          <ButtonPrimary
+            label={
+              props.isLoading ? (
+                <Spinner />
+              ) : (
+                <Trans id="marketplace.purchase.button.continue">
+                  Continue
+                </Trans>
+              )
+            }
+            onClick={handleSubmit(onSubmit)}
+          />
+        ) : (
+          <ConnectModal
+            errorMessage={t({
+              message: "We had some trouble connecting. Please try again.",
+              id: "connect_modal.error_message",
+            })}
+            torusText={t({
+              message: "or continue with",
+              id: "connectModal.continue",
+            })}
+            titles={{
+              connect: t({
+                id: "connect_modal.sign_in",
+                message: "Sign In / Connect",
+              }),
+              loading: t({
+                id: "connect_modal.connecting",
+                message: "Connecting...",
+              }),
+              error: t({
+                id: "connect_modal.error_title",
+                message: "Connection Error",
+              }),
+            }}
+            buttonText={t({
+              id: "marketplace.project.single.connect_to_buy",
+              message: "Sign In / Connect To Buy",
+            })}
+          />
+        )}
       </div>
     </form>
   );
