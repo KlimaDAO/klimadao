@@ -8,6 +8,6 @@ export const getInfuraUrl = (params: {
   infuraId: string;
 }) => {
   const { chain = "polygon" } = params; // fallback to polygon as default
-  const baseUrl = chain === "eth" ? urls.infuraEth : urls.infuraRpc;
+  const baseUrl = chain === "eth" ? urls.infuraEthRpc : urls.infuraPolygonRpc;
   return `${baseUrl}/${params.infuraId}`;
 };
