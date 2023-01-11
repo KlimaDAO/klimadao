@@ -64,7 +64,6 @@ export const HeaderDesktop: FC<Props> = (props) => {
               message: "Connection Error",
             }),
           }}
-          buttonVariant="blue"
           buttonText={t({
             id: "shared.login_connect",
             message: "Login / Connect",
