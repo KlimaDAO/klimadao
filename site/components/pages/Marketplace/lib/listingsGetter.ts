@@ -24,3 +24,8 @@ export const getActiveListings = (listings: Listing[]) =>
 
 export const getAllListings = (listings: Listing[]) =>
   listings.filter((l) => l.deleted === false);
+
+export const getLowestPriceFromListings = (listings: Listing[]) => {
+  const allPrices = listings.map((l) => Number(formatUnits(l.singleUnitPrice)));
+  return Math.min(...allPrices);
+};

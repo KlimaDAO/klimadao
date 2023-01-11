@@ -13,6 +13,7 @@ export interface Project {
   listings: Listing[];
   price: BigNumber;
   country: Country;
+  activities: Activity[];
 }
 
 export interface User {

@@ -8,11 +8,6 @@ export const list = css`
   margin-top: 2rem;
 `;
 
-export const projectLink = css`
-  display: inline-flex;
-  margin: 1rem 0;
-`;
-
 export const card = css`
   background-color: var(--surface-01);
   border-radius: var(--border-radius);
