@@ -17,7 +17,10 @@ import {
 } from "components/pages/Marketplace/lib/formatNumbers";
 import {
   getActiveListings,
+  getAllListings,
+  getAmountLeftToSell,
   getLowestPriceFromListings,
+  getTotalAmountSold,
 } from "components/pages/Marketplace/lib/listingsGetter";
 import { getIsConnectedSeller } from "components/pages/Marketplace/lib/sellerGetter";
 import { Activities } from "components/pages/Marketplace/shared/Activities";
@@ -41,9 +44,10 @@ type Props = {
 };
 
 export const MarketPlaceProject: NextPage<Props> = (props) => {
+  const hasListings = !!props.project.listings?.length;
+  const allListings = hasListings && getAllListings(props.project.listings);
   const activeListings =
-    !!props.project.listings?.length &&
-    getActiveListings(props.project.listings);
+    hasListings && getActiveListings(props.project.listings);
 
   const { address } = useWeb3();
 
@@ -208,7 +212,18 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
             </div>
           </Col>
           <Col>
-            <Stats description="Data for this project and vintage" />
+            <Stats
+              description="Data for this project and vintage"
+              stats={{
+                tonnesSold:
+                  (!!allListings && getTotalAmountSold(allListings)) || 0,
+                tonnesOwned:
+                  (!!activeListings && getAmountLeftToSell(activeListings)) ||
+                  0,
+                activeListings:
+                  (!!activeListings && activeListings.length) || 0,
+              }}
+            />
             <Activities activities={props.project.activities} />
           </Col>
         </TwoColLayout>
