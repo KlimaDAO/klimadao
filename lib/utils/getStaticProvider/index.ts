@@ -13,6 +13,10 @@ interface RuntimeProviders {
     default: providers.JsonRpcProvider;
     infura?: providers.JsonRpcProvider;
   };
+  mumbai: {
+    default: providers.JsonRpcProvider;
+    infura?: providers.JsonRpcProvider;
+  };
 }
 
 const runtimeProviders: RuntimeProviders = {
@@ -24,6 +28,10 @@ const runtimeProviders: RuntimeProviders = {
     infura: undefined,
     default: new JsonRpcProvider(urls.polygonMainnetRpc),
   },
+  mumbai: {
+    infura: undefined,
+    default: new JsonRpcProvider(urls.polygonTestnetRpc),
+  },
 };
 /**
  * Returns a provider for making RPC calls to the given chain.
@@ -32,7 +40,7 @@ const runtimeProviders: RuntimeProviders = {
  * If no infura id is provided, a default public rpc is used.
  */
 export const getStaticProvider = (params?: {
-  chain?: "polygon" | "eth";
+  chain?: "polygon" | "eth" | "mumbai";
   infuraId?: string;
 }): providers.JsonRpcProvider => {
   const chain = params?.chain || "polygon";
