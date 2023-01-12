@@ -14,7 +14,7 @@ const getFeatures: any = () => {
 };
 
 export const useFeatureFlags: any = () => {
-  const features = useMemo(getFeatures(), []);
+  const features = useMemo(() => getFeatures(), []);
 
   return [features];
 };
