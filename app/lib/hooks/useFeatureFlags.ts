@@ -3,7 +3,7 @@ import { useMemo } from "react";
 
 const DEVELOPMENT = { testFeatureFlag: true };
 const PREVIEW = { testFeatureFlag: false };
-const STAGING = { testFeatureFlag: false };
+// const STAGING = { testFeatureFlag: false };
 const PRODUCTION = { testFeatureFlag: false };
 
 const getFeatures: any = () => {
