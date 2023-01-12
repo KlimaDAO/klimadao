@@ -4,7 +4,7 @@ import { urls } from "@klimadao/lib/constants";
 export const IS_PRODUCTION =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 
-/** True if deployment on the preview deployment domain */
+/** True if deployment is a NextJS preview build */
 export const IS_PREVIEW_BUILD =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
 
