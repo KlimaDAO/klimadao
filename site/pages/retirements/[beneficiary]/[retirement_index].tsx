@@ -89,11 +89,12 @@ export const getStaticProps: GetStaticProps<
       beneficiaryAddress = beneficiaryInUrl;
     }
 
-    let pledge: Pledge | null = null;
+    let pledge: Pledge | null;
     try {
       pledge = await getPledgeByAddress(beneficiaryAddress.toLowerCase());
-    } catch (error) {
-      console.error(error);
+    } catch (_e) {
+      // no pledge found
+      pledge = null;
     }
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
