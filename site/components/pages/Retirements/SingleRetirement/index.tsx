@@ -215,7 +215,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
                 </Trans>
                 <Link href={`/pledge/${beneficiaryAddress}`}>
                   <Trans id="retirement.single.create_a_pledge">
-                    Create a pledge now
+                    Create a pledge now.
                   </Trans>
                 </Link>
               </Text>
