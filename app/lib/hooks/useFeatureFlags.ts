@@ -12,7 +12,6 @@ const PREVIEW: FeatureFlags = { testFeatureFlag: false, redemptions: true };
 const PRODUCTION: FeatureFlags = { testFeatureFlag: false, redemptions: true };
 
 const getFeatures = (): FeatureFlags => {
-  console.log(process.env.NEXT_PUBLIC_VERCEL_ENV);
   if (IS_PREVIEW_BUILD) return PREVIEW;
   if (IS_PRODUCTION) return PRODUCTION;
 
@@ -20,7 +19,11 @@ const getFeatures = (): FeatureFlags => {
 };
 
 export const useFeatureFlags = () => {
-  const features = useMemo(() => getFeatures(), []);
+  const environment =
+    process.env.NEXT_PUBLIC_VERCEL_ENV ?? process.env.NODE_ENV;
+  // Technically no dependancies required as the env does not change but
+  // a dependancy is required otherwise it'll invoke on every re-render
+  const features = useMemo(() => getFeatures(), [environment]);
 
   return features;
 };
