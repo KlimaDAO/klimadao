@@ -113,6 +113,7 @@ export const urls = {
   defaultEthRpc: "https://cloudflare-eth.com/",
   infuraPolygonRpc: "https://polygon-mainnet.infura.io/v3",
   infuraEthRpc: "https://mainnet.infura.io/v3",
+  infuraMumbaiRpc: "https://polygon-mumbai.infura.io/v3",
   communityHub: "https://klimadao.notion.site",
   tutorial:
     "https://klimadao.notion.site/I-m-new-to-Klima-How-do-I-participate-c28426c5100244788f791f62e375ffcc",
