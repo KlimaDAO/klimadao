@@ -115,30 +115,37 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       const values: RetirementsTotalsAndBalances[] = await Promise.all(
         promises
       );
-      values.reduce<RetirementsTotalsAndBalances>((prev, curr) => {
-        prev.totalRetirements = (
-          Number(prev.totalRetirements) + Number(curr.totalRetirements)
-        ).toString();
-        prev.totalTonnesRetired = (
-          Number(prev.totalTonnesRetired) + Number(curr.totalTonnesRetired)
-        ).toString();
-        prev.totalTonnesClaimedForNFTS = (
-          Number(prev.totalTonnesClaimedForNFTS) +
-          Number(curr.totalTonnesClaimedForNFTS)
-        ).toString();
-        prev.bct = (Number(prev.bct) + Number(curr.bct)).toString();
-        prev.mco2 = (Number(prev.mco2) + Number(curr.mco2)).toString();
-        prev.nct = (Number(prev.nct) + Number(curr.nct)).toString();
-        prev.ubo = (Number(prev.ubo) + Number(curr.ubo)).toString();
-        prev.nbo = (Number(prev.nbo) + Number(curr.nbo)).toString();
-
-        return prev;
-      }, {} as RetirementsTotalsAndBalances);
-      if (values.length) {
-        retirements = values[0];
-      } else {
-        retirements = values as unknown as RetirementsTotalsAndBalances;
-      }
+      const reduced = values.reduce<RetirementsTotalsAndBalances>(
+        (prev, curr) => {
+          prev.totalRetirements = (
+            Number(prev.totalRetirements) + Number(curr.totalRetirements)
+          ).toString();
+          prev.totalTonnesRetired = (
+            Number(prev.totalTonnesRetired) + Number(curr.totalTonnesRetired)
+          ).toString();
+          prev.totalTonnesClaimedForNFTS = (
+            Number(prev.totalTonnesClaimedForNFTS) +
+            Number(curr.totalTonnesClaimedForNFTS)
+          ).toString();
+          prev.bct = (Number(prev.bct) + Number(curr.bct)).toString();
+          prev.mco2 = (Number(prev.mco2) + Number(curr.mco2)).toString();
+          prev.nct = (Number(prev.nct) + Number(curr.nct)).toString();
+          prev.ubo = (Number(prev.ubo) + Number(curr.ubo)).toString();
+          prev.nbo = (Number(prev.nbo) + Number(curr.nbo)).toString();
+          return prev;
+        },
+        {
+          totalRetirements: "0",
+          totalTonnesRetired: "0.0",
+          totalTonnesClaimedForNFTS: "0.0",
+          bct: "0.0",
+          mco2: "0.0",
+          nct: "0.0",
+          ubo: "0.0",
+          nbo: "0.0",
+        }
+      );
+      retirements = reduced;
     } else {
       retirements = await getRetirementTotalsAndBalances({
         address: resolvedAddress,
