@@ -43,6 +43,7 @@ import {
 import { changeApprovalTransaction } from "actions/utils";
 
 import { tokenInfo } from "lib/getTokenInfo";
+import { useFeatureFlags } from "lib/hooks/useFeatureFlags";
 import { useOffsetParams } from "lib/hooks/useOffsetParams";
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
@@ -538,6 +539,13 @@ export const Offset = (props: Props) => {
 
   const costIcon =
     tokenInfo[paymentMethod === "fiat" ? "usdc" : paymentMethod].icon;
+
+  const [features] = useFeatureFlags();
+  if (features.testFeatureFlag) {
+    console.log(
+      `testFeatureFlag is toggled ${features.testFeatureFlag ? "ON" : "OFF"}`
+    );
+  }
 
   return (
     <>
