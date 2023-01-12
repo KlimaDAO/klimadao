@@ -541,11 +541,9 @@ export const Offset = (props: Props) => {
     tokenInfo[paymentMethod === "fiat" ? "usdc" : paymentMethod].icon;
 
   const [features] = useFeatureFlags();
-  if (features.testFeatureFlag) {
-    console.log(
-      `testFeatureFlag is toggled ${features.testFeatureFlag ? "ON" : "OFF"}`
-    );
-  }
+  console.log(
+    `testFeatureFlag is toggled ${features.testFeatureFlag ? "ON" : "OFF"}`
+  );
 
   return (
     <>
