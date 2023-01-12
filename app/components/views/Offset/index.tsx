@@ -540,10 +540,11 @@ export const Offset = (props: Props) => {
   const costIcon =
     tokenInfo[paymentMethod === "fiat" ? "usdc" : paymentMethod].icon;
 
-  const [features] = useFeatureFlags();
+  const features = useFeatureFlags();
   console.log(
     `testFeatureFlag is toggled ${features.testFeatureFlag ? "ON" : "OFF"}`
   );
+  console.log(`redemptions is toggled ${features.redemptions ? "ON" : "OFF"}`);
 
   return (
     <>
