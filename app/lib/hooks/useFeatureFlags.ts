@@ -7,6 +7,7 @@ const PREVIEW = { testFeatureFlag: false };
 const PRODUCTION = { testFeatureFlag: false };
 
 const getFeatures: any = () => {
+  console.log(process.env.NEXT_PUBLIC_VERCEL_ENV);
   if (IS_PREVIEW_BUILD) return PREVIEW;
   if (IS_PRODUCTION) return PRODUCTION;
 
