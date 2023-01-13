@@ -35,7 +35,7 @@ interface Props {
   provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected?: boolean;
-  toggleModal?: () => void;
+  toggleModal: () => void;
 }
 
 export const PKlima: FC<Props> = (props) => {

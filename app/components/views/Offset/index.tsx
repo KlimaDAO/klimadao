@@ -3,7 +3,7 @@ import {
   ButtonPrimary,
   Spinner,
   Text,
-  TextInfoTooltip,
+  TextInfoTooltip
 } from "@klimadao/lib/components";
 import {
   offsetCompatibility,
@@ -11,7 +11,7 @@ import {
   OffsetPaymentMethod,
   RetirementToken,
   retirementTokens,
-  urls,
+  urls
 } from "@klimadao/lib/constants";
 import { getTokenDecimals } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
@@ -30,7 +30,7 @@ import {
   selectAllowancesWithParams,
   selectBalances,
   selectLocale,
-  selectNotificationStatus,
+  selectNotificationStatus
 } from "state/selectors";
 import { setAllowance, updateRetirement } from "state/user";
 
@@ -38,7 +38,7 @@ import {
   getOffsetConsumptionCost,
   getRetiredOffsetBalances,
   getRetirementAllowances,
-  retireCarbonTransaction,
+  retireCarbonTransaction
 } from "actions/offset";
 import { changeApprovalTransaction } from "actions/utils";
 
@@ -57,7 +57,7 @@ import { RetirementSuccessModal } from "./RetirementSuccessModal";
 import { SelectiveRetirement } from "./SelectiveRetirement";
 import {
   BalanceAttribute,
-  CarbonProject,
+  CarbonProject
 } from "./SelectiveRetirement/queryProjectDetails";
 
 import Fiat from "public/icons/Fiat.png";
@@ -75,7 +75,7 @@ interface Props {
   address?: string;
   isConnected: boolean;
   onRPCError: () => void;
-  toggleModal?: () => void;
+  toggleModal: () => void;
 }
 
 export const Offset = (props: Props) => {

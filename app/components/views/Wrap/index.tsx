@@ -41,7 +41,7 @@ interface Props {
   provider?: providers.Web3Provider;
   address?: string;
   isConnected?: boolean;
-  toggleModal?: () => void;
+  toggleModal: () => void;
 }
 
 const inputPlaceholderMessage = {

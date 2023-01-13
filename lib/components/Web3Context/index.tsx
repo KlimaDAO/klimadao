@@ -1,7 +1,7 @@
 import React, { createContext, FC, useState } from "react";
 
 import { useProvider } from "../../utils/useProvider";
-import { ConnectModal } from "../ConnectModal";
+import { ConnectModal, ConnectModalProps } from "../ConnectModal";
 import { web3InitialState, Web3ModalState } from "./types";
 
 export const Web3Context = createContext<Web3ModalState>(web3InitialState);
@@ -13,9 +13,9 @@ interface Props {
 export const Web3ContextProvider: FC<Props> = (props) => {
   const providerState = useProvider();
   const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => setShowModal((s: boolean) => !s);
-  const renderModal = (props: any) => (
-    <ConnectModal showModal={showModal} {...props} />
+  const toggleModal = () => setShowModal((s) => !s);
+  const renderModal = (props: ConnectModalProps) => (
+    <ConnectModal {...props} showModal={showModal} />
   );
   return (
     <Web3Context.Provider

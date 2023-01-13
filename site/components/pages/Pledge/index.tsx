@@ -141,7 +141,7 @@ export const Pledge: NextPage = () => {
                     })}
                     onClick={() => {
                       handleCreatePledge();
-                      toggleModal && toggleModal();
+                      toggleModal();
                     }}
                   />
                 )}
@@ -339,7 +339,7 @@ export const Pledge: NextPage = () => {
                 })}
                 onClick={() => {
                   handleCreatePledge();
-                  toggleModal && toggleModal();
+                  toggleModal();
                 }}
               />
             )}
@@ -374,7 +374,7 @@ export const Pledge: NextPage = () => {
                   })}
                   onClick={() => {
                     handleCreatePledge();
-                    toggleModal && toggleModal();
+                    toggleModal();
                   }}
                 />
               )}

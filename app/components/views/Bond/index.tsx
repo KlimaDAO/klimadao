@@ -106,7 +106,7 @@ interface Props {
   address?: string;
   bond: BondType;
   isConnected?: boolean;
-  toggleModal?: () => void;
+  toggleModal: () => void;
 }
 
 export const Bond: FC<Props> = (props) => {

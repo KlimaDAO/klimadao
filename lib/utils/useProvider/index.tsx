@@ -183,7 +183,7 @@ export const useProvider = (): Web3ModalState => {
   }, [web3state.provider]);
 
   return {
-    ...web3state,
+    ...(web3state as Web3ModalState),
     connect,
     disconnect,
   };

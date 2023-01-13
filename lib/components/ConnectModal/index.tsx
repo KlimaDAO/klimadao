@@ -20,7 +20,7 @@ import * as styles from "./styles";
 // ems modules and javascript are strange so we import like this
 const Close = (CloseDefault as any).default as any;
 const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
-interface Props {
+export interface ConnectModalProps {
   errorMessage: string;
   torusText: string;
   titles: {
@@ -34,7 +34,7 @@ interface Props {
   showModal: boolean;
 }
 
-export const ConnectModal = (props: Props) => {
+export const ConnectModal = (props: ConnectModalProps) => {
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
   const { connect, toggleModal } = useWeb3();
   const focusTrapRef = useFocusTrap();
@@ -76,7 +76,7 @@ export const ConnectModal = (props: Props) => {
       } else if (params.wallet === "brave" && connect) {
         await connect("brave");
       }
-      toggleModal && toggleModal();
+      toggleModal();
       setStep("connect");
       props.onClose && props.onClose();
     } catch (e: any) {
@@ -86,15 +86,12 @@ export const ConnectModal = (props: Props) => {
   };
   return props.showModal ? (
     <div aria-modal={true}>
-      <div
-        className={styles.modalBackground}
-        onClick={() => toggleModal && toggleModal()}
-      />
+      <div className={styles.modalBackground} onClick={() => toggleModal()} />
       <div className={styles.modalContainer}>
         <div className={styles.modalContent} ref={focusTrapRef}>
           <span className="title">
             <Text t="h4">{getTitle(step)}</Text>
-            <button onClick={() => toggleModal && toggleModal()}>
+            <button onClick={() => toggleModal()}>
               <Close fontSize="large" />
             </button>
           </span>
