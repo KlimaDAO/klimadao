@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-13 01:14+0000\n"
+"POT-Creation-Date: 2023-01-13 20:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1039,11 +1039,11 @@ msgstr "Algo salió mal. Vuelva a intentarlo en breve."
 msgid "pledge.form.error.duplicate_wallets"
 msgstr "Por favor, elimine la(s) cartera(s) duplicada(s)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:620
+#: components/pages/Pledge/PledgeForm/index.tsx:638
 msgid "pledge.form.wallets.confirm_remove_wallet"
 msgstr "¿Estás seguro de que quieres eliminar {0} de tu compromiso?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:329
+#: components/pages/Pledge/PledgeForm/index.tsx:347
 msgid "pledge.form.wallets.tooltip"
 msgstr "Añade otras carteras para que contribuyan a tu compromiso. Si el propietario de la cartera acepta tu invitación, su cartera aparecerá en tu tablero de compromisos. Cualquier retirada realizada por un monedero secundario contribuirá a tu compromiso. Mantendrás la propiedad exclusiva y el acceso de edición de este compromiso."
 
@@ -1196,11 +1196,11 @@ msgstr "Total de toneladas de carbono retiradas"
 msgid "pledges.edit_pledge"
 msgstr "Editar la promesa"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:562
+#: components/pages/Pledge/PledgeForm/index.tsx:580
 msgid "pledges.form.add_footprint_category_button"
 msgstr "Añadir categoría"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:438
+#: components/pages/Pledge/PledgeForm/index.tsx:456
 msgid "pledges.form.add_wallet_button"
 msgstr "Añadir cartera"
 
@@ -1212,11 +1212,11 @@ msgstr "En espera de la firma..."
 msgid "pledges.form.confirm_delete"
 msgstr "Confirmar la eliminación"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:626
+#: components/pages/Pledge/PledgeForm/index.tsx:644
 msgid "pledges.form.confirm_remove"
 msgstr "eliminar"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:639
+#: components/pages/Pledge/PledgeForm/index.tsx:657
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "cancelar"
 
@@ -1284,11 +1284,11 @@ msgstr "No puedes añadir al propietario de la prenda"
 msgid "pledges.form.errors.walletAddress.required"
 msgstr "Dirección requerida"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:483
+#: components/pages/Pledge/PledgeForm/index.tsx:501
 msgid "pledges.form.footprint.label"
 msgstr "Huella"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:491
+#: components/pages/Pledge/PledgeForm/index.tsx:509
 msgid "pledges.form.footprint.prompt"
 msgstr "Añada una categoría y empieza a calcular su huella de carbono"
 
@@ -1296,35 +1296,35 @@ msgstr "Añada una categoría y empieza a calcular su huella de carbono"
 msgid "pledges.form.generic_error"
 msgstr "Algo ha ido mal. Por favor, inténtelo de nuevo."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:512
+#: components/pages/Pledge/PledgeForm/index.tsx:530
 msgid "pledges.form.input.categoryName.label"
 msgstr "Categoría"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:504
+#: components/pages/Pledge/PledgeForm/index.tsx:522
 msgid "pledges.form.input.categoryName.placeholder"
 msgstr "Nombre de la categoría"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:535
+#: components/pages/Pledge/PledgeForm/index.tsx:553
 msgid "pledges.form.input.categoryQuantity.label"
 msgstr "Cantidad"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:527
+#: components/pages/Pledge/PledgeForm/index.tsx:545
 msgid "pledges.form.input.categoryQuantity.placeholder"
 msgstr "Toneladas de carbono"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:308
+#: components/pages/Pledge/PledgeForm/index.tsx:326
 msgid "pledges.form.input.description.label"
 msgstr "Compromiso"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:301
+#: components/pages/Pledge/PledgeForm/index.tsx:319
 msgid "pledges.form.input.description.placeholder"
 msgstr "¿Cuál es su compromiso?"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:468
+#: components/pages/Pledge/PledgeForm/index.tsx:486
 msgid "pledges.form.input.methodology.label"
 msgstr "Metodología"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:460
+#: components/pages/Pledge/PledgeForm/index.tsx:478
 msgid "pledges.form.input.methodology.placeholder"
 msgstr "¿Qué herramientas o metodologías ha utilizado para calcular su huella de carbono?"
 
@@ -1340,19 +1340,23 @@ msgstr "Nombre o denominación de la empresa"
 msgid "pledges.form.input.profileImageUrl.label"
 msgstr "URL de la imagen de perfil (opcional)"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:579
+#: components/pages/Pledge/PledgeForm/index.tsx:304
+msgid "pledges.form.input.profileWebsiteUrl.label"
+msgstr ""
+
+#: components/pages/Pledge/PledgeForm/index.tsx:597
 msgid "pledges.form.input.totalFootprint.label"
 msgstr "Huella total"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:369
+#: components/pages/Pledge/PledgeForm/index.tsx:387
 msgid "pledges.form.input.walletAddress.label"
 msgstr "Dirección"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:361
+#: components/pages/Pledge/PledgeForm/index.tsx:379
 msgid "pledges.form.input.walletAddress.placeholder"
 msgstr "0x..."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:599
+#: components/pages/Pledge/PledgeForm/index.tsx:617
 msgid "pledges.form.submit_button"
 msgstr "Guardar el compromiso"
 
@@ -1364,11 +1368,11 @@ msgstr "Tu compromiso"
 msgid "pledges.form.total_footprint_summary"
 msgstr "Huella total: {0} Toneladas de carbono"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:611
+#: components/pages/Pledge/PledgeForm/index.tsx:629
 msgid "pledges.form.use_your_wallet"
 msgstr "Utilice su cartera para firmar y confirmar esta modificación."
 
-#: components/pages/Pledge/PledgeForm/index.tsx:321
+#: components/pages/Pledge/PledgeForm/index.tsx:339
 msgid "pledges.form.wallets.label"
 msgstr "Monederos secundarios"
 
@@ -1926,7 +1930,7 @@ msgstr "Compensación"
 msgid "shared.okay"
 msgstr "Ok"
 
-#: components/pages/Pledge/PledgeForm/index.tsx:413
+#: components/pages/Pledge/PledgeForm/index.tsx:431
 msgid "shared.pending"
 msgstr "Pendiente"
 
