@@ -37,8 +37,17 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   ctx
 ) => {
   try {
-    const translation = await loadTranslation(ctx.locale);
     const { address } = ctx.params as { address: string };
+    // enforces lowercase urls
+    if (address !== address.toLowerCase()) {
+      return {
+        redirect: {
+          destination: `/pledge/${address.toLowerCase()}`,
+          permanent: true,
+        },
+      };
+    }
+    const translation = await loadTranslation(ctx.locale);
     let pledge;
     let resolvedAddress;
     const isDomainInURL = getIsDomainInURL(address);
@@ -46,22 +55,12 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     const parentPledges = await getParentPledges({
       address: address,
     });
-
     if (parentPledges.docs.length) {
       return {
         redirect: {
           destination: `/pledge/${parentPledges.docs[0]
             .data()
             .ownerAddress.toLowerCase()}`,
-          permanent: true,
-        },
-      };
-    }
-    // enforces lowercase urls
-    if (address !== address.toLowerCase()) {
-      return {
-        redirect: {
-          destination: `/pledge/${address.toLowerCase()}`,
           permanent: true,
         },
       };
