@@ -14,6 +14,7 @@ export interface Project {
   price: BigNumber;
   country: Country;
   activities: Activity[];
+  updatedAt: string; // timestamp
 }
 
 export interface User {
