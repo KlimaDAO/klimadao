@@ -16,6 +16,7 @@ type Props = {
 
 export const MarketPlaceProjects: NextPage<Props> = (props) => {
   const hasProjects = !!props.projects.length;
+
   return (
     <>
       <PageHead
@@ -27,9 +28,9 @@ export const MarketPlaceProjects: NextPage<Props> = (props) => {
       <MarketplaceLayout>
         <div className={styles.list}>
           {hasProjects &&
-            props.projects.map((project) => (
+            props.projects.map((project, index) => (
               <Link
-                key={project.key}
+                key={project.key + "-" + index}
                 href={createProjectLink(project)}
                 passHref
               >
