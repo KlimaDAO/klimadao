@@ -64,7 +64,7 @@ export const Buy = (props: Props) => {
                   id: "shared.login_connect",
                   message: "Login / Connect",
                 })}
-                onClick={toggleModal && toggleModal}
+                onClick={toggleModal}
               />
             </>
           )}

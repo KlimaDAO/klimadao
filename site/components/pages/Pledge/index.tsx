@@ -92,7 +92,6 @@ export const Pledge: NextPage = () => {
               message: "Connection Error",
             }),
           },
-          buttonVariant: "blue",
         })}
       <div className={styles.pageContainer}>
         <div className={styles.headerContainer}>

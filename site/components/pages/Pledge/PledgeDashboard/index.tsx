@@ -179,7 +179,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
               message: "Connection Error",
             }),
           },
-          buttonVariant: "blue",
         })}
       {/* conditional props are used here because unmounting the modal will clear form state when `isDeleteMode` is changed */}
       <Modal

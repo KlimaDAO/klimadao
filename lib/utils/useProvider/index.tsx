@@ -53,9 +53,9 @@ export const useProvider = (): Web3ModalState => {
 
       /** HANDLE METAMASK / INJECTED */
       if (
-        wallet === "metamask" ||
-        wallet === "brave" ||
-        connectedWallet === "injected"
+        (wallet === "injected" || connectedWallet === "injected") &&
+        window &&
+        window.ethereum
       ) {
         provider = getWeb3Provider(window.ethereum);
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect

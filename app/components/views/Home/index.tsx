@@ -164,31 +164,30 @@ export const Home: FC = () => {
                 onClick={disconnect}
               />
             )}
-            {renderModal &&
-              renderModal({
-                errorMessage: t({
-                  message: "We had some trouble connecting. Please try again.",
-                  id: "connect_modal.error_message",
+            {renderModal({
+              errorMessage: t({
+                message: "We had some trouble connecting. Please try again.",
+                id: "connect_modal.error_message",
+              }),
+              torusText: t({
+                message: "or continue with",
+                id: "connectModal.continue",
+              }),
+              titles: {
+                connect: t({
+                  id: "connect_modal.sign_in",
+                  message: "Sign In / Connect",
                 }),
-                torusText: t({
-                  message: "or continue with",
-                  id: "connectModal.continue",
+                loading: t({
+                  id: "connect_modal.connecting",
+                  message: "Connecting...",
                 }),
-                titles: {
-                  connect: t({
-                    id: "connect_modal.sign_in",
-                    message: "Sign In / Connect",
-                  }),
-                  loading: t({
-                    id: "connect_modal.connecting",
-                    message: "Connecting...",
-                  }),
-                  error: t({
-                    id: "connect_modal.error_title",
-                    message: "Connection Error",
-                  }),
-                },
-              })}
+                error: t({
+                  id: "connect_modal.error_title",
+                  message: "Connection Error",
+                }),
+              },
+            })}
           </div>
           <IsomorphicRoutes>
             <Route

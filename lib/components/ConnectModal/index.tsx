@@ -1,5 +1,6 @@
 import CloseDefault from "@mui/icons-material/Close";
 import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
+import { providers } from "ethers";
 import React, { useEffect, useState } from "react";
 import {
   BraveIcon,
@@ -28,26 +29,29 @@ export interface ConnectModalProps {
     loading: string;
     error: string;
   };
-  buttonText: string;
   buttonClassName?: string;
   onClose?: () => void;
   showModal: boolean;
 }
 
+type WindowEthereum = providers.ExternalProvider & {
+  isBraveWallet: boolean;
+  isCoinbaseWallet: boolean;
+};
+
 export const ConnectModal = (props: ConnectModalProps) => {
   const [step, setStep] = useState<"connect" | "error" | "loading">("connect");
   const { connect, toggleModal } = useWeb3();
   const focusTrapRef = useFocusTrap();
-  const [showMetamask, setShowMetamask] = useState(false);
-  const [showBrave, setShowBrave] = useState(false);
+  const [eth, setEth] = useState<WindowEthereum | undefined>(undefined);
 
   useEffect(() => {
-    if (window.ethereum && (window.ethereum as any).isBraveWallet) {
-      setShowBrave(true);
-    } else if (window.ethereum) {
-      setShowMetamask(true);
-    }
+    if (window) setEth((window as any).ethereum as WindowEthereum);
   }, []);
+
+  const showBrave = eth?.isBraveWallet;
+  const showMetamask = eth?.isMetaMask;
+  const showCoinbaseWallet = eth?.isCoinbaseWallet;
 
   const getTitle = (step: "connect" | "error" | "loading") =>
     !props.titles ? "loading" : props.titles[step];
@@ -60,31 +64,30 @@ export const ConnectModal = (props: ConnectModalProps) => {
     }
   }, [props.showModal]);
   const handleConnect = async (params: {
-    wallet: "coinbase" | "torus" | "walletConnect" | "metamask" | "brave";
+    wallet: "coinbase" | "torus" | "walletConnect" | "injected";
   }) => {
     try {
       if (!params.wallet) return;
       setStep("loading");
-      if (params.wallet === "metamask" && connect) {
-        await connect("metamask");
+      if (params.wallet === "injected" && connect) {
+        await connect("injected");
       } else if (params.wallet === "coinbase" && connect) {
         await connect("coinbase");
       } else if (params.wallet === "walletConnect" && connect) {
         await connect("walletConnect");
       } else if (params.wallet === "torus" && connect) {
         await connect("torus");
-      } else if (params.wallet === "brave" && connect) {
-        await connect("brave");
       }
       toggleModal();
       setStep("connect");
-      props.onClose && props.onClose();
+      props.onClose?.();
     } catch (e: any) {
       console.error(e);
       setStep("error");
     }
   };
-  return props.showModal ? (
+  if (!props.showModal) return null;
+  return (
     <div aria-modal={true}>
       <div className={styles.modalBackground} onClick={() => toggleModal()} />
       <div className={styles.modalContainer}>
@@ -101,7 +104,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
                 {showMetamask && (
                   <span
                     className={styles.walletButton}
-                    onClick={() => handleConnect({ wallet: "metamask" })}
+                    onClick={() => handleConnect({ wallet: "injected" })}
                   >
                     <MetaMaskFoxIcon />
                     <Text t="button">Metamask</Text>
@@ -110,7 +113,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
                 {showBrave && (
                   <span
                     className={styles.walletButton}
-                    onClick={() => handleConnect({ wallet: "metamask" })}
+                    onClick={() => handleConnect({ wallet: "injected" })}
                   >
                     <BraveIcon />
                     <Text t="button">Brave</Text>
@@ -118,7 +121,11 @@ export const ConnectModal = (props: ConnectModalProps) => {
                 )}
                 <span
                   className={styles.walletButton}
-                  onClick={() => handleConnect({ wallet: "coinbase" })}
+                  onClick={() =>
+                    handleConnect({
+                      wallet: showCoinbaseWallet ? "injected" : "coinbase",
+                    })
+                  }
                 >
                   <CoinbaseWalletIcon />
                   <Text t="button">Coinbase</Text>
@@ -174,7 +181,5 @@ export const ConnectModal = (props: ConnectModalProps) => {
         </div>
       </div>
     </div>
-  ) : (
-    <></>
   );
 };

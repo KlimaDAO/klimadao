@@ -5,7 +5,6 @@ import type Torus from "@toruslabs/torus-embed";
 import type { TorusInpageProvider } from "@toruslabs/torus-embed";
 import type Web3Provider from "@walletconnect/web3-provider";
 import type { providers } from "ethers";
-import { ConnectModalProps } from "../ConnectModal";
 
 // Function overloads because "accountsChanged" returns an array of strings, but the others don't.
 // Ethers did not have these properly typed.
@@ -65,6 +64,17 @@ export interface DisconnectedWeb3State {
   signer: undefined;
   network: undefined;
 }
+export interface RenderModalProps {
+  errorMessage: string;
+  torusText: string;
+  titles: {
+    connect: string;
+    loading: string;
+    error: string;
+  };
+  buttonClassName?: string;
+  onClose?: () => void;
+}
 
 export type Web3State = ConnectedWeb3State | DisconnectedWeb3State;
 
@@ -73,7 +83,7 @@ export type Web3ModalState = Web3State & {
   connect?: (wallet?: string) => Promise<void>;
   disconnect?: () => Promise<void>;
   showModal: boolean;
-  renderModal: (props: ConnectModalProps) => JSX.Element;
+  renderModal: (props: RenderModalProps) => JSX.Element;
   toggleModal: () => void;
 };
 
