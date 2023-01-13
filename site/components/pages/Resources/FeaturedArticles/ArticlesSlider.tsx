@@ -56,7 +56,7 @@ export const ArticlesSlider: FC<Props> = (props) => {
     // start autoslide on mount
     const intervalId = setInterval(() => {
       setCurrentScrollLeft((csl) => csl + 1);
-    }, 3000);
+    }, 6000);
 
     scrollInterval.current = intervalId;
 

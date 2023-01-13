@@ -589,9 +589,9 @@ export const PledgeForm: FC<Props> = (props) => {
 
           <TotalFootprint control={control} setValue={setValue} />
 
-          {/* better to use an input type=submit */}
           <ButtonPrimary
             disabled={!isDirty}
+            type="submit"
             label={
               submitting ? (
                 <SubmittingLabel />

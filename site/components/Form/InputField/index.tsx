@@ -11,6 +11,7 @@ interface Props {
   label: string;
   hideLabel?: boolean;
   errorMessage?: string;
+  icon?: JSX.Element;
 }
 
 export const InputField = React.forwardRef<HTMLInputElement, Props>(
@@ -19,6 +20,7 @@ export const InputField = React.forwardRef<HTMLInputElement, Props>(
       styles.baseStyles,
       {
         [styles.errorStyles]: !!props.errorMessage,
+        [styles.withIcon]: !!props.icon,
       },
       props.inputProps.className
     );
@@ -32,6 +34,8 @@ export const InputField = React.forwardRef<HTMLInputElement, Props>(
         <label htmlFor={props.id} className={visuallyHidden}>
           <Text t="caption">{props.label}</Text>
         </label>
+
+        {!!props.icon && <div className={styles.icon}>{props.icon}</div>}
 
         <input
           id={props.id}

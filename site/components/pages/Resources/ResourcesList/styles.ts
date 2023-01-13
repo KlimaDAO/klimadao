@@ -23,12 +23,12 @@ export const searchInputContainer = css`
 export const searchInput = css`
   background-color: var(--surface-01);
   -webkit-appearance: none; // remove default border radius for iOS
-  border-radius: 1rem 0 0 1rem;
+  border-radius: 1rem;
   border: 0.175rem solid var(--surface-01);
 
   &:focus,
   &:hover {
-    border-color: var(--surface-01);
+    border-color: var(--klima-green);
   }
 
   // remove ugly clear icon
@@ -37,16 +37,6 @@ export const searchInput = css`
   &::-webkit-search-results-button,
   &::-webkit-search-results-decoration {
     -webkit-appearance: none;
-  }
-`;
-
-export const searchInputSubmit = css`
-  border-radius: 0 1rem 1rem 0;
-  background-color: var(--surface-01);
-  padding: 0rem 1.6rem;
-
-  svg {
-    fill: var(--font-03);
   }
 `;
 

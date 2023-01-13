@@ -163,10 +163,11 @@ export const ResourcesList: FC<Props> = (props) => {
             <div className={styles.searchInputContainer}>
               <InputField
                 id="search"
+                icon={<SearchIcon fontSize="large" />}
                 inputProps={{
                   placeholder: t({
                     id: "resources.form.input.search.placeholder",
-                    message: "Search",
+                    message: "Search...",
                   }),
                   type: "search",
                   autoComplete: "off",
@@ -178,12 +179,6 @@ export const ResourcesList: FC<Props> = (props) => {
                   message: "Search",
                 })}
                 hideLabel
-              />
-              <ButtonPrimary
-                icon={<SearchIcon fontSize="large" />}
-                type="submit"
-                className={styles.searchInputSubmit}
-                onClick={handleSubmit(onSearchSubmit)}
               />
             </div>
           </form>
@@ -208,13 +203,14 @@ export const ResourcesList: FC<Props> = (props) => {
                   message: "Sort by",
                 })}
               />
-              <Text>
+              <Text t="body4">
                 <Trans id="shared.resources.sort_by.header">Sort by:</Trans>
               </Text>
               <SortyByDropDown control={control} setValue={setValue} />
             </div>
           </div>
         </div>
+
         <div className={styles.main}>
           <div className={styles.filtersContainer}>
             <ResourcesFilters

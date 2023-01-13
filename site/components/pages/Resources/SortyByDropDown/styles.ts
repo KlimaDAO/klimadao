@@ -6,7 +6,7 @@ export const dropdownHeader = css`
   gap: 0.8rem;
   background-color: var(--surface-01);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1rem 0.8rem 1rem 1.4rem;
   min-height: 4.8rem;
   justify-content: center;
 

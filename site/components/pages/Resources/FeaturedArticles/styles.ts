@@ -55,6 +55,7 @@ export const sliderItem = css`
   flex-shrink: 0;
   padding: 0 1rem;
   overflow: hidden;
+  scroll-snap-align: start;
 `;
 
 export const sliderContainerInner = css`
