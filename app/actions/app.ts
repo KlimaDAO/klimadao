@@ -7,13 +7,13 @@ import {
   fetchBlockRate,
   getContract,
   getEstimatedDailyRebases,
-  getJsonRpcProvider,
+  getStaticProvider,
   getTreasuryBalance,
 } from "@klimadao/lib/utils";
 
 export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
   return async (dispatch) => {
-    const provider = getJsonRpcProvider();
+    const provider = getStaticProvider();
     try {
       const currentBlock = await provider.getBlockNumber();
 

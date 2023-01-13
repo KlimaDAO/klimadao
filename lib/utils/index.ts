@@ -19,7 +19,6 @@ export { getImageSizes } from "./getImageSizes";
 export { getInfuraUrl } from "./getInfuraUrl";
 export { getInteger } from "./getInteger";
 export { getIsValidAddress } from "./getIsValidAddress";
-export { getJsonRpcProvider } from "./getJsonRpcProvider";
 export { getKlimaSupply } from "./getKlimaSupply";
 export { getLocales } from "./getLocales";
 export { getOgImageSrc } from "./getOgImageSrc";
@@ -30,6 +29,7 @@ export {
 } from "./getRetirement";
 export { getRetirementTokenByAddress } from "./getRetirementTokenByAddress";
 export { getStakingRewards } from "./getStakingRewards";
+export { getStaticProvider } from "./getStaticProvider";
 export { getTokenDecimals } from "./getTokenDecimals";
 export { getTransactionOptions } from "./getTransactionOptions";
 export { getTreasuryBalance } from "./getTreasuryBalance";

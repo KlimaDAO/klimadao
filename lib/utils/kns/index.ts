@@ -1,7 +1,7 @@
 import { Domain } from "../../types/domains";
 import { getContract } from "../getContract";
 import { getIsValidAddress } from "../getIsValidAddress";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
+import { getStaticProvider } from "../getStaticProvider";
 
 // https://www.kns.earth/#/
 export const isKNSDomain = (domain: string): boolean =>
@@ -15,7 +15,7 @@ export const createKNSDomainFromName = (name: string): string =>
 // KNSContract.provider = myProvider;
 export const KNSContract = getContract({
   contractName: "klimaNameService",
-  provider: getJsonRpcProvider(),
+  provider: getStaticProvider(),
 });
 
 export const getAddressByKNS = async (domain: string): Promise<string> => {
@@ -47,9 +47,9 @@ export const getKNSByAddress = async (
 // Resolves kns domain for profile image
 export const getKNSProfile = async (params: {
   address: string;
-  providerUrl?: string;
+  infuraId?: string;
 }): Promise<Domain | null> => {
-  const provider = getJsonRpcProvider(params.providerUrl);
+  const provider = getStaticProvider({ infuraId: params.infuraId });
   const KNSContract = getContract({
     contractName: "klimaNameService",
     provider,

@@ -1,16 +1,13 @@
-import { getDefaultProvider, providers } from "ethers";
 import { Domain } from "../../types/domains";
 import { getIsValidAddress } from "../getIsValidAddress";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
+import { getStaticProvider } from "../getStaticProvider";
 
 export const isENSDomain = (domain: string) =>
   !!domain && domain.includes(".eth");
 
-export const getAddressByENS = async (domain: string, providerUrl?: string) => {
+export const getAddressByENS = async (domain: string, infuraId?: string) => {
   try {
-    const provider = providerUrl
-      ? getJsonRpcProvider(providerUrl)
-      : getDefaultProvider(1);
+    const provider = getStaticProvider({ infuraId, chain: "eth" });
     const address = await provider.resolveName(domain);
     if (!address || !getIsValidAddress(address)) {
       throw new Error("Not a valid ENS address");
@@ -24,14 +21,13 @@ export const getAddressByENS = async (domain: string, providerUrl?: string) => {
 
 export const getENSByAddress = async (
   address: string,
-  providerUrl?: string
+  infuraId?: string
 ): Promise<string | null> => {
   try {
-    // ENS lookup on the serverside works only with providerUrl
-    // fallback to getDefaultProvider on local development where secrets are not present
-    const provider = providerUrl
-      ? getJsonRpcProvider(providerUrl)
-      : providers.getDefaultProvider(1);
+    const provider = getStaticProvider({
+      chain: "eth",
+      infuraId,
+    });
     const domain = await provider.lookupAddress(address);
     return domain;
   } catch (e) {
@@ -45,12 +41,13 @@ const DEFAULT_ENS_PROFILE =
 
 export const getENSProfile = async (params: {
   address: string;
-  providerUrl?: string;
+  infuraId?: string;
 }): Promise<Domain | null> => {
   try {
-    const provider = params.providerUrl
-      ? getJsonRpcProvider(params.providerUrl)
-      : providers.getDefaultProvider(1);
+    const provider = getStaticProvider({
+      chain: "eth",
+      infuraId: params.infuraId,
+    });
     const ensDomain = await provider.lookupAddress(params.address);
     const imageUrl = ensDomain ? await provider.getAvatar(ensDomain) : null;
 
