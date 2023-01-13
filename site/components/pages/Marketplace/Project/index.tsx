@@ -9,6 +9,7 @@ import {
   getAllListings,
   getAmountLeftToSell,
   getLowestPriceFromListings,
+  getSortByUpdateListings,
   getTotalAmountSold,
 } from "components/pages/Marketplace/lib/listingsGetter";
 import { Activities } from "components/pages/Marketplace/shared/Activities";
@@ -40,7 +41,7 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
   const sortedListings =
     !!activeListings &&
     !!activeListings.length &&
-    activeListings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+    getSortByUpdateListings(activeListings);
 
   return (
     <>

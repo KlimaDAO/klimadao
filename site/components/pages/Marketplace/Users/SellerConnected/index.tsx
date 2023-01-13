@@ -20,6 +20,7 @@ import {
   getActiveListings,
   getAllListings,
   getAmountLeftToSell,
+  getSortByUpdateListings,
   getTotalAmountSold,
 } from "components/pages/Marketplace/lib/listingsGetter";
 
@@ -110,7 +111,7 @@ export const SellerConnected: FC<Props> = (props) => {
     const sortedListings =
       activeListings &&
       !!activeListings.length &&
-      activeListings.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+      getSortByUpdateListings(activeListings);
 
     sortedListings &&
       sortedListings.length &&
