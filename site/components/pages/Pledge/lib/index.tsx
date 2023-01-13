@@ -6,7 +6,7 @@ export {
   createPledgeAttributes,
   putPledgeAttributes,
 } from "./pledgeAttributes";
-export { DEFAULT_VALUES, pledgeFormAdapter } from "./pledgeFormAdapter";
+export { DEFAULT_PLEDGE_VALUES, pledgeFormAdapter } from "./pledgeFormAdapter";
 export { putPledge } from "./putPledge";
 export { queryHoldingsByAddress } from "./queryHoldingsByAddress";
 export {

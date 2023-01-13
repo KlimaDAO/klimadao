@@ -15,12 +15,17 @@ export const retirementContent = css`
   border-radius: 0 0 1.2rem 1.2rem;
   grid-column: main;
   display: grid;
+  grid-template-columns: 1fr [center] minmax(0, 60rem) 1fr;
   gap: 2.8rem;
   padding: 2.8rem 1.5rem;
 
   ${breakpoints.medium} {
     gap: 5.2rem;
     padding: 5.2rem;
+  }
+
+  > * {
+    grid-column: center;
   }
 `;
 
@@ -40,14 +45,25 @@ export const metaData = css`
     display: flex;
     gap: 4rem;
     flex-direction: column;
+    // standardize column sizes
+    max-width: 30rem;
   }
 `;
 
 export const data_description = css`
   margin: 0 auto;
-  ${breakpoints.medium} {
-    max-width: 75%;
+`;
+
+export const create_pledge = css`
+  a {
+    margin-left: 0.5rem;
   }
+  margin-bottom: 2.4rem;
+`;
+
+export const pledge_button = css`
+  display: grid;
+  gap: 1.6rem;
 `;
 
 export const sectionButtons = css`

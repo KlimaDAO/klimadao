@@ -13,6 +13,8 @@ import {
   queryKlimaRetireByIndex,
 } from "@klimadao/lib/utils";
 
+import { getPledgeByAddress } from "components/pages/Pledge/lib/firebase";
+import { Pledge } from "components/pages/Pledge/types";
 import { SingleRetirementPage } from "components/pages/Retirements/SingleRetirement";
 import { getAddressByDomain } from "lib/getAddressByDomain";
 import { getDomainByAddress } from "lib/getDomainByAddress";
@@ -26,7 +28,7 @@ interface Params extends ParsedUrlQuery {
   retirement_index: string;
 }
 
-interface PageProps {
+export interface SingleRetirementPageProps {
   /** The resolved 0x address */
   beneficiaryAddress: string;
   retirement: KlimaRetire | null;
@@ -36,6 +38,7 @@ interface PageProps {
   nameserviceDomain: string | null;
   /** Version of this page that google will rank. Prefers nameservice, otherwise is a self-referential 0x canonical */
   canonicalUrl?: string;
+  pledge: Pledge | null;
 }
 
 // second param should always be a number
@@ -43,9 +46,10 @@ const isNumeric = (value: string) => {
   return /^\d+$/.test(value);
 };
 
-export const getStaticProps: GetStaticProps<PageProps, Params> = async (
-  ctx
-) => {
+export const getStaticProps: GetStaticProps<
+  SingleRetirementPageProps,
+  Params
+> = async (ctx) => {
   try {
     const { params, locale } = ctx;
 
@@ -83,6 +87,14 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       beneficiaryAddress = await getAddressByDomain(beneficiaryInUrl); // this fn should throw if it fails to resolve
     } else {
       beneficiaryAddress = beneficiaryInUrl;
+    }
+
+    let pledge: Pledge | null;
+    try {
+      pledge = await getPledgeByAddress(beneficiaryAddress.toLowerCase());
+    } catch (_e) {
+      // no pledge found
+      pledge = null;
     }
 
     const retirementIndex = Number(params.retirement_index) - 1; // totals does not include index 0
@@ -133,6 +145,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
         retirementIndex: params.retirement_index,
         retirementIndexInfo,
         translation,
+        pledge,
       },
       revalidate: 240,
     };

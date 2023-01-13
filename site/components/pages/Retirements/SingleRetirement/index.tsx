@@ -6,9 +6,6 @@ import { useRouter } from "next/router";
 
 import { ButtonPrimary, Section, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { RetirementIndexInfoResult } from "@klimadao/lib/types/offset";
-import { KlimaRetire } from "@klimadao/lib/types/subgraph";
-import { VerraProjectDetails } from "@klimadao/lib/types/verra";
 import {
   concatAddress,
   getImageSizes,
@@ -38,15 +35,8 @@ import { RetirementValue } from "./RetirementValue";
 import * as styles from "./styles";
 import { TextGroup } from "./TextGroup";
 
-const LoadingCertificateButton: React.FC = () => (
-  <ButtonPrimary
-    disabled={true}
-    label={t({
-      id: "shared.loading",
-      message: "Loading...",
-    })}
-  />
-);
+import { SingleRetirementPageProps } from "pages/retirements/[beneficiary]/[retirement_index]";
+import { ViewPledgeButton } from "./ViewPledgeButton";
 
 const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonProps> =
   dynamic(
@@ -56,27 +46,29 @@ const DownloadCertificateButton: React.ComponentType<DownloadCertificateButtonPr
       ),
     {
       ssr: false,
-      loading: () => <LoadingCertificateButton />,
+      loading: () => (
+        <ButtonPrimary
+          disabled
+          label={t({
+            id: "shared.loading",
+            message: "Loading...",
+          })}
+        />
+      ),
     }
   );
 
-type Props = {
-  beneficiaryAddress: string;
-  retirement: KlimaRetire | null;
-  retirementIndex: string;
-  retirementIndexInfo: RetirementIndexInfoResult;
-  projectDetails?: VerraProjectDetails;
-  nameserviceDomain?: string;
-  canonicalUrl?: string;
-};
-
-export const SingleRetirementPage: NextPage<Props> = (props) => {
+export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
+  props
+) => {
   const {
     beneficiaryAddress,
     retirement,
     retirementIndexInfo,
     nameserviceDomain,
+    pledge,
   } = props;
+
   const { locale, asPath } = useRouter();
   const tokenData = retirementTokenInfoMap[retirementIndexInfo.typeOfToken];
 
@@ -199,23 +191,36 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
                       retirementIndex={props.retirementIndex}
                       retirementMessage={retireData.retirementMessage}
                       retirementUrl={`${urls.home}/${asPath}`}
-                      projectDetails={props.projectDetails}
+                      projectDetails={props.projectDetails ?? undefined}
                       tokenData={tokenData}
                     />
-                  ) : (
-                    <LoadingCertificateButton />
-                  )
+                  ) : null
                 }
               />
             </div>
           </div>
-          <Text className={styles.data_description} t="body2" align="center">
+          <Text className={styles.data_description} t="caption" align="start">
             <Trans id="retirement.single.disclaimer">
               This represents the permanent retirement of tokenized carbon
               assets on the Polygon blockchain. This retirement and the
               associated data are immutable public records.
             </Trans>
           </Text>
+          <div className={styles.pledge_button}>
+            <ViewPledgeButton pledge={pledge} />
+            {pledge === null && (
+              <Text className={styles.create_pledge} t="caption" align="center">
+                <Trans id="retirement.single.is_this_your_retirement">
+                  Is this your retirement?
+                </Trans>
+                <Link href={`/pledge/${beneficiaryAddress}`}>
+                  <Trans id="retirement.single.create_a_pledge">
+                    Create a pledge now.
+                  </Trans>
+                </Link>
+              </Text>
+            )}
+          </div>
         </div>
       </Section>
 
@@ -270,7 +275,7 @@ export const SingleRetirementPage: NextPage<Props> = (props) => {
       {props.retirement?.offset && (
         <Section variant="gray" className={styles.section}>
           <ProjectDetails
-            projectDetails={props.projectDetails}
+            projectDetails={props.projectDetails ?? undefined}
             offset={props.retirement.offset}
           />
         </Section>

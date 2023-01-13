@@ -90,6 +90,17 @@ Klima Infinity pledge dashboard is backed by a firebase database. Follow the fol
 FIREBASE_ADMIN_CERT={ "type": "service_account", "project_id": "your_database_name", "private_key_id": .... }
 ```
 
+## ENS Names and Ether URLs
+
+In order to reference ENS names or ethereum urls in the development environment you will need to:
+
+1. Register at https://www.infura.io/
+2. Create a new project
+3. Add the `Polygon PoS` addon and your card details at https://app.infura.io/settings/payment
+4. Copy the API Key for the new project to the `INFURA_ID` value in `.env.local`
+
+without this step pages such as `https://localhost:3000/retirements/<some.ens>` will fail to load while developing.
+
 # Contributing
 
 **The DAO is looking for react/typescript devs as well as experienced Solidity devs!** Enjoy a flexible work schedule and work on something truly ambitious and meaningful. Monthly compensation available based on your level of experience and degree of contribution.

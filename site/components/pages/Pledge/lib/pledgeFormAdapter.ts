@@ -1,7 +1,7 @@
 import { DEFAULT_NONCE } from ".";
 import { Pledge, PledgeFormValues } from "../types";
 
-export const DEFAULT_VALUES: Pledge = {
+export const DEFAULT_PLEDGE_VALUES: Pledge = {
   id: "",
   ownerAddress: "",
   name: "",

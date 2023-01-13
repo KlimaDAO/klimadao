@@ -1574,47 +1574,43 @@ msgstr ""
 msgid "retirement.footer.buy_klima.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.metaDescription"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:103
 msgid "retirement.head.metaTitle"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:99
 msgid "retirement.head.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:256
+#: components/pages/Retirements/SingleRetirement/index.tsx:247
 msgid "retirement.share.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:153
 msgid "retirement.single.beneficiary.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:155
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.beneficiary.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:213
+#: components/pages/Retirements/SingleRetirement/index.tsx:203
 msgid "retirement.single.disclaimer"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:34
-msgid "retirement.single.download_certificate_button"
-msgstr ""
-
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.single.header.subline"
 msgstr ""
 
@@ -1654,7 +1650,7 @@ msgstr ""
 msgid "retirement.single.quantity"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:181
 msgid "retirement.single.retirementCertificate.title"
 msgstr ""
 
@@ -1662,7 +1658,7 @@ msgstr ""
 msgid "retirement.single.retirementDate.title"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:140
+#: components/pages/Retirements/SingleRetirement/index.tsx:132
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr ""
 
@@ -1670,8 +1666,12 @@ msgstr ""
 msgid "retirement.single.timestamp.placeholder"
 msgstr ""
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:234
+#: components/pages/Retirements/SingleRetirement/index.tsx:225
 msgid "retirement.single.view_on_polygon_scan"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:14
+msgid "retirement.single.view_pledge"
 msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:40
