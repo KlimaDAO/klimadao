@@ -185,6 +185,7 @@ export const ResourcesList: FC<Props> = (props) => {
           <div className={styles.sortbyContainer}>
             <ButtonPrimary
               type="submit"
+              variant="gray"
               className={styles.toggleMobileModalButton}
               icon={<FormatListBulletedIcon fontSize="large" />}
               onClick={() => setShowMobileModal(true)}

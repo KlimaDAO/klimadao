@@ -62,10 +62,7 @@ export const sortbyContainer = css`
 
 export const toggleMobileModalButton = css`
   background-color: var(--surface-01);
-
-  svg {
-    fill: var(--font-01);
-  }
+  color: var(--font-01);
 
   ${showOnSmallScreens}
 `;
