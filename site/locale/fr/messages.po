@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-13 01:07+0000\n"
+"POT-Creation-Date: 2023-01-13 01:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1415,19 +1415,19 @@ msgstr "Sélectionner un ou plusieurs"
 msgid "resources.form.filters.clear_all"
 msgstr "Tout effacer"
 
-#: components/pages/Resources/ResourcesList/index.tsx:176
+#: components/pages/Resources/ResourcesList/index.tsx:177
 msgid "resources.form.input.search.label"
 msgstr "Recherche"
 
-#: components/pages/Resources/ResourcesList/index.tsx:167
+#: components/pages/Resources/ResourcesList/index.tsx:168
 msgid "resources.form.input.search.placeholder"
-msgstr "Recherche"
+msgstr ""
 
-#: components/pages/Resources/ResourcesList/index.tsx:206
+#: components/pages/Resources/ResourcesList/index.tsx:201
 msgid "resources.form.input.sort_by.label"
 msgstr "Trier par"
 
-#: components/pages/Resources/SortyByDropDown/index.tsx:20
+#: components/pages/Resources/SortyByDropDown/index.tsx:21
 msgid "resources.form.input.sort_by.select"
 msgstr "Sélectionner"
 
@@ -1495,7 +1495,7 @@ msgstr "Blog"
 msgid "resources.list.filter.type.podcast"
 msgstr "Podcast"
 
-#: components/pages/Resources/SortyByDropDown/index.tsx:61
+#: components/pages/Resources/SortyByDropDown/index.tsx:62
 msgid "resources.list.select.sort_by.toggle"
 msgstr "Basculer vers le menu \"Trié par\""
 
@@ -1515,11 +1515,11 @@ msgstr "Le plus ancien en premier"
 msgid "resources.list.sort_by.z-a"
 msgstr "Z-A"
 
-#: components/pages/Resources/ResourcesList/index.tsx:306
+#: components/pages/Resources/ResourcesList/index.tsx:302
 msgid "resources.mobile_modal.button.show_results"
 msgstr "Afficher les résultats"
 
-#: components/pages/Resources/ResourcesList/index.tsx:279
+#: components/pages/Resources/ResourcesList/index.tsx:275
 msgid "resources.mobile_modal.title"
 msgstr "Trier par"
 
@@ -1535,19 +1535,19 @@ msgstr "Articles en vedette"
 msgid "resources.page.list.header"
 msgstr "Tout explorer"
 
-#: components/pages/Resources/ResourcesList/index.tsx:244
+#: components/pages/Resources/ResourcesList/index.tsx:240
 msgid "resources.page.list.no_search_results.title"
 msgstr "Désolé. Nous n'avons pas trouvé de résultats correspondants."
 
-#: components/pages/Resources/ResourcesList/index.tsx:236
+#: components/pages/Resources/ResourcesList/index.tsx:232
 msgid "resources.page.list.on_fetch_error"
 msgstr "Désolé ! Un problème est survenu."
 
-#: components/pages/Resources/ResourcesList/index.tsx:257
+#: components/pages/Resources/ResourcesList/index.tsx:253
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "Veuillez utiliser une autre combinaison de filtres."
 
-#: components/pages/Resources/ResourcesList/index.tsx:250
+#: components/pages/Resources/ResourcesList/index.tsx:246
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Vérifiez que votre recherche ne comporte pas de fautes de frappe ou essayez un autre terme de recherche."
 
@@ -1946,7 +1946,7 @@ msgstr "Centre de Ressources"
 msgid "shared.resources"
 msgstr "Ressources"
 
-#: components/pages/Resources/ResourcesList/index.tsx:212
+#: components/pages/Resources/ResourcesList/index.tsx:207
 msgid "shared.resources.sort_by.header"
 msgstr "Trier par :"
 
