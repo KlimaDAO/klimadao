@@ -93,6 +93,8 @@ export const Offset = (props: Props) => {
   // local state
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
+  const [isInvalidFractionalQtyFiat, setIsInvalidFractionalQtyFiat] =
+    useState<boolean>(false);
   const [paymentMethod, setPaymentMethod] =
     useState<OffsetPaymentMethod>("fiat");
   const [selectedRetirementToken, setSelectedRetirementToken] =
@@ -170,6 +172,11 @@ export const Offset = (props: Props) => {
 
   // effects
   useEffect(() => {
+    // round the value for the edge case where a user inputs a fractional value
+    // when fiat isn't selected to pay. Example (100.5 -> 101)
+    if (paymentMethod === "fiat" && !Number.isInteger(parseFloat(quantity))) {
+      setQuantity(Math.round(Number(quantity)).toString());
+    }
     // if input token changes, force a compatible retirement token
     if (
       !offsetCompatibility[paymentMethod]?.includes(selectedRetirementToken)
@@ -464,6 +471,9 @@ export const Offset = (props: Props) => {
   };
 
   const handleChangeQuantity = (e: ChangeEvent<HTMLInputElement>) => {
+    // reset the state on each change event
+    setIsInvalidFractionalQtyFiat(false);
+
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
     }
@@ -610,19 +620,41 @@ export const Offset = (props: Props) => {
                 min={paymentMethod === "fiat" ? "1" : "0"}
                 value={quantity}
                 onKeyDown={(e) => {
+                  // don't allow decimal values when fiat payment method is selected
+                  if (paymentMethod === "fiat" && ["."].includes(e.key)) {
+                    e.preventDefault();
+                    setIsInvalidFractionalQtyFiat(true);
+                  }
                   // dont let user enter these special characters into the number input
                   if (["e", "E", "+", "-"].includes(e.key)) {
                     e.preventDefault();
                   }
                 }}
-                data-error={invalidCost || invalidRetirementQuantity}
+                data-error={
+                  invalidCost ||
+                  invalidRetirementQuantity ||
+                  isInvalidFractionalQtyFiat
+                }
                 onChange={handleChangeQuantity}
+                onBlur={() => setIsInvalidFractionalQtyFiat(false)}
                 placeholder={t({
                   id: "offset.offset_quantity",
                   message: "Enter quantity to offset",
                 })}
               />
             </div>
+
+            {isInvalidFractionalQtyFiat && paymentMethod === "fiat" && (
+              <Text
+                t="caption"
+                color="lightest"
+                className="invalid_project_tonnage"
+              >
+                <Trans id="offset.invalid_fractional_quantity_fiat">
+                  Cannot use a fractional quantity when paying with credit card!
+                </Trans>
+              </Text>
+            )}
             {invalidRetirementQuantity && (
               <Text
                 t="caption"
