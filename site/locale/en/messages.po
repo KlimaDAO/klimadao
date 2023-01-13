@@ -1592,7 +1592,7 @@ msgstr "{retiree} retired {0} Tonnes of carbon"
 msgid "retirement.head.title"
 msgstr "KlimaDAO | Carbon Retirement Receipt"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:247
+#: components/pages/Retirements/SingleRetirement/index.tsx:261
 msgid "retirement.share.title"
 msgstr "Share your impact"
 
@@ -1608,9 +1608,17 @@ msgstr "Beneficiary"
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Beneficiary Address"
 
+#: components/pages/Retirements/SingleRetirement/index.tsx:217
+msgid "retirement.single.create_a_pledge"
+msgstr "Create a pledge now."
+
 #: components/pages/Retirements/SingleRetirement/index.tsx:203
 msgid "retirement.single.disclaimer"
 msgstr "This represents the permanent retirement of tokenized carbon assets on the Polygon blockchain. This retirement and the associated data are immutable public records."
+
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
+msgid "retirement.single.download_certificate_button"
+msgstr "Download PDF"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"
@@ -1620,9 +1628,17 @@ msgstr "{0}t"
 msgid "retirement.single.header.subline"
 msgstr "CO2-Equivalent Emissions Offset (Metric Tonnes)"
 
+#: components/pages/Retirements/SingleRetirement/index.tsx:213
+msgid "retirement.single.is_this_your_retirement"
+msgstr "Is this your retirement?"
+
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
 msgstr "Retirement Message"
+
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:30
+msgid "retirement.single.no_pledge"
+msgstr "This user has not created a pledge"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
@@ -1672,11 +1688,11 @@ msgstr "No retirement message provided"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "No retirement timestamp provided"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:225
+#: components/pages/Retirements/SingleRetirement/index.tsx:239
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "View on Polygonscan"
 
-#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:14
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:18
 msgid "retirement.single.view_pledge"
 msgstr "View Pledge"
 
@@ -1877,7 +1893,7 @@ msgstr "Info"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:44
+#: components/pages/Retirements/SingleRetirement/index.tsx:52
 msgid "shared.loading"
 msgstr "Loading..."
 

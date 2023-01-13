@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-12 21:14+0000\n"
+"POT-Creation-Date: 2023-01-13 01:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1579,53 +1579,65 @@ msgstr "Utilisez des jetons KLIMA collatéralisés par du au carbone pour gouver
 msgid "retirement.footer.buy_klima.title"
 msgstr "Achetez, mettez en jeu et soyez récompensé."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.metaDescription"
 msgstr "Compensations carbones transparentes, activées par la blockchain et alimentées par KlimaDAO."
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:103
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} a compensé {0} Tonnes de carbone"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:99
 msgid "retirement.head.title"
 msgstr "Klimadao | Reçu de compensation carbone"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:256
+#: components/pages/Retirements/SingleRetirement/index.tsx:261
 msgid "retirement.share.title"
 msgstr "Partagez votre impact"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:153
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "Aucun bénéficiaire associé"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:155
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.beneficiary.title"
 msgstr "Bénéficiaire"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "Adresse du bénéficiaire"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:213
+#: components/pages/Retirements/SingleRetirement/index.tsx:217
+msgid "retirement.single.create_a_pledge"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:203
 msgid "retirement.single.disclaimer"
 msgstr "Ceci représente la compensation permanente des actifs carbone sous formes de jetons présents sur la blockchain Polygon. Cette compensation et les données associées constituent des entrées publiques immuables."
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
 msgid "retirement.single.download_certificate_button"
 msgstr "Télécharger le PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.single.header.subline"
 msgstr "Compensation d'émissions en équivalent CO2 (en tonnes)"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:213
+msgid "retirement.single.is_this_your_retirement"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
 msgstr "Message de compensation"
+
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:30
+msgid "retirement.single.no_pledge"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
@@ -1659,7 +1671,7 @@ msgstr "Voir la transaction sur Polygonscan"
 msgid "retirement.single.quantity"
 msgstr "QUANTITÉ COMPENSÉE"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:181
 msgid "retirement.single.retirementCertificate.title"
 msgstr "Certificat"
 
@@ -1667,7 +1679,7 @@ msgstr "Certificat"
 msgid "retirement.single.retirementDate.title"
 msgstr "Date"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:140
+#: components/pages/Retirements/SingleRetirement/index.tsx:132
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "Aucun message de compensation carbone indiqué"
 
@@ -1675,9 +1687,13 @@ msgstr "Aucun message de compensation carbone indiqué"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "Compensation carbone non horodatée"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:234
+#: components/pages/Retirements/SingleRetirement/index.tsx:239
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Voir sur Polygonscan"
+
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:18
+msgid "retirement.single.view_pledge"
+msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
@@ -1878,7 +1894,7 @@ msgstr "Informations"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:44
+#: components/pages/Retirements/SingleRetirement/index.tsx:52
 msgid "shared.loading"
 msgstr "Chargement..."
 

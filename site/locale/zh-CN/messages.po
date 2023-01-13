@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-12 21:14+0000\n"
+"POT-Creation-Date: 2023-01-13 01:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1574,53 +1574,65 @@ msgstr "使用碳支持的 KLIMA 代币来治理、兑换并获取质押奖励 -
 msgid "retirement.footer.buy_klima.title"
 msgstr "获取、质押并获得奖励。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.metaDescription"
 msgstr "透明，由 KlimaDAO 支持的链上抵消。"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:103
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} 停用的 {0} 碳吨数"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:99
 msgid "retirement.head.title"
 msgstr "KlimaDAO |碳停用收据"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:256
+#: components/pages/Retirements/SingleRetirement/index.tsx:261
 msgid "retirement.share.title"
 msgstr "分享您的影响"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:153
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "未提供受益人姓名"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:155
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.beneficiary.title"
 msgstr "受益人"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "受益人地址"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:213
+#: components/pages/Retirements/SingleRetirement/index.tsx:217
+msgid "retirement.single.create_a_pledge"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:203
 msgid "retirement.single.disclaimer"
 msgstr "这代表了 Polygon 区块链上代币化碳资产的永久停用。该停用碳和相关数据是不可变的公共记录。"
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
 msgid "retirement.single.download_certificate_button"
 msgstr "下载PDF"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"
 msgstr "{0}t"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.single.header.subline"
 msgstr "二氧化碳当量排放抵消（公吨）"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:213
+msgid "retirement.single.is_this_your_retirement"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
 msgstr "停用消息"
+
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:30
+msgid "retirement.single.no_pledge"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
@@ -1654,7 +1666,7 @@ msgstr "查看 Polygonscan 上的交易"
 msgid "retirement.single.quantity"
 msgstr "停用数量"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:181
 msgid "retirement.single.retirementCertificate.title"
 msgstr "证书"
 
@@ -1662,7 +1674,7 @@ msgstr "证书"
 msgid "retirement.single.retirementDate.title"
 msgstr "日期"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:140
+#: components/pages/Retirements/SingleRetirement/index.tsx:132
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "未提供停用信息"
 
@@ -1670,9 +1682,13 @@ msgstr "未提供停用信息"
 msgid "retirement.single.timestamp.placeholder"
 msgstr "未提供停用时间戳"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:234
+#: components/pages/Retirements/SingleRetirement/index.tsx:239
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "在 Polygonscan 上查看"
+
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:18
+msgid "retirement.single.view_pledge"
+msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
@@ -1871,7 +1887,7 @@ msgstr "信息"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:44
+#: components/pages/Retirements/SingleRetirement/index.tsx:52
 msgid "shared.loading"
 msgstr "正在加载..."
 

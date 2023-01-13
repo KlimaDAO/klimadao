@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-12 21:14+0000\n"
+"POT-Creation-Date: 2023-01-13 01:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1574,53 +1574,65 @@ msgstr "कार्बन-समर्थित KLIMA टोकन का उ�
 msgid "retirement.footer.buy_klima.title"
 msgstr "खरीदें, दाँव पर लगाएँ, और पुरस्कृत हों।"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:115
+#: components/pages/Retirements/SingleRetirement/index.tsx:107
 msgid "retirement.head.metaDescription"
 msgstr "KlimaDAO द्वारा संचालित पारदर्शी, ऑन-चेन ऑफ़सेट।"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:111
+#: components/pages/Retirements/SingleRetirement/index.tsx:103
 msgid "retirement.head.metaTitle"
 msgstr "{retiree} ने {0} कार्बन टन रिटायर किए"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:107
+#: components/pages/Retirements/SingleRetirement/index.tsx:99
 msgid "retirement.head.title"
 msgstr "क्लीमाडाओ | कार्बन रिटायरमेंट रसीद"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:256
+#: components/pages/Retirements/SingleRetirement/index.tsx:261
 msgid "retirement.share.title"
 msgstr "अपना प्रभाव साझा करें"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:161
+#: components/pages/Retirements/SingleRetirement/index.tsx:153
 msgid "retirement.single.beneficiary.placeholder"
 msgstr "कोई लाभार्थी-नाम प्रदान नहीं किया गया"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:155
+#: components/pages/Retirements/SingleRetirement/index.tsx:147
 msgid "retirement.single.beneficiary.title"
 msgstr "लाभार्थी"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:169
+#: components/pages/Retirements/SingleRetirement/index.tsx:161
 msgid "retirement.single.beneficiaryAddress.title"
 msgstr "लाभार्थी पता"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:213
+#: components/pages/Retirements/SingleRetirement/index.tsx:217
+msgid "retirement.single.create_a_pledge"
+msgstr ""
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:203
 msgid "retirement.single.disclaimer"
 msgstr "यह Polygon (पॉलीगॉन) ब्लॉकचेन पर टोकनयुक्त कार्बन परिसंपत्तियों के स्थायी रिटायरमेंट का प्रतिनिधित्व करता है। यह रिटायरमेंट और संबंधित डेटा अपरिवर्तनीय सार्वजनिक रिकॉर्ड हैं।"
 
-#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:34
+#: components/pages/Retirements/SingleRetirement/DownloadCertificateButton/index.tsx:30
 msgid "retirement.single.download_certificate_button"
 msgstr "PDF (पीडीएफ़) डाउनलोड करें"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:126
+#: components/pages/Retirements/SingleRetirement/index.tsx:118
 msgid "retirement.single.header.quantity"
 msgstr "{0}टी"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:131
+#: components/pages/Retirements/SingleRetirement/index.tsx:123
 msgid "retirement.single.header.subline"
 msgstr "CO2-समतुल्य उत्सर्जन ऑफ़सेट (मीट्रिक टन)"
+
+#: components/pages/Retirements/SingleRetirement/index.tsx:213
+msgid "retirement.single.is_this_your_retirement"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
 msgstr "रिटायरमेंट सन्देश"
+
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:30
+msgid "retirement.single.no_pledge"
+msgstr ""
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
@@ -1654,7 +1666,7 @@ msgstr ""
 msgid "retirement.single.quantity"
 msgstr "रिटायर की गयी मात्रा"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:189
+#: components/pages/Retirements/SingleRetirement/index.tsx:181
 msgid "retirement.single.retirementCertificate.title"
 msgstr "प्रमाणपत्र"
 
@@ -1662,7 +1674,7 @@ msgstr "प्रमाणपत्र"
 msgid "retirement.single.retirementDate.title"
 msgstr "दिनांक"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:140
+#: components/pages/Retirements/SingleRetirement/index.tsx:132
 msgid "retirement.single.retirementMessage.placeholder"
 msgstr "कोई रिटायरमेंट संदेश प्रदान नहीं किया गया"
 
@@ -1670,9 +1682,13 @@ msgstr "कोई रिटायरमेंट संदेश प्रदा
 msgid "retirement.single.timestamp.placeholder"
 msgstr "कोई रिटायरमेंट टाइमस्टैम्प प्रदान नहीं किया गया"
 
-#: components/pages/Retirements/SingleRetirement/index.tsx:234
+#: components/pages/Retirements/SingleRetirement/index.tsx:239
 msgid "retirement.single.view_on_polygon_scan"
 msgstr "Polygonscan (पॉलीगॉनस्कैन) पर देखें"
+
+#: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:18
+msgid "retirement.single.view_pledge"
+msgstr ""
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
@@ -1871,7 +1887,7 @@ msgstr "जानकारी"
 #: components/pages/Pledge/InvitationModals/RemoveModal/index.tsx:48
 #: components/pages/Pledge/PledgeDashboard/Cards/AssetBalanceCard/TokenRow/index.tsx:41
 #: components/pages/Pledge/PledgeDashboard/Cards/RetirementsCard/index.tsx:118
-#: components/pages/Retirements/SingleRetirement/index.tsx:44
+#: components/pages/Retirements/SingleRetirement/index.tsx:52
 msgid "shared.loading"
 msgstr "लोड हो रहा है..."
 
