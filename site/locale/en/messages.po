@@ -1163,15 +1163,15 @@ msgstr "Write your pledge today!"
 msgid "pledges.dashboard.pledge.title"
 msgstr "Pledge"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:72
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:64
 msgid "pledges.dashboard.profile.pledge_met"
 msgstr "≥ 100% of Pledge Met"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:81
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:73
 msgid "pledges.dashboard.profile.pledge_progress"
 msgstr "{0}% of Pledge Met"
 
-#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:114
+#: components/pages/Pledge/PledgeDashboard/Profile/index.tsx:106
 msgid "pledges.dashboard.profile.pledged_to_offset"
 msgstr "Pledged to Offset <0>{0}</0> Carbon Tonnes"
 
