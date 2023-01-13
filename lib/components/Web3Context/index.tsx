@@ -1,4 +1,4 @@
-import React, { createContext, FC, useState } from "react";
+import React, { createContext, FC, useCallback, useState } from "react";
 
 import { useProvider } from "../../utils/useProvider";
 import { ConnectModal } from "../ConnectModal";
@@ -15,8 +15,11 @@ export const Web3ContextProvider: FC<Props> = (props) => {
   const providerState = useProvider();
   const [showModal, setShowModal] = useState(false);
   const toggleModal = () => setShowModal((s) => !s);
-  const renderModal = (props: RenderModalProps) => (
-    <ConnectModal {...props} showModal={showModal} />
+  const renderModal = useCallback(
+    (props: RenderModalProps) => (
+      <ConnectModal {...props} showModal={showModal} />
+    ),
+    [showModal]
   );
   return (
     <Web3Context.Provider
