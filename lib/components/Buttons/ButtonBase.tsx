@@ -20,9 +20,7 @@ export type ButtonBaseProps = {
   target?: string;
   isExternalHref?: boolean;
   disabled?: boolean;
-  /** Apply rounded corners */
-  rounded?: boolean;
-  circle?: boolean;
+  shape?: "default" | "rounded" | "circle";
   type?: "button" | "submit" | "reset";
 } & HTMLAttributes<HTMLButtonElement> &
   HTMLAttributes<HTMLAnchorElement>;
@@ -33,8 +31,8 @@ interface BaseProps extends ButtonBaseProps {
 
 export const BaseButton: FC<BaseProps> = (props) => {
   const icon = !!props.icon;
-  const circle = !!props.circle;
-  const rounded = !!props.rounded;
+  const circle = props.shape === "circle";
+  const rounded = props.shape === "rounded";
   const suffix = props.iconPos === "suffix";
 
   /** Conditional styling */

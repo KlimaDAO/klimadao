@@ -267,7 +267,7 @@ export const SingleRetirementPage: NextPage<SingleRetirementPageProps> = (
             />
             <FacebookButton />
             <LinkedInButton />
-            <CopyAddressButton variant="lightGray" circle />
+            <CopyAddressButton variant="lightGray" shape="circle" />
           </div>
         </div>
       </Section>

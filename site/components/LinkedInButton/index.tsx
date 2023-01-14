@@ -50,7 +50,7 @@ export const LinkedInButton: FC<Props> = ({ url, ...baseProps }) => {
       disabled={!shareURL}
       icon={<LinkedInIcon />}
       variant="lightGray"
-      circle
+      shape="circle"
       {...baseProps}
     />
   );

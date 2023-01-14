@@ -225,14 +225,14 @@ export const EventDemo = (props: { eventTitle: string }) => {
             <ButtonPrimary
               className="hero_button_primary"
               variant="blue"
-              rounded
+              shape="rounded"
               label={"Get Started"}
               href="/infinity"
               renderLink={(linkProps) => <Link {...linkProps} />}
             />
             <ButtonSecondary
               variant="blue"
-              rounded
+              shape="rounded"
               label={"Contact Sales"}
               href={urls.klimaInfinityContactForm}
               target="_blank"

@@ -22,7 +22,7 @@ export const FacebookButton: FC<Props> = (props) => {
       disabled={!shareUrl}
       icon={<FacebookIcon />}
       variant="lightGray"
-      circle
+      shape="circle"
       {...props}
     />
   );

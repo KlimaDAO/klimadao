@@ -455,7 +455,7 @@ export const Bond: FC<Props> = (props) => {
         disabled: false,
         onClick: () => setShowTransactionModal(true),
         variant: "blue",
-        rounded: true,
+        shape: "rounded",
       };
     } else if (viewIsBond) {
       return {
