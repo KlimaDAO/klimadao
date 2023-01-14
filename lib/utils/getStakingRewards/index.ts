@@ -1,12 +1,13 @@
-import { getContract, getEstimatedDailyRebases } from "..";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
+import { getContract, getEstimatedDailyRebases, getStaticProvider } from "..";
 
 export const getStakingRewards = async (params: {
   days: number;
   blockRate: number;
-  providerUrl?: string;
+  infuraId?: string;
 }): Promise<number> => {
-  const provider = getJsonRpcProvider(params.providerUrl);
+  const provider = getStaticProvider({
+    infuraId: params.infuraId,
+  });
   const distributorContract = getContract({
     contractName: "distributor",
     provider,

@@ -1,6 +1,5 @@
 import {
   fetchBlockRate,
-  getInfuraUrl,
   getStakingRewards,
   getTreasuryBalance,
 } from "@klimadao/lib/utils";
@@ -11,18 +10,14 @@ import { INFURA_ID } from "lib/secrets";
 import { GetStaticProps } from "next";
 
 export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
-  const infuraURL = getInfuraUrl({
-    chain: "polygon",
-    infuraId: INFURA_ID,
-  });
-  const treasuryBalance = await getTreasuryBalance(infuraURL);
+  const treasuryBalance = await getTreasuryBalance({ infuraId: INFURA_ID });
   const latestPost = await fetchCMSContent("latestPost");
   const translation = await loadTranslation(ctx.locale);
   const blockRate = await fetchBlockRate();
   const monthlyStakingRewards = await getStakingRewards({
     days: 31,
     blockRate,
-    providerUrl: infuraURL,
+    infuraId: INFURA_ID,
   });
 
   return {

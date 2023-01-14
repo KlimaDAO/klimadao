@@ -2,10 +2,10 @@ import { t, Trans } from "@lingui/macro";
 import Payment from "@mui/icons-material/Payment";
 import { providers } from "ethers";
 
-import { Anchor, ConnectModal, Text } from "@klimadao/lib/components";
-import LoginIcon from "@mui/icons-material/Login";
-
+import { Anchor, ButtonPrimary, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import { useWeb3 } from "@klimadao/lib/utils";
+import LoginIcon from "@mui/icons-material/Login";
 import { BalancesCard } from "components/BalancesCard";
 import { ImageCard } from "components/ImageCard";
 import * as styles from "./styles";
@@ -17,6 +17,7 @@ interface Props {
 }
 
 export const Buy = (props: Props) => {
+  const { toggleModal } = useWeb3();
   return (
     <>
       <div className={styles.buyCard}>
@@ -58,34 +59,12 @@ export const Buy = (props: Props) => {
                   can log in or create an account via the button below.
                 </Trans>
               </Text>
-              <ConnectModal
-                errorMessage={t({
-                  message: "We had some trouble connecting. Please try again.",
-                  id: "connect_modal.error_message",
-                })}
-                torusText={t({
-                  message: "or continue with",
-                  id: "connectModal.continue",
-                })}
-                titles={{
-                  connect: t({
-                    id: "connect_modal.sign_in",
-                    message: "Sign In / Connect",
-                  }),
-                  loading: t({
-                    id: "connect_modal.connecting",
-                    message: "Connecting...",
-                  }),
-                  error: t({
-                    id: "connect_modal.error_title",
-                    message: "Connection Error",
-                  }),
-                }}
-                buttonText={t({
+              <ButtonPrimary
+                label={t({
                   id: "shared.login_connect",
                   message: "Login / Connect",
                 })}
-                buttonClassName={styles.connect_button}
+                onClick={toggleModal}
               />
             </>
           )}

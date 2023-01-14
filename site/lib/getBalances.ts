@@ -1,7 +1,7 @@
 import {
   formatUnits,
   getContract,
-  getJsonRpcProvider,
+  getStaticProvider,
 } from "@klimadao/lib/utils";
 
 type Params = {
@@ -24,7 +24,7 @@ export type Balances = {
 };
 
 export const getBalances = async (params: Params): Promise<Balances> => {
-  const provider = getJsonRpcProvider();
+  const provider = getStaticProvider();
 
   const klimaContract = getContract({ contractName: "klima", provider });
   const sklimaContract = getContract({ contractName: "sklima", provider });

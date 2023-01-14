@@ -1,7 +1,6 @@
 import {
   Anchor as A,
   ButtonPrimary,
-  ConnectModal,
   Spinner,
   Text,
   TextInfoTooltip,
@@ -76,6 +75,7 @@ interface Props {
   address?: string;
   isConnected: boolean;
   onRPCError: () => void;
+  toggleModal: () => void;
 }
 
 export const Offset = (props: Props) => {
@@ -355,166 +355,104 @@ export const Offset = (props: Props) => {
     );
   };
 
-  const getButton = () => {
+  const getButtonProps = () => {
     if (!props.isConnected) {
-      return (
-        <ConnectModal
-          errorMessage={t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          })}
-          torusText={t({
-            message: "or continue with",
-            id: "connectModal.continue",
-          })}
-          titles={{
-            connect: t({
-              id: "connect_modal.sign_in",
-              message: "Sign In / Connect",
-            }),
-            loading: t({
-              id: "connect_modal.connecting",
-              message: "Connecting...",
-            }),
-            error: t({
-              id: "connect_modal.error_title",
-              message: "Connection Error",
-            }),
-          }}
-          buttonText={t({
-            id: "shared.login_connect",
-            message: "Login / Connect",
-          })}
-          buttonClassName={styles.connect_button}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.login_connect",
+          message: "Login / Connect",
+        }),
+        onClick: props.toggleModal,
+      };
     } else if (isLoading || cost === "loading") {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.loading", message: "Loading..." })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.loading", message: "Loading..." }),
+        disabled: true,
+      };
     } else if (isRedirecting) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({
-            id: "shared.redirecting_checkout",
-            message: "Redirecting to checkout...",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.redirecting_checkout",
+          message: "Redirecting to checkout...",
+        }),
+        disabled: true,
+      };
     } else if (!quantity || !Number(quantity)) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.enter_quantity", message: "Enter quantity" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.enter_quantity", message: "Enter quantity" }),
+        disabled: true,
+      };
     } else if (!beneficiary) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({
-            id: "shared.enter_beneficiary",
-            message: "Enter beneficiary name",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.enter_beneficiary",
+          message: "Enter beneficiary name",
+        }),
+        disabled: true,
+      };
     } else if (!retirementMessage) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({
-            id: "shared.enter_retirement_message",
-            message: "Enter retirement message",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.enter_retirement_message",
+          message: "Enter retirement message",
+        }),
+        disabled: true,
+      };
     } else if (!!beneficiaryAddress && !utils.isAddress(beneficiaryAddress)) {
-      return (
-        <ButtonPrimary
-          label={t({
-            id: "shared.invalid_beneficiary_addr",
-            message: "Invalid beneficiary address",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.invalid_beneficiary_addr",
+          message: "Invalid beneficiary address",
+        }),
+        disabled: true,
+      };
     } else if (invalidRetirementQuantity) {
-      return (
-        <ButtonPrimary
-          label={t({
-            id: "offset.insufficient_project_tonnage",
-            message: "Insufficient project tonnage",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "offset.insufficient_project_tonnage",
+          message: "Insufficient project tonnage",
+        }),
+        disabled: true,
+      };
     } else if (invalidCost) {
-      return (
-        <ButtonPrimary
-          label={t({
-            id: "shared.invalid_quantity",
-            message: "Invalid quantity",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.invalid_quantity",
+          message: "Invalid quantity",
+        }),
+        disabled: true,
+      };
     } else if (!!projectAddress && !utils.isAddress(projectAddress)) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({
-            id: "shared.invalid_project_address",
-            message: "Invalid project address",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.invalid_project_address",
+          message: "Invalid project address",
+        }),
+        disabled: true,
+      };
     } else if (paymentMethod !== "fiat" && insufficientBalance) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({
-            id: "shared.insufficient_balance",
-            message: "Insufficient balance",
-          })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.insufficient_balance",
+          message: "Insufficient balance",
+        }),
+        disabled: true,
+      };
     } else if (paymentMethod !== "fiat" && !hasApproval()) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.approve", message: "Approve" })}
-          onClick={() => {
-            setShowTransactionModal(true);
-          }}
-        />
-      );
+      return {
+        label: t({ id: "shared.approve", message: "Approve" }),
+        onClick: () => setShowTransactionModal(true),
+      };
     } else if (paymentMethod === "fiat") {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "offset.checkout", message: "Checkout" })}
-          onClick={handleFiat}
-        />
-      );
+      return {
+        label: t({ id: "offset.checkout", message: "Checkout" }),
+        onClick: handleFiat,
+      };
     }
-    return (
-      <ButtonPrimary
-        className={styles.submitButton}
-        label={t({ id: "shared.retire", message: "Retire carbon" })}
-        onClick={() => setShowTransactionModal(true)}
-      />
-    );
+    return {
+      label: t({ id: "shared.retire", message: "Retire carbon" }),
+      onClick: () => setShowTransactionModal(true),
+    };
   };
 
   const handleSelectInputToken = (tkn: OffsetPaymentMethod) => {
@@ -836,7 +774,10 @@ export const Offset = (props: Props) => {
                 <Spinner />
               </div>
             ) : (
-              getButton()
+              <ButtonPrimary
+                className={styles.submitButton}
+                {...getButtonProps()}
+              />
             )}
           </div>
         </div>

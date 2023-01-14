@@ -1,4 +1,4 @@
-import { getInfuraUrl, getJsonRpcProvider } from "@klimadao/lib/utils";
+import { getStaticProvider } from "@klimadao/lib/utils";
 import { MONTH_IN_SECONDS } from "lib/constants";
 import { INFURA_ID, POLYGONSCAN_API_KEY } from "lib/secrets";
 
@@ -10,12 +10,10 @@ export async function getBlockRate(): Promise<number> {
   const currentTimestamp = Math.floor(Date.now() / 1000);
   const timestamp30DaysAgo = currentTimestamp - MONTH_IN_SECONDS;
   try {
-    const provider = getJsonRpcProvider(
-      getInfuraUrl({
-        chain: "polygon",
-        infuraId: INFURA_ID,
-      })
-    );
+    const provider = getStaticProvider({
+      infuraId: INFURA_ID,
+    });
+
     const latestBlock = await provider.getBlock("latest");
 
     let url = `https://api.polygonscan.com/api?module=block&action=getblocknobytime&timestamp=${timestamp30DaysAgo}&closest=before`;

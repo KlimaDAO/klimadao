@@ -1,6 +1,6 @@
 import GnosisSafeSignMessageLib from "@klimadao/lib/abi/GnosisSafeSignMessageLib.json";
 import { polygonNetworks } from "@klimadao/lib/constants";
-import { getJsonRpcProvider } from "@klimadao/lib/utils";
+import { getStaticProvider } from "@klimadao/lib/utils";
 import { Contract, utils } from "ethers";
 
 const ONE_HOUR = 60 * 60 * 1000;
@@ -9,7 +9,7 @@ export const waitForGnosisSignature = async (params: {
   message: string;
   address: string;
 }): Promise<void> => {
-  const provider = getJsonRpcProvider();
+  const provider = getStaticProvider();
   const gnosisSafeContract = new Contract(
     params.address,
     GnosisSafeSignMessageLib.abi,
@@ -56,7 +56,7 @@ export const verifyGnosisSignature = async (params: {
   /** Address of the multisig contract */
   address: string;
 }) => {
-  const provider = getJsonRpcProvider();
+  const provider = getStaticProvider();
   const gnosisSafeContract = new Contract(
     params.address,
     GnosisSafeSignMessageLib.abi,

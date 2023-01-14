@@ -64,6 +64,17 @@ export interface DisconnectedWeb3State {
   signer: undefined;
   network: undefined;
 }
+export interface RenderModalProps {
+  errorMessage: string;
+  torusText: string;
+  titles: {
+    connect: string;
+    loading: string;
+    error: string;
+  };
+  buttonClassName?: string;
+  onClose?: () => void;
+}
 
 export type Web3State = ConnectedWeb3State | DisconnectedWeb3State;
 
@@ -71,6 +82,9 @@ export type Web3State = ConnectedWeb3State | DisconnectedWeb3State;
 export type Web3ModalState = Web3State & {
   connect?: (wallet?: string) => Promise<void>;
   disconnect?: () => Promise<void>;
+  showModal: boolean;
+  renderModal: (props: RenderModalProps) => JSX.Element;
+  toggleModal: () => void;
 };
 
 export const web3InitialState: Web3ModalState = {
@@ -80,4 +94,7 @@ export const web3InitialState: Web3ModalState = {
   address: undefined,
   signer: undefined,
   network: undefined,
+  showModal: false,
+  renderModal: () => undefined as unknown as JSX.Element,
+  toggleModal: () => undefined,
 };

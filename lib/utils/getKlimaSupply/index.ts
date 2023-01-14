@@ -1,8 +1,8 @@
 import { formatUnits, getContract } from "..";
-import { getJsonRpcProvider } from "../getJsonRpcProvider";
+import { getStaticProvider } from "../getStaticProvider";
 
-export const getKlimaSupply = async (providerUrl?: string): Promise<string> => {
-  const provider = getJsonRpcProvider(providerUrl);
+export const getKlimaSupply = async (infuraId?: string): Promise<string> => {
+  const provider = getStaticProvider({ infuraId });
   const klimaContract = getContract({ contractName: "klima", provider });
   const totalSupply = await klimaContract.totalSupply();
 

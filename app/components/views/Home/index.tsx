@@ -23,8 +23,8 @@ import { Wrap } from "components/views/Wrap";
 
 import { initLocale } from "lib/i18n";
 
-import { ConnectModal } from "@klimadao/lib/components";
-import { useWeb3 } from "@klimadao/lib/utils";
+import { ButtonPrimary } from "@klimadao/lib/components";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
@@ -48,7 +48,15 @@ export const Home: FC = () => {
 
   const { locale } = useSelector(selectAppState);
 
-  const web3 = useWeb3();
+  const {
+    address,
+    isConnected,
+    disconnect,
+    toggleModal,
+    network,
+    provider,
+    renderModal,
+  } = useWeb3();
 
   useEffect(() => {
     if (locale === undefined) {
@@ -69,19 +77,19 @@ export const Home: FC = () => {
   };
 
   const loadNetworkInfo = async () => {
-    if (web3.network && chainId !== web3.network.chainId) {
-      setChainId(web3.network.chainId);
+    if (network && chainId !== network.chainId) {
+      setChainId(network.chainId);
       // if network is invalid, modal will ask for network change -> page will reload
     }
   };
 
   const loadUserInfo = async () => {
-    if (!web3.isConnected) return; // type-guard
+    if (!isConnected) return; // type-guard
     try {
       dispatch(
         loadAccountDetails({
-          address: web3.address,
-          provider: web3.provider,
+          address: address,
+          provider: provider,
           onRPCError: handleRPCError,
         })
       );
@@ -103,22 +111,22 @@ export const Home: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (web3.provider) {
+    if (provider) {
       loadNetworkInfo();
     }
-  }, [web3.provider]);
+  }, [provider]);
 
   useEffect(() => {
-    if (web3.isConnected) {
+    if (isConnected) {
       loadUserInfo();
     }
-  }, [web3.isConnected]);
+  }, [isConnected]);
 
   return (
     <>
       <div className={styles.container} data-scrolllock={showMobileMenu}>
         <div className={styles.desktopNavMenu}>
-          <NavMenu address={web3.address} />
+          <NavMenu address={address} />
         </div>
         <div className={styles.cardGrid}>
           <div className={styles.controls}>
@@ -136,21 +144,36 @@ export const Home: FC = () => {
             />
             <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
               <NavMenu
-                address={web3.address}
+                address={address}
                 onHide={() => setShowMobileMenu(false)}
               />
             </div>
             <ChangeLanguageButton />
-            <ConnectModal
-              errorMessage={t({
+            {!address && !isConnected && (
+              <ButtonPrimary
+                label={t({
+                  id: "shared.login_connect",
+                  message: "Login / Connect",
+                })}
+                onClick={toggleModal}
+              />
+            )}
+            {address && isConnected && (
+              <ButtonPrimary
+                label={concatAddress(address)}
+                onClick={disconnect}
+              />
+            )}
+            {renderModal({
+              errorMessage: t({
                 message: "We had some trouble connecting. Please try again.",
                 id: "connect_modal.error_message",
-              })}
-              torusText={t({
+              }),
+              torusText: t({
                 message: "or continue with",
                 id: "connectModal.continue",
-              })}
-              titles={{
+              }),
+              titles: {
                 connect: t({
                   id: "connect_modal.sign_in",
                   message: "Sign In / Connect",
@@ -163,21 +186,17 @@ export const Home: FC = () => {
                   id: "connect_modal.error_title",
                   message: "Connection Error",
                 }),
-              }}
-              buttonText={t({
-                id: "shared.login_connect",
-                message: "Login / Connect",
-              })}
-            />
+              },
+            })}
           </div>
           <IsomorphicRoutes>
             <Route
               path="/buy"
               element={
                 <Buy
-                  address={web3.address}
-                  provider={web3.provider}
-                  isConnected={web3.isConnected}
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
                 />
               }
             />
@@ -185,9 +204,10 @@ export const Home: FC = () => {
               path="/stake"
               element={
                 <Stake
-                  address={web3.address}
-                  provider={web3.provider}
-                  isConnected={web3.isConnected}
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                  toggleModal={toggleModal}
                 />
               }
             />
@@ -195,9 +215,10 @@ export const Home: FC = () => {
               path="/pklima"
               element={
                 <PKlima
-                  address={web3.address}
-                  provider={web3.provider}
-                  isConnected={web3.isConnected}
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                  toggleModal={toggleModal}
                 />
               }
             />
@@ -205,9 +226,10 @@ export const Home: FC = () => {
               path="/wrap"
               element={
                 <Wrap
-                  address={web3.address}
-                  provider={web3.provider}
-                  isConnected={web3.isConnected}
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                  toggleModal={toggleModal}
                 />
               }
             />
@@ -215,14 +237,15 @@ export const Home: FC = () => {
               path="/offset"
               element={
                 <Offset
-                  address={web3.address}
-                  provider={web3.provider}
-                  isConnected={web3.isConnected}
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
                   onRPCError={handleRPCError}
+                  toggleModal={toggleModal}
                 />
               }
             />
-            <Route path="/info" element={<Info provider={web3.provider} />} />
+            <Route path="/info" element={<Info provider={provider} />} />
             <Route path="/bonds" element={<ChooseBond />} />
             {bonds.map((bond) => {
               return (
@@ -231,10 +254,11 @@ export const Home: FC = () => {
                   path={`/bonds/${bond}`}
                   element={
                     <Bond
-                      provider={web3.provider}
-                      address={web3.address}
+                      provider={provider}
+                      address={address}
                       bond={bond}
-                      isConnected={web3.isConnected}
+                      isConnected={isConnected}
+                      toggleModal={toggleModal}
                     />
                   }
                 />

@@ -6,7 +6,6 @@ import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 
 import {
   ButtonPrimary,
-  ConnectModal,
   Spinner,
   Text,
   TextInfoTooltip,
@@ -36,6 +35,7 @@ interface Props {
   provider?: providers.JsonRpcProvider;
   address?: string;
   isConnected?: boolean;
+  toggleModal: () => void;
 }
 
 export const PKlima: FC<Props> = (props) => {
@@ -143,89 +143,49 @@ export const PKlima: FC<Props> = (props) => {
     return !!exerciseAllowances && !!Number(exerciseAllowances.bct);
   };
 
-  const getButton = () => {
+  const getButtonProps = () => {
     const value = Number(quantity || "0");
     if (!isConnected || !address) {
-      return (
-        <ConnectModal
-          errorMessage={t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          })}
-          torusText={t({
-            message: "or continue with",
-            id: "connectModal.continue",
-          })}
-          titles={{
-            connect: t({
-              id: "connect_modal.sign_in",
-              message: "Sign In / Connect",
-            }),
-            loading: t({
-              id: "connect_modal.connecting",
-              message: "Connecting...",
-            }),
-            error: t({
-              id: "connect_modal.error_title",
-              message: "Connection Error",
-            }),
-          }}
-          buttonText={t({
-            id: "shared.login_connect",
-            message: "Login / Connect",
-          })}
-          buttonClassName={styles.connect_button}
-        />
-      );
+      return {
+        label: t({
+          id: "shared.login_connect",
+          message: "Login / Connect",
+        }),
+        onClick: props.toggleModal,
+      };
     } else if (isLoading) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.loading", message: "Loading" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.loading", message: "Loading" }),
+        disabled: true,
+      };
     } else if (
       status === "userConfirmation" ||
       status === "networkConfirmation"
     ) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({ id: "shared.confirming", message: "Confirming" })}
-          disabled={true}
-        />
-      );
+      return {
+        label: t({ id: "shared.confirming", message: "Confirming" }),
+        disabled: true,
+      };
     } else if (!hasApproval("pklima")) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          label={t({
-            id: "pklima.approve_pklima",
-            message: "1. Approve pKLIMA",
-          })}
-          onClick={handleApproval("pklima")}
-        />
-      );
+      return {
+        label: t({
+          id: "pklima.approve_pklima",
+          message: "1. Approve pKLIMA",
+        }),
+        onClick: handleApproval("pklima"),
+      };
     } else if (!hasApproval("bct")) {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          onClick={handleApproval("bct")}
-          label={t({ id: "pklima.approve_bct", message: "2. Approve BCT" })}
-        />
-      );
+      return {
+        onClick: handleApproval("bct"),
+        label: t({ id: "pklima.approve_bct", message: "2. Approve BCT" }),
+      };
     } else {
-      return (
-        <ButtonPrimary
-          className={styles.submitButton}
-          onClick={handleExercise}
-          label={t({ id: "pklima.exercise", message: "EXERCISE" })}
-          disabled={
-            !value || !terms?.redeemable || value > Number(terms.redeemable)
-          }
-        />
-      );
+      return {
+        onClick: handleExercise,
+        label: t({ id: "pklima.exercise", message: "EXERCISE" }),
+        disabled:
+          !value || !terms?.redeemable || value > Number(terms.redeemable),
+      };
     }
   };
 
@@ -355,7 +315,10 @@ export const PKlima: FC<Props> = (props) => {
                 <Spinner />
               </div>
             ) : (
-              getButton()
+              <ButtonPrimary
+                className={styles.submitButton}
+                {...getButtonProps()}
+              />
             )}
           </div>
         </div>

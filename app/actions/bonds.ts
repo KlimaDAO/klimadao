@@ -4,7 +4,7 @@ import { addresses, Bond } from "@klimadao/lib/constants";
 import {
   formatUnits,
   getContract,
-  getJsonRpcProvider,
+  getStaticProvider,
 } from "@klimadao/lib/utils";
 import { BigNumber, Contract, providers, utils } from "ethers";
 import { Thunk } from "state";
@@ -180,7 +180,7 @@ export const calcBondDetails = (params: {
   value?: string;
 }): Thunk => {
   return async (dispatch) => {
-    const provider = getJsonRpcProvider();
+    const provider = getStaticProvider();
     let amountInWei;
     if (!params.value || params.value === "") {
       amountInWei = utils.parseEther("0");
