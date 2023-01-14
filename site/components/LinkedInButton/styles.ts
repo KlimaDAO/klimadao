@@ -6,4 +6,8 @@ export const linkedInButton = css`
   &:hover {
     opacity: 0.7;
   }
+  svg,
+  svg path {
+    fill: currentColor;
+  }
 `;

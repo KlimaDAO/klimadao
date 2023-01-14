@@ -34,10 +34,6 @@ const buttonBase = css`
       width: 1em;
       height: 1em;
     }
-    svg,
-    svg path {
-      fill: currentColor !important;
-    }
   }
   &.suffix {
     flex-direction: row-reverse;
