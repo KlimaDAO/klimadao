@@ -1,3 +1,8 @@
+/* 
+  Strict types for current feature flag set
+  Note: Be proactive in cleaning up feature flags once feature is live and stable
+*/
+
 type FeatureFlags = {
   testFeatureFlag: boolean;
   redemptionUI: boolean;
