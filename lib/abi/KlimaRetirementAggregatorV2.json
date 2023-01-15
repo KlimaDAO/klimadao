@@ -1,5 +1,5 @@
 {
-  "contractName": "KlimaRetirementAggregator",
+  "contractName": "KlimaRetirementAggregatorV2",
   "abi": [
     {
       "anonymous": false,
