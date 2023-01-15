@@ -3,6 +3,7 @@ import { RetirementToken, verra } from "@klimadao/lib/constants";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import { Trans } from "@lingui/macro";
 import CheckIcon from "@mui/icons-material/Check";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { FC } from "react";
 
 import {
@@ -57,22 +58,27 @@ export const SelectProjectButton: FC<Props> = (props) => {
         </div>
       </div>
 
-      <Anchor href={linkToProjectDetails()}>
-        <Text t="body4">{props.project.name || props.project.projectID} →</Text>
-      </Anchor>
+      <Text t="body4">{props.project.name || props.project.projectID} →</Text>
 
       <Text t="badge" className={styles.regionLabel}>
         {props.project.country || props.project.region}
       </Text>
 
       {props.selectedRetirementToken !== "mco2" && (
-        <Text t="badge">
+        <Text t="badge" className={styles.tonnageLabel}>
           <Trans id="offset.selectiveRetirement.project.available_tonnes">
             Available tonnes:{" "}
             {trimWithLocale(availableTonnes.toString(), 2, "en")}
           </Trans>
         </Text>
       )}
+
+      <Anchor href={linkToProjectDetails()}>
+        <Text t="badge" color="lightest" className={styles.projectDetailsLink}>
+          Project details
+          <LaunchIcon />
+        </Text>
+      </Anchor>
     </button>
   );
 };
