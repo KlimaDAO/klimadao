@@ -23,6 +23,3 @@ export const IS_STATIC_EXPORT = process.env.IS_STATIC_EXPORT;
 export const FIAT_RETIREMENT_API_URL = IS_PRODUCTION
   ? "https://checkout.offsetra.com/api/checkout"
   : "https://staging-checkout.offsetra.com/api/checkout";
-
-// TEMP client-only id due to polygon-rpc.com flakyness
-export const CLIENT_INFURA_ID = process.env.NEXT_PUBLIC_CLIENT_INFURA_ID;

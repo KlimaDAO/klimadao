@@ -30,7 +30,6 @@ import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { NavMenu } from "components/NavMenu";
-import { CLIENT_INFURA_ID } from "lib/constants";
 import { setAppState } from "state/app";
 import { Buy } from "../Buy";
 import * as styles from "./styles";
@@ -91,10 +90,7 @@ export const Home: FC = () => {
         loadAccountDetails({
           address: address,
           onRPCError: handleRPCError,
-          provider: getStaticProvider({
-            // TEMP: use infura because if this flakes out, it blocks app load
-            infuraId: CLIENT_INFURA_ID,
-          }),
+          provider: getStaticProvider(),
         })
       );
     } catch (e) {
