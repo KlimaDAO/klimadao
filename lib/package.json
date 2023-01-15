@@ -36,6 +36,7 @@
   "exports": {
     "./components": "./out/components/index.js",
     "./constants": "./out/constants/index.js",
+    "./featureFlags": "./out/featureFlags/index.js",
     "./utils": "./out/utils/index.js",
     "./hooks": "./out/hooks/index.js",
     "./theme/*": "./theme/*",

@@ -4,6 +4,10 @@ import { urls } from "@klimadao/lib/constants";
 export const IS_PRODUCTION =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 
+/** True if deployment is a NextJS preview build */
+export const IS_PREVIEW_BUILD =
+  process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
+
 /** True if local development (not preview deployment) */
 export const IS_LOCAL_DEVELOPMENT = process.env.NODE_ENV === "development";
 
