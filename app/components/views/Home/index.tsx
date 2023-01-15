@@ -89,8 +89,8 @@ export const Home: FC = () => {
       dispatch(
         loadAccountDetails({
           address: address,
-          onRPCError: handleRPCError,
           provider: getStaticProvider(),
+          onRPCError: handleRPCError,
         })
       );
     } catch (e) {

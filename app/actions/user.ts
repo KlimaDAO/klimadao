@@ -58,8 +58,8 @@ type ContractsObject = {
 };
 
 export const loadAccountDetails = (params: {
-  address: string;
   provider: providers.JsonRpcProvider;
+  address: string;
   onRPCError: () => void;
 }): Thunk => {
   return async (dispatch) => {
