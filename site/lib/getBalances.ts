@@ -24,7 +24,7 @@ export type Balances = {
 };
 
 export const getBalances = async (params: Params): Promise<Balances> => {
-  const provider = getStaticProvider();
+  const provider = getStaticProvider({ batchRequests: true });
 
   const klimaContract = getContract({ contractName: "klima", provider });
   const sklimaContract = getContract({ contractName: "sklima", provider });

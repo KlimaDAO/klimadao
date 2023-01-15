@@ -89,7 +89,7 @@ export const Home: FC = () => {
       dispatch(
         loadAccountDetails({
           address: address,
-          provider: getStaticProvider(),
+          provider: getStaticProvider({ batchRequests: true }),
           onRPCError: handleRPCError,
         })
       );
