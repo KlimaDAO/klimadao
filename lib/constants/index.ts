@@ -112,6 +112,8 @@ export const urls = {
   polygonTestnetRpc: "https://rpc-mumbai.matic.today",
   defaultEthRpc: "https://cloudflare-eth.com",
   infuraPolygonRpc: "https://polygon-mainnet.infura.io/v3",
+  infuraPolygonRpcClient:
+    "https://polygon-mainnet.infura.io/v3/02ff0dd9c13d42bebbb163ed25205e55",
   infuraEthRpc: "https://mainnet.infura.io/v3",
   infuraMumbaiRpc: "https://polygon-mumbai.infura.io/v3",
   communityHub: "https://klimadao.notion.site",

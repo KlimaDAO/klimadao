@@ -24,7 +24,7 @@ import { Wrap } from "components/views/Wrap";
 import { initLocale } from "lib/i18n";
 
 import { ButtonPrimary } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { concatAddress, getStaticProvider, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
@@ -89,7 +89,7 @@ export const Home: FC = () => {
       dispatch(
         loadAccountDetails({
           address: address,
-          provider: provider,
+          provider: getStaticProvider(),
           onRPCError: handleRPCError,
         })
       );

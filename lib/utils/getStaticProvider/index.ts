@@ -26,7 +26,8 @@ const runtimeProviders: RuntimeProviders = {
   },
   polygon: {
     infura: undefined,
-    default: new JsonRpcProvider(urls.polygonMainnetRpc),
+    // TEMP use infura id until polygon-rpc stops being flaky
+    default: new JsonRpcProvider(urls.infuraPolygonRpcClient),
   },
   mumbai: {
     infura: undefined,
