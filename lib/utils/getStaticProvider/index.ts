@@ -26,13 +26,7 @@ const runtimeProviders: RuntimeProviders = {
   },
   polygon: {
     infura: undefined,
-    // TEMPORARY: while polygon-rpc is flaky we are trying this infura url
-    default: new JsonRpcProvider(
-      getInfuraUrl({
-        chain: "polygon",
-        infuraId: "02ff0dd9c13d42bebbb163ed25205e55",
-      })
-    ),
+    default: new JsonRpcProvider(urls.polygonMainnetRpc),
   },
   mumbai: {
     infura: undefined,

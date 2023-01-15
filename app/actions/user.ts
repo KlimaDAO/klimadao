@@ -1,4 +1,4 @@
-import { Contract } from "ethers";
+import { Contract, providers } from "ethers";
 import { Thunk } from "state";
 
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
@@ -8,7 +8,6 @@ import {
   getContract,
   getENSProfile,
   getKNSProfile,
-  getStaticProvider,
   getTokenDecimals,
   getTokensFromSpender,
 } from "@klimadao/lib/utils";
@@ -60,16 +59,16 @@ type ContractsObject = {
 
 export const loadAccountDetails = (params: {
   address: string;
+  provider: providers.JsonRpcProvider;
   onRPCError: () => void;
 }): Thunk => {
-  const provider = getStaticProvider();
   return async (dispatch) => {
     try {
       // all assets
       const assetsContracts = assets.reduce((obj, asset) => {
         const contract = getContract({
           contractName: asset,
-          provider,
+          provider: params.provider,
         });
         return { ...obj, [asset]: contract };
       }, {} as ContractsObject);
