@@ -1,5 +1,11 @@
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { Domain } from "@klimadao/lib/types/domains";
-import { getENSProfile, getKNSProfile, useWeb3 } from "@klimadao/lib/utils";
+import {
+  concatAddress,
+  getENSProfile,
+  getKNSProfile,
+  useWeb3,
+} from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
@@ -25,7 +31,8 @@ type Props = {
 };
 
 export const MarketplaceLayout: FC<Props> = (props: Props) => {
-  const { address, renderModal } = useWeb3();
+  const { address, renderModal, isConnected, toggleModal, disconnect } =
+    useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [profileData, setProfileData] = useState<Domain>();
 
@@ -84,6 +91,22 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
             <ThemeToggle />
 
             {props.profileButton}
+
+            {!address && !isConnected && (
+              <ButtonPrimary
+                label={t({
+                  id: "shared.login_connect",
+                  message: "Login / Connect",
+                })}
+                onClick={toggleModal}
+              />
+            )}
+            {address && isConnected && (
+              <ButtonPrimary
+                label={concatAddress(address)}
+                onClick={disconnect}
+              />
+            )}
 
             {renderModal({
               errorMessage: t({

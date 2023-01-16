@@ -1,4 +1,4 @@
-import { Spinner, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
@@ -20,7 +20,7 @@ import * as styles from "./styles";
 
 export const Login: NextPage = () => {
   const router = useRouter();
-  const { address, isConnected, renderModal } = useWeb3();
+  const { address, isConnected, renderModal, toggleModal } = useWeb3();
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
@@ -65,32 +65,41 @@ export const Login: NextPage = () => {
                     </Text>
                   </div>
                 )}
-                {!isRedirecting &&
-                  renderModal({
-                    errorMessage: t({
-                      message:
-                        "We had some trouble connecting. Please try again.",
-                      id: "connect_modal.error_message",
+                {!address && !isConnected && !isRedirecting && (
+                  <ButtonPrimary
+                    label={t({
+                      id: "shared.login_connect",
+                      message: "Login / Connect",
+                    })}
+                    onClick={toggleModal}
+                  />
+                )}
+
+                {renderModal({
+                  errorMessage: t({
+                    message:
+                      "We had some trouble connecting. Please try again.",
+                    id: "connect_modal.error_message",
+                  }),
+                  torusText: t({
+                    message: "or continue with",
+                    id: "connectModal.continue",
+                  }),
+                  titles: {
+                    connect: t({
+                      id: "connect_modal.sign_in",
+                      message: "Sign In / Connect",
                     }),
-                    torusText: t({
-                      message: "or continue with",
-                      id: "connectModal.continue",
+                    loading: t({
+                      id: "connect_modal.connecting",
+                      message: "Connecting...",
                     }),
-                    titles: {
-                      connect: t({
-                        id: "connect_modal.sign_in",
-                        message: "Sign In / Connect",
-                      }),
-                      loading: t({
-                        id: "connect_modal.connecting",
-                        message: "Connecting...",
-                      }),
-                      error: t({
-                        id: "connect_modal.error_title",
-                        message: "Connection Error",
-                      }),
-                    },
-                  })}
+                    error: t({
+                      id: "connect_modal.error_title",
+                      message: "Connection Error",
+                    }),
+                  },
+                })}
               </div>
             </Card>
           </Col>

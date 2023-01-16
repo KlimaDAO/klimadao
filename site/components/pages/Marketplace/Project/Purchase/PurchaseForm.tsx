@@ -27,7 +27,7 @@ type Props = {
 };
 
 export const PurchaseForm: FC<Props> = (props) => {
-  const { address, renderModal } = useWeb3();
+  const { address, renderModal, isConnected, toggleModal } = useWeb3();
   const singleUnitPrice = formatUnits(props.listing.singleUnitPrice);
 
   const { register, handleSubmit, formState, control, setValue } =
@@ -119,7 +119,17 @@ export const PurchaseForm: FC<Props> = (props) => {
           icon={marketplaceTokenInfoMap["usdc"].icon}
         />
 
-        {address ? (
+        {!address && !isConnected && (
+          <ButtonPrimary
+            label={t({
+              id: "shared.connect_to_buy",
+              message: "Sign In / Connect To Buy",
+            })}
+            onClick={toggleModal}
+          />
+        )}
+
+        {address && isConnected && (
           <ButtonPrimary
             label={
               props.isLoading ? (
@@ -132,7 +142,9 @@ export const PurchaseForm: FC<Props> = (props) => {
             }
             onClick={handleSubmit(onSubmit)}
           />
-        ) : (
+        )}
+
+        {renderModal &&
           renderModal({
             errorMessage: t({
               message: "We had some trouble connecting. Please try again.",
@@ -156,8 +168,7 @@ export const PurchaseForm: FC<Props> = (props) => {
                 message: "Connection Error",
               }),
             },
-          })
-        )}
+          })}
       </div>
     </form>
   );

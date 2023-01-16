@@ -28,7 +28,7 @@ type Props = {
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
-  const { address, renderModal } = useWeb3();
+  const { address, renderModal, isConnected, toggleModal } = useWeb3();
   const userData = props.marketplaceUser;
 
   const hasListings = !!userData?.listings?.length;
@@ -72,7 +72,18 @@ export const SellerUnconnected: FC<Props> = (props) => {
           {!!sortedListings &&
             sortedListings.map((listing) => (
               <Listing key={listing.id} listing={listing}>
-                {address ? (
+                {!address && !isConnected && (
+                  <ButtonPrimary
+                    className={styles.buyButton}
+                    label={t({
+                      id: "shared.connect_to_buy",
+                      message: "Sign In / Connect To Buy",
+                    })}
+                    onClick={toggleModal}
+                  />
+                )}
+
+                {address && isConnected && (
                   <ButtonPrimary
                     label={
                       <Trans id="marketplace.seller.listing.buy">Buy</Trans>
@@ -83,7 +94,9 @@ export const SellerUnconnected: FC<Props> = (props) => {
                       listing.id
                     )}
                   />
-                ) : (
+                )}
+
+                {renderModal &&
                   renderModal({
                     errorMessage: t({
                       message:
@@ -108,8 +121,7 @@ export const SellerUnconnected: FC<Props> = (props) => {
                         message: "Connection Error",
                       }),
                     },
-                  })
-                )}
+                  })}
               </Listing>
             ))}
         </Col>

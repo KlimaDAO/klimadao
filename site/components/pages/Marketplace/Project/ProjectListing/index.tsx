@@ -33,7 +33,7 @@ const getFormattedDate = (timestamp: string, locale = "en") => {
 
 export const ProjectListing: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const { address, renderModal } = useWeb3();
+  const { address, renderModal, isConnected, toggleModal } = useWeb3();
 
   const isConnectedSeller = getIsConnectedSeller(
     props.listing.seller.id,
@@ -70,9 +70,24 @@ export const ProjectListing: FC<Props> = (props) => {
           <span>{getFormattedDate(props.listing.updatedAt, locale)}</span>
         </Text>
       </div>
-      {address ? (
+
+      {!address && !isConnected && (
         <ButtonPrimary
-          label="Buy"
+          className={styles.buyButton}
+          label={t({
+            id: "shared.connect_to_buy",
+            message: "Sign In / Connect To Buy",
+          })}
+          onClick={toggleModal}
+        />
+      )}
+
+      {address && isConnected && (
+        <ButtonPrimary
+          label={t({
+            id: "marketplace.buy",
+            message: "Buy",
+          })}
           className={styles.buyButton}
           href={
             isConnectedSeller
@@ -81,7 +96,9 @@ export const ProjectListing: FC<Props> = (props) => {
           }
           disabled={isConnectedSeller}
         />
-      ) : (
+      )}
+
+      {renderModal &&
         renderModal({
           errorMessage: t({
             message: "We had some trouble connecting. Please try again.",
@@ -105,8 +122,7 @@ export const ProjectListing: FC<Props> = (props) => {
               message: "Connection Error",
             }),
           },
-        })
-      )}
+        })}
     </Card>
   );
 };
