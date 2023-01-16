@@ -26,7 +26,9 @@ export const getRetirementIndexInfo = async (params: {
   infuraId?: string;
 }): Promise<RetirementIndexInfoResult> => {
   try {
-    const provider = getStaticProvider({ infuraId: params.infuraId });
+    const provider = getStaticProvider({
+      infuraId: params.infuraId,
+    });
     const storageContract = createRetirementStorageContract(provider);
 
     const [
@@ -68,7 +70,9 @@ export const getRetirementTotalsAndBalances = async (params: {
   infuraId?: string;
 }): Promise<RetirementsTotalsAndBalances> => {
   try {
-    const provider = getStaticProvider({ infuraId: params.infuraId });
+    const provider = getStaticProvider({
+      infuraId: params.infuraId,
+    });
     const retirementStorageContract = createRetirementStorageContract(provider);
 
     const promises: [
