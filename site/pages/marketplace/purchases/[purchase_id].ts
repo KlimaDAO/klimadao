@@ -1,6 +1,5 @@
-import { urls } from "@klimadao/lib/constants";
 import { Purchase } from "@klimadao/lib/types/marketplace";
-import { getJsonRpcProvider, getPurchase } from "@klimadao/lib/utils";
+import { getPurchase, getStaticProvider } from "@klimadao/lib/utils";
 import { MarketPlacePurchaseReceipt } from "components/pages/Marketplace/Purchases";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
@@ -32,7 +31,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       throw new Error("No matching params found");
     }
 
-    const provider = getJsonRpcProvider(urls.polygonTestnetRpc); // TODO: Change this to simply getJsonRpcProvider() after switch to mainnet
+    const provider = getStaticProvider({ chain: "mumbai" }); // TODO: Change this to simply getStaticProvider() after switch to mainnet
     const transactionReceipt = await provider.getTransactionReceipt(
       params.purchase_id
     );

@@ -30,9 +30,8 @@ import {
   TwoColLayout,
 } from "components/pages/Marketplace/shared/TwoColLayout";
 
-import { urls } from "@klimadao/lib/constants";
 import { Asset, Listing, User } from "@klimadao/lib/types/marketplace";
-import { getJsonRpcProvider } from "@klimadao/lib/utils";
+import { getStaticProvider } from "@klimadao/lib/utils";
 
 import * as styles from "./styles";
 
@@ -73,7 +72,7 @@ export const SellerConnected: FC<Props> = (props) => {
     if (hasAssets) {
       const getAssetsData = async () => {
         try {
-          const provider = getJsonRpcProvider(urls.polygonTestnetRpc); // TODO: Replace with getJsonRpcProvider() after switch to Main Net
+          const provider = getStaticProvider({ chain: "mumbai" }); // TODO: Replace with getStaticProvider() after switch to Main Net
 
           const assetsData = await getUserAssetsData({
             assets: user.assets,
