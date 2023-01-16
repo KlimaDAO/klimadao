@@ -4,6 +4,12 @@ import { getInfuraUrl } from "../getInfuraUrl";
 
 const { JsonRpcProvider, JsonRpcBatchProvider } = providers;
 
+const defaultUrls = {
+  eth: urls.defaultEthRpc,
+  polygon: urls.infuraPolygonRpcClient,
+  mumbai: urls.polygonTestnetRpc,
+};
+
 interface RuntimeProviders {
   eth: {
     default: providers.JsonRpcProvider;
@@ -63,22 +69,25 @@ export const getStaticProvider = (params?: {
   infuraId?: string;
 }): providers.JsonRpcProvider => {
   const { chain = "polygon", batchRequests = false } = params || {};
-  const providers = batchRequests ? batchProviders : staticProviders;
+  const providerMap = batchRequests ? batchProviders : staticProviders;
+  const ProviderClass = batchRequests ? JsonRpcBatchProvider : JsonRpcProvider;
 
+  // no infuraId provided, use defaults
   if (!params?.infuraId) {
-    return providers[chain].default;
+    // instantiate if needed
+    if (!providerMap[chain].default) {
+      providerMap[chain].default = new ProviderClass(defaultUrls[chain]);
+    }
+    return providerMap[chain].default;
   }
 
-  const existingInfura = providers[chain].infura; // satisfy ts null check
+  const existingInfura = providerMap[chain].infura; // satisfy ts null check
   if (existingInfura) return existingInfura;
 
   const infuraUrl = getInfuraUrl({
     chain,
     infuraId: params.infuraId,
   });
-  const newInfura = batchProviders
-    ? new JsonRpcBatchProvider(infuraUrl)
-    : new JsonRpcProvider(infuraUrl);
-  providers[chain].infura = newInfura;
-  return newInfura;
+  providerMap[chain].infura = new ProviderClass(infuraUrl);
+  return providerMap[chain].infura;
 };
