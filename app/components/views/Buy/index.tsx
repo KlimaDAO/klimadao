@@ -4,6 +4,7 @@ import { providers } from "ethers";
 
 import { Anchor, ButtonPrimary, Text } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
+import { darkTextButton } from "@klimadao/lib/theme/common";
 import { useWeb3 } from "@klimadao/lib/utils";
 import LoginIcon from "@mui/icons-material/Login";
 import { BalancesCard } from "components/BalancesCard";
@@ -60,6 +61,7 @@ export const Buy = (props: Props) => {
                 </Trans>
               </Text>
               <ButtonPrimary
+                className={darkTextButton}
                 label={t({
                   id: "shared.login_connect",
                   message: "Login / Connect",

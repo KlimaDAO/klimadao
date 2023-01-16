@@ -1,4 +1,5 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
+import { darkTextButton } from "@klimadao/lib/theme/common";
 import { t } from "@lingui/macro";
 import { createLinkWithLocaleQuery } from "lib/i18n";
 import dynamic from "next/dynamic";
@@ -61,6 +62,7 @@ export const Navigation: FC<Props> = ({
           activePage !== "Infinity" ? (
             <ButtonPrimary
               key="Enter App"
+              className={darkTextButton}
               label={t({ message: "Enter App", id: "shared.enter_app" })}
               href={createLinkWithLocaleQuery(urls.app, locale)}
             />

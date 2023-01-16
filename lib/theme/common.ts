@@ -66,3 +66,9 @@ export const iconButton = css`
     opacity: 0.7rem;
   }
 `;
+
+export const darkTextButton = css`
+  [data-theme="theme-dark"] & {
+    color: #000 !important;
+  }
+`;

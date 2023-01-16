@@ -1,4 +1,5 @@
 import { ButtonPrimary, KlimaInfinityLogo } from "@klimadao/lib/components";
+import { darkTextButton } from "@klimadao/lib/theme/common";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import dynamic from "next/dynamic";
@@ -40,6 +41,7 @@ export const HeaderDesktop: FC<Props> = (props) => {
         )}
         {!address && !isConnected && (
           <ButtonPrimary
+            className={darkTextButton}
             label={t({
               id: "shared.login_connect",
               message: "Login / Connect",
