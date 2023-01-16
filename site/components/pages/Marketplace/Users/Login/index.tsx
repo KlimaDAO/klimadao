@@ -1,4 +1,4 @@
-import { ConnectModal, Spinner, Text } from "@klimadao/lib/components";
+import { Spinner, Text } from "@klimadao/lib/components";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
@@ -20,7 +20,7 @@ import * as styles from "./styles";
 
 export const Login: NextPage = () => {
   const router = useRouter();
-  const { address, isConnected } = useWeb3();
+  const { address, isConnected, renderModal } = useWeb3();
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
@@ -65,18 +65,18 @@ export const Login: NextPage = () => {
                     </Text>
                   </div>
                 )}
-                {!isRedirecting && (
-                  <ConnectModal
-                    errorMessage={t({
+                {!isRedirecting &&
+                  renderModal({
+                    errorMessage: t({
                       message:
                         "We had some trouble connecting. Please try again.",
                       id: "connect_modal.error_message",
-                    })}
-                    torusText={t({
+                    }),
+                    torusText: t({
                       message: "or continue with",
                       id: "connectModal.continue",
-                    })}
-                    titles={{
+                    }),
+                    titles: {
                       connect: t({
                         id: "connect_modal.sign_in",
                         message: "Sign In / Connect",
@@ -89,10 +89,8 @@ export const Login: NextPage = () => {
                         id: "connect_modal.error_title",
                         message: "Connection Error",
                       }),
-                    }}
-                    buttonText={t({ id: "shared.connect", message: "Connect" })}
-                  />
-                )}
+                    },
+                  })}
               </div>
             </Card>
           </Col>

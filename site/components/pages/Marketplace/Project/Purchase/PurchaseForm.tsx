@@ -2,12 +2,7 @@ import { t, Trans } from "@lingui/macro";
 import { FC } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";
 
-import {
-  ButtonPrimary,
-  ConnectModal,
-  Spinner,
-  Text,
-} from "@klimadao/lib/components";
+import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { Listing } from "@klimadao/lib/types/marketplace";
 import { formatUnits, useWeb3 } from "@klimadao/lib/utils";
 import { InputField } from "components/Form";
@@ -32,7 +27,7 @@ type Props = {
 };
 
 export const PurchaseForm: FC<Props> = (props) => {
-  const { address } = useWeb3();
+  const { address, renderModal } = useWeb3();
   const singleUnitPrice = formatUnits(props.listing.singleUnitPrice);
 
   const { register, handleSubmit, formState, control, setValue } =
@@ -138,19 +133,19 @@ export const PurchaseForm: FC<Props> = (props) => {
             onClick={handleSubmit(onSubmit)}
           />
         ) : (
-          <ConnectModal
-            errorMessage={t({
+          renderModal({
+            errorMessage: t({
               message: "We had some trouble connecting. Please try again.",
               id: "connect_modal.error_message",
-            })}
-            torusText={t({
+            }),
+            torusText: t({
               message: "or continue with",
               id: "connectModal.continue",
-            })}
-            titles={{
+            }),
+            titles: {
               connect: t({
-                id: "connect_modal.sign_in",
-                message: "Sign In / Connect",
+                id: "connect_modal.connect_to_buy",
+                message: "Sign In / Connect To Buy",
               }),
               loading: t({
                 id: "connect_modal.connecting",
@@ -160,12 +155,8 @@ export const PurchaseForm: FC<Props> = (props) => {
                 id: "connect_modal.error_title",
                 message: "Connection Error",
               }),
-            }}
-            buttonText={t({
-              id: "marketplace.project.single.connect_to_buy",
-              message: "Sign In / Connect To Buy",
-            })}
-          />
+            },
+          })
         )}
       </div>
     </form>

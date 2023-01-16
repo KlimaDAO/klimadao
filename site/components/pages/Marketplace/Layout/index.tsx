@@ -1,4 +1,3 @@
-import { ConnectModal } from "@klimadao/lib/components";
 import { Domain } from "@klimadao/lib/types/domains";
 import { getENSProfile, getKNSProfile, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
@@ -26,7 +25,7 @@ type Props = {
 };
 
 export const MarketplaceLayout: FC<Props> = (props: Props) => {
-  const { address } = useWeb3();
+  const { address, renderModal } = useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [profileData, setProfileData] = useState<Domain>();
 
@@ -86,16 +85,16 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
 
             {props.profileButton}
 
-            <ConnectModal
-              errorMessage={t({
+            {renderModal({
+              errorMessage: t({
                 message: "We had some trouble connecting. Please try again.",
                 id: "connect_modal.error_message",
-              })}
-              torusText={t({
+              }),
+              torusText: t({
                 message: "or continue with",
                 id: "connectModal.continue",
-              })}
-              titles={{
+              }),
+              titles: {
                 connect: t({
                   id: "connect_modal.sign_in",
                   message: "Sign In / Connect",
@@ -108,9 +107,8 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
                   id: "connect_modal.error_title",
                   message: "Connection Error",
                 }),
-              }}
-              buttonText={t({ id: "shared.connect", message: "Connect" })}
-            />
+              },
+            })}
           </div>
 
           {props.children}

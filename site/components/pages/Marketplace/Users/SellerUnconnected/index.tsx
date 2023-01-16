@@ -1,4 +1,4 @@
-import { ButtonPrimary, ConnectModal, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { User } from "@klimadao/lib/types/marketplace";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
@@ -28,7 +28,7 @@ type Props = {
 };
 
 export const SellerUnconnected: FC<Props> = (props) => {
-  const { address } = useWeb3();
+  const { address, renderModal } = useWeb3();
   const userData = props.marketplaceUser;
 
   const hasListings = !!userData?.listings?.length;
@@ -84,21 +84,20 @@ export const SellerUnconnected: FC<Props> = (props) => {
                     )}
                   />
                 ) : (
-                  <ConnectModal
-                    buttonClassName={styles.buyButton}
-                    errorMessage={t({
+                  renderModal({
+                    errorMessage: t({
                       message:
                         "We had some trouble connecting. Please try again.",
                       id: "connect_modal.error_message",
-                    })}
-                    torusText={t({
+                    }),
+                    torusText: t({
                       message: "or continue with",
                       id: "connectModal.continue",
-                    })}
-                    titles={{
+                    }),
+                    titles: {
                       connect: t({
-                        id: "connect_modal.sign_in",
-                        message: "Sign In / Connect",
+                        id: "connect_modal.connect_to_buy",
+                        message: "Sign In / Connect To Buy",
                       }),
                       loading: t({
                         id: "connect_modal.connecting",
@@ -108,12 +107,8 @@ export const SellerUnconnected: FC<Props> = (props) => {
                         id: "connect_modal.error_title",
                         message: "Connection Error",
                       }),
-                    }}
-                    buttonText={t({
-                      id: "marketplace.project.single.connect_to_buy",
-                      message: "Sign In / Connect To Buy",
-                    })}
-                  />
+                    },
+                  })
                 )}
               </Listing>
             ))}

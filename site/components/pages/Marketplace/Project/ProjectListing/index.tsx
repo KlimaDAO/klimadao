@@ -1,4 +1,4 @@
-import { ButtonPrimary, ConnectModal, Text } from "@klimadao/lib/components";
+import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Listing, Project } from "@klimadao/lib/types/marketplace";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
@@ -33,7 +33,7 @@ const getFormattedDate = (timestamp: string, locale = "en") => {
 
 export const ProjectListing: FC<Props> = (props) => {
   const { locale } = useRouter();
-  const { address } = useWeb3();
+  const { address, renderModal } = useWeb3();
 
   const isConnectedSeller = getIsConnectedSeller(
     props.listing.seller.id,
@@ -82,20 +82,19 @@ export const ProjectListing: FC<Props> = (props) => {
           disabled={isConnectedSeller}
         />
       ) : (
-        <ConnectModal
-          buttonClassName={styles.buyButton}
-          errorMessage={t({
+        renderModal({
+          errorMessage: t({
             message: "We had some trouble connecting. Please try again.",
             id: "connect_modal.error_message",
-          })}
-          torusText={t({
+          }),
+          torusText: t({
             message: "or continue with",
             id: "connectModal.continue",
-          })}
-          titles={{
+          }),
+          titles: {
             connect: t({
-              id: "connect_modal.sign_in",
-              message: "Sign In / Connect",
+              id: "connect_modal.connect_to_buy",
+              message: "Sign In / Connect To Buy",
             }),
             loading: t({
               id: "connect_modal.connecting",
@@ -105,12 +104,8 @@ export const ProjectListing: FC<Props> = (props) => {
               id: "connect_modal.error_title",
               message: "Connection Error",
             }),
-          }}
-          buttonText={t({
-            id: "marketplace.project.single.connect_to_buy",
-            message: "Sign In / Connect To Buy",
-          })}
-        />
+          },
+        })
       )}
     </Card>
   );
