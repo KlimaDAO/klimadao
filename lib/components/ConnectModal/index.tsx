@@ -30,6 +30,7 @@ export interface ConnectModalProps {
     error: string;
   };
   buttonClassName?: string;
+  /** Callback invoked when the modal is closed by X or click-off, NOT invoked on successful connection */
   onClose?: () => void;
   showModal: boolean;
 }
@@ -80,21 +81,28 @@ export const ConnectModal = (props: ConnectModalProps) => {
       }
       toggleModal();
       setStep("connect");
-      props.onClose?.();
     } catch (e: any) {
       console.error(e);
       setStep("error");
     }
   };
+
+  const handleClose = () => {
+    if (props.showModal) {
+      toggleModal();
+      props.onClose?.();
+    }
+  };
+
   if (!props.showModal) return null;
   return (
     <div aria-modal={true}>
-      <div className={styles.modalBackground} onClick={() => toggleModal()} />
+      <div className={styles.modalBackground} onClick={handleClose} />
       <div className={styles.modalContainer}>
         <div className={styles.modalContent} ref={focusTrapRef}>
           <span className="title">
             <Text t="h4">{getTitle(step)}</Text>
-            <button onClick={() => toggleModal()}>
+            <button onClick={handleClose}>
               <Close fontSize="large" />
             </button>
           </span>
