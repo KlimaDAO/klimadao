@@ -5,7 +5,6 @@ import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { Footer } from "components/Footer";
-import { getInfuraUrlPolygon } from "lib/getInfuraUrl";
 import dynamic from "next/dynamic";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { NavMenu } from "./NavMenu";
@@ -38,7 +37,6 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
     const setProfile = async () => {
       const kns = await getKNSProfile({
         address: address,
-        providerUrl: getInfuraUrlPolygon(),
       });
 
       if (kns) return setProfileData(kns);
