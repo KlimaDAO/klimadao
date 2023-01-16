@@ -242,7 +242,6 @@ export const Bond: FC<Props> = (props) => {
           calculateUserBondDetails({
             address: props.address,
             bond: props.bond,
-            provider: props.provider,
           })
         );
       }

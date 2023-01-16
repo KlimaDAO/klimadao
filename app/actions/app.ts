@@ -13,7 +13,7 @@ import {
 
 export const loadAppDetails = (params: { onRPCError: () => void }): Thunk => {
   return async (dispatch) => {
-    const provider = getStaticProvider();
+    const provider = getStaticProvider({ batchRequests: true });
     try {
       const currentBlock = await provider.getBlockNumber();
 

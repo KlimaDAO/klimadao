@@ -180,7 +180,7 @@ export const calcBondDetails = (params: {
   value?: string;
 }): Thunk => {
   return async (dispatch) => {
-    const provider = getStaticProvider();
+    const provider = getStaticProvider({ batchRequests: true });
     let amountInWei;
     if (!params.value || params.value === "") {
       amountInWei = utils.parseEther("0");
@@ -315,15 +315,15 @@ export const calcBondDetails = (params: {
 export const calculateUserBondDetails = (params: {
   address: string;
   bond: Bond;
-  provider: providers.JsonRpcProvider;
 }): Thunk => {
   return async (dispatch) => {
     if (!params.address) return;
+    const provider = getStaticProvider({ batchRequests: true });
     // inverse bonds dont have user details
     if (getIsInverse(params.bond)) {
       const klimaContract = getContract({
         contractName: "klima",
-        provider: params.provider,
+        provider,
       });
 
       const inverseAllowance = await klimaContract.allowance(
@@ -341,12 +341,12 @@ export const calculateUserBondDetails = (params: {
     // Calculate bond details.
     const bondContract = contractForBond({
       bond: params.bond,
-      provider: params.provider,
+      provider,
     });
 
     const reserveContract = contractForReserve({
       bond: params.bond,
-      providerOrSigner: params.provider,
+      providerOrSigner: provider,
     });
 
     const bondDetails = await bondContract.bondInfo(params.address);

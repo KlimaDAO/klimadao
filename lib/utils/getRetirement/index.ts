@@ -28,6 +28,7 @@ export const getRetirementIndexInfo = async (params: {
   try {
     const provider = getStaticProvider({
       infuraId: params.infuraId,
+      batchRequests: true,
     });
     const storageContract = createRetirementStorageContract(provider);
 
@@ -72,6 +73,7 @@ export const getRetirementTotalsAndBalances = async (params: {
   try {
     const provider = getStaticProvider({
       infuraId: params.infuraId,
+      batchRequests: true,
     });
     const retirementStorageContract = createRetirementStorageContract(provider);
 
