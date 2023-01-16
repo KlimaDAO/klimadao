@@ -94,7 +94,7 @@ export const Offset = (props: Props) => {
   const [isRetireTokenModalOpen, setRetireTokenModalOpen] = useState(false);
   const [isInputTokenModalOpen, setInputTokenModalOpen] = useState(false);
   const [isInvalidFractionalQtyFiat, setIsInvalidFractionalQtyFiat] =
-    useState<boolean>(false);
+    useState(false);
   const [paymentMethod, setPaymentMethod] =
     useState<OffsetPaymentMethod>("fiat");
   const [selectedRetirementToken, setSelectedRetirementToken] =
