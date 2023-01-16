@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 
 export const list = css`
+  grid-column: 1 / 3;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;

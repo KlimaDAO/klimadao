@@ -85,6 +85,7 @@ export const cardGrid = css`
 export const controls = css`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 1.6rem;
   grid-column: 1 / 3;
 `;
