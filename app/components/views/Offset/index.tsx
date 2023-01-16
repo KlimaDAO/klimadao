@@ -13,7 +13,7 @@ import {
   retirementTokens,
   urls,
 } from "@klimadao/lib/constants";
-import { getTokenDecimals } from "@klimadao/lib/utils";
+import { getStaticProvider, getTokenDecimals } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { providers, utils } from "ethers";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
@@ -154,14 +154,14 @@ export const Offset = (props: Props) => {
       dispatch(
         getRetiredOffsetBalances({
           address: props.address,
-          provider: props.provider,
+          provider: getStaticProvider(),
           onRPCError: props.onRPCError,
         })
       );
       dispatch(
         getRetirementAllowances({
           address: props.address,
-          provider: props.provider,
+          provider: getStaticProvider(),
           onRPCError: props.onRPCError,
         })
       );
