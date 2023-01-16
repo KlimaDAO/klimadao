@@ -180,7 +180,7 @@ export const calcBondDetails = (params: {
   value?: string;
 }): Thunk => {
   return async (dispatch) => {
-    const provider = getStaticProvider({ batchRequests: true });
+    const provider = getStaticProvider();
     let amountInWei;
     if (!params.value || params.value === "") {
       amountInWei = utils.parseEther("0");
@@ -318,7 +318,7 @@ export const calculateUserBondDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     if (!params.address) return;
-    const provider = getStaticProvider({ batchRequests: true });
+    const provider = getStaticProvider();
     // inverse bonds dont have user details
     if (getIsInverse(params.bond)) {
       const klimaContract = getContract({

@@ -53,7 +53,7 @@ export const getRetirementAllowances = (params: {
       const promises = offsetInputTokens.reduce((arr, val) => {
         const contract = getContract({
           contractName: val,
-          provider: getStaticProvider({ batchRequests: true }),
+          provider: getStaticProvider(),
         });
         arr.push(
           getAllowance({

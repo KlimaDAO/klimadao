@@ -69,9 +69,7 @@ export const getStaticProvider = (params?: {
   batchRequests?: boolean;
   infuraId?: string;
 }): providers.JsonRpcProvider => {
-  // const { chain = "polygon", batchRequests = false } = params || {};
-  const { chain = "polygon" } = params || {};
-  const batchRequests = false;
+  const { chain = "polygon", batchRequests = true } = params || {};
   const providerMap = batchRequests ? batchProviders : staticProviders;
   const ProviderClass = batchRequests ? JsonRpcBatchProvider : JsonRpcProvider;
 

@@ -6,7 +6,7 @@ import { getStaticProvider } from "../getStaticProvider";
 const getOwnedBCTFromSLP = async (params: { adr: "klimaBctLp" }) => {
   const contract = getContract({
     contractName: params.adr,
-    provider: getStaticProvider({ batchRequests: true }),
+    provider: getStaticProvider(),
   });
   const [token0, token1, [reserve0, reserve1], treasurySLP, totalSLP] =
     await Promise.all([

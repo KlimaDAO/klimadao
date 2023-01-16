@@ -64,7 +64,7 @@ export const loadAccountDetails = (params: {
 }): Thunk => {
   return async (dispatch) => {
     try {
-      const provider = getStaticProvider({ batchRequests: true });
+      const provider = getStaticProvider();
       // all assets
       const assetsContracts = assets.reduce((obj, asset) => {
         const contract = getContract({
