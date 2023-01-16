@@ -154,7 +154,7 @@ export const Offset = (props: Props) => {
       dispatch(
         getRetiredOffsetBalances({
           address: props.address,
-          provider: getStaticProvider(),
+          provider: props.provider,
           onRPCError: props.onRPCError,
         })
       );
