@@ -90,7 +90,7 @@ const DropdownModal = (props: DropdownModalProps) => {
           key={item.label}
           className={styles.select_button}
           data-active={item.label === props.currentItem.label && !item.disabled}
-          // disabled={item.disabled}
+          disabled={item.disabled}
         >
           <div className="start_content">
             <Image alt={item.label} src={item.icon} width={48} height={48} />
