@@ -25,6 +25,9 @@ export const navMain_DesktopLink = css`
   &:focus {
     color: var(--font-01) !important;
     background: var(--klima-green);
+    [data-theme="theme-dark"] & {
+      color: black !important;
+    }
   }
   &.dropdown {
     text-transform: uppercase;
@@ -33,6 +36,9 @@ export const navMain_DesktopLink = css`
       border: 1px solid var(--font-01);
       background: transparent !important;
       cursor: default;
+      [data-theme="theme-dark"] & {
+        color: white !important;
+      }
     }
   }
   &[data-active="true"] {

@@ -40,8 +40,6 @@ import { RebaseCard } from "components/RebaseCard";
 import { TransactionModal } from "components/TransactionModal";
 
 import { urls } from "@klimadao/lib/constants";
-import { darkTextButton } from "@klimadao/lib/theme/common";
-import classNames from "classnames";
 import * as styles from "./styles";
 
 interface Props {
@@ -456,7 +454,7 @@ export const Stake = (props: Props) => {
               </div>
             ) : (
               <ButtonPrimary
-                className={classNames(styles.submitButton, darkTextButton)}
+                className={styles.submitButton}
                 {...getButtonProps()}
               />
             )}

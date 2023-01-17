@@ -1,6 +1,5 @@
 import FlipOutlined from "@mui/icons-material/FlipOutlined";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
-import classNames from "classnames";
 import { providers } from "ethers";
 import { FC, useState } from "react";
 import { useSelector } from "react-redux";
@@ -35,7 +34,6 @@ import {
 import { useTypedSelector } from "lib/hooks/useTypedSelector";
 import { useAppDispatch } from "state";
 
-import { darkTextButton } from "@klimadao/lib/theme/common";
 import { defineMessage, t, Trans } from "@lingui/macro";
 import * as styles from "components/views/Stake/styles";
 
@@ -399,7 +397,7 @@ export const Wrap: FC<Props> = (props) => {
               </div>
             ) : (
               <ButtonPrimary
-                className={classNames(styles.submitButton, darkTextButton)}
+                className={styles.submitButton}
                 {...getButtonProps()}
               />
             )}

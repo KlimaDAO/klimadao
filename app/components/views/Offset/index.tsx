@@ -15,7 +15,6 @@ import {
 } from "@klimadao/lib/constants";
 import { getTokenDecimals } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
-import classNames from "classnames";
 import { providers, utils } from "ethers";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
@@ -61,7 +60,6 @@ import {
   CarbonProject,
 } from "./SelectiveRetirement/queryProjectDetails";
 
-import { darkTextButton } from "@klimadao/lib/theme/common";
 import Fiat from "public/icons/Fiat.png";
 import { getFiatRetirementCost } from "./lib/getFiatRetirementCost";
 import { redirectFiatCheckout } from "./lib/redirectFiatCheckout";
@@ -793,7 +791,7 @@ export const Offset = (props: Props) => {
               </div>
             ) : (
               <ButtonPrimary
-                className={classNames(styles.submitButton, darkTextButton)}
+                className={styles.submitButton}
                 {...getButtonProps()}
               />
             )}

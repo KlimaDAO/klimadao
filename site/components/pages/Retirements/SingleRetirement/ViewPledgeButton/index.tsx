@@ -1,6 +1,5 @@
 import { ButtonPrimary } from "@klimadao/lib/components";
 import { urls } from "@klimadao/lib/constants";
-import { darkTextButton } from "@klimadao/lib/theme/common";
 import { t } from "@lingui/macro";
 import { Pledge } from "components/pages/Pledge/types";
 import Link from "next/link";
@@ -15,7 +14,6 @@ export const ViewPledgeButton: FC<ViewPledgeButtonProps> = (props) => {
   if (props.pledge) {
     return (
       <ButtonPrimary
-        className={darkTextButton}
         href={`${urls.pledges}/${props.pledge?.ownerAddress}`}
         label={t({
           id: "retirement.single.view_pledge",

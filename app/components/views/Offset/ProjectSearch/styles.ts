@@ -18,5 +18,13 @@ export const noResultsContainer = css`
 
   & + button {
     background-color: var(--surface-01);
+
+    &,
+    &:hover:not(:disabled),
+    &:visited {
+      [data-theme="theme-dark"] & {
+        color: white;
+      }
+    }
   }
 `;

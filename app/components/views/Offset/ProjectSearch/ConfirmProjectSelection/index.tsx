@@ -1,5 +1,4 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { darkTextButton } from "@klimadao/lib/theme/common";
 import { t, Trans } from "@lingui/macro";
 import HelpIcon from "@mui/icons-material/Help";
 import { FC } from "react";
@@ -28,7 +27,6 @@ export const ConfirmProjectSelection: FC<Props> = (props) => (
 
     <div className={styles.buttons}>
       <ButtonPrimary
-        className={darkTextButton}
         label={t({
           id: "offset.selectiveRetirement.confirm_selection",
           message: "Confirm selection",

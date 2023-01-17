@@ -17,6 +17,15 @@ export const confirmSelection = css`
 
     :last-of-type {
       background-color: var(--surface-01);
+
+      &,
+      &:hover:not(:disabled),
+      &:visited {
+        [data-theme="theme-dark"] & {
+          color: white;
+          &: visited;
+        }
+      }
     }
   }
 `;

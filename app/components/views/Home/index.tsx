@@ -1,5 +1,4 @@
 import { bonds } from "@klimadao/lib/constants";
-import { darkTextButton } from "@klimadao/lib/theme/common";
 import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Route, useLocation } from "react-router-dom";
@@ -151,7 +150,6 @@ export const Home: FC = () => {
             <ChangeLanguageButton />
             {!address && !isConnected && (
               <ButtonPrimary
-                className={darkTextButton}
                 label={t({
                   id: "shared.login_connect",
                   message: "Login / Connect",
@@ -161,7 +159,6 @@ export const Home: FC = () => {
             )}
             {address && isConnected && (
               <ButtonPrimary
-                className={darkTextButton}
                 label={concatAddress(address)}
                 onClick={disconnect}
               />

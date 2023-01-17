@@ -10,7 +10,6 @@ import {
   getIsInverse,
   redeemTransaction,
 } from "actions/bonds";
-import classNames from "classnames";
 import { FC, ReactNode, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -31,7 +30,6 @@ import {
   useTooltipSingleton,
 } from "@klimadao/lib/components";
 import { Bond as BondType } from "@klimadao/lib/constants";
-import { darkTextButton } from "@klimadao/lib/theme/common";
 import {
   concatAddress,
   safeAdd,
@@ -1041,7 +1039,7 @@ export const Bond: FC<Props> = (props) => {
               >
                 <ButtonPrimary
                   {...getButtonProps()}
-                  className={classNames(styles.submitButton, darkTextButton)}
+                  className={styles.submitButton}
                 />
                 {viewIsReedem && !showSpinner && (
                   <div className={styles.checkboxContainer}>

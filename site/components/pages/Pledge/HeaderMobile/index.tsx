@@ -5,7 +5,6 @@ import { FC } from "react";
 
 import EditIcon from "@mui/icons-material/Edit";
 
-import { darkTextButton } from "@klimadao/lib/theme/common";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import Link from "next/link";
 import * as styles from "./styles";
@@ -44,7 +43,6 @@ export const HeaderMobile: FC<Props> = (props) => {
 
           {!address && !isConnected && (
             <ButtonPrimary
-              className={darkTextButton}
               label={t({
                 id: "shared.login_connect",
                 message: "Login / Connect",

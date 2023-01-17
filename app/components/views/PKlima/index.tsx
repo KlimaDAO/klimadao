@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { providers } from "ethers";
 import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -14,7 +13,6 @@ import { concatAddress, trimWithPlaceholder } from "@klimadao/lib/utils";
 
 import { t, Trans } from "@lingui/macro";
 
-import { darkTextButton } from "@klimadao/lib/theme/common";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import RedeemOutlined from "@mui/icons-material/RedeemOutlined";
 import { exerciseTransaction, loadTerms } from "actions/pklima";
@@ -317,7 +315,7 @@ export const PKlima: FC<Props> = (props) => {
               </div>
             ) : (
               <ButtonPrimary
-                className={classNames(styles.submitButton, darkTextButton)}
+                className={styles.submitButton}
                 {...getButtonProps()}
               />
             )}
