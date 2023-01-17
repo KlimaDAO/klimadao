@@ -55,4 +55,25 @@ export const checkedIcon = css`
 
 export const regionLabel = css`
   color: var(--klima-green);
+  font-size: 1.3rem;
+`;
+
+export const tonnageLabel = css`
+  font-size: 1.3rem;
+`;
+
+export const projectDetailsLink = css`
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: var(--klima-green);
+    cursor: pointer;
+  }
+
+  svg {
+    padding: 0.4rem; // hacky way to make svg smaller
+    color: inherit;
+  }
 `;
