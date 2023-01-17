@@ -26,7 +26,7 @@ export const navMain_DesktopLink = css`
     color: var(--font-01) !important;
     background: var(--klima-green);
     [data-theme="theme-dark"] & {
-      color: black !important;
+      color: #000 !important;
     }
   }
   &.dropdown {
@@ -37,7 +37,7 @@ export const navMain_DesktopLink = css`
       background: transparent !important;
       cursor: default;
       [data-theme="theme-dark"] & {
-        color: white !important;
+        color: #fff !important;
       }
     }
   }

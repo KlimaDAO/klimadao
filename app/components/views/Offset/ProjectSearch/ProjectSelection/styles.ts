@@ -35,7 +35,7 @@ export const projectActionButtons = css`
       &:hover:not(:disabled),
       &:visited {
         [data-theme="theme-dark"] & {
-          color: white;
+          color: #fff;
         }
       }
     }

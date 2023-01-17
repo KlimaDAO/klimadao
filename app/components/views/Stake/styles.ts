@@ -110,7 +110,7 @@ export const switchButton = css`
     background-color: var(--klima-green);
     font-weight: bold;
     [data-theme="theme-dark"] & {
-      color: black;
+      color: #000;
     }
   }
 `;

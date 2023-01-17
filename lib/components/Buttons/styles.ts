@@ -59,7 +59,7 @@ export const buttonPrimary = css`
   &:visited {
     color: white;
     [data-theme="theme-dark"] & {
-      color: black;
+      color: #000;
     }
   }
 
