@@ -30,7 +30,6 @@ export const projectActionButtons = css`
 
     :first-of-type {
       background-color: var(--surface-01);
-
       &,
       &:hover:not(:disabled),
       &:visited {
