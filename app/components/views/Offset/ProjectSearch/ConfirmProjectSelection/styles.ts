@@ -23,7 +23,6 @@ export const confirmSelection = css`
       &:visited {
         [data-theme="theme-dark"] & {
           color: white;
-          &: visited;
         }
       }
     }
