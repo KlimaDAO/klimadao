@@ -618,7 +618,7 @@ msgstr "vintage"
 msgid "offset.selectiveRetirement.finding_projects"
 msgstr "Finding projects..."
 
-#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:70
+#: components/views/Offset/ProjectSearch/SelectProjectButton/index.tsx:69
 msgid "offset.selectiveRetirement.project.available_tonnes"
 msgstr "Available tonnes: {0}"
 
