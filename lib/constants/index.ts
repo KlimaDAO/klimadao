@@ -181,7 +181,7 @@ export const bonds = [
   "bct",
   "mco2",
 ] as const;
-export type Bond = (typeof bonds)[number];
+export type Bond = typeof bonds[number];
 
 // Spender with their Allowances tokens
 export const allowancesContracts = {
@@ -221,7 +221,7 @@ export const SANITY_STUDIO_API_DATASET = "production";
 
 /** Tokens accepted as input for the offset aggregator /#/offset */
 export type OffsetInputToken =
-  (typeof allowancesContracts)["retirementAggregator"][number];
+  typeof allowancesContracts["retirementAggregator"][number];
 export const offsetInputTokens = allowancesContracts[
   "retirementAggregator"
 ] as unknown as OffsetInputToken[];
@@ -230,7 +230,7 @@ export type OffsetPaymentMethod = OffsetInputToken | "fiat";
 
 /** Retireable tokens for the offset aggregator /#/offset */
 export const retirementTokens = ["ubo", "nbo", "bct", "nct", "mco2"] as const;
-export type RetirementToken = (typeof retirementTokens)[number];
+export type RetirementToken = typeof retirementTokens[number];
 
 type CompatMap = { [token in OffsetPaymentMethod]: RetirementToken[] };
 export const offsetCompatibility: CompatMap = {

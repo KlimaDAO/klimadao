@@ -12,10 +12,10 @@ export const tagSlugs = [
   "carbon-footprint",
 ] as const;
 
-export type TagSlug = (typeof tagSlugs)[number];
+export type TagSlug = typeof tagSlugs[number];
 
 export const documentTypeNames = ["post", "podcast"] as const;
-export type DocumentType = (typeof documentTypeNames)[number];
+export type DocumentType = typeof documentTypeNames[number];
 export type CheckboxOption = {
   value: DocumentType | TagSlug; // document type in CMS or slug value from CMS
   label: string;
@@ -30,7 +30,7 @@ export const sortQueryNames = [
   "lower(title) desc",
   "lower(title) asc",
 ] as const;
-export type SortQuery = (typeof sortQueryNames)[number];
+export type SortQuery = typeof sortQueryNames[number];
 type SortedByQueries = {
   label: string;
   id: string;

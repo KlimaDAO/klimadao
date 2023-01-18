@@ -3,7 +3,7 @@ import { allowancesContracts } from "../constants";
 
 export type AllowancesSpender = keyof typeof allowancesContracts;
 export type AllowancesToken =
-  (typeof allowancesContracts)[keyof typeof allowancesContracts][number];
+  typeof allowancesContracts[keyof typeof allowancesContracts][number];
 export type AllowancesSpenderWithTokens = {
   [K in AllowancesSpender]: AllowancesToken[];
 };

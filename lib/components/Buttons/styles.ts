@@ -89,7 +89,7 @@ export const buttonPrimary = css`
     background-color: var(--klima-blue);
     &:hover:not(:disabled),
     &:visited {
-      color: var(--surface-01); /* same in darkmode */
+      color: #000; /* same in darkmode */
     }
   }
 
