@@ -16,3 +16,597 @@ msgstr ""
 #: components/pages/Home/index.tsx:14
 msgid "A new era for kleema dow"
 msgstr ""
+
+#: components/Stats/index.tsx:57
+msgid "Active listings:"
+msgstr ""
+
+#: components/shared/ChangeLanguageButton/index.tsx:48
+msgid "Change language"
+msgstr ""
+
+#: components/pages/Project/ProjectListing/index.tsx:59
+msgid "Created:"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:186
+msgid "Error:"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:103
+msgid "Final price"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:181
+#: components/pages/Users/SellerUnconnected/index.tsx:52
+msgid "Listings"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:59
+msgid "Payment Successful"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:112
+msgid "Project"
+msgstr ""
+
+#: components/pages/Project/ProjectListing/index.tsx:54
+msgid "Quantity Available:"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:94
+msgid "Quantity purchased:"
+msgstr ""
+
+#: components/pages/Project/ProjectListing/index.tsx:43
+msgid "Seller Listing"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:70
+msgid "Thank you for supporting the planet! See purchase details below."
+msgstr ""
+
+#: components/Stats/index.tsx:47
+msgid "Tonnes owned:"
+msgstr ""
+
+#: components/Stats/index.tsx:38
+msgid "Tonnes sold:"
+msgstr ""
+
+#: components/pages/Project/ProjectListing/index.tsx:63
+msgid "Updated:"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:230
+msgid "Updating your data..."
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:63
+msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
+msgstr ""
+
+#: lib/sellerGetter.ts:9
+msgid "activity.you"
+msgstr ""
+
+#: components/pages/Users/ProfileButton/index.tsx:13
+msgid "button.edit_profile"
+msgstr ""
+
+#: components/pages/Project/ProjectListing/index.tsx:81
+msgid "buy"
+msgstr ""
+
+#: components/Layout/index.tsx:103
+#: components/pages/Project/ProjectListing/index.tsx:101
+#: components/pages/Project/Purchase/PurchaseForm.tsx:149
+#: components/pages/Users/Login/index.tsx:81
+#: components/pages/Users/SellerUnconnected/index.tsx:101
+msgid "connectModal.continue"
+msgstr ""
+
+#: components/pages/Project/ProjectListing/index.tsx:106
+#: components/pages/Project/Purchase/PurchaseForm.tsx:154
+#: components/pages/Users/SellerUnconnected/index.tsx:106
+msgid "connect_modal.connect_to_buy"
+msgstr ""
+
+#: components/Layout/index.tsx:112
+#: components/pages/Project/ProjectListing/index.tsx:110
+#: components/pages/Project/Purchase/PurchaseForm.tsx:158
+#: components/pages/Users/Login/index.tsx:90
+#: components/pages/Users/SellerUnconnected/index.tsx:110
+msgid "connect_modal.connecting"
+msgstr ""
+
+#: components/Layout/index.tsx:99
+#: components/pages/Project/ProjectListing/index.tsx:97
+#: components/pages/Project/Purchase/PurchaseForm.tsx:145
+#: components/pages/Users/Login/index.tsx:76
+#: components/pages/Users/SellerUnconnected/index.tsx:96
+msgid "connect_modal.error_message"
+msgstr ""
+
+#: components/Layout/index.tsx:116
+#: components/pages/Project/ProjectListing/index.tsx:114
+#: components/pages/Project/Purchase/PurchaseForm.tsx:162
+#: components/pages/Users/Login/index.tsx:94
+#: components/pages/Users/SellerUnconnected/index.tsx:114
+msgid "connect_modal.error_title"
+msgstr ""
+
+#: components/Layout/index.tsx:108
+#: components/pages/Users/Login/index.tsx:86
+msgid "connect_modal.sign_in"
+msgstr ""
+
+#: components/Layout/NavMenu/index.tsx:34
+msgid "menu.marketplace"
+msgstr ""
+
+#: components/Layout/AddressSection/index.tsx:35
+msgid "menu.not_connected"
+msgstr ""
+
+#: components/Layout/NavMenu/index.tsx:49
+msgid "menu.portfolio"
+msgstr ""
+
+#: components/Layout/NavMenu/index.tsx:41
+msgid "menu.profile"
+msgstr ""
+
+#: components/Layout/AddressSection/index.tsx:16
+msgid "menu.wallet_address"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:142
+msgid "profile.addListing_modal.submit"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:208
+msgid "profile.create_new_listing"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:125
+msgid "profile.editListing_modal.submit"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:183
+msgid "profile.edit_modal.submit"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:267
+msgid "profile.edit_profile.title"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:170
+msgid "profile.edit_your_profile"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:147
+msgid "profile.listing.delete.error"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:162
+msgid "profile.listing.edit"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:190
+msgid "profile.listing.edit.delete_listing"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:193
+#: components/pages/Users/SellerUnconnected/index.tsx:58
+msgid "profile.listings.empty_state"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:114
+msgid "profile.listings_modal.title"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:91
+msgid "profile.load_assets.error"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:62
+msgid "profile.missing_assets"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:152
+msgid "profile.update_activity.error"
+msgstr ""
+
+#: lib/getCategoryInfo.ts:87
+msgid "project.category.agriculture"
+msgstr ""
+
+#: lib/getCategoryInfo.ts:77
+msgid "project.category.energy_efficiency"
+msgstr ""
+
+#: lib/getCategoryInfo.ts:47
+msgid "project.category.forestry"
+msgstr ""
+
+#: lib/getCategoryInfo.ts:97
+msgid "project.category.industria_processing"
+msgstr ""
+
+#: lib/getCategoryInfo.ts:67
+msgid "project.category.other"
+msgstr ""
+
+#: lib/getCategoryInfo.ts:57
+msgid "project.category.other_nature_based"
+msgstr ""
+
+#: lib/getCategoryInfo.ts:37
+msgid "project.category.renewable_energy"
+msgstr ""
+
+#: components/pages/Project/index.tsx:90
+msgid "project.single.best_price"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:154
+msgid "project.single.button.back_to_project"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:46
+msgid "project.single.button.back_to_project_details"
+msgstr ""
+
+#: components/pages/Project/index.tsx:55
+msgid "project.single.button.back_to_projects"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:180
+msgid "project.single.header.seller"
+msgstr ""
+
+#: components/pages/Project/index.tsx:97
+msgid "project.single.methodology"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:136
+msgid "purchase.button.continue"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:127
+msgid "purchase.button.go_to_infinity"
+msgstr ""
+
+#: components/pages/Purchases/index.tsx:134
+msgid "purchase.button.view_assets"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:93
+msgid "purchase.input.amount.label"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:86
+msgid "purchase.input.amount.maxAmount"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:79
+msgid "purchase.input.amount.minimum"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:64
+msgid "purchase.input.amount.placeholder"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:72
+msgid "purchase.input.amount.required"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:112
+msgid "purchase.input.cost.label"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:84
+msgid "purchase.loading.allowance.error"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:190
+msgid "purchase.price_each"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:209
+msgid "purchase.transaction.modal.title.confirm"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:213
+msgid "purchase.transaction.modal.title.processing"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ProjectTokenDropDown/index.tsx:59
+msgid "resources.list.select.sort_by.toggle"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:170
+msgid "seller.edit_listing.title"
+msgstr ""
+
+#: components/pages/Users/SellerUnconnected/index.tsx:85
+msgid "seller.listing.buy"
+msgstr ""
+
+#: components/pages/Users/Listing/index.tsx:39
+msgid "seller.listing.quantity_available"
+msgstr ""
+
+#: components/Transaction/Approve.tsx:112
+msgid "shared.approve"
+msgstr ""
+
+#: components/shared/Footer/index.tsx:49
+msgid "shared.blog"
+msgstr ""
+
+#: components/shared/Footer/index.tsx:43
+msgid "shared.bond"
+msgstr ""
+
+#: components/shared/Footer/index.tsx:37
+msgid "shared.buy"
+msgstr ""
+
+#: components/pages/Project/ProjectListing/index.tsx:71
+#: components/pages/Project/Purchase/PurchaseForm.tsx:122
+#: components/pages/Users/SellerUnconnected/index.tsx:75
+msgid "shared.connect_to_buy"
+msgstr ""
+
+#: components/shared/Footer/index.tsx:52
+msgid "shared.contact"
+msgstr ""
+
+#: components/shared/Footer/index.tsx:55
+msgid "shared.disclaimer"
+msgstr ""
+
+#: components/shared/Footer/index.tsx:46
+msgid "shared.docs"
+msgstr ""
+
+#: components/shared/Footer/index.tsx:34
+msgid "shared.home"
+msgstr ""
+
+#: components/pages/Users/Login/index.tsx:61
+msgid "shared.loading"
+msgstr ""
+
+#: components/Layout/NavDrawer/index.tsx:48
+#: components/Layout/index.tsx:82
+#: components/pages/Users/Login/index.tsx:67
+msgid "shared.login_connect"
+msgstr ""
+
+#: components/shared/Footer/index.tsx:40
+msgid "shared.stake"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:139
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:217
+msgid "tonnes.long"
+msgstr ""
+
+#: components/Activities/index.tsx:91
+msgid "tonnes.short"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/CreateAListingModal.tsx:148
+msgid "transaction.create_listing.approval_description"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/ListingEditable.tsx:226
+msgid "transaction.edit_listing.approval_description"
+msgstr ""
+
+#: lib/statusMessage.ts:31
+msgid "transaction.status.done"
+msgstr ""
+
+#: lib/statusMessage.ts:26
+msgid "transaction.status.error"
+msgstr ""
+
+#: lib/statusMessage.ts:41
+msgid "transaction.status.network_confirmation"
+msgstr ""
+
+#: lib/statusMessage.ts:36
+msgid "transaction.status.user_confirmation"
+msgstr ""
+
+#: lib/statusMessage.ts:20
+msgid "transaction.status.user_rejected"
+msgstr ""
+
+#: components/Transaction/Approve.tsx:65
+msgid "transaction_modal.approve.amount"
+msgstr ""
+
+#: components/Transaction/Approve.tsx:55
+msgid "transaction_modal.approve.contract_address"
+msgstr ""
+
+#: components/Transaction/Approve.tsx:81
+msgid "transaction_modal.approve.price"
+msgstr ""
+
+#: components/Transaction/Approve.tsx:47
+msgid "transaction_modal.approve.title"
+msgstr ""
+
+#: components/Transaction/index.tsx:88
+msgid "transaction_modal.button.go_back"
+msgstr ""
+
+#: components/Transaction/Submit.tsx:117
+msgid "transaction_modal.close"
+msgstr ""
+
+#: components/Transaction/Approve.tsx:120
+msgid "transaction_modal.next"
+msgstr ""
+
+#: components/Transaction/Submit.tsx:64
+msgid "transaction_modal.submit.amount"
+msgstr ""
+
+#: components/Transaction/Submit.tsx:109
+msgid "transaction_modal.submit.button"
+msgstr ""
+
+#: components/Transaction/Submit.tsx:54
+msgid "transaction_modal.submit.contract_address"
+msgstr ""
+
+#: components/Transaction/Submit.tsx:78
+msgid "transaction_modal.submit.price"
+msgstr ""
+
+#: components/Transaction/Submit.tsx:46
+msgid "transaction_modal.submit.title"
+msgstr ""
+
+#: components/Transaction/index.tsx:48
+msgid "transaction_modal.view.approve.title"
+msgstr ""
+
+#: components/Transaction/index.tsx:58
+msgid "transaction_modal.view.submit.title"
+msgstr ""
+
+#: components/Activities/index.tsx:60
+msgid "user.activities.empty_state"
+msgstr ""
+
+#: components/Activities/index.tsx:55
+msgid "user.activities.title"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:114
+msgid "user.edit.edit.input.price.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:105
+msgid "user.edit.form.edit.price.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:93
+msgid "user.edit.form.edit.quantity.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:82
+msgid "user.edit.form.error.api_error"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:101
+msgid "user.edit.form.error.general_error"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:94
+msgid "user.edit.form.error.user_rejected"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:166
+msgid "user.edit.form.input.description.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:160
+msgid "user.edit.form.input.description.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:133
+msgid "user.edit.form.input.handle.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:126
+msgid "user.edit.form.input.handle.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:131
+msgid "user.edit.form.input.singleUnitPrice.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:122
+msgid "user.edit.form.input.singleUnitPrice.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:110
+msgid "user.edit.form.input.totalAmountToSell.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:150
+msgid "user.edit.form.input.username.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditProfile.tsx:143
+msgid "user.edit.form.input.username.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:86
+msgid "user.listing.edit.input.quantity.maxAmount"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:79
+msgid "user.listing.edit.input.quantity.minimum"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:64
+msgid "user.listing.edit.input.quantity.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:72
+msgid "user.listing.edit.input.quantity.required"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/EditListing.tsx:44
+msgid "user.listing.edit.project.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:57
+msgid "user.listing.form.input.select_project.label"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:103
+msgid "user.listing.form.input.totalAmountToSell.maxAmount"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:96
+msgid "user.listing.form.input.totalAmountToSell.minimum"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:81
+msgid "user.listing.form.input.totalAmountToSell.placeholder"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/Forms/AddListing.tsx:89
+msgid "user.listing.form.input.totalAmountToSell.required"
+msgstr ""
+
+#: components/pages/Users/Login/index.tsx:52
+msgid "user.login.description"
+msgstr ""
+
+#: components/pages/Users/Login/index.tsx:47
+msgid "user.login.title"
+msgstr ""
+
+#: components/Stats/index.tsx:29
+msgid "user.stats.seller.description"
+msgstr ""
+
+#: components/Stats/index.tsx:25
+msgid "user.stats.title"
+msgstr ""
+
+#: components/pages/Users/SellerConnected/index.tsx:253
+msgid "user.stats.your_seller_data.description"
+msgstr ""
