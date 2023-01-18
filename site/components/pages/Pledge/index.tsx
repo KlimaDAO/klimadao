@@ -43,6 +43,15 @@ export const Pledge: NextPage = () => {
 
   const handleCreatePledge = async () => {
     setShouldRedirect(true);
+    if (!address) {
+      toggleModal();
+    } else {
+      router.push(`/pledge/${address}`);
+    }
+  };
+
+  const handleModalClose = () => {
+    setShouldRedirect(false);
   };
 
   useEffect(() => {
@@ -50,6 +59,25 @@ export const Pledge: NextPage = () => {
       router.push(`/pledge/${address}`);
     }
   }, [shouldRedirect, address]);
+
+  const getCTALabel = () => {
+    if (shouldRedirect) {
+      return t({
+        message: "Connecting...",
+        id: "pledges.home.hero.connecting",
+      });
+    }
+    if (address) {
+      return t({
+        message: "View your pledge",
+        id: "pledges.home.hero.view",
+      });
+    }
+    return t({
+      message: "Create a pledge",
+      id: "pledges.home.hero.create",
+    });
+  };
 
   return (
     <>
@@ -70,6 +98,7 @@ export const Pledge: NextPage = () => {
       />
       {renderModal &&
         renderModal({
+          onClose: handleModalClose,
           errorMessage: t({
             message: "We had some trouble connecting. Please try again.",
             id: "connect_modal.error_message",
@@ -122,28 +151,12 @@ export const Pledge: NextPage = () => {
               </Text>
 
               <div className="actions">
-                {address ? (
-                  <ButtonPrimary
-                    onClick={handleCreatePledge}
-                    variant="blue"
-                    label={t({
-                      message: "Create a pledge",
-                      id: "pledges.home.hero.create",
-                    })}
-                  />
-                ) : (
-                  <ButtonPrimary
-                    variant="blue"
-                    label={t({
-                      message: "Create a pledge",
-                      id: "pledges.home.hero.create",
-                    })}
-                    onClick={() => {
-                      handleCreatePledge();
-                      toggleModal();
-                    }}
-                  />
-                )}
+                <ButtonPrimary
+                  onClick={handleCreatePledge}
+                  variant="blue"
+                  disabled={shouldRedirect}
+                  label={getCTALabel()}
+                />
 
                 <ButtonPrimary
                   variant="gray"
@@ -320,28 +333,12 @@ export const Pledge: NextPage = () => {
               </li>
             </ol>
 
-            {address ? (
-              <ButtonPrimary
-                onClick={handleCreatePledge}
-                variant="blue"
-                label={t({
-                  message: "Create a pledge",
-                  id: "pledges.home.hero.create",
-                })}
-              />
-            ) : (
-              <ButtonPrimary
-                variant="blue"
-                label={t({
-                  message: "Create a pledge",
-                  id: "pledges.home.hero.create",
-                })}
-                onClick={() => {
-                  handleCreatePledge();
-                  toggleModal();
-                }}
-              />
-            )}
+            <ButtonPrimary
+              onClick={handleCreatePledge}
+              variant="blue"
+              disabled={shouldRedirect}
+              label={getCTALabel()}
+            />
           </section>
 
           <section className={styles.banner}>
@@ -355,28 +352,12 @@ export const Pledge: NextPage = () => {
                 Create your pledge and go climate positive
               </Text>
 
-              {address ? (
-                <ButtonPrimary
-                  onClick={handleCreatePledge}
-                  variant="blue"
-                  label={t({
-                    message: "Create a pledge",
-                    id: "pledges.home.hero.create",
-                  })}
-                />
-              ) : (
-                <ButtonPrimary
-                  variant="blue"
-                  label={t({
-                    message: "Create a pledge",
-                    id: "pledges.home.hero.create",
-                  })}
-                  onClick={() => {
-                    handleCreatePledge();
-                    toggleModal();
-                  }}
-                />
-              )}
+              <ButtonPrimary
+                onClick={handleCreatePledge}
+                variant="blue"
+                disabled={shouldRedirect}
+                label={getCTALabel()}
+              />
             </div>
           </section>
         </div>

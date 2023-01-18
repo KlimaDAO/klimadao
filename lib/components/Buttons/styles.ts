@@ -65,17 +65,10 @@ export const buttonPrimary = css`
     color: white; /* same in darkmode */
   }
 
-  &:disabled {
-    background-color: var(--surface-03);
-    color: var(--font-03);
-    cursor: not-allowed;
-  }
-
   &.gray {
     background-color: var(--surface-01);
 
     &,
-    &:hover,
     &:hover:not(:disabled),
     &:visited {
       color: var(--font-02); /* same in darkmode */
@@ -86,7 +79,6 @@ export const buttonPrimary = css`
     background-color: var(--surface-01);
 
     &,
-    &:hover,
     &:hover:not(:disabled),
     &:visited {
       color: var(--font-02); /* same in darkmode */
@@ -100,11 +92,16 @@ export const buttonPrimary = css`
 
   &.blue {
     background-color: var(--klima-blue);
-    &:hover,
     &:hover:not(:disabled),
     &:visited {
       color: var(--surface-01); /* same in darkmode */
     }
+  }
+
+  &:disabled {
+    background-color: var(--surface-03);
+    color: var(--font-03);
+    cursor: not-allowed;
   }
 `;
 
