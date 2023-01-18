@@ -16,7 +16,7 @@ export const container = css`
     width: 2.4rem;
     height: 2.4rem;
   }
-  &[data-scrolllock="true"] {
+  &[data-scroll-lock="true"] {
     overflow-y: hidden;
     max-height: 100vh;
   }

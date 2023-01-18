@@ -78,7 +78,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
       if (!address || !provider) return;
       const allowance = await getUSDCtokenToMarketplaceAllowance({
         tokenAddress: FAKE_USDC,
-        userAdress: address,
+        userAddress: address,
         provider,
       });
 

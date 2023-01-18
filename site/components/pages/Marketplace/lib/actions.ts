@@ -10,7 +10,7 @@ import { OnStatusHandler } from "./statusMessage";
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
 export const getC3tokenToMarketplaceAllowance = async (params: {
-  userAdress: string;
+  userAddress: string;
   tokenAddress: string;
   provider: ethers.providers.Provider;
 }): Promise<string> => {
@@ -21,7 +21,7 @@ export const getC3tokenToMarketplaceAllowance = async (params: {
   );
 
   const allowance = await tokenContract.allowance(
-    params.userAdress,
+    params.userAddress,
     getMarketplaceAddress()
   );
 
@@ -29,7 +29,7 @@ export const getC3tokenToMarketplaceAllowance = async (params: {
 };
 
 export const getUSDCtokenToMarketplaceAllowance = async (params: {
-  userAdress: string;
+  userAddress: string;
   tokenAddress: string;
   provider: ethers.providers.Provider;
 }): Promise<string> => {
@@ -40,7 +40,7 @@ export const getUSDCtokenToMarketplaceAllowance = async (params: {
   );
 
   const allowance = await tokenContract.allowance(
-    params.userAdress,
+    params.userAddress,
     getMarketplaceAddress()
   );
 

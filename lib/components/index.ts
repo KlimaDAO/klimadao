@@ -30,6 +30,7 @@ export { Section } from "./Layout/Section";
 export { KlimaInfinityLogo } from "./Logos/KlimaInfinityLogo";
 export { KlimaInfinityLogoOnly } from "./Logos/KlimaInfinityLogoOnly";
 export { LogoWithClaim } from "./Logos/LogoWithClaim";
+export { MarketplaceLogo } from "./Logos/MarketplaceLogo";
 export { Spinner } from "./Spinner";
 export { Text } from "./Text";
 export { TextInfoTooltip, useTooltipSingleton } from "./TextInfoTooltip";

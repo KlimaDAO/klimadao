@@ -1,7 +1,6 @@
 import { css } from "@emotion/css";
 import breakpoints from "@klimadao/lib/theme/breakpoints";
 import * as common from "@klimadao/lib/theme/common";
-import * as typography from "@klimadao/lib/theme/typography";
 
 export const container = css`
   position: relative;
@@ -52,6 +51,10 @@ export const container = css`
     overflow: hidden;
     padding-top: 0.5rem;
     gap: 1rem;
+  }
+
+  .connectButton {
+    width: 100%;
   }
 
   .avatar {
@@ -106,78 +109,16 @@ export const addressContainer = css`
   gap: 1.2rem;
 `;
 
-export const address = css`
-  display: grid;
-  gap: 0.4rem;
-`;
-
-export const sidebarButton = css`
-  ${typography.caption};
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  padding: 0.1rem;
-  border-radius: 0.8rem;
-  width: 100%;
-  padding: 0.8rem;
-
-  span {
-    color: var(--font-03);
-  }
-
-  .iconContainer {
-    color: var(--font-02);
+export const mobile = {
+  header: css`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3.8rem;
-    width: 3.8rem;
-    background-color: var(--surface-02);
-    border-radius: 0.6rem;
-
-    svg {
-      font-size: 2.4rem;
-      width: 2.4rem;
-      height: 2.4rem;
+    justify-content: space-between;
+    button {
+      width: 4.8rem;
+      box-shadow: var(--shadow-06);
     }
-  }
-
-  &:hover,
-  &:focus {
-    background-color: var(--surface-02);
-
-    .iconContainer {
-      background-color: var(--klima-green);
-
-      svg {
-        fill: var(--surface-01);
-      }
+    .close {
+      background: var(--surface-02);
     }
-  }
-
-  &:hover span,
-  &:focus span {
-    color: var(--font-02);
-  }
-
-  &[data-active="true"] {
-    background-color: var(--surface-02);
-    border: 1px solid var(--surface-03);
-  }
-
-  &[data-active="true"] span {
-    color: var(--font-01);
-  }
-
-  &[data-active="true"] .iconContainer {
-    background-color: var(--klima-green);
-
-    svg {
-      fill: var(--surface-01);
-    }
-  }
-
-  &[data-disabled="true"] {
-    opacity: 0.5;
-  }
-`;
+  `,
+};

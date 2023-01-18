@@ -1,5 +1,4 @@
-import { ButtonPrimary, Spinner } from "@klimadao/lib/components";
-import { t } from "@lingui/macro";
+import { Spinner } from "@klimadao/lib/components";
 import { useConnectedMarketplaceUser } from "hooks/useConnectedMarketplaceUser";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
@@ -7,6 +6,7 @@ import { useEffect, useState } from "react";
 import { User } from "@klimadao/lib/types/marketplace";
 import { PageHead } from "components/PageHead";
 import { MarketplaceLayout } from "../Layout";
+import { ProfileButton } from "./ProfileButton";
 import { SellerConnected } from "./SellerConnected";
 import { SellerUnconnected } from "./SellerUnconnected";
 
@@ -20,7 +20,6 @@ export const Users: NextPage<Props> = (props) => {
   const { isConnectedUser, isUnconnectedUser } = useConnectedMarketplaceUser(
     props.userAddress
   );
-
   const [isLoading, setIsLoading] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
@@ -44,16 +43,9 @@ export const Users: NextPage<Props> = (props) => {
 
       <MarketplaceLayout
         userAddress={props.userAddress}
-        userDomain={props.userDomain}
         profileButton={
           isConnectedUser ? (
-            <ButtonPrimary
-              label={t({
-                id: "marketplace.button.edit_profile",
-                message: "Edit Profile",
-              })}
-              onClick={() => setShowEditModal(true)}
-            />
+            <ProfileButton onClick={() => setShowEditModal(true)} />
           ) : undefined
         }
       >

@@ -1,18 +1,15 @@
-import { ButtonPrimary } from "@klimadao/lib/components";
-import { Domain } from "@klimadao/lib/types/domains";
-import {
-  concatAddress,
-  getENSProfile,
-  getKNSProfile,
-  useWeb3,
-} from "@klimadao/lib/utils";
+import { cx } from "@emotion/css";
+import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { Footer } from "components/Footer";
+import { useResponsive } from "hooks/useResponsive";
 import dynamic from "next/dynamic";
-import { FC, ReactNode, useEffect, useState } from "react";
-import { NavMenu } from "./NavMenu";
+import Link from "next/link";
+import { FC, ReactNode, useState } from "react";
+import { NavDrawer } from "./NavDrawer";
 
 import * as styles from "./styles";
 
@@ -25,7 +22,6 @@ const ThemeToggle = dynamic(() => import("components/Navigation/ThemeToggle"), {
 
 type Props = {
   userAddress?: string;
-  userDomain?: string | null;
   profileButton?: JSX.Element;
   children: ReactNode;
 };
@@ -34,64 +30,53 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
   const { address, renderModal, isConnected, toggleModal, disconnect } =
     useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [profileData, setProfileData] = useState<Domain>();
-
-  // collect nameserviceDomain Data if connected and domain is in URL
-  useEffect(() => {
-    if (!props.userDomain || !address) return;
-
-    const setProfile = async () => {
-      const kns = await getKNSProfile({
-        address: address,
-      });
-
-      if (kns) return setProfileData(kns);
-
-      const ens = await getENSProfile({ address: address });
-      if (ens) return setProfileData(ens);
-    };
-
-    setProfile();
-  }, [props.userDomain, address]);
+  const { isDesktop } = useResponsive();
 
   return (
-    <>
-      <div className={styles.container} data-scrolllock={showMobileMenu}>
-        <div className={styles.desktopNavMenu}>
-          <NavMenu
-            userAdress={props.userAddress}
-            connectedAddress={address}
-            connectedDomain={profileData}
+    <div
+      className={cx(styles.container, styles.global)}
+      data-scroll-lock={showMobileMenu}
+    >
+      <div className={styles.desktopNavMenu}>
+        <NavDrawer userAddress={props.userAddress} />
+      </div>
+      <div className={styles.cardGrid}>
+        <div className={styles.controls}>
+          <Link
+            href="/marketplace"
+            className={styles.mobileLogo}
+            data-mobile-only
+          >
+            <MarketplaceLogo />
+          </Link>
+
+          {/* keep mobile nav menu here in markup hierarchy for tab nav */}
+          <div
+            className={styles.mobileNavMenu_overlay}
+            data-visible={showMobileMenu}
+            onClick={() => setShowMobileMenu(false)}
           />
-        </div>
-        <div className={styles.cardGrid}>
-          <div className={styles.controls}>
-            <button
-              onClick={() => setShowMobileMenu((s) => !s)}
-              className={styles.menuButton}
-            >
-              <Menu />
-            </button>
-            {/* keep mobile nav menu here in markup hierarchy for tab nav */}
-            <div
-              className={styles.mobileNavMenu_overlay}
-              data-visible={showMobileMenu}
-              onClick={() => setShowMobileMenu(false)}
+          <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
+            <NavDrawer
+              userAddress={props.userAddress}
+              onHide={() => setShowMobileMenu(false)}
             />
-            <div className={styles.mobileNavMenu} data-visible={showMobileMenu}>
-              <NavMenu
-                userAdress={props.userAddress}
-                connectedAddress={address}
-                connectedDomain={profileData}
-                onHide={() => setShowMobileMenu(false)}
-              />
-            </div>
+          </div>
 
-            <ChangeLanguageButton />
-            <ThemeToggle />
+          <ChangeLanguageButton />
+          {isDesktop && <ThemeToggle />}
 
-            {props.profileButton}
+          {props.profileButton}
 
+          <ButtonPrimary
+            data-mobile-only
+            variant="gray"
+            icon={<Menu />}
+            onClick={() => setShowMobileMenu((s) => !s)}
+            className={styles.menuButton}
+          />
+
+          <div data-desktop-only>
             {!address && !isConnected && (
               <ButtonPrimary
                 label={t({
@@ -107,8 +92,10 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
                 onClick={disconnect}
               />
             )}
+          </div>
 
-            {renderModal({
+          {renderModal &&
+            renderModal({
               errorMessage: t({
                 message: "We had some trouble connecting. Please try again.",
                 id: "connect_modal.error_message",
@@ -132,13 +119,12 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
                 }),
               },
             })}
-          </div>
-
-          {props.children}
-
-          <Footer className={styles.fullWidthFooter} />
         </div>
+
+        {props.children}
+
+        <Footer className={styles.fullWidthFooter} />
       </div>
-    </>
+    </div>
   );
 };

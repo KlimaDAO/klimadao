@@ -1,5 +1,7 @@
 import { css } from "@emotion/css";
-import breakpoints from "@klimadao/lib/theme/breakpoints";
+import breakpoints, {
+  breakpoints as specificBreakpoints,
+} from "@klimadao/lib/theme/breakpoints";
 
 export const container = css`
   grid-column: full;
@@ -14,7 +16,7 @@ export const container = css`
   min-height: 100vh;
   grid-template-rows: 1fr;
 
-  &[data-scrolllock="true"] {
+  &[data-scroll-lock="true"] {
     overflow-y: hidden;
     max-height: 100vh;
   }
@@ -51,6 +53,13 @@ export const container = css`
   //firefox scrollbar
   scrollbar-color: var(--dark-gray);
   scrollbar-width: 0.6rem;
+`;
+
+export const mobileLogo = css`
+  margin-right: auto;
+  svg {
+    width: 100%; // make logo auto increase
+  }
 `;
 
 export const desktopNavMenu = css`
@@ -92,13 +101,19 @@ export const controls = css`
 
 export const menuButton = css`
   background-color: var(--surface-02);
-  min-height: 4.8rem;
-  min-width: 4.8rem;
+  height: 4.8rem;
+  width: 4.8rem;
+  font-size: 2.4rem !important;
+  //unfortunately we need to override the gray variant font color
+  color: var(--font-01) !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.8rem;
-  margin-right: auto;
+  /** 
+   * @todo remove this once rebased with staging to grab the following changes:
+   * https://github.com/KlimaDAO/klimadao/pull/882
+   */
+  border-radius: var(--border-radius) !important;
   &:focus,
   &:hover {
     opacity: 0.7;
@@ -138,14 +153,15 @@ export const mobileNavMenu = css`
   left: 0;
   bottom: 0;
   transition: all 0.4s ease-out;
-  transform: translateX(-100%);
+  transform: translateX(+100vw);
   max-width: 24.4rem;
   ${breakpoints.desktop} {
     display: none;
   }
   &[data-visible="true"] {
     visibility: visible;
-    transform: translateX(0%);
+    // Compute the width of the nav and subtract it from the viewport width
+    transform: translateX(calc(100vw - 100%));
     ${breakpoints.desktop} {
       display: none;
     }
@@ -168,5 +184,18 @@ export const fullWidthFooter = css`
       [main-start] minmax(0, 107.2rem)
       [main-end] minmax(3.2rem, 1fr)
       [full-end];
+  }
+`;
+
+export const global = css`
+  [data-mobile-only="true"] {
+    ${breakpoints.desktop} {
+      display: none;
+    }
+  }
+  [data-desktop-only="true"] {
+    @media (max-width: ${specificBreakpoints.desktop}px) {
+      display: none;
+    }
   }
 `;

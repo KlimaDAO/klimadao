@@ -75,7 +75,7 @@ export const ListingEditable: FC<Props> = (props) => {
       if (!address || !provider) return;
       const allowance = await getC3tokenToMarketplaceAllowance({
         tokenAddress: values.tokenAddress,
-        userAdress: address,
+        userAddress: address,
         provider,
       });
       setAllowanceValue(allowance);
