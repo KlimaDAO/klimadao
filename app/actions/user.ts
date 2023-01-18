@@ -26,7 +26,7 @@ const assets = [
   "wsklima",
   "pklima",
 ] as const;
-type Asset = typeof assets[number];
+type Asset = (typeof assets)[number];
 
 const spenders = [
   "staking_helper",

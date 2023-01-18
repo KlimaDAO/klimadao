@@ -10,8 +10,8 @@ import {
 export const isSpenderInAddresses = (spender: string): boolean => {
   const keys = Object.keys(
     addresses.mainnet
-  ) as (keyof typeof addresses["mainnet"])[];
-  return keys.includes(spender as keyof typeof addresses["mainnet"]);
+  ) as (keyof (typeof addresses)["mainnet"])[];
+  return keys.includes(spender as keyof (typeof addresses)["mainnet"]);
 };
 
 export const getAllowance = async (params: {
