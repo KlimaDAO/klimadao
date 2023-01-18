@@ -17,7 +17,7 @@ const BALANCE_TOKENS = [
   "nct",
   "mco2",
 ] as const;
-export type BalanceToken = typeof BALANCE_TOKENS[number];
+export type BalanceToken = (typeof BALANCE_TOKENS)[number];
 
 export type Balances = {
   [key in BalanceToken]: string;

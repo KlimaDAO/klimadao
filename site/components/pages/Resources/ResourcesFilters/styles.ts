@@ -25,7 +25,7 @@ export const filtersHeader = css`
 export const filtersCheckboxGroup = css`
   display: grid;
   gap: 1.2rem;
-  margin-bottom: 1.6rem; ;
+  margin-bottom: 1.6rem;
 `;
 
 export const clearAllButton = css`
