@@ -57,7 +57,7 @@ export const buttonPrimary = css`
   &,
   &:hover:not(:disabled),
   &:visited {
-    color: #000;
+    color: #000; /* same in darkmode */
   }
 
   &.gray {
