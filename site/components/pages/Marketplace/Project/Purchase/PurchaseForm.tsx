@@ -1,6 +1,6 @@
 import { t, Trans } from "@lingui/macro";
-import { FC } from "react";
-import { SubmitHandler, useForm, useWatch } from "react-hook-form";
+import { FC, useEffect } from "react";
+import { Control, SubmitHandler, useForm, useWatch } from "react-hook-form";
 
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
 import { Listing } from "@klimadao/lib/types/marketplace";
@@ -12,6 +12,33 @@ import { HighlightValue } from "components/pages/Marketplace/shared/Transaction/
 import * as styles from "./styles";
 
 const MARKETPLACE_FEE = 0.03; // 3%
+
+type TotalValueProps = {
+  control: Control<FormValues>;
+  singlePrice: string;
+  setValue: (field: "price", value: string) => void;
+};
+
+const TotalValue = ({ control, setValue, singlePrice }: TotalValueProps) => {
+  const amount = useWatch({ name: "amount", control });
+  const price = Number(singlePrice) * Number(amount);
+  const totalPrice = price + price * MARKETPLACE_FEE || 0;
+
+  useEffect(() => {
+    setValue("price", totalPrice.toString());
+  }, [amount]);
+
+  return (
+    <HighlightValue
+      label={t({
+        id: "marketplace.purchase.input.cost.label",
+        message: "Cost incl. 3% fee",
+      })}
+      value={formatToPrice(totalPrice)}
+      icon={marketplaceTokenInfoMap["usdc"].icon}
+    />
+  );
+};
 
 export type FormValues = {
   listingId: string;
@@ -27,7 +54,7 @@ type Props = {
 };
 
 export const PurchaseForm: FC<Props> = (props) => {
-  const { address, renderModal, isConnected, toggleModal } = useWeb3();
+  const { address, isConnected, toggleModal } = useWeb3();
   const singleUnitPrice = formatUnits(props.listing.singleUnitPrice);
 
   const { register, handleSubmit, formState, control, setValue } =
@@ -37,12 +64,6 @@ export const PurchaseForm: FC<Props> = (props) => {
         ...props.values,
       },
     });
-
-  const amount = useWatch({ name: "amount", control });
-
-  const price = Number(singleUnitPrice) * Number(amount);
-  const totalPrice = price + price * MARKETPLACE_FEE || 0;
-  setValue("price", totalPrice.toString());
 
   const onSubmit: SubmitHandler<FormValues> = (values: FormValues) => {
     props.onSubmit(values);
@@ -110,13 +131,10 @@ export const PurchaseForm: FC<Props> = (props) => {
           label={"Price"}
           hideLabel
         />
-        <HighlightValue
-          label={t({
-            id: "marketplace.purchase.input.cost.label",
-            message: "Cost incl. 3% fee",
-          })}
-          value={formatToPrice(totalPrice)}
-          icon={marketplaceTokenInfoMap["usdc"].icon}
+        <TotalValue
+          singlePrice={singleUnitPrice}
+          control={control}
+          setValue={setValue}
         />
 
         {!address && !isConnected && (
@@ -143,32 +161,6 @@ export const PurchaseForm: FC<Props> = (props) => {
             onClick={handleSubmit(onSubmit)}
           />
         )}
-
-        {renderModal &&
-          renderModal({
-            errorMessage: t({
-              message: "We had some trouble connecting. Please try again.",
-              id: "connect_modal.error_message",
-            }),
-            torusText: t({
-              message: "or continue with",
-              id: "connectModal.continue",
-            }),
-            titles: {
-              connect: t({
-                id: "connect_modal.connect_to_buy",
-                message: "Sign In / Connect To Buy",
-              }),
-              loading: t({
-                id: "connect_modal.connecting",
-                message: "Connecting...",
-              }),
-              error: t({
-                id: "connect_modal.error_title",
-                message: "Connection Error",
-              }),
-            },
-          })}
       </div>
     </form>
   );
