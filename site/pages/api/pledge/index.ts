@@ -32,7 +32,9 @@ export default async function handler(
       )
       .required()
       .min(1),
-  });
+    createdAt: number(),
+    updatedAt: number(),
+  }).noUnknown();
 
   switch (req.method) {
     case "PUT":
@@ -45,19 +47,7 @@ export default async function handler(
         await pledgeSchema.validate(req.body.pledge);
         const pledge = await findOrCreatePledge({
           pageAddress: req.body.pageAddress,
-          pledge: {
-            id: req.body.pledge.id,
-            ownerAddress: req.body.pledge.ownerAddress,
-            nonce: req.body.pledge.nonce,
-            name: req.body.pledge.name,
-            profileImageUrl: req.body.pledge.profileImageUrl,
-            profileWebsiteUrl: req.body.pledge.profileWebsiteUrl,
-            description: req.body.pledge.description,
-            wallets: req.body.pledge.wallets,
-            methodology: req.body.pledge.methodology,
-            footprint: req.body.pledge.footprint,
-            categories: req.body.pledge.categories,
-          },
+          pledge: req.body.pledge,
           signature,
           secondaryWalletAddress: req.body.secondaryWalletAddress,
           action: req.body.action,
