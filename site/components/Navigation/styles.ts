@@ -56,7 +56,7 @@ export const navMain_MobileItem = css`
 
 export const navMain_MobileButton = css`
   width: min-content;
-  color: wine !important;
+  color: var(--font-01) !important;
   white-space: nowrap;
 `;
 
