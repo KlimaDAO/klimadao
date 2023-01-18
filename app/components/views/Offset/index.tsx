@@ -144,8 +144,14 @@ export const Offset = (props: Props) => {
       setProjectAddress(params.projectTokens);
     }
     if (params.quantity) {
-      setQuantity(params.quantity);
-      setDebouncedQuantity(params.quantity);
+      // handles the case where a decimal value for quantity is passed
+      // as a query param - we convert it to a whole number (1.123 -> 2)
+      const quantity =
+        paymentMethod === "fiat"
+          ? Math.ceil(Number(params.quantity)).toString()
+          : params.quantity;
+      setQuantity(quantity);
+      setDebouncedQuantity(quantity);
     }
   }, [params]);
 
@@ -170,6 +176,12 @@ export const Offset = (props: Props) => {
 
   // effects
   useEffect(() => {
+    // handles the case where a user inputs a decimal value when a non credit
+    // card payment method is selected, they then choose to pay by credit card,
+    // we convert the value to a whole number (1.123 -> 2)
+    if (paymentMethod === "fiat") {
+      setQuantity(Math.ceil(Number(quantity)).toString());
+    }
     // if input token changes, force a compatible retirement token
     if (
       !offsetCompatibility[paymentMethod]?.includes(selectedRetirementToken)
@@ -317,10 +329,10 @@ export const Offset = (props: Props) => {
     if (!props.address || !props.provider || paymentMethod !== "fiat") return;
 
     const reqParams = {
+      quantity,
       beneficiary_address: beneficiaryAddress || props.address, // don't pass empty string
       beneficiary_name: beneficiary,
       retirement_message: retirementMessage,
-      quantity: Math.ceil(Number(quantity)).toString(), // temp fix: increment to next largest whole tonne
       project_address: projectAddress || null,
       retirement_token: selectedRetirementToken,
     };
@@ -479,6 +491,8 @@ export const Offset = (props: Props) => {
       Number(e.target.value) < 0.0001
     ) {
       setQuantity("0.0001");
+    } else if (paymentMethod === "fiat") {
+      setQuantity(Math.ceil(Number(e.target.value)).toString());
     } else {
       setQuantity(e.target.value);
     }
@@ -610,6 +624,10 @@ export const Offset = (props: Props) => {
                 min={paymentMethod === "fiat" ? "1" : "0"}
                 value={quantity}
                 onKeyDown={(e) => {
+                  // prevent a user from entering a decimal value when credit card is selected
+                  if (paymentMethod === "fiat" && ["."].includes(e.key)) {
+                    e.preventDefault();
+                  }
                   // dont let user enter these special characters into the number input
                   if (["e", "E", "+", "-"].includes(e.key)) {
                     e.preventDefault();
@@ -637,7 +655,7 @@ export const Offset = (props: Props) => {
             {!invalidRetirementQuantity && paymentMethod === "fiat" && (
               <Text t="body8" color="lightest">
                 <Trans id="offset.min_quantity_fiat">
-                  Minimum 1-tonne purchase for credit cards
+                  Minimum 1-tonne purchase. Whole integers only.
                 </Trans>
               </Text>
             )}
