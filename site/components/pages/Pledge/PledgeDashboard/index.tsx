@@ -158,10 +158,6 @@ export const PledgeDashboard: NextPage<Props> = (props) => {
       />
       {renderModal &&
         renderModal({
-          errorMessage: t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          }),
           errors: connectErrorStrings,
           torusText: t({
             message: "or continue with",

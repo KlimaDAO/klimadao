@@ -101,10 +101,6 @@ export const Pledge: NextPage = () => {
         renderModal({
           onClose: handleModalClose,
           errors: connectErrorStrings,
-          errorMessage: t({
-            message: "We had some trouble connecting. Please try again.",
-            id: "connect_modal.error_message",
-          }),
           torusText: t({
             message: "or continue with",
             id: "connectModal.continue",

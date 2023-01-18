@@ -24,7 +24,7 @@ const Close = (CloseDefault as any).default as any;
 const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
 const ExtensionIcon = (ExtensionIconDefault as any).default as any;
 
-interface ConnectModalProps {
+export interface ConnectModalProps {
   errorMessage: string;
   torusText: string;
   titles: {

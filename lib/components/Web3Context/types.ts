@@ -65,7 +65,6 @@ export interface DisconnectedWeb3State {
   network: undefined;
 }
 export interface RenderModalProps {
-  errorMessage: string;
   torusText: string;
   titles: {
     connect: string;
