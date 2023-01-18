@@ -190,9 +190,7 @@ export const ctaButtonContainer = css`
     color: var(--font-01) !important;
     border: 3px solid var(--klima-green);
     &:last-of-type {
-      [data-theme="theme-dark"] & {
-        color: #000 !important;
-      }
+      color: #000 !important;
     }
   }
 `;

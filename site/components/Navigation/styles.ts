@@ -23,11 +23,8 @@ export const navMain_DesktopLink = css`
   }
   &:hover,
   &:focus {
-    color: var(--font-01) !important;
     background: var(--klima-green);
-    [data-theme="theme-dark"] & {
-      color: #000 !important;
-    }
+    color: #000 !important;
   }
   &.dropdown {
     text-transform: uppercase;
@@ -59,7 +56,7 @@ export const navMain_MobileItem = css`
 
 export const navMain_MobileButton = css`
   width: min-content;
-  color: var(--font-01) !important;
+  color: wine !important;
   white-space: nowrap;
 `;
 
