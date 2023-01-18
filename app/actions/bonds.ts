@@ -24,7 +24,7 @@ export const bondMapToTokenName = {
   inverse_usdc: "klima",
 } as const;
 export type BondTokens = keyof typeof bondMapToTokenName;
-type BondToken = typeof bondMapToTokenName[BondTokens];
+type BondToken = (typeof bondMapToTokenName)[BondTokens];
 type NormalBond = Exclude<BondTokens, "inverse_usdc">;
 type InverseBond = Extract<BondTokens, "inverse_usdc">;
 
@@ -39,7 +39,7 @@ export const bondMapToBondName = {
   ubo: "bond_ubo",
 } as const;
 type BondCName = keyof typeof bondMapToBondName;
-type BondContractName = typeof bondMapToBondName[BondCName];
+type BondContractName = (typeof bondMapToBondName)[BondCName];
 
 type TokensForPairContract =
   | "klimaBctLp"
