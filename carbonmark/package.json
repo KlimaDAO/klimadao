@@ -1,0 +1,60 @@
+{
+  "name": "@klimadao/carbonmark",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3002",
+    "build": "prettier --check . && npm run lingui:compile && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lingui:extract": "node ../scripts/lingui.js extract --clean --overwrite",
+    "lingui:compile": "lingui compile",
+    "lingui:extract:dev": "node ../scripts/lingui.js extract --clean --overwrite --locale=en && node ../scripts/lingui.js extract --clean --overwrite --locale=en-pseudo",
+    "postinstall": "npm run lingui:compile"
+  },
+  "dependencies": {
+    "@coinbase/wallet-sdk": "^3.5.4",
+    "@emotion/css": "^11.10.0",
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.5",
+    "@hookform/resolvers": "^2.8.8",
+    "@lingui/core": "^3.13.0",
+    "@lingui/react": "^3.13.0",
+    "@portabletext/react": "^1.0.6",
+    "@sanity/client": "^3.3.2",
+    "@tippyjs/react": "^4.2.6",
+    "@translation/lingui": "^1.0.0",
+    "ethers": "^5.7.2",
+    "firebase-admin": "^11.2.1",
+    "jspdf": "^2.5.1",
+    "lodash": "^4.17.21",
+    "next": "^13.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.4",
+    "recharts": "^2.1.16",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.10.5",
+    "@lingui/cli": "^3.15.0",
+    "@lingui/loader": "^3.15.0",
+    "@lingui/macro": "^3.15.0",
+    "@next/bundle-analyzer": "^13.1.2",
+    "@types/lodash": "^4.14.189",
+    "@types/node": "16.11.12",
+    "@types/react": "^18.0.26",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "eslint": "^8.32.0",
+    "eslint-config-next": "^13.1.2",
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "^2.8.3",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "typescript": "^4.9.4"
+  },
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=14.18.1"
+  }
+}
