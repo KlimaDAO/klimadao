@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-18 15:55+0000\n"
+"POT-Creation-Date: 2023-01-18 16:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -404,27 +404,27 @@ msgid "concat.careers"
 msgstr "करियर"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:164
-#: components/pages/Pledge/index.tsx:77
+#: components/pages/Pledge/index.tsx:106
 msgid "connectModal.continue"
 msgstr "या साथ जारी रखें"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:173
-#: components/pages/Pledge/index.tsx:86
+#: components/pages/Pledge/index.tsx:115
 msgid "connect_modal.connecting"
 msgstr "संपर्क"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:160
-#: components/pages/Pledge/index.tsx:73
+#: components/pages/Pledge/index.tsx:102
 msgid "connect_modal.error_message"
 msgstr "कुछ गलत हो गया। कृपया शीघ्र ही पुन: प्रयास करें।"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:177
-#: components/pages/Pledge/index.tsx:90
+#: components/pages/Pledge/index.tsx:119
 msgid "connect_modal.error_title"
 msgstr "संपर्क त्रुटि"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:169
-#: components/pages/Pledge/index.tsx:82
+#: components/pages/Pledge/index.tsx:111
 msgid "connect_modal.sign_in"
 msgstr "साइन इन / कनेक्ट करें"
 
@@ -1194,7 +1194,7 @@ msgstr "हटाना"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "रद्द करें"
 
-#: components/pages/Pledge/index.tsx:193
+#: components/pages/Pledge/index.tsx:206
 msgid "pledges.form.error"
 msgstr "वॉलेट पता, .klima अथवा .eth डोमेन दर्ज करें"
 
@@ -1350,40 +1350,43 @@ msgstr "इस संपादन पर हस्ताक्षर करन�
 msgid "pledges.form.wallets.label"
 msgstr "द्वितीयक बटुआ"
 
-#: components/pages/Pledge/index.tsx:65
+#: components/pages/Pledge/index.tsx:93
 msgid "pledges.head.metaDescription"
 msgstr "अपनी सभी कार्बन ऑफसेटिंग गतिविधि को उजागर करने के लिए अपने प्रतिज्ञा डैशबोर्ड का दावा करके जलवायु सकारात्मकता के प्रति अपनी प्रतिबद्धता प्रदर्शित करें"
 
-#: components/pages/Pledge/index.tsx:61
+#: components/pages/Pledge/index.tsx:89
 msgid "pledges.head.metaTitle"
 msgstr "कार्बन प्रतिज्ञा बनाएं और अपना प्रभाव दिखाएं"
 
-#: components/pages/Pledge/index.tsx:57
+#: components/pages/Pledge/index.tsx:85
 msgid "pledges.head.title"
 msgstr "KlimaDAO (क्लीमाडाओ) | Pledges (प्लेजेज़)"
 
-#: components/pages/Pledge/index.tsx:129
-#: components/pages/Pledge/index.tsx:137
-#: components/pages/Pledge/index.tsx:327
-#: components/pages/Pledge/index.tsx:335
-#: components/pages/Pledge/index.tsx:362
-#: components/pages/Pledge/index.tsx:370
+#: components/pages/Pledge/index.tsx:65
+msgid "pledges.home.hero.connecting"
+msgstr "कनेक्ट हो रहा है..."
+
+#: components/pages/Pledge/index.tsx:76
 msgid "pledges.home.hero.create"
 msgstr "एक प्रतिज्ञा बनाएँ"
 
-#: components/pages/Pledge/index.tsx:151
+#: components/pages/Pledge/index.tsx:164
 msgid "pledges.home.hero.learn_more"
 msgstr "और जानें"
 
-#: components/pages/Pledge/index.tsx:187
+#: components/pages/Pledge/index.tsx:71
+msgid "pledges.home.hero.view"
+msgstr ""
+
+#: components/pages/Pledge/index.tsx:200
 msgid "pledges.home.search.label"
 msgstr "ENS या 0x पता दर्ज करें"
 
-#: components/pages/Pledge/index.tsx:181
+#: components/pages/Pledge/index.tsx:194
 msgid "pledges.home.search.placeholder"
 msgstr "ईनस (ENS) , केनस (KNS) या 0x पता दर्ज करें"
 
-#: components/pages/Pledge/index.tsx:207
+#: components/pages/Pledge/index.tsx:220
 msgid "pledges.home.search.submit"
 msgstr "खोज"
 

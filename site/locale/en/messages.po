@@ -410,27 +410,27 @@ msgid "concat.careers"
 msgstr "Careers"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:164
-#: components/pages/Pledge/index.tsx:77
+#: components/pages/Pledge/index.tsx:106
 msgid "connectModal.continue"
 msgstr "or continue with"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:173
-#: components/pages/Pledge/index.tsx:86
+#: components/pages/Pledge/index.tsx:115
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:160
-#: components/pages/Pledge/index.tsx:73
+#: components/pages/Pledge/index.tsx:102
 msgid "connect_modal.error_message"
 msgstr "We had some trouble connecting. Please try again."
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:177
-#: components/pages/Pledge/index.tsx:90
+#: components/pages/Pledge/index.tsx:119
 msgid "connect_modal.error_title"
 msgstr "Connection Error"
 
 #: components/pages/Pledge/PledgeDashboard/index.tsx:169
-#: components/pages/Pledge/index.tsx:82
+#: components/pages/Pledge/index.tsx:111
 msgid "connect_modal.sign_in"
 msgstr "Sign In / Connect"
 
@@ -1200,7 +1200,7 @@ msgstr "remove"
 msgid "pledges.form.confirm_remove_cancel"
 msgstr "cancel"
 
-#: components/pages/Pledge/index.tsx:193
+#: components/pages/Pledge/index.tsx:206
 msgid "pledges.form.error"
 msgstr "Enter a wallet address, .klima or .eth domain"
 
@@ -1356,40 +1356,43 @@ msgstr "Use your wallet to sign and confirm this edit."
 msgid "pledges.form.wallets.label"
 msgstr "Secondary Wallet(s)"
 
-#: components/pages/Pledge/index.tsx:65
+#: components/pages/Pledge/index.tsx:93
 msgid "pledges.head.metaDescription"
 msgstr "Demonstrate your commitment to climate positivity by claiming your pledge dashboard to highlight all of your carbon offsetting activity"
 
-#: components/pages/Pledge/index.tsx:61
+#: components/pages/Pledge/index.tsx:89
 msgid "pledges.head.metaTitle"
 msgstr "Create a carbon pledge and showcase your impact"
 
-#: components/pages/Pledge/index.tsx:57
+#: components/pages/Pledge/index.tsx:85
 msgid "pledges.head.title"
 msgstr "KlimaDAO | Pledges"
 
-#: components/pages/Pledge/index.tsx:129
-#: components/pages/Pledge/index.tsx:137
-#: components/pages/Pledge/index.tsx:327
-#: components/pages/Pledge/index.tsx:335
-#: components/pages/Pledge/index.tsx:362
-#: components/pages/Pledge/index.tsx:370
+#: components/pages/Pledge/index.tsx:65
+msgid "pledges.home.hero.connecting"
+msgstr "Connecting..."
+
+#: components/pages/Pledge/index.tsx:76
 msgid "pledges.home.hero.create"
 msgstr "Create a pledge"
 
-#: components/pages/Pledge/index.tsx:151
+#: components/pages/Pledge/index.tsx:164
 msgid "pledges.home.hero.learn_more"
 msgstr "Learn more"
 
-#: components/pages/Pledge/index.tsx:187
+#: components/pages/Pledge/index.tsx:71
+msgid "pledges.home.hero.view"
+msgstr "View your pledge"
+
+#: components/pages/Pledge/index.tsx:200
 msgid "pledges.home.search.label"
 msgstr "ENS or 0x address"
 
-#: components/pages/Pledge/index.tsx:181
+#: components/pages/Pledge/index.tsx:194
 msgid "pledges.home.search.placeholder"
 msgstr "Enter ENS, KNS or 0x address"
 
-#: components/pages/Pledge/index.tsx:207
+#: components/pages/Pledge/index.tsx:220
 msgid "pledges.home.search.submit"
 msgstr "Search"
 
