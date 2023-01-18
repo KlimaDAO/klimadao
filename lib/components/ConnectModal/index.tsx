@@ -1,4 +1,5 @@
 import CloseDefault from "@mui/icons-material/Close";
+import ExtensionIconDefault from "@mui/icons-material/Extension";
 import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
 import { providers } from "ethers";
 import React, { useEffect, useState } from "react";
@@ -21,6 +22,7 @@ import * as styles from "./styles";
 // ems modules and javascript are strange so we import like this
 const Close = (CloseDefault as any).default as any;
 const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
+const ExtensionIcon = (ExtensionIconDefault as any).default as any;
 export interface ConnectModalProps {
   errorMessage: string;
   torusText: string;
@@ -125,6 +127,15 @@ export const ConnectModal = (props: ConnectModalProps) => {
                   >
                     <BraveIcon />
                     <Text t="button">Brave</Text>
+                  </span>
+                )}
+                {!showBrave && !showMetamask && eth && (
+                  <span
+                    className={styles.walletButton}
+                    onClick={() => handleConnect({ wallet: "injected" })}
+                  >
+                    <ExtensionIcon fontSize="large" />
+                    <Text t="button">Browser</Text>
                   </span>
                 )}
                 <span
