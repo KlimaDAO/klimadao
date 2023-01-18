@@ -19,15 +19,15 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "@types/react": "^18.0.25",
-    "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "@typescript-eslint/parser": "^5.43.0",
-    "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.31.10",
-    "prettier": "^2.7.1",
-    "prettier-plugin-organize-imports": "^3.2.1",
-    "typescript": "^4.9.3"
+    "@types/react": "^18.0.26",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-react": "^7.32.1",
+    "prettier": "^2.8.3",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "typescript": "^4.9.4"
   },
   "engines": {
     "npm": ">=8.0.0",

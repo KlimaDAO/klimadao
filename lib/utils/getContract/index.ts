@@ -16,9 +16,11 @@ import SKlima from "../../abi/sKlima.json";
 import WSKLIMA from "../../abi/wsKlima.json";
 import { addresses } from "../../constants";
 
-type Address = keyof typeof addresses["mainnet"];
+type Address = keyof (typeof addresses)["mainnet"];
 type ContractMap = {
-  [K in ContractName]: typeof IERC20["abi"] | typeof KlimaStakingHelper["abi"];
+  [K in ContractName]:
+    | (typeof IERC20)["abi"]
+    | (typeof KlimaStakingHelper)["abi"];
 };
 const contractMap = {
   // CARBON
@@ -73,8 +75,8 @@ type ContractName = keyof typeof contractMap;
 export const isNameInAddresses = (name: string): boolean => {
   const keys = Object.keys(
     addresses.mainnet
-  ) as (keyof typeof addresses["mainnet"])[];
-  return keys.includes(name as keyof typeof addresses["mainnet"]);
+  ) as (keyof (typeof addresses)["mainnet"])[];
+  return keys.includes(name as keyof (typeof addresses)["mainnet"]);
 };
 
 const getContractAbiByName = (name: ContractName) => {
