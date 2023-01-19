@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { FC, ReactNode } from "react";
 
 import { Text } from "@klimadao/lib/components";
-import { Listing as ListingType } from "@klimadao/lib/types/marketplace";
+import { Listing as ListingType } from "@klimadao/lib/types/carbonmark";
 
 import { Card } from "components/Card";
 import { Category } from "components/Category";

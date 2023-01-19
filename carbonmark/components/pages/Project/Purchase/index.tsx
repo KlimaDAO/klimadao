@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { Listing, Project } from "@klimadao/lib/types/marketplace";
+import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
 import { MarketplaceLayout } from "components/Layout";

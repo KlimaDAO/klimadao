@@ -2,7 +2,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import { FC, useState } from "react";
 
-import { Asset } from "@klimadao/lib/types/marketplace";
+import { Asset } from "@klimadao/lib/types/carbonmark";
 
 import { Spinner } from "@klimadao/lib/components";
 import { Modal } from "components/shared/Modal";

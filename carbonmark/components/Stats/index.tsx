@@ -3,7 +3,7 @@ import { t, Trans } from "@lingui/macro";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
-import { Stats as StatsType } from "@klimadao/lib/types/marketplace";
+import { Stats as StatsType } from "@klimadao/lib/types/carbonmark";
 import { trimWithLocale } from "@klimadao/lib/utils";
 import SavingsOutlinedIcon from "@mui/icons-material/SavingsOutlined";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";

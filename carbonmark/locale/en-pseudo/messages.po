@@ -100,21 +100,18 @@ msgstr ""
 
 #: components/Layout/index.tsx:103
 #: components/pages/Project/ProjectListing/index.tsx:101
-#: components/pages/Project/Purchase/PurchaseForm.tsx:149
 #: components/pages/Users/Login/index.tsx:81
 #: components/pages/Users/SellerUnconnected/index.tsx:101
 msgid "connectModal.continue"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:106
-#: components/pages/Project/Purchase/PurchaseForm.tsx:154
 #: components/pages/Users/SellerUnconnected/index.tsx:106
 msgid "connect_modal.connect_to_buy"
 msgstr ""
 
 #: components/Layout/index.tsx:112
 #: components/pages/Project/ProjectListing/index.tsx:110
-#: components/pages/Project/Purchase/PurchaseForm.tsx:158
 #: components/pages/Users/Login/index.tsx:90
 #: components/pages/Users/SellerUnconnected/index.tsx:110
 msgid "connect_modal.connecting"
@@ -122,7 +119,6 @@ msgstr ""
 
 #: components/Layout/index.tsx:99
 #: components/pages/Project/ProjectListing/index.tsx:97
-#: components/pages/Project/Purchase/PurchaseForm.tsx:145
 #: components/pages/Users/Login/index.tsx:76
 #: components/pages/Users/SellerUnconnected/index.tsx:96
 msgid "connect_modal.error_message"
@@ -130,7 +126,6 @@ msgstr ""
 
 #: components/Layout/index.tsx:116
 #: components/pages/Project/ProjectListing/index.tsx:114
-#: components/pages/Project/Purchase/PurchaseForm.tsx:162
 #: components/pages/Users/Login/index.tsx:94
 #: components/pages/Users/SellerUnconnected/index.tsx:114
 msgid "connect_modal.error_title"
@@ -270,7 +265,7 @@ msgstr ""
 msgid "project.single.methodology"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:136
+#: components/pages/Project/Purchase/PurchaseForm.tsx:157
 msgid "purchase.button.continue"
 msgstr ""
 
@@ -282,27 +277,27 @@ msgstr ""
 msgid "purchase.button.view_assets"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:93
+#: components/pages/Project/Purchase/PurchaseForm.tsx:117
 msgid "purchase.input.amount.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:86
+#: components/pages/Project/Purchase/PurchaseForm.tsx:110
 msgid "purchase.input.amount.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:79
+#: components/pages/Project/Purchase/PurchaseForm.tsx:103
 msgid "purchase.input.amount.minimum"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:64
+#: components/pages/Project/Purchase/PurchaseForm.tsx:88
 msgid "purchase.input.amount.placeholder"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:72
+#: components/pages/Project/Purchase/PurchaseForm.tsx:96
 msgid "purchase.input.amount.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:112
+#: components/pages/Project/Purchase/PurchaseForm.tsx:34
 msgid "purchase.input.cost.label"
 msgstr ""
 
@@ -355,7 +350,7 @@ msgid "shared.buy"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:71
-#: components/pages/Project/Purchase/PurchaseForm.tsx:122
+#: components/pages/Project/Purchase/PurchaseForm.tsx:143
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr ""

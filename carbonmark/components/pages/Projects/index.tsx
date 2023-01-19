@@ -1,5 +1,5 @@
 import { Text } from "@klimadao/lib/components";
-import { Project } from "@klimadao/lib/types/marketplace";
+import { Project } from "@klimadao/lib/types/carbonmark";
 import { Category } from "components/Category";
 import { MarketplaceLayout } from "components/Layout";
 import { ProjectImage } from "components/ProjectImage";

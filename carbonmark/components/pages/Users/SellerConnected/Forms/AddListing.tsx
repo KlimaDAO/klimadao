@@ -1,5 +1,5 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { Asset } from "@klimadao/lib/types/marketplace";
+import { Asset } from "@klimadao/lib/types/carbonmark";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { FC } from "react";

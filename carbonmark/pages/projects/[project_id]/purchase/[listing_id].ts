@@ -1,4 +1,4 @@
-import { Listing, Project } from "@klimadao/lib/types/marketplace";
+import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import { getMarketplaceProject } from "@klimadao/lib/utils";
 import { MarketPlaceProjectPurchase } from "components/pages/Project/Purchase";
 import { loadTranslation } from "lib/i18n";
@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
 
     // check if listing ID is correct here on server? Or rather on client with nicer error state?
     const listing = project.listings.find(
-      (listing) => listing.id === params?.listing_id
+      (listing: Listing) => listing.id === params?.listing_id
     );
 
     if (!listing) {

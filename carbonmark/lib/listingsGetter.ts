@@ -1,4 +1,4 @@
-import { Listing } from "@klimadao/lib/types/marketplace";
+import { Listing } from "@klimadao/lib/types/carbonmark";
 import { formatUnits } from "@klimadao/lib/utils";
 
 export const getAmountLeftToSell = (listings: Listing[]) =>

@@ -1,5 +1,5 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
-import { Listing, Project } from "@klimadao/lib/types/marketplace";
+import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";

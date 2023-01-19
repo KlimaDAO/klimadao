@@ -1,5 +1,5 @@
 import { Spinner, Text } from "@klimadao/lib/components";
-import { Activity } from "@klimadao/lib/types/marketplace";
+import { Activity } from "@klimadao/lib/types/carbonmark";
 import { Trans } from "@lingui/macro";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
 import { getSellerAddress } from "lib/sellerGetter";

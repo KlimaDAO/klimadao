@@ -1,4 +1,4 @@
-import { Project, Purchase, User } from "../../types/marketplace";
+import { Project, Purchase, User } from "../../types/carbonmark";
 
 import { marketplace } from "../../constants";
 

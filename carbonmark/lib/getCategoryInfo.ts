@@ -1,4 +1,4 @@
-import { CategoryName } from "@klimadao/lib/types/marketplace";
+import { CategoryName } from "@klimadao/lib/types/carbonmark";
 import { t } from "@lingui/macro";
 
 import Agriculture from "public/category/Agriculture.png";

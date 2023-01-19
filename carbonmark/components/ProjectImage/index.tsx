@@ -1,4 +1,4 @@
-import { CategoryName } from "@klimadao/lib/types/marketplace";
+import { CategoryName } from "@klimadao/lib/types/carbonmark";
 import Image from "next/legacy/image";
 import { FC } from "react";
 

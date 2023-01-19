@@ -1,4 +1,4 @@
-import { Project } from "@klimadao/lib/types/marketplace";
+import { Project } from "@klimadao/lib/types/carbonmark";
 import { getMarketplaceProject } from "@klimadao/lib/utils";
 import { MarketPlaceProject } from "components/pages/Project";
 import { loadTranslation } from "lib/i18n";

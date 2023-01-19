@@ -1,4 +1,4 @@
-import { Asset } from "@klimadao/lib/types/marketplace";
+import { Asset } from "@klimadao/lib/types/carbonmark";
 import { t } from "@lingui/macro";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Tippy from "@tippyjs/react";

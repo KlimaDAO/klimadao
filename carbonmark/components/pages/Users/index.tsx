@@ -3,7 +3,7 @@ import { useConnectedUser } from "hooks/useConnectedUser";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 
-import { User } from "@klimadao/lib/types/marketplace";
+import { User } from "@klimadao/lib/types/carbonmark";
 import { MarketplaceLayout } from "components/Layout";
 import { PageHead } from "components/shared/PageHead";
 import { ProfileButton } from "./ProfileButton";

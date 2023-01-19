@@ -1,5 +1,5 @@
 import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
-import { Asset } from "@klimadao/lib/types/marketplace";
+import { Asset } from "@klimadao/lib/types/carbonmark";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
 import { getMarketplaceAddress } from "./getAddresses";

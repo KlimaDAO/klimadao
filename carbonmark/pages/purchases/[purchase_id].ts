@@ -1,4 +1,4 @@
-import { Purchase } from "@klimadao/lib/types/marketplace";
+import { Purchase } from "@klimadao/lib/types/carbonmark";
 import { getPurchase, getStaticProvider } from "@klimadao/lib/utils";
 import { MarketPlacePurchaseReceipt } from "components/pages/Purchases";
 import { loadTranslation } from "lib/i18n";
