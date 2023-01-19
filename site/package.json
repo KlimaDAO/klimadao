@@ -12,6 +12,7 @@
     "postinstall": "npm run lingui:compile"
   },
   "dependencies": {
+    "@coinbase/wallet-sdk": "^3.5.4",
     "@emotion/css": "^11.10.0",
     "@emotion/react": "^11.10.5",
     "@emotion/server": "^11.10.0",
@@ -21,6 +22,7 @@
     "@lingui/react": "^3.13.0",
     "@portabletext/react": "^1.0.6",
     "@sanity/client": "^3.3.2",
+    "@sentry/nextjs": "^7.31.1",
     "@tippyjs/react": "^4.2.6",
     "@translation/lingui": "^1.0.0",
     "ethers": "^5.7.2",

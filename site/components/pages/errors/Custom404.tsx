@@ -1,5 +1,6 @@
 import { Section, Text } from "@klimadao/lib/components";
 
+import { captureException } from "@sentry/nextjs";
 import { Footer } from "components/Footer";
 import { Navigation } from "components/Navigation";
 import { PageHead } from "components/PageHead";
@@ -10,6 +11,9 @@ import Link from "next/link";
 import * as styles from "./styles";
 
 export const Custom404 = () => {
+  if (typeof window !== "undefined") {
+    captureException(Error(`404 Route not found '${window.location}'`));
+  }
   return (
     <div className={styles.errorPageWrapper}>
       <PageHead
