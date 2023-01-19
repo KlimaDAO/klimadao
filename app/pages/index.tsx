@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { selectLocale } from "state/selectors";
 import { messages as default_messages } from "../locale/en/messages";
 
+// Use english translation on the server by default
 export async function getStaticProps() {
   i18n.load("en", default_messages);
   i18n.activate("en");

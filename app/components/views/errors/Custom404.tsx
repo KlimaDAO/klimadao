@@ -5,7 +5,9 @@ import { captureException } from "@sentry/nextjs";
 import * as styles from "./styles";
 
 export const Custom404 = () => {
-  captureException(Error(`404 Route not found '${window.location}'`));
+  if (typeof window !== "undefined") {
+    captureException(Error(`404 Route not found '${window.location}'`));
+  }
   return (
     <div className={styles.error404Card}>
       <Section variant="gray">
