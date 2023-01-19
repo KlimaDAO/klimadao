@@ -44,9 +44,9 @@ export const Activities: FC<Props> = (props) => {
   const hasActivities = !!props.activities?.length;
   const sortedActivities =
     (hasActivities &&
-      props.activities.sort(
-        (a, b) => Number(b.timeStamp) - Number(a.timeStamp)
-      )) ||
+      props.activities
+        .sort((a, b) => Number(b.timeStamp) - Number(a.timeStamp))
+        .slice(0, 20)) ||
     [];
 
   return (

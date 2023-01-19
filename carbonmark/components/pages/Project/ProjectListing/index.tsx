@@ -29,10 +29,9 @@ export const ProjectListing: FC<Props> = (props) => {
   const { locale } = useRouter();
   const { address, renderModal, isConnected, toggleModal } = useWeb3();
 
-  const isConnectedSeller = getIsConnectedSeller(
-    props.listing.seller.id,
-    address
-  );
+  const isConnectedSeller =
+    !!props.listing.seller &&
+    getIsConnectedSeller(props.listing.seller.id, address);
 
   return (
     <Card>

@@ -51,7 +51,7 @@ export type Listing = {
     vintage: string;
     country: Country;
   };
-  seller: {
+  seller?: {
     handle: string;
     username: string;
     description: string;

@@ -171,18 +171,21 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
                   {props.project.name}
                 </Text>
               </div>
-              <div className="stack">
-                <Text
-                  t="badge"
-                  align="center"
-                  className={styles.projectHeaderText}
-                >
-                  <Trans id="project.single.header.seller">Seller:</Trans>{" "}
-                  <Link href={createSellerLink(props.listing.seller.handle)}>
-                    @{props.listing.seller.handle}
-                  </Link>
-                </Text>
-              </div>
+
+              {!!props.listing.seller && (
+                <div className="stack">
+                  <Text
+                    t="badge"
+                    align="center"
+                    className={styles.projectHeaderText}
+                  >
+                    <Trans id="project.single.header.seller">Seller:</Trans>{" "}
+                    <Link href={createSellerLink(props.listing.seller.handle)}>
+                      @{props.listing.seller.handle}
+                    </Link>
+                  </Text>
+                </div>
+              )}
             </div>
             <div className={styles.price}>
               <Text t="body4">
