@@ -1,4 +1,4 @@
-import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
+import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Close from "@mui/icons-material/Close";
@@ -30,7 +30,7 @@ export const NavDrawer: FC<NavDrawerProps> = (props) => {
   return (
     <nav className={styles.container}>
       <Link href="/" data-desktop-only>
-        <MarketplaceLogo />
+        <CarbonmarkLogo />
       </Link>
       <div className={styles.mobile.header} data-mobile-only>
         <DynamicThemeToggle />

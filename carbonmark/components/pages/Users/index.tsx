@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import { useEffect, useState } from "react";
 
 import { User } from "@klimadao/lib/types/carbonmark";
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { PageHead } from "components/shared/PageHead";
 import { ProfileButton } from "./ProfileButton";
 import { SellerConnected } from "./SellerConnected";
@@ -13,7 +13,7 @@ import { SellerUnconnected } from "./SellerUnconnected";
 type Props = {
   userAddress: string;
   userDomain: string | null;
-  marketplaceUser: User | null;
+  carbonmarkUser: User | null;
 };
 
 export const Users: NextPage<Props> = (props) => {
@@ -24,7 +24,7 @@ export const Users: NextPage<Props> = (props) => {
   const [showEditModal, setShowEditModal] = useState(false);
 
   const userName =
-    props.userDomain || props.marketplaceUser?.handle || props.userAddress;
+    props.userDomain || props.carbonmarkUser?.handle || props.userAddress;
 
   // Wait until web3 is ready
   useEffect(() => {
@@ -36,12 +36,12 @@ export const Users: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`KlimaDao - Marketplace Profile for ${userName}`}
-        mediaTitle={`KlimaDao - Marketplace Profile for ${userName}`}
-        metaDescription={`KlimaDao - Marketplace Profile for ${userName}`}
+        title={`Carbonmark - Profile for ${userName}`}
+        mediaTitle={`Carbonmark - Profile for ${userName}`}
+        metaDescription={`Carbonmark - Profile for ${userName}`}
       />
 
-      <MarketplaceLayout
+      <Layout
         userAddress={props.userAddress}
         profileButton={
           isConnectedUser ? (
@@ -55,7 +55,7 @@ export const Users: NextPage<Props> = (props) => {
           <SellerConnected
             userAddress={props.userAddress}
             userName={userName}
-            marketplaceUser={props.marketplaceUser}
+            carbonmarkUser={props.carbonmarkUser}
             showEditProfileModal={showEditModal}
             onToggleEditProfileModal={() => setShowEditModal((prev) => !prev)}
           />
@@ -63,11 +63,11 @@ export const Users: NextPage<Props> = (props) => {
 
         {isUnconnectedUser && (
           <SellerUnconnected
-            marketplaceUser={props.marketplaceUser}
+            carbonmarkUser={props.carbonmarkUser}
             userName={userName}
           />
         )}
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

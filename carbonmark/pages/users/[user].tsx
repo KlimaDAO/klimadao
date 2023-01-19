@@ -9,7 +9,7 @@ import { getDomainByAddress } from "lib/shared/getDomainByAddress";
 import { getIsDomainInURL } from "lib/shared/getIsDomainInURL";
 
 import { User } from "@klimadao/lib/types/carbonmark";
-import { getMarketplaceUser } from "@klimadao/lib/utils";
+import { getCarbonmarkUser } from "@klimadao/lib/utils";
 
 interface Params extends ParsedUrlQuery {
   user: string;
@@ -18,7 +18,7 @@ interface Params extends ParsedUrlQuery {
 interface PageProps {
   userAddress: string;
   userDomain: string | null;
-  marketplaceUser: User | null;
+  carbonmarkUser: User | null;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -41,16 +41,16 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     const isDomainInURL = getIsDomainInURL(userInUrl);
     const isValidAddress = !isDomainInURL && ethers.utils.isAddress(userInUrl);
 
-    let marketplaceUser: User | null = null;
+    let carbonmarkUser: User | null = null;
 
     if (!isDomainInURL && !isValidAddress) {
-      const userData = await getMarketplaceUser({
+      const userData = await getCarbonmarkUser({
         user: params.user,
         type: "handle",
       });
       // API returns object on 404 not found
       if (userData?.handle) {
-        marketplaceUser = userData;
+        carbonmarkUser = userData;
       } else {
         throw new Error("Not a valid user address");
       }
@@ -73,18 +73,18 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     if (isDomainInURL) {
       userAddress = await getAddressByDomain(userInUrl); // this fn should throw if it fails to resolve
     } else {
-      userAddress = marketplaceUser?.wallet || userInUrl;
+      userAddress = carbonmarkUser?.wallet || userInUrl;
     }
 
-    // Haven't fetched marketplace API yet?
-    if (!marketplaceUser) {
-      const userData = await getMarketplaceUser({
+    // Haven't fetched carbonmark API yet?
+    if (!carbonmarkUser) {
+      const userData = await getCarbonmarkUser({
         user: userAddress,
         type: "wallet",
       });
       // API returns object on 404 not found
       if (userData?.handle) {
-        marketplaceUser = userData;
+        carbonmarkUser = userData;
       }
     }
 
@@ -92,13 +92,13 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       props: {
         userAddress,
         userDomain: isDomainInURL ? userInUrl : null,
-        marketplaceUser,
+        carbonmarkUser,
         translation,
       },
       revalidate: 10,
     };
   } catch (e) {
-    console.error("Failed to generate Marketplace Users Page", e);
+    console.error("Failed to generate Carbonmark Users Page", e);
     return {
       notFound: true,
       revalidate: 240,

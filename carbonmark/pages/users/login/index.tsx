@@ -19,7 +19,7 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
       revalidate: 240,
     };
   } catch (e) {
-    console.error("Failed to generate Marketplace Login Page", e);
+    console.error("Failed to generate Carbonmark Login Page", e);
     return {
       notFound: true,
       revalidate: 240,

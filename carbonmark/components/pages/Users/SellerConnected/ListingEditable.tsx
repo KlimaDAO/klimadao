@@ -7,12 +7,12 @@ import { FC, useState } from "react";
 import { Listing } from "../Listing";
 import { EditListing, FormValues } from "./Forms/EditListing";
 
-import { MarketplaceButton } from "components/MarketplaceButton";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Transaction } from "components/Transaction";
 import {
   deleteListingTransaction,
-  getC3tokenToMarketplaceAllowance,
-  onApproveMarketplaceTransaction,
+  getC3tokenToCarbonmarkAllowance,
+  onApproveCarbonmarkTransaction,
   updateListingTransaction,
 } from "lib/actions";
 import { formatToTonnes } from "lib/formatNumbers";
@@ -70,7 +70,7 @@ export const ListingEditable: FC<Props> = (props) => {
     setIsLoading(true);
     try {
       if (!address || !provider) return;
-      const allowance = await getC3tokenToMarketplaceAllowance({
+      const allowance = await getC3tokenToCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
         provider,
@@ -96,7 +96,7 @@ export const ListingEditable: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveMarketplaceTransaction({
+      await onApproveCarbonmarkTransaction({
         tokenAddress: inputValues.tokenAddress,
         provider,
         value: inputValues.totalAmountToSell,
@@ -158,7 +158,7 @@ export const ListingEditable: FC<Props> = (props) => {
     <>
       {props.listings.map((listing) => (
         <Listing key={listing.id} listing={listing}>
-          <MarketplaceButton
+          <CarbonmarkButton
             label={<Trans id="profile.listing.edit">Edit</Trans>}
             className={styles.editListingButton}
             onClick={() => setListingToEdit(listing)}
@@ -185,7 +185,7 @@ export const ListingEditable: FC<Props> = (props) => {
                 getBalanceForListing(listingToEdit, props.assets)
               )}
             />
-            <MarketplaceButton
+            <CarbonmarkButton
               label={
                 <Trans id="profile.listing.edit.delete_listing">
                   Delete Listing
@@ -226,7 +226,7 @@ export const ListingEditable: FC<Props> = (props) => {
             approvalText={t({
               id: "transaction.edit_listing.approval_description",
               message:
-                "You are about to transfer ownership of this asset from your wallet to the KlimaDAO  You can remove your listing at any time until it has been sold.",
+                "You are about to transfer ownership of this asset from your wallet to the KlimaDAO Carbonmark. You can remove your listing at any time until it has been sold.",
             })}
             onApproval={handleApproval}
             onSubmit={onUpdateListing}

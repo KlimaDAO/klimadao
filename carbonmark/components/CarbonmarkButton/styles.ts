@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 
-export const marketplaceButtonGray = css`
+export const buttonGray = css`
   border-color: var(--font-01);
   color: var(--font-01) !important;
   cursor: pointer;

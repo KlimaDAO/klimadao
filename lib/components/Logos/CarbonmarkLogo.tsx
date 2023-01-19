@@ -1,6 +1,6 @@
 import React from "react";
 
-export const MarketplaceLogo = () => (
+export const CarbonmarkLogo = () => (
   <svg
     width="180"
     height="64"

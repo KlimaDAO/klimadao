@@ -1,6 +1,6 @@
 import { Listing, Project } from "@klimadao/lib/types/carbonmark";
-import { getMarketplaceProject } from "@klimadao/lib/utils";
-import { MarketPlaceProjectPurchase } from "components/pages/Project/Purchase";
+import { getCarbonmarkProject } from "@klimadao/lib/utils";
+import { ProjectPurchase } from "components/pages/Project/Purchase";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   }
 
   try {
-    const project = await getMarketplaceProject(params.project_id);
+    const project = await getCarbonmarkProject(params.project_id);
 
     // check if listing ID is correct here on server? Or rather on client with nicer error state?
     const listing = project.listings.find(
@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       revalidate: 240,
     };
   } catch (e) {
-    console.error("Failed to generate Marketplace Project Purchase Page", e);
+    console.error("Failed to generate Carbonmark Project Purchase Page", e);
     return {
       notFound: true,
       revalidate: 240,
@@ -65,4 +65,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default MarketPlaceProjectPurchase;
+export default ProjectPurchase;

@@ -9,17 +9,17 @@ import * as styles from "./styles";
 type Props = {
   userName: string;
   description?: string;
-  isMarketplaceUser: boolean;
+  isCarbonmarkUser: boolean;
 };
 
 export const ProfileHeader: FC<Props> = (props) => {
   return (
     <div className={styles.profileHeader}>
       <div className={styles.profileLogo}>
-        {props.isMarketplaceUser ? (
+        {props.isCarbonmarkUser ? (
           <Image
             src={userLogo}
-            alt="Marketplace User Logo"
+            alt="Carbonmark User Logo"
             width={50}
             height={50}
           />

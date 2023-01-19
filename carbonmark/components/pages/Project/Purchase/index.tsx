@@ -10,7 +10,7 @@ import { useState } from "react";
 import { Listing, Project } from "@klimadao/lib/types/carbonmark";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Card } from "components/Card";
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { ProjectImage } from "components/ProjectImage";
 import { PageHead } from "components/shared/PageHead";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
@@ -20,9 +20,9 @@ import { formatBigToPrice } from "lib/formatNumbers";
 
 import { Transaction } from "components/Transaction";
 import {
-  getUSDCtokenToMarketplaceAllowance,
+  getUSDCtokenToCarbonmarkAllowance,
   makePurchase,
-  onApproveMarketplaceTransaction,
+  onApproveCarbonmarkTransaction,
 } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 
@@ -35,7 +35,7 @@ type Props = {
 
 const FAKE_USDC = "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7"; // TODO: delete me before switch to mainnet
 
-export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
+export const ProjectPurchase: NextPage<Props> = (props) => {
   const { locale, push } = useRouter();
   const { address, provider } = useWeb3();
   const [isLoadingAllowance, setIsLoadingAllowance] = useState(false);
@@ -70,7 +70,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
     setIsLoadingAllowance(true);
     try {
       if (!address || !provider) return;
-      const allowance = await getUSDCtokenToMarketplaceAllowance({
+      const allowance = await getUSDCtokenToCarbonmarkAllowance({
         tokenAddress: FAKE_USDC,
         userAddress: address,
         provider,
@@ -103,7 +103,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveMarketplaceTransaction({
+      await onApproveCarbonmarkTransaction({
         tokenAddress: FAKE_USDC,
         provider,
         value: inputValues.price,
@@ -139,12 +139,12 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`KlimaDao - Purchase Marketplace Project: ${props.project.name}`}
-        mediaTitle={`KlimaDao - Purchase Marketplace Project: ${props.project.name}`}
-        metaDescription={`KlimaDao - Purchase Marketplace Project: ${props.project.name}`}
+        title={`Carbonmark - Purchase Project: ${props.project.name}`}
+        mediaTitle={`Carbonmark - Purchase Project: ${props.project.name}`}
+        metaDescription={`Carbonmark - Purchase Project: ${props.project.name}`}
       />
 
-      <MarketplaceLayout>
+      <Layout>
         <div className={styles.fullWidth}>
           <Link
             href={createProjectLink(props.project)}
@@ -238,7 +238,7 @@ export const MarketPlaceProjectPurchase: NextPage<Props> = (props) => {
             </div>
           )}
         </Modal>
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

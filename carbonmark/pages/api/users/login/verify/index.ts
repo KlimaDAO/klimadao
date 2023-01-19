@@ -1,4 +1,4 @@
-import { marketplace } from "@klimadao/lib/constants";
+import { carbonmark } from "@klimadao/lib/constants";
 import { NextApiHandler } from "next";
 
 export interface APIDefaultResponse {
@@ -17,7 +17,7 @@ const verifyUser: NextApiHandler<
             .json({ message: "Bad request! Wallet or Signature is missing" });
         }
 
-        const result = await fetch(`${marketplace.users}/login/verify`, {
+        const result = await fetch(`${carbonmark.users}/login/verify`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

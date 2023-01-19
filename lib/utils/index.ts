@@ -1,3 +1,9 @@
+export {
+  getCarbonmarkProject,
+  getCarbonmarkProjects,
+  getCarbonmarkUser,
+  getPurchase,
+} from "./carbonmark";
 export { concatAddress } from "./concatAddress";
 // ENS
 export { getAddressByENS, getENSProfile, isENSDomain } from "./ens";
@@ -37,12 +43,6 @@ export {
   isKNSDomain,
   KNSContract,
 } from "./kns";
-export {
-  getMarketplaceProject,
-  getMarketplaceProjects,
-  getMarketplaceUser,
-  getPurchase,
-} from "./marketplace";
 export { prettifySeconds } from "./prettifySeconds";
 export { prettifyUrl } from "./prettifyUrl";
 export { safeAdd } from "./safeAdd";

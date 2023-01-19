@@ -1,16 +1,16 @@
 import { StaticImageData } from "next/legacy/image";
 import USDC from "public/icons/USDC.png";
 
-export type MarketplaceToken = "usdc"; // what are the others?
+export type CarbonmarkToken = "usdc"; // what are the others?
 
-type MarketplaceTokenMap = {
-  [key in MarketplaceToken]: {
+type CarbonmarkTokenMap = {
+  [key in CarbonmarkToken]: {
     key: string;
     icon: StaticImageData;
-    label: Uppercase<MarketplaceToken>;
+    label: Uppercase<CarbonmarkToken>;
   };
 };
 
-export const marketplaceTokenInfoMap: MarketplaceTokenMap = {
+export const carbonmarkTokenInfoMap: CarbonmarkTokenMap = {
   usdc: { key: "usdc", icon: USDC, label: "USDC" },
 };

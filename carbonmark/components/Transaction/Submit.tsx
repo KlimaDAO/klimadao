@@ -5,7 +5,7 @@ import { FC } from "react";
 import { concatAddress } from "@klimadao/lib/utils";
 import CheckIcon from "@mui/icons-material/Check";
 import SendRounded from "@mui/icons-material/SendRounded";
-import { marketplaceTokenInfoMap } from "lib/getTokenInfo";
+import { carbonmarkTokenInfoMap } from "lib/getTokenInfo";
 import { getStatusMessage, TransactionStatusMessage } from "lib/statusMessage";
 
 import { ButtonPrimary, Spinner, Text } from "@klimadao/lib/components";
@@ -67,7 +67,7 @@ export const Submit: FC<Props> = (props) => {
           value={props.amount.value}
           icon={
             props.amount.token &&
-            marketplaceTokenInfoMap[props.amount.token].icon
+            carbonmarkTokenInfoMap[props.amount.token].icon
           }
           iconName={props.amount.token}
         />
@@ -83,7 +83,7 @@ export const Submit: FC<Props> = (props) => {
             value={props.price.value}
             icon={
               props.price.token &&
-              marketplaceTokenInfoMap[props.price.token].icon
+              carbonmarkTokenInfoMap[props.price.token].icon
             }
             iconName={props.price.token}
           />

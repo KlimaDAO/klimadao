@@ -2,14 +2,14 @@ import C3ProjectToken from "@klimadao/lib/abi/C3ProjectToken.json";
 import { Asset } from "@klimadao/lib/types/carbonmark";
 import { formatUnits, getContract } from "@klimadao/lib/utils";
 import { Contract, ethers, providers, Transaction, utils } from "ethers";
-import { getMarketplaceAddress } from "./getAddresses";
+import { getCarbonmarkAddress } from "./getAddresses";
 import { OnStatusHandler } from "./statusMessage";
 
 // TODO: Before GO-LIVE replace with getContract("usdc")
 // Currently, the USDC token is pointing to a fake one on Mumbai
 import IERC20 from "@klimadao/lib/abi/IERC20.json";
 
-export const getC3tokenToMarketplaceAllowance = async (params: {
+export const getC3tokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
   provider: ethers.providers.Provider;
@@ -22,13 +22,13 @@ export const getC3tokenToMarketplaceAllowance = async (params: {
 
   const allowance = await tokenContract.allowance(
     params.userAddress,
-    getMarketplaceAddress()
+    getCarbonmarkAddress()
   );
 
   return ethers.utils.formatUnits(allowance);
 };
 
-export const getUSDCtokenToMarketplaceAllowance = async (params: {
+export const getUSDCtokenToCarbonmarkAllowance = async (params: {
   userAddress: string;
   tokenAddress: string;
   provider: ethers.providers.Provider;
@@ -41,13 +41,13 @@ export const getUSDCtokenToMarketplaceAllowance = async (params: {
 
   const allowance = await tokenContract.allowance(
     params.userAddress,
-    getMarketplaceAddress()
+    getCarbonmarkAddress()
   );
 
   return ethers.utils.formatUnits(allowance); // TODO: ensure to pass 6 later for USDC
 };
 
-export const onApproveMarketplaceTransaction = async (params: {
+export const onApproveCarbonmarkTransaction = async (params: {
   value: string;
   provider: providers.JsonRpcProvider;
   tokenAddress: string;
@@ -65,7 +65,7 @@ export const onApproveMarketplaceTransaction = async (params: {
     params.onStatus("userConfirmation");
 
     const txn = await tokenContract.approve(
-      getMarketplaceAddress(),
+      getCarbonmarkAddress(),
       parsedValue.toString()
     );
 
@@ -93,14 +93,14 @@ export const createListingTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const marketPlaceContract = getContract({
-      contractName: "marketplace",
+    const carbonmarkContract = getContract({
+      contractName: "carbonmark",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await marketPlaceContract.addListing(
+    const listingTxn = await carbonmarkContract.addListing(
       params.tokenAddress,
       utils.parseUnits(params.totalAmountToSell, 18), // C3 token
       utils.parseUnits(params.singleUnitPrice, 18), // Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
@@ -131,14 +131,14 @@ export const updateListingTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const marketPlaceContract = getContract({
-      contractName: "marketplace",
+    const carbonmarkContract = getContract({
+      contractName: "carbonmark",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await marketPlaceContract.updateListing(
+    const listingTxn = await carbonmarkContract.updateListing(
       params.listingId,
       params.tokenAddress,
       utils.parseUnits(params.totalAmountToSell, 18), // C3 token
@@ -169,14 +169,14 @@ export const makePurchase = async (params: {
   onStatus: OnStatusHandler;
 }): Promise<Transaction> => {
   try {
-    const marketPlaceContract = getContract({
-      contractName: "marketplace",
+    const carbonmarkContract = getContract({
+      contractName: "carbonmark",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation", "");
 
-    const purchaseTxn = await marketPlaceContract.purchase(
+    const purchaseTxn = await carbonmarkContract.purchase(
       params.listingId,
       utils.parseUnits(params.amount, 18), // C3 token
       utils.parseUnits(params.price, 18) // TODO: Make sure to switch back to 6 when moving from Mumbai to Mainnet! https://github.com/Atmosfearful/bezos-frontend/issues/15
@@ -202,16 +202,14 @@ export const deleteListingTransaction = async (params: {
   onStatus: OnStatusHandler;
 }) => {
   try {
-    const marketPlaceContract = getContract({
-      contractName: "marketplace",
+    const carbonmarkContract = getContract({
+      contractName: "carbonmark",
       provider: params.provider.getSigner(),
     });
 
     params.onStatus("userConfirmation", "");
 
-    const listingTxn = await marketPlaceContract.deleteListing(
-      params.listingId
-    );
+    const listingTxn = await carbonmarkContract.deleteListing(params.listingId);
 
     params.onStatus("networkConfirmation", "");
     await listingTxn.wait(1);

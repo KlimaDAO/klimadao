@@ -1,4 +1,4 @@
-import { marketplace } from "@klimadao/lib/constants";
+import { carbonmark } from "@klimadao/lib/constants";
 import { NextApiHandler } from "next";
 
 export interface APIDefaultResponse {
@@ -17,7 +17,7 @@ const loginUser: NextApiHandler<
             .json({ message: "Bad request! Wallet is missing" });
         }
 
-        const result = await fetch(`${marketplace.users}/login`, {
+        const result = await fetch(`${carbonmark.users}/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(req.body),

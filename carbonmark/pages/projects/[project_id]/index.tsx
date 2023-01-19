@@ -1,6 +1,6 @@
-import { Project } from "@klimadao/lib/types/carbonmark";
-import { getMarketplaceProject } from "@klimadao/lib/utils";
-import { MarketPlaceProject } from "components/pages/Project";
+import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
+import { getCarbonmarkProject } from "@klimadao/lib/utils";
+import { Project } from "components/pages/Project";
 import { loadTranslation } from "lib/i18n";
 import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -10,7 +10,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 interface PageProps {
-  project: Project;
+  project: ProjectType;
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   }
 
   try {
-    const project = await getMarketplaceProject(params.project_id);
+    const project = await getCarbonmarkProject(params.project_id);
     const translation = await loadTranslation(locale);
 
     if (!translation) {
@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       revalidate: 240,
     };
   } catch (e) {
-    console.error("Failed to generate Marketplace Project Page", e);
+    console.error("Failed to generate Carbonnmark Project Page", e);
     return {
       notFound: true,
       revalidate: 240,
@@ -53,4 +53,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default MarketPlaceProject;
+export default Project;

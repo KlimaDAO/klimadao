@@ -1,3 +1,4 @@
+import { urls } from "@klimadao/lib/constants";
 import { getOgImageSrc } from "@klimadao/lib/utils";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -24,7 +25,7 @@ export const PageHead = (props: PageHeadProps) => {
   const router = useRouter();
   const relativePath = router.asPath.split(/[#,?]/)[0];
   const canonicalUrl =
-    props.canonicalUrl || `https://www.klimadao.finance${relativePath}`;
+    props.canonicalUrl || `${urls.carbonmark}${relativePath}`;
   const mediaImageSrc = getOgImageSrc(props.mediaImageSrc);
   return (
     <Head>
@@ -32,7 +33,7 @@ export const PageHead = (props: PageHeadProps) => {
       {!noRobots && (
         <script
           defer
-          data-domain="klimadao.finance"
+          data-domain="carbonmark.com"
           src="https://plausible.io/js/script.outbound-links.js"
         />
       )}
@@ -44,7 +45,7 @@ export const PageHead = (props: PageHeadProps) => {
 
       <meta property="og:type" content="website" />
       <meta property="og:locale" content={router.locale || "en"} />
-      <meta property="og:site_name" content="KlimaDAO" />
+      <meta property="og:site_name" content="Carbonmark" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={props.mediaTitle} />

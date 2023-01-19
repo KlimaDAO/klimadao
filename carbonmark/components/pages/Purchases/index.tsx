@@ -1,9 +1,9 @@
 import { ButtonPrimary, Text } from "@klimadao/lib/components";
 import { Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
 import { Card } from "components/Card";
-import { MarketplaceLayout } from "components/Layout";
-import { MarketplaceButton } from "components/MarketplaceButton";
+import { Layout } from "components/Layout";
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -22,7 +22,7 @@ type Props = {
   transaction: string;
 };
 
-export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
+export const PurchaseReceipt: NextPage<Props> = (props) => {
   const { locale } = useRouter();
 
   const projectName = props.purchase?.listing?.project?.name || "Loading";
@@ -30,12 +30,12 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`KlimaDao - Successfully Purchased Marketplace Project: ${projectName}`}
-        mediaTitle={`KlimaDao - Successfully Purchased Marketplace Project: ${projectName}`}
-        metaDescription={`KlimaDao - Successfully Purchased Marketplace Project: ${projectName}`}
+        title={`Carbonmark - Successfully Purchased Project: ${projectName}`}
+        mediaTitle={`Carbonmark - Successfully Purchased Project: ${projectName}`}
+        metaDescription={`Carbonmark - Successfully Purchased Project: ${projectName}`}
       />
 
-      <MarketplaceLayout>
+      <Layout>
         {!!props.purchase && (
           <div className={styles.fullWidth}>
             <Link
@@ -129,7 +129,7 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
                         </Trans>
                       }
                     />
-                    <MarketplaceButton
+                    <CarbonmarkButton
                       label={
                         <Trans id="purchase.button.view_assets">
                           View Assets
@@ -142,7 +142,7 @@ export const MarketPlacePurchaseReceipt: NextPage<Props> = (props) => {
             </Card>
           </div>
         </div>
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

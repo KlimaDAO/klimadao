@@ -1,5 +1,6 @@
 import { Contract, providers, Signer } from "ethers";
 
+import Carbonmark from "../../abi/Carbonmark.json";
 import DistributorContractv4 from "../../abi/DistributorContractv4.json";
 import ExercisePKlima from "../../abi/ExercisepKLIMA.json";
 import IERC20 from "../../abi/IERC20.json";
@@ -9,7 +10,6 @@ import KlimaRetirementAggregatorV2 from "../../abi/KlimaRetirementAggregatorV2.j
 import KlimaRetirementStorage from "../../abi/KlimaRetirementStorage.json";
 import KlimaStakingHelper from "../../abi/KlimaStakingHelper.json";
 import KlimaStakingv2 from "../../abi/KlimaStakingv2.json";
-import Marketplace from "../../abi/Marketplace.json";
 import OhmDai from "../../abi/OhmDai.json";
 import PunkTLD from "../../abi/PunkTLD.json";
 import SKlima from "../../abi/sKlima.json";
@@ -68,7 +68,7 @@ const contractMap = {
   staking_helper: KlimaStakingHelper.abi, // stake
   staking: KlimaStakingv2.abi, // unstake
   retirementStorage: KlimaRetirementStorage.abi,
-  marketplace: Marketplace.abi,
+  carbonmark: Carbonmark.abi,
 } as const;
 type ContractName = keyof typeof contractMap;
 

@@ -1,8 +1,8 @@
 import { Trans } from "@lingui/macro";
 import { FC, useState } from "react";
 
-import { MarketplaceButton } from "components/MarketplaceButton";
-import { getMarketplaceAddress } from "lib/getAddresses";
+import { CarbonmarkButton } from "components/CarbonmarkButton";
+import { getCarbonmarkAddress } from "lib/getAddresses";
 import { TransactionStatusMessage } from "lib/statusMessage";
 import { Approve } from "./Approve";
 import { Submit } from "./Submit";
@@ -63,7 +63,7 @@ export const Transaction: FC<Props> = (props) => {
           amount={props.amount}
           price={props.price}
           description={props.approvalText}
-          spenderAddress={getMarketplaceAddress()}
+          spenderAddress={getCarbonmarkAddress()}
           onApproval={props.onApproval}
           onSuccess={() => {
             props.onResetStatus();
@@ -77,14 +77,14 @@ export const Transaction: FC<Props> = (props) => {
           amount={props.amount}
           price={props.price}
           description={props.submitText}
-          spenderAddress={getMarketplaceAddress()}
+          spenderAddress={getCarbonmarkAddress()}
           onSubmit={props.onSubmit}
           onClose={props.onCancel}
           status={props.status}
         />
       )}
       {!!props.onGoBack && (
-        <MarketplaceButton
+        <CarbonmarkButton
           label={<Trans id="transaction_modal.button.go_back">Go back</Trans>}
           disabled={isPending}
           onClick={props.onGoBack}

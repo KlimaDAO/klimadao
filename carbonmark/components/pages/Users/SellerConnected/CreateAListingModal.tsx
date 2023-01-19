@@ -9,8 +9,8 @@ import { Modal } from "components/shared/Modal";
 import { Transaction } from "components/Transaction";
 import {
   createListingTransaction,
-  getC3tokenToMarketplaceAllowance,
-  onApproveMarketplaceTransaction,
+  getC3tokenToCarbonmarkAllowance,
+  onApproveCarbonmarkTransaction,
 } from "lib/actions";
 import { TransactionStatusMessage, TxnStatus } from "lib/statusMessage";
 import { AddListing, FormValues } from "./Forms/AddListing";
@@ -53,7 +53,7 @@ export const CreateAListingModal: FC<Props> = (props) => {
     setIsLoading(true);
     try {
       if (!address || !provider) return;
-      const allowance = await getC3tokenToMarketplaceAllowance({
+      const allowance = await getC3tokenToCarbonmarkAllowance({
         tokenAddress: values.tokenAddress,
         userAddress: address,
         provider,
@@ -79,7 +79,7 @@ export const CreateAListingModal: FC<Props> = (props) => {
     if (!provider || !inputValues) return;
 
     try {
-      await onApproveMarketplaceTransaction({
+      await onApproveCarbonmarkTransaction({
         tokenAddress: inputValues.tokenAddress,
         provider,
         value: inputValues.totalAmountToSell,

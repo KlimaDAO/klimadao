@@ -1,10 +1,10 @@
 import { Text } from "@klimadao/lib/components";
-import { Project } from "@klimadao/lib/types/carbonmark";
+import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
 import { Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
-import { MarketplaceLayout } from "components/Layout";
+import { Layout } from "components/Layout";
 import { ProjectImage } from "components/ProjectImage";
 import { PageHead } from "components/shared/PageHead";
 import { Stats } from "components/Stats";
@@ -26,10 +26,10 @@ import { ProjectListing } from "./ProjectListing";
 import * as styles from "./styles";
 
 type Props = {
-  project: Project;
+  project: ProjectType;
 };
 
-export const MarketPlaceProject: NextPage<Props> = (props) => {
+export const Project: NextPage<Props> = (props) => {
   const hasListings = !!props.project.listings?.length;
   const allListings = hasListings && getAllListings(props.project.listings);
   const activeListings =
@@ -43,12 +43,12 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
   return (
     <>
       <PageHead
-        title={`KlimaDao - Marketplace Project: ${props.project.name}`}
-        mediaTitle={`KlimaDao - Marketplace Project: ${props.project.name}`}
-        metaDescription={`KlimaDao - Marketplace Project: ${props.project.name}`}
+        title={`Carbonmark - Project: ${props.project.name}`}
+        mediaTitle={`Carbonmark - Project: ${props.project.name}`}
+        metaDescription={`Carbonmark - Project: ${props.project.name}`}
       />
 
-      <MarketplaceLayout>
+      <Layout>
         <div className={styles.fullWidth}>
           <Link href={"/projects"} className={styles.backToResults}>
             <ArrowBack className="arrow" />
@@ -141,7 +141,7 @@ export const MarketPlaceProject: NextPage<Props> = (props) => {
             <Activities activities={props.project.activities} />
           </Col>
         </TwoColLayout>
-      </MarketplaceLayout>
+      </Layout>
     </>
   );
 };

@@ -1,6 +1,6 @@
-import { MarketplaceToken } from "lib/getTokenInfo";
+import { CarbonmarkToken } from "lib/getTokenInfo";
 
 export type Value = {
   value: string;
-  token?: MarketplaceToken;
+  token?: CarbonmarkToken;
 };

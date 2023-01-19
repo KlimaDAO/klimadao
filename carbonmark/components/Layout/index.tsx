@@ -1,5 +1,5 @@
 import { cx } from "@emotion/css";
-import { ButtonPrimary, MarketplaceLogo } from "@klimadao/lib/components";
+import { ButtonPrimary, CarbonmarkLogo } from "@klimadao/lib/components";
 import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 import Menu from "@mui/icons-material/Menu";
@@ -26,7 +26,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const MarketplaceLayout: FC<Props> = (props: Props) => {
+export const Layout: FC<Props> = (props: Props) => {
   const { address, renderModal, isConnected, toggleModal, disconnect } =
     useWeb3();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -42,12 +42,8 @@ export const MarketplaceLayout: FC<Props> = (props: Props) => {
       </div>
       <div className={styles.cardGrid}>
         <div className={styles.controls}>
-          <Link
-            href="/marketplace"
-            className={styles.mobileLogo}
-            data-mobile-only
-          >
-            <MarketplaceLogo />
+          <Link href="/" className={styles.mobileLogo} data-mobile-only>
+            <CarbonmarkLogo />
           </Link>
 
           {/* keep mobile nav menu here in markup hierarchy for tab nav */}

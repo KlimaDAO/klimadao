@@ -1,4 +1,4 @@
-import { marketplace } from "@klimadao/lib/constants";
+import { carbonmark } from "@klimadao/lib/constants";
 import { User } from "@klimadao/lib/types/carbonmark";
 import { NextApiHandler } from "next";
 
@@ -25,7 +25,7 @@ const createUser: NextApiHandler<User | APIDefaultResponse> = async (
             .json({ message: "Bad request! Handle or Wallet is missing" });
         }
 
-        const result = await fetch(`${marketplace.users}`, {
+        const result = await fetch(`${carbonmark.users}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "Marketplace",
+  "contractName": "Carbonmark",
   "sourceName": "hardhat-diamond-abi/HardhatDiamondABI.sol",
   "abi": [
     {
