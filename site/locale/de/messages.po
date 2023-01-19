@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-18 16:01+0000\n"
+"POT-Creation-Date: 2023-01-19 15:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1320,7 +1320,7 @@ msgstr "Profilbild-URL (optional)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:304
 msgid "pledges.form.input.profileWebsiteUrl.label"
-msgstr ""
+msgstr "Webseite (optional)"
 
 #: components/pages/Pledge/PledgeForm/index.tsx:597
 msgid "pledges.form.input.totalFootprint.label"
@@ -1380,7 +1380,7 @@ msgstr "Mehr erfahren"
 
 #: components/pages/Pledge/index.tsx:71
 msgid "pledges.home.hero.view"
-msgstr ""
+msgstr "Ihren Pledge ansehen"
 
 #: components/pages/Pledge/index.tsx:200
 msgid "pledges.home.search.label"
@@ -1412,7 +1412,7 @@ msgstr "Suchen"
 
 #: components/pages/Resources/ResourcesList/index.tsx:168
 msgid "resources.form.input.search.placeholder"
-msgstr ""
+msgstr "Suchen..."
 
 #: components/pages/Resources/ResourcesList/index.tsx:201
 msgid "resources.form.input.sort_by.label"
@@ -1600,7 +1600,7 @@ msgstr "Empfängeradresse"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:217
 msgid "retirement.single.create_a_pledge"
-msgstr ""
+msgstr "Jetzt Pledge erstellen."
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:203
 msgid "retirement.single.disclaimer"
@@ -1620,7 +1620,7 @@ msgstr "CO2-äquivalente Emissionen ausgeglichen (in Tonnen)"
 
 #: components/pages/Retirements/SingleRetirement/index.tsx:213
 msgid "retirement.single.is_this_your_retirement"
-msgstr ""
+msgstr "Ist dies Ihr CO2-Ausgleich?"
 
 #: components/pages/Retirements/SingleRetirement/RetirementMessage/index.tsx:14
 msgid "retirement.single.message.title"
@@ -1628,7 +1628,7 @@ msgstr "Ausgleichsnachricht"
 
 #: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:30
 msgid "retirement.single.no_pledge"
-msgstr ""
+msgstr "Dieser Nutzen hat keinen Pledge erstellt"
 
 #: components/pages/Retirements/SingleRetirement/ProjectDetails/index.tsx:38
 msgid "retirement.single.project_details.click_on_project"
@@ -1684,7 +1684,7 @@ msgstr "Auf Polygonscan ansehen"
 
 #: components/pages/Retirements/SingleRetirement/ViewPledgeButton/index.tsx:18
 msgid "retirement.single.view_pledge"
-msgstr ""
+msgstr "Pledge ansehen"
 
 #: components/pages/Retirements/List/index.tsx:40
 msgid "retirement.totals.all_retirements_list.empty"
