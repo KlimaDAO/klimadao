@@ -23,7 +23,7 @@
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
     "@reduxjs/toolkit": "^1.9.0",
-    "@sentry/nextjs": "^7.28.1",
+    "@sentry/nextjs": "^7.31.1",
     "@tippyjs/react": "^4.2.6",
     "@translation/lingui": "^1.0.0",
     "ethers": "^5.7.2",
