@@ -105,28 +105,42 @@ export const ConnectModal = (props: ConnectModalProps) => {
       <div className={styles.modalBackground} onClick={handleClose} />
       <div className={styles.modalContainer}>
         <div className={styles.modalContent} ref={focusTrapRef}>
-          <span className="title">
-            <Text t="h4">{getTitle(step)}</Text>
-            <button onClick={handleClose}>
+          <div className="title">
+            <div>
+              <Text t="h4" tabIndex={1}>
+                {getTitle(step)}
+              </Text>
+            </div>
+            <button onClick={handleClose} tabIndex={2}>
               <Close fontSize="large" />
             </button>
-          </span>
+          </div>
           {step === "connect" && (
-            <>
+            <div>
               <div className={styles.buttonsContainer}>
                 {showMetamask && (
-                  <span
+                  <div
                     className={styles.walletButton}
                     onClick={() => handleConnect({ wallet: "injected" })}
+                    tabIndex={3}
+                    onKeyDown={(e) =>
+                      e.code === "Enter" &&
+                      handleConnect({ wallet: "injected" })
+                    }
                   >
                     <MetaMaskFoxIcon />
                     <Text t="button">Metamask</Text>
-                  </span>
+                  </div>
                 )}
                 {showBrave && (
                   <span
                     className={styles.walletButton}
                     onClick={() => handleConnect({ wallet: "injected" })}
+                    onKeyDown={(e) =>
+                      e.code === "Enter" &&
+                      handleConnect({ wallet: "injected" })
+                    }
+                    tabIndex={4}
                   >
                     <BraveIcon />
                     <Text t="button">Brave</Text>
@@ -148,6 +162,13 @@ export const ConnectModal = (props: ConnectModalProps) => {
                       wallet: eth?.isCoinbaseWallet ? "injected" : "coinbase",
                     })
                   }
+                  onKeyDown={(e) =>
+                    e.code === "Enter" &&
+                    handleConnect({
+                      wallet: showCoinbaseWallet ? "injected" : "coinbase",
+                    })
+                  }
+                  tabIndex={5}
                 >
                   <CoinbaseWalletIcon />
                   <Text t="button">Coinbase</Text>
@@ -155,6 +176,11 @@ export const ConnectModal = (props: ConnectModalProps) => {
                 <span
                   className={styles.walletButton}
                   onClick={() => handleConnect({ wallet: "walletConnect" })}
+                  tabIndex={6}
+                  onKeyDown={(e) =>
+                    e.code === "Enter" &&
+                    handleConnect({ wallet: "walletConnect" })
+                  }
                 >
                   <WalletConnectIcon />
                   <Text t="button">walletconnect</Text>
@@ -170,6 +196,10 @@ export const ConnectModal = (props: ConnectModalProps) => {
               <div
                 className={styles.torusButtons}
                 onClick={() => handleConnect({ wallet: "torus" })}
+                onKeyDown={(e) =>
+                  e.code === "Enter" && handleConnect({ wallet: "torus" })
+                }
+                tabIndex={7}
               >
                 <span className={styles.buttonBackground}>
                   <TwitterIcon className={styles.twitter} />
@@ -187,7 +217,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
                   <MailOutlineIcon fontSize="large" />
                 </span>
               </div>
-            </>
+            </div>
           )}
           {step === "loading" && (
             <div className={styles.spinner}>
