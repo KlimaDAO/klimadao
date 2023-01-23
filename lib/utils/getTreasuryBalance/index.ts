@@ -1,16 +1,12 @@
-import { providers } from "ethers";
 import { addresses } from "../../constants";
 import { getContract } from "../getContract";
 import { getInteger } from "../getInteger";
 import { getStaticProvider } from "../getStaticProvider";
 
-const getOwnedBCTFromSLP = async (params: {
-  adr: "klimaBctLp";
-  provider: providers.JsonRpcProvider;
-}) => {
+const getOwnedBCTFromSLP = async (params: { adr: "klimaBctLp" }) => {
   const contract = getContract({
     contractName: params.adr,
-    provider: params.provider,
+    provider: getStaticProvider(),
   });
   const [token0, token1, [reserve0, reserve1], treasurySLP, totalSLP] =
     await Promise.all([
@@ -43,15 +39,17 @@ export const getTreasuryBalance = async (params?: {
   infuraId?: string;
 }): Promise<number> => {
   try {
-    const provider = getStaticProvider({
-      infuraId: params?.infuraId,
+    const bctContract = getContract({
+      contractName: "bct",
+      provider: getStaticProvider({
+        infuraId: params?.infuraId,
+      }),
     });
-    const bctContract = getContract({ contractName: "bct", provider });
 
     const nakedBCT = getInteger(
       await bctContract.balanceOf(addresses.mainnet.treasury)
     );
-    const bctKLIMA = await getOwnedBCTFromSLP({ adr: "klimaBctLp", provider });
+    const bctKLIMA = await getOwnedBCTFromSLP({ adr: "klimaBctLp" });
     const sum = nakedBCT + bctKLIMA;
     return sum;
   } catch (e) {
