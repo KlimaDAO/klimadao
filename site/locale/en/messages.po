@@ -1416,7 +1416,7 @@ msgstr "Search"
 msgid "resources.form.input.search.placeholder"
 msgstr "Search..."
 
-#: components/pages/Resources/ResourcesList/index.tsx:201
+#: components/pages/Resources/ResourcesList/index.tsx:202
 msgid "resources.form.input.sort_by.label"
 msgstr "Sort by"
 
@@ -1508,11 +1508,11 @@ msgstr "Oldest First"
 msgid "resources.list.sort_by.z-a"
 msgstr "Z-A"
 
-#: components/pages/Resources/ResourcesList/index.tsx:302
+#: components/pages/Resources/ResourcesList/index.tsx:303
 msgid "resources.mobile_modal.button.show_results"
 msgstr "Show Results"
 
-#: components/pages/Resources/ResourcesList/index.tsx:275
+#: components/pages/Resources/ResourcesList/index.tsx:276
 msgid "resources.mobile_modal.title"
 msgstr "Sort By"
 
@@ -1528,19 +1528,19 @@ msgstr "Featured Articles"
 msgid "resources.page.list.header"
 msgstr "Explore All"
 
-#: components/pages/Resources/ResourcesList/index.tsx:240
+#: components/pages/Resources/ResourcesList/index.tsx:241
 msgid "resources.page.list.no_search_results.title"
 msgstr "Sorry. We couldn't find any matching results."
 
-#: components/pages/Resources/ResourcesList/index.tsx:232
+#: components/pages/Resources/ResourcesList/index.tsx:233
 msgid "resources.page.list.on_fetch_error"
 msgstr "Sorry! Something went wrong."
 
-#: components/pages/Resources/ResourcesList/index.tsx:253
+#: components/pages/Resources/ResourcesList/index.tsx:254
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "Please use a different filter combination."
 
-#: components/pages/Resources/ResourcesList/index.tsx:246
+#: components/pages/Resources/ResourcesList/index.tsx:247
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Check your search for typos or try a different search term."
 
@@ -1937,7 +1937,7 @@ msgstr "Resource Center"
 msgid "shared.resources"
 msgstr "Resources"
 
-#: components/pages/Resources/ResourcesList/index.tsx:207
+#: components/pages/Resources/ResourcesList/index.tsx:208
 msgid "shared.resources.sort_by.header"
 msgstr "Sort by:"
 

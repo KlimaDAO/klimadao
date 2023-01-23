@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-23 15:35+0000\n"
+"POT-Creation-Date: 2023-01-23 16:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1414,7 +1414,7 @@ msgstr "Suchen"
 msgid "resources.form.input.search.placeholder"
 msgstr "Suchen..."
 
-#: components/pages/Resources/ResourcesList/index.tsx:201
+#: components/pages/Resources/ResourcesList/index.tsx:202
 msgid "resources.form.input.sort_by.label"
 msgstr "Sortieren nach"
 
@@ -1506,11 +1506,11 @@ msgstr "Älteste Einträge zuerst"
 msgid "resources.list.sort_by.z-a"
 msgstr "Z-A"
 
-#: components/pages/Resources/ResourcesList/index.tsx:302
+#: components/pages/Resources/ResourcesList/index.tsx:303
 msgid "resources.mobile_modal.button.show_results"
 msgstr "Ergebnisse anzeigen"
 
-#: components/pages/Resources/ResourcesList/index.tsx:275
+#: components/pages/Resources/ResourcesList/index.tsx:276
 msgid "resources.mobile_modal.title"
 msgstr "Sortieren nach"
 
@@ -1526,19 +1526,19 @@ msgstr "Ausgewählte Artikel"
 msgid "resources.page.list.header"
 msgstr "Alles erkunden"
 
-#: components/pages/Resources/ResourcesList/index.tsx:240
+#: components/pages/Resources/ResourcesList/index.tsx:241
 msgid "resources.page.list.no_search_results.title"
 msgstr "Tut uns leid. Wir konnten keine passenden Ergebnisse finden."
 
-#: components/pages/Resources/ResourcesList/index.tsx:232
+#: components/pages/Resources/ResourcesList/index.tsx:233
 msgid "resources.page.list.on_fetch_error"
 msgstr "Sorry! Etwas ist schief gelaufen."
 
-#: components/pages/Resources/ResourcesList/index.tsx:253
+#: components/pages/Resources/ResourcesList/index.tsx:254
 msgid "resources.page.list.search_submit.no_filter_results"
 msgstr "Bitte verwenden Sie eine andere Filterkombination."
 
-#: components/pages/Resources/ResourcesList/index.tsx:246
+#: components/pages/Resources/ResourcesList/index.tsx:247
 msgid "resources.page.list.search_submit.no_search_results"
 msgstr "Überprüfe deine Suche auf Tippfehler oder versuche es mit einem anderen Suchbegriff."
 
@@ -1935,7 +1935,7 @@ msgstr "Ressourcen"
 msgid "shared.resources"
 msgstr "Ressourcen"
 
-#: components/pages/Resources/ResourcesList/index.tsx:207
+#: components/pages/Resources/ResourcesList/index.tsx:208
 msgid "shared.resources.sort_by.header"
 msgstr "Sortieren nach:"
 
