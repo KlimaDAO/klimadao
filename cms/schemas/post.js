@@ -27,6 +27,19 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: "Domain",
+      name: "domain",
+      type: "string",
+      description:
+        "Only one domain allowed at a time, leaving this empty defaults the domain to 'klimadao'",
+      options: {
+        list: [
+          { title: "klimadao", value: "klimadao" },
+          { title: "carbonmark", value: "carbonmark" },
+        ],
+      },
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "image",
