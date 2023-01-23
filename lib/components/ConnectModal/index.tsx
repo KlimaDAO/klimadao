@@ -112,63 +112,6 @@ export const ConnectModal = (props: ConnectModalProps) => {
             <button onClick={handleClose}>
               <Close fontSize="large" />
             </button>
-<<<<<<< HEAD
-          </div>
-          {step === "connect" && (
-            <div>
-              <div className={styles.buttonsContainer}>
-                {showMetamask && (
-                  <div
-                    className={styles.walletButton}
-                    onClick={() => handleConnect({ wallet: "injected" })}
-                    tabIndex={3}
-                    onKeyDown={(e) =>
-                      e.code === "Enter" &&
-                      handleConnect({ wallet: "injected" })
-                    }
-                  >
-                    <MetaMaskFoxIcon />
-                    <Text t="button">Metamask</Text>
-                  </div>
-                )}
-                {showBrave && (
-                  <span
-                    className={styles.walletButton}
-                    onClick={() => handleConnect({ wallet: "injected" })}
-                    onKeyDown={(e) =>
-                      e.code === "Enter" &&
-                      handleConnect({ wallet: "injected" })
-                    }
-                    tabIndex={4}
-                  >
-                    <BraveIcon />
-                    <Text t="button">Brave</Text>
-                  </span>
-                )}
-                {showBrowserWallet && (
-                  <span
-                    className={styles.walletButton}
-                    onClick={() => handleConnect({ wallet: "injected" })}
-                  >
-                    <ExtensionIcon className={styles.browserWalletIcon} />
-                    <Text t="button">Browser Injected Wallet</Text>
-                  </span>
-                )}
-                <span
-                  className={styles.walletButton}
-                  onClick={() =>
-                    handleConnect({
-                      wallet: eth?.isCoinbaseWallet ? "injected" : "coinbase",
-                    })
-                  }
-                  onKeyDown={(e) =>
-                    e.code === "Enter" &&
-                    handleConnect({
-                      wallet: showCoinbaseWallet ? "injected" : "coinbase",
-                    })
-                  }
-                  tabIndex={5}
-=======
           </span>
           <div
             className={styles.connectContent}
@@ -179,7 +122,6 @@ export const ConnectModal = (props: ConnectModalProps) => {
                 <button
                   className={styles.walletButton}
                   onClick={() => handleConnect({ wallet: "injected" })}
->>>>>>> c7c12cb6 (use button element and hide with css)
                 >
                   <MetaMaskFoxIcon />
                   <Text t="button">Metamask</Text>
