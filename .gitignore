@@ -47,3 +47,6 @@ yarn-error.log*
 
 # jetbrains
 .idea
+
+# sanity
+.sanity/

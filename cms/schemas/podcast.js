@@ -61,17 +61,4 @@ export default {
       type: "boolean",
     },
   ],
-
-  preview: {
-    select: {
-      title: "title",
-      media: "embedCode",
-    },
-    prepare(selection) {
-      const { title } = selection;
-      return Object.assign({}, selection, {
-        subtitle: title,
-      });
-    },
-  },
 };
