@@ -105,15 +105,14 @@ export const ConnectModal = (props: ConnectModalProps) => {
       <div className={styles.modalBackground} onClick={handleClose} />
       <div className={styles.modalContainer}>
         <div className={styles.modalContent} ref={focusTrapRef}>
-          <div className="title">
+          <span className="title">
             <div>
-              <Text t="h4" tabIndex={1}>
-                {getTitle(step)}
-              </Text>
+              <Text t="h4">{getTitle(step)}</Text>
             </div>
-            <button onClick={handleClose} tabIndex={2}>
+            <button onClick={handleClose}>
               <Close fontSize="large" />
             </button>
+<<<<<<< HEAD
           </div>
           {step === "connect" && (
             <div>
@@ -169,67 +168,86 @@ export const ConnectModal = (props: ConnectModalProps) => {
                     })
                   }
                   tabIndex={5}
-                >
-                  <CoinbaseWalletIcon />
-                  <Text t="button">Coinbase</Text>
-                </span>
-                <span
+=======
+          </span>
+          <div
+            className={styles.connectContent}
+            data-display={step === "connect"}
+          >
+            <div className={styles.buttonsContainer}>
+              {showMetamask && (
+                <button
                   className={styles.walletButton}
-                  onClick={() => handleConnect({ wallet: "walletConnect" })}
-                  tabIndex={6}
-                  onKeyDown={(e) =>
-                    e.code === "Enter" &&
-                    handleConnect({ wallet: "walletConnect" })
-                  }
+                  onClick={() => handleConnect({ wallet: "injected" })}
+>>>>>>> c7c12cb6 (use button element and hide with css)
                 >
-                  <WalletConnectIcon />
-                  <Text t="button">walletconnect</Text>
-                </span>
-              </div>
-              <span className={styles.continueBox}>
-                <div className={styles.leftLine} />
-                <Text className={styles.continueText} t="badge">
-                  {props.torusText}
-                </Text>
-                <div className={styles.rightLine} />
-              </span>
-              <div
-                className={styles.torusButtons}
-                onClick={() => handleConnect({ wallet: "torus" })}
-                onKeyDown={(e) =>
-                  e.code === "Enter" && handleConnect({ wallet: "torus" })
+                  <MetaMaskFoxIcon />
+                  <Text t="button">Metamask</Text>
+                </button>
+              )}
+              {showBrave && (
+                <button
+                  className={styles.walletButton}
+                  onClick={() => handleConnect({ wallet: "injected" })}
+                >
+                  <BraveIcon />
+                  <Text t="button">Brave</Text>
+                </button>
+              )}
+              <button
+                className={styles.walletButton}
+                onClick={() =>
+                  handleConnect({
+                    wallet: showCoinbaseWallet ? "injected" : "coinbase",
+                  })
                 }
-                tabIndex={7}
               >
-                <span className={styles.buttonBackground}>
-                  <TwitterIcon className={styles.twitter} />
-                </span>
-                <span className={styles.buttonBackground}>
-                  <FacebookColorIcon />
-                </span>
-                <span className={styles.buttonBackground}>
-                  <GoogleIcon />
-                </span>
-                <span className={styles.buttonBackground}>
-                  <DiscordColorIcon className={styles.discord} />
-                </span>
-                <span className={styles.buttonBackground}>
-                  <MailOutlineIcon fontSize="large" />
-                </span>
-              </div>
+                <CoinbaseWalletIcon />
+                <Text t="button">Coinbase</Text>
+              </button>
+              <button
+                className={styles.walletButton}
+                onClick={() => handleConnect({ wallet: "walletConnect" })}
+              >
+                <WalletConnectIcon />
+                <Text t="button">walletconnect</Text>
+              </button>
             </div>
-          )}
-          {step === "loading" && (
-            <div className={styles.spinner}>
-              <Spinner />
-            </div>
-          )}
-          {step === "error" && (
-            <div className={styles.errorContent}>
-              <Text t="body2">{props.errorMessage}</Text>
-              <ButtonPrimary label="OK" onClick={() => setStep("connect")} />
-            </div>
-          )}
+            <span className={styles.continueBox}>
+              <div className={styles.leftLine} />
+              <Text className={styles.continueText} t="badge">
+                {props.torusText}
+              </Text>
+              <div className={styles.rightLine} />
+            </span>
+            <button
+              className={styles.torusButtons}
+              onClick={() => handleConnect({ wallet: "torus" })}
+            >
+              <span className={styles.buttonBackground}>
+                <TwitterIcon className={styles.twitter} />
+              </span>
+              <span className={styles.buttonBackground}>
+                <FacebookColorIcon />
+              </span>
+              <span className={styles.buttonBackground}>
+                <GoogleIcon />
+              </span>
+              <span className={styles.buttonBackground}>
+                <DiscordColorIcon className={styles.discord} />
+              </span>
+              <span className={styles.buttonBackground}>
+                <MailOutlineIcon fontSize="large" />
+              </span>
+            </button>
+          </div>
+          <div className={styles.spinner} data-display={step === "loading"}>
+            <Spinner />
+          </div>
+          <div className={styles.errorContent} data-display={step === "error"}>
+            <Text t="body2">{props.errorMessage}</Text>
+            <ButtonPrimary label="OK" onClick={() => setStep("connect")} />
+          </div>
         </div>
       </div>
     </div>
