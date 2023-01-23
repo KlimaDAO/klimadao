@@ -104,7 +104,7 @@ export const Infinity: NextPage<Props> = () => {
                 <ButtonPrimary
                   className="hero_button_primary"
                   variant="blue"
-                  rounded
+                  shape="rounded"
                   label={t({
                     message: "Get Started",
                     id: "shared.infinity.get_started",
@@ -113,7 +113,7 @@ export const Infinity: NextPage<Props> = () => {
                 />
                 <ButtonSecondary
                   variant="blue"
-                  rounded
+                  shape="rounded"
                   label={t({
                     message: "Contact Sales",
                     id: "shared.contact_sales",
@@ -305,7 +305,7 @@ export const Infinity: NextPage<Props> = () => {
             <ButtonPrimary
               className="getStarted_button"
               variant="blue"
-              rounded
+              shape="rounded"
               label={t({
                 message: "Get Started",
                 id: "shared.infinity.get_started",
@@ -514,7 +514,7 @@ export const Infinity: NextPage<Props> = () => {
               id: "shared.visit_klimadao_blog",
             })}
             variant="blue"
-            rounded
+            shape="rounded"
             href={urls.siteBlog}
           />
         </div>
@@ -661,7 +661,7 @@ export const Infinity: NextPage<Props> = () => {
             <ButtonPrimary
               className="faq_button"
               variant="blue"
-              rounded
+              shape="rounded"
               label={t({
                 id: "infinity.button.read_blog_faq",
                 message: "Read in-depth FAQs for KI Clients",
@@ -694,7 +694,7 @@ export const Infinity: NextPage<Props> = () => {
                 id: "shared.infinity.get_started",
               })}
               variant="blue"
-              rounded
+              shape="rounded"
               onClick={() => setShowModal(true)}
             />
             <ButtonSecondary
@@ -703,7 +703,7 @@ export const Infinity: NextPage<Props> = () => {
                 id: "shared.contact_sales",
               })}
               variant="blue"
-              rounded
+              shape="rounded"
               href={urls.klimaInfinityContactForm}
               target="_blank"
             />
