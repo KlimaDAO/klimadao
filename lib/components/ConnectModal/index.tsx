@@ -55,7 +55,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
 
   const showBrave = eth?.isBraveWallet;
   const showMetamask = eth?.isMetaMask;
-  const showCoinbase = eth?.isCoinbaseWallet;
+  const shouldUseCoinbaseSDK = eth?.isCoinbaseWallet;
   const showBrowserWallet = eth && !showBrave && !showMetamask;
 
   const getTitle = (step: "connect" | "error" | "loading") =>
@@ -150,7 +150,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
                 className={styles.walletButton}
                 onClick={() =>
                   handleConnect({
-                    wallet: showCoinbase ? "injected" : "coinbase",
+                    wallet: shouldUseCoinbaseSDK ? "injected" : "coinbase",
                   })
                 }
               >
