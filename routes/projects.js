@@ -140,18 +140,18 @@ module.exports = async function (fastify, opts) {
 
 
                     if (process.env.ENV != 'local') {
-                        let pools = await client(process.env.CARBON_OFFSETS_GRAPH_API_URL)
-                            .query({
-                                query: GET_PROJECT_BY_ID,
-                                variables: { projectID, vintage }
-                            });
-                        var projects = data.data.projects[0];
-                        projects = { ...projects }
-                        projects.pools = pools.data.carbonOffsets;
-                        if (projects.registry == "VCS") {
-                            const results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
-                            projects.location = JSON.parse(await results.text()).location;
-                        }
+                        // let pools = await client(process.env.CARBON_OFFSETS_GRAPH_API_URL)
+                        //     .query({
+                        //         query: GET_PROJECT_BY_ID,
+                        //         variables: { projectID, vintage }
+                        //     });
+                        // var projects = data.data.projects[0];
+                        // projects = { ...projects }
+                        // projects.pools = pools.data.carbonOffsets;
+                        // if (projects.registry == "VCS") {
+                        //     const results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
+                        //     projects.location = JSON.parse(await results.text()).location;
+                        // }
 
                     } else {
                         var project = { ...data.data.projects[0] };
