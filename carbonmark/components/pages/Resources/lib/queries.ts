@@ -15,7 +15,7 @@ type QueryParams = {
 
 /** fetch posts and podcasts filtered by specific tag slugs, types and order */
 const filterDocumentsByTags = (params: QueryParams) => /* groq */ `
-    *[_type in ${params.types} && count((tags[]->tag.current)[@ in ${params.tags} ]) > 0 && ${hideFromProduction}] | order(${params.sortedBy}) {
+    *[_type in ${params.types} && count((tags[]->tag.current)[@ in ${params.tags} ]) > 0 && ${hideFromProduction} && domain=="carbonmark"] | order(${params.sortedBy}) {
       "type": _type,
       publishedAt, 
       title, 
@@ -30,7 +30,7 @@ const filterDocumentsByTags = (params: QueryParams) => /* groq */ `
 
 /** fetch posts and podcasts filtered by types and order */
 const filterDocumentsWithoutTags = (params: QueryParams) => /* groq */ `
-  *[_type in ${params.types} && ${hideFromProduction}] | order(${params.sortedBy}) {
+  *[_type in ${params.types} && ${hideFromProduction} && domain=="carbonmark"] | order(${params.sortedBy}) {
     "type": _type,
     publishedAt, 
     title, 
@@ -68,7 +68,9 @@ export const queryFilteredDocuments = async (
 
 /** fetch posts and podcasts scored by matching search text */
 export const searchByText = (searchQuery: string) => /* groq */ `
-  *[_type in ${JSON.stringify(defaultParams.types)} && ${hideFromProduction}]
+  *[_type in ${JSON.stringify(
+    defaultParams.types
+  )} && ${hideFromProduction} && domain=="carbonmark"]
     | score(
       title match ${searchQuery} + "*"
       || summary match ${searchQuery} + "*"
