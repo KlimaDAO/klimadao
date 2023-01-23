@@ -8,6 +8,10 @@
  *    type: 'blockContent'
  *  }
  */
+
+const LinkIcon = () => <div>🔗</div>;
+const FileIcon = () => <div>📂</div>;
+
 export default {
   title: "Block Content",
   name: "blockContent",
@@ -48,9 +52,7 @@ export default {
                 type: "url",
               },
             ],
-            blockEditor: {
-              icon: () => <div>🔗</div>,
-            },
+            icon: LinkIcon,
           },
           {
             title: "Link to file",
@@ -65,9 +67,7 @@ export default {
                 validation: (Rule) => Rule.required(),
               },
             ],
-            blockEditor: {
-              icon: () => <div>📂</div>,
-            },
+            icon: FileIcon,
           },
         ],
       },
