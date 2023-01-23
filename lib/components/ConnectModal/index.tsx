@@ -142,7 +142,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
                   className={styles.walletButton}
                   onClick={() =>
                     handleConnect({
-                      wallet: showCoinbaseWallet ? "injected" : "coinbase",
+                      wallet: eth?.isCoinbaseWallet ? "injected" : "coinbase",
                     })
                   }
                 >
