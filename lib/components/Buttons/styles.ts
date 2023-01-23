@@ -34,13 +34,7 @@ const buttonBase = css`
       width: 1em;
       height: 1em;
     }
-    svg,
-    svg path {
-      font-size: inherit !important;
-      fill: currentColor;
-    }
   }
-
   &.suffix {
     flex-direction: row-reverse;
   }
@@ -53,6 +47,7 @@ const buttonBase = css`
 export const buttonPrimary = css`
   ${buttonBase};
   background-color: var(--klima-green);
+  color: white; /* same in darkmode */
 
   &:active:not(:disabled) {
     transform: scale(0.95);

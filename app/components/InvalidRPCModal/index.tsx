@@ -38,7 +38,7 @@ export const InvalidRPCModal: FC<Props> = (props) => (
         onClick={props.onHide}
         label="OK"
         variant="blue"
-        rounded
+        shape="rounded"
       ></ButtonPrimary>
     </div>
   </Modal>
