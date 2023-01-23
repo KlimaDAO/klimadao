@@ -62,15 +62,13 @@ export const useProvider = (): Web3ModalState => {
         await provider.send("eth_requestAccounts", []);
         localStorage.setItem("web3-wallet", "injected");
       } else if (wallet === "coinbase" || connectedWallet === "coinbase") {
-        const { default: CoinbaseWalletSDK } = await import(
-          "@coinbase/wallet-sdk"
-        );
-        const { makeWeb3Provider } = new CoinbaseWalletSDK({
-          appName: "KlimaDAO App",
-          darkMode: false, // TODO: get theme from body/localstorage
+        const { CoinbaseWalletSDK } = await import("@coinbase/wallet-sdk");
+        const coinbaseWallet = new CoinbaseWalletSDK({
+          appName: "KlimaDAO",
+          darkMode: document.body.dataset.theme === "theme-dark", // TODO: get theme from body/localstorage
         });
         provider = getWeb3Provider(
-          makeWeb3Provider(urls.polygonMainnetRpc, 137)
+          coinbaseWallet.makeWeb3Provider(urls.infuraPolygonRpcClient, 137)
         );
         // if user is not already connected this request will prompt the wallet modal to open and the user to connect
         await provider.send("eth_requestAccounts", []);
@@ -86,7 +84,7 @@ export const useProvider = (): Web3ModalState => {
         );
         const walletConnectProvider = new WalletConnectProvider({
           rpc: {
-            137: urls.polygonMainnetRpc,
+            137: urls.infuraPolygonRpcClient,
           },
         });
         await walletConnectProvider.enable();
@@ -99,7 +97,7 @@ export const useProvider = (): Web3ModalState => {
         const torus = new Torus();
         await torus.init({
           network: {
-            host: urls.polygonMainnetRpc,
+            host: urls.infuraPolygonRpcClient,
             chainId: 137,
             networkName: "Polygon",
           },

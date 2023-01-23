@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@coinbase/wallet-sdk": "^3.5.4",
+    "@coinbase/wallet-sdk": "^3.6.3",
     "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
