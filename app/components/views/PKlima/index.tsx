@@ -1,7 +1,6 @@
 import { providers } from "ethers";
 import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
 import { AppNotificationStatus, setAppState, TxnStatus } from "state/app";
 
 import {
