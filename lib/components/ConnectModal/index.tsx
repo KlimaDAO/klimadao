@@ -23,7 +23,8 @@ import * as styles from "./styles";
 const Close = (CloseDefault as any).default as any;
 const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
 const ExtensionIcon = (ExtensionIconDefault as any).default as any;
-export interface ConnectModalProps {
+
+interface ConnectModalProps {
   errorMessage: string;
   torusText: string;
   titles: {
@@ -54,10 +55,11 @@ export const ConnectModal = (props: ConnectModalProps) => {
 
   const showBrave = eth?.isBraveWallet;
   const showMetamask = eth?.isMetaMask;
-  const showCoinbaseWallet = eth?.isCoinbaseWallet;
+  const showBrowserWallet = eth && !showBrave && !showMetamask;
 
   const getTitle = (step: "connect" | "error" | "loading") =>
     !props.titles ? "loading" : props.titles[step];
+
   useEffect(() => {
     if (props.showModal) {
       setStep("connect");
@@ -66,6 +68,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
       document.body.style.overflow = "";
     }
   }, [props.showModal]);
+
   const handleConnect = async (params: {
     wallet: "coinbase" | "torus" | "walletConnect" | "injected";
   }) => {
@@ -129,13 +132,13 @@ export const ConnectModal = (props: ConnectModalProps) => {
                     <Text t="button">Brave</Text>
                   </span>
                 )}
-                {!showBrave && !showMetamask && eth && (
+                {showBrowserWallet && (
                   <span
                     className={styles.walletButton}
                     onClick={() => handleConnect({ wallet: "injected" })}
                   >
                     <ExtensionIcon className={styles.browserWalletIcon} />
-                    <Text t="button">Browser</Text>
+                    <Text t="button">Browser Injected Wallet</Text>
                   </span>
                 )}
                 <span
