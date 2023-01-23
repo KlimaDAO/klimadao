@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-23 19:20+0000\n"
+"POT-Creation-Date: 2023-01-23 20:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -668,37 +668,37 @@ msgstr "लागत"
 msgid "offset_disclaimer"
 msgstr "सावधान रहें कि किसी भी संवेदनशील व्यक्तिगत जानकारी को उजागर न करें। आपका संदेश संपादित नहीं किया जा सकता है और सार्वजनिक ब्लॉकचेन पर स्थायी रूप से मौजूद रहेगा।"
 
-#: components/views/PKlima/index.tsx:180
+#: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_bct"
 msgstr "2. BCT(बीसीटी) को मंज़ूरी दें"
 
-#: components/views/PKlima/index.tsx:171
+#: components/views/PKlima/index.tsx:170
 msgid "pklima.approve_pklima"
 msgstr "1. pKLIMA को मंज़ूरी दें"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:197
+#: components/views/PKlima/index.tsx:196
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "अपने भुनाए गए pKLIMA को दाँव पर लगाना सुनिश्चित करें, और जब तक वैश्विक GHG (जीएचजी) उत्सर्जन स्थिर न हो जाए, तब तक दाँव पर लगाए रहें।"
 
-#: components/views/PKlima/index.tsx:185
+#: components/views/PKlima/index.tsx:184
 msgid "pklima.exercise"
 msgstr "अभ्यास"
 
-#: components/views/PKlima/index.tsx:213
+#: components/views/PKlima/index.tsx:212
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "1 KLIMA प्राप्त करने के लिए 1 pKLIMA और 1 BCT को प्रयोग करें।"
 
-#: components/views/PKlima/index.tsx:281
+#: components/views/PKlima/index.tsx:280
 msgid "pklima.index_adjusted"
 msgstr "समायोजित इंडेक्स"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:284
+#: components/views/PKlima/index.tsx:283
 msgid "pklima.index_adjusted.tooltip"
 msgstr "बराबर मूल्य का sKLIMA क्लेम किया गया, यह मानते हुए कि आपने आज तक अपने द्वारा भुनाया गया संपूर्ण KLIMA दाँव पर लगा दिया।"
 
-#: components/views/PKlima/index.tsx:229
+#: components/views/PKlima/index.tsx:228
 msgid "pklima.klima_to_exercise"
 msgstr "प्रयुक्त pKLIMA"
 
@@ -706,25 +706,25 @@ msgstr "प्रयुक्त pKLIMA"
 msgid "pklima.overclaim"
 msgstr "आपने अपनी आपूर्त्ति-शेयर सीमा से अधिक KLIMA क्लेम किया है। ऐसा शायद 24 नवंबर, 2021 को pKLIMA मोचन अनुबंध के लिए लागू किए गए सुधार के कारण हुआ है।"
 
-#: components/views/PKlima/index.tsx:210
+#: components/views/PKlima/index.tsx:209
 msgid "pklima.redeem_pklima"
 msgstr "pKLIMA रिडीम करें"
 
-#: components/views/PKlima/index.tsx:269
+#: components/views/PKlima/index.tsx:268
 msgid "pklima.redeemed"
 msgstr "रिडीम किया गया"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:272
+#: components/views/PKlima/index.tsx:271
 msgid "pklima.redeemed.tooltip"
 msgstr "कुल KLIMA जिसे आपने अब तक रिडीम किया है।"
 
-#: components/views/PKlima/index.tsx:253
+#: components/views/PKlima/index.tsx:252
 msgid "pklima.supply_limit"
 msgstr "आपूर्त्ति सीमा"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:256
+#: components/views/PKlima/index.tsx:255
 msgid "pklima.supply_limit.tooltip"
 msgstr "कुल टोकन आपूर्त्ति का एक प्रतिशत। आपका अनुक्रमणिका-समायोजित दावा इस मान से अधिक नहीं हो सकता है।"
 
@@ -753,7 +753,7 @@ msgid "shared.change_language"
 msgstr "भाषा बदलें"
 
 #: components/views/Bond/index.tsx:431
-#: components/views/PKlima/index.tsx:166
+#: components/views/PKlima/index.tsx:165
 #: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "पुष्टि"
@@ -814,7 +814,7 @@ msgstr "अमान्य मात्रा"
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:379
 #: components/views/Offset/index.tsx:523
-#: components/views/PKlima/index.tsx:158
+#: components/views/PKlima/index.tsx:157
 #: components/views/Stake/index.tsx:431
 #: components/views/Stake/index.tsx:438
 #: components/views/Stake/index.tsx:445
@@ -826,14 +826,14 @@ msgstr "लोड हो रहा है..."
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:153
 #: components/views/Offset/index.tsx:371
-#: components/views/PKlima/index.tsx:150
+#: components/views/PKlima/index.tsx:149
 #: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:196
 msgid "shared.login_connect"
 msgstr ""
 
 #: components/views/Bond/index.tsx:604
-#: components/views/PKlima/index.tsx:240
+#: components/views/PKlima/index.tsx:239
 #: components/views/Stake/index.tsx:372
 #: components/views/Wrap/index.tsx:345
 msgid "shared.max"

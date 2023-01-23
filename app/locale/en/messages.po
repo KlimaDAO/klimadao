@@ -674,37 +674,37 @@ msgstr "Cost"
 msgid "offset_disclaimer"
 msgstr "Be careful not to expose any sensitive personal information. Your message can not be edited and will permanently exist on a public blockchain."
 
-#: components/views/PKlima/index.tsx:180
+#: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_bct"
 msgstr "2. Approve BCT"
 
-#: components/views/PKlima/index.tsx:171
+#: components/views/PKlima/index.tsx:170
 msgid "pklima.approve_pklima"
 msgstr "1. Approve pKLIMA"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:197
+#: components/views/PKlima/index.tsx:196
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "Make sure to stake your redeemed pKLIMA, and stay staked, until global GHG emissions have plateaued."
 
-#: components/views/PKlima/index.tsx:185
+#: components/views/PKlima/index.tsx:184
 msgid "pklima.exercise"
 msgstr "EXERCISE"
 
-#: components/views/PKlima/index.tsx:213
+#: components/views/PKlima/index.tsx:212
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "Exercise 1 pKLIMA and 1 BCT to receive 1 KLIMA."
 
-#: components/views/PKlima/index.tsx:281
+#: components/views/PKlima/index.tsx:280
 msgid "pklima.index_adjusted"
 msgstr "Index adjusted"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:284
+#: components/views/PKlima/index.tsx:283
 msgid "pklima.index_adjusted.tooltip"
 msgstr "Equivalent sKLIMA claimed, assuming you staked all of your redeemed KLIMA until today."
 
-#: components/views/PKlima/index.tsx:229
+#: components/views/PKlima/index.tsx:228
 msgid "pklima.klima_to_exercise"
 msgstr "pKLIMA to exercise"
 
@@ -712,25 +712,25 @@ msgstr "pKLIMA to exercise"
 msgid "pklima.overclaim"
 msgstr "You've claimed more KLIMA than your supply-share limit. This is likely due to a fix implemented on November 24th, 2021 to the pKLIMA redemption contract."
 
-#: components/views/PKlima/index.tsx:210
+#: components/views/PKlima/index.tsx:209
 msgid "pklima.redeem_pklima"
 msgstr "Redeem pKLIMA"
 
-#: components/views/PKlima/index.tsx:269
+#: components/views/PKlima/index.tsx:268
 msgid "pklima.redeemed"
 msgstr "Redeemed"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:272
+#: components/views/PKlima/index.tsx:271
 msgid "pklima.redeemed.tooltip"
 msgstr "Total KLIMA you have redeemed so far."
 
-#: components/views/PKlima/index.tsx:253
+#: components/views/PKlima/index.tsx:252
 msgid "pklima.supply_limit"
 msgstr "Supply limit"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:256
+#: components/views/PKlima/index.tsx:255
 msgid "pklima.supply_limit.tooltip"
 msgstr "A percent of total token supply. Your index-adjusted claim may not exceed this value."
 
@@ -759,7 +759,7 @@ msgid "shared.change_language"
 msgstr "Change language"
 
 #: components/views/Bond/index.tsx:431
-#: components/views/PKlima/index.tsx:166
+#: components/views/PKlima/index.tsx:165
 #: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "Confirming"
@@ -820,7 +820,7 @@ msgstr "Invalid quantity"
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:379
 #: components/views/Offset/index.tsx:523
-#: components/views/PKlima/index.tsx:158
+#: components/views/PKlima/index.tsx:157
 #: components/views/Stake/index.tsx:431
 #: components/views/Stake/index.tsx:438
 #: components/views/Stake/index.tsx:445
@@ -832,14 +832,14 @@ msgstr "Loading..."
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:153
 #: components/views/Offset/index.tsx:371
-#: components/views/PKlima/index.tsx:150
+#: components/views/PKlima/index.tsx:149
 #: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:196
 msgid "shared.login_connect"
 msgstr "Login / Connect"
 
 #: components/views/Bond/index.tsx:604
-#: components/views/PKlima/index.tsx:240
+#: components/views/PKlima/index.tsx:239
 #: components/views/Stake/index.tsx:372
 #: components/views/Wrap/index.tsx:345
 msgid "shared.max"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-23 19:20+0000\n"
+"POT-Creation-Date: 2023-01-23 20:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -668,37 +668,37 @@ msgstr "Costo"
 msgid "offset_disclaimer"
 msgstr "Tenga cuidado de no exponer ninguna información personal sensible. Su mensaje no puede ser editado y existirá permanentemente en un blockchain público."
 
-#: components/views/PKlima/index.tsx:180
+#: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_bct"
 msgstr "2. Aprobar BCT"
 
-#: components/views/PKlima/index.tsx:171
+#: components/views/PKlima/index.tsx:170
 msgid "pklima.approve_pklima"
 msgstr "1. Aprobar pKLIMA"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:197
+#: components/views/PKlima/index.tsx:196
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "Asegúrate de hacer staking con tu pKLIMA redimido, y de mantenerlo ahi hasta que las emisiones globales de gases de efecto invernadero se hayan estabilizado."
 
-#: components/views/PKlima/index.tsx:185
+#: components/views/PKlima/index.tsx:184
 msgid "pklima.exercise"
 msgstr "EJERCER"
 
-#: components/views/PKlima/index.tsx:213
+#: components/views/PKlima/index.tsx:212
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "Ejerce 1 pKLIMA y 1 BCT para recibir 1 KLIMA."
 
-#: components/views/PKlima/index.tsx:281
+#: components/views/PKlima/index.tsx:280
 msgid "pklima.index_adjusted"
 msgstr "Índice ajustado"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:284
+#: components/views/PKlima/index.tsx:283
 msgid "pklima.index_adjusted.tooltip"
 msgstr "Equivalente sKLIMA reclamado, asumiendo que usted puso en staking todo su KLIMA redimido hasta hoy."
 
-#: components/views/PKlima/index.tsx:229
+#: components/views/PKlima/index.tsx:228
 msgid "pklima.klima_to_exercise"
 msgstr "pKLIMA a ejercer"
 
@@ -706,25 +706,25 @@ msgstr "pKLIMA a ejercer"
 msgid "pklima.overclaim"
 msgstr "Has reclamado más KLIMA que tu límite de suministro. Esto se debe probablemente a un arreglo implementado el 24 de noviembre de 2021 en el contrato de canje de pKLIMA."
 
-#: components/views/PKlima/index.tsx:210
+#: components/views/PKlima/index.tsx:209
 msgid "pklima.redeem_pklima"
 msgstr "Redimir pKLIMA"
 
-#: components/views/PKlima/index.tsx:269
+#: components/views/PKlima/index.tsx:268
 msgid "pklima.redeemed"
 msgstr "Redimido"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:272
+#: components/views/PKlima/index.tsx:271
 msgid "pklima.redeemed.tooltip"
 msgstr "Total de KLIMA que has redimido hasta ahora."
 
-#: components/views/PKlima/index.tsx:253
+#: components/views/PKlima/index.tsx:252
 msgid "pklima.supply_limit"
 msgstr "Límite de suministro"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:256
+#: components/views/PKlima/index.tsx:255
 msgid "pklima.supply_limit.tooltip"
 msgstr "Un porcentaje del suministro total de tokens. Su demanda ajustada al índice no puede superar este valor."
 
@@ -753,7 +753,7 @@ msgid "shared.change_language"
 msgstr "Cambiar idioma"
 
 #: components/views/Bond/index.tsx:431
-#: components/views/PKlima/index.tsx:166
+#: components/views/PKlima/index.tsx:165
 #: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "Confirmando"
@@ -814,7 +814,7 @@ msgstr "Cantidad inválida"
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:379
 #: components/views/Offset/index.tsx:523
-#: components/views/PKlima/index.tsx:158
+#: components/views/PKlima/index.tsx:157
 #: components/views/Stake/index.tsx:431
 #: components/views/Stake/index.tsx:438
 #: components/views/Stake/index.tsx:445
@@ -826,14 +826,14 @@ msgstr "Cargando..."
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:153
 #: components/views/Offset/index.tsx:371
-#: components/views/PKlima/index.tsx:150
+#: components/views/PKlima/index.tsx:149
 #: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:196
 msgid "shared.login_connect"
 msgstr "Iniciar sesión / Conectar"
 
 #: components/views/Bond/index.tsx:604
-#: components/views/PKlima/index.tsx:240
+#: components/views/PKlima/index.tsx:239
 #: components/views/Stake/index.tsx:372
 #: components/views/Wrap/index.tsx:345
 msgid "shared.max"
