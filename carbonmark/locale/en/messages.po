@@ -25,7 +25,7 @@ msgstr "Active listings:"
 msgid "Change language"
 msgstr "Change language"
 
-#: components/pages/Project/ProjectListing/index.tsx:59
+#: components/pages/Project/ProjectListing/index.tsx:58
 msgid "Created:"
 msgstr "Created:"
 
@@ -50,7 +50,7 @@ msgstr "Payment Successful"
 msgid "Project"
 msgstr "Project"
 
-#: components/pages/Project/ProjectListing/index.tsx:54
+#: components/pages/Project/ProjectListing/index.tsx:53
 msgid "Quantity Available:"
 msgstr "Quantity Available:"
 
@@ -58,7 +58,7 @@ msgstr "Quantity Available:"
 msgid "Quantity purchased:"
 msgstr "Quantity purchased:"
 
-#: components/pages/Project/ProjectListing/index.tsx:43
+#: components/pages/Project/ProjectListing/index.tsx:42
 msgid "Seller Listing"
 msgstr "Seller Listing"
 
@@ -74,7 +74,7 @@ msgstr "Tonnes owned:"
 msgid "Tonnes sold:"
 msgstr "Tonnes sold:"
 
-#: components/pages/Project/ProjectListing/index.tsx:63
+#: components/pages/Project/ProjectListing/index.tsx:62
 msgid "Updated:"
 msgstr "Updated:"
 
@@ -86,7 +86,31 @@ msgstr "Updating your data..."
 msgid "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 msgstr "We are still processing your successful purchase. Please visit this page again in a few minutes to see your receipt."
 
-#: lib/sellerGetter.ts:9
+#: components/Activities/Activities.constants.ts:5
+msgid "activity.action.createdListing"
+msgstr "created listing"
+
+#: components/Activities/Activities.constants.ts:9
+msgid "activity.action.deletedListing"
+msgstr "deleted listing"
+
+#: components/Activities/Activities.constants.ts:13
+msgid "activity.action.purchase"
+msgstr "bought from"
+
+#: components/Activities/Activities.constants.ts:14
+msgid "activity.action.sold"
+msgstr "sold to"
+
+#: components/Activities/Activities.constants.ts:15
+msgid "activity.action.updatedPrice"
+msgstr "updated price"
+
+#: components/Activities/Activities.constants.ts:19
+msgid "activity.action.updatedQuantity"
+msgstr "updated quantity"
+
+#: lib/formatWalletAddress.ts:9
 msgid "activity.you"
 msgstr "You"
 
@@ -94,38 +118,38 @@ msgstr "You"
 msgid "button.edit_profile"
 msgstr "Edit Profile"
 
-#: components/pages/Project/ProjectListing/index.tsx:81
+#: components/pages/Project/ProjectListing/index.tsx:80
 msgid "buy"
 msgstr "Buy"
 
 #: components/Layout/index.tsx:99
-#: components/pages/Project/ProjectListing/index.tsx:101
+#: components/pages/Project/ProjectListing/index.tsx:100
 #: components/pages/Users/Login/index.tsx:81
 #: components/pages/Users/SellerUnconnected/index.tsx:101
 msgid "connectModal.continue"
 msgstr "or continue with"
 
-#: components/pages/Project/ProjectListing/index.tsx:106
+#: components/pages/Project/ProjectListing/index.tsx:105
 #: components/pages/Users/SellerUnconnected/index.tsx:106
 msgid "connect_modal.connect_to_buy"
 msgstr "Sign In / Connect To Buy"
 
 #: components/Layout/index.tsx:108
-#: components/pages/Project/ProjectListing/index.tsx:110
+#: components/pages/Project/ProjectListing/index.tsx:109
 #: components/pages/Users/Login/index.tsx:90
 #: components/pages/Users/SellerUnconnected/index.tsx:110
 msgid "connect_modal.connecting"
 msgstr "Connecting..."
 
 #: components/Layout/index.tsx:95
-#: components/pages/Project/ProjectListing/index.tsx:97
+#: components/pages/Project/ProjectListing/index.tsx:96
 #: components/pages/Users/Login/index.tsx:76
 #: components/pages/Users/SellerUnconnected/index.tsx:96
 msgid "connect_modal.error_message"
 msgstr "We had some trouble connecting. Please try again."
 
 #: components/Layout/index.tsx:112
-#: components/pages/Project/ProjectListing/index.tsx:114
+#: components/pages/Project/ProjectListing/index.tsx:113
 #: components/pages/Users/Login/index.tsx:94
 #: components/pages/Users/SellerUnconnected/index.tsx:114
 msgid "connect_modal.error_title"
@@ -172,7 +196,7 @@ msgstr "Update Listing"
 msgid "profile.edit_modal.submit"
 msgstr "Save Changes"
 
-#: components/pages/Users/SellerConnected/index.tsx:267
+#: components/pages/Users/SellerConnected/index.tsx:266
 msgid "profile.edit_profile.title"
 msgstr "Your Profile"
 
@@ -257,13 +281,21 @@ msgstr "Back to Project Details"
 msgid "project.single.button.back_to_projects"
 msgstr "Back to Projects"
 
-#: components/pages/Project/Purchase/index.tsx:180
+#: components/pages/Project/Purchase/index.tsx:182
 msgid "project.single.header.seller"
 msgstr "Seller:"
 
 #: components/pages/Project/index.tsx:97
 msgid "project.single.methodology"
 msgstr "Methodology:"
+
+#: components/Activities/Activity.tsx:69
+msgid "props.transaction.conjunction"
+msgstr "for"
+
+#: components/Activities/Activity.tsx:22
+msgid "props.transaction.conjunction.at"
+msgstr "at"
 
 #: components/pages/Project/Purchase/PurchaseForm.tsx:157
 msgid "purchase.button.continue"
@@ -305,15 +337,15 @@ msgstr "Cost incl. 3% fee"
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 
-#: components/pages/Project/Purchase/index.tsx:190
+#: components/pages/Project/Purchase/index.tsx:193
 msgid "purchase.price_each"
 msgstr "each"
 
-#: components/pages/Project/Purchase/index.tsx:209
+#: components/pages/Project/Purchase/index.tsx:212
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Confirm Purchase"
 
-#: components/pages/Project/Purchase/index.tsx:213
+#: components/pages/Project/Purchase/index.tsx:216
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
@@ -349,7 +381,7 @@ msgstr "App"
 msgid "shared.buy"
 msgstr "Buy"
 
-#: components/pages/Project/ProjectListing/index.tsx:71
+#: components/pages/Project/ProjectListing/index.tsx:70
 #: components/pages/Project/Purchase/PurchaseForm.tsx:143
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
@@ -390,7 +422,7 @@ msgstr "Stake"
 msgid "tonnes.long"
 msgstr "tonnes"
 
-#: components/Activities/index.tsx:91
+#: components/Activities/Activity.tsx:13
 msgid "tonnes.short"
 msgstr "t"
 
@@ -478,11 +510,11 @@ msgstr "1. Approve"
 msgid "transaction_modal.view.submit.title"
 msgstr "2. Submit"
 
-#: components/Activities/index.tsx:60
+#: components/Activities/index.tsx:31
 msgid "user.activities.empty_state"
 msgstr "No activity to show"
 
-#: components/Activities/index.tsx:55
+#: components/Activities/index.tsx:26
 msgid "user.activities.title"
 msgstr "Activities"
 
