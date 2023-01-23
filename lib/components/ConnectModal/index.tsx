@@ -134,7 +134,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
                     className={styles.walletButton}
                     onClick={() => handleConnect({ wallet: "injected" })}
                   >
-                    <ExtensionIcon fontSize="large" />
+                    <ExtensionIcon className={styles.browserWalletIcon} />
                     <Text t="button">Browser</Text>
                   </span>
                 )}

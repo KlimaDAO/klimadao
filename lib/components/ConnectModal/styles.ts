@@ -40,6 +40,11 @@ export const walletButton = css`
   }
 `;
 
+export const browserWalletIcon = css`
+  width: 3.6rem;
+  height: 3.6rem;
+`;
+
 export const buttonsContainer = css`
   display: flex;
   flex-direction: column;
