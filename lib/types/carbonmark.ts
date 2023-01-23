@@ -13,7 +13,7 @@ export interface Project {
   listings: Listing[];
   price: BigNumber;
   country: Country;
-  activities: Activity[];
+  activities: ActivityType[];
   updatedAt: string; // timestamp
 }
 
@@ -23,7 +23,7 @@ export interface User {
   description: string;
   wallet: string;
   listings: Listing[];
-  activities: Activity[];
+  activities: ActivityType[];
   assets: string[]; // token addresses
 }
 
@@ -59,9 +59,21 @@ export type Listing = {
   };
 };
 
-export type Activity = {
+/**
+ * A type representing possible activity actions (e.g "Sold", "Purchase" etc)
+ * Sourced from: https://github.com/Atmosfearful/bezos-frontend/issues/9#issuecomment-1348069483
+ */
+export type ActivityActionT =
+  | "UpdatedQuantity"
+  | "UpdatedPrice"
+  | "CreatedListing"
+  | "DeletedListing"
+  | "Purchase"
+  | "Sold";
+
+export type ActivityType = {
   id: number;
-  activityType: string; // CreatedListing, DeletedListing, UpdatedPrice ...
+  activityType: ActivityActionT; // CreatedListing, DeletedListing, UpdatedPrice ...
   amount: BigNumber | null;
   previousAmount: BigNumber | null;
   price: BigNumber | null;

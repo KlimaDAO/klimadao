@@ -11,7 +11,7 @@ export const activity = css`
     background-color: var(--surface-02);
   }
 
-  .seller {
+  .account {
     color: var(--klima-blue);
     margin-right: 0.4rem;
   }

@@ -257,7 +257,6 @@ export const SellerConnected: FC<Props> = (props) => {
           />
           <Activities
             activities={user?.activities || []}
-            connectedAddress={props.userAddress}
             isLoading={isUpdatingUser}
           />
         </Col>

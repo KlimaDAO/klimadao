@@ -6,7 +6,7 @@ import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import { Card } from "components/Card";
 import { createProjectPurchaseLink, createSellerLink } from "lib/createUrls";
 import { formatBigToPrice, formatBigToTonnes } from "lib/formatNumbers";
-import { getIsConnectedSeller } from "lib/sellerGetter";
+import { isConnectedAddress } from "lib/formatWalletAddress";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
@@ -31,7 +31,7 @@ export const ProjectListing: FC<Props> = (props) => {
 
   const isConnectedSeller =
     !!props.listing.seller &&
-    getIsConnectedSeller(props.listing.seller.id, address);
+    isConnectedAddress(props.listing.seller.id, address);
 
   return (
     <Card>

@@ -1,18 +1,18 @@
 import { concatAddress } from "@klimadao/lib/utils";
 import { t } from "@lingui/macro";
 
-export const getSellerAddress = (
-  sellerID: string,
+export const formatWalletAddress = (
+  address: string,
   connectedAddress?: string
 ) => {
-  if (getIsConnectedSeller(sellerID, connectedAddress)) {
+  if (isConnectedAddress(address, connectedAddress)) {
     return t({ id: "activity.you", message: "You" });
   }
 
-  return concatAddress(sellerID);
+  return concatAddress(address);
 };
 
-export const getIsConnectedSeller = (
+export const isConnectedAddress = (
   sellerID: string,
   connectedAddress?: string
 ) =>
