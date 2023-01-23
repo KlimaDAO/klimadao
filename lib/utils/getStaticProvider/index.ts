@@ -2,38 +2,60 @@ import { providers } from "ethers";
 import { urls } from "../../constants";
 import { getInfuraUrl } from "../getInfuraUrl";
 
-const { JsonRpcProvider } = providers;
+const { JsonRpcProvider, JsonRpcBatchProvider } = providers;
+
+const defaultUrls = {
+  eth: urls.defaultEthRpc,
+  // TEMP use infura id until polygon-rpc stops being flaky
+  polygon: urls.infuraPolygonRpcClient,
+  mumbai: urls.polygonTestnetRpc,
+};
 
 interface RuntimeProviders {
   eth: {
-    default: providers.JsonRpcProvider;
+    default?: providers.JsonRpcProvider;
     infura?: providers.JsonRpcProvider;
   };
   polygon: {
-    default: providers.JsonRpcProvider;
+    default?: providers.JsonRpcProvider;
     infura?: providers.JsonRpcProvider;
   };
   mumbai: {
-    default: providers.JsonRpcProvider;
+    default?: providers.JsonRpcProvider;
     infura?: providers.JsonRpcProvider;
   };
 }
 
-const runtimeProviders: RuntimeProviders = {
+const staticProviders: RuntimeProviders = {
   eth: {
     infura: undefined,
-    default: new JsonRpcProvider(urls.defaultEthRpc),
+    default: undefined,
   },
   polygon: {
     infura: undefined,
-    // TEMP use infura id until polygon-rpc stops being flaky
-    default: new JsonRpcProvider(urls.infuraPolygonRpcClient),
+    default: undefined,
   },
   mumbai: {
     infura: undefined,
-    default: new JsonRpcProvider(urls.polygonTestnetRpc),
+    default: undefined,
   },
 };
+
+const batchProviders: RuntimeProviders = {
+  eth: {
+    infura: undefined,
+    default: undefined,
+  },
+  polygon: {
+    infura: undefined,
+    default: undefined,
+  },
+  mumbai: {
+    infura: undefined,
+    default: undefined,
+  },
+};
+
 /**
  * Returns a provider for making RPC calls to the given chain.
  * 'static' because the RPC is chosen by us, can't be changed by the user, and can't be used for signing txns.
@@ -41,23 +63,32 @@ const runtimeProviders: RuntimeProviders = {
  * If no infura id is provided, a default public rpc is used.
  */
 export const getStaticProvider = (params?: {
+  /** Default "polygon" */
   chain?: "polygon" | "eth" | "mumbai";
+  /** Use JsonRpcBatchProvider instead. Default "true". Set to false if batching causes problems. */
+  batchRequests?: boolean;
   infuraId?: string;
 }): providers.JsonRpcProvider => {
-  const chain = params?.chain || "polygon";
+  const { chain = "polygon", batchRequests = true } = params || {};
+  const providerMap = batchRequests ? batchProviders : staticProviders;
+  const ProviderClass = batchRequests ? JsonRpcBatchProvider : JsonRpcProvider;
 
-  if (!params?.infuraId) {
-    return runtimeProviders[chain].default;
+  // infuraId provided
+  if (params?.infuraId) {
+    // instantiate if needed
+    if (!providerMap[chain].infura) {
+      const infuraUrl = getInfuraUrl({
+        chain,
+        infuraId: params.infuraId,
+      });
+      providerMap[chain].infura = new ProviderClass(infuraUrl);
+    }
+    return providerMap[chain].infura;
   }
-
-  const existingInfura = runtimeProviders[chain].infura; // satisfy ts null check
-  if (existingInfura) return existingInfura;
-
-  const infuraUrl = getInfuraUrl({
-    chain,
-    infuraId: params.infuraId,
-  });
-  const newInfura = new JsonRpcProvider(infuraUrl);
-  runtimeProviders[chain].infura = newInfura;
-  return newInfura;
+  // otherwise use defaults
+  // instantiate if needed
+  if (!providerMap[chain].default) {
+    providerMap[chain].default = new ProviderClass(defaultUrls[chain]);
+  }
+  return providerMap[chain].default;
 };

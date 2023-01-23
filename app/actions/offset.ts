@@ -27,7 +27,6 @@ import {
 import { AllowancesFormatted } from "@klimadao/lib/types/allowances";
 
 export const getRetiredOffsetBalances = (params: {
-  provider: providers.JsonRpcProvider;
   address: string;
   onRPCError: () => void;
 }): Thunk => {
@@ -45,7 +44,6 @@ export const getRetiredOffsetBalances = (params: {
 };
 
 export const getRetirementAllowances = (params: {
-  provider: providers.JsonRpcProvider;
   address: string;
   onRPCError: () => void;
 }): Thunk => {
@@ -55,7 +53,7 @@ export const getRetirementAllowances = (params: {
       const promises = offsetInputTokens.reduce((arr, val) => {
         const contract = getContract({
           contractName: val,
-          provider: params.provider,
+          provider: getStaticProvider(),
         });
         arr.push(
           getAllowance({

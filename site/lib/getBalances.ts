@@ -34,21 +34,23 @@ export const getBalances = async (params: Params): Promise<Balances> => {
   const nboContract = getContract({ contractName: "nbo", provider });
   const uboContract = getContract({ contractName: "ubo", provider });
 
-  const klimaBalance = await klimaContract.balanceOf(params.address);
-  const sklimaBalance = await sklimaContract.balanceOf(params.address);
-  const bctBalance = await bctContract.balanceOf(params.address);
-  const nctBalance = await nctContract.balanceOf(params.address);
-  const mco2Balance = await mco2Contract.balanceOf(params.address);
-  const nboBalance = await nboContract.balanceOf(params.address);
-  const uboBalance = await uboContract.balanceOf(params.address);
+  const [klima, sklima, bct, nct, mco2, nbo, ubo] = await Promise.all([
+    klimaContract.balanceOf(params.address),
+    sklimaContract.balanceOf(params.address),
+    bctContract.balanceOf(params.address),
+    nctContract.balanceOf(params.address),
+    mco2Contract.balanceOf(params.address),
+    nboContract.balanceOf(params.address),
+    uboContract.balanceOf(params.address),
+  ]);
 
   return {
-    klima: formatUnits(klimaBalance, 9),
-    sklima: formatUnits(sklimaBalance, 9),
-    bct: formatUnits(bctBalance),
-    nct: formatUnits(nctBalance),
-    mco2: formatUnits(mco2Balance),
-    nbo: formatUnits(nboBalance),
-    ubo: formatUnits(uboBalance),
+    klima: formatUnits(klima, 9),
+    sklima: formatUnits(sklima, 9),
+    bct: formatUnits(bct),
+    nct: formatUnits(nct),
+    mco2: formatUnits(mco2),
+    nbo: formatUnits(nbo),
+    ubo: formatUnits(ubo),
   };
 };
