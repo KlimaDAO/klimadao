@@ -16,4 +16,30 @@ const CARBON_OFFSETS = gql`
         }
     }
     `
+
+
+const POOLED_PROJECTS = gql`
+    query pooledProjects {
+            carbonOffsets {
+                id
+                name
+                tokenAddress
+                vintage
+                vintageYear
+                bridge
+                projectID
+                methodology
+                methodologyCategory
+                country
+                category
+                name
+                registry
+                totalBridged
+                totalRetired
+                storageMethod
+        }
+    }
+    `
 module.exports.CARBON_OFFSETS = CARBON_OFFSETS;
+module.exports.POOLED_PROJECTS = POOLED_PROJECTS;
+
