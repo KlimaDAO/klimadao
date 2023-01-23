@@ -1,4 +1,5 @@
 import CloseDefault from "@mui/icons-material/Close";
+import ExtensionIconDefault from "@mui/icons-material/Extension";
 import MailOutlineIconDefault from "@mui/icons-material/MailOutline";
 import { providers } from "ethers";
 import React, { useEffect, useState } from "react";
@@ -21,7 +22,9 @@ import * as styles from "./styles";
 // ems modules and javascript are strange so we import like this
 const Close = (CloseDefault as any).default as any;
 const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
-export interface ConnectModalProps {
+const ExtensionIcon = (ExtensionIconDefault as any).default as any;
+
+interface ConnectModalProps {
   errorMessage: string;
   torusText: string;
   titles: {
@@ -52,10 +55,11 @@ export const ConnectModal = (props: ConnectModalProps) => {
 
   const showBrave = eth?.isBraveWallet;
   const showMetamask = eth?.isMetaMask;
-  const showCoinbaseWallet = eth?.isCoinbaseWallet;
+  const showBrowserWallet = eth && !showBrave && !showMetamask;
 
   const getTitle = (step: "connect" | "error" | "loading") =>
     !props.titles ? "loading" : props.titles[step];
+
   useEffect(() => {
     if (props.showModal) {
       setStep("connect");
@@ -64,6 +68,7 @@ export const ConnectModal = (props: ConnectModalProps) => {
       document.body.style.overflow = "";
     }
   }, [props.showModal]);
+
   const handleConnect = async (params: {
     wallet: "coinbase" | "torus" | "walletConnect" | "injected";
   }) => {
@@ -127,11 +132,20 @@ export const ConnectModal = (props: ConnectModalProps) => {
                     <Text t="button">Brave</Text>
                   </span>
                 )}
+                {showBrowserWallet && (
+                  <span
+                    className={styles.walletButton}
+                    onClick={() => handleConnect({ wallet: "injected" })}
+                  >
+                    <ExtensionIcon className={styles.browserWalletIcon} />
+                    <Text t="button">Browser Injected Wallet</Text>
+                  </span>
+                )}
                 <span
                   className={styles.walletButton}
                   onClick={() =>
                     handleConnect({
-                      wallet: showCoinbaseWallet ? "injected" : "coinbase",
+                      wallet: eth?.isCoinbaseWallet ? "injected" : "coinbase",
                     })
                   }
                 >
