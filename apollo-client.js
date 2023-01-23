@@ -19,7 +19,7 @@ const defaultOptions = {
 // Create a new Apollo client instance
 const client = new ApolloClient({
   // Use the createHttpLink function to create a link that sends GraphQL requests over HTTP
-  //link: new HttpLink({ uri: process.env.GRAPH_API_URL, fetch }),
+link: new HttpLink({ uri: process.env.GRAPH_API_URL, fetch }),
   // Use the InMemoryCache to store the result of GraphQL queries in memory
   cache: new InMemoryCache({ addTypename: false, resultCaching: false }),
   defaultOptions: defaultOptions,
@@ -28,17 +28,8 @@ const client = new ApolloClient({
 
 // Define a function that executes a GraphQL query and returns the result
 async function executeGraphQLQuery( link, query, variables = {}) {
-
-  client.setLink( new HttpLink({ uri:link, fetch }))
-  // Subscribe to the query to receive updates when the data changes
-  const subscription = client.subscribe({ query: query }).subscribe({
-    next: (subscriptionData) => {
-      // Update the cache with the new data when the recordAdded event is received
-      if (subscriptionData.recordAdded) {
-        client.cache.writeQuery({ query: query, data: subscriptionData.recordAdded });
-      }
-    },
-  });
+console.log(link, query);
+  client.setLink( new HttpLink({ uri:link, fetch }));
 
   try {
     // Execute the query and return the result

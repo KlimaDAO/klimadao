@@ -21,7 +21,7 @@ module.exports = async function (fastify, opts) {
         },
         handler: async function (request, reply) {
 
-            const data = await executeGraphQLQuery(GET_VINTAGES);
+            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_VINTAGES);
 
             const uniqueValues = new Set();
 

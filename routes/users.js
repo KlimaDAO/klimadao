@@ -175,7 +175,7 @@ module.exports = async function (fastify, opts) {
                 // Get the wallet address of the user
                 var wallet = user.id.toLowerCase();
                 // Query the GraphQL API with the wallet address to get more user data
-                const data = await executeGraphQLQuery(GET_USER_DATA,  {wallet} );
+                const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_USER_DATA,  {wallet} );
                 // Add the wallet address to the response object
                 response.wallet = wallet;
                 // If the users array in the data is not empty

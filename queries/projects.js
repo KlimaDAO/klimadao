@@ -12,6 +12,9 @@ const GET_PROJECTS = gql`
                     vintage
                     projectAddress
                     registry
+                    listings {
+                        singleUnitPrice
+                    }
                     category {
                         id
                     }

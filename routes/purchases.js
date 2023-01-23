@@ -14,7 +14,7 @@ module.exports = async function (fastify, opts) {
             const {id } = request.params;
 
 
-            const data = await executeGraphQLQuery(GET_PURCHASE_BY_ID, {
+            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PURCHASE_BY_ID, {
                 id
             });
 

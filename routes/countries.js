@@ -27,7 +27,7 @@ module.exports = async function (fastify, opts) {
     handler: async function (request, reply) {
       try {
         // Execute the GET_COUNTRIES query and store the result in the 'data' variable
-        const data = await executeGraphQLQuery(GET_COUNTRIES);
+        const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_COUNTRIES);
         // If the query returned errors, return a Bad Request response with the first error message
         if (data.errors) {
           return reply.status(400).send({ message: data.errors[0].message });

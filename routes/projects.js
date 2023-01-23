@@ -5,7 +5,7 @@ const fetch = require('node-fetch')
 const { faker } = require('@faker-js/faker');
 const {fakeProjects} = require('./fake_data')
 const { GET_PROJECT_BY_ID } = require('../queries/project_id.js');
-const { POOLED_PROJECTS } = require('../queries/carbon-pools.js');
+const { POOLED_PROJECTS } = require('../queries/pooled_projects');
 
 module.exports = async function (fastify, opts) {
 
@@ -38,13 +38,14 @@ module.exports = async function (fastify, opts) {
 
             //@todo -> calculate the minimum price
             const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS);
-
-            let pooledProjects =  await executeGraphQLQuery(process.env.GRAPH_API_URL, POOLED_PROJECTS);
-
+            let pooledProjectsData =  (await executeGraphQLQuery(process.env.CARBON_OFFSETS_GRAPH_API_URL, POOLED_PROJECTS)).data;
+            console.log(pooledProjectsData);
             const projects = data.data.projects.map(function(project) {
-                var index = pooledProjects.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage );
+                if (pooledProjectsData &&  pooledProjectsData.carbonOffsets ) {
+                    var index = pooledProjectsData.carbonOffsets.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage );
 
-                delete pooledProjects[index];
+                    delete pooledProjectsData.carbonOffsets[index];
+                }
 
                 var price = 0;
                 if (project.listings.length) {
@@ -94,7 +95,7 @@ module.exports = async function (fastify, opts) {
             }
 
             // Send the transformed projects array as a JSON string in the response
-            return reply.send(JSON.stringify(...projects, ...pooledProjects));
+            return reply.send(JSON.stringify(projects.concat(pooledProjectsData.carbonOffsets)));
         }
     }),
         fastify.route({
