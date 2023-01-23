@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-23 19:20+0000\n"
+"POT-Creation-Date: 2023-01-23 20:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -668,37 +668,37 @@ msgstr "成本"
 msgid "offset_disclaimer"
 msgstr "注意！不要暴露任何敏感的个人信息。信息无法编辑，且该信息将永久存在于公共区块链上。"
 
-#: components/views/PKlima/index.tsx:180
+#: components/views/PKlima/index.tsx:179
 msgid "pklima.approve_bct"
 msgstr "2.批准 BCT"
 
-#: components/views/PKlima/index.tsx:171
+#: components/views/PKlima/index.tsx:170
 msgid "pklima.approve_pklima"
 msgstr "1. 批准 pKLIMA"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:197
+#: components/views/PKlima/index.tsx:196
 msgid "pklima.balances_card.make_sure_to_stake"
 msgstr "确保用已赎回的 pKLIMA 来做质押，并持续质押，直至全球温室气体排放量趋于稳定。"
 
-#: components/views/PKlima/index.tsx:185
+#: components/views/PKlima/index.tsx:184
 msgid "pklima.exercise"
 msgstr "使用"
 
-#: components/views/PKlima/index.tsx:213
+#: components/views/PKlima/index.tsx:212
 msgid "pklima.exercise_1_pklima_and_1_bct_to_receive_1_klima"
 msgstr "每使用 1个 pKLIMA 和 1个 BCT，即可获取 1个 KLIMA。"
 
-#: components/views/PKlima/index.tsx:281
+#: components/views/PKlima/index.tsx:280
 msgid "pklima.index_adjusted"
 msgstr "指数调整"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:284
+#: components/views/PKlima/index.tsx:283
 msgid "pklima.index_adjusted.tooltip"
 msgstr "等价的 sKLIMA 称，假设你把所有赎回的KLIMA质押到今天。"
 
-#: components/views/PKlima/index.tsx:229
+#: components/views/PKlima/index.tsx:228
 msgid "pklima.klima_to_exercise"
 msgstr "用 pKLIMA 来..."
 
@@ -706,25 +706,25 @@ msgstr "用 pKLIMA 来..."
 msgid "pklima.overclaim"
 msgstr "您申请的 KLIMA 已经超过了您的供应份额限制。该情况可能是由2021年11月24日对  pKLIMA 赎回合约的修复造成的。"
 
-#: components/views/PKlima/index.tsx:210
+#: components/views/PKlima/index.tsx:209
 msgid "pklima.redeem_pklima"
 msgstr "赎回 pKLIMA"
 
-#: components/views/PKlima/index.tsx:269
+#: components/views/PKlima/index.tsx:268
 msgid "pklima.redeemed"
 msgstr "已赎回"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:272
+#: components/views/PKlima/index.tsx:271
 msgid "pklima.redeemed.tooltip"
 msgstr "到目前为止，您已赎回的 KLIMA 总数。"
 
-#: components/views/PKlima/index.tsx:253
+#: components/views/PKlima/index.tsx:252
 msgid "pklima.supply_limit"
 msgstr "供应限制"
 
 #. Long sentence
-#: components/views/PKlima/index.tsx:256
+#: components/views/PKlima/index.tsx:255
 msgid "pklima.supply_limit.tooltip"
 msgstr "代币总供应量的百分比。指数调整后的索赔不得超过此值。"
 
@@ -753,7 +753,7 @@ msgid "shared.change_language"
 msgstr "变更语言"
 
 #: components/views/Bond/index.tsx:431
-#: components/views/PKlima/index.tsx:166
+#: components/views/PKlima/index.tsx:165
 #: components/views/Wrap/index.tsx:217
 msgid "shared.confirming"
 msgstr "确认中"
@@ -814,7 +814,7 @@ msgstr "无效数量"
 #: components/views/Loading/index.tsx:11
 #: components/views/Offset/index.tsx:379
 #: components/views/Offset/index.tsx:523
-#: components/views/PKlima/index.tsx:158
+#: components/views/PKlima/index.tsx:157
 #: components/views/Stake/index.tsx:431
 #: components/views/Stake/index.tsx:438
 #: components/views/Stake/index.tsx:445
@@ -826,14 +826,14 @@ msgstr "正在加载..."
 #: components/views/Buy/index.tsx:63
 #: components/views/Home/index.tsx:153
 #: components/views/Offset/index.tsx:371
-#: components/views/PKlima/index.tsx:150
+#: components/views/PKlima/index.tsx:149
 #: components/views/Stake/index.tsx:227
 #: components/views/Wrap/index.tsx:196
 msgid "shared.login_connect"
 msgstr "登录/连接"
 
 #: components/views/Bond/index.tsx:604
-#: components/views/PKlima/index.tsx:240
+#: components/views/PKlima/index.tsx:239
 #: components/views/Stake/index.tsx:372
 #: components/views/Wrap/index.tsx:345
 msgid "shared.max"
