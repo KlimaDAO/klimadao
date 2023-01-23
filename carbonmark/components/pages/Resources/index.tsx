@@ -37,19 +37,21 @@ export const Resources: NextPage<Props> = (props) => {
 
       <Navigation activePage="Resource Center" />
 
-      <Section variant="gray" className={styles.sectionHead}>
-        <div className={styles.header}>
-          <Text t="h1" align="center">
-            <Trans id="resources.page.header.title">Featured Articles</Trans>
-          </Text>
-          <Text t="body3" align="center">
-            <Trans id="resources.page.header.subline">
-              Updates and thought leadership from the founders, DAO
-              contributors, advisors and community.
-            </Trans>
-          </Text>
-        </div>
-      </Section>
+      {!!props.featuredArticles?.length && (
+        <Section variant="gray" className={styles.sectionHead}>
+          <div className={styles.header}>
+            <Text t="h1" align="center">
+              <Trans id="resources.page.header.title">Featured Articles</Trans>
+            </Text>
+            <Text t="body3" align="center">
+              <Trans id="resources.page.header.subline">
+                Updates and thought leadership from the founders, DAO
+                contributors, advisors and community.
+              </Trans>
+            </Text>
+          </div>
+        </Section>
+      )}
 
       {!!props.featuredArticles?.length && (
         <Section variant="gray" style={{ padding: "unset" }}>
