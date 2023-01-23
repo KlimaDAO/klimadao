@@ -5,6 +5,7 @@ const fetch = require('node-fetch')
 const { faker } = require('@faker-js/faker');
 const {fakeProjects} = require('./fake_data')
 const { GET_PROJECT_BY_ID } = require('../queries/project_id.js');
+const { POOLED_PROJECTS } = require('../queries/carbon-pools.js');
 
 module.exports = async function (fastify, opts) {
 
@@ -36,13 +37,24 @@ module.exports = async function (fastify, opts) {
         handler: async function (request, reply) {
 
             //@todo -> calculate the minimum price
-            const data = await executeGraphQLQuery(GET_PROJECTS);
+            const data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECTS);
 
-            // Transform the projects array by adding a property 'price' with a value of '10000000' to each project
-            const projects = data.data.projects.map(project => ({
-                ...project,
-                price: '10000000'
-            }));
+            let pooledProjects =  await executeGraphQLQuery(process.env.GRAPH_API_URL, POOLED_PROJECTS);
+
+            const projects = data.data.projects.map(function(project) {
+                var index = pooledProjects.findIndex(item => item.projectID === project.key && item.vintageYear === project.vintage );
+
+                delete pooledProjects[index];
+
+                var price = 0;
+                if (project.listings.length) {
+                    const uniqueValues = new Set();
+                    project.listings.forEach(item => uniqueValues.add(item.singleUnitPrice));
+                    price = Math.min(...(Array.from(uniqueValues)));
+                }
+                delete project.listings;
+                return {...project, price}
+            });
 
             if (process.env.ENV == 'local') {
                 projects.splice(1, 1);
@@ -50,6 +62,11 @@ module.exports = async function (fastify, opts) {
 
                 let year = 2014;
                 let startCount = projects.length;
+                let methodogies = ['AM0038', 'AM0043', 'AMS-I.D.', 'VM0002', 'VM0019', 'AM0120', 'VM0041', 'AMS-III.D.', 'VM0004', 'AR-ACM0003', 'VM0021', 'AM0050'];
+                let categories = ['Renewable Energy', 'Renewable Energy', 'Renewable Energy','Renewable Energy', 'Renewable Energy', 'Renewable Energy',
+            'Agriculture', 'Agriculture', 'Forestry', 'Forestry', 'Other Nature-Based', 'Industrial Processing'
+                
+            ];
 
                 for (; startCount < 20; startCount++) {
                     projects.push({
@@ -57,16 +74,19 @@ module.exports = async function (fastify, opts) {
                         "key": "GS-500-FAKE",
                         "projectID": "500",
                         "name": 'FAKE ' + faker.lorem.sentence(4) + ' FAKE',
-                        "methodology": faker.lorem.sentence(10),
+                        "methodology": methodogies[(startCount - 2) % 12 ],
                         "vintage": year,
                         "projectAddress": "0xa1c1ccd8c61fec141aaed6b279fa4400b68101d4",
                         "registry": startCount % 2 ? "GS" : "VS",
+                        "updatedAt":"1673468220",
                         "category": {
-                            "id": "Other"
+                            "id": categories[(startCount - 2) % 12 ]
                         },
                         "country": {
                             "id": "Sudan"
-                        }
+                        },
+                        "price": 1000000000000000000,
+                        
                     });
                     year++;
                 }
@@ -74,7 +94,7 @@ module.exports = async function (fastify, opts) {
             }
 
             // Send the transformed projects array as a JSON string in the response
-            return reply.send(JSON.stringify(projects));
+            return reply.send(JSON.stringify(...projects, ...pooledProjects));
         }
     }),
         fastify.route({
@@ -96,20 +116,7 @@ module.exports = async function (fastify, opts) {
                     },
 
                 },
-                tags: ["project"],
-                response: {
-                    '2xx': {
-                        type: 'object',
-                        properties: {
-                            handle: { type: 'string' },
-                            username: { type: 'string' },
-                            description: { type: 'string' },
-                            wallet: { type: 'string' },
-                            listings: { type: 'array' },
-                            activities: { type: 'array' }
-                        }
-                    }
-                }
+                tags: ["project"]
             },
             handler: async function (request, reply) {
                 var { id } = (request.params);
@@ -126,7 +133,7 @@ module.exports = async function (fastify, opts) {
                         fakeProjects
                     ))
                 }
-                var data = await executeGraphQLQuery(GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
+                var data = await executeGraphQLQuery(process.env.GRAPH_API_URL, GET_PROJECT_BY_ID, { key: key, vintageStr: vintageStr });
 
                 if (data.data.projects[0]) {
                     // this comes from https://thegraph.com/hosted-service/subgraph/klimadao/polygon-bridged-carbon
@@ -148,26 +155,24 @@ module.exports = async function (fastify, opts) {
 
                     } else {
                         var project = { ...data.data.projects[0] };
-                        project.pools = [
-                            {
-                                "id": "0x004090eef602e024b2a6cb7f0c1edda992382994",
-                                "name": "",
-                                "tokenAddress": "0x004090eef602e024b2a6cb7f0c1edda992382994",
-                                "bridge": "Toucan",
-                                "vintage": "1199059200",
-                                "projectID": key,
-                                "balanceBCT": "0",
-                                "balanceNCT": "0",
-                                "balanceUBO": "0",
-                                "balanceNBO": "0",
-                                "totalRetired": "0",
-                                "currentSupply": "32928"
-                            },
-                        ]
-                        project.location = {
-                            "latitude": 30.735555,
-                            "longitude": 114.544166
+                        if (project.registry == "VCS") {
+                            var results = await fetch(`https://registry.verra.org/uiapi/resource/resourceSummary/${id[1]}`)
+                            results = JSON.parse(await results.text());
+                            project.location =results.location;
+                            project.description = results.description;
+                        } else if(project.registry == "GS") {
+                            var results = await fetch(`https://api.goldstandard.org/projects/${id[1]}`)
+                            results = JSON.parse(await results.text());
+                            project.description = results.description;
+                            project.location = {
+                                "latitude": 30.735555,
+                                "longitude": 114.544166
+                            }
                         }
+
+                       
+
+                        
                         if (project.listings.length) {
 
 
