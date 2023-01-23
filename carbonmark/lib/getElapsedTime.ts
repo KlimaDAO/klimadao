@@ -1,4 +1,4 @@
-export const getActivityTime = (params: {
+export const getElapsedTime = (params: {
   locale: string;
   timeStamp: number;
 }) => {

@@ -97,7 +97,7 @@ export type ActivityType = {
   };
   buyer: {
     id: string;
-  };
+  } | null;
 };
 
 export type ProjectInfo = {
