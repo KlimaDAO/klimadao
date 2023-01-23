@@ -109,6 +109,9 @@ export const switchButton = css`
   &[data-active="true"] {
     background-color: var(--klima-green);
     font-weight: bold;
+    [data-theme="theme-dark"] & {
+      color: #000;
+    }
   }
 `;
 

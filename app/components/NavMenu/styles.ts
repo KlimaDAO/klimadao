@@ -156,6 +156,9 @@ export const sidebarButton = css`
 
   &[data-active="true"] .iconContainer {
     background-color: var(--klima-green);
+    [data-theme="theme-dark"] & {
+      color: #000 !important;
+    }
   }
 
   &[data-disabled="true"] {
