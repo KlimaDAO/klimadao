@@ -6,6 +6,7 @@
 type FeatureFlags = {
   testFeatureFlag: boolean;
   redemptionUI: boolean;
+  retireCarbonToken: boolean;
 };
 
 export const getFeatureFlags = (params: {
@@ -19,5 +20,6 @@ export const getFeatureFlags = (params: {
   return {
     testFeatureFlag: LIVE_FEATURE,
     redemptionUI: IN_DEVELOPMENT,
+    retireCarbonToken: IN_DEVELOPMENT,
   };
 };
