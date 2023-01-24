@@ -4,6 +4,7 @@ import { useWeb3 } from "@klimadao/lib/utils";
 import { t, Trans } from "@lingui/macro";
 import { InputField } from "components/shared/Form/InputField";
 import { TextareaField } from "components/shared/Form/TextareaField";
+import { utils } from "ethers";
 import { loginUser, postUser, putUser, verifyUser } from "lib/api";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -128,13 +129,36 @@ export const EditProfile: FC<Props> = (props) => {
               message: "Your unique handle",
             }),
             type: "text",
-            ...register("handle", { required: true }),
+            ...register("handle", {
+              required: {
+                value: true,
+                message: t({
+                  id: "user.edit.form.input.handle.required",
+                  message: "Handle is required",
+                }),
+              },
+              pattern: {
+                value: /^[a-zA-Z0-9]+$/, // no special characters!
+                message: t({
+                  id: "user.edit.form.input.handle.pattern",
+                  message: "Handle should contain any special characters",
+                }),
+              },
+              validate: (value) => !utils.isAddress(value), // no polygon addresses
+            }),
           }}
           label={t({
             id: "user.edit.form.input.handle.label",
             message: "Handle (not changeable later! Choose wisely)",
           })}
-          errorMessage={formState.errors.handle && "Handle is required"}
+          errorMessage={
+            formState.errors.handle?.message ||
+            (formState.errors.handle &&
+              t({
+                id: "user.edit.form.input.handle.invalid",
+                message: "Not a valid handle name",
+              }))
+          }
         />
         <InputField
           id="username"
@@ -145,13 +169,21 @@ export const EditProfile: FC<Props> = (props) => {
               message: "Your display name",
             }),
             type: "text",
-            ...register("username", { required: true }),
+            ...register("username", {
+              required: {
+                value: true,
+                message: t({
+                  id: "user.edit.form.input.username.required",
+                  message: "Display Name is required",
+                }),
+              },
+            }),
           }}
           label={t({
             id: "user.edit.form.input.username.label",
             message: "Display Name",
           })}
-          errorMessage={formState.errors.username && "Display Name is required"}
+          errorMessage={formState.errors.username?.message}
         />
         <TextareaField
           id="description"
