@@ -64,6 +64,7 @@ const TOKEN_MAP: TokenMap = {
 
 export const AssetBalanceCard: FC<Props> = (props) => {
   const [balances, setBalances] = useState<Balances | null>(null);
+  console.log("holdings", props.holdings);
 
   const holdingsByToken = groupBy(props.holdings, "token");
 

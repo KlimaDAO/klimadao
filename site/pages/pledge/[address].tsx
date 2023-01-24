@@ -84,8 +84,6 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       };
     }
 
-    const holdings = await queryHoldingsByAddress(resolvedAddress);
-
     try {
       const data = await getPledgeByAddress(resolvedAddress);
       if (!data) throw new Error("Not found");
@@ -95,60 +93,79 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
       pledge = { ...DEFAULT_PLEDGE_VALUES, ownerAddress: resolvedAddress };
     }
 
-    // add up retirements here
+    // const holdings = await queryHoldingsByAddress(resolvedAddress);
+    let holdings;
+    // add up retirements and holdings here
     let retirements: RetirementsTotalsAndBalances;
     if (pledge.wallets && Object.values(pledge.wallets).length) {
       const verifiedWallets = Object.values(pledge.wallets).filter(
         (wallet) => wallet.status === "verified"
       );
-      const promises = verifiedWallets.map((wallet) =>
+      // Retirements
+      const retirementPromises = verifiedWallets.map((wallet) =>
         getRetirementTotalsAndBalances({
           address: wallet.address,
         })
       );
-      promises.push(
+      retirementPromises.push(
         getRetirementTotalsAndBalances({
           address: resolvedAddress,
         })
       );
-      const values: RetirementsTotalsAndBalances[] = await Promise.all(
-        promises
+      const retirementValues: RetirementsTotalsAndBalances[] =
+        await Promise.all(retirementPromises);
+      const reducedRetirements =
+        retirementValues.reduce<RetirementsTotalsAndBalances>(
+          (prev, curr) => {
+            prev.totalRetirements = (
+              Number(prev.totalRetirements) + Number(curr.totalRetirements)
+            ).toString();
+            prev.totalTonnesRetired = (
+              Number(prev.totalTonnesRetired) + Number(curr.totalTonnesRetired)
+            ).toString();
+            prev.totalTonnesClaimedForNFTS = (
+              Number(prev.totalTonnesClaimedForNFTS) +
+              Number(curr.totalTonnesClaimedForNFTS)
+            ).toString();
+            prev.bct = (Number(prev.bct) + Number(curr.bct)).toString();
+            prev.mco2 = (Number(prev.mco2) + Number(curr.mco2)).toString();
+            prev.nct = (Number(prev.nct) + Number(curr.nct)).toString();
+            prev.ubo = (Number(prev.ubo) + Number(curr.ubo)).toString();
+            prev.nbo = (Number(prev.nbo) + Number(curr.nbo)).toString();
+            return prev;
+          },
+          {
+            totalRetirements: "0",
+            totalTonnesRetired: "0.0",
+            totalTonnesClaimedForNFTS: "0.0",
+            bct: "0.0",
+            mco2: "0.0",
+            nct: "0.0",
+            ubo: "0.0",
+            nbo: "0.0",
+          }
+        );
+      retirements = reducedRetirements;
+
+      // Holdings
+      const holdingsPromises = verifiedWallets.map((wallet) =>
+        queryHoldingsByAddress(wallet.address)
       );
-      const reduced = values.reduce<RetirementsTotalsAndBalances>(
-        (prev, curr) => {
-          prev.totalRetirements = (
-            Number(prev.totalRetirements) + Number(curr.totalRetirements)
-          ).toString();
-          prev.totalTonnesRetired = (
-            Number(prev.totalTonnesRetired) + Number(curr.totalTonnesRetired)
-          ).toString();
-          prev.totalTonnesClaimedForNFTS = (
-            Number(prev.totalTonnesClaimedForNFTS) +
-            Number(curr.totalTonnesClaimedForNFTS)
-          ).toString();
-          prev.bct = (Number(prev.bct) + Number(curr.bct)).toString();
-          prev.mco2 = (Number(prev.mco2) + Number(curr.mco2)).toString();
-          prev.nct = (Number(prev.nct) + Number(curr.nct)).toString();
-          prev.ubo = (Number(prev.ubo) + Number(curr.ubo)).toString();
-          prev.nbo = (Number(prev.nbo) + Number(curr.nbo)).toString();
-          return prev;
-        },
-        {
-          totalRetirements: "0",
-          totalTonnesRetired: "0.0",
-          totalTonnesClaimedForNFTS: "0.0",
-          bct: "0.0",
-          mco2: "0.0",
-          nct: "0.0",
-          ubo: "0.0",
-          nbo: "0.0",
-        }
+      holdingsPromises.push(queryHoldingsByAddress(resolvedAddress));
+      const holdingsValues = await Promise.all(holdingsPromises);
+      console.log(
+        "holdingsValues",
+        holdingsValues,
+        holdingsPromises,
+        await queryHoldingsByAddress(resolvedAddress)
       );
-      retirements = reduced;
+      const mergedHoldings = holdingsValues[0];
+      holdings = mergedHoldings;
     } else {
       retirements = await getRetirementTotalsAndBalances({
         address: resolvedAddress,
       });
+      holdings = await queryHoldingsByAddress(resolvedAddress);
     }
 
     return {
