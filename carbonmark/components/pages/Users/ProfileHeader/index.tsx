@@ -1,4 +1,5 @@
 import { Text } from "@klimadao/lib/components";
+import { Trans } from "@lingui/macro";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import Image from "next/legacy/image";
 import userLogo from "public/user_default_avatar.png";
@@ -29,7 +30,26 @@ export const ProfileHeader: FC<Props> = (props) => {
       </div>
       <div className={styles.profileText}>
         <Text t="h3">{props.userName}</Text>
-        {props.description && <Text t="caption">{props.description}</Text>}
+
+        {!props.isCarbonmarkUser && (
+          <Text t="caption">
+            <Trans id="profile.create_your_profile">
+              Create your profile on Carbonmark and start selling
+            </Trans>
+          </Text>
+        )}
+
+        {props.isCarbonmarkUser && !props.description && (
+          <Text t="caption">
+            <Trans id="profile.edit_your_profile">
+              Edit your profile to add a description
+            </Trans>
+          </Text>
+        )}
+
+        {props.isCarbonmarkUser && props.description && (
+          <Text t="caption">{props.description}</Text>
+        )}
       </div>
     </div>
   );

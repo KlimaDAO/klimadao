@@ -44,11 +44,12 @@ export const SellerConnected: FC<Props> = (props) => {
   const [user, setUser] = useState<User | null>(props.carbonmarkUser);
   const [sortedListings, setSortedListings] = useState<Listing[] | null>(null);
   const [assetsData, setAssetsData] = useState<Asset[] | null>(null);
-  const [isLoadingAssets, setIsLoadingAssets] = useState(true);
+  const [isLoadingAssets, setIsLoadingAssets] = useState(false);
   const [isUpdatingUser, setIsUpdatingUser] = useState(false);
   const [showCreateListingModal, setShowCreateListingModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const isCarbonmarkUser = !!user;
   const hasAssets = !!user?.assets?.length;
   const hasListings = !!user?.listings?.length;
   const allListings = hasListings && getAllListings(user.listings);
@@ -56,7 +57,8 @@ export const SellerConnected: FC<Props> = (props) => {
 
   // load Assets every time user changed
   useEffect(() => {
-    if (!hasAssets) {
+    // show error message if a carbonmark user has no assets
+    if (isCarbonmarkUser && !hasAssets) {
       setIsLoadingAssets(false);
       setErrorMessage(
         t({
@@ -69,6 +71,7 @@ export const SellerConnected: FC<Props> = (props) => {
     if (hasAssets) {
       const getAssetsData = async () => {
         try {
+          setIsLoadingAssets(true);
           const provider = getStaticProvider({ chain: "mumbai" }); // TODO: Replace with getStaticProvider() after switch to Main Net
 
           const assetsData = await getUserAssetsData({
@@ -164,14 +167,8 @@ export const SellerConnected: FC<Props> = (props) => {
       <div className={styles.fullWidth}>
         <ProfileHeader
           userName={user?.username || props.userName}
-          isCarbonmarkUser={!!user}
-          description={
-            user?.description ||
-            t({
-              id: "profile.edit_your_profile",
-              message: "Edit your profile to add a description",
-            })
-          }
+          isCarbonmarkUser={isCarbonmarkUser}
+          description={user?.description}
         />
       </div>
 
