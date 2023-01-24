@@ -8,3 +8,5 @@ build/
 
 # translation files
 **/locale/*/messages.js
+
+*/dist
