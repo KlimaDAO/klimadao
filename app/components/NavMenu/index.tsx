@@ -28,6 +28,7 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { selectBalances, selectDomain, selectLocale } from "state/selectors";
 
+import { featureFlags } from "lib/featureFlags";
 import { createLinkWithLocaleSubPath } from "lib/i18n";
 
 import { Domain } from "state/user";
@@ -196,6 +197,18 @@ export const NavMenu: FC<Props> = (props) => {
       >
         <Trans id="menu.offset">Offset</Trans>
       </MenuButton>
+
+      {featureFlags.retireCarbonToken && (
+        <MenuButton
+          isActive={pathname === "/offsetv2"}
+          icon={<ParkOutlined />}
+          href="/offsetv2"
+          onClick={handleHide}
+        >
+          [Dev] OffsetV2
+        </MenuButton>
+      )}
+
       <MenuButton
         isActive={pathname === "/info"}
         href="/info"

@@ -1,4 +1,8 @@
+import { ButtonPrimary } from "@klimadao/lib/components";
 import { bonds } from "@klimadao/lib/constants";
+import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
+import { t } from "@lingui/macro";
+import Menu from "@mui/icons-material/Menu";
 import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Route, useLocation } from "react-router-dom";
@@ -7,6 +11,7 @@ import { useAppDispatch } from "state";
 import { loadAppDetails } from "actions/app";
 import { loadAccountDetails } from "actions/user";
 import { useLocaleFromParams } from "lib/hooks/useLocaleFromParams";
+import { setAppState } from "state/app";
 import { selectAppState } from "state/selectors";
 
 import { CheckURLBanner, skipCheckURLBanner } from "components/CheckURLBanner";
@@ -14,6 +19,7 @@ import { InvalidNetworkModal } from "components/InvalidNetworkModal";
 import { InvalidRPCModal } from "components/InvalidRPCModal";
 import { NotificationModal } from "components/NotificationModal";
 import { Bond } from "components/views/Bond";
+import { Buy } from "components/views/Buy";
 import { ChooseBond } from "components/views/ChooseBond";
 import { Info } from "components/views/Info";
 import { Offset } from "components/views/Offset";
@@ -23,15 +29,12 @@ import { Wrap } from "components/views/Wrap";
 
 import { initLocale } from "lib/i18n";
 
-import { ButtonPrimary } from "@klimadao/lib/components";
-import { concatAddress, useWeb3 } from "@klimadao/lib/utils";
-import { t } from "@lingui/macro";
-import Menu from "@mui/icons-material/Menu";
 import { ChangeLanguageButton } from "components/ChangeLanguageButton";
 import { IsomorphicRoutes } from "components/IsomorphicRoutes";
 import { NavMenu } from "components/NavMenu";
-import { setAppState } from "state/app";
-import { Buy } from "../Buy";
+
+import { featureFlags } from "lib/featureFlags";
+import { OffsetV2 } from "../OffsetV2";
 import * as styles from "./styles";
 
 export const Home: FC = () => {
@@ -232,6 +235,32 @@ export const Home: FC = () => {
                 />
               }
             />
+            <Route
+              path="/offset"
+              element={
+                <Offset
+                  address={address}
+                  provider={provider}
+                  isConnected={isConnected}
+                  onRPCError={handleRPCError}
+                  toggleModal={toggleModal}
+                />
+              }
+            />
+            {featureFlags.retireCarbonToken && (
+              <Route
+                path="/offsetv2"
+                element={
+                  <OffsetV2
+                  // address={address}
+                  // provider={provider}
+                  // isConnected={isConnected}
+                  // onRPCError={handleRPCError}
+                  // toggleModal={toggleModal}
+                  />
+                }
+              />
+            )}
             <Route
               path="/offset"
               element={
