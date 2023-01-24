@@ -30,10 +30,12 @@ type Props = {
 };
 
 export const Project: NextPage<Props> = (props) => {
-  const hasListings = !!props.project.listings?.length;
-  const allListings = hasListings && getAllListings(props.project.listings);
+  const allListings =
+    Array.isArray(props.project.listings) &&
+    getAllListings(props.project.listings);
   const activeListings =
-    hasListings && getActiveListings(props.project.listings);
+    Array.isArray(props.project.listings) &&
+    getActiveListings(props.project.listings);
 
   const sortedListings =
     !!activeListings &&
@@ -60,7 +62,9 @@ export const Project: NextPage<Props> = (props) => {
 
         <div className={styles.fullWidth}>
           <div className={styles.projectHeader}>
-            <ProjectImage category={props.project.category.id} />
+            {!!props.project.category?.id && (
+              <ProjectImage category={props.project.category.id} />
+            )}
             <div className={styles.imageGradient}></div>
             <div className="stack">
               <Text t="h4" align="center" className={styles.projectHeaderText}>
@@ -72,7 +76,9 @@ export const Project: NextPage<Props> = (props) => {
                 {props.project.key}
               </Text>
               <Vintage vintage={props.project.vintage} />
-              <Category category={props.project.category.id} />
+              {!!props.project.category?.id && (
+                <Category category={props.project.category.id} />
+              )}
             </div>
           </div>
         </div>
@@ -138,7 +144,7 @@ export const Project: NextPage<Props> = (props) => {
                   (!!activeListings && activeListings.length) || 0,
               }}
             />
-            <Activities activities={props.project.activities} />
+            <Activities activities={props.project.activities || []} />
           </Col>
         </TwoColLayout>
       </Layout>

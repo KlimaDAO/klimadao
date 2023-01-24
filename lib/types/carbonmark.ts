@@ -9,12 +9,18 @@ export interface Project {
   vintage: string;
   projectAddress: string;
   registry: string;
-  category: Category;
-  listings: Listing[];
+  category: Category | null;
+  listings: Listing[] | null;
   price: BigNumber;
-  country: Country;
-  activities: ActivityType[];
+  country: Country | null;
+  activities: ActivityType[] | null;
   updatedAt: string; // timestamp
+  location?: {
+    latitude: number;
+    longitude: number;
+  };
+  description?: string;
+  isPoolProject: boolean;
 }
 
 export interface User {

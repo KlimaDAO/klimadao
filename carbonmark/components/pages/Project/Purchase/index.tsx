@@ -160,7 +160,9 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
         <div className={styles.fullWidth}>
           <Card>
             <div className={styles.projectHeader}>
-              <ProjectImage category={props.project.category.id} />
+              {!!props.project.category?.id && (
+                <ProjectImage category={props.project.category.id} />
+              )}
               <div className={styles.imageGradient}></div>
               <div className="stack">
                 <Text

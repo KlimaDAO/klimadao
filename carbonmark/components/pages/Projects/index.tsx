@@ -36,13 +36,17 @@ export const Projects: NextPage<Props> = (props) => {
               >
                 <div className={styles.card}>
                   <div className={styles.cardImage}>
-                    <ProjectImage category={project.category.id} />
+                    {!!project.category?.id && (
+                      <ProjectImage category={project.category.id} />
+                    )}
                   </div>
                   <div className={styles.cardContent}>
                     <Text t="h4">{project.name}</Text>
                     <Text t="caption">{project.methodology}</Text>
                     <div className={styles.tags}>
-                      <Category category={project.category.id} />
+                      {!!project.category?.id && (
+                        <Category category={project.category.id} />
+                      )}
                       <Vintage vintage={project.vintage} />
                     </div>
                   </div>

@@ -27,9 +27,11 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
     const project = await getCarbonmarkProject(params.project_id);
 
     // check if listing ID is correct here on server? Or rather on client with nicer error state?
-    const listing = project.listings.find(
-      (listing: Listing) => listing.id === params?.listing_id
-    );
+    const listing =
+      !!project.listings?.length &&
+      project.listings.find(
+        (listing: Listing) => listing.id === params?.listing_id
+      );
 
     if (!listing) {
       throw new Error("No matching listing found");
