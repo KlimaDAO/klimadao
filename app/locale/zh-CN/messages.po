@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2023-01-24 16:13+0000\n"
+"POT-Creation-Date: 2023-01-25 15:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -513,7 +513,7 @@ msgstr "现在可以通过 <0>LI.FI 和 Etherspot </0>进行跨链抵消，支�
 
 #: components/views/Offset/index.tsx:655
 msgid "offset.min_quantity_fiat"
-msgstr ""
+msgstr "最少购买 1 吨, 限购整数。"
 
 #: components/views/Offset/index.tsx:764
 msgid "offset.modal_payWith.title"
