@@ -24,6 +24,7 @@ const filterDocumentsByTags = (params: QueryParams) => /* groq */ `
       author->,
       "imageUrl": mainImage.asset->url,
       rssId,
+      "embed": embedCode,
       "tags": tags[]->label_en
     }
   `;
@@ -39,6 +40,7 @@ const filterDocumentsWithoutTags = (params: QueryParams) => /* groq */ `
     author->,
     "imageUrl": mainImage.asset->url,
     rssId,
+    "embed": embedCode,
     "tags": tags[]->label_en
   }
 `;
@@ -86,6 +88,7 @@ export const searchByText = (searchQuery: string) => /* groq */ `
       author->,
       "imageUrl": mainImage.asset->url,
       rssId,
+      "embed": embedCode,
       "tags": tags[]->label_en
     }
     [ _score > 0]

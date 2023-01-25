@@ -23,6 +23,7 @@ export const queries = {
       author->,
       "imageUrl": mainImage.asset->url,
       rssId,
+      "embed": embedCode,
       "tags": tags[]->label_en
     }
   `,
@@ -97,6 +98,7 @@ export const queries = {
     publishedAt, 
     host->, 
     rssId,
+    "embed": embedCode
   }
 `,
 };
@@ -119,6 +121,7 @@ export type PodcastDetails = {
   title: string;
   summary: string;
   rssId?: string;
+  embed?: string;
 };
 export type AllPodcasts = PodcastDetails[];
 export type LatestPost = { slug: string; title: string };
@@ -143,6 +146,7 @@ export type Document = {
   author: { name: string };
   imageUrl?: string;
   rssId?: string;
+  embed?: string;
 };
 
 export interface QueryContent {

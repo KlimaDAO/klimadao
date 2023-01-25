@@ -27,6 +27,11 @@ export default {
       type: "string",
     },
     {
+      name: "embedCode",
+      title: "Embed code",
+      type: "string",
+    },
+    {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
