@@ -14,7 +14,7 @@ export const card = css`
   box-shadow: var(--shadow-07);
   ${breakpoints.large} {
     grid-template-areas: "content image";
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     height: 28rem;
   }
 `;
@@ -25,6 +25,17 @@ export const content = css`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+
+  svg {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 0.4rem;
+    path {
+      fill: var(--klima-green);
+    }
+  }
+
   .summary {
     display: none;
     display: flex;
@@ -40,7 +51,7 @@ export const content = css`
     line-clamp: 3;
     -webkit-box-orient: vertical;
   }
-  .read_more .date {
+  .date {
     color: var(--font-03);
   }
 `;

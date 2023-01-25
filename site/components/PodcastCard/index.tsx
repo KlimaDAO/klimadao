@@ -1,5 +1,9 @@
-import { Text } from "@klimadao/lib/components";
+import Image from "next/legacy/image";
+
+import { Anchor as A, PlayIcon, Text } from "@klimadao/lib/components";
+import { urls } from "@klimadao/lib/constants";
 import { PodcastDetails } from "lib/queries";
+import podcastImage from "public/podcast.png";
 
 import * as styles from "./styles";
 
@@ -19,14 +23,19 @@ export function PodcastCard(props: CardProps) {
         <Text t="body2" className="summary">
           {props.podcast.summary}
         </Text>
+        {props.podcast.rssId && (
+          <A href={`${urls.podcast}/${props.podcast.rssId}/?listen-on=true`}>
+            <PlayIcon />
+          </A>
+        )}
       </div>
       <div className={styles.image}>
-        {props.podcast && props.podcast.embed && (
-          <div
-            dangerouslySetInnerHTML={{ __html: props.podcast.embed }}
-            key={props.podcast.embed}
-          />
-        )}
+        <Image
+          src={podcastImage}
+          alt={props.podcast.title}
+          objectFit="cover"
+          layout="fill"
+        />
       </div>
     </div>
   );

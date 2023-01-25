@@ -14,6 +14,7 @@ export { GithubIcon } from "./Icons/GithubIcon";
 export { GoogleIcon } from "./Icons/GoogleIcon";
 export { LinkedInIcon } from "./Icons/LinkedInIcon";
 export { MetaMaskFoxIcon } from "./Icons/MetaMaskFoxIcon";
+export { PlayIcon } from "./Icons/PlayIcon";
 export { RedditIcon } from "./Icons/RedditIcon";
 export { RSSIcon } from "./Icons/RSSIcon";
 export { SnapshotIcon } from "./Icons/SnapshotIcon";
