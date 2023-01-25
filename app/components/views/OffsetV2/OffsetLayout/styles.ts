@@ -32,3 +32,21 @@ export const offsetCard = css`
     padding: 3.2rem;
   }
 `;
+
+export const offsetCard_header = css`
+  display: grid;
+  gap: 0.8rem;
+  max-width: 38rem;
+`;
+
+export const newReleasesIcon = css`
+  color: var(--klima-green);
+  margin-inline-end: 0.4rem;
+  margin-bottom: -0.4rem;
+`;
+
+export const offsetCard_header_title = css`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+`;
