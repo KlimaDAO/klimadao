@@ -66,6 +66,10 @@ msgstr "Seller Listing"
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr "Thank you for supporting the planet! See purchase details below."
 
+#: components/pages/Project/Purchase/index.tsx:209
+msgid "This offer no longer exists."
+msgstr "This offer no longer exists."
+
 #: components/Stats/index.tsx:47
 msgid "Tonnes owned:"
 msgstr "Tonnes owned:"
@@ -269,11 +273,11 @@ msgstr "Other Nature-Based"
 msgid "project.category.renewable_energy"
 msgstr "Renewable Energy"
 
-#: components/pages/Project/index.tsx:90
+#: components/pages/Project/index.tsx:100
 msgid "project.single.best_price"
 msgstr "Best Price"
 
-#: components/pages/Project/Purchase/index.tsx:153
+#: components/pages/Project/Purchase/index.tsx:155
 msgid "project.single.button.back_to_project"
 msgstr "Back to Project"
 
@@ -281,15 +285,15 @@ msgstr "Back to Project"
 msgid "project.single.button.back_to_project_details"
 msgstr "Back to Project Details"
 
-#: components/pages/Project/index.tsx:55
+#: components/pages/Project/index.tsx:58
 msgid "project.single.button.back_to_projects"
 msgstr "Back to Projects"
 
-#: components/pages/Project/Purchase/index.tsx:181
+#: components/pages/Project/Purchase/index.tsx:185
 msgid "project.single.header.seller"
 msgstr "Seller:"
 
-#: components/pages/Project/index.tsx:97
+#: components/pages/Project/index.tsx:107
 msgid "project.single.methodology"
 msgstr "Methodology:"
 
@@ -345,19 +349,19 @@ msgstr "You exceeded your available amount of tokens"
 msgid "purchase.input.price.required"
 msgstr "Price is required"
 
-#: components/pages/Project/Purchase/index.tsx:83
+#: components/pages/Project/Purchase/index.tsx:85
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 
-#: components/pages/Project/Purchase/index.tsx:192
+#: components/pages/Project/Purchase/index.tsx:196
 msgid "purchase.price_each"
 msgstr "each"
 
-#: components/pages/Project/Purchase/index.tsx:211
+#: components/pages/Project/Purchase/index.tsx:221
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Confirm Purchase"
 
-#: components/pages/Project/Purchase/index.tsx:215
+#: components/pages/Project/Purchase/index.tsx:225
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 

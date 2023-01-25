@@ -44,6 +44,8 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
   const [allowanceValue, setAllowanceValue] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const isActiveListing = props.listing.active && !props.listing.deleted;
+
   const isPending =
     status?.statusType === "userConfirmation" ||
     status?.statusType === "networkConfirmation" ||
@@ -195,12 +197,18 @@ export const ProjectPurchase: NextPage<Props> = (props) => {
               </Text>
             </div>
             <div className={styles.formContainer}>
-              <PurchaseForm
-                onSubmit={onContinue}
-                listing={props.listing}
-                values={inputValues}
-                isLoading={isLoadingAllowance}
-              />
+              {isActiveListing ? (
+                <PurchaseForm
+                  onSubmit={onContinue}
+                  listing={props.listing}
+                  values={inputValues}
+                  isLoading={isLoadingAllowance}
+                />
+              ) : (
+                <Text>
+                  <Trans>This offer no longer exists.</Trans>
+                </Text>
+              )}
             </div>
 
             {errorMessage && <Text>{errorMessage}</Text>}

@@ -66,6 +66,10 @@ msgstr ""
 msgid "Thank you for supporting the planet! See purchase details below."
 msgstr ""
 
+#: components/pages/Project/Purchase/index.tsx:209
+msgid "This offer no longer exists."
+msgstr ""
+
 #: components/Stats/index.tsx:47
 msgid "Tonnes owned:"
 msgstr ""
@@ -269,11 +273,11 @@ msgstr ""
 msgid "project.category.renewable_energy"
 msgstr ""
 
-#: components/pages/Project/index.tsx:90
+#: components/pages/Project/index.tsx:100
 msgid "project.single.best_price"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:153
+#: components/pages/Project/Purchase/index.tsx:155
 msgid "project.single.button.back_to_project"
 msgstr ""
 
@@ -281,15 +285,15 @@ msgstr ""
 msgid "project.single.button.back_to_project_details"
 msgstr ""
 
-#: components/pages/Project/index.tsx:55
+#: components/pages/Project/index.tsx:58
 msgid "project.single.button.back_to_projects"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:181
+#: components/pages/Project/Purchase/index.tsx:185
 msgid "project.single.header.seller"
 msgstr ""
 
-#: components/pages/Project/index.tsx:97
+#: components/pages/Project/index.tsx:107
 msgid "project.single.methodology"
 msgstr ""
 
@@ -345,19 +349,19 @@ msgstr ""
 msgid "purchase.input.price.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:83
+#: components/pages/Project/Purchase/index.tsx:85
 msgid "purchase.loading.allowance.error"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:192
+#: components/pages/Project/Purchase/index.tsx:196
 msgid "purchase.price_each"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:211
+#: components/pages/Project/Purchase/index.tsx:221
 msgid "purchase.transaction.modal.title.confirm"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:215
+#: components/pages/Project/Purchase/index.tsx:225
 msgid "purchase.transaction.modal.title.processing"
 msgstr ""
 

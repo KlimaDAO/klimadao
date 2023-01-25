@@ -40,8 +40,8 @@ export type Listing = {
   totalAmountToSell: BigNumber;
   leftToSell: BigNumber;
   tokenAddress: string;
-  active: boolean;
-  deleted: boolean;
+  active: boolean; // false when amount is "0"
+  deleted: boolean; // user deleted this listing
   batches: [];
   batchPrices: [];
   singleUnitPrice: BigNumber;
