@@ -273,7 +273,7 @@ msgstr "Renewable Energy"
 msgid "project.single.best_price"
 msgstr "Best Price"
 
-#: components/pages/Project/Purchase/index.tsx:154
+#: components/pages/Project/Purchase/index.tsx:153
 msgid "project.single.button.back_to_project"
 msgstr "Back to Project"
 
@@ -285,7 +285,7 @@ msgstr "Back to Project Details"
 msgid "project.single.button.back_to_projects"
 msgstr "Back to Projects"
 
-#: components/pages/Project/Purchase/index.tsx:182
+#: components/pages/Project/Purchase/index.tsx:181
 msgid "project.single.header.seller"
 msgstr "Seller:"
 
@@ -301,7 +301,7 @@ msgstr "for"
 msgid "props.transaction.conjunction.at"
 msgstr "at"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:157
+#: components/pages/Project/Purchase/PurchaseForm.tsx:199
 msgid "purchase.button.continue"
 msgstr "Continue"
 
@@ -313,43 +313,51 @@ msgstr "Use Klima Infinity to retire & offset"
 msgid "purchase.button.view_assets"
 msgstr "View Assets"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:117
+#: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.label"
 msgstr "How many tonnes of carbon do you want to buy?"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:110
+#: components/pages/Project/Purchase/PurchaseForm.tsx:131
 msgid "purchase.input.amount.maxAmount"
 msgstr "You exceeded the available amount of tonnes"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:103
+#: components/pages/Project/Purchase/PurchaseForm.tsx:124
 msgid "purchase.input.amount.minimum"
 msgstr "The minimum amount to buy is 1 Tonne"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:88
+#: components/pages/Project/Purchase/PurchaseForm.tsx:108
 msgid "purchase.input.amount.placeholder"
 msgstr "Tonnes"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:96
+#: components/pages/Project/Purchase/PurchaseForm.tsx:117
 msgid "purchase.input.amount.required"
 msgstr "Amount is required"
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:34
+#: components/pages/Project/Purchase/PurchaseForm.tsx:36
 msgid "purchase.input.cost.label"
 msgstr "Cost incl. 3% fee"
 
-#: components/pages/Project/Purchase/index.tsx:84
+#: components/pages/Project/Purchase/PurchaseForm.tsx:161
+msgid "purchase.input.price.maxAmount"
+msgstr "You exceeded your available amount of tokens"
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:154
+msgid "purchase.input.price.required"
+msgstr "Price is required"
+
+#: components/pages/Project/Purchase/index.tsx:83
 msgid "purchase.loading.allowance.error"
 msgstr "something went wrong loading the allowance"
 
-#: components/pages/Project/Purchase/index.tsx:193
+#: components/pages/Project/Purchase/index.tsx:192
 msgid "purchase.price_each"
 msgstr "each"
 
-#: components/pages/Project/Purchase/index.tsx:212
+#: components/pages/Project/Purchase/index.tsx:211
 msgid "purchase.transaction.modal.title.confirm"
 msgstr "Confirm Purchase"
 
-#: components/pages/Project/Purchase/index.tsx:216
+#: components/pages/Project/Purchase/index.tsx:215
 msgid "purchase.transaction.modal.title.processing"
 msgstr "Processing Purchase"
 
@@ -386,7 +394,7 @@ msgid "shared.buy"
 msgstr "Buy"
 
 #: components/pages/Project/ProjectListing/index.tsx:70
-#: components/pages/Project/Purchase/PurchaseForm.tsx:143
+#: components/pages/Project/Purchase/PurchaseForm.tsx:185
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr "Sign In / Connect To Buy"

@@ -13,6 +13,7 @@ import { Card } from "components/Card";
 import { Layout } from "components/Layout";
 import { ProjectImage } from "components/ProjectImage";
 import { PageHead } from "components/shared/PageHead";
+import { FAKE_USDC } from "lib/constants";
 import { createProjectLink, createSellerLink } from "lib/createUrls";
 import { FormValues, PurchaseForm } from "./PurchaseForm";
 
@@ -32,8 +33,6 @@ type Props = {
   project: Project;
   listing: Listing;
 };
-
-const FAKE_USDC = "0x284A5F4d90a49F7eb21C055eA3C824603314B1E7"; // TODO: delete me before switch to mainnet
 
 export const ProjectPurchase: NextPage<Props> = (props) => {
   const { locale, push } = useRouter();

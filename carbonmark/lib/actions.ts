@@ -260,3 +260,18 @@ export const getUserAssetsData = async (params: {
     throw e;
   }
 };
+
+export const getTokenBalance = async (params: {
+  tokenAddress: string;
+  provider: providers.JsonRpcProvider;
+  userAddress: string;
+}) => {
+  const tokenContract = new Contract(
+    params.tokenAddress, // TODO: replace this contract getter with getContract("<usdc>") later
+    IERC20.abi,
+    params.provider
+  );
+
+  const balance = await tokenContract.balanceOf(params.userAddress);
+  return formatUnits(balance); // TODO: ensure to pass 6 later for USDC
+};

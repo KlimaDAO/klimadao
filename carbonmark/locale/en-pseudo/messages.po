@@ -273,7 +273,7 @@ msgstr ""
 msgid "project.single.best_price"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:154
+#: components/pages/Project/Purchase/index.tsx:153
 msgid "project.single.button.back_to_project"
 msgstr ""
 
@@ -285,7 +285,7 @@ msgstr ""
 msgid "project.single.button.back_to_projects"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:182
+#: components/pages/Project/Purchase/index.tsx:181
 msgid "project.single.header.seller"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgstr ""
 msgid "props.transaction.conjunction.at"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:157
+#: components/pages/Project/Purchase/PurchaseForm.tsx:199
 msgid "purchase.button.continue"
 msgstr ""
 
@@ -313,43 +313,51 @@ msgstr ""
 msgid "purchase.button.view_assets"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:117
+#: components/pages/Project/Purchase/PurchaseForm.tsx:138
 msgid "purchase.input.amount.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:110
+#: components/pages/Project/Purchase/PurchaseForm.tsx:131
 msgid "purchase.input.amount.maxAmount"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:103
+#: components/pages/Project/Purchase/PurchaseForm.tsx:124
 msgid "purchase.input.amount.minimum"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:88
+#: components/pages/Project/Purchase/PurchaseForm.tsx:108
 msgid "purchase.input.amount.placeholder"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:96
+#: components/pages/Project/Purchase/PurchaseForm.tsx:117
 msgid "purchase.input.amount.required"
 msgstr ""
 
-#: components/pages/Project/Purchase/PurchaseForm.tsx:34
+#: components/pages/Project/Purchase/PurchaseForm.tsx:36
 msgid "purchase.input.cost.label"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:84
+#: components/pages/Project/Purchase/PurchaseForm.tsx:161
+msgid "purchase.input.price.maxAmount"
+msgstr ""
+
+#: components/pages/Project/Purchase/PurchaseForm.tsx:154
+msgid "purchase.input.price.required"
+msgstr ""
+
+#: components/pages/Project/Purchase/index.tsx:83
 msgid "purchase.loading.allowance.error"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:193
+#: components/pages/Project/Purchase/index.tsx:192
 msgid "purchase.price_each"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:212
+#: components/pages/Project/Purchase/index.tsx:211
 msgid "purchase.transaction.modal.title.confirm"
 msgstr ""
 
-#: components/pages/Project/Purchase/index.tsx:216
+#: components/pages/Project/Purchase/index.tsx:215
 msgid "purchase.transaction.modal.title.processing"
 msgstr ""
 
@@ -386,7 +394,7 @@ msgid "shared.buy"
 msgstr ""
 
 #: components/pages/Project/ProjectListing/index.tsx:70
-#: components/pages/Project/Purchase/PurchaseForm.tsx:143
+#: components/pages/Project/Purchase/PurchaseForm.tsx:185
 #: components/pages/Users/SellerUnconnected/index.tsx:75
 msgid "shared.connect_to_buy"
 msgstr ""
