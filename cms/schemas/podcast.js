@@ -20,6 +20,11 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "rssId",
+      title: "RSS Id",
+      type: "string",
+    },
+    {
       name: "embedCode",
       title: "Embed code",
       type: "string",
