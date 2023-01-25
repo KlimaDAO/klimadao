@@ -1,4 +1,4 @@
-import { CategoryName } from "@klimadao/lib/types/carbonmark";
+import { CategoryName, CategoryNames } from "@klimadao/lib/types/carbonmark";
 import { t } from "@lingui/macro";
 
 import Agriculture from "public/category/Agriculture.png";
@@ -101,4 +101,9 @@ export const categoryInfoMap: CategoryInfoMap = {
     color: "#FF99BC",
     icon: PrecisionManufacturingOutlinedIcon,
   },
+};
+
+export const getFirstCategory = (categories: CategoryNames): CategoryName => {
+  const categoryArray = categories.split(",");
+  return categoryArray[0].trim() as CategoryName;
 };

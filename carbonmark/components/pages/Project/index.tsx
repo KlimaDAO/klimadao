@@ -2,6 +2,7 @@ import { Text } from "@klimadao/lib/components";
 import { Project as ProjectType } from "@klimadao/lib/types/carbonmark";
 import { Trans } from "@lingui/macro";
 import ArrowBack from "@mui/icons-material/ArrowBack";
+import SyncOutlinedIcon from "@mui/icons-material/SyncOutlined";
 import { Activities } from "components/Activities";
 import { Category } from "components/Category";
 import { Layout } from "components/Layout";
@@ -68,7 +69,7 @@ export const Project: NextPage<Props> = (props) => {
             <div className={styles.imageGradient}></div>
             <div className="stack">
               <Text t="h4" align="center" className={styles.projectHeaderText}>
-                {props.project.name}
+                {props.project.name || "! MISSING PROJECT NAME !"}
               </Text>
             </div>
             <div className={styles.tags}>
@@ -78,6 +79,9 @@ export const Project: NextPage<Props> = (props) => {
               <Vintage vintage={props.project.vintage} />
               {!!props.project.category?.id && (
                 <Category category={props.project.category.id} />
+              )}
+              {props.project.isPoolProject && (
+                <SyncOutlinedIcon fontSize="large" />
               )}
             </div>
           </div>

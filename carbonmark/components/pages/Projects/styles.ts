@@ -45,4 +45,6 @@ export const tags = css`
   gap: 1.6rem;
   flex-direction: row;
   margin-top: auto;
+  align-items: center;
+  justify-content: space-between;
 `;

@@ -4,7 +4,7 @@ export interface Project {
   id: string;
   key: string;
   projectID: string;
-  name: string;
+  name: string | "";
   methodology: string;
   vintage: string;
   projectAddress: string;
@@ -20,7 +20,7 @@ export interface Project {
     longitude: number;
   };
   description?: string;
-  isPoolProject: boolean;
+  isPoolProject?: boolean;
 }
 
 export interface User {
@@ -134,7 +134,7 @@ export type Stats = {
 };
 
 export type Category = {
-  id: CategoryName;
+  id: CategoryNames;
 };
 
 export type Country = {
@@ -149,6 +149,8 @@ export type CategoryName =
   | "Renewable Energy"
   | "Other"
   | "Other Nature-Based";
+
+export type CategoryNames = `${CategoryName},${CategoryName}`;
 
 export type Purchase = {
   id: string; // TransactionHash
