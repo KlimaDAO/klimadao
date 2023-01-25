@@ -18,6 +18,10 @@ type Props = {
 export const Projects: NextPage<Props> = (props) => {
   const hasProjects = !!props.projects.length;
 
+  const sortedProjects =
+    hasProjects &&
+    props.projects.sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt));
+
   return (
     <>
       <PageHead
@@ -28,8 +32,8 @@ export const Projects: NextPage<Props> = (props) => {
 
       <Layout>
         <div className={styles.list}>
-          {hasProjects &&
-            props.projects.map((project, index) => (
+          {sortedProjects &&
+            sortedProjects.map((project, index) => (
               <Link
                 key={project.key + "-" + index}
                 href={createProjectLink(project)}
