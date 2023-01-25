@@ -25,7 +25,6 @@ const MailOutlineIcon = (MailOutlineIconDefault as any).default as any;
 const ExtensionIcon = (ExtensionIconDefault as any).default as any;
 
 export interface ConnectModalProps {
-  errorMessage: string;
   torusText: string;
   titles: {
     connect: string;
